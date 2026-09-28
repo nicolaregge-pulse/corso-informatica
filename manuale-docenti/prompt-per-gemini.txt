@@ -1,0 +1,31 @@
+PROMPT PER GEMINI — genera lo script del quiz su Google Moduli
+(Incolla tutto in gemini.google.com e personalizza le 3 righe tra [parentesi]).
+
+---
+
+Sei un esperto di Google Apps Script. Scrivimi UNO script completo per Google Moduli
+che crei un QUIZ autocorreggente. Requisiti OBBLIGATORI, rispettali tutti:
+
+1. Una sola funzione chiamata creaQuiz().
+2. Usa FormApp.create(...) con .setIsQuiz(true).
+3. Come PRIMA domanda aggiungi un campo di testo "Nome e Cognome" OBBLIGATORIO
+   (addTextItem().setTitle('Nome e Cognome').setRequired(true)).
+4. Attiva la raccolta dell'email: form.setCollectEmail(true).
+5. Tutte le domande a SCELTA MULTIPLA (addMultipleChoiceItem), con UNA sola
+   risposta giusta, usando item.createChoice(testo, true/false).
+6. Ogni domanda vale 5 punti: item.setPoints(5).setRequired(true).
+7. Alla fine stampa i due link con Logger.log: form.getEditUrl() (per il docente)
+   e form.getPublishedUrl() (per gli allievi).
+8. NIENTE domande aperte (Moduli non le corregge da solo).
+9. Rispondimi SOLO con il codice, in un unico blocco, senza spiegazioni.
+
+Argomento del quiz: [SCRIVI QUI L'ARGOMENTO].
+Numero di domande: [SCRIVI QUI, es. 20].
+Lingua delle domande: [SCRIVI QUI, es. italiano].
+Inventa tu domande e risposte corrette, adatte a studenti di istituto
+professionale (semplici e chiare).
+
+---
+
+VARIANTE: se hai gia' le domande e le risposte, al posto dell'ultima frase scrivi
+"Usa queste domande e segna la risposta giusta:" e incolla il tuo elenco.
