@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.2** — 28/09/2026
+**Versione 2.3** — 28/09/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 
@@ -191,7 +191,9 @@ consegna** · **consegna** (Sì/Assente/Non consegnato, lista completa della cla
 1. Si usa il **nome con cui li chiama Nicola** (soprannome/preferito), **MA si scrive
    SEMPRE anche nome e cognome UFFICIALE** accanto, per non confondere e per
    tracciabilità. Es.: «DJ (Argana David Josh)», «Noah (Valerio Noah Khym)».
-2. I nomi preferiti si raccolgono in scratchpad (dati di minori); vale dalla prossima volta.
+2. **Nomi doppi:** se due allievi hanno lo **stesso nome** (es. due "Giorgio"), si usa
+   **SEMPRE cognome e nome** per distinguere, mai il solo nome.
+3. I nomi preferiti si raccolgono in scratchpad (dati di minori); vale dalla prossima volta.
 
 ## H. Quando si è "in diretta in classe"
 
@@ -283,7 +285,8 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
-1. **v2.2 (28/09/2026)**: 2.21 — si usa il nome con cui Nicola chiama l'allievo, ma
+1. **v2.3 (28/09/2026)**: 2.21 — con nomi doppi usare sempre cognome e nome.
+2. **v2.2 (28/09/2026)**: 2.21 — si usa il nome con cui Nicola chiama l'allievo, ma
    si scrive SEMPRE anche nome e cognome ufficiale accanto (es. "DJ (Argana David Josh)").
 2. **v2.1 (25/09/2026)**: precisazioni lette con Nicola — 2.19 vale solo per la chat
    (documenti esaurienti); 2.18 teoria abbondante (meglio una pagina in più); 2.17
