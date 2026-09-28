@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><title>Tipi di file</title>
+<style>
+@page{size:A4;margin:16mm 15mm;}*{box-sizing:border-box;}
+body{font-family:"Liberation Sans",Arial,sans-serif;color:#1a1a1a;font-size:11.2pt;line-height:1.55;margin:0;}
+.cover{height:250mm;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;page-break-after:always;background:linear-gradient(160deg,#eef4fb,#f0ecfb);}
+.cover h1{font-size:31pt;color:#12467a;margin:4px 0;}
+.cover .t{font-size:14pt;color:#444;}
+.cover .s{font-size:11.5pt;color:#6a4ca8;max-width:135mm;margin-top:20px;}
+h2{font-size:15.5pt;color:#12467a;border-bottom:2px solid #cfe0f0;padding-bottom:1.5mm;margin:7mm 0 2.5mm;page-break-after:avoid;}
+h3{font-size:12pt;color:#1b3a5c;margin:4mm 0 1mm;page-break-after:avoid;}
+p{margin:0 0 2.5mm;}
+ol,ul{margin:0 0 2.5mm;padding-left:6mm;}li{margin:1.5mm 0;}
+.box{background:#eaf3fb;border-left:5px solid #2b7cc4;padding:2.5mm 3mm;border-radius:3px;margin:3mm 0;font-size:10.8pt;}
+.ex{background:#f2f7f2;border-left:5px solid #2f9e57;padding:2.5mm 3mm;border-radius:3px;margin:3mm 0;font-size:10.8pt;}
+.ex b.tag{color:#2f7d47;}
+.note{background:#fdf6e3;border-left:5px solid #d0a516;padding:2.5mm 3mm;border-radius:3px;margin:3mm 0;font-size:10.8pt;}
+.lbl{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;padding:0 4px;border-radius:3px;font-size:9.8pt;}
+.code{font-family:"DejaVu Sans Mono",monospace;background:#f5f7fa;border:1px solid #dde3ea;border-radius:5px;padding:2.5mm 3mm;margin:2mm 0;font-size:9.6pt;white-space:pre-wrap;color:#25405c;}
+.fig{text-align:center;margin:3mm 0;page-break-inside:avoid;}
+.cap{font-size:9.2pt;color:#5a6b7b;}
+table{border-collapse:collapse;width:100%;font-size:10pt;margin:2mm 0;}
+th,td{border:1px solid #b9c8d6;padding:2mm 2.5mm;text-align:left;vertical-align:top;}
+th{background:#eaf2fb;color:#12467a;}
+.idx{font-size:11.6pt;line-height:1.9;}.idx b{color:#12467a;}
+</style></head><body>
+
+<div class="cover">
+<div class="t">Dispensa · Classe 3 · Informatica · v1.0</div>
+<h1>I tipi di file</h1>
+<div class="t">a cosa servono, gli esempi, i file "a tag", video e compressione</div>
+<div class="s">Ogni file ha un <b>tipo</b> (lo dice l'estensione: <span class="lbl">.md</span>, <span class="lbl">.mp4</span>…). Capire i tipi serve a sapere <b>cosa contiene</b> un file, <b>con che programma</b> si apre e <b>perché</b> pesa tanto o poco. Con esempi da mondi diversi.</div>
+</div>
+
+<h2>Di cosa parliamo</h2>
+<div class="idx">
+<b>1.</b> Cos'è un file e a cosa serve l'estensione<br>
+<b>2.</b> Le grandi famiglie di file (testo, immagini, audio, video, archivi…)<br>
+<b>3.</b> Dizionario dei formati (uno per uno, con esempio)<br>
+<b>4.</b> I file "a TAG": HTML, XML, MD — con esempi veri<br>
+<b>5.</b> Immagini, video e schermo: pixel, refresh rate, fps, MP4<br>
+<b>6.</b> La compressione: perché un file diventa più piccolo<br>
+<b>7.</b> Glossario
+</div>
+
+<div class="fig"><div style="border:2px dashed #b9c8d6;border-radius:6px;padding:16mm 6mm;color:#8a97a5;background:#fafcff">[ Qui andrà la <b>foto della VOSTRA lavagna</b> di oggi ]</div><div class="cap">La lavagna della nostra lezione (da inserire dopo la spiegazione).</div></div>
+
+<h2>1. Cos'è un file e a cosa serve l'estensione</h2>
+<p>Un <b>file</b> è un contenitore di informazioni salvato nel computer: un testo, una foto, una canzone, un video, un programma. Ogni file ha un <b>nome</b> e, alla fine, un'<b>estensione</b>: le lettere dopo il punto (es. <span class="lbl">canzone.mp3</span>, <span class="lbl">foto.jpg</span>).</p>
+<div class="box"><b>L'estensione è come il "cognome" del file:</b> dice di che <b>tipo</b> è, così il computer sa <b>con quale programma</b> aprirlo. Cambiare l'estensione non cambia il contenuto: rinominare <span class="lbl">foto.jpg</span> in <span class="lbl">foto.txt</span> non la trasforma in testo, la fa solo aprire con il programma sbagliato.</div>
+<div class="ex"><b class="tag">Esempio quotidiano.</b> È come le <b>etichette</b> sui barattoli in cucina: "zucchero", "sale". Il contenuto è dentro; l'etichetta ti dice cosa aspettarti e come usarlo.</div>
+
+<h2>2. Le grandi famiglie di file</h2>
+<p>Prima dei singoli formati, conviene vedere le <b>famiglie</b>: file diversi servono a cose diverse.</p>
+<table>
+<tr><th>Famiglia</th><th>A cosa serve</th><th>Esempi di estensione</th></tr>
+<tr><td><b>Testo semplice</b></td><td>solo lettere, nessuna formattazione</td><td><span class="lbl">.txt</span> <span class="lbl">.md</span></td></tr>
+<tr><td><b>Testo "a tag"</b></td><td>testo con etichette che danno struttura</td><td><span class="lbl">.html</span> <span class="lbl">.xml</span></td></tr>
+<tr><td><b>Dati / tabelle</b></td><td>elenchi e tabelle di dati</td><td><span class="lbl">.csv</span> <span class="lbl">.json</span></td></tr>
+<tr><td><b>Documenti impaginati</b></td><td>testo formattato, pronto da leggere/stampare</td><td><span class="lbl">.pdf</span> <span class="lbl">.docx</span> <span class="lbl">.xlsx</span></td></tr>
+<tr><td><b>Immagini</b></td><td>foto e disegni</td><td><span class="lbl">.jpg</span> <span class="lbl">.png</span></td></tr>
+<tr><td><b>Audio / Video</b></td><td>suoni e filmati</td><td><span class="lbl">.mp3</span> <span class="lbl">.mp4</span></td></tr>
+<tr><td><b>Archivi</b></td><td>tanti file compressi in uno solo</td><td><span class="lbl">.zip</span></td></tr>
+<tr><td><b>Codice / progetto</b></td><td>istruzioni per un programma</td><td><span class="lbl">.gd</span> (Godot) <span class="lbl">.py</span></td></tr>
+</table>
+
+<h2>3. Dizionario dei formati (uno per uno)</h2>
+<p>Per ognuno: <b>a cosa serve</b>, un <b>esempio</b>, e <b>con che programma si apre</b> (a scuola: Blocco note, browser, Godot portabile, SumatraPDF).</p>
+<h3>TXT — testo semplice</h3>
+<p>Solo testo, senza grassetti né colori. Leggerissimo. Si apre col <b>Blocco note</b>. Esempio: una lista della spesa, degli appunti veloci.</p>
+<h3>MD (Markdown) — testo con formattazione "leggera"</h3>
+<p>Testo semplice ma con simboli che diventano formattazione: <span class="lbl">#</span> = titolo, <span class="lbl">**...**</span> = grassetto. È il formato con cui scriviamo le dispense (poi diventano PDF). Si legge su GitHub o col Blocco note.</p>
+<h3>HTML — la pagina web</h3>
+<p>Il linguaggio delle <b>pagine dei siti</b>. Usa i <b>tag</b> (vedi §4). Lo apre il <b>browser</b>, che trasforma i tag in una pagina bella da vedere.</p>
+<h3>XML — dati con etichette</h3>
+<p>Come HTML usa i tag, ma per <b>organizzare dati</b> (non per fare pagine). Tanti programmi si scambiano informazioni in XML.</p>
+<h3>CSV — tabella semplice</h3>
+<p>Una tabella scritta come testo: ogni riga è una riga della tabella, le colonne separate da <b>virgole</b> (comma). Lo aprono Excel/Fogli Google. Esempio: l'esportazione dei voti di un quiz.</p>
+<h3>JSON — dati per i programmi</h3>
+<p>Come CSV ma per dati più complessi (a "scatole dentro scatole"). È il modo con cui le app si scambiano dati su Internet.</p>
+<h3>PDF — il documento "congelato"</h3>
+<p>Un documento impaginato che si vede <b>uguale ovunque</b> e si stampa bene, ma non si modifica facilmente. Si apre con <b>SumatraPDF</b> o il browser. Le nostre dispense finali sono PDF.</p>
+<h3>DOCX / XLSX — Word ed Excel</h3>
+<p>Documento di testo (DOCX) e foglio di calcolo (XLSX). Servono per <b>scrivere e modificare</b>. Li aprono Word/Excel o Documenti/Fogli Google.</p>
+<h3>JPG / PNG — le immagini</h3>
+<p><b>JPG</b>: foto, molto compresse (leggere, ma perdono un po' di qualità). <b>PNG</b>: disegni/loghi, senza perdita e con sfondo trasparente. Le apre qualsiasi visualizzatore o il browser.</p>
+<h3>MP3 / MP4 — audio e video</h3>
+<p><b>MP3</b> = audio compresso. <b>MP4</b> = video (immagini in movimento + audio insieme). Li apre il lettore multimediale o il browser (vedi §5).</p>
+<h3>ZIP — l'archivio</h3>
+<p>Una <b>valigia</b>: mette tanti file dentro uno solo e li <b>comprime</b> per pesare meno e spedirli comodi. Si "estrae" per riavere i file dentro.</p>
+<h3>GD — lo script di Godot</h3>
+<p>Un file di <b>codice</b>: le istruzioni del nostro gioco in Godot. È testo, ma lo apre <b>Godot</b> (col doppio clic parte il gioco: per leggerlo come testo, tasto destro → Apri con → Blocco note).</p>
+
+<h2>4. I file "a TAG": HTML, XML, MD</h2>
+<p>Alcuni file di testo usano i <b>tag</b> (etichette). Un <b>tag</b> è un'etichetta tra parentesi angolari che <b>marca</b> un pezzo di testo dicendo "questo è un titolo", "questo è grassetto". Di solito vanno a coppie: uno apre <span class="lbl">&lt;titolo&gt;</span> e uno chiude <span class="lbl">&lt;/titolo&gt;</span>.</p>
+<div class="ex"><b class="tag">Analogia.</b> I tag sono come gli <b>evidenziatori e le note a margine</b> su un foglio: il testo è lo stesso, ma le marcature dicono a cosa serve ogni parte.</div>
+<h3>Esempio HTML (pagina web)</h3>
+<div class="code">&lt;h1&gt;La mia prima pagina&lt;/h1&gt;
+&lt;p&gt;Ciao, questo è un &lt;b&gt;paragrafo&lt;/b&gt; in grassetto.&lt;/p&gt;
+&lt;a href="github.com"&gt;vai a GitHub&lt;/a&gt;</div>
+<p><span class="lbl">&lt;h1&gt;</span> = titolo grande · <span class="lbl">&lt;p&gt;</span> = paragrafo · <span class="lbl">&lt;b&gt;</span> = grassetto · <span class="lbl">&lt;a&gt;</span> = link. Il browser legge questi tag e disegna la pagina.</p>
+<h3>Esempio XML (dati)</h3>
+<div class="code">&lt;studente&gt;
+  &lt;nome&gt;Mario&lt;/nome&gt;
+  &lt;classe&gt;3 INF&lt;/classe&gt;
+  &lt;voto&gt;90&lt;/voto&gt;
+&lt;/studente&gt;</div>
+<p>Qui i tag non servono a fare una pagina, ma a <b>organizzare i dati</b>: si capisce quale pezzo è il nome, quale la classe, quale il voto.</p>
+<h3>Esempio MD (Markdown)</h3>
+<div class="code"># Titolo grande
+## Sottotitolo
+Testo normale con una parola in **grassetto**.
+- primo punto
+- secondo punto</div>
+<p>Il Markdown non usa parentesi angolari ma <b>simboli leggeri</b> (<span class="lbl">#</span>, <span class="lbl">**</span>, <span class="lbl">-</span>): più veloce da scrivere a mano, poi un programma lo trasforma in PDF o pagina.</p>
+<div class="box"><b>In comune:</b> tutti e tre sono <b>testo</b> (li apre anche il Blocco note), ma con <b>marcature</b> che danno <b>struttura</b>. Cambia solo il "dialetto": angolari per HTML/XML, simboli per MD.</div>
+
+<h2>5. Immagini, video e schermo: pixel, refresh rate, fps, MP4</h2>
+<h3>Il pixel e la risoluzione</h3>
+<p>Un'immagine sullo schermo è fatta di tanti puntini colorati, i <b>pixel</b>. Più pixel = più dettaglio (e file più pesante). "Full HD" = 1920×1080 pixel.</p>
+<h3>Il refresh rate dello schermo (Hz)</h3>
+<p>Il <b>refresh rate</b> è <b>quante volte al secondo lo schermo si aggiorna</b>, misurato in <b>Hertz (Hz)</b>. Un monitor a <b>60 Hz</b> ridisegna l'immagine 60 volte al secondo; uno da gaming a <b>144 Hz</b>, 144 volte. Più è alto, più il movimento è <b>fluido</b> (utile nei giochi veloci).</p>
+<div class="ex"><b class="tag">Analogia.</b> È come <b>sfogliare velocemente</b> un blocco di disegni (flip-book): più fogli al secondo giri, più il movimento sembra continuo.</div>
+<h3>Gli fps di un video (fotogrammi al secondo)</h3>
+<p>Un video non è "movimento vero": è una <b>sequenza di immagini</b> (fotogrammi) mostrate in fretta. Gli <b>fps</b> (frames per second, <i>fotogrammi al secondo</i>) dicono <b>quante immagini al secondo</b> compongono il video: il cinema è a 24 fps, molti video a 30 o 60 fps.</p>
+<div class="note"><b>Attenzione, due cose diverse ma legate:</b> gli <b>fps</b> sono del <b>video</b> (quante immagini contiene al secondo); l'<b>Hz</b> è dello <b>schermo</b> (quante volte si aggiorna al secondo). Uno schermo a 60 Hz può mostrare al meglio un video a 60 fps.</div>
+<h3>MP4 — il "contenitore" video</h3>
+<p><b>MP4</b> è il formato video più diffuso: dentro un solo file mette le <b>immagini in movimento</b> e l'<b>audio</b>, già compressi. Lo apre il lettore multimediale o il browser. È leggero perché usa la <b>compressione</b> (§6).</p>
+
+<h2>6. La compressione: perché un file diventa più piccolo</h2>
+<p><b>Comprimere</b> vuol dire scrivere la stessa informazione occupando <b>meno spazio</b>. Serve a far pesare meno i file (per salvarli, inviarli, metterli online). Ci sono due modi:</p>
+<ol>
+<li><b>Senza perdita (lossless):</b> si comprime ma si può tornare <b>identici</b> all'originale. È come <b>piegare bene</b> un vestito nella valigia: occupa meno, ma è lo stesso vestito. Esempi: <span class="lbl">.zip</span>, <span class="lbl">.png</span>.</li>
+<li><b>Con perdita (lossy):</b> si butta via un po' di dettaglio che quasi non si nota, per pesare <b>molto</b> meno. È come <b>riassumere</b> un tema: perdi qualche parola ma il senso resta. Esempi: <span class="lbl">.jpg</span>, <span class="lbl">.mp3</span>, <span class="lbl">.mp4</span>.</li>
+</ol>
+<div class="ex"><b class="tag">Esempio concreto.</b> La stessa foto: in <b>PNG</b> senza perdita può pesare 8 MB; in <b>JPG</b> con perdita 0,8 MB — dieci volte meno, e a occhio quasi uguale. Per una foto sul telefono va benissimo il JPG; per un logo con linee nette meglio il PNG.</div>
+<div class="box"><b>Perché ci riguarda:</b> un video lungo non compresso peserebbe <b>giga e giga</b>; grazie all'MP4 (compressione con perdita) sta in pochi MB e si guarda in streaming. È lo stesso motivo per cui abbiamo <b>compresso l'immagine</b> nelle dispense: pesare meno senza perdere qualità utile.</div>
+
+<h2>7. Glossario</h2>
+<table>
+<tr><th>Parola</th><th>Vuol dire</th></tr>
+<tr><td class="lbl">file</td><td>un contenitore di informazioni salvato nel computer</td></tr>
+<tr><td class="lbl">estensione</td><td>le lettere dopo il punto: dicono il tipo del file (.mp4, .md…)</td></tr>
+<tr><td class="lbl">tag</td><td>un'etichetta (es. &lt;titolo&gt;) che marca un pezzo di testo</td></tr>
+<tr><td class="lbl">HTML</td><td>il linguaggio a tag delle pagine web</td></tr>
+<tr><td class="lbl">XML</td><td>testo a tag per organizzare dati</td></tr>
+<tr><td class="lbl">Markdown (MD)</td><td>testo con simboli leggeri per la formattazione</td></tr>
+<tr><td class="lbl">CSV</td><td>tabella scritta come testo, colonne separate da virgole</td></tr>
+<tr><td class="lbl">pixel</td><td>i puntini colorati che compongono l'immagine</td></tr>
+<tr><td class="lbl">refresh rate (Hz)</td><td>quante volte al secondo lo schermo si aggiorna</td></tr>
+<tr><td class="lbl">fps</td><td>fotogrammi al secondo di un video</td></tr>
+<tr><td class="lbl">MP4</td><td>formato video (immagini in movimento + audio, compressi)</td></tr>
+<tr><td class="lbl">compressione</td><td>scrivere la stessa informazione occupando meno spazio</td></tr>
+<tr><td class="lbl">lossless / lossy</td><td>senza perdita (identico) / con perdita (più leggero)</td></tr>
+<tr><td class="lbl">ZIP</td><td>archivio: tanti file compressi in uno solo</td></tr>
+</table>
+
+</body></html>
