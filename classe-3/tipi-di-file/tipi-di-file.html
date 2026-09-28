@@ -25,7 +25,7 @@ th{background:#eaf2fb;color:#12467a;}
 </style></head><body>
 
 <div class="cover">
-<div class="t">Dispensa · Classe 3 · Informatica · v1.0</div>
+<div class="t">Dispensa · Classe 3 · Informatica · v1.1</div>
 <h1>I tipi di file</h1>
 <div class="t">a cosa servono, gli esempi, i file "a tag", video e compressione</div>
 <div class="s">Ogni file ha un <b>tipo</b> (lo dice l'estensione: <span class="lbl">.md</span>, <span class="lbl">.mp4</span>…). Capire i tipi serve a sapere <b>cosa contiene</b> un file, <b>con che programma</b> si apre e <b>perché</b> pesa tanto o poco. Con esempi da mondi diversi.</div>
@@ -42,15 +42,24 @@ th{background:#eaf2fb;color:#12467a;}
 <b>7.</b> Glossario
 </div>
 
-<div class="fig"><div style="border:2px dashed #b9c8d6;border-radius:6px;padding:16mm 6mm;color:#8a97a5;background:#fafcff">[ Qui andrà la <b>foto della VOSTRA lavagna</b> di oggi ]</div><div class="cap">La lavagna della nostra lezione (da inserire dopo la spiegazione).</div></div>
+<div class="fig"><img src="immagini/20260928_Classe-3_Lavagna-Tipi-di-File.jpg" style="max-width:100%;border:1px solid #bbb;border-radius:5px"><div class="cap">La <b>lavagna della nostra lezione</b> (3ª · 28/09): TESTO vs BINARIO, formati, tag, percorso (PATH).</div></div>
 
 <h2>1. Cos'è un file e a cosa serve l'estensione</h2>
 <p>Un <b>file</b> è un contenitore di informazioni salvato nel computer: un testo, una foto, una canzone, un video, un programma. Ogni file ha un <b>nome</b> e, alla fine, un'<b>estensione</b>: le lettere dopo il punto (es. <span class="lbl">canzone.mp3</span>, <span class="lbl">foto.jpg</span>).</p>
 <div class="box"><b>L'estensione è come il "cognome" del file:</b> dice di che <b>tipo</b> è, così il computer sa <b>con quale programma</b> aprirlo. Cambiare l'estensione non cambia il contenuto: rinominare <span class="lbl">foto.jpg</span> in <span class="lbl">foto.txt</span> non la trasforma in testo, la fa solo aprire con il programma sbagliato.</div>
 <div class="ex"><b class="tag">Esempio quotidiano.</b> È come le <b>etichette</b> sui barattoli in cucina: "zucchero", "sale". Il contenuto è dentro; l'etichetta ti dice cosa aspettarti e come usarlo.</div>
+<h3>Il percorso (path): dove si trova il file</h3>
+<p>Oltre al tipo, un file ha un <b>indirizzo</b> nel computer: il <b>percorso</b> (in inglese <b>path</b>), cioè la lista di cartelle per arrivarci, es. <span class="lbl">C:\Documenti\Scuola\appunti.txt</span>. Su Windows le cartelle si separano con la barra rovescia <span class="lbl">\</span> — è un'eredità del vecchio sistema <b>DOS</b>, dove tutto si scriveva a mano (es. <span class="lbl">C:\DOS</span>).</p>
 
-<h2>2. Le grandi famiglie di file</h2>
-<p>Prima dei singoli formati, conviene vedere le <b>famiglie</b>: file diversi servono a cose diverse.</p>
+<h2>2. Due grandi mondi: TESTO e BINARIO</h2>
+<p>La prima grande divisione (come alla lavagna) è tra file di <b>testo</b> e file <b>binari</b>.</p>
+<ol>
+<li><b>File di TESTO (TXT):</b> dentro ci sono solo <b>lettere e simboli</b>, quindi li puoi aprire col <b>Blocco note</b> e <b>leggerli</b>. Sono a "formato libero". Esempi: <span class="lbl">txt</span>, <span class="lbl">md</span>, <span class="lbl">html</span>, <span class="lbl">css</span>, <span class="lbl">js</span>, <span class="lbl">xml</span>, <span class="lbl">csv</span>, <span class="lbl">json</span>, <span class="lbl">.gd</span>.</li>
+<li><b>File BINARI (BIN):</b> dentro ci sono <b>codici</b> che il Blocco note non sa mostrare (escono simboli strani): servono <b>programmi specifici</b>. Esempi: <span class="lbl">doc</span>, <span class="lbl">xls</span>, <span class="lbl">pdf</span>, <span class="lbl">dwg</span>, <span class="lbl">png</span>, <span class="lbl">jpeg</span>, <span class="lbl">zip</span>, <span class="lbl">exe</span>, <span class="lbl">mp3</span>, <span class="lbl">mp4</span>, <span class="lbl">wav</span>.</li>
+</ol>
+<div class="ex"><b class="tag">Prova del nove.</b> Per sapere se un file è testo o binario, aprilo col <b>Blocco note</b>: se lo <b>leggi</b> è testo; se vedi <b>simboli strani</b> è binario.</div>
+<h3>Le famiglie più in dettaglio</h3>
+<p>Dentro questi due mondi ci sono le <b>famiglie</b> per uso:</p>
 <table>
 <tr><th>Famiglia</th><th>A cosa serve</th><th>Esempi di estensione</th></tr>
 <tr><td><b>Testo semplice</b></td><td>solo lettere, nessuna formattazione</td><td><span class="lbl">.txt</span> <span class="lbl">.md</span></td></tr>
@@ -58,8 +67,11 @@ th{background:#eaf2fb;color:#12467a;}
 <tr><td><b>Dati / tabelle</b></td><td>elenchi e tabelle di dati</td><td><span class="lbl">.csv</span> <span class="lbl">.json</span></td></tr>
 <tr><td><b>Documenti impaginati</b></td><td>testo formattato, pronto da leggere/stampare</td><td><span class="lbl">.pdf</span> <span class="lbl">.docx</span> <span class="lbl">.xlsx</span></td></tr>
 <tr><td><b>Immagini</b></td><td>foto e disegni</td><td><span class="lbl">.jpg</span> <span class="lbl">.png</span></td></tr>
-<tr><td><b>Audio / Video</b></td><td>suoni e filmati</td><td><span class="lbl">.mp3</span> <span class="lbl">.mp4</span></td></tr>
+<tr><td><b>Audio / Video</b></td><td>suoni e filmati</td><td><span class="lbl">.mp3</span> <span class="lbl">.mp4</span> <span class="lbl">.wav</span></td></tr>
 <tr><td><b>Archivi</b></td><td>tanti file compressi in uno solo</td><td><span class="lbl">.zip</span></td></tr>
+<tr><td><b>Pagine web</b></td><td>struttura, stile e comportamento dei siti</td><td><span class="lbl">.html</span> <span class="lbl">.css</span> <span class="lbl">.js</span></td></tr>
+<tr><td><b>Disegno tecnico (CAD)</b></td><td>disegni e progetti tecnici</td><td><span class="lbl">.dwg</span></td></tr>
+<tr><td><b>Programmi (eseguibili)</b></td><td>si avviano col doppio clic</td><td><span class="lbl">.exe</span></td></tr>
 <tr><td><b>Codice / progetto</b></td><td>istruzioni per un programma</td><td><span class="lbl">.gd</span> (Godot) <span class="lbl">.py</span></td></tr>
 </table>
 
@@ -87,6 +99,14 @@ th{background:#eaf2fb;color:#12467a;}
 <p><b>MP3</b> = audio compresso. <b>MP4</b> = video (immagini in movimento + audio insieme). Li apre il lettore multimediale o il browser (vedi §5).</p>
 <h3>ZIP — l'archivio</h3>
 <p>Una <b>valigia</b>: mette tanti file dentro uno solo e li <b>comprime</b> per pesare meno e spedirli comodi. Si "estrae" per riavere i file dentro.</p>
+<h3>CSS / JS — stile e comportamento delle pagine</h3>
+<p>Vanno insieme all'HTML: <b>CSS</b> dà lo <b>stile</b> (colori, caratteri, posizioni), <b>JS</b> (JavaScript) dà il <b>comportamento</b> (bottoni che fanno cose). Sono testo, li apre il Blocco note; il browser li usa con l'HTML.</p>
+<h3>DWG — il disegno tecnico (CAD)</h3>
+<p>Il formato dei <b>disegni tecnici</b> fatti con programmi CAD (es. AutoCAD): piantine, progetti. È binario, serve il programma giusto per aprirlo.</p>
+<h3>EXE — il programma da avviare</h3>
+<p>Un <b>programma eseguibile</b>: col doppio clic <b>parte</b>. Godot portabile è un <span class="lbl">.exe</span>. Attenzione: aprire un .exe che non conosci è rischioso (può contenere virus).</p>
+<h3>WAV — audio senza compressione</h3>
+<p>Audio di qualità piena ma <b>pesante</b> perché <b>non compresso</b> (a differenza dell'MP3). Si usa quando serve la massima qualità.</p>
 <h3>GD — lo script di Godot</h3>
 <p>Un file di <b>codice</b>: le istruzioni del nostro gioco in Godot. È testo, ma lo apre <b>Godot</b> (col doppio clic parte il gioco: per leggerlo come testo, tasto destro → Apri con → Blocco note).</p>
 
@@ -139,6 +159,9 @@ Testo normale con una parola in **grassetto**.
 <table>
 <tr><th>Parola</th><th>Vuol dire</th></tr>
 <tr><td class="lbl">file</td><td>un contenitore di informazioni salvato nel computer</td></tr>
+<tr><td class="lbl">percorso (path)</td><td>l'indirizzo del file nel computer (es. C:\cartella\file.txt)</td></tr>
+<tr><td class="lbl">file di testo</td><td>leggibile col Blocco note (txt, md, html, css, js, xml, csv…)</td></tr>
+<tr><td class="lbl">file binario</td><td>serve un programma specifico (doc, pdf, png, mp4, exe, zip…)</td></tr>
 <tr><td class="lbl">estensione</td><td>le lettere dopo il punto: dicono il tipo del file (.mp4, .md…)</td></tr>
 <tr><td class="lbl">tag</td><td>un'etichetta (es. &lt;titolo&gt;) che marca un pezzo di testo</td></tr>
 <tr><td class="lbl">HTML</td><td>il linguaggio a tag delle pagine web</td></tr>
