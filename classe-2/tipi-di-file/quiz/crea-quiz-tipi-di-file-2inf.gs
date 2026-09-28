@@ -18,6 +18,12 @@ function creaQuiz() {
   form.setCollectEmail(true);
   form.setShuffleQuestions(false);
 
+  // OBBLIGATORIO: Nome e Cognome (regola: ogni quiz/Modulo deve chiederli)
+  form.addTextItem()
+    .setTitle('Nome e Cognome')
+    .setHelpText('Scrivi il tuo nome e cognome (obbligatorio).')
+    .setRequired(true);
+
   var domande = [
     { t: '1) Che cos\'è un file?',
       o: [['Un contenitore di informazioni salvato nel computer (testo, foto, video…)', true],
