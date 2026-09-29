@@ -1,6 +1,6 @@
 # Convertitore Km/h ↔ mph in Lazarus — scheda per te (e per la tua AI)
 
-**Classe 2 · Informatica**
+**Classe 2 · Informatica · Versione 1.2**
 
 *Questo file è **per te**: puoi leggerlo e puoi **darlo a Gemini** (o a un'altra AI) per
 farti spiegare le parti che non capisci, o farti tradurre nella tua lingua. Regola
