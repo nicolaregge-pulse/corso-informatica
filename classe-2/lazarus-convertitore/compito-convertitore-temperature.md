@@ -25,6 +25,11 @@ Controlli: 100 °C → 212.0 °F · 32 °F → 0.0 °C · 37 °C → 98.6 °F.
 2. Sistema **TabStop** e **TabOrder** (ordine: Edit1 → RadioGroup → Edit2 → Button).
 3. `Button1.Default = True` così `Invio` lancia la conversione.
 
+## 4b. Usa Gemini con la scheda MD
+1. Apri la scheda **.md** del convertitore in **Gemini** (incolla o carica il file).
+2. Chiedigli **3 domande di verifica** sull'app e **rispondi**.
+3. Allega **uno screenshot** della chat (o scrivi cosa ti ha chiesto e cosa hai risposto).
+
 ## 4. Consegna
 1. 2 screenshot: app funzionante + codice del bottone.
 2. Rispondi: cosa fa StrToFloat? cosa fa FormatFloat('0.0', …)? a cosa serve TabOrder?
@@ -33,11 +38,12 @@ Controlli: 100 °C → 212.0 °F · 32 °F → 0.0 °C · 37 °C → 98.6 °F.
 ## 5. Valutazione (100 punti)
 | Voce | Punti |
 |---|---|
-| Componenti giusti (RadioGroup, 2 Edit, Button) | 20 |
+| Componenti giusti (RadioGroup, 2 Edit, Button) | 15 |
 | StrToFloat corretto | 15 |
 | Due formule giuste con RadioGroup (ItemIndex) | 25 |
 | Risultato con 1 decimale (FormatFloat) | 15 |
 | Uso con tastiera: TabStop/TabOrder | 10 |
-| Sa spiegare a voce | 15 |
+| Sa spiegare a voce | 10 |
+| Uso del file MD con Gemini | 10 |
 
 Conta la comprensione: se il metodo è giusto e sai spiegarlo, va bene anche con piccoli errori.
