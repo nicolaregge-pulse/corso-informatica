@@ -2,6 +2,8 @@
 
 **Classe 2 · Informatica · Versione 1.1 · da svolgere da soli**
 
+> ⚠ **ATTENZIONE — DIFFERENZA VOLUTA:** questo compito **NON** è sulle miglia/km della lezione, ma su **Celsius ↔ Fahrenheit**. È fatto **apposta** così, per verificare che sai applicare lo **stesso metodo** a una conversione nuova. **Non è un errore.**
+
 **Cosa devi fare:** costruisci un'app in Lazarus **uguale nella struttura** a quella
 Km/h↔mph vista a lezione, ma che converte le **temperature** (°C ↔ °F). Cambia solo la
 formula: il metodo è lo stesso.
