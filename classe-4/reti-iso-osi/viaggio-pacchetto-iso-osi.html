@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il viaggio di un pacchetto — ISO/OSI</title>
+<style>
+  :root{
+    --l7:#8e44ad; --l6:#2980b9; --l5:#16a085; --l4:#27ae60;
+    --l3:#f39c12; --l2:#e67e22; --l1:#c0392b; --ink:#1a2733; --bg:#eef3f8;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:"Segoe UI",system-ui,Arial,sans-serif;color:var(--ink);
+    background:var(--bg);line-height:1.5;}
+  header{background:linear-gradient(135deg,#12467a,#3a1c71);color:#fff;padding:20px 18px;text-align:center;}
+  header h1{margin:0;font-size:26px;}
+  header p{margin:6px 0 0;opacity:.9;font-size:15px;}
+  .wrap{max-width:1050px;margin:0 auto;padding:16px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:820px){.grid{grid-template-columns:1fr;}}
+  .card{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(20,50,90,.08);padding:16px;}
+  h2{color:#12467a;margin:2px 0 10px;font-size:18px;border-bottom:2px solid #e3ecf5;padding-bottom:6px;}
+  .stack{display:flex;flex-direction:column;gap:6px;}
+  .layer{color:#fff;border-radius:8px;padding:10px 12px;cursor:pointer;display:flex;
+    align-items:center;gap:10px;transition:transform .12s,filter .12s;font-weight:600;}
+  .layer:hover{transform:translateX(4px);filter:brightness(1.08);}
+  .layer.sel{outline:3px solid #12467a;outline-offset:2px;}
+  .num{background:rgba(255,255,255,.25);border-radius:6px;width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;font-size:14px;flex:0 0 26px;}
+  .l7{background:var(--l7);} .l6{background:var(--l6);} .l5{background:var(--l5);}
+  .l4{background:var(--l4);} .l3{background:var(--l3);} .l2{background:var(--l2);} .l1{background:var(--l1);}
+  .info{min-height:170px;}
+  .info .tag{display:inline-block;color:#fff;border-radius:6px;padding:2px 10px;font-size:13px;font-weight:700;margin-bottom:8px;}
+  .info h3{margin:0 0 6px;font-size:17px;}
+  .info .ex{background:#eef7ee;border-left:4px solid #2f9e57;padding:8px 10px;border-radius:5px;margin:8px 0;font-size:14px;}
+  .info .proto{font-size:13px;color:#5a6b7b;}
+  .demo{margin-top:16px;}
+  .pcs{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap;}
+  .pc{text-align:center;font-size:13px;color:#12467a;font-weight:600;}
+  .pc .scr{width:70px;height:52px;background:#12467a;border-radius:6px;border-bottom:6px solid #999;margin:0 auto 4px;}
+  .packet{background:#fff;border:2px solid #12467a;border-radius:8px;padding:8px;min-height:64px;
+    display:flex;align-items:center;justify-content:center;gap:4px;flex:1;min-width:220px;flex-wrap:wrap;}
+  .hdr{color:#fff;border-radius:5px;padding:4px 7px;font-size:12px;font-weight:700;}
+  .data{background:#ffd54f;color:#4a3b00;border-radius:5px;padding:4px 9px;font-weight:700;font-size:13px;}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+  button{background:#12467a;color:#fff;border:0;border-radius:8px;padding:10px 16px;font-size:15px;
+    cursor:pointer;font-weight:600;}
+  button:hover{filter:brightness(1.1);} button.ghost{background:#e3ecf5;color:#12467a;}
+  .step{background:#eaf3fb;border-left:5px solid #2b7cc4;padding:10px 12px;border-radius:6px;margin-top:10px;font-size:15px;min-height:48px;}
+  .analogy{background:#fff7e6;border-left:5px solid #f39c12;padding:10px 12px;border-radius:6px;margin-top:14px;font-size:14px;}
+  .foot{text-align:center;color:#5a6b7b;font-size:12px;margin:18px 0;}
+</style>
+</head>
+<body>
+<header>
+  <h1>📦 Il viaggio di un pacchetto</h1>
+  <p>Il modello <b>ISO/OSI</b> a 7 livelli — clicca i livelli e manda un messaggio</p>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+    <!-- Colonna sinistra: i livelli -->
+    <div class="card">
+      <h2>I 7 livelli (dall'alto verso il basso)</h2>
+      <div class="stack" id="stack"></div>
+      <p style="font-size:13px;color:#5a6b7b;margin:10px 2px 0">Clicca un livello per vedere cosa fa, con un esempio.</p>
+    </div>
+
+    <!-- Colonna destra: info del livello -->
+    <div class="card info" id="info"></div>
+  </div>
+
+  <!-- Demo incapsulamento -->
+  <div class="card demo">
+    <h2>Manda un messaggio: guarda l'incapsulamento</h2>
+    <div class="pcs">
+      <div class="pc"><div class="scr"></div>PC mittente</div>
+      <div class="packet" id="packet"></div>
+      <div class="pc"><div class="scr"></div>PC destinatario</div>
+    </div>
+    <div class="btns">
+      <button onclick="sendStart()">▶ Invia "Ciao prof!"</button>
+      <button class="ghost" onclick="stepNext()">Passo successivo ▸</button>
+      <button class="ghost" onclick="resetDemo()">↺ Ricomincia</button>
+    </div>
+    <div class="step" id="step">Premi <b>Invia</b>: il messaggio parte dall'alto (livello 7) e scende. A ogni livello viene aggiunta una "busta" (intestazione). Poi attraversa la rete e dall'altra parte le buste si tolgono, dal basso verso l'alto.</div>
+    <div class="analogy"><b>Come la posta 📮:</b> scrivi la lettera (i <b>dati</b>), la metti in una <b>busta</b> con l'indirizzo (livello 3 = IP), la posta la mette in un <b>sacco</b> per quel quartiere (livello 2 = MAC), il camion la porta sui <b>cavi/strade</b> (livello 1). Chi la riceve apre tutto al contrario.</div>
+  </div>
+
+  <div class="foot">App didattica in un solo file (HTML5 + CSS). Si apre col doppio clic nel browser, senza installare nulla.</div>
+</div>
+
+<script>
+// --- dati dei 7 livelli ---
+var L = [
+ {n:7,cls:'l7',nome:'Applicazione',desc:'I programmi che usi tu: browser, posta, chat. È dove nasce il messaggio.',ex:'Apri il browser e scrivi un sito: parte da qui.',proto:'HTTP, HTTPS, SMTP, FTP, DNS'},
+ {n:6,cls:'l6',nome:'Presentazione',desc:'Traduce i dati in un formato comune e li può cifrare (renderli segreti).',ex:'Il lucchetto HTTPS: i dati vengono cifrati qui.',proto:'Cifratura TLS, formati (JPEG, ASCII)'},
+ {n:5,cls:'l5',nome:'Sessione',desc:'Apre, tiene aperta e chiude la "conversazione" tra i due computer.',ex:'Rimani connesso a un sito mentre navighi tra le pagine.',proto:'Gestione delle sessioni'},
+ {n:4,cls:'l4',nome:'Trasporto',desc:'Spezza il messaggio in pezzi (segmenti) e controlla che arrivino tutti e in ordine.',ex:'Un video diviso in tanti pezzi che si ricompongono.',proto:'TCP (sicuro), UDP (veloce)'},
+ {n:3,cls:'l3',nome:'Rete',desc:'Mette l\'indirizzo IP e sceglie il percorso tra le reti. È il livello del router.',ex:'192.168.1.5 → il router decide dove mandarlo.',proto:'IP, il router, il ping'},
+ {n:2,cls:'l2',nome:'Collegamento dati',desc:'L\'indirizzo fisico (MAC) dentro la rete locale. È il livello dello switch.',ex:'Lo switch consegna il pacchetto al PC giusto nella stanza.',proto:'MAC address, switch, Ethernet'},
+ {n:1,cls:'l1',nome:'Fisico',desc:'I bit veri: segnali elettrici, luce nella fibra, onde del Wi-Fi. I cavi.',ex:'Il cavo di rete o il Wi-Fi che porta gli 0 e gli 1.',proto:'Cavi, fibra, Wi-Fi, segnali'}
+];
+
+// costruisci lo stack
+var stack=document.getElementById('stack');
+L.forEach(function(l,i){
+  var d=document.createElement('div');
+  d.className='layer '+l.cls; d.id='lay'+l.n;
+  d.innerHTML='<span class="num">'+l.n+'</span> '+l.nome;
+  d.onclick=function(){showInfo(i);};
+  stack.appendChild(d);
+});
+function showInfo(i){
+  var l=L[i];
+  document.querySelectorAll('.layer').forEach(function(e){e.classList.remove('sel');});
+  document.getElementById('lay'+l.n).classList.add('sel');
+  document.getElementById('info').innerHTML=
+    '<span class="tag '+l.cls+'">Livello '+l.n+'</span>'+
+    '<h3>'+l.nome+'</h3>'+
+    '<p>'+l.desc+'</p>'+
+    '<div class="ex"><b>Esempio:</b> '+l.ex+'</div>'+
+    '<div class="proto"><b>Qui trovi:</b> '+l.proto+'</div>';
+}
+showInfo(0);
+
+// --- demo incapsulamento ---
+var headers=[
+ {t:'L4 TCP',c:'#27ae60'}, {t:'L3 IP',c:'#f39c12'}, {t:'L2 MAC',c:'#e67e22'}
+];
+var phase=0; // 0 pronto, 1..3 scende (buste), 4 in rete, 5..7 risale (toglie buste), 8 arrivato
+var pkt=document.getElementById('packet');
+var step=document.getElementById('step');
+function draw(){
+  var html='<span class="data">Ciao prof!</span>';
+  var added=0;
+  if(phase>=1&&phase<=4) added=Math.min(phase,3);
+  if(phase>=5&&phase<=8) added=Math.max(0,3-(phase-4));
+  for(var k=0;k<added;k++){ html='<span class="hdr" style="background:'+headers[k].c+'">'+headers[k].t+'</span>'+html; }
+  pkt.innerHTML=html;
+}
+var msgs={
+ 0:'Premi <b>Invia</b> per far partire il messaggio.',
+ 1:'<b>Livello 7→4 (Trasporto):</b> aggiungo l\'intestazione <b>TCP</b> (numeri per rimettere in ordine i pezzi).',
+ 2:'<b>Livello 3 (Rete):</b> aggiungo l\'indirizzo <b>IP</b> del destinatario. Il router sa dove mandarlo.',
+ 3:'<b>Livello 2 (Collegamento):</b> aggiungo l\'indirizzo <b>MAC</b>. Ora il pacchetto è "imbustato" del tutto.',
+ 4:'<b>Livello 1 (Fisico):</b> il pacchetto viaggia come <b>bit</b> sul cavo/Wi-Fi fino all\'altro PC. 🚚',
+ 5:'Arrivato! Il destinatario <b>toglie</b> la busta <b>MAC</b> (livello 2).',
+ 6:'Toglie la busta <b>IP</b> (livello 3).',
+ 7:'Toglie la busta <b>TCP</b> (livello 4).',
+ 8:'✅ Rimane solo il messaggio: <b>"Ciao prof!"</b> — consegnato al programma (livello 7).'
+};
+function render(){ draw(); step.innerHTML=msgs[phase]; }
+function sendStart(){ phase=1; render(); }
+function stepNext(){ if(phase<8){ phase++; render(); } }
+function resetDemo(){ phase=0; render(); }
+resetDemo();
+</script>
+</body>
+</html>
