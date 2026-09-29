@@ -16,7 +16,9 @@ con **una cifra decimale**.
 
 ## 2. UI — l'interfaccia (cosa si vede)
 1. **Edit1** con etichetta **Km/h** e **Edit2** con etichetta **mph** (le due caselle).
-2. **RadioGroup1** (pallini della direzione), con `Items`: `Da Km/h` e `Da mph`; `ItemIndex = 0`.
+2. **RadioGroup1** (pallini della direzione). Per inserire le due voci: nell'Object Inspector trova la
+   proprietà **Items**, clicca il pulsante `…` a destra e nell'editor scrivi **una voce per riga**:
+   `Da Km/h` e `Da mph`, poi OK. Infine metti `ItemIndex = 0`.
 3. **Button1** con `Caption = Converti`.
 
 ## 3. UX — come si usa (con mouse E con sola tastiera)
