@@ -1,0 +1,68 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><title>Chiave API Claude per Alexa</title>
+<style>@page{size:A4;margin:18mm 18mm}body{font-family:"DejaVu Sans",sans-serif;font-size:10.5pt;line-height:1.45;color:#1a1a1a}
+h1{font-size:17pt;color:#1f3a5f;border-bottom:2px solid #1f3a5f;padding-bottom:4px}h2{font-size:12.5pt;color:#1f3a5f;margin-top:16px;break-after:avoid}
+code{background:#eef2f7;padding:1px 4px;border-radius:3px;font-size:9.5pt}ol{padding-left:22px}li{margin:3px 0}
+p:first-of-type{color:#555}</style></head><body><h1>Chiave API Claude per la skill Alexa di Nicola</h1>
+<p><b>Versione 1.0</b> (29/09/2026) · Guida per Guido · tempo richiesto: circa 5 minuti</p>
+<h2>01 Cosa serve e perché</h2>
+<p>Nicola ha una skill Alexa personale (progetto <code>alexa-claude</code>) che manda le domande dette a voce a Claude e fa leggere la risposta all&#x27;Echo. Per parlare con Claude un programma esterno usa l&#x27;API di Anthropic, che si paga a consumo e richiede una chiave API. Nicola non ha credito sulla Console; la tua organizzazione sì.</p>
+<ol><li>
+Consumo previsto: circa un centesimo di dollaro a domanda (stima; risposte
+ brevi, modello <code>claude-opus-5-5</code> a sforzo basso). Cento domande al mese: circa
+ un dollaro.
+</li><li>
+Uso: solo personale, un solo account Amazon, skill non pubblicata.
+</li></ol>
+<h2>02 Passi sulla Console Anthropic</h2>
+<ol><li>
+Apri console.anthropic.com ed entra nella tua organizzazione.
+</li><li>
+Consigliato: crea un workspace dedicato, così il consumo è separato da Pulse.
+<ol><li>
+Menu Settings, voce Workspaces, bottone &quot;Create Workspace&quot;.
+</li><li>
+Nome: <code>alexa-nicola</code>.
+</li><li>
+Nelle impostazioni del workspace imposta un limite di spesa mensile basso
+ (per esempio 5 dollari).
+</li></ol>
+</li><li>
+Crea la chiave.
+<ol><li>
+Menu Settings, voce API Keys, bottone &quot;Create Key&quot;.
+</li><li>
+Nome: <code>alexa-nicola</code>.
+</li><li>
+Workspace: <code>alexa-nicola</code> (quello appena creato).
+</li><li>
+Copia la chiave (inizia con <code>sk-ant-</code>): la Console la mostra una volta sola.
+</li></ol>
+</li></ol>
+<h2>03 Come consegnarla a Nicola (importante)</h2>
+<ol><li>
+La chiave <b>non va messa nel repository</b> su GitHub, né in chiaro in chat di
+ gruppo: chi la vede può spendere il credito.
+</li><li>
+Mandala a Nicola <b>in privato</b>, preferibilmente con un link a scadenza
+ (per esempio Bitwarden Send, che usate già) oppure in un messaggio diretto che
+ poi cancellate.
+</li><li>
+Nicola la inserisce lui nel file <code>config.js</code>, che esiste <b>solo dentro la Alexa Developer Console</b> (codice ospitato da Amazon) ed è escluso da Git
+ tramite <code>.gitignore</code>. Nel repository c&#x27;è solo <code>config.example.js</code>, senza chiavi.
+</li></ol>
+<h2>04 Cosa succede dopo, lato Nicola</h2>
+<ol><li>
+In <code>config.js</code> mette la chiave in <code>CLAUDE_API_KEY</code>.
+</li><li>
+Cambia <code>MODELLO: &#x27;gemini&#x27;</code> in <code>MODELLO: &#x27;claude&#x27;</code>.
+</li><li>
+Clicca Save e Deploy nella Alexa Developer Console.
+</li></ol>
+<h2>05 Se vuoi controllare il codice</h2>
+<p>Il codice è nel repository <code>nicolaregge-pulse/corso-informatica</code>, ramo <code>claude/alexa-claude</code>, cartella <code>alexa-claude/</code>. La chiamata all&#x27;API è in <code>lambda/ia.js</code>: SDK ufficiale <code>@anthropic-ai/sdk</code>, <code>effort: low</code>, <code>max_tokens</code> 2000, timeout 7 secondi senza nuovi tentativi, <code>fallbacks: &quot;default&quot;</code> in caso di rifiuto.</p>
+<h2>06 Per bloccare tutto in qualsiasi momento</h2>
+<p>Console, menu Settings, voce API Keys: disattiva o elimina la chiave <code>alexa-nicola</code>. La skill smette subito di usare Claude, senza toccare nient&#x27;altro.</p>
+<h2>CHANGELOG</h2>
+<ol><li>
+v1.0: prima versione.
+</li></ol></body></html>
