@@ -1,0 +1,39 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "mio assistente",
+      "intents": [
+        {
+          "name": "DomandaIntent",
+          "slots": [{ "name": "domanda", "type": "AMAZON.SearchQuery" }],
+          "samples": [
+            "dimmi {domanda}",
+            "spiegami {domanda}",
+            "chiedi {domanda}",
+            "domanda {domanda}",
+            "raccontami {domanda}",
+            "sai {domanda}",
+            "voglio sapere {domanda}",
+            "mi dici {domanda}",
+            "mi spieghi {domanda}",
+            "cos'è {domanda}",
+            "chi è {domanda}",
+            "come si fa {domanda}",
+            "perché {domanda}",
+            "quanto {domanda}",
+            "quando {domanda}",
+            "dove {domanda}",
+            "come {domanda}"
+          ]
+        },
+        { "name": "AMAZON.HelpIntent", "samples": [] },
+        { "name": "AMAZON.StopIntent", "samples": [] },
+        { "name": "AMAZON.CancelIntent", "samples": [] },
+        { "name": "AMAZON.NoIntent", "samples": [] },
+        { "name": "AMAZON.FallbackIntent", "samples": [] },
+        { "name": "AMAZON.NavigateHomeIntent", "samples": [] }
+      ],
+      "types": []
+    }
+  }
+}
