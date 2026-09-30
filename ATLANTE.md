@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 0.2** — 30/09/2026 · Corso Informatica (Piamarta)
+**Versione 0.3** — 30/09/2026 · Corso Informatica (Piamarta)
 
 *L'Atlante è la mappa unica del corso: come sono fatti i libri, come sono
 organizzati i dati su Git, come cresce l'informazione senza rifare il lavoro, e
@@ -169,7 +169,10 @@ e metodologia".*
 6. **MANUALE** `argomento/paragrafo` — aggiungi o migliora un paragrafo nella fonte unica → rigenera il libro totale (bump versione).
 7. **INCREMENTALE** `classe` — aggiorna/genera la scheda incrementale insegnante (tutte le lezioni × voti + note + cose non capite).
 8. **GIORNATA** `classe` — genera la scheda complessiva per giornata (unione delle schede di ogni lavoro del giorno).
-9. **CHIUDI** `classe` — a fine giornata fa **tutto in cascata**: SVOLTO → VOTA (compiti del giorno) → REPORT → GIORNATA → LIBRI oggi → INCREMENTALE → STATO.
+9. **CHIUDI** `classe` — la **chiusura del lavoro di una classe**: fa **tutto in cascata** —
+   SVOLTO → VOTA (griglia completa) → REPORT → **CLASSE** (libro di classe aggiornato) →
+   **LIBRI oggi** (libri individuali della giornata) → GIORNATA → **INCREMENTALE** (scheda
+   insegnante) → STATO. Un comando solo a fine ora.
 10. **STATO** — mostrami la base dati ad albero aggiornata (cosa c'è, cosa manca, coperture).
 
 ### 09.2b Tabella: quale documento → quale comando
@@ -196,6 +199,33 @@ e metodologia".*
 2. Ogni PDF esce con **header e footer** (titolo, contesto, "RISERVATO" dove serve, numero di pagina).
 3. Dopo un comando che cambia i dati, aggiorno **`stato-dati`** così l'albero resta vero.
 
+## 09c How-to ed esempi (se voglio X, dico Y)
+
+> Gli scenari più frequenti, nel formato **se voglio … → dico … → ottengo …**.
+
+1. **Chiudere il lavoro di una classe a fine ora** → `CHIUDI 3INF` → in un colpo: libro di
+   classe aggiornato + libri individuali della giornata + griglia completa + scheda
+   incrementale insegnante. (È lo scenario tipico di fine ora.)
+2. **Valutare un compito appena raccolto** → `VOTA css-separato` → la **griglia completa**
+   del compito e l'aggiornamento della scheda incrementale.
+3. **Il quadro completo di un compito** (per me docente) → `REPORT css-separato` → la scheda
+   complessiva del lavoro: mie impressioni + anti-plagio + indicazioni dei ragazzi + dettaglio.
+4. **Dare all'allievo solo la lezione di oggi** → `LIBRI 3INF oggi` → il suo libro individuale
+   della giornata (teoria + esercizi di oggi + valutazione).
+5. **Dare all'allievo tutto il suo percorso** → `LIBRI 3INF complessivo` → il suo libro
+   individuale completo (tutto l'anno).
+6. **Aggiungere o migliorare una spiegazione** → `MANUALE lazarus/case` → aggiorno la fonte
+   unica: il Manuale cresce e **tutti i libri che la richiamano** si aggiornano alla rigenerazione.
+7. **Ho caricato la foto della lavagna** → `LAVAGNA 3INF` → la catalogo e la metto in cima ai
+   libri per data (fissa argomenti e tempi).
+8. **Firmare le ore a inizio giornata** → `FIRMA` → il programma previsto pronto da firmare
+   entro le 14:05.
+9. **A fine giornata, registrare cosa si è fatto** → `SVOLTO` → aggiorno gli argomenti svolti
+   e la matrice di copertura.
+10. **Voto "domanda al volo"** → `VOLO cognome 70` → lo annoto (70 = OK, 50 = KO).
+11. **Non consegnare finché non dico "avanti"** → `PPP ...` → parcheggio, preparo in silenzio.
+12. **Vedere cosa c'è e cosa manca** → `STATO` → l'albero della base dati aggiornato.
+
 ## 10 Operatività di ogni lezione
 
 1. **Inizio:** `FIRMA` (programma previsto). La teoria nuova entra come argomento nel Manuale.
@@ -214,7 +244,10 @@ e metodologia".*
 
 ## 12 Changelog
 
-1. **v0.2 (30/09/2026):** rinominato **Atlante**; aggiunti i due ambienti (main/Release),
+1. **v0.3 (30/09/2026):** aggiunto il capitolo **09c How-to ed esempi** ("se voglio X, dico Y")
+   con gli scenari frequenti; `CHIUDI classe` ora include anche il **libro di classe** e le
+   griglie (completa + incrementale) — la "chiusura del lavoro di una classe".
+2. **v0.2 (30/09/2026):** rinominato **Atlante**; aggiunti i due ambienti (main/Release),
    la topologia a 7 tipi-artefatto con nomi 2.13, il Manuale a due assi 3+3, l'accrescimento
    con matrice di copertura e aggiornamenti, le foto della lavagna e i **comandi/parole chiave**.
 2. **v0.1 (30/09/2026):** prima stesura come "Topologia libri e metodologia".

@@ -95,7 +95,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    valutato del singolo (dal privato). Output = PDF in scratchpad, consegnati a Nicola.
 
 ## 5. Aperte (da completare)
-1. **Atlante del corso** — FATTO: `ATLANTE.md` (v0.2) + `ATLANTE-v0.2.pdf`. Mappa unica:
+1. **Atlante del corso** — FATTO: `ATLANTE.md` (v0.3) + `ATLANTE-v0.3.pdf`. Mappa unica:
    tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi
    2.13, accrescimento (fonte unica + matrice copertura + aggiornamenti), due repo/main-Release,
    documenti del docente (griglia, scheda del lavoro, per giornata, incrementale) e i

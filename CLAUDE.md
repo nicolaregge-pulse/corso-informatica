@@ -466,7 +466,7 @@ l'intestazione del file.
 5. `REGOLE-NOSTRE-CLAUDE-NICOLA.md` — v0.9 (convenzioni interne Nicola↔Claude: PPP, schema nomi file cronologia/cosa/chi + aree Comune/Docente/Regione, nome deterministico col percorso, conservazione integrale; NON sono le regole per i ragazzi)
 5c. `sbobinature/README.md` (+ `TEMPLATE-sbobinatura.md`) — v0.1 (trascrizioni lezioni: conservazione integrale + versione lavorata; alimenta libro di testo, argomenti svolti e note dei ragazzi; nomi solo in scratchpad)
 5d. `strumenti/nome-albero.py` (+ `README.md`) — v0.1 (script: nomi file deterministici col percorso nel nome, espandi/collassa l'albero — regola 2.13)
-5e. `ATLANTE.md` (+ `ATLANTE-v0.2.pdf`) — v0.2 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
+5e. `ATLANTE.md` (+ `ATLANTE-v0.3.pdf`) — v0.3 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
 5f. `RIFERIMENTI-E-DECISIONI.md` — v1.1 (contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
 
 ### 2. Pianificazione didattica
