@@ -41,6 +41,10 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    registro, file di riferimento) così da **non perdere lavoro** col compattamento e
    **ottimizzare i tempi di Claude**. Preferire sempre strutture Git-backed a file effimeri;
    i dati **riservati** (nomi di minori) restano comunque fuori da Git (scratchpad + PDF).
+9. **Due griglie a ogni compito (per il docente):** (a) **griglia completa** del lavoro —
+   tutte le note + cosa NON ha fatto in **neretto** + voto; (b) **griglia incrementale** —
+   solo info principali, **una colonna per compito** che si accumula nel tempo. Vale per
+   tutte le classi. Entrambe RISERVATE (nomi) → PDF a Nicola, mai su Git.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
