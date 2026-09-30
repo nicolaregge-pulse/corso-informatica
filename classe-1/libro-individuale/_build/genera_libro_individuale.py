@@ -21,7 +21,9 @@ def leggi_manifesto():
     txt=open(os.path.join(BASE,"manifesto.md"),encoding="utf-8").read()
     unita=[]
     for m in re.finditer(r'^\|\s*\d+\s*\|\s*(\d+)\s*\|\s*(.+?)\s*\|\s*([\d-]+)\s*\|\s*(unita/[^\s|]+)\s*\|',txt,re.M):
-        unita.append(dict(id=m.group(1),titolo=m.group(2),data=m.group(3),file=m.group(4)))
+        sl=os.path.splitext(os.path.basename(m.group(4)))[0]
+        sl=re.sub(r'^\d+-','',sl)
+        unita.append(dict(id=m.group(1),titolo=m.group(2),data=m.group(3),file=m.group(4),slug=sl))
     return unita
 
 def leggi_unita(relpath):
@@ -165,7 +167,7 @@ def genera(dati_path, slug, out_pdf, render_js=None):
         fm,sez=leggi_unita(u["file"])
         teoria=md_liste_to_html(sez.get("Teoria",""))
         compito=md_liste_to_html(sez.get("Il compito",""))
-        pers=blocco_personale(u["id"], per_unita.get(u["id"]), fm.get("tipo","compito"))
+        pers=blocco_personale(u["id"], per_unita.get(u["slug"]), fm.get("tipo","compito"))
         macro=html.escape(fm.get("macro","")); materia=html.escape(fm.get("materia",""))
         orario=html.escape(fm.get("orario","")); contenuto=html.escape(fm.get("contenuto",""))
         band=f'''<div class="unit-band">

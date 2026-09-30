@@ -1,5 +1,5 @@
 ---
-id: 07
+id: 08
 titolo: Regole e modalità di lavoro
 data: 2026-09-21
 orario: 2ª ora

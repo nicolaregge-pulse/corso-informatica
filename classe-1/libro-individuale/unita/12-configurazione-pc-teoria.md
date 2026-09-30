@@ -1,5 +1,5 @@
 ---
-id: 11
+id: 12
 titolo: Configurazione di un PC (teoria e documento)
 data: 2026-09-24
 orario: 1ª e 2ª ora

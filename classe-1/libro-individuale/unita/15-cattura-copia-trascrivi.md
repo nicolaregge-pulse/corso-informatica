@@ -1,5 +1,5 @@
 ---
-id: 13
+id: 15
 titolo: Cattura schermo, copia-incolla, trascrivi con l'AI
 data: 2026-09-30
 orario: 2ª-3ª ora (Laboratorio)

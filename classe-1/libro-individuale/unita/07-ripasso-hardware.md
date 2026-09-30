@@ -1,5 +1,5 @@
 ---
-id: 06
+id: 07
 titolo: Ripasso hardware PC
 data: 2026-09-21
 orario: 1ª ora

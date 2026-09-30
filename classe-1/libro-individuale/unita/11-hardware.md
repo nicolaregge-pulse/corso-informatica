@@ -1,5 +1,5 @@
 ---
-id: 10
+id: 11
 titolo: Hardware del PC (approfondimento)
 data: 2026-09-23
 orario: 4ª, 5ª e 6ª ora
