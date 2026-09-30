@@ -84,7 +84,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    valutato del singolo (dal privato). Output = PDF in scratchpad, consegnati a Nicola.
 
 ## 5. Aperte (da completare)
-1. **PDF tassonomia dei libri** (naming/logica/descrizioni/operatività) — al "avanti".
+1. **PDF tassonomia dei libri** — FATTO: `TOPOLOGIA-LIBRI-E-METODOLOGIA.md` (v0.1)
+   + `...-v0.1.pdf` (tipi A/B/C/D, fonti a 3 livelli, nomi/versioni, due repo, operatività).
 2. **Programma Sicurezza (Regione)** — atteso da Nicola.
 3. **"Io e la mia famiglia" 17/09** — manca lo ZIP per l'ultima colonna della griglia.
 4. **Lezione HTML Classe 3 → nei libri** (dopo il PDF tassonomia): diventa argomento + unità.
