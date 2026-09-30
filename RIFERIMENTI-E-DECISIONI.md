@@ -29,7 +29,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    Cose da copiare sempre in **blocco di codice** (bottone copia).
 4. **Lingue materiali ragazzi:** versione **italiana per tutti** + **bilingue** solo
    per chi serve. Classe 1 = IT/AR/ZH; Classe 3 = IT + bangla. Materiali docente = IT.
-5. **Git — DUE repo:** il **pubblico** `corso-godot` tiene solo materiale
+5. **Git — DUE repo:** il **pubblico** `corso-informatica` (ex `corso-godot`, che
+   resta come redirect; contiene anche i **giochi Godot**) tiene solo materiale
    **condivisibile** (didattica, esperimenti/giochi/siti dei ragazzi): **mai** nomi
    di minori, voti nominali o dati personali. Tutto ciò che è
    **riservato/strategico/personale** (nomi, voti nominali, presenze, anti-plagio,
@@ -90,7 +91,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 
 ## 6. Changelog
 1. **v1.0 (30/09/2026)**: prima versione, per non perdere i riferimenti al compattamento.
-2. **v1.1 (30/09/2026)**: modello a **due repo** (pubblico `corso-godot` + privato
+2. **v1.1 (30/09/2026)**: modello a **due repo** (pubblico `corso-informatica`, ex `corso-godot` + privato
    `corso-informatica-riservato`). I dati riservati (nomi, voti, presenze, anti-plagio,
    strategico, personale) non stanno più solo in scratchpad ma nel repo privato; i
    PDF/ZIP restano rigenerabili. Aggiornati §2.5, §4.5 e §4.6.
