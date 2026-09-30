@@ -167,7 +167,29 @@ e metodologia".*
    della classe nel taglio scelto (tutto l'anno · la giornata di oggi · una sola esercitazione).
 5. **CLASSE** `classe` `[data]` — (ri)genera il libro di classe (tipo B), tutto o per una data.
 6. **MANUALE** `argomento/paragrafo` — aggiungi o migliora un paragrafo nella fonte unica → rigenera il libro totale (bump versione).
-7. **STATO** — mostrami la base dati ad albero aggiornata (cosa c'è, cosa manca, coperture).
+7. **INCREMENTALE** `classe` — aggiorna/genera la scheda incrementale insegnante (tutte le lezioni × voti + note + cose non capite).
+8. **GIORNATA** `classe` — genera la scheda complessiva per giornata (unione delle schede di ogni lavoro del giorno).
+9. **CHIUDI** `classe` — a fine giornata fa **tutto in cascata**: SVOLTO → VOTA (compiti del giorno) → REPORT → GIORNATA → LIBRI oggi → INCREMENTALE → STATO.
+10. **STATO** — mostrami la base dati ad albero aggiornata (cosa c'è, cosa manca, coperture).
+
+### 09.2b Tabella: quale documento → quale comando
+
+| Documento | Comando | Cosa contiene | Visibilità |
+|---|---|---|---|
+| Manuale / libro totale (A) | `MANUALE argomento/paragrafo` | tutto: 3 livelli d'albero × 3 profondità | pubblico |
+| Libro di classe (B) | `CLASSE classe [data]` | teoria + esercitazione per data, senza nomi | pubblico |
+| Libro individuale complessivo (C) | `LIBRI classe complessivo` | tutte le lezioni ed esercizi dell'allievo | riservato |
+| Libro individuale di oggi (C) | `LIBRI classe oggi` | teoria + esercizi di oggi dell'allievo | riservato |
+| Libro individuale di lezione (C) | `LIBRI classe lezione <slug>` | teoria + l'esercitazione in oggetto | riservato |
+| Griglia completa (per compito) | `VOTA <slug>` | note + cosa non fatto (neretto) + voto | riservato |
+| Scheda complessiva del lavoro (report) | `REPORT <slug>` | indicazioni al ragazzo + note docente + anti-plagio + non fatto/non capito | riservato |
+| Scheda complessiva per giornata | `GIORNATA classe` | unione delle schede del lavoro del giorno | riservato |
+| Scheda incrementale insegnante | `INCREMENTALE classe` | tutte le lezioni × voti + note alta visibilità + cose non capite | riservato |
+| Foto lavagna nei libri | `LAVAGNA classe` | cataloga la foto e la inserisce nei libri per data | pubblico* |
+| Argomenti svolti + firma ore | `SVOLTO` / `FIRMA` | registro svolto + firma programma | misto |
+| Chiusura giornata (cascata) | `CHIUDI classe` | genera in automatico tutto il necessario del giorno | — |
+
+*Lavagna: pubblico se non si leggono nomi, altrimenti riservato.
 
 ### 09.3 Regole comuni ai comandi
 1. Ogni output riservato (coi nomi) esce in **PDF** e non va su Git pubblico.
