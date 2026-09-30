@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash /home/user/corso-godot/.claude/hooks/versiona-tutto.sh",
+            "timeout": 30,
+            "statusMessage": "Controllo che tutto sia versionato (pubblico + privato)..."
+          }
+        ]
+      }
+    ]
+  }
+}
