@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.0** — 30/09/2026
+**Versione 1.1** — 30/09/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -29,9 +29,13 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    Cose da copiare sempre in **blocco di codice** (bottone copia).
 4. **Lingue materiali ragazzi:** versione **italiana per tutti** + **bilingue** solo
    per chi serve. Classe 1 = IT/AR/ZH; Classe 3 = IT + bangla. Materiali docente = IT.
-5. **Git:** committo/verifico **sempre** tutto ciò che **non** contiene nomi. I dati
-   coi **nomi di minori** (presenze, voti nominali, osservazioni) **MAI su Git**: solo
-   scratchpad + PDF consegnati a Nicola.
+5. **Git — DUE repo:** il **pubblico** `corso-godot` tiene solo materiale
+   **condivisibile** (didattica, esperimenti/giochi/siti dei ragazzi): **mai** nomi
+   di minori, voti nominali o dati personali. Tutto ciò che è
+   **riservato/strategico/personale** (nomi, voti nominali, presenze, anti-plagio,
+   dati di rete, cedolini) va nel repo **PRIVATO** `corso-informatica-riservato`
+   (le **fonti** versionate stanno lì). I **PDF/ZIP pesanti** sono **rigenerabili**:
+   NON si versionano (scratchpad + consegna a Nicola).
 6. **Consegne ragazzi:** preferire **un solo Documento Google** (screenshot + testo/codice
    + riflessione), non file .html/ZIP da raccogliere.
 7. **Metodo:** "Vinci subito · Fallo tuo · Mostralo"; passi piccoli, micro-vittorie ogni
@@ -66,8 +70,17 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    individuale, generale, `render_libro.js`).
 3. `REGISTRO-ORE-2026-27.md` — tutte le ore (navigabile per giorno / classe / materia).
 4. `manuale-informatica/` — il Manuale generato.
-5. **Dati riservati** (voti + nomi, per generare i libri individuali): **scratchpad**,
-   NON nel repo.
+5. **Dati riservati** (voti + nomi, anti-plagio, presenze, strategico, personale):
+   nel repo **PRIVATO** `corso-informatica-riservato`, clonato in
+   `/home/user/corso-informatica-riservato`. Struttura: `dati/` (fonte di verità,
+   con `libro-dati-riservato.json` + `anagrafiche/` + `presenze/`), `generatori/`
+   (script che producono output coi nomi), `antiplagio/`, `strategico/` (+ `personale/`,
+   `password/`). I PDF/ZIP si **rigenerano**, non si versionano (`.gitignore`).
+6. **Libri individuali:** generatore **pubblico**
+   `classe-1/libro-individuale/_build/genera_libro_individuale.py` con i dati passati
+   dal privato: `--dati /home/user/corso-informatica-riservato/dati/libro-dati-riservato.json`.
+   La teoria/descrizione compiti (pubblica, senza nomi) viene **infrapposta** al lavoro
+   valutato del singolo (dal privato). Output = PDF in scratchpad, consegnati a Nicola.
 
 ## 5. Aperte (da completare)
 1. **PDF tassonomia dei libri** (naming/logica/descrizioni/operatività) — al "avanti".
@@ -77,3 +90,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 
 ## 6. Changelog
 1. **v1.0 (30/09/2026)**: prima versione, per non perdere i riferimenti al compattamento.
+2. **v1.1 (30/09/2026)**: modello a **due repo** (pubblico `corso-godot` + privato
+   `corso-informatica-riservato`). I dati riservati (nomi, voti, presenze, anti-plagio,
+   strategico, personale) non stanno più solo in scratchpad ma nel repo privato; i
+   PDF/ZIP restano rigenerabili. Aggiornati §2.5, §4.5 e §4.6.
