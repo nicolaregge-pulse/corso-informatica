@@ -139,7 +139,9 @@ e metodologia".*
 3. **Scheda incrementale insegnante** (per classe, **cumulativa**): **tutte le lezioni ×
    tutti i voti** della classe (righe = allievi, colonne = lezioni/compiti), che si accumula
    nel tempo, con **qualche nota di alta visibilità** — i pochi segnali importanti da vedere
-   subito (chi recuperare, anti-plagio, assenze che pesano). È il "quadro d'insieme" del docente.
+   subito (chi recuperare, anti-plagio, assenze che pesano) — **e le cose poco chiare o non
+   capite** (accumulate dalle riflessioni dei ragazzi), così il docente vede a colpo d'occhio,
+   a livello di classe, cosa resta da chiarire. È il "quadro d'insieme" del docente.
 
 ## 09 Comandi / parole chiave (durante o a fine ore)
 
