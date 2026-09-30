@@ -153,7 +153,7 @@ def blocco_personale(u_id, dati_unita, tipo="compito"):
     v=dati_unita.get("valutazione")
     if v:
         lc=LIV_COL.get(v["livello"],"#3f7fbf")
-        h.append('<h4>La valutazione del prof</h4>')
+        h.append('<h4>Valutazione</h4>')
         h.append(f'<div class="valu"><div class="vhead"><span>Livello: {v["livello"]}</span><span>Voto: {v["voto"]}/10</span></div><table class="crit">')
         etich={"comp":"Completezza","prezzi":"Prezzi e totale","senso":"Scelte sensate","cura":"Cura e ordine","plagio":"Originalità (anti-plagio)","screen":"Screenshot","trascr":"Trascrizione","copia":"Copia-incolla","consegna":"Consegna","rifl":"Riflessione"}
         for k,val in v.get("crit",{}).items():
