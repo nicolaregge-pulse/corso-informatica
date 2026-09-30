@@ -8,6 +8,9 @@ macro: Strumenti digitali e Intelligenza Artificiale
 contenuto: Screenshot, copia-incolla, trascrizione testo con Gemini, cenni Google Lens
 tipo: compito
 materiale: cattura-copia-trascrivi
+argomento: cattura-schermo
+livelli: 1,2
+approfondimento_livelli: 3
 ---
 
 ## Teoria

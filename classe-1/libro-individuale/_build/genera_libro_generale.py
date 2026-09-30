@@ -7,13 +7,13 @@ pubblicabile su Git. Riusa gli stessi mattoni del generatore individuale.
 Uso: python3 genera_libro_generale.py [--out <file.pdf>] [--render <render_libro.js>]
 """
 import os, html, argparse, subprocess
-from genera_libro_individuale import leggi_manifesto, leggi_unita, md_liste_to_html, CSS
+from genera_libro_individuale import leggi_manifesto, leggi_unita, md_liste_to_html, costruisci_teoria, CSS
 
 def genera(out_pdf, render_js=None):
     parts=[]
     for u in leggi_manifesto():
         fm,sez=leggi_unita(u["file"])
-        teoria=md_liste_to_html(sez.get("Teoria",""))
+        teoria,approf,imgs=costruisci_teoria(fm,sez)
         compito=md_liste_to_html(sez.get("Il compito",""))
         criteri=md_liste_to_html(sez.get("Criteri di valutazione",""))
         macro=html.escape(fm.get("macro","")); materia=html.escape(fm.get("materia",""))
@@ -25,7 +25,7 @@ def genera(out_pdf, render_js=None):
 <div class="cont">Contenuto: {contenuto}</div>
 </div>'''
         parts.append(f'''{band}
-<h3>La teoria</h3><div class="box">{teoria}</div>
+<h3>La teoria</h3><div class="box">{teoria}</div>{imgs}{approf}
 <h3>Il compito</h3><div class="box">{compito}</div>
 <h3>Criteri di valutazione</h3><div class="box">{criteri}</div>''')
     doc=f'''<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>{CSS}</style></head><body>

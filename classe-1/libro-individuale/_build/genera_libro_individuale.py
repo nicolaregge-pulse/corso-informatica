@@ -13,9 +13,33 @@ Uso:
 - Il generatore e i file 'unita/' NON contengono nomi (stanno su Git).
 - I dati riservati (con i nomi) restano nello scratchpad, MAI su Git.
 """
-import os, re, json, argparse, html, subprocess, sys
+import os, re, json, argparse, html, subprocess, sys, base64
 
 BASE=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # cartella libro-individuale
+REPO=os.path.dirname(os.path.dirname(BASE))                       # radice del repo
+LIVMAP={"1":"Livello 1 (base)","2":"Livello 2 (intermedio)","3":"Livello 3 (avanzato)"}
+
+def leggi_argomento(slug):
+    p=os.path.join(REPO,"argomenti",slug+".md")
+    if not os.path.exists(p): return {},{}
+    txt=open(p,encoding="utf-8").read(); fm={}; body=txt
+    m=re.match(r'^---\n(.*?)\n---\n',txt,re.S)
+    if m:
+        for line in m.group(1).splitlines():
+            if ':' in line: k,v=line.split(':',1); fm[k.strip()]=v.strip()
+        body=txt[m.end():]
+    sez={}; parts=re.split(r'^##\s+(.+)$',body,flags=re.M)
+    for i in range(1,len(parts),2): sez[parts[i].strip()]=parts[i+1].strip()
+    return fm,sez
+
+def _img_html(fm):
+    out=[]
+    for rel in [x.strip() for x in fm.get("immagini","").split("|") if x.strip()]:
+        p=os.path.join(REPO,rel)
+        if os.path.exists(p):
+            b=base64.b64encode(open(p,"rb").read()).decode()
+            out.append(f'<div class="fig"><img src="data:image/png;base64,{b}"></div>')
+    return "".join(out)
 
 def leggi_manifesto():
     txt=open(os.path.join(BASE,"manifesto.md"),encoding="utf-8").read()
@@ -83,6 +107,32 @@ def md_liste_to_html(md):
                 out.append(f'<p>{t}</p>')
     close_to(-1)
     return "\n".join(out)
+
+def costruisci_teoria(fm, sez):
+    """Ritorna (teoria_html, approfondimento_html, immagini_html).
+    Se l'unita punta a un ARGOMENTO (fonte unica), tira i livelli 'svolti' come
+    core e gli altri livelli richiesti come Approfondimento (riquadro distinto).
+    Altrimenti usa la Teoria scritta nell'unita stessa."""
+    arg=fm.get("argomento","").strip()
+    if arg:
+        afm,asez=leggi_argomento(arg)
+        core=[x.strip() for x in fm.get("livelli","1,2,3").split(",") if x.strip()]
+        appr=[x.strip() for x in fm.get("approfondimento_livelli","").split(",") if x.strip()]
+        def liv(nums):
+            h=[]
+            for n in nums:
+                key=LIVMAP.get(n)
+                if key and key in asez:
+                    h.append(md_liste_to_html(asez[key]))
+            return "".join(h)
+        teoria=liv(core)
+        approf=""
+        if appr:
+            approf=(f'<div class="approf"><div class="approf-tag">Approfondimento</div>'
+                    f'<div class="approf-note">Fatto meglio in altre classi / extra utile.</div>'
+                    f'{liv(appr)}</div>')
+        return teoria, approf, _img_html(afm)
+    return md_liste_to_html(sez.get("Teoria","")), "", _img_html(fm)
 
 LIV_COL={"Ottimo":"#2f9e57","Buono":"#3f7fbf","Sufficiente":"#d0a516","Da rivedere":"#c0392b"}
 MARK={"ok":("●","#2f9e57","Soddisfatto"),"parz":("◑","#d0a516","Parziale"),"no":("○","#c0392b","Mancante")}
@@ -155,6 +205,10 @@ td.cl{width:26%;font-weight:bold;color:#12467a}td.cm{width:24%;font-weight:bold}
 .rifl h4{color:#a6810a;margin:0 0 2mm}.rifl .q{font-weight:bold;color:#7a5c00;margin-top:2mm}
 .rifl .a{margin:0 0 2mm}.rifl .empty{color:#b08a1a;font-style:italic}
 .mancante{background:#f4f6f8;border:1px dashed #b7c4d0;color:#6a7a88;border-radius:6px;padding:3mm 4mm;font-style:italic}
+.approf{background:#f2ebf7;border:1.5px solid #8e44ad;border-radius:8px;padding:0 4mm 3mm;margin:3mm 0}
+.approf .approf-tag{display:inline-block;background:#8e44ad;color:#fff;font-size:9pt;font-weight:bold;padding:1mm 3.5mm;border-radius:0 0 6px 6px;margin-bottom:1mm}
+.approf .approf-note{color:#6b3a8c;font-size:9pt;font-style:italic;margin:0 0 1mm}
+.fig{text-align:center;margin:3mm 0}.fig img{max-width:78%;border:1px solid #e0e6ec;border-radius:6px}
 '''
 
 def genera(dati_path, slug, out_pdf, render_js=None):
@@ -165,7 +219,7 @@ def genera(dati_path, slug, out_pdf, render_js=None):
     parts=[]
     for u in unita_list:
         fm,sez=leggi_unita(u["file"])
-        teoria=md_liste_to_html(sez.get("Teoria",""))
+        teoria,approf,imgs=costruisci_teoria(fm,sez)
         compito=md_liste_to_html(sez.get("Il compito",""))
         pers=blocco_personale(u["id"], per_unita.get(u["slug"]), fm.get("tipo","compito"))
         macro=html.escape(fm.get("macro","")); materia=html.escape(fm.get("materia",""))
@@ -177,7 +231,7 @@ def genera(dati_path, slug, out_pdf, render_js=None):
 <div class="cont">Contenuto: {contenuto}</div>
 </div>'''
         parts.append(f'''{band}
-<h3>La teoria — cosa abbiamo imparato</h3><div class="box">{teoria}</div>
+<h3>La teoria — cosa abbiamo imparato</h3><div class="box">{teoria}</div>{imgs}{approf}
 <h3>Il compito — la consegna</h3><div class="box">{compito}</div>
 <h3>Il mio lavoro e la valutazione</h3>{pers}''')
     doc=f'''<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>{CSS}</style></head><body>
