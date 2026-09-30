@@ -36,6 +36,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    + riflessione), non file .html/ZIP da raccogliere.
 7. **Metodo:** "Vinci subito · Fallo tuo · Mostralo"; passi piccoli, micro-vittorie ogni
    15-20 min; niente 3 ore di fila sullo stesso compito (spezzare, "mostralo" al compagno).
+8. **GIT come archivio e struttura (regola):** usare Git per **archiviare i materiali** e
+   costruire **strutture logiche riusabili** (fonti uniche `argomenti/`, generatori, indici,
+   registro, file di riferimento) così da **non perdere lavoro** col compattamento e
+   **ottimizzare i tempi di Claude**. Preferire sempre strutture Git-backed a file effimeri;
+   i dati **riservati** (nomi di minori) restano comunque fuori da Git (scratchpad + PDF).
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
