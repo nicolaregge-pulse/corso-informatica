@@ -211,11 +211,11 @@ td.cl{width:26%;font-weight:bold;color:#12467a}td.cm{width:24%;font-weight:bold}
 .fig{text-align:center;margin:3mm 0}.fig img{max-width:78%;border:1px solid #e0e6ec;border-radius:6px}
 '''
 
-def genera(dati_path, slug, out_pdf, render_js=None):
+def genera(dati_path, slug, out_pdf, render_js=None, giornata=None):
     dati=json.load(open(dati_path,encoding="utf-8"))
     if slug not in dati: sys.exit(f"Allievo '{slug}' non trovato nei dati riservati.")
     allievo=dati[slug]; nome=allievo["nome"]; per_unita=allievo.get("unita",{})
-    unita_list=leggi_manifesto()
+    unita_list=[u for u in leggi_manifesto() if (not giornata or u["data"]==giornata)]
     parts=[]
     for u in unita_list:
         fm,sez=leggi_unita(u["file"])
@@ -253,6 +253,7 @@ if __name__=="__main__":
     ap=argparse.ArgumentParser()
     ap.add_argument("--dati",required=True); ap.add_argument("--allievo",required=True)
     ap.add_argument("--out",default=None); ap.add_argument("--render",default=None)
+    ap.add_argument("--giornata",default=None,help="filtra a una sola data YYYY-MM-DD (libro della giornata)")
     a=ap.parse_args()
     out=a.out or f"/tmp/{a.allievo}_libro-individuale.pdf"
-    genera(a.dati,a.allievo,out,a.render)
+    genera(a.dati,a.allievo,out,a.render,a.giornata)
