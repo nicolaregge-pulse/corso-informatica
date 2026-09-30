@@ -1,6 +1,6 @@
 # Regole di Formattazione dei Documenti
 
-**Versione 1.3** — 16/08/2026
+**Versione 1.4** — 30/09/2026
 *Standard unico di formattazione. Vale per TUTTI i documenti del corso, presenti e
 futuri. Adattato al corso: la fonte di verita e decisa da Nicola (nessun ruolo di
 soggetti esterni).*
@@ -69,6 +69,13 @@ parentesi quadre: `> [ROSSO] ...`, `> [BLU] ...`, `> [GIALLO] ...`.
 
 ## 11. Regola per la comunicazione all'utente (chat e guide)
 1. REGOLA 0 (assoluta): tutto cio che l'utente deve copiare (comandi, URL, email, valori) va in un blocco di codice (col bottone "copia"), mai in linea ne in citazione.
+
+## 12. Header e footer (orientamento del lettore)
+1. Ogni documento didattico impaginato (dispense, libri, schede) usa **header e footer di pagina** per dare al lettore, a colpo d'occhio, il contesto.
+2. **Footer di pagina** (su tutte le pagine): a sinistra il contesto (corso/nome del documento o dell'allievo), a destra il **numero di pagina** ("pag. X di Y"). Per i documenti riservati, il footer riporta anche "RISERVATO — non pubblicare".
+3. **Header di pagina** (su tutte le pagine): a sinistra il titolo del documento (o "nome allievo" per i libri individuali), a destra classe e anno scolastico.
+4. **Nei libri/raccolte per lezione**, all'inizio di ogni unità va una **banda di orientamento** che riporta, in quest'ordine: **macro-argomento**, **argomento** (titolo dell'unità), **materia**, **data della lezione**, **orario indicativo**, **contenuto** (una riga di sintesi). Serve a far capire subito di che giornata e di che tema si tratta.
+5. La banda per-unita sta nel contenuto (cambia a ogni unita); header e footer di pagina restano costanti su tutte le pagine.
 
 ---
 

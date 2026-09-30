@@ -41,9 +41,23 @@ def leggi_unita(relpath):
         sez[parts[i].strip()]=parts[i+1].strip()
     return fm, sez
 
+def _unisci_continuazioni(md):
+    """Unisce le righe 'a capo' (continuazioni) alla voce di lista precedente,
+    così un elenco spezzato su piu righe resta un unico <li> numerato bene."""
+    res=[]
+    for ln in md.splitlines():
+        if re.match(r'^\s*\d+\.\s', ln) or ln.strip()=='':
+            res.append(ln)
+        else:
+            if res and res[-1].strip()!='' and re.match(r'^\s*\d+\.\s', res[-1]):
+                res[-1]=res[-1].rstrip()+' '+ln.strip()
+            else:
+                res.append(ln)
+    return res
+
 def md_liste_to_html(md):
     """Converte le liste numerate (anche annidate con indentazione) in <ol>."""
-    lines=md.splitlines()
+    lines=_unisci_continuazioni(md)
     out=[]; stack=[]  # stack di (indent)
     def close_to(indent):
         while stack and stack[-1]>indent:
@@ -112,8 +126,13 @@ body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a1a1a;font-size:11pt;lin
 .cover h1{font-size:24pt;margin:0 0 3mm}.cover .who{font-size:17pt;font-weight:bold;margin:6mm 0 1mm}.cover .meta{font-size:12pt;opacity:.92}
 .riserv{background:#fdecea;border:1px solid #e0b4ae;color:#8a2a1c;padding:1.5mm 3mm;border-radius:4px;font-size:8.5pt;margin-bottom:5mm;text-align:center}
 .intro{background:#eef4fb;border:1px solid #cfe0f0;border-radius:6px;padding:4mm 5mm;font-size:10pt;color:#33475b;margin-bottom:6mm}
-h2.unit{color:#12467a;font-size:16pt;border-bottom:3px solid #12467a;padding-bottom:2mm;margin:9mm 0 4mm;page-break-before:always}
-h2.unit:first-of-type{page-break-before:avoid}
+.unit-band{page-break-before:always;margin:0 0 4mm;border:1px solid #cfe0f0;border-radius:8px;overflow:hidden}
+.unit-band:first-of-type{page-break-before:avoid}
+.unit-band .macro{background:#12467a;color:#fff;font-size:9pt;letter-spacing:.5px;padding:1.5mm 4mm;text-transform:uppercase}
+.unit-band .titolo{font-size:15pt;font-weight:bold;color:#12467a;padding:3mm 4mm 1mm}
+.unit-band .meta{padding:0 4mm 1mm;color:#33475b;font-size:9.5pt}
+.unit-band .meta b{color:#12467a}
+.unit-band .cont{padding:0 4mm 3mm;color:#5a6b7b;font-size:9.5pt;font-style:italic}
 h3{color:#12467a;font-size:12.5pt;margin:6mm 0 2mm;padding-left:3mm;border-left:5px solid #2b7cc4}
 h4{color:#12467a;font-size:12pt;margin:5mm 0 2mm}
 .tag{display:inline-block;background:#2b7cc4;color:#fff;font-size:8.5pt;padding:0.5mm 3mm;border-radius:10px;vertical-align:middle;margin-left:3mm}
@@ -144,7 +163,15 @@ def genera(dati_path, slug, out_pdf, render_js=None):
         teoria=md_liste_to_html(sez.get("Teoria",""))
         compito=md_liste_to_html(sez.get("Il compito",""))
         pers=blocco_personale(u["id"], per_unita.get(u["id"]))
-        parts.append(f'''<h2 class="unit">Lezione del {u["data"]} — {html.escape(u["titolo"])}<span class="tag">Unità {u["id"]}</span></h2>
+        macro=html.escape(fm.get("macro","")); materia=html.escape(fm.get("materia",""))
+        orario=html.escape(fm.get("orario","")); contenuto=html.escape(fm.get("contenuto",""))
+        band=f'''<div class="unit-band">
+<div class="macro">{macro}</div>
+<div class="titolo">Unità {u["id"]} — {html.escape(u["titolo"])}</div>
+<div class="meta"><b>Materia:</b> {materia} &nbsp;·&nbsp; <b>Data lezione:</b> {u["data"]} &nbsp;·&nbsp; <b>Orario:</b> {orario}</div>
+<div class="cont">Contenuto: {contenuto}</div>
+</div>'''
+        parts.append(f'''{band}
 <h3>La teoria — cosa abbiamo imparato</h3><div class="box">{teoria}</div>
 <h3>Il compito — la consegna</h3><div class="box">{compito}</div>
 <h3>Il mio lavoro e la valutazione</h3>{pers}''')
@@ -158,7 +185,7 @@ def genera(dati_path, slug, out_pdf, render_js=None):
     html_path=os.path.splitext(out_pdf)[0]+".html"
     open(html_path,"w",encoding="utf-8").write(doc)
     if render_js:
-        subprocess.run(["node",render_js,html_path,out_pdf],check=True)
+        subprocess.run(["node",render_js,html_path,out_pdf,nome],check=True)
         print("PDF:",out_pdf)
     else:
         print("HTML:",html_path,"(render con render_generic.js per il PDF)")
