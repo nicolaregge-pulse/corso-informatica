@@ -85,9 +85,12 @@ def md_liste_to_html(md):
 LIV_COL={"Ottimo":"#2f9e57","Buono":"#3f7fbf","Sufficiente":"#d0a516","Da rivedere":"#c0392b"}
 MARK={"ok":("●","#2f9e57","Soddisfatto"),"parz":("◑","#d0a516","Parziale"),"no":("○","#c0392b","Mancante")}
 
-def blocco_personale(u_id, dati_unita):
+def blocco_personale(u_id, dati_unita, tipo="compito"):
     """Genera Il mio lavoro + Valutazione + Riflessione, o un segnaposto se mancano."""
     if not dati_unita:
+        if tipo in ("aula","laboratorio"):
+            return ('<div class="mancante">Attività svolta in classe (senza una '
+                    'consegna individuale su Classroom).</div>')
         return ('<div class="mancante">Consegna di questa lezione non ancora inserita '
                 '(da recuperare da Classroom).</div>')
     h=[]
@@ -162,7 +165,7 @@ def genera(dati_path, slug, out_pdf, render_js=None):
         fm,sez=leggi_unita(u["file"])
         teoria=md_liste_to_html(sez.get("Teoria",""))
         compito=md_liste_to_html(sez.get("Il compito",""))
-        pers=blocco_personale(u["id"], per_unita.get(u["id"]))
+        pers=blocco_personale(u["id"], per_unita.get(u["id"]), fm.get("tipo","compito"))
         macro=html.escape(fm.get("macro","")); materia=html.escape(fm.get("materia",""))
         orario=html.escape(fm.get("orario","")); contenuto=html.escape(fm.get("contenuto",""))
         band=f'''<div class="unit-band">
