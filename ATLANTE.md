@@ -142,6 +142,9 @@ e metodologia".*
    subito (chi recuperare, anti-plagio, assenze che pesano) — **e le cose poco chiare o non
    capite** (accumulate dalle riflessioni dei ragazzi), così il docente vede a colpo d'occhio,
    a livello di classe, cosa resta da chiarire. È il "quadro d'insieme" del docente.
+4. **Scheda complessiva per giornata**: l'**insieme delle schede complessive del lavoro**
+   (punto 2) di **tutti** i compiti svolti quel giorno — il riepilogo completo della giornata
+   per il docente (se il giorno ha un solo compito, coincide con la sua scheda del lavoro).
 
 ## 09 Comandi / parole chiave (durante o a fine ore)
 
