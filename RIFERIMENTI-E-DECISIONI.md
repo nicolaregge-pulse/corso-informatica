@@ -50,6 +50,17 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    tutte le note + cosa NON ha fatto in **neretto** + voto; (b) **griglia incrementale** —
    solo info principali, **una colonna per compito** che si accumula nel tempo. Vale per
    tutte le classi. Entrambe RISERVATE (nomi) → PDF a Nicola, mai su Git.
+10. **REPORT COMPLESSIVO del compito (regola, 30/09/2026).** Per ogni compito, oltre alle
+    due griglie, si produce un **report complessivo** (RISERVATO → PDF) che contiene SEMPRE,
+    in un unico documento, queste 4 parti:
+    1. **Dettaglio per allievo** = tutto ciò che è stato dato al ragazzo (il suo lavoro +
+       la sua valutazione con le note).
+    2. **Le mie impressioni** (di Claude): lettura d'insieme della classe, chi va bene, chi
+       recuperare, segnali.
+    3. **Anti-plagio:** copiature, uso dichiarato/sospetto di IA, account condivisi,
+       tentativi di pilotare il voto.
+    4. **Indicazioni dei ragazzi:** sintesi analizzata delle loro riflessioni — temi svolti
+       poco o **non capiti**, richieste, difficoltà ricorrenti (dove intervenire).
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
