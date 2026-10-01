@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.4** — 01/10/2026
+**Versione 1.5** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -22,6 +22,10 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    (con i parametri di accesso):
    `https://sites.google.com/piamarta.it/formazionesicurezzamilano?pli=1&authuser=0`
    (senza `?pli=1&authuser=0` a Nicola non si apriva).
+   **PROMEMORIA (da ricordare a Nicola ogni volta che serve questo link):** su alcune
+   postazioni Nicola è loggato con l'**account PERSONALE** → il sito non si apre. Deve
+   passare all'**account scuola** `@piamarta.it` (in alto a destra, scelta account). Idem
+   per i ragazzi: devono essere su `@studenti.piamarta.it`.
 9. **Portale AFGP Piamarta:** `https://piamarta.afgp.it/`
 
 ## 2. Convenzioni durature
@@ -133,6 +137,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    entrano sempre nel **report complessivo** del compito.
 5. **v1.4 (01/10/2026)**: §1 punti 8-9 — salvato il **link Piamarta "Formazione sicurezza"**
    che funziona (coi parametri `?pli=1&authuser=0`) + portale AFGP, per non perderli.
+6. **v1.5 (01/10/2026)**: §1 punto 8 — promemoria **account personale vs scuola**: su alcune
+   postazioni Nicola è loggato col personale e il sito sicurezza non si apre; ricordargli di
+   passare all'account `@piamarta.it` (ragazzi: `@studenti.piamarta.it`).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
