@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.0** — 01/10/2026
+**Versione 1.1** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -52,6 +52,21 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
    - Correzione: nel libro va tutto ciò che riguarda **lui** (lavoro, valutazione AI, come ha
      lavorato/monitoraggio su di lui, anti-plagio su di lui), **tranne** le indicazioni
      specifiche per il docente (prossimo passo, strategia di recupero).
+
+8. **Password casuali che cambiano a ogni rigenerazione.**
+   - Cosa: avevo generato le password dei libri in modo **casuale**; rigenerando lo zip (per
+     un'altra correzione) sono cambiate, diverse da quelle già consegnate agli allievi.
+   - Perché è sbagliato: una password consegnata deve restare **stabile** per sempre.
+   - Correzione: password **fisse** (hardcoded) nel generatore; non cambiano più a nessuna
+     rigenerazione.
+
+9. **Password messa anche sui documenti del docente.**
+   - Cosa: avevo cifrato anche griglie/report del docente. Nicola non deve sbloccare i propri
+     documenti.
+   - Perché è sbagliato: la password serve solo a separare i libri tra allievi; i documenti del
+     docente li legge lui, devono essere **aperti**.
+   - Correzione: cifratura **solo** sui libri degli allievi; documenti docente aperti (incluso
+     il foglio riepilogo password).
 
 ---
 
