@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.7** — 01/10/2026
+**Versione 1.8** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -96,6 +96,21 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     totali consegnate sono accompagnate dal quadro di chi ha lavorato / chi era fuori task /
     difficoltà viste al monitoraggio. Tutto RISERVATO (nomi) → repo privato / PDF a Nicola.
 
+14. **CHIUDI — impacchettamento a prova di privacy (regola, 01/10/2026).** La cascata CHIUDI
+    produce due insiemi SEPARATI: (a) **file PER GLI ALLIEVI** = i **libri individuali, uno per
+    file**, ciascuno col **solo** lavoro del singolo (nessun nome/voto altrui) → si consegnano
+    **uno a uno** (ognuno riceve solo il suo); (b) file **SOLO DOCENTE** = griglia completa,
+    report monitoraggio con nomi, incrementale. **MAI** un unico ZIP con tutti gli allievi
+    insieme destinato alla consegna, e **MAI** mettere i documenti docente nello stesso
+    pacchetto che può arrivare ai ragazzi. "Libro individuale" = del singolo, per lui.
+
+15. **Mai attribuire valutazioni che il docente non ha dato (regola, 01/10/2026).** Nei file
+    destinati agli allievi (libri individuali) **non** si mette una sezione "Valutazione del
+    docente", né voti, né "prima lettura" automatica: il docente valuta lui, quando vuole. Le
+    osservazioni automatiche (euristiche di lettura, segnali) stanno **solo** nei documenti
+    **docente** (griglia), mai nel file dell'allievo. Il libro individuale contiene **solo** il
+    lavoro dell'allievo + la teoria; lo spazio voto resta **vuoto** finché non lo compila Nicola.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -160,6 +175,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    privato, documento che cresce nel tempo).
 8. **v1.7 (01/10/2026)**: §2 punto 13 — **griglie totali ⇒ sempre anche il Report di
    monitoraggio allievi** (fa parte dell'andamento dell'ora).
+9. **v1.8 (01/10/2026)**: §2 punti 14-15 (dopo errori su CHIUDI 2INF): **14** CHIUDI impacchetta
+   a prova di privacy (file per allievo separati + documenti docente a parte, mai tutto in un
+   unico pacchetto consegnabile); **15** mai attribuire al docente valutazioni/voti/"prima
+   lettura" che non ha dato — nei libri degli allievi niente "Valutazione del docente", lo
+   spazio voto resta vuoto finché non lo compila Nicola.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
