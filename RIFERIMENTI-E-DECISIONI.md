@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.2** — 01/10/2026
+**Versione 1.3** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -61,6 +61,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
        tentativi di pilotare il voto.
     4. **Indicazioni dei ragazzi:** sintesi analizzata delle loro riflessioni — temi svolti
        poco o **non capiti**, richieste, difficoltà ricorrenti (dove intervenire).
+    5. **Segnalazioni:** anomalie viste nel **monitoraggio** o in classe — presenza di un
+       allievo **non di quella classe**, comportamenti, problemi tecnici — da riportare nel report.
 11. **Doc già su Classroom = congelati (regola, 01/10/2026).** Se Nicola dice cose che
     modificherebbero un documento **già pubblicato/consegnato su Classroom**, Claude **NON
     lo rifà in automatico**: ne tiene solo **traccia** nell'elenco "Correzioni in sospeso"
@@ -121,6 +123,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 3. **v1.2 (01/10/2026)**: §2.11 — i doc **già su Classroom** non si rifanno in automatico
    (solo traccia in §7, correzioni su richiesta; eccezione se grave, col suo costo). Aggiunta
    la sezione §7 "Correzioni in sospeso".
+4. **v1.3 (01/10/2026)**: §2.10 punto 5 — **Segnalazioni**: le anomalie viste nel
+   monitoraggio o in classe (allievo non di quella classe, comportamenti, problemi tecnici)
+   entrano sempre nel **report complessivo** del compito.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
