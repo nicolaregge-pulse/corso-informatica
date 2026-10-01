@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.3** — 01/10/2026
+**Versione 1.4** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -83,6 +83,15 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
       report del fatto.
     - Correzione: **sempre** prima il report "lezioni precedenti" (dal registro svolti), poi le
       proposte. → RIFERIMENTI §2.16.
+
+12. **Introdotto un argomento NON spiegato in classe (direzione inversa).**
+    - Cosa: nella dispensa bit/byte ho aggiunto **decimale→binario**, mentre in classe (lavagna)
+      si era fatto **solo binario→decimale**. Può confondere i ragazzi.
+    - Perché è sbagliato: il materiale deve seguire la lezione reale; introdurre argomenti nuovi
+      di mia iniziativa non va bene ("se Nicola avesse voluto, lo avrebbe fatto alla lavagna").
+    - Correzione: **integrare** sì, **introdurre argomenti nuovi** solo dopo **confronto**; nel
+      dubbio chiedo. Inoltre: la **foto della lavagna** va dentro la dispensa di teoria.
+      → RIFERIMENTI §2.17, §2.18, §7.
 
 ---
 

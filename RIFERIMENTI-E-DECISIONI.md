@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.1** — 01/10/2026
+**Versione 2.2** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -123,6 +123,18 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     propone i prossimi argomenti (coerenti col calendario/moduli). Se il registro è indietro,
     lo si segnala e si chiede conferma per aggiornarlo.
 
+17. **Integrare sì, introdurre argomenti nuovi solo dopo confronto (regola, 01/10/2026).**
+    Distinzione chiave: **integrare/arricchire** ciò che Nicola ha spiegato (esempi in più,
+    chiarimenti, immagini) è **apprezzato** e si fa. **Introdurre argomenti o direzioni NUOVI**
+    non trattati (es. decimale→binario quando in classe si è fatto solo binario→decimale) **NON**
+    si fa di propria iniziativa: ci si **confronta prima** con Nicola. La **lavagna** è il
+    riferimento di cosa è stato spiegato. Regola generale: **nel dubbio, chiedi.**
+
+18. **La foto della lavagna va DENTRO la dispensa di teoria (regola, 01/10/2026).** La teoria
+    deve contenere la **foto della lavagna** della lezione: è la lezione vera, con le parole e i
+    disegni del docente, e aiuta i ragazzi a fissare e a riconoscere ciò che hanno visto in
+    classe. Vale per ogni dispensa/scheda (foto ritagliata senza nomi se pubblica).
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -204,9 +216,18 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 12. **v2.1 (01/10/2026)**: §2 punto 16 — **report "lezioni precedenti" sempre prima di proporre
     argomenti** (dal registro svolti). Fissato dopo l'errore di aver proposto argomenti senza
     prima dare il quadro dello svolto (vedi REGISTRO-ERRORI).
+13. **v2.2 (01/10/2026)**: §2 punti 17-18 + §7 — **17** integrare sì, introdurre argomenti nuovi
+    solo dopo confronto ("nel dubbio chiedi"); **18** la **foto della lavagna va dentro la
+    dispensa di teoria**; §7 — corr. in sospeso sulla dispensa bit/byte (due direzioni, da
+    separare). Dopo i rilievi di Nicola sulla dispensa bit/byte.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
 applicano in automatico. Si applicano solo quando Nicola lo dice; poi si tolgono da qui e si
 bumpa la versione del doc.*
-1. (nessuna al momento)
+1. **Dispensa "Bit, byte e numeri binari" (Classe 1, 01/10/2026):** contiene **tutte e due le
+   direzioni** (binario→decimale e decimale→binario, sez. 7). Scelta didattica di Nicola: fare
+   **prima solo binario→decimale**, l'altra direzione dopo → avere entrambe nello stesso foglio
+   può confondere. **NON si rifà ora** (il file è già in mano ai ragazzi). Alla **prossima
+   versione**: separare — dispensa A solo binario→decimale, dispensa B decimale→binario.
+   Il **compito** (non ancora pubblicato) si fa invece **su una sola direzione: binario→decimale**.
