@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.8** — 01/10/2026
+**Versione 1.9** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -104,12 +104,14 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     insieme destinato alla consegna, e **MAI** mettere i documenti docente nello stesso
     pacchetto che può arrivare ai ragazzi. "Libro individuale" = del singolo, per lui.
 
-15. **Mai attribuire valutazioni che il docente non ha dato (regola, 01/10/2026).** Nei file
-    destinati agli allievi (libri individuali) **non** si mette una sezione "Valutazione del
-    docente", né voti, né "prima lettura" automatica: il docente valuta lui, quando vuole. Le
-    osservazioni automatiche (euristiche di lettura, segnali) stanno **solo** nei documenti
-    **docente** (griglia), mai nel file dell'allievo. Il libro individuale contiene **solo** il
-    lavoro dell'allievo + la teoria; lo spazio voto resta **vuoto** finché non lo compila Nicola.
+15. **Valutazione = "dell'AI", mai spacciata per quella del docente (regola, 01/10/2026,
+    corretta).** L'AI (Claude/"SBIRRO") **DÀ** voto, giudizio e tutto ciò che è utile dire al
+    ragazzo, **ma** la sezione va intitolata **"Valutazione dell'AI"** (o "dell'assistente"),
+    **mai** "Valutazione del docente": Nicola non li ha valutati lui. La valutazione dell'AI è
+    uno **strumento di supporto** che il docente può confermare, correggere o sovrascrivere
+    quando vuole. Nel libro dell'allievo quindi **ci sono** voto e giudizio, chiaramente marcati
+    come dell'AI. (Prima avevo tolto la valutazione: era sbagliato; va messa, solo attribuita
+    correttamente.)
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -180,6 +182,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    unico pacchetto consegnabile); **15** mai attribuire al docente valutazioni/voti/"prima
    lettura" che non ha dato — nei libri degli allievi niente "Valutazione del docente", lo
    spazio voto resta vuoto finché non lo compila Nicola.
+10. **v1.9 (01/10/2026)**: §2 punto 15 **corretto** — l'AI **DÀ** voto e giudizio (utili al
+    ragazzo), ma la sezione si intitola **"Valutazione dell'AI"**, mai "del docente". Prima
+    avevo tolto la valutazione: era sbagliato; va messa, solo attribuita all'AI. Standard del
+    compito allineato alla Classe 3: 5 documenti docente (scheda valutazione, dossier evidenze
+    col testo reale, report complessivo con anti-plagio + indicazioni ragazzi + segnalazioni,
+    griglia, incrementale), voti in **scala /10** come proposta dell'AI.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
