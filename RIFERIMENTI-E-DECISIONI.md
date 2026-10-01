@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.9** — 01/10/2026
+**Versione 2.0** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -44,8 +44,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    di minori, voti nominali o dati personali. Tutto ciò che è
    **riservato/strategico/personale** (nomi, voti nominali, presenze, anti-plagio,
    dati di rete, cedolini) va nel repo **PRIVATO** `corso-informatica-riservato`
-   (le **fonti** versionate stanno lì). I **PDF/ZIP pesanti** sono **rigenerabili**:
-   NON si versionano (scratchpad + consegna a Nicola).
+   (le **fonti** versionate stanno lì). I **PDF/ZIP pesanti intermedi** sono **rigenerabili**:
+   NON si versionano (scratchpad + consegna a Nicola). **ECCEZIONE:** il **deliverable finale
+   di chiusura** (lo ZIP di `CHIUDI classe`) si **archivia nel repo PRIVATO**
+   (`dati/chiusure/<CLASSE>/`, force oltre il `.gitignore`) perché contiene nomi — così resta
+   conservato com'è stato consegnato. Mai nel pubblico.
 6. **Consegne ragazzi:** preferire **un solo Documento Google** (screenshot + testo/codice
    + riflessione), non file .html/ZIP da raccogliere.
 7. **Metodo:** "Vinci subito · Fallo tuo · Mostralo"; passi piccoli, micro-vittorie ogni
@@ -188,6 +191,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     compito allineato alla Classe 3: 5 documenti docente (scheda valutazione, dossier evidenze
     col testo reale, report complessivo con anti-plagio + indicazioni ragazzi + segnalazioni,
     griglia, incrementale), voti in **scala /10** come proposta dell'AI.
+11. **v2.0 (01/10/2026)**: §2.5 — **eccezione**: il deliverable finale di `CHIUDI classe` (lo
+    ZIP) si **versiona nel repo privato** (`dati/chiusure/<CLASSE>/`). Fissato dopo l'errore di
+    non aver versionato lo ZIP di chiusura 2INF (vedi `REGISTRO-ERRORI-CLAUDE.md`).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si

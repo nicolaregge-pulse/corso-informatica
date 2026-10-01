@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.1** — 01/10/2026
+**Versione 1.2** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -67,6 +67,14 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
      docente li legge lui, devono essere **aperti**.
    - Correzione: cifratura **solo** sui libri degli allievi; documenti docente aperti (incluso
      il foglio riepilogo password).
+
+10. **Non ho versionato lo ZIP finale di chiusura.**
+    - Cosa: ho generato il deliverable finale (lo ZIP di CHIUDI CLASSE 2INF) e l'ho consegnato
+      senza metterlo su Git.
+    - Perché è sbagliato: regola di Nicola "tutto versionato"; il deliverable finale va
+      conservato com'è stato consegnato.
+    - Correzione: lo ZIP di chiusura si **archivia nel repo PRIVATO** (`dati/chiusure/<CLASSE>/`,
+      force oltre il `.gitignore`), perché contiene nomi → mai nel pubblico. → RIFERIMENTI §2.5.
 
 ---
 
