@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.5** — 01/10/2026
+**Versione 1.6** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -98,6 +98,18 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
     - Perché è sbagliato: le versioni sono **congelate** e si **tengono**; si **bumpa sempre**,
       non si cancella la precedente (regola di Nicola "aumenta sempre versione").
     - Correzione: ripristinata la v1.0; d'ora in poi le versioni si accumulano, non si eliminano.
+
+## 01/10/2026 — Compito bit/byte (grafica diversa dalla dispensa)
+
+14. **Grafica del compito DIVERSA dalla dispensa → ragazzi persi.**
+    - Cosa: la dispensa usava la griglia a valori posizionali con gli 1 in verde; il compito
+      l'avevo fatto con una **tabella diversa** (prima come Google Doc semplice, poi con una
+      griglia solo "simile"). I ragazzi non hanno riconosciuto la stessa cosa e si sono persi.
+    - Perché è sbagliato: materiali dello stesso argomento che i ragazzi vedono in sequenza devono
+      avere la grafica **identica**, non "simile". Il cambio di grafica li confonde.
+    - Correzione: compito rifatto con la griglia **identica** alla dispensa, **gestita come
+      immagine** (PNG dalla stessa fonte → identica ovunque: PDF/Classroom/stampa), con **sotto lo
+      spazio per i conti a mano**. Nasce la regola → RIFERIMENTI §2.19.
 
 ---
 

@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.2** — 01/10/2026
+**Versione 2.3** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -135,6 +135,16 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     disegni del docente, e aiuta i ragazzi a fissare e a riconoscere ciò che hanno visto in
     classe. Vale per ogni dispensa/scheda (foto ritagliata senza nomi se pubblica).
 
+19. **Stesse cose = stesso layout IDENTICO (regola, 01/10/2026).** Materiali dello stesso tipo
+    che i ragazzi vedono in sequenza (es. **dispensa** e poi **compito/esercitazione** sullo
+    stesso argomento) devono avere la **grafica identica**, non solo "simile". Se la dispensa usa
+    una certa griglia (colori, bordi, evidenziazioni), il compito usa **quella stessa griglia**,
+    pixel per pixel. Ragioni: se cambia la grafica i ragazzi **si perdono** (è già successo col
+    bit/byte: griglia della dispensa ≠ tabella del compito → confusione). Modo pratico per
+    garantirlo: **gestire gli elementi grafici come IMMAGINI** (PNG generati dalla stessa fonte),
+    così sono identici ovunque (PDF, Classroom, stampa), e lasciare **sotto lo spazio per i conti
+    a mano** (carta e penna). Vale per ogni coppia teoria↔esercizio dello stesso tema.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -220,6 +230,10 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     solo dopo confronto ("nel dubbio chiedi"); **18** la **foto della lavagna va dentro la
     dispensa di teoria**; §7 — corr. in sospeso sulla dispensa bit/byte (due direzioni, da
     separare). Dopo i rilievi di Nicola sulla dispensa bit/byte.
+14. **v2.3 (01/10/2026)**: §2 punto 19 — **stesse cose = stesso layout IDENTICO**: dispensa e
+    compito sullo stesso argomento devono avere la grafica identica (gestita come immagini), con
+    spazio per i conti a mano sotto. Dopo che il compito bit/byte usava una griglia diversa dalla
+    dispensa e i ragazzi si erano persi.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
