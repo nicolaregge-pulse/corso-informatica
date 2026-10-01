@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.3** — 01/10/2026
+**Versione 1.4** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -18,6 +18,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 6. **Classi:** 1INFspe (Classe 1), 2INFspe (Classe 2), 3INFspe (Classe 3), 4TI (Classe 4).
 7. **Sicurezza = programma della REGIONE** (si fa ciò che dice la Regione, non ciò che
    decidiamo noi): quando si corregge, farlo sempre notare a Nicola.
+8. **Sito Piamarta "Formazione sicurezza" (tutte le ore, 1ª→16ª)** — link che FUNZIONA
+   (con i parametri di accesso):
+   `https://sites.google.com/piamarta.it/formazionesicurezzamilano?pli=1&authuser=0`
+   (senza `?pli=1&authuser=0` a Nicola non si apriva).
+9. **Portale AFGP Piamarta:** `https://piamarta.afgp.it/`
 
 ## 2. Convenzioni durature
 1. **PPP** = "parcheggia": annota, prepara in silenzio, **non consegnare** finché
@@ -126,6 +131,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 4. **v1.3 (01/10/2026)**: §2.10 punto 5 — **Segnalazioni**: le anomalie viste nel
    monitoraggio o in classe (allievo non di quella classe, comportamenti, problemi tecnici)
    entrano sempre nel **report complessivo** del compito.
+5. **v1.4 (01/10/2026)**: §1 punti 8-9 — salvato il **link Piamarta "Formazione sicurezza"**
+   che funziona (coi parametri `?pli=1&authuser=0`) + portale AFGP, per non perderli.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
