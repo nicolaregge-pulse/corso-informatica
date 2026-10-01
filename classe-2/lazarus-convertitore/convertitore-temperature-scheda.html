@@ -26,7 +26,7 @@ table.prop td{border:1px solid #cfdae6;padding:1.8mm 3mm}
 </style></head><body>
 
 <div class="cover"><h1>Lazarus — Convertitore di temperature</h1>
-<div class="s">Classe 2 · Informatica · da Celsius a Fahrenheit (e viceversa), con verso automatico, reset e una domanda · versione 1.1</div></div>
+<div class="s">Classe 2 · Informatica · da Celsius a Fahrenheit (e viceversa), con verso automatico, reset e una domanda · versione 1.2</div></div>
 
 <div class="attn"><b>Attenzione:</b> questa è la <b>dispensa</b> — serve <b>per imparare e costruire</b> l'app. <b>Non si consegna.</b> Finito l'esercizio, quando sei sicuro e l'app funziona, passa al <b>foglio del COMPITO</b> ("Compito — Convertitore di temperature"): <b>quello</b> è ciò che si consegna su Classroom.</div>
 
@@ -67,6 +67,15 @@ Si scrive in <b>Pascal</b>. Quando lo apri vedi più riquadri: ognuno ha un comp
 </div>
 
 <div class="novita"><b>Il collante da ricordare:</b> metti i pezzi sulla <b>Form</b> con la palette → li sistemi e dai loro un <b>nome</b> e un <b>testo</b> nell'Object Inspector → scrivi nell'<b>Editor</b> cosa succede quando ci clicchi → premi <b>F9</b> per vederla funzionare.</div>
+
+<div class="nota"><b>Se il tuo Lazarus è in ITALIANO:</b> alcuni pezzi hanno il nome tradotto. Sono la stessa cosa, cambia solo la scritta:
+<ol>
+<li><b>Object Inspector</b> = <b>Ispettore oggetti</b> (il pannello a sinistra dove cambi nome e testo).</li>
+<li><b>Source Editor</b> = <b>Editor sorgente</b> (dove scrivi il codice).</li>
+<li><b>Properties</b> = <b>Proprietà</b> · <b>Events</b> = <b>Eventi</b> · <b>Components</b> = <b>Componenti</b>.</li>
+<li>Menu: <b>Project</b> = <b>Progetto</b> · <b>Run</b> = <b>Esegui</b> (Avvia = F9) · <b>View</b> = <b>Visualizza</b>.</li>
+</ol>
+Se non trovi un pannello, aprilo dal menu <b>Visualizza</b> (View).</div>
 
 <h2>1. I mattoni: Form, componenti, proprietà, eventi</h2>
 <ol>
@@ -136,6 +145,31 @@ end;</pre>
 <p>Tu scrivi solo le righe tra <code>begin</code> e <code>end;</code>. Stessa cosa per il bottone Reset: doppio clic su <b>Reset</b> → nasce <code>ButtonResetClick</code>.</p>
 <div class="novita"><b>In alternativa</b> puoi selezionare il bottone, andare nell'Object Inspector scheda <b>Eventi</b>, trovare <b>OnClick</b> e fare doppio clic lì: stesso risultato.</div>
 <div class="attn"><b>Non scrivere tu l'intestazione</b> <code>procedure TForm1.…</code> a mano: lasciala creare a Lazarus col doppio clic, altrimenti il collegamento con il bottone non si fa.</div>
+
+<h2>4b. Capire begin…end e if…then (le coppie e i gradini)</h2>
+<div class="novita"><b>La regola d'oro:</b> ogni <code>begin</code> ha <b>sempre</b> il suo <code>end</code>, come una parentesi che si apre e si chiude. <code>begin</code> = "inizio del gruppo di righe", <code>end</code> = "fine del gruppo". Tutto quello che sta in mezzo è "dentro" e va spostato <b>un gradino a destra</b> (l'indentazione).</div>
+
+<h3>Prima: due righe sono una coppia begin…end</h3>
+<p>Il bottone <b>Reset</b> è tutto qui: una sola coppia. <code>begin</code> in alto, <code>end;</code> in basso, e le due righe in mezzo spostate a destra.</p>
+<pre>begin
+  Edit1.Clear;
+  Edit2.Clear;
+end;</pre>
+
+<h3>Poi: un if…then con più righe → serve un begin…end</h3>
+<ol>
+<li>Se dopo <code>then</code> c'è <b>una sola riga</b>, la scrivi lì e basta.</li>
+<li>Se dopo <code>then</code> ci sono <b>più righe</b>, le <b>raggruppi</b> dentro una coppia <code>begin…end</code>.</li>
+</ol>
+
+<h3>Il nostro Converti, con le coppie evidenziate</h3>
+<p>Qui c'è un <code>begin</code> dentro un altro <code>begin</code> (il caso 3 fa una domanda e poi ha due strade). Segui i <b>colori</b> e i <b>numeri</b>: ogni <code>end</code> chiude il <code>begin</code> con lo stesso numero.</p>
+<div class="fig">
+<img src="converti-begin-end.png" style="width:100%;border-radius:8px">
+<div class="cap">Le coppie begin/end del bottone Converti. Blu ① = la procedura; verde ②③④ = i tre casi; viola ⑤⑥ = le due strade dentro la domanda del caso 3.</div>
+</div>
+<div class="nota"><b>Trucco per non sbagliare:</b> appena scrivi un <code>begin</code>, scrivi <b>subito</b> anche il suo <code>end</code> sotto, allo <b>stesso gradino</b> (stessa colonna). Poi riempi in mezzo. Così la coppia non si "perde" mai.</div>
+<div class="carta"><b>Carta e penna:</b> ricopia lo schema a mano e traccia tu una graffa da ogni <code>begin</code> al suo <code>end</code>. Quando le vedi tutte abbinate, il codice non ti spaventa più.</div>
 
 <h2>5. Il codice, un pezzo alla volta</h2>
 
