@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>
+@page{size:A4}*{box-sizing:border-box}
+body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:10.8pt;line-height:1.5;margin:0}
+.cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:12px;padding:14mm 12mm;text-align:center;margin-bottom:6mm}
+.cover h1{font-size:21pt;margin:0}.cover .s{font-size:12pt;opacity:.93;margin-top:2mm}
+h2{color:#12467a;font-size:14.5pt;margin:7mm 0 2mm;background:#eef4fb;border-left:6px solid #2b7cc4;padding:2.5mm 4mm;border-radius:4px}
+h3{color:#12467a;font-size:12pt;margin:5mm 0 2mm}
+p{margin:2mm 0}
+ol,ul{margin:1mm 0 2mm;padding-left:7mm}li{margin:1.6mm 0}
+code{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #d5e0ec;border-radius:3px;padding:0 4px;font-size:9.4pt}
+pre{background:#1e2733;color:#e8eef5;border-radius:8px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:9pt;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;margin:2mm 0}
+.novita{background:#eafaf0;border:1px solid #bfe6cf;border-left:5px solid #2f9e57;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0}
+.novita b{color:#1e7a44}
+.attn{background:#fdecea;border:1px solid #e6b7b0;border-left:5px solid #c0392b;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0}
+.attn b{color:#c0392b}
+.nota{background:#fff8e6;border:1px solid #e6cf7a;border-left:5px solid #d0a516;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0}
+.tuo{background:#f2ebf7;border:1px solid #d8c6ec;border-left:5px solid #8e44ad;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0}
+.tuo b{color:#7030a0}
+.carta{background:#eef4fb;border:1px dashed #9cc0e4;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0;color:#22405e}
+.fig{text-align:center;margin:3mm 0;border:1px solid #cfe0f0;border-radius:10px;padding:3mm;background:#fff}
+.cap{font-size:9pt;color:#667;margin-top:1mm}
+table.prop{border-collapse:collapse;width:100%;margin:2mm 0;font-size:9.6pt}
+table.prop th{background:#12467a;color:#fff;text-align:left;padding:2mm 3mm}
+table.prop td{border:1px solid #cfdae6;padding:1.8mm 3mm}
+.step{font-weight:bold;color:#12467a}
+</style></head><body>
+
+<div class="cover"><h1>Lazarus — Convertitore di temperature</h1>
+<div class="s">Classe 2 · Informatica · da Celsius a Fahrenheit (e viceversa), con verso automatico, reset e una domanda</div></div>
+
+<h2>0. Che cos'è Lazarus e com'è fatta la sua finestra</h2>
+<p><b>Lazarus</b> è un programma per <b>costruire altri programmi</b> (le "app" con i bottoni, le caselle, ecc.).
+Si scrive in <b>Pascal</b>. Quando lo apri vedi più riquadri: ognuno ha un compito. Ecco dove sono.</p>
+
+<div class="fig">
+<svg width="100%" viewBox="0 0 660 300" font-family="DejaVu Sans,Arial">
+<!-- palette in alto -->
+<rect x="20" y="16" width="620" height="40" rx="5" fill="#e8f0f8" stroke="#2b7cc4"/>
+<text x="30" y="34" font-size="11" font-weight="bold" fill="#12467a">Barra dei componenti (palette)</text>
+<text x="30" y="49" font-size="9.5" fill="#33475b">qui ci sono i pezzi da mettere: Button (bottone), Edit (casella), Label (scritta)…</text>
+<!-- object inspector a sinistra -->
+<rect x="20" y="70" width="190" height="210" rx="5" fill="#f3f7fb" stroke="#2b7cc4"/>
+<text x="30" y="90" font-size="11" font-weight="bold" fill="#12467a">Object Inspector</text>
+<text x="30" y="108" font-size="9.5" fill="#33475b">scheda PROPRIETA':</text>
+<text x="38" y="123" font-size="9.5" fill="#1a2330">Name, Caption, Text…</text>
+<text x="30" y="145" font-size="9.5" fill="#33475b">scheda EVENTI:</text>
+<text x="38" y="160" font-size="9.5" fill="#1a2330">OnClick (quando clicco)</text>
+<text x="30" y="188" font-size="9" fill="#90a4b8">(cambi un pezzo = cambi qui)</text>
+<!-- form designer al centro -->
+<rect x="225" y="70" width="230" height="150" rx="5" fill="#fff" stroke="#2b7cc4"/>
+<rect x="225" y="70" width="230" height="18" fill="#2b7cc4"/>
+<text x="233" y="83" font-size="9.5" font-weight="bold" fill="#fff">Form1</text>
+<text x="300" y="150" font-size="11" font-weight="bold" fill="#12467a" text-anchor="middle">Form Designer</text>
+<text x="340" y="170" font-size="9.5" fill="#33475b" text-anchor="middle">la finestra della tua app</text>
+<!-- editor a destra -->
+<rect x="470" y="70" width="170" height="150" rx="5" fill="#1e2733"/>
+<text x="480" y="90" font-size="11" font-weight="bold" fill="#8fd3a6">Editor del codice</text>
+<text x="480" y="108" font-size="9" fill="#cfe0ee">qui scrivi il Pascal</text>
+<text x="480" y="124" font-size="9" fill="#cfe0ee">(cosa fa l'app)</text>
+<!-- run -->
+<rect x="470" y="236" width="170" height="40" rx="6" fill="#2f9e57"/>
+<text x="555" y="261" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">▶ Avvia (tasto F9)</text>
+</svg>
+<div class="cap">Le finestre di Lazarus: palette (in alto), Object Inspector (a sinistra), Form Designer (al centro, la tua app), Editor del codice (a destra), e il pulsante verde per avviare.</div>
+</div>
+
+<div class="novita"><b>Il collante da ricordare:</b> metti i pezzi sulla <b>Form</b> con la palette → li sistemi e dai loro un <b>nome</b> e un <b>testo</b> nell'Object Inspector → scrivi nell'<b>Editor</b> cosa succede quando ci clicchi → premi <b>F9</b> per vederla funzionare.</div>
+
+<h2>1. I mattoni: Form, componenti, proprietà, eventi</h2>
+<ol>
+<li>La <b>Form</b> è la finestra della tua app (come un "foglio" dove appoggi i pezzi).</li>
+<li>I <b>componenti</b> sono i pezzi: <b>Label</b> (una scritta fissa), <b>Edit</b> (una casella dove scrivere/leggere un valore), <b>Button</b> (un bottone da cliccare).</li>
+<li>Le <b>proprietà</b> sono le caratteristiche di un pezzo: <code>Name</code> (il nome con cui lo chiami nel codice), <code>Caption</code> (il testo di una Label o di un Button), <code>Text</code> (il contenuto di una casella Edit).</li>
+<li>Gli <b>eventi</b> sono "cosa fare quando…": il più usato è <code>OnClick</code> = "quando l'utente clicca".</li>
+</ol>
+
+<h2>2. Cosa costruiamo (il risultato)</h2>
+<p>Un'app con due caselle (Celsius e Fahrenheit) e due bottoni. L'utente scrive un valore in <b>una sola</b> casella e preme <b>Converti</b>: il programma capisce <b>da solo il verso</b> e riempie l'altra casella. Il bottone <b>Reset</b> svuota tutto. Se per sbaglio sono piene <b>tutte e due</b>, l'app <b>chiede</b> cosa ricalcolare.</p>
+
+<div class="fig">
+<svg width="100%" viewBox="0 0 540 300" font-family="DejaVu Sans,Arial">
+<rect x="20" y="16" width="500" height="268" rx="6" fill="#fff" stroke="#9cb7d0"/>
+<rect x="20" y="16" width="500" height="22" fill="#2c86b8"/>
+<text x="30" y="31" font-size="10.5" font-weight="bold" fill="#fff">Convertitore di temperature</text>
+<!-- riga celsius -->
+<text x="45" y="80" font-size="12" fill="#1a2330">Celsius</text>
+<rect x="170" y="62" width="170" height="28" rx="3" fill="#f7fbff" stroke="#2b7cc4"/>
+<text x="350" y="80" font-size="9" fill="#2b7cc4" font-style="italic">Name: Edit1</text>
+<text x="45" y="96" font-size="8.5" fill="#90a4b8">(Label: Caption = "Celsius")</text>
+<!-- riga fahrenheit -->
+<text x="45" y="140" font-size="12" fill="#1a2330">Fahrenheit</text>
+<rect x="170" y="122" width="170" height="28" rx="3" fill="#f7fbff" stroke="#2b7cc4"/>
+<text x="350" y="140" font-size="9" fill="#2b7cc4" font-style="italic">Name: Edit2</text>
+<!-- bottoni -->
+<rect x="170" y="185" width="120" height="36" rx="5" fill="#2f9e57"/>
+<text x="230" y="208" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Converti</text>
+<text x="170" y="238" font-size="9" fill="#2b7cc4" font-style="italic">Name: ButtonConverti</text>
+<rect x="310" y="185" width="100" height="36" rx="5" fill="#c0392b"/>
+<text x="360" y="208" font-size="11" font-weight="bold" fill="#fff" text-anchor="middle">Reset</text>
+<text x="310" y="238" font-size="9" fill="#2b7cc4" font-style="italic">Name: ButtonReset</text>
+</svg>
+<div class="cap">Dove vanno i componenti sulla Form: 2 Label (Celsius, Fahrenheit), 2 caselle Edit (Edit1, Edit2), 2 bottoni (ButtonConverti, ButtonReset).</div>
+</div>
+
+<h2>3. Passo per passo — costruiamo la Form</h2>
+<ol>
+<li><span class="step">Crea il progetto:</span> menu <b>Progetto → Nuovo progetto → Applicazione</b>. Compare una Form vuota chiamata <code>Form1</code>.</li>
+<li><span class="step">Metti un pezzo sulla Form:</span> nella <b>barra dei componenti</b> in alto clicca una volta su <b>Edit</b> (gruppo "Standard"), poi clicca <b>sulla Form</b> dove vuoi metterlo. Ripeti per: 2 <b>Label</b>, 2 <b>Edit</b>, 2 <b>Button</b>.</li>
+<li><span class="step">Sistemali</span> come nell'immagine sopra (trascinandoli con il mouse).</li>
+<li><span class="step">Dai i nomi e i testi:</span> clicca un pezzo, poi nell'<b>Object Inspector</b> (a sinistra, scheda <b>Proprietà</b>) imposta questi valori:</li>
+</ol>
+
+<table class="prop">
+<tr><th>Pezzo</th><th>Proprietà Name</th><th>Proprietà da scrivere</th></tr>
+<tr><td>Label 1</td><td>Label1</td><td>Caption = <code>Celsius</code></td></tr>
+<tr><td>Label 2</td><td>Label2</td><td>Caption = <code>Fahrenheit</code></td></tr>
+<tr><td>Casella 1</td><td>Edit1</td><td>Text = (vuoto)</td></tr>
+<tr><td>Casella 2</td><td>Edit2</td><td>Text = (vuoto)</td></tr>
+<tr><td>Bottone 1</td><td>ButtonConverti</td><td>Caption = <code>Converti</code></td></tr>
+<tr><td>Bottone 2</td><td>ButtonReset</td><td>Caption = <code>Reset</code></td></tr>
+</table>
+<div class="nota"><b>Perché il Name conta:</b> nel codice chiamiamo i pezzi con il loro <code>Name</code> (es. <code>Edit1.Text</code>). Se li chiami come in tabella, il codice qui sotto funziona subito.</div>
+
+<h2>4. Come si crea un "metodo che risponde all'evento"</h2>
+<p>Quando clicchi un bottone, l'app deve <b>fare qualcosa</b>. Quel "qualcosa" si scrive in un <b>metodo</b> (una procedura) collegato all'evento <code>OnClick</code>. Crearlo è facilissimo:</p>
+<ol>
+<li>Nel <b>Form Designer</b> fai <b>doppio clic</b> sul bottone <b>Converti</b>.</li>
+<li>Lazarus apre l'Editor e <b>crea da solo</b> la procedura vuota, con il cursore già dentro:</li>
+</ol>
+<pre>procedure TForm1.ButtonConvertiClick(Sender: TObject);
+begin
+  // il tuo codice va QUI
+end;</pre>
+<p>Tu scrivi solo le righe tra <code>begin</code> e <code>end;</code>. Stessa cosa per il bottone Reset: doppio clic su <b>Reset</b> → nasce <code>ButtonResetClick</code>.</p>
+<div class="novita"><b>In alternativa</b> puoi selezionare il bottone, andare nell'Object Inspector scheda <b>Eventi</b>, trovare <b>OnClick</b> e fare doppio clic lì: stesso risultato.</div>
+<div class="attn"><b>Non scrivere tu l'intestazione</b> <code>procedure TForm1.…</code> a mano: lasciala creare a Lazarus col doppio clic, altrimenti il collegamento con il bottone non si fa.</div>
+
+<h2>5. Il codice, un pezzo alla volta</h2>
+
+<h3>5.1 Il bottone Converti (il cuore)</h3>
+<p>Dentro <code>ButtonConvertiClick</code> scrivi questo. Sotto spieghiamo ogni blocco.</p>
+<pre>var
+  c, f: Double;
+begin
+  // CASO 1: ho scritto solo i Celsius -> calcolo i Fahrenheit
+  if (Edit1.Text &lt;&gt; '') and (Edit2.Text = '') then
+  begin
+    c := StrToFloat(Edit1.Text);
+    f := c * 9 / 5 + 32;
+    Edit2.Text := FloatToStr(f);
+  end
+
+  // CASO 2: ho scritto solo i Fahrenheit -> calcolo i Celsius
+  else if (Edit2.Text &lt;&gt; '') and (Edit1.Text = '') then
+  begin
+    f := StrToFloat(Edit2.Text);
+    c := (f - 32) * 5 / 9;
+    Edit1.Text := FloatToStr(c);
+  end
+
+  // CASO 3: sono pieni tutti e due -> CHIEDO cosa vuole
+  else if (Edit1.Text &lt;&gt; '') and (Edit2.Text &lt;&gt; '') then
+  begin
+    if MessageDlg('Vuoi ricalcolare i Celsius dai Fahrenheit?',
+                  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      f := StrToFloat(Edit2.Text);
+      Edit1.Text := FloatToStr((f - 32) * 5 / 9);
+    end
+    else
+    begin
+      c := StrToFloat(Edit1.Text);
+      Edit2.Text := FloatToStr(c * 9 / 5 + 32);
+    end;
+  end
+
+  // CASO 4: sono vuoti tutti e due
+  else
+    ShowMessage('Scrivi un valore in una delle due caselle.');
+end;</pre>
+
+<p><b>Come leggerlo:</b></p>
+<ol>
+<li><b>Le variabili</b> <code>c, f: Double</code> sono due "cassetti" per numeri con la virgola (Double = numero decimale).</li>
+<li><b>Il verso automatico</b> è deciso dai controlli <code>if … then</code>: guardo quale casella è piena (<code>&lt;&gt; ''</code> vuol dire "diversa da vuoto") e l'altra vuota (<code>= ''</code>), e converto nel verso giusto.</li>
+<li><b>La domanda</b> (caso 3) la fa <code>MessageDlg</code>: apre una finestrella con <b>Sì/No</b>; se l'utente preme Sì (<code>mrYes</code>) ricalcolo i Celsius, altrimenti i Fahrenheit.</li>
+<li><b>Le formule:</b> da Celsius a Fahrenheit <code>f = c * 9 / 5 + 32</code>; da Fahrenheit a Celsius <code>c = (f - 32) * 5 / 9</code>.</li>
+</ol>
+
+<h3>5.2 Il bottone Reset</h3>
+<pre>begin
+  Edit1.Clear;   // svuota la prima casella
+  Edit2.Clear;   // svuota la seconda
+end;</pre>
+<p><code>Clear</code> cancella il contenuto della casella (è come scrivere <code>Edit1.Text := '';</code>).</p>
+
+<h2>6. La teoria dei pezzi di codice (tutto ciò che serve)</h2>
+<ol>
+<li><b>Variabile:</b> un contenitore con un nome e un tipo. <code>Double</code> = numero con la virgola.</li>
+<li><b>Assegnazione</b> <code>:=</code> : "metti dentro". <code>c := 36.6</code> mette 36,6 nel cassetto c. (Attenzione: in Pascal, nel codice, il separatore è il <b>punto</b>.)</li>
+<li><b>Da testo a numero:</b> <code>StrToFloat(Edit1.Text)</code> prende il testo della casella e lo trasforma in numero (si può calcolare solo con i numeri).</li>
+<li><b>Da numero a testo:</b> <code>FloatToStr(f)</code> trasforma il numero in testo, per rimetterlo in una casella (<code>Edit2.Text := …</code>).</li>
+<li><b>Condizione</b> <code>if condizione then … else …</code> : esegue un ramo o l'altro a seconda che la condizione sia vera o falsa. Con <code>else if</code> si incatenano più casi.</li>
+<li><b>Confronti:</b> <code>=</code> uguale, <code>&lt;&gt;</code> diverso. Le stringhe si confrontano con <code>''</code> (apici singoli = testo vuoto).</li>
+<li><b>Finestrella con domanda:</b> <code>MessageDlg(testo, mtConfirmation, [mbYes, mbNo], 0)</code> mostra Sì/No e restituisce <code>mrYes</code> o <code>mrNo</code>.</li>
+<li><b>Messaggio semplice:</b> <code>ShowMessage('…')</code> mostra solo un avviso con OK.</li>
+</ol>
+
+<div class="attn"><b>Attenzione alla virgola (errore comune):</b> se scrivi nella casella <code>36,6</code> con la virgola e il programma dà errore, è perché <code>StrToFloat</code> segue le impostazioni del PC. Per sicurezza, in classe usate il <b>formato che non dà errore</b> sul vostro PC (provate prima 20 "tondo", poi 36,6): se la virgola non va, usate il punto.</div>
+
+<h2>7. Avvia e prova</h2>
+<ol>
+<li>Premi il tasto <b>F9</b> (o il triangolino verde ▶). Lazarus controlla e avvia l'app.</li>
+<li>Scrivi <code>100</code> nei Celsius, premi <b>Converti</b>: nei Fahrenheit deve comparire <b>212</b>.</li>
+<li>Premi <b>Reset</b>: le due caselle si svuotano.</li>
+<li>Scrivi <code>32</code> nei Fahrenheit, premi <b>Converti</b>: nei Celsius deve comparire <b>0</b>.</li>
+</ol>
+<div class="nota"><b>Se dà errore e non parte:</b> è normale, capita a tutti i programmatori. Leggi il messaggio in basso: di solito dice la riga. Controlla i <b>Name</b> dei pezzi e le parentesi.</div>
+
+<h2>8. Fallo tuo · Mostralo · Consegna</h2>
+<div class="tuo"><b>Fallo tuo:</b> cambia i colori della Form, il titolo, aggiungi una Label con il tuo nome, cambia le scritte dei bottoni. È il tuo convertitore.</div>
+<ol>
+<li><b>Mostralo:</b> fai uno <b>screenshot</b> dell'app che gira con un risultato giusto.</li>
+<li>Incolla screenshot + il <b>codice dei due bottoni</b> in un Documento.</li>
+<li>Scrivi 2 righe di <b>riflessione</b>: cosa non sei riuscito a fare e perché, e cosa non hai capito.</li>
+<li><b>Consegna</b> il Documento su Classroom.</li>
+</ol>
+
+<div class="carta"><b>Carta e penna:</b> prima di scrivere il codice, disegna a mano sul quaderno la Form con i suoi pezzi e, accanto, i 4 casi del bottone Converti (scrivo Celsius / scrivo Fahrenheit / tutti e due / nessuno). Ti chiarisce la logica prima di toccare la tastiera.</div>
+
+</body></html>
