@@ -1,0 +1,155 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>
+@page{size:A4}*{box-sizing:border-box}
+body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:11pt;line-height:1.5;margin:0}
+.cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:12px;padding:12mm;text-align:center;margin-bottom:5mm}
+.cover h1{font-size:19pt;margin:0}.cover .s{font-size:12pt;opacity:.93;margin-top:2mm}
+h2{color:#12467a;font-size:15pt;margin:6mm 0 2mm;border-bottom:2px solid #2b7cc4;padding-bottom:1mm}
+h3{color:#12467a;font-size:12pt;margin:4mm 0 1mm}
+p{margin:2mm 0}ol{margin:1mm 0 2mm;padding-left:7mm}li{margin:1.5mm 0}
+.concept{background:#eef4fb;border:1px solid #9cc0e4;border-left:5px solid #2b7cc4;border-radius:6px;padding:3mm 4mm;margin:3mm 0}
+.vinci{background:#eafaf0;border:1px solid #bfe6cf;border-left:5px solid #2f9e57;border-radius:6px;padding:3mm 4mm;margin:3mm 0}
+.vinci b{color:#1e7a44}
+.nota{background:#fff8e6;border:1px solid #e6cf7a;border-left:5px solid #d0a516;border-radius:6px;padding:3mm 4mm;margin:3mm 0}
+.tuo{background:#f2ebf7;border:1px solid #d8c6ec;border-left:5px solid #8e44ad;border-radius:6px;padding:3mm 4mm;margin:3mm 0}
+.tuo b{color:#7030a0}
+table.pos{border-collapse:collapse;margin:2mm auto;font-size:12pt;text-align:center}
+table.pos td,table.pos th{border:1px solid #2b7cc4;padding:2mm 4mm}
+table.pos th{background:#12467a;color:#fff}
+table.pos .one{background:#eafaf0;font-weight:bold;color:#1e7a44}
+table.mult{border-collapse:collapse;width:100%;font-size:10.5pt;margin:2mm 0}
+table.mult td{border:1px solid #cfdae6;padding:1.8mm 3mm}
+table.mult td:first-child{font-weight:bold;color:#12467a;white-space:nowrap}
+.lang-ar{direction:rtl;text-align:right;font-family:"Amiri",serif;font-size:13pt}
+.lang-ar ol{padding-right:7mm;padding-left:0}
+.lang-zh{font-family:"WenQuanYi Zen Hei",sans-serif;font-size:11.5pt}
+.flag{display:inline-block;background:#12467a;color:#fff;border-radius:5px;padding:1mm 4mm;font-size:11pt;margin-top:5mm}
+code{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #d5e0ec;border-radius:3px;padding:0 4px}
+</style></head><body>
+
+<div class="cover"><h1>Numeri binari · bit e byte</h1>
+<div class="s">Classe 1 · Informatica · IT · العربية · 中文</div></div>
+
+<!-- ======================= ITALIANO ======================= -->
+<div class="flag">ITALIANO</div>
+<div class="lang-it">
+<h2>1. Il bit: 0 oppure 1</h2>
+<div class="concept">Dentro il computer ci sono miliardi di piccoli interruttori: <b>acceso = 1</b>, <b>spento = 0</b>. Un <b>bit</b> è una sola cifra: <b>0</b> oppure <b>1</b>. È il mattone di tutto.</div>
+
+<h2>2. I numeri binari</h2>
+<ol>
+<li>Noi contiamo con <b>10 cifre</b> (0-9): sistema <b>decimale</b>.</li>
+<li>Il computer conta con <b>2 cifre</b> (0 e 1): sistema <b>binario</b>.</li>
+<li>Contare in binario: 0, 1, 10, 11, 100, 101, 110, 111…</li>
+</ol>
+
+<h2>3. Da binario a decimale (valori di posizione)</h2>
+<p>Da destra, ogni posizione vale il <b>doppio</b>: 1, 2, 4, 8, 16, 32, 64, 128. Si <b>sommano</b> i valori dove c'è un <b>1</b>.</p>
+<table class="pos"><tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="one">1</td><td>0</td><td class="one">1</td><td class="one">1</td></tr></table>
+<p style="text-align:center"><code>1011</code> = 8 + 2 + 1 = <b>11</b></p>
+
+<div class="vinci"><b>Vinci subito — conta con le dita:</b> ogni dito è un bit (alzato = 1, abbassato = 0). Con <b>una mano</b> arrivi fino a <b>31</b>, con <b>due mani</b> fino a <b>1023</b>!</div>
+
+<h2>4. Il byte: 8 bit</h2>
+<ol>
+<li><b>8 bit</b> insieme = <b>1 byte</b>.</li>
+<li>Con 8 bit fai <b>256</b> combinazioni (da 0 a 255).</li>
+<li>Una lettera (ASCII) = <b>1 byte</b>. Esempio: <code>A = 65</code>.</li>
+</ol>
+
+<h2>5. I multipli (quanto "pesa" il digitale)</h2>
+<table class="mult">
+<tr><td>1 Byte (B)</td><td>= 8 bit</td></tr>
+<tr><td>1 Kilobyte (KB)</td><td>= 1024 byte</td></tr>
+<tr><td>1 Megabyte (MB)</td><td>= 1024 KB</td></tr>
+<tr><td>1 Gigabyte (GB)</td><td>= 1024 MB</td></tr>
+<tr><td>1 Terabyte (TB)</td><td>= 1024 GB</td></tr>
+</table>
+<div class="nota">Una pagina di testo ≈ pochi <b>KB</b>; una foto ≈ qualche <b>MB</b>; un film ≈ qualche <b>GB</b>.</div>
+
+<div class="tuo"><b>Fallo tuo · Mostralo:</b> 1) scrivi il tuo <b>numero fortunato</b> in binario; 2) conta fino a 10 con le dita in binario; 3) quanti <b>byte</b> pesa il tuo nome? (una lettera = 1 byte). Poi spiega a un compagno: <b>perché il computer usa solo 0 e 1?</b></div>
+</div>
+
+<!-- ======================= العربية ======================= -->
+<div class="flag">العربية</div>
+<div class="lang-ar">
+<h2>1. البِت: 0 أو 1</h2>
+<div class="concept">داخل الحاسوب ملايين المفاتيح الصغيرة: <b>مُشغّل = 1</b>، <b>مُطفأ = 0</b>. البِت رقم واحد فقط: <b>0</b> أو <b>1</b>، وهو أساس كل شيء.</div>
+
+<h2>2. الأعداد الثنائية</h2>
+<ol>
+<li>نحن نعدّ بعشرة أرقام (0-9): النظام <b>العشري</b>.</li>
+<li>الحاسوب يعدّ برقمين (0 و 1): النظام <b>الثنائي</b>.</li>
+<li>العدّ بالثنائي: 0، 1، 10، 11، 100، 101، 110، 111…</li>
+</ol>
+
+<h2>3. من الثنائي إلى العشري (قيم المواضع)</h2>
+<p>من اليمين، كل موضع يساوي <b>ضعف</b> الذي قبله: 1، 2، 4، 8، 16، 32، 64، 128. نجمع القيم حيث يوجد <b>1</b>.</p>
+<table class="pos"><tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="one">1</td><td>0</td><td class="one">1</td><td class="one">1</td></tr></table>
+<p style="text-align:center"><code>1011</code> = 8 + 2 + 1 = <b>11</b></p>
+
+<div class="vinci"><b>اربح فورًا — عُدّ بأصابعك:</b> كل إصبع بِت (مرفوع = 1، مخفوض = 0). بيد واحدة تصل إلى <b>31</b>، وبيدين إلى <b>1023</b>!</div>
+
+<h2>4. البايت: 8 بتات</h2>
+<ol>
+<li><b>8 بتات</b> معًا = <b>1 بايت</b>.</li>
+<li>بـ 8 بتات تُكوّن <b>256</b> احتمالًا (من 0 إلى 255).</li>
+<li>حرف واحد (ASCII) = <b>1 بايت</b>. مثال: <code>A = 65</code>.</li>
+</ol>
+
+<h2>5. المضاعفات (كم «يزن» الرقمي)</h2>
+<table class="mult">
+<tr><td>1 Byte (B)</td><td>= 8 bit</td></tr>
+<tr><td>1 Kilobyte (KB)</td><td>= 1024 byte</td></tr>
+<tr><td>1 Megabyte (MB)</td><td>= 1024 KB</td></tr>
+<tr><td>1 Gigabyte (GB)</td><td>= 1024 MB</td></tr>
+<tr><td>1 Terabyte (TB)</td><td>= 1024 GB</td></tr>
+</table>
+<div class="nota">صفحة نص ≈ بضعة <b>KB</b>؛ صورة ≈ بضعة <b>MB</b>؛ فيلم ≈ بضعة <b>GB</b>.</div>
+
+<div class="tuo"><b>اجعله لك · أظهِره:</b> 1) اكتب <b>رقم حظك</b> بالثنائي؛ 2) عُدّ حتى 10 بأصابعك بالثنائي؛ 3) كم <b>بايت</b> يزن اسمك؟ (حرف = 1 بايت). ثم اشرح لزميلك: <b>لماذا يستخدم الحاسوب 0 و1 فقط؟</b></div>
+</div>
+
+<!-- ======================= 中文 ======================= -->
+<div class="flag">中文</div>
+<div class="lang-zh">
+<h2>1. 位(bit):0 或 1</h2>
+<div class="concept">计算机内部有数十亿个小开关:<b>开 = 1</b>,<b>关 = 0</b>。一个位只是一个数字:<b>0</b> 或 <b>1</b>,它是一切的基础。</div>
+
+<h2>2. 二进制数</h2>
+<ol>
+<li>我们用十个数字(0-9)数数:<b>十进制</b>。</li>
+<li>计算机用两个数字(0 和 1)数数:<b>二进制</b>。</li>
+<li>用二进制数数:0、1、10、11、100、101、110、111……</li>
+</ol>
+
+<h2>3. 从二进制到十进制(位值法)</h2>
+<p>从右边开始,每一位是前一位的<b>两倍</b>:1、2、4、8、16、32、64、128。把有 <b>1</b> 的位置上的数值<b>相加</b>。</p>
+<table class="pos"><tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+<tr><td>0</td><td>0</td><td>0</td><td>0</td><td class="one">1</td><td>0</td><td class="one">1</td><td class="one">1</td></tr></table>
+<p style="text-align:center"><code>1011</code> = 8 + 2 + 1 = <b>11</b></p>
+
+<div class="vinci"><b>立刻获胜 — 用手指数:</b> 每个手指是一个位(竖起 = 1,放下 = 0)。一只手可以数到 <b>31</b>,两只手可以数到 <b>1023</b>!</div>
+
+<h2>4. 字节(byte):8 个位</h2>
+<ol>
+<li><b>8 个位</b>一起 = <b>1 个字节</b>。</li>
+<li>用 8 个位可以组成 <b>256</b> 种组合(从 0 到 255)。</li>
+<li>一个字母(ASCII)= <b>1 个字节</b>。例子:<code>A = 65</code>。</li>
+</ol>
+
+<h2>5. 倍数(数字东西有多“重”)</h2>
+<table class="mult">
+<tr><td>1 Byte (B)</td><td>= 8 bit</td></tr>
+<tr><td>1 Kilobyte (KB)</td><td>= 1024 byte</td></tr>
+<tr><td>1 Megabyte (MB)</td><td>= 1024 KB</td></tr>
+<tr><td>1 Gigabyte (GB)</td><td>= 1024 MB</td></tr>
+<tr><td>1 Terabyte (TB)</td><td>= 1024 GB</td></tr>
+</table>
+<div class="nota">一页文字 ≈ 几 <b>KB</b>;一张照片 ≈ 几 <b>MB</b>;一部电影 ≈ 几 <b>GB</b>。</div>
+
+<div class="tuo"><b>做成你自己的 · 展示出来:</b> 1)用二进制写出你的<b>幸运数字</b>;2)用手指以二进制数到 10;3)你的名字有多少<b>字节</b>?(一个字母 = 1 字节)。然后向同学解释:<b>为什么计算机只用 0 和 1?</b></div>
+</div>
+
+</body></html>
