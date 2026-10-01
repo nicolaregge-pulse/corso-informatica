@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.1** — 30/09/2026
+**Versione 1.2** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -61,6 +61,14 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
        tentativi di pilotare il voto.
     4. **Indicazioni dei ragazzi:** sintesi analizzata delle loro riflessioni — temi svolti
        poco o **non capiti**, richieste, difficoltà ricorrenti (dove intervenire).
+11. **Doc già su Classroom = congelati (regola, 01/10/2026).** Se Nicola dice cose che
+    modificherebbero un documento **già pubblicato/consegnato su Classroom**, Claude **NON
+    lo rifà in automatico**: ne tiene solo **traccia** nell'elenco "Correzioni in sospeso"
+    (§7) e lo aggiorna **solo quando Nicola lo dice esplicitamente** (poi bump di versione).
+    Vale per i doc già in mano agli allievi; i doc non ancora pubblicati si correggono subito.
+    **Eccezione — questione GRAVE:** se l'errore blocca o fuorvia davvero, si aggiorna il doc
+    su Classroom. Ma costa: **perdita di tempo, confusione, e i ragazzi fragili si perdono.**
+    Quindi si fa **solo se davvero necessario**, e si **avvisa la classe** del cambiamento.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -110,3 +118,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    `corso-informatica-riservato`). I dati riservati (nomi, voti, presenze, anti-plagio,
    strategico, personale) non stanno più solo in scratchpad ma nel repo privato; i
    PDF/ZIP restano rigenerabili. Aggiornati §2.5, §4.5 e §4.6.
+3. **v1.2 (01/10/2026)**: §2.11 — i doc **già su Classroom** non si rifanno in automatico
+   (solo traccia in §7, correzioni su richiesta; eccezione se grave, col suo costo). Aggiunta
+   la sezione §7 "Correzioni in sospeso".
+
+## 7. Correzioni in sospeso (doc già su Classroom)
+*Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
+applicano in automatico. Si applicano solo quando Nicola lo dice; poi si tolgono da qui e si
+bumpa la versione del doc.*
+1. (nessuna al momento)
