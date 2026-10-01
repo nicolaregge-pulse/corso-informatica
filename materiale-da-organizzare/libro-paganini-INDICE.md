@@ -1,11 +1,19 @@
 # Libro in dotazione — "Paganini — Tecnico esperto di computer e reti" (INDICE)
 
-**Versione 1.0** — 01/10/2026
+**Versione 1.1** — 01/10/2026
 
-*Indice del manuale cartaceo in dotazione alla scuola (impostazione tipo Cisco IT
-Essentials). Fornito da Nicola (foto dell'indice). Serve come riferimento per allineare
-i materiali del corso alla struttura del libro e per attingere ai suoi questionari.
-Ogni capitolo ha una sezione "Come la vede Cisco" e dei "Questionari" (quiz pronti).*
+*Indice del manuale cartaceo in dotazione alla scuola. Fornito da Nicola (foto).
+Serve come riferimento per allineare i materiali del corso alla struttura del libro e
+attingere ai suoi questionari. Ogni capitolo ha "Come la vede Cisco" + "Questionari".*
+
+**Dati del libro:** *Tecnico esperto di computer e reti* — Marco Paganini — **in riga
+edizioni** (Informatica). Per i corsi "Sistemi e reti – **Cisco IT Essentials 7**".
+**Vol. 1 — PC, Windows 10, reti, Cloud.** Edizione 2021.
+
+> **Uso nel corso (PPP, 01/10/2026):** è una **linea guida / stella polare**, ma di
+> livello **molto superiore** a quello attuale della Classe 1. Si usa per la **struttura**
+> dei moduli e come **miniera di questionari** (190 domande), **adeguando/semplificando**
+> sempre al livello dei ragazzi. NON è il libro da far leggere così com'è alla Prima.
 
 ---
 
@@ -40,10 +48,24 @@ Ogni capitolo ha una sezione "Come la vede Cisco" e dei "Questionari" (quiz pron
    4.9 Come la vede Cisco · 4.10 6 Questionari (60 domande)
 
 5. **La rete connette gli apparati** — p.363
-   5.1 Introduzione alle reti · 5.2 Tipologie e topologie · 5.3 Altri concetti · 5.4 Come la vede Cisco · 5.5 5 Questionari (50 domande)
+   5.1 Introduzione alle reti (363):
+     5.1.1 Che cos'è una rete · **5.1.2 Numeri binari ed esadecimali (365)** — *il binario e
+     l'esadecimale sono qui, in chiave reti* · 5.1.3 Protocolli e stack (TCP/IP, ISO/OSI) ·
+     5.1.4 Segmenti/Pacchetti/Trame/Bit (i livelli, le PDU) · 5.1.5 Indirizzi (MAC, ARP,
+     IPv4/IPv6, NAT/DHCP/DNS, porte) · 5.1.6 Apparati intermedi (Hub, Switch, Router, Firewall)
+   5.2 Tipologie e topologie (393) — PAN/LAN/WLAN/MAN/WAN; topologie logiche e fisiche
+   5.3 Altri concetti (403) — p2p, Client/Server, cablaggi e connettori (coassiale, coppie
+     intrecciate, fibra, seriali, **Wi-Fi 802.11**), ICMP
+   5.4 Come la vede Cisco (445) — Router ISR, Firewall/IDS/IPS/UTM, QoS, reti WMN, config
+     Firewall, UPnP, DMZ, Port Forwarding, MAC filtering, blacklist/whitelist, IoT, SNMP,
+     NetFlow, Wireshark
+   5.5 5 Questionari (50 domande) — 471
 
 6. **Virtualizzazione e Cloud** — p.481
-   6.1 Virtualizzazione = Cloud? · 6.2 La virtualizzazione · 6.3 Il Cloud · 6.4 Come la vede Cisco · 6.5 1 Questionario (10 domande)
+   6.1 Virtualizzazione = Cloud? (481) · 6.2 La virtualizzazione (484) — principi, hypervisor
+   tipo 1 e 2, VM, virtualizzazione della rete · 6.3 Il Cloud (488) · 6.4 Come la vede Cisco
+   (490) — Data Center vs Cloud, virtualizzazione lato client, uso del Cloud, i container ·
+   6.5 1 Questionario (10 domande)
 
 ---
 
@@ -55,9 +77,10 @@ Ogni capitolo ha una sezione "Come la vede Cisco" e dei "Questionari" (quiz pron
 5. **Software/programmazione** (Modulo 1, ponte verso Lazarus) → capitolo **1.2**.
 
 ## Note utili
-1. **NON copre bit/byte e rappresentazione dei dati** (binario, ASCII): è un libro da
-   *tecnico hardware/reti/Windows*, parte dai dispositivi. La base "bit e byte" la costruiamo
-   noi (scheda dedicata), poi si aggancia a questo libro dal capitolo 1-2 in poi.
+1. **Binario ed esadecimale ci sono** (cap. **5.1.2**), ma **in chiave reti** e a livello alto:
+   NON c'è una "base bit e byte" per principianti. Quella la costruiamo noi (scheda dedicata),
+   molto più semplice, e poi si aggancia al libro più avanti. Il libro parte dai dispositivi,
+   presuppone già delle basi → per la Prima va sempre **semplificato**.
 2. **Tanti questionari pronti** (10+40+20+60+50+10 = 190 domande): ottima miniera per i nostri
    quiz su Google Moduli (hardware, Windows, reti).
 3. "Come la vede Cisco" = taglio professionale/certificazione: utile per lo sbocco lavorativo.
