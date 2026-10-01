@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 0.3** — 30/09/2026 · Corso Informatica (Piamarta)
+**Versione 0.4** — 01/10/2026 · Corso Informatica (Piamarta)
 
 *L'Atlante è la mappa unica del corso: come sono fatti i libri, come sono
 organizzati i dati su Git, come cresce l'informazione senza rifare il lavoro, e
@@ -170,9 +170,11 @@ e metodologia".*
 7. **INCREMENTALE** `classe` — aggiorna/genera la scheda incrementale insegnante (tutte le lezioni × voti + note + cose non capite).
 8. **GIORNATA** `classe` — genera la scheda complessiva per giornata (unione delle schede di ogni lavoro del giorno).
 9. **CHIUDI** `classe` — la **chiusura del lavoro di una classe**: fa **tutto in cascata** —
-   SVOLTO → VOTA (griglia completa) → REPORT → **CLASSE** (libro di classe aggiornato) →
+   SVOLTO → VOTA (griglia completa) → REPORT → **MONITORAGGIO** (report di monitoraggio
+   allievi / andamento dell'ora, RISERVATO) → **CLASSE** (libro di classe aggiornato) →
    **LIBRI oggi** (libri individuali della giornata) → GIORNATA → **INCREMENTALE** (scheda
-   insegnante) → STATO. Un comando solo a fine ora.
+   insegnante) → STATO. Un comando solo a fine ora. (Le griglie totali portano sempre con sé
+   il report di monitoraggio — vedi RIFERIMENTI §2.13.)
 10. **STATO** — mostrami la base dati ad albero aggiornata (cosa c'è, cosa manca, coperture).
 
 ### 09.2b Tabella: quale documento → quale comando
@@ -244,7 +246,10 @@ e metodologia".*
 
 ## 12 Changelog
 
-1. **v0.3 (30/09/2026):** aggiunto il capitolo **09c How-to ed esempi** ("se voglio X, dico Y")
+1. **v0.4 (01/10/2026):** la cascata **CHIUDI classe** ora include lo step **MONITORAGGIO**
+   (report di monitoraggio allievi / andamento dell'ora): le griglie totali portano sempre
+   con sé il report di monitoraggio (RIFERIMENTI §2.12-2.13).
+2. **v0.3 (30/09/2026):** aggiunto il capitolo **09c How-to ed esempi** ("se voglio X, dico Y")
    con gli scenari frequenti; `CHIUDI classe` ora include anche il **libro di classe** e le
    griglie (completa + incrementale) — la "chiusura del lavoro di una classe".
 2. **v0.2 (30/09/2026):** rinominato **Atlante**; aggiunti i due ambienti (main/Release),
