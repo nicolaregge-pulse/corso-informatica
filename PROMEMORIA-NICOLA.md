@@ -1,6 +1,6 @@
 # Promemoria — Cose da Fare (Nicola)
 
-**Versione 0.5** — 23/09/2026
+**Versione 0.6** — 01/10/2026
 *Lista viva delle cose che Nicola deve fare, tenuta aggiornata da Claude. Non sono
 documenti da produrre (quelli li fa Claude): sono AZIONI che spettano a Nicola, a
 scuola o al computer. All'inizio della scuola, e ogni volta che Nicola chiede
@@ -37,8 +37,14 @@ cosa nuova, entra qui.*
 3. [DA FARE] **Programma di confronto Allegato A prima/dopo**: dato l'Allegato A prima e dopo le modifiche, evidenzia le differenze (per non scrivere in sezioni non di competenza). Modalita: Nicola scarica -> Claude sistema -> ricarica + PDF differenze; oppure diretto se il file e su Google Drive.
 4. [DA FARE] **File di sbobinatura (trascrizioni)**: al momento NON esistono. Se si vuole, creare cartella + processo: Nicola manda audio/testo, Claude pulisce e alimenta libro di testo + argomenti svolti. Versioni coi nomi in scratchpad, versioni pulite su Git.
 5. [DA FARE] **Libri campione allievi**: rifiniture (teoria di Liu bilingue? pagina "appunti a mano"?) e poi replica per tutta la classe. I file coi nomi restano in scratchpad (non su Git).
+6. [DA FARE — chiesto 01/10/2026, "domani sviluppare"] **Suite di script Apps Script per la GSuite didattica.** Base già pronta in `strumenti/classroom-script/`: crea compiti (`crea-compito-classroom.gs`), controlla consegne + ZIP (`consegne-controlla-e-zip.gs`), prepara chiusura = foglio stato + ZIP (`prepara-chiusura.gs`). Da sviluppare domani:
+   - **Script "PREPARA CHIUSURA"** rifinito (raccolta + foglio stato + ZIP) da collegare al comando CHIUDI (la valutazione resta all'AI).
+   - **Registro voti automatico** (quiz Form -> Foglio con medie e colori).
+   - **Compito su più classi in un clic**; **promemoria "chi non ha consegnato"**; **stampa unione** attestati/schede (un PDF per allievo da template).
+   - Nota: tutti toccano dati di minori -> restano sull'account scuola, mai nel repo pubblico.
 
 ## 7. Changelog
-1. **v0.5 (23/09/2026)**: aggiunta la sez. 6 "Cose da sviluppare con Claude" (corso AI/GEM/agenti, albero tassonomia, confronto Allegato A, sbobinature, rifiniture libri allievo).
+1. **v0.6 (01/10/2026)**: aggiunta voce 6.6 — suite script Apps Script GSuite (compiti Classroom, controlla consegne + ZIP, prepara chiusura, registro voti, stampa unione); da sviluppare domani 02/10.
+2. **v0.5 (23/09/2026)**: aggiunta la sez. 6 "Cose da sviluppare con Claude" (corso AI/GEM/agenti, albero tassonomia, confronto Allegato A, sbobinature, rifiniture libri allievo).
 2. **v0.4 (23/09/2026)**: archiviato come storico il "14 settembre" (scuola iniziata); aggiunta la voce sugli account GitHub degli allievi e sul blocco "too many requests".
 3. **v0.3 (02/09/2026)**: ruoli assegnati; attivazione repository allievi con Classroom 50; verifiche Gemini e Allegato A.
