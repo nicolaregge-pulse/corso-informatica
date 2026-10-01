@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.3** — 01/10/2026
+**Versione 2.4** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -91,6 +91,10 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     documento **che cresce nel tempo** (storia dell'andamento: chi lavora, chi è fuori
     task, difficoltà ricorrenti, progressi). Le segnalazioni gravi/ripetute confluiscono
     anche nel report del compito (§2.10 punto 5). I nomi stanno solo nel repo privato.
+    **Precisazione (01/10/2026):** uno **screenshot Veyon inviato SENZA testo** vale di per sé
+    come comando **"monitora e registra"** (stessa cosa di scrivere "monito"): Claude osserva la
+    schermata e annota l'osservazione con l'orario nel report andamento, senza bisogno di altre
+    parole.
 
 13. **Griglie totali ⇒ SEMPRE anche il Report di monitoraggio allievi (regola, 01/10/2026).**
     Quando Nicola chiede le **griglie totali** (le griglie complete del lavoro), si produce
@@ -234,6 +238,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     compito sullo stesso argomento devono avere la grafica identica (gestita come immagini), con
     spazio per i conti a mano sotto. Dopo che il compito bit/byte usava una griglia diversa dalla
     dispensa e i ragazzi si erano persi.
+15. **v2.4 (01/10/2026)**: §2 punto 12 — **screenshot Veyon senza testo = comando monitor**
+    (osserva e registra con l'orario, senza altre parole).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
