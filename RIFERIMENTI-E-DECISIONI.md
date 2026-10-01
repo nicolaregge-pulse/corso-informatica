@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.6** — 01/10/2026
+**Versione 1.7** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -89,6 +89,13 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     task, difficoltà ricorrenti, progressi). Le segnalazioni gravi/ripetute confluiscono
     anche nel report del compito (§2.10 punto 5). I nomi stanno solo nel repo privato.
 
+13. **Griglie totali ⇒ SEMPRE anche il Report di monitoraggio allievi (regola, 01/10/2026).**
+    Quando Nicola chiede le **griglie totali** (le griglie complete del lavoro), si produce
+    **sempre anche** il **Report di monitoraggio allievi** di quella giornata/ora: fa parte
+    dell'**andamento dell'ora**. Fonte = il Report andamento classe (§2.12). Quindi le griglie
+    totali consegnate sono accompagnate dal quadro di chi ha lavorato / chi era fuori task /
+    difficoltà viste al monitoraggio. Tutto RISERVATO (nomi) → repo privato / PDF a Nicola.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -151,6 +158,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 7. **v1.6 (01/10/2026)**: §2 punto 12 — parola chiave **"monito"**: monitora i ragazzi e
    aggiungi le osservazioni al **Report andamento classe** (uno per classe, RISERVATO, repo
    privato, documento che cresce nel tempo).
+8. **v1.7 (01/10/2026)**: §2 punto 13 — **griglie totali ⇒ sempre anche il Report di
+   monitoraggio allievi** (fa parte dell'andamento dell'ora).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
