@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>
+@page{size:A4}*{box-sizing:border-box}
+body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:11pt;line-height:1.5;margin:0}
+.cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:12px;padding:13mm 12mm;text-align:center;margin-bottom:5mm}
+.cover h1{font-size:20pt;margin:0}.cover .s{font-size:12pt;opacity:.93;margin-top:2mm}
+h2{color:#12467a;font-size:14pt;margin:6mm 0 2mm;background:#eef4fb;border-left:6px solid #2b7cc4;padding:2.5mm 4mm;border-radius:4px}
+p{margin:2mm 0}ol,ul{margin:1mm 0 2mm;padding-left:7mm}li{margin:1.6mm 0}
+code{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #d5e0ec;border-radius:3px;padding:0 4px;font-size:9.6pt}
+.liv{border:1px solid #cfdae6;border-radius:10px;margin:3mm 0;overflow:hidden;page-break-inside:avoid}
+.liv .h{color:#fff;padding:2.5mm 4mm;font-weight:bold;font-size:12pt}
+.liv .b{padding:3mm 4mm;background:#fafcfe}
+.l1 .h{background:#2f9e57}.l2 .h{background:#2b7cc4}.l3 .h{background:#8e44ad}.l4 .h{background:#12467a}
+.consegna{background:#fff8e6;border:1.5px solid #e6cf7a;border-radius:10px;padding:4mm 5mm;margin:4mm 0}
+.consegna h3{color:#a6810a;margin:0 0 2mm}
+.obj{background:#eafaf0;border:1px solid #bfe6cf;border-left:5px solid #2f9e57;border-radius:6px;padding:3mm 4mm;margin:3mm 0}
+.carta{background:#eef4fb;border:1px dashed #9cc0e4;border-radius:6px;padding:2.5mm 4mm;margin:3mm 0;color:#22405e}
+</style></head><body>
+
+<div class="cover"><h1>Compito — Convertitore di temperature (Lazarus)</h1>
+<div class="s">Classe 2 · Informatica · da consegnare su Classroom</div></div>
+
+<div class="obj"><b>Obiettivo:</b> costruire in Lazarus una piccola app che converte le temperature tra <b>Celsius (°C)</b> e <b>Fahrenheit (°F)</b>, con <b>verso automatico</b>, un bottone <b>Reset</b> e una <b>domanda</b> quando serve.</div>
+
+<p>Per costruirla usa la <b>dispensa</b> "Lazarus — Convertitore di temperature" (spiega tutto passo-passo, con i disegni e il codice). Qui sotto hai il compito a <b>4 livelli di aiuto</b>: parti dal Livello 1; scendi ai livelli successivi solo se ti serve.</p>
+
+<div class="liv l1"><div class="h">Livello 1 — La consegna (che cosa deve fare)</div><div class="b">
+<ol>
+<li>Due caselle: una per i <b>°C</b> e una per i <b>°F</b>; un bottone <b>Converti</b> e un bottone <b>Reset</b>.</li>
+<li><b>Verso automatico:</b> scrivo un valore in <b>una sola</b> casella e premo Converti → l'<b>altra</b> casella si riempie da sola.</li>
+<li><b>Reset:</b> svuota tutte e due le caselle.</li>
+<li><b>La domanda:</b> se per sbaglio sono piene <b>tutte e due</b>, al clic su Converti compare una <b>finestra</b> che chiede se vuoi i Celsius (<b>Sì / No</b>); la risposta decide il verso.</li>
+</ol>
+</div></div>
+
+<div class="liv l2"><div class="h">Livello 2 — Un aiuto (indizio)</div><div class="b">
+<ol>
+<li>Ragiona sui <b>4 casi</b>: solo °C pieno · solo °F pieno · tutti e due pieni · nessuno. Per ognuno, che cosa fa l'app?</li>
+<li>Le <b>formule</b>: &nbsp;°F = °C × 9 / 5 + 32 &nbsp;·&nbsp; °C = (°F − 32) × 5 / 9.</li>
+<li>Per capire quale casella è piena usa il confronto con il testo vuoto: <code>Edit1.Text &lt;&gt; ''</code> (piena) e <code>= ''</code> (vuota).</li>
+</ol>
+</div></div>
+
+<div class="liv l3"><div class="h">Livello 3 — I componenti da mettere sulla Form</div><div class="b">
+<ol>
+<li>2 <b>Label</b> (Caption: <code>Celsius</code> e <code>Fahrenheit</code>).</li>
+<li>2 caselle <b>Edit</b> → Name <code>Edit1</code> (°C) e <code>Edit2</code> (°F).</li>
+<li>2 <b>Button</b> → Name <code>ButtonConverti</code> (Caption "Converti") e <code>ButtonReset</code> (Caption "Reset").</li>
+<li>Il disegno di dove vanno è nella <b>dispensa</b> (sezione 2). Ricorda: i metodi degli eventi si creano col <b>doppio clic</b> sul bottone.</li>
+</ol>
+</div></div>
+
+<div class="liv l4"><div class="h">Livello 4 — Il codice completo</div><div class="b">
+<p>Il codice dei due bottoni (Converti con i 4 casi e la domanda, e Reset) è nella <b>dispensa, sezione 5</b>. Copialo, <b>capiscilo riga per riga</b> (le spiegazioni sono lì sotto) e poi <b>personalizzalo</b>.</p>
+<p><b>Prova del nove:</b> devi saper spiegare a voce cosa fa il bottone Converti nei 4 casi. Se sai raccontarlo, l'hai capito davvero.</p>
+</div></div>
+
+<div class="carta"><b>Carta e penna:</b> prima di scrivere, disegna sul quaderno la Form con i suoi pezzi e i 4 casi del bottone Converti.</div>
+
+<div class="consegna"><h3>Che cosa consegni su Classroom</h3>
+<ol>
+<li>Uno <b>screenshot</b> dell'app che gira, con un risultato giusto (es. 100 °C → 212 °F).</li>
+<li>Il <b>codice dei due bottoni</b> (Converti e Reset), copiato nel documento.</li>
+<li>La <b>riflessione</b>, con tre punti:
+  <ol>
+  <li>cosa <b>non sei riuscito</b> a fare, e <b>perché</b>;</li>
+  <li>cosa <b>non hai capito</b> bene;</li>
+  <li><b>note per il formatore</b> (qualcosa che vuoi dire al prof: un dubbio, una richiesta, un'idea).</li>
+  </ol>
+</li>
+</ol>
+<p>Tutto in <b>un solo Documento</b>, poi consegna su Classroom.</p>
+</div>
+
+</body></html>
