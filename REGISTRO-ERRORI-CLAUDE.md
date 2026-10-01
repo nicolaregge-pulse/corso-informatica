@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.2** — 01/10/2026
+**Versione 1.3** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -75,6 +75,14 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
       conservato com'è stato consegnato.
     - Correzione: lo ZIP di chiusura si **archivia nel repo PRIVATO** (`dati/chiusure/<CLASSE>/`,
       force oltre il `.gitignore`), perché contiene nomi → mai nel pubblico. → RIFERIMENTI §2.5.
+
+11. **Proposto argomenti senza il report delle lezioni precedenti.**
+    - Cosa: ho suggerito argomenti per la Classe 1 senza prima dare il quadro di **cosa era
+      stato fatto** nelle lezioni precedenti.
+    - Perché è sbagliato: le proposte vanno ancorate allo svolto; Nicola deve vedere prima il
+      report del fatto.
+    - Correzione: **sempre** prima il report "lezioni precedenti" (dal registro svolti), poi le
+      proposte. → RIFERIMENTI §2.16.
 
 ---
 

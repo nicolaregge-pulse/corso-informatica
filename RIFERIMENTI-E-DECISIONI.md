@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.0** — 01/10/2026
+**Versione 2.1** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -116,6 +116,13 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     come dell'AI. (Prima avevo tolto la valutazione: era sbagliato; va messa, solo attribuita
     correttamente.)
 
+16. **Report "lezioni precedenti" SEMPRE prima di proporre argomenti (regola, 01/10/2026).**
+    Quando Nicola chiede cosa fare o degli argomenti da trattare (inizio lezione), Claude dà
+    **sempre per primo** il **report di cosa è stato fatto nelle lezioni precedenti** di quella
+    classe (dal registro `ARGOMENTI-SVOLTI-2026-27.md` + consegne/materiali), e **solo dopo**
+    propone i prossimi argomenti (coerenti col calendario/moduli). Se il registro è indietro,
+    lo si segnala e si chiede conferma per aggiornarlo.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -194,6 +201,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 11. **v2.0 (01/10/2026)**: §2.5 — **eccezione**: il deliverable finale di `CHIUDI classe` (lo
     ZIP) si **versiona nel repo privato** (`dati/chiusure/<CLASSE>/`). Fissato dopo l'errore di
     non aver versionato lo ZIP di chiusura 2INF (vedi `REGISTRO-ERRORI-CLAUDE.md`).
+12. **v2.1 (01/10/2026)**: §2 punto 16 — **report "lezioni precedenti" sempre prima di proporre
+    argomenti** (dal registro svolti). Fissato dopo l'errore di aver proposto argomenti senza
+    prima dare il quadro dello svolto (vedi REGISTRO-ERRORI).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
