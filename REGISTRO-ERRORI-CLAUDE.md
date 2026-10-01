@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.4** — 01/10/2026
+**Versione 1.5** — 01/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -92,6 +92,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
     - Correzione: **integrare** sì, **introdurre argomenti nuovi** solo dopo **confronto**; nel
       dubbio chiedo. Inoltre: la **foto della lavagna** va dentro la dispensa di teoria.
       → RIFERIMENTI §2.17, §2.18, §7.
+
+13. **Cancellato una versione invece di tenerla.**
+    - Cosa: rifacendo la dispensa bit/byte, ho **rimosso** i PDF v1.0 sostituendoli con la v1.1.
+    - Perché è sbagliato: le versioni sono **congelate** e si **tengono**; si **bumpa sempre**,
+      non si cancella la precedente (regola di Nicola "aumenta sempre versione").
+    - Correzione: ripristinata la v1.0; d'ora in poi le versioni si accumulano, non si eliminano.
 
 ---
 
