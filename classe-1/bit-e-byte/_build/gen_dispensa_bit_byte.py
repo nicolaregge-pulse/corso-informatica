@@ -130,16 +130,23 @@ LANGS=[
  ("ZH","位、字节和二进制数","一年级 · 基础讲解 · 中文", ZH, "lang-zh",
    "很多例子:字节 → 十进制","给出字节,把有 1 的位置上的数值相加,就得到数字。标出了所有的 1。", "lang-zh"),
 ]
-for code,title,sub,teoria,lc,exh,exintro,bodycls in LANGS:
-    body=f"""<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><style>{CSS}</style></head>
+# Teoria (senza cover) per lingua, riutilizzabile da altri generatori (es. libri di chiusura):
+TEORIA_LANG={"IT":(IT,"lang-it"),"AR":(AR,"lang-ar"),"ZH":(ZH,"lang-zh")}
+
+def main():
+    for code,title,sub,teoria,lc,exh,exintro,bodycls in LANGS:
+        body=f"""<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><style>{CSS}</style></head>
 <body class='{bodycls}'>
 <div class='cover'><h1>{title}</h1><div class='s'>{sub} · solo binario→decimale</div></div>
 <div class='{lc}'>{teoria}</div>
 <h2>{exh}</h2><p>{exintro}</p>
 <div class='grid'>{ESEMPI}</div>
 </body></html>"""
-    hp=f"{OUT}/dispensa-bit-byte-{code}.html"; open(hp,"w").write(body)
-    pdf=f"{OUT}/Dispensa-Bit-Byte-{code}-v1.1.pdf"
-    subprocess.run(["node",RENDER,hp,pdf,title,"Classe 1 · 01/10/2026","Corso Informatica — Classe 1"],env=ENV,check=True,capture_output=True)
-    print("OK",code,"->",os.path.basename(pdf))
-print("esempi:",len(NUMS))
+        hp=f"{OUT}/dispensa-bit-byte-{code}.html"; open(hp,"w").write(body)
+        pdf=f"{OUT}/Dispensa-Bit-Byte-{code}-v1.1.pdf"
+        subprocess.run(["node",RENDER,hp,pdf,title,"Classe 1 · 01/10/2026","Corso Informatica — Classe 1"],env=ENV,check=True,capture_output=True)
+        print("OK",code,"->",os.path.basename(pdf))
+    print("esempi:",len(NUMS))
+
+if __name__=="__main__":
+    main()
