@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 1.5** — 01/10/2026
+**Versione 1.6** — 01/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -81,6 +81,14 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     su Classroom. Ma costa: **perdita di tempo, confusione, e i ragazzi fragili si perdono.**
     Quindi si fa **solo se davvero necessario**, e si **avvisa la classe** del cambiamento.
 
+12. **Parola chiave "monito" (regola, 01/10/2026):** quando Nicola scrive **"monito"**
+    (o manda uno screenshot di monitoraggio Veyon), significa: **osserva cosa fanno i
+    ragazzi** e **aggiungi le osservazioni** al **Report andamento classe** (uno per classe,
+    RISERVATO → repo privato `dati/andamento/report-andamento-classe-<CLASSE>.md`). È un
+    documento **che cresce nel tempo** (storia dell'andamento: chi lavora, chi è fuori
+    task, difficoltà ricorrenti, progressi). Le segnalazioni gravi/ripetute confluiscono
+    anche nel report del compito (§2.10 punto 5). I nomi stanno solo nel repo privato.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -140,6 +148,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 6. **v1.5 (01/10/2026)**: §1 punto 8 — promemoria **account personale vs scuola**: su alcune
    postazioni Nicola è loggato col personale e il sito sicurezza non si apre; ricordargli di
    passare all'account `@piamarta.it` (ragazzi: `@studenti.piamarta.it`).
+7. **v1.6 (01/10/2026)**: §2 punto 12 — parola chiave **"monito"**: monitora i ragazzi e
+   aggiungi le osservazioni al **Report andamento classe** (uno per classe, RISERVATO, repo
+   privato, documento che cresce nel tempo).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
