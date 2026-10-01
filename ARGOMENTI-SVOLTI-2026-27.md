@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.2** — 24/09/2026
+**Versione 0.3** — 01/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -28,13 +28,16 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 17/09/2026 | Laboratorio 2: area logica (cartelle ad albero), giro Google Suite, iscrizione a Google Classroom; ripasso sicurezza (password) | laboratorio-02-area-logica-google-classroom | Produttività digitale · Organizzazione del lavoro digitale |
 | 17/09/2026 | Esercizio "Io e la mia famiglia": primo documento con Google Documenti, uso di Google Traduttore, consegna su Classroom | esercizio-presentazione-famiglia · glossario-l2 | Produttività digitale · Comunicazione e collaborazione |
 | 24/09/2026 | Configurazione di un PC — standard hardware (form factor AT/ATX/microATX/Mini-ITX, slot PCIe, socket Intel LGA/AMD PGA, processori per marca, RAM DDR3/4/5); esercitazione: documento con teoria + immagini dal web, consegna su Classroom | standard-hardware · consegna-configurazione-pc | Tecnologia professionale · Hardware |
+| 01/10/2026 | Bit, byte e numeri binari: sistema decimale vs binario, il bit (0/1), il byte (8 bit), conversione binario→decimale col metodo delle caselle a valori posizionali (128…1), multipli (KB/MB/GB). Lezione alla lavagna + dispensa trilingue (IT/AR/ZH) con foto della lavagna | bit-e-byte/dispensa-bit-byte · lavagne/20261001 | Fondamenti di informatica · Rappresentazione dell'informazione |
+| 01/10/2026 | Esercitazione "Da binario a decimale": 16 esercizi (griglia a valori posizionali, 1 evidenziati), consegna su Google Classroom; correzione con valutazione | bit-e-byte/compito-bit-byte | Rappresentazione dell'informazione · Calcolo |
 
 > [GIALLO] Supporto trasversale usato in queste attività: il Glossario L2 multilingue (italiano · inglese · cinese · arabo), per agganciare i termini tecnici alla lingua degli allievi.
 
 ## 3. Classe 2 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
 |---|---|---|---|
-| (da compilare) |  |  |  |
+| 01/10/2026 | Lazarus "Convertitore di temperature" (Celsius↔Fahrenheit): if/then, begin/end annidati, verso automatico, Reset, finestra di scelta (MessageDlg/QuestionDlg); esercitazione + consegna su Classroom; correzione | lazarus-convertitore | Programmazione · Sviluppo software |
+| 01/10/2026 | Sicurezza sul lavoro — modulo 1: concetti di Rischio, Danno, Prevenzione e Protezione (slide + videolezione formazione); verifica con quiz (Google Moduli, 20 domande, autocorrezione) e test a risposta aperta | formazione-sicurezza (sito Piamarta) · sicurezza-test-aperto | Sicurezza sul lavoro · Cittadinanza |
 
 ## 4. Classe 3 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
@@ -48,5 +51,6 @@ rifiniscono man mano confrontando con l'Allegato A.*
 4. `PIANO-ORE-LEZIONE` — il piano ora-per-ora (previsto), da confrontare con lo svolto.
 
 ## 6. Changelog
+3. **v0.3 (01/10/2026)**: Classe 1 — bit/byte e conversione binario→decimale + esercitazione; Classe 2 — Lazarus convertitore temperature e Sicurezza modulo 1 (rischio/danno) con quiz e test aperto.
 2. **v0.2 (24/09/2026)**: aggiunta la lezione del 24/09 (Configurazione PC — standard hardware) alla Classe 1.
 1. **v0.1 (17/09/2026)**: prima versione. Registro avviato con le attività svolte dalla Classe 1 nelle prime lezioni.
