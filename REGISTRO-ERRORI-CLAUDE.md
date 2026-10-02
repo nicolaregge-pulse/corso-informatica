@@ -134,6 +134,53 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
    un secondo metodo invece di semplificare quello della lavagna: ha confuso i ragazzi. **Correzione:**
    ritirato (v1.0 tolte dal sito), rifatte facilissima / scheda facile / nome-colori v1.1 solo con le
    divisioni per 2. Regola → RIFERIMENTI §2.26.
+5. **Orari delle campanelle persi.** Nicola li aveva dati in una sessione precedente; non li avevo
+   salvati in un file, quindi ho fissato scadenze "a caso" (14:00, 13:00) e ho dovuto chiederli di
+   nuovo in classe. **Correzione:** salvati in RIFERIMENTI §1.10 + `orario/Orario-Campanelle-v1.0.pdf`;
+   ogni dato operativo che Nicola mi dà va scritto SUBITO in un file del repo.
+6. **Troppe modifiche ai materiali DURANTE la lezione.** In un'ora: monete → divisioni, pagina
+   con 4 → 2 → 6 → 12 → 4 bottoni, PDF v1.0 → v1.1 → v1.2 → v1.3 → v1.4. Ogni cambio ha spostato
+   il terreno sotto i piedi dei ragazzi e di Nicola ("li hai confusi"). **Correzione:** durante la
+   lezione si CONGELA ciò che è pubblicato; si corregge solo un errore bloccante, con UNA modifica
+   ragionata, non a tentativi.
+7. **Argomenti mescolati.** La scheda sulla divisione (Livello 3) parlava già di binario; ho poi
+   proposto un compito unico "dalla divisione al binario". Nicola: "tieni distinti gli argomenti".
+   **Correzione:** un argomento = una teoria + un compito; il ponte tra due argomenti è un compito
+   a sé, dopo.
+8. **Impaginazione non controllata prima di consegnare.** Tabella delle metà tagliata ai bordi,
+   tabella del Livello 3 spezzata su due pagine, titoli orfani a fine pagina, "37" senza spiegazione
+   di cosa fare. Nicola l'ha visto prima di me. **Correzione:** prima di pubblicare guardo OGNI
+   pagina di OGNI lingua (render a immagine), non solo la prima.
+9. **Link rotti nelle istruzioni di Classroom.** Ho tolto dal sito i PDF v1.0 che erano linkati
+   direttamente nelle istruzioni del compito → link non funzionanti. **Correzione:** nelle istruzioni
+   di Classroom SOLO il link unico della pagina (che non cambia mai); mai link diretti ai PDF versionati.
+10. **Pagina vecchia rimasta nel browser.** Dopo le modifiche Nicola vedeva ancora la versione
+    precedente (cache): ho dato per scontato che "ricaricare" bastasse. **Correzione:** versione
+    scritta in copertina (riquadro bianco) + pagina senza cache + avviso esplicito "Ctrl+F5".
+11. **Compiti vuoti pubblicati dallo script (GRAVE).** Ho messo in coda "aggancia il compito che
+    creerà Nicola" PRIMA che lui lo creasse: lo script non lo ha trovato e ha pubblicato da solo
+    "Compito 1" e "Compito 2" VUOTI, visibili ai ragazzi e non eliminabili dalla vista Stream.
+    **Correzione:** si aggancia un compito manuale solo DOPO che Nicola conferma "creato"; lo script
+    va dotato di uno stato "solo-aggancia" che non pubblica mai.
+12. **Effetto delle modifiche su Classroom non previsto.** Modificando il Compito 2 Classroom l'ha
+    spostato in cima, sopra il Compito 1: i ragazzi hanno perso l'ordine. **Correzione:** prima di
+    far modificare un compito già pubblicato, avvisare che sale in cima e dare subito "Sposta in alto"
+    per rimettere l'ordine (o usare un Argomento ordinato).
+13. **Indicazioni imprecise su schermate e account.** "Elimina" dato per possibile dove non c'era
+    (Stream), passaggi multipli in un solo messaggio quando Nicola chiedeva "una cosa per volta",
+    dubbio sull'account (scuola/personale) gestito male. **Correzione:** UNA azione per messaggio
+    quando la situazione è nuova; leggere lo screenshot e indicare il punto ESATTO di quella schermata.
+14. **Chiave di correzione sovrascritta.** Rigenerando il compito v1.1 ho sovrascritto la chiave
+    della v1.0 che i ragazzi stavano consegnando (rimessa a posto subito). **Correzione:** ogni chiave
+    porta la versione nel nome del file; mai sovrascrivere la chiave di un compito in corso.
+15. **Compito bit/byte v3.0 di ieri con esempio sbagliato** (griglia di 78, somma scritta
+    "128+64+32+16 = 78"). Visto solo oggi. **Correzione:** controllo aritmetico automatico degli
+    esempi (somma ricalcolata) prima di generare il PDF.
+
+**Causa comune di oggi:** ho privilegiato la velocità e i tentativi rispetto alla verifica, e ho
+cambiato materiale già in mano ai ragazzi. **Regola d'oro da qui in avanti:** *in classe niente
+esperimenti: si pubblica una volta, verificato pagina per pagina; le migliorie si fanno dopo la
+lezione.*
 
 ---
 
