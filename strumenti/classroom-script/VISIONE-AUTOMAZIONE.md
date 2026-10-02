@@ -71,6 +71,14 @@ CONTENUTI e la VALUTAZIONE li fa l'AI. Nomi/voti dei minori: solo repo privato.*
    depositate come PDF in `dati/consegne/1INF/binario-decimale/` (+ `_INDICE.txt`), lette dall'AI.
 4. **Vale per TUTTE le classi:** il setup (token+script+servizio) è **una tantum**; per un'altra
    classe/compito si cambiano solo 4 valori (COURSE_ID, COURSEWORK_ID, CLASSE, CARTELLA).
+5. **Test parte automatica (02/10):** letto+corretto in automatico le 20 consegne depositate dal
+   ponte (PDF, estrazione `extraction_mode="layout"`). La **maggioranza combacia al 100%** con la
+   correzione manuale di ieri (i 16/15/14 tornano identici). **MA** per alcuni (nehara, moaaz
+   megahed, matteo, abdel) il conteggio è più basso: non per errori loro, ma perché **l'estrazione
+   da PDF perde/confonde qualche risposta** (le tabelle del Google Doc esportato non si leggono
+   sempre pulite). → **FIX:** il ponte deve depositare anche una **versione TESTO pulita** (il testo
+   del Google Doc via `DocumentApp.getBody().getText()`), non solo il PDF. PDF per leggere, testo
+   per correggere. Piccola modifica allo script.
 5. **Da rifinire:** (a) config **"solo incolla"** via Proprietà dello script / menu, per non
    toccare il codice (regola §2.20); (b) collegare al comando **CHIUDI** (AI genera libri+report);
    (c) accumulo per-allievo per il "libro completo individuale".
