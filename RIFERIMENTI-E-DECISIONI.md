@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.8** — 02/10/2026
+**Versione 2.9** — 02/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -188,6 +188,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     - materiale **abbondante** (sovradimensionato), così non si esaurisce mai.
     Si lega ai **4 livelli di aiuto** dell'eserciziario e alla "scatola flessibile".
 
+25. **Argomenti del REGISTRO: CORTI (regola, 02/10/2026 — richiesta da Nicola).** La casella
+    "Argomento" del registro elettronico mostra poco testo e taglia il resto (visto con "...metodo d").
+    Quindi il testo per il registro è **una frase breve, massimo ~40 caratteri**, senza parentesi
+    né spiegazioni (es. "Conversione da decimale a binario"). **Uno per ora**, ciascuno nel suo
+    blocco da copiare. I dettagli vanno in `ARGOMENTI-SVOLTI-2026-27.md`, non nel registro.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -284,6 +290,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     (file dedicato) e scelta ponte: Git come scambio (opzione B).
 17. **v2.6 (02/10/2026)**: §2 punto 22 — **scheda sintetica per la lezione frontale** del
     docente, sempre e per prima, per ogni nuovo argomento.
+18. **v2.9 (02/10/2026)**: §2 punto 25 — **argomenti del registro CORTI** (max ~40 caratteri,
+    uno per ora): la casella del registro taglia il testo lungo.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si

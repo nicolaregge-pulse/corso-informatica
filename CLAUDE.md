@@ -122,6 +122,8 @@ argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
   della Regione**. Perciò Nicola firma **subito in classe** il programma previsto
   (anche con argomenti provvisori) e li corregge dopo. **Compito di Claude:
   ricordare la firma IN AULA, prima delle 14:05** (non a fine giornata).
+- **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
+  ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
 - **A FINE giornata: CHIEDERE a Nicola gli argomenti realmente svolti** e
   aggiornare (`ARGOMENTI-SVOLTI-2026-27.md`, senza nomi). La firma è già stata
   fatta prima (vedi sopra); a fine giornata si sistemano solo gli **argomenti**.
