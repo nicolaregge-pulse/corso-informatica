@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.5** — 02/10/2026
+**Versione 2.6** — 02/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -160,6 +160,14 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     "Consegne Classroom → Git", "Crea compito Classroom", "Quiz Sicurezza". Si rinominano anche
     quelli vecchi senza nome quando si aprono.
 
+22. **Scheda sintetica per la lezione frontale del docente (regola, 02/10/2026).** Per OGNI
+    nuovo argomento/lezione, Claude dà SEMPRE a Nicola — per primo — una **scheda sintetica**
+    (1 pagina, per il DOCENTE) con cui **iniziare la lezione frontale**: concetto in breve, i
+    passi del metodo, 2-3 esempi svolti, gli agganci "Vinci subito · Fallo tuo · Mostralo", gli
+    errori tipici da prevenire. È il "canovaccio" della spiegazione alla lavagna. Viene PRIMA di
+    dispensa/compito (che poi seguono la lavagna reale, §2.17-2.18). È materiale docente
+    (in italiano), separato dai materiali per i ragazzi (trilingui).
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -254,6 +262,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 16. **v2.5 (02/10/2026)**: §2 punti 20-21 — **solo copia-incolla passo per passo** (mai far
     scrivere/editare a Nicola) e **nomi sensati agli script**. + visione pipeline automazione
     (file dedicato) e scelta ponte: Git come scambio (opzione B).
+17. **v2.6 (02/10/2026)**: §2 punto 22 — **scheda sintetica per la lezione frontale** del
+    docente, sempre e per prima, per ogni nuovo argomento.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
