@@ -7,7 +7,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen_decimale_binario import CSS, pdf, OUT
 
-VER = "1.0"
+VER = "1.1"  # v1.1: solo divisione (tolto ogni riferimento al binario), colonne chiare
 
 def pallini(n, pieni=True, scala=0.32):
     """n caramelle in coppie (colonne da 2); quella che avanza è ROSSA. pieni=False: cerchi vuoti."""
@@ -43,11 +43,11 @@ T = {
  h2="2. La regola (una riga sola)",
  regola="<b>Numero PARI</b> (finisce con 0, 2, 4, 6, 8) → fai la <b>metà</b>, resto <b>0</b>.<br><b>Numero DISPARI</b> (finisce con 1, 3, 5, 7, 9) → <b>togli 1</b> (è il resto), poi fai la <b>metà</b>.",
  es37="Esempio: <b>37</b> è dispari → tolgo 1 → 36 → metà = <b>18</b>. Quindi <b>37 : 2 = 18 resto 1</b>.",
- h3="3. La tabella delle metà (guardala quando serve)", col=("numero", ": 2 =", "resto"),
+ h3="3. La tabella delle metà (guardala quando serve)", col=("numero", "risultato (: 2)", "resto"),
  h4="4. Esercizi", l1="Livello 1 — dividi le caramelle in coppie (colora quella che avanza)",
- l2="Livello 2 — pari o dispari? poi dividi", l3="Livello 3 — le divisioni della lavagna (il 37!)",
- l3t="Ogni risultato diventa il numero della riga sotto. Sono proprio le divisioni che servono per il binario!",
- resto="resto", fatto="FATTO! Queste sono le divisioni del binario: 37 → 100101."),
+ l2="Livello 2 — pari o dispari? poi dividi", l3="Livello 3 — divisioni a catena",
+ l3t="Dividi 37 per 2. Il <b>risultato</b> lo scrivi nella riga sotto come <b>numero nuovo</b> e lo dividi ancora. Continua fino a quando il risultato è 0.",
+ resto="resto", fatto="FATTO! Ora sai fare la divisione per 2 con il resto."),
 "AR": dict(
  t="القسمة على 2 مع الباقي", sub="الصف الأول · ورقة مساعدة · على الورقة · العربية",
  h1="1. القسمة على 2 = جزءان متساويان",
@@ -57,11 +57,11 @@ T = {
  h2="2. القاعدة (سطر واحد)",
  regola="<b>عدد زوجي</b> (ينتهي بـ 0، 2، 4، 6، 8) ← خذ <b>النصف</b>، الباقي <b>0</b>.<br><b>عدد فردي</b> (ينتهي بـ 1، 3، 5، 7، 9) ← <b>اطرح 1</b> (هو الباقي)، ثم خذ <b>النصف</b>.",
  es37="مثال: <b>37</b> فردي ← أطرح 1 ← 36 ← النصف = <b>18</b>. إذن <b>37 : 2 = 18 والباقي 1</b>.",
- h3="3. جدول الأنصاف (انظر إليه عند الحاجة)", col=("العدد", ": 2 =", "الباقي"),
+ h3="3. جدول الأنصاف (انظر إليه عند الحاجة)", col=("العدد", "الناتج (: 2)", "الباقي"),
  h4="4. تمارين", l1="المستوى 1 — قسّم الحلوى أزواجًا (لوّن التي تبقى)",
- l2="المستوى 2 — زوجي أم فردي؟ ثم اقسم", l3="المستوى 3 — قسمة اللوحة (العدد 37!)",
- l3t="كل ناتج يصبح عدد السطر التالي. هذه بالضبط القسمة التي نحتاجها للثنائي!",
- resto="الباقي", fatto="أحسنت! هذه قسمة الثنائي: 37 ← 100101."),
+ l2="المستوى 2 — زوجي أم فردي؟ ثم اقسم", l3="المستوى 3 — قسمة متتالية",
+ l3t="اقسم 37 على 2. اكتب <b>الناتج</b> في السطر التالي كـ<b>عدد جديد</b> واقسمه من جديد. استمر حتى يصبح الناتج 0.",
+ resto="الباقي", fatto="أحسنت! الآن تعرف القسمة على 2 مع الباقي."),
 "ZH": dict(
  t="除以 2 和余数", sub="一年级 · 帮助练习 · 在纸上做 · 中文",
  h1="1. 除以 2 = 分成 2 份一样多",
@@ -71,11 +71,11 @@ T = {
  h2="2. 规则(只有一行)",
  regola="<b>偶数</b>(个位是 0、2、4、6、8)→ 取<b>一半</b>,余数 <b>0</b>。<br><b>奇数</b>(个位是 1、3、5、7、9)→ <b>先减 1</b>(这就是余数),再取<b>一半</b>。",
  es37="例子:<b>37</b> 是奇数 → 减 1 → 36 → 一半 = <b>18</b>。所以 <b>37 : 2 = 18 余 1</b>。",
- h3="3. 一半表(需要时看)", col=("数字", ": 2 =", "余数"),
+ h3="3. 一半表(需要时看)", col=("数字", "结果(: 2)", "余数"),
  h4="4. 练习", l1="第 1 级 — 把糖两个两个分(剩下的涂颜色)",
- l2="第 2 级 — 偶数还是奇数?然后除", l3="第 3 级 — 白板上的除法(37!)",
- l3t="每个结果变成下一行的数字。这正是二进制需要的除法!",
- resto="余", fatto="做到了!这就是二进制的除法:37 → 100101。"),
+ l2="第 2 级 — 偶数还是奇数?然后除", l3="第 3 级 — 连续除法",
+ l3t="37 除以 2。把<b>结果</b>写到下一行当作<b>新数字</b>,再除以 2。一直做到结果是 0。",
+ resto="余", fatto="做到了!现在你会除以 2 和余数了。"),
 }
 
 XCSS = """
@@ -107,7 +107,7 @@ def scheda(L, t):
     for n in (10, 11, 14, 15, 20, 21):
         k += 1
         l2 += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
-    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>: 2 =</th><th>{t['resto']}</th></tr>"
+    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>{t['col'][1]}</th><th>{t['resto']}</th></tr>"
            + "<tr><td class='q'>37</td><td></td><td></td></tr>" + "<tr><td></td><td></td><td></td></tr>" * 5 + "</table>")
     return (f"<div class='cover'><h1>{t['t']}</h1><div class='s'>{t['sub']}</div></div>"
             f"<h2 class='testo'>{t['h1']}</h2><p class='testo'>{t['p1']}</p>"
@@ -134,14 +134,14 @@ if __name__ == "__main__":
 
 # ---- COMPITO (stesse righe del documento da compilare su Classroom) ----
 TC = {"IT": ("Compito — La divisione per 2 con il resto", "Classe 1 · da consegnare · 02/10/2026",
-             "Scrivi il risultato e il resto. I conti sul foglio.", "Livello 3 — le divisioni della lavagna: il risultato va nella riga sotto.",
-             "Sfida: leggi i resti dal BASSO verso l'ALTO:"),
+             "Scrivi il risultato e il resto. I conti sul foglio.", "Livello 3 — divisioni a catena: il risultato va nella riga sotto come numero nuovo.",
+             ""),
       "AR": ("واجب — القسمة على 2 مع الباقي", "الصف الأول · يُسلَّم · 02/10/2026",
-             "اكتب الناتج والباقي. الحساب على الورقة.", "المستوى 3 — قسمة اللوحة: الناتج يُكتب في السطر التالي.",
-             "تحدٍّ: اقرأ البواقي من الأسفل إلى الأعلى:"),
+             "اكتب الناتج والباقي. الحساب على الورقة.", "المستوى 3 — قسمة متتالية: الناتج يُكتب في السطر التالي كعدد جديد.",
+             ""),
       "ZH": ("作业 — 除以 2 和余数", "一年级 · 要交 · 02/10/2026",
-             "写出结果和余数。在纸上算。", "第 3 级 — 白板上的除法:结果写到下一行。",
-             "挑战:从下往上读余数:")}
+             "写出结果和余数。在纸上算。", "第 3 级 — 连续除法:结果写到下一行当作新数字。",
+             "")}
 
 def compito(L, t):
     ti, su, istr, l3, sf = TC[L]
@@ -149,11 +149,11 @@ def compito(L, t):
     for n in (4, 5, 8, 9, 10, 11, 14, 15, 20, 21):
         k += 1
         righe += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
-    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>: 2 =</th><th>{t['resto']}</th></tr>"
+    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>{t['col'][1]}</th><th>{t['resto']}</th></tr>"
            + "<tr><td class='q'>37</td><td></td><td></td></tr>" + "<tr><td></td><td></td><td></td></tr>" * 5 + "</table>")
     return (f"<div class='cover'><h1>{ti}</h1><div class='s'>{su}</div></div><p class='testo'>{istr}</p>"
             f"<p class='big'>7 : 2 = 3 <bdi>{t['resto']}</bdi> 1</p>{righe}"
-            f"<h2 class='testo'>{l3}</h2>{cat}<p class='testo'>{sf} ______________</p>")
+            f"<h2 class='testo'>{l3}</h2>{cat}")
 
 def main_compito():
     for L, t in T.items():
