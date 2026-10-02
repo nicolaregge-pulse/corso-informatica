@@ -130,6 +130,10 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
    nello script automatico. I ragazzi non avevano dove scrivere. **Correzione:** ogni compito ha
    SEMPRE il documento da compilare allegato come copia per ogni allievo, in qualunque via di
    pubblicazione (automatica o a mano).
+4. **Metodo alternativo introdotto ("metodo delle monete").** Per aiutare chi faticava ho proposto
+   un secondo metodo invece di semplificare quello della lavagna: ha confuso i ragazzi. **Correzione:**
+   ritirato (v1.0 tolte dal sito), rifatte facilissima / scheda facile / nome-colori v1.1 solo con le
+   divisioni per 2. Regola → RIFERIMENTI §2.26.
 
 ---
 

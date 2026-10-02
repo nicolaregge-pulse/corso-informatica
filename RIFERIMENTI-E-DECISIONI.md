@@ -200,6 +200,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     né spiegazioni (es. "Conversione da decimale a binario"). **Uno per ora**, ciascuno nel suo
     blocco da copiare. I dettagli vanno in `ARGOMENTI-SVOLTI-2026-27.md`, non nel registro.
 
+26. **Si usa SOLO il metodo del docente (regola, 02/10/2026 — richiesta da Nicola).** Il metodo
+    è quello che Nicola fa alla lavagna (es. decimale → binario = divisioni per 2, resti dal basso,
+    zeri davanti). Se i ragazzi faticano si spiega **lo stesso metodo più semplice** (più passi,
+    più disegni, esercizi a gradini), **mai** introdurre un metodo alternativo: confonde. (Errore del
+    02/10: "metodo delle monete" ritirato.)
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
