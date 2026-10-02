@@ -131,3 +131,37 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# ---- COMPITO (stesse righe del documento da compilare su Classroom) ----
+TC = {"IT": ("Compito — La divisione per 2 con il resto", "Classe 1 · da consegnare · 02/10/2026",
+             "Scrivi il risultato e il resto. I conti sul foglio.", "Livello 3 — le divisioni della lavagna: il risultato va nella riga sotto.",
+             "Sfida: leggi i resti dal BASSO verso l'ALTO:"),
+      "AR": ("واجب — القسمة على 2 مع الباقي", "الصف الأول · يُسلَّم · 02/10/2026",
+             "اكتب الناتج والباقي. الحساب على الورقة.", "المستوى 3 — قسمة اللوحة: الناتج يُكتب في السطر التالي.",
+             "تحدٍّ: اقرأ البواقي من الأسفل إلى الأعلى:"),
+      "ZH": ("作业 — 除以 2 和余数", "一年级 · 要交 · 02/10/2026",
+             "写出结果和余数。在纸上算。", "第 3 级 — 白板上的除法:结果写到下一行。",
+             "挑战:从下往上读余数:")}
+
+def compito(L, t):
+    ti, su, istr, l3, sf = TC[L]
+    k = 0; righe = ""
+    for n in (4, 5, 8, 9, 10, 11, 14, 15, 20, 21):
+        k += 1
+        righe += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
+    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>: 2 =</th><th>{t['resto']}</th></tr>"
+           + "<tr><td class='q'>37</td><td></td><td></td></tr>" + "<tr><td></td><td></td><td></td></tr>" * 5 + "</table>")
+    return (f"<div class='cover'><h1>{ti}</h1><div class='s'>{su}</div></div><p class='testo'>{istr}</p>"
+            f"<p class='big'>7 : 2 = 3 <bdi>{t['resto']}</bdi> 1</p>{righe}"
+            f"<h2 class='testo'>{l3}</h2>{cat}<p class='testo'>{sf} ______________</p>")
+
+def main_compito():
+    for L, t in T.items():
+        cls = {"IT": "lang-it", "AR": "lang-ar", "ZH": "lang-zh"}[L]
+        html = f"<!DOCTYPE html><html><head><meta charset='utf-8'><style>{CSS}{XCSS}</style></head><body class='{cls}'>{compito(L, t)}</body></html>"
+        hp = f"{OUT}/compito-divisione-per-2-{L}.html"; open(hp, "w").write(html)
+        pdf(hp, f"{OUT}/Compito-Divisione-per-2-{L}-v{VER}.pdf")
+        print("OK compito", L)
+
+if __name__ == "__main__":
+    main_compito()
