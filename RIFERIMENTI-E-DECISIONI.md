@@ -27,11 +27,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    passare all'**account scuola** `@piamarta.it` (in alto a destra, scelta account). Idem
    per i ragazzi: devono essere su `@studenti.piamarta.it`.
 9. **Portale AFGP Piamarta:** `https://piamarta.afgp.it/`
-10. **CAMPANELLE (date da Nicola, salvate il 02/10/2026):** **08:00 · 08:55 · 09:55 · 10:50 · 11:10**
-    (10:50-11:10 = intervallo, presumibilmente). Dopo le 11:10: **da completare** con Nicola.
-    Fine lezioni **14:00**; registri inviati alle **14:05** (firma entro quell'ora). Nel registro
-    elettronico le ore risultano a blocchi da 60 minuti (08-09 … 13-14). Ogni scadenza di
-    compito e ogni promemoria si fissano su queste campanelle, mai a caso.
+10. **CAMPANELLE (date da Nicola, salvate il 02/10/2026):**
+    **08:00 · 08:55 · 09:55 · 10:50 · [intervallo] · 11:10 · 12:05 · 13:05 · 14:00**.
+    Ore reali: 1ª 08:00-08:55 · 2ª 08:55-09:55 · 3ª 09:55-10:50 · intervallo 10:50-11:10 ·
+    4ª 11:10-12:05 · 5ª 12:05-13:05 · 6ª 13:05-14:00. Registri inviati alle **14:05** (firma entro
+    quell'ora). Nel registro elettronico le ore risultano a blocchi da 60 minuti (08-09 … 13-14).
+    Ogni scadenza di compito e ogni promemoria si fissano su queste campanelle, mai a caso.
 
 ## 2. Convenzioni durature
 1. **PPP** = "parcheggia": annota, prepara in silenzio, **non consegnare** finché
