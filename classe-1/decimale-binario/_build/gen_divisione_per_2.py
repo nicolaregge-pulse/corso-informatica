@@ -7,7 +7,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen_decimale_binario import CSS, pdf, OUT
 
-VER = "1.3"  # v1.2: Livello 3 riscritto riga per riga (niente tabella spezzata), primo passo già fatto
+VER = "1.4"  # v1.4: versione scritta in copertina  # v1.2: Livello 3 riscritto riga per riga (niente tabella spezzata), primo passo già fatto
 
 def pallini(n, pieni=True, scala=0.32):
     """n caramelle in coppie (colonne da 2); quella che avanza è ROSSA. pieni=False: cerchi vuoti."""
@@ -124,7 +124,7 @@ def scheda(L, t):
         k += 1
         l2 += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
     cat = catena(L, t)
-    return (f"<div class='cover'><h1>{t['t']}</h1><div class='s'>{t['sub']}</div></div>"
+    return (f"<div class='cover'><div class='ver'>v{VER}</div><h1>{t['t']}</h1><div class='s'>{t['sub']}</div></div>"
             f"<h2 class='testo'>{t['h1']}</h2><p class='testo'>{t['p1']}</p>"
             f"<div class='duo'>{pallini(6)}<div class='tx testo'><p>{t['e6']}</p><p class='big'>{t['e6r']}</p></div></div>"
             f"<div class='duo'>{pallini(7)}<div class='tx testo'><p>{t['e7']}</p><p class='big'>{t['e7r']}</p></div></div>"
@@ -165,7 +165,7 @@ def compito(L, t):
         k += 1
         righe += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
     cat = catena(L, t)
-    return (f"<div class='cover'><h1>{ti}</h1><div class='s'>{su}</div></div><p class='testo'>{istr}</p>"
+    return (f"<div class='cover'><div class='ver'>v{VER}</div><h1>{ti}</h1><div class='s'>{su}</div></div><p class='testo'>{istr}</p>"
             f"<p class='big'>{ {'IT':'Esempio','AR':'مثال','ZH':'例子'}[L] }: 7 : 2 = 3 <bdi>{t['resto']}</bdi> 1</p>{righe}"
             f"<div style='page-break-inside:avoid'><h2 class='testo'>{l3}</h2>{cat}</div>"
             f"<div style='page-break-inside:avoid'><h2 class='testo'>{ {'IT':'Sfide (solo se hai finito)','AR':'تحديات (إذا أنهيت فقط)','ZH':'挑战(做完了才做)'}[L] }</h2>"

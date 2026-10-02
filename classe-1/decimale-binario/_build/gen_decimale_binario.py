@@ -10,7 +10,7 @@ import os, subprocess, base64, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 ROOT = "/home/user/corso-godot"
-VER = "1.1"  # v1.1: compito più corto (6 numeri + sfide tra 30 e 70), titolo esempi non orfano
+VER = "1.2"  # v1.2: versione scritta in copertina. Prima: v1.1: compito più corto (6 numeri + sfide tra 30 e 70), titolo esempi non orfano
 DATA = "02/10/2026"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 POS = [128, 64, 32, 16, 8, 4, 2, 1]
@@ -92,6 +92,7 @@ CSS = """@page{size:A4;margin:14mm 14mm 16mm}*{box-sizing:border-box;-webkit-pri
 @font-face{font-family:"Amiri";font-weight:700;src:url(data:font/woff2;base64,%s) format("woff2")}
 body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:11pt;line-height:1.5;margin:0}
 .cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:12px;padding:9mm;text-align:center;margin-bottom:5mm}
+.cover{position:relative}.ver{position:absolute;left:7mm;top:50%%;transform:translateY(-50%%);background:#fff;color:#12467a;font-weight:bold;border-radius:8px;padding:2mm 4mm;font-size:14pt;font-family:'DejaVu Sans',sans-serif}
 .cover h1{font-size:20pt;margin:0}.cover .s{font-size:11.5pt;opacity:.93;margin-top:2mm}
 h2{color:#12467a;font-size:14pt;margin:5mm 0 2mm;border-bottom:2px solid #2b7cc4;padding-bottom:1mm;page-break-after:avoid}
 p{margin:2mm 0}ol{padding-left:7mm;margin:2mm 0}li{margin:1.4mm 0}
@@ -318,14 +319,14 @@ def main():
         lav = (f"<div class='fig'><img src='data:image/jpeg;base64,{LAV}'><div class='cap testo'>{t['lavcap']}</div></div>"
                f"<div class='fig'><img style='max-width:38%' src='data:image/jpeg;base64,{LAV2}'><div class='cap testo'>{t['lav2cap']}</div></div>")
         teoria = t["teoria"].replace("@@ESEMPIO@@", esempio_html(L)).replace("@@LAVAGNA@@", lav)
-        disp = (f"<div class='cover'><h1>{t['titolo']}</h1><div class='s'>{t['sub']}</div></div>"
+        disp = (f"<div class='cover'><div class='ver'>v{VER}</div><h1>{t['titolo']}</h1><div class='s'>{t['sub']}</div></div>"
                 f"<div class='testo'>{teoria}<h2 style='page-break-before:always'>{t['svolti']}</h2><p>{t['svolti_intro']}</p></div>"
                 f"<div class='grid'>{''.join(card_svolto(L, n) for n in ESEMPI_SVOLTI)}</div>"
                 f"<div class='testo'>{t['sfida']}</div><div class='foot'>{t['foot']} · v{VER}</div>")
         hp = f"{OUT}/dispensa-decimale-binario-{L}.html"; open(hp, "w").write(page(L, disp))
         pdf(hp, f"{OUT}/Dispensa-Decimale-Binario-{L}-v{VER}.pdf")
 
-        comp = (f"<div class='cover'><h1>{t['ctitolo']}</h1><div class='s'>{t['csub']}</div></div>"
+        comp = (f"<div class='cover'><div class='ver'>v{VER}</div><h1>{t['ctitolo']}</h1><div class='s'>{t['csub']}</div></div>"
                 f"<div class='testo'>{t['attn']}<div class='nome'>{t['nome']}</div>"
                 f"<h2>{t['es']}: 37</h2></div>{esempio_html(L)}"
                 f"<div class='testo'><h2>{t['p1']}</h2></div>"
