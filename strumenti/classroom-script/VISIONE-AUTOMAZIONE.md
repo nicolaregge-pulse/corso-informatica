@@ -64,7 +64,15 @@ CONTENUTI e la VALUTAZIONE li fa l'AI. Nomi/voti dei minori: solo repo privato.*
 1. **Ponte verificato:** il connettore Drive legge i Google Doc del Drive personale (02/10).
 2. Script base pronti: `crea-compito-classroom.gs`, `consegne-controlla-e-zip.gs`,
    `prepara-chiusura.gs`.
-3. **Da costruire:** (i) accumulo per-allievo del percorso (per il "libro completo individuale");
-   (ii) pubblicazione dispensa+compito+scadenza in un comando; (iii) ponte automatico CHIUDI.
+3. **PONTE B COSTRUITO E FUNZIONANTE (02/10/2026)** ✅ — `strumenti/invia-consegne-git.gs`
+   (nel repo privato) + progetto Apps Script "Consegne Classroom → Git" sull'account scuola,
+   con token fine-grained di `nicolaregge-pulse` (solo repo privato, Contents RW) nelle Proprietà
+   dello script. **Prova riuscita:** compito "Da binario a decimale" 1INF → 20/22 consegne
+   depositate come PDF in `dati/consegne/1INF/binario-decimale/` (+ `_INDICE.txt`), lette dall'AI.
+4. **Vale per TUTTE le classi:** il setup (token+script+servizio) è **una tantum**; per un'altra
+   classe/compito si cambiano solo 4 valori (COURSE_ID, COURSEWORK_ID, CLASSE, CARTELLA).
+5. **Da rifinire:** (a) config **"solo incolla"** via Proprietà dello script / menu, per non
+   toccare il codice (regola §2.20); (b) collegare al comando **CHIUDI** (AI genera libri+report);
+   (c) accumulo per-allievo per il "libro completo individuale".
 
 > PPP 02/10: specifica registrata. Preparazione in silenzio; consegna all'"avanti".
