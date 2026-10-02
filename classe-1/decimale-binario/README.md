@@ -1,5 +1,11 @@
 # Da decimale a binario — Classe 1 (02/10/2026)
 
+## 0. LA PIÙ FACILE (inizia da qui)
+
+1. [Italiano — Il binario facile](Dispensa-Facilissima-Binario-IT-v1.0.pdf)
+2. [العربية — الثنائي السهل](Dispensa-Facilissima-Binario-AR-v1.0.pdf)
+3. [中文 — 简单的二进制](Dispensa-Facilissima-Binario-ZH-v1.0.pdf)
+
 ## 1. SPIEGAZIONE (teoria)
 
 1. [Italiano — Spiegazione](Dispensa-Decimale-Binario-IT-v1.0.pdf)
