@@ -1,0 +1,164 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>
+@page{size:A4;margin:0}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;margin:0;padding:0}
+body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:10.5pt;line-height:1.5}
+.page{width:210mm;padding:13mm 15mm 10mm;page-break-after:always;position:relative}
+.page:last-child{page-break-after:auto}
+/* COVER */
+.hero{background:linear-gradient(145deg,#0e3a5c 0%,#1f6fa5 60%,#2fa0c9 100%);color:#fff;border-radius:16px;padding:20mm 14mm;position:relative;overflow:hidden}
+.hero .kicker{font-size:10pt;letter-spacing:3px;text-transform:uppercase;opacity:.85}
+.hero h1{font-size:30pt;line-height:1.08;margin:5mm 0 3mm;font-weight:800}
+.hero .tag{font-size:13pt;opacity:.95;max-width:150mm}
+.hero .brand{position:absolute;top:10mm;right:12mm;font-size:9pt;opacity:.8;text-align:right}
+.dot{position:absolute;border-radius:50%;opacity:.14;background:#fff}
+.lead{font-size:12.5pt;color:#12467a;margin:10mm 0 3mm;font-weight:700}
+.p{margin:3mm 0;font-size:11pt}
+.prob{background:#fdf0ed;border:1px solid #efc9bf;border-left:6px solid #c0392b;border-radius:10px;padding:5mm 6mm;margin:4mm 0}
+.prob h3{color:#b23520;font-size:11.5pt;margin-bottom:2mm}
+.prob ul{list-style:none}.prob li{padding-left:7mm;position:relative;margin:2mm 0}
+.prob li:before{content:"\2715";color:#c0392b;position:absolute;left:0;font-weight:700}
+.promise{background:#eafaf0;border:1px solid #bfe6cf;border-left:6px solid #2f9e57;border-radius:10px;padding:5mm 6mm;margin:4mm 0}
+.promise h3{color:#1e7a44;font-size:11.5pt;margin-bottom:2mm}
+.promise b{color:#1e7a44}
+h2.sec{color:#0e3a5c;font-size:16pt;margin:0 0 3mm;font-weight:800;border-bottom:3px solid #2fa0c9;padding-bottom:2mm}
+/* motore */
+.engine{display:flex;gap:5mm;margin:3mm 0}
+.ecard{flex:1;border:1px solid #cfe0f0;border-radius:12px;padding:5mm 5mm;background:#fafcff}
+.ecard .n{width:11mm;height:11mm;border-radius:50%;background:#1f6fa5;color:#fff;font-weight:800;font-size:13pt;display:flex;align-items:center;justify-content:center;margin-bottom:3mm}
+.ecard h4{color:#12467a;font-size:12pt;margin-bottom:2mm}
+.ecard p{font-size:9.6pt;color:#3a4a5e}
+/* pipeline */
+.flow{counter-reset:s;margin:4mm 0}
+.step{display:flex;align-items:flex-start;gap:5mm;margin:2.3mm 0;border:1px solid #e0e8f1;border-radius:10px;padding:3mm 5mm;background:#f7fafd;page-break-inside:avoid}
+.step .num{counter-increment:s;min-width:10mm;height:10mm;border-radius:8px;background:#2fa0c9;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.step .num:before{content:counter(s)}
+.step h4{color:#12467a;font-size:11pt;margin-bottom:1mm}
+.step p{font-size:9.6pt;color:#3a4a5e}
+.step .ai{color:#7030a0;font-weight:700}
+/* benefits */
+.grid{display:flex;flex-wrap:wrap;gap:3.5mm;margin:3mm 0}
+.b{flex:1 1 46%;border:1px solid #cfe0f0;border-radius:10px;padding:3.2mm 5mm;background:#fff}
+.b h4{color:#0e3a5c;font-size:10.8pt;margin-bottom:1.5mm}
+.b p{font-size:9.4pt;color:#3a4a5e}
+.b .ic{color:#2f9e57;font-weight:800;margin-right:2mm}
+.results{background:linear-gradient(145deg,#0e3a5c,#1f6fa5);color:#fff;border-radius:12px;padding:5mm 7mm;margin:4mm 0}
+.results h3{font-size:13pt;margin-bottom:3mm}
+.results .row{display:flex;gap:6mm}
+.results .stat{flex:1;text-align:center}
+.results .big{font-size:22pt;font-weight:800}
+.results .lab{font-size:8.6pt;opacity:.9}
+.cta{background:#eef4fb;border:2px dashed #2b7cc4;border-radius:12px;padding:5mm 7mm;margin:4mm 0;text-align:center}
+.cta h3{color:#0e3a5c;font-size:14pt;margin-bottom:2mm}
+.cta p{font-size:10.5pt}
+.foot{margin-top:8mm;font-size:8pt;color:#8a9bb0;border-top:1px solid #dce5ef;padding-top:2mm;display:flex;justify-content:space-between}
+.diff{background:#f6f1fb;border:1px solid #d8c6ec;border-left:6px solid #8e44ad;border-radius:10px;padding:4mm 6mm;margin:3mm 0}
+.diff h3{color:#7030a0;font-size:12pt;margin-bottom:2mm}
+</style></head><body>
+
+<!-- PAGINA 1 -->
+<div class="page">
+  <div class="hero">
+    <div class="dot" style="width:60mm;height:60mm;top:-15mm;right:-10mm"></div>
+    <div class="dot" style="width:35mm;height:35mm;bottom:-10mm;left:40mm"></div>
+    <div class="brand">METODO + AI<br>per la formazione</div>
+    <div class="kicker">Formazione aziendale potenziata dall'AI</div>
+    <h1>Formazione<br>che aggancia<br>davvero.</h1>
+    <div class="tag">Un <b>metodo didattico</b> che tiene le persone coinvolte, e un'<b>intelligenza
+    artificiale</b> che fa il lavoro ripetitivo: così il formatore si concentra su chi ha davanti.</div>
+  </div>
+
+  <div class="lead">Il problema di ogni aula (e di ogni corso aziendale)</div>
+  <div class="prob">
+    <h3>Perché la formazione spesso non "attacca"</h3>
+    <ul>
+      <li>Le persone si <b>distraggono</b>: contenuti astratti, poca pratica, nessun risultato visibile subito.</li>
+      <li>Un formatore <b>non può personalizzare</b> per 15-20 persone con livelli e lingue diverse.</li>
+      <li>I <b>veloci si annoiano</b> e i <b>lenti restano indietro</b>: il divario si allarga.</li>
+      <li><b>Valutare e documentare</b> (chi ha capito, chi ha fatto cosa) ruba ore al formatore.</li>
+    </ul>
+  </div>
+
+  <div class="promise">
+    <h3>La promessa</h3>
+    <p>Uniamo due cose: un <b>motore pedagogico</b> che rende ogni attività coinvolgente e
+    "spendibile", e una <b>pipeline AI</b> che prepara i materiali, li distribuisce, corregge e
+    documenta <b>in automatico</b>. Risultato: <b>più coinvolgimento</b>, <b>zero tempi morti</b>,
+    <b>un percorso su misura per ciascun partecipante</b> — e il formatore libero di fare il
+    formatore.</p>
+  </div>
+
+</div>
+
+<!-- PAGINA 2 -->
+<div class="page">
+  <h2 class="sec">Il metodo: il motore del coinvolgimento</h2>
+  <p class="p">Ogni attività è progettata attorno a tre principi semplici e potenti — sempre tutti e tre:</p>
+  <div class="engine">
+    <div class="ecard"><div class="n">1</div><h4>Vinci subito</h4><p>Il primo risultato arriva in
+    pochi minuti ed è quasi impossibile da sbagliare. La prima vittoria tiene le persone dentro.</p></div>
+    <div class="ecard"><div class="n">2</div><h4>Fallo tuo</h4><p>In ogni attività si sceglie
+    qualcosa di <b>proprio</b> (un esempio, un caso reale, i propri dati). L'ownership è il gancio
+    più forte.</p></div>
+    <div class="ecard"><div class="n">3</div><h4>Mostralo</h4><p>Ogni pezzo è concreto e
+    mostrabile. "L'ho fatto io" motiva più di un voto — e dimostra la competenza acquisita.</p></div>
+  </div>
+
+  <h2 class="sec" style="margin-top:6mm">Come funziona: la pipeline AI</h2>
+  <p class="p">Il formatore insegna; l'AI fa il lavoro ripetitivo. Un flusso in 6 passi:</p>
+  <div class="flow">
+    <div class="step"><div class="num"></div><div><h4>1. Il formatore spiega</h4><p>Lezione frontale
+    dal vivo (anche solo alla lavagna). L'AI gli prepara in anticipo una <b>scheda sintetica</b> per partire.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>2. <span class="ai">L'AI genera i materiali</span></h4>
+    <p>Dispensa di teoria ed esercizi su misura, <b>multilingua</b>, con la grafica coerente — in minuti, non giorni.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>3. Distribuzione automatica</h4><p>Materiali e
+    compiti pubblicati sulla piattaforma (es. Google Classroom) con la scadenza, in un clic.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>4. Raccolta automatica</h4><p>Le consegne dei
+    partecipanti vengono raccolte e ordinate da sole, pronte per la valutazione.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>5. <span class="ai">Valutazione dell'AI</span></h4>
+    <p>L'AI corregge, dà voto e giudizio, segnala chi fatica e chi è pronto per di più — il formatore conferma.</p></div></div>
+    <div class="step"><div class="num"></div><div><h4>6. Documentazione individuale</h4><p>Ogni
+    persona riceve il <b>proprio "libro"</b> (il suo percorso, i suoi lavori, la sua valutazione);
+    il formatore riceve <b>griglie e report</b>.</p></div></div>
+  </div>
+</div>
+
+<!-- PAGINA 3 -->
+<div class="page">
+  <h2 class="sec">I vantaggi per la tua azienda</h2>
+  <div class="grid">
+    <div class="b"><h4><span class="ic">+</span>Su misura per ciascuno</h4><p>Nucleo base che tutti
+    completano + sfide extra per i più veloci: nessuno fermo, nessuno perso.</p></div>
+    <div class="b"><h4><span class="ic">+</span>Multilingua</h4><p>Materiali nelle lingue del team
+    (ideale per gruppi internazionali): ognuno impara nella propria lingua.</p></div>
+    <div class="b"><h4><span class="ic">+</span>Risparmio di tempo</h4><p>Preparazione, correzione
+    e report in automatico: ore restituite al formatore e all'azienda.</p></div>
+    <div class="b"><h4><span class="ic">+</span>Tracciabile e sicuro</h4><p>Tutto versionato e
+    documentato; dati trattati con attenzione alla privacy.</p></div>
+  </div>
+
+  <div class="diff">
+    <h3>Perché è diverso</h3>
+    <p>L'AI <b>non sostituisce</b> il formatore: lo <b>potenzia</b>. Le macchine fanno il lavoro
+    ripetitivo (preparare, distribuire, correggere, documentare); l'AI dà il giudizio di supporto;
+    la persona — il formatore — fa ciò che conta: <b>insegnare e motivare</b>. Ogni partecipante
+    esce con qualcosa di suo, concreto e mostrabile.</p>
+  </div>
+
+  <div class="results">
+    <h3>Non è teoria: è già in funzione</h3>
+    <div class="row">
+      <div class="stat"><div class="big">6</div><div class="lab">passi, dalla lezione al report, automatici</div></div>
+      <div class="stat"><div class="big">100%</div><div class="lab">valutazione automatica coerente con quella manuale (test reale)</div></div>
+      <div class="stat"><div class="big">3</div><div class="lab">lingue in parallelo, per team misti</div></div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Proviamolo sul tuo prossimo corso</h3>
+    <p>Un <b>pilota</b> su un modulo reale: ti mostriamo il flusso completo — dalla lezione ai
+    "libri" individuali dei partecipanti — e misuriamo coinvolgimento e tempo risparmiato.</p>
+  </div>
+
+</div>
+
+</body></html>

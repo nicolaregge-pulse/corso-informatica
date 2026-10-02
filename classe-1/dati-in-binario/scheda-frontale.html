@@ -1,0 +1,100 @@
+<!DOCTYPE html><html lang="it"><head><meta charset="utf-8"><style>
+@page{size:A4;margin:14mm 15mm}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:10.5pt;line-height:1.42;margin:0}
+.cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:10px;padding:8mm 10mm;margin-bottom:4mm}
+.cover h1{font-size:17pt;margin:0}.cover .s{font-size:10pt;opacity:.93;margin-top:2mm}
+.intro{background:#eef4fb;border:1px solid #9cc0e4;border-left:5px solid #2b7cc4;border-radius:6px;padding:3mm 4mm;margin:3mm 0;font-size:10pt}
+h2{color:#fff;background:#12467a;border-radius:6px;padding:2.2mm 4mm;margin:6mm 0 2mm;font-size:12.5pt;page-break-after:avoid}
+h3{color:#12467a;font-size:10.8pt;margin:3.5mm 0 1mm;page-break-after:avoid}
+p{margin:1.5mm 0}ol,ul{padding-left:6mm;margin:1mm 0}li{margin:1mm 0}
+code{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #d5e0ec;border-radius:3px;padding:0 3px;font-size:10pt}
+.box{border:1px solid #d5e0ec;border-radius:7px;padding:2.5mm 4mm;margin:2mm 0;background:#fafcff;page-break-inside:avoid}
+.vfm{background:#eafaf0;border:1px solid #bfe6cf;border-left:5px solid #2f9e57;border-radius:6px;padding:2.5mm 4mm;margin:2mm 0}.vfm b{color:#1e7a44}
+.warn{background:#fdecea;border:1px solid #e6b7b0;border-left:5px solid #c0392b;border-radius:6px;padding:2.5mm 4mm;margin:2mm 0}.warn b{color:#c0392b}
+.tier{background:#f6f1fb;border:1px solid #d8c6ec;border-left:5px solid #8e44ad;border-radius:6px;padding:2.5mm 4mm;margin:2mm 0}.tier b{color:#7030a0}
+.ora{page-break-inside:avoid}
+.tab{font-family:"DejaVu Sans Mono",monospace;font-size:9pt;background:#f4f7fb;border:1px solid #e0e8f1;border-radius:5px;padding:2mm 3mm;margin:1.5mm 0}
+.foot{color:#667;font-size:8.5pt;margin-top:5mm;border-top:1px solid #d5e0ec;padding-top:2mm}
+</style></head><body>
+
+<div class="cover"><h1>Scheda per la lezione frontale — I dati in binario</h1>
+<div class="s">Classe 1INF · 3 ore · materiale per il DOCENTE (da stampare) · 02/10/2026</div></div>
+
+<div class="intro"><b>Filo delle 3 ore:</b> tutto nel computer è <b>numeri in binario</b> — i numeri,
+le lettere, i colori, e tutto "pesa" in byte. Una vittoria mostrabile diversa a ogni ora:
+<b>un numero · il tuo nome · un colore</b>. Principio: <b>sovradimensionare</b> (meglio avanzare che
+avere ragazzi fermi) con un <b>nucleo base per tutti</b> + <b>extra per chi finisce prima</b>.</div>
+
+<div class="ora">
+<h2>ORA 1 · Decimale → Binario</h2>
+<p><b>Concetto:</b> ieri da binario a decimale (<i>leggevamo</i> la griglia); oggi l'inverso: dato
+un numero normale lo <i>costruiamo</i> in 0 e 1. Stesso disegno, al contrario.</p>
+<h3>Metodo delle caselle (consigliato — stessa griglia di ieri)</h3>
+<ol>
+<li>Scrivi i valori: <b>128 64 32 16 8 4 2 1</b>.</li>
+<li>Da sinistra (128): "ci sta nel numero?" <b>Sì → 1</b> e togli quel valore (tieni il resto);
+<b>No → 0</b> e vai avanti.</li>
+<li>Fino alla casella 1. Gli 0/1 letti da sinistra = il numero binario.</li>
+<li>Ricorda gli <b>0 davanti</b>: 8 caselle (5 = <code>00000101</code>, non <code>101</code>).</li>
+</ol>
+<div class="box"><b>Esempi alla lavagna (facile→medio):</b><br>
+1) <b>13</b> = 8+4+1 → <code>00001101</code> &nbsp;·&nbsp; 2) <b>78</b> = 64+8+4+2 → <code>01001110</code>
+(quello di ieri) &nbsp;·&nbsp; 3) <b>200</b> = 128+64+8 → <code>11001000</code><br>
+<span style="font-size:9pt">78 passo-passo: 128 no·<b>64 sì</b>(resto 14)·32 no·16 no·<b>8 sì</b>(resto 6)·<b>4 sì</b>(resto 2)·<b>2 sì</b>(resto 0)·1 no.</span></div>
+<div class="vfm"><b>Vinci subito:</b> <code>5</code> → <code>00000101</code> (30 secondi). ·
+<b>Fallo tuo:</b> la tua <b>età</b> / il giorno del <b>compleanno</b>. ·
+<b>Mostralo:</b> uno scrive un numero in binario, il compagno lo decifra.</div>
+<div class="warn"><b>Errori da prevenire:</b> dimenticare gli 0 davanti · non aggiornare il resto dopo un 1 ·
+confondere "leggere" (ieri) con "costruire" (oggi).</div>
+<div class="tier"><b>Base (tutti):</b> numeri fino a <b>31</b> (5 caselle). &nbsp;
+<b>Extra (veloci):</b> numeri fino a <b>255</b>; oppure il 2° metodo <b>divisioni successive per 2</b>
+(dividi per 2, scrivi i resti, leggi dal basso).</div>
+</div>
+
+<div class="ora">
+<h2>ORA 2 · ASCII: il tuo nome in binario</h2>
+<p><b>Concetto:</b> nel computer anche le <b>lettere sono numeri</b> (codice <b>ASCII</b>). Per
+scrivere una lettera in binario: <b>lettera → suo numero → binario</b> (col metodo dell'Ora 1).</p>
+<div class="tab">A=65 B=66 C=67 D=68 E=69 F=70 G=71 H=72 I=73 J=74 K=75 L=76 M=77 N=78 O=79 P=80 Q=81 R=82 S=83 T=84 U=85 V=86 W=87 X=88 Y=89 Z=90<br>
+minuscole = MAIUSCOLA + 32 (a=97…) · spazio = 32 · cifre '0'..'9' = 48..57</div>
+<p><b>Esempio:</b> <code>A</code> = 65 = <code>01000001</code>. La parola <code>CIAO</code> = C(67) I(73) A(65) O(79).</p>
+<div class="vfm"><b>Vinci subito:</b> una lettera (la tua iniziale). · <b>Fallo tuo:</b> scrivi il
+<b>TUO nome</b> in binario (ogni lettera un byte). · <b>Mostralo:</b> scambia col compagno e <b>decifra</b> il suo nome.</div>
+<div class="warn"><b>Errori da prevenire:</b> maiuscole ≠ minuscole (A=65, a=97) · lo spazio è un carattere (32) · gli 0 davanti.</div>
+<div class="tier"><b>Base:</b> iniziali o nome <b>corto in MAIUSCOLO</b>. &nbsp;
+<b>Extra:</b> nome <b>+ cognome</b>, con <b>minuscole</b> e <b>spazio</b>; o una parola/frase propria.</div>
+</div>
+
+<div class="ora">
+<h2>ORA 3a · Colori in codice (RGB)</h2>
+<p><b>Concetto:</b> ogni colore sullo schermo è fatto di <b>3 numeri</b> — <b>R</b>osso, <b>V</b>erde,
+<b>B</b>lu — ognuno da <b>0 a 255</b> (1 byte = 8 bit a testa). Un colore = <b>3 byte = 24 bit</b>.</p>
+<div class="box"><b>Colori "puri":</b> <code>rosso 255,0,0</code> · <code>verde 0,255,0</code> ·
+<code>blu 0,0,255</code> · <code>bianco 255,255,255</code> · <code>nero 0,0,0</code> · <code>giallo 255,255,0</code>.</div>
+<div class="vfm"><b>Vinci subito:</b> il rosso puro (255,0,0). · <b>Fallo tuo:</b> ognuno sceglie il
+<b>suo colore preferito</b> e scrive i 3 numeri (si prova con un selettore colori online). ·
+<b>Mostralo:</b> indovina il colore dai 3 numeri del compagno.</div>
+<div class="tier"><b>Base:</b> colori puri (solo 0 o 255). &nbsp; <b>Extra:</b> colori <b>mescolati</b>
+(arancione 255,165,0; viola 128,0,128) e <b>convertire in binario</b> uno dei tre numeri.</div>
+</div>
+
+<div class="ora">
+<h2>ORA 3b · Quanto pesa? (i multipli — pratico e concreto)</h2>
+<p><b>Concetto:</b> 1 byte = 8 bit; <b>1 KB ≈ 1000 byte</b>, <b>1 MB ≈ 1000 KB</b>, <b>1 GB ≈ 1000 MB</b>
+(in realtà 1024, ma per i conti a mente va bene 1000). Le cose "pesano" in questi.</p>
+<div class="box"><b>Ordini di grandezza:</b> 1 lettera = 1 byte · 1 pagina di testo ≈ pochi KB ·
+1 <b>foto</b> ≈ 3–5 MB · 1 <b>canzone</b> MP3 ≈ 4–5 MB (~1 MB al minuto) · 1 <b>film</b> ≈ 1–5 GB.</div>
+<div class="box"><b>Il conto chiave — "quante foto in una chiavetta da 16 GB?"</b><br>
+16 GB ≈ <b>16.000 MB</b>; una foto ≈ 4 MB → 16.000 ÷ 4 = <b>~4.000 foto</b>.<br>
+Canzoni: ~4.000 · Film (~4 GB l'uno): ~4 (o più se leggeri).</div>
+<div class="vfm"><b>Vinci subito:</b> "quante foto in 1 GB?" (1000÷4 ≈ 250). · <b>Fallo tuo:</b> quante
+<b>tue</b> foto stanno nel tuo telefono/chiavetta. · <b>Mostralo:</b> stima quanto pesa il tuo film/album preferito.</div>
+<div class="tier"><b>Base:</b> la tabella pesi + il conto guidato (foto in 16 GB). &nbsp;
+<b>Extra:</b> altri tagli (32/64/128 GB), canzoni e film, conversioni GB↔MB a mano.</div>
+</div>
+
+<div class="foot">Dopo le foto della lavagna: genero dispensa trilingue (con le foto) + compito con la
+stessa grafica + pubblicazione su Classroom con scadenza → poi libro individuale, griglie e report.
+Tutto sovradimensionato (base + extra). Carta e penna sempre sul banco.</div>
+</body></html>
