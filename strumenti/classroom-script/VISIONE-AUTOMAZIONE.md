@@ -75,4 +75,13 @@ CONTENUTI e la VALUTAZIONE li fa l'AI. Nomi/voti dei minori: solo repo privato.*
    toccare il codice (regola §2.20); (b) collegare al comando **CHIUDI** (AI genera libri+report);
    (c) accumulo per-allievo per il "libro completo individuale".
 
+## 5. Dizionario dei valori gestito dall'AI (idea di Nicola, 02/10/2026 — PPP)
+Invece di mettere i 4 valori nel codice, si tiene un **dizionario nel repo** (es.
+`strumenti/classi-config.json`) che **gestisce l'AI** (Claude lo tiene aggiornato). Contiene,
+per classe, il `COURSE_ID` (fisso) e, man mano, i compiti con `CARTELLA`/`COURSEWORK_ID`.
+Lo **script Apps Script lo legge dal repo** (stessa API GitHub + token già in uso): Nicola
+sceglie solo **la classe** e **il compito** (da lista), il resto lo risolve il dizionario.
+Vantaggi: Nicola non tocca mai valori/codice (regola §2.20); l'AI gestisce la mappa; tutto
+versionato. Da costruire all'"avanti". Serve prima completare i `COURSE_ID` di 3ª e 4ª.
+
 > PPP 02/10: specifica registrata. Preparazione in silenzio; consegna all'"avanti".
