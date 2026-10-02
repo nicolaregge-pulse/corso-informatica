@@ -84,4 +84,24 @@ sceglie solo **la classe** e **il compito** (da lista), il resto lo risolve il d
 Vantaggi: Nicola non tocca mai valori/codice (regola §2.20); l'AI gestisce la mappa; tutto
 versionato. Da costruire all'"avanti". Serve prima completare i `COURSE_ID` di 3ª e 4ª.
 
+### 5.1 Regola CARTELLA = dedotta dal titolo del compito (decisa da Claude, 02/10, PPP)
+La cartella non si scrive più: si **ricava dal titolo** del compito con uno "slug":
+1. minuscolo; 2. accenti/caratteri speciali → ascii (à→a, è→e, –/— → spazio); 3. si toglie la
+parola iniziale "compito" ed eventuali trattini iniziali; 4. ogni sequenza non [a-z0-9] → "-";
+5. si tolgono i "-" doppi e quelli iniziali/finali.
+Esempio: "Compito — Da binario a decimale" → `da-binario-a-decimale`.
+
+### 5.2 COURSEWORK_ID — strada scelta da Claude (02/10, PPP) per ottimizzarlo
+È l'unico valore che cambia ogni volta; per non farlo cercare/incollare a Nicola:
+1. **Una funzione per classe** (`chiudi1INF`, `chiudi2INF`, `chiudi3INF`, `chiudi4INF`): Nicola
+   **sceglie la funzione** (clic) e **Esegui** — nessun valore da inserire.
+2. Di default ogni funzione prende **il compito PIÙ RECENTE** di quella classe (è quasi sempre
+   quello che si sta chiudendo), **ricava la CARTELLA** dal titolo (5.1), deposita su Git e
+   **scrive nel log il titolo** del compito chiuso (Nicola verifica a colpo d'occhio).
+3. **Fallback** per un compito specifico/vecchio: una funzione `elencaCompiti<CLASSE>` elenca gli
+   ID nel log e si incolla l'ID scelto in una **Proprietà dello script** (copia-incolla, niente
+   codice). Oppure si sceglie dal **dizionario** (§5) una cartella già nota.
+Risultato a regime: per una chiusura normale Nicola fa **scegli funzione della classe → Esegui**.
+L'AI poi legge le consegne dal repo e genera i documenti.
+
 > PPP 02/10: specifica registrata. Preparazione in silenzio; consegna all'"avanti".
