@@ -27,6 +27,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
    passare all'**account scuola** `@piamarta.it` (in alto a destra, scelta account). Idem
    per i ragazzi: devono essere su `@studenti.piamarta.it`.
 9. **Portale AFGP Piamarta:** `https://piamarta.afgp.it/`
+10. **ORARIO DELLE ORE (dal registro elettronico, 02/10/2026):** ore da 60 minuti,
+    **08:00-09:00 · 09:00-10:00 · 10:00-11:00 · 11:00-12:00 · 12:00-13:00 · 13:00-14:00**.
+    Fine lezioni **14:00**; registri inviati alle **14:05** (firma entro quell'ora). Campanelle
+    intermedie e intervalli: **DA CONFERMARE** con Nicola (dati in una sessione precedente e non
+    salvati: errore). Ogni scadenza di compito si fissa su questi orari, mai a caso.
 
 ## 2. Convenzioni durature
 1. **PPP** = "parcheggia": annota, prepara in silenzio, **non consegnare** finché
