@@ -162,8 +162,10 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
     "Compito 1" e "Compito 2" VUOTI, visibili ai ragazzi e non eliminabili dalla vista Stream.
     **Correzione:** si aggancia un compito manuale solo DOPO che Nicola conferma "creato"; lo script
     va dotato di uno stato "solo-aggancia" che non pubblica mai.
-12. **Effetto delle modifiche su Classroom non previsto.** Modificando il Compito 2 Classroom l'ha
-    spostato in cima, sopra il Compito 1: i ragazzi hanno perso l'ordine. **Correzione:** prima di
+12. **Consiglio sbagliato: modificare un compito durante la lezione.** Sono stato IO a consigliare di
+    trasformare i compiti vuoti modificandoli mentre i ragazzi lavoravano. Classroom ha spostato il
+    Compito 2 in cima, sopra il Compito 1: i ragazzi hanno perso l'ordine. Non era da fare: bastava
+    lasciarli stare e usarli DOPO, a fine lavoro sul Compito 1. **Correzione:** prima di
     far modificare un compito già pubblicato, avvisare che sale in cima e dare subito "Sposta in alto"
     per rimettere l'ordine (o usare un Argomento ordinato).
 13. **Indicazioni imprecise su schermate e account.** "Elimina" dato per possibile dove non c'era
