@@ -12,14 +12,14 @@
 2. [العربية — الواجب](Compito-Decimale-Binario-AR-v1.0.pdf)
 3. [中文 — 作业](Compito-Decimale-Binario-ZH-v1.0.pdf)
 
-## 3. SCHEDA FACILE (il byte con le monete)
+## 3. SCHEDA FACILE (esercizi a gradini)
 
-1. [Italiano — Scheda facile](Scheda-Facile-Byte-Monete-IT-v1.0.pdf)
-2. [العربية — ورقة سهلة](Scheda-Facile-Byte-Monete-AR-v1.0.pdf)
-3. [中文 — 简单练习](Scheda-Facile-Byte-Monete-ZH-v1.0.pdf)
+1. [Italiano — Scheda facile](Scheda-Facile-Binario-IT-v1.1.pdf)
+2. [العربية — ورقة سهلة](Scheda-Facile-Binario-AR-v1.1.pdf)
+3. [中文 — 简单练习](Scheda-Facile-Binario-ZH-v1.1.pdf)
 
 ## 4. LA PIÙ FACILE (se fai fatica)
 
-1. [Italiano — Il binario facile](Dispensa-Facilissima-Binario-IT-v1.0.pdf)
-2. [العربية — الثنائي السهل](Dispensa-Facilissima-Binario-AR-v1.0.pdf)
-3. [中文 — 简单的二进制](Dispensa-Facilissima-Binario-ZH-v1.0.pdf)
+1. [Italiano — Il binario facile](Dispensa-Facilissima-Binario-IT-v1.1.pdf)
+2. [العربية — الثنائي السهل](Dispensa-Facilissima-Binario-AR-v1.1.pdf)
+3. [中文 — 简单的二进制](Dispensa-Facilissima-Binario-ZH-v1.1.pdf)
