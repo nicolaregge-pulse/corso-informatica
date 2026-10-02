@@ -125,6 +125,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
    insieme ai materiali.
 2. **Passi non "solo copia-incolla".** Il passo "apri il progetto Apps Script" era senza link.
    **Correzione:** ogni passo che apre un sito parte da un **link in una casella da copiare**.
+3. **Via rapida senza il documento da compilare.** Nella pubblicazione a mano ho messo solo PDF
+   (da leggere) e non il **Google Doc da compilare** ("una copia per ogni studente"), che invece c'era
+   nello script automatico. I ragazzi non avevano dove scrivere. **Correzione:** ogni compito ha
+   SEMPRE il documento da compilare allegato come copia per ogni allievo, in qualunque via di
+   pubblicazione (automatica o a mano).
 
 ---
 
