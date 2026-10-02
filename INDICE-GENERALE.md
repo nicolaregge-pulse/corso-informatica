@@ -39,7 +39,7 @@ Complementare ad `ATLANTE.md` (che spiega i concetti) e a `RIFERIMENTI-E-DECISIO
 - `ARGOMENTI-SVOLTI-2026-27.md` — registro dello svolto per classe (per l'Allegato A).
 - Programmi/Regione: `classe-N/programma.md`, `allegato-a-*`, `programmi-ufficiali/`, `PROGRAMMA-PREVENTIVO-*`.
 - `brochure/` — brochure commerciale (metodo + AI).
-- `materiale-da-organizzare/` — residuo da smistare (ora solo file sul libro Paganini).
+- `libro-paganini/` — indice del libro di testo "Paganini" (riferimento) + confronto col nostro libro.
 
 ## 3. Repo PRIVATO — mappa cartelle (DATI DEI MINORI)
 - `dati/anagrafiche/` — nomi/nickname allievi, preferenze lingua (per classe).
