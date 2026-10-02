@@ -11,3 +11,9 @@
 1. [Italiano — Compito](Compito-Decimale-Binario-IT-v1.0.pdf)
 2. [العربية — الواجب](Compito-Decimale-Binario-AR-v1.0.pdf)
 3. [中文 — 作业](Compito-Decimale-Binario-ZH-v1.0.pdf)
+
+## 3. SCHEDA FACILE (il byte con le monete)
+
+1. [Italiano — Scheda facile](Scheda-Facile-Byte-Monete-IT-v1.0.pdf)
+2. [العربية — ورقة سهلة](Scheda-Facile-Byte-Monete-AR-v1.0.pdf)
+3. [中文 — 简单练习](Scheda-Facile-Byte-Monete-ZH-v1.0.pdf)
