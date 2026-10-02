@@ -53,3 +53,14 @@ cosa nuova, entra qui.*
 2. **v0.5 (23/09/2026)**: aggiunta la sez. 6 "Cose da sviluppare con Claude" (corso AI/GEM/agenti, albero tassonomia, confronto Allegato A, sbobinature, rifiniture libri allievo).
 2. **v0.4 (23/09/2026)**: archiviato come storico il "14 settembre" (scuola iniziata); aggiunta la voce sugli account GitHub degli allievi e sul blocco "too many requests".
 3. **v0.3 (02/09/2026)**: ruoli assegnati; attivazione repository allievi con Classroom 50; verifiche Gemini e Allegato A.
+
+## 8. PPP del 02/10/2026 (in classe, 1INF) — da sviluppare dopo la lezione
+1. **Automazione completa e autonoma** (PPP): generare, pubblicare e raccogliere TUTTI i compiti
+   da solo, in tutte le direzioni (lavagna → materiali → Classroom → raccolta → correzione → voti →
+   libri), senza passaggi manuali di Nicola in classe. Stato "solo-aggancia" nello script; niente
+   modifiche a materiali pubblicati durante la lezione.
+2. **Valorizzare la modalità "quiz personali + raccolta risultati"** (PPP): pagina interattiva con
+   numeri diversi per ogni allievo (dal nome), controllo immediato, timer facoltativo, giri ripetuti,
+   testo da consegnare con risultati / errori / tentativi / tempo → raccolta automatica → report
+   analitico con voto proposto. Funzionata bene il 02/10 (divisioni per 2): da riprendere e
+   generalizzare (conversione, ASCII, colori, altre materie).
