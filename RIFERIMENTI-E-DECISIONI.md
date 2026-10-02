@@ -33,6 +33,8 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     4ª 11:10-12:05 · 5ª 12:05-13:05 · 6ª 13:05-14:00. Registri inviati alle **14:05** (firma entro
     quell'ora). Nel registro elettronico le ore risultano a blocchi da 60 minuti (08-09 … 13-14).
     Ogni scadenza di compito e ogni promemoria si fissano su queste campanelle, mai a caso.
+    **Nulla dopo le 14:00** (fine lezioni): raccolta finale delle consegne alle **13:55** e report
+    a Nicola PRIMA delle 14:00; ciò che arriva dopo si riprende in automatico senza chiedere niente.
 
 ## 2. Convenzioni durature
 1. **PPP** = "parcheggia": annota, prepara in silenzio, **non consegnare** finché
