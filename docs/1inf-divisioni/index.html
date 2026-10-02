@@ -65,6 +65,7 @@ c) Incolla con <b>Ctrl+V</b>, poi premi il bottone blu <b>Consegna</b>.</div>
 </div>
 <script>
 var Q=new URLSearchParams(location.search),NC=parseInt(Q.get("n")||"1"),TIMER=Q.get("timer")=="1";
+var TENT=0,ERR=0,TFIN=null;
 var NUM=[],NOME="",GIRO=1,T0=0,TID=null,FERMO=false,STORIA=[];
 function mmss(ms){var t=Math.floor(ms/1000);return Math.floor(t/60)+":"+("0"+t%60).slice(-2)}
 function tick(){document.getElementById("tempo").textContent=mmss(Date.now()-T0)}
@@ -88,21 +89,21 @@ function genera(){
   document.getElementById('nuovi').classList.add('hide');
   T0=Date.now();clearInterval(TID);TID=setInterval(tick,500);tick();
 }
-function nuovoGiro(){GIRO++;genera();window.scrollTo(0,0)}
+function nuovoGiro(){GIRO++;TENT=0;ERR=0;TFIN=null;genera();window.scrollTo(0,0)}
 function controlla(){
-  var ok=0,txt='';
+  var ok=0,txt='',sbagli=0;TENT++;
   NUM.forEach(function(n,i){
     var q=document.getElementById('q'+i).value.trim(),s=document.getElementById('s'+i).value.trim();
     var giusto=(q===String(Math.floor(n/2))&&s===String(n%2)),row=document.getElementById('r'+i);
     row.classList.remove('ok','ko');
     if(q===''&&s===''){document.getElementById('e'+i).textContent='';}
     else{row.classList.add(giusto?'ok':'ko');document.getElementById('e'+i).textContent=giusto?'✓ giusto':'✗ riprova';}
-    if(giusto)ok++;
+    if(giusto)ok++;else if(q!==''||s!=='')sbagli++;
     txt+='= '+n+' : 2 = '+(q||'_')+' resto '+(s||'_')+(giusto?'  [OK]':'  [NO]')+'\n';
   });
-  var tempo=mmss(Date.now()-T0);
-  if(ok==10&&!FERMO){FERMO=true;clearInterval(TID);if(TIMER)document.getElementById('nuovi').classList.remove('hide');}
-  STORIA[GIRO-1]=(TIMER?'GIRO '+GIRO+' — giuste '+ok+'/10 — tempo '+tempo:'giuste '+ok+'/10')+'\n'+txt;
+  ERR+=sbagli;var tempo=mmss((TFIN||Date.now())-T0);
+  if(ok==10&&!FERMO){FERMO=true;TFIN=Date.now();tempo=mmss(TFIN-T0);clearInterval(TID);if(TIMER)document.getElementById('nuovi').classList.remove('hide');}
+  STORIA[GIRO-1]=(TIMER?'GIRO '+GIRO+' — ':'')+'giuste '+ok+'/10 — tempo '+tempo+' — tentativi '+TENT+' — errori '+ERR+'\n'+txt;
   document.getElementById('punti').textContent='Giuste: '+ok+' / 10'+(TIMER?' · ⏱ '+tempo:'')+(ok==10?'  — BRAVO! · أحسنت · 太棒了':'');
   var tot='COMPITO '+NC+' — DIVISIONI PER 2'+(TIMER?' (con timer)':'')+' — '+NOME+'\n';STORIA.forEach(function(g){if(g)tot+='\n'+g});
   if(TIMER)tot+='\n= giri fatti: '+STORIA.length+'\n';
