@@ -42,6 +42,11 @@ cosa nuova, entra qui.*
    - **Registro voti automatico** (quiz Form -> Foglio con medie e colori).
    - **Compito su più classi in un clic**; **promemoria "chi non ha consegnato"**; **stampa unione** attestati/schede (un PDF per allievo da template).
    - Nota: tutti toccano dati di minori -> restano sull'account scuola, mai nel repo pubblico.
+7. [DA FARE — PPP 02/10/2026, "quando hai tempo"] **Brochure commerciale (PDF)** per presentare il
+   metodo/framework a un'azienda di **formazione aziendale**: come funziona la pipeline
+   lavagna→dispensa/compito→Classroom→CHIUDI→libri+report, i vantaggi (AI fa il giudizio, gli
+   script la meccanica, tutto versionato e a prova di privacy), i risultati concreti (es. ponte
+   Classroom→Git funzionante). Taglio commerciale, grafica curata. Base: `VISIONE-AUTOMAZIONE.md`.
 
 ## 7. Changelog
 1. **v0.6 (01/10/2026)**: aggiunta voce 6.6 — suite script Apps Script GSuite (compiti Classroom, controlla consegne + ZIP, prepara chiusura, registro voti, stampa unione); da sviluppare domani 02/10.
