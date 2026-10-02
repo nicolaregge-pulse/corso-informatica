@@ -79,9 +79,16 @@ CONTENUTI e la VALUTAZIONE li fa l'AI. Nomi/voti dei minori: solo repo privato.*
    sempre pulite). → **FIX:** il ponte deve depositare anche una **versione TESTO pulita** (il testo
    del Google Doc via `DocumentApp.getBody().getText()`), non solo il PDF. PDF per leggere, testo
    per correggere. Piccola modifica allo script.
-5. **Da rifinire:** (a) config **"solo incolla"** via Proprietà dello script / menu, per non
-   toccare il codice (regola §2.20); (b) collegare al comando **CHIUDI** (AI genera libri+report);
-   (c) accumulo per-allievo per il "libro completo individuale".
+6. **CONSOLIDATO v3 (02/10/2026)** ✅ — `strumenti/invia-consegne-git.gs` riscritto secondo
+   §5/§5.1/§5.2: **una funzione per classe** (`chiudi1INF`…`chiudi4INF`), legge il `COURSE_ID`
+   dal **dizionario** `config/classi.json`, prende il **compito più recente**, **deduce la
+   cartella dal titolo** (slug §5.1, verificato), deposita **PDF+TXT**, scrive nel log il titolo
+   e crea `_INDICE.txt` (classe, titolo, COURSEWORK_ID, cartella, consegnati) così l'AI aggiorna
+   il dizionario. Fallback: `elencaCompitiNINF` + Proprietà `FORCE_COURSEWORK_ID`. Nicola non
+   tocca mai valori/codice: sceglie la funzione → Esegui.
+7. **Da rifinire:** (a) collegare al comando **CHIUDI** (AI genera libri+report dopo il deposito);
+   (b) accumulo per-allievo per il "libro completo individuale"; (c) pubblicazione automatica di
+   dispensa+compito su Classroom con scadenza (Fase B).
 
 ## 5. Dizionario dei valori gestito dall'AI (idea di Nicola, 02/10/2026 — PPP)
 Invece di mettere i 4 valori nel codice, si tiene un **dizionario nel repo** (es.
