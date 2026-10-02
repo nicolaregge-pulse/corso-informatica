@@ -91,3 +91,6 @@ Se ti servono, li recuperi dal Drive originale.
 2. **Trascrivere** gli esami principali in MD + PDF nel formato del corso
    (a partire dai due esami **Cisco Packet Tracer**, come già deciso).
 3. Scegliere, dove ci sono più versioni (v1/V2/V3), quale è la **buona** e archiviare le vecchie.
+
+
+> **02/10/2026:** i 30 materiali d'esame/valutazione (Buste, Prove, Griglie, Rubriche, Schede valutazione, Varianti Packet Tracer) sono stati **spostati nel repo PRIVATO** (`materiale-esami/`) per integrita' d'esame. Qui restano solo i file sul libro Paganini.
