@@ -10,7 +10,7 @@ import os, subprocess, base64, json
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.dirname(HERE)
 ROOT = "/home/user/corso-godot"
-VER = "1.0"
+VER = "1.1"  # v1.1: compito più corto (6 numeri + sfide tra 30 e 70), titolo esempi non orfano
 DATA = "02/10/2026"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 POS = [128, 64, 32, 16, 8, 4, 2, 1]
@@ -79,8 +79,8 @@ def somma(n): return " + ".join(str(POS[i]) for i, c in enumerate(byte(n)) if c 
 # ------------------------------------------------------------------ dati
 ESEMPIO = 37
 ESEMPI_SVOLTI = [6, 13, 25, 50, 100, 200]
-BASE = [5, 6, 9, 12, 20, 25, 31, 44]           # nucleo base: tutti
-EXTRA = [50, 77, 100, 128, 150, 200, 255]      # sfide per chi finisce prima
+BASE = [5, 6, 9, 12, 20, 25]           # nucleo base: tutti
+EXTRA = [33, 45, 58, 67]      # sfide per chi finisce prima
 
 LAV = base64.b64encode(open(f"{ROOT}/classe-1/lavagne/20261002-decimale-binario.jpg", "rb").read()).decode()
 LAV2 = base64.b64encode(open(f"{ROOT}/classe-1/lavagne/20261002-decimale-binario-17.jpg", "rb").read()).decode()
@@ -319,7 +319,7 @@ def main():
                f"<div class='fig'><img style='max-width:38%' src='data:image/jpeg;base64,{LAV2}'><div class='cap testo'>{t['lav2cap']}</div></div>")
         teoria = t["teoria"].replace("@@ESEMPIO@@", esempio_html(L)).replace("@@LAVAGNA@@", lav)
         disp = (f"<div class='cover'><h1>{t['titolo']}</h1><div class='s'>{t['sub']}</div></div>"
-                f"<div class='testo'>{teoria}<h2>{t['svolti']}</h2><p>{t['svolti_intro']}</p></div>"
+                f"<div class='testo'>{teoria}<h2 style='page-break-before:always'>{t['svolti']}</h2><p>{t['svolti_intro']}</p></div>"
                 f"<div class='grid'>{''.join(card_svolto(L, n) for n in ESEMPI_SVOLTI)}</div>"
                 f"<div class='testo'>{t['sfida']}</div><div class='foot'>{t['foot']} · v{VER}</div>")
         hp = f"{OUT}/dispensa-decimale-binario-{L}.html"; open(hp, "w").write(page(L, disp))

@@ -7,5 +7,5 @@
 
 ## B. Da decimale a binario
 
-1. Spiegazione: [Italiano](Dispensa-Decimale-Binario-IT-v1.0.pdf) · [العربية](Dispensa-Decimale-Binario-AR-v1.0.pdf) · [中文](Dispensa-Decimale-Binario-ZH-v1.0.pdf)
-2. Compito: [Italiano](Compito-Decimale-Binario-IT-v1.0.pdf) · [العربية](Compito-Decimale-Binario-AR-v1.0.pdf) · [中文](Compito-Decimale-Binario-ZH-v1.0.pdf)
+1. Spiegazione: [Italiano](Dispensa-Decimale-Binario-IT-v1.1.pdf) · [العربية](Dispensa-Decimale-Binario-AR-v1.1.pdf) · [中文](Dispensa-Decimale-Binario-ZH-v1.1.pdf)
+2. Compito: [Italiano](Compito-Decimale-Binario-IT-v1.1.pdf) · [العربية](Compito-Decimale-Binario-AR-v1.1.pdf) · [中文](Compito-Decimale-Binario-ZH-v1.1.pdf)
