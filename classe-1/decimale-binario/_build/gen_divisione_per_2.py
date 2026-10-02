@@ -7,7 +7,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen_decimale_binario import CSS, pdf, OUT
 
-VER = "1.2"  # v1.2: Livello 3 riscritto riga per riga (niente tabella spezzata), primo passo già fatto
+VER = "1.3"  # v1.2: Livello 3 riscritto riga per riga (niente tabella spezzata), primo passo già fatto
 
 def pallini(n, pieni=True, scala=0.32):
     """n caramelle in coppie (colonne da 2); quella che avanza è ROSSA. pieni=False: cerchi vuoti."""
@@ -86,7 +86,7 @@ body{font-size:13pt}
 .big{font-size:15pt;font-weight:bold;color:#12467a;direction:ltr;unicode-bidi:embed}
 .regola{background:#eafaf0;border:2px solid #2f9e57;border-radius:10px;padding:3mm 5mm;font-size:13.5pt;margin:3mm 0;line-height:1.7}
 .tabs{display:flex;gap:3mm;direction:ltr;justify-content:center;page-break-inside:avoid}
-table.meta{border-collapse:collapse;font-size:10pt}
+table.meta{border-collapse:collapse;font-size:10.5pt}
 table.meta td,table.meta th{border:1px solid #9cc0e4;padding:0.5mm 1.8mm;text-align:center}
 table.meta th{background:#eef4fb;color:#12467a;font-size:8.5pt;white-space:nowrap}
 table.meta .r1{background:#fdecea;color:#d0392b;font-weight:bold}
@@ -114,7 +114,7 @@ def catena(L, t):
     return f"<div style='page-break-inside:avoid'>{righe}</div>"
 
 def scheda(L, t):
-    h = "".join(f"<th>{c}</th>" for c in t["col"])
+    h = "".join(f"<th>{c}</th>" for c in (t["col"][0], ": 2", t["col"][2]))
     tabs = "".join(f"<table class='meta'><tr>{h}</tr>{tabella_meta(a, b)}</tr></table>" for a, b in ((1, 10), (11, 20), (21, 30), (31, 40)))
     k = 0; l1 = l2 = ""
     for n in (4, 5, 8, 9):

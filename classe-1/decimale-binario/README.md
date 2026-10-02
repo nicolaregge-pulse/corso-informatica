@@ -2,8 +2,8 @@
 
 ## A. La divisione per 2 con il resto
 
-1. Spiegazione ed esercizi: [Italiano](Divisione-per-2-IT-v1.2.pdf) · [العربية](Divisione-per-2-AR-v1.2.pdf) · [中文](Divisione-per-2-ZH-v1.2.pdf)
-2. Compito: [Italiano](Compito-Divisione-per-2-IT-v1.2.pdf) · [العربية](Compito-Divisione-per-2-AR-v1.2.pdf) · [中文](Compito-Divisione-per-2-ZH-v1.2.pdf)
+1. Spiegazione ed esercizi: [Italiano](Divisione-per-2-IT-v1.3.pdf) · [العربية](Divisione-per-2-AR-v1.3.pdf) · [中文](Divisione-per-2-ZH-v1.3.pdf)
+2. Compito: [Italiano](Compito-Divisione-per-2-IT-v1.3.pdf) · [العربية](Compito-Divisione-per-2-AR-v1.3.pdf) · [中文](Compito-Divisione-per-2-ZH-v1.3.pdf)
 
 ## B. Da decimale a binario
 
