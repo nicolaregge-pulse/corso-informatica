@@ -7,7 +7,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from gen_decimale_binario import CSS, pdf, OUT
 
-VER = "1.1"  # v1.1: solo divisione (tolto ogni riferimento al binario), colonne chiare
+VER = "1.2"  # v1.2: Livello 3 riscritto riga per riga (niente tabella spezzata), primo passo già fatto
 
 def pallini(n, pieni=True, scala=0.32):
     """n caramelle in coppie (colonne da 2); quella che avanza è ROSSA. pieni=False: cerchi vuoti."""
@@ -46,7 +46,7 @@ T = {
  h3="3. La tabella delle metà (guardala quando serve)", col=("numero", "risultato (: 2)", "resto"),
  h4="4. Esercizi", l1="Livello 1 — dividi le caramelle in coppie (colora quella che avanza)",
  l2="Livello 2 — pari o dispari? poi dividi", l3="Livello 3 — divisioni a catena",
- l3t="Dividi 37 per 2. Il <b>risultato</b> lo scrivi nella riga sotto come <b>numero nuovo</b> e lo dividi ancora. Continua fino a quando il risultato è 0.",
+ l3t="La prima riga è già fatta: 37 : 2 = 18 resto 1. Il <b>18</b> passa nella riga sotto e lo dividi. Fai così ogni volta: il risultato va nella riga sotto. Ti fermi quando il risultato è <b>0</b>.",
  resto="resto", fatto="FATTO! Ora sai fare la divisione per 2 con il resto."),
 "AR": dict(
  t="القسمة على 2 مع الباقي", sub="الصف الأول · ورقة مساعدة · على الورقة · العربية",
@@ -60,7 +60,7 @@ T = {
  h3="3. جدول الأنصاف (انظر إليه عند الحاجة)", col=("العدد", "الناتج (: 2)", "الباقي"),
  h4="4. تمارين", l1="المستوى 1 — قسّم الحلوى أزواجًا (لوّن التي تبقى)",
  l2="المستوى 2 — زوجي أم فردي؟ ثم اقسم", l3="المستوى 3 — قسمة متتالية",
- l3t="اقسم 37 على 2. اكتب <b>الناتج</b> في السطر التالي كـ<b>عدد جديد</b> واقسمه من جديد. استمر حتى يصبح الناتج 0.",
+ l3t="السطر الأول محلول: 37 : 2 = 18 والباقي 1. العدد <b>18</b> ينتقل إلى السطر التالي وتقسمه. افعل هكذا كل مرة: الناتج يذهب إلى السطر التالي. تتوقف عندما يصبح الناتج <b>0</b>.",
  resto="الباقي", fatto="أحسنت! الآن تعرف القسمة على 2 مع الباقي."),
 "ZH": dict(
  t="除以 2 和余数", sub="一年级 · 帮助练习 · 在纸上做 · 中文",
@@ -74,11 +74,12 @@ T = {
  h3="3. 一半表(需要时看)", col=("数字", "结果(: 2)", "余数"),
  h4="4. 练习", l1="第 1 级 — 把糖两个两个分(剩下的涂颜色)",
  l2="第 2 级 — 偶数还是奇数?然后除", l3="第 3 级 — 连续除法",
- l3t="37 除以 2。把<b>结果</b>写到下一行当作<b>新数字</b>,再除以 2。一直做到结果是 0。",
+ l3t="第一行已经做好:37 : 2 = 18 余 1。<b>18</b> 写到下一行,再除以 2。每次都这样:结果写到下一行。结果是 <b>0</b> 时就停。",
  resto="余", fatto="做到了!现在你会除以 2 和余数了。"),
 }
 
 XCSS = """
+.nota2{color:#7a8aa0;font-size:11pt;margin-left:auto}
 body{font-size:13pt}
 .duo{display:flex;gap:8mm;align-items:center;margin:2mm 0;page-break-inside:avoid}
 .duo .tx p{margin:1mm 0}
@@ -97,6 +98,21 @@ table.meta .r1{background:#fdecea;color:#d0392b;font-weight:bold}
 .fine{background:#eafaf0;border:2px solid #2f9e57;border-radius:10px;padding:3mm;text-align:center;font-size:14pt;color:#1e7a44;margin:4mm 0;font-weight:bold}
 """
 
+
+SOPRA = {"IT": "← il risultato della riga sopra", "AR": "← ناتج السطر السابق", "ZH": "← 上一行的结果"}
+ESEMPIO = {"IT": "già fatto", "AR": "محلول", "ZH": "已做好"}
+
+def catena(L, t):
+    r = f"<bdi>{t['resto']}</bdi>"
+    righe = (f"<div class='ese' style='background:#eafaf0'><span class='k'>1.</span><span class='big'>37 : 2 = 18 {r} 1</span>"
+             f"<span class='nota2'>({ESEMPIO[L]})</span></div>"
+             f"<div class='ese'><span class='k'>2.</span><span class='big'><span style='color:#d0392b'>18</span> : 2 = ____ {r} ____</span>"
+             f"<span class='nota2'>{SOPRA[L]}</span></div>")
+    for k in range(3, 7):
+        righe += (f"<div class='ese'><span class='k'>{k}.</span><span class='big'>____ : 2 = ____ {r} ____</span>"
+                  f"<span class='nota2'>{SOPRA[L]}</span></div>")
+    return f"<div style='page-break-inside:avoid'>{righe}</div>"
+
 def scheda(L, t):
     h = "".join(f"<th>{c}</th>" for c in t["col"])
     tabs = "".join(f"<table class='meta'><tr>{h}</tr>{tabella_meta(a, b)}</tr></table>" for a, b in ((1, 10), (11, 20), (21, 30), (31, 40)))
@@ -107,8 +123,7 @@ def scheda(L, t):
     for n in (10, 11, 14, 15, 20, 21):
         k += 1
         l2 += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
-    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>{t['col'][1]}</th><th>{t['resto']}</th></tr>"
-           + "<tr><td class='q'>37</td><td></td><td></td></tr>" + "<tr><td></td><td></td><td></td></tr>" * 5 + "</table>")
+    cat = catena(L, t)
     return (f"<div class='cover'><h1>{t['t']}</h1><div class='s'>{t['sub']}</div></div>"
             f"<h2 class='testo'>{t['h1']}</h2><p class='testo'>{t['p1']}</p>"
             f"<div class='duo'>{pallini(6)}<div class='tx testo'><p>{t['e6']}</p><p class='big'>{t['e6r']}</p></div></div>"
@@ -118,7 +133,7 @@ def scheda(L, t):
             f"<div style='page-break-before:always'></div><h2 class='testo'>{t['h4']}</h2>"
             f"<h2 class='testo' style='font-size:12.5pt'>{t['l1']}</h2>{l1}"
             f"<h2 class='testo' style='font-size:12.5pt'>{t['l2']}</h2>{l2}"
-            f"<h2 class='testo' style='font-size:12.5pt'>{t['l3']}</h2><p class='testo'>{t['l3t']}</p>{cat}"
+            f"<div style='page-break-inside:avoid'><h2 class='testo' style='font-size:12.5pt'>{t['l3']}</h2><p class='testo'>{t['l3t']}</p>{cat}</div>"
             f"<div class='fine testo'>{t['fatto']}</div>")
 
 def main():
@@ -149,11 +164,12 @@ def compito(L, t):
     for n in (4, 5, 8, 9, 10, 11, 14, 15, 20, 21):
         k += 1
         righe += f"<div class='ese'><span class='k'>{k}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>"
-    cat = (f"<table class='cat'><tr><th>{t['col'][0]}</th><th>{t['col'][1]}</th><th>{t['resto']}</th></tr>"
-           + "<tr><td class='q'>37</td><td></td><td></td></tr>" + "<tr><td></td><td></td><td></td></tr>" * 5 + "</table>")
+    cat = catena(L, t)
     return (f"<div class='cover'><h1>{ti}</h1><div class='s'>{su}</div></div><p class='testo'>{istr}</p>"
-            f"<p class='big'>7 : 2 = 3 <bdi>{t['resto']}</bdi> 1</p>{righe}"
-            f"<h2 class='testo'>{l3}</h2>{cat}")
+            f"<p class='big'>{ {'IT':'Esempio','AR':'مثال','ZH':'例子'}[L] }: 7 : 2 = 3 <bdi>{t['resto']}</bdi> 1</p>{righe}"
+            f"<div style='page-break-inside:avoid'><h2 class='testo'>{l3}</h2>{cat}</div>"
+            f"<div style='page-break-inside:avoid'><h2 class='testo'>{ {'IT':'Sfide (solo se hai finito)','AR':'تحديات (إذا أنهيت فقط)','ZH':'挑战(做完了才做)'}[L] }</h2>"
+            + ''.join(f"<div class='ese'><span class='k'>{11+i}.</span><span class='big'>{n} : 2 = ____ <bdi>{t['resto']}</bdi> ____</span></div>" for i, n in enumerate((33, 45, 58, 67))) + "</div>")
 
 def main_compito():
     for L, t in T.items():
