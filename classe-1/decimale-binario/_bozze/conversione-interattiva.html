@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Da decimale a binario — i miei numeri</title>
+<style>
+:root{--blu:#1f6fa5;--verde:#2f9e57;--rosso:#c0392b;--txt:#1a2330;--bg:#f4f7fb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+h1{color:#12467a;font-size:25px;margin:8px 0 2px}
+.sub{color:#556;margin-bottom:12px}
+.box{background:#fff;border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.regola{background:#eafaf0;border:2px solid var(--verde);border-radius:12px;padding:12px 14px;font-size:17px;line-height:1.6}
+.ar{direction:rtl;text-align:right;font-family:"Amiri","Traditional Arabic",serif;font-size:18px}
+label{font-weight:700;font-size:18px}
+input{font-size:20px;padding:6px 8px;border:2px solid #9cc0e4;border-radius:10px;width:100%;font-family:inherit}
+input.n{width:70px;text-align:center}
+input.b{width:190px;font-family:"Consolas","DejaVu Sans Mono",monospace;letter-spacing:3px}
+button{font-size:20px;font-weight:700;border:0;border-radius:12px;padding:14px 18px;color:#fff;background:var(--blu);cursor:pointer;width:100%;margin-top:10px}
+button.v{background:var(--verde)}
+.num{border:2px solid #e0e8f1;border-radius:14px;padding:12px;margin:12px 0;background:#fafcff}
+.num h3{margin:0 0 8px;color:#12467a;font-size:22px}
+table.d{border-collapse:collapse;font-size:22px;font-weight:700}
+table.d td{padding:3px 6px;text-align:center}
+table.d th{font-size:14px;color:#1e8a6a;padding:2px 6px}
+table.d td.sep{border-left:3px solid #d0392b}
+td.q0{color:#d0392b}td.qn{color:#1f5fbf;min-width:60px}
+.ok input,input.ok{border-color:var(--verde);background:#eafaf0}
+.ko input,input.ko{border-color:var(--rosso);background:#fdecea}
+.riga2{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0;font-size:18px;font-weight:700}
+.freccia{color:#1e8a6a;font-size:15px;font-weight:400}
+.punti{font-size:22px;font-weight:700;text-align:center;margin:12px 0}
+textarea{width:100%;height:170px;font-size:14px;font-family:monospace;border:2px solid #9cc0e4;border-radius:10px;padding:8px}
+.hide{display:none}
+.timer{position:sticky;top:0;z-index:5;background:#12467a;color:#fff;border-radius:12px;padding:10px 14px;font-size:20px;font-weight:700;display:flex;justify-content:space-between;margin-bottom:8px}
+.nascosto .tt{visibility:hidden}
+.passi{font-size:17px;line-height:1.7}
+</style></head><body><div class="w">
+<h1 id="titolo">Da decimale a binario — i miei numeri</h1>
+<div class="sub">Classe 1 · ognuno ha i suoi numeri · لكل واحد أعداده · 每个人的数字都不一样</div>
+
+<div class="box regola">
+1. <b>Dividi per 2</b>: risultato a sinistra, <b>resto</b> a destra (pari → 0, dispari → 1).<br>
+2. Il risultato <b>scende nella riga sotto</b> e lo dividi ancora, fino a 0.<br>
+3. Leggi i resti <b>dal BASSO verso l'ALTO</b>: è il numero binario.<br>
+4. <b>Byte</b> = 8 cifre: metti gli <b>zeri DAVANTI</b>.
+<div class="ar" style="margin-top:8px">اقسم على 2 (زوجي ← 0، فردي ← 1). الناتج ينزل إلى السطر التالي. اقرأ البواقي من الأسفل إلى الأعلى. البايت = 8 أرقام: أصفار في البداية.</div>
+<div style="margin-top:6px">除以 2(偶数 → 0,奇数 → 1)。结果写到下一行。从下往上读余数。字节 = 8 位:前面补 0。</div>
+</div>
+
+<div class="box" id="start">
+<label for="nome">Scrivi il tuo NOME e COGNOME · اكتب اسمك ولقبك · 写你的姓名</label>
+<input id="nome" autocomplete="off" placeholder="Mario Rossi">
+<button onclick="inizia()">Inizia · ابدأ · 开始</button>
+</div>
+
+<div class="box hide" id="es">
+<div class="timer" id="tbox"><span id="giro">Compito</span><span class="tt">⏱ <span id="tempo">0:00</span></span></div>
+<div id="numeri"></div>
+<button onclick="controlla()">Controlla · تحقّق · 检查</button>
+<div class="punti" id="punti"></div>
+<button class="v hide" id="nuovi" onclick="nuovoGiro()">Nuovi esercizi · تمارين جديدة · 新练习</button>
+</div>
+
+<div class="box hide" id="fine">
+<div class="passi"><b>Consegna · التسليم · 提交</b><br>
+a) Premi il bottone verde <b>Copia</b>.<br>
+b) Su Classroom, nel compito: apri il tuo documento (o "Aggiungi o crea" → "Documenti").<br>
+c) Incolla con <b>Ctrl+V</b>, poi premi il bottone blu <b>Consegna</b>.</div>
+<textarea id="out" readonly></textarea>
+<button class="v" onclick="copia()">Copia · نسخ · 复制</button>
+</div>
+</div>
+<script>
+var Q=new URLSearchParams(location.search),NC=parseInt(Q.get("n")||"1"),TIMER=Q.get("timer")=="1";
+var NUM=[],NOME="",GIRO=1,T0=0,TID=null,FERMO=false,STORIA=[],TENT=0,ERR=0,TFIN=null;
+function mmss(ms){var t=Math.floor(ms/1000);return Math.floor(t/60)+":"+("0"+t%60).slice(-2)}
+function tick(){document.getElementById("tempo").textContent=mmss(Date.now()-T0)}
+function seme(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return h}
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function righe(n){var r=[];while(n>0){r.push([n,Math.floor(n/2),n%2]);n=Math.floor(n/2)}return r}
+function setup(){document.getElementById('titolo').textContent='Compito '+NC+' — Da decimale a binario'+(TIMER?' (con timer)':'');if(!TIMER)document.getElementById('tbox').classList.add('nascosto')}
+function inizia(){
+  NOME=document.getElementById('nome').value.trim().replace(/\s+/g,' ');
+  if(NOME.length<3){alert('Scrivi nome e cognome');return}
+  genera();
+  document.getElementById('start').classList.add('hide');document.getElementById('es').classList.remove('hide');
+}
+function genera(){
+  var r=rng(seme(NOME.toLowerCase()+'|B'+NC+'|'+GIRO)),s={};NUM=[];FERMO=false;TENT=0;ERR=0;TFIN=null;
+  // 2 numeri tra 10 e 29, 3 numeri tra 30 e 70
+  while(NUM.length<5){var piccolo=NUM.length<2;var n=piccolo?10+Math.floor(r()*20):30+Math.floor(r()*41);if(s[n])continue;s[n]=1;NUM.push(n)}
+  var h='';
+  NUM.forEach(function(n,k){
+    var R=righe(n),t='<table class="d"><tr><th>÷ 2</th><th>risultato</th><th class="sep">resto</th></tr>';
+    R.forEach(function(x,i){
+      t+='<tr id="r'+k+'_'+i+'"><td class="'+(i==0?'q0':'qn')+'" id="v'+k+'_'+i+'">'+(i==0?n:'')+'</td>'
+        +'<td><input class="n" id="q'+k+'_'+i+'" inputmode="numeric" oninput="scendi('+k+','+i+')"></td>'
+        +'<td class="sep"><input class="n" id="s'+k+'_'+i+'" inputmode="numeric"></td></tr>';
+    });
+    t+='</table>';
+    h+='<div class="num" id="c'+k+'"><h3>'+(k+1)+'. Numero '+n+'</h3>'+t
+      +'<div class="riga2">binario <span class="freccia">(resti dal basso ↑)</span>: <input class="b" id="bin'+k+'" inputmode="numeric"></div>'
+      +'<div class="riga2">byte <span class="freccia">(8 cifre, zeri davanti)</span>: <input class="b" id="byt'+k+'" inputmode="numeric" maxlength="8"></div></div>';
+  });
+  document.getElementById('numeri').innerHTML=h;
+  document.getElementById('giro').textContent='Compito '+NC+(TIMER?' · giro '+GIRO:'');document.getElementById('punti').textContent='';
+  document.getElementById('nuovi').classList.add('hide');
+  T0=Date.now();clearInterval(TID);TID=setInterval(tick,500);tick();
+}
+function scendi(k,i){var v=document.getElementById('q'+k+'_'+i).value.trim(),c=document.getElementById('v'+k+'_'+(i+1));if(c)c.textContent=v}
+function controlla(){
+  TENT++;var ok=0,sbagli=0,txt='';
+  NUM.forEach(function(n,k){
+    var R=righe(n),righeOk=true,tab=[];
+    R.forEach(function(x,i){
+      var q=document.getElementById('q'+k+'_'+i).value.trim(),s=document.getElementById('s'+k+'_'+i).value.trim();
+      var g=(q===String(x[1])&&s===String(x[2])),row=document.getElementById('r'+k+'_'+i);
+      row.classList.remove('ok','ko');if(q!==''||s!=='')row.classList.add(g?'ok':'ko');
+      if(!g){righeOk=false;if(q!==''||s!=='')sbagli++;}
+      tab.push(x[0]+':2='+(q||'_')+' r'+(s||'_'));
+    });
+    var bi=document.getElementById('bin'+k),by=document.getElementById('byt'+k);
+    var vb=bi.value.trim(),vy=by.value.trim(),gb=vb===n.toString(2),gy=vy===('00000000'+n.toString(2)).slice(-8);
+    bi.classList.remove('ok','ko');by.classList.remove('ok','ko');
+    if(vb!==''){bi.classList.add(gb?'ok':'ko');if(!gb)sbagli++}
+    if(vy!==''){by.classList.add(gy?'ok':'ko');if(!gy)sbagli++}
+    var tutto=righeOk&&gb&&gy;if(tutto)ok++;
+    txt+='= '+n+' → tabella: '+tab.join(' | ')+(righeOk?' [OK]':' [NO]')+' ; binario: '+(vb||'_')+(gb?' [OK]':' [NO]')+' ; byte: '+(vy||'_')+(gy?' [OK]':' [NO]')+'\n';
+  });
+  ERR+=sbagli;var tempo=mmss((TFIN||Date.now())-T0);
+  if(ok==5&&!FERMO){FERMO=true;TFIN=Date.now();tempo=mmss(TFIN-T0);clearInterval(TID);if(TIMER)document.getElementById('nuovi').classList.remove('hide');}
+  STORIA[GIRO-1]=(TIMER?'GIRO '+GIRO+' — ':'')+'numeri giusti '+ok+'/5 — tempo '+tempo+' — tentativi '+TENT+' — errori '+ERR+'\n'+txt;
+  document.getElementById('punti').textContent='Giusti: '+ok+' / 5'+(TIMER?' · ⏱ '+tempo:'')+(ok==5?'  — BRAVO! · أحسنت · 太棒了':'');
+  var tot='COMPITO '+NC+' — DA DECIMALE A BINARIO'+(TIMER?' (con timer)':'')+' — '+NOME+'\n';STORIA.forEach(function(g){if(g)tot+='\n'+g});
+  document.getElementById('out').value=tot;
+  document.getElementById('fine').classList.remove('hide');
+}
+function nuovoGiro(){GIRO++;genera();window.scrollTo(0,0)}
+function copia(){var t=document.getElementById('out');t.select();
+  try{navigator.clipboard.writeText(t.value).then(function(){alert('Copiato! Ora incolla nel documento con Ctrl+V')})}
+  catch(e){document.execCommand('copy');alert('Copiato! Ora incolla nel documento con Ctrl+V')}}
+setup();
+</script>
+</body></html>
