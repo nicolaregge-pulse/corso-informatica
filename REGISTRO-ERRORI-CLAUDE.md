@@ -113,4 +113,19 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+## 02/10/2026 — 1INF, pubblicazione del compito in classe
+
+1. **Automazione spiegata a metà, scoperta in classe (GRAVE).** Il ponte provato era solo
+   Classroom → Git; per PUBBLICARE (Git → Classroom) serve comunque uno script che parte
+   dall'account scuola (un Esegui o un timer). Non l'ho detto quando abbiamo progettato il ponte:
+   Nicola l'ha scoperto con 20 ragazzi in attesa, che hanno aspettato oltre 10 minuti.
+   **Correzione:** (a) dire SUBITO i limiti di ciò che costruisco (cosa resta a Nicola); (b) il
+   setup una tantum (timer) si fa FUORI dalla lezione, mai in classe; (c) in classe serve sempre
+   una **via rapida pronta** (link/caselle per creare il compito a mano in 1 minuto), consegnata
+   insieme ai materiali.
+2. **Passi non "solo copia-incolla".** Il passo "apri il progetto Apps Script" era senza link.
+   **Correzione:** ogni passo che apre un sito parte da un **link in una casella da copiare**.
+
+---
+
 *(Le prossime giornate si aggiungono qui sotto con la loro data.)*
