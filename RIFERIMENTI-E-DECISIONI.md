@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.4** — 01/10/2026
+**Versione 2.5** — 02/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -143,11 +143,22 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     che i ragazzi vedono in sequenza (es. **dispensa** e poi **compito/esercitazione** sullo
     stesso argomento) devono avere la **grafica identica**, non solo "simile". Se la dispensa usa
     una certa griglia (colori, bordi, evidenziazioni), il compito usa **quella stessa griglia**,
-    pixel per pixel. Ragioni: se cambia la grafica i ragazzi **si perdono** (è già successo col
-    bit/byte: griglia della dispensa ≠ tabella del compito → confusione). Modo pratico per
-    garantirlo: **gestire gli elementi grafici come IMMAGINI** (PNG generati dalla stessa fonte),
-    così sono identici ovunque (PDF, Classroom, stampa), e lasciare **sotto lo spazio per i conti
-    a mano** (carta e penna). Vale per ogni coppia teoria↔esercizio dello stesso tema.
+    pixel per pixel. Modo pratico: **gestire gli elementi grafici come IMMAGINI** (PNG dalla
+    stessa fonte) + **spazio per i conti a mano** sotto. Vale per ogni coppia teoria↔esercizio.
+
+20. **Solo COPIA-INCOLLA, passo per passo (regola, 02/10/2026).** Quando guido Nicola in una
+    procedura, deve dover **solo copiare e incollare**, **mai scrivere/digitare** nulla a mano
+    (né editare codice). Quindi: ogni valore/comando in un **blocco di codice** col bottone copia
+    (già regola COPIA); **un passo alla volta**, numerato, con le coordinate complete (app →
+    scheda → area → azione); i valori da inserire si danno **già pronti** (es. ID, nomi, percorsi)
+    e, dove serve configurare, si usano **Proprietà dello script / caselle** in cui si incolla,
+    non modifiche al codice. Se un dato deve venire da lui (es. un ID dal log), glielo faccio
+    **copiare** da dove appare e **incollare** dove serve — mai riscrivere.
+
+21. **Nomi sensati agli script/progetti (regola, 02/10/2026).** Niente "Progetto senza titolo":
+    ogni progetto Apps Script (e file script) ha un **nome chiaro** che dice cosa fa, es.
+    "Consegne Classroom → Git", "Crea compito Classroom", "Quiz Sicurezza". Si rinominano anche
+    quelli vecchi senza nome quando si aprono.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -240,6 +251,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     dispensa e i ragazzi si erano persi.
 15. **v2.4 (01/10/2026)**: §2 punto 12 — **screenshot Veyon senza testo = comando monitor**
     (osserva e registra con l'orario, senza altre parole).
+16. **v2.5 (02/10/2026)**: §2 punti 20-21 — **solo copia-incolla passo per passo** (mai far
+    scrivere/editare a Nicola) e **nomi sensati agli script**. + visione pipeline automazione
+    (file dedicato) e scelta ponte: Git come scambio (opzione B).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
