@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.7** — 02/10/2026
+**Versione 2.8** — 02/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -176,6 +176,17 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     **Classroom** — **dispensa (teoria)** + **compito con scadenza** — tramite lo script/ponte;
     **(6)** dopo la **scadenza**, dalle consegne Claude genera **libro individuale + griglie +
     report docente**. La scadenza serve proprio a chiudere e generare i libri.
+
+24. **Sovradimensionare + gestire il divario (fast/slow) (regola, 02/10/2026).** Meglio
+    **preparare PIÙ lavoro del necessario** e non finirlo, che avere ragazzi **fermi a non far
+    niente** (il fermo diventa off-task). Inoltre, dare "molti lavori" rischia di allargare un
+    **digital divide interno**: alcuni finiscono molto prima della media, gli ultimi faticano
+    perfino a consegnare. Quindi ogni lezione/compito si progetta **a più livelli**:
+    - un **NUCLEO base** (pavimento basso) che **tutti** riescono a fare e **consegnare** (con
+      scaffolding/aiuti per gli ultimi);
+    - **ESTRA/sfide** (soffitto alto) per chi finisce prima, così **non resta mai fermo**;
+    - materiale **abbondante** (sovradimensionato), così non si esaurisce mai.
+    Si lega ai **4 livelli di aiuto** dell'eserciziario e alla "scatola flessibile".
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
