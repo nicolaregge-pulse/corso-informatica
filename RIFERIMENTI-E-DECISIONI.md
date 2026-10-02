@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.6** — 02/10/2026
+**Versione 2.7** — 02/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -167,6 +167,15 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     errori tipici da prevenire. È il "canovaccio" della spiegazione alla lavagna. Viene PRIMA di
     dispensa/compito (che poi seguono la lavagna reale, §2.17-2.18). È materiale docente
     (in italiano), separato dai materiali per i ragazzi (trilingui).
+
+23. **Flusso standard di una lezione/argomento (regola, 02/10/2026 — richiesta da Nicola).**
+    L'ordine di ogni nuovo argomento è: **(1)** Claude propone **3-4 argomenti**, preceduti dal
+    **report dello svolto** della classe (§2.16); **(2)** Nicola ne sceglie **uno o più**;
+    **(3)** Claude dà la **scheda sintetica** per la lezione frontale (§2.22); **(4)** Nicola fa
+    la lezione e manda le **immagini della lavagna**; **(5)** Claude crea il lavoro su
+    **Classroom** — **dispensa (teoria)** + **compito con scadenza** — tramite lo script/ponte;
+    **(6)** dopo la **scadenza**, dalle consegne Claude genera **libro individuale + griglie +
+    report docente**. La scadenza serve proprio a chiudere e generare i libri.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
