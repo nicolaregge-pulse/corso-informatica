@@ -567,7 +567,7 @@ def docente():
 
 
 # ================================================================ PAGINA UNICA (docs/)
-def hub(nomi):
+def hub(nomi, extra=""):
     def bt(f, lab, sub=""):
         return "<a class='bt' href='%s'>%s<small>%s</small></a>" % (f, lab, sub)
     s = """<!DOCTYPE html><html lang="it"><head><meta charset="utf-8">
@@ -602,7 +602,7 @@ a.bt small{display:block;font-size:13px;font-weight:400;opacity:.92;margin-top:4
 <div class="box b1"><h2>Ecco il risultato finito</h2><p>Apri l'esempio: il tuo sito sarà così, ma con i TUOI testi e colori.</p><div class="btns"><a class="bt" href="esempio/" target="_blank">Vedi l'esempio<small>sito di prova con dati inventati</small></a></div></div>
 <div class="box b2"><h2>2. Dispensa 2 — Pubblica il sito su GitHub</h2><p>Il tuo sito su internet, con un indirizzo da aprire anche sul telefono.</p><div class="btns">%(d2)s</div></div>
 <div class="box b3"><h2>3. Compito — Il mio primo sito pubblico</h2><p>Il Documento in 5 parti: link, HTML, CSS a parte, screenshot, spiegazione.</p><div class="btns">%(cp)s</div></div>
-</div><script>
+%(extra)s</div><script>
 document.querySelectorAll('.cp').forEach(function(b){b.onclick=function(){
  var t=document.getElementById(b.dataset.t).textContent;
  function ok(){b.textContent='Copiato!';b.classList.add('ok');setTimeout(function(){b.textContent='Copia';b.classList.remove('ok')},2500)}
@@ -612,7 +612,7 @@ function fb(t){var a=document.createElement('textarea');a.value=t;document.body.
     return s % {"ver": VER, "data": DATA, "html": E(HTML_CODE), "css": E(CSS_CODE),
                 "d1": bt(nomi["d1_it"], "Italiano") + bt(nomi["d1_bn"], "Italiano + বাংলা"),
                 "d2": bt(nomi["d2_it"], "Italiano") + bt(nomi["d2_bn"], "Italiano + বাংলা"),
-                "cp": bt(nomi["cp_it"], "Italiano") + bt(nomi["cp_bn"], "Italiano + বাংলা")}
+                "cp": bt(nomi["cp_it"], "Italiano") + bt(nomi["cp_bn"], "Italiano + বাংলা"), "extra": extra}
 
 
 def pdf(html_txt, nome_html, nome_pdf):
@@ -624,12 +624,14 @@ def pdf(html_txt, nome_html, nome_pdf):
     return out
 
 
-def main():
-    for v in glob.glob(os.path.join(CART, "*.pdf")):
+def main(extra=""):
+    # tolgo solo i PDF di QUESTA lezione (le lezioni successive hanno il loro generatore)
+    for v in glob.glob(os.path.join(CART, PREF + "_*.pdf")):
         os.remove(v)
     os.makedirs(DOCS, exist_ok=True)
-    for v in glob.glob(os.path.join(DOCS, "*.pdf")):
-        os.remove(v)
+    for base in ("Dispensa-1-", "Dispensa-2-", "Compito-Primo-"):
+        for v in glob.glob(os.path.join(DOCS, base + "*.pdf")):
+            os.remove(v)
     lav = [("d1", dispensa1, "Dispensa-1-Pagina-Web-da-Zero"),
            ("d2", dispensa2, "Dispensa-2-Pubblica-Sito-GitHub"),
            ("cp", compito, "Compito-Primo-Sito-Pubblico")]
@@ -649,7 +651,7 @@ def main():
     for f in (out, os.path.join(CART, "docente.html")):
         shutil.move(f, os.path.join(ris, os.path.basename(f)))
     print("docente ->", ris)
-    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(hub(nomi))
+    open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(hub(nomi, extra))
     for d in (os.path.join(CART, "esempio"), os.path.join(DOCS, "esempio")):   # il sito d'esempio, vivo
         os.makedirs(d, exist_ok=True)
         open(os.path.join(d, "index.html"), "w", encoding="utf-8").write(HTML_CODE)

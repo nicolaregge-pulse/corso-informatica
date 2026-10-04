@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Dispensa 4 — La seconda pagina e il menu</title><style>
+@font-face{font-family:'NotoBN';src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-400.woff2') format('woff2');}
+@font-face{font-family:'NotoBN';font-weight:bold;src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-700.woff2') format('woff2');}
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a1a1a;line-height:1.5;font-size:10.8pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.bn{font-family:'NotoBN',"DejaVu Sans",sans-serif;font-size:11.2pt;line-height:1.75;color:#1d4d2f}
+.cover{background:linear-gradient(160deg,#eef4fb,#e9f7ee);padding:7mm 8mm;border-radius:8px;margin-bottom:4mm;position:relative}
+.cover h1{color:#12467a;font-size:18.5pt;margin:0 0 1.5mm;line-height:1.25}.cover .s{color:#445;font-size:10pt}
+.cover .bn{font-size:12pt;margin-top:1mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#12467a;color:#fff;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:13.5pt;margin:5mm 0 2mm;border-bottom:3px solid #cfe0f0;padding-bottom:1mm;page-break-after:avoid}
+.goal{background:#e9f6ee;border-left:5px solid #2f9e57;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.note{background:#fff8e6;border-left:5px solid #d0a516;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.warn{background:#fdecea;border-left:5px solid #c0392b;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.info{background:#eaf2fb;border-left:5px solid #1f6fa5;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.step{border:1px solid #cfdae6;border-radius:8px;margin:2.6mm 0;page-break-inside:avoid;overflow:hidden}
+.step .h{background:#1f6fa5;color:#fff;padding:1.6mm 3mm;font-weight:bold;font-size:10.8pt}
+.step .h .n{display:inline-block;background:#fff;color:#1f6fa5;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;margin-right:2mm;font-size:10pt}
+.step .b{padding:2mm 3.5mm}
+.step .b p{margin:0 0 1.2mm}
+.step.ok .h{background:#2f9e57}.step.ok .h .n{color:#2f9e57}
+.tasto{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #cddae8;padding:0 4px;border-radius:3px;font-size:9.6pt;white-space:nowrap}
+pre{background:#1e2733;color:#e8eef5;border-radius:6px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:8.7pt;line-height:1.38;white-space:pre-wrap;margin:1.5mm 0 3mm;page-break-inside:avoid}
+.codet{font-weight:bold;color:#fff;background:#12467a;display:inline-block;padding:1mm 3mm;border-radius:5px 5px 0 0;margin-top:3mm;font-size:10pt}
+.codet.css{background:#8a3ab9}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.4mm 2.4mm;vertical-align:top;text-align:left;font-size:9.8pt}
+th{background:#12467a;color:#fff}th.bn{color:#fff}
+td.c{font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;font-size:9.2pt}
+.sw{display:inline-block;width:4mm;height:4mm;border:1px solid #888;vertical-align:middle;margin-right:1.5mm;border-radius:2px}
+/* schermate disegnate */
+.scr{border:2px solid #9aa9b8;border-radius:7px;background:#fff;font-size:8.8pt;margin:2mm 0 1mm;overflow:hidden;page-break-inside:avoid;font-family:"DejaVu Sans",Arial,sans-serif;color:#24292f}
+.scr .bar{background:#e8edf2;padding:1mm 2.5mm;font-family:"DejaVu Sans Mono",monospace;color:#555;font-size:8.2pt;border-bottom:1px solid #cfd8e2}
+.scr .gh{background:#24292f;color:#fff;padding:1.6mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.scr .in{padding:2.5mm 3.5mm}
+.hl{outline:3px solid #e0312b;outline-offset:1px;border-radius:4px}
+.fr{color:#e0312b;font-weight:bold;font-size:9pt;white-space:nowrap}
+.gbtn{display:inline-block;background:#1f883d;color:#fff;font-weight:bold;padding:1mm 3mm;border-radius:5px}
+.wbtn{display:inline-block;background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;padding:1mm 3mm;border-radius:5px}
+.fld{display:inline-block;border:1px solid #8c959f;border-radius:4px;padding:.6mm 2.5mm;min-width:32mm;font-family:"DejaVu Sans Mono",monospace;background:#fff}
+.menu{display:inline-block;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:1mm 0;background:#fff;color:#24292f;margin-top:1mm}
+.menu div{padding:.8mm 4mm}
+.tabs span{display:inline-block;padding:1mm 2.5mm;margin-right:1mm;color:#57606a}
+.side div{padding:.8mm 2mm;color:#57606a}
+.drop{border:2px dashed #8c959f;border-radius:6px;padding:3mm;text-align:center;color:#57606a;margin:1.5mm 0}
+.file{display:inline-block;border:1px solid #d0d7de;border-radius:4px;padding:1mm 2.5mm;margin:.8mm;background:#f6f8fa;font-family:"DejaVu Sans Mono",monospace}
+.live{background:#dafbe1;border:1px solid #4ac26b;border-radius:6px;padding:2mm 3mm}
+.cap{font-size:8.6pt;color:#667;text-align:center;margin:0 0 2.5mm}
+.two{display:flex;gap:4mm}.two>div{flex:1}
+.prev{border:2px solid #9aa9b8;border-radius:7px;overflow:hidden;page-break-inside:avoid}
+.prev .pg{background:lightblue;text-align:center;padding:3mm;font-family:Arial,sans-serif}
+.prev h1{color:darkblue;font-size:15pt;margin:1mm 0}.prev .sotto{color:gray;margin:0 0 2mm;font-size:9pt}
+.prev .sch{background:#fff;max-width:85mm;margin:0 auto;padding:2.5mm 4mm;border-radius:8px;text-align:left;font-size:8.6pt}
+.prev h3{color:teal;font-size:10pt;margin:1mm 0}.prev ul{margin:0;padding-left:5mm}.prev p{margin:0 0 1mm}
+.prev .piede{font-size:7pt;color:gray;margin-top:2mm}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+.chk td:first-child{width:8mm;text-align:center;font-size:12pt}
+</style></head><body><div class='cover'><span class='ver'>v1.0</span><h1>Dispensa 4 — La seconda pagina e il menu</h1><div class='bn'>ডিসপেন্সা ৪ — দ্বিতীয় পেজ ও মেনু</div><div class='s'>Classe 3 · Informatica · 08/10/2026 · un sito vero ha più pagine collegate · IT / বাংলা</div></div><div class='goal'><div><b>Cosa ottieni oggi:</b> il tuo sito ha <b>due pagine</b> (Home e La mia passione) e un <b>menu</b> in alto per passare dall'una all'altra, come i siti veri. Le due pagine usano lo <b>stesso style.css</b>: cambi un colore e cambia in tutto il sito.</div><div class='bn'><b>আজ তুমি পাবে:</b> তোমার সাইটে <b>দুটি পেজ</b> (Home ও La mia passione) আর উপরে একটি <b>মেনু</b>, এক পেজ থেকে অন্যটিতে যেতে, আসল সাইটের মতো। দুটি পেজ <b>একই style.css</b> ব্যবহার করে: একটি রং বদলালে পুরো সাইটে বদলায়।</div></div><h2>1. Il codice nuovo</h2><div style='page-break-inside:avoid'><div class='codet'>RIQUADRO 5 — file nuovo passione.html (la seconda pagina)</div><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;La mia passione&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav class=&quot;menu&quot;&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;passione.html&quot;&gt;La mia passione&lt;/a&gt;
+  &lt;/nav&gt;
+
+  &lt;h1&gt;La mia passione: il calcio&lt;/h1&gt;
+
+  &lt;div class=&quot;scheda&quot;&gt;
+    &lt;h2&gt;Perché mi piace&lt;/h2&gt;
+    &lt;p&gt;Mi piace giocare in squadra e allenarmi con gli amici.&lt;/p&gt;
+
+    &lt;h2&gt;Tre cose che so fare&lt;/h2&gt;
+    &lt;ol&gt;
+      &lt;li&gt;Passare la palla con precisione&lt;/li&gt;
+      &lt;li&gt;Correre veloce&lt;/li&gt;
+      &lt;li&gt;Parare un rigore&lt;/li&gt;
+    &lt;/ol&gt;
+
+    &lt;h2&gt;Lo sapevi che...&lt;/h2&gt;
+    &lt;p&gt;Il primo mondiale di calcio si è giocato nel 1930.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;p class=&quot;piede&quot;&gt;Sito creato da me - 2026&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div><div style='page-break-inside:avoid'><div class='codet'>RIQUADRO 6 — il menu: da mettere in index.html, subito dopo &lt;body&gt;</div><pre>  &lt;nav class=&quot;menu&quot;&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;passione.html&quot;&gt;La mia passione&lt;/a&gt;
+  &lt;/nav&gt;
+</pre></div><div style='page-break-inside:avoid'><div class='codet css'>RIQUADRO 7 — in fondo a style.css</div><pre>.menu {
+  background: darkblue;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 12px;
+}
+
+.menu a:hover {
+  color: orange;
+}
+</pre></div><h2>2. I passi, uno alla volta</h2><div class='step'><div class='h'><span class='n'>1</span>Crea il file nuovo · <span class='bn' style='color:#fff;font-size:10.5pt'>নতুন ফাইল বানাও</span></div><div class='b'><p>Nel repository <b>mio-sito</b>: bottone <b>Add file</b> (grigio) &rarr; <b>Create new file</b> (Crea nuovo file). In alto, nel campo del nome, scrivi <span class='tasto'>passione.html</span>.</p><p class='bn'><b>mio-sito</b> repository-তে: <b>Add file</b> বোতাম (ধূসর) &rarr; <b>Create new file</b> (নতুন ফাইল)। উপরে নামের ঘরে লেখো <span class='tasto'>passione.html</span>।</p><div class='scr'><div class='bar'>github.com/tuonome/mio-sito/new/main</div><div class='in'>mio-sito / <span class='fld hl'>passione.html</span><div style='border:1px solid #d0d7de;border-radius:4px;margin-top:2mm;padding:2mm;color:#888;font-family:monospace'>Enter file contents here</div></div></div></div></div><div class='step'><div class='h'><span class='n'>2</span>Incolla la seconda pagina · <span class='bn' style='color:#fff;font-size:10.5pt'>দ্বিতীয় পেজ পেস্ট করো</span></div><div class='b'><p>Nel riquadro grande incolla il RIQUADRO 5. Poi <b>Commit changes...</b> &rarr; <b>Commit changes</b>.</p><p class='bn'>বড় বাক্সে বাক্স ৫ পেস্ট করো। তারপর <b>Commit changes...</b> &rarr; <b>Commit changes</b>।</p></div></div><div class='step'><div class='h'><span class='n'>3</span>Fallo tuo · <span class='bn' style='color:#fff;font-size:10.5pt'>নিজের মতো করো</span></div><div class='b'><p>Con la <b>matita</b> cambia la pagina: la <b>tua</b> passione (sport, musica, cucina, un videogioco, un paese...), perché ti piace, tre cose che sai fare, una curiosità. Poi Commit.</p><p class='bn'><b>পেনসিল</b> দিয়ে পেজটি বদলাও: <b>তোমার</b> শখ (খেলা, গান, রান্না, ভিডিও গেম, একটি দেশ...), কেন ভালো লাগে, তিনটি জিনিস যা পারো, একটি মজার তথ্য। তারপর Commit।</p></div></div><div class='step'><div class='h'><span class='n'>4</span>Il menu anche nella Home · <span class='bn' style='color:#fff;font-size:10.5pt'>Home-এও মেনু</span></div><div class='b'><p>Apri <b>index.html</b> &rarr; <b>matita</b>. Subito dopo la riga <span class='tasto'>&lt;body&gt;</span> incolla il RIQUADRO 6. Commit.</p><p class='bn'><b>index.html</b> খোলো &rarr; <b>পেনসিল</b>। <span class='tasto'>&lt;body&gt;</span> লাইনের ঠিক পরে বাক্স ৬ পেস্ট করো। Commit।</p></div></div><div class='step'><div class='h'><span class='n'>5</span>Lo stile del menu · <span class='bn' style='color:#fff;font-size:10.5pt'>মেনুর স্টাইল</span></div><div class='b'><p>Apri <b>style.css</b> &rarr; <b>matita</b> &rarr; in fondo incolla il RIQUADRO 7. Commit.</p><p class='bn'><b>style.css</b> খোলো &rarr; <b>পেনসিল</b> &rarr; একদম নিচে বাক্স ৭ পেস্ট করো। Commit।</p></div></div><div class='step ok'><div class='h'><span class='n'>6</span>Prova il menu · <span class='bn' style='color:#fff;font-size:10.5pt'>মেনু চেষ্টা করো</span></div><div class='b'><p>Aspetta 1 minuto, apri il sito, <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span>. Clic su <b>La mia passione</b>, poi su <b>Home</b>: passi da una pagina all'altra. <b>FATTO! Hai un sito a due pagine.</b></p><p class='bn'>১ মিনিট অপেক্ষা করো, সাইট খোলো, <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span>। <b>La mia passione</b>-এ, তারপর <b>Home</b>-এ ক্লিক করো: এক পেজ থেকে অন্য পেজে যাবে। <b>হয়ে গেছে! তোমার দুই পেজের সাইট।</b></p></div></div><div class='step ok'><div class='h'><span class='n'>7</span>Mostralo · <span class='bn' style='color:#fff;font-size:10.5pt'>দেখাও</span></div><div class='b'><p>L'indirizzo della seconda pagina è <span class='tasto'>https://tuonome.github.io/mio-sito/passione.html</span>. Aprila sul telefono e falla vedere a un compagno.</p><p class='bn'>দ্বিতীয় পেজের ঠিকানা <span class='tasto'>https://tuonome.github.io/mio-sito/passione.html</span>। ফোনে খোলো আর একজন সহপাঠীকে দেখাও।</p></div></div><h2>3. Se qualcosa non va</h2><table><tr><th style='width:34%'>Problema</th><th>Soluzione</th></tr><tr><td>Clic su <b>La mia passione</b> e vedo <b>404</b><div class='bn'><b>La mia passione</b>-এ ক্লিক করলে <b>404</b></div></td><td>Il file deve chiamarsi esattamente <b>passione.html</b> (minuscolo), come nel menu.<div class='bn'>ফাইলের নাম ঠিক <b>passione.html</b> (ছোট হাতের) হতে হবে, মেনুর মতো।</div></td></tr><tr><td>La seconda pagina è <b>senza colori</b><div class='bn'>দ্বিতীয় পেজে <b>রং নেই</b></div></td><td>Manca la riga <span class='tasto'>&lt;link rel="stylesheet" href="style.css"&gt;</span> nel &lt;head&gt;.<div class='bn'>&lt;head&gt;-এ <span class='tasto'>&lt;link rel="stylesheet" href="style.css"&gt;</span> লাইনটি নেই।</div></td></tr><tr><td>Il menu c'è ma è <b>senza stile</b><div class='bn'>মেনু আছে কিন্তু <b>স্টাইল নেই</b></div></td><td>Il RIQUADRO 7 non è in style.css, oppure aspetta un minuto e <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span>.<div class='bn'>বাক্স ৭ style.css-এ নেই, অথবা এক মিনিট অপেক্ষা করে <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span>।</div></td></tr></table><div class='note'><div><b>Carta e penna:</b> disegna la <b>mappa del sito</b>: due rettangoli (index.html e passione.html) con le frecce del menu, e una freccia da ciascuno verso style.css.</div><div class='bn'><b>কাগজ-কলম:</b> <b>সাইটের মানচিত্র</b> আঁকো: দুটি আয়তক্ষেত্র (index.html ও passione.html) মেনুর তীর সহ, আর প্রতিটি থেকে style.css-এর দিকে একটি তীর।</div></div><div class='foot'>Classe 3 · Dispensa 4 · v1.0</div></body></html>

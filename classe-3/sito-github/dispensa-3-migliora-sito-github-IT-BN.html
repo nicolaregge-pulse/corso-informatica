@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Dispensa 3 — Migliora il tuo sito</title><style>
+@font-face{font-family:'NotoBN';src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-400.woff2') format('woff2');}
+@font-face{font-family:'NotoBN';font-weight:bold;src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-700.woff2') format('woff2');}
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a1a1a;line-height:1.5;font-size:10.8pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.bn{font-family:'NotoBN',"DejaVu Sans",sans-serif;font-size:11.2pt;line-height:1.75;color:#1d4d2f}
+.cover{background:linear-gradient(160deg,#eef4fb,#e9f7ee);padding:7mm 8mm;border-radius:8px;margin-bottom:4mm;position:relative}
+.cover h1{color:#12467a;font-size:18.5pt;margin:0 0 1.5mm;line-height:1.25}.cover .s{color:#445;font-size:10pt}
+.cover .bn{font-size:12pt;margin-top:1mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#12467a;color:#fff;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:13.5pt;margin:5mm 0 2mm;border-bottom:3px solid #cfe0f0;padding-bottom:1mm;page-break-after:avoid}
+.goal{background:#e9f6ee;border-left:5px solid #2f9e57;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.note{background:#fff8e6;border-left:5px solid #d0a516;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.warn{background:#fdecea;border-left:5px solid #c0392b;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.info{background:#eaf2fb;border-left:5px solid #1f6fa5;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.step{border:1px solid #cfdae6;border-radius:8px;margin:2.6mm 0;page-break-inside:avoid;overflow:hidden}
+.step .h{background:#1f6fa5;color:#fff;padding:1.6mm 3mm;font-weight:bold;font-size:10.8pt}
+.step .h .n{display:inline-block;background:#fff;color:#1f6fa5;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;margin-right:2mm;font-size:10pt}
+.step .b{padding:2mm 3.5mm}
+.step .b p{margin:0 0 1.2mm}
+.step.ok .h{background:#2f9e57}.step.ok .h .n{color:#2f9e57}
+.tasto{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #cddae8;padding:0 4px;border-radius:3px;font-size:9.6pt;white-space:nowrap}
+pre{background:#1e2733;color:#e8eef5;border-radius:6px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:8.7pt;line-height:1.38;white-space:pre-wrap;margin:1.5mm 0 3mm;page-break-inside:avoid}
+.codet{font-weight:bold;color:#fff;background:#12467a;display:inline-block;padding:1mm 3mm;border-radius:5px 5px 0 0;margin-top:3mm;font-size:10pt}
+.codet.css{background:#8a3ab9}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.4mm 2.4mm;vertical-align:top;text-align:left;font-size:9.8pt}
+th{background:#12467a;color:#fff}th.bn{color:#fff}
+td.c{font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;font-size:9.2pt}
+.sw{display:inline-block;width:4mm;height:4mm;border:1px solid #888;vertical-align:middle;margin-right:1.5mm;border-radius:2px}
+/* schermate disegnate */
+.scr{border:2px solid #9aa9b8;border-radius:7px;background:#fff;font-size:8.8pt;margin:2mm 0 1mm;overflow:hidden;page-break-inside:avoid;font-family:"DejaVu Sans",Arial,sans-serif;color:#24292f}
+.scr .bar{background:#e8edf2;padding:1mm 2.5mm;font-family:"DejaVu Sans Mono",monospace;color:#555;font-size:8.2pt;border-bottom:1px solid #cfd8e2}
+.scr .gh{background:#24292f;color:#fff;padding:1.6mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.scr .in{padding:2.5mm 3.5mm}
+.hl{outline:3px solid #e0312b;outline-offset:1px;border-radius:4px}
+.fr{color:#e0312b;font-weight:bold;font-size:9pt;white-space:nowrap}
+.gbtn{display:inline-block;background:#1f883d;color:#fff;font-weight:bold;padding:1mm 3mm;border-radius:5px}
+.wbtn{display:inline-block;background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;padding:1mm 3mm;border-radius:5px}
+.fld{display:inline-block;border:1px solid #8c959f;border-radius:4px;padding:.6mm 2.5mm;min-width:32mm;font-family:"DejaVu Sans Mono",monospace;background:#fff}
+.menu{display:inline-block;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:1mm 0;background:#fff;color:#24292f;margin-top:1mm}
+.menu div{padding:.8mm 4mm}
+.tabs span{display:inline-block;padding:1mm 2.5mm;margin-right:1mm;color:#57606a}
+.side div{padding:.8mm 2mm;color:#57606a}
+.drop{border:2px dashed #8c959f;border-radius:6px;padding:3mm;text-align:center;color:#57606a;margin:1.5mm 0}
+.file{display:inline-block;border:1px solid #d0d7de;border-radius:4px;padding:1mm 2.5mm;margin:.8mm;background:#f6f8fa;font-family:"DejaVu Sans Mono",monospace}
+.live{background:#dafbe1;border:1px solid #4ac26b;border-radius:6px;padding:2mm 3mm}
+.cap{font-size:8.6pt;color:#667;text-align:center;margin:0 0 2.5mm}
+.two{display:flex;gap:4mm}.two>div{flex:1}
+.prev{border:2px solid #9aa9b8;border-radius:7px;overflow:hidden;page-break-inside:avoid}
+.prev .pg{background:lightblue;text-align:center;padding:3mm;font-family:Arial,sans-serif}
+.prev h1{color:darkblue;font-size:15pt;margin:1mm 0}.prev .sotto{color:gray;margin:0 0 2mm;font-size:9pt}
+.prev .sch{background:#fff;max-width:85mm;margin:0 auto;padding:2.5mm 4mm;border-radius:8px;text-align:left;font-size:8.6pt}
+.prev h3{color:teal;font-size:10pt;margin:1mm 0}.prev ul{margin:0;padding-left:5mm}.prev p{margin:0 0 1mm}
+.prev .piede{font-size:7pt;color:gray;margin-top:2mm}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+.chk td:first-child{width:8mm;text-align:center;font-size:12pt}
+</style></head><body><div class='cover'><span class='ver'>v1.0</span><h1>Dispensa 3 — Migliora il tuo sito direttamente su GitHub</h1><div class='bn'>ডিসপেন্সা ৩ — সরাসরি GitHub-এ তোমার সাইট উন্নত করো</div><div class='s'>Classe 3 · Informatica · 07/10/2026 · la matita, il commit, la storia delle versioni · IT / বাংলা</div></div><div class='goal'><div><b>Cosa ottieni oggi:</b> nel tuo sito compaiono due <b>bottoni-link</b> che cambiano colore quando ci passi sopra, e la scheda ha un'<b>ombra</b>. Modifichi i file <b>direttamente su GitHub</b>, senza scaricare niente: ogni modifica è un <b>commit</b>, cioè una nuova <b>versione</b> salvata nella storia.</div><div class='bn'><b>আজ তুমি পাবে:</b> তোমার সাইটে দুটি <b>বোতাম-লিংক</b>, মাউস রাখলে রং বদলায়, আর কার্ডে একটি <b>ছায়া</b>। ফাইলগুলো <b>সরাসরি GitHub-এ</b> বদলাবে, কিছু ডাউনলোড না করে: প্রতিটি পরিবর্তন একটি <b>commit</b>, মানে ইতিহাসে সেভ করা একটি নতুন <b>সংস্করণ</b>।</div></div><div class='warn'><div><b>Il sito è pubblico:</b> anche oggi solo nome o soprannome, niente dati personali.</div><div class='bn'><b>সাইটটি পাবলিক:</b> আজও শুধু নাম বা ডাকনাম, কোনো ব্যক্তিগত তথ্য নয়।</div></div><h2>1. Il codice nuovo</h2><div class='info'><div>Il codice si copia dalla <b>pagina del corso</b> con il bottone <b>Copia</b> (link nel compito su Classroom).</div><div class='bn'>কোডটি <b>কোর্সের পেজ</b> থেকে <b>Copia</b> বোতাম দিয়ে কপি করো (লিংক Classroom-এর কাজে)।</div></div><div style='page-break-inside:avoid'><div class='codet'>RIQUADRO 3 — da aggiungere in index.html (prima di &lt;/div&gt;)</div><pre>    &lt;h2&gt;I miei siti preferiti&lt;/h2&gt;
+    &lt;p&gt;
+      &lt;a class=&quot;bottone&quot; href=&quot;https://it.wikipedia.org/wiki/HTML&quot; target=&quot;_blank&quot;&gt;Cos&#x27;è l&#x27;HTML&lt;/a&gt;
+      &lt;a class=&quot;bottone&quot; href=&quot;https://www.w3schools.com/css/&quot; target=&quot;_blank&quot;&gt;Imparo il CSS&lt;/a&gt;
+    &lt;/p&gt;
+</pre></div><div style='page-break-inside:avoid'><div class='codet css'>RIQUADRO 4 — da aggiungere in fondo a style.css</div><pre>.scheda {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.bottone {
+  display: inline-block;
+  background: darkblue;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin: 4px;
+}
+
+.bottone:hover {
+  background: orange;
+}
+</pre></div><h2>2. I passi, uno alla volta</h2><div class='step'><div class='h'><span class='n'>1</span>Apri il tuo repository · <span class='bn' style='color:#fff;font-size:10.5pt'>তোমার repository খোলো</span></div><div class='b'><p>Vai su <span class='tasto'>github.com</span>, entra (Sign in) e apri il repository <b>mio-sito</b> (in alto a sinistra, o dal tuo profilo).</p><p class='bn'>এই ঠিকানায় যাও: <span class='tasto'>github.com</span>, ঢোকো (Sign in) এবং <b>mio-sito</b> repository খোলো (উপরে বাঁদিকে, বা তোমার প্রোফাইল থেকে)।</p></div></div><div class='step'><div class='h'><span class='n'>2</span>Apri index.html e premi la matita · <span class='bn' style='color:#fff;font-size:10.5pt'>index.html খুলে পেনসিলে চাপো</span></div><div class='b'><p>Nell'elenco dei file clic su <b>index.html</b>. In alto a destra del codice clic sulla <b>matita</b> &#9998; (Modifica).</p><p class='bn'>ফাইলের তালিকায় <b>index.html</b>-এ ক্লিক করো। কোডের উপরে ডানদিকে <b>পেনসিল</b> &#9998; (এডিট)-এ ক্লিক করো।</p><div class='scr'><div class='bar'>github.com/tuonome/mio-sito/blob/main/index.html</div><div class='in'><b>mio-sito / index.html</b><div style='text-align:right;margin-top:-4mm'><span class='wbtn'>Raw</span> <span class='wbtn hl'>&#9998;</span> <span class='fr'>&larr; matita</span> <span class='wbtn'>&#8942;</span></div></div></div></div></div><div class='step'><div class='h'><span class='n'>3</span>Incolla il RIQUADRO 3 · <span class='bn' style='color:#fff;font-size:10.5pt'>বাক্স ৩ পেস্ট করো</span></div><div class='b'><p>Trova la riga <span class='tasto'>&lt;p&gt;Lavorare con i computer.&lt;/p&gt;</span> (o il tuo sogno). Clic alla fine della riga, premi <span class='tasto'>Invio</span> e incolla il RIQUADRO 3 (<span class='tasto'>Ctrl</span> + <span class='tasto'>V</span>). Deve stare <b>prima</b> di <span class='tasto'>&lt;/div&gt;</span>.</p><p class='bn'><span class='tasto'>&lt;p&gt;Lavorare con i computer.&lt;/p&gt;</span> (বা তোমার স্বপ্ন) লাইনটি খোঁজো। লাইনের শেষে ক্লিক করে <span class='tasto'>Invio</span> চাপো, তারপর বাক্স ৩ পেস্ট করো (<span class='tasto'>Ctrl</span> + <span class='tasto'>V</span>)। এটি <span class='tasto'>&lt;/div&gt;</span>-এর <b>আগে</b> থাকতে হবে।</p></div></div><div class='step'><div class='h'><span class='n'>4</span>Salva: Commit changes · <span class='bn' style='color:#fff;font-size:10.5pt'>সেভ: Commit changes</span></div><div class='b'><p>In alto a destra bottone <b>verde</b> <b>Commit changes...</b> &rarr; si apre una finestrella &rarr; di nuovo <b>Commit changes</b> (verde).</p><p class='bn'>উপরে ডানদিকে <b>সবুজ</b> বোতাম <b>Commit changes...</b> &rarr; একটি ছোট জানালা খুলবে &rarr; আবার <b>Commit changes</b> (সবুজ)।</p><div class='scr'><div class='in'><div style='text-align:right'><span class='wbtn'>Cancel changes</span> <span class='gbtn hl'>Commit changes...</span> <span class='fr'>&larr; 1</span></div><div class='menu' style='margin-top:2mm'><div><b>Commit changes</b></div><div>Commit message: <span class='fld'>Update index.html</span></div><div style='text-align:right'><span class='gbtn hl'>Commit changes</span> <span class='fr'>&larr; 2</span></div></div></div></div></div></div><div class='step'><div class='h'><span class='n'>5</span>Ora style.css · <span class='bn' style='color:#fff;font-size:10.5pt'>এবার style.css</span></div><div class='b'><p>Torna al repository (clic su <b>mio-sito</b> in alto), clic su <b>style.css</b> &rarr; <b>matita</b>. Vai <b>in fondo</b>, premi <span class='tasto'>Invio</span> e incolla il RIQUADRO 4. Poi <b>Commit changes...</b> &rarr; <b>Commit changes</b>.</p><p class='bn'>repository-তে ফিরে যাও (উপরে <b>mio-sito</b>-এ ক্লিক), <b>style.css</b>-এ ক্লিক &rarr; <b>পেনসিল</b>। <b>একদম নিচে</b> যাও, <span class='tasto'>Invio</span> চাপো এবং বাক্স ৪ পেস্ট করো। তারপর <b>Commit changes...</b> &rarr; <b>Commit changes</b>।</p></div></div><div class='step ok'><div class='h'><span class='n'>6</span>Guarda il sito · <span class='bn' style='color:#fff;font-size:10.5pt'>সাইট দেখো</span></div><div class='b'><p>Aspetta 1 minuto, apri il tuo sito (<span class='tasto'>https://tuonome.github.io/mio-sito/</span>) e premi <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span>. Passa con il mouse sui bottoni: diventano arancioni! <b>FATTO!</b></p><p class='bn'>১ মিনিট অপেক্ষা করো, তোমার সাইট খোলো (<span class='tasto'>https://tuonome.github.io/mio-sito/</span>) এবং <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span> চাপো। বোতামের উপর মাউস রাখো: কমলা হয়ে যাবে! <b>হয়ে গেছে!</b></p></div></div><div class='step'><div class='h'><span class='n'>7</span>La storia delle versioni · <span class='bn' style='color:#fff;font-size:10.5pt'>সংস্করণের ইতিহাস</span></div><div class='b'><p>Nel repository clic sul file <b>index.html</b> &rarr; in alto a destra <b>History</b> (Cronologia, icona con l'orologio). Vedi la lista dei tuoi <b>commit</b>: ogni riga è una versione del file, con data e messaggio. Fai uno <b>screenshot</b>: serve per il compito.</p><p class='bn'>repository-তে <b>index.html</b>-এ ক্লিক &rarr; উপরে ডানদিকে <b>History</b> (ইতিহাস, ঘড়ির চিহ্ন)। তোমার <b>commit</b>-এর তালিকা দেখবে: প্রতিটি লাইন ফাইলের একটি সংস্করণ, তারিখ ও বার্তা সহ। একটি <b>স্ক্রিনশট</b> নাও: কাজের জন্য লাগবে।</p></div></div><div class='step'><div class='h'><span class='n'>8</span>Fallo tuo · <span class='bn' style='color:#fff;font-size:10.5pt'>নিজের মতো করো</span></div><div class='b'><p>Cambia i link con <b>due siti utili che piacciono a te</b> (niente social, niente siti vietati) e i colori dei bottoni. Ogni volta: matita &rarr; Commit.</p><p class='bn'>লিংক বদলে <b>তোমার পছন্দের দুটি দরকারি সাইট</b> দাও (সোশ্যাল নয়, নিষিদ্ধ সাইট নয়) এবং বোতামের রং বদলাও। প্রতিবার: পেনসিল &rarr; Commit।</p></div></div><h2>3. Cosa fa ogni pezzo</h2><table><tr><th>Pezzo</th><th>Cosa fa</th><th class='bn'>কী করে</th></tr><tr><td class='c'>&lt;a href="..."&gt;testo&lt;/a&gt;</td><td>un <b>link</b>: <b>href</b> è l'indirizzo dove porta</td><td class='bn'>একটি <b>লিংক</b>: <b>href</b> হলো ঠিকানা যেখানে নিয়ে যায়</td></tr><tr><td class='c'>target="_blank"</td><td>apre il link in una scheda nuova</td><td class='bn'>লিংকটি নতুন ট্যাবে খোলে</td></tr><tr><td class='c'>class="bottone"</td><td>il nome che usa il CSS per dare l'aspetto</td><td class='bn'>যে নাম দিয়ে CSS চেহারা দেয়</td></tr><tr><td class='c'>.bottone:hover</td><td>lo stile quando il mouse <b>passa sopra</b></td><td class='bn'>মাউস <b>উপরে রাখলে</b> যে স্টাইল</td></tr><tr><td class='c'>box-shadow</td><td>l'ombra della scatola</td><td class='bn'>বাক্সের ছায়া</td></tr><tr><td class='c'>commit</td><td>una versione salvata, con data e messaggio</td><td class='bn'>তারিখ ও বার্তা সহ একটি সেভ করা সংস্করণ</td></tr></table><div class='note'><div><b>Non vedi i cambiamenti?</b> Aspetta ancora un minuto e premi <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span> (ricarica forzata). Se il sito si rompe: apri <b>History</b>, guardi la versione di prima e la ricopi. Con Git <b>niente si perde</b>.</div><div class='bn'><b>পরিবর্তন দেখছ না?</b> আরও এক মিনিট অপেক্ষা করে <span class='tasto'>Ctrl</span> + <span class='tasto'>F5</span> চাপো। সাইট ভেঙে গেলে: <b>History</b> খুলে আগের সংস্করণ দেখে আবার কপি করো। Git-এ <b>কিছুই হারায় না</b>।</div></div><div class='note'><div><b>Carta e penna:</b> disegna una linea del tempo con i tuoi commit (pallino = versione) e scrivi sotto cosa hai cambiato in ognuno.</div><div class='bn'><b>কাগজ-কলম:</b> তোমার commit-গুলো দিয়ে একটি সময়রেখা আঁকো (বিন্দু = সংস্করণ) এবং নিচে লেখো প্রতিটিতে কী বদলেছ।</div></div><div class='foot'>Classe 3 · Dispensa 3 · v1.0</div></body></html>

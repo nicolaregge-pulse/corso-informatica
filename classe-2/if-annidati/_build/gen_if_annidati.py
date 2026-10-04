@@ -269,7 +269,7 @@ def pdf(h, nome_html, nome_pdf):
 
 
 if __name__ == "__main__":
-    for v in glob.glob(os.path.join(CART, "*.pdf")):
+    for v in glob.glob(os.path.join(CART, PREF + "_*.pdf")):
         os.remove(v)
     pdf(dispensa(), "dispensa-if-annidati.html", "%s_v%s_Dispensa-If-Annidati-Indovina-il-Numero_IT.pdf" % (PREF, VER))
     pdf(compito(), "compito-indovina-numero.html", "%s_v%s_Compito-Indovina-il-Numero_IT.pdf" % (PREF, VER))

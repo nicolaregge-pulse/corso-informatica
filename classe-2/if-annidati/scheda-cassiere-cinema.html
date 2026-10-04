@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Il cassiere del cinema</title><style>
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a2330;line-height:1.45;font-size:10.5pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.cover{background:linear-gradient(160deg,#134a6e,#2c86b8);color:#fff;border-radius:12px;padding:9mm 10mm;margin-bottom:5mm;position:relative}
+.cover h1{font-size:20pt;margin:0;line-height:1.25}.cover .s{font-size:10.5pt;opacity:.93;margin-top:2mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#fff;color:#134a6e;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:14pt;margin:6mm 0 2mm;background:#eef4fb;border-left:6px solid #2b7cc4;padding:2mm 4mm;border-radius:4px;page-break-after:avoid}
+h3{color:#12467a;font-size:12pt;margin:4mm 0 1.5mm;page-break-after:avoid}
+p{margin:1.5mm 0}ol{margin:1mm 0 2mm;padding-left:7mm}li{margin:1.4mm 0}
+code,.t{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #d5e0ec;border-radius:3px;padding:0 4px;font-size:9.4pt}
+pre.pas{background:#f5f8fc;border:1px solid #cfdbe8;color:#1a2330;border-radius:8px;padding:3mm 4mm 3mm 8mm;font-family:"DejaVu Sans Mono",monospace;font-size:9pt;line-height:1.45;white-space:pre-wrap;margin:2mm 0;page-break-inside:avoid}
+.kw{color:#c0392b;font-weight:bold}.cm{color:#7a8794;font-style:italic}
+.be{font-weight:bold}.be i{font-style:normal;color:#fff;border-radius:50%;display:inline-block;width:4.2mm;height:4.2mm;line-height:4.2mm;text-align:center;font-size:7pt;margin-left:-5mm;margin-right:.8mm;vertical-align:1px}
+.box{border-radius:6px;padding:2.5mm 4mm;margin:3mm 0;page-break-inside:avoid}
+.novita{background:#eafaf0;border-left:5px solid #2f9e57}.attn{background:#fdecea;border-left:5px solid #c0392b}
+.nota{background:#fff8e6;border-left:5px solid #d0a516}.tuo{background:#f2ebf7;border-left:5px solid #8e44ad}
+.carta{background:#eef4fb;border:1px dashed #9cc0e4;color:#22405e}
+.lv{border:1px solid #cfdae6;border-radius:8px;margin:3mm 0;page-break-inside:avoid}.lv.l4{page-break-inside:auto}.pz{page-break-inside:avoid}
+.lv .h{padding:1.8mm 3.5mm;font-weight:bold;color:#fff}.lv .b{padding:2mm 4mm}
+.l1 .h{background:#2f9e57}.l2 .h{background:#1f6fa5}.l3 .h{background:#d9731a}.l4 .h{background:#7030a0}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.5mm 2.5mm;text-align:left;vertical-align:top;font-size:9.8pt}th{background:#12467a;color:#fff}
+.form{border:2px solid #8aa0b6;border-radius:6px;width:95mm;margin:2mm auto;background:#f0f0f0;font-size:9pt;page-break-inside:avoid}
+.form .tb{background:#2c86b8;color:#fff;padding:1mm 3mm;font-weight:bold}.form .in{padding:3mm}
+.form .ed{display:inline-block;background:#fff;border:1px solid #888;width:30mm;padding:.5mm 2mm}
+.form .bt{display:inline-block;background:#e1e1e1;border:1px solid #888;border-radius:3px;padding:.5mm 3mm}
+.cap{font-size:8.8pt;color:#667;text-align:center;margin:0 0 2mm}
+.flow{display:flex;gap:2mm;align-items:center;justify-content:center;flex-wrap:wrap;margin:2mm 0;font-size:9.4pt}
+.flow div{border:2px solid #12467a;border-radius:6px;padding:1.5mm 3mm;text-align:center;background:#fff}
+.flow .q{border-color:#c0392b;background:#fdecea}.flow .ok{border-color:#2f9e57;background:#eafaf0}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+</style></head><body><style>.lv.l4{page-break-inside:avoid}pre.pas{font-size:8.6pt;line-height:1.35}</style><div class='cover'><span class='ver'>v1.0</span><h1>Il cassiere del cinema</h1><div class='s'>Classe 2 · Informatica · Lazarus · 08/10/2026 · if annidati su 3 livelli · esercitazione valutata</div></div><div class='box novita'><b>La missione:</b> il cinema ti assume come programmatore. Devi fare l'app della cassa: il cliente scrive l'<b>età</b>, spunta se oggi è <b>mercoledì</b>, preme <b>Prezzo</b> e l'app dice quanto paga. È un vero programma da lavoro, fatto tutto con gli <b>if</b>.</div><h2>1. Le regole del cinema</h2><table><tr><th>Chi</th><th>Quanto paga</th></tr><tr><td>meno di 6 anni</td><td><b>Gratis!</b></td></tr><tr><td>da 6 a 13 anni, oppure 65 anni e più</td><td><b>Ridotto: 5 euro</b></td></tr><tr><td>tutti gli altri, di mercoledì</td><td><b>Mercoledì: 6 euro</b></td></tr><tr><td>tutti gli altri</td><td><b>Intero: 8 euro</b></td></tr></table><div class='flow'><div class='q'>età &lt; 6 ?</div><div>SÌ &rarr; <b>Gratis</b></div><div>NO &rarr;</div><div class='q'>età &lt; 14 <u>oppure</u> età &ge; 65 ?</div><div>SÌ &rarr; <b>5 euro</b></div><div>NO &rarr;</div><div class='q'>mercoledì ?</div><div>SÌ &rarr; <b>6 euro</b></div><div>NO &rarr; <b>8 euro</b></div></div><div class='box carta'><b>Carta e penna, PRIMA del computer:</b> ricopia lo schema a frecce: 3 domande, 4 risposte. Ogni domanda è un <b>if</b>; ogni NO porta al prossimo if, dentro l'<b>else</b>.</div><h2>2. Parola nuova: or (oppure)</h2><p><code>(eta &lt; 14) or (eta &gt;= 65)</code> è vero se <b>almeno una</b> delle due condizioni è vera. Le condizioni vanno <b>tra parentesi</b>. Componente nuovo: la <b>CheckBox</b> (casella da spuntare): <code>CheckBoxMercoledi.Checked</code> è vero se è spuntata.</p><div class='form'><div class='tb'>Cinema Stella — Cassa</div><div class='in'>Quanti anni hai? <span class='ed'>15</span><br><br>&#9745; Oggi è mercoledì &nbsp; <span class='bt'>Prezzo</span><br><br><b style='color:#c0392b'>Mercoledì: 6 euro</b></div></div><div class='cap'>La tua app (il nome del cinema lo scegli tu)</div><h2>3. Costruisci l'app</h2><div class='lv l1'><div class='h'>Livello 1 — Cosa deve fare</div><div class='b'><p>Una casella per l'età, una casella da spuntare per il mercoledì, un bottone <b>Prezzo</b>, una scritta che mostra il prezzo secondo le regole del punto 1.</p></div></div><div class='lv l2'><div class='h'>Livello 2 — Un aiuto</div><div class='b'><p>Tre if uno dentro l'altro, nell'ordine dello schema: prima "età &lt; 6", nell'else "età &lt; 14 or età &ge; 65", nell'else "mercoledì?". Scrivi <b>prima tutte le coppie begin/end</b>, poi riempi.</p></div></div><div class='lv l3'><div class='h'>Livello 3 — I pezzi sulla Form</div><div class='b'><table><tr><th>Pezzo</th><th>Name</th><th>Proprietà</th></tr><tr><td>Form</td><td>Form1</td><td>Caption = il nome del TUO cinema</td></tr><tr><td>Label</td><td>Label1</td><td>Caption = Quanti anni hai?</td></tr><tr><td>Edit</td><td>EditEta</td><td>Text = (vuoto)</td></tr><tr><td>CheckBox</td><td>CheckBoxMercoledi</td><td>Caption = Oggi è mercoledì (gruppo Standard, icona con la spunta)</td></tr><tr><td>Button</td><td>ButtonPrezzo</td><td>Caption = Prezzo</td></tr><tr><td>Label</td><td>LabelPrezzo</td><td>Caption = (vuoto) · Font grande e colorato</td></tr></table></div></div><div class='lv l4'><div class='h'>Livello 4 — Il codice completo</div><div class='b'><div class='pz'><p>Doppio clic su <b>Prezzo</b> e scrivi:</p><pre class='pas'><span class='kw'>procedure</span> TForm1.ButtonPrezzoClick(Sender: TObject);
+<span class='kw'>var</span>
+  eta: Integer;
+<span class='be' style='color:#12467a'><i style='background:#12467a'>1</i>begin</span>
+  eta := StrToInt(EditEta.Text);
+  <span class='kw'>if</span> eta &lt; 6 <span class='kw'>then</span>
+    <span class='be' style='color:#1e7a44'><i style='background:#1e7a44'>2</i>begin</span>
+      LabelPrezzo.Caption := &#x27;Gratis!&#x27;;
+    <span class='be' style='color:#1e7a44'><i style='background:#1e7a44'>2</i>end</span>
+  <span class='kw'>else</span>
+    <span class='be' style='color:#1e7a44'><i style='background:#1e7a44'>3</i>begin</span>
+      <span class='kw'>if</span> (eta &lt; 14) or (eta &gt;= 65) <span class='kw'>then</span>
+        <span class='be' style='color:#7030a0'><i style='background:#7030a0'>4</i>begin</span>
+          LabelPrezzo.Caption := &#x27;Ridotto: 5 euro&#x27;;
+        <span class='be' style='color:#7030a0'><i style='background:#7030a0'>4</i>end</span>
+      <span class='kw'>else</span>
+        <span class='be' style='color:#7030a0'><i style='background:#7030a0'>5</i>begin</span>
+          <span class='kw'>if</span> CheckBoxMercoledi.Checked <span class='kw'>then</span>
+            <span class='be' style='color:#c0392b'><i style='background:#c0392b'>6</i>begin</span>
+              LabelPrezzo.Caption := &#x27;Mercoledì: 6 euro&#x27;;
+            <span class='be' style='color:#c0392b'><i style='background:#c0392b'>6</i>end</span>
+          <span class='kw'>else</span>
+            <span class='be' style='color:#c0392b'><i style='background:#c0392b'>7</i>begin</span>
+              LabelPrezzo.Caption := &#x27;Intero: 8 euro&#x27;;
+            <span class='be' style='color:#c0392b'><i style='background:#c0392b'>7</i>end</span>;
+        <span class='be' style='color:#7030a0'><i style='background:#7030a0'>5</i>end</span>;
+    <span class='be' style='color:#1e7a44'><i style='background:#1e7a44'>3</i>end</span>;
+<span class='be' style='color:#12467a'><i style='background:#12467a'>1</i>end</span>;</pre></div></div></div><h2>4. Collaudo: la tabella di prova</h2><p>I programmatori veri <b>provano</b> ogni strada prima di consegnare. Prova questi casi e scrivi cosa esce:</p><table><tr><th>Età</th><th>Mercoledì?</th><th>Deve uscire</th><th>È uscito (scrivi tu)</th></tr><tr><td>4</td><td>no</td><td>Gratis!</td><td></td></tr><tr><td>10</td><td>sì</td><td>Ridotto: 5 euro</td><td></td></tr><tr><td>70</td><td>no</td><td>Ridotto: 5 euro</td><td></td></tr><tr><td>16</td><td>sì</td><td>Mercoledì: 6 euro</td><td></td></tr><tr><td>30</td><td>no</td><td>Intero: 8 euro</td><td></td></tr><tr><td>14</td><td>no</td><td>Intero: 8 euro</td><td></td></tr></table><div class='box tuo'><b>Fallo tuo:</b> nome del cinema, colori, il titolo del film di oggi in una Label. Puoi cambiare i prezzi: ma allora cambia anche la tabella di prova.</div><h2>5. Sfide per chi ha finito</h2><ol><li><b>Popcorn:</b> aggiungi la CheckBox <b>Popcorn (+3 euro)</b>. Aiuto: usa una variabile <code>prezzo: Integer</code>, calcola il prezzo con gli if, poi <code>if CheckBoxPopcorn.Checked then prezzo := prezzo + 3;</code> e alla fine scrivi <code>IntToStr(prezzo) + ' euro'</code>.</li><li><b>Età impossibile:</b> se l'età è minore di 0 o maggiore di 120 scrivi <b>Età non valida</b> (un if in più, prima di tutti gli altri).</li><li><b>Biglietti per la famiglia:</b> una casella <b>Quanti biglietti?</b> e il totale da pagare.</li></ol><div class='foot'>Classe 2 · Il cassiere del cinema · v1.0</div></body></html>
