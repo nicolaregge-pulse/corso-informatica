@@ -25,7 +25,7 @@ precisazioni**, le volte in cui Nicola mi ha detto **di rifare (col perché)** e
 11. **Incrociare SEMPRE i dati** che ho già (registri, scratchpad), non chiedere il
     ricavabile; il registro è la fonte di verità. *(2.24)*
 12. **Mappa lingue per classe**: 1ª IT/AR/ZH · 2ª solo IT · 3ª IT (+ IT-bangla solo
-    per Rafi) · 4ª solo IT. *(2.14)*
+    per l'allievo bengalese) · 4ª solo IT. *(2.14)*
 13. **Griglia complessiva** riservata per te (quiz + compito + media).
 14. **Naming dello zip dei libri**: zip con **data all'inizio**; PDF interni con
     **Cognome-Nome … data in fondo** (naming invertito); PDF **protetti** dalla
@@ -85,7 +85,7 @@ precisazioni**, le volte in cui Nicola mi ha detto **di rifare (col perché)** e
 6. **Frammentazione** — separavo quando volevi unito e viceversa: **indovinavo** la
    struttura invece di confermarla.
 7. **Naming** — ordine/classe/versione sbagliati più volte.
-8. **Pedagogia** — esempi omogenei e **termini tecnici dati per scontati** (Rafi non
+8. **Pedagogia** — esempi omogenei e **termini tecnici dati per scontati** (l'allievo bengalese non
    li conosceva).
 9. **Domande ridondanti** — ho chiesto cose ricavabili dai dati che avevo.
 10. **Dimensione file** — zip troppo pesante per non aver compresso l'immagine.

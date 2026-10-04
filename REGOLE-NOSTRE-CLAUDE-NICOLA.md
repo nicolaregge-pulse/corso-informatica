@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.3** — 28/09/2026
+**Versione 2.4** — 04/10/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 
@@ -18,7 +18,7 @@ ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
    primo e l'ultimo cognome** contro di esso; nel dubbio **chiedo**, non assumo.
    *(dettaglio: §2.24 e §2.7)*
 2. **Lingua giusta.** Ogni classe ha la sua: **1ª** IT/AR/ZH · **2ª** IT · **3ª**
-   IT (+ copia IT-bangla solo per Rafi) · **4ª** IT. Il **glossario dei termini**
+   IT (+ copia IT-bangla per l'allievo di lingua bengalese) · **4ª** IT. Il **glossario dei termini**
    va in **tutte le lingue presenti** nella classe. *(§2.14, §2.25)*
 3. **Versione.** **Bump a ogni modifica**; mai riusare un numero; nome file e
    intestazione devono coincidere. *(§2.15)*
@@ -115,8 +115,8 @@ cartelle** (Windows o Git).
 0. **Ogni classe ha le SUE lingue.** Controllo questa mappa; **nel dubbio CHIEDO**:
    1. **Classe 1** → **trilingue IT · AR · ZH**.
    2. **Classe 2** → **solo italiano** (presenti allievi stranieri, ma materiali IT).
-   3. **Classe 3** → **italiano** per tutti + copia **IT+bangla solo per Rafi**
-      (nome file `...-Rafi_IT-BN`).
+   3. **Classe 3** → **italiano** per tutti + copia **IT+bangla** per l'allievo di lingua bengalese
+      (nome file `..._IT-BN`).
    4. **Classe 4** → **solo italiano**.
    5. Materiali **interni docente** → sempre italiano.
    *(schema completo delle classi: `SCHEMA-CLASSI-TIPOLOGIE.md`)*
@@ -137,7 +137,7 @@ cartelle** (Windows o Git).
    ricetta migliorata, salvataggi di un gioco…).
 2. **Ogni termine tecnico va spiegato** (branch, commit, merge, repository, push,
    pull): alla prima occorrenza, **parole semplici + analogia**, raccolti in un
-   **dizionario**. Vale doppio per i non italofoni (Rafi non li conosceva).
+   **dizionario**. Vale doppio per i non italofoni (l'allievo bengalese non li conosceva).
 2b. **Il glossario va in TUTTE le lingue presenti** nella classe (1ª IT/AR/ZH ·
    3ª IT+bangla · 2ª/4ª italiano + eventuali lingue dei non italofoni presenti).
 3. La parte "casi d'uso" è un insieme di **situazioni diverse**, non una fila di
@@ -190,7 +190,7 @@ consegna** · **consegna** (Sì/Assente/Non consegnato, lista completa della cla
 ### 2.21 Come chiamare gli allievi (dalla prossima volta)
 1. Si usa il **nome con cui li chiama Nicola** (soprannome/preferito), **MA si scrive
    SEMPRE anche nome e cognome UFFICIALE** accanto, per non confondere e per
-   tracciabilità. Es.: «DJ (Argana David Josh)», «Noah (Valerio Noah Khym)».
+   tracciabilità. Es.: «Leo (Rossi Mario Leo)», «Sami (Bianchi Samuele)» (nomi inventati: i nomi veri solo nei documenti riservati, MAI nel repo pubblico).
 2. **Nomi doppi:** se due allievi hanno lo **stesso nome** (es. due "Giorgio"), si usa
    **SEMPRE cognome e nome** per distinguere, mai il solo nome.
 3. I nomi preferiti si raccolgono in scratchpad (dati di minori); vale dalla prossima volta.
@@ -285,9 +285,10 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
+0. **v2.4 (04/10/2026)**: privacy — tolti i nomi veri di allievi (esempi della 2.21 sostituiti con nomi inventati; l'allievo di lingua bengalese indicato senza nome). Regola: i nomi veri stanno solo nel repo riservato.
 1. **v2.3 (28/09/2026)**: 2.21 — con nomi doppi usare sempre cognome e nome.
 2. **v2.2 (28/09/2026)**: 2.21 — si usa il nome con cui Nicola chiama l'allievo, ma
-   si scrive SEMPRE anche nome e cognome ufficiale accanto (es. "DJ (Argana David Josh)").
+   si scrive SEMPRE anche nome e cognome ufficiale accanto (es. "Leo (Rossi Mario Leo)", nome inventato).
 2. **v2.1 (25/09/2026)**: precisazioni lette con Nicola — 2.19 vale solo per la chat
    (documenti esaurienti); 2.18 teoria abbondante (meglio una pagina in più); 2.17
    libro totale a **tre livelli** (Semplice/Approfondito/Molto approfondito); 2.2 +
@@ -299,7 +300,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
    mantenuti); precisazioni: campione senza password da approvare (B.0), marcatore
    di classe e inversione naming dentro lo zip dei libri (2.9.3-4). Aggiunta **2.25**
    (esempi eterogenei + termini spiegati + glossario nelle lingue presenti). Mappa
-   lingue: 2ª e 4ª = solo italiano; 3ª = IT + bangla per Rafi.
+   lingue: 2ª e 4ª = solo italiano; 3ª = IT + bangla per l'allievo bengalese.
 2. **v1.7 (24/09/2026)**: 2.23 — controllare il nome file (schema 2.9) PRIMA di inviare.
 3. **v1.6 (24/09/2026)**: 2.22 — nei report al singolo allievo solo nome/voto/correzione.
 4. **v1.5 (24/09/2026)**: 2.21 — usare il nome con cui Nicola chiama gli allievi.

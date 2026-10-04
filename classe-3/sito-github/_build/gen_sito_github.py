@@ -642,7 +642,13 @@ def main():
             shutil.copy(os.path.join(CART, nome), os.path.join(DOCS, breve))
             nomi["%s_%s" % (k, "bn" if bn else "it")] = breve
             print(nome)
-    print(pdf(docente(), "docente.html", "%s_Primo-Sito-Pubblico_DOCENTE_v%s.pdf" % (PREF, VER)))
+    # la chiave del docente NON resta nel repo pubblico: va nel repo riservato
+    out = pdf(docente(), "docente.html", "%s_Primo-Sito-Pubblico_DOCENTE_v%s.pdf" % (PREF, VER))
+    ris = "/home/user/corso-informatica-riservato/materiale-docente/classe-3"
+    os.makedirs(ris, exist_ok=True)
+    for f in (out, os.path.join(CART, "docente.html")):
+        shutil.move(f, os.path.join(ris, os.path.basename(f)))
+    print("docente ->", ris)
     open(os.path.join(DOCS, "index.html"), "w", encoding="utf-8").write(hub(nomi))
     for d in (os.path.join(CART, "esempio"), os.path.join(DOCS, "esempio")):   # il sito d'esempio, vivo
         os.makedirs(d, exist_ok=True)

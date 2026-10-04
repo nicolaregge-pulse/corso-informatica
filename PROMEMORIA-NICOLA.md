@@ -36,7 +36,7 @@ cosa nuova, entra qui.*
 2. [DA FARE] **Albero di cartelle compatibile con la tassonomia** del corso (classi / macro-argomenti / competenze Allegato A), coerente con lo schema nomi file (regola 2.9).
 3. [DA FARE] **Programma di confronto Allegato A prima/dopo**: dato l'Allegato A prima e dopo le modifiche, evidenzia le differenze (per non scrivere in sezioni non di competenza). Modalita: Nicola scarica -> Claude sistema -> ricarica + PDF differenze; oppure diretto se il file e su Google Drive.
 4. [DA FARE] **File di sbobinatura (trascrizioni)**: al momento NON esistono. Se si vuole, creare cartella + processo: Nicola manda audio/testo, Claude pulisce e alimenta libro di testo + argomenti svolti. Versioni coi nomi in scratchpad, versioni pulite su Git.
-5. [DA FARE] **Libri campione allievi**: rifiniture (teoria di Liu bilingue? pagina "appunti a mano"?) e poi replica per tutta la classe. I file coi nomi restano in scratchpad (non su Git).
+5. [DA FARE] **Libri campione allievi**: rifiniture (teoria bilingue IT-ZH? pagina "appunti a mano"?) e poi replica per tutta la classe. I file coi nomi restano in scratchpad (non su Git).
 6. [DA FARE — chiesto 01/10/2026, "domani sviluppare"] **Suite di script Apps Script per la GSuite didattica.** Base già pronta in `strumenti/classroom-script/`: crea compiti (`crea-compito-classroom.gs`), controlla consegne + ZIP (`consegne-controlla-e-zip.gs`), prepara chiusura = foglio stato + ZIP (`prepara-chiusura.gs`). Da sviluppare domani:
    - **Script "PREPARA CHIUSURA"** rifinito (raccolta + foglio stato + ZIP) da collegare al comando CHIUDI (la valutazione resta all'AI).
    - **Registro voti automatico** (quiz Form -> Foglio con medie e colori).
