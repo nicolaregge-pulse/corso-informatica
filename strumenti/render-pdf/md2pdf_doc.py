@@ -71,6 +71,7 @@ body{font-family:"DejaVu Sans",Arial,sans-serif;color:#1a2330;font-size:10.6pt;l
 h1{color:#12467a;font-size:19pt;margin:0 0 2mm;border-bottom:3px solid #2b7cc4;padding-bottom:2mm}
 h2{color:#12467a;font-size:14pt;margin:7mm 0 2mm;background:#eef4fb;border-left:5px solid #2b7cc4;padding:2mm 3mm}
 h3{color:#1a5a94;font-size:11.6pt;margin:5mm 0 1.5mm}
+h1,h2,h3,h4{break-after:avoid;page-break-after:avoid}table,tr,blockquote,pre{break-inside:avoid;page-break-inside:avoid}
 h4{color:#1a5a94;font-size:10.6pt;margin:4mm 0 1mm}
 p{margin:1.5mm 0}
 ol{margin:1mm 0 2mm;padding-left:7mm}li{margin:1.2mm 0}
