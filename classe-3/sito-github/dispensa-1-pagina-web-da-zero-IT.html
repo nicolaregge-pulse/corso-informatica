@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Dispensa 1 — La mia pagina web da zero</title><style>
+@font-face{font-family:'NotoBN';src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-400.woff2') format('woff2');}
+@font-face{font-family:'NotoBN';font-weight:bold;src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-700.woff2') format('woff2');}
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a1a1a;line-height:1.5;font-size:10.8pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.bn{font-family:'NotoBN',"DejaVu Sans",sans-serif;font-size:11.2pt;line-height:1.75;color:#1d4d2f}
+.cover{background:linear-gradient(160deg,#eef4fb,#e9f7ee);padding:7mm 8mm;border-radius:8px;margin-bottom:4mm;position:relative}
+.cover h1{color:#12467a;font-size:18.5pt;margin:0 0 1.5mm;line-height:1.25}.cover .s{color:#445;font-size:10pt}
+.cover .bn{font-size:12pt;margin-top:1mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#12467a;color:#fff;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:13.5pt;margin:5mm 0 2mm;border-bottom:3px solid #cfe0f0;padding-bottom:1mm;page-break-after:avoid}
+.goal{background:#e9f6ee;border-left:5px solid #2f9e57;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.note{background:#fff8e6;border-left:5px solid #d0a516;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.warn{background:#fdecea;border-left:5px solid #c0392b;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.info{background:#eaf2fb;border-left:5px solid #1f6fa5;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.step{border:1px solid #cfdae6;border-radius:8px;margin:2.6mm 0;page-break-inside:avoid;overflow:hidden}
+.step .h{background:#1f6fa5;color:#fff;padding:1.6mm 3mm;font-weight:bold;font-size:10.8pt}
+.step .h .n{display:inline-block;background:#fff;color:#1f6fa5;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;margin-right:2mm;font-size:10pt}
+.step .b{padding:2mm 3.5mm}
+.step .b p{margin:0 0 1.2mm}
+.step.ok .h{background:#2f9e57}.step.ok .h .n{color:#2f9e57}
+.tasto{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #cddae8;padding:0 4px;border-radius:3px;font-size:9.6pt;white-space:nowrap}
+pre{background:#1e2733;color:#e8eef5;border-radius:6px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:8.7pt;line-height:1.38;white-space:pre-wrap;margin:1.5mm 0 3mm;page-break-inside:avoid}
+.codet{font-weight:bold;color:#fff;background:#12467a;display:inline-block;padding:1mm 3mm;border-radius:5px 5px 0 0;margin-top:3mm;font-size:10pt}
+.codet.css{background:#8a3ab9}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.4mm 2.4mm;vertical-align:top;text-align:left;font-size:9.8pt}
+th{background:#12467a;color:#fff}th.bn{color:#fff}
+td.c{font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;font-size:9.2pt}
+.sw{display:inline-block;width:4mm;height:4mm;border:1px solid #888;vertical-align:middle;margin-right:1.5mm;border-radius:2px}
+/* schermate disegnate */
+.scr{border:2px solid #9aa9b8;border-radius:7px;background:#fff;font-size:8.8pt;margin:2mm 0 1mm;overflow:hidden;page-break-inside:avoid;font-family:"DejaVu Sans",Arial,sans-serif;color:#24292f}
+.scr .bar{background:#e8edf2;padding:1mm 2.5mm;font-family:"DejaVu Sans Mono",monospace;color:#555;font-size:8.2pt;border-bottom:1px solid #cfd8e2}
+.scr .gh{background:#24292f;color:#fff;padding:1.6mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.scr .in{padding:2.5mm 3.5mm}
+.hl{outline:3px solid #e0312b;outline-offset:1px;border-radius:4px}
+.fr{color:#e0312b;font-weight:bold;font-size:9pt;white-space:nowrap}
+.gbtn{display:inline-block;background:#1f883d;color:#fff;font-weight:bold;padding:1mm 3mm;border-radius:5px}
+.wbtn{display:inline-block;background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;padding:1mm 3mm;border-radius:5px}
+.fld{display:inline-block;border:1px solid #8c959f;border-radius:4px;padding:.6mm 2.5mm;min-width:32mm;font-family:"DejaVu Sans Mono",monospace;background:#fff}
+.menu{display:inline-block;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:1mm 0;background:#fff;color:#24292f;margin-top:1mm}
+.menu div{padding:.8mm 4mm}
+.tabs span{display:inline-block;padding:1mm 2.5mm;margin-right:1mm;color:#57606a}
+.side div{padding:.8mm 2mm;color:#57606a}
+.drop{border:2px dashed #8c959f;border-radius:6px;padding:3mm;text-align:center;color:#57606a;margin:1.5mm 0}
+.file{display:inline-block;border:1px solid #d0d7de;border-radius:4px;padding:1mm 2.5mm;margin:.8mm;background:#f6f8fa;font-family:"DejaVu Sans Mono",monospace}
+.live{background:#dafbe1;border:1px solid #4ac26b;border-radius:6px;padding:2mm 3mm}
+.cap{font-size:8.6pt;color:#667;text-align:center;margin:0 0 2.5mm}
+.two{display:flex;gap:4mm}.two>div{flex:1}
+.prev{border:2px solid #9aa9b8;border-radius:7px;overflow:hidden;page-break-inside:avoid}
+.prev .pg{background:lightblue;text-align:center;padding:3mm;font-family:Arial,sans-serif}
+.prev h1{color:darkblue;font-size:15pt;margin:1mm 0}.prev .sotto{color:gray;margin:0 0 2mm;font-size:9pt}
+.prev .sch{background:#fff;max-width:85mm;margin:0 auto;padding:2.5mm 4mm;border-radius:8px;text-align:left;font-size:8.6pt}
+.prev h3{color:teal;font-size:10pt;margin:1mm 0}.prev ul{margin:0;padding-left:5mm}.prev p{margin:0 0 1mm}
+.prev .piede{font-size:7pt;color:gray;margin-top:2mm}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+.chk td:first-child{width:8mm;text-align:center;font-size:12pt}
+</style></head><body><div class='cover'><span class='ver'>v1.0</span><h1>Dispensa 1 — La mia pagina web da zero</h1><div class='s'>Classe 3 · Informatica · 05/10/2026 · HTML + CSS in due file separati · italiano</div></div><div class='goal'><div><b>Cosa ottieni oggi:</b> una cartella <b>mio-sito</b> con <b>due file</b>: <b>index.html</b> (il <b>contenuto</b>: i testi) e <b>style.css</b> (l'<b>aspetto</b>: i colori). Doppio clic e la tua pagina si apre nel browser. Nella Dispensa 2 la mettiamo <b>su internet</b>.</div></div><div class='two'><div><div class='prev'><div class='pg'><h1>Ciao, sono Leo</h1><p class='sotto'>Questo è il mio primo sito web.</p><div class='sch'><h3>Chi sono</h3><p>Studio informatica e mi piace creare cose nuove.</p><h3>Le mie passioni</h3><ul><li>Calcio</li><li>Videogiochi</li><li>Musica</li></ul><h3>Il mio sogno</h3><p>Lavorare con i computer.</p></div><div class='piede'>Sito creato da me - 2026</div></div></div><div class='cap'>Ecco come sarà (poi la fai tua)</div></div><div><div class='scr'><div class='bar'>Desktop &gt; mio-sito</div><div class='in' style='text-align:center'><span class='file'>index.html</span> <span class='file'>style.css</span><br><br><span style='color:#12467a'>index.html = CONTENUTO</span><br><span style='color:#8a3ab9'>style.css = ASPETTO</span></div></div><div class='cap'>La cartella: esattamente due file</div><div class='note'><div><b>Carta e penna:</b> disegna sul quaderno la cartella <b>mio-sito</b> con dentro i due file. Fai una freccia da index.html a style.css e scrivici sopra <b>&lt;link&gt;</b>. Scrivi: <b>HTML = contenuto, CSS = aspetto</b>.</div></div></div></div><div class='warn'><div><b>Il tuo sito diventerà PUBBLICO</b> (lo vedrà chiunque su internet). Quindi scrivi <b>solo il nome o un soprannome</b>. <b>MAI</b> cognome, telefono, email, indirizzo, foto del viso.</div></div><h2>1. Il codice (uguale per tutti — poi lo fai tuo)</h2><div class='info'><div><b>Il modo più sicuro per copiare:</b> apri la pagina del corso (il link è nel compito su Classroom) e premi il bottone <b>Copia</b> sopra il codice. Poi nel Blocco note premi <span class='tasto'>Ctrl</span> + <span class='tasto'>V</span>. Copiare dal PDF a volte rovina gli spazi.</div></div><div style='page-break-inside:avoid'><div class='codet'>RIQUADRO 1 — file index.html (il contenuto)</div><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Il mio primo sito&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Ciao, sono Leo&lt;/h1&gt;
+  &lt;p class=&quot;sotto&quot;&gt;Questo è il mio primo sito web.&lt;/p&gt;
+
+  &lt;div class=&quot;scheda&quot;&gt;
+    &lt;h2&gt;Chi sono&lt;/h2&gt;
+    &lt;p&gt;Studio informatica e mi piace creare cose nuove.&lt;/p&gt;
+
+    &lt;h2&gt;Le mie passioni&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Calcio&lt;/li&gt;
+      &lt;li&gt;Videogiochi&lt;/li&gt;
+      &lt;li&gt;Musica&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2&gt;Il mio sogno&lt;/h2&gt;
+    &lt;p&gt;Lavorare con i computer.&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;p class=&quot;piede&quot;&gt;Sito creato da me - 2026&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div><div style='page-break-inside:avoid'><div class='codet css'>RIQUADRO 2 — file style.css (l'aspetto)</div><pre>body {
+  background: lightblue;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: darkblue;
+}
+
+.sotto {
+  color: gray;
+}
+
+.scheda {
+  background: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+h2 {
+  color: teal;
+}
+
+.piede {
+  font-size: 12px;
+  color: gray;
+}
+</pre></div><h2>2. I passi, uno alla volta</h2><div class='step'><div class='h'><span class='n'>1</span>Crea la cartella</div><div class='b'><p>Sul <b>Desktop</b>, in un punto vuoto: clic con il tasto <b>DESTRO</b> del mouse &rarr; <b>Nuovo</b> &rarr; <b>Cartella</b>. Scrivi il nome <span class='tasto'>mio-sito</span> e premi <span class='tasto'>Invio</span>.</p></div></div><div class='step'><div class='h'><span class='n'>2</span>Fai vedere la fine dei nomi (consigliato)</div><div class='b'><p>Apri la cartella <b>mio-sito</b>. In alto clic su <b>Visualizza</b> &rarr; <b>Mostra</b> &rarr; <b>Estensioni nomi file</b> (compare la spunta). Così vedi se un file finisce con <b>.html</b> o, per errore, con <b>.txt</b>.</p></div></div><div class='step'><div class='h'><span class='n'>3</span>Apri il Blocco note</div><div class='b'><p>In basso a sinistra clic su <b>Start</b>, scrivi <span class='tasto'>Blocco note</span> e clicca sul programma <b>Blocco note</b>.</p></div></div><div class='step'><div class='h'><span class='n'>4</span>Incolla il codice HTML</div><div class='b'><p>Copia <b>tutto</b> il <b>RIQUADRO 1</b> e incollalo nel Blocco note (<span class='tasto'>Ctrl</span> + <span class='tasto'>V</span>).</p></div></div><div class='step'><div class='h'><span class='n'>5</span>Fallo tuo</div><div class='b'><p>Cambia <b>Leo</b> con il tuo nome o un soprannome. Cambia <b>Chi sono</b>, <b>le passioni</b> e <b>il sogno</b> con cose tue. Non toccare le parole tra &lt; e &gt;: cambia solo il testo in mezzo.</p></div></div><div class='step'><div class='h'><span class='n'>6</span>Salva come index.html</div><div class='b'><p>In alto a sinistra <b>File</b> &rarr; <b>Salva con nome</b>. A sinistra scegli <b>Desktop</b> e apri <b>mio-sito</b>. In basso: <b>Salva come</b> &rarr; <b>Tutti i file</b>; <b>Nome file</b>: <span class='tasto'>index.html</span>; <b>Codifica</b>: <b>UTF-8</b>. Clic su <b>Salva</b>.</p><div class='scr'><div class='bar'>Salva con nome</div><div class='in'><div>Cartella: <b>Desktop &gt; mio-sito</b></div><div style='margin-top:1mm'>Nome file: <span class='fld hl'>index.html</span></div><div style='margin-top:1mm'>Salva come: <span class='fld hl'>Tutti i file (*.*)</span></div><div style='margin-top:1mm'>Codifica: <span class='fld hl'>UTF-8</span> &nbsp; <span class='wbtn'>Salva</span></div></div></div></div></div><div class='step'><div class='h'><span class='n'>7</span>Un foglio nuovo per il CSS</div><div class='b'><p>Nel Blocco note: <b>File</b> &rarr; <b>Nuovo</b> (si apre un foglio vuoto). Copia <b>tutto</b> il <b>RIQUADRO 2</b> e incollalo.</p></div></div><div class='step'><div class='h'><span class='n'>8</span>Salva come style.css</div><div class='b'><p>Come prima: <b>File</b> &rarr; <b>Salva con nome</b>, <b>stessa cartella mio-sito</b>, <b>Tutti i file</b>, nome <span class='tasto'>style.css</span>, <b>UTF-8</b>, <b>Salva</b>.</p></div></div><div class='step'><div class='h'><span class='n'>9</span>Controlla la cartella</div><div class='b'><p>Dentro <b>mio-sito</b> ci devono essere <b>due file</b>: <span class='tasto'>index.html</span> e <span class='tasto'>style.css</span>. Nomi tutti <b>minuscoli</b>, senza spazi, senza <b>.txt</b> alla fine.</p></div></div><div class='step ok'><div class='h'><span class='n'>10</span>Apri la tua pagina</div><div class='b'><p>Doppio clic su <b>index.html</b>: si apre nel browser, <b>con i colori</b>. <b>FATTO! Hai creato la tua pagina web.</b></p></div></div><div class='step'><div class='h'><span class='n'>11</span>Cambia i colori (il CSS)</div><div class='b'><p>Clic <b>destro</b> su <b>style.css</b> &rarr; <b>Apri con</b> &rarr; <b>Blocco note</b>. Cambia <span class='tasto'>lightblue</span> con un colore che ti piace. Salva (<span class='tasto'>Ctrl</span> + <span class='tasto'>S</span>) e nel browser premi <span class='tasto'>F5</span>: il colore cambia!</p><table><tr><th>Colore</th><th>Scrivi</th><th>Colore</th><th>Scrivi</th><th>Colore</th><th>Scrivi</th></tr><tr><td><span class='sw' style='background:pink'></span></td><td class='c'>pink</td><td><span class='sw' style='background:lightgreen'></span></td><td class='c'>lightgreen</td><td><span class='sw' style='background:gold'></span></td><td class='c'>gold</td></tr><tr><td><span class='sw' style='background:orange'></span></td><td class='c'>orange</td><td><span class='sw' style='background:lavender'></span></td><td class='c'>lavender</td><td><span class='sw' style='background:coral'></span></td><td class='c'>coral</td></tr><tr><td><span class='sw' style='background:khaki'></span></td><td class='c'>khaki</td><td><span class='sw' style='background:turquoise'></span></td><td class='c'>turquoise</td><td><span class='sw' style='background:salmon'></span></td><td class='c'>salmon</td></tr></table></div></div><h2>3. Cosa fa ogni pezzo</h2><table><tr><th>Pezzo di codice</th><th>Cosa fa</th></tr><tr><td class='c'>&lt;head&gt; ... &lt;/head&gt;</td><td>istruzioni per il browser (non si vedono)</td></tr><tr><td class='c'>&lt;link rel="stylesheet" href="style.css"&gt;</td><td><b>collega</b> l'HTML al file style.css</td></tr><tr><td class='c'>&lt;body&gt; ... &lt;/body&gt;</td><td>tutto quello che si vede nella pagina</td></tr><tr><td class='c'>&lt;h1&gt; &lt;h2&gt;</td><td>titolo grande, titolo più piccolo</td></tr><tr><td class='c'>&lt;p&gt;</td><td>un paragrafo di testo</td></tr><tr><td class='c'>&lt;ul&gt; &lt;li&gt;</td><td>un elenco e le sue voci</td></tr><tr><td class='c'>&lt;div class="scheda"&gt;</td><td>una scatola; il nome <b>scheda</b> lo usa il CSS</td></tr><tr><td class='c'>.scheda { background: white; }</td><td>CSS: <b>chi</b> { <b>proprietà</b>: <b>valore</b>; }</td></tr></table><h2>4. Se qualcosa non va (succede a tutti, anche ai professionisti)</h2><table><tr><th style='width:34%'>Problema</th><th>Soluzione</th></tr><tr><td>Vedo il <b>codice</b> invece della pagina</td><td>Il file è stato salvato come <b>.txt</b>: risalva con <b>Tutti i file</b>.</td></tr><tr><td>La pagina è <b>senza colori</b></td><td>style.css non è nella stessa cartella, o ha un nome diverso (es. <b>Style.css</b>, <b>stile.css</b>, <b>style.css.txt</b>).</td></tr><tr><td>Al posto di <b>è</b> vedo simboli strani</td><td>Risalva index.html scegliendo <b>Codifica: UTF-8</b>.</td></tr><tr><td>Ho cambiato ma non vedo niente</td><td>Hai salvato? (<span class='tasto'>Ctrl</span>+<span class='tasto'>S</span>) Poi nel browser <span class='tasto'>F5</span>.</td></tr></table><div class='note'><div><b>Hai già fatto la pagina del 30/09?</b> Benissimo: puoi riusare i tuoi testi. Ma per il sito servono <b>questi nomi esatti</b>: <b>index.html</b> e <b>style.css</b>, e nel &lt;link&gt; deve esserci <b>style.css</b>.</div></div><div class='goal'><div><b>Prossimo passo:</b> Dispensa 2 — mettiamo il tuo sito <b>su internet</b>, con un indirizzo da aprire anche sul telefono.</div></div><div class='foot'>Classe 3 · Dispensa 1 · v1.0 · Tutti i dati negli esempi sono inventati.</div></body></html>

@@ -1,0 +1,32 @@
+body {
+  background: lightblue;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: darkblue;
+}
+
+.sotto {
+  color: gray;
+}
+
+.scheda {
+  background: white;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+h2 {
+  color: teal;
+}
+
+.piede {
+  font-size: 12px;
+  color: gray;
+}

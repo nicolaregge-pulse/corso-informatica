@@ -558,6 +558,7 @@ l'intestazione del file.
 3. `classe-3/troubleshooting-guasti.md` — v0.1 (kit diagnosi guasti: teoria a crocette + guasti fisici) — Panaccione
 4. `classe-3/corso-html-css.md` — v0.1 (corso base HTML5/CSS, con pubblicazione su Pages) — Panaccione
 5. `classe-3/comunicazione-digitale/comunicazione-digitale.md` (+ `.html` → `Comunicazione-Digitale-v0.1.pdf`) — v0.1 (contenitore "Addetto alla comunicazione digitale" per la terza, nato dai bisogni delle aziende di stage: contenuti/siti/social/Facebook; profilo + competenze + 6 moduli + progetto finale, strumenti browser, legami con e-commerce/HTML-CSS/stage; bozza da confermare)
+6. `classe-3/sito-github/` (generatore `_build/gen_sito_github.py` → PDF IT e IT-BN + chiave DOCENTE; pagina unica `docs/3inf-sito/` con bottoni Copia ed esempio vivo) — v1.0 (lezione 05/10/2026: Dispensa 1 pagina web da zero con index.html + style.css separati, Dispensa 2 pubblicazione su GitHub Pages dal browser, Compito Documento in 5 parti: link, HTML, CSS separato, screenshot, spiegazione)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0
