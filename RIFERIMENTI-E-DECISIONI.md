@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.9** — 02/10/2026
+**Versione 2.10** — 04/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -208,6 +208,11 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     più disegni, esercizi a gradini), **mai** introdurre un metodo alternativo: confonde. (Errore del
     02/10: "metodo delle monete" ritirato.)
 
+27. **Indentazione del codice Lazarus/Pascal (regola, 04/10/2026 — richiesta da Nicola).** In tutti
+    gli esempi e le soluzioni: `if` ed `else` **sullo stesso rientro**; `begin` ed `end` **sullo
+    stesso rientro**; tutto ciò che sta dentro è **indentato** di un livello (2 spazi). Negli if
+    annidati ogni livello aggiunge un rientro, così si vede a colpo d'occhio chi sta dentro a chi.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -306,6 +311,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     docente, sempre e per prima, per ogni nuovo argomento.
 18. **v2.9 (02/10/2026)**: §2 punto 25 — **argomenti del registro CORTI** (max ~40 caratteri,
     uno per ora): la casella del registro taglia il testo lungo.
+19. **v2.10 (04/10/2026)**: §2 punto 27 — **indentazione Lazarus**: if/else allineati, begin/end allineati, il resto indentato.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si

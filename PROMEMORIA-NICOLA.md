@@ -1,6 +1,6 @@
 # Promemoria — Cose da Fare (Nicola)
 
-**Versione 0.6** — 01/10/2026
+**Versione 0.7** — 04/10/2026
 *Lista viva delle cose che Nicola deve fare, tenuta aggiornata da Claude. Non sono
 documenti da produrre (quelli li fa Claude): sono AZIONI che spettano a Nicola, a
 scuola o al computer. All'inizio della scuola, e ogni volta che Nicola chiede
@@ -64,3 +64,15 @@ cosa nuova, entra qui.*
    testo da consegnare con risultati / errori / tentativi / tempo → raccolta automatica → report
    analitico con voto proposto. Funzionata bene il 02/10 (divisioni per 2): da riprendere e
    generalizzare (conversione, ASCII, colori, altre materie).
+
+## 9. PPP del 04/10/2026 — DA RICORDARE A NICOLA QUANDO ENTRA IN 2INF (lunedì 05/10, 11:10–14:00)
+1. **Argomento 2INF lunedì:** gli **if annidati** in Lazarus (if dentro un altro if), esercitarsi su
+   **if / then / else**.
+2. **Regola di indentazione (voluta da Nicola):** `if` ed `else` sullo **stesso rientro**, così come
+   `begin` ed `end`; tutto il resto **indentato** dentro. Vale in tutti gli esempi e le soluzioni.
+3. **Esercizio:** **"Indovina il numero"** (troppo alto / troppo basso / indovinato), costruito per
+   far esercitare gli if / then / else.
+4. Claude prepara **in linea di massima** le dispense (teoria if annidati + esercizio) senza
+   pubblicarle: si consegnano su "avanti".
+5. **Lunedì si pianifica tutta la settimana** (5–9/10) per tutte le classi.
+
