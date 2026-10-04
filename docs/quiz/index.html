@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Quiz personale</title>
+<style>
+:root{--blu:#1f6fa5;--verde:#2f9e57;--rosso:#c0392b;--txt:#1a2330;--bg:#f4f7fb}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px 16px 48px}
+h1{color:#12467a;font-size:25px;margin:8px 0 2px}
+.sub{color:#556;margin-bottom:12px}
+.box{background:#fff;border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.regola{background:#eafaf0;border:2px solid var(--verde);border-radius:12px;padding:12px 14px;font-size:16px;line-height:1.6}
+.ar{direction:rtl;text-align:right;font-family:"Amiri","Traditional Arabic",serif;font-size:18px}
+.zh{font-family:"Microsoft YaHei","WenQuanYi Zen Hei",sans-serif}
+label{font-weight:700;font-size:18px}
+input{font-size:20px;padding:8px 10px;border:2px solid #9cc0e4;border-radius:10px;width:100%;font-family:inherit}
+button{font-size:20px;font-weight:700;border:0;border-radius:12px;padding:14px 18px;color:#fff;background:var(--blu);cursor:pointer;width:100%;margin-top:10px}
+button.v{background:var(--verde)}
+.dom{border:2px solid #e0e8f1;border-radius:14px;padding:12px;margin:12px 0;background:#fafcff}
+.dom.ok{border-color:var(--verde);background:#eafaf0}.dom.ko{border-color:var(--rosso);background:#fdecea}
+.dom .t{font-size:18px;font-weight:700;margin-bottom:4px}
+.dom .t .k{color:#7a8aa0;font-size:15px;margin-right:6px}
+.dom .tr{font-size:16px;color:#334;margin-bottom:4px}
+pre{background:#1e2733;color:#e8eef5;border-radius:8px;padding:10px 12px;font-size:15px;line-height:1.45;overflow:auto;margin:6px 0}
+.op{display:block;width:100%;text-align:left;background:#fff;color:var(--txt);border:2px solid #cfdbe8;border-radius:10px;padding:10px 12px;margin:6px 0 0;font-size:17px;font-weight:600}
+.op.sel{border-color:var(--blu);background:#e3effa}
+.esito{font-size:15px;margin-top:6px;font-weight:700}
+.punti{font-size:22px;font-weight:700;text-align:center;margin:12px 0}
+textarea{width:100%;height:170px;font-size:14px;font-family:monospace;border:2px solid #9cc0e4;border-radius:10px;padding:8px}
+.hide{display:none}
+.timer{position:sticky;top:0;z-index:5;background:#12467a;color:#fff;border-radius:12px;padding:10px 14px;font-size:20px;font-weight:700;display:flex;justify-content:space-between;margin-bottom:8px}
+.nascosto .tt{visibility:hidden}
+.passi{font-size:17px;line-height:1.7}
+.err{background:#fdecea;border:2px solid var(--rosso);border-radius:12px;padding:14px;font-size:18px}
+</style></head><body><div class="w">
+<h1 id="titolo">Quiz personale</h1>
+<div class="sub" id="sub"></div>
+<div class="box regola hide" id="regola"></div>
+
+<div class="box" id="start">
+<label for="nome">1. Scrivi il tuo NOME e COGNOME · اكتب اسمك ولقبك · 写你的姓名</label>
+<input id="nome" autocomplete="off" placeholder="Mario Rossi">
+<button onclick="inizia()">Inizia · ابدأ · 开始</button>
+</div>
+
+<div class="box hide" id="es">
+<div class="timer" id="tbox"><span id="giro">Quiz</span><span class="tt">⏱ <span id="tempo">0:00</span></span></div>
+<div style="font-size:17px">2. Scegli una risposta per ogni domanda, poi premi <b>Controlla</b>. · اختر إجابة ثم اضغط تحقّق · 每题选一个答案,然后点检查</div>
+<div id="domande"></div>
+<button onclick="controlla()">Controlla · تحقّق · 检查</button>
+<div class="punti" id="punti"></div>
+<button class="v hide" id="nuovi" onclick="nuovoGiro()">Nuove domande · أسئلة جديدة · 新题目</button>
+</div>
+
+<div class="box hide" id="fine">
+<div class="passi"><b>3. Consegna · التسليم · 提交</b><br>
+a) Premi il bottone verde <b>Copia</b>. · اضغط الزر الأخضر · 点绿色按钮<br>
+b) Su Classroom, nel compito, apri il tuo Documento.<br>
+c) Incolla con <b>Ctrl+V</b>, poi premi il bottone blu <b>Consegna</b>.</div>
+<textarea id="out" readonly></textarea>
+<button class="v" onclick="copia()">Copia · نسخ · 复制</button>
+</div>
+</div>
+<script>
+/* Motore unico dei quiz personali del corso.
+   Uso: index.html?b=<banca>&n=<numero compito>[&timer=1]
+   La banca sta in banche/<banca>.js e definisce window.BANCA = {titolo, sotto, regola, quante, domande:[...] }
+   Ogni domanda: {q:"testo" | {it,ar,zh}, codice:"...", o:[opzioni], a:indice}  oppure una funzione(r) che,
+   dato il generatore casuale personale r(), restituisce una domanda così (numeri diversi per ognuno). */
+var Q=new URLSearchParams(location.search),B=(Q.get("b")||"").replace(/[^a-z0-9-]/g,""),NC=parseInt(Q.get("n")||"1"),TIMER=Q.get("timer")=="1";
+var D=[],SCELTE=[],NOME="",GIRO=1,T0=0,TID=null,FERMO=false,STORIA=[],TENT=0,ERR=0,TFIN=null;
+function mmss(ms){var t=Math.floor(ms/1000);return Math.floor(t/60)+":"+("0"+t%60).slice(-2)}
+function tick(){document.getElementById("tempo").textContent=mmss(Date.now()-T0)}
+function seme(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)>>>0}return h}
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function lingue(x,inl){if(typeof x=="string")return inl?x:'<div>'+x+'</div>';var h='';if(x.it)h+='<div>'+x.it+'</div>';if(x.ar)h+='<div class="tr ar">'+x.ar+'</div>';if(x.zh)h+='<div class="tr zh">'+x.zh+'</div>';return h}
+function solo_it(x){return typeof x=="string"?x:(x.it||"")}
+function carica(){
+  if(!B){errore("Manca il nome del quiz nel link.");return}
+  var s=document.createElement("script");s.src="banche/"+B+".js?v="+Date.now();
+  s.onload=function(){
+    var K=window.BANCA;document.title=K.titolo;
+    document.getElementById("titolo").textContent="Compito "+NC+" — "+K.titolo+(TIMER?" (con timer)":"");
+    document.getElementById("sub").innerHTML=K.sotto||"";
+    if(K.regola){var g=document.getElementById("regola");g.innerHTML=lingue(K.regola);g.classList.remove("hide")}
+    if(!TIMER)document.getElementById("tbox").classList.add("nascosto")};
+  s.onerror=function(){errore("Quiz non trovato: "+B)};document.head.appendChild(s)}
+function errore(m){document.getElementById("start").innerHTML='<div class="err">'+m+'</div>'}
+function inizia(){
+  NOME=document.getElementById("nome").value.trim().replace(/\s+/g," ");
+  if(NOME.split(" ").length<2||NOME.length<5){alert("Scrivi nome E cognome · اكتب الاسم واللقب · 写姓和名");return}
+  genera();document.getElementById("start").classList.add("hide");document.getElementById("es").classList.remove("hide")}
+function genera(){
+  var K=window.BANCA,r=rng(seme(NOME.toLowerCase()+"|"+B+"|"+NC+"|"+GIRO)),pool=K.domande.slice(),n=Math.min(K.quante||10,pool.length);
+  for(var i=pool.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=pool[i];pool[i]=pool[j];pool[j]=t}
+  D=pool.slice(0,n).map(function(x){var d=(typeof x=="function")?x(r):x;
+    // mescolo anche le opzioni, tenendo traccia di quella giusta
+    var ord=d.o.map(function(_,i){return i});if(!d.fisse){for(var i=ord.length-1;i>0;i--){var j=Math.floor(r()*(i+1));var t=ord[i];ord[i]=ord[j];ord[j]=t}}
+    return {q:d.q,codice:d.codice,o:ord.map(function(i){return d.o[i]}),a:ord.indexOf(d.a)}});
+  SCELTE=D.map(function(){return -1});FERMO=false;TENT=0;ERR=0;TFIN=null;
+  var h="";D.forEach(function(d,k){
+    h+='<div class="dom" id="d'+k+'"><div class="t"><span class="k">'+(k+1)+'.</span>'+(typeof d.q=="string"?d.q+'</div>':'</div>'+lingue(d.q))+(d.codice?'<pre>'+esc(d.codice)+'</pre>':'');
+    d.o.forEach(function(o,i){h+='<button class="op" id="o'+k+'_'+i+'" onclick="scegli('+k+','+i+')">'+String.fromCharCode(65+i)+') '+lingue(o,true)+'</button>'});
+    h+='<div class="esito" id="e'+k+'"></div></div>'});
+  document.getElementById("domande").innerHTML=h;
+  document.getElementById("giro").textContent="Compito "+NC+(TIMER?" · giro "+GIRO:"");document.getElementById("punti").textContent="";
+  document.getElementById("nuovi").classList.add("hide");
+  T0=Date.now();clearInterval(TID);TID=setInterval(tick,500);tick()}
+function scegli(k,i){if(FERMO)return;SCELTE[k]=i;D[k].o.forEach(function(_,j){document.getElementById("o"+k+"_"+j).classList.toggle("sel",j==i)})}
+function controlla(){
+  TENT++;var ok=0,sbagli=0,txt="";
+  D.forEach(function(d,k){var s=SCELTE[k],g=(s==d.a),el=document.getElementById("d"+k);
+    el.classList.remove("ok","ko");if(s>=0){el.classList.add(g?"ok":"ko");if(!g)sbagli++}
+    document.getElementById("e"+k).textContent=s<0?"":(g?"✓ giusto · صحيح · 对":"✗ riprova · حاول مرة أخرى · 再试");
+    if(g)ok++;
+    txt+="= "+(k+1)+". "+solo_it(d.q).replace(/<[^>]*>/g,"").slice(0,70)+" → "+(s<0?"_":solo_it(d.o[s]).replace(/<[^>]*>/g,""))+(g?"  [OK]":"  [NO]")+"\n"});
+  ERR+=sbagli;var tempo=mmss((TFIN||Date.now())-T0),N=D.length;
+  if(ok==N&&!FERMO){FERMO=true;TFIN=Date.now();tempo=mmss(TFIN-T0);clearInterval(TID);if(TIMER)document.getElementById("nuovi").classList.remove("hide")}
+  STORIA[GIRO-1]=(TIMER?"GIRO "+GIRO+" — ":"")+"giuste "+ok+"/"+N+" — tempo "+tempo+" — tentativi "+TENT+" — errori "+ERR+"\n"+txt;
+  document.getElementById("punti").textContent="Giuste: "+ok+" / "+N+(TIMER?" · ⏱ "+tempo:"")+(ok==N?"  — BRAVO! · أحسنت · 太棒了":"");
+  var tot="COMPITO "+NC+" — "+window.BANCA.titolo.toUpperCase()+(TIMER?" (con timer)":"")+" — "+NOME+"\n";STORIA.forEach(function(g){if(g)tot+="\n"+g});
+  if(TIMER)tot+="\n= giri fatti: "+STORIA.length+"\n";
+  document.getElementById("out").value=tot;document.getElementById("fine").classList.remove("hide")}
+function nuovoGiro(){GIRO++;genera();window.scrollTo(0,0)}
+function copia(){var t=document.getElementById("out");t.select();
+  try{navigator.clipboard.writeText(t.value).then(function(){alert("Copiato! Ora incolla nel Documento con Ctrl+V")},function(){document.execCommand("copy");alert("Copiato!")})}
+  catch(e){document.execCommand("copy");alert("Copiato! Ora incolla nel Documento con Ctrl+V")}}
+carica();
+</script>
+</body></html>

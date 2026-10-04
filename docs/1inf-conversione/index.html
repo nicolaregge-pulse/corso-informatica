@@ -37,7 +37,7 @@ textarea{width:100%;height:170px;font-size:14px;font-family:monospace;border:2px
 .passi{font-size:17px;line-height:1.7}
 </style></head><body><div class="w">
 <h1 id="titolo">Da decimale a binario — i miei numeri</h1>
-<div class="sub">Classe 1 · ognuno ha i suoi numeri · لكل واحد أعداده · 每个人的数字都不一样</div>
+<div class="sub">Classe 1 · ognuno ha i suoi numeri · لكل واحد أعداده · 每个人的数字都不一样 · <a href="../1inf-decimale-binario/">teoria · النظرية · 理论</a></div>
 
 <div class="box regola">
 1. <b>Dividi per 2</b>: risultato a sinistra, <b>resto</b> a destra (pari → 0, dispari → 1).<br>
@@ -49,21 +49,21 @@ textarea{width:100%;height:170px;font-size:14px;font-family:monospace;border:2px
 </div>
 
 <div class="box" id="start">
-<label for="nome">Scrivi il tuo NOME e COGNOME · اكتب اسمك ولقبك · 写你的姓名</label>
+<label for="nome">1. Scrivi il tuo NOME e COGNOME · اكتب اسمك ولقبك · 写你的姓名</label>
 <input id="nome" autocomplete="off" placeholder="Mario Rossi">
 <button onclick="inizia()">Inizia · ابدأ · 开始</button>
 </div>
 
 <div class="box hide" id="es">
 <div class="timer" id="tbox"><span id="giro">Compito</span><span class="tt">⏱ <span id="tempo">0:00</span></span></div>
-<div id="numeri"></div>
+<div style="font-size:17px;margin-bottom:6px">2. Fai le divisioni per 2 <b>fino a 0</b>; poi leggi i resti <b>dal basso</b>; poi il <b>byte</b> con gli zeri davanti. I conti sul foglio. · اقسم حتى 0، ثم اقرأ البواقي من الأسفل · 除到 0,从下往上读余数</div><div id="numeri"></div>
 <button onclick="controlla()">Controlla · تحقّق · 检查</button>
 <div class="punti" id="punti"></div>
 <button class="v hide" id="nuovi" onclick="nuovoGiro()">Nuovi esercizi · تمارين جديدة · 新练习</button>
 </div>
 
 <div class="box hide" id="fine">
-<div class="passi"><b>Consegna · التسليم · 提交</b><br>
+<div class="passi"><b>3. Consegna · التسليم · 提交</b><br>
 a) Premi il bottone verde <b>Copia</b>.<br>
 b) Su Classroom, nel compito: apri il tuo documento (o "Aggiungi o crea" → "Documenti").<br>
 c) Incolla con <b>Ctrl+V</b>, poi premi il bottone blu <b>Consegna</b>.</div>
