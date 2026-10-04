@@ -1,6 +1,6 @@
 # Il Libro del Corso
 
-**Versione 1.73** — 24/09/2026
+**Versione 1.74** — 04/10/2026
 *Corso di Informatica — tutti i documenti in uno. Fonte unica generata automaticamente da `classe-1/_build/assembla_libro.py`: **non modificare a mano**, si rigenera dai singoli documenti.*
 
 ---
@@ -106,7 +106,7 @@
 
 
 # Regole di Formattazione {#doc3}
-*Versione 1.3 · 16/08/2026 · Parte: Riferimento*
+*Versione 1.4 · 30/09/2026 · Parte: Riferimento*
 
 ## 1. Formati e consegna {#doc3-sec1}
 1. Ogni documento esiste sempre in due forme: MD (sorgente) e PDF (generato).
@@ -171,9 +171,16 @@ parentesi quadre: `> [ROSSO] ...`, `> [BLU] ...`, `> [GIALLO] ...`.
 ## 11. Regola per la comunicazione all'utente (chat e guide) {#doc3-sec11}
 1. REGOLA 0 (assoluta): tutto cio che l'utente deve copiare (comandi, URL, email, valori) va in un blocco di codice (col bottone "copia"), mai in linea ne in citazione.
 
+## 12. Header e footer (orientamento del lettore) {#doc3-sec12}
+1. Ogni documento didattico impaginato (dispense, libri, schede) usa **header e footer di pagina** per dare al lettore, a colpo d'occhio, il contesto.
+2. **Footer di pagina** (su tutte le pagine): a sinistra il contesto (corso/nome del documento o dell'allievo), a destra il **numero di pagina** ("pag. X di Y"). Per i documenti riservati, il footer riporta anche "RISERVATO — non pubblicare".
+3. **Header di pagina** (su tutte le pagine): a sinistra il titolo del documento (o "nome allievo" per i libri individuali), a destra classe e anno scolastico.
+4. **Nei libri/raccolte per lezione**, all'inizio di ogni unità va una **banda di orientamento** che riporta, in quest'ordine: **macro-argomento**, **argomento** (titolo dell'unità), **materia**, **data della lezione**, **orario indicativo**, **contenuto** (una riga di sintesi). Serve a far capire subito di che giornata e di che tema si tratta.
+5. La banda per-unita sta nel contenuto (cambia a ogni unita); header e footer di pagina restano costanti su tutte le pagine.
+
 ---
 
-## Note di adozione (specifiche del corso) {#doc3-sec12}
+## Note di adozione (specifiche del corso) {#doc3-sec13}
 1. Questo standard e vincolante per ogni nuovo documento del corso.
 2. I documenti gia esistenti si migrano allo standard in modo graduale (vedi il piano di migrazione concordato), non tutti in una volta, per non introdurre errori.
 3. Le parti che nello standard originale citavano soggetti esterni sono adattate: per questo progetto la fonte di verita e Nicola.
@@ -1684,7 +1691,7 @@ nel file (per la privacy degli allievi).
 
 
 # Promemoria — Cose da Fare (Nicola) {#doc13}
-*Versione 0.5 · 23/09/2026 · Parte: Riferimento*
+*Versione 0.7 · 04/10/2026 · Parte: Riferimento*
 
 ## 1. Come funziona {#doc13-sec1}
 1. Ogni voce dice: cosa fare, quando/il contesto, e lo stato (da fare / fatto).
@@ -1714,11 +1721,44 @@ nel file (per la privacy degli allievi).
 3. [DA FARE] **Programma di confronto Allegato A prima/dopo**: dato l'Allegato A prima e dopo le modifiche, evidenzia le differenze (per non scrivere in sezioni non di competenza). Modalita: Nicola scarica -> Claude sistema -> ricarica + PDF differenze; oppure diretto se il file e su Google Drive.
 4. [DA FARE] **File di sbobinatura (trascrizioni)**: al momento NON esistono. Se si vuole, creare cartella + processo: Nicola manda audio/testo, Claude pulisce e alimenta libro di testo + argomenti svolti. Versioni coi nomi in scratchpad, versioni pulite su Git.
 5. [DA FARE] **Libri campione allievi**: rifiniture (teoria bilingue IT-ZH? pagina "appunti a mano"?) e poi replica per tutta la classe. I file coi nomi restano in scratchpad (non su Git).
+6. [DA FARE — chiesto 01/10/2026, "domani sviluppare"] **Suite di script Apps Script per la GSuite didattica.** Base già pronta in `strumenti/classroom-script/`: crea compiti (`crea-compito-classroom.gs`), controlla consegne + ZIP (`consegne-controlla-e-zip.gs`), prepara chiusura = foglio stato + ZIP (`prepara-chiusura.gs`). Da sviluppare domani:
+   - **Script "PREPARA CHIUSURA"** rifinito (raccolta + foglio stato + ZIP) da collegare al comando CHIUDI (la valutazione resta all'AI).
+   - **Registro voti automatico** (quiz Form -> Foglio con medie e colori).
+   - **Compito su più classi in un clic**; **promemoria "chi non ha consegnato"**; **stampa unione** attestati/schede (un PDF per allievo da template).
+   - Nota: tutti toccano dati di minori -> restano sull'account scuola, mai nel repo pubblico.
+7. [DA FARE — PPP 02/10/2026, "quando hai tempo"] **Brochure commerciale (PDF)** per presentare il
+   metodo/framework a un'azienda di **formazione aziendale**: come funziona la pipeline
+   lavagna→dispensa/compito→Classroom→CHIUDI→libri+report, i vantaggi (AI fa il giudizio, gli
+   script la meccanica, tutto versionato e a prova di privacy), i risultati concreti (es. ponte
+   Classroom→Git funzionante). Taglio commerciale, grafica curata. Base: `VISIONE-AUTOMAZIONE.md`.
 
 ## 7. Changelog {#doc13-sec7}
-1. **v0.5 (23/09/2026)**: aggiunta la sez. 6 "Cose da sviluppare con Claude" (corso AI/GEM/agenti, albero tassonomia, confronto Allegato A, sbobinature, rifiniture libri allievo).
+1. **v0.6 (01/10/2026)**: aggiunta voce 6.6 — suite script Apps Script GSuite (compiti Classroom, controlla consegne + ZIP, prepara chiusura, registro voti, stampa unione); da sviluppare domani 02/10.
+2. **v0.5 (23/09/2026)**: aggiunta la sez. 6 "Cose da sviluppare con Claude" (corso AI/GEM/agenti, albero tassonomia, confronto Allegato A, sbobinature, rifiniture libri allievo).
 2. **v0.4 (23/09/2026)**: archiviato come storico il "14 settembre" (scuola iniziata); aggiunta la voce sugli account GitHub degli allievi e sul blocco "too many requests".
 3. **v0.3 (02/09/2026)**: ruoli assegnati; attivazione repository allievi con Classroom 50; verifiche Gemini e Allegato A.
+
+## 8. PPP del 02/10/2026 (in classe, 1INF) — da sviluppare dopo la lezione {#doc13-sec8}
+1. **Automazione completa e autonoma** (PPP): generare, pubblicare e raccogliere TUTTI i compiti
+   da solo, in tutte le direzioni (lavagna → materiali → Classroom → raccolta → correzione → voti →
+   libri), senza passaggi manuali di Nicola in classe. Stato "solo-aggancia" nello script; niente
+   modifiche a materiali pubblicati durante la lezione.
+2. **Valorizzare la modalità "quiz personali + raccolta risultati"** (PPP): pagina interattiva con
+   numeri diversi per ogni allievo (dal nome), controllo immediato, timer facoltativo, giri ripetuti,
+   testo da consegnare con risultati / errori / tentativi / tempo → raccolta automatica → report
+   analitico con voto proposto. Funzionata bene il 02/10 (divisioni per 2): da riprendere e
+   generalizzare (conversione, ASCII, colori, altre materie).
+
+## 9. PPP del 04/10/2026 — DA RICORDARE A NICOLA QUANDO ENTRA IN 2INF (lunedì 05/10, 11:10–14:00) {#doc13-sec9}
+1. **Argomento 2INF lunedì:** gli **if annidati** in Lazarus (if dentro un altro if), esercitarsi su
+   **if / then / else**.
+2. **Regola di indentazione (voluta da Nicola):** `if` ed `else` sullo **stesso rientro**, così come
+   `begin` ed `end`; tutto il resto **indentato** dentro. Vale in tutti gli esempi e le soluzioni.
+3. **Esercizio:** **"Indovina il numero"** (troppo alto / troppo basso / indovinato), costruito per
+   far esercitare gli if / then / else.
+4. Claude prepara **in linea di massima** le dispense (teoria if annidati + esercizio) senza
+   pubblicarle: si consegnano su "avanti".
+5. **Lunedì si pianifica tutta la settimana** (5–9/10) per tutte le classi.
 
 
 # Programmi Ufficiali (Allegato A) — nota {#doc14}
@@ -3581,7 +3621,7 @@ alla tabella delle modifiche in fondo.
 
 
 # Libro di Testo — Classe 1 (la parte che facciamo in classe) {#doc20}
-*Versione 0.2 · 24/09/2026 · Parte: Classe 1 — Informatica*
+*Versione 0.4 · 24/09/2026 · Parte: Classe 1 — Informatica*
 
 ## 0. Come lavoriamo (leggere per prime) {#doc20-sec1}
 1. Ogni lezione: **carta e penna sul banco** per appunti e schemi a mano.
@@ -3649,6 +3689,56 @@ alla tabella delle modifiche in fondo.
 > [GIALLO] È il "perché" dei controlli che fa PCPartPicker quando si monta il PC.
 > Materiale: scheda `standard-hardware` (teoria trilingue con i disegni in scala).
 
+### 2.4 Lo storage: i 5 livelli (dove si salvano i file)
+
+![I 5 livelli dello storage digitale](classe-1/libro-di-testo/immagini/20260924_Storage-5-Livelli.jpg)
+
+1. **Livello 1 — Tecnologia:** l'**HDD** (meccanico) ha un piatto che gira e una
+   testina che si muove; l'**SSD** (elettrico) usa **celle NAND Flash**, senza
+   parti in movimento (più veloce e resistente).
+2. **Livello 2 — Tipo e velocità:** HDD meccanico ~160 MB/s; **SSD SATA** (2,5")
+   ~560 MB/s; **SSD NVMe** molto più veloce (Gen3 ~3.500, Gen4 ~7.500, Gen5
+   ~12.000+ MB/s).
+3. **Livello 3 — Logica di controllo (il "linguaggio"):** **AHCI** (vecchio):
+   seriale, una sola coda, va bene per l'HDD; **NVMe** (moderno): in parallelo,
+   fino a 65.535 code, perfetto per i chip dell'SSD.
+4. **Livello 4 — Connettore fisico:** **SATA** (con cavo, robusto) oppure **M.2**
+   (a incastro diretto sulla scheda madre, piccolo). Attenzione: **M.2 è solo una
+   FORMA** del connettore (può essere SATA o NVMe).
+5. **Livello 5 — Interfaccia (la "strada" sulla scheda madre):** il **bus SATA**
+   è lento e passa da un controller; il **bus PCIe** è velocissimo ed è collegato
+   direttamente alla **CPU** (le "corsie" x4).
+
+> [GIALLO] Da ricordare, le tre cose diverse: **M.2** = la forma del connettore ·
+> **NVMe/AHCI** = il linguaggio · **PCIe/SATA** = la strada. Il disco più veloce
+> oggi è un **SSD NVMe su M.2 collegato via PCIe**.
+
+#### 2.4.1 In parole semplici — la storia dello storage
+
+1. Una volta c'erano solo gli **HDD**: dischi che **girano**, con una **testina**
+   che legge e scrive, un po' come la puntina di un giradischi. Funzionano, ma
+   sono **lenti** e delicati, perché hanno **parti in movimento**.
+2. Poi sono arrivati gli **SSD**: **niente parti in movimento**, salvano tutto in
+   **chip di memoria** (NAND Flash), come una chiavetta USB molto evoluta. Sono
+   più **veloci**, silenziosi e resistenti agli urti.
+3. Ma non tutti gli SSD sono uguali. Un **SSD SATA** usa la **vecchia strada**
+   dell'hard disk: è veloce, ma ha un limite (~560 MB/s). Un **SSD NVMe** usa una
+   **strada nuova e larghissima**, il **PCIe** (la stessa della scheda video e
+   della CPU), e va **molto** più veloce.
+4. Tre parole da **non confondere**:
+   1. la **FORMA** — `M.2`, il "bastoncino" che si incastra sulla scheda madre;
+   2. il **LINGUAGGIO** — `NVMe` o `AHCI`, cioè come il computer "parla" col disco;
+   3. la **STRADA** — `PCIe` (autostrada) o `SATA` (strada normale), per dove
+      passano i dati.
+5. **In pratica:** per far "volare" un computer, la prima cosa da fare è mettere
+   un **SSD** (meglio se **NVMe**): è il salto di velocità che si sente di più,
+   più ancora che cambiare processore.
+
+> [GIALLO] Immagine mentale: pensa a una **consegna di pacchi**. La **forma** è il
+> tipo di furgone, il **linguaggio** è la lingua con cui parli al corriere, la
+> **strada** è l'autostrada o la stradina di campagna. Per andare veloce servono
+> tutte e tre giuste: furgone adatto (M.2), lingua moderna (NVMe), autostrada (PCIe).
+
 ## 3. Utenze e aree di lavoro {#doc20-sec4}
 1. **Account e password:** ognuno ha il proprio account della scuola; la password
    va tenuta al sicuro e robusta (lunga, con lettere, numeri e simboli).
@@ -3705,6 +3795,8 @@ alla tabella delle modifiche in fondo.
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 9. Changelog {#doc20-sec10}
+4. **v0.4 (24/09/2026)**: aggiunta 2.4.1 "In parole semplici — la storia dello storage" (paginetta descrittiva con analogia).
+3. **v0.3 (24/09/2026)**: aggiunta 2.4 "Lo storage: i 5 livelli" (HDD/SSD, SATA/NVMe, AHCI/NVMe, connettori SATA/M.2, interfaccia PCIe) con infografica.
 2. **v0.2 (24/09/2026)**: aggiunta 2.3 "Standard e compatibilità" (form factor,
    PCIe, socket, processori per marca, RAM) e l'esercitazione "Documento sulla
    configurazione del PC".

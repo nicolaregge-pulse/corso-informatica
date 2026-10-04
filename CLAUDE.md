@@ -452,7 +452,7 @@ Repo del corso (nicolaregge-pulse/corso-godot) — layout OBIETTIVO:
   └── progetto-gruppo/   (Fase 2: progetto che evolve con branch/PR/release)
 ```
 
-## ⭐ Elenco documenti e versioni (indice, aggiornato 23/09/2026)
+## ⭐ Elenco documenti e versioni (indice, aggiornato 04/10/2026)
 
 Ogni documento del corso porta un **numero di versione** nella propria
 intestazione (`**Versione X.Y**`). Questo è l'indice di riferimento: quando un
@@ -463,13 +463,13 @@ l'intestazione del file.
 ### 1. Riferimento e stato
 1. `00-STATO-DEL-CORSO.md` — v2.3 (fonte di verità: decisioni e stato)
 2. `CORSO-INFORMATICA.md` — v1.17 (super-guida / indice generale)
-3. `PROMEMORIA-NICOLA.md` — v0.5 (cose da fare di Nicola + roadmap cose da sviluppare con Claude)
+3. `PROMEMORIA-NICOLA.md` — v0.7 (+ PDF v0.7; cose da fare di Nicola + roadmap cose da sviluppare con Claude)
 4. `01-GLOSSARIO.md` — v1.1
-5. `REGOLE-NOSTRE-CLAUDE-NICOLA.md` — v0.9 (convenzioni interne Nicola↔Claude: PPP, schema nomi file cronologia/cosa/chi + aree Comune/Docente/Regione, nome deterministico col percorso, conservazione integrale; NON sono le regole per i ragazzi)
+5. `REGOLE-NOSTRE-CLAUDE-NICOLA.md` — v2.4 (PDF `20261004_Docente_v2.4_...`; v2.4 = tolti i nomi veri di allievi; convenzioni interne Nicola↔Claude: PPP, schema nomi file cronologia/cosa/chi + aree Comune/Docente/Regione, nome deterministico col percorso, conservazione integrale; NON sono le regole per i ragazzi)
 5c. `sbobinature/README.md` (+ `TEMPLATE-sbobinatura.md`) — v0.1 (trascrizioni lezioni: conservazione integrale + versione lavorata; alimenta libro di testo, argomenti svolti e note dei ragazzi; nomi solo in scratchpad)
 5d. `strumenti/nome-albero.py` (+ `README.md`) — v0.1 (script: nomi file deterministici col percorso nel nome, espandi/collassa l'albero — regola 2.13)
-5e. `ATLANTE.md` (+ `ATLANTE-v0.3.pdf`) — v0.3 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
-5f. `RIFERIMENTI-E-DECISIONI.md` — v1.1 (contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
+5e. `ATLANTE.md` (+ `ATLANTE-v0.4.pdf`) — v0.4 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
+5f. `RIFERIMENTI-E-DECISIONI.md` — v2.10 (§1.10 campanelle, §2.25 registro corto, §2.26 solo il metodo del docente, §2.27 rientri Lazarus; contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
 
 ### 2. Pianificazione didattica
 1. `MAPPA-ARGOMENTI.md` — v1.5 (aggiunto Google Takeout in Produttività digitale)
@@ -478,7 +478,7 @@ l'intestazione del file.
 4. `PIANO-ORE-LEZIONE.md` — v0.4 (piano ora-per-ora, 4 anni)
 
 ### 3. Regole, standard e organizzazione
-1. `REGOLE-FORMATTAZIONE.md` — v1.3
+1. `REGOLE-FORMATTAZIONE.md` — v1.4
 2. `REGOLE-LABORATORIO.md` — v0.1
 3. `REGOLAMENTO-STRUMENTI-DIGITALI-IA.md` — v0.1 (regolamento + modulo presa visione/accettazione: strumenti informatici, servizi digitali, IA generativa)
 4. `RUOLI-CLASSE.md` — v0.4
@@ -490,7 +490,7 @@ l'intestazione del file.
 9. `SCHEDA-DUE-MONDI-CLASSROOM-GITHUB.md` (→ `SCHEDA-DUE-MONDI-CLASSROOM-GITHUB-v0.1.pdf`) — v0.1 (scheda chiara: Classroom vs GitHub vs NotebookLM, chi mette cosa, l'unico ponte a mano)
 10. `SCHEDA-TRIADE-NOTEBOOKLM-CLASSROOM-GIT.md` (→ `SCHEDA-TRIADE-NOTEBOOKLM-CLASSROOM-GIT-v0.1.pdf`) — v0.1 (scheda triade: come gestire e lavorare al meglio con i tre; giro completo + esempio concreto)
 11. `guida-docenti-alunni-non-italofoni/GUIDA-DOCENTI-ALUNNI-NON-ITALOFONI.md` (+ `guida-docenti.html` → `Guida-Docenti-Alunni-Non-Italofoni-v0.1.pdf`) — v0.1 (guida per gli altri docenti: come gestire le lezioni con alunni che non parlano italiano; principi + pratiche concrete che stiamo facendo + strumenti; esempio del quiz trilingue su Moduli con lo script e come si gestisce)
-12. `manuale-docenti/generazione-modulo-google-via-script.md` (+ `.html` → `20260923_Generazione-Modulo-Google-via-Script_IT_v0.2.pdf`) — v0.1 (capitolo manuale docenti: creare un quiz su Google Moduli con uno script Apps Script; esecuzione passo-passo provata in classe, allega su Classroom, come cambiare le domande, errori da evitare)
+12. `manuale-docenti/generazione-modulo-google-via-script.md` (+ `.html` → `20260923_Generazione-Modulo-Google-via-Script_IT_v0.2.pdf`) — v0.2 (capitolo manuale docenti: creare un quiz su Google Moduli con uno script Apps Script; esecuzione passo-passo provata in classe, allega su Classroom, come cambiare le domande, errori da evitare)
 
 ### 4. Programmi per classe e documenti per la Regione
 1. `classe-1/programma.md` — v0.4
@@ -500,7 +500,7 @@ l'intestazione del file.
 5. `PROGRAMMA-PREVENTIVO-2026-27.md` — v0.4 (parti da incollare in Allegato A)
 6. `MIE-PARTI-ALLEGATO-A.md` — v0.2 (parti di Regge estratte dai PFP)
 7. `ARGOMENTI-SVOLTI.md` — v0.3 (svolto 2025/26, nomenclatura 26/27)
-7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.1 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
+7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.3 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
 7c. `allegato-a-stato/allegato-a-stato.md` (+ `allegato-a-stato.html` → `Allegato-A-Stato-v0.3.pdf`) — v0.3 (Allegato A stato fatto/da fare, da fare in giallo; Classi 1-4; 2/3/4 generate da MIE-PARTI con build_allegato.py)
 7d. `allegato-a-2026-27/allegato-a-classe-{1,2,3,4}.md` (→ `allegato-a-classe-N-v0.1.pdf`) — v0.1 (le mie parti Regge mappate per competenza/area, pronte da incollare negli Argomenti del PFP ufficiale; sorgente per compilare poi il docx ufficiale in `programmi-ufficiali/`; generati da `gen_allegati.py`)
 8. `programma-svolto/README.md` — v1.0
@@ -524,18 +524,18 @@ l'intestazione del file.
 7. `classe-1/laboratorio-02-area-logica-google-classroom.md` — v0.1 (secondo lab: area logica/cartelle ad albero, giro Google Suite, iscrizione a Classroom; ripasso sicurezza)
 8. `classe-1/glossario-l2/glossario-l2.md` (+ `glossario.html` → `Glossario-L2-v1.0.pdf`) — v1.0 (glossario multilingue IT · EN · cinese semplificato caratteri+pinyin · arabo; PDF da HTML per i font CJK/arabo)
 8b. `classe-1/attivita-blocchi/attivita-blocchi.md` (+ `attivita-blocchi.html` → `attivita-blocchi-v0.1.pdf`) — v0.1 (attività jolly "tempo libero": primo gioco con i blocchi / Ora del Codice; trilingue IT/AR/ZH, a prova di errore, browser)
-8c. `classe-1/github-crea-account/github-crea-account.md` (+ `github-crea-account.html` → `github-crea-account-v0.2.pdf`) — v0.2 (prima lezione Git: crea account GitHub con email scuola ed entra; trilingue IT/AR/ZH; bottoni per posizione/colore, indirizzi marcati; nota "provare prima i permessi/posta esterna")
+8c. `classe-1/github-crea-account/github-crea-account.md` (+ `github-crea-account.html` → `20260917_Classe-1-PerTutti_v0.2_Crea-Account-GitHub_multilingua.pdf`) — v0.2 (prima lezione Git: crea account GitHub con email scuola ed entra; trilingue IT/AR/ZH; bottoni per posizione/colore, indirizzi marcati; nota "provare prima i permessi/posta esterna")
 8d. `classe-1/consegna-senza-tastiera/consegna-senza-tastiera.md` (+ `.html` → `consegna-senza-tastiera-v0.1.pdf`) — v0.1 (supporto per allievo senza tastiera / che non scrive in italiano: via sicura foglio+foto, via digitale scrittura a mano col mouse; cinese+italiano con disegni; nessun nome di allievo per privacy)
 8e. `classe-1/ricerca-github/ricerca-github.md` (+ HTML IT/AR/ZH → `Ricerca-GitHub-IT/AR/ZH-v1.0.pdf`) — v1.0 (consegna: piccola ricerca "cos'è GitHub e cos'è un repository", guardando il sito e cercando in rete; si scrive in Google Documenti e si consegna su Classroom; attività di avvicinamento prima di creare gli account; niente login necessario; 3 file monolingui)
 8f. `classe-1/costruisci-pc/costruisci-pc.md` (+ HTML IT/AR/ZH → `Costruisci-PC-IT/AR/ZH-v1.0.pdf`) — v1.0 (consegna: montare un PC con it.pcpartpicker.com in modalità Builder, componenti compatibili a budget; lista+prezzo in Google Documenti, consegna su Classroom; 3 file monolingui)
 8g. `classe-1/componenti-pc-compito/componenti-pc.md` (+ HTML IT/AR/ZH → `Componenti-PC-IT/AR/ZH-v1.0.pdf`) — v1.0 (consegna dopo i componenti fisici: spiegare a cosa serve ogni pezzo con parole proprie + domande personali anti copia/AI; consegna su Classroom o foto; 3 file monolingui)
 8h. `classe-1/regole-fine-lavoro/regole-fine.md` (+ HTML IT/AR/ZH → `Regole-Fine-Lavoro-IT/AR/ZH-v1.0.pdf`) — v1.0 (regole di laboratorio 'quando hai finito o non hai niente da fare': no giochi/YouTube/rumore, resti al posto, blocca/esci col Ctrl+Alt+Canc, + cosa fare di utile; 3 file monolingui da caricare su Classroom)
-8i. `classe-1/libro-di-testo/libro-classe1.md` (+ `_build/libro-classe1.html` → `libro-classe1-v0.1.pdf`) — v0.1 (LIBRO DI TESTO Classe 1: raccoglie appunti/teoria/esercitazioni; cresce a ogni lezione; PDF per leggere, MD per l'AI dei ragazzi)
+8i. `classe-1/libro-di-testo/libro-classe1.md` (+ `_build/libro-classe1.html` → `libro-classe1-v0.4.pdf`) — v0.4 (LIBRO DI TESTO Classe 1: raccoglie appunti/teoria/esercitazioni; cresce a ogni lezione; PDF per leggere, MD per l'AI dei ragazzi)
 8i2. `classe-1/utenze-password/utenze-password.html` (→ `20260923_Le-Mie-Utenze-Password_Classe-1-PerTutti_multilingua_v1.0.pdf`) — v1.0 (scheda da compilare a penna: utenze e password di computer scuola/Google/GitHub; trilingue IT/AR/ZH, una pagina, con nota di sicurezza "tienila al sicuro")
 8j. `classe-1/accesso-blocco-schermo/accesso-blocco-schermo.md` (+ `.html` → `Accesso-Blocco-Schermo-v1.0.pdf`) — v1.0 (scheda UNICA trilingue: Ctrl+Alt+Canc — login/logout, blocca/sblocca schermo; spiega tutte le voci del menu; con disegno della schermata; separata dalle Regole)
 8k. `classe-1/regole-classe/regole-classe.md` (+ `.html` → `Regole-Classe-v1.1.pdf`) — v1.1 (scheda UNICA trilingue: regole di comportamento in classe — alzare la mano ben alta + cenno del docente; attenzione/lavoro con l orologio sulla lavagna, niente YouTube, si aspetta l esercitazione su Classroom)
 8l. `classe-1/versioning/versioning.md` (+ `.html` → `Versioning-v2.3.pdf`) — v2.3 (scheda UNICA trilingue: flusso completo delle versioni, major/minor, ripartenza da .0 con nuova linea a ogni release principale; pagine con alberi eterogenei; grafo complesso stile Git a 4 rami paralleli con branch/merge, che termina in 2 versioni principali v1.x e v2.0)
-8m. `classe-1/quiz-regole-versioning/` — v1.0 (quiz per Google Moduli su Regole della classe + Versioning; `crea-modulo.gs` = script Apps Script che crea il Modulo-quiz in 1 clic, 12 domande trilingui IT/AR/ZH con punteggio automatico; `quiz-regole-versioning.md` + `.html` → `Quiz-Regole-Versioning-v1.0.pdf` = istruzioni passo-passo + chiave risposte per il docente; si allega come Compito su Classroom)
+8m. `classe-1/quiz-regole-versioning/` — v1.1 (md v1.1, PDF ancora v1.0; quiz per Google Moduli su Regole della classe + Versioning; `crea-modulo.gs` = script Apps Script che crea il Modulo-quiz in 1 clic, 12 domande trilingui IT/AR/ZH con punteggio automatico; `quiz-regole-versioning.md` + `.html` → `Quiz-Regole-Versioning-v1.0.pdf` = istruzioni passo-passo + chiave risposte per il docente; si allega come Compito su Classroom)
 9. `classe-1/esercizio-presentazione-famiglia/` — v1.2 (esercizio "Io e la mia famiglia": presentazione di sé/famiglia con Google Documenti + consegna su Classroom; passo-passo "a prova di errore" con spiegazione dei 2 link + nota su indirizzi/bottoni nelle 3 lingue. Fonte `esercizio-presentazione-famiglia.md`; **3 file monolingui** `...-IT/AR/ZH-v1.2.pdf` + versione unica trilingue `...-v1.2.pdf` + **versione ILLUSTRATA** `...-IMMAGINI-v1.2.pdf` (disegni con frecce + QR per Classroom, per chi non legge italiano; `esercizio-immagini.html`))
 10. `classe-1/negozio-online/GUIDA-RAGAZZI.md` — v1.5
 11. `classe-1/negozio-online/PIANO-LEZIONE.md` — v1.1
@@ -543,6 +543,8 @@ l'intestazione del file.
 
 ### 6b. Materiali della Classe 2
 1. `classe-2/condizioni-if-then.md` — v0.1 (condizioni SE/ALLORA: IFTTT, funzione SE di Google Fogli, social, Lazarus if/then/else)
+2. `classe-2/if-annidati/` (generatori `_build/gen_if_annidati.py`, `gen_cinema.py`; pagina unica `docs/2inf-if/`) — v1.0 (05/10: dispensa if/then/else e if annidati con la regola dei rientri §2.27, riscaldamento R1-R4, gioco Indovina il numero a 4 livelli + compito; 08/10: Il cassiere del cinema, 3 if annidati, or, CheckBox, tabella di prova + compito)
+3. `classe-2/lazarus-convertitore/` — v1.0-2.2 (convertitori mph/km/h e temperature, 29/09-01/10) · `classe-2/sicurezza-1ora-rischio-danno/quiz/` — v1.0 · `classe-2/sicurezza-phishing/` — v1.0 (Email sicura o truffa)
 
 ### 6c. Materiale trasversale (tutti gli anni)
 1. `INTELLIGENZA-ARTIFICIALE.md` — v0.1 (IA: Gem vs Agenti autonomi; con Gemini)
@@ -558,15 +560,25 @@ l'intestazione del file.
 3. `classe-3/troubleshooting-guasti.md` — v0.1 (kit diagnosi guasti: teoria a crocette + guasti fisici) — Panaccione
 4. `classe-3/corso-html-css.md` — v0.1 (corso base HTML5/CSS, con pubblicazione su Pages) — Panaccione
 5. `classe-3/comunicazione-digitale/comunicazione-digitale.md` (+ `.html` → `Comunicazione-Digitale-v0.1.pdf`) — v0.1 (contenitore "Addetto alla comunicazione digitale" per la terza, nato dai bisogni delle aziende di stage: contenuti/siti/social/Facebook; profilo + competenze + 6 moduli + progetto finale, strumenti browser, legami con e-commerce/HTML-CSS/stage; bozza da confermare)
-6. `classe-3/sito-github/` (generatore `_build/gen_sito_github.py` → PDF IT e IT-BN + chiave DOCENTE; pagina unica `docs/3inf-sito/` con bottoni Copia ed esempio vivo) — v1.0 (lezione 05/10/2026: Dispensa 1 pagina web da zero con index.html + style.css separati, Dispensa 2 pubblicazione su GitHub Pages dal browser, Compito Documento in 5 parti: link, HTML, CSS separato, screenshot, spiegazione)
+6. `classe-3/sito-github/` (generatori `_build/gen_sito_github.py` e `gen_sito_github_2.py` → PDF IT e IT-BN; la chiave DOCENTE va nel repo riservato `materiale-docente/`; pagina unica `docs/3inf-sito/` con bottoni Copia ed esempio vivo) — v1.0 (05/10: Dispensa 1 pagina web da zero con index.html + style.css separati, Dispensa 2 pubblicazione su GitHub Pages, Compito primo sito pubblico; 07/10: Dispensa 3 modifica su GitHub, commit e History + Compito 3; 08/10: Dispensa 4 seconda pagina e menu + Compito 4)
+7. `classe-3/pagina-html-locale/` — v1.0 (30/09: pagina HTML locale, CSS separato, mini-compiti, sfida finale; IT e IT-BN) · `classe-3/cosa-e-git/` — v1.0-2.1 (Git, versioning; il file IT-BN è `20260925_Classe-3-PerTutti_v1.3_Compito-Git-Versioning_IT-BN.pdf`)
+
+### 7b. Materiali della Classe 4
+1. `classe-4/reti-iso-osi/` (generatore `_build/gen_iso_osi.py`; pagina unica `docs/4ti-iso-osi/` con la pagina interattiva Il viaggio di un pacchetto) — v1.0 (06/10: scheda dei 7 livelli + compito Il viaggio del mio messaggio + quiz personale)
+2. `classe-4/git-ai-notebooklm/` — v1.0-1.1 (29/09: Git e AI con NotebookLM; la chiave del quiz versioning sta nel repo riservato)
+
+### 7c. Settimana, quiz e pagine del sito
+1. `orario/settimana-2026-10-05.md` — v1.0 (orario 5-9/10) · `orario/piano-settimana-2026-10-05.md` (→ `Piano-Settimana-2026-10-05-v1.0.pdf`) — v1.0 (lezione per lezione: materiali, compiti in coda, testi registro ≤40 caratteri)
+2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
+3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v1.6 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.0
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0
 2. `battaglia-navale-3d/README.md` — v1.0
-3. `materiale-da-organizzare/INVENTARIO.md` — v1.0
 
 ### 9. Libro combinato (generato)
-1. `LIBRO-COMPLETO.md` / `LIBRO-COMPLETO-vX.Y.pdf` — v1.72 (assemblato in automatico da `classe-1/_build/`; la versione è `LIBRO_VERSION`; copertina/footer "classi 1,2,3,4" + frontespizio per ogni Parte-classe; include ora il Libro di Testo Classe 1).
+1. `LIBRO-COMPLETO.md` / `LIBRO-COMPLETO-vX.Y.pdf` — v1.74 (assemblato in automatico da `classe-1/_build/`; la versione è `LIBRO_VERSION`; copertina/footer "classi 1,2,3,4" + frontespizio per ogni Parte-classe; include ora il Libro di Testo Classe 1).
 
 ### 10. Attestati (non testuali)
 1. `attestati/ATTESTATO-RUOLI.html` → `ATTESTATO-RUOLI-v0.4.pdf` (unico PDF, 4 pagine, con logo Piamarta).
