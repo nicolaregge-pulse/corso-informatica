@@ -86,9 +86,9 @@ P2 = [
     ('Torna alla Form (F12) e fai <b>doppio clic sul bottone Nuova partita</b>. Seleziona la procedura vuota <b>ButtonNuovaClick</b> (da procedure a end;) e incolla al suo posto:', 'cD'),
     ("Premi <b>F9</b>: il gioco parte! Scrivi un numero e premi Prova, finché vedi <b>Troppo BASSO</b>, <b>Troppo ALTO</b> e <b>Indovinato</b>. <b>FATTO: hai fatto un gioco!</b> Errore su <b>else</b>? Guarda l'end subito prima: NON deve avere il <b>;</b>.", ''),
     ('<b>Fallo tuo</b>: cambia la Caption della Form (il titolo della finestra), le frasi tra apici (anche spiritose) e i colori. Poi fallo provare a un compagno: chi indovina con meno tentativi?', ''),
-    ("<b>Salva il gioco su GitHub</b> (nello stesso repository <b>lazarus</b>). In Lazarus: menu <b>File</b> &rarr; <b>Salva tutto</b>.", ""),
-    ("Su GitHub apri il tuo repository <b>lazarus</b>. Clicca <b>Add file</b> &rarr; <b>Upload files</b> &rarr; la scritta blu <b>choose your files</b>.", ""),
-    ("Nella finestra entra nella cartella <b>indovina</b> (nei Documenti), premi <b>Ctrl + A</b> e clicca <b>Apri</b>. Poi verde <b>Commit changes</b>. I file nuovi prendono il posto dei vecchi: il primo programma resta nella storia (History).", ""),
+    ("<b>Salva il gioco su GitHub, in un repository NUOVO.</b> In Lazarus: <b>File</b> &rarr; <b>Salva tutto</b>. Su github.com: in alto a destra <b>+</b> &rarr; <b>New repository</b>; nel riquadro <b>Repository name</b> incolla il nome qui sotto; <b>Add README</b> su <b>On</b>; verde <b>Create repository</b>.", "k1"),
+    ("Nel repository <b>indovina</b> clicca <b>Add file</b> &rarr; <b>Upload files</b> &rarr; la scritta blu <b>choose your files</b>.", ""),
+    ("Nella finestra, a sinistra <b>Documenti</b>, doppio clic sulla cartella <b>indovina</b>, premi <b>Ctrl + A</b> e clicca <b>Apri</b>. In fondo alla pagina verde <b>Commit changes</b>. Il primo programma resta intatto nel repository <b>lazarus</b>.", ""),
     ("Su <b>Classroom</b> apri il compito <b>Lazarus — Indovina il numero con gli if annidati</b>: nel Documento metti 3 screenshot (Troppo BASSO, Troppo ALTO, Indovinato), perché serve un if dentro un altro if, cosa non hai capito. Poi <b>Consegna</b>.", ""),
 ]
 # 05/10 ore 11:45 (Nicola): obiettivo di oggi = PUBBLICARE SU GITHUB. Programma semplicissimo da copiare; gli if annidati dopo.
