@@ -88,19 +88,27 @@ def scheda2(bn):
          ("Carica i 2 file", "২টি ফাইল আপলোড করো",
           "<b>Add file</b> &rarr; <b>Upload files</b>. Trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito. Bottone verde <b>Commit changes</b>.",
           "<b>Add file</b> &rarr; <b>Upload files</b>। mio-sito ফোল্ডার থেকে <b>index.html</b> ও <b>style.css</b> টেনে আনো। সবুজ বোতাম <b>Commit changes</b>।", CARICA),
-         ("Settings e Pages", "Settings ও Pages",
-          "In alto a destra <b>Settings</b> (ingranaggio) &rarr; a sinistra <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
-          "উপরে ডানদিকে <b>Settings</b> (গিয়ার) &rarr; বাঁদিকে <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>।", PAGES),
-         ("Aspetta 2 minuti", "২ মিনিট অপেক্ষা করো",
-          "Premi " + T("F5") + ". In alto compare <b>Your site is live</b> e il bottone <b>Visit site</b>: cliccalo!",
-          T("F5") + " চাপো। উপরে আসবে <b>Your site is live</b> আর <b>Visit site</b> বোতাম: ক্লিক করো!", LIVE),
-         ("Mostralo!", "দেখাও!",
-          "<b>FATTO! Sei su internet.</b> Apri l'indirizzo sul telefono e fallo vedere a un compagno.",
-          "<b>হয়ে গেছে! তুমি ইন্টারনেটে।</b> ঠিকানাটি ফোনে খোলো আর একজন সহপাঠীকে দেখাও।", "")]
+         ("Apri Settings", "Settings খোলো",
+          "Nella fila di schede in alto (Code, Issues...) clic sull'ultima a destra: <b>Settings</b> (ingranaggio). "
+          "<b>Non la vedi?</b> Clic su <b>More &#9662;</b> (o sui <b>...</b>) tutto a destra: Settings è lì dentro.",
+          "উপরের ট্যাবের সারিতে (Code, Issues...) একদম ডানদিকের <b>Settings</b>-এ (গিয়ার) ক্লিক করো। "
+          "<b>দেখতে পাচ্ছ না?</b> একদম ডানদিকে <b>More &#9662;</b> (বা <b>...</b>)-এ ক্লিক করো: Settings ওর ভিতরে আছে।", ""),
+         ("Pages: scegli main e Save", "Pages: main বেছে Save",
+          "Nel menu a sinistra clic su <b>Pages</b>. Sotto <b>Branch</b> clic su <b>None</b> &rarr; scegli <b>main</b> &rarr; bottone <b>Save</b>. "
+          "<b>Custom domain (dominio personalizzato): NON scrivere niente, lascialo vuoto!</b> Non serve.",
+          "বাঁদিকের মেনুতে <b>Pages</b>-এ ক্লিক করো। <b>Branch</b>-এর নিচে <b>None</b>-এ ক্লিক &rarr; <b>main</b> বেছে নাও &rarr; <b>Save</b> বোতাম। "
+          "<b>Custom domain: কিছুই লিখবে না, খালি রাখো!</b> দরকার নেই।", PAGES),
+         ("Aspetta e apri il sito", "অপেক্ষা করে সাইট খোলো",
+          "Aspetta 2 minuti e premi " + T("F5") + ": in alto compare <b>Your site is live</b> e il bottone <b>Visit site</b>. Cliccalo. "
+          "<b>FATTO! Sei su internet.</b> Il tuo indirizzo è " + T("https://TUONOME.github.io/mio-sito/") + ": aprilo sul telefono!",
+          "২ মিনিট অপেক্ষা করে " + T("F5") + " চাপো: উপরে আসবে <b>Your site is live</b> আর <b>Visit site</b> বোতাম। ক্লিক করো। "
+          "<b>হয়ে গেছে! তুমি ইন্টারনেটে।</b> তোমার ঠিকানা " + T("https://TUONOME.github.io/mio-sito/") + ": ফোনে খোলো!", LIVE)]
     for i, (a, a2, b, b2, x) in enumerate(s, 1):
         c += step(i, a, a2, b, b2, bn, extra=x, ok=(i == 7))
-    c += box("warn", "<b>Prima di caricare:</b> nella pagina solo nome o soprannome. Niente cognome, telefono, email.",
-             "<b>আপলোডের আগে:</b> পেজে শুধু নাম বা ডাকনাম। পদবি, ফোন, ইমেল নয়।", bn)
+    c += box("warn", "<b>GitHub chiede un \"Custom domain\" (dominio personalizzato)?</b> NON serve e NON si compra niente: lascia il campo vuoto. "
+             "Il tuo indirizzo gratis è già pronto. <b>Prima di caricare:</b> nella pagina solo nome o soprannome.",
+             "<b>GitHub \"Custom domain\" চাইছে?</b> দরকার নেই, কিছু কিনতে হবে না: ঘরটি খালি রাখো। তোমার ফ্রি ঠিকানা আগে থেকেই তৈরি। "
+             "<b>আপলোডের আগে:</b> পেজে শুধু নাম বা ডাকনাম।", bn)
     return pagina("Scheda facile 2", c)
 
 
@@ -108,11 +116,12 @@ def main():
     for v in glob.glob(os.path.join(CART, PREF + "_*.pdf")): os.remove(v)
     for v in glob.glob(os.path.join(DOCS, "Scheda-Facile-*.pdf")): os.remove(v)
     nomi = {}
-    for k, fn, base in [("s1", scheda1, "Scheda-Facile-1-Pagina-Web"), ("s2", scheda2, "Scheda-Facile-2-Su-Internet")]:
+    for k, fn, base, ver in [("s1", scheda1, "Scheda-Facile-1-Pagina-Web", "1.0"), ("s2", scheda2, "Scheda-Facile-2-Su-Internet", "1.1")]:
+        G.VER = ver   # v1.1 (05/10, in classe): Settings sotto More, Pages passo per passo, Custom domain da lasciare vuoto
         for lin, bn in (("IT", False), ("IT-BN", True)):
-            nome = "%s_%s_%s_v%s.pdf" % (PREF, base, lin, VER)
+            nome = "%s_%s_%s_v%s.pdf" % (PREF, base, lin, ver)
             G.pdf(fn(bn), "%s-%s.html" % (base.lower(), lin), nome)
-            breve = "%s-%s-v%s.pdf" % (base, lin, VER)
+            breve = "%s-%s-v%s.pdf" % (base, lin, ver)
             shutil.copy(os.path.join(CART, nome), os.path.join(DOCS, breve))
             nomi[k + ("_bn" if bn else "_it")] = breve
             print(nome)
@@ -121,6 +130,14 @@ def main():
                 "<div class='btns'>%s%s</div><div class='btns' style='margin-top:10px'>%s%s</div></div>") % (
         bt(nomi["s1_it"], "1. La mia pagina<small>italiano</small>"), bt(nomi["s1_bn"], "1. La mia pagina<small>italiano + বাংলা</small>"),
         bt(nomi["s2_it"], "2. Su internet<small>italiano</small>"), bt(nomi["s2_bn"], "2. Su internet<small>italiano + বাংলা</small>"))
+    G.VER = VER
+    G.FACILE += ("<div class='box' style='border:3px solid #c0392b'><h2 style='color:#c0392b'>PUBBLICARE: i passi giusti (leggi qui se ti blocchi)</h2>"
+                 "<ol style='font-size:17px;line-height:1.7'><li>Nel tuo repository <b>mio-sito</b> clic su <b>Settings</b> (ingranaggio, ultima scheda in alto a destra). "
+                 "Non la vedi? Clic su <b>More &#9662;</b> tutto a destra.</li><li>Nel menu a sinistra clic su <b>Pages</b>.</li>"
+                 "<li>Sotto <b>Branch</b> clic su <b>None</b> &rarr; scegli <b>main</b> &rarr; <b>Save</b>.</li>"
+                 "<li><b>Custom domain: NON scrivere niente.</b> Non serve, non si paga niente.</li>"
+                 "<li>Aspetta 2 minuti, premi F5: in alto <b>Your site is live</b> &rarr; <b>Visit site</b>. Indirizzo: <b>https://TUONOME.github.io/mio-sito/</b></li></ol>"
+                 "<p style='font-size:16px;color:#1d4d2f'>Settings &rarr; Pages &rarr; Branch: main &rarr; Save. <b>Custom domain: কিছুই লিখবে না, খালি রাখো।</b> ২ মিনিট পরে F5 &rarr; Visit site।</p></div>")
     G2.main()
 
 

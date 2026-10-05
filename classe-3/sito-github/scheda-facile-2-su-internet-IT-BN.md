@@ -1,6 +1,6 @@
 <!-- generato da scheda-facile-2-su-internet-IT-BN.html con html2md.py: non modificare a mano, si rigenera -->
 
-v1.0
+v1.1
 
 # Metti la tua pagina su internet in 7 passi
 
@@ -51,28 +51,28 @@ index.html   style.css
 
 Commit changes
 
-5Settings e Pages · Settings ও Pages
+5Apri Settings · Settings খোলো
 
-In alto a destra **Settings** (ingranaggio) -> a sinistra **Pages** -> Branch: **main** -> **Save**.
+Nella fila di schede in alto (Code, Issues...) clic sull'ultima a destra: **Settings** (ingranaggio). **Non la vedi?** Clic su **More ▾** (o sui **...**) tutto a destra: Settings è lì dentro.
 
-উপরে ডানদিকে **Settings** (গিয়ার) -> বাঁদিকে **Pages** -> Branch: **main** -> **Save** ।
+উপরের ট্যাবের সারিতে (Code, Issues...) একদম ডানদিকের **Settings** -এ (গিয়ার) ক্লিক করো। **দেখতে পাচ্ছ না?** একদম ডানদিকে **More ▾** (বা **...**)-এ ক্লিক করো: Settings ওর ভিতরে আছে।
+
+6Pages: scegli main e Save · Pages: main বেছে Save
+
+Nel menu a sinistra clic su **Pages**. Sotto **Branch** clic su **None** -> scegli **main** -> bottone **Save**. **Custom domain (dominio personalizzato): NON scrivere niente, lascialo vuoto!** Non serve.
+
+বাঁদিকের মেনুতে **Pages** -এ ক্লিক করো। **Branch** -এর নিচে **None** -এ ক্লিক -> **main** বেছে নাও -> **Save** বোতাম। **Custom domain: কিছুই লিখবে না, খালি রাখো!** দরকার নেই।
 
 ⚙ Settings -> **Pages** -> Branch: main ▾ Save
 
-6Aspetta 2 minuti · ২ মিনিট অপেক্ষা করো
+7Aspetta e apri il sito · অপেক্ষা করে সাইট খোলো
 
-Premi F5. In alto compare **Your site is live** e il bottone **Visit site** : cliccalo!
+Aspetta 2 minuti e premi F5: in alto compare **Your site is live** e il bottone **Visit site**. Cliccalo. **FATTO! Sei su internet.** Il tuo indirizzo è https://TUONOME.github.io/mio-sito/: aprilo sul telefono!
 
-F5 চাপো। উপরে আসবে **Your site is live** আর **Visit site** বোতাম: ক্লিক করো!
+২ মিনিট অপেক্ষা করে F5 চাপো: উপরে আসবে **Your site is live** আর **Visit site** বোতাম। ক্লিক করো। **হয়ে গেছে! তুমি ইন্টারনেটে।** তোমার ঠিকানা https://TUONOME.github.io/mio-sito/: ফোনে খোলো!
 
 Your site is live at **https://tuonome.github.io/mio-sito/** Visit site
 
-7Mostralo! · দেখাও!
+**GitHub chiede un "Custom domain" (dominio personalizzato)?** NON serve e NON si compra niente: lascia il campo vuoto. Il tuo indirizzo gratis è già pronto. **Prima di caricare:** nella pagina solo nome o soprannome.
 
-**FATTO! Sei su internet.** Apri l'indirizzo sul telefono e fallo vedere a un compagno.
-
-**হয়ে গেছে! তুমি ইন্টারনেটে।** ঠিকানাটি ফোনে খোলো আর একজন সহপাঠীকে দেখাও।
-
-**Prima di caricare:** nella pagina solo nome o soprannome. Niente cognome, telefono, email.
-
-**আপলোডের আগে:** পেজে শুধু নাম বা ডাকনাম। পদবি, ফোন, ইমেল নয়।
+**GitHub "Custom domain" চাইছে?** দরকার নেই, কিছু কিনতে হবে না: ঘরটি খালি রাখো। তোমার ফ্রি ঠিকানা আগে থেকেই তৈরি। **আপলোডের আগে:** পেজে শুধু নাম বা ডাকনাম।

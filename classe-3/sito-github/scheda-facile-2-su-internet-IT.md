@@ -1,6 +1,6 @@
 <!-- generato da scheda-facile-2-su-internet-IT.html con html2md.py: non modificare a mano, si rigenera -->
 
-v1.0
+v1.1
 
 # Metti la tua pagina su internet in 7 passi
 
@@ -39,20 +39,20 @@ index.html   style.css
 
 Commit changes
 
-5Settings e Pages
+5Apri Settings
 
-In alto a destra **Settings** (ingranaggio) -> a sinistra **Pages** -> Branch: **main** -> **Save**.
+Nella fila di schede in alto (Code, Issues...) clic sull'ultima a destra: **Settings** (ingranaggio). **Non la vedi?** Clic su **More ▾** (o sui **...**) tutto a destra: Settings è lì dentro.
+
+6Pages: scegli main e Save
+
+Nel menu a sinistra clic su **Pages**. Sotto **Branch** clic su **None** -> scegli **main** -> bottone **Save**. **Custom domain (dominio personalizzato): NON scrivere niente, lascialo vuoto!** Non serve.
 
 ⚙ Settings -> **Pages** -> Branch: main ▾ Save
 
-6Aspetta 2 minuti
+7Aspetta e apri il sito
 
-Premi F5. In alto compare **Your site is live** e il bottone **Visit site** : cliccalo!
+Aspetta 2 minuti e premi F5: in alto compare **Your site is live** e il bottone **Visit site**. Cliccalo. **FATTO! Sei su internet.** Il tuo indirizzo è https://TUONOME.github.io/mio-sito/: aprilo sul telefono!
 
 Your site is live at **https://tuonome.github.io/mio-sito/** Visit site
 
-7Mostralo!
-
-**FATTO! Sei su internet.** Apri l'indirizzo sul telefono e fallo vedere a un compagno.
-
-**Prima di caricare:** nella pagina solo nome o soprannome. Niente cognome, telefono, email.
+**GitHub chiede un "Custom domain" (dominio personalizzato)?** NON serve e NON si compra niente: lascia il campo vuoto. Il tuo indirizzo gratis è già pronto. **Prima di caricare:** nella pagina solo nome o soprannome.
