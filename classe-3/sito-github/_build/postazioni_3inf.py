@@ -52,7 +52,7 @@ PC = {
     "27": ("3infpiamartauser1", "hai recuperato l'account e pubblicato il tuo sito: bravo!",
            ["<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; passioni e sogno <b>tuoi</b> &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link del sito, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot. Poi <b>Consegna</b>."], ""),
-    "28": ("", "hai già aperto il compito e il Documento.",
+    "28": ("nicolocatalanoPIA", "hai creato il tuo account GitHub.",
            ["Apri la <b>scheda facile 1</b> e fai il <b>passo 1</b> adesso: la cartella mio-sito.",
             "Poi un passo alla volta: ce la fai!"], ""),
     "29": ("simonegiaramidaro", "hai caricato index.html e style.css su GitHub con il tuo nome.",
