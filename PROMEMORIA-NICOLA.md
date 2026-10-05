@@ -81,3 +81,10 @@ cosa nuova, entra qui.*
 1. **Prossimo lavoro 3INF: 2 sottopagine** (passioni.html e sogno.html con menu): materiale già in bozza nel riquadro viola della pagina 3inf-sito; da trasformare in compito completo (schede facili a passo singolo, IT e IT-BN).
 2. **Script per generare TUTTO in automatico**: un solo comando che rigenera schede, pagina unica, postazioni, controlli dei siti (raw GitHub), schede di verifica e quadro della classe, senza passaggi a mano.
 3. **Comando "Chiudi classe 3 INF"** (RIFERIMENTI §2.30) dopo la raccolta delle 10:55.
+4. **Le 5 esigenze di Nicola per ogni lavoro con i siti (05/10, ~10:05):**
+   1. Su Classroom deve esserci sempre il testo aggiornato del compito, con i link utili ai ragazzi.
+   2. Un link solo per il docente con la situazione della classe (pagina `controlla/`).
+   3. Script autonomi su Classroom che gestiscono tutto (pubblicazione, aggiornamento del testo, raccolta), più la preparazione per "Chiudi classe" e i libri individuali.
+   4. Assistere i ragazzi fino a portarli **tutti** a consegnare il sito pubblicato.
+   5. Fare il compito per ogni ragazzo (scheda dal suo codice) e generare le domande per le interrogazioni.
+   6. Nota tecnica: l'API di Classroom modifica solo i compiti creati dallo script. Per aggiornare il testo da solo, il compito va creato dall'automazione, non a mano; in alternativa lo script pubblica un annuncio con il testo nuovo.
