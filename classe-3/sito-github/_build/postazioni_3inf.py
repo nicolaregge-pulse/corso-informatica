@@ -135,45 +135,53 @@ def postazioni_html():
 
 
 # ===================== VERSIONE SEMPLICE (09:35): UN SOLO PASSO ALLA VOLTA =====================
-PASSI = [  # (italiano, bengali, copia: "" | "h" | "c")
-    ("Sul <b>Desktop</b>: clic con il tasto <b>DESTRO</b> &rarr; <b>Nuovo</b> &rarr; <b>Cartella</b>. Scrivi il nome <b>mio-sito</b> e premi Invio.",
-     "Desktop-এ <b>ডান</b> ক্লিক &rarr; Nuovo &rarr; Cartella। নাম লেখো <b>mio-sito</b>।", ""),
-    ("Apri il <b>Blocco note</b>: in basso a sinistra <b>Start</b>, scrivi <b>Blocco note</b>, clic sul programma.",
-     "<b>Blocco note</b> খোলো: Start &rarr; লেখো Blocco note।", ""),
-    ("Premi il bottone giallo <b>COPIA CODICE 1</b> qui sotto. Poi nel Blocco note premi <b>Ctrl + V</b>.",
-     "নিচের হলুদ বোতাম <b>COPIA CODICE 1</b> চাপো। তারপর Blocco note-এ <b>Ctrl + V</b>।", "h"),
-    ("Nel Blocco note trova la parola <b>Leo</b> e scrivi al suo posto <b>il tuo nome</b>.",
-     "<b>Leo</b> খুঁজে তার জায়গায় <b>তোমার নাম</b> লেখো।", ""),
-    ("<b>File</b> &rarr; <b>Salva con nome</b> &rarr; apri la cartella <b>mio-sito</b>. In basso <b>Salva come: Tutti i file</b>. Nome: <b>index.html</b>. Clic su <b>Salva</b>.",
-     "<b>File</b> &rarr; <b>Salva con nome</b> &rarr; <b>mio-sito</b> ফোল্ডার। <b>Tutti i file</b>। নাম: <b>index.html</b>। <b>Salva</b>।", ""),
-    ("Nel Blocco note: <b>File</b> &rarr; <b>Nuovo</b>. Premi il bottone giallo <b>COPIA CODICE 2</b> qui sotto, poi <b>Ctrl + V</b>.",
-     "<b>File</b> &rarr; <b>Nuovo</b>। হলুদ বোতাম <b>COPIA CODICE 2</b> চাপো, তারপর <b>Ctrl + V</b>।", "c"),
-    ("<b>File</b> &rarr; <b>Salva con nome</b> &rarr; cartella <b>mio-sito</b> &rarr; <b>Tutti i file</b>. Nome: <b>style.css</b>. Clic su <b>Salva</b>.",
-     "<b>File</b> &rarr; <b>Salva con nome</b> &rarr; <b>mio-sito</b> &rarr; <b>Tutti i file</b>। নাম: <b>style.css</b>। <b>Salva</b>।", ""),
-    ("Apri la cartella <b>mio-sito</b> e fai <b>doppio clic su index.html</b>. Vedi la tua pagina colorata? <b>BRAVO!</b>",
-     "<b>mio-sito</b> ফোল্ডারে <b>index.html</b>-এ ডাবল ক্লিক। রঙিন পেজ দেখছ? <b>দারুণ!</b>", ""),
-    ("Apri una scheda nuova e vai su <b>github.com</b>. In alto a destra <b>Sign in</b>: entra con il tuo nome utente e password.",
-     "নতুন ট্যাবে <b>github.com</b>। উপরে ডানদিকে <b>Sign in</b>: ইউজারনেম ও পাসওয়ার্ড।", ""),
-    ("In alto a destra clic sul <b>+</b> &rarr; <b>New repository</b>. Nome: <b>mio-sito</b>. <b>Add README</b> su <b>On</b>. Bottone verde <b>Create repository</b>.",
-     "উপরে ডানদিকে <b>+</b> &rarr; <b>New repository</b>। নাম <b>mio-sito</b>। <b>Add README: On</b>। সবুজ <b>Create repository</b>।", ""),
-    ("Clic su <b>Add file</b> &rarr; <b>Upload files</b>. Trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito. Bottone verde <b>Commit changes</b>.",
-     "<b>Add file</b> &rarr; <b>Upload files</b>। <b>index.html</b> ও <b>style.css</b> টেনে আনো। সবুজ <b>Commit changes</b>।", ""),
-    ("Clic su <b>Settings</b> (in alto, ultima a destra; se non c'è: <b>More</b> &rarr; Settings) &rarr; a sinistra <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
-     "<b>Settings</b> (না দেখলে <b>More</b>) &rarr; বাঁদিকে <b>Pages</b> &rarr; <b>main</b> &rarr; <b>Save</b>।", ""),
-    ("Aspetta <b>2 minuti</b>. Poi torna su questa pagina e premi <b>Ctrl + F5</b>: se il tuo PC diventa <b>VERDE</b> il sito è online!",
-     "<b>২ মিনিট</b> অপেক্ষা করো। তারপর এই পেজে <b>Ctrl + F5</b>: তোমার PC <b>সবুজ</b> হলে সাইট অনলাইন!", ""),
-    ("<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; <b>matita</b> &rarr; cambia passioni e sogno con i <b>tuoi</b> &rarr; <b>Commit changes</b>.",
-     "<b>নিজের মতো করো</b>: GitHub-এ <b>index.html</b> &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; <b>Commit changes</b>।", ""),
+PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  — v2 10:15: TUTTO su GitHub, niente Blocco note
+    ("Apri una <b>scheda nuova</b> del browser (premi <b>Ctrl + T</b>). In alto scrivi <b>github.com</b> e premi <b>Invio</b>.",
+     "নতুন ট্যাব খোলো (<b>Ctrl + T</b>)। লেখো <b>github.com</b> এবং Invio।", ""),
+    ("Guarda <b>in alto a destra</b>. Se c'è scritto <b>Sign in</b>: cliccalo ed entra con il <b>TUO</b> nome utente e la tua password. Se vedi già un tondino con la tua immagine, sei già dentro. Non riesci a entrare? <b>Alza la mano</b>.",
+     "উপরে ডানদিকে <b>Sign in</b> থাকলে ক্লিক করে নিজের ইউজারনেম ও পাসওয়ার্ড দাও।", ""),
+    ("<b>In alto a destra</b> clicca il simbolo <b>+</b> (più). Nel menu che si apre clicca <b>New repository</b>.",
+     "উপরে ডানদিকে <b>+</b> &rarr; <b>New repository</b>।", ""),
+    ("Premi il bottone giallo qui sotto. Poi clicca nel riquadro <b>Repository name</b> e premi <b>Ctrl + V</b>: compare <b>mio-sito</b>.",
+     "হলুদ বোতাম চাপো, তারপর <b>Repository name</b>-এ <b>Ctrl + V</b>।", "n1"),
+    ("Scendi un po' con la rotellina: metti <b>Add README</b> su <b>On</b>. Poi, in fondo, clicca il bottone <b>VERDE</b> <b>Create repository</b>.",
+     "<b>Add README: On</b>। তারপর সবুজ <b>Create repository</b>।", ""),
+    ("Ora sei nel tuo repository. Sopra l'elenco dei file clicca il bottone <b>Add file</b> e poi <b>Create new file</b>.",
+     "<b>Add file</b> &rarr; <b>Create new file</b>।", ""),
+    ("In alto c'è un riquadro <b>piccolo</b> per il nome del file. Premi il bottone giallo qui sotto, clicca nel riquadro piccolo e premi <b>Ctrl + V</b>: compare <b>index.html</b>.",
+     "হলুদ বোতাম চাপো, উপরের ছোট বাক্সে <b>Ctrl + V</b>: <b>index.html</b>।", "n2"),
+    ("Premi il bottone giallo <b>COPIA CODICE 1</b> qui sotto. Poi clicca nel riquadro <b>GRANDE</b> (bianco, sotto il nome) e premi <b>Ctrl + V</b>.",
+     "হলুদ <b>COPIA CODICE 1</b> চাপো, বড় বাক্সে <b>Ctrl + V</b>।", "h"),
+    ("Nel codice, alla <b>riga 10</b>, c'è <b>Ciao, sono Leo</b>. Cancella <b>Leo</b> e scrivi il <b>tuo nome</b>.",
+     "লাইন ১০-এ <b>Leo</b> মুছে <b>তোমার নাম</b> লেখো।", ""),
+    ("<b>In alto a destra</b> clicca il bottone <b>VERDE</b> <b>Commit changes...</b>. Si apre una finestra: clicca di nuovo il verde <b>Commit changes</b>. Primo file fatto, <b>BRAVO!</b>",
+     "সবুজ <b>Commit changes...</b> &rarr; আবার সবুজ <b>Commit changes</b>। দারুণ!", ""),
+    ("Di nuovo il bottone <b>Add file</b> (sopra l'elenco dei file) e poi <b>Create new file</b>.",
+     "আবার <b>Add file</b> &rarr; <b>Create new file</b>।", ""),
+    ("Premi il bottone giallo qui sotto, clicca nel riquadro <b>piccolo</b> del nome e premi <b>Ctrl + V</b>: compare <b>style.css</b>.",
+     "হলুদ বোতাম চাপো, ছোট বাক্সে <b>Ctrl + V</b>: <b>style.css</b>।", "n3"),
+    ("Premi il bottone giallo <b>COPIA CODICE 2</b> qui sotto. Poi clicca nel riquadro <b>GRANDE</b> e premi <b>Ctrl + V</b>.",
+     "হলুদ <b>COPIA CODICE 2</b> চাপো, বড় বাক্সে <b>Ctrl + V</b>।", "c"),
+    ("<b>In alto a destra</b> il verde <b>Commit changes...</b>, poi di nuovo il verde <b>Commit changes</b>. Secondo file fatto!",
+     "সবুজ <b>Commit changes...</b> &rarr; আবার <b>Commit changes</b>।", ""),
+    ("In alto, nella fila di schede del repository (Code, Issues, ...), clicca l'ultima a destra: <b>Settings</b> (con l'ingranaggio). Se non la vedi, clicca i <b>tre puntini ...</b> e poi <b>Settings</b>.",
+     "উপরে শেষ ট্যাব <b>Settings</b> (না দেখলে <b>...</b>)।", ""),
+    ("Nel menu <b>a sinistra</b> clicca <b>Pages</b>.",
+     "বাঁদিকের মেনুতে <b>Pages</b>।", ""),
+    ("Sotto la scritta <b>Branch</b> c'è un bottone con scritto <b>None</b>: cliccalo e scegli <b>main</b>. Poi clicca <b>Save</b> lì accanto.",
+     "<b>Branch</b>-এর নিচে <b>None</b> &rarr; <b>main</b> &rarr; <b>Save</b>।", ""),
+    ("Aspetta <b>2 minuti</b>. Poi su questa pagina premi <b>Ctrl + F5</b>: se il tuo PC diventa <b>VERDE</b> il sito è online e qui sotto appare il tuo link!",
+     "<b>২ মিনিট</b> অপেক্ষা, তারপর <b>Ctrl + F5</b>: PC <b>সবুজ</b> হলে সাইট অনলাইন!", ""),
+    ("<b>Fallo tuo</b>: su GitHub clicca <b>index.html</b>, poi la <b>matita</b> in alto a destra. Scrivi le <b>TUE</b> passioni e il <b>TUO</b> sogno. Poi verde <b>Commit changes</b> (2 volte).",
+     "<b>নিজের মতো করো</b>: <b>index.html</b> &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; <b>Commit changes</b> (২ বার)।", ""),
     ("Su <b>Classroom</b> apri il compito e premi solo il bottone <b>Consegna</b>. Link, codice e screenshot li prende il professore dal tuo sito: tu non devi scrivere niente. Poi il professore ti fa qualche domanda.",
-     "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। লিংক, কোড ও স্ক্রিনশট শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
+     "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। বাকিটা শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
-INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 14,
-          "28": 9, "29": 1, "32": 1, "33": 5, "34": 5, "35": 14, "36": 14, "37": 14}
-NOTE = {"12": "I tuoi file giusti sono nel repository <b>mio-sito1</b>: fai questo passo dentro <b>mio-sito1</b>.",
-        "18": "Nel tuo repository c'è solo il README: manca questo passo.",
-        "29": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
-        "32": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
+INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "24": 1, "25": 1, "26": 19, "27": 19,
+          "28": 1, "29": 1, "32": 1, "33": 1, "34": 1, "35": 19, "36": 19, "37": 19}
+NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
+        "18": "Il tuo repository <b>mio-sito</b> c'è già (con solo il README): aprilo su GitHub e parti da qui.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
@@ -199,11 +207,11 @@ def postazioni_semplici_html():
             "body.focus .w>*:not(.mia){display:none!important}#tuttapagina{display:none;background:#7a8794;width:auto}body.focus #tuttapagina{display:inline-block}</style>"
             "<div>%s</div><button id='tuttapagina' onclick='tutta()'>Torna alla pagina completa</button>"
             "<div id='passo'><div class='pnum' id='pnum'></div><div class='barra'><div id='pbar'></div></div><div id='pbene'></div><div id='pnota'></div>"
-            "<div class='ptesto' id='ptesto'></div><div id='pcopia'></div>"
+            "<div class='ptesto' id='ptesto'></div><div id='pcopia'></div><span id='n1' hidden>mio-sito</span><span id='n2' hidden>index.html</span><span id='n3' hidden>style.css</span>"
             "<button class='avanti' onclick='muovi(1)'>FATTO &rarr; passo dopo</button> <button class='indietro' onclick='muovi(-1)'>&larr; passo prima</button>"
             "<div id='psito' style='margin-top:12px'></div></div>"
             "<script>var D=%s,PCN=null,P=0;"
-            "function chiave(){return 'passo-pc-'+PCN}"
+            "function chiave(){return 'passo2-pc-'+PCN}"
             "function pc(n){PCN=n;document.body.classList.toggle('bn',n=='14');document.querySelectorAll('.pcb').forEach(function(b){b.classList.toggle('on',b.textContent=='PC '+n)});"
             "document.body.classList.add('focus');document.getElementById('passo').style.display='block';"
             "var s=null;try{s=localStorage.getItem(chiave())}catch(e){}P=s?parseInt(s):((D.inizio[n]||1)-1);"
@@ -213,17 +221,17 @@ def postazioni_semplici_html():
             "document.getElementById('pbar').style.width=Math.round((P+1)*100/D.passi.length)+'%%';"
             "document.getElementById('ptesto').innerHTML=t[0]+(PCN=='14'?'<div class=\"pbn\">'+t[1]+'</div>':'');"
             "var no=D.note[PCN];document.getElementById('pnota').innerHTML=no&&(P+1)==(D.inizio[PCN]||1)?'<div class=\"nota2\">'+no+'</div>':'';"
-            "document.getElementById('pcopia').innerHTML=t[2]?'<button class=\"cpb\" onclick=\"copiaCodice(\\''+t[2]+'\\',this)\">COPIA CODICE '+(t[2]=='h'?'1 (index.html)':'2 (style.css)')+'</button>':'';"
+            "document.getElementById('pcopia').innerHTML=t[2]?'<button class=\"cpb\" onclick=\"copiaCodice(\\''+t[2]+'\\',this)\">'+({h:'COPIA CODICE 1 (index.html)',c:'COPIA CODICE 2 (style.css)',n1:'COPIA IL NOME: mio-sito',n2:'COPIA IL NOME: index.html',n3:'COPIA IL NOME: style.css'})[t[2]]+'</button>':'';"
             "window.scrollTo(0,0)}"
             "function muovi(d){P=Math.max(0,Math.min(D.passi.length-1,P+d));try{localStorage.setItem(chiave(),P)}catch(e){}disegna()}"
-            "function copiaCodice(id,b){var t=document.getElementById(id).textContent;function ok(){b.textContent='COPIATO! Ora Ctrl + V nel Blocco note'}"
+            "function copiaCodice(id,b){var t=document.getElementById(id).textContent;function ok(){b.textContent='COPIATO! Ora clicca nel riquadro e premi Ctrl + V'}"
             "if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()})}else{fb(t);ok()}}"
             "function tutta(){document.body.classList.remove('focus');document.getElementById('passo').style.display='none'}"
             "function controllaUno(u){fetch('https://api.github.com/users/'+u+'/repos?per_page=100').then(function(r){return r.json()}).then(function(d){"
             "if(!d.filter)return;var pg=d.filter(function(r){return r.has_pages});var el=document.getElementById('psito');"
             "if(pg.length){var r0=pg.filter(function(r){return /mio/i.test(r.name)})[0]||pg[0];var url='https://'+u.toLowerCase()+'.github.io/'+r0.name+'/';"
             "el.innerHTML='<b style=\"color:#2f9e57;font-size:20px\">IL TUO SITO È ONLINE:</b><a target=\"_blank\" href=\"'+url+'\" style=\"display:block;background:#2f9e57;color:#fff;font-size:20px;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;text-align:center;margin-top:6px;word-break:break-all\">'+url+'</a>';"
-            "if(P<13){P=13;disegna()}}}).catch(function(){})}"
+            "if(P<18){P=18;disegna()}}}).catch(function(){})}"
             "function colori(){var us=[].slice.call(document.querySelectorAll('.pcb')).map(function(b){return b.getAttribute('data-u')}).filter(function(u){return u});"
             "if(!us.length)return;fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(us.map(function(u){return 'user:'+u}).join(' '))).then(function(r){return r.json()}).then(function(j){"
             "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
