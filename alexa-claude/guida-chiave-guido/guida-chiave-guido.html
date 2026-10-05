@@ -3,13 +3,11 @@
 h1{font-size:17pt;color:#1f3a5f;border-bottom:2px solid #1f3a5f;padding-bottom:4px}h2{font-size:12.5pt;color:#1f3a5f;margin-top:16px;break-after:avoid}
 code{background:#eef2f7;padding:1px 4px;border-radius:3px;font-size:9.5pt}ol{padding-left:22px}li{margin:3px 0}
 p:first-of-type{color:#555}</style></head><body><h1>Chiave API Claude per la skill Alexa di Nicola</h1>
-<p><b>Versione 1.0</b> (29/09/2026) · Guida per Guido · tempo richiesto: circa 5 minuti</p>
+<p><b>Versione 1.1</b> (05/10/2026) · Guida per Guido · tempo richiesto: circa 5 minuti</p>
 <h2>01 Cosa serve e perché</h2>
-<p>Nicola ha una skill Alexa personale (progetto <code>alexa-claude</code>) che manda le domande dette a voce a Claude e fa leggere la risposta all&#x27;Echo. Per parlare con Claude un programma esterno usa l&#x27;API di Anthropic, che si paga a consumo e richiede una chiave API. Nicola non ha credito sulla Console; la tua organizzazione sì.</p>
+<p>Nicola ha una skill Alexa personale, &quot;Amichetto Claudio&quot; (progetto <code>alexa-claude</code>), già funzionante: oggi risponde con Gemini (chiave gratuita), e per passare a Claude basta cambiare una riga di configurazione. Per parlare con Claude un programma esterno usa l&#x27;API di Anthropic, che si paga a consumo e richiede una chiave API. Nicola non ha credito sulla Console; la tua organizzazione sì.</p>
 <ol><li>
-Consumo previsto: circa un centesimo di dollaro a domanda (stima; risposte
- brevi, modello <code>claude-opus-5-5</code> a sforzo basso). Cento domande al mese: circa
- un dollaro.
+Consumo previsto: circa un centesimo di dollaro a domanda (stima; risposte brevi, modello <code>claude-opus-5-5</code> a sforzo basso). Cento domande al mese: circa un dollaro.
 </li><li>
 Uso: solo personale, un solo account Amazon, skill non pubblicata.
 </li></ol>
@@ -23,8 +21,7 @@ Menu Settings, voce Workspaces, bottone &quot;Create Workspace&quot;.
 </li><li>
 Nome: <code>alexa-nicola</code>.
 </li><li>
-Nelle impostazioni del workspace imposta un limite di spesa mensile basso
- (per esempio 5 dollari).
+Nelle impostazioni del workspace imposta un limite di spesa mensile basso (per esempio 5 dollari).
 </li></ol>
 </li><li>
 Crea la chiave.
@@ -40,15 +37,11 @@ Copia la chiave (inizia con <code>sk-ant-</code>): la Console la mostra una volt
 </li></ol>
 <h2>03 Come consegnarla a Nicola (importante)</h2>
 <ol><li>
-La chiave <b>non va messa nel repository</b> su GitHub, né in chiaro in chat di
- gruppo: chi la vede può spendere il credito.
+La chiave <b>non va messa nel repository</b> su GitHub, né in chiaro in chat di gruppo: chi la vede può spendere il credito.
 </li><li>
-Mandala a Nicola <b>in privato</b>, preferibilmente con un link a scadenza
- (per esempio Bitwarden Send, che usate già) oppure in un messaggio diretto che
- poi cancellate.
+Mandala a Nicola <b>in privato</b>, preferibilmente con un link a scadenza (per esempio Bitwarden Send, che usate già) oppure in un messaggio diretto che poi cancellate.
 </li><li>
-Nicola la inserisce lui nel file <code>config.js</code>, che esiste <b>solo dentro la Alexa Developer Console</b> (codice ospitato da Amazon) ed è escluso da Git
- tramite <code>.gitignore</code>. Nel repository c&#x27;è solo <code>config.example.js</code>, senza chiavi.
+Nicola la inserisce lui nel file <code>config.js</code>, che esiste <b>solo dentro la Alexa Developer Console</b> (codice ospitato da Amazon) ed è escluso da Git tramite <code>.gitignore</code>. Nel repository c&#x27;è solo <code>config.example.js</code>, senza chiavi.
 </li></ol>
 <h2>04 Cosa succede dopo, lato Nicola</h2>
 <ol><li>
@@ -59,10 +52,12 @@ Cambia <code>MODELLO: &#x27;gemini&#x27;</code> in <code>MODELLO: &#x27;claude&#
 Clicca Save e Deploy nella Alexa Developer Console.
 </li></ol>
 <h2>05 Se vuoi controllare il codice</h2>
-<p>Il codice è nel repository <code>nicolaregge-pulse/corso-informatica</code>, ramo <code>claude/alexa-claude</code>, cartella <code>alexa-claude/</code>. La chiamata all&#x27;API è in <code>lambda/ia.js</code>: SDK ufficiale <code>@anthropic-ai/sdk</code>, <code>effort: low</code>, <code>max_tokens</code> 2000, timeout 7 secondi senza nuovi tentativi, <code>fallbacks: &quot;default&quot;</code> in caso di rifiuto.</p>
+<p>Il codice è nel repository <code>nicolaregge-pulse/corso-informatica</code>, ramo <code>claude/alexa-claude</code>, cartella <code>alexa-claude/</code> (repository privato: se vuoi vederlo, Nicola ti aggiunge al repository). La chiamata all&#x27;API è in <code>lambda/ia.js</code>: richiesta HTTP diretta a <code>/v1/messages</code> (modulo <code>https</code> di Node.js, perché le skill Alexa-hosted girano su Node.js 16), modello <code>claude-opus-5-5</code>, <code>effort: low</code>, <code>max_tokens</code> 2000, timeout 7 secondi senza nuovi tentativi, <code>fallbacks: &quot;default&quot;</code> in caso di rifiuto.</p>
 <h2>06 Per bloccare tutto in qualsiasi momento</h2>
 <p>Console, menu Settings, voce API Keys: disattiva o elimina la chiave <code>alexa-nicola</code>. La skill smette subito di usare Claude, senza toccare nient&#x27;altro.</p>
 <h2>CHANGELOG</h2>
 <ol><li>
+v1.1: skill già funzionante con Gemini; aggiornata la descrizione del codice (HTTP diretto invece dell&#x27;SDK, per Node.js 16).
+</li><li>
 v1.0: prima versione.
 </li></ol></body></html>

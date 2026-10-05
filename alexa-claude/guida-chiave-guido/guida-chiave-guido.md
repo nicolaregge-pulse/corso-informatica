@@ -1,11 +1,12 @@
 # Chiave API Claude per la skill Alexa di Nicola
 
-**Versione 1.0** (29/09/2026) · Guida per Guido · tempo richiesto: circa 5 minuti
+**Versione 1.1** (05/10/2026) · Guida per Guido · tempo richiesto: circa 5 minuti
 
 ## 01 Cosa serve e perché
 
-Nicola ha una skill Alexa personale (progetto `alexa-claude`) che manda le
-domande dette a voce a Claude e fa leggere la risposta all'Echo. Per parlare con
+Nicola ha una skill Alexa personale, "Amichetto Claudio" (progetto `alexa-claude`),
+già funzionante: oggi risponde con Gemini (chiave gratuita), e per passare a Claude
+basta cambiare una riga di configurazione. Per parlare con
 Claude un programma esterno usa l'API di Anthropic, che si paga a consumo e
 richiede una chiave API. Nicola non ha credito sulla Console; la tua
 organizzazione sì.
@@ -49,10 +50,12 @@ organizzazione sì.
 ## 05 Se vuoi controllare il codice
 
 Il codice è nel repository `nicolaregge-pulse/corso-informatica`, ramo
-`claude/alexa-claude`, cartella `alexa-claude/`. La chiamata all'API è in
-`lambda/ia.js`: SDK ufficiale `@anthropic-ai/sdk`, `effort: low`, `max_tokens`
-2000, timeout 7 secondi senza nuovi tentativi, `fallbacks: "default"` in caso di
-rifiuto.
+`claude/alexa-claude`, cartella `alexa-claude/` (repository privato: se vuoi vederlo, Nicola ti aggiunge
+al repository). La chiamata all'API è in
+`lambda/ia.js`: richiesta HTTP diretta a `/v1/messages` (modulo `https` di Node.js,
+perché le skill Alexa-hosted girano su Node.js 16), modello `claude-opus-5-5`,
+`effort: low`, `max_tokens` 2000, timeout 7 secondi senza nuovi tentativi,
+`fallbacks: "default"` in caso di rifiuto.
 
 ## 06 Per bloccare tutto in qualsiasi momento
 
@@ -61,4 +64,6 @@ Console, menu Settings, voce API Keys: disattiva o elimina la chiave
 
 ## CHANGELOG
 
-1. v1.0: prima versione.
+1. v1.1: skill già funzionante con Gemini; aggiornata la descrizione del codice
+   (HTTP diretto invece dell'SDK, per Node.js 16).
+2. v1.0: prima versione.
