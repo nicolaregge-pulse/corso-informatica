@@ -181,13 +181,13 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
 INIZIO = {"12": 19, "14": 19, "15": 19, "18": 19, "22": 1, "23": 19, "26": 19, "27": 19,
-          "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
+          "28": 1, "29": 15, "32": 19, "33": 15, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
         "18": "Il tuo sito giusto è nel repository <b>mio-sito12</b>: lavora lì.",
         "29": "I tuoi file <b>index.html</b> e <b>style.css</b> sono già su GitHub, con il tuo nome: <b>BRAVO!</b> Manca solo accendere il sito (Pages).",
         "32": "Il tuo sito è <b>ONLINE</b>, con il tuo nome: <b>BRAVO!</b> Ora fallo tuo.",
         "38": "Al PC 38 sei entrato in Windows con l'account di un compagno: va bene per oggi, ma su GitHub entra con il <b>TUO</b> account.",
-        "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
+}
 
 
 REPO = {"12": "mio-sito1", "18": "mio-sito12", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
