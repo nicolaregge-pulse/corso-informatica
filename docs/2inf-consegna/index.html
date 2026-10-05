@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consegna Indovina</title>
+<style>
+:root{--b:#1f6fa5;--v:#2f9e57;--bg:#f4f7fb;--t:#1a2330}
+:root:not([data-theme="light"]){color-scheme:light}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px}
+h1{color:#12467a;font-size:24px;margin:6px 0}#pn{font-size:20px;font-weight:800;color:#12467a;margin-top:10px}
+.barra{height:12px;background:#e3e9f0;border-radius:6px;overflow:hidden;margin:6px 0}.barra div{height:100%;background:var(--v)}
+#pt{font-size:22px;line-height:1.5;background:#fff;border:3px solid var(--b);border-radius:14px;padding:16px;margin:8px 0}
+button{font-size:20px;font-weight:700;border:0;border-radius:12px;padding:14px 18px;color:#fff;background:var(--v);cursor:pointer;margin:6px 6px 0 0}
+button.g{background:#7a8794;font-size:16px;padding:10px 14px}
+.ok{font-size:26px;font-weight:800;color:var(--v)}
+</style></head><body><div class="w">
+<h1>Consegna di Indovina il numero</h1>
+<div>Un passo alla volta: fai il passo, poi premi il bottone verde <b>FATTO</b>.</div>
+<div id="pn"></div><div class="barra"><div id="pb"></div></div><div id="pt"></div>
+<button onclick="mv(1)">FATTO &rarr; passo dopo</button><button class="g" onclick="mv(-1)">&larr; passo prima</button>
+</div>
+<script>
+var P=["Su <b>Classroom</b> apri il compito <b>Lazarus — Indovina il numero con gli if annidati</b>. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca il <b>Documento con il tuo nome</b>. <b>Non allegare altri file.</b>",
+"In <b>Lazarus</b> premi <b>F9</b>: parte il gioco. Scrivi un numero piccolo (per esempio 5) e premi <b>Prova</b> finché vedi <b>Troppo BASSO</b>.",
+"Premi insieme <b>Win + Shift + S</b> e con il mouse seleziona la finestra del gioco.",
+"Nel <b>Documento</b> clicca subito sotto <b>a) Troppo BASSO:</b> e premi <b>Ctrl + V</b>. Compare la foto del gioco.",
+"Torna al gioco: scrivi un numero grande (per esempio 95) e premi <b>Prova</b> finché vedi <b>Troppo ALTO</b>. Premi <b>Win + Shift + S</b> e seleziona la finestra.",
+"Nel Documento clicca sotto <b>b) Troppo ALTO:</b> e premi <b>Ctrl + V</b>.",
+"Torna al gioco e prova i numeri finché vedi <b>Indovinato</b>. Premi <b>Win + Shift + S</b> e seleziona la finestra.",
+"Nel Documento clicca sotto <b>c) Indovinato:</b> e premi <b>Ctrl + V</b>. Chiudi la finestra del gioco.",
+"In <b>Lazarus</b>, nel codice, seleziona con il mouse tutta la procedura <b>ButtonProvaClick</b>: dalla riga <b>procedure</b> fino al suo <b>end;</b>. Premi <b>Ctrl + C</b>.",
+"Nel Documento clicca sotto la <b>parte 2</b> (Codice del bottone Prova) e premi <b>Ctrl + V</b>.",
+"<b>Parte 3</b>: scrivi con parole tue <b>perché serve un if dentro un altro if</b> (il gioco deve fare 2 domande: è uguale? è più piccolo?).",
+"Sempre nella parte 3: scrivi <b>cosa succede se metti il ; prima di else</b> (Lazarus dà errore).",
+"<b>Parte 4</b>: scrivi cosa non sei riuscito a fare e cosa non hai capito. Va bene anche: <i>ho capito tutto</i>.",
+"Torna sulla scheda del compito su Classroom e clicca il bottone blu <b>Consegna</b>. Poi di nuovo <b>Consegna</b> nella finestra.",
+"<span class='ok'>FATTO! Hai consegnato.</span> Il professore ti farà qualche domanda sul tuo gioco."];
+var K="consegna-indovina",i=0;try{i=parseInt(localStorage.getItem(K)||"0")||0}catch(e){}
+function d(){document.getElementById("pn").textContent="Passo "+(i+1)+" di "+P.length;document.getElementById("pb").style.width=Math.round((i+1)*100/P.length)+"%";document.getElementById("pt").innerHTML=P[i]}
+function mv(x){i=Math.max(0,Math.min(P.length-1,i+x));try{localStorage.setItem(K,i)}catch(e){}d();window.scrollTo(0,0)}
+d();
+</script></body></html>
