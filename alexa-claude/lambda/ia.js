@@ -16,8 +16,9 @@ const ISTRUZIONI =
   "quattro frasi, salvo che l'utente chieda esplicitamente di più. " +
   "Latency-sensitive; begin your visible answer immediately.";
 
-// Alexa aspetta circa 8 secondi: ci fermiamo prima per poter dire qualcosa.
-const TEMPO_MASSIMO_MS = 7000;
+// Alexa aspetta circa 8 secondi in tutto (avvio della skill compreso):
+// ci fermiamo molto prima, così Alexa riesce sempre a dire qualcosa.
+const TEMPO_MASSIMO_MS = 5500;
 
 // Fa una richiesta POST con corpo JSON e restituisce la risposta JSON.
 function postJSON(url, intestazioni, corpo) {
@@ -61,23 +62,27 @@ function postJSON(url, intestazioni, corpo) {
 }
 
 async function chiediAClaude(storia) {
-  const risposta = await postJSON(
-    'https://api.anthropic.com/v1/messages',
-    {
-      'x-api-key': config.CLAUDE_API_KEY,
-      'anthropic-version': '2023-06-01',
-      // Se il modello rifiuta una richiesta, l'API riprova da sola con un altro modello.
-      'anthropic-beta': 'server-side-fallback-2026-07-01',
-    },
-    {
-      model: config.CLAUDE_MODEL,
-      max_tokens: 2000,
-      output_config: { effort: 'low' }, // risposte veloci, adatte alla voce
-      system: ISTRUZIONI,
-      messages: storia,
-      fallbacks: 'default',
-    }
-  );
+  // Haiku è il modello più veloce, ma non accetta "effort" né i "fallbacks".
+  const veloce = config.CLAUDE_MODEL.indexOf('haiku') !== -1;
+
+  const intestazioni = {
+    'x-api-key': config.CLAUDE_API_KEY,
+    'anthropic-version': '2023-06-01',
+  };
+  const corpo = {
+    model: config.CLAUDE_MODEL,
+    max_tokens: veloce ? 500 : 2000,
+    system: ISTRUZIONI,
+    messages: storia,
+  };
+  if (!veloce) {
+    corpo.output_config = { effort: 'low' }; // risposte veloci, adatte alla voce
+    // Se il modello rifiuta una richiesta, l'API riprova da sola con un altro modello.
+    intestazioni['anthropic-beta'] = 'server-side-fallback-2026-07-01';
+    corpo.fallbacks = 'default';
+  }
+
+  const risposta = await postJSON('https://api.anthropic.com/v1/messages', intestazioni, corpo);
 
   if (risposta.stop_reason === 'refusal') {
     return 'Mi dispiace, a questa domanda non posso rispondere.';

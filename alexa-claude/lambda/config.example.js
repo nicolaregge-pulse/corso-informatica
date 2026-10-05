@@ -13,5 +13,5 @@ module.exports = {
 
   // Chiave Claude: da console.anthropic.com (serve credito sull'organizzazione).
   CLAUDE_API_KEY: '...',
-  CLAUDE_MODEL: 'claude-opus-5-5',
+  CLAUDE_MODEL: 'claude-haiku-4-5',
 };
