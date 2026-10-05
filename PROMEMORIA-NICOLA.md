@@ -76,3 +76,8 @@ cosa nuova, entra qui.*
    pubblicarle: si consegnano su "avanti".
 5. **Lunedì si pianifica tutta la settimana** (5–9/10) per tutte le classi.
 
+
+## 10. PPP del 05/10/2026 (in classe, 3INF)
+1. **Prossimo lavoro 3INF: 2 sottopagine** (passioni.html e sogno.html con menu): materiale già in bozza nel riquadro viola della pagina 3inf-sito; da trasformare in compito completo (schede facili a passo singolo, IT e IT-BN).
+2. **Script per generare TUTTO in automatico**: un solo comando che rigenera schede, pagina unica, postazioni, controlli dei siti (raw GitHub), schede di verifica e quadro della classe, senza passaggi a mano.
+3. **Comando "Chiudi classe 3 INF"** (RIFERIMENTI §2.30) dopo la raccolta delle 10:55.
