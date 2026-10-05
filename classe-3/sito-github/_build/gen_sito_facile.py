@@ -138,6 +138,34 @@ def main():
                  "<li><b>Custom domain: NON scrivere niente.</b> Non serve, non si paga niente.</li>"
                  "<li>Aspetta 2 minuti, premi F5: in alto <b>Your site is live</b> &rarr; <b>Visit site</b>. Indirizzo: <b>https://TUONOME.github.io/mio-sito/</b></li></ol>"
                  "<p style='font-size:16px;color:#1d4d2f'>Settings &rarr; Pages &rarr; Branch: main &rarr; Save. <b>Custom domain: কিছুই লিখবে না, খালি রাখো।</b> ২ মিনিট পরে F5 &rarr; Visit site।</p></div>")
+    PROB = [("Il sito dice <b>404</b> / <b>There isn't a GitHub Pages site here</b>",
+             "Settings &rarr; Pages: sotto <b>Branch</b> deve esserci <b>main</b> (non None) e devi aver premuto <b>Save</b>. Poi aspetta 2 minuti e premi Ctrl + F5.",
+             "Settings &rarr; Pages: <b>Branch</b>-এ <b>main</b> থাকতে হবে (None নয়) এবং <b>Save</b> চাপতে হবে। তারপর ২ মিনিট অপেক্ষা করে Ctrl + F5।"),
+            ("Il sito mostra solo la scritta <b>mio-sito</b>",
+             "GitHub mostra il README perché manca <b>index.html</b>. Nel repository: <b>Add file &rarr; Upload files</b> e carica <b>index.html</b> e <b>style.css</b> (i file, non la cartella).",
+             "README দেখাচ্ছে কারণ <b>index.html</b> নেই। <b>Add file &rarr; Upload files</b> দিয়ে <b>index.html</b> ও <b>style.css</b> আপলোড করো (ফাইল, ফোল্ডার নয়)।"),
+            ("Non vedo il bottone <b>Add file</b>",
+             "Hai creato il repository senza README: al centro della pagina clic sul link blu <b>uploading an existing file</b>.",
+             "README ছাড়া repository বানিয়েছ: পেজের মাঝখানে নীল লিংক <b>uploading an existing file</b>-এ ক্লিক করো।"),
+            ("Non trovo <b>Settings</b>",
+             "La finestra è stretta: in alto a destra clic su <b>More &#9662;</b> (o <b>...</b>) e poi <b>Settings</b>.",
+             "জানালা ছোট: উপরে ডানদিকে <b>More &#9662;</b> (বা <b>...</b>), তারপর <b>Settings</b>।"),
+            ("GitHub chiede un <b>Custom domain</b>",
+             "<b>Lascialo vuoto.</b> Non serve e non si paga niente: il tuo indirizzo gratis è https://TUONOME.github.io/mio-sito/",
+             "<b>খালি রাখো।</b> দরকার নেই, টাকা লাগে না: তোমার ফ্রি ঠিকানা https://TUONOME.github.io/mio-sito/"),
+            ("Ho chiamato il repository <b>mio_sito</b> o in un altro modo",
+             "Va bene lo stesso: cambia solo l'indirizzo, che diventa https://TUONOME.github.io/NOME-DEL-REPOSITORY/",
+             "চলবে: শুধু ঠিকানা বদলায়: https://TUONOME.github.io/REPOSITORY-এর-নাম/"),
+            ("Non ricordo la password di GitHub",
+             "Pagina di accesso &rarr; <b>Forgot password?</b> &rarr; scrivi la tua email della scuola &rarr; apri la mail e crea una password nuova. Scrivila sul quaderno.",
+             "লগইন পেজে <b>Forgot password?</b> &rarr; স্কুলের ইমেল লেখো &rarr; মেইল খুলে নতুন পাসওয়ার্ড বানাও। খাতায় লিখে রাখো।"),
+            ("Vedo il codice invece della pagina, oppure è senza colori",
+             "Il file è salvato come .txt, oppure style.css ha un nome diverso. Risalva con <b>Tutti i file</b> e nomi tutti minuscoli: index.html e style.css.",
+             "ফাইল .txt হয়ে গেছে, বা style.css-এর নাম আলাদা। <b>Tutti i file</b> বেছে আবার সেভ করো, ছোট হাতের নাম: index.html ও style.css।")]
+    righe = "".join("<tr><td style='padding:8px;border-bottom:1px solid #e3e9f0;vertical-align:top;width:34%%'><b>%s</b></td>"
+                    "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
+    G.FACILE += ("<div class='box' style='border:3px solid #d0a516'><h2 style='color:#8a6d00'>PROBLEMI? Le soluzioni (dai problemi di oggi)</h2>"
+                 "<table style='width:100%%;border-collapse:collapse;font-size:16px'>%s</table></div>" % righe)
     G2.main()
 
 
