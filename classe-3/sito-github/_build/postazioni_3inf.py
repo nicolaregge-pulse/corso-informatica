@@ -55,8 +55,10 @@ PC = {
     "28": ("", "hai già aperto il compito e il Documento.",
            ["Apri la <b>scheda facile 1</b> e fai il <b>passo 1</b> adesso: la cartella mio-sito.",
             "Poi un passo alla volta: ce la fai!"], ""),
-    "29": ("", "hai già aperto il compito e il Documento.",
+    "29": ("simonegiaramidaro", "hai caricato index.html e style.css su GitHub con il tuo nome.",
            ["Chiudi le altre pagine.", "Apri la <b>scheda facile 1</b>: passo 1, la cartella mio-sito."], ""),
+    "32": ("gabrielerovito", "il tuo sito è online, con il tuo nome: ce l'hai fatta!",
+           ["Accendi il sito: Settings &rarr; Pages &rarr; main &rarr; Save."], ""),
     "35": ("denisandronache", "hai caricato i file su GitHub tra i primi della classe.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
@@ -179,9 +181,11 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
 INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "24": 1, "25": 1, "26": 19, "27": 19,
-          "28": 1, "29": 1, "32": 1, "33": 1, "34": 1, "35": 19, "36": 19, "37": 19}
+          "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
         "18": "Il tuo repository <b>mio-sito</b> c'è già (con solo il README): aprilo su GitHub e parti da qui.",
+        "29": "I tuoi file <b>index.html</b> e <b>style.css</b> sono già su GitHub, con il tuo nome: <b>BRAVO!</b> Manca solo accendere il sito (Pages).",
+        "32": "Il tuo sito è <b>ONLINE</b>, con il tuo nome: <b>BRAVO!</b> Ora fallo tuo.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
