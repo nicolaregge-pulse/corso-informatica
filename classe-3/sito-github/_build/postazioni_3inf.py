@@ -49,9 +49,9 @@ PC = {
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Fallo tuo</b>: passioni e sogno sono ancora quelli dell'esempio. Su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi i tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "27": ("", "vai avanti con la scheda anche senza account: bravo.",
-           ["Finisci la <b>scheda facile 1</b>: la pagina sul tuo computer.",
-            "Il tuo account è in recupero: appena funziona, fai la <b>scheda facile 2</b>."], ""),
+    "27": ("3infpiamartauser1", "hai recuperato l'account e pubblicato il tuo sito: bravo!",
+           ["<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; passioni e sogno <b>tuoi</b> &rarr; <b>Commit changes</b>.",
+            "Poi il Documento del compito: 1) il link del sito, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot. Poi <b>Consegna</b>."], ""),
     "28": ("", "hai già aperto il compito e il Documento.",
            ["Apri la <b>scheda facile 1</b> e fai il <b>passo 1</b> adesso: la cartella mio-sito.",
             "Poi un passo alla volta: ce la fai!"], ""),
@@ -168,11 +168,10 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c")
      "<b>Classroom</b>-এ কাজ খোলো, Documento-তে <b>সাইটের লিংক</b> দাও, <b>Consegna</b> চাপো।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
-INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 9,
+INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 14,
           "28": 9, "29": 1, "32": 1, "33": 5, "34": 5, "35": 14, "36": 14, "37": 14}
 NOTE = {"12": "I tuoi file giusti sono nel repository <b>mio-sito1</b>: fai questo passo dentro <b>mio-sito1</b>.",
         "18": "Nel tuo repository c'è solo il README: manca questo passo.",
-        "27": "Entra con l'account <b>3infpiamartauser1@gmail.com</b>. Se non hai ancora GitHub: <b>Sign up</b> con questa email.",
         "29": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
         "32": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
