@@ -6,15 +6,15 @@ chi ha il sito online lo vede subito (link cliccabile + anteprima, trovati in au
 quando un ragazzo sceglie il suo PC la pagina mostra SOLO il suo riquadro (niente cose generiche che confondono).
 Sulla pagina pubblica NON ci sono nomi di allievi: solo il numero del PC (e il nome utente GitHub, già pubblico nel sito).
 """
-AGGIORNATO = "09:15"
+AGGIORNATO = "09:30"
 
 # PC: (nome utente GitHub o "", fatto bene, [passi da fare], testo in bengali o "")
 PC = {
-    "12": ("alessandroamiciPIA", "hai già creato il repository e caricato dei file: hai capito come si pubblica.",
-           ["Su GitHub hai <b>3 repository</b>: usa solo quello che si chiama <b>mio-sito</b>.",
-            "Dentro <b>mio-sito</b> clic su <b>Add file</b> &rarr; <b>Upload files</b> e carica <b>index.html</b> e <b>style.css</b> (i file, non la cartella). Bottone verde <b>Commit changes</b>.",
-            "<b>Settings</b> &rarr; a sinistra <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Custom domain: lascia vuoto.",
-            "Aspetta 2 minuti, poi torna qui e premi Ctrl + F5: qui sotto vedrai il tuo sito."], ""),
+    "12": ("alessandroamiciPIA", "hai caricato index.html e style.css su GitHub: hai capito come si pubblica.",
+           ["I tuoi file giusti sono nel repository <b>mio-sito1</b>. Negli altri (mio-sito, mio---sito) c'è solo il README: per questo vedi 404 o la scritta \"mio-sito\".",
+            "Apri il repository <b>mio-sito1</b> &rarr; <b>Settings</b> &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
+            "Dopo 2 minuti il tuo sito sarà su <b>.../mio-sito1/</b>: mettilo nel Documento.",
+            "<b>Fallo tuo</b>: passioni e sogno sono ancora quelli dell'esempio (index.html &rarr; matita &rarr; Commit changes)."], ""),
     "14": ("rafiforhad", "hai creato il tuo repository su GitHub.",
            ["Nel repository clic su <b>Add file</b> &rarr; <b>Upload files</b>.",
             "Trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito. Bottone verde <b>Commit changes</b>.",
@@ -26,10 +26,10 @@ PC = {
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "18": ("danisaracino", "hai recuperato: ora lavori su GitHub con il tuo repository.",
-           ["Nel repository <b>mio-sito</b>: <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>).",
-            "A sinistra <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Custom domain: lascia vuoto.",
-            "Aspetta 2 minuti, poi torna qui e premi Ctrl + F5: qui sotto vedrai il tuo sito. Ci sei quasi!"], ""),
+    "18": ("danisaracino", "hai creato il repository e attivato Pages: manca solo un passo.",
+           ["Nel repository <b>mio-sito</b> c'è <b>solo il README</b>: per questo il sito dà 404.",
+            "Clic su <b>Aggiungi file</b> (Add file) &rarr; <b>Carica file</b> (Upload files) &rarr; trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito &rarr; bottone verde <b>Commit changes</b>.",
+            "Aspetta 2 minuti e premi Ctrl + F5 su questa pagina: il riquadro qui sotto diventa verde."], ""),
     "22": ("", "stai salvando i file nella cartella giusta.",
            ["Salva <b>index.html</b> e <b>style.css</b> nella cartella <b>mio-sito</b> (Salva come: <b>Tutti i file</b>).",
             "Doppio clic su index.html: la tua pagina si apre nel browser.",
