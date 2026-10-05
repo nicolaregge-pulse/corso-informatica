@@ -55,7 +55,7 @@ function mostra(){salva();var L=leggi(),h="",tl="";
   L.forEach(function(x,i){if(x.u=="-"){h+='<div class="card no" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="st"><b style="color:#c0392b">Nessun sito</b>: non ha ancora un repository su GitHub (o non conosco il suo nome utente). Cosa fare: scheda facile 1, poi scheda facile 2.</div></div></div>';return}
    h+='<div class="card" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="u">GitHub: '+esc(x.u)+'</div>'
    +'<a href="'+esc(x.url)+'" target="_blank" id="a'+i+'">'+esc(x.url)+'</a><a href="https://github.com/'+esc(x.u)+'" target="_blank" style="font-weight:400">profilo GitHub</a>'
-   +'<div class="st" id="s'+i+'">controllo su GitHub in corso...</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'"></iframe></div></div>'});
+   +'<div class="st" id="s'+i+'">controllo su GitHub in corso...</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'?v='+Date.now()+'"></iframe></div></div>'});
   document.getElementById("griglia").innerHTML=h;document.getElementById("cont").textContent=L.length+" ragazzi"}
 function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
   L.forEach(function(x,i){
@@ -67,7 +67,7 @@ function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
       var conPages=d.filter(function(r){return r.has_pages}),tutti=d.map(function(r){return r.name});
       if(conPages.length){var r0=conPages.filter(function(r){return /mio/i.test(r.name)})[0]||conPages[0];
         var url=/\.github\.io$/i.test(r0.name)?"https://"+r0.name.toLowerCase()+"/":"https://"+x.u.toLowerCase()+".github.io/"+r0.name+"/";
-        var a=document.getElementById("a"+i);a.href=url;a.textContent=url;c.querySelector("iframe").src=url;
+        var a=document.getElementById("a"+i);a.href=url;a.textContent=url;c.querySelector("iframe").src=url+"?v="+Date.now();
         c.classList.add("ok");tile(i,"ok");pubbl++;s.innerHTML="<b style='color:#2f9e57'>PUBBLICATO</b> (repository "+esc(r0.name)+")"}
       else if(tutti.length){c.classList.add("forse");tile(i,"forse");s.innerHTML="<b style='color:#a07c00'>Repository creato ma sito NON attivo</b> ("+esc(tutti.join(", "))+"): COSA NON VA: manca Settings &rarr; Pages &rarr; main &rarr; Save (o lo ha appena fatto: aspettare 2 minuti)"}
       else{c.classList.add("no");s.innerHTML="<b style='color:#c0392b'>Nessun repository</b>: non ha ancora iniziato su GitHub"}

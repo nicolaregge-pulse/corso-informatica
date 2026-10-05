@@ -118,7 +118,7 @@ def postazioni_html():
             "var x=document.querySelector('#pc'+n+' .bnx');if(x)x.innerHTML='<b>নিজের মতো করো</b>: index.html &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; Commit changes। তারপর Documento পূরণ করে Consegna।'}"
             "s.innerHTML=(ok?'<b style=\"color:#2f9e57\">Il tuo sito è ONLINE.</b> Clicca per aprirlo, o copia il link nel Documento (parte 1):':"
             "'<b style=\"color:#a07c00\">Il sito non è ancora attivo</b> (manca Settings &rarr; Pages &rarr; main &rarr; Save, oppure aspetta 2 minuti). Il tuo indirizzo sarà:')"
-            "+'<a class=\"vai\" target=\"_blank\" href=\"'+url+'\">'+url+'</a>'+(ok?'<iframe loading=\"lazy\" src=\"'+url+'\"></iframe>':'')}"
+            "+'<a class=\"vai\" target=\"_blank\" href=\"'+url+'\">'+url+'</a>'+(ok?'<iframe loading=\"lazy\" src=\"'+url+'?v='+Date.now()+'\"></iframe>':'')}"
             "function cercaSito(n,u){var dflt='https://'+u.toLowerCase()+'.github.io/mio-sito/';"
             "fetch('https://api.github.com/users/'+u+'/repos?per_page=100').then(function(r){return r.json()}).then(function(d){"
             "if(!d.filter){mostraSito(n,dflt,false);return}var pg=d.filter(function(r){return r.has_pages});"
