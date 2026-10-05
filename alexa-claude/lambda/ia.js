@@ -1,7 +1,11 @@
 // ia.js — manda la domanda al modello scelto (Claude o Gemini) e restituisce
 // il testo della risposta, già pronto da far leggere ad Alexa.
+//
+// Usa il modulo "https" incluso in Node.js (niente librerie esterne), perché le
+// skill ospitate da Alexa possono girare su versioni di Node.js vecchie (16),
+// dove l'SDK ufficiale di Anthropic e "fetch" non sono disponibili.
 
-const Anthropic = require('@anthropic-ai/sdk');
+const https = require('https');
 const config = require('./config');
 
 // Istruzioni fisse per il modello: risposte brevi, parlate, in italiano.
@@ -15,33 +19,71 @@ const ISTRUZIONI =
 // Alexa aspetta circa 8 secondi: ci fermiamo prima per poter dire qualcosa.
 const TEMPO_MASSIMO_MS = 7000;
 
-let clientClaude = null;
+// Fa una richiesta POST con corpo JSON e restituisce la risposta JSON.
+function postJSON(url, intestazioni, corpo) {
+  return new Promise((risolvi, rifiuta) => {
+    const dati = JSON.stringify(corpo);
+    const richiesta = https.request(
+      url,
+      {
+        method: 'POST',
+        headers: Object.assign(
+          { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(dati) },
+          intestazioni
+        ),
+        timeout: TEMPO_MASSIMO_MS,
+      },
+      (risposta) => {
+        let testo = '';
+        risposta.setEncoding('utf8');
+        risposta.on('data', (pezzo) => (testo += pezzo));
+        risposta.on('end', () => {
+          if (risposta.statusCode < 200 || risposta.statusCode >= 300) {
+            return rifiuta(new Error('Errore ' + risposta.statusCode + ' da ' + url + ': ' + testo));
+          }
+          try {
+            risolvi(JSON.parse(testo));
+          } catch (e) {
+            rifiuta(e);
+          }
+        });
+      }
+    );
+    richiesta.on('timeout', () => {
+      const errore = new Error('timeout');
+      errore.name = 'TimeoutError';
+      richiesta.destroy(errore);
+    });
+    richiesta.on('error', rifiuta);
+    richiesta.write(dati);
+    richiesta.end();
+  });
+}
 
 async function chiediAClaude(storia) {
-  if (!clientClaude) {
-    clientClaude = new Anthropic({
-      apiKey: config.CLAUDE_API_KEY,
-      timeout: TEMPO_MASSIMO_MS,
-      maxRetries: 0, // niente tentativi ripetuti: il tempo di Alexa è poco
-    });
-  }
-
-  const risposta = await clientClaude.beta.messages.create({
-    model: config.CLAUDE_MODEL,
-    max_tokens: 2000,
-    output_config: { effort: 'low' }, // risposte veloci, adatte alla voce
-    system: ISTRUZIONI,
-    messages: storia,
-    // Se il modello rifiuta una richiesta, l'API riprova da sola con un altro modello.
-    betas: ['server-side-fallback-2026-07-01'],
-    fallbacks: 'default',
-  });
+  const risposta = await postJSON(
+    'https://api.anthropic.com/v1/messages',
+    {
+      'x-api-key': config.CLAUDE_API_KEY,
+      'anthropic-version': '2023-06-01',
+      // Se il modello rifiuta una richiesta, l'API riprova da sola con un altro modello.
+      'anthropic-beta': 'server-side-fallback-2026-07-01',
+    },
+    {
+      model: config.CLAUDE_MODEL,
+      max_tokens: 2000,
+      output_config: { effort: 'low' }, // risposte veloci, adatte alla voce
+      system: ISTRUZIONI,
+      messages: storia,
+      fallbacks: 'default',
+    }
+  );
 
   if (risposta.stop_reason === 'refusal') {
     return 'Mi dispiace, a questa domanda non posso rispondere.';
   }
 
-  return risposta.content
+  return (risposta.content || [])
     .filter((blocco) => blocco.type === 'text')
     .map((blocco) => blocco.text)
     .join(' ')
@@ -54,33 +96,23 @@ async function chiediAGemini(storia) {
     encodeURIComponent(config.GEMINI_MODEL) +
     ':generateContent';
 
-  const corpo = {
-    systemInstruction: { parts: [{ text: ISTRUZIONI }] },
-    // Gemini chiama "model" quello che Claude chiama "assistant".
-    contents: storia.map((m) => ({
-      role: m.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: m.content }],
-    })),
-    generationConfig: { maxOutputTokens: 1000 },
-  };
+  const dati = await postJSON(
+    url,
+    { 'x-goog-api-key': config.GEMINI_API_KEY },
+    {
+      systemInstruction: { parts: [{ text: ISTRUZIONI }] },
+      // Gemini chiama "model" quello che Claude chiama "assistant".
+      contents: storia.map((m) => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: m.content }],
+      })),
+      generationConfig: { maxOutputTokens: 1000 },
+    }
+  );
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-goog-api-key': config.GEMINI_API_KEY,
-    },
-    body: JSON.stringify(corpo),
-    signal: AbortSignal.timeout(TEMPO_MASSIMO_MS),
-  });
-
-  if (!res.ok) {
-    throw new Error('Gemini ha risposto con errore ' + res.status + ': ' + (await res.text()));
-  }
-
-  const dati = await res.json();
-  const parti = dati.candidates?.[0]?.content?.parts ?? [];
-  return parti.map((p) => p.text ?? '').join(' ').trim();
+  const candidato = (dati.candidates || [])[0];
+  const parti = (candidato && candidato.content && candidato.content.parts) || [];
+  return parti.map((p) => p.text || '').join(' ').trim();
 }
 
 // Toglie i simboli che Alexa leggerebbe male (asterischi, cancelletti, ecc.).
