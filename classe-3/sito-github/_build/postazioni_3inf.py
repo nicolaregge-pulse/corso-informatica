@@ -180,7 +180,7 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
      "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। বাকিটা শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
-INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "24": 1, "25": 1, "26": 19, "27": 19,
+INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "26": 19, "27": 19,
           "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
         "18": "Il tuo repository <b>mio-sito</b> c'è già (con solo il README): aprilo su GitHub e parti da qui.",
