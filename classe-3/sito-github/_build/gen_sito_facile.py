@@ -137,7 +137,7 @@ def main():
                  "<li>Sotto <b>Branch</b> clic su <b>None</b> &rarr; scegli <b>main</b> &rarr; <b>Save</b>.</li>"
                  "<li><b>Custom domain: NON scrivere niente.</b> Non serve, non si paga niente.</li>"
                  "<li>Aspetta 2 minuti, premi F5: in alto <b>Your site is live</b> &rarr; <b>Visit site</b>. Indirizzo: <b>https://TUONOME.github.io/mio-sito/</b></li></ol>"
-                 "<p style='font-size:16px;color:#1d4d2f'>Settings &rarr; Pages &rarr; Branch: main &rarr; Save. <b>Custom domain: কিছুই লিখবে না, খালি রাখো।</b> ২ মিনিট পরে F5 &rarr; Visit site।</p></div>")
+                 "<p class='solobn' style='font-size:16px;color:#1d4d2f'>Settings &rarr; Pages &rarr; Branch: main &rarr; Save. <b>Custom domain: কিছুই লিখবে না, খালি রাখো।</b> ২ মিনিট পরে F5 &rarr; Visit site।</p></div>")
     PROB = [("Il sito dice <b>404</b> / <b>There isn't a GitHub Pages site here</b>",
              "Settings &rarr; Pages: sotto <b>Branch</b> deve esserci <b>main</b> (non None) e devi aver premuto <b>Save</b>. Poi aspetta 2 minuti e premi Ctrl + F5.",
              "Settings &rarr; Pages: <b>Branch</b>-এ <b>main</b> থাকতে হবে (None নয়) এবং <b>Save</b> চাপতে হবে। তারপর ২ মিনিট অপেক্ষা করে Ctrl + F5।"),
@@ -163,7 +163,7 @@ def main():
              "Il file è salvato come .txt, oppure style.css ha un nome diverso. Risalva con <b>Tutti i file</b> e nomi tutti minuscoli: index.html e style.css.",
              "ফাইল .txt হয়ে গেছে, বা style.css-এর নাম আলাদা। <b>Tutti i file</b> বেছে আবার সেভ করো, ছোট হাতের নাম: index.html ও style.css।")]
     righe = "".join("<tr><td style='padding:8px;border-bottom:1px solid #e3e9f0;vertical-align:top;width:34%%'><b>%s</b></td>"
-                    "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
+                    "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div class='solobn' style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
     G.FACILE += ("<div class='box' style='border:3px solid #d0a516'><h2 style='color:#8a6d00'>PROBLEMI? Le soluzioni (dai problemi di oggi)</h2>"
                  "<table style='width:100%%;border-collapse:collapse;font-size:16px;table-layout:fixed;overflow-wrap:anywhere'>%s</table></div>" % righe)
     MENU2 = '  <p class="menu2"><a href="index.html">Home</a> | <a href="passioni.html">Le mie passioni</a> | <a href="sogno.html">Il mio sogno</a></p>\n'
@@ -183,7 +183,7 @@ def main():
                  "<li>Apri <b>index.html</b> &rarr; <b>matita</b>. Subito sotto la riga <b>&lt;body&gt;</b> incolla il <b>RIQUADRO C</b> (il menu). <b>Commit changes</b>.</li>"
                  "<li>Aspetta 1 minuto, apri il tuo sito, Ctrl + F5: clicca il menu e passa da una pagina all'altra. <b>FATTO!</b></li>"
                  "<li><b>Fallo tuo:</b> con la matita cambia i testi delle 2 pagine con le TUE passioni e il TUO sogno.</li></ol>"
-                 "<p style='color:#1d4d2f;font-size:16px'>Add file &rarr; Create new file &rarr; passioni.html (বাক্স A) ও sogno.html (বাক্স B) &rarr; Commit changes। index.html-এ &lt;body&gt;-এর নিচে বাক্স C (মেনু) &rarr; Commit changes। ১ মিনিট পরে সাইটে Ctrl + F5।</p>"
+                 "<p class='solobn' style='color:#1d4d2f;font-size:16px'>Add file &rarr; Create new file &rarr; passioni.html (বাক্স A) ও sogno.html (বাক্স B) &rarr; Commit changes। index.html-এ &lt;body&gt;-এর নিচে বাক্স C (মেনু) &rarr; Commit changes। ১ মিনিট পরে সাইটে Ctrl + F5।</p>"
                  + rq("sa", "RIQUADRO A — passioni.html", PASS) + rq("sb", "RIQUADRO B — sogno.html", SOGNO)
                  + rq("sc", "RIQUADRO C — il menu (in index.html, sotto &lt;body&gt;)", MENU2) + "</div>")
     import postazioni_3inf   # indicazioni personali per numero di PC (riquadro blu)
