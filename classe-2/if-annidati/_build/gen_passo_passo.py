@@ -58,6 +58,11 @@ P = [
     ("Gli screenshot: con il gioco aperto premi <b>Win + Shift + S</b> e seleziona la finestra. Incolla nel Documento del compito, parte 1. Ne servono <b>3</b>: Troppo BASSO, Troppo ALTO, Indovinato.", ""),
     ("Il codice: in Lazarus seleziona tutta la procedura <b>ButtonProvaClick</b> (da procedure al suo end;), Ctrl + C, e incollala nel Documento, parte 2. I rientri devono restare.", ""),
     ("Nel Documento, parte 3: spiega con parole tue <b>perché serve un if dentro un altro if</b>. Parte 4: cosa non sei riuscito a fare, cosa non hai capito.", ""),
+    ("Salviamo il gioco su <b>GitHub</b>. In Lazarus: menu <b>File</b> &rarr; <b>Salva tutto</b>. Poi apri una scheda nuova del browser (Ctrl + T), vai su <b>github.com</b> ed entra con il TUO account.", ""),
+    ("<b>In alto a destra</b> clicca il <b>+</b> &rarr; <b>New repository</b>. Nel riquadro <b>Repository name</b> incolla il nome qui sotto. Metti <b>Add README</b> su <b>On</b> e in fondo clicca il verde <b>Create repository</b>.", "k1"),
+    ("Nel tuo repository clicca <b>Add file</b> &rarr; <b>Upload files</b>. Si apre una pagina con un grande riquadro tratteggiato.", ""),
+    ("Apri <b>Esplora file</b>, entra nella cartella <b>indovina</b> e seleziona tenendo premuto <b>Ctrl</b> SOLO questi 4 file: <b>unit1.pas</b>, <b>unit1.lfm</b>, <b>project1.lpi</b>, <b>project1.lpr</b>. Trascinali nel riquadro tratteggiato di GitHub. (Il file .exe e la cartella lib NON servono.)", ""),
+    ("In fondo alla pagina clicca il verde <b>Commit changes</b>. <b>FATTO: il tuo gioco è salvato su GitHub!</b> Il professore legge il tuo codice da lì.", ""),
     ("Su <b>Classroom</b>, nel compito, premi il bottone blu <b>Consegna</b>. Poi il professore ti fa qualche domanda sul tuo gioco.", ""),
 ]
 pre = "".join("<pre id='%s' hidden>%s</pre>" % (k, html.escape(v)) for k, v in COPIE.items())
