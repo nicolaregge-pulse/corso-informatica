@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.12** — 05/10/2026
+**Versione 2.13** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -233,6 +233,10 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     3. Fonti: `dati/consegne/<CLASSE>/`, `dati/presenze/`, `dati/valutazioni/`, anagrafica Excel, note di monitoraggio,
        materiali del repo pubblico della classe. Tutto con i nomi resta SOLO nel repo riservato.
 
+31. **In `docs/` i PDF già usati in classe non si cancellano (05/10/2026).** Quando esce una versione nuova, la pagina
+    unica punta alla nuova, ma la vecchia **resta** nella cartella: chi ha la pagina vecchia in memoria nel browser
+    deve poter aprire il link. Si fa pulizia solo a fine settimana, mai durante le lezioni.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -334,6 +338,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 19. **v2.10 (04/10/2026)**: §2 punto 27 — **indentazione Lazarus**: if/else allineati, begin/end allineati, il resto indentato.
 20. **v2.11 (05/10/2026)**: §2.28 ogni correzione di Nicola → registro errori + regola; §2.29 testi Classroom già impaginati.
 21. **v2.12 (05/10/2026)**: §2.30 comando "Chiudi classe" (libro individuale per allievo + griglie e report per il docente).
+22. **v2.13 (05/10/2026)**: §2.31 in docs/ i PDF già usati non si cancellano durante le lezioni.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si

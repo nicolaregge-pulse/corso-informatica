@@ -114,7 +114,7 @@ def scheda2(bn):
 
 def main():
     for v in glob.glob(os.path.join(CART, PREF + "_*.pdf")): os.remove(v)
-    for v in glob.glob(os.path.join(DOCS, "Scheda-Facile-*.pdf")): os.remove(v)
+    # in docs/ le versioni vecchie RESTANO: chi ha la pagina vecchia in cache deve poterle aprire (errore 02/10 e 05/10)
     nomi = {}
     for k, fn, base, ver in [("s1", scheda1, "Scheda-Facile-1-Pagina-Web", "1.0"), ("s2", scheda2, "Scheda-Facile-2-Su-Internet", "1.1")]:
         G.VER = ver   # v1.1 (05/10, in classe): Settings sotto More, Pages passo per passo, Custom domain da lasciare vuoto
