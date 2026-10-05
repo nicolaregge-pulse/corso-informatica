@@ -72,7 +72,7 @@ LAB2 = {"k1": "COPIA IL NOME DELLA CARTELLA", "k2": "COPIA LA FRASE", "k3": "COP
        "cB": "COPIA IL CODICE B (FormCreate)", "cC": "COPIA IL CODICE C (bottone Prova)", "cD": "COPIA IL CODICE D (Nuova partita)"}
 P2 = [
     ('Apri <b>Lazarus</b>. In alto, menu <b>Progetto</b> &rarr; <b>Nuovo progetto</b> &rarr; scegli <b>Applicazione</b> &rarr; <b>OK</b>. Compare una Form vuota.', ''),
-    ('Salva subito: menu <b>File</b> &rarr; <b>Salva tutto</b>. Nella finestra crea una cartella nuova con il nome qui sotto (bottone giallo, poi Ctrl + V), entra nella cartella e premi <b>Salva</b> due volte (unit1 e project1).', 'k1'),
+    ('Salva subito: menu <b>File</b> &rarr; <b>Salva tutto</b>. Nella finestra, nel pannello <b>a sinistra</b>, clicca <b>Documenti</b> (NON la cartella di Lazarus o Programmi). Lì crea una cartella nuova con il nome qui sotto (bottone giallo, poi Ctrl + V), entra nella cartella e premi <b>Salva</b> due volte (unit1 e project1).', 'k1'),
     ("In alto, nella tavolozza <b>Standard</b>, clicca il componente <b>TLabel</b> (l'icona con la A), poi clicca sulla Form in alto. Nell'<b>Ispettore</b> a sinistra, alla voce <b>Caption</b>, incolla questa frase:", 'k2'),
     ("Metti sulla Form una <b>TEdit</b> (la casella di testo). Nell'Ispettore, alla voce <b>Name</b>, incolla il nome qui sotto. Poi alla voce <b>Text</b> cancella tutto.", 'k3'),
     ("Metti un <b>TButton</b>. Nell'Ispettore, alla voce <b>Name</b>, incolla:", 'k4'),
@@ -98,7 +98,7 @@ COPIE.update(COPIE2)
 LAB = {"cF": "COPIA IL CODICE (1 riga)", "kR": "COPIA IL NOME: lazarus", "kU": "COPIA IL NOME: unit1.pas"}
 LAB.update(LAB2)
 P = [
-    ("<b>PARTE 1 — IL PROGRAMMA (5 minuti).</b> Apri <b>Lazarus</b>. In alto, menu <b>Progetto</b> &rarr; <b>Nuovo progetto</b> &rarr; <b>Applicazione</b> &rarr; <b>OK</b>. Compare una finestra vuota (la Form).", ""),
+    ("<b>PARTE 1 — IL PROGRAMMA (5 minuti).</b> Apri <b>Lazarus</b>. In alto, menu <b>Progetto</b> &rarr; <b>Nuovo progetto</b> &rarr; <b>Applicazione</b> &rarr; <b>OK</b>. Compare una finestra vuota (la Form). <b>Salva SUBITO nei TUOI Documenti:</b> menu <b>File</b> &rarr; <b>Salva tutto</b>; nella finestra, nel pannello <b>a sinistra</b>, clicca <b>Documenti</b> (NON lasciare la cartella che propone Lazarus, tipo C:\\lazarus o Programmi: è dell&#39;amministrazione e non puoi salvarci); premi <b>Salva</b> due volte.", ""),
     ("In alto, nella tavolozza <b>Standard</b>, clicca il componente <b>TButton</b> (il bottone). Poi clicca sulla Form: compare il bottone.", ""),
     ("Nella tavolozza <b>Standard</b> clicca il componente <b>TLabel</b> (l'icona con la A). Poi clicca sulla Form, sotto il bottone.", ""),
     ("Fai <b>doppio clic sul bottone</b>. Si apre il codice: il cursore è tra <b>begin</b> ed <b>end</b>.", ""),
