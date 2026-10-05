@@ -190,8 +190,25 @@ def main():
         if n not in noti:
             PC.append((n, GEN, "প্রথমে <b>scheda facile 1</b>, তারপর <b>scheda facile 2</b>। শেষ হলে: নিজের মতো করো এবং Documento পূরণ করো।"))
     PC.sort(key=lambda x: int(x[0]))
+    FATTO = {"12": "hai già creato il repository e caricato dei file: hai capito come si pubblica.",
+             "14": "hai creato il tuo repository su GitHub.",
+             "15": "sito pubblicato tra i primi e Documento già iniziato.",
+             "18": "hai recuperato: ora lavori su GitHub con il tuo repository.",
+             "22": "stai salvando i file nella cartella giusta.",
+             "23": "la tua pagina funziona, con il tuo nome, e hai già fatto lo screenshot.",
+             "24": "hai il codice nel Blocco note: sei a buon punto.",
+             "25": "stai seguendo la scheda facile passo per passo.",
+             "26": "hai aperto la pagina del corso: il primo passo è fatto.",
+             "27": "vai avanti con la scheda anche senza account: bravo.",
+             "28": "hai già aperto il compito e il Documento.",
+             "29": "hai già aperto il compito e il Documento.",
+             "35": "il PRIMO sito online della classe!",
+             "36": "sito online e colori cambiati: l'hai già fatto un po' tuo.",
+             "37": "hai recuperato la password da solo e pubblicato il sito."}
     bot = "".join("<button class='pcb' onclick=\"pc('%s')\">PC %s</button>" % (n, n) for n, _, _ in PC)
-    pan = "".join("<div class='pcp' id='pc%s' style='display:none'><b>PC %s</b> &mdash; %s%s</div>" % (n, n, t, ("<div style='color:#1d4d2f;margin-top:6px'>%s</div>" % b) if b else "") for n, t, b in PC)
+    pan = "".join("<div class='pcp' id='pc%s' style='display:none'><b>PC %s</b>%s<div style='margin-top:6px'><b>Da fare:</b> %s</div>%s</div>" % (
+        n, n, ("<div style='color:#1e7a44;margin-top:6px'><b>Fatto bene:</b> %s</div>" % FATTO[n]) if n in FATTO else "", t,
+        ("<div style='color:#1d4d2f;margin-top:6px'>%s</div>" % b) if b else "") for n, t, b in PC)
     G.FACILE += ("<div class='box' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
                  "<p>Indicazioni personali, aggiornate dal professore durante la lezione (ultimo aggiornamento 08:49).</p>"
                  "<style>.pcb{background:#eaf2fb;color:#12467a;border:2px solid #1f6fa5;border-radius:10px;font-size:17px;font-weight:700;padding:8px 12px;margin:4px;cursor:pointer;width:auto}"
