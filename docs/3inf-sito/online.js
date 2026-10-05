@@ -9,3 +9,9 @@ function sitoOnline(url, cb) {
     document.head.appendChild(l); setTimeout(function () { fine(false); }, 15000);
   });
 }
+/* La pagina si ricarica da sola quando ne pubblico una versione nuova (versione.txt nella sua cartella). */
+function autoAggiorna(vers) {
+  function giro() { fetch('versione.txt?v=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
+    t = t.trim(); if (t && t != vers) location.replace(location.pathname + '?v=' + t + location.hash); }).catch(function () {}); }
+  giro(); setInterval(giro, 60 * 1000);
+}
