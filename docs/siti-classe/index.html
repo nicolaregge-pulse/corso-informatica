@@ -23,7 +23,7 @@ button.v{background:var(--verde)}button.g{background:#7a8794}
 .cont{font-size:18px;font-weight:700;margin:8px 0}
 </style></head><body><div class="w">
 <h1>I siti della classe</h1>
-<div class="sub">Strumento per il docente · i nomi che scrivi restano solo in questo browser (non vanno su internet)</div>
+<div class="sub">Si controlla DA SOLO all&#39;apertura e ogni 10 minuti. Strumento per il docente · i nomi che scrivi restano solo in questo browser (non vanno su internet)</div>
 
 <div class="box">
 <div class="nota"><b>Scrivi un ragazzo per riga</b>, così: <code>Nome: nomeutente</code> (il nome utente GitHub). Va bene anche solo il nome utente, oppure il link intero del sito (…github.io/…). Poi premi <b>Mostra i siti</b>.</div>
@@ -50,7 +50,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;
 function mostra(){salva();var L=leggi(),h="";
   L.forEach(function(x,i){h+='<div class="card" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="u">GitHub: '+esc(x.u)+'</div>'
    +'<a href="'+esc(x.url)+'" target="_blank" id="a'+i+'">'+esc(x.url)+'</a><a href="https://github.com/'+esc(x.u)+'" target="_blank" style="font-weight:400">profilo GitHub</a>'
-   +'<div class="st" id="s'+i+'">non ancora controllato</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'"></iframe></div></div>'});
+   +'<div class="st" id="s'+i+'">controllo su GitHub in corso...</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'"></iframe></div></div>'});
   document.getElementById("griglia").innerHTML=h;document.getElementById("cont").textContent=L.length+" ragazzi"}
 function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
   L.forEach(function(x,i){
@@ -82,5 +82,5 @@ function trova(){
 function tutti(){leggi().forEach(function(x){window.open(x.url,"_blank")})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,""));var v="";
   if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(CHIAVE)||""}catch(e){}}
-  document.getElementById("lista").value=v;if(v)mostra()})();
+  document.getElementById("lista").value=v;if(v){controlla();setInterval(controlla,10*60*1000)}})();
 </script></body></html>
