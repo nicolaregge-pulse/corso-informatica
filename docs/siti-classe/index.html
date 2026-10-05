@@ -36,7 +36,7 @@ button.v{background:var(--verde)}button.g{background:#7a8794}
 <div class="griglia" id="griglia"></div>
 </div>
 <script>
-var CHIAVE="siti-classe-lista";
+var CHIAVE="siti-classe-lista",PCMAP={};
 function leggi(){var r=[];document.getElementById("lista").value.split("\n").forEach(function(riga){
   riga=riga.trim();if(!riga)return;var nome="",u=riga,m;
   if(riga.indexOf(":")>0&&riga.indexOf("http")!==0&&!/^https?:/.test(riga.split(":").slice(1).join(":").trim())){nome=riga.split(":")[0].trim();u=riga.split(":").slice(1).join(":").trim()}
@@ -44,7 +44,7 @@ function leggi(){var r=[];document.getElementById("lista").value.split("\n").for
   var url="",repo="mio-sito";
   if((m=u.match(/https?:\/\/([A-Za-z0-9-]+)\.github\.io\/?([^\/\s]*)/i))){u=m[1];repo=m[2]||"";url="https://"+m[1].toLowerCase()+".github.io/"+(repo?repo+"/":"")}
   else if((m=u.match(/github\.com\/([A-Za-z0-9-]+)(?:\/([^\/\s]+))?/i))){u=m[1];repo=m[2]||"mio-sito"}
-  u=u.replace(/^@/,"");if(u=="-"){r.push({nome:nome,u:"-",repo:"",url:""});return}if(!url)url="https://"+u.toLowerCase()+".github.io/"+repo+"/";
+  u=u.replace(/^@/,"");var mp=(nome||"").match(/^PC\s*(\d+)/i);if(u=="-"&&mp&&PCMAP[mp[1]])u=PCMAP[mp[1]];if(u=="-"){r.push({nome:nome,u:"-",repo:"",url:""});return}if(!url)url="https://"+u.toLowerCase()+".github.io/"+repo+"/";
   r.push({nome:nome||u,u:u,repo:repo,url:url})});return r}
 function salva(){try{localStorage.setItem(CHIAVE,document.getElementById("lista").value)}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
@@ -52,7 +52,7 @@ function tile(i,cls){var t=document.getElementById("t"+i);if(t){t.className="til
 function vai(i){var c=document.getElementById("c"+i);document.querySelectorAll(".card").forEach(function(x){x.classList.remove("evid")});c.classList.add("evid");c.scrollIntoView({behavior:"smooth",block:"center"})}
 function mostra(){salva();var L=leggi(),h="",tl="";
   L.forEach(function(x,i){tl+='<button class="tile" id="t'+i+'" onclick="vai('+i+')">'+esc(x.nome)+'</button>'});document.getElementById("tiles").innerHTML=tl;
-  L.forEach(function(x,i){if(x.u=="-"){h+='<div class="card no" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="st"><b style="color:#c0392b">Nessun sito</b>: non ha ancora un repository su GitHub (o non conosco il suo nome utente). Cosa fare: scheda facile 1, poi scheda facile 2.</div></div></div>';return}
+  L.forEach(function(x,i){if(x.u=="-"){h+='<div class="card no" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="st"><b style="color:#c0392b">Nessun sito</b>: non ha ancora un repository su GitHub (o non conosco il suo nome utente). Cosa fare: pagina del corso, riquadro blu, il suo PC, dal passo 1 (tutto su GitHub).</div></div></div>';return}
    h+='<div class="card" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="u">GitHub: '+esc(x.u)+'</div>'
    +'<a href="'+esc(x.url)+'" target="_blank" id="a'+i+'">'+esc(x.url)+'</a><a href="https://github.com/'+esc(x.u)+'" target="_blank" style="font-weight:400">profilo GitHub</a>'
    +'<div class="st" id="s'+i+'">controllo su GitHub in corso...</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'?v='+Date.now()+'"></iframe></div></div>'});
@@ -88,5 +88,7 @@ function trova(){
 function tutti(){leggi().forEach(function(x){window.open(x.url,"_blank")})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,""));var v="";
   if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(CHIAVE)||""}catch(e){}}
-  document.getElementById("lista").value=v;if(v){controlla();setInterval(controlla,10*60*1000)}})();
+  document.getElementById("lista").value=v;
+  function giro(){fetch("../3inf-sito/pc.json?v="+Date.now()).then(function(r){return r.json()}).then(function(m){PCMAP=m}).catch(function(){}).then(controlla)}
+  if(v){giro();setInterval(giro,10*60*1000)}})();
 </script></body></html>

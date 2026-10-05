@@ -190,6 +190,7 @@ def main():
     G.FACILE += postazioni_3inf.siti_classe_html()
     G.FACILE += postazioni_3inf.postazioni_semplici_html()
     G2.main()
+    postazioni_3inf.scrivi_pc_json(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "docs", "3inf-sito", "pc.json"))
 
 
 if __name__ == "__main__":

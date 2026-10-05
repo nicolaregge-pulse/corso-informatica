@@ -256,3 +256,9 @@ def siti_classe_html():
             "var h='';Object.keys(U).sort(function(a,b){return a-b}).forEach(function(n){var o=U[n].toLowerCase();if(by[o])"
             "h+='<a target=\"_blank\" href=\"https://'+o+'.github.io/'+by[o]+'/\" style=\"background:#2f9e57;color:#fff;font-weight:800;font-size:18px;padding:12px 16px;border-radius:10px;text-decoration:none\">PC '+n+' &rarr; apri il sito</a>'});"
             "document.getElementById('listaSiti').innerHTML=h||'Ancora nessun sito online.'}).catch(function(){})}giro();setInterval(giro,3*60*1000)})();</script></div>") % _j.dumps(us)
+
+
+def scrivi_pc_json(path):
+    """PC -> utente GitHub (senza nomi): le pagine del docente lo leggono e si aggiornano da sole."""
+    import json as _j
+    _j.dump({n: PC[n][0] for n in PC if PC[n][0]}, open(path, "w"), indent=1)
