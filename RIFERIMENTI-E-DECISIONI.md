@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.20** — 05/10/2026
+**Versione 2.21** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -253,6 +253,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 37. **Controlli dei siti senza API di GitHub (05/10/2026).** L'API si blocca dopo circa 60 controlli all'ora dalla rete della scuola. Le pagine aprono direttamente il sito (`docs/3inf-sito/online.js`) e leggono utenti e repository da `pc.json` e `repo.json`, generati in automatico.
 38. **Su Classroom e sulle pagine della classe SOLO il lavoro del giorno (05/10/2026, VINCOLANTE).** Mai pubblicare su Classroom, né mostrare nella pagina linkata, materiale di un giorno diverso da quello della lezione. I lavori dei giorni dopo si preparano in coda (`in-attesa-ok-docente`) e nascosti nelle pagine; si attivano solo il loro giorno, con l'OK di Nicola. Lo script `automazione-corso.gs` rifiuta da solo un compito la cui data nel nome del file non è oggi.
 39. **Un solo compito aperto alla volta (05/10/2026, VINCOLANTE).** Se nella stessa lezione ci sono due lavori, su Classroom si pubblica solo il primo; il secondo resta in coda e si pubblica quando Nicola dice che la classe ha finito il primo. Titoli con l'ordine ("1 di 2", "2 di 2") e nomi descrittivi, mai "Compito 1".
+40. **Come si controllano i lavori su GitHub (05/10/2026, dopo gli errori del mattino).** 1) I repository si TROVANO con la ricerca GitHub dei repository creati oggi (es. `lazarus in:name created:>=OGGI`), non indovinando nomi utente e nomi di repository (i ragazzi usano nomi diversi: `lazarus-`, `mio-sito12`...). 2) I file si LEGGONO con `git clone` (elenca tutti i file, nessuna cache), non con raw. 3) Si accettano nomi di file diversi (project1, primo_programma, progetto1): conta il contenuto di `unit1.pas`. 4) Prima di dire "non ha caricato" si verifica con il clone. Generatore: `generatori/monitor_2inf.py` (repo riservato).
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -360,6 +361,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
+30. **v2.21 (05/10/2026)**: §2.40 controllo dei lavori su GitHub: ricerca + git clone.
 29. **v2.20 (05/10/2026)**: §2.39 un solo compito aperto alla volta, titoli descrittivi con l'ordine.
 28. **v2.19 (05/10/2026)**: §2.38 su Classroom e nelle pagine solo il lavoro del giorno.
 27. **v2.18 (05/10/2026)**: §2.30 punti 4-5: chiusura consultabile con un clic in una pagina privata (dopo "pubblica"); ordine fisso della chiusura.
