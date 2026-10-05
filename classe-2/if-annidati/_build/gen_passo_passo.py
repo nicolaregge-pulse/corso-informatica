@@ -86,9 +86,9 @@ P2 = [
     ('Torna alla Form (F12) e fai <b>doppio clic sul bottone Nuova partita</b>. Seleziona la procedura vuota <b>ButtonNuovaClick</b> (da procedure a end;) e incolla al suo posto:', 'cD'),
     ("Premi <b>F9</b>: il gioco parte! Scrivi un numero e premi Prova, finché vedi <b>Troppo BASSO</b>, <b>Troppo ALTO</b> e <b>Indovinato</b>. <b>FATTO: hai fatto un gioco!</b> Errore su <b>else</b>? Guarda l'end subito prima: NON deve avere il <b>;</b>.", ''),
     ('<b>Fallo tuo</b>: cambia la Caption della Form (il titolo della finestra), le frasi tra apici (anche spiritose) e i colori. Poi fallo provare a un compagno: chi indovina con meno tentativi?', ''),
-    ("<b>Salva il gioco su GitHub</b> (nello stesso repository di prima). In Lazarus clicca dentro il codice, premi <b>Ctrl + A</b> e poi <b>Ctrl + C</b>.", ""),
-    ("Su GitHub apri il tuo repository <b>lazarus</b> e clicca il file <b>unit1.pas</b>. In alto a destra clicca la <b>matita</b>.", ""),
-    ("Clicca nel riquadro del codice, premi <b>Ctrl + A</b> e poi <b>Ctrl + V</b>: al posto del primo programma ora c'è il gioco. Poi verde <b>Commit changes</b> (2 volte). Il primo programma non è perso: è nella storia dei commit (History).", ""),
+    ("<b>Salva il gioco su GitHub</b> (nello stesso repository <b>lazarus</b>). In Lazarus: menu <b>File</b> &rarr; <b>Salva tutto</b>.", ""),
+    ("Su GitHub apri il tuo repository <b>lazarus</b>. Clicca <b>Add file</b> &rarr; <b>Upload files</b> &rarr; la scritta blu <b>choose your files</b>.", ""),
+    ("Nella finestra entra nella cartella <b>indovina</b> (nei Documenti), seleziona con <b>Ctrl</b> unit1.pas, unit1.lfm, project1.lpi, project1.lpr e clicca <b>Apri</b>. Poi verde <b>Commit changes</b>. I file nuovi prendono il posto dei vecchi: il primo programma resta nella storia (History).", ""),
     ("Su <b>Classroom</b> apri il compito <b>Lazarus — Indovina il numero con gli if annidati</b>: nel Documento metti 3 screenshot (Troppo BASSO, Troppo ALTO, Indovinato), perché serve un if dentro un altro if, cosa non hai capito. Poi <b>Consegna</b>.", ""),
 ]
 # 05/10 ore 11:45 (Nicola): obiettivo di oggi = PUBBLICARE SU GITHUB. Programma semplicissimo da copiare; gli if annidati dopo.
@@ -105,15 +105,15 @@ P = [
     ("Premi il bottone giallo qui sotto. Poi in Lazarus, nella riga vuota tra <b>begin</b> ed <b>end</b>, premi <b>Ctrl + V</b>.", "cF"),
     ("Premi <b>F9</b>: il programma parte. Clicca il bottone: compare la frase. <b>FATTO: il tuo primo programma!</b> Chiudi la finestra del programma. <br><small><b>Se compare &quot;Impossibile creare la cartella ... AppData&quot;:</b> premi Annulla; menu <b>Strumenti</b> &rarr; <b>Opzioni</b> &rarr; a sinistra <b>Ambiente</b> &rarr; alla riga <b>Cartella per costruire progetti di test</b> clicca il bottone <b>...</b> a destra &rarr; scegli <b>Documenti</b> &rarr; <b>Seleziona cartella</b> &rarr; <b>Ok</b>. Poi di nuovo F9.</small>", ""),
     ("<b>Fallo tuo:</b> nel codice cambia la frase tra gli apici con una <b>TUA</b> (per esempio con il tuo nome). Premi F9 e prova.", ""),
-    ("<b>PARTE 2 — SU GITHUB.</b> In Lazarus clicca dentro il codice. Premi <b>Ctrl + A</b> (seleziona tutto) e poi <b>Ctrl + C</b> (copia). Hai copiato tutto il tuo programma.", ""),
+    ("<b>PARTE 2 — SU GITHUB.</b> In Lazarus: menu <b>File</b> &rarr; <b>Salva tutto</b>. Così i file del programma sono salvati nei tuoi <b>Documenti</b>.", ""),
     ("Apri una scheda nuova del browser (<b>Ctrl + T</b>), vai su <b>github.com</b> ed entra con il <b>TUO</b> account. Non ce l'hai? <b>Alza la mano</b>.", ""),
     ("<b>In alto a destra</b> clicca il simbolo <b>+</b> (più), poi <b>New repository</b>.", ""),
     ("Premi il bottone giallo qui sotto. Poi clicca nel riquadro <b>Repository name</b> e premi <b>Ctrl + V</b>.", "kR"),
     ("Metti <b>Add README</b> su <b>On</b>. In fondo clicca il bottone <b>VERDE</b> <b>Create repository</b>.", ""),
-    ("Nel tuo repository, sopra l'elenco dei file, clicca <b>Add file</b> e poi <b>Create new file</b>.", ""),
-    ("Premi il bottone giallo qui sotto. Poi clicca nel riquadro <b>piccolo</b> in alto (il nome del file) e premi <b>Ctrl + V</b>.", "kU"),
-    ("Clicca nel riquadro <b>GRANDE</b> bianco e premi <b>Ctrl + V</b>: compare il tuo programma (lo avevi copiato al passo 8). Se compare solo una riga o il nome del file, torna in Lazarus e rifai Ctrl + A, Ctrl + C.", ""),
-    ("<b>In alto a destra</b> clicca il verde <b>Commit changes...</b>. Nella finestra clicca di nuovo il verde <b>Commit changes</b>. <b>FATTO: il tuo programma è su GitHub!</b>", ""),
+    ("Nel tuo repository, sopra l'elenco dei file, clicca <b>Add file</b> e poi <b>Upload files</b> (carica file).", ""),
+    ("Nella pagina c'è un grande riquadro tratteggiato. Clicca la scritta blu <b>choose your files</b> (scegli i file): si apre la finestra per scegliere i file del computer.", ""),
+    ("Nella finestra, nel pannello <b>a sinistra</b>, clicca <b>Documenti</b>. Tenendo premuto <b>Ctrl</b> clicca questi 4 file: <b>unit1.pas</b>, <b>unit1.lfm</b>, <b>project1.lpi</b>, <b>project1.lpr</b>. Poi clicca <b>Apri</b>. (Il file .exe e la cartella lib NON servono.)", ""),
+    ("Aspetta che i 4 file compaiano nell'elenco. In fondo alla pagina clicca il bottone <b>VERDE</b> <b>Commit changes</b>. <b>FATTO: il tuo programma è su GitHub!</b>", ""),
     ("Ultimo passo: clicca il file <b>README.md</b>, poi la <b>matita</b> in alto a destra. Scrivi con parole tue: cosa ho fatto oggi, cosa non ho capito. Poi verde <b>Commit changes</b> (2 volte).", ""),
     ("Su <b>Classroom</b>, nel compito <b>Lazarus — Il mio primo programma pubblicato su GitHub</b>, premi il bottone blu <b>Consegna</b>. Il codice lo prende il professore da GitHub. <b>FINE DEL COMPITO 1!</b> Premi FATTO per il compito 2.", ""),
 ]
@@ -144,7 +144,7 @@ s = open(HUB, encoding="utf-8").read()
 s = re.sub(r"<!--PASSO-->.*?<!--/PASSO-->", "", s, flags=re.S)
 s = s.replace('<span class="ver">v1.0</span>', '<span class="ver">v1.1</span>')
 a = '<div class="box b1"><h2>1. Dispensa'
-s = s.replace(a, BOX + a, 1)
+s = s.replace("<!--IFDOPO", BOX + "<!--IFDOPO", 1) if "<!--IFDOPO" in s else s.replace(a, BOX + a, 1)
 i = s.find(a); j = s.find('<!--DOPO')
 if i > 0 and j > i and '<!--IFDOPO' not in s:      # gli if annidati si fanno dopo: oggi nascosti
     s = s[:i] + '<!--IFDOPO\n' + s[i:j].replace('-->', '--&gt;') + '\n-->' + s[j:]
