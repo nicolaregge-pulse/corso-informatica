@@ -86,8 +86,9 @@ var TROVATI=[];
 function cerca(){var d=new Date(),oggi=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);
   return fetch("https://api.github.com/search/repositories?per_page=100&q="+encodeURIComponent("lazarus in:name created:>="+oggi)).then(function(r){return r.json()}).then(function(j){TROVATI=(j.items||[]).map(function(r){return {u:r.owner.login,repo:r.name}})}).catch(function(){})}
 function abbina(x){if(x.u&&x.u!="-")return;var t=x.n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f']/g,"").split(/\s+/).filter(function(w){return w.length>=4});
-  var m=TROVATI.filter(function(r){var o=r.u.toLowerCase();return t.some(function(w){return o.indexOf(w)>=0})});
-  if(m.length){m.sort(function(a,b){return (b.repo.length)-(a.repo.length)});x.u=m[0].u;x.repo=m[0].repo;x.trovato=1}}
+  var m=TROVATI.map(function(r){var o=r.u.toLowerCase();return {r:r,p:t.filter(function(w){return o.indexOf(w)>=0}).length}}).filter(function(z){return z.p>0});
+  if(!m.length)return;m.sort(function(a,b){return b.p-a.p});if(m.length>1&&m[0].p==m[1].p&&m[0].r.u!=m[1].r.u)return;   // pari: non indovino
+  x.u=m[0].r.u;x.repo=m[0].r.repo;x.trovato=1}
 function vai(){cerca().then(vai0)}
 function vai0(){try{localStorage.setItem(K,document.getElementById("lista").value)}catch(e){}var L=leggi(),h="";
   L.forEach(function(x,i){h+='<tr id="r'+i+'"><td class="nome">'+esc(x.n)+'</td><td colspan="8">controllo...</td></tr>'});document.getElementById("tb").innerHTML=h;
@@ -95,4 +96,4 @@ function vai0(){try{localStorage.setItem(K,document.getElementById("lista").valu
     document.getElementById("cont").textContent=L.length+" ragazzi · codice tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,"")),v="";if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(K)||""}catch(e){}}
   document.getElementById("lista").value=v;if(v){vai();setInterval(vai,5*60*1000)}})();
-</script><script>autoAggiorna("202610051027")</script></body></html>
+</script><script>autoAggiorna("202610051108")</script></body></html>
