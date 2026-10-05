@@ -116,7 +116,7 @@ def postazioni_html():
             "function mostraSito(n,url,ok){var s=document.getElementById('sito'+n);"
             "if(ok){var d=document.querySelector('#pc'+n+' .dafare');if(d)d.innerHTML='<b>Da fare, un passo alla volta:</b><ol><li><b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno TUOI &rarr; <b>Commit changes</b>.</li><li>Completa il Documento del compito: 1) il link verde qui sotto, 2) tutto l&#39;HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>.</li></ol>';"
             "var x=document.querySelector('#pc'+n+' .bnx');if(x)x.innerHTML='<b>নিজের মতো করো</b>: index.html &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; Commit changes। তারপর Documento পূরণ করে Consegna।'}"
-            "s.innerHTML=(ok?'<b style=\"color:#2f9e57\">Il tuo sito è ONLINE.</b> Clicca per aprirlo, o copia il link nel Documento (parte 1):':"
+            "s.innerHTML=(ok?'<b style=\"color:#2f9e57\">Il tuo sito è ONLINE.</b> Clicca per aprirlo:':"
             "'<b style=\"color:#a07c00\">Il sito non è ancora attivo</b> (manca Settings &rarr; Pages &rarr; main &rarr; Save, oppure aspetta 2 minuti). Il tuo indirizzo sarà:')"
             "+'<a class=\"vai\" target=\"_blank\" href=\"'+url+'\">'+url+'</a>'+(ok?'<iframe loading=\"lazy\" src=\"'+url+'?v='+Date.now()+'\"></iframe>':'')}"
             "function cercaSito(n,u){var dflt='https://'+u.toLowerCase()+'.github.io/mio-sito/';"
@@ -164,8 +164,8 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c")
      "<b>২ মিনিট</b> অপেক্ষা করো। তারপর এই পেজে <b>Ctrl + F5</b>: তোমার PC <b>সবুজ</b> হলে সাইট অনলাইন!", ""),
     ("<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; <b>matita</b> &rarr; cambia passioni e sogno con i <b>tuoi</b> &rarr; <b>Commit changes</b>.",
      "<b>নিজের মতো করো</b>: GitHub-এ <b>index.html</b> &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; <b>Commit changes</b>।", ""),
-    ("Su <b>Classroom</b> apri il compito, metti nel Documento il <b>link del tuo sito</b>, e premi <b>Consegna</b>. Il professore poi ti fa qualche domanda.",
-     "<b>Classroom</b>-এ কাজ খোলো, Documento-তে <b>সাইটের লিংক</b> দাও, <b>Consegna</b> চাপো।", ""),
+    ("Su <b>Classroom</b> apri il compito e premi solo il bottone <b>Consegna</b>. Link, codice e screenshot li prende il professore dal tuo sito: tu non devi scrivere niente. Poi il professore ti fa qualche domanda.",
+     "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। লিংক, কোড ও স্ক্রিনশট শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
 INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 14,

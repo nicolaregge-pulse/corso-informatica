@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 1.6** — 01/10/2026
+**Versione 1.7** — 05/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -196,3 +196,4 @@ lezione.*
 4. **05/10, 08:45 — link rotto "2. Su internet" (scheda facile 2).** Passando alla v1.1 ho cancellato da `docs/` il PDF v1.0: chi aveva la pagina vecchia nel browser cliccava un link che non esisteva più. **Regola (RIFERIMENTI §2.31):** in `docs/` le versioni già usate in classe **non si cancellano mai** durante la giornata; la pagina punta alla nuova, la vecchia resta raggiungibile.
 5. **05/10, 09:15 — allievo giudicato "fermo" dalla sola miniatura di Veyon.** Del PC 26 avevo detto "non ha iniziato" perché la miniatura mostrava la pagina del compito; in realtà il suo sito era già online. **Regola (RIFERIMENTI §2.32):** dalla miniatura si dice solo "sulla pagina X alle HH:MM", mai "non ha fatto niente"; prima di un giudizio si controllano le schede aperte e la pagina dei siti.
 6. **05/10, 10:00 — risposte troppo lunghe durante la lezione.** Nicola deve seguire i ragazzi e non riesce a leggere tabelle e spiegazioni. **Regola (RIFERIMENTI §2.33):** in classe la risposta è SOLO (a) il testo aggiornato e completo del compito da incollare su Classroom, in un unico blocco copia, e (b) il link per il docente in un blocco copia. Niente tabelle o spiegazioni se non chieste.
+7. **05/10, 10:05 — ho fatto preparare il Documento ai ragazzi.** Era deciso che la consegna (link, codice, screenshot) la preparo io leggendo il sito da GitHub. Io invece ho continuato a scrivere "metti nel Documento il link e il codice". **Regola (RIFERIMENTI §2.34):** quando un lavoro è su GitHub, la consegna la genera Claude (`generatori/siti_3inf.py`). Il ragazzo pubblica il sito, preme solo "Consegna" su Classroom e poi viene interrogato. Chi non ha il sito online deve arrivarci, oppure il docente detta il suo nome utente.

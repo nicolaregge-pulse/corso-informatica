@@ -469,7 +469,7 @@ l'intestazione del file.
 5c. `sbobinature/README.md` (+ `TEMPLATE-sbobinatura.md`) — v0.1 (trascrizioni lezioni: conservazione integrale + versione lavorata; alimenta libro di testo, argomenti svolti e note dei ragazzi; nomi solo in scratchpad)
 5d. `strumenti/nome-albero.py` (+ `README.md`) — v0.1 (script: nomi file deterministici col percorso nel nome, espandi/collassa l'albero — regola 2.13)
 5e. `ATLANTE.md` (+ `ATLANTE-v0.4.pdf`) — v0.4 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
-5f. `RIFERIMENTI-E-DECISIONI.md` — v2.15 (§2.33 in classe solo testo compito + link docente; §2.32 Veyon: solo fatti; §2.31 non cancellare PDF in docs/ durante le lezioni; §2.30 comando "Chiudi classe"; §2.28 ogni correzione → registro errori + regola, §2.29 testi Classroom impaginati; §1.10 campanelle, §2.25 registro corto, §2.26 solo il metodo del docente, §2.27 rientri Lazarus; contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
+5f. `RIFERIMENTI-E-DECISIONI.md` — v2.16 (§2.34 consegna dei lavori GitHub generata da Claude; §2.33 in classe solo testo compito + link docente; §2.32 Veyon: solo fatti; §2.31 non cancellare PDF in docs/ durante le lezioni; §2.30 comando "Chiudi classe"; §2.28 ogni correzione → registro errori + regola, §2.29 testi Classroom impaginati; §1.10 campanelle, §2.25 registro corto, §2.26 solo il metodo del docente, §2.27 rientri Lazarus; contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
 
 ### 2. Pianificazione didattica
 1. `MAPPA-ARGOMENTI.md` — v1.5 (aggiunto Google Takeout in Produttività digitale)
@@ -571,7 +571,7 @@ l'intestazione del file.
 1. `orario/settimana-2026-10-05.md` — v1.0 (orario 5-9/10) · `orario/piano-settimana-2026-10-05.md` (→ `Piano-Settimana-2026-10-05-v1.0.pdf`) — v1.0 (lezione per lezione: materiali, compiti in coda, testi registro ≤40 caratteri)
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v1.6 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v1.7 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0

@@ -32,7 +32,7 @@ function leggi(){return document.getElementById("lista").value.split("\n").map(f
 function td(c,t){return '<td class="'+c+'">'+t+'</td>'}
 function raw(u,repo,f){return fetch("https://raw.githubusercontent.com/"+u+"/"+repo+"/main/"+f+"?v="+Date.now()).then(function(r){return r.ok?r.text():null}).catch(function(){return null})}
 function riga(x,i){var tr=document.getElementById("r"+i);
-  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Non ha ancora GitHub (o non so il nome utente). <b>Pagina del corso → riquadro blu → il suo PC</b>: un passo alla volta. Se il sito non arriva: consegna la pagina fatta sul PC (screenshot + codice).</td>';return Promise.resolve(0)}
+  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Non ha ancora GitHub (o non so il nome utente). <b>Pagina del corso → riquadro blu → il suo PC</b>: un passo alla volta fino al sito online. Se ha l'account: <b>dettami il nome utente</b>, la consegna la preparo io dal sito.</td>';return Promise.resolve(0)}
   return fetch("https://api.github.com/users/"+x.u+"/repos?per_page=100").then(function(r){return r.ok?r.json():[]}).then(function(d){
     if(!d.filter)d=[];var conPages=d.filter(function(r){return r.has_pages}),mio=d.filter(function(r){return /mio|sito/i.test(r.name)});
     var r0=conPages.filter(function(r){return /mio|sito/i.test(r.name)})[0]||conPages[0]||mio[0]||d[0];
@@ -55,7 +55,7 @@ function riga(x,i){var tr=document.getElementById("r"+i);
         +td(online?"v":"r",online?"SÌ":"NO")+td(h?"v":"r",h?"OK":"manca")+td(c&&linkCss?"v":"r",c&&linkCss?"OK":(c?"non collegato":"manca"))
         +td(nome?"v":(h?"r":"g"),nome?esc(m[1].trim()):"Leo")+td(h&&!dflt.length?"v":"r",h&&!dflt.length?"OK":"esempio")
         +td(col.length?"v":"r",col.length?esc(col.slice(0,3).join(", ")):"esempio")+td(priv?"v":"r",priv?"OK":"DATI!")
-        +'<td class="voto">'+(Math.round(p*2)/2)+'</td><td class="fare">'+(fare.length?fare.map(function(s,k){return (k+1)+". "+s}).join("<br>"):"<b style=\'color:#2f9e57\'>Tutto giusto!</b> Domande orali.")+'</td>';
+        +'<td class="voto">'+(Math.round(p*2)/2)+'</td><td class="fare">'+(fare.length?fare.map(function(s,k){return (k+1)+". "+s}).join("<br>"):"<b style=\'color:#2f9e57\'>Tutto giusto!</b> Su Classroom preme solo Consegna. Domande orali.")+'</td>';
       return tutto?1:0})})}
 function vai(){try{localStorage.setItem(K,document.getElementById("lista").value)}catch(e){}var L=leggi(),h="";
   L.forEach(function(x,i){h+='<tr id="r'+i+'"><td class="nome">'+esc(x.n)+'</td><td colspan="9">controllo...</td></tr>'});document.getElementById("tb").innerHTML=h;
