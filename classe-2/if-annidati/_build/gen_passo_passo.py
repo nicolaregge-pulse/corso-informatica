@@ -89,7 +89,7 @@ P2 = [
     ("<b>Salva il gioco su GitHub</b> (nello stesso repository di prima). In Lazarus clicca dentro il codice, premi <b>Ctrl + A</b> e poi <b>Ctrl + C</b>.", ""),
     ("Su GitHub apri il tuo repository <b>lazarus</b> e clicca il file <b>unit1.pas</b>. In alto a destra clicca la <b>matita</b>.", ""),
     ("Clicca nel riquadro del codice, premi <b>Ctrl + A</b> e poi <b>Ctrl + V</b>: al posto del primo programma ora c'è il gioco. Poi verde <b>Commit changes</b> (2 volte). Il primo programma non è perso: è nella storia dei commit (History).", ""),
-    ("Su <b>Classroom</b> apri il compito <b>Indovina il numero</b>: nel Documento metti 3 screenshot (Troppo BASSO, Troppo ALTO, Indovinato), perché serve un if dentro un altro if, cosa non hai capito. Poi <b>Consegna</b>.", ""),
+    ("Su <b>Classroom</b> apri il compito <b>Lazarus — Indovina il numero con gli if annidati</b>: nel Documento metti 3 screenshot (Troppo BASSO, Troppo ALTO, Indovinato), perché serve un if dentro un altro if, cosa non hai capito. Poi <b>Consegna</b>.", ""),
 ]
 # 05/10 ore 11:45 (Nicola): obiettivo di oggi = PUBBLICARE SU GITHUB. Programma semplicissimo da copiare; gli if annidati dopo.
 FRASE = "  Label1.Caption := 'Ciao! Questo è il mio primo programma su GitHub';"
@@ -115,7 +115,7 @@ P = [
     ("Clicca nel riquadro <b>GRANDE</b> bianco e premi <b>Ctrl + V</b>: compare il tuo programma (lo avevi copiato al passo 8). Se compare solo una riga o il nome del file, torna in Lazarus e rifai Ctrl + A, Ctrl + C.", ""),
     ("<b>In alto a destra</b> clicca il verde <b>Commit changes...</b>. Nella finestra clicca di nuovo il verde <b>Commit changes</b>. <b>FATTO: il tuo programma è su GitHub!</b>", ""),
     ("Ultimo passo: clicca il file <b>README.md</b>, poi la <b>matita</b> in alto a destra. Scrivi con parole tue: cosa ho fatto oggi, cosa non ho capito. Poi verde <b>Commit changes</b> (2 volte).", ""),
-    ("Su <b>Classroom</b>, nel compito <b>Compito 1 — Il mio primo programma su GitHub</b>, premi il bottone blu <b>Consegna</b>. Il codice lo prende il professore da GitHub. <b>FINE DEL COMPITO 1!</b> Premi FATTO per il compito 2.", ""),
+    ("Su <b>Classroom</b>, nel compito <b>Lazarus — Il mio primo programma pubblicato su GitHub</b>, premi il bottone blu <b>Consegna</b>. Il codice lo prende il professore da GitHub. <b>FINE DEL COMPITO 1!</b> Premi FATTO per il compito 2.", ""),
 ]
 P[len(P):] = [("<b>COMPITO 2 — INDOVINA IL NUMERO (if annidati)</b>, per chi ha finito il compito 1. " + P2[0][0], P2[0][1])] + P2[1:]
 pre = "".join("<pre id='%s' hidden>%s</pre>" % (k, html.escape(v)) for k, v in COPIE.items())
