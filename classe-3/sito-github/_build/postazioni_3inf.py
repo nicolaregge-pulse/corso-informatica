@@ -169,11 +169,12 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c")
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
 INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 9,
-          "28": 9, "29": 10, "32": 1, "33": 5, "34": 5, "35": 14, "36": 14, "37": 14}
+          "28": 9, "29": 1, "32": 1, "33": 5, "34": 5, "35": 14, "36": 14, "37": 14}
 NOTE = {"12": "I tuoi file giusti sono nel repository <b>mio-sito1</b>: fai questo passo dentro <b>mio-sito1</b>.",
         "18": "Nel tuo repository c'è solo il README: manca questo passo.",
         "27": "Entra con l'account <b>3infpiamartauser1@gmail.com</b>. Se non hai ancora GitHub: <b>Sign up</b> con questa email.",
-        "32": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore).",
+        "29": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
+        "32": "<b>Oggi fai solo la tua pagina sul computer</b> (passi da 1 a 8). Un passo alla volta: quando hai fatto premi FATTO. A pubblicarla su internet ti aiuta il professore.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
