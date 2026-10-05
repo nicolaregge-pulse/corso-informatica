@@ -59,6 +59,9 @@ PC = {
            ["Chiudi le altre pagine.", "Apri la <b>scheda facile 1</b>: passo 1, la cartella mio-sito."], ""),
     "32": ("gabrielerovito", "il tuo sito è online, con il tuo nome: ce l'hai fatta!",
            ["Accendi il sito: Settings &rarr; Pages &rarr; main &rarr; Save."], ""),
+    "22": ("emmanuelfranciscoPIA", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
+    "33": ("kevinrobinsonPIA", "hai creato il tuo repository Mio-sito.", [], ""),
+    "34": ("filippomendoza", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
     "35": ("denisandronache", "hai caricato i file su GitHub tra i primi della classe.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
@@ -180,17 +183,20 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
      "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। বাকিটা শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
-INIZIO = {"12": 19, "14": 19, "15": 19, "18": 19, "22": 1, "23": 19, "26": 19, "27": 19,
-          "28": 1, "29": 15, "32": 19, "33": 15, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
+INIZIO = {"12": 19, "14": 19, "15": 19, "18": 19, "22": 15, "23": 19, "26": 19, "27": 19,
+          "28": 1, "29": 15, "32": 19, "33": 6, "34": 15, "38": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
         "18": "Il tuo sito giusto è nel repository <b>mio-sito12</b>: lavora lì.",
         "29": "I tuoi file <b>index.html</b> e <b>style.css</b> sono già su GitHub, con il tuo nome: <b>BRAVO!</b> Manca solo accendere il sito (Pages).",
         "32": "Il tuo sito è <b>ONLINE</b>, con il tuo nome: <b>BRAVO!</b> Ora fallo tuo.",
+        "33": "Nel tuo repository <b>Mio-sito</b> c'è solo il README: mancano <b>index.html</b> e <b>style.css</b>. Parti da qui.",
+        "22": "I tuoi file sono già su GitHub: manca solo accendere il sito (Pages).",
+        "34": "I tuoi file sono già su GitHub: manca solo accendere il sito (Pages).",
         "38": "Al PC 38 sei entrato in Windows con l'account di un compagno: va bene per oggi, ma su GitHub entra con il <b>TUO</b> account.",
 }
 
 
-REPO = {"12": "mio-sito1", "18": "mio-sito12", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
+REPO = {"12": "mio-sito1", "18": "mio-sito12", "33": "Mio-sito", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
 import datetime as _dt
 VERSIONE = _dt.datetime.now().strftime("%Y%m%d%H%M%S")   # la pagina si ricarica da sola quando ne esce una nuova
 
