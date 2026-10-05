@@ -187,3 +187,8 @@ lezione.*
 ---
 
 *(Le prossime giornate si aggiungono qui sotto con la loro data.)*
+
+## 05/10/2026 — 3INF, istruzioni del compito su Classroom
+
+1. **Errore:** ho dato a Nicola il testo delle istruzioni del compito come **un unico paragrafo lungo** (tutte le 5 parti in una riga). Su Classroom risulta un blocco illeggibile per i ragazzi ("formattazione pessima").
+2. **Regola:** i testi da incollare su Classroom vanno **già impaginati**: titoletti in maiuscolo, una riga per passo, numeri 1. 2. 3., le parti del Documento una per riga, riga vuota tra i blocchi. Mai frasi lunghe con 1) 2) 3) in linea.
