@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.11** — 05/10/2026
+**Versione 2.12** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -223,6 +223,16 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     blocchi, il link su una riga sua. **Mai** un paragrafo unico con 1) 2) 3) in linea. Il testo intero sta
     in **un solo** blocco da copiare, pronto da incollare (con il link dentro, se va sostituito tutto).
 
+30. **Comando "Chiudi classe <CLASSE>" (es. "Chiudi classe 3 INF") — 05/10/2026, richiesto da Nicola.** Quando Nicola
+    lo dice, si chiude il lavoro della classe e si producono, MD + PDF versionati:
+    1. **Per ogni allievo — il libro individuale**: tutta la teoria dal primo giorno di scuola, tutti gli esercizi,
+       tutti i lavori consegnati con voto e indicazioni personali (nel repo riservato; copia per l'allievo protetta).
+    2. **Per Nicola**: tutte le griglie (voti per lavoro + **griglia incrementale** lezione dopo lezione), consigli
+       per allievo, valutazioni, cosa NON hanno capito e cosa NON hanno fatto, il **report di monitoraggio** (Veyon,
+       fuori compito, problemi di account, presenze).
+    3. Fonti: `dati/consegne/<CLASSE>/`, `dati/presenze/`, `dati/valutazioni/`, anagrafica Excel, note di monitoraggio,
+       materiali del repo pubblico della classe. Tutto con i nomi resta SOLO nel repo riservato.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -323,6 +333,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     uno per ora): la casella del registro taglia il testo lungo.
 19. **v2.10 (04/10/2026)**: §2 punto 27 — **indentazione Lazarus**: if/else allineati, begin/end allineati, il resto indentato.
 20. **v2.11 (05/10/2026)**: §2.28 ogni correzione di Nicola → registro errori + regola; §2.29 testi Classroom già impaginati.
+21. **v2.12 (05/10/2026)**: §2.30 comando "Chiudi classe" (libro individuale per allievo + griglie e report per il docente).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
