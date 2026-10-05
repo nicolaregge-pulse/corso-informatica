@@ -6,7 +6,7 @@ chi ha il sito online lo vede subito (link cliccabile + anteprima, trovati in au
 quando un ragazzo sceglie il suo PC la pagina mostra SOLO il suo riquadro (niente cose generiche che confondono).
 Sulla pagina pubblica NON ci sono nomi di allievi: solo il numero del PC (e il nome utente GitHub, già pubblico nel sito).
 """
-AGGIORNATO = "08:55"
+AGGIORNATO = "09:15"
 
 # PC: (nome utente GitHub o "", fatto bene, [passi da fare], testo in bengali o "")
 PC = {
@@ -45,10 +45,12 @@ PC = {
     "25": ("", "stai seguendo la scheda facile passo per passo.",
            ["Usa il <b>TUO</b> account, non quello di un compagno: il lavoro deve arrivare a tuo nome. Password dimenticata? Chiedi al professore.",
             "Intanto finisci la <b>scheda facile 1</b>: la pagina sul computer non ha bisogno di account."], ""),
-    "26": ("", "hai aperto la pagina del corso: il primo passo è fatto.",
-           ["Apri la <b>scheda facile 1</b> (riquadro arancione qui sopra: torna alla pagina completa).",
-            "Passo 1: sul Desktop, tasto destro &rarr; Nuovo &rarr; Cartella &rarr; <b>mio-sito</b>.",
-            "Continua un passo alla volta: in 20 minuti hai la tua pagina!"], ""),
+    "26": ("", "hai aperto la pagina del corso e sei ripartito: adesso ce la puoi fare.",
+           ["<b>Ora (10 minuti):</b> torna alla pagina completa e apri la <b>scheda facile 1</b>. Desktop &rarr; tasto destro &rarr; Nuovo &rarr; Cartella &rarr; <b>mio-sito</b>.",
+            "Blocco note: incolla il <b>RIQUADRO 1</b> (bottone giallo Copia), cambia <b>Leo</b> con il tuo nome, salva come <b>index.html</b> (Tutti i file) dentro mio-sito.",
+            "Foglio nuovo: <b>RIQUADRO 2</b>, salva come <b>style.css</b>. Doppio clic su index.html: <b>la tua pagina è pronta!</b>",
+            "<b>Poi (15 minuti):</b> scheda facile 2: github.com &rarr; New repository <b>mio-sito</b> &rarr; carica i 2 file &rarr; Settings &rarr; Pages &rarr; main &rarr; Save.",
+            "Entro le 10:45 consegna il Documento su Classroom, anche se non hai finito tutto: conta quello che hai fatto."], ""),
     "27": ("", "vai avanti con la scheda anche senza account: bravo.",
            ["Finisci la <b>scheda facile 1</b>: la pagina sul tuo computer.",
             "Il tuo account è in recupero: appena funziona, fai la <b>scheda facile 2</b>."], ""),
