@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.17** — 05/10/2026
+**Versione 2.18** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -232,6 +232,12 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
        fuori compito, problemi di account, presenze).
     3. Fonti: `dati/consegne/<CLASSE>/`, `dati/presenze/`, `dati/valutazioni/`, anagrafica Excel, note di monitoraggio,
        materiali del repo pubblico della classe. Tutto con i nomi resta SOLO nel repo riservato.
+    4. **Consultazione con un clic (05/10/2026, chiesto da Nicola):** su richiesta, i PDF della chiusura (libri individuali e
+       documento del docente) si mettono anche in una **pagina privata Artifact** di claude.ai: Nicola clicca e il PDF si apre
+       nel riquadro a destra, senza scaricare. Contiene nomi e voti di minori: si pubblica solo dopo il suo "pubblica" esplicito,
+       resta privata e non si condivide.
+    5. **Ordine fisso:** si aspetta la raccolta automatica delle consegne (scadenza + 10 minuti), si rilegge GitHub (codice e
+       README di ognuno), poi un solo comando: `generatori/chiudi_3inf_sito.py` (per la 3INF del 05/10).
 
 31. **In `docs/` i PDF già usati in classe non si cancellano (05/10/2026).** Quando esce una versione nuova, la pagina
     unica punta alla nuova, ma la vecchia **resta** nella cartella: chi ha la pagina vecchia in memoria nel browser
@@ -352,6 +358,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
+27. **v2.18 (05/10/2026)**: §2.30 punti 4-5: chiusura consultabile con un clic in una pagina privata (dopo "pubblica"); ordine fisso della chiusura.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
