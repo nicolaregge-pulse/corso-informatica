@@ -80,7 +80,7 @@ GENERICO = ("", "", ["Segui la <b>scheda facile 1</b> (la tua pagina sul compute
                      "Problemi? Torna alla pagina completa e guarda il riquadro giallo."],
             "প্রথমে <b>scheda facile 1</b>, তারপর <b>scheda facile 2</b>। শেষ হলে: নিজের মতো করো এবং Documento পূরণ করো।")
 TUTTI = ["11", "12", "13", "14", "15", "16", "17", "18", "21", "22", "23", "24", "25", "26", "27", "28", "29",
-         "31", "32", "33", "34", "35", "36", "37"]
+         "31", "32", "33", "34", "35", "36", "37", "38"]
 
 
 def postazioni_html():
@@ -181,14 +181,16 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
 INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "24": 1, "25": 1, "26": 19, "27": 19,
-          "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "35": 19, "36": 19, "37": 19}
+          "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
         "18": "Il tuo repository <b>mio-sito</b> c'è già (con solo il README): aprilo su GitHub e parti da qui.",
         "29": "I tuoi file <b>index.html</b> e <b>style.css</b> sono già su GitHub, con il tuo nome: <b>BRAVO!</b> Manca solo accendere il sito (Pages).",
         "32": "Il tuo sito è <b>ONLINE</b>, con il tuo nome: <b>BRAVO!</b> Ora fallo tuo.",
+        "38": "Al PC 38 sei entrato in Windows con l'account di un compagno: va bene per oggi, ma su GitHub entra con il <b>TUO</b> account.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
+REPO = {"12": "mio-sito1", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
 import datetime as _dt
 VERSIONE = _dt.datetime.now().strftime("%Y%m%d%H%M%S")   # la pagina si ricarica da sola quando ne esce una nuova
 
@@ -201,7 +203,7 @@ def postazioni_semplici_html():
         cls = " rosso" if n in PC or n in INIZIO else ""
         bot += "<button class='pcb%s' data-u='%s' onclick=\"pc('%s')\">PC %s</button>" % (cls, u, n, n)
     dati = {"passi": PASSI, "inizio": INIZIO, "note": NOTE,
-            "bene": {n: PC[n][1] for n in PC}, "user": {n: PC[n][0] for n in PC}}
+            "bene": {n: PC[n][1] for n in PC}, "user": {n: PC[n][0] for n in PC}, "repo": REPO}
     return ("<div class='box mia' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
             "<p><b style='color:#2f9e57'>VERDE</b> = sito online · <b style='color:#c0392b'>ROSSO</b> = non ancora · bianco = postazione libera.</p>"
             "<style>.pcb{background:#eaf2fb;color:#12467a;border:2px solid #1f6fa5;border-radius:10px;font-size:17px;font-weight:700;padding:8px 12px;margin:4px;cursor:pointer;width:auto}"
@@ -218,7 +220,7 @@ def postazioni_semplici_html():
             "<div class='ptesto' id='ptesto'></div><div id='pcopia'></div><span id='n1' hidden>mio-sito</span><span id='n2' hidden>index.html</span><span id='n3' hidden>style.css</span>"
             "<button class='avanti' onclick='muovi(1)'>FATTO &rarr; passo dopo</button> <button class='indietro' onclick='muovi(-1)'>&larr; passo prima</button>"
             "<div id='psito' style='margin-top:12px'></div></div>"
-            "<script>var VERS='" + VERSIONE + "',D=%s,PCN=null,P=0;"
+            "<script src='online.js'></script><script>var VERS='" + VERSIONE + "',D=%s,PCN=null,P=0;"
             "function chiave(){return 'passo2-pc-'+PCN}"
             "function pc(n){PCN=n;document.body.classList.toggle('bn',n=='14');document.querySelectorAll('.pcb').forEach(function(b){b.classList.toggle('on',b.textContent=='PC '+n)});"
             "document.body.classList.add('focus');document.getElementById('passo').style.display='block';"
@@ -235,15 +237,11 @@ def postazioni_semplici_html():
             "function copiaCodice(id,b){var t=document.getElementById(id).textContent;function ok(){b.textContent='COPIATO! Ora clicca nel riquadro e premi Ctrl + V'}"
             "if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()})}else{fb(t);ok()}}"
             "function tutta(){document.body.classList.remove('focus');document.getElementById('passo').style.display='none'}"
-            "function controllaUno(u){fetch('https://api.github.com/users/'+u+'/repos?per_page=100').then(function(r){return r.json()}).then(function(d){"
-            "if(!d.filter)return;var pg=d.filter(function(r){return r.has_pages});var el=document.getElementById('psito');"
-            "if(pg.length){var r0=pg.filter(function(r){return /mio/i.test(r.name)})[0]||pg[0];var url='https://'+u.toLowerCase()+'.github.io/'+r0.name+'/';"
+            "function controllaUno(u){var url=urlSito(u,D.repo[PCN]);sitoOnline(url,function(ok){if(!ok)return;var el=document.getElementById('psito');"
             "el.innerHTML='<b style=\"color:#2f9e57;font-size:20px\">IL TUO SITO È ONLINE:</b><a target=\"_blank\" href=\"'+url+'\" style=\"display:block;background:#2f9e57;color:#fff;font-size:20px;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;text-align:center;margin-top:6px;word-break:break-all\">'+url+'</a>';"
-            "if(P<18){P=18;disegna()}}}).catch(function(){})}"
-            "function colori(){var us=[].slice.call(document.querySelectorAll('.pcb')).map(function(b){return b.getAttribute('data-u')}).filter(function(u){return u});"
-            "if(!us.length)return;fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(us.map(function(u){return 'user:'+u}).join(' '))).then(function(r){return r.json()}).then(function(j){"
-            "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
-            "document.querySelectorAll('.pcb').forEach(function(b){var u=(b.getAttribute('data-u')||'').toLowerCase();if(u&&on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
+            "if(P<18){P=18;disegna()}})}"
+            "function colori(){document.querySelectorAll('.pcb').forEach(function(b){var u=b.getAttribute('data-u');if(!u)return;var n=b.textContent.replace('PC ','');"
+            "sitoOnline(urlSito(u,D.repo[n]),function(ok){if(ok){b.classList.remove('rosso');b.classList.add('verde')}})})}"
             "colori();setInterval(colori,3*60*1000);try{var m=localStorage.getItem('mio-pc');if(m)pc(m)}catch(e){}"
             "function nuovaVersione(){fetch('versione.txt?v='+Date.now()).then(function(r){return r.text()}).then(function(t){t=t.trim();if(t&&t!=VERS)location.replace(location.pathname+'?v='+t+location.hash)}).catch(function(){})}"
             "nuovaVersione();setInterval(nuovaVersione,60*1000);</script></div>") % (bot, _j.dumps(dati, ensure_ascii=False))
@@ -256,17 +254,16 @@ def siti_classe_html():
     return ("<div class='box' id='sitiClasse' style='border:3px solid #2f9e57'><h2 style='color:#2f9e57'>I SITI DELLA CLASSE: clicca il tuo PC</h2>"
             "<p>La lista si crea da sola: compare il bottone appena il sito è online. Il tuo PC non c'è? Riquadro blu qui sotto, un passo alla volta.</p>"
             "<div id='listaSiti' style='display:flex;flex-wrap:wrap;gap:8px'>Controllo i siti su GitHub...</div>"
-            "<script>(function(){var U=%s;function giro(){var q=Object.keys(U).map(function(n){return 'user:'+U[n]}).join(' ');"
-            "fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(j){"
-            "if(!j.items)return;var by={};j.items.forEach(function(r){if(!r.has_pages)return;var o=r.owner.login.toLowerCase();if(!by[o]||/mio/i.test(r.name))by[o]=r.name});"
-            "var h='';Object.keys(U).sort(function(a,b){return a-b}).forEach(function(n){var o=U[n].toLowerCase();if(by[o])"
-            "h+='<a target=\"_blank\" href=\"https://'+o+'.github.io/'+by[o]+'/\" style=\"background:#2f9e57;color:#fff;font-weight:800;font-size:18px;padding:12px 16px;border-radius:10px;text-decoration:none\">PC '+n+' &rarr; apri il sito</a>'});"
-            "document.getElementById('listaSiti').innerHTML=h||'Ancora nessun sito online.'}).catch(function(){})}giro();setInterval(giro,3*60*1000)})();</script></div>") % _j.dumps(us)
+            "<script src='online.js'></script><script>(function(){var U=%s,R=%s;function giro(){var h='',n0=0,ks=Object.keys(U).sort(function(a,b){return a-b});"
+            "ks.forEach(function(n){var url=urlSito(U[n],R[n]);sitoOnline(url,function(ok){n0++;if(ok)document.getElementById('s'+n).innerHTML='<a target=\"_blank\" href=\"'+url+'\" style=\"background:#2f9e57;color:#fff;font-weight:800;font-size:18px;padding:12px 16px;border-radius:10px;text-decoration:none;display:inline-block\">PC '+n+' &rarr; apri il sito</a>'})});"
+            "document.getElementById('listaSiti').innerHTML=ks.map(function(n){return '<span id=\"s'+n+'\"></span>'}).join('')}"
+            "giro();setInterval(giro,3*60*1000)})();</script></div>") % (_j.dumps(us), _j.dumps(REPO))
 
 
 def scrivi_pc_json(path):
     """PC -> utente GitHub (senza nomi): le pagine del docente lo leggono e si aggiornano da sole."""
     import json as _j
     _j.dump({n: PC[n][0] for n in PC if PC[n][0]}, open(path, "w"), indent=1)
+    _j.dump({PC[n][0].lower(): REPO.get(n, "mio-sito") for n in PC if PC[n][0]}, open(path.replace("pc.json", "repo.json"), "w"), indent=1)
     import os as _os
     open(_os.path.join(_os.path.dirname(path), "versione.txt"), "w").write(VERSIONE + "\n")

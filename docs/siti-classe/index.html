@@ -30,13 +30,14 @@ button.v{background:var(--verde)}button.g{background:#7a8794}
 <div class="nota"><b>Scrivi un ragazzo per riga</b>, così: <code>Nome: nomeutente</code> (il nome utente GitHub). Va bene anche solo il nome utente, oppure il link intero del sito (…github.io/…). Poi premi <b>Mostra i siti</b>.</div>
 <textarea id="lista" placeholder="Mario: mario-rossi-07&#10;Leo: leo2009&#10;https://anna-b.github.io/mio-sito/"></textarea>
 <button onclick="mostra()">Mostra i siti</button><button class="v" onclick="controlla()">Controlla su GitHub chi ha pubblicato</button><button class="g" onclick="tutti()">Apri tutti i siti in schede</button><br><button style="background:#d9731a" onclick="trova()">Trova da solo i siti creati OGGI (repository "mio...")</button>
-<div class="nota" style="margin-top:6px">Il controllo usa GitHub (al massimo circa 60 controlli all'ora dalla stessa rete della scuola): premilo ogni tanto, non di continuo.</div>
+<div class="nota" style="margin-top:6px">Il controllo apre direttamente i siti: nessun limite di controlli.</div>
 </div>
 <div class="cont" id="cont"></div><div id="tiles" style="display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px"></div>
 <div class="griglia" id="griglia"></div>
 </div>
+<script src="../3inf-sito/online.js"></script>
 <script>
-var CHIAVE="siti-classe-lista",PCMAP={};
+var CHIAVE="siti-classe-lista",PCMAP={},REPOJ={};
 function leggi(){var r=[];document.getElementById("lista").value.split("\n").forEach(function(riga){
   riga=riga.trim();if(!riga)return;var nome="",u=riga,m;
   if(riga.indexOf(":")>0&&riga.indexOf("http")!==0&&!/^https?:/.test(riga.split(":").slice(1).join(":").trim())){nome=riga.split(":")[0].trim();u=riga.split(":").slice(1).join(":").trim()}
@@ -57,22 +58,14 @@ function mostra(){salva();var L=leggi(),h="",tl="";
    +'<a href="'+esc(x.url)+'" target="_blank" id="a'+i+'">'+esc(x.url)+'</a><a href="https://github.com/'+esc(x.u)+'" target="_blank" style="font-weight:400">profilo GitHub</a>'
    +'<div class="st" id="s'+i+'">controllo su GitHub in corso...</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'?v='+Date.now()+'"></iframe></div></div>'});
   document.getElementById("griglia").innerHTML=h;document.getElementById("cont").textContent=L.length+" ragazzi"}
-function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
+function controlla(){mostra();var L=leggi(),pubbl=0;
   L.forEach(function(x,i){
-    if(x.u=="-")return;
-    fetch("https://api.github.com/users/"+encodeURIComponent(x.u)+"/repos?per_page=100").then(function(r){
-      if(r.status==404)return {err:"nome utente GitHub non trovato"};if(r.status==403)return {err:"limite controlli raggiunto: riprova tra un po'"};return r.json()})
-    .then(function(d){var c=document.getElementById("c"+i),s=document.getElementById("s"+i);fatti++;
-      if(d.err){c.classList.add(d.err.indexOf("limite")>=0?"forse":"no");tile(i,d.err.indexOf("limite")>=0?"forse":"");s.textContent=d.err;return}
-      var conPages=d.filter(function(r){return r.has_pages}),tutti=d.map(function(r){return r.name});
-      if(conPages.length){var r0=conPages.filter(function(r){return /mio/i.test(r.name)})[0]||conPages[0];
-        var url=/\.github\.io$/i.test(r0.name)?"https://"+r0.name.toLowerCase()+"/":"https://"+x.u.toLowerCase()+".github.io/"+r0.name+"/";
-        var a=document.getElementById("a"+i);a.href=url;a.textContent=url;c.querySelector("iframe").src=url+"?v="+Date.now();
-        c.classList.add("ok");tile(i,"ok");pubbl++;s.innerHTML="<b style='color:#2f9e57'>PUBBLICATO</b> (repository "+esc(r0.name)+")"}
-      else if(tutti.length){c.classList.add("forse");tile(i,"forse");s.innerHTML="<b style='color:#a07c00'>Repository creato ma sito NON attivo</b> ("+esc(tutti.join(", "))+"): COSA NON VA: manca Settings &rarr; Pages &rarr; main &rarr; Save (o lo ha appena fatto: aspettare 2 minuti)"}
-      else{c.classList.add("no");s.innerHTML="<b style='color:#c0392b'>Nessun repository</b>: non ha ancora iniziato su GitHub"}
-      document.getElementById("cont").textContent=L.length+" ragazzi · pubblicati: "+pubbl})
-    .catch(function(){document.getElementById("s"+i).textContent="controllo non riuscito (rete)"})})}
+    if(x.u=="-")return;var repo=REPOJ[x.u.toLowerCase()]||x.repo||"mio-sito",url=urlSito(x.u,repo);
+    var a=document.getElementById("a"+i);a.href=url;a.textContent=url;
+    sitoOnline(url,function(ok){var c=document.getElementById("c"+i),s=document.getElementById("s"+i);
+      if(ok){c.querySelector("iframe").src=url+"?v="+Date.now();c.classList.add("ok");tile(i,"ok");pubbl++;s.innerHTML="<b style='color:#2f9e57'>PUBBLICATO</b> (repository "+esc(repo)+")"}
+      else{c.classList.add("no");tile(i,"");c.querySelector(".prev").style.display="none";s.innerHTML="<b style='color:#c0392b'>Sito NON online</b> (repository "+esc(repo)+"): mancano i file o Settings &rarr; Pages &rarr; main &rarr; Save"}
+      document.getElementById("cont").textContent=L.length+" ragazzi · siti online: "+pubbl})})}
 function trova(){
   var d=new Date(),oggi=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);
   var q="mio in:name created:>="+oggi;
@@ -89,6 +82,7 @@ function tutti(){leggi().forEach(function(x){window.open(x.url,"_blank")})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,""));var v="";
   if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(CHIAVE)||""}catch(e){}}
   document.getElementById("lista").value=v;
-  function giro(){fetch("../3inf-sito/pc.json?v="+Date.now()).then(function(r){return r.json()}).then(function(m){PCMAP=m}).catch(function(){}).then(controlla)}
+  function giro(){Promise.all([fetch("../3inf-sito/pc.json?v="+Date.now()).then(function(r){return r.json()}).then(function(m){PCMAP=m}).catch(function(){}),
+    fetch("../3inf-sito/repo.json?v="+Date.now()).then(function(r){return r.json()}).then(function(m){REPOJ=m}).catch(function(){})]).then(controlla)}
   if(v){giro();setInterval(giro,10*60*1000)}})();
 </script></body></html>

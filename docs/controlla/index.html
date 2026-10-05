@@ -24,19 +24,18 @@ td.nome{font-weight:700;white-space:nowrap}tr.tutto td.nome{color:var(--v)}td.fa
 <div class="cont" id="cont"></div>
 <table><thead><tr><th>Allievo</th><th>Sito online</th><th>index.html</th><th>style.css separato e collegato</th><th>Nome suo</th><th>Passioni e sogno suoi</th><th>Colori cambiati</th><th>Privacy</th><th>Voto proposto</th><th>Cosa deve fare adesso</th></tr></thead><tbody id="tb"></tbody></table>
 </div>
+<script src="../3inf-sito/online.js"></script>
 <script>
-var K="controlla-lista",ES_CSS=["lightblue","darkblue","gray","white","teal"];
+var REPOJ={},K="controlla-lista",ES_CSS=["lightblue","darkblue","gray","white","teal"];
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function leggi(){return document.getElementById("lista").value.split("\n").map(function(r){r=r.trim();if(!r)return null;var i=r.lastIndexOf(":");
   return i<0?{n:r,u:r}:{n:r.slice(0,i).trim(),u:r.slice(i+1).trim().replace(/^@/,"")}}).filter(Boolean)}
 function td(c,t){return '<td class="'+c+'">'+t+'</td>'}
 function raw(u,repo,f){return fetch("https://raw.githubusercontent.com/"+u+"/"+repo+"/main/"+f+"?v="+Date.now()).then(function(r){return r.ok?r.text():null}).catch(function(){return null})}
 function riga(x,i){var tr=document.getElementById("r"+i);
-  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Non ha ancora GitHub (o non so il nome utente). <b>Pagina del corso → riquadro blu → il suo PC</b>: un passo alla volta fino al sito online. Se ha l'account: <b>dettami il nome utente</b>, la consegna la preparo io dal sito.</td>';return Promise.resolve(0)}
-  return fetch("https://api.github.com/users/"+x.u+"/repos?per_page=100").then(function(r){return r.ok?r.json():[]}).then(function(d){
-    if(!d.filter)d=[];var conPages=d.filter(function(r){return r.has_pages}),mio=d.filter(function(r){return /mio|sito/i.test(r.name)});
-    var r0=conPages.filter(function(r){return /mio|sito/i.test(r.name)})[0]||conPages[0]||mio[0]||d[0];
-    if(!r0){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Ha GitHub ma <b>nessun repository</b>: + → New repository <b>mio-sito</b> → Add README On → Create; poi Add file → Upload files.</td>';return 0}
+  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Non ha ancora GitHub (o non so il nome utente). <b>Pagina del corso → riquadro blu → il suo PC</b>: un passo alla volta fino al sito online. Se ha l&#39;account: <b>dettami il nome utente</b>, la consegna la preparo io dal sito.</td>';return Promise.resolve(0)}
+  var repo=REPOJ[x.u.toLowerCase()]||"mio-sito";
+  return new Promise(function(res){sitoOnline(urlSito(x.u,repo),res)}).then(function(onl){var r0={name:repo,has_pages:onl};
     var online=!!r0.has_pages,url="https://"+x.u.toLowerCase()+".github.io/"+r0.name+"/";
     return Promise.all([raw(x.u,r0.name,"index.html"),raw(x.u,r0.name,"style.css")]).then(function(f){var h=f[0],c=f[1],fare=[],p=0;
       var linkCss=h&&/<link[^>]+href=["']?style\.css/i.test(h),m=h&&h.match(/<h1>([\s\S]*?)<\/h1>/i),nome=m&&m[1].indexOf("Leo")<0;
@@ -44,7 +43,7 @@ function riga(x,i){var tr=document.getElementById("r"+i);
       var col=c?(c.match(/(?:background|color)\s*:\s*([^;]+);/g)||[]).map(function(s){return s.split(":")[1].replace(";","").trim()}).filter(function(v){return ES_CSS.indexOf(v)<0}):[];
       var priv=h?((h.match(/\b3\d{2}[\s.-]?\d{3}[\s.-]?\d{3,4}\b/)||h.match(/[\w.+-]+@[\w-]+\.[\w.]+/))?false:true):true;
       if(online)p+=2;else fare.push("<b>Settings → Pages → main → Save</b>, poi aspettare 2 minuti");
-      if(h)p+=2;else fare.push("<b>Add file → Upload files</b>: caricare index.html (e style.css)");
+      if(h)p+=2;else fare.push("<b>Add file → Create new file</b>: index.html e style.css (passo 6 della pagina del corso)");
       if(c&&linkCss)p+=2;else if(h)fare.push(c?"in index.html manca la riga &lt;link ... style.css&gt;":"caricare anche <b>style.css</b>");
       if(nome)p+=1;else if(h)fare.push("scrivere il <b>suo nome</b> al posto di Leo");
       if(h&&!dflt.length)p+=1.5;else if(h)fare.push("<b>Fallo tuo</b>: cambiare "+dflt.join(", ")+" (index.html → matita → Commit)");
@@ -57,7 +56,8 @@ function riga(x,i){var tr=document.getElementById("r"+i);
         +td(col.length?"v":"r",col.length?esc(col.slice(0,3).join(", ")):"esempio")+td(priv?"v":"r",priv?"OK":"DATI!")
         +'<td class="voto">'+(Math.round(p*2)/2)+'</td><td class="fare">'+(fare.length?fare.map(function(s,k){return (k+1)+". "+s}).join("<br>"):"<b style=\'color:#2f9e57\'>Tutto giusto!</b> Su Classroom preme solo Consegna. Domande orali.")+'</td>';
       return tutto?1:0})})}
-function vai(){try{localStorage.setItem(K,document.getElementById("lista").value)}catch(e){}var L=leggi(),h="";
+function vai(){fetch("../3inf-sito/repo.json?v="+Date.now()).then(function(r){return r.json()}).then(function(m){REPOJ=m}).catch(function(){}).then(vai2)}
+function vai2(){try{localStorage.setItem(K,document.getElementById("lista").value)}catch(e){}var L=leggi(),h="";
   L.forEach(function(x,i){h+='<tr id="r'+i+'"><td class="nome">'+esc(x.n)+'</td><td colspan="9">controllo...</td></tr>'});document.getElementById("tb").innerHTML=h;
   Promise.all(L.map(riga)).then(function(v){var t=v.reduce(function(a,b){return a+b},0);
     document.getElementById("cont").textContent=L.length+" ragazzi · tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}

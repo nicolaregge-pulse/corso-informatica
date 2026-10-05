@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.16** — 05/10/2026
+**Versione 2.17** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -242,6 +242,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     sito (pagina dei siti): la miniatura mostra solo la finestra in primo piano.
 33. **In classe risposte cortissime (05/10/2026).** Durante la lezione rispondo SOLO con: il testo aggiornato e completo del compito da incollare su Classroom (un blocco copia) e il link per il docente (un blocco copia). Niente tabelle o spiegazioni se Nicola non le chiede.
 34. **Lavori su GitHub: la consegna la genera Claude (05/10/2026).** Il ragazzo pubblica il sito e su Classroom preme solo "Consegna". Link, codice, screenshot, controlli e domande personali li genera Claude dal repository (`generatori/siti_3inf.py`, elenco unico `config/3inf-github.json` nel repo riservato). Il docente interroga.
+35. **Gli assenti si escludono sempre (05/10/2026).** Da liste, link del docente, pagine di controllo, conteggi e "chi manca" si tolgono gli assenti del giorno; restano solo nel registro presenze (repo riservato) e nei recuperi.
+36. **Fuori compito: se ne tiene sempre traccia (05/10/2026).** A ogni monitoraggio Veyon si annota nel repo riservato (`dati/andamento/<CLASSE>-fuori-compito-<data>.md`) chi, a che ora e cosa si vede (solo fatti, §2.32). Serve per la valutazione del comportamento e per la chiusura della classe.
+37. **Controlli dei siti senza API di GitHub (05/10/2026).** L'API si blocca dopo circa 60 controlli all'ora dalla rete della scuola. Le pagine aprono direttamente il sito (`docs/3inf-sito/online.js`) e leggono utenti e repository da `pc.json` e `repo.json`, generati in automatico.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -348,6 +351,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 23. **v2.14 (05/10/2026)**: §2.32 monitoraggio Veyon: dalla miniatura solo fatti, mai giudizi.
 24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
+26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
