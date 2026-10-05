@@ -47,8 +47,15 @@ function controlli(pas,lfm){
   var tit=lfm&&(lfm.match(/^\s*Caption\s*=\s*'([^']*)'/m)||[])[1];
   c.tuo=nuove||(tit&&!/^(Form1|Indovina il numero)$/i.test(tit));c.tit=tit||"";
   return c}
+function candidati(n){var t=n.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f']/g,"").split(/\s+/).filter(Boolean);if(t.length<2)return [];
+  var c=t[0],no=t[t.length-1],out=[];[[no,c],[c,no],[t[1],c],[no,t.slice(0,-1).join("")]].forEach(function(p){var b=p[0]+p[1];out.push(b,b+"PIA",b+"pia",p[0]+"-"+p[1])});
+  return out.filter(function(v,i,a){return a.indexOf(v)==i})}
+function trova(x){var c=candidati(x.n);return c.reduce(function(pr,u){return pr.then(function(f){if(f)return f;return raw(u,x.repo,"README.md").then(function(r){return r!==null?u:null})})},Promise.resolve(null))}
 function riga(x,i){var tr=document.getElementById("r"+i);
-  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">—</td><td class="fare">Non ha GitHub (o non so il nome utente): crea l&#39;account e dimmi il nome utente. Intanto finisce il gioco con la pagina PASSO PASSO.</td>';return Promise.resolve(0)}
+  if(!x.u||x.u=="-"){return trova(x).then(function(u){if(u){x.u=u;x.trovato=1;return riga(x,i)}rigaNo(x,tr);return 0})}
+  return riga2(x,i,tr)}
+function rigaNo(x,tr){if(true){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">—</td><td class="fare">Non ha GitHub (o non so il nome utente): crea l&#39;account e dimmi il nome utente. Intanto finisce il gioco con la pagina PASSO PASSO.</td>'}}
+function riga2(x,i,tr){
   return Promise.all([raw(x.u,x.repo,"unit1.pas"),raw(x.u,x.repo,"unit1.lfm"),raw(x.u,x.repo,"README.md")]).then(function(f){var pas=f[0],lfm=f[1],rd=f[2],fare=[],p=0;
     if(!pas&&!rd){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Nessun repository <b>'+esc(x.repo)+'</b>: passo 20 della pagina (+, New repository, nome indovina).</td>';return 0}
     if(!pas){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("g","solo README")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Repository creato ma senza file: passi 21-23 (Upload files: unit1.pas, unit1.lfm, project1.lpi, project1.lpr).</td>';return 0}
@@ -60,7 +67,7 @@ function riga(x,i){var tr=document.getElementById("r"+i);
     if(c.tuo)p+=1;else fare.push("<b>Fallo tuo</b>: cambiare titolo della finestra e frasi");
     if(!lfm)fare.push("caricare anche <b>unit1.lfm</b>");
     var tutto=!fare.length;tr.className=tutto?"tutto":"";
-    tr.innerHTML='<td class="nome">'+esc(x.n)+'<br><a target="_blank" href="https://github.com/'+esc(x.u)+'/'+esc(x.repo)+'">repository</a><details><summary>codice</summary><pre>'+esc(pas)+'</pre></details></td>'
+    tr.innerHTML='<td class="nome">'+esc(x.n)+(x.trovato?'<br><small>trovato: '+esc(x.u)+'</small>':'')+'<br><a target="_blank" href="https://github.com/'+esc(x.u)+'/'+esc(x.repo)+'">repository</a><details><summary>codice</summary><pre>'+esc(pas)+'</pre></details></td>'
       +td("v",lfm?"OK":"solo .pas")+td(c.random?"v":"r",c.random?"SÌ":"NO")+td(c.annidato?"v":"r",c.annidato?"SÌ":"NO")+td(c.puntoevirgola?"v":"r",c.puntoevirgola?"OK":"ERRORE")
       +td(c.rientri?"v":"r",c.rientri?"OK":"da sistemare")+td(c.tuo?"v":"r",c.tuo?(esc(c.tit)||"SÌ"):"esempio")
       +'<td class="punti">'+p+'</td><td class="fare">'+(fare.length?fare.map(function(s,k){return (k+1)+". "+s}).join("<br>"):"<b style=\'color:#2f9e57\'>Codice tutto giusto!</b> Consegna su Classroom e domande orali.")+'</td>';
