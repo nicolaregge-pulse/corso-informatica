@@ -165,7 +165,7 @@ def main():
     righe = "".join("<tr><td style='padding:8px;border-bottom:1px solid #e3e9f0;vertical-align:top;width:34%%'><b>%s</b></td>"
                     "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
     G.FACILE += ("<div class='box' style='border:3px solid #d0a516'><h2 style='color:#8a6d00'>PROBLEMI? Le soluzioni (dai problemi di oggi)</h2>"
-                 "<table style='width:100%%;border-collapse:collapse;font-size:16px'>%s</table></div>" % righe)
+                 "<table style='width:100%%;border-collapse:collapse;font-size:16px;table-layout:fixed;overflow-wrap:anywhere'>%s</table></div>" % righe)
     G2.main()
 
 
