@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.10** — 04/10/2026
+**Versione 2.11** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -213,6 +213,16 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     stesso rientro**; tutto ciò che sta dentro è **indentato** di un livello (2 spazi). Negli if
     annidati ogni livello aggiunge un rientro, così si vede a colpo d'occhio chi sta dentro a chi.
 
+28. **Ogni correzione di Nicola diventa regola (05/10/2026 — richiesta da Nicola).** TUTTO ciò che Nicola
+    segnala come sbagliato (anche con PPP) si registra **subito** in due posti: 1) `REGISTRO-ERRORI-CLAUDE.md`
+    (cosa è successo, data, classe); 2) una **regola qui** (o in `REGOLE-NOSTRE-CLAUDE-NICOLA.md`) che dice
+    come non rifarlo. Prima di ogni consegna si rileggono le regole 2.25-2.29.
+
+29. **Testi da incollare su Classroom: già impaginati (05/10/2026).** Istruzioni di compiti/annunci: titoletti
+    in MAIUSCOLO, **una riga per passo** numerata (1. 2. 3.), elenchi una voce per riga, riga vuota tra i
+    blocchi, il link su una riga sua. **Mai** un paragrafo unico con 1) 2) 3) in linea. Il testo intero sta
+    in **un solo** blocco da copiare, pronto da incollare (con il link dentro, se va sostituito tutto).
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -312,6 +322,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 18. **v2.9 (02/10/2026)**: §2 punto 25 — **argomenti del registro CORTI** (max ~40 caratteri,
     uno per ora): la casella del registro taglia il testo lungo.
 19. **v2.10 (04/10/2026)**: §2 punto 27 — **indentazione Lazarus**: if/else allineati, begin/end allineati, il resto indentato.
+20. **v2.11 (05/10/2026)**: §2.28 ogni correzione di Nicola → registro errori + regola; §2.29 testi Classroom già impaginati.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si

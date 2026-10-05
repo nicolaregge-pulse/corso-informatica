@@ -469,7 +469,7 @@ l'intestazione del file.
 5c. `sbobinature/README.md` (+ `TEMPLATE-sbobinatura.md`) — v0.1 (trascrizioni lezioni: conservazione integrale + versione lavorata; alimenta libro di testo, argomenti svolti e note dei ragazzi; nomi solo in scratchpad)
 5d. `strumenti/nome-albero.py` (+ `README.md`) — v0.1 (script: nomi file deterministici col percorso nel nome, espandi/collassa l'albero — regola 2.13)
 5e. `ATLANTE.md` (+ `ATLANTE-v0.4.pdf`) — v0.4 (mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
-5f. `RIFERIMENTI-E-DECISIONI.md` — v2.10 (§1.10 campanelle, §2.25 registro corto, §2.26 solo il metodo del docente, §2.27 rientri Lazarus; contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
+5f. `RIFERIMENTI-E-DECISIONI.md` — v2.11 (§2.28 ogni correzione → registro errori + regola, §2.29 testi Classroom impaginati; §1.10 campanelle, §2.25 registro corto, §2.26 solo il metodo del docente, §2.27 rientri Lazarus; contatti, convenzioni durature, tassonomia libri, dove stanno le cose, aperte; anti-compattamento; NIENTE nomi)
 
 ### 2. Pianificazione didattica
 1. `MAPPA-ARGOMENTI.md` — v1.5 (aggiunto Google Takeout in Produttività digitale)
