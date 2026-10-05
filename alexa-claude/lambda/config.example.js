@@ -9,7 +9,7 @@ module.exports = {
 
   // Chiave Gemini: da aistudio.google.com, voce "Get API key".
   GEMINI_API_KEY: '...',
-  GEMINI_MODEL: 'gemini-flash-latest',
+  GEMINI_MODEL: 'gemini-flash-lite-latest',
 
   // Chiave Claude: da console.anthropic.com (serve credito sull'organizzazione).
   CLAUDE_API_KEY: '...',
