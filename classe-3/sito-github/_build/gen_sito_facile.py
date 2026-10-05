@@ -183,6 +183,13 @@ def main():
           ("35", "<b>Bravo, il tuo sito è online!</b> Ora <b>fallo tuo</b>: cambia le passioni e il sogno (sono ancora quelli dell'esempio). Poi completa il Documento del compito.", ""),
           ("36", "<b>Bravo, il tuo sito è online!</b> Ora <b>fallo tuo</b>: cambia le passioni e il sogno con i tuoi. Poi completa il Documento del compito.", ""),
           ("37", "<b>Bravo, il tuo sito è online!</b> Il nome del repository è diverso da mio-sito: va bene. Personalizza la pagina e completa il Documento del compito.", "")]
+    GEN = ("Segui la <b>scheda facile 1</b> (la tua pagina sul computer), poi la <b>scheda facile 2</b> (su internet). "
+           "Se hai già finito: <b>fallo tuo</b> (passioni e sogno) e completa il Documento del compito. Problemi? Guarda il riquadro giallo.")
+    noti = [n for n, _, _ in PC]
+    for n in ["11", "13", "16", "17", "21", "31", "32", "33", "34"]:
+        if n not in noti:
+            PC.append((n, GEN, "প্রথমে <b>scheda facile 1</b>, তারপর <b>scheda facile 2</b>। শেষ হলে: নিজের মতো করো এবং Documento পূরণ করো।"))
+    PC.sort(key=lambda x: int(x[0]))
     bot = "".join("<button class='pcb' onclick=\"pc('%s')\">PC %s</button>" % (n, n) for n, _, _ in PC)
     pan = "".join("<div class='pcp' id='pc%s' style='display:none'><b>PC %s</b> &mdash; %s%s</div>" % (n, n, t, ("<div style='color:#1d4d2f;margin-top:6px'>%s</div>" % b) if b else "") for n, t, b in PC)
     G.FACILE += ("<div class='box' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
