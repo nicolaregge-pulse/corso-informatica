@@ -166,6 +166,34 @@ def main():
                     "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
     G.FACILE += ("<div class='box' style='border:3px solid #d0a516'><h2 style='color:#8a6d00'>PROBLEMI? Le soluzioni (dai problemi di oggi)</h2>"
                  "<table style='width:100%%;border-collapse:collapse;font-size:16px;table-layout:fixed;overflow-wrap:anywhere'>%s</table></div>" % righe)
+    # indicazioni personali per POSTAZIONE (numero del PC, mai i nomi: la pagina è pubblica) — aggiornate alle 08:49
+    PC = [("12", "Hai creato <b>3 repository</b>: usa solo quello che si chiama <b>mio-sito</b>. Dentro carica <b>index.html</b> e <b>style.css</b> (Add file &rarr; Upload files), poi Settings &rarr; Pages &rarr; main &rarr; Save.", ""),
+          ("14", "Il repository c'è: ora <b>carica i 2 file</b> (Add file &rarr; Upload files &rarr; index.html e style.css &rarr; Commit changes). Poi Settings &rarr; Pages &rarr; main &rarr; Save.",
+                 "repository তৈরি: এবার <b>২টি ফাইল আপলোড করো</b> (Add file &rarr; Upload files &rarr; index.html ও style.css &rarr; Commit changes)। তারপর Settings &rarr; Pages &rarr; main &rarr; Save।"),
+          ("15", "<b>Bravo, il tuo sito è online!</b> Il tuo indirizzo finisce con <b>/Mio_sito/</b>. Ora completa il Documento del compito: link, HTML, CSS, screenshot, spiegazione.", ""),
+          ("18", "Il repository c'è: manca solo <b>Settings &rarr; Pages &rarr; Branch: main &rarr; Save</b>. Poi aspetta 2 minuti e premi F5. Ci sei quasi!", ""),
+          ("22", "Finisci la <b>scheda facile 1</b>: salva index.html e style.css nella cartella mio-sito (Tutti i file). Poi passa alla scheda 2.", ""),
+          ("23", "La tua pagina funziona, bravo! Ora nel repository <b>carica i 2 file</b> e poi Settings &rarr; Pages &rarr; main &rarr; Save.", ""),
+          ("24", "Finisci la <b>scheda facile 1</b> (passo 5 e 6: salva i due file). Poi scheda 2.", ""),
+          ("25", "Lavora con il <b>TUO</b> account, non con quello di un compagno: il lavoro deve arrivare a tuo nome. Se non ricordi la password chiedi al professore. Intanto fai la scheda facile 1.", ""),
+          ("26", "Parti adesso dalla <b>scheda facile 1</b>, passo 1: fai la cartella mio-sito. In 20 minuti hai la tua pagina!", ""),
+          ("27", "Fai la <b>scheda facile 1</b> sul tuo computer. Il tuo account è in recupero: appena funziona fai la scheda 2.", ""),
+          ("28", "Apri la <b>scheda facile 1</b> e fai il <b>passo 1</b> adesso: un passo alla volta, ce la fai!", ""),
+          ("29", "Chiudi le altre pagine e apri la <b>scheda facile 1</b>: passo 1, la cartella mio-sito.", ""),
+          ("35", "<b>Bravo, il tuo sito è online!</b> Ora <b>fallo tuo</b>: cambia le passioni e il sogno (sono ancora quelli dell'esempio). Poi completa il Documento del compito.", ""),
+          ("36", "<b>Bravo, il tuo sito è online!</b> Ora <b>fallo tuo</b>: cambia le passioni e il sogno con i tuoi. Poi completa il Documento del compito.", ""),
+          ("37", "<b>Bravo, il tuo sito è online!</b> Il nome del repository è diverso da mio-sito: va bene. Personalizza la pagina e completa il Documento del compito.", "")]
+    bot = "".join("<button class='pcb' onclick=\"pc('%s')\">PC %s</button>" % (n, n) for n, _, _ in PC)
+    pan = "".join("<div class='pcp' id='pc%s' style='display:none'><b>PC %s</b> &mdash; %s%s</div>" % (n, n, t, ("<div style='color:#1d4d2f;margin-top:6px'>%s</div>" % b) if b else "") for n, t, b in PC)
+    G.FACILE += ("<div class='box' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
+                 "<p>Indicazioni personali, aggiornate dal professore durante la lezione (ultimo aggiornamento 08:49).</p>"
+                 "<style>.pcb{background:#eaf2fb;color:#12467a;border:2px solid #1f6fa5;border-radius:10px;font-size:17px;font-weight:700;padding:8px 12px;margin:4px;cursor:pointer;width:auto}"
+                 ".pcb.on{background:#1f6fa5;color:#fff}.pcp{margin-top:10px;font-size:18px;line-height:1.55;background:#f4f9ff;border-radius:10px;padding:12px}</style>"
+                 "<div>%s</div>%s"
+                 "<script>function pc(n){document.querySelectorAll('.pcp').forEach(function(e){e.style.display='none'});"
+                 "document.querySelectorAll('.pcb').forEach(function(b){b.classList.toggle('on',b.textContent=='PC '+n)});"
+                 "document.getElementById('pc'+n).style.display='block';try{localStorage.setItem('mio-pc',n)}catch(e){}}"
+                 "try{var m=localStorage.getItem('mio-pc');if(m&&document.getElementById('pc'+m))pc(m)}catch(e){}</script></div>") % (bot, pan)
     G2.main()
 
 
