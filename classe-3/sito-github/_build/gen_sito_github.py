@@ -567,6 +567,9 @@ def docente():
 
 
 # ================================================================ PAGINA UNICA (docs/)
+FACILE = ""   # riquadro delle schede facili (lo riempie gen_sito_facile.py)
+
+
 def hub(nomi, extra=""):
     def bt(f, lab, sub=""):
         return "<a class='bt' href='%s'>%s<small>%s</small></a>" % (f, lab, sub)
@@ -595,6 +598,7 @@ a.bt small{display:block;font-size:13px;font-weight:400;opacity:.92;margin-top:4
 </style></head><body><div class="w"><span class="ver">v%(ver)s</span><h1>Classe 3 — Il mio primo sito</h1>
 <div class="sub">%(data)s · HTML + CSS + GitHub Pages · Italiano / বাংলা</div>
 <div class="warn"><b>Il tuo sito sarà pubblico:</b> solo nome o soprannome. Mai cognome, telefono, email, indirizzo, foto del viso.</div>
+%(facile)s
 <div class="box b1"><h2>1. Dispensa 1 — La mia pagina web da zero</h2><p>Crea la cartella mio-sito con index.html e style.css.</p><div class="btns">%(d1)s</div></div>
 <div class="box code"><h2>Il codice da copiare</h2><p>Premi il bottone giallo <b>Copia</b>, poi nel Blocco note premi Ctrl + V.</p>
 <div class="cb"><span class="lab">RIQUADRO 1 — index.html</span><button class="cp" data-t="h">Copia</button><pre id="h">%(html)s</pre></div>
@@ -612,7 +616,8 @@ function fb(t){var a=document.createElement('textarea');a.value=t;document.body.
     return s % {"ver": VER, "data": DATA, "html": E(HTML_CODE), "css": E(CSS_CODE),
                 "d1": bt(nomi["d1_it"], "Italiano") + bt(nomi["d1_bn"], "Italiano + বাংলা"),
                 "d2": bt(nomi["d2_it"], "Italiano") + bt(nomi["d2_bn"], "Italiano + বাংলা"),
-                "cp": bt(nomi["cp_it"], "Italiano") + bt(nomi["cp_bn"], "Italiano + বাংলা"), "extra": extra}
+                "cp": bt(nomi["cp_it"], "Italiano") + bt(nomi["cp_bn"], "Italiano + বাংলা"), "extra": extra,
+                "facile": FACILE}
 
 
 def pdf(html_txt, nome_html, nome_pdf):

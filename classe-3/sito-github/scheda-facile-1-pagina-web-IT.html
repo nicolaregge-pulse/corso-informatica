@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Scheda facile 1</title><style>
+@font-face{font-family:'NotoBN';src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-400.woff2') format('woff2');}
+@font-face{font-family:'NotoBN';font-weight:bold;src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-700.woff2') format('woff2');}
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a1a1a;line-height:1.5;font-size:10.8pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.bn{font-family:'NotoBN',"DejaVu Sans",sans-serif;font-size:11.2pt;line-height:1.75;color:#1d4d2f}
+.cover{background:linear-gradient(160deg,#eef4fb,#e9f7ee);padding:7mm 8mm;border-radius:8px;margin-bottom:4mm;position:relative}
+.cover h1{color:#12467a;font-size:18.5pt;margin:0 0 1.5mm;line-height:1.25}.cover .s{color:#445;font-size:10pt}
+.cover .bn{font-size:12pt;margin-top:1mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#12467a;color:#fff;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:13.5pt;margin:5mm 0 2mm;border-bottom:3px solid #cfe0f0;padding-bottom:1mm;page-break-after:avoid}
+.goal{background:#e9f6ee;border-left:5px solid #2f9e57;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.note{background:#fff8e6;border-left:5px solid #d0a516;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.warn{background:#fdecea;border-left:5px solid #c0392b;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.info{background:#eaf2fb;border-left:5px solid #1f6fa5;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.step{border:1px solid #cfdae6;border-radius:8px;margin:2.6mm 0;page-break-inside:avoid;overflow:hidden}
+.step .h{background:#1f6fa5;color:#fff;padding:1.6mm 3mm;font-weight:bold;font-size:10.8pt}
+.step .h .n{display:inline-block;background:#fff;color:#1f6fa5;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;margin-right:2mm;font-size:10pt}
+.step .b{padding:2mm 3.5mm}
+.step .b p{margin:0 0 1.2mm}
+.step.ok .h{background:#2f9e57}.step.ok .h .n{color:#2f9e57}
+.tasto{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #cddae8;padding:0 4px;border-radius:3px;font-size:9.6pt;white-space:nowrap}
+pre{background:#1e2733;color:#e8eef5;border-radius:6px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:8.7pt;line-height:1.38;white-space:pre-wrap;margin:1.5mm 0 3mm;page-break-inside:avoid}
+.codet{font-weight:bold;color:#fff;background:#12467a;display:inline-block;padding:1mm 3mm;border-radius:5px 5px 0 0;margin-top:3mm;font-size:10pt}
+.codet.css{background:#8a3ab9}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.4mm 2.4mm;vertical-align:top;text-align:left;font-size:9.8pt}
+th{background:#12467a;color:#fff}th.bn{color:#fff}
+td.c{font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;font-size:9.2pt}
+.sw{display:inline-block;width:4mm;height:4mm;border:1px solid #888;vertical-align:middle;margin-right:1.5mm;border-radius:2px}
+/* schermate disegnate */
+.scr{border:2px solid #9aa9b8;border-radius:7px;background:#fff;font-size:8.8pt;margin:2mm 0 1mm;overflow:hidden;page-break-inside:avoid;font-family:"DejaVu Sans",Arial,sans-serif;color:#24292f}
+.scr .bar{background:#e8edf2;padding:1mm 2.5mm;font-family:"DejaVu Sans Mono",monospace;color:#555;font-size:8.2pt;border-bottom:1px solid #cfd8e2}
+.scr .gh{background:#24292f;color:#fff;padding:1.6mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.scr .in{padding:2.5mm 3.5mm}
+.hl{outline:3px solid #e0312b;outline-offset:1px;border-radius:4px}
+.fr{color:#e0312b;font-weight:bold;font-size:9pt;white-space:nowrap}
+.gbtn{display:inline-block;background:#1f883d;color:#fff;font-weight:bold;padding:1mm 3mm;border-radius:5px}
+.wbtn{display:inline-block;background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;padding:1mm 3mm;border-radius:5px}
+.fld{display:inline-block;border:1px solid #8c959f;border-radius:4px;padding:.6mm 2.5mm;min-width:32mm;font-family:"DejaVu Sans Mono",monospace;background:#fff}
+.menu{display:inline-block;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:1mm 0;background:#fff;color:#24292f;margin-top:1mm}
+.menu div{padding:.8mm 4mm}
+.tabs span{display:inline-block;padding:1mm 2.5mm;margin-right:1mm;color:#57606a}
+.side div{padding:.8mm 2mm;color:#57606a}
+.drop{border:2px dashed #8c959f;border-radius:6px;padding:3mm;text-align:center;color:#57606a;margin:1.5mm 0}
+.file{display:inline-block;border:1px solid #d0d7de;border-radius:4px;padding:1mm 2.5mm;margin:.8mm;background:#f6f8fa;font-family:"DejaVu Sans Mono",monospace}
+.live{background:#dafbe1;border:1px solid #4ac26b;border-radius:6px;padding:2mm 3mm}
+.cap{font-size:8.6pt;color:#667;text-align:center;margin:0 0 2.5mm}
+.two{display:flex;gap:4mm}.two>div{flex:1}
+.prev{border:2px solid #9aa9b8;border-radius:7px;overflow:hidden;page-break-inside:avoid}
+.prev .pg{background:lightblue;text-align:center;padding:3mm;font-family:Arial,sans-serif}
+.prev h1{color:darkblue;font-size:15pt;margin:1mm 0}.prev .sotto{color:gray;margin:0 0 2mm;font-size:9pt}
+.prev .sch{background:#fff;max-width:85mm;margin:0 auto;padding:2.5mm 4mm;border-radius:8px;text-align:left;font-size:8.6pt}
+.prev h3{color:teal;font-size:10pt;margin:1mm 0}.prev ul{margin:0;padding-left:5mm}.prev p{margin:0 0 1mm}
+.prev .piede{font-size:7pt;color:gray;margin-top:2mm}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+.chk td:first-child{width:8mm;text-align:center;font-size:12pt}
+</style></head><body><style>body{font-size:12.6pt;line-height:1.5}.bn{font-size:12.6pt}.step{margin:2mm 0}.step .h{font-size:12pt}.step .b{padding:1.6mm 3.5mm}.cover{padding:5mm 7mm}.cover h1{font-size:20pt;padding-right:18mm}.tasto{font-size:11pt}</style><div class='cover'><span class='ver'>v1.0</span><h1>La mia pagina web in 7 passi</h1><div class='s'>Classe 3 · scheda FACILE · 05/10/2026 · italiano</div></div><div class='goal'><div><b>Alla fine:</b> una pagina web con il <b>tuo nome</b>, che si apre nel browser. Ci vogliono circa 20 minuti. Una cosa alla volta!</div></div><div class='step'><div class='h'><span class='n'>1</span>Fai una cartella</div><div class='b'><p>Sul Desktop: tasto <b>destro</b> del mouse &rarr; <b>Nuovo</b> &rarr; <b>Cartella</b>. Scrivi <span class='tasto'>mio-sito</span> e premi <span class='tasto'>Invio</span>.</p></div></div><div class='step'><div class='h'><span class='n'>2</span>Copia il codice</div><div class='b'><p>Apri il link del compito su Classroom. Sul <b>RIQUADRO 1</b> premi il bottone giallo <b>Copia</b>.</p></div></div><div class='step'><div class='h'><span class='n'>3</span>Incolla nel Blocco note</div><div class='b'><p>Start &rarr; scrivi <span class='tasto'>Blocco note</span> &rarr; aprilo. Premi <span class='tasto'>Ctrl</span> + <span class='tasto'>V</span>.</p></div></div><div class='step'><div class='h'><span class='n'>4</span>Metti il tuo nome</div><div class='b'><p>Trova <b>Leo</b> e scrivi al suo posto il tuo nome (o un soprannome). Niente cognome!</p></div></div><div class='step'><div class='h'><span class='n'>5</span>Salva: index.html</div><div class='b'><p><b>File</b> &rarr; <b>Salva con nome</b> &rarr; cartella <b>mio-sito</b>. <b>Salva come: Tutti i file</b>. Nome: <span class='tasto'>index.html</span> &rarr; <b>Salva</b>.</p><div class='scr' style='width:95mm'><div class='bar'>Salva con nome</div><div class='in'>Nome file: <span class='fld hl'>index.html</span><br>Salva come: <span class='fld hl'>Tutti i file (*.*)</span></div></div></div></div><div class='step'><div class='h'><span class='n'>6</span>Il secondo file: style.css</div><div class='b'><p><b>File</b> &rarr; <b>Nuovo</b>. Copia il <b>RIQUADRO 2</b> (bottone Copia) e incolla. Salva come prima, nome <span class='tasto'>style.css</span>.</p><div class='scr' style='width:70mm'><div class='bar'>Desktop &gt; mio-sito</div><div class='in' style='text-align:center'><span class='file'>index.html</span> <span class='file'>style.css</span></div></div></div></div><div class='step ok'><div class='h'><span class='n'>7</span>Apri la tua pagina</div><div class='b'><p>Nella cartella <b>mio-sito</b> fai <b>doppio clic</b> su <b>index.html</b>. <b>FATTO! È la tua pagina web!</b></p></div></div><div class='note'><div><b>Bonus:</b> apri style.css con il Blocco note, cambia <span class='tasto'>lightblue</span> con <span class='tasto'>pink</span> o <span class='tasto'>gold</span>, salva e premi <span class='tasto'>F5</span>. <b>Problema?</b> Alza la mano: succede a tutti!</div></div></body></html>
