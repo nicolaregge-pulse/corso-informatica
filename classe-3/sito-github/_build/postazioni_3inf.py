@@ -132,3 +132,100 @@ def postazioni_html():
             "if(on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
             "colori();setInterval(colori,3*60*1000);"
             "try{var m=localStorage.getItem('mio-pc');if(m&&document.getElementById('pc'+m))pc(m)}catch(e){}</script></div>") % (AGGIORNATO, bot, pan)
+
+
+# ===================== VERSIONE SEMPLICE (09:35): UN SOLO PASSO ALLA VOLTA =====================
+PASSI = [  # (italiano, bengali, copia: "" | "h" | "c")
+    ("Sul <b>Desktop</b>: clic con il tasto <b>DESTRO</b> &rarr; <b>Nuovo</b> &rarr; <b>Cartella</b>. Scrivi il nome <b>mio-sito</b> e premi Invio.",
+     "Desktop-এ <b>ডান</b> ক্লিক &rarr; Nuovo &rarr; Cartella। নাম লেখো <b>mio-sito</b>।", ""),
+    ("Apri il <b>Blocco note</b>: in basso a sinistra <b>Start</b>, scrivi <b>Blocco note</b>, clic sul programma.",
+     "<b>Blocco note</b> খোলো: Start &rarr; লেখো Blocco note।", ""),
+    ("Premi il bottone giallo <b>COPIA CODICE 1</b> qui sotto. Poi nel Blocco note premi <b>Ctrl + V</b>.",
+     "নিচের হলুদ বোতাম <b>COPIA CODICE 1</b> চাপো। তারপর Blocco note-এ <b>Ctrl + V</b>।", "h"),
+    ("Nel Blocco note trova la parola <b>Leo</b> e scrivi al suo posto <b>il tuo nome</b>.",
+     "<b>Leo</b> খুঁজে তার জায়গায় <b>তোমার নাম</b> লেখো।", ""),
+    ("<b>File</b> &rarr; <b>Salva con nome</b> &rarr; apri la cartella <b>mio-sito</b>. In basso <b>Salva come: Tutti i file</b>. Nome: <b>index.html</b>. Clic su <b>Salva</b>.",
+     "<b>File</b> &rarr; <b>Salva con nome</b> &rarr; <b>mio-sito</b> ফোল্ডার। <b>Tutti i file</b>। নাম: <b>index.html</b>। <b>Salva</b>।", ""),
+    ("Nel Blocco note: <b>File</b> &rarr; <b>Nuovo</b>. Premi il bottone giallo <b>COPIA CODICE 2</b> qui sotto, poi <b>Ctrl + V</b>.",
+     "<b>File</b> &rarr; <b>Nuovo</b>। হলুদ বোতাম <b>COPIA CODICE 2</b> চাপো, তারপর <b>Ctrl + V</b>।", "c"),
+    ("<b>File</b> &rarr; <b>Salva con nome</b> &rarr; cartella <b>mio-sito</b> &rarr; <b>Tutti i file</b>. Nome: <b>style.css</b>. Clic su <b>Salva</b>.",
+     "<b>File</b> &rarr; <b>Salva con nome</b> &rarr; <b>mio-sito</b> &rarr; <b>Tutti i file</b>। নাম: <b>style.css</b>। <b>Salva</b>।", ""),
+    ("Apri la cartella <b>mio-sito</b> e fai <b>doppio clic su index.html</b>. Vedi la tua pagina colorata? <b>BRAVO!</b>",
+     "<b>mio-sito</b> ফোল্ডারে <b>index.html</b>-এ ডাবল ক্লিক। রঙিন পেজ দেখছ? <b>দারুণ!</b>", ""),
+    ("Apri una scheda nuova e vai su <b>github.com</b>. In alto a destra <b>Sign in</b>: entra con il tuo nome utente e password.",
+     "নতুন ট্যাবে <b>github.com</b>। উপরে ডানদিকে <b>Sign in</b>: ইউজারনেম ও পাসওয়ার্ড।", ""),
+    ("In alto a destra clic sul <b>+</b> &rarr; <b>New repository</b>. Nome: <b>mio-sito</b>. <b>Add README</b> su <b>On</b>. Bottone verde <b>Create repository</b>.",
+     "উপরে ডানদিকে <b>+</b> &rarr; <b>New repository</b>। নাম <b>mio-sito</b>। <b>Add README: On</b>। সবুজ <b>Create repository</b>।", ""),
+    ("Clic su <b>Add file</b> &rarr; <b>Upload files</b>. Trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito. Bottone verde <b>Commit changes</b>.",
+     "<b>Add file</b> &rarr; <b>Upload files</b>। <b>index.html</b> ও <b>style.css</b> টেনে আনো। সবুজ <b>Commit changes</b>।", ""),
+    ("Clic su <b>Settings</b> (in alto, ultima a destra; se non c'è: <b>More</b> &rarr; Settings) &rarr; a sinistra <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
+     "<b>Settings</b> (না দেখলে <b>More</b>) &rarr; বাঁদিকে <b>Pages</b> &rarr; <b>main</b> &rarr; <b>Save</b>।", ""),
+    ("Aspetta <b>2 minuti</b>. Poi torna su questa pagina e premi <b>Ctrl + F5</b>: se il tuo PC diventa <b>VERDE</b> il sito è online!",
+     "<b>২ মিনিট</b> অপেক্ষা করো। তারপর এই পেজে <b>Ctrl + F5</b>: তোমার PC <b>সবুজ</b> হলে সাইট অনলাইন!", ""),
+    ("<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; <b>matita</b> &rarr; cambia passioni e sogno con i <b>tuoi</b> &rarr; <b>Commit changes</b>.",
+     "<b>নিজের মতো করো</b>: GitHub-এ <b>index.html</b> &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; <b>Commit changes</b>।", ""),
+    ("Su <b>Classroom</b> apri il compito, metti nel Documento il <b>link del tuo sito</b>, e premi <b>Consegna</b>. Il professore poi ti fa qualche domanda.",
+     "<b>Classroom</b>-এ কাজ খোলো, Documento-তে <b>সাইটের লিংক</b> দাও, <b>Consegna</b> চাপো।", ""),
+]
+# passo (numero da 1) da cui parte ogni postazione, alle 09:35
+INIZIO = {"12": 12, "14": 14, "15": 14, "18": 11, "22": 11, "23": 14, "24": 5, "25": 1, "26": 14, "27": 9,
+          "28": 9, "29": 10, "32": 1, "33": 5, "34": 5, "35": 14, "36": 14, "37": 14}
+NOTE = {"12": "I tuoi file giusti sono nel repository <b>mio-sito1</b>: fai questo passo dentro <b>mio-sito1</b>.",
+        "18": "Nel tuo repository c'è solo il README: manca questo passo.",
+        "27": "Entra con l'account <b>3infpiamartauser1@gmail.com</b>. Se non hai ancora GitHub: <b>Sign up</b> con questa email.",
+        "32": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore).",
+        "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
+
+
+def postazioni_semplici_html():
+    import json as _j
+    bot = ""
+    for n in TUTTI:
+        u = PC.get(n, GENERICO)[0]
+        cls = " rosso" if n in PC or n in INIZIO else ""
+        bot += "<button class='pcb%s' data-u='%s' onclick=\"pc('%s')\">PC %s</button>" % (cls, u, n, n)
+    dati = {"passi": PASSI, "inizio": INIZIO, "note": NOTE,
+            "bene": {n: PC[n][1] for n in PC}, "user": {n: PC[n][0] for n in PC}}
+    return ("<div class='box mia' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
+            "<p><b style='color:#2f9e57'>VERDE</b> = sito online · <b style='color:#c0392b'>ROSSO</b> = non ancora · bianco = postazione libera.</p>"
+            "<style>.pcb{background:#eaf2fb;color:#12467a;border:2px solid #1f6fa5;border-radius:10px;font-size:17px;font-weight:700;padding:8px 12px;margin:4px;cursor:pointer;width:auto}"
+            ".pcb.on{outline:4px solid #12467a}.pcb.verde{background:#2f9e57;color:#fff;border-color:#1e7a44}.pcb.rosso{background:#c0392b;color:#fff;border-color:#8e2a20}"
+            "#passo{display:none;margin-top:14px}.pnum{font-size:20px;font-weight:800;color:#12467a}.bene2{background:#eafaf0;border-left:6px solid #2f9e57;border-radius:8px;padding:8px 10px;margin:8px 0;color:#1e7a44;font-size:17px}"
+            ".nota2{background:#fff8e1;border-left:6px solid #d0a516;border-radius:8px;padding:8px 10px;margin:8px 0;font-size:17px}"
+            ".ptesto{font-size:24px;line-height:1.5;background:#f4f9ff;border:3px solid #1f6fa5;border-radius:14px;padding:16px;margin:8px 0}"
+            ".pbn{font-size:20px;color:#1d4d2f;margin-top:8px}.cpb{background:#ffd34d;color:#1a2330;font-size:22px;font-weight:800;border-radius:12px;padding:14px;width:100%%;margin-top:10px}"
+            ".avanti{background:#2f9e57;font-size:22px;padding:16px}.indietro{background:#7a8794;font-size:16px;width:auto;padding:10px 14px}"
+            ".barra{height:12px;background:#e3e9f0;border-radius:6px;overflow:hidden;margin:6px 0}.barra div{height:100%%;background:#2f9e57}"
+            "body.focus .w>*:not(.mia){display:none!important}#tuttapagina{display:none;background:#7a8794;width:auto}body.focus #tuttapagina{display:inline-block}</style>"
+            "<div>%s</div><button id='tuttapagina' onclick='tutta()'>Torna alla pagina completa</button>"
+            "<div id='passo'><div class='pnum' id='pnum'></div><div class='barra'><div id='pbar'></div></div><div id='pbene'></div><div id='pnota'></div>"
+            "<div class='ptesto' id='ptesto'></div><div id='pcopia'></div>"
+            "<button class='avanti' onclick='muovi(1)'>FATTO &rarr; passo dopo</button> <button class='indietro' onclick='muovi(-1)'>&larr; passo prima</button>"
+            "<div id='psito' style='margin-top:12px'></div></div>"
+            "<script>var D=%s,PCN=null,P=0;"
+            "function chiave(){return 'passo-pc-'+PCN}"
+            "function pc(n){PCN=n;document.querySelectorAll('.pcb').forEach(function(b){b.classList.toggle('on',b.textContent=='PC '+n)});"
+            "document.body.classList.add('focus');document.getElementById('passo').style.display='block';"
+            "var s=null;try{s=localStorage.getItem(chiave())}catch(e){}P=s?parseInt(s):((D.inizio[n]||1)-1);"
+            "document.getElementById('pbene').innerHTML=D.bene[n]?'<div class=\"bene2\"><b>Fatto bene:</b> '+D.bene[n]+'</div>':'';"
+            "try{localStorage.setItem('mio-pc',n)}catch(e){}disegna();var u=D.user[n];if(u)controllaUno(u)}"
+            "function disegna(){var t=D.passi[P];document.getElementById('pnum').textContent='PC '+PCN+' — passo '+(P+1)+' di '+D.passi.length;"
+            "document.getElementById('pbar').style.width=Math.round((P+1)*100/D.passi.length)+'%%';"
+            "document.getElementById('ptesto').innerHTML=t[0]+'<div class=\"pbn\">'+t[1]+'</div>';"
+            "var no=D.note[PCN];document.getElementById('pnota').innerHTML=no&&(P+1)==(D.inizio[PCN]||1)?'<div class=\"nota2\">'+no+'</div>':'';"
+            "document.getElementById('pcopia').innerHTML=t[2]?'<button class=\"cpb\" onclick=\"copiaCodice(\\''+t[2]+'\\',this)\">COPIA CODICE '+(t[2]=='h'?'1 (index.html)':'2 (style.css)')+'</button>':'';"
+            "window.scrollTo(0,0)}"
+            "function muovi(d){P=Math.max(0,Math.min(D.passi.length-1,P+d));try{localStorage.setItem(chiave(),P)}catch(e){}disegna()}"
+            "function copiaCodice(id,b){var t=document.getElementById(id).textContent;function ok(){b.textContent='COPIATO! Ora Ctrl + V nel Blocco note'}"
+            "if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()})}else{fb(t);ok()}}"
+            "function tutta(){document.body.classList.remove('focus');document.getElementById('passo').style.display='none'}"
+            "function controllaUno(u){fetch('https://api.github.com/users/'+u+'/repos?per_page=100').then(function(r){return r.json()}).then(function(d){"
+            "if(!d.filter)return;var pg=d.filter(function(r){return r.has_pages});var el=document.getElementById('psito');"
+            "if(pg.length){var r0=pg.filter(function(r){return /mio/i.test(r.name)})[0]||pg[0];var url='https://'+u.toLowerCase()+'.github.io/'+r0.name+'/';"
+            "el.innerHTML='<b style=\"color:#2f9e57;font-size:20px\">IL TUO SITO È ONLINE:</b><a target=\"_blank\" href=\"'+url+'\" style=\"display:block;background:#2f9e57;color:#fff;font-size:20px;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;text-align:center;margin-top:6px;word-break:break-all\">'+url+'</a>';"
+            "if(P<13){P=13;disegna()}}}).catch(function(){})}"
+            "function colori(){var us=[].slice.call(document.querySelectorAll('.pcb')).map(function(b){return b.getAttribute('data-u')}).filter(function(u){return u});"
+            "if(!us.length)return;fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(us.map(function(u){return 'user:'+u}).join(' '))).then(function(r){return r.json()}).then(function(j){"
+            "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
+            "document.querySelectorAll('.pcb').forEach(function(b){var u=(b.getAttribute('data-u')||'').toLowerCase();if(u&&on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
+            "colori();setInterval(colori,3*60*1000);try{var m=localStorage.getItem('mio-pc');if(m)pc(m)}catch(e){}</script></div>") % (bot, _j.dumps(dati, ensure_ascii=False))
