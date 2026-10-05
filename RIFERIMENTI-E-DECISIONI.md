@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.14** — 05/10/2026
+**Versione 2.15** — 05/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -240,6 +240,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 32. **Monitoraggio Veyon: dalla miniatura solo fatti, mai giudizi (05/10/2026).** Si scrive "PC N sulla pagina X alle
     HH:MM", non "non ha fatto niente". Prima di dire che un allievo è fermo si guardano le schede aperte e lo stato del
     sito (pagina dei siti): la miniatura mostra solo la finestra in primo piano.
+33. **In classe risposte cortissime (05/10/2026).** Durante la lezione rispondo SOLO con: il testo aggiornato e completo del compito da incollare su Classroom (un blocco copia) e il link per il docente (un blocco copia). Niente tabelle o spiegazioni se Nicola non le chiede.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -344,6 +345,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 21. **v2.12 (05/10/2026)**: §2.30 comando "Chiudi classe" (libro individuale per allievo + griglie e report per il docente).
 22. **v2.13 (05/10/2026)**: §2.31 in docs/ i PDF già usati non si cancellano durante le lezioni.
 23. **v2.14 (05/10/2026)**: §2.32 monitoraggio Veyon: dalla miniatura solo fatti, mai giudizi.
+24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
