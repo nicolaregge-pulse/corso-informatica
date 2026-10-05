@@ -229,3 +229,18 @@ def postazioni_semplici_html():
             "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
             "document.querySelectorAll('.pcb').forEach(function(b){var u=(b.getAttribute('data-u')||'').toLowerCase();if(u&&on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
             "colori();setInterval(colori,3*60*1000);try{var m=localStorage.getItem('mio-pc');if(m)pc(m)}catch(e){}</script></div>") % (bot, _j.dumps(dati, ensure_ascii=False))
+
+
+def siti_classe_html():
+    """Riquadro 'I SITI DELLA CLASSE': lista generata dal vivo (solo numero del PC + bottone, niente nomi scritti)."""
+    import json as _j
+    us = {n: PC[n][0] for n in PC if PC[n][0]}
+    return ("<div class='box' id='sitiClasse' style='border:3px solid #2f9e57'><h2 style='color:#2f9e57'>I SITI DELLA CLASSE: clicca il tuo PC</h2>"
+            "<p>La lista si crea da sola: compare il bottone appena il sito è online. Il tuo PC non c'è? Riquadro blu qui sotto, un passo alla volta.</p>"
+            "<div id='listaSiti' style='display:flex;flex-wrap:wrap;gap:8px'>Controllo i siti su GitHub...</div>"
+            "<script>(function(){var U=%s;function giro(){var q=Object.keys(U).map(function(n){return 'user:'+U[n]}).join(' ');"
+            "fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(j){"
+            "if(!j.items)return;var by={};j.items.forEach(function(r){if(!r.has_pages)return;var o=r.owner.login.toLowerCase();if(!by[o]||/mio/i.test(r.name))by[o]=r.name});"
+            "var h='';Object.keys(U).sort(function(a,b){return a-b}).forEach(function(n){var o=U[n].toLowerCase();if(by[o])"
+            "h+='<a target=\"_blank\" href=\"https://'+o+'.github.io/'+by[o]+'/\" style=\"background:#2f9e57;color:#fff;font-weight:800;font-size:18px;padding:12px 16px;border-radius:10px;text-decoration:none\">PC '+n+' &rarr; apri il sito</a>'});"
+            "document.getElementById('listaSiti').innerHTML=h||'Ancora nessun sito online.'}).catch(function(){})}giro();setInterval(giro,3*60*1000)})();</script></div>") % _j.dumps(us)

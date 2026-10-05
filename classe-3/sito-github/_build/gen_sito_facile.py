@@ -187,6 +187,7 @@ def main():
                  + rq("sa", "RIQUADRO A — passioni.html", PASS) + rq("sb", "RIQUADRO B — sogno.html", SOGNO)
                  + rq("sc", "RIQUADRO C — il menu (in index.html, sotto &lt;body&gt;)", MENU2) + "</div>")
     import postazioni_3inf   # indicazioni personali per numero di PC (riquadro blu)
+    G.FACILE += postazioni_3inf.siti_classe_html()
     G.FACILE += postazioni_3inf.postazioni_semplici_html()
     G2.main()
 

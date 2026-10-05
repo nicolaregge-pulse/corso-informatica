@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Controlla chi ha fatto giusto</title>
+<style>
+:root{--v:#2f9e57;--r:#c0392b;--g:#d0a516;--b:#12467a}
+*{box-sizing:border-box}body{margin:0;background:#f4f7fb;color:#1a2330;font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:1250px;margin:0 auto;padding:14px 14px 40px}h1{color:var(--b);font-size:26px;margin:4px 0}
+.sub{color:#556;margin-bottom:10px}.box{background:#fff;border-radius:12px;padding:12px 14px;margin:10px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+textarea{width:100%;height:110px;font-family:Consolas,monospace;font-size:14px;border:2px solid #9cc0e4;border-radius:8px;padding:6px}
+button{font-size:16px;font-weight:700;border:0;border-radius:9px;padding:9px 14px;color:#fff;background:#1f6fa5;cursor:pointer;margin:6px 6px 0 0}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:14px}th,td{border:1px solid #dde4ec;padding:6px 7px;vertical-align:top}
+th{background:var(--b);color:#fff;position:sticky;top:0}td.v{background:#eafaf0;color:#1e7a44;font-weight:700;text-align:center}
+td.r{background:#fdecea;color:#c0392b;font-weight:700;text-align:center}td.g{background:#fff8e1;color:#8a6d00;font-weight:700;text-align:center}
+td.nome{font-weight:700;white-space:nowrap}tr.tutto td.nome{color:var(--v)}td.fare{font-size:13px;min-width:220px}
+.voto{font-size:18px;font-weight:800;text-align:center}.cont{font-size:20px;font-weight:800;margin:8px 0}
+.sugg button{background:#7a8794;font-size:13px;padding:5px 9px}
+</style></head><body><div class="w">
+<h1>Controlla chi ha fatto giusto</h1>
+<div class="sub">Per il docente · legge il codice dei siti da GitHub · si aggiorna da solo ogni 5 minuti · i nomi restano solo in questo browser</div>
+<div class="box"><b>Un ragazzo per riga:</b> <code>Cognome Nome: nomeutenteGitHub</code> (oppure <code>: -</code> se non ha ancora GitHub).
+<textarea id="lista"></textarea><br><button onclick="vai()">Controlla adesso</button><button style="background:#d9731a" onclick="trova()">Trova repository creati oggi non in lista</button>
+<div class="sugg" id="sugg"></div></div>
+<div class="cont" id="cont"></div>
+<table><thead><tr><th>Allievo</th><th>Sito online</th><th>index.html</th><th>style.css separato e collegato</th><th>Nome suo</th><th>Passioni e sogno suoi</th><th>Colori cambiati</th><th>Privacy</th><th>Voto proposto</th><th>Cosa deve fare adesso</th></tr></thead><tbody id="tb"></tbody></table>
+</div>
+<script>
+var K="controlla-lista",ES_CSS=["lightblue","darkblue","gray","white","teal"];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function leggi(){return document.getElementById("lista").value.split("\n").map(function(r){r=r.trim();if(!r)return null;var i=r.lastIndexOf(":");
+  return i<0?{n:r,u:r}:{n:r.slice(0,i).trim(),u:r.slice(i+1).trim().replace(/^@/,"")}}).filter(Boolean)}
+function td(c,t){return '<td class="'+c+'">'+t+'</td>'}
+function raw(u,repo,f){return fetch("https://raw.githubusercontent.com/"+u+"/"+repo+"/main/"+f+"?v="+Date.now()).then(function(r){return r.ok?r.text():null}).catch(function(){return null})}
+function riga(x,i){var tr=document.getElementById("r"+i);
+  if(!x.u||x.u=="-"){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Non ha ancora GitHub (o non so il nome utente). <b>Pagina del corso → riquadro blu → il suo PC</b>: un passo alla volta. Se il sito non arriva: consegna la pagina fatta sul PC (screenshot + codice).</td>';return Promise.resolve(0)}
+  return fetch("https://api.github.com/users/"+x.u+"/repos?per_page=100").then(function(r){return r.ok?r.json():[]}).then(function(d){
+    if(!d.filter)d=[];var conPages=d.filter(function(r){return r.has_pages}),mio=d.filter(function(r){return /mio|sito/i.test(r.name)});
+    var r0=conPages.filter(function(r){return /mio|sito/i.test(r.name)})[0]||conPages[0]||mio[0]||d[0];
+    if(!r0){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("g","—")+'<td class="voto">—</td><td class="fare">Ha GitHub ma <b>nessun repository</b>: + → New repository <b>mio-sito</b> → Add README On → Create; poi Add file → Upload files.</td>';return 0}
+    var online=!!r0.has_pages,url="https://"+x.u.toLowerCase()+".github.io/"+r0.name+"/";
+    return Promise.all([raw(x.u,r0.name,"index.html"),raw(x.u,r0.name,"style.css")]).then(function(f){var h=f[0],c=f[1],fare=[],p=0;
+      var linkCss=h&&/<link[^>]+href=["']?style\.css/i.test(h),m=h&&h.match(/<h1>([\s\S]*?)<\/h1>/i),nome=m&&m[1].indexOf("Leo")<0;
+      var dflt=h?["Calcio","Videogiochi","Musica","Lavorare con i computer"].filter(function(s){return h.indexOf(s)>=0}):[];
+      var col=c?(c.match(/(?:background|color)\s*:\s*([^;]+);/g)||[]).map(function(s){return s.split(":")[1].replace(";","").trim()}).filter(function(v){return ES_CSS.indexOf(v)<0}):[];
+      var priv=h?((h.match(/\b3\d{2}[\s.-]?\d{3}[\s.-]?\d{3,4}\b/)||h.match(/[\w.+-]+@[\w-]+\.[\w.]+/))?false:true):true;
+      if(online)p+=2;else fare.push("<b>Settings → Pages → main → Save</b>, poi aspettare 2 minuti");
+      if(h)p+=2;else fare.push("<b>Add file → Upload files</b>: caricare index.html (e style.css)");
+      if(c&&linkCss)p+=2;else if(h)fare.push(c?"in index.html manca la riga &lt;link ... style.css&gt;":"caricare anche <b>style.css</b>");
+      if(nome)p+=1;else if(h)fare.push("scrivere il <b>suo nome</b> al posto di Leo");
+      if(h&&!dflt.length)p+=1.5;else if(h)fare.push("<b>Fallo tuo</b>: cambiare "+dflt.join(", ")+" (index.html → matita → Commit)");
+      if(col.length)p+=1;else if(c)fare.push("cambiare almeno un <b>colore</b> in style.css");
+      if(priv)p+=0.5;else fare.push("<b>togliere telefono/email</b> dalla pagina");
+      var tutto=online&&h&&c&&linkCss&&nome&&!dflt.length&&col.length&&priv;tr.className=tutto?"tutto":"";
+      tr.innerHTML='<td class="nome">'+esc(x.n)+'<br><a target="_blank" href="'+url+'?v='+Date.now()+'">apri il sito</a></td>'
+        +td(online?"v":"r",online?"SÌ":"NO")+td(h?"v":"r",h?"OK":"manca")+td(c&&linkCss?"v":"r",c&&linkCss?"OK":(c?"non collegato":"manca"))
+        +td(nome?"v":(h?"r":"g"),nome?esc(m[1].trim()):"Leo")+td(h&&!dflt.length?"v":"r",h&&!dflt.length?"OK":"esempio")
+        +td(col.length?"v":"r",col.length?esc(col.slice(0,3).join(", ")):"esempio")+td(priv?"v":"r",priv?"OK":"DATI!")
+        +'<td class="voto">'+(Math.round(p*2)/2)+'</td><td class="fare">'+(fare.length?fare.map(function(s,k){return (k+1)+". "+s}).join("<br>"):"<b style=\'color:#2f9e57\'>Tutto giusto!</b> Domande orali.")+'</td>';
+      return tutto?1:0})})}
+function vai(){try{localStorage.setItem(K,document.getElementById("lista").value)}catch(e){}var L=leggi(),h="";
+  L.forEach(function(x,i){h+='<tr id="r'+i+'"><td class="nome">'+esc(x.n)+'</td><td colspan="9">controllo...</td></tr>'});document.getElementById("tb").innerHTML=h;
+  Promise.all(L.map(riga)).then(function(v){var t=v.reduce(function(a,b){return a+b},0);
+    document.getElementById("cont").textContent=L.length+" ragazzi · tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}
+function trova(){var d=new Date(),oggi=d.toISOString().slice(0,10),noti=leggi().map(function(x){return (x.u||"").toLowerCase()});
+  fetch("https://api.github.com/search/repositories?per_page=100&q="+encodeURIComponent("mio in:name created:>="+oggi)).then(function(r){return r.json()}).then(function(j){
+    var s=(j.items||[]).map(function(r){return r.owner.login}).filter(function(u,i,a){return a.indexOf(u)==i&&noti.indexOf(u.toLowerCase())<0});
+    document.getElementById("sugg").innerHTML=s.length?"Creati oggi, non in lista (sono tuoi? clic per aggiungere): "+s.map(function(u){return '<button onclick="agg(\''+u+'\')">'+esc(u)+'</button>'}).join(""):"Nessun altro repository trovato oggi."})}
+function agg(u){var n=prompt("Cognome e nome di "+u+"?");if(!n)return;var t=document.getElementById("lista");t.value=t.value.replace(/\s*$/,"")+"\n"+n+": "+u;vai()}
+(function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,"")),v="";if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(K)||""}catch(e){}}
+  document.getElementById("lista").value=v;if(v){vai();setInterval(vai,5*60*1000)}})();
+</script></body></html>
