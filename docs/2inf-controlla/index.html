@@ -56,6 +56,8 @@ function riga(x,i){var tr=document.getElementById("r"+i);
   return riga2(x,i,tr)}
 function rigaNo(x,tr){if(true){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">—</td><td class="fare">Non ha GitHub (o non so il nome utente): crea l&#39;account e dimmi il nome utente. Intanto finisce il gioco con la pagina PASSO PASSO.</td>'}}
 function riga2(x,i,tr){
+  if(!x.provato){x.provato=1;var alt=[x.repo,"lazarus-","Lazarus","lazarus1","indovina"].filter(function(v,k,a){return a.indexOf(v)==k});
+    return alt.reduce(function(pr,r){return pr.then(function(f){if(f)return f;return raw(x.u,r,"unit1.pas").then(function(t){return t!==null?r:null})})},Promise.resolve(null)).then(function(r){if(r)x.repo=r;return riga2(x,i,tr)})}
   return Promise.all([raw(x.u,x.repo,"unit1.pas"),raw(x.u,x.repo,"unit1.lfm"),raw(x.u,x.repo,"README.md")]).then(function(f){var pas=f[0],lfm=f[1],rd=f[2],fare=[],p=0;
     if(!pas&&!rd){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Nessun repository <b>'+esc(x.repo)+'</b>: passo 20 della pagina (+, New repository, nome indovina).</td>';return 0}
     if(!pas){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("g","solo README")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Repository creato ma senza file: passi 21-23 (Upload files: unit1.pas, unit1.lfm, project1.lpi, project1.lpr).</td>';return 0}
@@ -85,4 +87,4 @@ function vai(){try{localStorage.setItem(K,document.getElementById("lista").value
     document.getElementById("cont").textContent=L.length+" ragazzi · codice tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,"")),v="";if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(K)||""}catch(e){}}
   document.getElementById("lista").value=v;if(v){vai();setInterval(vai,5*60*1000)}})();
-</script><script>autoAggiorna("202610050952")</script></body></html>
+</script><script>autoAggiorna("202610051022")</script></body></html>
