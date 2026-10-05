@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>I siti della classe</title>
+<style>
+:root{--blu:#1f6fa5;--verde:#2f9e57;--rosso:#c0392b;--giallo:#d0a516;--txt:#1a2330;--bg:#f4f7fb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:1200px;margin:0 auto;padding:16px 16px 40px}
+h1{color:#12467a;font-size:26px;margin:6px 0 4px}.sub{color:#556;margin-bottom:12px}
+.box{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+textarea{width:100%;height:150px;font-size:15px;font-family:Consolas,monospace;border:2px solid #9cc0e4;border-radius:10px;padding:8px}
+button{font-size:17px;font-weight:700;border:0;border-radius:10px;padding:10px 16px;color:#fff;background:var(--blu);cursor:pointer;margin:8px 8px 0 0}
+button.v{background:var(--verde)}button.g{background:#7a8794}
+.griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.1);overflow:hidden;border-top:6px solid #ccc}
+.card.ok{border-top-color:var(--verde)}.card.no{border-top-color:var(--rosso)}.card.forse{border-top-color:var(--giallo)}
+.card .h{padding:8px 10px}.card .n{font-weight:700;font-size:17px}.card .u{color:#667;font-size:13px}
+.card .st{font-size:13px;margin-top:4px}
+.card a{display:block;color:var(--blu);font-weight:700;word-break:break-all;margin-top:4px;font-size:14px}
+.card iframe{width:200%;height:440px;border:0;transform:scale(.5);transform-origin:0 0;margin-bottom:-220px;pointer-events:none;background:#fff}
+.prev{height:220px;overflow:hidden;border-top:1px solid #e3e9f0}
+.nota{font-size:14px;color:#556;line-height:1.5}
+.cont{font-size:18px;font-weight:700;margin:8px 0}
+</style></head><body><div class="w">
+<h1>I siti della classe</h1>
+<div class="sub">Strumento per il docente · i nomi che scrivi restano solo in questo browser (non vanno su internet)</div>
+
+<div class="box">
+<div class="nota"><b>Scrivi un ragazzo per riga</b>, così: <code>Nome: nomeutente</code> (il nome utente GitHub). Va bene anche solo il nome utente, oppure il link intero del sito (…github.io/…). Poi premi <b>Mostra i siti</b>.</div>
+<textarea id="lista" placeholder="Mario: mario-rossi-07&#10;Leo: leo2009&#10;https://anna-b.github.io/mio-sito/"></textarea>
+<button onclick="mostra()">Mostra i siti</button><button class="v" onclick="controlla()">Controlla su GitHub chi ha pubblicato</button><button class="g" onclick="tutti()">Apri tutti i siti in schede</button>
+<div class="nota" style="margin-top:6px">Il controllo usa GitHub (al massimo circa 60 controlli all'ora dalla stessa rete della scuola): premilo ogni tanto, non di continuo.</div>
+</div>
+<div class="cont" id="cont"></div>
+<div class="griglia" id="griglia"></div>
+</div>
+<script>
+var CHIAVE="siti-classe-lista";
+function leggi(){var r=[];document.getElementById("lista").value.split("\n").forEach(function(riga){
+  riga=riga.trim();if(!riga)return;var nome="",u=riga,m;
+  if(riga.indexOf(":")>0&&riga.indexOf("http")!==0&&!/^https?:/.test(riga.split(":").slice(1).join(":").trim())){nome=riga.split(":")[0].trim();u=riga.split(":").slice(1).join(":").trim()}
+  else if(/:\s*https?:/.test(riga)){nome=riga.split(/:\s*(?=https?:)/)[0].trim();u=riga.split(/:\s*(?=https?:)/)[1].trim()}
+  var url="",repo="mio-sito";
+  if((m=u.match(/https?:\/\/([A-Za-z0-9-]+)\.github\.io\/?([^\/\s]*)/i))){u=m[1];repo=m[2]||"";url="https://"+m[1].toLowerCase()+".github.io/"+(repo?repo+"/":"")}
+  else if((m=u.match(/github\.com\/([A-Za-z0-9-]+)(?:\/([^\/\s]+))?/i))){u=m[1];repo=m[2]||"mio-sito"}
+  u=u.replace(/^@/,"");if(!url)url="https://"+u.toLowerCase()+".github.io/"+repo+"/";
+  r.push({nome:nome||u,u:u,repo:repo,url:url})});return r}
+function salva(){try{localStorage.setItem(CHIAVE,document.getElementById("lista").value)}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function mostra(){salva();var L=leggi(),h="";
+  L.forEach(function(x,i){h+='<div class="card" id="c'+i+'"><div class="h"><div class="n">'+esc(x.nome)+'</div><div class="u">GitHub: '+esc(x.u)+'</div>'
+   +'<a href="'+esc(x.url)+'" target="_blank" id="a'+i+'">'+esc(x.url)+'</a><a href="https://github.com/'+esc(x.u)+'" target="_blank" style="font-weight:400">profilo GitHub</a>'
+   +'<div class="st" id="s'+i+'">non ancora controllato</div></div><div class="prev"><iframe loading="lazy" src="'+esc(x.url)+'"></iframe></div></div>'});
+  document.getElementById("griglia").innerHTML=h;document.getElementById("cont").textContent=L.length+" ragazzi"}
+function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
+  L.forEach(function(x,i){
+    fetch("https://api.github.com/users/"+encodeURIComponent(x.u)+"/repos?per_page=100").then(function(r){
+      if(r.status==404)return {err:"nome utente GitHub non trovato"};if(r.status==403)return {err:"limite controlli raggiunto: riprova tra un po'"};return r.json()})
+    .then(function(d){var c=document.getElementById("c"+i),s=document.getElementById("s"+i);fatti++;
+      if(d.err){c.classList.add(d.err.indexOf("limite")>=0?"forse":"no");s.textContent=d.err;return}
+      var conPages=d.filter(function(r){return r.has_pages}),tutti=d.map(function(r){return r.name});
+      if(conPages.length){var r0=conPages.filter(function(r){return /mio/i.test(r.name)})[0]||conPages[0];
+        var url=/\.github\.io$/i.test(r0.name)?"https://"+r0.name.toLowerCase()+"/":"https://"+x.u.toLowerCase()+".github.io/"+r0.name+"/";
+        var a=document.getElementById("a"+i);a.href=url;a.textContent=url;c.querySelector("iframe").src=url;
+        c.classList.add("ok");pubbl++;s.innerHTML="<b style='color:#2f9e57'>PUBBLICATO</b> (repository "+esc(r0.name)+")"}
+      else if(tutti.length){c.classList.add("forse");s.innerHTML="<b style='color:#a07c00'>Repository creato ma sito NON attivo</b> ("+esc(tutti.join(", "))+"): manca Settings &rarr; Pages &rarr; main &rarr; Save"}
+      else{c.classList.add("no");s.innerHTML="<b style='color:#c0392b'>Nessun repository</b>: non ha ancora iniziato su GitHub"}
+      document.getElementById("cont").textContent=L.length+" ragazzi · pubblicati: "+pubbl})
+    .catch(function(){document.getElementById("s"+i).textContent="controllo non riuscito (rete)"})})}
+function tutti(){leggi().forEach(function(x){window.open(x.url,"_blank")})}
+(function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,""));var v="";
+  if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(CHIAVE)||""}catch(e){}}
+  document.getElementById("lista").value=v;if(v)mostra()})();
+</script></body></html>
