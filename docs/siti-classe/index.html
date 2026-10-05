@@ -28,7 +28,7 @@ button.v{background:var(--verde)}button.g{background:#7a8794}
 <div class="box">
 <div class="nota"><b>Scrivi un ragazzo per riga</b>, così: <code>Nome: nomeutente</code> (il nome utente GitHub). Va bene anche solo il nome utente, oppure il link intero del sito (…github.io/…). Poi premi <b>Mostra i siti</b>.</div>
 <textarea id="lista" placeholder="Mario: mario-rossi-07&#10;Leo: leo2009&#10;https://anna-b.github.io/mio-sito/"></textarea>
-<button onclick="mostra()">Mostra i siti</button><button class="v" onclick="controlla()">Controlla su GitHub chi ha pubblicato</button><button class="g" onclick="tutti()">Apri tutti i siti in schede</button>
+<button onclick="mostra()">Mostra i siti</button><button class="v" onclick="controlla()">Controlla su GitHub chi ha pubblicato</button><button class="g" onclick="tutti()">Apri tutti i siti in schede</button><br><button style="background:#d9731a" onclick="trova()">Trova da solo i siti creati OGGI (repository "mio...")</button>
 <div class="nota" style="margin-top:6px">Il controllo usa GitHub (al massimo circa 60 controlli all'ora dalla stessa rete della scuola): premilo ogni tanto, non di continuo.</div>
 </div>
 <div class="cont" id="cont"></div>
@@ -67,6 +67,18 @@ function controlla(){mostra();var L=leggi(),pubbl=0,fatti=0;
       else{c.classList.add("no");s.innerHTML="<b style='color:#c0392b'>Nessun repository</b>: non ha ancora iniziato su GitHub"}
       document.getElementById("cont").textContent=L.length+" ragazzi · pubblicati: "+pubbl})
     .catch(function(){document.getElementById("s"+i).textContent="controllo non riuscito (rete)"})})}
+function trova(){
+  var d=new Date(),oggi=d.getFullYear()+"-"+("0"+(d.getMonth()+1)).slice(-2)+"-"+("0"+d.getDate()).slice(-2);
+  var q="mio in:name created:>="+oggi;
+  document.getElementById("cont").textContent="Cerco su GitHub i repository creati oggi...";
+  fetch("https://api.github.com/search/repositories?per_page=100&q="+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(j){
+    if(!j.items){document.getElementById("cont").textContent="GitHub non risponde (troppe ricerche): riprova tra un minuto";return}
+    var vecchie=document.getElementById("lista").value.split("\n").filter(function(x){return x.trim()}),righe=vecchie.slice();
+    j.items.forEach(function(r){var u=r.owner.login,riga=u+": https://"+u.toLowerCase()+".github.io/"+r.name+"/";
+      if(!vecchie.some(function(v){return v.toLowerCase().indexOf(u.toLowerCase())>=0}))righe.push(riga)});
+    document.getElementById("lista").value=righe.join("\n");controlla();
+    document.getElementById("cont").textContent=j.items.length+" repository trovati oggi (controlla che siano dei tuoi ragazzi)"})
+  .catch(function(){document.getElementById("cont").textContent="ricerca non riuscita (rete)"})}
 function tutti(){leggi().forEach(function(x){window.open(x.url,"_blank")})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,""));var v="";
   if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(CHIAVE)||""}catch(e){}}
