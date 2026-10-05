@@ -67,7 +67,7 @@ begin
 end;"""
 COPIE2 = {"k1": "indovina", "k2": "Ho pensato un numero da 1 a 100. Quale?", "k3": "EditNumero", "k4": "ButtonProva", "k5": "Prova",
          "k6": "ButtonNuova", "k7": "Nuova partita", "k8": "LabelRisposta", "cA": A, "cB": B, "cC": C, "cD": D}
-LAB2 = {"k1": "COPIA IL NOME DELLA CARTELLA", "k2": "COPIA LA FRASE", "k3": "COPIA: EditNumero", "k4": "COPIA: ButtonProva", "k5": "COPIA: Prova",
+LAB2 = {"k1": "COPIA IL NOME: indovina", "k2": "COPIA LA FRASE", "k3": "COPIA: EditNumero", "k4": "COPIA: ButtonProva", "k5": "COPIA: Prova",
        "k6": "COPIA: ButtonNuova", "k7": "COPIA: Nuova partita", "k8": "COPIA: LabelRisposta", "cA": "COPIA IL CODICE A (2 righe)",
        "cB": "COPIA IL CODICE B (FormCreate)", "cC": "COPIA IL CODICE C (bottone Prova)", "cD": "COPIA IL CODICE D (Nuova partita)"}
 P2 = [
