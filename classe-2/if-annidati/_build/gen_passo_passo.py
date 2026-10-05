@@ -103,7 +103,7 @@ P = [
     ("Nella tavolozza <b>Standard</b> clicca il componente <b>TLabel</b> (l'icona con la A). Poi clicca sulla Form, sotto il bottone.", ""),
     ("Fai <b>doppio clic sul bottone</b>. Si apre il codice: il cursore è tra <b>begin</b> ed <b>end</b>.", ""),
     ("Premi il bottone giallo qui sotto. Poi in Lazarus, nella riga vuota tra <b>begin</b> ed <b>end</b>, premi <b>Ctrl + V</b>.", "cF"),
-    ("Premi <b>F9</b>: il programma parte. Clicca il bottone: compare la frase. <b>FATTO: il tuo primo programma!</b> Chiudi la finestra del programma.", ""),
+    ("Premi <b>F9</b>: il programma parte. Clicca il bottone: compare la frase. <b>FATTO: il tuo primo programma!</b> Chiudi la finestra del programma. <br><small><b>Se compare &quot;Impossibile creare la cartella ... AppData&quot;:</b> premi Annulla; menu <b>Strumenti</b> &rarr; <b>Opzioni</b> &rarr; a sinistra <b>Ambiente</b> &rarr; alla riga <b>Cartella per costruire progetti di test</b> clicca il bottone <b>...</b> a destra &rarr; scegli <b>Documenti</b> &rarr; <b>Seleziona cartella</b> &rarr; <b>Ok</b>. Poi di nuovo F9.</small>", ""),
     ("<b>Fallo tuo:</b> nel codice cambia la frase tra gli apici con una <b>TUA</b> (per esempio con il tuo nome). Premi F9 e prova.", ""),
     ("<b>PARTE 2 — SU GITHUB.</b> In Lazarus clicca dentro il codice. Premi <b>Ctrl + A</b> (seleziona tutto) e poi <b>Ctrl + C</b> (copia). Hai copiato tutto il tuo programma.", ""),
     ("Apri una scheda nuova del browser (<b>Ctrl + T</b>), vai su <b>github.com</b> ed entra con il <b>TUO</b> account. Non ce l'hai? <b>Alza la mano</b>.", ""),
