@@ -88,7 +88,7 @@ P2 = [
     ('<b>Fallo tuo</b>: cambia la Caption della Form (il titolo della finestra), le frasi tra apici (anche spiritose) e i colori. Poi fallo provare a un compagno: chi indovina con meno tentativi?', ''),
     ("<b>Salva il gioco su GitHub</b> (nello stesso repository <b>lazarus</b>). In Lazarus: menu <b>File</b> &rarr; <b>Salva tutto</b>.", ""),
     ("Su GitHub apri il tuo repository <b>lazarus</b>. Clicca <b>Add file</b> &rarr; <b>Upload files</b> &rarr; la scritta blu <b>choose your files</b>.", ""),
-    ("Nella finestra entra nella cartella <b>indovina</b> (nei Documenti). Premi il bottone giallo qui sotto, poi nella casella <b>Nome file</b> premi <b>Ctrl + V</b> e clicca <b>Apri</b>. Poi verde <b>Commit changes</b>. I file nuovi prendono il posto dei vecchi: il primo programma resta nella storia (History).", "kF"),
+    ("Nella finestra entra nella cartella <b>indovina</b> (nei Documenti), premi <b>Ctrl + A</b> e clicca <b>Apri</b>. Poi verde <b>Commit changes</b>. I file nuovi prendono il posto dei vecchi: il primo programma resta nella storia (History).", ""),
     ("Su <b>Classroom</b> apri il compito <b>Lazarus — Indovina il numero con gli if annidati</b>: nel Documento metti 3 screenshot (Troppo BASSO, Troppo ALTO, Indovinato), perché serve un if dentro un altro if, cosa non hai capito. Poi <b>Consegna</b>.", ""),
 ]
 # 05/10 ore 11:45 (Nicola): obiettivo di oggi = PUBBLICARE SU GITHUB. Programma semplicissimo da copiare; gli if annidati dopo.
@@ -98,7 +98,7 @@ COPIE.update(COPIE2)
 LAB = {"cF": "COPIA IL CODICE (1 riga)", "kR": "COPIA IL NOME: lazarus", "kU": "COPIA IL NOME: unit1.pas", "kF": "COPIA I NOMI DEI 4 FILE"}
 LAB.update(LAB2)
 P = [
-    ("<b>PARTE 1 — IL PROGRAMMA (5 minuti).</b> Apri <b>Lazarus</b>. In alto, menu <b>Progetto</b> &rarr; <b>Nuovo progetto</b> &rarr; <b>Applicazione</b> &rarr; <b>OK</b>. Compare una finestra vuota (la Form). <b>Salva SUBITO nei TUOI Documenti:</b> menu <b>File</b> &rarr; <b>Salva tutto</b>; nella finestra, nel pannello <b>a sinistra</b>, clicca <b>Documenti</b> (NON lasciare la cartella che propone Lazarus, tipo C:\\lazarus o Programmi: è dell&#39;amministrazione e non puoi salvarci); premi <b>Salva</b> due volte.", ""),
+    ("<b>PARTE 1 — IL PROGRAMMA (5 minuti).</b> Apri <b>Lazarus</b>. In alto, menu <b>Progetto</b> &rarr; <b>Nuovo progetto</b> &rarr; <b>Applicazione</b> &rarr; <b>OK</b>. Poi SUBITO menu <b>File</b> &rarr; <b>Salva tutto</b>: nella finestra, a sinistra, clicca <b>Documenti</b>; in alto clicca <b>Nuova cartella</b> e incolla il nome qui sotto (bottone giallo, poi Ctrl + V); entra nella cartella con doppio clic e premi <b>Salva</b> due volte.", "kR"),
     ("In alto, nella tavolozza <b>Standard</b>, clicca il componente <b>TButton</b> (il bottone). Poi clicca sulla Form: compare il bottone.", ""),
     ("Nella tavolozza <b>Standard</b> clicca il componente <b>TLabel</b> (l'icona con la A). Poi clicca sulla Form, sotto il bottone.", ""),
     ("Fai <b>doppio clic sul bottone</b>. Si apre il codice: il cursore è tra <b>begin</b> ed <b>end</b>.", ""),
@@ -112,7 +112,7 @@ P = [
     ("Metti <b>Add README</b> su <b>On</b>. In fondo clicca il bottone <b>VERDE</b> <b>Create repository</b>.", ""),
     ("Nel tuo repository, sopra l'elenco dei file, clicca <b>Add file</b> e poi <b>Upload files</b> (carica file).", ""),
     ("Nella pagina c'è un grande riquadro tratteggiato. Clicca la scritta blu <b>choose your files</b> (scegli i file): si apre la finestra per scegliere i file del computer.", ""),
-    ("Nella finestra, nel pannello <b>a sinistra</b>, clicca <b>Documenti</b>. Premi il bottone giallo qui sotto. Poi in basso, nella casella <b>Nome file</b>, premi <b>Ctrl + V</b> e clicca <b>Apri</b>: così prendi i 4 file giusti senza cercarli (Windows nasconde la fine dei nomi, .pas .lfm ...).", "kF"),
+    ("Nella finestra, a sinistra, clicca <b>Documenti</b> e fai doppio clic sulla cartella <b>lazarus</b>. Premi <b>Ctrl + A</b> (seleziona tutti i file del tuo programma) e clicca <b>Apri</b>. Va bene anche se i file hanno nomi diversi da project1.", ""),
     ("Aspetta che i 4 file compaiano nell'elenco. In fondo alla pagina clicca il bottone <b>VERDE</b> <b>Commit changes</b>. <b>FATTO: il tuo programma è su GitHub!</b>", ""),
     ("Ultimo passo: clicca il file <b>README.md</b>, poi la <b>matita</b> in alto a destra. Scrivi con parole tue: cosa ho fatto oggi, cosa non ho capito. Poi verde <b>Commit changes</b> (2 volte).", ""),
     ("Su <b>Classroom</b>, nel compito <b>Lazarus — Il mio primo programma pubblicato su GitHub</b>, premi il bottone blu <b>Consegna</b>. Il codice lo prende il professore da GitHub. <b>FINE DEL COMPITO 1!</b> Premi FATTO per il compito 2.", ""),
