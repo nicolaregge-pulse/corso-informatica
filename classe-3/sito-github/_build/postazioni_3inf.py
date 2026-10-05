@@ -85,7 +85,7 @@ def postazioni_html():
     bot, pan = "", ""
     for n in TUTTI:
         u, bene, passi, bn = PC.get(n, GENERICO)
-        bot += "<button class='pcb' data-u='%s' onclick=\"pc('%s')\">PC %s</button>" % (u, n, n)
+        bot += "<button class='pcb%s' data-u='%s' onclick=\"pc('%s')\">PC %s</button>" % (" rosso" if n in PC else "", u, n, n)
         h = "<div class='pcp' id='pc%s' data-u='%s' style='display:none'><div class='pct'>PC %s</div>" % (n, u, n)
         if bene:
             h += "<div class='bene'><b>Fatto bene:</b> %s</div>" % bene
@@ -98,7 +98,7 @@ def postazioni_html():
         pan += h
     return ("<div class='box mia' style='border:3px solid #1f6fa5'><h2 style='color:#1f6fa5'>LA TUA POSTAZIONE: clicca il numero del tuo PC</h2>"
             "<p>Indicazioni personali del professore (aggiornate alle %s). Quando scegli il tuo PC vedi solo le tue cose. "
-            "<b style='color:#2f9e57'>VERDE</b> = sito online · <b style='color:#c0392b'>ROSSO</b> = sito non ancora online · bianco = sito non ancora iniziato.</p>"
+            "<b style='color:#2f9e57'>VERDE</b> = sito online · <b style='color:#c0392b'>ROSSO</b> = sito non ancora online · bianco = postazione libera.</p>"
             "<style>.pcb{background:#eaf2fb;color:#12467a;border:2px solid #1f6fa5;border-radius:10px;font-size:17px;font-weight:700;padding:8px 12px;margin:4px;cursor:pointer;width:auto}"
             ".pcb.on{outline:4px solid #12467a}.pcb.verde{background:#2f9e57;color:#fff;border-color:#1e7a44}.pcb.rosso{background:#c0392b;color:#fff;border-color:#8e2a20}.pcp{margin-top:12px;font-size:18px;line-height:1.55;background:#f4f9ff;border-radius:12px;padding:14px}"
             ".pct{font-size:24px;font-weight:800;color:#12467a}.bene{background:#eafaf0;border-left:6px solid #2f9e57;border-radius:8px;padding:8px 10px;margin:8px 0;color:#1e7a44}"
@@ -129,6 +129,6 @@ def postazioni_html():
             "fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(q)).then(function(r){return r.json()}).then(function(j){"
             "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
             "document.querySelectorAll('.pcb').forEach(function(b){var u=(b.getAttribute('data-u')||'').toLowerCase();if(!u)return;"
-            "b.classList.remove('verde','rosso');b.classList.add(on[u]?'verde':'rosso')})}).catch(function(){})}"
+            "if(on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
             "colori();setInterval(colori,3*60*1000);"
             "try{var m=localStorage.getItem('mio-pc');if(m&&document.getElementById('pc'+m))pc(m)}catch(e){}</script></div>") % (AGGIORNATO, bot, pan)
