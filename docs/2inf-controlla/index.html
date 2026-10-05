@@ -15,7 +15,7 @@ td.r{background:#fdecea;color:#c0392b;font-weight:700;text-align:center}td.g{bac
 td.nome{font-weight:700;white-space:nowrap}tr.tutto td.nome{color:#2f9e57}td.fare{font-size:13px;min-width:230px}.cont{font-size:20px;font-weight:800;margin:8px 0}
 .punti{font-size:18px;font-weight:800;text-align:center}pre{white-space:pre-wrap;font-size:11px;max-height:160px;overflow:auto;background:#f4f7fb;margin:4px 0 0;padding:4px}
 </style></head><body><div class="w">
-<h1>2INF — Indovina il numero: a che punto sono</h1>
+<h1>2INF — a che punto sono (Compito 1 su GitHub · Compito 2 Indovina il numero)</h1>
 <div class="sub">Per il docente · legge da GitHub il codice Lazarus di ognuno (repository <b>indovina</b>) · si aggiorna da solo ogni 5 minuti · i nomi restano solo in questo browser</div>
 <div class="box"><b>Un ragazzo per riga:</b> <code>Cognome Nome: nomeutenteGitHub</code> (oppure <code>: -</code> se non ha GitHub; se il repository ha un altro nome: <code>utente/nome-repository</code>).
 <textarea id="lista"></textarea><br><button onclick="vai()">Controlla adesso</button></div>
@@ -59,6 +59,13 @@ function riga2(x,i,tr){
   return Promise.all([raw(x.u,x.repo,"unit1.pas"),raw(x.u,x.repo,"unit1.lfm"),raw(x.u,x.repo,"README.md")]).then(function(f){var pas=f[0],lfm=f[1],rd=f[2],fare=[],p=0;
     if(!pas&&!rd){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Nessun repository <b>'+esc(x.repo)+'</b>: passo 20 della pagina (+, New repository, nome indovina).</td>';return 0}
     if(!pas){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("g","solo README")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Repository creato ma senza file: passi 21-23 (Upload files: unit1.pas, unit1.lfm, project1.lpi, project1.lpr).</td>';return 0}
+    if(!/segreto/i.test(pas)){                       // COMPITO 1: programma semplice
+      var mia=!/Ciao! Questo è il mio primo programma su GitHub/.test(pas)&&/Caption\s*:=/.test(pas),rdm=rd&&rd.replace(/^#.*$/m,"").trim().length>10,f1=[];
+      if(!mia)f1.push("<b>Fallo tuo</b>: cambiare la frase con una sua (passo 7)");if(!rdm)f1.push("scrivere nel <b>README.md</b> cosa ha fatto e cosa non ha capito (passo 17)");
+      f1.push("poi il <b>COMPITO 2</b> (Indovina il numero, passo 19)");
+      tr.className="";tr.innerHTML='<td class="nome">'+esc(x.n)+(x.trovato?'<br><small>trovato: '+esc(x.u)+'</small>':'')+'<br><a target="_blank" href="https://github.com/'+esc(x.u)+'/'+esc(x.repo)+'">repository</a></td>'
+        +td("v","Compito 1 OK")+td("g","comp. 2")+td("g","comp. 2")+td("g","comp. 2")+td("g","comp. 2")+td(mia?"v":"r",mia?"frase sua":"frase esempio")
+        +'<td class="punti">C1</td><td class="fare">'+f1.map(function(s,k){return (k+1)+". "+s}).join("<br>")+'</td>';return 0}
     var c=controlli(pas,lfm);
     if(c.random)p+=1;else fare.push("manca il numero segreto: <b>FormCreate</b> con Randomize e Random (passo 11)");
     if(c.annidato)p+=3;else fare.push("manca l&#39;<b>if annidato</b> nel bottone Prova (passo 12)");
@@ -78,4 +85,4 @@ function vai(){try{localStorage.setItem(K,document.getElementById("lista").value
     document.getElementById("cont").textContent=L.length+" ragazzi · codice tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,"")),v="";if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(K)||""}catch(e){}}
   document.getElementById("lista").value=v;if(v){vai();setInterval(vai,5*60*1000)}})();
-</script><script>autoAggiorna("202610050945")</script></body></html>
+</script><script>autoAggiorna("202610050952")</script></body></html>
