@@ -166,6 +166,26 @@ def main():
                     "<td style='padding:8px;border-bottom:1px solid #e3e9f0'>%s<div style='color:#1d4d2f;margin-top:4px'>%s</div></td></tr>" % p for p in PROB)
     G.FACILE += ("<div class='box' style='border:3px solid #d0a516'><h2 style='color:#8a6d00'>PROBLEMI? Le soluzioni (dai problemi di oggi)</h2>"
                  "<table style='width:100%%;border-collapse:collapse;font-size:16px;table-layout:fixed;overflow-wrap:anywhere'>%s</table></div>" % righe)
+    MENU2 = '  <p class="menu2"><a href="index.html">Home</a> | <a href="passioni.html">Le mie passioni</a> | <a href="sogno.html">Il mio sogno</a></p>\n'
+    def sotto(titolo, h2a, pa, h2b, pb):
+        return ('<!DOCTYPE html>\n<html lang="it">\n<head>\n  <meta charset="utf-8">\n'
+                '  <meta name="viewport" content="width=device-width, initial-scale=1">\n'
+                '  <title>%s</title>\n  <link rel="stylesheet" href="style.css">\n</head>\n<body>\n%s'
+                '  <h1>%s</h1>\n  <div class="scheda">\n    <h2>%s</h2>\n    <p>%s</p>\n    <h2>%s</h2>\n    <p>%s</p>\n  </div>\n</body>\n</html>\n') % (titolo, MENU2, titolo, h2a, pa, h2b, pb)
+    PASS = sotto("Le mie passioni", "La passione numero 1", "Scrivi qui la tua passione e perché ti piace.", "La passione numero 2", "Scrivi qui un'altra cosa che ti piace fare.")
+    SOGNO = sotto("Il mio sogno", "Cosa vorrei fare da grande", "Scrivi qui il lavoro o il progetto che sogni.", "Cosa sto imparando per arrivarci", "Scrivi qui cosa stai imparando a scuola che ti aiuta.")
+    rq = lambda i, lab, t: "<div class='cb'><span class='lab'>%s</span><button class='cp' data-t='%s'>Copia</button><pre id='%s'>%s</pre></div>" % (lab, i, i, G.E(t))
+    G.FACILE += ("<div class='box' style='border:3px solid #7030a0'><h2 style='color:#7030a0'>SOTTOPAGINE: aggiungi 2 pagine al tuo sito</h2>"
+                 "<p><b>Per chi ha già il sito online.</b> Tutto su GitHub, dal browser. Il tuo sito avrà un menu: Home | Le mie passioni | Il mio sogno.</p>"
+                 "<ol style='font-size:17px;line-height:1.7'>"
+                 "<li>Nel tuo repository: <b>Add file</b> &rarr; <b>Create new file</b>. Nome del file: <b>passioni.html</b>. Incolla il <b>RIQUADRO A</b>. Bottone verde <b>Commit changes</b> (2 volte).</li>"
+                 "<li>Di nuovo <b>Add file</b> &rarr; <b>Create new file</b>. Nome: <b>sogno.html</b>. Incolla il <b>RIQUADRO B</b>. <b>Commit changes</b>.</li>"
+                 "<li>Apri <b>index.html</b> &rarr; <b>matita</b>. Subito sotto la riga <b>&lt;body&gt;</b> incolla il <b>RIQUADRO C</b> (il menu). <b>Commit changes</b>.</li>"
+                 "<li>Aspetta 1 minuto, apri il tuo sito, Ctrl + F5: clicca il menu e passa da una pagina all'altra. <b>FATTO!</b></li>"
+                 "<li><b>Fallo tuo:</b> con la matita cambia i testi delle 2 pagine con le TUE passioni e il TUO sogno.</li></ol>"
+                 "<p style='color:#1d4d2f;font-size:16px'>Add file &rarr; Create new file &rarr; passioni.html (বাক্স A) ও sogno.html (বাক্স B) &rarr; Commit changes। index.html-এ &lt;body&gt;-এর নিচে বাক্স C (মেনু) &rarr; Commit changes। ১ মিনিট পরে সাইটে Ctrl + F5।</p>"
+                 + rq("sa", "RIQUADRO A — passioni.html", PASS) + rq("sb", "RIQUADRO B — sogno.html", SOGNO)
+                 + rq("sc", "RIQUADRO C — il menu (in index.html, sotto &lt;body&gt;)", MENU2) + "</div>")
     import postazioni_3inf   # indicazioni personali per numero di PC (riquadro blu)
     G.FACILE += postazioni_3inf.postazioni_html()
     G2.main()
