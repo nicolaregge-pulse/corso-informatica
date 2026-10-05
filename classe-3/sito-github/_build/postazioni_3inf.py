@@ -114,6 +114,8 @@ def postazioni_html():
             "try{localStorage.setItem('mio-pc',n)}catch(e){}var u=p.getAttribute('data-u');if(u)cercaSito(n,u)}"
             "function tutta(){document.body.classList.remove('focus')}"
             "function mostraSito(n,url,ok){var s=document.getElementById('sito'+n);"
+            "if(ok){var d=document.querySelector('#pc'+n+' .dafare');if(d)d.innerHTML='<b>Da fare, un passo alla volta:</b><ol><li><b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno TUOI &rarr; <b>Commit changes</b>.</li><li>Completa il Documento del compito: 1) il link verde qui sotto, 2) tutto l&#39;HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>.</li></ol>';"
+            "var x=document.querySelector('#pc'+n+' .bnx');if(x)x.innerHTML='<b>নিজের মতো করো</b>: index.html &rarr; পেনসিল &rarr; নিজের শখ ও স্বপ্ন &rarr; Commit changes। তারপর Documento পূরণ করে Consegna।'}"
             "s.innerHTML=(ok?'<b style=\"color:#2f9e57\">Il tuo sito è ONLINE.</b> Clicca per aprirlo, o copia il link nel Documento (parte 1):':"
             "'<b style=\"color:#a07c00\">Il sito non è ancora attivo</b> (manca Settings &rarr; Pages &rarr; main &rarr; Save, oppure aspetta 2 minuti). Il tuo indirizzo sarà:')"
             "+'<a class=\"vai\" target=\"_blank\" href=\"'+url+'\">'+url+'</a>'+(ok?'<iframe loading=\"lazy\" src=\"'+url+'\"></iframe>':'')}"
