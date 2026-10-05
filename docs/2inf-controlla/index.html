@@ -56,8 +56,9 @@ function riga(x,i){var tr=document.getElementById("r"+i);
   return riga2(x,i,tr)}
 function rigaNo(x,tr){if(true){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">—</td><td class="fare">Non ha GitHub (o non so il nome utente): crea l&#39;account e dimmi il nome utente. Intanto finisce il gioco con la pagina PASSO PASSO.</td>'}}
 function riga2(x,i,tr){
-  if(!x.provato){x.provato=1;var alt=(/^indovina/i.test(x.repo)?[x.repo,"indovina-","Indovina","indovina1"]:[x.repo,"lazarus-","Lazarus","lazarus1"]).filter(function(v,k,a){return a.indexOf(v)==k});
-    return alt.reduce(function(pr,r){return pr.then(function(f){if(f)return f;return raw(x.u,r,"unit1.pas").then(function(t){return t!==null?r:null})})},Promise.resolve(null)).then(function(r){if(r)x.repo=r;return riga2(x,i,tr)})}
+  if(!x.provato){x.provato=1;var suoi=TROVATI.filter(function(r){return r.u.toLowerCase()==String(x.u).toLowerCase()&&/indovina/i.test(r.repo)}).map(function(r){return r.repo});
+    var alt=(/^indovina/i.test(x.repo)?suoi.concat([x.repo,"indovina-","Indovina","indovina1","lazarus","lazarus-"]):[x.repo,"lazarus-","Lazarus","lazarus1"]).filter(function(v,k,a){return a.indexOf(v)==k});
+    return alt.reduce(function(pr,r){return pr.then(function(f){if(f)return f;return raw(x.u,r,"unit1.pas").then(function(t){return t!==null&&(!/^indovina/i.test(x.repo)||!/^lazarus/i.test(r)||/segreto/i.test(t))?r:null})})},Promise.resolve(null)).then(function(r){if(r)x.repo=r;return riga2(x,i,tr)})}
   return Promise.all([raw(x.u,x.repo,"unit1.pas"),raw(x.u,x.repo,"unit1.lfm"),raw(x.u,x.repo,"README.md")]).then(function(f){var pas=f[0],lfm=f[1],rd=f[2],fare=[],p=0;
     if(!pas&&!rd){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("r","NO")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Nessun repository <b>'+esc(x.repo)+'</b>: passi 9-12 della pagina (+, New repository, nome lazarus).</td>';return 0}
     if(!pas){tr.innerHTML='<td class="nome">'+esc(x.n)+'</td>'+td("g","solo README")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+td("r","—")+'<td class="punti">0</td><td class="fare">Repository creato ma senza programma: passi 13-16 (Add file, Upload files, scegliere unit1.pas e unit1.lfm, Commit changes).</td>';return 0}
@@ -98,4 +99,4 @@ function vai0(){try{localStorage.setItem(K,document.getElementById("lista").valu
     document.getElementById("cont").textContent=L.length+" ragazzi · codice tutto giusto: "+t+" · da aiutare: "+(L.length-t)+" · controllo delle "+new Date().toLocaleTimeString().slice(0,5)})}
 (function(){var h=decodeURIComponent((location.hash||"").replace(/^#u=/,"")),v="";if(h)v=h.split(",").join("\n");else{try{v=localStorage.getItem(K)||""}catch(e){}}
   document.getElementById("lista").value=v;if(v){vai();setInterval(vai,5*60*1000)}})();
-</script><script>autoAggiorna("202610051128")</script></body></html>
+</script><script>autoAggiorna("202610051135")</script></body></html>
