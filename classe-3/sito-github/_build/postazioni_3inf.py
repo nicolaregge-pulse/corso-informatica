@@ -189,6 +189,10 @@ NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
+import datetime as _dt
+VERSIONE = _dt.datetime.now().strftime("%Y%m%d%H%M%S")   # la pagina si ricarica da sola quando ne esce una nuova
+
+
 def postazioni_semplici_html():
     import json as _j
     bot = ""
@@ -214,7 +218,7 @@ def postazioni_semplici_html():
             "<div class='ptesto' id='ptesto'></div><div id='pcopia'></div><span id='n1' hidden>mio-sito</span><span id='n2' hidden>index.html</span><span id='n3' hidden>style.css</span>"
             "<button class='avanti' onclick='muovi(1)'>FATTO &rarr; passo dopo</button> <button class='indietro' onclick='muovi(-1)'>&larr; passo prima</button>"
             "<div id='psito' style='margin-top:12px'></div></div>"
-            "<script>var D=%s,PCN=null,P=0;"
+            "<script>var VERS='" + VERSIONE + "',D=%s,PCN=null,P=0;"
             "function chiave(){return 'passo2-pc-'+PCN}"
             "function pc(n){PCN=n;document.body.classList.toggle('bn',n=='14');document.querySelectorAll('.pcb').forEach(function(b){b.classList.toggle('on',b.textContent=='PC '+n)});"
             "document.body.classList.add('focus');document.getElementById('passo').style.display='block';"
@@ -240,7 +244,9 @@ def postazioni_semplici_html():
             "if(!us.length)return;fetch('https://api.github.com/search/repositories?per_page=100&q='+encodeURIComponent(us.map(function(u){return 'user:'+u}).join(' '))).then(function(r){return r.json()}).then(function(j){"
             "if(!j.items)return;var on={};j.items.forEach(function(r){if(r.has_pages)on[r.owner.login.toLowerCase()]=1});"
             "document.querySelectorAll('.pcb').forEach(function(b){var u=(b.getAttribute('data-u')||'').toLowerCase();if(u&&on[u]){b.classList.remove('rosso');b.classList.add('verde')}})}).catch(function(){})}"
-            "colori();setInterval(colori,3*60*1000);try{var m=localStorage.getItem('mio-pc');if(m)pc(m)}catch(e){}</script></div>") % (bot, _j.dumps(dati, ensure_ascii=False))
+            "colori();setInterval(colori,3*60*1000);try{var m=localStorage.getItem('mio-pc');if(m)pc(m)}catch(e){}"
+            "function nuovaVersione(){fetch('versione.txt?v='+Date.now()).then(function(r){return r.text()}).then(function(t){t=t.trim();if(t&&t!=VERS)location.replace(location.pathname+'?v='+t+location.hash)}).catch(function(){})}"
+            "nuovaVersione();setInterval(nuovaVersione,60*1000);</script></div>") % (bot, _j.dumps(dati, ensure_ascii=False))
 
 
 def siti_classe_html():
@@ -262,3 +268,5 @@ def scrivi_pc_json(path):
     """PC -> utente GitHub (senza nomi): le pagine del docente lo leggono e si aggiornano da sole."""
     import json as _j
     _j.dump({n: PC[n][0] for n in PC if PC[n][0]}, open(path, "w"), indent=1)
+    import os as _os
+    open(_os.path.join(_os.path.dirname(path), "versione.txt"), "w").write(VERSIONE + "\n")
