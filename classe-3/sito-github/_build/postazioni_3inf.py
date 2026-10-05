@@ -26,7 +26,7 @@ PC = {
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "18": ("danisaracino", "hai creato il repository e attivato Pages: manca solo un passo.",
+    "18": ("danisaracino", "il tuo sito è online, con il tuo nome!",
            ["Nel repository <b>mio-sito</b> c'è <b>solo il README</b>: per questo il sito dà 404.",
             "Clic su <b>Aggiungi file</b> (Add file) &rarr; <b>Carica file</b> (Upload files) &rarr; trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito &rarr; bottone verde <b>Commit changes</b>.",
             "Aspetta 2 minuti e premi Ctrl + F5 su questa pagina: il riquadro qui sotto diventa verde."], ""),
@@ -180,17 +180,17 @@ PASSI = [  # (italiano, bengali, copia: "" | "h" | "c" | "n1" | "n2" | "n3")  �
      "<b>Classroom</b>-এ কাজ খোলো, শুধু <b>Consegna</b> চাপো। বাকিটা শিক্ষক তোমার সাইট থেকে নেবেন।", ""),
 ]
 # passo (numero da 1) da cui parte ogni postazione, alle 09:35
-INIZIO = {"12": 19, "14": 19, "15": 19, "18": 6, "22": 1, "23": 19, "26": 19, "27": 19,
+INIZIO = {"12": 19, "14": 19, "15": 19, "18": 19, "22": 1, "23": 19, "26": 19, "27": 19,
           "28": 1, "29": 15, "32": 19, "33": 1, "34": 1, "38": 1, "35": 19, "36": 19, "37": 19}
 NOTE = {"12": "Il tuo sito giusto è nel repository <b>mio-sito1</b>: lavora lì.",
-        "18": "Il tuo repository <b>mio-sito</b> c'è già (con solo il README): aprilo su GitHub e parti da qui.",
+        "18": "Il tuo sito giusto è nel repository <b>mio-sito12</b>: lavora lì.",
         "29": "I tuoi file <b>index.html</b> e <b>style.css</b> sono già su GitHub, con il tuo nome: <b>BRAVO!</b> Manca solo accendere il sito (Pages).",
         "32": "Il tuo sito è <b>ONLINE</b>, con il tuo nome: <b>BRAVO!</b> Ora fallo tuo.",
         "38": "Al PC 38 sei entrato in Windows con l'account di un compagno: va bene per oggi, ma su GitHub entra con il <b>TUO</b> account.",
         "33": "Stai usando l'account di un compagno: esci e entra con il <b>TUO</b> (chiedi al professore)."}
 
 
-REPO = {"12": "mio-sito1", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
+REPO = {"12": "mio-sito1", "18": "mio-sito12", "15": "Mio_sito", "23": "mio_sito", "37": "mio---sito"}   # repository diverso da mio-sito
 import datetime as _dt
 VERSIONE = _dt.datetime.now().strftime("%Y%m%d%H%M%S")   # la pagina si ricarica da sola quando ne esce una nuova
 
