@@ -20,7 +20,7 @@ const AvvioHandler = {
   },
   handle(input) {
     return input.responseBuilder
-      .speak('Ciao! Sono pronto. Fammi una domanda, per esempio: dimmi perché il cielo è blu.')
+      .speak('Ciao, sono Amichetto Claudio! Fammi una domanda, per esempio: dimmi perché il cielo è blu.')
       .reprompt('Dimmi pure la tua domanda.')
       .getResponse();
   },
