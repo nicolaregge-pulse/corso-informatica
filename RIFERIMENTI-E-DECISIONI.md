@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.23** — 06/10/2026
+**Versione 2.24** — 06/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -259,6 +259,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     2. **Da provare con Nicola:** voti in bozza su Classroom (script v3, solo compiti creati dallo script; Nicola controlla e preme Restituisci); archivio delle prove (`archivio-prove/` nel repo riservato, generatore `generatori/archivio_prove.py`: scheda della prova MD+PDF, pagina del compito fotografata, chiusura, registro delle prove per classe); pagina del compito unica a 3 versioni (normale, semplificata, lingue); correttore unico con la griglia scritta nel compito.
     3. **Compiti creati a mano:** lo script non può né modificarli né metterci i voti. Per questo i compiti li crea sempre lo script.
 42. **Recupero a fianco (06/10/2026, richiesto da Nicola).** Ogni tanto chi è andato male rifà l'esercizio in versione semplificata con Nicola seduto accanto, così si recupera anche chi non ce la fa. Regole: 1) entra chi ha voto sotto 60 o lavoro non svolto (assenti esclusi); prima chi è sotto 60 (A FIANCO), poi i "non svolto" che possono fare da soli con la pagina; 2) la pagina semplificata è pubblica e senza nomi (`docs/recupero/<esercizio>/`, generatore `strumenti/gen_recupero.py`): un'azione per passo, il programma in alto, "adesso devi vedere", "non mi torna", numero del passo grande per Veyon, elenco completo per il docente; 3) l'elenco con i nomi, il punto da cui partire e le 3 domande della prova del nove sta nel repo riservato (`generatori/recupero.py` → `dati/recupero/`), e si rigenera dopo ogni "Chiudi classe"; 4) voto di recupero (proposta, da confermare): stessa griglia, voto NUOVO sul registro, il precedente resta; se non sa rispondere alle domande non supera 60. Stato: da provare con Nicola (§2.41).
+43. **Lista standard valutazioni per il docente e «Valutazione complessiva della classe» (06/10/2026, nome deciso da Nicola).** Ogni volta che si valuta una classe si producono SEMPRE: 1) per ogni allievo presente il libro (tutti i lavori con voto e indicazioni, cosa recuperare, consegne in coda), protetto da password per il ragazzo e senza password per il docente; 2) per il docente: voti per il registro in ordine alfabetico (O = proposta AI, C = valutazione ponderata del docente), griglia completa, situazione e indicazioni per allievo (comprese le cose non capite), lista di recupero (i tre con la media più bassa vengono interrogati), monitoraggio e fuori compito, password, Excel della classe aggiornato; 3) due zip, LIBRI-PROTETTI e DOCENTE, assenti fuori dagli zip, divisi se superano 30 MB. Il punto su tutti i lavori fino a una data si chiama **Valutazione complessiva della classe** (comando `VALUTAZIONE COMPLESSIVA classe`, ATLANTE 08b punto 5).
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -366,6 +367,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
+33. **v2.24 (06/10/2026)**: §2.43 lista standard valutazioni per il docente e Valutazione complessiva della classe.
 32. **v2.23 (06/10/2026)**: §2.42 recupero a fianco (pagine semplificate + elenco del docente).
 31. **v2.22 (05/10/2026)**: §2.41 solo strumenti provati e approvati da Nicola; flusso completo compito → Classroom → voti → archivio prove.
 30. **v2.21 (05/10/2026)**: §2.40 controllo dei lavori su GitHub: ricerca + git clone.

@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 0.4** — 01/10/2026 · Corso Informatica (Piamarta)
+**Versione 0.5** — 06/10/2026 · Corso Informatica (Piamarta)
 
 *L'Atlante è la mappa unica del corso: come sono fatti i libri, come sono
 organizzati i dati su Git, come cresce l'informazione senza rifare il lavoro, e
@@ -145,6 +145,18 @@ e metodologia".*
 4. **Scheda complessiva per giornata**: l'**insieme delle schede complessive del lavoro**
    (punto 2) di **tutti** i compiti svolti quel giorno — il riepilogo completo della giornata
    per il docente (se il giorno ha un solo compito, coincide con la sua scheda del lavoro).
+5. **Valutazione complessiva della classe** (per classe, a una data; nome deciso da Nicola il
+   06/10/2026): il punto su **tutti i lavori fatti fino a quel giorno**, con la **lista standard
+   valutazioni per il docente** (RIFERIMENTI §2.43). Contiene:
+   1. per ogni allievo presente il **libro della valutazione complessiva** (tutti i lavori con
+      voto e indicazioni, cosa recuperare, le sue consegne in coda), **protetto** da password per
+      il ragazzo e **senza** password per il docente;
+   2. per il docente: **voti per il registro** in ordine alfabetico (O = proposta AI, C =
+      valutazione ponderata del docente), **griglia completa**, **situazione e indicazioni** per
+      allievo, **lista di recupero** (i tre con la media più bassa vengono interrogati),
+      **monitoraggio**, **password**, **Excel** della classe aggiornato;
+   3. due zip: **LIBRI-PROTETTI** (ragazzi) e **DOCENTE** (tutto, senza password); assenti fuori
+      dagli zip. Prima volta: 1INF, 06/10/2026 (`generatori/valutazione_complessiva_1inf.py`).
 
 ## 09 Comandi / parole chiave (durante o a fine ore)
 
@@ -176,6 +188,9 @@ e metodologia".*
    insegnante) → STATO. Un comando solo a fine ora. (Le griglie totali portano sempre con sé
    il report di monitoraggio — vedi RIFERIMENTI §2.13.)
 10. **STATO** — mostrami la base dati ad albero aggiornata (cosa c'è, cosa manca, coperture).
+11. **VALUTAZIONE COMPLESSIVA** `classe` — genera la **Valutazione complessiva della classe**
+    (08b punto 5): tutti i lavori fino a oggi, libri protetti per i ragazzi, documenti del docente,
+    due zip. Prima dice cosa genera; i voti C li mette il docente.
 
 ### 09.2b Tabella: quale documento → quale comando
 
@@ -192,6 +207,7 @@ e metodologia".*
 | Scheda incrementale insegnante | `INCREMENTALE classe` | tutte le lezioni × voti + note alta visibilità + cose non capite | riservato |
 | Foto lavagna nei libri | `LAVAGNA classe` | cataloga la foto e la inserisce nei libri per data | pubblico* |
 | Argomenti svolti + firma ore | `SVOLTO` / `FIRMA` | registro svolto + firma programma | misto |
+| Valutazione complessiva della classe | `VALUTAZIONE COMPLESSIVA classe` | tutti i lavori fino a oggi: libri protetti, voti O/C, griglia, situazione, recupero, zip | riservato |
 | Chiusura giornata (cascata) | `CHIUDI classe` | genera in automatico tutto il necessario del giorno | — |
 
 *Lavagna: pubblico se non si leggono nomi, altrimenti riservato.
@@ -246,6 +262,8 @@ e metodologia".*
 
 ## 12 Changelog
 
+1. **v0.5 (06/10/2026):** nuovo output **Valutazione complessiva della classe** (08b punto 5) e comando
+   `VALUTAZIONE COMPLESSIVA classe`, con la lista standard valutazioni per il docente (RIFERIMENTI §2.43).
 1. **v0.4 (01/10/2026):** la cascata **CHIUDI classe** ora include lo step **MONITORAGGIO**
    (report di monitoraggio allievi / andamento dell'ora): le griglie totali portano sempre
    con sé il report di monitoraggio (RIFERIMENTI §2.12-2.13).

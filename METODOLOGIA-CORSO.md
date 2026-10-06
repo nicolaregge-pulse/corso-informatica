@@ -1,6 +1,6 @@
 # Metodologia del corso di Informatica
 
-**Versione 1.0** — 06/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
+**Versione 1.1** — 06/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
 
 *Documento del docente (in italiano, senza nomi di allievi). Raccoglie in un solo posto il metodo
 che usiamo, la giornata di lezione, i compiti, la valutazione, la chiusura delle classi, la
@@ -96,7 +96,8 @@ operativa da stampare.*
 4. **Prova del nove orale**: tre domande per verificare che il ragazzo sappia spiegare.
 5. **Recupero a fianco** [§2.42]: chi ha meno di 60 o non ha svolto rifà l'esercizio in versione semplificata con il docente accanto (pagine `recupero/` del sito; elenco con i nomi nel repository riservato). Proposta da confermare: voto nuovo sul registro, il precedente resta; se non sa rispondere alle domande non supera 60.
 6. **Voti su Classroom in bozza (DA PROVARE)**: lo script li scrive come bozza nei compiti creati dallo script; il docente li controlla e preme "Restituisci".
-7. **Voti su DIDAweb**: si inseriscono a mano, dall'elenco già in ordine alfabetico con la descrizione corta (`archivio-prove/didaweb/`). Da verificare se DIDAweb permette di caricarli da file.
+7. **Valutazione complessiva della classe** [§2.43]: il punto su tutti i lavori fino a una data, con la lista standard per il docente; i tre con la media più bassa vengono interrogati per recuperare.
+8. **Voti su DIDAweb**: si inseriscono a mano, dall'elenco già in ordine alfabetico con la descrizione corta (`archivio-prove/didaweb/`). Da verificare se DIDAweb permette di caricarli da file.
 
 ## 07 Chiudi classe
 
@@ -143,6 +144,7 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
 | avanti | dopo uno o più PPP | Claude consegna quello che era parcheggiato |
 | via | dopo che Claude ha detto cosa farà | Claude esegue (per esempio la chiusura della classe) |
 | OK 1INF (o la classe) | in classe, quando si vuole il compito su Classroom | il compito in coda passa a "da pubblicare"; lo script lo pubblica entro 5 minuti |
+| Valutazione complessiva 1INF | quando si vuole fare il punto su tutti i lavori | Valutazione complessiva della classe: libri protetti, voti O e C per il registro, griglia, situazione, recupero, due zip |
 | Chiudi classe 2INF | a fine lavoro, dopo l'ultima raccolta | libri individuali, zip docente e ragazzi, griglie, voti, report |
 | monito, o uno screenshot di Veyon senza testo | durante la lezione | Claude annota i fatti nel report di andamento (riservato) |
 | chi manca? | durante la lezione | elenco di chi non ha ancora fatto o consegnato (assenti esclusi) |
@@ -225,4 +227,5 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
 
 ## 15 Registro delle versioni
 
+2. **v1.1 (06/10/2026)**: aggiunta la Valutazione complessiva della classe (comando e capitolo 06).
 1. **v1.0 (06/10/2026)**: prima versione, dalla sintesi di `RIFERIMENTI-E-DECISIONI.md` v2.23, dell'Atlante e del lavoro di settembre-ottobre 2026.
