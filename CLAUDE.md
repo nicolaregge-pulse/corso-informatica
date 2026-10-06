@@ -106,6 +106,9 @@ Nicola non dice **"avanti"**. Serve a **non far scorrere la chat**. Comportament
   mai un blocco esplicativo, finché non è dato l'"avanti".
 - **Eccezione:** se dentro il `PPP` c'è un'azione concreta esplicita (es. "dammi
   il PDF il prima possibile", "committa"), quella si esegue subito.
+- **"Fammeli" vince sul PPP:** se un risultato è già stato chiesto ("dammi",
+  "fammi"), i PPP successivi ne precisano solo il contenuto: si consegna appena pronto.
+- **Se non sto facendo niente, vado avanti comunque** sul lavoro parcheggiato.
 - Dettaglio completo nel file interno `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (le nostre
   convenzioni, da non confondere con le regole PER i ragazzi).
 
@@ -465,7 +468,7 @@ l'intestazione del file.
 2. `CORSO-INFORMATICA.md` — v1.17 (super-guida / indice generale)
 3. `PROMEMORIA-NICOLA.md` — v0.7 (+ PDF v0.7; cose da fare di Nicola + roadmap cose da sviluppare con Claude)
 4. `01-GLOSSARIO.md` — v1.1
-5. `REGOLE-NOSTRE-CLAUDE-NICOLA.md` — v2.4 (PDF `20261004_Docente_v2.4_...`; v2.4 = tolti i nomi veri di allievi; convenzioni interne Nicola↔Claude: PPP, schema nomi file cronologia/cosa/chi + aree Comune/Docente/Regione, nome deterministico col percorso, conservazione integrale; NON sono le regole per i ragazzi)
+5. `REGOLE-NOSTRE-CLAUDE-NICOLA.md` — v2.5 (v2.5 = PPP: «fammeli» vince, se fermo vado avanti; PDF `20261004_Docente_v2.4_...`; v2.4 = tolti i nomi veri di allievi; convenzioni interne Nicola↔Claude: PPP, schema nomi file cronologia/cosa/chi + aree Comune/Docente/Regione, nome deterministico col percorso, conservazione integrale; NON sono le regole per i ragazzi)
 5c. `sbobinature/README.md` (+ `TEMPLATE-sbobinatura.md`) — v0.1 (trascrizioni lezioni: conservazione integrale + versione lavorata; alimenta libro di testo, argomenti svolti e note dei ragazzi; nomi solo in scratchpad)
 5d. `strumenti/nome-albero.py` (+ `README.md`) — v0.1 (script: nomi file deterministici col percorso nel nome, espandi/collassa l'albero — regola 2.13)
 5e. `ATLANTE.md` (+ `ATLANTE-v0.5.pdf`) — v0.5 (v0.5: Valutazione complessiva della classe; mappa unica del corso: tipi di libro A/B/C(3 tagli)/D, Manuale 3 livelli × 3 profondità, 7 tipi-artefatto + nomi 2.13, accrescimento con matrice di copertura e aggiornamenti, due repo/main-Release, documenti del docente, comandi/parole chiave con tabella. Ex "Topologia libri", rimosso)
@@ -574,7 +577,7 @@ l'intestazione del file.
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.1 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.2 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0

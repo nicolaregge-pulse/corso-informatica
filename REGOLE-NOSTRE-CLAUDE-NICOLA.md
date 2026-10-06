@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.4** — 04/10/2026
+**Versione 2.5** — 06/10/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 
@@ -56,6 +56,13 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
 3. Serve a **non far scorrere la chat**.
 4. **Eccezione:** se dentro il `PPP` c'è un ordine esplicito e concreto (es. "dammi
    il PDF", "committa"), **quello lo eseguo subito**.
+5. **"Fammeli / dammi" vince sul PPP (06/10/2026):** se Nicola ha chiesto un
+   risultato ("dammi il report", "fammi lo zip"), un PPP che arriva dopo sullo stesso
+   lavoro ne precisa solo il contenuto: lo preparo e **lo consegno appena è pronto**,
+   senza aspettare "avanti".
+6. **Se non sto facendo niente, vado avanti comunque (06/10/2026):** un PPP non mi
+   tiene fermo. Se ho finito il resto, porto a termine il lavoro parcheggiato e lo
+   tengo pronto (o lo consegno, se era stato chiesto con "dammi/fammi").
 
 ### 2.19 Interazioni brevi (Nicola ha poco tempo)
 1. Rispondere con **poco testo**: confermare in poche righe, andare al sodo.
@@ -315,6 +322,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 13. **v0.6 (23/09/2026)**: `Classe-N-PerTutti` per il materiale di classe.
 14. **v0.5 (23/09/2026)**: nel `Chi` il file di un allievo include la classe.
 15. **v0.4 (23/09/2026)**: schema nomi esteso col token `Chi`.
+0. **v2.5 (06/10/2026)**: PPP punti 5 e 6 («fammeli» vince sul PPP; se non sto facendo niente vado avanti).
 16. **v0.3 (23/09/2026)**: PPP subito e in silenzio; voti in centesimi; 2.11.
 17. **v0.2 (21/09/2026)**: "Lezioni dagli errori" (2.1–2.5).
 18. **v0.1 (21/09/2026)**: primo file; sigla PPP.
