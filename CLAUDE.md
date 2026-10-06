@@ -481,7 +481,7 @@ l'intestazione del file.
 ### 3. Regole, standard e organizzazione
 1. `REGOLE-FORMATTAZIONE.md` — v1.4
 2. `REGOLE-LABORATORIO.md` — v0.1
-3. `REGOLAMENTO-STRUMENTI-DIGITALI-IA.md` — v0.1 (regolamento + modulo presa visione/accettazione: strumenti informatici, servizi digitali, IA generativa)
+3. `REGOLAMENTO-STRUMENTI-DIGITALI-IA.md` — v0.2 (v0.2: vietato registrare la voce senza permesso e fare deepfake di voce/volto; regolamento + modulo presa visione/accettazione: strumenti informatici, servizi digitali, IA generativa)
 4. `RUOLI-CLASSE.md` — v0.4
 5. `STRUTTURA-REPOSITORY.md` — v1.2
 5b. `STRUTTURA-REGISTRI-CLASSI.md` — v0.1 (struttura logica delle 4 classi: un Excel per classe con Allievi/Registro voti/Assenze/Allegato A; dati coi nomi solo fuori dal repo; flusso Allegato A)
@@ -553,6 +553,7 @@ l'intestazione del file.
 2. `INVALSI-GRADO10-2025-26.md` — v1.1 (analisi dati INVALSI grado 10 2INFSPE; area Sicurezza = solo 4.1/4.2 + mappa 22 quesiti)
 3. `RECUPERO-INVALSI.md` — v0.2 (piano recupero lacune DigComp: sicurezza 4.1/4.2 sui 5 temi misurati + comunicazione area 2)
 4. `RECUPERO-INVALSI-esercizi.md` — v0.1 (schede + esercizi a scenario + laboratorio pratico: finta mail phishing, wi-fi non sicuro, cookie)
+6. `sicurezza-deepfake/` (generatore `_build/gen_deepfake.py`; pagina `docs/sicurezza-deepfake/`, quiz `docs/quiz/?b=sicurezza-deepfake`; PDF IT/AR/ZH; `SCHEDA-DOCENTE-deepfake-v1.0.pdf`; modello di compito Classroom nel riservato `coda/modelli/`) — v1.0 (voci e volti falsi: cos'è, segnali d'allarme, parola d'ordine di famiglia, regole della scuola, cosa fare; tutte le classi)
 5. `quiz-recupero-invalsi/index.html` + `README.md` — v1.0 (quiz HTML autocorreggente, 18 scenari; pubblicabile su GitHub Pages)
 
 ### 7. Materiali della Classe 3

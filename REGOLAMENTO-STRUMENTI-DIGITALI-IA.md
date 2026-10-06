@@ -1,6 +1,6 @@
 # Regolamento per l'Utilizzo degli Strumenti Informatici, dei Servizi Digitali e dell'Intelligenza Artificiale Generativa
 
-**Versione 0.1** — 16/09/2026
+**Versione 0.2** — 06/10/2026
 *Il regolamento che allievi (e famiglie, per i minorenni) leggono e accettano
 all'inizio del percorso. Riguarda le postazioni e gli strumenti informatici, gli
 account e i servizi digitali della scuola, e l'uso dell'intelligenza artificiale
@@ -44,6 +44,7 @@ accettazione da firmare.*
 2. Non si fotografano o riprendono compagni e docenti senza il loro permesso.
 3. Si pensa prima di pubblicare o condividere: cio che finisce in rete e difficile da togliere.
 4. Si rispetta la privacy dei compagni come si vorrebbe fosse rispettata la propria.
+5. Non si registra la **voce** di compagni e docenti senza il loro permesso, nemmeno durante le lezioni. Le registrazioni fatte con permesso restano private e non si pubblicano.
 
 ## 6. I servizi digitali della scuola (account, Drive, posta)
 1. L'account e i servizi della scuola (per esempio Google Drive e la posta) si usano per scopi didattici.
@@ -59,6 +60,7 @@ accettazione da firmare.*
 5. Privacy: non si inseriscono negli strumenti di IA dati personali propri, dei compagni o della famiglia.
 6. Limiti d'uso: si usa l'IA solo quando e come il docente lo consente per quella attivita.
 7. Rispetto: non si usa l'IA per creare contenuti offensivi, falsi o ingannevoli, ne per imitare o mettere in imbarazzo qualcuno.
+8. **Deepfake: vietato.** Non si usa l'IA per copiare o imitare la **voce** o il **volto** di un'altra persona (compagni, docenti, familiari, persone famose), neanche per scherzo. Un audio o un video falso puo fare molto male a chi viene imitato e, in Italia, diffonderlo puo essere un **reato**.
 
 > [GIALLO] Perche queste regole sull'IA: non sono per limitare, ma per imparare davvero. Uno strumento potente aiuta chi lo sa guidare; la competenza vera resta la tua, e si vede quando sai spiegare.
 
@@ -68,6 +70,7 @@ accettazione da firmare.*
 3. Visitare siti inadatti, scaricare file non richiesti, violare il diritto d'autore.
 4. Diffondere dati, foto o riprese di altri senza consenso.
 5. Usare l'IA per copiare, ingannare o creare contenuti offensivi o falsi.
+6. Registrare la voce o il volto di altri senza permesso, o usarli con l'IA per creare audio e video falsi (deepfake).
 
 ## 9. In caso di uso scorretto
 1. Prima di tutto se ne parla: spesso e un errore o una leggerezza, e si corregge.
@@ -90,4 +93,9 @@ Da compilare e firmare. Per gli allievi minorenni firma anche un genitore o il t
 ## 11. Collegamenti
 1. `REGOLE-LABORATORIO`: le regole pratiche del laboratorio, in forma piu breve e quotidiana.
 2. `INTELLIGENZA-ARTIFICIALE`: cos'e l'IA generativa e come si usa bene nel corso.
-3. `RECUPERO-INVALSI-esercizi` e `quiz-recupero-invalsi`: sicurezza da utente, password e privacy con quiz e attivita pratiche.
+3. `sicurezza-deepfake`: lezione su voci e volti falsi creati con l'IA, come riconoscerli e come difendersi.
+4. `RECUPERO-INVALSI-esercizi` e `quiz-recupero-invalsi`: sicurezza da utente, password e privacy con quiz e attivita pratiche.
+
+## 12. Registro delle versioni
+1. **v0.1 (16/09/2026)**: prima versione.
+2. **v0.2 (06/10/2026)**: aggiunti il divieto di registrare la voce senza permesso (5.5), il divieto di deepfake di voce e volto (7.8, 8.6) e il collegamento alla lezione sui deepfake.
