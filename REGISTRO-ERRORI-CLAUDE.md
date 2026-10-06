@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.3** — 06/10/2026
+**Versione 2.4** — 06/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -213,3 +213,5 @@ lezione.*
 21. **06/10, mattina — report dei voti trattenuto per un PPP.** Nicola aveva chiesto «dammi il report con tutte le valutazioni»; i messaggi PPP successivi ne precisavano il contenuto, ma io ho risposto «te lo do al tuo avanti». Nicola: «smettila con avanti, se ti dico di farmeli fammeli». **Regola (Regole nostre, PPP punti 5-6):** se un risultato è stato chiesto, il PPP successivo ne cambia solo il contenuto e il risultato si consegna appena è pronto; e un PPP non mi tiene mai fermo: se non sto facendo niente, vado avanti.
 22. **06/10, mattina — doppioni nella griglia 1INF del 03/10.** Tre colonne erano lo stesso voto contato due volte (GitHub e repository = Ricerca GitHub, Il versioning = Quiz Regole + Versioning, Config. PC teoria = Esercizio Hardware) e mancava «Configurare un PC» del 24/09; il voto complessivo comunicato stamattina ne risente di qualche punto. **Regola:** prima di fare una media si controlla che ogni colonna sia un lavoro diverso (stesse cifre su tutta la classe = doppione) e si confronta l'elenco delle colonne con l'elenco dei compiti su Classroom.
 23. **06/10, 09:30 — materia del voto scelta solo dall'ora.** Per DIDAweb ho assegnato il Quiz Regole + Versioning a Laboratorio perché era l'ora di Laboratorio; l'argomento (regole) è Sicurezza. Inoltre davo voti sotto 40. **Regola (RIFERIMENTI §2.44):** la materia si sceglie in base all'argomento realmente trattato; il voto minimo è 40.
+24. **06/10, 12:20 — quiz su Moduli ancora da far partire a mano.** Nicola mi aveva chiesto giorni fa che anche i quiz su Moduli si creassero in automatico, come i compiti su Classroom; non l'avevo fatto e gli ho dato di nuovo uno script da eseguire. **Regola:** quando Nicola chiede di automatizzare un passaggio, l'automazione si costruisce subito nello script automatico (oggi: versione 4, quiz su Moduli con risultati depositati nel repo riservato) e si segna nell'elenco delle cose da fare; mai più passaggi a mano che si possono fare da soli.
+
