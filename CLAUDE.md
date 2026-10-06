@@ -571,6 +571,7 @@ l'intestazione del file.
 ### 7b. Materiali della Classe 4
 1. `classe-4/reti-iso-osi/` (generatore `_build/gen_iso_osi.py`; pagina unica `docs/4ti-iso-osi/` con la pagina interattiva Il viaggio di un pacchetto) — v1.0 (06/10: scheda dei 7 livelli + compito Il viaggio del mio messaggio + quiz personale)
 2. `classe-4/git-ai-notebooklm/` — v1.0-1.1 (29/09: Git e AI con NotebookLM; la chiave del quiz versioning sta nel repo riservato)
+3. `docs/4ti-app/` — v1.0 (06/10: pagina «App di reti» con elenco estendibile; prima app `viaggio-iso-osi.html` «Il viaggio di un messaggio»: teoria dei 7 livelli, simulazione PC A → switch → router → server con byte reali (Ethernet, IP, TCP, FCS calcolati), vista per livello con comunicazione virtuale e percorso reale; un solo file, nessuna libreria; l'esempio usa l'indirizzo vero del sito del corso)
 
 ### 7c. Settimana, quiz e pagine del sito
 1. `orario/settimana-2026-10-05.md` — v1.0 (orario 5-9/10) · `orario/piano-settimana-2026-10-05.md` (→ `Piano-Settimana-2026-10-05-v1.0.pdf`) — v1.0 (lezione per lezione: materiali, compiti in coda, testi registro ≤40 caratteri)
