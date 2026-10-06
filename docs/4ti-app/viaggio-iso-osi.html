@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Il viaggio di un messaggio</title>
+<style>
+/* Layout: barra con le tre schede; ogni livello ISO/OSI ha il suo colore, uguale in teoria, simulazione e byte */
+:root{
+  --bg:#f3f6f8;--surface:#ffffff;--ink:#16202a;--muted:#5a6878;--line:#d5dde5;--accent:#0b6e99;--accent-ink:#ffffff;--warn:#b3261e;
+  --l7:#7a3fa0;--l7b:#f1e8f7;--l6:#3f51b5;--l6b:#e8ebfa;--l5:#1f78b4;--l5b:#e3f0fa;--l4:#0f8a7e;--l4b:#dff3f0;
+  --l3:#2e8b3a;--l3b:#e4f3e6;--l2:#b8730a;--l2b:#fbefd9;--l1:#6d5d4b;--l1b:#eeeae4;--dim:#e9edf1;--dimink:#9aa6b2;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","Consolas","SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;--warn:#ff8a80;
+  --l7:#c79be3;--l7b:#2d2238;--l6:#9aa8f0;--l6b:#232842;--l5:#7fb8e6;--l5b:#1c2c3b;--l4:#6fd0c4;--l4b:#163230;
+  --l3:#8fd49a;--l3b:#1c3221;--l2:#e9b35a;--l2b:#3a2e17;--l1:#c4b4a2;--l1b:#2f2a24;--dim:#202a34;--dimink:#5f6f7f;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;--warn:#ff8a80;
+  --l7:#c79be3;--l7b:#2d2238;--l6:#9aa8f0;--l6b:#232842;--l5:#7fb8e6;--l5b:#1c2c3b;--l4:#6fd0c4;--l4b:#163230;
+  --l3:#8fd49a;--l3b:#1c3221;--l2:#e9b35a;--l2b:#3a2e17;--l1:#c4b4a2;--l1b:#2f2a24;--dim:#202a34;--dimink:#5f6f7f;color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--bg);color:var(--ink)}
+body{margin:0;font-family:var(--sans);font-size:16px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:16px;padding-block:18px 48px;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:4px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{margin:0;font-size:clamp(26px,4vw,38px);line-height:1.1;text-wrap:balance;letter-spacing:-.01em}
+h2{margin:0;font-size:20px;text-wrap:balance}
+h3{margin:0;font-size:16px}
+p{margin:0}
+.lead{color:var(--muted);max-width:68ch}
+a{color:var(--accent)}
+nav.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5;padding-top:6px}
+nav.tabs button{font:inherit;font-weight:600;border:1px solid transparent;border-bottom:0;background:none;color:var(--muted);padding:9px 14px;border-radius:8px 8px 0 0;cursor:pointer;margin-bottom:-1px}
+nav.tabs button[aria-selected="true"]{background:var(--surface);color:var(--ink);border-color:var(--line)}
+button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.panel{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;min-width:0}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.small{font-size:13.5px}.muted{color:var(--muted)}
+/* colori per livello */
+.c7{--c:var(--l7);--cb:var(--l7b)}.c6{--c:var(--l6);--cb:var(--l6b)}.c5{--c:var(--l5);--cb:var(--l5b)}.c4{--c:var(--l4);--cb:var(--l4b)}
+.c3{--c:var(--l3);--cb:var(--l3b)}.c2{--c:var(--l2);--cb:var(--l2b)}.c1{--c:var(--l1);--cb:var(--l1b)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;padding:2px 8px;border-radius:999px;background:var(--cb);color:var(--c);border:1px solid var(--c);white-space:nowrap}
+/* TEORIA */
+.layers{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.layer{background:var(--surface);border:1px solid var(--line);border-top:5px solid var(--c);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.layer .n{font-family:var(--mono);font-weight:700;color:var(--c);font-size:13px}
+.layer dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:14px}
+.layer dt{color:var(--muted);font-weight:600}.layer dd{margin:0;min-width:0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+.enc{display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:13px}
+.enc .row{display:flex;gap:0;min-width:0}
+.enc .row>span{padding:5px 8px;border:1px solid var(--c);background:var(--cb);color:var(--ink);white-space:nowrap}
+.enc .lab{width:120px;flex:none;font-family:var(--sans);font-size:13px;color:var(--muted);padding:5px 0}
+.scroll{overflow-x:auto;max-width:100%}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:13px}
+.mnemo{font-size:18px;font-weight:700}
+.mnemo b{color:var(--accent)}
+/* SIMULAZIONE */
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{font:inherit;font-weight:600;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:8px;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:disabled{opacity:.45;cursor:default}
+.progress{flex:1;min-width:140px;height:8px;border-radius:999px;background:var(--dim);overflow:hidden}
+.progress>div{height:100%;background:var(--accent);transition:width .3s}
+.stepno{font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.topo svg{display:block;width:100%;min-width:620px;height:auto}
+.simgrid{display:grid;grid-template-columns:200px 1fr;gap:12px}
+@media (max-width:720px){.simgrid{grid-template-columns:1fr}}
+.stack{display:flex;flex-direction:column;gap:4px}
+.stack .lv{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:6px 9px;border-radius:6px;border:1px solid var(--line);background:var(--dim);color:var(--dimink);font-size:13.5px;font-weight:600}
+.stack .lv.on{background:var(--cb);color:var(--ink);border-color:var(--c)}
+.stack .lv.cur{outline:3px solid var(--c);outline-offset:1px}
+.stack .lv.off{opacity:.35;border-style:dashed}
+.stack .lv .num{font-family:var(--mono)}
+.stack .dir{font-size:13px;color:var(--muted);text-align:center;padding-top:4px}
+.expl{display:flex;flex-direction:column;gap:10px;min-width:0}
+.expl h2{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pdu{display:flex;flex-wrap:wrap;gap:0;font-family:var(--mono);font-size:12.5px}
+.pdu>span{padding:6px 8px;border:1px solid var(--c);background:var(--cb);color:var(--ink);margin-right:-1px;white-space:nowrap}
+.pdu>span.new{box-shadow:inset 0 -4px 0 var(--c);font-weight:700}
+.pdu>span.gone{opacity:.35;text-decoration:line-through}
+.fields td:first-child{white-space:nowrap}
+.fields tr.chg td{background:color-mix(in srgb,var(--warn) 10%,transparent)}
+.fields .tag{font-size:11.5px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.05em;margin-left:6px}
+.hex{font-family:var(--mono);font-size:12.5px;line-height:1.75;white-space:pre}
+.hex .off{color:var(--muted);margin-right:10px}
+.hex .b{padding:1px 2px;border-radius:3px;background:var(--cb);color:var(--ink)}
+.hex .b.dimb{background:transparent;color:var(--dimink)}
+.hex .b.chg{outline:2px solid var(--warn);outline-offset:-1px}
+.hex .asc{color:var(--muted);margin-left:12px}
+.legend{display:flex;flex-wrap:wrap;gap:6px}
+.bits{font-family:var(--mono);font-size:13px;word-break:break-all;line-height:1.7;color:var(--l1)}
+.wire{height:26px;border-radius:6px;background:var(--l1b);border:1px solid var(--l1);overflow:hidden;position:relative}
+.wire span{position:absolute;top:3px;left:0;white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--l1);animation:scorri 6s linear infinite}
+@keyframes scorri{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){.wire span{animation:none}.progress>div{transition:none}}
+.note{border-left:4px solid var(--accent);padding:8px 12px;background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:0 8px 8px 0;font-size:14.5px}
+/* VISTA PER LIVELLO */
+.pick{display:flex;flex-wrap:wrap;gap:6px}
+.pick button{font:inherit;font-weight:700;font-size:14px;padding:7px 12px;border-radius:8px;border:1px solid var(--c);background:var(--surface);color:var(--c);cursor:pointer}
+.pick button[aria-pressed="true"]{background:var(--c);color:var(--surface)}
+.view svg{display:block;width:100%;min-width:640px;height:auto}
+.dialog{display:flex;flex-direction:column;gap:8px}
+.bubble{max-width:560px;padding:8px 12px;border-radius:10px;border:1px solid var(--c);background:var(--cb);font-size:14.5px}
+.bubble.r{align-self:flex-end}
+.bubble b{display:block;font-size:12px;color:var(--c);text-transform:uppercase;letter-spacing:.06em}
+.sees{display:flex;flex-wrap:wrap;font-family:var(--mono);font-size:12.5px}
+.sees span{padding:8px 10px;border:1px solid var(--line);margin-right:-1px}
+.sees .mine{background:var(--cb);border-color:var(--c);font-weight:700;color:var(--ink)}
+.sees .opaque{background:repeating-linear-gradient(135deg,var(--dim) 0 6px,transparent 6px 12px);color:var(--dimink)}
+footer{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow">Reti · Modello ISO/OSI · Classe 4</div>
+  <h1>Il viaggio di un messaggio</h1>
+  <p class="lead">Dal browser del PC A al server B: il messaggio scende i sette livelli, viaggia sul cavo, passa da uno switch e da un router e risale dall'altra parte. Byte veri, calcolati qui nella pagina.</p>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Sezioni">
+  <button role="tab" id="tab-teoria" aria-controls="teoria" aria-selected="true">Teoria</button>
+  <button role="tab" id="tab-simulazione" aria-controls="simulazione" aria-selected="false">Simulazione</button>
+  <button role="tab" id="tab-livelli" aria-controls="livelli" aria-selected="false">Vista per livello</button>
+</nav>
+
+<!-- ============ TEORIA ============ -->
+<section class="panel" id="teoria" role="tabpanel" aria-labelledby="tab-teoria">
+  <p class="lead">Ogni livello fa un solo lavoro e parla solo con il livello uguale dall'altra parte. Per spedire, il messaggio scende dal 7 all'1; per ricevere, risale dall'1 al 7. L'analogia è la spedizione di un pacco.</p>
+  <div class="layers" id="layer-cards"></div>
+  <div class="two">
+    <div class="card">
+      <h2>Incapsulamento</h2>
+      <p class="small muted" style="margin:6px 0 10px">Scendendo, ogni livello aggiunge davanti la sua intestazione (header); il livello 2 aggiunge anche una coda, il controllo FCS. Risalendo, ogni livello toglie la sua.</p>
+      <div class="enc scroll" id="enc"></div>
+    </div>
+    <div class="card">
+      <h2>OSI e TCP/IP</h2>
+      <p class="small muted" style="margin:6px 0 10px">Internet usa il modello TCP/IP, che ha 4 livelli: raggruppa alcuni livelli OSI.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Livelli OSI</th><th>Livello TCP/IP</th><th>Esempi</th></tr></thead>
+        <tbody>
+          <tr><td><span class="chip c7">7</span> <span class="chip c6">6</span> <span class="chip c5">5</span></td><td>Applicazione</td><td>HTTP, HTTPS, DNS, SMTP</td></tr>
+          <tr><td><span class="chip c4">4</span></td><td>Trasporto</td><td>TCP, UDP</td></tr>
+          <tr><td><span class="chip c3">3</span></td><td>Internet</td><td>IP, ICMP</td></tr>
+          <tr><td><span class="chip c2">2</span> <span class="chip c1">1</span></td><td>Accesso alla rete</td><td>Ethernet, Wi-Fi</td></tr>
+        </tbody></table></div>
+      <h3 style="margin-top:14px">Per ricordarli, dall'1 al 7</h3>
+      <p class="mnemo"><b>F</b>iori <b>C</b>olorati <b>R</b>endono <b>T</b>utti <b>S</b>ereni, <b>P</b>erfino gli <b>A</b>rrabbiati</p>
+      <p class="small muted">Fisico, Collegamento, Rete, Trasporto, Sessione, Presentazione, Applicazione.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIMULAZIONE ============ -->
+<section class="panel" id="simulazione" role="tabpanel" aria-labelledby="tab-simulazione" hidden>
+  <div class="card controls">
+    <button class="btn" id="b-prev" type="button">Indietro</button>
+    <button class="btn primary" id="b-next" type="button">Avanti</button>
+    <button class="btn" id="b-play" type="button" aria-pressed="false">Riproduci</button>
+    <button class="btn" id="b-reset" type="button">Ricomincia</button>
+    <div class="progress" aria-hidden="true"><div id="prog"></div></div>
+    <span class="stepno" id="stepno"></span>
+  </div>
+  <div class="card topo scroll"><svg id="topo" viewBox="0 40 960 150" role="img" aria-label="Rete: PC A, switch, router, server B"></svg></div>
+  <div class="simgrid">
+    <div class="card"><div class="stack" id="stack"></div></div>
+    <div class="card expl" id="expl"></div>
+  </div>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline"><h2 id="hex-title">I byte</h2><div class="legend" id="legend"></div></div>
+    <p class="small muted" id="hex-sub" style="margin:4px 0 10px"></p>
+    <div class="scroll"><div class="hex" id="hex"></div></div>
+  </div>
+</section>
+
+<!-- ============ VISTA PER LIVELLO ============ -->
+<section class="panel" id="livelli" role="tabpanel" aria-labelledby="tab-livelli" hidden>
+  <div class="card" style="display:flex;flex-direction:column;gap:10px">
+    <p class="lead">Scegli un livello. La linea tratteggiata è la <b>comunicazione virtuale</b>: il livello parla solo con il suo omologo. La linea piena è il <b>percorso reale</b>: i dati scendono fino al cavo e risalgono.</p>
+    <div class="pick" id="pick"></div>
+  </div>
+  <div class="card view scroll"><svg id="view" viewBox="0 0 990 440" role="img" aria-label="Pile dei quattro dispositivi con il livello scelto"></svg></div>
+  <div class="two">
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h2 id="v-title"></h2><p id="v-text"></p><div class="dialog" id="v-dialog"></div></div>
+    <div class="card" style="display:flex;flex-direction:column;gap:10px"><h2>Cosa vede questo livello</h2><p class="small muted">Legge solo la sua intestazione. Tutto il resto per lui è un carico chiuso da consegnare.</p><div class="sees" id="v-sees"></div><div id="v-fields"></div></div>
+  </div>
+</section>
+
+<footer>Rete semplificata: nella realtà tra il router della scuola e il server di GitHub ci sono molti router, e il router della scuola cambia anche l'IP di partenza (NAT). L'IP del server è quello vero di GitHub Pages. Checksum IP e TCP e FCS Ethernet sono calcolati davvero dai byte mostrati.</footer>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- la rete d'esempio ---------- */
+var NET={
+  A:{nome:"PC A",ip:"192.168.1.10",mac:"3c:52:82:1a:2b:3c",porta:49152},
+  R:{nome:"Router",ipLan:"192.168.1.1",macLan:"00:1d:a1:4f:10:01",ipWan:"203.0.113.1",macWan:"00:1d:a1:4f:10:02"},
+  B:{nome:"Server B",ip:"185.199.108.153",mac:"f4:6d:04:8e:7a:51",porta:80}
+};
+var HOST="nicolaregge-pulse.github.io",PATH="/corso-informatica/4ti-app/";
+var HTTP="GET "+PATH+" HTTP/1.1\r\nHost: "+HOST+"\r\n\r\n";
+
+/* ---------- costruzione dei byte reali ---------- */
+function ipB(s){return s.split(".").map(Number)}
+function macB(s){return s.split(":").map(function(h){return parseInt(h,16)})}
+function u16(n){return[(n>>8)&255,n&255]}
+function u32(n){return[(n>>>24)&255,(n>>>16)&255,(n>>>8)&255,n&255]}
+function csum(bytes){var s=0;for(var i=0;i<bytes.length;i+=2){s+=(bytes[i]<<8)+(i+1<bytes.length?bytes[i+1]:0)}while(s>>>16){s=(s&65535)+(s>>>16)}return(~s)&65535}
+var CRC=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){var c=0xFFFFFFFF;for(var i=0;i<b.length;i++)c=CRC[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function hx(n,w){return n.toString(16).padStart(w,"0")}
+
+var DATA=Array.from(HTTP).map(function(ch){return ch.charCodeAt(0)});
+var SEQ=1001,ACK=5001,WIN=64240,IPID=0x1c46;
+function tcp(){var h=[].concat(u16(NET.A.porta),u16(NET.B.porta),u32(SEQ),u32(ACK),[0x50,0x18],u16(WIN),[0,0],[0,0]);
+  var pseudo=[].concat(ipB(NET.A.ip),ipB(NET.B.ip),[0,6],u16(20+DATA.length));var c=csum(pseudo.concat(h,DATA));h[16]=c>>8;h[17]=c&255;return h}
+function ip(ttl){var tot=20+20+DATA.length;var h=[].concat([0x45,0x00],u16(tot),u16(IPID),[0x40,0x00],[ttl,6],[0,0],ipB(NET.A.ip),ipB(NET.B.ip));
+  var c=csum(h);h[10]=c>>8;h[11]=c&255;return h}
+function eth(dst,src){return[].concat(macB(dst),macB(src),[0x08,0x00])}
+function fcs(b){var c=crc32(b);return[c&255,(c>>>8)&255,(c>>>16)&255,(c>>>24)&255]}/* sul cavo il CRC va in ordine little-endian */
+var TCP=tcp(),IP64=ip(64),IP63=ip(63);
+var E1=eth(NET.R.macLan,NET.A.mac),E2=eth(NET.B.mac,NET.R.macWan);
+var F1body=[].concat(E1,IP64,TCP,DATA),F1=F1body.concat(fcs(F1body));
+var F2body=[].concat(E2,IP63,TCP,DATA),F2=F2body.concat(fcs(F2body));
+function segs(eh,iph){return[{l:2,n:"Ethernet",b:eh},{l:3,n:"IP",b:iph},{l:4,n:"TCP",b:TCP},{l:7,n:"Dati HTTP",b:DATA},{l:2,n:"FCS",b:null}]}
+
+/* ---------- campi delle intestazioni ---------- */
+function bytesTxt(a){return a.map(function(x){return hx(x,2)}).join(" ")}
+function fEth(e,full,note){var f=[["MAC destinazione",macTxt(e.slice(0,6)),e.slice(0,6)],["MAC sorgente",macTxt(e.slice(6,12)),e.slice(6,12)],["Tipo","0x0800 = dentro c'è IPv4",e.slice(12,14)]];
+  f.push(["FCS (coda)","CRC-32 su tutto il frame: "+bytesTxt(full.slice(-4)),full.slice(-4)]);return f}
+function macTxt(a){return a.map(function(x){return hx(x,2)}).join(":")}
+function fIp(h){return[["Versione e IHL","4 e 5 (20 byte di intestazione)",h.slice(0,1)],["Servizio (TOS)","0",h.slice(1,2)],["Lunghezza totale",((h[2]<<8)+h[3])+" byte",h.slice(2,4)],
+  ["Identificativo","0x"+hx((h[4]<<8)+h[5],4),h.slice(4,6)],["Flag e offset","DF = non frammentare",h.slice(6,8)],["TTL",String(h[8])+" salti ancora possibili",h.slice(8,9)],
+  ["Protocollo","6 = TCP",h.slice(9,10)],["Checksum","0x"+hx((h[10]<<8)+h[11],4)+" (controlla l'intestazione)",h.slice(10,12)],
+  ["IP sorgente",h.slice(12,16).join("."),h.slice(12,16)],["IP destinazione",h.slice(16,20).join("."),h.slice(16,20)]]}
+function fTcp(){var h=TCP;return[["Porta sorgente",String(NET.A.porta)+" (scelta dal PC A)",h.slice(0,2)],["Porta destinazione","80 = server web (HTTP)",h.slice(2,4)],
+  ["Numero di sequenza",String(SEQ),h.slice(4,8)],["Numero di conferma (ACK)",String(ACK),h.slice(8,12)],["Lunghezza e flag","20 byte · PSH + ACK",h.slice(12,14)],
+  ["Finestra",String(WIN)+" byte",h.slice(14,16)],["Checksum","0x"+hx((h[16]<<8)+h[17],4)+" (con pseudo-intestazione IP)",h.slice(16,18)],["Puntatore urgente","0",h.slice(18,20)]]}
+
+/* ---------- TEORIA ---------- */
+var LIV=[
+ {n:7,nome:"Applicazione",fa:"È il livello dei programmi che usi: qui nasce la richiesta, per esempio il browser che chiede una pagina.",prot:"HTTP, HTTPS, DNS, SMTP, FTP",pdu:"dati (messaggio)",disp:"computer, server (programmi)",ana:"Scrivi la lettera da spedire."},
+ {n:6,nome:"Presentazione",fa:"Mette i dati in un formato che tutti capiscono: codifica dei caratteri, compressione, cifratura.",prot:"ASCII e UTF-8, JPEG, TLS (il lucchetto di HTTPS)",pdu:"dati",disp:"computer, server",ana:"Traduci la lettera nella lingua del destinatario e chiudi la busta."},
+ {n:5,nome:"Sessione",fa:"Apre, tiene aperta e chiude la conversazione tra i due programmi.",prot:"sessioni, login, apertura e chiusura della connessione",pdu:"dati",disp:"computer, server",ana:"Ti metti d'accordo con il destinatario: «ti scrivo, tu rispondi»."},
+ {n:4,nome:"Trasporto",fa:"Spezza i dati in segmenti, li numera, controlla che arrivino tutti e in ordine, sceglie la porta del programma giusto.",prot:"TCP (affidabile), UDP (veloce); porte 80, 443, 53",pdu:"segmento",disp:"computer, server",ana:"Numeri i pacchi: 1 di 3, 2 di 3, 3 di 3, e chiedi la ricevuta."},
+ {n:3,nome:"Rete",fa:"Mette l'indirizzo IP di partenza e di arrivo e sceglie la strada tra reti diverse.",prot:"IP (IPv4, IPv6), ICMP (ping)",pdu:"pacchetto",disp:"router",ana:"Scrivi l'indirizzo completo; l'ufficio smistamento sceglie la strada."},
+ {n:2,nome:"Collegamento dati",fa:"Consegna da una scheda di rete all'altra nella stessa rete locale, con gli indirizzi MAC, e controlla gli errori con l'FCS.",prot:"Ethernet, Wi-Fi (802.11), ARP",pdu:"frame (trama)",disp:"switch, scheda di rete, access point",ana:"Il corriere legge il nome del prossimo ufficio e consegna fin lì."},
+ {n:1,nome:"Fisico",fa:"Trasforma i bit in segnali: corrente nel rame, luce nella fibra, onde radio nel Wi-Fi.",prot:"cavo RJ45 (Ethernet), fibra ottica, onde radio",pdu:"bit",disp:"cavi, connettori, hub, ripetitori",ana:"Il furgone e la strada su cui viaggia il pacco."}
+];
+document.getElementById("layer-cards").innerHTML=LIV.map(function(L){return '<article class="layer c'+L.n+'"><div class="n">LIVELLO '+L.n+'</div><h2>'+L.nome+'</h2><p>'+L.fa+'</p><dl><dt>Protocolli</dt><dd>'+L.prot+'</dd><dt>Unità di dati</dt><dd>'+L.pdu+'</dd><dt>Dispositivi</dt><dd>'+L.disp+'</dd><dt>Analogia</dt><dd>'+L.ana+'</dd></dl></article>'}).join("");
+document.getElementById("enc").innerHTML=[
+ ["Livelli 7-5",[[7,"DATI HTTP"]]],["Livello 4",[[4,"TCP"],[7,"DATI"]]],["Livello 3",[[3,"IP"],[4,"TCP"],[7,"DATI"]]],["Livello 2",[[2,"ETH"],[3,"IP"],[4,"TCP"],[7,"DATI"],[2,"FCS"]]],["Livello 1",[[1,"0101 1100 0011 …"]]]
+].map(function(r){return '<div class="row"><span class="lab" style="border:0;background:none">'+r[0]+'</span>'+r[1].map(function(s){return '<span class="c'+s[0]+'">'+s[1]+'</span>'}).join("")+'</div>'}).join("");
+
+/* ---------- SIMULAZIONE: i passi ---------- */
+var DEV={A:{x:90,nome:"PC A",sub:NET.A.ip,max:7},SW:{x:340,nome:"Switch",sub:"livello 2",max:2},R:{x:600,nome:"Router",sub:"livello 3",max:3},B:{x:870,nome:"Server B",sub:NET.B.ip,max:7}};
+var HTTPshow=HTTP.replace(/\r\n/g,"↵ ");
+var S=[
+ {d:"A",l:7,dir:"giù",t:"Il browser crea la richiesta",x:"Sul PC A scrivi l'indirizzo del sito del corso, "+HOST+PATH+". Il browser prepara una richiesta HTTP: «dammi la pagina "+PATH+"». Il DNS ha già trasformato il nome "+HOST+" nell'indirizzo IP del server di GitHub: "+NET.B.ip+".",
+  pdu:[[7,"Dati HTTP ("+DATA.length+" byte)",1]],hex:{b:DATA,lv:[7]},f:[["Richiesta HTTP",HTTPshow,null]]},
+ {d:"A",l:6,dir:"giù",t:"Il testo diventa byte",x:"Il livello di presentazione codifica ogni carattere in un byte (ASCII): la G diventa 47, la E 45, la T 54. Con HTTPS qui i dati verrebbero anche cifrati (TLS): per vederli in chiaro usiamo HTTP.",
+  pdu:[[7,"Dati HTTP ("+DATA.length+" byte)",0]],hex:{b:DATA,lv:[7]},f:[["G E T","47 45 54",null],["a capo (\\r\\n)","0d 0a",null]]},
+ {d:"A",l:5,dir:"giù",t:"La conversazione è aperta",x:"Il livello di sessione si assicura che la conversazione con il server sia aperta. In TCP/IP questo lavoro lo fa la connessione TCP, aperta prima con la stretta di mano in tre passi: SYN, SYN-ACK, ACK. Non aggiunge byte.",
+  pdu:[[7,"Dati HTTP ("+DATA.length+" byte)",0]],hex:{b:DATA,lv:[7]},f:[["Stretta di mano","SYN → SYN-ACK → ACK (già fatta)",null]]},
+ {d:"A",l:4,dir:"giù",t:"TCP aggiunge la sua intestazione: nasce il segmento",x:"TCP mette davanti 20 byte: le porte (49152 → 80, cioè il server web), il numero di sequenza per rimettere in ordine i pezzi e un checksum per scoprire gli errori.",
+  pdu:[[4,"TCP 20",1],[7,"Dati "+DATA.length,0]],hex:{b:[].concat(TCP,DATA),lv:[4,7],seg:[[4,20],[7,DATA.length]]},f:fTcp(),fl:4},
+ {d:"A",l:3,dir:"giù",t:"IP aggiunge la sua intestazione: nasce il pacchetto",x:"IP mette davanti altri 20 byte con l'indirizzo di partenza ("+NET.A.ip+") e di arrivo ("+NET.B.ip+"). Il TTL parte da 64: ogni router lo abbassa di 1, così un pacchetto perso non gira per sempre.",
+  pdu:[[3,"IP 20",1],[4,"TCP 20",0],[7,"Dati "+DATA.length,0]],hex:{b:[].concat(IP64,TCP,DATA),lv:[3,4,7],seg:[[3,20],[4,20],[7,DATA.length]]},f:fIp(IP64),fl:3},
+ {d:"A",l:2,dir:"giù",t:"Ethernet chiude il frame",x:"Il server è in un'altra rete, quindi il PC A manda il frame al suo gateway, il router. Il MAC del router l'ha scoperto con ARP. Ethernet aggiunge 14 byte davanti (MAC destinazione, MAC sorgente, tipo) e 4 byte in coda: l'FCS, un controllo CRC-32 su tutto il frame.",
+  pdu:[[2,"ETH 14",1],[3,"IP 20",0],[4,"TCP 20",0],[7,"Dati "+DATA.length,0],[2,"FCS 4",1]],hex:{b:F1,lv:[2,3,4,7],frame:1},f:fEth(E1,F1),fl:2},
+ {d:"A",l:1,dir:"giù",t:"I byte diventano bit sul cavo",x:"La scheda di rete trasforma ogni byte in 8 bit e li manda sul cavo come segnali elettrici, uno dopo l'altro. Prima del frame invia un preambolo (10101010…) per sincronizzarsi.",
+  pdu:[[1,"bit: "+(F1.length*8)+" bit del frame",1]],hex:{b:F1,lv:[2,3,4,7],frame:1,bits:true},cable:"A-SW"},
+ {d:"SW",l:2,dir:"su e giù",t:"Lo switch legge solo il MAC",x:"Lo switch riceve i bit, ricostruisce il frame, controlla l'FCS e legge il MAC di destinazione ("+NET.R.macLan+"). Nella sua tabella MAC trova la porta del router e manda il frame solo lì. Non cambia nessun byte e non guarda dentro l'IP.",
+  pdu:[[2,"ETH 14",1],[3,"IP 20",0],[4,"TCP 20",0],[7,"Dati",0],[2,"FCS 4",1]],hex:{b:F1,lv:[2],frame:1},
+  f:[["Tabella MAC: "+NET.A.mac,"porta 1 (PC A)",null],["Tabella MAC: "+NET.R.macLan,"porta 24 (router) ← esce da qui",null],["Byte cambiati","nessuno",null]],cable:"SW-R"},
+ {d:"R",l:2,dir:"su",t:"Il router riceve il frame",x:"Il MAC di destinazione è il suo: il router accetta il frame, controlla l'FCS e toglie intestazione e coda Ethernet. Dentro c'è un pacchetto IP.",
+  pdu:[[2,"ETH 14",2],[3,"IP 20",0],[4,"TCP 20",0],[7,"Dati",0],[2,"FCS 4",2]],hex:{b:F1,lv:[2],frame:1}},
+ {d:"R",l:3,dir:"su e giù",t:"Il router sceglie la strada e abbassa il TTL",x:"Il router legge l'IP di destinazione "+NET.B.ip+": nella tabella di routing la rotta predefinita (0.0.0.0/0) esce dall'interfaccia verso Internet. Abbassa il TTL da 64 a 63 e quindi ricalcola il checksum IP. Gli indirizzi IP non cambiano.",
+  pdu:[[3,"IP 20",1],[4,"TCP 20",0],[7,"Dati "+DATA.length,0]],hex:{b:[].concat(IP63,TCP,DATA),lv:[3],seg:[[3,20],[4,20],[7,DATA.length]],chg:[8,10,11]},f:fIp(IP63),fl:3,chgF:["TTL","Checksum"]},
+ {d:"R",l:2,dir:"giù",t:"Un frame nuovo per la rete successiva",x:"Il router costruisce un frame nuovo: MAC sorgente diventa il suo ("+NET.R.macWan+"), MAC destinazione quello del server ("+NET.B.mac+"). L'FCS si ricalcola. I MAC cambiano a ogni salto, gli IP restano dall'inizio alla fine.",
+  pdu:[[2,"ETH 14",1],[3,"IP 20",0],[4,"TCP 20",0],[7,"Dati "+DATA.length,0],[2,"FCS 4",1]],hex:{b:F2,lv:[2,3,4,7],frame:2,chg:[0,1,2,3,4,5,6,7,8,9,10,11,22,24,25,F2.length-4,F2.length-3,F2.length-2,F2.length-1]},f:fEth(E2,F2),fl:2,chgF:["MAC destinazione","MAC sorgente","FCS (coda)"]},
+ {d:"R",l:1,dir:"giù",t:"Di nuovo bit sul cavo",x:"Il frame nuovo parte verso il server come segnali sul cavo.",pdu:[[1,"bit: "+(F2.length*8)+" bit",1]],hex:{b:F2,lv:[2,3,4,7],frame:2,bits:true},cable:"R-B"},
+ {d:"B",l:2,dir:"su",t:"Il server accetta il frame",x:"Il MAC di destinazione è quello del server e l'FCS torna: il frame è integro. Ethernet toglie intestazione e coda e passa il pacchetto al livello 3.",
+  pdu:[[2,"ETH 14",2],[3,"IP 20",0],[4,"TCP 20",0],[7,"Dati",0],[2,"FCS 4",2]],hex:{b:F2,lv:[2],frame:2}},
+ {d:"B",l:3,dir:"su",t:"IP: il pacchetto è per me",x:"L'IP di destinazione è "+NET.B.ip+", il suo. Il checksum è giusto. Il campo protocollo vale 6: il contenuto va a TCP. IP toglie la sua intestazione.",
+  pdu:[[3,"IP 20",2],[4,"TCP 20",0],[7,"Dati",0]],hex:{b:[].concat(IP63,TCP,DATA),lv:[3],seg:[[3,20],[4,20],[7,DATA.length]]}},
+ {d:"B",l:4,dir:"su",t:"TCP: porta 80, segmento completo",x:"La porta di destinazione è 80: il segmento va al programma server web. Il numero di sequenza è quello atteso e il checksum torna. TCP risponderà con un ACK: «ricevuto, aspetto il byte "+(SEQ+DATA.length)+"».",
+  pdu:[[4,"TCP 20",2],[7,"Dati "+DATA.length,0]],hex:{b:[].concat(TCP,DATA),lv:[4],seg:[[4,20],[7,DATA.length]]}},
+ {d:"B",l:5,dir:"su",t:"Sessione e presentazione",x:"La conversazione è quella aperta con il PC A. I byte vengono rimessi in caratteri (ASCII): 47 45 54 torna a essere GET.",pdu:[[7,"Dati HTTP ("+DATA.length+" byte)",0]],hex:{b:DATA,lv:[7]}},
+ {d:"B",l:7,dir:"arrivato",t:"Il server web legge la richiesta",x:"Il programma server web legge «GET "+PATH+" HTTP/1.1, Host: "+HOST+"» e prepara la risposta «HTTP/1.1 200 OK» con la pagina. La risposta farà lo stesso viaggio al contrario.",pdu:[[7,"Dati HTTP ("+DATA.length+" byte)",0]],hex:{b:DATA,lv:[7]},f:[["Richiesta letta",HTTPshow,null],["Risposta che prepara","HTTP/1.1 200 OK + la pagina",null]]}
+];
+
+/* ---------- SIMULAZIONE: disegno ---------- */
+var NS="http://www.w3.org/2000/svg";
+function el(t,a,txt){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;return e}
+var cur=0,timer=null;
+function topo(s){var svg=document.getElementById("topo");svg.innerHTML="";
+  var y=95,order=["A","SW","R","B"];
+  for(var i=0;i<3;i++){var a=DEV[order[i]],b=DEV[order[i+1]],key=order[i]+"-"+order[i+1];var on=s.cable===key;
+    svg.appendChild(el("line",{x1:a.x+62,y1:y,x2:b.x-62,y2:y,stroke:on?"var(--l1)":"var(--line)","stroke-width":on?6:4,"stroke-linecap":"round"}));
+    svg.appendChild(el("text",{x:(a.x+b.x)/2,y:y-12,"text-anchor":"middle","font-size":13,fill:"var(--muted)"},i===1?"cavo · porta 24":"cavo RJ45"));
+    if(on){var dot=el("circle",{cx:a.x+62,cy:y,r:9,fill:"var(--l2)"});var an=el("animate",{attributeName:"cx",from:a.x+62,to:b.x-62,dur:"1.6s",repeatCount:"indefinite"});
+      if(!matchMedia("(prefers-reduced-motion: reduce)").matches)dot.appendChild(an);else dot.setAttribute("cx",(a.x+b.x)/2);svg.appendChild(dot)}}
+  order.forEach(function(k){var d=DEV[k],act=s.d===k;
+    svg.appendChild(el("rect",{x:d.x-62,y:y-34,width:124,height:68,rx:10,fill:act?"var(--surface)":"var(--dim)",stroke:act?"var(--accent)":"var(--line)","stroke-width":act?3:1.5}));
+    svg.appendChild(el("text",{x:d.x,y:y-4,"text-anchor":"middle","font-size":16,"font-weight":700,fill:"var(--ink)"},d.nome));
+    svg.appendChild(el("text",{x:d.x,y:y+18,"text-anchor":"middle","font-size":12.5,fill:"var(--muted)","font-family":"ui-monospace,Consolas,monospace"},d.sub));
+    svg.appendChild(el("text",{x:d.x,y:y+56,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},k==="A"?"MAC "+NET.A.mac:k==="B"?"MAC "+NET.B.mac:k==="R"?"2 interfacce":"tabella MAC"));
+  });
+  svg.appendChild(el("text",{x:215,y:178,"text-anchor":"middle","font-size":12.5,fill:"var(--muted)"},"rete 192.168.1.0/24"));
+  svg.appendChild(el("text",{x:735,y:178,"text-anchor":"middle","font-size":12.5,fill:"var(--muted)"},"verso Internet (semplificato)"));
+  svg.appendChild(el("line",{x1:600,y1:140,x2:600,y2:186,stroke:"var(--line)","stroke-dasharray":"4 4"}));
+}
+function stack(s){var d=DEV[s.d],h='<div class="small muted" style="font-weight:700;margin-bottom:4px">Pila di '+d.nome+'</div>';
+  for(var n=7;n>=1;n--){var off=n>d.max,on=!off&&n===s.l,c="lv c"+n+(off?" off":"")+(on?" on cur":"");
+    h+='<div class="'+c+'"><span>'+LIV[7-n].nome+'</span><span class="num">'+n+'</span></div>'}
+  h+='<div class="dir">Direzione: <b>'+s.dir+'</b></div>';document.getElementById("stack").innerHTML=h}
+function expl(s){var h='<h2><span class="chip c'+s.l+'">Livello '+s.l+' · '+LIV[7-s.l].nome+'</span> '+s.t+'</h2><p>'+s.x+'</p>';
+  h+='<div class="pdu" aria-label="Unità di dati">'+s.pdu.map(function(p){return '<span class="c'+p[0]+(p[2]===1?" new":p[2]===2?" gone":"")+'">'+p[1]+'</span>'}).join("")+'</div>';
+  h+='<p class="small muted">'+(s.pdu.some(function(p){return p[2]===1})?"In grassetto: la parte aggiunta in questo passo.":s.pdu.some(function(p){return p[2]===2})?"Barrato: la parte che questo livello toglie.":"")+'</p>';
+  if(s.f){var chg=s.chgF||[];h+='<div class="scroll"><table class="fields"><thead><tr><th>Campo</th><th>Valore</th><th>Byte</th></tr></thead><tbody>'+s.f.map(function(r){var c=chg.indexOf(r[0])>=0;return '<tr class="'+(c?"chg":"")+'"><td>'+r[0]+(c?'<span class="tag">cambiato</span>':"")+'</td><td>'+r[1]+'</td><td class="mono small">'+(r[2]?bytesTxt(r[2]):"")+'</td></tr>'}).join("")+'</tbody></table></div>'}
+  if(s.l===1){var bits=s.hex.b.slice(0,8).map(function(x){return x.toString(2).padStart(8,"0")}).join(" ");
+    h+='<div class="wire" aria-hidden="true"><span>'+("10101010 ".repeat(7)+"10101011 "+bits+" ").repeat(2)+'</span></div><p class="bits">Primi 8 byte come bit: '+bits+' …</p>'}
+  document.getElementById("expl").innerHTML=h}
+function layerOf(i,s){if(s.seg){var o=0;for(var k=0;k<s.seg.length;k++){if(i<o+s.seg[k][1])return s.seg[k][0];o+=s.seg[k][1]}return 7}
+  if(s.frame){var n=s.b.length;if(i<14)return 2;if(i<34)return 3;if(i<54)return 4;if(i>=n-4)return 2;return 7}return s.lv[0]}
+function hexv(s){var H=s.hex,b=H.b,out="";
+  for(var r=0;r<b.length;r+=16){out+='<span class="off">'+hx(r,4)+'</span>';var asc="";
+    for(var i=r;i<r+16;i++){if(i<b.length){var L=layerOf(i,H),vis=H.lv.indexOf(L)>=0,ch=H.chg&&H.chg.indexOf(i)>=0;
+      out+='<span class="b c'+L+(vis?"":" dimb")+(ch?" chg":"")+'">'+hx(b[i],2)+'</span> ';asc+=(b[i]>=32&&b[i]<127)?String.fromCharCode(b[i]).replace("&","&amp;").replace("<","&lt;"):"·"}else out+="   "}
+    out+='<span class="asc">'+asc+'</span>\n'}
+  document.getElementById("hex").innerHTML=out;
+  var tit=H.frame?"Il frame Ethernet completo · "+b.length+" byte":H.seg?"Il "+(H.seg.length===3?"pacchetto IP":"segmento TCP")+" · "+b.length+" byte":"I dati HTTP · "+b.length+" byte";
+  document.getElementById("hex-title").textContent=tit;
+  document.getElementById("hex-sub").textContent=(H.bits?"Questi sono i byte che diventano bit sul cavo. ":"")+"Ogni coppia di cifre è un byte in esadecimale; a destra gli stessi byte come caratteri. In grigio i byte che il livello di questo passo non legge."+(H.chg?" Riquadrati in rosso: i byte cambiati.":"");
+  document.getElementById("legend").innerHTML=[[2,"Ethernet + FCS"],[3,"IP"],[4,"TCP"],[7,"Dati HTTP"]].map(function(x){return '<span class="chip c'+x[0]+'">'+x[1]+'</span>'}).join("")}
+function show(i){cur=Math.max(0,Math.min(S.length-1,i));var s=S[cur];topo(s);stack(s);expl(s);hexv(s);
+  document.getElementById("stepno").textContent="Passo "+(cur+1)+" di "+S.length;document.getElementById("prog").style.width=((cur+1)/S.length*100)+"%";
+  document.getElementById("b-prev").disabled=cur===0;document.getElementById("b-next").disabled=cur===S.length-1;if(cur===S.length-1)stop()}
+function stop(){clearInterval(timer);timer=null;var b=document.getElementById("b-play");b.textContent="Riproduci";b.setAttribute("aria-pressed","false")}
+document.getElementById("b-prev").onclick=function(){stop();show(cur-1)};
+document.getElementById("b-next").onclick=function(){stop();show(cur+1)};
+document.getElementById("b-reset").onclick=function(){stop();show(0)};
+document.getElementById("b-play").onclick=function(){if(timer){stop();return}if(cur===S.length-1)show(0);var b=this;b.textContent="Pausa";b.setAttribute("aria-pressed","true");timer=setInterval(function(){show(cur+1)},4000)};
+
+/* ---------- VISTA PER LIVELLO ---------- */
+var VL={
+ 7:{t:"Livello 7: il browser parla con il server web",x:"Il browser del PC A e il programma server web di B si scambiano messaggi HTTP. Nessun altro dispositivo li legge: switch e router non arrivano fino a qui.",
+    d:[["Browser (PC A)","GET "+PATH+" HTTP/1.1 · Host: "+HOST],["Server web (B)","HTTP/1.1 200 OK · ecco la pagina"]],mine:"Dati HTTP",f:[["Metodo","GET"],["Risorsa",PATH],["Host",HOST]]},
+ 6:{t:"Livello 6: si capiscono sul formato",x:"Le due presentazioni concordano come sono scritti i dati: caratteri in ASCII/UTF-8, eventuale compressione e, con HTTPS, la cifratura TLS.",
+    d:[["Presentazione A","Ti mando testo in UTF-8"],["Presentazione B","Lo leggo in UTF-8: G E T = 47 45 54"]],mine:"Codifica dei dati",f:[["Codifica","ASCII / UTF-8"],["Cifratura","nessuna (HTTP) · TLS con HTTPS"]]},
+ 5:{t:"Livello 5: la conversazione",x:"Le due sessioni aprono, tengono aperta e chiudono il dialogo. In TCP/IP lo fa la connessione TCP.",
+    d:[["Sessione A","Apriamo una conversazione?"],["Sessione B","Sì, è aperta. Parla pure."],["Sessione A","Ho finito, chiudiamo."]],mine:"Stato della conversazione",f:[["Stato","aperta"],["Chi","PC A ↔ Server B"]]},
+ 4:{t:"Livello 4: TCP di A e TCP di B",x:"I due TCP si parlano da un capo all'altro: numerano i byte, confermano la ricezione e rimandano quello che si perde. Switch e router non leggono l'intestazione TCP.",
+    d:[["TCP di A","Segmento con i byte da "+SEQ+" a "+(SEQ+DATA.length-1)+", per la porta 80"],["TCP di B","ACK: ricevuto, aspetto il byte "+(SEQ+DATA.length)]],mine:"TCP 20 byte",f:null,ff:fTcp},
+ 3:{t:"Livello 3: salto dopo salto fino a B",x:"L'IP di A parla con l'IP del router, che legge l'indirizzo di destinazione, abbassa il TTL e inoltra; poi il router parla con l'IP di B. Gli indirizzi IP non cambiano mai.",
+    d:[["IP di A → router","Pacchetto per "+NET.B.ip+", TTL 64"],["Router → IP di B","Lo inoltro verso Internet, TTL 63"]],mine:"IP 20 byte",f:null,ff:function(){return fIp(IP64)}},
+ 2:{t:"Livello 2: da una scheda alla successiva",x:"Ethernet consegna solo dentro la rete locale: dal PC A al router (lo switch legge il MAC e inoltra), poi dal router al server. A ogni salto il frame è nuovo e i MAC cambiano.",
+    d:[["Ethernet di A → router","Frame per "+NET.R.macLan+" (FCS ok)"],["Ethernet del router → B","Frame nuovo per "+NET.B.mac+" (FCS ricalcolato)"]],mine:"ETH 14 + FCS 4",f:null,ff:function(){return fEth(E1,F1)}},
+ 1:{t:"Livello 1: segnali su ogni cavo",x:"Il livello fisico parla solo con l'altra estremità del suo cavo: PC A con lo switch, lo switch con il router, il router con il server. Non sa cosa sono i byte che trasporta.",
+    d:[["Scheda di A → switch","10101010 … 01000101 …"],["Switch → router","stessi bit"],["Router → server","bit del frame nuovo"]],mine:"bit",f:[["Segnale","corrente nel rame (RJ45)"],["Velocità","per esempio 1 Gbit/s"]]}
+};
+var vSel=4;
+function view(){var svg=document.getElementById("view");svg.innerHTML="";
+  var cols=[{k:"A",x:110,max:7,nome:"PC A"},{k:"SW",x:370,max:2,nome:"Switch"},{k:"R",x:610,max:3,nome:"Router"},{k:"B",x:870,max:7,nome:"Server B"}];
+  var top=40,hgt=44,gap=6,w=150;function yOf(n){return top+(7-n)*(hgt+gap)}
+  cols.forEach(function(c){svg.appendChild(el("text",{x:c.x,y:24,"text-anchor":"middle","font-size":15,"font-weight":700,fill:"var(--ink)"},c.nome));
+    for(var n=7;n>=1;n--){if(n>c.max)continue;var sel=n===vSel,g=el("g",{});
+      g.appendChild(el("rect",{x:c.x-w/2,y:yOf(n),width:w,height:hgt,rx:7,fill:sel?"var(--l"+n+"b)":"var(--dim)",stroke:sel?"var(--l"+n+")":"var(--line)","stroke-width":sel?2.5:1}));
+      g.appendChild(el("text",{x:c.x,y:yOf(n)+hgt/2+5,"text-anchor":"middle","font-size":13.5,"font-weight":sel?700:500,fill:sel?"var(--ink)":"var(--dimink)"},n+" · "+LIV[7-n].nome));svg.appendChild(g)}});
+  /* percorso reale: fuori dai riquadri, così non copre le scritte */
+  var p=[],yb=yOf(1)+hgt+16,ax=cols[0].x-w/2-12,bx=cols[3].x+w/2+12;
+  p.push([ax,yOf(7)+hgt/2]);p.push([ax,yb]);
+  [1,2].forEach(function(i){var c=cols[i],l=c.x-w/2-12,r=c.x+w/2+12,yt=yOf(c.max)-8;p.push([l,yb]);p.push([l,yt]);p.push([r,yt]);p.push([r,yb])});
+  p.push([bx,yb]);p.push([bx,yOf(7)+hgt/2]);
+  svg.appendChild(el("polyline",{points:p.map(function(q){return q.join(",")}).join(" "),fill:"none",stroke:"var(--accent)","stroke-width":3,"stroke-linejoin":"round",opacity:.85}));
+  svg.appendChild(el("text",{x:490,y:yb+22,"text-anchor":"middle","font-size":13,fill:"var(--accent)","font-weight":700},"percorso reale: scende, viaggia sui cavi, risale"));
+  /* comunicazione virtuale */
+  var pairs=vSel>=4?[[0,3]]:vSel===3?[[0,2],[2,3]]:vSel===2?[[0,2],[2,3]]:[[0,1],[1,2],[2,3]];
+  var yv=yOf(vSel)+hgt/2;
+  pairs.forEach(function(pr){var a=cols[pr[0]],b=cols[pr[1]];
+    svg.appendChild(el("line",{x1:a.x+w/2,y1:yv,x2:b.x-w/2,y2:yv,stroke:"var(--l"+vSel+")","stroke-width":3,"stroke-dasharray":"9 7"}));
+    svg.appendChild(el("text",{x:(a.x+b.x)/2,y:yv-8,"text-anchor":"middle","font-size":12.5,"font-weight":700,fill:"var(--l"+vSel+")"},"comunicazione virtuale"))});
+  if(vSel===2){svg.appendChild(el("text",{x:cols[1].x,y:yOf(2)-8,"text-anchor":"middle","font-size":12,fill:"var(--muted)"},"legge il MAC e inoltra"))}
+  if(vSel>=4){[cols[1],cols[2]].forEach(function(c){svg.appendChild(el("text",{x:c.x,y:yOf(vSel)+12,"text-anchor":"middle","font-size":12.5,fill:"var(--muted)"},"non arriva qui"))})}
+  /* testi */
+  var V=VL[vSel];document.getElementById("v-title").textContent=V.t;document.getElementById("v-text").textContent=V.x;
+  document.getElementById("v-dialog").innerHTML=V.d.map(function(d,i){return '<div class="bubble c'+vSel+(i%2?" r":"")+'"><b>'+d[0]+'</b>'+d[1]+'</div>'}).join("");
+  var sees=vSel===7||vSel===6||vSel===5?[["mine",V.mine]]:vSel===4?[["mine",V.mine],["opaque","dati HTTP: li consegna e basta"]]:vSel===3?[["mine",V.mine],["opaque","TCP + dati: chiusi"]]:vSel===2?[["mine","ETH 14"],["opaque","IP + TCP + dati: chiusi"],["mine","FCS 4"]]:[["mine","0 1 0 0 0 1 0 1 … solo bit, nessun significato"]];
+  document.getElementById("v-sees").innerHTML=sees.map(function(s){return '<span class="c'+vSel+" "+s[0]+'">'+s[1]+'</span>'}).join("");
+  var rows=V.ff?V.ff():V.f;document.getElementById("v-fields").innerHTML='<div class="scroll"><table class="fields"><thead><tr><th>Campo</th><th>Valore</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td>'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join("")+'</tbody></table></div>';
+  document.querySelectorAll("#pick button").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.l===vSel))})}
+document.getElementById("pick").innerHTML=[7,6,5,4,3,2,1].map(function(n){return '<button type="button" class="c'+n+'" data-l="'+n+'" aria-pressed="false">'+n+' · '+LIV[7-n].nome+'</button>'}).join("");
+document.getElementById("pick").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;vSel=+b.dataset.l;view()});
+
+/* ---------- schede ---------- */
+var tabs=["teoria","simulazione","livelli"];
+function apri(id){tabs.forEach(function(t){document.getElementById(t).hidden=t!==id;document.getElementById("tab-"+t).setAttribute("aria-selected",String(t===id))});
+  if(id!=="simulazione")stop();try{history.replaceState(null,"","#"+id)}catch(e){}}
+tabs.forEach(function(t,i){var b=document.getElementById("tab-"+t);b.onclick=function(){apri(t)};
+  b.onkeydown=function(e){if(e.key==="ArrowRight"||e.key==="ArrowLeft"){var j=(i+(e.key==="ArrowRight"?1:2))%3;document.getElementById("tab-"+tabs[j]).focus();apri(tabs[j])}}});
+show(0);view();
+var h=(location.hash||"").slice(1);if(tabs.indexOf(h)>=0)apri(h);
+})();
+</script>
+</body>
+</html>
