@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.22** — 05/10/2026
+**Versione 2.23** — 06/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -258,6 +258,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
     1. **Approvati (provati in classe):** pubblicazione del compito con lo script; raccolta automatica delle consegne; una pagina per i ragazzi + un link per il docente; caricamento su GitHub con Add file → Upload files; chiusura classe con libri individuali protetti, zip docente senza password, voti in centesimi.
     2. **Da provare con Nicola:** voti in bozza su Classroom (script v3, solo compiti creati dallo script; Nicola controlla e preme Restituisci); archivio delle prove (`archivio-prove/` nel repo riservato, generatore `generatori/archivio_prove.py`: scheda della prova MD+PDF, pagina del compito fotografata, chiusura, registro delle prove per classe); pagina del compito unica a 3 versioni (normale, semplificata, lingue); correttore unico con la griglia scritta nel compito.
     3. **Compiti creati a mano:** lo script non può né modificarli né metterci i voti. Per questo i compiti li crea sempre lo script.
+42. **Recupero a fianco (06/10/2026, richiesto da Nicola).** Ogni tanto chi è andato male rifà l'esercizio in versione semplificata con Nicola seduto accanto, così si recupera anche chi non ce la fa. Regole: 1) entra chi ha voto sotto 60 o lavoro non svolto (assenti esclusi); prima chi è sotto 60 (A FIANCO), poi i "non svolto" che possono fare da soli con la pagina; 2) la pagina semplificata è pubblica e senza nomi (`docs/recupero/<esercizio>/`, generatore `strumenti/gen_recupero.py`): un'azione per passo, il programma in alto, "adesso devi vedere", "non mi torna", numero del passo grande per Veyon, elenco completo per il docente; 3) l'elenco con i nomi, il punto da cui partire e le 3 domande della prova del nove sta nel repo riservato (`generatori/recupero.py` → `dati/recupero/`), e si rigenera dopo ogni "Chiudi classe"; 4) voto di recupero (proposta, da confermare): stessa griglia, voto NUOVO sul registro, il precedente resta; se non sa rispondere alle domande non supera 60. Stato: da provare con Nicola (§2.41).
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -365,6 +366,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 24. **v2.15 (05/10/2026)**: §2.33 in classe solo testo del compito + link docente.
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
+32. **v2.23 (06/10/2026)**: §2.42 recupero a fianco (pagine semplificate + elenco del docente).
 31. **v2.22 (05/10/2026)**: §2.41 solo strumenti provati e approvati da Nicola; flusso completo compito → Classroom → voti → archivio prove.
 30. **v2.21 (05/10/2026)**: §2.40 controllo dei lavori su GitHub: ricerca + git clone.
 29. **v2.20 (05/10/2026)**: §2.39 un solo compito aperto alla volta, titoli descrittivi con l'ordine.
