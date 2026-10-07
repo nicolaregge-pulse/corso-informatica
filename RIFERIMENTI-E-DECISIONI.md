@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.26** — 06/10/2026
+**Versione 2.27** — 07/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -263,6 +263,9 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 44. **Voti su DIDAweb: materia scelta per ARGOMENTO, voto minimo 40 (06/10/2026, Nicola).** Quando un voto va sul registro, la disciplina (Tecnologia, Laboratorio, Sicurezza professionale) si sceglie in base all'**argomento realmente trattato** nel lavoro, non solo all'ora in cui è stato fatto: **Sicurezza professionale in modo rigoroso: SOLO le 16 lezioni online di sicurezza + la Ricerca GitHub del 18/09 (motivazione: gestire il repository in modo sicuro)**; regole di classe, versioning e uso pratico degli strumenti → **Laboratorio**; hardware, configurazione del PC, sistema binario e calcolo → **Tecnologia**. Si guarda anche la macro-area del lavoro. Si cerca di avere almeno un voto per materia. Data e ora: quelle della lezione in cui il lavoro è stato svolto (ore da 1 a 6). Descrizione corta, con il riferimento al compito su Classroom. **Il voto minimo è 40**: i voti più bassi si portano a 40. I voti si danno un lavoro per volta, in tabella N. · Alunno · Voto, nell'ordine del registro (23 righe, vuoto per chi non ha voto).
 45. **Tutta la suite Google in automatico, in tutte e due le direzioni (06/10/2026, priorità assoluta per Nicola).** Ogni passaggio su Google (Moduli, Fogli, Documenti, Drive, Classroom, Gmail) si fa con lo script automatico dell'account della scuola, mai a mano: i compiti e i quiz con la coda `coda/` (quiz su Moduli dalla v4), tutto il resto con il **ponte Google** `comandi/` (v5): cercare, leggere, esportare, creare, scrivere su Drive, Moduli, Fogli, Documenti e Classroom, e preparare **bozze** in Gmail. Per sicurezza il ponte non cancella, non condivide fuori dalla scuola e non invia mail; gli annunci su Classroom partono solo con l'OK del docente.
 
+46. **Chi ha finito il lavoro (07/10/2026, Nicola).** Chi ha finito il compito del giorno può fare **lavori di altre materie** oppure **cose di informatica** (esercizi, Tinkercad, programmazione, dispense). Non si gioca e non si guardano video. Nel monitoraggio Veyon: lavoro di un'altra materia o attività di informatica dopo aver finito = **sul pezzo**; giochi, video, social, siti non di studio = fuori compito. Quando la classe aspetta (per esempio durante le interrogazioni) si assegna sempre un lavoro breve già pronto, come il quiz personale del giorno, aperto a tutti con Veyon («Apri sito web») e con un annuncio su Classroom per chi non riesce ad aprirlo.
+47. **Parte tecnica separata dalla teoria nella valutazione (07/10/2026, Nicola).** Nei report si leggono due medie: la **media tecnica** (programmi e pubblicazione su GitHub) e la **media di teoria** (ricerche scritte e quiz). Nella media tecnica un lavoro **non consegnato vale 40**; gli assenti restano fuori. Il voto proposto dall'AI va sempre confrontato con quello che il ragazzo ha consegnato davvero (codice suo o copiato dalla dispensa, programma che gira, spiegazione con parole sue): a parità di consegna, stesso voto.
+
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
    Fonte unica = `argomenti/`.
@@ -370,6 +373,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
 35. **v2.26 (06/10/2026)**: §2.45 tutta la suite Google in automatico (coda e ponte Google, automazione v5).
+36. **v2.27 (07/10/2026)**: §2.46 chi ha finito può fare lavori di altre materie o di informatica; §2.47 parte tecnica separata dalla teoria, non consegnati a 40 nella media tecnica.
 34. **v2.25 (06/10/2026)**: §2.44 voti su DIDAweb: materia per argomento, minimo 40, un lavoro per volta.
 33. **v2.24 (06/10/2026)**: §2.43 lista standard valutazioni per il docente e Valutazione complessiva della classe.
 32. **v2.23 (06/10/2026)**: §2.42 recupero a fianco (pagine semplificate + elenco del docente).
