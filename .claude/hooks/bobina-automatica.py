@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# bobina-automatica.py — v1.0, 7 ottobre 2026
+# bobina-automatica.py — v1.1, 7 ottobre 2026 (v1.1: allegati salvati anche se esclusi da .gitignore)
 #
 # Scrive la BOBINA (trascrizione integrale) di ogni giorno di una sessione di
 # Claude Code e la mette su Git (commit + push). Regola di Nicola Regge del
@@ -39,7 +39,7 @@ except Exception:  # pragma: no cover
     from datetime import timedelta
     ROMA = timezone(timedelta(hours=1))
 
-VERSIONE = '1.0'
+VERSIONE = '1.1'
 LIMITE_FILE = 95 * 1024 * 1024  # GitHub rifiuta i file oltre 100 MB
 
 SEGRETI = [
@@ -245,6 +245,8 @@ def git_salva(dest, sid8):
     def g(*a, **k):
         return subprocess.run(['git', '-C', repo] + list(a), capture_output=True, text=True, timeout=60, **k)
     g('add', '--', rel)
+    # gli allegati sono originali di Nicola: si salvano anche se .gitignore esclude PDF e immagini
+    g('add', '-f', '--', os.path.join(rel, 'allegati')) if os.path.isdir(os.path.join(dest, 'allegati')) else None
     if not g('diff', '--cached', '--quiet', '--', rel).returncode:
         return None  # niente di nuovo
     oggi = datetime.now(ROMA).strftime('%Y-%m-%d %H:%M')
