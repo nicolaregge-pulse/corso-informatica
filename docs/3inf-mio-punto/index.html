@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Il mio punto — 3INF</title>
+<style>
+:root{--blu:#12467a;--bg:#f4f7fb;--txt:#1a2330;--ok:#1e7a43;--ko:#c0392b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px 16px 60px}
+h1{color:var(--blu);font-size:26px;margin:6px 0 4px}h3{color:var(--blu);font-size:24px;margin:4px 0}h4{margin:16px 0 6px;font-size:19px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 1px 5px rgba(0,0,0,.1);margin:12px 0}
+label{font-size:19px;font-weight:700;display:block;margin-bottom:8px}
+input{width:100%;font-size:24px;padding:12px;border:2px solid #9cc0e4;border-radius:12px}
+button{width:100%;margin-top:10px;font-size:22px;font-weight:800;border:0;border-radius:12px;padding:14px;background:#2f9e57;color:#fff;cursor:pointer}
+button:disabled{background:#9bb;cursor:wait}
+#msg{font-size:18px;margin-top:10px;min-height:24px}.err{color:var(--ko);font-weight:700}
+#io li{margin:6px 0;font-size:18px;line-height:1.4}#io p{font-size:18px}.ok{color:var(--ok)}.ko{color:var(--ko)}.piccolo{color:#667;font-size:15px!important}
+.lingue{font-size:15px;color:#334}.lingue div{margin:4px 0}.ar{direction:rtl;text-align:right}
+a{color:var(--blu)}
+</style></head><body><div class="w">
+<h1>Il mio punto</h1>
+<p>Scrivi la <b>password del tuo libro</b> e premi il bottone verde: vedi i TUOI lavori e cosa devi fare adesso. Solo tu lo vedi.</p>
+<div class="card lingue">
+<div lang="bn">তোমার বইয়ের পাসওয়ার্ড লেখো এবং সবুজ বোতাম চাপো: তুমি তোমার কাজ এবং এখন কী করতে হবে তা দেখবে।</div>
+<div class="ar" lang="ar">اكتب كلمة مرور كتابك واضغط الزر الأخضر: سترى أعمالك وما يجب أن تفعله الآن. أنت فقط تراها.</div>
+<div lang="zh">写下你的书的密码,然后点绿色按钮:你会看到你的作业和现在要做的事。只有你能看到。</div>
+</div>
+<div class="card">
+<label for="pw">La password del mio libro</label>
+<input id="pw" type="password" autocomplete="off" autofocus>
+<button id="vai" onclick="apri()">Vedi il mio punto</button>
+<div id="msg"></div>
+<p class="piccolo">Hai scelto oggi la password nuova con il modulo? Usa quella. Non l'hai ancora scelta? Usa la password del bigliettino. Non funziona? Chiama il prof.</p>
+</div>
+<div class="card" id="io" style="display:none"></div>
+<p class="piccolo">Prendi appunti con carta e penna su cosa devi fare. Sbagliare e recuperare è normale: succede a tutti i programmatori, anche ai pro.</p>
+</div>
+<script src="punto-dati.js?v=1"></script>
+<script>
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function apri(){
+ var pw=document.getElementById("pw").value.trim(),m=document.getElementById("msg"),b=document.getElementById("vai");
+ if(!pw){m.innerHTML="<span class='err'>Scrivi prima la password.</span>";return}
+ b.disabled=true;m.textContent="Controllo la password...";
+ try{
+  var base=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+  var k=await crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(PUNTO.salt),iterations:PUNTO.iter,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
+  for(var i=0;i<PUNTO.voci.length;i++){
+   try{var t=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(PUNTO.voci[i].iv)},k,b64(PUNTO.voci[i].ct));
+    var io=document.getElementById("io");io.innerHTML=new TextDecoder().decode(t);io.style.display="block";
+    m.textContent="";document.getElementById("pw").value="";b.disabled=false;io.scrollIntoView({behavior:"smooth"});return}catch(x){}
+  }
+  m.innerHTML="<span class='err'>Password non giusta. Controlla maiuscole e minuscole e riprova. Se non va, chiama il prof.</span>";
+ }catch(x){m.innerHTML="<span class='err'>Questo browser non riesce ad aprirlo: usa Chrome o chiama il prof.</span>"}
+ b.disabled=false;
+}
+document.getElementById("pw").addEventListener("keydown",function(e){if(e.key==="Enter")apri()});
+</script>
+</body></html>
