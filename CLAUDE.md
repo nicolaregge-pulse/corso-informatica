@@ -279,6 +279,8 @@ selezionare col mouse. Regole precise:
 - **Non dare mai per scontato** che sappia dov'è un bottone o cosa fa un termine.
   Nel dubbio, essere più precisi, non meno.
 - Meglio **lento e chiaro** che veloce e confuso: la fretta qui è un errore.
+- **SOLO IL PROSSIMO PASSO (07/10/2026, Nicola):** non ripetere mai i passi che ha già fatto; dire il prossimo passo e basta, aspettare che lo faccia, poi il successivo.
+- **Formato a TABELLA (07/10/2026, Nicola):** i passi si danno in una tabella con le colonne N. · Account · Finestra/scheda · Dove · Cosa fare (una riga = una azione).
 
 ## ⭐ Standard di formattazione dei documenti (VINCOLANTE)
 
