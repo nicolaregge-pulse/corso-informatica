@@ -88,3 +88,6 @@ cosa nuova, entra qui.*
    4. Assistere i ragazzi fino a portarli **tutti** a consegnare il sito pubblicato.
    5. Fare il compito per ogni ragazzo (scheda dal suo codice) e generare le domande per le interrogazioni.
    6. Nota tecnica: l'API di Classroom modifica solo i compiti creati dallo script. Per aggiornare il testo da solo, il compito va creato dall'automazione, non a mano; in alternativa lo script pubblica un annuncio con il testo nuovo.
+
+## 11. PPP del 07/10/2026
+1. Controllare se il PEI/PAI («il PI») è stato approvato PRIMA del 20 ottobre; se non risulta, verificarlo (segreteria / coordinatore). Promemoria automatico di Claude: martedì 14/10 alle 07:50.
