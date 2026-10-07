@@ -503,7 +503,7 @@ l'intestazione del file.
 10. `SCHEDA-TRIADE-NOTEBOOKLM-CLASSROOM-GIT.md` (→ `SCHEDA-TRIADE-NOTEBOOKLM-CLASSROOM-GIT-v0.1.pdf`) — v0.1 (scheda triade: come gestire e lavorare al meglio con i tre; giro completo + esempio concreto)
 11. `guida-docenti-alunni-non-italofoni/GUIDA-DOCENTI-ALUNNI-NON-ITALOFONI.md` (+ `guida-docenti.html` → `Guida-Docenti-Alunni-Non-Italofoni-v0.1.pdf`) — v0.1 (guida per gli altri docenti: come gestire le lezioni con alunni che non parlano italiano; principi + pratiche concrete che stiamo facendo + strumenti; esempio del quiz trilingue su Moduli con lo script e come si gestisce)
 12. `manuale-docenti/generazione-modulo-google-via-script.md` (+ `.html` → `20260923_Generazione-Modulo-Google-via-Script_IT_v0.2.pdf`) — v0.2 (capitolo manuale docenti: creare un quiz su Google Moduli con uno script Apps Script; esecuzione passo-passo provata in classe, allega su Classroom, come cambiare le domande, errori da evitare)
-13. `manuale-docenti/strumenti-didaweb-google/strumenti-didaweb-google.md` (sito `docs/docenti/` con indice e caselle Copia, generatore `gen_sito.py` → `20261007_Strumenti-DIDAweb-Google_Docente_v1.1.pdf`) — v1.1 (segnalibri DIDAweb: Copia HTML, Copia funzioni, Voti v1, Voti AUTO v2, Firma registro v1; script «Consegne Classroom → Git»: coda, raccolta, ponte, moduli, voti; pagine collegate; giro della lezione)
+13. `manuale-docenti/strumenti-didaweb-google/strumenti-didaweb-google.md` (sito `docs/docenti/` con indice e caselle Copia, generatore `gen_sito.py` → `20261007_Strumenti-DIDAweb-Google_Docente_v1.2.pdf`) — v1.2 (segnalibri DIDAweb: Copia HTML, Copia funzioni, Voti v1, Voti AUTO v2, Firma registro v1.1; script «Consegne Classroom → Git»: coda, raccolta, ponte, moduli, voti; pagine collegate; giro della lezione)
 14. `INVENTARIO-STRUMENTI-AUTOMAZIONE.md` (→ `20261007_Inventario-Strumenti-e-Automazione_Docente_v1.0.pdf`, con `strumenti/md2pdf.py`) — v1.0 (piattaforme, modalità di lavoro, giro della lezione, automatico / semiautomatico / a mano, lezioni imparate, prossimi passi)
 
 ### 4. Programmi per classe e documenti per la Regione
@@ -588,7 +588,7 @@ l'intestazione del file.
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.10 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.11 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0

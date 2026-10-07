@@ -1,6 +1,6 @@
 # Strumenti automatici del docente: DIDAweb e Google
 
-**Versione 1.1** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
+**Versione 1.2** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
 
 Guida passo-passo, per i docenti, agli strumenti che fanno il lavoro ripetitivo al posto nostro: i segnalibri che scrivono i voti su DIDAweb e lo script che collega Classroom, Moduli, Drive e i voti con il repository Git. Ogni passo è una riga di tabella: account, finestra, dove, cosa fare. Tutto quello che va copiato è in una casella con il bottone «Copia».
 
@@ -104,7 +104,7 @@ Il «pacchetto» è una riga sola con tre parti separate da `|`: la lezione, l'a
 CODICE:codice-voti-didaweb-auto-v2.txt
 ```
 
-### 02.6b Firma registro DIDAweb (versione 1.0)
+### 02.6b Firma registro DIDAweb (versione 1.1)
 
 Serve a firmare le proprie ore nel «Registro di corso» senza dimenticarne nessuna, anche al mattino per le ore che devono ancora arrivare (la firma va fatta entro le 14:05). Si usa dalla pagina che si apre con Registro → «Sfoglia» → classe → giorno: lì ci sono tutte le ore, anche quelle future. Il segnalibro usa lo stesso bottone verde «Firma ✔» della pagina: presenze, note e ore degli altri docenti non vengono toccate.
 
@@ -128,15 +128,16 @@ Due modi d'uso:
 
 1. Un clic = un'ora firmata, perché ogni firma ricarica la pagina. Il lavoro che resta è in memoria per 6 ore.
 2. Se serve cambiare giorno o classe, il segnalibro lo fa da solo e chiede di cliccare di nuovo.
-3. Se un'ora è già firmata o non è del docente, la salta e lo scrive nel resoconto finale.
-4. Nel messaggio «FINITO» compaiono le ore della pagina ancora senza firma.
-5. «Annulla» su «FIRMO adesso?» non firma; poi chiede se fermare tutto e cancellare il lavoro in memoria.
-6. Gli argomenti si possono correggere dopo, a fine giornata, con quelli realmente svolti.
+3. Il bottone verde «Firma ✔» resta anche sulle ore GIÀ firmate (serve a firmare di nuovo dopo aver cambiato l'argomento): il colore del bottone non dice se l'ora è firmata. Se l'ora ha già lo stesso argomento e il nome del docente, il segnalibro chiede se saltarla.
+4. Le ore di altri docenti (casella grigia, senza bottone) non si toccano mai.
+5. Il controllo finale si fa sempre dal menu Registro → «Da firmare» (oppure «Visualizza tutte le firme arretrate»).
+6. «Annulla» su «FIRMO adesso?» non firma; poi chiede se fermare tutto e cancellare il lavoro in memoria.
+7. Gli argomenti si possono correggere dopo, a fine giornata, con quelli realmente svolti.
 
 > **Nota:** la pagina «Oggi» si apre solo durante l'orario delle lezioni e «Da firmare» mostra solo le ore già passate: per firmare al mattino tutte le ore del giorno si usa «Sfoglia».
 
 ```
-CODICE:codice-firma-registro-v1.txt
+CODICE:codice-firma-registro-v1.1.txt
 ```
 
 ### 02.7 Regole per i voti su DIDAweb
@@ -230,5 +231,6 @@ Per le cose singole Claude scrive un file nella cartella `comandi/` con «da-ese
 
 ## 06 Changelog
 
-1. **v1.1 (07/10/2026)** — capitolo 02.6b: segnalibro «Firma registro DIDAweb» v1.0 (argomento e firma delle proprie ore dal Registro di corso, anche su più classi, un'ora per clic).
-2. **v1.0 (07/10/2026)** — prima versione: segnalibri DIDAweb (Copia HTML, Copia funzioni, Voti v1.0, Voti AUTO v2.0, provati sul registro vero della 2INF), script automatico (coda, raccolta, ponte, moduli, voti), pagine collegate, giro della lezione.
+1. **v1.2 (07/10/2026)** — segnalibro «Firma registro DIDAweb» v1.1: il bottone «Firma ✔» resta anche sulle ore firmate, quindi la firma si verifica dall'argomento e dal nome del docente; controllo finale da «Da firmare».
+2. **v1.1 (07/10/2026)** — capitolo 02.6b: segnalibro «Firma registro DIDAweb» v1.0 (argomento e firma delle proprie ore dal Registro di corso, anche su più classi, un'ora per clic).
+3. **v1.0 (07/10/2026)** — prima versione: segnalibri DIDAweb (Copia HTML, Copia funzioni, Voti v1.0, Voti AUTO v2.0, provati sul registro vero della 2INF), script automatico (coda, raccolta, ponte, moduli, voti), pagine collegate, giro della lezione.
