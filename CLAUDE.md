@@ -236,8 +236,10 @@ Quando chiedo a Nicola di fare **qualsiasi** azione (un comando, un clic, un
 valore da inserire), devo **SEMPRE** premettere le coordinate complete, così sa
 esattamente dove agire. Prima dell'azione indico, in quest'ordine:
 
-0. **Quale ACCOUNT** (07/10/2026, VINCOLANTE) — es. `[ACCOUNT nicolaregge@gmail.com]` (profilo Chrome
-   personale, dove c'è GitHub) oppure `[ACCOUNT nicola.regge@piamarta.it]` (profilo Chrome «Scuola»).
+0. **Quale ACCOUNT** (07/10/2026, VINCOLANTE) — si chiamano così: **account PERSONALE** = nicolaregge@gmail.com
+   (finestra Chrome con le schede gialle e la foto in alto a destra, dove c'è GitHub) e **account PIAMARTA** =
+   nicola.regge@piamarta.it (finestra Chrome con le schede arancioni e il bottone «Scuola», dove ci sono DIDAweb,
+   Classroom e lo script).
    Ordine fisso di ogni riga: **account → finestra → app → dove → cosa**, con le **caselle da copiare**
    sempre nello stesso messaggio.
 1. **Quale APPLICAZIONE** — es. `[APP — GitHub Desktop]`, `[APP — Godot]`,
