@@ -5,8 +5,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash /home/user/corso-godot/.claude/hooks/versiona-tutto.sh",
-            "timeout": 30,
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/versiona-tutto.sh\"",
+            "timeout": 90,
             "statusMessage": "Controllo che tutto sia versionato (pubblico + privato)..."
           }
         ]

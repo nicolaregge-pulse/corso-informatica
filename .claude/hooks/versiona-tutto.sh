@@ -5,6 +5,12 @@
 # non ancora versionati. Ricorsione-safe (rispetta stop_hook_active).
 
 input=$(cat 2>/dev/null)
+
+# BOBINA del giorno (07/10/2026, regola di Nicola): prima di tutto il resto, così il
+# controllo qui sotto trova la bobina già committata. Va SOLO nel repo riservato
+# (contiene nomi di minori): la destinazione è in .claude/bobina.json.
+bobina_msg="$(printf '%s' "$input" | BOBINA_PUSH_SINCRONO=1 timeout 50 python3 "$(dirname "$0")/bobina-automatica.py" 2>/dev/null)"
+
 if [[ "$(printf '%s' "$input" | jq -r '.stop_hook_active' 2>/dev/null)" == "true" ]]; then
   exit 0
 fi
@@ -50,5 +56,7 @@ done
 if [[ -n "$orphans" ]]; then
   msg="Nota: script in scratchpad non ancora versionati (se sono strumenti/generatori, salvali su Git): ${orphans}"
   printf '{"systemMessage": "%s"}\n' "$(printf '%s' "$msg" | sed 's/\\/\\\\/g; s/"/\\"/g')"
+elif [[ -n "$bobina_msg" ]]; then
+  printf '%s\n' "$bobina_msg"
 fi
 exit 0

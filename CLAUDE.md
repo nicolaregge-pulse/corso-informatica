@@ -599,3 +599,14 @@ l'intestazione del file.
 
 ### 10. Attestati (non testuali)
 1. `attestati/ATTESTATO-RUOLI.html` → `ATTESTATO-RUOLI-v0.4.pdf` (unico PDF, 4 pagine, con logo Piamarta).
+
+## Bobina automatica (07/10/2026, regola di Nicola: «tutte le chat Claude Code devono avere le bobine di tutti i giorni, backuppate»)
+
+1. A ogni fine risposta l'hook `.claude/hooks/bobina-automatica.py` (in `.claude/settings.json`) scrive la
+   **bobina integrale del giorno** (un file per giorno e per sessione: `AAAA-MM-GG_bobina_<sessione>.md`),
+   salva in `allegati/<sessione>/` le foto e i file arrivati in chat (originali) e fa **commit + push**.
+2. Destinazione: `.claude/bobina.json` → `../corso-informatica-riservato/bobine/corso (SOLO nel repository riservato: contiene nomi di minori; se il riservato non è clonato accanto, la bobina non si scrive e compare un avviso)`.
+3. Non serve chiederla né esportarla a mano dal file della sessione (chiederlo al modello fa scattare
+   il blocco «Messaggio segnalato»). Le bobine fatte a mano restano dove sono.
+4. Se compare un avviso «Bobina automatica: …», va sistemato subito e detto a Nicola.
+5. Per farla subito, a mano: `python3 .claude/hooks/bobina-automatica.py --sessione-corrente`
