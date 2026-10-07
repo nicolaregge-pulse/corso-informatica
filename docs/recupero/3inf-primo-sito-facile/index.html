@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>Il mio primo sito — facile</title>
+<style>
+:root{--bg:#fdf6e3;--txt:#1b1b1b;--blu:#0b4f8a;--verde:#1f883d;--giallo:#ffd23f;--rosso:#d1242f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:Verdana,Tahoma,Arial,sans-serif;letter-spacing:.04em;word-spacing:.12em}
+.w{max-width:900px;margin:0 auto;padding:14px 16px 50px}
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.n{font-size:56px;font-weight:900;color:var(--blu);line-height:1}
+.di{font-size:20px;color:#555}
+.bar{height:16px;background:#e6dcc0;border-radius:8px;overflow:hidden;margin:10px 0 14px}.bar div{height:100%;background:var(--verde)}
+.testo{font-size:30px;line-height:1.6;margin:8px 0 14px;font-weight:700}
+.testo b{color:var(--blu);background:#fff3b0;padding:0 6px;border-radius:6px}
+.disegno{background:#fff;border:3px solid #ccc;border-radius:14px;padding:10px}
+.disegno svg{width:100%;height:auto;display:block}
+.copia{display:block;width:100%;background:var(--giallo);color:#222;font-size:26px;font-weight:900;border:0;border-radius:14px;padding:16px;margin:12px 0;cursor:pointer}
+.vedi{background:#e8f6ec;border-left:10px solid var(--verde);padding:12px 14px;border-radius:10px;font-size:24px;line-height:1.5;margin:12px 0}
+.nav{display:flex;gap:10px;margin-top:14px}
+.nav button{flex:1;font-size:26px;font-weight:900;border:0;border-radius:14px;padding:18px;cursor:pointer}
+.fatto{background:var(--verde);color:#fff}.indietro{background:#ddd;color:#222;flex:.5!important}
+.ascolta{background:var(--blu);color:#fff;font-size:22px;font-weight:800;border:0;border-radius:12px;padding:10px 18px;cursor:pointer}
+.aiuto{font-size:22px;margin-top:10px}.aiuto summary{cursor:pointer;color:var(--rosso);font-weight:900}
+.aiuto div{padding:8px 0;line-height:1.5}
+.ver{color:#888;font-size:14px;margin-top:18px}
+</style></head><body><div class="w">
+<div class="top"><span class="n" id="num"></span><span class="di" id="di"></span><button class="ascolta" onclick="leggi()">ASCOLTA</button></div>
+<div class="bar"><div id="bar"></div></div>
+<div class="testo" id="testo"></div>
+<div id="cp"></div>
+<div class="disegno" id="dis"></div>
+<div class="vedi"><b>DEVI VEDERE:</b> <span id="vedi"></span></div>
+<details class="aiuto" id="aiuto"><summary>NON MI TORNA</summary><div id="aiutot"></div></details>
+<div class="nav"><button class="indietro" onclick="vai(-1)">&larr;</button><button class="fatto" onclick="vai(1)">FATTO &rarr;</button></div>
+<div class="ver">Il mio primo sito — versione facile con le immagini · Versione 1.0 · Il prof è vicino a te: chiamalo quando vuoi.</div>
+</div>
+<script>
+/* ---------- codice da copiare ---------- */
+var HTML='<!DOCTYPE html>\n<html lang="it">\n<head>\n  <meta charset="utf-8">\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <title>Il mio primo sito</title>\n  <link rel="stylesheet" href="style.css">\n</head>\n<body>\n  <h1>Ciao, sono NOME</h1>\n  <p class="sotto">Questo è il mio primo sito web.</p>\n\n  <div class="scheda">\n    <h2>Chi sono</h2>\n    <p>Studio informatica e mi piace creare cose nuove.</p>\n\n    <h2>Le mie passioni</h2>\n    <ul>\n      <li>Passione 1</li>\n      <li>Passione 2</li>\n      <li>Passione 3</li>\n    </ul>\n\n    <h2>Il mio sogno</h2>\n    <p>Il mio sogno.</p>\n  </div>\n\n  <p class="piede">Sito creato da me - 2026</p>\n</body>\n</html>\n';
+var CSS='body {\n  background: lightblue;\n  font-family: Arial, sans-serif;\n  text-align: center;\n  padding: 20px;\n}\n\nh1 {\n  color: darkblue;\n}\n\n.sotto {\n  color: gray;\n}\n\n.scheda {\n  background: white;\n  max-width: 500px;\n  margin: 20px auto;\n  padding: 20px;\n  border-radius: 12px;\n  text-align: left;\n}\n\nh2 {\n  color: teal;\n}\n\n.piede {\n  font-size: 12px;\n  color: gray;\n}\n';
+
+/* ---------- disegni (finta pagina di GitHub, il punto da cliccare è nel cerchio rosso) ---------- */
+function pagina(dentro){return '<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Verdana,Arial" ><rect x="0" y="0" width="800" height="380" rx="10" fill="#0d1117"/><rect x="0" y="0" width="800" height="54" rx="10" fill="#161b22"/><circle cx="34" cy="27" r="14" fill="#fff"/><text x="60" y="34" fill="#fff" font-size="18" font-weight="bold">GitHub</text>'+dentro+'</svg>'}
+function cerchio(x,y,r){return '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="none" stroke="#ff3b30" stroke-width="7"/>'}
+function freccia(x1,y1,x2,y2){return '<line x1="'+x1+'" y1="'+y1+'" x2="'+x2+'" y2="'+y2+'" stroke="#ff3b30" stroke-width="9" stroke-linecap="round"/><circle cx="'+x2+'" cy="'+y2+'" r="10" fill="#ff3b30"/>'}
+function casella(x,y,w,t,col){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="46" rx="8" fill="#0d1117" stroke="'+(col||'#3fb950')+'" stroke-width="3"/><text x="'+(x+14)+'" y="'+(y+31)+'" fill="#fff" font-size="22">'+t+'</text>'}
+function bottone(x,y,w,t,col){return '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="50" rx="10" fill="'+(col||'#238636')+'"/><text x="'+(x+w/2)+'" y="'+(y+33)+'" fill="#fff" font-size="22" font-weight="bold" text-anchor="middle">'+t+'</text>'}
+function scritta(x,y,t,s,c){return '<text x="'+x+'" y="'+y+'" fill="'+(c||'#e6edf3')+'" font-size="'+(s||22)+'" font-weight="bold">'+t+'</text>'}
+var D={
+ nome: pagina(scritta(40,100,'Crea un nuovo repository',28)+scritta(40,160,'Nome del repository *',20,'#9da7b3')+casella(40,175,420,'mio-sito')+scritta(40,260,'✔ mio-sito è disponibile',20,'#3fb950')+cerchio(250,198,120)),
+ readme: pagina(scritta(40,110,'Aggiungi README',26)+'<rect x="560" y="80" width="120" height="50" rx="25" fill="#238636"/><circle cx="650" cy="105" r="20" fill="#fff"/>'+scritta(560,160,'Acceso',22,'#3fb950')+cerchio(620,105,85)),
+ crea: pagina(scritta(40,120,'... in fondo alla pagina ...',22,'#9da7b3')+bottone(470,220,280,'Crea repository')+cerchio(610,245,170)),
+ aggiungi: pagina(scritta(40,110,'mio-sito',30)+bottone(470,80,260,'Aggiungi file ▾','#21262d')+'<rect x="470" y="140" width="300" height="110" rx="8" fill="#161b22" stroke="#30363d"/>'+scritta(490,182,'+ Crea nuovo file',22)+scritta(490,228,'↑ Carica file',22,'#9da7b3')+cerchio(590,175,110)),
+ nomefile: function(n){return pagina(scritta(40,110,'mio-sito /',26)+casella(210,80,360,n)+cerchio(390,103,200)+'<rect x="40" y="160" width="720" height="190" rx="8" fill="#161b22" stroke="#30363d"/>'+scritta(60,200,'(qui il codice)',20,'#6e7681'))},
+ incolla: pagina(scritta(40,100,'mio-sito / index.html',22,'#9da7b3')+'<rect x="40" y="120" width="720" height="230" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="3"/>'+scritta(70,170,'1  clicca QUI dentro',24)+scritta(70,215,'2  premi  Ctrl  +  V',24)+cerchio(400,235,250)),
+ nome2: pagina('<rect x="40" y="80" width="720" height="270" rx="8" fill="#161b22"/>'+scritta(70,130,'<h1>Ciao, sono NOME</h1>',24,'#79c0ff')+freccia(560,220,470,140)+scritta(470,260,'scrivi il TUO nome',22,'#ffd23f')+scritta(70,200,'<li>Passione 1</li>',22,'#79c0ff')+scritta(70,240,'<li>Passione 2</li>',22,'#79c0ff')),
+ commit: pagina(scritta(40,110,'mio-sito / index.html',22,'#9da7b3')+bottone(520,75,250,'Commit changes...')+cerchio(645,100,150)+'<rect x="160" y="170" width="480" height="180" rx="10" fill="#161b22" stroke="#30363d"/>'+scritta(190,215,'poi, nella finestrella:',20,'#9da7b3')+bottone(380,280,240,'Commit changes')),
+ impostazioni: pagina(scritta(40,100,'mio-sito',26)+'<rect x="0" y="120" width="800" height="54" fill="#161b22"/>'+scritta(30,155,'<> Codice',20,'#9da7b3')+scritta(200,155,'Problemi',20,'#9da7b3')+scritta(560,155,'⚙ Impostazioni',22)+cerchio(645,148,120)),
+ pages: pagina('<rect x="20" y="80" width="230" height="280" rx="8" fill="#161b22"/>'+scritta(40,120,'Generale',20,'#9da7b3')+scritta(40,170,'Rami',20,'#9da7b3')+scritta(40,220,'Pages',26)+cerchio(80,212,90)+scritta(300,130,'GitHub Pages',26)),
+ branch: pagina(scritta(40,110,'GitHub Pages',26)+scritta(40,170,'Ramo:',22,'#9da7b3')+bottone(150,140,160,'main ▾','#21262d')+bottone(340,140,150,'Salva','#21262d')+freccia(250,280,230,195)+freccia(470,280,415,195)+scritta(140,320,'1 scegli main',20,'#ffd23f')+scritta(400,320,'2 clicca Salva',20,'#ffd23f')),
+ vivo: pagina(scritta(40,120,'GitHub Pages',26)+'<rect x="40" y="150" width="720" height="80" rx="10" fill="#0f2a18" stroke="#3fb950"/>'+scritta(60,200,'Il tuo sito è online!',22,'#3fb950')+bottone(540,165,200,'Visita il sito','#21262d')+cerchio(640,190,130)),
+ sito: '<svg viewBox="0 0 800 380" xmlns="http://www.w3.org/2000/svg" font-family="Verdana,Arial"><rect width="800" height="380" rx="10" fill="#add8e6"/><text x="400" y="80" font-size="34" font-weight="bold" fill="darkblue" text-anchor="middle">Ciao, sono ...</text><rect x="200" y="110" width="400" height="240" rx="14" fill="#fff"/><text x="230" y="160" font-size="24" fill="teal" font-weight="bold">Chi sono</text><text x="230" y="230" font-size="24" fill="teal" font-weight="bold">Le mie passioni</text><text x="230" y="300" font-size="24" fill="teal" font-weight="bold">Il mio sogno</text></svg>',
+ prof: '<svg viewBox="0 0 800 240" xmlns="http://www.w3.org/2000/svg" font-family="Verdana,Arial"><rect width="800" height="240" rx="10" fill="#e8f6ec"/><text x="400" y="110" font-size="40" font-weight="bold" fill="#1f883d" text-anchor="middle">BRAVO! Il sito è TUO</text><text x="400" y="170" font-size="26" fill="#1b1b1b" text-anchor="middle">Chiama il prof e mostraglielo</text></svg>'
+};
+
+/* ---------- i passi: una sola azione per passo ---------- */
+var P=[
+ {t:'Nella casella <b>Nome del repository</b> cancella tutto e scrivi <b>mio-sito</b>.',c:'mio-sito',d:D.nome,v:'sotto la casella c\'è un segno verde.',h:'Scritta rossa? Il nome c\'è già: scrivi mio-sito2.'},
+ {t:'Trova la riga <b>Aggiungi README</b>. Clicca l\'interruttore: deve diventare <b>Acceso</b>.',d:D.readme,v:'l\'interruttore è verde.',h:''},
+ {t:'Vai in fondo alla pagina. Clicca il bottone verde <b>Crea repository</b>.',d:D.crea,v:'la pagina del tuo repository mio-sito, con il file README.',h:'Non trovi il bottone? Scorri in basso con la rotellina del mouse.'},
+ {t:'Clicca <b>Aggiungi file</b>, poi <b>Crea nuovo file</b>.',d:D.aggiungi,v:'una pagina con una casella in alto e un grande riquadro.',h:'Se è in inglese: Add file, poi Create new file.'},
+ {t:'Clicca nella casella in alto. Premi il bottone giallo <b>COPIA</b>, poi premi <b>Ctrl + V</b>.',c:'index.html',d:D.nomefile('index.html'),v:'nella casella c\'è scritto index.html.',h:''},
+ {t:'Premi il bottone giallo <b>COPIA</b>. Poi clicca nel grande riquadro e premi <b>Ctrl + V</b>.',c:HTML,d:D.incolla,v:'il codice nel riquadro, che inizia con &lt;!DOCTYPE html&gt;.',h:'Il riquadro è vuoto? Clicca dentro e premi di nuovo Ctrl + V.'},
+ {t:'Cerca la parola <b>NOME</b>. Cancellala e scrivi il <b>TUO nome</b>.',d:D.nome2,v:'Ciao, sono e il tuo nome.',h:'Solo il nome, niente cognome: il sito è pubblico.'},
+ {t:'Cambia <b>Passione 1, 2, 3</b> con 3 cose che ti piacciono. Cambia anche <b>Il mio sogno</b>.',d:D.nome2,v:'le tue 3 passioni e il tuo sogno.',h:'Lascia &lt;li&gt; e &lt;/li&gt;: scrivi solo in mezzo.'},
+ {t:'Clicca il bottone verde <b>Commit changes</b>. Nella finestrella clicca di nuovo <b>Commit changes</b>.',d:D.commit,v:'l\'elenco dei file: c\'è index.html.',h:''},
+ {t:'Di nuovo: clicca <b>Aggiungi file</b>, poi <b>Crea nuovo file</b>.',d:D.aggiungi,v:'la casella in alto e il grande riquadro.',h:''},
+ {t:'Clicca nella casella in alto. Premi il bottone giallo <b>COPIA</b>, poi <b>Ctrl + V</b>.',c:'style.css',d:D.nomefile('style.css'),v:'nella casella c\'è scritto style.css.',h:''},
+ {t:'Premi il bottone giallo <b>COPIA</b>. Clicca nel grande riquadro e premi <b>Ctrl + V</b>.',c:CSS,d:D.incolla,v:'il codice che inizia con body {',h:''},
+ {t:'Clicca <b>Commit changes</b>. Nella finestrella clicca di nuovo <b>Commit changes</b>.',d:D.commit,v:'3 file: README, index.html, style.css.',h:''},
+ {t:'In alto clicca <b>Impostazioni</b> (la rotellina).',d:D.impostazioni,v:'la pagina delle impostazioni.',h:'Se è in inglese: Settings.'},
+ {t:'Nel menu a sinistra clicca <b>Pages</b>.',d:D.pages,v:'il titolo GitHub Pages.',h:'Scorri in basso il menu a sinistra.'},
+ {t:'Sotto <b>Ramo</b> clicca <b>None</b> e scegli <b>main</b>. Poi clicca <b>Salva</b>.',d:D.branch,v:'sul bottone c\'è scritto main.',h:'Se è in inglese: Branch, Save.'},
+ {t:'Aspetta <b>2 minuti</b>. Poi premi <b>F5</b>. Clicca <b>Visita il sito</b>.',d:D.vivo,v:'la scritta: il tuo sito è online.',h:'Non c\'è ancora? Aspetta 1 minuto e premi di nuovo F5.'},
+ {t:'Guarda il <b>TUO sito</b>!',d:D.sito,v:'il tuo nome, le tue passioni, il tuo sogno.',h:'Vedi la pagina 404? Aspetta 1 minuto e premi F5.'},
+ {t:'<b>FATTO!</b> Chiama il prof e mostragli il tuo sito.',d:D.prof,v:'il prof che guarda il tuo sito.',h:''}
+];
+var K="facile-primo-sito",i=0;try{i=parseInt(localStorage.getItem(K)||"0")||0}catch(e){}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function mostra(){if(i<0)i=0;if(i>=P.length)i=P.length-1;var p=P[i];
+ document.getElementById("num").textContent=(i+1);document.getElementById("di").textContent="di "+P.length;
+ document.getElementById("bar").style.width=Math.round(100*(i+1)/P.length)+"%";
+ document.getElementById("testo").innerHTML=p.t;
+ document.getElementById("cp").innerHTML=p.c?'<button class="copia" onclick="copia()">COPIA</button>':"";
+ document.getElementById("dis").innerHTML=p.d;document.getElementById("vedi").innerHTML=p.v;
+ var h=document.getElementById("aiuto");h.style.display=p.h?"block":"none";h.open=false;document.getElementById("aiutot").textContent=p.h;
+ try{localStorage.setItem(K,i)}catch(e){}}
+function vai(d){if(window.speechSynthesis)speechSynthesis.cancel();i+=d;mostra();window.scrollTo(0,0)}
+function copia(){var t=P[i].c;function ok(){var b=document.querySelector(".copia");b.textContent="COPIATO! Ora Ctrl + V";setTimeout(function(){b.textContent="COPIA"},3000)}
+ try{navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()})}catch(e){fb(t);ok()}}
+function fb(t){var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();document.execCommand("copy");x.remove()}
+function leggi(){if(!window.speechSynthesis)return;speechSynthesis.cancel();var d=document.createElement("div");d.innerHTML=P[i].t+" . Devi vedere: "+P[i].v;
+ var u=new SpeechSynthesisUtterance(d.textContent.replace(/Ctrl \+ V/g,"control V"));u.lang="it-IT";u.rate=0.85;speechSynthesis.speak(u)}
+mostra();
+</script></body></html>
