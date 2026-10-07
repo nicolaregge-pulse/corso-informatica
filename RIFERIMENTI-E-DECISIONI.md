@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.27** — 07/10/2026
+**Versione 2.28** — 07/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -265,6 +265,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 
 46. **Chi ha finito il lavoro (07/10/2026, Nicola).** Chi ha finito il compito del giorno può fare **lavori di altre materie** oppure **cose di informatica** (esercizi, Tinkercad, programmazione, dispense). Non si gioca e non si guardano video. Nel monitoraggio Veyon: lavoro di un'altra materia o attività di informatica dopo aver finito = **sul pezzo**; giochi, video, social, siti non di studio = fuori compito. Quando la classe aspetta (per esempio durante le interrogazioni) si assegna sempre un lavoro breve già pronto, come il quiz personale del giorno, aperto a tutti con Veyon («Apri sito web») e con un annuncio su Classroom per chi non riesce ad aprirlo.
 47. **Parte tecnica separata dalla teoria nella valutazione (07/10/2026, Nicola).** Nei report si leggono due medie: la **media tecnica** (programmi e pubblicazione su GitHub) e la **media di teoria** (ricerche scritte e quiz). Nella media tecnica un lavoro **non consegnato vale 40**; gli assenti restano fuori. Il voto proposto dall'AI va sempre confrontato con quello che il ragazzo ha consegnato davvero (codice suo o copiato dalla dispensa, programma che gira, spiegazione con parole sue): a parità di consegna, stesso voto.
+48. **Il modo di lavorare in classe: pubblica, personalizza, segui (07/10/2026, VINCOLANTE, Nicola: «il modo di lavorare deve essere questo»).** A ogni lezione con un lavoro: 1) **si pubblica** il lavoro su Classroom con lo script (compito o annuncio, una volta sola, §2.39); 2) **istruzioni personalizzate** per ogni ragazzo, basate su quello che ha già fatto: pagina «Il mio punto» della classe (`docs/<classe>-mio-punto/`, generatore `generatori/mio_punto_<classe>.py` nel repo riservato), che si apre con la password del libro e mostra lavori fatti/da recuperare, il sito o il programma, i commit di oggi e «cosa devo fare adesso» con i link alle pagine passo-passo; nel repo pubblico solo testo cifrato, niente nomi né voti in chiaro; 3) **si seguono** durante l'ora: controlli ripetuti (consegne su Classroom con il ponte, commit su GitHub con git clone), la pagina «Il mio punto» si rigenera da sola, e a Nicola si dice chi non ha fatto cosa e come finirlo; 4) **si tiene traccia degli screenshot di Veyon** per chi non lavora bene: solo fatti, con ora e numero di PC, in `dati/andamento/<CLASSE>-fuori-compito-<data>.md` (repo riservato, §2.32, §2.36). Prima di nominare ai ragazzi un materiale (libro, pagina) si controlla che lo abbiano e si dice dove trovarlo.
 
 ## 3. Tassonomia dei libri (decisa)
 1. **A — Manuale / Libro totale:** per ARGOMENTO, **3 livelli** (base/intermedio/avanzato).
@@ -373,6 +374,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 25. **v2.16 (05/10/2026)**: §2.34 lavori su GitHub: la consegna la genera Claude.
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
 35. **v2.26 (06/10/2026)**: §2.45 tutta la suite Google in automatico (coda e ponte Google, automazione v5).
+37. **v2.28 (07/10/2026)**: §2.48 il modo di lavorare in classe: pubblica, istruzioni personalizzate («Il mio punto»), segui, traccia gli screenshot.
 36. **v2.27 (07/10/2026)**: §2.46 chi ha finito può fare lavori di altre materie o di informatica; §2.47 parte tecnica separata dalla teoria, non consegnati a 40 nella media tecnica.
 34. **v2.25 (06/10/2026)**: §2.44 voti su DIDAweb: materia per argomento, minimo 40, un lavoro per volta.
 33. **v2.24 (06/10/2026)**: §2.43 lista standard valutazioni per il docente e Valutazione complessiva della classe.
