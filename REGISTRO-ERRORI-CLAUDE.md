@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.4** — 06/10/2026
+**Versione 2.5** — 07/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -214,4 +214,4 @@ lezione.*
 22. **06/10, mattina — doppioni nella griglia 1INF del 03/10.** Tre colonne erano lo stesso voto contato due volte (GitHub e repository = Ricerca GitHub, Il versioning = Quiz Regole + Versioning, Config. PC teoria = Esercizio Hardware) e mancava «Configurare un PC» del 24/09; il voto complessivo comunicato stamattina ne risente di qualche punto. **Regola:** prima di fare una media si controlla che ogni colonna sia un lavoro diverso (stesse cifre su tutta la classe = doppione) e si confronta l'elenco delle colonne con l'elenco dei compiti su Classroom.
 23. **06/10, 09:30 — materia del voto scelta solo dall'ora.** Per DIDAweb ho assegnato il Quiz Regole + Versioning a Laboratorio perché era l'ora di Laboratorio; l'argomento (regole) è Sicurezza. Inoltre davo voti sotto 40. **Regola (RIFERIMENTI §2.44):** la materia si sceglie in base all'argomento realmente trattato; il voto minimo è 40.
 24. **06/10, 12:20 — quiz su Moduli ancora da far partire a mano.** Nicola mi aveva chiesto giorni fa che anche i quiz su Moduli si creassero in automatico, come i compiti su Classroom; non l'avevo fatto e gli ho dato di nuovo uno script da eseguire. **Regola:** quando Nicola chiede di automatizzare un passaggio, l'automazione si costruisce subito nello script automatico (oggi: versione 4, quiz su Moduli con risultati depositati nel repo riservato) e si segna nell'elenco delle cose da fare; mai più passaggi a mano che si possono fare da soli.
-
+25. **07/10, 08:50 — password dei libri 2INF diverse tra una chiusura e l'altra.** Per la 2INF esistevano due liste di password (quella del 25/09 e quella fissa del 01/10): i libri del 05/10 e la prima versione di quelli del 07/10 usavano la lista del 25/09, mentre l'elenco dato a Nicola era quello del 01/10, che in più non aveva 3 allievi. Nicola se n'è accorto perché un allievo risultava senza password. **Regole:** 1) per ogni classe c'è UNA sola lista di password, nel repo riservato (`strategico/password/`, file «Password-UNICA»), e tutti i generatori leggono solo quella; 2) prima di consegnare uno zip protetto si prova ad aprire OGNI libro con la password dell'elenco che ha Nicola; 3) a chi non ha ancora una password si prepara il bigliettino.
