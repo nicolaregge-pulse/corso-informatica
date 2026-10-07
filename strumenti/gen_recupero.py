@@ -184,6 +184,39 @@ ESERCIZI["3inf-sito"] = {
     ],
 }
 
+ESERCIZI["3inf-sposta-sito"] = {
+    "titolo": "Sposta il sito sul TUO account GitHub",
+    "classe": "Classe 3 · GitHub · per chi ha usato l'account provvisorio",
+    "domande": ["Perché il sito deve stare sul TUO account e non su quello provvisorio?",
+                "Qual è adesso l'indirizzo del tuo sito?",
+                "Cosa fa GitHub Pages?"],
+    "parti": [
+        ("A — Il tuo account", [
+            ("BROWSER", "Apri una scheda nuova con Ctrl + T. Premi il bottone giallo, poi Ctrl + V e Invio.", "github.com", "GitHub. In alto a destra c'è il TUO tondino (il tuo account, non quello provvisorio).",
+             "C'è l'account provvisorio (3infpiamartauser1)? Clicca il tondino in alto a destra, poi in fondo Sign out (Esci), poi Sign in (Entra) con il TUO account. Non hai ancora un account? Clicca Sign up e poi Continue with Google (continua con Google) con l'account della SCUOLA."),
+        ]),
+        ("B — Copia il sito", [
+            ("BROWSER", "Apri una scheda nuova con Ctrl + T. Premi il bottone giallo, poi Ctrl + V e Invio.", "github.com/new/import", "Una pagina con il titolo Import your project to GitHub (importa il tuo progetto).", "Ti chiede di entrare? Entra con il TUO account."),
+            ("GITHUB", "Clicca nella PRIMA casella (l'indirizzo del repository da copiare). Premi il bottone giallo, poi Ctrl + V.", "https://github.com/3infpiamartauser1/mio-sito", "L'indirizzo scritto nella prima casella.", "Ti chiede nome utente e password del vecchio repository? Lasciali vuoti: il sito è pubblico."),
+            ("GITHUB", "Clicca nella casella Repository name (nome del repository). Premi il bottone giallo, poi Ctrl + V.", "mio-sito", "Accanto al nome compare un segno verde.", "Scritta rossa (il nome c'è già)? Scrivi mio-sito2."),
+            ("GITHUB", "Lascia scelto Public (pubblico). In fondo clicca il bottone VERDE Begin import (inizia a copiare).", "", "La scritta Preparing your new repository (sto preparando). Aspetta 1-2 minuti.", "Errore rosso? Chiama il prof."),
+            ("GITHUB", "Quando compare Your import is complete (copia finita), clicca il link del tuo nuovo repository.", "", "I file index.html, style.css e README.md. In alto c'è il TUO nome, non 3infpiamartauser1.", "C'è ancora il nome provvisorio? Sei nel repository vecchio: chiama il prof."),
+        ]),
+        ("C — Accendi il sito", [
+            ("GITHUB", "Nella barra in alto del repository clicca Settings (impostazioni, l'ingranaggio).", "", "La pagina delle impostazioni.", "Non vedi Settings? Clicca i tre puntini in alto a destra della barra."),
+            ("GITHUB", "Nel menu a sinistra clicca Pages.", "", "La scritta Build and deployment.", ""),
+            ("GITHUB", "Sotto Branch clicca il bottone None, poi clicca main.", "", "Sul bottone c'è scritto main.", ""),
+            ("GITHUB", "Clicca il bottone Save (salva).", "", "Un messaggio che dice che le impostazioni sono salvate.", ""),
+            ("BROWSER", "Aspetta 2 minuti, poi premi F5.", "", "In alto: Your site is live at (il tuo sito è online a) e il TUO indirizzo .github.io/mio-sito.", "Non compare? Aspetta un altro minuto e premi di nuovo F5."),
+            ("BROWSER", "Clicca il bottone Visit site (visita il sito).", "", "Il tuo sito, con il TUO nome nell'indirizzo in alto.", ""),
+        ]),
+        ("D — Consegna", [
+            ("CLASSROOM", "Apri il Compito 3 su Classroom e il tuo Documento. Scrivi il NUOVO indirizzo del sito e la frase: ho spostato il sito sul mio account.", "", "Nel Documento c'è il nuovo indirizzo.", ""),
+            ("PROF", "Chiama il prof e mostragli il sito sul tuo account.", "", "Il prof ti fa 3 domande. FATTO: il sito adesso è tuo!", ""),
+        ]),
+    ],
+}
+
 PAGINA = """<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><title>%(titolo)s</title>
 <style>

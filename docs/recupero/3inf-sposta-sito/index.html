@@ -1,0 +1,64 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><title>Sposta il sito sul TUO account GitHub</title>
+<style>
+:root{--blu:#12467a;--bg:#f4f7fb;--txt:#1a2330}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font-family:"Segoe UI",Arial,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:14px 16px 60px}h1{color:var(--blu);font-size:24px;margin:6px 0 2px}.sub{color:#556;margin-bottom:10px}
+.lingue{font-size:15px;color:#334;background:#fff;border-radius:10px;padding:8px 12px;margin:8px 0}.ar{direction:rtl;text-align:right}
+.parti{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}.parti button{font-size:14px;padding:6px 10px;border:2px solid #9cc0e4;background:#fff;color:var(--blu);border-radius:8px;cursor:pointer}
+.parti button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 1px 5px rgba(0,0,0,.1)}
+.top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.n{font-size:44px;font-weight:900;color:var(--blu);min-width:70px}
+.app{color:#fff;font-weight:800;font-size:18px;padding:6px 14px;border-radius:999px;letter-spacing:1px}
+.parte{color:#556;font-size:14px}.testo{font-size:22px;line-height:1.45;margin:14px 0}
+.vedi{background:#eafaf0;border-left:6px solid #2f9e57;padding:10px 12px;border-radius:8px;font-size:18px;margin:10px 0}
+.vedi b{color:#1e7a43}.copia{display:block;width:100%;background:#ffd23f;color:#222;font-size:19px;font-weight:800;border:0;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer}
+pre{white-space:pre-wrap;background:#f6f6f6;border-radius:8px;padding:8px;font-size:14px;margin:4px 0}
+details{margin:8px 0;font-size:17px}summary{cursor:pointer;color:#c0392b;font-weight:800}
+.bar{height:12px;background:#e3e9f0;border-radius:6px;overflow:hidden;margin:10px 0}.bar div{height:100%;background:#2f9e57}
+.nav{display:flex;gap:8px;margin-top:12px}.nav button{flex:1;font-size:20px;font-weight:800;border:0;border-radius:12px;padding:14px;cursor:pointer}
+.fatto{background:#2f9e57;color:#fff}.indietro{background:#dfe6ee;color:#223}
+.tutti{margin-top:18px;font-size:14px}.tutti button{background:none;border:0;color:var(--blu);text-decoration:underline;cursor:pointer;font-size:14px}
+#elenco{display:none}#elenco.on{display:block}#elenco ol{padding-left:24px}#elenco li{margin:6px 0}
+.ver{color:#889;font-size:12px;margin-top:16px}
+@media print{.card,.nav,.parti,.tutti button{display:none}#elenco{display:block}}
+</style></head><body><div class="w">
+<h1>Sposta il sito sul TUO account GitHub</h1><div class="sub">Classe 3 · GitHub · per chi ha usato l&#x27;account provvisorio · il prof è accanto a te · un passo alla volta</div>
+<div class="lingue">Leggi il passo, fallo, guarda se vedi quello che è scritto in verde, poi premi FATTO.
+<div class="ar">اقرأ الخطوة، نفّذها، تحقّق من الجملة الخضراء، ثم اضغط FATTO. الأستاذ بجانبك.</div>
+<div>读一步,做一步,看绿色的句子是否一样,然后点 FATTO。老师在你旁边。</div></div>
+<div class="parti" id="parti"></div>
+<div class="card"><div class="top"><span class="n" id="num"></span><span class="app" id="app"></span><span class="parte" id="parte"></span></div>
+<div class="bar"><div id="bar"></div></div>
+<div class="testo" id="testo"></div><div id="cp"></div>
+<div class="vedi"><b>ADESSO DEVI VEDERE:</b> <span id="vedi"></span></div>
+<details id="aiuto"><summary>NON MI TORNA</summary><div id="aiutot"></div></details>
+<div class="nav"><button class="indietro" onclick="vai(-1)">&larr; indietro</button><button class="fatto" onclick="vai(1)">FATTO &rarr;</button></div></div>
+<div class="tutti"><button onclick="document.getElementById('elenco').classList.toggle('on')">Tutti i passi (per il prof · stampa)</button></div>
+<div id="elenco"></div>
+<div class="ver">Versione 1.0</div>
+</div>
+<script>
+var P=[{"parte": "A — Il tuo account", "app": "BROWSER", "t": "Apri una scheda nuova con Ctrl + T. Premi il bottone giallo, poi Ctrl + V e Invio.", "c": "github.com", "v": "GitHub. In alto a destra c'è il TUO tondino (il tuo account, non quello provvisorio).", "h": "C'è l'account provvisorio (3infpiamartauser1)? Clicca il tondino in alto a destra, poi in fondo Sign out (Esci), poi Sign in (Entra) con il TUO account. Non hai ancora un account? Clicca Sign up e poi Continue with Google (continua con Google) con l'account della SCUOLA."}, {"parte": "B — Copia il sito", "app": "BROWSER", "t": "Apri una scheda nuova con Ctrl + T. Premi il bottone giallo, poi Ctrl + V e Invio.", "c": "github.com/new/import", "v": "Una pagina con il titolo Import your project to GitHub (importa il tuo progetto).", "h": "Ti chiede di entrare? Entra con il TUO account."}, {"parte": "B — Copia il sito", "app": "GITHUB", "t": "Clicca nella PRIMA casella (l'indirizzo del repository da copiare). Premi il bottone giallo, poi Ctrl + V.", "c": "https://github.com/3infpiamartauser1/mio-sito", "v": "L'indirizzo scritto nella prima casella.", "h": "Ti chiede nome utente e password del vecchio repository? Lasciali vuoti: il sito è pubblico."}, {"parte": "B — Copia il sito", "app": "GITHUB", "t": "Clicca nella casella Repository name (nome del repository). Premi il bottone giallo, poi Ctrl + V.", "c": "mio-sito", "v": "Accanto al nome compare un segno verde.", "h": "Scritta rossa (il nome c'è già)? Scrivi mio-sito2."}, {"parte": "B — Copia il sito", "app": "GITHUB", "t": "Lascia scelto Public (pubblico). In fondo clicca il bottone VERDE Begin import (inizia a copiare).", "c": "", "v": "La scritta Preparing your new repository (sto preparando). Aspetta 1-2 minuti.", "h": "Errore rosso? Chiama il prof."}, {"parte": "B — Copia il sito", "app": "GITHUB", "t": "Quando compare Your import is complete (copia finita), clicca il link del tuo nuovo repository.", "c": "", "v": "I file index.html, style.css e README.md. In alto c'è il TUO nome, non 3infpiamartauser1.", "h": "C'è ancora il nome provvisorio? Sei nel repository vecchio: chiama il prof."}, {"parte": "C — Accendi il sito", "app": "GITHUB", "t": "Nella barra in alto del repository clicca Settings (impostazioni, l'ingranaggio).", "c": "", "v": "La pagina delle impostazioni.", "h": "Non vedi Settings? Clicca i tre puntini in alto a destra della barra."}, {"parte": "C — Accendi il sito", "app": "GITHUB", "t": "Nel menu a sinistra clicca Pages.", "c": "", "v": "La scritta Build and deployment.", "h": ""}, {"parte": "C — Accendi il sito", "app": "GITHUB", "t": "Sotto Branch clicca il bottone None, poi clicca main.", "c": "", "v": "Sul bottone c'è scritto main.", "h": ""}, {"parte": "C — Accendi il sito", "app": "GITHUB", "t": "Clicca il bottone Save (salva).", "c": "", "v": "Un messaggio che dice che le impostazioni sono salvate.", "h": ""}, {"parte": "C — Accendi il sito", "app": "BROWSER", "t": "Aspetta 2 minuti, poi premi F5.", "c": "", "v": "In alto: Your site is live at (il tuo sito è online a) e il TUO indirizzo .github.io/mio-sito.", "h": "Non compare? Aspetta un altro minuto e premi di nuovo F5."}, {"parte": "C — Accendi il sito", "app": "BROWSER", "t": "Clicca il bottone Visit site (visita il sito).", "c": "", "v": "Il tuo sito, con il TUO nome nell'indirizzo in alto.", "h": ""}, {"parte": "D — Consegna", "app": "CLASSROOM", "t": "Apri il Compito 3 su Classroom e il tuo Documento. Scrivi il NUOVO indirizzo del sito e la frase: ho spostato il sito sul mio account.", "c": "", "v": "Nel Documento c'è il nuovo indirizzo.", "h": ""}, {"parte": "D — Consegna", "app": "PROF", "t": "Chiama il prof e mostragli il sito sul tuo account.", "c": "", "v": "Il prof ti fa 3 domande. FATTO: il sito adesso è tuo!", "h": ""}],COL={"LAZARUS": "#1f6fa5", "WINDOWS": "#5b6470", "GITHUB": "#111", "BROWSER": "#7a4fb5", "PROGRAMMA": "#2f9e57", "CLASSROOM": "#1e8a3e", "PROF": "#c0392b"},K="recupero-3inf-sposta-sito",i=0;
+try{i=parseInt(localStorage.getItem(K)||"0")||0}catch(e){}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function mostra(){if(i<0)i=0;if(i>=P.length)i=P.length-1;var p=P[i];
+ document.getElementById("num").textContent=(i+1)+"/"+P.length;
+ var a=document.getElementById("app");a.textContent=p.app;a.style.background=COL[p.app]||"#333";
+ document.getElementById("parte").textContent="Parte "+p.parte;
+ document.getElementById("bar").style.width=Math.round(100*(i+1)/P.length)+"%";
+ document.getElementById("testo").textContent=p.t;
+ document.getElementById("cp").innerHTML=p.c?'<button class="copia" onclick="copia()">COPIA (bottone giallo)</button><pre>'+esc(p.c)+'</pre>':"";
+ document.getElementById("vedi").textContent=p.v;
+ var h=document.getElementById("aiuto");h.style.display=p.h?"block":"none";h.open=false;document.getElementById("aiutot").textContent=p.h;
+ document.querySelectorAll("#parti button").forEach(function(b){b.classList.toggle("on",b.dataset.p==p.parte)});
+ try{localStorage.setItem(K,i)}catch(e){}}
+function vai(d){i+=d;mostra();window.scrollTo(0,0)}
+function copia(){var t=P[i].c;try{navigator.clipboard.writeText(t).then(function(){alert("Copiato! Ora Ctrl + V")})}catch(e){var x=document.createElement("textarea");x.value=t;document.body.appendChild(x);x.select();document.execCommand("copy");x.remove();alert("Copiato! Ora Ctrl + V")}}
+var parti=[],h="";P.forEach(function(p,k){if(parti.indexOf(p.parte)<0){parti.push(p.parte);h+='<button data-p="'+p.parte+'" onclick="i='+k+';mostra()">Parte '+esc(p.parte)+'</button>'}});
+document.getElementById("parti").innerHTML=h;
+var e="<h2>Tutti i passi</h2>",cur="";P.forEach(function(p,k){if(p.parte!=cur){if(cur)e+="</ol>";cur=p.parte;e+="<h3>Parte "+esc(cur)+"</h3><ol start='"+(k+1)+"'>"}
+ e+="<li><b>["+p.app+"]</b> "+esc(p.t)+(p.c?"<pre>"+esc(p.c)+"</pre>":"")+"<br><i>Devi vedere:</i> "+esc(p.v)+"</li>"});
+document.getElementById("elenco").innerHTML=e+"</ol><h3>Domande del prof (prova del nove)</h3><ol><li>Perché il sito deve stare sul TUO account e non su quello provvisorio?</li><li>Qual è adesso l&#x27;indirizzo del tuo sito?</li><li>Cosa fa GitHub Pages?</li></ol>";
+mostra();
+</script></body></html>
