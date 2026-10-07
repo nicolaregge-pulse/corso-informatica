@@ -1,6 +1,6 @@
 # Strumenti automatici del docente: DIDAweb e Google
 
-**Versione 1.0** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
+**Versione 1.1** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
 
 Guida passo-passo, per i docenti, agli strumenti che fanno il lavoro ripetitivo al posto nostro: i segnalibri che scrivono i voti su DIDAweb e lo script che collega Classroom, Moduli, Drive e i voti con il repository Git. Ogni passo è una riga di tabella: account, finestra, dove, cosa fare. Tutto quello che va copiato è in una casella con il bottone «Copia».
 
@@ -25,7 +25,7 @@ Guida passo-passo, per i docenti, agli strumenti che fanno il lavoro ripetitivo 
 
 Un segnalibro (preferito di Chrome) può contenere un piccolo programma al posto dell'indirizzo. Cliccandolo sulla pagina di DIDAweb, il programma lavora su quella pagina: legge gli alunni, crea la colonna, scrive voti e argomento. Non serve installare niente.
 
-### 02.1 I quattro segnalibri
+### 02.1 I cinque segnalibri
 
 | Nome | A cosa serve | Salva da solo? |
 |---|---|---|
@@ -33,12 +33,13 @@ Un segnalibro (preferito di Chrome) può contenere un piccolo programma al posto
 | Copia funzioni DIDAweb | copia il funzionamento dei bottoni NUOVO VOTO, Ok, SALVA | no, non scrive niente |
 | Voti DIDAweb | scrive una lista di voti in una colonna che esiste già | no: SALVA lo preme il docente |
 | Voti DIDAweb AUTO | dal «pacchetto»: crea la colonna, scrive voti e argomento, chiede conferma e salva | sì, dopo la conferma |
+| Firma registro DIDAweb | scrive l'argomento delle proprie ore nel Registro di corso e le firma, un'ora per clic, anche su più classi | sì, dopo la conferma di ogni ora |
 
 ### 02.2 Creare un segnalibro nella cartella «DidaWeb»
 
 | N. | Account | Finestra / scheda | Dove | Cosa fare |
 |---|---|---|---|---|
-| 1 | — | questa guida | casella del codice del segnalibro (capitoli 02.3-02.6) | clic su «Copia» |
+| 1 | — | questa guida | casella del codice del segnalibro (capitoli 02.3-02.6b) | clic su «Copia» |
 | 2 | PIAMARTA | Chrome arancione, scheda DIDAweb | barra dei preferiti, cartella «DidaWeb» (se non c'è: tasto destro sulla barra → «Aggiungi cartella…») | clic con il tasto destro sulla cartella |
 | 3 | PIAMARTA | menu che si apre | «Aggiungi pagina…» | clic |
 | 4 | PIAMARTA | finestra «Modifica preferito» | casella «URL» | clic dentro, Ctrl + A, Ctrl + V |
@@ -101,6 +102,41 @@ Il «pacchetto» è una riga sola con tre parti separate da `|`: la lezione, l'a
 
 ```
 CODICE:codice-voti-didaweb-auto-v2.txt
+```
+
+### 02.6b Firma registro DIDAweb (versione 1.0)
+
+Serve a firmare le proprie ore nel «Registro di corso» senza dimenticarne nessuna, anche al mattino per le ore che devono ancora arrivare (la firma va fatta entro le 14:05). Si usa dalla pagina che si apre con Registro → «Sfoglia» → classe → giorno: lì ci sono tutte le ore, anche quelle future. Il segnalibro usa lo stesso bottone verde «Firma ✔» della pagina: presenze, note e ore degli altri docenti non vengono toccate.
+
+Due modi d'uso:
+
+1. **Pacchetto vuoto**: firma le proprie ore della pagina aperta con l'argomento già scritto nella casella (se manca, lo chiede).
+2. **Pacchetto di Claude**: una riga con il giorno e, per ogni ora, classe, numero dell'ora e argomento (massimo 70 caratteri, meglio 40). Il segnalibro cambia da solo giorno e classe.
+
+```
+07/10/2026 | 3INF h5=Situazione voti e libro dei lavori | 3INF h6=Sito migliorato su GitHub, commit
+```
+
+| N. | Account | Finestra / scheda | Dove | Cosa fare |
+|---|---|---|---|---|
+| 1 | PIAMARTA | scheda DIDAweb | menu Registro → «Sfoglia» | scegli la classe e il giorno |
+| 2 | PIAMARTA | scheda DIDAweb | cartella «DidaWeb» | clic su «Firma registro DIDAweb» |
+| 3 | PIAMARTA | finestrella «Incolla il PACCHETTO» | casella | Ctrl + V del pacchetto, oppure lasciala vuota; poi «Ok» |
+| 4 | PIAMARTA | finestrella «Ore da firmare … Inizio?» | — | controlla l'elenco, poi «Ok» |
+| 5 | PIAMARTA | finestrella «FIRMO adesso?» | — | «Ok»: la pagina si ricarica con l'ora firmata |
+| 6 | PIAMARTA | scheda DIDAweb, pagina ricaricata | cartella «DidaWeb» | clic di nuovo su «Firma registro DIDAweb» per l'ora successiva, fino al messaggio «FINITO» |
+
+1. Un clic = un'ora firmata, perché ogni firma ricarica la pagina. Il lavoro che resta è in memoria per 6 ore.
+2. Se serve cambiare giorno o classe, il segnalibro lo fa da solo e chiede di cliccare di nuovo.
+3. Se un'ora è già firmata o non è del docente, la salta e lo scrive nel resoconto finale.
+4. Nel messaggio «FINITO» compaiono le ore della pagina ancora senza firma.
+5. «Annulla» su «FIRMO adesso?» non firma; poi chiede se fermare tutto e cancellare il lavoro in memoria.
+6. Gli argomenti si possono correggere dopo, a fine giornata, con quelli realmente svolti.
+
+> **Nota:** la pagina «Oggi» si apre solo durante l'orario delle lezioni e «Da firmare» mostra solo le ore già passate: per firmare al mattino tutte le ore del giorno si usa «Sfoglia».
+
+```
+CODICE:codice-firma-registro-v1.txt
 ```
 
 ### 02.7 Regole per i voti su DIDAweb
@@ -194,4 +230,5 @@ Per le cose singole Claude scrive un file nella cartella `comandi/` con «da-ese
 
 ## 06 Changelog
 
-1. **v1.0 (07/10/2026)** — prima versione: segnalibri DIDAweb (Copia HTML, Copia funzioni, Voti v1.0, Voti AUTO v2.0, provati sul registro vero della 2INF), script automatico (coda, raccolta, ponte, moduli, voti), pagine collegate, giro della lezione.
+1. **v1.1 (07/10/2026)** — capitolo 02.6b: segnalibro «Firma registro DIDAweb» v1.0 (argomento e firma delle proprie ore dal Registro di corso, anche su più classi, un'ora per clic).
+2. **v1.0 (07/10/2026)** — prima versione: segnalibri DIDAweb (Copia HTML, Copia funzioni, Voti v1.0, Voti AUTO v2.0, provati sul registro vero della 2INF), script automatico (coda, raccolta, ponte, moduli, voti), pagine collegate, giro della lezione.
