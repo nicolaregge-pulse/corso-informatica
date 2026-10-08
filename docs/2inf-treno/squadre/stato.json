@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 10:23",
- "messaggio": "Versione 0.5: le regole della squadra MOTORE FISICA, arrivate con una vera Pull Request su GitHub! Versione 0.4: i personaggi nascosti che escono, come hanno chiesto gli investitori. Scenari: siete gli unici a zero.",
+ "aggiornato": "08/10/2026 10:31",
+ "messaggio": "Versione 0.6: il BOSCO BRUCIATO della squadra SCENARI e la frase del cattivo della squadra PERSONAGGI. Consegnati su Classroom: 8. Mancano: TEST QUALITÀ (2 su 3), SCENARI (2 su 3), MOTORE FISICA (4 su 5). Ultima busta paga alle 10:45.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -187,20 +187,20 @@
  },
  "punteggi": {
   "scenari": {
-   "punti": 0,
-   "richieste": 0,
+   "punti": 30,
+   "richieste": 1,
    "file": 0,
-   "nel_gioco": 0,
+   "nel_gioco": 1,
    "fuori": 0,
-   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
+   "nota": "Il bosco bruciato con i rottami è nel gioco: versione 0.6! Il capo ha scritto bene: cosa, dove, perché."
   },
   "personaggi": {
-   "punti": 25,
-   "richieste": 0,
+   "punti": 55,
+   "richieste": 1,
    "file": 4,
-   "nel_gioco": 1,
+   "nel_gioco": 2,
    "fuori": 1,
-   "nota": "4 personaggi nel gioco (v0.2), ma −15: un componente su YouTube alle 10:04. Il capo ha consegnato: ora servono le richieste scritte (protagonista, frasi dei cattivi)."
+   "nota": "La frase del cattivo «Hahahahaha, perdente!» è nel gioco (v0.6). 5 su 5 hanno consegnato su Classroom!"
   },
   "motore": {
    "punti": 0,
@@ -208,7 +208,7 @@
    "file": 0,
    "nel_gioco": 1,
    "fuori": 2,
-   "nota": "Il capo squadra ha fatto una VERA Pull Request su GitHub (#104): le regole sono nel gioco, versione 0.5! Restano −30 per il fuori compito."
+   "nota": "Il capo ha consegnato su Classroom con il link alla Pull Request #104: regole nel gioco (v0.5). Restano −30 per il fuori compito."
   },
   "test": {
    "punti": 30,
