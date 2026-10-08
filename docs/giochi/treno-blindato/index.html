@@ -31,7 +31,7 @@ button:active{transform:translateY(3px);box-shadow:none}
 <div class="sch" id="inizio">
   <h1 id="titolo">IL TRENO<br>BLINDATO</h1>
   <div class="sub" id="sottotitolo">Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!</div>
-  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button></div>
+  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="facce">Facce della classe</button></div>
   <div class="sub" id="record"></div>
   <div class="lista" id="cattiviClasse"></div>
   <div class="piccolo" id="controllo"></div>
@@ -42,6 +42,16 @@ button:active{transform:translateY(3px);box-shadow:none}
   <div class="big" id="punti">0</div>
   <div class="sub" id="lode"></div>
   <div class="riga"><button id="ancora">RIPARTI</button><button class="sec" id="menu">Menu</button></div>
+</div>
+
+<div class="sch" id="schFacce" hidden>
+  <h1 style="font-size:32px">FACCE DELLA CLASSE</h1>
+  <div class="sub">Le foto restano <b>solo su questo dispositivo</b>: non vanno su Internet e non finiscono su GitHub. Solo foto di chi ha detto di sì.</div>
+  <div class="riga"><button id="scegliFoto">Scegli le foto</button><button class="sec" id="togliFoto">Cancella le foto</button></div>
+  <input type="file" id="fileFoto" accept="image/*" multiple hidden>
+  <div id="anteprime" class="lista"></div>
+  <div class="piccolo" id="msgFoto"></div>
+  <button id="chiudiFacce">Fatto</button>
 </div>
 
 <div class="sch" id="titoliCoda" hidden>
@@ -90,6 +100,16 @@ var PROT={nome:'Il macchinista',giacca:'#1f6fa5',capelli:'#2b1a10'};
 var TX={titolo:'IL TRENO BLINDATO',sottotitolo:'Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!',
         fine:'IL VETRO È ANDATO IN PEZZI!',record:'NUOVO RECORD!',livello:'LIVELLO',lodi:['Grande! Hai portato il treno in salvo.','Che riflessi, macchinista!','I cattivi non ti fermano: riparti?']};
 var SU={volume:0.6,note_vittoria:[392,523,659,784]};
+/* Facce della classe: foto scelte sul dispositivo, ritagliate a cerchio e salvate SOLO in questo browser (localStorage). Mai inviate in rete. */
+var FOTO=[],FACCE=[];
+function salvaFoto(){try{localStorage.setItem('treno-2inf-foto',JSON.stringify(FOTO))}catch(e){$('msgFoto').textContent='Memoria piena: usa meno foto.'}}
+function caricaFacce(){FACCE=[];FOTO.forEach(function(u){var im=new Image();im.onload=function(){FACCE.push(im)};im.src=u})}
+function aggiungiFoto(files){Array.prototype.slice.call(files).slice(0,40).forEach(function(f){var rd=new FileReader();rd.onload=function(){var im=new Image();im.onload=function(){
+  var s=Math.min(im.width,im.height),cx0=(im.width-s)/2,cy0=Math.max(0,Math.min(im.height-s,im.height*.38-s/2)),c=document.createElement('canvas');c.width=c.height=220;
+  c.getContext('2d').drawImage(im,cx0,cy0,s,s,0,0,220,220);FOTO.push(c.toDataURL('image/jpeg',.82));salvaFoto();caricaFacce();mostraFacce()};im.src=rd.result};rd.readAsDataURL(f)})}
+function mostraFacce(){$('anteprime').innerHTML=FOTO.map(function(u){return '<img src="'+u+'" style="width:64px;height:64px;border-radius:50%;margin:4px;border:3px solid #ffd34d">'}).join('');
+  $('msgFoto').textContent=FOTO.length?FOTO.length+' facce: compariranno sui cattivi.':'Nessuna faccia: i cattivi sono quelli disegnati.'}
+try{FOTO=JSON.parse(localStorage.getItem('treno-2inf-foto')||'[]')}catch(e){FOTO=[]}caricaFacce();
 var CATTIVI=[],ERRORI=[],SQUADRE=[],VERSIONE={versione:'1.0',nome:'Il motore'};
 
 function leggiJSON(url){return fetch(url+'?v='+Date.now(),{cache:'no-store'}).then(function(r){
@@ -157,6 +177,7 @@ function riempiPaesaggio(tutto){var f=finestra(),a=ambiente(),passo=[260,170,110
 var CASUALI=['#8be04e','#ff6fb1','#6fd3ff','#ffb347','#b48cff','#ff5e57'];
 function nuovoCattivo(){var f=finestra(),vis=S.oggetti.filter(function(o){return o.x>f.x+60&&o.x<f.x+f.w-60&&o.tipo!=='onde'}),r=Math.max(30,Math.min(W,H)*rnd(.065,.085));
  var base=CATTIVI.length?pick(CATTIVI):{nome:'',colore:pick(CASUALI),occhi:ri(1,3),cappello:ri(0,2),bocca:ri(0,2),velocita:1,frase:'',img:null};
+ if(FACCE.length&&Math.random()<.6){base=Object.assign({},base,{img:pick(FACCE)})}
  var tempo=Math.max(.7,(R.secondi_prima_di_sparare-S.livello*.12)/(1+(base.velocita-1)*.2)),c;
  if(vis.length&&Math.random()<.75){var o=pick(vis),lato=pick([-1,1]);var px=o.x+lato*o.w*.5,py=o.base-o.h*rnd(.35,.8);
   c={dietro:o,dx:lato*o.w*.5,sx:px-lato*r*1.6,sy:py,tx:px,ty:py}}
@@ -255,7 +276,7 @@ function ciclo(ts){var dt=Math.min(.05,(ts-(Tprec||ts))/1000);Tprec=ts;
 requestAnimationFrame(ciclo);
 
 /* ---------- schermate ---------- */
-function mostra(id){['inizio','fine','titoliCoda'].forEach(function(k){$(k).hidden=k!==id})}
+function mostra(id){['inizio','fine','titoliCoda','schFacce'].forEach(function(k){$(k).hidden=k!==id})}
 function aggiornaRecord(){var r=leggi('record',0);$('record').innerHTML=r?'Il tuo record: <b style="color:#ffd34d">'+r+'</b>':''}
 function parti(){audio();rs();nuovaPartita();mostra(null)}
 function fine(){var r=leggi('record',0),p=S.punti,nuovo=p>r;if(nuovo)scrivi('record',p);$('punti').textContent=p;$('titoloFine').textContent=TX.fine;
@@ -269,7 +290,9 @@ function preparaSchermate(){$('ver').textContent='versione '+VERSIONE.versione+(
  $('squadre').innerHTML='<div>Percorso: '+PERC.ambienti.map(function(k){return esc(AMB[k].nome)}).join(' → ')+'</div>'+(SQUADRE.length?SQUADRE.map(function(s){return '<div><b>'+esc(s.sq)+'</b>'+(s.aut.length?': '+s.aut.map(esc).join(', '):'')+'</div>'}).join(''):'<div>Squadre: arrivano con le Pull Request.</div>');
  $('autori').innerHTML=CATTIVI.map(function(c){return '<span class="chip">PC '+c.pc+' → '+esc(c.nome)+'</span>'}).join('')}
 $('gioca').onclick=parti;$('ancora').onclick=parti;$('menu').onclick=function(){aggiornaRecord();mostra('inizio')};
-$('crediti').onclick=function(){mostra('titoliCoda')};$('chiudiCoda').onclick=function(){mostra('inizio')};
+$('crediti').onclick=function(){mostra('titoliCoda')};$('facce').onclick=function(){mostraFacce();mostra('schFacce')};$('chiudiFacce').onclick=function(){mostra('inizio')};
+$('scegliFoto').onclick=function(){$('fileFoto').click()};$('fileFoto').onchange=function(){aggiungiFoto(this.files);this.value=''};
+$('togliFoto').onclick=function(){FOTO=[];salvaFoto();caricaFacce();mostraFacce()};$('chiudiCoda').onclick=function(){mostra('inizio')};
 aggiornaRecord();caricaTutto().then(preparaSchermate,preparaSchermate);
 })();
 </script>
