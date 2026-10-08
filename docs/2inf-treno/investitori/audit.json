@@ -142,7 +142,157 @@
     }
    ],
    "nota": "prima visita"
+  },
+  {
+   "versione": "audit-v2",
+   "ora": "08/10/2026 10:11",
+   "punti": 41,
+   "investimento": 880000,
+   "ceo": 6,
+   "voci": [
+    {
+     "cosa": "Richieste di modifica consegnate dalle squadre",
+     "valore": 1,
+     "punti": 2,
+     "max": 30,
+     "giudizio": "Le idee scritte sono il prodotto dell'azienda: senza richieste gli sviluppatori non sanno cosa fare."
+    },
+    {
+     "cosa": "Variazioni di codice su Git nate dalle vostre richieste (commit dopo la demo)",
+     "valore": 5,
+     "punti": 10,
+     "max": 20,
+     "giudizio": "Ogni commit è una modifica vera del gioco, con data e descrizione: gli investitori la possono controllare."
+    },
+    {
+     "cosa": "Versioni del gioco uscite dal lavoro della classe",
+     "valore": 2,
+     "punti": 10,
+     "max": 15,
+     "giudizio": "Un'azienda seria fa uscire versioni spesso e le tiene tutte."
+    },
+    {
+     "cosa": "Squadre al lavoro (su 5)",
+     "valore": 3,
+     "punti": 9,
+     "max": 15,
+     "giudizio": "Gli investitori vogliono un'azienda dove lavorano tutti i reparti, non solo uno."
+    },
+    {
+     "cosa": "Disciplina: PC visti a fare altro",
+     "valore": 3,
+     "punti": 4,
+     "max": 10,
+     "giudizio": "Chi gioca durante il lavoro fa scappare gli investitori."
+    },
+    {
+     "cosa": "Presentazione e verbale della CEO (voto del prof)",
+     "valore": 6,
+     "punti": 6,
+     "max": 10,
+     "giudizio": "La CEO deve saper raccontare cosa fa l'azienda e cosa farà."
+    }
+   ],
+   "squadre": [
+    {
+     "chiave": "ceo",
+     "nome": "CEO",
+     "colore": "#c0392b",
+     "richieste": 0,
+     "file": 0,
+     "lavori_fatti": 1,
+     "fuori": 0,
+     "attiva": true
+    },
+    {
+     "chiave": "scenari",
+     "nome": "SCENARI",
+     "colore": "#2f9e57",
+     "richieste": 0,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 0,
+     "attiva": false
+    },
+    {
+     "chiave": "personaggi",
+     "nome": "PERSONAGGI",
+     "colore": "#7030a0",
+     "richieste": 0,
+     "file": 4,
+     "lavori_fatti": 3,
+     "fuori": 1,
+     "attiva": true
+    },
+    {
+     "chiave": "motore",
+     "nome": "MOTORE FISICA",
+     "colore": "#1f6fa5",
+     "richieste": 0,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 2,
+     "attiva": false
+    },
+    {
+     "chiave": "test",
+     "nome": "TEST QUALITÀ (la Triade)",
+     "colore": "#d0a516",
+     "richieste": 1,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 0,
+     "attiva": true
+    }
+   ],
+   "investitori": [
+    {
+     "nome": "Navigli Ventures",
+     "citta": "Milano",
+     "dollari": 352000
+    },
+    {
+     "nome": "Long River Capital",
+     "citta": "Shanghai",
+     "dollari": 308000
+    },
+    {
+     "nome": "Al-Nahr Investments",
+     "citta": "Il Cairo",
+     "dollari": 220000
+    }
+   ],
+   "consigli": [
+    "Squadra SCENARI: nessuna richiesta di modifica. Una richiesta chiara vale +2 punti e una nuova versione del gioco.",
+    "Squadra PERSONAGGI: nessuna richiesta di modifica. Una richiesta chiara vale +2 punti e una nuova versione del gioco.",
+    "Squadra MOTORE FISICA: nessuna richiesta di modifica. Una richiesta chiara vale +2 punti e una nuova versione del gioco.",
+    "PC visti a fare altro: 3. Ognuno costa 2 punti: circa 38.000 $ di investimento perso.",
+    "La CEO prepari 3 frasi: cosa fa il gioco, cosa ha fatto ogni squadra, cosa uscirà nella prossima versione."
+   ],
+   "ultimi_commit": [
+    {
+     "id": "6b5a332",
+     "msg": "Treno blindato: commit della v0.3 nella pagina delle versioni"
+    },
+    {
+     "id": "c5c5642",
+     "msg": "Treno blindato v0.3: più lento (velocità 0,7), richiesta della squadra TEST QUALITÀ consegnata su Classroom"
+    },
+    {
+     "id": "8ac3d05",
+     "msg": "Treno blindato: commit della v0.2 nella pagina delle versioni"
+    },
+    {
+     "id": "ea5cc84",
+     "msg": "Treno blindato v0.2: i personaggi della squadra PERSONAGGI (tre agenti e il Boss), bottone «I personaggi», fac"
+    },
+    {
+     "id": "b60a0d4",
+     "msg": "Treno blindato: commit delle versioni nella pagina delle versioni"
+    }
+   ],
+   "nota": "arrivo degli investitori"
   }
  ],
- "aggiornato": "08/10/2026 09:58"
+ "aggiornato": "08/10/2026 10:11"
 }

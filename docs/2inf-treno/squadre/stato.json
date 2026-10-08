@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 10:07",
- "messaggio": "SI CONSEGNA SOLO SU CLASSROOM: scrivete nel Documento del compito e allegate i file (disegni di Gemini, foto del foglio, screenshot). Niente GitHub: le vostre consegne le mettono su Git gli sviluppatori e diventano una nuova versione del gioco. ⏱ Alle 10:10 arrivano gli investitori.",
+ "aggiornato": "08/10/2026 10:12",
+ "messaggio": "⏱ GLI INVESTITORI SONO ARRIVATI. Versione 0.3 uscita con la richiesta della squadra TEST QUALITÀ (gioco più lento). Hanno consegnato su Classroom: CEO, capo PERSONAGGI, capo TEST. Mancano SCENARI e MOTORE FISICA: ogni richiesta = +38.000 $.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -9,7 +9,7 @@
    "lavori": [
     {
      "t": "SUBITO: nel tuo Documento, punto 1, scrivi la composizione di tutte le squadre (squadra · componenti · numero del PC · capo squadra).",
-     "stato": "da fare"
+     "stato": "fatto"
     },
     {
      "t": "Giro delle squadre ogni 10 minuti (9:50, 10:00, 10:10, 10:20, 10:30): per ogni squadra chiedi al capo «chi fa cosa adesso?» e scrivilo nel tuo Documento, punto 2, con l'ora. È il verbale dell'azienda.",
@@ -159,7 +159,7 @@
    "lavori": [
     {
      "t": "Gioca 3 partite sul PC e 3 sul telefono. Per ogni difetto scrivi: cosa succede, dove, come farlo succedere di nuovo.",
-     "stato": "da fare"
+     "stato": "in corso"
     },
     {
      "t": "Prova UX: fai giocare 2 compagni senza spiegare niente. Cosa li confonde? Scrivilo.",
@@ -195,36 +195,36 @@
    "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "personaggi": {
-   "punti": 40,
+   "punti": 25,
    "richieste": 0,
    "file": 4,
    "nel_gioco": 1,
-   "fuori": 0,
-   "nota": "4 personaggi disegnati con l'IA sono entrati nel gioco: versione 0.2! Adesso il protagonista e le frasi dei cattivi."
+   "fuori": 1,
+   "nota": "4 personaggi nel gioco (v0.2), ma −15: un componente su YouTube alle 10:04. Il capo ha consegnato: ora servono le richieste scritte (protagonista, frasi dei cattivi)."
   },
   "motore": {
-   "punti": -15,
+   "punti": -30,
    "richieste": 0,
    "file": 0,
    "nel_gioco": 0,
-   "fuori": 1,
-   "nota": "−15: un componente visto su siti di calcio alle 10:00. Il capo squadra deve riportarlo al lavoro."
+   "fuori": 2,
+   "nota": "−30: un componente due volte su siti di calcio (10:00 e 10:04). Nessuna richiesta: il capo squadra deve far lavorare tutti."
   },
   "test": {
-   "punti": 0,
-   "richieste": 0,
+   "punti": 30,
+   "richieste": 1,
    "file": 0,
-   "nel_gioco": 0,
+   "nel_gioco": 1,
    "fuori": 0,
-   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
+   "nota": "Prima richiesta di modifica («il gioco va troppo veloce») entrata nel gioco: versione 0.3! Adesso le altre 2."
   },
   "ceo": {
-   "punti": 0,
+   "punti": 10,
    "richieste": 0,
    "file": 0,
    "nel_gioco": 0,
    "fuori": 0,
-   "nota": "Il CEO prende punti quando le squadre lavorano: controlla che ognuno abbia un compito e porta al prof le idee migliori."
+   "nota": "Composizione delle squadre consegnata su Classroom. Adesso il giro delle squadre ogni 10 minuti."
   }
  },
  "come_capo": [
@@ -235,5 +235,5 @@
   "Chi ha finito prende un'altra carta. Chi è fermo: vai da lui e fate insieme la prima riga.",
   "Ogni ora compili il modulo degli stipendi: paghi di più chi ti ha portato più righe."
  ],
- "fuori_da_assegnare": 2
+ "fuori_da_assegnare": 0
 }
