@@ -255,7 +255,7 @@ function paesaggio(dt){var g=cx,V=vista(),f=V.f,a=ambiente(),v=6*R.velocita_tren
  S.oggetti.sort(function(a,b){return b.z-a.z});
  S.oggetti.forEach(function(o){if(o.z<ZN*.7)return;var P=proj(V,o.X,o.z);
   S.cattivi.forEach(function(c){if(c.o!==o)return;var k=c.fase==='entra'?Math.min(1,c.t/c.entra):1;k=1-(1-k)*(1-k);var Q=proj(V,o.X+c.dx*k,o.z);
-   var su=c.fase==='entra'?(1-k)*.55:0;c.u=Q.u*1.7;c.r=Math.max(18,.26*c.u);c.piedi=Q.y;c.x=Q.x;c.y=Q.y-(1.62-su)*c.u;c.k=k;disegnaCattivo(c)});
+   var su=c.fase==='entra'?(1-k)*.55:0;c.u=Q.u*1.7;c.r=Math.max(9,.24*c.u);c.piedi=Q.y;c.x=Q.x;c.y=Q.y-(1.62-su)*c.u;c.k=k;disegnaCattivo(c)});
   disegnaOggetto(g,o,P)});
  g.restore();
  S.oggetti=S.oggetti.filter(function(o){return o.z>ZN*.7});

@@ -1,5 +1,9 @@
 # Storia delle versioni
 
+## v0.9 — 08/10/2026 10:48 — Teste in proporzione (indicazione del prof)
+
+1. «Una faccia è troppo grossa e sproporzionata»: la testa aveva una misura minima fissa, quindi gli omini lontani avevano la testa enorme. Ora la testa è sempre in proporzione al corpo.
+
 ## v0.8 — 08/10/2026 10:45 — Mimetica, facce senza cerchio, fucile d'assalto (indicazioni del prof)
 
 1. Le facce non hanno più il cerchio bianco: si vede solo la faccia, ritagliata a forma di testa.
