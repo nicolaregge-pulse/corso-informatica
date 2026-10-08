@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:50",
+ "aggiornato": "08/10/2026 12:56",
  "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Ogni volta che il prof ti vede al PC a fare altro −10. Massimo 100.",
  "righe": [
   {
@@ -9,16 +9,15 @@
    "f0": true,
    "p1": "merged",
    "p2": "merged",
-   "p3": "parziale",
+   "p3": "merged",
    "p4": "",
-   "fatto": "PR #2 Black Panter, #5 montagna e tempo, #14 greggi; PR-3 iniziata",
+   "fatto": "PR #2, #5, #14, #21 difetto del cielo (v1.1-v1.4)",
    "monitor": "12:08 gioca · poi sempre nel Documento · 12:33 gioca, 4836 punti (prova per la PR-3)",
-   "documenti": 4,
+   "documenti": 5,
    "consegnato": false,
    "fuori": 0,
-   "voto": 85,
+   "voto": 95,
    "manca": [
-    "PR-3 da completare (+15)",
     "PR-4 (+15)"
    ]
   },
@@ -29,16 +28,15 @@
    "f0": true,
    "p1": "merged",
    "p2": "merged",
-   "p3": "",
+   "p3": "merged",
    "p4": "",
-   "fatto": "PR #1 Black Panter, #4 montagna e tempo, #13 greggi (v1.1-v1.3)",
+   "fatto": "PR #1, #4, #13, #20 difetto del cielo sistemato (v1.1-v1.4)",
    "monitor": "12:08 gioca · poi sempre nel Documento · 12:33 pagina del lavoro",
-   "documenti": 4,
+   "documenti": 5,
    "consegnato": false,
    "fuori": 0,
-   "voto": 80,
+   "voto": 95,
    "manca": [
-    "PR-3 (+15)",
     "PR-4 (+15)"
    ]
   },
@@ -49,10 +47,30 @@
    "f0": true,
    "p1": "merged",
    "p2": "merged",
+   "p3": "parziale",
+   "p4": "",
+   "fatto": "PR #7 Black Panther, #8 cespugli e armi (v1.3), #16 difetto da finire",
+   "monitor": "12:08 compito · 12:26 e 12:39 scrive nel Documento · 12:33 gioco (prova per la PR-3)",
+   "documenti": 4,
+   "consegnato": false,
+   "fuori": 0,
+   "voto": 85,
+   "manca": [
+    "PR-3 da completare (+15)",
+    "PR-4 (+15)"
+   ]
+  },
+  {
+   "pc": "13",
+   "squadra": "PERSONAGGI",
+   "pezzo": "le frasi dei cattivi",
+   "f0": true,
+   "p1": "merged",
+   "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #7 Black Panther, PR #8 cespugli e armi diverse (v1.3)",
-   "monitor": "12:08 compito · 12:26 e 12:39 scrive nel Documento · 12:33 gioco (prova per la PR-3)",
+   "fatto": "PR #10 Trevor (v1.3), #15 Nash: giacca e frase (v1.4)",
+   "monitor": "12:26 e 12:39 scrive nel Documento · 12:33 pagina del lavoro",
    "documenti": 3,
    "consegnato": false,
    "fuori": 0,
@@ -83,16 +101,36 @@
    ]
   },
   {
-   "pc": "13",
-   "squadra": "PERSONAGGI",
-   "pezzo": "le frasi dei cattivi",
+   "pc": "35",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "capo squadra · velocità",
+   "f0": true,
+   "p1": "",
+   "p2": "merged",
+   "p3": "",
+   "p4": "",
+   "fatto": "punto 0; PR #17 velocità 2 (v1.4); aveva premuto Consegna",
+   "monitor": "12:08 nel Documento · 12:26 nel Documento · 12:33 pagina del lavoro",
+   "documenti": 2,
+   "consegnato": true,
+   "fuori": 0,
+   "voto": 65,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "22",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "revisione",
    "f0": true,
    "p1": "merged",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "PR #10 Trevor (v1.3)",
-   "monitor": "12:26 e 12:39 scrive nel Documento · 12:33 pagina del lavoro",
+   "fatto": "punto 0, PR #19 Dylan (v1.4)",
+   "monitor": "12:08 gioca · poi nel Documento · 12:33 nel Documento",
    "documenti": 2,
    "consegnato": false,
    "fuori": 0,
@@ -111,34 +149,14 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "PR #12 Franciscos (v1.3)",
+   "fatto": "PR #12 e #18 Franciscos (v1.3, v1.4)",
    "monitor": "12:08 gioco · poi nel Documento · 12:33 nel Documento",
-   "documenti": 1,
+   "documenti": 2,
    "consegnato": false,
    "fuori": 0,
    "voto": 55,
    "manca": [
     "punto 0 (+10)",
-    "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "35",
-   "squadra": "MOTORE FISICA",
-   "pezzo": "capo squadra · velocità",
-   "f0": true,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "squadra scritta; ha premuto Consegna",
-   "monitor": "12:08 nel Documento · 12:26 nel Documento · 12:33 pagina del lavoro",
-   "documenti": 1,
-   "consegnato": true,
-   "fuori": 0,
-   "voto": 50,
-   "manca": [
-    "PR-1 (+15)",
     "PR-2 (+15)"
    ]
   },
@@ -193,26 +211,6 @@
    "p4": "",
    "fatto": "squadra scritta; ha premuto Consegna",
    "monitor": "12:08 compito · 12:26 nel Documento · 12:33 nel Documento",
-   "documenti": 1,
-   "consegnato": false,
-   "fuori": 0,
-   "voto": 50,
-   "manca": [
-    "PR-1 (+15)",
-    "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "22",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "revisione",
-   "f0": true,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "punto 0 completo",
-   "monitor": "12:08 gioca · poi nel Documento · 12:33 nel Documento",
    "documenti": 1,
    "consegnato": false,
    "fuori": 0,
@@ -384,9 +382,9 @@
   }
  ],
  "nomi": {
-  "salt": "eWsX/V8xm85G0+fEmVTWVQ==",
-  "iv": "/FdiRKY4/e2xl62U",
-  "ct": "Z/9J0139MDC/yxnBPdLkKyLGGR4rw2bELVVbTLvjtU0u3NE9aEf+3Aoz/ePbQ/MY2v716rZ9RbUU0U0loDO/aERSNyi36FoVtv5CYqBHKimUpdH7bkaiXApkY85b5QN2eGpqx31ynduo5xGJEVy/D5gtHi5HG5tx+0d2IIH3iNQknOkWDJMREJ/1S8umOhYaGtcJNRnJRcpAR3ZQkgx8XwTx241tpZaDElzQs961eB/D4gfNksX9USVUk4YoG0Wo6rLpQ2tme5BtcbzuOTwMb1qf1x9mK2Qm31ihB7zqm3XBtJ3MBtCQH6YVeEmk4PXyQTByVqdV/jUG1woJFvgF31mP965DAkNy8EcaWCXUwwjGnnyQKeC+G4Ckz24jHnEoiKYZbU8mG5SGr2whXNtwq33+3pa1u9DmbafgvlkcCgLwKjk1JlTLw4iNEA3oDlMXgZzrfP3iedzsjbcG152U6NteMakR7ipUGRljB5sbtl/fCKf+ERnorR/gKOp9VEBhEOGR8tOihdo2z61rsct/IqP0LqH9vhm6GUaqlqs9IS9wqHRgezOtC08jPYqF/cSt+y99pYMc6SOUNE4fR3m2AA4Gsjb0iwiMpz3DYvxhth0BJ/4uUa0qz4ww",
+  "salt": "zy1M+IQ/wXRc7oPNAH+m/w==",
+  "iv": "NGheLSNIsIztYp66",
+  "ct": "BVGzBtdp5bhqDehPhDAuaEOBA6dY3U7ys5csoGpvfm4wPPRzQfvWj+DiXAF1qL3Ciujk/5OiSeB7DMJjEHdUX4RtOjcc+I+/JLOxJrTyMRIKDLMIvsyvNKU2HznIiCXkDaFe0Qr+IsXg0TO4/16lkf+f7IgALxSmGaZZtgEzByVZBw7/yl5YzUmSoS8QuqWQLTf517LECADK+mQgtCxIuNJE+bgY1V4mJMpB3lZur83tZE0mjLk58mCVpbJ0XRkmqr33IgmXmQmSrZcTmrk3OQ1zFYztMK6fcM7TpAqo1iYbsqx8YRMRXdoIjXz0mfVtlN9rRWClbOmquW4NZhUde5ooNlO84bnnnjg+j5GFYSEM2IXswJ2lzxf5kHHdA5WbAh5mNtdGHLLXauOyFXLHFifolGBoRt4fioV3EfRBpvtjzKkOryKCwRCYDUSdjw3UUPWmsuGF2L5OIsIpF7IsAeffV+4McNMI0iPmypOjiaZkMPiWf2bVEBC3dWrKmswy2MSAFH8ufCaRpCrEbJQtQA+s6Yso0yMxxg//OE/Y2VAkKKWgoJPNUdfWivvPs9pR1KqWRRwLVl+UkIJOO8EjeH8SWaKUqYM5AAUjja1BwvjMO6ASsW6vY1Na",
   "iter": 150000
  }
 }
