@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grafo delle versioni</title>
+<style>body{margin:0;background:#0d1117;color:#e6edf3;font-family:system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1100px;margin:0 auto;padding:16px}
+h1{margin:4px 0;font-size:clamp(22px,6vw,32px)}.mu{color:#8b949e}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px;margin:12px 0;overflow-x:auto}
+a{color:#58a6ff}#info{min-height:70px}svg text{font-family:system-ui,Arial}</style></head>
+<body><div class="w"><h1>Il grafo delle versioni</h1>
+<p class="mu">Ogni pallino è una versione (un commit pubblicato). La linea blu è il gioco della 2INF; la linea verde è il fork della 3INF, che parte dalla v0.11 della 2INF. Clicca un pallino: vedi cosa è cambiato, puoi giocare quella versione o aprire il codice di quel commit su GitHub. La pagina si aggiorna da sola.</p>
+<div class="card"><svg id="g" height="300"></svg></div><div class="card" id="info"><span class="mu">Clicca un pallino.</span></div>
+<p><a href="https://github.com/nicolaregge-pulse/corso-informatica/network">Il grafo completo su GitHub (Insights → Network)</a></p></div>
+<script>
+var L=[{nome:'2INF — Il treno blindato',dir:'treno-blindato',col:'#2f81f7',y:90},{nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:210,da:'v0.11'}];
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function carica(){Promise.all(L.map(function(l){return fetch('../'+l.dir+'/versioni/versioni.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})})).then(function(R){
+ var g=document.getElementById('g'),dx=86,x0=60,h='',pos={};R[0].forEach(function(v,i){pos['0:'+v.versione]=x0+i*dx});
+ L.forEach(function(l,k){var V=R[k],xs=k===0?x0:(pos['0:'+l.da]||x0)+dx;
+  h+='<text x="8" y="'+(l.y-28)+'" fill="'+l.col+'" font-size="14" font-weight="700">'+e(l.nome)+'</text>';
+  if(k>0&&pos['0:'+l.da]!=null)h+='<path d="M'+pos['0:'+l.da]+' '+L[0].y+' C '+(pos['0:'+l.da]+40)+' '+L[0].y+', '+(xs-40)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none" stroke-dasharray="6 4"/><text x="'+(pos['0:'+l.da]+10)+'" y="'+((L[0].y+l.y)/2)+'" fill="#8b949e" font-size="12">fork</text>';
+  if(V.length>1)h+='<line x1="'+xs+'" y1="'+l.y+'" x2="'+(xs+(V.length-1)*dx)+'" y2="'+l.y+'" stroke="'+l.col+'" stroke-width="4"/>';
+  V.forEach(function(v,i){var x=xs+i*dx;h+='<g style="cursor:pointer" onclick="mostra('+k+','+i+')"><circle cx="'+x+'" cy="'+l.y+'" r="13" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/><text x="'+x+'" y="'+(l.y+34)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e(v.versione)+'</text></g>'})});
+ var maxX=Math.max.apply(null,L.map(function(l,k){var xs=k===0?x0:(pos['0:'+l.da]||x0)+dx;return xs+Math.max(0,R[k].length-1)*dx}))+60;
+ g.setAttribute('width',maxX);g.innerHTML=h;window.R=R})}
+function mostra(k,i){var v=R[k][i],l=L[k];document.getElementById('info').innerHTML='<b style="color:'+l.col+'">'+e(l.nome)+' — '+e(v.versione)+'</b> · '+e(v.nome)+'<br><span class="mu">'+e(v.data||'')+'</span><p>'+e(v.cambi||'')+'</p><a href="../'+l.dir+'/versioni/'+e(v.versione)+'/">Gioca questa versione</a>'+(v.commit?' · <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/'+e(v.commit)+'/docs/giochi/'+l.dir+'">il codice di questo commit</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commit/'+e(v.commit)+'">le modifiche (diff)</a>':'')}
+carica();setInterval(carica,60000);
+</script></body></html>
