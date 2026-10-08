@@ -1,0 +1,12 @@
+name: Controllo dei file del gioco
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  controllo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Controllo automatico (revisione del codice)
+        run: python3 strumenti/controlla.py
