@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3INF — Report e voti</title>
+<style>body{margin:0;background:#0d1117;color:#e6edf3;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:16px}.w{max-width:1000px;margin:0 auto;padding:14px}
+h1{margin:4px 0;font-size:clamp(22px,6vw,32px)}.mu{color:#8b949e}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px;margin:12px 0;overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:640px}td,th{border-top:1px solid #30363d;padding:7px 6px;text-align:left;vertical-align:top}th{color:#8b949e;font-size:13px}
+.v{font-weight:900;font-size:22px;border-radius:10px;padding:2px 10px;display:inline-block;min-width:44px;text-align:center}
+.ok{color:#3fb950;font-weight:900}.no{color:#f85149;font-weight:900}.mez{color:#d29922;font-weight:900}a{color:#58a6ff}
+.sq{display:inline-block;border:1px solid #30363d;border-radius:10px;padding:8px 12px;margin:4px}</style></head>
+<body><div class="w"><h1>3INF — Report e voti di adesso</h1>
+<p class="mu">Il voto si aggiorna mentre lavorate. Cerca il numero del tuo PC: vedi cosa hai fatto, il voto di adesso e cosa ti manca per salire. <b id="agg"></b></p>
+<div class="card" id="regola"></div>
+<div class="card"><b>Le squadre (media dei voti)</b><div id="squadre"></div></div>
+<div class="card"><table id="t"></table></div>
+<p><a href="../">Torna alla pagina del lavoro (scegli il tuo PC e fai la fase di adesso)</a></p></div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function col(v){return v>=80?'#238636':v>=60?'#9e6a03':'#da3633'}
+function st(x){return x==='merged'?'<span class="ok">✓</span>':x==='parziale'?'<span class="mez">½</span>':'<span class="no">✗</span>'}
+function carica(){fetch('report.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){
+ document.getElementById('agg').textContent='Aggiornato: '+D.aggiornato;document.getElementById('regola').innerHTML='<b>Come si calcola il voto:</b> '+e(D.regola);
+ var S={};D.righe.forEach(function(r){if(r.squadra==='?')return;(S[r.squadra]=S[r.squadra]||[]).push(r.voto)});
+ document.getElementById('squadre').innerHTML=Object.keys(S).map(function(k){var m=Math.round(S[k].reduce(function(a,b){return a+b},0)/S[k].length);return '<span class="sq">'+e(k)+' <span class="v" style="background:'+col(m)+'">'+m+'</span></span>'}).join('');
+ document.getElementById('t').innerHTML='<tr><th>PC</th><th>Squadra · pezzo</th><th>0</th><th>PR-1</th><th>PR-2</th><th>PR-3</th><th>PR-4</th><th>Cosa ha fatto</th><th>Voto</th><th>Per salire</th></tr>'+
+  D.righe.map(function(r){return '<tr><td><b>'+e(r.pc)+'</b></td><td>'+e(r.squadra)+'<br><span class="mu">'+e(r.pezzo)+'</span></td><td>'+(r.f0?'<span class="ok">✓</span>':'<span class="no">✗</span>')+'</td><td>'+st(r.p1)+'</td><td>'+st(r.p2)+'</td><td>'+st(r.p3)+'</td><td>'+st(r.p4)+'</td><td>'+e(r.fatto)+'</td><td><span class="v" style="background:'+col(r.voto)+'">'+r.voto+'</span></td><td class="mu">'+e(r.manca.join(' · '))+'</td></tr>'}).join('')})}
+carica();setInterval(carica,30000);
+</script></body></html>
