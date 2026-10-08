@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2INF — Stipendi del treno</title>
+<style>
+body{margin:0;background:#f4f7fb;color:#1a2330;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:17px;line-height:1.45}.w{max-width:860px;margin:0 auto;padding:16px}
+h1{color:#12467a;margin:4px 0;font-size:clamp(22px,6vw,32px)}.sub{color:#5a6b7b;margin:0 0 10px}
+.box{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.msg{background:#fff6d6;border-left:5px solid #d0a516;padding:10px 12px;border-radius:8px}
+table{width:100%;border-collapse:collapse;font-size:16px}th,td{text-align:left;padding:8px 6px;border-top:1px solid #e3e9f0}th{color:#5a6b7b;font-size:14px}
+.d{font-weight:900;color:#2f9e57;font-size:20px;white-space:nowrap}.v{display:inline-block;background:#12467a;color:#fff;border-radius:999px;padding:3px 10px;font-weight:800;font-size:14px}
+.bar{background:#e8eef5;border-radius:6px;height:8px;margin-top:4px}.bar i{display:block;height:8px;border-radius:6px;background:#2f9e57}
+.vecchia{opacity:.75}.lingue{font-size:14px;color:#5a6b7b}
+</style></head>
+<body><div class="w">
+<h1>Il treno blindato — gli stipendi</h1>
+<p class="sub">2INF · l'azienda paga ogni ora uno stipendio virtuale da 0 a 100 $ secondo il ruolo e come lavori. Ogni busta paga è una versione (release): le vecchie restano qui sotto. <b id="agg"></b></p>
+<p class="lingue">Per leggerla nella tua lingua: tasto destro → «Traduci». 要翻译：右键 →「翻译」。每小时的虚拟工资（0-100 美元）取决于你的角色和你的工作。</p>
+<div class="box"><h2 style="margin:0 0 6px;font-size:20px;color:#12467a">Come si calcola lo stipendio</h2><div id="regole"></div></div>
+<div class="msg" id="prossima"></div>
+<div id="buste"></div>
+<p><a href="../squadre/" style="font-weight:700">Le squadre: cosa fare adesso</a> · <a href="../../giochi/treno-blindato/" style="font-weight:700">Gioca</a></p>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function disegna(D){document.getElementById('agg').textContent='Aggiornata: '+D.aggiornato;
+ var R=D.regole,pm=R.paga_massima;document.getElementById('regole').innerHTML='<p><b>Paga massima all\'ora:</b> '+Object.keys(pm).map(function(k){return e(k)+' '+pm[k]+' $'}).join(' · ')+'</p><p><b>Rendimento:</b> '+e(R.rendimento)+'</p><p><b>'+e(R.stipendio)+'</b></p>';
+ document.getElementById('prossima').textContent=D.prossima||'';
+ var h='';D.buste_paga.slice().reverse().forEach(function(b,i){var tot=b.righe.reduce(function(s,r){return s+r.dollari},0);
+  h+='<div class="box'+(i?' vecchia':'')+'"><p style="margin:0"><span class="v">'+e(b.versione)+'</span> <b>'+e(b.ora)+'</b> — uscita '+e(b.uscita)+(i?' (versione precedente)':' (ultima)')+'</p>'+(b.nota?'<p>'+e(b.nota)+'</p>':'')+
+  '<table><tr><th>Chi</th><th>Squadra</th><th>Rendimento</th><th>Stipendio</th></tr>'+b.righe.map(function(r){return '<tr><td>'+e(r.chi)+'<br><small>'+e(r.ruolo)+'</small></td><td>'+e(r.squadra)+'</td><td>'+r.rendimento+'%<div class="bar"><i style="width:'+r.rendimento+'%"></i></div></td><td class="d">'+r.dollari+' $</td></tr>'}).join('')+'</table></div>'});
+ document.getElementById('buste').innerHTML=h}
+function carica(){fetch('stipendi.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(disegna).catch(function(){})}
+carica();setInterval(carica,60000);
+</script></body></html>
