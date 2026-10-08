@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 09:37",
- "messaggio": "Ogni idea per il gioco diventa una richiesta di modifica (Pull Request): scrivila nel Documento su Classroom, punto 2. Più richieste buone, più alto il voto della squadra.",
+ "aggiornato": "08/10/2026 09:39",
+ "messaggio": "Parte la classifica! Ogni richiesta di modifica scritta nel vostro Documento vale 10 punti per la squadra. Alle 09:35 tutte le squadre sono a zero: chi scrive per primo va in testa.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -142,5 +142,47 @@
  "cattivi": {
   "arrivati": [],
   "nota": "Ognuno crea il suo cattivo: pagina del progetto, parte 2 e 3."
+ },
+ "punteggi": {
+  "scenari": {
+   "punti": 0,
+   "richieste": 0,
+   "file": 0,
+   "nel_gioco": 0,
+   "fuori": 0,
+   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+  },
+  "personaggi": {
+   "punti": 0,
+   "richieste": 0,
+   "file": 0,
+   "nel_gioco": 0,
+   "fuori": 0,
+   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+  },
+  "motore": {
+   "punti": 0,
+   "richieste": 0,
+   "file": 0,
+   "nel_gioco": 0,
+   "fuori": 0,
+   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+  },
+  "test": {
+   "punti": 0,
+   "richieste": 0,
+   "file": 0,
+   "nel_gioco": 0,
+   "fuori": 0,
+   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+  },
+  "ceo": {
+   "punti": 0,
+   "richieste": 0,
+   "file": 0,
+   "nel_gioco": 0,
+   "fuori": 0,
+   "nota": "Il CEO prende punti quando le squadre lavorano: controlla che ognuno abbia un compito e porta al prof le idee migliori."
+  }
  }
 }
