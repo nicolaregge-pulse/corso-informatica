@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 09:55",
+ "aggiornato": "08/10/2026 10:16",
  "regole": {
   "paga_massima": {
    "CEO": 100,
@@ -62,9 +62,9 @@
   },
   {
    "versione": "stipendi-v2",
-   "ora": "2ª ora (9-10): PROVVISORIA alle 9:55",
-   "uscita": "08/10/2026 09:55",
-   "nota": "Stipendi secondo i meriti: quello che è entrato nel gioco, quello che è scritto, quello che il prof ha visto ai PC. Alle 10:00 diventa definitiva con le richieste consegnate dai capi squadra e il modulo degli stipendi.",
+   "ora": "2ª ora (9-10): DEFINITIVA",
+   "uscita": "08/10/2026 10:16",
+   "nota": "Nessun capo squadra ha compilato il modulo degli stipendi: i componenti li ha pagati il prof secondo i meriti.",
    "righe": [
     {
      "chi": "CEO · PC 27",
@@ -72,7 +72,7 @@
      "ruolo": "CEO",
      "rendimento": 70,
      "dollari": 70,
-     "merito": "scrive la composizione delle squadre e guida l'azienda"
+     "merito": "guida l'azienda, prepara la composizione delle squadre"
     },
     {
      "chi": "Capo squadra · PC 34",
@@ -80,7 +80,7 @@
      "ruolo": "Capo squadra",
      "rendimento": 85,
      "dollari": 68,
-     "merito": "la sua squadra ha messo 4 personaggi nel gioco (versione 0.2)"
+     "merito": "la squadra ha messo 4 personaggi nel gioco (v0.2)"
     },
     {
      "chi": "Capo squadra · PC 18",
@@ -88,23 +88,23 @@
      "ruolo": "Capo squadra",
      "rendimento": 40,
      "dollari": 32,
-     "merito": "ha disegnato il Boss con Gemini, ma la squadra Scenari non ha ancora consegnato richieste"
+     "merito": "il Boss è nel gioco, ma nessuna richiesta di Scenari"
     },
     {
-     "chi": "Capo squadra",
-     "squadra": "MOTORE FISICA",
-     "ruolo": "Capo squadra",
-     "rendimento": 0,
-     "dollari": 0,
-     "merito": "nessuna richiesta consegnata: si recupera nella 3ª ora"
-    },
-    {
-     "chi": "Triade · PC 28 e compagne",
+     "chi": "Capo squadra · PC 28",
      "squadra": "TEST QUALITÀ",
      "ruolo": "Capo squadra",
      "rendimento": 10,
      "dollari": 8,
-     "merito": "hanno letto le istruzioni, ma nessun difetto segnalato"
+     "merito": "nella 2ª ora nessun difetto segnalato"
+    },
+    {
+     "chi": "Capo squadra · PC 25",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Capo squadra",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "nessuna richiesta"
     },
     {
      "chi": "Componente · PC 35",
@@ -112,7 +112,7 @@
      "ruolo": "Componente",
      "rendimento": 85,
      "dollari": 85,
-     "merito": "personaggio nel gioco + documento dei personaggi"
+     "merito": "personaggio nel gioco + documento"
     },
     {
      "chi": "Componente · PC 36",
@@ -120,7 +120,7 @@
      "ruolo": "Componente",
      "rendimento": 70,
      "dollari": 70,
-     "merito": "documento «Personaggi perfetti» con le foto"
+     "merito": "documento «Personaggi perfetti»"
     },
     {
      "chi": "Componente",
@@ -128,43 +128,115 @@
      "ruolo": "Componente",
      "rendimento": 50,
      "dollari": 50,
-     "merito": "il suo personaggio è nel gioco"
-    },
-    {
-     "chi": "Componente · PC 24",
-     "squadra": "—",
-     "ruolo": "Componente",
-     "rendimento": 70,
-     "dollari": 70,
-     "merito": "Documento del compito scritto ai punti 1-4"
+     "merito": "personaggio nel gioco"
     },
     {
      "chi": "Componente · PC 37",
-     "squadra": "—",
+     "squadra": "PERSONAGGI",
      "ruolo": "Componente",
      "rendimento": 25,
      "dollari": 25,
-     "merito": "il suo personaggio è nel gioco (50%), poi visto al PC solo a giocare (−25%)"
+     "merito": "personaggio nel gioco (50%), visto solo a giocare (−25%)"
+    },
+    {
+     "chi": "Componente · PC 24",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Componente",
+     "rendimento": 45,
+     "dollari": 45,
+     "merito": "composizione della squadra scritta (70%), visto su siti di calcio (−25%)"
     },
     {
      "chi": "Componente · PC 17",
-     "squadra": "—",
+     "squadra": "SCENARI",
      "ruolo": "Componente",
      "rendimento": 0,
      "dollari": 0,
-     "merito": "visto su un altro gioco (−25%): da verificare"
+     "merito": "nessun lavoro scritto"
     },
     {
-     "chi": "Gli altri componenti",
+     "chi": "Gli altri 6 componenti",
      "squadra": "—",
      "ruolo": "Componente",
      "rendimento": 0,
      "dollari": 0,
-     "merito": "lavoro non ancora visto: alle 10:00 contano le idee consegnate al capo squadra"
+     "merito": "lavoro non visto, niente consegnato"
+    }
+   ]
+  },
+  {
+   "versione": "stipendi-v3",
+   "ora": "3ª ora (10-11): PROVVISORIA alle 10:16",
+   "uscita": "08/10/2026 10:16",
+   "nota": "Definitiva alle 10:45 con le consegne su Classroom. Chi consegna adesso sale.",
+   "righe": [
+    {
+     "chi": "CEO · PC 27",
+     "squadra": "CEO",
+     "ruolo": "CEO",
+     "rendimento": 75,
+     "dollari": 75,
+     "merito": "composizione delle squadre consegnata su Classroom; manca il verbale ogni 10 minuti"
+    },
+    {
+     "chi": "Capo squadra · PC 28",
+     "squadra": "TEST QUALITÀ",
+     "ruolo": "Capo squadra",
+     "rendimento": 70,
+     "dollari": 56,
+     "merito": "«il gioco va troppo veloce»: entrata nel gioco (v0.3)"
+    },
+    {
+     "chi": "Capo squadra · PC 34",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Capo squadra",
+     "rendimento": 60,
+     "dollari": 48,
+     "merito": "consegnato, ma niente richieste nuove"
+    },
+    {
+     "chi": "Capo squadra · PC 18",
+     "squadra": "SCENARI",
+     "ruolo": "Capo squadra",
+     "rendimento": 20,
+     "dollari": 16,
+     "merito": "idee in un documento, non consegnate"
+    },
+    {
+     "chi": "Capo squadra · PC 25",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Capo squadra",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "nessuna richiesta, un componente fuori compito due volte (−20%)"
+    },
+    {
+     "chi": "Componente · PC 35",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Componente",
+     "rendimento": 25,
+     "dollari": 25,
+     "merito": "visto su YouTube (−25%)"
+    },
+    {
+     "chi": "Componente · PC 22/24",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Componente",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "di nuovo su siti di calcio (−25%)"
+    },
+    {
+     "chi": "Tutti gli altri",
+     "squadra": "—",
+     "ruolo": "Componente",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "si decide alle 10:45 con le consegne su Classroom"
     }
    ]
   }
  ],
- "prossima": "Alle 10:00 la busta paga della 2ª ora diventa definitiva: capi squadra, consegnate le richieste di modifica e compilate il modulo degli stipendi.",
+ "prossima": "Ultima busta paga alle 10:45: conta solo quello che è consegnato su Classroom (Documento e file). Capi squadra: modulo degli stipendi entro le 10:40.",
  "modulo": "https://docs.google.com/forms/d/e/1FAIpQLSeaZh9FUlt-JtHphpMNbKlCDjvyE6srmKZ8rdkRhFaSZ5KsgA/viewform"
 }
