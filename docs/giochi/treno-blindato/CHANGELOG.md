@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.7 — 08/10/2026 10:36 — Omini che escono dal nascondiglio (indicazione del prof)
+
+1. Indicazione del product owner (il prof): «metti gli omini, non i cerchietti, e che escano dal nascondiglio».
+2. Ogni cattivo è un omino intero: testa (con la faccia della classe o con la maschera da bandito), busto, braccia, gambe e arma puntata verso il treno.
+3. Esce dal nascondiglio: è accucciato dietro l'albero, la casa o il rottame, si alza e fa un passo fuori di lato, con un «!» rosso.
+4. Quando lo colpisci cade all'indietro.
+
 ## v0.6 — 08/10/2026 10:30 — Il bosco bruciato (SCENARI) e la frase del cattivo (PERSONAGGI)
 
 1. Richiesta della squadra SCENARI (Documento su Classroom): «nel bosco il cielo rosso cupo e vicino ai binari alberi bruciati e rottami, perché il treno è appena passato dopo un attacco».
