@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:30",
+ "aggiornato": "08/10/2026 12:33",
  "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Massimo 100.",
  "righe": [
   {
@@ -11,7 +11,10 @@
    "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #2 Black Panter, PR #5 montagna e tempo (v1.1, v1.2)",
+   "fatto": "PR #2 Black Panter, PR #5 montagna e tempo",
+   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
+   "documenti": 3,
+   "consegnato": false,
    "voto": 80,
    "manca": [
     "PR-3 (+15)",
@@ -27,7 +30,10 @@
    "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #1 Black Panter, PR #4 montagna e tempo (v1.1, v1.2)",
+   "fatto": "PR #1 Black Panter, PR #4 montagna e tempo",
+   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
+   "documenti": 3,
+   "consegnato": false,
    "voto": 80,
    "manca": [
     "PR-3 (+15)",
@@ -44,26 +50,13 @@
    "p3": "",
    "p4": "",
    "fatto": "PR #7 Black Panther, PR #8 da completare",
+   "monitor": "12:08 compito · 12:26 scrive nel Documento",
+   "documenti": 3,
+   "consegnato": false,
    "voto": 70,
    "manca": [
     "PR-2 da completare (+15)",
     "PR-3 (+15)"
-   ]
-  },
-  {
-   "pc": "21",
-   "squadra": "SCENARI",
-   "pezzo": "il mare",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
    ]
   },
   {
@@ -76,26 +69,13 @@
    "p3": "",
    "p4": "",
    "fatto": "PR #6 Travor (manca la frase)",
+   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 55,
    "manca": [
     "punto 0 (+10)",
     "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "12",
-   "squadra": "PERSONAGGI",
-   "pezzo": "il boss",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
    ]
   },
   {
@@ -108,6 +88,9 @@
    "p3": "",
    "p4": "",
    "fatto": "squadra scritta",
+   "monitor": "12:08 compito · 12:26 nel Documento",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -123,7 +106,10 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "squadra scritta; ha premuto Consegna: deve annullare e continuare",
+   "fatto": "squadra scritta; ha premuto Consegna",
+   "monitor": "12:08 nel Documento · 12:26 nel Documento",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -140,6 +126,9 @@
    "p3": "",
    "p4": "",
    "fatto": "squadra scritta",
+   "monitor": "12:08 compito · 12:26 compito",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -156,6 +145,9 @@
    "p3": "",
    "p4": "",
    "fatto": "squadra scritta",
+   "monitor": "12:08 gioco · 12:26 compito",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -171,43 +163,14 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "squadra scritta; ha premuto Consegna: deve annullare e continuare",
+   "fatto": "squadra scritta; ha premuto Consegna",
+   "monitor": "12:08 compito · 12:26 nel Documento",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
     "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "24",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "capo squadra · prova sul PC",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
-   "pc": "25",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "prova sul telefono",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
    ]
   },
   {
@@ -219,7 +182,10 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "PR #9 da completare: Franciscos",
+   "fatto": "PR #9 da completare (Franciscos)",
+   "monitor": "12:08 gioco · 12:26 scrive nel Documento",
+   "documenti": 1,
+   "consegnato": false,
    "voto": 45,
    "manca": [
     "punto 0 (+10)",
@@ -227,15 +193,18 @@
    ]
   },
   {
-   "pc": "22",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "revisione",
+   "pc": "21",
+   "squadra": "SCENARI",
+   "pezzo": "il mare",
    "f0": false,
    "p1": "",
    "p2": "",
    "p3": "",
    "p4": "",
    "fatto": "niente ancora",
+   "monitor": "12:08 pagina di accesso · 12:26 nel Documento",
+   "documenti": 0,
+   "consegnato": false,
    "voto": 40,
    "manca": [
     "punto 0 (+10)",
@@ -243,47 +212,18 @@
    ]
   },
   {
-   "pc": "26",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "classifica dei difetti",
+   "pc": "12",
+   "squadra": "PERSONAGGI",
+   "pezzo": "il boss",
    "f0": false,
    "p1": "",
    "p2": "",
    "p3": "",
    "p4": "",
    "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
-   "pc": "14",
-   "squadra": "?",
-   "pezzo": "chiedi al CEO",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
-   "pc": "28",
-   "squadra": "CEO",
-   "pezzo": "verbale e presentazione",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
+   "monitor": "12:08 compito · 12:26 schermo vuoto",
+   "documenti": 0,
+   "consegnato": false,
    "voto": 40,
    "manca": [
     "punto 0 (+10)",
@@ -300,6 +240,123 @@
    "p3": "",
    "p4": "",
    "fatto": "niente ancora",
+   "monitor": "mai visto con il nome",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "24",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "capo squadra · prova sul PC",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "monitor": "12:08 gioca · 12:26 nel Documento",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "25",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "prova sul telefono",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "monitor": "12:08 gioca · 12:26 pagina «Il mio lavoro»",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "22",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "revisione",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "monitor": "12:08 gioca · 12:26 nel Documento",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "26",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "classifica dei difetti",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "monitor": "12:08 Classroom · 12:26 nel Documento",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "14",
+   "squadra": "?",
+   "pezzo": "chiedi al CEO",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "monitor": "12:08 desktop · 12:26 nel Documento",
+   "documenti": 0,
+   "consegnato": false,
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "28",
+   "squadra": "CEO",
+   "pezzo": "verbale e presentazione",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "tabella «Organizzazione Team di sviluppo» (non nel Documento del compito)",
+   "monitor": "12:26 documento con l'organigramma",
+   "documenti": 0,
+   "consegnato": false,
    "voto": 40,
    "manca": [
     "punto 0 (+10)",
@@ -316,6 +373,9 @@
    "p3": "",
    "p4": "",
    "fatto": "niente ancora",
+   "monitor": "mai vista con il nome",
+   "documenti": 0,
+   "consegnato": false,
    "voto": 40,
    "manca": [
     "punto 0 (+10)",
@@ -324,9 +384,9 @@
   }
  ],
  "nomi": {
-  "salt": "szydaC3I9rJl1FC7XCKN+w==",
-  "iv": "S8YiTmdtTjK+Bk6Z",
-  "ct": "kJLH/ulQX81XLdDI0NX7leX8Y4iXscGqSHnGUyj8lskIYBn28010DrlxzuW7IWyYD2zn7LrEtJbcrWo14JBjcLPrlxMTjVVqA1ZRqC0+I64n++3kKTa0436tFnoVwNbrJRldlhXdDzktQ5d8zHWwCJiyTJyptwbHeoJp+T7HKowY1rk3yn07+PLpEx+U56F88QCteE5oTc3dGq9PTFToQmkzKUemDZLLZC6QmjVPjOFQAdAP+oZSSY5vrDqR4cDOG9Hj0fJ0u6PP3EssKCVYQQpPpD5XcFUfcLC140bqOvExhVHaOvGQvdr2sSWdKIlKHsacllPgY39BsOWcdGEh92nsUI/MGbnGYTywHpHAGt3/UfSEogXuefIO2UfBdHXNAufYILbBO7Zgn8JyXuK7TRktRa1gfkNe2CB6FJG2b8QNC5MChk1fDXOaG4kYSeqsk30ScIyCloYOCCH+c7HsY94jsICw2du7HeMY+omU+ZPaXbOUqxqMq9Le3TU0MQqLcuKAkjJ9z0xJeaPR5qCPsZrdmZgyK7mQlQSjd+3hMw1Tg5Opm5jnRAKK4xhCgzjH5KfKvLYiYy+YEt7XclI5S9mZuIVPSDPvEhl3fIZ9W2z8ewdJedLLJ8hlpHPq5hpuFxLRbKY+nrNFcFlcWSUyg7G3EcNsv8o+39o94QMi",
+  "salt": "hSP0CNitFkaDgVgzk+o0NA==",
+  "iv": "EUxByXdKddCEKBsY",
+  "ct": "7cOW0Fq+C/kY2r3fTnY50BzvUpGLdqryiXDg9HCnpxEN8VyB+jAVqYKiMYWWGRJs4WRyz4n6S6UFW8n5nk3Jb2Oxf5PmRuxk+zYP4hluMDKodSW82WizYGNq0TsN9bVrSbpgjW0hth2CaSZbJmvwCOEmQFcKL5bW4HKJoICl8Oxofe81rwxVqgAQx+m9i+qjnK6fe4H89pyQS+vuk+8kv6M8gUr3yKvB5M54nht9U1Yv9mA76sIJppHpuHEKh/r8vFquGL2Pmh/ncL+WmxL9j9YkKQT5iVf91twyoUG3HMYqvEtbcfAtrXlA7SJFAHG+JZDXMgfdgfuJZdnUcbPSMAMek7FaXCT/ovSVf0Z7An0Xq9hr2H7UxUu2ScudrruhTwk7Xxve9jBL7lmXueBKtZVQPNsZT4R0v/danbvHBU1DBEP1Mvink/MGB3L7c/ZbW3se3oOLmRZKlRRNN1ebtveAMMY39CNGmp0SkRhIv7/zuGDmpXtM384QhI72AV6hqCiiaHcH8XCA3l93SJCLxXUSDbsLJ6X/fFcwsdGCBOAGGmpe1+wSQQP80ouo8On1BQj/qYd0TKkMruxpvppWI4OB/o47W350TLiS6Y/SRYnFZMIawJLJps+2Qp7lIOLUmlZ8zE1/hJ32p4OQhutJ39EeqYtpb6M0PEfj/2XM",
   "iter": 150000
  }
 }
