@@ -8,21 +8,29 @@ table{border-collapse:collapse;width:100%;min-width:640px}td,th{border-top:1px s
 .sq{display:inline-block;border:1px solid #30363d;border-radius:10px;padding:8px 12px;margin:4px}</style></head>
 <body><div class="w"><h1>3INF — Report: voti, valutazione dei dipendenti e stipendi</h1>
 <p class="mu">Il voto si aggiorna mentre lavorate. Cerca il numero del tuo PC: vedi cosa hai fatto, il voto di adesso e cosa ti manca per salire. <b id="agg"></b></p>
+<div class="card"><b>Nomi:</b> scrivi la password della classe (la dice il prof) <input id="pw" type="password" style="font-size:16px;padding:6px;border-radius:8px"> <button id="vedi" style="font-size:16px;padding:6px 12px">Mostra i nomi</button> <span id="msgpw" class="mu"></span></div>
 <div class="card" id="regola"></div>
 <div class="card"><b>Le squadre (media dei voti)</b><div id="squadre"></div></div>
 <div class="card"><table id="t"></table></div>
 <p><a href="../">Torna alla pagina del lavoro (scegli il tuo PC e fai la fase di adesso)</a></p></div>
 <script>
+var NOMI=null,DATI=null;function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function apri(){try{var n=DATI.nomi,pw=document.getElementById('pw').value;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(n.salt),iterations:n.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ var t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(n.iv)},k,b64(n.ct));NOMI=JSON.parse(new TextDecoder().decode(t));try{sessionStorage.setItem('pw3inf',pw)}catch(x){}document.getElementById('msgpw').textContent='Nomi visibili.';carica()}
+ catch(x){document.getElementById('msgpw').textContent='Password sbagliata.'}}
+document.addEventListener('click',function(ev){if(ev.target&&ev.target.id==='vedi')apri()});
+
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function col(v){return v>=80?'#238636':v>=60?'#9e6a03':'#da3633'}
 function soldi(v){return Math.max(0,Math.min(100,Math.round((v-40)*100/60)))}
 function giudizio(v){return v>=85?['ECCELLENTE','#238636']:v>=70?['BUONO','#2f81f7']:v>=55?['DA MIGLIORARE','#9e6a03']:['A RISCHIO LICENZIAMENTO','#da3633']}
 function st(x){return x==='merged'?'<span class="ok">✓</span>':x==='parziale'?'<span class="mez">½</span>':'<span class="no">✗</span>'}
-function carica(){fetch('report.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){
+function carica(){fetch('report.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){DATI=D;if(!NOMI){try{var sp=sessionStorage.getItem('pw3inf');if(sp&&!window._prov){window._prov=1;document.getElementById('pw').value=sp;apri()}}catch(x){}}
  document.getElementById('agg').textContent='Aggiornato: '+D.aggiornato;document.getElementById('regola').innerHTML='<b>Come si calcola il voto:</b> '+e(D.regola)+'<br><b>Valutazione del dipendente:</b> 85 e più ECCELLENTE · 70-84 BUONO · 55-69 DA MIGLIORARE · sotto 55 A RISCHIO LICENZIAMENTO.<br><b>Stipendio virtuale all\'ora:</b> da 0 $ (voto 40, non hai fatto niente) a 100 $ (voto 100).';
  var S={};D.righe.forEach(function(r){if(r.squadra==='?')return;(S[r.squadra]=S[r.squadra]||[]).push(r.voto)});
  document.getElementById('squadre').innerHTML=Object.keys(S).map(function(k){var m=Math.round(S[k].reduce(function(a,b){return a+b},0)/S[k].length),tot=S[k].reduce(function(a,b){return a+soldi(b)},0);return '<span class="sq">'+e(k)+' <span class="v" style="background:'+col(m)+'">'+m+'</span> · stipendi '+tot+' $/ora</span>'}).join('');
- document.getElementById('t').innerHTML='<tr><th>PC</th><th>Squadra · pezzo</th><th>0</th><th>PR-1</th><th>PR-2</th><th>PR-3</th><th>PR-4</th><th>Cosa ha fatto</th><th>Voto</th><th>Valutazione del dipendente</th><th>Stipendio all\'ora</th><th>Per salire</th></tr>'+
-  D.righe.map(function(r){return '<tr><td><b>'+e(r.pc)+'</b></td><td>'+e(r.squadra)+'<br><span class="mu">'+e(r.pezzo)+'</span></td><td>'+(r.f0?'<span class="ok">✓</span>':'<span class="no">✗</span>')+'</td><td>'+st(r.p1)+'</td><td>'+st(r.p2)+'</td><td>'+st(r.p3)+'</td><td>'+st(r.p4)+'</td><td>'+e(r.fatto)+'</td><td><span class="v" style="background:'+col(r.voto)+'">'+r.voto+'</span></td><td><b style="color:'+giudizio(r.voto)[1]+'">'+giudizio(r.voto)[0]+'</b></td><td><b style="font-size:20px">'+soldi(r.voto)+' $</b></td><td class="mu">'+e(r.manca.join(' · '))+'</td></tr>'}).join('')})}
+ document.getElementById('t').innerHTML='<tr><th>PC · nome</th><th>Squadra · pezzo</th><th>0</th><th>PR-1</th><th>PR-2</th><th>PR-3</th><th>PR-4</th><th>Cosa ha fatto</th><th>Voto</th><th>Valutazione del dipendente</th><th>Stipendio all\'ora</th><th>Per salire</th></tr>'+
+  D.righe.map(function(r){return '<tr><td><b>'+e(r.pc)+'</b>'+(NOMI&&NOMI[r.pc]?'<br>'+e(NOMI[r.pc]):'')+'</td><td>'+e(r.squadra)+'<br><span class="mu">'+e(r.pezzo)+'</span></td><td>'+(r.f0?'<span class="ok">✓</span>':'<span class="no">✗</span>')+'</td><td>'+st(r.p1)+'</td><td>'+st(r.p2)+'</td><td>'+st(r.p3)+'</td><td>'+st(r.p4)+'</td><td>'+e(r.fatto)+'</td><td><span class="v" style="background:'+col(r.voto)+'">'+r.voto+'</span></td><td><b style="color:'+giudizio(r.voto)[1]+'">'+giudizio(r.voto)[0]+'</b></td><td><b style="font-size:20px">'+soldi(r.voto)+' $</b></td><td class="mu">'+e(r.manca.join(' · '))+'</td></tr>'}).join('')})}
 carica();setInterval(carica,30000);
 </script></body></html>
