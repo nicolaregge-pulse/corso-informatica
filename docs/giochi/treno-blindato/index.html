@@ -37,6 +37,7 @@ button:active{transform:translateY(3px);box-shadow:none}
   <div class="sub" id="sottotitolo">Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!</div>
   <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="btnPers">I personaggi</button><button class="sec" id="facce">Facce della classe</button><button class="sec" id="installa" hidden>Installa il gioco</button></div>
   <div class="sub" id="record"></div>
+  <div id="topInizio" style="font-size:15px;max-width:520px"></div>
   <div class="lista" id="cattiviClasse"></div>
   <div class="piccolo" id="controllo"></div>
   <a href="versioni/" style="color:#ffd34d;font-weight:700">Tutte le versioni del gioco</a>
@@ -46,6 +47,8 @@ button:active{transform:translateY(3px);box-shadow:none}
   <div style="font-size:22px;font-weight:800;color:#ff8d86" id="titoloFine">IL VETRO È ANDATO IN PEZZI!</div>
   <div class="big" id="punti">0</div>
   <div class="sub" id="lode"></div>
+  <div id="salvaTop" hidden style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap"><input id="nomeTop" maxlength="12" placeholder="Il tuo soprannome" style="font:inherit;padding:10px;border-radius:10px;border:0;width:180px"><button id="okTop">Salva nei migliori</button></div>
+  <div class="lista" id="topFine"></div>
   <div class="riga"><button id="ancora">RIPARTI</button><button class="sec" id="menu">Menu</button></div>
 </div>
 
@@ -343,10 +346,17 @@ requestAnimationFrame(ciclo);
 function mostra(id){['inizio','fine','titoliCoda','schFacce'].forEach(function(k){$(k).hidden=k!==id})}
 function aggiornaRecord(){var r=leggi('record',0);$('record').innerHTML=r?'Il tuo record: <b style="color:#ffd34d">'+r+'</b>':''}
 function parti(){audio();rs();nuovaPartita();mostra(null)}
-function fine(){var r=leggi('record',0),p=S.punti,nuovo=p>r;if(nuovo)scrivi('record',p);$('punti').textContent=p;$('titoloFine').textContent=TX.fine;
+function topLista(){var t=leggi('top',[]);return Array.isArray(t)?t:[]}
+function topHtml(titolo){var t=topLista(),h='';if(t.length)h+='<b style="color:#ffd34d">'+titolo+'</b><br>'+t.map(function(x,i){return (i+1)+'. '+esc(x.n)+' — <b>'+x.p+'</b> <span style="opacity:.7">(v'+esc(x.v)+')</span>'}).join('<br>');
+ if(RECORD_CLASSE.length)h+=(h?'<br><br>':'')+'<b style="color:#7be08f">Record della classe</b><br>'+RECORD_CLASSE.map(function(x,i){return (i+1)+'. '+esc(x.squadra)+' — <b>'+x.punti+'</b>'}).join('<br>');return h}
+var RECORD_CLASSE=[];fetch('record-classe.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){RECORD_CLASSE=(d.record||[]).slice(0,10).filter(function(x){return typeof x.squadra==='string'&&isFinite(x.punti)});aggiornaTop()}).catch(function(){});
+function aggiornaTop(){var e=$('topInizio');if(e)e.innerHTML=topHtml('I migliori punteggi su questo dispositivo')}
+var ULTIMO=0;function salvaTop(){var n=($('nomeTop').value||'').trim().slice(0,12)||'Anonimo',t=topLista();t.push({n:n,p:ULTIMO,v:VERSIONE.versione});t.sort(function(a,b){return b.p-a.p});scrivi('top',t.slice(0,10));$('salvaTop').hidden=true;$('topFine').innerHTML=topHtml('I migliori punteggi');aggiornaTop()}
+document.addEventListener('click',function(e){if(e.target&&e.target.id==='okTop')salvaTop()});
+function fine(){var r=leggi('record',0),p=S.punti,nuovo=p>r;ULTIMO=p;var t=topLista(),entra=p>0&&(t.length<10||p>t[t.length-1].p);$('salvaTop').hidden=!entra;$('salvaTop').style.display=entra?'flex':'none';$('topFine').innerHTML=topHtml('I migliori punteggi');if(nuovo)scrivi('record',p);$('punti').textContent=p;$('titoloFine').textContent=TX.fine;
  $('lode').innerHTML=(nuovo?'<b style="color:#7be08f">'+esc(TX.record)+'</b><br>':'')+'Cattivi fermati: <b>'+S.abbattuti+'</b> · km <b>'+Math.floor(S.km)+'</b><br>'+esc(pick(TX.lodi));
  if(nuovo||S.livello>2){coriandoli(140);SUONI.vittoria()}mostra('fine');S=null}
-function preparaSchermate(){$('ver').textContent='versione '+VERSIONE.versione+(VERSIONE.nome?' · '+VERSIONE.nome:'');$('titolo').textContent=TX.titolo;$('sottotitolo').textContent=TX.sottotitolo;
+function preparaSchermate(){setTimeout(aggiornaTop,0);$('ver').textContent='versione '+VERSIONE.versione+(VERSIONE.nome?' · '+VERSIONE.nome:'');$('titolo').textContent=TX.titolo;$('sottotitolo').textContent=TX.sottotitolo;
  CATTIVI.sort(function(a,b){return a.pc-b.pc});
  $('cattiviClasse').innerHTML=CATTIVI.length?'<div class="sub" style="font-size:16px">Cattivi della classe: <b>'+CATTIVI.length+'</b></div>'+CATTIVI.map(function(c){return '<span class="chip" style="border-color:'+c.colore+'">PC '+c.pc+' · '+esc(c.nome)+'</span>'}).join(''):
   '<div class="piccolo">Ancora nessun cattivo della classe: arrivano con le Pull Request!</div>';

@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.10 — 08/10/2026 10:52 — I migliori punteggi (indicazione del prof)
+
+1. A fine partita, se il punteggio entra nei primi 10, si scrive un soprannome (mai nome e cognome) e si salva.
+2. Nella schermata iniziale: «I migliori punteggi su questo dispositivo» (i primi 10, con la versione del gioco).
+3. «Record della classe»: file record-classe.json, lo aggiorna il prof con i record consegnati (solo squadra o soprannome).
+
 ## v0.9 — 08/10/2026 10:48 — Teste in proporzione (indicazione del prof)
 
 1. «Una faccia è troppo grossa e sproporzionata»: la testa aveva una misura minima fissa, quindi gli omini lontani avevano la testa enorme. Ora la testa è sempre in proporzione al corpo.
