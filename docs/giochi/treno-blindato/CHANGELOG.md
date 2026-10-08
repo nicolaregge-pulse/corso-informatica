@@ -1,5 +1,13 @@
 # Storia delle versioni
 
+## v0.4 — 08/10/2026 10:16 — Audit degli investitori
+
+1. Gli investitori: «treno troppo veloce, non si vedono le facce, le facce sono in un riquadro: doveva esserci il personaggio nascosto che esce».
+2. Il cattivo ora è un personaggio intero (testa con la faccia, corpo, braccia e arma): sta NASCOSTO dietro l'albero, la casa o il barile e scivola fuori di lato.
+3. Personaggi più grandi e più vicini; si colpiscono toccando la testa o il corpo.
+4. Velocità del treno al minimo (0,5).
+5. Tolte due foto in cui la faccia non si vedeva (solo capelli).
+
 ## v0.3 — 08/10/2026 10:08 — Più lento (richiesta della squadra TEST QUALITÀ)
 
 1. Richiesta di modifica della Triade, consegnata su Classroom: «il gioco va troppo veloce».
