@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 12:20",
- "messaggio": "12:20 — Punto 0 fatto da 8 su 20: brava la squadra MOTORE (4 su 5)! Nessuna PR-1 ancora: chi consegna il primo cattivo entra per primo nel gioco. Mancano 5 minuti.",
+ "aggiornato": "08/10/2026 12:24",
+ "messaggio": "12:24 — Prima versione della 3INF con le vostre Pull Request: v1.1 con «Black Panter» della squadra SCENARI! Tutti gli altri: PR-1 entro 1 minuto, poi subito la PR-2.",
  "sprint": [
   {
    "nome": "PR-1 Il mio mostro",
@@ -24,23 +24,55 @@
   }
  ],
  "mancano": {
-  "Punto 0 (squadra e PC) — subito": [
+  "PR-1 il mio cattivo — entro le 12:25": [
    "14",
    "15",
+   "16 (da completare)",
    "21",
    "22",
    "23",
    "24",
    "25",
+   "27",
    "28",
    "29",
+   "34",
+   "35",
+   "36",
+   "37",
    "+ 3 PC senza numero"
-  ],
-  "PR-1 il mio cattivo — entro le 12:25": [
-   "tutti: nessuna PR-1 ancora"
   ]
  },
- "prs": [],
+ "prs": [
+  {
+   "n": 1,
+   "pc": "18",
+   "squadra": "SCENARI",
+   "fase": "PR-1",
+   "titolo": "Il cattivo Black Panter: mimetica nera e argento, esce da una porta, dice «Yahuu!»",
+   "stato": "merged",
+   "versione": "v1.1"
+  },
+  {
+   "n": 2,
+   "pc": "17",
+   "squadra": "SCENARI",
+   "fase": "PR-1",
+   "titolo": "Black Panter (uguale alla #1: la squadra l'ha scritta insieme)",
+   "stato": "merged",
+   "versione": "v1.1",
+   "nota": "la prossima volta ognuno il suo cattivo"
+  },
+  {
+   "n": 3,
+   "pc": "16",
+   "squadra": "SCENARI",
+   "fase": "PR-1",
+   "titolo": "Il cattivo «black»: mancano colore, nascondiglio e frase",
+   "stato": "aperta",
+   "nota": "da completare"
+  }
+ ],
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -51,8 +83,8 @@
   },
   "scenari": {
    "nome": "SCENARI",
-   "punti": 15,
-   "merged": 0,
+   "punti": 55,
+   "merged": 2,
    "consegne": 3,
    "attese": 4
   },
@@ -83,6 +115,11 @@
    "versione": "v1.0",
    "nome": "Il fork della 3INF: traversine di legno e nuvole",
    "pr": "copia (fork) del gioco della 2INF v0.11 + indicazioni del prof"
+  },
+  {
+   "versione": "v1.1",
+   "nome": "Black Panter",
+   "pr": "PR #1 e #2 (SCENARI, PC 18 e PC 17)"
   }
  ]
 }
