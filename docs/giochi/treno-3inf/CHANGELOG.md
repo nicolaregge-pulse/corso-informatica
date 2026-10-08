@@ -2,7 +2,7 @@
 
 ## v1.1 — 08/10/2026 12:24 — Black Panter (Pull Request #1 e #2, squadra SCENARI)
 
-1. PR #1 (PC 18) e PR #2 (PC 17), consegnate su Classroom: il cattivo «Black Panter», mimetica nera con i dettagli argento, esce da dietro una porta e quando spara dice «Yahuu!».
+1. PR #1 di Dani (PC 18) e PR #2 di Ale (PC 17), consegnate su Classroom: il cattivo «Black Panter», mimetica nera con i dettagli argento, esce da dietro una porta e quando spara dice «Yahuu!».
 2. Il motore ora sa fare mimetiche di colori diversi: nuova mimetica «nera» con macchie argento.
 
 ## v1.0 — 08/10/2026 12:10 — Il fork della 3INF
