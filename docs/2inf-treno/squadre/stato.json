@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 09:45",
- "messaggio": "Da adesso consegna SOLO il capo squadra: le richieste di modifica della squadra vanno nel Documento del CAPO, punto 2. I compagni passano le idee al capo. La CEO fa il giro delle squadre ogni 10 minuti.",
+ "aggiornato": "08/10/2026 09:48",
+ "messaggio": "Capi squadra: date UNA carta a OGNI compagno (le trovate nella scheda della vostra squadra). 10 minuti, poi ognuno vi porta una riga e voi la scrivete nel Documento.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -37,7 +37,11 @@
     }
    ],
    "file": [],
-   "aiuto": "Lo stipendio della CEO è la media delle squadre: più tutti lavorano, più guadagni. Bonus se alle 10:00 tutte le squadre hanno almeno 3 richieste."
+   "aiuto": "Lo stipendio della CEO è la media delle squadre: più tutti lavorano, più guadagni. Bonus se alle 10:00 tutte le squadre hanno almeno 3 richieste.",
+   "carte": [
+    "Giro delle squadre ogni 10 minuti: chi fa cosa? Scrivilo nel verbale.",
+    "Chi è fermo riceve subito una carta della sua squadra."
+   ]
   },
   "scenari": {
    "nome": "SCENARI",
@@ -72,7 +76,14 @@
     "ambienti/mare.json",
     "percorso.json"
    ],
-   "aiuto": "«oggetti» può essere: alberi, case, palazzi, rocce, onde. «densita»: 1 = pochi, 3 = tanti."
+   "aiuto": "«oggetti» può essere: alberi, case, palazzi, rocce, onde. «densita»: 1 = pochi, 3 = tanti.",
+   "carte": [
+    "Il BOSCO: scegli il colore del cielo e della terra e 3 oggetti (alberi, rocce...). Dove si nascondono i cattivi?",
+    "Il PAESE: colori, case, cosa si vede dal finestrino.",
+    "La CITTÀ: palazzi, luci, di giorno o di notte?",
+    "La MONTAGNA: neve? gallerie? rocce che cadono?",
+    "Il MARE: onde, barche, il treno passa su un ponte?"
+   ]
   },
   "personaggi": {
    "nome": "PERSONAGGI",
@@ -102,7 +113,14 @@
     "facce.json",
     "cattivi/"
    ],
-   "aiuto": "Le facce vere vanno solo nella cartella facce, solo di chi ha detto sì."
+   "aiuto": "Le facce vere vanno solo nella cartella facce, solo di chi ha detto sì.",
+   "carte": [
+    "Il PROTAGONISTA: nome, colore della giacca e dei capelli, una frase quando vince.",
+    "CATTIVO 1: nome inventato, colore, come si muove, la sua frase.",
+    "CATTIVO 2: nome inventato, colore, come si muove, la sua frase.",
+    "Le FRASI: 5 frasi divertenti dei cattivi quando colpiscono il vetro.",
+    "CONTROLLO: nessun nome vero, nessuna parolaccia, le foto solo di chi ha detto sì."
+   ]
   },
   "motore": {
    "nome": "MOTORE FISICA",
@@ -126,7 +144,14 @@
    "file": [
     "regole.json"
    ],
-   "aiuto": "Cambia un valore alla volta: così capisci cosa fa ognuno. È così che lavorano i game designer."
+   "aiuto": "Cambia un valore alla volta: così capisci cosa fa ognuno. È così che lavorano i game designer.",
+   "carte": [
+    "VELOCITÀ del treno: gioca 1 partita, è troppo lento o troppo veloce? Proponi un numero da 0.5 a 3 e perché.",
+    "TEMPO prima che i cattivi sparino: proponi un numero da 0.8 a 5 secondi e perché.",
+    "COLPI del vetro: 5 colpi sono pochi o tanti? Proponi un numero e perché.",
+    "PUNTI: quanti punti per ogni cattivo colpito e per ogni km? Proponi i numeri.",
+    "DIFFICOLTÀ: il gioco deve diventare più difficile andando avanti? Come, ambiente per ambiente?"
+   ]
   },
   "test": {
    "nome": "TEST QUALITÀ (la Triade)",
@@ -148,7 +173,14 @@
     }
    ],
    "file": [],
-   "aiuto": "Un buon tester non dice solo «non va»: dice esattamente come farlo succedere di nuovo."
+   "aiuto": "Un buon tester non dice solo «non va»: dice esattamente come farlo succedere di nuovo.",
+   "carte": [
+    "Prova sul PC: 3 partite, scrivi ogni difetto (cosa succede, dove, come rifarlo).",
+    "Prova sul TELEFONO: 3 partite, i bottoni si vedono? si tocca bene?",
+    "Prova UX: fai giocare un compagno senza spiegare. Dove si blocca?",
+    "Revisione: leggi le richieste di modifica delle altre squadre. Vanno bene? Scrivi «ok» o «da sistemare» e perché.",
+    "Classifica dei difetti: metti in ordine dal più grave al meno grave."
+   ]
   }
  },
  "cattivi": {
@@ -196,5 +228,13 @@
    "fuori": 0,
    "nota": "Il CEO prende punti quando le squadre lavorano: controlla che ognuno abbia un compito e porta al prof le idee migliori."
   }
- }
+ },
+ "come_capo": [
+  "Leggi le carte della tua squadra (qui sotto) e dai UNA carta a OGNI compagno. Scrivi su un foglio: nome · carta.",
+  "Dai 10 minuti. Ognuno lavora su carta o al PC (anche con Gemini) sulla SUA carta.",
+  "Ognuno ti porta 1 riga: cosa cambiare nel gioco · perché.",
+  "Tu la scrivi nel tuo Documento del compito, punto 2: SQUADRA · cosa cambiare · perché (numerate).",
+  "Chi ha finito prende un'altra carta. Chi è fermo: vai da lui e fate insieme la prima riga.",
+  "Ogni ora compili il modulo degli stipendi: paghi di più chi ti ha portato più righe."
+ ]
 }
