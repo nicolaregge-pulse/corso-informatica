@@ -6,7 +6,7 @@ table{border-collapse:collapse;width:100%;min-width:640px}td,th{border-top:1px s
 .v{font-weight:900;font-size:22px;border-radius:10px;padding:2px 10px;display:inline-block;min-width:44px;text-align:center}
 .ok{color:#3fb950;font-weight:900}.no{color:#f85149;font-weight:900}.mez{color:#d29922;font-weight:900}a{color:#58a6ff}
 .sq{display:inline-block;border:1px solid #30363d;border-radius:10px;padding:8px 12px;margin:4px}</style></head>
-<body><div class="w"><h1>3INF — Report e voti di adesso</h1>
+<body><div class="w"><h1>3INF — Report: voti, valutazione dei dipendenti e stipendi</h1>
 <p class="mu">Il voto si aggiorna mentre lavorate. Cerca il numero del tuo PC: vedi cosa hai fatto, il voto di adesso e cosa ti manca per salire. <b id="agg"></b></p>
 <div class="card" id="regola"></div>
 <div class="card"><b>Le squadre (media dei voti)</b><div id="squadre"></div></div>
@@ -15,12 +15,14 @@ table{border-collapse:collapse;width:100%;min-width:640px}td,th{border-top:1px s
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function col(v){return v>=80?'#238636':v>=60?'#9e6a03':'#da3633'}
+function soldi(v){return Math.max(0,Math.min(100,Math.round((v-40)*100/60)))}
+function giudizio(v){return v>=85?['ECCELLENTE','#238636']:v>=70?['BUONO','#2f81f7']:v>=55?['DA MIGLIORARE','#9e6a03']:['A RISCHIO LICENZIAMENTO','#da3633']}
 function st(x){return x==='merged'?'<span class="ok">✓</span>':x==='parziale'?'<span class="mez">½</span>':'<span class="no">✗</span>'}
 function carica(){fetch('report.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){
- document.getElementById('agg').textContent='Aggiornato: '+D.aggiornato;document.getElementById('regola').innerHTML='<b>Come si calcola il voto:</b> '+e(D.regola);
+ document.getElementById('agg').textContent='Aggiornato: '+D.aggiornato;document.getElementById('regola').innerHTML='<b>Come si calcola il voto:</b> '+e(D.regola)+'<br><b>Valutazione del dipendente:</b> 85 e più ECCELLENTE · 70-84 BUONO · 55-69 DA MIGLIORARE · sotto 55 A RISCHIO LICENZIAMENTO.<br><b>Stipendio virtuale all\'ora:</b> da 0 $ (voto 40, non hai fatto niente) a 100 $ (voto 100).';
  var S={};D.righe.forEach(function(r){if(r.squadra==='?')return;(S[r.squadra]=S[r.squadra]||[]).push(r.voto)});
- document.getElementById('squadre').innerHTML=Object.keys(S).map(function(k){var m=Math.round(S[k].reduce(function(a,b){return a+b},0)/S[k].length);return '<span class="sq">'+e(k)+' <span class="v" style="background:'+col(m)+'">'+m+'</span></span>'}).join('');
- document.getElementById('t').innerHTML='<tr><th>PC</th><th>Squadra · pezzo</th><th>0</th><th>PR-1</th><th>PR-2</th><th>PR-3</th><th>PR-4</th><th>Cosa ha fatto</th><th>Voto</th><th>Per salire</th></tr>'+
-  D.righe.map(function(r){return '<tr><td><b>'+e(r.pc)+'</b></td><td>'+e(r.squadra)+'<br><span class="mu">'+e(r.pezzo)+'</span></td><td>'+(r.f0?'<span class="ok">✓</span>':'<span class="no">✗</span>')+'</td><td>'+st(r.p1)+'</td><td>'+st(r.p2)+'</td><td>'+st(r.p3)+'</td><td>'+st(r.p4)+'</td><td>'+e(r.fatto)+'</td><td><span class="v" style="background:'+col(r.voto)+'">'+r.voto+'</span></td><td class="mu">'+e(r.manca.join(' · '))+'</td></tr>'}).join('')})}
+ document.getElementById('squadre').innerHTML=Object.keys(S).map(function(k){var m=Math.round(S[k].reduce(function(a,b){return a+b},0)/S[k].length),tot=S[k].reduce(function(a,b){return a+soldi(b)},0);return '<span class="sq">'+e(k)+' <span class="v" style="background:'+col(m)+'">'+m+'</span> · stipendi '+tot+' $/ora</span>'}).join('');
+ document.getElementById('t').innerHTML='<tr><th>PC</th><th>Squadra · pezzo</th><th>0</th><th>PR-1</th><th>PR-2</th><th>PR-3</th><th>PR-4</th><th>Cosa ha fatto</th><th>Voto</th><th>Valutazione del dipendente</th><th>Stipendio all\'ora</th><th>Per salire</th></tr>'+
+  D.righe.map(function(r){return '<tr><td><b>'+e(r.pc)+'</b></td><td>'+e(r.squadra)+'<br><span class="mu">'+e(r.pezzo)+'</span></td><td>'+(r.f0?'<span class="ok">✓</span>':'<span class="no">✗</span>')+'</td><td>'+st(r.p1)+'</td><td>'+st(r.p2)+'</td><td>'+st(r.p3)+'</td><td>'+st(r.p4)+'</td><td>'+e(r.fatto)+'</td><td><span class="v" style="background:'+col(r.voto)+'">'+r.voto+'</span></td><td><b style="color:'+giudizio(r.voto)[1]+'">'+giudizio(r.voto)[0]+'</b></td><td><b style="font-size:20px">'+soldi(r.voto)+' $</b></td><td class="mu">'+e(r.manca.join(' · '))+'</td></tr>'}).join('')})}
 carica();setInterval(carica,30000);
 </script></body></html>
