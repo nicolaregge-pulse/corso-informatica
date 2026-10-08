@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3INF — Pull Request in tempo reale</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--bd:#30363d;--tx:#e6edf3;--mu:#8b949e;--verde:#238636;--viola:#8957e5;--rosso:#da3633;--oro:#ffd34d}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:16px;line-height:1.45}.w{max-width:960px;margin:0 auto;padding:16px}
+h1{margin:4px 0;font-size:clamp(22px,6vw,32px)}h2{font-size:19px;margin:0 0 8px}.mu{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px 16px;margin:12px 0}
+.sprint{display:flex;flex-wrap:wrap;gap:8px}.sprint div{flex:1 1 150px;border:1px solid var(--bd);border-radius:10px;padding:8px 10px}
+.sprint .ora{font-size:13px;color:var(--mu)}.sprint .on{border-color:var(--oro);box-shadow:0 0 0 2px var(--oro) inset}.sprint .ok{opacity:.6}
+.big{font-size:clamp(26px,8vw,44px);font-weight:900;color:var(--oro)}
+.pr{display:flex;gap:10px;align-items:flex-start;border-top:1px solid var(--bd);padding:9px 0}.pr:first-child{border-top:0}
+.st{flex:0 0 auto;border-radius:999px;padding:3px 10px;font-weight:800;font-size:13px;color:#fff}.aperta{background:var(--verde)}.merged{background:var(--viola)}.cambiare{background:var(--rosso)}
+.riga{display:flex;gap:10px;align-items:center;border-top:1px solid var(--bd);padding:7px 0}
+.bar{background:#21262d;border-radius:6px;height:8px;margin-top:4px}.bar i{display:block;height:8px;border-radius:6px;background:var(--verde)}
+.chip{display:inline-block;background:#3d1d1d;border:1px solid var(--rosso);border-radius:999px;padding:3px 10px;margin:3px;font-weight:700}
+a{color:#58a6ff;font-weight:700}.live{display:inline-block;width:10px;height:10px;border-radius:50%;background:#3fb950;margin-right:6px;animation:p 1.2s infinite}@keyframes p{50%{opacity:.25}}
+</style></head>
+<body><div class="w">
+<h1>Il gioco della classe — Pull Request in tempo reale</h1>
+<p class="mu"><span class="live"></span>3INF · Si consegna SOLO su Classroom: ogni punto del vostro Documento è una Pull Request. Gli sviluppatori la leggono, fanno il merge e pubblicano la versione nuova. La pagina si aggiorna da sola. <b id="agg"></b></p>
+<p class="mu" style="font-size:14px">সব কাজ Classroom-এ জমা দাও। প্রতিটি অংশ একটি Pull Request। এই পাতা নিজে থেকেই আপডেট হয়।</p>
+<div class="card"><h2>Le fasi (sprint)</h2><div class="sprint" id="sprint"></div><p id="conto" class="big" style="margin:10px 0 0"></p></div>
+<div class="card"><h2>Chi non ha ancora consegnato la fase di adesso</h2><div id="mancano"></div><p class="mu" style="font-size:14px">Solo il numero del PC. Consegna nel tuo Documento su Classroom e il tuo numero sparisce.</p></div>
+<div class="card"><h2>Le Pull Request <span class="mu" id="contaPR"></span></h2><div id="prs"></div></div>
+<div class="card"><h2>Squadre</h2><div id="squadre"></div></div>
+<div class="card"><h2>Le versioni del gioco</h2><div id="versioni"></div><a href="../giochi/assalto-dei-mostri/">Gioca l'ultima versione</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commits/main/docs/giochi/assalto-dei-mostri">i commit su GitHub</a></div>
+<div class="card"><h2>Messaggio</h2><div id="msg"></div></div>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function $(i){return document.getElementById(i)}var D=null;
+function minuti(hhmm){var p=hhmm.split(':'),d=new Date();d.setHours(+p[0],+p[1],0,0);return d}
+function conto(){if(!D)return;var now=new Date(),s=(D.sprint||[]).filter(function(x){return minuti(x.ora)>now})[0];
+ $('sprint').innerHTML=(D.sprint||[]).map(function(x){var c=minuti(x.ora)<now?'ok':(x===s?'on':'');return '<div class="'+c+'"><b>'+e(x.nome)+'</b><div class="ora">entro le '+e(x.ora)+'</div></div>'}).join('');
+ if(s){var ms=minuti(s.ora)-now,m=Math.floor(ms/60000),sec=Math.floor(ms/1000)%60;$('conto').textContent=s.nome+': mancano '+m+':'+(sec<10?'0':'')+sec}else $('conto').textContent='Tempo finito: premete Consegna!'}
+function disegna(){$('agg').textContent='Aggiornata: '+D.aggiornato;$('msg').textContent=D.messaggio||'';
+ var P=D.prs||[];$('contaPR').textContent='('+P.length+' in tutto · '+P.filter(function(x){return x.stato==='merged'}).length+' con il merge)';
+ $('prs').innerHTML=P.length?P.slice().reverse().map(function(x){var c=x.stato==='merged'?'merged':(x.stato==='da cambiare'?'cambiare':'aperta');return '<div class="pr"><span class="st '+c+'">'+e(x.stato.toUpperCase())+'</span><div><b>#'+x.n+' '+e(x.titolo)+'</b><br><span class="mu">'+e(x.fase)+' · PC '+e(x.pc)+' · '+e(x.squadra)+(x.versione?' · nella versione '+e(x.versione):'')+(x.nota?' · '+e(x.nota):'')+'</span></div></div>'}).join(''):'<p class="mu">Ancora nessuna Pull Request: la prima che arriva va in cima!</p>';
+ var M=D.mancano||{};$('mancano').innerHTML=Object.keys(M).map(function(k){return '<p><b>'+e(k)+'</b><br>'+(M[k].length?M[k].map(function(pc){return '<span class="chip">PC '+e(pc)+'</span>'}).join(''):'<span class="mu">tutti hanno consegnato!</span>')+'</p>'}).join('')||'<p class="mu">Il primo controllo arriva tra pochi minuti.</p>';
+ var S=D.squadre||{},k=Object.keys(S).sort(function(a,b){return S[b].punti-S[a].punti}),mx=Math.max.apply(null,k.map(function(x){return Math.max(1,S[x].punti)}).concat([1]));
+ $('squadre').innerHTML=k.map(function(x,i){var q=S[x];return '<div class="riga"><b style="min-width:34px">'+(i+1)+'°</b><div style="flex:1"><b>'+e(q.nome)+'</b> <span class="mu">'+q.punti+' punti · PR con il merge '+(q.merged||0)+' · consegne '+(q.consegne||0)+'/'+(q.attese||0)+'</span><div class="bar"><i style="width:'+Math.max(3,Math.round(100*Math.max(0,q.punti)/mx))+'%"></i></div></div></div>'}).join('');
+ $('versioni').innerHTML=(D.versioni||[]).slice().reverse().map(function(v){return '<div class="riga"><span class="st merged">'+e(v.versione)+'</span><div>'+e(v.nome)+'<br><span class="mu">'+e(v.pr||'')+'</span></div></div>'}).join('');conto()}
+function carica(){fetch('stato.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;disegna()}).catch(function(){})}
+carica();setInterval(carica,30000);setInterval(conto,1000);
+</script></body></html>

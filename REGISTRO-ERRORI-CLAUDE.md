@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.12** — 08/10/2026
+**Versione 2.13** — 08/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -227,3 +227,14 @@ lezione.*
 35. **07/10, 13:52-14:01 — zip per i ragazzi non consegnato prima della campanella (3INF).** Nicola ha chiesto lo zip alle 13:52; io ho aspettato bloccato fino a 9 minuti la raccolta automatica dello script per avere gli screenshot, senza dare niente nel frattempo e senza leggere i suoi messaggi («sono 13:57», «2 minuti»). Risultato: classe finita senza zip. **Regole:** 1) a fine ora si consegna SUBITO quello che c'è (bozza con i dati disponibili, segnata come bozza) e si aggiorna dopo; 2) mai attese bloccanti di più di 1 minuto durante la lezione: le attese vanno in background; 3) lo zip per i ragazzi è pronto 10 minuti prima della campanella (per l'ultima ora: alle 13:50), con i dati di quel momento.
 36. **07/10, 16:30 — RIPETIZIONE dell'errore 11: firma data per mancante dal bottone «FIRMA ✓» (3INF).** Leggendo l'HTML del Registro di corso ho scritto a Nicola che le ore 5 e 6 «non risultavano firmate» perché c'era il bottone «Firma ✔»; Nicola le aveva firmate in classe. Il bottone resta anche sulle ore firmate (serve a rifirmare dopo aver cambiato l'argomento). In più il segnalibro «Firma registro» v1.0 usava proprio la presenza del bottone per capire se un'ora era firmata. **Regole:** 1) prima di dire qualcosa sulle firme si rilegge la regola 11: la prova è «Visualizza tutte le firme arretrate» o «Da firmare», mai il bottone; 2) uno strumento che deve riconoscere uno stato (firmato / non firmato) si costruisce con un esempio VERO di ENTRAMBI gli stati, chiesto al docente prima di consegnarlo; 3) il segnalibro non decide da solo che un'ora è «da firmare»: mostra lo stato che legge e chiede conferma.
 37. **08/10, 09:21 — «lo script è fermo» detto senza prova (2INF).** Nessun commit dello script da ieri alle 14:02 e il compito non ancora su Classroom: ho concluso che lo script era fermo e ho fatto segnare il compito «da creare a mano», togliendolo alla coda. In realtà lo script non aveva niente da fare (i compiti di oggi erano in attesa dell'OK) e il compito era in coda da meno di un giro (5 minuti); rimesso in coda, è uscito alle 09:25. Risultato: 5 minuti persi e rischio di compito doppio. **Regole:** 1) prima di dire che lo script è fermo si manda un comando di prova (`classroom.compiti`) e si aspetta un giro intero (5-6 minuti); 2) un compito in coda non si toglie dalla coda finché la prova non dice che lo script è fermo; 3) al docente si dice subito «esce entro 5 minuti», non «non funziona».
+
+## 08/10/2026 — 2INF, «Il treno blindato»: per un'ora e mezza quasi nessuno ha consegnato (#38)
+
+1. **Cosa è successo.** Fino alle 10:10 le consegne erano zero; la prima consegna vera è arrivata dopo l'annuncio degli investitori, quasi tutti hanno consegnato solo con il compito «idea e difetto» delle 10:35.
+2. **Errori miei.**
+   1. Ho mescolato due canali: le pagine spiegavano fork e Pull Request vere su GitHub, il compito chiedeva le consegne su Classroom. I ragazzi non sapevano dove consegnare.
+   2. Ho fatto consegnare solo il capo squadra: tutti gli altri non avevano un lavoro da consegnare e si sono fermati.
+   3. Il primo lavoro obbligatorio con un orario è arrivato tardi; prima c'erano solo «lavori da fare» senza scadenza.
+   4. Ho aperto troppi canali (due moduli, pagine, annunci): i moduli hanno avuto zero risposte.
+   5. Ho letto i Documenti tardi: all'inizio aspettavo il bottone «Consegna».
+3. **Regola (vale da oggi, per tutte le classi).** In un progetto di squadra: (1) un solo canale, il Documento del compito su Classroom; (2) ogni punto del Documento è una Pull Request che Claude legge, integra e pubblica come versione nuova; (3) TUTTI consegnano, ognuno nel suo Documento, con fasi a orario (una ogni 20-25 minuti) e una frase da completare già scritta; (4) la prima fase scade entro 20 minuti dall'inizio; (5) Claude legge i Documenti ogni 5 minuti fin dall'inizio, anche senza «Consegna», e pubblica i numeri di PC che non hanno ancora consegnato; (6) niente GitHub per i ragazzi se non è il lavoro del giorno.
