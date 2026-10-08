@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:15",
+ "aggiornato": "08/10/2026 12:17",
  "messaggio": "⏱ SI FINISCE ALLE 13:05. PR-1 (il tuo cattivo) entro le 12:25: copia la riga gialla qui sopra nel tuo Documento e cambia le parole in MAIUSCOLO.",
  "sprint": [
   {
@@ -25,7 +25,43 @@
  ],
  "mancano": {},
  "prs": [],
- "squadre": {},
+ "squadre": {
+  "ceo": {
+   "nome": "CEO",
+   "punti": 0,
+   "merged": 0,
+   "consegne": 0,
+   "attese": 1
+  },
+  "scenari": {
+   "nome": "SCENARI",
+   "punti": 0,
+   "merged": 0,
+   "consegne": 0,
+   "attese": 4
+  },
+  "personaggi": {
+   "nome": "PERSONAGGI",
+   "punti": 0,
+   "merged": 0,
+   "consegne": 0,
+   "attese": 4
+  },
+  "motore": {
+   "nome": "MOTORE FISICA",
+   "punti": 0,
+   "merged": 0,
+   "consegne": 0,
+   "attese": 5
+  },
+  "test": {
+   "nome": "TEST QUALITÀ",
+   "punti": 0,
+   "merged": 0,
+   "consegne": 0,
+   "attese": 5
+  }
+ },
  "versioni": [
   {
    "versione": "v1.0",
