@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:26",
+ "aggiornato": "08/10/2026 12:30",
  "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Massimo 100.",
  "righe": [
   {
@@ -8,14 +8,14 @@
    "pezzo": "capo squadra · la città",
    "f0": true,
    "p1": "merged",
-   "p2": "",
+   "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #2: Black Panter (nel gioco v1.1)",
-   "voto": 65,
+   "fatto": "PR #2 Black Panter, PR #5 montagna e tempo (v1.1, v1.2)",
+   "voto": 80,
    "manca": [
-    "PR-2 (+15)",
-    "PR-3 (+15)"
+    "PR-3 (+15)",
+    "PR-4 (+15)"
    ]
   },
   {
@@ -24,14 +24,14 @@
    "pezzo": "la montagna",
    "f0": true,
    "p1": "merged",
-   "p2": "",
+   "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #1: Black Panter (nel gioco v1.1)",
-   "voto": 65,
+   "fatto": "PR #1 Black Panter, PR #4 montagna e tempo (v1.1, v1.2)",
+   "voto": 80,
    "manca": [
-    "PR-2 (+15)",
-    "PR-3 (+15)"
+    "PR-3 (+15)",
+    "PR-4 (+15)"
    ]
   },
   {
@@ -39,15 +39,15 @@
    "squadra": "SCENARI",
    "pezzo": "il bosco",
    "f0": true,
-   "p1": "parziale",
-   "p2": "",
+   "p1": "merged",
+   "p2": "parziale",
    "p3": "",
    "p4": "",
-   "fatto": "PR #3 da completare: mancano colore, nascondiglio, frase",
-   "voto": 55,
+   "fatto": "PR #7 Black Panther, PR #8 da completare",
+   "voto": 70,
    "manca": [
-    "PR-1 da completare (+15)",
-    "PR-2 (+15)"
+    "PR-2 da completare (+15)",
+    "PR-3 (+15)"
    ]
   },
   {
@@ -71,15 +71,15 @@
    "squadra": "PERSONAGGI",
    "pezzo": "capo squadra · il protagonista",
    "f0": false,
-   "p1": "",
+   "p1": "merged",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
+   "fatto": "PR #6 Travor (manca la frase)",
+   "voto": 55,
    "manca": [
     "punto 0 (+10)",
-    "PR-1 (+15)"
+    "PR-2 (+15)"
    ]
   },
   {
@@ -123,7 +123,7 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "squadra scritta",
+   "fatto": "squadra scritta; ha premuto Consegna: deve annullare e continuare",
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -171,7 +171,7 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "squadra scritta",
+   "fatto": "squadra scritta; ha premuto Consegna: deve annullare e continuare",
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -215,15 +215,15 @@
    "squadra": "TEST QUALITÀ",
    "pezzo": "prova con un compagno",
    "f0": false,
-   "p1": "",
+   "p1": "parziale",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "niente ancora",
-   "voto": 40,
+   "fatto": "PR #9 da completare: Franciscos",
+   "voto": 45,
    "manca": [
     "punto 0 (+10)",
-    "PR-1 (+15)"
+    "PR-1 da completare (+15)"
    ]
   },
   {

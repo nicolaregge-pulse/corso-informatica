@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 12:24",
- "messaggio": "12:24 — Prima versione della 3INF con le vostre Pull Request: v1.1 con «Black Panter» della squadra SCENARI! Tutti gli altri: PR-1 entro 1 minuto, poi subito la PR-2.",
+ "aggiornato": "08/10/2026 12:30",
+ "messaggio": "12:30 — Versione 1.2: la montagna di Dani e Ale e Travor di Tomas! ATTENZIONE: chi ha premuto «Consegna» ha il Documento bloccato: premi «Annulla consegna» e continua a scrivere.",
  "sprint": [
   {
    "nome": "PR-1 Il mio mostro",
@@ -24,13 +24,10 @@
   }
  ],
  "mancano": {
-  "PR-1 il mio cattivo — entro le 12:25": [
+  "PR-1 il mio cattivo (in ritardo!)": [
    "14",
-   "15",
-   "16 (da completare)",
    "21",
    "22",
-   "23",
    "24",
    "25",
    "27",
@@ -40,7 +37,10 @@
    "35",
    "36",
    "37",
-   "+ 3 PC senza numero"
+   "+ CEO e 2 PC senza numero"
+  ],
+  "PR-2 entro le 12:40": [
+   "tutti tranne PC 17 e 18"
   ]
  },
  "prs": [
@@ -70,10 +70,72 @@
    "pc": "16",
    "squadra": "SCENARI",
    "fase": "PR-1",
-   "titolo": "Il cattivo «black»: mancano colore, nascondiglio e frase",
-   "stato": "aperta",
-   "nota": "da completare",
+   "titolo": "Completata con la #7",
+   "stato": "merged",
+   "nota": "",
    "autore": "Mirko"
+  },
+  {
+   "n": 4,
+   "pc": "18",
+   "autore": "Dani",
+   "squadra": "SCENARI",
+   "fase": "PR-2",
+   "titolo": "Si parte dalla montagna, cielo sereno, il tempo peggiora a ogni livello",
+   "stato": "merged",
+   "versione": "v1.2"
+  },
+  {
+   "n": 5,
+   "pc": "17",
+   "autore": "Ale",
+   "squadra": "SCENARI",
+   "fase": "PR-2",
+   "titolo": "Uguale alla #4 (strada di montagna con le curve, tempo variabile)",
+   "stato": "merged",
+   "versione": "v1.2",
+   "nota": "le curve arrivano dopo"
+  },
+  {
+   "n": 6,
+   "pc": "15",
+   "autore": "Tomas",
+   "squadra": "PERSONAGGI",
+   "fase": "PR-1",
+   "titolo": "Il cattivo Travor, mimetica grigio scuro",
+   "stato": "merged",
+   "versione": "v1.2",
+   "nota": "manca la frase: completala"
+  },
+  {
+   "n": 7,
+   "pc": "16",
+   "autore": "Mirko",
+   "squadra": "SCENARI",
+   "fase": "PR-1",
+   "titolo": "Black Panther completato (uguale alla #1)",
+   "stato": "merged",
+   "versione": "v1.1"
+  },
+  {
+   "n": 8,
+   "pc": "16",
+   "autore": "Mirko",
+   "squadra": "SCENARI",
+   "fase": "PR-2",
+   "titolo": "Montagna con cielo sereno: mancano gli oggetti vicino ai binari e il perché",
+   "stato": "aperta",
+   "nota": "da completare"
+  },
+  {
+   "n": 9,
+   "pc": "23",
+   "autore": "Eric",
+   "squadra": "TEST QUALITÀ",
+   "fase": "PR-1",
+   "titolo": "Il cattivo «Franciscos»: mancano mimetica, nascondiglio e frase",
+   "stato": "aperta",
+   "nota": "da completare"
   }
  ],
  "squadre": {
@@ -86,15 +148,15 @@
   },
   "scenari": {
    "nome": "SCENARI",
-   "punti": 55,
-   "merged": 2,
+   "punti": 100,
+   "merged": 5,
    "consegne": 3,
    "attese": 4
   },
   "personaggi": {
    "nome": "PERSONAGGI",
-   "punti": 5,
-   "merged": 0,
+   "punti": 20,
+   "merged": 1,
    "consegne": 1,
    "attese": 4
   },
@@ -107,9 +169,9 @@
   },
   "test": {
    "nome": "TEST QUALITÀ",
-   "punti": 0,
+   "punti": 5,
    "merged": 0,
-   "consegne": 0,
+   "consegne": 1,
    "attese": 5
   }
  },
@@ -123,6 +185,11 @@
    "versione": "v1.1",
    "nome": "Black Panter",
    "pr": "PR #1 di Dani (PC 18) e #2 di Ale (PC 17), squadra SCENARI"
+  },
+  {
+   "versione": "v1.2",
+   "nome": "Montagna, tempo che peggiora, Travor",
+   "pr": "PR #4 Dani, #5 Ale (SCENARI), #6 Tomas (PERSONAGGI)"
   }
  ]
 }
