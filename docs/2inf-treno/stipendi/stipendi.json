@@ -1,9 +1,13 @@
 {
  "aggiornato": "08/10/2026 09:45",
  "regole": {
-  "paga_massima": {"CEO": 100, "Capo squadra": 80, "Componente": 60},
-  "rendimento": "Richieste di modifica (Pull Request) scritte nel TUO Documento del compito in quell'ora: 0 = 0% · 1 = 30% · 2 = 50% · 3 = 70% · 4-5 = 85% · 6 o più = 100%. Ogni file utile allegato (disegno, foto dello schema, screenshot) +5%. Ogni volta che il prof ti trova al PC a fare altro −25%. Il capo squadra perde il 10% per ogni compagno trovato a fare altro. La CEO prende la media delle squadre.",
-  "stipendio": "stipendio dell'ora = paga massima del ruolo × rendimento"
+  "paga_massima": {
+   "CEO": 100,
+   "Capo squadra": 80,
+   "Componente": "budget del capo: 80 in media, massimo 100"
+  },
+  "rendimento": "Capo squadra: dipende dalle richieste di modifica che consegna nell'ora (0 = 0% · 1 = 30% · 2 = 50% · 3 = 70% · 4-5 = 85% · 6 o più = 100%) e perde il 10% per ogni compagno trovato al PC a fare altro. Componenti: li paga il capo squadra con il suo budget (80 $ in media per compagno: meno a chi lavora poco, di più a chi lavora tanto, massimo 100 $), con il modulo degli stipendi. Il prof toglie 25 $ a chi trova al PC a fare altro. CEO: la media delle squadre, più un bonus se tutte le squadre lavorano.",
+  "stipendio": "capo e CEO: paga massima × rendimento · componenti: quanto decide il capo, nel budget"
  },
  "buste_paga": [
   {
@@ -12,14 +16,50 @@
    "uscita": "08/10/2026 09:45",
    "nota": "Prima ora: tutta la classe ha progettato insieme alla lavagna. Paga uguale per tutti i presenti: 50% della paga massima del ruolo.",
    "righe": [
-    {"chi": "CEO", "squadra": "CEO", "ruolo": "CEO", "rendimento": 50, "dollari": 50},
-    {"chi": "Capo squadra", "squadra": "SCENARI", "ruolo": "Capo squadra", "rendimento": 50, "dollari": 40},
-    {"chi": "Capo squadra", "squadra": "PERSONAGGI", "ruolo": "Capo squadra", "rendimento": 50, "dollari": 40},
-    {"chi": "Capo squadra", "squadra": "MOTORE FISICA", "ruolo": "Capo squadra", "rendimento": 50, "dollari": 40},
-    {"chi": "Triade (3 persone)", "squadra": "TEST QUALITÀ", "ruolo": "Capo squadra", "rendimento": 50, "dollari": 40},
-    {"chi": "Ogni componente", "squadra": "tutte", "ruolo": "Componente", "rendimento": 50, "dollari": 30}
+    {
+     "chi": "CEO",
+     "squadra": "CEO",
+     "ruolo": "CEO",
+     "rendimento": 50,
+     "dollari": 50
+    },
+    {
+     "chi": "Capo squadra",
+     "squadra": "SCENARI",
+     "ruolo": "Capo squadra",
+     "rendimento": 50,
+     "dollari": 40
+    },
+    {
+     "chi": "Capo squadra",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Capo squadra",
+     "rendimento": 50,
+     "dollari": 40
+    },
+    {
+     "chi": "Capo squadra",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Capo squadra",
+     "rendimento": 50,
+     "dollari": 40
+    },
+    {
+     "chi": "Triade (3 persone)",
+     "squadra": "TEST QUALITÀ",
+     "ruolo": "Capo squadra",
+     "rendimento": 50,
+     "dollari": 40
+    },
+    {
+     "chi": "Ogni componente",
+     "squadra": "tutte",
+     "ruolo": "Componente",
+     "rendimento": 50,
+     "dollari": 30
+    }
    ]
   }
  ],
- "prossima": "La busta paga della 2ª ora (9-10) esce alle 10:00: conta quello che c'è scritto nel TUO Documento del compito. Alle 09:40 i Documenti erano tutti vuoti."
+ "prossima": "La busta paga della 2ª ora (9-10) esce alle 10:00: capi squadra, compilate il modulo degli stipendi (il link arriva su Classroom)."
 }

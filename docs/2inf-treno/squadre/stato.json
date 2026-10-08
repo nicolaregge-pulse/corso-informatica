@@ -1,26 +1,34 @@
 {
- "aggiornato": "08/10/2026 09:41",
- "messaggio": "Parte la classifica! Ogni richiesta di modifica scritta nel vostro Documento vale 10 punti per la squadra. Alle 09:35 tutte le squadre sono a zero: chi scrive per primo va in testa.",
+ "aggiornato": "08/10/2026 09:45",
+ "messaggio": "Da adesso consegna SOLO il capo squadra: le richieste di modifica della squadra vanno nel Documento del CAPO, punto 2. I compagni passano le idee al capo. La CEO fa il giro delle squadre ogni 10 minuti.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
    "colore": "#c0392b",
-   "obiettivo": "Guidi l'azienda: tutte le squadre lavorano, nessuno resta fermo, alla fine presenti il gioco.",
+   "obiettivo": "Far lavorare TUTTI: ogni 10 minuti giri tra le squadre, nessuno resta fermo, alle 10:00 fai il rapporto al prof.",
    "lavori": [
     {
-     "t": "SUBITO: nel tuo Documento del compito, al punto 1, scrivi la composizione di tutte le squadre (squadra · componenti · numero del PC · capo squadra). Il prof la aspetta per dare i punti.",
+     "t": "SUBITO: nel tuo Documento, punto 1, scrivi la composizione di tutte le squadre (squadra · componenti · numero del PC · capo squadra).",
      "stato": "da fare"
     },
     {
-     "t": "Giro delle squadre (5 minuti): chiedi a ogni capo squadra cosa fa e entro quando. Scrivilo sul foglio: è il backlog dell'azienda.",
+     "t": "Giro delle squadre ogni 10 minuti (9:50, 10:00, 10:10, 10:20, 10:30): per ogni squadra chiedi al capo «chi fa cosa adesso?» e scrivilo nel tuo Documento, punto 2, con l'ora. È il verbale dell'azienda.",
      "stato": "da fare"
     },
     {
-     "t": "Controlla che TUTTI abbiano fatto la Pull Request del proprio cattivo (elenco qui sotto, «Cattivi arrivati»). Aiuta chi è bloccato.",
+     "t": "Se vedi qualcuno fermo o al PC a fare altro: dagli SUBITO un lavoro dalla lista della sua squadra (questa pagina) e scrivilo nel verbale.",
      "stato": "da fare"
     },
     {
-     "t": "Decidi con il prof cosa entra nella versione treno-v1.1 (per esempio: i cattivi di tutti + i colori nuovi).",
+     "t": "Controlla che ogni capo squadra abbia almeno 3 richieste di modifica nel suo Documento entro le 10:00. Se una squadra è a zero, siediti con loro 5 minuti e aiutali a scriverne una.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Alle 10:00 rapporto al prof (a voce o nel Documento): quante richieste ha ogni squadra, chi lavora tanto, chi è rimasto indietro e cosa hai fatto per aiutarlo.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Decidi con il prof cosa entra nella versione treno-v1.1 del gioco.",
      "stato": "da fare"
     },
     {
@@ -29,7 +37,7 @@
     }
    ],
    "file": [],
-   "aiuto": "Il CEO non scrive codice: organizza, controlla, decide e parla per tutta l'azienda."
+   "aiuto": "Lo stipendio della CEO è la media delle squadre: più tutti lavorano, più guadagni. Bonus se alle 10:00 tutte le squadre hanno almeno 3 richieste."
   },
   "scenari": {
    "nome": "SCENARI",
@@ -154,7 +162,7 @@
    "file": 0,
    "nel_gioco": 0,
    "fuori": 0,
-   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "personaggi": {
    "punti": 0,
@@ -162,7 +170,7 @@
    "file": 0,
    "nel_gioco": 0,
    "fuori": 0,
-   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "motore": {
    "punti": 0,
@@ -170,7 +178,7 @@
    "file": 0,
    "nel_gioco": 0,
    "fuori": 0,
-   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "test": {
    "punti": 0,
@@ -178,7 +186,7 @@
    "file": 0,
    "nel_gioco": 0,
    "fuori": 0,
-   "nota": "Ancora zero: il capo squadra divida i compiti, ognuno scriva le sue richieste nel SUO Documento."
+   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "ceo": {
    "punti": 0,
