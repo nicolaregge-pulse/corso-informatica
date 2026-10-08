@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 09:48",
- "messaggio": "Capi squadra: date UNA carta a OGNI compagno (le trovate nella scheda della vostra squadra). 10 minuti, poi ognuno vi porta una riga e voi la scrivete nel Documento.",
+ "aggiornato": "08/10/2026 09:52",
+ "messaggio": "Uscita la versione 0.2 del gioco con i personaggi della squadra PERSONAGGI: prima squadra in classifica! Le altre squadre: date una carta a ogni compagno e consegnate le richieste di modifica.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -96,6 +96,10 @@
     },
     {
      "t": "Facce della classe: 7 foto + 4 facce disegnate sono nel gioco. Chi vuole aggiungere la sua (solo maggiorenni) la dà al responsabile della squadra, che la manda al prof.",
+     "stato": "fatto"
+    },
+    {
+     "t": "4 personaggi disegnati con l'IA (tre agenti e il Boss dei cattivi): FATTI, sono nella versione 0.2 del gioco.",
      "stato": "fatto"
     },
     {
@@ -197,12 +201,12 @@
    "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
   },
   "personaggi": {
-   "punti": 0,
+   "punti": 40,
    "richieste": 0,
-   "file": 0,
-   "nel_gioco": 0,
+   "file": 4,
+   "nel_gioco": 1,
    "fuori": 0,
-   "nota": "Il capo squadra raccoglie le idee di tutti e le scrive nel SUO Documento, punto 2. Ognuno deve dargli almeno un'idea."
+   "nota": "4 personaggi disegnati con l'IA sono entrati nel gioco: versione 0.2! Adesso il protagonista e le frasi dei cattivi."
   },
   "motore": {
    "punti": 0,
