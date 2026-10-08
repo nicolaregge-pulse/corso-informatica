@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 12:17",
- "messaggio": "⏱ SI FINISCE ALLE 13:05. PR-1 (il tuo cattivo) entro le 12:25: copia la riga gialla qui sopra nel tuo Documento e cambia le parole in MAIUSCOLO.",
+ "aggiornato": "08/10/2026 12:20",
+ "messaggio": "12:20 — Punto 0 fatto da 8 su 20: brava la squadra MOTORE (4 su 5)! Nessuna PR-1 ancora: chi consegna il primo cattivo entra per primo nel gioco. Mancano 5 minuti.",
  "sprint": [
   {
    "nome": "PR-1 Il mio mostro",
@@ -23,7 +23,23 @@
    "ora": "13:02"
   }
  ],
- "mancano": {},
+ "mancano": {
+  "Punto 0 (squadra e PC) — subito": [
+   "14",
+   "15",
+   "21",
+   "22",
+   "23",
+   "24",
+   "25",
+   "28",
+   "29",
+   "+ 3 PC senza numero"
+  ],
+  "PR-1 il mio cattivo — entro le 12:25": [
+   "tutti: nessuna PR-1 ancora"
+  ]
+ },
  "prs": [],
  "squadre": {
   "ceo": {
@@ -35,23 +51,23 @@
   },
   "scenari": {
    "nome": "SCENARI",
-   "punti": 0,
+   "punti": 15,
    "merged": 0,
-   "consegne": 0,
+   "consegne": 3,
    "attese": 4
   },
   "personaggi": {
    "nome": "PERSONAGGI",
-   "punti": 0,
+   "punti": 5,
    "merged": 0,
-   "consegne": 0,
+   "consegne": 1,
    "attese": 4
   },
   "motore": {
    "nome": "MOTORE FISICA",
-   "punti": 0,
+   "punti": 20,
    "merged": 0,
-   "consegne": 0,
+   "consegne": 4,
    "attese": 5
   },
   "test": {
