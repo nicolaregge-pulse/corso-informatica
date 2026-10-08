@@ -40,6 +40,11 @@ for f in sorted(os.listdir("ambienti")):
     if d is None: continue
     colori(p, d, ["cielo_alto", "cielo_basso", "lontano", "terra", "colore_oggetti"]); numero(p, d, "densita", 1, 3)
     if d.get("oggetti") not in ("alberi", "case", "palazzi", "rocce", "onde"): ERR.append(f"{p}: «oggetti» è alberi, case, palazzi, rocce oppure onde")
+if os.path.exists("facce.json"):
+    d = leggi("facce.json")
+    for n in (d or {}).get("facce", []):
+        if not re.fullmatch(r"[a-z0-9-]+\.(jpg|png)", str(n)) or not os.path.exists(os.path.join("facce", str(n))):
+            ERR.append(f"facce.json: «{n}» non è un file della cartella facce")
 for f in ("versione.json", "regole.json", "percorso.json", "protagonista.json", "testi.json", "suoni.json"):
     d = leggi(f)
     if d is None: continue

@@ -36,22 +36,31 @@ select{font-size:18px;padding:6px}.nota{background:#fff6d6;border-left:5px solid
 </div>
 
 <div class="box">
-  <h2>1. Le squadre e i loro file</h2>
+  <h2>1. La nostra azienda (organigramma della lavagna)</h2>
   <table>
-    <tr><th>Squadra</th><th>File</th><th>Cosa decidete</th></tr>
-    <tr><td><b>CATTIVI</b> — tutti, uno a testa</td><td>cattivi/pcNN.json</td><td>il tuo cattivo: nome, colore, faccia, frase, velocità</td></tr>
-    <tr><td><b>AMBIENTI</b> — uno per ambiente</td><td>ambienti/bosco.json, case.json, citta.json, montagna.json, mare.json</td><td>colori di cielo e terra, oggetti (alberi, case, palazzi, rocce, onde), quanti</td></tr>
-    <tr><td><b>PERCORSO e REGOLE</b></td><td>percorso.json, regole.json</td><td>l'ordine degli ambienti, la velocità del treno, i colpi del vetro, i tempi dei cattivi, i punti</td></tr>
-    <tr><td><b>PROTAGONISTA e TESTI</b></td><td>protagonista.json, testi.json</td><td>nome e colori del protagonista, titolo, frasi di fine partita anche nelle vostre lingue</td></tr>
-    <tr><td><b>SUONI</b></td><td>suoni.json</td><td>volume e note della musica di vittoria</td></tr>
+    <tr><th>Ruolo</th><th>Cosa cura</th><th>File</th></tr>
+    <tr><td><b>CEO</b></td><td>decide le priorità, approva i lavori con il prof, presenta il gioco</td><td>—</td></tr>
+    <tr><td><b>SCENARI</b></td><td>gli ambienti e il percorso: bosco, paese, città, montagna, mare</td><td>ambienti/*.json, percorso.json</td></tr>
+    <tr><td><b>PERSONAGGI</b></td><td>i cattivi, le facce della classe, il protagonista</td><td>cattivi/pcNN.json, facce.json, protagonista.json</td></tr>
+    <tr><td><b>MOTORE FISICA</b></td><td>velocità del treno, tempi dei cattivi, colpi del vetro, punti</td><td>regole.json</td></tr>
+    <tr><td><b>TEST QUALITÀ</b> (la Triade)</td><td>provano il gioco su PC e telefono, trovano i difetti, fanno la revisione delle Pull Request</td><td>—</td></tr>
+    <tr><td><b>TUTTI</b></td><td>il proprio cattivo</td><td>cattivi/pcNN.json</td></tr>
   </table>
+  <p><b>Il progetto (lavagna):</b> si guarda avanti dalla cabina, lungo i binari; i cattivi spuntano dalle finestre delle case, da dietro gli alberi e dai barili. Tre cose da curare: <b>1) dinamica</b> (come si muove il gioco), <b>2) UI</b> (cosa si vede: vetro, punti, tachimetro), <b>3) UX</b> (come ci si sente a giocare).</p>
   <p><b>Ruoli:</b> il prof è il <b>product owner</b> (decide cosa entra e fa il merge); in ogni squadra c'è un <b>project manager</b>, a turno; tutti sono <b>sviluppatori</b>; un compagno di un'altra squadra fa la <b>revisione</b>.</p>
   <p class="nota"><b>Carta e penna:</b> prima di toccare il computer, ogni squadra scrive su un foglio chi fa cosa (il <b>backlog</b>) e disegna il suo pezzo: il cattivo, il paesaggio, il percorso.</p>
 </div>
 
 <div class="box">
+  <h2>Come funziona Gemini, il nostro assistente</h2>
+  <p>Gemini ha letto moltissimi testi e ha imparato quali parole stanno insieme. Nella frase «Il <b>topo</b> è nella <b>tana</b>» collega «topo» a «scappato» e «tana» a «topolino»: quando gli scrivi, sceglie la parola che più probabilmente viene dopo. Per questo <b>più la tua frase è precisa, più la risposta è utile</b>. È un assistente: controlla sempre quello che ti risponde.</p>
+  <p class="ar">Gemini تعلّم أي الكلمات تأتي معاً. كلما كانت جملتك أدق، كانت الإجابة أفيد. تحقق دائماً من إجابته.</p>
+  <p class="zh">Gemini 学会了哪些词常常在一起。你的句子越准确，回答越有用。一定要检查它的回答。</p>
+</div>
+
+<div class="box">
   <h2>2. Il tuo cattivo</h2>
-  <p class="rosso"><b>Regola:</b> il cattivo lo inventi tu. Niente foto o facce di persone vere, niente nomi veri, niente parolacce.</p>
+  <p class="rosso"><b>Regola:</b> il cattivo lo inventi tu: niente nomi veri, niente parolacce. Le facce vere sono solo quelle dei compagni maggiorenni che hanno dato la loro foto (le inserisce la squadra Personaggi).</p>
   <p><b>a) Inventalo con l'IA.</b> Apri Gemini, incolla questa frase e cambia la parte tra parentesi quadre:</p>
   <div class="cb"><span class="lab">Frase per Gemini</span><button class="cp" data-t="pg">Copia</button><pre id="pg">Sto creando un videogioco per la scuola. Inventa un cattivo buffo che assalta un treno, in stile cartone animato, non una persona reale. Il mio cattivo è [descrivi: colore, carattere, cosa indossa]. Dammi: un nome di massimo 24 caratteri, un colore in codice esadecimale (come #8a8f98) e una frase che grida di massimo 40 caratteri.</pre></div>
   <p><b>b) Scegli il tuo PC:</b> <select id="selPC" onchange="scegliPC(this.value)"><option value="">— scegli —</option></select></p>

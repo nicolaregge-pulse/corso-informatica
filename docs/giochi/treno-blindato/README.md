@@ -2,6 +2,8 @@
 
 Il gioco della classe 2INF (Centro Padre Piamarta, Milano). Sei dentro un vagone: il treno attraversa boschi, paesi, città, montagne e mare; i cattivi saltano fuori da dietro alberi e case. Li tocchi prima che sparino: il vetro antiproiettile regge 5 colpi.
 
+**Il progetto della classe (lavagna dell'08/10):** si guarda avanti dalla cabina, lungo i binari; i cattivi spuntano dalle finestre delle case, da dietro gli alberi e dai barili. Tre cose da curare: dinamica, UI (cosa si vede), UX (come ci si sente a giocare).
+
 **Gioca:** https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-blindato/
 
 ## Come lavoriamo (come una vera azienda di software)
@@ -20,6 +22,7 @@ Il gioco della classe 2INF (Centro Padre Piamarta, Milano). Sei dentro un vagone
 | `ambienti/bosco.json`, `case.json`, `citta.json`, `montagna.json`, `mare.json` | AMBIENTI: uno per ambiente | colori del cielo e della terra, che oggetti ci sono (alberi, case, palazzi, rocce, onde), quanti |
 | `percorso.json` | PERCORSO e REGOLE | l'ordine degli ambienti e quanti secondi dura ognuno |
 | `regole.json` | PERCORSO e REGOLE | colpi del vetro, velocità del treno, tempo dei cattivi, punti |
+| `facce.json` + cartella `facce/` | PERSONAGGI | le facce dei compagni che hanno dato la foto (maggiorenni, foto date da loro): ritagliate sul viso |
 | `protagonista.json` | PROTAGONISTA e TESTI | nome e colori del protagonista |
 | `testi.json` | PROTAGONISTA e TESTI | titolo, frasi di fine partita (anche nelle vostre lingue) |
 | `suoni.json` | SUONI | volume e note della vittoria |
@@ -38,4 +41,4 @@ Il gioco della classe 2INF (Centro Padre Piamarta, Milano). Sei dentro un vagone
 | `frase` | cosa grida quando spara (massimo 40 caratteri) |
 | `immagine` | `true` se carichi anche `cattivi/pcNN.png` (inventato con l'IA), altrimenti `false` |
 
-**Regole:** il cattivo è inventato da te: niente foto o volti di persone vere, niente nomi veri, email, link, numeri di telefono o parolacce.
+**Regole:** nei file dei cattivi niente nomi veri, email, link, numeri di telefono o parolacce. Le foto vere vanno solo nella cartella `facce/`, solo di chi è maggiorenne e ha dato la sua foto; chi non vuole la sua faccia nel gioco lo dice e la si toglie subito.
