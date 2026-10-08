@@ -1,0 +1,21 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1INF · Galleria del treno</title><style>
+:root{--bg:#1a1410;--card:#2c2119;--ln:#6b5440;--tx:#fff;--mu:#d8c8b4;--oro:#ffd34d}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1000px;margin:0 auto;padding:16px}
+h1{color:var(--oro);margin:4px 0}h2{color:var(--oro);margin:20px 0 8px}.mu{color:var(--mu)}a{color:#9fd3ff}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}.c{background:var(--card);border:1px solid var(--ln);border-radius:12px;overflow:hidden}
+.c img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:#000}.c b{display:block;padding:8px 10px}
+</style></head><body><div class="w">
+<h1>La galleria del treno della 1INF</h1>
+<p class="mu">Ogni immagine è stata consegnata su Classroom ed è entrata nel gioco con il nome di chi l'ha fatta. La pagina si aggiorna da sola.
+· صور الصف في اللعبة · 全班的图片都在游戏里</p>
+<p><a href="../">Gioca</a> · <a href="../versioni/">Tutte le versioni</a> · <a href="../../grafo/">Il grafo</a></p>
+<div id="tutto"></div></div>
+<script>
+var T=[['cattivi','I cattivi (PR-1)'],['paesaggi','I paesaggi (PR-2)'],['difetti','I difetti (PR-3)'],['revisioni','Le revisioni (PR-4)']];
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function carica(){fetch('immagini.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('tutto').innerHTML=T.map(function(t){var L=d.immagini.filter(function(x){return x.tipo===t[0]});
+  return '<h2>'+t[1]+' · '+L.length+'</h2>'+(L.length?'<div class="g">'+L.map(function(x){return '<div class="c"><img loading="lazy" src="'+t[0]+'/'+e(x.file)+'" alt="'+e(x.chi)+'"><b>'+e(x.chi)+'</b></div>'}).join('')+'</div>':'<p class="mu">Ancora nessuna immagine: allega la foto al compito su Classroom e premi «Consegna».</p>')}).join('')}).catch(function(){})}
+carica();setInterval(carica,30000);
+</script></body></html>
