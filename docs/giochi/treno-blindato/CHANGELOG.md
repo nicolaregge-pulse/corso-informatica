@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.2 — 08/10/2026 09:50 — I personaggi della squadra PERSONAGGI
+
+1. Quattro personaggi disegnati con l'IA dalla squadra PERSONAGGI: tre agenti che difendono il treno e il Boss dei cattivi.
+2. Nuovo bottone «I personaggi» nella schermata iniziale.
+3. Le loro facce compaiono nel gioco, insieme a quelle della classe.
+
 ## v0.1 alfa — 08/10/2026 — La demo del prof
 
 La versione di partenza, fatta dal prof (con Claude) sul progetto della lavagna. Da qui la classe corregge il tiro: regole, scenari, personaggi, testi. La v1.0 sarà la prima versione della classe.

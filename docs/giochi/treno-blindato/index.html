@@ -35,7 +35,7 @@ button:active{transform:translateY(3px);box-shadow:none}
 <div class="sch" id="inizio" style="background:linear-gradient(rgba(20,14,10,.55),rgba(20,14,10,.92)),url(img/copertina.jpg) center top/cover">
   <h1 id="titolo">IL TRENO<br>BLINDATO</h1>
   <div class="sub" id="sottotitolo">Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!</div>
-  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="facce">Facce della classe</button><button class="sec" id="installa" hidden>Installa il gioco</button></div>
+  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="btnPers">I personaggi</button><button class="sec" id="facce">Facce della classe</button><button class="sec" id="installa" hidden>Installa il gioco</button></div>
   <div class="sub" id="record"></div>
   <div class="lista" id="cattiviClasse"></div>
   <div class="piccolo" id="controllo"></div>
@@ -47,6 +47,13 @@ button:active{transform:translateY(3px);box-shadow:none}
   <div class="big" id="punti">0</div>
   <div class="sub" id="lode"></div>
   <div class="riga"><button id="ancora">RIPARTI</button><button class="sec" id="menu">Menu</button></div>
+</div>
+
+<div class="sch" id="schPers" style="justify-content:flex-start" hidden>
+  <h1 style="font-size:32px">I PERSONAGGI</h1>
+  <div class="sub">Disegnati dalla squadra PERSONAGGI con l'intelligenza artificiale. Le loro facce compaiono nel gioco.</div>
+  <div id="galleriaPers" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:900px"></div>
+  <button id="chiudiPers">Indietro</button>
 </div>
 
 <div class="sch" id="schFacce" hidden>
@@ -308,6 +315,15 @@ var INST=null;addEventListener('beforeinstallprompt',function(ev){ev.preventDefa
 $('installa').onclick=function(){if(INST){INST.prompt();INST=null;$('installa').hidden=true}};
 aggiornaRecord();caricaTutto().then(preparaSchermate,preparaSchermate);
 })();
+
+(function(){var g=document.getElementById('galleriaPers'),sp=document.getElementById('schPers');
+ document.getElementById('btnPers').onclick=function(){sp.hidden=false;document.getElementById('inizio').hidden=true;
+  if(g.childNodes.length)return;fetch('img/personaggi/personaggi.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){(d.personaggi||[]).forEach(function(p){
+   if(!/^[a-z0-9-]+\.(jpg|png)$/i.test(p.file))return;var c=document.createElement('div');c.style.cssText='width:200px;text-align:center';
+   var im=new Image();im.src='img/personaggi/'+p.file;im.alt=p.nome;im.style.cssText='width:200px;border-radius:12px;border:3px solid #ffd34d';
+   var t=document.createElement('div');t.style.cssText='font-weight:800;margin-top:4px';t.textContent=p.nome;var r=document.createElement('div');r.style.cssText='font-size:13px;opacity:.8';r.textContent=p.ruolo;
+   c.appendChild(im);c.appendChild(t);c.appendChild(r);g.appendChild(c)})}).catch(function(){g.textContent='Personaggi non caricati.'})};
+ document.getElementById('chiudiPers').onclick=function(){sp.hidden=true;document.getElementById('inizio').hidden=false}})();
 </script>
 </body>
 </html>
