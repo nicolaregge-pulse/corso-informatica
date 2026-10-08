@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 12:03",
- "messaggio": "Si parte! PR-1 entro le 12:25: il tuo mostro, scritto nel tuo Documento su Classroom. La prima Pull Request che arriva va subito nel gioco.",
+ "aggiornato": "08/10/2026 12:10",
+ "messaggio": "Si parte! SUBITO il punto 0 del Documento (squadra, compagni, capo, ruolo, PC). Poi PR-1 entro le 12:25: il tuo cattivo. La prima Pull Request che arriva va subito nel gioco.",
  "sprint": [
   {
    "nome": "PR-1 Il mio mostro",
@@ -25,41 +25,12 @@
  ],
  "mancano": {},
  "prs": [],
- "squadre": {
-  "regole": {
-   "nome": "REGOLE",
-   "punti": 0,
-   "merged": 0,
-   "consegne": 0,
-   "attese": 0
-  },
-  "grafica": {
-   "nome": "GRAFICA",
-   "punti": 0,
-   "merged": 0,
-   "consegne": 0,
-   "attese": 0
-  },
-  "testi": {
-   "nome": "TESTI",
-   "punti": 0,
-   "merged": 0,
-   "consegne": 0,
-   "attese": 0
-  },
-  "suoni": {
-   "nome": "SUONI",
-   "punti": 0,
-   "merged": 0,
-   "consegne": 0,
-   "attese": 0
-  }
- },
+ "squadre": {},
  "versioni": [
   {
    "versione": "v1.0",
-   "nome": "Il motore (demo del prof)",
-   "pr": "punto di partenza"
+   "nome": "Il fork della 3INF: traversine di legno e nuvole",
+   "pr": "copia (fork) del gioco della 2INF v0.11 + indicazioni del prof"
   }
  ]
 }
