@@ -750,7 +750,158 @@
     }
    ],
    "nota": "dopo la v0.6"
+  },
+  {
+   "versione": "audit-v6",
+   "ora": "08/10/2026 10:31",
+   "punti": 68,
+   "investimento": 1390000,
+   "ceo": 6,
+   "voci": [
+    {
+     "cosa": "Richieste di modifica consegnate dalle squadre",
+     "valore": 4,
+     "punti": 8,
+     "max": 30,
+     "giudizio": "Le idee scritte sono il prodotto dell'azienda: senza richieste gli sviluppatori non sanno cosa fare."
+    },
+    {
+     "cosa": "Variazioni di codice su Git nate dalle vostre richieste (commit dopo la demo)",
+     "valore": 13,
+     "punti": 20,
+     "max": 20,
+     "giudizio": "Ogni commit è una modifica vera del gioco, con data e descrizione: gli investitori la possono controllare."
+    },
+    {
+     "cosa": "Versioni del gioco uscite dal lavoro della classe",
+     "valore": 6,
+     "punti": 15,
+     "max": 15,
+     "giudizio": "Un'azienda seria fa uscire versioni spesso e le tiene tutte."
+    },
+    {
+     "cosa": "Squadre al lavoro (su 5)",
+     "valore": 5,
+     "punti": 15,
+     "max": 15,
+     "giudizio": "Gli investitori vogliono un'azienda dove lavorano tutti i reparti, non solo uno."
+    },
+    {
+     "cosa": "Disciplina: PC visti a fare altro",
+     "valore": 3,
+     "punti": 4,
+     "max": 10,
+     "giudizio": "Chi gioca durante il lavoro fa scappare gli investitori."
+    },
+    {
+     "cosa": "Presentazione e verbale della CEO (voto del prof)",
+     "valore": 6,
+     "punti": 6,
+     "max": 10,
+     "giudizio": "La CEO deve saper raccontare cosa fa l'azienda e cosa farà."
+    }
+   ],
+   "squadre": [
+    {
+     "chiave": "ceo",
+     "nome": "CEO",
+     "colore": "#c0392b",
+     "richieste": 0,
+     "file": 0,
+     "lavori_fatti": 1,
+     "fuori": 0,
+     "attiva": true
+    },
+    {
+     "chiave": "scenari",
+     "nome": "SCENARI",
+     "colore": "#2f9e57",
+     "richieste": 1,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 0,
+     "attiva": true
+    },
+    {
+     "chiave": "personaggi",
+     "nome": "PERSONAGGI",
+     "colore": "#7030a0",
+     "richieste": 1,
+     "file": 4,
+     "lavori_fatti": 3,
+     "fuori": 1,
+     "attiva": true
+    },
+    {
+     "chiave": "motore",
+     "nome": "MOTORE FISICA",
+     "colore": "#1f6fa5",
+     "richieste": 1,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 2,
+     "attiva": true
+    },
+    {
+     "chiave": "test",
+     "nome": "TEST QUALITÀ (la Triade)",
+     "colore": "#d0a516",
+     "richieste": 1,
+     "file": 0,
+     "lavori_fatti": 0,
+     "fuori": 0,
+     "attiva": true
+    }
+   ],
+   "investitori": [
+    {
+     "nome": "Navigli Ventures",
+     "citta": "Milano",
+     "dollari": 556000
+    },
+    {
+     "nome": "Long River Capital",
+     "citta": "Shanghai",
+     "dollari": 486000
+    },
+    {
+     "nome": "Al-Nahr Investments",
+     "citta": "Il Cairo",
+     "dollari": 348000
+    }
+   ],
+   "consigli": [
+    "PC visti a fare altro: 3. Ognuno costa 2 punti: circa 38.000 $ di investimento perso.",
+    "La CEO prepari 3 frasi: cosa fa il gioco, cosa ha fatto ogni squadra, cosa uscirà nella prossima versione."
+   ],
+   "ultimi_commit": [
+    {
+     "id": "e4e1def",
+     "msg": "Treno blindato: commit della v0.7 nella pagina delle versioni"
+    },
+    {
+     "id": "2b1f229",
+     "msg": "Treno blindato v0.7: omini interi che escono dal nascondiglio (indicazione del prof)"
+    },
+    {
+     "id": "f135708",
+     "msg": "Treno blindato: commit della v0.6 nella pagina delle versioni"
+    },
+    {
+     "id": "2e6bcac",
+     "msg": "Treno blindato v0.6: il bosco bruciato con i rottami (richiesta SCENARI) e la frase del cattivo (richiesta PER"
+    },
+    {
+     "id": "c4f2160",
+     "msg": "Treno blindato: commit della v0.5 nella pagina delle versioni"
+    },
+    {
+     "id": "70e2705",
+     "msg": "Treno blindato v0.5: le regole della squadra MOTORE FISICA dalla Pull Request #104 (3 secondi, 100 punti, velo"
+    }
+   ],
+   "nota": "dopo la v0.7"
   }
  ],
- "aggiornato": "08/10/2026 10:27"
+ "aggiornato": "08/10/2026 10:31"
 }
