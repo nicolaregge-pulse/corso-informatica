@@ -1,5 +1,13 @@
 # Il treno blindato della 3INF — storia delle versioni
 
+## v1.4 — 08/10/2026 12:55 — Treno più veloce, Nash, Dylan, il cielo che cambia subito
+
+1. PR #17 di Noah (PC 35), MOTORE FISICA: velocità del treno 2, «più intenso e più difficile».
+2. PR #15 di Domi (PC 13), PERSONAGGI: Nash ha la giacca blu e nera e quando vince dice «Bella partita… ma il migliore resta uno solo».
+3. PR #19 di Emmanuel (PC 22), TEST QUALITÀ: il cattivo Dylan, mimetica grigio scuro, esce da dietro un vagone blindato e grida «GAAA!!».
+4. PR #18 di Eric (PC 23): Franciscos ha la mimetica azzurra e bianca.
+5. DIFETTO trovato da Dani (PR #20) e Ale (PR #21), SCENARI: al livello 2 il cielo cambiava in ritardo. Sistemato: quando sali di livello cambia subito anche l'ambiente.
+
 ## v1.3 — 08/10/2026 12:42 — Cespugli, greggi, armi diverse, nuovi cattivi
 
 1. PR #8 di Mirko (PC 16), SCENARI: cespugli vicino ai binari da cui escono i banditi, con armi diverse (fucile d'assalto, revolver, pistola).
