@@ -4,11 +4,11 @@
 h1{margin:4px 0;font-size:clamp(22px,6vw,32px)}.mu{color:#8b949e}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px;margin:12px 0;overflow-x:auto}
 a{color:#58a6ff}#info{min-height:70px}svg text{font-family:system-ui,Arial}</style></head>
 <body><div class="w"><h1>Il grafo delle versioni</h1>
-<p class="mu">Ogni pallino è una versione (un commit pubblicato). La linea blu è il gioco della 2INF; la linea verde è il fork della 3INF, che parte dalla v0.11 della 2INF. Clicca un pallino: vedi cosa è cambiato, puoi giocare quella versione o aprire il codice di quel commit su GitHub. La pagina si aggiorna da sola.</p>
-<div class="card"><svg id="g" height="300"></svg></div><div class="card" id="info"><span class="mu">Clicca un pallino.</span></div>
+<p class="mu">Ogni pallino è una versione (un commit pubblicato). La linea blu è il gioco della 2INF; la linea verde è il fork della 3INF e la linea arancione è il fork della 1INF: tutte e due partono dalla v0.11 della 2INF. Clicca un pallino: vedi cosa è cambiato, puoi giocare quella versione o aprire il codice di quel commit su GitHub. La pagina si aggiorna da sola.</p>
+<div class="card"><svg id="g" height="410"></svg></div><div class="card" id="info"><span class="mu">Clicca un pallino.</span></div>
 <p><a href="https://github.com/nicolaregge-pulse/corso-informatica/network">Il grafo completo su GitHub (Insights → Network)</a></p></div>
 <script>
-var L=[{nome:'2INF — Il treno blindato',dir:'treno-blindato',col:'#2f81f7',y:90},{nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:210,da:'v0.11'}];
+var L=[{nome:'2INF — Il treno blindato',dir:'treno-blindato',col:'#2f81f7',y:90},{nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:210,da:'v0.11'},{nome:'1INF — fork del treno',dir:'treno-1inf',col:'#f0883e',y:330,da:'v0.11'}];
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){Promise.all(L.map(function(l){return fetch('../'+l.dir+'/versioni/versioni.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})})).then(function(R){
  var g=document.getElementById('g'),dx=72,x0=50,h='',pos={};R[0].forEach(function(v,i){pos['0:'+v.versione]=x0+i*dx});
