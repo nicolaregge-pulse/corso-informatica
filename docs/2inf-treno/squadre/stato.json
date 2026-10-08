@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 10:12",
- "messaggio": "⏱ GLI INVESTITORI SONO ARRIVATI. Versione 0.3 uscita con la richiesta della squadra TEST QUALITÀ (gioco più lento). Hanno consegnato su Classroom: CEO, capo PERSONAGGI, capo TEST. Mancano SCENARI e MOTORE FISICA: ogni richiesta = +38.000 $.",
+ "aggiornato": "08/10/2026 10:23",
+ "messaggio": "Versione 0.5: le regole della squadra MOTORE FISICA, arrivate con una vera Pull Request su GitHub! Versione 0.4: i personaggi nascosti che escono, come hanno chiesto gli investitori. Scenari: siete gli unici a zero.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -203,12 +203,12 @@
    "nota": "4 personaggi nel gioco (v0.2), ma −15: un componente su YouTube alle 10:04. Il capo ha consegnato: ora servono le richieste scritte (protagonista, frasi dei cattivi)."
   },
   "motore": {
-   "punti": -30,
-   "richieste": 0,
+   "punti": 0,
+   "richieste": 1,
    "file": 0,
-   "nel_gioco": 0,
+   "nel_gioco": 1,
    "fuori": 2,
-   "nota": "−30: un componente due volte su siti di calcio (10:00 e 10:04). Nessuna richiesta: il capo squadra deve far lavorare tutti."
+   "nota": "Il capo squadra ha fatto una VERA Pull Request su GitHub (#104): le regole sono nel gioco, versione 0.5! Restano −30 per il fuori compito."
   },
   "test": {
    "punti": 30,
