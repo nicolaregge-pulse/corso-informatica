@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2INF — Il treno blindato</title>
+<style>
+:root{--blu:#12467a;--verde:#2f9e57;--oro:#ffd34d;--bg:#f4f7fb;--testo:#1a2330}
+body{margin:0;background:var(--bg);color:var(--testo);font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:17px;line-height:1.45}
+.w{max-width:860px;margin:0 auto;padding:16px}
+h1{color:var(--blu);margin:6px 0 2px;font-size:clamp(24px,6vw,34px)}h2{color:var(--blu);margin:0 0 8px;font-size:21px}
+.sub{color:#5a6b7b;margin:0 0 12px}
+.box{background:#fff;border-radius:14px;padding:14px 16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.bt{display:inline-block;background:var(--verde);color:#fff;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px;margin:4px 6px 4px 0;font-size:18px}
+.bt.b{background:var(--blu)}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid #d5dee8;padding:6px 8px;text-align:left;vertical-align:top}th{background:#e8f0f8}
+.cb{position:relative;margin:10px 0}.lab{display:inline-block;background:var(--blu);color:#fff;font-weight:700;font-size:14px;padding:5px 10px;border-radius:8px 8px 0 0}
+.cp{position:absolute;right:8px;top:0;background:var(--oro);border:0;border-radius:10px;font-weight:800;font-size:16px;padding:7px 14px;cursor:pointer}
+.cp.ok{background:var(--verde);color:#fff}
+pre{background:#1e2533;color:#e6edf6;border-radius:0 10px 10px 10px;padding:12px;margin:0;white-space:pre-wrap;font-size:15px}
+ol li{margin:6px 0}.ar{direction:rtl;text-align:right;font-family:'Amiri','Segoe UI',Arial,sans-serif;color:#2b4a6b}.zh{color:#5a3a7a}
+select{font-size:18px;padding:6px}.nota{background:#fff6d6;border-left:5px solid #d0a516;padding:10px 12px;border-radius:8px}
+.rosso{background:#fde8e6;border-left:5px solid #c0392b;padding:10px 12px;border-radius:8px}
+</style>
+</head>
+<body><div class="w">
+<h1>Il treno blindato — il videogioco della 2INF</h1>
+<p class="sub">Giovedì 08/10/2026 · lo costruiamo tutti insieme, come in un'azienda di software</p>
+
+<div class="box">
+  <p><b>Il gioco:</b> sei dentro un vagone. Il treno attraversa boschi, paesi, città, montagne e mare. I cattivi saltano fuori da dietro alberi e case: li tocchi prima che sparino. Il vetro antiproiettile regge 5 colpi.</p>
+  <p class="ar">اللعبة: أنت داخل عربة قطار. الأشرار يقفزون من خلف الأشجار والبيوت: المسهم قبل أن يطلقوا النار. الزجاج المضاد للرصاص يتحمل 5 طلقات.</p>
+  <p class="zh">游戏：你在火车车厢里。坏人从树和房子后面跳出来：在他们开枪之前点击他们。防弹玻璃能挡住5发子弹。</p>
+  <a class="bt" href="../giochi/treno-blindato/">Gioca! · العب · 开始玩</a>
+  <a class="bt b" href="https://github.com/nicolaregge-pulse/corso-informatica/tree/main/docs/giochi/treno-blindato">Il progetto su GitHub</a>
+</div>
+
+<div class="box">
+  <h2>1. Le squadre e i loro file</h2>
+  <table>
+    <tr><th>Squadra</th><th>File</th><th>Cosa decidete</th></tr>
+    <tr><td><b>CATTIVI</b> — tutti, uno a testa</td><td>cattivi/pcNN.json</td><td>il tuo cattivo: nome, colore, faccia, frase, velocità</td></tr>
+    <tr><td><b>AMBIENTI</b> — uno per ambiente</td><td>ambienti/bosco.json, case.json, citta.json, montagna.json, mare.json</td><td>colori di cielo e terra, oggetti (alberi, case, palazzi, rocce, onde), quanti</td></tr>
+    <tr><td><b>PERCORSO e REGOLE</b></td><td>percorso.json, regole.json</td><td>l'ordine degli ambienti, la velocità del treno, i colpi del vetro, i tempi dei cattivi, i punti</td></tr>
+    <tr><td><b>PROTAGONISTA e TESTI</b></td><td>protagonista.json, testi.json</td><td>nome e colori del protagonista, titolo, frasi di fine partita anche nelle vostre lingue</td></tr>
+    <tr><td><b>SUONI</b></td><td>suoni.json</td><td>volume e note della musica di vittoria</td></tr>
+  </table>
+  <p><b>Ruoli:</b> il prof è il <b>product owner</b> (decide cosa entra e fa il merge); in ogni squadra c'è un <b>project manager</b>, a turno; tutti sono <b>sviluppatori</b>; un compagno di un'altra squadra fa la <b>revisione</b>.</p>
+  <p class="nota"><b>Carta e penna:</b> prima di toccare il computer, ogni squadra scrive su un foglio chi fa cosa (il <b>backlog</b>) e disegna il suo pezzo: il cattivo, il paesaggio, il percorso.</p>
+</div>
+
+<div class="box">
+  <h2>2. Il tuo cattivo</h2>
+  <p class="rosso"><b>Regola:</b> il cattivo lo inventi tu. Niente foto o facce di persone vere, niente nomi veri, niente parolacce.</p>
+  <p><b>a) Inventalo con l'IA.</b> Apri Gemini, incolla questa frase e cambia la parte tra parentesi quadre:</p>
+  <div class="cb"><span class="lab">Frase per Gemini</span><button class="cp" data-t="pg">Copia</button><pre id="pg">Sto creando un videogioco per la scuola. Inventa un cattivo buffo che assalta un treno, in stile cartone animato, non una persona reale. Il mio cattivo è [descrivi: colore, carattere, cosa indossa]. Dammi: un nome di massimo 24 caratteri, un colore in codice esadecimale (come #8a8f98) e una frase che grida di massimo 40 caratteri.</pre></div>
+  <p><b>b) Scegli il tuo PC:</b> <select id="selPC" onchange="scegliPC(this.value)"><option value="">— scegli —</option></select></p>
+  <div id="pcScelto" hidden><div class="cb"><span class="lab">Il nome del TUO file</span><button class="cp" data-t="rpc">Copia</button><pre id="rpc"></pre></div></div>
+  <div class="cb"><span class="lab">Il tuo cattivo (poi cambia i valori con quelli di Gemini)</span><button class="cp" data-t="rc">Copia</button><pre id="rc">{
+  "nome": "Il Bandito Nebbia",
+  "colore": "#8a8f98",
+  "occhi": 2,
+  "cappello": 1,
+  "bocca": 2,
+  "velocita": 2,
+  "frase": "Fermate quel treno!",
+  "immagine": false
+}</pre></div>
+  <table><tr><th>Campo</th><th>Cosa puoi mettere</th></tr>
+    <tr><td>occhi</td><td>1, 2 oppure 3</td></tr><tr><td>cappello</td><td>0 = niente, 1 = cappello, 2 = bandana sul viso</td></tr>
+    <tr><td>bocca</td><td>0 = denti, 1 = bocca aperta, 2 = zig-zag</td></tr><tr><td>velocita</td><td>1 = normale, 2 = veloce, 3 = velocissimo</td></tr></table>
+</div>
+
+<div class="box">
+  <h2>3. Mettilo nel gioco con una Pull Request</h2>
+  <ol>
+    <li>Entra su github.com con il TUO account e apri la cartella dei cattivi: <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/main/docs/giochi/treno-blindato/cattivi">cartella dei cattivi</a>.
+      <div class="ar">ادخل إلى github.com بحسابك وافتح مجلد الأشرار (الرابط على اليسار).</div><div class="zh">用你自己的账号登录 github.com，打开坏人的文件夹（左边的链接）。</div></li>
+    <li>Sopra l'elenco dei file: bottone grigio <b>Add file</b> → <b>Create new file</b>. GitHub chiede di fare la tua copia: bottone <b>verde</b> <b>Fork this repository</b>.
+      <div class="ar">فوق قائمة الملفات: الزر الرمادي (إضافة ملف) ثم (إنشاء ملف جديد). سيطلب GitHub نسخة خاصة بك: اضغط الزر الأخضر.</div><div class="zh">在文件列表上方：灰色按钮（添加文件）→（新建文件）。GitHub 会要求创建你的副本：点绿色按钮。</div></li>
+    <li>Nel campo del nome incolla il nome del TUO file. Nel riquadro grande incolla il tuo cattivo.
+      <div class="ar">في خانة الاسم الصق اسم ملفك. في المربع الكبير الصق الشرير الخاص بك.</div><div class="zh">在名称栏粘贴你的文件名。在大框里粘贴你的坏人。</div></li>
+    <li>Bottone verde <b>Commit changes...</b> → bottone verde <b>Propose changes</b> → bottone verde <b>Create pull request</b>, due volte.
+      <div class="ar">اضغط الأزرار الخضراء واحداً بعد الآخر حتى ترسل اقتراحك (Pull Request).</div><div class="zh">依次点击绿色按钮，直到提交你的建议（Pull Request）。</div></li>
+    <li>Aspetta un minuto: <b>spunta verde</b> = tutto a posto; <b>X rossa</b> = clic su <b>Details</b> e leggi cosa sistemare. Quando il prof fa il merge, il tuo cattivo è nel gioco!
+      <div class="ar">انتظر دقيقة: علامة خضراء = كل شيء صحيح؛ علامة X حمراء = اقرأ ما يجب إصلاحه.</div><div class="zh">等一分钟：绿色勾 = 一切正常；红色 X = 看看要改什么。</div></li>
+  </ol>
+</div>
+</div>
+<script>
+(function(){var s=document.getElementById('selPC');for(var i=1;i<=40;i++){var o=document.createElement('option');o.value=(i<10?'0':'')+i;o.textContent='PC '+i;s.appendChild(o)}
+ var v='';try{v=localStorage.getItem('pc-2inf-treno')||''}catch(e){}if(v){s.value=v;scegliPC(v)}})();
+function scegliPC(v){document.getElementById('rpc').textContent='pc'+v+'.json';document.getElementById('pcScelto').hidden=!v;try{localStorage.setItem('pc-2inf-treno',v)}catch(e){}}
+document.addEventListener('click',function(e){var b=e.target.closest('.cp');if(!b)return;var t=document.getElementById(b.dataset.t).textContent;
+ function ok(){b.textContent='Copiato!';b.classList.add('ok');setTimeout(function(){b.textContent='Copia';b.classList.remove('ok')},2500)}
+ if(navigator.clipboard){navigator.clipboard.writeText(t).then(ok,function(){fb(t);ok()})}else{fb(t);ok()}});
+function fb(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove()}
+</script>
+</body></html>

@@ -19,3 +19,5 @@ jobs:
           if [ -n "$fuori" ]; then echo "Questa Pull Request cambia file fuori da docs/giochi:"; echo "$fuori"; exit 1; fi
       - name: Controllo automatico di Assalto dei mostri (revisione del codice)
         run: cd docs/giochi/assalto-dei-mostri && python3 strumenti/controlla.py
+      - name: Controllo automatico del Treno blindato (revisione del codice)
+        run: cd docs/giochi/treno-blindato && python3 strumenti/controlla.py
