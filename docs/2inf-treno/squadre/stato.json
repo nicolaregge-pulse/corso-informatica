@@ -1,0 +1,146 @@
+{
+ "aggiornato": "08/10/2026 09:40",
+ "messaggio": "Si parte! Ogni squadra fa i suoi lavori in ordine, uno alla volta. Quando un lavoro è fatto, il prof lo segna qui.",
+ "squadre": {
+  "ceo": {
+   "nome": "CEO",
+   "colore": "#c0392b",
+   "obiettivo": "Guidi l'azienda: tutte le squadre lavorano, nessuno resta fermo, alla fine presenti il gioco.",
+   "lavori": [
+    {
+     "t": "Giro delle squadre (5 minuti): chiedi a ogni capo squadra cosa fa e entro quando. Scrivilo sul foglio: è il backlog dell'azienda.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Controlla che TUTTI abbiano fatto la Pull Request del proprio cattivo (elenco qui sotto, «Cattivi arrivati»). Aiuta chi è bloccato.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Decidi con il prof cosa entra nella versione treno-v1.1 (per esempio: i cattivi di tutti + i colori nuovi).",
+     "stato": "da fare"
+    },
+    {
+     "t": "Alla fine: presenta il gioco alla classe in 2 minuti (cosa fa, chi ha fatto cosa, cosa migliorare).",
+     "stato": "da fare"
+    }
+   ],
+   "file": [],
+   "aiuto": "Il CEO non scrive codice: organizza, controlla, decide e parla per tutta l'azienda."
+  },
+  "scenari": {
+   "nome": "SCENARI",
+   "colore": "#2f9e57",
+   "obiettivo": "Decidi come sono i 5 ambienti del viaggio e in che ordine arrivano.",
+   "lavori": [
+    {
+     "t": "Sul foglio: per ogni ambiente (bosco, paese, città, montagna, mare) scegli i colori del cielo, della terra e degli oggetti. Usa Google: «color picker» per avere il codice come #7ec8f0.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Cambia il file del bosco con la matita (link qui sotto) e fai la Pull Request.",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/ambienti/bosco.json"
+    },
+    {
+     "t": "Fai lo stesso per paese, città, montagna e mare.",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/ambienti/case.json"
+    },
+    {
+     "t": "Decidi l'ordine del viaggio e quanti secondi dura ogni ambiente (percorso.json).",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/percorso.json"
+    }
+   ],
+   "file": [
+    "ambienti/bosco.json",
+    "ambienti/case.json",
+    "ambienti/citta.json",
+    "ambienti/montagna.json",
+    "ambienti/mare.json",
+    "percorso.json"
+   ],
+   "aiuto": "«oggetti» può essere: alberi, case, palazzi, rocce, onde. «densita»: 1 = pochi, 3 = tanti."
+  },
+  "personaggi": {
+   "nome": "PERSONAGGI",
+   "colore": "#7030a0",
+   "obiettivo": "I cattivi e il protagonista: chi c'è nel gioco e come appare.",
+   "lavori": [
+    {
+     "t": "Copertina del gioco con i 4 personaggi disegnati con l'IA: FATTA, è nella schermata iniziale.",
+     "stato": "fatto"
+    },
+    {
+     "t": "Facce della classe: 7 foto + 4 facce disegnate sono nel gioco. Chi vuole aggiungere la sua (solo maggiorenni) la dà al responsabile della squadra, che la manda al prof.",
+     "stato": "fatto"
+    },
+    {
+     "t": "Il protagonista: scegli nome e colori (giacca, capelli) e fai la Pull Request.",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/protagonista.json"
+    },
+    {
+     "t": "Controlla i cattivi arrivati (elenco qui sotto): nomi e frasi vanno bene? Niente nomi veri, niente parolacce.",
+     "stato": "da fare"
+    }
+   ],
+   "file": [
+    "protagonista.json",
+    "facce.json",
+    "cattivi/"
+   ],
+   "aiuto": "Le facce vere vanno solo nella cartella facce, solo di chi ha detto sì."
+  },
+  "motore": {
+   "nome": "MOTORE FISICA",
+   "colore": "#1f6fa5",
+   "obiettivo": "Le regole che rendono il gioco difficile al punto giusto: né noioso né impossibile.",
+   "lavori": [
+    {
+     "t": "Gioca 2 partite e scrivi sul foglio: dopo quanti km si rompe il vetro? È troppo facile o troppo difficile?",
+     "stato": "da fare"
+    },
+    {
+     "t": "Prova a cambiare velocita_treno (0.5-3) e secondi_prima_di_sparare (0.8-5) in regole.json e fai la Pull Request.",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/regole.json"
+    },
+    {
+     "t": "Con la squadra TEST QUALITÀ prova la nuova versione e decidi i valori finali. Scrivi perché li hai scelti.",
+     "stato": "da fare"
+    }
+   ],
+   "file": [
+    "regole.json"
+   ],
+   "aiuto": "Cambia un valore alla volta: così capisci cosa fa ognuno. È così che lavorano i game designer."
+  },
+  "test": {
+   "nome": "TEST QUALITÀ (la Triade)",
+   "colore": "#d0a516",
+   "obiettivo": "Trovare i difetti prima dei giocatori e controllare il lavoro degli altri.",
+   "lavori": [
+    {
+     "t": "Gioca 3 partite sul PC e 3 sul telefono. Per ogni difetto scrivi: cosa succede, dove, come farlo succedere di nuovo.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Prova UX: fai giocare 2 compagni senza spiegare niente. Cosa li confonde? Scrivilo.",
+     "stato": "da fare"
+    },
+    {
+     "t": "Revisione: apri ogni Pull Request dei compagni, scheda «Files changed», e scrivi un commento (va bene / da sistemare e perché).",
+     "stato": "da fare",
+     "link": "https://github.com/nicolaregge-pulse/corso-informatica/pulls"
+    }
+   ],
+   "file": [],
+   "aiuto": "Un buon tester non dice solo «non va»: dice esattamente come farlo succedere di nuovo."
+  }
+ },
+ "cattivi": {
+  "arrivati": [],
+  "nota": "Ognuno crea il suo cattivo: pagina del progetto, parte 2 e 3."
+ }
+}

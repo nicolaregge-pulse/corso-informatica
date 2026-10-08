@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2INF — Le squadre del treno</title>
+<style>
+body{margin:0;background:#f4f7fb;color:#1a2330;font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:17px;line-height:1.45}.w{max-width:860px;margin:0 auto;padding:16px}
+h1{color:#12467a;margin:4px 0;font-size:clamp(22px,6vw,32px)}.sub{color:#5a6b7b;margin:0 0 10px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.tabs button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:10px 14px;color:#fff;cursor:pointer;opacity:.6}.tabs button.on{opacity:1;outline:3px solid #1a2330}
+.box{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.lav{display:flex;gap:10px;align-items:flex-start;border-top:1px solid #e3e9f0;padding:10px 0}.lav:first-child{border-top:0}
+.st{flex:0 0 auto;font-size:13px;font-weight:800;border-radius:999px;padding:4px 10px;color:#fff}.fatto{background:#2f9e57}.incorso{background:#d0a516}.dafare{background:#7a8794}
+.lav.f .tx{color:#6b7a88;text-decoration:line-through}a.bt{display:inline-block;margin-top:6px;background:#12467a;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;padding:8px 12px}
+.msg{background:#fff6d6;border-left:5px solid #d0a516;padding:10px 12px;border-radius:8px}.chip{display:inline-block;background:#e8f0f8;border-radius:999px;padding:4px 10px;margin:3px}
+.lingue{font-size:14px;color:#5a6b7b}.ar{direction:rtl}
+</style></head>
+<body><div class="w">
+<h1>Il treno blindato — le squadre</h1>
+<p class="sub">2INF · questa pagina si aggiorna da sola: il prof segna qui i lavori fatti. <b id="agg"></b></p>
+<p class="lingue">Clicca la tua squadra. Per leggerla nella tua lingua: tasto destro → «Traduci». <span class="ar">اضغط على فريقك. للترجمة: زر الفأرة الأيمن ← «ترجمة».</span> 点击你的小组。要翻译：右键 →「翻译」。</p>
+<div class="tabs" id="tabs"></div>
+<div class="msg" id="msg"></div>
+<div id="sq"></div>
+<div class="box"><h2 style="margin:0 0 6px;font-size:20px;color:#12467a">Cattivi arrivati nel gioco</h2><div id="cat"></div>
+<p><a class="bt" href="../">Come creare il tuo cattivo</a> <a class="bt" style="background:#2f9e57" href="../../giochi/treno-blindato/">Gioca!</a></p></div>
+</div>
+<script>
+var Q=new URLSearchParams(location.search),SEL=Q.get('s')||'';try{SEL=SEL||localStorage.getItem('squadra-2inf-treno')||'ceo'}catch(e){SEL=SEL||'ceo'}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var D=null;
+function disegna(){if(!D)return;document.getElementById('agg').textContent='Aggiornata: '+D.aggiornato;document.getElementById('msg').textContent=D.messaggio||'';
+ var t='';Object.keys(D.squadre).forEach(function(k){var s=D.squadre[k];var n=s.lavori.filter(function(l){return l.stato==='fatto'}).length;
+  t+='<button class="'+(k===SEL?'on':'')+'" style="background:'+s.colore+'" onclick="sel(\''+k+'\')">'+e(s.nome)+' · '+n+'/'+s.lavori.length+'</button>'});document.getElementById('tabs').innerHTML=t;
+ var s=D.squadre[SEL]||D.squadre.ceo,h='<div class="box" style="border-top:6px solid '+s.colore+'"><h2 style="margin:0 0 6px;font-size:22px;color:'+s.colore+'">'+e(s.nome)+'</h2><p><b>Obiettivo:</b> '+e(s.obiettivo)+'</p>';
+ s.lavori.forEach(function(l,i){var c=l.stato==='fatto'?'fatto':(l.stato==='in corso'?'incorso':'dafare');h+='<div class="lav'+(c==='fatto'?' f':'')+'"><span class="st '+c+'">'+e(l.stato.toUpperCase())+'</span><div><b>'+(i+1)+'.</b> <span class="tx">'+e(l.t)+'</span>'+(l.link&&c!=='fatto'?'<br><a class="bt" href="'+e(l.link)+'">Apri il file con la matita</a>':'')+'</div></div>'});
+ if(s.aiuto)h+='<p class="msg"><b>Consiglio:</b> '+e(s.aiuto)+'</p>';
+ if(SEL==='ceo'){h+='<h3>Lo stato di tutte le squadre</h3>';Object.keys(D.squadre).forEach(function(k){if(k==='ceo')return;var q=D.squadre[k],f=q.lavori.filter(function(l){return l.stato==='fatto'}).length;
+  h+='<div class="lav"><span class="st" style="background:'+q.colore+'">'+f+'/'+q.lavori.length+'</span><div><b>'+e(q.nome)+'</b> — prossimo lavoro: '+e((q.lavori.filter(function(l){return l.stato!=='fatto'})[0]||{t:'tutto fatto!'}).t)+'</div></div>'})}
+ document.getElementById('sq').innerHTML=h+'</div>';
+ var c=D.cattivi||{};document.getElementById('cat').innerHTML=(c.arrivati&&c.arrivati.length?c.arrivati.map(function(x){return '<span class="chip">'+e(x)+'</span>'}).join(''):'<p>Ancora nessuno: arrivano con le Pull Request.</p>')+(c.nota?'<p>'+e(c.nota)+'</p>':'')}
+function sel(k){SEL=k;try{localStorage.setItem('squadra-2inf-treno',k)}catch(x){}disegna()}
+function carica(){fetch('stato.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;disegna()}).catch(function(){})}
+carica();setInterval(carica,60000);
+</script></body></html>
