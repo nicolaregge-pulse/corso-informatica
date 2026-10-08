@@ -44,7 +44,7 @@ select{font-size:18px;padding:6px}.nota{background:#fff6d6;border-left:5px solid
     <tr><td><b>SCENARI</b></td><td>gli ambienti e il percorso: bosco, paese, città, montagna, mare</td><td>ambienti/*.json, percorso.json</td></tr>
     <tr><td><b>PERSONAGGI</b></td><td>i cattivi, le facce della classe, il protagonista</td><td>cattivi/pcNN.json, facce.json, protagonista.json</td></tr>
     <tr><td><b>MOTORE FISICA</b></td><td>velocità del treno, tempi dei cattivi, colpi del vetro, punti</td><td>regole.json</td></tr>
-    <tr><td><b>TEST QUALITÀ</b> (la Triade)</td><td>provano il gioco su PC e telefono, trovano i difetti, fanno la revisione delle Pull Request</td><td>—</td></tr>
+    <tr><td><b>TEST QUALITÀ</b> (la Triade)</td><td>provano il gioco su PC e telefono, trovano i difetti, controllano le richieste delle altre squadre</td><td>—</td></tr>
     <tr><td><b>TUTTI</b></td><td>il proprio cattivo</td><td>cattivi/pcNN.json</td></tr>
   </table>
   <p><b>Il progetto (lavagna):</b> si guarda avanti dalla cabina, lungo i binari; i cattivi spuntano dalle finestre delle case, da dietro gli alberi e dai barili. Tre cose da curare: <b>1) dinamica</b> (come si muove il gioco), <b>2) UI</b> (cosa si vede: vetro, punti, tachimetro), <b>3) UX</b> (come ci si sente a giocare).</p>
@@ -93,20 +93,8 @@ select{font-size:18px;padding:6px}.nota{background:#fff6d6;border-left:5px solid
 </div>
 
 <div class="box">
-  <h2>3. Mettilo nel gioco con una Pull Request</h2>
-  <ol>
-    <li>Entra su github.com con il TUO account e apri la cartella dei cattivi: <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/main/docs/giochi/treno-blindato/cattivi">cartella dei cattivi</a>.
-      <div class="ar">ادخل إلى github.com بحسابك وافتح مجلد الأشرار (الرابط على اليسار).</div><div class="zh">用你自己的账号登录 github.com，打开坏人的文件夹（左边的链接）。</div></li>
-    <li>Sopra l'elenco dei file: bottone grigio <b>Add file</b> → <b>Create new file</b>. GitHub chiede di fare la tua copia: bottone <b>verde</b> <b>Fork this repository</b>.
-      <div class="ar">فوق قائمة الملفات: الزر الرمادي (إضافة ملف) ثم (إنشاء ملف جديد). سيطلب GitHub نسخة خاصة بك: اضغط الزر الأخضر.</div><div class="zh">在文件列表上方：灰色按钮（添加文件）→（新建文件）。GitHub 会要求创建你的副本：点绿色按钮。</div></li>
-    <li>Nel campo del nome incolla il nome del TUO file. Nel riquadro grande incolla il tuo cattivo.
-      <div class="ar">في خانة الاسم الصق اسم ملفك. في المربع الكبير الصق الشرير الخاص بك.</div><div class="zh">在名称栏粘贴你的文件名。在大框里粘贴你的坏人。</div></li>
-    <li>Bottone verde <b>Commit changes...</b> → bottone verde <b>Propose changes</b> → bottone verde <b>Create pull request</b>, due volte.
-      <div class="ar">اضغط الأزرار الخضراء واحداً بعد الآخر حتى ترسل اقتراحك (Pull Request).</div><div class="zh">依次点击绿色按钮，直到提交你的建议（Pull Request）。</div></li>
-    <li>Aspetta un minuto: <b>spunta verde</b> = tutto a posto; <b>X rossa</b> = clic su <b>Details</b> e leggi cosa sistemare. Quando il prof fa il merge, il tuo cattivo è nel gioco!
-      <div class="ar">انتظر دقيقة: علامة خضراء = كل شيء صحيح؛ علامة X حمراء = اقرأ ما يجب إصلاحه.</div><div class="zh">等一分钟：绿色勾 = 一切正常；红色 X = 看看要改什么。</div></li>
-  </ol>
-</div>
+  <h2>3. Consegnalo su Classroom</h2>
+<div class="box"><p><b>Si consegna SOLO su Classroom</b>, nel compito «Il treno blindato»: scrivi nel Documento e allega il disegno o la foto (bottone «Aggiungi o crea» → «File»). Non serve GitHub: gli sviluppatori (il prof con l'intelligenza artificiale) mettono la tua consegna su Git e la fanno entrare nella nuova versione del gioco. Così vedrai il tuo lavoro nel grafico delle versioni.</p><p class="lingue">只在 Classroom 交作业：在文档里写，附上图片（「添加或创建」→「文件」）。不用 GitHub：程序员会把你的作品放到 Git 上，做成游戏的新版本。</p></div>
 </div>
 <script>
 (function(){var s=document.getElementById('selPC');for(var i=1;i<=40;i++){var o=document.createElement('option');o.value=(i<10?'0':'')+i;o.textContent='PC '+i;s.appendChild(o)}
