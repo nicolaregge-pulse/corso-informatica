@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.11 — 08/10/2026 10:58 — I punteggi si salvano sempre (difetto segnalato dal prof)
+
+1. Difetto: «non chiede il nome e non salva i punteggi».
+2. Il punteggio ora si salva da solo appena finisce la partita (come «Anonimo»); il soprannome si può scrivere dopo e si conferma anche con il tasto Invio. Il soprannome viene ricordato per la partita dopo.
+3. Il telefono teneva in memoria la versione vecchia del gioco: ora il gioco chiede sempre la versione nuova alla rete.
+
 ## v0.10 — 08/10/2026 10:52 — I migliori punteggi (indicazione del prof)
 
 1. A fine partita, se il punteggio entra nei primi 10, si scrive un soprannome (mai nome e cognome) e si salva.
