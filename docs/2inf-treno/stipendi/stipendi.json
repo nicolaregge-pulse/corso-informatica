@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 09:45",
+ "aggiornato": "08/10/2026 09:55",
  "regole": {
   "paga_massima": {
    "CEO": 100,
@@ -59,8 +59,112 @@
      "dollari": 30
     }
    ]
+  },
+  {
+   "versione": "stipendi-v2",
+   "ora": "2ª ora (9-10): PROVVISORIA alle 9:55",
+   "uscita": "08/10/2026 09:55",
+   "nota": "Stipendi secondo i meriti: quello che è entrato nel gioco, quello che è scritto, quello che il prof ha visto ai PC. Alle 10:00 diventa definitiva con le richieste consegnate dai capi squadra e il modulo degli stipendi.",
+   "righe": [
+    {
+     "chi": "CEO · PC 27",
+     "squadra": "CEO",
+     "ruolo": "CEO",
+     "rendimento": 70,
+     "dollari": 70,
+     "merito": "scrive la composizione delle squadre e guida l'azienda"
+    },
+    {
+     "chi": "Capo squadra · PC 34",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Capo squadra",
+     "rendimento": 85,
+     "dollari": 68,
+     "merito": "la sua squadra ha messo 4 personaggi nel gioco (versione 0.2)"
+    },
+    {
+     "chi": "Capo squadra · PC 18",
+     "squadra": "SCENARI",
+     "ruolo": "Capo squadra",
+     "rendimento": 40,
+     "dollari": 32,
+     "merito": "ha disegnato il Boss con Gemini, ma la squadra Scenari non ha ancora consegnato richieste"
+    },
+    {
+     "chi": "Capo squadra",
+     "squadra": "MOTORE FISICA",
+     "ruolo": "Capo squadra",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "nessuna richiesta consegnata: si recupera nella 3ª ora"
+    },
+    {
+     "chi": "Triade · PC 28 e compagne",
+     "squadra": "TEST QUALITÀ",
+     "ruolo": "Capo squadra",
+     "rendimento": 10,
+     "dollari": 8,
+     "merito": "hanno letto le istruzioni, ma nessun difetto segnalato"
+    },
+    {
+     "chi": "Componente · PC 35",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Componente",
+     "rendimento": 85,
+     "dollari": 85,
+     "merito": "personaggio nel gioco + documento dei personaggi"
+    },
+    {
+     "chi": "Componente · PC 36",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Componente",
+     "rendimento": 70,
+     "dollari": 70,
+     "merito": "documento «Personaggi perfetti» con le foto"
+    },
+    {
+     "chi": "Componente",
+     "squadra": "PERSONAGGI",
+     "ruolo": "Componente",
+     "rendimento": 50,
+     "dollari": 50,
+     "merito": "il suo personaggio è nel gioco"
+    },
+    {
+     "chi": "Componente · PC 24",
+     "squadra": "—",
+     "ruolo": "Componente",
+     "rendimento": 70,
+     "dollari": 70,
+     "merito": "Documento del compito scritto ai punti 1-4"
+    },
+    {
+     "chi": "Componente · PC 37",
+     "squadra": "—",
+     "ruolo": "Componente",
+     "rendimento": 25,
+     "dollari": 25,
+     "merito": "il suo personaggio è nel gioco (50%), poi visto al PC solo a giocare (−25%)"
+    },
+    {
+     "chi": "Componente · PC 17",
+     "squadra": "—",
+     "ruolo": "Componente",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "visto su un altro gioco (−25%): da verificare"
+    },
+    {
+     "chi": "Gli altri componenti",
+     "squadra": "—",
+     "ruolo": "Componente",
+     "rendimento": 0,
+     "dollari": 0,
+     "merito": "lavoro non ancora visto: alle 10:00 contano le idee consegnate al capo squadra"
+    }
+   ]
   }
  ],
- "prossima": "La busta paga della 2ª ora (9-10) esce alle 10:00. Capi squadra: compilate il modulo degli stipendi (bottone qui sotto, solo con l'account della scuola).",
+ "prossima": "Alle 10:00 la busta paga della 2ª ora diventa definitiva: capi squadra, consegnate le richieste di modifica e compilate il modulo degli stipendi.",
  "modulo": "https://docs.google.com/forms/d/e/1FAIpQLSeaZh9FUlt-JtHphpMNbKlCDjvyE6srmKZ8rdkRhFaSZ5KsgA/viewform"
 }
