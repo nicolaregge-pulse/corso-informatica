@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2INF — Arrivano gli investitori</title>
+<style>
+:root{--bg:#0f1a26;--card:#17283a;--tx:#eef3f8;--mu:#9fb2c4;--oro:#ffd34d;--ok:#3ccf7a;--ko:#ff7a6e}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:17px;line-height:1.45}.w{max-width:880px;margin:0 auto;padding:16px}
+h1{color:var(--oro);margin:6px 0;font-size:clamp(24px,6.5vw,38px)}.mu{color:var(--mu)}
+.card{background:var(--card);border-radius:14px;padding:14px 16px;margin:12px 0}
+.inv{display:flex;flex-wrap:wrap;gap:10px}.inv div{flex:1 1 200px;background:#203650;border-radius:12px;padding:10px 12px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:12px 18px;background:var(--oro);color:#1a1a1a;cursor:pointer}button.sec{background:#2c4a6b;color:#fff}
+.voce{display:flex;gap:10px;align-items:center;border-top:1px solid #26405c;padding:9px 0;opacity:0;transform:translateY(6px);transition:all .45s}.voce.on{opacity:1;transform:none}
+.voce .p{flex:0 0 74px;text-align:center;font-weight:900;font-size:20px;border-radius:10px;padding:4px 0;background:#203650}
+.bar{background:#26405c;border-radius:8px;height:10px;margin-top:4px}.bar i{display:block;height:10px;border-radius:8px;background:var(--ok);width:0;transition:width .8s}
+.soldi{font-size:clamp(34px,10vw,64px);font-weight:900;color:var(--oro);text-align:center;margin:8px 0}
+.sq{display:inline-block;border-radius:999px;padding:4px 10px;margin:3px;font-weight:700;font-size:14px}
+table{width:100%;border-collapse:collapse}td,th{text-align:left;padding:6px;border-top:1px solid #26405c}
+.lingue{font-size:14px;color:var(--mu)}
+</style></head>
+<body><div class="w">
+<h1>Arrivano gli investitori</h1>
+<p class="mu">2INF · Il treno blindato. Tre fondi di investimento visitano l'azienda, fanno l'audit (il controllo) del lavoro e decidono quanto investire: da <b>100.000 $</b> a <b>2.000.000 $</b>. Guardano i dati veri: le richieste di modifica delle squadre, le modifiche al codice su Git, le versioni pubblicate, chi lavora e chi no. Lavorate meglio e rifate l'audit: l'offerta cambia. <b id="agg"></b></p>
+<p class="lingue">三个投资基金来公司检查工作，决定投资多少（10万到200万美元）。他们看真实的数据：修改请求、Git上的代码修改、发布的版本、谁在工作。工作做得更好，再检查一次，投资会变。</p>
+<div class="card"><b>Gli investitori</b><div class="inv" id="inv"></div></div>
+<p style="text-align:center"><button id="via">Inizia l'audit</button> <button class="sec" id="rifai" hidden>Rifai l'audit con i dati nuovi</button></p>
+<div class="card" id="audit" hidden><b id="titAudit">Audit</b><div id="voci"></div>
+ <div id="esito" hidden><p class="mu" style="text-align:center;margin:12px 0 0">Punti: <b id="punti"></b>/100 · investimento totale</p><div class="soldi" id="soldi">0 $</div><div id="quote"></div></div></div>
+<div class="card" id="cons" hidden><b>Cosa farebbe salire l'investimento</b><ol id="consigli"></ol></div>
+<div class="card" id="sqd" hidden><b>Le squadre viste dagli investitori</b><div id="squadre"></div></div>
+<div class="card" id="git" hidden><b>Le ultime variazioni di codice su Git</b> <span class="mu">(i commit degli sviluppatori sulle vostre indicazioni)</span><ol id="commit" style="font-size:14px"></ol>
+ <a href="https://github.com/nicolaregge-pulse/corso-informatica/commits/main/docs/giochi/treno-blindato" style="color:var(--oro)">Guarda tutti i commit su GitHub</a></div>
+<div class="card"><b>Storia degli audit</b> <span class="mu">(ogni audit è una versione: quelli vecchi restano)</span><table id="storia"></table></div>
+<p><a href="../squadre/" style="color:var(--oro);font-weight:700">Le squadre: cosa fare adesso</a> · <a href="../stipendi/" style="color:var(--oro);font-weight:700">Gli stipendi</a> · <a href="../../giochi/treno-blindato/" style="color:var(--oro);font-weight:700">Gioca</a></p>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function $(i){return document.getElementById(i)}
+function soldi(n){return Math.round(n).toLocaleString('it-IT')+' $'}
+var D=null,A=null;
+function carica(f){fetch('audit.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;A=d.audit[d.audit.length-1];$('agg').textContent='Ultimo audit: '+A.ora;
+ $('inv').innerHTML=A.investitori.map(function(i){return '<div><b>'+e(i.nome)+'</b><br><span class="mu">'+e(i.citta)+'</span></div>'}).join('');
+ $('storia').innerHTML='<tr><th>Audit</th><th>Ora</th><th>Punti</th><th>Investimento</th></tr>'+d.audit.slice().reverse().map(function(a){return '<tr><td>'+e(a.versione)+'</td><td>'+e(a.ora)+'</td><td>'+a.punti+'</td><td><b>'+soldi(a.investimento)+'</b></td></tr>'}).join('');
+ if(f)f()}).catch(function(){$('agg').textContent='Dati non caricati: riprova.'})}
+function audit(){if(!A)return;$('audit').hidden=false;$('esito').hidden=true;$('cons').hidden=true;$('sqd').hidden=true;$('git').hidden=true;$('via').hidden=true;$('rifai').hidden=true;
+ $('titAudit').textContent=A.versione+' — '+A.ora+(A.nota?' — '+A.nota:'');
+ $('voci').innerHTML=A.voci.map(function(v,i){return '<div class="voce" id="v'+i+'"><div class="p">'+v.punti+'/'+v.max+'</div><div style="flex:1"><b>'+e(v.cosa)+':</b> '+v.valore+'<div class="mu" style="font-size:14px">'+e(v.giudizio)+'</div><div class="bar"><i id="b'+i+'"></i></div></div></div>'}).join('');
+ A.voci.forEach(function(v,i){setTimeout(function(){$('v'+i).classList.add('on');setTimeout(function(){$('b'+i).style.width=Math.round(100*v.punti/v.max)+'%'},100)},900*(i+1))});
+ setTimeout(function(){$('esito').hidden=false;$('punti').textContent=A.punti;var t0=Date.now(),T=1800;(function anima(){var k=Math.min(1,(Date.now()-t0)/T);$('soldi').textContent=soldi(A.investimento*k);if(k<1)requestAnimationFrame(anima)})();
+  $('quote').innerHTML='<table>'+A.investitori.map(function(i){return '<tr><td>'+e(i.nome)+' <span class="mu">('+e(i.citta)+')</span></td><td><b>'+soldi(i.dollari)+'</b></td></tr>'}).join('')+'</table>';
+  $('consigli').innerHTML=A.consigli.map(function(c){return '<li>'+e(c)+'</li>'}).join('')||'<li>Ottimo lavoro: continuate così.</li>';$('cons').hidden=false;
+  $('squadre').innerHTML=A.squadre.map(function(s){return '<span class="sq" style="background:'+s.colore+'">'+e(s.nome)+' · richieste '+s.richieste+' · lavori '+s.lavori_fatti+(s.fuori?' · fuori compito '+s.fuori:'')+(s.attiva?' ✓':' ✗')+'</span>'}).join('');$('sqd').hidden=false;
+  $('commit').innerHTML=A.ultimi_commit.map(function(c){return '<li><code>'+e(c.id)+'</code> '+e(c.msg)+'</li>'}).join('');$('git').hidden=false;$('rifai').hidden=false},900*(A.voci.length+1)+400)}
+$('via').onclick=function(){carica(audit)};$('rifai').onclick=function(){carica(audit)};
+carica();
+</script></body></html>
