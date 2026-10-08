@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 12:42",
- "messaggio": "12:42 — Versione 1.3: cespugli, mucche e pecore, armi diverse, Travor, Franciscos e il protagonista Nash! Adesso la PR-3: gioca 1 partita e scrivi UNA cosa che non va.",
+ "aggiornato": "08/10/2026 12:55",
+ "messaggio": "12:55 — Versione 1.4: il treno va più veloce (Noah), Nash ha la sua frase (Domi), Dylan esce dal vagone blindato (Emmanuel), sistemato il difetto del cielo trovato da Dani e Ale. Ultimi minuti: PR-4, poi «cosa ho imparato» e Consegna alle 13:02.",
  "sprint": [
   {
    "nome": "PR-1 Il mio mostro",
@@ -192,6 +192,77 @@
    "titolo": "Greggi in montagna (uguale alla #13)",
    "stato": "merged",
    "versione": "v1.3"
+  },
+  {
+   "n": 15,
+   "pc": "13",
+   "autore": "Domi",
+   "squadra": "PERSONAGGI",
+   "fase": "PR-2",
+   "titolo": "Nash: giacca blu e nera, «Bella partita… ma il migliore resta uno solo»",
+   "stato": "merged",
+   "versione": "v1.4"
+  },
+  {
+   "n": 16,
+   "pc": "16",
+   "autore": "Mirko",
+   "squadra": "SCENARI",
+   "fase": "PR-3",
+   "titolo": "I nemici dietro i muri non si riescono a colpire (frase da finire)",
+   "stato": "aperta",
+   "nota": "scrivi il perché e come sistemarlo"
+  },
+  {
+   "n": 17,
+   "pc": "35",
+   "autore": "Noah",
+   "squadra": "MOTORE FISICA",
+   "fase": "PR-2",
+   "titolo": "Velocità del treno 2: più intenso e più difficile",
+   "stato": "merged",
+   "versione": "v1.4"
+  },
+  {
+   "n": 18,
+   "pc": "23",
+   "autore": "Eric",
+   "squadra": "TEST QUALITÀ",
+   "fase": "PR-1",
+   "titolo": "Franciscos: mimetica azzurra e bianca, esce da un cestino",
+   "stato": "merged",
+   "versione": "v1.4"
+  },
+  {
+   "n": 19,
+   "pc": "22",
+   "autore": "Emmanuel",
+   "squadra": "TEST QUALITÀ",
+   "fase": "PR-1",
+   "titolo": "Dylan: mimetica grigio scuro, esce da un vagone blindato, «GAAA!!»",
+   "stato": "merged",
+   "versione": "v1.4"
+  },
+  {
+   "n": 20,
+   "pc": "18",
+   "autore": "Dani",
+   "squadra": "SCENARI",
+   "fase": "PR-3",
+   "titolo": "DIFETTO: al livello 2 il cielo cambia in ritardo",
+   "stato": "merged",
+   "versione": "v1.4",
+   "nota": "sistemato"
+  },
+  {
+   "n": 21,
+   "pc": "17",
+   "autore": "Ale",
+   "squadra": "SCENARI",
+   "fase": "PR-3",
+   "titolo": "DIFETTO: cielo in ritardo (uguale alla #20)",
+   "stato": "merged",
+   "versione": "v1.4"
   }
  ],
  "squadre": {
@@ -251,6 +322,11 @@
    "versione": "v1.3",
    "nome": "Cespugli, greggi, armi diverse, nuovi cattivi",
    "pr": "PR #8 Mirko, #10 Domi, #11 Tomas, #12 Eric, #13 Dani, #14 Ale"
+  },
+  {
+   "versione": "v1.4",
+   "nome": "Treno più veloce, Nash, Dylan, cielo che cambia subito",
+   "pr": "PR #15 Domi, #17 Noah, #18 Eric, #19 Emmanuel, #20 Dani, #21 Ale"
   }
  ]
 }
