@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.8 — 08/10/2026 10:45 — Mimetica, facce senza cerchio, fucile d'assalto (indicazioni del prof)
+
+1. Le facce non hanno più il cerchio bianco: si vede solo la faccia, ritagliata a forma di testa.
+2. Il tempo prima dello sparo è una barretta sopra la testa (gialla, poi rossa).
+3. Tutti gli omini sono vestiti con la mimetica.
+4. Il personaggio «Agente Speciale» imbraccia un fucile d'assalto (calcio e paramano di legno, caricatore curvo).
+
 ## v0.7 — 08/10/2026 10:36 — Omini che escono dal nascondiglio (indicazione del prof)
 
 1. Indicazione del product owner (il prof): «metti gli omini, non i cerchietti, e che escano dal nascondiglio».
