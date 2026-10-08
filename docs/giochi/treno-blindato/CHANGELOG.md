@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.6 — 08/10/2026 10:30 — Il bosco bruciato (SCENARI) e la frase del cattivo (PERSONAGGI)
+
+1. Richiesta della squadra SCENARI (Documento su Classroom): «nel bosco il cielo rosso cupo e vicino ai binari alberi bruciati e rottami, perché il treno è appena passato dopo un attacco».
+2. Il primo ambiente ora è il «Bosco bruciato»: cielo rosso cupo, alberi neri, rottami fumanti con le braci vicino ai binari.
+3. Richiesta della squadra PERSONAGGI: quando spara, il cattivo dice «Hahahahaha, perdente!».
+4. Richiesta della squadra MOTORE FISICA (Documento su Classroom, con il link alla Pull Request #104): già nella versione 0.5.
+
 ## v0.5 — 08/10/2026 10:22 — Le regole della squadra MOTORE FISICA
 
 1. Prima Pull Request VERA arrivata su GitHub: #104, del capo squadra MOTORE FISICA.
