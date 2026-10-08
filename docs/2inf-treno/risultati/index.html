@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2INF — Risultati in tempo reale</title>
+<style>
+:root{--bg:#0f1a26;--card:#17283a;--tx:#eef3f8;--mu:#9fb2c4;--oro:#ffd34d}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,Segoe UI,Arial,sans-serif;font-size:17px;line-height:1.45}.w{max-width:900px;margin:0 auto;padding:16px}
+h1{color:var(--oro);margin:4px 0;font-size:clamp(24px,6.5vw,36px)}h2{margin:0 0 8px;font-size:20px;color:var(--oro)}.mu{color:var(--mu)}
+.card{background:var(--card);border-radius:14px;padding:14px 16px;margin:12px 0}
+.big{font-size:clamp(30px,9vw,52px);font-weight:900;color:var(--oro)}
+.riga{display:flex;gap:10px;align-items:center;border-top:1px solid #26405c;padding:8px 0}.riga:first-of-type{border-top:0}
+.pill{flex:0 0 auto;border-radius:999px;padding:4px 10px;font-weight:800;color:#fff;min-width:64px;text-align:center}
+.bar{background:#26405c;border-radius:6px;height:8px;margin-top:4px}.bar i{display:block;height:8px;border-radius:6px}
+table{width:100%;border-collapse:collapse;font-size:15px}td,th{text-align:left;padding:6px;border-top:1px solid #26405c}th{color:var(--mu);font-size:13px}
+a{color:var(--oro);font-weight:700}.live{display:inline-block;width:10px;height:10px;border-radius:50%;background:#3ccf7a;margin-right:6px;animation:p 1.2s infinite}@keyframes p{50%{opacity:.25}}
+.lingue{font-size:14px;color:var(--mu)}
+</style></head>
+<body><div class="w">
+<h1>Il treno blindato — risultati in tempo reale</h1>
+<p class="mu"><span class="live"></span>2INF · la pagina si aggiorna da sola ogni 30 secondi. <b id="agg"></b></p>
+<p class="lingue">实时结果：每30秒自动更新。排名、投资、工资、游戏版本。</p>
+<div class="card"><h2>Gli investitori offrono</h2><div class="big" id="inv">—</div><div class="mu" id="invDett"></div><a href="../investitori/">Guarda l'audit completo</a></div>
+<div class="card"><h2>Classifica delle squadre</h2><div id="classifica"></div><a href="../squadre/">Cosa deve fare la mia squadra</a></div>
+<div class="card"><h2>Ultima busta paga</h2><div class="mu" id="bustaTit"></div><table id="busta"></table><a href="../stipendi/">Tutte le buste paga</a></div>
+<div class="card"><h2>Versioni del gioco</h2><table id="versioni"></table><a href="../../giochi/treno-blindato/">Gioca l'ultima versione</a> · <a href="../../giochi/treno-blindato/versioni/">tutte le versioni</a></div>
+<div class="card"><h2>Messaggio dell'azienda</h2><div id="msg"></div></div>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function $(i){return document.getElementById(i)}
+function J(u){return fetch(u+'?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return null})}
+function soldi(n){return Math.round(n).toLocaleString('it-IT')+' $'}
+function carica(){Promise.all([J('../squadre/stato.json'),J('../stipendi/stipendi.json'),J('../investitori/audit.json'),J('../../giochi/treno-blindato/versioni/versioni.json')]).then(function(r){
+ var S=r[0],P=r[1],A=r[2],V=r[3];$('agg').textContent='Ultimo controllo: '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+ if(A&&A.audit.length){var a=A.audit[A.audit.length-1],p=A.audit.length>1?A.audit[A.audit.length-2]:null;$('inv').textContent=soldi(a.investimento);
+  $('invDett').textContent=a.versione+' delle '+a.ora.split(' ')[1]+' · '+a.punti+'/100 punti'+(p?' · prima: '+soldi(p.investimento):'')}
+ if(S){var Q=S.punteggi||{},k=Object.keys(Q).sort(function(x,y){return Q[y].punti-Q[x].punti}),mx=Math.max.apply(null,k.map(function(x){return Math.max(1,Q[x].punti)}));
+  $('classifica').innerHTML=k.map(function(x,i){var q=Q[x],s=S.squadre[x]||{nome:x,colore:'#555'};return '<div class="riga"><span class="pill" style="background:'+s.colore+'">'+(i+1)+'° · '+q.punti+'</span><div style="flex:1"><b>'+e(s.nome)+'</b> <span class="mu">richieste '+(q.richieste||0)+' · nel gioco '+(q.nel_gioco||0)+(q.fuori?' · fuori compito '+q.fuori:'')+'</span><div class="bar"><i style="width:'+Math.max(3,Math.round(100*Math.max(0,q.punti)/mx))+'%;background:'+s.colore+'"></i></div></div></div>'}).join('');
+  $('msg').textContent=S.messaggio||''}
+ if(P&&P.buste_paga.length){var b=P.buste_paga[P.buste_paga.length-1];$('bustaTit').textContent=b.versione+' · '+b.ora;
+  $('busta').innerHTML='<tr><th>Chi</th><th>Squadra</th><th>Merito</th><th>$</th></tr>'+b.righe.map(function(x){return '<tr><td>'+e(x.chi)+'</td><td>'+e(x.squadra)+'</td><td>'+x.rendimento+'%</td><td><b>'+x.dollari+'</b></td></tr>'}).join('')}
+ if(V){$('versioni').innerHTML=V.slice().reverse().map(function(x){return '<tr><td><b>'+e(x.versione)+'</b></td><td>'+e(x.nome)+'</td></tr>'}).join('')}})}
+carica();setInterval(carica,30000);
+</script></body></html>
