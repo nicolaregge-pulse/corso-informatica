@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:48",
+ "aggiornato": "08/10/2026 12:53",
  "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Ogni volta che il prof ti vede al PC a fare altro −10. Massimo 100.",
  "righe": [
   {
@@ -10,16 +10,14 @@
    "p1": "merged",
    "p2": "merged",
    "p3": "merged",
-   "p4": "",
-   "fatto": "PR #2, #5, #14, #21 difetto del cielo (v1.1-v1.4)",
+   "p4": "merged",
+   "fatto": "Black Panter, montagna e meteo, greggi, difetto del cielo, revisione (PR-4)",
    "monitor": "12:08 gioca · poi sempre nel Documento · 12:33 gioca, 4836 punti (prova per la PR-3) · 12:43 nel Documento",
-   "documenti": 5,
+   "documenti": 6,
    "consegnato": false,
    "fuori": 0,
-   "voto": 95,
-   "manca": [
-    "PR-4 (+15)"
-   ]
+   "voto": 100,
+   "manca": []
   },
   {
    "pc": "18",
@@ -30,9 +28,9 @@
    "p2": "merged",
    "p3": "merged",
    "p4": "",
-   "fatto": "PR #1, #4, #13, #20 difetto del cielo sistemato (v1.1-v1.4)",
+   "fatto": "Black Panter, montagna e meteo, greggi, difetto del cielo + nuove idee: aereo con missili, pausa, treno «Spissu», palazzi in fiamme, torre di Pisa, ruota panoramica",
    "monitor": "12:08 gioca · poi sempre nel Documento · 12:33 pagina del lavoro · 12:43 nel Documento",
-   "documenti": 5,
+   "documenti": 8,
    "consegnato": false,
    "fuori": 0,
    "voto": 95,
@@ -47,16 +45,15 @@
    "f0": true,
    "p1": "merged",
    "p2": "merged",
-   "p3": "parziale",
+   "p3": "merged",
    "p4": "",
-   "fatto": "PR #7 Black Panther, #8 cespugli e armi (v1.3), #16 difetto da finire",
+   "fatto": "Black Panther, cespugli e armi, difetto: troppo veloce e nemici dietro i palazzi",
    "monitor": "12:08 compito · 12:26 e 12:39 scrive nel Documento · 12:33 gioco (prova per la PR-3) · 12:43 nel Documento",
-   "documenti": 4,
+   "documenti": 5,
    "consegnato": false,
    "fuori": 0,
-   "voto": 85,
+   "voto": 95,
    "manca": [
-    "PR-3 da completare (+15)",
     "PR-4 (+15)"
    ]
   },
@@ -81,6 +78,26 @@
    ]
   },
   {
+   "pc": "35",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "capo squadra · velocità",
+   "f0": true,
+   "p1": "",
+   "p2": "merged",
+   "p3": "merged",
+   "p4": "",
+   "fatto": "velocità 2 (PR-2) e poi il difetto «troppo veloce» (PR-3); consegnato",
+   "monitor": "12:08 nel Documento · 12:26 nel Documento · 12:33 pagina del lavoro · 12:43 nel Documento",
+   "documenti": 3,
+   "consegnato": true,
+   "fuori": 0,
+   "voto": 80,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-4 (+15)"
+   ]
+  },
+  {
    "pc": "15",
    "squadra": "PERSONAGGI",
    "pezzo": "capo squadra · il protagonista",
@@ -89,9 +106,9 @@
    "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #6 Travor completo, PR #11 protagonista Nash (v1.3)",
+   "fatto": "Travor, Nash con frase, idea «Shadow Tactics»: rapina in banca",
    "monitor": "12:08 gioca · poi nel Documento · 12:33 nel Documento · 12:43 nel Documento",
-   "documenti": 2,
+   "documenti": 4,
    "consegnato": false,
    "fuori": 0,
    "voto": 70,
@@ -101,18 +118,78 @@
    ]
   },
   {
-   "pc": "35",
+   "pc": "23",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "prova con un compagno",
+   "f0": false,
+   "p1": "merged",
+   "p2": "",
+   "p3": "merged",
+   "p4": "",
+   "fatto": "Franciscos, difetto: velocità troppo alta, propone 60-70 km/h",
+   "monitor": "12:08 gioco · poi nel Documento · 12:33 nel Documento · 12:43 gioca (prova per la PR-3)",
+   "documenti": 3,
+   "consegnato": false,
+   "fuori": 0,
+   "voto": 70,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "36",
    "squadra": "MOTORE FISICA",
-   "pezzo": "capo squadra · velocità",
+   "pezzo": "i punti",
    "f0": true,
    "p1": "",
    "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "punto 0; PR #17 velocità 2 (v1.4); aveva premuto Consegna",
-   "monitor": "12:08 nel Documento · 12:26 nel Documento · 12:33 pagina del lavoro · 12:43 nel Documento",
+   "fatto": "velocità 2 e sparo dopo 0,5 secondi (PR-2); consegnato",
+   "monitor": "12:08 compito · 12:26 compito · 12:33 nel Documento · 12:43 pagina del compito",
    "documenti": 2,
-   "consegnato": true,
+   "consegnato": false,
+   "fuori": 0,
+   "voto": 65,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "37",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "i secondi dello sparo",
+   "f0": true,
+   "p1": "",
+   "p2": "merged",
+   "p3": "",
+   "p4": "",
+   "fatto": "cattivi sparano dopo 2 secondi (PR-2)",
+   "monitor": "12:08 gioco · 12:26 compito · 12:33 pagina del compito · 12:43 gioca (prova per la PR-3)",
+   "documenti": 2,
+   "consegnato": false,
+   "fuori": 0,
+   "voto": 65,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "38",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "senza numero di PC",
+   "f0": true,
+   "p1": "",
+   "p2": "merged",
+   "p3": "",
+   "p4": "",
+   "fatto": "cattivi sparano dopo 2 secondi (PR-2; punto 0 uguale a Gervasoni); consegnato",
+   "monitor": "PC 38, non si vede su Veyon · PC 38: 12:33 gioca, 2420 punti · 12:43 nel Documento",
+   "documenti": 2,
+   "consegnato": false,
    "fuori": 0,
    "voto": 65,
    "manca": [
@@ -141,62 +218,22 @@
    ]
   },
   {
-   "pc": "23",
+   "pc": "26",
    "squadra": "TEST QUALITÀ",
-   "pezzo": "prova con un compagno",
+   "pezzo": "classifica dei difetti",
    "f0": false,
    "p1": "merged",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "PR #12 e #18 Franciscos (v1.3, v1.4)",
-   "monitor": "12:08 gioco · poi nel Documento · 12:33 nel Documento · 12:43 gioca (prova per la PR-3)",
-   "documenti": 2,
+   "fatto": "cattivo Jeff, esce dai cespugli; consegnato",
+   "monitor": "12:08 Classroom · 12:26 nel Documento · 12:33 pagina del compito · 12:43 pagina «404» (sbagliata)",
+   "documenti": 1,
    "consegnato": false,
    "fuori": 0,
    "voto": 55,
    "manca": [
     "punto 0 (+10)",
-    "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "36",
-   "squadra": "MOTORE FISICA",
-   "pezzo": "i punti",
-   "f0": true,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "squadra scritta",
-   "monitor": "12:08 compito · 12:26 compito · 12:33 nel Documento · 12:43 pagina del compito",
-   "documenti": 1,
-   "consegnato": false,
-   "fuori": 0,
-   "voto": 50,
-   "manca": [
-    "PR-1 (+15)",
-    "PR-2 (+15)"
-   ]
-  },
-  {
-   "pc": "37",
-   "squadra": "MOTORE FISICA",
-   "pezzo": "i secondi dello sparo",
-   "f0": true,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "squadra scritta",
-   "monitor": "12:08 gioco · 12:26 compito · 12:33 pagina del compito · 12:43 gioca (prova per la PR-3)",
-   "documenti": 1,
-   "consegnato": false,
-   "fuori": 0,
-   "voto": 50,
-   "manca": [
-    "PR-1 (+15)",
     "PR-2 (+15)"
    ]
   },
@@ -261,26 +298,6 @@
    ]
   },
   {
-   "pc": "38",
-   "squadra": "MOTORE FISICA",
-   "pezzo": "senza numero di PC",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "monitor": "PC 38, non si vede su Veyon · PC 38: 12:33 gioca, 2420 punti · 12:43 nel Documento",
-   "documenti": 0,
-   "consegnato": false,
-   "fuori": 0,
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
    "pc": "24",
    "squadra": "TEST QUALITÀ",
    "pezzo": "capo squadra · prova sul PC",
@@ -321,26 +338,6 @@
    ]
   },
   {
-   "pc": "26",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "classifica dei difetti",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "monitor": "12:08 Classroom · 12:26 nel Documento · 12:33 pagina del compito · 12:43 pagina «404» (sbagliata)",
-   "documenti": 0,
-   "consegnato": false,
-   "fuori": 0,
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
    "pc": "14",
    "squadra": "?",
    "pezzo": "chiedi al CEO",
@@ -369,7 +366,7 @@
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "tabella «Organizzazione Team di sviluppo» (non nel Documento del compito)",
+   "fatto": "organigramma fuori dal compito; consegnato senza Pull Request",
    "monitor": "12:26 documento con l'organigramma · 12:33 chat (da verificare) · 12:43 FERMO: schermata di blocco",
    "documenti": 0,
    "consegnato": false,
@@ -382,9 +379,9 @@
   }
  ],
  "nomi": {
-  "salt": "MMcolyoOqy98oCRhhq3WVg==",
-  "iv": "rZZjPpO9kyEboM1x",
-  "ct": "hCOKUHDvwcE/9CXHvdQX5beE19+Stq2Z/u9SSne9dmmEYV5fBM/WxuhvVUzb+RDrruVn5G5fNSW5pi3+01fSBfPtGfhqWYdIKjdVUtx+4C5igMvqqEnTEhpP92q6HSPTLE2tDo7jH1YqsF1S2ztcjLfyr8BtB15bvzjq2Ma3MX2Xz5vtUPqcQOd/jFOYQo8fz6wPkJybKAboT5VIyZZfxM7kY82bIq05IsAcJAlsTRzlvbKl8JJM/kXxthHscZpqIRRpE1kTWh3AFMYumAPPNMHJ8cirTl+666kAPE5SJy9KMeOURkTVSinYO84Mzmz7UAuhglNSPnkIgffRKSQAyF+783kexIJ859ne0qHP3unNb8L+fpYnyxV/CvqpSDPrzOd+MdF6Gwu8hi+CbHp9+9jtXOtAq5wM3flhlTTCBEboHMs0HF/5F+xcTZg10ZzYea+XxqFzv+OaE3tDEN7xI0mPSdx+QvMc9fY8id+D5pj9Vwz+lEDKFzV24CTs9DMB2Zx1wKgVIRhuz69FLL01NTucoaEUrK27dD6JyFZj5yObG2JJL5nqFhB3BNTAs45/OuOd0loTiNaZ97RyQYUQjBULlsSzJRkCZ5ul5QL2JVH+FlvrPfp4yX4U",
+  "salt": "e8Q6zNw52ib6G37VdTwJ1Q==",
+  "iv": "C+DRwdTEqMtW6QKA",
+  "ct": "7EHu1CUWwX0Fm63ZHBO8twN1wqAAyF6Mirmzlrp6MqBpcB/VIUyCHsOPGbH2L/KSHUvA7fjWQfBK7HBKHd7kAUB7yp+HXzgAmETq7Z9qUoLIU+dVuXDJL2RJhIPSoUm52yNVZseMuCOiueMUZrGH9woJJghxKHrRMaG7aOBrRWT2BL1t/vEAeQjOLVaBe62l8261SX7lq1HhGxt235fwLa7Km1w4NZ3XnWxd0xEKtsuTM1HTTJbwmRCaQwgKkLjm0NTY/5pO5KPPuualcVztzqsFfWteylRzdxzvmRFyrEKCQhj1hjQia5HC+xOX0rDSXh6bDFXJbuNQvEMWhKLkJnAjsP8T4KTGk73m+LfUQzn58Sa+hOWLbDgYEmncxFkanpEa3yQQDlkL7c4mBI9TQ5FW/5sreSBdbz3h2LCPDEVQLXfbBzLE093nJXDCNnpCPmvcn5gSOas4VKXyjBwJbj0DaI72WmA9n0Aio8lx5E7Frt4xzpC+dC9VHqvDNOHGcLTNoNb5Qn+78frpDVkk5xYMI+kuWGWjS5Yu565+VF2EHKkf4ajujGCxVxjdvV3tIzcMyPcI8IEiN8zrX+Ls7aaMwIK1tU9s9lLQpGPO9awiY197BqtbFsWI",
   "iter": 150000
  }
 }
