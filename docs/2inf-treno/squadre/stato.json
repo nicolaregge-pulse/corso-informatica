@@ -1,6 +1,6 @@
 {
- "aggiornato": "08/10/2026 10:04",
- "messaggio": "NON SERVE PREMERE «CONSEGNA»: basta SCRIVERE nel Documento del compito, il prof lo legge da solo ogni 5 minuti e conta subito. «Consegna» si preme solo alla fine (10:45). ⏱ Alle 10:10 arrivano gli investitori: ogni richiesta scritta = +38.000 $.",
+ "aggiornato": "08/10/2026 10:07",
+ "messaggio": "SI CONSEGNA SOLO SU CLASSROOM: scrivete nel Documento del compito e allegate i file (disegni di Gemini, foto del foglio, screenshot). Niente GitHub: le vostre consegne le mettono su Git gli sviluppatori e diventano una nuova versione del gioco. ⏱ Alle 10:10 arrivano gli investitori.",
  "squadre": {
   "ceo": {
    "nome": "CEO",
@@ -53,19 +53,16 @@
      "stato": "da fare"
     },
     {
-     "t": "Cambia il file del bosco con la matita (link qui sotto) e fai la Pull Request.",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/ambienti/bosco.json"
+     "t": "Scrivi la richiesta per il BOSCO (colori, oggetti, dove si nascondono i cattivi) e consegnala su Classroom: il capo la scrive nel suo Documento.",
+     "stato": "da fare"
     },
     {
-     "t": "Fai lo stesso per paese, città, montagna e mare.",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/ambienti/case.json"
+     "t": "Fai lo stesso per paese, città, montagna e mare: una richiesta per ambiente, sempre su Classroom.",
+     "stato": "da fare"
     },
     {
-     "t": "Decidi l'ordine del viaggio e quanti secondi dura ogni ambiente (percorso.json).",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/percorso.json"
+     "t": "Decidi l'ordine del viaggio e quanti secondi dura ogni ambiente: scrivilo come richiesta su Classroom.",
+     "stato": "da fare"
     }
    ],
    "file": [
@@ -76,7 +73,7 @@
     "ambienti/mare.json",
     "percorso.json"
    ],
-   "aiuto": "«oggetti» può essere: alberi, case, palazzi, rocce, onde. «densita»: 1 = pochi, 3 = tanti.",
+   "aiuto": "Non scrivete codice: descrivete bene come deve essere l'ambiente. Gli sviluppatori lo realizzano e lo mettono su Git.",
    "carte": [
     "Il BOSCO: scegli il colore del cielo e della terra e 3 oggetti (alberi, rocce...). Dove si nascondono i cattivi?",
     "Il PAESE: colori, case, cosa si vede dal finestrino.",
@@ -103,9 +100,8 @@
      "stato": "fatto"
     },
     {
-     "t": "Il protagonista: scegli nome e colori (giacca, capelli) e fai la Pull Request.",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/protagonista.json"
+     "t": "Il protagonista: scegli nome e colori (giacca, capelli) e scrivilo come richiesta su Classroom.",
+     "stato": "da fare"
     },
     {
      "t": "Controlla i cattivi arrivati (elenco qui sotto): nomi e frasi vanno bene? Niente nomi veri, niente parolacce.",
@@ -136,9 +132,8 @@
      "stato": "da fare"
     },
     {
-     "t": "Prova a cambiare velocita_treno (0.5-3) e secondi_prima_di_sparare (0.8-5) in regole.json e fai la Pull Request.",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/edit/main/docs/giochi/treno-blindato/regole.json"
+     "t": "Proponi la velocità del treno (da 0.5 a 3) e i secondi prima che i cattivi sparino (da 0.8 a 5), con il perché: richiesta su Classroom.",
+     "stato": "da fare"
     },
     {
      "t": "Con la squadra TEST QUALITÀ prova la nuova versione e decidi i valori finali. Scrivi perché li hai scelti.",
@@ -148,7 +143,7 @@
    "file": [
     "regole.json"
    ],
-   "aiuto": "Cambia un valore alla volta: così capisci cosa fa ognuno. È così che lavorano i game designer.",
+   "aiuto": "Cambiate un valore alla volta e dite perché: così si capisce cosa fa ognuno. È così che lavorano i game designer.",
    "carte": [
     "VELOCITÀ del treno: gioca 1 partita, è troppo lento o troppo veloce? Proponi un numero da 0.5 a 3 e perché.",
     "TEMPO prima che i cattivi sparino: proponi un numero da 0.8 a 5 secondi e perché.",
@@ -171,9 +166,8 @@
      "stato": "da fare"
     },
     {
-     "t": "Revisione: apri ogni Pull Request dei compagni, scheda «Files changed», e scrivi un commento (va bene / da sistemare e perché).",
-     "stato": "da fare",
-     "link": "https://github.com/nicolaregge-pulse/corso-informatica/pulls"
+     "t": "Revisione: leggi le richieste delle altre squadre e la nuova versione del gioco; scrivi «va bene» o «da sistemare» e perché, su Classroom.",
+     "stato": "da fare"
     }
    ],
    "file": [],
@@ -189,7 +183,7 @@
  },
  "cattivi": {
   "arrivati": [],
-  "nota": "Ognuno crea il suo cattivo: pagina del progetto, parte 2 e 3."
+  "nota": "Ognuno descrive il suo cattivo (o lo disegna con Gemini) e lo consegna su Classroom: lo mettiamo noi nel gioco."
  },
  "punteggi": {
   "scenari": {
