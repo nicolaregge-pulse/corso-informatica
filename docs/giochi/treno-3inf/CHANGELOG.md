@@ -1,5 +1,12 @@
 # Il treno blindato della 3INF — storia delle versioni
 
+## v1.3 — 08/10/2026 12:42 — Cespugli, greggi, armi diverse, nuovi cattivi
+
+1. PR #8 di Mirko (PC 16), SCENARI: cespugli vicino ai binari da cui escono i banditi, con armi diverse (fucile d'assalto, revolver, pistola).
+2. PR #13 di Dani (PC 18) e #14 di Ale (PC 17), SCENARI: in montagna greggi di mucche e pecore che pascolano senza intralciare la strada.
+3. PR #10 di Domi (PC 13) e #11 di Tomas (PC 15), PERSONAGGI: Travor esce da palazzi, tombini e cespugli e dice «Tutto qui quello che sai fare?»; il protagonista si chiama Nash.
+4. PR #12 di Eric (PC 23), TEST QUALITÀ: il cattivo Franciscos, mimetica azzurra, esce da un cespuglio con il revolver e grida «ARGENTINAA!».
+
 ## v1.2 — 08/10/2026 12:30 — Montagna, tempo che peggiora, Travor
 
 1. PR #4 di Dani (PC 18) e PR #5 di Ale (PC 17), SCENARI: il viaggio parte dalla strada che percorre la montagna, cielo sereno; a ogni livello il tempo cambia e diventa più difficile giocare (livello 2 foschia, livello 3 pioggia, livello 4 pioggia e nebbia). Le curve della strada: in arrivo.
