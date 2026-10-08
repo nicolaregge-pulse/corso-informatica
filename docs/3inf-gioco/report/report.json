@@ -1,5 +1,5 @@
 {
- "aggiornato": "08/10/2026 12:33",
+ "aggiornato": "08/10/2026 12:44",
  "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Massimo 100.",
  "righe": [
   {
@@ -9,15 +9,15 @@
    "f0": true,
    "p1": "merged",
    "p2": "merged",
-   "p3": "",
+   "p3": "parziale",
    "p4": "",
-   "fatto": "PR #2 Black Panter, PR #5 montagna e tempo",
-   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
-   "documenti": 3,
+   "fatto": "PR #2 Black Panter, #5 montagna e tempo, #14 greggi; PR-3 iniziata",
+   "monitor": "12:08 gioca · poi sempre nel Documento",
+   "documenti": 4,
    "consegnato": false,
-   "voto": 80,
+   "voto": 85,
    "manca": [
-    "PR-3 (+15)",
+    "PR-3 da completare (+15)",
     "PR-4 (+15)"
    ]
   },
@@ -30,9 +30,9 @@
    "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #1 Black Panter, PR #4 montagna e tempo",
-   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
-   "documenti": 3,
+   "fatto": "PR #1 Black Panter, #4 montagna e tempo, #13 greggi (v1.1-v1.3)",
+   "monitor": "12:08 gioca · poi sempre nel Documento",
+   "documenti": 4,
    "consegnato": false,
    "voto": 80,
    "manca": [
@@ -46,17 +46,17 @@
    "pezzo": "il bosco",
    "f0": true,
    "p1": "merged",
-   "p2": "parziale",
+   "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #7 Black Panther, PR #8 da completare",
-   "monitor": "12:08 compito · 12:26 scrive nel Documento",
+   "fatto": "PR #7 Black Panther, PR #8 cespugli e armi diverse (v1.3)",
+   "monitor": "12:08 compito · 12:26 e 12:39 scrive nel Documento",
    "documenti": 3,
    "consegnato": false,
-   "voto": 70,
+   "voto": 80,
    "manca": [
-    "PR-2 da completare (+15)",
-    "PR-3 (+15)"
+    "PR-3 (+15)",
+    "PR-4 (+15)"
    ]
   },
   {
@@ -65,17 +65,17 @@
    "pezzo": "capo squadra · il protagonista",
    "f0": false,
    "p1": "merged",
-   "p2": "",
+   "p2": "merged",
    "p3": "",
    "p4": "",
-   "fatto": "PR #6 Travor (manca la frase)",
-   "monitor": "12:08 gioca · 12:26 scrive nel Documento",
-   "documenti": 1,
+   "fatto": "PR #6 Travor completo, PR #11 protagonista Nash (v1.3)",
+   "monitor": "12:08 gioca · poi nel Documento",
+   "documenti": 2,
    "consegnato": false,
-   "voto": 55,
+   "voto": 70,
    "manca": [
     "punto 0 (+10)",
-    "PR-2 (+15)"
+    "PR-3 (+15)"
    ]
   },
   {
@@ -83,17 +83,36 @@
    "squadra": "PERSONAGGI",
    "pezzo": "le frasi dei cattivi",
    "f0": true,
-   "p1": "",
+   "p1": "merged",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "squadra scritta",
-   "monitor": "12:08 compito · 12:26 nel Documento",
+   "fatto": "PR #10 Trevor (v1.3)",
+   "monitor": "12:26 e 12:39 scrive nel Documento",
+   "documenti": 2,
+   "consegnato": false,
+   "voto": 65,
+   "manca": [
+    "PR-2 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "23",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "prova con un compagno",
+   "f0": false,
+   "p1": "merged",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "PR #12 Franciscos (v1.3)",
+   "monitor": "12:08 gioco · poi nel Documento",
    "documenti": 1,
    "consegnato": false,
-   "voto": 50,
+   "voto": 55,
    "manca": [
-    "PR-1 (+15)",
+    "punto 0 (+10)",
     "PR-2 (+15)"
    ]
   },
@@ -109,7 +128,7 @@
    "fatto": "squadra scritta; ha premuto Consegna",
    "monitor": "12:08 nel Documento · 12:26 nel Documento",
    "documenti": 1,
-   "consegnato": false,
+   "consegnato": true,
    "voto": 50,
    "manca": [
     "PR-1 (+15)",
@@ -174,22 +193,22 @@
    ]
   },
   {
-   "pc": "23",
+   "pc": "22",
    "squadra": "TEST QUALITÀ",
-   "pezzo": "prova con un compagno",
-   "f0": false,
-   "p1": "parziale",
+   "pezzo": "revisione",
+   "f0": true,
+   "p1": "",
    "p2": "",
    "p3": "",
    "p4": "",
-   "fatto": "PR #9 da completare (Franciscos)",
-   "monitor": "12:08 gioco · 12:26 scrive nel Documento",
+   "fatto": "punto 0 completo",
+   "monitor": "12:08 gioca · poi nel Documento",
    "documenti": 1,
    "consegnato": false,
-   "voto": 45,
+   "voto": 50,
    "manca": [
-    "punto 0 (+10)",
-    "PR-1 da completare (+15)"
+    "PR-1 (+15)",
+    "PR-2 (+15)"
    ]
   },
   {
@@ -231,7 +250,7 @@
    ]
   },
   {
-   "pc": "? (Motore)",
+   "pc": "38",
    "squadra": "MOTORE FISICA",
    "pezzo": "senza numero di PC",
    "f0": false,
@@ -240,7 +259,7 @@
    "p3": "",
    "p4": "",
    "fatto": "niente ancora",
-   "monitor": "mai visto con il nome",
+   "monitor": "PC 38, non si vede su Veyon",
    "documenti": 0,
    "consegnato": false,
    "voto": 40,
@@ -279,25 +298,6 @@
    "p4": "",
    "fatto": "niente ancora",
    "monitor": "12:08 gioca · 12:26 pagina «Il mio lavoro»",
-   "documenti": 0,
-   "consegnato": false,
-   "voto": 40,
-   "manca": [
-    "punto 0 (+10)",
-    "PR-1 (+15)"
-   ]
-  },
-  {
-   "pc": "22",
-   "squadra": "TEST QUALITÀ",
-   "pezzo": "revisione",
-   "f0": false,
-   "p1": "",
-   "p2": "",
-   "p3": "",
-   "p4": "",
-   "fatto": "niente ancora",
-   "monitor": "12:08 gioca · 12:26 nel Documento",
    "documenti": 0,
    "consegnato": false,
    "voto": 40,
@@ -384,9 +384,9 @@
   }
  ],
  "nomi": {
-  "salt": "hSP0CNitFkaDgVgzk+o0NA==",
-  "iv": "EUxByXdKddCEKBsY",
-  "ct": "7cOW0Fq+C/kY2r3fTnY50BzvUpGLdqryiXDg9HCnpxEN8VyB+jAVqYKiMYWWGRJs4WRyz4n6S6UFW8n5nk3Jb2Oxf5PmRuxk+zYP4hluMDKodSW82WizYGNq0TsN9bVrSbpgjW0hth2CaSZbJmvwCOEmQFcKL5bW4HKJoICl8Oxofe81rwxVqgAQx+m9i+qjnK6fe4H89pyQS+vuk+8kv6M8gUr3yKvB5M54nht9U1Yv9mA76sIJppHpuHEKh/r8vFquGL2Pmh/ncL+WmxL9j9YkKQT5iVf91twyoUG3HMYqvEtbcfAtrXlA7SJFAHG+JZDXMgfdgfuJZdnUcbPSMAMek7FaXCT/ovSVf0Z7An0Xq9hr2H7UxUu2ScudrruhTwk7Xxve9jBL7lmXueBKtZVQPNsZT4R0v/danbvHBU1DBEP1Mvink/MGB3L7c/ZbW3se3oOLmRZKlRRNN1ebtveAMMY39CNGmp0SkRhIv7/zuGDmpXtM384QhI72AV6hqCiiaHcH8XCA3l93SJCLxXUSDbsLJ6X/fFcwsdGCBOAGGmpe1+wSQQP80ouo8On1BQj/qYd0TKkMruxpvppWI4OB/o47W350TLiS6Y/SRYnFZMIawJLJps+2Qp7lIOLUmlZ8zE1/hJ32p4OQhutJ39EeqYtpb6M0PEfj/2XM",
+  "salt": "H1XGjBSS1mrbAlxfj5DxpQ==",
+  "iv": "PUX8bACdJZ0Nc0Wc",
+  "ct": "RGbakcMt0AYffLvEz9grQ6f+SYSUkpgli4fXekJin0zrjYFN217qHtG0NOTW6ZcthaDA7+gQ7zpK/UIZPW+Kv07t2zBrOoUHInIjQkDe7cTlVsHL5qEG6l0W0En03DJ9M1gGxkR9g5U0sC6gNwuLYm5P2pnV32pQiY8yv2Hd4ze9KTAI6lwPpNis8mQXHhGq4+H5LeH5SbU6BvepKW8AojBzdaYUSv1rmhActo6J8Pkyyd6FDSL2WpVYkBUPs1rZTlSgzoiOAHQFm1nzX8IIjhmFHBMSF0W8uBczj9UQOBlg/KtsBLbKHMcxivABLUtS6oSBF5t/VL4BdNly8iDZyzrgbR4DtuXADpkWscpsP71DyAyzbBTipvLoHg1oXLB/2Wa1sQQvxweI74Fx0yCJAGfjll4xBXUWnqTh/Vj9mcDgs8BX0mTI8YzPw3pnN1/AW2ndCsyt3ZdQdvuBLoBojPmiuxvss61ZhwKlGtUxHFJYX8SjRX6bo+C22+3S0aT0UFwp3j87jTj45RgOiSVFFUFssg1JTpOAfBoNAnmWluPd5Vtb0dsNtutxHamFOH7x72nJaFYvnVCyOfg/1Kv9Wr7gfzMU9PIae6XnPLnd0y4abM2Vf9IJ7ZOumEI7DZfv3Kh4smSR6RMrlLPUFXPZU01KCDGPEg==",
   "iter": 150000
  }
 }
