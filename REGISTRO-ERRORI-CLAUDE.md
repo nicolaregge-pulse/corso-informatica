@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.13** — 08/10/2026
+**Versione 2.14** — 08/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -238,3 +238,14 @@ lezione.*
    4. Ho aperto troppi canali (due moduli, pagine, annunci): i moduli hanno avuto zero risposte.
    5. Ho letto i Documenti tardi: all'inizio aspettavo il bottone «Consegna».
 3. **Regola (vale da oggi, per tutte le classi).** In un progetto di squadra: (1) un solo canale, il Documento del compito su Classroom; (2) ogni punto del Documento è una Pull Request che Claude legge, integra e pubblica come versione nuova; (3) TUTTI consegnano, ognuno nel suo Documento, con fasi a orario (una ogni 20-25 minuti) e una frase da completare già scritta; (4) la prima fase scade entro 20 minuti dall'inizio; (5) Claude legge i Documenti ogni 5 minuti fin dall'inizio, anche senza «Consegna», e pubblica i numeri di PC che non hanno ancora consegnato; (6) niente GitHub per i ragazzi se non è il lavoro del giorno.
+
+## 08/10/2026 — 3INF, «Il treno blindato della 3INF»: errori in classe (#39)
+
+1. **Orari sbagliati.** Ho scritto le fasi a partire dalle 11:20 senza controllare l'ora vera (erano le 12:00): ho dovuto rifare gli orari tre volte (12:05-13:50, poi fino alle 13:30, poi fino alle 13:05). Regola: prima di scrivere un orario per i ragazzi si chiede l'ora di fine al docente e si parte dall'ora di adesso.
+2. **Istruzioni troppo lunghe e poco chiare.** La prima versione spiegava tutto (Pull Request, fasi, voto) ma non diceva COSA fare e COME in un passo solo: i team non hanno capito. Regola: la pagina per i ragazzi mostra una sola cosa da fare adesso, con passi numerati da ragazzi delle medie, la riga già pronta e il bottone COPIA.
+3. **La PR-3 non era spiegata.** «Un difetto nella versione nuova» non diceva cosa fare: tutti hanno chiesto. Regola: ogni fase ha un esempio completo e il link a quello che serve (qui: apri il gioco, fai 1 partita, scrivi UNA cosa che non va).
+4. **Lavori per PC con i numeri vecchi.** Ho diviso il lavoro per numero di PC usando la foto Veyon delle 12:08; alle 12:26 molti avevano cambiato PC. Regola: prima di assegnare un lavoro per PC si controlla l'ultima foto Veyon; meglio assegnare per nome (nel Documento personale) e usare il PC solo come aiuto.
+5. **Modifiche alla pagina non verificate.** Due sostituzioni nel codice della pagina non sono andate a segno (il testo da sostituire non c'era) e me ne sono accorto dopo. Regola: dopo ogni modifica si controlla che il cambiamento ci sia (ricerca nel file o schermata) prima di dire che è fatto.
+6. **«Consegna» non spiegata all'inizio.** Due ragazzi hanno premuto «Consegna» e il Documento si è bloccato. Regola: nel testo del compito, fin dall'inizio, «non premere Consegna fino alla fine; se l'hai premuto, premi Annulla consegna».
+7. **Pull Request copiate tra compagni.** Tre ragazzi della stessa squadra hanno consegnato lo stesso cattivo. Regola: ogni PR-1 deve essere diversa; le copie si accettano una volta sola e si segnalano.
+8. **Nomi nei report.** La regola del corso vieta i nomi dei minori nelle pagine pubbliche; il docente li ha chiesti. Soluzione adottata: report pubblico per numero di PC, nomi visibili solo con la password della classe (cifrati nel repository).
