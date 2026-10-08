@@ -1,0 +1,326 @@
+{
+ "aggiornato": "08/10/2026 12:26",
+ "regola": "Si parte da 40. Punto 0 (squadra e PC) +10. Ogni Pull Request entrata nel gioco +15 (PR-1, PR-2, PR-3, PR-4). Pull Request da completare +5. Massimo 100.",
+ "righe": [
+  {
+   "pc": "17",
+   "squadra": "SCENARI",
+   "pezzo": "capo squadra · la città",
+   "f0": true,
+   "p1": "merged",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "PR #2: Black Panter (nel gioco v1.1)",
+   "voto": 65,
+   "manca": [
+    "PR-2 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "18",
+   "squadra": "SCENARI",
+   "pezzo": "la montagna",
+   "f0": true,
+   "p1": "merged",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "PR #1: Black Panter (nel gioco v1.1)",
+   "voto": 65,
+   "manca": [
+    "PR-2 (+15)",
+    "PR-3 (+15)"
+   ]
+  },
+  {
+   "pc": "16",
+   "squadra": "SCENARI",
+   "pezzo": "il bosco",
+   "f0": true,
+   "p1": "parziale",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "PR #3 da completare: mancano colore, nascondiglio, frase",
+   "voto": 55,
+   "manca": [
+    "PR-1 da completare (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "21",
+   "squadra": "SCENARI",
+   "pezzo": "il mare",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "15",
+   "squadra": "PERSONAGGI",
+   "pezzo": "capo squadra · il protagonista",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "14",
+   "squadra": "PERSONAGGI",
+   "pezzo": "il boss",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "27",
+   "squadra": "PERSONAGGI",
+   "pezzo": "le frasi dei cattivi",
+   "f0": true,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "squadra scritta",
+   "voto": 50,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "35",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "capo squadra · velocità",
+   "f0": true,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "squadra scritta",
+   "voto": 50,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "36",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "i punti",
+   "f0": true,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "squadra scritta",
+   "voto": 50,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "37",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "i secondi dello sparo",
+   "f0": true,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "squadra scritta",
+   "voto": 50,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "34",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "la difficoltà",
+   "f0": true,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "squadra scritta",
+   "voto": 50,
+   "manca": [
+    "PR-1 (+15)",
+    "PR-2 (+15)"
+   ]
+  },
+  {
+   "pc": "24",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "capo squadra · prova sul PC",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "25",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "prova sul telefono",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "23",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "prova con un compagno",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "22",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "revisione",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "29",
+   "squadra": "TEST QUALITÀ",
+   "pezzo": "classifica dei difetti",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "28",
+   "squadra": "?",
+   "pezzo": "chiedi al CEO",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "CEO",
+   "squadra": "CEO",
+   "pezzo": "verbale e presentazione",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "? (Motore)",
+   "squadra": "MOTORE FISICA",
+   "pezzo": "senza numero di PC",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  },
+  {
+   "pc": "?",
+   "squadra": "?",
+   "pezzo": "senza numero di PC",
+   "f0": false,
+   "p1": "",
+   "p2": "",
+   "p3": "",
+   "p4": "",
+   "fatto": "niente ancora",
+   "voto": 40,
+   "manca": [
+    "punto 0 (+10)",
+    "PR-1 (+15)"
+   ]
+  }
+ ]
+}
