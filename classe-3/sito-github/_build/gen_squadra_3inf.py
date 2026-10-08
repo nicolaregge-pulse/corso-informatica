@@ -4,7 +4,7 @@
 Richiesta di Nicola (08/10): tutti mettono il loro lavoro su Git, tutti fanno modifiche, poi merge e grafico delle versioni:
 ingegneria del software, product e project management, lavoro diviso in pezzi. Più 15 minuti finali sulle competenze
 (cosa ho imparato lavorando in squadra, cosa ho imparato qui che altrove non avrei imparato).
-Repository del gioco: nicolaregge-pulse/assalto-dei-mostri (sorgente anche in progetto-gruppo/assalto-dei-mostri/).
+Il gioco sta nel repository pubblico del corso: docs/giochi/assalto-dei-mostri/ (online in /giochi/).
 
 Produce: Dispensa 6 e Compito 4 (IT e IT-BN) in classe-3/sito-github/ e docs/3inf-sito/, e mette in testa alla pagina
 docs/3inf-sito/ il blocco di oggi (con «scegli il tuo PC» che prepara nome del file e mostro da copiare).
@@ -15,11 +15,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_sito_github as G
 from gen_sito_github import pagina, cover, step, box, T, codice, E
 
-VER = "1.0"
+VER = "1.1"
 CART, DOCS = G.CART, G.DOCS
 DATA = "08/10/2026"
-REPO = "https://github.com/nicolaregge-pulse/assalto-dei-mostri"
-GIOCO = "https://nicolaregge-pulse.github.io/assalto-dei-mostri/"
+REPO = "https://github.com/nicolaregge-pulse/corso-informatica/tree/main/docs/giochi/assalto-dei-mostri"   # 08/10: il gioco sta nel repo del corso (Nicola)
+MOSTRI_DIR = REPO + "/mostri"
+GIOCO = "https://nicolaregge-pulse.github.io/corso-informatica/giochi/assalto-dei-mostri/"
 MOSTRO = """{
   "nome": "Gnam Gnam",
   "colore": "#ff6fb1",
@@ -68,24 +69,24 @@ def dispensa6(bn):
     c += "</table>"
     c += "<h2>2. Il primo lavoro di tutti: il tuo mostro</h2>"
     c += codice("RIQUADRO 11 — il tuo mostro (cambia i valori!)", MOSTRO)
-    c += box("note", "Il file si chiama come il tuo PC, sempre con due cifre: PC 7 → " + T("mostri/pc07.json") + ", PC 14 → " + T("mostri/pc14.json") + ". "
+    c += box("note", "Il file si chiama come il tuo PC, sempre con due cifre: PC 7 → " + T("pc07.json") + ", PC 14 → " + T("pc14.json") + ", dentro la cartella <b>mostri</b>. "
              "Sulla pagina della classe scegli il tuo PC: il nome del file è già pronto da copiare.",
-             "ফাইলের নাম তোমার PC-র নম্বরে, সবসময় দুই অঙ্কে: PC 7 → " + T("mostri/pc07.json") + "। ক্লাসের পেজে তোমার PC বেছে নাও: ফাইলের নাম কপি করার জন্য তৈরি।", bn)
+             "ফাইলের নাম তোমার PC-র নম্বরে, সবসময় দুই অঙ্কে: PC 7 → " + T("pc07.json") + ", <b>mostri</b> ফোল্ডারের ভেতরে। ক্লাসের পেজে তোমার PC বেছে নাও: ফাইলের নাম কপি করার জন্য তৈরি।", bn)
     n = 0
     def S(*a, **k):
         nonlocal n; n += 1
         return step(n, *a, bn=bn, **k)
-    c += S("Apri il progetto", "প্রজেক্ট খোলো",
-           "Entra su github.com con il TUO account e apri " + T(REPO) + ".",
-           "তোমার অ্যাকাউন্ট দিয়ে github.com-এ ঢোকো আর খোলো " + T(REPO) + "।")
+    c += S("Apri la cartella dei mostri", "দানবদের ফোল্ডার খোলো",
+           "Entra su github.com con il TUO account e apri la cartella dei mostri (sulla pagina della classe c'è il bottone): " + T(MOSTRI_DIR) + ".",
+           "তোমার অ্যাকাউন্ট দিয়ে github.com-এ ঢোকো আর দানবদের ফোল্ডার খোলো (ক্লাসের পেজে বোতাম আছে): " + T(MOSTRI_DIR) + "।")
     c += S("Crea il file", "ফাইল বানাও",
            "Sopra l'elenco dei file: bottone grigio <b>Add file</b> &rarr; <b>Create new file</b>. GitHub ti dice che serve una copia tua: premi il bottone <b>verde</b> "
            "<b>Fork this repository</b> (crea la tua copia).",
            "ফাইলের তালিকার উপরে: ধূসর বোতাম <b>Add file</b> &rarr; <b>Create new file</b>। GitHub বলবে তোমার নিজের কপি লাগবে: <b>সবুজ</b> বোতাম "
            "<b>Fork this repository</b> চাপো।")
     c += S("Nome e contenuto", "নাম ও বিষয়বস্তু",
-           "Nel campo del nome incolla il TUO nome di file (es. " + T("mostri/pc14.json") + "). Nel riquadro grande incolla il RIQUADRO 11.",
-           "নামের ঘরে তোমার ফাইলের নাম পেস্ট করো (যেমন " + T("mostri/pc14.json") + ")। বড় বাক্সে বাক্স ১১ পেস্ট করো।")
+           "Nel campo del nome incolla il TUO nome di file (es. " + T("pc14.json") + "). Nel riquadro grande incolla il RIQUADRO 11.",
+           "নামের ঘরে তোমার ফাইলের নাম পেস্ট করো (যেমন " + T("pc14.json") + ")। বড় বাক্সে বাক্স ১১ পেস্ট করো।")
     c += S("Fallo tuo", "নিজের মতো করো",
            "Cambia nome, colore, occhi (1-3), corna (0-1), bocca (0-2), velocità (1-3) e la frase che grida. Lascia le virgolette e le virgole come sono.",
            "নাম, রং, চোখ (১-৩), শিং (০-১), মুখ (০-২), গতি (১-৩) আর তার চিৎকারের বাক্য বদলাও। উদ্ধৃতি চিহ্ন আর কমা যেমন আছে রাখো।")
@@ -107,10 +108,10 @@ def dispensa6(bn):
     for sq, f, it, b in SQUADRE:
         c += "<tr><td><b>%s</b></td><td>%s</td><td>%s%s</td></tr>" % (sq, T(f), it, "<div class='bn'>%s</div>" % b if bn else "")
     c += "</table>"
-    passi = [("Il project manager apre la <b>Issue</b> della squadra (scheda <b>Issues</b> del progetto) e scrive nei commenti chi fa cosa.",
-              "প্রজেক্ট ম্যানেজার দলের <b>Issue</b> খোলে (<b>Issues</b> ট্যাব) আর মন্তব্যে কে কী করবে লেখে।"),
+    passi = [("Il project manager scrive su un foglio la lista dei lavori della squadra (il <b>backlog</b>): chi fa cosa e entro quando.",
+              "প্রজেক্ট ম্যানেজার একটি কাগজে দলের কাজের তালিকা (<b>backlog</b>) লেখে: কে কী করবে, কখন পর্যন্ত।"),
              ("La squadra decide su carta i valori nuovi (colori, frasi, regole).", "দল কাগজে নতুন মান ঠিক করে (রং, বাক্য, নিয়ম)।"),
-             ("Il project manager cambia il file della squadra con la <b>matita</b> e fa la Pull Request, come per il mostro. Negli <b>autori</b> scrive solo i numeri dei PC.",
+             ("Il project manager apre il file della squadra nella cartella del gioco (" + T(REPO) + "), lo cambia con la <b>matita</b> e fa la Pull Request, come per il mostro. Negli <b>autori</b> scrive solo i numeri dei PC.",
               "প্রজেক্ট ম্যানেজার <b>পেনসিল</b> দিয়ে দলের ফাইল বদলায় আর Pull Request করে, দানবের মতোই। <b>autori</b>-তে শুধু PC নম্বর লেখে।"),
              ("Un compagno di un'altra squadra fa la <b>revisione</b>: nella Pull Request, scheda <b>Files changed</b>, guarda le modifiche e scrive un commento.",
               "অন্য দলের একজন <b>রিভিউ</b> করে: Pull Request-এ <b>Files changed</b> ট্যাবে পরিবর্তন দেখে মন্তব্য লেখে।")]
@@ -121,10 +122,10 @@ def dispensa6(bn):
              "<b>কনফ্লিক্ট:</b> দুজন একই ফাইলের একই লাইন বদলালে GitHub জানে না কোনটি রাখবে। এটা বিপদ নয়: সব কোম্পানিতে হয়। শিক্ষক বোর্ডে দেখিয়ে তোমাদের সাথে সমাধান করবেন।", bn)
     c += "<h2>4. La versione nuova e il grafico</h2>"
     c += S("La release", "রিলিজ",
-           "Quando i lavori sono uniti, il prof pubblica la <b>release v1.1</b> (i mostri della classe) e poi la <b>v1.2</b> (le squadre). Il numero in basso a destra nel gioco cambia.",
-           "কাজগুলো যোগ হলে শিক্ষক <b>v1.1 রিলিজ</b> (ক্লাসের দানব) আর পরে <b>v1.2</b> (দলগুলোর কাজ) প্রকাশ করেন। খেলার নিচে ডানদিকের নম্বর বদলায়।")
+           "Quando i lavori sono uniti, il prof pubblica la <b>release</b> «assalto-v1.1» (i mostri della classe) e poi la «assalto-v1.2» (le squadre). Il numero in basso a destra nel gioco cambia.",
+           "কাজগুলো যোগ হলে শিক্ষক <b>রিলিজ</b> «assalto-v1.1» (ক্লাসের দানব) আর পরে «assalto-v1.2» (দলগুলোর কাজ) প্রকাশ করেন। খেলার নিচে ডানদিকের নম্বর বদলায়।")
     c += S("Il grafico delle versioni", "সংস্করণের গ্রাফ",
-           "Nel progetto: scheda <b>Insights</b> &rarr; a sinistra <b>Network</b>. Vedi tutte le copie (fork), i commit e i merge: è la storia del lavoro di tutti.",
+           "Nel repository del corso: scheda <b>Insights</b> &rarr; a sinistra <b>Network</b>. Vedi tutte le copie (fork), i commit e i merge: è la storia del lavoro di tutti.",
            "প্রজেক্টে: <b>Insights</b> ট্যাব &rarr; বাঁদিকে <b>Network</b>। সব কপি (fork), commit আর merge দেখবে: সবার কাজের ইতিহাস।", ok=True)
     c += box("note", "<b>Carta e penna:</b> disegna il grafico delle versioni del gioco: la linea principale (main) da v1.0 a v1.2, la tua copia che parte, il tuo commit, "
              "la freccia del merge che torna nella linea principale.",
@@ -177,13 +178,13 @@ def blocco_pagina(nomi):
     def riquadro(id_, lab, testo):
         return ("<div class='cb'><span class='lab'>%s</span><button class='cp' data-t='%s'>Copia</button><pre id='%s'>%s</pre></div>" % (lab, id_, id_, E(testo)))
     opz = "".join("<option value='%02d'>PC %d</option>" % (i, i) for i in range(1, 41))
-    js = ("<script>function scegliPC(v){var f='mostri/pc'+v+'.json';document.getElementById('rpc').textContent=f;"
+    js = ("<script>function scegliPC(v){var f='pc'+v+'.json';document.getElementById('rpc').textContent=f;"
           "document.getElementById('pcScelto').hidden=!v;try{localStorage.setItem('pc-3inf-gioco',v)}catch(e){}}"
           "(function(){var v='';try{v=localStorage.getItem('pc-3inf-gioco')||''}catch(e){}if(v){document.getElementById('selPC').value=v;scegliPC(v)}})();</script>")
     return ("<!--OGGI-SQUADRA--><h1 style='margin-top:12px'>Giovedì 08/10 — Il gioco della classe: lavoriamo come un'azienda</h1>"
             "<div class='box' style='border:3px solid #2f9e57'><p><b>Oggi:</b> 1) il tuo mostro con una Pull Request; 2) il lavoro della tua squadra; "
             "3) il merge e la versione nuova; 4) il grafico delle versioni; 5) ultimi 15 minuti: cosa ho imparato lavorando in squadra.</p>"
-            "<div class='btns'><a class='bt' style='background:#12467a;color:#fff' href='" + REPO + "'>Il progetto su GitHub</a><a class='bt' style='background:#2f9e57;color:#fff' href='" + GIOCO + "'>Gioca!</a></div></div>"
+            "<div class='btns'><a class='bt' style='background:#12467a;color:#fff' href='" + MOSTRI_DIR + "'>La cartella dei mostri su GitHub</a><a class='bt' style='background:#2f9e57;color:#fff' href='" + GIOCO + "'>Gioca!</a></div></div>"
             "<div class='box b1'><h2>10. Dispensa 6 — Lavoriamo come un'azienda</h2><p>Ruoli, fork, Pull Request, merge, versioni, grafico.</p><div class='btns'>%s%s</div></div>"
             "<div class='box code'><h2>Il tuo mostro</h2><p><b>1. Scegli il tuo PC:</b> <select id='selPC' onchange='scegliPC(this.value)' style='font-size:18px;padding:6px'>"
             "<option value=''>— scegli —</option>%s</select></p><div id='pcScelto' hidden>%s</div>%s</div>"

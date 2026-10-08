@@ -1,0 +1,21 @@
+name: Controllo dei giochi della classe
+on:
+  pull_request:
+    paths: ["docs/giochi/**"]
+  push:
+    branches: [main]
+    paths: ["docs/giochi/**"]
+jobs:
+  controllo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Solo file dei giochi (una Pull Request dei ragazzi tocca solo docs/giochi)
+        if: github.event_name == 'pull_request'
+        run: |
+          fuori=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep -v '^docs/giochi/' || true)
+          if [ -n "$fuori" ]; then echo "Questa Pull Request cambia file fuori da docs/giochi:"; echo "$fuori"; exit 1; fi
+      - name: Controllo automatico di Assalto dei mostri (revisione del codice)
+        run: cd docs/giochi/assalto-dei-mostri && python3 strumenti/controlla.py

@@ -2,13 +2,17 @@
 
 Il gioco della classe 3INF (Centro Padre Piamarta, Milano). Si gioca sul telefono: i mostri sbucano da tutte le parti, li tocchi prima che sparino al tuo vetro.
 
-**Giocalo qui:** https://nicolaregge-pulse.github.io/assalto-dei-mostri/
+**Giocalo qui:** https://nicolaregge-pulse.github.io/corso-informatica/giochi/assalto-dei-mostri/
+
+**La cartella del gioco su GitHub:** https://github.com/nicolaregge-pulse/corso-informatica/tree/main/docs/giochi/assalto-dei-mostri
+
+Il gioco sta nel repository del corso, nella cartella `docs/giochi/assalto-dei-mostri/`. Una Pull Request dei ragazzi può cambiare solo i file dentro `docs/giochi/`: il controllo automatico lo verifica.
 
 ## Come lavoriamo: come una vera azienda di software
 
 1. **Il prodotto** è il gioco. Il **product owner** (il prof) decide cosa entra in ogni versione.
 2. **Il lavoro è diviso in pezzi**: ogni pezzo è un file separato, così ognuno lavora sul suo senza rompere quello degli altri.
-3. **Il backlog** (la lista dei lavori da fare) sta nelle **Issues** del repository. Ogni Issue è un lavoro: lo prendi, lo fai, lo chiudi.
+3. **Il backlog** (la lista dei lavori da fare) è la tabella «I pezzi del gioco» qui sotto: ogni riga è un lavoro, con la sua squadra.
 4. **Nessuno scrive direttamente qui.** Ognuno lavora sulla sua copia (**fork**) e propone la modifica con una **Pull Request**.
 5. Un **controllo automatico** guarda ogni Pull Request: se c'è un errore compare una X rossa e c'è scritto cosa sistemare.
 6. Il prof fa la **revisione** e il **merge** (unisce la modifica al gioco).
@@ -28,7 +32,7 @@ Il gioco della classe 3INF (Centro Padre Piamarta, Milano). Si gioca sul telefon
 
 ## Il tuo mostro (il primo lavoro di tutti)
 
-Il file si chiama come il tuo PC, con due cifre: PC 7 → `mostri/pc07.json`. Copia l'esempio `mostri/pc00-ESEMPIO.json` e cambia i valori:
+Il file si chiama come il tuo PC, con due cifre: PC 7 → `pc07.json`, dentro la cartella `mostri`. Copia l'esempio `mostri/pc00-ESEMPIO.json` e cambia i valori:
 
 | Campo | Cosa puoi mettere |
 |---|---|
