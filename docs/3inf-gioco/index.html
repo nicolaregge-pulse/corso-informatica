@@ -53,7 +53,7 @@ function mio(k){var j=LAV[k];if(!j){$('mioLavoro').innerHTML='';return}try{local
  var h='<p style="font-size:20px">La tua squadra: <b>'+e(j.squadra)+'</b><br>Il tuo pezzo: <b>'+e(j.ruolo)+'</b></p>';
  if(!f){$('mioLavoro').innerHTML=h+'<h2 style="font-size:26px;color:#ffd34d">2. ULTIMA COSA</h2><ol style="font-size:20px;line-height:1.6"><li>Nel tuo Documento, in fondo, scrivi 3 righe: cosa ho imparato oggi.</li><li>Premi il bottone blu <b>Consegna</b> in alto a destra nel compito.</li></ol>';return}
  h+='<h2 style="font-size:26px;color:#ffd34d">2. Adesso fai la '+f[0]+' (entro le '+f[2]+')</h2>'
-  +'<ol style="font-size:20px;line-height:1.7"><li>Premi il bottone verde <b>COPIA</b> qui sotto.</li>'
+  +'<ol style="font-size:20px;line-height:1.7">'+(f[0]==='PR-3'?'<li><b>Cos\'è la PR-3?</b> Apri il gioco, fai 1 partita e trova UNA cosa che non va o che non ti piace. Poi scrivila con la riga qui sotto. <a href="../giochi/treno-3inf/" target="_blank">APRI IL GIOCO</a></li>':'')+'<li>Premi il bottone verde <b>COPIA</b> qui sotto.</li>'
   +'<li><code id="riga" style="display:block;background:#0d1117;padding:10px;border-radius:8px;white-space:pre-wrap;font-size:18px">'+e(f[1])+'</code><button id="copia" style="font-size:20px;padding:10px 18px;margin-top:6px;background:#238636;color:#fff;border:0;border-radius:10px">COPIA</button></li>'
   +'<li>Vai su <b>Classroom</b> → compito <b>«Compito 4 — Il treno blindato della 3INF»</b> → apri il <b>tuo Documento</b> (c\'è il tuo nome).</li>'
   +'<li>Clicca sotto la scritta <b>'+f[0]+'</b> e premi <b>Ctrl + V</b> (incolla).</li>'
