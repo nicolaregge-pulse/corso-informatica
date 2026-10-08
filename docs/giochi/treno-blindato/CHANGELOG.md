@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.5 — 08/10/2026 10:22 — Le regole della squadra MOTORE FISICA
+
+1. Prima Pull Request VERA arrivata su GitHub: #104, del capo squadra MOTORE FISICA.
+2. Velocità del treno 0,5 (confermata), i cattivi sparano dopo 3 secondi (prima 2,8), 100 punti per ogni cattivo colpito (prima 10).
+3. Nella Pull Request c'era «0,5» con la virgola: in JSON i decimali si scrivono con il PUNTO (0.5). Il valore è stato messo giusto qui.
+
 ## v0.4 — 08/10/2026 10:16 — Audit degli investitori
 
 1. Gli investitori: «treno troppo veloce, non si vedono le facce, le facce sono in un riquadro: doveva esserci il personaggio nascosto che esce».
