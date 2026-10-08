@@ -11,7 +11,7 @@ a{color:#58a6ff}#info{min-height:70px}svg text{font-family:system-ui,Arial}</sty
 var L=[{nome:'2INF — Il treno blindato',dir:'treno-blindato',col:'#2f81f7',y:90},{nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:210,da:'v0.11'}];
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){Promise.all(L.map(function(l){return fetch('../'+l.dir+'/versioni/versioni.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})})).then(function(R){
- var g=document.getElementById('g'),dx=86,x0=60,h='',pos={};R[0].forEach(function(v,i){pos['0:'+v.versione]=x0+i*dx});
+ var g=document.getElementById('g'),dx=72,x0=50,h='',pos={};R[0].forEach(function(v,i){pos['0:'+v.versione]=x0+i*dx});
  L.forEach(function(l,k){var V=R[k],xs=k===0?x0:(pos['0:'+l.da]||x0)+dx;
   h+='<text x="8" y="'+(l.y-28)+'" fill="'+l.col+'" font-size="14" font-weight="700">'+e(l.nome)+'</text>';
   if(k>0&&pos['0:'+l.da]!=null)h+='<path d="M'+pos['0:'+l.da]+' '+L[0].y+' C '+(pos['0:'+l.da]+40)+' '+L[0].y+', '+(xs-40)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none" stroke-dasharray="6 4"/><text x="'+(pos['0:'+l.da]+10)+'" y="'+((L[0].y+l.y)/2)+'" fill="#8b949e" font-size="12">fork</text>';
