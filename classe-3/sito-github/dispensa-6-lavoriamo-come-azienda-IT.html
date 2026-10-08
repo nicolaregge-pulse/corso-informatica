@@ -1,0 +1,68 @@
+<!DOCTYPE html><html lang='it'><head><meta charset='utf-8'><title>Dispensa 6 — Lavoriamo come un&#x27;azienda</title><style>
+@font-face{font-family:'NotoBN';src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-400.woff2') format('woff2');}
+@font-face{font-family:'NotoBN';font-weight:bold;src:url('file:///home/user/corso-godot/classe-3/cosa-e-git/fonts/bn-700.woff2') format('woff2');}
+@page{size:A4;margin:13mm 13mm 12mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;color:#1a1a1a;line-height:1.5;font-size:10.8pt;font-family:"DejaVu Sans",Arial,sans-serif}
+.bn{font-family:'NotoBN',"DejaVu Sans",sans-serif;font-size:11.2pt;line-height:1.75;color:#1d4d2f}
+.cover{background:linear-gradient(160deg,#eef4fb,#e9f7ee);padding:7mm 8mm;border-radius:8px;margin-bottom:4mm;position:relative}
+.cover h1{color:#12467a;font-size:18.5pt;margin:0 0 1.5mm;line-height:1.25}.cover .s{color:#445;font-size:10pt}
+.cover .bn{font-size:12pt;margin-top:1mm}
+.ver{position:absolute;top:4mm;right:5mm;background:#12467a;color:#fff;font-weight:bold;font-size:10pt;padding:1mm 3mm;border-radius:12px}
+h2{color:#12467a;font-size:13.5pt;margin:5mm 0 2mm;border-bottom:3px solid #cfe0f0;padding-bottom:1mm;page-break-after:avoid}
+.goal{background:#e9f6ee;border-left:5px solid #2f9e57;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.note{background:#fff8e6;border-left:5px solid #d0a516;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.warn{background:#fdecea;border-left:5px solid #c0392b;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.info{background:#eaf2fb;border-left:5px solid #1f6fa5;padding:2.5mm 3.5mm;border-radius:4px;margin:2.5mm 0;page-break-inside:avoid}
+.step{border:1px solid #cfdae6;border-radius:8px;margin:2.6mm 0;page-break-inside:avoid;overflow:hidden}
+.step .h{background:#1f6fa5;color:#fff;padding:1.6mm 3mm;font-weight:bold;font-size:10.8pt}
+.step .h .n{display:inline-block;background:#fff;color:#1f6fa5;border-radius:50%;width:6.5mm;height:6.5mm;text-align:center;line-height:6.5mm;margin-right:2mm;font-size:10pt}
+.step .b{padding:2mm 3.5mm}
+.step .b p{margin:0 0 1.2mm}
+.step.ok .h{background:#2f9e57}.step.ok .h .n{color:#2f9e57}
+.tasto{font-family:"DejaVu Sans Mono",monospace;background:#eef3f8;border:1px solid #cddae8;padding:0 4px;border-radius:3px;font-size:9.6pt;white-space:nowrap}
+pre{background:#1e2733;color:#e8eef5;border-radius:6px;padding:3mm 4mm;font-family:"DejaVu Sans Mono",monospace;font-size:8.7pt;line-height:1.38;white-space:pre-wrap;margin:1.5mm 0 3mm;page-break-inside:avoid}
+.codet{font-weight:bold;color:#fff;background:#12467a;display:inline-block;padding:1mm 3mm;border-radius:5px 5px 0 0;margin-top:3mm;font-size:10pt}
+.codet.css{background:#8a3ab9}
+table{border-collapse:collapse;width:100%;margin:2mm 0;page-break-inside:avoid}
+th,td{border:1px solid #cfdbe8;padding:1.4mm 2.4mm;vertical-align:top;text-align:left;font-size:9.8pt}
+th{background:#12467a;color:#fff}th.bn{color:#fff}
+td.c{font-family:"DejaVu Sans Mono",monospace;white-space:nowrap;font-size:9.2pt}
+.sw{display:inline-block;width:4mm;height:4mm;border:1px solid #888;vertical-align:middle;margin-right:1.5mm;border-radius:2px}
+/* schermate disegnate */
+.scr{border:2px solid #9aa9b8;border-radius:7px;background:#fff;font-size:8.8pt;margin:2mm 0 1mm;overflow:hidden;page-break-inside:avoid;font-family:"DejaVu Sans",Arial,sans-serif;color:#24292f}
+.scr .bar{background:#e8edf2;padding:1mm 2.5mm;font-family:"DejaVu Sans Mono",monospace;color:#555;font-size:8.2pt;border-bottom:1px solid #cfd8e2}
+.scr .gh{background:#24292f;color:#fff;padding:1.6mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.scr .in{padding:2.5mm 3.5mm}
+.hl{outline:3px solid #e0312b;outline-offset:1px;border-radius:4px}
+.fr{color:#e0312b;font-weight:bold;font-size:9pt;white-space:nowrap}
+.gbtn{display:inline-block;background:#1f883d;color:#fff;font-weight:bold;padding:1mm 3mm;border-radius:5px}
+.wbtn{display:inline-block;background:#f6f8fa;color:#24292f;border:1px solid #d0d7de;padding:1mm 3mm;border-radius:5px}
+.fld{display:inline-block;border:1px solid #8c959f;border-radius:4px;padding:.6mm 2.5mm;min-width:32mm;font-family:"DejaVu Sans Mono",monospace;background:#fff}
+.menu{display:inline-block;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 2px 6px rgba(0,0,0,.15);padding:1mm 0;background:#fff;color:#24292f;margin-top:1mm}
+.menu div{padding:.8mm 4mm}
+.tabs span{display:inline-block;padding:1mm 2.5mm;margin-right:1mm;color:#57606a}
+.side div{padding:.8mm 2mm;color:#57606a}
+.drop{border:2px dashed #8c959f;border-radius:6px;padding:3mm;text-align:center;color:#57606a;margin:1.5mm 0}
+.file{display:inline-block;border:1px solid #d0d7de;border-radius:4px;padding:1mm 2.5mm;margin:.8mm;background:#f6f8fa;font-family:"DejaVu Sans Mono",monospace}
+.live{background:#dafbe1;border:1px solid #4ac26b;border-radius:6px;padding:2mm 3mm}
+.cap{font-size:8.6pt;color:#667;text-align:center;margin:0 0 2.5mm}
+.two{display:flex;gap:4mm}.two>div{flex:1}
+.prev{border:2px solid #9aa9b8;border-radius:7px;overflow:hidden;page-break-inside:avoid}
+.prev .pg{background:lightblue;text-align:center;padding:3mm;font-family:Arial,sans-serif}
+.prev h1{color:darkblue;font-size:15pt;margin:1mm 0}.prev .sotto{color:gray;margin:0 0 2mm;font-size:9pt}
+.prev .sch{background:#fff;max-width:85mm;margin:0 auto;padding:2.5mm 4mm;border-radius:8px;text-align:left;font-size:8.6pt}
+.prev h3{color:teal;font-size:10pt;margin:1mm 0}.prev ul{margin:0;padding-left:5mm}.prev p{margin:0 0 1mm}
+.prev .piede{font-size:7pt;color:gray;margin-top:2mm}
+.foot{margin-top:5mm;font-size:8.6pt;color:#778;border-top:1px solid #dde4ec;padding-top:1.5mm}
+.chk td:first-child{width:8mm;text-align:center;font-size:12pt}
+</style></head><body><div class='cover'><span class='ver'>v1.0</span><h1>Dispensa 6 — Lavoriamo come un'azienda</h1><div class='s'>Classe 3 · Informatica · 08/10/2026 · il gioco della classe: fork, Pull Request, merge, versioni · italiano</div></div><div class='goal'><div><b>Cosa facciamo oggi:</b> costruiamo <b>tutti insieme</b> un gioco per il telefono, come si fa nelle aziende di software. Il lavoro è diviso in pezzi: ognuno fa il suo, lo propone con una <b>Pull Request</b>, il prof lo <b>unisce</b> (merge) e alla fine esce una <b>versione nuova</b> del gioco, con dentro il lavoro di tutti.</div></div><h2>1. I ruoli, come in un'azienda</h2><table><tr><th>Ruolo</th><th>Chi</th><th>Cosa fa</th></tr><tr><td><b>Product owner</b></td><td>il prof</td><td>decide cosa entra in ogni versione e fa il merge</td></tr><tr><td><b>Project manager</b></td><td>uno per squadra, a turno</td><td>tiene la lista dei lavori della squadra e apre la Pull Request di squadra</td></tr><tr><td><b>Sviluppatori</b></td><td>tutti</td><td>fanno il proprio pezzo e lo propongono</td></tr><tr><td><b>Revisore</b></td><td>il controllo automatico + un compagno</td><td>guarda la modifica prima del merge</td></tr></table><h2>2. Il primo lavoro di tutti: il tuo mostro</h2><div style='page-break-inside:avoid'><div class='codet'>RIQUADRO 11 — il tuo mostro (cambia i valori!)</div><pre>{
+  &quot;nome&quot;: &quot;Gnam Gnam&quot;,
+  &quot;colore&quot;: &quot;#ff6fb1&quot;,
+  &quot;occhi&quot;: 3,
+  &quot;corna&quot;: 1,
+  &quot;bocca&quot;: 0,
+  &quot;velocita&quot;: 2,
+  &quot;frase&quot;: &quot;Ti mangio il Wi-Fi!&quot;,
+  &quot;immagine&quot;: false
+}
+</pre></div><div class='note'><div>Il file si chiama come il tuo PC, sempre con due cifre: PC 7 → <span class='tasto'>mostri/pc07.json</span>, PC 14 → <span class='tasto'>mostri/pc14.json</span>. Sulla pagina della classe scegli il tuo PC: il nome del file è già pronto da copiare.</div></div><div class='step'><div class='h'><span class='n'>1</span>Apri il progetto</div><div class='b'><p>Entra su github.com con il TUO account e apri <span class='tasto'>https://github.com/nicolaregge-pulse/assalto-dei-mostri</span>.</p></div></div><div class='step'><div class='h'><span class='n'>2</span>Crea il file</div><div class='b'><p>Sopra l'elenco dei file: bottone grigio <b>Add file</b> &rarr; <b>Create new file</b>. GitHub ti dice che serve una copia tua: premi il bottone <b>verde</b> <b>Fork this repository</b> (crea la tua copia).</p></div></div><div class='step'><div class='h'><span class='n'>3</span>Nome e contenuto</div><div class='b'><p>Nel campo del nome incolla il TUO nome di file (es. <span class='tasto'>mostri/pc14.json</span>). Nel riquadro grande incolla il RIQUADRO 11.</p></div></div><div class='step'><div class='h'><span class='n'>4</span>Fallo tuo</div><div class='b'><p>Cambia nome, colore, occhi (1-3), corna (0-1), bocca (0-2), velocità (1-3) e la frase che grida. Lascia le virgolette e le virgole come sono.</p></div></div><div class='step'><div class='h'><span class='n'>5</span>Proponi la modifica</div><div class='b'><p>Bottone verde <b>Commit changes...</b> &rarr; nella finestra bottone verde <b>Propose changes</b> (proponi). Poi bottone verde <b>Create pull request</b>, e ancora <b>Create pull request</b>.</p></div></div><div class='step'><div class='h'><span class='n'>6</span>Il controllo automatico</div><div class='b'><p>Aspetta un minuto nella pagina della tua Pull Request: compare una <b>spunta verde</b> (tutto a posto) o una <b>X rossa</b>. Con la X, clic su <b>Details</b>: c'è scritto cosa sistemare (di solito una virgola). Sistema il file nella tua copia: la Pull Request si aggiorna da sola.</p></div></div><div class='step ok'><div class='h'><span class='n'>7</span>Il merge</div><div class='b'><p>Il prof guarda la tua Pull Request e la unisce al gioco. Quando è viola con scritto <b>Merged</b>: <b>FATTO! Il tuo mostro è nel gioco.</b> Apri <span class='tasto'>https://nicolaregge-pulse.github.io/assalto-dei-mostri/</span> e cercalo nell'elenco dei mostri della classe.</p></div></div><h2>3. Il lavoro di squadra</h2><table><tr><th>Squadra</th><th>File</th><th>Cosa cambia</th></tr><tr><td><b>REGOLE</b></td><td><span class='tasto'>regole.json</span></td><td>quanti colpi regge il vetro, quanto in fretta sparano i mostri, i punti</td></tr><tr><td><b>GRAFICA</b></td><td><span class='tasto'>grafica.json</span></td><td>i colori della città: cielo, luna, palazzi, finestre, strada</td></tr><tr><td><b>TESTI</b></td><td><span class='tasto'>testi.json</span></td><td>il titolo, le frasi di fine partita, i messaggi (anche nella tua lingua)</td></tr><tr><td><b>SUONI</b></td><td><span class='tasto'>suoni.json</span></td><td>il volume e le note della musica di vittoria</td></tr></table><div class='step'><div class='h'><span class='n'>8</span>Squadra</div><div class='b'><p>Il project manager apre la <b>Issue</b> della squadra (scheda <b>Issues</b> del progetto) e scrive nei commenti chi fa cosa.</p></div></div><div class='step'><div class='h'><span class='n'>9</span>Squadra</div><div class='b'><p>La squadra decide su carta i valori nuovi (colori, frasi, regole).</p></div></div><div class='step'><div class='h'><span class='n'>10</span>Squadra</div><div class='b'><p>Il project manager cambia il file della squadra con la <b>matita</b> e fa la Pull Request, come per il mostro. Negli <b>autori</b> scrive solo i numeri dei PC.</p></div></div><div class='step'><div class='h'><span class='n'>11</span>Squadra</div><div class='b'><p>Un compagno di un'altra squadra fa la <b>revisione</b>: nella Pull Request, scheda <b>Files changed</b>, guarda le modifiche e scrive un commento.</p></div></div><div class='warn'><div><b>Il conflitto:</b> se due persone cambiano la stessa riga dello stesso file, GitHub non sa quale tenere. Non è un disastro: succede in tutte le aziende. Il prof ve lo fa vedere alla lavagna e lo risolve con voi.</div></div><h2>4. La versione nuova e il grafico</h2><div class='step'><div class='h'><span class='n'>12</span>La release</div><div class='b'><p>Quando i lavori sono uniti, il prof pubblica la <b>release v1.1</b> (i mostri della classe) e poi la <b>v1.2</b> (le squadre). Il numero in basso a destra nel gioco cambia.</p></div></div><div class='step ok'><div class='h'><span class='n'>13</span>Il grafico delle versioni</div><div class='b'><p>Nel progetto: scheda <b>Insights</b> &rarr; a sinistra <b>Network</b>. Vedi tutte le copie (fork), i commit e i merge: è la storia del lavoro di tutti.</p></div></div><div class='note'><div><b>Carta e penna:</b> disegna il grafico delle versioni del gioco: la linea principale (main) da v1.0 a v1.2, la tua copia che parte, il tuo commit, la freccia del merge che torna nella linea principale.</div></div><h2>5. Le parole del mestiere</h2><table><tr><th style='width:30mm'>Parola</th><th>Cosa vuol dire</th></tr><tr><td><b>Repository</b></td><td>la cartella del progetto su GitHub, con tutta la sua storia</td></tr><tr><td><b>Fork</b></td><td>la TUA copia del repository: lavori lì senza toccare l'originale</td></tr><tr><td><b>Commit</b></td><td>una modifica salvata, con il suo messaggio</td></tr><tr><td><b>Pull Request</b></td><td>la proposta: «prof, unisci la mia modifica al gioco»</td></tr><tr><td><b>Revisione</b></td><td>qualcuno (o il controllo automatico) guarda la modifica prima di unirla</td></tr><tr><td><b>Merge</b></td><td>unire la modifica al progetto</td></tr><tr><td><b>Conflitto</b></td><td>due persone hanno cambiato la stessa riga: bisogna scegliere</td></tr><tr><td><b>Issue</b></td><td>un lavoro da fare, scritto nella lista del progetto (il backlog)</td></tr><tr><td><b>Release</b></td><td>una versione finita e numerata del gioco: v1.0, v1.1, v1.2</td></tr></table><div class='foot'>Classe 3 · Dispensa 6 · v1.0</div></body></html>
