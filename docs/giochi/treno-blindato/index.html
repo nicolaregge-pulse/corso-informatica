@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Il treno blindato</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#1a1410">
+<link rel="apple-touch-icon" href="img/icona-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
 <style>
 :root{--oro:#ffd34d;--verde:#2f9e57}
 html,body{margin:0;height:100%;background:#1a1410;overflow:hidden;font-family:system-ui,Segoe UI,Arial,sans-serif;color:#fff;touch-action:none;user-select:none;-webkit-user-select:none}
@@ -31,7 +35,7 @@ button:active{transform:translateY(3px);box-shadow:none}
 <div class="sch" id="inizio" style="background:linear-gradient(rgba(20,14,10,.55),rgba(20,14,10,.92)),url(img/copertina.jpg) center top/cover">
   <h1 id="titolo">IL TRENO<br>BLINDATO</h1>
   <div class="sub" id="sottotitolo">Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!</div>
-  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="facce">Facce della classe</button></div>
+  <div class="riga"><button id="gioca">PARTI!</button><button class="sec" id="crediti">Chi l'ha fatto</button><button class="sec" id="facce">Facce della classe</button><button class="sec" id="installa" hidden>Installa il gioco</button></div>
   <div class="sub" id="record"></div>
   <div class="lista" id="cattiviClasse"></div>
   <div class="piccolo" id="controllo"></div>
@@ -298,6 +302,9 @@ $('gioca').onclick=parti;$('ancora').onclick=parti;$('menu').onclick=function(){
 $('crediti').onclick=function(){mostra('titoliCoda')};$('facce').onclick=function(){mostraFacce();mostra('schFacce')};$('chiudiFacce').onclick=function(){mostra('inizio')};
 $('scegliFoto').onclick=function(){$('fileFoto').click()};$('fileFoto').onchange=function(){aggiungiFoto(this.files);this.value=''};
 $('togliFoto').onclick=function(){FOTO=[];salvaFoto();caricaFacce();mostraFacce()};$('chiudiCoda').onclick=function(){mostra('inizio')};
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(function(){});
+var INST=null;addEventListener('beforeinstallprompt',function(ev){ev.preventDefault();INST=ev;$('installa').hidden=false});
+$('installa').onclick=function(){if(INST){INST.prompt();INST=null;$('installa').hidden=true}};
 aggiornaRecord();caricaTutto().then(preparaSchermate,preparaSchermate);
 })();
 </script>
