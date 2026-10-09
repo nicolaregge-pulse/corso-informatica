@@ -12,7 +12,7 @@ extends Node2D
 ## I dati dei ragazzi (cattivi, ambienti, regole) stanno nella cartella dati/ in file .json:
 ## si cambia il gioco cambiando i dati, senza toccare questo codice.
 
-const VERSIONE := "v1.1.1"  # il numero di versione: si vede sempre in alto a sinistra
+const VERSIONE := "v1.2"  # il numero di versione: si vede sempre in alto a sinistra
 const ZF := 18.0   # distanza più lontana che si vede (l'orizzonte)
 const ZN := 1.0    # distanza più vicina (il vetro della cabina)
 const MISURE := {"alberi": [2.0, 4.5], "case": [3.4, 2.8], "palazzi": [3.4, 8.0], "rocce": [3.0, 1.9], "onde": [3.0, 0.5]}
