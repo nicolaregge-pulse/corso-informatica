@@ -24,6 +24,7 @@ var AMB := {}        # ambienti: bosco, case, città, montagna, mare
 var PERC := []       # l'ordine degli ambienti
 var SEC_AMB := 20.0  # secondi per ogni ambiente
 var CATTIVI := []    # i cattivi inventati dai ragazzi
+var PERSONAGGI := [] # v2.1: i personaggi con l'immagine scelta dai ragazzi
 var FRASI := []
 var LODI := []
 
@@ -60,6 +61,14 @@ func _ready() -> void:
 	PERC = a.get("percorso", AMB.keys())
 	SEC_AMB = float(a.get("secondi_per_ambiente", 20))
 	CATTIVI = leggi_json("res://dati/cattivi.json", {}).get("cattivi", [])
+	# v2.1: i PERSONAGGI dei ragazzi (immagini prese dal web e consegnate con il Modulo)
+	for p in leggi_json("res://dati/personaggi.json", {}).get("personaggi", []):
+		var tex = load(String(p.get("immagine", "")))
+		if tex is Texture2D:
+			p["tex"] = tex
+			if not p.has("colore"):
+				p["colore"] = "#3a4a5b"
+			PERSONAGGI.append(p)
 	var tx: Dictionary = leggi_json("res://dati/testi.json", {})
 	FRASI = tx.get("frasi_cattivi", ["Hahahahaha, perdente!"])
 	LODI = tx.get("lodi", ["Grande!"])
@@ -164,7 +173,9 @@ func nuovo_cattivo() -> void:
 		return
 	var o: Dictionary = cand.pick_random()
 	var b: Dictionary
-	if CATTIVI.size() > 0 and randf() < 0.7:
+	if PERSONAGGI.size() > 0 and randf() < 0.6:
+		b = PERSONAGGI.pick_random()
+	elif CATTIVI.size() > 0 and randf() < 0.7:
 		b = CATTIVI.pick_random()
 	else:
 		b = {"nome": "", "colore": ["#5b6b3a", "#6b5a3a", "#3a4a5b"].pick_random(), "occhi": randi_range(1, 3), "cappello": randi_range(0, 2), "bocca": randi_range(0, 2), "velocita": 1, "frase": ""}
@@ -370,7 +381,7 @@ func _draw() -> void:
 	if flash > 0.0:
 		draw_rect(Rect2(Vector2.ZERO, s), Color(1, 0.2, 0.1, flash * 1.5))
 	if stato == "titolo":
-		schermata("IL TRENO BLINDATO", "Versione Godot v2.0 · dal gioco della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
+		schermata("IL TRENO BLINDATO", "Versione Godot v2.1 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
 	elif stato == "fine":
 		schermata("IL VETRO È ANDATO IN PEZZI!", "Punti: %d · Record: %d\n%s" % [punti, record, LODI.pick_random() if punti >= record and punti > 0 else "Riprova: il treno ha bisogno di te!"], "CLICCA PER RIPARTIRE")
 
@@ -505,26 +516,36 @@ func omino(c: Dictionary) -> void:
 	draw_line(mano, mano + Vector2(dir * u * 0.25, 0), Color(0.1, 0.1, 0.1, alfa), u * 0.08)
 	if c["fase"] == "spara":
 		draw_circle(mano + Vector2(dir * u * 0.32, 0), u * 0.16, Color(1, 0.9, 0.47, max(0.0, 1.0 - c["morto"] * 2.0)))
-	# testa
-	draw_circle(Vector2(x, y), r, pelle)
-	if int(b.get("cappello", 0)) == 1:
-		draw_rect(Rect2(x - r * 1.05, y - r * 0.62, r * 2.1, r * 0.18), Color(0.13, 0.13, 0.13, alfa))
-		draw_rect(Rect2(x - r * 0.6, y - r * 1.25, r * 1.2, r * 0.66), Color(0.13, 0.13, 0.13, alfa))
-	var arrabbiato: bool = c["fase"] == "attende" and c["t"] > c["entra"] + c["tempo"] * 0.55
-	var occhi := int(b.get("occhi", 2))
-	var dx := [0.0] if occhi == 1 else ([-0.38, 0.38] if occhi == 2 else [-0.5, 0.0, 0.5])
-	for d in dx:
-		draw_circle(Vector2(x + d * r, y - r * 0.15), r * 0.19, Color(1, 1, 1, alfa))
-		draw_circle(Vector2(x + d * r + sin(c["t"] * 6.0) * r * 0.05, y - r * 0.15), r * 0.09, Color(0.07, 0.07, 0.07, alfa))
-	if int(b.get("cappello", 0)) == 2:
-		draw_rect(Rect2(x - r * 0.95, y + r * 0.12, r * 1.9, r * 0.6), Color(0.75, 0.22, 0.17, alfa))
-	elif arrabbiato:
-		draw_circle(Vector2(x, y + r * 0.42), r * 0.25, Color(0.23, 0.05, 0.09, alfa))
+	# testa: se il cattivo ha l'immagine di un ragazzo, la testa è quella immagine
+	if b.has("tex"):
+		var tex: Texture2D = b["tex"]
+		var lato := r * 2.8
+		var asp := float(tex.get_width()) / max(1.0, float(tex.get_height()))
+		var w := lato * (asp if asp < 1.0 else 1.0)
+		var h := lato / (asp if asp > 1.0 else 1.0)
+		draw_texture_rect(tex, Rect2(x - w / 2.0, y - h * 0.7, w, h), false, Color(1, 1, 1, alfa))
+		if String(b.get("nome", "")) != "" and c["fase"] != "colpito":
+			scritta(Vector2(x, y - h * 0.8), b["nome"], 15, Color.WHITE)
 	else:
-		draw_arc(Vector2(x, y + r * 0.25), r * 0.3, 0.2, PI - 0.2, 10, Color(0.23, 0.05, 0.09, alfa), max(1.0, r * 0.08))
-	# nome del cattivo (chi l'ha inventato è nei crediti)
-	if String(b.get("nome", "")) != "" and c["fase"] != "colpito":
-		scritta(Vector2(x, y - r * 1.5), b["nome"], 15, Color.WHITE)
+		draw_circle(Vector2(x, y), r, pelle)
+		if int(b.get("cappello", 0)) == 1:
+			draw_rect(Rect2(x - r * 1.05, y - r * 0.62, r * 2.1, r * 0.18), Color(0.13, 0.13, 0.13, alfa))
+			draw_rect(Rect2(x - r * 0.6, y - r * 1.25, r * 1.2, r * 0.66), Color(0.13, 0.13, 0.13, alfa))
+		var arrabbiato: bool = c["fase"] == "attende" and c["t"] > c["entra"] + c["tempo"] * 0.55
+		var occhi := int(b.get("occhi", 2))
+		var dx := [0.0] if occhi == 1 else ([-0.38, 0.38] if occhi == 2 else [-0.5, 0.0, 0.5])
+		for d in dx:
+			draw_circle(Vector2(x + d * r, y - r * 0.15), r * 0.19, Color(1, 1, 1, alfa))
+			draw_circle(Vector2(x + d * r + sin(c["t"] * 6.0) * r * 0.05, y - r * 0.15), r * 0.09, Color(0.07, 0.07, 0.07, alfa))
+		if int(b.get("cappello", 0)) == 2:
+			draw_rect(Rect2(x - r * 0.95, y + r * 0.12, r * 1.9, r * 0.6), Color(0.75, 0.22, 0.17, alfa))
+		elif arrabbiato:
+			draw_circle(Vector2(x, y + r * 0.42), r * 0.25, Color(0.23, 0.05, 0.09, alfa))
+		else:
+			draw_arc(Vector2(x, y + r * 0.25), r * 0.3, 0.2, PI - 0.2, 10, Color(0.23, 0.05, 0.09, alfa), max(1.0, r * 0.08))
+		# nome del cattivo (chi l'ha inventato è nei crediti)
+		if String(b.get("nome", "")) != "" and c["fase"] != "colpito":
+			scritta(Vector2(x, y - r * 1.5), b["nome"], 15, Color.WHITE)
 	# barra del tempo: quando è piena, spara!
 	if c["fase"] == "attende":
 		var k: float = clamp((c["t"] - c["entra"]) / c["tempo"], 0.0, 1.0)
