@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.19** — 09/10/2026
+**Versione 2.20** — 09/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -279,3 +279,9 @@ lezione.*
 
 1. **Errore.** Nel compito semplificato il passo 1 diceva «disegna sul foglio, fai la foto e mandala». I ragazzi in laboratorio non hanno il telefono e non sanno fare la cattura dello schermo senza una spiegazione. Il primo passo li bloccava tutti: il contrario di «Vinci subito».
 2. **Regola.** In laboratorio ogni passo si fa tutto al computer, scrivendo nel Modulo o nella pagina. Foto e catture dello schermo si chiedono solo se il docente dice che ci sono i telefoni, oppure dopo una lezione su come si fa la cattura. Il passo 1 deve essere una risposta che tutti sanno dare (contare, scegliere, copiare una parola). Sotto ogni passo ci sono sempre le istruzioni «come si manda», nelle 3 lingue.
+
+## 09/10/2026 — 1INF, attività a mano (disegnare il grafo): metà lezione persa (#45)
+
+1. **Cosa succede in classe (spiegato da Nicola).** «Prendete carta e penna»: 5-6 ragazzi non ce l'hanno e girano per la classe a cercarla. Dopo 5 minuti chiedono «ma cosa devo disegnare?». Dopo 15 minuti ha consegnato il 70%, il restante 30% va seguito uno per uno. Servono 30 minuti solo per avere i disegni, poi per rispondere a ognuno: 3 minuti a testa = 60 minuti.
+2. **Errore.** Ho proposto di disegnare il grafo a mano: un'attività probabilmente inutile, che il docente non può correggere in tempo e che porta via metà della lezione.
+3. **Regola.** Niente attività a mano o su carta, se Nicola non le chiede. Ogni attività deve potersi controllare in automatico o a colpo d'occhio dalla pagina del prof, senza passare banco per banco. Prima di proporre un'attività calcolo il tempo reale: preparazione + chi resta indietro + tempo del prof per rispondere a tutti.
