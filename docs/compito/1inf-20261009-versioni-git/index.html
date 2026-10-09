@@ -41,8 +41,14 @@ function J(u){return fetch(u+'?v='+Date.now(),{cache:'no-store'}).then(function(
 async function apriMio(){var pw=document.getElementById('pwm').value.trim(),o=document.getElementById('mioout');o.textContent='Controllo…';
  var P=await J('personali.json');for(var i=0;i<P.length;i++){try{var t=JSON.parse(new TextDecoder().decode(await apri(P[i],pw)));o.innerHTML='<ol>'+t.map(function(x){return '<li>'+e(x)+'</li>'}).join('')+'</ol>';return}catch(x){}}
  o.textContent='Password non giusta: riprova o chiedi al prof.'}
-var PWD='';async function apriProf(){PWD=document.getElementById('pwd').value;var o=document.getElementById('profout');
- try{o.innerHTML=new TextDecoder().decode(await apri(await J('docente.json'),PWD))}catch(x){o.textContent='Password non giusta.'}}
+var PWD='';function ricordaPwd(pw){try{localStorage.setItem('cu-prof',JSON.stringify({pw:pw,fino:Date.now()+864e5}))}catch(x){}}
+function pwdSalvata(){try{var o=JSON.parse(localStorage.getItem('cu-prof')||'null');return o&&o.fino>Date.now()?o.pw:''}catch(x){return ''}}
+function esciProf(){try{localStorage.removeItem('cu-prof')}catch(x){}PWD='';document.getElementById('profout').textContent='';}
+async function apriProf(auto){if(!auto)PWD=document.getElementById('pwd').value;var o=document.getElementById('profout');
+ try{var aperti=[].map.call(o.querySelectorAll('details[open] summary'),function(x){return x.textContent});
+  o.innerHTML='<p class="mu">Password ricordata su questo PC per 24 ore · <a href="#" onclick="esciProf();return false">Esci</a></p>'+new TextDecoder().decode(await apri(await J('docente.json'),PWD));ricordaPwd(PWD);
+  [].forEach.call(o.querySelectorAll('details summary'),function(x){if(aperti.indexOf(x.textContent)>=0)x.parentNode.open=true})}catch(x){if(!auto)o.textContent='Password non giusta.'}}
+(function(){var pw=pwdSalvata();if(pw){PWD=pw;apriProf(true);setInterval(function(){if(PWD)apriProf(true)},60000)}})();
 async function scaricaPdf(u,nome){var b=await apri(await J(u),PWD);var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([b],{type:'application/pdf'}));a.download=nome;a.click()}
 function av(){J('avanzamento.json').then(function(d){document.getElementById('agg').textContent='· aggiornato '+d.aggiornato;
  document.getElementById('av').innerHTML='<table><tr><th>Chi</th>'+d.att.map(function(a){return '<th>'+a+'</th>'}).join('')+'</tr>'+d.righe.map(function(r){return '<tr><td><b>'+e(r.chi)+'</b></td>'+r.fatte.map(function(x){return '<td><span class="s'+(x?' ok':'')+'">'+(x?'✓':'—')+'</span></td>'}).join('')+'</tr>'}).join('')+'</table>';
