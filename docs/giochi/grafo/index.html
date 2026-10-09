@@ -34,9 +34,10 @@ var L=[
   extra:[{versione:'merge',nome:'Merge del ramo «immagini della classe»',tipo:'merge',data:'08/10/2026',cambi:'Il ramo di lavoro del prof è stato unito (merge) nel ramo della 1INF: da qui le foto dei disegni consegnate su Classroom entrano da sole nel gioco e nella galleria.',gioca:'../treno-1inf/immagini/'}]},
  {nome:'ramo di lavoro: immagini della classe',dir:null,col:'#db61a2',y:420,padre:2,da:'v1.0',merge:{linea:2,in:'merge'},
   nodi:[{versione:'immagini',nome:'Nuova funzione: le immagini della classe',data:'08/10/2026',cambi:'Proposta del prof su un ramo separato (branch), per non rompere il gioco mentre si lavora: albero di cartelle (cattivi, paesaggi, difetti, revisioni), galleria con i nomi e importazione automatica delle foto consegnate su Classroom.',gioca:'../treno-1inf/immagini/'}]},
- {nome:'1INF su Godot — versione 2.0',dir:'treno-godot',col:'#a371f7',y:530,padre:2,da:'v1.1'}
+ {nome:'1INF su Godot — versione 2.0',dir:'treno-godot',col:'#a371f7',y:530,padre:2,da:'v1.1'},
+ {nome:'FORK: il treno sulla Luna',dir:'treno-luna',col:'#c9d1d9',y:640,padre:4,da:'v2.1.3',fork:true}
 ];
-var DX=74,X0=50,H=600,R=null;
+var DX=74,X0=50,H=710,R=null;
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function J(u){return fetch(u+'?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})}
 function major(v){return /^v[1-9]\d*\.0$/.test(v)}
@@ -47,7 +48,7 @@ function carica(){Promise.all(L.map(function(l){return l.dir?J('../'+l.dir+'/ver
  var h='',maxX=0;
  L.forEach(function(l,k){var V=R[k],xs=l.xs;
   h+='<text x="10" y="'+(l.y-30)+'" fill="'+l.col+'" font-size="15" font-weight="700">'+e(l.nome)+'</text>';
-  if(l.padre!=null){var px=pos[l.padre+':'+l.da],py=L[l.padre].y;if(px!=null)h+='<path d="M'+px+' '+py+' C '+(px+DX*.55)+' '+py+', '+(xs-DX*.55)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none"'+(l.dir&&l.padre===0?' stroke-dasharray="7 5"':'')+'/>'}
+  if(l.padre!=null){var px=pos[l.padre+':'+l.da],py=L[l.padre].y;if(px!=null)h+='<path d="M'+px+' '+py+' C '+(px+DX*.55)+' '+py+', '+(xs-DX*.55)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none"'+(l.dir&&(l.padre===0||l.fork)?' stroke-dasharray="7 5"':'')+'/>'}
   if(V.length>1)h+='<line x1="'+xs+'" y1="'+l.y+'" x2="'+(xs+(V.length-1)*DX)+'" y2="'+l.y+'" stroke="'+l.col+'" stroke-width="4"/>';
   if(l.merge){var tx=pos[l.merge.linea+':'+l.merge.in],ty=L[l.merge.linea].y,fx=xs+(V.length-1)*DX;if(tx!=null)h+='<path d="M'+fx+' '+l.y+' C '+(fx+DX*.5)+' '+l.y+', '+(tx-DX*.4)+' '+(ty+30)+', '+(tx-9)+' '+(ty+11)+'" stroke="'+l.col+'" stroke-width="4" fill="none"/><polygon points="'+(tx-9)+','+(ty+11)+' '+(tx-20)+','+(ty+12)+' '+(tx-13)+','+(ty+21)+'" fill="'+l.col+'"/>'}
   V.forEach(function(v,i){var x=xs+i*DX,m=v.tipo==='merge';maxX=Math.max(maxX,x);
