@@ -273,7 +273,26 @@ func fine() -> void:
 
 
 # ---------------- il «battito»: gira circa 60 volte al secondo ----------------
+var facce_caricate := false
+func carica_facce_protette() -> void:
+	# FORK LUNA v1.1: la pagina chiede la password, decifra le facce e le mette in window.FACCE_JSON
+	if facce_caricate or not OS.has_feature("web"):
+		return
+	var testo = JavaScriptBridge.eval("window.FACCE_JSON || ''", true)
+	if typeof(testo) != TYPE_STRING or String(testo) == "":
+		return
+	facce_caricate = true
+	var dati = JSON.parse_string(String(testo))
+	if typeof(dati) != TYPE_ARRAY:
+		return
+	for p in dati:
+		var img := Image.new()
+		if img.load_png_from_buffer(Marshalls.base64_to_raw(String(p.get("png", "")))) == OK:
+			PERSONAGGI.append({"nome": String(p.get("nome", "")), "tex": ImageTexture.create_from_image(img), "colore": "#3a4a5b", "frase": String(p.get("frase", "")), "velocita": 1})
+
+
 func _process(delta: float) -> void:
+	carica_facce_protette()
 	tempo += delta
 	if stato == "gioco":
 		aggiorna(delta)
