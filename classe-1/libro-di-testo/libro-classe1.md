@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 0.5** — 09/10/2026
+**Versione 0.6** — 09/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -165,6 +165,17 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 7. **Ponte da Lazarus:** Lazarus **reagisce** (aspetta un clic), Godot **pulsa** (`_process` gira da solo circa 60 volte al secondo).
 8. Lezione completa (in italiano, arabo e cinese) e grafo: `classe-1/lezione-versioni-treno/` e la pagina `docs/lezione-versioni/`.
 
+### 5.2 La lavagna del 09/10/2026: numeri delle versioni, fork, Pull Request
+
+![La lavagna del 09/10: versioning, changelog, fork, Pull Request accettata e rifiutata](immagini/20261009_lavagna-versioning.jpg)
+
+1. **I numeri delle versioni** (in blu): 16.0.2.31 · 7.0.3 · 2.01. Il primo numero è la **major** (cambio grosso), il secondo la **minor** (aggiunte), il terzo la **patch** (piccole correzioni di errori), il quarto, se c'è, la **build** (numero di compilazione). Esempio: 16.0.2.31 = major 16, minor 0, patch 2, build 31.
+2. **Il ramo principale** (in rosso): v0.8 → v0.9 → v1.0. Il cerchio grande è la v1.0, la prima versione stabile che si pubblica (**release**).
+3. **Il changelog** (riquadro verde tra v0.9 e v1.0): la lista di tutto quello che è cambiato da una versione all'altra.
+4. **Il fork** (in blu): dalla v0.9 qualcuno copia il progetto e lavora per conto suo.
+5. **La Pull Request**: dal fork si propone la modifica al progetto principale; se va bene → **accept ✓** e **merge**, la modifica entra nel ramo rosso e nasce una versione nuova.
+6. **Refuse ✗**: una proposta che non va bene non entra nel progetto, ma resta nella storia e si può correggere e riproporre.
+
 ## 6. Sicurezza e regole di laboratorio
 1. **Password robuste** e mai condivise; attenzione a e-mail sospette (phishing).
 2. **Regole "quando hai finito"**: niente giochi, niente YouTube, niente cose che
@@ -196,6 +207,7 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 9. Changelog
+6. **v0.6 (09/10/2026)**: aggiunta 5.2 "La lavagna del 09/10" (numeri major.minor.patch.build, ramo principale, changelog, fork, Pull Request accettata e rifiutata) con la foto.
 5. **v0.5 (09/10/2026)**: aggiunta 5.1 "La storia del nostro gioco: versioni, rami, fork e merge" (grafo del Treno blindato, versioni minor e major, Godot v2.0).
 4. **v0.4 (24/09/2026)**: aggiunta 2.4.1 "In parole semplici — la storia dello storage" (paginetta descrittiva con analogia).
 3. **v0.3 (24/09/2026)**: aggiunta 2.4 "Lo storage: i 5 livelli" (HDD/SSD, SATA/NVMe, AHCI/NVMe, connettori SATA/M.2, interfaccia PCIe) con infografica.
