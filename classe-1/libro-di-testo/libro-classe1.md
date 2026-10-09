@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 0.4** — 24/09/2026
+**Versione 0.5** — 09/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -151,6 +151,20 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 4. **Git** è il sistema che tiene traccia delle modifiche; **GitHub** è il sito
    che ospita i progetti online.
 
+### 5.1 La storia del nostro gioco: versioni, rami, fork e merge (09/10/2026)
+1. **Versione (commit):** ogni salvataggio pubblicato del gioco. Nel grafo è un pallino: v0.3, v1.1, v2.0.
+2. **Ramo (branch):** una linea del grafo; il gioco cresce lungo il ramo, da sinistra a destra.
+3. **Fork (copia):** la 1INF ha copiato il «Treno blindato» della 2INF (versione v0.11) e lo fa crescere per conto suo (v1.0, v1.1).
+4. **Pull Request (proposta di modifica):** il Documento consegnato su Classroom («il mio cattivo si chiama Hidra…»): il prof lo legge, lo accetta e lo mette nel gioco.
+5. **Merge (unione):** un ramo di lavoro rientra nel ramo principale. Il prof ha provato le «immagini della classe» su un ramo a parte, per non rompere il gioco; quando funzionavano le ha unite al ramo della 1INF.
+6. **I numeri delle versioni:**
+   6.1 v0.x = le prove, prima della versione stabile;
+   6.2 1.0 = la prima versione «vera» del ramo;
+   6.3 1.1, 1.2 = versioni **minor**: piccole aggiunte (un cattivo, un cielo);
+   6.4 2.0 = versione **major**: cambia una cosa grossa. Il nostro gioco è stato rifatto con **Godot** (motore per videogiochi): per questo è la v2.0 e non la v1.2.
+7. **Ponte da Lazarus:** Lazarus **reagisce** (aspetta un clic), Godot **pulsa** (`_process` gira da solo circa 60 volte al secondo).
+8. Lezione completa (in italiano, arabo e cinese) e grafo: `classe-1/lezione-versioni-treno/` e la pagina `docs/lezione-versioni/`.
+
 ## 6. Sicurezza e regole di laboratorio
 1. **Password robuste** e mai condivise; attenzione a e-mail sospette (phishing).
 2. **Regole "quando hai finito"**: niente giochi, niente YouTube, niente cose che
@@ -182,6 +196,7 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 9. Changelog
+5. **v0.5 (09/10/2026)**: aggiunta 5.1 "La storia del nostro gioco: versioni, rami, fork e merge" (grafo del Treno blindato, versioni minor e major, Godot v2.0).
 4. **v0.4 (24/09/2026)**: aggiunta 2.4.1 "In parole semplici — la storia dello storage" (paginetta descrittiva con analogia).
 3. **v0.3 (24/09/2026)**: aggiunta 2.4 "Lo storage: i 5 livelli" (HDD/SSD, SATA/NVMe, AHCI/NVMe, connettori SATA/M.2, interfaccia PCIe) con infografica.
 2. **v0.2 (24/09/2026)**: aggiunta 2.3 "Standard e compatibilità" (form factor,
