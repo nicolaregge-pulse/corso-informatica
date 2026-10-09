@@ -1,6 +1,6 @@
 # Regole di costruzione della teoria
 
-**Versione 1.1** — 09/10/2026 — documento interno per il docente e per Claude
+**Versione 1.2** — 09/10/2026 — documento interno per il docente e per Claude
 
 Nate dalla lezione della 1INF del 09/10/2026 («Versioni e Git»). Il modello approvato da Nicola è la pagina
 `docs/compito/1inf-20261009-versioni/`. Ogni nuova teoria si costruisce così, per non ripetere gli errori
@@ -59,3 +59,12 @@ del registro (#41, #43, #44, #45).
 4. Niente foto, niente telefono, niente cattura dello schermo senza una lezione prima.
 5. Controllo dell'avanzamento per il docente (chi ha iniziato, risposte giuste, voto, chi è a zero) e indicazione personale per ogni ragazzo («Il mio punto»).
 6. Prima di proporre un'attività si calcola il tempo reale: preparazione, chi resta indietro, tempo del docente per rispondere a tutti.
+
+## 08 Esperienza del ragazzo: la prova prima di consegnare
+
+1. Prima di dare il link a Nicola, Claude rifà il percorso come un ragazzo, clic per clic, e per ogni clic si chiede: dove arrivo? Come torno indietro? Cosa vedo alla fine?
+2. Nessun vicolo cieco: dopo ogni azione (quiz inviato, file caricato) il ragazzo deve sapere qual è il passo dopo e avere la pagina della lezione ancora aperta.
+3. Ogni bottone dice cosa fa e cosa succede dopo («si apre in una scheda nuova», «poi torni qui»).
+4. Si prova anche chi non legge l'italiano: si capisce cosa fare guardando solo posizione, colore e immagini dei bottoni?
+5. Il messaggio finale di ogni Modulo dice dove tornare (con il link della pagina della lezione).
+
