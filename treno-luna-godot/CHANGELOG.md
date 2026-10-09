@@ -3,6 +3,11 @@
 Questo progetto è un **fork** (copia che cresce per conto suo) del «Treno blindato su Godot» alla versione v2.1.3.
 Come per la 3INF e la 1INF, un fork riparte dalla sua versione 1.0. Il gioco originale resta com'è.
 
+## v1.2 — 09/10/2026 — Altri 3 ragazzi (MINOR)
+
+1. **Aggiunta**: tre facce nuove della 1INF, Mister J, Mister Q e Mister V. Ora i cattivi sono 8, sempre protetti dalla password.
+2. Perché MINOR: è un'aggiunta, sale il secondo numero (1.1.1 → 1.2) e la patch ricomincia da zero.
+
 ## v1.1.1 — 09/10/2026 — Solo le facce dei ragazzi (PATCH)
 
 1. **Correzione chiesta dal prof**: con la password uscivano ancora anche i cattivi disegnati. Ora, aperte le facce, TUTTI i cattivi hanno le facce dei ragazzi.
