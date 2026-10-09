@@ -12,7 +12,7 @@ a{color:#58a6ff}svg text{font-family:system-ui,Arial}#info{min-height:90px}
 </style></head>
 <body><div class="w">
 <h1>Il grafo delle versioni del Treno blindato</h1>
-<p class="mu">Ogni pallino è una <b>versione</b> (un salvataggio pubblicato, in Git si chiama <i>commit</i>). Ogni linea è un <b>ramo</b>. Clicca un pallino: vedi chi l'ha fatta, cosa è cambiato e perché, e puoi giocare proprio quella versione. La pagina si aggiorna da sola.</p>
+<p class="mu">Ogni pallino è una <b>versione</b> (un salvataggio pubblicato, in Git si chiama <i>commit</i>). Ogni linea è un <b>ramo</b>. Clicca un pallino: parte il gioco di quella versione in una scheda nuova, e qui sotto leggi chi l'ha fatta, cosa è cambiato e perché. La pagina si aggiorna da sola.</p>
 <p class="ar">كل دائرة هي نسخة (حفظ commit). كل خط هو فرع. اضغط على دائرة: ترى من صنعها، وماذا تغيّر ولماذا، ويمكنك أن تلعب تلك النسخة.</p>
 <p class="zh">每个圆点是一个版本（提交 commit）。每条线是一个分支。点一个圆点：可以看到谁做的、改变了什么和为什么，还可以玩那个版本。</p>
 <div class="card"><svg id="g" style="height:auto;display:block" role="img" aria-label="Grafo delle versioni del Treno blindato"></svg></div>
@@ -50,11 +50,12 @@ function carica(){Promise.all(L.map(function(l){return l.dir?J('../'+l.dir+'/ver
   if(V.length>1)h+='<line x1="'+xs+'" y1="'+l.y+'" x2="'+(xs+(V.length-1)*DX)+'" y2="'+l.y+'" stroke="'+l.col+'" stroke-width="4"/>';
   if(l.merge){var tx=pos[l.merge.linea+':'+l.merge.in],ty=L[l.merge.linea].y,fx=xs+(V.length-1)*DX;if(tx!=null)h+='<path d="M'+fx+' '+l.y+' C '+(fx+DX*.5)+' '+l.y+', '+(tx-DX*.4)+' '+(ty+30)+', '+(tx-9)+' '+(ty+11)+'" stroke="'+l.col+'" stroke-width="4" fill="none"/><polygon points="'+(tx-9)+','+(ty+11)+' '+(tx-20)+','+(ty+12)+' '+(tx-13)+','+(ty+21)+'" fill="'+l.col+'"/>'}
   V.forEach(function(v,i){var x=xs+i*DX,m=v.tipo==='merge';maxX=Math.max(maxX,x);
-   h+='<g style="cursor:pointer" tabindex="0" onclick="mostra('+k+','+i+')"><title>'+e(v.versione+' — '+v.nome)+'</title>'+
+   h+='<g style="cursor:pointer" tabindex="0" onclick="mostra('+k+','+i+');gioca('+k+','+i+')"><title>'+e(v.versione+' — '+v.nome)+'</title>'+
     (major(v.versione)?'<circle cx="'+x+'" cy="'+l.y+'" r="18" fill="none" stroke="#ffd34d" stroke-width="3"/>':'')+
     (m?'<rect x="'+(x-11)+'" y="'+(l.y-11)+'" width="22" height="22" rx="4" transform="rotate(45 '+x+' '+l.y+')" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>':'<circle cx="'+x+'" cy="'+l.y+'" r="13" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>')+
     '<circle cx="'+x+'" cy="'+l.y+'" r="24" fill="transparent"/><text x="'+x+'" y="'+(l.y+36)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e(v.versione)+'</text></g>'})});
  var W=maxX+70,g=document.getElementById('g');g.setAttribute('viewBox','0 0 '+W+' '+H);g.setAttribute('width','100%');g.style.minWidth=Math.min(W,900)+'px';g.innerHTML=h})}
+function gioca(k,i){var v=R[k][i],l=L[k],u=v.gioca||(l.dir?'../'+l.dir+'/versioni/'+v.versione+'/':'');if(u)window.open(u,'_blank')}
 function mostra(k,i){var v=R[k][i],l=L[k],cod=v.commit?' <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/'+e(v.commit)+'/docs/giochi/'+l.dir+'">il codice di questa versione</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commit/'+e(v.commit)+'">cosa è cambiato nel codice (diff)</a>':'';
  var gioca=v.gioca||(l.dir?'../'+l.dir+'/versioni/'+v.versione+'/':'');
  document.getElementById('info').innerHTML='<span class="tag" style="background:'+l.col+'">'+e(l.nome)+'</span> <b style="font-size:20px">'+e(v.versione)+' — '+e(v.nome)+'</b>'+(major(v.versione)?' <span class="tag" style="background:#ffd34d">versione major</span>':'')+
