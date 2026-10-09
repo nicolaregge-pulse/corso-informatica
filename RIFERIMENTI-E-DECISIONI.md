@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.29** — 08/10/2026
+**Versione 2.30** — 08/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -397,3 +397,8 @@ bumpa la versione del doc.*
    può confondere. **NON si rifà ora** (il file è già in mano ai ragazzi). Alla **prossima
    versione**: separare — dispensa A solo binario→decimale, dispensa B decimale→binario.
    Il **compito** (non ancora pubblicato) si fa invece **su una sola direzione: binario→decimale**.
+
+### 2.50 Prima di proporre ai ragazzi: «Pubblico o vuoi vederlo prima?» (09/10/2026)
+
+1. Prima di proporre qualsiasi cosa agli allievi (compito, Documento, quiz, Modulo, annuncio, pagina) Claude chiede SEMPRE a Nicola: «Pubblico o vuoi vederlo prima?».
+2. Si pubblica solo dopo «pubblica» o un sì esplicito; un orario detto prima non vale come via (REGISTRO-ERRORI #41).
