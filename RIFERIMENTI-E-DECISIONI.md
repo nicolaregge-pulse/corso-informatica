@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.30** — 08/10/2026
+**Versione 2.31** — 08/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -402,3 +402,9 @@ bumpa la versione del doc.*
 
 1. Prima di proporre qualsiasi cosa agli allievi (compito, Documento, quiz, Modulo, annuncio, pagina) Claude chiede SEMPRE a Nicola: «Pubblico o vuoi vederlo prima?».
 2. Si pubblica solo dopo «pubblica» o un sì esplicito; un orario detto prima non vale come via (REGISTRO-ERRORI #41).
+
+### 2.51 Ordine fisso: teoria, poi compito, poi approvazione (09/10/2026)
+
+1. La prima cosa di ogni lezione è analizzare con Nicola la teoria proposta da Claude.
+2. Poi si analizza il compito: lo devono poter iniziare tutti, un passo piccolo alla volta, tutto al computer, senza foto né telefono.
+3. Si pubblica solo dopo l'approvazione esplicita di Nicola.
