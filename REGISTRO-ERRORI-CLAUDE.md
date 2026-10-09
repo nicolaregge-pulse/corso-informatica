@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.15** — 08/10/2026
+**Versione 2.16** — 09/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -255,3 +255,11 @@ lezione.*
 1. **Cosa è successo.** Il report della 3INF mostrava «scrivi la password» al posto del nome: il docente non poteva capire a colpo d'occhio di chi fosse ogni riga, quindi il report non serviva in classe.
 2. **Correzione.** Nel report ora si vede subito il nome di battesimo; il cognome resta nel report completo del repository privato.
 3. **Regola (vale da oggi, per tutte le classi).** Non si pubblica MAI un report, un elenco o una pagina di valutazione che il docente non possa attribuire in modo semplice e immediato a ogni allievo: ogni riga porta almeno il nome di battesimo visibile (mai solo il numero di PC, mai nomi nascosti dietro una password).
+
+## 09/10/2026 — 2INF, Sicurezza 2ª ora: quiz e domande aperte (#41)
+
+1. **Ho pubblicato senza il via del docente.** Alle 08:36 ho fatto uscire il compito del quiz pensando che «ultimi 25 minuti» fosse già il via; il docente ha scritto «aspetta a pubblicare» mentre il ponte lo stava pubblicando. Regola: quando il docente dice «prepara e fammelo vedere», si prepara e si aspetta la parola «pubblica»; un orario detto prima non vale come via.
+2. **Non ho capito subito il formato.** Il docente voleva UN Modulo Google con: 15-20 domande di quiz, 5 domande aperte sulle parole della lezione (pericolo, esposizione, rischio, infortunio, incidente) e 1-2 domande sul phishing con l'esercizio. Ho fatto prima un compito con Documento e «carta e penna», poi un Modulo con sole domande aperte e il quiz fuori, poi un secondo Modulo solo a crocette: tre giri e due link invece di uno. Regola: prima di creare, riscrivo in una riga il formato richiesto (dove, quante domande, di che tipo, in che ordine) e lo faccio confermare.
+3. **Strumento non adatto.** Il ponte crea Moduli o solo a crocette (`forms.crea_quiz`) o solo con domande aperte (`forms.crea_modulo`), non misti. Regola: per un Modulo misto serve un'azione nuova del ponte (crocette + aperte + sezioni); finché non c'è, lo si dice subito al docente invece di dividere in due Moduli senza avvisare.
+4. **Carta e penna al posto sbagliato.** Nell'annuncio di studio ho chiesto di scrivere sul foglio quello che il docente voleva sul Modulo. Regola: dove si scrivono le risposte lo decide il docente; non lo aggiungo io.
+5. **Lingue.** Ho messo il cinese anche dove il docente voleva solo l'italiano. Regola: per la 2INF chiedere o seguire l'ultima indicazione («tutto in italiano»).
