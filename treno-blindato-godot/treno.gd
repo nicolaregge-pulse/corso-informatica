@@ -12,6 +12,7 @@ extends Node2D
 ## I dati dei ragazzi (cattivi, ambienti, regole) stanno nella cartella dati/ in file .json:
 ## si cambia il gioco cambiando i dati, senza toccare questo codice.
 
+const VERSIONE := "v2.1.3"  # il numero di versione: si vede sempre in alto a sinistra
 const ZF := 18.0   # distanza più lontana che si vede (l'orizzonte)
 const ZN := 1.0    # distanza più vicina (il vetro della cabina)
 const MISURE := {"alberi": [2.0, 4.5], "case": [3.4, 2.8], "palazzi": [3.4, 8.0], "rocce": [3.0, 1.9], "onde": [3.0, 0.5]}
@@ -389,8 +390,11 @@ func _draw() -> void:
 		scritta(Vector2(x["x"], x["y"] - x["t"] * 30.0), x["s"], sz, Color(ORO if not x.get("fumetto", false) else Color.WHITE, al))
 	if flash > 0.0:
 		draw_rect(Rect2(Vector2.ZERO, s), Color(1, 0.2, 0.1, flash * 1.5))
+	# il numero di versione, sempre visibile (è il tema della lezione!)
+	draw_string_outline(font, Vector2(14, 34), "Treno blindato " + VERSIONE, HORIZONTAL_ALIGNMENT_LEFT, -1, 24, 4, Color.BLACK)
+	draw_string(font, Vector2(14, 34), "Treno blindato " + VERSIONE, HORIZONTAL_ALIGNMENT_LEFT, -1, 24, ORO)
 	if stato == "titolo":
-		schermata("IL TRENO BLINDATO", "Versione Godot v2.1.2 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
+		schermata("IL TRENO BLINDATO", "Versione Godot " + VERSIONE + " · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
 	elif stato == "fine":
 		schermata("IL VETRO È ANDATO IN PEZZI!", "Punti: %d · Record: %d\n%s" % [punti, record, LODI.pick_random() if punti >= record and punti > 0 else "Riprova: il treno ha bisogno di te!"], "CLICCA PER RIPARTIRE")
 
