@@ -63,7 +63,7 @@ try{k=parseInt(localStorage.getItem(KEY)||'0',10)||0}catch(_){}
 function salva(){try{localStorage.setItem(KEY,String(k))}catch(_){}}
 function disegna(){var d='';for(var i=0;i<PP.length;i++)d+='<span class="'+(i<k?'f':(i===k?'c':''))+'">'+(i<k?'✓':(i+1))+'</span>';
  var h='<div class="dots">'+d+'</div>';
- if(k>=PP.length){h+='<p class="it">Bravo! Hai fatto tutti i passi.</p><p class="ar">أحسنت! أنهيت كل الخطوات.</p><p class="zh">太棒了！你完成了所有步骤。</p><p class="nota">Vuoi fare di più? Manda un'altra idea per il treno con il Modulo.</p><a class="bt big" target="_blank" href="'+MOD+'">Apri il Modulo</a><button class="big" onclick="k=0;salva();disegna()">Ricomincia</button>'}
+ if(k>=PP.length){h+='<p class="it">Bravo! Hai fatto tutti i passi.</p><p class="ar">أحسنت! أنهيت كل الخطوات.</p><p class="zh">太棒了！你完成了所有步骤。</p><p class="nota">Vuoi fare di più? Manda un’altra idea per il treno con il Modulo.</p><a class="bt big" target="_blank" href="'+MOD+'">Apri il Modulo</a><button class="big" onclick="k=0;salva();disegna()">Ricomincia</button>'}
  else{var p=PP[k];h+='<div class="num">PASSO '+(k+1)+' DI '+PP.length+'</div><p class="it">'+p[0]+'</p><p class="ar">'+p[1]+'</p><p class="zh">'+p[2]+'</p>'+p[3]+
   '<p><a class="bt big" target="_blank" href="'+MOD+'">1. Apri il Modulo e manda</a><button class="big" onclick="k++;salva();disegna();window.scrollTo(0,0)">2. Fatto! Passo dopo</button></p>'+
   '<p class="nota">Nel Modulo, in «Cosa consegni?» scrivi: passo '+(k+1)+'. · في «Cosa consegni?» اكتب: passo '+(k+1)+' · 在「Cosa consegni?」写：passo '+(k+1)+'</p>'+
