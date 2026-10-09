@@ -14,5 +14,13 @@
   "data": "09/10/2026",
   "commit": "0abef575cee8f2b00dfe4bab7d2ee5146a593632",
   "cartella_codice": "treno-blindato-godot"
+ },
+ {
+  "versione": "v2.1.1",
+  "nome": "Correzione: il vetro si rompe",
+  "cambi": "Correzione di un errore (patch) segnalato dalla 1INF (Mathew F.): il treno superava i cattivi prima che sparassero, così il vetro non si rompeva mai e non si perdeva. Ora sparano in tempo. In più le facce dei personaggi sono ritagliate a forma di testa con il collo. È una correzione: sale il terzo numero, 2.1 → 2.1.1 (patch).",
+  "data": "09/10/2026",
+  "commit": "3ed8ce67fb1b8f1d177f6dd3c24f253c1797796e",
+  "cartella_codice": "treno-blindato-godot"
  }
 ]
