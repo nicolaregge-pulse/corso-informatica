@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.18** — 09/10/2026
+**Versione 2.19** — 09/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -274,3 +274,8 @@ lezione.*
 1. **Errore.** Ho dato alla 1INF cinque attività (A1-A5) scritte con un italiano da scuola media: giocare due versioni e trovare le differenze, 8 definizioni con parole proprie, cercare il numero di versione di un'app, un grafo con fork e Pull Request, un changelog. Con 20 ragazzi erano 100 consegne attese: in mezz'ora ne sono arrivate 4. Molti hanno tradotto la pagina con Google Traduttore e poi hanno solo giocato.
 2. **Perché è sbagliato.** Circa il 70% della classe è straniero e legge l'italiano come in quinta elementare. Un compito che non tutti possono iniziare lascia indietro proprio chi ha più bisogno, e «gioca e trova le differenze» non è un compito che tutti sanno svolgere.
 3. **Regola.** In 1INF il compito è UNO SOLO e lo possono iniziare TUTTI. La differenza la fa la profondità: livello base (copiare, disegnare, scegliere), livello medio (scrivere i numeri o le parole), livello alto (una frase propria o un'idea). Frasi da quinta elementare, una per riga, con un disegno o un esempio. Prima di pubblicare mi chiedo se lo può fare anche chi non legge l'italiano.
+
+## 09/10/2026 — 1INF, primo passo con la foto: chi non ha il telefono si blocca subito (#44)
+
+1. **Errore.** Nel compito semplificato il passo 1 diceva «disegna sul foglio, fai la foto e mandala». I ragazzi in laboratorio non hanno il telefono e non sanno fare la cattura dello schermo senza una spiegazione. Il primo passo li bloccava tutti: il contrario di «Vinci subito».
+2. **Regola.** In laboratorio ogni passo si fa tutto al computer, scrivendo nel Modulo o nella pagina. Foto e catture dello schermo si chiedono solo se il docente dice che ci sono i telefoni, oppure dopo una lezione su come si fa la cattura. Il passo 1 deve essere una risposta che tutti sanno dare (contare, scegliere, copiare una parola). Sotto ogni passo ci sono sempre le istruzioni «come si manda», nelle 3 lingue.
