@@ -1,6 +1,6 @@
 # Regole di costruzione della teoria
 
-**Versione 1.0** — 09/10/2026 — documento interno per il docente e per Claude
+**Versione 1.1** — 09/10/2026 — documento interno per il docente e per Claude
 
 Nate dalla lezione della 1INF del 09/10/2026 («Versioni e Git»). Il modello approvato da Nicola è la pagina
 `docs/compito/1inf-20261009-versioni/`. Ogni nuova teoria si costruisce così, per non ripetere gli errori
@@ -27,7 +27,8 @@ del registro (#41, #43, #44, #45).
    3. Sotto la FASE 2 c'è l'**immagine del bottone verde**, così sanno cosa cercare.
 3. **FASE 1 — La teoria**: si legge dall'alto in basso, senza scelte, senza link da aprire per forza, senza attività.
 4. **FASE 2 — Il compito**: in fondo, riquadro verde con il bottone «Inizia il compito».
-5. Tra il riquadro del percorso e il bottone verde c'è UN flusso unico: niente menu, niente schede, niente «scegli tu». Non si può sbagliare strada.
+5. **Ogni link esterno (quiz, Modulo, Google Immagini, grafo…) si apre SEMPRE in una scheda nuova** (`target="_blank"`), così la pagina della lezione resta aperta. Vicino al bottone si scrive, in 3 lingue: «Si apre in una scheda nuova. Quando hai finito, chiudi quella scheda e torni qui».
+6. Tra il riquadro del percorso e il bottone verde c'è UN flusso unico: niente menu, niente schede, niente «scegli tu». Non si può sbagliare strada.
 
 ## 04 Cosa entra nella teoria
 
