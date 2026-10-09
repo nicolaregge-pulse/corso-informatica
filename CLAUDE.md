@@ -383,6 +383,9 @@ Il corso stesso è versionato su Git, su due livelli:
 
 ## ⭐ Carta e penna in OGNI lezione (TASSATIVO — richiesto da Nicola)
 
+> **Sospesa per i compiti (09/10/2026, Nicola):** per ora i compiti e la teoria si fanno TUTTI al PC, niente carta e
+> penna né lavoro a mano: controllarli e gestirli è problematico. Se serve qualcosa di fisico si chiede prima a Nicola.
+
 Regola **vincolante e senza eccezioni**, da rispettare e da ricordare in **ogni
 singola lezione** di **tutti** gli anni:
 
