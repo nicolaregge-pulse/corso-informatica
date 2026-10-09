@@ -1,0 +1,63 @@
+{
+ "percorso": [
+  "bosco",
+  "case",
+  "citta",
+  "montagna",
+  "mare"
+ ],
+ "secondi_per_ambiente": 20,
+ "ambienti": {
+  "bosco": {
+   "nome": "Bosco bruciato",
+   "cielo_alto": "#4a0d0d",
+   "cielo_basso": "#e8782a",
+   "lontano": "#3b2a24",
+   "terra": "#4a3a2c",
+   "oggetti": "alberi",
+   "colore_oggetti": "#2b2420",
+   "densita": 3,
+   "rottami": true
+  },
+  "case": {
+   "nome": "Paese",
+   "cielo_alto": "#f6b36b",
+   "cielo_basso": "#fde3b8",
+   "lontano": "#9a8a7a",
+   "terra": "#8fae5a",
+   "oggetti": "case",
+   "colore_oggetti": "#d9734e",
+   "densita": 2
+  },
+  "citta": {
+   "nome": "Città",
+   "cielo_alto": "#1b2350",
+   "cielo_basso": "#8a3fd1",
+   "lontano": "#2a2f66",
+   "terra": "#2b2b33",
+   "oggetti": "palazzi",
+   "colore_oggetti": "#3d4580",
+   "densita": 3
+  },
+  "montagna": {
+   "nome": "Montagna",
+   "cielo_alto": "#3a6fd8",
+   "cielo_basso": "#f39a3d",
+   "lontano": "#8c97a8",
+   "terra": "#6d7d52",
+   "oggetti": "rocce",
+   "colore_oggetti": "#7d7468",
+   "densita": 2
+  },
+  "mare": {
+   "nome": "Mare",
+   "cielo_alto": "#3fa9e8",
+   "cielo_basso": "#bfe8ff",
+   "lontano": "#2b7fb8",
+   "terra": "#e8d49a",
+   "oggetti": "onde",
+   "colore_oggetti": "#1f6ea8",
+   "densita": 2
+  }
+ }
+}

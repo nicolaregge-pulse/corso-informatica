@@ -1,24 +1,61 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Grafo delle versioni</title>
-<style>body{margin:0;background:#0d1117;color:#e6edf3;font-family:system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1100px;margin:0 auto;padding:16px}
-h1{margin:4px 0;font-size:clamp(22px,6vw,32px)}.mu{color:#8b949e}.card{background:#161b22;border:1px solid #30363d;border-radius:12px;padding:12px;margin:12px 0;overflow-x:auto}
-a{color:#58a6ff}#info{min-height:70px}svg text{font-family:system-ui,Arial}</style></head>
-<body><div class="w"><h1>Il grafo delle versioni</h1>
-<p class="mu">Ogni pallino è una versione (un commit pubblicato). La linea blu è il gioco della 2INF; la linea verde è il fork della 3INF e la linea arancione è il fork della 1INF: tutte e due partono dalla v0.11 della 2INF. Clicca un pallino: vedi cosa è cambiato, puoi giocare quella versione o aprire il codice di quel commit su GitHub. La pagina si aggiorna da sola.</p>
-<div class="card"><svg id="g" style="height:auto;display:block"></svg></div><div class="card" id="info"><span class="mu">Clicca un pallino.</span></div>
-<p><a href="https://github.com/nicolaregge-pulse/corso-informatica/network">Il grafo completo su GitHub (Insights → Network)</a></p></div>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--ln:#30363d;--tx:#e6edf3;--mu:#8b949e;--oro:#ffd34d}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1200px;margin:0 auto;padding:16px}
+h1{margin:4px 0;font-size:clamp(24px,6vw,36px)}h2{font-size:19px;margin:0 0 8px}.mu{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:12px 14px;margin:12px 0;overflow-x:auto}
+a{color:#58a6ff}svg text{font-family:system-ui,Arial}#info{min-height:90px}
+.leg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}.leg div{display:flex;gap:10px;align-items:flex-start}.leg svg{flex:0 0 46px}
+.bt{display:inline-block;background:#238636;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:6px 12px;margin:6px 8px 0 0}
+.tag{display:inline-block;border-radius:999px;padding:2px 10px;font-weight:700;font-size:13px;color:#0d1117}
+</style></head>
+<body><div class="w">
+<h1>Il grafo delle versioni del Treno blindato</h1>
+<p class="mu">Ogni pallino è una <b>versione</b> (un salvataggio pubblicato, in Git si chiama <i>commit</i>). Ogni linea è un <b>ramo</b>. Clicca un pallino: vedi chi l'ha fatta, cosa è cambiato e perché, e puoi giocare proprio quella versione. La pagina si aggiorna da sola.</p>
+<div class="card"><svg id="g" style="height:auto;display:block" role="img" aria-label="Grafo delle versioni del Treno blindato"></svg></div>
+<div class="card" id="info"><span class="mu">Clicca un pallino per leggere la sua storia.</span></div>
+<div class="card"><h2>Come si legge</h2><div class="leg">
+<div><svg width="46" height="24"><line x1="2" y1="12" x2="44" y2="12" stroke="#2f81f7" stroke-width="4"/><circle cx="12" cy="12" r="7" fill="#2f81f7"/><circle cx="34" cy="12" r="7" fill="#2f81f7"/></svg><span><b>Versione e ramo.</b> I pallini sono le versioni, la linea è il ramo: il gioco cresce da sinistra a destra.</span></div>
+<div><svg width="46" height="24"><path d="M2 4 C 20 4, 24 20, 44 20" stroke="#3fb950" stroke-width="4" fill="none" stroke-dasharray="6 4"/></svg><span><b>Fork (copia).</b> Una classe copia il gioco di un'altra e lo fa crescere per conto suo.</span></div>
+<div><svg width="46" height="24"><path d="M2 20 C 20 20, 24 4, 44 4" stroke="#db61a2" stroke-width="4" fill="none"/><polygon points="44,4 36,0 37,9" fill="#db61a2"/></svg><span><b>Merge (unione).</b> Un ramo di lavoro rientra nel ramo principale: le sue novità entrano nel gioco.</span></div>
+<div><svg width="46" height="24"><circle cx="23" cy="12" r="8" fill="#a371f7"/><circle cx="23" cy="12" r="11" fill="none" stroke="#ffd34d" stroke-width="2"/></svg><span><b>Versione major (x.0).</b> Cambia una cosa grossa (per esempio il motore): il primo numero sale, 1.x → 2.0.</span></div>
+</div></div>
+<p><a href="https://github.com/nicolaregge-pulse/corso-informatica/network">Lo stesso grafo, quello vero di Git, su GitHub (Insights → Network)</a></p></div>
 <script>
-var L=[{nome:'2INF — Il treno blindato',dir:'treno-blindato',col:'#2f81f7',y:90},{nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:210,da:'v0.11'},{nome:'1INF — fork del treno',dir:'treno-1inf',col:'#f0883e',y:330,da:'v0.11'}];
+/* Le linee del grafo. padre = da quale linea nasce, da = da quale versione. extra = pallini aggiunti a mano (rami di lavoro, merge). */
+var L=[
+ {nome:'2INF — Il treno blindato (HTML)',dir:'treno-blindato',col:'#2f81f7',y:90},
+ {nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:200,padre:0,da:'v0.11'},
+ {nome:'1INF — fork del treno',dir:'treno-1inf',col:'#f0883e',y:310,padre:0,da:'v0.11',
+  extra:[{versione:'merge',nome:'Merge del ramo «immagini della classe»',tipo:'merge',data:'08/10/2026',cambi:'Il ramo di lavoro del prof è stato unito (merge) nel ramo della 1INF: da qui le foto dei disegni consegnate su Classroom entrano da sole nel gioco e nella galleria.',gioca:'../treno-1inf/immagini/'}]},
+ {nome:'ramo di lavoro: immagini della classe',dir:null,col:'#db61a2',y:420,padre:2,da:'v1.0',merge:{linea:2,in:'merge'},
+  nodi:[{versione:'immagini',nome:'Nuova funzione: le immagini della classe',data:'08/10/2026',cambi:'Proposta del prof su un ramo separato (branch), per non rompere il gioco mentre si lavora: albero di cartelle (cattivi, paesaggi, difetti, revisioni), galleria con i nomi e importazione automatica delle foto consegnate su Classroom.',gioca:'../treno-1inf/immagini/'}]},
+ {nome:'1INF su Godot — versione 2.0',dir:'treno-godot',col:'#a371f7',y:530,padre:2,da:'v1.1'}
+];
+var DX=74,X0=50,H=600,R=null;
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function carica(){Promise.all(L.map(function(l){return fetch('../'+l.dir+'/versioni/versioni.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})})).then(function(R){
- var g=document.getElementById('g'),dx=72,x0=50,h='',pos={};R[0].forEach(function(v,i){pos['0:'+v.versione]=x0+i*dx});
- L.forEach(function(l,k){var V=R[k],xs=k===0?x0:(pos['0:'+l.da]||x0)+dx;
-  h+='<text x="8" y="'+(l.y-28)+'" fill="'+l.col+'" font-size="14" font-weight="700">'+e(l.nome)+'</text>';
-  if(k>0&&pos['0:'+l.da]!=null)h+='<path d="M'+pos['0:'+l.da]+' '+L[0].y+' C '+(pos['0:'+l.da]+40)+' '+L[0].y+', '+(xs-40)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none" stroke-dasharray="6 4"/><text x="'+(pos['0:'+l.da]+10)+'" y="'+((L[0].y+l.y)/2)+'" fill="#8b949e" font-size="12">fork</text>';
-  if(V.length>1)h+='<line x1="'+xs+'" y1="'+l.y+'" x2="'+(xs+(V.length-1)*dx)+'" y2="'+l.y+'" stroke="'+l.col+'" stroke-width="4"/>';
-  V.forEach(function(v,i){var x=xs+i*dx;h+='<g style="cursor:pointer" onclick="mostra('+k+','+i+')"><circle cx="'+x+'" cy="'+l.y+'" r="13" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/><text x="'+x+'" y="'+(l.y+34)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e(v.versione)+'</text></g>'})});
- var maxX=Math.max.apply(null,L.map(function(l,k){var xs=k===0?x0:(pos['0:'+l.da]||x0)+dx;return xs+Math.max(0,R[k].length-1)*dx}))+60;
- g.setAttribute('viewBox','0 0 '+maxX+' 410');g.setAttribute('width','100%');g.style.minWidth=Math.min(maxX,900)+'px';g.innerHTML=h;window.R=R})}
-function mostra(k,i){var v=R[k][i],l=L[k];document.getElementById('info').innerHTML='<b style="color:'+l.col+'">'+e(l.nome)+' — '+e(v.versione)+'</b> · '+e(v.nome)+'<br><span class="mu">'+e(v.data||'')+'</span><p>'+e(v.cambi||'')+'</p><a href="../'+l.dir+'/versioni/'+e(v.versione)+'/">Gioca questa versione</a>'+(v.commit?' · <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/'+e(v.commit)+'/docs/giochi/'+l.dir+'">il codice di questo commit</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commit/'+e(v.commit)+'">le modifiche (diff)</a>':'')}
+function J(u){return fetch(u+'?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).catch(function(){return []})}
+function major(v){return /^v[1-9]\d*\.0$/.test(v)}
+function carica(){Promise.all(L.map(function(l){return l.dir?J('../'+l.dir+'/versioni/versioni.json'):Promise.resolve([])})).then(function(D){
+ R=L.map(function(l,k){return (l.nodi||D[k]||[]).concat(l.extra||[])});
+ var pos={};
+ L.forEach(function(l,k){var xs=X0;if(l.padre!=null){var p=pos[l.padre+':'+l.da];xs=(p!=null?p:X0)+DX}l.xs=xs;R[k].forEach(function(v,i){pos[k+':'+v.versione]=xs+i*DX})});
+ var h='',maxX=0;
+ L.forEach(function(l,k){var V=R[k],xs=l.xs;
+  h+='<text x="10" y="'+(l.y-30)+'" fill="'+l.col+'" font-size="15" font-weight="700">'+e(l.nome)+'</text>';
+  if(l.padre!=null){var px=pos[l.padre+':'+l.da],py=L[l.padre].y;if(px!=null)h+='<path d="M'+px+' '+py+' C '+(px+DX*.55)+' '+py+', '+(xs-DX*.55)+' '+l.y+', '+xs+' '+l.y+'" stroke="'+l.col+'" stroke-width="4" fill="none"'+(l.dir&&l.padre===0?' stroke-dasharray="7 5"':'')+'/>'}
+  if(V.length>1)h+='<line x1="'+xs+'" y1="'+l.y+'" x2="'+(xs+(V.length-1)*DX)+'" y2="'+l.y+'" stroke="'+l.col+'" stroke-width="4"/>';
+  if(l.merge){var tx=pos[l.merge.linea+':'+l.merge.in],ty=L[l.merge.linea].y,fx=xs+(V.length-1)*DX;if(tx!=null)h+='<path d="M'+fx+' '+l.y+' C '+(fx+DX*.5)+' '+l.y+', '+(tx-DX*.4)+' '+(ty+30)+', '+(tx-9)+' '+(ty+11)+'" stroke="'+l.col+'" stroke-width="4" fill="none"/><polygon points="'+(tx-9)+','+(ty+11)+' '+(tx-20)+','+(ty+12)+' '+(tx-13)+','+(ty+21)+'" fill="'+l.col+'"/>'}
+  V.forEach(function(v,i){var x=xs+i*DX,m=v.tipo==='merge';maxX=Math.max(maxX,x);
+   h+='<g style="cursor:pointer" tabindex="0" onclick="mostra('+k+','+i+')"><title>'+e(v.versione+' — '+v.nome)+'</title>'+
+    (major(v.versione)?'<circle cx="'+x+'" cy="'+l.y+'" r="18" fill="none" stroke="#ffd34d" stroke-width="3"/>':'')+
+    (m?'<rect x="'+(x-11)+'" y="'+(l.y-11)+'" width="22" height="22" rx="4" transform="rotate(45 '+x+' '+l.y+')" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>':'<circle cx="'+x+'" cy="'+l.y+'" r="13" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>')+
+    '<circle cx="'+x+'" cy="'+l.y+'" r="24" fill="transparent"/><text x="'+x+'" y="'+(l.y+36)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e(v.versione)+'</text></g>'})});
+ var W=maxX+70,g=document.getElementById('g');g.setAttribute('viewBox','0 0 '+W+' '+H);g.setAttribute('width','100%');g.style.minWidth=Math.min(W,900)+'px';g.innerHTML=h})}
+function mostra(k,i){var v=R[k][i],l=L[k],cod=v.commit?' <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/'+e(v.commit)+'/docs/giochi/'+l.dir+'">il codice di questa versione</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commit/'+e(v.commit)+'">cosa è cambiato nel codice (diff)</a>':'';
+ var gioca=v.gioca||(l.dir?'../'+l.dir+'/versioni/'+v.versione+'/':'');
+ document.getElementById('info').innerHTML='<span class="tag" style="background:'+l.col+'">'+e(l.nome)+'</span> <b style="font-size:20px">'+e(v.versione)+' — '+e(v.nome)+'</b>'+(major(v.versione)?' <span class="tag" style="background:#ffd34d">versione major</span>':'')+
+  '<br><span class="mu">'+e(v.data||'')+'</span><p><b>Cosa è cambiato e perché:</b> '+e(v.cambi||'')+'</p>'+(gioca?'<a class="bt" href="'+gioca+'">Apri questa versione</a>':'')+cod}
 carica();setInterval(carica,60000);
 </script></body></html>
