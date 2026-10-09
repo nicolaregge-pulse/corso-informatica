@@ -29,13 +29,13 @@ a{color:#58a6ff}svg text{font-family:system-ui,Arial}#info{min-height:90px}
 /* Le linee del grafo. padre = da quale linea nasce, da = da quale versione. extra = pallini aggiunti a mano (rami di lavoro, merge). */
 var L=[
  {nome:'2INF — Il treno blindato (HTML)',dir:'treno-blindato',col:'#2f81f7',y:90},
- {nome:'3INF — fork del treno',dir:'treno-3inf',col:'#3fb950',y:200,padre:0,da:'v0.11'},
- {nome:'1INF — fork del treno',dir:'treno-1inf',col:'#f0883e',y:310,padre:0,da:'v0.11',
+ {nome:'3INF — fork del treno',dir:'treno-3inf',pref:'3INF ',col:'#3fb950',y:200,padre:0,da:'v0.11'},
+ {nome:'1INF — fork del treno',dir:'treno-1inf',pref:'1INF ',col:'#f0883e',y:310,padre:0,da:'v0.11',
   extra:[{versione:'merge',nome:'Merge del ramo «immagini della classe»',tipo:'merge',data:'08/10/2026',cambi:'Il ramo di lavoro del prof è stato unito (merge) nel ramo della 1INF: da qui le foto dei disegni consegnate su Classroom entrano da sole nel gioco e nella galleria.',gioca:'../treno-1inf/immagini/'}]},
  {nome:'ramo di lavoro: immagini della classe',dir:null,col:'#db61a2',y:420,padre:2,da:'v1.0',merge:{linea:2,in:'merge'},
   nodi:[{versione:'immagini',nome:'Nuova funzione: le immagini della classe',data:'08/10/2026',cambi:'Proposta del prof su un ramo separato (branch), per non rompere il gioco mentre si lavora: albero di cartelle (cattivi, paesaggi, difetti, revisioni), galleria con i nomi e importazione automatica delle foto consegnate su Classroom.',gioca:'../treno-1inf/immagini/'}]},
  {nome:'1INF su Godot — versione 2.0',dir:'treno-godot',col:'#a371f7',y:530,padre:2,da:'v1.1'},
- {nome:'FORK: il treno sulla Luna',dir:'treno-luna',col:'#c9d1d9',y:640,padre:4,da:'v2.1.3',fork:true}
+ {nome:'FORK: il treno sulla Luna',dir:'treno-luna',pref:'Luna ',col:'#c9d1d9',y:640,padre:4,da:'v2.1.3',fork:true}
 ];
 var DX=74,X0=50,H=710,R=null;
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -55,7 +55,7 @@ function carica(){Promise.all(L.map(function(l){return l.dir?J('../'+l.dir+'/ver
    h+='<g style="cursor:pointer" tabindex="0" onclick="mostra('+k+','+i+');gioca('+k+','+i+')"><title>'+e(v.versione+' — '+v.nome)+'</title>'+
     (major(v.versione)?'<circle cx="'+x+'" cy="'+l.y+'" r="18" fill="none" stroke="#ffd34d" stroke-width="3"/>':'')+
     (m?'<rect x="'+(x-11)+'" y="'+(l.y-11)+'" width="22" height="22" rx="4" transform="rotate(45 '+x+' '+l.y+')" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>':'<circle cx="'+x+'" cy="'+l.y+'" r="13" fill="'+l.col+'" stroke="#0d1117" stroke-width="3"/>')+
-    '<circle cx="'+x+'" cy="'+l.y+'" r="24" fill="transparent"/><text x="'+x+'" y="'+(l.y+36)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e(v.versione)+'</text></g>'})});
+    '<circle cx="'+x+'" cy="'+l.y+'" r="24" fill="transparent"/><text x="'+x+'" y="'+(l.y+36)+'" fill="#e6edf3" font-size="12" text-anchor="middle">'+e((v.tipo==='merge'?'':(l.pref||''))+v.versione)+'</text></g>'})});
  var W=maxX+70,g=document.getElementById('g');g.setAttribute('viewBox','0 0 '+W+' '+H);g.setAttribute('width','100%');g.style.minWidth=Math.min(W,900)+'px';g.innerHTML=h})}
 function gioca(k,i){var v=R[k][i],l=L[k],u=v.gioca||(l.dir?'../'+l.dir+'/versioni/'+v.versione+'/':'');if(u)window.open(u,'_blank')}
 function mostra(k,i){var v=R[k][i],l=L[k],cod=v.commit?' <a href="https://github.com/nicolaregge-pulse/corso-informatica/tree/'+e(v.commit)+'/docs/giochi/'+l.dir+'">il codice di questa versione</a> · <a href="https://github.com/nicolaregge-pulse/corso-informatica/commit/'+e(v.commit)+'">cosa è cambiato nel codice (diff)</a>':'';
