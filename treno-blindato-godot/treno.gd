@@ -520,9 +520,9 @@ func omino(c: Dictionary) -> void:
 	if b.has("tex"):
 		var tex: Texture2D = b["tex"]
 		var lato := r * 2.8
-		var asp := float(tex.get_width()) / max(1.0, float(tex.get_height()))
-		var w := lato * (asp if asp < 1.0 else 1.0)
-		var h := lato / (asp if asp > 1.0 else 1.0)
+		var asp: float = float(tex.get_width()) / maxf(1.0, float(tex.get_height()))
+		var w: float = lato * (asp if asp < 1.0 else 1.0)
+		var h: float = lato / (asp if asp > 1.0 else 1.0)
 		draw_texture_rect(tex, Rect2(x - w / 2.0, y - h * 0.7, w, h), false, Color(1, 1, 1, alfa))
 		if String(b.get("nome", "")) != "" and c["fase"] != "colpito":
 			scritta(Vector2(x, y - h * 0.8), b["nome"], 15, Color.WHITE)
