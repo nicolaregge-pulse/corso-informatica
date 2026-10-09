@@ -1,8 +1,8 @@
 // Classe 2 — Sicurezza, 2ª ora del corso (D.Lgs. 81/08): prevenzione e protezione, allineato al PDF ufficiale «02_Prevenzione_Protezione» (italiano · cinese; la 2INF non usa l'arabo, §2.49)
-function L(it, zh) { return { it: it, ar: "", zh: zh }; }
+function L(it, zh) { return { it: it, ar: "", zh: "" }; }  // 09/10 Nicola: «tutto è in italiano» (il cinese resta nel file ma non si mostra)
 window.BANCA = {
   titolo: "Sicurezza 2 — Prevenzione e protezione",
-  sotto: "Classe 2 · Sicurezza sul lavoro (D.Lgs. 81/08), 2ª ora · ognuno ha le sue domande · 每个人的题目都不一样",
+  sotto: "Classe 2 · Sicurezza sul lavoro (D.Lgs. 81/08), 2ª ora · ognuno ha le sue domande",
   regola: L("Dal PDF ufficiale della 2ª ora. <b>ESPOSIZIONE</b> = quando una persona si trova vicino a un pericolo. <b>PERICOLO + ESPOSIZIONE = RISCHIO</b>. "
           + "<b>PREVENZIONE</b> = le misure per <b>evitare</b> o diminuire il rischio: prima domanda «si può <b>eliminare il pericolo</b>?»; se no, «si può eliminare l'<b>esposizione</b>?»; se no, si <b>riduce l'esposizione</b>. Il pericolo, per sua natura, non si diminuisce. "
           + "<b>Valutazione del rischio: R = P × D</b>. DANNO (D): 1 lieve, 2 modesto, 3 grave, 4 gravissimo. PROBABILITÀ (P): 1 improbabile, 2 possibile, 3 probabile, 4 molto probabile. "
