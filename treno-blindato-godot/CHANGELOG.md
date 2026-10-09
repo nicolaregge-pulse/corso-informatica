@@ -5,6 +5,12 @@ Ogni versione dice **cosa cambia e perché**. I numeri si leggono così: MAJOR.M
 `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-godot/versioni/<versione>/`
 L'ultima versione è sempre a `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-godot/`.
 
+## v2.1.3 — 09/10/2026 — Il numero di versione si vede sempre (PATCH)
+
+1. **Richiesta del prof**: in alto a sinistra, per tutta la partita, c'è scritto «Treno blindato v2.1.3». Così si vede subito quale versione si sta giocando: è il tema della lezione.
+2. Il numero sta in un solo punto del codice (`const VERSIONE`), usato sia nella scritta in alto sia nella schermata iniziale.
+3. Perché PATCH: piccola correzione dell'interfaccia, sale il terzo numero (2.1.2 → 2.1.3).
+
 ## v2.1.2 — 09/10/2026 — Facce rifatte (PATCH)
 
 1. **Errore corretto**, segnalato dal prof: la faccia del prof non era centrata e quella di Subaru Natsuki mostrava anche il corpo.
