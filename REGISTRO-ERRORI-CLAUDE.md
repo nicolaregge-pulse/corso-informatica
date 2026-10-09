@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.16** — 09/10/2026
+**Versione 2.17** — 09/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -263,3 +263,8 @@ lezione.*
 3. **Strumento non adatto.** Il ponte crea Moduli o solo a crocette (`forms.crea_quiz`) o solo con domande aperte (`forms.crea_modulo`), non misti. Regola: per un Modulo misto serve un'azione nuova del ponte (crocette + aperte + sezioni); finché non c'è, lo si dice subito al docente invece di dividere in due Moduli senza avvisare.
 4. **Carta e penna al posto sbagliato.** Nell'annuncio di studio ho chiesto di scrivere sul foglio quello che il docente voleva sul Modulo. Regola: dove si scrivono le risposte lo decide il docente; non lo aggiungo io.
 5. **Lingue.** Ho messo il cinese anche dove il docente voleva solo l'italiano. Regola: per la 2INF chiedere o seguire l'ultima indicazione («tutto in italiano»).
+
+## 09/10/2026 — Impianto delle consegne: proposto Classroom come cassetta (#42)
+
+1. **Errore.** Ho proposto di usare il compito di Classroom per consegnare testo e file, pur sapendo dall'08/10 (3INF) che per aggiungere un file dopo la consegna bisogna «Annullare la consegna» e riconsegnare: con più file in momenti diversi non è fattibile.
+2. **Regola.** Le consegne si fanno da un canale che accetta invii ripetuti senza ritirare niente: Modulo Google a risposte multiple (testo + carica file) oppure la pagina del compito collegata a uno script Google. Su Classroom si preme solo «Consegnato» alla fine.
