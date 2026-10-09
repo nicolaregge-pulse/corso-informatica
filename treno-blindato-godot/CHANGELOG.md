@@ -5,6 +5,12 @@ Ogni versione dice **cosa cambia e perché**. I numeri si leggono così: MAJOR.M
 `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-godot/versioni/<versione>/`
 L'ultima versione è sempre a `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-godot/`.
 
+## v2.1.2 — 09/10/2026 — Facce rifatte (PATCH)
+
+1. **Errore corretto**, segnalato dal prof: la faccia del prof non era centrata e quella di Subaru Natsuki mostrava anche il corpo.
+2. **Come**: ogni faccia si prepara prima con lo strumento `strumenti/testa_personaggio.py`: si misura il riquadro della testa sull'originale, si ritaglia centrato, si ridimensiona tutto alla stessa misura (256 x 294) e si taglia la forma testa ovale + collo.
+3. Perché PATCH: è una correzione, sale il terzo numero (2.1.1 → 2.1.2).
+
 ## v2.1.1 — 09/10/2026 — Correzione: il vetro si rompe (PATCH)
 
 1. **Errore corretto**, segnalato dalla 1INF (Mathew F.: «anche se non spari il vetro non si rompe»). Il treno superava i cattivi prima che sparassero: il vetro non si rompeva mai e non si perdeva.

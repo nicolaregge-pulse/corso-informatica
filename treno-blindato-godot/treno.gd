@@ -390,7 +390,7 @@ func _draw() -> void:
 	if flash > 0.0:
 		draw_rect(Rect2(Vector2.ZERO, s), Color(1, 0.2, 0.1, flash * 1.5))
 	if stato == "titolo":
-		schermata("IL TRENO BLINDATO", "Versione Godot v2.1.1 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
+		schermata("IL TRENO BLINDATO", "Versione Godot v2.1.2 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
 	elif stato == "fine":
 		schermata("IL VETRO È ANDATO IN PEZZI!", "Punti: %d · Record: %d\n%s" % [punti, record, LODI.pick_random() if punti >= record and punti > 0 else "Riprova: il treno ha bisogno di te!"], "CLICCA PER RIPARTIRE")
 
