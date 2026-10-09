@@ -1,0 +1,13 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2INF Avanzamento</title>
+<style>:root{--bg:#0d1117;--card:#161b22;--ln:#30363d;--tx:#e6edf3;--mu:#9aa4ae;--ok:#2f9e57}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1000px;margin:0 auto;padding:16px}h1{margin:4px 0}.mu{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:10px 0;overflow-x:auto}table{border-collapse:collapse;width:100%}td,th{border-bottom:1px solid var(--ln);padding:6px;text-align:center}td:first-child,th:first-child{text-align:left;font-weight:700}
+.s{display:inline-block;width:22px;height:22px;border-radius:5px;background:#30363d}.s.ok{background:var(--ok)}.bar{height:8px;background:#30363d;border-radius:4px}.bar i{display:block;height:8px;background:var(--ok);border-radius:4px}a{color:#58a6ff}</style></head>
+<body><div class="w"><h1>2INF · Versioni e Git: avanzamento</h1><p class="mu">Si aggiorna da solo: ogni quadratino verde è una parola spiegata con parole tue nel Documento del compito. · 每个绿色方块 = 你在文档里用自己的话解释了一个词。 <b id="agg"></b></p>
+<p><a href="../">Torna alla dispensa</a></p><div class="card" id="t">Ancora nessun dato.</div></div>
+<script>var P=['Versione','Git/GitHub','Commit','Branch','Fork','Push','Pull','Pull Request','Changelog','Numeri'];
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function c(){fetch('avanzamento.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){document.getElementById('agg').textContent='Aggiornato: '+d.aggiornato;
+ var R=d.ragazzi.slice().sort(function(a,b){return b.fatte.length-a.fatte.length||a.chi.localeCompare(b.chi)});
+ document.getElementById('t').innerHTML='<table><tr><th>Chi</th>'+P.map(function(p,i){return '<th title="'+p+'">'+(i+1)+'</th>'}).join('')+'<th>Totale</th></tr>'+R.map(function(x){return '<tr><td>'+e(x.chi)+'</td>'+P.map(function(p,i){return '<td><span class="s'+(x.fatte.indexOf(i+1)>=0?' ok':'')+'"></span></td>'}).join('')+'<td><b>'+x.fatte.length+'/10</b><div class="bar"><i style="width:'+(x.fatte.length*10)+'%"></i></div></td></tr>'}).join('')+'</table>'}).catch(function(){})}
+c();setInterval(c,30000);</script></body></html>
