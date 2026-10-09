@@ -7,13 +7,15 @@ il motore (index.js + index.wasm, 38 MB) è lo stesso per tutte le versioni e re
 import os, re, shutil, sys
 
 v = sys.argv[1]
-base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "giochi", "treno-godot")
+gioco = sys.argv[2] if len(sys.argv) > 2 else "treno-godot"  # es. treno-luna (il fork)
+base = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "giochi", gioco)
 dst = os.path.join(base, "versioni", v)
 os.makedirs(dst, exist_ok=True)
 for f in os.listdir(dst):
     os.remove(os.path.join(dst, f))
 shutil.copy(os.path.join(base, "index.pck"), os.path.join(dst, "index.pck"))
 h = open(os.path.join(base, "index.html"), encoding="utf-8").read()
+h = h.replace('src="../treno-godot/index.js"', 'src="../../../treno-godot/index.js"').replace('"executable":"../treno-godot/index","mainPack":"index.pck"', '"executable":"../../../treno-godot/index","mainPack":"index.pck"')
 h = h.replace('src="index.js"', 'src="../../index.js"')
 h = h.replace('"executable":"index"', '"executable":"../../index","mainPack":"index.pck"')
 h = re.sub(r'(href|src)="index\.(png|icon\.png|apple-touch-icon\.png)"', r'\1="../../index.\2"', h)

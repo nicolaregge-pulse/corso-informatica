@@ -1,0 +1,46 @@
+{
+ "percorso": [
+  "mare",
+  "crateri",
+  "base"
+ ],
+ "secondi_per_ambiente": 20,
+ "ambienti": {
+  "mare": {
+   "nome": "Mare della Tranquillità",
+   "cielo_alto": "#000000",
+   "cielo_basso": "#0b0f24",
+   "lontano": "#7d7d82",
+   "terra": "#a7a7ab",
+   "oggetti": "rocce",
+   "colore_oggetti": "#8a8a90",
+   "densita": 2,
+   "stelle": true,
+   "terra_nel_cielo": true
+  },
+  "crateri": {
+   "nome": "Crateri",
+   "cielo_alto": "#000000",
+   "cielo_basso": "#121633",
+   "lontano": "#5f5f66",
+   "terra": "#8e8e94",
+   "oggetti": "rocce",
+   "colore_oggetti": "#6d6d74",
+   "densita": 3,
+   "stelle": true,
+   "terra_nel_cielo": true
+  },
+  "base": {
+   "nome": "Base lunare",
+   "cielo_alto": "#000000",
+   "cielo_basso": "#1a1440",
+   "lontano": "#6a6a72",
+   "terra": "#9b9ba1",
+   "oggetti": "palazzi",
+   "colore_oggetti": "#c9d1e0",
+   "densita": 2,
+   "stelle": true,
+   "terra_nel_cielo": true
+  }
+ }
+}
