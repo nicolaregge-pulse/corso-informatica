@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.17** — 09/10/2026
+**Versione 2.18** — 09/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -268,3 +268,9 @@ lezione.*
 
 1. **Errore.** Ho proposto di usare il compito di Classroom per consegnare testo e file, pur sapendo dall'08/10 (3INF) che per aggiungere un file dopo la consegna bisogna «Annullare la consegna» e riconsegnare: con più file in momenti diversi non è fattibile.
 2. **Regola.** Le consegne si fanno da un canale che accetta invii ripetuti senza ritirare niente: Modulo Google a risposte multiple (testo + carica file) oppure la pagina del compito collegata a uno script Google. Su Classroom si preme solo «Consegnato» alla fine.
+
+## 09/10/2026 — 1INF, «Versioni e Git»: compito sbagliato di target (#43)
+
+1. **Errore.** Ho dato alla 1INF cinque attività (A1-A5) scritte con un italiano da scuola media: giocare due versioni e trovare le differenze, 8 definizioni con parole proprie, cercare il numero di versione di un'app, un grafo con fork e Pull Request, un changelog. Con 20 ragazzi erano 100 consegne attese: in mezz'ora ne sono arrivate 4. Molti hanno tradotto la pagina con Google Traduttore e poi hanno solo giocato.
+2. **Perché è sbagliato.** Circa il 70% della classe è straniero e legge l'italiano come in quinta elementare. Un compito che non tutti possono iniziare lascia indietro proprio chi ha più bisogno, e «gioca e trova le differenze» non è un compito che tutti sanno svolgere.
+3. **Regola.** In 1INF il compito è UNO SOLO e lo possono iniziare TUTTI. La differenza la fa la profondità: livello base (copiare, disegnare, scegliere), livello medio (scrivere i numeri o le parole), livello alto (una frase propria o un'idea). Frasi da quinta elementare, una per riga, con un disegno o un esempio. Prima di pubblicare mi chiedo se lo può fare anche chi non legge l'italiano.
