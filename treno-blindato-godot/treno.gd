@@ -81,7 +81,8 @@ func _ready() -> void:
 	# prova automatica (solo per il controllo: godot --headless -- prova)
 	if "prova" in OS.get_cmdline_user_args():
 		nuova_partita()
-
+	if "test" in OS.get_cmdline_user_args():
+		nuova_partita()
 
 func leggi_json(percorso: String, predefinito):
 	if not FileAccess.file_exists(percorso):
@@ -168,7 +169,8 @@ func nuovo_oggetto(z: float) -> Dictionary:
 
 
 func nuovo_cattivo() -> void:
-	var cand := oggetti.filter(func(o): return o["z"] > 2.6 and o["z"] < 5.2 and o["tipo"] != "onde" and not o["cattivo"])
+	# v2.1.1: il cattivo sceglie un nascondiglio più lontano, così ha il tempo di sparare prima che il treno lo superi
+	var cand := oggetti.filter(func(o): return o["z"] > 6.0 and o["z"] < 12.0 and o["tipo"] != "onde" and not o["cattivo"])
 	if cand.is_empty():
 		return
 	var o: Dictionary = cand.pick_random()
@@ -181,6 +183,11 @@ func nuovo_cattivo() -> void:
 		b = {"nome": "", "colore": ["#5b6b3a", "#6b5a3a", "#3a4a5b"].pick_random(), "occhi": randi_range(1, 3), "cappello": randi_range(0, 2), "bocca": randi_range(0, 2), "velocita": 1, "frase": ""}
 	var vel := float(b.get("velocita", 1))
 	var t_sparo: float = max(0.75, (regola("secondi_prima_di_sparare", 3.0) - livello * 0.12) / (1.0 + (vel - 1.0) * 0.2))
+	# v2.1.1 (correzione di un errore segnalato dalla 1INF): prima il treno superava il cattivo PRIMA che sparasse,
+	# così il vetro non si rompeva mai. Ora il tempo per sparare non supera il tempo in cui il cattivo resta visibile.
+	var v_treno := 6.0 * regola("velocita_treno", 0.5) * (1.0 + livello * 0.04)
+	var resta: float = (float(o["z"]) - ZN * 0.8) / v_treno
+	t_sparo = min(t_sparo, max(0.8, resta - 0.75 - 0.5))
 	o["cattivo"] = true
 	# il cattivo è NASCOSTO dietro l'oggetto e scivola fuori di lato, verso i binari
 	cattivi.append({"o": o, "dx": -o["lato"] * (o["w"] * 0.5 + 0.62), "t": 0.0, "entra": 0.75, "tempo": t_sparo, "b": b,
@@ -220,6 +227,8 @@ func spara(c: Dictionary) -> void:
 	flash = 0.18
 	scossa = 0.35
 	vetro -= 1
+	if "test" in OS.get_cmdline_user_args():
+		print("SPARO: vetro = ", vetro)
 	var fr: String = c["b"].get("frase", "")
 	if fr == "" and FRASI.size() > 0:
 		fr = FRASI.pick_random()
@@ -381,7 +390,7 @@ func _draw() -> void:
 	if flash > 0.0:
 		draw_rect(Rect2(Vector2.ZERO, s), Color(1, 0.2, 0.1, flash * 1.5))
 	if stato == "titolo":
-		schermata("IL TRENO BLINDATO", "Versione Godot v2.1 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
+		schermata("IL TRENO BLINDATO", "Versione Godot v2.1.1 · con i personaggi della 1INF\nI cattivi saltano fuori da dietro alberi e case: cliccali prima che sparino.\nIl vetro regge %d colpi!" % int(regola("vetro", 5)), "CLICCA PER PARTIRE")
 	elif stato == "fine":
 		schermata("IL VETRO È ANDATO IN PEZZI!", "Punti: %d · Record: %d\n%s" % [punti, record, LODI.pick_random() if punti >= record and punti > 0 else "Riprova: il treno ha bisogno di te!"], "CLICCA PER RIPARTIRE")
 
@@ -523,7 +532,7 @@ func omino(c: Dictionary) -> void:
 		var asp: float = float(tex.get_width()) / maxf(1.0, float(tex.get_height()))
 		var w: float = lato * (asp if asp < 1.0 else 1.0)
 		var h: float = lato / (asp if asp > 1.0 else 1.0)
-		draw_texture_rect(tex, Rect2(x - w / 2.0, y - h * 0.7, w, h), false, Color(1, 1, 1, alfa))
+		draw_texture_rect(tex, Rect2(x - w / 2.0, y - h * 0.62, w, h), false, Color(1, 1, 1, alfa))
 		if String(b.get("nome", "")) != "" and c["fase"] != "colpito":
 			scritta(Vector2(x, y - h * 0.8), b["nome"], 15, Color.WHITE)
 	else:
