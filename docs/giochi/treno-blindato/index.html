@@ -266,7 +266,7 @@ function paesaggio(dt){var g=cx,V=vista(),f=V.f,a=ambiente(),v=6*R.velocita_tren
  /* massicciata e binari */
  var p1=proj(V,-1.3,ZF),p2=proj(V,1.3,ZF),p3=proj(V,1.3,ZN*.9),p4=proj(V,-1.3,ZN*.9);g.fillStyle='#6d665c';g.beginPath();g.moveTo(p1.x,p1.y);g.lineTo(p2.x,p2.y);g.lineTo(p3.x,p3.y);g.lineTo(p4.x,p4.y);g.fill();
  g.strokeStyle='#4a3324';for(var z=ZN*.9+(1-(S.dist%1));z<ZF;z+=1){var l=proj(V,-1.1,z),r=proj(V,1.1,z);g.lineWidth=Math.max(1,.18*l.u);g.beginPath();g.moveTo(l.x,l.y);g.lineTo(r.x,r.y);g.stroke()}
- [-.75,.75].forEach(function(X){var A=proj(V,X,ZF),B=proj(V,X,ZN*.9);g.strokeStyle='#c9ccd2';g.lineWidth=3;g.beginPath();g.moveTo(A.x,A.y);g.lineTo(B.x,B.y);g.stroke()});
+ [-.75,.75].forEach(function(X){var A=proj(V,X,ZF),B=proj(V,X,ZN*.9);/* v0.27 PR di Katherine A.: binari gialli */g.strokeStyle='#ffd34d';g.lineWidth=3;g.beginPath();g.moveTo(A.x,A.y);g.lineTo(B.x,B.y);g.stroke()});
  S.oggetti.sort(function(a,b){return b.z-a.z});var fuori=[];
  S.oggetti.forEach(function(o){if(o.z<ZN*.7)return;var P=proj(V,o.X,o.z);
   S.cattivi.forEach(function(c){if(c.o!==o)return;var k=c.fase==='entra'?Math.min(1,c.t/c.entra):1;k=1-(1-k)*(1-k);var Q=proj(V,o.X+c.dx*k,o.z);

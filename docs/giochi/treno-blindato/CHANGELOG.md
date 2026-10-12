@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.27 — 12/10/2026 13:22 — Binari gialli
+
+1. Pull Request di Katherine A. (13:19): «Cambiare colore ai binari: gialli invece che grigi, in tutta la partita, così si vedono meglio».
+2. I due binari sono gialli in tutti gli scenari.
+3. Peso 1 nel backlog: si cambia un colore in index.html. PR scritta bene, con le 4 parti.
+
 ## v0.26 — 12/10/2026 13:19 — Pioggia e nebbia
 
 1. Pull Request di Lina A. (13:10), «Condizioni meteo dinamiche (pioggia e nebbia)»; la stessa idea è arrivata da Youssef A. (13:11), Riccardo B. (13:12, «Il meteo variabile») e Oscar F. (13:13, «nebbia che rende i nemici meno visibili»).
