@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.23 — 12/10/2026 13:07 — Il bottone Pausa
+
+1. Pull Request di Lina A. (13:03): «Aggiunta del pulsante Pausa: un tasto in alto per mettere in pausa il gioco e riprenderlo quando si vuole, nell’interfaccia e nel codice di controllo, per fermare la partita senza perdere i progressi».
+2. Durante la partita, in alto a destra, c’è il bottone blu «Pausa»: il gioco si ferma e compare la scritta PAUSA; il bottone diventa «Riprendi». Funziona anche con il tasto P o Esc.
+3. In pausa non si spara e i cattivi non si muovono: punti, vetro e livello restano come sono.
+4. Peso 3 nel backlog: un bottone nuovo e una regola nel ciclo del gioco, in index.html.
+
 ## v0.22 — 12/10/2026 13:05 — Il record accanto ai punti
 
 1. Pull Request di Youssef A. (13:04): «Punteggio migliore salvato: salvare il record e mostrarlo accanto al contatore, così resta anche dopo aver ricaricato la pagina».
