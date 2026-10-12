@@ -20,9 +20,11 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 </div>
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function riga(v){var cl=v.fatto?'fatto':(v.no?'no':''),st=v.fatto?'FATTO<br>'+e(v.fatto):(v.no?'NO: '+e(v.no):'da fare');
+ return '<tr class="'+cl+'"><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con immagine)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td><td class="st '+(v.fatto?'f':(v.no?'n':''))+'">'+st+'</td></tr>'}
 function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
  if(!d.voci.length)return;
- document.getElementById('tb').innerHTML=d.voci.map(function(v){return '<tr><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con immagine)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td></tr>'}).join('')}).catch(function(){})}
+ document.getElementById('tb').innerHTML=d.voci.map(riga).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 </script></body></html>
