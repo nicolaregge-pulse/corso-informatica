@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 12:54",
+ "aggiornato": "12/10/2026 12:56",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -50,6 +50,18 @@
    "pos": 4
   },
   {
+   "ora": "12/10 12:53",
+   "alunno": "Lina A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Riduzione della velocità del treno, per rendere il gioco più facile da controllare.",
+   "file": false,
+   "peso": 2,
+   "motivo": "PR scritta bene, con le 4 parti",
+   "fatto": "",
+   "no": "la velocità è già al minimo (0,5) dalla v0.4: più lento il treno quasi si ferma. Prova la v0.16 con il vetro più forte",
+   "pos": 5
+  },
+  {
    "ora": "12/10 12:30",
    "alunno": "Luciano C.",
    "pr": "PR (senza numero)",
@@ -59,7 +71,7 @@
    "motivo": "un file nuovo e il codice per suonarlo; da controllare che la musica sia libera (diritti d'autore)",
    "fatto": "",
    "no": "",
-   "pos": 5
+   "pos": 6
   },
   {
    "ora": "12/10 12:51",
@@ -71,7 +83,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 6
+   "pos": 7
   },
   {
    "ora": "12/10 12:28",
@@ -83,7 +95,7 @@
    "motivo": "oggetti nuovi da disegnare; manca cosa aggiungere e dove",
    "fatto": "",
    "no": "",
-   "pos": 7
+   "pos": 8
   },
   {
    "ora": "12/10 12:32",
@@ -95,7 +107,7 @@
    "motivo": "è la stessa richiesta delle 12:28",
    "fatto": "",
    "no": "",
-   "pos": 8
+   "pos": 9
   },
   {
    "ora": "12/10 12:48",
@@ -107,7 +119,7 @@
    "motivo": "oggetti da ridisegnare in tutto il gioco; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "12/10 12:51",
@@ -119,18 +131,6 @@
    "motivo": "animazione nuova da disegnare; il sangue è da decidere con il prof (gioco di scuola, sito pubblico)",
    "fatto": "",
    "no": "",
-   "pos": 10
-  },
-  {
-   "ora": "12/10 12:53",
-   "alunno": "Lina A.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Titolo: Riduzione della velocità del treno\nCosa cambia: La velocità di movimento del treno viene ridotta.\nDove: Nel codice di gestione del movimento.\nPerché: Per rendere il gioco più facile da controllare.",
-   "file": false,
-   "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
-   "fatto": "",
-   "no": "",
    "pos": 11
   },
   {
@@ -140,8 +140,8 @@
    "richiesta": "Difetto: i paesaggi si ripetono e la difficoltà non aumenta. Idea: a ogni livello un'arma nuova e la difficoltà che cresce.",
    "file": true,
    "peso": 8,
-   "motivo": "regola nuova del gioco (armi per livello); la parte «difficoltà che cresce» da sola pesa 2",
-   "fatto": "",
+   "motivo": "la difficoltà che cresce è entrata con la v0.15; l'arma nuova a ogni livello (peso 8) resta da fare",
+   "fatto": "v0.15 (difficoltà)",
    "no": "",
    "pos": 12
   },
