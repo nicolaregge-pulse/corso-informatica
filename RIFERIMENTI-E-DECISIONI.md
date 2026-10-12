@@ -376,6 +376,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 26. **v2.17 (05/10/2026)**: §2.35 assenti esclusi sempre; §2.36 traccia del fuori compito; §2.37 controlli senza API.
 35. **v2.26 (06/10/2026)**: §2.45 tutta la suite Google in automatico (coda e ponte Google, automazione v5).
 38. **v2.29 (08/10/2026)**: §2.49 lingue della 2INF: italiano e cinese, l'arabo non serve.
+    **Aggiornamento 12/10/2026 (Nicola in classe): per la 2INF solo italiano.** Il cinese nel compito è stato letto come «un compito caricato in cinese». Il cinese si mette solo se Nicola lo chiede.
 37. **v2.28 (07/10/2026)**: §2.48 il modo di lavorare in classe: pubblica, istruzioni personalizzate («Il mio punto»), segui, traccia gli screenshot.
 36. **v2.27 (07/10/2026)**: §2.46 chi ha finito può fare lavori di altre materie o di informatica; §2.47 parte tecnica separata dalla teoria, non consegnati a 40 nella media tecnica.
 34. **v2.25 (06/10/2026)**: §2.44 voti su DIDAweb: materia per argomento, minimo 40, un lavoro per volta.
