@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.0** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.1** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -62,7 +62,7 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 | Il monitor della lezione | i giri Veyon: cosa c'era su ogni schermo, fuori compito in rosso | tutta la classe (nome e iniziale) |
 | Cosa è cambiato oggi nel gioco | il changelog del giorno, con il link per giocare ogni versione | tutta la classe |
 | La classifica | prima le PR pubblicate nel gioco, a parità le PR inviate; sotto ogni nome tutte le sue PR | tutta la classe |
-| Valutazione dei singoli (solo prof) | la valutazione per allievo, pagina cifrata | solo il docente, con la password dell'area docente |
+| Valutazione dei singoli (solo prof) | la valutazione per allievo, pagina cifrata: COGNOME Nome, in ordine alfabetico del cognome | solo il docente, con la password dell'area docente |
 
 ## 06 I voti
 
@@ -132,4 +132,5 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 14 Registro delle versioni
 
+2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.
 1. **v1.0 (12/10/2026)**: prima versione, con le decisioni del 09/10 e del 12/10/2026.
