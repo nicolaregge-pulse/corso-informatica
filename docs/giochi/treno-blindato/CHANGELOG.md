@@ -1,5 +1,13 @@
 # Storia delle versioni
 
+## v0.18 — 12/10/2026 13:00 — BANG! e il cattivo cade a terra
+
+1. Pull Request di Ney V. (12:57): «quando clicchi un nemico, non farlo sparire all’improvviso: scritta BANG!, flash rosso o piccola animazione di caduta».
+2. Pull Request di Egor M. (12:59): «effetti sugli spari, per esempio bang o qualche altro effetto figo».
+3. Pull Request di Luca B. (12:51): «sembra un gioco di paintball». Il sangue no (gioco di scuola, sito pubblico): al suo posto il cattivo cade a terra.
+4. Ora quando colpisci un cattivo compare BANG!, lo schermo fa un piccolo lampo rosso, il cattivo cade a terra piano e poi sparisce; le scintille sono grigie e gialle, non più coriandoli colorati.
+5. Peso 3 nel backlog: animazione e scritte in index.html.
+
 ## v0.17 — 12/10/2026 12:57 — I cattivi non nascono più troppo vicino
 
 1. Pull Request di Luca B. (12:55), «sistemare bug»: i nemici nascono dietro o troppo vicino, non vengono contati e sparano da dove non si riesce a cliccarli.
