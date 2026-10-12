@@ -3,6 +3,8 @@ Genera docs/compito/3inf-20261012-documento/pagina.html (index.html è il carica
 Segue REGOLE-COSTRUZIONE-TEORIA.md: titolo + traduzione, percorso in alto, FASE 1 teoria solo da leggere, FASE 2 bottone verde.
 """
 import json, os, html
+MODULO_PARERE = os.environ.get("MODULO_PARERE", "https://docs.google.com/forms/d/e/1FAIpQLSd2c6QvvtKgmY0E0iP8IsuceOlLQ_da8YmiDEILPUNQ3oGnkQ/viewform")
+MODULO_CONSEGNA = "https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform"
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 OUT = os.path.join(R, "docs", "compito", "3inf-20261012-documento", "pagina.html")
 e = html.escape
@@ -84,7 +86,7 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 <h1>{e(TITOLO[0])}</h1><p class="t-bn">{e(TITOLO[1])}</p><p class="mu">3INF · 12/10/2026</p>
 <div class="card" style="border:3px solid var(--acc)"><p><b>Il tuo percorso di oggi</b></p><p class="bn">আজ তোমার পথ</p><ol>
 <li><b>FASE 1 — Leggiamo insieme la teoria qui sotto, dall'inizio alla fine.</b><p class="bn">ধাপ ১ — আমরা একসাথে নিচের তত্ত্ব শুরু থেকে শেষ পর্যন্ত পড়ি।</p></li>
-<li><b>FASE 2 — Il lavoro da fare arriva qui, in fondo a questa pagina, quando il prof lo pubblica. Il link resta sempre lo stesso.</b><p class="bn">ধাপ ২ — কাজটি এই পাতার শেষে আসবে, যখন শিক্ষক প্রকাশ করবেন। লিংক সবসময় একই থাকে।</p></li></ol></div>
+<li><b>FASE 2 — In fondo trovi due bottoni verdi: Lavoro 1 (il tuo parere sulla teoria) e Lavoro 2 (la tua Pull Request). Entro le 10:00.</b><p class="bn">ধাপ ২ — শেষে দুটি সবুজ বোতাম: Lavoro 1 (তত্ত্ব নিয়ে তোমার মত) এবং Lavoro 2 (তোমার Pull Request)। ১০:০০-এর মধ্যে।</p></li></ol></div>
 <h2>FASE 1 — La teoria</h2>
 <div class="card"><h3>In breve</h3>{svg()}<ol>{breve}</ol></div>
 <div class="card"><h3>La lavagna del prof</h3><img src="lavagna-versioni.jpg" alt="La lavagna: numeri delle versioni, changelog, fork, Pull Request accettata e rifiutata, merge" style="max-width:100%;border-radius:10px"><p>Sulla linea rossa le versioni (v0.8, v0.9, v1.0). In blu il fork che parte dalla v0.9. Sul ramo, le Pull Request: quella accettata (ACCEPT ✓) rientra con il MERGE, quella rifiutata (REFUSE ✗) resta fuori.</p><p class="bn">লাল রেখায় সংস্করণ। নীল রঙে fork। শাখায় Pull Request: গৃহীত (ACCEPT ✓) MERGE দিয়ে ফিরে আসে, প্রত্যাখ্যাত (REFUSE ✗) বাইরে থাকে।</p></div>
@@ -104,8 +106,22 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 <div class="card"><h3>Com'è fatta una Pull Request</h3><p>Quattro parti, sempre, nel Modulo o nel Documento. Esempio vero: la Pull Request #1, entrata nel gioco con la v1.1.</p><p class="bn">সবসময় চারটি অংশ। সত্যিকারের উদাহরণ: Pull Request #1, যা v1.1-এ খেলায় ঢুকেছে।</p>
 <table><tr><th>Parte</th><th>Esempio</th></tr>{parti}</table></div>
 <div class="card"><h3>Gli errori della settimana scorsa (e perché)</h3><ol>{errori}</ol></div>
-<h2>FASE 2 — Il lavoro</h2><div class="card mu">Il lavoro arriva qui quando il prof lo pubblica. · কাজটি এখানে আসবে যখন শিক্ষক প্রকাশ করবেন।</div>
+<h2>FASE 2 — I due lavori (entro le 10:00)</h2>
+<div class="card" style="border:3px solid #238636"><p><b>Due lavori, in ordine. Ognuno si apre in una scheda nuova: quando hai finito, chiudila e torni qui.</b></p><p class="bn">দুটি কাজ, ক্রমানুসারে। প্রতিটি নতুন ট্যাবে খোলে: শেষ হলে বন্ধ করে এখানে ফিরে এসো। সময়: ১০:০০-এর মধ্যে।</p>
+<h3>Lavoro 1 — Il mio parere sulla teoria</h3><ol>
+<li><b>Premi il bottone verde «Lavoro 1».</b><p class="bn">সবুজ বোতাম «Lavoro 1» চাপো।</p></li>
+<li><b>Rispondi alle 4 domande con parole tue, poi premi «Invia».</b><p class="bn">৪টি প্রশ্নের উত্তর নিজের ভাষায় দাও, তারপর «Invia» চাপো।</p></li></ol>
+<p>@@BT1@@</p>
+<h3>Lavoro 2 — La mia Pull Request (una richiesta per il gioco)</h3><ol>
+<li><b>Premi il bottone verde «Lavoro 2»: si apre il Modulo «Consegna».</b><p class="bn">সবুজ বোতাম «Lavoro 2» চাপো: «Consegna» ফর্ম খুলবে।</p></li>
+<li><b>In «Cosa consegni?» scrivi: PR</b><p class="bn">«Cosa consegni?»-এ লেখো: PR</p></li>
+<li><b>In «Il tuo testo» scrivi le 4 parti: Titolo · Cosa cambia · Dove · Perché (guarda l'esempio di Black Panter qui sopra).</b><p class="bn">«Il tuo testo»-এ ৪টি অংশ লেখো: শিরোনাম · কী বদলায় · কোথায় · কেন (উপরের Black Panter উদাহরণ দেখো)।</p></li>
+<li><b>Se vuoi, aggiungi un'immagine. Poi premi «Invia».</b><p class="bn">চাইলে একটি ছবি যোগ করো। তারপর «Invia» চাপো।</p></li></ol>
+<p class="mu">Se il Modulo non funziona, scrivi la Pull Request nel Documento del compito su Classroom, con le stesse 4 parti. · ফর্ম কাজ না করলে, Classroom-এর ডকুমেন্টে একই ৪টি অংশ লেখো।</p>
+<p><a class="bt" target="_blank" href="@@MC@@">Lavoro 2 — La mia Pull Request</a></p></div>
 </div></body></html>"""
+    bt1 = (f'<a class="bt" target="_blank" href="{MODULO_PARERE}">Lavoro 1 — Il mio parere</a>' if MODULO_PARERE else '<span class="bt" style="opacity:.5">Lavoro 1 — arriva fra un minuto</span>')
+    h = h.replace("@@BT1@@", bt1).replace("@@MC@@", MODULO_CONSEGNA)
     open(OUT, "w", encoding="utf-8").write(h)
     print(OUT)
 
