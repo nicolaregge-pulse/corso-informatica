@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.16 — 12/10/2026 12:56 — Vetro da 10 colpi
+
+1. Pull Request PR1 di Katherine A. (12:53): «Più munizioni per il giocatore: aumentare i colpi da 5 a 10, perché 5 colpi finiscono troppo in fretta nei momenti affollati».
+2. Nel gioco i «colpi» che si possono prendere sono quelli del vetro: ora il vetro regge 10 colpi (prima 5), più l’ultimo colpo della v0.14.
+3. Il file regole.json accettava al massimo 9: il limite ora è 12 (anche nel controllo automatico).
+4. Peso 2 nel backlog: si cambia un numero in regole.json (e il limite in index.html).
+
 ## v0.15 — 12/10/2026 12:56 — La difficoltà cresce a ogni livello
 
 1. Pull Request di Antonio M. (12:38): «la difficoltà non aumenta: a ogni livello la difficoltà aumenta».

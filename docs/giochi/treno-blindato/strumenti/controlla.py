@@ -49,7 +49,7 @@ for f in ("versione.json", "regole.json", "percorso.json", "protagonista.json", 
     d = leggi(f)
     if d is None: continue
     if f == "regole.json":
-        numero(f, d, "vetro", 1, 9); numero(f, d, "velocita_treno", 0.5, 3); numero(f, d, "secondi_prima_di_sparare", 0.8, 5); numero(f, d, "cattivi_per_livello", 3, 50); numero(f, d, "punti_per_cattivo", 1, 1000)
+        numero(f, d, "vetro", 1, 12); numero(f, d, "velocita_treno", 0.5, 3); numero(f, d, "secondi_prima_di_sparare", 0.8, 5); numero(f, d, "cattivi_per_livello", 3, 50); numero(f, d, "punti_per_cattivo", 1, 1000)
     if f == "percorso.json":
         if any(a not in ("bosco", "case", "citta", "montagna", "mare") for a in d.get("ambienti", [])): ERR.append("percorso.json: gli ambienti sono bosco, case, citta, montagna, mare")
         numero(f, d, "secondi_per_ambiente", 5, 120)
