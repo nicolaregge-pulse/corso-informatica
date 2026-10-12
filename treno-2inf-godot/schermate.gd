@@ -633,7 +633,8 @@ func sopra_un_bottone(pos: Vector2) -> bool:
 
 func apri_versioni() -> void:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("location.href='versioni/'", true)
+		# dalla versione attuale si va in versioni/; da una versione congelata (versioni/v1.0/) si torna su di uno
+		JavaScriptBridge.eval("location.href=(/\\/versioni\\/v[^\\/]+\\/?$/.test(location.pathname)?'../':'versioni/')", true)
 	else:
 		OS.shell_open("https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-2inf-godot/versioni/")
 
