@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.31** — 12/10/2026
+**Versione 2.32** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -341,3 +341,8 @@ lezione.*
 
 1. **Errore.** Ho scritto i passi come «Account PIAMARTA · finestra Chrome con le schede arancioni · in alto, a destra dell'ultima scheda: clicca il «+»» e «Qui in chat · riquadro qui sotto». Le catene di coordinate separate da «·» non si leggono come frasi: il docente non le capisce.
 2. **Regola.** Ogni passo è una frase semplice in italiano, che comincia con il verbo («Clicca…», «Premi…», «Torna…»). Il «dove» sta dentro la frase, con parole normali. Dove si può si usano i tasti (Ctrl+T per una scheda nuova, Ctrl+V, Invio) invece di cercare un bottone. Il bottone «copia» dei riquadri si descrive com'è: il piccolo bottone a destra del riquadro grigio.
+
+## 12/10/2026 — RIPETIZIONE del #50: un link da copiare dopo aver copiato il codice (#57)
+
+1. **Errore.** Nella versione corta delle istruzioni ho messo: copia il codice, poi copia il link dello script. Il secondo link cancella il codice dalla memoria. È lo stesso errore del #50, nello stesso pomeriggio.
+2. **Regola.** Prima di mandare istruzioni con copia e incolla, controllo l'ordine: ogni «copia» deve essere seguito dal suo «incolla» prima di qualunque altra copia. Si apre sempre prima la pagina di arrivo, poi si copia il contenuto, poi si incolla.
