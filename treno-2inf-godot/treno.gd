@@ -282,7 +282,8 @@ func finestra() -> Rect2:
 
 func vista() -> Dictionary:
 	var f := finestra()
-	return {"f": f, "hz": f.position.y + f.size.y * 0.42, "bot": f.end.y, "vx": W / 2.0, "k": f.size.x * 0.16}
+	# k = quanto sono grandi le cose. v1.0: sul telefono in verticale si usa l'altezza del vetro, così i cattivi non sono minuscoli
+	return {"f": f, "hz": f.position.y + f.size.y * 0.42, "bot": f.end.y, "vx": W / 2.0, "k": max(f.size.x, f.size.y) * 0.16}
 
 
 ## Prospettiva: una cosa a distanza z sembra grande 1/z. X = quanto è a destra o a sinistra dei binari.
@@ -459,7 +460,7 @@ func crea_crepa(n: int, totale: int) -> Dictionary:
 	var hw := f.size.x / 2.0
 	var hh := f.size.y / 2.0
 	var p := 0.0 if totale <= 1 else float(n - 1) / float(totale - 1)   # 0 = primo colpo, 1 = ultimo
-	var rho: float = lerp(0.97, 0.22, p)   # quanto è lontano dal centro (1 = sul bordo)
+	var rho: float = lerp(0.97, 0.25, pow(p, 1.5))   # quanto è lontano dal centro (1 = sul bordo): si avvicina piano, poi più in fretta
 	# l'angolo: i primi 4 colpi negli angoli, poi lontano dalle crepe già fatte
 	var usati: Array = S.crepe.map(func(k): return k.ang)
 	var angoli_vetro := [atan2(-hh, -hw), atan2(-hh, hw), atan2(hh, hw), atan2(hh, -hw)]
@@ -480,14 +481,14 @@ func crea_crepa(n: int, totale: int) -> Dictionary:
 	punto.x = clamp(punto.x, f.position.x + 8, f.end.x - 8)
 	punto.y = clamp(punto.y, f.position.y + 8, f.end.y - 8)
 	var dentro := (c - punto).normalized()
-	var lungo: float = max(f.size.x, f.size.y) * lerp(0.09, 0.2, p)
+	var lungo: float = max(f.size.x, f.size.y) * lerp(0.08, 0.16, p)
 	var linee := []
 	var rami := []
 	var nl := randi_range(8, 12)
 	for i in nl:
 		var a := float(i) / nl * TAU + rnd(-0.2, 0.2)
 		var verso := Vector2(cos(a), sin(a)).dot(dentro)   # > 0: la crepa andrebbe verso il centro
-		var l: float = lungo * rnd(0.6, 1.2) * (1.0 - 0.7 * max(0.0, verso))
+		var l: float = lungo * rnd(0.6, 1.2) * (1.0 - 0.75 * max(0.0, verso))
 		var q := punto
 		var seg := PackedVector2Array([q])
 		for j in 6:
@@ -576,7 +577,8 @@ func tocca(pos: Vector2) -> void:
 			continue
 		var d := pos.distance_to(Vector2(c.x, c.y))
 		var nel_corpo: bool = abs(pos.x - c.x) < c.u * 0.38 and pos.y > c.y and pos.y < c.piedi
-		if (d < c.r * 1.35 or nel_corpo) and d < bd:
+		# v1.0: almeno 22 punti di tolleranza intorno alla testa, perché sul telefono il dito è meno preciso del mouse
+		if (d < max(c.r * 1.35, 22.0) or nel_corpo) and d < bd:
 			bd = d
 			best = c
 	if best != null:
@@ -1201,6 +1203,10 @@ func disegna_cabina(g: CanvasItem) -> void:
 		var al: float = max(0.0, 1 - t.t / 1.4)
 		var size := 40 if t.big else 19
 		var peso := 900 if t.big else 800
+		# v1.0: le scritte grandi si rimpiccioliscono se non stanno nello schermo (telefono in verticale)
+		var lw := larghezza(t.s, size, peso)
+		if t.big and lw > W - 16:
+			size = int(size * (W - 16) / lw)
 		if t.fumetto:
 			var w := larghezza(t.s, size, peso) + 16
 			var bx: float = clamp(t.x, w / 2 + 4, W - w / 2 - 4)
