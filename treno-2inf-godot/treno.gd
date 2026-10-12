@@ -1309,7 +1309,7 @@ func pubblica_prova(delta: float) -> void:
 	if prova_t < 0.1:
 		return
 	prova_t = 0.0
-	var st := {"schermo": ui.schermo_attivo, "pausa": PAUSA, "W": W, "H": H, "scala": get_window().content_scale_factor, "bottoni": ui.rettangoli_bottoni()}
+	var st := {"schermo": ui.schermo_attivo, "pausa": PAUSA, "fps": Engine.get_frames_per_second(), "t": S.t if S != null else 0.0, "W": W, "H": H, "scala": get_window().content_scale_factor, "bottoni": ui.rettangoli_bottoni()}
 	if S != null:
 		st.merge({"punti": S.punti, "vetro": S.vetro, "vetroMax": S.vetroMax, "colpi": S.colpi_presi, "livello": S.livello, "spari": S.spari, "abbattuti": S.abbattuti, "fine": S.fine,
 			"sfera": [S.sfera.x, S.sfera.y] if S.sfera != null else null, "x2": S.x2,
