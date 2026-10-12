@@ -1,6 +1,6 @@
 # Il ramo del prof e i rami delle classi
 
-**Versione 1.0** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.1** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Come si organizza il lavoro sul gioco della classe da martedì 13/10/2026: un solo gioco di base, sul ramo del prof, da cui partono tutte le classi. Mette insieme il meglio della lezione di venerdì 09/10 (1INF) e di quella di lunedì 12/10 (2INF e 3INF). Il giro delle Pull Request in classe resta quello di `GIRO-PULL-REQUEST.md`; le regole di lavoro restano quelle di `MODUS-OPERANDI.md`.
 
@@ -8,7 +8,7 @@ Come si organizza il lavoro sul gioco della classe da martedì 13/10/2026: un so
 
 1. Il gioco «Il treno blindato» passa su **Godot**: il codice lo scrive Claude, i ragazzi non toccano Godot. Le loro Pull Request (PR) arrivano dal Modulo «Consegna», come lunedì.
 2. Esiste **un ramo del prof**, `prof-nicola-regge`: è la **base** comune. La versione v1.0 è il treno della 2INF (v0.31) portato su Godot, con il vetro che si crepa dai bordi verso il centro.
-3. **Ogni classe ha il suo ramo**, che parte dalla base: `classe-1inf`, `classe-2inf`, `classe-3inf`, `classe-4ti`. Le PR di una classe cambiano solo il ramo di quella classe.
+3. **Ogni classe ha il suo ramo**, che parte dalla base: `classe-1inf`, `classe-2inf`, `classe-3inf`. La 4TI resta fuori dal gioco (vedi capitolo 05). Le PR di una classe cambiano solo il ramo di quella classe.
 4. Quando il prof migliora la base (un difetto corretto, una regola nuova per tutti), la modifica **si unisce (merge)** nei rami delle classi. È il modo in cui lavorano i progetti veri: una base comune e tante copie che la seguono.
 
 > **Da confermare:** la base è «neutra»: niente facce né nomi di una classe. Ogni classe aggiunge sul suo ramo le sue facce, i suoi cattivi e i suoi nomi.
@@ -21,7 +21,6 @@ Come si organizza il lavoro sul gioco della classe da martedì 13/10/2026: un so
 | `classe-1inf` | della 1INF | 1INF v1.0.1, v1.0.2… | 1INF v1.0.3 «il cattivo con il casco rosso» |
 | `classe-2inf` | della 2INF | 2INF v1.0.1, v1.0.2… | |
 | `classe-3inf` | della 3INF | 3INF v1.0.1, v1.0.2… | |
-| `classe-4ti` | della 4TI | 4TI v1.0.1, v1.0.2… | |
 
 1. Il numero di una classe dice da quale base parte: 1INF **v1.0**.3 è la terza versione della 1INF costruita sulla base PROF v1.0.
 2. Quando la base passa a v1.1 e si unisce nel ramo della classe, la classe ricomincia da v1.1.1. Così i ragazzi vedono da soli che cosa vuol dire «portare dentro gli aggiornamenti».
@@ -64,15 +63,15 @@ Come si organizza il lavoro sul gioco della classe da martedì 13/10/2026: un so
 1. **Ramo `prof-nicola-regge` con la base PROF v1.0 su Godot**, provata nel browser e sul telefono. Il docente la prova e dice se va bene.
 2. **Una o due versioni del prof** questa sera, per vedere il giro completo sul ramo nuovo.
 3. **1INF (8-10)**: ramo `classe-1inf` dalla base, con le facce della classe già consegnate venerdì; pagina del compito in italiano, arabo e cinese.
-4. **4TI (10-13)**: ramo `classe-4ti` dalla base; da decidere con il docente se la 4TI fa il giro delle PR o continua con le reti.
+4. **4TI (10-13)**: resta fuori dal giro del treno. Il docente la vede una volta alla settimana: quest'anno l'argomento forte sono le **reti**, e c'è il **progetto** da sviluppare. Martedì si parla con il docente di cosa fare nell'anno e dell'Allegato A della 4TI (Tecnico).
 5. **La revisione di tutte le versioni** (una riga positiva e una negativa per versione) per l'analisi in classe, vista prima dal docente.
 
 ## 06 Domande aperte per il docente
 
 1. La base resta neutra (niente facce e nomi di una classe) e ogni classe aggiunge i suoi?
-2. La 4TI entra nel giro del treno o resta sulle reti?
-3. I rami delle classi si creano tutti domani mattina o ognuno il giorno della sua lezione?
+2. I rami delle classi si creano tutti domani mattina o ognuno il giorno della sua lezione?
 
 ## 07 Registro delle versioni
 
+2. **v1.1 (12/10/2026)**: la 4TI resta fuori dal giro del treno (una lezione a settimana, anno sulle reti e sul progetto).
 1. **v1.0 (12/10/2026)**: prima versione, dopo la richiesta del docente di un ramo base del prof su Godot da cui partono tutte le classi.
