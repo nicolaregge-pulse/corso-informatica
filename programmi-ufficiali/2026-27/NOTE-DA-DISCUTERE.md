@@ -7,4 +7,7 @@
    1. Finora era per il 90% della disciplina di italiano.
    2. In realtà è trasversale a tutte le discipline: chiunque può metterci argomenti.
    3. Se a fine anno una competenza resta vuota, cioè non l'abbiamo data, vuol dire che c'è un problema di fondo nella nostra progettazione.
-3. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
+3. Scadenza: **30 ottobre 2026**.
+   1. Gli argomenti vanno scritti tutti in anticipo, anche quelli solo possibili: dopo si potranno TOGLIERE, ma NON AGGIUNGERE.
+   2. Quindi l'elenco previsto deve essere largo: tutto quello che potremmo fare nell'anno, per ogni classe e competenza.
+4. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
