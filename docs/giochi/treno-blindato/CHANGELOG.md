@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.17 — 12/10/2026 12:57 — I cattivi non nascono più troppo vicino
+
+1. Pull Request di Luca B. (12:55), «sistemare bug»: i nemici nascono dietro o troppo vicino, non vengono contati e sparano da dove non si riesce a cliccarli.
+2. Causa: i cattivi nascevano dietro oggetti già vicini al treno e potevano sparare solo quando erano quasi passati, ai bordi del finestrino.
+3. Correzione: i cattivi nascono più lontano (dietro gli oggetti che stanno arrivando) e sparano al più tardi quando sono ancora ben visibili nel finestrino, dove si possono colpire.
+4. Peso 3 nel backlog: un difetto vero, tre numeri in index.html. PR scritta bene, con titolo, dove e perché.
+
 ## v0.16 — 12/10/2026 12:56 — Vetro da 10 colpi
 
 1. Pull Request PR1 di Katherine A. (12:53): «Più munizioni per il giocatore: aumentare i colpi da 5 a 10, perché 5 colpi finiscono troppo in fretta nei momenti affollati».
