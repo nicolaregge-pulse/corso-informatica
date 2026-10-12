@@ -125,6 +125,9 @@ argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
   della Regione**. Perciò Nicola firma **subito in classe** il programma previsto
   (anche con argomenti provvisori) e li corregge dopo. **Compito di Claude:
   ricordare la firma IN AULA, prima delle 14:05** (non a fine giornata).
+- **MAI dedurre «non firmata» da uno screenshot (REGISTRO-ERRORI #11, #36, #52 — tre volte):** il bottone «FIRMA ✓» resta
+  anche sulle ore GIÀ firmate. Si ricorda la firma, non si giudica lo stato. L'unica prova è «Da firmare» /
+  «Visualizza tutte le firme arretrate». Se Nicola dice «firmate», è così.
 - **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
   ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
 - **A FINE giornata: CHIEDERE a Nicola gli argomenti realmente svolti** e
@@ -636,7 +639,7 @@ l'intestazione del file.
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.26 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.27 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0

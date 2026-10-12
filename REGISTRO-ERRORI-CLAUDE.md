@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.26** — 12/10/2026
+**Versione 2.27** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -316,3 +316,8 @@ lezione.*
 
 1. **Errore.** Il progetto «Consegne Classroom → Git» ha 5 file e si apre su «Codice.gs». Ho detto di incollare «nel riquadro del codice» senza dire di cliccare prima «automazione-corso.gs». Così si rischiava di cancellare il vecchio script della 1INF.
 2. **Regola.** Le guide si scrivono sulla mappa vera dello schermo (CLAUDE.md, regola 10: i 5 file, la barra, «Modifiche non salvate»). Prima di dare passi su un programma che non ho ancora visto, chiedo una schermata una volta sola e la salvo come mappa. Non la richiedo a ogni passo.
+
+## 12/10/2026 — TERZA volta: firma data per mancante dal bottone «FIRMA ✓» (#52)
+
+1. **Errore.** Ripetizione degli errori 11 e 36. Dallo screenshot della 2INF ho detto che le tre ore non erano firmate perché c'era il bottone «FIRMA ✓» e non il segno verde degli altri docenti. Nicola aveva già firmato, e ha perso tempo durante la lezione.
+2. **Regola.** La regola è stata spostata in CLAUDE.md, regola 4, dove si legge per prima. Su DIDAweb il bottone «FIRMA ✓» c'è anche sulle ore firmate. Dallo screenshot non si deduce mai che un'ora non è firmata. L'unica prova è «Da firmare» o «Visualizza tutte le firme arretrate». Se Nicola dice «firmate», è così.
