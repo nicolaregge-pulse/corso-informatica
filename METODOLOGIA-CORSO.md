@@ -1,6 +1,6 @@
 # Metodologia del corso di Informatica
 
-**Versione 1.1** — 06/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
+**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
 
 *Documento del docente (in italiano, senza nomi di allievi). Raccoglie in un solo posto il metodo
 che usiamo, la giornata di lezione, i compiti, la valutazione, la chiusura delle classi, la
@@ -127,7 +127,7 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
    1. **in attesa dell'OK del docente**: preparato, fermo;
    2. **da pubblicare**: dopo l'OK, lo script lo pubblica;
    3. **pubblicato**, poi **chiuso** dopo la raccolta.
-3. **Lo script di Classroom** (`strumenti/automazione-corso.gs`, progetto "Consegne Classroom → Git" sull'account della scuola) gira da solo ogni 5 minuti e lavora nei due sensi:
+3. **Lo script di Classroom** (`strumenti/automazione-corso.gs`, progetto "Consegne Classroom → Git" sull'account della scuola) gira da solo ogni minuto (dal 12/10, versione 7.1; se il giro prima non ha finito, salta) e lavora nei due sensi:
    1. da Git a Classroom: pubblica i compiti (solo quelli con la data di oggi); nella versione 3, DA PROVARE, aggiorna i testi e scrive i voti in bozza;
    2. da Classroom a Git: alla scadenza porta le consegne nel repository riservato.
 4. **Limiti**:
@@ -135,6 +135,31 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
    2. ogni nuova versione dello script la incolla il docente una volta (mai subito prima delle lezioni);
    3. DIDAweb non ha un accesso per i programmi: niente automazione.
 5. **Pagine di controllo del docente**: leggono i siti dei ragazzi direttamente, senza le API di GitHub (che si bloccano dalla rete della scuola) [§2.37].
+
+## 09b Il giro delle Pull Request (approvato il 12/10/2026)
+
+1. **Una sola pagina, un solo compito** su Classroom, con un link fisso che si aggiorna da solo [REGOLE-COSTRUZIONE-TEORIA].
+   1. FASE 1: la teoria (il Documento del ragazzo è un ramo dell'albero delle versioni; come si chiede una modifica; lo script che gira).
+   2. FASE 2: due bottoni verdi, in ordine: «1) Feedback» (il parere sulla teoria) e «2) PR1» (il Modulo «Consegna»).
+   3. La dispensa Agile è a parte (Manifesto Agile e 10 regole), con il suo ramo nel grafo.
+2. **La Pull Request (PR)** si chiama PR1, PR2, PR3… e ha 4 parti: Titolo · Cosa cambia · Dove · Perché. Si manda dal Modulo «Consegna», generico per tutte le classi, con la casella di testo grande.
+3. **Il backlog** (una pagina per classe: `docs/3inf-backlog/`, `docs/2inf-backlog/`):
+   1. colonne: Posizione, Data e ora, Alunno (nome e iniziale), PR, Riepilogo della richiesta, Peso, Perché, Stato;
+   2. ogni richiesta vale 1, chiunque la faccia; ordine: peso più basso prima (meno lavoro sul codice), a parità di peso chi è arrivato prima;
+   3. peso con i numeri di Fibonacci: 1 testo o colore · 2 un numero · 3 un personaggio nuovo · 5 ambiente o oggetto nuovo · 8 regola nuova del gioco · 13 parte grande nuova;
+   4. il riepilogo lo scrive Claude leggendo il testo e i file della PR;
+   5. Stato: FATTO in verde con la versione che l'ha portata nel gioco, oppure NO in rosso con il motivo (es. foto di una persona vera).
+4. **Il giro di Claude, per ogni PR nuova** (entro pochi minuti):
+   1. la legge (testo e file allegati, esportati in automatico nel repository riservato);
+   2. scrive riepilogo, peso e motivo nel backlog;
+   3. la mette in produzione come versione nuova del gioco della classe (una PR = una versione, numero minor: v0.12, v0.13…), con la cartella ferma della versione;
+   4. scrive il changelog (cosa cambia, chi l'ha chiesta, numero della PR);
+   5. il grafo delle versioni si aggiorna da solo (legge `versioni.json`);
+   6. segna la PR come FATTO nel backlog con il numero della versione;
+   7. controlla i link: versione giocabile, changelog, grafo, backlog.
+5. **Tempi**: lo script raccoglie le risposte ogni minuto e subito a ogni invio dei Moduli collegati; il backlog si rigenera da solo.
+6. **Privacy**: nessuna foto di persone vere nel gioco; nel backlog solo nome e iniziale.
+7. **Lingue**: ogni classe ha le sue (1INF IT/AR/ZH, 2INF SOLO italiano, 3INF IT/BN); per le classi solo italiano ogni pagina passa da `strumenti/solo_italiano.py`, che blocca la pubblicazione se resta un'altra lingua.
 
 ## 10 I comandi da dare a Claude
 
@@ -226,6 +251,8 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
 | O / C | voto oggettivo / commisurato |
 
 ## 15 Registro delle versioni
+
+3. **v1.2 (12/10/2026)**: capitolo 09b, il giro delle Pull Request con backlog, pesi, versioni e grafo; script ogni minuto.
 
 2. **v1.1 (06/10/2026)**: aggiunta la Valutazione complessiva della classe (comando e capitolo 06).
 1. **v1.0 (06/10/2026)**: prima versione, dalla sintesi di `RIFERIMENTI-E-DECISIONI.md` v2.23, dell'Atlante e del lavoro di settembre-ottobre 2026.
