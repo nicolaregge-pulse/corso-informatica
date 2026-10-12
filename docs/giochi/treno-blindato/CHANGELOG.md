@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.24 — 12/10/2026 13:17 — Più avanti, più punti
+
+1. Pull Request di Luciano C. (13:14): «più vai avanti nel gioco e i nemici ti danno più punti».
+2. Ogni cattivo colpito vale il 50% in più a ogni livello: 100 punti al livello 1, 150 al livello 2, 200 al livello 3, e così via (più il bonus della combo).
+3. Peso 2 nel backlog: si cambia un calcolo in index.html, dove si contano i punti.
+
 ## v0.23 — 12/10/2026 13:07 — Il bottone Pausa
 
 1. Pull Request di Lina A. (13:03): «Aggiunta del pulsante Pausa: un tasto in alto per mettere in pausa il gioco e riprenderlo quando si vuole, nell’interfaccia e nel codice di controllo, per fermare la partita senza perdere i progressi».
