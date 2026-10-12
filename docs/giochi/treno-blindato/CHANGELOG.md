@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.26 — 12/10/2026 13:19 — Pioggia e nebbia
+
+1. Pull Request di Lina A. (13:10), «Condizioni meteo dinamiche (pioggia e nebbia)»; la stessa idea è arrivata da Youssef A. (13:11), Riccardo B. (13:12, «Il meteo variabile») e Oscar F. (13:13, «nebbia che rende i nemici meno visibili»).
+2. Dal livello 2 il cielo diventa grigio, dal livello 3 piove, dal livello 4 arriva anche la nebbia: i cattivi si vedono meno, quindi il gioco diventa più difficile.
+3. Il codice viene dal fork della 3INF (la loro versione 1.2): un esempio vero di come un lavoro fatto su un ramo si può riprendere in un altro.
+4. Peso 5 nel backlog: un effetto nuovo sul paesaggio, in index.html.
+
 ## v0.25 — 12/10/2026 13:18 — Colpo preciso
 
 1. Pull Request di Giorgio A. (13:16): «se il giocatore colpisce un cattivo con un colpo preciso, riceve punti bonus, così conviene mirare bene».
