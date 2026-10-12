@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.13 — 12/10/2026 12:54 — Nuovo livello, nuovo scenario
+
+1. Pull Request di Ney V. (12:29): «cambiare lo scenario quando si cambia di livello». La stessa richiesta è arrivata da Alejandro G. (12:45): «quando cambia livello cambi la mappa».
+2. Prima lo scenario cambiava solo ogni 20 secondi. Ora, appena passi di livello, il treno entra subito nello scenario dopo e compare il suo nome in grande.
+3. Peso 2 nel backlog: una riga di codice in index.html, dove si passa di livello.
+
 ## v0.12 — 12/10/2026 12:30 — La versione serale (PR di Mahammed M.)
 
 1. Pull Request del 12/10 alle 12:23, dal Modulo «Consegna»: «vorrei una versione serale».
