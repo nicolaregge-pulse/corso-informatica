@@ -1,0 +1,16 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Demo del sistema</title><style>body{margin:0;background:#fbfaf7;color:#111;font:17px/1.5 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:900px;margin:0 auto;padding:20px 16px}
+.box{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}#chiusa{border:2px solid #c0392b}</style></head><body><div class="w">
+<div id="chiusa" class="box">Per vedere la demo serve un accesso valido: chiedi il codice dalla pagina di accesso.</div>
+<div id="aperta" hidden><h1>Demo in preparazione</h1><p>Qui arriveranno le pagine del sistema con i dati di una lezione vera, resi anonimi.</p></div>
+</div><script>
+/* tracciamento: ogni pagina della demo manda allo script dell'accesso (account PERSONALE) l'apertura e i clic */
+var WEBAPP = '';   // l'indirizzo dell'App web, dopo il deployment
+var T = new URLSearchParams(location.search).get('t') || sessionStorage.getItem('demo_t') || '';
+if (T) sessionStorage.setItem('demo_t', T);
+function traccia(evento, dettaglio, cb) { if (!WEBAPP || !T) return; var n = 'cb' + Date.now() + Math.floor(Math.random()*1000), s = document.createElement('script');
+  window[n] = function (r) { if (cb) cb(r); delete window[n]; s.remove(); };
+  s.src = WEBAPP + '?azione=traccia&t=' + encodeURIComponent(T) + '&evento=' + evento + '&pagina=' + encodeURIComponent(location.pathname) + '&dettaglio=' + encodeURIComponent(dettaglio || '') + '&callback=' + n; document.body.appendChild(s); }
+traccia('apertura', document.title, function (r) { if (r.ok) { document.getElementById('chiusa').hidden = true; document.getElementById('aperta').hidden = false; } });
+document.addEventListener('click', function (e) { var a = e.target.closest('a,button'); if (a) traccia('clic', (a.textContent || '').trim().slice(0, 60)); });
+</script></body></html>
