@@ -159,6 +159,14 @@ Formato ATOMICO (12/10/2026, corretto da Nicola): ogni passo è un blocco comple
 dopo); in un messaggio si danno PIÙ passi atomici, uno sotto l'altro. Se Nicola si perde, lo dice lui. Non chiedere uno screenshot a ogni passo:
 solo quando serve davvero per controllare il risultato finale (12/10/2026).
 
+**10. Script da incollare in Apps Script: SEMPRE dal link pubblico, nella finestra PIAMARTA (12/10/2026, VINCOLANTE).**
+Il codice dello script «Consegne Classroom → Git» si fa copiare da questo indirizzo (testo semplice, nessun login, niente 404):
+`https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strumenti/automazione-corso.gs`
+Ogni volta che cambio `strumenti/automazione-corso.gs` nel repository riservato, copio lo stesso file in `strumenti/` del
+repository pubblico (non contiene segreti: il token sta nelle proprietà dello script). Mai mandare Nicola sul repository
+privato dalla finestra PIAMARTA: dà 404 (errore di venerdì 09/10 e di lunedì 12/10, REGISTRO-ERRORI #48).
+Progetto Apps Script: `https://script.google.com/home/projects/1bDnxMZkRPgwUDiYs-Bs7Zy50xZkJ03A-0Nkex8f8oZTQvMrFQxBlz2ad/edit`
+
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
 Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
@@ -620,7 +628,7 @@ l'intestazione del file.
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.22 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.23 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0

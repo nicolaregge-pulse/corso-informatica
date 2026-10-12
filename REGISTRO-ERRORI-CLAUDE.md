@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.22** — 12/10/2026
+**Versione 2.23** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -295,4 +295,9 @@ lezione.*
 
 1. **Errore.** Ho guidato Nicola indicando i campi con il testo che contenevano. Dopo ogni incolla quel testo cambiava, quindi i riferimenti non valevano più. Non ho detto che in Moduli si scrive nel riquadro attivo, quello con la striscia blu, né cosa doveva vedere dopo ogni azione. Risultato: testi incollati due volte nel posto sbagliato.
 2. **Regola.** I campi si indicano per POSIZIONE stabile («secondo riquadro dall'alto, prima riga in grassetto = titolo, riga sotto = descrizione»), non per il testo che contengono. Ogni passo finisce con «Dopo devi vedere: …», così l'errore si accorge subito. Quando un'interfaccia è complicata da guidare, propongo prima la strada automatica (script) o la più corta.
+
+## 12/10/2026 — Script da copiare: 404 sul repository privato, per la seconda volta (#48)
+
+1. **Errore.** Come venerdì, ho mandato Nicola a copiare lo script dal repository privato. Nella finestra PIAMARTA, dove lavora con lo script, GitHub risponde 404 perché lì non è collegato l'account con l'accesso.
+2. **Regola.** Lo script si copia sempre dal link pubblico in testo semplice (CLAUDE.md, regola 10). La copia pubblica si aggiorna a ogni modifica.
 
