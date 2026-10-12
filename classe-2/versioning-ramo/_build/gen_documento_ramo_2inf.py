@@ -75,6 +75,7 @@ h1{{font-size:clamp(24px,6vw,32px);margin:8px 0 2px}}h2{{font-size:22px;margin:2
 .card{{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin:10px 0;overflow-x:auto}}
 table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px solid var(--ln);padding:7px 9px;text-align:left;vertical-align:top}}th{{background:var(--acc);color:#fff}}
 .bt{{display:inline-block;background:#238636;color:#fff;font-weight:800;text-decoration:none;border-radius:10px;padding:12px 18px;margin:6px 0;font-size:20px}}
+.zh,.t-zh{{display:none}}
 </style></head><body><div class="w">
 <h1>{e(TITOLO[0])}</h1><p class="t-zh">{e(TITOLO[1])}</p><p class="mu">2INF · 12/10/2026</p>
 <div class="card" style="border:3px solid var(--acc)"><p><b>Il tuo percorso di oggi</b></p><p class="zh">你今天的路线</p><ol>
