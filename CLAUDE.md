@@ -156,7 +156,8 @@ un valore, il testo pronto va già nel messaggio, in un blocco di codice da copi
 Ordine di lettura: Nicola legge dall'alto in basso. Il riquadro da copiare sta SUBITO dopo il passo che lo usa (passo → riquadro →
 passo successivo), mai raccolto in fondo e mai indicato con «qui sotto» se non è proprio la riga seguente.
 Formato ATOMICO (12/10/2026, corretto da Nicola): ogni passo è un blocco completo (dove + cosa + il suo riquadro da copiare subito
-dopo); in un messaggio si danno PIÙ passi atomici, uno sotto l'altro. Se Nicola si perde, lo dice lui.
+dopo); in un messaggio si danno PIÙ passi atomici, uno sotto l'altro. Se Nicola si perde, lo dice lui. Non chiedere uno screenshot a ogni passo:
+solo quando serve davvero per controllare il risultato finale (12/10/2026).
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
