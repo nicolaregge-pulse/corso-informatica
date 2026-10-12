@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.30 — 12/10/2026 13:30 — La sfera d'oro: punti x2
+
+1. Pull Request di Francesco M. (13:27): «metti delle sfere che ti danno x2 di punti per 10 secondi quando colpite, e falle apparire raramente».
+2. Ogni tanto (non prima di 18 secondi dall’ultima) compare nel finestrino una sfera d’oro con scritto x2, per 4 secondi. Se la colpisci compare «PUNTI x2!» e per 10 secondi ogni cattivo vale il doppio; in alto si vede quanto tempo resta.
+3. Peso 5 nel backlog: un oggetto nuovo e una regola nuova, in index.html.
+
 ## v0.29 — 12/10/2026 13:24 — Le statistiche a fine partita
 
 1. Pull Request di Giorgio A. (13:17): «alla fine della partita vengono mostrati il numero di cattivi colpiti, i colpi sbagliati e la percentuale di precisione, così il giocatore capisce dove migliorare».
