@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.3** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.4** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -80,7 +80,7 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 
 ## 08 Come Claude dà le istruzioni al docente
 
-1. Ogni passo dice prima **dove** e poi **cosa**: account (PERSONALE o PIAMARTA) → finestra → programma → zona della pagina → azione.
+1. Ogni passo è una **frase semplice** che comincia con il verbo («Clicca…», «Premi…», «Torna…»), con il «dove» detto a parole dentro la frase; mai catene di coordinate separate da «·». Dove si può si usano i tasti (Ctrl+T, Ctrl+V, Invio) invece di cercare un bottone (#56).
 2. Ogni testo da scrivere è già nel messaggio, in un riquadro da copiare, **subito dopo** il passo che lo usa (#46).
 3. **La memoria del copia e incolla si considera vuota:** prima si apre la pagina dove si incolla, poi si copia, poi si incolla (#50).
 4. **Formato atomico:** più passi in un messaggio, ognuno completo; ogni gruppo di passi finisce con «Dopo devi vedere: …» (#47). Niente screenshot a ogni passo.
@@ -134,6 +134,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 14 Registro delle versioni
 
+5. **v1.4 (12/10/2026)**: capitolo 08 punto 1, frasi semplici con il verbo all'inizio, non catene di coordinate.
 4. **v1.3 (12/10/2026)**: capitolo 08 punto 8, flusso unico sempre da zero, senza «se».
 3. **v1.2 (12/10/2026)**: capitolo 08 punto 8, in classe solo messaggi brevi; i lavori lunghi il lunedì e il mercoledì pomeriggio.
 2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.

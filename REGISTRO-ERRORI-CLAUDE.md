@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.30** — 12/10/2026
+**Versione 2.31** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -336,3 +336,8 @@ lezione.*
 
 1. **Errore.** Nelle istruzioni per lo script ho scritto «Se la scheda è già aperta, salta alla Parte B» e ho chiuso con una domanda. Così il docente deve decidere mentre esegue.
 2. **Regola.** Le istruzioni sono un flusso unico che parte sempre da zero e funziona senza condizioni: niente «se», niente «salta», niente domande dentro i passi.
+
+## 12/10/2026 — Passi scritti come catene di coordinate: non si capiscono (#56)
+
+1. **Errore.** Ho scritto i passi come «Account PIAMARTA · finestra Chrome con le schede arancioni · in alto, a destra dell'ultima scheda: clicca il «+»» e «Qui in chat · riquadro qui sotto». Le catene di coordinate separate da «·» non si leggono come frasi: il docente non le capisce.
+2. **Regola.** Ogni passo è una frase semplice in italiano, che comincia con il verbo («Clicca…», «Premi…», «Torna…»). Il «dove» sta dentro la frase, con parole normali. Dove si può si usano i tasti (Ctrl+T per una scheda nuova, Ctrl+V, Invio) invece di cercare un bottone. Il bottone «copia» dei riquadri si descrive com'è: il piccolo bottone a destra del riquadro grigio.
