@@ -122,7 +122,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 | Pesi e riepiloghi delle PR | riservato, il file indicato in `pesi` |
 | Messa in produzione di una PR | pubblico, `strumenti/rilascia_versione_pr.py` |
 | Pagina «Cosa è cambiato oggi» | pubblico, `strumenti/gen_novita.py` |
-| Pagine per i ragazzi | pubblico, `docs/<classe>-backlog/`, `-voti/`, `-monitor/`, `-novita/` |
+| Pagine per i ragazzi | pubblico, `docs/<classe>-backlog/`, `-voti/`, `-monitor/`, `-novita/`, `-top/` (la classifica: prima le PR pubblicate nel gioco, a parità le PR inviate; legge i voti) |
 | Valutazione per allievo (PDF) | riservato, cartella indicata in `valutazioni` |
 
 ## 10 Registro delle versioni
