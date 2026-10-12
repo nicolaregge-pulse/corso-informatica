@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 13:41",
+ "aggiornato": "12/10/2026 13:43",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -38,6 +38,30 @@
    "pos": 3
   },
   {
+   "ora": "12/10 13:15",
+   "alunno": "Giorgio K.",
+   "pr": "PR (senza numero)",
+   "richiesta": "(file uguale a uno già mandato)",
+   "file": true,
+   "peso": 1,
+   "motivo": "doppione",
+   "fatto": "",
+   "no": "è uguale a un file già mandato",
+   "pos": 4
+  },
+  {
+   "ora": "12/10 13:17",
+   "alunno": "Giorgio K.",
+   "pr": "PR (senza numero)",
+   "richiesta": "(file uguale a uno già mandato)",
+   "file": true,
+   "peso": 1,
+   "motivo": "doppione",
+   "fatto": "",
+   "no": "è uguale a un file già mandato",
+   "pos": 5
+  },
+  {
    "ora": "12/10 13:19",
    "alunno": "Katherine A.",
    "pr": "PR3",
@@ -47,7 +71,19 @@
    "motivo": "si cambia un colore; PR scritta bene, con le 4 parti",
    "fatto": "v0.27",
    "no": "",
-   "pos": 4
+   "pos": 6
+  },
+  {
+   "ora": "12/10 13:22",
+   "alunno": "Alejandro G.",
+   "pr": "PR (senza numero)",
+   "richiesta": "(file uguale a uno già mandato)",
+   "file": true,
+   "peso": 1,
+   "motivo": "doppione",
+   "fatto": "",
+   "no": "è uguale a un file già mandato",
+   "pos": 7
   },
   {
    "ora": "12/10 13:34",
@@ -59,7 +95,7 @@
    "motivo": "nessuna richiesta",
    "fatto": "",
    "no": "non c'è nessuna richiesta",
-   "pos": 5
+   "pos": 8
   },
   {
    "ora": "12/10 12:29",
@@ -71,7 +107,7 @@
    "motivo": "una riga di codice: al cambio di livello si passa all'ambiente dopo",
    "fatto": "v0.13",
    "no": "",
-   "pos": 6
+   "pos": 9
   },
   {
    "ora": "12/10 12:31",
@@ -83,7 +119,7 @@
    "motivo": "si cambia una regola piccola: un colpo in più",
    "fatto": "v0.14",
    "no": "",
-   "pos": 7
+   "pos": 10
   },
   {
    "ora": "12/10 12:45",
@@ -95,7 +131,7 @@
    "motivo": "la parte «cambia la mappa al cambio di livello» è entrata con la v0.13; «cambiare la grafica» non dice cosa: riscrivila con cosa e dove",
    "fatto": "v0.13",
    "no": "",
-   "pos": 8
+   "pos": 11
   },
   {
    "ora": "12/10 12:53",
@@ -107,7 +143,7 @@
    "motivo": "PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "la velocità è già al minimo (0,5) dalla v0.4: più lento il treno quasi si ferma. Prova la v0.16 con il vetro più forte",
-   "pos": 9
+   "pos": 12
   },
   {
    "ora": "12/10 12:53",
@@ -119,7 +155,7 @@
    "motivo": "si cambia un numero; PR scritta bene, con le 4 parti",
    "fatto": "v0.16",
    "no": "",
-   "pos": 10
+   "pos": 13
   },
   {
    "ora": "12/10 12:57",
@@ -131,7 +167,7 @@
    "motivo": "è la stessa richiesta delle 12:45",
    "fatto": "v0.13 (la mappa che cambia)",
    "no": "",
-   "pos": 11
+   "pos": 14
   },
   {
    "ora": "12/10 13:00",
@@ -143,7 +179,7 @@
    "motivo": "è entrato con la v0.15: la difficoltà cresce a ogni livello, cioè ogni 10 cattivi colpiti",
    "fatto": "v0.15 (già fatto)",
    "no": "",
-   "pos": 12
+   "pos": 15
   },
   {
    "ora": "12/10 13:01",
@@ -155,7 +191,7 @@
    "motivo": "difetto piccolo; PR scritta bene",
    "fatto": "v0.21",
    "no": "",
-   "pos": 13
+   "pos": 16
   },
   {
    "ora": "12/10 13:04",
@@ -167,7 +203,7 @@
    "motivo": "una scritta in più; il record era già salvato nel browser",
    "fatto": "v0.22",
    "no": "",
-   "pos": 14
+   "pos": 17
   },
   {
    "ora": "12/10 13:06",
@@ -179,7 +215,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 15
+   "pos": 18
   },
   {
    "ora": "12/10 13:07",
@@ -191,7 +227,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 16
+   "pos": 19
   },
   {
    "ora": "12/10 13:07",
@@ -203,7 +239,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 17
+   "pos": 20
   },
   {
    "ora": "12/10 13:09",
@@ -215,7 +251,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 18
+   "pos": 21
   },
   {
    "ora": "12/10 13:10",
@@ -227,7 +263,7 @@
    "motivo": "c'è già: COMBO x2, x3… dà punti in più",
    "fatto": "già fatto (combo)",
    "no": "",
-   "pos": 19
+   "pos": 22
   },
   {
    "ora": "12/10 13:11",
@@ -239,7 +275,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 20
+   "pos": 23
   },
   {
    "ora": "12/10 13:14",
@@ -251,7 +287,7 @@
    "motivo": "è entrato con la v0.13",
    "fatto": "v0.13 (già fatto)",
    "no": "",
-   "pos": 21
+   "pos": 24
   },
   {
    "ora": "12/10 13:14",
@@ -263,7 +299,7 @@
    "motivo": "si cambia un calcolo",
    "fatto": "v0.24",
    "no": "",
-   "pos": 22
+   "pos": 25
   },
   {
    "ora": "12/10 13:16",
@@ -275,7 +311,7 @@
    "motivo": "una regola piccola",
    "fatto": "v0.25",
    "no": "",
-   "pos": 23
+   "pos": 26
   },
   {
    "ora": "12/10 13:16",
@@ -287,7 +323,7 @@
    "motivo": "una barra e una scritta",
    "fatto": "v0.28",
    "no": "",
-   "pos": 24
+   "pos": 27
   },
   {
    "ora": "12/10 13:19",
@@ -299,7 +335,7 @@
    "motivo": "testo copiato",
    "fatto": "",
    "no": "è copiata dal backlog (la richiesta di Alejandro G.): scrivi una tua idea",
-   "pos": 25
+   "pos": 28
   },
   {
    "ora": "12/10 13:22",
@@ -311,7 +347,7 @@
    "motivo": "c'è già: COMBO x2, x3… dà punti in più",
    "fatto": "già fatto (combo)",
    "no": "",
-   "pos": 26
+   "pos": 29
   },
   {
    "ora": "12/10 12:30",
@@ -323,7 +359,7 @@
    "motivo": "un file nuovo e il codice per suonarlo; da controllare che la musica sia libera (diritti d'autore)",
    "fatto": "",
    "no": "per ora no: il gioco è su un sito pubblico e la musica deve essere libera (diritti d'autore). Scrivi da dove viene, o usa una musica di Pixabay",
-   "pos": 27
+   "pos": 30
   },
   {
    "ora": "12/10 12:55",
@@ -335,7 +371,7 @@
    "motivo": "difetto vero del gioco; PR scritta bene",
    "fatto": "v0.17",
    "no": "",
-   "pos": 28
+   "pos": 31
   },
   {
    "ora": "12/10 12:56",
@@ -347,7 +383,7 @@
    "motivo": "effetto grafico sul vetro",
    "fatto": "",
    "no": "c'è già: a ogni colpo il vetro prende una crepa nuova, e le crepe si sommano. Proponi qualcosa di nuovo",
-   "pos": 29
+   "pos": 32
   },
   {
    "ora": "12/10 12:56",
@@ -359,7 +395,7 @@
    "motivo": "personaggio nuovo",
    "fatto": "",
    "no": "è la foto di una persona vera: nel gioco non si mettono foto di persone vere (privacy). Disegna tu il personaggio o fallo disegnare all'IA",
-   "pos": 30
+   "pos": 33
   },
   {
    "ora": "12/10 12:57",
@@ -371,7 +407,7 @@
    "motivo": "difetto del gioco",
    "fatto": "v0.20",
    "no": "",
-   "pos": 31
+   "pos": 34
   },
   {
    "ora": "12/10 12:57",
@@ -383,7 +419,7 @@
    "motivo": "animazione e scritte",
    "fatto": "v0.18",
    "no": "",
-   "pos": 32
+   "pos": 35
   },
   {
    "ora": "12/10 12:59",
@@ -395,7 +431,7 @@
    "motivo": "animazione e scritte; stessa idea di Ney V.",
    "fatto": "v0.18",
    "no": "",
-   "pos": 33
+   "pos": 36
   },
   {
    "ora": "12/10 13:03",
@@ -407,7 +443,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 34
+   "pos": 37
   },
   {
    "ora": "12/10 13:03",
@@ -419,19 +455,19 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 35
+   "pos": 38
   },
   {
    "ora": "12/10 13:03",
    "alunno": "Alejandro G.",
    "pr": "PR (senza numero)",
-   "richiesta": "nuove idde per il gioco",
+   "richiesta": "(dal file) un oggetto che si tocca per avere una vita in più o per rallentare i cattivi. ogni tanto arriva un cattivo grosso che si deve toccare 3 volte. 5 cuori sullo schermo che si spengono quando ti colpiscono.",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 36
+   "pos": 39
   },
   {
    "ora": "12/10 13:03",
@@ -443,7 +479,7 @@
    "motivo": "un bottone e una regola nel ciclo del gioco; PR scritta bene, con le 4 parti",
    "fatto": "v0.23",
    "no": "",
-   "pos": 37
+   "pos": 40
   },
   {
    "ora": "12/10 13:06",
@@ -455,7 +491,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 38
+   "pos": 41
   },
   {
    "ora": "12/10 13:06",
@@ -467,7 +503,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 39
+   "pos": 42
   },
   {
    "ora": "12/10 13:06",
@@ -479,19 +515,19 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 40
+   "pos": 43
   },
   {
    "ora": "12/10 13:07",
    "alunno": "Alejandro G.",
    "pr": "PR (senza numero)",
-   "richiesta": "idde per il gioco",
+   "richiesta": "(dal file) hai poche cartucce e devi aspettare per ricaricare se tocchi 3 cattivi di fila, i punti valgono doppio. puoi scegliere colore o tipo di locomotiva.",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 41
+   "pos": 44
   },
   {
    "ora": "12/10 13:09",
@@ -503,7 +539,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 42
+   "pos": 45
   },
   {
    "ora": "12/10 13:09",
@@ -515,19 +551,19 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 43
+   "pos": 46
   },
   {
    "ora": "12/10 13:09",
    "alunno": "Alejandro G.",
    "pr": "PR (senza numero)",
-   "richiesta": "idde per  il gioco",
+   "richiesta": "(dal file) pioggia o nebbia rendono più difficile vedere i cattivi premi come 100 punti o nessun colpo preso uno veloce, uno che si nasconde, uno che spara due volte.",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 44
+   "pos": 47
   },
   {
    "ora": "12/10 13:10",
@@ -539,7 +575,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 45
+   "pos": 48
   },
   {
    "ora": "12/10 13:10",
@@ -551,7 +587,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 46
+   "pos": 49
   },
   {
    "ora": "12/10 13:11",
@@ -563,31 +599,31 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 47
+   "pos": 50
   },
   {
    "ora": "12/10 13:12",
    "alunno": "Giorgio K.",
    "pr": "PR (senza numero)",
-   "richiesta": "mettere delle erda perttera",
+   "richiesta": "(dal file) mettere delle erda perttera",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 48
+   "pos": 51
   },
   {
    "ora": "12/10 13:12",
    "alunno": "Alejandro G.",
    "pr": "PR (senza numero)",
-   "richiesta": "idde per il gioco",
+   "richiesta": "(dal file) Modalità facile e difficile all’inizio scegli quanta velocità vuoi. una musica western che cambia quando arriva il boss. Esplosioni piccole quando tocchi un cattivo, esce un po’ di fumo o di stelle.",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 49
+   "pos": 52
   },
   {
    "ora": "12/10 13:13",
@@ -599,46 +635,10 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 50
-  },
-  {
-   "ora": "12/10 13:15",
-   "alunno": "Giorgio K.",
-   "pr": "PR (senza numero)",
-   "richiesta": "mettere piu grafica su le colline",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 51
-  },
-  {
-   "ora": "12/10 13:16",
-   "alunno": "Giorgio K.",
-   "pr": "PR (senza numero)",
-   "richiesta": "mettere i personaggi piu realistici",
-   "file": true,
-   "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
-   "fatto": "",
-   "no": "",
-   "pos": 52
-  },
-  {
-   "ora": "12/10 13:16",
-   "alunno": "Mahammed M.",
-   "pr": "PR (senza numero)",
-   "richiesta": "vorrei ci fosse come canzoncina di sotto fondo il file che ho condiviso",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
    "pos": 53
   },
   {
-   "ora": "12/10 13:17",
+   "ora": "12/10 13:16",
    "alunno": "Giorgio K.",
    "pr": "PR (senza numero)",
    "richiesta": "mettere i personaggi piu realistici",
@@ -650,6 +650,18 @@
    "pos": 54
   },
   {
+   "ora": "12/10 13:16",
+   "alunno": "Mahammed M.",
+   "pr": "PR (senza numero)",
+   "richiesta": "vorrei ci fosse come canzoncina di sotto fondo il file che ho condiviso",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 55
+  },
+  {
    "ora": "12/10 13:17",
    "alunno": "Giorgio A.",
    "pr": "PR (senza numero)",
@@ -659,7 +671,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 55
+   "pos": 56
   },
   {
    "ora": "12/10 13:19",
@@ -671,7 +683,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 56
+   "pos": 57
   },
   {
    "ora": "12/10 13:19",
@@ -683,7 +695,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 57
+   "pos": 58
   },
   {
    "ora": "12/10 13:20",
@@ -695,7 +707,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 58
+   "pos": 59
   },
   {
    "ora": "12/10 13:21",
@@ -705,18 +717,6 @@
    "file": false,
    "peso": 3,
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
-   "fatto": "",
-   "no": "",
-   "pos": 59
-  },
-  {
-   "ora": "12/10 13:22",
-   "alunno": "Alejandro G.",
-   "pr": "PR (senza numero)",
-   "richiesta": "idde",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
    "pos": 60
