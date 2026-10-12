@@ -249,6 +249,13 @@ function faccia(c){var g=cx,r=c.r,b=c.b,arr=c.fase==='attende'&&c.t>c.entra+c.te
  else{g.fillStyle='#3b0d16';g.beginPath();if(arr||b.bocca===0){g.ellipse(0,r*.42,r*.36,r*(arr?.25:.17),0,0,7);g.fill();g.fillStyle='#fff';for(var t=-2;t<=2;t++){g.beginPath();g.moveTo(t*r*.12-r*.05,r*.3);g.lineTo(t*r*.12+r*.05,r*.3);g.lineTo(t*r*.12,r*.41);g.fill()}}
   else if(b.bocca===1){g.arc(0,r*.3,r*.3,.1,Math.PI-.1);g.fill()}else{g.strokeStyle='#3b0d16';g.lineWidth=r*.08;g.moveTo(-r*.35,r*.42);for(var z=0;z<6;z++)g.lineTo(-r*.35+z*r*.14,r*(z%2?.32:.48));g.stroke()}}
  g.restore()}
+/* v0.26 PR di Lina A., Youssef A., Oscar F. e Riccardo B.: il meteo (dal livello 2 cielo grigio, dal 3 pioggia, dal 4 nebbia) - preso dal fork della 3INF (v1.2) */
+var GOCCE=[];function meteo(g,f,dt){if(!S)return;var L=S.livello;if(L<2)return;
+ g.fillStyle='rgba(120,130,145,'+Math.min(.35,.08*(L-1))+')';g.fillRect(f.x,f.y,f.w,f.h);
+ if(L>=3){var n=L>=4?220:120;while(GOCCE.length<n)GOCCE.push({x:Math.random(),y:Math.random(),v:.9+Math.random()*.6});
+  g.strokeStyle='rgba(200,215,235,.55)';g.lineWidth=1.3;g.beginPath();GOCCE.slice(0,n).forEach(function(q){q.y+=q.v*dt*1.4;q.x-=dt*.12;if(q.y>1){q.y=0;q.x=Math.random()*1.1}
+   var x=f.x+q.x*f.w,y=f.y+q.y*f.h;g.moveTo(x,y);g.lineTo(x-4,y+14)});g.stroke()}
+ if(L>=4){var gr=g.createLinearGradient(0,f.y,0,f.y+f.h);gr.addColorStop(0,'rgba(210,215,220,.55)');gr.addColorStop(.6,'rgba(210,215,220,.25)');gr.addColorStop(1,'rgba(210,215,220,0)');g.fillStyle=gr;g.fillRect(f.x,f.y,f.w,f.h)}}
 function paesaggio(dt){var g=cx,V=vista(),f=V.f,a=ambiente(),v=6*R.velocita_treno*(1+S.livello*.04);
  if(!S.fine){S.dist+=v*dt;S.prossimoOgg-=dt;if(S.prossimoOgg<=0){S.oggetti.push(nuovoOggetto(ZF));S.prossimoOgg=rnd(.12,.28)*[1.6,1,.7][a.densita-1]/R.velocita_treno}}
  S.oggetti.forEach(function(o){o.z-=v*dt});
@@ -267,6 +274,7 @@ function paesaggio(dt){var g=cx,V=vista(),f=V.f,a=ambiente(),v=6*R.velocita_tren
   disegnaOggetto(g,o,P)});
  /* v0.20 PR di Egor M.: il cattivo uscito dal nascondiglio si disegna sopra a tutti gli oggetti, così si vede sempre */
  fuori.forEach(disegnaCattivo);
+ meteo(g,f,dt);
  g.restore();
  S.oggetti=S.oggetti.filter(function(o){return o.z>ZN*.7});
  S.ritmo+=dt*v/6;if(S.ritmo>0.45){S.ritmo=0;SUONI.sferraglia()}}
