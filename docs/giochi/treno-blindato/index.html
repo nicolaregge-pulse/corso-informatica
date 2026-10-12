@@ -30,6 +30,9 @@ button:active{transform:translateY(3px);box-shadow:none}
 </head>
 <body>
 <canvas id="c"></canvas>
+<!-- v0.23 PR di Lina A.: bottone Pausa -->
+<button id="pausaBt" hidden style="position:fixed;top:6px;right:8px;z-index:5;font-size:16px;padding:6px 14px;background:#1f6fa5;box-shadow:0 3px 0 #123f60">Pausa</button>
+<div id="pausaVelo" hidden style="position:fixed;inset:0;z-index:4;background:rgba(0,0,0,.55);color:#ffd34d;display:none;align-items:center;justify-content:center;font:900 clamp(36px,9vw,72px) system-ui,Arial;pointer-events:none">PAUSA</div>
 <div class="ver" id="ver"></div>
 
 <div class="sch" id="inizio" style="background:linear-gradient(rgba(20,14,10,.55),rgba(20,14,10,.92)),url(img/copertina.jpg) center top/cover">
@@ -215,7 +218,7 @@ function creaCrepa(x,y){var f=finestra(),linee=[],n=ri(7,11);for(var i=0;i<n;i++
 function frantuma(){var f=finestra();for(var i=0;i<70;i++)COCCI.push({x:rnd(f.x,f.x+f.w),y:rnd(f.y,f.y+f.h),vx:rnd(-120,120),vy:rnd(-200,50),r:rnd(0,6),vr:rnd(-4,4),s:rnd(20,70)})}
 function coriandoli(n){for(var i=0;i<n;i++)CONF.push({x:rnd(0,W),y:-10,vx:rnd(-60,60),vy:rnd(120,300),r:rnd(0,6),vr:rnd(-6,6),c:pick(['#ffd34d','#2f9e57','#e0413a','#1f6fa5','#ff6fb1','#fff'])})}
 
-function tocca(e){if(!S||S.fine)return;e.preventDefault();var pts=e.changedTouches?Array.prototype.slice.call(e.changedTouches):[e];
+function tocca(e){if(!S||S.fine||PAUSA)return;e.preventDefault();var pts=e.changedTouches?Array.prototype.slice.call(e.changedTouches):[e];
  pts.forEach(function(p){var x=p.clientX,y=p.clientY;SUONI.colpo();S.part.push({x:x,y:y,vx:0,vy:0,t:0,c:'#ffd34d',r:18,mira:1});
   var best=null,bd=1e9;S.cattivi.forEach(function(c){if(c.fase!=='entra'&&c.fase!=='attende')return;var d=Math.hypot(c.x-x,c.y-y),inCorpo=Math.abs(x-c.x)<c.u*.38&&y>c.y&&y<c.piedi;if((d<c.r*1.35||inCorpo)&&d<bd){bd=d;best=c}});if(best)colpito(best)})}
 cv.addEventListener('touchstart',tocca,{passive:false});cv.addEventListener('mousedown',tocca);
@@ -324,7 +327,8 @@ function vetro(){var g=cx,f=finestra();g.save();g.beginPath();g.rect(f.x,f.y,f.w
 function hud(){var g=cx,f=finestra(),pad=10;g.font='800 20px system-ui,Arial';g.fillStyle='#fff';g.textAlign='left';g.fillText('Punti '+S.punti,pad,f.y-12>18?f.y-12:24);/* v0.22 PR di Youssef A.: il record resta e si vede accanto ai punti */var rec=Math.max(S.punti,(topLista()[0]||{p:0}).p||0);g.font='700 15px system-ui,Arial';g.fillStyle='#ffd34d';g.fillText('Record '+rec,pad+g.measureText('Punti '+S.punti).width*1.4+18,f.y-12>18?f.y-12:24);
  g.textAlign='center';g.fillStyle='#ffd34d';g.font='700 15px system-ui,Arial';g.fillText(ambiente().nome+' · '+TX.livello+' '+S.livello+' · km '+Math.floor(S.km),W/2,f.y-12>18?f.y-12:24);
  g.textAlign='right';g.fillStyle='#fff';var y0=f.y+f.h+12;g.fillText('Vetro',W-pad,y0+14);for(var i=0;i<S.vetroMax;i++){g.fillStyle=i<S.vetro?'#8fd3ff':'#53213a';g.fillRect(W-pad-50-(i+1)*22,y0,16,20)}}
-function ciclo(ts){var dt=Math.min(.05,(ts-(Tprec||ts))/1000);Tprec=ts;
+var PAUSA=false;function pausa(v){PAUSA=v===undefined?!PAUSA:v;$('pausaBt').textContent=PAUSA?'Riprendi':'Pausa';$('pausaVelo').hidden=!PAUSA;$('pausaVelo').style.display=PAUSA?'flex':'none'}
+function ciclo(ts){var dt=Math.min(.05,(ts-(Tprec||ts))/1000);Tprec=ts;var gioca=!!(S&&!S.fine);if($('pausaBt').hidden===gioca)$('pausaBt').hidden=!gioca;if(!gioca&&PAUSA)pausa(false);if(PAUSA)dt=0;
  if(S){if(!S.fine){S.t+=dt;S.km+=dt*R.velocita_treno*.4;S.ambT+=dt;if(S.ambT>PERC.secondi_per_ambiente){S.ambT=0;S.amb++;annunciaAmbiente()}S.km+=0;
    S.prossimo-=dt;if(S.prossimo<=0){nuovoCattivo();if(S.livello>3&&Math.random()<.3)nuovoCattivo();S.prossimo=Math.max(.45,1.6-(S.livello-1)*.18)*rnd(.7,1.2)}}
   S.cattivi.forEach(function(c){c.t+=dt;if(c.fase==='entra'){var k=Math.min(1,c.t/c.entra),e=1-Math.pow(1-k,3);c.x=c.sx+(c.tx-c.sx)*e;c.y=c.sy+(c.ty-c.sy)*e;if(k>=1)c.fase='attende'}
@@ -358,7 +362,8 @@ function aggiornaTop(){var e=$('topInizio');if(e)e.innerHTML=topHtml('I migliori
 var ULTIMO=0,ID_TOP=0;function salvaSubito(p){var t=topLista();ID_TOP=Date.now();t.push({id:ID_TOP,n:'Anonimo',p:p,v:VERSIONE.versione});t.sort(function(a,b){return b.p-a.p});scrivi('top',t.slice(0,10));return t.slice(0,10).some(function(x){return x.id===ID_TOP})}
 function salvaTop(){var n=($('nomeTop').value||'').trim().slice(0,12)||'Anonimo',t=topLista();t.forEach(function(x){if(x.id===ID_TOP)x.n=n});scrivi('top',t);try{localStorage.setItem('treno-2inf-soprannome',n)}catch(e){}$('salvaTop').hidden=true;$('topFine').innerHTML=topHtml('I migliori punteggi');aggiornaTop()}
 document.addEventListener('click',function(e){if(e.target&&e.target.id==='okTop')salvaTop()});
-document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target&&e.target.id==='nomeTop')salvaTop()});
+$('pausaBt').addEventListener('click',function(){pausa()});
+document.addEventListener('keydown',function(e){if((e.key==='p'||e.key==='P'||e.key==='Escape')&&S&&!S.fine&&!(e.target&&e.target.tagName==='INPUT')){pausa();return}if(e.key==='Enter'&&e.target&&e.target.id==='nomeTop')salvaTop()});
 function fine(){var r=leggi('record',0),p=S.punti,nuovo=p>r;ULTIMO=p;var entra=p>0&&salvaSubito(p);try{$('nomeTop').value=localStorage.getItem('treno-2inf-soprannome')||''}catch(e){}$('salvaTop').hidden=!entra;$('salvaTop').style.display=entra?'flex':'none';$('topFine').innerHTML=topHtml('I migliori punteggi');if(nuovo)scrivi('record',p);$('punti').textContent=p;$('titoloFine').textContent=TX.fine;
  $('lode').innerHTML=(nuovo?'<b style="color:#7be08f">'+esc(TX.record)+'</b><br>':'')+'Cattivi fermati: <b>'+S.abbattuti+'</b> · km <b>'+Math.floor(S.km)+'</b><br>'+esc(pick(TX.lodi));
  if(nuovo||S.livello>2){coriandoli(140);SUONI.vittoria()}mostra('fine');S=null}
