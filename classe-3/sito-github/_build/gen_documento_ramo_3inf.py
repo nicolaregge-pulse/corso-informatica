@@ -83,18 +83,28 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 </style></head><body><div class="w">
 <h1>{e(TITOLO[0])}</h1><p class="t-bn">{e(TITOLO[1])}</p><p class="mu">3INF · 12/10/2026</p>
 <div class="card" style="border:3px solid var(--acc)"><p><b>Il tuo percorso di oggi</b></p><p class="bn">আজ তোমার পথ</p><ol>
-<li><b>FASE 1 — Leggi la teoria qui sotto, dall'inizio alla fine.</b><p class="bn">ধাপ ১ — নিচের তত্ত্ব শুরু থেকে শেষ পর্যন্ত পড়ো।</p></li>
-<li><b>FASE 2 — In fondo trovi il bottone verde: premilo e fai il compito.</b><p class="bn">ধাপ ২ — শেষে সবুজ বোতাম আছে: চাপো এবং কাজটি করো।</p></li></ol></div>
+<li><b>FASE 1 — Leggiamo insieme la teoria qui sotto, dall'inizio alla fine.</b><p class="bn">ধাপ ১ — আমরা একসাথে নিচের তত্ত্ব শুরু থেকে শেষ পর্যন্ত পড়ি।</p></li>
+<li><b>FASE 2 — Il lavoro da fare arriva qui, in fondo a questa pagina, quando il prof lo pubblica. Il link resta sempre lo stesso.</b><p class="bn">ধাপ ২ — কাজটি এই পাতার শেষে আসবে, যখন শিক্ষক প্রকাশ করবেন। লিংক সবসময় একই থাকে।</p></li></ol></div>
 <h2>FASE 1 — La teoria</h2>
 <div class="card"><h3>In breve</h3>{svg()}<ol>{breve}</ol></div>
 <div class="card"><h3>La lavagna del prof</h3><img src="lavagna-versioni.jpg" alt="La lavagna: numeri delle versioni, changelog, fork, Pull Request accettata e rifiutata, merge" style="max-width:100%;border-radius:10px"><p>Sulla linea rossa le versioni (v0.8, v0.9, v1.0). In blu il fork che parte dalla v0.9. Sul ramo, le Pull Request: quella accettata (ACCEPT ✓) rientra con il MERGE, quella rifiutata (REFUSE ✗) resta fuori.</p><p class="bn">লাল রেখায় সংস্করণ। নীল রঙে fork। শাখায় Pull Request: গৃহীত (ACCEPT ✓) MERGE দিয়ে ফিরে আসে, প্রত্যাখ্যাত (REFUSE ✗) বাইরে থাকে।</p></div>
 <div class="card"><h3>La storia vera del vostro gioco</h3><p>Ogni riga è una versione nata dalle vostre Pull Request (dal grafo delle versioni).</p><p class="bn">প্রতিটি সারি তোমাদের Pull Request থেকে জন্মানো একটি সংস্করণ।</p>
 <table><tr><th>Versione</th><th>Nome</th><th>Cosa è entrato e da quale Pull Request</th></tr>{storia}</table>
 <p><a class="bt" style="font-size:16px;padding:8px 14px" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/giochi/grafo/">Apri il grafo delle versioni</a></p><p class="mu">Si apre in una scheda nuova: quando hai finito, chiudila e torni qui. · নতুন ট্যাবে খোলে: শেষ হলে বন্ধ করে এখানে ফিরে এসো।</p></div>
-<div class="card"><h3>Com'è fatta una Pull Request nel Documento</h3><p>Quattro parti, sempre. Esempio vero: la Pull Request #1, entrata nel gioco con la v1.1.</p><p class="bn">সবসময় চারটি অংশ। সত্যিকারের উদাহরণ: Pull Request #1, যা v1.1-এ খেলায় ঢুকেছে।</p>
+<div class="card"><h3>Come si chiede una modifica: il giro della Pull Request</h3>
+<p>Nel vostro gioco funziona come in un'azienda vera. Tu proponi, il programma automatico legge, il prof decide, la versione nuova esce.</p>
+<p class="bn">তোমাদের খেলায় সত্যিকারের কোম্পানির মতো কাজ হয়। তুমি প্রস্তাব দাও, স্বয়ংক্রিয় প্রোগ্রাম পড়ে, শিক্ষক সিদ্ধান্ত নেন, নতুন সংস্করণ বের হয়।</p>
+<ol>
+<li><b>Tu scrivi la richiesta</b> nel Modulo «Consegna» (o nel Documento): titolo, cosa cambia, dove, perché. Puoi aggiungere un'immagine.<p class="bn"><b>তুমি অনুরোধ লেখো</b> «Consegna» ফর্মে (বা ডকুমেন্টে): শিরোনাম, কী বদলায়, কোথায়, কেন। ছবিও যোগ করতে পারো।</p></li>
+<li><b>Lo script gira da solo</b> ogni 5 minuti: è un programma del prof su Google che legge le richieste nuove e le copia nel repository Git del corso, con il tuo nome e l'ora.<p class="bn"><b>স্ক্রিপ্ট নিজে নিজে চলে</b> প্রতি ৫ মিনিটে: এটি Google-এ শিক্ষকের একটি প্রোগ্রাম, যা নতুন অনুরোধ পড়ে এবং তোমার নাম ও সময়সহ কোর্সের Git repository-তে কপি করে।</p></li>
+<li><b>Il prof (con l'intelligenza artificiale) legge</b> la tua Pull Request e decide: SÌ o NO.<p class="bn"><b>শিক্ষক (কৃত্রিম বুদ্ধিমত্তার সাথে) পড়েন</b> এবং সিদ্ধান্ত নেন: হ্যাঁ বা না।</p></li>
+<li><b>SÌ = merge:</b> la modifica entra nel gioco, nasce una versione nuova (v1.5, v1.6…) e nel changelog c'è scritto il numero della tua Pull Request.<p class="bn"><b>হ্যাঁ = merge:</b> পরিবর্তনটি খেলায় ঢোকে, নতুন সংস্করণ হয় এবং changelog-এ তোমার Pull Request-এর নম্বর লেখা থাকে।</p></li>
+<li><b>Tu controlli</b> nel grafo delle versioni: il pallino nuovo è anche merito tuo. Se è NO, leggi il perché, correggi e rimanda.<p class="bn"><b>তুমি দেখো</b> সংস্করণের গ্রাফে: নতুন বিন্দুটি তোমারও কৃতিত্ব। না হলে, কেন পড়ো, ঠিক করো এবং আবার পাঠাও।</p></li>
+</ol></div>
+<div class="card"><h3>Com'è fatta una Pull Request</h3><p>Quattro parti, sempre, nel Modulo o nel Documento. Esempio vero: la Pull Request #1, entrata nel gioco con la v1.1.</p><p class="bn">সবসময় চারটি অংশ। সত্যিকারের উদাহরণ: Pull Request #1, যা v1.1-এ খেলায় ঢুকেছে।</p>
 <table><tr><th>Parte</th><th>Esempio</th></tr>{parti}</table></div>
 <div class="card"><h3>Gli errori della settimana scorsa (e perché)</h3><ol>{errori}</ol></div>
-<h2>FASE 2 — Il compito</h2><div class="card mu">Il compito si costruisce insieme al prof, dopo che la teoria è approvata.</div>
+<h2>FASE 2 — Il lavoro</h2><div class="card mu">Il lavoro arriva qui quando il prof lo pubblica. · কাজটি এখানে আসবে যখন শিক্ষক প্রকাশ করবেন।</div>
 </div></body></html>"""
     open(OUT, "w", encoding="utf-8").write(h)
     print(OUT)
