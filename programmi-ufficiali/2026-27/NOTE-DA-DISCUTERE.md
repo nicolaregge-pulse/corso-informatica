@@ -10,4 +10,5 @@
 3. Scadenza: **30 ottobre 2026**.
    1. Gli argomenti vanno scritti tutti in anticipo, anche quelli solo possibili: dopo si potranno TOGLIERE, ma NON AGGIUNGERE.
    2. Quindi l'elenco previsto deve essere largo: tutto quello che potremmo fare nell'anno, per ogni classe e competenza.
-4. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
+4. Ogni argomento va sviluppato nei suoi **sotto-argomenti** (non solo il titolo). Fonti già pronte: `PIANO-ORE-LEZIONE.md` (macro-area → sotto-argomento → ora) e `GRIGLIA-ARGOMENTI.md`.
+5. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
