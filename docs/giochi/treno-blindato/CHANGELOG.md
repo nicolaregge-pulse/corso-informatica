@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.14 — 12/10/2026 12:54 — Ultimo colpo
+
+1. Pull Request di Egor M. (12:31): «dopo che si spacca il vetro si muore subito: farlo diventare che si ha comunque 1 colpo tankabile».
+2. Quando il vetro arriva a zero compare la scritta «VETRO ROTTO! ULTIMO COLPO!»: si può ancora giocare. La partita finisce al colpo dopo.
+3. Peso 2 nel backlog: una regola piccola in index.html, nella funzione spara.
+
 ## v0.13 — 12/10/2026 12:54 — Nuovo livello, nuovo scenario
 
 1. Pull Request di Ney V. (12:29): «cambiare lo scenario quando si cambia di livello». La stessa richiesta è arrivata da Alejandro G. (12:45): «quando cambia livello cambi la mappa».
