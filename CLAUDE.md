@@ -566,7 +566,8 @@ l'intestazione del file.
 2. `classe-2/programma.md` — v0.3
 3. `classe-3/programma.md` — v0.2
 4. `classe-4/programma.md` — v0.2
-5. `PROGRAMMA-PREVENTIVO-2026-27.md` — v0.4 (parti da incollare in Allegato A)
+5. `PROGRAMMA-PREVENTIVO-2026-27.md` — v0.5 (parti da incollare in Allegato A; v0.5 con le voci delle lezioni fino al 12/10)
+5b. `programmi-ufficiali/2026-27/` (generatore `programmi-ufficiali/_build/compila_allegati.py`) — v0.1 (i quattro Allegato A 2026/27 in Word, 1INF/2INF/3INF/4TI: le voci previste di Regge in giallo nella riga dell'annualità + PDF di riepilogo; consegna entro fine ottobre)
 6. `MIE-PARTI-ALLEGATO-A.md` — v0.2 (parti di Regge estratte dai PFP)
 7. `ARGOMENTI-SVOLTI.md` — v0.3 (svolto 2025/26, nomenclatura 26/27)
 7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.4 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
