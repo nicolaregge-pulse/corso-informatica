@@ -70,7 +70,8 @@ function disattivaAutomatico() {
    Da eseguire UNA volta: Esegui -> attivaInvioModuli. Moduli e cartelle in AUTO_MODULI_LIVE. */
 var AUTO_MODULI_LIVE = {
   '1p8YarftHXjSEObPFbo7WlOxzX-EBpEF5Xx-WqKo5ixI': 'dati/consegne/_modulo-consegna/risposte.json',
-  '1JVn38PZHdEKSA7LpUpWLiyUi0_72TMRehtFEYpAnz4o': 'dati/consegne/3INF/2026-10/20261012_parere-teoria/risposte.json'
+  '1JVn38PZHdEKSA7LpUpWLiyUi0_72TMRehtFEYpAnz4o': 'dati/consegne/3INF/2026-10/20261012_parere-teoria/risposte.json',
+  '1FVAspj6QiC_8cnvSq1xWQE_gBKbz8RTsb51srR2wc3M': 'dati/consegne/2INF/2026-10/20261012_parere-teoria/risposte.json'
 };
 function attivaInvioModuli() {
   ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'AUTO_suInvio') ScriptApp.deleteTrigger(t); });
