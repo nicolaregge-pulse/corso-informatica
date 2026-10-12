@@ -1,6 +1,6 @@
 # Metodologia del corso di Informatica
 
-**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
+**Versione 1.3** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
 
 *Documento del docente (in italiano, senza nomi di allievi). Raccoglie in un solo posto il metodo
 che usiamo, la giornata di lezione, i compiti, la valutazione, la chiusura delle classi, la
@@ -159,6 +159,7 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
    7. controlla i link: versione giocabile, changelog, grafo, backlog.
 5. **Tempi**: lo script raccoglie le risposte ogni minuto e subito a ogni invio dei Moduli collegati; il backlog si rigenera da solo.
 6. **Privacy**: nessuna foto di persone vere nel gioco; nel backlog solo nome e iniziale.
+8. **Come si rifà**: la guida `GIRO-PULL-REQUEST.md` (PDF `20261012_Giro-Pull-Request_Docente_v1.0.pdf`): un file di impostazioni per lezione (`config/lezioni/<id>.json` nel riservato), il giro automatico `generatori/lezione_pr.py` (un solo processo scrive su Git), la messa in produzione `strumenti/rilascia_versione_pr.py`, la pagina «Cosa è cambiato oggi» `strumenti/gen_novita.py`; voti con le regole del docente e valutazione per allievo in PDF.
 7. **Lingue**: ogni classe ha le sue (1INF IT/AR/ZH, 2INF SOLO italiano, 3INF IT/BN); per le classi solo italiano ogni pagina passa da `strumenti/solo_italiano.py`, che blocca la pubblicazione se resta un'altra lingua.
 
 ## 10 I comandi da dare a Claude
@@ -252,6 +253,7 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
 
 ## 15 Registro delle versioni
 
+4. **v1.3 (12/10/2026)**: 09b punto 8, come si rifà il giro delle Pull Request (guida e strumenti).
 3. **v1.2 (12/10/2026)**: capitolo 09b, il giro delle Pull Request con backlog, pesi, versioni e grafo; script ogni minuto.
 
 2. **v1.1 (06/10/2026)**: aggiunta la Valutazione complessiva della classe (comando e capitolo 06).
