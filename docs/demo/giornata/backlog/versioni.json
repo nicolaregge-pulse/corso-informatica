@@ -1,0 +1,258 @@
+[
+ {
+  "versione": "v0.0",
+  "nome": "Prima idea: il finestrino laterale",
+  "cambi": "Il treno visto dal finestrino di lato: paesaggio che scorre, cattivi che sbucano da dietro alberi e case, vetro da 5 colpi. Poi la classe ha disegnato alla lavagna la vista dalla cabina.",
+  "data": "08/10/2026 07:26",
+  "commit": "d729f5e573387e91bf6279b3c8ae51099b28aa53",
+  "commit_sorgente": "d729f5e573387e91bf6279b3c8ae51099b28aa53"
+ },
+ {
+  "versione": "v0.1-alfa",
+  "nome": "Demo del prof sul progetto della lavagna",
+  "cambi": "Vista dalla cabina lungo i binari (progetto della classe), cattivi da finestre, alberi e barili, facce della classe e copertina disegnata con l'IA, tachimetro, installabile come app. Da qui la classe corregge il tiro.",
+  "data": "08/10/2026 07:26",
+  "commit": "10e2cdfdd674449977bb89162633d93fe9650be3",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.2",
+  "nome": "I personaggi della squadra PERSONAGGI",
+  "cambi": "Quattro personaggi disegnati con l'IA (tre agenti e il Boss dei cattivi), bottone «I personaggi», le loro facce nel gioco. Prima modifica arrivata dalla classe.",
+  "data": "08/10/2026 07:50",
+  "commit": "ea5cc8400af5df5777d47e245352fd89c9f5dfa5",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.3",
+  "nome": "Più lento: richiesta della squadra TEST QUALITÀ",
+  "cambi": "Prima richiesta di modifica consegnata su Classroom dalla Triade: «il gioco va troppo veloce». Velocità del treno da 1 a 0,7.",
+  "data": "08/10/2026 08:06",
+  "commit": "c5c56422ff436f41b2d0ca7539c00e9e72b0482d",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.4",
+  "nome": "Audit degli investitori: personaggi nascosti che escono",
+  "cambi": "Il cattivo è un personaggio intero nascosto dietro gli oggetti che esce di lato, più grande; treno al minimo (0,5); tolte 2 foto senza faccia.",
+  "data": "08/10/2026 08:14",
+  "commit": "12dcd1b11e0eb0a177c2b1925e4bfca3492671e6",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.5",
+  "nome": "Le regole della squadra MOTORE FISICA (Pull Request #104)",
+  "cambi": "Prima Pull Request vera (#104) del capo MOTORE FISICA: cattivi sparano dopo 3 secondi, 100 punti per cattivo, velocità 0,5. Corretto 0,5 → 0.5 (in JSON i decimali vogliono il punto).",
+  "data": "08/10/2026 08:18",
+  "commit": "70e2705bc2aa87ee48f7a24fe51f781c220baf69",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.6",
+  "nome": "Il bosco bruciato della squadra SCENARI",
+  "cambi": "Richiesta SCENARI: cielo rosso cupo, alberi bruciati e rottami fumanti vicino ai binari. Richiesta PERSONAGGI: il cattivo dice «Hahahahaha, perdente!» quando spara.",
+  "data": "08/10/2026 08:27",
+  "commit": "2e6bcac3f03428dadc1387f76d0264f8d2191a22",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.7",
+  "nome": "Omini interi che escono dal nascondiglio",
+  "cambi": "Indicazione del prof: omini interi (testa, busto, braccia, gambe, arma) al posto dei cerchietti; si alzano da dietro il nascondiglio ed escono di lato con un «!»; quando li colpisci cadono.",
+  "data": "08/10/2026 08:30",
+  "commit": "2b1f22937fd339fae7d8134e4105c8dd87af0cb9",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.8",
+  "nome": "Mimetica, facce senza cerchio e il fucile d'assalto",
+  "cambi": "Indicazioni del prof: facce senza cerchio (solo la faccia), barretta del tempo sopra la testa, omini in mimetica, l'Agente Speciale con il fucile d'assalto.",
+  "data": "08/10/2026 08:39",
+  "commit": "a27f760671af1dfd9242c73b86cc02aea4f4632a",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.9",
+  "nome": "Teste in proporzione",
+  "cambi": "Indicazione del prof: la testa degli omini lontani era troppo grossa (misura minima fissa); ora è sempre in proporzione al corpo.",
+  "data": "08/10/2026 08:42",
+  "commit": "1fae799fc6d0a83ca242a57c94d5a25a4b550df5",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.10",
+  "nome": "I migliori punteggi",
+  "cambi": "Indicazione del prof: classifica dei primi 10 con soprannome a fine partita, mostrata nella schermata iniziale; record della classe da record-classe.json.",
+  "data": "08/10/2026 08:45",
+  "commit": "2a62cb36b0ab7117be5fd50f5e071b06aed2c9c8",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.11",
+  "nome": "I punteggi si salvano sempre",
+  "cambi": "Difetto segnalato dal prof: il punteggio ora si salva da solo a fine partita, il soprannome si conferma anche con Invio; il gioco chiede sempre alla rete la versione nuova.",
+  "data": "08/10/2026 08:50",
+  "commit": "77249003bc1a75634fdb6d5e8a22530ce84ceaf1",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.12",
+  "nome": "La versione serale",
+  "cambi": "PR di Allievo 10 (12/10, 12:23): «vorrei una versione serale». Cielo del tramonto nel Paese, in Montagna e al Mare.",
+  "data": "12/10/2026 12:28",
+  "commit": "3adce09368349c1d48b67b1c07c1f43595e5f5b3",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.13",
+  "nome": "Nuovo livello, nuovo scenario",
+  "cambi": "PR di Allievo 02 (12:29) e Allievo 13 (12:45): quando si passa di livello cambia anche lo scenario.",
+  "data": "12/10/2026 12:54",
+  "commit": "abb2be554530ac5c88746913d5218aff020c83bc",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.14",
+  "nome": "Ultimo colpo",
+  "cambi": "PR di Allievo 03 (12:31): quando il vetro si spacca c'è ancora 1 colpo da incassare.",
+  "data": "12/10/2026 12:54",
+  "commit": "e7e47155f725dc4428f09fde9745033ef52a9e05",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.15",
+  "nome": "La difficoltà cresce a ogni livello",
+  "cambi": "PR di Allievo 09 (12:38), prima parte: a ogni livello i cattivi sparano prima e arrivano più spesso.",
+  "data": "12/10/2026 12:56",
+  "commit": "e2f8effa992d69f6da8e81f6a3976aadc14912c3",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.16",
+  "nome": "Vetro da 10 colpi",
+  "cambi": "PR1 di Allievo 15 (12:53): il vetro regge 10 colpi invece di 5.",
+  "data": "12/10/2026 12:56",
+  "commit": "b92bd2a9b169978dbdb415656ce72f1b451b1761",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.17",
+  "nome": "I cattivi non nascono più troppo vicino",
+  "cambi": "PR3 di Allievo 01 (12:55), difetto: i cattivi nascevano troppo vicino o dietro e sparavano da dove non si potevano colpire.",
+  "data": "12/10/2026 12:57",
+  "commit": "8c6f8d1b93b9255cfcf2d45ed9844699e8618a39",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.18",
+  "nome": "BANG! e il cattivo cade a terra",
+  "cambi": "PR di Allievo 02 (12:57), Allievo 03 (12:59) e Allievo 01 (12:51): BANG!, lampo rosso, il cattivo cade a terra; niente più coriandoli colorati.",
+  "data": "12/10/2026 13:00",
+  "commit": "970acb4ba0676caecd7c71603c7fce1a91872822",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.19",
+  "nome": "Il mirino rosso",
+  "cambi": "PR di Allievo 02 (12:59): il puntatore del mouse diventa un mirino rosso.",
+  "data": "12/10/2026 13:02",
+  "commit": "056f1ed3395bcf3c192e7fa2c6f342d47ec685f2",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.20",
+  "nome": "I cattivi si vedono sempre",
+  "cambi": "PR di Allievo 03 (12:57), difetto: i nemici a volte escono male da case e palazzi e non si vedono.",
+  "data": "12/10/2026 13:02",
+  "commit": "4e41184559c2ded436d00f030f9bdc3ff0737881",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.21",
+  "nome": "Le luci dei palazzi non lampeggiano più",
+  "cambi": "PR di Allievo 01 (13:01), difetto: le luci di case e palazzi lampeggiavano di continuo.",
+  "data": "12/10/2026 13:03",
+  "commit": "8c752791488986454672fe285109d039c5728fa1",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.22",
+  "nome": "Il record accanto ai punti",
+  "cambi": "PR di Allievo 05 (13:04): il punteggio migliore si vede accanto al contatore e resta anche ricaricando la pagina.",
+  "data": "12/10/2026 13:05",
+  "commit": "27d3bd7f66aaaf0105cd81594aace36b05eb5bbd",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.23",
+  "nome": "Il bottone Pausa",
+  "cambi": "PR di Allievo 04 (13:03): bottone Pausa in alto per fermare la partita e riprenderla.",
+  "data": "12/10/2026 13:07",
+  "commit": "282b08e6fe8a7d8541f7ba73b09bbb5b720cb53d",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.24",
+  "nome": "Più avanti, più punti",
+  "cambi": "PR di Allievo 06 (13:14): più vai avanti nel gioco, più punti ti danno i cattivi.",
+  "data": "12/10/2026 13:17",
+  "commit": "d65d1cc3dba03d10cafdf9b6299f45a1c8d8bee0",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.25",
+  "nome": "Colpo preciso",
+  "cambi": "PR di Allievo 08 (13:16): colpo preciso in testa = punti bonus.",
+  "data": "12/10/2026 13:18",
+  "commit": "700bf9da6ca6a84049a18aac02c8ea9fdc7f3aaa",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.26",
+  "nome": "Pioggia e nebbia",
+  "cambi": "PR di Allievo 04 (13:10), Allievo 05 (13:11), Allievo 11 (13:12) e Allievo 12 (13:13): il meteo che rende più difficile vedere i cattivi.",
+  "data": "12/10/2026 13:19",
+  "commit": "ac6e1de2172f333f853fe9319fb8700f15840da4",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.27",
+  "nome": "Binari gialli",
+  "cambi": "PR di Allievo 15 (13:19): i binari diventano gialli, così si vedono meglio.",
+  "data": "12/10/2026 13:22",
+  "commit": "2340dcdda64966e0615a344b437e4feaa5c82a23",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.28",
+  "nome": "La barra del prossimo livello",
+  "cambi": "PR di Allievo 06 (13:16): una barra al centro in alto che indica quanto manca al prossimo livello.",
+  "data": "12/10/2026 13:23",
+  "commit": "a808fcc53333b955523b8cf1de3c232e42676044",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.29",
+  "nome": "Le statistiche a fine partita",
+  "cambi": "PR di Allievo 08 (13:17): a fine partita cattivi colpiti, colpi sbagliati e precisione.",
+  "data": "12/10/2026 13:24",
+  "commit": "cf66380fb135fa3cebe2a7fdb8ac24e599b0e7ce",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.30",
+  "nome": "La sfera d'oro: punti x2",
+  "cambi": "PR di Allievo 07 (13:27): ogni tanto compare una sfera; se la colpisci, per 10 secondi i punti valgono doppio.",
+  "data": "12/10/2026 13:30",
+  "commit": "9d379d5999a05b0dd925232ef37237bb347d62a2",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v0.31",
+  "nome": "Gli uccelli nel cielo",
+  "cambi": "PR di Allievo 07 (13:32): uccelli che passano nel cielo.",
+  "data": "12/10/2026 13:35",
+  "commit": "0f6fb744195de52cd207656f6c2ffbaa00ea0ff7",
+  "commit_sorgente": ""
+ }
+]
