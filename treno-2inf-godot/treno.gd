@@ -86,6 +86,8 @@ func _ready() -> void:
 		# nel browser 1 punto del gioco = 1 pixel CSS (come la versione HTML), anche sui telefoni
 		get_window().content_scale_factor = max(1.0, DisplayServer.screen_get_scale())
 		prova = str(JavaScriptBridge.eval("location.search", true)).contains("prova")
+	if "prova" in OS.get_cmdline_user_args():
+		prova = true   # controllo automatico dal terminale: godot --headless -- prova
 	AMB = AMB_BASE.duplicate(true)
 	carica_tutto()
 	prepara_disegno()
@@ -397,7 +399,7 @@ func colpito(c: Dictionary) -> void:
 	for i in 22:
 		var a := rnd(0, 7)
 		var v := rnd(80, 380)
-		S.part.append({"x": c.x, "y": c.y, "vx": cos(a) * v, "vy": sin(a) * v, "t": 0.0, "c": Color("#3a3a3a") if i % 3 else Color("#ffcc33"), "r": rnd(2, 6), "mira": false})
+		S.part.append({"x": c.x, "y": c.y, "vx": cos(a) * v, "vy": sin(a) * v, "t": 0.0, "c": Color("#3a3a3a") if i % 3 != 0 else Color("#ffcc33"), "r": rnd(2, 6), "mira": false})
 	if S.abbattuti % R.cattivi_per_livello == 0:
 		S.livello += 1
 		# v0.13 (PR di Ney V. e Alejandro G.): nuovo livello = nuovo scenario
@@ -485,7 +487,7 @@ func crea_crepa(n: int, totale: int) -> Dictionary:
 	for i in nl:
 		var a := float(i) / nl * TAU + rnd(-0.2, 0.2)
 		var verso := Vector2(cos(a), sin(a)).dot(dentro)   # > 0: la crepa andrebbe verso il centro
-		var l := lungo * rnd(0.6, 1.2) * (1.0 - 0.7 * max(0.0, verso))
+		var l: float = lungo * rnd(0.6, 1.2) * (1.0 - 0.7 * max(0.0, verso))
 		var q := punto
 		var seg := PackedVector2Array([q])
 		for j in 6:
@@ -494,7 +496,7 @@ func crea_crepa(n: int, totale: int) -> Dictionary:
 			seg.append(q)
 			if j == 2 and randf() < 0.6:
 				# un ramo piccolo che parte da metà crepa
-				var ar := a + [-0.7, 0.7].pick_random()
+				var ar: float = a + [-0.7, 0.7].pick_random()
 				var qr := q
 				var sr := PackedVector2Array([qr])
 				for k in 3:
@@ -554,7 +556,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func tocca(pos: Vector2) -> void:
-	if S == null or S.fine or PAUSA:
+	if S == null or S.fine or PAUSA or ui.sopra_un_bottone(pos):
 		return
 	get_viewport().set_input_as_handled()
 	suoni.suona("colpo")
@@ -792,9 +794,9 @@ func crea_mimetica() -> ImageTexture:
 		for i in macchie[j][1]:
 			var x := float((i * 17 + j * 11) % 48)
 			var y := float((i * 29 + j * 7) % 48)
-			var rx := 4.0 + (i * 7 + j) % 6
-			var ry := 3.0 + (i * 5 + j * 3) % 5
-			var rot := (i + j) * 0.7
+			var rx: float = 4.0 + (i * 7 + j) % 6
+			var ry: float = 3.0 + (i * 5 + j * 3) % 5
+			var rot: float = (i + j) * 0.7
 			for py in 48:
 				for px in 48:
 					var dx := fposmod(px + 0.5 - x + 24.0, 48.0) - 24.0
@@ -1306,4 +1308,16 @@ func pubblica_prova(delta: float) -> void:
 		st.merge({"punti": S.punti, "vetro": S.vetro, "vetroMax": S.vetroMax, "colpi": S.colpi_presi, "livello": S.livello, "spari": S.spari, "abbattuti": S.abbattuti, "fine": S.fine,
 			"sfera": [S.sfera.x, S.sfera.y] if S.sfera != null else null, "x2": S.x2,
 			"cattivi": S.cattivi.filter(func(c): return c.fase == "attende" or c.fase == "entra").map(func(c): return [c.x, c.y, c.fase, c.r])})
-	JavaScriptBridge.eval("window.__treno=" + JSON.stringify(st), true)
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.__treno=" + JSON.stringify(st), true)
+		return
+	# dal terminale: la partita parte da sola, si colpisce ogni tanto un cattivo e si stampa lo stato
+	if S == null and ui.schermo_attivo == "inizio":
+		parti()
+	elif S != null and randf() < 0.3:
+		for c in S.cattivi:
+			if c.fase == "attende":
+				tocca(Vector2(c.x, c.y))
+				break
+	if S != null and Engine.get_process_frames() % 30 == 0:
+		print("prova: ", JSON.stringify(st).left(300))
