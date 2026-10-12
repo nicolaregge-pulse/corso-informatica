@@ -81,28 +81,12 @@ def main():
         shutil.copytree(os.path.join(DOCS, src), os.path.join(OUT, dst))
     shutil.copy(os.path.join(DOCS, "giochi/treno-blindato/versioni/versioni.json"), os.path.join(OUT, "backlog", "versioni.json"))
     shutil.copytree(os.path.join(DOCS, "giochi/treno-blindato"), os.path.join(OUT, "gioco"),
-                    ignore=shutil.ignore_patterns("versioni", "strumenti", "sw.js", "*.md", "facce", "agente-*", "cattivo-boss*"))
+                    ignore=shutil.ignore_patterns("versioni", "strumenti", "sw.js", "*.md"))
     from PIL import Image  # la foto della lavagna: in alto c'è un ragazzo riflesso nel vetro, si taglia sotto
     lj = os.path.join(OUT, "compito", "lavagna-versioni.jpg")
     im = Image.open(lj)
     w, h = im.size
     im.crop((0, int(h * 0.135), w, int(h * 0.80))).save(lj, quality=85)
-    cop = os.path.join(OUT, "gioco", "img", "copertina.jpg")  # la copertina ha personaggi disegnati sui ragazzi: sfondo neutro
-    if os.path.exists(cop):
-        cw, ch = Image.open(cop).size
-        sf = Image.new("RGB", (cw, ch))
-        px = sf.load()
-        for y in range(ch):
-            for x in range(0, cw):
-                k = y / ch
-                px[x, y] = (int(40 + 30 * k), int(30 + 20 * k), int(70 - 30 * k))
-        sf.save(cop, quality=85)
-    fj = os.path.join(OUT, "gioco", "facce.json")  # nella demo solo i personaggi disegnati, niente foto o facce dei ragazzi
-    d = json.load(open(fj, encoding="utf-8"))
-    d["facce"] = []
-    json.dump(d, open(fj, "w", encoding="utf-8"), ensure_ascii=False)
-    pj = os.path.join(OUT, "gioco", "img", "personaggi", "personaggi.json")  # i personaggi sono disegnati sulle facce dei ragazzi
-    json.dump({"personaggi": []}, open(pj, "w", encoding="utf-8"), ensure_ascii=False)
     for radice, _, files in os.walk(OUT):
         for f in files:
             if not f.endswith((".html", ".json", ".webmanifest")):

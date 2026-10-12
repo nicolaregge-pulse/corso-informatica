@@ -650,6 +650,7 @@ l'intestazione del file.
 4. `REGISTRO-ERRORI-CLAUDE.md` — v2.33 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
+0. `presentazione-demo/` (generatori `gen_brochure.py`, `gen_presentazione.py`; demo in `docs/demo/` con `strumenti/gen_demo.py` e lo script `strumenti/demo-accesso.gs` nell'account PERSONALE) — v1.0 (materiale promozionale del metodo: brochure commerciale A4 con le schermate vere, nomi sostituiti; demo con accesso via email e codice 24 ore e notifica di ogni pagina; «Prova il sistema come un allievo» `docs/demo/prova/`; la giornata della 2INF del 12/10 senza nomi `docs/demo/giornata/`)
 1. `README.md` (radice) — v1.0
 2. `battaglia-navale-3d/README.md` — v1.0
 
