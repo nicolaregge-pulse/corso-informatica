@@ -130,8 +130,14 @@ func leggi_json(nome: String):
 	var percorso := DATI + nome
 	if not FileAccess.file_exists(percorso):
 		return null
+	var testo := FileAccess.get_file_as_string(percorso)
+	# una virgola in più prima di } o ] è un errore per il browser (la versione HTML non legge il file): lo segnaliamo anche qui
+	var virgola := RegEx.create_from_string(",\\s*[}\\]]").search(testo)
+	if virgola != null:
+		ERRORI.append(nome + ": errore di scrittura (una virgola in più prima di } o ]) alla riga %d" % (testo.substr(0, virgola.get_start()).count("\n") + 1))
+		return null
 	var j := JSON.new()
-	if j.parse(FileAccess.get_file_as_string(percorso)) != OK:
+	if j.parse(testo) != OK:
 		ERRORI.append(nome + ": errore di scrittura (una virgola o una virgoletta?) alla riga %d" % j.get_error_line())
 		return null
 	if not j.data is Dictionary:

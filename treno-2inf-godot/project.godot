@@ -14,6 +14,7 @@ config/name="Il treno blindato — base del prof. Nicola Regge"
 config/description="Il treno blindato su Godot 4.7: base del prof, v1.0 (dal gioco della 2INF v0.31)."
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+config/icon="res://icon.png"
 boot_splash/bg_color=Color(0.101961, 0.0784314, 0.0627451, 1)
 boot_splash/show_image=false
 
