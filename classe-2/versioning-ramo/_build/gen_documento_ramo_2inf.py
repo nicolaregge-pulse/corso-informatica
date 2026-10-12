@@ -3,7 +3,7 @@ Genera docs/compito/2inf-20261012-documento/pagina.html (index.html è il carica
 Segue REGOLE-COSTRUZIONE-TEORIA.md: titolo + traduzione, percorso in alto, FASE 1 teoria solo da leggere, FASE 2 bottone verde.
 """
 import json, os, html
-MODULO_PARERE = os.environ.get("MODULO_PARERE", "")
+MODULO_PARERE = os.environ.get("MODULO_PARERE", "https://docs.google.com/forms/d/e/1FAIpQLScAY2tXZo-TZZRTKTRwGA85ftqhA5W07eBeAX89YLEugJvHCA/viewform")
 MODULO_CONSEGNA = "https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform"
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 OUT = os.path.join(R, "docs", "compito", "2inf-20261012-documento", "pagina.html")
