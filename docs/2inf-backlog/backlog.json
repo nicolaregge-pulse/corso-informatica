@@ -21,7 +21,7 @@
    "file": true,
    "peso": 2,
    "motivo": "una riga di codice: al cambio di livello si passa all'ambiente dopo",
-   "fatto": "",
+   "fatto": "v0.13",
    "no": "",
    "pos": 2
   },
@@ -44,8 +44,8 @@
    "richiesta": "Cambiare la grafica; quando si cambia livello, cambia la mappa (lo scenario).",
    "file": false,
    "peso": 2,
-   "motivo": "la parte «cambia la mappa al cambio di livello» è la stessa richiesta di Ney V.; «cambiare la grafica» non dice cosa",
-   "fatto": "",
+   "motivo": "la parte «cambia la mappa al cambio di livello» è entrata con la v0.13; «cambiare la grafica» non dice cosa: riscrivila con cosa e dove",
+   "fatto": "v0.13",
    "no": "",
    "pos": 4
   },
