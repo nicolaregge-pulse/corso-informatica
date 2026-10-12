@@ -1,16 +1,29 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>Demo del sistema</title><style>body{margin:0;background:#fbfaf7;color:#111;font:17px/1.5 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:900px;margin:0 auto;padding:20px 16px}
-.box{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px;margin:12px 0}#chiusa{border:2px solid #c0392b}</style></head><body><div class="w">
-<div id="chiusa" class="box">Per vedere la demo serve un accesso valido: chiedi il codice dalla pagina di accesso.</div>
-<div id="aperta" hidden><h1>Demo in preparazione</h1><p>Qui arriveranno le pagine del sistema con i dati di una lezione vera, resi anonimi.</p></div>
-</div><script>
-/* tracciamento: ogni pagina della demo manda allo script dell'accesso (account PERSONALE) l'apertura e i clic */
-var WEBAPP = 'https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec';   // l'indirizzo dell'App web, dopo il deployment
-var T = new URLSearchParams(location.search).get('t') || sessionStorage.getItem('demo_t') || '';
-if (T) sessionStorage.setItem('demo_t', T);
-function traccia(evento, dettaglio, cb) { if (!WEBAPP || !T) return; var n = 'cb' + Date.now() + Math.floor(Math.random()*1000), s = document.createElement('script');
-  window[n] = function (r) { if (cb) cb(r); delete window[n]; s.remove(); };
-  s.src = WEBAPP + '?azione=traccia&t=' + encodeURIComponent(T) + '&evento=' + evento + '&pagina=' + encodeURIComponent(location.pathname) + '&dettaglio=' + encodeURIComponent(dettaglio || '') + '&callback=' + n; document.body.appendChild(s); }
-traccia('apertura', document.title, function (r) { if (r.ok) { document.getElementById('chiusa').hidden = true; document.getElementById('aperta').hidden = false; } });
-document.addEventListener('click', function (e) { var a = e.target.closest('a,button'); if (a) traccia('clic', (a.textContent || '').trim().slice(0, 60)); });
-</script></body></html>
+<title>Demo del laboratorio</title><style>
+:root{--bg:#fbfaf7;--fg:#111;--mu:#555;--card:#fff;--bd:#ddd;--blu:#1f6feb;--verde:#1a7f37}
+@media (prefers-color-scheme:dark){:root{--bg:#15171a;--fg:#eee;--mu:#aaa;--card:#1e2126;--bd:#333}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.5 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:900px;margin:0 auto;padding:20px 16px}
+h1{font-size:28px;margin:8px 0 4px}h2{font-size:20px;margin:24px 0 8px}.mu{color:var(--mu)}
+.g{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+a.c{display:block;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;color:inherit;text-decoration:none}
+a.c b{display:block;color:var(--blu);font-size:18px}a.c.gioco b{color:var(--verde)}
+.num{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}.num div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px}.num b{display:block;font-size:26px}
+</style></head><body><div class="w">
+<h1>Una scuola che lavora come un'azienda di software</h1>
+<p class="mu">Laboratorio di informatica del prof. Nicola Regge — istituto professionale, Milano. Qui sotto c'è una lezione vera, quella della seconda del 12 ottobre 2026, con tutti i dati della giornata. I nomi dei ragazzi sono sostituiti con «Allievo 01», «Allievo 02»…</p>
+<div class="num"><div><b>3 ore</b>di laboratorio</div><div><b>17</b>ragazzi presenti</div><div><b>129</b>richieste di modifica (Pull Request)</div><div><b>20</b>versioni nuove del gioco</div><div><b>17 su 17</b>hanno mandato almeno una richiesta</div></div>
+<h2>Come funziona la lezione</h2>
+<p>I ragazzi leggono una teoria breve (versioni del software e metodo Agile), poi propongono modifiche al gioco della classe come farebbero in un'azienda: ogni proposta è una Pull Request con titolo, cosa cambia, dove e perché. Ogni proposta entra nel backlog con un peso; quelle accettate diventano una versione nuova del gioco, giocabile subito. Voti, classifica e monitor della lezione si aggiornano da soli, ogni minuto.</p>
+<h2>La giornata del 12/10, pagina per pagina</h2>
+<div class="g">
+<a class="c" href="giornata/compito/" target="_blank"><b>1. Il compito della lezione</b>la pagina che i ragazzi aprono da Classroom: teoria, poi i bottoni del lavoro</a>
+<a class="c" href="giornata/backlog/" target="_blank"><b>2. Il backlog</b>tutte le richieste, con peso, stato e versione del gioco che le ha realizzate</a>
+<a class="c" href="giornata/novita/" target="_blank"><b>3. Cosa è cambiato oggi nel gioco</b>il registro delle modifiche (changelog) di tutte le versioni del giorno</a>
+<a class="c" href="giornata/voti/" target="_blank"><b>4. I voti</b>il voto proposto a ogni ragazzo, con il perché</a>
+<a class="c" href="giornata/classifica/" target="_blank"><b>5. La classifica</b>chi ha portato più modifiche dentro il gioco</a>
+<a class="c" href="giornata/monitor/" target="_blank"><b>6. Il monitor della lezione</b>cosa c'era su ogni schermo durante i giri del docente</a>
+<a class="c gioco" href="giornata/gioco/" target="_blank"><b>7. Gioca al gioco della classe</b>«Il treno blindato», com'è uscito alla fine della giornata</a>
+<a class="c" href="grafo.png" target="_blank"><b>8. L'albero delle versioni</b>la storia del gioco come la disegna Git: rami, copie delle altre classi, fusioni, versioni</a>
+</div>
+<p class="mu" style="margin-top:24px">L'accesso alla demo vale 24 ore.</p>
+</div><script src="traccia.js"></script></body></html>
