@@ -587,7 +587,7 @@ func salva_top() -> void:
 		if float(x.get("id", 0)) == id_top:
 			x.n = n
 	mem.scrivi("top", t)
-	mem.scrivi_testo("treno-2inf-soprannome", n)
+	mem.scrivi_testo("treno-prof-soprannome", n)
 	w_salva.visible = false
 	w_top_fine.text = top_testo("I migliori punteggi")
 	aggiorna_top()
@@ -598,7 +598,7 @@ func fine_partita(S: Dictionary) -> void:
 	var p: int = S.punti
 	var nuovo := p > r
 	var entra := p > 0 and salva_subito(p)
-	var sop = mem.leggi_testo("treno-2inf-soprannome")
+	var sop = mem.leggi_testo("treno-prof-soprannome")
 	w_nome.text = sop if sop is String else ""
 	w_salva.visible = entra
 	w_top_fine.text = top_testo("I migliori punteggi")
@@ -638,7 +638,7 @@ func apri_versioni() -> void:
 		# dalla versione attuale si va in versioni/; da una versione congelata (versioni/v1.0/) si torna su di uno
 		JavaScriptBridge.eval("location.href=(/\\/versioni\\/v[^\\/]+\\/?$/.test(location.pathname)?'../':'versioni/')", true)
 	else:
-		OS.shell_open("https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-2inf-godot/versioni/")
+		OS.shell_open("https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-prof/versioni/")
 
 
 # ---------------- Facce della classe ----------------
@@ -672,9 +672,9 @@ window.trenoScegliFoto = function(cb){
           var s = Math.min(im.width, im.height), x0 = (im.width - s) / 2, y0 = Math.max(0, Math.min(im.height - s, im.height * .38 - s / 2));
           var c = document.createElement('canvas'); c.width = c.height = 220;
           c.getContext('2d').drawImage(im, x0, y0, s, s, 0, 0, 220, 220);
-          var lista = []; try { lista = JSON.parse(localStorage.getItem('treno-2inf-foto') || '[]') } catch(e) {}
+          var lista = []; try { lista = JSON.parse(localStorage.getItem('treno-prof-foto') || '[]') } catch(e) {}
           lista.push(c.toDataURL('image/jpeg', .82));
-          try { localStorage.setItem('treno-2inf-foto', JSON.stringify(lista)) } catch(e) { window.trenoFotoMsg = 'Memoria piena: usa meno foto.' }
+          try { localStorage.setItem('treno-prof-foto', JSON.stringify(lista)) } catch(e) { window.trenoFotoMsg = 'Memoria piena: usa meno foto.' }
           fine();
         };
         im.onerror = fine;

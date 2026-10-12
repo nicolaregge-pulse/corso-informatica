@@ -2,8 +2,8 @@
 
 Ogni versione dice **cosa cambia e perché**. I numeri si leggono così: MAJOR.MINOR.PATCH
 (cambio grosso . aggiunta . correzione di un errore). Ogni versione si gioca al suo link:
-`https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-2inf-godot/versioni/<versione>/`
-L'ultima versione è sempre a `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-2inf-godot/`.
+`https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-prof/versioni/<versione>/`
+L'ultima versione è sempre a `https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-prof/`.
 
 ## v1.0 — 12/10/2026 — Il treno blindato su Godot, base del prof (MAJOR)
 
