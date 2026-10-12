@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.25 — 12/10/2026 13:18 — Colpo preciso
+
+1. Pull Request di Giorgio A. (13:16): «se il giocatore colpisce un cattivo con un colpo preciso, riceve punti bonus, così conviene mirare bene».
+2. Se colpisci il cattivo proprio sulla testa compare «COLPO PRECISO +50» e prendi 50 punti in più; se lo colpisci sul corpo, i punti sono quelli normali.
+3. Peso 2 nel backlog: una regola piccola in index.html, dove si spara e dove si contano i punti.
+
 ## v0.24 — 12/10/2026 13:17 — Più avanti, più punti
 
 1. Pull Request di Luciano C. (13:14): «più vai avanti nel gioco e i nemici ti danno più punti».

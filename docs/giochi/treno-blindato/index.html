@@ -204,7 +204,7 @@ function nuovoCattivo(){var cand=S.oggetti.filter(function(o){return o.z>5&&o.z<
  /* v0.15 PR di Antonio M.: la difficoltà cresce di più a ogni livello */var tempo=Math.max(.75,(R.secondi_prima_di_sparare-(S.livello-1)*.3)/(1+(base.velocita-1)*.2));
  o.cattivo=true;S.cattivi.push({o:o,dx:dx,dy:dy,rw:.34,t:0,entra:.75,tempo:tempo,b:base,fase:'entra',morto:0,x:0,y:0,r:10,u:10,sc:0})}
 function colpito(c){c.fase='colpito';c.morto=0;S.abbattuti++;S.combo++;/* v0.24 PR di Luciano C.: più vai avanti, più punti vale ogni cattivo (+50% a ogni livello) */var p=Math.round(R.punti_per_cattivo*(1+(S.livello-1)*.5))+Math.min(40,S.combo*2);S.punti+=p;SUONI.pop();
- S.testi.push({x:c.x,y:c.y-c.r,s:'+'+p+(S.combo>2?' COMBO x'+S.combo:''),t:0});/* v0.18 PR di Ney V. ed Egor M.: BANG! e lampo rosso */S.testi.push({x:c.x,y:c.y-c.r*2.6,s:'BANG!',t:0,big:1});S.flashRosso=.12;
+ S.testi.push({x:c.x,y:c.y-c.r,s:'+'+p+(S.combo>2?' COMBO x'+S.combo:''),t:0});/* v0.18 PR di Ney V. ed Egor M.: BANG! e lampo rosso */S.testi.push({x:c.x,y:c.y-c.r*2.6,s:'BANG!',t:0,big:1});/* v0.25 PR di Giorgio A.: colpo preciso in testa = 50 punti bonus */if(c.preciso){S.punti+=50;S.testi.push({x:c.x,y:c.y-c.r*4,s:'COLPO PRECISO +50',t:0})}S.flashRosso=.12;
  for(var i=0;i<22;i++){var a=rnd(0,7),v=rnd(80,380);S.part.push({x:c.x,y:c.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,t:0,c:i%3?'#3a3a3a':'#ffcc33',r:rnd(2,6)})}
  if(S.abbattuti%R.cattivi_per_livello===0){S.livello++;/* v0.13 PR di Ney V. e Alejandro G.: nuovo livello = nuovo scenario */S.amb++;S.ambT=0;setTimeout(annunciaAmbiente,700);SUONI.vittoria();S.testi.push({x:W/2,y:H*.32,s:TX.livello+' '+S.livello+'!',t:0,big:1});coriandoli(60)}}
 function spara(c){c.fase='spara';c.morto=0;S.combo=0;SUONI.sparo();S.flash=.18;S.scossa=.35;S.vetro--;var f=finestra();
@@ -220,7 +220,7 @@ function coriandoli(n){for(var i=0;i<n;i++)CONF.push({x:rnd(0,W),y:-10,vx:rnd(-6
 
 function tocca(e){if(!S||S.fine||PAUSA)return;e.preventDefault();var pts=e.changedTouches?Array.prototype.slice.call(e.changedTouches):[e];
  pts.forEach(function(p){var x=p.clientX,y=p.clientY;SUONI.colpo();S.part.push({x:x,y:y,vx:0,vy:0,t:0,c:'#ffd34d',r:18,mira:1});
-  var best=null,bd=1e9;S.cattivi.forEach(function(c){if(c.fase!=='entra'&&c.fase!=='attende')return;var d=Math.hypot(c.x-x,c.y-y),inCorpo=Math.abs(x-c.x)<c.u*.38&&y>c.y&&y<c.piedi;if((d<c.r*1.35||inCorpo)&&d<bd){bd=d;best=c}});if(best)colpito(best)})}
+  var best=null,bd=1e9;S.cattivi.forEach(function(c){if(c.fase!=='entra'&&c.fase!=='attende')return;var d=Math.hypot(c.x-x,c.y-y),inCorpo=Math.abs(x-c.x)<c.u*.38&&y>c.y&&y<c.piedi;if((d<c.r*1.35||inCorpo)&&d<bd){bd=d;best=c}});if(best){best.preciso=bd<best.r*.8;colpito(best)}})}
 cv.addEventListener('touchstart',tocca,{passive:false});cv.addEventListener('mousedown',tocca);
 
 /* ---------- disegno ---------- */
