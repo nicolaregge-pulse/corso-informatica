@@ -16,4 +16,9 @@
    2. Argomento forte dell'anno: le **reti**.
    3. C'è anche il **progetto** da sviluppare.
    4. Fuori dal giro del treno su Godot.
-6. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
+6. **Le logiche dell'Allegato A** (ricordate da Nicola la sera del 12/10):
+   1. Nell'Allegato A non ci sono le materie, ci sono le **aree di competenza**: si guardano TUTTE.
+   2. Per ogni area si pensa dove noi abbiamo un'influenza (anche italiano, inglese, matematica, storia, cittadinanza…) e lì si mettono i nostri argomenti.
+   3. In ogni area, **in alto**, si scrive «Regge»; sotto, tutte le nostre voci **evidenziate in giallo**.
+   4. Conseguenza per i file Word v0.1: l'etichetta «Regge» va spostata in cima alla riga dell'annualità (oggi è in fondo) e vanno aggiunte le aree che mancano.
+7. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
