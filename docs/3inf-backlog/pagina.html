@@ -1,0 +1,28 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Backlog 3INF</title><style>
+:root{--bg:#fbfaf7;--card:#fff;--tx:#111;--mu:#555;--ln:#ddd;--acc:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.45 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1150px;margin:0 auto;padding:16px}
+h1{font-size:clamp(24px,6vw,32px);margin:8px 0 2px}.mu{color:var(--mu)}.bn{font-family:"Noto Sans Bengali","Vrinda",sans-serif;color:var(--mu);margin:2px 0}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin:10px 0;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--ln);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--acc);color:#fff}
+.peso{font-size:22px;font-weight:900;text-align:center}.p1,.p2{color:#2f9e57}.p3,.p5{color:#d4a017}.p8,.p13{color:#e0413a}
+.bt{display:inline-block;background:#1f6feb;color:#fff;font-weight:800;text-decoration:none;border-radius:10px;padding:8px 14px}
+</style></head><body><div class="w">
+<h1>Il backlog della 3INF</h1><p class="bn">৩INF-এর backlog</p>
+<div class="card"><p>Qui ci sono <b>tutte le Pull Request</b> della classe. <b>Ogni richiesta vale 1</b>, chiunque la faccia. Il prof le fa in quest'ordine: prima quelle con il <b>peso più basso</b> (meno lavoro sul codice); a parità di peso, <b>chi è arrivato prima</b> (FIFO: il primo che entra è il primo che esce). Il peso usa i numeri di Fibonacci: <b>1, 2, 3, 5, 8, 13</b>. La pagina si aggiorna da sola.</p>
+<p class="bn">এখানে ক্লাসের সব Pull Request আছে। প্রতিটি অনুরোধের মূল্য ১, যে-ই করুক। শিক্ষক এই ক্রমে করেন: আগে যেগুলোর ওজন সবচেয়ে কম (কোডে কম কাজ); একই ওজন হলে, যে আগে এসেছে (FIFO)। ওজনে ফিবোনাচি সংখ্যা: ১, ২, ৩, ৫, ৮, ১৩। পাতাটি নিজে আপডেট হয়।</p>
+<p><a class="bt" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile/">Teoria Agile</a> <span class="mu" id="agg"></span></p></div>
+<div class="card"><table><thead><tr><th>Posizione</th><th>Data e ora</th><th>Alunno</th><th>PR</th><th>Riepilogo della richiesta</th><th>Peso</th><th>Perché in questa posizione</th></tr></thead><tbody id="tb"><tr><td colspan="7" class="mu">Ancora nessuna Pull Request.</td></tr></tbody></table></div>
+<div class="card mu"><b>Come si legge il peso:</b> 1 = cambia un testo o un colore · 2 = cambia un numero (velocità, punti) · 3 = un personaggio nuovo · 5 = un ambiente o un oggetto nuovo · 8 = una regola nuova del gioco (armi, pausa, vite) · 13 = un pezzo di gioco grande e nuovo.
+<p class="bn">ওজন: ১ = লেখা বা রং · ২ = একটি সংখ্যা · ৩ = নতুন চরিত্র · ৫ = নতুন পরিবেশ বা বস্তু · ৮ = খেলার নতুন নিয়ম · ১৩ = বড় নতুন অংশ।</p></div>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
+ if(!d.voci.length)return;
+ document.getElementById('tb').innerHTML=d.voci.map(function(v){return '<tr><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con immagine)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td></tr>'}).join('')}).catch(function(){})}
+carica();setInterval(carica,60000);
+</script></body></html>
