@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.21 — 12/10/2026 13:03 — Le luci dei palazzi non lampeggiano più
+
+1. Pull Request di Luca B. (13:01): «sistemare le luci che lampeggiano di continuo nelle case e nei palazzi»; dove: case e palazzi; perché: è un difetto.
+2. Causa: le finestre accese dei palazzi erano scelte in base alla posizione sullo schermo; il palazzo si muove, quindi a ogni istante si accendevano finestre diverse.
+3. Correzione: ogni palazzo ha le sue finestre accese, sempre le stesse, mentre si avvicina.
+4. Peso 2 nel backlog: un difetto piccolo, una riga di index.html.
+
 ## v0.20 — 12/10/2026 13:02 — I cattivi si vedono sempre
 
 1. Pull Request di Egor M. (12:57): «migliorare gli ostacoli dove si nascondono i nemici (case, palazzi…): a volte escono male e il nemico non si vede».
