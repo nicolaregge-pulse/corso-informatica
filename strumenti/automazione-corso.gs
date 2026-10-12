@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v7.2 (12/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.3 (12/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * Git e' la zona di scambio con l'AI (repo privato corso-informatica-riservato):
  *
  *   1. PUBBLICA: l'AI mette in coda/ un file .json con stato "da-pubblicare" (titolo, PDF,
@@ -73,13 +73,39 @@ var AUTO_MODULI_LIVE = {
   '1JVn38PZHdEKSA7LpUpWLiyUi0_72TMRehtFEYpAnz4o': 'dati/consegne/3INF/2026-10/20261012_parere-teoria/risposte.json',
   '1FVAspj6QiC_8cnvSq1xWQE_gBKbz8RTsb51srR2wc3M': 'dati/consegne/2INF/2026-10/20261012_parere-teoria/risposte.json'
 };
-function attivaInvioModuli() {
-  ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'AUTO_suInvio') ScriptApp.deleteTrigger(t); });
-  Object.keys(AUTO_MODULI_LIVE).forEach(function (id) { ScriptApp.newTrigger('AUTO_suInvio').forForm(id).onFormSubmit().create(); });
-  Logger.log('Invio immediato ATTIVO per ' + Object.keys(AUTO_MODULI_LIVE).length + ' moduli.');
+/* v7.3 — l'elenco dei Moduli «live» sta anche su Git: config/moduli-live.json ({"id del Modulo": "percorso delle risposte"}).
+   Lo script lo legge e, ogni 10 minuti, attiva da solo l'invio immediato per i Moduli nuovi e lo toglie a quelli tolti
+   dall'elenco: per aggiungere un Modulo NON serve più ricopiare lo script né premere «Esegui». */
+function AUTO_moduliLive() {
+  var m = {};
+  Object.keys(AUTO_MODULI_LIVE).forEach(function (k) { m[k] = AUTO_MODULI_LIVE[k]; });
+  try {
+    var j = AUTO_leggiJson('config/moduli-live.json').json;
+    Object.keys(j).forEach(function (k) { if (k.charAt(0) !== '_') { if (j[k]) m[k] = j[k]; else delete m[k]; } });
+  } catch (e) { Logger.log('config/moduli-live.json non letto: ' + e); }
+  return m;
 }
+function AUTO_allineaInvio(subito) {
+  var p = PropertiesService.getScriptProperties(), ora = Date.now();
+  if (!subito && ora - Number(p.getProperty('ULTIMO_ALLINEA') || 0) < 10 * 60 * 1000) return 0;
+  p.setProperty('ULTIMO_ALLINEA', String(ora));
+  var m = AUTO_moduliLive(), gia = {}, n = 0, tolti = 0;
+  ScriptApp.getProjectTriggers().forEach(function (t) {
+    if (t.getHandlerFunction() !== 'AUTO_suInvio') return;
+    var id = t.getTriggerSourceId();
+    if (!m[id] || gia[id]) { ScriptApp.deleteTrigger(t); tolti++; } else gia[id] = true;
+  });
+  Object.keys(m).forEach(function (id) {
+    if (gia[id]) return;
+    try { ScriptApp.newTrigger('AUTO_suInvio').forForm(id).onFormSubmit().create(); n++; }
+    catch (e) { Logger.log('Invio immediato NON attivato per ' + id + ': ' + e); }
+  });
+  Logger.log('Invio immediato: ' + Object.keys(m).length + ' moduli nell\'elenco, ' + n + ' attivati ora, ' + tolti + ' tolti.');
+  return n;
+}
+function attivaInvioModuli() { AUTO_allineaInvio(true); }
 function AUTO_suInvio(e) {
-  var fr = e.source, id = fr.getId(), dove = AUTO_MODULI_LIVE[id];
+  var fr = e.source, id = fr.getId(), dove = AUTO_moduliLive()[id];
   if (!dove) return;
   var righe = fr.getResponses().map(function (r) {
     var o = { email: r.getRespondentEmail(), ora: r.getTimestamp().toISOString(), risposte: {} };
@@ -124,6 +150,7 @@ function autoCiclo() {
       }
     });
     try { fatto += AUTO_comandi(); } catch (e) { Logger.log('ERRORE ponte Google: ' + e); }   // v5
+    try { AUTO_allineaInvio(false); } catch (e) { Logger.log('ERRORE invio immediato: ' + e); }   // v7.3
     Logger.log('Giro finito. Azioni fatte: ' + fatto + ' (file in coda: ' + files.length + ')');
   } finally { lock.releaseLock(); }
 }
