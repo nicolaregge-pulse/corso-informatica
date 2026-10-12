@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 12:50",
+ "aggiornato": "12/10/2026 12:52",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -14,6 +14,18 @@
    "pos": 1
   },
   {
+   "ora": "12/10 12:50",
+   "alunno": "Giorgio A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Titolo: Aggiungere 3 vite\n\nCosa cambia: Il giocatore ha 3 vite e può essere colpito più volte prima di perdere.\n\nDove: Durante tutta la partita.\n\nPerché: Per rendere il gioco meno difficile e più divertente.",
+   "file": false,
+   "peso": 1,
+   "motivo": "si cambia solo un testo o un colore: una riga",
+   "fatto": "",
+   "no": "",
+   "pos": 2
+  },
+  {
    "ora": "12/10 12:29",
    "alunno": "Ney V.",
    "pr": "PR (senza numero)",
@@ -23,7 +35,7 @@
    "motivo": "una riga di codice: al cambio di livello si passa all'ambiente dopo",
    "fatto": "",
    "no": "",
-   "pos": 2
+   "pos": 3
   },
   {
    "ora": "12/10 12:31",
@@ -35,7 +47,7 @@
    "motivo": "si cambia una regola piccola: un colpo in più",
    "fatto": "",
    "no": "",
-   "pos": 3
+   "pos": 4
   },
   {
    "ora": "12/10 12:45",
@@ -47,7 +59,19 @@
    "motivo": "la parte «cambia la mappa al cambio di livello» è la stessa richiesta di Ney V.; «cambiare la grafica» non dice cosa",
    "fatto": "",
    "no": "",
-   "pos": 4
+   "pos": 5
+  },
+  {
+   "ora": "12/10 12:51",
+   "alunno": "Mathias P.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Ogni uccisione guadagni delle monete, quando viene eliminato ovvero hai esaurito la durezza del vetro e sei arrivato a zero il gioco ti propone di ricominciare da dove sei morto pagando tot monete e ogni volta che muori la rinascita costa s…",
+   "file": false,
+   "peso": 2,
+   "motivo": "si cambia un numero nelle regole del gioco",
+   "fatto": "",
+   "no": "",
+   "pos": 6
   },
   {
    "ora": "12/10 12:30",
@@ -59,7 +83,19 @@
    "motivo": "un file nuovo e il codice per suonarlo; da controllare che la musica sia libera (diritti d'autore)",
    "fatto": "",
    "no": "",
-   "pos": 5
+   "pos": 7
+  },
+  {
+   "ora": "12/10 12:51",
+   "alunno": "Luca B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "animazione uccisione personaggi\nl'animazione dell'uccisione dei personaggi sia diversa con macchie di sangue.\n            dove: nei personaggi\n             perché: sembra un gioco di paintball",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 8
   },
   {
    "ora": "12/10 12:28",
@@ -71,7 +107,7 @@
    "motivo": "oggetti nuovi da disegnare; manca cosa aggiungere e dove",
    "fatto": "",
    "no": "",
-   "pos": 6
+   "pos": 9
   },
   {
    "ora": "12/10 12:32",
@@ -83,7 +119,7 @@
    "motivo": "è la stessa richiesta delle 12:28",
    "fatto": "",
    "no": "",
-   "pos": 7
+   "pos": 10
   },
   {
    "ora": "12/10 12:48",
@@ -95,7 +131,7 @@
    "motivo": "oggetti da ridisegnare in tutto il gioco; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 8
+   "pos": 11
   },
   {
    "ora": "12/10 12:38",
@@ -107,7 +143,7 @@
    "motivo": "regola nuova del gioco (armi per livello); la parte «difficoltà che cresce» da sola pesa 2",
    "fatto": "",
    "no": "",
-   "pos": 9
+   "pos": 12
   },
   {
    "ora": "12/10 12:49",
@@ -119,7 +155,7 @@
    "motivo": "cambia il modo in cui si disegna tutto il percorso; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 10
+   "pos": 13
   }
  ]
 }
