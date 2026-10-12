@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.29** — 12/10/2026
+**Versione 2.30** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -331,3 +331,8 @@ lezione.*
 
 1. **Errore.** Nicola stava scrivendo le sue considerazioni (PPP). Ho dato per scontato cosa volesse: prima una pagina nuova per il Modulo, poi «i 5 bottoni come modello fisso per ogni lezione». Non me l'aveva chiesto.
 2. **Regola.** Quando Nicola ragiona ad alta voce o scrive considerazioni, non si decide niente al posto suo. Se non è chiaro cosa vuole, si chiede con una domanda sola.
+
+## 12/10/2026 — Istruzioni con «se» e domande dentro (#55)
+
+1. **Errore.** Nelle istruzioni per lo script ho scritto «Se la scheda è già aperta, salta alla Parte B» e ho chiuso con una domanda. Così il docente deve decidere mentre esegue.
+2. **Regola.** Le istruzioni sono un flusso unico che parte sempre da zero e funziona senza condizioni: niente «se», niente «salta», niente domande dentro i passi.
