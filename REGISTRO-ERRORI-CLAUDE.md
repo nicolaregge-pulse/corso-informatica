@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.20** — 09/10/2026
+**Versione 2.21** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -285,3 +285,9 @@ lezione.*
 1. **Cosa succede in classe (spiegato da Nicola).** «Prendete carta e penna»: 5-6 ragazzi non ce l'hanno e girano per la classe a cercarla. Dopo 5 minuti chiedono «ma cosa devo disegnare?». Dopo 15 minuti ha consegnato il 70%, il restante 30% va seguito uno per uno. Servono 30 minuti solo per avere i disegni, poi per rispondere a ognuno: 3 minuti a testa = 60 minuti.
 2. **Errore.** Ho proposto di disegnare il grafo a mano: un'attività probabilmente inutile, che il docente non può correggere in tempo e che porta via metà della lezione.
 3. **Regola.** Niente attività a mano o su carta, se Nicola non le chiede. Ogni attività deve potersi controllare in automatico o a colpo d'occhio dalla pagina del prof, senza passare banco per banco. Prima di proporre un'attività calcolo il tempo reale: preparazione + chi resta indietro + tempo del prof per rispondere a tutti.
+
+## 12/10/2026 — Modulo «Consegna»: annunciato un testo da cambiare senza dare il riquadro da copiare (#46)
+
+1. **Errore.** Ho detto a Nicola «dopo cambiamo anche questa frase» senza mettere nello stesso messaggio la frase nuova pronta da copiare. È la regola COPIA, già chiesta molte volte.
+2. **Regola.** Ogni testo che Nicola deve scrivere, anche se arriva nel passo dopo, sta già nel messaggio in un blocco di codice, un valore per blocco (CLAUDE.md, regola 9).
+
