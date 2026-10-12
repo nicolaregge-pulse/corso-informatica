@@ -114,9 +114,10 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 <p>@@BT1@@</p>
 <h3>Lavoro 2 — La mia Pull Request (una richiesta per il gioco)</h3><ol>
 <li><b>Premi il bottone verde «Lavoro 2»: si apre il Modulo «Consegna».</b><p class="bn">সবুজ বোতাম «Lavoro 2» চাপো: «Consegna» ফর্ম খুলবে।</p></li>
-<li><b>In «Cosa consegni?» scrivi: PR</b><p class="bn">«Cosa consegni?»-এ লেখো: PR</p></li>
+<li><b>In «Cosa consegni?» scrivi il numero della tua Pull Request: PR1 per la prima, PR2 per la seconda, PR3 per la terza…</b><p class="bn">«Cosa consegni?»-এ তোমার Pull Request-এর নম্বর লেখো: প্রথমটির জন্য PR1, দ্বিতীয়টির জন্য PR2, তৃতীয়টির জন্য PR3…</p></li>
 <li><b>In «Il tuo testo» scrivi le 4 parti: Titolo · Cosa cambia · Dove · Perché (guarda l'esempio di Black Panter qui sopra).</b><p class="bn">«Il tuo testo»-এ ৪টি অংশ লেখো: শিরোনাম · কী বদলায় · কোথায় · কেন (উপরের Black Panter উদাহরণ দেখো)।</p></li>
-<li><b>Se vuoi, aggiungi un'immagine. Poi premi «Invia».</b><p class="bn">চাইলে একটি ছবি যোগ করো। তারপর «Invia» চাপো।</p></li></ol>
+<li><b>Se vuoi, aggiungi un'immagine. Poi premi «Invia».</b><p class="bn">চাইলে একটি ছবি যোগ করো। তারপর «Invia» চাপো।</p></li>
+<li><b>Per la Pull Request dopo, riapri il Modulo con lo stesso bottone e scrivi PR2, poi PR3.</b><p class="bn">পরের Pull Request-এর জন্য একই বোতাম দিয়ে ফর্মটি আবার খোলো এবং PR2, তারপর PR3 লেখো।</p></li></ol>
 <p class="mu">Se il Modulo non funziona, scrivi la Pull Request nel Documento del compito su Classroom, con le stesse 4 parti. · ফর্ম কাজ না করলে, Classroom-এর ডকুমেন্টে একই ৪টি অংশ লেখো।</p>
 <p><a class="bt" target="_blank" href="@@MC@@">Lavoro 2 — La mia Pull Request</a></p></div>
 </div></body></html>"""
