@@ -165,7 +165,8 @@ Il codice dello script «Consegne Classroom → Git» si fa copiare da questo in
 Ogni volta che cambio `strumenti/automazione-corso.gs` nel repository riservato, copio lo stesso file in `strumenti/` del
 repository pubblico (non contiene segreti: il token sta nelle proprietà dello script). Mai mandare Nicola sul repository
 privato dalla finestra PIAMARTA: dà 404 (errore di venerdì 09/10 e di lunedì 12/10, REGISTRO-ERRORI #48).
-Progetto Apps Script: `https://script.google.com/home/projects/1bDnxMZkRPgwUDiYs-Bs7Zy50xZkJ03A-0Nkex8f8oZTQvMrFQxBlz2ad/edit`
+Progetto Apps Script: aprire `https://script.google.com/home` (finestra PIAMARTA) e fare clic su «Consegne Classroom → Git».
+L'indirizzo diretto del progetto, ricopiato da uno screenshot, ha dato errore 400 (lettere l/I ambigue): non usarlo.
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
