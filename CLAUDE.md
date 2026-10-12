@@ -569,7 +569,7 @@ l'intestazione del file.
 5. `PROGRAMMA-PREVENTIVO-2026-27.md` — v0.4 (parti da incollare in Allegato A)
 6. `MIE-PARTI-ALLEGATO-A.md` — v0.2 (parti di Regge estratte dai PFP)
 7. `ARGOMENTI-SVOLTI.md` — v0.3 (svolto 2025/26, nomenclatura 26/27)
-7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.3 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
+7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.4 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
 7c. `allegato-a-stato/allegato-a-stato.md` (+ `allegato-a-stato.html` → `Allegato-A-Stato-v0.3.pdf`) — v0.3 (Allegato A stato fatto/da fare, da fare in giallo; Classi 1-4; 2/3/4 generate da MIE-PARTI con build_allegato.py)
 7d. `allegato-a-2026-27/allegato-a-classe-{1,2,3,4}.md` (→ `allegato-a-classe-N-v0.1.pdf`) — v0.1 (le mie parti Regge mappate per competenza/area, pronte da incollare negli Argomenti del PFP ufficiale; sorgente per compilare poi il docx ufficiale in `programmi-ufficiali/`; generati da `gen_allegati.py`)
 8. `programma-svolto/README.md` — v1.0
