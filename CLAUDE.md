@@ -150,6 +150,10 @@ Un orario detto prima («negli ultimi 25 minuti») NON vale come via. Vedi REGIS
    computer, senza foto né telefono (REGISTRO-ERRORI #43, #44).
 3. Solo dopo la sua approvazione esplicita si pubblica qualcosa. Vale anche per le anteprime già pronte.
 
+**8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
+si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
+Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
+
 ## Contesto didattico
 
 - **Docente:** Nicola. Sta imparando Godot in prima persona, in parallelo ai
