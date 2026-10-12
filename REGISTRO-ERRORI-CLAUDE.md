@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.33** — 12/10/2026
+**Versione 2.34** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,3 +351,8 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 12/10/2026 — Richiesta «portiamo tutto su Godot» lasciata indietro (#59)
+
+1. **Errore.** Il 09/10 il docente ha detto «mi piacerebbe spostare tutto su Godot» e il 12/10 «PPP mettiamola su Godot». Ho portato su Godot solo il treno della 1INF (v2.0); le 20 versioni della 2INF del 12/10 e quelle della 3INF sono rimaste in HTML. Ho risposto «preparo tutto e lo consegno al tuo avanti» e poi non l'ho messo nell'elenco dei lavori aperti: il docente l'ha scoperto da solo la sera.
+2. **Regola.** Ogni richiesta del docente, anche dentro un PPP, va subito nell'elenco dei lavori aperti (`orario/da-fare-*.md`) e compare in ogni aggiornamento sui lavori finché non è fatta o il docente non la toglie. Il gioco della classe si porta su Godot.
