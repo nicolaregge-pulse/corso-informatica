@@ -473,6 +473,13 @@ function AUTO_azione(a) {
       });
       if (a.cartella_id) DriveApp.getFileById(fp.getId()).moveTo(DriveApp.getFolderById(a.cartella_id));
       return { id: fp.getId(), compila: fp.getPublishedUrl(), modifica: fp.getEditUrl() }; }
+    case 'forms.modifica': {        // v7.1: a.id; a.descrizione, a.conferma (facoltative); a.aiuti {titolo domanda: nuovo aiuto}
+      var fx = FormApp.openById(a.id), cambiati = 0;
+      if (a.descrizione !== undefined) fx.setDescription(a.descrizione);
+      if (a.conferma !== undefined) fx.setConfirmationMessage(a.conferma);
+      fx.getItems().forEach(function (it) {
+        if (a.aiuti && a.aiuti.hasOwnProperty(it.getTitle())) { it.setHelpText(a.aiuti[it.getTitle()]); cambiati++; } });
+      return { id: a.id, domande_cambiate: cambiati }; }
     case 'forms.risposte_testo': {  // v6: a.id, a.salva_in (file .json nel repo riservato)
       var fr = FormApp.openById(a.id), righe = fr.getResponses().map(function (r) {
         var o = { email: r.getRespondentEmail(), ora: r.getTimestamp().toISOString(), risposte: {} };
