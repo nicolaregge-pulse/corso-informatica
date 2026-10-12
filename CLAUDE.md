@@ -155,8 +155,8 @@ Ogni volta che un passo (anche quello successivo annunciato) richiede a Nicola d
 un valore, il testo pronto va già nel messaggio, in un blocco di codice da copiare. Nicola non scrive mai a mano. Vedi REGISTRO-ERRORI #46.
 Ordine di lettura: Nicola legge dall'alto in basso. Il riquadro da copiare sta SUBITO dopo il passo che lo usa (passo → riquadro →
 passo successivo), mai raccolto in fondo e mai indicato con «qui sotto» se non è proprio la riga seguente.
-Formato ATOMICO (12/10/2026): un messaggio = un passo completo (dove + cosa + il suo riquadro da copiare), poi si aspetta il «fatto»
-di Nicola e si manda il passo dopo.
+Formato ATOMICO (12/10/2026, corretto da Nicola): ogni passo è un blocco completo (dove + cosa + il suo riquadro da copiare subito
+dopo); in un messaggio si danno PIÙ passi atomici, uno sotto l'altro. Se Nicola si perde, lo dice lui.
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
