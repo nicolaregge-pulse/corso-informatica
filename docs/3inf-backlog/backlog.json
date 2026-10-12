@@ -17,7 +17,7 @@
    "ora": "12/10 10:27",
    "alunno": "Andrea G.",
    "pr": "PR (senza numero)",
-   "richiesta": "pull request",
+   "richiesta": "file",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
@@ -29,7 +29,7 @@
    "ora": "12/10 10:31",
    "alunno": "Noah V.",
    "pr": "PR (senza numero)",
-   "richiesta": "pull request",
+   "richiesta": "file",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
@@ -52,14 +52,26 @@
   {
    "ora": "12/10 10:33",
    "alunno": "Ariel D.",
-   "pr": "PR (senza numero)",
-   "richiesta": "pull request · PR1: Tra i nemici potrebbero comparire degli alieni tutti verdi. PR2: Che le rocce che compaiono ai lati dei binari abbiano dimensioni e tonalità diverse",
+   "pr": "PR1",
+   "richiesta": "Tra i nemici potrebbero comparire degli alieni tutti verdi.",
    "file": false,
    "peso": 3,
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
    "pos": 5
+  },
+  {
+   "ora": "12/10 10:33",
+   "alunno": "Ariel D.",
+   "pr": "PR2",
+   "richiesta": "Che le rocce che compaiono ai lati dei binari abbiano dimensioni e tonalità diverse",
+   "file": false,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 6
   },
   {
    "ora": "12/10 10:34",
@@ -71,7 +83,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 6
+   "pos": 7
   },
   {
    "ora": "12/10 10:32",
@@ -83,7 +95,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 7
+   "pos": 8
   }
  ]
 }
