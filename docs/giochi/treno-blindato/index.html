@@ -321,7 +321,7 @@ function vetro(){var g=cx,f=finestra();g.save();g.beginPath();g.rect(f.x,f.y,f.w
  S.crepe.forEach(function(c){g.strokeStyle='rgba(255,255,255,.9)';g.lineWidth=1.6;c.linee.forEach(function(s){g.beginPath();g.moveTo(s[0][0],s[0][1]);for(var i=1;i<s.length;i++)g.lineTo(s[i][0],s[i][1]);g.stroke()});
   g.lineWidth=1;g.strokeStyle='rgba(255,255,255,.6)';c.anelli.forEach(function(a){g.beginPath();for(var i=0;i<=10;i++){var t=i/10*6.283,rr=a*(1+Math.sin(i*2.7)*.18);g.lineTo(c.x+Math.cos(t)*rr,c.y+Math.sin(t)*rr)}g.stroke()});
   g.fillStyle='#fff';g.beginPath();g.arc(c.x,c.y,5,0,7);g.fill()});g.restore()}
-function hud(){var g=cx,f=finestra(),pad=10;g.font='800 20px system-ui,Arial';g.fillStyle='#fff';g.textAlign='left';g.fillText('Punti '+S.punti,pad,f.y-12>18?f.y-12:24);
+function hud(){var g=cx,f=finestra(),pad=10;g.font='800 20px system-ui,Arial';g.fillStyle='#fff';g.textAlign='left';g.fillText('Punti '+S.punti,pad,f.y-12>18?f.y-12:24);/* v0.22 PR di Youssef A.: il record resta e si vede accanto ai punti */var rec=Math.max(S.punti,(topLista()[0]||{p:0}).p||0);g.font='700 15px system-ui,Arial';g.fillStyle='#ffd34d';g.fillText('Record '+rec,pad+g.measureText('Punti '+S.punti).width*1.4+18,f.y-12>18?f.y-12:24);
  g.textAlign='center';g.fillStyle='#ffd34d';g.font='700 15px system-ui,Arial';g.fillText(ambiente().nome+' · '+TX.livello+' '+S.livello+' · km '+Math.floor(S.km),W/2,f.y-12>18?f.y-12:24);
  g.textAlign='right';g.fillStyle='#fff';var y0=f.y+f.h+12;g.fillText('Vetro',W-pad,y0+14);for(var i=0;i<S.vetroMax;i++){g.fillStyle=i<S.vetro?'#8fd3ff':'#53213a';g.fillRect(W-pad-50-(i+1)*22,y0,16,20)}}
 function ciclo(ts){var dt=Math.min(.05,(ts-(Tprec||ts))/1000);Tprec=ts;

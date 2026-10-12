@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.22 — 12/10/2026 13:05 — Il record accanto ai punti
+
+1. Pull Request di Youssef A. (13:04): «Punteggio migliore salvato: salvare il record e mostrarlo accanto al contatore, così resta anche dopo aver ricaricato la pagina».
+2. In alto, accanto a «Punti», c’è la scritta gialla «Record» con il punteggio migliore fatto su questo computer. Si salva nel browser, quindi resta anche se ricarichi la pagina; se lo superi, il record sale mentre giochi.
+3. Peso 2 nel backlog: una riga in index.html, dove si scrivono i punti.
+
 ## v0.21 — 12/10/2026 13:03 — Le luci dei palazzi non lampeggiano più
 
 1. Pull Request di Luca B. (13:01): «sistemare le luci che lampeggiano di continuo nelle case e nei palazzi»; dove: case e palazzi; perché: è un difetto.
