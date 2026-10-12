@@ -207,7 +207,9 @@ function colpito(c){c.fase='colpito';c.morto=0;S.abbattuti++;S.combo++;var p=R.p
 function spara(c){c.fase='spara';c.morto=0;S.combo=0;SUONI.sparo();S.flash=.18;S.scossa=.35;S.vetro--;var f=finestra();
 var fr=c.b.frase||(TX.frasi&&TX.frasi.length?pick(TX.frasi):'');if(fr)S.testi.push({x:c.x,y:c.y-c.r-10,s:'«'+fr+'»',t:0,fumetto:1});
  S.crepe.push(creaCrepa(Math.max(f.x+20,Math.min(f.x+f.w-20,c.x+rnd(-.1,.1)*W)),Math.max(f.y+20,Math.min(f.y+f.h-20,c.y+rnd(-.08,.08)*H))));setTimeout(SUONI.crepa,90);
- if(S.vetro<=0){S.fine=true;setTimeout(function(){SUONI.rotto();frantuma()},250);setTimeout(fine,1700)}}
+ /* v0.14 PR di Egor M.: quando il vetro si spacca non si muore subito, c'è ancora 1 colpo da incassare */
+ if(S.vetro===0){S.testi.push({x:W/2,y:H*.3,s:'VETRO ROTTO! ULTIMO COLPO!',t:0,big:1});SUONI.rotto()}
+ if(S.vetro<0){S.vetro=0;S.fine=true;setTimeout(function(){SUONI.rotto();frantuma()},250);setTimeout(fine,1700)}}
 function creaCrepa(x,y){var f=finestra(),linee=[],n=ri(7,11);for(var i=0;i<n;i++){var a=i/n*6.283+rnd(-.2,.2),l=rnd(.15,.35)*Math.max(f.w,f.h),px=x,py=y,seg=[[x,y]];
  for(var j=0;j<6;j++){a+=rnd(-.35,.35);px+=Math.cos(a)*l/6;py+=Math.sin(a)*l/6;seg.push([px,py])}linee.push(seg)}var an=[];for(var k=1;k<=3;k++)an.push(rnd(14,26)*k);return {x:x,y:y,linee:linee,anelli:an}}
 function frantuma(){var f=finestra();for(var i=0;i<70;i++)COCCI.push({x:rnd(f.x,f.x+f.w),y:rnd(f.y,f.y+f.h),vx:rnd(-120,120),vy:rnd(-200,50),r:rnd(0,6),vr:rnd(-4,4),s:rnd(20,70)})}
