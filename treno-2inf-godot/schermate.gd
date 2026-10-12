@@ -96,6 +96,8 @@ func _ready() -> void:
 	w_ver.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	radice.add_child(w_ver)
 	get_viewport().size_changed.connect(aggiorna_misure)
+	if OS.has_feature("web"):
+		prepara_foto_web()
 	mostra("inizio")
 
 
@@ -654,7 +656,9 @@ func mostra_facce() -> void:
 
 const JS_FOTO := """
 window.trenoScegliFoto = function(cb){
+  var vecchio = document.getElementById('trenoFileFoto'); if (vecchio) vecchio.remove();
   var inp = document.createElement('input'); inp.type = 'file'; inp.accept = 'image/*'; inp.multiple = true;
+  inp.id = 'trenoFileFoto'; inp.style.display = 'none'; document.body.appendChild(inp);
   inp.onchange = function(){
     var files = Array.prototype.slice.call(inp.files).slice(0, 40), resto = files.length;
     window.trenoFotoMsg = '';
@@ -685,18 +689,51 @@ window.trenoScegliFoto = function(cb){
 """
 
 
+## Nel browser la finestra «scegli file» si può aprire solo DENTRO il clic (regola di sicurezza del browser).
+## Per questo il clic sul bottone «Scegli le foto» lo ascolta direttamente la pagina (JavaScript):
+## Godot le dice soltanto dove si trova il bottone sullo schermo (zona_foto).
+const JS_ASCOLTA := """
+window.__trenoZonaFoto = null;
+window.__trenoUltimo = 0;
+var trenoSuBottone = function(e){
+  var z = window.__trenoZonaFoto, ora = Date.now();
+  if (!z || ora - window.__trenoUltimo < 800) return;
+  if (e.clientX >= z[0] && e.clientX <= z[0] + z[2] && e.clientY >= z[1] && e.clientY <= z[1] + z[3]) { window.__trenoUltimo = ora; window.trenoScegliFoto(window.__trenoCbFoto); }
+};
+// mouse: «mouseup»; dito o penna: «pointerup» (sono gli eventi in cui il browser permette di aprire la finestra dei file)
+(document.getElementById('canvas') || document.querySelector('canvas')).addEventListener('mouseup', trenoSuBottone);
+window.addEventListener('pointerup', function(e){ if (e.pointerType !== 'mouse') trenoSuBottone(e); }, true);
+"""
+var zona_foto := ""
+
+
+func prepara_foto_web() -> void:
+	JavaScriptBridge.eval(JS_FOTO + JS_ASCOLTA, true)
+	cb_foto = JavaScriptBridge.create_callback(func(_args):
+		gioco.carica_facce()
+		mostra_facce()
+		var m = JavaScriptBridge.eval("window.trenoFotoMsg||''", true)
+		if m is String and m != "":
+			w_msg_foto.text = m)
+	JavaScriptBridge.get_interface("window").__trenoCbFoto = cb_foto
+
+
+func _process(_delta: float) -> void:
+	if not OS.has_feature("web"):
+		return
+	var z := "null"
+	var b: Control = bottoni["scegli_foto"]
+	if schermo_attivo == "facce" and b.is_visible_in_tree():
+		var r := b.get_global_rect()
+		z = "[%d,%d,%d,%d]" % [r.position.x, r.position.y, r.size.x, r.size.y]
+	if z != zona_foto:
+		zona_foto = z
+		JavaScriptBridge.eval("window.__trenoZonaFoto=" + z, true)
+
+
 func scegli_foto() -> void:
 	if OS.has_feature("web"):
-		# nel browser: la finestra «scegli file» del browser; il ritaglio a cerchio lo fa il browser (come nella versione HTML)
-		JavaScriptBridge.eval(JS_FOTO, true)
-		cb_foto = JavaScriptBridge.create_callback(func(_args):
-			gioco.carica_facce()
-			mostra_facce()
-			var m = JavaScriptBridge.eval("window.trenoFotoMsg||''", true)
-			if m is String and m != "":
-				w_msg_foto.text = m)
-		JavaScriptBridge.get_interface("window").trenoScegliFoto(cb_foto)
-		return
+		return   # nel browser ci pensa la pagina (vedi JS_ASCOLTA)
 	# sul PC: la finestra «Apri» di Godot
 	if dialogo_foto == null:
 		dialogo_foto = FileDialog.new()
