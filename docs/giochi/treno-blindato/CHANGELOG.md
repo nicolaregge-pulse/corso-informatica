@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.29 — 12/10/2026 13:24 — Le statistiche a fine partita
+
+1. Pull Request di Giorgio A. (13:17): «alla fine della partita vengono mostrati il numero di cattivi colpiti, i colpi sbagliati e la percentuale di precisione, così il giocatore capisce dove migliorare».
+2. Nella schermata di fine partita, sotto i punti, c’è la riga: Cattivi colpiti · Colpi a vuoto · Precisione in percentuale.
+3. Peso 3 nel backlog: si contano i colpi sparati e si scrive una riga nuova, in index.html.
+
 ## v0.28 — 12/10/2026 13:23 — La barra del prossimo livello
 
 1. Pull Request di Luciano C. (13:16): «una barra al centro in cima allo schermo che indichi quanto manca al prossimo livello».
