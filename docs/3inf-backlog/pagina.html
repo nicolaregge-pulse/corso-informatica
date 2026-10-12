@@ -26,7 +26,7 @@ tr.fatto td{background:rgba(47,158,87,.18)}tr.no td{background:rgba(224,65,58,.1
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function riga(v){var cl=v.fatto?'fatto':(v.no?'no':''),st=v.fatto?'FATTO<br>'+e(v.fatto):(v.no?'NO: '+e(v.no):'da fare');
- return '<tr class="'+cl+'"><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con immagine)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td><td class="st '+(v.fatto?'f':(v.no?'n':''))+'">'+st+'</td></tr>'}
+ return '<tr class="'+cl+'"><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con file allegato)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td><td class="st '+(v.fatto?'f':(v.no?'n':''))+'">'+st+'</td></tr>'}
 function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
  if(!d.voci.length)return;
