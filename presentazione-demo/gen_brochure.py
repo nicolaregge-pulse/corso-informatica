@@ -7,7 +7,7 @@ Uso:  python3 presentazione-demo/gen_brochure.py
 import html, os, subprocess
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VER = "1.0"
+VER = "1.1"
 DATA = "20261012"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 DEMO = "https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec"
@@ -114,8 +114,8 @@ def pdf():
 @page{size:A4;margin:0}*{box-sizing:border-box}body{margin:0;font:10.5pt/1.45 'DejaVu Sans',Arial,sans-serif;color:#15171a}
 .p{width:210mm;height:297mm;padding:16mm 15mm;position:relative;break-after:page;overflow:hidden}
 .cop{background:#0f2a5c;color:#fff;padding:0}.cop .top{padding:26mm 16mm 10mm}.cop h1{font-size:34pt;line-height:1.08;margin:0 0 8mm;letter-spacing:-.5px}
-.cop .sub{font-size:15pt;color:#cfe0ff;max-width:150mm}.cop .img{position:absolute;left:16mm;right:16mm;bottom:40mm;height:110mm;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.4)}
-.cop .img img{width:100%;height:100%;object-fit:cover;object-position:top}.cop .piede{position:absolute;left:16mm;bottom:16mm;color:#cfe0ff;font-size:11pt}
+.cop .sub{font-size:15pt;color:#cfe0ff;max-width:150mm}.cop .img{position:absolute;left:16mm;right:16mm;bottom:50mm;height:100mm;border-radius:10px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+.cop .img img{width:100%;height:100%;object-fit:cover;object-position:top}.cop .piede{position:absolute;left:16mm;bottom:12mm;color:#cfe0ff;font-size:11pt}
 .kick{font-size:9pt;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#1f6feb;margin:0 0 2mm}
 h2{font-size:21pt;line-height:1.15;margin:0 0 6mm;letter-spacing:-.3px}h3{font-size:12pt;margin:0 0 1.5mm}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:6mm}.box{border:1px solid #e1ddd3;border-radius:8px;padding:5mm;background:#fbfaf7}
@@ -125,12 +125,15 @@ figure.alta img{height:96mm}figcaption{font-size:9.5pt;margin-top:2mm;color:#333
 .num{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin:2mm 0 6mm}.num div{border-left:4px solid #1f6feb;padding:1mm 0 1mm 4mm}.num b{display:block;font-size:24pt;line-height:1.1}
 ol{margin:0;padding-left:5mm}li{margin:0 0 1.5mm}.quote{font-size:13pt;line-height:1.4;border-left:4px solid #1a7f37;padding:3mm 0 3mm 5mm;margin:5mm 0}
 svg{width:100%;height:auto;display:block}.link{word-break:break-all;font-size:9.5pt;background:#fff;border:1px solid #c9d8f5;border-radius:6px;padding:3mm;margin:2mm 0 5mm;display:block;color:#0b4bbd;text-decoration:none}
+a.bot{display:block;text-align:center;color:#fff;text-decoration:none;font-weight:800;font-size:14pt;padding:5mm 4mm;border-radius:9px;margin:3mm 0 2mm}a.bot.b{background:#1f6feb}a.bot.v{background:#1a7f37}
+.cop .bots{position:absolute;left:16mm;right:16mm;bottom:24mm;display:grid;grid-template-columns:1fr 1fr;gap:6mm}.cop .bots a.bot{margin:0}
 .pn{position:absolute;right:15mm;bottom:9mm;font-size:8.5pt;color:#888}"""
     pagine = []
     pagine.append('<div class="p cop"><div class="top"><p class="kick" style="color:#9cc0ff">Laboratorio di informatica · prof. Nicola Regge</p>'
                   "<h1>Una scuola che lavora come un'azienda di software</h1><p class=sub>Il laboratorio che trasforma la classe in un team di sviluppo: "
                   "i ragazzi propongono modifiche, il gioco della classe cresce versione dopo versione, il voto si vede subito.</p></div>"
-                  '<div class="img"><img src="schermate/08-gioco-copertina.png"></div><div class="piede">Istituto professionale · Milano · ottobre 2026</div></div>')
+                  '<div class="img"><img src="schermate/08-gioco-copertina.png"></div><div class="bots"><a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><a class="bot v" href="%s">▶ Gioca al gioco della classe</a></div>'
+                  '<div class="piede">Istituto professionale · Milano · ottobre 2026</div></div>' % (E(DEMO), E(GIOCO)))
     pagine.append('<div class="p"><p class="kick">01 Il problema</p><h2>I ragazzi non mollano perché non capiscono. Mollano per non sbagliare davanti a tutti.</h2><div class="grid2">%s</div>'
                   '<p class="kick" style="margin-top:9mm">02 La soluzione</p><h2>Qui provarci conviene, e non fa male.</h2><div class="grid2">%s</div><div class="pn">2</div></div>' % (
                       "".join('<div class="box"><h3>%s</h3>%s</div>' % (E(a), E(b)) for a, b in PROBLEMA),
@@ -154,8 +157,8 @@ svg{width:100%;height:auto;display:block}.link{word-break:break-all;font-size:9.
                   '<p class="kick" style="margin-top:9mm">08 Per chi</p><div class="grid2" style="grid-template-columns:1fr 1fr 1fr">%s</div>'
                   '<p class="kick" style="margin-top:9mm">09 Provalo</p><h2>Due link, cinque minuti.</h2><div class="grid2"><div class="box blu"><h3>La demo del sistema</h3>'
                   'Fai l\'allievo: scrivi la tua Pull Request e guardala entrare nel backlog, diventare una versione del gioco e cambiare il tuo voto. Si entra con la propria email e un codice.'
-                  '<a class="link" href="%s">%s</a></div><div class="box verde"><h3>Il gioco della classe</h3>«Il treno blindato», costruito dai ragazzi una Pull Request alla volta.'
-                  '<a class="link" href="%s">%s</a></div></div><p style="margin-top:8mm;font-size:12pt"><b>Prof. Nicola Regge</b><br>Laboratorio di informatica</p><div class="pn">7</div></div>' % (
+                  '<a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><span style="font-size:8pt;color:#555;word-break:break-all">%s</span></div><div class="box verde"><h3>Il gioco della classe</h3>«Il treno blindato», costruito dai ragazzi una Pull Request alla volta.'
+                  '<a class="bot v" href="%s">▶ Gioca al gioco della classe</a><span style="font-size:8pt;color:#555;word-break:break-all">%s</span></div></div><p style="margin-top:8mm;font-size:12pt"><b>Prof. Nicola Regge</b><br>Laboratorio di informatica</p><div class="pn">7</div></div>' % (
                       "".join("<li>%s</li>" % E(x) for x in SERVE), "".join('<div class="box"><h3>%s</h3>%s</div>' % (E(a), E(b)) for a, b in PER_CHI),
                       E(DEMO), E(DEMO), E(GIOCO), E(GIOCO)))
     h = "<!doctype html><html lang=it><meta charset=utf-8><title>Brochure</title><style>%s</style>%s</html>" % (css, "".join(pagine))
