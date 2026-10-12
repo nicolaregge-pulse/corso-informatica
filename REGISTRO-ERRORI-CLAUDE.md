@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.21** — 12/10/2026
+**Versione 2.22** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -290,4 +290,9 @@ lezione.*
 
 1. **Errore.** Ho detto a Nicola «dopo cambiamo anche questa frase» senza mettere nello stesso messaggio la frase nuova pronta da copiare. È la regola COPIA, già chiesta molte volte.
 2. **Regola.** Ogni testo che Nicola deve scrivere, anche se arriva nel passo dopo, sta già nel messaggio in un blocco di codice, un valore per blocco (CLAUDE.md, regola 9).
+
+## 12/10/2026 — Modifica del Modulo «Consegna»: spiegazioni che fanno perdere il docente (#47)
+
+1. **Errore.** Ho guidato Nicola indicando i campi con il testo che contenevano. Dopo ogni incolla quel testo cambiava, quindi i riferimenti non valevano più. Non ho detto che in Moduli si scrive nel riquadro attivo, quello con la striscia blu, né cosa doveva vedere dopo ogni azione. Risultato: testi incollati due volte nel posto sbagliato.
+2. **Regola.** I campi si indicano per POSIZIONE stabile («secondo riquadro dall'alto, prima riga in grassetto = titolo, riga sotto = descrizione»), non per il testo che contengono. Ogni passo finisce con «Dopo devi vedere: …», così l'errore si accorge subito. Quando un'interfaccia è complicata da guidare, propongo prima la strada automatica (script) o la più corta.
 
