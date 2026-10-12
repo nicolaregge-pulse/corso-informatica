@@ -2,7 +2,7 @@
 
 **Versione 0.1** — 12/10/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
 
-1. Domani Nicola spiega dove e come si compilano i moduli dell'Allegato A (scadenza: fine ottobre).
+1. Domani (13/10) Nicola scarica l'Allegato A da scuola: si guarda com'è fatto e si decide come compilarlo (scadenza: 30 ottobre).
 2. Classe 4 (Tecnico), competenza 1 «Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti: sociali, culturali, scientifici, economici, tecnologici e professionali».
    1. Finora era per il 90% della disciplina di italiano.
    2. In realtà è trasversale a tutte le discipline: chiunque può metterci argomenti.
