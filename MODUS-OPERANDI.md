@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.4** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.5** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -119,7 +119,8 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 1. **Un solo processo scrive su Git** (`generatori/lezione_pr.py <lezione> giro`): più processi insieme bloccano il repository.
 2. Il giro automatico dura **oltre la fine della lezione**, non meno.
 3. Ogni versione nuova del gioco passa dal controllo automatico; se fallisce, non si pubblica niente.
-4. Le impostazioni di ogni lezione stanno in un file solo (`config/lezioni/<AAAAMMGG>_<CLASSE>.json`, nel riservato): per una lezione nuova si copia quello di una lezione vecchia.
+4. **Archivio:** i comandi eseguiti e i compiti chiusi vanno in `archivio/`, altrimenti lo script, che legge ogni file a ogni giro, supera il limite di richieste di GitHub e si ferma (403, 12/10, #58).
+5. Le impostazioni di ogni lezione stanno in un file solo (`config/lezioni/<AAAAMMGG>_<CLASSE>.json`, nel riservato): per una lezione nuova si copia quello di una lezione vecchia.
 
 ## 13 Documenti collegati
 
@@ -134,6 +135,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 14 Registro delle versioni
 
+6. **v1.5 (12/10/2026)**: capitolo 12 punto 4, archivio dei comandi e dei compiti per non superare il limite di GitHub.
 5. **v1.4 (12/10/2026)**: capitolo 08 punto 1, frasi semplici con il verbo all'inizio, non catene di coordinate.
 4. **v1.3 (12/10/2026)**: capitolo 08 punto 8, flusso unico sempre da zero, senza «se».
 3. **v1.2 (12/10/2026)**: capitolo 08 punto 8, in classe solo messaggi brevi; i lavori lunghi il lunedì e il mercoledì pomeriggio.
