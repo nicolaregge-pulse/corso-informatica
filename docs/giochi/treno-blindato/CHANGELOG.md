@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.28 — 12/10/2026 13:23 — La barra del prossimo livello
+
+1. Pull Request di Luciano C. (13:16): «una barra al centro in cima allo schermo che indichi quanto manca al prossimo livello».
+2. In alto al centro del finestrino c’è una barra verde che si riempie a ogni cattivo colpito; sotto c’è scritto quanti cattivi mancano al prossimo livello.
+3. Peso 2 nel backlog: una barra e una scritta in index.html, dove si disegnano punti e livello.
+
 ## v0.27 — 12/10/2026 13:22 — Binari gialli
 
 1. Pull Request di Katherine A. (13:19): «Cambiare colore ai binari: gialli invece che grigi, in tutta la partita, così si vedono meglio».
