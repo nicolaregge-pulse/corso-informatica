@@ -16,6 +16,10 @@ tr.fatto td{background:rgba(47,158,87,.18)}tr.no td{background:rgba(224,65,58,.1
 <p class="bn">এখানে ক্লাসের সব Pull Request আছে। প্রতিটি অনুরোধের মূল্য ১, যে-ই করুক। শিক্ষক এই ক্রমে করেন: আগে যেগুলোর ওজন সবচেয়ে কম (কোডে কম কাজ); একই ওজন হলে, যে আগে এসেছে (FIFO)। ওজনে ফিবোনাচি সংখ্যা: ১, ২, ৩, ৫, ৮, ১৩। পাতাটি নিজে আপডেট হয়। সবুজ সারি = শেষ (FATTO): অনুরোধটি খেলায় ঢুকেছে, সংস্করণের নম্বরসহ।</p>
 <p><a class="bt" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile/">Teoria Agile</a> <span class="mu" id="agg"></span></p></div>
 <div class="card"><table><thead><tr><th>Posizione</th><th>Data e ora</th><th>Alunno</th><th>PR</th><th>Riepilogo della richiesta</th><th>Peso</th><th>Perché in questa posizione</th><th>Stato</th></tr></thead><tbody id="tb"><tr><td colspan="8" class="mu">Ancora nessuna Pull Request.</td></tr></tbody></table></div>
+<h2 style="font-size:22px;margin:22px 0 6px">Le versioni già fatte e da quale richiesta sono nate</h2>
+<div class="card"><p>Ogni versione nasce da una richiesta. Qui vedi <b>chi l'ha chiesta</b> e <b>cosa è entrato</b> nel gioco. Le versioni nuove di oggi compariranno qui, con il numero della vostra PR.</p><p class="bn">প্রতিটি সংস্করণ একটি অনুরোধ থেকে জন্মায়। এখানে দেখো কে চেয়েছে এবং খেলায় কী ঢুকেছে।</p>
+<table><thead><tr><th>Versione</th><th>Da quale richiesta</th><th>Cosa è entrato</th></tr></thead><tbody id="storia"><tr><td colspan="3" class="mu">Carico…</td></tr></tbody>
+<tbody><tr class="fatto"><td><b>ramo «teoria Agile»</b><br>12/10</td><td>Richiesta del prof (non è una PR dei ragazzi)</td><td>Non cambia il gioco: è la dispensa Teoria Agile e questa pagina del backlog. Nel grafo è la linea verde in basso, con i pallini «Agile» e «Backlog».</td></tr></tbody></table></div>
 <div class="card mu"><b>Come si legge il peso:</b> 1 = cambia un testo o un colore · 2 = cambia un numero (velocità, punti) · 3 = un personaggio nuovo · 5 = un ambiente o un oggetto nuovo · 8 = una regola nuova del gioco (armi, pausa, vite) · 13 = un pezzo di gioco grande e nuovo.
 <p class="bn">ওজন: ১ = লেখা বা রং · ২ = একটি সংখ্যা · ৩ = নতুন চরিত্র · ৫ = নতুন পরিবেশ বা বস্তু · ৮ = খেলার নতুন নিয়ম · ১৩ = বড় নতুন অংশ।</p></div>
 </div>
@@ -28,4 +32,7 @@ function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(fu
  if(!d.voci.length)return;
  document.getElementById('tb').innerHTML=d.voci.map(riga).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
+fetch('../giochi/treno-3inf/versioni/versioni.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('storia').innerHTML=d.map(function(v){var pr=(v.cambi||'').match(/PR\s*#?\d+[^.;]*/gi);return '<tr class="fatto"><td><b>3INF '+e(v.versione)+'</b><br>'+e(v.data||'')+'</td><td>'+(v.versione==='v1.0'?'Fork della 3INF dal gioco della 2INF (v0.11)':(pr?e(pr.join(' · ')):'Richiesta della classe'))+'</td><td>'+e(v.nome)+': '+e(v.cambi||'')+'</td></tr>'}).join('')}).catch(function(){});
+
 </script></body></html>
