@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.23** — 12/10/2026
+**Versione 2.24** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -301,3 +301,8 @@ lezione.*
 1. **Errore.** Come venerdì, ho mandato Nicola a copiare lo script dal repository privato. Nella finestra PIAMARTA, dove lavora con lo script, GitHub risponde 404 perché lì non è collegato l'account con l'accesso.
 2. **Regola.** Lo script si copia sempre dal link pubblico in testo semplice (CLAUDE.md, regola 10). La copia pubblica si aggiorna a ogni modifica.
 
+
+## 12/10/2026 — 2INF: compito e backlog con il cinese in una classe solo italiana (#49)
+
+1. **Errore.** Ho copiato il compito della 3INF per la 2INF lasciando le righe in cinese (e la dispensa Agile con il bengalese). Poi ho detto che erano «nascoste»: erano ancora nella pagina. La 2INF è solo italiano. Si è persa l'ora.
+2. **Regola.** Per una classe solo italiano ogni pagina passa da `strumenti/solo_italiano.py`: toglie le altre lingue e, se resta anche un carattere cinese, arabo o bengalese, si ferma con errore e non si pubblica. Il generatore della 2INF lo chiama da solo. Non si dice mai «sistemato» senza il controllo passato.
