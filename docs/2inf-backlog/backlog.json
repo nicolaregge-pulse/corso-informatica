@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 12:56",
+ "aggiornato": "12/10/2026 12:57",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -98,16 +98,28 @@
    "pos": 8
   },
   {
+   "ora": "12/10 12:55",
+   "alunno": "Luca B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Difetto: i nemici nascono dietro o troppo vicino, non vengono contati e sparano da dove non si possono colpire.",
+   "file": false,
+   "peso": 3,
+   "motivo": "difetto vero del gioco; PR scritta bene",
+   "fatto": "v0.17",
+   "no": "",
+   "pos": 9
+  },
+  {
    "ora": "12/10 12:56",
    "alunno": "Ney V.",
    "pr": "PR (senza numero)",
-   "richiesta": "Effetto crepe sul vetro\nAggiungi un'immagine di un vetro spaccato che appare e si fa più fitta ogni volta che prendi un colpo (a 1, 2, 3, 4 e 5 colpi).",
+   "richiesta": "Effetto crepe sul vetro: a ogni colpo il vetro si crepa sempre di più (1, 2, 3, 4, 5 colpi).",
    "file": true,
    "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "motivo": "effetto grafico sul vetro",
    "fatto": "",
    "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "12/10 12:28",
@@ -119,7 +131,7 @@
    "motivo": "oggetti nuovi da disegnare; manca cosa aggiungere e dove",
    "fatto": "",
    "no": "",
-   "pos": 10
+   "pos": 11
   },
   {
    "ora": "12/10 12:32",
@@ -131,7 +143,7 @@
    "motivo": "è la stessa richiesta delle 12:28",
    "fatto": "",
    "no": "",
-   "pos": 11
+   "pos": 12
   },
   {
    "ora": "12/10 12:48",
@@ -143,7 +155,7 @@
    "motivo": "oggetti da ridisegnare in tutto il gioco; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 12
+   "pos": 13
   },
   {
    "ora": "12/10 12:51",
@@ -153,18 +165,6 @@
    "file": false,
    "peso": 5,
    "motivo": "animazione nuova da disegnare; il sangue è da decidere con il prof (gioco di scuola, sito pubblico)",
-   "fatto": "",
-   "no": "",
-   "pos": 13
-  },
-  {
-   "ora": "12/10 12:55",
-   "alunno": "Luca B.",
-   "pr": "PR (senza numero)",
-   "richiesta": "sistemare bug\nsistemare il bug che i nemici spawnano dietro  o troppo vicino ed non li conta e si vede che il nemico va via ( o proprio alcuni spawnano dietro e ti sparano dove te non riesci a cliccare ed ucciderli)\ndove : personaggi ed spa…",
-   "file": false,
-   "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
    "pos": 14
@@ -206,18 +206,6 @@
    "pos": 17
   },
   {
-   "ora": "12/10 12:56",
-   "alunno": "Mathias P.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Aggiungere un boss ogni due livelli raggiungi, ovvero parti da livello 1 e quando arrivi al 3 boss poi quando arrivi al 5 altro boss differente, quando nasce il boss il treno deve rallentare fino a fermarsi così da dare il modo di riuscire …",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 18
-  },
-  {
    "ora": "12/10 12:51",
    "alunno": "Mathias P.",
    "pr": "PR (senza numero)",
@@ -225,6 +213,18 @@
    "file": false,
    "peso": 13,
    "motivo": "parte grande nuova: monete, negozio della rinascita, prezzi che crescono",
+   "fatto": "",
+   "no": "",
+   "pos": 18
+  },
+  {
+   "ora": "12/10 12:56",
+   "alunno": "Mathias P.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Un boss ogni due livelli (livello 3, 5…), ogni volta diverso; quando arriva il boss il treno rallenta fino a fermarsi.",
+   "file": false,
+   "peso": 13,
+   "motivo": "parte grande nuova: boss, comportamenti diversi, treno che si ferma",
    "fatto": "",
    "no": "",
    "pos": 19
