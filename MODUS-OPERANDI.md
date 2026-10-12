@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.3** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -87,7 +87,8 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 5. **Mappa vera dello schermo:** i campi si indicano per posizione; prima di guidare un programma mai visto, una schermata sola, salvata come mappa (#51).
 6. **Niente parole in più:** se togliendo una parola il senso resta uguale, si toglie (#53).
 7. **Solo il prossimo passo:** non si ripetono i passi già fatti.
-8. **Durante le ore di lezione il docente viene interrotto di continuo dai ragazzi:** in quelle ore si mandano solo messaggi brevi, con una o due azioni al massimo, che si possono riprendere anche dopo un'interruzione. Tutto quello che ha molti passi (script, Moduli, impostazioni) si fa il lunedì e il mercoledì pomeriggio, quando il docente è a scuola senza classe (fino alle 17:30).
+8. **Un flusso unico, sempre da zero:** le istruzioni partono sempre dall'inizio e funzionano senza condizioni; niente «se», niente «salta», niente domande dentro i passi (#55).
+9. **Durante le ore di lezione il docente viene interrotto di continuo dai ragazzi:** in quelle ore si mandano solo messaggi brevi, con una o due azioni al massimo, che si possono riprendere anche dopo un'interruzione. Tutto quello che ha molti passi (script, Moduli, impostazioni) si fa il lunedì e il mercoledì pomeriggio, quando il docente è a scuola senza classe (fino alle 17:30).
 
 ## 09 Lo script di Google
 
@@ -133,6 +134,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 14 Registro delle versioni
 
+4. **v1.3 (12/10/2026)**: capitolo 08 punto 8, flusso unico sempre da zero, senza «se».
 3. **v1.2 (12/10/2026)**: capitolo 08 punto 8, in classe solo messaggi brevi; i lavori lunghi il lunedì e il mercoledì pomeriggio.
 2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.
 1. **v1.0 (12/10/2026)**: prima versione, con le decisioni del 09/10 e del 12/10/2026.
