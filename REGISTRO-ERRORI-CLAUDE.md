@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.27** — 12/10/2026
+**Versione 2.28** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -321,3 +321,8 @@ lezione.*
 
 1. **Errore.** Ripetizione degli errori 11 e 36. Dallo screenshot della 2INF ho detto che le tre ore non erano firmate perché c'era il bottone «FIRMA ✓» e non il segno verde degli altri docenti. Nicola aveva già firmato, e ha perso tempo durante la lezione.
 2. **Regola.** La regola è stata spostata in CLAUDE.md, regola 4, dove si legge per prima. Su DIDAweb il bottone «FIRMA ✓» c'è anche sulle ore firmate. Dallo screenshot non si deduce mai che un'ora non è firmata. L'unica prova è «Da firmare» o «Visualizza tutte le firme arretrate». Se Nicola dice «firmate», è così.
+
+## 12/10/2026 — Parole in più che confondono: «onestamente», «valide» (#53)
+
+1. **Errore.** Ho scritto «onestamente», che fa pensare che altre volte non lo sia. Poi ho scritto che Katherine A. resta sotto il 60 «perché ne servono 5 valide». Le sue PR erano tutte valide: la parola faceva pensare a un problema che non c'era.
+2. **Regola.** Niente avverbi e aggettivi che non servono. Una parola che restringe il senso («valide», «vere», «solo») si usa solo se in quel caso cambia qualcosa. Rileggo ogni frase togliendo la parola: se il senso resta uguale, la tolgo.
