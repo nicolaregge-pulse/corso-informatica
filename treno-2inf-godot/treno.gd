@@ -1319,5 +1319,5 @@ func pubblica_prova(delta: float) -> void:
 			if c.fase == "attende":
 				tocca(Vector2(c.x, c.y))
 				break
-	if S != null and Engine.get_process_frames() % 30 == 0:
+	if S != null and randf() < 0.1:
 		print("prova: ", JSON.stringify(st).left(300))
