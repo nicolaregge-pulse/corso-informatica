@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.25** — 12/10/2026
+**Versione 2.26** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -311,3 +311,8 @@ lezione.*
 
 1. **Errore.** Ho scritto «premi Ctrl+A, poi Ctrl+V» dando per scontato che Nicola avesse già copiato il codice. In più, nel passo prima gli facevo incollare un indirizzo, che avrebbe preso il posto del codice copiato.
 2. **Regola.** La memoria del copia e incolla si considera VUOTA. Ogni «incolla» viene subito dopo il passo che dice cosa copiare e da dove, e si dice cosa c'è in memoria in quel momento. L'ordine dei passi evita che una copia cancelli quella prima: prima si apre la pagina dove si incolla, poi si copia, poi si incolla.
+
+## 12/10/2026 — Script: «incolla nel riquadro del codice» senza dire in quale file (#51)
+
+1. **Errore.** Il progetto «Consegne Classroom → Git» ha 5 file e si apre su «Codice.gs». Ho detto di incollare «nel riquadro del codice» senza dire di cliccare prima «automazione-corso.gs». Così si rischiava di cancellare il vecchio script della 1INF.
+2. **Regola.** Le guide si scrivono sulla mappa vera dello schermo (CLAUDE.md, regola 10: i 5 file, la barra, «Modifiche non salvate»). Prima di dare passi su un programma che non ho ancora visto, chiedo una schermata una volta sola e la salvo come mappa. Non la richiedo a ogni passo.

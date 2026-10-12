@@ -169,6 +169,11 @@ repository pubblico (non contiene segreti: il token sta nelle proprietà dello s
 privato dalla finestra PIAMARTA: dà 404 (errore di venerdì 09/10 e di lunedì 12/10, REGISTRO-ERRORI #48).
 Progetto Apps Script: aprire `https://script.google.com/home` (finestra PIAMARTA) e fare clic su «Consegne Classroom → Git».
 L'indirizzo diretto del progetto, ricopiato da uno screenshot, ha dato errore 400 (lettere l/I ambigue): non usarlo.
+Com'è fatto DAVVERO il progetto (screenshot del 12/10/2026, REGISTRO-ERRORI #51): pannello a sinistra «File» con 5 file:
+appsscript.json, Codice.gs (vecchio script 1INF, si apre per primo), Senza titolo.gs, **automazione-corso.gs** (QUI va
+incollato il codice), cancella-compito-vuoto.gs. Barra sopra il codice: Annulla/Ripeti, icona Salva, «Esegui», «Debug», menu
+a tendina delle funzioni, «Log esecuzione». In alto accanto al titolo compare «Modifiche non salvate» finché non si salva.
+Ogni guida allo script parte da questa mappa: prima si clicca il file giusto, poi si incolla.
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
@@ -631,7 +636,7 @@ l'intestazione del file.
 2. `docs/quiz/` — v1.0 (motore unico del quiz personale: `?b=banca&n=compito&timer=1`; banche in `docs/quiz/banche/`: `4ti-iso-osi`, `2inf-if`, `1inf-sicurezza-1`; uscita da incollare nel Documento, raccolta automatica)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.25 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.26 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 1. `README.md` (radice) — v1.0
