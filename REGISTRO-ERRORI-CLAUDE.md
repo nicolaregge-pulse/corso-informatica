@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.24** — 12/10/2026
+**Versione 2.25** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -306,3 +306,8 @@ lezione.*
 
 1. **Errore.** Ho copiato il compito della 3INF per la 2INF lasciando le righe in cinese (e la dispensa Agile con il bengalese). Poi ho detto che erano «nascoste»: erano ancora nella pagina. La 2INF è solo italiano. Si è persa l'ora.
 2. **Regola.** Per una classe solo italiano ogni pagina passa da `strumenti/solo_italiano.py`: toglie le altre lingue e, se resta anche un carattere cinese, arabo o bengalese, si ferma con errore e non si pubblica. Il generatore della 2INF lo chiama da solo. Non si dice mai «sistemato» senza il controllo passato.
+
+## 12/10/2026 — Script: «premi Ctrl+V» senza dire cosa c'è da incollare (#50)
+
+1. **Errore.** Ho scritto «premi Ctrl+A, poi Ctrl+V» dando per scontato che Nicola avesse già copiato il codice. In più, nel passo prima gli facevo incollare un indirizzo, che avrebbe preso il posto del codice copiato.
+2. **Regola.** La memoria del copia e incolla si considera VUOTA. Ogni «incolla» viene subito dopo il passo che dice cosa copiare e da dove, e si dice cosa c'è in memoria in quel momento. L'ordine dei passi evita che una copia cancelli quella prima: prima si apre la pagina dove si incolla, poi si copia, poi si incolla.
