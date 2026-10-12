@@ -11,4 +11,9 @@
    1. Gli argomenti vanno scritti tutti in anticipo, anche quelli solo possibili: dopo si potranno TOGLIERE, ma NON AGGIUNGERE.
    2. Quindi l'elenco previsto deve essere largo: tutto quello che potremmo fare nell'anno, per ogni classe e competenza.
 4. Ogni argomento va sviluppato nei suoi **sotto-argomenti** (non solo il titolo). Fonti già pronte: `PIANO-ORE-LEZIONE.md` (macro-area → sotto-argomento → ora) e `GRIGLIA-ARGOMENTI.md`.
-5. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
+5. **4TI (Tecnico)**: martedì 13/10 si parla di cosa fare nell'anno.
+   1. Il docente la vede una volta alla settimana: si va dritti al punto.
+   2. Argomento forte dell'anno: le **reti**.
+   3. C'è anche il **progetto** da sviluppare.
+   4. Fuori dal giro del treno su Godot.
+6. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
