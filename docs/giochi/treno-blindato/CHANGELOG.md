@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.20 — 12/10/2026 13:02 — I cattivi si vedono sempre
+
+1. Pull Request di Egor M. (12:57): «migliorare gli ostacoli dove si nascondono i nemici (case, palazzi…): a volte escono male e il nemico non si vede».
+2. Causa: il cattivo veniva disegnato insieme al suo nascondiglio, quindi le case e i palazzi più vicini al treno gli finivano davanti e lo coprivano.
+3. Correzione: mentre esce, il cattivo resta dietro al suo nascondiglio (si vede che sbuca); appena è fuori, viene disegnato sopra a tutti gli oggetti, quindi si vede sempre e si può colpire.
+4. Peso 3 nel backlog: un difetto vero, nel punto di index.html dove si disegna il paesaggio.
+
 ## v0.19 — 12/10/2026 13:02 — Il mirino rosso
 
 1. Pull Request di Ney V. (12:59): «Cursore a forma di mirino: cambia il puntatore del mouse con la grafica di un mirino rosso, per dare subito l’idea di uno sparatutto arcade».
