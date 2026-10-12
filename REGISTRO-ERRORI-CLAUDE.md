@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.28** — 12/10/2026
+**Versione 2.29** — 12/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -326,3 +326,8 @@ lezione.*
 
 1. **Errore.** Ho scritto «onestamente», che fa pensare che altre volte non lo sia. Poi ho scritto che Katherine A. resta sotto il 60 «perché ne servono 5 valide». Le sue PR erano tutte valide: la parola faceva pensare a un problema che non c'era.
 2. **Regola.** Niente avverbi e aggettivi che non servono. Una parola che restringe il senso («valide», «vere», «solo») si usa solo se in quel caso cambia qualcosa. Rileggo ogni frase togliendo la parola: se il senso resta uguale, la tolgo.
+
+## 12/10/2026 — Considerazioni del docente interpretate invece di chiedere (#54)
+
+1. **Errore.** Nicola stava scrivendo le sue considerazioni (PPP). Ho dato per scontato cosa volesse: prima una pagina nuova per il Modulo, poi «i 5 bottoni come modello fisso per ogni lezione». Non me l'aveva chiesto.
+2. **Regola.** Quando Nicola ragiona ad alta voce o scrive considerazioni, non si decide niente al posto suo. Se non è chiaro cosa vuole, si chiede con una domanda sola.
