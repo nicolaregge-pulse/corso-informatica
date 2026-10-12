@@ -134,7 +134,7 @@ function segna(sq,aut){SQUADRE.push({sq:sq,aut:Array.isArray(aut)?aut.map(String
 function err(f){return function(e){ERRORI.push(f+': '+e.message)}}
 function caricaTutto(){
  var L=[leggiJSON('versione.json').then(function(d){if(d)VERSIONE=d}).catch(err('versione.json')),
-  leggiJSON('regole.json').then(function(d){if(!d)return;R.vetro=num(d.vetro,1,9,R.vetro)|0;R.velocita_treno=num(d.velocita_treno,0.5,3,R.velocita_treno);
+  leggiJSON('regole.json').then(function(d){if(!d)return;R.vetro=num(d.vetro,1,12,R.vetro)|0;R.velocita_treno=num(d.velocita_treno,0.5,3,R.velocita_treno);
    R.secondi_prima_di_sparare=num(d.secondi_prima_di_sparare,0.8,5,R.secondi_prima_di_sparare);R.cattivi_per_livello=num(d.cattivi_per_livello,3,50,R.cattivi_per_livello)|0;
    R.punti_per_cattivo=num(d.punti_per_cattivo,1,1000,R.punti_per_cattivo)|0;segna('Squadra PERCORSO e REGOLE',d.autori)}).catch(err('regole.json')),
   leggiJSON('percorso.json').then(function(d){if(!d)return;if(Array.isArray(d.ambienti)){var a=d.ambienti.filter(function(x){return typeof x==='string'&&AMB_BASE[x]});if(a.length)PERC.ambienti=a}
