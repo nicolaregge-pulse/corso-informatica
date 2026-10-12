@@ -2,11 +2,11 @@ extends RefCounted
 ## LA MEMORIA del gioco: record, migliori punteggi, soprannome, facce della classe.
 ## Tutto resta SOLO su questo dispositivo: niente va in rete.
 ##
-## Nel browser usa la stessa memoria (localStorage) e gli stessi nomi della versione HTML
-## («treno-2inf-...»): sullo stesso sito, record e facce sono in comune tra le due versioni.
+## Nel browser usa la memoria del browser (localStorage) con i nomi «treno-prof-...»:
+## record e facce della base sono separati da quelli del treno HTML della 2INF.
 ## Fuori dal browser (Godot sul PC) usa un file nella cartella dell'utente (user://).
 
-const PREFISSO := "treno-2inf-"
+const PREFISSO := "treno-prof-"
 const FILE := "user://memoria.cfg"
 var web := OS.has_feature("web")
 

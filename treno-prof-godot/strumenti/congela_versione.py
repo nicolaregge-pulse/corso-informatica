@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Congela una versione del treno su Godot (strumento del prof / di Claude, non per i ragazzi).
 
-Dopo l'esportazione Web (docs/giochi/treno-2inf-godot/index.html + index.pck + index.wasm ...)
-copia la versione attuale in docs/giochi/treno-2inf-godot/versioni/vX.Y/ :
+Dopo l'esportazione Web (docs/giochi/treno-prof/index.html + index.pck + index.wasm ...)
+copia la versione attuale in docs/giochi/treno-prof/versioni/vX.Y/ :
   - index.pck  (il gioco: codice + dati di questa versione)
   - index.html (la pagina, che usa il motore index.js / index.wasm della cartella principale)
 e aggiunge la riga in versioni/versioni.json.
@@ -16,8 +16,8 @@ import re
 import shutil
 import sys
 
-QUI = pathlib.Path(__file__).resolve().parent.parent          # treno-2inf-godot/
-WEB = QUI.parent / "docs" / "giochi" / "treno-2inf-godot"
+QUI = pathlib.Path(__file__).resolve().parent.parent          # treno-prof-godot/
+WEB = QUI.parent / "docs" / "giochi" / "treno-prof-godot"
 
 
 def main() -> None:
@@ -40,7 +40,7 @@ def main() -> None:
     (dest / "index.html").write_text(h, encoding="utf-8")
     elenco = WEB / "versioni" / "versioni.json"
     righe = json.loads(elenco.read_text(encoding="utf-8")) if elenco.exists() else []
-    righe.append({"versione": f"v{numero}", "nome": nome, "cambi": cambi, "data": "", "commit": "", "cartella_codice": "treno-2inf-godot"})
+    righe.append({"versione": f"v{numero}", "nome": nome, "cambi": cambi, "data": "", "commit": "", "cartella_codice": "treno-prof-godot"})
     elenco.write_text(json.dumps(righe, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"Congelata v{numero} in {dest}")
 
