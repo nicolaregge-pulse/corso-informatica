@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.31 — 12/10/2026 13:35 — Gli uccelli nel cielo
+
+1. Pull Request di Francesco M. (13:32): «mettimi degli uccelli che passano nel cielo».
+2. Nel cielo passano ogni tanto degli uccelli (al massimo 5 insieme) che battono le ali e volano da sinistra a destra; in pausa si fermano anche loro.
+3. Peso 3 nel backlog: un disegno nuovo nel cielo, in index.html.
+
 ## v0.30 — 12/10/2026 13:30 — La sfera d'oro: punti x2
 
 1. Pull Request di Francesco M. (13:27): «metti delle sfere che ti danno x2 di punti per 10 secondi quando colpite, e falle apparire raramente».
