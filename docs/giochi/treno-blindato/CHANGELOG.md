@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.15 — 12/10/2026 12:56 — La difficoltà cresce a ogni livello
+
+1. Pull Request di Antonio M. (12:38): «la difficoltà non aumenta: a ogni livello la difficoltà aumenta».
+2. A ogni livello i cattivi sparano 0,3 secondi prima (prima era 0,12) e arrivano più spesso: al livello 1 il gioco è uguale, dal livello 2 si sente la differenza.
+3. La seconda parte della sua richiesta, «un’arma nuova a ogni livello», resta nel backlog: è un lavoro più grande (peso 8).
+4. Peso 2 nel backlog: si cambiano due numeri in index.html.
+
 ## v0.14 — 12/10/2026 12:54 — Ultimo colpo
 
 1. Pull Request di Egor M. (12:31): «dopo che si spacca il vetro si muore subito: farlo diventare che si ha comunque 1 colpo tankabile».
