@@ -5,7 +5,7 @@
 <div id="aperta" hidden><h1>Demo in preparazione</h1><p>Qui arriveranno le pagine del sistema con i dati di una lezione vera, resi anonimi.</p></div>
 </div><script>
 /* tracciamento: ogni pagina della demo manda allo script dell'accesso (account PERSONALE) l'apertura e i clic */
-var WEBAPP = '';   // l'indirizzo dell'App web, dopo il deployment
+var WEBAPP = 'https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec';   // l'indirizzo dell'App web, dopo il deployment
 var T = new URLSearchParams(location.search).get('t') || sessionStorage.getItem('demo_t') || '';
 if (T) sessionStorage.setItem('demo_t', T);
 function traccia(evento, dettaglio, cb) { if (!WEBAPP || !T) return; var n = 'cb' + Date.now() + Math.floor(Math.random()*1000), s = document.createElement('script');
