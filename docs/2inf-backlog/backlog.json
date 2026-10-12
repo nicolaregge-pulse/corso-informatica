@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 13:01",
+ "aggiornato": "12/10/2026 13:02",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -14,6 +14,18 @@
    "pos": 1
   },
   {
+   "ora": "12/10 12:59",
+   "alunno": "Ney V.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Cursore a forma di mirino rosso, per dare subito l'idea di uno sparatutto arcade.",
+   "file": true,
+   "peso": 1,
+   "motivo": "si cambia solo l'aspetto del puntatore",
+   "fatto": "v0.19",
+   "no": "",
+   "pos": 2
+  },
+  {
    "ora": "12/10 12:29",
    "alunno": "Ney V.",
    "pr": "PR (senza numero)",
@@ -23,7 +35,7 @@
    "motivo": "una riga di codice: al cambio di livello si passa all'ambiente dopo",
    "fatto": "v0.13",
    "no": "",
-   "pos": 2
+   "pos": 3
   },
   {
    "ora": "12/10 12:31",
@@ -35,7 +47,7 @@
    "motivo": "si cambia una regola piccola: un colpo in più",
    "fatto": "v0.14",
    "no": "",
-   "pos": 3
+   "pos": 4
   },
   {
    "ora": "12/10 12:45",
@@ -47,7 +59,7 @@
    "motivo": "la parte «cambia la mappa al cambio di livello» è entrata con la v0.13; «cambiare la grafica» non dice cosa: riscrivila con cosa e dove",
    "fatto": "v0.13",
    "no": "",
-   "pos": 4
+   "pos": 5
   },
   {
    "ora": "12/10 12:53",
@@ -59,7 +71,7 @@
    "motivo": "PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "la velocità è già al minimo (0,5) dalla v0.4: più lento il treno quasi si ferma. Prova la v0.16 con il vetro più forte",
-   "pos": 5
+   "pos": 6
   },
   {
    "ora": "12/10 12:53",
@@ -71,19 +83,31 @@
    "motivo": "si cambia un numero; PR scritta bene, con le 4 parti",
    "fatto": "v0.16",
    "no": "",
-   "pos": 6
+   "pos": 7
   },
   {
-   "ora": "12/10 12:59",
-   "alunno": "Ney V.",
+   "ora": "12/10 12:57",
+   "alunno": "Alejandro G.",
    "pr": "PR (senza numero)",
-   "richiesta": "Cursore a forma di mirino\nCambia il puntatore del mouse con la grafica di un mirino rosso per dare subito l'idea di uno sparatutto arcade.",
+   "richiesta": "(File) Cambiare la grafica; al cambio di livello cambia la mappa.",
    "file": true,
    "peso": 2,
-   "motivo": "si cambia un numero nelle regole del gioco",
-   "fatto": "",
+   "motivo": "è la stessa richiesta delle 12:45",
+   "fatto": "v0.13 (la mappa che cambia)",
    "no": "",
-   "pos": 7
+   "pos": 8
+  },
+  {
+   "ora": "12/10 13:00",
+   "alunno": "Ney V.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Aumento progressivo della velocità: i nemici compaiono più spesso o sparano prima man mano che il punteggio sale.",
+   "file": true,
+   "peso": 2,
+   "motivo": "è entrato con la v0.15: la difficoltà cresce a ogni livello, cioè ogni 10 cattivi colpiti",
+   "fatto": "v0.15 (già fatto)",
+   "no": "",
+   "pos": 9
   },
   {
    "ora": "12/10 12:30",
@@ -95,19 +119,7 @@
    "motivo": "un file nuovo e il codice per suonarlo; da controllare che la musica sia libera (diritti d'autore)",
    "fatto": "",
    "no": "per ora no: il gioco è su un sito pubblico e la musica deve essere libera (diritti d'autore). Scrivi da dove viene, o usa una musica di Pixabay",
-   "pos": 8
-  },
-  {
-   "ora": "12/10 12:51",
-   "alunno": "Egor M.",
-   "pr": "PR (senza numero)",
-   "richiesta": "CAMBIAMENTO GIOCO\n\ncambiare alcune animazioni e posizioni dei nemici per diminuire la ripetitività",
-   "file": true,
-   "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
-   "fatto": "",
-   "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "12/10 12:55",
@@ -119,7 +131,7 @@
    "motivo": "difetto vero del gioco; PR scritta bene",
    "fatto": "v0.17",
    "no": "",
-   "pos": 10
+   "pos": 11
   },
   {
    "ora": "12/10 12:56",
@@ -131,31 +143,31 @@
    "motivo": "effetto grafico sul vetro",
    "fatto": "",
    "no": "c'è già: a ogni colpo il vetro prende una crepa nuova, e le crepe si sommano. Proponi qualcosa di nuovo",
-   "pos": 11
+   "pos": 12
   },
   {
    "ora": "12/10 12:56",
    "alunno": "Francesco M.",
    "pr": "PR (senza numero)",
-   "richiesta": "pull request · al posto di un personaggio",
+   "richiesta": "Un'immagine da mettere al posto di un personaggio.",
    "file": true,
    "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "motivo": "personaggio nuovo",
    "fatto": "",
-   "no": "",
-   "pos": 12
+   "no": "è la foto di una persona vera: nel gioco non si mettono foto di persone vere (privacy). Disegna tu il personaggio o fallo disegnare all'IA",
+   "pos": 13
   },
   {
    "ora": "12/10 12:57",
-   "alunno": "Alejandro G.",
+   "alunno": "Egor M.",
    "pr": "PR (senza numero)",
-   "richiesta": ".",
+   "richiesta": "Difetto: i nemici a volte escono male dagli ostacoli (case, palazzi) e non si vedono.",
    "file": true,
    "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "motivo": "difetto del gioco",
    "fatto": "",
    "no": "",
-   "pos": 13
+   "pos": 14
   },
   {
    "ora": "12/10 12:57",
@@ -167,7 +179,7 @@
    "motivo": "animazione e scritte",
    "fatto": "v0.18",
    "no": "",
-   "pos": 14
+   "pos": 15
   },
   {
    "ora": "12/10 12:59",
@@ -178,18 +190,6 @@
    "peso": 3,
    "motivo": "animazione e scritte; stessa idea di Ney V.",
    "fatto": "v0.18",
-   "no": "",
-   "pos": 15
-  },
-  {
-   "ora": "12/10 13:00",
-   "alunno": "Ney V.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Aumento progressivo della velocità\nFai comparire i nemici più velocemente o riduci il tempo prima che sparino man mano che il punteggio sale.",
-   "file": true,
-   "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
-   "fatto": "",
    "no": "",
    "pos": 16
   },
@@ -242,16 +242,28 @@
    "pos": 20
   },
   {
-   "ora": "12/10 12:57",
+   "ora": "12/10 12:51",
    "alunno": "Egor M.",
    "pr": "PR (senza numero)",
-   "richiesta": "CAMBIAMENTO GIOCO\nmigliorare ostacoli dove si nascondono i nemici (case, palazzi,...), a volte escono male e il nemico non si vede",
+   "richiesta": "Cambiare alcune animazioni e posizioni dei nemici, per diminuire la ripetitività.",
    "file": true,
    "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "motivo": "animazioni e posizioni nuove dei nemici",
    "fatto": "",
    "no": "",
    "pos": 21
+  },
+  {
+   "ora": "12/10 12:58",
+   "alunno": "Ney V.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Power-up: ogni tanto compare una cassa di pronto soccorso; se la clicchi il vetro torna su di 1 o 2 punti.",
+   "file": true,
+   "peso": 5,
+   "motivo": "oggetto nuovo da disegnare e regola piccola",
+   "fatto": "",
+   "no": "",
+   "pos": 22
   },
   {
    "ora": "12/10 12:38",
@@ -263,7 +275,7 @@
    "motivo": "la difficoltà che cresce è entrata con la v0.15; l'arma nuova a ogni livello (peso 8) resta da fare",
    "fatto": "v0.15 (difficoltà)",
    "no": "",
-   "pos": 22
+   "pos": 23
   },
   {
    "ora": "12/10 12:49",
@@ -275,7 +287,7 @@
    "motivo": "cambia il modo in cui si disegna tutto il percorso; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 23
+   "pos": 24
   },
   {
    "ora": "12/10 12:50",
@@ -287,55 +299,19 @@
    "motivo": "regola nuova (le vite); PR scritta bene, con le 4 parti; simile alla PR di Egor M.",
    "fatto": "",
    "no": "",
-   "pos": 24
-  },
-  {
-   "ora": "12/10 12:57",
-   "alunno": "Mathias P.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Quando nascono i boss  devono nascere con una barra della vita perché l’arma non li uccide subito ma ci vogliono più colpi cosi almeno sai a quanta vita è rimasta.",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
    "pos": 25
   },
   {
    "ora": "12/10 12:58",
    "alunno": "Mathias P.",
    "pr": "PR (senza numero)",
-   "richiesta": "Aggiungerei  i colpi limitati ovvero ogni 5 colpi si ricarica cliccando la lettera R così da renderlo più realistico.",
+   "richiesta": "Colpi limitati: ogni 5 colpi si ricarica premendo R, per renderlo più realistico.",
    "file": false,
    "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "motivo": "regola nuova del gioco (munizioni e ricarica)",
    "fatto": "",
    "no": "",
    "pos": 26
-  },
-  {
-   "ora": "12/10 12:58",
-   "alunno": "Ney V.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Power-up e bonus\nFai apparire ogni tanto una cassa di pronto soccorso/riparazione sullo sfondo: se la clicchi ti ridà +1 o +2 punti vita al vetro.",
-   "file": true,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 27
-  },
-  {
-   "ora": "12/10 13:00",
-   "alunno": "Luca B.",
-   "pr": "PR (senza numero)",
-   "richiesta": "modifica gioco\nboss a metà gioco, un boss che per sconfiggerlo devi cliccare in tempo ed sincronizzato i punti indicati ed dopo averlo sconfitto continua l'avventura( ovviamente il boss ha animazione sue e delle battute da dire in caso di v…",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 28
   },
   {
    "ora": "12/10 12:51",
@@ -347,7 +323,7 @@
    "motivo": "parte grande nuova: monete, negozio della rinascita, prezzi che crescono",
    "fatto": "",
    "no": "",
-   "pos": 29
+   "pos": 27
   },
   {
    "ora": "12/10 12:56",
@@ -359,16 +335,40 @@
    "motivo": "parte grande nuova: boss, comportamenti diversi, treno che si ferma",
    "fatto": "",
    "no": "",
-   "pos": 30
+   "pos": 28
+  },
+  {
+   "ora": "12/10 12:57",
+   "alunno": "Mathias P.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Il boss ha una barra della vita: servono più colpi e si vede quanta vita gli resta.",
+   "file": false,
+   "peso": 13,
+   "motivo": "fa parte del boss (stessa PR delle 12:56)",
+   "fatto": "",
+   "no": "",
+   "pos": 29
   },
   {
    "ora": "12/10 12:58",
    "alunno": "Luca B.",
    "pr": "PR (senza numero)",
-   "richiesta": "modifica menu di gioco\nse è possibile creare una classifica generale  del gioco dove ci sono i risultati di tutti i giocatore che hanno giocato. visto che la classifica attuale è solo personale.\ndove: nel menu di gioco\nperché: il menu di gi…",
+   "richiesta": "Classifica generale con i risultati di tutti i giocatori, nel menu di gioco, perché ora è solo personale.",
    "file": false,
    "peso": 13,
-   "motivo": "un pezzo di gioco nuovo e grande: molto codice e molte prove",
+   "motivo": "serve un posto in rete dove salvare i punteggi di tutti (oggi c'è il «Record della classe» aggiornato dal prof); PR scritta bene",
+   "fatto": "",
+   "no": "",
+   "pos": 30
+  },
+  {
+   "ora": "12/10 13:00",
+   "alunno": "Luca B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Boss a metà gioco: per sconfiggerlo si cliccano in tempo i punti indicati; ha animazioni e battute sue. Dove: in tutto il gioco. Perché: più divertimento.",
+   "file": false,
+   "peso": 13,
+   "motivo": "parte grande nuova; PR scritta bene",
    "fatto": "",
    "no": "",
    "pos": 31

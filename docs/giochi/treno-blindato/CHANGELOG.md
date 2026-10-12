@@ -1,5 +1,11 @@
 # Storia delle versioni
 
+## v0.19 — 12/10/2026 13:02 — Il mirino rosso
+
+1. Pull Request di Ney V. (12:59): «Cursore a forma di mirino: cambia il puntatore del mouse con la grafica di un mirino rosso, per dare subito l’idea di uno sparatutto arcade».
+2. Sopra il gioco il puntatore del mouse è un mirino rosso (cerchio, punto al centro e quattro tacche); il centro del mirino è il punto dove si spara.
+3. Peso 1 nel backlog: una riga di stile in index.html, il mirino è disegnato lì dentro.
+
 ## v0.18 — 12/10/2026 13:00 — BANG! e il cattivo cade a terra
 
 1. Pull Request di Ney V. (12:57): «quando clicchi un nemico, non farlo sparire all’improvviso: scritta BANG!, flash rosso o piccola animazione di caduta».
