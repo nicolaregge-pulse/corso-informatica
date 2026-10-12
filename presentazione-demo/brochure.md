@@ -1,6 +1,6 @@
 # Una scuola che lavora come un'azienda di software
 
-**Versione 1.1** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
+**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
 
 Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 
@@ -75,3 +75,5 @@ https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iE
 ```
 https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-blindato/
 ```
+
+Contatti: prof. Nicola Regge, nicola.regge@gmail.com

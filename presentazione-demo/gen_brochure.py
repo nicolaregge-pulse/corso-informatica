@@ -7,7 +7,7 @@ Uso:  python3 presentazione-demo/gen_brochure.py
 import html, os, subprocess
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VER = "1.1"
+VER = "1.2"
 DATA = "20261012"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 DEMO = "https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec"
@@ -101,7 +101,7 @@ def md():
     r += ["", "## 07 Cosa serve", ""] + ["%d. %s" % (i + 1, x) for i, x in enumerate(SERVE)]
     r += ["", "## 08 Per chi", ""] + ["%d. **%s:** %s." % (i + 1, a, b) for i, (a, b) in enumerate(PER_CHI)]
     r += ["", "## 09 Provalo", "", "1. La demo del sistema: fai l'allievo, scrivi la tua Pull Request e guardala diventare una versione del gioco.", "", "```", DEMO, "```", "",
-          "2. Il gioco della classe.", "", "```", GIOCO, "```", ""]
+          "2. Il gioco della classe.", "", "```", GIOCO, "```", "", "Contatti: prof. Nicola Regge, nicola.regge@gmail.com", ""]
     open(os.path.join(QUI, "brochure.md"), "w", encoding="utf-8").write("\n".join(r))
 
 
@@ -158,7 +158,7 @@ a.bot{display:block;text-align:center;color:#fff;text-decoration:none;font-weigh
                   '<p class="kick" style="margin-top:9mm">09 Provalo</p><h2>Due link, cinque minuti.</h2><div class="grid2"><div class="box blu"><h3>La demo del sistema</h3>'
                   'Fai l\'allievo: scrivi la tua Pull Request e guardala entrare nel backlog, diventare una versione del gioco e cambiare il tuo voto. Si entra con la propria email e un codice.'
                   '<a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><span style="font-size:8pt;color:#555;word-break:break-all">%s</span></div><div class="box verde"><h3>Il gioco della classe</h3>«Il treno blindato», costruito dai ragazzi una Pull Request alla volta.'
-                  '<a class="bot v" href="%s">▶ Gioca al gioco della classe</a><span style="font-size:8pt;color:#555;word-break:break-all">%s</span></div></div><p style="margin-top:8mm;font-size:12pt"><b>Prof. Nicola Regge</b><br>Laboratorio di informatica</p><div class="pn">7</div></div>' % (
+                  '<a class="bot v" href="%s">▶ Gioca al gioco della classe</a><span style="font-size:8pt;color:#555;word-break:break-all">%s</span></div></div><p style="margin-top:8mm;font-size:12pt"><b>Prof. Nicola Regge</b><br>Laboratorio di informatica<br><a href="mailto:nicola.regge@gmail.com" style="color:#0b4bbd">nicola.regge@gmail.com</a></p><div class="pn">7</div></div>' % (
                       "".join("<li>%s</li>" % E(x) for x in SERVE), "".join('<div class="box"><h3>%s</h3>%s</div>' % (E(a), E(b)) for a, b in PER_CHI),
                       E(DEMO), E(DEMO), E(GIOCO), E(GIOCO)))
     h = "<!doctype html><html lang=it><meta charset=utf-8><title>Brochure</title><style>%s</style>%s</html>" % (css, "".join(pagine))
