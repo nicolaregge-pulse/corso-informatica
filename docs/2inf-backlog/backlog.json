@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 13:14",
+ "aggiornato": "12/10/2026 13:16",
  "voci": [
   {
    "ora": "12/10 12:23",
@@ -26,6 +26,18 @@
    "pos": 2
   },
   {
+   "ora": "12/10 13:12",
+   "alunno": "Shaharia A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Un ragazzo di nome shaharia · Lo voglio nel gioco",
+   "file": true,
+   "peso": 1,
+   "motivo": "si cambia solo un testo o un colore: una riga",
+   "fatto": "",
+   "no": "",
+   "pos": 3
+  },
+  {
    "ora": "12/10 12:29",
    "alunno": "Ney V.",
    "pr": "PR (senza numero)",
@@ -35,7 +47,7 @@
    "motivo": "una riga di codice: al cambio di livello si passa all'ambiente dopo",
    "fatto": "v0.13",
    "no": "",
-   "pos": 3
+   "pos": 4
   },
   {
    "ora": "12/10 12:31",
@@ -47,7 +59,7 @@
    "motivo": "si cambia una regola piccola: un colpo in più",
    "fatto": "v0.14",
    "no": "",
-   "pos": 4
+   "pos": 5
   },
   {
    "ora": "12/10 12:45",
@@ -59,7 +71,7 @@
    "motivo": "la parte «cambia la mappa al cambio di livello» è entrata con la v0.13; «cambiare la grafica» non dice cosa: riscrivila con cosa e dove",
    "fatto": "v0.13",
    "no": "",
-   "pos": 5
+   "pos": 6
   },
   {
    "ora": "12/10 12:53",
@@ -71,7 +83,7 @@
    "motivo": "PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "la velocità è già al minimo (0,5) dalla v0.4: più lento il treno quasi si ferma. Prova la v0.16 con il vetro più forte",
-   "pos": 6
+   "pos": 7
   },
   {
    "ora": "12/10 12:53",
@@ -83,7 +95,7 @@
    "motivo": "si cambia un numero; PR scritta bene, con le 4 parti",
    "fatto": "v0.16",
    "no": "",
-   "pos": 7
+   "pos": 8
   },
   {
    "ora": "12/10 12:57",
@@ -95,7 +107,7 @@
    "motivo": "è la stessa richiesta delle 12:45",
    "fatto": "v0.13 (la mappa che cambia)",
    "no": "",
-   "pos": 8
+   "pos": 9
   },
   {
    "ora": "12/10 13:00",
@@ -107,7 +119,7 @@
    "motivo": "è entrato con la v0.15: la difficoltà cresce a ogni livello, cioè ogni 10 cattivi colpiti",
    "fatto": "v0.15 (già fatto)",
    "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "12/10 13:01",
@@ -119,7 +131,7 @@
    "motivo": "difetto piccolo; PR scritta bene",
    "fatto": "v0.21",
    "no": "",
-   "pos": 10
+   "pos": 11
   },
   {
    "ora": "12/10 13:04",
@@ -131,7 +143,7 @@
    "motivo": "una scritta in più; il record era già salvato nel browser",
    "fatto": "v0.22",
    "no": "",
-   "pos": 11
+   "pos": 12
   },
   {
    "ora": "12/10 13:06",
@@ -143,7 +155,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 12
+   "pos": 13
   },
   {
    "ora": "12/10 13:07",
@@ -155,7 +167,43 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 13
+   "pos": 14
+  },
+  {
+   "ora": "12/10 13:07",
+   "alunno": "Youssef A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull request\n\nVetro con i colpi visibili. Il vetro regge 5 colpi: mostrare i colpi rimasti con una barra o con crepe sempre più grandi.",
+   "file": false,
+   "peso": 2,
+   "motivo": "si cambia un numero nelle regole del gioco",
+   "fatto": "",
+   "no": "",
+   "pos": 15
+  },
+  {
+   "ora": "12/10 13:09",
+   "alunno": "Oscar F.",
+   "pr": "PR (senza numero)",
+   "richiesta": "cambierei il danneggiamento del vetro non lo metterei tutto schermo ma come se fosse piu avanti e ci fosse spazio tra me e il vetro",
+   "file": false,
+   "peso": 2,
+   "motivo": "si cambia un numero nelle regole del gioco",
+   "fatto": "",
+   "no": "",
+   "pos": 16
+  },
+  {
+   "ora": "12/10 13:11",
+   "alunno": "Lina A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Titolo: Sistema di Power-Up (Turbo e Scudo)\n\nCosa cambia: Viene aggiunta la possibilità di raccogliere oggetti lungo i binari che aumentano temporaneamente la velocità o proteggono dagli ostacoli.\n\nDove: Nel codice di logica del gioco e di …",
+   "file": false,
+   "peso": 2,
+   "motivo": "si cambia un numero nelle regole del gioco",
+   "fatto": "",
+   "no": "",
+   "pos": 17
   },
   {
    "ora": "12/10 12:30",
@@ -167,7 +215,7 @@
    "motivo": "un file nuovo e il codice per suonarlo; da controllare che la musica sia libera (diritti d'autore)",
    "fatto": "",
    "no": "per ora no: il gioco è su un sito pubblico e la musica deve essere libera (diritti d'autore). Scrivi da dove viene, o usa una musica di Pixabay",
-   "pos": 14
+   "pos": 18
   },
   {
    "ora": "12/10 12:55",
@@ -179,7 +227,7 @@
    "motivo": "difetto vero del gioco; PR scritta bene",
    "fatto": "v0.17",
    "no": "",
-   "pos": 15
+   "pos": 19
   },
   {
    "ora": "12/10 12:56",
@@ -191,7 +239,7 @@
    "motivo": "effetto grafico sul vetro",
    "fatto": "",
    "no": "c'è già: a ogni colpo il vetro prende una crepa nuova, e le crepe si sommano. Proponi qualcosa di nuovo",
-   "pos": 16
+   "pos": 20
   },
   {
    "ora": "12/10 12:56",
@@ -203,7 +251,7 @@
    "motivo": "personaggio nuovo",
    "fatto": "",
    "no": "è la foto di una persona vera: nel gioco non si mettono foto di persone vere (privacy). Disegna tu il personaggio o fallo disegnare all'IA",
-   "pos": 17
+   "pos": 21
   },
   {
    "ora": "12/10 12:57",
@@ -215,7 +263,7 @@
    "motivo": "difetto del gioco",
    "fatto": "v0.20",
    "no": "",
-   "pos": 18
+   "pos": 22
   },
   {
    "ora": "12/10 12:57",
@@ -227,7 +275,7 @@
    "motivo": "animazione e scritte",
    "fatto": "v0.18",
    "no": "",
-   "pos": 19
+   "pos": 23
   },
   {
    "ora": "12/10 12:59",
@@ -239,7 +287,7 @@
    "motivo": "animazione e scritte; stessa idea di Ney V.",
    "fatto": "v0.18",
    "no": "",
-   "pos": 20
+   "pos": 24
   },
   {
    "ora": "12/10 13:03",
@@ -251,7 +299,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 21
+   "pos": 25
   },
   {
    "ora": "12/10 13:03",
@@ -263,7 +311,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 22
+   "pos": 26
   },
   {
    "ora": "12/10 13:03",
@@ -275,7 +323,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 23
+   "pos": 27
   },
   {
    "ora": "12/10 13:03",
@@ -287,7 +335,7 @@
    "motivo": "un bottone e una regola nel ciclo del gioco; PR scritta bene, con le 4 parti",
    "fatto": "v0.23",
    "no": "",
-   "pos": 24
+   "pos": 28
   },
   {
    "ora": "12/10 13:06",
@@ -299,7 +347,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 25
+   "pos": 29
   },
   {
    "ora": "12/10 13:06",
@@ -311,7 +359,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 26
+   "pos": 30
   },
   {
    "ora": "12/10 13:06",
@@ -323,7 +371,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 27
+   "pos": 31
   },
   {
    "ora": "12/10 13:07",
@@ -335,7 +383,163 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 28
+   "pos": 32
+  },
+  {
+   "ora": "12/10 13:09",
+   "alunno": "Riccardo B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Eventi Casuali di Viaggio (Incontri Imprevisti)\nImplementa un sistema di eventi testuali o visivi randomici durante gli spostamenti tra una tratta e l'altra.Esempi: Rotaie bloccate da detriti (scelta: spendere tempo per pulire o rischiare i…",
+   "file": false,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 33
+  },
+  {
+   "ora": "12/10 13:09",
+   "alunno": "Francesco M.",
+   "pr": "PR (senza numero)",
+   "richiesta": "metterei questa foto in uno dei personaggi",
+   "file": true,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 34
+  },
+  {
+   "ora": "12/10 13:09",
+   "alunno": "Alejandro G.",
+   "pr": "PR (senza numero)",
+   "richiesta": "idde per  il gioco",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 35
+  },
+  {
+   "ora": "12/10 13:10",
+   "alunno": "Mahammed M.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull requets · vorrei aggiungere quel personaggio",
+   "file": true,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 36
+  },
+  {
+   "ora": "12/10 13:10",
+   "alunno": "Youssef A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull request\n\nCombo. Punti doppi se colpisci più cattivi di fila senza sbagliare.",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 37
+  },
+  {
+   "ora": "12/10 13:10",
+   "alunno": "Riccardo B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Sistema di Classi o Competenze dell'Equipaggio, Introduci del personale a bordo con ruoli definiti (es. Macchinista, Meccanico, Soldato).",
+   "file": false,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 38
+  },
+  {
+   "ora": "12/10 13:11",
+   "alunno": "Giorgio K.",
+   "pr": "PR (senza numero)",
+   "richiesta": "mettere piu grafica su le colline",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 39
+  },
+  {
+   "ora": "12/10 13:12",
+   "alunno": "Giorgio K.",
+   "pr": "PR (senza numero)",
+   "richiesta": "mettere delle erda perttera",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 40
+  },
+  {
+   "ora": "12/10 13:12",
+   "alunno": "Alejandro G.",
+   "pr": "PR (senza numero)",
+   "richiesta": "idde per il gioco",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 41
+  },
+  {
+   "ora": "12/10 13:13",
+   "alunno": "Youssef A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull request\n\nTutorial iniziale. Una schermata di 3 secondi che mostra come si gioca, con una mano che tocca un cattivo.",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 42
+  },
+  {
+   "ora": "12/10 13:13",
+   "alunno": "Oscar F.",
+   "pr": "PR (senza numero)",
+   "richiesta": "e per ultima cosa cambierei un po di difficolta tipo nebbia che rende nemici  meno visibili o nemici piu veloci a sparare come una modalita \"difficile\" ma solo a scelta come una modalità in piu",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 43
+  },
+  {
+   "ora": "12/10 13:14",
+   "alunno": "Luciano C.",
+   "pr": "PR (senza numero)",
+   "richiesta": "più vai avanti nel gioco e i nemici ti danno più punti",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 44
+  },
+  {
+   "ora": "12/10 13:15",
+   "alunno": "Giorgio K.",
+   "pr": "PR (senza numero)",
+   "richiesta": "mettere piu grafica su le colline",
+   "file": true,
+   "peso": 3,
+   "motivo": "da capire meglio: stima media, il prof la controlla",
+   "fatto": "",
+   "no": "",
+   "pos": 45
   },
   {
    "ora": "12/10 12:28",
@@ -347,7 +551,7 @@
    "motivo": "oggetti nuovi da disegnare; manca cosa aggiungere e dove",
    "fatto": "",
    "no": "manca cosa aggiungere e dove: riscrivila con Titolo, Cosa cambia, Dove, Perché",
-   "pos": 29
+   "pos": 46
   },
   {
    "ora": "12/10 12:32",
@@ -359,7 +563,7 @@
    "motivo": "è la stessa richiesta delle 12:28",
    "fatto": "",
    "no": "è uguale a quella delle 12:28: riscrivila con cosa aggiungere e dove",
-   "pos": 30
+   "pos": 47
   },
   {
    "ora": "12/10 12:48",
@@ -371,7 +575,7 @@
    "motivo": "oggetti da ridisegnare in tutto il gioco; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 31
+   "pos": 48
   },
   {
    "ora": "12/10 12:51",
@@ -383,7 +587,7 @@
    "motivo": "il sangue no (gioco di scuola, sito pubblico); al suo posto il cattivo cade a terra: da fare",
    "fatto": "v0.18 (caduta, senza sangue)",
    "no": "",
-   "pos": 32
+   "pos": 49
   },
   {
    "ora": "12/10 12:51",
@@ -395,7 +599,7 @@
    "motivo": "animazioni e posizioni nuove dei nemici",
    "fatto": "",
    "no": "",
-   "pos": 33
+   "pos": 50
   },
   {
    "ora": "12/10 12:58",
@@ -407,7 +611,7 @@
    "motivo": "oggetto nuovo da disegnare e regola piccola",
    "fatto": "",
    "no": "",
-   "pos": 34
+   "pos": 51
   },
   {
    "ora": "12/10 13:04",
@@ -419,7 +623,103 @@
    "motivo": "tre idee insieme",
    "fatto": "",
    "no": "non dice cosa cambiare e dove: scegli UNA idea e riscrivila con Titolo, Cosa cambia, Dove, Perché",
-   "pos": 35
+   "pos": 52
+  },
+  {
+   "ora": "12/10 13:07",
+   "alunno": "Riccardo B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Diversificazione dei Vagoni,Permetti al giocatore di spendere le risorse o le monete guadagnate per acquistare o potenziare i vagoni del treno nella stazione/officina:",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 53
+  },
+  {
+   "ora": "12/10 13:08",
+   "alunno": "Oscar F.",
+   "pr": "PR (senza numero)",
+   "richiesta": "poter scegliere lambientazione tipo: neve, foresta, acqua o magari deserto",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 54
+  },
+  {
+   "ora": "12/10 13:08",
+   "alunno": "Egor M.",
+   "pr": "PR (senza numero)",
+   "richiesta": "cambiamento gioco \nmigliorare le ambientazione e se possibile aggiungrne di nuove, per esempio: zona darkfantasy, foresta magica, vulcano",
+   "file": true,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 55
+  },
+  {
+   "ora": "12/10 13:10",
+   "alunno": "Lina A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Titolo: Condizioni meteo dinamiche (Pioggia e Nebbia)\nCosa cambia: Viene aggiunto un effetto visivo di pioggia o nebbia a sorpresa durante la corsa del treno.\nDove: Nel codice grafico e nella gestione dello sfondo di gioco.\nPerché: Per rend…",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 56
+  },
+  {
+   "ora": "12/10 13:11",
+   "alunno": "Youssef A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull request\n\nMeteo. Pioggia o nebbia che rendono più difficile vedere i cattivi.",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 57
+  },
+  {
+   "ora": "12/10 13:12",
+   "alunno": "Riccardo B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Il Meteo Variabile, All'inizio di ogni viaggio o turno, il gioco sceglie a caso una condizione meteorologica che modifica leggermente le regole del gioco.",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 58
+  },
+  {
+   "ora": "12/10 13:12",
+   "alunno": "Luciano C.",
+   "pr": "PR (senza numero)",
+   "richiesta": "cambia lo sfondo del cielo con questa foto",
+   "file": true,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 59
+  },
+  {
+   "ora": "12/10 13:14",
+   "alunno": "Francesco M.",
+   "pr": "PR (senza numero)",
+   "richiesta": "cambiare completamente sfondo quando superi il livello",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 60
   },
   {
    "ora": "12/10 12:38",
@@ -431,7 +731,7 @@
    "motivo": "la difficoltà che cresce è entrata con la v0.15; l'arma nuova a ogni livello (peso 8) resta da fare",
    "fatto": "v0.15 (difficoltà)",
    "no": "",
-   "pos": 36
+   "pos": 61
   },
   {
    "ora": "12/10 12:49",
@@ -443,7 +743,7 @@
    "motivo": "cambia il modo in cui si disegna tutto il percorso; PR scritta bene, con le 4 parti",
    "fatto": "",
    "no": "",
-   "pos": 37
+   "pos": 62
   },
   {
    "ora": "12/10 12:50",
@@ -455,7 +755,7 @@
    "motivo": "regola nuova (le vite); PR scritta bene, con le 4 parti; simile alla PR di Egor M.",
    "fatto": "",
    "no": "",
-   "pos": 38
+   "pos": 63
   },
   {
    "ora": "12/10 12:58",
@@ -467,7 +767,7 @@
    "motivo": "regola nuova del gioco (munizioni e ricarica)",
    "fatto": "",
    "no": "",
-   "pos": 39
+   "pos": 64
   },
   {
    "ora": "12/10 13:05",
@@ -479,7 +779,7 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 40
+   "pos": 65
   },
   {
    "ora": "12/10 13:05",
@@ -491,7 +791,7 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 41
+   "pos": 66
   },
   {
    "ora": "12/10 13:05",
@@ -503,7 +803,7 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 42
+   "pos": 67
   },
   {
    "ora": "12/10 13:06",
@@ -515,7 +815,55 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 43
+   "pos": 68
+  },
+  {
+   "ora": "12/10 13:10",
+   "alunno": "Riccardo B.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Gestione delle Munizioni per le Torrette,Rendi i combattimenti più strategici limitando i colpi a disposizione.Ogni attacco consuma Munizioni. Se finiscono, le torrette diventano inutilizzabili. Il giocatore dovrà quindi decidere quando spa…",
+   "file": false,
+   "peso": 8,
+   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "fatto": "",
+   "no": "",
+   "pos": 69
+  },
+  {
+   "ora": "12/10 13:12",
+   "alunno": "Ney V.",
+   "pr": "PR (senza numero)",
+   "richiesta": "la mia idea spacca. allora ogni 10 livelli possiamo fermarci magari per recuperare vita o migliorare l'arma per essere più forte e veloce a sparare e un upgrade che possiamo caricare più velocemente. ovviamente aggiungi piu vita e falli piu…",
+   "file": true,
+   "peso": 8,
+   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "fatto": "",
+   "no": "",
+   "pos": 70
+  },
+  {
+   "ora": "12/10 13:14",
+   "alunno": "Lina A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Titolo: Selezione del livello di difficoltà\nCosa cambia: Viene aggiunta la possibilità di scegliere la difficoltà (Facile, Medio, Difficile) prima di iniziare la partita.\nDove: Nel menu principale e nel codice di configurazione del gioco.\nP…",
+   "file": false,
+   "peso": 8,
+   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "fatto": "",
+   "no": "",
+   "pos": 71
+  },
+  {
+   "ora": "12/10 13:14",
+   "alunno": "Giorgio A.",
+   "pr": "PR (senza numero)",
+   "richiesta": "Aggiungere le munizioni · Il giocatore ha un numero limitato di munizioni e deve ricaricare quando finiscono.",
+   "file": false,
+   "peso": 8,
+   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "fatto": "",
+   "no": "",
+   "pos": 72
   },
   {
    "ora": "12/10 12:51",
@@ -527,7 +875,7 @@
    "motivo": "parte grande nuova: monete, negozio della rinascita, prezzi che crescono",
    "fatto": "",
    "no": "",
-   "pos": 44
+   "pos": 73
   },
   {
    "ora": "12/10 12:56",
@@ -539,7 +887,7 @@
    "motivo": "parte grande nuova: boss, comportamenti diversi, treno che si ferma",
    "fatto": "",
    "no": "",
-   "pos": 45
+   "pos": 74
   },
   {
    "ora": "12/10 12:57",
@@ -551,7 +899,7 @@
    "motivo": "fa parte del boss (stessa PR delle 12:56)",
    "fatto": "",
    "no": "",
-   "pos": 46
+   "pos": 75
   },
   {
    "ora": "12/10 12:58",
@@ -563,7 +911,7 @@
    "motivo": "serve un posto in rete dove salvare i punteggi di tutti (oggi c'è il «Record della classe» aggiornato dal prof); PR scritta bene",
    "fatto": "",
    "no": "",
-   "pos": 47
+   "pos": 76
   },
   {
    "ora": "12/10 13:00",
@@ -575,7 +923,7 @@
    "motivo": "parte grande nuova; PR scritta bene",
    "fatto": "",
    "no": "",
-   "pos": 48
+   "pos": 77
   },
   {
    "ora": "12/10 13:05",
@@ -587,7 +935,19 @@
    "motivo": "un pezzo di gioco nuovo e grande: molto codice e molte prove",
    "fatto": "",
    "no": "",
-   "pos": 49
+   "pos": 78
+  },
+  {
+   "ora": "12/10 13:07",
+   "alunno": "Ney V.",
+   "pr": "PR (senza numero)",
+   "richiesta": "vai una classifica di giocatori e chi fa più punti vince dei diamanti o  senno fallo normale quello con più punti e il primo al mondo e una classifica globale ovviamente e chi entra al gioco deve inserire un nome personale",
+   "file": true,
+   "peso": 13,
+   "motivo": "un pezzo di gioco nuovo e grande: molto codice e molte prove",
+   "fatto": "",
+   "no": "",
+   "pos": 79
   }
  ]
 }
