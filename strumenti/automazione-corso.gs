@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v7.1 (12/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.2 (12/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * Git e' la zona di scambio con l'AI (repo privato corso-informatica-riservato):
  *
  *   1. PUBBLICA: l'AI mette in coda/ un file .json con stato "da-pubblicare" (titolo, PDF,
@@ -95,6 +95,7 @@ function autoCiclo() {
   try {
     var r = AUTO_gh('get', '/contents/' + AUTO.CODA + '?ref=' + AUTO.BRANCH);
     if (r.getResponseCode() === 404) { Logger.log('Coda vuota.'); return; }
+    if (r.getResponseCode() !== 200) { Logger.log('GitHub risponde ' + r.getResponseCode() + ': ' + r.getContentText().slice(0, 300)); return; }   // v7.2
     var files = JSON.parse(r.getContentText()).filter(function (f) { return /\.json$/.test(f.name); });
     var adesso = new Date(), fatto = 0;
     files.forEach(function (f) {
