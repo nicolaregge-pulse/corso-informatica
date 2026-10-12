@@ -12,14 +12,18 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 </style><style>.pos{font-size:26px;font-weight:900;text-align:center}.oro td{background:rgba(212,160,23,.22)}.arg td{background:rgba(160,160,170,.2)}.bro td{background:rgba(176,110,60,.18)}</style></head><body><div class="w">
 <h1>La classifica della 2INF: chi ha portato più PR nel gioco</h1><p class="mu">12/10/2026 · <span id="agg">carico…</span> · si aggiorna da sola ogni minuto</p>
 <p><a class="bt" target="_blank" href="../2inf-novita/">Cosa è cambiato oggi nel gioco</a><a class="bt" target="_blank" href="../2inf-backlog/">Il backlog</a><a class="bt" target="_blank" href="../2inf-voti/">I voti</a></p>
-<div class="card"><p><b>Come si legge:</b> prima conta quante tue Pull Request sono entrate nel gioco (PR pubblicate); a parità, conta quante ne hai mandate (PR inviate).</p></div>
-<div class="card"><table><thead><tr><th>Posizione</th><th>Alunno</th><th>PR pubblicate nel gioco</th><th>PR inviate</th></tr></thead><tbody id="tb"><tr><td colspan="4" class="mu">Carico…</td></tr></tbody></table></div>
+<div class="card"><p><b>Come si legge:</b> prima conta quante tue Pull Request sono entrate nel gioco; a parità, conta quante ne hai mandate. Sotto ogni nome ci sono tutte le sue Pull Request, una per riga: prima quelle FATTE (verdi), poi quelle da fare, poi i NO (rossi) con il motivo.</p></div>
+<div class="card"><table><thead><tr><th>Posizione</th><th>Alunno</th><th>PR nel gioco / inviate</th><th>Ora</th><th>La sua Pull Request</th><th>Stato</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){fetch('../2inf-voti/voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornata '+d.aggiornato;
  var v=d.voti.slice().sort(function(a,b){return (b.fatte-a.fatte)||(b.pr-a.pr)||a.alunno.localeCompare(b.alunno)}),pos=0,prec=null;
+ function peso(x){var t=x.stato||'';return /^v\d/.test(t)?0:(/^NO/.test(t)?2:1)}
  document.getElementById('tb').innerHTML=v.map(function(x,i){var k=x.fatte+'/'+x.pr;if(k!==prec){pos=i+1;prec=k}var cl=pos===1?'oro':(pos===2?'arg':(pos===3?'bro':''));
-  return '<tr class="'+cl+'"><td class="pos">'+pos+'</td><td><b>'+e(x.alunno)+'</b></td><td class="n">'+x.fatte+'</td><td class="n">'+x.pr+'</td></tr>'}).join('')}).catch(function(){})}
+  var el=(x.elenco||[]).slice().sort(function(a,b){return (peso(a)-peso(b))||a.ora.localeCompare(b.ora)});if(!el.length)el=[{ora:'',richiesta:'nessuna Pull Request',stato:''}];
+  return el.map(function(p,j){var st=p.stato||'',col=/^v\d/.test(st)&&st.indexOf('già')<0?'ok':(/^NO/.test(st)?'ko':'');
+   return '<tr class="'+cl+'">'+(j===0?'<td class="pos" rowspan="'+el.length+'">'+pos+'</td><td rowspan="'+el.length+'"><b>'+e(x.alunno)+'</b></td><td class="n" rowspan="'+el.length+'">'+x.fatte+' / '+x.pr+'</td>':'')+
+    '<td>'+e(p.ora)+'</td><td>'+e(p.richiesta)+'</td><td class="'+col+'"><b>'+e(st==='da fare'?'da fare':(/^v\d/.test(st)?'FATTO '+st:st))+'</b></td></tr>'}).join('')}).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 </script></body></html>
