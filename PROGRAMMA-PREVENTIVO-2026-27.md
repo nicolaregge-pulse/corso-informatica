@@ -1,6 +1,6 @@
 # Programma Preventivo 2026/27 (per competenza)
 
-**Versione 0.4** — 02/09/2026
+**Versione 0.5** — 12/10/2026
 *Programma PREVISTO per quest'anno, per ogni classe, per area di competenza dell'Allegato A. Elenco SENZA numerazione, pronto da incollare nell'Allegato A ed evidenziare in giallo; si toglie il giallo mano a mano che si svolge, si cancella cio che non si fa. La Sicurezza (competenza 14) usa i 16 titoli ufficiali del corso Formazione Sicurezza Piamarta.*
 
 ---
@@ -13,7 +13,8 @@ Digitalizzazione di immagini e suoni
 Git di base: versionare, il proprio repository personale, salvare con un commit (tutto visuale)  
 Diagrammi di flusso (flowchart)  
 Logica e problem solving; algoritmi e strutture di controllo  
-Coding a blocchi e porte logiche booleane (AND, OR, NOT)
+Coding a blocchi e porte logiche booleane (AND, OR, NOT)  
+Versioni, rami, fork, Pull Request, merge e release: la storia del gioco della classe (Treno blindato)
 
 ### Competenza 14 — Tecnico-professionale ricorsiva — operare in sicurezza (16 ore ufficiali, fonte: Formazione Sicurezza Piamarta)
 1a ora — Concetti di rischio e danno  
@@ -53,7 +54,9 @@ Microsoft Excel: scadenze e calendari
 Ricerca in rete: ricerca avanzata e operatori booleani  
 Intelligenza umana e artificiale: concetti e limiti  
 Usare un assistente AI per costruire il proprio libro di testo/quaderno  
-Industria 4.0 e automazione
+Industria 4.0 e automazione  
+Regole del laboratorio; accesso, uscita e blocco dello schermo (Ctrl+Alt+Canc)  
+Account GitHub con l'email della scuola
 
 ### Competenza 16 — Tecnico-professionale d'indirizzo — manutenzione di sistemi, reti e dispositivi
 Manutenzione ordinaria e preventiva; tuning del PC  
@@ -76,14 +79,16 @@ Canva base: immagini semplici, locandine, loghi, modelli
 Algoritmi dei social e impatto mediatico
 
 ### Competenza trasv. — Trasversale
-Glossario informatico (costruito dagli studenti)
+Glossario informatico (costruito dagli studenti)  
+Sicurezza digitale: voci e volti falsi (deepfake), e-mail truffa (phishing)
 
 ## Classe 2 (2026/27)  (ex prima)
 ### Competenza 12 — Tecnico-professionale ricorsiva — pianificare le fasi, documentazione, algoritmi, organizzazione
 Git di base: versionare, il proprio repository personale, salvare con un commit (tutto visuale)  
 Project management: piano di Gantt, ruoli, pianificazione di un progetto  
 Lavoro in team e presentazione del lavoro finito; tesine  
-Figure professionali dell'informatica
+Figure professionali dell'informatica  
+Versioning e metodo Agile: Manifesto, backlog con i pesi, Pull Request sul gioco della classe, versioni e changelog
 
 ### Competenza 14 — Tecnico-professionale ricorsiva — operare in sicurezza (16 ore ufficiali, fonte: Formazione Sicurezza Piamarta)
 1a ora — Concetti di rischio e danno  
@@ -121,7 +126,9 @@ Lazarus, primi passi: ambiente, componenti semplici (Button, Edit, Label), Hello
 Lazarus, interfaccia e oggetti piu complessi: RadioButton, ComboBox, PageControl, variabili, funzioni  
 Lazarus, esercizi: calcolatrice, contasecondi, MasterMind, array/stringhe  
 Interpretato e compilato; Lazarus e Delphi  
-Il Mio Negozio Online (e-commerce): web, database, ordini via email
+Il Mio Negozio Online (e-commerce): web, database, ordini via email  
+Lazarus, condizioni: if/then/else e if annidati (Indovina il numero, Il cassiere del cinema)  
+Lazarus, convertitori: mph e km/h, Celsius e Fahrenheit
 
 ### Competenza 1.2 — Comunicazione — materiali visivi, sonori e digitali (grafica, presentazioni, testi, mail)
 Canva avanzato: rimozione sfondo, ritocco immagini  
@@ -130,7 +137,8 @@ Editing video e presentazioni multimediali
 Algoritmi dei social e impatto mediatico
 
 ### Competenza trasv. — Trasversale
-Glossario informatico (costruito dagli studenti)
+Glossario informatico (costruito dagli studenti)  
+Sicurezza digitale: voci e volti falsi (deepfake), e-mail truffa (phishing)
 
 ## Classe 3 (2026/27)  (ex seconda)
 ### Competenza 12 — Tecnico-professionale ricorsiva — pianificare le fasi, documentazione, algoritmi, organizzazione
@@ -138,7 +146,9 @@ Project management: piano di Gantt, ruoli, pianificazione di un progetto
 Lavoro in team e presentazione del lavoro finito; tesine  
 Documentazione tecnica: manuale utente, relazione, deployment  
 Figure professionali dell'informatica  
-Git in team: branch, Pull Request, merge, release (Fase 2)
+Git in team: branch, Pull Request, merge, release (Fase 2)  
+Versioning e metodo Agile: il documento come ramo, Pull Request, backlog  
+Il gioco della classe come in un'azienda: fork, Pull Request, merge, versioni
 
 ### Competenza 14 — Tecnico-professionale ricorsiva — operare in sicurezza (16 ore ufficiali, fonte: Formazione Sicurezza Piamarta)
 1a ora — Concetti di rischio e danno  
@@ -166,7 +176,9 @@ La comunicazione sul web; come funziona il web
 Intelligenza umana e artificiale: concetti e limiti  
 Usare un assistente AI per costruire il proprio libro di testo/quaderno  
 Industria 4.0 e automazione  
-Il Mio Negozio Online (e-commerce): web, database, ordini via email
+Il Mio Negozio Online (e-commerce): web, database, ordini via email  
+Sito personale con HTML e CSS pubblicato su GitHub Pages: modifica, commit e cronologia, seconda pagina e menu  
+Portfolio delle competenze sul proprio sito
 
 ### Competenza 16 — Tecnico-professionale d'indirizzo — manutenzione di sistemi, reti e dispositivi
 Cablaggio: cavo RJ45, standard T568B, piccola LAN, test e ping  
@@ -200,13 +212,15 @@ Editing video e presentazioni multimediali
 Algoritmi dei social e impatto mediatico
 
 ### Competenza trasv. — Trasversale
-Glossario informatico (costruito dagli studenti)
+Glossario informatico (costruito dagli studenti)  
+Sicurezza digitale: voci e volti falsi (deepfake), e-mail truffa (phishing)
 
 ## Classe 4 (2026/27)  (ex terza)
 ### Competenza 12 — Tecnico-professionale ricorsiva — pianificare le fasi, documentazione, algoritmi, organizzazione
 Lavoro in team e presentazione del lavoro finito; tesine  
 Documentazione tecnica: manuale utente, relazione, deployment  
-Git in team: branch, Pull Request, merge, release (Fase 2)
+Git in team: branch, Pull Request, merge, release (Fase 2)  
+Git e intelligenza artificiale con NotebookLM; quiz sul versioning
 
 ### Competenza 14 — Tecnico-professionale ricorsiva — operare in sicurezza (16 ore ufficiali, fonte: Formazione Sicurezza Piamarta)
 1a ora — Concetti di rischio e danno  
@@ -241,7 +255,8 @@ Cablaggio: cavo RJ45, standard T568B, piccola LAN, test e ping
 Indirizzamento: IP, MAC, DHCP, DNS, gateway, TCP/IP e porte  
 Cisco Packet Tracer: dalle prime reti alla rete di una scuola (VLAN)  
 Sicurezza di rete: firewall, segmentazione, rischi in rete  
-Cablaggio RJ45 e prime reti (schede pratiche a 4 livelli)
+Cablaggio RJ45 e prime reti (schede pratiche a 4 livelli)  
+Modello ISO/OSI: i 7 livelli e il viaggio di un messaggio (app interattiva)
 
 ### Competenza 17 — Tecnico-professionale d'indirizzo — elaborazione dati: database e programmazione
 Lazarus, interfaccia e oggetti piu complessi: RadioButton, ComboBox, PageControl, variabili, funzioni  
@@ -270,5 +285,9 @@ Algoritmi dei social e impatto mediatico
 Ricerca del lavoro: CV Europass, ricerca attiva
 
 ### Competenza trasv. — Trasversale
-Glossario informatico (costruito dagli studenti)
+Glossario informatico (costruito dagli studenti)  
+Sicurezza digitale: voci e volti falsi (deepfake), e-mail truffa (phishing)
 
+## Registro delle versioni
+2. **v0.5 (12/10/2026)**: aggiunte le voci nate dalle lezioni dal 21/09 al 12/10 (versioning e metodo Agile, Pull Request sul gioco della classe, sito su GitHub Pages, ISO/OSI, Lazarus con le condizioni, sicurezza digitale con i deepfake). Base per i file Word dell'Allegato A 2026/27 (`programmi-ufficiali/2026-27/`).
+1. **v0.4 (02/09/2026)**: programma previsto per le quattro classi, per competenza.
