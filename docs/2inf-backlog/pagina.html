@@ -34,6 +34,6 @@ function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(fu
  document.getElementById('tb').innerHTML=d.voci.map(riga).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 fetch('../giochi/treno-blindato/versioni/versioni.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
- document.getElementById('storia').innerHTML=d.map(function(v){var pr=(v.cambi||'').match(/PR\s*#?\d+[^.;]*/gi);return '<tr class="fatto"><td><b>2INF '+e(v.versione)+'</b><br>'+e(v.data||'')+'</td><td>'+(v.versione==='v0.0'?'Prima idea della classe':(pr?e(pr.join(' · ')):'Richiesta della classe'))+'</td><td>'+e(v.nome)+': '+e(v.cambi||'')+'</td></tr>'}).join('')}).catch(function(){});
+ document.getElementById('storia').innerHTML=d.slice().reverse().map(function(v){var pr=(v.cambi||'').match(/PR\s*#?\d+[^.;]*/gi);return '<tr class="fatto"><td><b>2INF '+e(v.versione)+'</b><br>'+e(v.data||'')+'</td><td>'+(v.versione==='v0.0'?'Prima idea della classe':(pr?e(pr.join(' · ')):'Richiesta della classe'))+'</td><td>'+e(v.nome)+': '+e(v.cambi||'')+'<br><a target="_blank" href="../giochi/treno-blindato/versioni/'+e(v.versione)+'/">Gioca questa versione</a> · <a target="_blank" href="https://github.com/nicolaregge-pulse/corso-informatica/blob/main/docs/giochi/treno-blindato/CHANGELOG.md">Changelog</a></td></tr>'}).join('')}).catch(function(){});
 
 </script></body></html>

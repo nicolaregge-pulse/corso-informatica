@@ -1,5 +1,12 @@
 # Storia delle versioni
 
+## v0.12 — 12/10/2026 12:30 — La versione serale (PR di Mahammed M.)
+
+1. Pull Request del 12/10 alle 12:23, dal Modulo «Consegna»: «vorrei una versione serale».
+2. Il Paese, la Montagna e il Mare hanno il cielo del tramonto: viola in alto, arancione verso l'orizzonte; colline e terra più scure, come di sera.
+3. La Città era già di notte e il Bosco resta rosso cupo (scelta della squadra SCENARI): non cambiano.
+4. Peso 1 nel backlog: si cambiano solo colori, nei file dentro la cartella `ambienti/`.
+
 ## v0.11 — 08/10/2026 10:58 — I punteggi si salvano sempre (difetto segnalato dal prof)
 
 1. Difetto: «non chiede il nome e non salva i punteggi».
