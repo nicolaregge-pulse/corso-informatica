@@ -12,17 +12,17 @@ tr.fatto td{background:rgba(47,158,87,.18)}tr.no td{background:rgba(224,65,58,.1
 .bt{display:inline-block;background:#1f6feb;color:#fff;font-weight:800;text-decoration:none;border-radius:10px;padding:8px 14px}
 .zh{display:none}
 </style></head><body><div class="w">
-<h1>Il backlog della 2INF</h1><p class="zh">2INF 的 backlog</p>
+<h1>Il backlog della 2INF</h1>
 <div class="card"><p>Qui ci sono <b>tutte le Pull Request</b> della classe. <b>Ogni richiesta vale 1</b>, chiunque la faccia. Il prof le fa in quest'ordine: prima quelle con il <b>peso più basso</b> (meno lavoro sul codice); a parità di peso, <b>chi è arrivato prima</b> (FIFO: il primo che entra è il primo che esce). Il peso usa i numeri di Fibonacci: <b>1, 2, 3, 5, 8, 13</b>. La pagina si aggiorna da sola. Le righe <b>verdi</b> sono FATTE: la richiesta è entrata nel gioco, con il numero della versione.</p>
-<p class="zh">这里是全班所有的 Pull Request。每个要求都算 1，不管是谁提的。老师按这个顺序做：先做「重量」最小的（代码工作最少）；重量一样时，先来的先做（FIFO）。重量用斐波那契数：1、2、3、5、8、13。页面会自动更新。绿色的行 = 已完成（FATTO）：要求已经进入游戏，带版本号。</p>
+
 <p><a class="bt" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile/">Teoria Agile</a> <span class="mu" id="agg"></span></p></div>
 <div class="card"><table><thead><tr><th>Posizione</th><th>Data e ora</th><th>Alunno</th><th>PR</th><th>Riepilogo della richiesta</th><th>Peso</th><th>Perché in questa posizione</th><th>Stato</th></tr></thead><tbody id="tb"><tr><td colspan="8" class="mu">Ancora nessuna Pull Request.</td></tr></tbody></table></div>
 <h2 style="font-size:22px;margin:22px 0 6px">Le versioni già fatte e da quale richiesta sono nate</h2>
-<div class="card"><p>Ogni versione nasce da una richiesta. Qui vedi <b>chi l'ha chiesta</b> e <b>cosa è entrato</b> nel gioco. Le versioni nuove di oggi compariranno qui, con il numero della vostra PR.</p><p class="zh">每个版本都来自一个要求。这里可以看到是谁提的，什么进入了游戏。</p>
+<div class="card"><p>Ogni versione nasce da una richiesta. Qui vedi <b>chi l'ha chiesta</b> e <b>cosa è entrato</b> nel gioco. Le versioni nuove di oggi compariranno qui, con il numero della vostra PR.</p>
 <table><thead><tr><th>Versione</th><th>Da quale richiesta</th><th>Cosa è entrato</th></tr></thead><tbody id="storia"><tr><td colspan="3" class="mu">Carico…</td></tr></tbody>
 </table></div>
 <div class="card mu"><b>Come si legge il peso:</b> 1 = cambia un testo o un colore · 2 = cambia un numero (velocità, punti) · 3 = un personaggio nuovo · 5 = un ambiente o un oggetto nuovo · 8 = una regola nuova del gioco (armi, pausa, vite) · 13 = un pezzo di gioco grande e nuovo.
-<p class="zh">重量：1 = 文字或颜色 · 2 = 一个数字 · 3 = 新人物 · 5 = 新环境或物体 · 8 = 游戏的新规则 · 13 = 大的新部分。</p></div>
+</div>
 </div>
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}

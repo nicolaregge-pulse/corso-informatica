@@ -2,7 +2,7 @@
 Genera docs/compito/2inf-20261012-documento/pagina.html (index.html è il caricatore fisso).
 Segue REGOLE-COSTRUZIONE-TEORIA.md: titolo + traduzione, percorso in alto, FASE 1 teoria solo da leggere, FASE 2 bottone verde.
 """
-import json, os, html
+import json, os, html, sys
 MODULO_PARERE = os.environ.get("MODULO_PARERE", "https://docs.google.com/forms/d/e/1FAIpQLScAY2tXZo-TZZRTKTRwGA85ftqhA5W07eBeAX89YLEugJvHCA/viewform")
 MODULO_CONSEGNA = "https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform"
 R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
@@ -83,7 +83,7 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 <li><b>FASE 2 — In fondo trovi due bottoni verdi: 1) Feedback (il tuo parere sulla teoria) e 2) PR1 (la tua prima Pull Request). </b><p class="zh">第2阶段——最后有两个绿色按钮：1) Feedback（你对理论的意见）和 2) PR1（你的第一个 Pull Request）。</p></li></ol></div>
 <h2>FASE 1 — La teoria</h2>
 <div class="card"><p><b>Dispensa a parte:</b> come lavorano le aziende di software, il Manifesto Agile e le 10 regole che usiamo nel nostro treno.</p><p class="zh">单独的讲义：软件公司怎么工作、Agile 宣言和我们火车游戏用的10条规则。</p>
-<p><a class="bt" style="background:#1f6feb" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile/">Teoria Agile</a></p><p class="mu">Si apre in una scheda nuova: quando hai finito, chiudila e torni qui. · 在新的标签页打开。</p></div>
+<p><a class="bt" style="background:#1f6feb" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile-it/">Teoria Agile</a></p><p class="mu">Si apre in una scheda nuova: quando hai finito, chiudila e torni qui. · 在新的标签页打开。</p></div>
 <div class="card"><h3>In breve</h3>{svg()}<ol>{breve}</ol></div>
 <div class="card"><h3>La lavagna del prof</h3><img src="lavagna-versioni.jpg" alt="La lavagna: numeri delle versioni, changelog, fork, Pull Request accettata e rifiutata, merge" style="max-width:100%;border-radius:10px"><p>Sulla linea rossa le versioni (v0.8, v0.9, v1.0). In blu il fork che parte dalla v0.9. Sul ramo, le Pull Request: quella accettata (ACCEPT ✓) rientra con il MERGE, quella rifiutata (REFUSE ✗) resta fuori.</p><p class="zh">红线上是版本。蓝色是 fork。分支上是 Pull Request：接受的（ACCEPT ✓）通过 MERGE 回来，拒绝的（REFUSE ✗）留在外面。</p></div>
 <div class="card"><h3>La storia vera del vostro gioco</h3><p>Ogni riga è una versione nata dalle vostre Pull Request (dal grafo delle versioni).</p><p class="zh">每一行是一个由你们的 Pull Request 产生的版本。</p>
@@ -120,6 +120,11 @@ table{{border-collapse:collapse;width:100%;font-size:16px}}td,th{{border:1px sol
 </div></body></html>"""
     bt1 = (f'<a class="bt" target="_blank" href="{MODULO_PARERE}">1) Feedback</a>' if MODULO_PARERE else '<span class="bt" style="opacity:.5">1) Feedback — arriva fra un minuto</span>')
     h = h.replace("@@BT1@@", bt1).replace("@@MC@@", MODULO_CONSEGNA)
+    # 2INF = SOLO ITALIANO: si toglie ogni altra lingua e, se ne resta, ci si ferma (niente pubblicazione)
+    sys.path.insert(0, os.path.join(R, "strumenti"))
+    import solo_italiano
+    h = solo_italiano.pulisci(h)
+    solo_italiano.controlla(h, OUT)
     open(OUT, "w", encoding="utf-8").write(h)
     print(OUT)
 
