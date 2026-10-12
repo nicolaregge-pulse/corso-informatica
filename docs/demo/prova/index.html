@@ -1,0 +1,140 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Prova il sistema</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#111;--mu:#5b5b5b;--card:#fff;--bd:#dedbd3;--blu:#1f6feb;--verde:#1a7f37;--giallo:#fff4b8;--rosso:#c0392b;--viola:#6f42c1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171a;--fg:#eee;--mu:#a9a9a9;--card:#1f2227;--bd:#353a42;--giallo:#4a4214}}
+:root[data-theme="dark"]{--bg:#15171a;--fg:#eee;--mu:#a9a9a9;--card:#1f2227;--bd:#353a42;--giallo:#4a4214}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:16px}h1{font-size:26px;margin:6px 0}h2{font-size:21px;margin:4px 0 10px}.mu{color:var(--mu)}
+.passi{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px;padding:0;list-style:none}.passi li{font-size:13px;padding:4px 10px;border-radius:99px;border:1px solid var(--bd);color:var(--mu)}
+.passi li.on{background:var(--blu);border-color:var(--blu);color:#fff}.passi li.ok{border-color:var(--verde);color:var(--verde)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:10px 0}
+.bt{display:inline-block;font:inherit;font-weight:700;border:0;border-radius:10px;padding:11px 18px;cursor:pointer;color:#fff;background:var(--blu);text-decoration:none;margin:4px 6px 4px 0}
+.bt.v{background:var(--verde)}.bt.g{background:#555}.bt:disabled{opacity:.5;cursor:default}
+input,textarea{font:inherit;width:100%;padding:10px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg);margin:4px 0 10px}
+label{font-weight:700;font-size:15px}.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}.chip{font:inherit;font-size:14px;border:1px solid var(--bd);background:var(--card);color:var(--fg);border-radius:99px;padding:6px 12px;cursor:pointer}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}th{color:var(--mu);font-weight:600}
+tr.tu td{background:var(--giallo);font-weight:700}.fatto{color:var(--verde);font-weight:700}.coda{color:var(--viola);font-weight:700}
+.stato{display:flex;flex-wrap:wrap;gap:8px}.stato div{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:8px 14px;min-width:120px}.stato b{display:block;font-size:24px}
+.flusso{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}.flusso span{border:1px solid var(--bd);border-radius:10px;padding:8px 12px;background:var(--card);opacity:.35;transition:opacity .4s}.flusso span.ok{opacity:1;border-color:var(--verde)}
+.gioco{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;border:1px solid var(--bd);background:#000}.gioco iframe{width:100%;height:100%;border:0}
+.banner{position:absolute;left:10px;top:10px;background:rgba(0,0,0,.72);color:#ffd34d;font-weight:700;padding:6px 10px;border-radius:8px;font-size:14px;pointer-events:none}
+.cr{display:flex;gap:12px;align-items:center}.cr .ico{width:44px;height:44px;border-radius:50%;background:var(--verde);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+[hidden]{display:none!important}
+</style></head><body><div class="w">
+<p class="mu" style="margin:0">Demo del sistema · <a href="../">torna alla demo</a></p>
+<h1>Prova il laboratorio come un allievo</h1>
+<p class="mu">Sei un ragazzo della seconda, lunedì 12 ottobre. Fai quello che hanno fatto loro: leggi il compito, proponi una modifica al gioco della classe e guarda cosa succede. Il resto della classe è quello vero della giornata, con i nomi sostituiti.</p>
+<ul class="passi" id="passi"><li>1 Il tuo nome</li><li>2 Classroom</li><li>3 Il compito</li><li>4 La tua Pull Request</li><li>5 Il backlog</li><li>6 Il gioco</li><li>7 Voto e classifica</li></ul>
+<div class="stato"><div><b id="sPr">0</b>PR inviate</div><div><b id="sFatte">0</b>PR nel gioco</div><div><b id="sVoto">40</b>il tuo voto proposto</div><div><b id="sVer">v0.31</b>versione del gioco</div></div>
+
+<section class="card" id="p0"><h2>Come ti chiami?</h2><p>Il primo passo è sempre una cosa tua: il nome che comparirà nel backlog, nel gioco e in classifica.</p>
+<input id="nome" maxlength="20" placeholder="Il tuo nome"><button class="bt" id="b0">Entra in classe</button></section>
+
+<section class="card" id="p1" hidden><h2>Google Classroom</h2><div class="cr"><div class="ico">C</div><div><b>Compito di oggi · Informatica</b><br><span class="mu">Il tuo Documento nell'albero delle versioni · scadenza 14:00</span></div></div>
+<p>Su Classroom c'è un solo compito, con un link fisso: la pagina si aggiorna da sola durante la lezione.</p><button class="bt" id="b1">Apri il compito</button></section>
+
+<section class="card" id="p2" hidden><h2>Il tuo Documento nell'albero delle versioni</h2>
+<div class="card" style="margin:0 0 10px"><b>Il tuo percorso di oggi</b><ol><li><b>FASE 1</b> — leggiamo insieme la teoria, dall'inizio alla fine.</li><li><b>FASE 2</b> — in fondo trovi due bottoni verdi: 1) Feedback e 2) PR1, la tua prima Pull Request.</li></ol></div>
+<p><b>FASE 1 — La teoria.</b> Come lavorano le aziende di software: ogni modifica è una <b>versione</b>; chi vuole cambiare qualcosa manda una <b>Pull Request</b> (richiesta di modifica) con titolo, cosa cambia, dove e perché; le richieste aspettano nel <b>backlog</b>; quelle accettate entrano nel prodotto. È il metodo <b>Agile</b>: piccoli passi, sbagliare presto, correggere presto.</p>
+<p><a href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile-it/" target="_blank">Apri la teoria completa (Manifesto Agile e 10 regole)</a></p>
+<p><b>FASE 2 — Il lavoro.</b></p><button class="bt v" id="bFeed">1) Feedback sulla teoria</button><button class="bt v" id="b2">2) PR1 — la tua Pull Request</button>
+<div id="feed" hidden class="card"><label>Che cos'è una Pull Request, con parole tue?</label><input id="f1" placeholder="Per esempio: una richiesta di modifica"><button class="bt" id="bFeedOk">Invia il Feedback</button></div>
+<p id="feedOk" class="fatto" hidden>Feedback inviato: conta anche questo nel voto.</p></section>
+
+<section class="card" id="p3" hidden><h2>La tua Pull Request <span id="nPr">PR1</span></h2>
+<p class="mu">Scegli un'idea pronta oppure scrivi la tua. Una PR scritta bene ha quattro parti.</p>
+<div class="chips" id="idee"></div>
+<label>Titolo</label><input id="tit" maxlength="60"><label>Cosa cambia</label><textarea id="cosa" rows="2"></textarea>
+<label>Dove</label><input id="dove"><label>Perché</label><input id="perche"><button class="bt" id="b3">Invia</button></section>
+
+<section class="card" id="p4" hidden><h2>Il backlog della classe</h2>
+<div class="flusso"><span id="f_a">Modulo «Consegna»</span>→<span id="f_b">Lo script la porta su Git</span>→<span id="f_c">Entra nel backlog con un peso</span>→<span id="f_d">Il prof la mette nel gioco</span></div>
+<p class="mu">Peso = quanto lavoro chiede (numeri di Fibonacci): 1 testo o colore · 2 un numero · 3 un personaggio · 5 un ambiente o un oggetto · 8 una regola nuova. Prima le più leggere.</p>
+<table><thead><tr><th>Ora</th><th>Chi</th><th>Richiesta</th><th>Peso</th><th>Stato</th></tr></thead><tbody id="bl"></tbody></table>
+<button class="bt" id="b4" disabled>Guarda la tua versione del gioco</button></section>
+
+<section class="card" id="p5" hidden><h2>Il gioco della classe: <span id="vTit"></span></h2>
+<p id="log" class="card" style="margin:0 0 10px"></p>
+<div class="gioco"><iframe id="ifr" title="Il treno blindato" loading="lazy"></iframe><div class="banner" id="ban"></div></div>
+<p class="mu">Clicca «PARTI!» e gioca: tocca i cattivi prima che sparino. Il vetro regge pochi colpi.</p>
+<button class="bt" id="b5">Guarda il tuo voto</button></section>
+
+<section class="card" id="p6" hidden><h2>I voti e la classifica</h2>
+<p id="tuoVoto"></p>
+<table><thead><tr><th>#</th><th>Allievo</th><th>PR inviate</th><th>PR nel gioco</th><th>Voto</th></tr></thead><tbody id="cl"></tbody></table>
+<p>Vuoi salire? Fai come un allievo vero quel giorno: è passato da 40 a 62 dopo aver visto i voti pubblicati e aver mandato quattro richieste nuove.</p>
+<button class="bt v" id="b6">Manda un'altra Pull Request</button><a class="bt g" href="../">Torna alla demo</a></section>
+</div>
+<script>
+var S = { nome: '', pr: 0, fatte: 0, bene: 0, feed: false, ver: 31, mie: [], voti: [], back: [] };
+var IDEE = [
+  { t: 'Versione notturna', c: 'Il cielo diventa notte, con colori scuri e blu.', d: 'Lo sfondo del gioco, in tutti i livelli.', p: 'Il gioco di notte fa più paura.', f: 'brightness(.55) saturate(1.3) hue-rotate(195deg)' },
+  { t: 'Mondo in bianco e nero', c: 'Tutto il gioco in bianco e nero, come un film vecchio.', d: 'Tutta la grafica del gioco.', p: 'Sembra un film d\'azione d\'epoca.', f: 'grayscale(1) contrast(1.15)' },
+  { t: 'Tramonto', c: 'Il cielo e la luce diventano arancioni, al tramonto.', d: 'Il cielo e le colline.', p: 'È più bello da vedere.', f: 'sepia(.55) saturate(1.7) hue-rotate(-15deg)' },
+  { t: 'Colori fluo', c: 'Colori molto accesi, stile neon.', d: 'Tutta la grafica del gioco.', p: 'Più energia, si vedono meglio i cattivi.', f: 'saturate(2.3) contrast(1.1)' },
+  { t: 'Un nemico nuovo', c: 'Un cattivo nuovo con il casco rosso che salta.', d: 'I cattivi del livello 1.', p: 'Più varietà.', f: '' },
+  { t: 'Il treno più veloce', c: 'La velocità di partenza passa da 30 a 45 km/h.', d: 'Il tachimetro e il movimento del paesaggio.', p: 'All\'inizio è troppo lento.', f: '' }
+];
+function $(i) { return document.getElementById(i); }
+function e(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function vai(n) { for (var i = 0; i < 7; i++) { $('p' + i).hidden = i !== n; var li = $('passi').children[i]; li.className = i === n ? 'on' : (i < n ? 'ok' : ''); } window.scrollTo(0, 0); }
+function peso(t) { t = t.toLowerCase();
+  if (/regol|modalit|potere|power|vite|livell/.test(t)) return 8; if (/ambient|oggett|edific|casa|ponte|stazion/.test(t)) return 5;
+  if (/personagg|nemic|cattiv|boss|animal/.test(t)) return 3; if (/\d|veloc|più|meno|punt/.test(t)) return 2; return 1; }
+function voto(pr, fatte, bene, feed) {  /* le regole del 12/10, semplificate */
+  if (pr === 0) return 40;
+  if (pr < 5) return Math.min(54 + fatte * 6, 45 + (pr - 1) * 3 + fatte * 6 + (feed ? 2 : 0));
+  var v = 60 + (pr - 5) * 2 + (feed ? 2 : 0);
+  if (fatte === 0) return Math.min(v, 70);
+  return Math.min(100, v + fatte * 8 + bene * 2); }
+function aggiorna() { $('sPr').textContent = S.pr; $('sFatte').textContent = S.fatte; $('sVoto').textContent = voto(S.pr, S.fatte, S.bene, S.feed); $('sVer').textContent = 'v0.' + S.ver; $('nPr').textContent = 'PR' + (S.pr + 1); }
+function dati() {
+  fetch('../giornata/voti/voti.json').then(function (r) { return r.json(); }).then(function (d) { S.voti = d.voti || []; }).catch(function () {});
+  fetch('../giornata/backlog/backlog.json').then(function (r) { return r.json(); }).then(function (d) { S.back = (d.voci || []).filter(function (x) { return x.fatto || x.no; }).slice(-6); }).catch(function () {});
+}
+IDEE.forEach(function (x, i) { var b = document.createElement('button'); b.className = 'chip'; b.textContent = x.t;
+  b.onclick = function () { $('tit').value = x.t; $('cosa').value = x.c; $('dove').value = x.d; $('perche').value = x.p; $('tit').dataset.f = x.f; }; $('idee').appendChild(b); });
+$('tit').oninput = function () { $('tit').dataset.f = ''; };
+$('b0').onclick = function () { S.nome = ($('nome').value.trim() || 'Ospite').slice(0, 20); vai(1); };
+$('b1').onclick = function () { vai(2); };
+$('bFeed').onclick = function () { $('feed').hidden = false; };
+$('bFeedOk').onclick = function () { S.feed = true; $('feed').hidden = true; $('feedOk').hidden = false; aggiorna(); };
+$('b2').onclick = function () { vai(3); };
+$('b3').onclick = function () {
+  var t = $('tit').value.trim(), c = $('cosa').value.trim(), d = $('dove').value.trim(), p = $('perche').value.trim();
+  if (!t || !c) { alert('Scrivi almeno il titolo e cosa cambia.'); return; }
+  var pr = { t: t, c: c, d: d, p: p, f: $('tit').dataset.f || '', peso: peso(t + ' ' + c), bene: !!(t && c && d && p), ora: '13:' + String(10 + S.pr * 4).padStart(2, '0') };
+  S.mie.push(pr); S.pr++; if (pr.bene) S.bene++; aggiorna(); vai(4); backlog(pr);
+};
+function backlog(pr) {
+  ['f_a', 'f_b', 'f_c', 'f_d'].forEach(function (id) { $(id).className = ''; }); $('b4').disabled = true;
+  function righe(stato) {
+    var r = S.back.map(function (x) { return '<tr><td>' + e((x.ora || '').slice(-5)) + '</td><td>' + e(x.alunno) + '</td><td>' + e(x.richiesta) + '</td><td>' + (x.peso || '') + '</td><td>' + (x.fatto ? '<span class="fatto">FATTO ' + e(x.fatto) + '</span>' : '<span style="color:var(--rosso)">NO</span>') + '</td></tr>'; });
+    r.push('<tr class="tu"><td>' + pr.ora + '</td><td>' + e(S.nome) + '</td><td><b>' + e(pr.t) + '</b> · ' + e(pr.c) + '</td><td>' + pr.peso + '</td><td>' + stato + '</td></tr>');
+    $('bl').innerHTML = r.join('');
+  }
+  setTimeout(function () { $('f_a').className = 'ok'; }, 300);
+  setTimeout(function () { $('f_b').className = 'ok'; }, 1300);
+  setTimeout(function () { $('f_c').className = 'ok'; righe('<span class="coda">in coda</span>'); }, 2300);
+  setTimeout(function () { $('f_d').className = 'ok'; S.ver++; S.fatte++; pr.ver = 'v0.' + S.ver; righe('<span class="fatto">FATTO ' + pr.ver + '</span>'); aggiorna(); $('b4').disabled = false; }, 4300);
+}
+$('b4').onclick = function () {
+  var pr = S.mie[S.mie.length - 1]; vai(5);
+  $('vTit').textContent = pr.ver + ' · ' + pr.t;
+  $('log').innerHTML = '<b>' + e(pr.ver) + ' — ' + e(pr.t) + '</b><br>PR di ' + e(S.nome) + ' · peso ' + pr.peso + '<br>Cosa cambia: ' + e(pr.c) + (pr.d ? '<br>Dove: ' + e(pr.d) : '') + (pr.f ? '' : '<br><span class="mu">Nella demo il gioco mostra la tua versione con la scritta in alto; in classe il prof cambia davvero il codice.</span>');
+  $('ban').textContent = pr.ver + ' · ' + pr.t + ' · PR di ' + S.nome;
+  var ifr = $('ifr'); if (!ifr.src) ifr.src = '../giornata/gioco/'; ifr.style.filter = pr.f || 'none';
+};
+$('b5').onclick = function () {
+  vai(6); var mio = voto(S.pr, S.fatte, S.bene, S.feed);
+  var tab = S.voti.map(function (x) { return { n: x.alunno, pr: x.pr, f: x.fatte, v: x.voto }; });
+  tab.push({ n: S.nome + ' (tu)', pr: S.pr, f: S.fatte, v: mio, tu: true });
+  tab.sort(function (a, b) { return (b.f - a.f) || (b.pr - a.pr) || (b.v - a.v); });
+  var pos = tab.findIndex(function (x) { return x.tu; }) + 1;
+  $('tuoVoto').innerHTML = 'Il tuo voto proposto: <b>' + mio + '</b> · sei <b>' + pos + '°</b> su ' + tab.length + ' in classifica. ' + (S.pr < 5 ? 'Con 5 Pull Request arrivi almeno a 60.' : 'Ottimo lavoro: ogni PR che entra nel gioco ti fa salire.');
+  $('cl').innerHTML = tab.map(function (x, i) { return '<tr' + (x.tu ? ' class="tu"' : '') + '><td>' + (i + 1) + '</td><td>' + e(x.n) + '</td><td>' + x.pr + '</td><td>' + x.f + '</td><td>' + x.v + '</td></tr>'; }).join('');
+};
+$('b6').onclick = function () { ['tit', 'cosa', 'dove', 'perche'].forEach(function (i) { $(i).value = ''; }); $('tit').dataset.f = ''; vai(3); };
+dati(); aggiorna(); vai(0);
+</script><script src="../traccia.js"></script></body></html>
