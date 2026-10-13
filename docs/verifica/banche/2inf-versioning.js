@@ -35,7 +35,8 @@
       nozioni: { nome: "Nozioni: versioni, Git e GitHub", peso: 30 },
       sistema: { nome: "Il progetto: portali, intelligenza artificiale e informatica", peso: 30 },
       personale: { nome: "La tua esperienza del progetto (solo parole tue, senza intelligenza artificiale)", peso: 30 },
-      dati: { nome: "Leggere i dati della lezione", peso: 10 }
+      dati: { nome: "Leggere i dati della lezione", peso: 10 },
+      parere: { nome: "Il tuo parere su questa verifica (non conta per il voto)", peso: 0 }
     },
     quarti: QUARTI,
 
@@ -85,7 +86,8 @@
     ],
     scale: [
       { area: "personale", q: "Quanto ti è piaciuto lavorare così, con le Pull Request, il backlog e le versioni?", basso: "per niente", alto: "moltissimo" },
-      { area: "personale", q: "Quanto ti piace il gioco del treno, com'è adesso?", basso: "per niente", alto: "moltissimo" }
+      { area: "personale", q: "Quanto ti piace il gioco del treno, com'è adesso?", basso: "per niente", alto: "moltissimo" },
+      { area: "parere", q: "Quanto ti è piaciuto fare la verifica così?", basso: "per niente", alto: "moltissimo", ultima: true }
     ],
     aperte: [
       { area: "sistema", tema: "sistema", q: "Spiega con parole tue il viaggio della tua Pull Request: dal Modulo fino alla versione nuova del gioco. Chi fa cosa (Modulo, script, GitHub, Claude, prof)? Chi scrive il codice, e perché a volte fa una scelta invece di un'altra?", aiuto: "Almeno 40 parole. Per le scelte puoi pensare all'ordine del backlog o alle regole della scuola.", min_parole: 40,
@@ -99,6 +101,8 @@
       { area: "personale", tema: "imparato", q: "Cosa hai imparato sulla tua pelle in questo lavoro? Su di te, sul lavorare in squadra, sul fare le cose per bene, sullo sbagliare e riprovare.",
         aiuto: "Almeno 50 parole. Scrivi come parleresti a un amico.", min_parole: 50,
         criteri: "riflessione personale sincera; almeno un esempio vissuto; parole sue." }
+    ,
+      { area: "parere", tema: "parere", q: "Cosa ne pensi di questa verifica? Cosa ti è piaciuto, cosa cambieresti?", aiuto: "Non conta per il voto: serve al prof per migliorarla. Anche poche parole.", min_parole: 5 }
     ],
 
     /* ---------- RECUPERO: domande nuove sugli stessi temi ---------- */
