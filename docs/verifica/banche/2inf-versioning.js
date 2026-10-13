@@ -41,6 +41,7 @@
     quarti: QUARTI,
 
     /* ---------- RIPASSO ---------- */
+    schede_temi: { numeri: 1, versione: 1, changelog: 1, git: 2, ramo: 2, merge: 2, pr: 3, backlog: 3, script: 4, ai: 4, scelte: 5 },   // recupero: tema sbagliato -> scheda da ripassare
     schede: [
       { titolo: "1. Le versioni", testo: "Una <b>versione</b> è un salvataggio del programma con un <b>numero</b> e una riga che dice <b>cosa cambia</b>. Se cambia il numero dopo il punto (v0.30 → v0.31) è un passo piccolo, <b>minor</b>. Se cambia il primo numero (v1.4 → v2.0) è un cambio grande, <b>major</b>: per esempio un motore nuovo, come Godot. Il <b>changelog</b> è il registro di tutte le modifiche, versione per versione." },
       { titolo: "2. Git e GitHub", testo: "<b>Git</b> è il programma che tiene tutte le versioni di un progetto. Ogni salvataggio si chiama <b>commit</b>. Il <b>repository</b> è la cartella del progetto con tutta la sua storia. <b>GitHub</b> è il sito che tiene i repository su Internet e li mostra a tutti: è lì che sta il nostro treno. Un <b>ramo</b> (branch) è una strada parallela di lavoro; un <b>fork</b> è una copia del progetto (la 3INF ha fatto il fork del nostro treno); il <b>merge</b> unisce un ramo dentro un altro." },

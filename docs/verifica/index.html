@@ -209,7 +209,19 @@ svg text{fill:var(--fg)}
     var gia = prendi(KR(modo)); if (gia && gia.consegnata) return esito(gia, modo);
     if (!NOME) return chiediNome(function () { prova(modo); });
     if (!aperta(modo)) { APP.innerHTML = '<div class="card"><h2>' + (modo === 'recupero' ? 'Il recupero' : 'La verifica') + ' non è ancora aperta</h2><p>La apre il prof. Intanto fai il ripasso.</p><a class="bt" href="?b=' + idB + '">Torna al ripasso</a></div>'; return; }
-    APP.innerHTML = '<section class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
+    var teoria = '';
+    if (modo === 'recupero') {   // RECUPERO = prima la teoria mirata sui propri errori, poi la riverifica personale
+      var pv = prendi(KR('verifica')), err = pv ? pv.crocette.filter(function (c) { return !c.ok; }) : [], nums = [];
+      err.forEach(function (c) { var n = (B.schede_temi || {})[c.tema]; if (n && nums.indexOf(n) < 0) nums.push(n); });
+      if (!nums.length) nums = (B.schede || []).map(function (_, i) { return i + 1; });
+      nums.sort();
+      var vuote = pv ? pv.aperte.filter(function (a) { return a.parole < 15; }).length : 0;
+      teoria = '<section class="card" style="border:3px solid var(--blu)"><h2>Passo 1 · Ripassa i punti dove hai sbagliato</h2><p>Leggi con calma. Poi, in fondo, inizi il recupero: è fatto apposta per te.</p>' +
+        (err.length ? '<div class="card"><b>I tuoi errori nella verifica</b><ol>' + err.map(function (c) { return '<li>' + e(c.q) + '<br>Tu: ' + e(c.data) + ' · <b style="color:var(--verde)">Giusta: ' + e(c.giusta) + '</b>' + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</li>'; }).join('') + '</ol></div>' : '') +
+        nums.map(function (n) { var sc = B.schede[n - 1]; return sc ? '<div class="card"><b>' + sc.titolo + '</b><p>' + sc.testo + '</p></div>' : ''; }).join('') +
+        (vuote ? '<div class="card"><b>Le risposte scritte</b><p>Nella verifica ' + vuote + ' risposte scritte erano vuote o troppo corte. Nel recupero le ritrovi: scrivi con parole tue, valgono il 30% del voto.</p></div>' : '') + '</section>';
+    }
+    APP.innerHTML = teoria + '<section class="card"><h2>' + (modo === 'recupero' ? 'Passo 2 · Il recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
       '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda, il monitor o i risultati è permesso.</li>' +
       '<li>Ognuno ha le domande in un ordine diverso.</li><li>Alla fine vedi subito come sono andate le crocette. Le risposte scritte le valuta il prof; il voto è un giudizio complessivo e lo trovi nella pagina dei risultati.</li></ol></div><button class="bt v" id="via">Inizia</button></section>';
     var inCorso = prendi(KI(modo));
