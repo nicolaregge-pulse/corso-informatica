@@ -235,8 +235,8 @@ svg text{fill:var(--fg)}
     var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;margin:8px 0" role="img" aria-label="Pull Request ogni quarto d\'ora">';
     for (var v = 0; v <= mx; v += 10) { var y = H - mb - (H - mb - mt) * v / mx; s += '<line x1="' + ml + '" x2="' + (W - 10) + '" y1="' + y + '" y2="' + y + '" stroke="#ccd6e0"/><text x="' + (ml - 5) + '" y="' + (y + 4) + '" font-size="11" text-anchor="end">' + v + '</text>'; }
     Q.forEach(function (x, i) { var h = (H - mb - mt) * x[1] / mx, X = ml + i * bw + bw * .2, w = bw * .6;
-      s += '<rect x="' + X + '" y="' + (H - mb - h) + '" width="' + w + '" height="' + h + '" rx="4" fill="#1f6feb"><title>' + x[0] + ': ' + x[1] + ' PR</title></rect><text x="' + (X + w / 2) + '" y="' + (H - 8) + '" font-size="12" text-anchor="middle">' + x[0] + '</text>'; });
-    return s + '</svg><div class="mu">Pull Request arrivate ogni quarto d\'ora, lunedì 12/10 (porta il mouse su una barra per il numero esatto).</div>';
+      s += '<rect x="' + X + '" y="' + (H - mb - h) + '" width="' + w + '" height="' + h + '" rx="4" fill="#1f6feb"><title>' + x[0] + ': ' + x[1] + ' PR</title></rect><text x="' + (X + w / 2) + '" y="' + (H - mb - h - 5) + '" font-size="15" font-weight="800" text-anchor="middle" fill="#12467a">' + x[1] + '</text><text x="' + (X + w / 2) + '" y="' + (H - 8) + '" font-size="12" text-anchor="middle">' + x[0] + '</text>'; });
+    return s + '</svg><div class="mu">Pull Request arrivate ogni quarto d\'ora, lunedì 12/10 (il numero esatto è sopra ogni barra).</div>';
   }
   function mostra(i) {
     cur = i; var d = D[i], tipo = { c: 'a crocetta', n: 'rispondi con un numero', s: 'scegli da 1 a 5', a: 'da scrivere con parole tue' }[d.tipo];
