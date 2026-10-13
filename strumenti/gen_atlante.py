@@ -9,7 +9,7 @@ import markdown
 
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARTELLA = "atlante-k4x9w2"
-VERS_PARCO = "1.0"   # «Il parco del corso», la versione pubblica con la sola mappa
+VERS_PARCO = "1.1"   # «Il parco del corso», la versione pubblica con la sola mappa
 BASE = "https://nicolaregge-pulse.github.io/corso-informatica/"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 e = html.escape
@@ -48,7 +48,7 @@ ZONE = [
  ("4ti", 1180, 455, "#0b7285", "Laboratorio dello Stage", "quarta: progetti veri", "4ti-progetti/", "officina",
   "La quarta: reti e progetti di stage, un deposito per ragazzo e una chat con il prof e l'assistente.",
   [("Cruscotto dei progetti (dal vivo)", "4ti-progetti/"), ("Il viaggio di un pacchetto (ISO/OSI)", "4ti-iso-osi/"), ("App di reti", "4ti-app/"),
-   ("Router-firewall virtuale RV-1", "https://nicolaregge-pulse.github.io/firewall-virtuale/"), ("Automa meteo", "https://chasedeleon.github.io/automa-meteo-python/")]),
+   ("Progetti della quarta: stazione meteo e router da allenamento", "cm-qma7yay4q5/progetti/")]),
  ("verifica", 465, 320, "#d6336c", "Torre delle Verifiche", "ripasso, verifica, recupero", "verifica/?b=2inf-versioning", "torre",
   "Un solo motore per tutte le classi: ripasso con la risposta subito, verifica, recupero sui propri errori.",
   [("Ripasso e verifica (2INF, versioni)", "verifica/?b=2inf-versioning"), ("Risultati della classe", "verifica/risultati.html?b=2inf-versioning"),
@@ -205,6 +205,8 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
     pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso · versione " + VERS_PARCO).replace(
         "Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.", "Sotto la mappa trovi le stesse zone, con i loro link.")
     pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
+    # i progetti di stage: fuori si vede solo la pagina di presentazione, senza i nomi negli indirizzi
+    pubbl = re.sub(r'<li><a href="[^"]*4ti-progetti/"[^>]*>[^<]*</a></li>', "", pubbl).replace(u("4ti-progetti/"), u("cm-qma7yay4q5/progetti/"))
     pubbl = pubbl.replace('href="' + u("docenti/") + '"', 'href="#"').replace("<ol></ol>", '<ol><li class="mu">Gli strumenti del docente sono riservati.</li></ol>')
     pubbl = pubbl.replace('<meta name="versione" content="' + vers + '">', '<meta name="versione" content="' + VERS_PARCO + '">')
     pubbl = pubbl.replace("<title>Atlante del corso</title>", "<title>Il parco del corso</title>").replace("<h1>Atlante del corso</h1>", "<h1>Il parco del corso</h1>")

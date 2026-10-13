@@ -1,6 +1,6 @@
 # Comunicazione e marketing
 
-**Versione 0.5** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 0.6** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 La parte del corso che raccoglie i materiali per chi sta fuori dall'aula: possibili acquirenti e altre scuole, genitori, ragazzi, e chi non capisce niente di informatica. Nasce il 13/10/2026, dopo il racconto «Cinque giorni da azienda».
 
@@ -36,6 +36,7 @@ https://nicolaregge-pulse.github.io/corso-informatica/cm-qma7yay4q5/
 | 5 | Il progetto del treno, 9-13/10 | genitori, ragazzi | PDF | 1.0 | `presentazione-demo/progetto-treno-09-13-ottobre.md` |
 | 6 | Guida per docenti con alunni non italofoni (tolta dalla pagina pubblica: nomina molti prodotti di altre aziende; da riscrivere) | scuole | PDF | 0.1 | `guida-docenti-alunni-non-italofoni/` |
 | 7 | Il parco del corso: mappa illustrata e cliccabile, senza le pagine del docente | scuole e aziende | HTML e PDF con link | 1.0 | `docs/cm-qma7yay4q5/parco/`, generatore `strumenti/gen_atlante.py` (l'Atlante completo resta interno) |
+| 8 | Progetti della quarta: stazione meteo e router da allenamento, senza nomi; il link vero si chiede al prof con un'email già scritta | scuole e aziende, ragazzi | pagina con immagini | 1.0 | `docs/cm-qma7yay4q5/progetti/` |
 
 ## 02b La mappa disegnata da Gemini
 
@@ -61,6 +62,7 @@ Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista d
 
 ## 04 Registro delle versioni
 
+1. **v0.6 (13/10/2026):** «Progetti della quarta», pagina senza nomi né indirizzi dei ragazzi; nelle immagini tolti scuola, città e marchi.
 1. **v0.5 (13/10/2026):** le edizioni (`EDIZIONI.md`, `EDIZIONE.json`, controllo automatico); audit completo: link, pagine sul telefono, voce del racconto, PDF, nomi e marchi.
 2. **v0.4 (13/10/2026):** niente marchi di altri e niente immagini non nostre: brochure v1.4, presentazione v1.2, progetto treno v1.2, racconto con un'immagine del gioco disegnato da noi, «Il parco del corso» al posto dell'Atlante completo, guida per i docenti tolta dalla pagina.
 2. **v0.3 (13/10/2026):** tolto ogni riferimento alla scuola: i materiali portano il nome «Il laboratorio di informatica secondo le idee di Nicola Regge» (serve un'autorizzazione per usare il nome della scuola).

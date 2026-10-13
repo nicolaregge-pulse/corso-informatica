@@ -1,12 +1,12 @@
 {
- "edizione": "1.1",
+ "edizione": "1.2",
  "data": "13/10/2026",
  "nota": "Un'edizione è l'insieme delle parti qui sotto, ognuna con la sua versione. Se cambia anche una sola parte, si sale di edizione (1.0 -> 1.1). Si controlla con: python3 strumenti/controlla_edizione.py",
  "parti": [
   {
    "id": "atlante",
    "nome": "Atlante del corso (interno, con la mappa)",
-   "versione": "1.4",
+   "versione": "1.5",
    "pubblica": false,
    "fonte": [
     "ATLANTE.md",
@@ -20,7 +20,7 @@
   {
    "id": "parco",
    "nome": "Il parco del corso (mappa per l'esterno)",
-   "versione": "1.0",
+   "versione": "1.1",
    "pubblica": true,
    "fonte": [
     "strumenti/gen_atlante.py",
@@ -34,7 +34,7 @@
   {
    "id": "pagina",
    "nome": "Il laboratorio raccontato (pagina con le schede)",
-   "versione": "1.0",
+   "versione": "1.1",
    "pubblica": true,
    "fonte": [
     "docs/cm-qma7yay4q5/index.html",
@@ -56,6 +56,20 @@
    "file": [
     "docs/cm-qma7yay4q5/racconto/index.html",
     "docs/cm-qma7yay4q5/racconto/img/*"
+   ]
+  },
+  {
+   "id": "progetti",
+   "nome": "Progetti della quarta (senza nomi)",
+   "versione": "1.0",
+   "pubblica": true,
+   "fonte": [
+    "docs/cm-qma7yay4q5/progetti/index.html",
+    "meta"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/progetti/index.html",
+    "docs/cm-qma7yay4q5/progetti/img/*"
    ]
   },
   {
@@ -100,7 +114,7 @@
   {
    "id": "indice",
    "nome": "Indice della comunicazione (interno)",
-   "versione": "0.5",
+   "versione": "0.6",
    "pubblica": false,
    "fonte": [
     "comunicazione-marketing/README.md",
@@ -111,5 +125,5 @@
    ]
   }
  ],
- "impronta": "fce06e3c08"
+ "impronta": "2b9c24b5d5"
 }

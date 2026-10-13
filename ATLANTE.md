@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.4** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.5** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -69,7 +69,8 @@
 
 1. Un deposito per ragazzo, il docente e Claude come collaboratori; la chat è una Pull Request che resta aperta.
 2. Un passo e una domanda alla volta; prima capire, poi scrivere il codice (REGISTRO-ERRORI #65, #66).
-3. Il **cruscotto dei progetti** legge GitHub dal vivo: rosso se il ragazzo aspetta una risposta.
+3. Il **cruscotto dei progetti** legge GitHub dal vivo: rosso se il ragazzo aspetta una risposta. Nel cruscotto e nei file dei progetti si scrivono solo le iniziali (C.D.L., G.A.).
+4. **Per chi sta fuori** c'è la pagina «Progetti della quarta», senza nomi né indirizzi: chi vuole vedere il progetto vero lo chiede al prof con un'email già scritta.
 
 ## 08 L'automazione
 
@@ -123,6 +124,7 @@
 
 ## 14 Registro delle versioni
 
+1. **v1.5 (13/10/2026):** nella zona della quarta, al posto dei link ai progetti dei ragazzi (con il loro nome nell'indirizzo), la pagina «Progetti della quarta» senza nomi; il link vero si chiede al prof.
 1. **v1.4 (13/10/2026):** «I documenti del prof»: dall'Atlante si apre ogni documento del docente (modo di lavorare, guide, regole, registro degli errori, comunicazione); l'Atlante è il punto da cui si parte per tutto.
 2. **v1.3 (13/10/2026):** pagina leggibile anche sul telefono; in alto il numero dell'edizione (vedi `comunicazione-marketing/EDIZIONI.md`).
 2. **v1.2 (13/10/2026):** nelle zone niente nomi di prodotti di altre aziende; nasce «Il parco del corso», la versione con la sola mappa per la comunicazione.
