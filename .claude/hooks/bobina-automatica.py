@@ -255,10 +255,17 @@ def git_salva(dest, sid8):
         return 'commit non riuscito: ' + (r.stderr or r.stdout).strip()[:200]
     if os.environ.get('BOBINA_PUSH_SINCRONO'):
         # usato dal controllo "tutto versionato" del corso: il push deve essere finito prima
-        try:
-            g('push', '-q', 'origin', 'HEAD')
-        except Exception:
-            pass
+        # 13/10/2026: il riservato riceve di continuo le consegne dello script di Google, quindi il remoto è spesso
+        # più avanti e un push semplice viene rifiutato: il controllo poi bloccava Claude per un commit fatto da
+        # questo hook. Prima si riallinea (pull --rebase), poi push, fino a 3 tentativi.
+        for _ in range(3):
+            try:
+                if g('pull', '-q', '--rebase', 'origin', 'main').returncode:
+                    g('rebase', '--abort')
+                if not g('push', '-q', 'origin', 'HEAD:main').returncode:
+                    break
+            except Exception:
+                pass
         return None
     # push in background: se il remoto è più avanti fallisce in silenzio e riprova al giro dopo
     subprocess.Popen('git -C "%s" push -q origin HEAD >/dev/null 2>&1' % repo, shell=True,
