@@ -47,7 +47,7 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:
 <div id="barra"></div>
 <div id="start">
   <h1>Cinque giorni<br>da azienda</h1>
-  <p>Dal 9 al 13 ottobre 2026, in un laboratorio di informatica di Milano. Non serve sapere niente di computer: basta guardare e ascoltare. Dura circa 6 minuti.</p>
+  <p>Dal 9 al 13 ottobre 2026, in un laboratorio di informatica. Non serve sapere niente di computer: basta guardare e ascoltare. Dura circa 6 minuti.</p>
   <button id="via">▶ Guarda</button>
   <p style="font-size:clamp(16px,2vw,24px)">Alza il volume: una voce racconta la storia. Va avanti da sola.</p>
 </div>
@@ -61,8 +61,8 @@ html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:
 // k = quando, t = titolo grande, s = frase sotto, img = immagine, voce = quello che dice la voce,
 // fx = suono (treno, ding, campana), extra = animazione speciale.
 var S = [
- { k: 'Milano · ottobre 2026', t: 'Una classe. Un gioco. Cinque giorni.', s: 'Questa è la storia di ragazzi che hanno lavorato come una vera azienda di software.', fx: 'treno',
-   voce: 'Milano, ottobre duemilaventisei. Questa è la storia di cinque giorni in un laboratorio di informatica. Ragazzi che hanno lavorato come una vera azienda di software.' },
+ { k: 'Ottobre 2026', t: 'Una classe. Un gioco. Cinque giorni.', s: 'Questa è la storia di ragazzi che hanno lavorato come una vera azienda di software.', fx: 'treno',
+   voce: 'Ottobre duemilaventisei. Questa è la storia di cinque giorni in un laboratorio di informatica. Ragazzi che hanno lavorato come una vera azienda di software.' },
  { k: 'Chi sono', t: 'Ragazzi tra i 14 e i 18 anni', s: 'Molti sono arrivati in Italia da poco. In classe si parlano tante lingue.', extra: 'lingue',
    voce: 'Sono ragazzi tra i quattordici e i diciotto anni. Molti sono arrivati in Italia da poco, e in classe si parlano tante lingue: italiano, arabo, cinese. Per questo ogni consegna è scritta in tre lingue.' },
  { k: 'Il punto di partenza', t: 'Il treno blindato', s: 'Un videogioco nato in classe: il treno corre, i cattivi sparano al vetro, tu li colpisci prima.', img: 'img/gioco-1.jpg', fx: 'treno',
@@ -85,8 +85,8 @@ var S = [
    voce: 'Martedì mattina si chiude l\'argomento. Prima il ripasso, con la risposta giusta subito. Quando più di metà della classe ha finito, tredici su venti, il professore apre la verifica. E chi sbaglia riceve un recupero fatto apposta per i suoi errori.' },
  { k: 'Martedì 13 ottobre', t: 'Che cosa ne pensate?', s: 'Alla fine i ragazzi giudicano il lavoro. Chiedono di più: imparare a scrivere da soli le istruzioni del gioco.',
    voce: 'Alla fine, come nelle aziende, ci si guarda indietro tutti insieme, e si chiama retrospettiva: che cosa fare di più, di meno, che cosa cambiare. La risposta dei ragazzi è sorprendente. Chiedono di più. Vogliono imparare a scrivere da soli le istruzioni del gioco.' },
- { k: 'Martedì 13 ottobre · quarta superiore', t: 'Progetti veri, per lo stage', s: 'Un programma che ogni mezz\'ora legge da solo il meteo di Milano. Una rete di computer da proteggere dagli intrusi.', fx: 'ding',
-   voce: 'In quarta, i ragazzi preparano lo stage in azienda con progetti veri. Uno costruisce un programma che ogni mezz\'ora, da solo, legge la temperatura di Milano e la mette su una pagina internet. Un altro impara a proteggere una rete di computer dagli intrusi, su un apparecchio simulato dentro il computer.' },
+ { k: 'Martedì 13 ottobre · quarta superiore', t: 'Progetti veri, per lo stage', s: 'Un programma che ogni mezz\'ora legge da solo il meteo della città. Una rete di computer da proteggere dagli intrusi.', fx: 'ding',
+   voce: 'In quarta, i ragazzi preparano lo stage in azienda con progetti veri. Uno costruisce un programma che ogni mezz\'ora, da solo, legge la temperatura della città e la mette su una pagina internet. Un altro impara a proteggere una rete di computer dagli intrusi, su un apparecchio simulato dentro il computer.' },
  { k: 'Martedì 13 ottobre · ore 13', t: 'La prima superiore, per la prima volta', s: 'Una copia del gioco tutta loro. Un\'ora sola. 18 ragazzi su 20 mandano la loro proposta.', img: 'img/gioco-2.jpg', fx: 'treno',
    voce: 'Ultima ora, la prima superiore. Ragazzi di quattordici anni, alcuni appena arrivati. Ricevono una copia del gioco tutta loro, e un\'ora di tempo. Diciotto su venti mandano la loro proposta, e in un\'ora il gioco cambia quattro volte.' },
  { k: 'Martedì 13 ottobre · ore 13', t: 'Il primo conflitto', s: 'Due ragazzi cambiano lo stesso numero. Vale chi è arrivato prima: si impara così che cos\'è un conflitto.',
@@ -95,7 +95,7 @@ var S = [
    voce: 'Non tutto è andato liscio. Alcune istruzioni erano poco chiare, alcune consegne si sono perse per strada. Anche il professore e il suo assistente fanno la retrospettiva, scrivono ogni errore, e il giorno dopo il metodo è migliore.' },
  { k: 'In cinque giorni', t: 'Le parole del lavoro vero', extra: 'parole',
    voce: 'In cinque giorni, queste parole sono diventate loro. Versione. Copia del progetto. Proposta di modifica. Unione. Conflitto. Coda di lavoro. Retrospettiva. Sono le parole di un\'azienda di software.' },
- { k: 'Laboratorio di Informatica · Piamarta Milano', t: 'Non un corso di serie B.', s: 'Un lavoro fatto bene, per aprire porte.', fx: 'treno',
+ { k: 'Il laboratorio di informatica secondo le idee di Nicola Regge', t: 'Non un corso di serie B.', s: 'Un lavoro fatto bene, per aprire porte.', fx: 'treno',
    voce: 'Non è un corso di serie B. È un lavoro fatto bene, pensato per aprire porte a ragazzi che meritano la stessa possibilità di tutti gli altri. Grazie di aver guardato.' }
 ];
 

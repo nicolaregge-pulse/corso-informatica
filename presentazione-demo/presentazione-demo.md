@@ -1,8 +1,8 @@
 # Una scuola che lavora come un'azienda di software
 
-**Versione 1.0** — 12/10/2026 — Prof. Nicola Regge. Presentazione della demo (lezione della 2INF, senza nomi).
+**Versione 1.1** — 12/10/2026 — Prof. Nicola Regge. Presentazione della demo (lezione della 2INF, senza nomi).
 
-Laboratorio di informatica del prof. Nicola Regge, istituto professionale a Milano. Molti ragazzi hanno alle spalle percorsi scolastici difficili; qui lavorano come in un'azienda vera, con gli strumenti dei programmatori.
+Il laboratorio di informatica secondo le idee di Nicola Regge. Molti ragazzi hanno alle spalle percorsi scolastici difficili; qui lavorano come in un'azienda vera, con gli strumenti dei programmatori.
 Questa è la lezione di una seconda del 12 ottobre 2026: tre ore di laboratorio. I nomi dei ragazzi sono sostituiti con «Allievo 01», «Allievo 02»…
 
 ## 00 I numeri della giornata

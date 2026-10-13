@@ -1,6 +1,6 @@
 # Comunicazione e marketing
 
-**Versione 0.2** — 13/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 0.3** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 La parte del corso che raccoglie i materiali per chi sta fuori dall'aula: possibili acquirenti e altre scuole, genitori, ragazzi, e chi non capisce niente di informatica. Nasce il 13/10/2026, dopo il racconto «Cinque giorni da azienda».
 
@@ -55,5 +55,6 @@ Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista d
 
 ## 04 Registro delle versioni
 
-1. **v0.2 (13/10/2026):** aggiunti il parco del corso (mappa cliccabile + Atlante v1.0) nella pagina pubblica e il testo per far disegnare la mappa a Gemini.
+1. **v0.3 (13/10/2026):** tolto ogni riferimento alla scuola: i materiali portano il nome «Il laboratorio di informatica secondo le idee di Nicola Regge» (serve un'autorizzazione per usare il nome della scuola).
+2. **v0.2 (13/10/2026):** aggiunti il parco del corso (mappa cliccabile + Atlante v1.0) nella pagina pubblica e il testo per far disegnare la mappa a Gemini.
 2. **v0.1 (13/10/2026):** prima versione: impianto, pagina pubblica non collegata, inventario di sei contenuti, regole.

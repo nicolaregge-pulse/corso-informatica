@@ -1,6 +1,6 @@
 # Una scuola che lavora come un'azienda di software
 
-**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
+**Versione 1.3** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
 
 Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 

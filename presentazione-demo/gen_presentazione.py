@@ -8,14 +8,14 @@ Uso:  python3 presentazione-demo/gen_presentazione.py
 import html, os, subprocess
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VER = "1.0"
-DATA = "20261012"
+VER = "1.1"
+DATA = "20261013"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 DEMO = "https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec"
 TITOLO = "Una scuola che lavora come un'azienda di software"
 
 INTRO = [
-    "Laboratorio di informatica del prof. Nicola Regge, istituto professionale a Milano. Molti ragazzi hanno alle spalle percorsi scolastici difficili; qui lavorano come in un'azienda vera, con gli strumenti dei programmatori.",
+    "Il laboratorio di informatica secondo le idee di Nicola Regge. Molti ragazzi hanno alle spalle percorsi scolastici difficili; qui lavorano come in un'azienda vera, con gli strumenti dei programmatori.",
     "Questa è la lezione di una seconda del 12 ottobre 2026: tre ore di laboratorio. I nomi dei ragazzi sono sostituiti con «Allievo 01», «Allievo 02»…",
 ]
 NUMERI = [("3 ore", "di laboratorio"), ("17", "ragazzi presenti"), ("129", "richieste di modifica"),

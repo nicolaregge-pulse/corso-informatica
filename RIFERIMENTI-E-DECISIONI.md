@@ -432,3 +432,4 @@ bumpa la versione del doc.*
 2. Una pagina pubblica raggiungibile solo con il link, non collegata da nessuna parte e con `noindex`: `docs/cm-qma7yay4q5/`.
 3. Niente nomi dei ragazzi; parole semplici; il «test della mamma» (92 anni): un solo bottone, scritte grandi, voce e testo sotto.
 4. Ogni giornata importante produce il suo pezzo di comunicazione.
+5. **Mai il nome della scuola** nei materiali per l'esterno (serve un'autorizzazione): si scrive «Il laboratorio di informatica secondo le idee di Nicola Regge». Niente nome della città nelle intestazioni (13/10/2026, Nicola).
