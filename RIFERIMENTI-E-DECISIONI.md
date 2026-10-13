@@ -417,3 +417,4 @@ bumpa la versione del doc.*
 3. Il docente ha in più il suo **cruscotto**, cifrato con la password dell'area docente, che gli fa capire la situazione della classe a colpo d'occhio (prima: `docs/2inf-cruscotto/`, generatore riservato `generatori/cruscotto_2inf.py`). Il cruscotto dice quanti hanno finito, chi, e che cosa stanno facendo (dal monitor), per decidere.
 4. **Quando si apre la verifica:** quando più della metà ha finito il ripasso e la classe comincia a parlare (13/10/2026, 2INF: 13 su 20 alle 09:08, aperta alle 09:11).
 5. Queste regole valgono **sempre**, per tutte le classi.
+6. **La demo fa parte della lezione:** l'esperienza di ogni giornata entra nella demo (`docs/demo/`), senza nomi, con la stessa numerazione «Allievo NN» (13/10: `strumenti/gen_demo_13.py`, si rilancia a fine lezione).
