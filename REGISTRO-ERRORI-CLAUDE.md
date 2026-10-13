@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.40** — 13/10/2026
+**Versione 2.41** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 13/10/2026 — Codice da incollare: il ragazzo l'ha fatto funzionare ma non sa spiegarlo (#66)
+
+1. **Errore.** Per la Tappa 7 (il vento) ho dato a Chase quattro blocchi di codice da copiare e incollare, con il numero di riga. Il codice funzionava, ma alle tre domande del docente («che cosa fa la funzione», «perché vento=None», «chi fa la lettura automatica») non ha saputo rispondere.
+2. **Regola.** Con il codice, prima capire e poi scrivere: si mostrano poche righe, il ragazzo le confronta, prevede che cosa succede e risponde con parole sue; i blocchi da incollare solo dopo che sa dire a cosa servono. È la prova del nove del corso: se non lo sa spiegare, la tappa non è fatta.
 
 ## 13/10/2026 — Al ragazzo cinque passi in un messaggio (#65)
 
