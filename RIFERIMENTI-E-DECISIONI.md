@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.32** — 13/10/2026
+**Versione 2.33** — 13/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -418,3 +418,10 @@ bumpa la versione del doc.*
 4. **Quando si apre la verifica:** quando più della metà ha finito il ripasso e la classe comincia a parlare (13/10/2026, 2INF: 13 su 20 alle 09:08, aperta alle 09:11).
 5. Queste regole valgono **sempre**, per tutte le classi.
 6. **La demo fa parte della lezione:** l'esperienza di ogni giornata entra nella demo (`docs/demo/`), senza nomi, con la stessa numerazione «Allievo NN» (13/10: `strumenti/gen_demo_13.py`, si rilancia a fine lezione).
+
+### 2.53 La casella «Chiedi aiuto all'assistente del Prof Regge» (13/10/2026)
+
+1. In **ogni** pagina per i ragazzi c'è una casella per chiedere aiuto e avere risposta, come la chat dei progetti di stage della 4TI.
+2. Il nome è **«Chiedi aiuto all'assistente del Prof Regge»**, nelle lingue della classe. Mai «Scrivi a Claude».
+3. Funziona con **un solo bottone**: il ragazzo scrive, preme «Manda», la risposta compare sotto, nella stessa pagina. Niente «copia, apri, incolla».
+4. Serve la consegna diretta dello script (applicazione web v7.4, i 13 passi una tantum del docente in `VERIFICA-COME-SI-FA.md` capitolo 06). Finché non c'è, la casella non si mette: una casella fragile fa più danno che niente (REGISTRO-ERRORI #61, #62).
