@@ -30,14 +30,18 @@ ol{padding-left:26px}li{margin:0 0 14px}
 <p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
 <div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-voti/" target="_blank" rel="noopener">I voti<small>العلامات · 分数</small></a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener">Il backlog<small>قائمة الاقتراحات · 建议列表</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small>مراقبة الدرس · 课堂监控</small></a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-novita/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco<small>ما الجديد في اللعبة · 游戏里的新变化</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-top/" target="_blank" rel="noopener">La classifica<small>الترتيب · 排行榜</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-valutazione/" target="_blank" rel="noopener">Valutazione dei singoli (solo prof)<small>تقييم كل طالب (للأستاذ) · 个人评价（老师）</small></a></div>
 
-<h2>Il mio punto</h2>
+<h2 style="border:3px solid #e8590c">Domanda in più · solo per Yinlin L. (PC 24)</h2>
+<div class="zh" style="color:var(--fg);font-size:21px">
+<p><b>Yinlin，这是 Nicola 老师只问你的一个问题。不是作业，不打分。</b></p>
+<p>早上你进学校的时候，在院子里推着自行车走。你为什么这样做？为什么不一直骑到自行车停车的地方？</p>
 <ol>
-<li><div class="it">Scrivi la tua password.</div><div class="ar">اكتب كلمة السر الخاصة بك.</div><div class="zh">写你的密码。</div></li>
-<li><div class="it">Premi «Apri».</div><div class="ar">اضغط «Apri» (افتح).</div><div class="zh">按「Apri」（打开）。</div></li>
-</ol>
-<p><input id="pwm" type="password" placeholder="password" style="font:inherit;padding:6px 10px;border:1px solid var(--bd);border-radius:6px"> <button onclick="apriMio()" style="font:inherit;padding:6px 14px">Apri</button></p>
-<div id="mioout"></div>
-
+<li>按绿色按钮。</li>
+<li><a class="bot" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">回答 · Rispondi</a></li>
+<li>第一个格子写：<code>domanda</code></li>
+<li>第二个格子写你的回答。可以用中文写。</li>
+<li>按紫色按钮「Invia」（发送）。</li>
+</ol></div>
+<p class="t">Per Yinlin: al mattino entri a scuola spingendo la bici nel cortile. Perché? Perché non arrivi pedalando fino al parcheggio delle bici? Domanda del prof, non è un compito e non ha voto.</p>
 <h2>Passo 1 · Gioca</h2>
 <ol>
 <li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div></li>
@@ -86,16 +90,5 @@ ol{padding-left:26px}li{margin:0 0 14px}
 </ol>
 <div class="nota"><p class="it">Fatto! La tua idea arriva al prof.</p><p class="ar">تم! فكرتك تصل إلى الأستاذ.</p><p class="zh">完成！你的想法会送到老师那里。</p></div>
 <p class="t">Hai un'altra idea? Torna al Passo 5. · عندك فكرة أخرى؟ ارجع إلى الخطوة 5. · 还有别的想法？回到第5步。</p>
-<script>
-function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
-function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-async function apri(x,pw){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
- var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(x.salt),iterations:x.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
- return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(x.iv)},k,b64(x.ct)))}
-async function apriMio(){var pw=document.getElementById('pwm').value.trim(),o=document.getElementById('mioout');o.textContent='Controllo…';
- try{var P=await fetch('personali.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()});
- for(var i=0;i<P.length;i++){try{var t=JSON.parse(new TextDecoder().decode(await apri(P[i],pw)));o.innerHTML='<div class="nota">'+t.map(function(x){return '<p>'+e(x)+'</p>'}).join('')+'</div>';return}catch(x){}}}catch(x){}
- o.textContent='Oggi per te non c\'è un messaggio personale. · لا توجد رسالة لك اليوم. · 今天没有给你的消息。'}
-</script>
 </div></body>
 </html>
