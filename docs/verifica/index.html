@@ -61,7 +61,9 @@ svg text{fill:var(--fg)}
 
   var B, STATO = {}, BACK = [], NOME = '', D = [], cur = 0, T0 = 0, finita = false, permesso = false, fuoriDa = 0;
   var LOG = { uscite_consentite: 0, uscite: 0, fuori_sec: 0, incolla: 0, copia: 0, tasto_destro: 0, schermo_intero_uscito: 0 };
-  var KN = function () { return 'nome-' + B.id; }, KR = function (m) { return 'esito-' + B.id + '-' + m; };
+  var KN = function () { return 'nome-' + B.id; }, KR = function (m) { return 'esito-' + B.id + '-' + m; }, KI = function (m) { return 'incorso-' + B.id + '-' + m; }, MODOP = '';
+  function salvaProva() { if (MODOP && !finita && D.length) metti(KI(MODOP), { D: D, T0: T0, cur: cur, LOG: LOG }); }
+  window.addEventListener('beforeunload', function (ev) { if (MODOP && !finita && D.length) { salvaProva(); ev.preventDefault(); ev.returnValue = ''; } });
 
   function carica() {
     document.title = B.titolo; $('titolo').textContent = B.titolo; $('sotto').textContent = B.sotto || '';
@@ -206,8 +208,13 @@ svg text{fill:var(--fg)}
     APP.innerHTML = '<section class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
       '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda, il monitor o i risultati è permesso.</li>' +
       '<li>Ognuno ha le domande in un ordine diverso.</li><li>Alla fine vedi subito come sono andate le crocette. Le risposte scritte le valuta il prof; il voto è un giudizio complessivo e lo trovi nella pagina dei risultati.</li></ol></div><button class="bt v" id="via">Inizia</button></section>';
-    $('via').onclick = function () {
-      D = costruisci(modo); T0 = Date.now();
+    var inCorso = prendi(KI(modo));
+    if (inCorso && inCorso.D && inCorso.D.length) { D = inCorso.D; T0 = inCorso.T0 || Date.now(); if (inCorso.LOG) LOG = inCorso.LOG; return avvia(modo, inCorso.cur || 0); }
+    $('via').onclick = function () { D = costruisci(modo); T0 = Date.now(); avvia(modo, 0); };
+  }
+  function avvia(modo, da) {
+    MODOP = modo;
+    {
       try { if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); } catch (x) {}
       APP.innerHTML = '<div class="barra"><span id="dove"></span><span id="tempo">0:00</span></div><div class="pallini" id="pallini"></div><div class="card no-sel" id="domanda"></div>' +
         '<button class="bt g" id="prec">← Indietro</button><button class="bt" id="succ">Avanti →</button><button class="bt v" id="fine">Consegna</button>';
@@ -215,7 +222,7 @@ svg text{fill:var(--fg)}
       [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
       $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); }; $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
       $('fine').onclick = function () { consegna(modo); };
-      mostra(0); setInterval(function () { if (!finita) $('tempo').innerHTML = STATO.scadenza ? orologioConsegna() : 'tempo: ' + mmss((Date.now() - T0) / 1000); }, 1000);
+      mostra(da); setInterval(salvaProva, 2000); setInterval(function () { if (!finita) $('tempo').innerHTML = STATO.scadenza ? orologioConsegna() : 'tempo: ' + mmss((Date.now() - T0) / 1000); }, 1000);
     };
   }
   /* antiplagio */
@@ -240,7 +247,7 @@ svg text{fill:var(--fg)}
     return s + '</svg><div class="mu">Pull Request arrivate ogni quarto d\'ora, lunedì 12/10 (il numero esatto è sopra ogni barra).</div>';
   }
   function mostra(i) {
-    cur = i; var d = D[i], tipo = { c: 'a crocetta', n: 'rispondi con un numero', s: 'scegli da 1 a 5', a: 'da scrivere con parole tue' }[d.tipo];
+    cur = i; salvaProva(); var d = D[i], tipo = { c: 'a crocetta', n: 'rispondi con un numero', s: 'scegli da 1 a 5', a: 'da scrivere con parole tue' }[d.tipo];
     var h = '<div class="area">' + e((B.aree[d.area] || {}).nome || '') + '</div><div class="mu">Domanda ' + (i + 1) + ' di ' + D.length + ' · ' + tipo + '</div>';
     if (d.mostra_pr) h += boxMiePR();
     h += '<p><b>' + d.q + '</b></p>' + (d.grafico ? grafico() : '');
@@ -286,7 +293,7 @@ svg text{fill:var(--fg)}
       aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), ricopia_pr: d.mostra_pr ? ricopia(d.testo) : 0, tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
       problemi: D.map(function (d, i) { return { n: i + 1, q: senzaTag(d.q), testo: (d.problema || '').trim() }; }).filter(function (x) { return x.testo; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
-    metti(KR(modo), R); esito(R, modo); tappe(modo); mostraAndamento();
+    metti(KR(modo), R); metti(KI(modo), null); esito(R, modo); tappe(modo); mostraAndamento();
   }
   function perArea(R) {
     var o = {}; R.crocette.forEach(function (c) { var a = o[c.area] = o[c.area] || { giuste: 0, su: 0 }; a.su++; if (c.ok) a.giuste++; }); return o;
@@ -302,7 +309,7 @@ svg text{fill:var(--fg)}
     return t.join('\n');
   }
   function esito(R, modo) {
-    var pa = perArea(R), h = '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
+    var pa = perArea(R), h = '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata: hai finito!</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
     Object.keys(pa).forEach(function (k) { h += '<li>' + e((B.aree[k] || {}).nome || k) + ': <b>' + pa[k].giuste + ' giuste su ' + pa[k].su + '</b></li>'; });
     h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b> su tutte le risposte: lo trovi nella pagina dei risultati della classe appena il prof ha corretto.</p>' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
@@ -311,7 +318,7 @@ svg text{fill:var(--fg)}
     h += '<div class="card"><b>2. Controlla come sei andato</b>';
     R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
     R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
-    h += '</div><a class="bt" href="?b=' + idB + '">Torna al ripasso</a>';
+    h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Hai finito.</b> Dopo aver mandato il risultato con il bottone verde non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
     APP.innerHTML = h;
     var txt = testo(R), M = B.modulo;
     $('manda').onclick = function () {
