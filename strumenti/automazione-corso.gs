@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v7.3 (12/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.4 (13/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * Git e' la zona di scambio con l'AI (repo privato corso-informatica-riservato):
  *
  *   1. PUBBLICA: l'AI mette in coda/ un file .json con stato "da-pubblicare" (titolo, PDF,
@@ -30,6 +30,9 @@
  *      Cosi' l'AI legge e scrive su tutta la suite Google in tutte e due le direzioni.
  *  10. PERCORSO A SCHERMATE (v7): azione "forms.crea_percorso" (una domanda per pagina, crocette corrette da sole,
  *      domanda scritta finale, immagine facoltativa).
+ *  11. CONSEGNA DELLA VERIFICA CON UN CLIC (v7.4): lo script è anche una piccola pagina web (Distribuisci ->
+ *      Applicazione web). La verifica HTML, quando il ragazzo clicca «Consegna», manda il risultato a questa pagina,
+ *      che lo salva su Git in dati/verifiche/<id>/arrivi/ e risponde «Consegna arrivata al prof». Niente copia, incolla e Modulo.
  *   9. MODULI CON RISPOSTE SCRITTE (v6): azioni "forms.crea_modulo" (domande a testo, email della scuola
  *      raccolta da Google, una sola risposta per account: es. «Scegli la password del tuo libro») e
  *      "forms.risposte_testo" (salva le risposte grezze nel repo riservato, abbinate all'email).
@@ -474,7 +477,7 @@ function AUTO_azione(a) {
       (a.domande || []).forEach(function (d) {
         // v7.1: d.paragrafo = casella grande (come un documento); d.precompila = testo già scritto nel link precompilato
         var it = (d.paragrafo ? fm.addParagraphTextItem() : fm.addTextItem()).setTitle(d.titolo).setHelpText(d.aiuto || '').setRequired(d.obbligatoria !== false);
-        if (d.precompila) pre.push(d.paragrafo ? it.asParagraphTextItem().createResponse(d.precompila) : it.asTextItem().createResponse(d.precompila));
+        if (d.precompila) pre.push(it.createResponse(d.precompila));   // v7.4: addTextItem/addParagraphTextItem danno già l'oggetto giusto (prima: «asTextItem is not a function»)
         if (d.min || d.max) {
           var v = FormApp.createTextValidation().setHelpText(d.errore || 'Lunghezza non valida')
             .requireTextLengthGreaterThanOrEqualTo(d.min || 1).build();
@@ -624,4 +627,59 @@ function AUTO_gh(method, path, payload) {
     payload: payload ? JSON.stringify(payload) : null,
     muteHttpExceptions: true
   });
+}
+
+
+/* ====================== v7.4 — CONSEGNA DELLA VERIFICA CON UN CLIC (applicazione web) ======================
+   La pagina docs/verifica/ manda il risultato con un modulo HTML (POST, campo «d» = JSON) in una scheda nuova.
+   Qui si controlla, si salva su Git (dati/verifiche/<id>/arrivi/) e si risponde con una pagina chiara per il ragazzo.
+   Se Git non risponde, il risultato resta comunque nel Foglio «Arrivi verifiche» (riserva) e si recupera dopo.
+   Messa in funzione (una volta): Distribuisci -> Nuova distribuzione -> Applicazione web -> Esegui come: me ->
+   Chi ha accesso: chiunque nella scuola (o chiunque) -> Distribuisci -> copia l'URL che finisce con /exec. */
+function doGet(e) {
+  return AUTO_paginaArrivo('Pagina pronta', 'Da qui arrivano le consegne delle verifiche del corso.', '#1f6feb');
+}
+function doPost(e) {
+  var d;
+  try { d = JSON.parse((e && e.parameter && e.parameter.d) || (e && e.postData && e.postData.contents) || '{}'); }
+  catch (x) { return AUTO_paginaArrivo('Non arrivata', 'Il risultato non si legge. Torna alla verifica e clicca di nuovo «Manda al prof».', '#c0392b'); }
+  var id = String(d.id || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
+  var nome = String(d.nome || '').slice(0, 60);
+  var modo = d.modo === 'recupero' ? 'recupero' : 'verifica';
+  if (!id || !nome) return AUTO_paginaArrivo('Non arrivata', 'Manca il nome o la verifica. Torna alla verifica e clicca di nuovo «Manda al prof».', '#c0392b');
+  var testo = JSON.stringify(d, null, 1);
+  if (testo.length > 300000) testo = testo.slice(0, 300000);
+  var adesso = new Date(), email = '';
+  try { email = Session.getActiveUser().getEmail() || ''; } catch (x) {}
+  d._arrivo = adesso.toISOString(); d._email = email;
+  testo = JSON.stringify(d, null, 1);
+  var file = 'dati/verifiche/' + id + '/arrivi/' + Utilities.formatDate(adesso, 'Europe/Rome', 'HHmmss') + '_' + modo + '_' + AUTO_slug(nome) + '.json';
+  var ok = false, lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(25000);
+    for (var i = 0; i < 3 && !ok; i++) {
+      var c = AUTO_commit(file, Utilities.newBlob(testo, 'application/json'), 'Consegna ' + modo + ': ' + id + ' · ' + nome);
+      ok = (c === 200 || c === 201);
+      if (!ok) Utilities.sleep(1500);
+    }
+  } catch (x) { Logger.log('Consegna su Git non riuscita: ' + x); }
+  finally { try { lock.releaseLock(); } catch (x) {} }
+  try { AUTO_foglioArrivi().appendRow([adesso, id, modo, nome, email, ok ? 'su Git' : 'SOLO QUI', testo.slice(0, 45000)]); } catch (x) { Logger.log('Foglio di riserva: ' + x); }
+  var ora = Utilities.formatDate(adesso, 'Europe/Rome', 'HH:mm');
+  return AUTO_paginaArrivo('Consegna arrivata al prof', nome + ', la tua ' + modo + ' è arrivata alle ' + ora + '. Hai finito: puoi chiudere questa scheda.', '#1a7f37');
+}
+function AUTO_foglioArrivi() {
+  var p = PropertiesService.getScriptProperties(), id = p.getProperty('FOGLIO_ARRIVI');
+  if (id) { try { return SpreadsheetApp.openById(id).getSheets()[0]; } catch (x) {} }
+  var ss = SpreadsheetApp.create('Arrivi verifiche (riserva dello script)');
+  ss.getSheets()[0].appendRow(['Arrivo', 'Verifica', 'Modo', 'Nome', 'Email', 'Git', 'Risultato']);
+  p.setProperty('FOGLIO_ARRIVI', ss.getId());
+  return ss.getSheets()[0];
+}
+function AUTO_paginaArrivo(titolo, testo, colore) {
+  var h = '<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>' +
+    '<body style="margin:0;font:20px/1.5 system-ui,Segoe UI,Arial,sans-serif;background:#f4f7fb;color:#1a2330">' +
+    '<div style="max-width:640px;margin:60px auto;padding:24px;background:#fff;border:4px solid ' + colore + ';border-radius:16px">' +
+    '<h1 style="color:' + colore + ';margin-top:0">' + titolo + '</h1><p>' + testo.replace(/</g, '&lt;') + '</p></div></body></html>';
+  return HtmlService.createHtmlOutput(h).setTitle(titolo).setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
