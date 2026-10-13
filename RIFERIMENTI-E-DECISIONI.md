@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.34** — 13/10/2026
+**Versione 2.35** — 13/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -435,3 +435,4 @@ bumpa la versione del doc.*
 5. **Mai il nome della scuola** nei materiali per l'esterno (serve un'autorizzazione): si scrive «Il laboratorio di informatica secondo le idee di Nicola Regge». Niente nome della città nelle intestazioni (13/10/2026, Nicola).
 6. **Niente marchi registrati e niente cose non nostre** nei materiali per l'esterno: nomi generici al posto dei prodotti (classe virtuale, modulo online, archivio delle versioni, motore di videogiochi, assistente di intelligenza artificiale); solo immagini fatte da noi (13/10/2026, Nicola).
 7. **Edizioni:** l'insieme (Atlante, mappa, racconto, PDF) si numera per edizioni con la composizione delle versioni delle parti e un'impronta; si dice «è tutto a posto» solo dopo `strumenti/controlla_edizione.py --browser` con «TUTTO A POSTO»; ogni edizione è legata al suo commit su Git (`comunicazione-marketing/EDIZIONI.md`).
+8. **Progetti dei ragazzi (anche maggiorenni):** solo iniziali nei file e nei cruscotti (C.D.L., G.A.); fuori si mostra solo la pagina di presentazione `docs/cm-qma7yay4q5/progetti/`, senza nomi, senza indirizzi che contengono il nome e con le immagini ripulite da scuola, città e marchi; il link vero lo manda il docente a chi lo chiede con l'email già scritta, quando sa chi è (13/10/2026, Nicola).

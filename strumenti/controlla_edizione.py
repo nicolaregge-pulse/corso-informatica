@@ -50,7 +50,7 @@ def locale(h, da):
     loc = loc.split("?")[0]
     if loc.endswith("/") or os.path.isdir(loc): loc = os.path.join(loc, "index.html")
     return loc
-PAGINE = ["docs/atlante-k4x9w2/index.html", "docs/cm-qma7yay4q5/index.html", "docs/cm-qma7yay4q5/parco/index.html", "docs/cm-qma7yay4q5/racconto/index.html"]
+PAGINE = ["docs/atlante-k4x9w2/index.html", "docs/cm-qma7yay4q5/index.html", "docs/cm-qma7yay4q5/progetti/index.html", "docs/cm-qma7yay4q5/parco/index.html", "docs/cm-qma7yay4q5/racconto/index.html"]
 esterni, n_link, interne = set(), 0, set()
 for pg in PAGINE:
     s = open(pg, encoding="utf-8").read()
@@ -77,7 +77,7 @@ try:
                         elif not os.path.exists(loc): problemi.append(f"link rotto nel PDF {os.path.basename(f)}: {h}")
 except ImportError:
     avvisi.append("pypdf non c'è: i link dentro i PDF non sono stati controllati")
-for h in sorted(esterni - ESTERNI_NOTI):
+for h in sorted(h for h in esterni - ESTERNI_NOTI if not h.startswith("mailto:nicola.regge@gmail.com")):
     avvisi.append(f"link esterno da provare a mano (dal container non si raggiunge): {h[:80]}")
 
 # 4. contenuti delle parti pubbliche: nomi dei ragazzi, scuola, città, marchi
