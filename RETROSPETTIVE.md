@@ -2,7 +2,11 @@
 
 **Versione 1.0** — 13/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
-Ogni retrospettiva resta qui, dalla più nuova alla più vecchia, e non si cancella. Si fanno il venerdì, in un'unica sessione con la revisione. Le domande sono sempre quattro: di più, di meno, cominciare, smettere (vedi `AGILE-CERIMONIE.md`). Le retrospettive delle classi sono riassunti senza nomi.
+Ogni retrospettiva resta qui, dalla più nuova alla più vecchia, e non si cancella. Si fanno alla fine di ogni argomento, in un'unica sessione con la revisione. Le domande sono sempre quattro: di più, di meno, cominciare, smettere (vedi `AGILE-CERIMONIE.md`). Le retrospettive delle classi sono riassunti senza nomi.
+
+## 2026-10-13 · docente e Claude · chiusura del Treno e del versioning
+
+> **Nota:** si riempie oggi, dopo la verifica della 2INF: prima la revisione (che cosa è stato consegnato), poi le quattro domande.
 
 ## 2026-10-13 · 2INF · prima retrospettiva della classe
 
