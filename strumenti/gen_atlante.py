@@ -140,6 +140,27 @@ def mappa():
     s.append('</svg>')
     return "\n".join(s)
 
+GH = "https://github.com/nicolaregge-pulse/corso-informatica/blob/main/"
+DOCUMENTI = [   # i documenti del prof: si aprono su GitHub (il PDF si legge impaginato)
+ ("Come lavoriamo", [("Il modo di lavorare (Modus operandi)", "20261012_Modus-Operandi_Docente_v1.5.pdf"), ("La metodologia del corso", "METODOLOGIA-CORSO-v1.3.pdf"),
+   ("Le regole per costruire una lezione", "20261009_Regole-Costruzione-Teoria_Docente_v1.2.pdf"), ("Riferimenti e decisioni", "RIFERIMENTI-E-DECISIONI.md")]),
+ ("In classe", [("Il giro delle Pull Request", "20261012_Giro-Pull-Request_Docente_v1.0.pdf"), ("Ripasso, verifica e recupero: come si rifà", "20261013_Verifica-Come-Si-Fa_Docente_v1.0.pdf"),
+   ("I rami delle classi e il gioco", "20261012_Organizzazione-Rami-Classi_Docente_v1.1.pdf"), ("Guida al gioco della classe", "manuale-docenti/gioco-della-classe/20261008_Gioco-Della-Classe_Guida-Docente_v1.1.pdf")]),
+ ("Strumenti e automazione", [("Strumenti per il registro e la classe virtuale", "manuale-docenti/strumenti-didaweb-google/20261007_Strumenti-DIDAweb-Google_Docente_v1.3.pdf"),
+   ("Inventario degli strumenti e dell'automazione", "20261007_Inventario-Strumenti-e-Automazione_Docente_v1.0.pdf")]),
+ ("Migliorare", [("Revisione e retrospettiva (Agile)", "20261013_Agile-Cerimonie_Docente_v1.2.pdf"), ("Le retrospettive, come storia", "RETROSPETTIVE.md"),
+   ("Il registro degli errori di Claude", "REGISTRO-ERRORI-CLAUDE.md"), ("Le prove che il metodo funziona", "PROVE-METODO.md")]),
+ ("Comunicazione", [("Comunicazione e marketing", "comunicazione-marketing/20261013_Comunicazione-Marketing_v0.5.pdf"), ("Le edizioni e come si controllano", "comunicazione-marketing/20261013_Edizioni-Comunicazione_v1.0.pdf"),
+   ("Questo Atlante in PDF", "20261013_Atlante_Docente_v{vers}.pdf")]),
+]
+
+def documenti(vers):
+    h = []
+    for tit, voci in DOCUMENTI:
+        li = "".join(f'<li><a href="{e(GH + f.replace("{vers}", vers))}" target="_blank">{e(t)}</a></li>' for t, f in voci)
+        h.append(f'<div class="sc" style="border-top:6px solid #8d5a2b"><h3>{e(tit)}</h3><ol>{li}</ol></div>')
+    return '<h2>I documenti del prof</h2><p class="mu">Si aprono su GitHub: i PDF si leggono impaginati, con il bottone per scaricarli.</p><div class="schede">' + "".join(h) + "</div>"
+
 def schede():
     h = []
     for (zid, x, y, c, tit, sub, link, tipo, descr, links) in ZONE:
@@ -152,7 +173,7 @@ def main():
     edz = json.load(open(os.path.join(QUI, "comunicazione-marketing", "EDIZIONE.json"), encoding="utf-8"))["edizione"]
     vers = re.search(r"\*\*Versione (\d+\.\d+)\*\*", md).group(1)
     md = re.sub(r"(?m)^   (?=\d+\. )", "    ", md)          # sottoliste a 3 spazi -> 4 (python-markdown)
-    corpo = markdown.markdown(md.split("\n", 1)[1], extensions=["tables"])
+    corpo = documenti(vers) + markdown.markdown(md.split("\n", 1)[1], extensions=["tables"])
     css = """:root{--bg:#fbf8f3;--fg:#1d1a16;--mu:#62584c;--card:#fff;--bd:#e3dacd;--link:#1c5fb8}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15120f;--fg:#f6efe4;--mu:#bcae9b;--card:#211c17;--bd:#3a3128;--link:#74b0ff}}
 :root[data-theme="dark"]{--bg:#15120f;--fg:#f6efe4;--mu:#bcae9b;--card:#211c17;--bd:#3a3128;--link:#74b0ff}

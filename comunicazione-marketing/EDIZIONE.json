@@ -1,12 +1,12 @@
 {
- "edizione": "1.0",
+ "edizione": "1.1",
  "data": "13/10/2026",
  "nota": "Un'edizione è l'insieme delle parti qui sotto, ognuna con la sua versione. Se cambia anche una sola parte, si sale di edizione (1.0 -> 1.1). Si controlla con: python3 strumenti/controlla_edizione.py",
  "parti": [
   {
    "id": "atlante",
    "nome": "Atlante del corso (interno, con la mappa)",
-   "versione": "1.3",
+   "versione": "1.4",
    "pubblica": false,
    "fonte": [
     "ATLANTE.md",
@@ -111,5 +111,5 @@
    ]
   }
  ],
- "impronta": "63d129690e"
+ "impronta": "b684115650"
 }

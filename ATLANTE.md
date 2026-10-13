@@ -1,15 +1,16 @@
 # Atlante del corso
 
-**Versione 1.3** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.4** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
 ## 00 Come si usa
 
-1. **Per andare in un posto:** si clicca la sua zona nella mappa, oppure il bottone nelle schede sotto la mappa. Funziona nella pagina HTML e nel PDF.
-2. **Per capire come funziona una cosa:** si legge il capitolo che ne parla, qui sotto.
-3. **Regola d'oro:** una cosa si scrive una volta sola, in una fonte unica, e da lì si genera ovunque serva.
-4. **Prima di dire che cosa è stato fatto si guardano i dati**, mai a memoria.
+1. **È il punto da cui si parte per tutto:** le pagine del corso dalla mappa e dalle schede delle zone, i documenti del prof dalla scheda «I documenti del prof». Resta fuori solo il repository riservato (nomi, voti, presenze).
+2. **Per andare in un posto:** si clicca la sua zona nella mappa, oppure il bottone nelle schede sotto la mappa. Funziona nella pagina HTML e nel PDF.
+3. **Per capire come funziona una cosa:** si legge il capitolo che ne parla, qui sotto.
+4. **Regola d'oro:** una cosa si scrive una volta sola, in una fonte unica, e da lì si genera ovunque serva.
+5. **Prima di dire che cosa è stato fatto si guardano i dati**, mai a memoria.
 
 ## 01 Principi
 
@@ -122,7 +123,8 @@
 
 ## 14 Registro delle versioni
 
-1. **v1.3 (13/10/2026):** pagina leggibile anche sul telefono; in alto il numero dell'edizione (vedi `comunicazione-marketing/EDIZIONI.md`).
+1. **v1.4 (13/10/2026):** «I documenti del prof»: dall'Atlante si apre ogni documento del docente (modo di lavorare, guide, regole, registro degli errori, comunicazione); l'Atlante è il punto da cui si parte per tutto.
+2. **v1.3 (13/10/2026):** pagina leggibile anche sul telefono; in alto il numero dell'edizione (vedi `comunicazione-marketing/EDIZIONI.md`).
 2. **v1.2 (13/10/2026):** nelle zone niente nomi di prodotti di altre aziende; nasce «Il parco del corso», la versione con la sola mappa per la comunicazione.
 2. **v1.1 (13/10/2026):** tolto il nome della scuola: l'Atlante porta il nome «Il laboratorio di informatica secondo le idee di Nicola Regge».
 2. **v1.0 (13/10/2026):** mappa illustrata e cliccabile del corso, «come un parco»; Atlante riscritto con tutto quello che è nato dal 06/10 (giornata di lezione, i sei bottoni, gioco e versioni, verifica, progetti di stage, automazione, comunicazione); pagina HTML e PDF con i link cliccabili.
