@@ -334,16 +334,17 @@ svg text{fill:var(--fg)}
     return t.join('\n');
   }
   function esito(R, modo) {
-    var pa = perArea(R), h = '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata: hai finito!</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
+    var mandaH = '<div class="card" style="border:4px solid var(--rosso)"><h2 style="margin-top:0">ULTIMO PASSO: manda il risultato al prof</h2><p><b>Non hai ancora finito: senza questo passo il prof non riceve niente.</b></p><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
+      '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p><p><b>Se Ctrl+V nel Modulo non incolla niente:</b> clicca nel riquadro qui sotto, premi <b>Ctrl+A</b> e poi <b>Ctrl+C</b>, torna al Modulo e premi <b>Ctrl+V</b>.</p><textarea id="risTxt" readonly style="min-height:120px;font-size:13px"></textarea></div>';
+    var pa = perArea(R), h = mandaH + '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
     Object.keys(pa).forEach(function (k) { h += '<li>' + e((B.aree[k] || {}).nome || k) + ': <b>' + pa[k].giuste + ' giuste su ' + pa[k].su + '</b></li>'; });
     h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b> su tutte le risposte: lo trovi nella pagina dei risultati della classe appena il prof ha corretto.</p>' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
-    h += '<div class="card"><b>1. Manda al prof</b><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
-      '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p><p><b>Se Ctrl+V nel Modulo non incolla niente:</b> clicca nel riquadro qui sotto, premi <b>Ctrl+A</b> e poi <b>Ctrl+C</b>, torna al Modulo e premi <b>Ctrl+V</b>.</p><textarea id="risTxt" readonly style="min-height:120px;font-size:13px"></textarea></div>';
+
     h += '<div class="card"><b>2. Controlla come sei andato</b>';
     R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
     R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
-    h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Hai finito.</b> Dopo aver mandato il risultato con il bottone verde non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
+    h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Quando hai mandato il risultato con il bottone verde in alto, hai finito.</b> Non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
     APP.innerHTML = h;
     var txt = testo(R), M = B.modulo; $('risTxt').value = txt; $('risTxt').onclick = function () { this.select(); };
     $('manda').onclick = function () {
