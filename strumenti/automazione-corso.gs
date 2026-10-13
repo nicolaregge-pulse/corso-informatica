@@ -645,7 +645,7 @@ function doPost(e) {
   catch (x) { return AUTO_paginaArrivo('Non arrivata', 'Il risultato non si legge. Torna alla verifica e clicca di nuovo «Manda al prof».', '#c0392b'); }
   var id = String(d.id || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
   var nome = String(d.nome || '').slice(0, 60);
-  var modo = d.modo === 'recupero' ? 'recupero' : 'verifica';
+  var modo = d.modo === 'recupero' ? 'recupero' : d.modo === 'domanda' ? 'domanda' : 'verifica';
   if (!id || !nome) return AUTO_paginaArrivo('Non arrivata', 'Manca il nome o la verifica. Torna alla verifica e clicca di nuovo «Manda al prof».', '#c0392b');
   var testo = JSON.stringify(d, null, 1);
   if (testo.length > 300000) testo = testo.slice(0, 300000);
