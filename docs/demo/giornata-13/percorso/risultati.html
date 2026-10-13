@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta name="robots" content="noindex">
+<title>Risultati della verifica</title>
+<style>
+:root{--bg:#f4f7fb;--fg:#1a2330;--mu:#5b6573;--card:#fff;--bd:#d6e0ea;--verde:#1a7f37;--rosso:#c0392b;--giallo:#d4a000}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171a;--fg:#eee;--mu:#a9a9a9;--card:#1f2227;--bd:#353a42}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.45 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1150px;margin:0 auto;padding:16px}h1{font-size:25px;margin:6px 0}.mu{color:var(--mu);font-size:14px}
+table{border-collapse:collapse;width:100%;background:var(--card)}th,td{border:1px solid var(--bd);padding:8px;text-align:left;vertical-align:top}th{background:#12467a;color:#fff}
+.voto{font-size:24px;font-weight:800}.attesa{color:var(--giallo);font-weight:700}.ok{color:var(--verde);font-weight:700}.ko{color:var(--rosso);font-weight:700}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:12px 0}
+@media (max-width:760px){table,thead,tbody,tr,td,th{display:block}thead{display:none}tr{border:1px solid var(--bd);margin:10px 0}td{border:0;border-bottom:1px solid var(--bd)}}
+</style></head><body><div class="w">
+<h1 id="titolo">Risultati della verifica</h1><div class="mu" id="sotto">Si aggiorna da sola ogni minuto.</div>
+<div class="card" id="come"></div>
+<table><thead><tr><th>Allievo</th><th>Crocette, area per area</th><th>Risposte scritte</th><th>Antiplagio</th><th>Voto e giudizio</th></tr></thead><tbody id="righe"></tbody></table>
+</div>
+<script>
+(function () {
+  var b = (new URLSearchParams(location.search).get('b') || '').replace(/[^a-z0-9-]/gi, '');
+  function e(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function carica() {
+    fetch('risultati/' + b + '.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+      document.title = d.titolo; document.getElementById('titolo').textContent = d.titolo;
+      document.getElementById('sotto').textContent = d.classe + ' · aggiornato ' + d.aggiornato + ' · si aggiorna da sola ogni minuto';
+      document.getElementById('come').innerHTML = d.come || '';
+      var r = (d.allievi || []).map(function (a) {
+        return '<tr><td><b>' + e(a.allievo) + '</b><div class="mu">' + e(a.modo || 'verifica') + ' · ' + e(a.quando || '') + '</div></td><td>' + (a.aree || []).map(function (x) { return e(x.nome) + ': <b>' + x.giuste + '/' + x.su + '</b>'; }).join('<br>') + '</td>' +
+          '<td>' + (a.scritte ? e(a.scritte) : '<span class="attesa">da valutare</span>') + '</td><td>' + (a.antiplagio ? e(a.antiplagio) : '<span class="ok">niente da segnalare</span>') + '</td>' +
+          '<td>' + (a.voto ? '<div class="voto">' + e(a.voto) + '</div>' + e(a.giudizio || '') : '<span class="attesa">in correzione</span>') + '</td></tr>';
+      });
+      document.getElementById('righe').innerHTML = r.join('') || '<tr><td colspan="5">Ancora nessuna consegna.</td></tr>';
+    }).catch(function () { document.getElementById('righe').innerHTML = '<tr><td colspan="5">Ancora nessuna consegna.</td></tr>'; });
+  }
+  carica(); setInterval(carica, 60000);
+})();
+</script><script src="../../traccia.js"></script></body></html>

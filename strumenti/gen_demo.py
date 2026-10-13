@@ -15,6 +15,9 @@ OUT = os.path.join(DOCS, "demo", "giornata")
 GIOCO = "../gioco/"
 GIOCO_PUBBLICO_VERSIONI = "#"
 GRAFO = "https://nicolaregge-pulse.github.io/corso-informatica/giochi/grafo/"
+MONITOR_12 = os.path.join(DOCS, "2inf-monitor", "monitor-20261012.json")
+if not os.path.exists(MONITOR_12):
+    MONITOR_12 = os.path.join(DOCS, "2inf-monitor", "monitor.json")
 PAGINE = {  # cartella pubblica -> cartella nella demo
     "compito/2inf-20261012-documento": "compito",
     "2inf-backlog": "backlog",
@@ -31,7 +34,7 @@ def nomi():
         elenco.append(x["alunno"])
     for x in json.load(open(os.path.join(DOCS, "2inf-backlog/backlog.json"), encoding="utf-8"))["voci"]:
         elenco.append(x["alunno"])
-    for g in json.load(open(os.path.join(DOCS, "2inf-monitor/monitor.json"), encoding="utf-8"))["giri"]:
+    for g in json.load(open(MONITOR_12, encoding="utf-8"))["giri"]:
         for r in g["righe"]:
             elenco.append(r["alunno"])
     visti = []
@@ -79,6 +82,10 @@ def main():
     scritti = []
     for src, dst in PAGINE.items():
         shutil.copytree(os.path.join(DOCS, src), os.path.join(OUT, dst))
+    shutil.copy(MONITOR_12, os.path.join(OUT, "monitor", "monitor.json"))
+    for f in os.listdir(os.path.join(OUT, "monitor")):
+        if f.startswith("monitor-"):
+            os.remove(os.path.join(OUT, "monitor", f))
     shutil.copy(os.path.join(DOCS, "giochi/treno-blindato/versioni/versioni.json"), os.path.join(OUT, "backlog", "versioni.json"))
     shutil.copytree(os.path.join(DOCS, "giochi/treno-blindato"), os.path.join(OUT, "gioco"),
                     ignore=shutil.ignore_patterns("versioni", "strumenti", "sw.js", "*.md"))
