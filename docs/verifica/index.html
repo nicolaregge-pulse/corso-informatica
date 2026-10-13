@@ -190,7 +190,11 @@ svg text{fill:var(--fg)}
       var prima = prendi(KR('verifica')), sbagliati = prima ? prima.crocette.filter(function (c) { return !c.ok; }).map(function (c) { return c.tema; }) : [];
       var rec = (B.recupero || []).filter(function (q) { return !sbagliati.length || sbagliati.indexOf(q.tema) >= 0; });
       if (rec.length < 4) rec = (B.recupero || []).slice();
-      lista = mescola(rec, r).map(croc).concat((B.aperte || []).filter(function (q) { return typeof q !== 'function' && q.area === 'sistema'; }).map(ap));
+      // recupero personale: le crocette dei temi sbagliati + le risposte scritte lasciate vuote o troppo corte nella verifica
+      var corte = prima ? prima.aperte.filter(function (a) { return a.parole < 15; }).map(function (a) { return a.q; }) : [];
+      var scritte = (B.aperte || []).filter(function (q) { return typeof q === 'function' || q.area !== 'parere'; }).map(ap).filter(function (a) { return corte.indexOf(senzaTag(a.q)) >= 0; });
+      if (!scritte.length) scritte = (B.aperte || []).filter(function (q) { return typeof q !== 'function' && q.area === 'sistema'; }).map(ap);
+      lista = mescola(rec, r).map(croc).concat(scritte);
       return lista;
     }
     lista = mescola(B.crocette, r).map(croc);
