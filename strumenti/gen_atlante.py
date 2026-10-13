@@ -26,7 +26,7 @@ ZONE = [
  ("stazione", 700, 285, "#c92a2a", "Stazione del Treno blindato", "il gioco della classe", "giochi/", "stazione",
   "Il gioco nato in classe e tutte le sue copie. Ogni proposta dei ragazzi diventa una versione nuova.",
   [("Tutti i giochi del corso", "giochi/"), ("Il treno della 1INF (fork del 13/10)", "giochi/treno-1inf-fork/"), ("Il treno della 2INF", "2inf-treno/"),
-   ("La base del prof su Godot", "giochi/treno-prof/"), ("Il treno sulla Luna", "giochi/treno-luna/")]),
+   ("La base del prof", "giochi/treno-prof/"), ("Il treno sulla Luna", "giochi/treno-luna/")]),
  ("grafo", 960, 215, "#7048e8", "Torre del Grafo", "tutte le versioni", "giochi/grafo/", "torre",
   "La storia del gioco come un albero: rami, copie, unioni. Ogni pallino è una versione che si gioca.",
   [("Il grafo delle versioni", "giochi/grafo/"), ("Lezione: le versioni del treno", "lezione-versioni/")]),
@@ -43,7 +43,7 @@ ZONE = [
  ("3inf", 440, 640, "#2b8a3e", "Quartiere 3INF", "terza: siti e il gioco", "compito/3inf-20261012-documento/", "casa",
   "La terza: il primo sito pubblico, la copia del treno, le proposte in tempo reale.",
   [("Il tuo Documento (12/10)", "compito/3inf-20261012-documento/"), ("Il backlog", "3inf-backlog/"), ("Le Pull Request in tempo reale", "3inf-gioco/"),
-   ("Il sito con GitHub", "3inf-sito/"), ("I siti della classe", "siti-classe/")]),
+   ("Il sito pubblicato online", "3inf-sito/"), ("I siti della classe", "siti-classe/")]),
  ("4ti", 1180, 455, "#0b7285", "Laboratorio dello Stage", "quarta: progetti veri", "4ti-progetti/", "officina",
   "La quarta: reti e progetti di stage, un deposito per ragazzo e una chat con il prof e l'assistente.",
   [("Cruscotto dei progetti (dal vivo)", "4ti-progetti/"), ("Il viaggio di un pacchetto (ISO/OSI)", "4ti-iso-osi/"), ("App di reti", "4ti-app/"),
@@ -53,8 +53,8 @@ ZONE = [
   [("Ripasso e verifica (2INF, versioni)", "verifica/?b=2inf-versioning"), ("Risultati della classe", "verifica/risultati.html?b=2inf-versioning"),
    ("Quiz personale", "quiz/"), ("Recupero a fianco", "recupero/")]),
  ("prof", 1185, 175, "#495057", "Sala di controllo", "gli strumenti del prof", "docenti/", "schermo",
-  "Da qui il docente guida la lezione: cruscotti cifrati, strumenti per il registro e per Google.",
-  [("Strumenti DIDAweb e Google", "docenti/"), ("Cruscotto 2INF", "2inf-cruscotto/"), ("Cruscotto 1INF", "1inf-cruscotto/"),
+  "Da qui il docente guida la lezione: cruscotti cifrati, strumenti per il registro e per la classe virtuale.",
+  [("Strumenti per il registro e la classe virtuale", "docenti/"), ("Cruscotto 2INF", "2inf-cruscotto/"), ("Cruscotto 1INF", "1inf-cruscotto/"),
    ("Controlla chi ha fatto giusto", "controlla/"), ("Valutazione dei singoli 2INF", "2inf-valutazione/")]),
  ("giochi", 965, 645, "#ae3ec9", "Sala giochi", "i minigiochi del corso", "gioco/", "joystick",
   "I minigiochi costruiti e usati nelle lezioni, e l'azienda dei videogiochi.",
@@ -65,7 +65,7 @@ ZONE = [
   [("Teoria Agile", "teoria/agile-it/"), ("Le versioni del treno", "lezione-versioni/"), ("Voci e volti falsi (deepfake)", "sicurezza-deepfake/"),
    ("Decimale e binario", "1inf-decimale-binario/")]),
  ("cassaforte", 1195, 700, "#343a40", "Cassaforte", "repository riservato", "", "lucchetto",
-  "Nomi, voti, presenze, consegne, la coda di Classroom e i comandi per lo script stanno nel repository riservato: non si vedono da qui.",
+  "Nomi, voti, presenze, consegne, la coda della classe virtuale e i comandi per l'automazione stanno nel repository riservato: non si vedono da qui.",
   []),
 ]
 
@@ -177,9 +177,18 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
 {schede()}
 {corpo}
 </div></body></html>"""
-    out = os.path.join(QUI, "docs", CARTELLA); os.makedirs(out, exist_ok=True)
+    scrivi(pagina, os.path.join(QUI, "docs", CARTELLA), os.path.join(QUI, f"20261013_Atlante_Docente_v{vers}.pdf"))
+    # la versione per la comunicazione: la mappa e le zone, niente testo interno, niente cruscotti né pagine del docente
+    pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso").replace(
+        "Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.", "Sotto la mappa trovi le stesse zone, con i loro link.")
+    pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
+    pubbl = pubbl.replace('href="' + u("docenti/") + '"', 'href="#"').replace("<ol></ol>", '<ol><li class="mu">Gli strumenti del docente sono riservati.</li></ol>')
+    pubbl = pubbl.replace("<title>Atlante del corso</title>", "<title>Il parco del corso</title>").replace("<h1>Atlante del corso</h1>", "<h1>Il parco del corso</h1>")
+    scrivi(pubbl, os.path.join(QUI, "docs", "cm-qma7yay4q5", "parco"), os.path.join(QUI, "docs", "cm-qma7yay4q5", "pdf", "20261013_Il-Parco-del-Corso_v1.0.pdf"))
+
+def scrivi(pagina, out, pdf):
+    os.makedirs(out, exist_ok=True)
     f = os.path.join(out, "index.html"); open(f, "w", encoding="utf-8").write(pagina)
-    pdf = os.path.join(QUI, f"20261013_Atlante_Docente_v{vers}.pdf")
     subprocess.run([CHROME, "--headless", "--disable-gpu", "--no-sandbox", "--no-pdf-header-footer", f"--print-to-pdf={pdf}", "file://" + f],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print(f, pdf)

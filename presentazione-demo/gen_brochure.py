@@ -7,7 +7,7 @@ Uso:  python3 presentazione-demo/gen_brochure.py
 import html, os, subprocess
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VER = "1.3"
+VER = "1.4"
 DATA = "20261013"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 DEMO = "https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec"
@@ -30,7 +30,7 @@ PILASTRI = [
     ("Tutto si aggiorna da solo", "Backlog, voti, classifica e monitor della lezione si aggiornano ogni minuto, senza lavoro in più per il docente."),
 ]
 PASSI = [
-    ("01-compito.png", "1. Un solo link su Classroom", "La pagina della lezione: il percorso della giornata, la teoria breve, poi i bottoni verdi del lavoro."),
+    ("01-compito.png", "1. Un solo link nella classe virtuale", "La pagina della lezione: il percorso della giornata, la teoria breve, poi i bottoni verdi del lavoro."),
     ("12-prova-pr.png", "2. La Pull Request", "Il ragazzo propone una modifica al gioco con quattro parti: titolo, cosa cambia, dove, perché. È la stessa richiesta di modifica che si fa nelle aziende di software."),
     ("02-backlog.png", "3. Il backlog", "Ogni richiesta entra nella coda di lavoro con un peso (quanto lavoro chiede). Si fanno prima le più leggere; ogni richiesta finisce FATTO con la sua versione, oppure NO con il motivo."),
     ("03-novita.png", "4. Una versione nuova", "Ogni richiesta accettata è una versione del gioco con il suo registro delle modifiche: chi l'ha chiesta, cosa cambia, dove nel codice."),
@@ -40,7 +40,7 @@ DOCENTE = [
     ("04-voti.png", "I voti, con il perché", "Il voto proposto si calcola da solo: richieste inviate, richieste entrate nel gioco, come sono scritte, feedback sulla teoria. Il voto finale lo decide il docente."),
     ("05-classifica.png", "La classifica", "Chi ha portato più modifiche dentro il gioco. È pubblica durante la lezione: chi è indietro vede subito come recuperare."),
     ("06-monitor.png", "Il monitor della lezione", "Durante i giri il docente guarda gli schermi; resta scritto cosa c'era su ogni computer. Solo fatti, senza giudizi."),
-    ("10-grafo.png", "L'albero delle versioni", "La storia del progetto come la disegna Git: rami, copie delle altre classi, unioni, versioni maggiori."),
+    ("10-grafo.png", "L'albero delle versioni", "La storia del progetto come la disegnano i programmatori: rami, copie delle altre classi, unioni, versioni maggiori."),
 ]
 COMPETENZE = ["Versionare il software: versioni, rami, copie (fork), unioni (merge), release",
               "Chiedere una modifica come in azienda: la Pull Request con titolo, cosa, dove, perché",
@@ -48,10 +48,10 @@ COMPETENZE = ["Versionare il software: versioni, rami, copie (fork), unioni (mer
               "Lavorare in team su un prodotto unico, con regole chiare e il proprio contributo visibile",
               "Scrivere in modo preciso e verificabile: la richiesta si capisce o viene rimandata indietro"]
 SERVE = ["Un browser: niente da installare sui computer della scuola",
-         "Google Classroom e Google Moduli, già in uso in tanti istituti",
-         "Un repository Git (GitHub) per il gioco e le pagine della lezione",
+         "La classe virtuale e i moduli online che la scuola usa già",
+         "Un archivio delle versioni per il gioco e le pagine della lezione",
          "Pagine in più lingue per le classi con ragazzi stranieri (italiano, arabo, cinese, bengalese)",
-         "Uno script che porta le consegne dai Moduli a Git entro un minuto"]
+         "Un programma che porta le consegne dai moduli all'archivio entro un minuto"]
 PER_CHI = [("Scuole e centri di formazione professionale", "un laboratorio di informatica che tiene agganciati anche i ragazzi più difficili"),
            ("Docenti", "un metodo pronto, con pagine, regole del voto e strumenti già provati in classe"),
            ("Aziende ed enti di formazione", "un percorso che allena le competenze che si usano davvero nei team di sviluppo")]
@@ -132,7 +132,7 @@ a.bot{display:block;text-align:center;color:#fff;text-decoration:none;font-weigh
     pagine.append('<div class="p cop"><div class="top"><p class="kick" style="color:#9cc0ff">Laboratorio di informatica · prof. Nicola Regge</p>'
                   "<h1>Una scuola che lavora come un'azienda di software</h1><p class=sub>Il laboratorio che trasforma la classe in un team di sviluppo: "
                   "i ragazzi propongono modifiche, il gioco della classe cresce versione dopo versione, il voto si vede subito.</p></div>"
-                  '<div class="img"><img src="schermate/08-gioco-copertina.png"></div><div class="bots"><a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><a class="bot v" href="%s">▶ Gioca al gioco della classe</a></div>'
+                  '<div class="img"><img src="schermate/09-gioco-in-corso.png"></div><div class="bots"><a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><a class="bot v" href="%s">▶ Gioca al gioco della classe</a></div>'
                   '<div class="piede">Il laboratorio di informatica secondo le idee di Nicola Regge · ottobre 2026</div></div>' % (E(DEMO), E(GIOCO)))
     pagine.append('<div class="p"><p class="kick">01 Il problema</p><h2>I ragazzi non mollano perché non capiscono. Mollano per non sbagliare davanti a tutti.</h2><div class="grid2">%s</div>'
                   '<p class="kick" style="margin-top:9mm">02 La soluzione</p><h2>Qui provarci conviene, e non fa male.</h2><div class="grid2">%s</div><div class="pn">2</div></div>' % (
@@ -142,8 +142,8 @@ a.bot{display:block;text-align:center;color:#fff;text-decoration:none;font-weigh
                   '<div class="grid2"><div>%s%s</div><div>%s%s</div></div>%s<div class="pn">3</div></div>' % (
                       figura(*PASSI[0]), figura(*PASSI[1]), figura(*PASSI[2]), figura(*PASSI[3]), ""))
     pagine.append('<div class="p"><p class="kick">03 Come funziona una lezione</p>%s'
-                  '<div class="box" style="margin-top:2mm"><h3>Lo stesso flusso delle aziende di software</h3><ol><li>Il ragazzo invia la richiesta da un Modulo Google.</li>'
-                  '<li>Uno script la porta su Git entro un minuto.</li><li>Entra nel backlog con un peso.</li><li>Il docente la mette nel gioco: nasce una versione nuova, con il suo registro delle modifiche.</li>'
+                  '<div class="box" style="margin-top:2mm"><h3>Lo stesso flusso delle aziende di software</h3><ol><li>Il ragazzo invia la richiesta da un modulo online.</li>'
+                  '<li>Un programma la porta nell&rsquo;archivio delle versioni entro un minuto.</li><li>Entra nel backlog con un peso.</li><li>Il docente la mette nel gioco: nasce una versione nuova, con il suo registro delle modifiche.</li>'
                   '<li>Voti, classifica e pagine della lezione si aggiornano da soli.</li></ol></div><div class="pn">4</div></div>' % figura(*PASSI[4], alta=True))
     pagine.append('<div class="p"><p class="kick">04 Cosa vede il docente</p><h2>Tutta la classe in una pagina, mentre la lezione è in corso.</h2>'
                   '<div class="grid2"><div>%s%s</div><div>%s%s</div></div><div class="pn">5</div></div>' % tuple(figura(*x) for x in DOCENTE))

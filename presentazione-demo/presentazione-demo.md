@@ -1,6 +1,6 @@
 # Una scuola che lavora come un'azienda di software
 
-**Versione 1.1** — 12/10/2026 — Prof. Nicola Regge. Presentazione della demo (lezione della 2INF, senza nomi).
+**Versione 1.2** — 12/10/2026 — Prof. Nicola Regge. Presentazione della demo (lezione della 2INF, senza nomi).
 
 Il laboratorio di informatica secondo le idee di Nicola Regge. Molti ragazzi hanno alle spalle percorsi scolastici difficili; qui lavorano come in un'azienda vera, con gli strumenti dei programmatori.
 Questa è la lezione di una seconda del 12 ottobre 2026: tre ore di laboratorio. I nomi dei ragazzi sono sostituiti con «Allievo 01», «Allievo 02»…
@@ -29,7 +29,7 @@ Si parte dalla lavagna: versioni, registro delle modifiche (changelog), copia de
 
 ![Il compito della lezione](schermate/01-compito.png)
 
-Un solo link fisso su Classroom. In alto il percorso della giornata, poi la teoria da leggere (versioni del software e metodo Agile), poi i bottoni verdi del lavoro.
+Un solo link fisso nella classe virtuale. In alto il percorso della giornata, poi la teoria da leggere (versioni del software e metodo Agile), poi i bottoni verdi del lavoro.
 
 ## 04 Il backlog
 
@@ -71,7 +71,7 @@ Durante i giri il docente guarda gli schermi della classe; qui resta scritto cos
 
 ![L'albero delle versioni](schermate/10-grafo.png)
 
-La storia del gioco come la disegna Git: il ramo principale, le copie delle altre classi, i rami di lavoro, le unioni e le versioni maggiori.
+La storia del gioco come la disegnano i programmatori: il ramo principale, le copie delle altre classi, i rami di lavoro, le unioni e le versioni maggiori.
 
 ## 11 Prova la demo
 

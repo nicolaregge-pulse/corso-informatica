@@ -1,6 +1,6 @@
 # Una scuola che lavora come un'azienda di software
 
-**Versione 1.3** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
+**Versione 1.4** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Brochure del metodo.
 
 Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 
@@ -20,7 +20,7 @@ Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 
 ## 03 Come funziona una lezione
 
-1. **1. Un solo link su Classroom.** La pagina della lezione: il percorso della giornata, la teoria breve, poi i bottoni verdi del lavoro. ![](schermate/01-compito.png)
+1. **1. Un solo link nella classe virtuale.** La pagina della lezione: il percorso della giornata, la teoria breve, poi i bottoni verdi del lavoro. ![](schermate/01-compito.png)
 2. **2. La Pull Request.** Il ragazzo propone una modifica al gioco con quattro parti: titolo, cosa cambia, dove, perché. È la stessa richiesta di modifica che si fa nelle aziende di software. ![](schermate/12-prova-pr.png)
 3. **3. Il backlog.** Ogni richiesta entra nella coda di lavoro con un peso (quanto lavoro chiede). Si fanno prima le più leggere; ogni richiesta finisce FATTO con la sua versione, oppure NO con il motivo. ![](schermate/02-backlog.png)
 4. **4. Una versione nuova.** Ogni richiesta accettata è una versione del gioco con il suo registro delle modifiche: chi l'ha chiesta, cosa cambia, dove nel codice. ![](schermate/03-novita.png)
@@ -31,7 +31,7 @@ Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 1. **I voti, con il perché.** Il voto proposto si calcola da solo: richieste inviate, richieste entrate nel gioco, come sono scritte, feedback sulla teoria. Il voto finale lo decide il docente. ![](schermate/04-voti.png)
 2. **La classifica.** Chi ha portato più modifiche dentro il gioco. È pubblica durante la lezione: chi è indietro vede subito come recuperare. ![](schermate/05-classifica.png)
 3. **Il monitor della lezione.** Durante i giri il docente guarda gli schermi; resta scritto cosa c'era su ogni computer. Solo fatti, senza giudizi. ![](schermate/06-monitor.png)
-4. **L'albero delle versioni.** La storia del progetto come la disegna Git: rami, copie delle altre classi, unioni, versioni maggiori. ![](schermate/10-grafo.png)
+4. **L'albero delle versioni.** La storia del progetto come la disegnano i programmatori: rami, copie delle altre classi, unioni, versioni maggiori. ![](schermate/10-grafo.png)
 
 ## 05 I risultati di una lezione vera (2INF, 12/10/2026)
 
@@ -51,10 +51,10 @@ Il laboratorio di informatica che trasforma la classe in un team di sviluppo.
 ## 07 Cosa serve
 
 1. Un browser: niente da installare sui computer della scuola
-2. Google Classroom e Google Moduli, già in uso in tanti istituti
-3. Un repository Git (GitHub) per il gioco e le pagine della lezione
+2. La classe virtuale e i moduli online che la scuola usa già
+3. Un archivio delle versioni per il gioco e le pagine della lezione
 4. Pagine in più lingue per le classi con ragazzi stranieri (italiano, arabo, cinese, bengalese)
-5. Uno script che porta le consegne dai Moduli a Git entro un minuto
+5. Un programma che porta le consegne dai moduli all'archivio entro un minuto
 
 ## 08 Per chi
 
