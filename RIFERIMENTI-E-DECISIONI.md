@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.31** — 08/10/2026
+**Versione 2.32** — 13/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -409,3 +409,9 @@ bumpa la versione del doc.*
 1. La prima cosa di ogni lezione è analizzare con Nicola la teoria proposta da Claude.
 2. Poi si analizza il compito: lo devono poter iniziare tutti, un passo piccolo alla volta, tutto al computer, senza foto né telefono.
 3. Si pubblica solo dopo l'approvazione esplicita di Nicola.
+
+### 2.52 AUTOREGOLAZIONE: gli strumenti nelle mani dei ragazzi (13/10/2026)
+
+1. La filosofia del docente: **dare ai ragazzi gli strumenti per autoregolarsi**. La leva non è il voto, è l'autodeterminazione: le cose che li aiutano a regolarsi da soli stanno nelle loro mani.
+2. Ogni percorso, compito o verifica pubblica **sempre** i bottoni per regolarsi: il monitor della lezione, il proprio andamento, i risultati (e, nelle lezioni con le PR, backlog, novità, classifica).
+3. Il docente ha in più il suo **cruscotto**, cifrato con la password dell'area docente, che gli fa capire la situazione della classe a colpo d'occhio (prima: `docs/2inf-cruscotto/`, generatore riservato `generatori/cruscotto_2inf.py`).
