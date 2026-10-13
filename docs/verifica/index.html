@@ -1,61 +1,44 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta name="robots" content="noindex">
-<title>Verifica</title>
+<title>Ripasso e verifica</title>
 <style>
-:root{--bg:#f4f7fb;--fg:#1a2330;--mu:#5b6573;--card:#fff;--bd:#d6e0ea;--blu:#1f6feb;--verde:#1a7f37;--rosso:#c0392b;--giallo:#fff4b8}
+:root{--bg:#f4f7fb;--fg:#1a2330;--mu:#5b6573;--card:#fff;--bd:#d6e0ea;--blu:#1f6feb;--verde:#1a7f37;--rosso:#c0392b;--giallo:#fff4b8;--viola:#6f42c1}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171a;--fg:#eee;--mu:#a9a9a9;--card:#1f2227;--bd:#353a42;--giallo:#4a4214}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
-.w{max-width:820px;margin:0 auto;padding:16px 16px 60px}h1{font-size:26px;margin:6px 0 2px}.mu{color:var(--mu);font-size:15px}
+.w{max-width:840px;margin:0 auto;padding:16px 16px 60px}h1{font-size:26px;margin:6px 0 2px}h2{font-size:21px;margin:4px 0 8px}.mu{color:var(--mu);font-size:15px}
 .card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;margin:14px 0}
 .no-sel{user-select:none;-webkit-user-select:none}
 input,textarea{font:inherit;width:100%;padding:10px 12px;border:2px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg)}
 textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:text}
-.bt{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 20px;color:#fff;background:var(--blu);cursor:pointer;margin:6px 8px 0 0}
-.bt.v{background:var(--verde)}.bt.g{background:#5b6573}.bt:disabled{opacity:.45;cursor:default}
+.bt{display:inline-block;font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 20px;color:#fff;background:var(--blu);cursor:pointer;margin:6px 8px 0 0;text-decoration:none}
+.bt.v{background:var(--verde)}.bt.g{background:#5b6573}.bt:disabled,.bt.off{opacity:.45;cursor:default;pointer-events:none}
 .op{display:block;width:100%;text-align:left;font:inherit;background:var(--card);color:var(--fg);border:2px solid var(--bd);border-radius:10px;padding:12px 14px;margin:8px 0 0;cursor:pointer}
-.op.sel{border-color:var(--blu);background:rgba(31,111,235,.12)}
+.op.sel{border-color:var(--blu);background:rgba(31,111,235,.12)}.op.giusta{border-color:var(--verde);background:rgba(26,127,55,.12)}.op.sbagliata{border-color:var(--rosso);background:rgba(192,57,43,.1)}
 .barra{position:sticky;top:0;z-index:5;background:#12467a;color:#fff;border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:10px;font-weight:700;flex-wrap:wrap}
 .pallini{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.pallini button{width:36px;height:36px;border-radius:50%;border:2px solid var(--bd);background:var(--card);color:var(--fg);font-weight:700;cursor:pointer}
 .pallini button.fatto{background:var(--blu);color:#fff;border-color:var(--blu)}.pallini button.qui{outline:3px solid #ffb000}
 .avviso{background:var(--giallo);border-left:5px solid #d4a000;border-radius:10px;padding:10px 14px;margin:10px 0}
 .err{background:rgba(192,57,43,.12);border-left:5px solid var(--rosso);border-radius:10px;padding:10px 14px;margin:10px 0}
 .ok{border-left:5px solid var(--verde)}.ko{border-left:5px solid var(--rosso)}.attesa{border-left:5px solid #d4a000}
-.voto{font-size:44px;font-weight:800;line-height:1.1}.conta{font-size:14px;color:var(--mu);text-align:right}
+.scala{display:flex;gap:8px;flex-wrap:wrap}.scala button{flex:1;min-width:52px;font:inherit;font-weight:800;padding:12px;border-radius:10px;border:2px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer}.scala button.sel{background:var(--blu);color:#fff;border-color:var(--blu)}
+.conta{font-size:14px;color:var(--mu);text-align:right}.area{font-size:13px;font-weight:700;color:var(--viola);text-transform:uppercase;letter-spacing:.04em}
+.mie{border-left:5px solid var(--viola)}
+svg text{fill:var(--fg)}
 [hidden]{display:none!important}
 </style></head><body><div class="w">
-<h1 id="titolo">Verifica</h1><div class="mu" id="sotto"></div>
+<h1 id="titolo">Ripasso e verifica</h1><div class="mu" id="sotto"></div>
 <div id="errore" class="err" hidden></div>
-
-<section class="card" id="inizio" hidden>
-<p id="intro"></p>
-<label for="nome"><b>Il tuo nome e cognome</b></label><input id="nome" autocomplete="off" maxlength="60" placeholder="Nome Cognome">
-<div class="avviso"><b>Regole della verifica</b><ol>
-<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li>
-<li>Se esci da questa pagina (un'altra scheda, un altro programma), <b>viene segnato</b> e il prof lo vede.</li>
-<li>Ognuno ha le domande in un ordine diverso: guardare lo schermo del compagno non serve.</li>
-<li>Alla fine vedi subito il voto delle crocette, con le risposte giuste. Le risposte scritte le corregge il prof.</li>
-</ol></div>
-<button class="bt v" id="via">Inizia la verifica</button></section>
-
-<section id="prova" hidden>
-<div class="barra"><span id="dove"></span><span id="tempo">0:00</span></div>
-<div class="pallini" id="pallini"></div>
-<div class="card no-sel" id="domanda"></div>
-<button class="bt g" id="prec">← Indietro</button><button class="bt" id="succ">Avanti →</button>
-<button class="bt v" id="fine">Consegna la verifica</button>
-</section>
-
-<section id="esito" hidden></section>
+<div id="app"></div>
 </div>
 <script>
 (function () {
-  var $ = function (i) { return document.getElementById(i); };
-  var qs = new URLSearchParams(location.search), idB = (qs.get('b') || '').replace(/[^a-z0-9-]/gi, ''), ANTE = qs.has('anteprima');
+  var $ = function (i) { return document.getElementById(i); }, APP = $('app');
+  var qs = new URLSearchParams(location.search), idB = (qs.get('b') || '').replace(/[^a-z0-9-]/gi, ''), MODO = qs.get('modo') || 'ripasso', ANTE = qs.has('anteprima');
   function errore(t) { $('errore').hidden = false; $('errore').textContent = t; }
-  if (!idB) { errore('Manca il nome della verifica nell\'indirizzo (?b=...).'); return; }
+  if (!idB) { errore('Manca il nome nell\'indirizzo (?b=...).'); return; }
   var sc = document.createElement('script'); sc.src = 'banche/' + idB + '.js?v=' + Date.now();
-  sc.onerror = function () { errore('Verifica non trovata: ' + idB); }; sc.onload = avvia; document.head.appendChild(sc);
+  sc.onerror = function () { errore('Non trovato: ' + idB); }; sc.onload = function () { B = window.BANCA; carica(); }; document.head.appendChild(sc);
 
   function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
   function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
@@ -63,144 +46,220 @@ textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:t
   function e(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function parole(t) { return (t.trim().match(/\S+/g) || []).length; }
   function mmss(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+  function senzaTag(s) { return String(s).replace(/<[^>]+>/g, ''); }
+  function prendi(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (x) { return null; } }
+  function metti(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (x) {} }
 
-  var B, D = [], cur = 0, T0 = 0, LOG = { uscite_consentite: 0, uscite: 0, fuori_sec: 0, incolla: 0, copia: 0, tasto_destro: 0, schermo_intero_uscito: 0 }, fuoriDa = 0, finita = false, NOME = '';
-  var CHIAVE, permesso = false;
+  var B, STATO = {}, BACK = [], NOME = '', D = [], cur = 0, T0 = 0, finita = false, permesso = false, fuoriDa = 0;
+  var LOG = { uscite_consentite: 0, uscite: 0, fuori_sec: 0, incolla: 0, copia: 0, tasto_destro: 0, schermo_intero_uscito: 0 };
+  var KN = function () { return 'nome-' + B.id; }, KR = function (m) { return 'esito-' + B.id + '-' + m; };
+
+  function carica() {
+    document.title = B.titolo; $('titolo').textContent = B.titolo; $('sotto').textContent = B.sotto || '';
+    NOME = prendi(KN()) || '';
+    var attese = [leggiStato()];
+    if (B.backlog) attese.push(fetch(B.backlog + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { BACK = d.voci || []; }).catch(function () {}));
+    Promise.all(attese).then(function () { if (ANTE) return anteprima(); if (MODO === 'ripasso') ripasso(); else prova(MODO); });
+  }
+  function leggiStato() {
+    if (!B.stato) return Promise.resolve();
+    return fetch(B.stato + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (s) { STATO = s || {}; }).catch(function () { STATO = {}; });
+  }
+  function aperta(modo) {
+    if (modo === 'verifica') return STATO.verifica === 'aperta';
+    if (modo === 'recupero') { if (STATO.recupero !== 'aperto') return false; var l = STATO.recupero_per || 'tutti'; return l === 'tutti' || (NOME && l.map(function (x) { return x.toLowerCase(); }).indexOf(sigla(NOME).toLowerCase()) >= 0); }
+    return true;
+  }
+  function sigla(n) { var p = n.trim().split(/\s+/); return p.length > 1 ? p[0] + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : n; }
+  function miePR() {
+    if (!NOME) return [];
+    var s = sigla(NOME).toLowerCase(), nome = NOME.split(/\s+/)[0].toLowerCase();
+    var esatte = BACK.filter(function (x) { return (x.alunno || '').toLowerCase() === s; });
+    return esatte.length ? esatte : BACK.filter(function (x) { return (x.alunno || '').toLowerCase().split(' ')[0] === nome; });
+  }
+  function boxMiePR() {
+    var m = miePR(); if (!m.length) return '<div class="card mie"><b>Le tue Pull Request di lunedì</b><p class="mu">Non le trovo con il nome che hai scritto. Va bene lo stesso: pensa a quello che hai fatto tu lunedì.</p></div>';
+    return '<div class="card mie"><b>Le tue Pull Request di lunedì</b> <span class="mu">(per aiutarti a ricordare)</span><ol>' + m.map(function (x) {
+      return '<li><b>' + e((x.ora || '').slice(-5)) + '</b> · ' + e(x.richiesta) + ' · ' + (x.fatto ? '<b style="color:var(--verde)">FATTO ' + e(x.fatto) + '</b>' : x.no ? '<b style="color:var(--rosso)">NO</b>: ' + e(x.no) : 'in coda') + '</li>'; }).join('') + '</ol></div>';
+  }
+  function chiediNome(dopo) {
+    APP.innerHTML = '<section class="card"><label for="nome"><b>Il tuo nome e cognome</b></label><input id="nome" autocomplete="off" maxlength="60" placeholder="Nome Cognome" value="' + e(NOME) + '"><button class="bt v" id="okn">Continua</button></section>';
+    $('okn').onclick = function () { var n = $('nome').value.trim().replace(/\s+/g, ' '); if (n.split(' ').length < 2) { alert('Scrivi nome e cognome.'); return; } NOME = n; metti(KN(), n); dopo(); };
+  }
+
+  /* ================= RIPASSO ================= */
+  function ripasso() {
+    if (!NOME) return chiediNome(ripasso);
+    var h = '<div class="mu">Ciao <b>' + e(NOME) + '</b> · <a href="#" id="cambia">non sei tu?</a></div>';
+    h += '<div class="card"><h2>Ripasso</h2><p>Leggi le schede, poi allenati con le domande: la correzione è subito, puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
+      Object.keys(B.aree).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
+    (B.schede || []).forEach(function (s) { h += '<div class="card"><h2>' + e(s.titolo) + '</h2><p>' + s.testo + '</p></div>'; });
+    h += '<div class="card"><h2>Allenati</h2><div id="allena"></div></div>';
+    h += boxMiePR() + '<div class="card"><b>Prepara la parte personale</b><p>Nella verifica ti chiederò com\'è stato per te il progetto, cosa pensi del gioco e cosa hai imparato sulla tua pelle. Pensaci adesso: un momento preciso di lunedì, una cosa che ti è piaciuta, una che no. Lì contano solo le tue parole, senza intelligenza artificiale.</p></div>';
+    h += '<div class="card"><h2>La verifica</h2><p id="statoV"></p><a class="bt v" id="vaiV" href="?b=' + idB + '&modo=verifica">Fai la verifica</a> <a class="bt" id="vaiR" href="?b=' + idB + '&modo=recupero" hidden>Fai il recupero</a> ' +
+      (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
+    APP.innerHTML = h;
+    $('cambia').onclick = function (ev) { ev.preventDefault(); NOME = ''; metti(KN(), ''); ripasso(); };
+    var r = rng(hash(NOME + '|allena')), box = $('allena');
+    (B.allenamento || []).forEach(function (q, i) {
+      var idx = mescola(q.o.map(function (_, k) { return k; }), r), d = document.createElement('div'); d.className = 'card';
+      d.innerHTML = '<div class="area">' + e((B.aree[q.area] || {}).nome || '') + '</div><b>' + (i + 1) + '. ' + q.q + '</b>' + idx.map(function (k) { return '<button class="op" data-k="' + k + '">' + e(q.o[k]) + '</button>'; }).join('') + '<div class="mu" hidden></div>';
+      [].forEach.call(d.querySelectorAll('.op'), function (b) { b.onclick = function () {
+        var ok = +b.dataset.k === q.a; [].forEach.call(d.querySelectorAll('.op'), function (x) { x.className = 'op'; });
+        b.className = 'op ' + (ok ? 'giusta' : 'sbagliata'); var m = d.querySelector('.mu'); m.hidden = false;
+        m.innerHTML = (ok ? '<b style="color:var(--verde)">Giusto!</b> ' : '<b style="color:var(--rosso)">Non è questa: riprova.</b> ') + (ok ? (q.spiega || '') : ''); }; });
+      box.appendChild(d);
+    });
+    function aggiornaBottoni() {
+      var v = aperta('verifica'), fatta = prendi(KR('verifica'));
+      $('statoV').innerHTML = fatta ? 'Hai già consegnato la verifica. <a href="?b=' + idB + '&modo=verifica">Rivedi il tuo esito</a>.' : v ? '<b style="color:var(--verde)">La verifica è aperta.</b>' : 'La verifica non è ancora aperta: il prof la apre quando avete finito il ripasso. Questa pagina se ne accorge da sola.';
+      $('vaiV').className = 'bt v' + (v || fatta ? '' : ' off'); $('vaiR').hidden = !aperta('recupero');
+    }
+    aggiornaBottoni(); setInterval(function () { leggiStato().then(aggiornaBottoni); }, 20000);
+  }
+
+  /* ================= VERIFICA e RECUPERO ================= */
+  function costruisci(modo) {
+    var r = rng(hash(NOME.toLowerCase() + '|' + B.id + '|' + modo)), lista = [];
+    function croc(q) { if (typeof q === 'function') q = q(r); var idx = mescola(q.o.map(function (_, i) { return i; }), r);
+      return { tipo: 'c', area: q.area, tema: q.tema || '', q: q.q, o: idx.map(function (i) { return q.o[i]; }), a: idx.indexOf(q.a), spiega: q.spiega || '', grafico: q.grafico, scelta: -1 }; }
+    function ap(q) { if (typeof q === 'function') q = q(r); return { tipo: 'a', area: q.area, tema: q.tema || '', q: q.q, aiuto: q.aiuto || '', mostra_pr: q.mostra_pr, min: q.min_parole || 20, criteri: q.criteri || '', testo: '', tasti: 0, ms_scrittura: 0, salto_max: 0, salti: 0, ultimo: 0 }; }
+    if (modo === 'recupero') {
+      var prima = prendi(KR('verifica')), sbagliati = prima ? prima.crocette.filter(function (c) { return !c.ok; }).map(function (c) { return c.tema; }) : [];
+      var rec = (B.recupero || []).filter(function (q) { return !sbagliati.length || sbagliati.indexOf(q.tema) >= 0; });
+      if (rec.length < 4) rec = (B.recupero || []).slice();
+      lista = mescola(rec, r).map(croc).concat((B.aperte || []).filter(function (q) { return typeof q !== 'function' && q.area === 'sistema'; }).map(ap));
+      return lista;
+    }
+    lista = mescola(B.crocette, r).map(croc);
+    (B.dati || []).forEach(function (q) { if (q.tipo === 'n') lista.push({ tipo: 'n', area: q.area, tema: q.tema, q: q.q, giusto: q.giusto, spiega: q.spiega, grafico: q.grafico, valore: '' }); else lista.push(croc(q)); });
+    (B.scale || []).forEach(function (q) { lista.push({ tipo: 's', area: q.area, q: q.q, basso: q.basso, alto: q.alto, valore: 0 }); });
+    (B.aperte || []).forEach(function (q) { lista.push(ap(q)); });
+    return lista;
+  }
+  function prova(modo) {
+    var gia = prendi(KR(modo)); if (gia && gia.consegnata) return esito(gia, modo);
+    if (!NOME) return chiediNome(function () { prova(modo); });
+    if (!aperta(modo)) { APP.innerHTML = '<div class="card"><h2>' + (modo === 'recupero' ? 'Il recupero' : 'La verifica') + ' non è ancora aperta</h2><p>La apre il prof. Intanto fai il ripasso.</p><a class="bt" href="?b=' + idB + '">Torna al ripasso</a></div>'; return; }
+    APP.innerHTML = '<section class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
+      '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda è permesso.</li>' +
+      '<li>Ognuno ha le domande in un ordine diverso.</li><li>Alla fine vedi subito come sono andate le crocette. Le risposte scritte le valuta il prof; il voto è un giudizio complessivo e lo trovi nella pagina dei risultati.</li></ol></div><button class="bt v" id="via">Inizia</button></section>';
+    $('via').onclick = function () {
+      D = costruisci(modo); T0 = Date.now();
+      try { if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); } catch (x) {}
+      APP.innerHTML = '<div class="barra"><span id="dove"></span><span id="tempo">0:00</span></div><div class="pallini" id="pallini"></div><div class="card no-sel" id="domanda"></div>' +
+        '<button class="bt g" id="prec">← Indietro</button><button class="bt" id="succ">Avanti →</button><button class="bt v" id="fine">Consegna</button>';
+      $('pallini').innerHTML = D.map(function (d, i) { return '<button data-i="' + i + '">' + (i + 1) + '</button>'; }).join('');
+      [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
+      $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); }; $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
+      $('fine').onclick = function () { consegna(modo); };
+      mostra(0); setInterval(function () { if (!finita) $('tempo').textContent = 'tempo: ' + mmss((Date.now() - T0) / 1000) + (B.minuti ? ' di ' + B.minuti + ':00' : ''); }, 1000);
+    };
+  }
+  /* antiplagio */
   document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('#domanda a[target=_blank]'); if (a) permesso = true; }, true);
-
-  function avvia() {
-    B = window.BANCA; document.title = B.titolo; $('titolo').textContent = B.titolo; $('sotto').innerHTML = B.sotto || '';
-    $('intro').innerHTML = B.intro || '';
-    if (ANTE) { return anteprima(); }
-    CHIAVE = 'verifica-' + B.id;
-    var gia = null; try { gia = JSON.parse(localStorage.getItem(CHIAVE) || 'null'); } catch (x) {}
-    if (gia && gia.consegnata) { mostraEsito(gia); return; }
-    $('inizio').hidden = false;
-  }
-
-  function costruisci(nome) {
-    var r = rng(hash(nome.toLowerCase().replace(/\s+/g, ' ').trim() + '|' + B.id));
-    var cr = mescola(B.crocette, r).map(function (q) {
-      if (typeof q === 'function') q = q(r);
-      var idx = mescola(q.o.map(function (_, i) { return i; }), r);
-      return { tipo: 'c', q: q.q, o: idx.map(function (i) { return q.o[i]; }), a: idx.indexOf(q.a), spiega: q.spiega || '', scelta: -1 };
-    });
-    var ap = B.aperte.map(function (q) {
-      if (typeof q === 'function') q = q(r);
-      return { tipo: 'a', q: q.q, aiuto: q.aiuto || '', min: q.min_parole || 20, punti: q.punti, testo: '', tasti: 0, ms_scrittura: 0, salto_max: 0, salti: 0, ultimo: 0 };
-    });
-    return cr.concat(ap);
-  }
-
-  $('via').onclick = function () {
-    NOME = $('nome').value.trim().replace(/\s+/g, ' ');
-    if (NOME.split(' ').length < 2) { alert('Scrivi nome e cognome.'); return; }
-    D = costruisci(NOME); T0 = Date.now();
-    try { if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); } catch (x) {}
-    $('inizio').hidden = true; $('prova').hidden = false;
-    pallini(); mostra(0); setInterval(orologio, 1000); salva();
-  };
-
-  /* --- antiplagio --- */
+  function inProva() { return !!$('domanda') && !finita; }
   document.addEventListener('visibilitychange', function () {
-    if ($('prova').hidden || finita) return;
-    if (document.hidden) { if (permesso) { LOG.uscite_consentite++; permesso = false; fuoriDa = 0; return; } LOG.uscite++; fuoriDa = Date.now(); }
-    else if (fuoriDa) { LOG.fuori_sec += (Date.now() - fuoriDa) / 1000; fuoriDa = 0; avvisa('Sei uscito dalla pagina: è stato segnato (' + LOG.uscite + ').'); salva(); }
+    if (!inProva()) return;
+    if (document.hidden) { if (permesso) { LOG.uscite_consentite++; permesso = false; return; } LOG.uscite++; fuoriDa = Date.now(); }
+    else if (fuoriDa) { LOG.fuori_sec += (Date.now() - fuoriDa) / 1000; fuoriDa = 0; avvisa('Sei uscito dalla pagina: è stato segnato (' + LOG.uscite + ').'); }
   });
-  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !$('prova').hidden && !finita) { LOG.schermo_intero_uscito++; salva(); } });
-  document.addEventListener('copy', function (ev) { if (!$('prova').hidden && !finita) { LOG.copia++; ev.preventDefault(); } });
-  document.addEventListener('contextmenu', function (ev) { if (!$('prova').hidden && !finita) { LOG.tasto_destro++; ev.preventDefault(); } });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && inProva()) LOG.schermo_intero_uscito++; });
+  document.addEventListener('copy', function (ev) { if (inProva()) { LOG.copia++; ev.preventDefault(); } });
+  document.addEventListener('contextmenu', function (ev) { if (inProva()) { LOG.tasto_destro++; ev.preventDefault(); } });
   function avvisa(t) { var a = document.createElement('div'); a.className = 'err'; a.textContent = t; $('domanda').prepend(a); setTimeout(function () { a.remove(); }, 4000); }
 
-  function orologio() {
-    if (finita) return;
-    var s = (Date.now() - T0) / 1000, lim = (B.minuti || 0) * 60;
-    $('tempo').textContent = lim ? 'tempo: ' + mmss(s) + ' di ' + mmss(lim) : 'tempo: ' + mmss(s);
-  }
-  function pallini() {
-    $('pallini').innerHTML = D.map(function (d, i) { return '<button data-i="' + i + '" title="Domanda ' + (i + 1) + '">' + (i + 1) + '</button>'; }).join('');
-    [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
-  }
-  function aggiornaPallini() {
-    [].forEach.call($('pallini').children, function (b, i) { var d = D[i];
-      b.className = (d.tipo === 'c' ? d.scelta >= 0 : parole(d.testo) >= d.min) ? 'fatto' : ''; if (i === cur) b.className += ' qui'; });
+  function grafico() {
+    var Q = B.quarti || [], W = 640, H = 220, ml = 34, mb = 26, mt = 14, mx = Math.max.apply(null, Q.map(function (x) { return x[1]; })) * 1.15, bw = (W - ml - 10) / Q.length;
+    var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto;margin:8px 0" role="img" aria-label="Pull Request ogni quarto d\'ora">';
+    for (var v = 0; v <= mx; v += 10) { var y = H - mb - (H - mb - mt) * v / mx; s += '<line x1="' + ml + '" x2="' + (W - 10) + '" y1="' + y + '" y2="' + y + '" stroke="#ccd6e0"/><text x="' + (ml - 5) + '" y="' + (y + 4) + '" font-size="11" text-anchor="end">' + v + '</text>'; }
+    Q.forEach(function (x, i) { var h = (H - mb - mt) * x[1] / mx, X = ml + i * bw + bw * .2, w = bw * .6;
+      s += '<rect x="' + X + '" y="' + (H - mb - h) + '" width="' + w + '" height="' + h + '" rx="4" fill="#1f6feb"><title>' + x[0] + ': ' + x[1] + ' PR</title></rect><text x="' + (X + w / 2) + '" y="' + (H - 8) + '" font-size="12" text-anchor="middle">' + x[0] + '</text>'; });
+    return s + '</svg><div class="mu">Pull Request arrivate ogni quarto d\'ora, lunedì 12/10 (porta il mouse su una barra per il numero esatto).</div>';
   }
   function mostra(i) {
-    cur = i; var d = D[i], h = '<div class="mu">Domanda ' + (i + 1) + ' di ' + D.length + (d.tipo === 'a' ? ' · da scrivere con parole tue · ' + d.punti + ' punti' : ' · a crocetta') + '</div>';
-    h += '<p><b>' + d.q + '</b></p>';
+    cur = i; var d = D[i], tipo = { c: 'a crocetta', n: 'rispondi con un numero', s: 'scegli da 1 a 5', a: 'da scrivere con parole tue' }[d.tipo];
+    var h = '<div class="area">' + e((B.aree[d.area] || {}).nome || '') + '</div><div class="mu">Domanda ' + (i + 1) + ' di ' + D.length + ' · ' + tipo + '</div>';
+    if (d.mostra_pr) h += boxMiePR();
+    h += '<p><b>' + d.q + '</b></p>' + (d.grafico ? grafico() : '');
     if (d.tipo === 'c') h += d.o.map(function (o, k) { return '<button class="op' + (d.scelta === k ? ' sel' : '') + '" data-k="' + k + '">' + e(o) + '</button>'; }).join('');
+    else if (d.tipo === 'n') h += '<input id="num" inputmode="numeric" maxlength="6" placeholder="Il numero" value="' + e(d.valore) + '">';
+    else if (d.tipo === 's') h += '<div class="scala">' + [1, 2, 3, 4, 5].map(function (n) { return '<button data-n="' + n + '"' + (d.valore === n ? ' class="sel"' : '') + '>' + n + '</button>'; }).join('') + '</div><div class="mu" style="display:flex;justify-content:space-between"><span>1 = ' + e(d.basso) + '</span><span>5 = ' + e(d.alto) + '</span></div>';
     else h += (d.aiuto ? '<p class="mu">' + d.aiuto + '</p>' : '') + '<textarea id="ta" spellcheck="false" autocomplete="off" placeholder="Scrivi qui, con parole tue."></textarea><div class="conta" id="conta"></div>';
     $('domanda').innerHTML = h;
-    if (d.tipo === 'c') [].forEach.call($('domanda').querySelectorAll('.op'), function (b) { b.onclick = function () { d.scelta = +b.dataset.k; mostra(cur); salva(); }; });
-    else {
+    if (d.tipo === 'c') [].forEach.call($('domanda').querySelectorAll('.op'), function (b) { b.onclick = function () { d.scelta = +b.dataset.k; mostra(cur); }; });
+    if (d.tipo === 's') [].forEach.call($('domanda').querySelectorAll('.scala button'), function (b) { b.onclick = function () { d.valore = +b.dataset.n; mostra(cur); }; });
+    if (d.tipo === 'n') { var nu = $('num'); nu.oninput = function () { d.valore = nu.value.replace(/[^0-9]/g, ''); nu.value = d.valore; pal(); }; nu.onpaste = function (ev) { ev.preventDefault(); LOG.incolla++; }; }
+    if (d.tipo === 'a') {
       var ta = $('ta'); ta.value = d.testo; conta();
-      ta.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; avvisa('Non si può incollare: scrivi tu, con parole tue.'); salva(); });
+      ta.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; avvisa('Non si può incollare: scrivi tu, con parole tue.'); });
       ta.addEventListener('drop', function (ev) { ev.preventDefault(); LOG.incolla++; });
       ta.addEventListener('keydown', function () { var t = Date.now(); if (d.ultimo && t - d.ultimo < 4000) d.ms_scrittura += t - d.ultimo; d.ultimo = t; d.tasti++; });
-      ta.addEventListener('input', function (ev) {
-        var salto = ta.value.length - d.testo.length;
-        if (salto > 12 && !(ev.isComposing)) { d.salti++; d.salto_max = Math.max(d.salto_max, salto); }
-        d.testo = ta.value; conta(); salva();
-      });
-      function conta() { var n = parole(ta.value); $('conta').textContent = n + ' parole' + (n < d.min ? ' · ne servono almeno ' + d.min : ' · ok'); aggiornaPallini(); }
+      ta.addEventListener('input', function (ev) { var salto = ta.value.length - d.testo.length; if (salto > 12 && !ev.isComposing) { d.salti++; d.salto_max = Math.max(d.salto_max, salto); } d.testo = ta.value; conta(); });
+      function conta() { var n = parole(ta.value); $('conta').textContent = n + ' parole' + (n < d.min ? ' · ne servono almeno ' + d.min : ' · ok'); pal(); }
       ta.focus();
     }
-    $('prec').disabled = i === 0; $('succ').hidden = i === D.length - 1;
-    $('dove').textContent = 'Domanda ' + (i + 1) + ' di ' + D.length; aggiornaPallini();
+    $('prec').disabled = i === 0; $('succ').hidden = i === D.length - 1; $('dove').textContent = 'Domanda ' + (i + 1) + ' di ' + D.length; pal();
   }
-  $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); };
-  $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
-  $('fine').onclick = function () {
-    var mancano = D.filter(function (d) { return d.tipo === 'c' ? d.scelta < 0 : parole(d.testo) < d.min; }).length;
-    if (!confirm(mancano ? 'Ci sono ' + mancano + ' domande non finite. Consegni lo stesso?' : 'Consegni la verifica? Dopo non si può più cambiare.')) return;
+  function fatta(d) { return d.tipo === 'c' ? d.scelta >= 0 : d.tipo === 'n' ? d.valore !== '' : d.tipo === 's' ? d.valore > 0 : parole(d.testo) >= d.min; }
+  function pal() { [].forEach.call($('pallini').children, function (b, i) { b.className = (fatta(D[i]) ? 'fatto' : '') + (i === cur ? ' qui' : ''); }); }
+  function consegna(modo) {
+    var manca = D.filter(function (d) { return !fatta(d); }).length;
+    if (!confirm(manca ? 'Ci sono ' + manca + ' domande non finite. Consegni lo stesso?' : 'Consegni? Dopo non si può più cambiare.')) return;
     finita = true; try { if (document.fullscreenElement) document.exitFullscreen(); } catch (x) {}
-    var R = risultato(); R.consegnata = true; try { localStorage.setItem(CHIAVE, JSON.stringify(R)); } catch (x) {}
-    mostraEsito(R);
-  };
-  function salva() { try { localStorage.setItem(CHIAVE + '-bozza', JSON.stringify({ nome: NOME, D: D, LOG: LOG, T0: T0 })); } catch (x) {} }
-
-  function risultato() {
-    var cr = D.filter(function (d) { return d.tipo === 'c'; }), giuste = cr.filter(function (d) { return d.scelta === d.a; }).length;
-    var pc = Math.round(B.punti_crocette * giuste / cr.length), pa = D.filter(function (d) { return d.tipo === 'a'; }).reduce(function (s, d) { return s + (d.punti || 0); }, 0);
-    return { id: B.id, titolo: B.titolo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), minuti: Math.round((Date.now() - T0) / 60000),
-      giuste: giuste, su: cr.length, punti_crocette: pc, max_crocette: B.punti_crocette, max_aperte: pa, voto_min: Math.max(B.voto_min || 40, pc), voto_max: Math.min(100, pc + pa),
-      crocette: cr.map(function (d) { return { q: d.q, data: d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta: d.o[d.a], ok: d.scelta === d.a, spiega: d.spiega }; }),
-      aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { q: d.q.replace(/<[^>]+>/g, ''), testo: d.testo, parole: parole(d.testo), tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max, punti: d.punti }; }),
-      antiplagio: { uscite_consentite: LOG.uscite_consentite, uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
+    var R = { id: B.id, modo: modo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), minuti: Math.round((Date.now() - T0) / 60000), consegnata: true,
+      crocette: D.filter(function (d) { return d.tipo === 'c' || d.tipo === 'n'; }).map(function (d) { var data = d.tipo === 'n' ? (d.valore || '(nessuna)') : d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta = d.tipo === 'n' ? String(d.giusto) : d.o[d.a];
+        return { area: d.area, tema: d.tema, q: senzaTag(d.q), data: data, giusta: giusta, ok: String(data) === String(giusta), spiega: d.spiega || '' }; }),
+      scale: D.filter(function (d) { return d.tipo === 's'; }).map(function (d) { return { q: d.q, valore: d.valore }; }),
+      aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
+      antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
+    metti(KR(modo), R); esito(R, modo);
   }
-  function testoRisultato(R) {
-    var t = ['VERIFICA ' + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti',
-      'Crocette: ' + R.giuste + '/' + R.su + ' = ' + R.punti_crocette + '/' + R.max_crocette + ' punti · voto tra ' + R.voto_min + ' e ' + R.voto_max,
-      'Antiplagio: uscite ' + R.antiplagio.uscite + ' (' + R.antiplagio.fuori_sec + ' s fuori) · per aprire il gioco ' + (R.antiplagio.uscite_consentite || 0) + ' · incolla tentati ' + R.antiplagio.incolla_tentati + ' · copia ' + R.antiplagio.copia_tentati + ' · tasto destro ' + R.antiplagio.tasto_destro + ' · uscito dallo schermo intero ' + R.antiplagio.schermo_intero_uscito, ''];
-    R.crocette.forEach(function (c, i) { t.push('C' + (i + 1) + ' ' + (c.ok ? 'GIUSTA' : 'SBAGLIATA') + ' · ' + c.q.replace(/<[^>]+>/g, '') + ' → ' + c.data); });
-    R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' (' + a.punti + ' punti) · ' + a.q, 'parole ' + a.parole + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ' caratteri)', a.testo || '(vuota)'); });
+  function perArea(R) {
+    var o = {}; R.crocette.forEach(function (c) { var a = o[c.area] = o[c.area] || { giuste: 0, su: 0 }; a.su++; if (c.ok) a.giuste++; }); return o;
+  }
+  function testo(R) {
+    var pa = perArea(R), t = [(R.modo === 'recupero' ? 'RECUPERO ' : 'VERIFICA ') + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti'];
+    Object.keys(pa).forEach(function (k) { t.push('Area ' + k + ': ' + pa[k].giuste + '/' + pa[k].su + ' giuste'); });
+    R.scale.forEach(function (s) { t.push('Scala: ' + s.q + ' → ' + s.valore + '/5'); });
+    var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + ' s fuori) · per il gioco ' + A.uscite_per_il_gioco + ' · incolla tentati ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · tasto destro ' + A.tasto_destro + ' · fuori dallo schermo intero ' + A.schermo_intero_uscito, '');
+    R.crocette.forEach(function (c, i) { t.push('C' + (i + 1) + ' [' + c.area + '/' + c.tema + '] ' + (c.ok ? 'GIUSTA' : 'SBAGLIATA') + ' · ' + c.q + ' → ' + c.data); });
+    R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' [' + a.area + '/' + a.tema + '] ' + a.q, 'parole ' + a.parole + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ')', a.testo || '(vuota)'); });
     return t.join('\n');
   }
-  function mostraEsito(R) {
-    $('inizio').hidden = true; $('prova').hidden = true; var el = $('esito'); el.hidden = false;
-    var h = '<div class="card"><div class="mu">' + e(R.nome) + ' · consegnata il ' + e(R.quando) + '</div><p>Crocette giuste: <b>' + R.giuste + ' su ' + R.su + '</b> = ' + R.punti_crocette + ' punti su ' + R.max_crocette + '.</p>' +
-      '<p>Le risposte scritte valgono fino a ' + R.max_aperte + ' punti: le corregge il prof.</p><div class="mu">Il tuo voto sarà tra</div><div class="voto">' + R.voto_min + ' e ' + R.voto_max + '</div></div>';
-    h += '<div class="card"><b>1. Manda la verifica al prof</b><ol><li>Clicca il bottone verde qui sotto: il risultato viene copiato e si apre il Modulo «Consegna».</li>' +
-      '<li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
+  function esito(R, modo) {
+    var pa = perArea(R), h = '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
+    Object.keys(pa).forEach(function (k) { h += '<li>' + e((B.aree[k] || {}).nome || k) + ': <b>' + pa[k].giuste + ' giuste su ' + pa[k].su + '</b></li>'; });
+    h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b> su tutte le risposte: lo trovi nella pagina dei risultati della classe appena il prof ha corretto.</p>' +
+      (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
+    h += '<div class="card"><b>1. Manda al prof</b><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
       '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p></div>';
     h += '<div class="card"><b>2. Controlla come sei andato</b>';
-    R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + c.q + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + c.spiega + '</div>' : '') + '</div>'; });
-    R.aperte.forEach(function (a, i) { h += '<div class="card attesa"><b>Scritta ' + (i + 1) + '. ' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · fino a ' + a.punti + ' punti · la corregge il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
-    el.innerHTML = h + '</div>';
-    var txt = testoRisultato(R), M = B.modulo || 'https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform';
+    R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
+    R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
+    h += '</div><a class="bt" href="?b=' + idB + '">Torna al ripasso</a>';
+    APP.innerHTML = h;
+    var txt = testo(R), M = B.modulo;
     $('manda').onclick = function () {
-      var apri = function () { window.open(M, '_blank'); };
       function fallback() { var t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (x) {} t.remove(); }
       (navigator.clipboard ? navigator.clipboard.writeText(txt).catch(fallback) : Promise.resolve(fallback())).then(function () {
-        $('copiato').textContent = 'Risultato copiato. Ora nel Modulo: «testo», poi Ctrl+V nel riquadro grande, poi Invia.'; apri(); });
+        $('copiato').textContent = 'Risultato copiato. Nel Modulo: «testo», poi Ctrl+V nel riquadro grande, poi Invia.'; if (M) window.open(M, '_blank'); });
     };
   }
 
+  /* ================= ANTEPRIMA PER IL PROF ================= */
   function anteprima() {
-    var h = '<div class="avviso">Anteprima per il prof: tutte le domande, con la risposta giusta in verde. I ragazzi le vedono in ordine diverso.</div>';
-    B.crocette.forEach(function (q, i) { if (typeof q === 'function') q = q(rng(1)); h += '<div class="card"><b>' + (i + 1) + '. ' + q.q + '</b><ol>' + q.o.map(function (o, k) { return '<li' + (k === q.a ? ' style="color:var(--verde);font-weight:800"' : '') + '>' + e(o) + '</li>'; }).join('') + '</ol>' + (q.spiega ? '<div class="mu">' + q.spiega + '</div>' : '') + '</div>'; });
-    B.aperte.forEach(function (q, i) { if (typeof q === 'function') q = q(rng(7)); h += '<div class="card attesa"><b>Scritta ' + (i + 1) + ' (' + q.punti + ' punti, almeno ' + (q.min_parole || 20) + ' parole). ' + q.q + '</b><div class="mu">' + (q.aiuto || '') + '</div>' + (q.criteri ? '<p><b>Come la correggo:</b> ' + q.criteri + '</p>' : '') + '</div>'; });
-    $('esito').hidden = false; $('esito').innerHTML = h;
+    var h = '<div class="avviso">Anteprima per il prof: ripasso, verifica e recupero con le risposte giuste in verde. I ragazzi vedono le domande in ordine diverso. Stato adesso: verifica <b>' + e(STATO.verifica || 'chiusa') + '</b>, recupero <b>' + e(STATO.recupero || 'chiuso') + '</b>.</div>';
+    function blocco(tit, lista) { h += '<h2>' + tit + '</h2>'; lista.forEach(function (q, i) { if (typeof q === 'function') q = q(rng(7));
+      if (q.tipo === 'n') { h += '<div class="card"><div class="area">' + e(B.aree[q.area].nome) + '</div><b>' + (i + 1) + '. ' + q.q + '</b>' + (q.grafico ? grafico() : '') + '<p style="color:var(--verde);font-weight:800">' + q.giusto + '</p></div>'; return; }
+      if (q.o) { h += '<div class="card"><div class="area">' + e(B.aree[q.area].nome) + '</div><b>' + (i + 1) + '. ' + q.q + '</b>' + (q.grafico ? grafico() : '') + '<ol>' + q.o.map(function (o, k) { return '<li' + (k === q.a ? ' style="color:var(--verde);font-weight:800"' : '') + '>' + e(o) + '</li>'; }).join('') + '</ol>' + (q.spiega ? '<div class="mu">' + e(q.spiega) + '</div>' : '') + '</div>'; return; }
+      if (q.basso) { h += '<div class="card"><div class="area">' + e(B.aree[q.area].nome) + '</div><b>' + q.q + '</b> (scala da 1 a 5, non dà punti)</div>'; return; }
+      h += '<div class="card attesa"><div class="area">' + e(B.aree[q.area].nome) + '</div><b>' + q.q + '</b><div class="mu">' + (q.aiuto || '') + '</div>' + (q.mostra_pr ? '<div class="mu">Sopra la domanda il ragazzo vede le sue Pull Request di lunedì.</div>' : '') + (q.criteri ? '<p><b>Come la valuto:</b> ' + e(q.criteri) + '</p>' : '') + '</div>'; }); }
+    h += '<h2>Ripasso: le schede</h2>' + (B.schede || []).map(function (s) { return '<div class="card"><b>' + e(s.titolo) + '</b><p>' + s.testo + '</p></div>'; }).join('');
+    blocco('Ripasso: allenamento', B.allenamento || []);
+    blocco('Verifica: crocette', B.crocette); blocco('Verifica: i dati', B.dati || []); blocco('Verifica: scale', B.scale || []); blocco('Verifica: domande scritte', B.aperte || []);
+    blocco('Recupero: domande nuove (solo i temi sbagliati di ognuno)', B.recupero || []);
+    APP.innerHTML = h;
   }
 })();
 </script></body></html>
