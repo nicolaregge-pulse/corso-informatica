@@ -18,12 +18,15 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 <li>Ogni Pull Request in più: +10. Ogni Pull Request entrata nel gioco: +10. Massimo 100.</li>
 <li>Contano il Modulo «Consegna» e il Documento consegnato su Classroom (premi «Consegna»).</li>
 <li>Non contano: i doppioni e le richieste che non dicono cosa cambiare.</li></ol></div>
+<div class="card" style="border:3px solid #1a7f37"><p><b>Hai scritto la Pull Request nel Documento e qui non c'è? Non perdi niente.</b> Mandala con il bottone verde in cima alla pagina del compito, anche domani alle 8. Il voto si aggiorna da solo.</p>
+<p dir="rtl">كتبت Pull Request في المستند وهي ليست هنا؟ لن تخسر شيئاً. أرسلها بالزر الأخضر في أعلى صفحة الواجب، حتى غداً في الساعة 8.</p>
+<p>你在文档里写了 Pull Request，但这里没有？你不会失去什么。用作业页面最上面的绿色按钮发送，明天8点也可以。</p></div>
 <div class="card"><table><thead><tr><th>Alunno</th><th>PR inviate</th><th>PR nel gioco</th><th>Partecipazione</th><th>Voto</th><th>Perché</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
 <p class="mu">Il voto è una proposta del prof, calcolata dal backlog: il voto vero lo decide il prof.</p>
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){fetch('voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
- document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td></tr>'}).join('')}).catch(function(){})}
+ document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(typeof v.voto!=='number'?'':v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td></tr>'}).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 </script></body></html>
