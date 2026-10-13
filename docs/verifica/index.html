@@ -246,7 +246,10 @@ svg text{fill:var(--fg)}
       s += '<rect x="' + X + '" y="' + (H - mb - h) + '" width="' + w + '" height="' + h + '" rx="4" fill="#1f6feb"><title>' + x[0] + ': ' + x[1] + ' PR</title></rect><text x="' + (X + w / 2) + '" y="' + (H - mb - h - 5) + '" font-size="15" font-weight="800" text-anchor="middle" fill="#12467a">' + x[1] + '</text><text x="' + (X + w / 2) + '" y="' + (H - 8) + '" font-size="12" text-anchor="middle">' + x[0] + '</text>'; });
     return s + '</svg><div class="mu">Pull Request arrivate ogni quarto d\'ora, lunedì 12/10 (il numero esatto è sopra ogni barra).</div>';
   }
+  var tDom = 0;
   function mostra(i) {
+    if (D[cur] && tDom && !finita) D[cur].sec = (D[cur].sec || 0) + Math.round((Date.now() - tDom) / 1000);
+    tDom = Date.now();
     cur = i; salvaProva(); var d = D[i], tipo = { c: 'a crocetta', n: 'rispondi con un numero', s: 'scegli da 1 a 5', a: 'da scrivere con parole tue' }[d.tipo];
     var h = '<div class="area">' + e((B.aree[d.area] || {}).nome || '') + '</div><div class="mu">Domanda ' + (i + 1) + ' di ' + D.length + ' · ' + tipo + '</div>';
     if (d.mostra_pr) h += boxMiePR();
@@ -285,12 +288,14 @@ svg text{fill:var(--fg)}
   function consegna(modo) {
     var manca = D.filter(function (d) { return !fatta(d); }).length;
     if (!confirm(manca ? 'Ci sono ' + manca + ' domande non finite. Consegni lo stesso?' : 'Consegni? Dopo non si può più cambiare.')) return;
+    if (D[cur] && tDom) D[cur].sec = (D[cur].sec || 0) + Math.round((Date.now() - tDom) / 1000);
     finita = true; try { if (document.fullscreenElement) document.exitFullscreen(); } catch (x) {}
     var R = { id: B.id, modo: modo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), in_ritardo: !!(STATO.scadenza && Date.now() > new Date(STATO.scadenza)), minuti: Math.round((Date.now() - T0) / 60000), consegnata: true,
       crocette: D.filter(function (d) { return d.tipo === 'c' || d.tipo === 'n'; }).map(function (d) { var data = d.tipo === 'n' ? (d.valore || '(nessuna)') : d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta = d.tipo === 'n' ? String(d.giusto) : d.o[d.a];
         return { area: d.area, tema: d.tema, q: senzaTag(d.q), data: data, giusta: giusta, ok: String(data) === String(giusta), spiega: d.spiega || '' }; }),
       scale: D.filter(function (d) { return d.tipo === 's'; }).map(function (d) { return { q: d.q, valore: d.valore }; }),
       aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), ricopia_pr: d.mostra_pr ? ricopia(d.testo) : 0, tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
+      tempi: D.map(function (d, i) { return { n: i + 1, area: d.area, tema: d.tema || '', tipo: d.tipo, q: senzaTag(d.q).slice(0, 70), sec: d.sec || 0 }; }),
       problemi: D.map(function (d, i) { return { n: i + 1, q: senzaTag(d.q), testo: (d.problema || '').trim() }; }).filter(function (x) { return x.testo; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
     metti(KR(modo), R); metti(KI(modo), null); esito(R, modo); tappe(modo); mostraAndamento();
@@ -304,6 +309,7 @@ svg text{fill:var(--fg)}
     Object.keys(pa).forEach(function (k) { t.push('Area ' + k + ': ' + pa[k].giuste + '/' + pa[k].su + ' giuste'); });
     R.scale.forEach(function (s) { t.push('Scala: ' + s.q + ' → ' + s.valore + '/5'); });
     var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + ' s fuori) · per il gioco ' + A.uscite_per_il_gioco + ' · incolla tentati ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · tasto destro ' + A.tasto_destro + ' · fuori dallo schermo intero ' + A.schermo_intero_uscito, '');
+    if (R.tempi) t.push('Tempi (secondi per domanda, nell\'ordine visto): ' + R.tempi.map(function (x) { return x.n + '[' + x.tipo + '/' + (x.tema || x.area) + ']=' + x.sec; }).join(' '), '');
     R.crocette.forEach(function (c, i) { t.push('C' + (i + 1) + ' [' + c.area + '/' + c.tema + '] ' + (c.ok ? 'GIUSTA' : 'SBAGLIATA') + ' · ' + c.q + ' → ' + c.data); });
     R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' [' + a.area + '/' + a.tema + '] ' + a.q, 'parole ' + a.parole + (a.ricopia_pr ? ' · RICOPIA LA RICHIESTA (' + a.ricopia_pr + ' pezzi uguali)' : '') + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ')', a.testo || '(vuota)'); });
     return t.join('\n');
@@ -314,13 +320,13 @@ svg text{fill:var(--fg)}
     h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b> su tutte le risposte: lo trovi nella pagina dei risultati della classe appena il prof ha corretto.</p>' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
     h += '<div class="card"><b>1. Manda al prof</b><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
-      '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p></div>';
+      '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p><p><b>Se Ctrl+V nel Modulo non incolla niente:</b> clicca nel riquadro qui sotto, premi <b>Ctrl+A</b> e poi <b>Ctrl+C</b>, torna al Modulo e premi <b>Ctrl+V</b>.</p><textarea id="risTxt" readonly style="min-height:120px;font-size:13px"></textarea></div>';
     h += '<div class="card"><b>2. Controlla come sei andato</b>';
     R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
     R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
     h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Hai finito.</b> Dopo aver mandato il risultato con il bottone verde non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
     APP.innerHTML = h;
-    var txt = testo(R), M = B.modulo;
+    var txt = testo(R), M = B.modulo; $('risTxt').value = txt; $('risTxt').onclick = function () { this.select(); };
     $('manda').onclick = function () {
       function fallback() { var t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (x) {} t.remove(); }
       (navigator.clipboard ? navigator.clipboard.writeText(txt).catch(fallback) : Promise.resolve(fallback())).then(function () {
