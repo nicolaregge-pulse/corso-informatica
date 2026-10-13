@@ -30,6 +30,7 @@
     backlog: "../2inf-backlog/backlog.json",        // per la parte personale: le Pull Request vere di lunedì
     modulo: "https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform",
     minuti: 50,
+    anteprima: "868848605",   // impronta del codice dell'anteprima del prof (il codice sta nel repository riservato)
     aree: {
       nozioni: { nome: "Nozioni: versioni, Git e GitHub", peso: 30 },
       sistema: { nome: "Il progetto: portali, intelligenza artificiale e informatica", peso: 30 },

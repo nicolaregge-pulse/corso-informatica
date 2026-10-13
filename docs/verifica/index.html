@@ -24,17 +24,23 @@ textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:t
 .scala{display:flex;gap:8px;flex-wrap:wrap}.scala button{flex:1;min-width:52px;font:inherit;font-weight:800;padding:12px;border-radius:10px;border:2px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer}.scala button.sel{background:var(--blu);color:#fff;border-color:var(--blu)}
 .conta{font-size:14px;color:var(--mu);text-align:right}.area{font-size:13px;font-weight:700;color:var(--viola);text-transform:uppercase;letter-spacing:.04em}
 .mie{border-left:5px solid var(--viola)}
+.tappe{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}.tappe a{flex:1;min-width:150px;text-decoration:none;color:var(--fg);background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:10px 12px}
+.tappe a b{display:block;font-size:17px}.tappe a.qui{border-color:var(--blu);background:rgba(31,111,235,.10)}.tappe a.chiusa{opacity:.55;pointer-events:none}.tappe a.fatta{border-color:var(--verde)}
+.andamento{position:sticky;bottom:0;z-index:6;margin-top:16px;background:#0f2a5c;color:#fff;border-radius:12px;padding:10px 14px;font-size:15px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.andamento b{font-size:17px}.giudizio{background:#fff;color:#0f2a5c;border-radius:99px;padding:3px 12px;font-weight:800}
 svg text{fill:var(--fg)}
 [hidden]{display:none!important}
 </style></head><body><div class="w">
 <h1 id="titolo">Ripasso e verifica</h1><div class="mu" id="sotto"></div>
 <div id="errore" class="err" hidden></div>
+<div class="tappe" id="tappe" hidden></div>
 <div id="app"></div>
+<div class="andamento" id="andamento" hidden></div>
 </div>
 <script>
 (function () {
   var $ = function (i) { return document.getElementById(i); }, APP = $('app');
-  var qs = new URLSearchParams(location.search), idB = (qs.get('b') || '').replace(/[^a-z0-9-]/gi, ''), MODO = qs.get('modo') || 'ripasso', ANTE = qs.has('anteprima');
+  var qs = new URLSearchParams(location.search), idB = (qs.get('b') || '').replace(/[^a-z0-9-]/gi, ''), MODO = qs.get('modo') || 'ripasso', ANTE = qs.has('anteprima'), CODICE = qs.get('anteprima') || '';
   function errore(t) { $('errore').hidden = false; $('errore').textContent = t; }
   if (!idB) { errore('Manca il nome nell\'indirizzo (?b=...).'); return; }
   var sc = document.createElement('script'); sc.src = 'banche/' + idB + '.js?v=' + Date.now();
@@ -59,7 +65,8 @@ svg text{fill:var(--fg)}
     NOME = prendi(KN()) || '';
     var attese = [leggiStato()];
     if (B.backlog) attese.push(fetch(B.backlog + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { BACK = d.voci || []; }).catch(function () {}));
-    Promise.all(attese).then(function () { if (ANTE) return anteprima(); if (MODO === 'ripasso') ripasso(); else prova(MODO); });
+    attese.push(leggiRisultati());
+    Promise.all(attese).then(function () { if (ANTE && B.anteprima && String(hash(CODICE)) !== String(B.anteprima)) { errore('Anteprima solo per il prof: codice sbagliato.'); return; } if (ANTE) return anteprima(); tappe(MODO); if (MODO === 'ripasso') ripasso(); else prova(MODO); mostraAndamento(); });
   }
   function leggiStato() {
     if (!B.stato) return Promise.resolve();
@@ -87,6 +94,39 @@ svg text{fill:var(--fg)}
     $('okn').onclick = function () { var n = $('nome').value.trim().replace(/\s+/g, ' '); if (n.split(' ').length < 2) { alert('Scrivi nome e cognome.'); return; } NOME = n; metti(KN(), n); dopo(); };
   }
 
+  /* ================= PERCORSO: le tre tappe e l'andamento ================= */
+  var KA = function () { return 'andamento-' + B.id; }, AND = null, RIS = null;
+  function andamento() { AND = AND || prendi(KA()) || { pratica: {}, }; return AND; }
+  function tappe(qui) {
+    var v = prendi(KR('verifica')), r = prendi(KR('recupero')), T = [
+      { m: 'ripasso', n: '1. Ripasso', s: 'sempre aperto', ok: true },
+      { m: 'verifica', n: '2. Verifica', s: v ? 'consegnata' : aperta('verifica') ? 'aperta' : 'la apre il prof', ok: !!v || aperta('verifica'), fatta: !!v },
+      { m: 'recupero', n: '3. Recupero', s: r ? 'consegnato' : aperta('recupero') ? 'aperto' : 'lo apre il prof', ok: !!r || aperta('recupero'), fatta: !!r }];
+    $('tappe').hidden = false;
+    $('tappe').innerHTML = T.map(function (t) { return '<a href="?b=' + idB + (t.m === 'ripasso' ? '' : '&modo=' + t.m) + '" class="' + (t.m === qui ? 'qui ' : '') + (t.ok ? '' : 'chiusa ') + (t.fatta ? 'fatta' : '') + '"><b>' + t.n + '</b><span class="mu">' + t.s + '</span></a>'; }).join('');
+  }
+  function orologioConsegna() {
+    if (!STATO.scadenza) return '';
+    var fine = new Date(STATO.scadenza), resta = (fine - Date.now()) / 1000, ora = fine.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+    return resta > 0 ? 'Consegna entro le <b>' + ora + '</b> · mancano <b>' + mmss(resta) + '</b>' : '<b style="color:#ffb3a8">Tempo scaduto: consegna adesso</b>';
+  }
+  setInterval(function () { var t = document.getElementById('timer'); if (t) t.innerHTML = orologioConsegna(); }, 1000);
+  function giudizio(p) { return p >= .85 ? 'ottimo' : p >= .7 ? 'bene' : p >= .55 ? 'ci sei quasi' : p > 0 ? 'continua: ce la fai' : 'comincia'; }
+  function mostraAndamento() {
+    if (!NOME) return; var A = andamento(), k = Object.keys(A.pratica), primo = k.filter(function (x) { return A.pratica[x] === 1; }).length;
+    var storia = (B.prepara || []).filter(function (q, i) { var P = prendi('prepara-' + B.id) || {}; return parole(P[i] || '') >= (q.min || 15); }).length;
+    var tot = (B.allenamento || []).length + (B.via ? 1 : 0), v = prendi(KR('verifica')), parti = [];
+    parti.push('<span>Ripasso: <b>' + k.length + '/' + tot + '</b> risposte · <b>' + primo + '</b> giuste al primo colpo</span>');
+    if ((B.prepara || []).length) parti.push('<span>La tua storia: <b>' + storia + '/' + B.prepara.length + '</b></span>');
+    var p = k.length ? (primo / k.length) * .7 + (B.prepara && B.prepara.length ? storia / B.prepara.length * .3 : .3) : 0;
+    if (v) { var pa = perArea(v), g = 0, n = 0; Object.keys(pa).forEach(function (x) { g += pa[x].giuste; n += pa[x].su; }); p = n ? g / n : p; parti.push('<span>Verifica: <b>' + g + '/' + n + '</b> crocette giuste · scritte: le valuta il prof</span>'); }
+    var mio = RIS && (RIS.allievi || []).filter(function (a) { return (a.allievo || '').toLowerCase() === sigla(NOME).toLowerCase(); }).pop();
+    if (mio && mio.voto) parti.push('<span>Voto del prof: <b>' + e(mio.voto) + '</b></span>');
+    parti.push('<span>Andamento: <span class="giudizio">' + (mio && mio.voto ? 'voto ' + e(mio.voto) : giudizio(p)) + '</span></span>');
+    $('andamento').hidden = false; $('andamento').innerHTML = '<span><b>Il mio andamento</b> · ' + e(NOME) + '</span>' + parti.join('') + (STATO.scadenza ? '<span id="timer">' + orologioConsegna() + '</span>' : '');
+  }
+  function leggiRisultati() { if (!B.risultati) return Promise.resolve(); return fetch('risultati/' + idB + '.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { RIS = d; }).catch(function () {}); }
+
   /* ================= RIPASSO ================= */
   function ripasso() {
     if (!NOME) return chiediNome(ripasso);
@@ -106,7 +146,7 @@ svg text{fill:var(--fg)}
       var idx = mescola(q.o.map(function (_, k) { return k; }), r), d = document.createElement('div'); d.className = 'card'; num++;
       d.innerHTML = '<div class="area">Allenati · ' + e((B.aree[q.area] || {}).nome || '') + '</div><b>' + num + '. ' + q.q + '</b>' + idx.map(function (k) { return '<button class="op" data-k="' + k + '">' + e(q.o[k]) + '</button>'; }).join('') + '<div class="mu" hidden></div>';
       [].forEach.call(d.querySelectorAll('.op'), function (b) { b.onclick = function () {
-        var ok = +b.dataset.k === q.a; [].forEach.call(d.querySelectorAll('.op'), function (x) { x.className = 'op'; });
+        var ok = +b.dataset.k === q.a, A = andamento(), chiave = senzaTag(q.q).slice(0, 60); if (!(chiave in A.pratica)) { A.pratica[chiave] = ok ? 1 : 0; metti(KA(), A); } mostraAndamento(); [].forEach.call(d.querySelectorAll('.op'), function (x) { x.className = 'op'; });
         b.className = 'op ' + (ok ? 'giusta' : 'sbagliata'); var m = d.querySelector('.mu'); m.hidden = false;
         m.innerHTML = ok ? '<b style="color:var(--verde)">Giusto!</b> ' + (q.spiega || '') : '<b style="color:var(--rosso)">Non è questa: rileggi la scheda e riprova.</b>'; }; });
       box.appendChild(d);
@@ -119,7 +159,7 @@ svg text{fill:var(--fg)}
       var ta = d.querySelector('textarea'), c = d.querySelector('.conta'); ta.value = PREP[i] || '';
       function aggiorna() { var n = parole(ta.value), m = q.min || 15; c.innerHTML = n >= m ? '<b style="color:var(--verde)">Bravo! Questa è roba tua: alla verifica la sai già.</b>' : n + ' parole · scrivine almeno ' + m; }
       ta.addEventListener('paste', function (ev) { ev.preventDefault(); c.textContent = 'Non si incolla: scrivi tu.'; });
-      ta.addEventListener('input', function () { PREP[i] = ta.value; metti(KP, PREP); aggiorna(); });
+      ta.addEventListener('input', function () { PREP[i] = ta.value; metti(KP, PREP); aggiorna(); mostraAndamento(); });
       aggiorna(); $('prepara').appendChild(d);
     });
     (B.allenamento || []).forEach(function (q) { pratica(q, $('pr' + (q.scheda || 'X')) || $('prX')); });
@@ -128,7 +168,7 @@ svg text{fill:var(--fg)}
       $('statoV').innerHTML = fatta ? 'Hai già consegnato la verifica. <a href="?b=' + idB + '&modo=verifica">Rivedi il tuo esito</a>.' : v ? '<b style="color:var(--verde)">La verifica è aperta.</b>' : 'La verifica non è ancora aperta: il prof la apre quando avete finito il ripasso. Questa pagina se ne accorge da sola.';
       $('vaiV').className = 'bt v' + (v || fatta ? '' : ' off'); $('vaiR').hidden = !aperta('recupero');
     }
-    aggiornaBottoni(); setInterval(function () { leggiStato().then(aggiornaBottoni); }, 20000);
+    aggiornaBottoni(); setInterval(function () { leggiStato().then(function () { aggiornaBottoni(); tappe('ripasso'); }); leggiRisultati().then(mostraAndamento); }, 20000);
   }
 
   /* ================= VERIFICA e RECUPERO ================= */
@@ -166,7 +206,7 @@ svg text{fill:var(--fg)}
       [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
       $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); }; $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
       $('fine').onclick = function () { consegna(modo); };
-      mostra(0); setInterval(function () { if (!finita) $('tempo').textContent = 'tempo: ' + mmss((Date.now() - T0) / 1000) + (B.minuti ? ' di ' + B.minuti + ':00' : ''); }, 1000);
+      mostra(0); setInterval(function () { if (!finita) $('tempo').innerHTML = STATO.scadenza ? orologioConsegna() : 'tempo: ' + mmss((Date.now() - T0) / 1000); }, 1000);
     };
   }
   /* antiplagio */
@@ -221,24 +261,26 @@ svg text{fill:var(--fg)}
     return n;
   }
   function fatta(d) { return d.tipo === 'c' ? d.scelta >= 0 : d.tipo === 'n' ? d.valore !== '' : d.tipo === 's' ? d.valore > 0 : parole(d.testo) >= d.min; }
-  function pal() { [].forEach.call($('pallini').children, function (b, i) { b.className = (fatta(D[i]) ? 'fatto' : '') + (i === cur ? ' qui' : ''); }); }
+  function pal() { [].forEach.call($('pallini').children, function (b, i) { b.className = (fatta(D[i]) ? 'fatto' : '') + (i === cur ? ' qui' : ''); });
+    var f = D.filter(fatta).length, w = D.filter(function (d) { return d.tipo === 'a'; }).reduce(function (s, d) { return s + parole(d.testo); }, 0);
+    $('andamento').hidden = false; $('andamento').innerHTML = '<span><b>Il mio andamento</b> · ' + e(NOME) + '</span><span>Risposte date: <b>' + f + '/' + D.length + '</b></span><span>Parole scritte da te: <b>' + w + '</b></span><span class="giudizio">' + (f === D.length ? 'tutto fatto: puoi consegnare' : 'continua così') + '</span>'; }
   function consegna(modo) {
     var manca = D.filter(function (d) { return !fatta(d); }).length;
     if (!confirm(manca ? 'Ci sono ' + manca + ' domande non finite. Consegni lo stesso?' : 'Consegni? Dopo non si può più cambiare.')) return;
     finita = true; try { if (document.fullscreenElement) document.exitFullscreen(); } catch (x) {}
-    var R = { id: B.id, modo: modo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), minuti: Math.round((Date.now() - T0) / 60000), consegnata: true,
+    var R = { id: B.id, modo: modo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), in_ritardo: !!(STATO.scadenza && Date.now() > new Date(STATO.scadenza)), minuti: Math.round((Date.now() - T0) / 60000), consegnata: true,
       crocette: D.filter(function (d) { return d.tipo === 'c' || d.tipo === 'n'; }).map(function (d) { var data = d.tipo === 'n' ? (d.valore || '(nessuna)') : d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta = d.tipo === 'n' ? String(d.giusto) : d.o[d.a];
         return { area: d.area, tema: d.tema, q: senzaTag(d.q), data: data, giusta: giusta, ok: String(data) === String(giusta), spiega: d.spiega || '' }; }),
       scale: D.filter(function (d) { return d.tipo === 's'; }).map(function (d) { return { q: d.q, valore: d.valore }; }),
       aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), ricopia_pr: d.mostra_pr ? ricopia(d.testo) : 0, tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
-    metti(KR(modo), R); esito(R, modo);
+    metti(KR(modo), R); esito(R, modo); tappe(modo); mostraAndamento();
   }
   function perArea(R) {
     var o = {}; R.crocette.forEach(function (c) { var a = o[c.area] = o[c.area] || { giuste: 0, su: 0 }; a.su++; if (c.ok) a.giuste++; }); return o;
   }
   function testo(R) {
-    var pa = perArea(R), t = [(R.modo === 'recupero' ? 'RECUPERO ' : 'VERIFICA ') + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti'];
+    var pa = perArea(R), t = [(R.modo === 'recupero' ? 'RECUPERO ' : 'VERIFICA ') + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti' + (R.in_ritardo ? ' · IN RITARDO' : '')];
     Object.keys(pa).forEach(function (k) { t.push('Area ' + k + ': ' + pa[k].giuste + '/' + pa[k].su + ' giuste'); });
     R.scale.forEach(function (s) { t.push('Scala: ' + s.q + ' → ' + s.valore + '/5'); });
     var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + ' s fuori) · per il gioco ' + A.uscite_per_il_gioco + ' · incolla tentati ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · tasto destro ' + A.tasto_destro + ' · fuori dallo schermo intero ' + A.schermo_intero_uscito, '');
