@@ -132,7 +132,7 @@ svg text{fill:var(--fg)}
     if (!NOME) return chiediNome(ripasso);
     var h = '<div class="mu">Ciao <b>' + e(NOME) + '</b> · <a href="#" id="cambia">non sei tu?</a></div>';
     h += '<div class="card"><h2>Ripasso</h2><p>Leggi una scheda e rispondi subito alla sua domanda: la correzione è immediata e puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
-      Object.keys(B.aree).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
+      Object.keys(B.aree).filter(function (k) { return B.aree[k].peso > 0; }).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
     if (B.via) h += '<div class="card" style="border:2px solid var(--verde)"><h2>Si parte!</h2><div id="pr0"></div></div>';
     (B.schede || []).forEach(function (sc, i) { h += '<div class="card"><h2>' + e(sc.titolo) + '</h2><p>' + sc.testo + '</p><div id="pr' + (i + 1) + '"></div></div>'; });
     h += '<div id="prX"></div>';
@@ -186,8 +186,10 @@ svg text{fill:var(--fg)}
     }
     lista = mescola(B.crocette, r).map(croc);
     (B.dati || []).forEach(function (q) { if (q.tipo === 'n') lista.push({ tipo: 'n', area: q.area, tema: q.tema, q: q.q, giusto: q.giusto, spiega: q.spiega, grafico: q.grafico, valore: '' }); else lista.push(croc(q)); });
-    (B.scale || []).forEach(function (q) { lista.push({ tipo: 's', area: q.area, q: q.q, basso: q.basso, alto: q.alto, valore: 0 }); });
-    (B.aperte || []).forEach(function (q) { lista.push(ap(q)); });
+    (B.scale || []).filter(function (q) { return !q.ultima; }).forEach(function (q) { lista.push({ tipo: 's', area: q.area, q: q.q, basso: q.basso, alto: q.alto, valore: 0 }); });
+    (B.aperte || []).filter(function (q) { return typeof q === 'function' || q.area !== 'parere'; }).forEach(function (q) { lista.push(ap(q)); });
+    (B.scale || []).filter(function (q) { return q.ultima; }).forEach(function (q) { lista.push({ tipo: 's', area: q.area, q: q.q, basso: q.basso, alto: q.alto, valore: 0 }); });
+    (B.aperte || []).filter(function (q) { return typeof q !== 'function' && q.area === 'parere'; }).forEach(function (q) { lista.push(ap(q)); });
     return lista;
   }
   function prova(modo) {
