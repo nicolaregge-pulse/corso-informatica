@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.41** — 13/10/2026
+**Versione 2.42** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 13/10/2026 — Domanda personale a un ragazzo: strade proposte senza guardare il suo schermo (#67)
+
+1. **Errore.** Il docente chiede di fare una domanda personale a un ragazzo della 1INF che non parla italiano. Ho proposto, una dopo l'altra, strade che non potevano funzionare: un messaggio cifrato in fondo alla pagina, da aprire con la password; una frase in italiano da dirgli a voce; un messaggio di Veyon, che finisce dietro al gioco a schermo intero; la password scritta a mano in controllo remoto, con un testo finto dentro un riquadro da copiare. Il ragazzo intanto giocava, e il docente ha perso tempo in classe.
+2. **Regola.** Prima di proporre una strada, guardo che cosa c'è DAVVERO sullo schermo del ragazzo (l'ultima schermata di Veyon) e che lingua legge, e percorro la strada al posto suo, passo per passo. Se a un passo si ferma (non legge l'italiano, una finestra finisce dietro, serve una cosa che non sa), quella strada non si propone. Una strada sola, quella che funziona; altrimenti dico che oggi non c'è. Nei riquadri da copiare va solo testo vero da incollare.
 
 ## 13/10/2026 — Codice da incollare: il ragazzo l'ha fatto funzionare ma non sa spiegarlo (#66)
 
