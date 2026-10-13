@@ -333,6 +333,17 @@ svg text{fill:var(--fg)}
     R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' [' + a.area + '/' + a.tema + '] ' + a.q, 'parole ' + a.parole + (a.ricopia_pr ? ' · RICOPIA LA RICHIESTA (' + a.ricopia_pr + ' pezzi uguali)' : '') + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ')', a.testo || '(vuota)'); });
     return t.join('\n');
   }
+  function testoBreve(R) {
+    var pa = perArea(R), t = [(R.modo === 'recupero' ? 'RECUPERO ' : 'VERIFICA ') + R.id, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' min' + (R.in_ritardo ? ' · IN RITARDO' : '')];
+    Object.keys(pa).forEach(function (k) { t.push(k + ' ' + pa[k].giuste + '/' + pa[k].su); });
+    (R.problemi || []).forEach(function (p) { t.push('PROBLEMA D' + p.n + ': ' + p.testo); });
+    var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + 's) · gioco ' + A.uscite_per_il_gioco + ' · incolla ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · destro ' + A.tasto_destro + ' · schermo ' + A.schermo_intero_uscito);
+    if (R.tempi) t.push('Tempi: ' + R.tempi.map(function (x) { return x.n + '=' + x.sec; }).join(' '));
+    t.push('Crocette: ' + R.crocette.map(function (c, i) { return 'C' + (i + 1) + '[' + c.tema + ']' + (c.ok ? 'G' : 'S:' + String(c.data).slice(0, 25)); }).join(' | '));
+    R.scale.forEach(function (x, i) { t.push('Scala' + (i + 1) + '=' + x.valore); });
+    R.aperte.forEach(function (a, i) { t.push('A' + (i + 1) + ' [' + a.tema + '] ' + a.parole + 'p tasti ' + a.tasti + ' scr ' + a.scrittura_sec + 's salti ' + a.salti + (a.ricopia_pr ? ' RICOPIA' : '') + ': ' + (a.testo || '(vuota)').slice(0, 900)); });
+    return t.join('\n');
+  }
   function esito(R, modo) {
     var mandaH = '<div class="card" style="border:4px solid var(--rosso)"><h2 style="margin-top:0">ULTIMO PASSO: manda il risultato al prof</h2><p><b>Non hai ancora finito: senza questo passo il prof non riceve niente.</b></p><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
       '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p><p><b>Se Ctrl+V nel Modulo non incolla niente:</b> clicca nel riquadro qui sotto, premi <b>Ctrl+A</b> e poi <b>Ctrl+C</b>, torna al Modulo e premi <b>Ctrl+V</b>.</p><textarea id="risTxt" readonly style="min-height:120px;font-size:13px"></textarea></div>';
@@ -347,6 +358,11 @@ svg text{fill:var(--fg)}
     h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Quando hai mandato il risultato con il bottone verde in alto, hai finito.</b> Non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
     APP.innerHTML = h;
     var txt = testo(R), M = B.modulo; $('risTxt').value = txt; $('risTxt').onclick = function () { this.select(); };
+    if (B.modulo_precompilato) {   // UN SOLO BOTTONE: si apre il Modulo già compilato, il ragazzo preme solo Invia
+      $('manda').textContent = 'Manda al prof (si apre il Modulo già pronto: premi Invia)';
+      $('manda').onclick = function () { var u = B.modulo_precompilato.replace('XYZ', encodeURIComponent(testoBreve(R).slice(0, 3500))); window.open(u, '_blank'); $('copiato').innerHTML = '<b>Nel Modulo che si è aperto premi Invia, in fondo.</b> Poi hai finito.'; };
+      return;
+    }
     $('manda').onclick = function () {
       function fallback() { var t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (x) {} t.remove(); }
       (navigator.clipboard ? navigator.clipboard.writeText(txt).catch(fallback) : Promise.resolve(fallback())).then(function () {
