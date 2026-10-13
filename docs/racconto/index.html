@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cinque giorni da azienda</title>
+<meta name="description" content="Il racconto, da guardare e ascoltare, di cinque giorni di laboratorio: ragazzi che lavorano come un'azienda di software.">
+<style>
+:root{--bg:#14110f;--fg:#fbf6ee;--mu:#cbbfae;--acc:#ffcf4a;--ok:#5ad08a;--ko:#ff7a6b;--card:#221d19}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#14110f;--fg:#fbf6ee}}
+:root[data-theme="dark"]{--bg:#14110f}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;overflow:hidden}
+#barra{position:fixed;top:0;left:0;height:6px;background:var(--acc);width:0;transition:width .6s;z-index:5}
+#scena{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5vh 6vw 16vh;opacity:0;transition:opacity .9s}
+#scena.on{opacity:1}
+.k{font-size:clamp(16px,2.2vw,26px);letter-spacing:.18em;text-transform:uppercase;color:var(--acc);margin-bottom:2vh}
+.t{font-size:clamp(34px,6.2vw,92px);font-weight:800;line-height:1.08;max-width:18ch}
+.s{font-size:clamp(20px,2.9vw,40px);color:var(--mu);margin-top:2.5vh;max-width:30ch;line-height:1.3}
+.img{margin-top:3vh;max-width:min(78vw,1100px);max-height:42vh;border-radius:14px;box-shadow:0 10px 50px #000a;opacity:0;transform:scale(.97);transition:opacity 1.2s .5s,transform 6s ease-out}
+#scena.on .img{opacity:1;transform:scale(1.03)}
+.num{font-size:clamp(54px,10vw,160px);font-weight:900;color:var(--acc);line-height:1}
+.nums{display:flex;gap:6vw;justify-content:center;flex-wrap:wrap;margin-top:2vh}
+.nums div{display:flex;flex-direction:column;align-items:center}
+.nums span{font-size:clamp(16px,2.2vw,30px);color:var(--mu);margin-top:1vh}
+.binario{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:min(86vw,1100px);margin-top:3vh}
+.pal{width:clamp(18px,3vw,34px);height:clamp(18px,3vw,34px);border-radius:50%;background:var(--ok);box-shadow:0 0 18px var(--ok);transform:scale(0);transition:transform .35s cubic-bezier(.3,1.6,.6,1)}
+.pal.vis{transform:scale(1)}
+.parole{display:flex;flex-wrap:wrap;gap:1.6vw;justify-content:center;max-width:min(90vw,1200px);margin-top:4vh}
+.parole b{font-size:clamp(20px,3vw,42px);background:var(--card);border:2px solid #4a3f35;border-radius:12px;padding:.3em .7em;opacity:0;transform:translateY(20px);transition:all .6s}
+.parole b.vis{opacity:1;transform:none}
+.lingue{display:flex;gap:4vw;justify-content:center;margin-top:3vh;font-size:clamp(26px,4.5vw,64px);font-weight:700}
+#start{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6vw;background:radial-gradient(circle at 50% 40%,#3a2a1a,#14110f 70%);z-index:10}
+#start h1{font-size:clamp(38px,7vw,100px);margin:0;line-height:1.05}
+#start p{font-size:clamp(18px,2.6vw,32px);color:var(--mu);max-width:32ch}
+#start button{font:inherit;font-size:clamp(22px,3.2vw,40px);font-weight:800;background:var(--acc);color:#1d1408;border:0;border-radius:999px;padding:.55em 1.6em;margin-top:3vh;cursor:pointer;box-shadow:0 8px 30px #ffcf4a55}
+#start .silenzio{background:none;color:var(--mu);font-size:clamp(14px,1.8vw,20px);box-shadow:none;text-decoration:underline;padding:.4em}
+#ctrl{position:fixed;bottom:2vh;right:3vw;z-index:6;display:none}
+#ctrl button{font:inherit;font-size:clamp(20px,2.4vw,30px);font-weight:700;background:var(--card);color:var(--fg);border:2px solid #6d5f50;border-radius:14px;padding:.4em 1em;cursor:pointer}
+#sott{position:fixed;bottom:2.5vh;left:0;right:0;text-align:center;font-size:clamp(17px,2vw,26px);color:var(--mu);padding:0 18vw 0 6vw;min-height:1.5em;line-height:1.35}
+@media (max-width:700px){#sott{padding:0 4vw 9vh;font-size:16px}#ctrl{right:0;left:0;text-align:center}}
+@media (max-width:600px){#scena{padding:5vh 16px 12vh}.img{max-width:92vw}}
+</style>
+</head>
+<body>
+<div id="barra"></div>
+<div id="start">
+  <h1>Cinque giorni<br>da azienda</h1>
+  <p>Dal 9 al 13 ottobre 2026, in un laboratorio di informatica di Milano. Non serve sapere niente di computer: basta guardare e ascoltare. Dura circa 6 minuti.</p>
+  <button id="via">▶ Guarda</button>
+  <p style="font-size:clamp(16px,2vw,24px)">Alza il volume: una voce racconta la storia. Va avanti da sola.</p>
+</div>
+<div id="scena"></div>
+<div id="sott"></div>
+<div id="ctrl"><button id="avanti">Avanti ▶</button></div>
+<script>
+(function () {
+'use strict';
+// ====================== LA STORIA ======================
+// k = quando, t = titolo grande, s = frase sotto, img = immagine, voce = quello che dice la voce,
+// fx = suono (treno, ding, campana), extra = animazione speciale.
+var S = [
+ { k: 'Milano · ottobre 2026', t: 'Una classe. Un gioco. Cinque giorni.', s: 'Questa è la storia di ragazzi che hanno lavorato come una vera azienda di software.', fx: 'treno',
+   voce: 'Milano, ottobre duemilaventisei. Questa è la storia di cinque giorni in un laboratorio di informatica. Ragazzi che hanno lavorato come una vera azienda di software.' },
+ { k: 'Chi sono', t: 'Ragazzi tra i 14 e i 18 anni', s: 'Molti sono arrivati in Italia da poco. In classe si parlano tante lingue.', extra: 'lingue',
+   voce: 'Sono ragazzi tra i quattordici e i diciotto anni. Molti sono arrivati in Italia da poco, e in classe si parlano tante lingue: italiano, arabo, cinese. Per questo ogni consegna è scritta in tre lingue.' },
+ { k: 'Il punto di partenza', t: 'Il treno blindato', s: 'Un videogioco nato in classe: il treno corre, i cattivi sparano al vetro, tu li colpisci prima.', img: 'img/gioco-1.jpg', fx: 'treno',
+   voce: 'Il punto di partenza è un videogioco nato in classe: il treno blindato. Il treno corre nel paesaggio, i cattivi sparano contro il vetro, e tu devi colpirli prima. Ma la cosa importante non è giocare. È costruirlo, insieme.' },
+ { k: 'Venerdì 9 ottobre', t: 'Il gioco ha una storia', s: 'Ogni volta che il gioco cambia, nasce una versione nuova, con un numero: 1.0, 1.1, 2.0…', img: 'img/lavagna.jpg', fx: 'campana',
+   voce: 'Venerdì. Il professore disegna alla lavagna la storia del gioco. Ogni volta che il gioco cambia nasce una versione nuova, con un numero. Un cambiamento piccolo fa salire il numero dopo il punto. Un cambiamento grande fa salire il primo numero.' },
+ { k: 'Venerdì 9 ottobre', t: 'Un albero di versioni', s: 'Ogni pallino è una versione. Ogni linea è una strada di lavoro. Le strade si separano e si riuniscono.', img: 'img/grafo.jpg',
+   voce: 'I ragazzi leggono questa storia come la leggono i programmatori veri: un albero. Ogni pallino è una versione, ogni linea è una strada di lavoro. Le strade si separano, una classe fa una copia del gioco, e poi le strade si riuniscono.' },
+ { k: 'Lunedì 12 ottobre', t: 'L\'azienda in classe', s: 'Ogni ragazzo scrive una proposta per migliorare il gioco: cosa cambia, dove, perché.', img: 'img/proposta.jpg', fx: 'campana',
+   voce: 'Lunedì la classe diventa un\'azienda. Ogni ragazzo scrive una proposta per migliorare il gioco: che cosa cambia, dove, e perché. Nelle aziende di software si chiama proposta di modifica, e la usano i programmatori di tutto il mondo.' },
+ { k: 'Lunedì 12 ottobre', t: 'Il prof decide. Il computer scrive le istruzioni.', s: 'Le proposte più semplici passano per prime. Ognuna diventa una versione nuova, da giocare subito.', img: 'img/backlog.jpg',
+   voce: 'Le proposte vanno in una coda di lavoro, uguale a quella delle aziende. Il professore decide quali entrano. L\'intelligenza artificiale scrive le istruzioni del gioco, quello che i programmatori chiamano codice. Il professore controlla, e la versione nuova si gioca subito, nello stesso minuto.' },
+ { k: 'Lunedì 12 ottobre · tre ore', t: '20 versioni in tre ore', extra: 'versioni',
+   voce: 'In tre ore, una sola classe: diciassette ragazzi, centoventinove proposte, venti versioni nuove del gioco. Ognuna nata dall\'idea di un ragazzo, e ognuna con il suo nome sopra.' },
+ { k: 'Lunedì 12 ottobre', t: '«Questo l\'ho fatto io»', s: 'Uccelli nel cielo, una sfera d\'oro che raddoppia i punti, un tramonto… Ogni idea porta la firma di chi l\'ha proposta.', img: 'img/novita.jpg', fx: 'ding',
+   voce: 'Uccelli nel cielo. Una sfera d\'oro che raddoppia i punti. Un cielo al tramonto. Ogni ragazzo vede la sua idea dentro il gioco, con la sua firma. Questo l\'ho fatto io: è la frase che li fa tornare il giorno dopo.' },
+ { k: 'Ogni lezione', t: 'Tutto è visibile', s: 'Il monitor della lezione dice, giro per giro, che cosa c\'è su ogni schermo. Lo vedono anche i ragazzi.', img: 'img/monitor.jpg',
+   voce: 'Durante la lezione il professore fa il giro degli schermi e tutto finisce in una pagina pubblica: chi lavora, chi si è perso, chi è fuori strada. Lo vedono anche i ragazzi. Non serve sgridare: ognuno si regola da solo.' },
+ { k: 'Martedì 13 ottobre · mattina', t: 'Ripasso, verifica, recupero', s: 'Chi sbaglia riceve subito un recupero fatto apposta per lui.', fx: 'campana', extra: 'verifica',
+   voce: 'Martedì mattina si chiude l\'argomento. Prima il ripasso, con la risposta giusta subito. Quando più di metà della classe ha finito, tredici su venti, il professore apre la verifica. E chi sbaglia riceve un recupero fatto apposta per i suoi errori.' },
+ { k: 'Martedì 13 ottobre', t: 'Che cosa ne pensate?', s: 'Alla fine i ragazzi giudicano il lavoro. Chiedono di più: imparare a scrivere da soli le istruzioni del gioco.',
+   voce: 'Alla fine, come nelle aziende, ci si guarda indietro tutti insieme, e si chiama retrospettiva: che cosa fare di più, di meno, che cosa cambiare. La risposta dei ragazzi è sorprendente. Chiedono di più. Vogliono imparare a scrivere da soli le istruzioni del gioco.' },
+ { k: 'Martedì 13 ottobre · quarta superiore', t: 'Progetti veri, per lo stage', s: 'Un programma che ogni mezz\'ora legge da solo il meteo di Milano. Una rete di computer da proteggere dagli intrusi.', fx: 'ding',
+   voce: 'In quarta, i ragazzi preparano lo stage in azienda con progetti veri. Uno costruisce un programma che ogni mezz\'ora, da solo, legge la temperatura di Milano e la mette su una pagina internet. Un altro impara a proteggere una rete di computer dagli intrusi, su un apparecchio simulato dentro il computer.' },
+ { k: 'Martedì 13 ottobre · ore 13', t: 'La prima superiore, per la prima volta', s: 'Una copia del gioco tutta loro. Un\'ora sola. 18 ragazzi su 20 mandano la loro proposta.', img: 'img/gioco-2.jpg', fx: 'treno',
+   voce: 'Ultima ora, la prima superiore. Ragazzi di quattordici anni, alcuni appena arrivati. Ricevono una copia del gioco tutta loro, e un\'ora di tempo. Diciotto su venti mandano la loro proposta, e in un\'ora il gioco cambia quattro volte.' },
+ { k: 'Martedì 13 ottobre · ore 13', t: 'Il primo conflitto', s: 'Due ragazzi cambiano lo stesso numero. Vale chi è arrivato prima: si impara così che cos\'è un conflitto.',
+   voce: 'Succede anche il primo conflitto. Due ragazzi cambiano lo stesso numero del gioco: uno lo vuole a quattro, l\'altro a due. Vale chi è arrivato prima. È così che lavorano i programmatori, e i ragazzi lo imparano facendolo.' },
+ { k: 'Anche gli adulti imparano', t: 'Non tutto è andato liscio', s: 'Il professore e il suo assistente fanno anche loro la retrospettiva, e correggono il metodo ogni giorno.',
+   voce: 'Non tutto è andato liscio. Alcune istruzioni erano poco chiare, alcune consegne si sono perse per strada. Anche il professore e il suo assistente fanno la retrospettiva, scrivono ogni errore, e il giorno dopo il metodo è migliore.' },
+ { k: 'In cinque giorni', t: 'Le parole del lavoro vero', extra: 'parole',
+   voce: 'In cinque giorni, queste parole sono diventate loro. Versione. Copia del progetto. Proposta di modifica. Unione. Conflitto. Coda di lavoro. Retrospettiva. Sono le parole di un\'azienda di software.' },
+ { k: 'Laboratorio di Informatica · Piamarta Milano', t: 'Non un corso di serie B.', s: 'Un lavoro fatto bene, per aprire porte.', fx: 'treno',
+   voce: 'Non è un corso di serie B. È un lavoro fatto bene, pensato per aprire porte a ragazzi che meritano la stessa possibilità di tutti gli altri. Grazie di aver guardato.' }
+];
+
+// ====================== I SUONI (fatti dal browser, nessun file) ======================
+var AC = null, VOCE = true;
+function ac() { if (!AC) { try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {} } return AC; }
+function tono(f, t0, dur, tipo, vol) { var a = ac(); if (!a) return; var o = a.createOscillator(), g = a.createGain(); o.type = tipo || 'sine'; o.frequency.value = f;
+  g.gain.setValueAtTime(0, a.currentTime + t0); g.gain.linearRampToValueAtTime(vol || .15, a.currentTime + t0 + .02); g.gain.exponentialRampToValueAtTime(.0001, a.currentTime + t0 + dur);
+  o.connect(g); g.connect(a.destination); o.start(a.currentTime + t0); o.stop(a.currentTime + t0 + dur + .05); }
+function ding() { tono(1046, 0, .9, 'sine', .12); tono(1568, .08, .8, 'sine', .07); }
+function campana() { tono(523, 0, 1.6, 'triangle', .1); tono(659, .15, 1.4, 'triangle', .08); tono(784, .3, 1.6, 'triangle', .08); }
+function treno() {   // ciuf-ciuf e fischio
+  var a = ac(); if (!a) return;
+  var n = a.sampleRate * .12, buf = a.createBuffer(1, n, a.sampleRate), d = buf.getChannelData(0); for (var i = 0; i < n; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / n);
+  for (var j = 0; j < 8; j++) { var s = a.createBufferSource(), g = a.createGain(), fl = a.createBiquadFilter(); fl.type = 'lowpass'; fl.frequency.value = 700; s.buffer = buf; g.gain.value = .25 - j * .02; s.connect(fl); fl.connect(g); g.connect(a.destination); s.start(a.currentTime + j * .28); }
+  tono(880, 2.3, 1.1, 'square', .04); tono(1108, 2.3, 1.1, 'square', .03);
+}
+var FX = { ding: ding, campana: campana, treno: treno };
+
+// ====================== LA VOCE ======================
+var VOCI = [];
+function caricaVoci() { try { VOCI = speechSynthesis.getVoices().filter(function (v) { return /^it/i.test(v.lang); }); } catch (e) { VOCI = []; } }
+if ('speechSynthesis' in window) { caricaVoci(); speechSynthesis.onvoiceschanged = caricaVoci; }
+function parla(testo, fine) {
+  var stima = Math.max(5000, testo.length * 80) + 2500, fatto = false, sicura;
+  function chiudi() { if (fatto) return; fatto = true; clearTimeout(sicura); fine(); }
+  document.getElementById('sott').textContent = testo;
+  if (!VOCE || !('speechSynthesis' in window)) { sicura = setTimeout(chiudi, stima); return; }
+  try {
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(testo); u.lang = 'it-IT'; u.rate = .9; if (VOCI.length) u.voice = VOCI.filter(function (v) { return /Google|Elsa|Alice|Federica|Isabella/i.test(v.name); })[0] || VOCI[0];
+    u.onend = function () { setTimeout(chiudi, 1200); }; u.onerror = function () { sicura = setTimeout(chiudi, stima); };
+    speechSynthesis.speak(u);
+    sicura = setTimeout(chiudi, stima + 8000);   // se la voce si blocca, la storia va avanti lo stesso
+  } catch (e) { sicura = setTimeout(chiudi, stima); }
+}
+
+// ====================== LE ANIMAZIONI SPECIALI ======================
+function conta(el, fino, ms) { var t0 = performance.now(); (function f(t) { var p = Math.min(1, (t - t0) / ms); el.textContent = Math.round(fino * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(f); })(t0); }
+function extra(tipo, box) {
+  if (tipo === 'lingue') { box.insertAdjacentHTML('beforeend', '<div class="lingue"><span>Ciao</span><span dir="rtl">مرحبا</span><span>你好</span></div>'); }
+  if (tipo === 'versioni') {
+    box.insertAdjacentHTML('beforeend', '<div class="nums"><div><b class="num" id="n1">0</b><span>ragazzi</span></div><div><b class="num" id="n2">0</b><span>proposte</span></div><div><b class="num" id="n3">0</b><span>versioni nuove</span></div></div><div class="binario" id="bin"></div>');
+    conta(document.getElementById('n1'), 17, 1500); conta(document.getElementById('n2'), 129, 4000); conta(document.getElementById('n3'), 20, 9000);
+    var bin = document.getElementById('bin');
+    for (var i = 0; i < 20; i++) (function (i) { var p = document.createElement('div'); p.className = 'pal'; bin.appendChild(p);
+      setTimeout(function () { p.classList.add('vis'); tono(660 + i * 30, 0, .25, 'sine', .06); }, 600 + i * 430); })(i);
+  }
+  if (tipo === 'verifica') { box.insertAdjacentHTML('beforeend', '<div class="nums"><div><b class="num" id="v1">0</b><span>su 20 hanno finito il ripasso</span></div><div><b class="num" style="color:var(--ok)">09:11</b><span>si apre la verifica</span></div></div>'); conta(document.getElementById('v1'), 13, 3000); }
+  if (tipo === 'parole') {
+    var P = ['Versione', 'Copia del progetto', 'Proposta di modifica', 'Unione', 'Conflitto', 'Coda di lavoro', 'Retrospettiva'];
+    box.insertAdjacentHTML('beforeend', '<div class="parole">' + P.map(function (x) { return '<b>' + x + '</b>'; }).join('') + '</div>');
+    [].forEach.call(box.querySelectorAll('.parole b'), function (b, i) { setTimeout(function () { b.classList.add('vis'); ding(); }, 1600 + i * 1700); });
+  }
+}
+
+// ====================== IL MOTORE DELLA STORIA ======================
+var I = -1, PAUSA = false, giro = 0;
+var box = document.getElementById('scena'), barra = document.getElementById('barra');
+function e(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function mostra(i) {
+  if (i >= S.length) { finale(); return; }
+  I = i; var sc = S[i], mio = ++giro;
+  box.classList.remove('on');
+  setTimeout(function () {
+    if (mio !== giro) return;
+    box.innerHTML = '<div class="k">' + e(sc.k) + '</div><div class="t">' + e(sc.t) + '</div>' + (sc.s ? '<div class="s">' + e(sc.s) + '</div>' : '') + (sc.img ? '<img class="img" src="' + sc.img + '" alt="">' : '');
+    if (sc.extra) extra(sc.extra, box);
+    box.classList.add('on'); barra.style.width = (100 * (i + 1) / S.length) + '%';
+    if (sc.fx && FX[sc.fx]) FX[sc.fx]();
+    setTimeout(function () { if (mio !== giro) return; parla(sc.voce, function () { if (mio === giro && !PAUSA) mostra(I + 1); }); }, sc.fx === 'treno' ? 1500 : 700);
+  }, 900);
+}
+function finale() {
+  try { speechSynthesis.cancel(); } catch (e) {}
+  box.classList.remove('on');
+  setTimeout(function () { box.innerHTML = '<div class="t">Fine</div><div class="s">Grazie di aver guardato.</div><p><button id="ancora" style="font:inherit;font-size:24px;margin-top:4vh;background:var(--acc);color:#1d1408;border:0;border-radius:999px;padding:.5em 1.4em;cursor:pointer">Guarda di nuovo</button></p>';
+    box.classList.add('on'); document.getElementById('sott').textContent = '';
+    document.getElementById('ancora').onclick = function () { mostra(0); }; }, 900);
+}
+function parti(conVoce) { VOCE = conVoce; ac(); document.getElementById('ctrl').style.display = 'block'; if (AC && AC.state === 'suspended') AC.resume(); document.getElementById('start').style.display = 'none'; mostra(0); }
+document.getElementById('via').onclick = function () { parti(true); };
+document.getElementById('avanti').onclick = function () { try { speechSynthesis.cancel(); } catch (e) {} mostra(I + 1); };
+
+})();
+</script>
+</body>
+</html>
