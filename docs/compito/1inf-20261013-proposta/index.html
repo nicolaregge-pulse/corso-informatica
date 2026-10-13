@@ -90,5 +90,9 @@ ol{padding-left:26px}li{margin:0 0 14px}
 </ol>
 <div class="nota"><p class="it">Fatto! La tua idea arriva al prof.</p><p class="ar">تم! فكرتك تصل إلى الأستاذ.</p><p class="zh">完成！你的想法会送到老师那里。</p></div>
 <p class="t">Hai un'altra idea? Torna al Passo 5. · عندك فكرة أخرى؟ ارجع إلى الخطوة 5. · 还有别的想法？回到第5步。</p>
-</div></body>
+</div><script>
+// quando si torna su questa scheda (per esempio dopo il gioco), la pagina si ricarica: così si vede sempre la versione nuova
+document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible'){location.reload()}});
+</script>
+</body>
 </html>
