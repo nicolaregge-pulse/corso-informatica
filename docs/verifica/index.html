@@ -91,25 +91,38 @@ svg text{fill:var(--fg)}
   function ripasso() {
     if (!NOME) return chiediNome(ripasso);
     var h = '<div class="mu">Ciao <b>' + e(NOME) + '</b> · <a href="#" id="cambia">non sei tu?</a></div>';
-    h += '<div class="card"><h2>Ripasso</h2><p>Leggi le schede, poi allenati con le domande: la correzione è subito, puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
+    h += '<div class="card"><h2>Ripasso</h2><p>Leggi una scheda e rispondi subito alla sua domanda: la correzione è immediata e puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
       Object.keys(B.aree).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
-    (B.schede || []).forEach(function (s) { h += '<div class="card"><h2>' + e(s.titolo) + '</h2><p>' + s.testo + '</p></div>'; });
-    h += '<div class="card"><h2>Allenati</h2><div id="allena"></div></div>';
-    h += boxMiePR() + '<div class="card"><b>Prepara la parte personale</b><p>Nella verifica ti chiederò com\'è stato per te il progetto, cosa pensi del gioco e cosa hai imparato sulla tua pelle. Pensaci adesso: un momento preciso di lunedì, una cosa che ti è piaciuta, una che no. Lì contano solo le tue parole, senza intelligenza artificiale.</p></div>';
+    if (B.via) h += '<div class="card" style="border:2px solid var(--verde)"><h2>Si parte!</h2><div id="pr0"></div></div>';
+    (B.schede || []).forEach(function (sc, i) { h += '<div class="card"><h2>' + e(sc.titolo) + '</h2><p>' + sc.testo + '</p><div id="pr' + (i + 1) + '"></div></div>'; });
+    h += '<div id="prX"></div>';
+    h += boxMiePR() + '<div class="card"><h2>Prepara la tua storia</h2><p>Nella verifica ti chiederò com\'è stato per te il progetto, il gioco e cosa hai imparato. Scrivilo già adesso, con parole tue: poche righe, nessuno lo corregge. Così alla verifica lo sai già.</p><div id="prepara"></div></div>';
     h += '<div class="card"><h2>La verifica</h2><p id="statoV"></p><a class="bt v" id="vaiV" href="?b=' + idB + '&modo=verifica">Fai la verifica</a> <a class="bt" id="vaiR" href="?b=' + idB + '&modo=recupero" hidden>Fai il recupero</a> ' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
     APP.innerHTML = h;
     $('cambia').onclick = function (ev) { ev.preventDefault(); NOME = ''; metti(KN(), ''); ripasso(); };
-    var r = rng(hash(NOME + '|allena')), box = $('allena');
-    (B.allenamento || []).forEach(function (q, i) {
-      var idx = mescola(q.o.map(function (_, k) { return k; }), r), d = document.createElement('div'); d.className = 'card';
-      d.innerHTML = '<div class="area">' + e((B.aree[q.area] || {}).nome || '') + '</div><b>' + (i + 1) + '. ' + q.q + '</b>' + idx.map(function (k) { return '<button class="op" data-k="' + k + '">' + e(q.o[k]) + '</button>'; }).join('') + '<div class="mu" hidden></div>';
+    var r = rng(hash(NOME + '|allena')), num = 0;
+    function pratica(q, box) {
+      var idx = mescola(q.o.map(function (_, k) { return k; }), r), d = document.createElement('div'); d.className = 'card'; num++;
+      d.innerHTML = '<div class="area">Allenati · ' + e((B.aree[q.area] || {}).nome || '') + '</div><b>' + num + '. ' + q.q + '</b>' + idx.map(function (k) { return '<button class="op" data-k="' + k + '">' + e(q.o[k]) + '</button>'; }).join('') + '<div class="mu" hidden></div>';
       [].forEach.call(d.querySelectorAll('.op'), function (b) { b.onclick = function () {
         var ok = +b.dataset.k === q.a; [].forEach.call(d.querySelectorAll('.op'), function (x) { x.className = 'op'; });
         b.className = 'op ' + (ok ? 'giusta' : 'sbagliata'); var m = d.querySelector('.mu'); m.hidden = false;
-        m.innerHTML = (ok ? '<b style="color:var(--verde)">Giusto!</b> ' : '<b style="color:var(--rosso)">Non è questa: riprova.</b> ') + (ok ? (q.spiega || '') : ''); }; });
+        m.innerHTML = ok ? '<b style="color:var(--verde)">Giusto!</b> ' + (q.spiega || '') : '<b style="color:var(--rosso)">Non è questa: rileggi la scheda e riprova.</b>'; }; });
       box.appendChild(d);
+    }
+    if (B.via) pratica(B.via, $('pr0'));
+    var KP = 'prepara-' + B.id, PREP = prendi(KP) || {};
+    (B.prepara || []).forEach(function (q, i) {
+      var d = document.createElement('div'); d.className = 'card';
+      d.innerHTML = '<b>' + (i + 1) + '. ' + q.q + '</b>' + (q.aiuto ? '<div class="mu">' + q.aiuto + '</div>' : '') + '<textarea style="min-height:110px" placeholder="Scrivi qui, con parole tue."></textarea><div class="conta"></div>';
+      var ta = d.querySelector('textarea'), c = d.querySelector('.conta'); ta.value = PREP[i] || '';
+      function aggiorna() { var n = parole(ta.value), m = q.min || 15; c.innerHTML = n >= m ? '<b style="color:var(--verde)">Bravo! Questa è roba tua: alla verifica la sai già.</b>' : n + ' parole · scrivine almeno ' + m; }
+      ta.addEventListener('paste', function (ev) { ev.preventDefault(); c.textContent = 'Non si incolla: scrivi tu.'; });
+      ta.addEventListener('input', function () { PREP[i] = ta.value; metti(KP, PREP); aggiorna(); });
+      aggiorna(); $('prepara').appendChild(d);
     });
+    (B.allenamento || []).forEach(function (q) { pratica(q, $('pr' + (q.scheda || 'X')) || $('prX')); });
     function aggiornaBottoni() {
       var v = aperta('verifica'), fatta = prendi(KR('verifica'));
       $('statoV').innerHTML = fatta ? 'Hai già consegnato la verifica. <a href="?b=' + idB + '&modo=verifica">Rivedi il tuo esito</a>.' : v ? '<b style="color:var(--verde)">La verifica è aperta.</b>' : 'La verifica non è ancora aperta: il prof la apre quando avete finito il ripasso. Questa pagina se ne accorge da sola.';
@@ -201,6 +214,12 @@ svg text{fill:var(--fg)}
     }
     $('prec').disabled = i === 0; $('succ').hidden = i === D.length - 1; $('dove').textContent = 'Domanda ' + (i + 1) + ' di ' + D.length; pal();
   }
+  function ricopia(testo) {
+    var w = function (t) { return t.toLowerCase().replace(/[^a-zàèéìòù0-9 ]/g, ' ').split(/\s+/).filter(Boolean); }, a = w(testo), n = 0;
+    var pr = miePR().map(function (x) { return ' ' + w(x.richiesta || '').join(' ') + ' '; });
+    for (var i = 0; i + 6 <= a.length; i++) { var g = ' ' + a.slice(i, i + 6).join(' ') + ' '; if (pr.some(function (p) { return p.indexOf(g) >= 0; })) n++; }
+    return n;
+  }
   function fatta(d) { return d.tipo === 'c' ? d.scelta >= 0 : d.tipo === 'n' ? d.valore !== '' : d.tipo === 's' ? d.valore > 0 : parole(d.testo) >= d.min; }
   function pal() { [].forEach.call($('pallini').children, function (b, i) { b.className = (fatta(D[i]) ? 'fatto' : '') + (i === cur ? ' qui' : ''); }); }
   function consegna(modo) {
@@ -211,7 +230,7 @@ svg text{fill:var(--fg)}
       crocette: D.filter(function (d) { return d.tipo === 'c' || d.tipo === 'n'; }).map(function (d) { var data = d.tipo === 'n' ? (d.valore || '(nessuna)') : d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta = d.tipo === 'n' ? String(d.giusto) : d.o[d.a];
         return { area: d.area, tema: d.tema, q: senzaTag(d.q), data: data, giusta: giusta, ok: String(data) === String(giusta), spiega: d.spiega || '' }; }),
       scale: D.filter(function (d) { return d.tipo === 's'; }).map(function (d) { return { q: d.q, valore: d.valore }; }),
-      aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
+      aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), ricopia_pr: d.mostra_pr ? ricopia(d.testo) : 0, tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
     metti(KR(modo), R); esito(R, modo);
   }
@@ -224,7 +243,7 @@ svg text{fill:var(--fg)}
     R.scale.forEach(function (s) { t.push('Scala: ' + s.q + ' → ' + s.valore + '/5'); });
     var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + ' s fuori) · per il gioco ' + A.uscite_per_il_gioco + ' · incolla tentati ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · tasto destro ' + A.tasto_destro + ' · fuori dallo schermo intero ' + A.schermo_intero_uscito, '');
     R.crocette.forEach(function (c, i) { t.push('C' + (i + 1) + ' [' + c.area + '/' + c.tema + '] ' + (c.ok ? 'GIUSTA' : 'SBAGLIATA') + ' · ' + c.q + ' → ' + c.data); });
-    R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' [' + a.area + '/' + a.tema + '] ' + a.q, 'parole ' + a.parole + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ')', a.testo || '(vuota)'); });
+    R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' [' + a.area + '/' + a.tema + '] ' + a.q, 'parole ' + a.parole + (a.ricopia_pr ? ' · RICOPIA LA RICHIESTA (' + a.ricopia_pr + ' pezzi uguali)' : '') + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ')', a.testo || '(vuota)'); });
     return t.join('\n');
   }
   function esito(R, modo) {
