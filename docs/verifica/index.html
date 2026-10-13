@@ -25,6 +25,7 @@ textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:t
 .conta{font-size:14px;color:var(--mu);text-align:right}.area{font-size:13px;font-weight:700;color:var(--viola);text-transform:uppercase;letter-spacing:.04em}
 .mie{border-left:5px solid var(--viola)}
 .tappe{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}.tappe a{flex:1;min-width:150px;text-decoration:none;color:var(--fg);background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:10px 12px}
+.strumenti{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 12px}.strumenti a{display:inline-block;color:#fff;font-weight:700;padding:8px 14px;border-radius:10px;text-decoration:none;font-size:15px}
 .tappe a b{display:block;font-size:17px}.tappe a.qui{border-color:var(--blu);background:rgba(31,111,235,.10)}.tappe a.chiusa{opacity:.55;pointer-events:none}.tappe a.fatta{border-color:var(--verde)}
 .andamento{position:sticky;bottom:0;z-index:6;margin-top:16px;background:#0f2a5c;color:#fff;border-radius:12px;padding:10px 14px;font-size:15px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
 .andamento b{font-size:17px}.giudizio{background:#fff;color:#0f2a5c;border-radius:99px;padding:3px 12px;font-weight:800}
@@ -34,6 +35,7 @@ svg text{fill:var(--fg)}
 <h1 id="titolo">Ripasso e verifica</h1><div class="mu" id="sotto"></div>
 <div id="errore" class="err" hidden></div>
 <div class="tappe" id="tappe" hidden></div>
+<div class="strumenti" id="strumenti" hidden></div>
 <div id="app"></div>
 <div class="andamento" id="andamento" hidden></div>
 </div>
@@ -104,6 +106,10 @@ svg text{fill:var(--fg)}
       { m: 'recupero', n: '3. Recupero', s: r ? 'consegnato' : aperta('recupero') ? 'aperto' : 'lo apre il prof', ok: !!r || aperta('recupero'), fatta: !!r }];
     $('tappe').hidden = false;
     $('tappe').innerHTML = T.map(function (t) { return '<a href="?b=' + idB + (t.m === 'ripasso' ? '' : '&modo=' + t.m) + '" class="' + (t.m === qui ? 'qui ' : '') + (t.ok ? '' : 'chiusa ') + (t.fatta ? 'fatta' : '') + '"><b>' + t.n + '</b><span class="mu">' + t.s + '</span></a>'; }).join('');
+    // AUTOREGOLAZIONE: i ragazzi vedono sempre il monitor e i risultati, per regolarsi da soli
+    var S = (B.strumenti || []).concat([{ t: 'I risultati della verifica', u: 'risultati.html?b=' + idB, c: '#1a7f37' }]);
+    $('strumenti').hidden = false;
+    $('strumenti').innerHTML = '<span class="mu" style="align-self:center">Per regolarti da solo:</span> ' + S.map(function (x) { return '<a target="_blank" href="' + e(x.u) + '" style="background:' + (x.c || '#6e40c9') + '">' + e(x.t) + '</a>'; }).join(' ');
   }
   function orologioConsegna() {
     if (!STATO.scadenza) return '';
@@ -197,7 +203,7 @@ svg text{fill:var(--fg)}
     if (!NOME) return chiediNome(function () { prova(modo); });
     if (!aperta(modo)) { APP.innerHTML = '<div class="card"><h2>' + (modo === 'recupero' ? 'Il recupero' : 'La verifica') + ' non è ancora aperta</h2><p>La apre il prof. Intanto fai il ripasso.</p><a class="bt" href="?b=' + idB + '">Torna al ripasso</a></div>'; return; }
     APP.innerHTML = '<section class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
-      '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda è permesso.</li>' +
+      '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda, il monitor o i risultati è permesso.</li>' +
       '<li>Ognuno ha le domande in un ordine diverso.</li><li>Alla fine vedi subito come sono andate le crocette. Le risposte scritte le valuta il prof; il voto è un giudizio complessivo e lo trovi nella pagina dei risultati.</li></ol></div><button class="bt v" id="via">Inizia</button></section>';
     $('via').onclick = function () {
       D = costruisci(modo); T0 = Date.now();
@@ -212,7 +218,7 @@ svg text{fill:var(--fg)}
     };
   }
   /* antiplagio */
-  document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('#domanda a[target=_blank]'); if (a) permesso = true; }, true);
+  document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('#domanda a[target=_blank], #strumenti a'); if (a) permesso = true; }, true);
   function inProva() { return !!$('domanda') && !finita; }
   document.addEventListener('visibilitychange', function () {
     if (!inProva()) return;
