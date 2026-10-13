@@ -24,6 +24,7 @@ textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:t
 .scala{display:flex;gap:8px;flex-wrap:wrap}.scala button{flex:1;min-width:52px;font:inherit;font-weight:800;padding:12px;border-radius:10px;border:2px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer}.scala button.sel{background:var(--blu);color:#fff;border-color:var(--blu)}
 .conta{font-size:14px;color:var(--mu);text-align:right}.area{font-size:13px;font-weight:700;color:var(--viola);text-transform:uppercase;letter-spacing:.04em}
 .mie{border-left:5px solid var(--viola)}
+.probl{margin-top:14px;font-size:15px}.probl summary{cursor:pointer;color:var(--mu)}
 .tappe{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap}.tappe a{flex:1;min-width:150px;text-decoration:none;color:var(--fg);background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:10px 12px}
 .strumenti{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 12px}.strumenti a{display:inline-block;color:#fff;font-weight:700;padding:8px 14px;border-radius:10px;text-decoration:none;font-size:15px}
 .tappe a b{display:block;font-size:17px}.tappe a.qui{border-color:var(--blu);background:rgba(31,111,235,.10)}.tappe a.chiusa{opacity:.55;pointer-events:none}.tappe a.fatta{border-color:var(--verde)}
@@ -247,7 +248,9 @@ svg text{fill:var(--fg)}
     else if (d.tipo === 'n') h += '<input id="num" inputmode="numeric" maxlength="6" placeholder="Il numero" value="' + e(d.valore) + '">';
     else if (d.tipo === 's') h += '<div class="scala">' + [1, 2, 3, 4, 5].map(function (n) { return '<button data-n="' + n + '"' + (d.valore === n ? ' class="sel"' : '') + '>' + n + '</button>'; }).join('') + '</div><div class="mu" style="display:flex;justify-content:space-between"><span>1 = ' + e(d.basso) + '</span><span>5 = ' + e(d.alto) + '</span></div>';
     else h += (d.aiuto ? '<p class="mu">' + d.aiuto + '</p>' : '') + '<textarea id="ta" spellcheck="false" autocomplete="off" placeholder="Scrivi qui, con parole tue."></textarea><div class="conta" id="conta"></div>';
+    h += '<details class="probl"' + (d.problema ? ' open' : '') + '><summary>Ho un problema con questa domanda</summary><p class="mu">Scrivi qual è il problema (per esempio: non si legge, non capisco una parola, non funziona). Il prof lo legge quando corregge e decide.</p><textarea id="pb" spellcheck="false" autocomplete="off" style="min-height:60px"></textarea></details>';
     $('domanda').innerHTML = h;
+    var pb = $('pb'); pb.value = d.problema || ''; pb.addEventListener('input', function () { d.problema = pb.value; }); pb.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; });
     if (d.tipo === 'c') [].forEach.call($('domanda').querySelectorAll('.op'), function (b) { b.onclick = function () { d.scelta = +b.dataset.k; mostra(cur); }; });
     if (d.tipo === 's') [].forEach.call($('domanda').querySelectorAll('.scala button'), function (b) { b.onclick = function () { d.valore = +b.dataset.n; mostra(cur); }; });
     if (d.tipo === 'n') { var nu = $('num'); nu.oninput = function () { d.valore = nu.value.replace(/[^0-9]/g, ''); nu.value = d.valore; pal(); }; nu.onpaste = function (ev) { ev.preventDefault(); LOG.incolla++; }; }
@@ -281,6 +284,7 @@ svg text{fill:var(--fg)}
         return { area: d.area, tema: d.tema, q: senzaTag(d.q), data: data, giusta: giusta, ok: String(data) === String(giusta), spiega: d.spiega || '' }; }),
       scale: D.filter(function (d) { return d.tipo === 's'; }).map(function (d) { return { q: d.q, valore: d.valore }; }),
       aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { area: d.area, tema: d.tema, q: senzaTag(d.q), testo: d.testo, parole: parole(d.testo), ricopia_pr: d.mostra_pr ? ricopia(d.testo) : 0, tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max }; }),
+      problemi: D.map(function (d, i) { return { n: i + 1, q: senzaTag(d.q), testo: (d.problema || '').trim() }; }).filter(function (x) { return x.testo; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
     metti(KR(modo), R); esito(R, modo); tappe(modo); mostraAndamento();
   }
@@ -289,6 +293,7 @@ svg text{fill:var(--fg)}
   }
   function testo(R) {
     var pa = perArea(R), t = [(R.modo === 'recupero' ? 'RECUPERO ' : 'VERIFICA ') + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti' + (R.in_ritardo ? ' · IN RITARDO' : '')];
+    (R.problemi || []).forEach(function (p) { t.push('PROBLEMA SEGNALATO alla domanda ' + p.n + ' (' + p.q.slice(0, 80) + '): ' + p.testo); });
     Object.keys(pa).forEach(function (k) { t.push('Area ' + k + ': ' + pa[k].giuste + '/' + pa[k].su + ' giuste'); });
     R.scale.forEach(function (s) { t.push('Scala: ' + s.q + ' → ' + s.valore + '/5'); });
     var A = R.antiplagio; t.push('Antiplagio: uscite ' + A.uscite + ' (' + A.fuori_sec + ' s fuori) · per il gioco ' + A.uscite_per_il_gioco + ' · incolla tentati ' + A.incolla_tentati + ' · copia ' + A.copia_tentati + ' · tasto destro ' + A.tasto_destro + ' · fuori dallo schermo intero ' + A.schermo_intero_uscito, '');
