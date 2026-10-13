@@ -433,3 +433,4 @@ bumpa la versione del doc.*
 3. Niente nomi dei ragazzi; parole semplici; il «test della mamma» (92 anni): un solo bottone, scritte grandi, voce e testo sotto.
 4. Ogni giornata importante produce il suo pezzo di comunicazione.
 5. **Mai il nome della scuola** nei materiali per l'esterno (serve un'autorizzazione): si scrive «Il laboratorio di informatica secondo le idee di Nicola Regge». Niente nome della città nelle intestazioni (13/10/2026, Nicola).
+6. **Niente marchi registrati e niente cose non nostre** nei materiali per l'esterno: nomi generici al posto dei prodotti (classe virtuale, modulo online, archivio delle versioni, motore di videogiochi, assistente di intelligenza artificiale); solo immagini fatte da noi (13/10/2026, Nicola).
