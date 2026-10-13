@@ -1,6 +1,6 @@
 # Comunicazione e marketing
 
-**Versione 0.1** — 13/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 0.2** — 13/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 La parte del corso che raccoglie i materiali per chi sta fuori dall'aula: possibili acquirenti e altre scuole, genitori, ragazzi, e chi non capisce niente di informatica. Nasce il 13/10/2026, dopo il racconto «Cinque giorni da azienda».
 
@@ -35,6 +35,14 @@ https://nicolaregge-pulse.github.io/corso-informatica/cm-qma7yay4q5/
 | 4 | Demo con accesso via email: giornate del 12 e 13/10, «Prova come un allievo» | scuole e aziende | demo | 1.0 | `docs/demo/`, script `strumenti/demo-accesso.gs` |
 | 5 | Il progetto del treno, 9-13/10 | genitori, ragazzi | PDF | 1.0 | `presentazione-demo/progetto-treno-09-13-ottobre.md` |
 | 6 | Guida per docenti con alunni non italofoni | scuole | PDF | 0.1 | `guida-docenti-alunni-non-italofoni/` |
+| 7 | Il parco del corso: mappa illustrata e cliccabile + Atlante | scuole e aziende | HTML e PDF con link | 1.0 | `docs/atlante-k4x9w2/`, generatore `strumenti/gen_atlante.py` |
+
+## 02b La mappa disegnata da Gemini
+
+1. La mappa del parco è disegnata da Claude con forme semplici. Per un'illustrazione vera si può far disegnare a Gemini con questo testo, poi la si mette in cima all'Atlante:
+```
+Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista dall'alto in stile cartoon colorato come le mappe di Gardaland, formato orizzontale. Un trenino rosso gira tutto intorno al parco su un binario. Al centro un laghetto e una grande stazione ferroviaria rossa chiamata "Stazione del Treno blindato". Intorno, collegate da vialetti color sabbia e alberi: tre quartieri di casette colorate chiamati "Quartiere 1INF" (arancione), "Quartiere 2INF" (blu), "Quartiere 3INF" (verde); una torre viola "Torre del Grafo" con rami e pallini luminosi come un albero di versioni; una torre rosa "Torre delle Verifiche"; un'officina blu petrolio con ingranaggi "Laboratorio dello Stage"; una sala di controllo grigia con schermi "Sala di controllo"; una sala giochi viola con joystick "Sala giochi"; una biblioteca verde con un libro aperto "Biblioteca"; una cassaforte scura con un lucchetto dorato "Cassaforte". In basso al centro un grande arco d'ingresso arancione con la scritta "Il laboratorio raccontato". Ragazzi sorridenti di diverse origini camminano nei vialetti. Scritte in italiano grandi e leggibili, colori caldi, atmosfera allegra.
+```
 
 ## 03 Regole
 
@@ -47,4 +55,5 @@ https://nicolaregge-pulse.github.io/corso-informatica/cm-qma7yay4q5/
 
 ## 04 Registro delle versioni
 
-1. **v0.1 (13/10/2026):** prima versione: impianto, pagina pubblica non collegata, inventario di sei contenuti, regole.
+1. **v0.2 (13/10/2026):** aggiunti il parco del corso (mappa cliccabile + Atlante v1.0) nella pagina pubblica e il testo per far disegnare la mappa a Gemini.
+2. **v0.1 (13/10/2026):** prima versione: impianto, pagina pubblica non collegata, inventario di sei contenuti, regole.
