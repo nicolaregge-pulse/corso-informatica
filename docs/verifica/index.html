@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta name="robots" content="noindex">
+<title>Verifica</title>
+<style>
+:root{--bg:#f4f7fb;--fg:#1a2330;--mu:#5b6573;--card:#fff;--bd:#d6e0ea;--blu:#1f6feb;--verde:#1a7f37;--rosso:#c0392b;--giallo:#fff4b8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15171a;--fg:#eee;--mu:#a9a9a9;--card:#1f2227;--bd:#353a42;--giallo:#4a4214}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:820px;margin:0 auto;padding:16px 16px 60px}h1{font-size:26px;margin:6px 0 2px}.mu{color:var(--mu);font-size:15px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;margin:14px 0}
+.no-sel{user-select:none;-webkit-user-select:none}
+input,textarea{font:inherit;width:100%;padding:10px 12px;border:2px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--fg)}
+textarea{min-height:190px;resize:vertical;user-select:text;-webkit-user-select:text}
+.bt{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 20px;color:#fff;background:var(--blu);cursor:pointer;margin:6px 8px 0 0}
+.bt.v{background:var(--verde)}.bt.g{background:#5b6573}.bt:disabled{opacity:.45;cursor:default}
+.op{display:block;width:100%;text-align:left;font:inherit;background:var(--card);color:var(--fg);border:2px solid var(--bd);border-radius:10px;padding:12px 14px;margin:8px 0 0;cursor:pointer}
+.op.sel{border-color:var(--blu);background:rgba(31,111,235,.12)}
+.barra{position:sticky;top:0;z-index:5;background:#12467a;color:#fff;border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;gap:10px;font-weight:700;flex-wrap:wrap}
+.pallini{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.pallini button{width:36px;height:36px;border-radius:50%;border:2px solid var(--bd);background:var(--card);color:var(--fg);font-weight:700;cursor:pointer}
+.pallini button.fatto{background:var(--blu);color:#fff;border-color:var(--blu)}.pallini button.qui{outline:3px solid #ffb000}
+.avviso{background:var(--giallo);border-left:5px solid #d4a000;border-radius:10px;padding:10px 14px;margin:10px 0}
+.err{background:rgba(192,57,43,.12);border-left:5px solid var(--rosso);border-radius:10px;padding:10px 14px;margin:10px 0}
+.ok{border-left:5px solid var(--verde)}.ko{border-left:5px solid var(--rosso)}.attesa{border-left:5px solid #d4a000}
+.voto{font-size:44px;font-weight:800;line-height:1.1}.conta{font-size:14px;color:var(--mu);text-align:right}
+[hidden]{display:none!important}
+</style></head><body><div class="w">
+<h1 id="titolo">Verifica</h1><div class="mu" id="sotto"></div>
+<div id="errore" class="err" hidden></div>
+
+<section class="card" id="inizio" hidden>
+<p id="intro"></p>
+<label for="nome"><b>Il tuo nome e cognome</b></label><input id="nome" autocomplete="off" maxlength="60" placeholder="Nome Cognome">
+<div class="avviso"><b>Regole della verifica</b><ol>
+<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li>
+<li>Se esci da questa pagina (un'altra scheda, un altro programma), <b>viene segnato</b> e il prof lo vede.</li>
+<li>Ognuno ha le domande in un ordine diverso: guardare lo schermo del compagno non serve.</li>
+<li>Alla fine vedi subito il voto delle crocette, con le risposte giuste. Le risposte scritte le corregge il prof.</li>
+</ol></div>
+<button class="bt v" id="via">Inizia la verifica</button></section>
+
+<section id="prova" hidden>
+<div class="barra"><span id="dove"></span><span id="tempo">0:00</span></div>
+<div class="pallini" id="pallini"></div>
+<div class="card no-sel" id="domanda"></div>
+<button class="bt g" id="prec">← Indietro</button><button class="bt" id="succ">Avanti →</button>
+<button class="bt v" id="fine">Consegna la verifica</button>
+</section>
+
+<section id="esito" hidden></section>
+</div>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var qs = new URLSearchParams(location.search), idB = (qs.get('b') || '').replace(/[^a-z0-9-]/gi, ''), ANTE = qs.has('anteprima');
+  function errore(t) { $('errore').hidden = false; $('errore').textContent = t; }
+  if (!idB) { errore('Manca il nome della verifica nell\'indirizzo (?b=...).'); return; }
+  var sc = document.createElement('script'); sc.src = 'banche/' + idB + '.js?v=' + Date.now();
+  sc.onerror = function () { errore('Verifica non trovata: ' + idB); }; sc.onload = avvia; document.head.appendChild(sc);
+
+  function hash(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+  function rng(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function mescola(a, r) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), x = a[i]; a[i] = a[j]; a[j] = x; } return a; }
+  function e(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function parole(t) { return (t.trim().match(/\S+/g) || []).length; }
+  function mmss(s) { s = Math.round(s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+
+  var B, D = [], cur = 0, T0 = 0, LOG = { uscite_consentite: 0, uscite: 0, fuori_sec: 0, incolla: 0, copia: 0, tasto_destro: 0, schermo_intero_uscito: 0 }, fuoriDa = 0, finita = false, NOME = '';
+  var CHIAVE, permesso = false;
+  document.addEventListener('click', function (ev) { var a = ev.target.closest && ev.target.closest('#domanda a[target=_blank]'); if (a) permesso = true; }, true);
+
+  function avvia() {
+    B = window.BANCA; document.title = B.titolo; $('titolo').textContent = B.titolo; $('sotto').innerHTML = B.sotto || '';
+    $('intro').innerHTML = B.intro || '';
+    if (ANTE) { return anteprima(); }
+    CHIAVE = 'verifica-' + B.id;
+    var gia = null; try { gia = JSON.parse(localStorage.getItem(CHIAVE) || 'null'); } catch (x) {}
+    if (gia && gia.consegnata) { mostraEsito(gia); return; }
+    $('inizio').hidden = false;
+  }
+
+  function costruisci(nome) {
+    var r = rng(hash(nome.toLowerCase().replace(/\s+/g, ' ').trim() + '|' + B.id));
+    var cr = mescola(B.crocette, r).map(function (q) {
+      if (typeof q === 'function') q = q(r);
+      var idx = mescola(q.o.map(function (_, i) { return i; }), r);
+      return { tipo: 'c', q: q.q, o: idx.map(function (i) { return q.o[i]; }), a: idx.indexOf(q.a), spiega: q.spiega || '', scelta: -1 };
+    });
+    var ap = B.aperte.map(function (q) {
+      if (typeof q === 'function') q = q(r);
+      return { tipo: 'a', q: q.q, aiuto: q.aiuto || '', min: q.min_parole || 20, punti: q.punti, testo: '', tasti: 0, ms_scrittura: 0, salto_max: 0, salti: 0, ultimo: 0 };
+    });
+    return cr.concat(ap);
+  }
+
+  $('via').onclick = function () {
+    NOME = $('nome').value.trim().replace(/\s+/g, ' ');
+    if (NOME.split(' ').length < 2) { alert('Scrivi nome e cognome.'); return; }
+    D = costruisci(NOME); T0 = Date.now();
+    try { if (document.documentElement.requestFullscreen) document.documentElement.requestFullscreen(); } catch (x) {}
+    $('inizio').hidden = true; $('prova').hidden = false;
+    pallini(); mostra(0); setInterval(orologio, 1000); salva();
+  };
+
+  /* --- antiplagio --- */
+  document.addEventListener('visibilitychange', function () {
+    if ($('prova').hidden || finita) return;
+    if (document.hidden) { if (permesso) { LOG.uscite_consentite++; permesso = false; fuoriDa = 0; return; } LOG.uscite++; fuoriDa = Date.now(); }
+    else if (fuoriDa) { LOG.fuori_sec += (Date.now() - fuoriDa) / 1000; fuoriDa = 0; avvisa('Sei uscito dalla pagina: è stato segnato (' + LOG.uscite + ').'); salva(); }
+  });
+  document.addEventListener('fullscreenchange', function () { if (!document.fullscreenElement && !$('prova').hidden && !finita) { LOG.schermo_intero_uscito++; salva(); } });
+  document.addEventListener('copy', function (ev) { if (!$('prova').hidden && !finita) { LOG.copia++; ev.preventDefault(); } });
+  document.addEventListener('contextmenu', function (ev) { if (!$('prova').hidden && !finita) { LOG.tasto_destro++; ev.preventDefault(); } });
+  function avvisa(t) { var a = document.createElement('div'); a.className = 'err'; a.textContent = t; $('domanda').prepend(a); setTimeout(function () { a.remove(); }, 4000); }
+
+  function orologio() {
+    if (finita) return;
+    var s = (Date.now() - T0) / 1000, lim = (B.minuti || 0) * 60;
+    $('tempo').textContent = lim ? 'tempo: ' + mmss(s) + ' di ' + mmss(lim) : 'tempo: ' + mmss(s);
+  }
+  function pallini() {
+    $('pallini').innerHTML = D.map(function (d, i) { return '<button data-i="' + i + '" title="Domanda ' + (i + 1) + '">' + (i + 1) + '</button>'; }).join('');
+    [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
+  }
+  function aggiornaPallini() {
+    [].forEach.call($('pallini').children, function (b, i) { var d = D[i];
+      b.className = (d.tipo === 'c' ? d.scelta >= 0 : parole(d.testo) >= d.min) ? 'fatto' : ''; if (i === cur) b.className += ' qui'; });
+  }
+  function mostra(i) {
+    cur = i; var d = D[i], h = '<div class="mu">Domanda ' + (i + 1) + ' di ' + D.length + (d.tipo === 'a' ? ' · da scrivere con parole tue · ' + d.punti + ' punti' : ' · a crocetta') + '</div>';
+    h += '<p><b>' + d.q + '</b></p>';
+    if (d.tipo === 'c') h += d.o.map(function (o, k) { return '<button class="op' + (d.scelta === k ? ' sel' : '') + '" data-k="' + k + '">' + e(o) + '</button>'; }).join('');
+    else h += (d.aiuto ? '<p class="mu">' + d.aiuto + '</p>' : '') + '<textarea id="ta" spellcheck="false" autocomplete="off" placeholder="Scrivi qui, con parole tue."></textarea><div class="conta" id="conta"></div>';
+    $('domanda').innerHTML = h;
+    if (d.tipo === 'c') [].forEach.call($('domanda').querySelectorAll('.op'), function (b) { b.onclick = function () { d.scelta = +b.dataset.k; mostra(cur); salva(); }; });
+    else {
+      var ta = $('ta'); ta.value = d.testo; conta();
+      ta.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; avvisa('Non si può incollare: scrivi tu, con parole tue.'); salva(); });
+      ta.addEventListener('drop', function (ev) { ev.preventDefault(); LOG.incolla++; });
+      ta.addEventListener('keydown', function () { var t = Date.now(); if (d.ultimo && t - d.ultimo < 4000) d.ms_scrittura += t - d.ultimo; d.ultimo = t; d.tasti++; });
+      ta.addEventListener('input', function (ev) {
+        var salto = ta.value.length - d.testo.length;
+        if (salto > 12 && !(ev.isComposing)) { d.salti++; d.salto_max = Math.max(d.salto_max, salto); }
+        d.testo = ta.value; conta(); salva();
+      });
+      function conta() { var n = parole(ta.value); $('conta').textContent = n + ' parole' + (n < d.min ? ' · ne servono almeno ' + d.min : ' · ok'); aggiornaPallini(); }
+      ta.focus();
+    }
+    $('prec').disabled = i === 0; $('succ').hidden = i === D.length - 1;
+    $('dove').textContent = 'Domanda ' + (i + 1) + ' di ' + D.length; aggiornaPallini();
+  }
+  $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); };
+  $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
+  $('fine').onclick = function () {
+    var mancano = D.filter(function (d) { return d.tipo === 'c' ? d.scelta < 0 : parole(d.testo) < d.min; }).length;
+    if (!confirm(mancano ? 'Ci sono ' + mancano + ' domande non finite. Consegni lo stesso?' : 'Consegni la verifica? Dopo non si può più cambiare.')) return;
+    finita = true; try { if (document.fullscreenElement) document.exitFullscreen(); } catch (x) {}
+    var R = risultato(); R.consegnata = true; try { localStorage.setItem(CHIAVE, JSON.stringify(R)); } catch (x) {}
+    mostraEsito(R);
+  };
+  function salva() { try { localStorage.setItem(CHIAVE + '-bozza', JSON.stringify({ nome: NOME, D: D, LOG: LOG, T0: T0 })); } catch (x) {} }
+
+  function risultato() {
+    var cr = D.filter(function (d) { return d.tipo === 'c'; }), giuste = cr.filter(function (d) { return d.scelta === d.a; }).length;
+    var pc = Math.round(B.punti_crocette * giuste / cr.length), pa = D.filter(function (d) { return d.tipo === 'a'; }).reduce(function (s, d) { return s + (d.punti || 0); }, 0);
+    return { id: B.id, titolo: B.titolo, classe: B.classe, nome: NOME, quando: new Date().toLocaleString('it-IT'), minuti: Math.round((Date.now() - T0) / 60000),
+      giuste: giuste, su: cr.length, punti_crocette: pc, max_crocette: B.punti_crocette, max_aperte: pa, voto_min: Math.max(B.voto_min || 40, pc), voto_max: Math.min(100, pc + pa),
+      crocette: cr.map(function (d) { return { q: d.q, data: d.scelta >= 0 ? d.o[d.scelta] : '(nessuna)', giusta: d.o[d.a], ok: d.scelta === d.a, spiega: d.spiega }; }),
+      aperte: D.filter(function (d) { return d.tipo === 'a'; }).map(function (d) { return { q: d.q.replace(/<[^>]+>/g, ''), testo: d.testo, parole: parole(d.testo), tasti: d.tasti, scrittura_sec: Math.round(d.ms_scrittura / 1000), salti: d.salti, salto_max: d.salto_max, punti: d.punti }; }),
+      antiplagio: { uscite_consentite: LOG.uscite_consentite, uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
+  }
+  function testoRisultato(R) {
+    var t = ['VERIFICA ' + R.id + ' · ' + R.classe, 'Allievo: ' + R.nome, 'Consegnata: ' + R.quando + ' · ' + R.minuti + ' minuti',
+      'Crocette: ' + R.giuste + '/' + R.su + ' = ' + R.punti_crocette + '/' + R.max_crocette + ' punti · voto tra ' + R.voto_min + ' e ' + R.voto_max,
+      'Antiplagio: uscite ' + R.antiplagio.uscite + ' (' + R.antiplagio.fuori_sec + ' s fuori) · per aprire il gioco ' + (R.antiplagio.uscite_consentite || 0) + ' · incolla tentati ' + R.antiplagio.incolla_tentati + ' · copia ' + R.antiplagio.copia_tentati + ' · tasto destro ' + R.antiplagio.tasto_destro + ' · uscito dallo schermo intero ' + R.antiplagio.schermo_intero_uscito, ''];
+    R.crocette.forEach(function (c, i) { t.push('C' + (i + 1) + ' ' + (c.ok ? 'GIUSTA' : 'SBAGLIATA') + ' · ' + c.q.replace(/<[^>]+>/g, '') + ' → ' + c.data); });
+    R.aperte.forEach(function (a, i) { t.push('', 'A' + (i + 1) + ' (' + a.punti + ' punti) · ' + a.q, 'parole ' + a.parole + ' · tasti ' + a.tasti + ' · scrittura ' + a.scrittura_sec + ' s · inserimenti sospetti ' + a.salti + ' (max ' + a.salto_max + ' caratteri)', a.testo || '(vuota)'); });
+    return t.join('\n');
+  }
+  function mostraEsito(R) {
+    $('inizio').hidden = true; $('prova').hidden = true; var el = $('esito'); el.hidden = false;
+    var h = '<div class="card"><div class="mu">' + e(R.nome) + ' · consegnata il ' + e(R.quando) + '</div><p>Crocette giuste: <b>' + R.giuste + ' su ' + R.su + '</b> = ' + R.punti_crocette + ' punti su ' + R.max_crocette + '.</p>' +
+      '<p>Le risposte scritte valgono fino a ' + R.max_aperte + ' punti: le corregge il prof.</p><div class="mu">Il tuo voto sarà tra</div><div class="voto">' + R.voto_min + ' e ' + R.voto_max + '</div></div>';
+    h += '<div class="card"><b>1. Manda la verifica al prof</b><ol><li>Clicca il bottone verde qui sotto: il risultato viene copiato e si apre il Modulo «Consegna».</li>' +
+      '<li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
+      '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p></div>';
+    h += '<div class="card"><b>2. Controlla come sei andato</b>';
+    R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + c.q + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + c.spiega + '</div>' : '') + '</div>'; });
+    R.aperte.forEach(function (a, i) { h += '<div class="card attesa"><b>Scritta ' + (i + 1) + '. ' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · fino a ' + a.punti + ' punti · la corregge il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
+    el.innerHTML = h + '</div>';
+    var txt = testoRisultato(R), M = B.modulo || 'https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform';
+    $('manda').onclick = function () {
+      var apri = function () { window.open(M, '_blank'); };
+      function fallback() { var t = document.createElement('textarea'); t.value = txt; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); } catch (x) {} t.remove(); }
+      (navigator.clipboard ? navigator.clipboard.writeText(txt).catch(fallback) : Promise.resolve(fallback())).then(function () {
+        $('copiato').textContent = 'Risultato copiato. Ora nel Modulo: «testo», poi Ctrl+V nel riquadro grande, poi Invia.'; apri(); });
+    };
+  }
+
+  function anteprima() {
+    var h = '<div class="avviso">Anteprima per il prof: tutte le domande, con la risposta giusta in verde. I ragazzi le vedono in ordine diverso.</div>';
+    B.crocette.forEach(function (q, i) { if (typeof q === 'function') q = q(rng(1)); h += '<div class="card"><b>' + (i + 1) + '. ' + q.q + '</b><ol>' + q.o.map(function (o, k) { return '<li' + (k === q.a ? ' style="color:var(--verde);font-weight:800"' : '') + '>' + e(o) + '</li>'; }).join('') + '</ol>' + (q.spiega ? '<div class="mu">' + q.spiega + '</div>' : '') + '</div>'; });
+    B.aperte.forEach(function (q, i) { if (typeof q === 'function') q = q(rng(7)); h += '<div class="card attesa"><b>Scritta ' + (i + 1) + ' (' + q.punti + ' punti, almeno ' + (q.min_parole || 20) + ' parole). ' + q.q + '</b><div class="mu">' + (q.aiuto || '') + '</div>' + (q.criteri ? '<p><b>Come la correggo:</b> ' + q.criteri + '</p>' : '') + '</div>'; });
+    $('esito').hidden = false; $('esito').innerHTML = h;
+  }
+})();
+</script></body></html>
