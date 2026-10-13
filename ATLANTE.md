@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.2** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.3** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -122,7 +122,8 @@
 
 ## 14 Registro delle versioni
 
-1. **v1.2 (13/10/2026):** nelle zone niente nomi di prodotti di altre aziende; nasce «Il parco del corso», la versione con la sola mappa per la comunicazione.
+1. **v1.3 (13/10/2026):** pagina leggibile anche sul telefono; in alto il numero dell'edizione (vedi `comunicazione-marketing/EDIZIONI.md`).
+2. **v1.2 (13/10/2026):** nelle zone niente nomi di prodotti di altre aziende; nasce «Il parco del corso», la versione con la sola mappa per la comunicazione.
 2. **v1.1 (13/10/2026):** tolto il nome della scuola: l'Atlante porta il nome «Il laboratorio di informatica secondo le idee di Nicola Regge».
 2. **v1.0 (13/10/2026):** mappa illustrata e cliccabile del corso, «come un parco»; Atlante riscritto con tutto quello che è nato dal 06/10 (giornata di lezione, i sei bottoni, gioco e versioni, verifica, progetti di stage, automazione, comunicazione); pagina HTML e PDF con i link cliccabili.
 2. **v0.5 (06/10/2026):** Valutazione complessiva della classe e comando `VALUTAZIONE COMPLESSIVA classe`.

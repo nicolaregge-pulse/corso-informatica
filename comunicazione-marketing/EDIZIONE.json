@@ -1,0 +1,115 @@
+{
+ "edizione": "1.0",
+ "data": "13/10/2026",
+ "nota": "Un'edizione è l'insieme delle parti qui sotto, ognuna con la sua versione. Se cambia anche una sola parte, si sale di edizione (1.0 -> 1.1). Si controlla con: python3 strumenti/controlla_edizione.py",
+ "parti": [
+  {
+   "id": "atlante",
+   "nome": "Atlante del corso (interno, con la mappa)",
+   "versione": "1.3",
+   "pubblica": false,
+   "fonte": [
+    "ATLANTE.md",
+    "md"
+   ],
+   "file": [
+    "docs/atlante-k4x9w2/index.html",
+    "20261013_Atlante_Docente_v{v}.pdf"
+   ]
+  },
+  {
+   "id": "parco",
+   "nome": "Il parco del corso (mappa per l'esterno)",
+   "versione": "1.0",
+   "pubblica": true,
+   "fonte": [
+    "strumenti/gen_atlante.py",
+    "VERS_PARCO"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/parco/index.html",
+    "docs/cm-qma7yay4q5/pdf/20261013_Il-Parco-del-Corso_v{v}.pdf"
+   ]
+  },
+  {
+   "id": "pagina",
+   "nome": "Il laboratorio raccontato (pagina con le schede)",
+   "versione": "1.0",
+   "pubblica": true,
+   "fonte": [
+    "docs/cm-qma7yay4q5/index.html",
+    "meta"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/index.html"
+   ]
+  },
+  {
+   "id": "racconto",
+   "nome": "Racconto «Cinque giorni da azienda» (con la voce)",
+   "versione": "1.0",
+   "pubblica": true,
+   "fonte": [
+    "docs/cm-qma7yay4q5/racconto/index.html",
+    "meta"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/racconto/index.html",
+    "docs/cm-qma7yay4q5/racconto/img/*"
+   ]
+  },
+  {
+   "id": "brochure",
+   "nome": "Brochure del metodo",
+   "versione": "1.4",
+   "pubblica": true,
+   "fonte": [
+    "presentazione-demo/gen_brochure.py",
+    "VER"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/pdf/20261013_Brochure-Scuola-Azienda-Software_v{v}.pdf"
+   ]
+  },
+  {
+   "id": "presentazione",
+   "nome": "Presentazione di una lezione vera",
+   "versione": "1.2",
+   "pubblica": true,
+   "fonte": [
+    "presentazione-demo/gen_presentazione.py",
+    "VER"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/pdf/20261013_Demo-Lezione-2INF_Presentazione_v{v}.pdf"
+   ]
+  },
+  {
+   "id": "treno",
+   "nome": "Il progetto del treno, 9-13 ottobre",
+   "versione": "1.2",
+   "pubblica": true,
+   "fonte": [
+    "presentazione-demo/progetto-treno-09-13-ottobre.md",
+    "md"
+   ],
+   "file": [
+    "docs/cm-qma7yay4q5/pdf/20261013_Progetto-Treno-9-13-ottobre_v{v}.pdf"
+   ]
+  },
+  {
+   "id": "indice",
+   "nome": "Indice della comunicazione (interno)",
+   "versione": "0.5",
+   "pubblica": false,
+   "fonte": [
+    "comunicazione-marketing/README.md",
+    "md"
+   ],
+   "file": [
+    "comunicazione-marketing/README.md"
+   ]
+  }
+ ],
+ "impronta": "63d129690e"
+}
