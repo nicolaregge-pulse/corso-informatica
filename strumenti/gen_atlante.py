@@ -4,11 +4,12 @@ Fonte del testo: ATLANTE.md (la versione si legge da lì). Le zone della mappa e
 Uscite: docs/<CARTELLA>/index.html (pagina raggiungibile solo con il link, noindex) e <data>_Atlante_Docente_vX.Y.pdf
 nella radice, con i link cliccabili anche nel PDF.
 Uso: python3 strumenti/gen_atlante.py"""
-import html, os, random, re, subprocess
+import html, json, os, random, re, subprocess
 import markdown
 
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARTELLA = "atlante-k4x9w2"
+VERS_PARCO = "1.0"   # «Il parco del corso», la versione pubblica con la sola mappa
 BASE = "https://nicolaregge-pulse.github.io/corso-informatica/"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 e = html.escape
@@ -148,6 +149,7 @@ def schede():
 
 def main():
     md = open(os.path.join(QUI, "ATLANTE.md"), encoding="utf-8").read()
+    edz = json.load(open(os.path.join(QUI, "comunicazione-marketing", "EDIZIONE.json"), encoding="utf-8"))["edizione"]
     vers = re.search(r"\*\*Versione (\d+\.\d+)\*\*", md).group(1)
     md = re.sub(r"(?m)^   (?=\d+\. )", "    ", md)          # sottoliste a 3 spazi -> 4 (python-markdown)
     corpo = markdown.markdown(md.split("\n", 1)[1], extensions=["tables"])
@@ -163,13 +165,13 @@ h1{font-size:clamp(30px,4.5vw,46px);margin:4px 0}h2{font-size:24px;margin-top:34
 .mu{color:var(--mu)}.schede{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:22px}
 .sc{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px 16px;break-inside:avoid}.sc h3{margin:0 0 4px}.sc p{margin:0 0 8px;font-size:15px}.sc ol{margin:0;padding-left:20px;font-size:15px}
 table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--card)}
-.sotto{font-size:15px}
+.sotto{font-size:15px}code{overflow-wrap:anywhere}@media (max-width:600px){table{display:block;overflow-x:auto;max-width:100%}}
 @media print{body{font-size:12px;background:#fff;color:#111}.w{padding:0;max-width:none}.mappa{box-shadow:none;width:auto;height:150mm;margin:0 auto}h1{font-size:26px}h2{font-size:17px}.sc{padding:8px 10px}.schede{gap:8px}@page{size:A4 landscape;margin:12mm}}"""
     pagina = f"""<!DOCTYPE html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="versione" content="{vers}">
 <title>Atlante del corso</title><meta name="description" content="La mappa illustrata e cliccabile del corso di informatica e l'Atlante: che cosa c'è, dove sta, come si lavora.">
 <style>{css}</style></head><body><div class="w">
-<div class="mu">Il laboratorio di informatica secondo le idee di Nicola Regge · Area Docente · versione {vers}</div>
+<div class="mu">Il laboratorio di informatica secondo le idee di Nicola Regge · Area Docente · versione {vers} · edizione {edz}</div>
 <h1>Atlante del corso</h1>
 <p class="mu sotto">Clicca una zona del parco per andarci. Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.</p>
 {mappa()}
@@ -179,12 +181,13 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
 </div></body></html>"""
     scrivi(pagina, os.path.join(QUI, "docs", CARTELLA), os.path.join(QUI, f"20261013_Atlante_Docente_v{vers}.pdf"))
     # la versione per la comunicazione: la mappa e le zone, niente testo interno, niente cruscotti né pagine del docente
-    pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso").replace(
+    pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso · versione " + VERS_PARCO).replace(
         "Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.", "Sotto la mappa trovi le stesse zone, con i loro link.")
     pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
     pubbl = pubbl.replace('href="' + u("docenti/") + '"', 'href="#"').replace("<ol></ol>", '<ol><li class="mu">Gli strumenti del docente sono riservati.</li></ol>')
+    pubbl = pubbl.replace('<meta name="versione" content="' + vers + '">', '<meta name="versione" content="' + VERS_PARCO + '">')
     pubbl = pubbl.replace("<title>Atlante del corso</title>", "<title>Il parco del corso</title>").replace("<h1>Atlante del corso</h1>", "<h1>Il parco del corso</h1>")
-    scrivi(pubbl, os.path.join(QUI, "docs", "cm-qma7yay4q5", "parco"), os.path.join(QUI, "docs", "cm-qma7yay4q5", "pdf", "20261013_Il-Parco-del-Corso_v1.0.pdf"))
+    scrivi(pubbl, os.path.join(QUI, "docs", "cm-qma7yay4q5", "parco"), os.path.join(QUI, "docs", "cm-qma7yay4q5", "pdf", f"20261013_Il-Parco-del-Corso_v{VERS_PARCO}.pdf"))
 
 def scrivi(pagina, out, pdf):
     os.makedirs(out, exist_ok=True)

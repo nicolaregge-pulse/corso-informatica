@@ -1,6 +1,6 @@
 # Comunicazione e marketing
 
-**Versione 0.4** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 0.5** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 La parte del corso che raccoglie i materiali per chi sta fuori dall'aula: possibili acquirenti e altre scuole, genitori, ragazzi, e chi non capisce niente di informatica. Nasce il 13/10/2026, dopo il racconto «Cinque giorni da azienda».
 
@@ -44,6 +44,11 @@ https://nicolaregge-pulse.github.io/corso-informatica/cm-qma7yay4q5/
 Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista dall'alto in stile cartoon colorato come le mappe illustrate dei grandi parchi divertimenti, formato orizzontale. Un trenino rosso gira tutto intorno al parco su un binario. Al centro un laghetto e una grande stazione ferroviaria rossa chiamata "Stazione del Treno blindato". Intorno, collegate da vialetti color sabbia e alberi: tre quartieri di casette colorate chiamati "Quartiere 1INF" (arancione), "Quartiere 2INF" (blu), "Quartiere 3INF" (verde); una torre viola "Torre del Grafo" con rami e pallini luminosi come un albero di versioni; una torre rosa "Torre delle Verifiche"; un'officina blu petrolio con ingranaggi "Laboratorio dello Stage"; una sala di controllo grigia con schermi "Sala di controllo"; una sala giochi viola con joystick "Sala giochi"; una biblioteca verde con un libro aperto "Biblioteca"; una cassaforte scura con un lucchetto dorato "Cassaforte". In basso al centro un grande arco d'ingresso arancione con la scritta "Il laboratorio raccontato". Ragazzi sorridenti di diverse origini camminano nei vialetti. Scritte in italiano grandi e leggibili, colori caldi, atmosfera allegra.
 ```
 
+## 02c Edizioni
+
+1. L'insieme dei materiali si numera per edizioni: ogni parte ha la sua versione, l'edizione dice quali versioni stanno insieme. Regole e registro in `EDIZIONI.md`; controllo con `strumenti/controlla_edizione.py`.
+2. Edizione in corso: **1.0** (13/10/2026).
+
 ## 03 Regole
 
 1. **Niente nomi dei ragazzi**, mai: nei testi, nelle schermate (si tagliano le righe con i nomi), nei PDF. Si controlla con l'elenco della classe prima di pubblicare.
@@ -56,7 +61,8 @@ Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista d
 
 ## 04 Registro delle versioni
 
-1. **v0.4 (13/10/2026):** niente marchi di altri e niente immagini non nostre: brochure v1.4, presentazione v1.2, progetto treno v1.2, racconto con un'immagine del gioco disegnato da noi, «Il parco del corso» al posto dell'Atlante completo, guida per i docenti tolta dalla pagina.
+1. **v0.5 (13/10/2026):** le edizioni (`EDIZIONI.md`, `EDIZIONE.json`, controllo automatico); audit completo: link, pagine sul telefono, voce del racconto, PDF, nomi e marchi.
+2. **v0.4 (13/10/2026):** niente marchi di altri e niente immagini non nostre: brochure v1.4, presentazione v1.2, progetto treno v1.2, racconto con un'immagine del gioco disegnato da noi, «Il parco del corso» al posto dell'Atlante completo, guida per i docenti tolta dalla pagina.
 2. **v0.3 (13/10/2026):** tolto ogni riferimento alla scuola: i materiali portano il nome «Il laboratorio di informatica secondo le idee di Nicola Regge» (serve un'autorizzazione per usare il nome della scuola).
 2. **v0.2 (13/10/2026):** aggiunti il parco del corso (mappa cliccabile + Atlante v1.0) nella pagina pubblica e il testo per far disegnare la mappa a Gemini.
 2. **v0.1 (13/10/2026):** prima versione: impianto, pagina pubblica non collegata, inventario di sei contenuti, regole.
