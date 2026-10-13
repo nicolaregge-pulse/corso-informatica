@@ -238,7 +238,10 @@ svg text{fill:var(--fg)}
       [].forEach.call($('pallini').children, function (b) { b.onclick = function () { mostra(+b.dataset.i); }; });
       $('prec').onclick = function () { if (cur > 0) mostra(cur - 1); }; $('succ').onclick = function () { if (cur < D.length - 1) mostra(cur + 1); };
       $('fine').onclick = function () { consegna(modo); };
-      mostra(da); setInterval(salvaProva, 2000); setInterval(function () { if (!finita) $('tempo').innerHTML = STATO.scadenza ? orologioConsegna() : 'tempo: ' + mmss((Date.now() - T0) / 1000); }, 1000);
+      mostra(da); setInterval(salvaProva, 2000);
+      // promemoria automatico della consegna: negli ultimi 5 minuti, sempre visibile
+      setInterval(function () { if (finita || !STATO.scadenza || $('promemoria')) return; if (new Date(STATO.scadenza) - Date.now() < 300000) { var pm = document.createElement('div'); pm.id = 'promemoria'; pm.className = 'avviso'; pm.style.cssText = 'border:3px solid var(--verde);font-size:18px;margin:10px 0'; pm.innerHTML = '<b>Mancano 5 minuti. Per consegnare:</b><ol><li>clicca il bottone verde <b>Consegna</b>;</li><li>clicca il bottone verde <b>«Copia il risultato e apri il Modulo»</b>;</li><li>nel Modulo scegli <b>testo</b>, premi <b>Ctrl+V</b> nel riquadro grande, poi <b>Invia</b>.</li></ol>'; APP.insertBefore(pm, APP.firstChild); } }, 5000);
+      setInterval(function () { if (!finita) $('tempo').innerHTML = STATO.scadenza ? orologioConsegna() : 'tempo: ' + mmss((Date.now() - T0) / 1000); }, 1000);
     };
   }
   /* antiplagio */
