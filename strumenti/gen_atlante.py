@@ -150,7 +150,7 @@ DOCUMENTI = [   # i documenti del prof: si aprono su GitHub (il PDF si legge imp
    ("Inventario degli strumenti e dell'automazione", "20261007_Inventario-Strumenti-e-Automazione_Docente_v1.0.pdf")]),
  ("Migliorare", [("Revisione e retrospettiva (Agile)", "20261013_Agile-Cerimonie_Docente_v1.2.pdf"), ("Le retrospettive, come storia", "RETROSPETTIVE.md"),
    ("Il registro degli errori di Claude", "REGISTRO-ERRORI-CLAUDE.md"), ("Le prove che il metodo funziona", "PROVE-METODO.md")]),
- ("Comunicazione", [("Comunicazione e marketing", "comunicazione-marketing/20261013_Comunicazione-Marketing_v0.5.pdf"), ("Le edizioni e come si controllano", "comunicazione-marketing/20261013_Edizioni-Comunicazione_v1.0.pdf"),
+ ("Comunicazione", [("Comunicazione e marketing", "comunicazione-marketing/README.md"), ("Le edizioni e come si controllano", "comunicazione-marketing/EDIZIONI.md"),
    ("Questo Atlante in PDF", "20261013_Atlante_Docente_v{vers}.pdf")]),
 ]
 
