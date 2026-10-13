@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.37** — 13/10/2026
+**Versione 2.38** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 13/10/2026 — «Su Veyon non serve fare più niente», ed era falso (#63)
+
+1. **Errore.** Ho scritto al docente che con Veyon non c'era più niente da fare e che bastava accettare l'invito, senza aver controllato che il ragazzo lo avesse aggiunto come collaboratore. L'invito non esisteva: il passo andava fatto ancora sul computer del ragazzo.
+2. **Regola.** Prima di dire «fatto» o «non serve più» si controlla la prova (qui: la voce «Settings» visibile al docente, o la pagina dell'invito). Se non si può controllare, si dice qual è il prossimo passo e dove si fa, senza dare per scontato quello prima.
 
 ## 13/10/2026 — Istruzioni di consegna incomprensibili (#62)
 
