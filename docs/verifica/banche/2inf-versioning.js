@@ -17,6 +17,7 @@
   var GIOCA = "https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-blindato/versioni/";
   // Pull Request ricevute ogni quarto d'ora il 12/10 (dal backlog della giornata)
   var QUARTI = [["12:15", 3], ["12:30", 4], ["12:45", 22], ["13:00", 49], ["13:15", 23], ["13:30", 21], ["13:45", 7]];
+  function S(n, q) { q.scheda = n; return q; }
   function C(area, q, o, spiega, tema) { return { tipo: "c", area: area, tema: tema || "", q: q, o: o, a: 0, spiega: spiega }; }
 
   window.BANCA = {
@@ -45,15 +46,21 @@
       { titolo: "4. Il nostro sistema, pezzo per pezzo", testo: "1) Su <b>Google Classroom</b> c'è un solo compito con un link fisso. 2) La PR la mandi dal <b>Modulo «Consegna»</b> (Google Moduli). 3) Uno <b>script</b> (un piccolo programma di Google, Apps Script) ogni minuto porta le consegne nel <b>repository</b> del corso su <b>GitHub</b>. 4) <b>Claude</b>, l'intelligenza artificiale che lavora con il prof, legge la PR, le dà un peso nel backlog, <b>scrive il codice</b> della modifica, la prova nel browser e pubblica la versione nuova. 5) <b>GitHub Pages</b> mette il gioco e le pagine (backlog, voti, monitor, novità) sul sito, e si aggiornano da sole. 6) Il prof decide: sì o no alla PR, e il voto." },
       { titolo: "5. Chi fa cosa", testo: "<b>Tu</b> hai l'idea e la scrivi bene. <b>Il prof</b> decide cosa entra e dà il voto. <b>Claude</b> scrive il codice e lo prova. <b>GitHub</b> tiene tutte le versioni, così se una modifica rompe il gioco si torna indietro. Da oggi il treno passa su <b>Godot</b>: è un cambio major, e ogni classe avrà il suo <b>ramo</b> che parte dalla base del prof." }
     ],
+    via: C("sistema", "Per cominciare: come si chiama il gioco della 2INF?", ["Il treno blindato", "Super Mario", "Tetris"], "Esatto! Ed è cresciuto di 20 versioni in tre ore, grazie alle vostre richieste."),
+    prepara: [
+      { q: "Lunedì: racconta una tua richiesta, con parole diverse da quelle che hai scritto, e perché l'hai fatta.", aiuto: "Guarda le tue richieste qui sopra per ricordartele.", min: 15 },
+      { q: "Una cosa che ti è piaciuta del progetto o del gioco, e una che non ti è piaciuta. Perché?", min: 15 },
+      { q: "Una cosa che hai imparato su di te: sul lavorare in squadra, sullo sbagliare e riprovare, sul fare le cose per bene.", min: 15 }
+    ],
     allenamento: [
-      C("nozioni", "Da v0.30 a v0.31 il cambio è…", ["piccolo (minor)", "grande (major)"], "Cambia il numero dopo il punto: passo piccolo."),
-      C("nozioni", "Ogni salvataggio in Git si chiama…", ["commit", "fork", "merge"], "Commit = salvataggio con una descrizione."),
-      C("nozioni", "La 3INF ha copiato il nostro treno per lavorarci senza toccare il nostro: è un…", ["fork", "merge", "changelog"], "Fork = copia del progetto."),
-      C("sistema", "Chi porta la tua PR dal Modulo a GitHub?", ["uno script, da solo, ogni minuto", "il prof, a mano", "Classroom"], "Lo script (Apps Script) gira ogni minuto."),
-      C("sistema", "Chi scrive il codice delle modifiche al treno?", ["Claude, l'intelligenza artificiale che lavora con il prof", "i ragazzi, in Lazarus", "GitHub, da solo"], "Claude scrive e prova il codice; il prof decide."),
-      C("sistema", "Perché nel gioco il cattivo colpito cade a terra e non c'è sangue?", ["è una regola della scuola: chi scrive il codice la rispetta", "perché il sangue non si può programmare"], "Le scelte del codice seguono le regole di chi decide."),
-      C("sistema", "A cosa serve GitHub Pages?", ["a mettere il gioco e le pagine sul sito, per tutti", "a scrivere le Pull Request", "a dare i voti"], "Pages pubblica il sito che vedi."),
-      C("nozioni", "Quale PR passa prima nel backlog?", ["binari gialli (peso 1)", "una regola nuova (peso 8)"], "Prima le più leggere.")
+      S(1, C("nozioni", "Da v0.30 a v0.31 il cambio è…", ["piccolo (minor)", "grande (major)"], "Cambia il numero dopo il punto: passo piccolo.")),
+      S(2, C("nozioni", "Ogni salvataggio in Git si chiama…", ["commit", "fork", "merge"], "Commit = salvataggio con una descrizione.")),
+      S(2, C("nozioni", "La 3INF ha copiato il nostro treno per lavorarci senza toccare il nostro: è un…", ["fork", "merge", "changelog"], "Fork = copia del progetto.")),
+      S(4, C("sistema", "Chi porta la tua PR dal Modulo a GitHub?", ["uno script, da solo, ogni minuto", "il prof, a mano", "Classroom"], "Lo script (Apps Script) gira ogni minuto.")),
+      S(5, C("sistema", "Chi scrive il codice delle modifiche al treno?", ["Claude, l'intelligenza artificiale che lavora con il prof", "i ragazzi, in Lazarus", "GitHub, da solo"], "Claude scrive e prova il codice; il prof decide.")),
+      S(5, C("sistema", "Perché nel gioco il cattivo colpito cade a terra e non c'è sangue?", ["è una regola della scuola: chi scrive il codice la rispetta", "perché il sangue non si può programmare"], "Le scelte del codice seguono le regole di chi decide.")),
+      S(4, C("sistema", "A cosa serve GitHub Pages?", ["a mettere il gioco e le pagine sul sito, per tutti", "a scrivere le Pull Request", "a dare i voti"], "Pages pubblica il sito che vedi.")),
+      S(3, C("nozioni", "Quale PR passa prima nel backlog?", ["binari gialli (peso 1)", "una regola nuova (peso 8)"], "Prima le più leggere."))
     ],
 
     /* ---------- VERIFICA ---------- */
@@ -83,7 +90,7 @@
       { area: "sistema", tema: "sistema", q: "Spiega con parole tue il viaggio della tua Pull Request: dal Modulo fino alla versione nuova del gioco. Chi fa cosa (Modulo, script, GitHub, Claude, prof)? Chi scrive il codice, e perché a volte fa una scelta invece di un'altra?", aiuto: "Almeno 40 parole. Per le scelte puoi pensare all'ordine del backlog o alle regole della scuola.", min_parole: 40,
         criteri: "nomina i pezzi in ordine (Modulo, script, GitHub, Claude, prof, sito); dice chi decide e chi scrive il codice; spiega almeno una scelta (ordine del backlog, regole della scuola); parole sue." },
       { area: "personale", tema: "progetto", mostra_pr: true, q: "Il progetto: com'è stato per te lavorare come in un'azienda di software? Racconta un momento preciso di lunedì (una tua richiesta, quando l'hai vista nel gioco o respinta, i voti pubblici, la classifica). Cosa ti è piaciuto e cosa no?",
-        aiuto: "Almeno 50 parole. Solo parole tue: qui non c'è una risposta giusta, c'è la tua esperienza.", min_parole: 50,
+        aiuto: "Almeno 50 parole. Le tue richieste qui sopra servono solo per ricordare: non ricopiarle, racconta. Solo parole tue: qui non c'è una risposta giusta, c'è la tua esperienza.", min_parole: 50,
         criteri: "momento preciso e vero; cosa gli è piaciuto e cosa no, con il perché; parole sue." },
       { area: "personale", tema: "gioco", q: "Il gioco: cosa ti piace del treno e cosa cambieresti? Se fosse tuo, che cosa aggiungeresti per primo, e perché?",
         aiuto: "Almeno 40 parole. Pensa a quando ci hai giocato tu.", min_parole: 40,
