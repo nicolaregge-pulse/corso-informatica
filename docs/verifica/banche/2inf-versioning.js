@@ -87,7 +87,7 @@
     scale: [
       { area: "personale", q: "Quanto ti è piaciuto lavorare così, con le Pull Request, il backlog e le versioni?", basso: "per niente", alto: "moltissimo" },
       { area: "personale", q: "Quanto ti piace il gioco del treno, com'è adesso?", basso: "per niente", alto: "moltissimo" },
-      { area: "parere", q: "Quanto ti è piaciuto fare la verifica così?", basso: "per niente", alto: "moltissimo", ultima: true }
+      { area: "parere", q: "Quanto ti è piaciuto fare la verifica così, con il ripasso, il tuo andamento e le domande personali?", basso: "per niente", alto: "moltissimo", ultima: true }
     ],
     aperte: [
       { area: "sistema", tema: "sistema", q: "Spiega con parole tue il viaggio della tua Pull Request: dal Modulo fino alla versione nuova del gioco. Chi fa cosa (Modulo, script, GitHub, Claude, prof)? Chi scrive il codice, e perché a volte fa una scelta invece di un'altra?", aiuto: "Almeno 40 parole. Per le scelte puoi pensare all'ordine del backlog o alle regole della scuola.", min_parole: 40,
@@ -102,7 +102,10 @@
         aiuto: "Almeno 50 parole. Scrivi come parleresti a un amico.", min_parole: 50,
         criteri: "riflessione personale sincera; almeno un esempio vissuto; parole sue." }
     ,
-      { area: "parere", tema: "parere", q: "Cosa ne pensi di questa verifica? Cosa ti è piaciuto, cosa cambieresti?", aiuto: "Non conta per il voto: serve al prof per migliorarla. Anche poche parole.", min_parole: 5 }
+      { area: "parere", tema: "retro-piu", q: "Retrospettiva 1 di 4 · <b>Di più</b>: cosa dovremmo fare di più, nelle lezioni e nel gioco?", aiuto: "È la <b>retrospettiva</b> del metodo Agile: alla fine di ogni giro di lavoro la squadra dice cosa fare di più, di meno, cosa cominciare e cosa smettere. Non conta per il voto: serve al prof per migliorare.", min_parole: 3 },
+      { area: "parere", tema: "retro-meno", q: "Retrospettiva 2 di 4 · <b>Di meno</b>: cosa dovremmo fare di meno?", aiuto: "Anche poche parole, ma sincere.", min_parole: 3 },
+      { area: "parere", tema: "retro-inizia", q: "Retrospettiva 3 di 4 · <b>Cominciare</b>: che cosa non facciamo ancora e dovremmo cominciare a fare? Un consiglio, una cosa da aggiungere.", aiuto: "Un'idea tua.", min_parole: 3 },
+      { area: "parere", tema: "retro-smetti", q: "Retrospettiva 4 di 4 · <b>Smettere</b>: che cosa dovremmo smettere di fare, o non fare più?", aiuto: "Anche poche parole.", min_parole: 3 }
     ],
 
     /* ---------- RECUPERO: domande nuove sugli stessi temi ---------- */
