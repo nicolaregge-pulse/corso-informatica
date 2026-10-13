@@ -41,7 +41,9 @@ for p in E["parti"]:
         if f.endswith("(MANCA)"): problemi.append(f"{p['nome']}: manca il file {f[:-8]}")
 
 # 2. link dalle pagine
+GH = "https://github.com/nicolaregge-pulse/corso-informatica/blob/main/"
 def locale(h, da):
+    if h.startswith(GH): return h[len(GH):]          # documenti del prof: il file deve esistere nel repository
     if h.startswith(BASE): loc = "docs/" + h[len(BASE):]
     elif h.startswith(("http", "mailto:")): return None
     else: loc = os.path.normpath(os.path.join(os.path.dirname(da), h))
