@@ -30,43 +30,72 @@ ol{padding-left:26px}li{margin:0 0 14px}
 <p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
 <div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-voti/" target="_blank" rel="noopener">I voti<small>العلامات · 分数</small></a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener">Il backlog<small>قائمة الاقتراحات · 建议列表</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small>مراقبة الدرس · 课堂监控</small></a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-novita/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco<small>ما الجديد في اللعبة · 游戏里的新变化</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-top/" target="_blank" rel="noopener">La classifica<small>الترتيب · 排行榜</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-valutazione/" target="_blank" rel="noopener">Valutazione dei singoli (solo prof)<small>تقييم كل طالب (للأستاذ) · 个人评价（老师）</small></a></div>
 
-<h2>Passo 1 · Gioca</h2>
-<p class="it">Gioca 3 minuti al treno della 1INF.</p><p class="ar">العب 3 دقائق بقطار صف 1INF.</p><p class="zh">玩3分钟 1INF 班的火车游戏。</p>
-<a class="bot" href="../../giochi/treno-1inf-fork/" target="_blank" rel="noopener">Gioca il treno</a>
-<p class="it">Si apre in una scheda nuova. Quando hai finito, chiudila e torni qui.</p><p class="ar">يفتح في صفحة جديدة. عندما تنتهي، أغلقها وارجع إلى هنا.</p><p class="zh">会在新的标签页打开。玩完后关掉它，回到这里。</p>
-
-<h2>Passo 2 · Il fork: una copia per la classe</h2>
-<p class="it">Il prof ha fatto una <b>copia</b> del vostro treno. Una copia di un progetto si chiama <b>fork</b>.</p><p class="ar">صنع الأستاذ <b>نسخة</b> من قطاركم. نسخة المشروع تسمى <b>fork</b>.</p><p class="zh">老师复制了你们的火车游戏。一个项目的<b>副本</b>叫做 <b>fork</b>。</p>
-<div class="fork"><span>Treno v2.1.3</span>→<span style="border-color:#e8590c">fork della 1INF</span></div>
-<p class="it">Il gioco originale resta al sicuro. Sulla copia provate le vostre idee: se una cosa non va, l'originale non si rompe.</p><p class="ar">اللعبة الأصلية تبقى بأمان. على النسخة تجربون أفكاركم: إذا لم ينجح شيء، الأصل لا ينكسر.</p><p class="zh">原来的游戏是安全的。你们在副本上试你们的想法：如果有问题，原来的游戏也不会坏。</p>
-
-<h2>Passo 3 · La parte semplice: numeri e frasi</h2>
-<p class="it">Oggi si cambiano solo queste righe del gioco. Leggile.</p><p class="ar">اليوم نغيّر فقط هذه الأسطر من اللعبة. اقرأها.</p><p class="zh">今天只改游戏里的这几行。读一读。</p>
-<table><tr><th>Riga · السطر · 行</th><th>Adesso · الآن · 现在</th></tr>
-<tr><td>Colpi che il vetro regge prima di rompersi<div class="ar">عدد الضربات التي يتحملها الزجاج</div><div class="zh">玻璃被打碎前能挨几下</div></td><td>5</td></tr><tr><td>Velocità del treno<div class="ar">سرعة القطار</div><div class="zh">火车的速度</div></td><td>0.5</td></tr><tr><td>Secondi prima che il cattivo spari<div class="ar">الثواني قبل أن يطلق الشرير النار</div><div class="zh">坏人开枪前的秒数</div></td><td>3</td></tr><tr><td>Cattivi in ogni livello<div class="ar">عدد الأشرار في كل مستوى</div><div class="zh">每一关的坏人数量</div></td><td>10</td></tr><tr><td>Punti per ogni cattivo colpito<div class="ar">النقاط لكل شرير تصيبه</div><div class="zh">打中一个坏人得几分</div></td><td>100</td></tr><tr><td>La frase che dice il cattivo<div class="ar">الجملة التي يقولها الشرير</div><div class="zh">坏人说的话</div></td><td>Hahahahaha, perdente!</td></tr><tr><td>Le frasi quando vinci<div class="ar">الجمل عندما تفوز</div><div class="zh">你赢的时候出现的话</div></td><td>Grande! Hai portato il treno in salvo. · Che riflessi, macchinista! · I cattivi non ti fermano: riparti?</td></tr>
-</table>
-
-<h2>Passo 4 · La Pull Request</h2>
-<p class="it">Una <b>Pull Request</b> è una proposta: «cambia questa riga così».</p><p class="ar"><b>Pull Request</b> هو اقتراح: «غيّر هذا السطر هكذا».</p><p class="zh"><b>Pull Request</b> 就是一个建议：「把这一行改成这样」。</p>
-<p class="it">Il prof legge. <b>SÌ</b>: la tua idea entra nel gioco e nasce una versione nuova. <b>NO</b>: la puoi correggere e mandare di nuovo.</p><p class="ar">الأستاذ يقرأ. <b>نعم</b>: فكرتك تدخل اللعبة وتولد نسخة جديدة. <b>لا</b>: يمكنك تصحيحها وإرسالها من جديد.</p><p class="zh">老师会读。<b>是</b>：你的想法加入游戏，产生一个新版本。<b>不</b>：你可以修改后再发一次。</p>
-<p class="it" style="margin-top:12px">Una Pull Request ha 3 parti · لها 3 أجزاء · 它有3个部分</p>
-<table>
-<tr><td>1. La riga<div class="ar">1. السطر</div><div class="zh">1. 哪一行</div></td><td>Colpi che il vetro regge</td></tr>
-<tr><td>2. Il valore nuovo<div class="ar">2. القيمة الجديدة</div><div class="zh">2. 新的值</div></td><td>8</td></tr>
-<tr><td>3. Perché<div class="ar">3. لماذا</div><div class="zh">3. 为什么</div></td><td>Così la partita dura di più.<div class="ar">هكذا تدوم اللعبة أكثر.</div><div class="zh">这样游戏玩得更久。</div></td></tr>
-</table>
-<p class="t">Questo è un esempio. · هذا مثال. · 这是一个例子。</p>
-
-<h2>Passo 5 · Manda la tua Pull Request</h2>
+<h2>Il mio punto</h2>
 <ol>
-<li><div class="it">Premi il bottone verde: si apre il Modulo «Consegna».</div><div class="ar">اضغط الزر الأخضر: يفتح النموذج «Consegna» (التسليم).</div><div class="zh">按绿色按钮：会打开表格「Consegna」（提交）。</div>
-<a class="bot" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Scrivi la tua Pull Request</a></li>
-<li><div class="it">Nella <b>prima</b> casella scrivi esattamente così:</div><div class="ar">في الخانة الأولى اكتب هذه الكلمات بالحروف اللاتينية، تماماً هكذا:</div><div class="zh">在第一个格子里，用拉丁字母完全照这样写：</div>
-<p><code>pull request</code></p></li>
-<li><div class="it">Nella <b>seconda</b> casella scrivi le 3 parti: la riga, il valore nuovo, perché. Puoi scrivere nella tua lingua.</div><div class="ar">في الخانة الثانية اكتب الأجزاء الثلاثة: السطر، القيمة الجديدة، لماذا. يمكنك الكتابة بلغتك.</div><div class="zh">在第二个格子里写3个部分：哪一行、新的值、为什么。你可以用你的语言写。</div></li>
-<li><div class="it">In fondo al Modulo premi il bottone viola «Invia».</div><div class="ar">في أسفل النموذج اضغط الزر البنفسجي «Invia» (إرسال).</div><div class="zh">在表格最下面按紫色按钮「Invia」（发送）。</div></li>
-<li><div class="it">Hai un'altra idea? Premi di nuovo il bottone verde.</div><div class="ar">عندك فكرة أخرى؟ اضغط الزر الأخضر مرة أخرى.</div><div class="zh">还有别的想法？再按一次绿色按钮。</div></li>
+<li><div class="it">Scrivi la tua password.</div><div class="ar">اكتب كلمة السر الخاصة بك.</div><div class="zh">写你的密码。</div></li>
+<li><div class="it">Premi «Apri».</div><div class="ar">اضغط «Apri» (افتح).</div><div class="zh">按「Apri」（打开）。</div></li>
 </ol>
-<div class="nota"><p class="it">Quando la tua idea entra nel gioco, la vedi in «Cosa è cambiato oggi nel gioco», il bottone giallo in alto.</p><p class="ar">عندما تدخل فكرتك اللعبة، تراها في «ما الجديد في اللعبة»، الزر الأصفر في الأعلى.</p><p class="zh">当你的想法加入游戏时，你可以在上面黄色的按钮「游戏里的新变化」里看到。</p></div>
+<p><input id="pwm" type="password" placeholder="password" style="font:inherit;padding:6px 10px;border:1px solid var(--bd);border-radius:6px"> <button onclick="apriMio()" style="font:inherit;padding:6px 14px">Apri</button></p>
+<div id="mioout"></div>
+
+<h2>Passo 1 · Gioca</h2>
+<ol>
+<li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div></li>
+<li><a class="bot" href="../../giochi/treno-1inf-fork/" target="_blank" rel="noopener">Gioca il treno</a></li>
+<li><div class="it">Gioca 3 minuti.</div><div class="ar">العب 3 دقائق.</div><div class="zh">玩3分钟。</div></li>
+<li><div class="it">Chiudi la scheda del gioco.</div><div class="ar">أغلق صفحة اللعبة.</div><div class="zh">关掉游戏的标签页。</div></li>
+</ol>
+
+<h2>Passo 2 · Il fork</h2>
+<ol>
+<li><div class="it">Il prof ha copiato il vostro treno.</div><div class="ar">الأستاذ نسخ قطاركم.</div><div class="zh">老师复制了你们的火车游戏。</div></li>
+<li><div class="it">La copia si chiama <b>fork</b>.</div><div class="ar">النسخة تسمى <b>fork</b>.</div><div class="zh">副本叫做 <b>fork</b>。</div></li>
+<li><div class="it">Il treno vero resta al sicuro.</div><div class="ar">القطار الأصلي يبقى بأمان.</div><div class="zh">原来的火车是安全的。</div></li>
+</ol>
+<div class="fork"><span>Treno v2.1.3</span>→<span style="border-color:#e8590c">fork 1INF</span></div>
+
+<h2>Passo 3 · Scegli una riga</h2>
+<ol>
+<li><div class="it">Leggi la tabella.</div><div class="ar">اقرأ الجدول.</div><div class="zh">读这个表格。</div></li>
+<li><div class="it">Scegli <b>una</b> riga da cambiare.</div><div class="ar">اختر سطراً <b>واحداً</b> لتغييره.</div><div class="zh">选<b>一</b>行来改。</div></li>
+</ol>
+<table><tr><th>Riga · السطر · 行</th><th>Adesso · الآن · 现在</th></tr><tr><td>Colpi che il vetro regge<div class="ar">عدد الضربات التي يتحملها الزجاج</div><div class="zh">玻璃能挨几下</div></td><td>5</td></tr><tr><td>Velocità del treno<div class="ar">سرعة القطار</div><div class="zh">火车的速度</div></td><td>0.5</td></tr><tr><td>Secondi prima che il cattivo spari<div class="ar">الثواني قبل أن يطلق الشرير النار</div><div class="zh">坏人开枪前的秒数</div></td><td>3</td></tr><tr><td>Cattivi in ogni livello<div class="ar">عدد الأشرار في كل مستوى</div><div class="zh">每一关的坏人数量</div></td><td>10</td></tr><tr><td>Punti per ogni cattivo<div class="ar">النقاط لكل شرير</div><div class="zh">每个坏人的分数</div></td><td>100</td></tr><tr><td>Frase del cattivo<div class="ar">جملة الشرير</div><div class="zh">坏人说的话</div></td><td>Hahahahaha, perdente!</td></tr><tr><td>Frase quando vinci<div class="ar">جملة عندما تفوز</div><div class="zh">你赢的时候的话</div></td><td>Grande! Hai portato il treno in salvo.</td></tr></table>
+
+<h2>Passo 4 · Pensa la tua Pull Request</h2>
+<ol>
+<li><div class="it">Pensa il valore nuovo.</div><div class="ar">فكّر في القيمة الجديدة.</div><div class="zh">想一个新的值。</div></li>
+<li><div class="it">Pensa perché.</div><div class="ar">فكّر لماذا.</div><div class="zh">想一想为什么。</div></li>
+</ol>
+<p class="t">Esempio · مثال · 例子</p>
+<table>
+<tr><td>Riga<div class="ar">السطر</div><div class="zh">行</div></td><td>Colpi che il vetro regge</td></tr>
+<tr><td>Valore nuovo<div class="ar">القيمة الجديدة</div><div class="zh">新的值</div></td><td>8</td></tr>
+<tr><td>Perché<div class="ar">لماذا</div><div class="zh">为什么</div></td><td>Così il gioco dura di più.<div class="ar">هكذا تدوم اللعبة أكثر.</div><div class="zh">这样游戏更久。</div></td></tr>
+</table>
+<p class="t">Una Pull Request è una proposta. Il prof dice SÌ o NO. · Pull Request هو اقتراح. الأستاذ يقول نعم أو لا. · Pull Request 就是一个建议。老师说是或不。</p>
+
+<h2>Passo 5 · Manda</h2>
+<ol>
+<li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div></li>
+<li><a class="bot" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Scrivi la tua Pull Request</a></li>
+<li><div class="it">Nella prima casella scrivi:</div><div class="ar">في الخانة الأولى اكتب بالحروف اللاتينية:</div><div class="zh">在第一个格子里用拉丁字母写：</div></li>
+<li style="list-style:none"><code>pull request</code></li>
+<li><div class="it">Nella seconda casella scrivi: la riga, il valore nuovo, perché.</div><div class="ar">في الخانة الثانية اكتب: السطر، القيمة الجديدة، لماذا.</div><div class="zh">在第二个格子里写：哪一行、新的值、为什么。</div></li>
+<li><div class="it">Puoi scrivere nella tua lingua.</div><div class="ar">يمكنك الكتابة بلغتك.</div><div class="zh">你可以用你的语言写。</div></li>
+<li><div class="it">Premi il bottone viola «Invia».</div><div class="ar">اضغط الزر البنفسجي «Invia» (إرسال).</div><div class="zh">按紫色按钮「Invia」（发送）。</div></li>
+</ol>
+<div class="nota"><p class="it">Fatto! La tua idea arriva al prof.</p><p class="ar">تم! فكرتك تصل إلى الأستاذ.</p><p class="zh">完成！你的想法会送到老师那里。</p></div>
+<p class="t">Hai un'altra idea? Torna al Passo 5. · عندك فكرة أخرى؟ ارجع إلى الخطوة 5. · 还有别的想法？回到第5步。</p>
+<script>
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+async function apri(x,pw){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(x.salt),iterations:x.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ return new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(x.iv)},k,b64(x.ct)))}
+async function apriMio(){var pw=document.getElementById('pwm').value.trim(),o=document.getElementById('mioout');o.textContent='Controllo…';
+ try{var P=await fetch('personali.json?v='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()});
+ for(var i=0;i<P.length;i++){try{var t=JSON.parse(new TextDecoder().decode(await apri(P[i],pw)));o.innerHTML='<div class="nota">'+t.map(function(x){return '<p>'+e(x)+'</p>'}).join('')+'</div>';return}catch(x){}}}catch(x){}
+ o.textContent='Oggi per te non c\'è un messaggio personale. · لا توجد رسالة لك اليوم. · 今天没有给你的消息。'}
+</script>
 </div></body>
 </html>
