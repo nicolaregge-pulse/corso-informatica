@@ -10,7 +10,7 @@ Come si numera l'insieme dei materiali (Atlante, mappa, racconto, PDF) e come si
 2. **L'edizione è la fotografia dell'insieme:** dice quali parti, e in quale versione, stanno insieme. Si scrive in `comunicazione-marketing/EDIZIONE.json`.
 3. **Se cambia anche una sola parte, si sale di edizione** (1.0, poi 1.1, poi 1.2). Un cambio grande dell'insieme (per esempio una parte nuova importante) fa salire il primo numero (2.0).
 4. **L'impronta** è un codice di 10 caratteri calcolato da tutti i file delle parti. Se un file cambia, cambia l'impronta. Così dal numero dell'edizione e dall'impronta si capisce se quello che c'è è proprio l'edizione controllata.
-5. **Su Git l'edizione ha un'etichetta** (`edizione-1.0`): si può sempre tornare a quella fotografia esatta.
+5. **Su Git l'edizione è legata a un commit** (scritto nel registro del capitolo 03): si può sempre tornare a quella fotografia esatta. Le etichette (tag) Git da qui non si possono pubblicare.
 
 ## 01 Come si legge
 
@@ -37,7 +37,7 @@ python3 strumenti/controlla_edizione.py --browser
 
 | Edizione | Data | Composizione | Impronta |
 |---|---|---|---|
-| 1.0 | 13/10/2026 | Atlante 1.3 · Il parco del corso 1.0 · Pagina «Il laboratorio raccontato» 1.0 · Racconto 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.5 | 63d129690e |
+| 1.0 | 13/10/2026 · commit bd2a58004f | Atlante 1.3 · Il parco del corso 1.0 · Pagina «Il laboratorio raccontato» 1.0 · Racconto 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.5 | 63d129690e |
 
 ## 04 Come si fa un'edizione nuova
 
@@ -48,7 +48,7 @@ python3 strumenti/controlla_edizione.py --browser
 ```
 python3 strumenti/controlla_edizione.py --browser --fissa
 ```
-5. Si aggiunge una riga al registro del capitolo 03 e si mette l'etichetta su Git (`edizione-X.Y`).
+5. Si aggiunge una riga al registro del capitolo 03 e si scrive nel registro il commit dell'edizione.
 
 ## 05 Registro delle versioni di questo documento
 
