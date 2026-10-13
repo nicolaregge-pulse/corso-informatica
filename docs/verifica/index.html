@@ -61,6 +61,16 @@ svg text{fill:var(--fg)}
 
   var B, STATO = {}, BACK = [], NOME = '', D = [], cur = 0, T0 = 0, finita = false, permesso = false, fuoriDa = 0;
   var LOG = { uscite_consentite: 0, uscite: 0, fuori_sec: 0, incolla: 0, copia: 0, tasto_destro: 0, schermo_intero_uscito: 0 };
+  var CONF = {}, KS = function (m) { return 'inviata-' + B.id + '-' + m; };
+  // CONSEGNA CON UN CLIC (13/10/2026): il risultato va da solo all'applicazione web dello script, che lo salva su Git
+  function inviaAlProf(R) {
+    if (!CONF.invio) return false;
+    var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
+    var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(R); f.appendChild(i);
+    document.body.appendChild(f); f.submit(); f.remove();
+    metti(KS(R.modo), { ora: new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) });
+    return true;
+  }
   var KN = function () { return 'nome-' + B.id; }, KR = function (m) { return 'esito-' + B.id + '-' + m; }, KI = function (m) { return 'incorso-' + B.id + '-' + m; }, MODOP = '';
   function salvaProva() { if (MODOP && !finita && D.length) metti(KI(MODOP), { D: D, T0: T0, cur: cur, LOG: LOG }); }
   window.addEventListener('beforeunload', function (ev) { if (MODOP && !finita && D.length) { salvaProva(); ev.preventDefault(); ev.returnValue = ''; } });
@@ -68,7 +78,7 @@ svg text{fill:var(--fg)}
   function carica() {
     document.title = B.titolo; $('titolo').textContent = B.titolo; $('sotto').textContent = B.sotto || '';
     NOME = prendi(KN()) || '';
-    var attese = [leggiStato()];
+    var attese = [leggiStato(), fetch('config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () { CONF = {}; })];
     if (B.backlog) attese.push(fetch(B.backlog + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { BACK = d.voci || []; }).catch(function () {}));
     attese.push(leggiRisultati());
     Promise.all(attese).then(function () { if (ANTE && B.anteprima && String(hash(CODICE)) !== String(B.anteprima)) { errore('Anteprima solo per il prof: codice sbagliato.'); return; } if (ANTE) return anteprima(); tappe(MODO); if (MODO === 'ripasso') ripasso(); else prova(MODO); mostraAndamento(); });
@@ -317,7 +327,7 @@ svg text{fill:var(--fg)}
       tempi: D.map(function (d, i) { return { n: i + 1, area: d.area, tema: d.tema || '', tipo: d.tipo, q: senzaTag(d.q).slice(0, 70), sec: d.sec || 0 }; }),
       problemi: D.map(function (d, i) { return { n: i + 1, q: senzaTag(d.q), testo: (d.problema || '').trim() }; }).filter(function (x) { return x.testo; }),
       antiplagio: { uscite: LOG.uscite, fuori_sec: Math.round(LOG.fuori_sec), uscite_per_il_gioco: LOG.uscite_consentite, incolla_tentati: LOG.incolla, copia_tentati: LOG.copia, tasto_destro: LOG.tasto_destro, schermo_intero_uscito: LOG.schermo_intero_uscito } };
-    metti(KR(modo), R); metti(KI(modo), null); esito(R, modo); tappe(modo); mostraAndamento();
+    metti(KR(modo), R); metti(KI(modo), null); try { inviaAlProf(R); } catch (x) {} esito(R, modo); tappe(modo); mostraAndamento();
   }
   function perArea(R) {
     var o = {}; R.crocette.forEach(function (c) { var a = o[c.area] = o[c.area] || { giuste: 0, su: 0 }; a.su++; if (c.ok) a.giuste++; }); return o;
@@ -344,7 +354,25 @@ svg text{fill:var(--fg)}
     R.aperte.forEach(function (a, i) { t.push('A' + (i + 1) + ' [' + a.tema + '] ' + a.parole + 'p tasti ' + a.tasti + ' scr ' + a.scrittura_sec + 's salti ' + a.salti + (a.ricopia_pr ? ' RICOPIA' : '') + ': ' + (a.testo || '(vuota)').slice(0, 900)); });
     return t.join('\n');
   }
+  function correzione(R) {
+    var h = '<div class="card"><b>Controlla come sei andato</b>';
+    R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
+    R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
+    return h + '</div>';
+  }
   function esito(R, modo) {
+    var inv = prendi(KS(modo));
+    if (CONF.invio) {
+      var mandaH = inv ? '<div class="card" style="border:4px solid var(--verde)"><h2 style="margin-top:0">Hai finito: la ' + modo + ' è arrivata al prof alle ' + e(inv.ora) + '</h2><p>Si è aperta una scheda con scritto <b>«Consegna arrivata al prof»</b>. Puoi chiuderla.</p><button class="bt g" id="manda">Mandala di nuovo</button></div>'
+        : '<div class="card" style="border:4px solid var(--rosso)"><h2 style="margin-top:0">Manca un clic: manda la ' + modo + ' al prof</h2><button class="bt v" id="manda" style="font-size:22px;padding:16px 28px">Manda al prof</button></div>';
+      var pa = perArea(R), h = mandaH + '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
+      Object.keys(pa).forEach(function (k) { h += '<li>' + e((B.aree[k] || {}).nome || k) + ': <b>' + pa[k].giuste + ' giuste su ' + pa[k].su + '</b></li>'; });
+      h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b>: lo trovi nella pagina dei risultati appena il prof ha corretto.</p>' + (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
+      h += correzione(R);
+      APP.innerHTML = h;
+      $('manda').onclick = function () { inviaAlProf(R); esito(R, modo); };
+      return;
+    }
     var mandaH = '<div class="card" style="border:4px solid var(--rosso)"><h2 style="margin-top:0">ULTIMO PASSO: manda il risultato al prof</h2><p><b>Non hai ancora finito: senza questo passo il prof non riceve niente.</b></p><ol><li>Clicca il bottone verde: il risultato viene copiato e si apre il Modulo «Consegna».</li><li>Nel Modulo, a «Cosa consegni?», scegli <b>testo</b>.</li><li>Clicca nel riquadro grande e premi <b>Ctrl+V</b>.</li><li>Premi <b>Invia</b>.</li></ol>' +
       '<button class="bt v" id="manda">Copia il risultato e apri il Modulo</button><div id="copiato" class="mu"></div><p class="mu">Senza questo passo il prof non riceve niente.</p><p><b>Se Ctrl+V nel Modulo non incolla niente:</b> clicca nel riquadro qui sotto, premi <b>Ctrl+A</b> e poi <b>Ctrl+C</b>, torna al Modulo e premi <b>Ctrl+V</b>.</p><textarea id="risTxt" readonly style="min-height:120px;font-size:13px"></textarea></div>';
     var pa = perArea(R), h = mandaH + '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
@@ -352,9 +380,7 @@ svg text{fill:var(--fg)}
     h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b> su tutte le risposte: lo trovi nella pagina dei risultati della classe appena il prof ha corretto.</p>' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
 
-    h += '<div class="card"><b>2. Controlla come sei andato</b>';
-    R.crocette.forEach(function (c, i) { h += '<div class="card ' + (c.ok ? 'ok' : 'ko') + '"><b>' + (i + 1) + '. ' + e(c.q) + '</b><br>La tua risposta: ' + e(c.data) + (c.ok ? ' · <b style="color:var(--verde)">giusta</b>' : '<br>Quella giusta: <b>' + e(c.giusta) + '</b>') + (c.spiega ? '<div class="mu">' + e(c.spiega) + '</div>' : '') + '</div>'; });
-    R.aperte.forEach(function (a) { h += '<div class="card attesa"><b>' + e(a.q) + '</b><div class="mu">' + a.parole + ' parole · la valuta il prof</div><p>' + e(a.testo || '(vuota)').replace(/\n/g, '<br>') + '</p></div>'; });
+    h += correzione(R).replace(/<\/div>$/, '');
     h += '</div><div class="card" style="border:3px solid var(--verde)"><b>Quando hai mandato il risultato con il bottone verde in alto, hai finito.</b> Non devi rifare niente: né la teoria né la verifica. Se riapri questa pagina, ritrovi qui il tuo risultato.</div>';
     APP.innerHTML = h;
     var txt = testo(R), M = B.modulo; $('risTxt').value = txt; $('risTxt').onclick = function () { this.select(); };
