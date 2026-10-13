@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.33** — 13/10/2026
+**Versione 2.34** — 13/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -425,3 +425,10 @@ bumpa la versione del doc.*
 2. Il nome è **«Chiedi aiuto all'assistente del Prof Regge»**, nelle lingue della classe. Mai «Scrivi a Claude».
 3. Funziona con **un solo bottone**: il ragazzo scrive, preme «Manda», la risposta compare sotto, nella stessa pagina. Niente «copia, apri, incolla».
 4. Serve la consegna diretta dello script (applicazione web v7.4, i 13 passi una tantum del docente in `VERIFICA-COME-SI-FA.md` capitolo 06). Finché non c'è, la casella non si mette: una casella fragile fa più danno che niente (REGISTRO-ERRORI #61, #62).
+
+### 2.54 Comunicazione e marketing (13/10/2026)
+
+1. Parte nuova del corso: i materiali per chi sta fuori dall'aula (scuole e aziende, genitori, ragazzi, chi non capisce di informatica), in tre forme: PDF, percorsi guidati con la voce, demo vere. Indice in `comunicazione-marketing/README.md`.
+2. Una pagina pubblica raggiungibile solo con il link, non collegata da nessuna parte e con `noindex`: `docs/cm-qma7yay4q5/`.
+3. Niente nomi dei ragazzi; parole semplici; il «test della mamma» (92 anni): un solo bottone, scritte grandi, voce e testo sotto.
+4. Ogni giornata importante produce il suo pezzo di comunicazione.
