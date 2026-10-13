@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.43** — 13/10/2026
+**Versione 2.44** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -352,6 +352,11 @@ lezione.*
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
 
+## 13/10/2026 — Nomi dei ragazzi della 4TI nelle pagine dei progetti (#69)
+
+1. **Errore.** Nel cruscotto dei progetti di stage, nei diari e nelle chat archiviate dei due progetti ho scritto il nome dei ragazzi. Sono maggiorenni, ma il docente: «toglierei i nomi, metti solo le iniziali».
+2. **Regola.** Anche per i maggiorenni, nelle pagine e nei file che scrivo si usano solo le iniziali (C.D.L., G.A.). Restano solo i nomi degli account GitHub dentro gli indirizzi, che non si possono cambiare.
+
 ## 13/10/2026 — Due strade per consegnare, e ne leggevo una sola (#68)
 
 1. **Errore.** Il compito della 1INF su Classroom e la pagina davano due strade: il Documento di Classroom, come i ragazzi fanno sempre, e il Modulo «Consegna». Io leggevo solo il Modulo, e solo ogni 5 minuti. I Documenti scritti nel proprio Drive e non consegnati non li posso leggere. Molti ragazzi hanno lavorato e risultavano «senza Pull Request»; il docente ha dovuto spiegare a voce un'altra procedura.
@@ -364,17 +369,17 @@ lezione.*
 
 ## 13/10/2026 — Codice da incollare: il ragazzo l'ha fatto funzionare ma non sa spiegarlo (#66)
 
-1. **Errore.** Per la Tappa 7 (il vento) ho dato a Chase quattro blocchi di codice da copiare e incollare, con il numero di riga. Il codice funzionava, ma alle tre domande del docente («che cosa fa la funzione», «perché vento=None», «chi fa la lettura automatica») non ha saputo rispondere.
+1. **Errore.** Per la Tappa 7 (il vento) ho dato a C.D.L. quattro blocchi di codice da copiare e incollare, con il numero di riga. Il codice funzionava, ma alle tre domande del docente («che cosa fa la funzione», «perché vento=None», «chi fa la lettura automatica») non ha saputo rispondere.
 2. **Regola.** Con il codice, prima capire e poi scrivere: si mostrano poche righe, il ragazzo le confronta, prevede che cosa succede e risponde con parole sue; i blocchi da incollare solo dopo che sa dire a cosa servono. È la prova del nove del corso: se non lo sa spiegare, la tappa non è fatta.
 
 ## 13/10/2026 — Al ragazzo cinque passi in un messaggio (#65)
 
-1. **Errore.** Nella chat del progetto ho dato a Chase un blocco di cinque passi (Actions, abilita, Automa meteo, Run workflow, aspetta). Il ragazzo leggeva e non sapeva se e cosa rispondere. Il docente: «devi essere tu a fargli domande semplici, un passo per volta e una cosa per volta».
+1. **Errore.** Nella chat del progetto ho dato a C.D.L. un blocco di cinque passi (Actions, abilita, Automa meteo, Run workflow, aspetta). Il ragazzo leggeva e non sapeva se e cosa rispondere. Il docente: «devi essere tu a fargli domande semplici, un passo per volta e una cosa per volta».
 2. **Regola.** Con i ragazzi, nella chat: un messaggio = un'azione + una domanda chiusa a cui rispondere con una parola («sì», «verde», «rosso»). Il passo dopo arriva solo dopo la sua risposta.
 
 ## 13/10/2026 — Il ragazzo ha scritto «fatto» e non gli ho risposto (#64)
 
-1. **Errore.** Ho chiesto a Chase di unire la Pull Request e di scrivere «fatto». Unendola, la Pull Request si è chiusa e i suoi commenti non mi arrivavano più: il ragazzo ha scritto e non ha avuto risposta finché il docente non me l'ha detto.
+1. **Errore.** Ho chiesto a C.D.L. di unire la Pull Request e di scrivere «fatto». Unendola, la Pull Request si è chiusa e i suoi commenti non mi arrivavano più: il ragazzo ha scritto e non ha avuto risposta finché il docente non me l'ha detto.
 2. **Regola.** Mai chiedere una risposta nella stessa pagina che quel passo chiude. Il canale della chat è una Pull Request che resta aperta («Chat del progetto»); prima di chiedere un merge, la chat nuova deve già esistere ed essere seguita.
 
 ## 13/10/2026 — «Su Veyon non serve fare più niente», ed era falso (#63)
