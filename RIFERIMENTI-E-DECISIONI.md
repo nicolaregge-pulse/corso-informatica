@@ -414,4 +414,6 @@ bumpa la versione del doc.*
 
 1. La filosofia del docente: **dare ai ragazzi gli strumenti per autoregolarsi**. La leva non è il voto, è l'autodeterminazione: le cose che li aiutano a regolarsi da soli stanno nelle loro mani.
 2. Ogni percorso, compito o verifica pubblica **sempre** i bottoni per regolarsi: il monitor della lezione, il proprio andamento, i risultati (e, nelle lezioni con le PR, backlog, novità, classifica).
-3. Il docente ha in più il suo **cruscotto**, cifrato con la password dell'area docente, che gli fa capire la situazione della classe a colpo d'occhio (prima: `docs/2inf-cruscotto/`, generatore riservato `generatori/cruscotto_2inf.py`).
+3. Il docente ha in più il suo **cruscotto**, cifrato con la password dell'area docente, che gli fa capire la situazione della classe a colpo d'occhio (prima: `docs/2inf-cruscotto/`, generatore riservato `generatori/cruscotto_2inf.py`). Il cruscotto dice quanti hanno finito, chi, e che cosa stanno facendo (dal monitor), per decidere.
+4. **Quando si apre la verifica:** quando più della metà ha finito il ripasso e la classe comincia a parlare (13/10/2026, 2INF: 13 su 20 alle 09:08, aperta alle 09:11).
+5. Queste regole valgono **sempre**, per tutte le classi.
