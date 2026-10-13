@@ -1,6 +1,6 @@
 # Il progetto del treno, da venerdì a oggi
 
-**Versione 1.0** — 13/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
+**Versione 1.1** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge.
 
 Che cosa hanno fatto la prima, la seconda e la terza (1INF, 2INF, 3INF) con il gioco «Il treno blindato», da venerdì 9 a martedì 13 ottobre 2026. In classe si lavora come in un'azienda di software: i ragazzi chiedono le modifiche, l'intelligenza artificiale (Claude) scrive il codice, il prof decide, Git tiene tutte le versioni.
 
@@ -39,7 +39,7 @@ Che cosa hanno fatto la prima, la seconda e la terza (1INF, 2INF, 3INF) con il g
 ## 04 E la 4INF
 
 1. Lo stesso modo di lavorare vale per i progetti di stage: un deposito su GitHub per ogni progetto, le modifiche come Pull Request, la pagina della Pull Request come chat tra ragazzo, prof e Claude, un diario che cresce tappa dopo tappa.
-2. Il primo progetto (un automa che legge la temperatura vera di Milano, la salva e la mostra in una pagina web) è partito il 13/10 e in un'ora ha fatto la sua prima lettura automatica.
+2. Il primo progetto (un automa che legge la temperatura vera della città, la salva e la mostra in una pagina web) è partito il 13/10 e in un'ora ha fatto la sua prima lettura automatica.
 
 ## 05 Dove si vede
 

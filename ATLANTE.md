@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.0** — 13/10/2026 · Laboratorio di Informatica, prof. Nicola Regge, Piamarta Milano. Area Docente.
+**Versione 1.1** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -72,7 +72,7 @@
 
 ## 08 L'automazione
 
-1. **Lo script «Consegne Classroom → Git»** (account PIAMARTA) gira ogni 5 minuti: pubblica i compiti della coda, raccoglie le consegne, esegue i comandi del ponte.
+1. **Lo script «Consegne Classroom → Git»** (account di lavoro del docente) gira ogni 5 minuti: pubblica i compiti della coda, raccoglie le consegne, esegue i comandi del ponte.
 2. **Coda** (`coda/` nel riservato): un file per compito, con stato «da-pubblicare».
 3. **Ponte** (`comandi/` nel riservato): Moduli, Documenti, Drive, Fogli, letture delle risposte.
 4. **Da attivare:** l'applicazione web dello script (13 passi una tantum) per la consegna con un clic e la casella «Chiedi aiuto all'assistente del Prof Regge».
@@ -122,7 +122,8 @@
 
 ## 14 Registro delle versioni
 
-1. **v1.0 (13/10/2026):** mappa illustrata e cliccabile del corso, «come un parco»; Atlante riscritto con tutto quello che è nato dal 06/10 (giornata di lezione, i sei bottoni, gioco e versioni, verifica, progetti di stage, automazione, comunicazione); pagina HTML e PDF con i link cliccabili.
+1. **v1.1 (13/10/2026):** tolto il nome della scuola: l'Atlante porta il nome «Il laboratorio di informatica secondo le idee di Nicola Regge».
+2. **v1.0 (13/10/2026):** mappa illustrata e cliccabile del corso, «come un parco»; Atlante riscritto con tutto quello che è nato dal 06/10 (giornata di lezione, i sei bottoni, gioco e versioni, verifica, progetti di stage, automazione, comunicazione); pagina HTML e PDF con i link cliccabili.
 2. **v0.5 (06/10/2026):** Valutazione complessiva della classe e comando `VALUTAZIONE COMPLESSIVA classe`.
 3. **v0.4 (01/10/2026):** `CHIUDI classe` con il monitoraggio.
 4. **v0.3 (30/09/2026):** capitolo «se voglio X, dico Y».

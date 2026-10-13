@@ -7,8 +7,8 @@ Uso:  python3 presentazione-demo/gen_brochure.py
 import html, os, subprocess
 
 QUI = os.path.dirname(os.path.abspath(__file__))
-VER = "1.2"
-DATA = "20261012"
+VER = "1.3"
+DATA = "20261013"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 DEMO = "https://script.google.com/macros/s/AKfycbyhkWr44IWarPFRvcyP0Ku1pI-XbFaeBVJA4I0iEITq_4U4XvD5rqiPci77-p2FLory/exec"
 GIOCO = "https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-blindato/"
@@ -133,7 +133,7 @@ a.bot{display:block;text-align:center;color:#fff;text-decoration:none;font-weigh
                   "<h1>Una scuola che lavora come un'azienda di software</h1><p class=sub>Il laboratorio che trasforma la classe in un team di sviluppo: "
                   "i ragazzi propongono modifiche, il gioco della classe cresce versione dopo versione, il voto si vede subito.</p></div>"
                   '<div class="img"><img src="schermate/08-gioco-copertina.png"></div><div class="bots"><a class="bot b" href="%s">▶ Prova il sistema come un allievo</a><a class="bot v" href="%s">▶ Gioca al gioco della classe</a></div>'
-                  '<div class="piede">Istituto professionale · Milano · ottobre 2026</div></div>' % (E(DEMO), E(GIOCO)))
+                  '<div class="piede">Il laboratorio di informatica secondo le idee di Nicola Regge · ottobre 2026</div></div>' % (E(DEMO), E(GIOCO)))
     pagine.append('<div class="p"><p class="kick">01 Il problema</p><h2>I ragazzi non mollano perché non capiscono. Mollano per non sbagliare davanti a tutti.</h2><div class="grid2">%s</div>'
                   '<p class="kick" style="margin-top:9mm">02 La soluzione</p><h2>Qui provarci conviene, e non fa male.</h2><div class="grid2">%s</div><div class="pn">2</div></div>' % (
                       "".join('<div class="box"><h3>%s</h3>%s</div>' % (E(a), E(b)) for a, b in PROBLEMA),

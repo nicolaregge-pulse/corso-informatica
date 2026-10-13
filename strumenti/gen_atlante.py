@@ -169,7 +169,7 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
 <title>Atlante del corso</title><meta name="description" content="La mappa illustrata e cliccabile del corso di informatica e l'Atlante: che cosa c'è, dove sta, come si lavora.">
 <style>{css}</style></head><body><div class="w">
-<div class="mu">Laboratorio di Informatica · Piamarta Milano · Area Docente · versione {vers}</div>
+<div class="mu">Il laboratorio di informatica secondo le idee di Nicola Regge · Area Docente · versione {vers}</div>
 <h1>Atlante del corso</h1>
 <p class="mu sotto">Clicca una zona del parco per andarci. Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.</p>
 {mappa()}
