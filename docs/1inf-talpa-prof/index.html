@@ -20,6 +20,7 @@ button,a.b{font:inherit;font-weight:700;background:#1f6feb;color:#fff;border:0;b
 <div id="aperta" hidden>
 <p class="mu" id="agg"></p>
 <ol class="mu"><li>«Copia la foto», poi in Gemini (scegli «Immagini») premi Ctrl+V.</li><li>«Copia la richiesta», poi in Gemini premi Ctrl+V e Invio.</li><li>In Gemini: tasto destro sul personaggio, «Copia immagine». Qui clicca il riquadro viola della richiesta e premi Ctrl+V (oppure scegli il file salvato).</li><li>Premi «Metti nel gioco».</li></ol>
+<button class="verde" id="abb">Copia gli abbinamenti foto → nome (poi incollali in chat a Claude)</button> <span id="abbes" class="mu"></span>
 <div id="lista"></div>
 </div></div>
 <script>
@@ -73,6 +74,8 @@ async function carica(pw) { var X = await (await fetch('dati.json?t=' + Date.now
   R = d.richieste; CL = d.classe || []; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
   $('agg').textContent = R.length + ' richieste · ultimo controllo ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
 async function prova() { var pw = $('pw').value; try { await carica(pw); PW = pw; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} } catch (e) { $('err').textContent = 'Password sbagliata.'; } }
+$('abb').onclick = function () { var t = R.filter(function (q) { return q.id.indexOf('prof-') === 0 && chi[q.id]; }).map(function (q) { return q.id.slice(5) + ' = ' + chi[q.id]; }).join('\n');
+  if (!t) { $('abbes').textContent = 'Prima scegli i nomi nei menu «Chi è?».'; return; } navigator.clipboard.writeText('ABBINAMENTI TALPA 1INF\n' + t).then(function () { $('abbes').textContent = 'Copiati: incollali in chat.'; }); };
 $('ok').onclick = prova; $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') prova(); });
 if (PW) carica(PW).catch(function () { PW = null; });
 setInterval(function () { if (PW) carica(PW).catch(function () {}); }, 60000);
