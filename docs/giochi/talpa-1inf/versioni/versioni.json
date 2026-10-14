@@ -717,5 +717,98 @@
   ],
   "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
   "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.9 → v1.10)."
+ },
+ {
+  "versione": "v1.11",
+  "nome": "Cambia il personaggio di Matteo A.",
+  "data": "14/10/2026",
+  "ora": "09:38",
+  "ramo": "modifica-matteo-a-2",
+  "pr": "PR 11",
+  "autore": "Matteo A.",
+  "entrati": [],
+  "cambiati": [
+   {
+    "chi": "Matteo A.",
+    "prima": "talpe/t08.jpg",
+    "dopo": "talpe/t08_2.jpg",
+    "descrizione": "lo voglio con una faccia buffa e a tema Dragon Ball, perché mi piace Dragon Ball"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   }
+  ],
+  "riassunto": {
+   "it": "Il personaggio di Matteo A. cambia: «lo voglio con una faccia buffa e a tema Dragon Ball, perché mi piace Dragon Ball». I personaggi nel gioco restano 11.",
+   "ar": "تتغيّر شخصية Matteo A.. عدد الشخصيات في اللعبة يبقى 11.",
+   "zh": "Matteo A. 的角色改变了。游戏里的角色还是 11 个。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla seconda Pull Request di Matteo A., arrivata alle 09:25. Non c'è una foto nuova: c'è una richiesta di modifica, scritta con le sue parole: «lo voglio con una faccia buffa e a tema Dragon Ball, perché mi piace Dragon Ball».",
+   "Per questa richiesta è stato aperto il ramo «modifica-matteo-a-2»: lì il personaggio è stato cambiato senza toccare il gioco di tutti.",
+   "Che cosa cambia nel gioco: il personaggio di Matteo A. adesso è disegnato in modo nuovo (prima: talpe/t08.jpg, adesso: talpe/t08_2.jpg). Gli altri personaggi non cambiano, e il numero dei personaggi resta 11.",
+   "Il controllo: la modifica rispetta la richiesta e nel buco si vede bene la testa. Poi il merge: il ramo «modifica-matteo-a-2» è stato unito al gioco della classe.",
+   "Che cosa è cambiato nei file: AGGIUNTA l'immagine talpe/t08_2.jpg; nell'elenco talpe/elenco.json la riga di Matteo A. adesso punta all'immagine nuova. L'immagine di prima resta nella cartella: le versioni vecchie si possono ancora giocare."
+  ],
+  "file": [
+   "aggiunto talpe/t08_2.jpg",
+   "cambiata la riga di Matteo A. in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti gli altri personaggi.",
+  "tipo": "Versione minor: si cambia un pezzo senza cambiare come funziona il gioco (v1.10 → v1.11)."
  }
 ]
