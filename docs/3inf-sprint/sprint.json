@@ -1,10 +1,50 @@
 {
- "aggiornato": "14/10/2026 12:10",
+ "aggiornato": "14/10/2026 12:39",
  "regola": "Ogni sprint dura 15 minuti. Nella pianificazione il prof prende dal backlog le richieste più leggere, fino a un peso totale di 8. Alla fine dello sprint esce una versione nuova.",
  "sprint": [
-  {"n": 1, "inizio": "12:45", "fine": "13:00", "stato": "in attesa", "versione": "", "richieste": [], "retrospettiva": ""},
-  {"n": 2, "inizio": "13:00", "fine": "13:15", "stato": "in attesa", "versione": "", "richieste": [], "retrospettiva": ""},
-  {"n": 3, "inizio": "13:15", "fine": "13:30", "stato": "in attesa", "versione": "", "richieste": [], "retrospettiva": ""},
-  {"n": 4, "inizio": "13:30", "fine": "13:45", "stato": "in attesa", "versione": "", "richieste": [], "retrospettiva": ""}
+  {
+   "n": 1,
+   "inizio": "12:45",
+   "fine": "13:00",
+   "stato": "in corso",
+   "versione": "v1.12",
+   "richieste": [
+    {
+     "alunno": "Alessandro A.",
+     "richiesta": "Il treno parte a 30 km/h e sale di 3 km/h a ogni livello (dalla sua revisione)",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.12"
+    }
+   ],
+   "retrospettiva": ""
+  },
+  {
+   "n": 2,
+   "inizio": "13:00",
+   "fine": "13:15",
+   "stato": "in attesa",
+   "versione": "",
+   "richieste": [],
+   "retrospettiva": ""
+  },
+  {
+   "n": 3,
+   "inizio": "13:15",
+   "fine": "13:30",
+   "stato": "in attesa",
+   "versione": "",
+   "richieste": [],
+   "retrospettiva": ""
+  },
+  {
+   "n": 4,
+   "inizio": "13:30",
+   "fine": "13:45",
+   "stato": "in attesa",
+   "versione": "",
+   "richieste": [],
+   "retrospettiva": ""
+  }
  ]
 }

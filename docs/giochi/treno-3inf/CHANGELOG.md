@@ -7,6 +7,11 @@
 
 
 
+
+## v1.12 — 14/10/2026 12:39 — Si parte a 30 km/h (sprint 1)
+
+1. Revisione di Alessandro A.: «il treno è troppo veloce: dovrebbe partire a 30 km/h e salire di 3 km/h a ogni livello». Fatto: velocità 0,5 (sul tachimetro 30 km/h) e a ogni livello il 10% in più, cioè 3 km/h. È nata dalla revisione: anche una revisione può diventare una Pull Request.
+
 ## v1.11 — 14/10/2026 12:37 — Il treno rallentato
 
 1. Richiesta del prof: il gioco era troppo veloce. Velocità di partenza 0,6 (prima 1,2) e a ogni livello solo il 6% in più (prima il 15%). La regola di Noah (lento all'inizio, poi più veloce) resta, ma più dolce.
