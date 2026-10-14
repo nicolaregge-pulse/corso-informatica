@@ -82,7 +82,7 @@ P.append(passo(12, "fw", "Aiuta il prof: come miglioreresti questa lezione?", "�
     "এই পথটি «পাঠের কাঠামো»-র অংশ: শিক্ষক প্রতিটি পাঠে যে নিয়ম ব্যবহার করেন। আপনারা প্রথম চেষ্টা করছেন। লিখুন কী কাজ করেছে, কী কঠিন বা অস্পষ্ট ছিল, এবং উন্নতির একটি ধারণা।") +
   modulo("fw", "framework", "Scrivi le tue note sul percorso.", "পথ সম্পর্কে আপনার মন্তব্য লিখুন।", "Ha funzionato: ...\nEra difficile: ...\nLa mia idea: ...")))
 BOTTONI = [("I voti", "নম্বর", "#238636", "3inf-voti/"), ("Il backlog", "অনুরোধের তালিকা", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "পাঠের মনিটর", "#6e40c9", "3inf-monitor/"),
-           ("Cosa è cambiato oggi nel gioco", "আজ গেমে কী বদলেছে", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "র‍্যাঙ্কিং", "#b8432a", "3inf-top/"), ("La situazione della classe", "ক্লাসের অবস্থা", "#30363d", "3inf-valutazione/")]
+           ("Cosa è cambiato oggi nel gioco", "আজ গেমে কী বদলেছে", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "র‍্যাঙ্কিং", "#b8432a", "3inf-top/"), ("La situazione della classe", "ক্লাসের অবস্থা", "#30363d", "3inf-valutazione/"), ("Il cruscotto", "ড্যাশবোর্ড", "#0b7285", "3inf-cruscotto/")]
 sei = '<p class="t" style="margin:10px 0 2px">Come sta andando la lezione · পাঠ কেমন চলছে</p><div>' + ''.join('<a class="bt" style="background:%s" href="%s%s" target="_blank" rel="noopener">%s<small style="display:block;font-weight:400;font-size:13px;opacity:.9">%s</small></a>' % (c, SITO, u, t, b) for t, b, c, u in BOTTONI) + '</div>'
 CSS = """:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
