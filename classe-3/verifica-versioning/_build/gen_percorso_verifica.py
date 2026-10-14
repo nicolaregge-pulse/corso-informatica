@@ -15,9 +15,9 @@ P = [passo(1, "nome", "Il tuo nome", "আপনার নাম", T("Scrivi nome
      passo(2, "rip", "Ripasso", "পুনরালোচনা", T("Si apre una finestra nuova: leggi le schede (versioni, Pull Request, merge, backlog, sprint, cerimonie Agile) e fai l'allenamento. Poi torna qui.",
        "নতুন উইন্ডো খুলবে: কার্ড পড়ুন (সংস্করণ, Pull Request, merge, backlog, স্প্রিন্ট, Agile) এবং অনুশীলন করুন। তারপর এখানে ফিরুন।") +
        '<a class="bot" id="bRip" href="%s" target="_blank" rel="noopener">Ripasso</a>' % V),
-     passo(3, "ver", "Verifica", "পরীক্ষা", T("La apre il prof. Si apre una finestra nuova. Alla fine premi il bottone verde in fondo alla verifica, poi torna qui: vedrai «Verifica fatta».",
-       "শিক্ষক এটি খুলবেন। শেষে পরীক্ষার নিচের সবুজ বোতাম চাপুন, তারপর এখানে ফিরুন।") +
-       '<a class="bot" id="bVer" href="%s&amp;modo=verifica" target="_blank" rel="noopener">Verifica</a>' % V),
+     passo(3, "ver", "Verifica", "পরীক্ষা", T("Premi il bottone: si apre la verifica. Una domanda per pagina: rispondi e premi «Avanti». Alla fine premi «Invia». Poi torna qui.",
+       "বোতাম চাপুন: পরীক্ষা খুলবে। প্রতি পাতায় একটি প্রশ্ন: উত্তর দিয়ে «Avanti» চাপুন। শেষে «Invia» চাপুন। তারপর এখানে ফিরুন।") +
+       '<a class="bot" id="bVer" href="https://docs.google.com/forms/d/e/1FAIpQLSchGpd-Ry8iniOyGfTks9Qhn4b5gnHG2C_nflJ1Ksw9u7mvOQ/viewform" target="_blank" rel="noopener">Verifica</a>'),
      passo(4, "val", "La tua valutazione", "আপনার মূল্যায়ন", '<div id="val" class="nota">' + T("Compare qui quando il prof ha corretto: il voto e perché.", "শিক্ষক দেখার পরে এখানে আসবে: নম্বর এবং কেন।") + '</div>'),
      passo(5, "rec", "Il tuo recupero", "আপনার পুনরুদ্ধার", '<div id="rec" class="nota">' + T("Il recupero è fatto apposta per te, sulle domande che hai sbagliato. Compare qui quando è pronto. Alla fine c'è il voto complessivo.",
        "পুনরুদ্ধার শুধু আপনার জন্য, আপনার ভুল প্রশ্নের উপর। প্রস্তুত হলে এখানে আসবে। শেষে মোট নম্বর।") + '</div>')]
