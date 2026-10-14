@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 12:59",
+ "aggiornato": "14/10/2026 13:00",
  "voci": [
   {
    "ora": "12/10 10:31",
@@ -50,18 +50,6 @@
    "pos": 4
   },
   {
-   "ora": "12/10 10:31",
-   "alunno": "Noah V.",
-   "pr": "PR1",
-   "richiesta": "PR1 Velocità del treno: più lento all'inizio, poi più veloce a ogni livello, così è più difficile e più bello.",
-   "file": true,
-   "peso": 2,
-   "motivo": "si cambiano due numeri nelle regole (velocità di partenza e aumento per livello)",
-   "fatto": "v1.5",
-   "no": "",
-   "pos": 5
-  },
-  {
    "ora": "12/10 10:33",
    "alunno": "Ariel D.",
    "pr": "PR2",
@@ -71,7 +59,7 @@
    "motivo": "si cambiano due numeri nel disegno delle rocce (grandezza e colore a caso)",
    "fatto": "v1.7",
    "no": "",
-   "pos": 6
+   "pos": 5
   },
   {
    "ora": "14/10 12:36",
@@ -83,7 +71,7 @@
    "motivo": "si cambiano due numeri nelle regole",
    "fatto": "v1.12",
    "no": "",
-   "pos": 7
+   "pos": 6
   },
   {
    "ora": "14/10 12:38",
@@ -95,43 +83,43 @@
    "motivo": "un difetto (bug): oggetti sopra i binari",
    "fatto": "v1.13",
    "no": "",
-   "pos": 8
+   "pos": 7
   },
   {
    "ora": "14/10 12:42",
    "alunno": "Andrea G.",
    "pr": "PR1",
-   "richiesta": "ANDREA GERVASONI — PR1: PR1: Velocità del treno\nCosa cambia? La velocità del treno diminuisce a 34 km/h\nDove? In tutto il gioco\nPerchè? Il treno va troppo veloce e non si riesce neanche a fare un punto",
+   "richiesta": "PR1: PR1: Velocità del treno\nCosa cambia? La velocità del treno diminuisce a 34 km/h\nDove? In tutto il gioco\nPerchè? Il treno va troppo veloce e non si riesce neanche a fare un punto",
    "file": false,
    "peso": 2,
    "motivo": "si cambia un numero: la velocità",
    "fatto": "v1.12 (fatta nello stesso minuto: il treno parte a 30 km/h)",
    "no": "",
-   "pos": 9
+   "pos": 8
   },
   {
    "ora": "14/10 12:42",
    "alunno": "Noah V.",
    "pr": "PR1",
-   "richiesta": "NOAH KHYM VALERIO — PR1: PR-1: Velocità del treno\nCosa cambia: La velocità del treno deve aumentare man mano che si avanza di livello. Vorrei che il livello 1 sia lenta e man mano si alza\nDove: In tutto il gioco\nPerchè: Perchè il treno già …",
+   "richiesta": "PR1: PR-1: Velocità del treno\nCosa cambia: La velocità del treno deve aumentare man mano che si avanza di livello. Vorrei che il livello 1 sia lenta e man mano si alza\nDove: In tutto il gioco\nPerchè: Perchè il treno già dal primo livello pa…",
    "file": false,
    "peso": 2,
    "motivo": "si cambiano due numeri: velocità e aumento per livello",
    "fatto": "v1.12 (parte lento e sale a ogni livello)",
    "no": "",
-   "pos": 10
+   "pos": 9
   },
   {
    "ora": "14/10 12:47",
    "alunno": "Noah V.",
    "pr": "PR2",
-   "richiesta": "NOAH KHYM VALERIO — PR2: PR-1: Spostamento degli oggetti\nCosa cambia: cambia il fatto che gli oggetti non saranno più in mezzo al binario.\nDove: in tutto il gioco\nPerchè: Perchè è brutto vedere che alcuni pezzi degli oggetti sono in mezzo a…",
+   "richiesta": "PR2: PR-1: Spostamento degli oggetti\nCosa cambia: cambia il fatto che gli oggetti non saranno più in mezzo al binario.\nDove: in tutto il gioco\nPerchè: Perchè è brutto vedere che alcuni pezzi degli oggetti sono in mezzo al binario e così è p…",
    "file": false,
    "peso": 2,
    "motivo": "si sposta un oggetto: una regola",
    "fatto": "v1.13 (era nella tua revisione: già nel gioco)",
    "no": "",
-   "pos": 11
+   "pos": 10
   },
   {
    "ora": "14/10 12:56",
@@ -143,7 +131,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 12
+   "pos": 11
   },
   {
    "ora": "12/10 10:26",
@@ -155,19 +143,7 @@
    "motivo": "un personaggio: si cambia la sua immagine",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 13
-  },
-  {
-   "ora": "12/10 10:27",
-   "alunno": "Andrea G.",
-   "pr": "PR1",
-   "richiesta": "PR1 Cielo grigio (nel file) e PR2 «immagine di qualche personaggio» senza l'immagine",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "v1.6 (la PR2 manca dell'immagine: rimandala)",
-   "no": "",
-   "pos": 14
+   "pos": 12
   },
   {
    "ora": "12/10 10:33",
@@ -179,7 +155,7 @@
    "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
    "fatto": "v1.8",
    "no": "",
-   "pos": 15
+   "pos": 13
   },
   {
    "ora": "12/10 10:34",
@@ -191,7 +167,7 @@
    "motivo": "un personaggio nuovo",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 16
+   "pos": 14
   },
   {
    "ora": "12/10 10:36",
@@ -203,43 +179,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.9",
    "no": "",
-   "pos": 17
-  },
-  {
-   "ora": "12/10 10:40",
-   "alunno": "Tomas L.",
-   "pr": "PR (senza numero)",
-   "richiesta": "Personaggi Tuta e Gatti, a metà percorso, da dietro palazzi e tombini",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "v1.10 (Tuta; i gatti restano da fare)",
-   "no": "",
-   "pos": 18
-  },
-  {
-   "ora": "12/10 10:40",
-   "alunno": "Dani S.",
-   "pr": "PR (senza numero)",
-   "richiesta": "La foto di un calciatore famoso come personaggio",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "foto di una persona vera: nel gioco pubblico non si mettono foto di persone (privacy e diritti). Rimanda la PR con un personaggio disegnato o descritto a parole.",
-   "pos": 19
-  },
-  {
-   "ora": "12/10 10:42",
-   "alunno": "Simone G.",
-   "pr": "PR (senza numero)",
-   "richiesta": "file",
-   "file": true,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 20
+   "pos": 15
   },
   {
    "ora": "12/10 10:49",
@@ -251,79 +191,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 21
-  },
-  {
-   "ora": "14/10 12:50",
-   "alunno": "Samuele U.",
-   "pr": "PR?",
-   "richiesta": "SAMUELE UCCHEDDU —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 22
-  },
-  {
-   "ora": "14/10 12:51",
-   "alunno": "Andrea G.",
-   "pr": "PR?",
-   "richiesta": "ANDREA GERVASONI —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 23
-  },
-  {
-   "ora": "14/10 12:51",
-   "alunno": "Andrea G.",
-   "pr": "PR2",
-   "richiesta": "",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 24
-  },
-  {
-   "ora": "14/10 12:51",
-   "alunno": "Samuele U.",
-   "pr": "PR?",
-   "richiesta": "SAMUELE UCCHEDDU —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 25
-  },
-  {
-   "ora": "14/10 12:53",
-   "alunno": "Gabriele R.",
-   "pr": "PR?",
-   "richiesta": "GABRIELE ROVITO —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 26
-  },
-  {
-   "ora": "14/10 12:56",
-   "alunno": "Alessandro A.",
-   "pr": "PR?",
-   "richiesta": "ALESSANDRO AMICI —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
-   "no": "",
-   "pos": 27
+   "pos": 16
   },
   {
    "ora": "14/10 12:56",
@@ -335,7 +203,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 28
+   "pos": 17
   },
   {
    "ora": "14/10 12:43",
@@ -347,7 +215,7 @@
    "motivo": "un ambiente di sfondo nuovo da disegnare: entra nello sprint 2",
    "fatto": "",
    "no": "",
-   "pos": 29
+   "pos": 18
   },
   {
    "ora": "14/10 12:48",
@@ -359,7 +227,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 30
+   "pos": 19
   },
   {
    "ora": "14/10 12:50",
@@ -371,7 +239,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 31
+   "pos": 20
   },
   {
    "ora": "14/10 12:51",
@@ -383,7 +251,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 32
+   "pos": 21
   },
   {
    "ora": "14/10 12:52",
@@ -395,19 +263,19 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 33
+   "pos": 22
   },
   {
    "ora": "14/10 12:53",
    "alunno": "Gabriele R.",
    "pr": "PR1",
-   "richiesta": "la velocita deve cambiare, deve andare leggermente piu lento - oltre agli alieni e persone che sparano il treno, dopo tipo 1000 punti fatti sarebbe piu epico ci fossero droni di qualsiasi forma che sparano",
+   "richiesta": "PR1: la velocita deve cambiare, deve andare leggermente piu lento - oltre agli alieni e persone che sparano il treno, dopo tipo 1000 punti fatti sarebbe piu epico ci fossero droni di qualsiasi forma che sparano",
    "file": false,
    "peso": 5,
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 34
+   "pos": 23
   },
   {
    "ora": "14/10 12:55",
@@ -419,7 +287,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 35
+   "pos": 24
   },
   {
    "ora": "14/10 12:56",
@@ -431,7 +299,19 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 36
+   "pos": 25
+  },
+  {
+   "ora": "14/10 12:57",
+   "alunno": "Noah V.",
+   "pr": "PR3",
+   "richiesta": "Animali\ncosa cambia: Cosi il gioco è più realistico e più movimentato\nDove: in tutto il gioco\nPerchè: Perchè cosi il gioco è più ' vivo ' e più realistico",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 26
   },
   {
    "ora": "12/10 10:32",
@@ -443,19 +323,19 @@
    "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5)",
    "fatto": "",
    "no": "",
-   "pos": 37
+   "pos": 27
   },
   {
    "ora": "14/10 12:50",
    "alunno": "Samuele U.",
    "pr": "PR1",
-   "richiesta": "la corsa del treno  metti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza · SAMUELE UCCHEDDU —",
+   "richiesta": "la corsa del treno  metti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza",
    "file": false,
    "peso": 8,
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 38
+   "pos": 28
   },
   {
    "ora": "14/10 12:50",
@@ -467,31 +347,7 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 39
-  },
-  {
-   "ora": "14/10 12:51",
-   "alunno": "Samuele U.",
-   "pr": "PR1",
-   "richiesta": "la corsa del treno  metti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza · SAMUELE UCCHEDDU —",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 40
-  },
-  {
-   "ora": "14/10 12:51",
-   "alunno": "Samuele U.",
-   "pr": "PR1",
-   "richiesta": "la corsa del treno \nmetti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 41
+   "pos": 29
   },
   {
    "ora": "14/10 12:40",
@@ -503,7 +359,7 @@
    "motivo": "troppo grande per uno sprint (ambiente nuovo + regole nuove + nemici nuovi): dividila in pezzi piccoli, per esempio «cielo dello spazio, nero con le stelle» (5), poi «gli alieni hanno armi laser» (3)",
    "fatto": "",
    "no": "",
-   "pos": 42
+   "pos": 30
   }
  ]
 }
