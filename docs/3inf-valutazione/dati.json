@@ -1,15 +1,15 @@
 {
- "aggiornato": "14/10/2026 12:52",
+ "aggiornato": "14/10/2026 12:59",
  "alunni": [
   {
    "alunno": "Alessandro A.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 5,
+   "pr_oggi": 5,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 0,
+   "attesa": 4,
    "revisione": true,
-   "ultima": "12:36",
+   "ultima": "12:56",
    "paga": [
     [
      "v1.12",
@@ -21,13 +21,13 @@
   },
   {
    "alunno": "Andrea G.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 4,
+   "pr_oggi": 4,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 0,
+   "attesa": 3,
    "revisione": true,
-   "ultima": "12:42",
+   "ultima": "12:51",
    "paga": [
     [
      "v1.12",
@@ -36,6 +36,30 @@
    ],
    "stipendio": 200,
    "stipendio_conto": "v1.12 peso 2 = 200 €"
+  },
+  {
+   "alunno": "Ariel D.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Beatrice N.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Dani S.",
@@ -62,6 +86,78 @@
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
+   "alunno": "Denis A.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": true,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Emmanuel F.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": true,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Fabrizio C.",
+   "pr": 2,
+   "pr_oggi": 2,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 2,
+   "revisione": false,
+   "ultima": "12:55",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Gabriele R.",
+   "pr": 2,
+   "pr_oggi": 2,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 2,
+   "revisione": true,
+   "ultima": "12:53",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Kelvin P.",
+   "pr": 1,
+   "pr_oggi": 1,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 1,
+   "revisione": false,
+   "ultima": "12:52",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Mahmoud E.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
    "alunno": "Mirko D.",
    "pr": 0,
    "pr_oggi": 0,
@@ -69,6 +165,18 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": true,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Nicolò C.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
    "ultima": "",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
@@ -100,14 +208,26 @@
    "stipendio_conto": "v1.12 peso 2 = 200 € + v1.13 peso 2 = 200 € → 400 €"
   },
   {
-   "alunno": "Samuele U.",
+   "alunno": "Rafi F.",
    "pr": 0,
    "pr_oggi": 0,
    "approvate": 0,
    "rifiutate": 0,
    "attesa": 0,
-   "revisione": true,
+   "revisione": false,
    "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Samuele U.",
+   "pr": 6,
+   "pr_oggi": 6,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 6,
+   "revisione": true,
+   "ultima": "12:51",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
