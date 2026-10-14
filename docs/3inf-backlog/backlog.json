@@ -50,18 +50,6 @@
    "pos": 4
   },
   {
-   "ora": "12/10 10:33",
-   "alunno": "Ariel D.",
-   "pr": "PR2",
-   "richiesta": "Che le rocce che compaiono ai lati dei binari abbiano dimensioni e tonalità diverse",
-   "file": false,
-   "peso": 2,
-   "motivo": "si cambiano due numeri nel disegno delle rocce (grandezza e colore a caso)",
-   "fatto": "v1.7",
-   "no": "",
-   "pos": 5
-  },
-  {
    "ora": "14/10 12:36",
    "alunno": "Alessandro A.",
    "pr": "PR (senza numero)",
@@ -71,7 +59,7 @@
    "motivo": "si cambiano due numeri nelle regole",
    "fatto": "v1.12",
    "no": "",
-   "pos": 6
+   "pos": 5
   },
   {
    "ora": "14/10 12:38",
@@ -83,7 +71,7 @@
    "motivo": "un difetto (bug): oggetti sopra i binari",
    "fatto": "v1.13",
    "no": "",
-   "pos": 7
+   "pos": 6
   },
   {
    "ora": "14/10 12:42",
@@ -95,7 +83,7 @@
    "motivo": "si cambia un numero: la velocità",
    "fatto": "v1.12 (fatta nello stesso minuto: il treno parte a 30 km/h)",
    "no": "",
-   "pos": 8
+   "pos": 7
   },
   {
    "ora": "14/10 12:42",
@@ -107,7 +95,7 @@
    "motivo": "si cambiano due numeri: velocità e aumento per livello",
    "fatto": "v1.12 (parte lento e sale a ogni livello)",
    "no": "",
-   "pos": 9
+   "pos": 8
   },
   {
    "ora": "14/10 12:47",
@@ -119,7 +107,7 @@
    "motivo": "si sposta un oggetto: una regola",
    "fatto": "v1.13 (era nella tua revisione: già nel gioco)",
    "no": "",
-   "pos": 10
+   "pos": 9
   },
   {
    "ora": "14/10 12:58",
@@ -131,7 +119,7 @@
    "motivo": "si cambiano colori",
    "fatto": "v1.20",
    "no": "",
-   "pos": 11
+   "pos": 10
   },
   {
    "ora": "14/10 12:59",
@@ -143,7 +131,7 @@
    "motivo": "si cambia un numero nelle regole",
    "fatto": "v1.19",
    "no": "",
-   "pos": 12
+   "pos": 11
   },
   {
    "ora": "14/10 13:01",
@@ -155,7 +143,7 @@
    "motivo": "si cambia un numero: quante nuvole",
    "fatto": "v1.21",
    "no": "",
-   "pos": 13
+   "pos": 12
   },
   {
    "ora": "12/10 10:26",
@@ -167,19 +155,19 @@
    "motivo": "un personaggio: si cambia la sua immagine",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 14
+   "pos": 13
   },
   {
    "ora": "12/10 10:33",
    "alunno": "Ariel D.",
    "pr": "PR1",
-   "richiesta": "Tra i nemici potrebbero comparire degli alieni tutti verdi.",
+   "richiesta": "PR1: Tra i nemici potrebbero comparire degli alieni tutti verdi. PR2: Che le rocce che compaiono ai lati dei binari abbiano dimensioni e tonalità diverse",
    "file": false,
    "peso": 3,
-   "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
-   "fatto": "v1.8",
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
    "no": "",
-   "pos": 15
+   "pos": 14
   },
   {
    "ora": "12/10 10:34",
@@ -191,7 +179,7 @@
    "motivo": "un personaggio nuovo",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 16
+   "pos": 15
   },
   {
    "ora": "12/10 10:36",
@@ -203,7 +191,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.9",
    "no": "",
-   "pos": 17
+   "pos": 16
   },
   {
    "ora": "12/10 10:49",
@@ -213,6 +201,18 @@
    "file": true,
    "peso": 3,
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 17
+  },
+  {
+   "ora": "14/10 12:53",
+   "alunno": "Gabriele R.",
+   "pr": "PR1",
+   "richiesta": "PR1: la velocita deve cambiare, deve andare leggermente piu lento - oltre agli alieni e persone che sparano il treno, dopo tipo 1000 punti fatti sarebbe piu epico ci fossero droni di qualsiasi forma che sparano",
+   "file": false,
+   "peso": 3,
+   "motivo": "il peso era 3 e resta 3: la velocità è già lenta (v1.12); la parte «dopo 1000 punti» entra nel prossimo sprint",
    "fatto": "",
    "no": "",
    "pos": 18
@@ -317,7 +317,7 @@
    "ora": "14/10 12:51",
    "alunno": "Andrea G.",
    "pr": "PR2",
-   "richiesta": "Animali\nCosa cambia? In alcuni scenari del gioco vengono aggiunti animali che potrebbero essere in quel scenario. es: un cane in città, in spiaggia un granchio\nDove? Negli scenari del gioco\nPerchè? Così da aggiungere più dettagli al gioco",
+   "richiesta": "PR2: PR2: Animali\nCosa cambia? In alcuni scenari del gioco vengono aggiunti animali che potrebbero essere in quel scenario. es: un cane in città, in spiaggia un granchio\nDove? Negli scenari del gioco\nPerchè? Così da aggiungere più dettagli …",
    "file": false,
    "peso": 5,
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
@@ -338,18 +338,6 @@
    "pos": 28
   },
   {
-   "ora": "14/10 12:53",
-   "alunno": "Gabriele R.",
-   "pr": "PR1",
-   "richiesta": "PR1: la velocita deve cambiare, deve andare leggermente piu lento - oltre agli alieni e persone che sparano il treno, dopo tipo 1000 punti fatti sarebbe piu epico ci fossero droni di qualsiasi forma che sparano",
-   "file": false,
-   "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
-   "fatto": "",
-   "no": "",
-   "pos": 29
-  },
-  {
    "ora": "14/10 12:55",
    "alunno": "Fabrizio C.",
    "pr": "PR (senza numero)",
@@ -359,31 +347,31 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 30
+   "pos": 29
   },
   {
    "ora": "14/10 12:57",
    "alunno": "Noah V.",
    "pr": "PR3",
-   "richiesta": "Animali\ncosa cambia: Cosi il gioco è più realistico e più movimentato\nDove: in tutto il gioco\nPerchè: Perchè cosi il gioco è più ' vivo ' e più realistico",
+   "richiesta": "PR3: PR-3: Animali\ncosa cambia: Cosi il gioco è più realistico e più movimentato\nDove: in tutto il gioco\nPerchè: Perchè cosi il gioco è più ' vivo ' e più realistico",
    "file": false,
    "peso": 5,
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 31
+   "pos": 30
   },
   {
    "ora": "14/10 12:58",
    "alunno": "Andrea G.",
    "pr": "PR3",
-   "richiesta": "Faccie dei personaggi\nCosa cambia? Nel gioco alcuni personaggi hanno una faccia di immagini che metto nel modulo.\nDove? Negli scenari in cui ci sono i personaggi\nPerchè? Così il gioco diventa più particolare",
-   "file": false,
+   "richiesta": "PR3: PR3: Faccie dei personaggi\nCosa cambia? Nel gioco alcuni personaggi hanno una faccia di immagini che metto nel modulo.\nDove? Negli scenari in cui ci sono i personaggi\nPerchè? Così il gioco diventa più particolare",
+   "file": true,
    "peso": 5,
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 32
+   "pos": 31
   },
   {
    "ora": "14/10 12:58",
@@ -395,7 +383,7 @@
    "motivo": "una modalità nuova nella schermata iniziale: entra in un prossimo sprint",
    "fatto": "",
    "no": "",
-   "pos": 33
+   "pos": 32
   },
   {
    "ora": "14/10 13:00",
@@ -407,7 +395,7 @@
    "motivo": "un'arma nuova da disegnare (fucile di precisione AWM)",
    "fatto": "",
    "no": "",
-   "pos": 34
+   "pos": 33
   },
   {
    "ora": "14/10 13:04",
@@ -419,7 +407,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 35
+   "pos": 34
   },
   {
    "ora": "12/10 10:32",
@@ -431,7 +419,7 @@
    "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5)",
    "fatto": "",
    "no": "",
-   "pos": 36
+   "pos": 35
   },
   {
    "ora": "14/10 12:48",
@@ -443,7 +431,7 @@
    "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
    "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
    "no": "",
-   "pos": 37
+   "pos": 36
   },
   {
    "ora": "14/10 12:50",
@@ -455,19 +443,19 @@
    "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
    "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
    "no": "",
-   "pos": 38
+   "pos": 37
   },
   {
    "ora": "14/10 13:01",
    "alunno": "Tomas L.",
-   "pr": "PR1",
-   "richiesta": "Alieni  cambia che a un certo punto del viaggio i binari vadano nello spazio e ci ritroviamo a proseguire il tragitto nello spazio a sparare con gli alieni che hanno armi avanzate · pULL REQUEST",
+   "pr": "PR2",
+   "richiesta": "Tomas Lous — PR2: Tomas Lous — PR1: Alieni  cambia che a un certo punto del viaggio i binari vadano nello spazio e ci ritroviamo a proseguire il tragitto nello spazio a sparare con gli alieni che hanno armi avanzate · pULL REQUEST",
    "file": false,
    "peso": 8,
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 39
+   "pos": 38
   },
   {
    "ora": "14/10 13:02",
@@ -479,7 +467,7 @@
    "motivo": "più cose insieme: personaggio Spissu (3), cielo viola (1), velocità 100 km/h (no: la classe ha chiesto il treno lento, v1.12): il personaggio entra nel prossimo sprint",
    "fatto": "",
    "no": "",
-   "pos": 40
+   "pos": 39
   },
   {
    "ora": "14/10 12:40",
@@ -491,7 +479,7 @@
    "motivo": "troppo grande per uno sprint (ambiente nuovo + regole nuove + nemici nuovi): dividila in pezzi piccoli, per esempio «cielo dello spazio, nero con le stelle» (5), poi «gli alieni hanno armi laser» (3)",
    "fatto": "",
    "no": "",
-   "pos": 41
+   "pos": 40
   }
  ]
 }
