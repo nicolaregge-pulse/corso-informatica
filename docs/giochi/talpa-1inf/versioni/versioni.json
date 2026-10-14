@@ -35,17 +35,17 @@
  },
  {
   "versione": "v1.1",
-  "nome": "Entra il personaggio di Personaggio 1",
+  "nome": "Entra il personaggio di Alessio C.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-1",
+  "ramo": "personaggio-alessio-c",
   "pr": "PR 1",
-  "autore": "Personaggio 1",
+  "autore": "Alessio C.",
   "entrati": [
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -55,21 +55,21 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 1: adesso nel gioco ci sono 2 personaggi.",
-   "ar": "تدخل شخصية Personaggio 1: الآن في اللعبة 2 شخصيات.",
-   "zh": "Personaggio 1 的角色加入了：现在游戏里有 2 个角色。"
+   "it": "Entra il personaggio di Alessio C.: adesso nel gioco ci sono 2 personaggi.",
+   "ar": "تدخل شخصية Alessio C.: الآن في اللعبة 2 شخصيات.",
+   "zh": "Alessio C. 的角色加入了：现在游戏里有 2 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 1 di Personaggio 1, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-1»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 1, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-1» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 1, adesso sono 2. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 1.",
+   "Da dove arriva: dalla Pull Request n. 1 di Alessio C., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-alessio-c»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Alessio C., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-alessio-c» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 1, adesso sono 2. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Alessio C..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t01.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -81,17 +81,17 @@
  },
  {
   "versione": "v1.2",
-  "nome": "Entra il personaggio di Personaggio 2",
+  "nome": "Entra il personaggio di Enea Z.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-2",
+  "ramo": "personaggio-enea-z",
   "pr": "PR 2",
-  "autore": "Personaggio 2",
+  "autore": "Enea Z.",
   "entrati": [
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -101,26 +101,26 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 2: adesso nel gioco ci sono 3 personaggi.",
-   "ar": "تدخل شخصية Personaggio 2: الآن في اللعبة 3 شخصيات.",
-   "zh": "Personaggio 2 的角色加入了：现在游戏里有 3 个角色。"
+   "it": "Entra il personaggio di Enea Z.: adesso nel gioco ci sono 3 personaggi.",
+   "ar": "تدخل شخصية Enea Z.: الآن في اللعبة 3 شخصيات.",
+   "zh": "Enea Z. 的角色加入了：现在游戏里有 3 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 2 di Personaggio 2, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-2»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 2, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-2» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 2, adesso sono 3. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 2.",
+   "Da dove arriva: dalla Pull Request n. 2 di Enea Z., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-enea-z»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Enea Z., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-enea-z» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 2, adesso sono 3. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Enea Z..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t02.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -132,17 +132,17 @@
  },
  {
   "versione": "v1.3",
-  "nome": "Entra il personaggio di Personaggio 3",
+  "nome": "Entra il personaggio di Wesley J.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-3",
+  "ramo": "personaggio-wesley-j",
   "pr": "PR 3",
-  "autore": "Personaggio 3",
+  "autore": "Wesley J.",
   "entrati": [
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -152,31 +152,31 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 3: adesso nel gioco ci sono 4 personaggi.",
-   "ar": "تدخل شخصية Personaggio 3: الآن في اللعبة 4 شخصيات.",
-   "zh": "Personaggio 3 的角色加入了：现在游戏里有 4 个角色。"
+   "it": "Entra il personaggio di Wesley J.: adesso nel gioco ci sono 4 personaggi.",
+   "ar": "تدخل شخصية Wesley J.: الآن في اللعبة 4 شخصيات.",
+   "zh": "Wesley J. 的角色加入了：现在游戏里有 4 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 3 di Personaggio 3, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-3»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 3, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-3» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 3, adesso sono 4. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 3.",
+   "Da dove arriva: dalla Pull Request n. 3 di Wesley J., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-wesley-j»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Wesley J., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-wesley-j» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 3, adesso sono 4. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Wesley J..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t03.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -188,17 +188,17 @@
  },
  {
   "versione": "v1.4",
-  "nome": "Entra il personaggio di Personaggio 4",
+  "nome": "Entra il personaggio di Abdel N.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-4",
+  "ramo": "personaggio-abdel-n",
   "pr": "PR 4",
-  "autore": "Personaggio 4",
+  "autore": "Abdel N.",
   "entrati": [
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -208,36 +208,36 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 4: adesso nel gioco ci sono 5 personaggi.",
-   "ar": "تدخل شخصية Personaggio 4: الآن في اللعبة 5 شخصيات.",
-   "zh": "Personaggio 4 的角色加入了：现在游戏里有 5 个角色。"
+   "it": "Entra il personaggio di Abdel N.: adesso nel gioco ci sono 5 personaggi.",
+   "ar": "تدخل شخصية Abdel N.: الآن في اللعبة 5 شخصيات.",
+   "zh": "Abdel N. 的角色加入了：现在游戏里有 5 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 4 di Personaggio 4, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-4»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 4, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-4» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 4, adesso sono 5. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 4.",
+   "Da dove arriva: dalla Pull Request n. 4 di Abdel N., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-abdel-n»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Abdel N., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-abdel-n» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 4, adesso sono 5. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Abdel N..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t04.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -269,22 +269,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -335,22 +335,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -386,17 +386,17 @@
  },
  {
   "versione": "v1.7",
-  "nome": "Entra il personaggio di Personaggio 7",
+  "nome": "Entra il personaggio di Christian A.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-7",
+  "ramo": "personaggio-christian-a",
   "pr": "PR 7",
-  "autore": "Personaggio 7",
+  "autore": "Christian A.",
   "entrati": [
    {
-    "chi": "Personaggio 7",
+    "chi": "Christian A.",
     "file": "talpe/t07.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -406,22 +406,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -436,21 +436,21 @@
     "dal": "v1.6"
    },
    {
-    "chi": "Personaggio 7",
+    "chi": "Christian A.",
     "file": "talpe/t07.jpg",
     "dal": "v1.7"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 7: adesso nel gioco ci sono 8 personaggi.",
-   "ar": "تدخل شخصية Personaggio 7: الآن في اللعبة 8 شخصيات.",
-   "zh": "Personaggio 7 的角色加入了：现在游戏里有 8 个角色。"
+   "it": "Entra il personaggio di Christian A.: adesso nel gioco ci sono 8 personaggi.",
+   "ar": "تدخل شخصية Christian A.: الآن في اللعبة 8 شخصيات.",
+   "zh": "Christian A. 的角色加入了：现在游戏里有 8 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 7 di Personaggio 7, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-7»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 7, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-7» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 7, adesso sono 8. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 7.",
+   "Da dove arriva: dalla Pull Request n. 7 di Christian A., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-christian-a»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Christian A., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-christian-a» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 7, adesso sono 8. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Christian A..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t07.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -462,17 +462,17 @@
  },
  {
   "versione": "v1.8",
-  "nome": "Entra il personaggio di Personaggio 8",
+  "nome": "Entra il personaggio di Matteo A.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-8",
+  "ramo": "personaggio-matteo-a",
   "pr": "PR 8",
-  "autore": "Personaggio 8",
+  "autore": "Matteo A.",
   "entrati": [
    {
-    "chi": "Personaggio 8",
+    "chi": "Matteo A.",
     "file": "talpe/t08.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -482,22 +482,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -512,26 +512,26 @@
     "dal": "v1.6"
    },
    {
-    "chi": "Personaggio 7",
+    "chi": "Christian A.",
     "file": "talpe/t07.jpg",
     "dal": "v1.7"
    },
    {
-    "chi": "Personaggio 8",
+    "chi": "Matteo A.",
     "file": "talpe/t08.jpg",
     "dal": "v1.8"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 8: adesso nel gioco ci sono 9 personaggi.",
-   "ar": "تدخل شخصية Personaggio 8: الآن في اللعبة 9 شخصيات.",
-   "zh": "Personaggio 8 的角色加入了：现在游戏里有 9 个角色。"
+   "it": "Entra il personaggio di Matteo A.: adesso nel gioco ci sono 9 personaggi.",
+   "ar": "تدخل شخصية Matteo A.: الآن في اللعبة 9 شخصيات.",
+   "zh": "Matteo A. 的角色加入了：现在游戏里有 9 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 8 di Personaggio 8, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-8»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 8, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-8» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 8, adesso sono 9. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 8.",
+   "Da dove arriva: dalla Pull Request n. 8 di Matteo A., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-matteo-a»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Matteo A., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-matteo-a» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 8, adesso sono 9. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Matteo A..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t08.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -543,17 +543,17 @@
  },
  {
   "versione": "v1.9",
-  "nome": "Entra il personaggio di Personaggio 9",
+  "nome": "Entra il personaggio di Anthony A.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-9",
+  "ramo": "personaggio-anthony-a",
   "pr": "PR 9",
-  "autore": "Personaggio 9",
+  "autore": "Anthony A.",
   "entrati": [
    {
-    "chi": "Personaggio 9",
+    "chi": "Anthony A.",
     "file": "talpe/t09.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -563,22 +563,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -593,31 +593,31 @@
     "dal": "v1.6"
    },
    {
-    "chi": "Personaggio 7",
+    "chi": "Christian A.",
     "file": "talpe/t07.jpg",
     "dal": "v1.7"
    },
    {
-    "chi": "Personaggio 8",
+    "chi": "Matteo A.",
     "file": "talpe/t08.jpg",
     "dal": "v1.8"
    },
    {
-    "chi": "Personaggio 9",
+    "chi": "Anthony A.",
     "file": "talpe/t09.jpg",
     "dal": "v1.9"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 9: adesso nel gioco ci sono 10 personaggi.",
-   "ar": "تدخل شخصية Personaggio 9: الآن في اللعبة 10 شخصيات.",
-   "zh": "Personaggio 9 的角色加入了：现在游戏里有 10 个角色。"
+   "it": "Entra il personaggio di Anthony A.: adesso nel gioco ci sono 10 personaggi.",
+   "ar": "تدخل شخصية Anthony A.: الآن في اللعبة 10 شخصيات.",
+   "zh": "Anthony A. 的角色加入了：现在游戏里有 10 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 9 di Personaggio 9, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-9»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 9, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-9» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 9, adesso sono 10. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 9.",
+   "Da dove arriva: dalla Pull Request n. 9 di Anthony A., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-anthony-a»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Anthony A., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-anthony-a» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 9, adesso sono 10. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Anthony A..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t09.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -629,17 +629,17 @@
  },
  {
   "versione": "v1.10",
-  "nome": "Entra il personaggio di Personaggio 10",
+  "nome": "Entra il personaggio di Cristian C.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-10",
+  "ramo": "personaggio-cristian-c",
   "pr": "PR 10",
-  "autore": "Personaggio 10",
+  "autore": "Cristian C.",
   "entrati": [
    {
-    "chi": "Personaggio 10",
+    "chi": "Cristian C.",
     "file": "talpe/t10.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -649,22 +649,22 @@
     "dal": "v1.0"
    },
    {
-    "chi": "Personaggio 1",
+    "chi": "Alessio C.",
     "file": "talpe/t01.jpg",
     "dal": "v1.1"
    },
    {
-    "chi": "Personaggio 2",
+    "chi": "Enea Z.",
     "file": "talpe/t02.jpg",
     "dal": "v1.2"
    },
    {
-    "chi": "Personaggio 3",
+    "chi": "Wesley J.",
     "file": "talpe/t03.jpg",
     "dal": "v1.3"
    },
    {
-    "chi": "Personaggio 4",
+    "chi": "Abdel N.",
     "file": "talpe/t04.jpg",
     "dal": "v1.4"
    },
@@ -679,36 +679,36 @@
     "dal": "v1.6"
    },
    {
-    "chi": "Personaggio 7",
+    "chi": "Christian A.",
     "file": "talpe/t07.jpg",
     "dal": "v1.7"
    },
    {
-    "chi": "Personaggio 8",
+    "chi": "Matteo A.",
     "file": "talpe/t08.jpg",
     "dal": "v1.8"
    },
    {
-    "chi": "Personaggio 9",
+    "chi": "Anthony A.",
     "file": "talpe/t09.jpg",
     "dal": "v1.9"
    },
    {
-    "chi": "Personaggio 10",
+    "chi": "Cristian C.",
     "file": "talpe/t10.jpg",
     "dal": "v1.10"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 10: adesso nel gioco ci sono 11 personaggi.",
-   "ar": "تدخل شخصية Personaggio 10: الآن في اللعبة 11 شخصيات.",
-   "zh": "Personaggio 10 的角色加入了：现在游戏里有 11 个角色。"
+   "it": "Entra il personaggio di Cristian C.: adesso nel gioco ci sono 11 personaggi.",
+   "ar": "تدخل شخصية Cristian C.: الآن في اللعبة 11 شخصيات.",
+   "zh": "Cristian C. 的角色加入了：现在游戏里有 11 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 10 di Personaggio 10, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-10»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 10, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-10» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 10, adesso sono 11. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 10.",
+   "Da dove arriva: dalla Pull Request n. 10 di Cristian C., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-cristian-c»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Cristian C., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-cristian-c» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 10, adesso sono 11. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Cristian C..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t10.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
