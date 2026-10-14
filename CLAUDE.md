@@ -199,6 +199,8 @@ bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71
 
 **15. MAI PIÙ «copia, apri, incolla» per i ragazzi (14/10/2026, REGOLA ASSOLUTA di Nicola: «MAI PIÙ»).** Nessuna pagina per i ragazzi chiede di copiare un testo, aprire un Modulo, incollare e premere Invia. Il ragazzo scrive il testo e preme UN bottone che consegna davvero (applicazione web dello script, oppure invio diretto al Modulo con i codici delle caselle). Se il canale diretto non c'è, la pagina NON si pubblica: lo si dice a Nicola prima della lezione. Vedi REGISTRO-ERRORI #81.
 
+**16. Traccia digitale per la Regione: almeno 3-4 prove per quadrimestre salvate su Classroom (14/10/2026, VINCOLANTE).** Classroom è l'archivio valido per la Regione: il minimo è 2 prove per quadrimestre per classe, noi stiamo su 3-4. Ogni prova (verifica, quiz, compito valutato) ha il lavoro del ragazzo salvato DENTRO Classroom: un Modulo Google allegato al compito, o la consegna nel compito. Ogni lezione lascia almeno una traccia su Classroom. Conteggio per classe in `PROVE-CLASSROOM-2026-27.md`; quando una classe è sotto 3 nel quadrimestre, lo dico a Nicola e propongo la prova. Vedi RIFERIMENTI §2.55.
+
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
 Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
