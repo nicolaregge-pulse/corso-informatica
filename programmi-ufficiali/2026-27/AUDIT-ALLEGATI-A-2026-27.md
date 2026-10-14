@@ -1,6 +1,6 @@
 # 00 Audit degli Allegati A 2026/27 e proposta con la parte di Regge
 
-**Versione 0.1** — 14/10/2026 — Area Docente. Audit dei quattro file mandati da Nicola il 14/10 (già toccati da altri docenti) e proposta dei file modificati, con la parte di Regge evidenziata in verde.
+**Versione 0.2** — 14/10/2026 — Area Docente. Audit dei quattro file mandati da Nicola il 14/10 (già toccati da altri docenti) e proposta dei file modificati, con la parte di Regge evidenziata (dal 14/10 sera: rosa il 2026/27, verde gli anni scorsi).
 
 > **Da confermare:** i file modificati sono una proposta. Si consegnano solo dopo il sì di Nicola. Scadenza: 30 ottobre 2026.
 
@@ -128,4 +128,5 @@
 > 3. Quando consegni, il verde resta (come negli anni scorsi) o diventa giallo?
 
 ## 07 Registro delle versioni
+2. **v0.2 (14/10/2026)**: superato dalla versione consolidata dei file (v1.0): le competenze ora sono solo Digitale e Tecnico-professionali, i colori rosa per il 2026/27 e verde per gli anni scorsi; le tabelle del capitolo 05 descrivono la prima proposta.
 1. **v0.1 (14/10/2026)**: primo audit dei quattro file ricevuti e proposta con la parte di Regge in verde.
