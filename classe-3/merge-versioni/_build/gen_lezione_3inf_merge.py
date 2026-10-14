@@ -81,9 +81,9 @@ P.append(passo(12, "fw", "Aiuta il prof: come miglioreresti questa lezione?", "�
   T("Questo percorso fa parte del «framework della lezione»: le regole fisse che il prof usa in ogni lezione. Voi siete i primi a provarlo. Scrivi che cosa ha funzionato, che cosa era difficile o poco chiaro, e un'idea per migliorarlo.",
     "এই পথটি «পাঠের কাঠামো»-র অংশ: শিক্ষক প্রতিটি পাঠে যে নিয়ম ব্যবহার করেন। আপনারা প্রথম চেষ্টা করছেন। লিখুন কী কাজ করেছে, কী কঠিন বা অস্পষ্ট ছিল, এবং উন্নতির একটি ধারণা।") +
   modulo("fw", "framework", "Scrivi le tue note sul percorso.", "পথ সম্পর্কে আপনার মন্তব্য লিখুন।", "Ha funzionato: ...\nEra difficile: ...\nLa mia idea: ...")))
-BOTTONI = [("I voti", "#238636", "3inf-voti/"), ("Il backlog", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "#6e40c9", "3inf-monitor/"),
-           ("Cosa è cambiato oggi nel gioco", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "#b8432a", "3inf-top/"), ("La situazione della classe", "#30363d", "3inf-valutazione/")]
-sei = '<div>' + ''.join('<a class="bt" style="background:%s" href="%s%s" target="_blank" rel="noopener">%s</a>' % (c, SITO, u, t) for t, c, u in BOTTONI) + '</div>'
+BOTTONI = [("I voti", "নম্বর", "#238636", "3inf-voti/"), ("Il backlog", "অনুরোধের তালিকা", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "পাঠের মনিটর", "#6e40c9", "3inf-monitor/"),
+           ("Cosa è cambiato oggi nel gioco", "আজ গেমে কী বদলেছে", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "র‍্যাঙ্কিং", "#b8432a", "3inf-top/"), ("La situazione della classe", "ক্লাসের অবস্থা", "#30363d", "3inf-valutazione/")]
+sei = '<p class="t" style="margin:10px 0 2px">Come sta andando la lezione · পাঠ কেমন চলছে</p><div>' + ''.join('<a class="bt" style="background:%s" href="%s%s" target="_blank" rel="noopener">%s<small style="display:block;font-weight:400;font-size:13px;opacity:.9">%s</small></a>' % (c, SITO, u, t, b) for t, b, c, u in BOTTONI) + '</div>'
 CSS = """:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:860px;margin:0 auto;padding:16px}
@@ -107,10 +107,10 @@ input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;
 .spento{opacity:.4!important;pointer-events:none}"""
 JS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "lezione.js"), encoding="utf-8").read()
 H = ('<!DOCTYPE html>\n<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Il merge del treno</title><style>' + CSS + '</style></head>\n<body><div class="w">\n'
-     '<h1>Il merge: le vostre richieste entrano nel gioco</h1><div class="bn" lang="bn">মার্জ: আপনাদের অনুরোধ গেমে ঢুকছে</div><p class="t">3INF · 14/10/2026</p>\n'
-     '<div class="nota">' + T("Fai i passi in ordine, dall'alto in basso. Il passo da fare adesso ha il bordo blu. Quando un passo è fatto diventa verde e il suo bottone si spegne.",
+     '<h1>Il merge: le vostre richieste entrano nel gioco</h1><div class="bn" lang="bn">মার্জ: আপনাদের অনুরোধ গেমে ঢুকছে</div><p class="t">3INF · 14/10/2026</p>\n' +
+     sei + '\n' + '<div class="nota">' + T("Fai i passi in ordine, dall'alto in basso. Il passo da fare adesso ha il bordo blu. Quando un passo è fatto diventa verde e il suo bottone si spegne.",
                               "উপর থেকে নিচে ক্রমানুসারে ধাপগুলো করুন। এখন যে ধাপ করতে হবে তার নীল বর্ডার। ধাপ শেষ হলে সবুজ হয় এবং বোতাম বন্ধ হয়ে যায়।") + '</div>\n' +
-     ''.join(P) + '<h2>Come sta andando la classe</h2>' + sei + '\n</div>\n<script>\n' + JS + '\n</script>\n'
+     ''.join(P) + '\n</div>\n<script>\n' + JS + '\n</script>\n'
      '<script src="../../assistente/assistente.js" data-pagina="3inf-merge" data-lingue="it"></script>\n</body></html>\n')
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 open(OUT, "w", encoding="utf-8").write(H)
