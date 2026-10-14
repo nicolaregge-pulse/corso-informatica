@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.49** — 14/10/2026
+**Versione 2.50** — 14/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Link dato prima che il sito fosse aggiornato (#79)
+
+1. **Errore.** Più volte, il 14/10, ho dato un link appena fatto il push: il docente apriva la pagina e vedeva ancora la versione vecchia (verifica «Non trovato», bottone verde in cima già tolto, anteprima del percorso ancora chiusa). Il docente: «mi dai un link per vedere una cosa che non posso vedere», «è la base dell'intelligenza».
+2. **Regola.** Dopo ogni push, prima di dare un link: `bash strumenti/aspetta_pubblicazione.sh` (legge lo stato della pubblicazione di GitHub Pages per quel commit). Il link si dà solo dopo «PUBBLICATO». Se il docente vede ancora la versione vecchia, Ctrl+F5.
 
 ## 14/10/2026 — Lezione della talpa in 1INF: «lezione da dimenticare» (#78)
 
