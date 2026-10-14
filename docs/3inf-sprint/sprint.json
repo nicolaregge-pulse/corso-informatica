@@ -1,12 +1,12 @@
 {
- "aggiornato": "14/10/2026 12:43",
+ "aggiornato": "14/10/2026 13:01",
  "regola": "Ogni sprint dura 15 minuti. Nella pianificazione il prof prende dal backlog le richieste più leggere, fino a un peso totale di 8. Alla fine dello sprint esce una versione nuova.",
  "sprint": [
   {
    "n": 1,
    "inizio": "12:45",
    "fine": "13:00",
-   "stato": "in corso",
+   "stato": "chiuso",
    "versione": "v1.12-v1.15",
    "richieste": [
     {
@@ -38,15 +38,37 @@
      "versione": "v1.15"
     }
    ],
-   "retrospettiva": ""
+   "retrospettiva": "Bene: 4 versioni in 15 minuti (v1.12-v1.15), tre nate dalle revisioni dei compagni. Male: alcune richieste chiedevano cose già fatte (leggete il changelog prima di chiedere!) e una era troppo grande (lo spazio di Tomas, peso 13). Prossimo sprint: richieste piccole, una cosa per volta."
   },
   {
    "n": 2,
    "inizio": "13:00",
    "fine": "13:15",
-   "stato": "in attesa",
-   "versione": "",
-   "richieste": [],
+   "stato": "in corso",
+   "versione": "v1.16-v1.18",
+   "richieste": [
+    {
+     "alunno": "Dani S.",
+     "richiesta": "Le montagne lontane viola",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.16"
+    },
+    {
+     "alunno": "Samuele U.",
+     "richiesta": "Il cielo nuvoloso nel bosco",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.17"
+    },
+    {
+     "alunno": "Kelvin P.",
+     "richiesta": "Il giocatore sceglie il colore del cielo",
+     "peso": 5,
+     "stato": "fatto",
+     "versione": "v1.18"
+    }
+   ],
    "retrospettiva": ""
   },
   {

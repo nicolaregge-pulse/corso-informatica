@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:01",
+ "aggiornato": "14/10/2026 13:02",
  "voci": [
   {
    "ora": "12/10 10:31",
@@ -122,18 +122,6 @@
    "pos": 10
   },
   {
-   "ora": "14/10 12:56",
-   "alunno": "Alessandro A.",
-   "pr": "PR3",
-   "richiesta": "Le rocce presenti nel gioco, alcune, intralciano i binari dando una vista scomoda a chi gioca, secondo me dovrebbero essere spostate di poco lasciando i binari totalmente liberi. · Ho messo 3 pull request",
-   "file": false,
-   "peso": 2,
-   "motivo": "si cambia un numero nelle regole del gioco",
-   "fatto": "",
-   "no": "",
-   "pos": 11
-  },
-  {
    "ora": "14/10 12:58",
    "alunno": "Ariel D.",
    "pr": "PR1",
@@ -143,7 +131,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 12
+   "pos": 11
   },
   {
    "ora": "12/10 10:26",
@@ -155,7 +143,7 @@
    "motivo": "un personaggio: si cambia la sua immagine",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 13
+   "pos": 12
   },
   {
    "ora": "12/10 10:33",
@@ -167,7 +155,7 @@
    "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
    "fatto": "v1.8",
    "no": "",
-   "pos": 14
+   "pos": 13
   },
   {
    "ora": "12/10 10:34",
@@ -179,7 +167,7 @@
    "motivo": "un personaggio nuovo",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 15
+   "pos": 14
   },
   {
    "ora": "12/10 10:36",
@@ -191,7 +179,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.9",
    "no": "",
-   "pos": 16
+   "pos": 15
   },
   {
    "ora": "12/10 10:49",
@@ -203,19 +191,19 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 17
+   "pos": 16
   },
   {
    "ora": "14/10 12:56",
    "alunno": "Alessandro A.",
-   "pr": "PR2",
-   "richiesta": "I personaggi nell'iltima versione: v1.11 Hanno la tuta che i colori si muovono, secondo me sarebbe meglio se la tuta fosse di un unico colore ovvero nera. Cosi che almeno quando spuntano fuori si vedono meglio",
+   "pr": "PR1",
+   "richiesta": "PR1:  Il treno nella versione; v1.11 è troppo veloce (124 kmh) e al secondo livello va a (82 kmh). bisogna partire con una velocità di 30 kmh e man mano i livello vengono superati la veloictà aumenta di 3 kmh   PR2: I personaggi nell'iltima…",
    "file": false,
    "peso": 3,
-   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "motivo": "conflitto: cambierebbe i personaggi fatti dai compagni (aggiungere sì, cancellare no)",
    "fatto": "",
-   "no": "",
-   "pos": 18
+   "no": "cambierebbe i personaggi dei compagni (le loro mimetiche): aggiungere sì, cancellare no. Rimandala per un TUO personaggio nuovo con la tuta nera.",
+   "pos": 17
   },
   {
    "ora": "14/10 12:57",
@@ -227,7 +215,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 19
+   "pos": 18
   },
   {
    "ora": "14/10 12:43",
@@ -239,7 +227,7 @@
    "motivo": "un ambiente di sfondo nuovo da disegnare: entra nello sprint 2",
    "fatto": "",
    "no": "",
-   "pos": 20
+   "pos": 19
   },
   {
    "ora": "14/10 12:48",
@@ -248,10 +236,10 @@
    "richiesta": "il treno e i avversari cambia la velocità e metti 35 kilometri orari poi metti dei cavalli che corrono e poi metti le montagne di colore viola · consegno nuove modifiche per la nuova versione",
    "file": true,
    "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
-   "fatto": "",
+   "motivo": "più cose insieme: la parte «montagne viola» (1) è entrata subito",
+   "fatto": "v1.16 (montagne viola; i cavalli restano da fare)",
    "no": "",
-   "pos": 21
+   "pos": 20
   },
   {
    "ora": "14/10 12:50",
@@ -263,7 +251,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 22
+   "pos": 21
   },
   {
    "ora": "14/10 12:51",
@@ -275,7 +263,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 23
+   "pos": 22
   },
   {
    "ora": "14/10 12:52",
@@ -284,10 +272,10 @@
    "richiesta": "la v1.15 è bella, però secondo me sarebbe bello avere la possibilità di cambiare il colore del cielo come vuole il giocatore",
    "file": false,
    "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
-   "fatto": "",
+   "motivo": "una regola nuova: il giocatore sceglie il colore",
+   "fatto": "v1.18",
    "no": "",
-   "pos": 24
+   "pos": 23
   },
   {
    "ora": "14/10 12:53",
@@ -299,7 +287,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 25
+   "pos": 24
   },
   {
    "ora": "14/10 12:55",
@@ -311,19 +299,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 26
-  },
-  {
-   "ora": "14/10 12:56",
-   "alunno": "Alessandro A.",
-   "pr": "PR1",
-   "richiesta": "Il treno nella versione; v1.11 è troppo veloce (124 kmh) e al secondo livello va a (82 kmh). bisogna partire con una velocità di 30 kmh e man mano i livello vengono superati la veloictà aumenta di 3 kmh",
-   "file": false,
-   "peso": 5,
-   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
-   "fatto": "",
-   "no": "",
-   "pos": 27
+   "pos": 25
   },
   {
    "ora": "14/10 12:57",
@@ -335,7 +311,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 28
+   "pos": 26
   },
   {
    "ora": "14/10 12:58",
@@ -347,7 +323,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 29
+   "pos": 27
   },
   {
    "ora": "14/10 12:58",
@@ -359,7 +335,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 30
+   "pos": 28
   },
   {
    "ora": "12/10 10:32",
@@ -371,31 +347,43 @@
    "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5)",
    "fatto": "",
    "no": "",
-   "pos": 31
+   "pos": 29
+  },
+  {
+   "ora": "14/10 12:48",
+   "alunno": "Samuele U.",
+   "pr": "PR1",
+   "richiesta": "REVISIONE: vorrei che aggiungi un tipo di ostacolo facile e abbassa la velocità · SAMUELE UCCHEDDU — PR1: la corsa del treno \nmetti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza",
+   "file": false,
+   "peso": 8,
+   "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
+   "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
+   "no": "",
+   "pos": 30
   },
   {
    "ora": "14/10 12:50",
    "alunno": "Samuele U.",
    "pr": "PR1",
-   "richiesta": "la corsa del treno  metti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza",
+   "richiesta": "PR1: la corsa del treno  metti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza · SAMUELE UCCHEDDU — PR1: la corsa del treno \nmetti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la pote…",
+   "file": false,
+   "peso": 8,
+   "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
+   "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
+   "no": "",
+   "pos": 31
+  },
+  {
+   "ora": "14/10 12:58",
+   "alunno": "Simone G.",
+   "pr": "PR2",
+   "richiesta": "Modalità Hardcore\nAggiunge una modalità Hardcore, in cui non cambia niente se non il numero di vite/vetri scende a 1\nNella schermata principale\nPer aumentare la difficoltà",
    "file": false,
    "peso": 8,
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
    "pos": 32
-  },
-  {
-   "ora": "14/10 12:50",
-   "alunno": "Samuele U.",
-   "pr": "PR1",
-   "richiesta": "la corsa del treno \nmetti il cielo nuvoloso e abbassa velocita, dimenticavo aumenta la potenza delle armi e grandezza",
-   "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
-   "fatto": "",
-   "no": "",
-   "pos": 33
   },
   {
    "ora": "14/10 12:40",
@@ -407,7 +395,7 @@
    "motivo": "troppo grande per uno sprint (ambiente nuovo + regole nuove + nemici nuovi): dividila in pezzi piccoli, per esempio «cielo dello spazio, nero con le stelle» (5), poi «gli alieni hanno armi laser» (3)",
    "fatto": "",
    "no": "",
-   "pos": 34
+   "pos": 33
   }
  ]
 }

@@ -30,6 +30,8 @@ button:active{transform:translateY(3px);box-shadow:none}
 </head>
 <body>
 <canvas id="c"></canvas>
+<label id="sceltacielo" title="Il colore del cielo lo scegli tu (PR di Kelvin P., v1.18)" style="position:fixed;left:8px;bottom:8px;z-index:5;background:rgba(0,0,0,.55);color:#fff;font:600 13px system-ui,sans-serif;padding:4px 8px;border-radius:8px;display:flex;align-items:center;gap:6px">Cielo <input type="color" id="colcielo" value="#7ec8f0" style="width:30px;height:22px;border:0;padding:0;background:none"><button id="cieloauto" style="font:inherit;font-size:12px;border:0;border-radius:6px;padding:2px 6px;cursor:pointer">come prima</button></label>
+<script>var CIELO=null;document.getElementById('colcielo').addEventListener('input',function(e){CIELO=e.target.value});document.getElementById('cieloauto').addEventListener('click',function(){CIELO=null});</script>
 <div class="ver" id="ver"></div>
 
 <div class="sch" id="inizio" style="background:linear-gradient(rgba(20,14,10,.55),rgba(20,14,10,.92)),url(img/copertina.jpg) center top/cover">
@@ -282,7 +284,7 @@ function paesaggio(dt){var g=cx,V=vista(),f=V.f,a=ambiente(),v=6*R.velocita_tren
  if(!S.fine){S.dist+=v*dt;S.prossimoOgg-=dt;if(S.prossimoOgg<=0){S.oggetti.push(nuovoOggetto(ZF));S.prossimoOgg=rnd(.12,.28)*[1.6,1,.7][a.densita-1]/R.velocita_treno}}
  S.oggetti.forEach(function(o){o.z-=v*dt});
  g.save();g.beginPath();g.rect(f.x,f.y,f.w,f.h);g.clip();
- var gr=g.createLinearGradient(0,f.y,0,V.hz);gr.addColorStop(0,a.cielo_alto);gr.addColorStop(1,a.cielo_basso);g.fillStyle=gr;g.fillRect(f.x,f.y,f.w,V.hz-f.y+1);nuvole(g,f,V.hz,dt);
+ var gr=g.createLinearGradient(0,f.y,0,V.hz);gr.addColorStop(0,CIELO||a.cielo_alto);gr.addColorStop(1,a.cielo_basso);g.fillStyle=gr;g.fillRect(f.x,f.y,f.w,V.hz-f.y+1);nuvole(g,f,V.hz,dt);
  g.fillStyle=a.lontano;g.beginPath();g.moveTo(f.x,V.hz);for(var i=0;i<=12;i++){var xx=f.x+i*f.w/12;g.lineTo(xx,V.hz-f.h*(.05+.09*Math.abs(Math.sin(i*1.7+S.dist*.003))))}g.lineTo(f.x+f.w,V.hz);g.fill();
  g.fillStyle=a.terra;g.fillRect(f.x,V.hz,f.w,V.bot-V.hz);
  /* massicciata e binari */

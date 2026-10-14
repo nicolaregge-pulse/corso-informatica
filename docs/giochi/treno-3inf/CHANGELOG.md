@@ -11,6 +11,21 @@
 
 
 
+
+
+
+## v1.18 — 14/10/2026 13:01 — Il cielo lo scegli tu (sprint 2)
+
+1. PR di Kelvin P.: «sarebbe bello avere la possibilità di cambiare il colore del cielo come vuole il giocatore». Fatto: in basso a sinistra c'è «Cielo» con una tavolozza di colori; il bottone «come prima» rimette il cielo dell'ambiente.
+
+## v1.17 — 14/10/2026 13:01 — Il cielo nuvoloso nel bosco (sprint 2)
+
+1. PR di Samuele U.: «metti il cielo nuvoloso e abbassa la velocità; aumenta la potenza delle armi». Fatto il cielo nuvoloso nel bosco (grigio chiaro). La velocità è già bassa dalla v1.12. Le armi più potenti sono una regola nuova: restano nel backlog per il prossimo sprint.
+
+## v1.16 — 14/10/2026 13:01 — Le montagne viola (sprint 2)
+
+1. PR di Dani S.: «metti le montagne di colore viola». Fatto: in montagna le montagne lontane sono viola. Il resto della sua richiesta (35 km/h e cavalli che corrono) resta nel backlog: la velocità è già 30 km/h dalla v1.12, i cavalli vanno disegnati (peso 5).
+
 ## v1.15 — 14/10/2026 12:43 — L'alieno verde più veloce (sprint 1)
 
 1. Revisione di Simone G.: «la v1.8 con l'alieno è giusta, ma vorrei che andasse più veloce». Fatto: l'Alieno verde ha la velocità massima (3).
