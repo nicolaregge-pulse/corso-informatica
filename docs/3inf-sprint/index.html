@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprint 3INF</title>
+<style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dde3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.45 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:1050px;margin:0 auto;padding:16px}
+h1{font-size:28px;margin:6px 0 2px}h2{font-size:22px;margin:22px 0 8px}h3{margin:6px 0}.mu{color:var(--mu)}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:10px 0}
+.giro{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.giro span{background:var(--card);border:2px solid #6e40c9;border-radius:20px;padding:4px 12px;font-weight:700;font-size:15px}.giro b{color:#6e40c9}
+.cer{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}.cer div{background:var(--card);border:1px solid var(--bd);border-left:6px solid #6e40c9;border-radius:10px;padding:8px 12px}
+.sp{border:3px solid var(--bd);border-radius:14px;padding:10px 14px;margin:14px 0}.sp.corso{border-color:#1f6feb}.sp.chiuso{border-color:#1a7f37}
+.lav{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}@media (max-width:640px){.lav{grid-template-columns:1fr}}
+.col{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:6px 8px;min-height:60px}.col h4{margin:2px 0 6px;font-size:15px}
+.r{border-radius:8px;padding:6px 8px;margin:4px 0;font-size:15px;background:#eef3ff;color:#111}.r.fatto{background:#d3f9d8}.r.lav2{background:#fff3c4}
+.stato{font-weight:800}.ok{color:#1a7f37}.blu{color:#1f6feb}
+</style></head>
+<body><div class="w">
+<h1>Il ciclo Agile dal vivo · 3INF</h1>
+<div class="bn" lang="bn">সরাসরি Agile চক্র · ৩INF</div>
+<p class="mu" id="agg">Carico…</p>
+<div class="card"><b>Che cosa succede qui.</b> Il prof lavora come un'azienda vera. Ogni 15 minuti fa uno <b>sprint</b>: prende dal backlog le richieste più leggere, le mette nel gioco e pubblica una versione nuova. Qui vedi la tua richiesta che si sposta: da fare → in lavorazione → fatta.
+<div class="bn" lang="bn">শিক্ষক একটি আসল কোম্পানির মতো কাজ করেন। প্রতি ১৫ মিনিটে একটি <b>স্প্রিন্ট</b>: backlog থেকে হালকা অনুরোধ নিয়ে গেমে দেন এবং নতুন সংস্করণ প্রকাশ করেন। এখানে আপনার অনুরোধ এগোতে দেখুন।</div></div>
+<h2>Il giro di uno sprint</h2>
+<div class="giro"><span>Backlog</span><b>→</b><span>1. Pianificazione</span><b>→</b><span>2. Lavoro</span><b>→</b><span>3. Revisione</span><b>→</b><span>4. Retrospettiva</span><b>→</b><span>versione nuova</span></div>
+<h2>Le cerimonie (gli incontri fissi)</h2>
+<div class="cer">
+<div><b>Pianificazione dello sprint</b><br>Si scelgono dal backlog le richieste da fare in questo sprint, le più leggere, fino a peso 8.<div class="bn" lang="bn">এই স্প্রিন্টে কোন অনুরোধ হবে তা বাছাই, ওজন ৮ পর্যন্ত।</div></div>
+<div><b>Daily (riunione veloce)</b><br>Ogni giorno 5 minuti in piedi: che cosa ho fatto, che cosa faccio, che cosa mi blocca.<div class="bn" lang="bn">প্রতিদিন ৫ মিনিট: কী করেছি, কী করব, কী আটকাচ্ছে।</div></div>
+<div><b>Revisione</b><br>Si mostra la versione nuova e si controlla che le richieste siano fatte bene.<div class="bn" lang="bn">নতুন সংস্করণ দেখানো ও যাচাই করা হয়।</div></div>
+<div><b>Retrospettiva</b><br>Che cosa è andato bene, che cosa no, che cosa cambiamo nel prossimo sprint.<div class="bn" lang="bn">কী ভালো হয়েছে, কী হয়নি, পরের স্প্রিন্টে কী বদলাব।</div></div>
+</div>
+<h2>Gli sprint di oggi</h2>
+<div id="sprint">Carico…</div>
+<p><a href="../3inf-backlog/" target="_blank" rel="noopener">Il backlog</a> · <a href="../giochi/treno-3inf/versioni/" target="_blank" rel="noopener">Le versioni del gioco</a></p>
+</div>
+<script>
+(function () {
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function riga(r) { return '<div class="r ' + (r.stato === 'fatto' ? 'fatto' : r.stato === 'in lavorazione' ? 'lav2' : '') + '"><b>' + e(r.alunno) + '</b> · peso ' + e(r.peso) + '<br>' + e(r.richiesta) + (r.versione ? ' <b class="ok">' + e(r.versione) + '</b>' : '') + '</div>'; }
+  function carica() {
+    fetch('sprint.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) {
+      document.getElementById('agg').textContent = 'Aggiornato alle ' + (d.aggiornato || '—') + ' · si aggiorna da solo ogni 30 secondi · ' + (d.regola || '');
+      document.getElementById('sprint').innerHTML = d.sprint.map(function (s) {
+        var R = s.richieste || [], peso = R.reduce(function (t, r) { return t + (+r.peso || 0); }, 0), cl = s.stato === 'in corso' ? 'corso' : s.stato === 'chiuso' ? 'chiuso' : '';
+        var col = function (st) { var L = R.filter(function (r) { return r.stato === st; }); return L.length ? L.map(riga).join('') : '<span class="mu">—</span>'; };
+        return '<div class="sp ' + cl + '"><h3>Sprint ' + s.n + ' · ' + e(s.inizio) + '-' + e(s.fine) + ' · <span class="stato ' + (cl === 'corso' ? 'blu' : cl === 'chiuso' ? 'ok' : 'mu') + '">' + e(s.stato) + '</span>' + (s.versione ? ' → <span class="ok">' + e(s.versione) + '</span>' : '') + '</h3>' +
+          (R.length ? '<div class="mu">Peso dello sprint: ' + peso + ' su 8</div><div class="lav"><div class="col"><h4>Da fare</h4>' + col('da fare') + '</div><div class="col"><h4>In lavorazione</h4>' + col('in lavorazione') + '</div><div class="col"><h4>Fatto</h4>' + col('fatto') + '</div></div>' : '<div class="mu">La pianificazione si fa all\'inizio dello sprint, con le richieste del backlog.</div>') +
+          (s.retrospettiva ? '<div class="card"><b>Retrospettiva:</b> ' + e(s.retrospettiva) + '</div>' : '') + '</div>';
+      }).join('');
+    }).catch(function () {});
+  }
+  carica(); setInterval(carica, 30000);
+})();
+</script></body></html>
