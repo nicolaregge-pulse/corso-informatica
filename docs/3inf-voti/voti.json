@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 12:39 (KPI proposti, da approvare)",
+ "aggiornato": "14/10/2026 12:42 (KPI proposti, da approvare)",
  "voti": [
   {
    "alunno": "Alessandro A.",
@@ -85,9 +85,9 @@
    "alunno": "Noah V.",
    "pr": 0,
    "fatte": 1,
-   "feedback": false,
-   "voto": 50,
-   "perche": "40 di partenza +10 richiesta nel gioco = 50",
+   "feedback": true,
+   "voto": 60,
+   "perche": "40 di partenza +10 revisione +10 richiesta nel gioco = 60",
    "stipendio": 200,
    "stipendio_conto": "v1.5 peso 2 = 200 €"
   },
@@ -113,11 +113,11 @@
   },
   {
    "alunno": "Tomas L.",
-   "pr": 0,
+   "pr": 2,
    "fatte": 1,
    "feedback": false,
-   "voto": 50,
-   "perche": "40 di partenza +10 richiesta nel gioco = 50",
+   "voto": 70,
+   "perche": "40 di partenza +20 2 richieste di oggi +10 richiesta nel gioco = 70",
    "stipendio": 300,
    "stipendio_conto": "v1.10 peso 3 = 300 €"
   }
