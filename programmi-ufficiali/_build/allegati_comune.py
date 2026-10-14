@@ -18,7 +18,7 @@ from docx.text.paragraph import Paragraph
 QUI = os.path.dirname(os.path.abspath(__file__))
 CART = os.path.join(QUI, '..', '2026-27')
 MD = os.path.join(CART, 'PROGRAMMI-DI-MASSIMA-2026-27.md')
-COLORE = WD_COLOR_INDEX.PINK  # 14/10 sera, Nicola: parte 2026/27 in rosa; la parte degli anni scorsi resta in verde, gli altri in giallo
+COLORE = WD_COLOR_INDEX.YELLOW  # 14/10 sera, Nicola: parte 2026/27 prevista in giallo (come gli altri), quella già svolta e firmata sul registro in bianco; anni scorsi in verde
 # sezione del programma -> (file originale, etichetta dell'anno di quest'anno, nome di uscita)
 CLASSI = {
     '03': ('PFP_1', r'^I\s+anno', '1INF'),
@@ -57,13 +57,13 @@ def numero_competenza(tab):
     return None
 
 
-def par_dopo(p, testo, grassetto=False):
+def par_dopo(p, testo, grassetto=False, colore=COLORE):
     nuovo = copy.deepcopy(p._p)
     for figlio in list(nuovo):
         if figlio.tag != qn('w:pPr'): nuovo.remove(figlio)
     p._p.addnext(nuovo)
     q = Paragraph(nuovo, p._parent)
-    r = q.add_run(testo); r.bold = grassetto; r.font.highlight_color = COLORE
+    r = q.add_run(testo); r.bold = grassetto; r.font.highlight_color = colore
     return q
 
 
