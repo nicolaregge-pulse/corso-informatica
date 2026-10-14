@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.45** — 13/10/2026
+**Versione 2.46** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Audit fatto solo sulle pagine dei ragazzi: la pagina del prof aveva bottoni che non funzionavano (#75)
+
+1. **Errore.** Ho controllato le pagine dei ragazzi e ho detto «tutto a posto», ma nella pagina del prof restavano i bottoni «Foto va bene», «Rifalla» e «Metti nel gioco», che senza l'applicazione web danno errore, e il menu «Chi è?» che non serviva più. Il docente: «non so come usarla», «meno male che hai fatto audit».
+2. **Regola.** L'audit comprende anche le pagine del docente (pannello, cruscotto, foto e personaggi) e prova ogni bottone come lo userebbe lui. Un bottone che non può funzionare oggi non si mostra: resta solo quello che funziona.
 
 ## 14/10/2026 — Il gioco della talpa sul sito mostrava solo la v1.0 (#70)
 
