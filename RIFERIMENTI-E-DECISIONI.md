@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.35** — 13/10/2026
+**Versione 2.36** — 14/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -387,6 +387,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 29. **v2.20 (05/10/2026)**: §2.39 un solo compito aperto alla volta, titoli descrittivi con l'ordine.
 28. **v2.19 (05/10/2026)**: §2.38 su Classroom e nelle pagine solo il lavoro del giorno.
 27. **v2.18 (05/10/2026)**: §2.30 punti 4-5: chiusura consultabile con un clic in una pagina privata (dopo "pubblica"); ordine fisso della chiusura.
+39. **v2.36 (14/10/2026)**: §2.55 traccia digitale per la Regione: almeno 3-4 prove per quadrimestre salvate su Classroom (minimo 2).
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
@@ -436,3 +437,11 @@ bumpa la versione del doc.*
 6. **Niente marchi registrati e niente cose non nostre** nei materiali per l'esterno: nomi generici al posto dei prodotti (classe virtuale, modulo online, archivio delle versioni, motore di videogiochi, assistente di intelligenza artificiale); solo immagini fatte da noi (13/10/2026, Nicola).
 7. **Edizioni:** l'insieme (Atlante, mappa, racconto, PDF) si numera per edizioni con la composizione delle versioni delle parti e un'impronta; si dice «è tutto a posto» solo dopo `strumenti/controlla_edizione.py --browser` con «TUTTO A POSTO»; ogni edizione è legata al suo commit su Git (`comunicazione-marketing/EDIZIONI.md`).
 8. **Progetti dei ragazzi (anche maggiorenni):** solo iniziali nei file e nei cruscotti (C.D.L., G.A.); fuori si mostra solo la pagina di presentazione `docs/cm-qma7yay4q5/progetti/`, senza nomi, senza indirizzi che contengono il nome e con le immagini ripulite da scuola, città e marchi; il link vero lo manda il docente a chi lo chiede con l'email già scritta, quando sa chi è (13/10/2026, Nicola).
+
+### 2.55 Traccia digitale per la Regione: le prove su Classroom (14/10/2026)
+
+1. Classroom è considerato dalla Regione un archivio valido del lavoro dei ragazzi: lì deve restare la traccia digitale di quello che fanno.
+2. Minimo richiesto: **2 prove per quadrimestre** per ogni classe. Noi stiamo su **3-4 per quadrimestre**, che non costa molto di più.
+3. Una prova vale se il lavoro del ragazzo è salvato dentro Classroom: un Modulo Google allegato al compito (quiz o verifica con «Invia»), oppure la consegna fatta nel compito. Le pagine del sito da sole non bastano.
+4. Ogni lezione lascia almeno una traccia su Classroom, anche piccola (un Modulo di fine lezione).
+5. Conteggio per classe e per quadrimestre in `PROVE-CLASSROOM-2026-27.md`, aggiornato da Claude a ogni lezione; sotto 3 nel quadrimestre, Claude lo segnala a Nicola e propone la prova.

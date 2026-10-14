@@ -1,6 +1,6 @@
 # Il framework della lezione: tutto quello che deve esserci SEMPRE
 
-**Versione 1.0** — 14/10/2026
+**Versione 1.1** — 14/10/2026
 
 Prof. Nicola Regge, Laboratorio di Informatica. Area Docente, documento interno (non per i ragazzi).
 
@@ -76,6 +76,7 @@ Le lingue di ogni classe:
 3. **Rapporto personale di fine lezione per ogni ragazzo:** PR mandate ed entrate nel gioco, comprensione («Spiegalo in 30 secondi» e verifica), che cosa dice il monitor, voto proposto, che cosa fare dopo. Il PDF arriva al docente, una pagina per ragazzo.
 4. **Il voto lo decide il docente.** La decisione del docente vince sul calcolo; nella pagina pubblica il motivo è solo «decisione del prof», il motivo vero resta nel riservato.
 5. **Prima di pubblicare i voti** si chiede «Pubblico i voti o vuoi vederli prima?».
+6. **Traccia su Classroom per la Regione:** almeno 3-4 prove per quadrimestre per classe (il minimo è 2), con il lavoro del ragazzo salvato dentro Classroom: un Modulo Google allegato al compito o la consegna nel compito. Ogni lezione lascia almeno una traccia su Classroom. Conteggio in `PROVE-CLASSROOM-2026-27.md`.
 
 ## 05 Dopo la lezione
 
@@ -111,7 +112,9 @@ Le lingue di ogni classe:
 | 9 | Teoria e compito visti dal docente; detto «pubblica» | Docente | [ ] |
 | 10 | Link dato solo dopo «PUBBLICATO» | Claude | [ ] |
 | 11 | Testi del registro pronti (voce dell'Allegato A, circa 40 caratteri) e firma entro le 14:05 | Docente | [ ] |
+| 12 | La lezione lascia una traccia su Classroom (Modulo allegato o consegna nel compito); conteggio prove del quadrimestre aggiornato | Claude | [ ] |
 
 ## 08 Registro delle versioni
 
+2. **v1.1 (14/10/2026):** traccia su Classroom per la Regione, almeno 3-4 prove per quadrimestre (punto 04.6 e spunta 12).
 1. **v1.0 (14/10/2026):** prima versione, dopo le lezioni del 13 e del 14/10/2026 (errori dal #60 al #79).
