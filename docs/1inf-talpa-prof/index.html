@@ -23,8 +23,11 @@ button,a.b{font:inherit;font-weight:700;background:#1f6feb;color:#fff;border:0;b
 <div id="lista"></div>
 </div></div>
 <script>
-var PW = null, CONF = {}, R = [], attiva = '', pronti = {}, fatte = {};
-try { PW = sessionStorage.getItem('cruscotto-pw'); fatte = JSON.parse(localStorage.getItem('talpa-prof-fatte') || '{}'); } catch (e) {}
+var PW = null, CONF = {}, R = [], CL = [], attiva = '', pronti = {}, fatte = {}, chi = {}, desc = {};
+try { PW = sessionStorage.getItem('cruscotto-pw'); fatte = JSON.parse(localStorage.getItem('talpa-prof-fatte') || '{}'); chi = JSON.parse(localStorage.getItem('talpa-prof-chi') || '{}'); desc = JSON.parse(localStorage.getItem('talpa-prof-desc') || '{}'); } catch (e) {}
+function salva() { try { localStorage.setItem('talpa-prof-chi', JSON.stringify(chi)); localStorage.setItem('talpa-prof-desc', JSON.stringify(desc)); } catch (e) {} }
+function nomeDi(q) { return q.nome || chi[q.id] || ''; }
+function descDi(q) { return q.descrizione || desc[q.id] || ''; }
 function $(i) { return document.getElementById(i); }
 function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 function b64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
@@ -36,7 +39,9 @@ var BASE = 'Trasforma questa foto in un personaggio cartoonesco, stile cartone a
 function disegna() {
   $('lista').innerHTML = R.length ? R.map(function (q) {
     return '<div class="r' + (q.id === attiva ? ' attiva' : '') + '" data-id="' + e(q.id) + '"><div><img class="foto" src="' + q.immagine + '" alt=""><div class="mu">' + e(q.ora) + ' · personaggio ' + e(q.personaggio) + '</div></div>' +
-      '<div><b style="font-size:20px">' + e(q.nome) + '</b> <span class="mu">(' + e(q.breve) + ')</span><p>«' + e(q.descrizione || '(nessuna descrizione)') + '»</p>' +
+      '<div>' + (q.nome ? '<b style="font-size:20px">' + e(q.nome) + '</b> <span class="mu">(' + e(q.breve) + ')</span><p>«' + e(q.descrizione || '(nessuna descrizione)') + '»</p>' :
+        '<select data-a="chi"><option value="">Chi è? (foto del prof)</option>' + CL.map(function (n) { return '<option' + (chi[q.id] === n ? ' selected' : '') + '>' + e(n) + '</option>'; }).join('') + '</select>' +
+        '<textarea data-a="desc" rows="2" placeholder="Come vuole il personaggio (lo dice il ragazzo)">' + e(desc[q.id] || '') + '</textarea>') +
       '<button class="verde" data-a="ok">Foto va bene</button><select data-a="motivo"><option>la testa non si vede bene: ritaglia solo la testa</option><option>non si capisce chi sei: scegli una foto più chiara</option><option>ci sono altre persone: togli le altre persone</option><option>la foto è troppo scura o sfocata</option></select><button class="rosso" data-a="rifai">Rifalla</button><br>' +
       '<button data-a="copiafoto">1. Copia la foto</button><a class="b grigio" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini</a><button data-a="copiatesto">2. Copia la richiesta</button><div class="esito" data-e="1">' + (fatte[q.id] ? 'Nel gioco ✓' : '') + '</div></div>' +
       '<div><div class="inc" data-a="incolla">' + (pronti[q.id] ? '<img src="' + pronti[q.id] + '" alt="">' : '3. Clicca qui e premi Ctrl+V con il personaggio di Gemini') + '</div><input type="file" accept="image/*" data-a="file"><button class="verde" data-a="metti">4. Metti nel gioco</button></div></div>';
@@ -54,18 +59,18 @@ document.addEventListener('click', function (ev) {
   if (attiva !== id) { attiva = id; [].forEach.call(document.querySelectorAll('.r'), function (c) { c.classList.toggle('attiva', c.dataset.id === id); }); }
   if (!t) return; var a = t.dataset.a;
   if (a === 'copiafoto') { var im = new Image(); im.onload = function () { var c = document.createElement('canvas'); c.width = im.width; c.height = im.height; c.getContext('2d').drawImage(im, 0, 0); c.toBlob(function (b) { navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () { es.textContent = 'Foto copiata: in Gemini Ctrl+V'; }); }, 'image/png'); }; im.src = q.immagine; }
-  if (a === 'copiatesto') navigator.clipboard.writeText(BASE + (q.descrizione || '')).then(function () { es.textContent = 'Richiesta copiata: in Gemini Ctrl+V e Invio'; });
-  if (a === 'ok' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: q.nome, esito: 'ok' }, es)) es.textContent = 'Foto: va bene ✓';
-  if (a === 'rifai' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: q.nome, esito: 'rifai', motivo: card.querySelector('select').value }, es)) es.textContent = 'Foto: rifalla ✓';
-  if (a === 'metti') { if (!pronti[id]) { es.textContent = 'Prima incolla il personaggio nel riquadro viola.'; return; }
-    if (invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'personaggio', per: id, chi: q.nome, descrizione: q.descrizione, immagine: pronti[id] }, es)) { fatte[id] = 1; try { localStorage.setItem('talpa-prof-fatte', JSON.stringify(fatte)); } catch (x) {} es.textContent = 'Mandato a Claude: tra poco è nel gioco ✓'; } }
+  if (a === 'copiatesto') navigator.clipboard.writeText(BASE + descDi(q)).then(function () { es.textContent = 'Richiesta copiata: in Gemini Ctrl+V e Invio'; });
+  if (a === 'ok' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: nomeDi(q), esito: 'ok' }, es)) es.textContent = 'Foto: va bene ✓';
+  if (a === 'rifai' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: nomeDi(q), esito: 'rifai', motivo: card.querySelector('select').value }, es)) es.textContent = 'Foto: rifalla ✓';
+  if (a === 'metti') { if (!pronti[id]) { es.textContent = 'Prima incolla il personaggio nel riquadro viola.'; return; } if (!nomeDi(q)) { es.textContent = 'Scegli chi è nel menu «Chi è?».'; return; }
+    if (invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'personaggio', per: id, chi: nomeDi(q), descrizione: descDi(q), immagine: pronti[id] }, es)) { fatte[id] = 1; try { localStorage.setItem('talpa-prof-fatte', JSON.stringify(fatte)); } catch (x) {} es.textContent = 'Mandato a Claude: tra poco è nel gioco ✓'; } }
 });
-document.addEventListener('change', function (ev) { var t = ev.target; if (t.dataset.a !== 'file' || !t.files[0]) return; var id = t.closest('.r').dataset.id; quadrato(t.files[0], function (u) { pronti[id] = u; disegna(); }); });
+document.addEventListener('change', function (ev) { var t = ev.target, cc = t.closest('.r'); if (cc && t.dataset.a === 'chi') { chi[cc.dataset.id] = t.value; salva(); return; } if (cc && t.dataset.a === 'desc') { desc[cc.dataset.id] = t.value; salva(); return; } if (t.dataset.a !== 'file' || !t.files[0]) return; var id = t.closest('.r').dataset.id; quadrato(t.files[0], function (u) { pronti[id] = u; disegna(); }); });
 document.addEventListener('paste', function (ev) { if (!attiva) return; var it = (ev.clipboardData || {}).items || [];
   for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { ev.preventDefault(); var id = attiva; quadrato(it[i].getAsFile(), function (u) { pronti[id] = u; disegna(); }); return; } });
 async function carica(pw) { var X = await (await fetch('dati.json?t=' + Date.now(), { cache: 'no-store' })).json(); var d = await apri(X, pw);
   var nuovo = JSON.stringify(d.richieste.map(function (q) { return q.id; })) !== JSON.stringify(R.map(function (q) { return q.id; }));
-  R = d.richieste; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
+  R = d.richieste; CL = d.classe || []; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
   $('agg').textContent = R.length + ' richieste · ultimo controllo ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
 async function prova() { var pw = $('pw').value; try { await carica(pw); PW = pw; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} } catch (e) { $('err').textContent = 'Password sbagliata.'; } }
 $('ok').onclick = prova; $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') prova(); });
