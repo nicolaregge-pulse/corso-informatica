@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Il merge del treno</title><style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:860px;margin:0 auto;padding:16px}
+h1{font-size:30px;margin:6px 0 2px}h2{font-size:22px;margin:6px 0}h3{margin:14px 0 4px}.t{color:var(--mu);font-size:16px}
+.it{font-weight:600}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:17px}
+.bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px}
+.bot{display:inline-block;background:#1a7f37;color:#fff;text-decoration:none;font-weight:700;font-size:21px;padding:11px 20px;border-radius:12px;margin:8px 0;border:0;cursor:pointer;font-family:inherit}
+.bot.blu{background:#1f6feb;font-size:18px;padding:9px 15px}
+.nota{background:var(--gi);border-radius:8px;padding:10px 14px;margin:10px 0}ol{padding-left:26px}li{margin:0 0 12px}
+textarea{font:inherit;width:100%;min-height:110px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
+input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
+.esito{font-size:19px;font-weight:700;margin-top:6px}
+.check{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.check button{font:inherit;font-weight:700;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg);padding:4px 14px;margin:4px 6px 0 0;cursor:pointer}.check button.si{background:#d3f9d8;border-color:#2f9e44;color:#111}.check button.no{background:#ffe3e3;border-color:#e03131;color:#111}
+.flusso{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.flusso span{background:var(--card);border:2px solid #6e40c9;border-radius:20px;padding:4px 12px;font-weight:700;font-size:16px}.flusso b{color:#6e40c9}
+.frasi li{font-weight:600}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:4px 14px 12px;margin:18px 0}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:15px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:#1a7f37}.passo.fatto .num,.passo.fatto .bollo{background:#1a7f37}
+.passo.ora{border:5px solid #1f6feb}.passo.ora .num,.passo.ora .bollo{background:#1f6feb}
+.spento{opacity:.4!important;pointer-events:none}</style></head>
+<body><div class="w">
+<h1>Il merge: le vostre richieste entrano nel gioco</h1><div class="bn" lang="bn">মার্জ: আপনাদের অনুরোধ গেমে ঢুকছে</div><p class="t">3INF · 14/10/2026</p>
+<div class="nota"><div class="it">Fai i passi in ordine, dall'alto in basso. Il passo da fare adesso ha il bordo blu. Quando un passo è fatto diventa verde e il suo bottone si spegne.</div><div class="bn" lang="bn">উপর থেকে নিচে ক্রমানুসারে ধাপগুলো করুন। এখন যে ধাপ করতে হবে তার নীল বর্ডার। ধাপ শেষ হলে সবুজ হয় এবং বোতাম বন্ধ হয়ে যায়।</div></div>
+<section class="passo" id="p-nome"><h2><span class="num">1</span> Il tuo nome<span class="bollo"></span><br><span class="bn" lang="bn">আপনার নাম</span></h2>
+<div class="it">Scrivi nome e cognome e premi OK.</div><div class="bn" lang="bn">নাম ও পদবি লিখে OK চাপুন।</div><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"> <button class="bot blu" id="okNome">OK</button><div class="esito" id="esNome"></div>
+</section>
+<section class="passo" id="p-teoria"><h2><span class="num">2</span> Il merge: le vostre richieste sono entrate nel gioco<span class="bollo"></span><br><span class="bn" lang="bn">মার্জ: আপনাদের অনুরোধ গেমে ঢুকেছে</span></h2>
+<div class="it">Lunedì avete mandato le vostre richieste di modifica (Pull Request). Oggi il prof le ha controllate e le ha unite al gioco: questo si chiama <b>Merge</b>. Ogni richiesta unita fa nascere una <b>versione nuova</b>: v1.5, v1.6, v1.7, v1.8, v1.9, v1.10.</div><div class="bn" lang="bn">সোমবার আপনারা পরিবর্তনের অনুরোধ (Pull Request) পাঠিয়েছিলেন। আজ শিক্ষক সেগুলো দেখে গেমের সাথে যুক্ত করেছেন: একে বলে <b>Merge</b>। প্রতিটি যুক্ত অনুরোধে একটি <b>নতুন সংস্করণ</b> তৈরি হয়।</div><div class="flusso"><span>Pull Request</span><b>→</b><span>controllo del prof</span><b>→</b><span>Merge</span><b>→</b><span>versione nuova</span><b>→</b><span>changelog</span></div><div class="it"><b>Il changelog</b> è l'elenco scritto di che cosa è cambiato in ogni versione e di chi l'ha chiesto. <b>Il backlog</b> è l'elenco delle richieste ancora da fare.</div><div class="bn" lang="bn"><b>Changelog</b> হলো প্রতিটি সংস্করণে কী বদলেছে আর কে চেয়েছে তার লিখিত তালিকা। <b>Backlog</b> হলো যে অনুরোধগুলো এখনও করা বাকি তার তালিকা।</div><div class="nota"><div class="it"><b>Un conflitto vero.</b> Andrea G. ha chiesto il cielo grigio. Ma in montagna Dani e Ale avevano già chiesto il cielo sereno. Non si cancella il lavoro degli altri: il cielo grigio è andato in città. Regola: <b>aggiungere sì, cancellare no</b>.</div><div class="bn" lang="bn"><b>একটি আসল দ্বন্দ্ব।</b> Andrea G. ধূসর আকাশ চেয়েছিল, কিন্তু পাহাড়ে Dani ও Ale আগে পরিষ্কার আকাশ চেয়েছিল। অন্যের কাজ মোছা হয় না: ধূসর আকাশ শহরে গেছে। নিয়ম: <b>যোগ করা হ্যাঁ, মোছা না</b>।</div></div><div class="nota"><div class="it"><b>Tre richieste non sono entrate:</b> erano foto di persone vere. Nel gioco pubblico non si mettono foto di persone. Si può chiedere un personaggio disegnato o descritto a parole.</div><div class="bn" lang="bn"><b>তিনটি অনুরোধ ঢোকেনি:</b> সেগুলো আসল মানুষের ছবি ছিল। পাবলিক গেমে মানুষের ছবি দেওয়া হয় না। আঁকা বা কথায় বর্ণনা করা চরিত্র চাওয়া যায়।</div></div><h3>Spiegalo in 30 secondi</h3><div class="it">Dillo a voce al compagno, poi scambiatevi:</div><div class="bn" lang="bn">সহপাঠীকে মুখে বলুন, তারপর জায়গা বদলান:</div><ol class="frasi"><li>Tutta la classe lavora su un solo gioco: il treno blindato della 3INF.</li><li>Ognuno manda una richiesta di modifica: si chiama Pull Request.</li><li>Il prof la controlla e la unisce al gioco: è il Merge. Nasce una versione nuova.</li><li>Tutto è scritto: nel backlog le richieste, nel changelog che cosa è cambiato.</li></ol><div id="quiz"><div class="check"><div class="it">1. Che cos'è una Pull Request?</div><button data-g="1">Una richiesta di modifica</button><button data-g="0">Un gioco</button><button data-g="0">Una password</button><div class="esito"></div></div><div class="check"><div class="it">2. Che cos'è il Merge?</div><button data-g="1">Unire la modifica al gioco</button><button data-g="0">Cancellare il gioco</button><button data-g="0">Copiare un file</button><div class="esito"></div></div><div class="check"><div class="it">3. Dove leggi che cosa è cambiato in una versione?</div><button data-g="1">Nel changelog</button><button data-g="0">Nel backlog</button><button data-g="0">Su YouTube</button><div class="esito"></div></div><div class="check"><div class="it">4. Due richieste vogliono cose diverse nello stesso posto. Che cosa si fa?</div><button data-g="1">Si trova un posto per tutte e due</button><button data-g="0">Si cancella quella vecchia</button><button data-g="0">Si litiga</button><div class="esito"></div></div></div>
+</section>
+<section class="passo" id="p-gioca"><h2><span class="num">3</span> Gioca la versione nuova e trova le modifiche<span class="bollo"></span><br><span class="bn" lang="bn">নতুন সংস্করণ খেলুন এবং পরিবর্তনগুলো খুঁজুন</span></h2>
+<div class="it">Il gioco si apre in una finestra nuova. Gioca 3 minuti e cerca: il treno lento all'inizio, il cielo grigio in città, le rocce diverse, l'alieno verde, Tuta. Poi torna qui.</div><div class="bn" lang="bn">গেমটি নতুন উইন্ডোতে খুলবে। ৩ মিনিট খেলুন এবং খুঁজুন: শুরুতে ধীর ট্রেন, শহরে ধূসর আকাশ, ভিন্ন পাথর, সবুজ এলিয়েন, Tuta। তারপর এখানে ফিরে আসুন।</div><a class="bot" id="bGioca" href="../../giochi/treno-3inf/" target="_blank" rel="noopener">Gioca</a>
+</section>
+<section class="passo" id="p-changelog"><h2><span class="num">4</span> Leggi il changelog<span class="bollo"></span><br><span class="bn" lang="bn">Changelog পড়ুন</span></h2>
+<div class="it">Si apre l'elenco di tutte le versioni. Leggi le versioni da v1.5 a v1.10: chi ha chiesto che cosa. Poi torna qui.</div><div class="bn" lang="bn">সব সংস্করণের তালিকা খুলবে। v1.5 থেকে v1.10 পড়ুন: কে কী চেয়েছে। তারপর এখানে ফিরে আসুন।</div><a class="bot" id="bChangelog" href="../../giochi/treno-3inf/versioni/" target="_blank" rel="noopener">Le versioni</a>
+</section>
+<section class="passo" id="p-rev"><h2><span class="num">5</span> La tua revisione<span class="bollo"></span><br><span class="bn" lang="bn">আপনার পর্যালোচনা</span></h2>
+<div class="it">Nei lavori veri, dopo il Merge si controlla. Scrivi 2 righe: la tua richiesta è nel gioco? È fatta bene? Che cosa manca? Se la tua richiesta non c'era, scrivi che cosa ti piace o non ti piace di una versione nuova.</div><div class="bn" lang="bn">আসল কাজে Merge-এর পরে যাচাই করা হয়। ২ লাইন লিখুন: আপনার অনুরোধ কি গেমে আছে? ঠিকমতো করা হয়েছে? কী বাকি? আপনার অনুরোধ না থাকলে, নতুন সংস্করণের কী ভালো বা খারাপ লাগল লিখুন।</div><ol><li><div class="it">Scrivi la tua revisione qui.</div><div class="bn" lang="bn">এখানে আপনার পর্যালোচনা লিখুন।</div><textarea id="t-rev" placeholder="Esempio: la v1.8 con l'alieno verde è giusta, ma vorrei che fosse più veloce"></textarea></li><li><div class="it">Premi «Copia».</div><div class="bn" lang="bn">«Copia» চাপুন (কপি)।</div><button class="bot blu" data-copia="rev">Copia</button></li><li><div class="it">Premi «Apri il Modulo»: si apre una finestra nuova.</div><div class="bn" lang="bn">«Apri il Modulo» চাপুন: একটি নতুন উইন্ডো খুলবে।</div><a class="bot blu" data-apri="rev" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Apri il Modulo</a></li><li><div class="it">Nel Modulo: nella prima casella scrivi <b>revisione</b>. Nella seconda casella premi Ctrl+V. Poi premi «Invia» e torna qui.</div><div class="bn" lang="bn">ফর্মে: প্রথম ঘরে লিখুন <b>revisione</b>। দ্বিতীয় ঘরে Ctrl+V চাপুন। তারপর «Invia» (পাঠান) চাপুন এবং এখানে ফিরে আসুন।</div></li></ol><div class="esito" id="e-rev"></div>
+</section>
+<section class="passo" id="p-pr"><h2><span class="num">6</span> Le tue nuove richieste: PR1, PR2, PR3<span class="bollo"></span><br><span class="bn" lang="bn">আপনার নতুন অনুরোধ: PR1, PR2, PR3</span></h2>
+<div class="it">Puoi mandare 3 richieste, una alla volta. Ogni richiesta ha 4 parti: <b>Titolo</b>, <b>Cosa cambia</b>, <b>Dove</b>, <b>Perché</b>. Niente foto di persone vere. Il prof le mette nel gioco durante la lezione: guarda le versioni nuove!</div><div class="bn" lang="bn">আপনি ৩টি অনুরোধ পাঠাতে পারেন, একবারে একটি। প্রতিটির ৪টি অংশ: <b>শিরোনাম</b>, <b>কী বদলাবে</b>, <b>কোথায়</b>, <b>কেন</b>। আসল মানুষের ছবি নয়। শিক্ষক ক্লাস চলাকালীন সেগুলো গেমে দেবেন।</div><div class="esito" id="contaPR"></div><ol><li><div class="it">Scrivi la richiesta con le 4 parti.</div><div class="bn" lang="bn">৪টি অংশসহ অনুরোধ লিখুন।</div><textarea id="t-pr" placeholder="Titolo: ...
+Cosa cambia: ...
+Dove: ...
+Perché: ..."></textarea></li><li><div class="it">Premi «Copia».</div><div class="bn" lang="bn">«Copia» চাপুন (কপি)।</div><button class="bot blu" data-copia="pr">Copia</button></li><li><div class="it">Premi «Apri il Modulo»: si apre una finestra nuova.</div><div class="bn" lang="bn">«Apri il Modulo» চাপুন: একটি নতুন উইন্ডো খুলবে।</div><a class="bot blu" data-apri="pr" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Apri il Modulo</a></li><li><div class="it">Nel Modulo: nella prima casella scrivi <b>PR</b>. Nella seconda casella premi Ctrl+V. Poi premi «Invia» e torna qui.</div><div class="bn" lang="bn">ফর্মে: প্রথম ঘরে লিখুন <b>PR</b>। দ্বিতীয় ঘরে Ctrl+V চাপুন। তারপর «Invia» (পাঠান) চাপুন এবং এখানে ফিরে আসুন।</div></li></ol><div class="esito" id="e-pr"></div>
+</section>
+<section class="passo" id="p-rip"><h2><span class="num">7</span> Ripasso<span class="bollo"></span><br><span class="bn" lang="bn">পুনরালোচনা</span></h2>
+<div class="it">Si apre una finestra nuova: leggi le schede e fai l'allenamento. Poi torna qui.</div><div class="bn" lang="bn">নতুন উইন্ডো খুলবে: কার্ডগুলো পড়ুন এবং অনুশীলন করুন। তারপর এখানে ফিরে আসুন।</div><a class="bot" id="bRip" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning" target="_blank" rel="noopener">Ripasso</a>
+</section>
+<section class="passo" id="p-ver"><h2><span class="num">8</span> Verifica<span class="bollo"></span><br><span class="bn" lang="bn">পরীক্ষা</span></h2>
+<div class="it">La apre il prof. Alla fine premi il bottone verde in fondo alla verifica, poi torna qui: vedrai «Verifica fatta».</div><div class="bn" lang="bn">শিক্ষক এটি খুলবেন। শেষে পরীক্ষার নিচের সবুজ বোতাম চাপুন, তারপর এখানে ফিরে আসুন: «Verifica fatta» দেখবেন।</div><a class="bot" id="bVer" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning&amp;modo=verifica" target="_blank" rel="noopener">Verifica</a>
+</section>
+<section class="passo" id="p-val"><h2><span class="num">9</span> La tua valutazione e il recupero<span class="bollo"></span><br><span class="bn" lang="bn">আপনার মূল্যায়ন এবং পুনরুদ্ধার</span></h2>
+<div id="val" class="nota"><div class="it">Compare qui quando il prof ha corretto la tua verifica.</div><div class="bn" lang="bn">শিক্ষক আপনার পরীক্ষা দেখার পরে এখানে দেখা যাবে।</div></div><a class="bot" id="bRec" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero</a>
+</section>
+<h2>Come sta andando la classe</h2><div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-voti/" target="_blank" rel="noopener">I voti</a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-backlog/" target="_blank" rel="noopener">Il backlog</a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione</a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-3inf/versioni/" target="_blank" rel="noopener">Le versioni del gioco</a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-top/" target="_blank" rel="noopener">La classifica</a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-valutazione/" target="_blank" rel="noopener">La situazione della classe</a></div>
+</div>
+<script>
+/* Lezione 3INF 14/10/2026: percorso unico; il passo fatto diventa verde e il suo bottone si spegne. */
+(function () {
+  var ID = '3inf-versioning-20261014', L = 'perc-3inf-merge-', R = null;
+  var ORDINE = ['nome', 'teoria', 'gioca', 'changelog', 'rev', 'pr', 'rip', 'ver', 'val'];
+  function $(i) { return document.getElementById(i); }
+  function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
+  function s(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
+  function n(k) { return parseInt(g(L + k) || '0', 10); }
+  function e(x) { return String(x == null ? '' : x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function rosso(el, t) { el.style.color = '#c0392b'; el.innerHTML = t; } function verde(el, t) { el.style.color = '#1a7f37'; el.innerHTML = t; }
+  function nome() { return (g('nome-3inf') || '').trim(); }
+  function breve(x) { var p = (x || '').trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function esito(m) { try { var r = JSON.parse(g('esito-' + ID + '-' + m) || 'null'); return r && r.consegnata ? r : null; } catch (x) { return null; } }
+  function spegni(el) { if (el) el.classList.add('spento'); }
+  function fatto(k) {
+    if (k === 'nome') return nome().indexOf(' ') > 0;
+    if (k === 'pr') return n('pr') >= 3;
+    if (k === 'ver') return !!esito('verifica');
+    if (k === 'val') return !!esito('recupero');
+    return n(k) > 0;
+  }
+  function disegna() {
+    var ora = null;
+    ORDINE.forEach(function (k) {
+      var sec = $('p-' + k), f = fatto(k); if (!f && !ora) ora = k;
+      sec.classList.toggle('fatto', f); sec.classList.toggle('ora', ora === k);
+      sec.querySelector('.bollo').textContent = f ? '✓ Fatto' : (ora === k ? 'Adesso' : 'Da fare');
+    });
+    if (fatto('nome')) { $('nome').value = nome(); verde($('esNome'), 'Ciao ' + e(breve(nome())) + '!'); }
+    if (fatto('teoria')) [].forEach.call(document.querySelectorAll('#quiz button'), spegni);
+    if (fatto('gioca')) spegni($('bGioca'));
+    if (fatto('changelog')) spegni($('bChangelog'));
+    if (fatto('rev')) { ['t-rev'].forEach(function (i) { $(i).disabled = true; }); [].forEach.call(document.querySelectorAll('#p-rev .bot'), spegni); verde($('e-rev'), '✓ Revisione mandata.'); }
+    var np = n('pr');
+    $('contaPR').innerHTML = 'Richieste mandate: <b>' + np + ' di 3</b> · পাঠানো অনুরোধ: ' + np + '/3';
+    if (np >= 3) { $('t-pr').disabled = true; [].forEach.call(document.querySelectorAll('#p-pr .bot'), spegni); }
+    if (fatto('rip')) spegni($('bRip'));
+    var v = esito('verifica');
+    if (v) { spegni($('bVer')); spegni($('bRip')); $('bVer').textContent = '✓ Verifica fatta'; }
+    var me = breve(nome()), a = (R && R.allievi || []).filter(function (x) { return x.allievo === me; })[0];
+    if (v && !a) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: la tua valutazione compare qui da sola.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। শিক্ষক দেখছেন: আপনার মূল্যায়ন এখানে নিজে থেকে আসবে।</div>';
+    if (a) {
+      $('val').innerHTML = '<div style="font-size:30px;font-weight:800">Voto: ' + e(a.voto) + '</div>' + (a.aree || []).map(function (z) { return '<div>' + e(z.nome) + ': <b>' + e(z.giuste) + ' su ' + e(z.su) + '</b></div>'; }).join('') +
+        (a.scritte ? '<div style="margin-top:6px"><b>Risposte scritte:</b> ' + e(a.scritte) + '</div>' : '') + (a.giudizio ? '<div style="margin-top:6px"><b>Il giudizio del prof:</b> ' + e(a.giudizio) + '</div>' : '');
+      $('bRec').hidden = false; if (esito('recupero')) { spegni($('bRec')); $('bRec').textContent = '✓ Recupero fatto'; }
+    }
+  }
+  function carica() { fetch('../../verifica/risultati/3inf-versioning.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { R = d; disegna(); }).catch(disegna); }
+  $('okNome').onclick = function () { var v = $('nome').value.trim().replace(/\s+/g, ' '); if (v.indexOf(' ') < 0) return rosso($('esNome'), 'Scrivi nome E cognome. · নাম ও পদবি লিখুন।'); s('nome-3inf', v); if (!g('nome-' + ID)) s('nome-' + ID, JSON.stringify(v)); disegna(); };
+  $('nome').addEventListener('keydown', function (ev) { if (ev.key === 'Enter') $('okNome').click(); });
+  $('quiz').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (!b) return; var q = b.parentNode, es = q.querySelector('.esito');
+    [].forEach.call(q.querySelectorAll('button'), function (x) { x.className = ''; }); b.className = b.dataset.g === '1' ? 'si' : 'no';
+    if (b.dataset.g === '1') verde(es, 'Giusto!'); else rosso(es, 'Riprova: rileggi le 4 frasi. · আবার চেষ্টা করুন।');
+    if (document.querySelectorAll('#quiz button.si').length === 4) { s(L + 'teoria', '1'); setTimeout(disegna, 600); } });
+  $('bGioca').addEventListener('click', function () { s(L + 'gioca', '1'); setTimeout(disegna, 500); });
+  $('bChangelog').addEventListener('click', function () { s(L + 'changelog', '1'); setTimeout(disegna, 500); });
+  $('bRip').addEventListener('click', function () { s(L + 'rip', '1'); setTimeout(disegna, 500); });
+  // Revisione e PR: «Copia» prepara il testo; «Apri il Modulo» dopo la copia conta come mandata (il prof la vede nel Modulo).
+  [].forEach.call(document.querySelectorAll('[data-copia]'), function (b) {
+    b.onclick = function () {
+      var k = b.dataset.copia, es = $('e-' + k), t = $('t-' + k).value.trim();
+      if (!fatto('nome')) return rosso(es, 'Prima scrivi il tuo nome al Passo 1. · প্রথমে ধাপ ১-এ নাম লিখুন।');
+      if (t.length < 15) { $('t-' + k).focus(); return rosso(es, 'Scrivi almeno una frase completa. · অন্তত একটি সম্পূর্ণ বাক্য লিখুন।'); }
+      var testo = nome() + ' — ' + (k === 'rev' ? 'REVISIONE' : 'PR' + (n('pr') + 1)) + ': ' + t;
+      navigator.clipboard.writeText(testo).then(function () { s(L + k + '-copiata', '1'); verde(es, 'Copiata! Ora premi «Apri il Modulo». · কপি হয়েছে! এখন «Apri il Modulo» চাপুন।'); });
+    };
+  });
+  [].forEach.call(document.querySelectorAll('[data-apri]'), function (a) {
+    a.addEventListener('click', function () {
+      var k = a.dataset.apri; if (!g(L + k + '-copiata')) return;
+      s(L + k + '-copiata', ''); s(L + k, String(n(k) + 1)); $('t-' + k).value = '';
+      verde($('e-' + k), 'Nel Modulo: prima casella, poi Ctrl+V nella seconda, poi «Invia».'); setTimeout(disegna, 500);
+    });
+  });
+  carica(); setInterval(carica, 60000); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna);
+})();
+
+</script>
+<script src="../../assistente/assistente.js" data-pagina="3inf-merge" data-lingue="it"></script>
+</body></html>
