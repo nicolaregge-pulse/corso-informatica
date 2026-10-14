@@ -1,20 +1,20 @@
-# Il treno blindato — base del prof. Nicola Regge (Godot)
+# Il treno blindato della 3INF (Godot)
 
-**Versione 1.0** — 12/10/2026 — motore Godot 4.7
+**Versione 2.6** — 14/10/2026 — motore Godot 4.7 — fork pulito della base del prof (`treno-3inf-godot` v1.0)
 
 ## 1 Cos'è
 
-1. È il gioco della classe 2INF «Il treno blindato» (versione HTML 0.31, «Gli uccelli nel cielo») rifatto con il motore **Godot 4.7** ed esportato per il browser.
-2. È la **base del prof**: da qui ogni classe parte con un suo ramo e aggiunge i suoi pezzi (cattivi, ambienti, facce, personaggi). Per questo la base è **neutra**: niente facce né personaggi di una classe, solo cattivi disegnati.
-3. Perché 1.0: è cambiato il motore, una cosa grossa, quindi è una versione «major».
-4. Si gioca nel browser (PC e telefono, in verticale e in orizzontale): `docs/giochi/treno-prof/` del sito del corso. Le versioni congelate sono in `docs/giochi/treno-prof/versioni/`.
-5. Ponte da Lazarus: Lazarus **reagisce** (aspetta un clic, come `Button1Click`), Godot **pulsa** (`_process(delta)` gira da solo circa 60 volte al secondo e muove il treno, i cattivi, la pioggia).
+1. È il treno della classe 3INF rifatto partendo dalla **base del prof** su Godot (v1.0). La base resta intatta in `treno-prof-godot/`.
+2. Perché 2.0: il treno della 3INF di prima (v1.0 … v1.11) era in HTML; è cambiato il motore, quindi versione «major».
+3. Si gioca nel browser: `docs/giochi/treno-3inf-v2/`. Le versioni congelate sono in `docs/giochi/treno-3inf-v2/versioni/`.
+4. Le richieste della classe (Noah, Andrea G., Ariel, David A., Tomas) sono state rifatte una alla volta, una versione ciascuna: vedi `CHANGELOG.md`.
+5. Chiavi nuove del motore della 3INF: `aumento_per_livello` (regole.json), `rocce_varie` (ambienti), `tuta` e `pelle` (cattivi).
 
 ## 2 Come si apre con Godot portabile
 
 1. Avviare Godot 4.7 portabile (doppio clic sul file `.exe`).
 2. Nella finestra «Gestore dei progetti» premere «Importa».
-3. Scegliere il file `project.godot` di questa cartella (`treno-prof-godot`).
+3. Scegliere il file `project.godot` di questa cartella (`treno-3inf-godot`).
 4. Premere «Importa e modifica».
 5. Premere F5 (oppure il triangolo «Esegui» in alto a destra): il gioco parte in una finestra.
 
@@ -30,7 +30,7 @@
 | `main.tscn` | la scena: un solo nodo con lo script `treno.gd` |
 | `icon.png` | l'icona del gioco (binari e mirino) |
 | `export_presets.cfg` | le impostazioni per esportare il gioco per il Web |
-| `strumenti/congela_versione.py` | strumento del prof: copia la versione esportata in `versioni/vX.Y/` |
+| `strumenti/indice_versioni.py` | strumento del prof: rifà la pagina di tutte le versioni da `versioni/versioni.json` |
 
 ## 4 I dati (si cambia il gioco senza toccare il codice)
 
@@ -58,26 +58,27 @@ Tutti i dati stanno nella cartella `dati/`, con gli stessi nomi della versione H
 ## 5 La memoria del giocatore (privacy)
 
 1. Record, migliori punteggi, soprannome e «Facce della classe» restano **solo sul dispositivo** di chi gioca: niente va in rete né su GitHub.
-2. Nel browser si usa la memoria del browser con i nomi `treno-prof-...`: record e facce della base sono separati da quelli del treno HTML della 2INF. Accanto a ogni punteggio c'è la versione del gioco (v0.31, v1.0...).
+2. Nel browser si usa la memoria del browser con i nomi `treno-3inf-v2-...`: record e facce della base sono separati da quelli del treno HTML della 2INF. Accanto a ogni punteggio c'è la versione del gioco (v0.31, v1.0...).
 
 ## 6 Come si fa una versione nuova
 
 1. Si fa la modifica (dati o codice) e si prova con F5.
 2. Si cambia il numero in `dati/versione.json` (MAJOR.MINOR.PATCH: cambio grosso . aggiunta . correzione).
-3. Si esporta per il Web: in Godot, menu «Progetto» → «Esporta...» → preset «Web» → «Esporta progetto» (il percorso è già impostato: `../docs/giochi/treno-prof/index.html`), togliendo la spunta «Esporta con debug».
-4. Si congela la versione (lo fa il prof o Claude):
+3. Si esporta per il Web: in Godot, menu «Progetto» → «Esporta...» → preset «Web» → «Esporta progetto» (il percorso è già impostato: `../docs/giochi/treno-3inf-v2/index.html`), togliendo la spunta «Esporta con debug».
+4. Si congela la versione, dalla radice del repository (lo fa il prof o Claude), e si aggiunge la riga in `docs/giochi/treno-3inf-v2/versioni/versioni.json`:
 
 ```
-python3 strumenti/congela_versione.py 1.1 "Nome della versione" "Cosa cambia"
+python3 strumenti/versione_treno_godot.py v2.7 treno-3inf-v2
+python3 treno-3inf-godot/strumenti/indice_versioni.py
 ```
 
 5. Si scrive la voce nel `CHANGELOG.md` (cosa cambia e perché).
 6. Si fa il commit e il push: GitHub Pages pubblica la versione nuova; quella vecchia resta giocabile in `versioni/`.
 
-Esportazione senza aprire l'editor (per Claude, dalla cartella `treno-prof-godot`):
+Esportazione senza aprire l'editor (per Claude, dalla cartella `treno-3inf-godot`):
 
 ```
-Godot_v4.7-stable_linux.x86_64 --headless --path . --export-release "Web" ../docs/giochi/treno-prof/index.html
+Godot_v4.7-stable_linux.x86_64 --headless --path . --export-release "Web" ../docs/giochi/treno-3inf-v2/index.html
 ```
 
 ## 7 Controllo automatico
