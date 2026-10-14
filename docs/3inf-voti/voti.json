@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:04 (KPI proposti, da approvare)",
+ "aggiornato": "14/10/2026 13:05 (KPI proposti, da approvare)",
  "voti": [
   {
    "alunno": "Alessandro A.",
@@ -27,12 +27,12 @@
    "alunno": "Ariel D.",
    "pr": 3,
    "pr_oggi": 3,
-   "fatte": 0,
+   "fatte": 2,
    "feedback": false,
-   "voto": 70,
-   "perche": "40 di partenza +30 3 richieste di oggi = 70",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "voto": 80,
+   "perche": "40 di partenza +30 3 richieste di oggi +10 richiesta nel gioco = 80",
+   "stipendio": 400,
+   "stipendio_conto": "v1.19 peso 2 = 200 € + v1.20 peso 2 = 200 € → 400 €"
   },
   {
    "alunno": "Beatrice N.",
@@ -47,12 +47,12 @@
   },
   {
    "alunno": "Dani S.",
-   "pr": 2,
-   "pr_oggi": 2,
+   "pr": 3,
+   "pr_oggi": 3,
    "fatte": 1,
    "feedback": false,
-   "voto": 70,
-   "perche": "40 di partenza +20 2 richieste di oggi +10 richiesta nel gioco = 70",
+   "voto": 80,
+   "perche": "40 di partenza +30 3 richieste di oggi +10 richiesta nel gioco = 80",
    "stipendio": 500,
    "stipendio_conto": "v1.16 peso 5 = 500 €"
   },
@@ -69,14 +69,14 @@
   },
   {
    "alunno": "Denis A.",
-   "pr": 2,
-   "pr_oggi": 2,
-   "fatte": 0,
+   "pr": 1,
+   "pr_oggi": 1,
+   "fatte": 1,
    "feedback": true,
    "voto": 70,
-   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi = 70",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi +10 richiesta nel gioco = 70",
+   "stipendio": 200,
+   "stipendio_conto": "v1.21 peso 2 = 200 €"
   },
   {
    "alunno": "Emmanuel F.",

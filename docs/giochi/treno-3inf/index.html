@@ -151,7 +151,7 @@ function caricaTutto(){
    segna('Squadra SUONI',d.autori)}).catch(err('suoni.json'))];
  Object.keys(AMB_BASE).forEach(function(k){L.push(leggiJSON('ambienti/'+k+'.json').then(function(d){if(!d)return;var a=AMB[k];
   if(typeof d.nome==='string'&&d.nome.trim())a.nome=d.nome.slice(0,20);['cielo_alto','cielo_basso','lontano','terra','colore_oggetti'].forEach(function(c){a[c]=colore(d[c],a[c])});
-  if(['alberi','case','palazzi','rocce','onde'].indexOf(d.oggetti)>=0)a.oggetti=d.oggetti;a.densita=num(d.densita,1,3,a.densita)|0;a.rottami=d.rottami===true;a.rocce_varie=d.rocce_varie===true;segna('Ambiente '+a.nome,d.autori)}).catch(err('ambienti/'+k+'.json')))});
+  if(['alberi','case','palazzi','rocce','onde'].indexOf(d.oggetti)>=0)a.oggetti=d.oggetti;a.densita=num(d.densita,1,3,a.densita)|0;a.rottami=d.rottami===true;a.rocce_varie=d.rocce_varie===true;if(d.nuvole)a.nuvole=num(d.nuvole,0,14,6)|0;if(Array.isArray(d.tetti))a.tetti=d.tetti.map(function(c){return colore(c,'#6b3a24')});segna('Ambiente '+a.nome,d.autori)}).catch(err('ambienti/'+k+'.json')))});
  for(var n=1;n<=40;n++)(function(n){var pc='pc'+(n<10?'0':'')+n;
   L.push(leggiJSON('cattivi/'+pc+'.json').then(function(d){if(!d)return;var c={pc:n,mimetica:['nera','grigia','azzurra'].indexOf(d.mimetica)>=0?d.mimetica:'',arma:['ak','revolver','pistola'].indexOf(d.arma)>=0?d.arma:'',nome:String(d.nome||'Senza nome').slice(0,24),colore:colore(d.colore,'#8be04e'),
     occhi:num(d.occhi,1,3,2)|0,cappello:num(d.cappello,0,2,0)|0,bocca:num(d.bocca,0,2,0)|0,velocita:num(d.velocita,1,3,1)|0,frase:String(d.frase||'').slice(0,40),img:null};CATTIVI.push(c);
@@ -193,7 +193,7 @@ function nuovoOggetto(z){var a=ambiente(),lato=Math.random()<.5?-1:1,tipo=a.ogge
  if(a.nome==='Montagna'&&rr<.4)return {X:lato*rnd(2.6,4),z:z,tipo:'gregge',col:'#fff',w:rnd(1.6,2.4),h:.7,lato:lato,seme:Math.floor(rnd(0,99))};
  if(a.rottami&&Math.random()<.3)return {X:lato*rnd(1.7,2.6),z:z,tipo:'rottame',col:'#5b5f66',w:rnd(1.2,1.8),h:rnd(.6,.9),lato:lato,fumo:rnd(0,6)};
  if(Math.random()<.18)return {X:lato*rnd(1.6,1.9),z:z,tipo:'barile',col:'#8a4b2a',w:.7,h:1,lato:lato};
- var o={X:lato*rnd(2.2,4.6),z:z,tipo:tipo,col:a.colore_oggetti,w:m[0]*rnd(.8,1.2),h:m[1]*rnd(.8,1.25),lato:lato,tetto:pick(['#8a2f22','#6b3a24','#a0432c'])};
+ var o={X:lato*rnd(2.2,4.6),z:z,tipo:tipo,col:a.colore_oggetti,w:m[0]*rnd(.8,1.2),h:m[1]*rnd(.8,1.25),lato:lato,tetto:pick(a.tetti||['#8a2f22','#6b3a24','#a0432c'])};
  if(tipo==='rocce'&&a.rocce_varie){var k=rnd(.5,1.7);o.w*=k;o.h*=k;o.col=tono(a.colore_oggetti,rnd(-.25,.25))}
  var lim=1.5+o.w/2;if(Math.abs(o.X)<lim)o.X=lato*(lim+rnd(0,.6));   // v1.13 (Noah): nessun oggetto sopra i binari
  return o}
@@ -267,8 +267,8 @@ function traversina(g,V,z){var d=.11,a=proj(V,-1.15,z+d),b=proj(V,1.15,z+d),c=pr
   g.fillStyle='rgba(40,20,8,.5)';var nx=e.x+(c.x-e.x)*(.2+(((seme*37)%60+60)%60)/100);g.beginPath();g.ellipse(nx,(b.y+c.y)/2,Math.max(1,h*.25),Math.max(.8,h*.14),0,0,7);g.fill();g.restore()}
  g.fillStyle='rgba(0,0,0,.25)';g.fillRect(e.x,c.y,c.x-e.x,Math.max(1,h*.15))}
 var NUVOLE=null;
-function nuvole(g,f,hz,dt){if(!NUVOLE){NUVOLE=[];for(var i=0;i<6;i++)NUVOLE.push({x:Math.random(),y:.08+Math.random()*.5,s:.6+Math.random()*.8,v:.004+Math.random()*.008})}
- var H=hz-f.y;NUVOLE.forEach(function(n){n.x-=n.v*dt*(S&&!S.fine?R.velocita_treno:0.3);if(n.x<-.3){n.x=1.3;n.y=.08+Math.random()*.5}
+function nuvole(g,f,hz,dt){if(!NUVOLE){NUVOLE=[];for(var i=0;i<14;i++)NUVOLE.push({x:Math.random(),y:.08+Math.random()*.5,s:.6+Math.random()*.8,v:.004+Math.random()*.008})}
+ var H=hz-f.y,NN=(ambiente().nuvole|0)||6;NUVOLE.forEach(function(n,ni){if(ni>=NN)return;n.x-=n.v*dt*(S&&!S.fine?R.velocita_treno:0.3);if(n.x<-.3){n.x=1.3;n.y=.08+Math.random()*.5}
   var x=f.x+n.x*f.w,y=f.y+n.y*H,r=Math.min(f.w,H)*.09*n.s;g.fillStyle='rgba(255,255,255,.78)';
   [[0,0,1],[-.9,.25,.7],[.9,.25,.75],[-.4,-.3,.75],[.45,-.25,.7]].forEach(function(p){g.beginPath();g.arc(x+p[0]*r,y+p[1]*r,r*p[2],0,7);g.fill()});
   g.fillStyle='rgba(120,120,140,.18)';g.beginPath();g.ellipse(x,y+r*.55,r*1.6,r*.35,0,0,7);g.fill()})}

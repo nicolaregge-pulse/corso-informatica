@@ -14,6 +14,21 @@
 
 
 
+
+
+
+## v1.21 — 14/10/2026 13:05 — Più nuvole in montagna (sprint 3)
+
+1. PR1 di Denis A. (Titolo: Nuvole; Cosa cambia: più nuvole; Dove: livello montagna; Perché: così è più bello): fatto, in montagna le nuvole sono 12 invece di 6. Nel motore è nata la regola «nuvole». Una richiesta scritta bene, con le 4 parti.
+
+## v1.20 — 14/10/2026 13:05 — Case chiare, tetti scuri (sprint 3)
+
+1. PR1 di Ariel D.: «nel paese case con toni chiari e tetti con toni scuri, per dare più varietà». Fatto: case color crema, tetti marrone scuro e grigio antracite. Nel motore è nata la regola «tetti».
+
+## v1.19 — 14/10/2026 13:05 — Il primo livello più facile (sprint 3)
+
+1. PR3 di Ariel D.: «nel primo livello i nemici sono lenti e facili da colpire». Fatto: i nemici aspettano 4 secondi prima di sparare (prima 3); a ogni livello aspettano un po' meno, quindi il gioco resta difficile più avanti.
+
 ## v1.18 — 14/10/2026 13:01 — Il cielo lo scegli tu (sprint 2)
 
 1. PR di Kelvin P.: «sarebbe bello avere la possibilità di cambiare il colore del cielo come vuole il giocatore». Fatto: in basso a sinistra c'è «Cielo» con una tavolozza di colori; il bottone «come prima» rimette il cielo dell'ambiente.
