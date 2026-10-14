@@ -20,11 +20,13 @@ button,a.b{font:inherit;font-weight:700;background:#1f6feb;color:#fff;border:0;b
 <div id="aperta" hidden>
 <p class="mu" id="agg"></p>
 <ol class="mu"><li>«Copia la foto», poi in Gemini (scegli «Immagini») premi Ctrl+V.</li><li>«Copia la richiesta», poi in Gemini premi Ctrl+V e Invio.</li><li>In Gemini: tasto destro sul personaggio, «Copia immagine». Qui clicca il riquadro viola della richiesta e premi Ctrl+V (oppure scegli il file salvato).</li><li>Premi «Metti nel gioco».</li></ol>
+<button id="sitb" style="background:#6e40c9">Situazione foto e personaggi</button> <a class="b grigio" href="../1inf-cruscotto/" target="_blank" rel="noopener">Cruscotto</a>
+<div id="sit" hidden></div>
 <button class="verde" id="abb">Copia gli abbinamenti foto → nome (poi incollali in chat a Claude)</button> <span id="abbes" class="mu"></span>
 <div id="lista"></div>
 </div></div>
 <script>
-var PW = null, CONF = {}, R = [], CL = [], attiva = '', pronti = {}, fatte = {}, chi = {}, desc = {};
+var PW = null, CONF = {}, R = [], CL = [], SIT = [], attiva = '', pronti = {}, fatte = {}, chi = {}, desc = {};
 try { PW = sessionStorage.getItem('cruscotto-pw'); fatte = JSON.parse(localStorage.getItem('talpa-prof-fatte') || '{}'); chi = JSON.parse(localStorage.getItem('talpa-prof-chi') || '{}'); desc = JSON.parse(localStorage.getItem('talpa-prof-desc') || '{}'); } catch (e) {}
 function salva() { try { localStorage.setItem('talpa-prof-chi', JSON.stringify(chi)); localStorage.setItem('talpa-prof-desc', JSON.stringify(desc)); } catch (e) {} }
 function nomeDi(q) { return q.nome || chi[q.id] || ''; }
@@ -71,9 +73,16 @@ document.addEventListener('paste', function (ev) { if (!attiva) return; var it =
   for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { ev.preventDefault(); var id = attiva; quadrato(it[i].getAsFile(), function (u) { pronti[id] = u; disegna(); }); return; } });
 async function carica(pw) { var X = await (await fetch('dati.json?t=' + Date.now(), { cache: 'no-store' })).json(); var d = await apri(X, pw);
   var nuovo = JSON.stringify(d.richieste.map(function (q) { return q.id; })) !== JSON.stringify(R.map(function (q) { return q.id; }));
-  R = d.richieste; CL = d.classe || []; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
+  R = d.richieste; CL = d.classe || []; SIT = d.situazione || []; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
   $('agg').textContent = R.length + ' richieste · ultimo controllo ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
 async function prova() { var pw = $('pw').value; try { await carica(pw); PW = pw; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} } catch (e) { $('err').textContent = 'Password sbagliata.'; } }
+$('sitb').onclick = function () { var el = $('sit'); el.hidden = !el.hidden; if (el.hidden) return;
+  var ok = SIT.filter(function (x) { return x.personaggio; }).length;
+  el.innerHTML = '<p><b>' + ok + ' su ' + SIT.length + ' hanno il personaggio.</b> Rosso: manca la foto, falla tu e mandala in chat con il nome.</p><div style="display:flex;flex-wrap:wrap;gap:10px">' + SIT.map(function (x) {
+    var c = x.personaggio ? '#2f9e44' : '#c92a2a';
+    return '<div style="width:230px;border:3px solid ' + c + ';border-radius:10px;padding:6px;background:var(--card)"><b>' + e(x.nome) + '</b><div style="display:flex;gap:4px;margin-top:4px">' +
+      (x.foto ? '<img src="' + x.foto + '" style="width:105px;height:105px;object-fit:cover;border-radius:6px">' : '<div style="width:105px;height:105px;border-radius:6px;background:#ffe3e3;display:flex;align-items:center;justify-content:center;color:#c92a2a;font-weight:700">manca la foto</div>') +
+      (x.personaggio ? '<img src="' + x.personaggio + '" style="width:105px;height:105px;object-fit:cover;border-radius:6px">' : '<div style="width:105px;height:105px;border-radius:6px;background:#f1f3f5;display:flex;align-items:center;justify-content:center;color:#868e96;font-weight:700">manca il personaggio</div>') + '</div></div>'; }).join('') + '</div>'; };
 $('abb').onclick = function () { var t = R.filter(function (q) { return q.id.indexOf('prof-') === 0 && chi[q.id]; }).map(function (q) { return q.id.slice(5) + ' = ' + chi[q.id]; }).join('\n');
   if (!t) { $('abbes').textContent = 'Prima scegli i nomi nei menu «Chi è?».'; return; } navigator.clipboard.writeText('ABBINAMENTI TALPA 1INF\n' + t).then(function () { $('abbes').textContent = 'Copiati: incollali in chat.'; }); };
 $('ok').onclick = prova; $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') prova(); });
