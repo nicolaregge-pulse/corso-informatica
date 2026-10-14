@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 12:42",
+ "aggiornato": "14/10/2026 12:44",
  "alunni": [
   {
    "alunno": "Alessandro A.",
@@ -155,23 +155,29 @@
   },
   {
    "alunno": "Simone G.",
-   "pr": 1,
-   "pr_oggi": 0,
-   "approvate": 0,
+   "pr": 2,
+   "pr_oggi": 1,
+   "approvate": 1,
    "rifiutate": 0,
    "attesa": 1,
    "revisione": true,
-   "ultima": "10:42",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "ultima": "12:40",
+   "paga": [
+    [
+     "v1.14",
+     1
+    ]
+   ],
+   "stipendio": 100,
+   "stipendio_conto": "v1.14 peso 1 = 100 €"
   },
   {
    "alunno": "Tomas L.",
-   "pr": 3,
-   "pr_oggi": 2,
+   "pr": 2,
+   "pr_oggi": 1,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 2,
+   "attesa": 1,
    "revisione": false,
    "ultima": "12:40",
    "paga": [

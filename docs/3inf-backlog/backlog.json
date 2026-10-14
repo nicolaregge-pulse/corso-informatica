@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 12:42",
+ "aggiornato": "14/10/2026 12:44",
  "voci": [
   {
    "ora": "12/10 10:31",
@@ -26,6 +26,18 @@
    "pos": 2
   },
   {
+   "ora": "14/10 12:40",
+   "alunno": "Simone G.",
+   "pr": "PR1",
+   "richiesta": "simone giaramidaro — PR1: Cambiamento palette cromatica\naumenta la saturazione di 100 \nin tutto il gioco\nperchè è più come un gioco vero",
+   "file": false,
+   "peso": 1,
+   "motivo": "si cambia un numero: la saturazione dei colori",
+   "fatto": "v1.14",
+   "no": "",
+   "pos": 3
+  },
+  {
    "ora": "12/10 10:31",
    "alunno": "Noah V.",
    "pr": "PR1",
@@ -35,7 +47,7 @@
    "motivo": "si cambiano due numeri nelle regole (velocità di partenza e aumento per livello)",
    "fatto": "v1.5",
    "no": "",
-   "pos": 3
+   "pos": 4
   },
   {
    "ora": "12/10 10:33",
@@ -47,7 +59,7 @@
    "motivo": "si cambiano due numeri nel disegno delle rocce (grandezza e colore a caso)",
    "fatto": "v1.7",
    "no": "",
-   "pos": 4
+   "pos": 5
   },
   {
    "ora": "12/10 10:26",
@@ -59,7 +71,7 @@
    "motivo": "un personaggio: si cambia la sua immagine",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 5
+   "pos": 6
   },
   {
    "ora": "12/10 10:27",
@@ -71,7 +83,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.6 (la PR2 manca dell'immagine: rimandala)",
    "no": "",
-   "pos": 6
+   "pos": 7
   },
   {
    "ora": "12/10 10:33",
@@ -83,7 +95,7 @@
    "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
    "fatto": "v1.8",
    "no": "",
-   "pos": 7
+   "pos": 8
   },
   {
    "ora": "12/10 10:34",
@@ -95,7 +107,7 @@
    "motivo": "un personaggio nuovo",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 8
+   "pos": 9
   },
   {
    "ora": "12/10 10:36",
@@ -107,7 +119,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.9",
    "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "12/10 10:40",
@@ -119,7 +131,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.10 (Tuta; i gatti restano da fare)",
    "no": "",
-   "pos": 10
+   "pos": 11
   },
   {
    "ora": "12/10 10:40",
@@ -131,7 +143,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non si mettono foto di persone (privacy e diritti). Rimanda la PR con un personaggio disegnato o descritto a parole.",
-   "pos": 11
+   "pos": 12
   },
   {
    "ora": "12/10 10:42",
@@ -143,7 +155,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
-   "pos": 12
+   "pos": 13
   },
   {
    "ora": "12/10 10:49",
@@ -153,18 +165,6 @@
    "file": true,
    "peso": 3,
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
-   "fatto": "",
-   "no": "",
-   "pos": 13
-  },
-  {
-   "ora": "14/10 12:40",
-   "alunno": "Tomas L.",
-   "pr": "PR?",
-   "richiesta": "Tomas Lous —",
-   "file": false,
-   "peso": 3,
-   "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
    "no": "",
    "pos": 14
@@ -185,10 +185,10 @@
    "ora": "14/10 12:40",
    "alunno": "Tomas L.",
    "pr": "PR1",
-   "richiesta": "Alieni \ncambia che a un certo punto del viaggio i binari vadano nello spazio e ci ritroviamo a proseguire il tragitto nello spazio a sparare con gli alieni che hanno armi avanzate",
+   "richiesta": "Tomas Lous — PR1: Alieni \ncambia che a un certo punto del viaggio i binari vadano nello spazio e ci ritroviamo a proseguire il tragitto nello spazio a sparare con gli alieni che hanno armi avanzate",
    "file": false,
-   "peso": 8,
-   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "peso": 13,
+   "motivo": "troppo grande per uno sprint (ambiente nuovo + regole nuove + nemici nuovi): dividila in pezzi piccoli, per esempio «cielo dello spazio, nero con le stelle» (5), poi «gli alieni hanno armi laser» (3)",
    "fatto": "",
    "no": "",
    "pos": 16
