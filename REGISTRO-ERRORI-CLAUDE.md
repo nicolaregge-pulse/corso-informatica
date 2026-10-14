@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.44** — 13/10/2026
+**Versione 2.45** — 13/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,31 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Il gioco della talpa sul sito mostrava solo la v1.0 (#70)
+
+1. **Errore.** Ho provato il gioco solo sul mio server di prova, che non comprime i file. Sul sito vero l'elenco dei personaggi arriva compresso e il gioco lo decomprimeva una seconda volta: niente personaggi, «v1.0 · personaggi: 0» per tutti. In più il browser teneva in memoria il gioco vecchio. Il docente se n'è accorto in classe.
+2. **Regola.** Un gioco si prova come lo vedono i ragazzi: indirizzo con la cartella del sito, file compressi, ricarica senza memoria. Ogni esportazione mette un numero nuovo nell'indirizzo del pacchetto (`strumenti/esporta_talpa.sh`), e il gioco scrive a schermo l'errore se l'elenco non arriva.
+
+## 14/10/2026 — Le pagine dei sei bottoni erano ancora di ieri (#71)
+
+1. **Errore.** Backlog, voti e classifica mostravano il treno del 13/10: le richieste di oggi finivano in fondo al backlog di ieri. Il docente: «il backlog è di ieri, non sta funzionando niente».
+2. **Regola.** Quando comincia una lezione nuova, prima di pubblicare il compito, tutte le pagine dei sei bottoni (voti, backlog, monitor, novità, classifica, valutazione) e il cruscotto passano al lavoro del giorno; quelle di ieri restano in un file a parte con un link «di ieri». Poi si controllano tutte, una per una, sul telefono.
+
+## 14/10/2026 — Percorsi cambiati più volte perché pensati senza guardare gli strumenti veri (#72)
+
+1. **Errore.** Ho proposto strade che in aula non c'erano: la webcam (i PC non ce l'hanno), Gemini che modifica la foto del ragazzo (non lo fa), un bottone unico che ha bisogno dell'applicazione web non ancora accesa. Il percorso è stato rifatto quattro volte mentre la classe aspettava.
+2. **Regola.** Prima di disegnare un percorso controllo che cosa c'è davvero: hardware delle postazioni, permessi degli account dei ragazzi, servizi già attivi (applicazione web, Modulo). Se una cosa non è sicura, la strada principale è quella che funziona già (il Modulo «Consegna»), e l'altra si accende dopo.
+
+## 14/10/2026 — Monitor e cruscotto aggiornati solo su richiesta (#73)
+
+1. **Errore.** Le schermate Veyon delle 9:30 sono entrate nel monitor e nel cruscotto solo dopo la domanda del docente («hanno già il bottone per monitorare la loro attività?»). È la stessa regola della #60.
+2. **Regola.** Ogni schermata Veyon va nel monitor pubblico e nel cruscotto appena arriva, con chi gioca da più giri e chi è fuori compito.
+
+## 14/10/2026 — Il menu «Chi è?» al posto del nome scritto dal docente (#74)
+
+1. **Errore.** Per abbinare le foto ai nomi ho fatto un menu a tendina nella pagina del docente; lui voleva scrivere i nomi in chat. Un passaggio in più, mentre era in aula.
+2. **Regola.** Per le informazioni che sa solo il docente si usa la strada più corta per lui (scriverle in chat); gli strumenti in più si propongono, non si impongono.
 
 ## 13/10/2026 — Nomi dei ragazzi della 4TI nelle pagine dei progetti (#69)
 
