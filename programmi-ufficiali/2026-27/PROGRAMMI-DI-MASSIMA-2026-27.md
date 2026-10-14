@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 0.8** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
+**Versione 0.9** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
 
 > **Da confermare:** è una proposta. Le voci entrano nei quattro Allegato A solo dopo il sì di Nicola. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -59,14 +59,14 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 | 10 | Sicurezza informatica e privacy: regolamento degli strumenti digitali, intelligenza artificiale generativa, deepfake | tutto l'anno | 8 |
 | 11 | Terminologia tecnica di settore: glossario multilingue | tutto l'anno | 12 |
 | 12 | Figure professionali e processi del settore ICT | maggio-giugno | 12 |
+| 13 | File e file system: struttura ad albero delle cartelle, percorsi, estensioni, archiviazione locale, in rete e in cloud | settembre-novembre | 17, 15 |
 
 ### 03.4 Sotto-voci
 
 1. Organizzazione del laboratorio
    1. Autenticazione, logout e blocco della sessione (Ctrl+Alt+Canc)
-   2. Archiviazione dei file: percorsi locali, di rete e cloud
-   3. Consegna digitale degli elaborati su Classroom
-   4. Regolamento del laboratorio
+   2. Consegna digitale degli elaborati su Classroom
+   3. Regolamento del laboratorio
 2. Architettura del PC
    1. Modello di Von Neumann: CPU, RAM, memorie di massa, scheda madre
    2. Standard hardware: form factor, socket, slot PCIe, RAM DDR
@@ -111,6 +111,12 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 12. Figure professionali e processi del settore ICT
    1. Profili professionali dell'informatica
    2. Competenze richieste all'operatore informatico
+13. File e file system
+   1. File, cartelle e struttura ad albero
+   2. Percorso assoluto e relativo
+   3. Estensioni e tipi di file
+   4. Archiviazione locale, in rete e in cloud
+   5. Copia, spostamento, ridenominazione ed eliminazione dei file
 
 ## 04 Classe 2 — 2INF, II anno Operatore informatico
 
@@ -346,6 +352,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+9. **v0.9 (14/10/2026)**: 1INF, nuovo modulo «File e file system» nella competenza 17 (prima vuota) e nella 15; tolta la stessa voce dal modulo del laboratorio.
 8. **v0.8 (14/10/2026)**: 2INF, nuovo modulo «Assemblaggio, riparazione e manutenzione del PC» nella competenza 13 (prima vuota) e nella 16.
 7. **v0.7 (14/10/2026)**: voci e sotto-voci riscritte in linguaggio tecnico, come richiesto per l'Allegato A.
 6. **v0.6 (14/10/2026)**: ogni modulo nella competenza giusta secondo abilità e conoscenze dell'Allegato A (per esempio: programmazione nella 15, database nella 17, reti nella 16, codifica dei dati e privacy nella 8, organizzazione e Agile nella 12).
