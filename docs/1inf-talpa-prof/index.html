@@ -1,0 +1,74 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Talpa 1INF · le richieste per il prof</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#111;--mu:#5b6573;--card:#fff;--bd:#d8dee6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d}}
+[hidden]{display:none!important}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.45 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1100px;margin:0 auto;padding:16px}
+.box{background:var(--card);border:2px solid #1f6feb;border-radius:12px;padding:16px;max-width:420px}input,select,textarea{font:inherit;padding:8px;border:1px solid #bbb;border-radius:8px;width:100%;margin:6px 0;background:var(--card);color:var(--fg)}
+button,a.b{font:inherit;font-weight:700;background:#1f6feb;color:#fff;border:0;border-radius:9px;padding:8px 14px;margin:3px 3px 3px 0;cursor:pointer;text-decoration:none;display:inline-block}
+.verde{background:#1a7f37!important}.rosso{background:#c92a2a!important}.grigio{background:#6e7781!important}
+.r{background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:12px;margin:14px 0;display:grid;grid-template-columns:200px 1fr 230px;gap:14px}
+.r.attiva{border-color:#6e40c9;box-shadow:0 0 0 3px #d0bfff}.r img.foto{width:200px;height:200px;object-fit:cover;border-radius:10px}
+.inc{width:230px;height:230px;border:3px dashed #6e40c9;border-radius:12px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mu);font-size:15px;padding:10px;cursor:pointer;overflow:hidden}
+.inc img{width:100%;height:100%;object-fit:contain}.mu{color:var(--mu);font-size:14px}.esito{font-weight:700;margin-top:4px}
+@media (max-width:760px){.r{grid-template-columns:1fr}.r img.foto,.inc{width:100%;height:auto;aspect-ratio:1}}
+</style></head><body><div class="w">
+<h1>Talpa 1INF · le richieste dei ragazzi</h1>
+<p class="mu">Solo per il prof. Per ogni richiesta: guardi la foto e la descrizione, dici se la foto va bene, copi foto e richiesta in Gemini, poi incolli qui il personaggio pronto e premi «Metti nel gioco». Si aggiorna da sola ogni minuto (le richieste nuove arrivano in fondo).</p>
+<div class="box" id="chiusa"><p><b>Solo per il prof.</b> Scrivi la password dell'area docente.</p><input id="pw" type="password" autocomplete="current-password"><button id="ok">Apri</button><p id="err" style="color:#c0392b"></p></div>
+<div id="aperta" hidden>
+<p class="mu" id="agg"></p>
+<ol class="mu"><li>«Copia la foto», poi in Gemini (scegli «Immagini») premi Ctrl+V.</li><li>«Copia la richiesta», poi in Gemini premi Ctrl+V e Invio.</li><li>In Gemini: tasto destro sul personaggio, «Copia immagine». Qui clicca il riquadro viola della richiesta e premi Ctrl+V (oppure scegli il file salvato).</li><li>Premi «Metti nel gioco».</li></ol>
+<div id="lista"></div>
+</div></div>
+<script>
+var PW = null, CONF = {}, R = [], attiva = '', pronti = {}, fatte = {};
+try { PW = sessionStorage.getItem('cruscotto-pw'); fatte = JSON.parse(localStorage.getItem('talpa-prof-fatte') || '{}'); } catch (e) {}
+function $(i) { return document.getElementById(i); }
+function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function b64(s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); }
+async function apri(X, pw) { var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+  var k = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(X.salt), iterations: X.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  var t = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(X.iv) }, k, b64(X.ct)); return JSON.parse(new TextDecoder().decode(t)); }
+fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {});
+var BASE = 'Trasforma questa foto in un personaggio cartoonesco, stile cartone animato: solo la testa, grande e ben riconoscibile, sfondo bianco, immagine quadrata. Il ragazzo chiede: ';
+function disegna() {
+  $('lista').innerHTML = R.length ? R.map(function (q) {
+    return '<div class="r' + (q.id === attiva ? ' attiva' : '') + '" data-id="' + e(q.id) + '"><div><img class="foto" src="' + q.immagine + '" alt=""><div class="mu">' + e(q.ora) + ' · personaggio ' + e(q.personaggio) + '</div></div>' +
+      '<div><b style="font-size:20px">' + e(q.nome) + '</b> <span class="mu">(' + e(q.breve) + ')</span><p>«' + e(q.descrizione || '(nessuna descrizione)') + '»</p>' +
+      '<button class="verde" data-a="ok">Foto va bene</button><select data-a="motivo"><option>la testa non si vede bene: ritaglia solo la testa</option><option>non si capisce chi sei: scegli una foto più chiara</option><option>ci sono altre persone: togli le altre persone</option><option>la foto è troppo scura o sfocata</option></select><button class="rosso" data-a="rifai">Rifalla</button><br>' +
+      '<button data-a="copiafoto">1. Copia la foto</button><a class="b grigio" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini</a><button data-a="copiatesto">2. Copia la richiesta</button><div class="esito" data-e="1">' + (fatte[q.id] ? 'Nel gioco ✓' : '') + '</div></div>' +
+      '<div><div class="inc" data-a="incolla">' + (pronti[q.id] ? '<img src="' + pronti[q.id] + '" alt="">' : '3. Clicca qui e premi Ctrl+V con il personaggio di Gemini') + '</div><input type="file" accept="image/*" data-a="file"><button class="verde" data-a="metti">4. Metti nel gioco</button></div></div>';
+  }).join('') : '<p>Ancora nessuna richiesta.</p>';
+}
+function invia(dati, es) {
+  if (!CONF.invio) { es.style.color = '#c0392b'; es.textContent = 'Manca l\'indirizzo /exec dell\'applicazione web.'; return false; }
+  var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
+  var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(dati); f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove(); return true;
+}
+function quadrato(file, fatto) { var u = URL.createObjectURL(file), im = new Image(); im.onload = function () { var c = document.createElement('canvas'); c.width = c.height = 400; var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, 400, 400);
+  var s = Math.min(400 / im.width, 400 / im.height); x.drawImage(im, (400 - im.width * s) / 2, (400 - im.height * s) / 2, im.width * s, im.height * s); fatto(c.toDataURL('image/jpeg', 0.9)); URL.revokeObjectURL(u); }; im.src = u; }
+document.addEventListener('click', function (ev) {
+  var t = ev.target.closest('[data-a]'), card = ev.target.closest('.r'); if (!card) return; var id = card.dataset.id, q = R.filter(function (z) { return z.id === id; })[0], es = card.querySelector('[data-e]');
+  if (attiva !== id) { attiva = id; [].forEach.call(document.querySelectorAll('.r'), function (c) { c.classList.toggle('attiva', c.dataset.id === id); }); }
+  if (!t) return; var a = t.dataset.a;
+  if (a === 'copiafoto') { var im = new Image(); im.onload = function () { var c = document.createElement('canvas'); c.width = im.width; c.height = im.height; c.getContext('2d').drawImage(im, 0, 0); c.toBlob(function (b) { navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () { es.textContent = 'Foto copiata: in Gemini Ctrl+V'; }); }, 'image/png'); }; im.src = q.immagine; }
+  if (a === 'copiatesto') navigator.clipboard.writeText(BASE + (q.descrizione || '')).then(function () { es.textContent = 'Richiesta copiata: in Gemini Ctrl+V e Invio'; });
+  if (a === 'ok' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: q.nome, esito: 'ok' }, es)) es.textContent = 'Foto: va bene ✓';
+  if (a === 'rifai' && invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'esito-foto', per: id, chi: q.nome, esito: 'rifai', motivo: card.querySelector('select').value }, es)) es.textContent = 'Foto: rifalla ✓';
+  if (a === 'metti') { if (!pronti[id]) { es.textContent = 'Prima incolla il personaggio nel riquadro viola.'; return; }
+    if (invia({ id: '1inf-talpa-20261014', nome: 'Prof', modo: 'proposta', tipo: 'personaggio', per: id, chi: q.nome, descrizione: q.descrizione, immagine: pronti[id] }, es)) { fatte[id] = 1; try { localStorage.setItem('talpa-prof-fatte', JSON.stringify(fatte)); } catch (x) {} es.textContent = 'Mandato a Claude: tra poco è nel gioco ✓'; } }
+});
+document.addEventListener('change', function (ev) { var t = ev.target; if (t.dataset.a !== 'file' || !t.files[0]) return; var id = t.closest('.r').dataset.id; quadrato(t.files[0], function (u) { pronti[id] = u; disegna(); }); });
+document.addEventListener('paste', function (ev) { if (!attiva) return; var it = (ev.clipboardData || {}).items || [];
+  for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { ev.preventDefault(); var id = attiva; quadrato(it[i].getAsFile(), function (u) { pronti[id] = u; disegna(); }); return; } });
+async function carica(pw) { var X = await (await fetch('dati.json?t=' + Date.now(), { cache: 'no-store' })).json(); var d = await apri(X, pw);
+  var nuovo = JSON.stringify(d.richieste.map(function (q) { return q.id; })) !== JSON.stringify(R.map(function (q) { return q.id; }));
+  R = d.richieste; $('chiusa').hidden = true; $('aperta').hidden = false; if (nuovo) disegna();
+  $('agg').textContent = R.length + ' richieste · ultimo controllo ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
+async function prova() { var pw = $('pw').value; try { await carica(pw); PW = pw; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} } catch (e) { $('err').textContent = 'Password sbagliata.'; } }
+$('ok').onclick = prova; $('pw').addEventListener('keydown', function (e) { if (e.key === 'Enter') prova(); });
+if (PW) carica(PW).catch(function () { PW = null; });
+setInterval(function () { if (PW) carica(PW).catch(function () {}); }, 60000);
+</script></body></html>
