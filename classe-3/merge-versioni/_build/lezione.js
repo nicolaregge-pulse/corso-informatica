@@ -1,7 +1,7 @@
 /* Lezione 3INF 14/10/2026: percorso unico; il passo fatto diventa verde e il suo bottone si spegne. */
 (function () {
   var ID = '3inf-versioning-20261014', L = 'perc-3inf-merge-', R = null;
-  var ORDINE = ['nome', 'teoria', 'gioca', 'changelog', 'rev', 'pr', 'rip', 'ver', 'val'];
+  var ORDINE = ['nome', 'teoria', 'gioca', 'changelog', 'rev', 'pr', 'bk', 'sprint', 'rip', 'ver', 'val'];
   function $(i) { return document.getElementById(i); }
   function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
   function s(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
@@ -30,6 +30,8 @@
     if (fatto('teoria')) [].forEach.call(document.querySelectorAll('#quiz button'), spegni);
     if (fatto('gioca')) spegni($('bGioca'));
     if (fatto('changelog')) spegni($('bChangelog'));
+    if (fatto('bk')) { $('t-bk').disabled = true; [].forEach.call(document.querySelectorAll('#p-bk .bot'), spegni); verde($('e-bk'), '✓ Risposte mandate.'); }
+    if (fatto('sprint')) spegni($('bSprint'));
     if (fatto('rev')) { ['t-rev'].forEach(function (i) { $(i).disabled = true; }); [].forEach.call(document.querySelectorAll('#p-rev .bot'), spegni); verde($('e-rev'), '✓ Revisione mandata.'); }
     var np = n('pr');
     $('contaPR').innerHTML = 'Richieste mandate: <b>' + np + (np >= 3 ? '</b> · ✓ le 3 obbligatorie sono fatte: puoi mandarne altre' : ' di 3</b>') + ' · পাঠানো অনুরোধ: ' + np + (np >= 3 ? ' ✓' : '/3');
@@ -53,6 +55,7 @@
     if (document.querySelectorAll('#quiz button.si').length === 4) { s(L + 'teoria', '1'); setTimeout(disegna, 600); } });
   $('bGioca').addEventListener('click', function () { s(L + 'gioca', '1'); setTimeout(disegna, 500); });
   $('bChangelog').addEventListener('click', function () { s(L + 'changelog', '1'); setTimeout(disegna, 500); });
+  $('bSprint').addEventListener('click', function () { s(L + 'sprint', '1'); setTimeout(disegna, 500); });
   $('bRip').addEventListener('click', function () { s(L + 'rip', '1'); setTimeout(disegna, 500); });
   // Revisione e PR: «Copia» prepara il testo; «Apri il Modulo» dopo la copia conta come mandata (il prof la vede nel Modulo).
   [].forEach.call(document.querySelectorAll('[data-copia]'), function (b) {
@@ -60,7 +63,7 @@
       var k = b.dataset.copia, es = $('e-' + k), t = $('t-' + k).value.trim();
       if (!fatto('nome')) return rosso(es, 'Prima scrivi il tuo nome al Passo 1. · প্রথমে ধাপ ১-এ নাম লিখুন।');
       if (t.length < 15) { $('t-' + k).focus(); return rosso(es, 'Scrivi almeno una frase completa. · অন্তত একটি সম্পূর্ণ বাক্য লিখুন।'); }
-      var testo = nome() + ' — ' + (k === 'rev' ? 'REVISIONE' : 'PR' + (n('pr') + 1)) + ': ' + t;
+      var testo = nome() + ' — ' + (k === 'rev' ? 'REVISIONE' : k === 'bk' ? 'ANALISI DEL BACKLOG' : 'PR' + (n('pr') + 1)) + ': ' + t;
       navigator.clipboard.writeText(testo).then(function () { s(L + k + '-copiata', '1'); verde(es, 'Copiata! Ora premi «Apri il Modulo». · কপি হয়েছে! এখন «Apri il Modulo» চাপুন।'); });
     };
   });

@@ -56,14 +56,25 @@ P.append(passo(6, "pr", "Le tue nuove richieste: almeno 3 (PR1, PR2, PR3)", "আ
     "<b>আজ অন্তত ৩টি অনুরোধ পাঠান</b>, একবারে একটি: PR1, PR2, PR3। চাইলে আরও বেশি। প্রতিটির ৪টি অংশ: <b>শিরোনাম</b>, <b>কী বদলাবে</b>, <b>কোথায়</b>, <b>কেন</b>। আসল মানুষের ছবি নয়। শিক্ষক ক্লাস চলাকালীন সেগুলো গেমে দেবেন।") +
   '<div class="esito" id="contaPR"></div>' +
   modulo("pr", "PR", "Scrivi la richiesta con le 4 parti.", "৪টি অংশসহ অনুরোধ লিখুন।", "Titolo: ...\nCosa cambia: ...\nDove: ...\nPerché: ...")))
-P.append(passo(7, "rip", "Ripasso", "পুনরালোচনা",
+P.append(passo(7, "bk", "Analizza il backlog", "Backlog বিশ্লেষণ করুন",
+  T("Apri il backlog: è la lista di tutte le richieste, in ordine. Trova le tue richieste: che peso hanno (1, 2, 3, 5, 8)? A che posto sono? In quale sprint entrano? Poi torna qui e rispondi.",
+    "Backlog খুলুন: এটি সব অনুরোধের ক্রমানুসারে তালিকা। আপনার অনুরোধ খুঁজুন: ওজন কত (১, ২, ৩, ৫, ৮)? কত নম্বরে? কোন স্প্রিন্টে ঢুকবে? তারপর এখানে ফিরে উত্তর দিন।") +
+  '<a class="bot" id="bBacklog" href="../../3inf-backlog/" target="_blank" rel="noopener">Il backlog</a>' +
+  T("Rispondi a 2 domande: 1) A che posto è la tua richiesta e perché? 2) Come la faresti più leggera, per farla entrare prima in uno sprint?",
+    "২টি প্রশ্নের উত্তর দিন: ১) আপনার অনুরোধ কত নম্বরে এবং কেন? ২) কীভাবে হালকা করবেন, যাতে আগে স্প্রিন্টে ঢোকে?") +
+  modulo("bk", "backlog", "Scrivi le 2 risposte.", "২টি উত্তর লিখুন।", "1) La mia richiesta è al posto ... perché ...\n2) La farei più leggera così: ...")))
+P.append(passo(8, "sprint", "Il ciclo Agile dal vivo", "সরাসরি Agile চক্র",
+  T("Ogni 15 minuti il prof fa uno sprint: prende dal backlog le richieste più leggere, le mette nel gioco e pubblica una versione nuova. Apri la lavagna dello sprint e guarda la tua richiesta: da fare, in lavorazione, fatta. Leggi anche le 4 cerimonie: pianificazione, daily, revisione, retrospettiva.",
+    "প্রতি ১৫ মিনিটে শিক্ষক একটি স্প্রিন্ট করেন: backlog থেকে হালকা অনুরোধ নিয়ে গেমে দেন এবং নতুন সংস্করণ প্রকাশ করেন। স্প্রিন্ট বোর্ড খুলে আপনার অনুরোধ দেখুন। ৪টি অনুষ্ঠানও পড়ুন: পরিকল্পনা, daily, পর্যালোচনা, retrospective।") +
+  '<a class="bot" id="bSprint" href="../../3inf-sprint/" target="_blank" rel="noopener">La lavagna dello sprint</a>'))
+P.append(passo(9, "rip", "Ripasso", "পুনরালোচনা",
   T("Si apre una finestra nuova: leggi le schede e fai l'allenamento. Poi torna qui.", "নতুন উইন্ডো খুলবে: কার্ডগুলো পড়ুন এবং অনুশীলন করুন। তারপর এখানে ফিরে আসুন।") +
   '<a class="bot" id="bRip" href="%s" target="_blank" rel="noopener">Ripasso</a>' % V))
-P.append(passo(8, "ver", "Verifica", "পরীক্ষা",
+P.append(passo(10, "ver", "Verifica", "পরীক্ষা",
   T("La apre il prof. Alla fine premi il bottone verde in fondo alla verifica, poi torna qui: vedrai «Verifica fatta».",
     "শিক্ষক এটি খুলবেন। শেষে পরীক্ষার নিচের সবুজ বোতাম চাপুন, তারপর এখানে ফিরে আসুন: «Verifica fatta» দেখবেন।") +
   '<a class="bot" id="bVer" href="%s&amp;modo=verifica" target="_blank" rel="noopener">Verifica</a>' % V))
-P.append(passo(9, "val", "La tua valutazione e il recupero", "আপনার মূল্যায়ন এবং পুনরুদ্ধার",
+P.append(passo(11, "val", "La tua valutazione e il recupero", "আপনার মূল্যায়ন এবং পুনরুদ্ধার",
   '<div id="val" class="nota">' + T("Compare qui quando il prof ha corretto la tua verifica.", "শিক্ষক আপনার পরীক্ষা দেখার পরে এখানে দেখা যাবে।") + '</div>' +
   '<a class="bot" id="bRec" href="%s&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero</a>' % V))
 BOTTONI = [("I voti", "#238636", "3inf-voti/"), ("Il backlog", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "#6e40c9", "3inf-monitor/"),
