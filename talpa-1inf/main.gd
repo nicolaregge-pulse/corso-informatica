@@ -93,11 +93,13 @@ func _carica_talpe_classe() -> void:
 	http_elenco.request_completed.connect(_elenco_arrivato)
 	http_elenco.request(base_url + "elenco.json?t=" + str(Time.get_unix_time_from_system()))
 
-func _elenco_arrivato(_r: int, codice: int, _h: PackedStringArray, corpo: PackedByteArray) -> void:
+func _elenco_arrivato(esito: int, codice: int, _h: PackedStringArray, corpo: PackedByteArray) -> void:
 	if codice != 200:
+		classeVar.text = "elenco dei personaggi non letto (%d / %d): ricarica la pagina" % [esito, codice]
 		return
 	var dati = JSON.parse_string(corpo.get_string_from_utf8())
 	if typeof(dati) != TYPE_DICTIONARY or not dati.has("talpe"):
+		classeVar.text = "elenco dei personaggi illeggibile (%d byte): ricarica la pagina" % corpo.size()
 		return
 	# ?v=v1.3 nell'indirizzo: si gioca quella versione, solo con i personaggi entrati fino a lì
 	var chiesta: String = str(JavaScriptBridge.eval("new URLSearchParams(location.search).get('v') || ''"))
