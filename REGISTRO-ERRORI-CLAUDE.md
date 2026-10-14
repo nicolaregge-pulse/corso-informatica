@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.51** — 14/10/2026
+**Versione 2.52** — 14/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Consegna con copia, apri il Modulo, incolla e Invia: un ragazzo non ce l'ha fatta (#81)
+
+1. **Errore.** Nella lezione 3INF del 14/10 ogni consegna (revisione, PR, analisi del backlog) chiedeva quattro azioni: Copia, Apri il Modulo, Ctrl+V nella seconda casella, Invia. Il docente aveva chiesto più volte «al massimo un bottone». Un ragazzo ha scritto le sue richieste ma non le ha mai inviate; la pagina gli mostrava comunque «1 di 3» perché contava l'apertura del Modulo, non l'invio. Il docente: «per colpa tua non ha capito come fare».
+2. **Regola.** Per il ragazzo: il testo scritto prima, poi UN bottone che consegna davvero. Prima di una lezione con consegne, il canale diretto deve funzionare (applicazione web dello script, oppure invio diretto al Modulo con i codici del link precompilato); se non c'è, si dice al docente PRIMA della lezione, non durante. La pagina conta una consegna solo quando è arrivata (letta dal Modulo), mai al clic.
 
 ## 14/10/2026 — Il monitor mostrava solo la data, mai i giri di Veyon (#80)
 
