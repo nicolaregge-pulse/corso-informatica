@@ -16,7 +16,7 @@ Che cosa fa, per ogni file:
 Uso: python3 programmi-ufficiali/_build/aggiorna_allegati.py FILE.docx [FILE.docx ...]
      python3 programmi-ufficiali/_build/aggiorna_allegati.py --verifica FILE.docx ...   (controllo del file che sta a scuola)
 """
-import difflib, json, os, sys
+import difflib, json, os, re, sys
 from datetime import datetime, timedelta, timezone
 import docx
 from docx.enum.text import WD_COLOR_INDEX
@@ -42,6 +42,35 @@ def tutto_verde(p):
     """Il nostro blocco di quest'anno: rosa (dal 14/10 sera) o verde (file preparati prima). Si cerca solo nella riga di quest'anno."""
     runs = [r for r in p.runs if r.text.strip()]
     return bool(runs) and all(r.font.highlight_color in (COLORE, WD_COLOR_INDEX.BRIGHT_GREEN) for r in runs)
+
+
+# etichette degli altri docenti negli anni scorsi: il blocco «Regge» finisce dove ne comincia una
+ALTRI_DOCENTI = {'meles', 'prof. meles', 'panaccione', 'erba'}
+
+
+def colora_pregresso(d, rx):
+    """Colora di VERDE la parte di Regge degli anni scorsi (righe degli anni prima di questo): da «Regge» fino
+    all'etichetta di un altro docente o alla fine della cella. Il testo non cambia, solo il colore. Restituisce le righe colorate."""
+    n, viste = 0, set()
+    for tab in d.tables[1:]:
+        for r in tab.rows:
+            c = r.cells[0]
+            if c._tc in viste: continue
+            viste.add(c._tc)
+            ps = c.paragraphs
+            et = ps[0].text.strip() if ps else ''
+            if re.match(rx, c.text.strip(), re.I) or not re.match(r'^(I|II|III|IV)\s+anno', et, re.I): continue
+            dentro = False
+            for p in ps:
+                t = p.text.strip()
+                if t == 'Regge': dentro = True
+                elif t.lower() in ALTRI_DOCENTI or t.startswith('Prof.'): dentro = False
+                if dentro and t:
+                    for ru in p.runs:
+                        if ru.text.strip() and ru.font.highlight_color != WD_COLOR_INDEX.BRIGHT_GREEN:
+                            ru.font.highlight_color = WD_COLOR_INDEX.BRIGHT_GREEN
+                    n += 1
+    return n
 
 
 def celle_di_quest_anno(d, rx):
@@ -120,6 +149,7 @@ def aggiorna(path, prog, registro):
             for l in difflib.unified_diff(atteso, righe, 'come l\'avevo messo', 'come è adesso', lineterm='', n=0): print('    ' + l)
         print('  Le modifiche vanno portate nel programma (PROGRAMMI-DI-MASSIMA-2026-27.md), poi si rilancia.')
         return None
+    verdi = colora_pregresso(d, rx)
     altri = testo_di_tutti(d)
     cambi_altri = []
     if prima.get('altri'):
@@ -145,6 +175,7 @@ def aggiorna(path, prog, registro):
     print('\n%s: OK -> consegna/%s' % (nome, os.path.basename(out)))
     print('  competenze con la parte di Regge: %s' % ', '.join(sorted(blocchi, key=lambda x: float(x.split('.')[0]))))
     print('  blocchi vecchi tolti e rimessi: %d · testo degli altri docenti: identico (controllato)' % len(vecchi))
+    print('  parte di Regge degli anni scorsi in verde: %d righe' % verdi)
     if prima.get('altri'):
         print('  cambiamenti degli altri docenti dall\'ultima volta (%s): %d righe' % (prima['quando'], len(cambi_altri)))
         for l in cambi_altri[:15]: print('    ' + l[:110])
