@@ -9,7 +9,7 @@ scuola. Così in giro c'è un solo file vero e la finestra in cui due persone la
 
 Che cosa fa, per ogni file:
   1. riconosce la classe dalla tabella delle annualità (riga 2026-2027: I = 1INF, II = 2INF, III = 3INF, IV = 4TI);
-  2. nella riga di quest'anno toglie il vecchio blocco «Regge» (rosa, o verde se preparato prima), se c'è, e ci rimette quello aggiornato in rosa;
+  2. nella riga di quest'anno toglie il vecchio blocco «Regge», se c'è, e ci rimette quello aggiornato: giallo il previsto, bianco il già svolto (svolto-2026-27.json);
   3. se qualcuno ha cambiato a mano il nostro blocco verde nel Word, si FERMA e mostra la differenza (niente sovrascritture);
   4. dice che cosa hanno cambiato gli altri docenti dall'ultima volta;
   5. controlla, riaprendo il file salvato, che il testo degli altri sia identico a prima: se no, butta il file e si ferma.
@@ -39,9 +39,17 @@ def classe_del_file(d):
 
 
 def tutto_verde(p):
-    """Il nostro blocco di quest'anno: rosa (dal 14/10 sera) o verde (file preparati prima). Si cerca solo nella riga di quest'anno."""
+    """Solo per i file preparati prima del 14/10 sera: il blocco di quest'anno era rosa o verde."""
     runs = [r for r in p.runs if r.text.strip()]
-    return bool(runs) and all(r.font.highlight_color in (COLORE, WD_COLOR_INDEX.BRIGHT_GREEN) for r in runs)
+    return bool(runs) and all(r.font.highlight_color in (WD_COLOR_INDEX.PINK, WD_COLOR_INDEX.BRIGHT_GREEN) for r in runs)
+
+
+SVOLTO = os.path.join(CART, 'svolto-2026-27.json')
+
+
+def svolto():
+    """Le voci già svolte e firmate sul registro, per classe: vanno in bianco (senza evidenziatore)."""
+    return json.load(open(SVOLTO)) if os.path.exists(SVOLTO) else {}
 
 
 # etichette degli altri docenti negli anni scorsi: il blocco «Regge» finisce dove ne comincia una
@@ -85,24 +93,31 @@ def celle_di_quest_anno(d, rx):
         if cella is not None: yield n, cella
 
 
-def togli_blocco(cella):
-    """Toglie il blocco «Regge» verde di quest'anno; restituisce il suo testo (righe)."""
+def togli_blocco(cella, atteso=None):
+    """Toglie il blocco «Regge» di quest'anno e restituisce il suo testo (righe).
+    Il blocco si riconosce dal testo che lo script ci aveva messo (registro), perché ora le righe svolte sono in bianco;
+    per i file preparati prima del 14/10 sera si riconosce dal colore (rosa o verde)."""
     ps = cella.paragraphs
     for i, p in enumerate(ps):
-        if p.text.strip() == 'Regge' and tutto_verde(p):
+        if p.text.strip() != 'Regge': continue
+        if atteso and [q.text for q in ps[i:i + len(atteso)]] == atteso:
+            blocco = ps[i:i + len(atteso)]
+        elif tutto_verde(p):
             blocco = [p]
             for q in ps[i + 1:]:
                 if q.text.strip() and tutto_verde(q): blocco.append(q)
                 else: break
-            righe = [q.text for q in blocco]
-            for q in blocco:
-                if q._p is cella._tc.findall(qn('w:p'))[0] and len(cella.paragraphs) == 1:
-                    for r in list(q.runs): r._r.getparent().remove(r._r)
-                elif q is ps[0]:
-                    for r in list(q.runs): r._r.getparent().remove(r._r)
-                else:
-                    q._p.getparent().remove(q._p)
-            return righe
+        elif atteso:
+            return [q.text for q in ps[i:i + len(atteso)]]  # c'è un blocco «Regge» ma non è come l'avevo messo: lo segnalo, non lo tocco
+        else:
+            continue
+        righe = [q.text for q in blocco]
+        for q in blocco:
+            if q is ps[0]:
+                for r in list(q.runs): r._r.getparent().remove(r._r)
+            else:
+                q._p.getparent().remove(q._p)
+        return righe
     return []
 
 
@@ -118,16 +133,22 @@ def testo_di_tutti(d):
     return righe
 
 
-def metti_blocco(cella, ha_etichetta, moduli):
+def metti_blocco(cella, ha_etichetta, moduli, fatte=()):
+    """Scrive «Regge» e i moduli con le sotto-voci: giallo = previsto, bianco = già svolto e firmato sul registro.
+    Un modulo è bianco quando tutte le sue sotto-voci sono svolte; «Regge» è bianco quando lo è tutto il blocco."""
+    fatte = set(fatte)
+    col = lambda ok: None if ok else COLORE
+    tutto = all(m['titolo'] in fatte or all(x in fatte for x in m['sotto']) for m in moduli)
     p0, righe = cella.paragraphs[0], ['Regge']
     if not ha_etichetta and p0.text.strip() == '':
-        r = p0.add_run('Regge'); r.bold = True; r.font.highlight_color = COLORE; ultimo = p0
+        r = p0.add_run('Regge'); r.bold = True; r.font.highlight_color = col(tutto); ultimo = p0
     else:
-        ultimo = par_dopo(p0, 'Regge', True)
+        ultimo = par_dopo(p0, 'Regge', True, col(tutto))
     for m in moduli:
-        ultimo = par_dopo(ultimo, m['titolo']); righe.append(m['titolo'])
+        mod_fatto = m['titolo'] in fatte or (m['sotto'] and all(x in fatte for x in m['sotto']))
+        ultimo = par_dopo(ultimo, m['titolo'], False, col(mod_fatto)); righe.append(m['titolo'])
         for x in m['sotto']:
-            ultimo = par_dopo(ultimo, '   – ' + x); righe.append('   – ' + x)
+            ultimo = par_dopo(ultimo, '   – ' + x, False, col(mod_fatto or x in fatte)); righe.append('   – ' + x)
     return righe
 
 
@@ -139,14 +160,14 @@ def aggiorna(path, prog, registro):
     prima = registro.get(nome, {})
     vecchi, manuali = {}, []
     for n, cella in celle_di_quest_anno(d, rx):
-        righe = togli_blocco(cella)
+        atteso = prima.get('blocchi', {}).get(n)
+        righe = togli_blocco(cella, atteso)
         if righe:
             vecchi[n] = righe
-            atteso = prima.get('blocchi', {}).get(n)
             if atteso and atteso != righe:
                 manuali.append((n, atteso, righe))
     if manuali:
-        print('\n%s: FERMO. Il blocco verde «Regge» è stato cambiato a mano nel Word:' % nome)
+        print('\n%s: FERMO. Il blocco «Regge» di quest\'anno è stato cambiato a mano nel Word:' % nome)
         for n, atteso, righe in manuali:
             print('  competenza %s' % n)
             for l in difflib.unified_diff(atteso, righe, 'come l\'avevo messo', 'come è adesso', lineterm='', n=0): print('    ' + l)
@@ -162,14 +183,14 @@ def aggiorna(path, prog, registro):
         mie = [m for m in moduli if n in m['comp']]
         if mie:
             _, ha_et = cella_anno(next(t for t in d.tables[1:] if cella._tc in [c._tc for r in t.rows for c in r.cells]), rx)
-            blocchi[n] = metti_blocco(cella, ha_et, mie)
+            blocchi[n] = metti_blocco(cella, ha_et, mie, svolto().get(nome, []))
     os.makedirs(USCITA, exist_ok=True)
     ora = datetime.now(timezone(timedelta(hours=2)))
     out = os.path.join(USCITA, '%s_Allegato-A-%s-2026-27_Regge.docx' % (ora.strftime('%Y%m%d-%H%M'), nome))
     d.save(out)
     # controllo finale: riapro il file, tolgo i nostri blocchi, il resto deve essere identico a prima
     d2 = docx.Document(out)
-    for n, cella in celle_di_quest_anno(d2, rx): togli_blocco(cella)
+    for n, cella in celle_di_quest_anno(d2, rx): togli_blocco(cella, blocchi.get(n))
     if testo_di_tutti(d2) != altri:
         os.remove(out)
         raise SystemExit('%s: ERRORE nel controllo finale, il testo degli altri non torna. File buttato, niente consegna.' % nome)
@@ -193,7 +214,7 @@ def verifica(path, prog, registro):
     atteso = registro.get(nome, {})
     problemi, trovati = [], {}
     for n, cella in celle_di_quest_anno(d, rx):
-        righe = togli_blocco(cella)
+        righe = togli_blocco(cella, atteso.get('blocchi', {}).get(n))
         if righe: trovati[n] = righe
     for n, righe in atteso.get('blocchi', {}).items():
         if n not in trovati: problemi.append('competenza %s: manca la parte di Regge' % n)

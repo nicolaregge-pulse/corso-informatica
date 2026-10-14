@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 1.0** — 14/10/2026 — Area Docente. Versione consolidata, approvata da Nicola in linea di massima il 14/10: è la fonte della parte di Regge nei quattro Allegati A.
+**Versione 1.1** — 14/10/2026 — Area Docente. Versione consolidata, approvata da Nicola in linea di massima il 14/10: è la fonte della parte di Regge nei quattro Allegati A.
 
 > **Nota:** versione consolidata il 14/10/2026. Ogni modifica si fa qui e poi si rifanno i file con `programmi-ufficiali/_build/aggiorna_allegati.py`. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -83,8 +83,23 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
    3. Sviluppo iterativo e incrementale (Agile)
    4. Versioni del software e changelog
 5. Sicurezza sul lavoro
-   1. Le 16 lezioni del corso ufficiale Formazione Sicurezza (rischio e danno, prevenzione, DPI, videoterminali, emergenza, primo soccorso)
-   2. Sicurezza dei dati: password, account, lavoro salvato in modo sicuro
+   1. 1ª ora: concetti di rischio e danno
+   2. 2ª ora: prevenzione e protezione
+   3. 3ª ora: organizzazione della prevenzione aziendale
+   4. 4ª ora: organi di vigilanza, controllo e assistenza
+   5. 5ª ora: rischio infortuni
+   6. 6ª ora: rischi meccanici ed elettrici generali
+   7. 7ª ora: macchine e attrezzature
+   8. 8ª ora: cadute dall'alto, esplosione, rischi chimici, nebbie, oli, fumi, vapori, polveri
+   9. 9ª ora: rischi cancerogeni e biologici
+   10. 10ª ora: radiazioni e rischi fisici, rumore, vibrazioni
+   11. 11ª ora: microclima, illuminazione, videoterminali
+   12. 12ª ora: DPI, organizzazione e ambiente di lavoro, stress lavoro-correlato
+   13. 13ª ora: movimentazione manuale dei carichi e delle merci
+   14. 14ª ora: segnaletica ed emergenza
+   15. 15ª ora: rischio incendi, procedure di esodo, procedure di sicurezza
+   16. 16ª ora: primo soccorso, incendi e infortuni mancati
+   17. Sicurezza dei dati: password, account, lavoro salvato in modo sicuro
 6. Sviluppo di un videogioco 2D con Godot Engine
    1. Editor Godot: scena, nodi, Ispettore
    2. Importazione di risorse grafiche
@@ -175,7 +190,22 @@ Programmare davvero (Lazarus) e lavorare come un team (il treno della classe su 
    3. Array e stringhe
    4. Progetto MasterMind
 6. Sicurezza sul lavoro
-   1. Le 16 lezioni del corso ufficiale Formazione Sicurezza
+   1. 1ª ora: concetti di rischio e danno
+   2. 2ª ora: prevenzione e protezione
+   3. 3ª ora: organizzazione della prevenzione aziendale
+   4. 4ª ora: organi di vigilanza, controllo e assistenza
+   5. 5ª ora: rischio infortuni
+   6. 6ª ora: rischi meccanici ed elettrici generali
+   7. 7ª ora: macchine e attrezzature
+   8. 8ª ora: cadute dall'alto, esplosione, rischi chimici, nebbie, oli, fumi, vapori, polveri
+   9. 9ª ora: rischi cancerogeni e biologici
+   10. 10ª ora: radiazioni e rischi fisici, rumore, vibrazioni
+   11. 11ª ora: microclima, illuminazione, videoterminali
+   12. 12ª ora: DPI, organizzazione e ambiente di lavoro, stress lavoro-correlato
+   13. 13ª ora: movimentazione manuale dei carichi e delle merci
+   14. 14ª ora: segnaletica ed emergenza
+   15. 15ª ora: rischio incendi, procedure di esodo, procedure di sicurezza
+   16. 16ª ora: primo soccorso, incendi e infortuni mancati
 7. Reti di calcolatori
    1. Indirizzo IP, indirizzo MAC, gateway
    2. Servizi DHCP e DNS
@@ -352,6 +382,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+11. **v1.1 (14/10/2026)**: la sicurezza sul lavoro di 1INF e 2INF divisa nelle 16 ore del corso ufficiale, così ogni ora svolta e firmata diventa bianca nell'Allegato A.
 10. **v1.0 (14/10/2026)**: versione consolidata (sì di Nicola «in linea di massima»): parte 2026/27 in rosa, anni scorsi in verde, altri docenti in giallo o bianco.
 9. **v0.9 (14/10/2026)**: 1INF, nuovo modulo «File e file system» nella competenza 17 (prima vuota) e nella 15; tolta la stessa voce dal modulo del laboratorio.
 8. **v0.8 (14/10/2026)**: 2INF, nuovo modulo «Assemblaggio, riparazione e manutenzione del PC» nella competenza 13 (prima vuota) e nella 16.
