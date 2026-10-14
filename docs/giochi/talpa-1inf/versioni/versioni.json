@@ -249,17 +249,17 @@
  },
  {
   "versione": "v1.5",
-  "nome": "Entra il personaggio di Personaggio 5",
+  "nome": "Entra il personaggio di Muhammad N.",
   "data": "14/10/2026",
   "ora": "09:16",
-  "ramo": "personaggio-personaggio-5",
+  "ramo": "personaggio-muhammad-n",
   "pr": "PR 5",
-  "autore": "Personaggio 5",
+  "autore": "Muhammad N.",
   "entrati": [
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -289,21 +289,21 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    }
   ],
   "riassunto": {
-   "it": "Entra il personaggio di Personaggio 5: adesso nel gioco ci sono 6 personaggi.",
-   "ar": "تدخل شخصية Personaggio 5: الآن في اللعبة 6 شخصيات.",
-   "zh": "Personaggio 5 的角色加入了：现在游戏里有 6 个角色。"
+   "it": "Entra il personaggio di Muhammad N.: adesso nel gioco ci sono 6 personaggi.",
+   "ar": "تدخل شخصية Muhammad N.: الآن في اللعبة 6 شخصيات.",
+   "zh": "Muhammad N. 的角色加入了：现在游戏里有 6 个角色。"
   },
   "cambi": [
-   "Da dove arriva: dalla Pull Request n. 5 di Personaggio 5, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-5»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 5, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
-   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-5» è stato unito al gioco della classe.",
-   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 5, adesso sono 6. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 5.",
+   "Da dove arriva: dalla Pull Request n. 5 di Muhammad N., arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-muhammad-n»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Muhammad N., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-muhammad-n» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 5, adesso sono 6. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Muhammad N..",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t05.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
   ],
   "file": [
@@ -325,7 +325,7 @@
    {
     "chi": "Personaggio 6",
     "file": "talpe/t06.jpg",
-    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof"
    }
   ],
   "presenti": [
@@ -355,7 +355,7 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    },
@@ -372,7 +372,7 @@
   },
   "cambi": [
    "Da dove arriva: dalla Pull Request n. 6 di Personaggio 6, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-6»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
-   "Che cosa entra: il primo personaggio di Personaggio 6, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Che cosa entra: il primo personaggio di Personaggio 6, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof».",
    "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-6» è stato unito al gioco della classe.",
    "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 6, adesso sono 7. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 6.",
    "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t06.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
@@ -426,7 +426,7 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    },
@@ -502,7 +502,7 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    },
@@ -583,7 +583,7 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    },
@@ -669,7 +669,7 @@
     "dal": "v1.4"
    },
    {
-    "chi": "Personaggio 5",
+    "chi": "Muhammad N.",
     "file": "talpe/t05.jpg",
     "dal": "v1.5"
    },
