@@ -64,7 +64,10 @@ def colora_pregresso(d, rx):
             for p in ps:
                 t = p.text.strip()
                 if t == 'Regge': dentro = True
-                elif t.lower() in ALTRI_DOCENTI or t.startswith('Prof.'): dentro = False
+                elif t.lower() in ALTRI_DOCENTI or t.startswith('Prof.'):
+                    dentro = False
+                    for ru in p.runs:  # il verde è solo di Regge: l'etichetta di un altro docente in verde torna senza colore
+                        if ru.font.highlight_color == WD_COLOR_INDEX.BRIGHT_GREEN: ru.font.highlight_color = None
                 if dentro and t:
                     for ru in p.runs:
                         if ru.text.strip() and ru.font.highlight_color != WD_COLOR_INDEX.BRIGHT_GREEN:
