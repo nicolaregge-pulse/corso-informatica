@@ -197,6 +197,8 @@ bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71
 
 **14. La lezione funziona da sola, senza il docente (14/10/2026, VINCOLANTE).** Nicola in classe fa solo gli screenshot di Veyon, le note e dà indicazioni: non può controllare le pagine. Quindi Claude: valuta sempre lui (verifica e lavori), prepara il recupero individuale di ognuno, risponde alle domande dei ragazzi nella casella d'aiuto (Nicola solo in seconda battuta), tiene acceso il giro automatico che legge Modulo, aiuto e note e aggiorna backlog, cruscotto e voti. Nessun passo dei ragazzi deve dipendere da un controllo del docente.
 
+**15. MAI PIÙ «copia, apri, incolla» per i ragazzi (14/10/2026, REGOLA ASSOLUTA di Nicola: «MAI PIÙ»).** Nessuna pagina per i ragazzi chiede di copiare un testo, aprire un Modulo, incollare e premere Invia. Il ragazzo scrive il testo e preme UN bottone che consegna davvero (applicazione web dello script, oppure invio diretto al Modulo con i codici delle caselle). Se il canale diretto non c'è, la pagina NON si pubblica: lo si dice a Nicola prima della lezione. Vedi REGISTRO-ERRORI #81.
+
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
 Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
