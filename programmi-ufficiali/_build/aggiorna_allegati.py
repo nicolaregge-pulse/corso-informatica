@@ -14,6 +14,7 @@ Che cosa fa, per ogni file:
   4. dice che cosa hanno cambiato gli altri docenti dall'ultima volta;
   5. controlla, riaprendo il file salvato, che il testo degli altri sia identico a prima: se no, butta il file e si ferma.
 Uso: python3 programmi-ufficiali/_build/aggiorna_allegati.py FILE.docx [FILE.docx ...]
+     python3 programmi-ufficiali/_build/aggiorna_allegati.py --verifica FILE.docx ...   (controllo del file che sta a scuola)
 """
 import difflib, json, os, sys
 from datetime import datetime, timedelta, timezone
@@ -148,10 +149,40 @@ def aggiorna(path, prog, registro):
     return out
 
 
+def verifica(path, prog, registro):
+    """Controllo del file che sta a scuola dopo il caricamento: la nostra parte c'è ed è quella giusta, il resto è com'era."""
+    d = docx.Document(path)
+    sec = classe_del_file(d)
+    _, rx, nome = CLASSI[sec]
+    atteso = registro.get(nome, {})
+    problemi, trovati = [], {}
+    for n, cella in celle_di_quest_anno(d, rx):
+        righe = togli_blocco(cella)
+        if righe: trovati[n] = righe
+    for n, righe in atteso.get('blocchi', {}).items():
+        if n not in trovati: problemi.append('competenza %s: manca la parte di Regge' % n)
+        elif trovati[n] != righe: problemi.append('competenza %s: la parte di Regge è diversa da quella preparata' % n)
+    for n in trovati:
+        if n not in atteso.get('blocchi', {}): problemi.append('competenza %s: c\'è una parte di Regge in più' % n)
+    altri = testo_di_tutti(d)
+    diff = [l for l in difflib.unified_diff(atteso.get('altri', []), altri, lineterm='', n=0) if l[:1] in '+-' and l[:3] not in ('+++', '---')]
+    print('\n%s, file «%s»' % (nome, os.path.basename(path)))
+    if not problemi and not diff:
+        print('  TUTTO A POSTO: la parte di Regge è quella preparata alle %s e il testo degli altri è identico.' % atteso.get('quando'))
+    for p in problemi: print('  PROBLEMA: ' + p)
+    if diff:
+        print('  Il testo degli altri è cambiato rispetto al file preparato (%d righe):' % len(diff))
+        for l in diff[:20]: print('    ' + l[:110])
+    return not problemi and not diff
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 2: raise SystemExit(__doc__)
     prog = leggi_programma()
     registro = json.load(open(REGISTRO)) if os.path.exists(REGISTRO) else {}
+    if sys.argv[1] == '--verifica':
+        ok = all([verifica(f, prog, registro) for f in sys.argv[2:]])
+        raise SystemExit(0 if ok else 1)
     for f in sys.argv[1:]:
         aggiorna(f, prog, registro)
     json.dump(registro, open(REGISTRO, 'w'), ensure_ascii=False, indent=1)
