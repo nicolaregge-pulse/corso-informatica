@@ -138,9 +138,9 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <ol>
 <li><div class="it">Scrivi il tuo nome e cognome.</div><div class="ar">اكتب اسمك واسم عائلتك.</div><div class="zh">写你的名字和姓。</div>
 <input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"></li>
-<li><div class="it">Trova una tua foto: quella del tuo profilo social o una foto tessera. Si deve vedere la tua testa.</div><div class="ar">ابحث عن صورة لك: صورة حسابك في وسائل التواصل أو صورة شخصية. يجب أن يظهر رأسك.</div><div class="zh">找一张你的照片：社交账号的头像，或者证件照。要能看到你的头。</div></li>
-<li><div class="it">Sulla foto premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V. Oppure usa «Webcam» e «Scatta», o «Scegli la foto».</div><div class="ar">على الصورة اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V. أو استعمل «Webcam» ثم «Scatta»، أو «Scegli la foto».</div><div class="zh">在照片上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。也可以用「Webcam」和「Scatta」（拍照），或「Scegli la foto」（选照片）。</div>
-<button class="bot blu" id="cam">Webcam</button> <button class="bot blu" id="scatta" hidden>Scatta · التقط · 拍照</button> <button class="bot blu" id="sceglifoto">Scegli la foto · اختر الصورة · 选照片</button><input type="file" id="filefoto" accept="image/*" hidden></li>
+<li><div class="it">Ti serve una tua foto in cui si vede la testa: quella del tuo profilo social o una foto tessera. Non ce l'hai? Alza la mano: te la fa il prof.</div><div class="ar">تحتاج صورة لك يظهر فيها رأسك: صورة حسابك في وسائل التواصل أو صورة شخصية. ليست عندك؟ ارفع يدك: الأستاذ يلتقطها لك.</div><div class="zh">你需要一张能看到你的头的照片：社交账号的头像，或者证件照。没有？举手：老师给你拍。</div></li>
+<li><div class="it">Sulla foto premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V. Se la foto è un file sul computer, premi «Scegli la foto».</div><div class="ar">على الصورة اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V. إذا كانت الصورة ملفًا على الحاسوب، اضغط «Scegli la foto» (اختر الصورة).</div><div class="zh">在照片上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。如果照片是电脑里的文件，按「Scegli la foto」（选照片）。</div>
+<button class="bot blu" id="sceglifoto">Scegli la foto · اختر الصورة · 选照片</button><input type="file" id="filefoto" accept="image/*" hidden></li>
 <li><div class="it">Taglia: trascina la foto col mouse e usa la barra per lo zoom. Nel quadrato resta solo la testa.</div><div class="ar">اقصص: اسحب الصورة بالفأرة واستعمل الشريط للتكبير. في المربع يبقى الرأس فقط.</div><div class="zh">裁剪：用鼠标拖动照片，用滑块放大。方框里只留下头。</div>
 <div class="lab"><div class="quadro" id="quadro"><div class="vuoto" id="vuoto">La tua foto · صورتك · 你的照片</div><video id="video" autoplay playsinline muted hidden></video><img id="foto" alt="" hidden></div></div>
 <input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></li>
@@ -176,6 +176,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 </ol>
 
 <h2>Passo 4 · Il tuo personaggio entra nel gioco</h2>
+<p class="t">Il prof crea i personaggi quando ha le foto di tutti. Il tuo personaggio te lo restituisce qui sotto, in «Le tue foto e il tuo personaggio». · 老师收齐所有照片后做角色，你的角色会放在下面「Le tue foto」里还给你。</p>
 <ol>
 <li><div class="it">Il prof crea il personaggio e lo mette nel gioco: è una versione nuova. In «Il mio punto», in alto, vedi i tuoi personaggi nel gioco.</div><div class="ar">الأستاذ يصنع الشخصية ويضعها في اللعبة: هذه نسخة جديدة. في «Il mio punto» في الأعلى ترى شخصياتك في اللعبة.</div><div class="zh">老师做好角色，放进游戏：这是一个新版本。在上面的「Il mio punto」（我的情况）里能看到你进入游戏的角色。</div></li>
 <li><div class="it">Apri «Il backlog» e il changelog: leggi che cosa è cambiato. Poi gioca e cerca il tuo personaggio.</div><div class="ar">افتح «Il backlog» وسجل التغييرات: اقرأ ما الذي تغيّر. ثم العب وابحث عن شخصيتك.</div><div class="zh">打开「Il backlog」和更新日志：看看改了什么。然后玩游戏，找你的角色。</div>
@@ -231,17 +232,6 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
     im.src = url;
   }
   function daFileFoto(f) { if (f && /^image\//.test(f.type)) caricaFoto(URL.createObjectURL(f)); }
-  $('cam').onclick = function () {
-    if (!navigator.mediaDevices) return rosso($('esito'), 'Webcam non trovata: usa «Scegli la foto». · 没有摄像头。');
-    navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } }).then(function (st) {
-      flusso = st; var v = $('video'); v.srcObject = st; v.hidden = false; $('vuoto').hidden = true; $('foto').hidden = true;
-      v.style.width = L * 4 / 3 + 'px'; v.style.height = L + 'px'; v.style.transform = 'translate(' + (-L / 6) + 'px,0)'; $('scatta').hidden = false;
-    }).catch(function () { rosso($('esito'), 'Webcam non trovata: usa «Scegli la foto». · لا توجد كاميرا. · 没有摄像头。'); });
-  };
-  $('scatta').onclick = function () {
-    var v = $('video'), c = document.createElement('canvas'); c.width = v.videoWidth; c.height = v.videoHeight; c.getContext('2d').drawImage(v, 0, 0);
-    if (flusso) flusso.getTracks().forEach(function (t) { t.stop(); }); $('scatta').hidden = true; caricaFoto(c.toDataURL('image/jpeg', 0.92));
-  };
   $('sceglifoto').onclick = function () { $('filefoto').click(); };
   $('filefoto').onchange = function () { daFileFoto(this.files[0]); };
   $('zoom').oninput = function () { if (!src) return; var z = +this.value, c = L / 2; ox = c - (c - ox) * z / zoom; oy = c - (c - oy) * z / zoom; zoom = z; disegna(); };
