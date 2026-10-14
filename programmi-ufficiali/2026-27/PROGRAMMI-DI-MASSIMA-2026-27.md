@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 0.7** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
+**Versione 0.8** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
 
 > **Da confermare:** è una proposta. Le voci entrano nei quattro Allegato A solo dopo il sì di Nicola. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -139,6 +139,7 @@ Programmare davvero (Lazarus) e lavorare come un team (il treno della classe su 
 | 11 | Produzione multimediale: fotoritocco, montaggio video, presentazione tecnica di un progetto | tutto l'anno | 8 |
 | 12 | Sicurezza informatica: phishing, deepfake, profilazione sui social, privacy | tutto l'anno | 8 |
 | 13 | Lavoro in un team di sviluppo e profili professionali ICT | maggio-giugno | 12 |
+| 14 | Assemblaggio, riparazione e manutenzione del PC: diagnosi dei guasti, sostituzione dei componenti, scheda di intervento | gennaio-maggio | 13, 16 |
 
 ### 04.4 Sotto-voci
 
@@ -196,6 +197,12 @@ Programmare davvero (Lazarus) e lavorare come un team (il treno della classe su 
 13. Lavoro in un team di sviluppo e profili professionali ICT
    1. Ruoli in un team di sviluppo
    2. Profili professionali ICT
+14. Assemblaggio, riparazione e manutenzione del PC
+   1. Assemblaggio e smontaggio di un PC
+   2. Diagnosi dei guasti hardware e software
+   3. Sostituzione e aggiornamento dei componenti
+   4. Scheda di intervento e preventivo per il cliente
+   5. Individuazione e correzione degli errori nei programmi (debug)
 
 ## 05 Classe 3 — 3INF, III anno Operatore informatico
 
@@ -339,6 +346,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+8. **v0.8 (14/10/2026)**: 2INF, nuovo modulo «Assemblaggio, riparazione e manutenzione del PC» nella competenza 13 (prima vuota) e nella 16.
 7. **v0.7 (14/10/2026)**: voci e sotto-voci riscritte in linguaggio tecnico, come richiesto per l'Allegato A.
 6. **v0.6 (14/10/2026)**: ogni modulo nella competenza giusta secondo abilità e conoscenze dell'Allegato A (per esempio: programmazione nella 15, database nella 17, reti nella 16, codifica dei dati e privacy nella 8, organizzazione e Agile nella 12).
 5. **v0.5 (14/10/2026)**: solo aree tecnologiche, come negli anni scorsi (8, 12-17; 4TI: 7, 13-16). Tolte matematica (4), cultura del lavoro (6), cittadinanza (9); i moduli rimasti senza area vanno nella 12, 14 o 15.
