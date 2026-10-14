@@ -4,7 +4,7 @@
 Fonte delle voci: programmi-ufficiali/2026-27/PROGRAMMI-DI-MASSIMA-2026-27.md (tabelle dei moduli + sotto-voci).
 File di partenza: programmi-ufficiali/2026-27/originali-20261014/ (come li ha mandati Nicola, già toccati da altri docenti).
 Regole (Nicola): in ogni area toccata, nella riga dell'annualità di quest'anno, si scrive «Regge» in alto e sotto le nostre
-voci; per la proposta la nostra parte è evidenziata in VERDE, così si distingue dal giallo degli altri. Il testo degli altri
+voci; la parte 2026/27 è evidenziata in ROSA; la parte degli anni scorsi resta in verde, gli altri docenti in giallo. Il testo degli altri
 docenti non si tocca: la nostra parte va subito sotto l'etichetta dell'anno, prima del resto.
 Uso: python3 programmi-ufficiali/_build/compila_allegati_v2.py   (scrive i .docx e stampa il resoconto per l'audit)
 """
@@ -17,7 +17,7 @@ from docx.text.paragraph import Paragraph
 QUI = os.path.dirname(os.path.abspath(__file__))
 CART = os.path.join(QUI, '..', '2026-27')
 MD = os.path.join(CART, 'PROGRAMMI-DI-MASSIMA-2026-27.md')
-COLORE = WD_COLOR_INDEX.BRIGHT_GREEN
+COLORE = WD_COLOR_INDEX.PINK  # 14/10 sera, Nicola: parte 2026/27 in rosa; la parte degli anni scorsi resta in verde, gli altri in giallo
 # sezione del programma -> (file originale, etichetta dell'anno di quest'anno, nome di uscita)
 CLASSI = {
     '03': ('PFP_1', r'^I\s+anno', '1INF'),

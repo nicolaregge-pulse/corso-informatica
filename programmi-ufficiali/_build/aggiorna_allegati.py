@@ -9,7 +9,7 @@ scuola. Così in giro c'è un solo file vero e la finestra in cui due persone la
 
 Che cosa fa, per ogni file:
   1. riconosce la classe dalla tabella delle annualità (riga 2026-2027: I = 1INF, II = 2INF, III = 3INF, IV = 4TI);
-  2. nella riga di quest'anno toglie il vecchio blocco «Regge» in verde, se c'è, e ci rimette quello aggiornato;
+  2. nella riga di quest'anno toglie il vecchio blocco «Regge» (rosa, o verde se preparato prima), se c'è, e ci rimette quello aggiornato in rosa;
   3. se qualcuno ha cambiato a mano il nostro blocco verde nel Word, si FERMA e mostra la differenza (niente sovrascritture);
   4. dice che cosa hanno cambiato gli altri docenti dall'ultima volta;
   5. controlla, riaprendo il file salvato, che il testo degli altri sia identico a prima: se no, butta il file e si ferma.
@@ -19,6 +19,7 @@ Uso: python3 programmi-ufficiali/_build/aggiorna_allegati.py FILE.docx [FILE.doc
 import difflib, json, os, sys
 from datetime import datetime, timedelta, timezone
 import docx
+from docx.enum.text import WD_COLOR_INDEX
 from docx.oxml.ns import qn
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -38,8 +39,9 @@ def classe_del_file(d):
 
 
 def tutto_verde(p):
+    """Il nostro blocco di quest'anno: rosa (dal 14/10 sera) o verde (file preparati prima). Si cerca solo nella riga di quest'anno."""
     runs = [r for r in p.runs if r.text.strip()]
-    return bool(runs) and all(r.font.highlight_color == COLORE for r in runs)
+    return bool(runs) and all(r.font.highlight_color in (COLORE, WD_COLOR_INDEX.BRIGHT_GREEN) for r in runs)
 
 
 def celle_di_quest_anno(d, rx):
