@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:02",
+ "aggiornato": "14/10/2026 13:04",
  "voci": [
   {
    "ora": "12/10 10:31",
@@ -50,6 +50,18 @@
    "pos": 4
   },
   {
+   "ora": "14/10 13:00",
+   "alunno": "Rafi F.",
+   "pr": "PR (senza numero)",
+   "richiesta": "pull reques · io  voglio aggiungere una pistola nova nome AWM",
+   "file": true,
+   "peso": 1,
+   "motivo": "si cambia solo un testo o un colore: una riga",
+   "fatto": "",
+   "no": "",
+   "pos": 5
+  },
+  {
    "ora": "12/10 10:33",
    "alunno": "Ariel D.",
    "pr": "PR2",
@@ -59,7 +71,7 @@
    "motivo": "si cambiano due numeri nel disegno delle rocce (grandezza e colore a caso)",
    "fatto": "v1.7",
    "no": "",
-   "pos": 5
+   "pos": 6
   },
   {
    "ora": "14/10 12:36",
@@ -71,7 +83,7 @@
    "motivo": "si cambiano due numeri nelle regole",
    "fatto": "v1.12",
    "no": "",
-   "pos": 6
+   "pos": 7
   },
   {
    "ora": "14/10 12:38",
@@ -83,7 +95,7 @@
    "motivo": "un difetto (bug): oggetti sopra i binari",
    "fatto": "v1.13",
    "no": "",
-   "pos": 7
+   "pos": 8
   },
   {
    "ora": "14/10 12:42",
@@ -95,7 +107,7 @@
    "motivo": "si cambia un numero: la velocità",
    "fatto": "v1.12 (fatta nello stesso minuto: il treno parte a 30 km/h)",
    "no": "",
-   "pos": 8
+   "pos": 9
   },
   {
    "ora": "14/10 12:42",
@@ -107,7 +119,7 @@
    "motivo": "si cambiano due numeri: velocità e aumento per livello",
    "fatto": "v1.12 (parte lento e sale a ogni livello)",
    "no": "",
-   "pos": 9
+   "pos": 10
   },
   {
    "ora": "14/10 12:47",
@@ -119,7 +131,7 @@
    "motivo": "si sposta un oggetto: una regola",
    "fatto": "v1.13 (era nella tua revisione: già nel gioco)",
    "no": "",
-   "pos": 10
+   "pos": 11
   },
   {
    "ora": "14/10 12:58",
@@ -131,7 +143,7 @@
    "motivo": "si cambia un numero nelle regole del gioco",
    "fatto": "",
    "no": "",
-   "pos": 11
+   "pos": 12
   },
   {
    "ora": "12/10 10:26",
@@ -143,7 +155,7 @@
    "motivo": "un personaggio: si cambia la sua immagine",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 12
+   "pos": 13
   },
   {
    "ora": "12/10 10:33",
@@ -155,7 +167,7 @@
    "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
    "fatto": "v1.8",
    "no": "",
-   "pos": 13
+   "pos": 14
   },
   {
    "ora": "12/10 10:34",
@@ -167,7 +179,7 @@
    "motivo": "un personaggio nuovo",
    "fatto": "",
    "no": "foto di una persona vera: nel gioco pubblico non mettiamo volti di ragazzi (privacy). Rimanda la PR con un personaggio disegnato o di un videogioco.",
-   "pos": 14
+   "pos": 15
   },
   {
    "ora": "12/10 10:36",
@@ -179,7 +191,7 @@
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "v1.9",
    "no": "",
-   "pos": 15
+   "pos": 16
   },
   {
    "ora": "12/10 10:49",
@@ -191,7 +203,7 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 16
+   "pos": 17
   },
   {
    "ora": "14/10 12:56",
@@ -203,7 +215,7 @@
    "motivo": "conflitto: cambierebbe i personaggi fatti dai compagni (aggiungere sì, cancellare no)",
    "fatto": "",
    "no": "cambierebbe i personaggi dei compagni (le loro mimetiche): aggiungere sì, cancellare no. Rimandala per un TUO personaggio nuovo con la tuta nera.",
-   "pos": 17
+   "pos": 18
   },
   {
    "ora": "14/10 12:57",
@@ -215,7 +227,19 @@
    "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
    "fatto": "",
    "no": "",
-   "pos": 18
+   "pos": 19
+  },
+  {
+   "ora": "14/10 12:59",
+   "alunno": "Ariel D.",
+   "pr": "PR3",
+   "richiesta": "Nel primo livello i nemici sono lenti e facili da colpire.",
+   "file": false,
+   "peso": 3,
+   "motivo": "un personaggio nuovo: si aggiunge ai dati e si disegna",
+   "fatto": "",
+   "no": "",
+   "pos": 20
   },
   {
    "ora": "14/10 12:43",
@@ -227,7 +251,7 @@
    "motivo": "un ambiente di sfondo nuovo da disegnare: entra nello sprint 2",
    "fatto": "",
    "no": "",
-   "pos": 19
+   "pos": 21
   },
   {
    "ora": "14/10 12:48",
@@ -239,7 +263,7 @@
    "motivo": "più cose insieme: la parte «montagne viola» (1) è entrata subito",
    "fatto": "v1.16 (montagne viola; i cavalli restano da fare)",
    "no": "",
-   "pos": 20
+   "pos": 22
   },
   {
    "ora": "14/10 12:50",
@@ -251,7 +275,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 21
+   "pos": 23
   },
   {
    "ora": "14/10 12:51",
@@ -263,7 +287,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 22
+   "pos": 24
   },
   {
    "ora": "14/10 12:52",
@@ -275,7 +299,7 @@
    "motivo": "una regola nuova: il giocatore sceglie il colore",
    "fatto": "v1.18",
    "no": "",
-   "pos": 23
+   "pos": 25
   },
   {
    "ora": "14/10 12:53",
@@ -287,7 +311,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 24
+   "pos": 26
   },
   {
    "ora": "14/10 12:55",
@@ -299,7 +323,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 25
+   "pos": 27
   },
   {
    "ora": "14/10 12:57",
@@ -311,7 +335,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 26
+   "pos": 28
   },
   {
    "ora": "14/10 12:58",
@@ -323,7 +347,7 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 27
+   "pos": 29
   },
   {
    "ora": "14/10 12:58",
@@ -335,7 +359,31 @@
    "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
    "fatto": "",
    "no": "",
-   "pos": 28
+   "pos": 30
+  },
+  {
+   "ora": "14/10 13:01",
+   "alunno": "Denis A.",
+   "pr": "PR1",
+   "richiesta": "Titolo: Nuvole Cosa Cambia: Piu nuvole al livello montagna Dove: Livello Montagna Perche: Cosi e piu bello",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 31
+  },
+  {
+   "ora": "14/10 13:01",
+   "alunno": "Denis A.",
+   "pr": "PR1",
+   "richiesta": "Titolo: Nuvole\nCosa Cambia: Piu nuvole al livello montagna\nDove: Livello Montagna\nPerche: Cosi e piu bello",
+   "file": false,
+   "peso": 5,
+   "motivo": "un ambiente o un oggetto nuovo da disegnare e mettere nel percorso",
+   "fatto": "",
+   "no": "",
+   "pos": 32
   },
   {
    "ora": "12/10 10:32",
@@ -347,7 +395,7 @@
    "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5)",
    "fatto": "",
    "no": "",
-   "pos": 29
+   "pos": 33
   },
   {
    "ora": "14/10 12:48",
@@ -359,7 +407,7 @@
    "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
    "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
    "no": "",
-   "pos": 30
+   "pos": 34
   },
   {
    "ora": "14/10 12:50",
@@ -371,7 +419,7 @@
    "motivo": "più cose insieme: il cielo nuvoloso (2) è entrato subito; le armi più potenti (5) restano da fare",
    "fatto": "v1.17 (cielo nuvoloso; le armi restano da fare)",
    "no": "",
-   "pos": 31
+   "pos": 35
   },
   {
    "ora": "14/10 12:58",
@@ -383,7 +431,19 @@
    "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
    "fatto": "",
    "no": "",
-   "pos": 32
+   "pos": 36
+  },
+  {
+   "ora": "14/10 13:01",
+   "alunno": "Tomas L.",
+   "pr": "PR1",
+   "richiesta": "Alieni  cambia che a un certo punto del viaggio i binari vadano nello spazio e ci ritroviamo a proseguire il tragitto nello spazio a sparare con gli alieni che hanno armi avanzate · pULL REQUEST",
+   "file": false,
+   "peso": 8,
+   "motivo": "una regola nuova del gioco (meccanica): codice nuovo in più punti",
+   "fatto": "",
+   "no": "",
+   "pos": 37
   },
   {
    "ora": "14/10 12:40",
@@ -395,7 +455,7 @@
    "motivo": "troppo grande per uno sprint (ambiente nuovo + regole nuove + nemici nuovi): dividila in pezzi piccoli, per esempio «cielo dello spazio, nero con le stelle» (5), poi «gli alieni hanno armi laser» (3)",
    "fatto": "",
    "no": "",
-   "pos": 33
+   "pos": 38
   }
  ]
 }
