@@ -1,6 +1,6 @@
 # Allegato A 2026/27 — note da discutere con Nicola
 
-**Versione 0.1** — 12/10/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
+**Versione 0.2** — 14/10/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
 
 1. Domani (13/10) Nicola scarica l'Allegato A da scuola: si guarda com'è fatto e si decide come compilarlo (scadenza: 30 ottobre).
 2. Classe 4 (Tecnico), competenza 1 «Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti: sociali, culturali, scientifici, economici, tecnologici e professionali».
@@ -22,3 +22,8 @@
    3. In ogni area, **in alto**, si scrive «Regge»; sotto, tutte le nostre voci **evidenziate in giallo**.
    4. Conseguenza per i file Word v0.1: l'etichetta «Regge» va spostata in cima alla riga dell'annualità (oggi è in fondo) e vanno aggiunte le aree che mancano.
 7. Nicola sta ancora dando i dati: non rispondere e non proporre finché non ne parliamo.
+8. **Titoli delle lezioni coerenti con l'Allegato A** (14/10/2026, Nicola: «tu mi fai tenere il titolo delle lezioni coerente»).
+   1. Ogni titolo scritto nel registro (programma previsto e argomento svolto) è una voce dell'Allegato A di quella classe, con le stesse parole o riconoscibile a colpo d'occhio, e della materia di quell'ora (per esempio Laboratorio professionale o Sicurezza professionale).
+   2. Così a fine anno lo svolto è un pezzo del previsto, senza buchi.
+   3. Compito di Claude: quando dà i testi per la firma, li prende dalle voci dell'Allegato A; se una lezione non ha la sua voce, lo dice subito, e la voce si aggiunge entro il 30 ottobre (dopo si può solo togliere).
+   4. Primo controllo, 14/10: nei quattro Allegati v0.1 mancano le voci di quello che facciamo da settimane: controllo delle versioni (versioni, rami, fork, Pull Request, merge, release), il gioco della classe, Godot, i siti su GitHub Pages, i progetti di stage della quarta.
