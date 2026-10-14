@@ -26,9 +26,17 @@ while i < len(righe):
         cls = "att" if "Attenzione" in r else ("conf" if "Da confermare" in r else "nota")
         out.append(f"<div class='box {cls}'>{inline(r[2:])}</div>"); i += 1; continue
     if re.match(r"^\d+\. ", r):
-        l = []
-        while i < len(righe) and re.match(r"^\d+\. ", righe[i]): l.append(re.sub(r"^\d+\. ", "", righe[i])); i += 1
-        out.append("<ol>" + "".join(f"<li>{inline(x)}</li>" for x in l) + "</ol>"); continue
+        # liste numerate anche annidate (3 spazi per livello): numeri gerarchici 1, 1.1, 1.1.1
+        voci = []
+        while i < len(righe) and re.match(r"^( {3})*\d+\. ", righe[i]):
+            m = re.match(r"^((?: {3})*)\d+\. (.*)$", righe[i]); voci.append((len(m.group(1)) // 3, m.group(2))); i += 1
+        cont, html_l = [0, 0, 0, 0], []
+        for liv, testo in voci:
+            cont[liv] += 1
+            for k in range(liv + 1, len(cont)): cont[k] = 0
+            num = ".".join(str(cont[k]) for k in range(liv + 1))
+            html_l.append(f"<div class='li l{liv}'><span class='n'>{num}</span>{inline(testo)}</div>")
+        out.append("<div class='ol'>" + "".join(html_l) + "</div>"); continue
     for k, tag in ((4, "h3"), (3, "h2"), (2, "h1")):
         if r.startswith("#" * (k - 1) + " "): out.append(f"<{tag}>{inline(r[k:])}</{tag}>"); break
     else:
@@ -38,6 +46,7 @@ CSS = """body{font-family:"Segoe UI",Arial,sans-serif;color:#1a2330;font-size:12
 h2{color:#12467a;font-size:17px;border-bottom:2px solid #d5dde8;padding-bottom:3px;margin-top:20px;break-after:avoid}h3{font-size:14px;break-after:avoid}
 table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th,td{border:1px solid #c9d3e0;padding:4px 6px;vertical-align:top;text-align:left}th{background:#e9f0f8}
 .box{border-radius:6px;padding:7px 10px;margin:8px 0}.nota{background:#fff8d6;border-left:5px solid #e0b400}.att{background:#fdecea;border-left:5px solid #c0392b}.conf{background:#e8f1fb;border-left:5px solid #2f6db5}
+.ol{margin:4px 0 8px}.li{display:flex;gap:6px;margin:2px 0;break-inside:avoid}.li .n{min-width:2.2em;font-weight:600;color:#12467a}.l1{margin-left:1.6em}.l2{margin-left:3.2em}.l3{margin-left:4.8em}
 pre{background:#f3f5f8;padding:6px;white-space:pre-wrap;word-break:break-all;font-size:10px}code{background:#eef2f7;padding:0 3px}"""
 base = os.path.splitext(src)[0]
 h = base + ".tmp.html"
