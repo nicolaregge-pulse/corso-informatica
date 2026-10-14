@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Ripasso e verifica</title><style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:860px;margin:0 auto;padding:16px}
+h1{font-size:30px;margin:6px 0 2px}h2{font-size:22px;margin:6px 0}h3{margin:14px 0 4px}.t{color:var(--mu);font-size:16px}
+.it{font-weight:600}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:17px}
+.bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px}
+.bot{display:inline-block;background:#1a7f37;color:#fff;text-decoration:none;font-weight:700;font-size:21px;padding:11px 20px;border-radius:12px;margin:8px 0;border:0;cursor:pointer;font-family:inherit}
+.bot.blu{background:#1f6feb;font-size:18px;padding:9px 15px}
+.nota{background:var(--gi);border-radius:8px;padding:10px 14px;margin:10px 0}ol{padding-left:26px}li{margin:0 0 12px}
+textarea{font:inherit;width:100%;min-height:110px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
+input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
+.esito{font-size:19px;font-weight:700;margin-top:6px}
+.check{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.check button{font:inherit;font-weight:700;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg);padding:4px 14px;margin:4px 6px 0 0;cursor:pointer}.check button.si{background:#d3f9d8;border-color:#2f9e44;color:#111}.check button.no{background:#ffe3e3;border-color:#e03131;color:#111}
+.flusso{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.flusso span{background:var(--card);border:2px solid #6e40c9;border-radius:20px;padding:4px 12px;font-weight:700;font-size:16px}.flusso b{color:#6e40c9}
+.frasi li{font-weight:600}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:4px 14px 12px;margin:18px 0}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:15px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:#1a7f37}.passo.fatto .num,.passo.fatto .bollo{background:#1a7f37}
+.passo.ora{border:5px solid #1f6feb}.passo.ora .num,.passo.ora .bollo{background:#1f6feb}
+.spento{opacity:.4!important;pointer-events:none}</style></head>
+<body><div class="w">
+<h1>Ripasso e verifica: versioni, Pull Request, Agile</h1><div class="bn" lang="bn">পুনরালোচনা ও পরীক্ষা</div><p class="t">3INF · 14/10/2026</p>
+<p class="t" style="margin:10px 0 2px">Come sta andando · কেমন চলছে</p><div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-voti/" target="_blank" rel="noopener">I voti<small style="display:block;font-weight:400;font-size:13px;opacity:.9">নম্বর</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small style="display:block;font-weight:400;font-size:13px;opacity:.9">পাঠের মনিটর</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-top/" target="_blank" rel="noopener">La classifica<small style="display:block;font-weight:400;font-size:13px;opacity:.9">র‍্যাঙ্কিং</small></a><a class="bt" style="background:#0b7285" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-cruscotto/" target="_blank" rel="noopener">Il cruscotto<small style="display:block;font-weight:400;font-size:13px;opacity:.9">ড্যাশবোর্ড</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-valutazione/" target="_blank" rel="noopener">La situazione della classe<small style="display:block;font-weight:400;font-size:13px;opacity:.9">ক্লাসের অবস্থা</small></a></div><div class="nota"><div class="it">Fai i passi in ordine, dall'alto in basso. Il passo da fare adesso ha il bordo blu. Quando un passo è fatto diventa verde e il suo bottone si spegne.</div><div class="bn" lang="bn">উপর থেকে নিচে ধাপগুলো করুন। এখনকার ধাপের নীল বর্ডার। শেষ হলে সবুজ হয়।</div></div>
+<section class="passo" id="p-nome"><h2><span class="num">1</span> Il tuo nome<span class="bollo"></span><br><span class="bn" lang="bn">আপনার নাম</span></h2>
+<div class="it">Scrivi nome e cognome e premi OK.</div><div class="bn" lang="bn">নাম ও পদবি লিখে OK চাপুন।</div><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"> <button class="bot blu" id="okNome">OK</button><div class="esito" id="esNome"></div>
+</section>
+<section class="passo" id="p-rip"><h2><span class="num">2</span> Ripasso<span class="bollo"></span><br><span class="bn" lang="bn">পুনরালোচনা</span></h2>
+<div class="it">Si apre una finestra nuova: leggi le schede (versioni, Pull Request, merge, backlog, sprint, cerimonie Agile) e fai l'allenamento. Poi torna qui.</div><div class="bn" lang="bn">নতুন উইন্ডো খুলবে: কার্ড পড়ুন (সংস্করণ, Pull Request, merge, backlog, স্প্রিন্ট, Agile) এবং অনুশীলন করুন। তারপর এখানে ফিরুন।</div><a class="bot" id="bRip" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning" target="_blank" rel="noopener">Ripasso</a>
+</section>
+<section class="passo" id="p-ver"><h2><span class="num">3</span> Verifica<span class="bollo"></span><br><span class="bn" lang="bn">পরীক্ষা</span></h2>
+<div class="it">La apre il prof. Si apre una finestra nuova. Alla fine premi il bottone verde in fondo alla verifica, poi torna qui: vedrai «Verifica fatta».</div><div class="bn" lang="bn">শিক্ষক এটি খুলবেন। শেষে পরীক্ষার নিচের সবুজ বোতাম চাপুন, তারপর এখানে ফিরুন।</div><a class="bot" id="bVer" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning&amp;modo=verifica" target="_blank" rel="noopener">Verifica</a>
+</section>
+<section class="passo" id="p-val"><h2><span class="num">4</span> La tua valutazione<span class="bollo"></span><br><span class="bn" lang="bn">আপনার মূল্যায়ন</span></h2>
+<div id="val" class="nota"><div class="it">Compare qui quando il prof ha corretto: il voto e perché.</div><div class="bn" lang="bn">শিক্ষক দেখার পরে এখানে আসবে: নম্বর এবং কেন।</div></div>
+</section>
+<section class="passo" id="p-rec"><h2><span class="num">5</span> Il tuo recupero<span class="bollo"></span><br><span class="bn" lang="bn">আপনার পুনরুদ্ধার</span></h2>
+<div id="rec" class="nota"><div class="it">Il recupero è fatto apposta per te, sulle domande che hai sbagliato. Compare qui quando è pronto. Alla fine c'è il voto complessivo.</div><div class="bn" lang="bn">পুনরুদ্ধার শুধু আপনার জন্য, আপনার ভুল প্রশ্নের উপর। প্রস্তুত হলে এখানে আসবে। শেষে মোট নম্বর।</div></div>
+</section>
+
+</div>
+<script>
+(function () {
+  var ID = '3inf-versioning-20261014', L = 'perc-3inf-verifica-', R = null, REC = null;
+  var ORDINE = ['nome', 'rip', 'ver', 'val', 'rec'];
+  function $(i) { return document.getElementById(i); }
+  function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
+  function s(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
+  function e(x) { return String(x == null ? '' : x).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function nome() { return (g('nome-3inf') || '').trim(); }
+  function breve(x) { var p = (x || '').trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function esito(m) { try { var r = JSON.parse(g('esito-' + ID + '-' + m) || 'null'); return r && r.consegnata ? r : null; } catch (x) { return null; } }
+  function spegni(el) { if (el) el.classList.add('spento'); }
+  function mioRisultato() { var me = breve(nome()); return (R && R.allievi || []).filter(function (x) { return x.allievo === me; })[0]; }
+  function mioRecupero() { var me = breve(nome()); return (REC && REC.allievi || []).filter(function (x) { return x.allievo === me; })[0]; }
+  function fatto(k) {
+    if (k === 'nome') return nome().indexOf(' ') > 0;
+    if (k === 'rip') return !!g(L + 'rip');
+    if (k === 'ver') return !!esito('verifica');
+    if (k === 'val') return !!mioRisultato();
+    if (k === 'rec') { var r = mioRecupero(); return !!(r && r.fatto); }
+  }
+  function disegna() {
+    var ora = null;
+    ORDINE.forEach(function (k) { var sec = $('p-' + k), f = fatto(k); if (!f && !ora) ora = k; sec.classList.toggle('fatto', f); sec.classList.toggle('ora', ora === k); sec.querySelector('.bollo').textContent = f ? '✓ Fatto' : (ora === k ? 'Adesso' : 'Da fare'); });
+    if (fatto('nome')) { $('nome').value = nome(); $('esNome').style.color = '#1a7f37'; $('esNome').textContent = 'Ciao ' + breve(nome()) + '!'; }
+    if (fatto('rip')) spegni($('bRip'));
+    if (fatto('ver')) { spegni($('bVer')); spegni($('bRip')); $('bVer').textContent = '✓ Verifica fatta'; if (!mioRisultato()) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: il voto e il perché compaiono qui da soli.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। নম্বর এখানে আসবে।</div>'; }
+    var a = mioRisultato();
+    if (a) $('val').innerHTML = '<div style="font-size:30px;font-weight:800">Voto: ' + e(a.voto) + '</div>' + (a.aree || []).map(function (z) { return '<div>' + e(z.nome) + ': <b>' + e(z.giuste) + ' su ' + e(z.su) + '</b></div>'; }).join('') +
+      (a.scritte ? '<div style="margin-top:6px"><b>Risposte scritte:</b> ' + e(a.scritte) + '</div>' : '') + (a.giudizio ? '<div style="margin-top:6px"><b>Perché questo voto:</b> ' + e(a.giudizio) + '</div>' : '');
+    var r = mioRecupero();
+    if (r) $('rec').innerHTML = (r.fatto ? '<b>✓ Recupero fatto.</b> ' : '') + (r.testo ? e(r.testo) + ' ' : '') + (r.link && !r.fatto ? '<br><a class="bot" href="' + e(r.link) + '" target="_blank" rel="noopener">Il mio recupero</a>' : '') + (r.voto_complessivo ? '<div style="font-size:26px;font-weight:800;margin-top:6px">Voto complessivo: ' + e(r.voto_complessivo) + '</div>' : '');
+  }
+  function j(u) { return fetch(u + '?t=' + Date.now(), { cache: 'no-store' }).then(function (x) { return x.json(); }).catch(function () { return null; }); }
+  function carica() { Promise.all([j('../../verifica/risultati/3inf-versioning.json'), j('recupero.json')]).then(function (x) { R = x[0]; REC = x[1]; disegna(); }); }
+  $('okNome').onclick = function () { var v = $('nome').value.trim().replace(/\s+/g, ' '); if (v.indexOf(' ') < 0) { $('esNome').style.color = '#c0392b'; $('esNome').textContent = 'Scrivi nome E cognome.'; return; } s('nome-3inf', v); if (!g('nome-' + ID)) s('nome-' + ID, JSON.stringify(v)); disegna(); };
+  $('nome').addEventListener('keydown', function (ev) { if (ev.key === 'Enter') $('okNome').click(); });
+  $('bRip').addEventListener('click', function () { s(L + 'rip', '1'); setTimeout(disegna, 500); });
+  carica(); setInterval(carica, 60000); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna);
+})();
+
+</script>
+<script src="../../assistente/assistente.js" data-pagina="3inf-verifica" data-lingue="it"></script>
+</body></html>
