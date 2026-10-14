@@ -1,10 +1,36 @@
 {
  "titolo": "Risultati: versioni, Pull Request e il treno della 3INF",
  "classe": "3INF",
- "aggiornato": "14/10/2026 13:48",
- "consegnate": 1,
+ "aggiornato": "14/10/2026 13:50",
+ "consegnate": 3,
  "presenti": 19,
  "allievi": [
+  {
+   "allievo": "Dani S.",
+   "voto": 49,
+   "aree": [
+    {
+     "nome": "Nozioni: versioni, fork, ramo, Pull Request, merge, changelog",
+     "giuste": 7,
+     "su": 8
+    },
+    {
+     "nome": "Il metodo: backlog, Agile, regole della squadra",
+     "giuste": 0,
+     "su": 4
+    }
+   ],
+   "scritte": "tre risposte scritte (256, 14, 16 caratteri)",
+   "giudizio": "7 crocette giuste su 12 (42 punti su 72); risposte scritte 7 punti su 28. Nella spiegazione al direttore hai usato 0 parole chiave su 6. Da ripassare: L'08/10 la 3INF ha fatto una copia del treno della 2INF, per lavorarci; Lunedì una richiesta chiedeva due cose insieme: un personaggio nuovo (; Il Manifesto Agile dice che conta di più…; Vuoi cambiare il cattivo Travor, che ha chiesto Tomas. Che cosa fai?; Lunedì 3 richieste sono state respinte. Perché?.",
+   "sbagliate": [
+    4,
+    9,
+    10,
+    11,
+    12
+   ],
+   "ora": "2026-10-14T11:46:27.666Z"
+  },
   {
    "allievo": "Nicolò C.",
    "voto": 40,
@@ -31,6 +57,33 @@
     12
    ],
    "ora": "2026-10-14T11:44:30.732Z"
+  },
+  {
+   "allievo": "Samuele U.",
+   "voto": 46,
+   "aree": [
+    {
+     "nome": "Nozioni: versioni, fork, ramo, Pull Request, merge, changelog",
+     "giuste": 4,
+     "su": 8
+    },
+    {
+     "nome": "Il metodo: backlog, Agile, regole della squadra",
+     "giuste": 2,
+     "su": 4
+    }
+   ],
+   "scritte": "tre risposte scritte (131, 106, 1 caratteri)",
+   "giudizio": "6 crocette giuste su 12 (36 punti su 72); risposte scritte 10 punti su 28. Nella spiegazione al direttore hai usato 0 parole chiave su 6. Da ripassare: Una versione del gioco è…; L'08/10 la 3INF ha fatto una copia del treno della 2INF, per lavorarci; Un ramo (branch) è…; Il prof accetta la tua Pull Request e unisce la modifica al gioco. Com; Il Manifesto Agile dice che conta di più…; Lunedì 3 richieste sono state respinte. Perché?.",
+   "sbagliate": [
+    1,
+    4,
+    5,
+    6,
+    10,
+    12
+   ],
+   "ora": "2026-10-14T11:46:41.820Z"
   }
  ]
 }
