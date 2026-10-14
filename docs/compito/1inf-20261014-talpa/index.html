@@ -72,13 +72,14 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <a class="bot" href="../../giochi/talpa-1inf/" target="_blank" rel="noopener">Gioca · العب · 玩</a></li>
 </ol>
 
-<h2>Passo 2 · La tua foto</h2>
+<h2>Passo 2 · Il tuo personaggio: la foto</h2>
 <ol>
 <li><div class="it">Scrivi il tuo nome e cognome.</div><div class="ar">اكتب اسمك واسم عائلتك.</div><div class="zh">写你的名字和姓。</div>
 <input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"></li>
-<li><div class="it">Premi «Webcam» e poi «Scatta». Oppure premi «Scegli la foto» se il prof te l'ha mandata.</div><div class="ar">اضغط «Webcam» ثم «Scatta» (التقط). أو اضغط «Scegli la foto» (اختر الصورة) إذا أرسلها لك الأستاذ.</div><div class="zh">按「Webcam」再按「Scatta」（拍照）。如果老师把照片发给你了，就按「Scegli la foto」（选照片）。</div>
+<li><div class="it">Trova una tua foto: quella del tuo profilo social o una foto tessera. Si deve vedere la tua testa.</div><div class="ar">ابحث عن صورة لك: صورة حسابك في وسائل التواصل أو صورة شخصية. يجب أن يظهر رأسك.</div><div class="zh">找一张你的照片：社交账号的头像，或者证件照。要能看到你的头。</div></li>
+<li><div class="it">Sulla foto premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V. Oppure usa «Webcam» e «Scatta», o «Scegli la foto».</div><div class="ar">على الصورة اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V. أو استعمل «Webcam» ثم «Scatta»، أو «Scegli la foto».</div><div class="zh">在照片上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。也可以用「Webcam」和「Scatta」（拍照），或「Scegli la foto」（选照片）。</div>
 <button class="bot blu" id="cam">Webcam</button> <button class="bot blu" id="scatta" hidden>Scatta · التقط · 拍照</button> <button class="bot blu" id="sceglifoto">Scegli la foto · اختر الصورة · 选照片</button><input type="file" id="filefoto" accept="image/*" hidden></li>
-<li><div class="it">Taglia: trascina la foto col mouse e usa la barra per lo zoom. Si vede solo il quadrato.</div><div class="ar">اقصص: اسحب الصورة بالفأرة واستعمل الشريط للتكبير. يظهر المربع فقط.</div><div class="zh">裁剪：用鼠标拖动照片，用滑块放大。只保留方框里的部分。</div>
+<li><div class="it">Taglia: trascina la foto col mouse e usa la barra per lo zoom. Nel quadrato resta solo la testa.</div><div class="ar">اقصص: اسحب الصورة بالفأرة واستعمل الشريط للتكبير. في المربع يبقى الرأس فقط.</div><div class="zh">裁剪：用鼠标拖动照片，用滑块放大。方框里只留下头。</div>
 <div class="lab"><div class="quadro" id="quadro"><div class="vuoto" id="vuoto">La tua foto · صورتك · 你的照片</div><video id="video" autoplay playsinline muted hidden></video><img id="foto" alt="" hidden></div></div>
 <input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></li>
 <li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
@@ -87,7 +88,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <div class="stato" id="stato" style="background:var(--gi)">In attesa · في الانتظار · 等待中</div></li>
 </ol>
 
-<h2>Passo 3 · La caricatura con Gemini</h2>
+<h2>Passo 3 · Il personaggio cartoonesco con Gemini</h2>
 <ol>
 <li><div class="it">Premi «Copia la foto».</div><div class="ar">اضغط «Copia la foto» (انسخ الصورة).</div><div class="zh">按「Copia la foto」（复制照片）。</div>
 <button class="bot blu" id="copiafoto" disabled>Copia la foto · انسخ الصورة · 复制照片</button> <span class="esito" id="esitocopia"></span></li>
@@ -95,13 +96,13 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <a class="bot blu" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini</a></li>
 <li><div class="it">Clicca nella casella in basso e premi Ctrl+V: la tua foto entra in Gemini.</div><div class="ar">انقر في الخانة في الأسفل واضغط Ctrl+V: تدخل صورتك إلى Gemini.</div><div class="zh">点击下面的输入框，按 Ctrl+V：你的照片就进入 Gemini。</div></li>
 <li><div class="it">Torna qui e premi «Copia» accanto alla frase nella tua lingua.</div><div class="ar">ارجع إلى هنا واضغط «Copia» بجانب الجملة بلغتك.</div><div class="zh">回到这里，按你的语言那句话旁边的「Copia」。</div>
-<div class="frase"><p class="it" id="f-it">Trasforma questa foto in una caricatura simpatica, stile cartone animato: sono una talpa che esce da un buco nel terreno. Immagine quadrata, sfondo bianco.</p><button class="bot gr" data-copia="f-it">Copia · italiano</button></div>
-<div class="frase"><p class="ar" id="f-ar">حوّل هذه الصورة إلى كاريكاتير لطيف بأسلوب الرسوم المتحركة: أنا خُلد يخرج من حفرة في الأرض. صورة مربعة، خلفية بيضاء.</p><button class="bot gr" data-copia="f-ar">Copia · العربية</button></div>
-<div class="frase"><p class="zh" id="f-zh">把这张照片变成一张可爱的卡通漫画：我是一只从地洞里钻出来的地鼠。正方形图片，白色背景。</p><button class="bot gr" data-copia="f-zh">Copia · 中文</button></div></li>
+<div class="frase"><p class="it" id="f-it">Trasforma questa foto in un personaggio cartoonesco, stile cartone animato: solo la testa, simpatico e sorridente. Immagine quadrata, sfondo bianco.</p><button class="bot gr" data-copia="f-it">Copia · italiano</button></div>
+<div class="frase"><p class="ar" id="f-ar">حوّل هذه الصورة إلى شخصية كرتونية بأسلوب الرسوم المتحركة: الرأس فقط، لطيفة ومبتسمة. صورة مربعة، خلفية بيضاء.</p><button class="bot gr" data-copia="f-ar">Copia · العربية</button></div>
+<div class="frase"><p class="zh" id="f-zh">把这张照片变成一个卡通人物：只要头，可爱、在笑。正方形图片，白色背景。</p><button class="bot gr" data-copia="f-zh">Copia · 中文</button></div></li>
 <li><div class="it">In Gemini premi Ctrl+V, aggiungi una cosa tua (sport, squadra, colore) e premi Invio.</div><div class="ar">في Gemini اضغط Ctrl+V، أضف شيئًا عنك (رياضة، فريق، لون) واضغط Enter.</div><div class="zh">在 Gemini 里按 Ctrl+V，加一点你自己的东西（运动、球队、颜色），按回车。</div></li>
 </ol>
 
-<h2>Passo 4 · La tua proposta</h2>
+<h2>Passo 4 · Carica la richiesta come immagine</h2>
 <ol>
 <li><div class="it">Sulla caricatura premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V.</div><div class="ar">على الكاريكاتير اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V.</div><div class="zh">在漫画上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。</div>
 <div class="lab"><div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div></div>
