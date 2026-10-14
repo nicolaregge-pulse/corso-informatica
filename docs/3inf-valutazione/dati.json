@@ -1,13 +1,13 @@
 {
- "aggiornato": "14/10/2026 12:59",
+ "aggiornato": "14/10/2026 13:00",
  "alunni": [
   {
    "alunno": "Alessandro A.",
-   "pr": 5,
-   "pr_oggi": 5,
+   "pr": 4,
+   "pr_oggi": 4,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 4,
+   "attesa": 3,
    "revisione": true,
    "ultima": "12:56",
    "paga": [
@@ -21,11 +21,11 @@
   },
   {
    "alunno": "Andrea G.",
-   "pr": 4,
-   "pr_oggi": 4,
+   "pr": 2,
+   "pr_oggi": 2,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 3,
+   "attesa": 1,
    "revisione": true,
    "ultima": "12:51",
    "paga": [
@@ -122,12 +122,24 @@
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
-   "alunno": "Gabriele R.",
-   "pr": 2,
-   "pr_oggi": 2,
+   "alunno": "Filippo M.",
+   "pr": 0,
+   "pr_oggi": 0,
    "approvate": 0,
    "rifiutate": 0,
-   "attesa": 2,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Gabriele R.",
+   "pr": 1,
+   "pr_oggi": 1,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 1,
    "revisione": true,
    "ultima": "12:53",
    "stipendio": 0,
@@ -147,6 +159,18 @@
   },
   {
    "alunno": "Mahmoud E.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Milroy R.",
    "pr": 0,
    "pr_oggi": 0,
    "approvate": 0,
@@ -183,13 +207,13 @@
   },
   {
    "alunno": "Noah V.",
-   "pr": 3,
-   "pr_oggi": 3,
+   "pr": 4,
+   "pr_oggi": 4,
    "approvate": 3,
    "rifiutate": 0,
-   "attesa": 0,
+   "attesa": 1,
    "revisione": true,
-   "ultima": "12:47",
+   "ultima": "12:57",
    "paga": [
     [
      "v1.13",
@@ -221,13 +245,13 @@
   },
   {
    "alunno": "Samuele U.",
-   "pr": 6,
-   "pr_oggi": 6,
+   "pr": 2,
+   "pr_oggi": 2,
    "approvate": 0,
    "rifiutate": 0,
-   "attesa": 6,
+   "attesa": 2,
    "revisione": true,
-   "ultima": "12:51",
+   "ultima": "12:50",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -263,6 +287,18 @@
    "attesa": 1,
    "revisione": false,
    "ultima": "12:40",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Zhan L.",
+   "pr": 0,
+   "pr_oggi": 0,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 0,
+   "revisione": false,
+   "ultima": "",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   }
