@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.48** — 14/10/2026
+**Versione 2.49** — 14/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,14 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Lezione della talpa in 1INF: «lezione da dimenticare» (#78)
+
+1. **Errore.** La lezione è stata cambiata in corsa troppe volte: il giro delle foto (webcam, Gemini, Modulo), le versioni del gioco che non si vedevano, il backlog e i voti del giorno prima, il bottone nero vuoto, il ripasso messo in cima e poi spostato, la verifica che dava «Non trovato» perché pubblicata nello stesso minuto. Il docente non ha potuto controllare niente; i ragazzi hanno fatto senza capire (alle 09:44-09:59 molti hanno rimandato una foto anche se il loro personaggio era già nel gioco). Il docente: «questa lezione li ha solo confusi».
+2. **Regola.**
+   1. La lezione è pronta e provata come un ragazzo PRIMA che entri la classe: gioco con le versioni giuste sul sito vero, sei bottoni del giorno, verifica e recupero. In classe non si cambia il giro; si correggono solo errori.
+   2. Il percorso è uno solo e va dall'alto verso il basso: Passo 1, 2, 3… Le cose nuove si aggiungono IN FONDO come passo successivo, mai in cima. Ogni passo apre una finestra e si torna alla pagina; il passo fatto diventa «✓ Fatto» e il suo bottone si spegne.
+   3. Una pagina si pubblica almeno 3 minuti prima di dare il link a voce, dopo averla aperta dal sito vero.
 
 ## 14/10/2026 — Bottone nero dei sei bottoni: portava a una pagina vuota (#77)
 
