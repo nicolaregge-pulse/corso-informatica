@@ -23,7 +23,7 @@ from docx.enum.text import WD_COLOR_INDEX
 from docx.oxml.ns import qn
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from compila_allegati_v2 import CLASSI, COLORE, CART, leggi_programma, numero_competenza, par_dopo, cella_anno  # noqa: E402
+from allegati_comune import CLASSI, COLORE, CART, leggi_programma, numero_competenza, par_dopo, cella_anno  # noqa: E402
 
 REGISTRO = os.path.join(CART, 'registro-allegati.json')
 USCITA = os.path.join(CART, 'consegna')

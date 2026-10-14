@@ -1,8 +1,8 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 0.9** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
+**Versione 1.0** — 14/10/2026 — Area Docente. Versione consolidata, approvata da Nicola in linea di massima il 14/10: è la fonte della parte di Regge nei quattro Allegati A.
 
-> **Da confermare:** è una proposta. Le voci entrano nei quattro Allegato A solo dopo il sì di Nicola. Scadenza dell'Allegato A: 30 ottobre 2026.
+> **Nota:** versione consolidata il 14/10/2026. Ogni modifica si fa qui e poi si rifanno i file con `programmi-ufficiali/_build/aggiorna_allegati.py`. Scadenza dell'Allegato A: 30 ottobre 2026.
 
 ## 01 Come si legge
 
@@ -352,6 +352,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+10. **v1.0 (14/10/2026)**: versione consolidata (sì di Nicola «in linea di massima»): parte 2026/27 in rosa, anni scorsi in verde, altri docenti in giallo o bianco.
 9. **v0.9 (14/10/2026)**: 1INF, nuovo modulo «File e file system» nella competenza 17 (prima vuota) e nella 15; tolta la stessa voce dal modulo del laboratorio.
 8. **v0.8 (14/10/2026)**: 2INF, nuovo modulo «Assemblaggio, riparazione e manutenzione del PC» nella competenza 13 (prima vuota) e nella 16.
 7. **v0.7 (14/10/2026)**: voci e sotto-voci riscritte in linguaggio tecnico, come richiesto per l'Allegato A.
