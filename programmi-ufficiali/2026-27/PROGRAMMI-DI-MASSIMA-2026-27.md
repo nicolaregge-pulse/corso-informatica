@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 0.2** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
+**Versione 0.3** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
 
 > **Da confermare:** è una proposta. Le voci entrano nei quattro Allegato A solo dopo il sì di Nicola. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -23,6 +23,8 @@
 
 ## 02 I fili comuni a tutte le classi
 
+> **Nota:** la parte di Regge è il Laboratorio di informatica (con Tecnologia e Sicurezza professionale dove le insegna). L'informatica di base (Windows, Google Drive, Documenti, Fogli, Presentazioni, Gmail, Canva, Google Sites, CV Europass, malware e phishing) è di un collega: quelle voci non si ripetono nella parte di Regge.
+
 1. Il gioco della classe e le versioni: ogni classe fa crescere un gioco con le richieste (Pull Request), il backlog, le versioni e il changelog. La 4TI è fuori da questo giro.
 2. Il metodo Agile: sprint, revisione, retrospettiva e Definition of Done, sempre vissuti sul lavoro vero della classe.
 3. La valutazione trasparente: voti che partono da 40 e salgono, monitor, cruscotto, ripasso, verifica e recupero personale.
@@ -44,7 +46,7 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
-| 1 | Il mio ambiente digitale: utenze, cartelle, Google, Classroom, regole del laboratorio | settembre-ottobre | 8, 9 |
+| 1 | Il laboratorio: accesso, regole, dove si salva il lavoro, consegna su Classroom | settembre-ottobre | 12, 9 |
 | 2 | Il computer dentro: componenti, configurazione a budget, montaggio | ottobre-novembre | 15, 13 |
 | 3 | Numeri e dati: bit, byte, binario, decimale, esadecimale, codifica del testo | ottobre-dicembre | 12, 4 |
 | 4 | Come cambia un programma: le richieste di modifica, il backlog, i cicli di lavoro Agile, senza Git | ottobre-giugno | 12 |
@@ -53,18 +55,17 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 | 7 | Logica e primi programmi: diagrammi di flusso, coding a blocchi, porte logiche | gennaio-marzo | 12, 17 |
 | 8 | Lazarus, primi passi: Button, Edit, Label, il primo programma | febbraio-aprile | 17 |
 | 9 | La rete di casa e la manutenzione del PC | aprile-maggio | 16, 13 |
-| 10 | Comunicare con il digitale: Documenti, Presentazioni, Gmail, Canva | tutto l'anno | 2, 1 |
-| 11 | Cittadinanza digitale: regolamento IA, phishing, deepfake, privacy | tutto l'anno | 9, 8 |
-| 12 | Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese) | tutto l'anno | 1, 3 |
-| 13 | Il mondo del lavoro dell'informatico: la bussola dei mestieri | maggio-giugno | 6 |
+| 10 | Sicurezza digitale in laboratorio: regolamento strumenti digitali e IA, voci e volti falsi, immagini e privacy | tutto l'anno | 9 |
+| 11 | Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese) | tutto l'anno | 1, 3 |
+| 12 | Il mondo del lavoro dell'informatico: la bussola dei mestieri | maggio-giugno | 6 |
 
 ### 03.4 Sotto-voci
 
-1. Il mio ambiente digitale
-   1. Accesso a Windows, uscita e blocco dello schermo (Ctrl+Alt+Canc)
-   2. Area logica: cartelle ad albero, Google Drive
-   3. Account Google della scuola, Classroom, consegna di un compito
-   4. Regole del laboratorio e regolamento strumenti digitali e IA
+1. Il laboratorio
+   1. Accesso alla postazione, uscita e blocco dello schermo (Ctrl+Alt+Canc)
+   2. Dove si salva il lavoro del laboratorio
+   3. Consegna di un compito su Classroom
+   4. Regole del laboratorio
 2. Il computer dentro
    1. Architettura del PC: CPU, RAM, memorie, scheda madre
    2. Standard hardware: form factor, socket, slot, RAM DDR
@@ -99,19 +100,14 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
    1. La rete di casa: modem, router, Wi-Fi
    2. Manutenzione ordinaria del PC
    3. Diagnosi di un guasto: metodo e fasi
-10. Comunicare con il digitale
-   1. Google Documenti: formattazione e stili
-   2. Google Presentazioni
-   3. Gmail: e-mail formale, CC e CCN, firma
-   4. Canva: locandina e logo
-11. Cittadinanza digitale
-   1. E-mail truffa (phishing)
+10. Sicurezza digitale in laboratorio
+   1. Regolamento strumenti digitali e intelligenza artificiale
    2. Voci e volti falsi (deepfake)
-   3. Privacy e uso responsabile dell'intelligenza artificiale
-12. Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese)
+   3. Immagini proprie e degli altri: privacy
+11. Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese)
    1. Glossario personale multilingue (almeno 50 termini)
    2. I termini inglesi dell'informatica
-13. Il mondo del lavoro dell'informatico
+12. Il mondo del lavoro dell'informatico
    1. Le figure professionali dell'informatica
    2. Che cosa chiede un'azienda a un operatore informatico
 
@@ -220,8 +216,8 @@ Lavorare come un'azienda: un sito pubblico, un gioco che cresce con le richieste
 | 5 | Reti: cablaggio RJ45, piccola LAN, indirizzamento, Packet Tracer | febbraio-aprile | 16, 13 |
 | 6 | Lavorare in sicurezza in laboratorio: postazione, videoterminale, dati e account | tutto l'anno | 14 |
 | 7 | Documentazione tecnica: manuale utente, relazione, changelog, presentazione del progetto | tutto l'anno | 12, 1 |
-| 8 | Comunicazione digitale: contenuti, social, sito per un cliente | marzo-maggio | 2, 8 |
-| 9 | Verso la qualifica e il lavoro: prova di qualifica, CV Europass, colloquio | aprile-giugno | 6, 9 |
+| 8 | Comunicazione digitale: contenuti per il web, il sito per un cliente su GitHub Pages | marzo-maggio | 2 |
+| 9 | Verso la qualifica: la prova di qualifica e il racconto del proprio lavoro | aprile-giugno | 6, 9 |
 | 10 | Cittadinanza digitale: privacy, diritti d'autore, rispetto del lavoro degli altri | tutto l'anno | 9 |
 
 ### 05.4 Sotto-voci
@@ -263,12 +259,12 @@ Lavorare come un'azienda: un sito pubblico, un gioco che cresce con le richieste
    3. Changelog e note di versione
    4. Presentazione del progetto
 8. Comunicazione digitale
-   1. Contenuti per il web e per i social
-   2. Il sito per un cliente
-9. Verso la qualifica e il lavoro
+   1. Contenuti per il web
+   2. Il sito per un cliente su GitHub Pages
+9. Verso la qualifica
    1. Prova di qualifica
-   2. CV Europass
-   3. Il colloquio di lavoro
+   2. Presentare il proprio progetto tecnico
+   3. Raccontare a un'azienda che cosa so fare
 10. Cittadinanza digitale
    1. Privacy e dati personali
    2. Diritti d'autore e immagini
@@ -296,7 +292,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 | 4 | Sicurezza dell'informazione: firewall, segmentazione, password, backup, phishing, intrusioni | febbraio-aprile | 15 |
 | 5 | Il progetto individuale: un programma in Lazarus o l'architettura di una rete; dall'analisi all'installazione, con Git, versioni e documentazione | tutto l'anno | 14, 13, 16 |
 | 6 | Documentazione e comunicazione tecnica: relazione, manuale, presentazione; Git e AI con NotebookLM | tutto l'anno | 13, 1, 2 |
-| 7 | Etica e cittadinanza digitale: privacy, regole, intelligenza artificiale | tutto l'anno | 8, 7 |
+| 7 | Etica del tecnico: privacy dei dati, regole, intelligenza artificiale nel lavoro | tutto l'anno | 7 |
 
 ### 06.4 Sotto-voci
 
@@ -326,7 +322,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
    2. Manuale utente
    3. Presentazione del progetto
    4. Git e AI con NotebookLM
-7. Etica e cittadinanza digitale
+7. Etica del tecnico
    1. Privacy e protezione dei dati
    2. Regole e codice etico
    3. Intelligenza artificiale: usi e limiti
@@ -341,5 +337,6 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+3. **v0.3 (14/10/2026)**: la parte di Regge è il Laboratorio di informatica; l'informatica di base è di un collega. Tolti i doppioni: 1INF senza «Comunicare con il digitale» (Documenti, Presentazioni, Gmail, Canva) e senza phishing; 3INF senza CV Europass; nessuna voce di Regge nella competenza 8 di 1INF, 3INF e 4TI, dove scrivono altri.
 2. **v0.2 (14/10/2026)**: risposte di Nicola. Tolte le ore settimanali (non servono). Aggiunte le sotto-voci minime di ogni modulo. 4TI: tolti Sicurezza professionale (non è sua), Godot, SQL e il modulo dello stage; resta solo il progetto individuale (Lazarus o rete); Packet Tracer e firewall restano, se la classe ci arriva. 3INF: la sicurezza diventa «lavorare in sicurezza in laboratorio» (la Sicurezza professionale è solo in 1INF e 2INF).
 1. **v0.1 (14/10/2026)**: prima proposta di alto livello dei programmi delle quattro classi, per moduli, periodi e competenze dell'Allegato A.
