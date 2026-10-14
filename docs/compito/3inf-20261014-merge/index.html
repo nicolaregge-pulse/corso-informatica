@@ -60,13 +60,18 @@ Perché: ..."></textarea></li><li><div class="it">Premi «Copia».</div><div cla
 <section class="passo" id="p-val"><h2><span class="num">11</span> La tua valutazione e il recupero<span class="bollo"></span><br><span class="bn" lang="bn">আপনার মূল্যায়ন এবং পুনরুদ্ধার</span></h2>
 <div id="val" class="nota"><div class="it">Compare qui quando il prof ha corretto la tua verifica.</div><div class="bn" lang="bn">শিক্ষক আপনার পরীক্ষা দেখার পরে এখানে দেখা যাবে।</div></div><a class="bot" id="bRec" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero</a>
 </section>
+<section class="passo" id="p-fw"><h2><span class="num">12</span> Aiuta il prof: come miglioreresti questa lezione?<span class="bollo"></span><br><span class="bn" lang="bn">শিক্ষককে সাহায্য করুন: এই পাঠ কীভাবে আরও ভালো করবেন?</span></h2>
+<div class="it">Questo percorso fa parte del «framework della lezione»: le regole fisse che il prof usa in ogni lezione. Voi siete i primi a provarlo. Scrivi che cosa ha funzionato, che cosa era difficile o poco chiaro, e un'idea per migliorarlo.</div><div class="bn" lang="bn">এই পথটি «পাঠের কাঠামো»-র অংশ: শিক্ষক প্রতিটি পাঠে যে নিয়ম ব্যবহার করেন। আপনারা প্রথম চেষ্টা করছেন। লিখুন কী কাজ করেছে, কী কঠিন বা অস্পষ্ট ছিল, এবং উন্নতির একটি ধারণা।</div><ol><li><div class="it">Scrivi le tue note sul percorso.</div><div class="bn" lang="bn">পথ সম্পর্কে আপনার মন্তব্য লিখুন।</div><textarea id="t-fw" placeholder="Ha funzionato: ...
+Era difficile: ...
+La mia idea: ..."></textarea></li><li><div class="it">Premi «Copia».</div><div class="bn" lang="bn">«Copia» চাপুন (কপি)।</div><button class="bot blu" data-copia="fw">Copia</button></li><li><div class="it">Premi «Apri il Modulo»: si apre una finestra nuova.</div><div class="bn" lang="bn">«Apri il Modulo» চাপুন: একটি নতুন উইন্ডো খুলবে।</div><a class="bot blu" data-apri="fw" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Apri il Modulo</a></li><li><div class="it">Nel Modulo: nella prima casella scrivi <b>framework</b>. Nella seconda casella premi Ctrl+V. Poi premi «Invia» e torna qui.</div><div class="bn" lang="bn">ফর্মে: প্রথম ঘরে লিখুন <b>framework</b>। দ্বিতীয় ঘরে Ctrl+V চাপুন। তারপর «Invia» (পাঠান) চাপুন এবং এখানে ফিরে আসুন।</div></li></ol><div class="esito" id="e-fw"></div>
+</section>
 <h2>Come sta andando la classe</h2><div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-voti/" target="_blank" rel="noopener">I voti</a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-backlog/" target="_blank" rel="noopener">Il backlog</a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione</a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/giochi/treno-3inf/versioni/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco</a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-top/" target="_blank" rel="noopener">La classifica</a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/3inf-valutazione/" target="_blank" rel="noopener">La situazione della classe</a></div>
 </div>
 <script>
 /* Lezione 3INF 14/10/2026: percorso unico; il passo fatto diventa verde e il suo bottone si spegne. */
 (function () {
   var ID = '3inf-versioning-20261014', L = 'perc-3inf-merge-', R = null;
-  var ORDINE = ['nome', 'teoria', 'gioca', 'changelog', 'rev', 'pr', 'bk', 'sprint', 'rip', 'ver', 'val'];
+  var ORDINE = ['nome', 'teoria', 'gioca', 'changelog', 'rev', 'pr', 'bk', 'sprint', 'rip', 'ver', 'val', 'fw'];
   function $(i) { return document.getElementById(i); }
   function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
   function s(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
@@ -97,6 +102,7 @@ Perché: ..."></textarea></li><li><div class="it">Premi «Copia».</div><div cla
     if (fatto('changelog')) spegni($('bChangelog'));
     if (fatto('bk')) { $('t-bk').disabled = true; [].forEach.call(document.querySelectorAll('#p-bk .bot'), spegni); verde($('e-bk'), '✓ Risposte mandate.'); }
     if (fatto('sprint')) spegni($('bSprint'));
+    if (fatto('fw')) { $('t-fw').disabled = true; [].forEach.call(document.querySelectorAll('#p-fw .bot'), spegni); verde($('e-fw'), '✓ Grazie: le tue note aiutano il prof.'); }
     if (fatto('rev')) { ['t-rev'].forEach(function (i) { $(i).disabled = true; }); [].forEach.call(document.querySelectorAll('#p-rev .bot'), spegni); verde($('e-rev'), '✓ Revisione mandata.'); }
     var np = n('pr');
     $('contaPR').innerHTML = 'Richieste mandate: <b>' + np + (np >= 3 ? '</b> · ✓ le 3 obbligatorie sono fatte: puoi mandarne altre' : ' di 3</b>') + ' · পাঠানো অনুরোধ: ' + np + (np >= 3 ? ' ✓' : '/3');
@@ -128,7 +134,7 @@ Perché: ..."></textarea></li><li><div class="it">Premi «Copia».</div><div cla
       var k = b.dataset.copia, es = $('e-' + k), t = $('t-' + k).value.trim();
       if (!fatto('nome')) return rosso(es, 'Prima scrivi il tuo nome al Passo 1. · প্রথমে ধাপ ১-এ নাম লিখুন।');
       if (t.length < 15) { $('t-' + k).focus(); return rosso(es, 'Scrivi almeno una frase completa. · অন্তত একটি সম্পূর্ণ বাক্য লিখুন।'); }
-      var testo = nome() + ' — ' + (k === 'rev' ? 'REVISIONE' : k === 'bk' ? 'ANALISI DEL BACKLOG' : 'PR' + (n('pr') + 1)) + ': ' + t;
+      var testo = nome() + ' — ' + (k === 'rev' ? 'REVISIONE' : k === 'bk' ? 'ANALISI DEL BACKLOG' : k === 'fw' ? 'NOTE SUL FRAMEWORK' : 'PR' + (n('pr') + 1)) + ': ' + t;
       navigator.clipboard.writeText(testo).then(function () { s(L + k + '-copiata', '1'); verde(es, 'Copiata! Ora premi «Apri il Modulo». · কপি হয়েছে! এখন «Apri il Modulo» চাপুন।'); });
     };
   });

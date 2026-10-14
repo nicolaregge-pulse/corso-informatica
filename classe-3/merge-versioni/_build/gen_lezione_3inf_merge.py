@@ -77,6 +77,10 @@ P.append(passo(10, "ver", "Verifica", "পরীক্ষা",
 P.append(passo(11, "val", "La tua valutazione e il recupero", "আপনার মূল্যায়ন এবং পুনরুদ্ধার",
   '<div id="val" class="nota">' + T("Compare qui quando il prof ha corretto la tua verifica.", "শিক্ষক আপনার পরীক্ষা দেখার পরে এখানে দেখা যাবে।") + '</div>' +
   '<a class="bot" id="bRec" href="%s&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero</a>' % V))
+P.append(passo(12, "fw", "Aiuta il prof: come miglioreresti questa lezione?", "শিক্ষককে সাহায্য করুন: এই পাঠ কীভাবে আরও ভালো করবেন?",
+  T("Questo percorso fa parte del «framework della lezione»: le regole fisse che il prof usa in ogni lezione. Voi siete i primi a provarlo. Scrivi che cosa ha funzionato, che cosa era difficile o poco chiaro, e un'idea per migliorarlo.",
+    "এই পথটি «পাঠের কাঠামো»-র অংশ: শিক্ষক প্রতিটি পাঠে যে নিয়ম ব্যবহার করেন। আপনারা প্রথম চেষ্টা করছেন। লিখুন কী কাজ করেছে, কী কঠিন বা অস্পষ্ট ছিল, এবং উন্নতির একটি ধারণা।") +
+  modulo("fw", "framework", "Scrivi le tue note sul percorso.", "পথ সম্পর্কে আপনার মন্তব্য লিখুন।", "Ha funzionato: ...\nEra difficile: ...\nLa mia idea: ...")))
 BOTTONI = [("I voti", "#238636", "3inf-voti/"), ("Il backlog", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "#6e40c9", "3inf-monitor/"),
            ("Cosa è cambiato oggi nel gioco", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "#b8432a", "3inf-top/"), ("La situazione della classe", "#30363d", "3inf-valutazione/")]
 sei = '<div>' + ''.join('<a class="bt" style="background:%s" href="%s%s" target="_blank" rel="noopener">%s</a>' % (c, SITO, u, t) for t, c, u in BOTTONI) + '</div>'
