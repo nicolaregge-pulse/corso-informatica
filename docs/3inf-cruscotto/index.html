@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cruscotto 3INF</title>
+<style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dde3;--ok:#1a7f37;--ko:#c0392b;--gi:#b7791f;--tu:#fff3c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--ok:#3fb950;--ko:#f85149;--gi:#d29922;--tu:#3a3216}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.45 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:1100px;margin:0 auto;padding:16px}
+h1{font-size:28px;margin:6px 0 2px}h2{font-size:22px;margin:22px 0 8px}.mu{color:var(--mu)}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:10px 0}
+.tre{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.box{border-radius:12px;padding:10px 12px;color:#fff}.box b{font-size:28px;display:block}.c{background:#1a7f37}.g{background:#b7791f}.f{background:#c0392b}.b{background:#1f6feb}.v{background:#6e40c9}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-size:14px;color:var(--mu)}td.n{font-weight:800;font-size:20px;text-align:center}.ok{color:var(--ok)}.ko{color:var(--ko)}.gi{color:var(--gi)}tr.tu td{background:var(--tu)}
+input{font:inherit;padding:6px 10px;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg)}
+</style></head>
+<body><div class="w">
+<h1>Il cruscotto della 3INF</h1>
+<div class="bn" lang="bn">৩INF-এর ড্যাশবোর্ড</div>
+<p class="mu" id="agg">Carico…</p>
+<div class="card">Qui vedi come stai lavorando tu e come lavorano gli altri: richieste mandate, richieste nel gioco, revisione, voto, stipendio, verifica e comportamento. Uguale per tutti, anche per il prof.
+<div class="bn" lang="bn">এখানে দেখুন আপনি ও অন্যরা কীভাবে কাজ করছেন। সবার জন্য একই, শিক্ষকের জন্যও।</div></div>
+<h2>Tu e la classe</h2>
+<div class="card" id="tu"></div>
+<div class="tre" id="classe"></div>
+<h2>Adesso (ultimo giro di Veyon)</h2>
+<div class="tre" id="veyon"></div>
+<h2>Ognuno</h2>
+<div class="tw"><table><thead><tr><th>Chi</th><th>Richieste di oggi</th><th>Nel gioco</th><th>In attesa</th><th>Rifiutate</th><th>Revisione</th><th>Voto della lezione</th><th>Stipendio</th><th>Verifica</th><th>Comportamento</th></tr></thead><tbody id="tab"><tr><td colspan="10">Carico…</td></tr></tbody></table></div>
+</div>
+<script>
+(function () {
+  function $(i) { return document.getElementById(i); }
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function j(u) { return fetch(u + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return null; }); }
+  function breve(n) { var p = (n || '').trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function tipo(r) { if (r.fuori) return 'f'; return /gioca|partita/i.test(r.cosa || '') ? 'g' : 'c'; }
+  function nomeSalvato() { try { return localStorage.getItem('nome-3inf') || ''; } catch (x) { return ''; } }
+  function carica() {
+    Promise.all([j('../3inf-valutazione/dati.json'), j('../3inf-monitor/monitor.json'), j('../verifica/risultati/3inf-versioning.json'), j('../3inf-voti/voti.json')]).then(function (x) {
+      var A = (x[0] && x[0].alunni) || [], M = x[1] || {}, R = (x[2] && x[2].allievi) || [], V = (x[3] && x[3].voti) || [], me = breve(nomeSalvato());
+      var giri = M.giri || [], ul = giri[giri.length - 1] || { righe: [] }, storia = {}, note = {}, voto = {}, ver = {};
+      giri.forEach(function (g) { g.righe.forEach(function (r) { if (r.alunno) (storia[r.alunno] = storia[r.alunno] || []).push({ t: tipo(r), ora: g.ora }); }); });
+      (M.note || []).forEach(function (n) { (note[n.alunno] = note[n.alunno] || []).push(n); });
+      V.forEach(function (v) { voto[v.alunno] = v; }); R.forEach(function (r) { ver[r.allievo] = r; });
+      var nomi = A.map(function (a) { return a.alunno; });
+      Object.keys(storia).concat(Object.keys(note)).forEach(function (n) { if (nomi.indexOf(n) < 0) { nomi.push(n); A.push({ alunno: n, pr: 0, pr_oggi: 0, approvate: 0, rifiutate: 0, attesa: 0, revisione: false }); } });
+      A.sort(function (a, b) { return a.alunno.localeCompare(b.alunno); });
+      var tot = A.length || 1, sPr = 0, sOk = 0, max = 0, rev = 0, paga = 0;
+      A.forEach(function (a) { sPr += a.pr_oggi; sOk += a.approvate; max = Math.max(max, a.pr_oggi); if (a.revisione) rev++; paga += (voto[a.alunno] && voto[a.alunno].stipendio) || 0; });
+      var io = A.filter(function (a) { return a.alunno === me; })[0];
+      $('classe').innerHTML = '<div class="box b"><b>' + sPr + '</b>richieste mandate oggi<br><small>media ' + (sPr / tot).toFixed(1) + ' a testa · il primo ' + max + '</small></div>' +
+        '<div class="box c"><b>' + sOk + '</b>richieste entrate nel gioco</div><div class="box g"><b>' + rev + ' su ' + A.length + '</b>revisioni mandate</div><div class="box v"><b>' + paga + ' €</b>stipendi della classe</div>';
+      if (io) { var vv = voto[io.alunno] || {}; $('tu').innerHTML = '<b>Tu (' + e(me) + '):</b> ' + io.pr_oggi + ' richieste oggi (media della classe ' + (sPr / tot).toFixed(1) + ', il primo ' + max + ') · ' + io.approvate + ' nel gioco · revisione ' + (io.revisione ? 'mandata' : 'da fare') + ' · voto ' + e(vv.voto == null ? '—' : vv.voto) + ' · stipendio ' + ((vv.stipendio) || 0) + ' € · <a href="#" id="cambia">non sei tu?</a>'; $('cambia').onclick = function (ev) { ev.preventDefault(); try { localStorage.removeItem('nome-3inf'); } catch (z) {} carica(); }; }
+      else { $('tu').innerHTML = 'Scrivi il tuo nome e cognome per vedere la tua riga: <input id="nome" placeholder="Nome Cognome">'; $('nome').addEventListener('change', function () { try { localStorage.setItem('nome-3inf', $('nome').value.trim()); } catch (z) {} carica(); }); }
+      var n = { c: [], g: [], f: [] }; ul.righe.forEach(function (r) { n[tipo(r)].push(r.alunno || r.pc); });
+      $('veyon').innerHTML = ul.ora ? '<div class="box c"><b>' + n.c.length + '</b>sul compito<br><small>' + e(n.c.join(', ')) + '</small></div><div class="box g"><b>' + n.g.length + '</b>giocano<br><small>' + e(n.g.join(', ')) + '</small></div><div class="box f"><b>' + n.f.length + '</b>fuori compito<br><small>' + e(n.f.join(', ')) + '</small></div>' : '<p class="mu">Ancora nessun giro di Veyon oggi.</p>';
+      $('tab').innerHTML = A.map(function (a) {
+        var s = (storia[a.alunno] || []).slice(-3), r = ver[a.alunno], nn = note[a.alunno] || [], vv = voto[a.alunno] || {};
+        var comp = s.map(function (z) { return '<span class="' + (z.t === 'f' ? 'ko' : z.t === 'g' ? 'gi' : 'ok') + '">' + e(z.ora) + ' ' + (z.t === 'f' ? 'fuori compito' : z.t === 'g' ? 'gioca' : 'sul compito') + '</span>'; }).join('<br>') +
+          nn.map(function (z) { return '<br><span class="ko">' + e(z.ora) + ' nota del prof: ' + e(z.cosa) + '</span>'; }).join('');
+        return '<tr' + (a.alunno === me ? ' class="tu"' : '') + '><td><b>' + e(a.alunno) + '</b></td><td class="n">' + a.pr_oggi + '</td><td class="n ok">' + a.approvate + '</td><td class="n gi">' + a.attesa + '</td><td class="n ko">' + a.rifiutate + '</td>' +
+          '<td>' + (a.revisione ? '<span class="ok">mandata</span>' : '<span class="mu">da fare</span>') + '</td><td class="n">' + e(vv.voto == null ? '—' : vv.voto) + '</td><td>' + ((vv.stipendio) || 0) + ' €</td><td>' + (r ? '<b>' + e(r.voto) + '</b>' : '<span class="mu">non ancora</span>') + '</td><td>' + (comp || '<span class="mu">—</span>') + '</td></tr>';
+      }).join('');
+      $('agg').textContent = 'Aggiornato: richieste ' + ((x[0] && x[0].aggiornato) || '—') + ' · Veyon ' + (ul.ora || '—') + ' · si aggiorna da solo ogni minuto';
+    });
+  }
+  carica(); setInterval(carica, 60000);
+})();
+</script></body></html>
