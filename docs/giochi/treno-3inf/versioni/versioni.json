@@ -38,5 +38,53 @@
   "data": "08/10/2026 10:36",
   "commit": "75f1859ce7e8cdbcf71fbe602b0f411a9c21e647",
   "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.5",
+  "nome": "Treno più lento all'inizio, poi sempre più veloce",
+  "cambi": "PR1 di Noah (12/10): il treno parte più lento e a ogni livello va più veloce (regola nuova aumento_per_livello).",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.6",
+  "nome": "Cielo grigio in città",
+  "cambi": "PR1 di Andrea G. (12/10): cielo grigio in città. Conflitto con il cielo sereno della montagna (Dani e Ale, v1.2): risolto mettendo il grigio in città.",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.7",
+  "nome": "Rocce di grandezze e colori diversi",
+  "cambi": "PR di Ariel (12/10): rocce di grandezze e toni diversi (regola nuova rocce_varie).",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.8",
+  "nome": "Arrivano gli alieni verdi",
+  "cambi": "PR di Ariel (12/10): tra i nemici compare l'Alieno verde.",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.9",
+  "nome": "Paesaggio meno vuoto",
+  "cambi": "PR di David A. (12/10): paesaggio meno vuoto, più oggetti intorno ai binari.",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
+ },
+ {
+  "versione": "v1.10",
+  "nome": "Arriva Tuta",
+  "cambi": "PR di Tomas (12/10): il nemico Tuta. I gatti restano nel backlog.",
+  "data": "14/10/2026 11:33",
+  "commit": "",
+  "commit_sorgente": ""
  }
 ]

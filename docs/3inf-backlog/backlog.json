@@ -1,5 +1,5 @@
 {
- "aggiornato": "12/10/2026 13:48",
+ "aggiornato": "14/10/2026 11:45",
  "voci": [
   {
    "ora": "12/10 10:31",
@@ -21,7 +21,7 @@
    "file": true,
    "peso": 1,
    "motivo": "si cambia solo un colore: una riga",
-   "fatto": "",
+   "fatto": "v1.6",
    "no": "",
    "pos": 2
   },
@@ -33,7 +33,7 @@
    "file": true,
    "peso": 2,
    "motivo": "si cambiano due numeri nelle regole (velocità di partenza e aumento per livello)",
-   "fatto": "",
+   "fatto": "v1.5",
    "no": "",
    "pos": 3
   },
@@ -45,7 +45,7 @@
    "file": false,
    "peso": 2,
    "motivo": "si cambiano due numeri nel disegno delle rocce (grandezza e colore a caso)",
-   "fatto": "",
+   "fatto": "v1.7",
    "no": "",
    "pos": 4
   },
@@ -65,11 +65,11 @@
    "ora": "12/10 10:27",
    "alunno": "Andrea G.",
    "pr": "PR (senza numero)",
-   "richiesta": "file",
+   "richiesta": "PR1 Cielo grigio (nel file) e PR2 «immagine di qualche personaggio» senza l'immagine",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
+   "fatto": "v1.6 (la PR2 manca dell'immagine: rimandala)",
    "no": "",
    "pos": 6
   },
@@ -81,7 +81,7 @@
    "file": false,
    "peso": 3,
    "motivo": "un personaggio nuovo (gli alieni verdi): si aggiunge ai dati e si disegna",
-   "fatto": "",
+   "fatto": "v1.8",
    "no": "",
    "pos": 7
   },
@@ -101,11 +101,11 @@
    "ora": "12/10 10:36",
    "alunno": "David A.",
    "pr": "PR (senza numero)",
-   "richiesta": "consegno solo un file, un documento",
+   "richiesta": "Paesaggio: «troppo vuoto e spoglio», vorrei qualcosa di più intorno ai binari",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
+   "fatto": "v1.9",
    "no": "",
    "pos": 9
   },
@@ -113,11 +113,11 @@
    "ora": "12/10 10:40",
    "alunno": "Tomas L.",
    "pr": "PR (senza numero)",
-   "richiesta": "file",
+   "richiesta": "Personaggi Tuta e Gatti, a metà percorso, da dietro palazzi e tombini",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
-   "fatto": "",
+   "fatto": "v1.10 (Tuta; i gatti restano da fare)",
    "no": "",
    "pos": 10
   },
@@ -125,12 +125,12 @@
    "ora": "12/10 10:40",
    "alunno": "Dani S.",
    "pr": "PR (senza numero)",
-   "richiesta": "file",
+   "richiesta": "La foto di un calciatore famoso come personaggio",
    "file": true,
    "peso": 3,
    "motivo": "da capire meglio: stima media, il prof la controlla",
    "fatto": "",
-   "no": "",
+   "no": "foto di una persona vera: nel gioco pubblico non si mettono foto di persone (privacy e diritti). Rimanda la PR con un personaggio disegnato o descritto a parole.",
    "pos": 11
   },
   {
@@ -164,7 +164,7 @@
    "richiesta": "Personaggio dall'immagine (giocatore con la maglia rossonera): personaggio bianco con la maglietta a maniche corte; sfondo: campo da calcio con lo stadio.",
    "file": true,
    "peso": 8,
-   "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5)",
+   "motivo": "due cose insieme: un personaggio nuovo (3) e un ambiente nuovo, lo stadio (5) · è la più grande (peso 8): la facciamo nel prossimo giro",
    "fatto": "",
    "no": "",
    "pos": 14
