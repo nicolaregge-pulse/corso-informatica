@@ -181,8 +181,19 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <li><div class="it">Il prof crea il personaggio e lo mette nel gioco: è una versione nuova. In «Il mio punto», in alto, vedi i tuoi personaggi nel gioco.</div><div class="ar">الأستاذ يصنع الشخصية ويضعها في اللعبة: هذه نسخة جديدة. في «Il mio punto» في الأعلى ترى شخصياتك في اللعبة.</div><div class="zh">老师做好角色，放进游戏：这是一个新版本。在上面的「Il mio punto」（我的情况）里能看到你进入游戏的角色。</div></li>
 <li><div class="it">Apri «Il backlog» e il changelog: leggi che cosa è cambiato. Poi gioca e cerca il tuo personaggio.</div><div class="ar">افتح «Il backlog» وسجل التغييرات: اقرأ ما الذي تغيّر. ثم العب وابحث عن شخصيتك.</div><div class="zh">打开「Il backlog」和更新日志：看看改了什么。然后玩游戏，找你的角色。</div>
 <a class="bot blu" href="../../giochi/talpa-1inf/" target="_blank" rel="noopener">Gioca · العب · 玩</a></li>
-<li><div class="it">Vuoi un secondo personaggio? Premi «Nuova richiesta» e rifai il Passo 3, anche con un'altra foto.</div><div class="ar">تريد شخصية ثانية؟ اضغط «Nuova richiesta» (طلب جديد) وأعد الخطوة 3، ولو بصورة أخرى.</div><div class="zh">想要第二个角色？按「Nuova richiesta」（新请求），再做一次第3步，也可以换一张照片。</div>
-<button class="bot blu" id="nuovo">Nuova richiesta · طلب جديد · 新请求</button></li>
+
+</ol>
+
+<h2>Seconda e terza Pull Request · cambia il tuo personaggio</h2>
+<div class="it">Il tuo personaggio è nel gioco? Puoi chiedere di cambiarlo. Non serve una foto nuova: scrivi che cosa vuoi cambiare. Ogni richiesta è una Pull Request e diventa una versione nuova del gioco.</div><div class="ar">شخصيتك في اللعبة؟ يمكنك طلب تغييرها. لا تحتاج صورة جديدة: اكتب ماذا تريد أن تغيّر. كل طلب هو Pull Request ويصبح نسخة جديدة من اللعبة.</div><div class="zh">你的角色已经在游戏里了？可以要求修改。不需要新照片：写你想改什么。每个请求都是一个 Pull Request，会变成游戏的一个新版本。</div>
+<ol>
+<li><div class="it">Scrivi il tuo nome e cognome al Passo 2, poi qui scrivi la modifica.</div><div class="ar">اكتب اسمك واسم عائلتك في الخطوة 2، ثم اكتب هنا التعديل.</div><div class="zh">在第2步写你的名字和姓，然后在这里写修改。</div>
+<textarea id="modifica" placeholder="Esempio: mettigli un cappello rosso e la maglia della mia squadra"></textarea></li>
+<li><div id="modBottone"><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
+<button class="bot" id="mandamod">Manda la modifica · أرسل التعديل · 发送修改</button></div>
+<div id="modModulo" hidden><div class="it">Premi «Copia la modifica», poi «Apri il Modulo». Nel Modulo: prima casella scrivi modifica, seconda casella Ctrl+V, poi «Invia».</div><div class="ar">اضغط «Copia la modifica» (انسخ التعديل)، ثم «Apri il Modulo». في النموذج: الخانة الأولى اكتب modifica، الخانة الثانية Ctrl+V، ثم «Invia».</div><div class="zh">按「Copia la modifica」（复制修改），再按「Apri il Modulo」。在表单里：第一个框写 modifica，第二个框按 Ctrl+V，然后按「Invia」（发送）。</div>
+<button class="bot blu" id="copiamod">Copia la modifica · انسخ التعديل · 复制修改</button> <a class="bot blu" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Apri il Modulo · افتح النموذج · 打开表单</a></div>
+<div class="esito" id="esitomodi"></div></li>
 </ol>
 
 <h2>Le tue foto e il tuo personaggio · صورك وشخصيتك · 你的照片和角色</h2>
@@ -212,7 +223,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   function rosso(el, t) { el.style.color = '#c0392b'; el.textContent = t; }
   function verde(el, t) { el.style.color = '#1a7f37'; el.textContent = t; }
   function leggiConf() { return fetch('../../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}); }
-  function via() { var b = !!CONF.invio; $('viaBottone').hidden = !b; $('viaModulo').hidden = b; }
+  function via() { var b = !!CONF.invio; $('viaBottone').hidden = !b; $('viaModulo').hidden = b; $('modBottone').hidden = !b; $('modModulo').hidden = b; }
   leggiConf().then(via); setInterval(function () { leggiConf().then(via); }, 60000);
   try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
   function nome() { return $('nome').value.trim().replace(/\s+/g, ' '); }
@@ -339,7 +350,10 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
       verde(es, 'Ecco le tue immagini: clicca per scaricarle. · انقر للتنزيل. · 点击下载。');
     }).catch(function () { rosso(es, 'Non trovo foto per questa password. Controlla la password o chiedi al prof. · 没找到：检查密码或问老师。'); });
   };
-  $('nuovo').onclick = function () { $('descrizione').value = ''; $('esito').textContent = ''; cFoto.reset(); window.scrollTo({ top: $('mie-foto').offsetTop - 120, behavior: 'smooth' }); };
+  function modTesto(es) { if (!serveNome(es)) return ''; var t = $('modifica').value.trim(); if (t.length < 8) { rosso(es, 'Scrivi che cosa vuoi cambiare. · اكتب ماذا تريد أن تغيّر. · 写你想改什么。'); $('modifica').focus(); return ''; } return t; }
+  $('mandamod').onclick = function () { var es = $('esitomodi'), t = modTesto(es); if (!t) return;
+    if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'modifica', descrizione: t, ora: new Date().toISOString() }, es)) { verde(es, 'Modifica mandata alle ' + ora() + '! · أُرسل! · 已发送！'); $('modifica').value = ''; } };
+  $('copiamod').onclick = function () { var es = $('esitomodi'), t = modTesto(es); if (!t) return; navigator.clipboard.writeText(nome() + ' (modifica): ' + t).then(function () { verde(es, 'Copiata: nel Modulo, seconda casella, Ctrl+V'); }); };
   $('rispondi').onclick = function () {
     var t = $('risposta').value.trim(), es = $('esito2'); if (t.length < 2) return rosso(es, '请先写你的回答。');
     if (invia({ id: ID, nome: nome() || 'Yinlin L.', modo: 'domanda', testo: t, ora: new Date().toISOString() }, es)) verde(es, '已发送！谢谢。');
