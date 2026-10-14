@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 12:39",
+ "aggiornato": "14/10/2026 12:43",
  "regola": "Ogni sprint dura 15 minuti. Nella pianificazione il prof prende dal backlog le richieste più leggere, fino a un peso totale di 8. Alla fine dello sprint esce una versione nuova.",
  "sprint": [
   {
@@ -7,7 +7,7 @@
    "inizio": "12:45",
    "fine": "13:00",
    "stato": "in corso",
-   "versione": "v1.12",
+   "versione": "v1.12-v1.15",
    "richieste": [
     {
      "alunno": "Alessandro A.",
@@ -15,6 +15,27 @@
      "peso": 2,
      "stato": "fatto",
      "versione": "v1.12"
+    },
+    {
+     "alunno": "Noah V.",
+     "richiesta": "Niente case e rocce sopra i binari (dalla sua revisione)",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.13"
+    },
+    {
+     "alunno": "Simone G.",
+     "richiesta": "Colori più vivi: saturazione +100%",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.14"
+    },
+    {
+     "alunno": "Simone G.",
+     "richiesta": "L'alieno verde più veloce (dalla sua revisione)",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.15"
     }
    ],
    "retrospettiva": ""

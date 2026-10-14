@@ -135,7 +135,7 @@ function err(f){return function(e){ERRORI.push(f+': '+e.message)}}
 function caricaTutto(){
  var L=[leggiJSON('versione.json').then(function(d){if(d)VERSIONE=d}).catch(err('versione.json')),
   leggiJSON('regole.json').then(function(d){if(!d)return;R.vetro=num(d.vetro,1,9,R.vetro)|0;R.velocita_treno=num(d.velocita_treno,0.5,3,R.velocita_treno);R.aumento_per_livello=num(d.aumento_per_livello,0,0.5,R.aumento_per_livello);
-   R.secondi_prima_di_sparare=num(d.secondi_prima_di_sparare,0.8,5,R.secondi_prima_di_sparare);R.cattivi_per_livello=num(d.cattivi_per_livello,3,50,R.cattivi_per_livello)|0;
+   R.secondi_prima_di_sparare=num(d.secondi_prima_di_sparare,0.8,5,R.secondi_prima_di_sparare);if(d.saturazione){cv.style.filter='saturate('+num(d.saturazione,0.5,3,1)+')'}R.cattivi_per_livello=num(d.cattivi_per_livello,3,50,R.cattivi_per_livello)|0;
    R.punti_per_cattivo=num(d.punti_per_cattivo,1,1000,R.punti_per_cattivo)|0;segna('Squadra PERCORSO e REGOLE',d.autori)}).catch(err('regole.json')),
   leggiJSON('percorso.json').then(function(d){if(!d)return;if(Array.isArray(d.ambienti)){var a=d.ambienti.filter(function(x){return typeof x==='string'&&AMB_BASE[x]});if(a.length)PERC.ambienti=a}
    PERC.secondi_per_ambiente=num(d.secondi_per_ambiente,5,120,PERC.secondi_per_ambiente)}).catch(err('percorso.json')),
@@ -193,6 +193,7 @@ function nuovoOggetto(z){var a=ambiente(),lato=Math.random()<.5?-1:1,tipo=a.ogge
  if(Math.random()<.18)return {X:lato*rnd(1.6,1.9),z:z,tipo:'barile',col:'#8a4b2a',w:.7,h:1,lato:lato};
  var o={X:lato*rnd(2.2,4.6),z:z,tipo:tipo,col:a.colore_oggetti,w:m[0]*rnd(.8,1.2),h:m[1]*rnd(.8,1.25),lato:lato,tetto:pick(['#8a2f22','#6b3a24','#a0432c'])};
  if(tipo==='rocce'&&a.rocce_varie){var k=rnd(.5,1.7);o.w*=k;o.h*=k;o.col=tono(a.colore_oggetti,rnd(-.25,.25))}
+ var lim=1.5+o.w/2;if(Math.abs(o.X)<lim)o.X=lato*(lim+rnd(0,.6));   // v1.13 (Noah): nessun oggetto sopra i binari
  return o}
 function tono(c,f){var n=parseInt(String(c).slice(1),16);if(isNaN(n))return c;var r=n>>16&255,g=n>>8&255,b=n&255;function q(v){v=Math.round(f<0?v*(1+f):v+(255-v)*f);return Math.max(0,Math.min(255,v))}return '#'+((1<<24)+(q(r)<<16)+(q(g)<<8)+q(b)).toString(16).slice(1)}
 var CASUALI=['#8be04e','#ff6fb1','#6fd3ff','#ffb347','#b48cff','#ff5e57'];

@@ -8,6 +8,21 @@
 
 
 
+
+
+
+## v1.15 — 14/10/2026 12:43 — L'alieno verde più veloce (sprint 1)
+
+1. Revisione di Simone G.: «la v1.8 con l'alieno è giusta, ma vorrei che andasse più veloce». Fatto: l'Alieno verde ha la velocità massima (3).
+
+## v1.14 — 14/10/2026 12:43 — Colori più vivi (sprint 1)
+
+1. PR1 di Simone G.: «aumenta la saturazione di 100 in tutto il gioco, così è più come un gioco vero». Fatto: saturazione al 200% (cioè +100%) su tutto il gioco. Nel motore è nata la regola «saturazione».
+
+## v1.13 — 14/10/2026 12:43 — Niente case e rocce sui binari (sprint 1)
+
+1. Revisione di Noah V.: «alcune case e rocce occupano il binario». Era un difetto (bug): gli oggetti grandi, come le rocce più grosse, finivano sopra i binari. Sistemato: ogni oggetto sta sempre a lato dei binari. Noah ha anche scritto che il treno partiva a 80 km/h: dalla v1.12 parte a 30 km/h.
+
 ## v1.12 — 14/10/2026 12:39 — Si parte a 30 km/h (sprint 1)
 
 1. Revisione di Alessandro A.: «il treno è troppo veloce: dovrebbe partire a 30 km/h e salire di 3 km/h a ogni livello». Fatto: velocità 0,5 (sul tachimetro 30 km/h) e a ogni livello il 10% in più, cioè 3 km/h. È nata dalla revisione: anche una revisione può diventare una Pull Request.
