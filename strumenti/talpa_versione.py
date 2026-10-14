@@ -121,9 +121,51 @@ def aggiungi(a):
     print(nuova, chi, nome_file, ramo)
 
 
+def modifica(a):
+    """Seconda o terza Pull Request: niente foto nuova, il personaggio di chi la chiede cambia secondo la sua descrizione."""
+    data, ora = adesso()
+    elenco = leggi(F_ELENCO, {}); vers = leggi(F_VERS, [])
+    chi = a.chi or breve(a.nome)
+    t = [x for x in elenco["talpe"] if x["chi"] == chi]
+    if not t: raise SystemExit("nessun personaggio di " + chi)
+    t = t[-1]; prima = t["file"]
+    ultima = vers[-1]["versione"]; maj, mi = ultima[1:].split(".")[:2]; nuova = f"v{maj}.{int(mi) + 1}"
+    giri = sum(1 for v in vers if v.get("autore") == chi)
+    nome_file = prima.rsplit(".", 1)[0].split("_")[0] + f"_{giri + 1}.jpg"
+    im = Image.open(a.immagine).convert("RGB"); lato = min(im.size)
+    im.crop(((im.width - lato) // 2, (im.height - lato) // 2, (im.width + lato) // 2, (im.height + lato) // 2)).resize((320, 320)).save(os.path.join(GIOCO, "talpe", nome_file), quality=88)
+    t["file"] = nome_file; t["descrizione"] = a.descrizione; elenco["versione"] = nuova
+    presenti = [dict(p, file="talpe/" + nome_file) if p["file"] == "talpe/" + prima else p for p in vers[-1]["presenti"]]
+    ramo = f"modifica-{slug(chi)}-{giri + 1}"; pr = a.pr or (sum(1 for v in vers if v.get("pr")) + 1)
+    numero = {1: "seconda", 2: "terza"}.get(giri, f"{giri + 1}ª")
+    vers.append({
+        "versione": nuova, "nome": f"Cambia il personaggio di {chi}", "data": data, "ora": ora, "ramo": ramo, "pr": f"PR {pr}", "autore": chi,
+        "entrati": [], "cambiati": [{"chi": chi, "prima": "talpe/" + prima, "dopo": "talpe/" + nome_file, "descrizione": a.descrizione}], "presenti": presenti,
+        "riassunto": {"it": f"Il personaggio di {chi} cambia: «{a.descrizione}». I personaggi nel gioco restano {len(presenti)}.",
+                      "ar": f"تتغيّر شخصية {chi}. عدد الشخصيات في اللعبة يبقى {len(presenti)}.",
+                      "zh": f"{chi} 的角色改变了。游戏里的角色还是 {len(presenti)} 个。"},
+        "cambi": [
+            f"Da dove arriva: dalla {numero} Pull Request di {chi}, arrivata alle {a.arrivo or ora}. Non c'è una foto nuova: c'è una richiesta di modifica, scritta con le sue parole: «{a.descrizione}».",
+            f"Per questa richiesta è stato aperto il ramo «{ramo}»: lì il personaggio è stato cambiato senza toccare il gioco di tutti.",
+            f"Che cosa cambia nel gioco: il personaggio di {chi} adesso è disegnato in modo nuovo (prima: talpe/{prima}, adesso: talpe/{nome_file}). Gli altri personaggi non cambiano, e il numero dei personaggi resta {len(presenti)}.",
+            f"Il controllo: la modifica rispetta la richiesta e nel buco si vede bene la testa. Poi il merge: il ramo «{ramo}» è stato unito al gioco della classe.",
+            f"Che cosa è cambiato nei file: AGGIUNTA l'immagine talpe/{nome_file}; nell'elenco talpe/elenco.json la riga di {chi} adesso punta all'immagine nuova. L'immagine di prima resta nella cartella: le versioni vecchie si possono ancora giocare.",
+        ],
+        "file": [f"aggiunto talpe/{nome_file}", f"cambiata la riga di {chi} in talpe/elenco.json"],
+        "invariato": "Le regole del gioco: " + REGOLE + ". E tutti gli altri personaggi.",
+        "tipo": f"Versione minor: si cambia un pezzo senza cambiare come funziona il gioco ({ultima} → {nuova}).",
+    })
+    scrivi(F_ELENCO, elenco); scrivi(F_VERS, vers)
+    b = leggi(F_BACK, {"aggiornato": "", "voci": []})
+    b["voci"].append({"ora": f"{data[:5]} {a.arrivo or ora}", "alunno": chi, "pr": f"PR {pr} talpa", "richiesta": f"Modifica del mio personaggio: {a.descrizione}",
+                      "file": False, "peso": 2, "motivo": "si cambia il personaggio", "fatto": f"Talpa {nuova}", "no": "", "pos": len(b["voci"]) + 1})
+    b["aggiornato"] = f"{data} {ora}"; scrivi(F_BACK, b)
+    print(nuova, chi, nome_file, ramo)
+
+
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
-    p.add_argument("--inizio", action="store_true"); p.add_argument("--nome"); p.add_argument("--immagine"); p.add_argument("--descrizione", default="")
+    p.add_argument("--inizio", action="store_true"); p.add_argument("--modifica", action="store_true"); p.add_argument("--nome"); p.add_argument("--immagine"); p.add_argument("--descrizione", default="")
     p.add_argument("--pr", type=int); p.add_argument("--chi", help="nome da mostrare, se diverso da «Nome I.»"); p.add_argument("--arrivo"); p.add_argument("--foto-ok", action="store_true")
     a = p.parse_args()
-    inizio() if a.inizio else aggiungi(a)
+    inizio() if a.inizio else modifica(a) if a.modifica else aggiungi(a)
