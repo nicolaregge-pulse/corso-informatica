@@ -27,13 +27,15 @@ ol{padding-left:26px}li{margin:0 0 12px}
 .quadro .vuoto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#5d6878;font-size:16px;padding:12px}
 .buco{position:relative;width:220px;height:220px;overflow:hidden;border-radius:12px}
 .buco img{position:absolute;left:0;top:0;width:220px;height:220px}
-.buco #prova{left:22px;width:176px;height:176px;object-fit:contain;animation:su 1.6s ease-in-out infinite}
+.buco #prova,.buco .su{left:22px;width:176px;height:176px;object-fit:contain;animation:su 1.6s ease-in-out infinite}
 @keyframes su{0%,100%{top:230px}35%,70%{top:0}}
 input[type=text]{font:inherit;font-size:22px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
 input[type=range]{width:240px}
 textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
 .esito{font-size:21px;font-weight:700;margin-top:6px}
 .stato{border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700;font-size:20px}
+.strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.strip img{width:84px;height:84px;object-fit:cover;border-radius:8px;border:4px solid transparent;cursor:pointer}.strip img.on{border-color:#1a7f37}
+.check{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.check .q{margin:8px 0}.check button{font:inherit;font-weight:700;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg);padding:4px 14px;margin:4px 6px 0 0;cursor:pointer}.check button.si{background:#d3f9d8;border-color:#2f9e44}.check button.no{background:#ffe3e3;border-color:#e03131}.check .aiuto{color:#c0392b;font-size:16px}
 .frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}
 </style>
 </head>
@@ -82,6 +84,12 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <li><div class="it">Taglia: trascina la foto col mouse e usa la barra per lo zoom. Nel quadrato resta solo la testa.</div><div class="ar">اقصص: اسحب الصورة بالفأرة واستعمل الشريط للتكبير. في المربع يبقى الرأس فقط.</div><div class="zh">裁剪：用鼠标拖动照片，用滑块放大。方框里只留下头。</div>
 <div class="lab"><div class="quadro" id="quadro"><div class="vuoto" id="vuoto">La tua foto · صورتك · 你的照片</div><video id="video" autoplay playsinline muted hidden></video><img id="foto" alt="" hidden></div></div>
 <input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></li>
+<li><div class="it">Premi «Tieni questa». Puoi tenere più foto: rifai dal punto 2 con un'altra.</div><div class="ar">اضغط «Tieni questa» (احتفظ بهذه). يمكنك الاحتفاظ بعدة صور: أعد من النقطة 2 بصورة أخرى.</div><div class="zh">按「Tieni questa」（留下这张）。可以留下好几张：换一张照片，从第2点再做。</div>
+<button class="bot blu" id="tieni">Tieni questa · احتفظ بهذه · 留下这张</button><div class="strip" id="mie-foto"></div></li>
+<li><div class="it">Clicca una foto e guardala nel buco. Scegli quella dove si vede meglio la tua testa.</div><div class="ar">انقر على صورة وانظر إليها في الحفرة. اختر التي يظهر فيها رأسك أفضل.</div><div class="zh">点一张照片，看它在洞里的样子。选最能看清你的头的那张。</div>
+<div class="lab"><div class="buco"><img src="buco.png" alt=""><img id="prova-foto" class="su" src="talpa.png" alt="La tua foto nel buco"><img src="lembo.png" alt=""></div></div></li>
+<li><div class="it">Rispondi: Sì o No.</div><div class="ar">أجب: نعم أو لا.</div><div class="zh">回答：是或否。</div>
+<div class="check" id="check-foto"></div></li>
 <li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
 <button class="bot" id="mandafoto">Manda la foto al prof · أرسل الصورة · 发照片给老师</button><div class="esito" id="esitofoto"></div></li>
 <li><div class="it">Aspetta: il prof controlla la foto. Qui sotto compare «Va bene» o «Rifalla».</div><div class="ar">انتظر: الأستاذ يتحقق من الصورة. يظهر هنا «Va bene» (جيد) أو «Rifalla» (أعدها).</div><div class="zh">等一下：老师检查照片。下面会出现「Va bene」（可以）或「Rifalla」（重拍）。</div>
@@ -105,8 +113,12 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <h2>Passo 4 · Carica la richiesta come immagine</h2>
 <ol>
 <li><div class="it">Sulla caricatura premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V.</div><div class="ar">على الكاريكاتير اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V.</div><div class="zh">在漫画上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。</div>
+<div class="strip" id="mie-talpe"></div>
 <div class="lab"><div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div></div>
+<p class="t">Puoi incollare più personaggi: clicca quello che vuoi usare. · يمكنك لصق عدة شخصيات: انقر على التي تريدها. · 可以粘贴好几个角色：点你想用的那个。</p>
 <p class="t">Ctrl+V non va? In Gemini scarica l'immagine, poi <button class="bot gr" id="scegliTalpa">Scegli la caricatura</button><input type="file" id="filetalpa" accept="image/*" hidden></p></li>
+<li><div class="it">Rispondi: Sì o No.</div><div class="ar">أجب: نعم أو لا.</div><div class="zh">回答：是或否。</div>
+<div class="check" id="check-talpa"></div></li>
 <li><div class="it">Descrivi la tua talpa: com'è e che cosa hai chiesto a Gemini.</div><div class="ar">صِف خُلدك: كيف هو وماذا طلبت من Gemini.</div><div class="zh">描述你的地鼠：它是什么样子，你让 Gemini 做了什么。</div>
 <textarea id="descrizione"></textarea></li>
 <li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
@@ -188,12 +200,36 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
     document.body.appendChild(f); f.submit(); f.remove(); return true;
   }
   function serveNome(es) { if (nome().length < 5 || nome().indexOf(' ') < 0) { rosso(es, 'Scrivi nome e cognome (Passo 2). · اكتب الاسم واسم العائلة. · 写名字和姓。'); $('nome').focus(); return false; } try { localStorage.setItem('nome-1inf', nome()); } catch (x) {} return true; }
+  // ---- più foto, la scelta, il controllo con Sì / No ----
+  function domande(id, qq) {
+    var box = $(id), stato = qq.map(function () { return null; });
+    box.innerHTML = qq.map(function (q, i) { return '<div class="q"><div class="it">' + q[0] + '</div><div class="ar">' + q[1] + '</div><div class="zh">' + q[2] + '</div><button data-i="' + i + '" data-v="1">Sì · نعم · 是</button><button data-i="' + i + '" data-v="0">No · لا · 否</button><div class="aiuto" hidden>' + q[3] + '</div></div>'; }).join('');
+    box.addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; var i = +b.dataset.i, q = b.parentNode;
+      stato[i] = b.dataset.v === '1'; [].forEach.call(q.querySelectorAll('button'), function (x) { x.className = ''; }); b.className = stato[i] ? 'si' : 'no'; q.querySelector('.aiuto').hidden = stato[i]; });
+    return { ok: function () { return stato.every(function (x) { return x === true; }); }, reset: function () { stato = qq.map(function () { return null; }); [].forEach.call(box.querySelectorAll('button'), function (x) { x.className = ''; }); [].forEach.call(box.querySelectorAll('.aiuto'), function (x) { x.hidden = true; }); } };
+  }
+  var cFoto = domande('check-foto', [
+    ['Nel buco si vede bene la tua testa?', 'هل يظهر رأسك جيدًا في الحفرة؟', '洞里能看清你的头吗？', 'Ritaglia più stretto, solo la testa. · قصّ أضيق، الرأس فقط. · 裁小一点，只留头。'],
+    ['Si capisce che sei tu?', 'هل يُفهم أنك أنت؟', '能看出是你吗？', 'Scegli una foto più chiara. · اختر صورة أوضح. · 选一张更清楚的照片。'],
+    ['Nella foto ci sei solo tu?', 'هل أنت وحدك في الصورة؟', '照片里只有你吗？', 'Togli le altre persone: ritaglia o cambia foto. · أزل الأشخاص الآخرين. · 去掉别人：裁掉或换照片。']]);
+  var cTalpa = domande('check-talpa', [
+    ['Dal personaggio si capisce chi sei?', 'هل يُفهم من الشخصية من أنت؟', '从角色能看出你是谁吗？', 'Chiedi a Gemini di somigliarti di più. · اطلب من Gemini أن يشبهك أكثر. · 让 Gemini 画得更像你。'],
+    ['Nel buco si vede bene la testa del personaggio?', 'هل يظهر رأس الشخصية جيدًا في الحفرة؟', '洞里能看清角色的头吗？', 'Chiedi a Gemini: solo la testa, grande, sfondo bianco. · اطلب: الرأس فقط، كبير، خلفية بيضاء. · 让 Gemini：只要头，大一点，白色背景。']]);
+  var fotoList = [], fotoScelta = -1, talpeList = [], talpaScelta = -1;
+  function striscia(id, lista, scelta, quando) {
+    var el = $(id); el.innerHTML = '';
+    lista.forEach(function (u, i) { var im = document.createElement('img'); im.src = u; if (i === scelta) im.className = 'on'; im.onclick = function () { quando(i); }; el.appendChild(im); });
+  }
+  function scegliFoto(i) { fotoScelta = i; $('prova-foto').src = fotoList[i]; striscia('mie-foto', fotoList, i, scegliFoto); cFoto.reset(); }
+  $('tieni').onclick = function () { if (!fotoPronta) return rosso($('esitofoto'), 'Prima metti una foto. · أولًا ضع صورة. · 先放一张照片。'); fotoList.push(fotoTagliata().toDataURL('image/jpeg', 0.85)); scegliFoto(fotoList.length - 1); };
+  function scegliTalpa(i) { talpaScelta = i; talpa = talpeList[i]; $('prova').src = talpa; striscia('mie-talpe', talpeList, i, scegliTalpa); cTalpa.reset(); }
   var fotoCanvas = null, chiave = '';
   $('mandafoto').onclick = function () {
     var es = $('esitofoto'); if (!serveNome(es)) return;
-    if (!fotoPronta) return rosso(es, 'Prima fai o scegli la foto. · أولًا التقط الصورة. · 先拍照或选照片。');
-    fotoCanvas = fotoTagliata();
-    if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'foto', immagine: fotoCanvas.toDataURL('image/jpeg', 0.85), ora: new Date().toISOString() }, es)) {
+    if (fotoScelta < 0) return rosso(es, 'Premi «Tieni questa» e scegli una foto. · اضغط «Tieni questa» واختر صورة. · 按「Tieni questa」并选一张照片。');
+    if (!cFoto.ok()) return rosso(es, 'Rispondi Sì a tutte le domande. · أجب بنعم على كل الأسئلة. · 所有问题都要回答「是」。');
+    fotoCanvas = fotoList[fotoScelta];
+    if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'foto', immagine: fotoCanvas, ora: new Date().toISOString() }, es)) {
       verde(es, 'Foto mandata alle ' + ora() + '. · أُرسلت. · 已发送。'); $('copiafoto').disabled = false; controlla();
     }
   };
@@ -211,10 +247,10 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   }
   setInterval(controlla, 15000); setTimeout(controlla, 1500);
   $('copiafoto').onclick = function () {
-    var c = fotoCanvas || (fotoPronta ? fotoTagliata() : null), es = $('esitocopia'); if (!c) return;
-    c.toBlob(function (b) {
-      navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () { verde(es, 'Copiata ✓ Ora Gemini: Ctrl+V'); }).catch(function () { rosso(es, 'Non riesco a copiare: chiama il prof.'); });
-    }, 'image/png');
+    var u = fotoCanvas || fotoList[fotoScelta], es = $('esitocopia'); if (!u) return;
+    var im = new Image(); im.onload = function () { var c = document.createElement('canvas'); c.width = im.width; c.height = im.height; c.getContext('2d').drawImage(im, 0, 0);
+      c.toBlob(function (b) { navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () { verde(es, 'Copiata ✓ Ora Gemini: Ctrl+V'); }).catch(function () { rosso(es, 'Non riesco a copiare: chiama il prof.'); }); }, 'image/png'); };
+    im.src = u;
   };
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-copia]'); if (!b) return;
@@ -228,7 +264,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
     if (!f || !/^image\//.test(f.type)) return; var u = URL.createObjectURL(f), img = new Image();
     img.onload = function () { var c = document.createElement('canvas'); c.width = c.height = 400; var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, 400, 400);
       var s = Math.min(400 / img.width, 400 / img.height), w = img.width * s, h = img.height * s; x.drawImage(img, (400 - w) / 2, (400 - h) / 2, w, h);
-      talpa = c.toDataURL('image/jpeg', 0.88); $('prova').src = talpa; URL.revokeObjectURL(u); };
+      talpeList.push(c.toDataURL('image/jpeg', 0.88)); scegliTalpa(talpeList.length - 1); URL.revokeObjectURL(u); };
     img.src = u;
   }
   document.addEventListener('paste', function (e) {
@@ -240,12 +276,13 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   var n = 0;
   $('manda').onclick = function () {
     var es = $('esito'); if (!serveNome(es)) return;
-    if (!talpa) return rosso(es, 'Prima incolla la caricatura: Ctrl+V. · أولًا الصق الكاريكاتير. · 先粘贴漫画。');
+    if (!talpa) return rosso(es, 'Prima incolla il personaggio: Ctrl+V. · أولًا الصق الشخصية. · 先粘贴角色。');
+    if (!cTalpa.ok()) return rosso(es, 'Rispondi Sì alle domande. · أجب بنعم على الأسئلة. · 问题都要回答「是」。');
     var d = $('descrizione').value.trim(); if (d.length < 10) { rosso(es, 'Descrivi la tua talpa. · صِف خُلدك. · 描述你的地鼠。'); $('descrizione').focus(); return; }
     if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'talpa', personaggio: ++n, descrizione: d, immagine: talpa, ora: new Date().toISOString() }, es))
       verde(es, 'Proposta mandata alle ' + ora() + '! · أُرسل الاقتراح! · 建议已发送！');
   };
-  $('nuovo').onclick = function () { talpa = null; $('prova').src = 'talpa.png'; $('descrizione').value = ''; $('esito').textContent = ''; window.scrollTo({ top: $('copiafoto').offsetTop - 120, behavior: 'smooth' }); };
+  $('nuovo').onclick = function () { talpa = null; talpaScelta = -1; talpeList = []; $('mie-talpe').innerHTML = ''; cTalpa.reset(); $('prova').src = 'talpa.png'; $('descrizione').value = ''; $('esito').textContent = ''; window.scrollTo({ top: $('copiafoto').offsetTop - 120, behavior: 'smooth' }); };
   $('rispondi').onclick = function () {
     var t = $('risposta').value.trim(), es = $('esito2'); if (t.length < 2) return rosso(es, '请先写你的回答。');
     if (invia({ id: ID, nome: nome() || 'Yinlin L.', modo: 'domanda', testo: t, ora: new Date().toISOString() }, es)) verde(es, '已发送！谢谢。');
