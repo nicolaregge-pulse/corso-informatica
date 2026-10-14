@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:05",
+ "aggiornato": "14/10/2026 13:13",
  "regola": "Ogni sprint dura 15 minuti. Nella pianificazione il prof prende dal backlog le richieste più leggere, fino a un peso totale di 8. Alla fine dello sprint esce una versione nuova.",
  "sprint": [
   {
@@ -76,7 +76,7 @@
    "inizio": "13:15",
    "fine": "13:30",
    "stato": "in corso",
-   "versione": "v1.19-v1.21",
+   "versione": "v1.19-v1.23",
    "richieste": [
     {
      "alunno": "Ariel D.",
@@ -98,6 +98,20 @@
      "peso": 2,
      "stato": "fatto",
      "versione": "v1.21"
+    },
+    {
+     "alunno": "Tomas L.",
+     "richiesta": "Ogni 2000 punti la scritta SEI UN GRANDE",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.22"
+    },
+    {
+     "alunno": "Fabrizio C.",
+     "richiesta": "Game over con il teschio",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.23"
     }
    ],
    "retrospettiva": ""

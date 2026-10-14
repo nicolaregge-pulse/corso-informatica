@@ -1,7 +1,7 @@
 {
   "titolo": "IL TRENO BLINDATO",
   "sottotitolo": "Il treno attraversa boschi, paesi e montagne. I cattivi saltano fuori da dietro alberi e case: toccali prima che sparino. Il vetro regge 5 colpi!",
-  "fine": "IL VETRO È ANDATO IN PEZZI!",
+  "fine": "☠ GAME OVER ☠ Il vetro è andato in pezzi!",
   "record": "NUOVO RECORD!",
   "livello": "LIVELLO",
   "lodi": [
@@ -11,9 +11,12 @@
     "I cattivi non ti fermano: riparti?"
   ],
   "autori": [
-    "Domi (PC 13, PERSONAGGI): la frase di Nash quando vince"
+    "Domi (PC 13, PERSONAGGI): la frase di Nash quando vince",
+    "Tomas L. — PR3 del 14/10: ogni 2000 punti la scritta «SEI UN GRANDE»",
+    "Fabrizio C. — richiesta del 14/10: quando si perde, un teschio con scritto GAME OVER"
   ],
   "frasi_cattivi": [
     "Hahahahaha, perdente!"
-  ]
+  ],
+  "grande": "SEI UN GRANDE!"
 }

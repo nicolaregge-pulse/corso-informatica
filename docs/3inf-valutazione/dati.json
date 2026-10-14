@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:12",
+ "aggiornato": "14/10/2026 13:14",
  "alunni": [
   {
    "alunno": "Alessandro A.",
@@ -126,25 +126,37 @@
    "alunno": "Emmanuel F.",
    "pr": 2,
    "pr_oggi": 2,
-   "approvate": 0,
+   "approvate": 1,
    "rifiutate": 0,
-   "attesa": 2,
+   "attesa": 1,
    "revisione": true,
    "ultima": "13:07",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "paga": [
+    [
+     "v1.23",
+     3
+    ]
+   ],
+   "stipendio": 300,
+   "stipendio_conto": "v1.23 peso 3 = 300 €"
   },
   {
    "alunno": "Fabrizio C.",
    "pr": 3,
    "pr_oggi": 3,
-   "approvate": 0,
+   "approvate": 1,
    "rifiutate": 0,
-   "attesa": 3,
+   "attesa": 2,
    "revisione": false,
    "ultima": "13:07",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "paga": [
+    [
+     "v1.23",
+     1
+    ]
+   ],
+   "stipendio": 100,
+   "stipendio_conto": "v1.23 peso 1 = 100 €"
   },
   {
    "alunno": "Gabriele R.",
@@ -301,13 +313,19 @@
    "alunno": "Tomas L.",
    "pr": 5,
    "pr_oggi": 5,
-   "approvate": 0,
+   "approvate": 1,
    "rifiutate": 0,
-   "attesa": 5,
+   "attesa": 4,
    "revisione": false,
    "ultima": "13:06",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "paga": [
+    [
+     "v1.22",
+     2
+    ]
+   ],
+   "stipendio": 200,
+   "stipendio_conto": "v1.22 peso 2 = 200 €"
   }
  ]
 }

@@ -17,6 +17,16 @@
 
 
 
+
+
+## v1.23 — 14/10/2026 13:13 — Game over con il teschio (sprint 3)
+
+1. Richiesta di Fabrizio C.: «quando si perde metti un teschio con scritto GAME OVER». Fatto: la scritta di fine partita è «☠ GAME OVER ☠ Il vetro è andato in pezzi!». Anche Emmanuel F. aveva chiesto una schermata di Game Over con il bottone per ripartire: il bottone «RIPARTI» c'era già, ora c'è anche la scritta.
+
+## v1.22 — 14/10/2026 13:13 — Sei un grande! (sprint 3)
+
+1. PR3 di Tomas L.: «ogni duemila punti esce la scritta SEI UN GRANDE». Fatto: a 2000, 4000, 6000 punti compare in grande «SEI UN GRANDE!». Nel motore è nato il testo «grande», che si può cambiare in testi.json.
+
 ## v1.21 — 14/10/2026 13:05 — Più nuvole in montagna (sprint 3)
 
 1. PR1 di Denis A. (Titolo: Nuvole; Cosa cambia: più nuvole; Dove: livello montagna; Perché: così è più bello): fatto, in montagna le nuvole sono 12 invece di 6. Nel motore è nata la regola «nuvole». Una richiesta scritta bene, con le 4 parti.
