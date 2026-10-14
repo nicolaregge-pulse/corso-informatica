@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La mia talpa</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--verde:#1a7f37;--gi:#fff6d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:860px;margin:0 auto;padding:16px}
+h1{font-size:32px;margin:6px 0 2px}h2{font-size:24px;margin:30px 0 8px;padding:8px 12px;border-radius:8px;background:var(--card);border:1px solid var(--bd)}
+p{margin:4px 0}.t{color:var(--mu);font-size:16px}
+.it{font-weight:600}.ar{direction:rtl;text-align:right;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif;font-size:21px;color:var(--mu)}
+.zh{font-family:"WenQuanYi Zen Hei","Microsoft YaHei","PingFang SC",sans-serif;color:var(--mu)}
+.bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px;line-height:1.25}.bt small{display:block;font-weight:400;font-size:13px;opacity:.9}
+.bot{display:inline-block;background:var(--verde);color:#fff;text-decoration:none;font-weight:700;font-size:24px;padding:14px 24px;border-radius:12px;margin:10px 0;border:0;cursor:pointer;font-family:inherit}
+.bot.blu{background:#1f6feb;font-size:19px;padding:10px 16px}.bot.gr{background:#6e7781;font-size:17px;padding:8px 14px}
+.nota{background:var(--gi);border-radius:8px;padding:10px 14px;margin:10px 0}
+ol{padding-left:26px}li{margin:0 0 12px}
+.lab{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
+#tela{width:260px;height:260px;border:3px dashed #8b949e;border-radius:12px;background:repeating-conic-gradient(#e9edf1 0 25%,#fff 0 50%) 0 0/24px 24px;touch-action:none;cursor:crosshair}
+.colori{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;max-width:270px}.colori button{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #8b949e;cursor:pointer}
+.colori button.on{box-shadow:0 0 0 3px #1f6feb}
+.buco{position:relative;width:220px;height:220px;overflow:hidden;border-radius:12px}
+.buco img{position:absolute;left:0;top:0;width:220px;height:220px}
+.buco #prova{position:absolute;left:22px;width:176px;height:176px;object-fit:contain;animation:su 1.6s ease-in-out infinite}
+@keyframes su{0%,100%{top:230px}35%,70%{top:0}}
+input[type=text]{font:inherit;font-size:22px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
+#esito{font-size:22px;font-weight:700;margin-top:8px}
+textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
+</style>
+</head>
+<body><div class="w">
+<h1>La mia talpa</h1>
+<div class="ar">الخُلد الخاص بي</div><div class="zh">我的地鼠</div>
+<p class="t">1INF · 14/10/2026</p>
+<p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
+<div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-voti/" target="_blank" rel="noopener">I voti<small>العلامات · 分数</small></a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener">Il backlog<small>قائمة الاقتراحات · 建议列表</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small>مراقبة الدرس · 课堂监控</small></a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-novita/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco<small>ما الجديد في اللعبة · 游戏里的新变化</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-top/" target="_blank" rel="noopener">La classifica<small>الترتيب · 排行榜</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-valutazione/" target="_blank" rel="noopener">Valutazione dei singoli (solo prof)<small>تقييم كل طالب (للأستاذ) · 个人评价（老师）</small></a></div>
+
+<h2>Che cosa facciamo oggi</h2>
+<div class="it">Un programma si può cambiare. Cambi una sua parte e il programma fa una cosa nuova.</div>
+<div class="ar">يمكن تغيير البرنامج. تغيّر جزءًا منه فيعمل شيئًا جديدًا.</div>
+<div class="zh">程序是可以修改的。改掉其中一部分，程序就会做出新的东西。</div>
+<div class="it" style="margin-top:10px">Oggi cambi il gioco «Acchiappa la talpa»: la talpa diventa la tua immagine. Il prof mette la tua talpa nel gioco di tutta la classe.</div>
+<div class="ar">اليوم تغيّر لعبة «اصطد الخُلد»: يصبح الخُلد صورتك. الأستاذ يضع خُلدك في لعبة كل الصف.</div>
+<div class="zh">今天你来修改「打地鼠」游戏：地鼠变成你的图片。老师会把你的地鼠放进全班的游戏里。</div>
+
+<h2>Passo 1 · Gioca</h2>
+<ol>
+<li><div class="it">Premi il bottone verde e gioca 2 minuti.</div><div class="ar">اضغط الزر الأخضر والعب دقيقتين.</div><div class="zh">按绿色按钮，玩2分钟。</div>
+<a class="bot" href="../../giochi/talpa-1inf/" target="_blank" rel="noopener">Gioca · العب · 玩</a></li>
+<li><div class="it">Torna su questa pagina.</div><div class="ar">ارجع إلى هذه الصفحة.</div><div class="zh">回到这个页面。</div></li>
+</ol>
+
+<h2>Passo 2 · Crea la tua talpa</h2>
+<div class="nota"><div class="it">Niente foto di persone: il gioco lo vedono tutti. Va bene un disegno, un animale, un personaggio.</div><div class="ar">لا صور لأشخاص: الجميع يرى اللعبة. يمكنك رسم، حيوان، شخصية.</div><div class="zh">不要放人的照片：大家都能看到这个游戏。可以画画、动物或卡通人物。</div></div>
+<div class="lab">
+<div>
+<canvas id="tela" width="200" height="200"></canvas>
+<div class="colori" id="colori"></div>
+<button class="bot gr" id="cancella">Cancella · امسح · 清除</button>
+</div>
+<div>
+<div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div>
+<p class="t">Così esce dal buco · هكذا يخرج من الحفرة · 它会这样从洞里出来</p>
+</div>
+</div>
+<ol>
+<li><div class="it">Disegna con il mouse nel quadrato.</div><div class="ar">ارسم بالفأرة داخل المربع.</div><div class="zh">用鼠标在方框里画。</div></li>
+<li><div class="it">Oppure scegli un'immagine dal computer:</div><div class="ar">أو اختر صورة من الحاسوب:</div><div class="zh">或者从电脑里选一张图片：</div>
+<button class="bot blu" id="scegli">Scegli un'immagine · اختر صورة · 选图片</button><input type="file" id="file" accept="image/*" hidden></li>
+<li><div class="it">Oppure copia un'immagine da internet (tasto destro, «Copia immagine») e premi Ctrl+V su questa pagina.</div><div class="ar">أو انسخ صورة من الإنترنت (الزر الأيمن، «Copia immagine» = نسخ الصورة) ثم اضغط Ctrl+V في هذه الصفحة.</div><div class="zh">或者从网上复制一张图片（右键，「Copia immagine」= 复制图片），然后在这个页面按 Ctrl+V。</div></li>
+</ol>
+
+<h2>Passo 3 · Mandala al prof</h2>
+<ol>
+<li><div class="it">Scrivi il tuo nome e cognome.</div><div class="ar">اكتب اسمك واسم عائلتك.</div><div class="zh">写你的名字和姓。</div>
+<input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"></li>
+<li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
+<button class="bot" id="manda">Manda al prof · أرسل للأستاذ · 发给老师</button>
+<div id="esito"></div></li>
+</ol>
+
+<h2>Passo 4 · Guarda</h2>
+<ol>
+<li><div class="it">Apri «Il backlog»: c'è la tua proposta.</div><div class="ar">افتح «Il backlog» (قائمة الاقتراحات): فيه اقتراحك.</div><div class="zh">打开「Il backlog」（建议列表）：里面有你的建议。</div></li>
+<li><div class="it">Tra poco la tua talpa è nel gioco: premi di nuovo «Gioca» e cercala.</div><div class="ar">بعد قليل يكون خُلدك في اللعبة: اضغط «Gioca» من جديد وابحث عنه.</div><div class="zh">过一会儿你的地鼠就在游戏里了：再按「Gioca」去找它。</div></li>
+<li><div class="it">Fai vedere il gioco al tuo compagno.</div><div class="ar">أرِ اللعبة لزميلك.</div><div class="zh">把游戏给你的同学看。</div></li>
+</ol>
+
+<h2 style="border:3px solid #e8590c">Domanda in più · solo per Yinlin L. (PC 24)</h2>
+<div class="zh" style="color:var(--fg);font-size:21px">
+<p><b>Yinlin，这是 Nicola 老师只问你的一个问题。不是作业，不打分。</b></p>
+<p>早上你进学校的时候，在院子里推着自行车走。你为什么这样做？为什么不一直骑到自行车停车的地方？</p>
+<p>在下面写你的回答，可以用中文写。然后按绿色按钮。</p>
+<textarea id="risposta"></textarea>
+<button class="bot" id="rispondi">发给老师 · Manda al prof</button>
+<div id="esito2"></div>
+</div>
+<p class="t">Per Yinlin: al mattino entri a scuola spingendo la bici nel cortile. Perché? Perché non arrivi pedalando fino al parcheggio delle bici? Domanda del prof, non è un compito e non ha voto.</p>
+</div>
+<script>
+(function () {
+  var ID = '1inf-talpa-20261014', CONF = {};
+  function $(i) { return document.getElementById(i); }
+  function leggiConf() { return fetch('../../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}); }
+  leggiConf();
+  try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
+
+  // il quadrato dove si disegna o si mette l'immagine
+  var tela = $('tela'), ctx = tela.getContext('2d'), colore = '#222', giu = false, usato = false;
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.lineWidth = 9;
+  ['#222', '#e03131', '#f08c00', '#fcc419', '#2f9e44', '#1971c2', '#9c36b5', '#8d5a2b', '#ffffff'].forEach(function (c, i) {
+    var b = document.createElement('button'); b.style.background = c; b.title = c; if (!i) b.className = 'on';
+    b.onclick = function () { colore = c; [].forEach.call($('colori').children, function (x) { x.className = ''; }); b.className = 'on'; };
+    $('colori').appendChild(b);
+  });
+  function punto(e) { var r = tela.getBoundingClientRect(); return [(e.clientX - r.left) * tela.width / r.width, (e.clientY - r.top) * tela.height / r.height]; }
+  tela.addEventListener('pointerdown', function (e) { giu = true; tela.setPointerCapture(e.pointerId); var p = punto(e); ctx.strokeStyle = colore; ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(p[0] + .1, p[1]); ctx.stroke(); });
+  tela.addEventListener('pointermove', function (e) { if (!giu) return; var p = punto(e); ctx.lineTo(p[0], p[1]); ctx.stroke(); });
+  tela.addEventListener('pointerup', function () { giu = false; usato = true; anteprima(); });
+  $('cancella').onclick = function () { ctx.clearRect(0, 0, tela.width, tela.height); usato = false; $('prova').src = 'talpa.png'; };
+  function anteprima() { $('prova').src = tela.toDataURL('image/png'); }
+  function metti(img) {
+    ctx.clearRect(0, 0, tela.width, tela.height);
+    var s = Math.min(tela.width / img.width, tela.height / img.height), w = img.width * s, h = img.height * s;
+    ctx.drawImage(img, (tela.width - w) / 2, (tela.height - h) / 2, w, h); usato = true; anteprima();
+  }
+  function daFile(f) { if (!f || !/^image\//.test(f.type)) return; var u = URL.createObjectURL(f), img = new Image(); img.onload = function () { metti(img); URL.revokeObjectURL(u); }; img.src = u; }
+  $('scegli').onclick = function () { $('file').click(); };
+  $('file').onchange = function () { daFile(this.files[0]); };
+  document.addEventListener('paste', function (e) {
+    var it = (e.clipboardData || {}).items || [];
+    for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { daFile(it[i].getAsFile()); e.preventDefault(); return; }
+  });
+
+  // un solo bottone: la talpa va da sola al prof (applicazione web dello script)
+  function invia(dati, esito) {
+    if (!CONF.invio) {
+      esito.style.color = '#c0392b';
+      esito.textContent = 'Un momento: il prof sta accendendo l\'invio. Riprova tra un minuto. · لحظة، أعد المحاولة بعد دقيقة. · 请等一下，一分钟后再试。';
+      leggiConf(); return false;
+    }
+    var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
+    var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(dati); f.appendChild(i);
+    document.body.appendChild(f); f.submit(); f.remove(); return true;
+  }
+  $('manda').onclick = function () {
+    var nome = $('nome').value.trim(), es = $('esito');
+    if (!usato) { es.style.color = '#c0392b'; es.textContent = 'Prima crea la tua talpa (Passo 2). · أولًا اصنع خُلدك. · 先做你的地鼠（第2步）。'; return; }
+    if (nome.length < 3) { es.style.color = '#c0392b'; es.textContent = 'Scrivi il tuo nome. · اكتب اسمك. · 写你的名字。'; $('nome').focus(); return; }
+    try { localStorage.setItem('nome-1inf', nome); } catch (x) {}
+    var ok = invia({ id: ID, nome: nome, modo: 'proposta', classe: '1INF', cosa: 'talpa', immagine: tela.toDataURL('image/png'), ora: new Date().toISOString() }, es);
+    if (ok) { es.style.color = '#1a7f37'; es.textContent = 'Mandata alle ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) + '! · أُرسلت! · 已发送！'; }
+  };
+  $('rispondi').onclick = function () {
+    var t = $('risposta').value.trim(), es = $('esito2');
+    if (t.length < 2) { es.textContent = '请先写你的回答。'; return; }
+    if (invia({ id: ID, nome: ($('nome').value.trim() || 'Yinlin'), modo: 'domanda', testo: t, ora: new Date().toISOString() }, es)) { es.style.color = '#1a7f37'; es.textContent = '已发送！谢谢。'; }
+  };
+})();
+</script>
+</body>
+</html>
