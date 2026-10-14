@@ -28,6 +28,14 @@ bash strumenti/aspetta_pubblicazione.sh
 
 ## 02 La pagina della lezione
 
+1. **Un solo percorso, dall'alto in basso, con un solo link fisso** per lezione (`docs/compito/<classe>-<data>-<argomento>/`). Niente menu, niente schede, niente «scegli tu».
+2. **Le cose nuove si aggiungono IN FONDO,** come passo successivo, mai in cima (#78).
+3. **Ogni passo apre una finestra nuova e il ragazzo torna alla pagina:** vicino al bottone c'è scritto «si apre in una finestra nuova, poi torna qui».
+4. **Il passo da fare ha il bordo blu; il passo fatto diventa verde con «✓ Fatto» e il suo bottone si spegne.**
+5. **Una azione per passo,** frasi da bambino di 10 anni, una per riga. Se serve una spiegazione lunga si cambia il procedimento, non si allunga la spiegazione (#62).
+6. **I sei bottoni** stanno nella pagina (riquadro «Come sta andando la classe»), con il proprio andamento: personaggi nel gioco, richieste mandate, voto della lezione (#60).
+7. **Nelle pagine pubbliche solo «Nome I.»,** anche per i maggiorenni; nei giochi pubblici mai foto di persone vere (#69).
+
 I passi fissi, in quest'ordine (modelli: `docs/compito/3inf-20261014-merge/` e `docs/compito/1inf-talpa-percorso/`):
 
 | Passo | Che cosa | A che cosa serve |
@@ -40,13 +48,7 @@ I passi fissi, in quest'ordine (modelli: `docs/compito/3inf-20261014-merge/` e `
 | 6 | Ripasso, poi Verifica (la apre il prof) | fissare e misurare |
 | 7 | La tua valutazione e il recupero | sapere dove si è e cosa fare dopo |
 
-1. **Un solo percorso, dall'alto in basso, con un solo link fisso** per lezione (`docs/compito/<classe>-<data>-<argomento>/`). Niente menu, niente schede, niente «scegli tu».
-2. **Le cose nuove si aggiungono IN FONDO,** come passo successivo, mai in cima (#78).
-3. **Ogni passo apre una finestra nuova e il ragazzo torna alla pagina:** vicino al bottone c'è scritto «si apre in una finestra nuova, poi torna qui».
-4. **Il passo da fare ha il bordo blu; il passo fatto diventa verde con «✓ Fatto» e il suo bottone si spegne.**
-5. **Una azione per passo,** frasi da bambino di 10 anni, una per riga. Se serve una spiegazione lunga si cambia il procedimento, non si allunga la spiegazione (#62).
-6. **I sei bottoni** stanno nella pagina (riquadro «Come sta andando la classe»), con il proprio andamento: personaggi nel gioco, richieste mandate, voto della lezione (#60).
-7. **Nelle pagine pubbliche solo «Nome I.»,** anche per i maggiorenni; nei giochi pubblici mai foto di persone vere (#69).
+Le lingue di ogni classe:
 
 | Classe | Lingue delle pagine per i ragazzi |
 |---|---|
