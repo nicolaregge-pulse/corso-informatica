@@ -7,28 +7,34 @@
 <style>
 :root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--verde:#1a7f37;--gi:#fff6d6}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
+[hidden]{display:none!important}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
 .w{max-width:860px;margin:0 auto;padding:16px}
 h1{font-size:32px;margin:6px 0 2px}h2{font-size:24px;margin:30px 0 8px;padding:8px 12px;border-radius:8px;background:var(--card);border:1px solid var(--bd)}
 p{margin:4px 0}.t{color:var(--mu);font-size:16px}
 .it{font-weight:600}.ar{direction:rtl;text-align:right;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif;font-size:21px;color:var(--mu)}
 .zh{font-family:"WenQuanYi Zen Hei","Microsoft YaHei","PingFang SC",sans-serif;color:var(--mu)}
 .bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px;line-height:1.25}.bt small{display:block;font-weight:400;font-size:13px;opacity:.9}
-.bot{display:inline-block;background:var(--verde);color:#fff;text-decoration:none;font-weight:700;font-size:24px;padding:14px 24px;border-radius:12px;margin:10px 0;border:0;cursor:pointer;font-family:inherit}
-.bot.blu{background:#1f6feb;font-size:19px;padding:10px 16px}.bot.gr{background:#6e7781;font-size:17px;padding:8px 14px}
+.bot{display:inline-block;background:var(--verde);color:#fff;text-decoration:none;font-weight:700;font-size:23px;padding:13px 22px;border-radius:12px;margin:8px 0;border:0;cursor:pointer;font-family:inherit}
+.bot.blu{background:#1f6feb;font-size:19px;padding:10px 16px}.bot.gr{background:#6e7781;font-size:17px;padding:8px 14px}.bot[disabled]{opacity:.45;cursor:not-allowed}
 .nota{background:var(--gi);border-radius:8px;padding:10px 14px;margin:10px 0}
 ol{padding-left:26px}li{margin:0 0 12px}
-.lab{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
-#tela{width:260px;height:260px;border:3px dashed #8b949e;border-radius:12px;background:repeating-conic-gradient(#e9edf1 0 25%,#fff 0 50%) 0 0/24px 24px;touch-action:none;cursor:crosshair}
-.frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.colori{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;max-width:270px}.colori button{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #8b949e;cursor:pointer}
-.colori button.on{box-shadow:0 0 0 3px #1f6feb}
+.giro{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.giro .g{background:var(--card);border:2px solid #1f6feb;border-radius:12px;padding:8px 10px;width:150px;font-size:15px;line-height:1.3;text-align:center}
+.giro .g b{display:block;font-size:17px}.giro .f{font-size:26px;color:#1f6feb}
+.lab{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;margin:8px 0}
+.quadro{width:260px;height:260px;border:3px dashed #8b949e;border-radius:12px;overflow:hidden;position:relative;background:#e9edf1;touch-action:none;cursor:grab}
+.quadro img,.quadro video{position:absolute;left:0;top:0;transform-origin:0 0;user-select:none;-webkit-user-drag:none}
+.quadro .vuoto{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#5d6878;font-size:16px;padding:12px}
 .buco{position:relative;width:220px;height:220px;overflow:hidden;border-radius:12px}
 .buco img{position:absolute;left:0;top:0;width:220px;height:220px}
-.buco #prova{position:absolute;left:22px;width:176px;height:176px;object-fit:contain;animation:su 1.6s ease-in-out infinite}
+.buco #prova{left:22px;width:176px;height:176px;object-fit:contain;animation:su 1.6s ease-in-out infinite}
 @keyframes su{0%,100%{top:230px}35%,70%{top:0}}
 input[type=text]{font:inherit;font-size:22px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
-#esito{font-size:22px;font-weight:700;margin-top:8px}
+input[type=range]{width:240px}
 textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
+.esito{font-size:21px;font-weight:700;margin-top:6px}
+.stato{border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700;font-size:20px}
+.frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}
 </style>
 </head>
 <body><div class="w">
@@ -38,58 +44,75 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
 <div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-voti/" target="_blank" rel="noopener">I voti<small>العلامات · 分数</small></a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener">Il backlog<small>قائمة الاقتراحات · 建议列表</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small>مراقبة الدرس · 课堂监控</small></a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-novita/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco<small>ما الجديد في اللعبة · 游戏里的新变化</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-top/" target="_blank" rel="noopener">La classifica<small>الترتيب · 排行榜</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-valutazione/" target="_blank" rel="noopener">Valutazione dei singoli (solo prof)<small>تقييم كل طالب (للأستاذ) · 个人评价（老师）</small></a></div>
 
-<h2>Che cosa facciamo oggi</h2>
-<div class="it">Un programma si può cambiare. Cambi una sua parte e il programma fa una cosa nuova.</div>
-<div class="ar">يمكن تغيير البرنامج. تغيّر جزءًا منه فيعمل شيئًا جديدًا.</div>
-<div class="zh">程序是可以修改的。改掉其中一部分，程序就会做出新的东西。</div>
-<div class="it" style="margin-top:10px">Oggi cambi il gioco «Acchiappa la talpa»: la talpa diventa la tua caricatura, fatta con Gemini. Il prof mette la tua talpa nel gioco di tutta la classe.</div>
-<div class="ar">اليوم تغيّر لعبة «اصطد الخُلد»: يصبح الخُلد الكاريكاتير الخاص بك، المصنوع بـ Gemini. الأستاذ يضع خُلدك في لعبة كل الصف.</div>
-<div class="zh">今天你来修改「打地鼠」游戏：地鼠变成你用 Gemini 做的漫画。老师会把你的地鼠放进全班的游戏里。</div>
+<h2>Teoria · Come nasce un programma: a giri</h2>
+<div class="it">Un programma non si fa tutto in una volta. Una squadra di lavoro lo fa a giri corti. Questo modo di lavorare si chiama Agile (agile = veloce, che si adatta).</div>
+<div class="ar">البرنامج لا يُصنع مرة واحدة. فريق العمل يصنعه على جولات قصيرة. هذه الطريقة اسمها Agile (رشيق، يتكيّف).</div>
+<div class="zh">程序不是一次做完的。团队分成很多短的轮次来做。这种工作方式叫 Agile（敏捷：快速、能适应）。</div>
+<div class="giro">
+<div class="g"><b>1. Lista</b>Le richieste in fila: il backlog<div class="ar" style="font-size:15px;text-align:center">قائمة الطلبات</div><div class="zh">需求清单</div></div><span class="f">→</span>
+<div class="g"><b>2. Modifica</b>Si fa un pezzo piccolo<div class="ar" style="font-size:15px;text-align:center">تعديل صغير</div><div class="zh">做一个小修改</div></div><span class="f">→</span>
+<div class="g"><b>3. Controllo</b>Il capo guarda e dice sì o no<div class="ar" style="font-size:15px;text-align:center">المسؤول يتحقق</div><div class="zh">负责人检查</div></div><span class="f">→</span>
+<div class="g"><b>4. Versione nuova</b>La modifica entra nel programma<div class="ar" style="font-size:15px;text-align:center">نسخة جديدة</div><div class="zh">新版本</div></div><span class="f">→</span>
+<div class="g"><b>5. Si migliora</b>Che cosa facciamo meglio? Si riparte dall'1<div class="ar" style="font-size:15px;text-align:center">نحسّن ونبدأ من جديد</div><div class="zh">改进，再从第1步开始</div></div>
+</div>
+<div class="it">Ogni giro aggiunge una modifica. Dopo tanti giri il programma è cresciuto, un pezzo alla volta.</div>
+<div class="ar">كل جولة تضيف تعديلًا. بعد جولات كثيرة يكبر البرنامج، قطعة بعد قطعة.</div>
+<div class="zh">每一轮加一个修改。很多轮之后，程序一点一点长大。</div>
+<div class="it" style="margin-top:10px">Oggi il giro è vostro: proponete la vostra talpa (modifica), il prof la controlla, entra nel gioco della classe (versione nuova), e potete fare un altro giro con un secondo personaggio.</div>
+<div class="ar">اليوم الجولة لكم: تقترحون خُلدكم (تعديل)، الأستاذ يتحقق، يدخل لعبة الصف (نسخة جديدة)، ويمكنكم جولة أخرى بشخصية ثانية.</div>
+<div class="zh">今天轮到你们：提出你的地鼠（修改），老师检查，它进入全班的游戏（新版本），还可以再来一轮做第二个角色。</div>
 
 <h2>Passo 1 · Gioca</h2>
 <ol>
-<li><div class="it">Premi il bottone verde e gioca 2 minuti.</div><div class="ar">اضغط الزر الأخضر والعب دقيقتين.</div><div class="zh">按绿色按钮，玩2分钟。</div>
+<li><div class="it">Premi il bottone verde e gioca 2 minuti. Poi torna qui.</div><div class="ar">اضغط الزر الأخضر والعب دقيقتين. ثم ارجع إلى هنا.</div><div class="zh">按绿色按钮，玩2分钟。然后回到这里。</div>
 <a class="bot" href="../../giochi/talpa-1inf/" target="_blank" rel="noopener">Gioca · العب · 玩</a></li>
-<li><div class="it">Torna su questa pagina.</div><div class="ar">ارجع إلى هذه الصفحة.</div><div class="zh">回到这个页面。</div></li>
 </ol>
 
-<h2>Passo 2 · La tua caricatura con Gemini</h2>
-<div class="nota"><div class="it">Descrivi la talpa a parole. Non caricare foto tue o dei compagni.</div><div class="ar">صِف الخُلد بالكلمات. لا ترفع صورك أو صور زملائك.</div><div class="zh">用文字描述地鼠。不要上传你或同学的照片。</div></div>
-<ol>
-<li><div class="it">Premi il bottone blu: si apre Gemini.</div><div class="ar">اضغط الزر الأزرق: يفتح Gemini.</div><div class="zh">按蓝色按钮：打开 Gemini。</div>
-<a class="bot blu" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini · افتح Gemini · 打开 Gemini</a></li>
-<li><div class="it">Torna qui. Premi «Copia» accanto alla frase nella tua lingua.</div><div class="ar">ارجع إلى هنا. اضغط «Copia» (نسخ) بجانب الجملة بلغتك.</div><div class="zh">回到这里。按你的语言那句话旁边的「Copia」（复制）。</div>
-<div class="frase"><p class="it" id="f-it">Crea una caricatura simpatica, stile cartone animato: una talpa che esce da un buco nel terreno e mi somiglia. Immagine quadrata, sfondo bianco. Aggiungi questo:</p><button class="bot gr" data-copia="f-it">Copia · italiano</button></div>
-<div class="frase"><p class="ar" id="f-ar">ارسم كاريكاتيرًا لطيفًا بأسلوب الرسوم المتحركة: خُلد يخرج من حفرة في الأرض ويشبهني. صورة مربعة، خلفية بيضاء. أضف هذا:</p><button class="bot gr" data-copia="f-ar">Copia · العربية</button></div>
-<div class="frase"><p class="zh" id="f-zh">画一张可爱的卡通漫画：一只从地洞里钻出来的地鼠，长得像我。正方形图片，白色背景。再加上这个：</p><button class="bot gr" data-copia="f-zh">Copia · 中文</button></div></li>
-<li><div class="it">Vai su Gemini, clicca nella casella in basso e premi Ctrl+V.</div><div class="ar">اذهب إلى Gemini، انقر في الخانة في الأسفل واضغط Ctrl+V.</div><div class="zh">去 Gemini，点击下面的输入框，按 Ctrl+V。</div></li>
-<li><div class="it">Scrivi alla fine una cosa tua: il tuo sport, la tua squadra, il tuo colore. Premi Invio.</div><div class="ar">اكتب في النهاية شيئًا عنك: رياضتك، فريقك، لونك. اضغط Enter.</div><div class="zh">在最后写一点关于你的东西：你的运动、你的球队、你的颜色。按回车。</div></li>
-<li><div class="it">Sulla caricatura premi il tasto destro del mouse e scegli «Copia immagine».</div><div class="ar">على الصورة اضغط زر الفأرة الأيمن واختر «Copia immagine» (نسخ الصورة).</div><div class="zh">在漫画上按鼠标右键，选「Copia immagine」（复制图片）。</div></li>
-<li><div class="it">Torna qui e premi Ctrl+V. La tua talpa esce dal buco.</div><div class="ar">ارجع إلى هنا واضغط Ctrl+V. يخرج خُلدك من الحفرة.</div><div class="zh">回到这里按 Ctrl+V。你的地鼠就从洞里钻出来了。</div></li>
-</ol>
-<div class="lab">
-<canvas id="tela" width="200" height="200"></canvas>
-<div>
-<div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div>
-<p class="t">Così esce dal buco · هكذا يخرج من الحفرة · 它会这样从洞里出来</p>
-</div>
-</div>
-<p class="t">Ctrl+V non va? Su Gemini scarica l'immagine (freccia in giù), poi premi qui: <button class="bot gr" id="scegli">Scegli un'immagine · اختر صورة · 选图片</button><input type="file" id="file" accept="image/*" hidden></p>
-
-<h2>Passo 3 · Mandala al prof</h2>
+<h2>Passo 2 · La tua foto</h2>
 <ol>
 <li><div class="it">Scrivi il tuo nome e cognome.</div><div class="ar">اكتب اسمك واسم عائلتك.</div><div class="zh">写你的名字和姓。</div>
 <input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"></li>
+<li><div class="it">Premi «Webcam» e poi «Scatta». Oppure premi «Scegli la foto» se il prof te l'ha mandata.</div><div class="ar">اضغط «Webcam» ثم «Scatta» (التقط). أو اضغط «Scegli la foto» (اختر الصورة) إذا أرسلها لك الأستاذ.</div><div class="zh">按「Webcam」再按「Scatta」（拍照）。如果老师把照片发给你了，就按「Scegli la foto」（选照片）。</div>
+<button class="bot blu" id="cam">Webcam</button> <button class="bot blu" id="scatta" hidden>Scatta · التقط · 拍照</button> <button class="bot blu" id="sceglifoto">Scegli la foto · اختر الصورة · 选照片</button><input type="file" id="filefoto" accept="image/*" hidden></li>
+<li><div class="it">Taglia: trascina la foto col mouse e usa la barra per lo zoom. Si vede solo il quadrato.</div><div class="ar">اقصص: اسحب الصورة بالفأرة واستعمل الشريط للتكبير. يظهر المربع فقط.</div><div class="zh">裁剪：用鼠标拖动照片，用滑块放大。只保留方框里的部分。</div>
+<div class="lab"><div class="quadro" id="quadro"><div class="vuoto" id="vuoto">La tua foto · صورتك · 你的照片</div><video id="video" autoplay playsinline muted hidden></video><img id="foto" alt="" hidden></div></div>
+<input type="range" id="zoom" min="1" max="4" step="0.01" value="1"></li>
 <li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
-<button class="bot" id="manda">Manda al prof · أرسل للأستاذ · 发给老师</button>
-<div id="esito"></div></li>
+<button class="bot" id="mandafoto">Manda la foto al prof · أرسل الصورة · 发照片给老师</button><div class="esito" id="esitofoto"></div></li>
+<li><div class="it">Aspetta: il prof controlla la foto. Qui sotto compare «Va bene» o «Rifalla».</div><div class="ar">انتظر: الأستاذ يتحقق من الصورة. يظهر هنا «Va bene» (جيد) أو «Rifalla» (أعدها).</div><div class="zh">等一下：老师检查照片。下面会出现「Va bene」（可以）或「Rifalla」（重拍）。</div>
+<div class="stato" id="stato" style="background:var(--gi)">In attesa · في الانتظار · 等待中</div></li>
 </ol>
 
-<h2>Passo 4 · Guarda</h2>
+<h2>Passo 3 · La caricatura con Gemini</h2>
 <ol>
-<li><div class="it">Apri «Il backlog»: c'è la tua proposta.</div><div class="ar">افتح «Il backlog» (قائمة الاقتراحات): فيه اقتراحك.</div><div class="zh">打开「Il backlog」（建议列表）：里面有你的建议。</div></li>
-<li><div class="it">Tra poco la tua talpa è nel gioco: premi di nuovo «Gioca» e cercala.</div><div class="ar">بعد قليل يكون خُلدك في اللعبة: اضغط «Gioca» من جديد وابحث عنه.</div><div class="zh">过一会儿你的地鼠就在游戏里了：再按「Gioca」去找它。</div></li>
-<li><div class="it">Fai vedere il gioco al tuo compagno.</div><div class="ar">أرِ اللعبة لزميلك.</div><div class="zh">把游戏给你的同学看。</div></li>
+<li><div class="it">Premi «Copia la foto».</div><div class="ar">اضغط «Copia la foto» (انسخ الصورة).</div><div class="zh">按「Copia la foto」（复制照片）。</div>
+<button class="bot blu" id="copiafoto" disabled>Copia la foto · انسخ الصورة · 复制照片</button> <span class="esito" id="esitocopia"></span></li>
+<li><div class="it">Premi «Apri Gemini». In Gemini clicca «Immagini» (Crea immagine).</div><div class="ar">اضغط «Apri Gemini». في Gemini انقر «Immagini» (إنشاء صورة).</div><div class="zh">按「Apri Gemini」。在 Gemini 里点「Immagini」（创建图片）。</div>
+<a class="bot blu" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini</a></li>
+<li><div class="it">Clicca nella casella in basso e premi Ctrl+V: la tua foto entra in Gemini.</div><div class="ar">انقر في الخانة في الأسفل واضغط Ctrl+V: تدخل صورتك إلى Gemini.</div><div class="zh">点击下面的输入框，按 Ctrl+V：你的照片就进入 Gemini。</div></li>
+<li><div class="it">Torna qui e premi «Copia» accanto alla frase nella tua lingua.</div><div class="ar">ارجع إلى هنا واضغط «Copia» بجانب الجملة بلغتك.</div><div class="zh">回到这里，按你的语言那句话旁边的「Copia」。</div>
+<div class="frase"><p class="it" id="f-it">Trasforma questa foto in una caricatura simpatica, stile cartone animato: sono una talpa che esce da un buco nel terreno. Immagine quadrata, sfondo bianco.</p><button class="bot gr" data-copia="f-it">Copia · italiano</button></div>
+<div class="frase"><p class="ar" id="f-ar">حوّل هذه الصورة إلى كاريكاتير لطيف بأسلوب الرسوم المتحركة: أنا خُلد يخرج من حفرة في الأرض. صورة مربعة، خلفية بيضاء.</p><button class="bot gr" data-copia="f-ar">Copia · العربية</button></div>
+<div class="frase"><p class="zh" id="f-zh">把这张照片变成一张可爱的卡通漫画：我是一只从地洞里钻出来的地鼠。正方形图片，白色背景。</p><button class="bot gr" data-copia="f-zh">Copia · 中文</button></div></li>
+<li><div class="it">In Gemini premi Ctrl+V, aggiungi una cosa tua (sport, squadra, colore) e premi Invio.</div><div class="ar">في Gemini اضغط Ctrl+V، أضف شيئًا عنك (رياضة، فريق، لون) واضغط Enter.</div><div class="zh">在 Gemini 里按 Ctrl+V，加一点你自己的东西（运动、球队、颜色），按回车。</div></li>
+</ol>
+
+<h2>Passo 4 · La tua proposta</h2>
+<ol>
+<li><div class="it">Sulla caricatura premi il tasto destro e scegli «Copia immagine». Torna qui e premi Ctrl+V.</div><div class="ar">على الكاريكاتير اضغط الزر الأيمن واختر «Copia immagine» (نسخ الصورة). ارجع إلى هنا واضغط Ctrl+V.</div><div class="zh">在漫画上按右键，选「Copia immagine」（复制图片）。回到这里按 Ctrl+V。</div>
+<div class="lab"><div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div></div>
+<p class="t">Ctrl+V non va? In Gemini scarica l'immagine, poi <button class="bot gr" id="scegliTalpa">Scegli la caricatura</button><input type="file" id="filetalpa" accept="image/*" hidden></p></li>
+<li><div class="it">Descrivi la tua talpa: com'è e che cosa hai chiesto a Gemini.</div><div class="ar">صِف خُلدك: كيف هو وماذا طلبت من Gemini.</div><div class="zh">描述你的地鼠：它是什么样子，你让 Gemini 做了什么。</div>
+<textarea id="descrizione"></textarea></li>
+<li><div class="it">Premi il bottone verde.</div><div class="ar">اضغط الزر الأخضر.</div><div class="zh">按绿色按钮。</div>
+<button class="bot" id="manda">Manda la proposta · أرسل الاقتراح · 发送建议</button><div class="esito" id="esito"></div></li>
+</ol>
+
+<h2>Passo 5 · Un altro giro</h2>
+<ol>
+<li><div class="it">Apri «Il backlog»: c'è la tua proposta. Poi gioca e cerca la tua talpa.</div><div class="ar">افتح «Il backlog»: فيه اقتراحك. ثم العب وابحث عن خُلدك.</div><div class="zh">打开「Il backlog」：里面有你的建议。然后玩游戏，找你的地鼠。</div></li>
+<li><div class="it">Vuoi un secondo personaggio? Premi «Nuovo personaggio» e rifai dal Passo 3.</div><div class="ar">تريد شخصية ثانية؟ اضغط «Nuovo personaggio» وأعد من الخطوة 3.</div><div class="zh">想要第二个角色？按「Nuovo personaggio」（新角色），从第3步再做一次。</div>
+<button class="bot blu" id="nuovo">Nuovo personaggio · شخصية جديدة · 新角色</button></li>
 </ol>
 
 <h2 style="border:3px solid #e8590c">Domanda in più · solo per Yinlin L. (PC 24)</h2>
@@ -99,62 +122,128 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <p>在下面写你的回答，可以用中文写。然后按绿色按钮。</p>
 <textarea id="risposta"></textarea>
 <button class="bot" id="rispondi">发给老师 · Manda al prof</button>
-<div id="esito2"></div>
+<div class="esito" id="esito2"></div>
 </div>
 <p class="t">Per Yinlin: al mattino entri a scuola spingendo la bici nel cortile. Perché? Perché non arrivi pedalando fino al parcheggio delle bici? Domanda del prof, non è un compito e non ha voto.</p>
 </div>
 <script>
 (function () {
-  var ID = '1inf-talpa-20261014', CONF = {};
+  var ID = '1inf-talpa-20261014', CONF = {}, L = 260;
   function $(i) { return document.getElementById(i); }
+  function rosso(el, t) { el.style.color = '#c0392b'; el.textContent = t; }
+  function verde(el, t) { el.style.color = '#1a7f37'; el.textContent = t; }
   function leggiConf() { return fetch('../../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}); }
   leggiConf();
   try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
+  function nome() { return $('nome').value.trim().replace(/\s+/g, ' '); }
+  function ora() { return new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
 
-  // il quadrato dove si disegna o si mette l'immagine
-  var tela = $('tela'), ctx = tela.getContext('2d'), usato = false;
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-copia]'); if (!b) return;
-    var t = document.getElementById(b.getAttribute('data-copia')).textContent + ' ';
-    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { var v = b.textContent; b.textContent = 'Copiata ✓'; setTimeout(function () { b.textContent = v; }, 1500); }).catch(function () {});
-  });
-  function anteprima() { $('prova').src = tela.toDataURL('image/png'); }
-  function metti(img) {
-    ctx.clearRect(0, 0, tela.width, tela.height);
-    var s = Math.min(tela.width / img.width, tela.height / img.height), w = img.width * s, h = img.height * s;
-    ctx.drawImage(img, (tela.width - w) / 2, (tela.height - h) / 2, w, h); usato = true; anteprima();
+  // ---- foto: webcam o file, poi ritaglio quadrato (trascina + zoom) ----
+  var src = null, sw = 0, sh = 0, zoom = 1, ox = 0, oy = 0, flusso = null, fotoPronta = false;
+  function base() { return Math.max(L / sw, L / sh); }
+  function disegna() {
+    if (!src) return;
+    var s = base() * zoom, w = sw * s, h = sh * s;
+    ox = Math.min(0, Math.max(L - w, ox)); oy = Math.min(0, Math.max(L - h, oy));
+    src.style.width = w + 'px'; src.style.height = h + 'px'; src.style.transform = 'translate(' + ox + 'px,' + oy + 'px)';
   }
-  function daFile(f) { if (!f || !/^image\//.test(f.type)) return; var u = URL.createObjectURL(f), img = new Image(); img.onload = function () { metti(img); URL.revokeObjectURL(u); }; img.src = u; }
-  $('scegli').onclick = function () { $('file').click(); };
-  $('file').onchange = function () { daFile(this.files[0]); };
-  document.addEventListener('paste', function (e) {
-    var it = (e.clipboardData || {}).items || [];
-    for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { daFile(it[i].getAsFile()); e.preventDefault(); return; }
-  });
+  function caricaFoto(url) {
+    var im = $('foto'); im.onload = function () { sw = im.naturalWidth; sh = im.naturalHeight; src = im; zoom = 1; $('zoom').value = 1; var s = base(); ox = (L - sw * s) / 2; oy = (L - sh * s) / 2; im.hidden = false; $('video').hidden = true; $('vuoto').hidden = true; fotoPronta = true; disegna(); };
+    im.src = url;
+  }
+  function daFileFoto(f) { if (f && /^image\//.test(f.type)) caricaFoto(URL.createObjectURL(f)); }
+  $('cam').onclick = function () {
+    if (!navigator.mediaDevices) return rosso($('esitofoto'), 'Webcam non trovata: usa «Scegli la foto». · 没有摄像头。');
+    navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480 } }).then(function (st) {
+      flusso = st; var v = $('video'); v.srcObject = st; v.hidden = false; $('vuoto').hidden = true; $('foto').hidden = true;
+      v.style.width = L * 4 / 3 + 'px'; v.style.height = L + 'px'; v.style.transform = 'translate(' + (-L / 6) + 'px,0)'; $('scatta').hidden = false;
+    }).catch(function () { rosso($('esitofoto'), 'Webcam non trovata: usa «Scegli la foto». · لا توجد كاميرا. · 没有摄像头。'); });
+  };
+  $('scatta').onclick = function () {
+    var v = $('video'), c = document.createElement('canvas'); c.width = v.videoWidth; c.height = v.videoHeight; c.getContext('2d').drawImage(v, 0, 0);
+    if (flusso) flusso.getTracks().forEach(function (t) { t.stop(); }); $('scatta').hidden = true; caricaFoto(c.toDataURL('image/jpeg', 0.92));
+  };
+  $('sceglifoto').onclick = function () { $('filefoto').click(); };
+  $('filefoto').onchange = function () { daFileFoto(this.files[0]); };
+  $('zoom').oninput = function () { if (!src) return; var z = +this.value, c = L / 2; ox = c - (c - ox) * z / zoom; oy = c - (c - oy) * z / zoom; zoom = z; disegna(); };
+  var trasc = null;
+  $('quadro').addEventListener('pointerdown', function (e) { if (!src) return; trasc = [e.clientX - ox, e.clientY - oy]; this.setPointerCapture(e.pointerId); });
+  $('quadro').addEventListener('pointermove', function (e) { if (!trasc) return; ox = e.clientX - trasc[0]; oy = e.clientY - trasc[1]; disegna(); });
+  $('quadro').addEventListener('pointerup', function () { trasc = null; });
+  function fotoTagliata() {
+    var c = document.createElement('canvas'); c.width = c.height = 480; var s = base() * zoom, k = 480 / L;
+    c.getContext('2d').drawImage(src, ox * k, oy * k, sw * s * k, sh * s * k); return c;
+  }
 
-  // un solo bottone: la talpa va da sola al prof (applicazione web dello script)
+  // ---- un solo bottone per mandare (applicazione web dello script) ----
   function invia(dati, esito) {
-    if (!CONF.invio) {
-      esito.style.color = '#c0392b';
-      esito.textContent = 'Un momento: il prof sta accendendo l\'invio. Riprova tra un minuto. · لحظة، أعد المحاولة بعد دقيقة. · 请等一下，一分钟后再试。';
-      leggiConf(); return false;
-    }
+    if (!CONF.invio) { rosso(esito, 'Un momento: il prof sta accendendo l\'invio. Riprova tra un minuto. · أعد المحاولة بعد دقيقة. · 一分钟后再试。'); leggiConf(); return false; }
     var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
     var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(dati); f.appendChild(i);
     document.body.appendChild(f); f.submit(); f.remove(); return true;
   }
-  $('manda').onclick = function () {
-    var nome = $('nome').value.trim(), es = $('esito');
-    if (!usato) { es.style.color = '#c0392b'; es.textContent = 'Prima metti la tua caricatura: Ctrl+V (Passo 2). · أولًا ضع الكاريكاتير: Ctrl+V. · 先放你的漫画：Ctrl+V（第2步）。'; return; }
-    if (nome.length < 3) { es.style.color = '#c0392b'; es.textContent = 'Scrivi il tuo nome. · اكتب اسمك. · 写你的名字。'; $('nome').focus(); return; }
-    try { localStorage.setItem('nome-1inf', nome); } catch (x) {}
-    var ok = invia({ id: ID, nome: nome, modo: 'proposta', classe: '1INF', cosa: 'talpa', immagine: tela.toDataURL('image/png'), ora: new Date().toISOString() }, es);
-    if (ok) { es.style.color = '#1a7f37'; es.textContent = 'Mandata alle ' + new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }) + '! · أُرسلت! · 已发送！'; }
+  function serveNome(es) { if (nome().length < 5 || nome().indexOf(' ') < 0) { rosso(es, 'Scrivi nome e cognome (Passo 2). · اكتب الاسم واسم العائلة. · 写名字和姓。'); $('nome').focus(); return false; } try { localStorage.setItem('nome-1inf', nome()); } catch (x) {} return true; }
+  var fotoCanvas = null, chiave = '';
+  $('mandafoto').onclick = function () {
+    var es = $('esitofoto'); if (!serveNome(es)) return;
+    if (!fotoPronta) return rosso(es, 'Prima fai o scegli la foto. · أولًا التقط الصورة. · 先拍照或选照片。');
+    fotoCanvas = fotoTagliata();
+    if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'foto', immagine: fotoCanvas.toDataURL('image/jpeg', 0.85), ora: new Date().toISOString() }, es)) {
+      verde(es, 'Foto mandata alle ' + ora() + '. · أُرسلت. · 已发送。'); $('copiafoto').disabled = false; controlla();
+    }
   };
+  // il prof controlla la foto: l'esito arriva in stato.json (senza nomi: una chiave fatta dal nome)
+  function chiaveDi(n) { var d = new TextEncoder().encode(n.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z ]/g, '').replace(/\s+/g, ' ').trim());
+    return crypto.subtle.digest('SHA-256', d).then(function (h) { return Array.from(new Uint8Array(h)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('').slice(0, 12); }); }
+  function controlla() {
+    if (nome().length < 5) return;
+    chiaveDi(nome()).then(function (k) { chiave = k; return fetch('stato.json?t=' + Date.now()).then(function (r) { return r.json(); }); }).then(function (S) {
+      var x = (S.foto || {})[chiave], el = $('stato');
+      if (!x) return;
+      if (x.esito === 'ok') { el.style.background = '#d3f9d8'; el.textContent = 'Va bene! Vai al Passo 3. · جيد! انتقل إلى الخطوة 3. · 可以！去第3步。'; }
+      else { el.style.background = '#ffe3e3'; el.textContent = 'Rifalla: ' + (x.motivo || '') + ' · أعدها · 重拍'; }
+    }).catch(function () {});
+  }
+  setInterval(controlla, 15000); setTimeout(controlla, 1500);
+  $('copiafoto').onclick = function () {
+    var c = fotoCanvas || (fotoPronta ? fotoTagliata() : null), es = $('esitocopia'); if (!c) return;
+    c.toBlob(function (b) {
+      navigator.clipboard.write([new ClipboardItem({ 'image/png': b })]).then(function () { verde(es, 'Copiata ✓ Ora Gemini: Ctrl+V'); }).catch(function () { rosso(es, 'Non riesco a copiare: chiama il prof.'); });
+    }, 'image/png');
+  };
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copia]'); if (!b) return;
+    var t = document.getElementById(b.getAttribute('data-copia')).textContent + ' ';
+    navigator.clipboard.writeText(t).then(function () { var v = b.textContent; b.textContent = 'Copiata ✓'; setTimeout(function () { b.textContent = v; }, 1500); }).catch(function () {});
+  });
+
+  // ---- la caricatura: Ctrl+V (dopo la foto) o file ----
+  var talpa = null;
+  function metti(f) {
+    if (!f || !/^image\//.test(f.type)) return; var u = URL.createObjectURL(f), img = new Image();
+    img.onload = function () { var c = document.createElement('canvas'); c.width = c.height = 400; var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, 400, 400);
+      var s = Math.min(400 / img.width, 400 / img.height), w = img.width * s, h = img.height * s; x.drawImage(img, (400 - w) / 2, (400 - h) / 2, w, h);
+      talpa = c.toDataURL('image/jpeg', 0.88); $('prova').src = talpa; URL.revokeObjectURL(u); };
+    img.src = u;
+  }
+  document.addEventListener('paste', function (e) {
+    var it = (e.clipboardData || {}).items || [];
+    for (var i = 0; i < it.length; i++) if (it[i].type.indexOf('image') === 0) { e.preventDefault(); var f = it[i].getAsFile(); if (fotoCanvas) metti(f); else daFileFoto(f); return; }
+  });
+  $('scegliTalpa').onclick = function () { $('filetalpa').click(); };
+  $('filetalpa').onchange = function () { metti(this.files[0]); };
+  var n = 0;
+  $('manda').onclick = function () {
+    var es = $('esito'); if (!serveNome(es)) return;
+    if (!talpa) return rosso(es, 'Prima incolla la caricatura: Ctrl+V. · أولًا الصق الكاريكاتير. · 先粘贴漫画。');
+    var d = $('descrizione').value.trim(); if (d.length < 10) { rosso(es, 'Descrivi la tua talpa. · صِف خُلدك. · 描述你的地鼠。'); $('descrizione').focus(); return; }
+    if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'talpa', personaggio: ++n, descrizione: d, immagine: talpa, ora: new Date().toISOString() }, es))
+      verde(es, 'Proposta mandata alle ' + ora() + '! · أُرسل الاقتراح! · 建议已发送！');
+  };
+  $('nuovo').onclick = function () { talpa = null; $('prova').src = 'talpa.png'; $('descrizione').value = ''; $('esito').textContent = ''; window.scrollTo({ top: $('copiafoto').offsetTop - 120, behavior: 'smooth' }); };
   $('rispondi').onclick = function () {
-    var t = $('risposta').value.trim(), es = $('esito2');
-    if (t.length < 2) { es.textContent = '请先写你的回答。'; return; }
-    if (invia({ id: ID, nome: ($('nome').value.trim() || 'Yinlin'), modo: 'domanda', testo: t, ora: new Date().toISOString() }, es)) { es.style.color = '#1a7f37'; es.textContent = '已发送！谢谢。'; }
+    var t = $('risposta').value.trim(), es = $('esito2'); if (t.length < 2) return rosso(es, '请先写你的回答。');
+    if (invia({ id: ID, nome: nome() || 'Yinlin L.', modo: 'domanda', testo: t, ora: new Date().toISOString() }, es)) verde(es, '已发送！谢谢。');
   };
 })();
 </script>
