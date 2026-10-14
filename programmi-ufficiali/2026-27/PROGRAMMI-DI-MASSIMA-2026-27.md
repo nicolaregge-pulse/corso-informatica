@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 0.3** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
+**Versione 0.5** — 14/10/2026 — Area Docente. Proposta di alto livello, corretta con le risposte di Nicola del 14/10, prima di riempire l'Allegato A.
 
 > **Da confermare:** è una proposta. Le voci entrano nei quattro Allegato A solo dopo il sì di Nicola. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -19,7 +19,7 @@
    4. Dopo il 30 ottobre si possono solo togliere voci, non aggiungerle: quindi l'elenco deve essere largo.
    5. I titoli che si scrivono sul registro sono voci dell'Allegato A, con le stesse parole.
    6. L'Allegato A è largo e comprensivo: un tema nuovo entra come sotto-voce di una voce più grande (per esempio il versioning dentro la programmazione). Dopo il 30 ottobre, se facciamo una cosa nuova, sul registro si scrive la voce già presente più simile.
-   7. La competenza 1 (lingua italiana) è trasversale: ci entrano anche le nostre voci di documentazione, glossario e lessico professionale. Se a fine anno un'area resta vuota, c'è un problema nella progettazione.
+   7. Regge scrive solo nelle aree tecnologiche, come negli anni scorsi: competenze 8 e 12-17 per l'Operatore; 7 e 13-16 per il Tecnico. Niente comunicazione e italiano (1, 2), inglese (3), matematica (4), cultura del lavoro (6), cittadinanza (9): decisione di Nicola del 14/10.
 
 ## 02 I fili comuni a tutte le classi
 
@@ -46,18 +46,18 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
-| 1 | Il laboratorio: accesso, regole, dove si salva il lavoro, consegna su Classroom | settembre-ottobre | 12, 9 |
+| 1 | Il laboratorio: accesso, regole, dove si salva il lavoro, consegna su Classroom | settembre-ottobre | 12 |
 | 2 | Il computer dentro: componenti, configurazione a budget, montaggio | ottobre-novembre | 15, 13 |
-| 3 | Numeri e dati: bit, byte, binario, decimale, esadecimale, codifica del testo | ottobre-dicembre | 12, 4 |
+| 3 | Numeri e dati: bit, byte, binario, decimale, esadecimale, codifica del testo | ottobre-dicembre | 12 |
 | 4 | Come cambia un programma: le richieste di modifica, il backlog, i cicli di lavoro Agile, senza Git | ottobre-giugno | 12 |
 | 5 | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, più la sicurezza dei dati (account, password, lavoro salvato in modo sicuro) | tutto l'anno, Sicurezza professionale | 14 |
-| 6 | Il mio primo gioco con Godot: Acchiappa la talpa con la mia immagine, per telefono e browser | ottobre-dicembre | 17, 2 |
+| 6 | Il mio primo gioco con Godot: Acchiappa la talpa con la mia immagine, per telefono e browser | ottobre-dicembre | 17 |
 | 7 | Logica e primi programmi: diagrammi di flusso, coding a blocchi, porte logiche | gennaio-marzo | 12, 17 |
 | 8 | Lazarus, primi passi: Button, Edit, Label, il primo programma | febbraio-aprile | 17 |
 | 9 | La rete di casa e la manutenzione del PC | aprile-maggio | 16, 13 |
-| 10 | Sicurezza digitale in laboratorio: regolamento strumenti digitali e IA, voci e volti falsi, immagini e privacy | tutto l'anno | 9 |
-| 11 | Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese) | tutto l'anno | 1, 3 |
-| 12 | Il mondo del lavoro dell'informatico: la bussola dei mestieri | maggio-giugno | 6 |
+| 10 | Sicurezza digitale in laboratorio: regolamento strumenti digitali e IA, voci e volti falsi, immagini e privacy | tutto l'anno | 14 |
+| 11 | Glossario L2 e lessico professionale (italiano, inglese, arabo, cinese) | tutto l'anno | 12 |
+| 12 | Il mondo del lavoro dell'informatico: la bussola dei mestieri | maggio-giugno | 12 |
 
 ### 03.4 Sotto-voci
 
@@ -125,19 +125,19 @@ Programmare davvero (Lazarus) e lavorare come un team (il treno della classe su 
 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
-| 1 | Lazarus, le condizioni: if/then/else, if annidati, convertitori | settembre-novembre | 17, 4 |
+| 1 | Lazarus, le condizioni: if/then/else, if annidati, convertitori | settembre-novembre | 17 |
 | 2 | Versioning e metodo Agile: Manifesto, backlog con i pesi, Pull Request, versioni, changelog; compito e verifica di fine tema | ottobre-giugno | 12 |
-| 3 | Usare l'intelligenza artificiale per studiare e lavorare: il libro della classe, le domande giuste, i limiti | tutto l'anno | 8, 1 |
+| 3 | Usare l'intelligenza artificiale per studiare e lavorare: il libro della classe, le domande giuste, i limiti | tutto l'anno | 8 |
 | 4 | Il treno della classe su Godot: il ramo della 2INF, scene, nodi, segnali, game loop | novembre-giugno | 17, 12 |
 | 5 | Lazarus, oggetti e dati: RadioButton, ComboBox, cicli, array, stringhe, MasterMind | dicembre-marzo | 17 |
 | 6 | Sicurezza sul lavoro: le 16 ore del corso ufficiale | tutto l'anno, Sicurezza professionale | 14 |
 | 7 | Reti: indirizzo IP, MAC, DHCP, DNS, gateway; Packet Tracer, prime reti | gennaio-marzo | 16 |
 | 8 | Sistema operativo: installazione, configurazione, risorse condivise | febbraio-marzo | 15, 13 |
 | 9 | Il mio negozio online: web, dati, ordini | aprile-maggio | 15, 17 |
-| 10 | Dati e fogli di calcolo: formule, grafici, preventivo | marzo-aprile | 4, 15 |
-| 11 | Comunicazione multimediale: Canva avanzato, video, presentazione del lavoro | tutto l'anno | 2 |
-| 12 | Cittadinanza digitale: phishing, deepfake, social, intelligenza artificiale | tutto l'anno | 9, 8 |
-| 13 | Lavoro in team e figure professionali dell'informatica | maggio-giugno | 6, 12 |
+| 10 | Dati e fogli di calcolo: formule, grafici, preventivo | marzo-aprile | 15 |
+| 11 | Comunicazione multimediale: Canva avanzato, video, presentazione del lavoro | tutto l'anno | 15 |
+| 12 | Cittadinanza digitale: phishing, deepfake, social, intelligenza artificiale | tutto l'anno | 8 |
+| 13 | Lavoro in team e figure professionali dell'informatica | maggio-giugno | 12 |
 
 ### 04.4 Sotto-voci
 
@@ -209,16 +209,16 @@ Lavorare come un'azienda: un sito pubblico, un gioco che cresce con le richieste
 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
-| 1 | Il mio sito: HTML, CSS, pubblicazione su GitHub Pages, portfolio delle competenze | settembre-novembre | 15, 2 |
+| 1 | Il mio sito: HTML, CSS, pubblicazione su GitHub Pages, portfolio delle competenze | settembre-novembre | 15 |
 | 2 | La squadra come un'azienda: fork, Pull Request, merge, versioni, release, metodo Agile, cerimonie | ottobre-giugno | 12 |
 | 3 | Il treno della 3INF su Godot: dal gioco in HTML al motore Godot, GDScript, game loop, collisioni | novembre-marzo | 17 |
-| 4 | Database: concetto di archivio, tabelle, linguaggio SQL, analisi dei dati | gennaio-marzo | 17, 4 |
+| 4 | Database: concetto di archivio, tabelle, linguaggio SQL, analisi dei dati | gennaio-marzo | 17 |
 | 5 | Reti: cablaggio RJ45, piccola LAN, indirizzamento, Packet Tracer | febbraio-aprile | 16, 13 |
 | 6 | Lavorare in sicurezza in laboratorio: postazione, videoterminale, dati e account | tutto l'anno | 14 |
-| 7 | Documentazione tecnica: manuale utente, relazione, changelog, presentazione del progetto | tutto l'anno | 12, 1 |
-| 8 | Comunicazione digitale: contenuti per il web, il sito per un cliente su GitHub Pages | marzo-maggio | 2 |
-| 9 | Verso la qualifica: la prova di qualifica e il racconto del proprio lavoro | aprile-giugno | 6, 9 |
-| 10 | Cittadinanza digitale: privacy, diritti d'autore, rispetto del lavoro degli altri | tutto l'anno | 9 |
+| 7 | Documentazione tecnica: manuale utente, relazione, changelog, presentazione del progetto | tutto l'anno | 12 |
+| 8 | Comunicazione digitale: contenuti per il web, il sito per un cliente su GitHub Pages | marzo-maggio | 15 |
+| 9 | Verso la qualifica: la prova di qualifica e il racconto del proprio lavoro | aprile-giugno | 12 |
+| 10 | Cittadinanza digitale: privacy, diritti d'autore, rispetto del lavoro degli altri | tutto l'anno | 12 |
 
 ### 05.4 Sotto-voci
 
@@ -287,11 +287,11 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
 | 1 | Il modello ISO/OSI e TCP/IP: il viaggio di un messaggio | settembre-ottobre | 7, 16 |
-| 2 | Indirizzamento e sottoreti: IP, maschera, gateway, DHCP, DNS | novembre-dicembre | 16, 4 |
+| 2 | Indirizzamento e sottoreti: IP, maschera, gateway, DHCP, DNS | novembre-dicembre | 16 |
 | 3 | La rete di una scuola in Packet Tracer: switch, router, VLAN, collaudo con il ping (fatto l'anno scorso: si tiene se la classe ci arriva) | gennaio-marzo | 16, 14 |
 | 4 | Sicurezza dell'informazione: firewall, segmentazione, password, backup, phishing, intrusioni | febbraio-aprile | 15 |
 | 5 | Il progetto individuale: un programma in Lazarus o l'architettura di una rete; dall'analisi all'installazione, con Git, versioni e documentazione | tutto l'anno | 14, 13, 16 |
-| 6 | Documentazione e comunicazione tecnica: relazione, manuale, presentazione; Git e AI con NotebookLM | tutto l'anno | 13, 1, 2 |
+| 6 | Documentazione e comunicazione tecnica: relazione, manuale, presentazione; Git e AI con NotebookLM | tutto l'anno | 13 |
 | 7 | Etica del tecnico: privacy dei dati, regole, intelligenza artificiale nel lavoro | tutto l'anno | 7 |
 
 ### 06.4 Sotto-voci
@@ -337,6 +337,8 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+5. **v0.5 (14/10/2026)**: solo aree tecnologiche, come negli anni scorsi (8, 12-17; 4TI: 7, 13-16). Tolte matematica (4), cultura del lavoro (6), cittadinanza (9); i moduli rimasti senza area vanno nella 12, 14 o 15.
+4. **v0.4 (14/10/2026)**: Regge esce dalle aree della comunicazione (1 e 2) e della lingua inglese (3). Glossario nella competenza 12; comunicazione multimediale (2INF) e comunicazione digitale (3INF) nella 15.
 3. **v0.3 (14/10/2026)**: la parte di Regge è il Laboratorio di informatica; l'informatica di base è di un collega. Tolti i doppioni: 1INF senza «Comunicare con il digitale» (Documenti, Presentazioni, Gmail, Canva) e senza phishing; 3INF senza CV Europass; nessuna voce di Regge nella competenza 8 di 1INF, 3INF e 4TI, dove scrivono altri.
 2. **v0.2 (14/10/2026)**: risposte di Nicola. Tolte le ore settimanali (non servono). Aggiunte le sotto-voci minime di ogni modulo. 4TI: tolti Sicurezza professionale (non è sua), Godot, SQL e il modulo dello stage; resta solo il progetto individuale (Lazarus o rete); Packet Tracer e firewall restano, se la classe ci arriva. 3INF: la sicurezza diventa «lavorare in sicurezza in laboratorio» (la Sicurezza professionale è solo in 1INF e 2INF).
 1. **v0.1 (14/10/2026)**: prima proposta di alto livello dei programmi delle quattro classi, per moduli, periodi e competenze dell'Allegato A.
