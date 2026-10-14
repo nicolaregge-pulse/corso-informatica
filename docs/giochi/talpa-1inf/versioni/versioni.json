@@ -32,5 +32,690 @@
   ],
   "invariato": "Tutte le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine.",
   "tipo": "Versione di partenza: v1.0."
+ },
+ {
+  "versione": "v1.1",
+  "nome": "Entra il personaggio di Personaggio 1",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-1",
+  "pr": "PR 1",
+  "autore": "Personaggio 1",
+  "entrati": [
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 1: adesso nel gioco ci sono 2 personaggi.",
+   "ar": "تدخل شخصية Personaggio 1: الآن في اللعبة 2 شخصيات.",
+   "zh": "Personaggio 1 的角色加入了：现在游戏里有 2 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 1 di Personaggio 1, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-1»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 1, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-1» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 1, adesso sono 2. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 1.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t01.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t01.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.0 → v1.1)."
+ },
+ {
+  "versione": "v1.2",
+  "nome": "Entra il personaggio di Personaggio 2",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-2",
+  "pr": "PR 2",
+  "autore": "Personaggio 2",
+  "entrati": [
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 2: adesso nel gioco ci sono 3 personaggi.",
+   "ar": "تدخل شخصية Personaggio 2: الآن في اللعبة 3 شخصيات.",
+   "zh": "Personaggio 2 的角色加入了：现在游戏里有 3 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 2 di Personaggio 2, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-2»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 2, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-2» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 2, adesso sono 3. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 2.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t02.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t02.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.1 → v1.2)."
+ },
+ {
+  "versione": "v1.3",
+  "nome": "Entra il personaggio di Personaggio 3",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-3",
+  "pr": "PR 3",
+  "autore": "Personaggio 3",
+  "entrati": [
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 3: adesso nel gioco ci sono 4 personaggi.",
+   "ar": "تدخل شخصية Personaggio 3: الآن في اللعبة 4 شخصيات.",
+   "zh": "Personaggio 3 的角色加入了：现在游戏里有 4 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 3 di Personaggio 3, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-3»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 3, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-3» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 3, adesso sono 4. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 3.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t03.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t03.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.2 → v1.3)."
+ },
+ {
+  "versione": "v1.4",
+  "nome": "Entra il personaggio di Personaggio 4",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-4",
+  "pr": "PR 4",
+  "autore": "Personaggio 4",
+  "entrati": [
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 4: adesso nel gioco ci sono 5 personaggi.",
+   "ar": "تدخل شخصية Personaggio 4: الآن في اللعبة 5 شخصيات.",
+   "zh": "Personaggio 4 的角色加入了：现在游戏里有 5 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 4 di Personaggio 4, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-4»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 4, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-4» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 4, adesso sono 5. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 4.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t04.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t04.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.3 → v1.4)."
+ },
+ {
+  "versione": "v1.5",
+  "nome": "Entra il personaggio di Personaggio 5",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-5",
+  "pr": "PR 5",
+  "autore": "Personaggio 5",
+  "entrati": [
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 5: adesso nel gioco ci sono 6 personaggi.",
+   "ar": "تدخل شخصية Personaggio 5: الآن في اللعبة 6 شخصيات.",
+   "zh": "Personaggio 5 的角色加入了：现在游戏里有 6 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 5 di Personaggio 5, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-5»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 5, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-5» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 5, adesso sono 6. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 5.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t05.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t05.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.4 → v1.5)."
+ },
+ {
+  "versione": "v1.6",
+  "nome": "Entra il personaggio di Personaggio 6",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-6",
+  "pr": "PR 6",
+  "autore": "Personaggio 6",
+  "entrati": [
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 6: adesso nel gioco ci sono 7 personaggi.",
+   "ar": "تدخل شخصية Personaggio 6: الآن في اللعبة 7 شخصيات.",
+   "zh": "Personaggio 6 的角色加入了：现在游戏里有 7 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 6 di Personaggio 6, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-6»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 6, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-6» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 6, adesso sono 7. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 6.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t06.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t06.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.5 → v1.6)."
+ },
+ {
+  "versione": "v1.7",
+  "nome": "Entra il personaggio di Personaggio 7",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-7",
+  "pr": "PR 7",
+  "autore": "Personaggio 7",
+  "entrati": [
+   {
+    "chi": "Personaggio 7",
+    "file": "talpe/t07.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Personaggio 7",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 7: adesso nel gioco ci sono 8 personaggi.",
+   "ar": "تدخل شخصية Personaggio 7: الآن في اللعبة 8 شخصيات.",
+   "zh": "Personaggio 7 的角色加入了：现在游戏里有 8 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 7 di Personaggio 7, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-7»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 7, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-7» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 7, adesso sono 8. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 7.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t07.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t07.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.6 → v1.7)."
+ },
+ {
+  "versione": "v1.8",
+  "nome": "Entra il personaggio di Personaggio 8",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-8",
+  "pr": "PR 8",
+  "autore": "Personaggio 8",
+  "entrati": [
+   {
+    "chi": "Personaggio 8",
+    "file": "talpe/t08.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Personaggio 7",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Personaggio 8",
+    "file": "talpe/t08.jpg",
+    "dal": "v1.8"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 8: adesso nel gioco ci sono 9 personaggi.",
+   "ar": "تدخل شخصية Personaggio 8: الآن في اللعبة 9 شخصيات.",
+   "zh": "Personaggio 8 的角色加入了：现在游戏里有 9 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 8 di Personaggio 8, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-8»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 8, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-8» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 8, adesso sono 9. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 8.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t08.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t08.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.7 → v1.8)."
+ },
+ {
+  "versione": "v1.9",
+  "nome": "Entra il personaggio di Personaggio 9",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-9",
+  "pr": "PR 9",
+  "autore": "Personaggio 9",
+  "entrati": [
+   {
+    "chi": "Personaggio 9",
+    "file": "talpe/t09.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Personaggio 7",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Personaggio 8",
+    "file": "talpe/t08.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Personaggio 9",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 9: adesso nel gioco ci sono 10 personaggi.",
+   "ar": "تدخل شخصية Personaggio 9: الآن في اللعبة 10 شخصيات.",
+   "zh": "Personaggio 9 的角色加入了：现在游戏里有 10 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 9 di Personaggio 9, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-9»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 9, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-9» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 9, adesso sono 10. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 9.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t09.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t09.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.8 → v1.9)."
+ },
+ {
+  "versione": "v1.10",
+  "nome": "Entra il personaggio di Personaggio 10",
+  "data": "14/10/2026",
+  "ora": "09:16",
+  "ramo": "personaggio-personaggio-10",
+  "pr": "PR 10",
+  "autore": "Personaggio 10",
+  "entrati": [
+   {
+    "chi": "Personaggio 10",
+    "file": "talpe/t10.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Personaggio 1",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Personaggio 2",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Personaggio 3",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Personaggio 4",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Personaggio 5",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Personaggio 6",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Personaggio 7",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Personaggio 8",
+    "file": "talpe/t08.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Personaggio 9",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Personaggio 10",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Personaggio 10: adesso nel gioco ci sono 11 personaggi.",
+   "ar": "تدخل شخصية Personaggio 10: الآن في اللعبة 11 شخصيات.",
+   "zh": "Personaggio 10 的角色加入了：现在游戏里有 11 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 10 di Personaggio 10, arrivata alle 09:16 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-personaggio-10»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Personaggio 10, descritto così con le sue parole: «personaggio a fumetto fatto dalla foto scattata in classe dal prof (nome in arrivo)».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-personaggio-10» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 10, adesso sono 11. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Personaggio 10.",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t10.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t10.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.9 → v1.10)."
  }
 ]

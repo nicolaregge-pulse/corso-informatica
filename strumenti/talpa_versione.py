@@ -79,7 +79,7 @@ def aggiungi(a):
     ultima = vers[-1]["versione"]
     maj, mi = ultima[1:].split(".")[:2]
     nuova = f"v{maj}.{int(mi) + 1}"
-    chi = breve(a.nome)
+    chi = a.chi or breve(a.nome)
     quanti_suoi = sum(1 for t in elenco["talpe"] if t["chi"] == chi)
     n = len(elenco["talpe"]) + 1
     nome_file = f"t{n:02d}.jpg"
@@ -124,6 +124,6 @@ def aggiungi(a):
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--inizio", action="store_true"); p.add_argument("--nome"); p.add_argument("--immagine"); p.add_argument("--descrizione", default="")
-    p.add_argument("--pr", type=int); p.add_argument("--arrivo"); p.add_argument("--foto-ok", action="store_true")
+    p.add_argument("--pr", type=int); p.add_argument("--chi", help="nome da mostrare, se diverso da «Nome I.»"); p.add_argument("--arrivo"); p.add_argument("--foto-ok", action="store_true")
     a = p.parse_args()
     inizio() if a.inizio else aggiungi(a)
