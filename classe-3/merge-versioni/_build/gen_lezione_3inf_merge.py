@@ -51,9 +51,9 @@ P.append(passo(5, "rev", "La tua revisione", "আপনার পর্যাল
   T("Nei lavori veri, dopo il Merge si controlla. Scrivi 2 righe: la tua richiesta è nel gioco? È fatta bene? Che cosa manca? Se la tua richiesta non c'era, scrivi che cosa ti piace o non ti piace di una versione nuova.",
     "আসল কাজে Merge-এর পরে যাচাই করা হয়। ২ লাইন লিখুন: আপনার অনুরোধ কি গেমে আছে? ঠিকমতো করা হয়েছে? কী বাকি? আপনার অনুরোধ না থাকলে, নতুন সংস্করণের কী ভালো বা খারাপ লাগল লিখুন।") +
   modulo("rev", "revisione", "Scrivi la tua revisione qui.", "এখানে আপনার পর্যালোচনা লিখুন।", "Esempio: la v1.8 con l'alieno verde è giusta, ma vorrei che fosse più veloce")))
-P.append(passo(6, "pr", "Le tue nuove richieste: PR1, PR2, PR3", "আপনার নতুন অনুরোধ: PR1, PR2, PR3",
-  T("Puoi mandare 3 richieste, una alla volta. Ogni richiesta ha 4 parti: <b>Titolo</b>, <b>Cosa cambia</b>, <b>Dove</b>, <b>Perché</b>. Niente foto di persone vere. Il prof le mette nel gioco durante la lezione: guarda le versioni nuove!",
-    "আপনি ৩টি অনুরোধ পাঠাতে পারেন, একবারে একটি। প্রতিটির ৪টি অংশ: <b>শিরোনাম</b>, <b>কী বদলাবে</b>, <b>কোথায়</b>, <b>কেন</b>। আসল মানুষের ছবি নয়। শিক্ষক ক্লাস চলাকালীন সেগুলো গেমে দেবেন।") +
+P.append(passo(6, "pr", "Le tue nuove richieste: almeno 3 (PR1, PR2, PR3)", "আপনার নতুন অনুরোধ: অন্তত ৩টি (PR1, PR2, PR3)",
+  T("<b>Oggi mandi almeno 3 richieste</b>, una alla volta: PR1, PR2, PR3. Se vuoi, anche di più. Ogni richiesta ha 4 parti: <b>Titolo</b>, <b>Cosa cambia</b>, <b>Dove</b>, <b>Perché</b>. Niente foto di persone vere. Il prof le mette nel gioco durante la lezione: guarda le versioni nuove!",
+    "<b>আজ অন্তত ৩টি অনুরোধ পাঠান</b>, একবারে একটি: PR1, PR2, PR3। চাইলে আরও বেশি। প্রতিটির ৪টি অংশ: <b>শিরোনাম</b>, <b>কী বদলাবে</b>, <b>কোথায়</b>, <b>কেন</b>। আসল মানুষের ছবি নয়। শিক্ষক ক্লাস চলাকালীন সেগুলো গেমে দেবেন।") +
   '<div class="esito" id="contaPR"></div>' +
   modulo("pr", "PR", "Scrivi la richiesta con le 4 parti.", "৪টি অংশসহ অনুরোধ লিখুন।", "Titolo: ...\nCosa cambia: ...\nDove: ...\nPerché: ...")))
 P.append(passo(7, "rip", "Ripasso", "পুনরালোচনা",

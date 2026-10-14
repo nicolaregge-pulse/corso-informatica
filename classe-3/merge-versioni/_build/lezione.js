@@ -32,8 +32,7 @@
     if (fatto('changelog')) spegni($('bChangelog'));
     if (fatto('rev')) { ['t-rev'].forEach(function (i) { $(i).disabled = true; }); [].forEach.call(document.querySelectorAll('#p-rev .bot'), spegni); verde($('e-rev'), '✓ Revisione mandata.'); }
     var np = n('pr');
-    $('contaPR').innerHTML = 'Richieste mandate: <b>' + np + ' di 3</b> · পাঠানো অনুরোধ: ' + np + '/3';
-    if (np >= 3) { $('t-pr').disabled = true; [].forEach.call(document.querySelectorAll('#p-pr .bot'), spegni); }
+    $('contaPR').innerHTML = 'Richieste mandate: <b>' + np + (np >= 3 ? '</b> · ✓ le 3 obbligatorie sono fatte: puoi mandarne altre' : ' di 3</b>') + ' · পাঠানো অনুরোধ: ' + np + (np >= 3 ? ' ✓' : '/3');
     if (fatto('rip')) spegni($('bRip'));
     var v = esito('verifica');
     if (v) { spegni($('bVer')); spegni($('bRip')); $('bVer').textContent = '✓ Verifica fatta'; }
