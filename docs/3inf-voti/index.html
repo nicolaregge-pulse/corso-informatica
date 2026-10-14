@@ -12,18 +12,19 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 </style></head><body><div class="w">
 <h1>I voti della 3INF: il merge e le Pull Request del treno</h1><p class="mu">14/10/2026 · <span id="agg">carico…</span> · si aggiorna da solo ogni minuto</p>
 <p><a class="bt" target="_blank" href="../3inf-backlog/">Il backlog</a><a class="bt" target="_blank" href="../3inf-monitor/">Il monitor della lezione</a><a class="bt" target="_blank" href="../giochi/treno-3inf/versioni/">Le versioni del gioco</a></p>
-<div class="card"><p><b>Come si calcola il voto di oggi (14/10)</b></p><ol>
-<li>Nessuna consegna: 40.</li>
-<li>La revisione (Passo 5) mandata: 50.</li>
-<li>Ogni nuova Pull Request scritta bene (Titolo · Cosa cambia · Dove · Perché): +10, fino a 3 (massimo 80).</li>
-<li>Una tua Pull Request è entrata nel gioco (di lunedì o di oggi): +10. Due o più nel gioco: +20.</li>
-<li>Non contano: i doppioni, le richieste che non dicono cosa cambiare, le foto di persone vere.</li></ol></div>
-<div class="card"><table><thead><tr><th>Alunno</th><th>PR inviate</th><th>PR nel gioco</th><th>Revisione</th><th>Voto</th><th>Perché</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
+<div class="card"><p><b>Come si calcola il voto di oggi (14/10) · proposta, da approvare dal prof</b></p><ol>
+<li>Tutti partono da 40.</li>
+<li>Revisione mandata (Passo 5): +10.</li>
+<li>Ogni richiesta di oggi (PR1, PR2, PR3): +10, fino a 3.</li>
+<li>Analisi del backlog mandata (Passo 7): +10.</li>
+<li>Almeno una tua richiesta entrata nel gioco: +10. Massimo 100.</li></ol>
+<p><b>Lo stipendio</b>, come in un'azienda: ogni richiesta approvata (entrata nel gioco) vale il suo peso × 100 €. Peso 1 = 100 €, peso 3 = 300 €, peso 8 = 800 €. Lo stipendio è a parte rispetto al voto.</p></div>
+<div class="card"><table><thead><tr><th>Alunno</th><th>PR inviate</th><th>PR nel gioco</th><th>Revisione</th><th>Voto</th><th>Perché</th><th>Stipendio</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
 <p class="mu">Il voto è una proposta del prof, calcolata dal backlog: il voto vero lo decide il prof.</p>
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){fetch('voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
- document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td></tr>'}).join('')}).catch(function(){})}
+ document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td><td><b>'+(v.stipendio||0)+' €</b><br><small>'+e(v.stipendio_conto||'')+'</small></td></tr>'}).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 </script></body></html>
