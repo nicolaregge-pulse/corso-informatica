@@ -486,13 +486,20 @@ func mostra(id: String) -> void:
 	aggiorna_misure()
 
 
+## Il titolo della scheda del browser (o della finestra): quello di dati/versione.json, con il numero della versione.
+func metti_titolo() -> void:
+	var tit := str(gioco.VERSIONE.get("titolo", "Il treno blindato"))
+	get_window().title = tit
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("document.title=%s" % JSON.stringify(tit), true)
+
+
 func prepara_schermate() -> void:
 	var V: Dictionary = gioco.VERSIONE
 	w_ver.text = "versione " + str(V.versione) + (" · " + str(V.nome) if str(V.nome) != "" else "")
-	if OS.has_feature("web"):
-		JavaScriptBridge.eval("document.title=%s" % JSON.stringify(str(V.get("titolo", "Il treno blindato"))), true)
-	else:
-		get_window().title = str(V.get("titolo", "Il treno blindato"))
+	metti_titolo()
+	# 3INF v2.0: nel browser Godot rimette il nome del progetto dopo l'avvio: il titolo con la versione si rimette dopo un attimo
+	get_tree().create_timer(1.0).timeout.connect(metti_titolo)
 	w_titolo.text = gioco.TX.titolo
 	w_sotto.text = gioco.TX.sottotitolo
 	aggiorna_record()

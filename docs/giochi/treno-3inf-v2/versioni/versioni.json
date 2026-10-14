@@ -3,7 +3,7 @@
   "versione": "v2.0",
   "nome": "Il fork pulito della 3INF",
   "cambi": "La 3INF riparte da un fork pulito della base del prof su Godot (v1.0). Versione MAJOR 2.0 perché è cambiato il motore (prima il treno della 3INF era in HTML). Velocità tranquilla della base (0.5). Motore: nuove chiavi aumento_per_livello (regole.json), rocce_varie (ambienti), tuta e pelle (cattivi).",
-  "data": "14/10/2026 12:36",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  },
@@ -11,7 +11,7 @@
   "versione": "v2.1",
   "nome": "Noah: il treno accelera a ogni livello",
   "cambi": "PR di Noah (REGOLE): il treno parte lento (velocita_treno 0.5, come la base) e a ogni livello va un po' più veloce (aumento_per_livello 0.06, cioè +6% per livello). Aumento dolce, richiesto dal prof: niente velocità esagerate.",
-  "data": "14/10/2026 12:37",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  },
@@ -19,7 +19,7 @@
   "versione": "v2.2",
   "nome": "Andrea G.: cielo grigio in città",
   "cambi": "PR di Andrea G. (AMBIENTI): in città il cielo è grigio (cielo_alto #6f767e, cielo_basso #b9bec4). Conflitto risolto: il grigio vale solo per la città, la montagna non si tocca, come avevano chiesto Dani e Ale (montagna serena).",
-  "data": "14/10/2026 12:37",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  },
@@ -27,7 +27,7 @@
   "versione": "v2.3",
   "nome": "Ariel: rocce di grandezze e toni diversi",
   "cambi": "PR di Ariel (AMBIENTI): in montagna le rocce hanno grandezze diverse (da 0.6 a 1.5 volte) e toni un po' più chiari o più scuri (rocce_varie: true, chiave nuova del motore della 3INF).",
-  "data": "14/10/2026 12:37",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  },
@@ -35,7 +35,7 @@
   "versione": "v2.4",
   "nome": "Ariel: l'alieno verde tra i nemici",
   "cambi": "PR di Ariel (CATTIVI): tra i nemici compare l'Alieno verde (cattivi/pc13.json): pelle verde, tuta argento, dice «BLIP BLOP!».",
-  "data": "14/10/2026 12:37",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  },
@@ -43,15 +43,7 @@
   "versione": "v2.5",
   "nome": "David A.: paesaggio meno vuoto",
   "cambi": "PR di David A. (AMBIENTI): in montagna ci sono più rocce, il paesaggio è meno vuoto (densita 3, il massimo).",
-  "data": "14/10/2026 12:37",
-  "commit": "",
-  "commit_sorgente": ""
- },
- {
-  "versione": "v2.6",
-  "nome": "Tomas: il nemico Tuta",
-  "cambi": "PR di Tomas (CATTIVI): il nemico Tuta, con la tuta arancione (cattivi/pc31.json), dice «Ehi, ferma il treno!».",
-  "data": "14/10/2026 12:38",
+  "data": "14/10/2026 12:42",
   "commit": "",
   "commit_sorgente": ""
  }
