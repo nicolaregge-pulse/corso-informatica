@@ -17,6 +17,8 @@
    3. Ogni voce ha i suoi sotto-argomenti.
    4. Dopo il 30 ottobre si possono solo togliere voci, non aggiungerle: quindi l'elenco deve essere largo.
    5. I titoli che si scrivono sul registro sono voci dell'Allegato A, con le stesse parole.
+   6. L'Allegato A è largo e comprensivo: un tema nuovo entra come sotto-voce di una voce più grande (per esempio il versioning dentro la programmazione). Dopo il 30 ottobre, se facciamo una cosa nuova, sul registro si scrive la voce già presente più simile.
+   7. La competenza 1 (lingua italiana) è trasversale: ci entrano anche le nostre voci di documentazione, glossario e lessico professionale. Se a fine anno un'area resta vuota, c'è un problema nella progettazione.
 3. Le ore dell'anno sono stimate su 33 settimane, con l'orario della settimana del 5-9 ottobre.
 
 ## 02 I fili comuni a tutte le classi
@@ -45,9 +47,10 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 | 1 | Il mio ambiente digitale: utenze, cartelle, Google, Classroom, regole del laboratorio | settembre-ottobre | 8, 9 |
 | 2 | Il computer dentro: componenti, configurazione a budget, montaggio | ottobre-novembre | 15, 13 |
 | 3 | Numeri e dati: bit, byte, binario, decimale, esadecimale, codifica del testo | ottobre-dicembre | 12, 4 |
-| 4 | Versioni e lavoro di squadra: il gioco della classe, Pull Request, changelog | ottobre-giugno | 12 |
-| 5 | Sicurezza sul lavoro: le 16 ore del corso ufficiale | tutto l'anno, Sicurezza professionale | 14 |
-| 6 | Logica e primi programmi: diagrammi di flusso, coding a blocchi, porte logiche, primo gioco | gennaio-marzo | 12, 17 |
+| 4 | Come cambia un programma: le richieste di modifica, il backlog, i cicli di lavoro Agile, senza Git | ottobre-giugno | 12 |
+| 5 | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, più la sicurezza dei dati (account, password, lavoro salvato in modo sicuro) | tutto l'anno, Sicurezza professionale | 14 |
+| 6 | Il mio primo gioco con Godot: Acchiappa la talpa con la mia immagine, per telefono e browser | ottobre-dicembre | 17, 2 |
+| 6b | Logica e primi programmi: diagrammi di flusso, coding a blocchi, porte logiche | gennaio-marzo | 12, 17 |
 | 7 | Lazarus, primi passi: Button, Edit, Label, il primo programma | febbraio-aprile | 17 |
 | 8 | La rete di casa e la manutenzione del PC | aprile-maggio | 16, 13 |
 | 9 | Comunicare con il digitale: Documenti, Presentazioni, Gmail, Canva | tutto l'anno | 2, 1 |
@@ -59,7 +62,7 @@ Dal «so accendere il computer» al «ho fatto un gioco che funziona e so dire c
 
 ### 04.1 Profilo
 1. Seconda annualità: prosegue il lavoro della prima.
-2. Circa 10 ore la settimana, circa 330 ore l'anno: Laboratorio professionale (6), Informatica (2), Sicurezza professionale (1), più un'ora variabile.
+2. Circa 10 ore la settimana, circa 330 ore l'anno: Laboratorio professionale (7), Informatica (2), Sicurezza professionale (1).
 3. Lingue di aiuto: italiano e cinese.
 
 ### 04.2 Il filo dell'anno
@@ -70,7 +73,8 @@ Programmare davvero (Lazarus) e lavorare come un team (il treno della classe su 
 | N. | Modulo | Periodo | Competenze dell'Allegato A |
 |---|---|---|---|
 | 1 | Lazarus, le condizioni: if/then/else, if annidati, convertitori | settembre-novembre | 17, 4 |
-| 2 | Versioning e metodo Agile: Manifesto, backlog con i pesi, Pull Request, versioni, changelog | ottobre-giugno | 12 |
+| 2 | Versioning e metodo Agile: Manifesto, backlog con i pesi, Pull Request, versioni, changelog; compito e verifica di fine tema | ottobre-giugno | 12 |
+| 2b | Usare l'intelligenza artificiale per studiare e lavorare: il libro della classe, le domande giuste, i limiti | tutto l'anno | 8, 1 |
 | 3 | Il treno della classe su Godot: il ramo della 2INF, scene, nodi, segnali, game loop | novembre-giugno | 17, 12 |
 | 4 | Lazarus, oggetti e dati: RadioButton, ComboBox, cicli, array, stringhe, MasterMind | dicembre-marzo | 17 |
 | 5 | Sicurezza sul lavoro: le 16 ore del corso ufficiale | tutto l'anno, Sicurezza professionale | 14 |
@@ -126,19 +130,20 @@ Le reti, il progetto e lo stage: progettare, installare, mettere in sicurezza e 
 | 2 | Indirizzamento e sottoreti: IP, maschera, gateway, DHCP, DNS | novembre-dicembre | 16, 4 |
 | 3 | La rete di una scuola in Packet Tracer: switch, router, VLAN, collaudo con il ping | gennaio-marzo | 16, 14 |
 | 4 | Sicurezza dell'informazione: firewall, segmentazione, password, backup, phishing, intrusioni | febbraio-aprile | 15, 10 |
-| 5 | Il progetto dell'anno: dall'analisi all'installazione, con Git, versioni e documentazione | tutto l'anno | 14, 13 |
+| 5 | Il progetto individuale dell'anno, a scelta: un programma in Lazarus, un gioco in Godot o l'architettura di una rete; dall'analisi all'installazione, con Git, versioni e documentazione | tutto l'anno | 14, 13, 16 |
+| 5b | Possibili approfondimenti del progetto: database e SQL, Godot dal 2D al 3D | da decidere | 16, 4 |
 | 6 | Documentazione e comunicazione tecnica: relazione, manuale, presentazione; Git e AI con NotebookLM | tutto l'anno | 13, 1, 2 |
 | 7 | Sicurezza sul lavoro e al videoterminale | tutto l'anno | 10 |
-| 8 | Lo stage: progetti per le aziende, diario, relazione finale | periodo di stage | 6, 5, 13 |
+| 8 | Lo stage: il progetto per l'azienda nel suo repository, diario, relazione finale | periodo di stage | 6, 5, 13 |
 | 9 | Etica e cittadinanza digitale: privacy, regole, intelligenza artificiale | tutto l'anno | 8, 7 |
 
 ## 07 Cosa manca per passare all'Allegato A
 
 > **Da confermare:**
-> 1. Godot in 1INF: oggi c'è un primo gioco (la talpa); va bene come «assaggio» nel modulo 6 o lo togliamo?
+> 1. 4TI: insegni anche Sicurezza professionale? Teniamo Godot e SQL come voci possibili? Le voci dell'anno scorso senza «Regge» (Packet Tracer, firewall, Lazarus) erano tue?
 > 2. 2INF e 3INF: in quale annualità del loro Allegato A scriviamo (II e III)? I file Word v0.1 mostrano solo la colonna della I.
-> 3. 4TI: il progetto dell'anno e lo stage sono legati? Quali aziende e quali periodi?
-> 4. Ore settimanali: le ho prese dalla settimana del 5-9 ottobre. Vanno bene per tutto l'anno?
+> 3. 4TI: il progetto individuale e il progetto di stage sono lo stesso? In che periodo è lo stage?
+> 4. Ore settimanali: le ho prese dall'orario del 4 ottobre. Per la 2INF la foto dell'orario del 7 ottobre dà 9 ore invece di 10: qual è giusto?
 
 1. Dopo il sì di Nicola su questa proposta, ogni modulo si apre nei suoi sotto-argomenti, presi da `PROGRAMMA-PREVENTIVO-2026-27.md` (v0.5) e da `GRIGLIA-ARGOMENTI.md`.
 2. Poi si rigenerano i quattro file Word con «Regge» in alto in ogni area e le voci in giallo.
