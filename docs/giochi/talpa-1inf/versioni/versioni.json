@@ -810,5 +810,1487 @@
   ],
   "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti gli altri personaggi.",
   "tipo": "Versione minor: si cambia un pezzo senza cambiare come funziona il gioco (v1.10 → v1.11)."
+ },
+ {
+  "versione": "v1.12",
+  "nome": "Entra il personaggio di Giexther A.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-giexther-a",
+  "pr": "PR 12",
+  "autore": "Giexther A.",
+  "entrati": [
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Giexther A.: adesso nel gioco ci sono 12 personaggi.",
+   "ar": "تدخل شخصية Giexther A.: الآن في اللعبة 12 شخصيات.",
+   "zh": "Giexther A. 的角色加入了：现在游戏里有 12 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 12 di Giexther A., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-giexther-a»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Giexther A., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-giexther-a» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 11, adesso sono 12. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Giexther A..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t11.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t11.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.11 → v1.12)."
+ },
+ {
+  "versione": "v1.13",
+  "nome": "Entra il personaggio di Aya B.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-aya-b",
+  "pr": "PR 13",
+  "autore": "Aya B.",
+  "entrati": [
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Aya B.: adesso nel gioco ci sono 13 personaggi.",
+   "ar": "تدخل شخصية Aya B.: الآن في اللعبة 13 شخصيات.",
+   "zh": "Aya B. 的角色加入了：现在游戏里有 13 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 13 di Aya B., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-aya-b»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Aya B., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-aya-b» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 12, adesso sono 13. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Aya B..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t12.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t12.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.12 → v1.13)."
+ },
+ {
+  "versione": "v1.14",
+  "nome": "Entra il personaggio di Nehara F.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-nehara-f",
+  "pr": "PR 14",
+  "autore": "Nehara F.",
+  "entrati": [
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Nehara F.: adesso nel gioco ci sono 14 personaggi.",
+   "ar": "تدخل شخصية Nehara F.: الآن في اللعبة 14 شخصيات.",
+   "zh": "Nehara F. 的角色加入了：现在游戏里有 14 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 14 di Nehara F., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-nehara-f»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Nehara F., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-nehara-f» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 13, adesso sono 14. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Nehara F..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t13.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t13.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.13 → v1.14)."
+ },
+ {
+  "versione": "v1.15",
+  "nome": "Entra il personaggio di Sara F.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-sara-f",
+  "pr": "PR 15",
+  "autore": "Sara F.",
+  "entrati": [
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Sara F.: adesso nel gioco ci sono 15 personaggi.",
+   "ar": "تدخل شخصية Sara F.: الآن في اللعبة 15 شخصيات.",
+   "zh": "Sara F. 的角色加入了：现在游戏里有 15 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 15 di Sara F., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-sara-f»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Sara F., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-sara-f» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 14, adesso sono 15. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Sara F..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t14.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t14.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.14 → v1.15)."
+ },
+ {
+  "versione": "v1.16",
+  "nome": "Entra il personaggio di Muhid H.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-muhid-h",
+  "pr": "PR 16",
+  "autore": "Muhid H.",
+  "entrati": [
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Muhid H.: adesso nel gioco ci sono 16 personaggi.",
+   "ar": "تدخل شخصية Muhid H.: الآن في اللعبة 16 شخصيات.",
+   "zh": "Muhid H. 的角色加入了：现在游戏里有 16 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 16 di Muhid H., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-muhid-h»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Muhid H., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-muhid-h» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 15, adesso sono 16. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Muhid H..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t15.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t15.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.15 → v1.16)."
+ },
+ {
+  "versione": "v1.17",
+  "nome": "Entra il personaggio di Yinlin L.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-yinlin-l",
+  "pr": "PR 17",
+  "autore": "Yinlin L.",
+  "entrati": [
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Yinlin L.: adesso nel gioco ci sono 17 personaggi.",
+   "ar": "تدخل شخصية Yinlin L.: الآن في اللعبة 17 شخصيات.",
+   "zh": "Yinlin L. 的角色加入了：现在游戏里有 17 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 17 di Yinlin L., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-yinlin-l»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Yinlin L., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-yinlin-l» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 16, adesso sono 17. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Yinlin L..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t16.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t16.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.16 → v1.17)."
+ },
+ {
+  "versione": "v1.18",
+  "nome": "Entra il personaggio di Moaaz M.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-moaaz-m",
+  "pr": "PR 18",
+  "autore": "Moaaz M.",
+  "entrati": [
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Moaaz M.: adesso nel gioco ci sono 18 personaggi.",
+   "ar": "تدخل شخصية Moaaz M.: الآن في اللعبة 18 شخصيات.",
+   "zh": "Moaaz M. 的角色加入了：现在游戏里有 18 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 18 di Moaaz M., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-moaaz-m»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Moaaz M., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-moaaz-m» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 17, adesso sono 18. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Moaaz M..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t17.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t17.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.17 → v1.18)."
+ },
+ {
+  "versione": "v1.19",
+  "nome": "Entra il personaggio di Md M.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-md-m",
+  "pr": "PR 19",
+  "autore": "Md M.",
+  "entrati": [
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   },
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "dal": "v1.19"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Md M.: adesso nel gioco ci sono 19 personaggi.",
+   "ar": "تدخل شخصية Md M.: الآن في اللعبة 19 شخصيات.",
+   "zh": "Md M. 的角色加入了：现在游戏里有 19 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 19 di Md M., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-md-m»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Md M., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-md-m» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 18, adesso sono 19. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Md M..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t18.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t18.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.18 → v1.19)."
+ },
+ {
+  "versione": "v1.20",
+  "nome": "Entra il personaggio di Thomas R.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-thomas-r",
+  "pr": "PR 20",
+  "autore": "Thomas R.",
+  "entrati": [
+   {
+    "chi": "Thomas R.",
+    "file": "talpe/t19.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   },
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "dal": "v1.19"
+   },
+   {
+    "chi": "Thomas R.",
+    "file": "talpe/t19.jpg",
+    "dal": "v1.20"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Thomas R.: adesso nel gioco ci sono 20 personaggi.",
+   "ar": "تدخل شخصية Thomas R.: الآن في اللعبة 20 شخصيات.",
+   "zh": "Thomas R. 的角色加入了：现在游戏里有 20 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 20 di Thomas R., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-thomas-r»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Thomas R., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-thomas-r» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 19, adesso sono 20. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Thomas R..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t19.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t19.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.19 → v1.20)."
+ },
+ {
+  "versione": "v1.21",
+  "nome": "Entra il personaggio di Andrea S.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-andrea-s",
+  "pr": "PR 21",
+  "autore": "Andrea S.",
+  "entrati": [
+   {
+    "chi": "Andrea S.",
+    "file": "talpe/t20.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   },
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "dal": "v1.19"
+   },
+   {
+    "chi": "Thomas R.",
+    "file": "talpe/t19.jpg",
+    "dal": "v1.20"
+   },
+   {
+    "chi": "Andrea S.",
+    "file": "talpe/t20.jpg",
+    "dal": "v1.21"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Andrea S.: adesso nel gioco ci sono 21 personaggi.",
+   "ar": "تدخل شخصية Andrea S.: الآن في اللعبة 21 شخصيات.",
+   "zh": "Andrea S. 的角色加入了：现在游戏里有 21 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 21 di Andrea S., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-andrea-s»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Andrea S., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-andrea-s» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 20, adesso sono 21. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Andrea S..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t20.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t20.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.20 → v1.21)."
+ },
+ {
+  "versione": "v1.22",
+  "nome": "Entra il personaggio di Giovanni S.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-giovanni-s",
+  "pr": "PR 22",
+  "autore": "Giovanni S.",
+  "entrati": [
+   {
+    "chi": "Giovanni S.",
+    "file": "talpe/t21.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   },
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "dal": "v1.19"
+   },
+   {
+    "chi": "Thomas R.",
+    "file": "talpe/t19.jpg",
+    "dal": "v1.20"
+   },
+   {
+    "chi": "Andrea S.",
+    "file": "talpe/t20.jpg",
+    "dal": "v1.21"
+   },
+   {
+    "chi": "Giovanni S.",
+    "file": "talpe/t21.jpg",
+    "dal": "v1.22"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Giovanni S.: adesso nel gioco ci sono 22 personaggi.",
+   "ar": "تدخل شخصية Giovanni S.: الآن في اللعبة 22 شخصيات.",
+   "zh": "Giovanni S. 的角色加入了：现在游戏里有 22 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 22 di Giovanni S., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-giovanni-s»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Giovanni S., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-giovanni-s» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 21, adesso sono 22. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Giovanni S..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t21.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t21.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.21 → v1.22)."
+ },
+ {
+  "versione": "v1.23",
+  "nome": "Entra il personaggio di Shanzay S.",
+  "data": "14/10/2026",
+  "ora": "09:42",
+  "ramo": "personaggio-shanzay-s",
+  "pr": "PR 23",
+  "autore": "Shanzay S.",
+  "entrati": [
+   {
+    "chi": "Shanzay S.",
+    "file": "talpe/t22.jpg",
+    "descrizione": "personaggio a fumetto fatto dalla foto della classe"
+   }
+  ],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   },
+   {
+    "chi": "Alessio C.",
+    "file": "talpe/t01.jpg",
+    "dal": "v1.1"
+   },
+   {
+    "chi": "Enea Z.",
+    "file": "talpe/t02.jpg",
+    "dal": "v1.2"
+   },
+   {
+    "chi": "Wesley J.",
+    "file": "talpe/t03.jpg",
+    "dal": "v1.3"
+   },
+   {
+    "chi": "Abdel N.",
+    "file": "talpe/t04.jpg",
+    "dal": "v1.4"
+   },
+   {
+    "chi": "Muhammad N.",
+    "file": "talpe/t05.jpg",
+    "dal": "v1.5"
+   },
+   {
+    "chi": "Moaaz A.",
+    "file": "talpe/t06.jpg",
+    "dal": "v1.6"
+   },
+   {
+    "chi": "Christian A.",
+    "file": "talpe/t07.jpg",
+    "dal": "v1.7"
+   },
+   {
+    "chi": "Matteo A.",
+    "file": "talpe/t08_2.jpg",
+    "dal": "v1.8"
+   },
+   {
+    "chi": "Anthony A.",
+    "file": "talpe/t09.jpg",
+    "dal": "v1.9"
+   },
+   {
+    "chi": "Cristian C.",
+    "file": "talpe/t10.jpg",
+    "dal": "v1.10"
+   },
+   {
+    "chi": "Giexther A.",
+    "file": "talpe/t11.jpg",
+    "dal": "v1.12"
+   },
+   {
+    "chi": "Aya B.",
+    "file": "talpe/t12.jpg",
+    "dal": "v1.13"
+   },
+   {
+    "chi": "Nehara F.",
+    "file": "talpe/t13.jpg",
+    "dal": "v1.14"
+   },
+   {
+    "chi": "Sara F.",
+    "file": "talpe/t14.jpg",
+    "dal": "v1.15"
+   },
+   {
+    "chi": "Muhid H.",
+    "file": "talpe/t15.jpg",
+    "dal": "v1.16"
+   },
+   {
+    "chi": "Yinlin L.",
+    "file": "talpe/t16.jpg",
+    "dal": "v1.17"
+   },
+   {
+    "chi": "Moaaz M.",
+    "file": "talpe/t17.jpg",
+    "dal": "v1.18"
+   },
+   {
+    "chi": "Md M.",
+    "file": "talpe/t18.jpg",
+    "dal": "v1.19"
+   },
+   {
+    "chi": "Thomas R.",
+    "file": "talpe/t19.jpg",
+    "dal": "v1.20"
+   },
+   {
+    "chi": "Andrea S.",
+    "file": "talpe/t20.jpg",
+    "dal": "v1.21"
+   },
+   {
+    "chi": "Giovanni S.",
+    "file": "talpe/t21.jpg",
+    "dal": "v1.22"
+   },
+   {
+    "chi": "Shanzay S.",
+    "file": "talpe/t22.jpg",
+    "dal": "v1.23"
+   }
+  ],
+  "riassunto": {
+   "it": "Entra il personaggio di Shanzay S.: adesso nel gioco ci sono 23 personaggi.",
+   "ar": "تدخل شخصية Shanzay S.: الآن في اللعبة 23 شخصيات.",
+   "zh": "Shanzay S. 的角色加入了：现在游戏里有 23 个角色。"
+  },
+  "cambi": [
+   "Da dove arriva: dalla Pull Request n. 23 di Shanzay S., arrivata alle 09:42 con la richiesta «Ecco il mio personaggio, mettilo nel gioco». Per questa richiesta è stato aperto il ramo «personaggio-shanzay-s»: lì il personaggio è stato preparato senza toccare il gioco di tutti.",
+   "Che cosa entra: il primo personaggio di Shanzay S., descritto così con le sue parole: «personaggio a fumetto fatto dalla foto della classe».",
+   "Il controllo del prof: la foto di partenza era adatta (si vede la testa, si capisce chi è, c'è solo lui); nel buco si vede bene la testa del personaggio e dal personaggio si capisce chi è. Il prof ha detto sì e ha fatto il merge: il ramo «personaggio-shanzay-s» è stato unito al gioco della classe.",
+   "Come cambia il gioco: prima i personaggi che potevano uscire dai buchi erano 22, adesso sono 23. Ogni volta che esce una talpa, il gioco sceglie a caso fra i personaggi della classe (e ogni tanto fa uscire la talpa originale): adesso anche quello di Shanzay S..",
+   "Che cosa è cambiato nei file: è stata AGGIUNTA l'immagine talpe/t22.jpg (320 x 320 punti) ed è stata AGGIUNTA una riga nell'elenco talpe/elenco.json. Nessun file è stato cancellato e nessun personaggio degli altri è stato toccato: regola «aggiungere sì, cancellare no»."
+  ],
+  "file": [
+   "aggiunto talpe/t22.jpg",
+   "aggiunta una riga in talpe/elenco.json"
+  ],
+  "invariato": "Le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine. E tutti i personaggi che c'erano già.",
+  "tipo": "Versione minor: si aggiunge un pezzo senza cambiare come funziona il gioco, quindi sale il numero dopo il punto (v1.22 → v1.23)."
  }
 ]
