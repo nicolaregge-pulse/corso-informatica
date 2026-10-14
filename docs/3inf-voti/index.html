@@ -19,12 +19,12 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 <li>Analisi del backlog mandata (Passo 7): +10.</li>
 <li>Almeno una tua richiesta entrata nel gioco: +10. Massimo 100.</li></ol>
 <p><b>Lo stipendio</b>, come in un'azienda: ogni richiesta approvata (entrata nel gioco) vale il suo peso × 100 €. Peso 1 = 100 €, peso 3 = 300 €, peso 8 = 800 €. Lo stipendio è a parte rispetto al voto.</p></div>
-<div class="card"><table><thead><tr><th>Alunno</th><th>PR inviate</th><th>PR nel gioco</th><th>Revisione</th><th>Voto</th><th>Perché</th><th>Stipendio</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
+<div class="card"><table><thead><tr><th>Alunno</th><th>Richieste mandate<br><small>lunedì + oggi</small></th><th>Di oggi</th><th>Entrate nel gioco<br><small>lunedì + oggi</small></th><th>Revisione</th><th>Voto</th><th>Perché</th><th>Stipendio</th></tr></thead><tbody id="tb"><tr><td colspan="6" class="mu">Carico…</td></tr></tbody></table></div>
 <p class="mu">Il voto è una proposta del prof, calcolata dal backlog: il voto vero lo decide il prof.</p>
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){fetch('voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
- document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td><td><b>'+(v.stipendio||0)+' €</b><br><small>'+e(v.stipendio_conto||'')+'</small></td></tr>'}).join('')}).catch(function(){})}
+ document.getElementById('tb').innerHTML=d.voti.map(function(v){return '<tr><td><b>'+e(v.alunno)+'</b></td><td class="n">'+v.pr+'</td><td class="n">'+(v.pr_oggi==null?'—':v.pr_oggi)+'</td><td class="n">'+v.fatte+'</td><td>'+(v.feedback?'sì':'no')+'</td><td class="n '+(v.voto>=60?'ok':'ko')+'">'+v.voto+'</td><td>'+e(v.perche)+'</td><td><b>'+(v.stipendio||0)+' €</b><br><small>'+e(v.stipendio_conto||'')+'</small></td></tr>'}).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);
 </script></body></html>
