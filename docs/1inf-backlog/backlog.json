@@ -2,282 +2,6 @@
  "aggiornato": "14/10/2026 09:38",
  "voci": [
   {
-   "ora": "13/10 13:26",
-   "alunno": "Matteo A.",
-   "pr": "PR1",
-   "richiesta": "Secondi prima che il cattivo spari: da 3 a 4.",
-   "file": false,
-   "peso": 2,
-   "motivo": "si cambia un numero",
-   "fatto": "1INF v2.2",
-   "no": "",
-   "pos": 1
-  },
-  {
-   "ora": "13/10 13:29",
-   "alunno": "Cristian C.",
-   "pr": "PR1",
-   "richiesta": "Velocità 1.0, 8 cattivi per livello, frase del cattivo «Ahahah, ti ho preso!», frase quando vinci nuova; secondi prima dello sparo 2.",
-   "file": false,
-   "peso": 2,
-   "motivo": "si cambiano numeri e frasi",
-   "fatto": "1INF v2.3",
-   "no": "secondi 2: conflitto con la v2.2 di Matteo A., resta 4",
-   "pos": 2
-  },
-  {
-   "ora": "13/10 13:31",
-   "alunno": "Andrea S.",
-   "pr": "PR1",
-   "richiesta": "La velocità del treno e la distanza dei nemici (con un file).",
-   "file": true,
-   "peso": 2,
-   "motivo": "manca il valore nuovo: quale velocità, quale distanza?",
-   "fatto": "",
-   "no": "",
-   "pos": 3
-  },
-  {
-   "ora": "13/10 13:37",
-   "alunno": "Md M.",
-   "pr": "PR1",
-   "richiesta": "Vetro 7, velocità 3, secondi 2, 15 cattivi per livello, 70 punti per cattivo.",
-   "file": true,
-   "peso": 2,
-   "motivo": "si cambiano numeri",
-   "fatto": "1INF v2.5",
-   "no": "velocità, secondi e cattivi: conflitto con chi è arrivato prima",
-   "pos": 4
-  },
-  {
-   "ora": "13/10 13:41",
-   "alunno": "Nehara F.",
-   "pr": "PR1",
-   "richiesta": "Vetro 6, velocità 0.6, secondi 2, 7 cattivi per livello, 150 punti per cattivo.",
-   "file": true,
-   "peso": 2,
-   "motivo": "si cambiano numeri",
-   "fatto": "",
-   "no": "tutte le righe erano già state cambiate da chi è arrivato prima (conflitto): manda un'altra riga, per esempio una frase",
-   "pos": 5
-  },
-  {
-   "ora": "13/10 13:41",
-   "alunno": "Andrea S.",
-   "pr": "PR2",
-   "richiesta": "Può cambiare qualsiasi cosa, la prima versione o la terza.",
-   "file": false,
-   "peso": 1,
-   "motivo": "non dice quale riga né il valore nuovo",
-   "fatto": "",
-   "no": "",
-   "pos": 6
-  },
-  {
-   "ora": "13/10 13:42",
-   "alunno": "Giexther A.",
-   "pr": "PR1",
-   "richiesta": "Frase del cattivo: «È la tua fine!», perché è più adatta alla nostra età.",
-   "file": false,
-   "peso": 1,
-   "motivo": "si cambia una frase",
-   "fatto": "1INF v2.4",
-   "no": "",
-   "pos": 7
-  },
-  {
-   "ora": "13/10 13:42",
-   "alunno": "Yinlin L.",
-   "pr": "PR",
-   "richiesta": "pull request · 在文档里 (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 8
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Md M.",
-   "pr": "PR",
-   "richiesta": "PULL REQUEST MD MIYA  · PULL REQUEST MD MIYA  (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 9
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Shanzay S.",
-   "pr": "PR",
-   "richiesta": "pull request · -Riga: colpa che regge\n- il valore nuovo: 8\n-Perché: cosi il gioco dura di più.\n",
-   "file": false,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 10
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Moaaz M.",
-   "pr": "PR",
-   "richiesta": "pull reqest MOAAZ MEGAHED · MOAAZM MEGAHED (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 11
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Alessio C.",
-   "pr": "PR",
-   "richiesta": "PULL REQUEST  · ALESSIO CAMPARI (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 12
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Muhammad N.",
-   "pr": "PR",
-   "richiesta": "pull  request haaris noor · HAARIS NOOR (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 13
-  },
-  {
-   "ora": "13/10 13:43",
-   "alunno": "Giovanni S.",
-   "pr": "PR",
-   "richiesta": "PULL REQUEST · SFREGOLA GIOVANNI (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 14
-  },
-  {
-   "ora": "13/10 13:44",
-   "alunno": "Md M.",
-   "pr": "PR",
-   "richiesta": "PULL REQUEST  · PULL REQUEST (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 15
-  },
-  {
-   "ora": "13/10 13:44",
-   "alunno": "Moaaz A.",
-   "pr": "PR",
-   "richiesta": "A1 foto · \"Ho modificato questo dato perché volevo che il gioco fosse più difficile.\n\nCattivi in ogni livello\nعدد الأشرار في كل مستوى\n每一关的坏人数量\n20\n\n (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 16
-  },
-  {
-   "ora": "13/10 13:45",
-   "alunno": "Sara F.",
-   "pr": "PR",
-   "richiesta": "pull request ·  La riga: colpi che il vetro regge - Il valore nuovo: 8 -  Perché: così la partita di più.\n\nCambierei le frasi \"Grande! Hai portato il treno in salvo. · Che riflessi, macchinista! · I cattivi non ti fermano: riparti?\"\n\nCon frasi come: Attento!! - Colpisci! - Sta arrivando! - Davanti a",
-   "file": false,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 17
-  },
-  {
-   "ora": "13/10 13:45",
-   "alunno": "Wesley J.",
-   "pr": "PR",
-   "richiesta": "file  · vorrei cambiare la velocita che quando avanza il livello va piu veloce, e gli  altri non possono farti danno,vorrei che la veloci si possa modificare \nil personaggio di chiama DOGGIE (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 18
-  },
-  {
-   "ora": "13/10 13:45",
-   "alunno": "Anthony A.",
-   "pr": "PR",
-   "richiesta": "pull request · Riga Velocità del treno 0.5\npreferisco che il andare più veloce invece di andare 0.5 preferisco 1.0",
-   "file": false,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 19
-  },
-  {
-   "ora": "13/10 13:45",
-   "alunno": "Muhid H.",
-   "pr": "PR",
-   "richiesta": "pull request · Cattivi in ogni livello (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 20
-  },
-  {
-   "ora": "13/10 13:49",
-   "alunno": "Thomas R.",
-   "pr": "PR",
-   "richiesta": "Pull request · Titolo: choochoo    Cambia: sul file Dove: varie luoghi     Perché: più divertente (con il Documento come file: lo leggo)",
-   "file": true,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 21
-  },
-  {
-   "ora": "13/10 13:50",
-   "alunno": "Andrea S.",
-   "pr": "PR",
-   "richiesta": "cosegnio la pr · Punti per ogni cattivo , 200 ",
-   "file": false,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 22
-  },
-  {
-   "ora": "13/10 13:51",
-   "alunno": "Christian A.",
-   "pr": "PR",
-   "richiesta": "pull request  · io cambierei la velocità che dal livello 15 va più veloce, aggiungerei la città come luogo, il titolo lo lascerei così, cambierei i punti per cattivo da 100 a 125",
-   "file": false,
-   "peso": 2,
-   "motivo": "",
-   "fatto": "",
-   "no": "",
-   "pos": 23
-  },
-  {
    "ora": "14/10 09:16",
    "alunno": "Alessio C.",
    "pr": "PR 1 talpa",
@@ -287,7 +11,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.1",
    "no": "",
-   "pos": 24
+   "pos": 1
   },
   {
    "ora": "14/10 09:16",
@@ -299,7 +23,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.2",
    "no": "",
-   "pos": 25
+   "pos": 2
   },
   {
    "ora": "14/10 09:16",
@@ -311,7 +35,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.3",
    "no": "",
-   "pos": 26
+   "pos": 3
   },
   {
    "ora": "14/10 09:16",
@@ -323,7 +47,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.4",
    "no": "",
-   "pos": 27
+   "pos": 4
   },
   {
    "ora": "14/10 09:16",
@@ -335,7 +59,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.5",
    "no": "",
-   "pos": 28
+   "pos": 5
   },
   {
    "ora": "14/10 09:16",
@@ -347,7 +71,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.6",
    "no": "",
-   "pos": 29
+   "pos": 6
   },
   {
    "ora": "14/10 09:16",
@@ -359,7 +83,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.7",
    "no": "",
-   "pos": 30
+   "pos": 7
   },
   {
    "ora": "14/10 09:16",
@@ -371,7 +95,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.8",
    "no": "",
-   "pos": 31
+   "pos": 8
   },
   {
    "ora": "14/10 09:16",
@@ -383,7 +107,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.9",
    "no": "",
-   "pos": 32
+   "pos": 9
   },
   {
    "ora": "14/10 09:16",
@@ -395,7 +119,7 @@
    "motivo": "si aggiunge un personaggio",
    "fatto": "Talpa v1.10",
    "no": "",
-   "pos": 33
+   "pos": 10
   },
   {
    "ora": "14/10 09:25",
@@ -407,7 +131,7 @@
    "motivo": "si cambia il personaggio",
    "fatto": "Talpa v1.11",
    "no": "",
-   "pos": 34
+   "pos": 11
   }
  ]
 }
