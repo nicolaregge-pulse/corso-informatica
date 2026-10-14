@@ -1,14 +1,14 @@
 {
- "aggiornato": "14/10/2026 13:01 (KPI proposti, da approvare)",
+ "aggiornato": "14/10/2026 13:02 (KPI proposti, da approvare)",
  "voti": [
   {
    "alunno": "Alessandro A.",
-   "pr": 4,
-   "pr_oggi": 4,
+   "pr": 2,
+   "pr_oggi": 2,
    "fatte": 1,
    "feedback": true,
-   "voto": 90,
-   "perche": "40 di partenza +10 revisione +30 3 richieste di oggi +10 richiesta nel gioco = 90",
+   "voto": 80,
+   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 richiesta nel gioco = 80",
    "stipendio": 200,
    "stipendio_conto": "v1.12 peso 2 = 200 €"
   },
@@ -49,12 +49,12 @@
    "alunno": "Dani S.",
    "pr": 2,
    "pr_oggi": 2,
-   "fatte": 0,
+   "fatte": 1,
    "feedback": false,
-   "voto": 60,
-   "perche": "40 di partenza +20 2 richieste di oggi = 60",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "voto": 70,
+   "perche": "40 di partenza +20 2 richieste di oggi +10 richiesta nel gioco = 70",
+   "stipendio": 500,
+   "stipendio_conto": "v1.16 peso 5 = 500 €"
   },
   {
    "alunno": "David A.",
@@ -115,12 +115,12 @@
    "alunno": "Kelvin P.",
    "pr": 1,
    "pr_oggi": 1,
-   "fatte": 0,
+   "fatte": 1,
    "feedback": false,
-   "voto": 50,
-   "perche": "40 di partenza +10 1 richieste di oggi = 50",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "voto": 60,
+   "perche": "40 di partenza +10 1 richieste di oggi +10 richiesta nel gioco = 60",
+   "stipendio": 500,
+   "stipendio_conto": "v1.18 peso 5 = 500 €"
   },
   {
    "alunno": "Mahmoud E.",
@@ -181,21 +181,21 @@
    "alunno": "Samuele U.",
    "pr": 2,
    "pr_oggi": 2,
-   "fatte": 0,
+   "fatte": 2,
    "feedback": true,
-   "voto": 70,
-   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi = 70",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "voto": 80,
+   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 richiesta nel gioco = 80",
+   "stipendio": 800,
+   "stipendio_conto": "v1.17 peso 8 = 800 €"
   },
   {
    "alunno": "Simone G.",
-   "pr": 2,
-   "pr_oggi": 2,
+   "pr": 3,
+   "pr_oggi": 3,
    "fatte": 2,
    "feedback": true,
-   "voto": 90,
-   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 analisi del backlog +10 richiesta nel gioco = 90",
+   "voto": 100,
+   "perche": "40 di partenza +10 revisione +30 3 richieste di oggi +10 analisi del backlog +10 richiesta nel gioco = 100",
    "stipendio": 200,
    "stipendio_conto": "v1.14 peso 1 = 100 € + v1.15 peso 1 = 100 € → 200 €"
   },

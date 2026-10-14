@@ -1,13 +1,13 @@
 {
- "aggiornato": "14/10/2026 13:01",
+ "aggiornato": "14/10/2026 13:02",
  "alunni": [
   {
    "alunno": "Alessandro A.",
-   "pr": 4,
-   "pr_oggi": 4,
+   "pr": 2,
+   "pr_oggi": 2,
    "approvate": 1,
-   "rifiutate": 0,
-   "attesa": 3,
+   "rifiutate": 1,
+   "attesa": 0,
    "revisione": true,
    "ultima": "12:56",
    "paga": [
@@ -65,13 +65,19 @@
    "alunno": "Dani S.",
    "pr": 2,
    "pr_oggi": 2,
-   "approvate": 0,
+   "approvate": 1,
    "rifiutate": 0,
-   "attesa": 2,
+   "attesa": 1,
    "revisione": false,
    "ultima": "12:57",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "paga": [
+    [
+     "v1.16",
+     5
+    ]
+   ],
+   "stipendio": 500,
+   "stipendio_conto": "v1.16 peso 5 = 500 €"
   },
   {
    "alunno": "David A.",
@@ -137,13 +143,19 @@
    "alunno": "Kelvin P.",
    "pr": 1,
    "pr_oggi": 1,
-   "approvate": 0,
+   "approvate": 1,
    "rifiutate": 0,
-   "attesa": 1,
+   "attesa": 0,
    "revisione": false,
    "ultima": "12:52",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "paga": [
+    [
+     "v1.18",
+     5
+    ]
+   ],
+   "stipendio": 500,
+   "stipendio_conto": "v1.18 peso 5 = 500 €"
   },
   {
    "alunno": "Mahmoud E.",
@@ -223,23 +235,33 @@
    "alunno": "Samuele U.",
    "pr": 2,
    "pr_oggi": 2,
-   "approvate": 0,
-   "rifiutate": 0,
-   "attesa": 2,
-   "revisione": true,
-   "ultima": "12:50",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Simone G.",
-   "pr": 2,
-   "pr_oggi": 2,
    "approvate": 2,
    "rifiutate": 0,
    "attesa": 0,
    "revisione": true,
-   "ultima": "12:40",
+   "ultima": "12:50",
+   "paga": [
+    [
+     "v1.17",
+     8
+    ],
+    [
+     "v1.17",
+     8
+    ]
+   ],
+   "stipendio": 800,
+   "stipendio_conto": "v1.17 peso 8 = 800 €"
+  },
+  {
+   "alunno": "Simone G.",
+   "pr": 3,
+   "pr_oggi": 3,
+   "approvate": 2,
+   "rifiutate": 0,
+   "attesa": 1,
+   "revisione": true,
+   "ultima": "12:58",
    "analisi": true,
    "paga": [
     [
