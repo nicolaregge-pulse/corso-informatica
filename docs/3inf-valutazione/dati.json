@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:09",
+ "aggiornato": "14/10/2026 13:12",
  "alunni": [
   {
    "alunno": "Alessandro A.",
@@ -29,6 +29,7 @@
    "attesa": 2,
    "revisione": true,
    "ultima": "12:58",
+   "analisi": true,
    "paga": [
     [
      "v1.12",
@@ -47,6 +48,7 @@
    "attesa": 1,
    "revisione": false,
    "ultima": "12:59",
+   "analisi": true,
    "paga": [
     [
      "v1.20",
@@ -104,13 +106,13 @@
   },
   {
    "alunno": "Denis A.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 2,
+   "pr_oggi": 2,
    "approvate": 1,
    "rifiutate": 0,
-   "attesa": 0,
+   "attesa": 1,
    "revisione": true,
-   "ultima": "13:01",
+   "ultima": "13:06",
    "paga": [
     [
      "v1.21",
@@ -122,25 +124,25 @@
   },
   {
    "alunno": "Emmanuel F.",
-   "pr": 0,
-   "pr_oggi": 0,
-   "approvate": 0,
-   "rifiutate": 0,
-   "attesa": 0,
-   "revisione": true,
-   "ultima": "",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Fabrizio C.",
    "pr": 2,
    "pr_oggi": 2,
    "approvate": 0,
    "rifiutate": 0,
    "attesa": 2,
+   "revisione": true,
+   "ultima": "13:07",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+  },
+  {
+   "alunno": "Fabrizio C.",
+   "pr": 3,
+   "pr_oggi": 3,
+   "approvate": 0,
+   "rifiutate": 0,
+   "attesa": 3,
    "revisione": false,
-   "ultima": "12:55",
+   "ultima": "13:07",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -220,6 +222,7 @@
    "attesa": 1,
    "revisione": true,
    "ultima": "12:57",
+   "analisi": true,
    "paga": [
     [
      "v1.13",
@@ -239,13 +242,13 @@
   },
   {
    "alunno": "Rafi F.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 2,
+   "pr_oggi": 2,
    "approvate": 0,
    "rifiutate": 0,
-   "attesa": 1,
+   "attesa": 2,
    "revisione": false,
-   "ultima": "13:00",
+   "ultima": "13:08",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -296,13 +299,13 @@
   },
   {
    "alunno": "Tomas L.",
-   "pr": 4,
-   "pr_oggi": 4,
+   "pr": 5,
+   "pr_oggi": 5,
    "approvate": 0,
    "rifiutate": 0,
-   "attesa": 4,
+   "attesa": 5,
    "revisione": false,
-   "ultima": "13:03",
+   "ultima": "13:06",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   }
