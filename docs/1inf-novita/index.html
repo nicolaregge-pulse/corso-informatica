@@ -1,16 +1,8 @@
 <!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Novità del treno 1INF</title>
-<style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d}}
-body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.5 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:820px;margin:0 auto;padding:16px}
-.v{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:12px 14px;margin:10px 0}.v b{font-size:22px}.mu{color:var(--mu);font-size:16px}
-a.g{display:inline-block;background:#1a7f37;color:#fff;text-decoration:none;font-weight:700;padding:8px 14px;border-radius:8px;margin-top:6px}</style></head>
-<body><div class="w"><h1>Cosa è cambiato oggi nel gioco</h1><div class="mu">ما الذي تغيّر اليوم في اللعبة · 今天游戏里改变了什么</div>
-<p class="mu">Il fork della 1INF. In alto la versione più nuova. Si aggiorna da sola ogni minuto.</p><div id="l">Carico…</div></div>
-<script>
-function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function carica(){fetch('../giochi/treno-1inf-fork/versioni/versioni.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(v){
-document.getElementById('l').innerHTML=v.slice().reverse().map(function(x,i){return '<div class="v"><b>'+e(x.versione)+' · '+e(x.nome)+'</b><div class="mu">'+e(x.data)+'</div><p>'+e(x.cambi)+'</p>'+(i===0?'<a class="g" href="../giochi/treno-1inf-fork/" target="_blank" rel="noopener">Gioca questa versione</a>':'')+'</div>'}).join('')})
-.catch(function(){document.getElementById('l').textContent='Non riesco a leggere le versioni: riprova tra poco.'})}
-carica();setInterval(carica,60000);
-</script></body></html>
+<title>Cosa è cambiato oggi nel gioco · 1INF</title><link rel="stylesheet" href="../giochi/talpa-1inf/changelog/stile.css"></head>
+<body><div class="w"><h1>Cosa è cambiato oggi nel gioco</h1>
+<div class="ar">ما الذي تغيّر اليوم في اللعبة</div><div class="zh">今天游戏里改变了什么</div>
+<p class="mu">Il gioco della talpa della 1INF: ogni personaggio accettato è una versione nuova. In alto la più nuova. Si aggiorna da solo ogni minuto. Le versioni del treno di ieri: <a href="treno.html">qui</a>.</p>
+<div id="changelog" data-base="../giochi/talpa-1inf/">Carico…</div></div>
+<script src="../giochi/talpa-1inf/changelog/changelog.js"></script></body></html>
