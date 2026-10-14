@@ -14,7 +14,7 @@
   function fatto(k) {
     if (k === 'nome') return nome().indexOf(' ') > 0;
     if (k === 'rip') return !!g(L + 'rip');
-    if (k === 'ver') return !!esito('verifica');
+    if (k === 'ver') return !!g(L + 'ver') || !!mioRisultato();
     if (k === 'val') return !!mioRisultato();
     if (k === 'rec') { var r = mioRecupero(); return !!(r && r.fatto); }
   }
@@ -23,7 +23,7 @@
     ORDINE.forEach(function (k) { var sec = $('p-' + k), f = fatto(k); if (!f && !ora) ora = k; sec.classList.toggle('fatto', f); sec.classList.toggle('ora', ora === k); sec.querySelector('.bollo').textContent = f ? '✓ Fatto' : (ora === k ? 'Adesso' : 'Da fare'); });
     if (fatto('nome')) { $('nome').value = nome(); $('esNome').style.color = '#1a7f37'; $('esNome').textContent = 'Ciao ' + breve(nome()) + '!'; }
     if (fatto('rip')) spegni($('bRip'));
-    if (fatto('ver')) { spegni($('bVer')); spegni($('bRip')); $('bVer').textContent = '✓ Verifica fatta'; if (!mioRisultato()) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: il voto e il perché compaiono qui da soli.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। নম্বর এখানে আসবে।</div>'; }
+    if (fatto('ver')) { spegni($('bRip')); if (!mioRisultato()) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: il voto e il perché compaiono qui da soli.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। নম্বর এখানে আসবে।</div>'; }
     var a = mioRisultato();
     if (a) $('val').innerHTML = '<div style="font-size:30px;font-weight:800">Voto: ' + e(a.voto) + '</div>' + (a.aree || []).map(function (z) { return '<div>' + e(z.nome) + ': <b>' + e(z.giuste) + ' su ' + e(z.su) + '</b></div>'; }).join('') +
       (a.scritte ? '<div style="margin-top:6px"><b>Risposte scritte:</b> ' + e(a.scritte) + '</div>' : '') + (a.giudizio ? '<div style="margin-top:6px"><b>Perché questo voto:</b> ' + e(a.giudizio) + '</div>' : '');
@@ -34,6 +34,7 @@
   function carica() { Promise.all([j('../../verifica/risultati/3inf-versioning.json'), j('recupero.json')]).then(function (x) { R = x[0]; REC = x[1]; disegna(); }); }
   $('okNome').onclick = function () { var v = $('nome').value.trim().replace(/\s+/g, ' '); if (v.indexOf(' ') < 0) { $('esNome').style.color = '#c0392b'; $('esNome').textContent = 'Scrivi nome E cognome.'; return; } s('nome-3inf', v); if (!g('nome-' + ID)) s('nome-' + ID, JSON.stringify(v)); disegna(); };
   $('nome').addEventListener('keydown', function (ev) { if (ev.key === 'Enter') $('okNome').click(); });
+  $('bVer').addEventListener('click', function () { s(L + 'ver', '1'); setTimeout(disegna, 800); });
   $('bRip').addEventListener('click', function () { s(L + 'rip', '1'); setTimeout(disegna, 500); });
   carica(); setInterval(carica, 60000); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna);
 })();

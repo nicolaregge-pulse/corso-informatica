@@ -30,7 +30,7 @@ input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;
 <div class="it">Si apre una finestra nuova: leggi le schede (versioni, Pull Request, merge, backlog, sprint, cerimonie Agile) e fai l'allenamento. Poi torna qui.</div><div class="bn" lang="bn">নতুন উইন্ডো খুলবে: কার্ড পড়ুন (সংস্করণ, Pull Request, merge, backlog, স্প্রিন্ট, Agile) এবং অনুশীলন করুন। তারপর এখানে ফিরুন।</div><a class="bot" id="bRip" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning" target="_blank" rel="noopener">Ripasso</a>
 </section>
 <section class="passo" id="p-ver"><h2><span class="num">3</span> Verifica<span class="bollo"></span><br><span class="bn" lang="bn">পরীক্ষা</span></h2>
-<div class="it">La apre il prof. Si apre una finestra nuova. Alla fine premi il bottone verde in fondo alla verifica, poi torna qui: vedrai «Verifica fatta».</div><div class="bn" lang="bn">শিক্ষক এটি খুলবেন। শেষে পরীক্ষার নিচের সবুজ বোতাম চাপুন, তারপর এখানে ফিরুন।</div><a class="bot" id="bVer" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=3inf-versioning&amp;modo=verifica" target="_blank" rel="noopener">Verifica</a>
+<div class="it">Premi il bottone: si apre la verifica. Una domanda per pagina: rispondi e premi «Avanti». Alla fine premi «Invia». Poi torna qui.</div><div class="bn" lang="bn">বোতাম চাপুন: পরীক্ষা খুলবে। প্রতি পাতায় একটি প্রশ্ন: উত্তর দিয়ে «Avanti» চাপুন। শেষে «Invia» চাপুন। তারপর এখানে ফিরুন।</div><a class="bot" id="bVer" href="https://docs.google.com/forms/d/e/1FAIpQLSchGpd-Ry8iniOyGfTks9Qhn4b5gnHG2C_nflJ1Ksw9u7mvOQ/viewform" target="_blank" rel="noopener">Verifica</a>
 </section>
 <section class="passo" id="p-val"><h2><span class="num">4</span> La tua valutazione<span class="bollo"></span><br><span class="bn" lang="bn">আপনার মূল্যায়ন</span></h2>
 <div id="val" class="nota"><div class="it">Compare qui quando il prof ha corretto: il voto e perché.</div><div class="bn" lang="bn">শিক্ষক দেখার পরে এখানে আসবে: নম্বর এবং কেন।</div></div>
@@ -57,7 +57,7 @@ input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;
   function fatto(k) {
     if (k === 'nome') return nome().indexOf(' ') > 0;
     if (k === 'rip') return !!g(L + 'rip');
-    if (k === 'ver') return !!esito('verifica');
+    if (k === 'ver') return !!g(L + 'ver') || !!mioRisultato();
     if (k === 'val') return !!mioRisultato();
     if (k === 'rec') { var r = mioRecupero(); return !!(r && r.fatto); }
   }
@@ -66,7 +66,7 @@ input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;
     ORDINE.forEach(function (k) { var sec = $('p-' + k), f = fatto(k); if (!f && !ora) ora = k; sec.classList.toggle('fatto', f); sec.classList.toggle('ora', ora === k); sec.querySelector('.bollo').textContent = f ? '✓ Fatto' : (ora === k ? 'Adesso' : 'Da fare'); });
     if (fatto('nome')) { $('nome').value = nome(); $('esNome').style.color = '#1a7f37'; $('esNome').textContent = 'Ciao ' + breve(nome()) + '!'; }
     if (fatto('rip')) spegni($('bRip'));
-    if (fatto('ver')) { spegni($('bVer')); spegni($('bRip')); $('bVer').textContent = '✓ Verifica fatta'; if (!mioRisultato()) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: il voto e il perché compaiono qui da soli.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। নম্বর এখানে আসবে।</div>'; }
+    if (fatto('ver')) { spegni($('bRip')); if (!mioRisultato()) $('val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: il voto e il perché compaiono qui da soli.<div class="bn" lang="bn">পরীক্ষা জমা হয়েছে। নম্বর এখানে আসবে।</div>'; }
     var a = mioRisultato();
     if (a) $('val').innerHTML = '<div style="font-size:30px;font-weight:800">Voto: ' + e(a.voto) + '</div>' + (a.aree || []).map(function (z) { return '<div>' + e(z.nome) + ': <b>' + e(z.giuste) + ' su ' + e(z.su) + '</b></div>'; }).join('') +
       (a.scritte ? '<div style="margin-top:6px"><b>Risposte scritte:</b> ' + e(a.scritte) + '</div>' : '') + (a.giudizio ? '<div style="margin-top:6px"><b>Perché questo voto:</b> ' + e(a.giudizio) + '</div>' : '');
@@ -77,6 +77,7 @@ input[type=text]{font:inherit;font-size:21px;padding:8px 12px;border-radius:8px;
   function carica() { Promise.all([j('../../verifica/risultati/3inf-versioning.json'), j('recupero.json')]).then(function (x) { R = x[0]; REC = x[1]; disegna(); }); }
   $('okNome').onclick = function () { var v = $('nome').value.trim().replace(/\s+/g, ' '); if (v.indexOf(' ') < 0) { $('esNome').style.color = '#c0392b'; $('esNome').textContent = 'Scrivi nome E cognome.'; return; } s('nome-3inf', v); if (!g('nome-' + ID)) s('nome-' + ID, JSON.stringify(v)); disegna(); };
   $('nome').addEventListener('keydown', function (ev) { if (ev.key === 'Enter') $('okNome').click(); });
+  $('bVer').addEventListener('click', function () { s(L + 'ver', '1'); setTimeout(disegna, 800); });
   $('bRip').addEventListener('click', function () { s(L + 'rip', '1'); setTimeout(disegna, 500); });
   carica(); setInterval(carica, 60000); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna);
 })();
