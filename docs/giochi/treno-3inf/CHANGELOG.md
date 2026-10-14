@@ -6,6 +6,11 @@
 
 
 
+
+## v1.11 — 14/10/2026 12:37 — Il treno rallentato
+
+1. Richiesta del prof: il gioco era troppo veloce. Velocità di partenza 0,6 (prima 1,2) e a ogni livello solo il 6% in più (prima il 15%). La regola di Noah (lento all'inizio, poi più veloce) resta, ma più dolce.
+
 ## v1.10 — 14/10/2026 11:33 — Arriva Tuta
 
 1. PR di Tomas (12/10), PERSONAGGI: il nuovo nemico Tuta, con la tuta arancione, esce a metà percorso da dietro palazzi e tombini. I gatti della stessa richiesta non ci sono ancora: il motore non sa disegnare animali che si muovono, restano nel backlog per una prossima versione.
