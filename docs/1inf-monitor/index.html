@@ -16,7 +16,7 @@ table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid 
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function carica(){fetch('monitor.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
- document.getElementById('giri').innerHTML=(document.getElementById("data").textContent=d.data||""),d.giri.slice().reverse().map(function(g){var f=g.righe.filter(function(r){return r.fuori}).length;
+ document.getElementById("data").textContent=d.data||"";document.getElementById('giri').innerHTML=d.giri.slice().reverse().map(function(g){var f=g.righe.filter(function(r){return r.fuori}).length;
   return '<h2>Giro delle '+e(g.ora)+(f?' · <span class="ko">'+f+' fuori compito</span>':'')+'</h2><div class="card"><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+
   g.righe.map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table></div>'}).join('')}).catch(function(){})}
 carica();setInterval(carica,60000);

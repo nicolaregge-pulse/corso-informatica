@@ -67,7 +67,7 @@ P.append(passo(9, "val", "La tua valutazione e il recupero", "আপনার �
   '<div id="val" class="nota">' + T("Compare qui quando il prof ha corretto la tua verifica.", "শিক্ষক আপনার পরীক্ষা দেখার পরে এখানে দেখা যাবে।") + '</div>' +
   '<a class="bot" id="bRec" href="%s&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero</a>' % V))
 BOTTONI = [("I voti", "#238636", "3inf-voti/"), ("Il backlog", "#1f6feb", "3inf-backlog/"), ("Il monitor della lezione", "#6e40c9", "3inf-monitor/"),
-           ("Le versioni del gioco", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "#b8432a", "3inf-top/"), ("La situazione della classe", "#30363d", "3inf-valutazione/")]
+           ("Cosa è cambiato oggi nel gioco", "#d4a017", "giochi/treno-3inf/versioni/"), ("La classifica", "#b8432a", "3inf-top/"), ("La situazione della classe", "#30363d", "3inf-valutazione/")]
 sei = '<div>' + ''.join('<a class="bt" style="background:%s" href="%s%s" target="_blank" rel="noopener">%s</a>' % (c, SITO, u, t) for t, c, u in BOTTONI) + '</div>'
 CSS = """:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
