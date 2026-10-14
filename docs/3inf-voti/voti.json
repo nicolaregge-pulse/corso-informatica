@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:00 (KPI proposti, da approvare)",
+ "aggiornato": "14/10/2026 13:01 (KPI proposti, da approvare)",
  "voti": [
   {
    "alunno": "Alessandro A.",
@@ -14,23 +14,23 @@
   },
   {
    "alunno": "Andrea G.",
-   "pr": 2,
-   "pr_oggi": 2,
+   "pr": 3,
+   "pr_oggi": 3,
    "fatte": 1,
    "feedback": true,
-   "voto": 80,
-   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 richiesta nel gioco = 80",
+   "voto": 90,
+   "perche": "40 di partenza +10 revisione +30 3 richieste di oggi +10 richiesta nel gioco = 90",
    "stipendio": 200,
    "stipendio_conto": "v1.12 peso 2 = 200 €"
   },
   {
    "alunno": "Ariel D.",
-   "pr": 0,
-   "pr_oggi": 0,
+   "pr": 2,
+   "pr_oggi": 2,
    "fatte": 0,
    "feedback": false,
-   "voto": 40,
-   "perche": "40 di partenza = 40",
+   "voto": 60,
+   "perche": "40 di partenza +20 2 richieste di oggi = 60",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -47,12 +47,12 @@
   },
   {
    "alunno": "Dani S.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 2,
+   "pr_oggi": 2,
    "fatte": 0,
    "feedback": false,
-   "voto": 50,
-   "perche": "40 di partenza +10 1 richieste di oggi = 50",
+   "voto": 60,
+   "perche": "40 di partenza +20 2 richieste di oggi = 60",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -101,16 +101,6 @@
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
-   "alunno": "Filippo M.",
-   "pr": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": "assente",
-   "perche": "assente oggi: niente voto della lezione",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
    "alunno": "Gabriele R.",
    "pr": 1,
    "pr_oggi": 1,
@@ -140,16 +130,6 @@
    "feedback": false,
    "voto": 40,
    "perche": "40 di partenza = 40",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Milroy R.",
-   "pr": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": "assente",
-   "perche": "assente oggi: niente voto della lezione",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -227,16 +207,6 @@
    "feedback": false,
    "voto": 50,
    "perche": "40 di partenza +10 1 richieste di oggi = 50",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Zhan L.",
-   "pr": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": "assente",
-   "perche": "assente oggi: niente voto della lezione",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   }
