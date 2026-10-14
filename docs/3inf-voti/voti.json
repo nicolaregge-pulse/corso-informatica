@@ -3,7 +3,7 @@
  "voti": [
   {
    "alunno": "Alessandro A.",
-   "pr": 2,
+   "pr": 1,
    "pr_oggi": 1,
    "fatte": 1,
    "feedback": true,
@@ -14,29 +14,18 @@
   },
   {
    "alunno": "Andrea G.",
-   "pr": 3,
+   "pr": 1,
    "pr_oggi": 1,
-   "fatte": 3,
+   "fatte": 1,
    "feedback": true,
    "voto": 70,
    "perche": "40 di partenza +10 revisione +10 1 richieste di oggi +10 richiesta nel gioco = 70",
-   "stipendio": 500,
-   "stipendio_conto": "v1.12 peso 2 = 200 € + v1.6 peso 3 = 300 € → 500 €"
-  },
-  {
-   "alunno": "Ariel D.",
-   "pr": 2,
-   "pr_oggi": 0,
-   "fatte": 2,
-   "feedback": false,
-   "voto": 50,
-   "perche": "40 di partenza +10 richiesta nel gioco = 50",
-   "stipendio": 500,
-   "stipendio_conto": "v1.7 peso 2 = 200 € + v1.8 peso 3 = 300 € → 500 €"
+   "stipendio": 200,
+   "stipendio_conto": "v1.12 peso 2 = 200 €"
   },
   {
    "alunno": "Dani S.",
-   "pr": 2,
+   "pr": 1,
    "pr_oggi": 1,
    "fatte": 0,
    "feedback": false,
@@ -47,44 +36,12 @@
   },
   {
    "alunno": "David A.",
-   "pr": 2,
+   "pr": 1,
    "pr_oggi": 1,
-   "fatte": 1,
+   "fatte": 0,
    "feedback": true,
-   "voto": 70,
-   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi +10 richiesta nel gioco = 70",
-   "stipendio": 300,
-   "stipendio_conto": "v1.9 peso 3 = 300 €"
-  },
-  {
-   "alunno": "Emmanuel F.",
-   "pr": 1,
-   "pr_oggi": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": 40,
-   "perche": "40 di partenza = 40",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Fabrizio C.",
-   "pr": 1,
-   "pr_oggi": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": 40,
-   "perche": "40 di partenza = 40",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
-  },
-  {
-   "alunno": "Filippo M.",
-   "pr": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": "assente",
-   "perche": "assente oggi: niente voto della lezione",
+   "voto": 60,
+   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi = 60",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -101,25 +58,14 @@
   },
   {
    "alunno": "Noah V.",
-   "pr": 4,
+   "pr": 3,
    "pr_oggi": 3,
-   "fatte": 4,
+   "fatte": 3,
    "feedback": true,
    "voto": 90,
    "perche": "40 di partenza +10 revisione +30 3 richieste di oggi +10 richiesta nel gioco = 90",
-   "stipendio": 600,
-   "stipendio_conto": "v1.12 peso 2 = 200 € + v1.13 peso 2 = 200 € + v1.5 peso 2 = 200 € → 600 €"
-  },
-  {
-   "alunno": "Rafi F.",
-   "pr": 1,
-   "pr_oggi": 0,
-   "fatte": 0,
-   "feedback": false,
-   "voto": 40,
-   "perche": "40 di partenza = 40",
-   "stipendio": 0,
-   "stipendio_conto": "nessuna richiesta approvata: 0 €"
+   "stipendio": 400,
+   "stipendio_conto": "v1.12 peso 2 = 200 € + v1.13 peso 2 = 200 € → 400 €"
   },
   {
    "alunno": "Samuele U.",
@@ -134,7 +80,7 @@
   },
   {
    "alunno": "Simone G.",
-   "pr": 3,
+   "pr": 2,
    "pr_oggi": 2,
    "fatte": 2,
    "feedback": true,
@@ -145,14 +91,14 @@
   },
   {
    "alunno": "Tomas L.",
-   "pr": 2,
+   "pr": 1,
    "pr_oggi": 1,
-   "fatte": 1,
+   "fatte": 0,
    "feedback": false,
-   "voto": 60,
-   "perche": "40 di partenza +10 1 richieste di oggi +10 richiesta nel gioco = 60",
-   "stipendio": 300,
-   "stipendio_conto": "v1.10 peso 3 = 300 €"
+   "voto": 50,
+   "perche": "40 di partenza +10 1 richieste di oggi = 50",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   }
  ]
 }
