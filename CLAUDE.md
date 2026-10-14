@@ -193,7 +193,7 @@ bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71
 
 **12. Un link si dà SOLO dopo che il sito è pubblicato (14/10/2026, VINCOLANTE, REGISTRO-ERRORI #79).** Dopo il push: `bash strumenti/aspetta_pubblicazione.sh`; il link a Nicola solo dopo «PUBBLICATO».
 
-**13. Il bottone «I voti» è fisso, i KPI si concordano (14/10/2026, VINCOLANTE).** Il voto parte sempre da 40 e sale man mano che i ragazzi fanno le cose; ogni riga spiega il perché (il conto). Cambia solo che cosa si misura (numero di PR, avanzamento nel percorso, …): i KPI di ogni lezione si propongono a Nicola e si usano solo dopo il suo sì.
+**13. Il bottone «I voti» è fisso, i KPI si concordano (14/10/2026, VINCOLANTE).** Il voto parte sempre da 40 e sale man mano che i ragazzi fanno le cose; ogni riga spiega il perché (il conto). Cambia solo che cosa si misura (numero di PR, avanzamento nel percorso, …): i KPI dipendono dalla lezione: si propongono a Nicola DOPO che ha visto il percorso proposto (mai prima) e si usano solo dopo il suo sì.
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
