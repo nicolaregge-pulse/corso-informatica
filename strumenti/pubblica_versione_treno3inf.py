@@ -78,7 +78,7 @@ def main():
     if os.path.exists(sw):
         os.remove(sw)   # le versioni ferme non installano un service worker loro
     import datetime
-    v.append({"versione": ver, "nome": nome, "cambi": cambi, "data": datetime.datetime.now().strftime("%d/%m/%Y %H:%M"), "commit": "", "commit_sorgente": sorg})
+    v.append({"versione": ver, "nome": nome, "cambi": cambi, "data": datetime.datetime.now(__import__("zoneinfo").ZoneInfo("Europe/Rome")).strftime("%d/%m/%Y %H:%M"), "commit": "", "commit_sorgente": sorg})
     salva(v); print("pubblicata:", dest)
 
 

@@ -1,5 +1,35 @@
 # Il treno blindato della 3INF — storia delle versioni
 
+
+
+
+
+
+
+## v1.10 — 14/10/2026 11:33 — Arriva Tuta
+
+1. PR di Tomas (12/10), PERSONAGGI: il nuovo nemico Tuta, con la tuta arancione, esce a metà percorso da dietro palazzi e tombini. I gatti della stessa richiesta non ci sono ancora: il motore non sa disegnare animali che si muovono, restano nel backlog per una prossima versione.
+
+## v1.9 — 14/10/2026 11:33 — Paesaggio meno vuoto
+
+1. PR di David A. (12/10), SCENARI: «il paesaggio è troppo vuoto e spoglio». In montagna ora ci sono più rocce, cespugli e greggi intorno ai binari (densità 3, il massimo).
+
+## v1.8 — 14/10/2026 11:33 — Arrivano gli alieni verdi
+
+1. PR di Ariel (12/10), PERSONAGGI: tra i nemici compare l'Alieno verde, tutto verde, con tre occhi; quando spara dice «BLIP BLOP!».
+
+## v1.7 — 14/10/2026 11:33 — Rocce di grandezze e colori diversi
+
+1. PR di Ariel (12/10), SCENARI: le rocce ai lati dei binari hanno grandezze e toni di colore diversi, non sono più tutte uguali. Nel motore è nata la regola «rocce_varie».
+
+## v1.6 — 14/10/2026 11:33 — Cielo grigio in città
+
+1. PR1 di Andrea G. (12/10): il cielo diventa grigio, «così il gioco sembra più un gioco d'azione». MERGE CON UN CONFLITTO: in montagna Dani e Ale (v1.2) avevano chiesto il cielo sereno. Per non cancellare il loro lavoro, il cielo grigio va in città: aggiungere sì, cancellare no.
+
+## v1.5 — 14/10/2026 11:33 — Treno più lento all'inizio, poi sempre più veloce
+
+1. PR1 di Noah (12/10), MOTORE FISICA: il treno parte più lento (velocità 1,2 invece di 2) e a ogni livello va il 15% più veloce, così il gioco diventa più difficile man mano. Nel motore è nata una regola nuova: «aumento_per_livello».
+
 ## v1.4 — 08/10/2026 12:55 — Treno più veloce, Nash, Dylan, il cielo che cambia subito
 
 1. PR #17 di Noah (PC 35), MOTORE FISICA: velocità del treno 2, «più intenso e più difficile».
