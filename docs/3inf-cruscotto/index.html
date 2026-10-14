@@ -43,7 +43,7 @@ input{font:inherit;padding:6px 10px;border-radius:8px;border:2px solid var(--bd)
       V.forEach(function (v) { voto[v.alunno] = v; }); R.forEach(function (r) { ver[r.allievo] = r; });
       var nomi = A.map(function (a) { return a.alunno; });
       Object.keys(storia).concat(Object.keys(note)).forEach(function (n) { if (nomi.indexOf(n) < 0) { nomi.push(n); A.push({ alunno: n, pr: 0, pr_oggi: 0, approvate: 0, rifiutate: 0, attesa: 0, revisione: false }); } });
-      A.sort(function (a, b) { return a.alunno.localeCompare(b.alunno); });
+      A.sort(function (a, b) { var x = a.alunno.split(' ').pop(), y = b.alunno.split(' ').pop(); return x === y ? a.alunno.localeCompare(b.alunno) : x.localeCompare(y); });   // per cognome, come il registro
       var tot = A.length || 1, sPr = 0, sOk = 0, max = 0, rev = 0, paga = 0;
       A.forEach(function (a) { sPr += a.pr_oggi; sOk += a.approvate; max = Math.max(max, a.pr_oggi); if (a.revisione) rev++; paga += (voto[a.alunno] && voto[a.alunno].stipendio) || 0; });
       var io = A.filter(function (a) { return a.alunno === me; })[0];

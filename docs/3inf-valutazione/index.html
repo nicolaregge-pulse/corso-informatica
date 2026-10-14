@@ -53,7 +53,7 @@ th{font-size:15px;color:var(--mu)}td img{width:48px;height:48px;object-fit:cover
       var ver = {}; R.forEach(function (r) { ver[r.allievo] = r; });
       var nomi = V.map(function (v) { return v.alunno; });
       T.forEach(function (t) { if (nomi.indexOf(t.chi) < 0) { nomi.push(t.chi); V.push({ alunno: t.chi, pr: 0, fatte: 1, voto: '' }); } });
-      V.sort(function (a, b) { return a.alunno.localeCompare(b.alunno); });
+      V.sort(function (a, b) { var x = a.alunno.split(' ').pop(), y = b.alunno.split(' ').pop(); return x === y ? a.alunno.localeCompare(b.alunno) : x.localeCompare(y); });
       $('tab').innerHTML = V.map(function (v) {
         var o = ora[v.alunno], r = ver[v.alunno], a = att[v.alunno] || 0;
         var adesso = o ? '<span class="' + (o.t === 'f' ? 'ko' : o.t === 'g' ? 'gi' : 'ok') + '">' + e(o.cosa) + '</span> <span class="mu">(' + e(o.ora) + ')</span>' : '<span class="mu">non visto</span>';
