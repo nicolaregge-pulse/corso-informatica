@@ -204,7 +204,7 @@ details summary{cursor:pointer;font-weight:700;color:#1f6feb;margin:8px 0}
 <div dir="rtl" style="margin-top:12px;font-family:Amiri,serif">هذه الصفحة غير مفتوحة بعد. أولًا أنهِ الواجب الآخر على Classroom: «كيف كان اليوم؟». تُفتح هذه الصفحة عندما يقول الأستاذ.</div>
 <div style="margin-top:12px">这个页面还没有打开。先完成 Classroom 上的另一个作业：「今天怎么样？」。老师说可以的时候，这个页面才会打开。</div></div>
 <script>(function(){var q=new URLSearchParams(location.search),c=q.get('anteprima')||'';function h(s){var x=2166136261;for(var i=0;i<s.length;i++){x^=s.charCodeAt(i);x=Math.imul(x,16777619);}return x>>>0;}
-var w=document.querySelector('.w');if(h(c)===868848605)return;w.style.display='none';
+var w=document.querySelector('.w');if(h(c)===868848605||h(q.get('vedi')||'')===2768531100)return;w.style.display='none';
 fetch('stato.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){if(d&&d.aperto)w.style.display='';else{document.getElementById('chiuso').style.display='';var st=document.createElement('style');st.textContent='body>section{display:none!important}';document.head.appendChild(st);}}).catch(function(){document.getElementById('chiuso').style.display='';});})();</script>
 <script>
 (function () {
