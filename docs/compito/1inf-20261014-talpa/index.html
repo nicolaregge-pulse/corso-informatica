@@ -20,7 +20,7 @@ p{margin:4px 0}.t{color:var(--mu);font-size:16px}
 ol{padding-left:26px}li{margin:0 0 12px}
 .lab{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start}
 #tela{width:260px;height:260px;border:3px dashed #8b949e;border-radius:12px;background:repeating-conic-gradient(#e9edf1 0 25%,#fff 0 50%) 0 0/24px 24px;touch-action:none;cursor:crosshair}
-.colori{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;max-width:270px}.colori button{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #8b949e;cursor:pointer}
+.frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.colori{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;max-width:270px}.colori button{width:34px;height:34px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px #8b949e;cursor:pointer}
 .colori button.on{box-shadow:0 0 0 3px #1f6feb}
 .buco{position:relative;width:220px;height:220px;overflow:hidden;border-radius:12px}
 .buco img{position:absolute;left:0;top:0;width:220px;height:220px}
@@ -42,9 +42,9 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <div class="it">Un programma si può cambiare. Cambi una sua parte e il programma fa una cosa nuova.</div>
 <div class="ar">يمكن تغيير البرنامج. تغيّر جزءًا منه فيعمل شيئًا جديدًا.</div>
 <div class="zh">程序是可以修改的。改掉其中一部分，程序就会做出新的东西。</div>
-<div class="it" style="margin-top:10px">Oggi cambi il gioco «Acchiappa la talpa»: la talpa diventa la tua immagine. Il prof mette la tua talpa nel gioco di tutta la classe.</div>
-<div class="ar">اليوم تغيّر لعبة «اصطد الخُلد»: يصبح الخُلد صورتك. الأستاذ يضع خُلدك في لعبة كل الصف.</div>
-<div class="zh">今天你来修改「打地鼠」游戏：地鼠变成你的图片。老师会把你的地鼠放进全班的游戏里。</div>
+<div class="it" style="margin-top:10px">Oggi cambi il gioco «Acchiappa la talpa»: la talpa diventa la tua caricatura, fatta con Gemini. Il prof mette la tua talpa nel gioco di tutta la classe.</div>
+<div class="ar">اليوم تغيّر لعبة «اصطد الخُلد»: يصبح الخُلد الكاريكاتير الخاص بك، المصنوع بـ Gemini. الأستاذ يضع خُلدك في لعبة كل الصف.</div>
+<div class="zh">今天你来修改「打地鼠」游戏：地鼠变成你用 Gemini 做的漫画。老师会把你的地鼠放进全班的游戏里。</div>
 
 <h2>Passo 1 · Gioca</h2>
 <ol>
@@ -53,25 +53,28 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <li><div class="it">Torna su questa pagina.</div><div class="ar">ارجع إلى هذه الصفحة.</div><div class="zh">回到这个页面。</div></li>
 </ol>
 
-<h2>Passo 2 · Crea la tua talpa</h2>
-<div class="nota"><div class="it">Niente foto di persone: il gioco lo vedono tutti. Va bene un disegno, un animale, un personaggio.</div><div class="ar">لا صور لأشخاص: الجميع يرى اللعبة. يمكنك رسم، حيوان، شخصية.</div><div class="zh">不要放人的照片：大家都能看到这个游戏。可以画画、动物或卡通人物。</div></div>
+<h2>Passo 2 · La tua caricatura con Gemini</h2>
+<div class="nota"><div class="it">Descrivi la talpa a parole. Non caricare foto tue o dei compagni.</div><div class="ar">صِف الخُلد بالكلمات. لا ترفع صورك أو صور زملائك.</div><div class="zh">用文字描述地鼠。不要上传你或同学的照片。</div></div>
+<ol>
+<li><div class="it">Premi il bottone blu: si apre Gemini.</div><div class="ar">اضغط الزر الأزرق: يفتح Gemini.</div><div class="zh">按蓝色按钮：打开 Gemini。</div>
+<a class="bot blu" href="https://gemini.google.com/app" target="_blank" rel="noopener">Apri Gemini · افتح Gemini · 打开 Gemini</a></li>
+<li><div class="it">Torna qui. Premi «Copia» accanto alla frase nella tua lingua.</div><div class="ar">ارجع إلى هنا. اضغط «Copia» (نسخ) بجانب الجملة بلغتك.</div><div class="zh">回到这里。按你的语言那句话旁边的「Copia」（复制）。</div>
+<div class="frase"><p class="it" id="f-it">Crea una caricatura simpatica, stile cartone animato: una talpa che esce da un buco nel terreno e mi somiglia. Immagine quadrata, sfondo bianco. Aggiungi questo:</p><button class="bot gr" data-copia="f-it">Copia · italiano</button></div>
+<div class="frase"><p class="ar" id="f-ar">ارسم كاريكاتيرًا لطيفًا بأسلوب الرسوم المتحركة: خُلد يخرج من حفرة في الأرض ويشبهني. صورة مربعة، خلفية بيضاء. أضف هذا:</p><button class="bot gr" data-copia="f-ar">Copia · العربية</button></div>
+<div class="frase"><p class="zh" id="f-zh">画一张可爱的卡通漫画：一只从地洞里钻出来的地鼠，长得像我。正方形图片，白色背景。再加上这个：</p><button class="bot gr" data-copia="f-zh">Copia · 中文</button></div></li>
+<li><div class="it">Vai su Gemini, clicca nella casella in basso e premi Ctrl+V.</div><div class="ar">اذهب إلى Gemini، انقر في الخانة في الأسفل واضغط Ctrl+V.</div><div class="zh">去 Gemini，点击下面的输入框，按 Ctrl+V。</div></li>
+<li><div class="it">Scrivi alla fine una cosa tua: il tuo sport, la tua squadra, il tuo colore. Premi Invio.</div><div class="ar">اكتب في النهاية شيئًا عنك: رياضتك، فريقك، لونك. اضغط Enter.</div><div class="zh">在最后写一点关于你的东西：你的运动、你的球队、你的颜色。按回车。</div></li>
+<li><div class="it">Sulla caricatura premi il tasto destro del mouse e scegli «Copia immagine».</div><div class="ar">على الصورة اضغط زر الفأرة الأيمن واختر «Copia immagine» (نسخ الصورة).</div><div class="zh">在漫画上按鼠标右键，选「Copia immagine」（复制图片）。</div></li>
+<li><div class="it">Torna qui e premi Ctrl+V. La tua talpa esce dal buco.</div><div class="ar">ارجع إلى هنا واضغط Ctrl+V. يخرج خُلدك من الحفرة.</div><div class="zh">回到这里按 Ctrl+V。你的地鼠就从洞里钻出来了。</div></li>
+</ol>
 <div class="lab">
-<div>
 <canvas id="tela" width="200" height="200"></canvas>
-<div class="colori" id="colori"></div>
-<button class="bot gr" id="cancella">Cancella · امسح · 清除</button>
-</div>
 <div>
 <div class="buco"><img src="buco.png" alt=""><img id="prova" src="talpa.png" alt="La tua talpa"><img src="lembo.png" alt=""></div>
 <p class="t">Così esce dal buco · هكذا يخرج من الحفرة · 它会这样从洞里出来</p>
 </div>
 </div>
-<ol>
-<li><div class="it">Disegna con il mouse nel quadrato.</div><div class="ar">ارسم بالفأرة داخل المربع.</div><div class="zh">用鼠标在方框里画。</div></li>
-<li><div class="it">Oppure scegli un'immagine dal computer:</div><div class="ar">أو اختر صورة من الحاسوب:</div><div class="zh">或者从电脑里选一张图片：</div>
-<button class="bot blu" id="scegli">Scegli un'immagine · اختر صورة · 选图片</button><input type="file" id="file" accept="image/*" hidden></li>
-<li><div class="it">Oppure copia un'immagine da internet (tasto destro, «Copia immagine») e premi Ctrl+V su questa pagina.</div><div class="ar">أو انسخ صورة من الإنترنت (الزر الأيمن، «Copia immagine» = نسخ الصورة) ثم اضغط Ctrl+V في هذه الصفحة.</div><div class="zh">或者从网上复制一张图片（右键，「Copia immagine」= 复制图片），然后在这个页面按 Ctrl+V。</div></li>
-</ol>
+<p class="t">Ctrl+V non va? Su Gemini scarica l'immagine (freccia in giù), poi premi qui: <button class="bot gr" id="scegli">Scegli un'immagine · اختر صورة · 选图片</button><input type="file" id="file" accept="image/*" hidden></p>
 
 <h2>Passo 3 · Mandala al prof</h2>
 <ol>
@@ -109,18 +112,12 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
 
   // il quadrato dove si disegna o si mette l'immagine
-  var tela = $('tela'), ctx = tela.getContext('2d'), colore = '#222', giu = false, usato = false;
-  ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.lineWidth = 9;
-  ['#222', '#e03131', '#f08c00', '#fcc419', '#2f9e44', '#1971c2', '#9c36b5', '#8d5a2b', '#ffffff'].forEach(function (c, i) {
-    var b = document.createElement('button'); b.style.background = c; b.title = c; if (!i) b.className = 'on';
-    b.onclick = function () { colore = c; [].forEach.call($('colori').children, function (x) { x.className = ''; }); b.className = 'on'; };
-    $('colori').appendChild(b);
+  var tela = $('tela'), ctx = tela.getContext('2d'), usato = false;
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-copia]'); if (!b) return;
+    var t = document.getElementById(b.getAttribute('data-copia')).textContent + ' ';
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { var v = b.textContent; b.textContent = 'Copiata ✓'; setTimeout(function () { b.textContent = v; }, 1500); }).catch(function () {});
   });
-  function punto(e) { var r = tela.getBoundingClientRect(); return [(e.clientX - r.left) * tela.width / r.width, (e.clientY - r.top) * tela.height / r.height]; }
-  tela.addEventListener('pointerdown', function (e) { giu = true; tela.setPointerCapture(e.pointerId); var p = punto(e); ctx.strokeStyle = colore; ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(p[0] + .1, p[1]); ctx.stroke(); });
-  tela.addEventListener('pointermove', function (e) { if (!giu) return; var p = punto(e); ctx.lineTo(p[0], p[1]); ctx.stroke(); });
-  tela.addEventListener('pointerup', function () { giu = false; usato = true; anteprima(); });
-  $('cancella').onclick = function () { ctx.clearRect(0, 0, tela.width, tela.height); usato = false; $('prova').src = 'talpa.png'; };
   function anteprima() { $('prova').src = tela.toDataURL('image/png'); }
   function metti(img) {
     ctx.clearRect(0, 0, tela.width, tela.height);
@@ -148,7 +145,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   }
   $('manda').onclick = function () {
     var nome = $('nome').value.trim(), es = $('esito');
-    if (!usato) { es.style.color = '#c0392b'; es.textContent = 'Prima crea la tua talpa (Passo 2). · أولًا اصنع خُلدك. · 先做你的地鼠（第2步）。'; return; }
+    if (!usato) { es.style.color = '#c0392b'; es.textContent = 'Prima metti la tua caricatura: Ctrl+V (Passo 2). · أولًا ضع الكاريكاتير: Ctrl+V. · 先放你的漫画：Ctrl+V（第2步）。'; return; }
     if (nome.length < 3) { es.style.color = '#c0392b'; es.textContent = 'Scrivi il tuo nome. · اكتب اسمك. · 写你的名字。'; $('nome').focus(); return; }
     try { localStorage.setItem('nome-1inf', nome); } catch (x) {}
     var ok = invia({ id: ID, nome: nome, modo: 'proposta', classe: '1INF', cosa: 'talpa', immagine: tela.toDataURL('image/png'), ora: new Date().toISOString() }, es);
