@@ -53,11 +53,20 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 .vita{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.vita span.s{background:var(--card);border:2px solid #6e40c9;border-radius:20px;padding:4px 12px;font-size:15px;font-weight:700}.vita span.f{color:#6e40c9;font-weight:800}
 .dove{display:flex;flex-wrap:wrap;gap:10px}.dove a{flex:1;min-width:200px;background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:10px 12px;color:var(--fg);text-decoration:none}.dove a b{display:block;font-size:18px;color:#1f6feb}
 .frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}
+.perc{border:3px solid #1f6feb;border-radius:14px;padding:10px 12px;margin:12px 0;background:var(--card)}
+.perc h2{margin:0 0 8px;border:0;padding:0;background:none}
+.tp{display:flex;align-items:center;gap:10px;padding:8px;border-radius:10px;margin:6px 0;border:2px solid var(--bd)}
+.tp .nn{flex:0 0 40px;height:40px;border-radius:50%;background:#6e7781;color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.tp .tx{flex:1;min-width:0}.tp .tx b{display:block;font-size:19px}.tp .tx small{color:var(--mu);font-size:14px}
+.tp a{flex:0 0 auto;background:#1f6feb;color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:9px 14px;font-size:17px}
+.tp.fatto .nn{background:#1a7f37}.tp.fatto{opacity:.75}.tp.fatto a{background:#6e7781}
+.tp.ora{border:4px solid #1a7f37;background:#e6f6ea}.tp.ora a{background:#1a7f37;font-size:20px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tp.ora{background:#12301b}}
+.tp .st{font-size:14px;font-weight:700;color:#1a7f37}
 </style>
 </head>
 <body><div class="w">
 <h1>La mia talpa</h1>
-<a href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=1inf-talpa" target="_blank" rel="noopener" style="display:block;background:#1a7f37;color:#fff;text-decoration:none;font-weight:800;font-size:24px;border-radius:14px;padding:16px 18px;margin:12px 0;text-align:center">ADESSO: ripasso, poi verifica<br><small style="font-size:18px;font-weight:600">الآن: المراجعة، ثم الاختبار · 现在：先复习，再考试</small></a>
 <div class="ar">الخُلد الخاص بي</div><div class="zh">我的地鼠</div>
 <p class="t">1INF · 14/10/2026</p>
 <p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
@@ -74,7 +83,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <div style="margin-top:6px"><a class="bt" style="background:#1a7f37" href="../../giochi/talpa-1inf/changelog/" target="_blank" rel="noopener">Versioni pubblicate (changelog)<small>النسخ المنشورة · 已发布的版本</small></a><a class="bt" style="background:#b8432a" href="../../giochi/talpa-1inf/premi/" target="_blank" rel="noopener">Premio e classifica dei personaggi<small>الجائزة والترتيب · 奖项和排名</small></a></div>
 </div>
 
-<h2 style="border:3px solid #1a7f37">Spiegalo in 30 secondi · اشرحه في 30 ثانية · 30秒讲清楚</h2>
+<h2 id="s30" style="border:3px solid #1a7f37">Spiegalo in 30 secondi · اشرحه في 30 ثانية · 30秒讲清楚</h2>
 <div class="it">Se entra qualcuno e ti chiede «che cosa state facendo?», rispondi con queste 4 frasi. Dille a voce al tuo compagno, poi scambiatevi.</div><div class="ar">إذا دخل أحد وسألك «ماذا تفعلون؟»، أجب بهذه الجمل الأربع. قلها بصوتك لزميلك، ثم تبادلا.</div><div class="zh">如果有人进来问你「你们在做什么？」，就用这4句话回答。先说给同学听，然后交换。</div>
 <ol><li><div class="it">Tutta la classe lavora su un solo programma: il gioco della talpa.</div><div class="ar">كل الصف يعمل على برنامج واحد: لعبة الخُلد.</div><div class="zh">全班一起做同一个程序：打地鼠游戏。</div></li><li><div class="it">Ognuno ha chiesto una modifica: «metti il mio personaggio nel gioco». Si chiama Pull Request, una richiesta.</div><div class="ar">كل واحد طلب تعديلًا: «ضع شخصيتي في اللعبة». اسمه Pull Request، أي طلب.</div><div class="zh">每个人提出一个修改：「把我的角色放进游戏」。这叫 Pull Request，就是一个请求。</div></li><li><div class="it">Il prof controlla e la unisce al gioco: si chiama Merge. Ogni modifica fa nascere una versione nuova: v1.1, v1.2…</div><div class="ar">الأستاذ يتحقق ويدمجها في اللعبة: اسمه Merge. كل تعديل يصنع نسخة جديدة: v1.1، v1.2…</div><div class="zh">老师检查后把它合并进游戏：这叫 Merge。每个修改都产生一个新版本：v1.1、v1.2……</div></li><li><div class="it">Si aggiunge, non si cancella il lavoro degli altri. E tutto è scritto: backlog (le richieste) e changelog (che cosa è cambiato).</div><div class="ar">نضيف ولا نمسح عمل الآخرين. وكل شيء مكتوب: backlog (الطلبات) و changelog (ما الذي تغيّر).</div><div class="zh">只添加，不删除别人的成果。一切都有记录：backlog（请求清单）和 changelog（改了什么）。</div></li></ol>
 <div id="quiz"><div class="check" data-q="0"><div class="it">1. Che cos'è una Pull Request?</div><button data-g="1">Una richiesta di modifica</button><button data-g="0">Un gioco</button><button data-g="0">Una password</button><div class="esito"></div></div><div class="check" data-q="1"><div class="it">2. Chi fa il Merge, cioè unisce la modifica al gioco?</div><button data-g="1">Il prof, dopo il controllo</button><button data-g="0">Ognuno da solo</button><button data-g="0">Nessuno</button><div class="esito"></div></div><div class="check" data-q="2"><div class="it">3. Che cosa succede dopo ogni modifica?</div><button data-g="1">Nasce una versione nuova</button><button data-g="0">Il gioco si cancella</button><button data-g="0">Si ricomincia da zero</button><div class="esito"></div></div><div class="check" data-q="3"><div class="it">4. Dove leggi che cosa è cambiato?</div><button data-g="1">Nel changelog</button><button data-g="0">Su YouTube</button><button data-g="0">Da nessuna parte</button><div class="esito"></div></div></div>
@@ -141,7 +150,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <a class="bot" href="../../giochi/talpa-1inf/" target="_blank" rel="noopener">Gioca · العب · 玩</a></li>
 </ol>
 
-<h2>Passo 2 · Il tuo personaggio: la foto</h2>
+<h2 id="passo2">Passo 2 · Il tuo personaggio: la foto</h2>
 <p class="t">Serve aiuto per ritagliare o salvare la foto? <a href="guida/" target="_blank" rel="noopener">La mini-guida</a> · <a href="guida/" target="_blank" rel="noopener">دليل صغير</a> · <a href="guida/" target="_blank" rel="noopener">小指南</a></p>
 <ol>
 <li><div class="it">Scrivi il tuo nome e cognome.</div><div class="ar">اكتب اسمك واسم عائلتك.</div><div class="zh">写你的名字和姓。</div>
@@ -192,7 +201,7 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 
 </ol>
 
-<h2>Seconda e terza Pull Request · cambia il tuo personaggio</h2>
+<h2 id="pr23">Seconda e terza Pull Request · cambia il tuo personaggio</h2>
 <div class="it">Il tuo personaggio è nel gioco? Puoi chiedere di cambiarlo. Non serve una foto nuova: scrivi che cosa vuoi cambiare. Ogni richiesta è una Pull Request e diventa una versione nuova del gioco.</div><div class="ar">شخصيتك في اللعبة؟ يمكنك طلب تغييرها. لا تحتاج صورة جديدة: اكتب ماذا تريد أن تغيّر. كل طلب هو Pull Request ويصبح نسخة جديدة من اللعبة.</div><div class="zh">你的角色已经在游戏里了？可以要求修改。不需要新照片：写你想改什么。每个请求都是一个 Pull Request，会变成游戏的一个新版本。</div>
 <ol>
 <li><div class="it">Scrivi il tuo nome e cognome al Passo 2, poi qui scrivi la modifica.</div><div class="ar">اكتب اسمك واسم عائلتك في الخطوة 2، ثم اكتب هنا التعديل.</div><div class="zh">在第2步写你的名字和姓，然后在这里写修改。</div>
@@ -212,6 +221,46 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <h2>Passo 5 · Il premio: vota il personaggio migliore</h2>
 <div class="it">Faremo una classifica dei personaggi: i primi tre vincono il premio dei personaggi migliori. Vota anche tu: puoi votare tutti, ma non il tuo personaggio.</div><div class="ar">سنعمل ترتيبًا للشخصيات: الثلاثة الأوائل يفوزون بجائزة أفضل الشخصيات. صوّت أنت أيضًا: يمكنك التصويت للجميع، إلا لشخصيتك.</div><div class="zh">我们会给角色排名：前三名获得最佳角色奖。你也来投票：所有角色都可以投，但不能投你自己的。</div>
 <a class="bot" href="../../giochi/talpa-1inf/premi/" target="_blank" rel="noopener">Vota · صوّت · 投票</a>
+
+<h2 id="passo6">Passo 6 · Ripasso e verifica</h2>
+<div class="it">Prima il ripasso, poi la verifica. Il bottone apre una finestra: quando hai finito, torna qui.</div><div class="ar">أولًا المراجعة، ثم الاختبار. الزر يفتح نافذة: عندما تنتهي ارجع إلى هنا.</div><div class="zh">先复习，再考试。按钮会打开一个窗口：做完后回到这里。</div>
+<ol>
+<li><div class="it">Il ripasso: leggi le schede e fai l'allenamento.</div><div class="ar">المراجعة: اقرأ البطاقات وقم بالتمرين.</div><div class="zh">复习：读卡片，做练习。</div>
+<a class="bot blu" id="p6rip" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=1inf-talpa" target="_blank" rel="noopener">Ripasso · المراجعة · 复习</a> <span class="esito" id="p6ripS"></span></li>
+<li><div class="it">La verifica: fino alle 10:55. Alla fine premi il bottone verde in fondo alla verifica.</div><div class="ar">الاختبار: حتى 10:55. في النهاية اضغط الزر الأخضر في أسفل الاختبار.</div><div class="zh">考试：到10:55。最后按考试页面最下面的绿色按钮。</div>
+<a class="bot" id="p6ver" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=1inf-talpa&amp;modo=verifica" target="_blank" rel="noopener">Verifica · الاختبار · 考试</a> <span class="esito" id="p6verS"></span></li>
+<li><div class="it">La tua valutazione e il recupero: compaiono qui quando il prof ha corretto.</div><div class="ar">تقييمك والاستدراك: يظهران هنا عندما يصحّح الأستاذ.</div><div class="zh">你的评价和补考：老师改完后出现在这里。</div>
+<div id="p6val" class="nota">La verifica non è ancora consegnata. · لم يُسلَّم الاختبار بعد. · 考试还没交。</div>
+<a class="bot" id="p6rec" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=1inf-talpa&amp;modo=recupero" target="_blank" rel="noopener" hidden>Recupero · الاستدراك · 补考</a></li>
+</ol>
+<script>
+/* Passo 6: ripasso e verifica in fondo al percorso; tornati qui si vede «Verifica fatta», il bottone si spegne, compaiono valutazione estesa e recupero (14/10/2026). */
+(function () {
+  var ID = '1inf-talpa-20261014', R = null;
+  function $(i) { return document.getElementById(i); }
+  function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function breve(n) { var p = (n || '').trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function esito(m) { try { var r = JSON.parse(g('esito-' + ID + '-' + m) || 'null'); return r && r.consegnata ? r : null; } catch (x) { return null; } }
+  function spegni(a, t) { a.removeAttribute('href'); a.removeAttribute('target'); a.setAttribute('disabled', ''); a.style.opacity = '.45'; a.style.cursor = 'not-allowed'; a.onclick = function (ev) { ev.preventDefault(); }; }
+  function disegna() {
+    if (g('nome-' + ID)) { $('p6ripS').style.color = '#1a7f37'; $('p6ripS').textContent = '✓ Ripasso iniziato · بدأت المراجعة · 已开始复习'; }
+    var v = esito('verifica'), rec = esito('recupero');
+    if (!v) return;
+    spegni($('p6ver')); $('p6verS').style.color = '#1a7f37'; $('p6verS').textContent = '✓ Verifica fatta · تمّ الاختبار · 考试已完成';
+    var nv = g('nome-' + ID); try { nv = JSON.parse(nv); } catch (x) {} var me = breve(nv || g('nome-1inf')), a = (R && R.allievi || []).filter(function (x) { return x.allievo === me; })[0];
+    if (!a) { $('p6val').innerHTML = '<b>Verifica consegnata.</b> Il prof sta correggendo: la tua valutazione compare qui da sola. · سُلِّم الاختبار. الأستاذ يصحّح: يظهر تقييمك هنا. · 考试已交。老师正在改：你的评价会自动出现在这里。'; return; }
+    $('p6val').innerHTML = '<div style="font-size:28px;font-weight:800">Voto: ' + e(a.voto) + '</div>' +
+      (a.aree || []).map(function (z) { return '<div>' + e(z.nome) + ': <b>' + e(z.giuste) + ' su ' + e(z.su) + '</b></div>'; }).join('') +
+      (a.scritte ? '<div style="margin-top:6px"><b>Risposte scritte:</b> ' + e(a.scritte) + '</div>' : '') +
+      (a.giudizio ? '<div style="margin-top:6px"><b>Il giudizio del prof:</b> ' + e(a.giudizio) + '</div>' : '');
+    if (rec) { spegni($('p6rec')); $('p6rec').hidden = false; $('p6rec').textContent = '✓ Recupero fatto · تمّ الاستدراك · 补考已完成'; }
+    else $('p6rec').hidden = false;
+  }
+  function carica() { fetch('../../verifica/risultati/1inf-talpa.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { R = d; disegna(); }).catch(disegna); }
+  carica(); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna); setInterval(carica, 60000);
+})();
+</script>
 
 <h2 style="border:3px solid #e8590c">Domanda in più · solo per Yinlin L. (PC 24)</h2>
 <div class="zh" style="color:var(--fg);font-size:21px">
@@ -369,5 +418,44 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 })();
 </script>
 <script src="../../assistente/assistente.js" data-pagina="1inf-talpa" data-lingue="it,ar,zh"></script>
+<script>
+/* Si vede cosa è già fatto: ogni passo fatto ha «✓ Fatto» accanto al titolo e i suoi bottoni si spengono (14/10/2026). */
+(function () {
+  var ID = '1inf-talpa-20261014', T = [];
+  function $(i) { return document.getElementById(i); }
+  function g(k) { try { return localStorage.getItem(k); } catch (x) { return null; } }
+  function m(k, v) { try { localStorage.setItem('perc-' + ID + '-' + k, v || '1'); } catch (x) {} }
+  function n(k) { return parseInt(g('perc-' + ID + '-' + k) || '0', 10); }
+  function breve(x) { var p = (x || '').trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function h2(t) { return [].filter.call(document.querySelectorAll('h2'), function (h) { return h.textContent.indexOf(t) === 0; })[0]; }
+  function sez(h) { var L = [], x = h && h.nextElementSibling; while (x && x.tagName !== 'H2') { L.push(x); x = x.nextElementSibling; } return L; }
+  function bottoni(h) { var B = []; sez(h).forEach(function (el) { [].push.apply(B, el.querySelectorAll ? el.querySelectorAll('a.bot,button.bot') : []); if (el.matches && el.matches('a.bot,button.bot')) B.push(el); }); return B; }
+  function spegni(b) { if (b.tagName === 'A') { b.removeAttribute('href'); b.removeAttribute('target'); } b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.style.opacity = '.4'; b.style.cursor = 'not-allowed'; b.style.pointerEvents = 'none'; }
+  function bollo(h, fatto, testo) {
+    if (!h) return; var s = h.querySelector('.bollo'); if (!s) { s = document.createElement('span'); s.className = 'bollo'; s.style.cssText = 'float:right;font-size:17px;padding:2px 10px;border-radius:8px;color:#fff'; h.appendChild(s); }
+    s.style.background = fatto ? '#1a7f37' : '#6e7781'; s.textContent = fatto ? '✓ Fatto · تمّ · 完成' + (testo ? ' · ' + testo : '') : (testo || 'Da fare · للعمل · 要做');
+    h.style.borderColor = fatto ? '#1a7f37' : '';
+  }
+  function disegna() {
+    var me = breve(g('nome-1inf') || ($('nome') && $('nome').value)), dentro = !!me && T.some(function (t) { return t.chi === me; });
+    var P1 = h2('Passo 1'), P2 = h2('Passo 2'), P3 = h2('Passo 3'), P4 = h2('Passo 4'), PR = h2('Seconda e terza'), P5 = h2('Passo 5'), P6 = h2('Passo 6');
+    var f1 = !!n('gioca'); bollo(P1, f1); if (f1) bottoni(P1).forEach(spegni);
+    bollo(P2, dentro); bollo(P3, dentro); bollo(P4, dentro);
+    if (dentro) { bottoni(P2).concat(bottoni(P3), bottoni(P4)).forEach(spegni); ['descrizione'].forEach(function (i) { if ($(i)) $(i).disabled = true; }); }
+    var k = n('mod'); bollo(PR, k >= 2, k ? k + ' di 2' : (dentro ? 'Da fare · 0 di 2' : 'Prima i passi 2-4'));
+    if (k >= 2) { bottoni(PR).forEach(spegni); if ($('modifica')) $('modifica').disabled = true; }
+    var f5 = !!n('voto'); bollo(P5, f5); if (f5) bottoni(P5).forEach(spegni);
+    var v = null; try { v = JSON.parse(g('esito-' + ID + '-verifica') || 'null'); } catch (x) {}
+    bollo(P6, !!(v && v.consegnata), v && v.consegnata ? 'verifica consegnata' : '');
+    if (v && v.consegnata && $('p6rip')) spegni($('p6rip'));
+  }
+  function aggancia(h, k, conta) { bottoni(h).forEach(function (b) { b.addEventListener('click', function () { if (conta) { var t = Date.now(), u = n(k + '-t'); if (t - u > 20000) { m(k, String(n(k) + 1)); m(k + '-t', String(t)); } } else m(k); setTimeout(disegna, 400); }); }); }
+  aggancia(h2('Passo 1'), 'gioca'); aggancia(h2('Passo 5'), 'voto');
+  ['mandamod', 'copiamod'].forEach(function (i) { if ($(i)) $(i).addEventListener('click', function () { var t = Date.now(), u = n('mod-t'); if (($('modifica').value || '').trim().length > 3 && t - u > 20000) { m('mod', String(n('mod') + 1)); m('mod-t', String(t)); } setTimeout(disegna, 400); }); });
+  if ($('nome')) $('nome').addEventListener('change', function () { var v = $('nome').value.trim(); if (v.indexOf(' ') > 0) { try { localStorage.setItem('nome-1inf', v); } catch (x) {} } disegna(); });
+  fetch('../../giochi/talpa-1inf/talpe/elenco.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { T = d.talpe || []; disegna(); }).catch(disegna);
+  disegna(); window.addEventListener('focus', disegna); document.addEventListener('visibilitychange', disegna);
+})();
+</script>
 </body>
 </html>
