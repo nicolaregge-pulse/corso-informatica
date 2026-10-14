@@ -185,6 +185,12 @@ incollato il codice), cancella-compito-vuoto.gs. Barra sopra il codice: Annulla/
 a tendina delle funzioni, «Log esecuzione». In alto accanto al titolo compare «Modifiche non salvate» finché non si salva.
 Ogni guida allo script parte da questa mappa: prima si clicca il file giusto, poi si incolla.
 
+**11. Ogni giorno di lezione, PRIMA della lezione: le pagine standard sono già del giorno (14/10/2026, VINCOLANTE).**
+Per ogni classe in orario si preparano in anticipo, qualunque cosa faremo: i sei bottoni (voti, backlog, monitor, novità/changelog,
+classifica, valutazione), il cruscotto del docente e il suo pannello (`docs/<classe>-prof/`), la casella «Chiedi aiuto all'assistente
+del Prof Regge». Quelle del giorno prima restano in un file «di ieri» con il link. Poi audit di TUTTE le pagine, anche del docente,
+bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71, #75).
+
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
 Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
@@ -658,7 +664,7 @@ l'intestazione del file.
 2c. `docs/verifica/` — v1.0 (13/10: motore unico di RIPASSO → VERIFICA → RECUPERO in HTML, riutilizzabile per tutte le classi: `?b=<banca>` ripasso con schede e allenamento corretto subito; `&modo=verifica` e `&modo=recupero` si aprono solo quando il prof dice «attiva» (file `docs/verifica/stato/<banca>.json`); crocette in ordine personale, domande personali con le PR vere del ragazzo, scale 1-5, grafico dei dati; antiplagio: niente incolla, uscite dalla pagina, tempo di scrittura; voto = giudizio complessivo del prof; pagina pubblica `risultati.html?b=` da `risultati/<banca>.json`; `&anteprima` per il prof; banche in `docs/verifica/banche/`, prima: `2inf-versioning`)
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.45 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.46 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 00. `comunicazione-marketing/README.md` — v0.6 + `EDIZIONI.md` v1.2 (EDIZIONE 1.2: «Progetti della quarta» senza nomi, link vero su richiesta) (EDIZIONE 1.0 del 13/10, controllo `strumenti/controlla_edizione.py --browser`, commit bd2a58004f; 13/10: NIENTE MARCHI DI ALTRI né immagini non nostre; NIENTE NOME DELLA SCUOLA nei materiali per l'esterno, si chiama «Il laboratorio di informatica secondo le idee di Nicola Regge»; con il parco del corso (mappa + Atlante) e il testo per Gemini; COMUNICAZIONE E MARKETING, i materiali per scuole e aziende, genitori, ragazzi e chi non capisce di informatica: PDF, percorsi guidati con voce, demo; pagina pubblica solo con il link `docs/cm-qma7yay4q5/` con il racconto «Cinque giorni da azienda» e i PDF; inventario e regole)
