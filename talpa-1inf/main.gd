@@ -88,6 +88,7 @@ func _carica_talpe_classe() -> void:
 	var href: String = str(JavaScriptBridge.eval("window.location.href.split('?')[0].split('#')[0]"))
 	base_url = href.substr(0, href.rfind("/") + 1) + "talpe/"
 	http_elenco = HTTPRequest.new()
+	http_elenco.accept_gzip = false   # nel browser il sito arriva già decompresso: Godot non deve decomprimere di nuovo
 	add_child(http_elenco)
 	http_elenco.request_completed.connect(_elenco_arrivato)
 	http_elenco.request(base_url + "elenco.json?t=" + str(Time.get_unix_time_from_system()))
@@ -116,6 +117,7 @@ func _scarica_prossima() -> void:
 		return
 	var nome: String = da_scaricare.pop_front()
 	var h: HTTPRequest = HTTPRequest.new()
+	h.accept_gzip = false
 	add_child(h)
 	h.request_completed.connect(func(_r: int, codice: int, _hh: PackedStringArray, corpo: PackedByteArray) -> void:
 		if codice == 200:
