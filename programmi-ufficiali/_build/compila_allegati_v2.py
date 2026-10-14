@@ -75,7 +75,7 @@ def cella_anno(tab, rx):
         visti.add(c._tc)
         t = c.text.strip()
         if re.match(rx, t, re.I): return c, True
-        if dopo_arg and t == '': return c, False
+        if dopo_arg and (t == '' or t.split('\n')[0].strip() == 'Regge'): return c, False  # cella vuota, o già con la nostra parte
         dopo_arg = t == 'Argomenti'
     return None, False
 
