@@ -156,8 +156,21 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <ol>
 <li><div class="it">Scrivi come vuoi il tuo personaggio cartoonesco: com'è, che colori, che cosa aggiungere (sport, squadra, cappello, occhiali…). Il prof lo crea partendo dalla tua foto.</div><div class="ar">اكتب كيف تريد شخصيتك الكرتونية: شكلها، ألوانها، ماذا تضيف (رياضة، فريق، قبعة، نظارات…). الأستاذ يصنعها من صورتك.</div><div class="zh">写你想要的卡通角色是什么样子：样子、颜色、要加什么（运动、球队、帽子、眼镜……）。老师会用你的照片来做。</div>
 <textarea id="descrizione" placeholder="Esempio: sorridente, capelli più ricci, con la maglia rossa della mia squadra e un pallone"></textarea></li>
-<li><div class="it">Premi il bottone verde: partono la foto e la richiesta.</div><div class="ar">اضغط الزر الأخضر: تُرسل الصورة والطلب.</div><div class="zh">按绿色按钮：照片和请求一起发出去。</div>
-<button class="bot" id="manda">Manda la richiesta · أرسل الطلب · 发送请求</button><div class="esito" id="esito"></div></li>
+<div id="viaBottone"><li style="list-style:none"><div class="it">Premi il bottone verde: partono la foto e la richiesta.</div><div class="ar">اضغط الزر الأخضر: تُرسل الصورة والطلب.</div><div class="zh">按绿色按钮：照片和请求一起发出去。</div>
+<button class="bot" id="manda">Manda la richiesta · أرسل الطلب · 发送请求</button><div class="esito" id="esito"></div></li></div>
+<div id="viaModulo" hidden><li style="list-style:none"><div class="it">Manda foto e richiesta con il Modulo «Consegna». Fai questi passi, uno alla volta:</div><div class="ar">أرسل الصورة والطلب بنموذج «Consegna» (التسليم). اتبع هذه الخطوات، واحدة بعد الأخرى:</div><div class="zh">用「Consegna」（提交）表单发送照片和请求。一步一步做：</div>
+<ol>
+<li><div class="it">Premi «Scarica la foto»: la foto ritagliata va nella cartella «Download».</div><div class="ar">اضغط «Scarica la foto» (نزّل الصورة): تذهب الصورة المقصوصة إلى مجلد «Download» (التنزيلات).</div><div class="zh">按「Scarica la foto」（下载照片）：裁好的照片会保存到「Download」（下载）文件夹。</div>
+<button class="bot blu" id="scarica">Scarica la foto · نزّل الصورة · 下载照片</button></li>
+<li><div class="it">Premi «Apri il Modulo».</div><div class="ar">اضغط «Apri il Modulo» (افتح النموذج).</div><div class="zh">按「Apri il Modulo」（打开表单）。</div>
+<a class="bot blu" href="https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform" target="_blank" rel="noopener">Apri il Modulo · افتح النموذج · 打开表单</a></li>
+<li><div class="it">Nel Modulo, prima casella «Cosa consegni?»: scrivi foto.</div><div class="ar">في النموذج، الخانة الأولى «Cosa consegni?»: اكتب foto.</div><div class="zh">在表单里，第一个框「Cosa consegni?」：写 foto。</div></li>
+<li><div class="it">Torna qui e premi «Copia la richiesta».</div><div class="ar">ارجع إلى هنا واضغط «Copia la richiesta» (انسخ الطلب).</div><div class="zh">回到这里，按「Copia la richiesta」（复制请求）。</div>
+<button class="bot blu" id="copiarich">Copia la richiesta · انسخ الطلب · 复制请求</button></li>
+<li><div class="it">Nel Modulo clicca la seconda casella e premi Ctrl+V.</div><div class="ar">في النموذج انقر الخانة الثانية واضغط Ctrl+V.</div><div class="zh">在表单里点第二个框，按 Ctrl+V。</div></li>
+<li><div class="it">Clicca «Aggiungi file», poi il bottone blu «Sfoglia», apri la cartella «Download», scegli la foto 1INF_…_foto.jpg e clicca «Apri».</div><div class="ar">انقر «Aggiungi file» (إضافة ملف)، ثم الزر الأزرق «Sfoglia» (تصفّح)، افتح مجلد «Download»، اختر الصورة 1INF_…_foto.jpg وانقر «Apri» (فتح).</div><div class="zh">点「Aggiungi file」（添加文件），再点蓝色按钮「Sfoglia」（浏览），打开「Download」文件夹，选照片 1INF_…_foto.jpg，点「Apri」（打开）。</div></li>
+<li><div class="it">In basso clicca il bottone viola «Invia». Fatto!</div><div class="ar">في الأسفل انقر الزر البنفسجي «Invia» (إرسال). تمّ!</div><div class="zh">在下面点紫色按钮「Invia」（发送）。完成！</div></li>
+</ol><div class="esito" id="esitomod"></div></li></div>
 <li><div class="it">Aspetta: il prof controlla la foto. Qui sotto compare «Va bene» o «Rifalla».</div><div class="ar">انتظر: الأستاذ يتحقق من الصورة. يظهر هنا «Va bene» (جيد) أو «Rifalla» (أعدها).</div><div class="zh">等一下：老师检查照片。下面会出现「Va bene」（可以）或「Rifalla」（重做）。</div>
 <div class="stato" id="stato" style="background:var(--gi)">In attesa · في الانتظار · 等待中</div></li>
 </ol>
@@ -170,6 +183,11 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <li><div class="it">Vuoi un secondo personaggio? Premi «Nuova richiesta» e rifai il Passo 3, anche con un'altra foto.</div><div class="ar">تريد شخصية ثانية؟ اضغط «Nuova richiesta» (طلب جديد) وأعد الخطوة 3، ولو بصورة أخرى.</div><div class="zh">想要第二个角色？按「Nuova richiesta」（新请求），再做一次第3步，也可以换一张照片。</div>
 <button class="bot blu" id="nuovo">Nuova richiesta · طلب جديد · 新请求</button></li>
 </ol>
+
+<h2>Le tue foto e il tuo personaggio · صورك وشخصيتك · 你的照片和角色</h2>
+<div class="it">Se il prof ti ha fatto la foto, qui la puoi scaricare. Scrivi la tua password personale (quella dei libri) e premi «Apri».</div><div class="ar">إذا التقط لك الأستاذ صورة، يمكنك تنزيلها هنا. اكتب كلمة المرور الشخصية (التي للكتب) واضغط «Apri» (افتح).</div><div class="zh">如果老师给你拍了照片，可以在这里下载。写你的个人密码（看书用的那个），按「Apri」（打开）。</div>
+<input type="text" id="miapw" autocomplete="off" placeholder="password" style="max-width:220px"> <button class="bot blu" id="apripw">Apri · افتح · 打开</button>
+<div class="esito" id="esitopw"></div><div class="strip" id="miefoto"></div>
 
 <h2>Passo 5 · Il premio: vota il personaggio migliore</h2>
 <div class="it">Faremo una classifica dei personaggi: i primi tre vincono il premio dei personaggi migliori. Vota anche tu: puoi votare tutti, ma non il tuo personaggio.</div><div class="ar">سنعمل ترتيبًا للشخصيات: الثلاثة الأوائل يفوزون بجائزة أفضل الشخصيات. صوّت أنت أيضًا: يمكنك التصويت للجميع، إلا لشخصيتك.</div><div class="zh">我们会给角色排名：前三名获得最佳角色奖。你也来投票：所有角色都可以投，但不能投你自己的。</div>
@@ -193,7 +211,8 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
   function rosso(el, t) { el.style.color = '#c0392b'; el.textContent = t; }
   function verde(el, t) { el.style.color = '#1a7f37'; el.textContent = t; }
   function leggiConf() { return fetch('../../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}); }
-  leggiConf();
+  function via() { var b = !!CONF.invio; $('viaBottone').hidden = !b; $('viaModulo').hidden = b; }
+  leggiConf().then(via); setInterval(function () { leggiConf().then(via); }, 60000);
   try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
   function nome() { return $('nome').value.trim().replace(/\s+/g, ' '); }
   function ora() { return new Date().toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' }); }
@@ -310,6 +329,25 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
     if (invia({ id: ID, nome: nome(), modo: 'proposta', tipo: 'richiesta', personaggio: ++n, descrizione: d, immagine: fotoList[fotoScelta], ora: new Date().toISOString() }, es)) {
       verde(es, 'Richiesta mandata alle ' + ora() + '! · أُرسل الطلب! · 请求已发送！'); controlla();
     }
+  };
+  function pronto(es) { if (!serveNome(es)) return false; if (fotoScelta < 0) { rosso(es, 'Premi «Tieni questa» e scegli una foto (Passo 2). · 按「Tieni questa」并选一张照片。'); return false; }
+    if (!cFoto.ok()) { rosso(es, 'Rispondi Sì alle domande sulla foto (Passo 2). · 照片的问题都要回答「是」。'); return false; }
+    if ($('descrizione').value.trim().length < 10) { rosso(es, 'Scrivi come vuoi il personaggio. · اكتب كيف تريد الشخصية. · 写你想要的角色。'); $('descrizione').focus(); return false; } return true; }
+  function fileNome() { var p = nome().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z ]/g, '').trim().split(/\s+/); return '1INF_' + p.slice(1).concat(p[0]).join('-') + '_foto.jpg'; }
+  $('scarica').onclick = function () { var es = $('esitomod'); if (!pronto(es)) return; var a = document.createElement('a'); a.href = fotoList[fotoScelta]; a.download = fileNome(); document.body.appendChild(a); a.click(); a.remove(); verde(es, 'Scaricata: ' + fileNome()); };
+  $('copiarich').onclick = function () { var es = $('esitomod'); if (!pronto(es)) return; navigator.clipboard.writeText(nome() + ': ' + $('descrizione').value.trim()).then(function () { verde(es, 'Richiesta copiata: nel Modulo Ctrl+V'); }); };
+  $('apripw').onclick = function () {
+    var pw = $('miapw').value.trim(), es = $('esitopw'); if (pw.length < 4) return rosso(es, 'Scrivi la password. · اكتب كلمة المرور. · 写密码。');
+    crypto.subtle.digest('SHA-256', new TextEncoder().encode('talpa-1inf:' + pw)).then(function (h) { var n = Array.from(new Uint8Array(h)).map(function (b) { return b.toString(16).padStart(2, '0'); }).join('').slice(0, 16);
+      return fetch('foto/' + n + '.json?t=' + Date.now()); }).then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(async function (X) {
+      var b64 = function (s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); };
+      var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+      var k = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(X.salt), iterations: X.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+      var D = JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(X.iv) }, k, b64(X.ct))));
+      var el = $('miefoto'); el.innerHTML = '';
+      D.foto.concat(D.personaggi).forEach(function (u, i) { var a = document.createElement('a'); a.href = u; a.download = (i < D.foto.length ? 'la-mia-foto-' : 'il-mio-personaggio-') + (i + 1) + '.jpg'; a.innerHTML = '<img src="' + u + '" alt="">'; el.appendChild(a); });
+      verde(es, 'Ecco le tue immagini: clicca per scaricarle. · انقر للتنزيل. · 点击下载。');
+    }).catch(function () { rosso(es, 'Non trovo foto per questa password. Controlla la password o chiedi al prof. · 没找到：检查密码或问老师。'); });
   };
   $('nuovo').onclick = function () { $('descrizione').value = ''; $('esito').textContent = ''; cFoto.reset(); window.scrollTo({ top: $('mie-foto').offsetTop - 120, behavior: 'smooth' }); };
   $('rispondi').onclick = function () {
