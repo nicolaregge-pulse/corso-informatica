@@ -143,7 +143,7 @@ function caricaTutto(){
    PERC.secondi_per_ambiente=num(d.secondi_per_ambiente,5,120,PERC.secondi_per_ambiente)}).catch(err('percorso.json')),
   leggiJSON('protagonista.json').then(function(d){if(!d)return;if(typeof d.nome==='string'&&d.nome.trim())PROT.nome=d.nome.slice(0,24);PROT.giacca=colore(d.giacca,PROT.giacca);PROT.capelli=colore(d.capelli,PROT.capelli);
    segna('Squadra PROTAGONISTA e TESTI',d.autori)}).catch(err('protagonista.json')),
-  leggiJSON('testi.json').then(function(d){if(!d)return;['titolo','sottotitolo','fine','record','livello'].forEach(function(k){if(typeof d[k]==='string'&&d[k].trim())TX[k]=d[k].slice(0,160)});
+  leggiJSON('testi.json').then(function(d){if(!d)return;['titolo','sottotitolo','fine','record','livello','grande'].forEach(function(k){if(typeof d[k]==='string'&&d[k].trim())TX[k]=d[k].slice(0,160)});
    if(Array.isArray(d.frasi_cattivi))TX.frasi=d.frasi_cattivi.filter(function(x){return typeof x==='string'}).map(function(x){return x.slice(0,40)});
    if(Array.isArray(d.lodi)&&d.lodi.length)TX.lodi=d.lodi.filter(function(x){return typeof x==='string'}).map(function(x){return x.slice(0,120)})}).catch(err('testi.json')),
   leggiJSON('facce.json').then(function(d){if(!d||!Array.isArray(d.facce))return;var AR=d.armi||{};d.facce.slice(0,40).forEach(function(n){if(!/^[a-z0-9-]+\.(jpg|png)$/i.test(n))return;var im=new Image();im.arma=AR[n]==='ak'?'ak':'';im.onload=function(){FACCE_WEB.push(im)};im.src='facce/'+n})}).catch(err('facce.json')),
@@ -208,7 +208,7 @@ function nuovoCattivo(){var cand=S.oggetti.filter(function(o){return o.z>2.6&&o.
  var dx=-o.lato*(o.w*.5+.62),dy=0;
  var tempo=Math.max(.75,(R.secondi_prima_di_sparare-S.livello*.12)/(1+(base.velocita-1)*.2));
  o.cattivo=true;S.cattivi.push({o:o,dx:dx,dy:dy,rw:.34,t:0,entra:.75,tempo:tempo,b:base,fase:'entra',morto:0,x:0,y:0,r:10,u:10,sc:0})}
-function colpito(c){c.fase='colpito';c.morto=0;S.abbattuti++;S.combo++;var p=R.punti_per_cattivo+Math.min(40,S.combo*2);S.punti+=p;SUONI.pop();
+function colpito(c){c.fase='colpito';c.morto=0;S.abbattuti++;S.combo++;var p=R.punti_per_cattivo+Math.min(40,S.combo*2);S.punti+=p;if(Math.floor(S.punti/2000)>Math.floor((S.punti-p)/2000))S.testi.push({x:W/2,y:H*.42,s:TX.grande||"SEI UN GRANDE!",t:0,big:1});SUONI.pop();
  S.testi.push({x:c.x,y:c.y-c.r,s:'+'+p+(S.combo>2?' COMBO x'+S.combo:''),t:0});
  for(var i=0;i<22;i++){var a=rnd(0,7),v=rnd(80,380);S.part.push({x:c.x,y:c.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,t:0,c:i%3?c.b.colore:'#fff',r:rnd(3,8)})}
  if(S.abbattuti%R.cattivi_per_livello===0){S.livello++;S.amb++;S.ambT=0;setTimeout(annunciaAmbiente,600);SUONI.vittoria();S.testi.push({x:W/2,y:H*.32,s:TX.livello+' '+S.livello+'!',t:0,big:1});coriandoli(60)}}
