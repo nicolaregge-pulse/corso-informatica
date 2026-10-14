@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 13:05 (KPI proposti, da approvare)",
+ "aggiornato": "14/10/2026 13:07 (KPI proposti, da approvare)",
  "voti": [
   {
    "alunno": "Alessandro A.",
@@ -7,8 +7,8 @@
    "pr_oggi": 2,
    "fatte": 1,
    "feedback": true,
-   "voto": 80,
-   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 richiesta nel gioco = 80",
+   "voto": 90,
+   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi +10 analisi del backlog +10 richiesta nel gioco = 90",
    "stipendio": 200,
    "stipendio_conto": "v1.12 peso 2 = 200 €"
   },
@@ -58,12 +58,12 @@
   },
   {
    "alunno": "David A.",
-   "pr": 1,
-   "pr_oggi": 1,
+   "pr": 2,
+   "pr_oggi": 2,
    "fatte": 0,
    "feedback": true,
-   "voto": 60,
-   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi = 60",
+   "voto": 70,
+   "perche": "40 di partenza +10 revisione +20 2 richieste di oggi = 70",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -106,8 +106,8 @@
    "pr_oggi": 1,
    "fatte": 0,
    "feedback": true,
-   "voto": 60,
-   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi = 60",
+   "voto": 70,
+   "perche": "40 di partenza +10 revisione +10 1 richieste di oggi +10 analisi del backlog = 70",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
@@ -201,12 +201,12 @@
   },
   {
    "alunno": "Tomas L.",
-   "pr": 2,
-   "pr_oggi": 2,
+   "pr": 4,
+   "pr_oggi": 4,
    "fatte": 0,
    "feedback": false,
-   "voto": 60,
-   "perche": "40 di partenza +20 2 richieste di oggi = 60",
+   "voto": 70,
+   "perche": "40 di partenza +30 3 richieste di oggi = 70",
    "stipendio": 0,
    "stipendio_conto": "nessuna richiesta approvata: 0 €"
   }
