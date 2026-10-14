@@ -134,6 +134,7 @@ argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
 - **MAI dedurre «non firmata» da uno screenshot (REGISTRO-ERRORI #11, #36, #52 — tre volte):** il bottone «FIRMA ✓» resta
   anche sulle ore GIÀ firmate. Si ricorda la firma, non si giudica lo stato. L'unica prova è «Da firmare» /
   «Visualizza tutte le firme arretrate». Se Nicola dice «firmate», è così.
+- **Titolo = voce dell'Allegato A (14/10/2026):** ogni testo per il registro è una voce dell'Allegato A di quella classe e della materia di quell'ora; se manca la voce, lo dico subito e si aggiunge entro il 30/10 (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punto 8).
 - **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
   ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
 - **A FINE giornata: CHIEDERE a Nicola gli argomenti realmente svolti** e
