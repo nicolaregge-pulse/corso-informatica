@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.47** — 13/10/2026
+**Versione 2.48** — 14/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,11 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 14/10/2026 — Bottone nero dei sei bottoni: portava a una pagina vuota (#77)
+
+1. **Errore.** Il sesto bottone (nero) della pagina della lezione 1INF si chiamava «Valutazione dei singoli (solo prof)» e apriva una pagina con una sola frase, senza dati. Il docente lo ha cliccato in classe e non ha trovato né il monitor né la situazione dei ragazzi. Nell'audit avevo controllato che il bottone si aprisse, non che la pagina servisse a qualcosa. Il docente: «Oggi hai fatto malissimo».
+2. **Regola.** Nessun bottone porta a una pagina vuota o «in attesa». Il sesto bottone è «La situazione della classe»: monitor dell'ultimo giro Veyon (sul compito, giocano, fuori compito), e per ognuno personaggio, modifiche nel gioco, richieste mandate e in attesa, voto della lezione, voto della verifica, cosa fa adesso. Nell'audit ogni bottone si apre E si controlla che mostri dati di oggi.
 
 ## 14/10/2026 — È entrato il direttore e nessun ragazzo ha saputo spiegare la teoria (#76)
 

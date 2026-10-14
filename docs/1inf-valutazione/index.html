@@ -1,7 +1,70 @@
 <!DOCTYPE html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex">
-<title>Valutazione 1INF</title>
-<style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878}@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6}}
-body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.5 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:820px;margin:0 auto;padding:16px}.mu{color:var(--mu)}</style></head>
-<body><div class="w"><h1>Valutazione dei singoli · 1INF</h1><p>Questa pagina è solo per il prof. La valutazione di ognuno si pubblica a fine lezione, dopo che il prof l'ha vista.</p>
-<p class="mu">هذه الصفحة للأستاذ فقط. · 这个页面只给老师看。</p></div></body></html>
+<title>Situazione 1INF</title>
+<style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dde3;--ok:#1a7f37;--ko:#c0392b;--gi:#b7791f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--ok:#3fb950;--ko:#f85149;--gi:#d29922}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.45 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:1000px;margin:0 auto;padding:16px}
+.mu{color:var(--mu)}.ar{direction:rtl;font-family:Amiri,serif;color:var(--mu)}.zh{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.tre{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.box{border-radius:12px;padding:10px 12px;color:#fff}.box b{font-size:28px;display:block}
+.c{background:#1a7f37}.g{background:#b7791f}.f{background:#c0392b}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:640px}th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:middle}
+th{font-size:15px;color:var(--mu)}td img{width:48px;height:48px;object-fit:cover;border-radius:8px}
+.v{font-weight:800;font-size:20px}.ok{color:var(--ok)}.ko{color:var(--ko)}.gi{color:var(--gi)}
+.bt{display:inline-block;background:#1f6feb;color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:8px 14px;margin:4px 6px 4px 0}
+</style></head>
+<body><div class="w">
+<h1>La situazione della classe · 1INF</h1>
+<div class="ar">وضع القسم</div><div class="zh">全班情况</div>
+<p class="mu" id="agg">Carico…</p>
+
+<h2>1. Cosa state facendo adesso (monitor)</h2>
+<div class="ar">ماذا تفعلون الآن</div><div class="zh">你们现在在做什么</div>
+<div class="tre" id="tre"></div>
+<div class="card" id="giro"></div>
+
+<h2>2. La situazione di ognuno</h2>
+<div class="ar">وضع كل طالب</div><div class="zh">每个人的情况</div>
+<p class="mu">Personaggi nel gioco, richieste mandate, richieste in attesa, voto della lezione e voto della verifica. Si aggiorna da sola ogni minuto.</p>
+<div class="tw"><table><thead><tr><th>Chi</th><th>Personaggio</th><th>Personaggi e modifiche nel gioco</th><th>Richieste mandate</th><th>In attesa</th><th>Voto lezione</th><th>Verifica</th><th>Adesso (monitor)</th></tr></thead><tbody id="tab"><tr><td colspan="8">Carico…</td></tr></tbody></table></div>
+
+<p><a class="bt" href="../1inf-monitor/" target="_blank" rel="noopener">Il monitor completo</a><a class="bt" href="../1inf-voti/" target="_blank" rel="noopener">I voti</a><a class="bt" href="../1inf-backlog/" target="_blank" rel="noopener">Il backlog</a><a class="bt" href="../giochi/talpa-1inf/" target="_blank" rel="noopener">Il gioco</a></p>
+</div>
+<script>
+(function () {
+  function $(i) { return document.getElementById(i); }
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function j(u) { return fetch(u + '?t=' + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; }); }
+  function tipo(r) { if (r.fuori) return 'f'; return /gioca|partita/i.test(r.cosa || '') ? 'g' : 'c'; }
+  function carica() {
+    Promise.all([j('../1inf-voti/voti.json'), j('../1inf-monitor/monitor.json'), j('../1inf-backlog/backlog.json'), j('../giochi/talpa-1inf/talpe/elenco.json'), j('../verifica/risultati/1inf-talpa.json')]).then(function (x) {
+      var V = (x[0] && x[0].voti) || [], M = x[1] || {}, B = (x[2] && x[2].voci) || [], T = (x[3] && x[3].talpe) || [], R = (x[4] && x[4].allievi) || [];
+      var giri = M.giri || [], ul = giri[giri.length - 1] || { righe: [] }, ora = {};
+      giri.forEach(function (g) { g.righe.forEach(function (r) { if (r.alunno) ora[r.alunno] = { t: tipo(r), cosa: r.cosa, ora: g.ora }; }); });
+      var n = { c: [], g: [], f: [] };
+      ul.righe.forEach(function (r) { n[tipo(r)].push((r.alunno || r.pc) + ''); });
+      $('tre').innerHTML = '<div class="box c"><b>' + n.c.length + '</b>sul compito<br><small>' + e(n.c.join(', ')) + '</small></div>' +
+        '<div class="box g"><b>' + n.g.length + '</b>giocano<br><small>' + e(n.g.join(', ')) + '</small></div>' +
+        '<div class="box f"><b>' + n.f.length + '</b>fuori compito<br><small>' + e(n.f.join(', ')) + '</small></div>';
+      $('giro').innerHTML = ul.ora ? '<b>Ultimo giro del monitor: ore ' + e(ul.ora) + '</b> · ' + ul.righe.length + ' schermi guardati' : 'Nessun giro del monitor ancora.';
+      var img = {}; T.forEach(function (t) { img[t.chi] = t.file; });
+      var att = {}; B.forEach(function (b) { if (!b.fatto && !b.no) att[b.alunno] = (att[b.alunno] || 0) + 1; });
+      var ver = {}; R.forEach(function (r) { ver[r.allievo] = r; });
+      var nomi = V.map(function (v) { return v.alunno; });
+      T.forEach(function (t) { if (nomi.indexOf(t.chi) < 0) { nomi.push(t.chi); V.push({ alunno: t.chi, pr: 0, fatte: 1, voto: '' }); } });
+      V.sort(function (a, b) { return a.alunno.localeCompare(b.alunno); });
+      $('tab').innerHTML = V.map(function (v) {
+        var o = ora[v.alunno], r = ver[v.alunno], a = att[v.alunno] || 0;
+        var adesso = o ? '<span class="' + (o.t === 'f' ? 'ko' : o.t === 'g' ? 'gi' : 'ok') + '">' + e(o.cosa) + '</span> <span class="mu">(' + e(o.ora) + ')</span>' : '<span class="mu">non visto</span>';
+        return '<tr><td><b>' + e(v.alunno) + '</b></td><td>' + (img[v.alunno] ? '<img src="../giochi/talpa-1inf/talpe/' + e(img[v.alunno]) + '" alt="">' : '<span class="ko">manca</span>') + '</td>' +
+          '<td class="v">' + (v.fatte || 0) + '</td><td>' + (v.pr || 0) + '</td><td class="' + (a ? 'gi' : 'mu') + '">' + (a ? a + ' in lavorazione' : '—') + '</td>' +
+          '<td class="v">' + e(v.voto === '' || v.voto == null ? '—' : v.voto) + '</td>' +
+          '<td>' + (r ? '<b>' + e(r.voto) + '</b>' : '<span class="mu">non ancora</span>') + '</td><td>' + adesso + '</td></tr>';
+      }).join('');
+      $('agg').textContent = 'Aggiornata: voti ' + ((x[0] && x[0].aggiornato) || '—') + ' · monitor ' + (ul.ora || '—') + ' · gioco ' + ((x[3] && x[3].versione) || '—') + ' con ' + T.length + ' personaggi';
+    });
+  }
+  carica(); setInterval(carica, 60000);
+})();
+</script></body></html>
