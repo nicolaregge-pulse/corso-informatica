@@ -36,6 +36,22 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 .stato{border-radius:10px;padding:10px 14px;margin:8px 0;font-weight:700;font-size:20px}
 .strip{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.strip img{width:84px;height:84px;object-fit:cover;border-radius:8px;border:4px solid transparent;cursor:pointer}.strip img.on{border-color:#1a7f37}
 .check{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}.check .q{margin:8px 0}.check button{font:inherit;font-weight:700;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg);padding:4px 14px;margin:4px 6px 0 0;cursor:pointer}.check button.si{background:#d3f9d8;border-color:#2f9e44}.check button.no{background:#ffe3e3;border-color:#e03131}.check .aiuto{color:#c0392b;font-size:16px}
+.g2{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;min-width:150px;font-size:15px;line-height:1.3}.g2 .n{display:block;font-size:30px;font-weight:800;color:#1f6feb}
+.macchina{position:relative;height:190px;background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin:12px 0}
+.nastro{position:absolute;left:0;right:0;top:128px;height:10px;background:repeating-linear-gradient(90deg,#8b949e 0 14px,transparent 14px 24px);animation:scorri 1s linear infinite}
+@keyframes scorri{to{background-position:24px 0}}
+.mq{position:absolute;left:50%;top:30px;transform:translateX(-50%);width:150px;height:110px;background:#6e40c9;border-radius:14px;color:#fff;text-align:center;font-weight:800;font-size:15px;padding-top:14px;line-height:1.25;z-index:2}
+.mq .ing{display:inline-block;animation:gira 2s linear infinite;font-size:26px}@keyframes gira{to{transform:rotate(360deg)}}
+.foto{position:absolute;top:84px;left:-60px;width:48px;height:48px;border-radius:8px;background:#f1c27d;border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.3);animation:entra 6s linear infinite}
+.foto:before{content:"";position:absolute;left:12px;top:15px;width:5px;height:5px;border-radius:50%;background:#333;box-shadow:14px 0 #333}.foto:after{content:"";position:absolute;left:14px;top:26px;width:16px;height:7px;border-bottom:3px solid #333;border-radius:0 0 10px 10px}
+.foto.b{animation-delay:2s;background:#c68642}.foto.c{animation-delay:4s;background:#8d5524}
+@keyframes entra{0%{left:-60px;opacity:1}45%{left:calc(50% - 70px);opacity:1}50%{left:calc(50% - 30px);opacity:0}100%{opacity:0}}
+.esce{position:absolute;right:14px;top:40px;width:110px;height:86px;background:#1a7f37;color:#fff;border-radius:12px;text-align:center;font-weight:800;padding-top:10px;z-index:2}
+.esce .vv{font-size:30px;display:block}.esce small{font-weight:400;font-size:13px}
+.etich{position:absolute;bottom:6px;font-size:13px;color:var(--mu)}
+@media (max-width:600px){.mq{width:112px;font-size:12px;left:44%}.esce{width:82px;right:6px}.esce .vv{font-size:22px}.esce{font-size:12px}}
+.vita{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}.vita span.s{background:var(--card);border:2px solid #6e40c9;border-radius:20px;padding:4px 12px;font-size:15px;font-weight:700}.vita span.f{color:#6e40c9;font-weight:800}
+.dove{display:flex;flex-wrap:wrap;gap:10px}.dove a{flex:1;min-width:200px;background:var(--card);border:2px solid var(--bd);border-radius:12px;padding:10px 12px;color:var(--fg);text-decoration:none}.dove a b{display:block;font-size:18px;color:#1f6feb}
 .frase{background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0}
 </style>
 </head>
@@ -45,6 +61,17 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <p class="t">1INF · 14/10/2026</p>
 <p class="t" style="margin-top:12px">Come sta andando la lezione · كيف يسير الدرس · 课堂进展</p>
 <div><a class="bt" style="background:#238636" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-voti/" target="_blank" rel="noopener">I voti<small>العلامات · 分数</small></a><a class="bt" style="background:#1f6feb" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener">Il backlog<small>قائمة الاقتراحات · 建议列表</small></a><a class="bt" style="background:#6e40c9" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione<small>مراقبة الدرس · 课堂监控</small></a><a class="bt" style="background:#d4a017" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-novita/" target="_blank" rel="noopener">Cosa è cambiato oggi nel gioco<small>ما الجديد في اللعبة · 游戏里的新变化</small></a><a class="bt" style="background:#b8432a" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-top/" target="_blank" rel="noopener">La classifica<small>الترتيب · 排行榜</small></a><a class="bt" style="background:#30363d" href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-valutazione/" target="_blank" rel="noopener">Valutazione dei singoli (solo prof)<small>تقييم كل طالب (للأستاذ) · 个人评价（老师）</small></a></div>
+
+<div id="mio" style="border:3px solid #1f6feb;border-radius:12px;padding:10px 14px;margin:14px 0">
+<b>Il mio punto · وضعي · 我的情况</b> <span class="t" id="mio-nome">(scrivi il tuo nome al Passo 2 · 在第2步写你的名字)</span>
+<div class="lab" style="gap:10px;margin-top:6px">
+<div class="g2"><span class="n" id="m-prop">–</span>personaggi proposti<br><span class="t">شخصيات مقترحة · 提出的角色</span></div>
+<div class="g2"><span class="n" id="m-pub">–</span>personaggi nel gioco<br><span class="t">شخصيات في اللعبة · 进入游戏的角色</span></div>
+<div class="g2"><span class="n" id="m-voto">–</span>il mio voto<br><span class="t">علامتي · 我的分数</span></div>
+<div class="g2"><span class="n" id="m-pos">–</span>classifica del personaggio migliore<br><span class="t">ترتيب أفضل شخصية · 最佳角色排名</span></div>
+</div><div class="t" id="m-perche"></div>
+<div style="margin-top:6px"><a class="bt" style="background:#1a7f37" href="../../giochi/talpa-1inf/changelog/" target="_blank" rel="noopener">Versioni pubblicate (changelog)<small>النسخ المنشورة · 已发布的版本</small></a><a class="bt" style="background:#b8432a" href="../../giochi/talpa-1inf/premi/" target="_blank" rel="noopener">Premio e classifica dei personaggi<small>الجائزة والترتيب · 奖项和排名</small></a></div>
+</div>
 
 <h2>Teoria · Collaboriamo: un'unica app</h2>
 <div class="lab" style="align-items:center">
@@ -71,6 +98,24 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <div><svg viewBox="0 0 58 58" width="58" height="58" role="img" aria-label="Il tuo pezzo"><rect x="10" y="10" width="38" height="38" rx="6" fill="#9c36b5"/></svg><div class="t">Pull Request</div></div>
 <div style="font-size:30px">→</div>
 <div><svg viewBox="0 0 194 58" width="194" height="58" role="img" aria-label="L'app dopo il merge, con il tuo pezzo"><rect x="2" y="2" width="190" height="54" rx="10" fill="none" stroke="#c92a2a" stroke-width="3"/><rect x="10" y="10" width="38" height="38" rx="6" fill="#1971c2"/><rect x="54" y="10" width="38" height="38" rx="6" fill="#2f9e44"/><rect x="98" y="10" width="38" height="38" rx="6" fill="#f08c00"/><rect x="142" y="10" width="38" height="38" rx="6" fill="#9c36b5"/></svg><div class="t">Merge · دمج · 合并</div></div>
+</div>
+<h3 style="margin:22px 0 6px">La macchina delle versioni · آلة النسخ · 版本机器</h3>
+<div class="it">Perché un programma cambia? Perché qualcuno chiede qualcosa. Le vostre richieste entrano nella macchina, ed esce una versione nuova del gioco.</div><div class="ar">لماذا يتغيّر البرنامج؟ لأن أحدًا يطلب شيئًا. طلباتكم تدخل الآلة، وتخرج نسخة جديدة من اللعبة.</div><div class="zh">程序为什么会改变？因为有人提出了请求。你们的请求进入机器，出来的是游戏的新版本。</div>
+<div class="macchina" aria-label="Le foto entrano nella macchina ed esce la versione nuova">
+<div class="nastro"></div><div class="foto"></div><div class="foto b"></div><div class="foto c"></div>
+<div class="mq"><span class="ing">⚙</span><br>Claude scrive il codice<br>il prof controlla</div>
+<div class="esce"><span class="vv" id="vv">v1.1</span>versione nuova<br><small>نسخة جديدة · 新版本</small></div>
+<div class="etich" style="left:10px">Richieste (Pull Request)</div><div class="etich" style="right:12px">Merge → gioco</div>
+</div>
+<div class="it">La vita di una richiesta, dall'inizio alla fine:</div><div class="ar">حياة الطلب، من البداية إلى النهاية:</div><div class="zh">一个请求从开始到结束的过程：</div>
+<div class="vita"><span class="s">1. Proposta</span><span class="f">→</span><span class="s">2. In fila nel backlog</span><span class="f">→</span><span class="s">3. Si lavora nel suo ramo</span><span class="f">→</span><span class="s">4. Controllo del prof</span><span class="f">→</span><span class="s">5. Merge</span><span class="f">→</span><span class="s">6. Versione nuova</span><span class="f">→</span><span class="s">7. La vedi nel gioco</span></div>
+<div class="ar">1. اقتراح ← 2. في قائمة الانتظار ← 3. العمل في فرعه ← 4. تحقق الأستاذ ← 5. الدمج ← 6. نسخة جديدة ← 7. تراها في اللعبة</div>
+<div class="zh">1. 提出 → 2. 在清单里排队 → 3. 在自己的分支里做 → 4. 老师检查 → 5. 合并 → 6. 新版本 → 7. 在游戏里看到</div>
+<div class="it">Come vedere perché e come è cambiato il gioco? Ci sono tre posti:</div><div class="ar">كيف ترى لماذا وكيف تغيّرت اللعبة؟ هناك ثلاثة أماكن:</div><div class="zh">怎么看游戏为什么、怎么改变了？有三个地方：</div>
+<div class="dove">
+<a href="https://nicolaregge-pulse.github.io/corso-informatica/1inf-backlog/" target="_blank" rel="noopener"><b>Il backlog</b>Tutte le richieste: chi, che cosa, quando, a che punto è. · كل الطلبات: من، ماذا، متى، أين وصلت. · 所有请求：谁、什么、什么时候、进行到哪一步。</a>
+<a href="../../giochi/talpa-1inf/changelog/" target="_blank" rel="noopener"><b>Il changelog</b>Il diario delle versioni: che cosa è cambiato e perché, file per file. · سجل النسخ: ما الذي تغيّر ولماذا. · 版本日记：改了什么、为什么改。</a>
+<a href="../../giochi/talpa-1inf/changelog/" target="_blank" rel="noopener"><b>La descrizione della versione</b>Chi è entrato e tutti i personaggi presenti. Puoi anche giocare ogni versione. · من دخل وكل الشخصيات. يمكنك لعب كل نسخة. · 谁加入了、所有角色。每个版本都能玩。</a>
 </div>
 <div class="it" style="margin-top:12px">Si lavora a giri (si chiama Agile):</div>
 <div class="ar">نعمل على جولات (اسمها Agile):</div><div class="zh">我们一轮一轮地工作（叫 Agile）：</div>
@@ -145,6 +190,10 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
 <li><div class="it">Vuoi un secondo personaggio? Premi «Nuovo personaggio» e rifai dal Passo 3.</div><div class="ar">تريد شخصية ثانية؟ اضغط «Nuovo personaggio» وأعد من الخطوة 3.</div><div class="zh">想要第二个角色？按「Nuovo personaggio」（新角色），从第3步再做一次。</div>
 <button class="bot blu" id="nuovo">Nuovo personaggio · شخصية جديدة · 新角色</button></li>
 </ol>
+
+<h2>Passo 6 · Il premio: vota il personaggio migliore</h2>
+<div class="it">Faremo una classifica dei personaggi: i primi tre vincono il premio dei personaggi migliori. Vota anche tu: puoi votare tutti, ma non il tuo personaggio.</div><div class="ar">سنعمل ترتيبًا للشخصيات: الثلاثة الأوائل يفوزون بجائزة أفضل الشخصيات. صوّت أنت أيضًا: يمكنك التصويت للجميع، إلا لشخصيتك.</div><div class="zh">我们会给角色排名：前三名获得最佳角色奖。你也来投票：所有角色都可以投，但不能投你自己的。</div>
+<a class="bot" href="../../giochi/talpa-1inf/premi/" target="_blank" rel="noopener">Vota · صوّت · 投票</a>
 
 <h2 style="border:3px solid #e8590c">Domanda in più · solo per Yinlin L. (PC 24)</h2>
 <div class="zh" style="color:var(--fg);font-size:21px">
@@ -260,6 +309,27 @@ textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px so
     }).catch(function () {});
   }
   setInterval(controlla, 15000); setTimeout(controlla, 1500);
+  var vn = 1; setInterval(function () { vn = vn % 9 + 1; $('vv').textContent = 'v1.' + vn; }, 2000);
+  // ---- il mio punto: proposti, nel gioco, voto, classifica (si aggiorna da solo) ----
+  function breve(n) { var p = n.trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  function mioPunto() {
+    var mio = breve(nome()); if (nome().indexOf(' ') < 0) return;
+    $('mio-nome').textContent = mio;
+    var j = function (u) { return fetch(u + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; }); };
+    Promise.all([j('voti.json'), j('../../giochi/talpa-1inf/talpe/elenco.json'), j('../../giochi/talpa-1inf/premi/voti.json')]).then(function (x) {
+      var v = (x[0].voti || []).filter(function (z) { return z.alunno === mio; })[0] || {}, T = x[1].talpe || [], C = x[2].conteggi || {};
+      var miei = T.filter(function (t) { return t.chi === mio; });
+      $('m-prop').textContent = v.proposti != null ? v.proposti : '0';
+      $('m-pub').textContent = miei.length;
+      $('m-voto').textContent = v.voto != null ? v.voto : 'in attesa';
+      $('m-perche').textContent = v.perche || '';
+      var lista = T.map(function (t) { return { chi: t.chi, v: C[t.file] || 0 }; }).filter(function (z) { return z.v > 0; }).sort(function (a, b) { return b.v - a.v; });
+      var pos = 0, prima = -1, mia = '';
+      lista.forEach(function (z, i) { if (z.v !== prima) { pos = i + 1; prima = z.v; } if (z.chi === mio && !mia) mia = pos + '°'; });
+      $('m-pos').textContent = mia || '–';
+    });
+  }
+  $('nome').addEventListener('change', mioPunto); setInterval(mioPunto, 30000); setTimeout(mioPunto, 1200);
   $('copiafoto').onclick = function () {
     var u = fotoCanvas || fotoList[fotoScelta], es = $('esitocopia'); if (!u) return;
     var im = new Image(); im.onload = function () { var c = document.createElement('canvas'); c.width = im.width; c.height = im.height; c.getContext('2d').drawImage(im, 0, 0);

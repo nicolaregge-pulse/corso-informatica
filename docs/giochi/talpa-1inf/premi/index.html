@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Premio personaggi 1INF</title><link rel="stylesheet" href="../changelog/stile.css">
+<style>
+[hidden]{display:none!important}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.g figure{cursor:pointer;width:130px}.g figure img{width:130px;height:130px}.g figure.on img{border:5px solid #1a7f37}.g figure.mio{opacity:.45;cursor:not-allowed}
+.bot{display:inline-block;background:#1a7f37;color:#fff;font:inherit;font-weight:700;font-size:21px;border:0;border-radius:12px;padding:12px 20px;cursor:pointer;margin-top:8px}
+input[type=text]{font:inherit;font-size:20px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,340px);background:var(--card);color:var(--fg)}
+.cl{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--bd)}.cl img{width:70px;height:70px;object-fit:cover;border-radius:10px}.pos{font-size:26px;font-weight:800;width:48px;text-align:center}
+.oro{color:#d4a017}.arg{color:#8b949e}.bro{color:#b8732a}.esito{font-weight:700;font-size:19px;margin-top:6px}
+</style></head>
+<body><div class="w">
+<h1>Il premio ai personaggi migliori</h1>
+<div class="ar">جائزة أفضل الشخصيات</div><div class="zh">最佳角色奖</div>
+<div class="card"><div class="it">Faremo una classifica dei personaggi. I primi tre vincono il premio dei personaggi migliori. Votate anche voi: potete votare tutti i personaggi, ma non il vostro.</div>
+<div class="ar">سنعمل ترتيبًا للشخصيات. الثلاثة الأوائل يفوزون بجائزة أفضل الشخصيات. صوّتوا أنتم أيضًا: يمكنكم التصويت لكل الشخصيات، إلا شخصيتكم.</div>
+<div class="zh">我们会给角色排名。前三名获得最佳角色奖。你们也来投票：所有角色都可以投，但不能投自己的。</div></div>
+
+<h2>1. Il tuo nome · اسمك · 你的名字</h2>
+<input type="text" id="nome" placeholder="Nome Cognome" autocomplete="name">
+
+<h2>2. Clicca il personaggio che ti piace di più · انقر على الشخصية التي تعجبك أكثر · 点你最喜欢的角色</h2>
+<p class="mu">Il tuo personaggio è grigio: non si può votare. · شخصيتك رمادية: لا يمكن التصويت لها. · 你自己的角色是灰色的：不能投。</p>
+<div class="g" id="griglia">Carico…</div>
+<button class="bot" id="vota">Vota · صوّت · 投票</button><div class="esito" id="esito"></div>
+<p class="mu">Puoi cambiare idea: vale l'ultimo voto. · يمكنك تغيير رأيك: آخر تصويت هو المحسوب. · 可以改主意：最后一次投票有效。</p>
+
+<h2>3. La classifica · الترتيب · 排行榜</h2>
+<div class="mu" id="agg"></div>
+<div id="classifica">Ancora nessun voto. · لا توجد أصوات بعد. · 还没有投票。</div>
+</div>
+<script>
+(function () {
+  var CONF = {}, scelto = '', T = [];
+  function $(i) { return document.getElementById(i); }
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function breve(n) { var p = n.trim().split(/\s+/); if (!p[0]) return ''; var a = p[0].charAt(0).toUpperCase() + p[0].slice(1).toLowerCase(); return p.length > 1 ? a + ' ' + p[p.length - 1].charAt(0).toUpperCase() + '.' : a; }
+  try { $('nome').value = localStorage.getItem('nome-1inf') || ''; } catch (x) {}
+  fetch('../../../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {});
+  function griglia() {
+    var mio = breve($('nome').value);
+    $('griglia').innerHTML = T.length ? T.map(function (t) { var m = t.chi === mio; return '<figure data-f="' + e(t.file) + '" class="' + (m ? 'mio' : '') + (t.file === scelto ? ' on' : '') + '"><img src="../talpe/' + e(t.file) + '" alt="' + e(t.chi) + '"><figcaption>' + e(t.chi) + (m ? '<br>(il tuo)' : '') + '</figcaption></figure>'; }).join('') : 'Ancora nessun personaggio nel gioco. · 还没有角色。';
+  }
+  $('nome').addEventListener('input', griglia);
+  $('griglia').addEventListener('click', function (ev) { var f = ev.target.closest('figure'); if (!f || f.classList.contains('mio')) return; scelto = f.dataset.f; griglia(); });
+  $('vota').onclick = function () {
+    var n = $('nome').value.trim().replace(/\s+/g, ' '), es = $('esito');
+    if (n.indexOf(' ') < 0) { es.style.color = '#c0392b'; es.textContent = 'Scrivi nome e cognome. · اكتب الاسم واسم العائلة. · 写名字和姓。'; return; }
+    if (!scelto) { es.style.color = '#c0392b'; es.textContent = 'Clicca un personaggio. · انقر على شخصية. · 点一个角色。'; return; }
+    if (!CONF.invio) { es.style.color = '#c0392b'; es.textContent = 'Un momento: il prof sta accendendo l\'invio. Riprova tra un minuto. · 一分钟后再试。'; return; }
+    try { localStorage.setItem('nome-1inf', n); } catch (x) {}
+    var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
+    var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify({ id: '1inf-talpa-20261014', nome: n, modo: 'proposta', tipo: 'voto', per: scelto, ora: new Date().toISOString() }); f.appendChild(i);
+    document.body.appendChild(f); f.submit(); f.remove();
+    es.style.color = '#1a7f37'; es.textContent = 'Voto mandato! Tra poco lo vedi nella classifica. · أُرسل التصويت! · 投票已发送！';
+  };
+  function carica() {
+    Promise.all([fetch('../talpe/elenco.json?t=' + Date.now()).then(function (r) { return r.json(); }), fetch('voti.json?t=' + Date.now()).then(function (r) { return r.json(); }).catch(function () { return {}; })]).then(function (x) {
+      T = x[0].talpe || []; griglia();
+      var C = x[1].conteggi || {}, L = T.map(function (t) { return { t: t, v: C[t.file] || 0 }; }).filter(function (z) { return z.v > 0; }).sort(function (a, b) { return b.v - a.v; });
+      $('agg').textContent = x[1].aggiornato ? 'Aggiornata alle ' + x[1].aggiornato + ' · votanti: ' + (x[1].votanti || 0) : '';
+      var pos = 0, prima = -1;
+      if (L.length) $('classifica').innerHTML = L.map(function (z, i) { if (z.v !== prima) { pos = i + 1; prima = z.v; } var c = pos === 1 ? 'oro' : pos === 2 ? 'arg' : pos === 3 ? 'bro' : '';
+        return '<div class="cl"><div class="pos ' + c + '">' + pos + '°</div><img src="../talpe/' + e(z.t.file) + '" alt=""><div><b>' + e(z.t.chi) + '</b><br>' + z.v + ' voti' + (pos <= 3 ? ' · premio' : '') + '</div></div>'; }).join('');
+    }).catch(function () {});
+  }
+  carica(); setInterval(carica, 30000);
+})();
+</script></body></html>

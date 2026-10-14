@@ -43,6 +43,7 @@ var http_elenco: HTTPRequest
 var da_scaricare: Array = []
 var base_url: String = ""
 var classeVar: Label
+var versione_gioco: String = "v1.0"
 
 func _ready() -> void:
 	talpa_tex = load("res://talpa.png")
@@ -97,9 +98,18 @@ func _elenco_arrivato(_r: int, codice: int, _h: PackedStringArray, corpo: Packed
 	var dati = JSON.parse_string(corpo.get_string_from_utf8())
 	if typeof(dati) != TYPE_DICTIONARY or not dati.has("talpe"):
 		return
+	# ?v=v1.3 nell'indirizzo: si gioca quella versione, solo con i personaggi entrati fino a lì
+	var chiesta: String = str(JavaScriptBridge.eval("new URLSearchParams(location.search).get('v') || ''"))
+	versione_gioco = chiesta if chiesta != "" else str(dati.get("versione", "v1.0"))
 	for t in dati["talpe"]:
-		da_scaricare.append(str(t["file"]))
+		if _num(str(t.get("dal", "v1.0"))) <= _num(versione_gioco):
+			da_scaricare.append(str(t["file"]))
+	_aggiorna_hud()
 	_scarica_prossima()
+
+func _num(v: String) -> float:
+	var p: PackedStringArray = v.trim_prefix("v").split(".")
+	return float(p[0]) * 1000.0 + (float(p[1]) if p.size() > 1 else 0.0)
 
 func _scarica_prossima() -> void:
 	if da_scaricare.is_empty():
@@ -279,7 +289,7 @@ func _aggiorna_hud() -> void:
 	punteggioVar.text = "Talpe: %d" % punti
 	tempoVar.text = "Tempo: %d" % int(ceil(tempo_rimasto))
 	if classeVar:
-		classeVar.text = "Talpe della 1INF: %d" % tex_classe.size()
+		classeVar.text = "1INF %s · personaggi: %d" % [versione_gioco, tex_classe.size()]
 
 func _posiziona_finali() -> void:
 	var vp: Vector2 = get_viewport_rect().size

@@ -1,0 +1,36 @@
+[
+ {
+  "versione": "v1.0",
+  "nome": "Il fork della 1INF",
+  "data": "14/10/2026",
+  "ora": "08:51",
+  "ramo": "main (fork di «Acchiappa la talpa»)",
+  "pr": "",
+  "autore": "il prof",
+  "entrati": [],
+  "presenti": [
+   {
+    "chi": "La talpa originale",
+    "file": "",
+    "dal": "v1.0"
+   }
+  ],
+  "riassunto": {
+   "it": "Si parte: la classe ha la sua copia (fork) del gioco «Acchiappa la talpa», con la sola talpa originale.",
+   "ar": "البداية: للصف نسخته (fork) من لعبة «اصطد الخُلد»، مع الخُلد الأصلي فقط.",
+   "zh": "开始：全班有了自己的「打地鼠」游戏副本（fork），里面只有原来的地鼠。"
+  },
+  "cambi": [
+   "Il prof ha fatto una copia (fork) del gioco «Acchiappa la talpa», fatto con Godot, per la 1INF. La copia è della classe: il gioco originale resta com'era, al sicuro.",
+   "Nella copia è stata aggiunta una sola cosa nuova: il gioco legge l'elenco dei personaggi della classe (talpe/elenco.json) e fa uscire dai buchi i loro personaggi. All'inizio l'elenco è vuoto, quindi esce solo la talpa originale.",
+   "Il gioco funziona nel browser, sul computer e sul telefono (si tocca la talpa con il dito)."
+  ],
+  "file": [
+   "talpa-1inf/ (la copia del progetto Godot)",
+   "docs/giochi/talpa-1inf/ (il gioco esportato per il browser)",
+   "talpe/elenco.json (vuoto)"
+  ],
+  "invariato": "Tutte le regole del gioco: 30 secondi di partita, 9 buchi (3 righe e 3 colonne), una talpa alla volta che resta su per 0,9 secondi, un punto per ogni talpa presa, la classifica online alla fine.",
+  "tipo": "Versione di partenza: v1.0."
+ }
+]
