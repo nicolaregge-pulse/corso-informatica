@@ -15,6 +15,17 @@ tr.fatto td{background:rgba(47,158,87,.18)}tr.no td{background:rgba(224,65,58,.1
 <div class="card"><p>Qui ci sono <b>tutte le Pull Request</b> della classe. <b>Ogni richiesta vale 1</b>, chiunque la faccia. Il prof le fa in quest'ordine: prima quelle con il <b>peso più basso</b> (meno lavoro sul codice); a parità di peso, <b>chi è arrivato prima</b> (FIFO: il primo che entra è il primo che esce). Il peso usa i numeri di Fibonacci: <b>1, 2, 3, 5, 8, 13</b>. La pagina si aggiorna da sola. Le righe <b>verdi</b> sono FATTE: la richiesta è entrata nel gioco, con il numero della versione.</p>
 <p class="bn">এখানে ক্লাসের সব Pull Request আছে। প্রতিটি অনুরোধের মূল্য ১, যে-ই করুক। শিক্ষক এই ক্রমে করেন: আগে যেগুলোর ওজন সবচেয়ে কম (কোডে কম কাজ); একই ওজন হলে, যে আগে এসেছে (FIFO)। ওজনে ফিবোনাচি সংখ্যা: ১, ২, ৩, ৫, ৮, ১৩। পাতাটি নিজে আপডেট হয়। সবুজ সারি = শেষ (FATTO): অনুরোধটি খেলায় ঢুকেছে, সংস্করণের নম্বরসহ।</p>
 <p><a class="bt" target="_blank" href="https://nicolaregge-pulse.github.io/corso-informatica/teoria/agile/">Teoria Agile</a> <span class="mu" id="agg"></span></p></div>
+<div class="card" style="border:3px solid #1f6feb"><h2 style="margin:4px 0">Lo sprint di adesso</h2><div id="sprintora">Carico…</div>
+<p class="bn" lang="bn">এখনকার স্প্রিন্ট: এই অনুরোধগুলো পরের সংস্করণে ঢুকবে।</p><p><a class="bt" href="../3inf-sprint/" target="_blank" rel="noopener">La lavagna dello sprint</a></p></div>
+<div class="card" style="border:3px solid #2f9e57"><h2 style="margin:4px 0">Vuoi che la tua richiesta entri presto? Chiedila piccola</h2>
+<p>Ogni sprint ha posto per un peso totale di 8. Le richieste leggere entrano prima.</p>
+<table><thead><tr><th>Peso</th><th>Che cosa chiedi</th><th>Esempio</th></tr></thead><tbody>
+<tr><td class="peso p1">1</td><td>un colore o una frase</td><td>il treno diventa rosso</td></tr>
+<tr><td class="peso p2">2</td><td>un numero</td><td>il treno più lento, più punti per nemico</td></tr>
+<tr><td class="peso p3">3</td><td>un personaggio nuovo</td><td>un nemico con la tuta arancione</td></tr>
+<tr><td class="peso p5">5</td><td>un ambiente nuovo</td><td>il deserto</td></tr>
+<tr><td class="peso p8">8 e più</td><td>troppo grande per uno sprint: dividila in pezzi piccoli</td><td>lo stadio: prima il campo verde (5), poi il personaggio (3)</td></tr>
+</tbody></table><p class="bn" lang="bn">হালকা অনুরোধ আগে ঢোকে। বড় অনুরোধ ছোট ছোট টুকরোয় ভাগ করুন।</p></div>
 <div class="card"><table><thead><tr><th>Posizione</th><th>Data e ora</th><th>Alunno</th><th>PR</th><th>Riepilogo della richiesta</th><th>Peso</th><th>Perché in questa posizione</th><th>Stato</th></tr></thead><tbody id="tb"><tr><td colspan="8" class="mu">Ancora nessuna Pull Request.</td></tr></tbody></table></div>
 <h2 style="font-size:22px;margin:22px 0 6px">Le versioni già fatte e da quale richiesta sono nate</h2>
 <div class="card"><p>Ogni versione nasce da una richiesta. Qui vedi <b>chi l'ha chiesta</b> e <b>cosa è entrato</b> nel gioco. Le versioni nuove di oggi compariranno qui, con il numero della vostra PR.</p><p class="bn">প্রতিটি সংস্করণ একটি অনুরোধ থেকে জন্মায়। এখানে দেখো কে চেয়েছে এবং খেলায় কী ঢুকেছে।</p>
@@ -27,6 +38,10 @@ tr.fatto td{background:rgba(47,158,87,.18)}tr.no td{background:rgba(224,65,58,.1
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function riga(v){var cl=v.fatto?'fatto':(v.no?'no':''),st=v.fatto?'FATTO<br>'+e(v.fatto):(v.no?'NO: '+e(v.no):'da fare');
  return '<tr class="'+cl+'"><td class="peso">'+v.pos+'</td><td>'+e(v.ora)+'</td><td><b>'+e(v.alunno)+'</b></td><td>'+e(v.pr)+'</td><td>'+e(v.richiesta)+(v.file?' <i>(con file allegato)</i>':'')+'</td><td class="peso p'+v.peso+'">'+v.peso+'</td><td>Peso '+v.peso+': '+e(v.motivo)+'</td><td class="st '+(v.fatto?'f':(v.no?'n':''))+'">'+st+'</td></tr>'}
+function sprintOra(){fetch('../3inf-sprint/sprint.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+ var s=d.sprint.filter(function(x){return x.stato==='in corso'})[0]||d.sprint.filter(function(x){return x.stato!=='chiuso'})[0];
+ document.getElementById('sprintora').innerHTML=!s?'<p class="mu">Gli sprint di oggi sono finiti.</p>':'<p><b>Sprint '+s.n+'</b> · '+e(s.inizio)+'-'+e(s.fine)+' · '+e(s.stato)+'</p>'+((s.richieste||[]).length?'<ol>'+s.richieste.map(function(r){return '<li><b>'+e(r.alunno)+'</b> · peso '+e(r.peso)+' · '+e(r.richiesta)+' · <b>'+e(r.stato)+'</b>'+(r.versione?' ('+e(r.versione)+')':'')+'</li>'}).join('')+'</ol>':'<p class="mu">La pianificazione si fa all\'inizio dello sprint: il prof prende dal backlog le richieste più leggere, fino a peso 8.</p>')}).catch(function(){})}
+sprintOra();setInterval(sprintOra,30000);
 function carica(){fetch('backlog.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
  document.getElementById('agg').textContent='aggiornato '+d.aggiornato;
  if(!d.voci.length)return;

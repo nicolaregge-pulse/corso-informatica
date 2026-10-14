@@ -1,5 +1,5 @@
 {
- "aggiornato": "14/10/2026 11:53",
+ "aggiornato": "14/10/2026 12:05",
  "alunni": [
   {
    "alunno": "Alessandro A.",
@@ -9,7 +9,9 @@
    "rifiutate": 0,
    "attesa": 1,
    "revisione": false,
-   "ultima": "10:32"
+   "ultima": "10:32",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Andrea G.",
@@ -19,7 +21,19 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:40"
+   "ultima": "10:40",
+   "paga": [
+    [
+     "v1.6",
+     1
+    ],
+    [
+     "v1.6",
+     3
+    ]
+   ],
+   "stipendio": 300,
+   "stipendio_conto": "v1.6 peso 3 = 300 €"
   },
   {
    "alunno": "Ariel D.",
@@ -29,7 +43,19 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:33"
+   "ultima": "10:33",
+   "paga": [
+    [
+     "v1.7",
+     2
+    ],
+    [
+     "v1.8",
+     3
+    ]
+   ],
+   "stipendio": 500,
+   "stipendio_conto": "v1.7 peso 2 = 200 € + v1.8 peso 3 = 300 € → 500 €"
   },
   {
    "alunno": "Dani S.",
@@ -39,7 +65,9 @@
    "rifiutate": 1,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:40"
+   "ultima": "10:40",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "David A.",
@@ -49,7 +77,15 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:36"
+   "ultima": "10:36",
+   "paga": [
+    [
+     "v1.9",
+     3
+    ]
+   ],
+   "stipendio": 300,
+   "stipendio_conto": "v1.9 peso 3 = 300 €"
   },
   {
    "alunno": "Emmanuel F.",
@@ -59,7 +95,9 @@
    "rifiutate": 1,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:34"
+   "ultima": "10:34",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Fabrizio C.",
@@ -69,7 +107,9 @@
    "rifiutate": 1,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:26"
+   "ultima": "10:26",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Filippo M.",
@@ -79,7 +119,9 @@
    "rifiutate": 1,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:31"
+   "ultima": "10:31",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Noah V.",
@@ -89,7 +131,15 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:31"
+   "ultima": "10:31",
+   "paga": [
+    [
+     "v1.5",
+     2
+    ]
+   ],
+   "stipendio": 200,
+   "stipendio_conto": "v1.5 peso 2 = 200 €"
   },
   {
    "alunno": "Rafi F.",
@@ -99,7 +149,9 @@
    "rifiutate": 0,
    "attesa": 1,
    "revisione": false,
-   "ultima": "10:49"
+   "ultima": "10:49",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Simone G.",
@@ -109,7 +161,9 @@
    "rifiutate": 0,
    "attesa": 1,
    "revisione": false,
-   "ultima": "10:42"
+   "ultima": "10:42",
+   "stipendio": 0,
+   "stipendio_conto": "nessuna richiesta approvata: 0 €"
   },
   {
    "alunno": "Tomas L.",
@@ -119,7 +173,15 @@
    "rifiutate": 0,
    "attesa": 0,
    "revisione": false,
-   "ultima": "10:40"
+   "ultima": "10:40",
+   "paga": [
+    [
+     "v1.10",
+     3
+    ]
+   ],
+   "stipendio": 300,
+   "stipendio_conto": "v1.10 peso 3 = 300 €"
   }
  ]
 }
