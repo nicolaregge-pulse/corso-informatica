@@ -17,6 +17,8 @@ tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,
 <p class="mu" id="sotto">Carico…</p>
 <p id="bott"></p>
 <div class="kpi" id="kpi"></div>
+<h2>Monitor: cosa fanno adesso col PC</h2>
+<div class="card" id="moni"></div>
 <h2>Ragazzo per ragazzo</h2>
 <div class="card"><table id="tab"></table></div>
 <p class="mu">Voto parziale = solo crocette (40 + 60 × giuste ÷ totale). Le risposte aperte le corregge Claude dopo la consegna: il voto finale arriva dopo. Moduli fa vedere le risposte solo dopo «Invia»: chi sta ancora scrivendo si vede nella colonna del monitor (giri di Veyon).</p>
@@ -49,6 +51,12 @@ function disegna(d,m){
   var pu=x?TOT:(r&&r.domanda?r.domanda:0);h+='<td>'+(pu?'<div style="background:var(--ln);border-radius:6px;height:10px;width:120px"><div style="background:'+(x?'#2f9e57':'#1f6feb')+';height:10px;border-radius:6px;width:'+Math.round(120*pu/TOT)+'px"></div></div>'+(x?'finita':'domanda '+pu+' di '+TOT):'<span class="nd">?</span>')+'</td>';
   h+='<td>'+(r?'<b>'+e(r.ora)+'</b> '+e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto nei giri</span>')+'</td></tr>'});
  document.getElementById('tab').innerHTML=h+'</tbody>';
+ var ul=gir.length?gir[gir.length-1]:null,mh='';
+ if(ul){var fu=ul.righe.filter(function(r){return r.fuori}),ok=ul.righe.filter(function(r){return !r.fuori});
+  mh='<p><b>Giro delle '+e(ul.ora)+'</b> · '+(fu.length?'<span class="ko">'+fu.length+' fuori dalla verifica</span>':'<span class="ok">tutti sulla verifica</span>')+'</p>';
+  mh+='<table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th><th>Consegnata?</th></tr></thead><tbody>'+fu.concat(ok).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td><td>'+(C[r.alunno]?'<span class="ok">sì, '+e(C[r.alunno].ora)+'</span>':(r.alunno?'non ancora':''))+'</td></tr>'}).join('')+'</tbody></table>'}
+ else mh='<p class="mu">Nessun giro di Veyon ancora.</p>';
+ document.getElementById('moni').innerHTML=mh;
  var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.parziale},0)/n):'–',tm=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.minuti},0)/n):'–';
  document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Tempo medio<b>'+tm+' min</b></div><div>Fuori compito (ultimo giro)<b class="'+(fuori?'ko':'ok')+'">'+fuori+'</b></div>';
  var t='<thead><tr><th>Domanda</th><th>Giuste</th><th>Sbagliate</th><th>% giuste</th></tr></thead><tbody>';
