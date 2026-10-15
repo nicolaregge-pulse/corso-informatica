@@ -38,8 +38,11 @@ function disegna(d,m){
   else h+='<td class="nd">non ancora</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
   h+='<td>'+(r?'<b>'+e(r.ora)+'</b> '+e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto</span>')+'</td></tr>'});
  document.getElementById('tab').innerHTML=h+'</tbody>';
- var ul=gir.length?gir[gir.length-1]:null;
- document.getElementById('moni').innerHTML=ul?'<p><b>Giro delle '+e(ul.ora)+'</b> · '+ul.righe.filter(function(r){return r.fuori}).length+' fuori</p><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+ul.righe.slice().sort(function(a,b){return b.fuori-a.fuori}).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table>':'<p class="mu">Ancora nessun giro di Veyon oggi.</p>';
+ var note=(m.note||[]);
+ var nh=note.length?'<p><b>Note del prof</b></p><table><tbody>'+note.slice().reverse().map(function(n){return '<tr class="fuori"><td>'+e(n.ora)+'</td><td><b>'+e(n.alunno)+'</b></td><td>'+e(n.cosa)+'</td></tr>'}).join('')+'</tbody></table>':'';
+ var gh=gir.length?gir.slice().reverse().map(function(g){var f=g.righe.filter(function(r){return r.fuori}).length;
+   return '<p style="margin:14px 0 4px"><b>Giro delle '+e(g.ora)+'</b> · '+(f?'<span class="ko">'+f+' fuori</span>':'<span class="ok">tutti sul lavoro</span>')+'</p><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+g.righe.slice().sort(function(a,b){return b.fuori-a.fuori}).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table>'}).join(''):'<p class="mu">Ancora nessun giro di Veyon oggi.</p>';
+ document.getElementById('moni').innerHTML=nh+gh;
  var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.voto_parziale},0)/n):'–',perf=d.consegnate.filter(function(x){return x.valore>=x.massimo}).length;
  document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Scelte perfette<b>'+perf+'</b></div><div>Fuori nell\'ultimo giro<b class="ko">'+(ul?ul.righe.filter(function(r){return r.fuori}).length:0)+'</b></div>'}
 var FASI=[["11:10","11:15","Avvio","Di': aprite il compito su Classroom, scrivete nome e nome dell'azienda.","Tutti hanno la pagina aperta (monitor)"],
