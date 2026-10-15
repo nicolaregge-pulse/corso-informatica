@@ -16,6 +16,7 @@ tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,
 <h1 id="tit">Cruscotto della verifica</h1>
 <p class="mu" id="sotto">Carico…</p>
 <p id="bott"></p>
+<div class="card" id="iabox" style="display:none"><b>Colonna «Uso IA» (solo docente):</b> <input id="iapw" type="password" placeholder="password docente" style="font-size:16px;padding:6px"> <button id="iabt" class="bt" style="border:0;cursor:pointer">Apri</button> <span id="iaerr" class="ko"></span></div>
 <div class="kpi" id="kpi"></div>
 <h2>Segnalazioni di tutta la verifica</h2>
 <div class="card" id="segn"></div>
@@ -28,11 +29,18 @@ tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,
 <div class="card"><table id="dom"></table></div>
 </div><script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-var V=(new URLSearchParams(location.search)).get('v')||'';
+var V=(new URLSearchParams(location.search)).get('v')||'';var IA=null,ULT=null;
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function apri(X,pw){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(X.salt),iterations:X.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(X.iv)},k,b64(X.ct))))}
+async function apriIA(pw){try{var X=await j(V+'/ia.json');IA=await apri(X,pw);try{sessionStorage.setItem('iapw',pw)}catch(_){};document.getElementById('iabox').style.display='none';if(ULT)disegna(ULT[0],ULT[1])}catch(_){document.getElementById('iaerr').textContent='password sbagliata o dati non pronti'}}
+fetch(V+'/ia.json',{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok){document.getElementById('iabox').style.display='';var p=null;try{p=sessionStorage.getItem('iapw')}catch(_){};if(p)apriIA(p)}}).catch(function(){});
+document.addEventListener('click',function(ev){if(ev.target&&ev.target.id==='iabt')apriIA(document.getElementById('iapw').value)});
 function j(u){return fetch(u+(u.indexOf('?')<0?'?':'&')+'t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
 function carica(){if(!V){document.getElementById('sotto').textContent='Manca ?v= nell\'indirizzo.';return}
  j(V+'/dati.json').then(function(d){return j(d.monitor).catch(function(){return {giri:[]}}).then(function(m){disegna(d,m)})}).catch(function(){document.getElementById('sotto').textContent='Dati non ancora pronti: riprovo tra poco.'})}
-function disegna(d,m){
+function disegna(d,m){ULT=[d,m];
  document.title='Cruscotto '+d.classe;document.getElementById('tit').textContent='Cruscotto: '+d.titolo;
  document.getElementById('sotto').textContent=d.classe+' · via alle '+d.via+' · dati delle '+d.aggiornato+' · si aggiorna da solo ogni 30 secondi';
  var cl=d.classe.toLowerCase();document.getElementById('bott').innerHTML='<a class="bt" target="_blank" href="../'+cl+'-monitor/">Il monitor</a><a class="bt" target="_blank" href="../'+cl+'-voti/">I voti</a>';
@@ -43,13 +51,14 @@ function disegna(d,m){
  nomi.sort(function(a,b){var ca=C[a]?0:1,cb=C[b]?0:1;return ca-cb||a.localeCompare(b)});
  var nc=d.domande_crocette.length,na=d.domande_aperte.length,h='<thead><tr><th>Alunno</th><th>Stato</th>';
  for(var i=0;i<nc;i++)h+='<th class="c">C'+(i+1)+'</th>';h+='<th>Giuste</th><th>Voto parziale</th>';
- for(i=0;i<na;i++)h+='<th class="c">A'+(i+1)+'</th>';h+='<th>A che punto (Veyon)</th><th>Monitor (ultimo giro in cui compare)</th></tr></thead><tbody>';
+ for(i=0;i<na;i++)h+='<th class="c">A'+(i+1)+'</th>';if(IA)h+='<th>Uso IA (stima)</th><th>Perché</th>';h+='<th>A che punto (Veyon)</th><th>Monitor (ultimo giro in cui compare)</th></tr></thead><tbody>';
  var fuori=0;
  nomi.forEach(function(n){var x=C[n],r=mon[n],cls=r&&r.fuori?'fuori':(x?'':'attesa');if(r&&r.fuori&&r.ora===g.ora)fuori++;
   h+='<tr class="'+cls+'"><td><b>'+e(n)+'</b></td><td>'+(x?'<span class="ok">consegnata</span> alle '+e(x.ora)+' ('+x.minuti+' min)':(r?'sta scrivendo':'<span class="nd">non visto</span>'))+'</td>';
   for(var i=0;i<nc;i++){var v=x?x.crocette[i]:undefined;h+='<td class="c">'+(v===1?'<span class="ok">✓</span>':v===0?'<span class="ko">✗</span>':'<span class="nd">–</span>')+'</td>'}
   h+='<td class="c">'+(x?x.giuste+'/'+x.su:'')+'</td><td class="c v">'+(x?x.parziale:'')+'</td>';
   for(i=0;i<na;i++){var a=x?x.aperte[i]:'';h+='<td class="c">'+(a==='scritta'?'<span class="ok">scritta</span>':a==='vuota'?'<span class="ko">vuota</span>':'')+'</td>'}
+  if(IA){var q=IA.allievi[n];h+=q?'<td class="c v '+(q.ia>=50?'ko':q.ia>=25?'':'ok')+'">'+q.ia+'%</td><td style="font-size:13px">'+e(q.perche)+(q.copia?'<br><b>simile a '+e(q.copia)+'</b>':'')+'</td>':'<td></td><td class="nd">da valutare</td>'}
   var pu=x?TOT:(r&&r.domanda?r.domanda:0);h+='<td>'+(pu?'<div style="background:var(--ln);border-radius:6px;height:10px;width:120px"><div style="background:'+(x?'#2f9e57':'#1f6feb')+';height:10px;border-radius:6px;width:'+Math.round(120*pu/TOT)+'px"></div></div>'+(x?'finita':'domanda '+pu+' di '+TOT):'<span class="nd">?</span>')+'</td>';
   h+='<td>'+(r?'<b>'+e(r.ora)+'</b> '+e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto nei giri</span>')+'</td></tr>'});
  document.getElementById('tab').innerHTML=h+'</tbody>';
