@@ -8,7 +8,7 @@ h1{font-size:24px;margin:8px 0 2px}.mu{color:var(--mu)}
 .card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin:10px 0;overflow-x:auto}
 .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.kpi div{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px}.kpi b{display:block;font-size:26px}
 table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--ln);padding:6px 9px;text-align:left}th{background:var(--acc);color:#fff}
-.ok{color:#2f9e57;font-weight:800}.no{color:#e0413a;font-weight:800}tr.fuori td{background:rgba(224,65,58,.12)}
+.ok{color:#2f9e57;font-weight:800}.no{color:#e0413a;font-weight:800}tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,0,.10)}
 input{font:inherit;font-size:17px;padding:8px 12px;border-radius:8px;border:2px solid var(--ln);background:var(--card);color:var(--tx)}
 button{font:inherit;font-weight:800;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;cursor:pointer}
 </style></head><body><div class="w">
@@ -29,8 +29,8 @@ function dis(d){document.getElementById('out').hidden=false;document.getElementB
  document.getElementById('sotto').textContent=d.classe+' · '+d.data+' · dati delle '+d.aggiornato+' · ultimo giro Veyon '+d.giro;
  document.getElementById('ass').textContent=(d.assenti||[]).join(', ');
  var fu=d.righe.filter(function(r){return r.fuori}).length;
- document.getElementById('kpi').innerHTML='<div>Alunni<b>'+d.righe.length+'</b></div><div>Fuori compito (ultimo giro)<b class="'+(fu?'no':'ok')+'">'+fu+'</b></div>';
- document.getElementById('tab').innerHTML='<thead><tr><th>Cognome</th><th>Voto attuale</th><th>Monitor (ultimo giro)</th></tr></thead><tbody>'+d.righe.map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td><b>'+e(r.cognome)+'</b></td><td class="v">'+e(r.voto)+'</td><td>'+e(r.monitor)+'</td></tr>'}).join('')+'</tbody>'}
+ document.getElementById('kpi').innerHTML='<div>Verifica consegnata<b>'+d.n_verifica+' / '+d.righe.length+'</b></div><div>Fuori compito (ultimo giro)<b class="'+(fu?'no':'ok')+'">'+fu+'</b></div>';
+ document.getElementById('tab').innerHTML='<thead><tr><th>Cognome</th><th>Voto attuale</th><th>Verifica di oggi</th><th>Monitor (ultimo giro)</th></tr></thead><tbody>'+d.righe.map(function(r){return '<tr class="'+(r.fuori?'fuori':(r.consegnata?'':'attesa'))+'"><td><b>'+e(r.cognome)+'</b></td><td class="v">'+e(r.voto)+'</td><td class="'+(r.consegnata?'ok':'no')+'">'+e(r.verifica)+'</td><td>'+e(r.monitor)+'</td></tr>'}).join('')+'</tbody>'}
 function carica(){fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(X){return apri(X,PW)}).then(dis).catch(function(){})}
 document.getElementById('b').onclick=function(){PW=document.getElementById('pw').value;
  fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(X){return apri(X,PW)}).then(function(d){dis(d);setInterval(carica,30000)}).catch(function(){document.getElementById('err').textContent='password sbagliata o dati non pronti'})}
