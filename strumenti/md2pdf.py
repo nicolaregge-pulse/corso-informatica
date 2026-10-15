@@ -31,6 +31,8 @@ while i < len(righe):
         while i < len(righe) and re.match(r"^( {3})*\d+\. ", righe[i]):
             m = re.match(r"^((?: {3})*)\d+\. (.*)$", righe[i]); voci.append((len(m.group(1)) // 3, m.group(2))); i += 1
         cont, html_l = [0, 0, 0, 0], []
+        primo = re.match(r"^\d+", righe[i - len(voci)].strip()) if voci else None
+        if primo and voci and voci[0][0] == 0: cont[0] = int(primo.group(0)) - 1   # la lista riparte dal numero scritto (dopo un blocco di codice)
         for liv, testo in voci:
             cont[liv] += 1
             for k in range(liv + 1, len(cont)): cont[k] = 0
