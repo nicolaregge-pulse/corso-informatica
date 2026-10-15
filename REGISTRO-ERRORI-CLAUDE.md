@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.52** — 14/10/2026
+**Versione 2.53** — 15/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -351,6 +351,13 @@ lezione.*
 
 1. **Errore.** Con lo script ogni minuto e quasi 200 file nella cartella dei comandi, a ogni giro lo script leggeva ogni file: migliaia di richieste all'ora. GitHub ha risposto «403 API rate limit exceeded» e dalle 14 lo script non lavorava più. Me ne sono accorto solo alle 15:12, perché un comando non partiva.
 2. **Regola.** I comandi eseguiti e i compiti chiusi da più di 3 giorni vanno in `archivio/` (lo fa `lezione_pr.py archivia`, anche dentro il giro). Lo script v7.2 scrive nel log la risposta di GitHub quando non è 200. Dopo un comando, controllo entro 2 minuti che sia stato eseguito.
+
+## 15/10/2026 — Verifica della 2INF scritta anche in cinese, e in 2INF non c'è nessun cinese (#82)
+
+1. **Cosa è successo:** ho preparato la verifica rapida della 2INF in italiano e cinese. Nicola: «Siamo con la 2, non c'è nessun cinese. Devi imparare a capire la classe e te l'ho data, come mai sbagli?».
+2. **Perché:** la regola giusta (2INF solo italiano, 12/10) era scritta solo nel registro delle versioni; la regola §2.49 e l'indice in CLAUDE.md dicevano ancora «italiano e cinese». Ho letto la riga vecchia e non ho controllato la classe.
+3. **Correzione:** Modulo rifatto solo in italiano; §2.49 e indice corretti («2INF: SOLO ITALIANO»).
+4. **Regola:** prima di scrivere per una classe si controllano le lingue di QUELLA classe nella regola aggiornata; quando una decisione cambia, si corregge la regola stessa, non solo il registro delle versioni.
 
 ## 14/10/2026 — Consegna con copia, apri il Modulo, incolla e Invia: un ragazzo non ce l'ha fatta (#81)
 
