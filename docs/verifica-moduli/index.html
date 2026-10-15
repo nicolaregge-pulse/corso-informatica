@@ -17,6 +17,8 @@ tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,
 <p class="mu" id="sotto">Carico…</p>
 <p id="bott"></p>
 <div class="kpi" id="kpi"></div>
+<h2>Segnalazioni di tutta la verifica</h2>
+<div class="card" id="segn"></div>
 <h2>Monitor: cosa fanno adesso col PC</h2>
 <div class="card" id="moni"></div>
 <h2>Ragazzo per ragazzo</h2>
@@ -57,6 +59,11 @@ function disegna(d,m){
   mh+='<table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th><th>Consegnata?</th></tr></thead><tbody>'+fu.concat(ok).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td><td>'+(C[r.alunno]?'<span class="ok">sì, '+e(C[r.alunno].ora)+'</span>':(r.alunno?'non ancora':''))+'</td></tr>'}).join('')+'</tbody></table>'}
  else mh='<p class="mu">Nessun giro di Veyon ancora.</p>';
  document.getElementById('moni').innerHTML=mh;
+ var S={},GR=/chatgpt|gemini|chat|\bia\b|intelligenza artificiale|copilot/i;
+ gir.forEach(function(gg){gg.righe.forEach(function(r){if(r.alunno&&r.fuori&&!(C[r.alunno]&&/ha consegnato/.test(r.cosa))){(S[r.alunno]=S[r.alunno]||[]).push({ora:gg.ora,cosa:r.cosa,grave:GR.test(r.cosa)})}})});
+ var ks=Object.keys(S).sort(function(a,b){var ga=S[a].some(function(x){return x.grave}),gb=S[b].some(function(x){return x.grave});return (gb-ga)||a.localeCompare(b)});
+ document.getElementById('segn').innerHTML=ks.length?'<table><thead><tr><th>Alunno</th><th>Quante volte</th><th>Che cosa, e quando</th><th>Consegnata?</th></tr></thead><tbody>'+ks.map(function(n){var g=S[n].some(function(x){return x.grave});
+  return '<tr class="fuori"><td><b>'+e(n)+'</b>'+(g?' <span class="ko">IA/CHAT</span>':'')+'</td><td class="c">'+S[n].length+'</td><td>'+S[n].map(function(x){return '<b>'+e(x.ora)+'</b> '+(x.grave?'<span class="ko">'+e(x.cosa)+'</span>':e(x.cosa))}).join('<br>')+'</td><td>'+(C[n]?'sì, '+e(C[n].ora):'non ancora')+'</td></tr>'}).join('')+'</tbody></table>':'<p class="ok">Nessuna segnalazione.</p>';
  var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.parziale},0)/n):'–',tm=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.minuti},0)/n):'–';
  document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Tempo medio<b>'+tm+' min</b></div><div>Fuori compito (ultimo giro)<b class="'+(fuori?'ko':'ok')+'">'+fuori+'</b></div>';
  var t='<thead><tr><th>Domanda</th><th>Giuste</th><th>Sbagliate</th><th>% giuste</th></tr></thead><tbody>';
