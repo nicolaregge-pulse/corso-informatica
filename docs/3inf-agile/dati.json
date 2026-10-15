@@ -1,9 +1,38 @@
 {
  "titolo": "Sei il Product Manager",
  "classe": "3INF",
- "aggiornato": "12:09",
+ "aggiornato": "12:42",
  "kpi": "40 di partenza · +20 due sprint consegnati · +20 valore portato ai clienti sul massimo possibile · +20 le 3 risposte (le corregge Claude)",
  "consegnate": [
+  {
+   "chi": "Nicolo C.",
+   "ora": "12:36",
+   "azienda": "Korckspissu81",
+   "versioni": [
+    {
+     "ver": "v3.0",
+     "v": 24,
+     "best": 45,
+     "bug": false
+    },
+    {
+     "ver": "v3.1",
+     "v": 14,
+     "best": 39,
+     "bug": false
+    }
+   ],
+   "valore": 38,
+   "massimo": 84,
+   "trenocity": 48,
+   "ludoteca": 33,
+   "parole": [
+    23,
+    23,
+    5
+   ],
+   "voto_parziale": 69
+  },
   {
    "chi": "Andrea G.",
    "ora": "12:00",
@@ -32,6 +61,93 @@
     26
    ],
    "voto_parziale": 77
+  },
+  {
+   "chi": "Filippo M.",
+   "ora": "12:39",
+   "azienda": "i negri",
+   "versioni": [
+    {
+     "ver": "v3.0",
+     "v": 18,
+     "best": 45,
+     "bug": false
+    },
+    {
+     "ver": "v3.1",
+     "v": 31,
+     "best": 45,
+     "bug": false
+    }
+   ],
+   "valore": 49,
+   "massimo": 90,
+   "trenocity": 52,
+   "ludoteca": 67,
+   "parole": [
+    20,
+    10,
+    38
+   ],
+   "voto_parziale": 71
+  },
+  {
+   "chi": "Victor P.",
+   "ora": "12:23",
+   "azienda": "Brazzers S.r.L.",
+   "versioni": [
+    {
+     "ver": "v3.0",
+     "v": 45,
+     "best": 45,
+     "bug": false
+    },
+    {
+     "ver": "v3.1",
+     "v": 14,
+     "best": 20,
+     "bug": false
+    }
+   ],
+   "valore": 59,
+   "massimo": 65,
+   "trenocity": 81,
+   "ludoteca": 33,
+   "parole": [
+    9,
+    4,
+    4
+   ],
+   "voto_parziale": 78
+  },
+  {
+   "chi": "Gabriele R.",
+   "ora": "12:27",
+   "azienda": "Ilenia S.R.L.",
+   "versioni": [
+    {
+     "ver": "v3.0",
+     "v": 39,
+     "best": 45,
+     "bug": false
+    },
+    {
+     "ver": "v3.1",
+     "v": 26,
+     "best": 26,
+     "bug": false
+    }
+   ],
+   "valore": 65,
+   "massimo": 71,
+   "trenocity": 76,
+   "ludoteca": 71,
+   "parole": [
+    16,
+    17,
+    16
+   ],
+   "voto_parziale": 78
   }
  ],
  "attesi": [
