@@ -11,10 +11,10 @@
   var lingue = (me.dataset.lingue || 'it').split(',');
   var MODULO = 'https://docs.google.com/forms/d/e/1FAIpQLSdmNWUBtzzCzKNXQSH9X0A7q85F8AKLPCM2k_JBt-N8QYHkLA/viewform';
   var T = {
-    it: { t: "Chiedi aiuto all'assistente del Prof Regge", n: 'Il tuo nome e cognome', q: 'Scrivi la tua domanda', b: 'Manda', ok: 'Mandata! La risposta compare qui sotto.', ko: 'Non è partita: riprova.', vuoto: 'Scrivi il nome e la domanda.', r: 'Le risposte per te', m1: 'Premi «Copia la domanda».', m2: 'Premi «Apri il Modulo».', m3: 'Nel Modulo: prima casella scrivi aiuto, seconda casella premi Ctrl+V, poi «Invia».', cq: 'Copia la domanda', am: 'Apri il Modulo', cp: 'Copiata: nel Modulo, seconda casella, Ctrl+V' },
+    it: { t: "Chiedi aiuto all'assistente del Prof Regge", n: 'Il tuo nome e cognome', q: 'Scrivi la tua domanda', b: 'Manda', in: 'Sto mandando…', ok: 'Mandata! La risposta compare qui sotto.', ko: 'Non è partita: riprova.', vuoto: 'Scrivi il nome e la domanda.', r: 'Le risposte per te', m1: 'Premi «Copia la domanda».', m2: 'Premi «Apri il Modulo».', m3: 'Nel Modulo: prima casella scrivi aiuto, seconda casella premi Ctrl+V, poi «Invia».', cq: 'Copia la domanda', am: 'Apri il Modulo', cp: 'Copiata: nel Modulo, seconda casella, Ctrl+V' },
     // senza applicazione web: la strada del Modulo
-    ar: { t: 'اطلب المساعدة من مساعد الأستاذ Regge', n: 'اسمك ولقبك', q: 'اكتب سؤالك', b: 'إرسال', ok: 'تم الإرسال! الجواب يظهر هنا في الأسفل.', ko: 'لم يُرسل: حاول مرة أخرى.', vuoto: 'اكتب الاسم والسؤال.', r: 'الأجوبة لك', m1: 'اضغط «Copia la domanda» (انسخ السؤال).', m2: 'اضغط «Apri il Modulo» (افتح النموذج).', m3: 'في النموذج: الخانة الأولى اكتب aiuto، الخانة الثانية اضغط Ctrl+V، ثم «Invia».', cq: 'انسخ السؤال', am: 'افتح النموذج', cp: 'نُسخ' },
-    zh: { t: '向 Regge 老师的助手求助', n: '你的名字和姓', q: '写你的问题', b: '发送', ok: '发送了！回答会出现在下面。', ko: '没有发出去：再试一次。', vuoto: '写名字和问题。', r: '给你的回答', m1: '按「Copia la domanda」（复制问题）。', m2: '按「Apri il Modulo」（打开表单）。', m3: '在表单里：第一个框写 aiuto，第二个框按 Ctrl+V，然后按「Invia」（发送）。', cq: '复制问题', am: '打开表单', cp: '已复制' }
+    ar: { t: 'اطلب المساعدة من مساعد الأستاذ Regge', n: 'اسمك ولقبك', q: 'اكتب سؤالك', b: 'إرسال', in: 'جارٍ الإرسال…', ok: 'تم الإرسال! الجواب يظهر هنا في الأسفل.', ko: 'لم يُرسل: حاول مرة أخرى.', vuoto: 'اكتب الاسم والسؤال.', r: 'الأجوبة لك', m1: 'اضغط «Copia la domanda» (انسخ السؤال).', m2: 'اضغط «Apri il Modulo» (افتح النموذج).', m3: 'في النموذج: الخانة الأولى اكتب aiuto، الخانة الثانية اضغط Ctrl+V، ثم «Invia».', cq: 'انسخ السؤال', am: 'افتح النموذج', cp: 'نُسخ' },
+    zh: { t: '向 Regge 老师的助手求助', n: '你的名字和姓', q: '写你的问题', b: '发送', in: '正在发送…', ok: '发送了！回答会出现在下面。', ko: '没有发出去：再试一次。', vuoto: '写名字和问题。', r: '给你的回答', m1: '按「Copia la domanda」（复制问题）。', m2: '按「Apri il Modulo」（打开表单）。', m3: '在表单里：第一个框写 aiuto，第二个框按 Ctrl+V，然后按「Invia」（发送）。', cq: '复制问题', am: '打开表单', cp: '已复制' }
   };
   function tr(k) { return lingue.map(function (l) { return T[l] ? T[l][k] : ''; }).filter(Boolean).join(' · '); }
   function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -41,10 +41,11 @@
       var q = document.getElementById('as-q').value.trim(), n = nome.value.trim(), st = document.getElementById('as-st');
       if (!q || !n) { st.textContent = tr('vuoto'); return; }
       scrivi('assistente-nome', n);
+      var bt = this; bt.disabled = true; bt.style.opacity = '.6'; st.textContent = tr('in');   // 15/10: si vede subito che parte
       var d = { id: 'assistente-' + pagina, nome: n, modo: 'domanda', domanda: q, pagina: location.href, ora: new Date().toISOString() };
       fetch(cfg.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) })
-        .then(function () { st.textContent = tr('ok'); document.getElementById('as-q').value = ''; })
-        .catch(function () { st.textContent = tr('ko'); });
+        .then(function () { st.textContent = tr('ok'); document.getElementById('as-q').value = ''; bt.disabled = false; bt.style.opacity = '1'; })
+        .catch(function () { st.textContent = tr('ko'); bt.disabled = false; bt.style.opacity = '1'; });
     };
     function risposte() {
       var n = (nome.value || leggi('assistente-nome')).trim().toLowerCase(); if (!n) return;
