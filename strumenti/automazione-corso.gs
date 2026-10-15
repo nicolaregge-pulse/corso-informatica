@@ -1,5 +1,8 @@
 /**
- * AUTOMAZIONE CORSO v7.4 (13/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.6 (15/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v7.6: RETE DI SICUREZZA. Ogni consegna va sempre nel Foglio di riserva; la pagina del ragazzo dice «arrivata»
+ *       solo se la consegna e' al sicuro (Git o riserva), mai a vuoto. AUTO_recuperaArrivi() ripesca dalla
+ *       riserva e carica su Git le consegne cadute (ramo occupato): si lancia a mano, riusabile all'infinito.
  * Git e' la zona di scambio con l'AI (repo privato corso-informatica-riservato):
  *
  *   1. PUBBLICA: l'AI mette in coda/ un file .json con stato "da-pubblicare" (titolo, PDF,
@@ -654,7 +657,7 @@ function doPost(e) {
   d._arrivo = adesso.toISOString(); d._email = email;
   testo = JSON.stringify(d, null, 1);
   var file = 'dati/verifiche/' + id + '/arrivi/' + Utilities.formatDate(adesso, 'Europe/Rome', 'HHmmss') + '_' + modo + '_' + AUTO_slug(nome) + '.json';
-  var ok = false, lock = LockService.getScriptLock();
+  var ok = false, okFoglio = false, lock = LockService.getScriptLock();
   try {
     lock.waitLock(25000);
     for (var i = 0; i < 3 && !ok; i++) {
@@ -664,9 +667,50 @@ function doPost(e) {
     }
   } catch (x) { Logger.log('Consegna su Git non riuscita: ' + x); }
   finally { try { lock.releaseLock(); } catch (x) {} }
-  try { AUTO_foglioArrivi().appendRow([adesso, id, modo, nome, email, ok ? 'su Git' : 'SOLO QUI', testo.slice(0, 45000)]); } catch (x) { Logger.log('Foglio di riserva: ' + x); }
+  try { AUTO_foglioArrivi().appendRow([adesso, id, modo, nome, email, ok ? 'su Git' : 'SOLO QUI', testo.slice(0, 45000)]); okFoglio = true; } catch (x) { Logger.log('Foglio di riserva: ' + x); }
   var ora = Utilities.formatDate(adesso, 'Europe/Rome', 'HH:mm');
+  // v7.6: mai piu' «arrivata» a vuoto. La consegna e' al sicuro se sta su Git O nella riserva (Foglio).
+  // Se non e' ne' sull'uno ne' sull'altra, si chiede di riprovare invece di dare per fatto.
+  if (!ok && !okFoglio)
+    return AUTO_paginaArrivo('Non arrivata', nome + ', la connessione ha fatto i capricci. Clicca di nuovo «Manda al prof» tra un momento.', '#c0392b');
   return AUTO_paginaArrivo(modo === 'proposta' ? 'Arrivata! · وصلت! · 收到了！' : 'Consegna arrivata al prof', nome + ', la tua ' + modo + ' è arrivata alle ' + ora + '. Hai finito: puoi chiudere questa scheda.', '#1a7f37');
+}
+
+/* ====================== v7.6 — RETE DI SICUREZZA: RECUPERA LE CONSEGNE DALLA RISERVA ======================
+   Ogni consegna finisce sempre nel Foglio «Arrivi verifiche» (riserva), anche quando la scrittura su Git
+   cade (ramo occupato). Questa funzione rilegge il Foglio e carica su Git ogni consegna segnata «SOLO QUI».
+   Si lancia A MANO dal progetto: scegli AUTO_recuperaArrivi nel menu a tendina delle funzioni e premi «Esegui».
+   E' riusabile all'infinito: le consegne gia' su Git si saltano, quelle recuperate si segnano «recuperato». */
+function AUTO_recuperaArrivi() {
+  var foglio = AUTO_foglioArrivi();
+  var dati = foglio.getDataRange().getValues();
+  var fatti = 0, saltati = 0, errori = 0;
+  for (var r = 1; r < dati.length; r++) {
+    var riga = dati[r];
+    var quando = riga[0];
+    var id = String(riga[1] || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
+    var modo = String(riga[2] || 'verifica');
+    var nome = String(riga[3] || '');
+    var git = String(riga[5] || '');
+    var testo = String(riga[6] || '');
+    if (!id || !nome || !testo) { saltati++; continue; }
+    if (git === 'su Git' || git === 'recuperato') { saltati++; continue; }
+    var d = (quando instanceof Date) ? quando : new Date(quando);
+    var file = 'dati/verifiche/' + id + '/arrivi/' + Utilities.formatDate(d, 'Europe/Rome', 'HHmmss') + '_' + modo + '_' + AUTO_slug(nome) + '.json';
+    var c = 0;
+    for (var k = 0; k < 3; k++) {
+      try { c = AUTO_commit(file, Utilities.newBlob(testo, 'application/json'), 'Recupero dalla riserva: ' + id + ' · ' + nome); }
+      catch (x) { c = 0; Logger.log('Recupero fallito su ' + file + ': ' + x); }
+      if (c === 200 || c === 201) break;
+      Utilities.sleep(1200);
+    }
+    if (c === 200 || c === 201) { foglio.getRange(r + 1, 6).setValue('recuperato'); fatti++; }
+    else errori++;
+    Utilities.sleep(400);
+  }
+  var msg = 'Recupero finito. Caricate ora: ' + fatti + ' · gia a posto o saltate: ' + saltati + ' · errori: ' + errori + '.';
+  Logger.log(msg);
+  return msg;
 }
 function AUTO_foglioArrivi() {
   var p = PropertiesService.getScriptProperties(), id = p.getProperty('FOGLIO_ARRIVI');
