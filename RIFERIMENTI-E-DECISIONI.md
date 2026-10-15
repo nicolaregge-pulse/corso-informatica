@@ -1,6 +1,6 @@
 # Riferimenti rapidi e decisioni (Nicola ↔ Claude)
 
-**Versione 2.36** — 14/10/2026
+**Versione 2.37** — 15/10/2026
 
 *File durevole su Git: raccoglie contatti, convenzioni e decisioni stabili, così non
 si perdono quando la sessione viene compattata. Regola: qui NON entrano mai nomi di
@@ -388,6 +388,7 @@ allievi (minori) né voti nominali; quelli restano solo in scratchpad/PDF riserv
 28. **v2.19 (05/10/2026)**: §2.38 su Classroom e nelle pagine solo il lavoro del giorno.
 27. **v2.18 (05/10/2026)**: §2.30 punti 4-5: chiusura consultabile con un clic in una pagina privata (dopo "pubblica"); ordine fisso della chiusura.
 39. **v2.36 (14/10/2026)**: §2.55 traccia digitale per la Regione: almeno 3-4 prove per quadrimestre salvate su Classroom (minimo 2).
+40. **v2.37 (15/10/2026)**: §2.53.5 le domande dei ragazzi vanno all'assistente, non al prof: il docente sale di livello.
 
 ## 7. Correzioni in sospeso (doc già su Classroom)
 *Qui si annotano le modifiche a documenti GIÀ pubblicati su Classroom (regola §2.11): NON si
@@ -426,6 +427,7 @@ bumpa la versione del doc.*
 2. Il nome è **«Chiedi aiuto all'assistente del Prof Regge»**, nelle lingue della classe. Mai «Scrivi a Claude».
 3. Funziona con **un solo bottone**: il ragazzo scrive, preme «Manda», la risposta compare sotto, nella stessa pagina. Niente «copia, apri, incolla».
 4. Serve la consegna diretta dello script (applicazione web v7.4, i 13 passi una tantum del docente in `VERIFICA-COME-SI-FA.md` capitolo 06). Finché non c'è, la casella non si mette: una casella fragile fa più danno che niente (REGISTRO-ERRORI #61, #62).
+5. **Lo scopo (15/10/2026, Nicola):** scaricare il docente dalle domande dei ragazzi e girarle sull'assistente, così il docente sale di livello: guida l'andamento della lezione, aiuta di persona e dà a Claude i feedback correttivi. Nelle pagine non c'è «chiedi al prof» come prima strada; il prof resta per ciò che l'assistente non può fare (comportamento, salute, account bloccato, PC guasto).
 
 ### 2.54 Comunicazione e marketing (13/10/2026)
 
