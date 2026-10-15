@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lavorare come un team Agile</title><style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6;--ve:#1a7f37;--bl:#1f6feb;--vi:#6e40c9;--ro:#cf222e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.6 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:880px;margin:0 auto;padding:16px}
+h1{font-size:31px;margin:10px 0 2px}h2{font-size:24px;margin:28px 0 6px;border-bottom:3px solid var(--bd);padding-bottom:4px}h3{font-size:20px;margin:18px 0 4px}
+.t{color:var(--mu);font-size:16px}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:17px;margin:2px 0 10px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin:12px 0}
+.nota{background:var(--gi);border-radius:10px;padding:10px 14px;margin:12px 0}
+table{border-collapse:collapse;width:100%;font-size:16px;margin:8px 0}td,th{border:1px solid var(--bd);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--bl);color:#fff}
+code{background:var(--card);border:1px solid var(--bd);border-radius:5px;padding:1px 5px;font-size:16px}
+.bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px}
+ol,ul{padding-left:24px}li{margin:4px 0}
+.k{font-weight:800;color:var(--bl)}
+.indice a{color:var(--bl);text-decoration:none}
+</style></head>
+<body><div class="w">
+<h1>Lavorare come un team Agile</h1>
+<div class="bn" lang="bn">একটি Agile দলের মতো কাজ করা</div>
+<p class="t">3INF · 15/10/2026 · la teoria di oggi: Product Manager, backlog, sprint, planning, release</p>
+<p><a class="bt" style="background:var(--bl)" href="../../compito/3inf-20261015-agile/" target="_blank" rel="noopener">Il gioco</a><a class="bt" style="background:#0b7285" href="../../3inf-agile/" target="_blank" rel="noopener">Il cruscotto</a><a class="bt" style="background:var(--vi)" href="../../3inf-monitor/" target="_blank" rel="noopener">Il monitor</a></p>
+
+<div class="card indice"><b>In questa lezione:</b>
+<ol>
+<li><a href="#c1">Perché «Agile»</a></li>
+<li><a href="#c2">Chi fa che cosa: i ruoli</a></li>
+<li><a href="#c3">Il backlog: la lista delle richieste</a></li>
+<li><a href="#c4">Peso, rischio e valore</a></li>
+<li><a href="#c5">I clienti non pesano uguale</a></li>
+<li><a href="#c6">La priorità: la formula</a></li>
+<li><a href="#c7">Lo sprint</a></li>
+<li><a href="#c8">Le quattro cerimonie</a></li>
+<li><a href="#c9">Il planning: mettere insieme i pezzetti</a></li>
+<li><a href="#c10">La release e il changelog</a></li>
+<li><a href="#c11">Esempio sul nostro treno</a></li>
+<li><a href="#c12">Glossario</a></li>
+<li><a href="#c13">Saperlo spiegare</a></li>
+</ol></div>
+
+<h2 id="c1">1. Perché «Agile»</h2>
+<p>Quando un gruppo di persone costruisce un programma, il rischio è lavorare tanto nella direzione sbagliata e accorgersene troppo tardi. Il metodo <span class="k">Agile</span> risponde così: si lavora a <b>piccoli passi</b>, si consegna spesso qualcosa che funziona, si ascolta chi userà il programma e si corregge subito. Meglio sbagliare presto su una cosa piccola che tardi su una grande.</p>
+<div class="bn" lang="bn">যখন একদল মানুষ একটি প্রোগ্রাম বানায়, বিপদ হলো অনেক কাজ ভুল দিকে করা এবং দেরিতে বোঝা। <b>Agile</b> পদ্ধতি: ছোট ছোট ধাপে কাজ, ঘন ঘন কাজ করে এমন কিছু জমা দেওয়া, ব্যবহারকারীর কথা শোনা, এবং সঙ্গে সঙ্গে ঠিক করা। বড় ভুল দেরিতে করার চেয়ে ছোট ভুল আগে করা ভালো।</div>
+<div class="nota">Nel nostro corso lo abbiamo vissuto: il treno della classe è cresciuto una versione alla volta, con le vostre richieste. Questo è Agile.</div>
+
+<h2 id="c2">2. Chi fa che cosa: i ruoli</h2>
+<p>In un vero team di sviluppo ognuno ha un compito preciso.</p>
+<table><thead><tr><th>Ruolo</th><th>Che cosa fa</th></tr></thead><tbody>
+<tr><td><b>Product Manager</b><br><span class="bn" lang="bn">প্রোডাক্ট ম্যানেজার</span></td><td>Parla con i clienti, capisce che cosa vale di più, decide l'ordine del backlog e che cosa entra nello sprint. Sa dire anche dei «no».</td></tr>
+<tr><td><b>Sviluppatori</b><br><span class="bn" lang="bn">ডেভেলপার</span></td><td>Stimano il peso (quanto lavoro serve) e scrivono il codice.</td></tr>
+<tr><td><b>Tester</b><br><span class="bn" lang="bn">টেস্টার</span></td><td>Provano la versione prima della consegna e trovano i bug.</td></tr>
+<tr><td><b>Clienti</b><br><span class="bn" lang="bn">গ্রাহক</span></td><td>Pagano il lavoro e dicono che cosa serve a loro. Non tutti pesano uguale.</td></tr>
+</tbody></table>
+<div class="bn" lang="bn">প্রোডাক্ট ম্যানেজার: গ্রাহকদের সাথে কথা বলে, কোনটা বেশি মূল্যবান বোঝে, backlog-এর ক্রম ঠিক করে, «না»-ও বলে। ডেভেলপার: ওজন অনুমান করে ও কোড লেখে। টেস্টার: জমা দেওয়ার আগে পরীক্ষা করে। গ্রাহক: টাকা দেয় ও কী দরকার বলে; সবাই সমান ওজনের নয়।</div>
+
+<h2 id="c3">3. Il backlog: la lista delle richieste</h2>
+<p>Il <span class="k">backlog</span> è la lista ordinata di tutte le richieste di modifica. Ogni richiesta entra in coda e aspetta il suo turno. Non si fa tutto subito: si fa prima ciò che conta di più.</p>
+<div class="bn" lang="bn"><b>Backlog</b> হলো সব পরিবর্তনের অনুরোধের সাজানো তালিকা। প্রতিটি অনুরোধ সারিতে অপেক্ষা করে। সব একসাথে নয়: আগে যা বেশি গুরুত্বপূর্ণ।</div>
+
+<h2 id="c4">4. Peso, rischio e valore</h2>
+<p>Ogni richiesta del backlog ha tre numeri, e servono per decidere:</p>
+<ol>
+<li><span class="k">Peso</span> (sforzo): quanto lavoro serve a farla. Si usano i numeri 1, 2, 3, 5, 8: più è alto, più lavoro.</li>
+<li><span class="k">Rischio sul software</span>: quanto quella modifica può rompere le altre parti del programma. 1 basso, 2 medio, 3 alto.</li>
+<li><span class="k">Valore</span>: quanto quella richiesta serve ai clienti.</li>
+</ol>
+<div class="bn" lang="bn">প্রতিটি অনুরোধের তিনটি সংখ্যা: <b>ওজন</b> (কত কাজ: ১,২,৩,৫,৮), <b>সফটওয়্যারে ঝুঁকি</b> (অন্য অংশ ভাঙার সম্ভাবনা: ১ কম, ৩ বেশি), <b>মূল্য</b> (গ্রাহকের কাছে কত দরকার)।</div>
+
+<h2 id="c5">5. I clienti non pesano uguale</h2>
+<p>Nel nostro gioco c'erano due clienti:</p>
+<div class="card"><b>TrenoCity</b> — cliente grande, <b>conta × 3</b>. Una catena di sale giochi: vuole un gioco stabile e veloce, senza bug.</div>
+<div class="card"><b>Ludoteca Arcobaleno</b> — cliente piccolo, <b>conta × 1</b>. Un centro per ragazzi: vuole un gioco bello e divertente.</div>
+<p>Accontentare il cliente grande vale di più. Il <span class="k">valore totale</span> di una richiesta si calcola così:</p>
+<div class="nota">Valore = (valore per TrenoCity × 3) + (valore per Ludoteca × 1)</div>
+<div class="bn" lang="bn">দুই গ্রাহক: TrenoCity (বড়, × ৩, স্থির ও দ্রুত গেম চায়) এবং Ludoteca (ছোট, × ১, সুন্দর ও মজার গেম চায়)। মোট মূল্য = (TrenoCity-এর মূল্য × ৩) + (Ludoteca-এর মূল্য × ১)।</div>
+
+<h2 id="c6">6. La priorità: la formula</h2>
+<p>Il Product Manager mette in cima le richieste che danno tanto valore e costano poco lavoro. La regola è:</p>
+<div class="nota" style="font-size:22px;text-align:center"><b>Priorità = Valore ÷ (Peso + Rischio)</b></div>
+<p>Più la priorità è alta, prima si fa. Due richieste con lo stesso valore: si fa prima quella che pesa e rischia meno.</p>
+<div class="bn" lang="bn"><b>অগ্রাধিকার = মূল্য ÷ (ওজন + ঝুঁকি)</b>। অগ্রাধিকার বেশি হলে আগে করা হয়। একই মূল্যের দুটি অনুরোধে, যেটির ওজন ও ঝুঁকি কম সেটি আগে।</div>
+
+<h2 id="c7">7. Lo sprint</h2>
+<p>Lo <span class="k">sprint</span> è l'<b>unità di tempo</b> del metodo Agile. In un'azienda di solito dura <b>una settimana, da lunedì a venerdì</b>; nel nostro gioco durava 15 minuti. Ha una <span class="k">capacità</span> fissa: il team riesce a fare al massimo <b>8 punti</b> di lavoro per sprint. Alla fine di ogni sprint si consegna una <b>versione nuova</b> del programma.</p>
+<div class="bn" lang="bn"><b>Sprint</b> হলো Agile-এর সময়ের একক। কোম্পানিতে সাধারণত এক সপ্তাহ (সোম–শুক্র); আমাদের খেলায় ১৫ মিনিট। ধারণক্ষমতা: প্রতি sprint-এ সর্বোচ্চ ৮ পয়েন্ট কাজ। প্রতিটি sprint শেষে একটি নতুন সংস্করণ জমা হয়।</div>
+
+<h2 id="c8">8. Le quattro cerimonie</h2>
+<p>Ogni sprint gira in un cerchio di quattro incontri fissi del team, poi ricomincia:</p>
+<svg viewBox="0 0 320 320" width="280" style="max-width:100%;display:block;margin:8px auto" role="img" aria-label="Il cerchio delle 4 cerimonie">
+<circle cx="160" cy="160" r="148" fill="none" stroke="var(--vi)" stroke-width="4"/><line x1="56" y1="56" x2="264" y2="264" stroke="var(--bd)" stroke-width="2"/><line x1="264" y1="56" x2="56" y2="264" stroke="var(--bd)" stroke-width="2"/>
+<g font-family="system-ui,Arial" font-weight="700" text-anchor="middle" fill="currentColor"><text x="160" y="40" font-size="16">1. Planning</text><text x="160" y="58" font-size="12">lunedì</text>
+<text x="255" y="162" font-size="16">2. Daily</text><text x="255" y="180" font-size="12">ogni giorno</text>
+<text x="160" y="286" font-size="16">3. Review</text><text x="160" y="304" font-size="12">venerdì</text>
+<text x="58" y="162" font-size="16">4. Retro</text><text x="58" y="180" font-size="12">venerdì</text></g></svg>
+<ol>
+<li><span class="k">Sprint planning</span> (lunedì): il Product Manager porta il backlog in ordine, il team sceglie che cosa fare nella settimana.</li>
+<li><span class="k">Daily</span> (ogni giorno, 15 minuti in piedi): ognuno dice che cosa ha fatto ieri, che cosa fa oggi e che cosa lo blocca.</li>
+<li><span class="k">Sprint review</span> (venerdì): si mostra la versione nuova ai clienti e si ascolta il loro parere.</li>
+<li><span class="k">Retrospettiva</span> (venerdì): il team, da solo, decide come lavorare meglio nello sprint dopo.</li>
+</ol>
+<div class="bn" lang="bn">চারটি অনুষ্ঠান: ১) Planning (সোমবার): কী করা হবে বেছে নেওয়া। ২) Daily (প্রতিদিন): গতকাল কী, আজ কী, কী আটকাচ্ছে। ৩) Review (শুক্রবার): গ্রাহকদের নতুন সংস্করণ দেখানো। ৪) Retrospective (শুক্রবার): দল ঠিক করে কীভাবে আরও ভালো কাজ করবে।</div>
+
+<h2 id="c9">9. Il planning: mettere insieme i pezzetti</h2>
+<p>Oggi, dal vostro giro di esperienze, è uscito il concetto più forte: il <span class="k">planning</span> è <b>mettere insieme i pezzetti</b>. Vuol dire scegliere e ordinare le richieste in modo che, dentro gli 8 punti dello sprint, si ottenga il <b>risultato più grande</b> per i clienti. Non si fa tutto e non si fa a caso: il filo che tiene insieme i pezzetti è la priorità (valore ÷ peso + rischio).</p>
+<div class="nota">Essere Product Manager vuol dire proprio questo: davanti a tante richieste, mettere insieme i pezzi giusti, nel momento giusto.</div>
+<div class="bn" lang="bn"><b>Planning</b> = টুকরোগুলো একসাথে জোড়া দেওয়া: ৮ পয়েন্টের মধ্যে গ্রাহকদের জন্য সবচেয়ে বড় ফল পেতে অনুরোধ বেছে ও সাজানো। সব নয়, এলোমেলোও নয়: সূত্র হলো অগ্রাধিকার।</div>
+
+<h2 id="c10">10. La release e il changelog</h2>
+<p>Alla fine dello sprint si consegna una <span class="k">release</span>: una versione con un numero fisso (v3.0, v3.1…), pronta per i clienti. Insieme si scrive il <span class="k">changelog</span>, l'elenco di tutte le modifiche fatte in quella versione, con le <b>note di rilascio</b> scritte per chi gioca. Il changelog è il registro tecnico; le note di rilascio sono il racconto per l'utente.</p>
+<div class="bn" lang="bn"><b>Release</b>: নির্দিষ্ট নম্বরসহ একটি সংস্করণ (v3.0…), গ্রাহকের জন্য প্রস্তুত। <b>Changelog</b>: সেই সংস্করণের সব পরিবর্তনের তালিকা; রিলিজ নোট হলো ব্যবহারকারীর জন্য লেখা।</div>
+
+<h2 id="c11">11. Esempio sul nostro treno</h2>
+<p>Immagina questo backlog per il treno:</p>
+<table><thead><tr><th>Richiesta</th><th>Peso</th><th>Rischio</th><th>TrenoCity ×3</th><th>Ludoteca ×1</th><th>Valore</th><th>Priorità</th></tr></thead><tbody>
+<tr><td>Correggere il bug dei nemici</td><td>3</td><td>1</td><td>5</td><td>3</td><td>18</td><td><b>4,5</b></td></tr>
+<tr><td>Schermata GAME OVER</td><td>2</td><td>1</td><td>2</td><td>4</td><td>10</td><td><b>3,3</b></td></tr>
+<tr><td>Nuovo motore della fisica</td><td>8</td><td>3</td><td>4</td><td>2</td><td>14</td><td><b>1,3</b></td></tr>
+</tbody></table>
+<p>Il bug ha priorità 4,5: si fa per primo (vale tanto, costa poco). Il motore nuovo ha priorità 1,3: vale, ma pesa 8 e rischia 3, quindi va dopo. Con 8 punti puoi prendere il bug (3) + GAME OVER (2) + qualcos'altro di leggero: resti dentro la capacità e accontenti i due clienti.</p>
+<div class="bn" lang="bn">উদাহরণ: বাগ ঠিক করার অগ্রাধিকার ৪.৫ (বেশি মূল্য, কম খরচ) — আগে। নতুন ফিজিক্স ইঞ্জিন ১.৩ (ওজন ৮, ঝুঁকি ৩) — পরে। ৮ পয়েন্টে বাগ (৩) + GAME OVER (২) + হালকা কিছু নেওয়া যায়।</div>
+
+<h2 id="c12">12. Glossario</h2>
+<table><tbody>
+<tr><td><b>Agile</b></td><td>metodo di lavoro a piccoli passi, con consegne frequenti.</td></tr>
+<tr><td><b>Backlog</b></td><td>la lista ordinata delle richieste.</td></tr>
+<tr><td><b>Peso</b></td><td>quanto lavoro serve per una richiesta.</td></tr>
+<tr><td><b>Rischio</b></td><td>quanto una modifica può rompere il resto.</td></tr>
+<tr><td><b>Valore</b></td><td>quanto una richiesta serve ai clienti.</td></tr>
+<tr><td><b>Priorità</b></td><td>valore ÷ (peso + rischio): dice cosa fare prima.</td></tr>
+<tr><td><b>Sprint</b></td><td>unità di tempo, con capacità fissa (8 punti).</td></tr>
+<tr><td><b>Release</b></td><td>la versione consegnata ai clienti.</td></tr>
+<tr><td><b>Changelog</b></td><td>l'elenco delle modifiche di ogni versione.</td></tr>
+<tr><td><b>Product Manager</b></td><td>chi decide l'ordine del backlog e cosa entra nello sprint.</td></tr>
+</tbody></table>
+
+<h2 id="c13">13. Saperlo spiegare</h2>
+<p>Se sai rispondere a queste domande con parole tue, hai capito davvero:</p>
+<ol>
+<li>Che cos'è il backlog e perché le richieste hanno un peso?</li>
+<li>Che differenza c'è tra peso e rischio?</li>
+<li>Come si calcola la priorità? Fai un esempio.</li>
+<li>Perché TrenoCity conta più della Ludoteca?</li>
+<li>Che cosa vuol dire «mettere insieme i pezzetti» nel planning?</li>
+<li>Quali sono le quattro cerimonie e a cosa serve ognuna?</li>
+</ol>
+<div class="bn" lang="bn">নিজের ভাষায় এই প্রশ্নগুলোর উত্তর দিতে পারলে তুমি সত্যিই বুঝেছ: backlog কী ও ওজন কেন; ওজন ও ঝুঁকির পার্থক্য; অগ্রাধিকার কীভাবে হিসাব হয়; TrenoCity কেন বেশি গোনে; planning-এ «টুকরো জোড়া» মানে কী; চারটি অনুষ্ঠান কী কী।</div>
+
+<p class="t" style="margin-top:28px">Prof. Nicola Regge · Laboratorio di informatica</p>
+</div>
+<script src="../../assistente/assistente.js" data-pagina="3inf-agile-teoria" data-lingue="it"></script>
+</body></html>
