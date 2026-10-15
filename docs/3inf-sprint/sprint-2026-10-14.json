@@ -1,0 +1,129 @@
+{
+ "aggiornato": "14/10/2026 13:13",
+ "regola": "Ogni sprint dura 15 minuti. Nella pianificazione il prof prende dal backlog le richieste più leggere, fino a un peso totale di 8. Alla fine dello sprint esce una versione nuova.",
+ "sprint": [
+  {
+   "n": 1,
+   "inizio": "12:45",
+   "fine": "13:00",
+   "stato": "chiuso",
+   "versione": "v1.12-v1.15",
+   "richieste": [
+    {
+     "alunno": "Alessandro A.",
+     "richiesta": "Il treno parte a 30 km/h e sale di 3 km/h a ogni livello (dalla sua revisione)",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.12"
+    },
+    {
+     "alunno": "Noah V.",
+     "richiesta": "Niente case e rocce sopra i binari (dalla sua revisione)",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.13"
+    },
+    {
+     "alunno": "Simone G.",
+     "richiesta": "Colori più vivi: saturazione +100%",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.14"
+    },
+    {
+     "alunno": "Simone G.",
+     "richiesta": "L'alieno verde più veloce (dalla sua revisione)",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.15"
+    }
+   ],
+   "retrospettiva": "Bene: 4 versioni in 15 minuti (v1.12-v1.15), tre nate dalle revisioni dei compagni. Male: alcune richieste chiedevano cose già fatte (leggete il changelog prima di chiedere!) e una era troppo grande (lo spazio di Tomas, peso 13). Prossimo sprint: richieste piccole, una cosa per volta."
+  },
+  {
+   "n": 2,
+   "inizio": "13:00",
+   "fine": "13:15",
+   "stato": "chiuso",
+   "versione": "v1.16-v1.18",
+   "richieste": [
+    {
+     "alunno": "Dani S.",
+     "richiesta": "Le montagne lontane viola",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.16"
+    },
+    {
+     "alunno": "Samuele U.",
+     "richiesta": "Il cielo nuvoloso nel bosco",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.17"
+    },
+    {
+     "alunno": "Kelvin P.",
+     "richiesta": "Il giocatore sceglie il colore del cielo",
+     "peso": 5,
+     "stato": "fatto",
+     "versione": "v1.18"
+    }
+   ],
+   "retrospettiva": "Bene: 3 versioni, una con una regola nuova (il giocatore sceglie il cielo). Male: richieste con tante cose insieme (Dani, Samuele): è entrata solo la parte piccola. Prossimo sprint: una richiesta = una cosa."
+  },
+  {
+   "n": 3,
+   "inizio": "13:15",
+   "fine": "13:30",
+   "stato": "in corso",
+   "versione": "v1.19-v1.23",
+   "richieste": [
+    {
+     "alunno": "Ariel D.",
+     "richiesta": "Primo livello più facile: i nemici aspettano di più",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.19"
+    },
+    {
+     "alunno": "Ariel D.",
+     "richiesta": "Nel paese case chiare e tetti scuri",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.20"
+    },
+    {
+     "alunno": "Denis A.",
+     "richiesta": "Più nuvole in montagna",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.21"
+    },
+    {
+     "alunno": "Tomas L.",
+     "richiesta": "Ogni 2000 punti la scritta SEI UN GRANDE",
+     "peso": 2,
+     "stato": "fatto",
+     "versione": "v1.22"
+    },
+    {
+     "alunno": "Fabrizio C.",
+     "richiesta": "Game over con il teschio",
+     "peso": 1,
+     "stato": "fatto",
+     "versione": "v1.23"
+    }
+   ],
+   "retrospettiva": ""
+  },
+  {
+   "n": 4,
+   "inizio": "13:30",
+   "fine": "13:45",
+   "stato": "in attesa",
+   "versione": "",
+   "richieste": [],
+   "retrospettiva": ""
+  }
+ ]
+}
