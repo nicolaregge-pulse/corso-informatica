@@ -1,6 +1,6 @@
 # 2INF Lazarus: il ciclo FOR, la tua app «da … a …»
 
-**Versione 1.0** · Classe 2 · 15/10/2026 · istruzioni passo passo · solo italiano
+**Versione 1.1** · Classe 2 · 15/10/2026 · istruzioni passo passo · solo italiano
 
 ## 01 Che cosa costruisci oggi
 
@@ -43,19 +43,19 @@ Un passo alla volta. Ogni passo è una cosa sola.
 10. Nell'Ispettore, alla riga **ScrollBars**, scegli **ssBoth**: così compaiono le barre per scorrere e vedere i valori sotto.
 11. Metti un **TButton** in basso; nella Caption scrivi «Conta!».
 12. Fai **doppio clic** sul bottone: si apre il codice, dentro `Button1Click`.
-13. Scrivi il codice qui sotto, riga per riga, con i rientri (le righe dentro si spostano a destra di 3 spazi).
+13. Scrivi il codice qui sotto, riga per riga, con i **rientri**: begin ed end sullo stesso rientro, quello che sta dentro 2 spazi più a destra. Per spostare più righe: selezionale e premi Ctrl+Shift+I.
 
 ```
 procedure TForm1.Button1Click(Sender: TObject);
 var giro, inizio, fine: integer;
 begin
-   inizio := StrToInt(Edit1.Text);
-   fine := StrToInt(Edit2.Text);
-   Memo1.Clear;
-   for giro := inizio to fine do
-   begin
-      Memo1.Lines.Add(IntToStr(giro));
-   end;
+  inizio := StrToInt(Edit1.Text);
+  fine := StrToInt(Edit2.Text);
+  Memo1.Clear;
+  for giro := inizio to fine do
+  begin
+    Memo1.Lines.Add(IntToStr(giro));
+  end;
 end;
 ```
 
@@ -78,5 +78,11 @@ end;
 | errore sulla riga del Memo | manca IntToStr | scrivi `IntToStr(giro)` |
 | errore quando premi Conta! | una casella è vuota o non ha un numero | scrivi un numero in tutte e due le caselle |
 | Lazarus non compila | manca un `end;` | ogni begin ha il suo end |
+| il codice è tutto attaccato a sinistra | mancano i rientri | seleziona le righe di dentro e premi Ctrl+Shift+I: 2 spazi a destra |
 
 > **Nota:** sbagliare è normale, succede a tutti i programmatori, anche ai professionisti. Leggi il messaggio di Lazarus, guarda la tabella, prova di nuovo.
+
+## 07 Changelog
+
+1. **v1.1 (15/10/2026)**: rientri di 2 spazi come da regola del prof, con Ctrl+Shift+I; riga nella tabella degli errori.
+2. **v1.0 (15/10/2026)**: prima versione.
