@@ -1,0 +1,44 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cruscotto Product Manager</title><style>
+:root{--bg:#fbfaf7;--card:#fff;--tx:#111;--mu:#555;--ln:#ddd;--acc:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,Segoe UI,Arial,sans-serif}.w{max-width:1250px;margin:0 auto;padding:16px}
+h1{font-size:clamp(22px,5vw,30px);margin:8px 0 2px}h2{font-size:20px;margin:18px 0 6px}.mu{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin:10px 0;overflow-x:auto}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}.kpi div{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px}.kpi b{display:block;font-size:26px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}td,th{border:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}th{background:var(--acc);color:#fff;white-space:nowrap}
+.ok{color:#2f9e57;font-weight:800}.ko{color:#e0413a;font-weight:800}.nd{color:var(--mu)}.c{text-align:center}.v{font-size:20px;font-weight:900}
+tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,0,.10)}
+.bt{display:inline-block;background:#1f6feb;color:#fff;font-weight:800;text-decoration:none;border-radius:10px;padding:8px 14px;margin:4px 6px 4px 0}
+</style></head><body><div class="w">
+<h1>Cruscotto: Sei il Product Manager</h1><p class="mu" id="sotto">Carico…</p>
+<p><a class="bt" href="../compito/3inf-20261015-agile/" target="_blank" rel="noopener">Il gioco</a><a class="bt" style="background:#6e40c9" href="../3inf-monitor/" target="_blank" rel="noopener">Il monitor</a><a class="bt" style="background:#238636" href="../3inf-voti/" target="_blank" rel="noopener">I voti</a></p>
+<div class="kpi" id="kpi"></div>
+<h2>Monitor: cosa fanno adesso col PC</h2><div class="card" id="moni"></div>
+<h2>Ragazzo per ragazzo</h2><div class="card"><table id="tab"></table></div>
+<p class="mu" id="kpitxt"></p>
+</div><script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function j(u){return fetch(u+'?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()})}
+function carica(){j('dati.json').then(function(d){return j(d.monitor).catch(function(){return {giri:[]}}).then(function(m){disegna(d,m)})}).catch(function(){document.getElementById('sotto').textContent='Dati non ancora pronti.'})}
+function disegna(d,m){
+ document.getElementById('sotto').textContent=d.classe+' · dati delle '+d.aggiornato+' · si aggiorna da solo ogni 30 secondi';
+ document.getElementById('kpitxt').textContent='Voto parziale (KPI proposti, da approvare): '+d.kpi;
+ var mon={},gir=m.giri||[];gir.forEach(function(g){g.righe.forEach(function(r){if(r.alunno){r.ora=g.ora;mon[r.alunno]=r}})});
+ var C={};d.consegnate.forEach(function(x){C[x.chi]=x});var nomi=[];function add(n){if(n&&nomi.indexOf(n)<0)nomi.push(n)}
+ d.consegnate.forEach(function(x){add(x.chi)});(d.attesi||[]).forEach(add);Object.keys(mon).forEach(add);
+ nomi.sort(function(a,b){return (C[a]?0:1)-(C[b]?0:1)||a.localeCompare(b)});
+ var h='<thead><tr><th>Alunno</th><th>Consegna</th><th>Azienda</th><th>v3.0</th><th>v3.1</th><th>Valore / massimo</th><th>TrenoCity</th><th>Ludoteca</th><th>Parole nelle 3 risposte</th><th>Voto parziale</th><th>Monitor</th></tr></thead><tbody>';
+ nomi.forEach(function(n){var x=C[n],r=mon[n];h+='<tr class="'+(r&&r.fuori?'fuori':(x?'':'attesa'))+'"><td><b>'+e(n)+'</b></td>';
+  if(x){var V=function(i){var s=x.versioni[i];return s?(s.v+'/'+s.best+(s.v>=s.best?' <span class="ok">✓</span>':'')+(s.bug?' <span class="ko">bug</span>':'')):''};
+   h+='<td><span class="ok">sì</span> '+e(x.ora)+'</td><td>'+e(x.azienda)+'</td><td class="c">'+V(0)+'</td><td class="c">'+V(1)+'</td><td class="c">'+x.valore+'/'+x.massimo+' ('+Math.round(100*x.valore/x.massimo)+'%)</td><td class="c">'+x.trenocity+'%</td><td class="c">'+x.ludoteca+'%</td><td class="c">'+x.parole.join(' · ')+'</td><td class="c v">'+x.voto_parziale+'</td>'}
+  else h+='<td class="nd">non ancora</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>';
+  h+='<td>'+(r?'<b>'+e(r.ora)+'</b> '+e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto</span>')+'</td></tr>'});
+ document.getElementById('tab').innerHTML=h+'</tbody>';
+ var ul=gir.length?gir[gir.length-1]:null;
+ document.getElementById('moni').innerHTML=ul?'<p><b>Giro delle '+e(ul.ora)+'</b> · '+ul.righe.filter(function(r){return r.fuori}).length+' fuori</p><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+ul.righe.slice().sort(function(a,b){return b.fuori-a.fuori}).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table>':'<p class="mu">Ancora nessun giro di Veyon oggi.</p>';
+ var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.voto_parziale},0)/n):'–',perf=d.consegnate.filter(function(x){return x.valore>=x.massimo}).length;
+ document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Scelte perfette<b>'+perf+'</b></div><div>Fuori nell\'ultimo giro<b class="ko">'+(ul?ul.righe.filter(function(r){return r.fuori}).length:0)+'</b></div>'}
+carica();setInterval(carica,30000);
+</script></body></html>
