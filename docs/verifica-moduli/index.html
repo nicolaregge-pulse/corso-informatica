@@ -32,21 +32,22 @@ function disegna(d,m){
  document.title='Cruscotto '+d.classe;document.getElementById('tit').textContent='Cruscotto: '+d.titolo;
  document.getElementById('sotto').textContent=d.classe+' · via alle '+d.via+' · dati delle '+d.aggiornato+' · si aggiorna da solo ogni 30 secondi';
  var cl=d.classe.toLowerCase();document.getElementById('bott').innerHTML='<a class="bt" target="_blank" href="../'+cl+'-monitor/">Il monitor</a><a class="bt" target="_blank" href="../'+cl+'-voti/">I voti</a>';
- var g=(m.giri||[]).slice(-1)[0]||{righe:[],ora:''},mon={};g.righe.forEach(function(r){if(r.alunno)mon[r.alunno]=r});
+ var mon={},gir=m.giri||[];gir.forEach(function(gg){gg.righe.forEach(function(r){if(r.alunno){r.ora=gg.ora;mon[r.alunno]=r}})});var g={ora:gir.length?gir[gir.length-1].ora:''};var TOT=d.domande_crocette.length+d.domande_aperte.length;
  var C={};d.consegnate.forEach(function(x){C[x.chi]=x});
  var nomi=[];function add(n){if(n&&nomi.indexOf(n)<0)nomi.push(n)}
  d.consegnate.forEach(function(x){add(x.chi)});(d.attesi||[]).forEach(add);Object.keys(mon).forEach(add);
  nomi.sort(function(a,b){var ca=C[a]?0:1,cb=C[b]?0:1;return ca-cb||a.localeCompare(b)});
  var nc=d.domande_crocette.length,na=d.domande_aperte.length,h='<thead><tr><th>Alunno</th><th>Stato</th>';
  for(var i=0;i<nc;i++)h+='<th class="c">C'+(i+1)+'</th>';h+='<th>Giuste</th><th>Voto parziale</th>';
- for(i=0;i<na;i++)h+='<th class="c">A'+(i+1)+'</th>';h+='<th>Monitor (giro '+e(g.ora)+')</th></tr></thead><tbody>';
+ for(i=0;i<na;i++)h+='<th class="c">A'+(i+1)+'</th>';h+='<th>A che punto (Veyon)</th><th>Monitor (ultimo giro in cui compare)</th></tr></thead><tbody>';
  var fuori=0;
- nomi.forEach(function(n){var x=C[n],r=mon[n],cls=r&&r.fuori?'fuori':(x?'':'attesa');if(r&&r.fuori)fuori++;
+ nomi.forEach(function(n){var x=C[n],r=mon[n],cls=r&&r.fuori?'fuori':(x?'':'attesa');if(r&&r.fuori&&r.ora===g.ora)fuori++;
   h+='<tr class="'+cls+'"><td><b>'+e(n)+'</b></td><td>'+(x?'<span class="ok">consegnata</span> alle '+e(x.ora)+' ('+x.minuti+' min)':(r?'sta scrivendo':'<span class="nd">non visto</span>'))+'</td>';
   for(var i=0;i<nc;i++){var v=x?x.crocette[i]:undefined;h+='<td class="c">'+(v===1?'<span class="ok">✓</span>':v===0?'<span class="ko">✗</span>':'<span class="nd">–</span>')+'</td>'}
   h+='<td class="c">'+(x?x.giuste+'/'+x.su:'')+'</td><td class="c v">'+(x?x.parziale:'')+'</td>';
   for(i=0;i<na;i++){var a=x?x.aperte[i]:'';h+='<td class="c">'+(a==='scritta'?'<span class="ok">scritta</span>':a==='vuota'?'<span class="ko">vuota</span>':'')+'</td>'}
-  h+='<td>'+(r?e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto nel giro</span>')+'</td></tr>'});
+  var pu=x?TOT:(r&&r.domanda?r.domanda:0);h+='<td>'+(pu?'<div style="background:var(--ln);border-radius:6px;height:10px;width:120px"><div style="background:'+(x?'#2f9e57':'#1f6feb')+';height:10px;border-radius:6px;width:'+Math.round(120*pu/TOT)+'px"></div></div>'+(x?'finita':'domanda '+pu+' di '+TOT):'<span class="nd">?</span>')+'</td>';
+  h+='<td>'+(r?'<b>'+e(r.ora)+'</b> '+e(r.pc)+': '+e(r.cosa):'<span class="nd">non visto nei giri</span>')+'</td></tr>'});
  document.getElementById('tab').innerHTML=h+'</tbody>';
  var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.parziale},0)/n):'–',tm=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.minuti},0)/n):'–';
  document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Tempo medio<b>'+tm+' min</b></div><div>Fuori compito (ultimo giro)<b class="'+(fuori?'ko':'ok')+'">'+fuori+'</b></div>';
