@@ -15,6 +15,8 @@ tr.fuori td{background:rgba(224,65,58,.12)}tr.attesa td{background:rgba(224,180,
 <h1>Cruscotto: Sei il Product Manager</h1><p class="mu" id="sotto">Carico…</p>
 <p><a class="bt" href="../compito/3inf-20261015-agile/" target="_blank" rel="noopener">Il gioco</a><a class="bt" style="background:#6e40c9" href="../3inf-monitor/" target="_blank" rel="noopener">Il monitor</a><a class="bt" style="background:#238636" href="../3inf-voti/" target="_blank" rel="noopener">I voti</a></p>
 <div class="kpi" id="kpi"></div>
+<h2>La regia del prof: che cosa fare adesso</h2><div class="card" id="regia"></div>
+<div class="card"><b>Dove mi riporti i risultati:</b> sempre nella chat con Claude. 1) Gli screenshot di Veyon, così come sono: li metto nel monitor. 2) Le cose viste in classe, una riga per volta, con il cognome (es. «Perez fuori, telefono»). 3) Le domande a voce: «Cognome S / P / N». Il resto (consegne, voti parziali, monitor) si aggiorna da solo qui.</div>
 <h2>Monitor: cosa fanno adesso col PC</h2><div class="card" id="moni"></div>
 <h2>Ragazzo per ragazzo</h2><div class="card"><table id="tab"></table></div>
 <p class="mu" id="kpitxt"></p>
@@ -40,5 +42,15 @@ function disegna(d,m){
  document.getElementById('moni').innerHTML=ul?'<p><b>Giro delle '+e(ul.ora)+'</b> · '+ul.righe.filter(function(r){return r.fuori}).length+' fuori</p><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+ul.righe.slice().sort(function(a,b){return b.fuori-a.fuori}).map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table>':'<p class="mu">Ancora nessun giro di Veyon oggi.</p>';
  var n=d.consegnate.length,med=n?Math.round(d.consegnate.reduce(function(s,x){return s+x.voto_parziale},0)/n):'–',perf=d.consegnate.filter(function(x){return x.valore>=x.massimo}).length;
  document.getElementById('kpi').innerHTML='<div>Consegnate<b>'+n+' / '+nomi.length+'</b></div><div>Media voto parziale<b>'+med+'</b></div><div>Scelte perfette<b>'+perf+'</b></div><div>Fuori nell\'ultimo giro<b class="ko">'+(ul?ul.righe.filter(function(r){return r.fuori}).length:0)+'</b></div>'}
+var FASI=[["11:10","11:15","Avvio","Di': aprite il compito su Classroom, scrivete nome e nome dell'azienda.","Tutti hanno la pagina aperta (monitor)"],
+["11:15","11:30","Planning insieme","Proietta la pagina, leggete i due clienti: chi conta di più? Che cosa vuole ognuno? Prova insieme il motore della fisica (peso 8): che cosa succede?","Hanno premuto «Ho letto la teoria»"],
+["11:30","11:45","Sprint 1 da soli","Di' solo: massimo 8 punti, attenti al rischio. 15 minuti come uno sprint vero.","Versione v3.0 consegnata (colonna v3.0)"],
+["11:45","12:00","Review insieme","Chi ha la scelta perfetta? Chi ha preso un bug? Fai accendere «Mostra il valore e la priorità» e spiega: valore ÷ (peso + rischio).","Confronto tra compagni"],
+["12:00","12:15","Sprint 2 da soli","Le richieste rimaste. Guardate le barre della soddisfazione.","Versione v3.1 consegnata"],
+["12:15","12:40","Retrospettiva (passo 4)","3 risposte con parole loro, poi «Consegna al prof».","Colonna Consegna = sì"],
+["12:40","13:00","Review finale","Fai leggere a voce 2-3 messaggi alla Ludoteca scontentata. Chi non sa spiegare la sua scelta: domanda a voce, poi mi scrivi «Cognome S/P/N».","Voti e commenti li prepara Claude"]];
+function regia(){var n=new Date(),h=new Intl.DateTimeFormat('it-IT',{timeZone:'Europe/Rome',hour:'2-digit',minute:'2-digit'}).format(n);
+ document.getElementById('regia').innerHTML='<p>Adesso sono le <b>'+h+'</b>.</p><table><thead><tr><th>Quando</th><th>Fase</th><th>Che cosa fai tu</th><th>Come vedi che è fatto</th></tr></thead><tbody>'+FASI.map(function(f){var on=h>=f[0]&&h<f[1];return '<tr style="'+(on?'outline:4px solid #1f6feb;background:rgba(31,111,235,.12)':(h>=f[1]?'opacity:.5':''))+'"><td>'+f[0]+'-'+f[1]+(on?' <b>ADESSO</b>':'')+'</td><td><b>'+e(f[2])+'</b></td><td>'+e(f[3])+'</td><td>'+e(f[4])+'</td></tr>'}).join('')+'</tbody></table>'}
+regia();setInterval(regia,30000);
 carica();setInterval(carica,30000);
 </script></body></html>
