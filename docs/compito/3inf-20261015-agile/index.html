@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Sei il Product Manager</title><style>:root{--bg:#fbfaf7;--fg:#111;--mu:#5d6878;--card:#fff;--bd:#d8dee6;--gi:#fff6d6;--ve:#1a7f37;--bl:#1f6feb;--ro:#cf222e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa6b6;--card:#161b22;--bd:#30363d;--gi:#3a3216}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}.w{max-width:900px;margin:0 auto;padding:16px}
+h1{font-size:30px;margin:6px 0 2px}h2{font-size:22px;margin:6px 0}h3{margin:14px 0 4px;font-size:19px}.t{color:var(--mu);font-size:16px}
+.it{font-weight:600}.bn{font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif;color:var(--mu);font-size:17px;margin-bottom:6px}
+.bt{display:inline-block;color:#fff;text-decoration:none;font-weight:700;padding:9px 13px;border-radius:9px;margin:3px 2px;font-size:16px}
+.bot{display:inline-block;background:var(--ve);color:#fff;font-weight:700;font-size:20px;padding:11px 20px;border-radius:12px;margin:8px 0;border:0;cursor:pointer;font-family:inherit}
+.bot.blu{background:var(--bl);font-size:18px;padding:9px 15px}.bot:disabled{opacity:.45;cursor:default}
+.nota{background:var(--gi);border-radius:8px;padding:10px 14px;margin:10px 0}
+textarea{font:inherit;width:100%;min-height:90px;border-radius:8px;border:2px solid var(--bd);padding:8px;background:var(--card);color:var(--fg)}
+input[type=text]{font:inherit;font-size:20px;padding:8px 12px;border-radius:8px;border:2px solid var(--bd);width:min(100%,360px);background:var(--card);color:var(--fg)}
+.esito{font-size:18px;font-weight:700;margin-top:6px}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:4px 14px 12px;margin:18px 0}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo.fatto{border-color:var(--ve)}.passo.fatto .num{background:var(--ve)}.passo.ora{border:5px solid var(--bl)}.passo.ora .num{background:var(--bl)}
+.spento{opacity:.4;pointer-events:none}
+.ruoli{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}.ruoli div{background:var(--card);border:2px solid var(--bd);border-radius:10px;padding:8px 10px;font-size:17px}
+.clienti{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin:10px 0}.cli{border:3px solid var(--bd);border-radius:12px;padding:10px;background:var(--card)}
+.cli b.p{float:right;font-size:15px;background:var(--fg);color:var(--bg);border-radius:8px;padding:2px 8px}
+.bar{height:16px;border-radius:8px;background:var(--bd);overflow:hidden;margin:4px 0}.bar i{display:block;height:16px;background:var(--ve);width:0;transition:width .3s}
+table{border-collapse:collapse;width:100%;font-size:16px}td,th{border:1px solid var(--bd);padding:6px;text-align:center;vertical-align:middle}th{background:var(--bl);color:#fff}td.tit{text-align:left}
+tr.sc td{background:rgba(31,111,235,.13)}tr.fatta td{opacity:.45}
+.sel{font:inherit;font-weight:800;font-size:16px;border-radius:8px;border:2px solid var(--bd);background:var(--card);color:var(--fg);padding:6px 10px;cursor:pointer;min-width:84px}
+tr.sc .sel{background:var(--bl);color:#fff;border-color:var(--bl)}
+.cap{font-size:20px;font-weight:800}.ko{color:var(--ro)}.ok{color:var(--ve)}
+.rel{background:var(--card);border:2px dashed var(--ve);border-radius:10px;padding:8px 12px;margin:8px 0}
+.scroll{overflow-x:auto}
+</style></head>
+<body><div class="w">
+<h1>Sei il Product Manager</h1><div class="bn" lang="bn">আপনি প্রোডাক্ট ম্যানেজার</div>
+<p class="t">3INF · 15/10/2026 · un team Agile al lavoro: due clienti, uno sprint, una versione</p>
+<p><a class="bt" style="background:#238636" href="../../3inf-voti/" target="_blank" rel="noopener">I voti</a><a class="bt" style="background:#6e40c9" href="../../3inf-monitor/" target="_blank" rel="noopener">Il monitor</a><a class="bt" style="background:#9a6700" href="../../3inf-backlog/" target="_blank" rel="noopener">Il backlog</a></p>
+<div class="nota"><div class="it">Fai i passi in ordine, dall'alto in basso. Il passo da fare adesso ha il bordo blu; quando è fatto diventa verde.</div><div class="bn" lang="bn">উপর থেকে নিচে ধাপগুলো করুন। এখনকার ধাপের সীমানা নীল; শেষ হলে সবুজ হয়।</div></div>
+
+<section class="passo" id="p1"><h2><span class="num">1</span> Il tuo nome e la tua azienda</h2><div class="bn" lang="bn">আপনার নাম এবং আপনার কোম্পানি</div>
+<div class="it">Scrivi nome e cognome. Poi inventa il nome della tua azienda di videogiochi.</div><div class="bn" lang="bn">নাম ও পদবি লিখুন। তারপর আপনার ভিডিও গেম কোম্পানির একটি নাম বানান।</div>
+<input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><br><input type="text" id="azienda" placeholder="Nome della tua azienda" style="margin-top:8px"> <button class="bot blu" id="ok1">OK</button><div class="esito" id="es1"></div>
+</section>
+
+<section class="passo" id="p2"><h2><span class="num">2</span> La teoria: un team Agile al lavoro</h2><div class="bn" lang="bn">তত্ত্ব: কাজের মধ্যে একটি Agile দল</div>
+<h3>Chi fa che cosa</h3><div class="bn" lang="bn">কে কী করে</div>
+<div class="ruoli">
+<div><b>Product Manager</b><br>parla con i clienti, capisce che cosa vale di più, decide l'ordine del backlog e che cosa entra nello sprint. Dice anche dei «no».<div class="bn" lang="bn">গ্রাহকদের সাথে কথা বলে, কোনটা বেশি মূল্যবান বোঝে, backlog-এর ক্রম ঠিক করে। «না»-ও বলে।</div></div>
+<div><b>Sviluppatori</b><br>stimano il <b>peso</b> (quanto lavoro serve) e scrivono il codice.<div class="bn" lang="bn">ওজন (কতটা কাজ) অনুমান করে এবং কোড লেখে।</div></div>
+<div><b>Tester</b><br>provano la versione prima della consegna e trovano i bug.<div class="bn" lang="bn">ডেলিভারির আগে সংস্করণ পরীক্ষা করে এবং বাগ খোঁজে।</div></div>
+<div><b>Clienti</b><br>pagano il lavoro e dicono che cosa serve a loro. Non tutti pesano uguale.<div class="bn" lang="bn">কাজের জন্য টাকা দেয় এবং তাদের কী দরকার বলে। সবাই সমান ওজনের নয়।</div></div>
+</div>
+<h3>Le parole del mestiere</h3><div class="bn" lang="bn">পেশার শব্দ</div>
+<div class="it">1. <b>Backlog</b>: la lista di tutte le richieste.<br>2. <b>Sprint</b>: un tempo fisso (da noi 15 minuti) con una <b>capacità</b> fissa: il team riesce a fare al massimo <b>8 punti</b> di lavoro.<br>3. <b>Peso</b> (sforzo): quanto lavoro serve, con i numeri 1, 2, 3, 5, 8.<br>4. <b>Impatto sul software</b> (rischio): quanto la modifica può rompere le altre parti del gioco: 1 basso, 2 medio, 3 alto.<br>5. <b>Valore per il cliente</b>: da 0 a 5, quanto quella richiesta serve a quel cliente.<br>6. <b>Peso del cliente</b>: il cliente grande conta 3 volte, quello piccolo 1 volta.<br>7. Alla fine dello sprint si <b>consegna una versione</b> (release) con le <b>note di rilascio</b>, poi <b>review</b> con i clienti e <b>retrospettiva</b> del team.</div>
+<div class="bn" lang="bn">১. Backlog: সব অনুরোধের তালিকা। ২. Sprint: নির্দিষ্ট সময় (১৫ মিনিট), সর্বোচ্চ ৮ পয়েন্ট কাজ। ৩. ওজন: কতটা কাজ লাগে (১, ২, ৩, ৫, ৮)। ৪. সফটওয়্যারে প্রভাব (ঝুঁকি): গেমের অন্য অংশ ভাঙার সম্ভাবনা, ১ কম, ২ মাঝারি, ৩ বেশি। ৫. গ্রাহকের কাছে মূল্য: ০ থেকে ৫। ৬. গ্রাহকের ওজন: বড় গ্রাহক ৩ গুণ, ছোট গ্রাহক ১ গুণ। ৭. শেষে একটি সংস্করণ (release) ও রিলিজ নোট, তারপর review এবং retrospective।</div>
+<h3>Come sceglie il Product Manager</h3><div class="bn" lang="bn">প্রোডাক্ট ম্যানেজার কীভাবে বেছে নেয়</div>
+<div class="nota"><div class="it"><b>Valore</b> = valore per il cliente grande × 3 + valore per il cliente piccolo × 1.<br><b>Priorità</b> = valore ÷ (peso + rischio).<br>Prima le richieste con la priorità più alta, finché non si riempiono gli 8 punti. Attenzione: se nello stesso sprint il rischio arriva a <b>5 o più</b>, in produzione esce un bug e la versione perde il 30% del valore.</div>
+<div class="bn" lang="bn">মূল্য = বড় গ্রাহকের মূল্য × ৩ + ছোট গ্রাহকের মূল্য × ১। অগ্রাধিকার = মূল্য ÷ (ওজন + ঝুঁকি)। আগে সবচেয়ে বেশি অগ্রাধিকারের অনুরোধ, ৮ পয়েন্ট পূর্ণ হওয়া পর্যন্ত। সতর্কতা: একই sprint-এ ঝুঁকি ৫ বা বেশি হলে একটি বাগ বের হয় এবং সংস্করণ ৩০% মূল্য হারায়।</div></div>
+<button class="bot blu" id="ok2">Ho letto la teoria</button><div class="esito" id="es2"></div>
+</section>
+
+<section class="passo" id="p3"><h2><span class="num">3</span> Il gioco: due clienti, due sprint</h2><div class="bn" lang="bn">খেলা: দুই গ্রাহক, দুই sprint</div>
+<div class="clienti">
+<div class="cli"><b class="p">conta × 3</b><b>TrenoCity</b> · cliente grande<br><span style="font-size:16px">Una catena di sale giochi. Vuole un gioco <b>stabile e veloce</b>, senza bug: i suoi clienti pagano a partita.</span><div class="bn" lang="bn">বড় গ্রাহক: গেম সেন্টারের চেইন। স্থির ও দ্রুত গেম চায়, কোনো বাগ নয়।</div><div class="bar"><i id="barA"></i></div><span id="soA" class="t"></span></div>
+<div class="cli"><b class="p">conta × 1</b><b>Ludoteca Arcobaleno</b> · cliente piccolo<br><span style="font-size:16px">Un centro per ragazzi. Vuole un gioco <b>bello e divertente</b>: grafica, personaggi, sorprese.</span><div class="bn" lang="bn">ছোট গ্রাহক: শিশুদের কেন্দ্র। সুন্দর ও মজার গেম চায়: গ্রাফিক্স, চরিত্র, চমক।</div><div class="bar"><i id="barB"></i></div><span id="soB" class="t"></span></div>
+</div>
+<div class="it">Sei il Product Manager di <b id="azN">la tua azienda</b>. Scegli le richieste per lo <b>Sprint <span id="spN">1</span></b>: clicca «Scegli» sulle righe. Puoi riempire al massimo 8 punti di peso. Poi premi «Consegna la versione».</div>
+<div class="bn" lang="bn">আপনি প্রোডাক্ট ম্যানেজার। Sprint-এর জন্য অনুরোধ বেছে নিন: সারিতে «Scegli» চাপুন। সর্বোচ্চ ৮ পয়েন্ট। তারপর «Consegna la versione» চাপুন।</div>
+<p class="cap">Peso usato: <span id="cap">0</span> / 8 · Rischio dello sprint: <span id="risc">0</span></p>
+<label style="font-size:17px"><input type="checkbox" id="mostraP"> Mostra il valore e la priorità calcolati</label>
+<div class="scroll"><table id="tab"></table></div>
+<button class="bot" id="consegna" disabled>Consegna la versione</button><div class="esito" id="es3"></div>
+<div id="rilasci"></div>
+</section>
+
+<section class="passo" id="p4"><h2><span class="num">4</span> Review e retrospettiva: con parole tue</h2><div class="bn" lang="bn">Review এবং retrospective: নিজের ভাষায়</div>
+<div class="it">1. Perché hai scelto così? Che cosa hai messo prima e perché?</div><div class="bn" lang="bn">১. কেন এভাবে বেছে নিলেন? আগে কী রাখলেন এবং কেন?</div><textarea id="q1"></textarea>
+<div class="it">2. Scrivi il messaggio che manderesti al cliente che hai scontentato di più.</div><div class="bn" lang="bn">২. যে গ্রাহককে সবচেয়ে বেশি অসন্তুষ্ট করেছেন, তাকে কী বার্তা পাঠাবেন লিখুন।</div><textarea id="q2"></textarea>
+<div class="it">3. Retrospettiva: una cosa che rifaresti uguale e una che cambieresti.</div><div class="bn" lang="bn">৩. Retrospective: একটি জিনিস যা একই রকম করবেন এবং একটি যা বদলাবেন।</div><textarea id="q3"></textarea>
+<button class="bot" id="manda">Consegna al prof</button><div class="esito" id="es4"></div>
+</section>
+</div>
+<script>
+(function () {
+  var ID = '3inf-agile-20261015', CAP = 8, PA = 3, PB = 1;
+  var R = [
+    { k: 'r1', t: 'Correggere il bug: i nemici nascono tutti insieme', bn: 'বাগ ঠিক করা: শত্রুরা একসাথে জন্মায়', p: 3, r: 1, a: 5, b: 3 },
+    { k: 'r2', t: 'Schermata GAME OVER a fine partita', bn: 'খেলা শেষে GAME OVER পর্দা', p: 2, r: 1, a: 2, b: 4 },
+    { k: 'r3', t: 'Velocità del treno regolabile', bn: 'ট্রেনের গতি নিয়ন্ত্রণযোগ্য', p: 3, r: 2, a: 5, b: 1 },
+    { k: 'r4', t: 'Boss finale con tanta vita', bn: 'অনেক জীবনসহ চূড়ান্ত বস', p: 5, r: 2, a: 1, b: 5 },
+    { k: 'r5', t: 'Sfondo del Duomo in un livello', bn: 'একটি লেভেলে ডুওমোর পটভূমি', p: 2, r: 1, a: 1, b: 3 },
+    { k: 'r6', t: 'Animali lungo i binari', bn: 'রেললাইনের পাশে প্রাণী', p: 3, r: 1, a: 0, b: 4 },
+    { k: 'r7', t: 'Nuovo motore della fisica', bn: 'নতুন ফিজিক্স ইঞ্জিন', p: 8, r: 3, a: 4, b: 2 },
+    { k: 'r8', t: 'Salvataggio del record', bn: 'রেকর্ড সংরক্ষণ', p: 2, r: 1, a: 3, b: 2 }
+  ];
+  R.forEach(function (x) { x.v = x.a * PA + x.b * PB; x.pr = x.v / (x.p + x.r); });
+  var TOTA = R.reduce(function (s, x) { return s + x.a; }, 0), TOTB = R.reduce(function (s, x) { return s + x.b; }, 0);
+  function $(i) { return document.getElementById(i); }
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function lg(k) { try { return localStorage.getItem(ID + '-' + k) || ''; } catch (x) { return ''; } }
+  function sg(k, v) { try { localStorage.setItem(ID + '-' + k, v); } catch (x) {} }
+  var S = { sel: [], sprint: 1, fatte: [], storia: [] };
+  try { var q = JSON.parse(lg('stato') || 'null'); if (q && q.sprint) S = q; } catch (x) {}
+  function salva() { sg('stato', JSON.stringify(S)); }
+  function somma(ks, f) { return ks.reduce(function (s, k) { var x = R.filter(function (y) { return y.k === k; })[0]; return s + x[f]; }, 0); }
+  function valoreSprint(ks) { var v = somma(ks, 'v'), r = somma(ks, 'r'); return { v: r >= 5 ? Math.round(v * 0.7) : v, bug: r >= 5, r: r, p: somma(ks, 'p') }; }
+  function migliore(dispo) {   // il meglio possibile con le richieste rimaste (prova tutte le combinazioni)
+    var best = { v: -1, ks: [] }, n = dispo.length;
+    for (var m = 0; m < (1 << n); m++) { var ks = []; for (var i = 0; i < n; i++) if (m & (1 << i)) ks.push(dispo[i].k);
+      if (somma(ks, 'p') > CAP) continue; var w = valoreSprint(ks); if (w.v > best.v) best = { v: w.v, ks: ks }; }
+    return best;
+  }
+  function passi() {
+    var f1 = !!lg('nome'), f2 = !!lg('teoria'), f3 = S.sprint > 2, f4 = !!lg('mandato');
+    [['p1', f1, true], ['p2', f2, f1], ['p3', f3, f1 && f2], ['p4', f4, f3]].forEach(function (a, i, arr) {
+      var el = $(a[0]); el.classList.toggle('fatto', a[1]); el.classList.toggle('spento', !a[2]);
+      var primo = arr.filter(function (b) { return !b[1] && b[2]; })[0]; el.classList.toggle('ora', primo === a);
+    });
+  }
+  function tabella() {
+    var mp = $('mostraP').checked;
+    var h = '<tr><th>Richiesta</th><th>Peso</th><th>Rischio</th><th>TrenoCity ×3</th><th>Ludoteca ×1</th>' + (mp ? '<th>Valore</th><th>Priorità</th>' : '') + '<th></th></tr>';
+    R.forEach(function (x) {
+      var fatta = S.fatte.indexOf(x.k) >= 0, sc = S.sel.indexOf(x.k) >= 0;
+      h += '<tr class="' + (fatta ? 'fatta' : sc ? 'sc' : '') + '"><td class="tit">' + e(x.t) + '<div class="bn" lang="bn" style="margin:0">' + e(x.bn) + '</div></td><td>' + x.p + '</td><td>' + x.r + '</td><td>' + x.a + '</td><td>' + x.b + '</td>' +
+        (mp ? '<td>' + x.v + '</td><td>' + x.pr.toFixed(1) + '</td>' : '') +
+        '<td>' + (fatta ? 'già fatta' : '<button class="sel" data-k="' + x.k + '">' + (sc ? 'Scelta ✓' : 'Scegli') + '</button>') + '</td></tr>';
+    });
+    $('tab').innerHTML = h;
+    var p = somma(S.sel, 'p'), r = somma(S.sel, 'r');
+    $('cap').textContent = p; $('cap').className = p > CAP ? 'ko' : ''; $('risc').textContent = r; $('risc').className = r >= 5 ? 'ko' : '';
+    $('consegna').disabled = !S.sel.length || p > CAP || S.sprint > 2;
+    $('consegna').textContent = S.sprint > 2 ? 'Versioni consegnate' : 'Consegna la versione v3.' + (S.sprint - 1);
+    $('spN').textContent = Math.min(S.sprint, 2); $('azN').textContent = lg('azienda') || 'la tua azienda';
+    var da = somma(S.fatte, 'a'), db = somma(S.fatte, 'b');
+    $('barA').style.width = Math.round(100 * da / TOTA) + '%'; $('barB').style.width = Math.round(100 * db / TOTB) + '%';
+    $('soA').textContent = 'Soddisfazione: ' + Math.round(100 * da / TOTA) + '%'; $('soB').textContent = 'Soddisfazione: ' + Math.round(100 * db / TOTB) + '%';
+    $('rilasci').innerHTML = S.storia.map(function (s) {
+      return '<div class="rel"><b>' + e(lg('azienda') || '') + ' · versione ' + e(s.ver) + '</b>' + (s.bug ? ' <span class="ko">· bug in produzione: valore −30%</span>' : ' <span class="ok">· consegnata senza bug</span>') +
+        '<br>Note di rilascio: ' + s.ks.map(function (k) { return e(R.filter(function (y) { return y.k === k; })[0].t); }).join('; ') +
+        '<br>Valore consegnato: <b>' + s.v + '</b> su un massimo possibile di <b>' + s.best + '</b> in questo sprint · ' + (s.v >= s.best ? '<span class="ok">scelta perfetta!</span>' : 'il massimo era: ' + s.bks.map(function (k) { return e(R.filter(function (y) { return y.k === k; })[0].t); }).join(', ')) + '</div>';
+    }).join('');
+    passi();
+  }
+  $('tab').addEventListener('click', function (ev) { var k = ev.target && ev.target.getAttribute('data-k'); if (!k || S.sprint > 2) return;
+    var i = S.sel.indexOf(k); if (i >= 0) S.sel.splice(i, 1); else S.sel.push(k); salva(); tabella(); });
+  $('mostraP').onchange = tabella;
+  $('consegna').onclick = function () {
+    var dispo = R.filter(function (x) { return S.fatte.indexOf(x.k) < 0; }), b = migliore(dispo), w = valoreSprint(S.sel);
+    S.storia.push({ ver: 'v3.' + (S.sprint - 1), ks: S.sel.slice(), v: w.v, bug: w.bug, best: b.v, bks: b.ks, r: w.r, p: w.p });
+    S.fatte = S.fatte.concat(S.sel); S.sel = []; S.sprint++; salva(); tabella();
+    $('es3').textContent = S.sprint > 2 ? 'Fatto! Due versioni consegnate. Adesso il passo 4.' : 'Versione consegnata! Adesso lo Sprint 2 con le richieste rimaste.';
+    $('es3').className = 'esito ok';
+  };
+  $('nome').value = lg('nome'); $('azienda').value = lg('azienda');
+  $('ok1').onclick = function () { var n = $('nome').value.trim(), a = $('azienda').value.trim();
+    if (n.split(/\s+/).length < 2 || a.length < 2) { $('es1').textContent = 'Scrivi nome, cognome e il nome dell\'azienda.'; $('es1').className = 'esito ko'; return; }
+    sg('nome', n); sg('azienda', a); $('es1').textContent = 'Fatto!'; $('es1').className = 'esito ok'; tabella(); };
+  $('ok2').onclick = function () { sg('teoria', '1'); $('es2').textContent = 'Fatto! Adesso il gioco.'; $('es2').className = 'esito ok'; tabella(); };
+  ['q1', 'q2', 'q3'].forEach(function (q) { $(q).value = lg(q); $(q).addEventListener('input', function () { sg(q, $(q).value); }); });
+  var CONF = {};
+  fetch('../../verifica/config.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {});
+  $('manda').onclick = function () {
+    var es = $('es4'), t = ['q1', 'q2', 'q3'].map(function (q) { return $(q).value.trim(); });
+    if (t.some(function (x) { return x.split(/\s+/).filter(Boolean).length < 4; })) { es.textContent = 'Scrivi almeno una frase in ogni casella.'; es.className = 'esito ko'; return; }
+    if (!CONF.invio) { es.textContent = 'Collegamento non pronto: riprova tra un momento.'; es.className = 'esito ko'; return; }
+    var tot = S.storia.reduce(function (s, x) { return s + x.v; }, 0), best = S.storia.reduce(function (s, x) { return s + x.best; }, 0);
+    var d = { id: ID, nome: lg('nome'), modo: 'proposta', tipo: 'simulazione-agile', azienda: lg('azienda'), sprint: S.storia, valore: tot, massimo: best,
+      soddisfazione_TrenoCity: Math.round(100 * somma(S.fatte, 'a') / TOTA), soddisfazione_Ludoteca: Math.round(100 * somma(S.fatte, 'b') / TOTB),
+      perche: t[0], messaggio_cliente: t[1], retrospettiva: t[2], ora: new Date().toISOString() };
+    var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.style.display = 'none';
+    var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(d); f.appendChild(i); document.body.appendChild(f); f.submit(); f.remove();
+    sg('mandato', '1'); es.textContent = 'Consegnato! Si è aperta una scheda di conferma: puoi chiuderla. Hai finito.'; es.className = 'esito ok'; passi();
+  };
+  tabella();
+})();
+</script>
+<script src="../../assistente/assistente.js" data-pagina="3inf-agile" data-lingue="it"></script>
+</body></html>
