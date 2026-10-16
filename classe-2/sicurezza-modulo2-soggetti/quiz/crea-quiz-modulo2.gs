@@ -117,6 +117,26 @@ function creaQuiz() {
     item.setChoices(d.o.map(function(c){ return item.createChoice(c[0], c[1]); }));
   });
 
+  // CHIUSURA AUTOMATICA alle 09:00 di oggi (il Modulo smette di accettare risposte).
+  PropertiesService.getScriptProperties().setProperty('FORM_ID_MOD2', form.getId());
+  try {
+    var chiusura = new Date(); chiusura.setHours(9, 0, 0, 0);
+    if (chiusura.getTime() > Date.now()) {
+      ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'chiudiQuizMod2') ScriptApp.deleteTrigger(t); });
+      ScriptApp.newTrigger('chiudiQuizMod2').timeBased().at(chiusura).create();
+      Logger.log('Chiusura automatica programmata per le 09:00 (Google puo\' ritardare di qualche minuto).');
+    } else {
+      Logger.log('Sono gia\' passate le 09:00: chiusura automatica non programmata.');
+    }
+  } catch (e) { Logger.log('Trigger di chiusura: ' + e); }
+
   Logger.log('FATTO. Link per te (modifica): ' + form.getEditUrl());
   Logger.log('Link per gli allievi: ' + form.getPublishedUrl());
+}
+
+/* Chiude il Modulo (smette di accettare risposte). Lo chiama da solo il trigger delle 09:00.
+   Si puo' anche lanciare a mano per chiudere subito. Per cambiare l'ora, modifica setHours sopra. */
+function chiudiQuizMod2() {
+  var id = PropertiesService.getScriptProperties().getProperty('FORM_ID_MOD2');
+  if (id) { FormApp.openById(id).setAcceptingResponses(false); Logger.log('Modulo chiuso: non accetta piu\' risposte.'); }
 }
