@@ -27,6 +27,8 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 /* i connettori = PRESE: rettangolo pieno con i "pin" */
 .slot.cable{border-style:solid;border-color:#caa23a;background:repeating-linear-gradient(90deg,#3a3320 0 3px,#4a4026 3px 6px);border-radius:3px;color:#ffe9b0;font-size:9px}
 .slot.full{opacity:0}
+/* dispositivo-sorgente del cavo (ventola, bottone…): da qui parte il filo */
+.srcdev{position:absolute;border-radius:8px;background:#223129;border:1.5px solid rgba(255,255,255,.35);color:#d7ead9;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;padding:2px;line-height:1.05;pointer-events:none;z-index:3;box-shadow:inset 0 0 0 3px rgba(0,0,0,.18)}
 .chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
 .chip.placed{cursor:default}
 .chip.drag{z-index:999;transform:scale(1.06);box-shadow:0 10px 22px rgba(0,0,0,.4)}
@@ -112,12 +114,12 @@ var SLOTS={
  pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
  ssd:{x:70,y:68,w:24,h:16,it:"Alloggio disco",ar:"مكان القرص",zh:"硬盘位"},
  psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- fanc:{x:30,y:1.5,w:13,h:6,it:"Presa ventola CPU",ar:"مروحة المعالج",zh:"CPU 风扇",cable:1},
- fancase:{x:79,y:2,w:13,h:6,it:"Presa ventola case",ar:"مروحة العلبة",zh:"机箱风扇",cable:1},
- atx24:{x:89,y:16,w:8,h:22,it:"Presa 24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
- sata:{x:89,y:46,w:8,h:9,it:"Presa SATA",ar:"SATA",zh:"SATA",cable:1},
- fpanel:{x:62,y:52,w:15,h:8,it:"Presa power",ar:"زر التشغيل",zh:"开机",cable:1},
- usb:{x:62,y:63,w:15,h:8,it:"Presa USB",ar:"USB",zh:"USB",cable:1}
+ fanc:{x:29,y:2,w:12,h:6,it:"Presa ventola CPU",ar:"مروحة المعالج",zh:"CPU 风扇",cable:1},
+ fancase:{x:64,y:2,w:13,h:6,it:"Presa ventola case",ar:"مروحة العلبة",zh:"机箱风扇",cable:1},
+ atx24:{x:89,y:15,w:8,h:22,it:"Presa 24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
+ sata:{x:89,y:45,w:8,h:9,it:"Presa SATA",ar:"SATA",zh:"SATA",cable:1},
+ fpanel:{x:40,y:52,w:15,h:7,it:"Presa power",ar:"زر التشغيل",zh:"开机",cable:1},
+ usb:{x:40,y:62,w:15,h:7,it:"Presa USB",ar:"USB",zh:"USB",cable:1}
 };
 var ALL=[
  {id:"cpu",slot:"socket",color:"#c98a2e",it:"CPU",ar:"المعالج",zh:"CPU"},
@@ -127,12 +129,12 @@ var ALL=[
  {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
  {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD"},
  {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- {id:"cfanc",slot:"fanc",s:"CPU",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:27,y:14},needs:["cooler"]},
- {id:"cfancase",slot:"fancase",s:"CASE",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:96,y:9}},
- {id:"c24",slot:"atx24",s:"24",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:80,y:90},needs:["psu"]},
- {id:"csata",slot:"sata",s:"SATA",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:80,y:72},needs:["ssd"]},
- {id:"cfp",slot:"fpanel",s:"ON",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:8,y:96}},
- {id:"cusb",slot:"usb",s:"USB",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:40,y:97}}
+ {id:"cfanc",slot:"fanc",s:"CPU",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:11,y:5.5},needs:["cooler"],src:{x:3,y:2,w:16,h:7,it:"Ventola CPU",ar:"مروحة المعالج",zh:"CPU风扇"}},
+ {id:"cfancase",slot:"fancase",s:"CASE",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:91,y:5.5},src:{x:83,y:2,w:16,h:7,it:"Ventola case",ar:"مروحة العلبة",zh:"机箱风扇"}},
+ {id:"c24",slot:"atx24",s:"24",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:82,y:90},needs:["psu"]},
+ {id:"csata",slot:"sata",s:"SATA",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:82,y:72},needs:["ssd"]},
+ {id:"cfp",slot:"fpanel",s:"ON",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:11,y:95.5},src:{x:2,y:92,w:18,h:7,it:"Bottone power",ar:"زر التشغيل",zh:"开机按钮"}},
+ {id:"cusb",slot:"usb",s:"USB",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:31,y:95.5},src:{x:23,y:92,w:16,h:7,it:"Prese USB",ar:"منافذ USB",zh:"USB接口"}}
 ];
 /* 3 PC diversi (sottoinsiemi). I primi 4 cavi sono gli essenziali. */
 var PRESETS=[
@@ -164,6 +166,7 @@ function drawBoard(){
   var el=document.createElement('div');el.className='slot'+(s.cable?' cable':'');el.id='slot_'+id;el.dataset.slot=id;
   el.style.left=s.x+'%';el.style.top=s.y+'%';el.style.width=s.w+'%';el.style.height=s.h+'%';el.textContent=s[L]||s.it;board.appendChild(el);
  }
+ PARTS.forEach(function(p){if(!p.src)return;var m=document.createElement('div');m.className='srcdev';m.style.left=p.src.x+'%';m.style.top=p.src.y+'%';m.style.width=p.src.w+'%';m.style.height=p.src.h+'%';m.textContent=p.src[L]||p.src.it;board.appendChild(m)});
 }
 function wirePath(a,b){var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy)||1,off=Math.min(16,len*0.3);var mx=(a.x+b.x)/2-dy/len*off,my=(a.y+b.y)/2+dx/len*off;return 'M'+a.x+' '+a.y+' Q'+mx+' '+my+' '+b.x+' '+b.y}
 function drawWire(p){var svg=document.getElementById('wires');if(!svg)return;clearWire(p.id);var s=SLOTS[p.slot],b={x:cxf(s),y:cyf(s)},a=p.from;
