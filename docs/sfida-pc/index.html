@@ -1,0 +1,129 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sfida lampo — Il PC</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--ko:#f85149;--gold:#e3b341}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 50% -10%,#15325c,#0d1117 60%);color:var(--tx);font:18px/1.45 system-ui,Segoe UI,Arial,sans-serif;padding:16px;min-height:100vh}
+.w{max-width:620px;margin:0 auto}
+h1{font-size:clamp(24px,6vw,38px);margin:0 0 2px;text-align:center}
+.sub{color:var(--mu);text-align:center;margin:0 0 14px;font-size:14px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:16px;padding:18px;margin:10px 0}
+label{display:block;font-weight:700;margin:0 0 6px}
+input{width:100%;font:inherit;padding:12px;border-radius:10px;border:2px solid var(--ln);background:#0d1117;color:var(--tx)}
+.btn{display:block;width:100%;font:inherit;font-weight:900;cursor:pointer;border:none;border-radius:12px;background:var(--acc);color:#0d1117;padding:15px;margin-top:12px;font-size:20px}
+.hud{display:flex;justify-content:space-between;align-items:center;margin:4px 0 10px;font-weight:900}
+.hud .combo{color:var(--gold)}
+.bar{height:10px;background:var(--ln);border-radius:6px;overflow:hidden;margin:0 0 14px}
+.bar>i{display:block;height:100%;background:var(--acc);width:100%;transition:width .2s linear}
+.q{font-size:clamp(19px,4.6vw,26px);font-weight:900;text-align:center;margin:8px 0}
+.qt{color:var(--mu);font-size:14px;text-align:center;margin:0 0 12px;font-weight:600}
+.opts{display:grid;gap:10px}
+.opt{font:inherit;font-weight:800;cursor:pointer;border:2px solid var(--ln);border-radius:12px;background:#0d1117;color:var(--tx);padding:15px;text-align:left;font-size:18px}
+.opt:active{transform:scale(.99)}
+.opt.ok{border-color:var(--ok);background:rgba(63,185,80,.18)}
+.opt.ko{border-color:var(--ko);background:rgba(248,81,73,.18)}
+.flash{text-align:center;font-weight:900;font-size:22px;min-height:28px;margin:10px 0}
+.big{font-size:clamp(40px,12vw,72px);font-weight:900;text-align:center;color:var(--gold);margin:6px 0}
+.go{display:block;text-align:center;background:var(--acc);color:#0d1117;font-weight:900;text-decoration:none;border-radius:12px;padding:14px;margin:10px 0;font-size:19px}
+.go2{background:transparent;color:var(--acc);border:2px solid var(--acc)}
+.hide{display:none}
+</style></head>
+<body><div class="w">
+<h1>⚡ Sfida lampo del PC</h1>
+<p class="sub">10 domande velocissime · più sei veloce, più punti · <span dir="rtl">تحدٍّ سريع</span> · 快速挑战</p>
+
+<div id="start" class="card">
+  <label>Scrivi il tuo COGNOME e nome<br><span style="font-weight:600;color:var(--mu);font-size:14px" dir="rtl">اكتب لقبك واسمك</span> · <span style="font-weight:600;color:var(--mu);font-size:14px">写上你的姓和名</span></label>
+  <input id="nome" autocomplete="off" placeholder="Es. Rossi Mario">
+  <button class="btn" id="go">▶ Inizia la sfida</button>
+</div>
+
+<div id="game" class="card hide">
+  <div class="hud"><span>🎯 <b id="sc">0</b></span><span class="combo" id="cmb">🔥 x1</span><span><b id="qn">1</b>/10</span></div>
+  <div class="bar"><i id="time"></i></div>
+  <div class="q" id="q"></div>
+  <div class="qt" id="qt"></div>
+  <div class="opts" id="opts"></div>
+  <div class="flash" id="flash"></div>
+</div>
+
+<div id="end" class="card hide">
+  <p style="text-align:center;font-weight:900;font-size:22px;margin:0">Finito! 🎉</p>
+  <div class="big" id="final">0</div>
+  <p style="text-align:center;color:var(--mu);margin:0 0 4px" id="msg"></p>
+  <a class="go" href="../classifica/">🏆 Vai alla classifica</a>
+  <button class="btn go go2" id="again" style="display:block">↺ Rigioca</button>
+</div>
+</div>
+<script>
+// domande: q=italiano, ar/zh = traduzione breve della domanda; o=opzioni (emoji neutri + parola it), c=indice giusto
+var Q=[
+ {q:"Qual è il «cervello» del PC?",ar:"ما هو «دماغ» الحاسوب؟",zh:"电脑的“大脑”是哪个？",o:["🧠 CPU (processore)","💾 Hard disk","🔌 Alimentatore","🌀 Ventola"],c:0},
+ {q:"Dove si infila la RAM?",ar:"أين تُركَّب ذاكرة RAM؟",zh:"内存条插在哪里？",o:["📏 Negli slot lunghi della scheda madre","💽 Nel lettore DVD","🔌 Nell'alimentatore","🖥️ Nello schermo"],c:0},
+ {q:"Chi conserva i tuoi file (foto, giochi)?",ar:"ما الذي يحفظ ملفاتك؟",zh:"谁保存你的文件？",o:["💾 Hard disk / SSD","🌀 La ventola","🧠 La CPU","🔑 La chiavetta della porta"],c:0},
+ {q:"Cosa dà corrente a tutti i pezzi?",ar:"ما الذي يغذّي كل القطع بالكهرباء؟",zh:"什么给所有部件供电？",o:["🔌 L'alimentatore","📏 La RAM","📀 Il DVD","🧊 Il dissipatore"],c:0},
+ {q:"Cosa raffredda la CPU?",ar:"ما الذي يبرّد المعالج؟",zh:"什么给CPU散热？",o:["🧊 Dissipatore + ventola","💾 Hard disk","📏 RAM","🔌 Alimentatore"],c:0},
+ {q:"Dove si montano TUTTI i pezzi?",ar:"أين تُركَّب كل القطع؟",zh:"所有部件装在哪里？",o:["🟩 Sulla scheda madre","📀 Nel DVD","🖥️ Sullo schermo","🔌 Nel muro"],c:0},
+ {q:"A cosa serve la scheda video?",ar:"ما فائدة بطاقة الشاشة؟",zh:"显卡有什么用？",o:["🎮 Immagini e giochi sullo schermo","💾 Salvare i file","🔊 Fare rumore","🔌 Dare corrente"],c:0},
+ {q:"Il cavo SATA collega…",ar:"كابل SATA يوصل…",zh:"SATA线连接…",o:["💽 Hard disk alla scheda madre","🖥️ Lo schermo al muro","🌀 La ventola alla CPU","🧠 Due CPU"],c:0},
+ {q:"La ventola serve a…",ar:"المروحة تُستخدم لِـ…",zh:"风扇用来…",o:["🌀 Buttare fuori l'aria calda","💾 Salvare foto","🎮 Giocare","🔌 Dare corrente"],c:0},
+ {q:"Cosa leggeva i vecchi film e giochi su disco?",ar:"ما الذي كان يقرأ الأقراص القديمة؟",zh:"什么读取旧光盘？",o:["📀 Il lettore DVD","📏 La RAM","🧠 La CPU","🔌 L'alimentatore"],c:0}
+];
+// mescola le opzioni di ogni domanda
+function shuf(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+var EXEC='';
+fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){});
+var nome='',idx=0,score=0,combo=1,tmr=null,t0=0,DUR=8000,order=[];
+function invia(){ if(!EXEC||!nome)return; try{var d={id:'sfida-pc-1inf',tipo:'sfida',nome:nome,punti:score,classe:'1INF'};
+  fetch(EXEC+(EXEC.indexOf('?')<0?'?':'&')+'d='+encodeURIComponent(JSON.stringify(d)),{mode:'no-cors',cache:'no-store'});}catch(e){} }
+function show(){
+  var g=Q[order[idx]];
+  document.getElementById('qn').textContent=idx+1;
+  document.getElementById('q').textContent=g.q;
+  document.getElementById('qt').innerHTML='<span dir="rtl">'+g.ar+'</span> · '+g.zh;
+  document.getElementById('flash').textContent='';
+  var opts=document.getElementById('opts');opts.innerHTML='';
+  var right=g.o[g.c];var oo=shuf(g.o.slice());
+  oo.forEach(function(txt){var b=document.createElement('button');b.className='opt';b.textContent=txt;
+    b.onclick=function(){pick(b,txt===right)};opts.appendChild(b)});
+  t0=Date.now();clearInterval(tmr);
+  var bar=document.getElementById('time');bar.style.width='100%';
+  tmr=setInterval(function(){var el=Date.now()-t0,left=Math.max(0,1-el/DUR);bar.style.width=(left*100)+'%';if(left<=0){clearInterval(tmr);pick(null,false)}},80);
+}
+function pick(btn,ok){
+  clearInterval(tmr);
+  var opts=document.getElementById('opts');
+  [].forEach.call(opts.children,function(b){b.disabled=true;if(b.textContent===Q[order[idx]].o[Q[order[idx]].c])b.classList.add('ok')});
+  var fl=document.getElementById('flash');
+  if(ok){var el=Date.now()-t0;var fast=Math.max(0,Math.round((1-el/DUR)*10));var add=10+fast+(combo-1)*5;score+=add;combo++;
+    if(btn)btn.classList.add('ok');fl.style.color='var(--ok)';fl.textContent='✓ +'+add+(combo>2?'  🔥 combo x'+combo:'');}
+  else{combo=1;if(btn){btn.classList.add('ko')}fl.style.color='var(--ko)';fl.textContent=btn?'✗ Quasi!':'⏱️ Tempo scaduto';}
+  document.getElementById('sc').textContent=score;
+  document.getElementById('cmb').textContent='🔥 x'+combo;
+  setTimeout(function(){idx++;if(idx>=Q.length)fine();else show()},900);
+}
+function fine(){
+  document.getElementById('game').classList.add('hide');
+  var e=document.getElementById('end');e.classList.remove('hide');
+  document.getElementById('final').textContent=score;
+  var m=score>=130?'Fortissimo! Sei un meccanico del PC! 💪':score>=90?'Bravo! Conosci bene i pezzi 👍':'Ben fatto! Riprova per salire 🚀';
+  document.getElementById('msg').textContent=m;
+  try{var best=+localStorage.getItem('sfidapc')||0;if(score>best){localStorage.setItem('sfidapc',score);document.getElementById('msg').textContent='🎉 Nuovo record tuo! '+score+' punti';}}catch(e){}
+  invia();
+}
+function avvia(){
+  nome=(document.getElementById('nome').value||'').trim();
+  if(nome.length<2){document.getElementById('nome').focus();return}
+  idx=0;score=0;combo=1;order=shuf(Q.map(function(_,i){return i}));
+  document.getElementById('start').classList.add('hide');
+  document.getElementById('end').classList.add('hide');
+  document.getElementById('game').classList.remove('hide');
+  show();
+}
+document.getElementById('go').onclick=avvia;
+document.getElementById('nome').addEventListener('keydown',function(e){if(e.key==='Enter')avvia()});
+document.getElementById('again').onclick=function(){
+  document.getElementById('end').classList.add('hide');
+  document.getElementById('start').classList.remove('hide');
+};
+</script></body></html>
