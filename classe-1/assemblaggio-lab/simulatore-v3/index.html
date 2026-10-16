@@ -29,7 +29,9 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 .slot.full{opacity:0}
 /* dispositivo-sorgente del cavo (ventola, bottone…): da qui parte il filo */
 .srcdev{position:absolute;border-radius:8px;background:#223129;border:1.5px solid rgba(255,255,255,.35);color:#d7ead9;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;padding:2px;line-height:1.05;pointer-events:none;z-index:3;box-shadow:inset 0 0 0 3px rgba(0,0,0,.18)}
-.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
+.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;white-space:pre-line;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
+.chip.mobo{z-index:0;background:rgba(47,158,87,.10)!important;border:3px solid #2f9e57;border-radius:12px;align-items:flex-end;justify-content:flex-start;color:#9fe3bb;font-size:12px;padding:8px}
+.chip.ram{font-size:9.5px;line-height:1.15;background:#7a5ba6}
 .chip.placed{cursor:default}
 .chip.drag{z-index:999;transform:scale(1.06);box-shadow:0 10px 22px rgba(0,0,0,.4)}
 /* cavo piazzato = SPINOTTO che riempie la presa (niente scatola vuota) */
@@ -96,7 +98,7 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 var I18N={
  it:{title:"Monta il PC — la sfida",sub:"Scrivi il tuo nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.",
      mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Il tuo nome…",dev:"Dispositivo",cab:"Cavo",
-     ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
+     ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",needmobo:"Prima metti la Scheda madre (Motherboard).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
      start:"Trascina il primo pezzo: parte il cronometro.",unstart:"Stacca prima i cavi, poi i pezzi.",
      win:"FATTO in ",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
  ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب اسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
@@ -127,11 +129,12 @@ var SLOTS={
  usb:{x:38,y:62,w:19,h:7,it:"Socket USB",ar:"مقبس USB",zh:"USB 插座",cable:1}
 };
 var ALL=[
+ {id:"mobo",slot:"mobo",cls:"mobo",outline:1,color:"#2f9e57",it:"Scheda madre\n(Motherboard)",ar:"اللوحة الأم",zh:"主板"},
  {id:"cpu",slot:"socket",cls:"cpu",outline:1,box:{x:11,y:14,w:15,h:20},color:"#e7b45a",it:"CPU",ar:"المعالج",zh:"CPU"},
  {id:"cooler",slot:"socket",cls:"cooler",outline:1,box:{x:7,y:9,w:23,h:30},color:"#8aa6c8",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
  {id:"fan",slot:"socket",cls:"fan",outline:1,box:{x:14,y:18,w:9,h:12},color:"#cfe0f2",it:"Cpu Fan",ar:"مروحة المعالج",zh:"CPU 风扇",needs:["cooler"]},
- {id:"ram_a",slot:"ram1",color:"#7a5ba6",it:"RAM 1",ar:"ذاكرة ١",zh:"内存1"},
- {id:"ram_b",slot:"ram2",color:"#7a5ba6",it:"RAM 2",ar:"ذاكرة ٢",zh:"内存2"},
+ {id:"ram_a",slot:"ram1",cls:"ram",color:"#7a5ba6",it:"RAM 1\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ١\nDIMM DDR4\n3200 MHz",zh:"内存1\nDIMM DDR4\n3200 MHz"},
+ {id:"ram_b",slot:"ram2",cls:"ram",color:"#7a5ba6",it:"RAM 2\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ٢\nDIMM DDR4\n3200 MHz",zh:"内存2\nDIMM DDR4\n3200 MHz"},
  {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
  {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD"},
  {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
@@ -144,9 +147,9 @@ var ALL=[
 ];
 /* 3 PC diversi (sottoinsiemi). I primi 4 cavi sono gli essenziali. */
 var PRESETS=[
- {n:1,parts:["cpu","cooler","fan","ram_a","ssd","psu","cfanc","cfancase","c24","csata"]},
- {n:2,parts:["cpu","cooler","fan","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp"]},
- {n:3,parts:["cpu","cooler","fan","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp","cusb"]}
+ {n:1,parts:["mobo","cpu","cooler","fan","ram_a","ram_b","ssd","psu","cfanc","cfancase","c24","csata"]},
+ {n:2,parts:["mobo","cpu","cooler","fan","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp"]},
+ {n:3,parts:["mobo","cpu","cooler","fan","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp","cusb"]}
 ];
 
 var SVGNS='http://www.w3.org/2000/svg';
