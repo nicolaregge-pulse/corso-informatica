@@ -72,7 +72,7 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 <div class="leg"><span><i></i> <b id="t_dev">Dispositivo</b></span><span><i class="c"></i> <b id="t_cab">Cavo</b> (filo)</span></div>
 
 <div class="bar">
-  <input id="pcname" placeholder="Il tuo nome…" maxlength="22">
+  <input id="pcname" placeholder="Cognome e nome…" maxlength="28">
   <button id="m_mount" class="on">🔧 <span id="t_mount">Rimonta</span></button>
   <button id="m_un">↩︎ <span id="t_un">Smonta</span></button>
   <button id="newpc">🎲 <span id="t_new">Nuovo PC</span></button>
@@ -96,18 +96,18 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 </div>
 <script>
 var I18N={
- it:{title:"Monta il PC — la sfida",sub:"Scrivi il tuo nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.",
-     mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Il tuo nome…",dev:"Dispositivo",cab:"Cavo",
+ it:{title:"Monta il PC — la sfida",sub:"Scrivi il tuo COGNOME e nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.",
+     mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Cognome e nome…",dev:"Dispositivo",cab:"Cavo",
      ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",needmobo:"Prima metti la Scheda madre (Motherboard).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
      start:"Trascina il primo pezzo: parte il cronometro.",unstart:"Stacca prima i cavi, poi i pezzi.",
      win:"FATTO in ",winun:"SMONTATO in ",finisci:"Finisci prima il PC che hai iniziato! Se sei bloccato, chiedi aiuto all'assistente.",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
- ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب اسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
-     mount:"إعادة التركيب",un:"الفك",neu:"حاسوب جديد",tray:"القطع والكابلات",todo:"المطلوب",rank:"الترتيب (الوقت المتوسط)",rankempty:"لا أوقات بعد.",name:"اسمك…",dev:"جهاز",cab:"كابل",
+ ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب لقبك واسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
+     mount:"إعادة التركيب",un:"الفك",neu:"حاسوب جديد",tray:"القطع والكابلات",todo:"المطلوب",rank:"الترتيب (الوقت المتوسط)",rankempty:"لا أوقات بعد.",name:"اللقب والاسم…",dev:"جهاز",cab:"كابل",
      ok:"أحسنت!",bad:"ليس هنا: انظر إلى الملصق.",need:"ضع أولاً القطعة التي يتصل بها.",needcpu:"ضع أولاً المعالج (CPU).",removecable:"افصل أولاً الكابلات المتصلة بهذه القطعة.",
      start:"اسحب أول قطعة: يبدأ المؤقّت.",unstart:"افصل الكابلات أولاً ثم القطع.",
      win:"تمّ في ",winun:"تمّ الفك في ",finisci:"أنهِ أولاً الحاسوب الذي بدأته! إن كنت عالقاً اطلب المساعدة من المساعد.",noname:"اكتب اسمك أولاً كي يُحسب الوقت.",again:"جرّب حاسوباً آخر: «حاسوب جديد»."},
- zh:{title:"组装电脑 — 挑战",sub:"写上你的名字，然后尽快组装电脑。每次都是不同的电脑。",
-     mount:"重新组装",un:"拆卸",neu:"新电脑",tray:"零件和线缆",todo:"待办",rank:"排行榜（平均时间）",rankempty:"还没有成绩。",name:"你的名字…",dev:"设备",cab:"线缆",
+ zh:{title:"组装电脑 — 挑战",sub:"写上你的姓和名，然后尽快组装电脑。每次都是不同的电脑。",
+     mount:"重新组装",un:"拆卸",neu:"新电脑",tray:"零件和线缆",todo:"待办",rank:"排行榜（平均时间）",rankempty:"还没有成绩。",name:"姓和名…",dev:"设备",cab:"线缆",
      ok:"很好！",bad:"不在这里：看标签。",need:"请先放它要连接的零件。",needcpu:"请先放处理器（CPU）。",removecable:"请先拔掉连接此零件的线缆。",
      start:"拖入第一个零件：计时开始。",unstart:"先拔线缆，再拆零件。",
      win:"完成，用时 ",winun:"拆卸完成，用时 ",finisci:"请先完成你开始的电脑！如果卡住了，向助手求助。",noname:"先写名字，成绩才会计入排行榜。",again:"试试另一台电脑：“新电脑”。"}
