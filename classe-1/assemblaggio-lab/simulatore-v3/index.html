@@ -267,7 +267,7 @@ function dropMount(d,ev){var slot=document.getElementById('slot_'+d.p.slot);
 function dropUn(d,ev){if(overlap(d.chip,traywrap)){startTimer();placed[d.p.id]=false;if(d.p.cable)clearWire(d.p.id);var sl=document.getElementById('slot_'+d.p.slot);if(sl)sl.classList.remove('full');backToTray(d);setMsg(T('ok'),'ok');renderTodo();return}placeOnBoard(d.p)}
 function backToTray(d){var chip=d.chip,p=d.p;chip.classList.remove('placed','plug');chip.style.position='static';chip.style.left='';chip.style.top='';chip.style.width='';chip.style.height='';chip.style.fontSize='';if(p.cable)chip.textContent=p[L]||p.it;tray.appendChild(chip)}
 function cableStillOn(id){return PARTS.some(function(p){return p.cable&&placed[p.id]&&(p.needs||[]).indexOf(id)>=0})}
-function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();var X=r.left+r.width/2,Y=r.top+r.height/2;return X>=s.left&&X<=s.right&&Y>=s.top&&Y<=s.bottom}
+function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();var X=r.left+r.width/2,Y=r.top+r.height/2;var mx=Math.max(s.width*0.9,45),my=Math.max(s.height*0.9,45);return X>=s.left-mx&&X<=s.right+mx&&Y>=s.top-my&&Y<=s.bottom+my}
 
 function applyLang(){document.documentElement.lang=L;document.body.classList.toggle('ar',L==='ar');
  ['title','sub','mount','un','tray','todo','rank','dev','cab'].forEach(function(k){var e=document.getElementById('t_'+k);if(e)e.textContent=T(k)});
@@ -275,9 +275,9 @@ function applyLang(){document.documentElement.lang=L;document.body.classList.tog
  document.getElementById('pcname').placeholder=T('name');reset();renderRank();renderMy()}
 function inCorso(){return tRun}
 document.querySelectorAll('.lang b').forEach(function(b){b.onclick=function(){L=b.dataset.l;document.querySelectorAll('.lang b').forEach(function(x){x.classList.toggle('on',x===b)});applyLang()}});
-document.getElementById('m_mount').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
-document.getElementById('m_un').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
-document.getElementById('newpc').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
+document.getElementById('m_mount').onclick=function(){MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
+document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
+document.getElementById('newpc').onclick=function(){MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
 document.getElementById('pcname').addEventListener('input',renderMy);
 
 var _pc=parseInt((location.search.match(/[?&]pc=(\d)/)||[])[1],10);
