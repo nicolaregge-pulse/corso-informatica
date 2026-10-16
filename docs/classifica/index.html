@@ -1,0 +1,78 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classifica — Monta il PC</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--gold:#e3b341;--sil:#c7ccd1;--brz:#d8935b;--ok:#3fb950}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#0d1117,#0a1a2f 60%,#0d1117);color:var(--tx);font:18px/1.45 system-ui,Segoe UI,Arial,sans-serif;padding:16px;min-height:100vh}
+.w{max-width:820px;margin:0 auto}
+h1{font-size:clamp(26px,7vw,44px);margin:0 0 2px;text-align:center}
+.sub{color:var(--mu);margin:0 0 16px;text-align:center;font-size:15px}
+.upd{text-align:center;color:var(--mu);font-size:13px;margin:0 0 10px}
+/* podio */
+.podio{display:flex;gap:8px;justify-content:center;align-items:flex-end;margin:12px 0 18px}
+.pcol{flex:1;max-width:200px;text-align:center}
+.face{font-size:clamp(28px,8vw,46px);line-height:1}
+.pname{font-weight:900;font-size:clamp(15px,3.6vw,20px);margin:4px 0 2px;overflow-wrap:anywhere}
+.ppt{font-weight:900;font-size:clamp(18px,4.4vw,26px)}
+.pod{border-radius:14px 14px 0 0;margin-top:6px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px;font-weight:900;font-size:22px;color:#0d1117}
+.p1 .pod{background:var(--gold);height:96px}.p2 .pod{background:var(--sil);height:70px}.p3 .pod{background:var(--brz);height:54px}
+.p1 .ppt{color:var(--gold)}.p2 .ppt{color:var(--sil)}.p3 .ppt{color:var(--brz)}
+/* tabella */
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--ln);border-radius:14px;overflow:hidden}
+th,td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--ln);font-variant-numeric:tabular-nums}
+th{background:rgba(127,127,127,.10);font-size:13px;color:var(--mu)}
+.pos{font-weight:900;width:42px;text-align:center}
+.nm{font-weight:800;font-size:18px;overflow-wrap:anywhere}
+.pt{font-weight:900;color:var(--acc);font-size:20px;text-align:right}
+.rec{color:var(--ok);font-weight:700;white-space:nowrap}
+tr.me td{background:rgba(88,166,255,.14)}
+/* box logica */
+.logic{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;margin:18px 0}
+.logic h2{margin:0 0 8px;font-size:19px}
+.logic ul{margin:6px 0;padding-left:20px}.logic li{margin:5px 0}
+.big{font-size:22px;font-weight:900;color:var(--gold)}
+.tl{color:var(--mu);font-size:13px;margin-top:8px}
+.go{display:block;text-align:center;background:var(--acc);color:#0d1117;font-weight:900;text-decoration:none;border-radius:12px;padding:14px;margin:16px 0;font-size:20px}
+.empty{background:var(--card);border:1px dashed var(--ln);border-radius:14px;padding:30px;text-align:center;color:var(--mu)}
+</style></head>
+<body><div class="w">
+<h1>🏆 Classifica</h1>
+<p class="sub">Monta il PC — la gara della 1ª · <span dir="rtl">الترتيب</span> · 排行榜</p>
+<p class="upd" id="upd">—</p>
+
+<div id="podio"></div>
+<div id="out"><div class="empty">In attesa dei primi punteggi…</div></div>
+
+<a class="go" href="../monta-pc-v3/">▶ Gioca / continua a montare</a>
+
+<div class="logic">
+  <h2>🎯 Come si fanno i punti</h2>
+  <ul>
+    <li>Monti un PC fino a <b>«FATTO»</b> → <span class="big">+1 punto</span></li>
+    <li>Lo smonti bene → <b>+0,7 punti</b></li>
+    <li>Vince chi ha <b>più punti</b>. A pari punti, vince chi ha il <b>tempo record</b> più basso.</li>
+    <li>🕐 <b>Medio</b> = quanto ci metti di solito · <b>Record</b> = il tuo montaggio più veloce (contano solo i montaggi).</li>
+  </ul>
+  <p class="tl">Più PC monti, più sali. Se sei bloccato, usa la casella «Chiedi aiuto all'assistente». <span dir="rtl">كلما ركّبت أكثر، صعدت أكثر</span> · 组装越多，排名越高</p>
+</div>
+</div>
+<script>
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sec(ms){return ms?(ms/1000).toFixed(ms<100000?1:0).replace(/\.0$/,'')+'s':'–'}
+var FACE=['🥇','🥈','🥉'];
+function render(d){
+  var rows=(d&&d.righe)||[];
+  var out=document.getElementById('out'),pod=document.getElementById('podio');
+  if(!rows.length){out.innerHTML='<div class="empty">In attesa dei primi punteggi…<br><span style="font-size:14px">(compari appena monti il primo PC)</span></div>';pod.innerHTML='';return}
+  var t3=rows.slice(0,3),ord=[1,0,2];
+  pod.innerHTML='<div class="podio">'+ord.map(function(i){var r=t3[i];if(!r)return '<div class="pcol"></div>';return '<div class="pcol p'+(i+1)+'"><div class="face">'+FACE[i]+'</div><div class="pname">'+esc(r.nome)+'</div><div class="ppt">'+r.pt+'</div><div class="pod">'+(i+1)+'</div></div>'}).join('')+'</div>';
+  out.innerHTML='<table><tr><th class=pos>#</th><th>Allievo</th><th>PC 🔧</th><th>Record</th><th class=pt>Punti</th></tr>'+
+    rows.map(function(r,i){return '<tr><td class=pos>'+(i+1)+'</td><td class=nm>'+esc(r.nome)+'</td><td>'+r.asm+'</td><td class=rec>'+sec(r.record)+'</td><td class=pt>'+r.pt+'</td></tr>'}).join('')+'</table>';
+}
+function carica(){
+  fetch('../monta-pc-cruscotto/dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(d&&d.righe){render(d);document.getElementById('upd').textContent='aggiornato '+(d.aggiornato||'')+' · si aggiorna da sola';}
+  }).catch(function(){});
+}
+carica();setInterval(carica,15000);
+</script></body></html>
