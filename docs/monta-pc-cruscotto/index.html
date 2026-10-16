@@ -56,7 +56,14 @@ function demoStep(){var s=DS[Math.floor(Math.random()*DS.length)];if(Math.random
 var _n=0;
 function carica(){
   if(DEMO){render(demoData());return}
-  if(!EXEC){document.getElementById('upd').textContent='manca l\'indirizzo dello script';return}
+  // 1) prova il file dati.json (pubblico, aggiornato dall'assistente) — funziona SENZA deploy
+  fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+    if(d&&d.righe&&d.righe.length){render(d);document.getElementById('upd').textContent='aggiornato '+(d.aggiornato||'')+' · letto '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});return}
+    caricaScript();
+  }).catch(caricaScript);
+}
+function caricaScript(){
+  if(!EXEC){document.getElementById('upd').textContent='in attesa dei dati…';return}
   var cb='cb'+(++_n), s=document.createElement('script');
   window[cb]=function(d){try{render(d)}catch(e){} var now=new Date();document.getElementById('upd').textContent='aggiornato alle '+now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});try{delete window[cb]}catch(e){} s.remove()};
   s.src=EXEC+(EXEC.indexOf('?')<0?'?':'&')+'cruscotto='+encodeURIComponent(ID)+'&callback='+cb+'&t='+Date.now();
