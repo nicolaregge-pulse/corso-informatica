@@ -1,0 +1,81 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cruscotto Test — 1INF</title>
+<style>
+:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--att:#e3b341;--ko:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:18px}
+.w{max-width:820px;margin:0 auto}
+h1{font-size:clamp(22px,5vw,30px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0 14px;font-size:14px}
+.box{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:16px;margin:10px 0}
+input{width:100%;font:inherit;padding:12px;border-radius:10px;border:2px solid var(--ln);background:#0d1117;color:var(--tx)}
+button{font:inherit;font-weight:800;cursor:pointer;border:none;border-radius:10px;background:var(--acc);color:#0d1117;padding:12px 16px;margin-top:8px;width:100%}
+.err{color:var(--ko);font-size:14px;min-height:18px;margin:6px 0 0}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.k{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 16px;min-width:120px}
+.k b{font-size:26px;display:block}.k span{color:var(--mu);font-size:13px}
+#out{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--ln);border-radius:12px;overflow:hidden;min-width:560px}
+th,td{padding:10px 11px;text-align:left;border-bottom:1px solid var(--ln);font-variant-numeric:tabular-nums}
+th{background:rgba(127,127,127,.08);font-size:13px;color:var(--mu)}
+.nm{font-weight:800}
+.st{font-weight:800;font-size:13px;padding:2px 8px;border-radius:20px;display:inline-block}
+.st.ok{background:rgba(63,185,80,.18);color:var(--ok)}.st.cor{background:rgba(227,179,65,.18);color:var(--att)}
+.vt{font-weight:900;font-size:19px}.vt.alto{color:var(--ok)}.vt.basso{color:var(--ko)}
+tr.recup td{background:rgba(248,81,73,.10)}
+.upd{color:var(--mu);font-size:13px;margin-left:auto}
+.bar{display:flex;align-items:center;gap:10px;margin:0 0 10px}
+.hide{display:none}
+</style></head>
+<body><div class="w">
+<h1>📊 Cruscotto Test — 1INF</h1>
+<p class="sub">I pezzi del PC · chi ha consegnato, giusti, voto · si aggiorna da solo</p>
+
+<div class="box" id="gate">
+  <p style="margin:0 0 6px"><b>Solo per il prof.</b> Scrivi la password dell'area docente.</p>
+  <input id="pw" type="password" autocomplete="current-password" placeholder="password docente">
+  <button id="ok">Apri</button>
+  <p class="err" id="err"></p>
+</div>
+
+<div id="view" class="hide">
+  <div class="bar"><div class="kpi" id="kpi"></div><span class="upd" id="upd">—</span></div>
+  <div id="out"></div>
+</div>
+</div>
+<script>
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
+async function decifra(X,pw){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(X.salt),iterations:X.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ var t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(X.iv)},k,b64(X.ct));return JSON.parse(new TextDecoder().decode(t))}
+function render(d){
+  var r=d.righe||[];
+  document.getElementById('kpi').innerHTML='<div class="k"><b>'+d.consegnati+'/'+d.totale+'</b><span>hanno consegnato</span></div>'+
+    '<div class="k"><b>'+(d.totale-d.consegnati)+'</b><span>ancora in corso</span></div>';
+  document.getElementById('upd').textContent='aggiornato '+(d.aggiornato||'');
+  var h='<table><tr><th>Allievo</th><th>Stato</th><th>Giusti</th><th>Voto</th><th>Giudizio</th><th>Ora</th></tr>';
+  h+=r.map(function(x){
+    var cons=x.stato==='consegnato';
+    var vcl=typeof x.voto==='number'?(x.voto>=60?'alto':'basso'):'';
+    return '<tr class="'+(typeof x.voto==='number'&&x.voto<60?'recup':'')+'"><td class=nm>'+esc(x.nome)+'</td>'+
+      '<td><span class="st '+(cons?'ok':'cor')+'">'+(cons?'✅ consegnato':'⏳ in corso')+'</span></td>'+
+      '<td>'+esc(x.giusti)+'</td><td class="vt '+vcl+'">'+(x.voto===''?'—':x.voto)+'</td>'+
+      '<td>'+esc(x.giudizio)+'</td><td>'+esc(x.ora||'')+'</td></tr>';
+  }).join('')+'</table>';
+  document.getElementById('out').innerHTML=h;
+}
+async function apri(){
+  var pw=document.getElementById('pw').value,err=document.getElementById('err');err.textContent='';
+  if(!pw)return;
+  try{
+    var X=await (await fetch('dati.json?t='+Date.now(),{cache:'no-store'})).json();
+    var d=await decifra(X,pw); window._pw=pw;
+    try{localStorage.setItem('test1inf',JSON.stringify({p:pw,t:Date.now()}))}catch(e){}
+    document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');
+    render(d); setInterval(refresh,15000);
+  }catch(e){err.textContent='Password sbagliata (o dati non pronti). Riprova.'}
+}
+async function refresh(){try{var X=await (await fetch('dati.json?t='+Date.now(),{cache:'no-store'})).json();render(await decifra(X,window._pw))}catch(e){}}
+document.getElementById('ok').onclick=apri;
+document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
+try{var s=JSON.parse(localStorage.getItem('test1inf')||'null');if(s&&Date.now()-s.t<86400000){document.getElementById('pw').value=s.p;apri()}}catch(e){}
+</script></body></html>
