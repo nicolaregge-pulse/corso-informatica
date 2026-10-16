@@ -57,7 +57,7 @@ function render(d){
     var cons=x.stato==='consegnato';
     var vcl=typeof x.voto==='number'?(x.voto>=60?'alto':'basso'):'';
     return '<tr class="'+(typeof x.voto==='number'&&x.voto<60?'recup':'')+'"><td class=nm>'+esc(x.nome)+'</td>'+
-      '<td><span class="st '+(cons?'ok':'cor')+'">'+(cons?'✅ consegnato':'⏳ in corso')+'</span></td>'+
+      '<td><span class="st '+(cons?'ok':'cor')+'">'+(cons?'✅ consegnato':'⏳ non ricevuta')+'</span></td>'+
       '<td>'+esc(x.giusti)+'</td><td class="vt '+vcl+'">'+(x.voto===''?'—':x.voto)+'</td>'+
       '<td>'+esc(x.giudizio)+'</td><td>'+esc(x.ora||'')+'</td></tr>';
   }).join('')+'</table>';
