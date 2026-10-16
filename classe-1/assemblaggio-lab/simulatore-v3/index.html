@@ -112,18 +112,19 @@ var I18N={
 };
 
 var SLOTS={
+ mobo:{x:2,y:2,w:96,h:96,it:"Scheda madre",ar:"اللوحة الأم",zh:"主板"},
  socket:{x:7,y:9,w:23,h:30,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
- ram1:{x:42,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
- ram2:{x:51,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
+ ram1:{x:42,y:7,w:7,h:40,it:"Banco RAM 1",ar:"فتحة ذاكرة ١",zh:"内存槽1"},
+ ram2:{x:51,y:7,w:7,h:40,it:"Banco RAM 2",ar:"فتحة ذاكرة ٢",zh:"内存槽2"},
  pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
- ssd:{x:70,y:68,w:24,h:16,it:"Alloggio disco",ar:"مكان القرص",zh:"硬盘位"},
+ ssd:{x:70,y:68,w:24,h:16,it:"Hard Disk / SSD",ar:"القرص الصلب",zh:"硬盘"},
  psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
  fanc:{x:8,y:42,w:15,h:7,it:"CPU FAN",ar:"CPU FAN",zh:"CPU FAN",cable:1},
- fancase:{x:63,y:2,w:15,h:6,it:"Presa ventola case",ar:"مروحة العلبة",zh:"机箱风扇",cable:1},
- atx24:{x:88,y:14,w:10,h:22,it:"Presa 24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
- sata:{x:87,y:44,w:11,h:10,it:"Presa SATA",ar:"SATA",zh:"SATA",cable:1},
- fpanel:{x:38,y:51,w:19,h:8,it:"Presa power",ar:"زر التشغيل",zh:"开机",cable:1},
- usb:{x:38,y:61,w:19,h:8,it:"Presa USB",ar:"USB",zh:"USB",cable:1}
+ fancase:{x:63,y:2,w:15,h:6,it:"SYS FAN",ar:"SYS FAN",zh:"SYS FAN",cable:1},
+ atx24:{x:88,y:14,w:10,h:22,it:"Socket power",ar:"مقبس الطاقة",zh:"电源插座",cable:1},
+ sata:{x:87,y:45,w:11,h:9,it:"Socket SATA",ar:"مقبس SATA",zh:"SATA 插座",cable:1},
+ fpanel:{x:38,y:51,w:19,h:8,it:"Socket accensione",ar:"مقبس التشغيل",zh:"开机插座",cable:1},
+ usb:{x:38,y:62,w:19,h:7,it:"Socket USB",ar:"مقبس USB",zh:"USB 插座",cable:1}
 };
 var ALL=[
  {id:"cpu",slot:"socket",cls:"cpu",outline:1,box:{x:11,y:14,w:15,h:20},color:"#e7b45a",it:"CPU",ar:"المعالج",zh:"CPU"},
