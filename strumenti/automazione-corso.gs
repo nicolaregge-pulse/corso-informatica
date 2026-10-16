@@ -1,5 +1,8 @@
 /**
- * AUTOMAZIONE CORSO v7.6 (15/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.7 (16/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v7.7: SI RIPARA DA SOLO. Il timer di Google a volte si spegne: ora ogni contatto del web app (doGet/doPost)
+ *       chiama AUTO_assicuraTimer() che lo ricrea se manca. In piu' l'azione «classroom.annuncio_cancella»
+ *       permette di cancellare un annuncio (test e pulizia; mai il lavoro degli allievi).
  * v7.6: RETE DI SICUREZZA. Ogni consegna va sempre nel Foglio di riserva; la pagina del ragazzo dice «arrivata»
  *       solo se la consegna e' al sicuro (Git o riserva), mai a vuoto. AUTO_recuperaArrivi() ripesca dalla
  *       riserva e carica su Git le consegne cadute (ramo occupato): si lancia a mano, riusabile all'infinito.
@@ -69,6 +72,17 @@ function disattivaAutomatico() {
     if (t.getHandlerFunction() === 'autoCiclo') ScriptApp.deleteTrigger(t);
   });
   Logger.log('Timer DISATTIVATO.');
+}
+
+/* v7.7 — SI RIPARA DA SOLO: se il timer di autoCiclo non c'e' piu' (Google a volte lo spegne),
+   lo ricrea. Viene chiamato a ogni contatto del web app (doGet/doPost): cosi' qualunque
+   attivita' (una consegna, una visita alla pagina) tiene vivo il ponte. Idempotente. */
+function AUTO_assicuraTimer() {
+  try {
+    var c = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; });
+    if (c.length === 0) { ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(1).create(); Logger.log('Timer RI-CREATO (self-healing).'); }
+    else if (c.length > 1) { c.slice(1).forEach(function (t) { ScriptApp.deleteTrigger(t); }); }  // niente doppioni
+  } catch (e) { Logger.log('AUTO_assicuraTimer: ' + e); }
 }
 
 
@@ -561,6 +575,9 @@ function AUTO_azione(a) {
     case 'classroom.annuncio': {    // a.classe, a.testo (solo con l'OK del docente scritto nel file)
       var an = Classroom.Courses.Announcements.create({ text: a.testo, state: 'PUBLISHED' }, AUTO_courseId(a.classe));
       return { id: an.id, link: an.alternateLink }; }
+    case 'classroom.annuncio_cancella': {   // v7.7: a.classe, a.annuncio_id — cancella SOLO un annuncio (mai il lavoro degli allievi). Per test e pulizia.
+      Classroom.Courses.Announcements.remove(AUTO_courseId(a.classe), a.annuncio_id);
+      return { cancellato: a.annuncio_id }; }
     /* ---- Gmail: SOLO bozze ---- */
     case 'gmail.bozza': {           // a.a, a.oggetto, a.testo
       var bz = GmailApp.createDraft(a.a, a.oggetto, a.testo); return { bozza_id: bz.getId() }; }
@@ -640,9 +657,11 @@ function AUTO_gh(method, path, payload) {
    Messa in funzione (una volta): Distribuisci -> Nuova distribuzione -> Applicazione web -> Esegui come: me ->
    Chi ha accesso: chiunque nella scuola (o chiunque) -> Distribuisci -> copia l'URL che finisce con /exec. */
 function doGet(e) {
+  AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   return AUTO_paginaArrivo('Pagina pronta', 'Da qui arrivano le consegne delle verifiche del corso.', '#1f6feb');
 }
 function doPost(e) {
+  AUTO_assicuraTimer();   // v7.7: ogni consegna tiene vivo il ponte
   var d;
   try { d = JSON.parse((e && e.parameter && e.parameter.d) || (e && e.postData && e.postData.contents) || '{}'); }
   catch (x) { return AUTO_paginaArrivo('Non arrivata', 'Il risultato non si legge. Torna alla verifica e clicca di nuovo «Manda al prof».', '#c0392b'); }
