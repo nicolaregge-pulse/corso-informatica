@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Monta il PC — sfida</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#d5dbe2;--acc:#1f6feb;--ok:#2f9e57;--no:#e0413a;--board:#214a33}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--no:#f85149;--board:#17331f}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--no:#f85149;--board:#17331f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,Segoe UI,Arial,sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
+.w{max-width:1080px;margin:0 auto;padding:12px 14px 40px}
+h1{font-size:clamp(20px,5vw,28px);margin:4px 0}
+.mu{color:var(--mu)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+button,.lang b{font:inherit;font-weight:800;cursor:pointer;border-radius:9px;border:2px solid var(--ln);background:var(--card);color:var(--tx);padding:8px 13px}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+button.go{background:var(--ok);color:#fff;border-color:var(--ok)}
+input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln);background:var(--card);color:var(--tx);max-width:180px}
+.timer{margin-left:auto;font-weight:900;font-size:22px;font-variant-numeric:tabular-nums;background:var(--card);border:2px solid var(--ln);border-radius:10px;padding:5px 12px}
+.pcbadge{font-weight:800;background:#1f6feb;color:#fff;border-radius:999px;padding:4px 12px;font-size:13px}
+.lay{display:flex;gap:14px;flex-wrap:wrap}
+.boardwrap{flex:1 1 560px;min-width:300px}
+.side{flex:1 1 230px;min-width:220px}
+.board{position:relative;width:100%;aspect-ratio:600/430;background:linear-gradient(135deg,var(--board),#14301f);border:3px solid #0c2416;border-radius:14px;overflow:hidden;box-shadow:inset 0 0 40px rgba(0,0,0,.35)}
+#wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.trace{position:absolute;background:rgba(255,255,255,.06)}
+.slot{position:absolute;border:2px dashed rgba(255,255,255,.45);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:#d7ead9;font-size:11px;font-weight:700;padding:2px;line-height:1.1;z-index:2}
+/* i connettori = PRESE: rettangolo pieno con i "pin" */
+.slot.cable{border-style:solid;border-color:#caa23a;background:repeating-linear-gradient(90deg,#3a3320 0 3px,#4a4026 3px 6px);border-radius:3px;color:#ffe9b0;font-size:9px}
+.slot.full{opacity:0}
+.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
+.chip.placed{cursor:default}
+.chip.drag{z-index:999;transform:scale(1.06);box-shadow:0 10px 22px rgba(0,0,0,.4)}
+/* cavo piazzato = SPINOTTO che riempie la presa (niente scatola vuota) */
+.chip.plug{border-radius:3px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 6px rgba(0,0,0,.45);font-size:9px;z-index:5}
+.tray{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px;min-height:90px}
+.tray h2{font-size:15px;margin:2px 0 8px}
+.traybox{display:flex;flex-wrap:wrap;gap:8px;position:relative;min-height:60px}
+.tray .chip{position:static;min-width:76px;height:42px;cursor:grab}
+.tray .chip.cable{border-radius:999px;height:34px;min-width:98px;padding-left:24px;position:relative}
+.tray .chip.cable::before{content:"";position:absolute;left:8px;top:50%;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px rgba(0,0,0,.3)}
+.tray .chip.cable::after{content:"";position:absolute;left:-7px;top:50%;transform:translateY(-50%);width:9px;height:4px;border-radius:3px;background:currentColor;opacity:.55}
+.tray.over{outline:3px dashed var(--acc);outline-offset:3px;border-radius:12px}
+.list{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin-top:12px}
+.list h2{font-size:15px;margin:2px 0 6px}
+.list li{margin:3px 0;list-style:none;padding-left:22px;position:relative;font-size:14.5px}
+.list li::before{content:"○";position:absolute;left:2px;color:var(--mu)}
+.list li.done{color:var(--ok)}.list li.done::before{content:"✓";color:var(--ok);font-weight:900}
+.msg{margin:10px 0;padding:9px 12px;border-radius:10px;background:var(--card);border:1px solid var(--ln);font-weight:700;min-height:20px}
+.msg.ok{border-color:var(--ok);color:var(--ok)}.msg.no{border-color:var(--no);color:var(--no)}
+.win{display:none;text-align:center;background:linear-gradient(135deg,#1f6feb,#2f9e57);color:#fff;border-radius:14px;padding:16px;margin-top:12px;font-weight:800;font-size:19px}
+.win.show{display:block;animation:pop .4s}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.lang{display:flex;gap:4px}
+.lang b{padding:6px 9px;font-size:13px;opacity:.55}
+.lang b.on{opacity:1;border-color:var(--acc);color:var(--acc)}
+.ar{direction:rtl}
+.leg{font-size:12.5px;color:var(--mu);margin:2px 0 6px;display:flex;gap:16px;flex-wrap:wrap}
+.leg span{display:inline-flex;align-items:center;gap:6px}.leg i{display:inline-block;width:22px;height:12px;border-radius:3px;background:#7a5ba6}.leg i.c{height:4px;width:26px;background:#1f6feb}
+.rank{font-size:14px}.rank table{border-collapse:collapse;width:100%}.rank td{padding:3px 6px;border-bottom:1px solid var(--ln)}.rank td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:800}
+</style></head>
+<body><div class="w">
+<h1 id="t_title">Monta il PC — la sfida</h1>
+<p class="mu" id="t_sub">Scrivi il tuo nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.</p>
+<div class="leg"><span><i></i> <b id="t_dev">Dispositivo</b></span><span><i class="c"></i> <b id="t_cab">Cavo</b> (filo)</span></div>
+
+<div class="bar">
+  <input id="pcname" placeholder="Il tuo nome…" maxlength="22">
+  <button id="m_mount" class="on">🔧 <span id="t_mount">Rimonta</span></button>
+  <button id="m_un">↩︎ <span id="t_un">Smonta</span></button>
+  <button id="newpc">🎲 <span id="t_new">Nuovo PC</span></button>
+  <div class="lang"><b data-l="it" class="on">IT</b><b data-l="ar">عربي</b><b data-l="zh">中文</b></div>
+  <div class="timer" id="timer">0.0s</div>
+</div>
+<div class="bar"><span class="pcbadge" id="pcbadge">PC 1</span></div>
+
+<div class="msg" id="msg">—</div>
+
+<div class="lay">
+  <div class="boardwrap"><div class="board" id="board"></div></div>
+  <div class="side">
+    <div class="tray" id="tray"><h2 id="t_tray">Pezzi e cavi</h2><div class="traybox" id="traybox"></div></div>
+    <div class="list"><h2 id="t_todo">Da fare</h2><ul id="todo"></ul></div>
+    <div class="list rank"><h2 id="t_rank">Classifica (tempo medio)</h2><div id="rankbox"><p class="mu" id="t_rankempty">Ancora nessun tempo.</p></div></div>
+  </div>
+</div>
+
+<div class="win" id="win"></div>
+</div>
+<script>
+var I18N={
+ it:{title:"Monta il PC — la sfida",sub:"Scrivi il tuo nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.",
+     mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Il tuo nome…",dev:"Dispositivo",cab:"Cavo",
+     ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
+     start:"Trascina il primo pezzo: parte il cronometro.",unstart:"Stacca prima i cavi, poi i pezzi.",
+     win:"FATTO in ",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
+ ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب اسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
+     mount:"إعادة التركيب",un:"الفك",neu:"حاسوب جديد",tray:"القطع والكابلات",todo:"المطلوب",rank:"الترتيب (الوقت المتوسط)",rankempty:"لا أوقات بعد.",name:"اسمك…",dev:"جهاز",cab:"كابل",
+     ok:"أحسنت!",bad:"ليس هنا: انظر إلى الملصق.",need:"ضع أولاً القطعة التي يتصل بها.",needcpu:"ضع أولاً المعالج (CPU).",removecable:"افصل أولاً الكابلات المتصلة بهذه القطعة.",
+     start:"اسحب أول قطعة: يبدأ المؤقّت.",unstart:"افصل الكابلات أولاً ثم القطع.",
+     win:"تمّ في ",noname:"اكتب اسمك أولاً كي يُحسب الوقت.",again:"جرّب حاسوباً آخر: «حاسوب جديد»."},
+ zh:{title:"组装电脑 — 挑战",sub:"写上你的名字，然后尽快组装电脑。每次都是不同的电脑。",
+     mount:"重新组装",un:"拆卸",neu:"新电脑",tray:"零件和线缆",todo:"待办",rank:"排行榜（平均时间）",rankempty:"还没有成绩。",name:"你的名字…",dev:"设备",cab:"线缆",
+     ok:"很好！",bad:"不在这里：看标签。",need:"请先放它要连接的零件。",needcpu:"请先放处理器（CPU）。",removecable:"请先拔掉连接此零件的线缆。",
+     start:"拖入第一个零件：计时开始。",unstart:"先拔线缆，再拆零件。",
+     win:"完成，用时 ",noname:"先写名字，成绩才会计入排行榜。",again:"试试另一台电脑：“新电脑”。"}
+};
+
+var SLOTS={
+ socket:{x:8,y:10,w:26,h:30,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
+ ram1:{x:42,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
+ ram2:{x:51,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
+ pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
+ ssd:{x:70,y:68,w:24,h:16,it:"Alloggio disco",ar:"مكان القرص",zh:"硬盘位"},
+ psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
+ fanc:{x:30,y:1.5,w:13,h:6,it:"Presa ventola CPU",ar:"مروحة المعالج",zh:"CPU 风扇",cable:1},
+ fancase:{x:79,y:2,w:13,h:6,it:"Presa ventola case",ar:"مروحة العلبة",zh:"机箱风扇",cable:1},
+ atx24:{x:89,y:16,w:8,h:22,it:"Presa 24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
+ sata:{x:89,y:46,w:8,h:9,it:"Presa SATA",ar:"SATA",zh:"SATA",cable:1},
+ fpanel:{x:62,y:52,w:15,h:8,it:"Presa power",ar:"زر التشغيل",zh:"开机",cable:1},
+ usb:{x:62,y:63,w:15,h:8,it:"Presa USB",ar:"USB",zh:"USB",cable:1}
+};
+var ALL=[
+ {id:"cpu",slot:"socket",color:"#c98a2e",it:"CPU",ar:"المعالج",zh:"CPU"},
+ {id:"cooler",slot:"socket",color:"#5b7fa6",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
+ {id:"ram_a",slot:"ram1",color:"#7a5ba6",it:"RAM 1",ar:"ذاكرة ١",zh:"内存1"},
+ {id:"ram_b",slot:"ram2",color:"#7a5ba6",it:"RAM 2",ar:"ذاكرة ٢",zh:"内存2"},
+ {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
+ {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD"},
+ {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
+ {id:"cfanc",slot:"fanc",s:"CPU",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:27,y:14},needs:["cooler"]},
+ {id:"cfancase",slot:"fancase",s:"CASE",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:96,y:9}},
+ {id:"c24",slot:"atx24",s:"24",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:80,y:90},needs:["psu"]},
+ {id:"csata",slot:"sata",s:"SATA",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:80,y:72},needs:["ssd"]},
+ {id:"cfp",slot:"fpanel",s:"ON",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:8,y:96}},
+ {id:"cusb",slot:"usb",s:"USB",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:40,y:97}}
+];
+/* 3 PC diversi (sottoinsiemi). I primi 4 cavi sono gli essenziali. */
+var PRESETS=[
+ {n:1,parts:["cpu","cooler","ram_a","ssd","psu","cfanc","cfancase","c24","csata"]},
+ {n:2,parts:["cpu","cooler","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp"]},
+ {n:3,parts:["cpu","cooler","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp","cusb"]}
+];
+
+var SVGNS='http://www.w3.org/2000/svg';
+var L="it",MODE="mount",board=document.getElementById('board'),tray=document.getElementById('traybox'),
+ traywrap=document.getElementById('tray'),todo=document.getElementById('todo'),msg=document.getElementById('msg'),win=document.getElementById('win');
+var placed={},PARTS=[],usedSlots={},preset=PRESETS[0];
+var t0=0,tRun=false,tInt=null;
+function T(k){return I18N[L][k]}
+function setMsg(t,c){msg.textContent=t;msg.className='msg'+(c?' '+c:'')}
+function cxf(s){return s.x+s.w/2} function cyf(s){return s.y+s.h/2}
+function byId(id){for(var i=0;i<ALL.length;i++)if(ALL[i].id===id)return ALL[i];return null}
+
+function pickPC(n){ preset = n?PRESETS[n-1]:PRESETS[Math.floor(Math.random()*PRESETS.length)];
+ PARTS = preset.parts.map(byId); usedSlots={}; PARTS.forEach(function(p){usedSlots[p.slot]=1});
+ document.getElementById('pcbadge').textContent='PC '+preset.n;
+ reset();
+}
+
+function drawBoard(){
+ board.innerHTML='<svg id="wires" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>';
+ [[4,55,40,2],[20,30,2,45],[60,20,2,40],[46,52,40,2]].forEach(function(t){var d=document.createElement('div');d.className='trace';d.style.left=t[0]+'%';d.style.top=t[1]+'%';d.style.width=t[2]+'%';d.style.height=t[3]+'%';board.appendChild(d)});
+ for(var id in SLOTS){ if(!usedSlots[id])continue; var s=SLOTS[id];
+  var el=document.createElement('div');el.className='slot'+(s.cable?' cable':'');el.id='slot_'+id;el.dataset.slot=id;
+  el.style.left=s.x+'%';el.style.top=s.y+'%';el.style.width=s.w+'%';el.style.height=s.h+'%';el.textContent=s[L]||s.it;board.appendChild(el);
+ }
+}
+function wirePath(a,b){var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy)||1,off=Math.min(16,len*0.3);var mx=(a.x+b.x)/2-dy/len*off,my=(a.y+b.y)/2+dx/len*off;return 'M'+a.x+' '+a.y+' Q'+mx+' '+my+' '+b.x+' '+b.y}
+function drawWire(p){var svg=document.getElementById('wires');if(!svg)return;clearWire(p.id);var s=SLOTS[p.slot],b={x:cxf(s),y:cyf(s)},a=p.from;
+ var g=document.createElementNS(SVGNS,'g');g.id='wire_'+p.id;
+ var pa=document.createElementNS(SVGNS,'path');pa.setAttribute('d',wirePath(a,b));pa.setAttribute('fill','none');pa.setAttribute('stroke',p.color);pa.setAttribute('stroke-width','3.2');pa.setAttribute('stroke-linecap','round');pa.setAttribute('vector-effect','non-scaling-stroke');g.appendChild(pa);
+ var c=document.createElementNS(SVGNS,'circle');c.setAttribute('cx',a.x);c.setAttribute('cy',a.y);c.setAttribute('r','1.8');c.setAttribute('fill',p.color);c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','0.5');g.appendChild(c);
+ svg.appendChild(g)}
+function clearWire(id){var g=document.getElementById('wire_'+id);if(g)g.parentNode.removeChild(g)}
+function makeChip(p){var c=document.createElement('div');c.className='chip'+(p.cable?' cable':'');c.id='chip_'+p.id;c.dataset.id=p.id;c.style.background=p.color;c.textContent=p[L]||p.it;c.addEventListener('pointerdown',startDrag);return c}
+function placeOnBoard(p){var s=SLOTS[p.slot],c=document.getElementById('chip_'+p.id)||makeChip(p);c.classList.add('placed');c.style.position='absolute';
+ c.style.left=s.x+'%';c.style.top=s.y+'%';c.style.width=s.w+'%';c.style.height=s.h+'%';
+ if(p.cable){c.classList.add('plug');c.textContent=p.s||'';c.style.fontSize='9px';board.appendChild(c);drawWire(p)}
+ else{c.style.fontSize='12px';board.appendChild(c)}
+ var sl=document.getElementById('slot_'+p.slot);if(sl)sl.classList.add('full')}
+
+function reset(){placed={};drawBoard();tray.innerHTML='';win.className='win';win.innerHTML='';stopTimer();setTime(0);
+ if(MODE==='mount'){PARTS.forEach(function(p){tray.appendChild(makeChip(p))});setMsg(T('start'))}
+ else{PARTS.forEach(function(p){placed[p.id]=true;placeOnBoard(p)});setMsg(T('unstart'))}
+ renderTodo()}
+function renderTodo(){todo.innerHTML='';PARTS.forEach(function(p){var li=document.createElement('li');li.textContent=p[L]||p.it;var done=(MODE==='mount')?placed[p.id]:!placed[p.id];if(done)li.className='done';todo.appendChild(li)});
+ var allIn=PARTS.every(function(p){return placed[p.id]});if(MODE==='mount'&&allIn)finish()}
+
+/* ---- cronometro ---- */
+function setTime(ms){document.getElementById('timer').textContent=(ms/1000).toFixed(1)+'s'}
+function startTimer(){if(tRun)return;tRun=true;t0=Date.now();tInt=setInterval(function(){setTime(Date.now()-t0)},100)}
+function stopTimer(){tRun=false;if(tInt){clearInterval(tInt);tInt=null}}
+function finish(){stopTimer();var ms=Date.now()-t0;setTime(ms);
+ var nm=document.getElementById('pcname').value.trim();
+ win.className='win show';
+ win.innerHTML=T('win')+'<b>'+(ms/1000).toFixed(1)+'s</b> — PC '+preset.n+'!<br><span style="font-size:14px;font-weight:600">'+(nm?T('again'):T('noname'))+'</span>';
+ if(nm){record(nm,ms);renderRank()}
+}
+
+/* ---- classifica (tempo medio per allievo, in questo browser) ---- */
+function load(){try{return JSON.parse(localStorage.getItem('montapc_v3')||'{}')}catch(e){return {}}}
+function save(d){try{localStorage.setItem('montapc_v3',JSON.stringify(d))}catch(e){}}
+function record(nm,ms){var d=load();(d[nm]=d[nm]||[]).push(ms);if(d[nm].length>20)d[nm]=d[nm].slice(-20);save(d)}
+function renderRank(){var d=load(),rows=Object.keys(d).map(function(n){var a=d[n],avg=a.reduce(function(s,x){return s+x},0)/a.length;return {n:n,avg:avg,c:a.length}});
+ rows.sort(function(x,y){return x.avg-y.avg});
+ var box=document.getElementById('rankbox');
+ if(!rows.length){box.innerHTML='<p class="mu">'+T('rankempty')+'</p>';return}
+ box.innerHTML='<table><tbody>'+rows.slice(0,12).map(function(r,i){return '<tr><td>'+(i+1)+'. '+esc(r.n)+' <span class="mu">('+r.c+')</span></td><td>'+(r.avg/1000).toFixed(1)+'s</td></tr>'}).join('')+'</tbody></table>'}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+/* ---- drag ---- */
+var drag=null;
+function startDrag(ev){var id=this.dataset.id,p=byId(id);
+ if(MODE==='mount'&&placed[id])return;
+ if(MODE==='un'){if(!placed[id])return;if(!p.cable&&cableStillOn(id)){setMsg(T('removecable'),'no');return}}
+ ev.preventDefault();var chip=this,r=chip.getBoundingClientRect();
+ drag={id:id,p:p,chip:chip,dx:ev.clientX-r.left,dy:ev.clientY-r.top};
+ chip.classList.add('drag');chip.style.position='fixed';chip.style.width=r.width+'px';chip.style.height=r.height+'px';
+ if(p.cable)clearWire(id);moveDrag(ev);
+ document.addEventListener('pointermove',moveDrag);document.addEventListener('pointerup',endDrag);
+ if(MODE==='un')traywrap.classList.add('over')}
+function moveDrag(ev){if(!drag)return;drag.chip.style.left=(ev.clientX-drag.dx)+'px';drag.chip.style.top=(ev.clientY-drag.dy)+'px'}
+function endDrag(ev){if(!drag)return;document.removeEventListener('pointermove',moveDrag);document.removeEventListener('pointerup',endDrag);traywrap.classList.remove('over');var d=drag;drag=null;d.chip.classList.remove('drag');if(MODE==='mount')dropMount(d,ev);else dropUn(d,ev)}
+function dropMount(d,ev){var slot=document.getElementById('slot_'+d.p.slot);
+ if(slot&&overlap(d.chip,slot)){var miss=(d.p.needs||[]).filter(function(n){return !placed[n]});
+  if(miss.length){backToTray(d);setMsg(d.p.id==='cooler'?T('needcpu'):T('need'),'no');return}
+  startTimer();placed[d.p.id]=true;placeOnBoard(d.p);setMsg(T('ok'),'ok');renderTodo();return}
+ backToTray(d);setMsg(T('bad'),'no')}
+function dropUn(d,ev){if(overlap(d.chip,traywrap)){placed[d.p.id]=false;if(d.p.cable)clearWire(d.p.id);var sl=document.getElementById('slot_'+d.p.slot);if(sl)sl.classList.remove('full');backToTray(d);setMsg(T('ok'),'ok');renderTodo();return}placeOnBoard(d.p)}
+function backToTray(d){var chip=d.chip,p=d.p;chip.classList.remove('placed','plug');chip.style.position='static';chip.style.left='';chip.style.top='';chip.style.width='';chip.style.height='';chip.style.fontSize='';if(p.cable)chip.textContent=p[L]||p.it;tray.appendChild(chip)}
+function cableStillOn(id){return PARTS.some(function(p){return p.cable&&placed[p.id]&&(p.needs||[]).indexOf(id)>=0})}
+function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();var X=r.left+r.width/2,Y=r.top+r.height/2;return X>=s.left&&X<=s.right&&Y>=s.top&&Y<=s.bottom}
+
+function applyLang(){document.documentElement.lang=L;document.body.classList.toggle('ar',L==='ar');
+ ['title','sub','mount','un','tray','todo','rank','dev','cab'].forEach(function(k){var e=document.getElementById('t_'+k);if(e)e.textContent=T(k)});
+ var nw=document.getElementById('t_new');if(nw)nw.textContent=T('neu');
+ document.getElementById('pcname').placeholder=T('name');reset();renderRank()}
+document.querySelectorAll('.lang b').forEach(function(b){b.onclick=function(){L=b.dataset.l;document.querySelectorAll('.lang b').forEach(function(x){x.classList.toggle('on',x===b)});applyLang()}});
+document.getElementById('m_mount').onclick=function(){MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
+document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
+document.getElementById('newpc').onclick=function(){MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
+
+pickPC(1);renderRank();
+</script></body></html>
