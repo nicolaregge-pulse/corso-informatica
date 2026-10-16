@@ -673,6 +673,7 @@ function AUTO_cruscotto(id, cb) {
     for (var r = 1; r < dati.length; r++) {
       if (String(dati[r][1]) !== id) continue;
       var nome = String(dati[r][3] || '').trim(); if (!nome) continue;
+      if (/^(prova|test|demo)\b/i.test(nome)) continue;   // eventi di prova: fuori dalla classifica
       var d; try { d = JSON.parse(dati[r][6]); } catch (x) { continue; }
       var ms = Number(d.ms) || 0, k = nome.toLowerCase();
       var s = out[k] || (out[k] = { nome: nome, asm: 0, dis: 0, ta: [] });
