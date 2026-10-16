@@ -658,7 +658,39 @@ function AUTO_gh(method, path, payload) {
    Chi ha accesso: chiunque nella scuola (o chiunque) -> Distribuisci -> copia l'URL che finisce con /exec. */
 function doGet(e) {
   AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
+  if (e && e.parameter && e.parameter.cruscotto) return AUTO_cruscotto(e.parameter.cruscotto, e.parameter.callback);   // v7.8: classifica dal vivo
   return AUTO_paginaArrivo('Pagina pronta', 'Da qui arrivano le consegne delle verifiche del corso.', '#1f6feb');
+}
+/* v7.8 — CLASSIFICA DAL VIVO (per il cruscotto pubblico del gioco «Monta il PC»).
+   Legge il Foglio «Arrivi verifiche», tiene solo gli eventi dell'id chiesto, raggruppa per nome:
+   assemblati, smontati, tempo medio e record (SOLO assemblaggio), punteggio = asm×1 + dis×0,7.
+   Risponde in JSON (o JSONP se arriva ?callback=). I nomi NON stanno nel repo: li serve lo script. */
+function AUTO_cruscotto(id, cb) {
+  id = String(id || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
+  var out = {};
+  try {
+    var dati = AUTO_foglioArrivi().getDataRange().getValues();
+    for (var r = 1; r < dati.length; r++) {
+      if (String(dati[r][1]) !== id) continue;
+      var nome = String(dati[r][3] || '').trim(); if (!nome) continue;
+      var d; try { d = JSON.parse(dati[r][6]); } catch (x) { continue; }
+      var ms = Number(d.ms) || 0, k = nome.toLowerCase();
+      var s = out[k] || (out[k] = { nome: nome, asm: 0, dis: 0, ta: [] });
+      if (d.tipo === 'smontato') { s.dis++; } else { s.asm++; if (ms > 0) s.ta.push(ms); }
+    }
+  } catch (x) {}
+  var rows = [];
+  for (var kk in out) {
+    var s2 = out[kk], tot = 0; for (var i = 0; i < s2.ta.length; i++) tot += s2.ta[i];
+    rows.push({ nome: s2.nome, asm: s2.asm, dis: s2.dis,
+      medio: s2.ta.length ? Math.round(tot / s2.ta.length) : 0,
+      record: s2.ta.length ? Math.min.apply(null, s2.ta) : 0,
+      pt: Math.round((s2.asm + 0.7 * s2.dis) * 10) / 10 });
+  }
+  rows.sort(function (a, b) { return b.pt - a.pt || (a.record || 9e9) - (b.record || 9e9); });
+  var payload = JSON.stringify({ ok: true, id: id, quando: new Date().toISOString(), righe: rows });
+  if (cb) return ContentService.createTextOutput(String(cb).replace(/[^\w$.]/g, '') + '(' + payload + ')').setMimeType(ContentService.MimeType.JAVASCRIPT);
+  return ContentService.createTextOutput(payload).setMimeType(ContentService.MimeType.JSON);
 }
 function doPost(e) {
   AUTO_assicuraTimer();   // v7.7: ogni consegna tiene vivo il ponte

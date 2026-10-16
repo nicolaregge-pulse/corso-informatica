@@ -227,17 +227,19 @@ function finishUn(){stopTimer();var ms=Date.now()-t0;setTime(ms);
 }
 
 /* ---- punteggio e classifica (montare=1, smontare=0,7) ---- */
-function load(){try{var d=JSON.parse(localStorage.getItem('montapc_v3')||'{}');for(var k in d){if(Array.isArray(d[k]))d[k]={t:d[k],asm:d[k].length,dis:0}}return d}catch(e){return {}}}
+function load(){try{var d=JSON.parse(localStorage.getItem('montapc_v3')||'{}');for(var k in d){var e=d[k];if(Array.isArray(e))d[k]={ta:e,td:[],asm:e.length,dis:0};else if(e&&e.t&&!e.ta){d[k]={ta:e.t,td:[],asm:e.asm||e.t.length,dis:e.dis||0}}}return d}catch(e){return {}}}
 function save(d){try{localStorage.setItem('montapc_v3',JSON.stringify(d))}catch(e){}}
-function record(nm,ms,tipo){var d=load();var e=d[nm]=d[nm]||{t:[],asm:0,dis:0};e.t.push(ms);if(e.t.length>60)e.t=e.t.slice(-60);if(tipo==='dis')e.dis++;else e.asm++;save(d)}
+function record(nm,ms,tipo){var d=load();var e=d[nm]=d[nm]||{ta:[],td:[],asm:0,dis:0};if(tipo==='dis'){e.td.push(ms);if(e.td.length>60)e.td=e.td.slice(-60);e.dis++}else{e.ta.push(ms);if(e.ta.length>60)e.ta=e.ta.slice(-60);e.asm++}save(d)}
 function punteggio(e){return e.asm+0.7*e.dis}
+function mediaAsm(e){return e.ta&&e.ta.length?e.ta.reduce(function(s,x){return s+x},0)/e.ta.length:0}
+function bestAsm(e){return e.ta&&e.ta.length?Math.min.apply(null,e.ta):0}
 function fmt(x){return (Math.round(x*10)/10).toString()}
-function renderRank(){var d=load(),rows=Object.keys(d).map(function(n){var e=d[n],avg=e.t.length?e.t.reduce(function(s,x){return s+x},0)/e.t.length:0;return {n:n,avg:avg,asm:e.asm,dis:e.dis,p:punteggio(e)}});
- rows.sort(function(x,y){return y.p-x.p||x.avg-y.avg});
+function renderRank(){var d=load(),rows=Object.keys(d).map(function(n){var e=d[n];return {n:n,avg:mediaAsm(e),best:bestAsm(e),asm:e.asm,dis:e.dis,p:punteggio(e)}});
+ rows.sort(function(x,y){return y.p-x.p||(x.best||9e9)-(y.best||9e9)});
  var box=document.getElementById('rankbox');
  if(!rows.length){box.innerHTML='<p class="mu">'+T('rankempty')+'</p>';return}
- box.innerHTML='<table><tbody>'+rows.slice(0,12).map(function(r,i){return '<tr><td>'+(i+1)+'. '+esc(r.n)+'<br><span class="mu" style="font-size:11px">🔧'+r.asm+' · ↩'+r.dis+' · media '+(r.avg/1000).toFixed(0)+'s</span></td><td>'+fmt(r.p)+' pt</td></tr>'}).join('')+'</tbody></table>'}
-function renderMy(){var el=document.getElementById('mystats');if(!el)return;var nm=document.getElementById('pcname').value.trim();if(!nm){el.textContent='';return}var d=load(),e=d[nm];if(!e||!e.t.length){el.innerHTML='<span class="mu">Ancora niente a tuo nome.</span>';return}var avg=e.t.reduce(function(s,x){return s+x},0)/e.t.length;el.innerHTML='<b>'+esc(nm)+'</b> · 🔧 '+e.asm+' assemblati · ↩ '+e.dis+' smontati · tempo medio <b>'+(avg/1000).toFixed(1)+'s</b> · <b>'+fmt(punteggio(e))+' pt</b>'}
+ box.innerHTML='<table><tbody>'+rows.slice(0,12).map(function(r,i){return '<tr><td>'+(i+1)+'. '+esc(r.n)+'<br><span class="mu" style="font-size:11px">🔧'+r.asm+' · ↩'+r.dis+' · medio '+(r.avg/1000).toFixed(0)+'s · record '+(r.best?(r.best/1000).toFixed(1)+'s':'–')+'</span></td><td>'+fmt(r.p)+' pt</td></tr>'}).join('')+'</tbody></table>'}
+function renderMy(){var el=document.getElementById('mystats');if(!el)return;var nm=document.getElementById('pcname').value.trim();if(!nm){el.textContent='';return}var d=load(),e=d[nm];if(!e||(!e.asm&&!e.dis)){el.innerHTML='<span class="mu">Ancora niente a tuo nome.</span>';return}var avg=mediaAsm(e),best=bestAsm(e);el.innerHTML='<b>'+esc(nm)+'</b> · 🔧 '+e.asm+' assemblati · ↩ '+e.dis+' smontati · tempo medio <b>'+(avg?(avg/1000).toFixed(1)+'s':'–')+'</b> · record <b>'+(best?(best/1000).toFixed(1)+'s':'–')+'</b> · <b>'+fmt(punteggio(e))+' pt</b>'}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 /* ---- invio al centro (per il cruscotto del prof) ---- */
 var EXEC='';try{fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){})}catch(ex){}

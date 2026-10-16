@@ -1,0 +1,65 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Classifica — Monta il PC</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#dde3ea;--acc:#1f6feb;--gold:#d9a400}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--gold:#e3b341}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--gold:#e3b341}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:18px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:20px}
+.w{max-width:960px;margin:0 auto}
+h1{font-size:clamp(22px,4vw,32px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0 14px;font-size:15px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:10px 0 16px}
+button{font:inherit;font-weight:800;cursor:pointer;border-radius:10px;border:2px solid var(--acc);background:var(--acc);color:#fff;padding:8px 16px}
+.upd{color:var(--mu);font-size:14px;margin-left:auto}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px}
+.k{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 16px;min-width:120px}
+.k b{font-size:26px;display:block}.k span{color:var(--mu);font-size:13px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--ln);border-radius:14px;overflow:hidden}
+th,td{padding:12px 12px;text-align:left;border-bottom:1px solid var(--ln);font-variant-numeric:tabular-nums}
+th{background:rgba(127,127,127,.08);font-size:14px;color:var(--mu)}
+.nm{font-weight:800;font-size:20px}.v{font-weight:900;color:var(--acc);font-size:20px}
+tr.top1 td{background:rgba(217,164,0,.14)}tr.top1 .pos{color:var(--gold)}
+.pos{font-weight:900;width:46px}
+.empty{background:var(--card);border:1px dashed var(--ln);border-radius:14px;padding:30px;text-align:center;color:var(--mu)}
+</style></head>
+<body><div class="w">
+<h1>🏆 Classifica — Monta il PC</h1>
+<p class="sub">Punteggio = assemblati ×1 + smontati ×0,7 · tempo medio e record contano solo gli assemblaggi</p>
+<div class="bar">
+  <button id="agg">Aggiorna adesso</button>
+  <label style="font-size:14px;color:var(--mu)"><input type="checkbox" id="auto" checked> aggiorna da sola</label>
+  <span class="upd" id="upd">—</span>
+</div>
+<div class="kpi" id="kpi"></div>
+<div id="out"><div class="empty">In attesa dei primi punteggi…</div></div>
+</div>
+<script>
+var ID=(location.search.match(/[?&]id=([a-z0-9-]+)/i)||[])[1]||'monta-pc-lab';
+var EXEC='';
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function sec(ms){return ms?(ms/1000).toFixed(ms<100000?1:0).replace(/\.0$/,'')+'s':'–'}
+function render(d){
+  var rows=(d&&d.righe)||[];
+  var out=document.getElementById('out');
+  if(!rows.length){out.innerHTML='<div class="empty">In attesa dei primi punteggi…<br><span style="font-size:14px">(compariranno appena un allievo completa un PC)</span></div>';document.getElementById('kpi').innerHTML='';return}
+  var ta=rows.reduce(function(s,r){return s+r.asm},0),td=rows.reduce(function(s,r){return s+r.dis},0);
+  document.getElementById('kpi').innerHTML='<div class="k"><b>'+rows.length+'</b><span>allievi in gara</span></div>'+
+    '<div class="k"><b>'+ta+'</b><span>assemblati</span></div><div class="k"><b>'+td+'</b><span>smontati</span></div>';
+  out.innerHTML='<table><tr><th class=pos>#</th><th>Allievo</th><th>🔧</th><th>↩</th><th>Medio</th><th>Record</th><th>Punti</th></tr>'+
+    rows.map(function(r,i){return '<tr class="'+(i===0?'top1':'')+'"><td class=pos>'+(i+1)+'</td><td class=nm>'+esc(r.nome)+'</td><td>'+r.asm+'</td><td>'+r.dis+'</td><td>'+sec(r.medio)+'</td><td>'+sec(r.record)+'</td><td class=v>'+r.pt+'</td></tr>'}).join('')+'</table>';
+}
+var DEMO=/[?&]demo/.test(location.search);
+var SAMPLE={righe:[{nome:'Ahmed B.',asm:3,dis:1,medio:38300,record:35000,pt:3.7},{nome:'Marco P.',asm:2,dis:2,medio:42500,record:40000,pt:3.4},{nome:'Lucia R.',asm:2,dis:0,medio:52500,record:50000,pt:2}]};
+var _n=0;
+function carica(){
+  if(DEMO){render(SAMPLE);document.getElementById('upd').textContent='DEMO · dati finti di prova';return}
+  if(!EXEC){document.getElementById('upd').textContent='manca l\'indirizzo dello script';return}
+  var cb='cb'+(++_n), s=document.createElement('script');
+  window[cb]=function(d){try{render(d)}catch(e){} var now=new Date();document.getElementById('upd').textContent='aggiornato alle '+now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});try{delete window[cb]}catch(e){} s.remove()};
+  s.src=EXEC+(EXEC.indexOf('?')<0?'?':'&')+'cruscotto='+encodeURIComponent(ID)+'&callback='+cb+'&t='+Date.now();
+  s.onerror=function(){document.getElementById('upd').textContent='non raggiungo lo script (riprovo)';s.remove()};
+  document.body.appendChild(s);
+}
+document.getElementById('agg').onclick=carica;
+if(DEMO){carica()}else{fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||'';carica()}).catch(function(){document.getElementById('upd').textContent='manca config.json'})}
+setInterval(function(){if(document.getElementById('auto').checked)carica()},20000);
+</script></body></html>
