@@ -24,6 +24,9 @@ def main():
         nm = (d.get('nome') or '').strip()
         if not nm:
             continue
+        low = nm.lower()
+        if low.startswith('prova') or low.startswith('test') or low.startswith('demo'):
+            continue  # eventi di prova: non entrano nella classifica
         s = stud.setdefault(nm.lower(), {'nome': nm, 'asm': 0, 'dis': 0, 'ta': []})
         try:
             ms = float(d.get('ms') or 0)
