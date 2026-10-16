@@ -24,29 +24,35 @@ def main():
         nm = (d.get('nome') or '').strip()
         if not nm:
             continue
-        s = stud.setdefault(nm.lower(), {'nome': nm, 'asm': 0, 'dis': 0, 't': []})
+        s = stud.setdefault(nm.lower(), {'nome': nm, 'asm': 0, 'dis': 0, 'ta': []})
+        try:
+            ms = float(d.get('ms') or 0)
+        except Exception:
+            ms = 0
         if d.get('tipo') == 'smontato':
             s['dis'] += 1
         else:
             s['asm'] += 1
-        try:
-            s['t'].append(float(d.get('ms') or 0))
-        except Exception:
-            pass
+            if ms > 0:
+                s['ta'].append(ms)  # tempi solo ASSEMBLAGGIO
     rows = list(stud.values())
     for s in rows:
         s['pt'] = s['asm'] + 0.7 * s['dis']
-        tt = [x for x in s['t'] if x > 0]
+        tt = s['ta']
         s['avg'] = (sum(tt) / len(tt) / 1000.0) if tt else 0.0
-    rows.sort(key=lambda s: (-s['pt'], s['avg'] or 9e9))
+        s['best'] = (min(tt) / 1000.0) if tt else 0.0
+    rows.sort(key=lambda s: (-s['pt'], s['best'] or 9e9))
 
     def e(x): return html.escape(str(x))
     def fmt(x): return ('%.1f' % x).rstrip('0').rstrip('.')
     tot_asm = sum(s['asm'] for s in rows)
     tot_dis = sum(s['dis'] for s in rows)
     body = ''.join(
-        '<tr><td>%d</td><td class=nm>%s</td><td>%d</td><td>%d</td><td>%s</td><td class=v>%s</td></tr>' % (
-            i + 1, e(s['nome']), s['asm'], s['dis'], ('%.0fs' % s['avg']) if s['avg'] else '–', fmt(s['pt']))
+        '<tr><td>%d</td><td class=nm>%s</td><td>%d</td><td>%d</td><td>%s</td><td>%s</td><td class=v>%s</td></tr>' % (
+            i + 1, e(s['nome']), s['asm'], s['dis'],
+            ('%.0fs' % s['avg']) if s['avg'] else '–',
+            ('%.1fs' % s['best']) if s['best'] else '–',
+            fmt(s['pt']))
         for i, s in enumerate(rows))
     HTML = """<!doctype html><html lang=it><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1">
 <title>Cruscotto assemblatore</title><style>
@@ -67,10 +73,10 @@ th{{background:rgba(127,127,127,.08);font-size:13px;color:var(--mu)}}.nm{{font-w
 <div class=k><b>{ta}</b><span>assemblati tot.</span></div>
 <div class=k><b>{td}</b><span>smontati tot.</span></div>
 </div>
-<table><tr><th>#</th><th>Allievo</th><th>🔧 Assemblati</th><th>↩ Smontati</th><th>Tempo medio</th><th>Punteggio</th></tr>
+<table><tr><th>#</th><th>Allievo</th><th>🔧 Assemblati</th><th>↩ Smontati</th><th>Medio (asm)</th><th>Record (asm)</th><th>Punteggio</th></tr>
 {body}</table>
 <p class=sub style="margin-top:10px">Dati locali del browser di ciascun PC + inviati al centro. Se un allievo non compare, non ha ancora completato nessun PC o l'invio non è arrivato.</p>
-</div></body></html>""".format(n=len(rows), ta=tot_asm, td=tot_dis, body=body or '<tr><td colspan=6>Nessun dato ancora.</td></tr>')
+</div></body></html>""".format(n=len(rows), ta=tot_asm, td=tot_dis, body=body or '<tr><td colspan=7>Nessun dato ancora.</td></tr>')
     open(out, 'w').write(HTML)
     print('OK allievi %d · assemblati %d · smontati %d -> %s' % (len(rows), tot_asm, tot_dis, out))
 
