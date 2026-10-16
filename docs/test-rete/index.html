@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Test di rete</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#d5dbe2;--acc:#1f6feb;--ok:#2f9e57;--no:#e0413a;--warn:#b4860b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--no:#f85149;--warn:#d29922}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--no:#f85149;--warn:#d29922}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,Segoe UI,Arial,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:14px 16px 50px}
+h1{font-size:clamp(21px,5vw,28px);margin:6px 0 2px}h2{font-size:17px;margin:20px 0 6px}
+.mu{color:var(--mu)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+button{font:inherit;font-weight:800;cursor:pointer;border-radius:10px;border:2px solid var(--ln);background:var(--card);color:var(--tx);padding:10px 16px}
+button.go{background:var(--acc);color:#fff;border-color:var(--acc)}
+button.stop{background:var(--no);color:#fff;border-color:var(--no)}
+button:disabled{opacity:.5;cursor:not-allowed}
+label.chk{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0}
+.kpi div{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 14px}
+.kpi b{display:block;font-size:30px;line-height:1.1;margin-top:2px}
+.kpi small{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:8px 0;overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+td,th{border:1px solid var(--ln);padding:6px 9px;text-align:center}th{background:var(--acc);color:#fff}
+.ok{color:var(--ok);font-weight:800}.no{color:var(--no);font-weight:800}.warn{color:var(--warn);font-weight:800}
+.now{font-weight:800}
+.spark{height:34px;width:100%}
+</style></head>
+<body><div class="w">
+<h1>Test di rete</h1>
+<p class="mu">Velocità (download), latenza e «ping» verso questo sito. Si può ripetere all'infinito: va bene anche dove quasi tutto è bloccato, perché gira dal nostro sito.</p>
+
+<div class="bar">
+  <button id="run" class="go">▶ Fai un giro</button>
+  <label class="chk"><input type="checkbox" id="auto"> Giro automatico ogni
+    <select id="every"><option value="10">10 s</option><option value="30" selected>30 s</option><option value="60">60 s</option><option value="300">5 min</option></select>
+  </label>
+  <button id="copy">Copia la tabella</button>
+  <span id="state" class="mu"></span>
+</div>
+
+<div class="kpi">
+  <div>Download <b id="k_dl">—</b><small>Mbit/s · più alto = meglio</small></div>
+  <div>Latenza (ping) <b id="k_ping">—</b><small>millisecondi · più basso = meglio</small></div>
+  <div>Jitter <b id="k_jit">—</b><small>ms · quanto balla la latenza</small></div>
+  <div>Giri fatti <b id="k_n">0</b><small>si accumulano nella tabella</small></div>
+</div>
+
+<h2>Storico dei giri</h2>
+<div class="card"><table id="log"><thead><tr><th>#</th><th>Ora</th><th>Download Mbit/s</th><th>Ping medio ms</th><th>Jitter ms</th><th>Ping min–max</th></tr></thead><tbody id="logb"><tr><td colspan="6" class="mu">Ancora nessun giro. Premi «Fai un giro».</td></tr></tbody></table></div>
+
+<h2>Che cosa si raggiunge da qui</h2>
+<p class="mu">Prova a contattare alcuni siti noti: utile dove la rete blocca le cose. Verde = raggiungibile, rosso = bloccato o non raggiungibile.</p>
+<div class="bar"><button id="reach">Controlla i siti</button></div>
+<div class="card"><table id="rt"><thead><tr><th>Sito</th><th>Esito</th><th>Tempo ms</th></tr></thead><tbody id="rtb"><tr><td colspan="3" class="mu">Premi «Controlla i siti».</td></tr></tbody></table></div>
+
+</div>
+<script>
+var PING_N=16, DL_URL='payload.bin', DL_BYTES=4194304, PING_URL='ping.txt';
+var rows=[], n=0, timer=null, busy=false;
+function $(id){return document.getElementById(id)}
+function now(){return new Intl.DateTimeFormat('it-IT',{timeZone:'Europe/Rome',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())}
+function bust(u){return u+(u.indexOf('?')<0?'?':'&')+'_='+Date.now()+Math.random()}
+
+async function onePing(){
+  var t=performance.now();
+  await fetch(bust(PING_URL),{cache:'no-store'}).then(function(r){return r.text()});
+  return performance.now()-t;
+}
+async function pingTest(){
+  var s=[];
+  for(var i=0;i<PING_N;i++){ try{ var ms=await onePing(); if(i>0) s.push(ms); }catch(e){ } }
+  if(!s.length) return null;
+  var min=Math.min.apply(null,s), max=Math.max.apply(null,s), avg=s.reduce(function(a,b){return a+b},0)/s.length;
+  var jit=0; for(var k=1;k<s.length;k++) jit+=Math.abs(s[k]-s[k-1]); jit=s.length>1?jit/(s.length-1):0;
+  return {min:min,max:max,avg:avg,jit:jit};
+}
+async function dlTest(){
+  var t=performance.now();
+  var buf=await fetch(bust(DL_URL),{cache:'no-store'}).then(function(r){return r.arrayBuffer()});
+  var sec=(performance.now()-t)/1000;
+  var bytes=buf.byteLength||DL_BYTES;
+  return sec>0 ? (bytes*8/1e6)/sec : null;
+}
+async function oneRun(){
+  if(busy) return; busy=true; $('run').disabled=true; $('state').textContent='Sto misurando…';
+  try{
+    var p=await pingTest();
+    var dl=await dlTest();
+    n++;
+    var row={n:n,ora:now(),dl:dl,ping:p?p.avg:null,jit:p?p.jit:null,min:p?p.min:null,max:p?p.max:null};
+    rows.push(row);
+    $('k_dl').textContent = dl!=null? dl.toFixed(1):'—';
+    $('k_ping').textContent = p? Math.round(p.avg):'—';
+    $('k_jit').textContent = p? Math.round(p.jit):'—';
+    $('k_n').textContent = n;
+    drawLog();
+    $('state').textContent='Ultimo giro: '+row.ora;
+  }catch(e){ $('state').textContent='Errore nel giro (rete?).'; }
+  busy=false; $('run').disabled=false;
+}
+function cls(dl){ return dl==null?'no':(dl>=20?'ok':(dl>=5?'warn':'no')); }
+function drawLog(){
+  if(!rows.length) return;
+  $('logb').innerHTML = rows.slice().reverse().map(function(r){
+    return '<tr><td>'+r.n+'</td><td>'+r.ora+'</td><td class="'+cls(r.dl)+'">'+(r.dl!=null?r.dl.toFixed(1):'—')+'</td><td>'+(r.ping!=null?Math.round(r.ping):'—')+'</td><td>'+(r.jit!=null?Math.round(r.jit):'—')+'</td><td class="mu">'+(r.min!=null?Math.round(r.min)+'–'+Math.round(r.max):'—')+'</td></tr>';
+  }).join('');
+}
+$('run').onclick=oneRun;
+$('auto').onchange=function(){
+  if(this.checked){ oneRun(); timer=setInterval(oneRun, parseInt($('every').value,10)*1000); $('state').textContent='Giro automatico attivo.'; }
+  else { clearInterval(timer); timer=null; $('state').textContent='Giro automatico fermato.'; }
+};
+$('copy').onclick=function(){
+  var txt='#\tOra\tDownload Mbit/s\tPing ms\tJitter ms\tPing min\tPing max\n'+rows.map(function(r){
+    return [r.n,r.ora,r.dl!=null?r.dl.toFixed(1):'',r.ping!=null?Math.round(r.ping):'',r.jit!=null?Math.round(r.jit):'',r.min!=null?Math.round(r.min):'',r.max!=null?Math.round(r.max):''].join('\t');
+  }).join('\n');
+  navigator.clipboard.writeText(txt).then(function(){$('state').textContent='Tabella copiata.';},function(){$('state').textContent='Copia non riuscita.';});
+};
+
+/* raggiungibilità */
+var HOSTS=[
+  {n:'Il nostro sito',u:location.origin+'/corso-informatica/'},
+  {n:'Google',u:'https://www.google.com/favicon.ico'},
+  {n:'Cloudflare',u:'https://www.cloudflare.com/favicon.ico'},
+  {n:'GitHub',u:'https://github.com/favicon.ico'},
+  {n:'YouTube',u:'https://www.youtube.com/favicon.ico'},
+  {n:'Speedtest',u:'https://www.speedtest.net/favicon.ico'}
+];
+function reachOne(h){
+  var t=performance.now();
+  var ctl=new AbortController(), to=setTimeout(function(){ctl.abort()},5000);
+  return fetch(bust(h.u),{mode:'no-cors',cache:'no-store',signal:ctl.signal}).then(function(){
+    clearTimeout(to); return {ok:true,ms:Math.round(performance.now()-t)};
+  }).catch(function(){ clearTimeout(to); return {ok:false,ms:Math.round(performance.now()-t)}; });
+}
+$('reach').onclick=async function(){
+  this.disabled=true; $('rtb').innerHTML='<tr><td colspan="3" class="mu">Controllo in corso…</td></tr>';
+  var out=[];
+  for(var i=0;i<HOSTS.length;i++){ var r=await reachOne(HOSTS[i]); out.push({n:HOSTS[i].n,r:r}); }
+  $('rtb').innerHTML=out.map(function(o){
+    return '<tr><td>'+o.n+'</td><td class="'+(o.r.ok?'ok':'no')+'">'+(o.r.ok?'raggiungibile':'bloccato / no')+'</td><td class="mu">'+o.r.ms+'</td></tr>';
+  }).join('');
+  this.disabled=false;
+};
+</script></body></html>
