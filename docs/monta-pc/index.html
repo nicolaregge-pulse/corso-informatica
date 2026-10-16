@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Monta il PC</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#d5dbe2;--acc:#1f6feb;--ok:#2f9e57;--no:#e0413a;--board:#214a33;--slot:#2d6244}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--board:#17331f;--slot:#1f4a2d}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--board:#17331f;--slot:#1f4a2d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,Segoe UI,Arial,sans-serif;-webkit-user-select:none;user-select:none;touch-action:none}
+.w{max-width:1080px;margin:0 auto;padding:12px 14px 40px}
+h1{font-size:clamp(20px,5vw,28px);margin:4px 0}
+.mu{color:var(--mu)}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+button,.lang b{font:inherit;font-weight:800;cursor:pointer;border-radius:9px;border:2px solid var(--ln);background:var(--card);color:var(--tx);padding:8px 13px}
+button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+button.go{background:var(--ok);color:#fff;border-color:var(--ok)}
+button:disabled{opacity:.45;cursor:not-allowed}
+input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln);background:var(--card);color:var(--tx);max-width:190px}
+.lay{display:flex;gap:14px;flex-wrap:wrap}
+.boardwrap{flex:1 1 560px;min-width:300px}
+.side{flex:1 1 230px;min-width:220px}
+.board{position:relative;width:100%;aspect-ratio:600/430;background:linear-gradient(135deg,var(--board),#14301f);border:3px solid #0c2416;border-radius:14px;overflow:hidden;box-shadow:inset 0 0 40px rgba(0,0,0,.35)}
+.trace{position:absolute;background:rgba(255,255,255,.06)}
+.slot{position:absolute;border:2px dashed rgba(255,255,255,.45);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;color:#d7ead9;font-size:11px;font-weight:700;padding:2px;line-height:1.1}
+.slot.lit{border-color:#ffe27a;box-shadow:0 0 0 3px rgba(255,226,122,.35)}
+.slot.full{border-style:solid;border-color:rgba(255,255,255,.15)}
+.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none}
+.chip.placed{cursor:default}
+.chip.drag{z-index:999;transform:scale(1.06);box-shadow:0 10px 22px rgba(0,0,0,.4)}
+.tray{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px;min-height:90px}
+.tray h2{font-size:15px;margin:2px 0 8px}
+.traybox{display:flex;flex-wrap:wrap;gap:8px;position:relative;min-height:60px}
+.tray .chip{position:static;min-width:76px;height:42px;cursor:grab}
+.tray.over{outline:3px dashed var(--acc);outline-offset:3px;border-radius:12px}
+.list{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin-top:12px}
+.list h2{font-size:15px;margin:2px 0 6px}
+.list li{margin:3px 0;list-style:none;padding-left:22px;position:relative}
+.list li::before{content:"○";position:absolute;left:2px;color:var(--mu)}
+.list li.done{color:var(--ok)}
+.list li.done::before{content:"✓";color:var(--ok);font-weight:900}
+.msg{margin:10px 0;padding:9px 12px;border-radius:10px;background:var(--card);border:1px solid var(--ln);font-weight:700;min-height:20px}
+.msg.ok{border-color:var(--ok);color:var(--ok)}.msg.no{border-color:var(--no);color:var(--no)}
+.win{display:none;text-align:center;background:linear-gradient(135deg,#1f6feb,#2f9e57);color:#fff;border-radius:14px;padding:18px;margin-top:12px;font-weight:800;font-size:19px}
+.win.show{display:block;animation:pop .4s}
+@keyframes pop{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.lang{display:flex;gap:4px;margin-left:auto}
+.lang b{padding:6px 9px;font-size:13px;opacity:.55}
+.lang b.on{opacity:1;border-color:var(--acc);color:var(--acc)}
+.ar{direction:rtl}
+</style></head>
+<body><div class="w">
+<h1 id="t_title">Monta il PC</h1>
+<p class="mu" id="t_sub">Trascina ogni pezzo al suo posto sulla scheda madre. Prima i pezzi, poi tutti i cavi.</p>
+
+<div class="bar">
+  <button id="m_mount" class="on">🔧 <span id="t_mount">Rimonta</span></button>
+  <button id="m_un">↩︎ <span id="t_un">Smonta</span></button>
+  <input id="pcname" placeholder="Il mio PC si chiama…" maxlength="22">
+  <div class="lang">
+    <b data-l="it" class="on">IT</b><b data-l="ar">عربي</b><b data-l="zh">中文</b>
+  </div>
+</div>
+
+<div class="msg" id="msg">—</div>
+
+<div class="lay">
+  <div class="boardwrap">
+    <div class="board" id="board"></div>
+  </div>
+  <div class="side">
+    <div class="tray" id="tray"><h2 id="t_tray">Pezzi e cavi</h2><div class="traybox" id="traybox"></div></div>
+    <div class="list"><h2 id="t_todo">Da fare</h2><ul id="todo"></ul></div>
+  </div>
+</div>
+
+<div class="win" id="win"></div>
+</div>
+<script>
+/* ---------- testi nelle 3 lingue ---------- */
+var I18N={
+ it:{title:"Monta il PC",sub:"Trascina ogni pezzo al suo posto sulla scheda madre. Prima i pezzi, poi tutti i cavi.",
+     mount:"Rimonta",un:"Smonta",tray:"Pezzi e cavi",todo:"Da fare",name:"Il mio PC si chiama…",
+     ok:"Bene! al posto giusto.",bad:"Non è qui: riprova, guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",
+     needcpu:"Prima metti il processore (CPU).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
+     win:"FATTO! Il PC è assemblato. ",winon:" si accende: Windows parte!",presson:"Premi «Accendi»",on:"Accendi",
+     dropback:"Trascina qui per smontare",start:"Trascina i pezzi sulla scheda madre.",unstart:"Stacca prima i cavi, poi i pezzi. Trascinali nel riquadro a destra."},
+ ar:{title:"ركّب الحاسوب",sub:"اسحب كل قطعة إلى مكانها على اللوحة الأم. أولاً القطع، ثم كل الكابلات.",
+     mount:"إعادة التركيب",un:"الفك",tray:"القطع والكابلات",todo:"المطلوب",name:"اسم حاسوبي…",
+     ok:"أحسنت! في مكانه الصحيح.",bad:"ليس هنا: حاول مجدداً وانظر إلى الملصق.",need:"ضع أولاً القطعة التي يتصل بها.",
+     needcpu:"ضع أولاً المعالج (CPU).",removecable:"افصل أولاً الكابلات المتصلة بهذه القطعة.",
+     win:"تم! الحاسوب مركّب. ",winon:" يعمل: ويندوز يبدأ!",presson:"اضغط «تشغيل»",on:"تشغيل",
+     dropback:"اسحب هنا للفك",start:"اسحب القطع إلى اللوحة الأم.",unstart:"افصل الكابلات أولاً ثم القطع. اسحبها إلى المربع على اليمين."},
+ zh:{title:"组装电脑",sub:"把每个零件拖到主板上的正确位置。先装零件，再接所有线缆。",
+     mount:"重新组装",un:"拆卸",tray:"零件和线缆",todo:"待办",name:"我的电脑叫…",
+     ok:"很好！位置正确。",bad:"不在这里：再试一次，看标签。",need:"请先放它要连接的零件。",
+     needcpu:"请先放处理器（CPU）。",removecable:"请先拔掉连接此零件的线缆。",
+     win:"完成！电脑组装好了。 ",winon:" 开机：Windows 启动！",presson:"按“开机”",on:"开机",
+     dropback:"拖到这里来拆卸",start:"把零件拖到主板上。",unstart:"先拔线缆，再拆零件。把它们拖到右边的框里。"}
+};
+
+/* ---------- i posti sulla scheda madre (in % del riquadro) ---------- */
+var SLOTS={
+ socket:{x:8,y:10,w:26,h:30,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
+ ram1:{x:42,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
+ ram2:{x:51,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
+ pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe (بطاقة الرسوم)",zh:"PCIe（显卡）"},
+ ssd:{x:70,y:68,w:24,h:16,it:"Alloggio disco",ar:"مكان القرص",zh:"硬盘位"},
+ psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
+ atx24:{x:88,y:18,w:9,h:34,it:"24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
+ cpu8:{x:8,y:1,w:20,h:7,it:"CPU 8 pin",ar:"٨ دبابيس",zh:"CPU 8 针",cable:1},
+ fan:{x:36,y:1,w:12,h:7,it:"Ventola CPU",ar:"مروحة المعالج",zh:"CPU 风扇",cable:1},
+ sata:{x:88,y:60,w:9,h:12,it:"SATA dati",ar:"بيانات SATA",zh:"SATA 数据",cable:1},
+ fpanel:{x:66,y:52,w:16,h:10,it:"Front panel",ar:"لوحة أمامية",zh:"前面板",cable:1}
+};
+/* ---------- i pezzi (ordine, colore, dove vanno, cosa serve prima) ---------- */
+var PARTS=[
+ {id:"cpu",slot:"socket",color:"#c98a2e",it:"CPU",ar:"المعالج",zh:"CPU"},
+ {id:"cooler",slot:"socket",color:"#5b7fa6",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
+ {id:"ram_a",slot:"ram1",color:"#7a5ba6",it:"RAM 1",ar:"ذاكرة ١",zh:"内存1"},
+ {id:"ram_b",slot:"ram2",color:"#7a5ba6",it:"RAM 2",ar:"ذاكرة ٢",zh:"内存2"},
+ {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
+ {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD 硬盘"},
+ {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
+ {id:"c24",slot:"atx24",color:"#1f6feb",it:"Cavo 24 pin",ar:"كابل ٢٤",zh:"24针线",cable:1,needs:["psu"]},
+ {id:"c8",slot:"cpu8",color:"#1f6feb",it:"Cavo CPU",ar:"كابل المعالج",zh:"CPU线",cable:1,needs:["psu","cpu"]},
+ {id:"cfan",slot:"fan",color:"#0b7285",it:"Cavo ventola",ar:"كابل المروحة",zh:"风扇线",cable:1,needs:["cooler"]},
+ {id:"csata",slot:"sata",color:"#0b7285",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,needs:["ssd"]},
+ {id:"cfp",slot:"fpanel",color:"#6e40c9",it:"Cavo accensione",ar:"كابل التشغيل",zh:"开机线",cable:1}
+];
+
+var L="it",MODE="mount",board=document.getElementById('board'),tray=document.getElementById('traybox'),
+    traywrap=document.getElementById('tray'),todo=document.getElementById('todo'),msg=document.getElementById('msg'),
+    win=document.getElementById('win');
+var placed={}; // id -> true
+
+function T(k){return I18N[L][k]}
+function setMsg(txt,cls){msg.textContent=txt;msg.className='msg'+(cls?' '+cls:'')}
+
+/* costruisci i posti sulla scheda madre */
+function drawBoard(){
+ board.innerHTML='';
+ // qualche "circuito" decorativo
+ [[4,55,40,2],[20,30,2,45],[60,20,2,40],[46,52,40,2]].forEach(function(t){
+   var d=document.createElement('div');d.className='trace';d.style.left=t[0]+'%';d.style.top=t[1]+'%';d.style.width=t[2]+'%';d.style.height=t[3]+'%';board.appendChild(d)});
+ for(var id in SLOTS){var s=SLOTS[id];if(s.hide)continue;
+   var el=document.createElement('div');el.className='slot';el.id='slot_'+id;el.dataset.slot=id;
+   el.style.left=s.x+'%';el.style.top=s.y+'%';el.style.width=s.w+'%';el.style.height=s.h+'%';
+   el.textContent=s[L]||s.it;board.appendChild(el);
+ }
+}
+/* crea una "chip" pezzo */
+function makeChip(p){
+ var c=document.createElement('div');c.className='chip'+(p.cable?' cable':'');c.id='chip_'+p.id;c.dataset.id=p.id;
+ c.style.background=p.color;c.textContent=p[L]||p.it;
+ if(p.cable){c.style.borderRadius='20px'}
+ c.addEventListener('pointerdown',startDrag);
+ return c;
+}
+/* posiziona una chip dentro al suo slot sulla scheda */
+function placeOnBoard(p){
+ var s=SLOTS[p.slot],c=document.getElementById('chip_'+p.id)||makeChip(p);
+ c.classList.add('placed');c.style.position='absolute';
+ c.style.left=s.x+'%';c.style.top=s.y+'%';c.style.width=s.w+'%';c.style.height=s.h+'%';
+ c.style.fontSize=p.cable?'10px':'12px';
+ board.appendChild(c);
+ var sl=document.getElementById('slot_'+p.slot);if(sl)sl.classList.add('full');
+}
+
+/* ---------- stato iniziale secondo la modalità ---------- */
+function reset(){
+ placed={};drawBoard();tray.innerHTML='';win.className='win';win.innerHTML='';
+ if(MODE==='mount'){
+   PARTS.forEach(function(p){tray.appendChild(makeChip(p))});
+   setMsg(T('start'));
+ }else{
+   PARTS.forEach(function(p){placed[p.id]=true;placeOnBoard(p)});
+   setMsg(T('unstart'));
+ }
+ renderTodo();
+}
+function renderTodo(){
+ todo.innerHTML='';
+ PARTS.forEach(function(p){var li=document.createElement('li');li.textContent=p[L]||p.it;
+   var done=(MODE==='mount')?placed[p.id]:!placed[p.id];
+   if(done)li.className='done';todo.appendChild(li)});
+ var allIn=PARTS.every(function(p){return placed[p.id]});
+ var allOut=PARTS.every(function(p){return !placed[p.id]});
+ if(MODE==='mount'&&allIn)winScreen();
+ if(MODE==='un'&&allOut){win.className='win show';win.textContent='👍 '+({it:"Smontato! Ora prova a rimontarlo.",ar:"تم الفك! جرّب الآن إعادة التركيب.",zh:"拆好了！现在试试重新组装。"})[L]}
+}
+function winScreen(){
+ var nm=document.getElementById('pcname').value.trim();
+ win.className='win show';
+ win.innerHTML=T('win')+'<br><button class="go" id="onbtn" style="margin-top:10px">⚡ '+T('on')+'</button>';
+ document.getElementById('onbtn').onclick=function(){
+   win.innerHTML='🖥️ <b>'+(nm?nm:'PC')+'</b>'+T('winon');
+ };
+}
+
+/* ---------- DRAG con pointer (mouse + touch) ---------- */
+var drag=null;
+function startDrag(ev){
+ var id=this.dataset.id,p=byId(id);
+ // in modalità rimonta non si trascinano i pezzi già piazzati
+ if(MODE==='mount'&&placed[id])return;
+ // in modalità smonta si trascinano solo i piazzati, e non un pezzo con cavo ancora attaccato
+ if(MODE==='un'){
+   if(!placed[id])return;
+   if(!p.cable && cableStillOn(id)){setMsg(T('removecable'),'no');return;}
+ }
+ ev.preventDefault();
+ var chip=this,r=chip.getBoundingClientRect();
+ drag={id:id,p:p,chip:chip,dx:ev.clientX-r.left,dy:ev.clientY-r.top,w:r.width,h:r.height};
+ chip.classList.add('drag');chip.style.position='fixed';chip.style.width=r.width+'px';chip.style.height=r.height+'px';
+ moveDrag(ev);
+ document.addEventListener('pointermove',moveDrag);
+ document.addEventListener('pointerup',endDrag);
+ if(MODE==='un')traywrap.classList.add('over');
+}
+function moveDrag(ev){if(!drag)return;drag.chip.style.left=(ev.clientX-drag.dx)+'px';drag.chip.style.top=(ev.clientY-drag.dy)+'px'}
+function endDrag(ev){
+ if(!drag)return;
+ document.removeEventListener('pointermove',moveDrag);document.removeEventListener('pointerup',endDrag);
+ traywrap.classList.remove('over');
+ var d=drag;drag=null;d.chip.classList.remove('drag');
+ if(MODE==='mount')dropMount(d,ev);else dropUn(d,ev);
+}
+function dropMount(d,ev){
+ var slot=document.getElementById('slot_'+d.p.slot);
+ if(slot&&overlap(d.chip,slot)){
+   // prerequisiti
+   var miss=(d.p.needs||[]).filter(function(n){return !placed[n]});
+   if(miss.length){backToTray(d.chip);setMsg(d.p.id==='cooler'?T('needcpu'):T('need'),'no');return}
+   placed[d.p.id]=true;placeOnBoard(d.p);setMsg(T('ok'),'ok');renderTodo();return;
+ }
+ backToTray(d.chip);setMsg(T('bad'),'no');
+}
+function dropUn(d,ev){
+ if(overlapEl(d.chip,traywrap)){
+   placed[d.p.id]=false;
+   var sl=document.getElementById('slot_'+d.p.slot);if(sl)sl.classList.remove('full');
+   d.chip.classList.remove('placed');d.chip.style.position='static';d.chip.style.left='';d.chip.style.top='';
+   d.chip.style.width='';d.chip.style.height='';tray.appendChild(d.chip);
+   setMsg(T('ok'),'ok');renderTodo();return;
+ }
+ // torna al suo posto sulla scheda
+ placeOnBoard(d.p);
+}
+function backToTray(chip){chip.classList.remove('placed');chip.style.position='static';chip.style.left='';chip.style.top='';chip.style.width='';chip.style.height='';tray.appendChild(chip)}
+
+/* un pezzo "componente" ha ancora un cavo attaccato? (per lo smontaggio) */
+function cableStillOn(compId){
+ return PARTS.some(function(p){return p.cable&&placed[p.id]&&(p.needs||[]).indexOf(compId)>=0})}
+
+function byId(id){for(var i=0;i<PARTS.length;i++)if(PARTS[i].id===id)return PARTS[i];return null}
+function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();
+ var cx=r.left+r.width/2,cy=r.top+r.height/2;return cx>=s.left&&cx<=s.right&&cy>=s.top&&cy<=s.bottom}
+function overlapEl(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();
+ var cx=r.left+r.width/2,cy=r.top+r.height/2;return cx>=s.left&&cx<=s.right&&cy>=s.top&&cy<=s.bottom}
+
+/* ---------- lingua e modalità ---------- */
+function applyLang(){
+ document.documentElement.lang=L;document.body.classList.toggle('ar',L==='ar');
+ ['title','sub','mount','un','tray','todo'].forEach(function(k){var e=document.getElementById('t_'+k);if(e)e.textContent=T(k)});
+ document.getElementById('pcname').placeholder=T('name');
+ reset();
+}
+document.querySelectorAll('.lang b').forEach(function(b){b.onclick=function(){L=b.dataset.l;
+ document.querySelectorAll('.lang b').forEach(function(x){x.classList.toggle('on',x===b)});applyLang()}});
+document.getElementById('m_mount').onclick=function(){MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
+document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
+
+drawBoard();reset();
+</script></body></html>
