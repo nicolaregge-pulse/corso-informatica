@@ -114,36 +114,39 @@ var I18N={
 };
 
 var SLOTS={
- mobo:{x:2,y:2,w:96,h:96,it:"Scheda madre",ar:"اللوحة الأم",zh:"主板"},
- socket:{x:7,y:9,w:23,h:30,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
- ram1:{x:42,y:7,w:7,h:40,it:"Banco RAM 1",ar:"فتحة ذاكرة ١",zh:"内存槽1"},
- ram2:{x:51,y:7,w:7,h:40,it:"Banco RAM 2",ar:"فتحة ذاكرة ٢",zh:"内存槽2"},
- pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
- ssd:{x:70,y:68,w:24,h:16,it:"Hard Disk / SSD",ar:"القرص الصلب",zh:"硬盘"},
- psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- fanc:{x:8,y:42,w:15,h:7,it:"CPU FAN",ar:"CPU FAN",zh:"CPU FAN",cable:1},
- fancase:{x:63,y:2,w:15,h:6,it:"SYS FAN",ar:"SYS FAN",zh:"SYS FAN",cable:1},
- atx24:{x:88,y:14,w:10,h:22,it:"Socket power",ar:"مقبس الطاقة",zh:"电源插座",cable:1},
- sata:{x:87,y:45,w:11,h:9,it:"Socket SATA",ar:"مقبس SATA",zh:"SATA 插座",cable:1},
- fpanel:{x:38,y:51,w:19,h:8,it:"Socket accensione",ar:"مقبس التشغيل",zh:"开机插座",cable:1},
- usb:{x:38,y:62,w:19,h:7,it:"Socket USB",ar:"مقبس USB",zh:"USB 插座",cable:1}
+ /* la scheda madre (dimensione cambia col formato, impostata in pickPC) */
+ mobo:{x:3,y:3,w:60,h:80,it:"Scheda madre",ar:"اللوحة الأم",zh:"主板"},
+ /* ON-BOARD: stanno DENTRO la scheda madre */
+ socket:{x:6,y:7,w:19,h:26,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
+ ram1:{x:30,y:6,w:5,h:28,it:"Banco RAM 1",ar:"فتحة ذاكرة ١",zh:"内存槽1"},
+ ram2:{x:37,y:6,w:5,h:28,it:"Banco RAM 2",ar:"فتحة ذاكرة ٢",zh:"内存槽2"},
+ pcie:{x:6,y:60,w:44,h:9,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
+ fanc:{x:4,y:34,w:14,h:6,it:"CPU FAN",ar:"CPU FAN",zh:"CPU FAN",cable:1},
+ fancase:{x:25,y:3,w:13,h:5,it:"SYS FAN",ar:"SYS FAN",zh:"SYS FAN",cable:1},
+ atx24:{x:30,y:38,w:11,h:9,it:"Socket power",ar:"مقبس الطاقة",zh:"电源插座",cable:1},
+ sata:{x:30,y:48,w:11,h:6,it:"Socket SATA",ar:"مقبس SATA",zh:"SATA 插座",cable:1},
+ fpanel:{x:19,y:35,w:10,h:6,it:"Socket accensione",ar:"مقبس التشغيل",zh:"开机插座",cable:1},
+ usb:{x:19,y:43,w:10,h:6,it:"Socket USB",ar:"مقبس USB",zh:"USB 插座",cable:1},
+ /* NEL CASE, FUORI dalla scheda madre */
+ ssd:{x:72,y:58,w:24,h:15,it:"Hard Disk / SSD",ar:"القرص الصلب",zh:"硬盘"},
+ psu:{x:70,y:85,w:27,h:12,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"}
 };
 var ALL=[
  {id:"mobo",slot:"mobo",cls:"mobo",outline:1,color:"#2f9e57",it:"Scheda madre\n(Motherboard)",ar:"اللوحة الأم",zh:"主板"},
- {id:"cpu",slot:"socket",cls:"cpu",outline:1,box:{x:11,y:14,w:15,h:20},color:"#e7b45a",it:"CPU",ar:"المعالج",zh:"CPU"},
- {id:"cooler",slot:"socket",cls:"cooler",outline:1,box:{x:7,y:9,w:23,h:30},color:"#8aa6c8",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
- {id:"fan",slot:"socket",cls:"fan",outline:1,box:{x:14,y:18,w:9,h:12},color:"#cfe0f2",it:"Cpu Fan",ar:"مروحة المعالج",zh:"CPU 风扇",needs:["cooler"]},
+ {id:"cpu",slot:"socket",cls:"cpu",outline:1,box:{x:9,y:11,w:13,h:18},color:"#e7b45a",it:"CPU",ar:"المعالج",zh:"CPU"},
+ {id:"cooler",slot:"socket",cls:"cooler",outline:1,box:{x:6,y:7,w:19,h:26},color:"#8aa6c8",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
+ {id:"fan",slot:"socket",cls:"fan",outline:1,box:{x:12,y:15,w:7,h:10},color:"#cfe0f2",it:"Cpu Fan",ar:"مروحة المعالج",zh:"CPU 风扇",needs:["cooler"]},
  {id:"ram_a",slot:"ram1",cls:"ram",color:"#7a5ba6",it:"RAM 1\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ١\nDIMM DDR4\n3200 MHz",zh:"内存1\nDIMM DDR4\n3200 MHz"},
  {id:"ram_b",slot:"ram2",cls:"ram",color:"#7a5ba6",it:"RAM 2\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ٢\nDIMM DDR4\n3200 MHz",zh:"内存2\nDIMM DDR4\n3200 MHz"},
  {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
  {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD"},
  {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- {id:"cfanc",slot:"fanc",s:"Connett.",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:18.5,y:24},needs:["fan"],cn:{it:"Connettore ventola CPU",ar:"موصل مروحة المعالج",zh:"CPU风扇接头"}},
- {id:"cfancase",slot:"fancase",s:"Connett.",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:91,y:5.5},src:{x:83,y:2,w:16,h:7,it:"Ventola case",ar:"مروحة العلبة",zh:"机箱风扇"},cn:{it:"Connettore ventola case",ar:"موصل مروحة العلبة",zh:"机箱风扇接头"}},
- {id:"c24",slot:"atx24",s:"Connett.",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:82,y:90},needs:["psu"],cn:{it:"Connettore 24 pin",ar:"موصل ٢٤",zh:"24针接头"}},
- {id:"csata",slot:"sata",s:"Connett.",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:82,y:72},needs:["ssd"],cn:{it:"Connettore SATA",ar:"موصل SATA",zh:"SATA接头"}},
- {id:"cfp",slot:"fpanel",s:"Connett.",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:11,y:95.5},src:{x:2,y:92,w:18,h:7,it:"Bottone power",ar:"زر التشغيل",zh:"开机按钮"},cn:{it:"Connettore power",ar:"موصل التشغيل",zh:"开机接头"}},
- {id:"cusb",slot:"usb",s:"Connett.",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:31,y:95.5},src:{x:23,y:92,w:16,h:7,it:"Prese USB",ar:"منافذ USB",zh:"USB接口"},cn:{it:"Connettore USB",ar:"موصل USB",zh:"USB接头"}}
+ {id:"cfanc",slot:"fanc",s:"Connett.",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:15.5,y:20},needs:["fan"],cn:{it:"Connettore ventola CPU",ar:"موصل مروحة المعالج",zh:"CPU风扇接头"}},
+ {id:"cfancase",slot:"fancase",s:"Connett.",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:89.5,y:6.5},src:{x:82,y:3,w:15,h:7,it:"Ventola case",ar:"مروحة العلبة",zh:"机箱风扇"},cn:{it:"Connettore ventola case",ar:"موصل مروحة العلبة",zh:"机箱风扇接头"}},
+ {id:"c24",slot:"atx24",s:"Connett.",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:83.5,y:91},needs:["psu"],cn:{it:"Connettore 24 pin",ar:"موصل ٢٤",zh:"24针接头"}},
+ {id:"csata",slot:"sata",s:"Connett.",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:84,y:65.5},needs:["ssd"],cn:{it:"Connettore SATA",ar:"موصل SATA",zh:"SATA接头"}},
+ {id:"cfp",slot:"fpanel",s:"Connett.",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:55,y:93.5},src:{x:46,y:90,w:18,h:7,it:"Bottone power",ar:"زر التشغيل",zh:"开机按钮"},cn:{it:"Connettore power",ar:"موصل التشغيل",zh:"开机接头"}},
+ {id:"cusb",slot:"usb",s:"Connett.",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:78,y:93.5},src:{x:70,y:90,w:16,h:7,it:"Prese USB",ar:"منافذ USB",zh:"USB接口"},cn:{it:"Connettore USB",ar:"موصل USB",zh:"USB接口"}}
 ];
 /* 3 PC diversi (sottoinsiemi). I primi 4 cavi sono gli essenziali. */
 var PRESETS=[
@@ -162,9 +165,14 @@ function setMsg(t,c){msg.textContent=t;msg.className='msg'+(c?' '+c:'')}
 function cxf(s){return s.x+s.w/2} function cyf(s){return s.y+s.h/2}
 function byId(id){for(var i=0;i<ALL.length;i++)if(ALL[i].id===id)return ALL[i];return null}
 
+var FORMATO={Tower:{box:{x:3,y:3,w:60,h:82},ff:"ATX"},Desktop:{box:{x:3,y:3,w:48,h:62},ff:"Micro-ATX"},Mini:{box:{x:3,y:3,w:40,h:52},ff:"Mini-ITX"}};
 function pickPC(n){ preset = n?PRESETS[n-1]:PRESETS[Math.floor(Math.random()*PRESETS.length)];
+ var f=FORMATO[preset.tipo]||FORMATO.Tower, mo=byId('mobo');
+ SLOTS.mobo={x:f.box.x,y:f.box.y,w:f.box.w,h:f.box.h,it:SLOTS.mobo.it,ar:SLOTS.mobo.ar,zh:SLOTS.mobo.zh};
+ mo.box={x:f.box.x,y:f.box.y,w:f.box.w,h:f.box.h};
+ mo.it="Scheda madre\n"+f.ff; mo.ar="اللوحة الأم\n"+f.ff; mo.zh="主板\n"+f.ff;
  PARTS = preset.parts.map(byId); usedSlots={}; PARTS.forEach(function(p){usedSlots[p.slot]=1});
- document.getElementById('pcbadge').textContent='PC '+preset.n+' · '+(preset.tipo||'');
+ document.getElementById('pcbadge').textContent='PC '+preset.n+' · '+(preset.tipo||'')+' ('+f.ff+')';
  reset();
 }
 
@@ -255,5 +263,6 @@ document.getElementById('m_mount').onclick=function(){MODE='mount';this.classLis
 document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
 document.getElementById('newpc').onclick=function(){MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
 
-pickPC(1);renderRank();
+var _pc=parseInt((location.search.match(/[?&]pc=(\d)/)||[])[1],10);
+pickPC(_pc>=1&&_pc<=3?_pc:0);renderRank();
 </script></body></html>
