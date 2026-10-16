@@ -29,11 +29,17 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 .slot.full{opacity:0}
 /* dispositivo-sorgente del cavo (ventola, bottone…): da qui parte il filo */
 .srcdev{position:absolute;border-radius:8px;background:#223129;border:1.5px solid rgba(255,255,255,.35);color:#d7ead9;font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;text-align:center;padding:2px;line-height:1.05;pointer-events:none;z-index:3;box-shadow:inset 0 0 0 3px rgba(0,0,0,.18)}
-.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
+.chip{position:absolute;border-radius:7px;color:#fff;font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;text-align:center;padding:3px 5px;line-height:1.05;white-space:pre-line;box-shadow:0 3px 7px rgba(0,0,0,.3);border:1px solid rgba(0,0,0,.25);touch-action:none;z-index:4}
+.chip.mobo{z-index:0;background:rgba(47,158,87,.10)!important;border:3px solid #2f9e57;border-radius:12px;align-items:flex-end;justify-content:flex-start;color:#9fe3bb;font-size:12px;padding:8px}
+.chip.ram{font-size:9.5px;line-height:1.15;background:#7a5ba6}
 .chip.placed{cursor:default}
 .chip.drag{z-index:999;transform:scale(1.06);box-shadow:0 10px 22px rgba(0,0,0,.4)}
 /* cavo piazzato = SPINOTTO che riempie la presa (niente scatola vuota) */
-.chip.plug{border-radius:3px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 6px rgba(0,0,0,.45);font-size:9px;z-index:5}
+.chip.plug{border-radius:3px;border:2px solid rgba(255,255,255,.85);box-shadow:0 2px 6px rgba(0,0,0,.45);font-size:8px;z-index:5;overflow:hidden;line-height:1.02}
+/* zona CPU concentrica (come lo schizzo): dissipatore (fuori) ⊃ CPU (dentro, tratteggiata) ⊃ ventola (cerchio) */
+.chip.cpu{z-index:4;background:transparent!important;border:2px dashed #e7b45a;align-items:flex-start;justify-content:center;color:#f0d49a;font-size:11px;padding-top:4px}
+.chip.cooler{z-index:5;background:transparent!important;border:3px solid #8aa6c8;align-items:flex-end;justify-content:center;color:#cfe0f2;font-size:11px;padding-bottom:4px}
+.chip.fan{z-index:6;background:transparent!important;border:3px solid #cfe0f2;border-radius:50%;color:#eaf2fb;font-size:10px}
 .tray{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px;min-height:90px}
 .tray h2{font-size:15px;margin:2px 0 8px}
 .traybox{display:flex;flex-wrap:wrap;gap:8px;position:relative;min-height:60px}
@@ -92,7 +98,7 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
 var I18N={
  it:{title:"Monta il PC — la sfida",sub:"Scrivi il tuo nome, poi monta il PC il più in fretta possibile. Ogni volta esce un PC diverso.",
      mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Il tuo nome…",dev:"Dispositivo",cab:"Cavo",
-     ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
+     ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",needmobo:"Prima metti la Scheda madre (Motherboard).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
      start:"Trascina il primo pezzo: parte il cronometro.",unstart:"Stacca prima i cavi, poi i pezzi.",
      win:"FATTO in ",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
  ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب اسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
@@ -108,39 +114,45 @@ var I18N={
 };
 
 var SLOTS={
- socket:{x:8,y:10,w:26,h:30,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
- ram1:{x:42,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
- ram2:{x:51,y:7,w:7,h:40,it:"RAM",ar:"ذاكرة",zh:"内存"},
- pcie:{x:12,y:72,w:46,h:12,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
- ssd:{x:70,y:68,w:24,h:16,it:"Alloggio disco",ar:"مكان القرص",zh:"硬盘位"},
- psu:{x:70,y:88,w:26,h:10,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- fanc:{x:29,y:2,w:12,h:6,it:"Presa ventola CPU",ar:"مروحة المعالج",zh:"CPU 风扇",cable:1},
- fancase:{x:64,y:2,w:13,h:6,it:"Presa ventola case",ar:"مروحة العلبة",zh:"机箱风扇",cable:1},
- atx24:{x:89,y:15,w:8,h:22,it:"Presa 24 pin",ar:"٢٤ دبوس",zh:"24 针",cable:1},
- sata:{x:89,y:45,w:8,h:9,it:"Presa SATA",ar:"SATA",zh:"SATA",cable:1},
- fpanel:{x:40,y:52,w:15,h:7,it:"Presa power",ar:"زر التشغيل",zh:"开机",cable:1},
- usb:{x:40,y:62,w:15,h:7,it:"Presa USB",ar:"USB",zh:"USB",cable:1}
+ /* la scheda madre (dimensione cambia col formato, impostata in pickPC) */
+ mobo:{x:3,y:3,w:60,h:80,it:"Scheda madre",ar:"اللوحة الأم",zh:"主板"},
+ /* ON-BOARD: stanno DENTRO la scheda madre */
+ socket:{x:6,y:7,w:19,h:26,it:"Socket CPU",ar:"مقبس المعالج",zh:"CPU 插槽"},
+ ram1:{x:30,y:6,w:5,h:28,it:"Banco RAM 1",ar:"فتحة ذاكرة ١",zh:"内存槽1"},
+ ram2:{x:37,y:6,w:5,h:28,it:"Banco RAM 2",ar:"فتحة ذاكرة ٢",zh:"内存槽2"},
+ pcie:{x:6,y:60,w:44,h:9,it:"PCIe (scheda video)",ar:"PCIe",zh:"PCIe（显卡）"},
+ fanc:{x:4,y:34,w:14,h:6,it:"CPU FAN",ar:"CPU FAN",zh:"CPU FAN",cable:1},
+ fancase:{x:25,y:3,w:13,h:5,it:"SYS FAN",ar:"SYS FAN",zh:"SYS FAN",cable:1},
+ atx24:{x:30,y:38,w:11,h:9,it:"Socket power",ar:"مقبس الطاقة",zh:"电源插座",cable:1},
+ sata:{x:30,y:48,w:11,h:6,it:"Socket SATA",ar:"مقبس SATA",zh:"SATA 插座",cable:1},
+ fpanel:{x:19,y:35,w:10,h:6,it:"Socket accensione",ar:"مقبس التشغيل",zh:"开机插座",cable:1},
+ usb:{x:19,y:43,w:10,h:6,it:"Socket USB",ar:"مقبس USB",zh:"USB 插座",cable:1},
+ /* NEL CASE, FUORI dalla scheda madre */
+ ssd:{x:72,y:58,w:24,h:15,it:"Hard Disk / SSD",ar:"القرص الصلب",zh:"硬盘"},
+ psu:{x:70,y:85,w:27,h:12,it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"}
 };
 var ALL=[
- {id:"cpu",slot:"socket",color:"#c98a2e",it:"CPU",ar:"المعالج",zh:"CPU"},
- {id:"cooler",slot:"socket",color:"#5b7fa6",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
- {id:"ram_a",slot:"ram1",color:"#7a5ba6",it:"RAM 1",ar:"ذاكرة ١",zh:"内存1"},
- {id:"ram_b",slot:"ram2",color:"#7a5ba6",it:"RAM 2",ar:"ذاكرة ٢",zh:"内存2"},
+ {id:"mobo",slot:"mobo",cls:"mobo",outline:1,color:"#2f9e57",it:"Scheda madre\n(Motherboard)",ar:"اللوحة الأم",zh:"主板"},
+ {id:"cpu",slot:"socket",cls:"cpu",outline:1,box:{x:9,y:11,w:13,h:18},color:"#e7b45a",it:"CPU",ar:"المعالج",zh:"CPU"},
+ {id:"cooler",slot:"socket",cls:"cooler",outline:1,box:{x:6,y:7,w:19,h:26},color:"#8aa6c8",it:"Dissipatore",ar:"المبرّد",zh:"散热器",needs:["cpu"]},
+ {id:"fan",slot:"socket",cls:"fan",outline:1,box:{x:12,y:15,w:7,h:10},color:"#cfe0f2",it:"Cpu Fan",ar:"مروحة المعالج",zh:"CPU 风扇",needs:["cooler"]},
+ {id:"ram_a",slot:"ram1",cls:"ram",color:"#7a5ba6",it:"RAM 1\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ١\nDIMM DDR4\n3200 MHz",zh:"内存1\nDIMM DDR4\n3200 MHz"},
+ {id:"ram_b",slot:"ram2",cls:"ram",color:"#7a5ba6",it:"RAM 2\nDIMM DDR4\n3200 MHz",ar:"ذاكرة ٢\nDIMM DDR4\n3200 MHz",zh:"内存2\nDIMM DDR4\n3200 MHz"},
  {id:"gpu",slot:"pcie",color:"#b0392e",it:"Scheda video",ar:"بطاقة الرسوم",zh:"显卡"},
  {id:"ssd",slot:"ssd",color:"#2f9e57",it:"Disco SSD",ar:"قرص SSD",zh:"SSD"},
  {id:"psu",slot:"psu",color:"#444c55",it:"Alimentatore",ar:"مزود الطاقة",zh:"电源"},
- {id:"cfanc",slot:"fanc",s:"CPU",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:11,y:5.5},needs:["cooler"],src:{x:3,y:2,w:16,h:7,it:"Ventola CPU",ar:"مروحة المعالج",zh:"CPU风扇"}},
- {id:"cfancase",slot:"fancase",s:"CASE",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:91,y:5.5},src:{x:83,y:2,w:16,h:7,it:"Ventola case",ar:"مروحة العلبة",zh:"机箱风扇"}},
- {id:"c24",slot:"atx24",s:"24",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:82,y:90},needs:["psu"]},
- {id:"csata",slot:"sata",s:"SATA",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:82,y:72},needs:["ssd"]},
- {id:"cfp",slot:"fpanel",s:"ON",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:11,y:95.5},src:{x:2,y:92,w:18,h:7,it:"Bottone power",ar:"زر التشغيل",zh:"开机按钮"}},
- {id:"cusb",slot:"usb",s:"USB",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:31,y:95.5},src:{x:23,y:92,w:16,h:7,it:"Prese USB",ar:"منافذ USB",zh:"USB接口"}}
+ {id:"cfanc",slot:"fanc",s:"Connett.",color:"#0b7285",it:"Cavo ventola CPU",ar:"كابل مروحة المعالج",zh:"CPU风扇线",cable:1,from:{x:15.5,y:20},needs:["fan"],cn:{it:"Connettore ventola CPU",ar:"موصل مروحة المعالج",zh:"CPU风扇接头"}},
+ {id:"cfancase",slot:"fancase",s:"Connett.",color:"#14a0a0",it:"Cavo ventola case",ar:"كابل مروحة العلبة",zh:"机箱风扇线",cable:1,from:{x:89.5,y:6.5},src:{x:82,y:3,w:15,h:7,it:"Ventola case",ar:"مروحة العلبة",zh:"机箱风扇"},cn:{it:"Connettore ventola case",ar:"موصل مروحة العلبة",zh:"机箱风扇接头"}},
+ {id:"c24",slot:"atx24",s:"Connett.",color:"#1f6feb",it:"Cavo alimentazione",ar:"كابل الطاقة ٢٤",zh:"供电线",cable:1,from:{x:83.5,y:91},needs:["psu"],cn:{it:"Connettore 24 pin",ar:"موصل ٢٤",zh:"24针接头"}},
+ {id:"csata",slot:"sata",s:"Connett.",color:"#3aa0ff",it:"Cavo SATA",ar:"كابل SATA",zh:"SATA线",cable:1,from:{x:84,y:65.5},needs:["ssd"],cn:{it:"Connettore SATA",ar:"موصل SATA",zh:"SATA接头"}},
+ {id:"cfp",slot:"fpanel",s:"Connett.",color:"#6e40c9",it:"Cavo bottone power",ar:"كابل زر التشغيل",zh:"开机线",cable:1,from:{x:55,y:93.5},src:{x:46,y:90,w:18,h:7,it:"Bottone power",ar:"زر التشغيل",zh:"开机按钮"},cn:{it:"Connettore power",ar:"موصل التشغيل",zh:"开机接头"}},
+ {id:"cusb",slot:"usb",s:"Connett.",color:"#b5559b",it:"Cavo USB",ar:"كابل USB",zh:"USB线",cable:1,from:{x:78,y:93.5},src:{x:70,y:90,w:16,h:7,it:"Prese USB",ar:"منافذ USB",zh:"USB接口"},cn:{it:"Connettore USB",ar:"موصل USB",zh:"USB接口"}}
 ];
 /* 3 PC diversi (sottoinsiemi). I primi 4 cavi sono gli essenziali. */
 var PRESETS=[
- {n:1,parts:["cpu","cooler","ram_a","ssd","psu","cfanc","cfancase","c24","csata"]},
- {n:2,parts:["cpu","cooler","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp"]},
- {n:3,parts:["cpu","cooler","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp","cusb"]}
+ {n:1,tipo:"Tower",parts:["mobo","cpu","cooler","fan","ram_a","ram_b","gpu","ssd","psu","cfanc","cfancase","c24","csata","cfp","cusb"]},
+ {n:2,tipo:"Desktop",parts:["mobo","cpu","cooler","fan","ram_a","ram_b","ssd","psu","cfanc","cfancase","c24","csata","cfp"]},
+ {n:3,tipo:"Mini",parts:["mobo","cpu","cooler","fan","ram_a","ssd","psu","cfanc","c24","csata"]}
 ];
 
 var SVGNS='http://www.w3.org/2000/svg';
@@ -153,9 +165,14 @@ function setMsg(t,c){msg.textContent=t;msg.className='msg'+(c?' '+c:'')}
 function cxf(s){return s.x+s.w/2} function cyf(s){return s.y+s.h/2}
 function byId(id){for(var i=0;i<ALL.length;i++)if(ALL[i].id===id)return ALL[i];return null}
 
+var FORMATO={Tower:{box:{x:3,y:3,w:60,h:82},ff:"ATX"},Desktop:{box:{x:3,y:3,w:48,h:62},ff:"Micro-ATX"},Mini:{box:{x:3,y:3,w:40,h:52},ff:"Mini-ITX"}};
 function pickPC(n){ preset = n?PRESETS[n-1]:PRESETS[Math.floor(Math.random()*PRESETS.length)];
+ var f=FORMATO[preset.tipo]||FORMATO.Tower, mo=byId('mobo');
+ SLOTS.mobo={x:f.box.x,y:f.box.y,w:f.box.w,h:f.box.h,it:SLOTS.mobo.it,ar:SLOTS.mobo.ar,zh:SLOTS.mobo.zh};
+ mo.box={x:f.box.x,y:f.box.y,w:f.box.w,h:f.box.h};
+ mo.it="Scheda madre\n"+f.ff; mo.ar="اللوحة الأم\n"+f.ff; mo.zh="主板\n"+f.ff;
  PARTS = preset.parts.map(byId); usedSlots={}; PARTS.forEach(function(p){usedSlots[p.slot]=1});
- document.getElementById('pcbadge').textContent='PC '+preset.n;
+ document.getElementById('pcbadge').textContent='PC '+preset.n+' · '+(preset.tipo||'')+' ('+f.ff+')';
  reset();
 }
 
@@ -169,17 +186,19 @@ function drawBoard(){
  PARTS.forEach(function(p){if(!p.src)return;var m=document.createElement('div');m.className='srcdev';m.style.left=p.src.x+'%';m.style.top=p.src.y+'%';m.style.width=p.src.w+'%';m.style.height=p.src.h+'%';m.textContent=p.src[L]||p.src.it;board.appendChild(m)});
 }
 function wirePath(a,b){var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy)||1,off=Math.min(16,len*0.3);var mx=(a.x+b.x)/2-dy/len*off,my=(a.y+b.y)/2+dx/len*off;return 'M'+a.x+' '+a.y+' Q'+mx+' '+my+' '+b.x+' '+b.y}
-function drawWire(p){var svg=document.getElementById('wires');if(!svg)return;clearWire(p.id);var s=SLOTS[p.slot],b={x:cxf(s),y:cyf(s)},a=p.from;
+function edgePt(p){var s=SLOTS[p.slot],cx=cxf(s),cy=cyf(s),a=p.from,dx=a.x-cx,dy=a.y-cy,L=Math.sqrt(dx*dx+dy*dy)||1;return {x:cx+dx/L*(s.w*0.5),y:cy+dy/L*(s.h*0.5)}}
+function drawWire(p){var svg=document.getElementById('wires');if(!svg)return;clearWire(p.id);var b=edgePt(p),a=p.from;
  var g=document.createElementNS(SVGNS,'g');g.id='wire_'+p.id;
  var pa=document.createElementNS(SVGNS,'path');pa.setAttribute('d',wirePath(a,b));pa.setAttribute('fill','none');pa.setAttribute('stroke',p.color);pa.setAttribute('stroke-width','3.2');pa.setAttribute('stroke-linecap','round');pa.setAttribute('vector-effect','non-scaling-stroke');g.appendChild(pa);
  var c=document.createElementNS(SVGNS,'circle');c.setAttribute('cx',a.x);c.setAttribute('cy',a.y);c.setAttribute('r','1.8');c.setAttribute('fill',p.color);c.setAttribute('stroke','#fff');c.setAttribute('stroke-width','0.5');g.appendChild(c);
  svg.appendChild(g)}
 function clearWire(id){var g=document.getElementById('wire_'+id);if(g)g.parentNode.removeChild(g)}
-function makeChip(p){var c=document.createElement('div');c.className='chip'+(p.cable?' cable':'');c.id='chip_'+p.id;c.dataset.id=p.id;c.style.background=p.color;c.textContent=p[L]||p.it;c.addEventListener('pointerdown',startDrag);return c}
-function placeOnBoard(p){var s=SLOTS[p.slot],c=document.getElementById('chip_'+p.id)||makeChip(p);c.classList.add('placed');c.style.position='absolute';
- c.style.left=s.x+'%';c.style.top=s.y+'%';c.style.width=s.w+'%';c.style.height=s.h+'%';
- if(p.cable){c.classList.add('plug');c.textContent=p.s||'';c.style.fontSize='9px';board.appendChild(c);drawWire(p)}
- else{c.style.fontSize='12px';board.appendChild(c)}
+function makeChip(p){var c=document.createElement('div');c.className='chip'+(p.cable?' cable':'')+(p.cls?(' '+p.cls):'');c.id='chip_'+p.id;c.dataset.id=p.id;if(!p.outline)c.style.background=p.color;c.textContent=p[L]||p.it;c.addEventListener('pointerdown',startDrag);return c}
+function placeOnBoard(p){var c=document.getElementById('chip_'+p.id)||makeChip(p);c.classList.add('placed');c.style.position='absolute';c.style.fontSize='';
+ if(p.cable){var ep=edgePt(p),nw=4.2,nh=3.0;c.classList.add('plug');c.textContent='';
+  c.style.left=(ep.x-nw/2)+'%';c.style.top=(ep.y-nh/2)+'%';c.style.width=nw+'%';c.style.height=nh+'%';
+  board.appendChild(c);drawWire(p);return}
+ var s=p.box||SLOTS[p.slot];c.style.left=s.x+'%';c.style.top=s.y+'%';c.style.width=s.w+'%';c.style.height=s.h+'%';board.appendChild(c);
  var sl=document.getElementById('slot_'+p.slot);if(sl)sl.classList.add('full')}
 
 function reset(){placed={};drawBoard();tray.innerHTML='';win.className='win';win.innerHTML='';stopTimer();setTime(0);
@@ -196,7 +215,7 @@ function stopTimer(){tRun=false;if(tInt){clearInterval(tInt);tInt=null}}
 function finish(){stopTimer();var ms=Date.now()-t0;setTime(ms);
  var nm=document.getElementById('pcname').value.trim();
  win.className='win show';
- win.innerHTML=T('win')+'<b>'+(ms/1000).toFixed(1)+'s</b> — PC '+preset.n+'!<br><span style="font-size:14px;font-weight:600">'+(nm?T('again'):T('noname'))+'</span>';
+ win.innerHTML=T('win')+'<b>'+(ms/1000).toFixed(1)+'s</b> — PC '+preset.n+' · '+(preset.tipo||'')+'!<br><span style="font-size:14px;font-weight:600">'+(nm?T('again'):T('noname'))+'</span>';
  if(nm){record(nm,ms);renderRank()}
 }
 
@@ -225,6 +244,7 @@ function startDrag(ev){var id=this.dataset.id,p=byId(id);
 function moveDrag(ev){if(!drag)return;drag.chip.style.left=(ev.clientX-drag.dx)+'px';drag.chip.style.top=(ev.clientY-drag.dy)+'px'}
 function endDrag(ev){if(!drag)return;document.removeEventListener('pointermove',moveDrag);document.removeEventListener('pointerup',endDrag);traywrap.classList.remove('over');var d=drag;drag=null;d.chip.classList.remove('drag');if(MODE==='mount')dropMount(d,ev);else dropUn(d,ev)}
 function dropMount(d,ev){var slot=document.getElementById('slot_'+d.p.slot);
+ if(d.p.id!=='mobo'&&PARTS.some(function(x){return x.id==='mobo'})&&!placed['mobo']){backToTray(d);setMsg(T('needmobo'),'no');return}
  if(slot&&overlap(d.chip,slot)){var miss=(d.p.needs||[]).filter(function(n){return !placed[n]});
   if(miss.length){backToTray(d);setMsg(d.p.id==='cooler'?T('needcpu'):T('need'),'no');return}
   startTimer();placed[d.p.id]=true;placeOnBoard(d.p);setMsg(T('ok'),'ok');renderTodo();return}
@@ -243,5 +263,6 @@ document.getElementById('m_mount').onclick=function(){MODE='mount';this.classLis
 document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
 document.getElementById('newpc').onclick=function(){MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
 
-pickPC(1);renderRank();
+var _pc=parseInt((location.search.match(/[?&]pc=(\d)/)||[])[1],10);
+pickPC(_pc>=1&&_pc<=3?_pc:0);renderRank();
 </script></body></html>
