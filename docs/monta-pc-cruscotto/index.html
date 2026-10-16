@@ -48,10 +48,13 @@ function render(d){
     rows.map(function(r,i){return '<tr class="'+(i===0?'top1':'')+'"><td class=pos>'+(i+1)+'</td><td class=nm>'+esc(r.nome)+'</td><td>'+r.asm+'</td><td>'+r.dis+'</td><td>'+sec(r.medio)+'</td><td>'+sec(r.record)+'</td><td class=v>'+r.pt+'</td></tr>'}).join('')+'</table>';
 }
 var DEMO=/[?&]demo/.test(location.search);
-var SAMPLE={righe:[{nome:'Ahmed B.',asm:3,dis:1,medio:38300,record:35000,pt:3.7},{nome:'Marco P.',asm:2,dis:2,medio:42500,record:40000,pt:3.4},{nome:'Lucia R.',asm:2,dis:0,medio:52500,record:50000,pt:2}]};
+/* DEMO REALTIME: 3 allievi che segnano punti da soli, per vedere la classifica muoversi dal vivo */
+var DS=[{nome:'Ahmed B.',asm:0,dis:0,ta:[]},{nome:'Marco P.',asm:0,dis:0,ta:[]},{nome:'Lucia R.',asm:0,dis:0,ta:[]}];
+function demoData(){var rows=DS.map(function(s){var tot=0;for(var i=0;i<s.ta.length;i++)tot+=s.ta[i];return {nome:s.nome,asm:s.asm,dis:s.dis,medio:s.ta.length?Math.round(tot/s.ta.length):0,record:s.ta.length?Math.min.apply(null,s.ta):0,pt:Math.round((s.asm+0.7*s.dis)*10)/10}});rows.sort(function(a,b){return b.pt-a.pt||(a.record||9e9)-(b.record||9e9)});return {righe:rows}}
+function demoStep(){var s=DS[Math.floor(Math.random()*DS.length)];if(Math.random()<0.78){s.asm++;s.ta.push(28000+Math.floor(Math.random()*34000))}else{s.dis++}render(demoData());document.getElementById('upd').textContent='DEMO realtime · '+new Date().toLocaleTimeString('it-IT')}
 var _n=0;
 function carica(){
-  if(DEMO){render(SAMPLE);document.getElementById('upd').textContent='DEMO · dati finti di prova';return}
+  if(DEMO){render(demoData());return}
   if(!EXEC){document.getElementById('upd').textContent='manca l\'indirizzo dello script';return}
   var cb='cb'+(++_n), s=document.createElement('script');
   window[cb]=function(d){try{render(d)}catch(e){} var now=new Date();document.getElementById('upd').textContent='aggiornato alle '+now.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});try{delete window[cb]}catch(e){} s.remove()};
@@ -60,6 +63,6 @@ function carica(){
   document.body.appendChild(s);
 }
 document.getElementById('agg').onclick=carica;
-if(DEMO){carica()}else{fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||'';carica()}).catch(function(){document.getElementById('upd').textContent='manca config.json'})}
-setInterval(function(){if(document.getElementById('auto').checked)carica()},20000);
+if(DEMO){render(demoData());setInterval(function(){if(document.getElementById('auto').checked)demoStep()},3000)}
+else{fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||'';carica()}).catch(function(){document.getElementById('upd').textContent='manca config.json'});setInterval(function(){if(document.getElementById('auto').checked)carica()},20000)}
 </script></body></html>
