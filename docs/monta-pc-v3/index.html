@@ -79,7 +79,7 @@ input{font:inherit;padding:7px 11px;border-radius:9px;border:2px solid var(--ln)
   <div class="lang"><b data-l="it" class="on">IT</b><b data-l="ar">عربي</b><b data-l="zh">中文</b></div>
   <div class="timer" id="timer">0.0s</div>
 </div>
-<div class="bar"><span class="pcbadge" id="pcbadge">PC 1</span></div>
+<div class="bar"><span class="pcbadge" id="pcbadge">PC 1</span><span id="mystats" style="font-size:13px;margin-left:10px"></span></div>
 
 <div class="msg" id="msg">—</div>
 
@@ -100,17 +100,17 @@ var I18N={
      mount:"Rimonta",un:"Smonta",neu:"Nuovo PC",tray:"Pezzi e cavi",todo:"Da fare",rank:"Classifica (tempo medio)",rankempty:"Ancora nessun tempo.",name:"Il tuo nome…",dev:"Dispositivo",cab:"Cavo",
      ok:"Bene!",bad:"Non è qui: guarda l'etichetta.",need:"Prima metti il pezzo a cui va collegato.",needcpu:"Prima metti il processore (CPU).",needmobo:"Prima metti la Scheda madre (Motherboard).",removecable:"Prima stacca i cavi collegati a questo pezzo.",
      start:"Trascina il primo pezzo: parte il cronometro.",unstart:"Stacca prima i cavi, poi i pezzi.",
-     win:"FATTO in ",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
+     win:"FATTO in ",winun:"SMONTATO in ",finisci:"Finisci prima il PC che hai iniziato! Se sei bloccato, chiedi aiuto all'assistente.",noname:"Scrivi prima il tuo nome, poi il tempo va in classifica.",again:"Prova un altro PC: «Nuovo PC»."},
  ar:{title:"ركّب الحاسوب — التحدّي",sub:"اكتب اسمك ثم ركّب الحاسوب بأسرع ما يمكن. في كل مرة حاسوب مختلف.",
      mount:"إعادة التركيب",un:"الفك",neu:"حاسوب جديد",tray:"القطع والكابلات",todo:"المطلوب",rank:"الترتيب (الوقت المتوسط)",rankempty:"لا أوقات بعد.",name:"اسمك…",dev:"جهاز",cab:"كابل",
      ok:"أحسنت!",bad:"ليس هنا: انظر إلى الملصق.",need:"ضع أولاً القطعة التي يتصل بها.",needcpu:"ضع أولاً المعالج (CPU).",removecable:"افصل أولاً الكابلات المتصلة بهذه القطعة.",
      start:"اسحب أول قطعة: يبدأ المؤقّت.",unstart:"افصل الكابلات أولاً ثم القطع.",
-     win:"تمّ في ",noname:"اكتب اسمك أولاً كي يُحسب الوقت.",again:"جرّب حاسوباً آخر: «حاسوب جديد»."},
+     win:"تمّ في ",winun:"تمّ الفك في ",finisci:"أنهِ أولاً الحاسوب الذي بدأته! إن كنت عالقاً اطلب المساعدة من المساعد.",noname:"اكتب اسمك أولاً كي يُحسب الوقت.",again:"جرّب حاسوباً آخر: «حاسوب جديد»."},
  zh:{title:"组装电脑 — 挑战",sub:"写上你的名字，然后尽快组装电脑。每次都是不同的电脑。",
      mount:"重新组装",un:"拆卸",neu:"新电脑",tray:"零件和线缆",todo:"待办",rank:"排行榜（平均时间）",rankempty:"还没有成绩。",name:"你的名字…",dev:"设备",cab:"线缆",
      ok:"很好！",bad:"不在这里：看标签。",need:"请先放它要连接的零件。",needcpu:"请先放处理器（CPU）。",removecable:"请先拔掉连接此零件的线缆。",
      start:"拖入第一个零件：计时开始。",unstart:"先拔线缆，再拆零件。",
-     win:"完成，用时 ",noname:"先写名字，成绩才会计入排行榜。",again:"试试另一台电脑：“新电脑”。"}
+     win:"完成，用时 ",winun:"拆卸完成，用时 ",finisci:"请先完成你开始的电脑！如果卡住了，向助手求助。",noname:"先写名字，成绩才会计入排行榜。",again:"试试另一台电脑：“新电脑”。"}
 };
 
 var SLOTS={
@@ -206,7 +206,8 @@ function reset(){placed={};drawBoard();tray.innerHTML='';win.className='win';win
  else{PARTS.forEach(function(p){placed[p.id]=true;placeOnBoard(p)});setMsg(T('unstart'))}
  renderTodo()}
 function renderTodo(){todo.innerHTML='';PARTS.forEach(function(p){var li=document.createElement('li');li.textContent=p[L]||p.it;var done=(MODE==='mount')?placed[p.id]:!placed[p.id];if(done)li.className='done';todo.appendChild(li)});
- var allIn=PARTS.every(function(p){return placed[p.id]});if(MODE==='mount'&&allIn)finish()}
+ var allIn=PARTS.every(function(p){return placed[p.id]});if(MODE==='mount'&&allIn)finish();
+ if(MODE==='un'){var allOut=PARTS.every(function(p){return !placed[p.id]});if(allOut&&tRun)finishUn()}}
 
 /* ---- cronometro ---- */
 function setTime(ms){document.getElementById('timer').textContent=(ms/1000).toFixed(1)+'s'}
@@ -216,19 +217,31 @@ function finish(){stopTimer();var ms=Date.now()-t0;setTime(ms);
  var nm=document.getElementById('pcname').value.trim();
  win.className='win show';
  win.innerHTML=T('win')+'<b>'+(ms/1000).toFixed(1)+'s</b> — PC '+preset.n+' · '+(preset.tipo||'')+'!<br><span style="font-size:14px;font-weight:600">'+(nm?T('again'):T('noname'))+'</span>';
- if(nm){record(nm,ms);renderRank()}
+ if(nm){record(nm,ms,'asm');invia('assemblato',ms);renderRank();renderMy()}
+}
+function finishUn(){stopTimer();var ms=Date.now()-t0;setTime(ms);
+ var nm=document.getElementById('pcname').value.trim();
+ win.className='win show';
+ win.innerHTML=T('winun')+'<b>'+(ms/1000).toFixed(1)+'s</b>!<br><span style="font-size:14px;font-weight:600">'+(nm?T('again'):T('noname'))+'</span>';
+ if(nm){record(nm,ms,'dis');invia('smontato',ms);renderRank();renderMy()}
 }
 
-/* ---- classifica (tempo medio per allievo, in questo browser) ---- */
-function load(){try{return JSON.parse(localStorage.getItem('montapc_v3')||'{}')}catch(e){return {}}}
+/* ---- punteggio e classifica (montare=1, smontare=0,7) ---- */
+function load(){try{var d=JSON.parse(localStorage.getItem('montapc_v3')||'{}');for(var k in d){if(Array.isArray(d[k]))d[k]={t:d[k],asm:d[k].length,dis:0}}return d}catch(e){return {}}}
 function save(d){try{localStorage.setItem('montapc_v3',JSON.stringify(d))}catch(e){}}
-function record(nm,ms){var d=load();(d[nm]=d[nm]||[]).push(ms);if(d[nm].length>20)d[nm]=d[nm].slice(-20);save(d)}
-function renderRank(){var d=load(),rows=Object.keys(d).map(function(n){var a=d[n],avg=a.reduce(function(s,x){return s+x},0)/a.length;return {n:n,avg:avg,c:a.length}});
- rows.sort(function(x,y){return x.avg-y.avg});
+function record(nm,ms,tipo){var d=load();var e=d[nm]=d[nm]||{t:[],asm:0,dis:0};e.t.push(ms);if(e.t.length>60)e.t=e.t.slice(-60);if(tipo==='dis')e.dis++;else e.asm++;save(d)}
+function punteggio(e){return e.asm+0.7*e.dis}
+function fmt(x){return (Math.round(x*10)/10).toString()}
+function renderRank(){var d=load(),rows=Object.keys(d).map(function(n){var e=d[n],avg=e.t.length?e.t.reduce(function(s,x){return s+x},0)/e.t.length:0;return {n:n,avg:avg,asm:e.asm,dis:e.dis,p:punteggio(e)}});
+ rows.sort(function(x,y){return y.p-x.p||x.avg-y.avg});
  var box=document.getElementById('rankbox');
  if(!rows.length){box.innerHTML='<p class="mu">'+T('rankempty')+'</p>';return}
- box.innerHTML='<table><tbody>'+rows.slice(0,12).map(function(r,i){return '<tr><td>'+(i+1)+'. '+esc(r.n)+' <span class="mu">('+r.c+')</span></td><td>'+(r.avg/1000).toFixed(1)+'s</td></tr>'}).join('')+'</tbody></table>'}
+ box.innerHTML='<table><tbody>'+rows.slice(0,12).map(function(r,i){return '<tr><td>'+(i+1)+'. '+esc(r.n)+'<br><span class="mu" style="font-size:11px">🔧'+r.asm+' · ↩'+r.dis+' · media '+(r.avg/1000).toFixed(0)+'s</span></td><td>'+fmt(r.p)+' pt</td></tr>'}).join('')+'</tbody></table>'}
+function renderMy(){var el=document.getElementById('mystats');if(!el)return;var nm=document.getElementById('pcname').value.trim();if(!nm){el.textContent='';return}var d=load(),e=d[nm];if(!e||!e.t.length){el.innerHTML='<span class="mu">Ancora niente a tuo nome.</span>';return}var avg=e.t.reduce(function(s,x){return s+x},0)/e.t.length;el.innerHTML='<b>'+esc(nm)+'</b> · 🔧 '+e.asm+' assemblati · ↩ '+e.dis+' smontati · tempo medio <b>'+(avg/1000).toFixed(1)+'s</b> · <b>'+fmt(punteggio(e))+' pt</b>'}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+/* ---- invio al centro (per il cruscotto del prof) ---- */
+var EXEC='';try{fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){})}catch(ex){}
+function invia(tipo,ms){var nm=document.getElementById('pcname').value.trim();if(!nm||!EXEC)return;var ev={id:'monta-pc-lab',modo:'evento',classe:'1INF',nome:nm,tipo:tipo,formato:(preset.tipo||'')+' '+((FORMATO[preset.tipo]||{}).ff||''),ms:ms,quando:new Date().toLocaleString('it-IT')};try{fetch(EXEC,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(ev))})}catch(e){}}
 
 /* ---- drag ---- */
 var drag=null;
@@ -249,7 +262,7 @@ function dropMount(d,ev){var slot=document.getElementById('slot_'+d.p.slot);
   if(miss.length){backToTray(d);setMsg(d.p.id==='cooler'?T('needcpu'):T('need'),'no');return}
   startTimer();placed[d.p.id]=true;placeOnBoard(d.p);setMsg(T('ok'),'ok');renderTodo();return}
  backToTray(d);setMsg(T('bad'),'no')}
-function dropUn(d,ev){if(overlap(d.chip,traywrap)){placed[d.p.id]=false;if(d.p.cable)clearWire(d.p.id);var sl=document.getElementById('slot_'+d.p.slot);if(sl)sl.classList.remove('full');backToTray(d);setMsg(T('ok'),'ok');renderTodo();return}placeOnBoard(d.p)}
+function dropUn(d,ev){if(overlap(d.chip,traywrap)){startTimer();placed[d.p.id]=false;if(d.p.cable)clearWire(d.p.id);var sl=document.getElementById('slot_'+d.p.slot);if(sl)sl.classList.remove('full');backToTray(d);setMsg(T('ok'),'ok');renderTodo();return}placeOnBoard(d.p)}
 function backToTray(d){var chip=d.chip,p=d.p;chip.classList.remove('placed','plug');chip.style.position='static';chip.style.left='';chip.style.top='';chip.style.width='';chip.style.height='';chip.style.fontSize='';if(p.cable)chip.textContent=p[L]||p.it;tray.appendChild(chip)}
 function cableStillOn(id){return PARTS.some(function(p){return p.cable&&placed[p.id]&&(p.needs||[]).indexOf(id)>=0})}
 function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect();var X=r.left+r.width/2,Y=r.top+r.height/2;return X>=s.left&&X<=s.right&&Y>=s.top&&Y<=s.bottom}
@@ -257,12 +270,16 @@ function overlap(a,b){var r=a.getBoundingClientRect(),s=b.getBoundingClientRect(
 function applyLang(){document.documentElement.lang=L;document.body.classList.toggle('ar',L==='ar');
  ['title','sub','mount','un','tray','todo','rank','dev','cab'].forEach(function(k){var e=document.getElementById('t_'+k);if(e)e.textContent=T(k)});
  var nw=document.getElementById('t_new');if(nw)nw.textContent=T('neu');
- document.getElementById('pcname').placeholder=T('name');reset();renderRank()}
+ document.getElementById('pcname').placeholder=T('name');reset();renderRank();renderMy()}
+function inCorso(){return tRun}
 document.querySelectorAll('.lang b').forEach(function(b){b.onclick=function(){L=b.dataset.l;document.querySelectorAll('.lang b').forEach(function(x){x.classList.toggle('on',x===b)});applyLang()}});
-document.getElementById('m_mount').onclick=function(){MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
-document.getElementById('m_un').onclick=function(){MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
-document.getElementById('newpc').onclick=function(){MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
+document.getElementById('m_mount').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='mount';this.classList.add('on');document.getElementById('m_un').classList.remove('on');reset()};
+document.getElementById('m_un').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='un';this.classList.add('on');document.getElementById('m_mount').classList.remove('on');reset()};
+document.getElementById('newpc').onclick=function(){if(inCorso()){setMsg(T('finisci'),'no');return}MODE='mount';document.getElementById('m_mount').classList.add('on');document.getElementById('m_un').classList.remove('on');pickPC(0)};
+document.getElementById('pcname').addEventListener('input',renderMy);
 
 var _pc=parseInt((location.search.match(/[?&]pc=(\d)/)||[])[1],10);
-pickPC(_pc>=1&&_pc<=3?_pc:0);renderRank();
-</script></body></html>
+pickPC(_pc>=1&&_pc<=3?_pc:0);renderRank();renderMy();
+</script>
+<script src="../assistente/assistente.js" data-pagina="monta-pc-lab" data-lingue="it,ar,zh"></script>
+</body></html>
