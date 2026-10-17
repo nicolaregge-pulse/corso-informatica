@@ -1,0 +1,55 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avanzamento teoria</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#dde3ea;--acc:#1f6feb;--ok:#2f9e57;--warn:#d9a400}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--warn:#e3b341}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+.w{max-width:820px;margin:0 auto}
+h1{font-size:clamp(22px,5vw,30px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0 12px;font-size:14px}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 14px}
+.k{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 16px}.k b{font-size:24px;display:block}.k span{color:var(--mu);font-size:13px}
+.row{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:8px 0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.nm{font-weight:800;font-size:18px;min-width:140px;flex:1}
+.pos{font-weight:700;font-size:14px;color:var(--mu);min-width:150px}
+.pos b{color:var(--tx)}
+.barw{flex:1;min-width:140px;height:14px;background:var(--ln);border-radius:8px;overflow:hidden}
+.barw>i{display:block;height:100%;background:var(--acc)}
+.pct{font-weight:900;width:46px;text-align:right}
+.last{font-size:12px;color:var(--mu);min-width:90px;text-align:right}
+.row.fin .barw>i{background:var(--ok)}
+.row.fermo{opacity:.6}
+.empty{background:var(--card);border:1px dashed var(--ln);border-radius:12px;padding:26px;text-align:center;color:var(--mu)}
+.upd{color:var(--mu);font-size:13px}
+</style></head>
+<body><div class="w">
+<h1>📖 Avanzamento della teoria</h1>
+<p class="sub">Dove è arrivato ogni allievo · si aggiorna da sola · <span class="upd" id="upd">—</span></p>
+<div class="kpi" id="kpi"></div>
+<div id="out"><div class="empty">In attesa… compariranno man mano che aprono la teoria.</div></div>
+</div>
+<script>
+var B=(location.search.match(/[?&]b=([a-z0-9-]+)/i)||[])[1]||'prova-pc-v1';
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function quando(iso){if(!iso)return'';var s=Math.round((Date.now()-new Date(iso).getTime())/1000);if(s<15)return'ora';if(s<60)return s+'s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+'h fa';}
+function fermo(iso){return iso&&(Date.now()-new Date(iso).getTime())>120000;}
+function render(d){
+  var r=(d&&d.righe)||[],out=document.getElementById('out');
+  if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che aprono la teoria.</div>';document.getElementById('kpi').innerHTML='';return;}
+  var tot=d.totale_schede||(r[0]&&r[0].totale)||1;
+  r.sort(function(a,b){return (b.scheda||0)-(a.scheda||0);});
+  var fin=r.filter(function(x){return x.scheda>=tot;}).length;
+  document.getElementById('kpi').innerHTML='<div class="k"><b>'+r.length+'</b><span>allievi partiti</span></div>'+
+    '<div class="k"><b>'+fin+'</b><span>arrivati in fondo</span></div><div class="k"><b>'+tot+'</b><span>schede totali</span></div>';
+  out.innerHTML=r.map(function(x){
+    var pct=Math.round((x.scheda/tot)*100);
+    return '<div class="row '+(x.scheda>=tot?'fin ':'')+(fermo(x.quando)?'fermo':'')+'">'+
+      '<span class="nm">'+esc(x.nome)+'</span>'+
+      '<span class="pos">scheda <b>'+x.scheda+'/'+tot+'</b>'+(x.titolo?' · '+esc(x.titolo):'')+'</span>'+
+      '<span class="barw"><i style="width:'+pct+'%"></i></span><span class="pct">'+pct+'%</span>'+
+      '<span class="last">'+quando(x.quando)+'</span></div>';
+  }).join('');
+  document.getElementById('upd').textContent='aggiornato '+(d.aggiornato||'')+' · letto '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+function carica(){fetch('../avanzamento/'+B+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(d)render(d);}).catch(function(){});}
+carica();setInterval(carica,12000);
+</script></body></html>
