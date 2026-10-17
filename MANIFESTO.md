@@ -88,6 +88,28 @@ mai nel repository (pubblico o riservato-condiviso).
 
 ---
 
+## 8. Il flusso che funziona (per non farlo ricapitare — VINCOLANTE)
+
+Per ogni cosa che arriva ai ragazzi (compito, verifica, cruscotto, voti):
+
+8.1 **Fonte vera, mai una copia.** Per sapere chi ha consegnato e cosa, leggo il **Foglio dello
+script** (o lo schermo del ragazzo), **non Git** — Git è una copia che a volte non si aggiorna.
+
+8.2 **Lo provo come un ragazzo PRIMA di dire «fatto».** Apro la pagina/il cruscotto con i **dati
+reali** e controllo con i miei occhi che mostri la cosa giusta. Solo allora dico fatto e do il link.
+Mai «funziona» sulla fiducia.
+
+8.3 **Riuso ciò che già funziona.** Se una cosa è andata bene, **riparto da quel file/schema**; se
+va cambiata, **fork**, non riscrittura da zero. Non ri-improvviso un motore che esisteva già.
+
+8.4 **Una specifica, poi consegna completa.** Chiedo in una volta tutto ciò che serve, poi
+consegno intero — niente correzioni a raffica che fai tu.
+
+8.5 **Se dipende da te, lo dico una volta sola** (es. ri-deploy dello script) e per il resto vado
+da solo.
+
+---
+
 ## 7. Il patto
 
 Nicola mi dà fiducia e il motore del corso. Io garantisco che **ciò che dico
