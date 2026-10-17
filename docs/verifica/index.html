@@ -149,6 +149,14 @@ svg text{fill:var(--fg)}
   /* ================= RIPASSO ================= */
   function ripasso() {
     if (!NOME) return chiediNome(ripasso);
+    var TOT_SC = (B.schede || []).length, maxSc = 0, lastSent = -1, nRisp = 0;
+    function pingAvz(force) {
+      if (!CONF.invio || !NOME || (maxSc === lastSent && !force)) return; lastSent = maxSc;
+      var sc = (B.schede || [])[Math.max(0, maxSc - 1)] || {};
+      var d = { id: 'avz-' + B.id, modo: 'avanzamento', classe: B.classe || '', nome: NOME, scheda: maxSc, totale: TOT_SC, risposte: nRisp, titolo: (sc.titolo || '').replace(/^\d+[.)]?\s*/, ''), quando: new Date().toISOString() };
+      try { fetch(CONF.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) }); } catch (x) {}
+    }
+    function segnaRisposta(scheda) { nRisp++; var n = +scheda || 0; if (n > maxSc) maxSc = n; pingAvz(true); }
     var h = '<div class="mu">Ciao <b>' + e(NOME) + '</b> · <a href="#" id="cambia">non sei tu?</a></div>';
     h += '<div class="card"><h2>Ripasso</h2><p>Leggi una scheda e rispondi subito alla sua domanda: la correzione è immediata e puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
       Object.keys(B.aree).filter(function (k) { return B.aree[k].peso > 0; }).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
@@ -159,25 +167,16 @@ svg text{fill:var(--fg)}
     h += '<div class="card"><h2>La verifica</h2><p id="statoV"></p><a class="bt v" id="vaiV" href="?b=' + idB + '&modo=verifica">Fai la verifica</a> <a class="bt" id="vaiR" href="?b=' + idB + '&modo=recupero" hidden>Fai il recupero</a> ' +
       (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
     APP.innerHTML = h;
-    // AVANZAMENTO TEORIA: segnala al prof a che scheda è arrivata/o (cruscotto avanzamento)
-    (function () {
-      var TOT = (B.schede || []).length; if (!TOT) return;
-      var maxSc = 0, lastSent = -1;
-      function pingAvz(force) {
-        if (!CONF.invio || !NOME || (maxSc === lastSent && !force)) return; lastSent = maxSc;
-        var sc = B.schede[Math.max(0, maxSc - 1)] || {};
-        var d = { id: 'avz-' + B.id, modo: 'avanzamento', classe: B.classe || '', nome: NOME, scheda: maxSc, totale: TOT, titolo: (sc.titolo || '').replace(/^\d+[.)]?\s*/, ''), quando: new Date().toISOString() };
-        try { fetch(CONF.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) }); } catch (x) {}
-      }
-      try {
-        var io = new IntersectionObserver(function (es) {
-          es.forEach(function (en) { if (en.isIntersecting) { var n = +en.target.getAttribute('data-sc') || 0; if (n > maxSc) maxSc = n; } });
-        }, { threshold: 0.6 });
-        [].forEach.call(document.querySelectorAll('[data-sc]'), function (el) { io.observe(el); });
-      } catch (x) {}
-      pingAvz(true); setInterval(function () { pingAvz(false); }, 12000);
-      window.addEventListener('beforeunload', function () { pingAvz(true); });
-    })();
+    // AVANZAMENTO TEORIA: osserva le schede viste; le RISPOSTE (segnaRisposta) muovono l'indicatore
+    try {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (en) { if (en.isIntersecting) { var n = +en.target.getAttribute('data-sc') || 0; if (n > maxSc) maxSc = n; } });
+        pingAvz(false);
+      }, { threshold: 0.6 });
+      [].forEach.call(document.querySelectorAll('[data-sc]'), function (el) { io.observe(el); });
+    } catch (x) {}
+    pingAvz(true); setInterval(function () { pingAvz(false); }, 12000);
+    window.addEventListener('beforeunload', function () { pingAvz(true); });
     $('cambia').onclick = function (ev) { ev.preventDefault(); NOME = ''; metti(KN(), ''); ripasso(); };
     var r = rng(hash(NOME + '|allena')), num = 0;
     function pratica(q, box) {
@@ -185,7 +184,7 @@ svg text{fill:var(--fg)}
       d.innerHTML = '<div class="area">Allenati · ' + e((B.aree[q.area] || {}).nome || '') + '</div><b>' + num + '. ' + q.q + '</b>' + idx.map(function (k) { return '<button class="op" data-k="' + k + '">' + e(q.o[k]) + '</button>'; }).join('') + '<div class="mu" hidden></div>';
       [].forEach.call(d.querySelectorAll('.op'), function (b) { b.onclick = function () {
         var ok = +b.dataset.k === q.a, A = andamento(), chiave = senzaTag(q.q).slice(0, 60); if (!(chiave in A.pratica)) { A.pratica[chiave] = ok ? 1 : 0; metti(KA(), A); } mostraAndamento(); [].forEach.call(d.querySelectorAll('.op'), function (x) { x.className = 'op'; });
-        b.className = 'op ' + (ok ? 'giusta' : 'sbagliata'); var m = d.querySelector('.mu'); m.hidden = false;
+        b.className = 'op ' + (ok ? 'giusta' : 'sbagliata'); try { segnaRisposta(q.scheda || 1); } catch (ex) {} var m = d.querySelector('.mu'); m.hidden = false;
         m.innerHTML = ok ? '<b style="color:var(--verde)">Giusto!</b> ' + (q.spiega || '') : '<b style="color:var(--rosso)">Non è questa: rileggi la scheda e riprova.</b>'; }; });
       box.appendChild(d);
     }
