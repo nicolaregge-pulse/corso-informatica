@@ -1,5 +1,7 @@
 /**
- * AUTOMAZIONE CORSO v7.7 (16/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v7.9 (18/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v7.9: MONITOR DAL VIVO DEL DOCENTE: ?live=<banca>&sim=<sim>&tok=<MONITOR_TOKEN> risponde con l'ultima
+ *       riga di ogni ragazzo (teoria, quiz, simulatore, domande). Il monitor del docente si aggiorna da solo.
  * v7.7: SI RIPARA DA SOLO. Il timer di Google a volte si spegne: ora ogni contatto del web app (doGet/doPost)
  *       chiama AUTO_assicuraTimer() che lo ricrea se manca. In piu' l'azione «classroom.annuncio_cancella»
  *       permette di cancellare un annuncio (test e pulizia; mai il lavoro degli allievi).
@@ -658,8 +660,71 @@ function AUTO_gh(method, path, payload) {
    Chi ha accesso: chiunque nella scuola (o chiunque) -> Distribuisci -> copia l'URL che finisce con /exec. */
 function doGet(e) {
   AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
-  if (e && e.parameter && e.parameter.cruscotto) return AUTO_cruscotto(e.parameter.cruscotto, e.parameter.callback);   // v7.8: classifica dal vivo
+  var p = (e && e.parameter) || {};
+  if (p.live) return AUTO_live(p.live, p.sim, p.tok, p.callback);                    // v7.9: monitor dal vivo del docente
+  if (p.cruscotto) return AUTO_cruscotto(p.cruscotto, p.callback);                     // v7.8: classifica dal vivo
   return AUTO_paginaArrivo('Pagina pronta', 'Da qui arrivano le consegne delle verifiche del corso.', '#1f6feb');
+}
+
+/* v7.9 — MONITOR DAL VIVO DEL DOCENTE (18/10/2026).
+   Il browser del docente chiama ?live=<id banca>&sim=<id simulatore>&tok=<codice>&callback=fn ogni pochi secondi.
+   Lo script legge il Foglio «Arrivi verifiche» e risponde con l'ULTIMA riga di ogni ragazzo:
+     teoria  (eventi avz-<id>: scheda, totale, titolo, quando)
+     quiz    (consegne <id>, modo verifica/recupero: giusti, su, voto, quando)
+     sim     (eventi <sim>: montati, smontati, ultimo)
+     aiuto   (domande assistente-verifica-<banca>: ultima domanda, quando)
+   PRIVACY: /exec e' pubblico, quindi i nomi escono SOLO con il codice giusto: proprieta' dello script
+   MONITOR_TOKEN (Impostazioni progetto -> Proprieta' dello script). Senza codice: risposta vuota.
+   Niente Git, niente push, niente attese: il monitor si aggiorna da solo. */
+function AUTO_live(id, sim, tok, cb) {
+  id = String(id || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
+  sim = String(sim || '').replace(/[^a-z0-9-]/gi, '').slice(0, 80);
+  var atteso = '';
+  try { atteso = PropertiesService.getScriptProperties().getProperty('MONITOR_TOKEN') || ''; } catch (x) {}
+  var payload;
+  if (!atteso || String(tok || '') !== atteso) {
+    payload = JSON.stringify({ ok: false, errore: atteso ? 'codice' : 'manca MONITOR_TOKEN nelle proprieta dello script' });
+    return AUTO_rispostaJs(payload, cb);
+  }
+  var banca = id.replace(/-v\d+$/, '');            // prova-pc-v1 -> prova-pc (id della pagina per le domande)
+  var idTeoria = 'avz-' + id, idAiuto = 'assistente-verifica-' + banca;
+  var per = {};
+  function chi(nome) { var k = String(nome || '').trim().toLowerCase().replace(/\s+/g, ' '); if (!k) return null; return per[k] || (per[k] = { nome: String(nome).trim(), ultimo: '' }); }
+  function tocca(s, q) { if (q && q > (s.ultimo || '')) s.ultimo = q; }
+  try {
+    var dati = AUTO_foglioArrivi().getDataRange().getValues();
+    for (var r = 1; r < dati.length; r++) {
+      var rid = String(dati[r][1] || ''), modo = String(dati[r][2] || '');
+      if (rid !== idTeoria && rid !== id && rid !== sim && rid !== idAiuto) continue;
+      var d; try { d = JSON.parse(dati[r][6]); } catch (x) { continue; }
+      var s = chi(d.nome || dati[r][3]); if (!s) continue;
+      var q = String(d.quando || d.ora || d._arrivo || dati[r][0] || '');
+      if (rid === idTeoria) {                        // ultima posizione nella teoria
+        s.teoria = { scheda: Number(d.scheda) || 0, totale: Number(d.totale) || 0, titolo: String(d.titolo || ''), risposte: Number(d.risposte) || 0, quando: q };
+        tocca(s, q);
+      } else if (rid === id) {                       // quiz (verifica/recupero)
+        var cro = d.crocette || [], g = 0; for (var i = 0; i < cro.length; i++) if (cro[i] && cro[i].ok) g++;
+        var n = cro.length || 1, voto = Math.round((40 + 60 * Math.pow(g / n, 2)) / 5) * 5;
+        s.quiz = { modo: modo || d.modo || 'verifica', giusti: g, su: cro.length, voto: voto, quando: q };
+        tocca(s, q);
+      } else if (sim && rid === sim) {               // simulatore
+        s.sim = s.sim || { asm: 0, dis: 0, quando: '' };
+        if (d.tipo === 'smontato') s.sim.dis++; else s.sim.asm++;
+        s.sim.quando = q; tocca(s, q);
+      } else if (rid === idAiuto) {                  // ultima domanda all'assistente
+        s.aiuto = { domanda: String(d.domanda || '').slice(0, 160), quando: q };
+        tocca(s, q);
+      }
+    }
+  } catch (x) {}
+  var righe = []; for (var k in per) righe.push(per[k]);
+  righe.sort(function (a, b) { return (b.ultimo || '') < (a.ultimo || '') ? -1 : 1; });
+  payload = JSON.stringify({ ok: true, id: id, sim: sim, quando: new Date().toISOString(), righe: righe });
+  return AUTO_rispostaJs(payload, cb);
+}
+function AUTO_rispostaJs(payload, cb) {
+  if (cb) return ContentService.createTextOutput(String(cb).replace(/[^\w$.]/g, '') + '(' + payload + ')').setMimeType(ContentService.MimeType.JAVASCRIPT);
+  return ContentService.createTextOutput(payload).setMimeType(ContentService.MimeType.JSON);
 }
 /* v7.8 — CLASSIFICA DAL VIVO (per il cruscotto pubblico del gioco «Monta il PC»).
    Legge il Foglio «Arrivi verifiche», tiene solo gli eventi dell'id chiesto, raggruppa per nome:
