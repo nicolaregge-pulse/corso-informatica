@@ -108,6 +108,27 @@ consegno intero — niente correzioni a raffica che fai tu.
 8.5 **Se dipende da te, lo dico una volta sola** (es. ri-deploy dello script) e per il resto vado
 da solo.
 
+## 9. Il monitoraggio decide i tempi (regola di costruzione della lezione — VINCOLANTE)
+
+Perché: un compito pensato per tre ore spesso è finito dopo 45 minuti, e il docente lo scopre
+quando la classe è già ferma. Va **previsto e gestito dal vivo**, non subito a posteriori.
+
+9.1 **Ogni lezione è una sequenza di passi tracciati con un totale noto** (schede, domande, PC da
+montare, quiz). Senza totale non si può dire «quanto ha fatto / quanto gli manca»: quindi ogni
+passo che il ragazzo compie manda un segnale (risposta data, scheda letta, PC montato, consegna).
+
+9.2 **Il monitor del docente mostra, in ogni momento e per ognuno:** cosa sta facendo adesso,
+quanto ha fatto (%), quanto gli manca, a che ritmo va e **quando finisce** — e per la classe:
+quanti hanno finito e **tra quanti minuti hanno finito tutti**. Si aggiorna da solo (lettura dal
+vivo dello script), senza passamano.
+
+9.3 **Il passo successivo è SEMPRE pronto prima che serva.** Quando metà classe ha finito, il
+monitor lo segnala: a quel punto il passo dopo (sfida, recupero, quiz, approfondimento) deve già
+essere pubblicato o pronto da pubblicare con un clic. Mai una classe ferma ad aspettare.
+
+9.4 **I tempi si regolano dal vivo sul monitor**, non sul piano scritto: la stima di partenza è
+un'ipotesi, il monitor è il fatto.
+
 ---
 
 ## 7. Il patto
