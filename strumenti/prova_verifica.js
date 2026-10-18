@@ -35,7 +35,7 @@ let ko = 0; const permesses = n => n; const ok = (cond, t) => { console.log((con
       await p.evaluate(() => { const t = document.getElementById('ta'); const ev = new Event('paste', { bubbles: true, cancelable: true }); t.dispatchEvent(ev); window.__p = ev.defaultPrevented; });
       const prev = await p.evaluate(() => window.__p);
       if (ph.startsWith('Incolla')) { trovInc++; if (!prev) permesse++; } else if (prev) bloccate++; }
-    const s = await p.$('#succ'); if (!s) break; await s.click().catch(() => 0); await p.waitForTimeout(150);
+    const s = await p.$('#succ'); if (!s || !(await s.isVisible().catch(() => false))) break; await s.click({ timeout: 1500 }).catch(() => 0); await p.waitForTimeout(120);
   }
   ok(trovInc === 0 || permesse === trovInc, 'domande «incolla qui»: ' + trovInc + ' trovate, incolla permesso in ' + permesses(permesse));
   ok(bloccate > 0 || trovInc === 0, 'nelle altre risposte scritte l\'incolla resta bloccato (' + bloccate + ')');
