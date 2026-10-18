@@ -55,7 +55,7 @@ function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))retu
 function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
 function render(d,origine){
   var r=(d&&d.righe)||[],out=document.getElementById('out');
-  document.getElementById('stato').innerHTML=(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● copia statica</b> · lo script non risponde: dati dal file')+' · '+new Date().toLocaleTimeString('it-IT');
+  document.getElementById('stato').innerHTML=(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● aggiornato dall\'assistente</b> · ogni minuto circa'+(d&&d.aggiornato?' · ultima lettura del Foglio alle '+esc(d.aggiornato):''))+' · '+new Date().toLocaleTimeString('it-IT');
   if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che lavorano.</div>';document.getElementById('kpi').innerHTML='';return;}
   var tot=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot)tot=x.teoria.totale;});tot=tot||(d.totale_schede||10);
   var fin=r.filter(function(x){return x.teoria&&x.teoria.scheda>=tot;}).length,quiz=r.filter(function(x){return x.quiz;}).length;
@@ -85,8 +85,8 @@ function render(d,origine){
   }).join('');
 }
 function statico(){fetch('../avanzamento/'+B+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
-  if(!d)return; var righe=(d.righe||[]).map(function(x){return {nome:x.nome,ultimo:x.quando,teoria:{scheda:x.scheda,totale:x.totale||d.totale_schede,titolo:x.titolo,quando:x.quando}}});
-  render({righe:righe,totale_schede:d.totale_schede},'static');}).catch(function(){});}
+  if(!d)return; var righe=(d.righe||[]).map(function(x){return x.teoria?x:{nome:x.nome,ultimo:x.quando,teoria:{scheda:x.scheda,totale:x.totale||d.totale_schede,titolo:x.titolo,quando:x.quando}}});
+  render({righe:righe,totale_schede:d.totale_schede,aggiornato:d.aggiornato},'static');}).catch(function(){});}
 function live(){
   if(!EXEC||!TOK){statico();return;}
   var cb='mon'+(++_n),s=document.createElement('script'),done=false;
