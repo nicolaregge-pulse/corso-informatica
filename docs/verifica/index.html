@@ -116,7 +116,7 @@ svg text{fill:var(--fg)}
     var v = prendi(KR('verifica')), r = prendi(KR('recupero')), T = [
       { m: 'ripasso', n: '1. Ripasso', s: 'sempre aperto', ok: true },
       { m: 'verifica', n: '2. Verifica', s: v ? 'consegnata' : aperta('verifica') ? 'aperta' : 'la apre il prof', ok: !!v || aperta('verifica'), fatta: !!v },
-      { m: 'recupero', n: '3. Recupero', s: r ? 'consegnato' : aperta('recupero') ? 'aperto' : 'lo apre il prof', ok: !!r || aperta('recupero'), fatta: !!r }];
+      { m: 'recupero', n: '3. Recupero', s: r ? 'consegnato' : aperta('recupero') ? 'aperto' : 'si apre per chi ne ha bisogno', ok: !!r || aperta('recupero'), fatta: !!r }];
     $('tappe').hidden = false;
     $('tappe').innerHTML = T.map(function (t) { return '<a href="?b=' + idB + (t.m === 'ripasso' ? '' : '&modo=' + t.m) + '" class="' + (t.m === qui ? 'qui ' : '') + (t.ok ? '' : 'chiusa ') + (t.fatta ? 'fatta' : '') + '"><b>' + t.n + '</b><span class="mu">' + t.s + '</span></a>'; }).join('');
     // AUTOREGOLAZIONE: i ragazzi vedono sempre il monitor e i risultati, per regolarsi da soli
@@ -213,7 +213,7 @@ svg text{fill:var(--fg)}
     var r = rng(hash(NOME.toLowerCase() + '|' + B.id + '|' + modo)), lista = [];
     function croc(q) { if (typeof q === 'function') q = q(r); var idx = mescola(q.o.map(function (_, i) { return i; }), r);
       return { tipo: 'c', area: q.area, tema: q.tema || '', q: q.q, o: idx.map(function (i) { return q.o[i]; }), a: idx.indexOf(q.a), spiega: q.spiega || '', grafico: q.grafico, scelta: -1 }; }
-    function ap(q) { if (typeof q === 'function') q = q(r); return { tipo: 'a', area: q.area, tema: q.tema || '', q: q.q, aiuto: q.aiuto || '', mostra_pr: q.mostra_pr, min: q.min_parole || 20, criteri: q.criteri || '', testo: '', tasti: 0, ms_scrittura: 0, salto_max: 0, salti: 0, ultimo: 0 }; }
+    function ap(q) { if (typeof q === 'function') q = q(r); return { tipo: 'a', area: q.area, tema: q.tema || '', q: q.q, aiuto: q.aiuto || '', mostra_pr: q.mostra_pr, incolla: !!q.incolla, min: q.min_parole || 20, criteri: q.criteri || '', testo: '', tasti: 0, ms_scrittura: 0, salto_max: 0, salti: 0, ultimo: 0 }; }
     if (modo === 'recupero') {
       var prima = prendi(KR('verifica')), sbagliati = prima ? prima.crocette.filter(function (c) { return !c.ok; }).map(function (c) { return c.tema; }) : [];
       var rec = (B.recupero || []).filter(function (q) { return !sbagliati.length || sbagliati.indexOf(q.tema) >= 0; });
@@ -250,7 +250,7 @@ svg text{fill:var(--fg)}
         (vuote ? '<div class="card"><b>Le risposte scritte</b><p>Nella verifica ' + vuote + ' risposte scritte erano vuote o troppo corte. Nel recupero le ritrovi: scrivi con parole tue, valgono il 30% del voto.</p></div>' : '') + '</section>';
     }
     APP.innerHTML = teoria + '<section class="card"><h2>' + (modo === 'recupero' ? 'Passo 2 · Il recupero' : 'Verifica') + ' · ' + e(NOME) + '</h2><div class="avviso"><b>Regole</b><ol>' +
-      '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue.</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda, il monitor o i risultati è permesso.</li>' +
+      '<li>Nelle risposte da scrivere <b>non si può incollare</b>: scrivi tu, con parole tue. Fa eccezione solo la domanda che dice «incolla qui» (il tuo codice o un indirizzo).</li><li>Se esci da questa pagina (un\'altra scheda, un altro programma), <b>viene segnato</b>. Aprire il gioco dal link della domanda, il monitor o i risultati è permesso.</li>' +
       '<li>Ognuno ha le domande in un ordine diverso.</li><li>Alla fine vedi subito come sono andate le crocette. Le risposte scritte le valuta il prof; il voto è un giudizio complessivo e lo trovi nella pagina dei risultati.</li></ol></div><button class="bt v" id="via">Inizia</button></section>';
     var inCorso = prendi(KI(modo));
     if (inCorso && inCorso.D && inCorso.D.length) { D = inCorso.D; T0 = inCorso.T0 || Date.now(); if (inCorso.LOG) LOG = inCorso.LOG; return avvia(modo, inCorso.cur || 0); }
@@ -304,7 +304,7 @@ svg text{fill:var(--fg)}
     if (d.tipo === 'c') h += d.o.map(function (o, k) { return '<button class="op' + (d.scelta === k ? ' sel' : '') + '" data-k="' + k + '">' + e(o) + '</button>'; }).join('');
     else if (d.tipo === 'n') h += '<input id="num" inputmode="numeric" maxlength="6" placeholder="Il numero" value="' + e(d.valore) + '">';
     else if (d.tipo === 's') h += '<div class="scala">' + [1, 2, 3, 4, 5].map(function (n) { return '<button data-n="' + n + '"' + (d.valore === n ? ' class="sel"' : '') + '>' + n + '</button>'; }).join('') + '</div><div class="mu" style="display:flex;justify-content:space-between"><span>1 = ' + e(d.basso) + '</span><span>5 = ' + e(d.alto) + '</span></div>';
-    else h += (d.aiuto ? '<p class="mu">' + d.aiuto + '</p>' : '') + '<textarea id="ta" spellcheck="false" autocomplete="off" placeholder="Scrivi qui, con parole tue."></textarea><div class="conta" id="conta"></div>';
+    else h += (d.aiuto ? '<p class="mu">' + d.aiuto + '</p>' : '') + '<textarea id="ta" spellcheck="false" autocomplete="off" placeholder="' + (d.incolla ? 'Incolla qui (Ctrl+V).' : 'Scrivi qui, con parole tue.') + '"></textarea><div class="conta" id="conta"></div>';
     h += '<details class="probl"' + (d.problema ? ' open' : '') + '><summary>Ho un problema con questa domanda</summary><p class="mu">Scrivi qual è il problema (per esempio: non si legge, non capisco una parola, non funziona). Il prof lo legge quando corregge e decide.</p><textarea id="pb" spellcheck="false" autocomplete="off" style="min-height:60px"></textarea></details>';
     $('domanda').innerHTML = h;
     var pb = $('pb'); pb.value = d.problema || ''; pb.addEventListener('input', function () { d.problema = pb.value; }); pb.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; });
@@ -313,8 +313,9 @@ svg text{fill:var(--fg)}
     if (d.tipo === 'n') { var nu = $('num'); nu.oninput = function () { d.valore = nu.value.replace(/[^0-9]/g, ''); nu.value = d.valore; pal(); }; nu.onpaste = function (ev) { ev.preventDefault(); LOG.incolla++; }; }
     if (d.tipo === 'a') {
       var ta = $('ta'); ta.value = d.testo; conta();
-      ta.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; avvisa('Non si può incollare: scrivi tu, con parole tue.'); });
-      ta.addEventListener('drop', function (ev) { ev.preventDefault(); LOG.incolla++; });
+      // d.incolla = true: domanda dove si DEVE incollare (il proprio codice, un indirizzo): l'incolla è permesso e non conta
+      if (!d.incolla) ta.addEventListener('paste', function (ev) { ev.preventDefault(); LOG.incolla++; avvisa('Non si può incollare: scrivi tu, con parole tue.'); });
+      if (!d.incolla) ta.addEventListener('drop', function (ev) { ev.preventDefault(); LOG.incolla++; });
       ta.addEventListener('keydown', function () { var t = Date.now(); if (d.ultimo && t - d.ultimo < 4000) d.ms_scrittura += t - d.ultimo; d.ultimo = t; d.tasti++; });
       ta.addEventListener('input', function (ev) { var salto = ta.value.length - d.testo.length; if (salto > 12 && !ev.isComposing) { d.salti++; d.salto_max = Math.max(d.salto_max, salto); } d.testo = ta.value; conta(); });
       function conta() { var n = parole(ta.value); $('conta').textContent = n + ' parole' + (n < d.min ? ' · ne servono almeno ' + d.min : ' · ok'); pal(); }
