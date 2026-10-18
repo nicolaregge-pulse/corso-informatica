@@ -699,7 +699,8 @@ function AUTO_live(id, sim, tok, cb) {
       var d; try { d = JSON.parse(dati[r][6]); } catch (x) { continue; }
       var s = chi(d.nome || dati[r][3]); if (!s) continue;
       var q = String(d.quando || d.ora || d._arrivo || dati[r][0] || '');
-      if (rid === idTeoria) {                        // ultima posizione nella teoria
+      if (rid === idTeoria) {                        // ultima posizione nella teoria (+ ora del primo segnale: serve per il ritmo)
+        if (!s.inizio) s.inizio = q;
         s.teoria = { scheda: Number(d.scheda) || 0, totale: Number(d.totale) || 0, titolo: String(d.titolo || ''), risposte: Number(d.risposte) || 0, quando: q };
         tocca(s, q);
       } else if (rid === id) {                       // quiz (verifica/recupero)
