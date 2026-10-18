@@ -142,6 +142,13 @@ prima (sfida) sta già nell'ultima scheda.
 ricarica, consegna che arriva, segnali del monitor, incolla permesso solo dove serve, recupero) deve
 dire «Tutto a posto». Poi il render come un ragazzo. Solo allora «Pubblico o vuoi vederlo prima?».
 
+9.8 **I tre framework (18/10, Nicola).** 1) Codice in team (Agile): il gioco della classe con Pull
+Request, backlog, merge, versioni, retrospettiva — fanno SEMPRE parte del framework i **sei bottoni
+classici** della classe: voti, backlog, monitor, novità (changelog), classifica, valutazione, aggiornati
+alla giornata. 2) Lezione normale: teoria → verifica → correzione → recupero → voto complessivo, in una
+pagina tracciata. 3) Questionario su Google Moduli allegato a Classroom. Per tutti: monitor dal vivo e
+voto per ognuno con il conto.
+
 9.7 **Il monitor del docente è dal vivo** (`docs/avanzamento/?b=<banca>`): dal 18/10 lo script
 pubblicato (v7.9) risponde al monitor ogni 5 secondi con il codice `MONITOR_TOKEN`. Se lo script non
 risponde, il monitor ripiega sulla copia che l'assistente aggiorna ogni 1-2 minuti. Quando si cambia lo
