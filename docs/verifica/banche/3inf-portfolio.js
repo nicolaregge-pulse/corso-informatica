@@ -28,7 +28,7 @@
     },
 
     /* ---------- 1. RIPASSO ---------- */
-    schede_temi: { sito: 1, html: 2, css: 3, pages: 4, portfolio: 5, codice: 6, menu: 7, pratica: 8, errori: 10 },
+    schede_temi: { sito: 1, html: 2, css: 3, pages: 4, portfolio: 5, codice: 6, menu: 7, pratica: 8, errori: 10, coppia: 11 },
     schede: [
       { titolo: "1. Dove siamo: il tuo sito · ১. আমরা কোথায় আছি", testo: L(
         "Hai già un <b>sito pubblico</b> su Internet: lo hai fatto tu, dall'8 ottobre. Sta in un <b>repository</b> su GitHub (quasi tutti lo hanno chiamato <b>mio-sito</b>) e ha dentro almeno due file: <b>index.html</b> (la pagina) e <b>style.css</b> (i colori e lo stile). Chi ha fatto la Dispensa 4 ha anche una <b>seconda pagina</b> e un <b>menu</b> per passare da una pagina all'altra. L'indirizzo è <b>https://tuonome.github.io/mio-sito/</b>. Oggi il sito diventa il tuo <b>portfolio</b>: una pagina che dice <b>cosa sai fare</b>, da mostrare a un'azienda per lo stage.",
@@ -75,7 +75,16 @@
         "<b>Mostralo:</b> leggi al compagno la tua frase per un'azienda, come a un colloquio, 30 secondi.<br>" +
         "<b>Sfida per chi ha finito:</b> 1) una terza pagina <b>passione.html</b> (la cosa che ti piace di più) con la sua riga nel menu; 2) cambia un colore del menu e lo sfondo della scheda; 3) nella Home metti un link al portfolio anche in fondo alla pagina.<br>" +
         "Ti blocchi? Scrivi la domanda all'assistente, in fondo alla pagina: ti risponde.",
-        "<b>404</b>: ফাইলের নাম <b>competenze.html</b> ছোট হাতের। মেনুতে রং নেই: style.css-এর শেষে CSS। শেষ করলে: <b>passione.html</b> তৃতীয় পাতা, রং বদলাও। আটকে গেলে নিচে সহকারীকে প্রশ্ন করো।") }
+        "<b>404</b>: ফাইলের নাম <b>competenze.html</b> ছোট হাতের। মেনুতে রং নেই: style.css-এর শেষে CSS। শেষ করলে: <b>passione.html</b> তৃতীয় পাতা, রং বদলাও। আটকে গেলে নিচে সহকারীকে প্রশ্ন করো।") },
+      { titolo: "11. Ultimi 10 minuti: prepariamo mercoledì (lavoro in coppia) · ১১. বুধবারের প্রস্তুতি", testo: L(
+        "Mercoledì lavorate <b>in coppia</b>: il compagno scrive una pagina nel <b>tuo</b> sito e tu nel suo, come in un'azienda. Per farlo, oggi vi date il permesso a vicenda. Il prof vi dice chi è il vostro compagno.<br>" +
+        "1) Chiedi al compagno il suo <b>nome utente GitHub</b> (quello dell'indirizzo, prima di .github.io).<br>" +
+        "2) Nel tuo repository <b>mio-sito</b> clicca <b>Settings</b> (l'ingranaggio, in alto a destra nella barra del repository).<br>" +
+        "3) Nel menu a sinistra clicca <b>Collaborators</b> (Collaboratori). Se chiede la password, rimettila.<br>" +
+        "4) Clicca il bottone verde <b>Add people</b>, scrivi il nome utente del compagno, sceglilo dall'elenco e conferma.<br>" +
+        "5) Il compagno riceve l'invito: lo trova nella <b>campanella</b> in alto a destra su github.com (o nella posta) e preme <b>Accept invitation</b>. Poi fate lo stesso al contrario. <b>FATTO!</b> Mercoledì potete lavorare uno nel sito dell'altro.<br>" +
+        "Rispondi alla domanda qui sotto.",
+        "বুধবার জোড়ায় কাজ: সঙ্গী তোমার সাইটে একটি পাতা লিখবে। আজ: <b>Settings → Collaborators → Add people</b>, সঙ্গীর GitHub নাম লেখো। সঙ্গী ঘণ্টার আইকনে <b>Accept invitation</b> চাপে। তারপর উল্টোটা।") }
     ],
     strumenti: [{ t: 'Il mio punto: cosa mi manca (password del libro)', u: '../3inf-mio-punto/', c: '#d4a017' }, { t: 'La pagina della classe: i siti di tutti', u: '../3inf-sito/', c: '#1f6feb' }, { t: 'Il monitor della lezione', u: '../3inf-monitor/', c: '#6e40c9' }],
     via: C("nozioni", L("Il tuo sito su Internet ha l'indirizzo che comincia con…", "তোমার সাইটের ঠিকানা শুরু হয়…"), ["https://tuonome.github.io/", "https://classroom.google.com/", "https://lazarus.it/"], "Il sito pubblico sta su GitHub Pages."),
@@ -94,6 +103,7 @@
       S(5, C("nozioni", L("Nel portfolio, che è pubblico, scrivo…", "Portfolio-তে লিখি…"), ["solo cose vere e positive, solo nome o soprannome", "il mio telefono così mi chiamano", "le mie difficoltà in famiglia"], "La pagina la vede chiunque.")),
       S(8, C("pratica", L("Passi 1-3 fatti? Dopo il commit, nel repository mio-sito vedi…", "ধাপ ১-৩ শেষ? Repository-তে দেখো…"), ["il file competenze.html nell'elenco dei file", "una pagina 404", "il file style.css cancellato"], "Se non lo vedi, rifai il passo 2.")),
       S(9, C("pratica", L("Passi 4-6 fatti? Sul sito, cliccando «Cosa so fare» vedi…", "ধাপ ৪-৬ শেষ? সাইটে দেখো…"), ["la pagina con le mie competenze, con il menu in alto", "ancora la pagina di esempio del prof, uguale", "niente, il sito non si apre"], "Se è ancora l'esempio: passo 4, fallo tuo.")),
+      S(11, C("pratica", L("Il compagno è collaboratore del tuo sito e tu del suo?", "সঙ্গী তোমার collaborator?"), ["sì, tutti e due abbiamo accettato l'invito", "ho mandato l'invito, aspetto che accetti", "non ancora"], "Se non va: Settings → Collaborators, controlla il nome utente.")),
       S(10, C("pratica", L("Hai fatto la sfida? Che cosa hai aggiunto?", "চ্যালেঞ্জ করেছো?"), ["una terza pagina o un colore nuovo", "niente, ho finito ai passi 1-6", "ho cancellato il sito"], "Tutte le risposte vanno bene: serve al monitor."))
     ],
 
