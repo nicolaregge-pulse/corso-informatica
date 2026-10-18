@@ -1,6 +1,6 @@
 # MANIFESTO — Cose che DEVO fare (regole fondamentali, vincolanti)
 
-**Versione 1.0** — 16/10/2026 · Patto di affidabilità Claude ↔ Nicola
+**Versione 1.1** — 18/10/2026 (v1.0 del 16/10) · Patto di affidabilità Claude ↔ Nicola
 Nato dopo una lezione in cui "tutto era a posto" ma in classe non funzionava.
 Queste regole vengono PRIMA di tutto. Non sono consigli: sono obblighi.
 
@@ -128,6 +128,24 @@ essere pubblicato o pronto da pubblicare con un clic. Mai una classe ferma ad as
 
 9.4 **I tempi si regolano dal vivo sul monitor**, non sul piano scritto: la stima di partenza è
 un'ipotesi, il monitor è il fatto.
+
+9.5 **Com'è fatta una lezione tracciabile (imparato il 17-18/10 con la prova di Serena).** Una sola
+pagina del motore `docs/verifica/?b=<banca>`: ripasso corto (è il motore che manda il segnale di ogni
+scheda letta), poi **la pratica spezzata in 2-3 schede, ognuna con una domanda di controllo** («passi 1-3
+fatti? che cosa vedi?»): la risposta è il segnale che il ragazzo è a quel punto. La verifica è
+**aperta dall'inizio** (nessuno aspetta il prof) con la scadenza all'ultima campanella; il recupero lo
+apre l'assistente per chi è sotto 60. Il lavoro pratico si consegna **dentro la verifica**, nella
+domanda «incolla qui» (codice, indirizzo): è l'unica dove l'incolla è permesso. Il passo per chi finisce
+prima (sfida) sta già nell'ultima scheda.
+
+9.6 **Prima di dare il link**: `strumenti/prova_verifica.js` sulla banca nuova (ripasso, verifica,
+ricarica, consegna che arriva, segnali del monitor, incolla permesso solo dove serve, recupero) deve
+dire «Tutto a posto». Poi il render come un ragazzo. Solo allora «Pubblico o vuoi vederlo prima?».
+
+9.7 **Il monitor del docente è dal vivo** (`docs/avanzamento/?b=<banca>`): dal 18/10 lo script
+pubblicato (v7.9) risponde al monitor ogni 5 secondi con il codice `MONITOR_TOKEN`. Se lo script non
+risponde, il monitor ripiega sulla copia che l'assistente aggiorna ogni 1-2 minuti. Quando si cambia lo
+script, serve il deploy «Nuova versione» da PC (5 minuti): è l'unica cosa che fa solo Nicola.
 
 ---
 
