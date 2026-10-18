@@ -77,7 +77,7 @@
         "Ti blocchi? Scrivi la domanda all'assistente, in fondo alla pagina: ti risponde.",
         "<b>404</b>: ফাইলের নাম <b>competenze.html</b> ছোট হাতের। মেনুতে রং নেই: style.css-এর শেষে CSS। শেষ করলে: <b>passione.html</b> তৃতীয় পাতা, রং বদলাও। আটকে গেলে নিচে সহকারীকে প্রশ্ন করো।") }
     ],
-    strumenti: [{ t: 'La pagina della classe: i siti di tutti', u: '../3inf-sito/', c: '#1f6feb' }, { t: 'Il monitor della lezione', u: '../3inf-monitor/', c: '#6e40c9' }],
+    strumenti: [{ t: 'Il mio punto: cosa mi manca (password del libro)', u: '../3inf-mio-punto/', c: '#d4a017' }, { t: 'La pagina della classe: i siti di tutti', u: '../3inf-sito/', c: '#1f6feb' }, { t: 'Il monitor della lezione', u: '../3inf-monitor/', c: '#6e40c9' }],
     via: C("nozioni", L("Il tuo sito su Internet ha l'indirizzo che comincia con…", "তোমার সাইটের ঠিকানা শুরু হয়…"), ["https://tuonome.github.io/", "https://classroom.google.com/", "https://lazarus.it/"], "Il sito pubblico sta su GitHub Pages."),
     prepara: [
       { q: L("Prima e dopo: scrivi almeno 3 cose che oggi sai fare e a settembre no (per esempio: ho un account GitHub, il mio sito è su Internet, so cos'è un commit…).", "আগে আর এখন: ৩টি জিনিস যা এখন পারো, সেপ্টেম্বরে পারতে না।"), min: 15 },
