@@ -1,12 +1,12 @@
 {
- "ora": "09:42",
- "sintesi": "17 PC accesi: 14 lavorano, 3 fuori (PC 21 schermo bloccato; PC 24 e PC 34 su pagine di GitHub che non sono il loro repository). Rovito è entrato e scrive il codice. Elkeran ha consegnato la verifica a vuoto. Catalano sempre fermo.",
+ "ora": "09:43",
+ "sintesi": "17 PC accesi: 12 lavorano, 5 fuori (PC 12 negozio di vestiti; PC 18 e PC 21 schermo bloccato; PC 24 e PC 34 pagine di GitHub non loro). Rovito ha la pagina «Cosa so fare» (da verificare sul sito). Chi ha finito guarda i risultati: serve il compito nuovo.",
  "righe": [
   {
    "pc": "PC 12",
    "nome": "ALESSANDRO AMICI",
-   "cosa": "GitHub: il suo repository mio-sito1, elenco dei file",
-   "fuori": false
+   "cosa": "negozio online di vestiti, non la lezione",
+   "fuori": true
   },
   {
    "pc": "PC 13",
@@ -23,25 +23,25 @@
   {
    "pc": "PC 16",
    "nome": "MAHMOUD ELKERAN",
-   "cosa": "la lezione: pagina del risultato «verifica consegnata» (ha consegnato a vuoto)",
+   "cosa": "la lezione: pagina del risultato (verifica a vuoto), fermo",
    "fuori": false
   },
   {
    "pc": "PC 18",
    "nome": "DANI SARACINO",
-   "cosa": "schermo blu, sta cambiando pagina o PC bloccato",
-   "fuori": false
+   "cosa": "schermo bloccato (ora 09:44): si è alzato",
+   "fuori": true
   },
   {
    "pc": "PC 21",
    "nome": "SAMUELE UCCHEDDU",
-   "cosa": "schermo bloccato (ora 09:34), non lavora (dodicesimo giro)",
+   "cosa": "schermo bloccato dalle 09:34 (tredicesimo giro fuori)",
    "fuori": true
   },
   {
    "pc": "PC 22",
    "nome": "EMMANUEL FRANCISCO",
-   "cosa": "GitHub: il suo repository mio-sito",
+   "cosa": "GitHub: scrive il codice di competenze.html",
    "fuori": false
   },
   {
@@ -53,7 +53,7 @@
   {
    "pc": "PC 24",
    "nome": "FILIPPO MENDOZA",
-   "cosa": "pagina di presentazione di GitHub, non il suo repository",
+   "cosa": "pagina di presentazione di GitHub, non il suo repository (secondo giro)",
    "fuori": true
   },
   {
@@ -65,43 +65,43 @@
   {
    "pc": "PC 28",
    "nome": "NICOLO CATALANO",
-   "cosa": "la lezione: scheda 9, la verifica sotto (fermo da molti giri sulla stessa schermata)",
+   "cosa": "la lezione: scheda 9, la verifica sotto (fermo da 8 giri)",
    "fuori": false
   },
   {
    "pc": "PC 29",
    "nome": "SIMONE GIARAMIDARO",
-   "cosa": "GitHub: scrive il codice di competenze.html",
+   "cosa": "GitHub: impostazioni Pages del repository",
    "fuori": false
   },
   {
    "pc": "PC 32",
    "nome": "GABRIELE ROVITO",
-   "cosa": "GitHub: scrive il codice (è entrato)",
+   "cosa": "il suo sito: pagina «Cosa so fare» con le competenze (fatta ora)",
    "fuori": false
   },
   {
    "pc": "PC 34",
    "nome": "BEATRICE NOVOROJDIN",
-   "cosa": "GitHub: pagina di benvenuto, non il suo repository (terzo giro)",
+   "cosa": "GitHub: pagina di benvenuto, non il suo repository (quarto giro)",
    "fuori": true
   },
   {
    "pc": "PC 35",
    "nome": "DENIS ANDRONACHE",
-   "cosa": "la lezione: i risultati della classe",
+   "cosa": "Classroom: compito 3 (vecchio), guarda i compiti",
    "fuori": false
   },
   {
    "pc": "PC 36",
    "nome": "ANDREA GERVASONI",
-   "cosa": "la lezione: scheda 11, collaboratori",
+   "cosa": "la lezione: scheda 11 e GitHub collaboratori",
    "fuori": false
   },
   {
    "pc": "PC 37",
    "nome": "NOAH VALERIO",
-   "cosa": "la lezione: verifica, risposta scritta",
+   "cosa": "la lezione: i risultati della classe",
    "fuori": false
   }
  ]
