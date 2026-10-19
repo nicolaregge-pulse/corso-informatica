@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.5** — 13/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.6** — 19/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -34,7 +34,8 @@
 1. **Prima della lezione (Claude):** teoria e compito pronti come anteprima; il docente li guarda; si pubblica solo dopo «pubblica».
 2. **Inizio:** il docente firma il programma previsto sul registro, **entro le 14:05**. Testo corto, al massimo 40 caratteri.
 3. **Il compito arriva su Classroom** dallo script, con un solo link alla pagina della lezione.
-4. **Durante:** il docente manda le schermate di Veyon; Claude le trascrive nel monitor pubblico (solo fatti, fuori compito in rosso) e aggiorna il cruscotto.
+4. **Durante:** il docente guarda il **monitor dal vivo** (capitolo 06): per ognuno scheda, percentuale, minuti che mancano, domande, verifica e voto, aggiornato ogni 5 secondi. Le domande dei ragazzi vanno all'assistente, che risponde nella pagina in 2-3 minuti. Il docente manda le schermate di Veyon; Claude le trascrive nel monitor pubblico dei ragazzi (solo fatti, fuori compito in rosso).
+4b. **Il giro automatico** (Claude, ogni 2 minuti in lezione): legge il Foglio delle consegne, aggiorna il monitor, risponde alle domande, corregge, apre il recupero a chi è sotto 60, avvisa quando metà classe ha finito. Per la 3INF controlla anche il sito vero di ogni ragazzo e scrive a ognuno che cosa gli manca in «Il mio punto».
 5. **Le proposte dei ragazzi** arrivano dal Modulo «Consegna»; Claude le mette nel backlog, le realizza nel gioco e pubblica le versioni nuove; i voti parziali si aggiornano.
 6. **Fine:** argomenti realmente svolti nel registro degli argomenti; demo e prove del metodo aggiornate, senza nomi.
 
@@ -49,6 +50,7 @@
 | La classifica | chi ha portato più proposte nel gioco | tutti |
 | Valutazione dei singoli | il giudizio del docente | solo il prof |
 
+0. **Nel framework «codice in team»** (il gioco con le Pull Request) i sei bottoni ci sono sempre, aggiornati alla giornata.
 1. Il docente ha in più il **cruscotto** della classe (cifrato, password dell'area docente): presenti, chi ha mandato, chi gioca ancora, una barra di avanzamento.
 2. Nei voti, chi non ha ancora consegnato è **«in attesa»**, non 40.
 
@@ -60,10 +62,16 @@
 4. **Conflitto:** due proposte sulla stessa riga; vale chi è arrivato prima, e si spiega nel backlog.
 5. **La base del prof** (`prof-nicola-regge`) è neutra; ogni classe ha il suo ramo o la sua copia.
 
-## 06 Ripasso, verifica, recupero
+## 06 I tre framework e il monitor dal vivo
 
-1. Un solo motore per tutte le classi: ripasso con risposta subito, verifica che si apre quando più di metà ha finito il ripasso, recupero fatto sui propri errori.
-2. Come si rifà: `VERIFICA-COME-SI-FA.md`.
+1. **I tre framework** (MANIFESTO §9.8):
+   1. **Codice in team (Agile):** il gioco della classe con Pull Request, backlog, merge, versioni, retrospettiva, e sempre i sei bottoni.
+   2. **Lezione normale:** teoria → verifica → correzione → recupero → voto complessivo, in una sola pagina `verifica/?b=<lezione>`.
+   3. **Questionario su Google Moduli**, allegato al compito su Classroom (traccia per la Regione).
+2. **Com'è fatta una lezione tracciabile** (MANIFESTO §9.5): ripasso corto; la pratica spezzata in schede, ognuna con una domanda di controllo che dice al monitor a che punto è il ragazzo; verifica aperta dall'inizio con la scadenza all'ultima campanella; il lavoro pratico si consegna nella domanda «incolla qui» (l'unica dove si può incollare); la sfida per chi finisce prima nell'ultima scheda.
+3. **Il monitor dal vivo del docente:** `avanzamento/?b=<lezione>-v1`, password dell'area docente. Legge lo script ogni 5 secondi; se lo script non risponde, ripiega sulla copia che Claude aggiorna ogni 1-2 minuti. Avvisa quando metà classe ha finito: il passo dopo deve essere già pronto.
+4. **Prima di dare un link:** la prova automatica come un ragazzo (`strumenti/prova_verifica.js`) deve dire «Tutto a posto».
+5. Come si rifà una verifica: `VERIFICA-COME-SI-FA.md`. Le regole fisse: `MANIFESTO.md`.
 
 ## 07 I progetti di stage della 4TI
 
@@ -77,7 +85,8 @@
 1. **Lo script «Consegne Classroom → Git»** (account di lavoro del docente) gira ogni 5 minuti: pubblica i compiti della coda, raccoglie le consegne, esegue i comandi del ponte.
 2. **Coda** (`coda/` nel riservato): un file per compito, con stato «da-pubblicare».
 3. **Ponte** (`comandi/` nel riservato): Moduli, Documenti, Drive, Fogli, letture delle risposte.
-4. **Da attivare:** l'applicazione web dello script (13 passi una tantum) per la consegna con un clic e la casella «Chiedi aiuto all'assistente del Prof Regge».
+4. **Applicazione web dello script (v7.9, pubblicata il 18/10):** riceve consegne, segnali di avanzamento e domande con un clic, e risponde al monitor dal vivo con il codice `MONITOR_TOKEN` (proprietà dello script = password dell'area docente).
+5. **Quando si cambia lo script:** si copia il codice dal link pubblico, si salva, poi «Esegui il deployment → Gestisci deployment → matita → Nuova versione». Da PC, 5 minuti: è l'unica cosa che fa solo il docente.
 
 ## 09 Materiali e nomi dei file
 
@@ -103,6 +112,7 @@
 | pubblica | quello che il docente ha visto va ai ragazzi |
 | attiva verifica | apre la verifica della classe |
 | SVOLTO | aggiorna gli argomenti realmente svolti |
+| guarda | aggiorna subito il monitor leggendo il Foglio |
 | CHIUDI classe | chiusura della giornata in cascata |
 | VALUTAZIONE COMPLESSIVA classe | tutti i lavori fino a oggi, libri e voti |
 
@@ -124,6 +134,7 @@
 
 ## 14 Registro delle versioni
 
+1. **v1.6 (19/10/2026):** i tre framework e il monitor dal vivo (capitolo 06); il giro automatico e l'assistente nella giornata di lezione; l'applicazione web dello script v7.9; nella mappa le lezioni del 15-19/10 (assemblaggio 1INF, ciclo FOR 2INF, portfolio 3INF), il monitor dal vivo nella Sala di controllo, nuovi documenti del prof (MANIFESTO, audit del monitoraggio, regia del 19/10).
 1. **v1.5 (13/10/2026):** nella zona della quarta, al posto dei link ai progetti dei ragazzi (con il loro nome nell'indirizzo), la pagina «Progetti della quarta» senza nomi; il link vero si chiede al prof.
 1. **v1.4 (13/10/2026):** «I documenti del prof»: dall'Atlante si apre ogni documento del docente (modo di lavorare, guide, regole, registro degli errori, comunicazione); l'Atlante è il punto da cui si parte per tutto.
 2. **v1.3 (13/10/2026):** pagina leggibile anche sul telefono; in alto il numero dell'edizione (vedi `comunicazione-marketing/EDIZIONI.md`).
