@@ -81,7 +81,7 @@ svg text{fill:var(--fg)}
     var attese = [leggiStato(), fetch('config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () { CONF = {}; })];
     if (B.backlog) attese.push(fetch(B.backlog + '?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { BACK = d.voci || []; }).catch(function () {}));
     attese.push(leggiRisultati());
-    Promise.all(attese).then(function () { if (ANTE && B.anteprima && String(hash(CODICE)) !== String(B.anteprima)) { errore('Anteprima solo per il prof: codice sbagliato.'); return; } if (ANTE) return anteprima(); tappe(MODO); if (MODO === 'ripasso') ripasso(); else prova(MODO); mostraAndamento(); });
+    Promise.all(attese).then(function () { if (ANTE && B.anteprima && String(hash(CODICE)) !== String(B.anteprima)) { errore('Anteprima solo per il prof: codice sbagliato.'); return; } if (ANTE) return anteprima(); tappe(MODO); if (MODO === 'ripasso') ripasso(); else if (MODO === 'teoria') teoria(); else prova(MODO); mostraAndamento(); });
   }
   function leggiStato() {
     if (!B.stato) return Promise.resolve();
@@ -114,7 +114,8 @@ svg text{fill:var(--fg)}
   function andamento() { AND = AND || prendi(KA()) || { pratica: {}, }; return AND; }
   function tappe(qui) {
     var v = prendi(KR('verifica')), r = prendi(KR('recupero')), T = [
-      { m: 'ripasso', n: '1. Ripasso', s: 'sempre aperto', ok: true },
+      { m: 'teoria', n: '0. Teoria', s: 'da leggere', ok: true },
+      { m: 'ripasso', n: '1. Ripasso', s: 'domande, sempre aperto', ok: true },
       { m: 'verifica', n: '2. Verifica', s: v ? 'consegnata' : aperta('verifica') ? 'aperta' : 'la apre il prof', ok: !!v || aperta('verifica'), fatta: !!v },
       { m: 'recupero', n: '3. Recupero', s: r ? 'consegnato' : aperta('recupero') ? 'aperto' : 'si apre per chi ne ha bisogno', ok: !!r || aperta('recupero'), fatta: !!r }];
     $('tappe').hidden = false;
@@ -147,6 +148,20 @@ svg text{fill:var(--fg)}
   function leggiRisultati() { if (!B.risultati) return Promise.resolve(); return fetch('risultati/' + idB + '.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) { RIS = d; }).catch(function () {}); }
 
   /* ================= RIPASSO ================= */
+  /* TEORIA (20/10/2026, chiesto dai ragazzi): un link solo per leggere, distinto dal ripasso con le domande.
+     B.ripasso_n = quante schede iniziali ripassano lezioni passate; le altre sono la teoria nuova. */
+  function sezione(i) {
+    var n = +B.ripasso_n || 0; if (!n) return '';
+    if (i === 0) return '<h2 class="sez" style="margin:22px 0 6px;color:#6e40c9">RIPASSO · quello che hai già studiato</h2>';
+    if (i === n) return '<h2 class="sez" style="margin:22px 0 6px;color:#1f6feb">TEORIA NUOVA · quello che impari oggi</h2>';
+    return '';
+  }
+  function teoria() {
+    var h = '<div class="card"><h2>Teoria</h2><p>Qui leggi soltanto, senza domande. Quando hai letto, vai al <a href="?b=' + idB + '"><b>Ripasso</b></a>: lì ci sono le domande con la correzione subito.</p></div>';
+    (B.schede || []).forEach(function (sc, i) { h += sezione(i) + '<div class="card"><h2>' + e(sc.titolo) + '</h2><p>' + sc.testo + '</p></div>'; });
+    h += '<div class="card"><a class="bt v" href="?b=' + idB + '">Vai al ripasso con le domande</a></div>';
+    APP.innerHTML = h;
+  }
   function ripasso() {
     if (!NOME) return chiediNome(ripasso);
     var TOT_SC = (B.schede || []).length, maxSc = 0, lastSent = -1, nRisp = 0;
@@ -161,7 +176,7 @@ svg text{fill:var(--fg)}
     h += '<div class="card"><h2>Ripasso</h2><p>Leggi una scheda e rispondi subito alla sua domanda: la correzione è immediata e puoi riprovare quante volte vuoi. Quando il prof apre la verifica, il bottone in fondo diventa verde.</p><ol class="mu">' +
       Object.keys(B.aree).filter(function (k) { return B.aree[k].peso > 0; }).map(function (k) { return '<li>' + e(B.aree[k].nome) + ': <b>' + B.aree[k].peso + '%</b></li>'; }).join('') + '</ol><p class="mu">Il voto è un giudizio complessivo del prof su tutte le risposte.</p></div>';
     if (B.via) h += '<div class="card" style="border:2px solid var(--verde)"><h2>Si parte!</h2><div id="pr0"></div></div>';
-    (B.schede || []).forEach(function (sc, i) { h += '<div class="card" data-sc="' + (i + 1) + '"><h2>' + e(sc.titolo) + '</h2><p>' + sc.testo + '</p><div id="pr' + (i + 1) + '"></div></div>'; });
+    (B.schede || []).forEach(function (sc, i) { h += sezione(i) + '<div class="card" data-sc="' + (i + 1) + '"><h2>' + e(sc.titolo) + '</h2><p>' + sc.testo + '</p><div id="pr' + (i + 1) + '"></div></div>'; });
     h += '<div id="prX"></div>';
     h += boxMiePR() + '<div class="card"><h2>Prepara la tua storia</h2><p>Nella verifica ti chiederò com\'è stato per te il progetto, il gioco e cosa hai imparato. Scrivilo già adesso, con parole tue: poche righe, nessuno lo corregge. Così alla verifica lo sai già.</p><div id="prepara"></div></div>';
     h += '<div class="card"><h2>La verifica</h2><p id="statoV"></p><a class="bt v" id="vaiV" href="?b=' + idB + '&modo=verifica">Fai la verifica</a> <a class="bt" id="vaiR" href="?b=' + idB + '&modo=recupero" hidden>Fai il recupero</a> ' +
