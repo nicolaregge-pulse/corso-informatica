@@ -84,7 +84,16 @@
         "4) Clicca il bottone verde <b>Add people</b>, scrivi il nome utente del compagno, sceglilo dall'elenco e conferma.<br>" +
         "5) Il compagno riceve l'invito: lo trova nella <b>campanella</b> in alto a destra su github.com (o nella posta) e preme <b>Accept invitation</b>. Poi fate lo stesso al contrario. <b>FATTO!</b> Mercoledì potete lavorare uno nel sito dell'altro.<br>" +
         "Rispondi alla domanda qui sotto.",
-        "বুধবার জোড়ায় কাজ: সঙ্গী তোমার সাইটে একটি পাতা লিখবে। আজ: <b>Settings → Collaborators → Add people</b>, সঙ্গীর GitHub নাম লেখো। সঙ্গী ঘণ্টার আইকনে <b>Accept invitation</b> চাপে। তারপর উল্টোটা।") }
+        "বুধবার জোড়ায় কাজ: সঙ্গী তোমার সাইটে একটি পাতা লিখবে। আজ: <b>Settings → Collaborators → Add people</b>, সঙ্গীর GitHub নাম লেখো। সঙ্গী ঘণ্টার আইকনে <b>Accept invitation</b> চাপে। তারপর উল্টোটা।") },
+      { titolo: "12. Per chi ha finito: una FOTO DI SFONDO al tuo sito · ১২. পটভূমির ছবি", testo: L(
+        "Solo se hai la bandiera 🏁 (portfolio completo). Il sito diventa tuo davvero con una foto di sfondo.<br>" +
+        "1) Scegli una foto: una TUA (fatta da te, senza persone riconoscibili) oppure una libera da <a href='https://pixabay.com' target='_blank' rel='noopener'>pixabay.com</a>. Scaricala sul PC e rinominala <b>sfondo.jpg</b> (tutto minuscolo).<br>" +
+        "2) Nel tuo repository: <b>Add file → Upload files</b>, trascina <b>sfondo.jpg</b>, poi il verde <b>Commit changes</b>.<br>" +
+        "3) Apri <b>style.css</b> → matita. Dentro le graffe di <b>body { }</b> aggiungi queste tre righe, poi <b>Commit changes</b>:<br>" +
+        "<pre style='background:#f3f5f8;padding:8px;border-radius:8px'>background-image: url(\"sfondo.jpg\");\nbackground-size: cover;\nbackground-attachment: fixed;</pre>" +
+        "4) Se il testo si legge male: alle regole <b>.scheda</b> (o <b>main</b>) aggiungi <b>background: #fff; padding: 16px; border-radius: 12px;</b> così il testo sta su un riquadro bianco.<br>" +
+        "5) Aspetta 1 minuto, apri il sito, <b>Ctrl+F5</b>: la foto è dietro a tutte le pagine (anche «Cosa so fare», perché usano lo stesso style.css). <b>FATTO!</b> Rispondi alla domanda qui sotto.",
+        "শুধু 🏁 থাকলে। একটি ছবি (নিজের বা pixabay.com থেকে), নাম <b>sfondo.jpg</b>। Repository-তে <b>Add file → Upload files</b>। তারপর <b>style.css</b>-এর <b>body { }</b>-তে: background-image: url(\"sfondo.jpg\"); background-size: cover; background-attachment: fixed; → Commit। ১ মিনিট পরে Ctrl+F5।") }
     ],
     strumenti: [{ t: 'Il mio punto: cosa mi manca (password del libro)', u: '../3inf-mio-punto/', c: '#d4a017' }, { t: 'La pagina della classe: i siti di tutti', u: '../3inf-sito/', c: '#1f6feb' }, { t: 'Il monitor della lezione', u: '../3inf-monitor/', c: '#6e40c9' }],
     via: C("nozioni", L("Il tuo sito su Internet ha l'indirizzo che comincia con…", "তোমার সাইটের ঠিকানা শুরু হয়…"), ["https://tuonome.github.io/", "https://classroom.google.com/", "https://lazarus.it/"], "Il sito pubblico sta su GitHub Pages."),
@@ -104,7 +113,8 @@
       S(8, C("pratica", L("Passi 1-3 fatti? Dopo il commit, nel repository mio-sito vedi…", "ধাপ ১-৩ শেষ? Repository-তে দেখো…"), ["il file competenze.html nell'elenco dei file", "una pagina 404", "il file style.css cancellato"], "Se non lo vedi, rifai il passo 2.")),
       S(9, C("pratica", L("Passi 4-6 fatti? Sul sito, cliccando «Cosa so fare» vedi…", "ধাপ ৪-৬ শেষ? সাইটে দেখো…"), ["la pagina con le mie competenze, con il menu in alto", "ancora la pagina di esempio del prof, uguale", "niente, il sito non si apre"], "Se è ancora l'esempio: passo 4, fallo tuo.")),
       S(11, C("pratica", L("Il compagno è collaboratore del tuo sito e tu del suo?", "সঙ্গী তোমার collaborator?"), ["sì, tutti e due abbiamo accettato l'invito", "ho mandato l'invito, aspetto che accetti", "non ancora"], "Se non va: Settings → Collaborators, controlla il nome utente.")),
-      S(10, C("pratica", L("Hai fatto la sfida? Che cosa hai aggiunto?", "চ্যালেঞ্জ করেছো?"), ["una terza pagina o un colore nuovo", "niente, ho finito ai passi 1-6", "ho cancellato il sito"], "Tutte le risposte vanno bene: serve al monitor."))
+      S(10, C("pratica", L("Hai fatto la sfida? Che cosa hai aggiunto?", "চ্যালেঞ্জ করেছো?"), ["una terza pagina o un colore nuovo", "niente, ho finito ai passi 1-6", "ho cancellato il sito"], "Tutte le risposte vanno bene: serve al monitor.")),
+      S(12, C("pratica", L("Foto di sfondo: che cosa vedi sul sito dopo Ctrl+F5?", "পটভূমি: Ctrl+F5-এর পরে কী দেখছো?"), ["la mia foto dietro a tutte le pagine", "la foto c'è ma il testo non si legge: metto il riquadro bianco (passo 4)", "niente: controllo il nome sfondo.jpg e le tre righe in body"], "Il nome del file deve essere esattamente sfondo.jpg, nella cartella principale."))
     ],
 
     /* ---------- 3. VERIFICA ---------- */
