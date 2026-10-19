@@ -1,6 +1,6 @@
 # Comunicazione e marketing
 
-**Versione 0.6** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 0.7** — 19/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 La parte del corso che raccoglie i materiali per chi sta fuori dall'aula: possibili acquirenti e altre scuole, genitori, ragazzi, e chi non capisce niente di informatica. Nasce il 13/10/2026, dopo il racconto «Cinque giorni da azienda».
 
@@ -37,6 +37,7 @@ https://nicolaregge-pulse.github.io/corso-informatica/cm-qma7yay4q5/
 | 6 | Guida per docenti con alunni non italofoni (tolta dalla pagina pubblica: nomina molti prodotti di altre aziende; da riscrivere) | scuole | PDF | 0.1 | `guida-docenti-alunni-non-italofoni/` |
 | 7 | Il parco del corso: mappa illustrata e cliccabile, senza le pagine del docente | scuole e aziende | HTML e PDF con link | 1.0 | `docs/cm-qma7yay4q5/parco/`, generatore `strumenti/gen_atlante.py` (l'Atlante completo resta interno) |
 | 8 | Progetti della quarta: stazione meteo e router da allenamento, senza nomi; il link vero si chiede al prof con un'email già scritta | scuole e aziende, ragazzi | pagina con immagini | 1.0 | `docs/cm-qma7yay4q5/progetti/` |
+| 9 | «Una mattina con la terza» (19/10): la lezione raccontata con i numeri veri e il cruscotto del prof in demo, nomi in codice | chi vuole capire, scuole e aziende, genitori | pagina da leggere + demo | 1.0 | `docs/cm-qma7yay4q5/mattina-terza/`, demo `docs/demo/cruscotto/` (generatore `strumenti/gen_demo_cruscotto.py`) |
 
 ## 02b La mappa disegnata da Gemini
 
@@ -61,6 +62,8 @@ Disegna la mappa illustrata di un parco divertimenti a tema informatica, vista d
 7. **Niente marchi di altri e niente cose non nostre:** nessun nome di scuola, prodotto o azienda nei testi (si dice «classe virtuale», «modulo online», «archivio delle versioni», «motore di videogiochi», «assistente di intelligenza artificiale»); nessuna immagine o personaggio che non abbiamo fatto noi (copertine, facce prese dal web). Gli indirizzi dei siti restano, perché servono a raggiungere le pagine.
 
 ## 04 Registro delle versioni
+
+1. **v0.7 (19/10/2026):** «Una mattina con la terza» e la demo del cruscotto senza nomi (edizione 1.4).
 
 1. **v0.6 (13/10/2026):** «Progetti della quarta», pagina senza nomi né indirizzi dei ragazzi; nelle immagini tolti scuola, città e marchi.
 1. **v0.5 (13/10/2026):** le edizioni (`EDIZIONI.md`, `EDIZIONE.json`, controllo automatico); audit completo: link, pagine sul telefono, voce del racconto, PDF, nomi e marchi.

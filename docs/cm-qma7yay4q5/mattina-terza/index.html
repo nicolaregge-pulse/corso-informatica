@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="versione" content="1.0">
+<title>Una mattina con la terza</title>
+<meta name="description" content="Tre ore di laboratorio raccontate con i numeri veri: diciotto ragazzi, un sito a testa, un cruscotto che vede tutto.">
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--fg:#1b2430;--mu:#5c6672;--acc:#c77d00;--ok:#2f9e57;--ln:#e2ddd4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14110f;--card:#221d19;--fg:#fbf6ee;--mu:#cbbfae;--acc:#ffcf4a;--ok:#5ad08a;--ln:#3a332c}}
+:root[data-theme="dark"]{--bg:#14110f;--card:#221d19;--fg:#fbf6ee;--mu:#cbbfae;--acc:#ffcf4a;--ok:#5ad08a;--ln:#3a332c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.55}
+.w{max-width:860px;margin:0 auto;padding:28px 16px 60px}
+.k{letter-spacing:.16em;text-transform:uppercase;color:var(--acc);font-size:14px;font-weight:700}
+h1{font-size:clamp(32px,6vw,54px);line-height:1.08;margin:8px 0 10px}
+h2{font-size:clamp(22px,3.6vw,30px);margin:42px 0 10px}
+p{font-size:clamp(17px,2.2vw,20px);margin:10px 0}
+.mu{color:var(--mu)}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:22px 0}
+.nums div{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:16px;text-align:center}
+.nums b{display:block;font-size:44px;color:var(--acc);line-height:1}
+.nums span{font-size:15px;color:var(--mu)}
+.ora{display:grid;grid-template-columns:72px 1fr;gap:6px 14px;margin:14px 0}
+.ora b{color:var(--acc);font-size:18px}
+.ora div{font-size:18px}
+figure{margin:20px 0}
+figure img{width:100%;border-radius:14px;border:1px solid var(--ln);display:block}
+figcaption{font-size:15px;color:var(--mu);margin-top:6px}
+.box{background:var(--card);border-left:6px solid var(--ok);border-radius:10px;padding:14px 16px;margin:16px 0}
+a.b{display:inline-block;background:var(--acc);color:#1b2430;font-weight:800;padding:12px 18px;border-radius:12px;text-decoration:none;margin:8px 8px 0 0}
+</style>
+</head>
+<body><div class="w">
+<div class="k">Il laboratorio di informatica secondo le idee di Nicola Regge</div>
+<h1>Una mattina con la terza</h1>
+<p class="mu">Lunedì 19 ottobre 2026, dalle 8:00 alle 10:50. Diciotto ragazzi, un sito internet a testa, e un cruscotto che fa vedere al prof tutta la classe in una pagina.</p>
+
+<div class="nums">
+<div><b>18</b><span>ragazzi in aula</span></div>
+<div><b>18</b><span>verifiche consegnate su 18</span></div>
+<div><b>5</b><span>siti completi, controllati sul sito vero</span></div>
+<div><b>17</b><span>giri di controllo dello schermo</span></div>
+</div>
+
+<h2>Che cosa dovevano fare</h2>
+<p>Ogni ragazzo ha già un suo sito, pubblico, fatto da lui. Oggi doveva aggiungere una pagina che si chiama <b>«Cosa so fare»</b>: le cose che sa fare davvero, scritte come le direbbe a un'azienda che lo prende in stage. È il suo biglietto da visita.</p>
+
+<h2>Come è andata, ora per ora</h2>
+<div class="ora">
+<b>8:00</b><div>I ragazzi aprono la lezione: una pagina sola, che li guida un passo alla volta. Il prof dà il via e firma il registro.</div>
+<b>8:45</b><div>Il cruscotto mostra subito chi è partito e chi no. In pochi minuti metà classe ha letto tutte le schede: ma leggere non è fare.</div>
+<b>9:00</b><div>Il controllo automatico guarda i siti veri: solo uno ha la pagina online. Il prof lo dice alla classe con una frase sola, e i ragazzi tornano a lavorare.</div>
+<b>9:30</b><div>Tre siti completi. Chi si blocca scrive all'assistente in fondo alla pagina e riceve la risposta in un paio di minuti, con i passi giusti per lui.</div>
+<b>10:00</b><div>Metà classe ha consegnato la verifica. Chi è sotto la sufficienza ha già il recupero aperto, senza aspettare nessuno.</div>
+<b>10:20</b><div>Diciotto verifiche su diciotto. Per chi ha finito arriva una sfida in più: mettere una foto di sfondo al proprio sito.</div>
+<b>10:45</b><div>I voti sono pronti per il registro, ognuno con il suo conto: quanto ha lavorato, che cosa ha fatto, com'è il suo sito.</div>
+</div>
+
+<h2>Il cruscotto del prof</h2>
+<p>Una riga per ragazzo. Che cosa sta facendo adesso, che cosa ha fatto, che cosa gli manca, che domanda ha fatto e che risposta ha avuto. La bandiera a scacchi 🏁 compare solo quando il lavoro è finito davvero, controllato sul sito vero. In cima, i più bravi.</p>
+<figure><img src="img/cruscotto-demo.jpg" alt="Il cruscotto del prof durante la lezione, con i nomi in codice"><figcaption>Il cruscotto della mattina, con i nomi sostituiti da nomi in codice (Alfa, Bravo, Charlie…).</figcaption></figure>
+<a class="b" href="../../demo/cruscotto/?b=3inf-portfolio-v1" target="_blank" rel="noopener">Apri il cruscotto in demo</a>
+
+<h2>Perché funziona</h2>
+<div class="box"><b>Il prof non controlla le pagine: guarda la classe.</b> Va di persona da chi è fermo. Tutto il resto lo fa la pagina della lezione, con l'assistente che risponde e un controllo che dice a ognuno che cosa gli manca.</div>
+<div class="box"><b>Chiedere aiuto conta.</b> Nel voto vale di più chi ha chiesto e poi ha fatto: chi non fa e non chiede è chi resta più indietro.</div>
+<div class="box"><b>Ognuno vede la sua situazione.</b> Il ragazzo ha la sua pagina «Il mio punto», con le cose fatte e le cose che mancano: si regola da solo.</div>
+<p class="mu">Mercoledì gli stessi ragazzi lavoreranno in coppia: ognuno scriverà una pagina nel sito del compagno, come in un'azienda vera.</p>
+<p><a class="b" href="../">Torna alla pagina della comunicazione</a></p>
+</div></body></html>

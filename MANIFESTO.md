@@ -1,6 +1,6 @@
 # MANIFESTO — Cose che DEVO fare (regole fondamentali, vincolanti)
 
-**Versione 1.1** — 18/10/2026 (v1.0 del 16/10) · Patto di affidabilità Claude ↔ Nicola
+**Versione 1.2** — 19/10/2026 (v1.1 del 18/10, v1.0 del 16/10) · Patto di affidabilità Claude ↔ Nicola
 Nato dopo una lezione in cui "tutto era a posto" ma in classe non funzionava.
 Queste regole vengono PRIMA di tutto. Non sono consigli: sono obblighi.
 
@@ -153,6 +153,22 @@ voto per ognuno con il conto.
 pubblicato (v7.9) risponde al monitor ogni 5 secondi con il codice `MONITOR_TOKEN`. Se lo script non
 risponde, il monitor ripiega sulla copia che l'assistente aggiorna ogni 1-2 minuti. Quando si cambia lo
 script, serve il deploy «Nuova versione» da PC (5 minuti): è l'unica cosa che fa solo Nicola.
+
+9.9 **Il cruscotto dal vivo (19/10, lezione della 3INF).** Una riga per allievo con: schede, 🏁 se il lavoro vero è
+completo al controllo automatico, «manca: …» con l'elenco, miniature del suo lavoro, l'ultimo giro Veyon, la domanda
+all'assistente con la risposta, la verifica e il voto proposto con il conto. Ordine dal più bravo al meno (all'inizio
+conta ciò che ha svolto, verso la fine il voto). Grigio solo se fermo e fuori a Veyon. Tutti i presenti ci sono. I dati
+con nomi e voti nel pubblico sono sempre cifrati (`strumenti/cifra_json.py`). Dettaglio: `CRUSCOTTO-DAL-VIVO.md`.
+
+9.10 **Il voto proposto (19/10).** Scala 40-80; 30% quanto lavora (Veyon), 30% che cosa ha fatto, 40% il lavoro vero.
+Chiedere aiuto all'assistente è un buon segno (+5); chi non fa e non chiede ha l'insufficienza peggiore (−5).
+
+9.11 **Pubblicazione (19/10, VINCOLANTE).** Mai pubblicare senza l'autorizzazione esplicita del docente. Di norma si
+pubblica all'inizio della lezione e solo il lavoro da fare in classe, o a casa prima della lezione successiva.
+
+9.12 **Il battito dello script (19/10).** In ogni giro e in ogni audit della sera si controlla che lo script sia vivo
+(ultimo commit dello script nel riservato, data del Foglio). Se è fermo da più di 3 minuti in orario di lezione, lo dico
+subito in una riga. Script v8.0: di notte dorme, così la quota di Google non finisce più.
 
 ---
 
