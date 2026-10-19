@@ -1,35 +1,41 @@
 {
- "ora": "09:07",
- "sintesi": "16 PC accesi (PC 26 spento): 15 lavorano, 1 fuori (PC 21, sesto giro). 4 scrivono codice su GitHub, 4 sulla scheda 9, 3 nella verifica. Perez è tornato al lavoro.",
+ "ora": "09:09",
+ "sintesi": "17 PC accesi: 16 lavorano, 1 fuori (PC 21, settimo giro). 6 su GitHub con il codice, 3 nella verifica. Elkeran passato dal PC 26 al PC 16. Beatrice ferma sul risultato da 13 minuti: deve fare la pagina.",
  "righe": [
   {
    "pc": "PC 12",
    "nome": "ALESSANDRO AMICI",
-   "cosa": "la lezione: verifica, domanda con il codice da scrivere",
+   "cosa": "la lezione: verifica, domanda 13 di 20",
    "fuori": false
   },
   {
    "pc": "PC 13",
    "nome": "KELVIN VICTOR PEREZ",
-   "cosa": "GitHub: il codice di una pagina (è tornato al lavoro)",
+   "cosa": "GitHub: il codice di una pagina",
    "fuori": false
   },
   {
    "pc": "PC 14",
    "nome": "RAFI FORHAD",
-   "cosa": "la lezione: verifica, domanda 8 di 20",
+   "cosa": "la lezione: verifica, domanda 9 di 20",
+   "fuori": false
+  },
+  {
+   "pc": "PC 16",
+   "nome": "MAHMOUD ELKERAN",
+   "cosa": "ha cambiato PC (dal 26 al 16): accesso a Chrome, sta rientrando",
    "fuori": false
   },
   {
    "pc": "PC 18",
    "nome": "DANI SARACINO",
-   "cosa": "la lezione: schede 8-9, la pratica",
+   "cosa": "la lezione: verifica, domanda 13 di 20",
    "fuori": false
   },
   {
    "pc": "PC 21",
    "nome": "SAMUELE UCCHEDDU",
-   "cosa": "Google con un menu aperto, non la lezione (sesto giro fuori)",
+   "cosa": "Google vuoto, non la lezione (settimo giro fuori)",
    "fuori": true
   },
   {
@@ -47,7 +53,7 @@
   {
    "pc": "PC 24",
    "nome": "FILIPPO MENDOZA",
-   "cosa": "la lezione: scheda 11, collaboratori",
+   "cosa": "la lezione: la casella dell'assistente",
    "fuori": false
   },
   {
@@ -59,25 +65,25 @@
   {
    "pc": "PC 28",
    "nome": "NICOLO CATALANO",
-   "cosa": "la lezione: la verifica, sta per aprirla",
+   "cosa": "la lezione: scheda 9, la verifica sotto",
    "fuori": false
   },
   {
    "pc": "PC 29",
    "nome": "SIMONE GIARAMIDARO",
-   "cosa": "la lezione: scheda 9, fallo tuo",
+   "cosa": "GitHub: crea il file competenze.html",
    "fuori": false
   },
   {
    "pc": "PC 32",
    "nome": "GABRIELE ROVITO",
-   "cosa": "la lezione: schede 3-4, risponde",
+   "cosa": "la lezione: scheda 8, la pratica",
    "fuori": false
   },
   {
    "pc": "PC 34",
    "nome": "BEATRICE NOVOROJDIN",
-   "cosa": "la lezione: verifica consegnata, ferma sulla pagina del risultato",
+   "cosa": "la lezione: ferma sulla pagina del risultato (consegnata 08:56)",
    "fuori": false
   },
   {
@@ -89,7 +95,7 @@
   {
    "pc": "PC 36",
    "nome": "ANDREA GERVASONI",
-   "cosa": "la lezione: scheda 9, aggiunge le competenze sue",
+   "cosa": "GitHub: scrive il codice",
    "fuori": false
   },
   {
