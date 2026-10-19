@@ -1,0 +1,147 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Monitor dal vivo</title>
+<style>
+:root{--bg:#f3f1ec;--card:#fff;--tx:#17202a;--mu:#5a6572;--ln:#dde3ea;--acc:#1f6feb;--ok:#2f9e57;--warn:#d9a400;--ko:#d1242f}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--warn:#e3b341;--ko:#f85149}}
+:root[data-theme="dark"]{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--warn:#e3b341;--ko:#f85149}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+.w{max-width:900px;margin:0 auto}
+h1{font-size:clamp(22px,5vw,30px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0 12px;font-size:14px}
+.gate{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:16px;margin:10px 0}
+.gate input{width:100%;font:inherit;padding:11px;border-radius:10px;border:2px solid var(--ln);background:var(--bg);color:var(--tx);margin:6px 0}
+.gate button{width:100%;font:inherit;font-weight:800;cursor:pointer;border:none;border-radius:10px;background:var(--acc);color:#fff;padding:12px}
+.err{color:var(--ko);font-size:14px;min-height:18px}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.k{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 16px}.k b{font-size:24px;display:block}.k span{color:var(--mu);font-size:13px}
+.stato{font-size:13px;color:var(--mu);margin:0 0 10px}.stato b.live{color:var(--ok)}.stato b.static{color:var(--warn)}
+.row{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:8px 0;display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.nm{font-weight:800;font-size:18px}
+.last{font-size:12px;color:var(--mu);text-align:right;white-space:nowrap}
+.teo{grid-column:1/-1;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pos{font-size:14px;color:var(--mu);min-width:170px}.pos b{color:var(--tx)}
+.barw{flex:1;min-width:120px;height:12px;background:var(--ln);border-radius:8px;overflow:hidden}.barw>i{display:block;height:100%;background:var(--acc)}
+.pct{font-weight:900;width:44px;text-align:right}
+.tags{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;font-size:13px}
+.tag{border:1px solid var(--ln);border-radius:20px;padding:2px 10px;color:var(--mu)}
+.tag.ok{border-color:var(--ok);color:var(--ok);font-weight:800}.tag a{color:inherit;text-decoration:underline}.tag.ko{border-color:var(--ko);color:var(--ko);font-weight:800}.tag.q{border-color:var(--warn);color:var(--warn)}
+.row.fin .barw>i{background:var(--ok)}.row.fermo{opacity:.55}.dom{display:block;width:100%;background:#fff8e1;border:1px solid var(--warn);border-radius:10px;padding:4px 10px;margin:4px 0;font-size:14px}.dom summary{cursor:pointer}.dom .ok{color:var(--ok)}.dom .ko{color:var(--ko)}.dom div{margin:6px 0;white-space:pre-wrap}.ths{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}.th{display:block;text-align:center;font-size:11px;color:var(--mu);text-decoration:none}.th img{width:160px;height:100px;object-fit:cover;object-position:top;border:1px solid var(--ln);border-radius:6px;background:#fff;display:block}.row.finito{border-left:5px solid var(--ok)}.row.fuori{border-left:5px solid var(--ko,#c0392b)}
+.empty{background:var(--card);border:1px dashed var(--ln);border-radius:12px;padding:26px;text-align:center;color:var(--mu)}
+.hide{display:none}
+</style></head>
+<body><div class="w">
+<h1>📖 Monitor dal vivo · DEMO</h1><p class="sub"><b>Demo senza nomi:</b> la lezione vera della terza del 19/10/2026, con nomi in codice (Alfa, Bravo, Charlie…). Nella versione per il docente qui ci sono i nomi, le miniature dei siti e i link.</p>
+<p class="sub">Dove è ogni allievo: teoria, quiz, simulatore, aiuto · <span id="lez"></span></p>
+
+<div class="gate" id="gate">
+  <p style="margin:0"><b>Solo per il prof.</b> Scrivi il codice del monitor (lo stesso dell'area docente).</p>
+  <input id="tok" type="password" autocomplete="current-password" placeholder="codice del monitor">
+  <button id="ok">Apri il monitor</button>
+  <p class="err" id="err"></p>
+</div>
+
+<div id="view" class="hide">
+  <p class="stato" id="stato">—</p>
+  <div class="kpi" id="kpi"></div>
+  <div id="out"><div class="empty">In attesa… compariranno man mano che lavorano.</div></div>
+</div>
+</div>
+<script>
+var B=(location.search.match(/[?&]b=([a-z0-9-]+)/i)||[])[1]||'prova-pc-v1';
+var SIM=(location.search.match(/[?&]sim=([a-z0-9-]+)/i)||[])[1]||'';
+document.getElementById('lez').textContent=B+(SIM?' · simulatore '+SIM:'');
+var EXEC='',TOK='',_n=0,timerPoll=null;
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))return iso;var s=Math.round((Date.now()-t)/1000);if(s<15)return'adesso';if(s<60)return s+' s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+' h fa';}
+function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
+// SCHERMI (Veyon): l'assistente legge gli screenshot del docente e scrive <banca>-schermi.json (PC, cosa fa, fuori).
+// PRIVACY (19/10): i file con nomi e voti in docs/ sono CIFRATI (strumenti/cifra_json.py). Si decifrano qui con il codice del docente.
+var _kc=null;function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)});}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc;}
+function getJ(u){return fetch(u+(u.indexOf('?')<0?'?':'&')+'t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(async function(d){if(!d||!d.cifrato)return d;try{var k=await chiave(d);var t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct));return JSON.parse(new TextDecoder().decode(t));}catch(e){return null;}});}
+var STATO=null;function stato(){fetch('dati/stato.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){STATO=d;}).catch(function(){});}
+// ORDINE (Nicola 10:26): dal più bravo al meno. All'inizio della lezione conta ciò che ha SVOLTO, verso la fine conta il VOTO proposto.
+function pesoVoto(){if(!STATO||!STATO.inizio||!STATO.scadenza)return 0.5;var a=new Date(STATO.inizio).getTime(),b=new Date(STATO.scadenza).getTime(),n=Date.now();if(isNaN(a)||isNaN(b)||b<=a)return 0.5;return Math.max(0,Math.min(1,(n-a)/(b-a)));}
+function punteggio(x,tot){var t=x.teoria||{},sc=Math.min(1,(t.scheda||0)/(tot||11));var st=sitoDi(x.nome),sito=st&&st.su>1?st.fatti/st.su:0;var svolto=0.4*sc+0.4*sito+0.2*(x.quiz?1:0);var vt=votoDi(x.nome),voto=vt?Math.max(0,Math.min(1,(vt.voto-40)/40)):svolto;var w=pesoVoto();return (1-w)*svolto+w*voto;}
+var RISP=null;function risposte(){fetch('dati/risposte.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){RISP=d;}).catch(function(){});}
+function rispostaA(nome,dom){if(!RISP)return null;var a=tok(nome);for(var i=RISP.length-1;i>=0;i--){var r=RISP[i];if(tok(r.nome).some(function(t){return a.indexOf(t)>=0;})&&String(r.domanda).slice(0,40)===String(dom).slice(0,40))return r;}return null;}
+function ora(iso){var t=new Date(iso||0);return isNaN(t.getTime())?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});}
+var THUMB=null;function thumbs(){getJ('dati/nessuna.json').then(function(d){THUMB=d;}).catch(function(){});}
+function thumbDi(nome){if(!THUMB)return null;var a=tok(nome);for(var k in THUMB){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return THUMB[k];}return null;}
+var VOTI=null;function voti(){getJ('dati/'+B+'-voti.json').then(function(d){VOTI=d;}).catch(function(){});}
+function votoDi(nome){if(!VOTI)return null;var a=tok(nome);for(var k in VOTI.voti){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return VOTI.voti[k];}return null;}
+var SITI=null;function siti(){getJ('dati/'+B+'-siti.json').then(function(d){SITI=d;}).catch(function(){});}
+function sitoDi(nome){if(!SITI)return null;var a=tok(nome);for(var k in SITI){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return SITI[k];}return null;}
+var SCH=null;function schermi(){getJ('dati/'+B+'-schermi.json').then(function(d){SCH=d;}).catch(function(){});}
+function tok(n){return String(n||'').toLowerCase().split(/[^a-zà-ú]+/).filter(function(t){return t.length>=3;});}
+function schermoDi(nome){if(!SCH)return null;var a=tok(nome);for(var i=0;i<SCH.righe.length;i++){var b=tok(SCH.righe[i].nome);if(a.some(function(t){return b.indexOf(t)>=0;}))return SCH.righe[i];}return null;}
+function render(d,origine){
+  var r=((d&&d.righe)||[]).slice(),out=document.getElementById('out');
+  if(SCH){var visti={};r.forEach(function(x){var s=schermoDi(x.nome);x._sch=s;if(s)visti[s.pc]=1;});
+    SCH.righe.forEach(function(s){if(!visti[s.pc])r.push({nome:s.nome,_sch:s,_solo:true});});}
+  var tot0=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot0)tot0=x.teoria.totale;});r.forEach(function(x){x._p=x._solo?-1:punteggio(x,tot0||(d&&d.totale_schede)||11);});r.sort(function(a,b){return b._p-a._p;});
+  var pw=Math.round(pesoVoto()*100);document.getElementById('stato').innerHTML='<span class="mu">ordine: dal più bravo al meno · adesso conta '+(100-pw)+'% ciò che ha svolto e '+pw+'% il voto proposto</span> · '+(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● aggiornato dall\'assistente</b> · ogni minuto circa'+(d&&d.aggiornato?' · ultima lettura del Foglio alle '+esc(d.aggiornato):''))+' · '+new Date().toLocaleTimeString('it-IT');
+  if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che lavorano.</div>';document.getElementById('kpi').innerHTML='';return;}
+  var tot=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot)tot=x.teoria.totale;});tot=tot||(d.totale_schede||10);
+  var fin=r.filter(function(x){return x.teoria&&x.teoria.scheda>=tot;}).length,quiz=r.filter(function(x){return x.quiz;}).length;
+  var finVero=r.filter(function(x){var s=sitoDi(x.nome);return s&&s.su>1&&s.fatti>=s.su;}).length;
+  // RITMO e STIMA: minuti per scheda dall'inizio -> quanto manca a ognuno -> quando ha finito l'ultimo
+  var now=Date.now(),etaMax=0,etaN=0;
+  r.forEach(function(x){
+    var t=x.teoria||{},sc=t.scheda||0,ini=new Date(x.inizio||0).getTime();
+    x._eta=null;
+    if(sc>0&&sc<tot&&!isNaN(ini)&&ini>0){var min=(now-ini)/60000,ritmo=min/sc;x._ritmo=ritmo;x._eta=Math.round(ritmo*(tot-sc));if(x._eta>etaMax)etaMax=x._eta;etaN++;}
+  });
+  var meta=r.length?Math.round(fin/r.length*100):0;
+  var avviso=r.length&&finVero>=Math.ceil(r.length/2)?'<div class="k" style="border-color:var(--warn)"><b style="color:var(--warn)">⚠ '+finVero+' su '+r.length+' hanno il sito completo</b><span>prepara il passo successivo</span></div>':'';
+  document.getElementById('kpi').innerHTML='<div class="k"><b>'+r.length+'</b><span>allievi attivi</span></div><div class="k"><b>'+fin+'</b><span>schede lette tutte ('+meta+'%)</span></div><div class="k"><b>'+finVero+'</b><span>sito completo (finito davvero)</span></div><div class="k"><b>'+quiz+'</b><span>quiz consegnati</span></div>'+
+    (etaN?'<div class="k"><b>~'+etaMax+' min</b><span>e hanno finito tutti (stima dal ritmo)</span></div>':'')+avviso;
+  out.innerHTML=r.map(function(x){
+    var t=x.teoria||{},sc=t.scheda||0,pct=Math.round((sc/tot)*100),ult=x.ultimo||t.quando||'';
+    var tags='';
+    if(sc>=tot)tags+='<span class="tag">schede lette '+tot+'/'+tot+'</span>';
+    var st0=sitoDi(x.nome),finito=!!(st0&&st0.fatti>=st0.su&&st0.su>1);if(finito)tags+='<span class="tag ok" style="font-size:15px">🏁 FINITO: sito completo</span>';
+    else if(x._eta!==null)tags+='<span class="tag">manca '+(tot-sc)+' schede · ~'+x._eta+' min al ritmo di '+(x._ritmo<1?'<1':Math.round(x._ritmo))+' min/scheda</span>';
+    else if(sc>0)tags+='<span class="tag">manca '+(tot-sc)+' schede</span>';
+    if(x.quiz)tags+='<span class="tag '+(x.quiz.voto>=60?'ok':'ko')+'">quiz '+(x.quiz.modo==='recupero'?'recupero ':'')+x.quiz.giusti+'/'+x.quiz.su+' → '+x.quiz.voto+'</span>';
+    if(x.sim)tags+='<span class="tag">🔧 '+x.sim.asm+' montati'+(x.sim.dis?' · '+x.sim.dis+' smontati':'')+'</span>';
+    if(x.aiuto&&x.aiuto.domanda){var rr=rispostaA(x.nome,x.aiuto.domanda);tags+='<details class="dom"><summary><b>DOMANDA'+(x.aiuto.quando?' delle '+ora(x.aiuto.quando):'')+':</b> «'+esc(x.aiuto.domanda.slice(0,90))+(x.aiuto.domanda.length>90?'…':'')+'» '+(rr?'<span class="ok">✅ risposta data</span>':'<span class="ko">⏳ senza risposta</span>')+'</summary><div><b>Domanda:</b> '+esc(x.aiuto.domanda)+'</div>'+(rr?'<div><b>Risposta dell\'assistente:</b> '+esc(rr.risposta)+'</div>':'<div>L\'assistente non ha ancora risposto.</div>')+'</details>';}
+    var vt=votoDi(x.nome);if(vt)tags+='<span class="tag" style="border-color:var(--acc)" title="'+esc(VOTI.pesi)+'">★ <b>'+vt.voto+'</b> proposto · '+esc(vt.conto)+'</span>';
+    var st=sitoDi(x.nome);if(st)tags+='<span class="tag '+(st.fatti>=st.su?'ok':(st.fatti===0?'ko':''))+'">🌐 '+(st.comp_ok!==false?'<a href="'+esc(st.url)+'" target="_blank" rel="noopener">portfolio</a> ':'portfolio (pagina non ancora nel repository) ')+st.fatti+'/'+st.su+(st.fatti>=st.su?' completo':(st.manca&&st.manca.length?' · <b>manca:</b> '+esc(st.manca.join(' · ')):''))+' <small>('+esc(st.ora)+')</small> · '+(st.home_ok!==false?'<a href="'+esc(st.sito)+'" target="_blank" rel="noopener">sito</a>':'sito: repository non trovato')+'</span>';
+    if(x._sch)tags+='<span class="tag '+(x._sch.fuori?'ko':'')+'">🖥 '+esc(x._sch.pc)+' · '+esc(SCH.ora)+': '+esc(x._sch.cosa)+'</span>';
+    if(x._solo)tags+='<span class="tag ko">non ha ancora scritto il nome sulla pagina</span>';
+    return '<div class="row '+(sc>=tot?'fin ':'')+(finito?'finito ':'')+(fermo(ult)&&!x._solo&&(!x._sch||x._sch.fuori)?'fermo':'')+(x._sch&&x._sch.fuori?' fuori':'')+'"><span class="nm">'+(finito?'🏁 ':'')+esc(x.nome)+'</span><span class="last">'+(x._solo?'solo su Veyon':fa(ult))+'</span>'+
+      (x._solo?'':'<div class="teo"><span class="pos">teoria <b>'+sc+'/'+tot+'</b>'+(t.titolo?' · '+esc(t.titolo):'')+'</span><span class="barw"><i style="width:'+pct+'%"></i></span><span class="pct">'+pct+'%</span></div>')+
+      (tags?'<div class="tags">'+tags+'</div>':'')+miniature(x,st0)+'</div>';
+  }).join('');
+  if(SCH&&SCH.sintesi)document.getElementById('kpi').innerHTML+='<div class="k"><b>🖥 '+esc(SCH.ora)+'</b><span>'+esc(SCH.sintesi)+'</span></div>';
+}
+function miniature(x,st){var t=thumbDi(x.nome);if(!t)return '';var base=st?st.sito:'';var h='';['index','competenze','passione'].forEach(function(p){if(t[p])h+='<a href="'+esc(base+p+'.html')+'" target="_blank" rel="noopener" class="th"><img src="../avanzamento/'+esc(t[p])+'?t='+Math.floor(Date.now()/60000)+'" alt="'+p+'"><span>'+p+'.html</span></a>';});return h?'<div class="ths">'+h+'</div>':'';}
+function statico(){getJ('dati/'+B+'.json').then(function(d){
+  if(!d)return; var righe=(d.righe||[]).map(function(x){return x.teoria?x:{nome:x.nome,ultimo:x.quando,teoria:{scheda:x.scheda,totale:x.totale||d.totale_schede,titolo:x.titolo,quando:x.quando}}});
+  render({righe:righe,totale_schede:d.totale_schede,aggiornato:d.aggiornato},'static');}).catch(function(){});}
+function live(){
+  if(!EXEC||!TOK){statico();return;}
+  var cb='mon'+(++_n),s=document.createElement('script'),done=false;
+  var to=setTimeout(function(){if(done)return;done=true;try{delete window[cb]}catch(e){}s.remove();statico();},8000);
+  window[cb]=function(d){if(done)return;done=true;clearTimeout(to);try{delete window[cb]}catch(e){}s.remove();
+    if(d&&d.ok){render(d,'live');}
+    else if(d&&d.errore==='codice'){document.getElementById('view').classList.add('hide');document.getElementById('gate').classList.remove('hide');document.getElementById('err').textContent='Codice sbagliato: riprova.';try{localStorage.removeItem('monitor-tok')}catch(e){}clearInterval(timerPoll);}
+    else{document.getElementById('stato').innerHTML='<b class="static">● lo script risponde ma: '+esc((d&&d.errore)||'errore')+'</b>';statico();}
+  };
+  s.src=EXEC+(EXEC.indexOf('?')<0?'?':'&')+'live='+encodeURIComponent(B)+(SIM?'&sim='+encodeURIComponent(SIM):'')+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();
+  s.onerror=function(){if(done)return;done=true;clearTimeout(to);s.remove();statico();};
+  document.body.appendChild(s);
+}
+function apri(){
+  TOK=document.getElementById('tok').value.trim(); if(!TOK)return;
+  try{localStorage.setItem('monitor-tok',TOK)}catch(e){}
+  document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');document.getElementById('err').textContent='';
+  stato(); setInterval(stato,120000); risposte(); setInterval(risposte,60000); thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
+}
+document.getElementById('ok').onclick=apri;
+document.getElementById('tok').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
+fetch('dati/config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||'';}).catch(function(){}).then(function(){
+  var saved='';try{saved=localStorage.getItem('monitor-tok')||''}catch(e){}
+  if(saved){document.getElementById('tok').value=saved;apri();}
+});
+</script><script>document.getElementById('tok').value='demo';document.getElementById('ok').click();</script></body></html>

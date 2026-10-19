@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.4** — 12/10/2026
+**Versione 0.5** — 19/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -39,11 +39,13 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 01/10/2026 | Lazarus "Convertitore di temperature" (Celsius↔Fahrenheit): if/then, begin/end annidati, verso automatico, Reset, finestra di scelta (MessageDlg/QuestionDlg); esercitazione + consegna su Classroom; correzione | lazarus-convertitore | Programmazione · Sviluppo software |
 | 01/10/2026 | Sicurezza sul lavoro — modulo 1: concetti di Rischio, Danno, Prevenzione e Protezione (slide + videolezione formazione); verifica con quiz (Google Moduli, 20 domande, autocorrezione) e test a risposta aperta | formazione-sicurezza (sito Piamarta) · sicurezza-test-aperto | Sicurezza sul lavoro · Cittadinanza |
 | 12/10/2026 | Laboratorio, 3 ore: Versioning e teoria Agile (Manifesto e 10 regole); Pull Request sul gioco della classe dal Modulo «Consegna»; backlog con pesi di Fibonacci; 20 versioni del gioco (v0.12-v0.31) con changelog e grafo; Feedback sulla teoria; voti sulle PR | `docs/compito/2inf-20261012-documento/`, `docs/teoria/agile-it/`, `docs/2inf-backlog/`, `GIRO-PULL-REQUEST.md` | Strumenti di versioning e lavoro in team (da agganciare al numero dell'Allegato A) |
+| 19/10/2026 | Laboratorio, 3 ore: ciclo FOR in Lazarus, seconda parte: programma «Contatore» con due TEdit (da… a…), TButton e TMemo; `for x := StrToInt(Edit1.Text) to StrToInt(Edit2.Text)` con `Memo1.Lines.Add(IntToStr(x))` e `sleep(1000)` per vedere il ciclo che conta | Lazarus, progetto Contatore (guidato dal docente) | 15 — voce 5 «Programmazione in Lazarus: cicli for e while» |
 
 ## 4. Classe 3 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
 |---|---|---|---|
 | 12/10/2026 | Laboratorio, 3 ore: Versioning, il Documento come ramo dell'albero delle versioni; come si chiede una modifica (Pull Request PR1, PR2…); Manifesto Agile e 10 regole; backlog Agile; Feedback sulla teoria | `docs/compito/3inf-20261012-documento/`, `docs/teoria/agile/`, `docs/3inf-backlog/` | Strumenti di versioning e lavoro in team (da agganciare al numero dell'Allegato A) |
+| 19/10/2026 | Laboratorio, 3 ore: sviluppo web, il sito personale diventa portfolio: ripasso HTML5, CSS3 e GitHub Pages; pagina competenze.html «Cosa so fare» con menu e link nella Home; verifica (crocette, risposte scritte, indirizzo della pagina) e recupero; sfida foto di sfondo; collaboratori in coppia per il lavoro del 21/10 | `docs/verifica/?b=3inf-portfolio`, cruscotto dal vivo | 15 — voce 1 «Sviluppo web: HTML5, CSS3, GitHub Pages, portfolio delle competenze» |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
@@ -52,6 +54,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 4. `PIANO-ORE-LEZIONE` — il piano ora-per-ora (previsto), da confrontare con lo svolto.
 
 ## 6. Changelog
+5. **v0.5 (19/10/2026)**: 2INF ciclo FOR seconda parte (programma Contatore); 3INF sito portfolio con verifica e recupero.
 4. **v0.4 (12/10/2026)**: lezione del 12/10 di Classe 2 (2INF) e Classe 3 (3INF): versioning, Agile, Pull Request, backlog, versioni del gioco.
 3. **v0.3 (01/10/2026)**: Classe 1 — bit/byte e conversione binario→decimale + esercitazione; Classe 2 — Lazarus convertitore temperature e Sicurezza modulo 1 (rischio/danno) con quiz e test aperto.
 2. **v0.2 (24/09/2026)**: aggiunta la lezione del 24/09 (Configurazione PC — standard hardware) alla Classe 1.

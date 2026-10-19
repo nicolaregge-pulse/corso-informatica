@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.53** — 15/10/2026
+**Versione 2.54** — 19/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -8,6 +8,34 @@ aggiornato Claude su richiesta di Nicola: a ogni nuovo problema si aggiunge una 
 data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
+
+
+## 19/10/2026 — Lo script fermo dalle 04:07 e il compito non pubblicato (#82)
+
+1. **Errore.** L'audit della sera del 18/10 non ha controllato che il timer dello script fosse vivo. Il timer si è fermato alle 04:07 (quota giornaliera di Google finita: lo script lavorava ogni minuto anche di notte) e alle 8:00 il compito della 3INF non era su Classroom: il docente l'ha messo a mano.
+2. **Correzione.** Script v8.0: dorme fuori orario, legge solo la coda degli ultimi 7 giorni, scrive un battito. Il battito si controlla in ogni giro.
+3. **Regola.** MANIFESTO §9.12: il battito dello script è una voce obbligatoria di ogni audit e di ogni giro.
+
+## 19/10/2026 — «Ha già la pagina online», ed era di un altro (#83)
+
+1. **Errore.** Da uno screenshot Veyon ho scritto che un allievo aveva già la pagina «Cosa so fare» online; nel suo repository non c'era. Un altro allievo diceva di avere il file e io dicevo di no: guardavo il suo vecchio account GitHub.
+2. **Regola.** Quello che si vede in uno screenshot non è la prova: la prova è il file nel repository. Quando un ragazzo dice «c'è» e io no, si controlla subito tutto il suo repository e l'account con cui lavora oggi.
+
+## 19/10/2026 — Link del cruscotto che davano 404 (#84)
+
+1. **Errore.** Nel cruscotto ho messo il link alla pagina portfolio di tutti, anche di chi non l'aveva ancora creata: il docente cliccava e trovava 404.
+2. **Regola.** Un link si mette solo se la pagina esiste davvero; altrimenti si scrive «pagina non ancora nel repository».
+
+## 19/10/2026 — Nomi e voti in chiaro nel repository pubblico (#85)
+
+1. **Errore.** Le copie del cruscotto (nomi interi, voti proposti, siti, giri Veyon) e il backlog della 3INF stavano in chiaro nel repository pubblico.
+2. **Correzione.** I file del cruscotto sono cifrati (`strumenti/cifra_json.py`), il backlog usa «Nome I.». Le versioni vecchie restano nella storia di Git: per toglierle serve riscrivere la storia, solo con il sì del docente.
+3. **Regola.** Ogni file con nomi interi o voti che finisce in `docs/` si scrive cifrato. Controllo prima del push: nessun cognome in chiaro nei JSON di `docs/`.
+
+## 19/10/2026 — Due ore di giri in coda e la 2INF non seguita (#86)
+
+1. **Errore.** Il giro automatico ogni 2 minuti si è accumulato in coda: per quasi due ore ho solo eseguito giri e non ho seguito l'inizio della 2INF né dato il pacchetto dei voti alle 10:44.
+2. **Regola.** Finita una classe, il giro di quella classe si ferma subito. Il giro dura meno del suo intervallo; se arriva in ritardo, si salta.
 
 ## 01/10/2026 — Chiusura compito Classe 2INF (Convertitore temperature)
 
