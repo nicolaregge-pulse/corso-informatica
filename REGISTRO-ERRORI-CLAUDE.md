@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.57** — 19/10/2026
+**Versione 2.58** — 19/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 19/10/2026 — «Nessuna AI» su un PC che aveva Gemini aperto (#90)
+
+1. **Errore.** Durante la verifica su Moduli della 2INF ho guardato la vista remota di un PC e ho scritto «nessuna AI visibile», controllando solo la finestra di Chrome in primo piano. Nella seconda finestra c'era Gemini con le soluzioni. Un minuto prima l'anteprima della barra di Windows mostrava già due finestre di Chrome.
+2. **Regola.** Da una vista remota si dice «nessuna AI» solo dopo aver visto TUTTE le finestre di Chrome (anteprime sull'icona nella barra) e tutte le schede. Altrimenti si scrive «nella finestra in primo piano non si vede AI; le altre finestre non le ho viste».
 
 ## 19/10/2026 — Tre compiti uguali su Classroom (#89)
 
