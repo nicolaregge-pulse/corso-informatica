@@ -69,6 +69,7 @@ function render(d,origine){
   if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che lavorano.</div>';document.getElementById('kpi').innerHTML='';return;}
   var tot=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot)tot=x.teoria.totale;});tot=tot||(d.totale_schede||10);
   var fin=r.filter(function(x){return x.teoria&&x.teoria.scheda>=tot;}).length,quiz=r.filter(function(x){return x.quiz;}).length;
+  var finVero=r.filter(function(x){var s=sitoDi(x.nome);return s&&s.su>1&&s.fatti>=s.su;}).length;
   // RITMO e STIMA: minuti per scheda dall'inizio -> quanto manca a ognuno -> quando ha finito l'ultimo
   var now=Date.now(),etaMax=0,etaN=0;
   r.forEach(function(x){
@@ -77,13 +78,14 @@ function render(d,origine){
     if(sc>0&&sc<tot&&!isNaN(ini)&&ini>0){var min=(now-ini)/60000,ritmo=min/sc;x._ritmo=ritmo;x._eta=Math.round(ritmo*(tot-sc));if(x._eta>etaMax)etaMax=x._eta;etaN++;}
   });
   var meta=r.length?Math.round(fin/r.length*100):0;
-  var avviso=r.length&&fin>=Math.ceil(r.length/2)?'<div class="k" style="border-color:var(--warn)"><b style="color:var(--warn)">⚠ '+fin+' su '+r.length+' hanno finito</b><span>prepara il passo successivo</span></div>':'';
-  document.getElementById('kpi').innerHTML='<div class="k"><b>'+r.length+'</b><span>allievi attivi</span></div><div class="k"><b>'+fin+'</b><span>teoria finita ('+meta+'%)</span></div><div class="k"><b>'+quiz+'</b><span>quiz consegnati</span></div>'+
+  var avviso=r.length&&finVero>=Math.ceil(r.length/2)?'<div class="k" style="border-color:var(--warn)"><b style="color:var(--warn)">⚠ '+finVero+' su '+r.length+' hanno il sito completo</b><span>prepara il passo successivo</span></div>':'';
+  document.getElementById('kpi').innerHTML='<div class="k"><b>'+r.length+'</b><span>allievi attivi</span></div><div class="k"><b>'+fin+'</b><span>schede lette tutte ('+meta+'%)</span></div><div class="k"><b>'+finVero+'</b><span>sito completo (finito davvero)</span></div><div class="k"><b>'+quiz+'</b><span>quiz consegnati</span></div>'+
     (etaN?'<div class="k"><b>~'+etaMax+' min</b><span>e hanno finito tutti (stima dal ritmo)</span></div>':'')+avviso;
   out.innerHTML=r.map(function(x){
     var t=x.teoria||{},sc=t.scheda||0,pct=Math.round((sc/tot)*100),ult=x.ultimo||t.quando||'';
     var tags='';
-    if(sc>=tot)tags+='<span class="tag ok">✓ teoria finita</span>';
+    if(sc>=tot)tags+='<span class="tag">schede lette '+tot+'/'+tot+'</span>';
+    var st0=sitoDi(x.nome);if(st0&&st0.fatti>=st0.su&&st0.su>1)tags+='<span class="tag ok">✓ SITO COMPLETO: ha finito davvero</span>';
     else if(x._eta!==null)tags+='<span class="tag">manca '+(tot-sc)+' schede · ~'+x._eta+' min al ritmo di '+(x._ritmo<1?'<1':Math.round(x._ritmo))+' min/scheda</span>';
     else if(sc>0)tags+='<span class="tag">manca '+(tot-sc)+' schede</span>';
     if(x.quiz)tags+='<span class="tag '+(x.quiz.voto>=60?'ok':'ko')+'">quiz '+(x.quiz.modo==='recupero'?'recupero ':'')+x.quiz.giusti+'/'+x.quiz.su+' → '+x.quiz.voto+'</span>';
