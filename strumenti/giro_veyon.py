@@ -8,7 +8,7 @@ e questo script lo mette in DUE posti:
   2. docs/avanzamento/<banca>-schermi.json (cruscotto del docente: ultimo giro, nome intero come nel Foglio)
 Uso: python3 strumenti/giro_veyon.py <classe es. 3inf> <banca es. 3inf-portfolio-v1> <ora HH:MM> <righe.json> [sintesi]
 """
-import json, sys, os
+import cifra_json, json, sys, os
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 classe, banca, ora, frighe = sys.argv[1:5]
 sintesi = sys.argv[5] if len(sys.argv) > 5 else ""
@@ -31,5 +31,5 @@ d["giri"].append({"ora": ora, "righe": [{"pc": r["pc"], "alunno": abbrevia(r["no
 json.dump(d, open(pm, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
 ps = f"{R}/docs/avanzamento/{banca}-schermi.json"
-json.dump({"ora": ora, "sintesi": sintesi, "righe": righe}, open(ps, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+cifra_json.scrivi(ps, {"ora": ora, "sintesi": sintesi, "righe": righe})   # nomi interi: cifrato
 print(f"giro {ora}: {sintesi}")

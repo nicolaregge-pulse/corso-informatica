@@ -6,10 +6,10 @@ index.html, style.css, competenze.html, passione.html, li rende in locale con Pl
 docs/avanzamento/thumb/<banca>/<utente>-<pagina>.png. Nel cruscotto compaiono come immagini cliccabili (link al sito vero).
 Uso: python3 strumenti/thumb_siti.py <banca>      (es. 3inf-portfolio-v1)
 """
-import json, os, re, sys, subprocess, tempfile, urllib.request
+import cifra_json, json, os, re, sys, subprocess, tempfile, urllib.request
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = sys.argv[1]
-SITI = json.load(open(f"{R}/docs/avanzamento/{B}-siti.json", encoding="utf-8"))
+SITI = cifra_json.leggi(f"{R}/docs/avanzamento/{B}-siti.json")
 OUT = f"{R}/docs/avanzamento/thumb/{B}"; os.makedirs(OUT, exist_ok=True)
 PAG = ["index.html", "competenze.html", "passione.html"]
 
@@ -55,5 +55,5 @@ idx = {}
 for l in lavori:
     if os.path.exists(l["out"]):
         idx.setdefault(l["nome"], {})[l["pagina"]] = os.path.relpath(l["out"], f"{R}/docs/avanzamento")
-json.dump(idx, open(f"{OUT}/indice.json", "w"), ensure_ascii=False, indent=1)
+cifra_json.scrivi(f"{OUT}/indice.json", idx)
 print(f"miniature: {sum(len(v) for v in idx.values())} pagine di {len(idx)} ragazzi")

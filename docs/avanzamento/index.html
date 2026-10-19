@@ -54,6 +54,10 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))return iso;var s=Math.round((Date.now()-t)/1000);if(s<15)return'adesso';if(s<60)return s+' s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+' h fa';}
 function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
 // SCHERMI (Veyon): l'assistente legge gli screenshot del docente e scrive <banca>-schermi.json (PC, cosa fa, fuori).
+// PRIVACY (19/10): i file con nomi e voti in docs/ sono CIFRATI (strumenti/cifra_json.py). Si decifrano qui con il codice del docente.
+var _kc=null;function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)});}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc;}
+function getJ(u){return fetch(u+(u.indexOf('?')<0?'?':'&')+'t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(async function(d){if(!d||!d.cifrato)return d;try{var k=await chiave(d);var t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct));return JSON.parse(new TextDecoder().decode(t));}catch(e){return null;}});}
 var STATO=null;function stato(){fetch('../verifica/stato/'+B.replace(/-v\d+$/,'')+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){STATO=d;}).catch(function(){});}
 // ORDINE (Nicola 10:26): dal più bravo al meno. All'inizio della lezione conta ciò che ha SVOLTO, verso la fine conta il VOTO proposto.
 function pesoVoto(){if(!STATO||!STATO.inizio||!STATO.scadenza)return 0.5;var a=new Date(STATO.inizio).getTime(),b=new Date(STATO.scadenza).getTime(),n=Date.now();if(isNaN(a)||isNaN(b)||b<=a)return 0.5;return Math.max(0,Math.min(1,(n-a)/(b-a)));}
@@ -61,13 +65,13 @@ function punteggio(x,tot){var t=x.teoria||{},sc=Math.min(1,(t.scheda||0)/(tot||1
 var RISP=null;function risposte(){fetch('../assistente/risposte/verifica-'+B.replace(/-v\d+$/,'')+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){RISP=d;}).catch(function(){});}
 function rispostaA(nome,dom){if(!RISP)return null;var a=tok(nome);for(var i=RISP.length-1;i>=0;i--){var r=RISP[i];if(tok(r.nome).some(function(t){return a.indexOf(t)>=0;})&&String(r.domanda).slice(0,40)===String(dom).slice(0,40))return r;}return null;}
 function ora(iso){var t=new Date(iso||0);return isNaN(t.getTime())?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});}
-var THUMB=null;function thumbs(){fetch('../avanzamento/thumb/'+B+'/indice.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){THUMB=d;}).catch(function(){});}
+var THUMB=null;function thumbs(){getJ('../avanzamento/thumb/'+B+'/indice.json').then(function(d){THUMB=d;}).catch(function(){});}
 function thumbDi(nome){if(!THUMB)return null;var a=tok(nome);for(var k in THUMB){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return THUMB[k];}return null;}
-var VOTI=null;function voti(){fetch('../avanzamento/'+B+'-voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){VOTI=d;}).catch(function(){});}
+var VOTI=null;function voti(){getJ('../avanzamento/'+B+'-voti.json').then(function(d){VOTI=d;}).catch(function(){});}
 function votoDi(nome){if(!VOTI)return null;var a=tok(nome);for(var k in VOTI.voti){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return VOTI.voti[k];}return null;}
-var SITI=null;function siti(){fetch('../avanzamento/'+B+'-siti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){SITI=d;}).catch(function(){});}
+var SITI=null;function siti(){getJ('../avanzamento/'+B+'-siti.json').then(function(d){SITI=d;}).catch(function(){});}
 function sitoDi(nome){if(!SITI)return null;var a=tok(nome);for(var k in SITI){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return SITI[k];}return null;}
-var SCH=null;function schermi(){fetch('../avanzamento/'+B+'-schermi.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){SCH=d;}).catch(function(){});}
+var SCH=null;function schermi(){getJ('../avanzamento/'+B+'-schermi.json').then(function(d){SCH=d;}).catch(function(){});}
 function tok(n){return String(n||'').toLowerCase().split(/[^a-zà-ú]+/).filter(function(t){return t.length>=3;});}
 function schermoDi(nome){if(!SCH)return null;var a=tok(nome);for(var i=0;i<SCH.righe.length;i++){var b=tok(SCH.righe[i].nome);if(a.some(function(t){return b.indexOf(t)>=0;}))return SCH.righe[i];}return null;}
 function render(d,origine){
@@ -112,7 +116,7 @@ function render(d,origine){
   if(SCH&&SCH.sintesi)document.getElementById('kpi').innerHTML+='<div class="k"><b>🖥 '+esc(SCH.ora)+'</b><span>'+esc(SCH.sintesi)+'</span></div>';
 }
 function miniature(x,st){var t=thumbDi(x.nome);if(!t)return '';var base=st?st.sito:'';var h='';['index','competenze','passione'].forEach(function(p){if(t[p])h+='<a href="'+esc(base+p+'.html')+'" target="_blank" rel="noopener" class="th"><img src="../avanzamento/'+esc(t[p])+'?t='+Math.floor(Date.now()/60000)+'" alt="'+p+'"><span>'+p+'.html</span></a>';});return h?'<div class="ths">'+h+'</div>':'';}
-function statico(){fetch('../avanzamento/'+B+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
+function statico(){getJ('../avanzamento/'+B+'.json').then(function(d){
   if(!d)return; var righe=(d.righe||[]).map(function(x){return x.teoria?x:{nome:x.nome,ultimo:x.quando,teoria:{scheda:x.scheda,totale:x.totale||d.totale_schede,titolo:x.titolo,quando:x.quando}}});
   render({righe:righe,totale_schede:d.totale_schede,aggiornato:d.aggiornato},'static');}).catch(function(){});}
 function live(){
