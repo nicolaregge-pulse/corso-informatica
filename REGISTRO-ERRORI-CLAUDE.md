@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.55** — 19/10/2026
+**Versione 2.56** — 19/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 19/10/2026 — «Lo script è vivo», e il battito era vecchio di 13 minuti (#88)
+
+1. **Errore.** Alle 13:26 ho messo il quiz della 2INF in coda dicendo che lo script era vivo, guardando un battito delle 13:13: era già fermo da 13 minuti (di nuovo la quota giornaliera di Google, la v8.0 non è ancora installata). Il quiz non è uscito e il docente non ha visto niente.
+2. **Regola.** Prima di dire «lo pubblica lo script» il battito deve avere meno di 3 minuti (MANIFESTO §9.12). Se è più vecchio, si dice subito e si usa la strada che non dipende dal timer.
 
 ## 19/10/2026 — Firma del registro: il verde voleva dire «firmata» (#87)
 
