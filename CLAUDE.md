@@ -203,6 +203,10 @@ bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71
 
 **18. Il cruscotto dal vivo è lo standard di ogni lezione (19/10/2026).** Regole fisse: ordine dal più bravo al meno (svolto all'inizio, voto alla fine), 🏁 per chi ha finito al controllo automatico, «manca: …» per gli altri, Veyon dentro il cruscotto, domande con risposta, voto proposto 40-80 con la regola delle domande, tutti i presenti, dati con nomi e voti sempre CIFRATI nel pubblico (`strumenti/cifra_json.py`). Vedi `CRUSCOTTO-DAL-VIVO.md`.
 
+**19. `PROSSIME-LEZIONI.md` sempre aggiornato (19/10/2026, chiesto dalla chat «Amichetto Claudio»).** Nella cartella principale: per ogni lezione dei prossimi giorni data, classe, ore, argomento, attività, materiali, compiti; prima la più vicina. Si aggiorna a ogni chat, commit e push su main. NIENTE nomi di alunni né dati riservati (né codici di anteprima): lo legge a voce la skill Alexa «Amichetto Claudio», quindi frasi intere, niente tabelle.
+
+**20. Messaggi tra chat (19/10/2026, Nicola).** Un messaggio che passa da una chat Claude a un'altra comincia con «Da chat <nome> a chat <nome>:». Quando ne scrivo uno per un'altra chat lo intesto così; quando ne arriva uno senza intestazione e Nicola dice da dove viene, lo tratto come richiesta di Nicola.
+
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
 Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).

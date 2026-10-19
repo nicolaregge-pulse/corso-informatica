@@ -26,58 +26,58 @@
     /* ---------- 1. RIPASSO ---------- */
     schede_temi: { bit: 1, byte: 2, unita: 3, pesi: 4, conti: 5, velocita: 6, bB: 7, scaricare: 8, streaming: 9, wifi: 10, cavi: 11 },
     schede: [
-      { titolo: L("1. Il bit: 0 oppure 1", "١. البِت: صفر أو واحد", "1. 比特：0 或 1"), testo: L(
+      { titolo: "1. Il bit: 0 oppure 1 · ١. البِت: صفر أو واحد · 1. 比特：0 或 1", testo: L(
         "Il computer capisce solo <b>due cose</b>: corrente <b>sì</b> o corrente <b>no</b>, come una lampadina accesa o spenta. Le scriviamo <b>1</b> e <b>0</b>.<br>Un solo 0 o 1 si chiama <b>bit</b>. È il pezzo più piccolo di informazione. Lo avete già visto con il <b>binario</b>: 1010 sono 4 bit.",
         "الحاسوب يفهم شيئين فقط: 1 أو 0، مثل مصباح مضاء أو مطفأ. الرقم الواحد اسمه «بِت».",
         "电脑只懂两种状态：1 或 0，就像灯开或关。一个 0 或 1 叫做“比特”（bit）。") },
-      { titolo: L("2. Il byte: 8 bit insieme", "٢. البايت: ٨ بِت معًا", "2. 字节：8 个比特"), testo: L(
+      { titolo: "2. Il byte: 8 bit insieme · ٢. البايت: ٨ بِت معًا · 2. 字节：8 个比特", testo: L(
         "Un bit da solo dice poco. <b>8 bit insieme</b> fanno un <b>byte</b>. Con un byte il computer scrive <b>una lettera</b>: la A è 01000001.<br>Quindi: <b>1 byte = 8 bit = una lettera</b>.<br>Il bit si scrive con la <b>b piccola</b>, il byte con la <b>B grande</b>. Ricordatelo: serve dopo, per la velocità.",
         "٨ بِت = ١ بايت = حرف واحد. البِت يُكتب b صغيرة، والبايت B كبيرة.",
         "8 个比特 = 1 个字节 = 一个字母。比特写小写 b，字节写大写 B。") },
-      { titolo: L("3. Le unità: KB, MB, GB, TB", "٣. الوحدات: KB، MB، GB، TB", "3. 单位：KB、MB、GB、TB"), testo: L(
+      { titolo: "3. Le unità: KB, MB, GB, TB · ٣. الوحدات: KB، MB، GB، TB · 3. 单位：KB、MB、GB、TB", testo: L(
         "I file sono fatti di tantissimi byte. Per non scrivere numeri lunghi usiamo i <b>multipli</b>, ogni gradino è <b>circa 1000 volte</b> più grande:" +
         T([["Nome", "Si scrive", "Quanto è"], ["kilobyte", "KB", "1000 byte"], ["megabyte", "MB", "1000 KB"], ["gigabyte", "GB", "1000 MB"], ["terabyte", "TB", "1000 GB"]]) +
         "Come i metri: 1000 metri = 1 chilometro. (Il computer, per essere precisi, usa 1024 invece di 1000: per i nostri conti va bene 1000.)",
         "كل درجة أكبر بنحو ١٠٠٠ مرة: ١٠٠٠ بايت = KB، ١٠٠٠ KB = MB، ١٠٠٠ MB = GB.",
         "每一级大约大 1000 倍：1000 字节 = 1 KB，1000 KB = 1 MB，1000 MB = 1 GB。") },
-      { titolo: L("4. Quanto pesa?", "٤. كم يزن؟", "4. 有多大？"), testo: L(
+      { titolo: "4. Quanto pesa? · ٤. كم يزن؟ · 4. 有多大？", testo: L(
         "Numeri tondi da ricordare:" +
         T([["Che cosa", "Quanto pesa (circa)"], ["un messaggio di testo", "1 KB"], ["una foto del telefono", "3 MB"], ["una canzone", "4 MB"], ["un video di 1 minuto", "100 MB"], ["un film", "2 GB"], ["la memoria di un telefono", "128 GB"], ["il disco del PC che avete montato", "500 GB o 1 TB"]]) +
         "La <b>RAM</b> si misura nello stesso modo: 8 GB, 16 GB.",
         "صورة ≈ ٣ MB، أغنية ≈ ٤ MB، فيلم ≈ ٢ GB، ذاكرة الهاتف ≈ ١٢٨ GB.",
         "一张照片约 3 MB，一首歌约 4 MB，一部电影约 2 GB，手机存储约 128 GB。") },
-      { titolo: L("5. Il conto: quante foto ci stanno?", "٥. الحساب: كم صورة تتسع؟", "5. 计算：能放多少张照片？"), testo: L(
+      { titolo: "5. Il conto: quante foto ci stanno? · ٥. الحساب: كم صورة تتسع؟ · 5. 计算：能放多少张照片？", testo: L(
         "Il telefono ha <b>64 GB</b> liberi. Quante foto da 3 MB ci stanno?<br>1) Porto tutto in MB: 64 GB = 64 × 1000 = <b>64000 MB</b>.<br>2) Divido per il peso di una foto: 64000 : 3 = circa <b>21000 foto</b>.<br>Regola: <b>prima porto tutto nella stessa unità, poi divido</b>.",
         "أولًا نحوّل كل شيء إلى نفس الوحدة، ثم نقسم: ٦٤ GB = ٦٤٠٠٠ MB، ٦٤٠٠٠ ÷ ٣ ≈ ٢١٠٠٠ صورة.",
         "先换成同一个单位，再做除法：64 GB = 64000 MB，64000 ÷ 3 ≈ 21000 张照片。") },
-      { titolo: L("6. La velocità della rete: bit al secondo", "٦. سرعة الشبكة: بِت في الثانية", "6. 网速：每秒多少比特"), testo: L(
+      { titolo: "6. La velocità della rete: bit al secondo · ٦. سرعة الشبكة: بِت في الثانية · 6. 网速：每秒多少比特", testo: L(
         "La velocità di Internet si misura in <b>bit al secondo</b>. Si usa il <b>Mbps</b> = megabit al secondo (milioni di bit ogni secondo)." +
         T([["Connessione", "Velocità (circa)"], ["ADSL vecchia", "10 Mbps"], ["4G del telefono", "30 Mbps"], ["5G", "300 Mbps"], ["fibra", "1000 Mbps = 1 Gbps"]]) +
         "Più Mbps = scarichi più in fretta, i video non si bloccano, il gioco online non va a scatti.",
         "سرعة الإنترنت تُقاس بالبِت في الثانية: Mbps = ميغابِت في الثانية. الألياف ≈ ١٠٠٠ Mbps.",
         "网速用“每秒比特”来量：Mbps = 每秒兆比特。光纤约 1000 Mbps。") },
-      { titolo: L("7. Attenzione: b piccola e B grande", "٧. انتبه: b صغيرة و B كبيرة", "7. 注意：小写 b 和大写 B"), testo: L(
+      { titolo: "7. Attenzione: b piccola e B grande · ٧. انتبه: b صغيرة و B كبيرة · 7. 注意：小写 b 和大写 B", testo: L(
         "La rete si misura in <b>Mb</b> (megabit, b piccola). I file si misurano in <b>MB</b> (megabyte, B grande).<br>Siccome 1 byte = 8 bit, per passare dalla velocità della rete ai MB al secondo <b>divido per 8</b>:<br>100 Mbps : 8 = <b>12,5 MB al secondo</b>.<br>Per questo, con una linea da 100 «mega», il download non va a 100 MB al secondo ma a circa 12.",
         "الشبكة بالميغابِت (b صغيرة) والملفات بالميغابايت (B كبيرة). نقسم على ٨: ١٠٠ Mbps ÷ ٨ = ١٢٫٥ MB في الثانية.",
         "网速用兆比特（小写 b），文件用兆字节（大写 B）。除以 8：100 Mbps ÷ 8 = 每秒 12.5 MB。") },
-      { titolo: L("8. Quanto ci metto a scaricare?", "٨. كم أحتاج من الوقت للتنزيل؟", "8. 下载需要多长时间？"), testo: L(
+      { titolo: "8. Quanto ci metto a scaricare? · ٨. كم أحتاج من الوقت للتنزيل؟ · 8. 下载需要多长时间？", testo: L(
         "Voglio scaricare un film da <b>2 GB</b> con una linea da <b>100 Mbps</b>.<br>1) Il film in MB: 2 GB = <b>2000 MB</b>.<br>2) La velocità in MB al secondo: 100 : 8 = <b>12,5 MB/s</b>.<br>3) Divido: 2000 : 12,5 = <b>160 secondi</b>, meno di 3 minuti.<br>Con il 4G a 30 Mbps: 30 : 8 ≈ 4 MB/s → 2000 : 4 = 500 secondi, più di 8 minuti.",
         "فيلم ٢ GB = ٢٠٠٠ MB. سرعة ١٠٠ Mbps ÷ ٨ = ١٢٫٥ MB/ث. ٢٠٠٠ ÷ ١٢٫٥ = ١٦٠ ثانية.",
         "电影 2 GB = 2000 MB。100 Mbps ÷ 8 = 每秒 12.5 MB。2000 ÷ 12.5 = 160 秒。") },
-      { titolo: L("9. Lo streaming: quanta velocità serve?", "٩. البثّ المباشر: كم سرعة نحتاج؟", "9. 在线播放：需要多快的网速？"), testo: L(
+      { titolo: "9. Lo streaming: quanta velocità serve? · ٩. البثّ المباشر: كم سرعة نحتاج؟ · 9. 在线播放：需要多快的网速？", testo: L(
         "<b>Streaming</b> vuol dire guardare o ascoltare <b>mentre scarica</b>, senza salvare il file (YouTube, Netflix, Spotify, le dirette). Servono almeno:" +
         T([["Che cosa", "Velocità minima (circa)"], ["musica", "0,3 Mbps"], ["videochiamata", "2 Mbps"], ["video HD", "5 Mbps"], ["video 4K", "25 Mbps"], ["gioco online", "10 Mbps, ma conta il <b>ping</b>: il tempo di risposta, sotto 50 ms"]]) +
         "Se in casa 3 persone guardano video HD insieme: 3 × 5 = 15 Mbps.",
         "البثّ = نشاهد أثناء التنزيل. فيديو HD ≈ ٥ Mbps، فيديو 4K ≈ ٢٥ Mbps.",
         "在线播放 = 边下载边看。高清视频约 5 Mbps，4K 视频约 25 Mbps。") },
-      { titolo: L("10. Wi-Fi o cavo?", "١٠. واي فاي أم كابل؟", "10. 无线还是网线？"), testo: L(
+      { titolo: "10. Wi-Fi o cavo? · ١٠. واي فاي أم كابل؟ · 10. 无线还是网线？", testo: L(
         T([["", "Cavo", "Wi-Fi"], ["Velocità", "alta e sempre uguale", "cala con la distanza e i muri"], ["Stabilità", "ottima, ping basso", "dipende: microonde, tanti dispositivi"], ["Comodità", "devi stare vicino alla presa", "ti muovi dove vuoi"], ["Meglio per", "PC fisso, console, lavoro", "telefono, tablet, portatile"]]) +
         "<b>Tipi di Wi-Fi</b> (il numero più alto è il più nuovo):" +
         T([["Nome", "Anno", "Velocità massima (circa)"], ["Wi-Fi 4", "2009", "600 Mbps"], ["Wi-Fi 5", "2014", "3500 Mbps"], ["Wi-Fi 6 / 6E", "2019-2020", "9600 Mbps"], ["Wi-Fi 7", "2024", "oltre 40000 Mbps"]]) +
         "Due «strade» (bande): <b>2,4 GHz</b> arriva più lontano ma è più lenta; <b>5 GHz</b> è più veloce ma passa peggio i muri. Le velocità massime sono teoriche: a casa sono molto meno.",
         "الكابل أسرع وأكثر ثباتًا، والواي فاي أكثر راحة. الواي فاي ٤ و٥ و٦ و٧: الرقم الأكبر هو الأحدث. ٢٫٤ GHz يصل أبعد، ٥ GHz أسرع.",
         "网线更快更稳定，无线更方便。Wi-Fi 4、5、6、7：数字越大越新。2.4 GHz 传得更远，5 GHz 更快。") },
-      { titolo: L("11. I tipi di cavo", "١١. أنواع الكابلات", "11. 网线的种类"), testo: L(
+      { titolo: "11. I tipi di cavo · ١١. أنواع الكابلات · 11. 网线的种类", testo: L(
         T([["Cavo", "Com'è", "Velocità (circa)", "Dove si usa"], ["rame <b>Cat 5e</b>", "cavo di rete con la spina <b>RJ45</b>", "1000 Mbps", "casa, scuola"], ["rame <b>Cat 6 / 6A</b>", "come il 5e, più schermato", "fino a 10000 Mbps", "uffici, laboratori"], ["<b>fibra ottica</b>", "un filo di vetro: passa la <b>luce</b>", "migliaia di Mbps, anche chilometri", "dalla centrale a casa, tra palazzi"], ["coassiale", "il cavo dell'antenna TV", "basse", "TV, vecchie reti"]]) +
         "Il cavo di rete di rame arriva al massimo a <b>100 metri</b>; la fibra va molto più lontano e non sente i disturbi elettrici.<br>Nel laboratorio, il cavo che va dal PC alla presa nel muro è un <b>Cat 5e o Cat 6 con RJ45</b>.",
         "كابل النحاس (Cat 5e / Cat 6) بقابس RJ45 حتى ١٠٠ متر. الألياف البصرية تنقل الضوء وتصل إلى مسافات بعيدة جدًا.",

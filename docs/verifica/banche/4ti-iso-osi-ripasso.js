@@ -26,6 +26,7 @@
     },
 
     /* ---------- 1. RIPASSO ---------- */
+    ripasso_n: 7,
     schede_temi: { livelli: 1, ricordare: 2, buste: 3, indirizzi: 4, dispositivi: 5, trasporto: 6, tecnico: 7, progetto: 8, readme: 9, ponte: 10 },
     schede: [
       { titolo: "1. I sette livelli: come spedire un pacco", testo:
