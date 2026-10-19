@@ -1,5 +1,11 @@
 /**
- * AUTOMAZIONE CORSO v7.9 (18/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.0 (19/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.0: NON SI SPEGNE PIU' PER QUOTA (lezione del 19/10: timer morto alle 04:07, quota giornaliera finita).
+ *       1) Di notte e nel fine settimana il giro dorme (solo lun-ven 7:00-15:00, ora di Roma): prima faceva
+ *          35 chiamate a GitHub al minuto anche alle 4 di notte. 2) Legge solo i file della coda degli ultimi
+ *          7 giorni. 3) «Situazione» su Classroom ogni 10 minuti, non ogni minuto. 4) BATTITO: a ogni giro
+ *          scrive data e ora nel foglio «Battito» del Foglio di riserva (nessuna chiamata esterna), cosi'
+ *          l'assistente vede da fuori se il timer e' vivo. 5) ?ping=1 risponde con lo stato del timer.
  * v7.9: MONITOR DAL VIVO DEL DOCENTE: ?live=<banca>&sim=<sim>&tok=<MONITOR_TOKEN> risponde con l'ultima
  *       riga di ogni ragazzo (teoria, quiz, simulatore, domande). Il monitor del docente si aggiorna da solo.
  * v7.7: SI RIPARA DA SOLO. Il timer di Google a volte si spegne: ora ogni contatto del web app (doGet/doPost)
@@ -137,21 +143,45 @@ function AUTO_suInvio(e) {
 }
 
 /* ====================== IL GIRO AUTOMATICO ====================== */
-function autoCiclo() {
+/* v8.0 — ORARIO DI LAVORO del giro: lun-ven 7:00-15:00 (Roma). Fuori orario il timer scatta ma non fa niente
+   (zero chiamate esterne): cosi' la quota giornaliera di Google basta sempre. Per forzare un giro fuori orario:
+   Esegui -> giroForzato. */
+function AUTO_inOrario(adesso) {
+  var g = +Utilities.formatDate(adesso, 'Europe/Rome', 'u'), h = +Utilities.formatDate(adesso, 'Europe/Rome', 'H');
+  return g >= 1 && g <= 5 && h >= 7 && h < 15;
+}
+function giroForzato() { autoCiclo(true); }
+
+/* v8.0 — BATTITO: scrive l'ora dell'ultimo giro nel foglio «Battito» del Foglio di riserva (cella A1 = ISO,
+   A2 = testo). Nessuna chiamata esterna. L'assistente legge la data di modifica del Foglio da Drive:
+   se e' ferma da piu' di 3 minuti in orario di lezione, il timer e' morto e lo dice subito al docente. */
+function AUTO_battito(nota) {
+  try {
+    var ss = AUTO_foglioArrivi().getParent(), sh = ss.getSheetByName('Battito') || ss.insertSheet('Battito');
+    sh.getRange('A1:B1').setValues([[new Date().toISOString(), nota || 'giro ok']]);
+  } catch (x) { Logger.log('Battito: ' + x); }
+}
+
+function autoCiclo(forza) {
+  var adesso = new Date();
+  if (!forza && !AUTO_inOrario(adesso)) { Logger.log('Fuori orario (lun-ven 7-15): dormo.'); return; }   // v8.0
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(2000)) { Logger.log('Giro precedente ancora in corso: salto.'); return; }
   try {
     var r = AUTO_gh('get', '/contents/' + AUTO.CODA + '?ref=' + AUTO.BRANCH);
-    if (r.getResponseCode() === 404) { Logger.log('Coda vuota.'); return; }
-    if (r.getResponseCode() !== 200) { Logger.log('GitHub risponde ' + r.getResponseCode() + ': ' + r.getContentText().slice(0, 300)); return; }   // v7.2
+    if (r.getResponseCode() === 404) { Logger.log('Coda vuota.'); AUTO_battito('coda vuota'); return; }
+    if (r.getResponseCode() !== 200) { Logger.log('GitHub risponde ' + r.getResponseCode() + ': ' + r.getContentText().slice(0, 300)); AUTO_battito('GitHub ' + r.getResponseCode()); return; }   // v7.2
     var files = JSON.parse(r.getContentText()).filter(function (f) { return /\.json$/.test(f.name); });
-    var adesso = new Date(), fatto = 0;
+    // v8.0: solo i file degli ultimi 7 giorni (il nome comincia con la data): i vecchi non cambiano piu'
+    var limite = Utilities.formatDate(new Date(adesso.getTime() - 7 * 86400000), 'Europe/Rome', 'yyyy-MM-dd');
+    files = files.filter(function (f) { return f.name.slice(0, 10) >= limite; });
+    var fatto = 0, minuto = adesso.getMinutes();
     files.forEach(function (f) {
       var item = AUTO_leggiJson(f.path);
       var job = item.json;
       try {
         if (job.stato === 'pubblicato' || job.stato === 'chiuso') {
-          var cambi = AUTO_extra(job, adesso);
+          var cambi = AUTO_extra(job, adesso, minuto % 10 === 0);   // v8.0: situazione Classroom ogni 10 minuti
           if (cambi) { AUTO_scriviJson(f.path, job, item.sha, cambi + ': ' + job.titolo); item = AUTO_leggiJson(f.path); job = item.json; fatto++; }
         }
         if (job.stato === 'da-pubblicare') {
@@ -174,6 +204,7 @@ function autoCiclo() {
     try { fatto += AUTO_comandi(); } catch (e) { Logger.log('ERRORE ponte Google: ' + e); }   // v5
     try { AUTO_allineaInvio(false); } catch (e) { Logger.log('ERRORE invio immediato: ' + e); }   // v7.3
     Logger.log('Giro finito. Azioni fatte: ' + fatto + ' (file in coda: ' + files.length + ')');
+    AUTO_battito('giro ok · ' + files.length + ' file · ' + fatto + ' azioni');   // v8.0
   } finally { lock.releaseLock(); }
 }
 
@@ -246,7 +277,7 @@ function AUTO_cartella(nome) {
 }
 
 /* ====================== 3-4-5. TESTO, RACCOLTE IN PIU', SITUAZIONE ====================== */
-function AUTO_extra(job, adesso) {
+function AUTO_extra(job, adesso, conSituazione) {
   var cosa = [];
   if (job.testo && (job.testo_rev || 0) > (job.testo_applicato_rev || 0)) {
     try {
@@ -269,7 +300,7 @@ function AUTO_extra(job, adesso) {
     job.esito_voti = AUTO_voti(job);
     job.voti_applicati_rev = job.voti_rev; job.voti_applicati_il = adesso.toISOString(); cosa.push('Voti in bozza');
   }
-  if (job.stato === 'pubblicato' && job.situazione !== false) AUTO_situazione(job);
+  if (conSituazione !== false && job.stato === 'pubblicato' && job.situazione !== false) AUTO_situazione(job);   // v8.0: ogni 10 minuti
   return cosa.join(' + ');
 }
 
@@ -661,6 +692,11 @@ function AUTO_gh(method, path, payload) {
 function doGet(e) {
   AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   var p = (e && e.parameter) || {};
+  if (p.ping) {   // v8.0: stato del timer, leggibile da chiunque (nessun dato dei ragazzi)
+    var tr = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; }).length;
+    var b = ''; try { b = String(AUTO_foglioArrivi().getParent().getSheetByName('Battito').getRange('A1').getValue()); } catch (x) {}
+    return AUTO_rispostaJs(JSON.stringify({ versione: '8.0', timer: tr, battito: b, inOrario: AUTO_inOrario(new Date()), ora: new Date().toISOString() }), p.callback);
+  }
   if (p.live) return AUTO_live(p.live, p.sim, p.tok, p.callback);                    // v7.9: monitor dal vivo del docente
   if (p.cruscotto) return AUTO_cruscotto(p.cruscotto, p.callback);                     // v7.8: classifica dal vivo
   return AUTO_paginaArrivo('Pagina pronta', 'Da qui arrivano le consegne delle verifiche del corso.', '#1f6feb');
