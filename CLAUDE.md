@@ -131,9 +131,7 @@ argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
   della Regione**. Perciò Nicola firma **subito in classe** il programma previsto
   (anche con argomenti provvisori) e li corregge dopo. **Compito di Claude:
   ricordare la firma IN AULA, prima delle 14:05** (non a fine giornata).
-- **MAI dedurre «non firmata» da uno screenshot (REGISTRO-ERRORI #11, #36, #52 — tre volte):** il bottone «FIRMA ✓» resta
-  anche sulle ore GIÀ firmate. Si ricorda la firma, non si giudica lo stato. L'unica prova è «Da firmare» /
-  «Visualizza tutte le firme arretrate». Se Nicola dice «firmate», è così.
+- **Come si legge la firma (Nicola, 19/10/2026, REGISTRO-ERRORI #87):** «FIRMA ✓» con la scritta **in verde** = ora **firmata, è OK**: non si ricorda più la firma per quell'ora. Senza il verde non si deduce niente (REGISTRO-ERRORI #11, #36, #52): si ricorda la firma una volta. Se Nicola dice «firmate», è così.
 - **Titolo = voce dell'Allegato A (14/10/2026):** ogni testo per il registro è una voce dell'Allegato A di quella classe e della materia di quell'ora; se manca la voce, lo dico subito e si aggiunge entro il 30/10 (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punto 8).
 - **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
   ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
@@ -681,7 +679,7 @@ l'intestazione del file.
 2d. Lezioni del 19/10 nel motore `docs/verifica/`: banche `3inf-portfolio` (sito personale → portfolio, scheda 11 collaboratori per il lavoro in coppia del 21/10; regia per il docente `classe-3/sito-github/20261019_Classe-3_Regia-Portfolio_Docente_v1.0.pdf`; controllo dei siti `generatori/portfolio_3inf.py` → «Il mio punto») e `2inf-for2` (ciclo FOR seconda parte); domanda «incolla qui» (`incolla: true`) unica dove si può incollare; prova `strumenti/prova_verifica.js` — v1.0
 2b. `docs/recupero/` (generatore `strumenti/gen_recupero.py`) — v1.0 (recupero a fianco: pagine semplificate un'azione per passo per 2inf-github, 2inf-indovina, 3inf-sito; senza nomi)
 3. `docs/1inf-conversione/` — v1.0 (decimale → binario interattivo, numeri personali, timer) · `docs/1inf-divisioni/` — v1.0 · `docs/1inf-decimale-binario/` (teoria e compiti v1.2-1.4, trilingue)
-4. `REGISTRO-ERRORI-CLAUDE.md` — v2.54 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
+4. `REGISTRO-ERRORI-CLAUDE.md` — v2.55 · `REGISTRO-ORE-2026-27.md` — v1.1 · `INDICE-GENERALE.md` — v1.0 · `AUDIT-REPOSITORY-2026-10-02.md` — v1.0 · `RETROSPETTIVA-25-09-2026.md` — v1.0 · `SCHEMA-CLASSI-TIPOLOGIE.md` — v1.1 (4TI = classe articolata di 2 gruppi; il gruppo 4INF di Nicola è di 9)
 
 ### 8. Altri materiali e prototipi
 00. `comunicazione-marketing/README.md` — v0.7 + `EDIZIONI.md` v1.4 (EDIZIONE 1.4 del 19/10: «Una mattina con la terza» e la demo del cruscotto senza nomi `docs/demo/cruscotto/`; EDIZIONE 1.2: «Progetti della quarta» senza nomi, link vero su richiesta) (EDIZIONE 1.0 del 13/10, controllo `strumenti/controlla_edizione.py --browser`, commit bd2a58004f; 13/10: NIENTE MARCHI DI ALTRI né immagini non nostre; NIENTE NOME DELLA SCUOLA nei materiali per l'esterno, si chiama «Il laboratorio di informatica secondo le idee di Nicola Regge»; con il parco del corso (mappa + Atlante) e il testo per Gemini; COMUNICAZIONE E MARKETING, i materiali per scuole e aziende, genitori, ragazzi e chi non capisce di informatica: PDF, percorsi guidati con voce, demo; pagina pubblica solo con il link `docs/cm-qma7yay4q5/` con il racconto «Cinque giorni da azienda» e i PDF; inventario e regole)
