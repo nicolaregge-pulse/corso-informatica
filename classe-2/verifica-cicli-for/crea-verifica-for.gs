@@ -8,7 +8,8 @@
   COME SI USA (finestra PIAMARTA):
   1. script.google.com → «Nuovo progetto».
   2. Cancella il codice di esempio e incolla questo file.
-  3. In alto scegli la funzione  creaVerificaFor  e premi «Esegui»; autorizza con l'account della scuola.
+  3. In alto scegli la funzione  pubblicaVerificaFor  (crea il Modulo E il compito su Classroom 2INF) e premi «Esegui».
+     Solo il Modulo, senza Classroom: creaVerificaFor.
   4. In «Log esecuzione» trovi i due link: quello da dare ai ragazzi e quello per modificare.
 */
 
@@ -170,4 +171,20 @@ function creaVerificaFor() {
 
   Logger.log('Link per i ragazzi: ' + form.getPublishedUrl());
   Logger.log('Link per modificare: ' + form.getEditUrl());
+  return form;
+}
+
+/* PUBBLICA IN UN COLPO (19/10/2026): crea il Modulo e il compito su Classroom nella 2INF, con il Modulo allegato.
+   Va eseguita nel progetto «Consegne Classroom → Git» (lì il servizio Classroom è già attivo).
+   Scegli  pubblicaVerificaFor  e premi «Esegui». */
+function pubblicaVerificaFor() {
+  var form = creaVerificaFor();
+  var CORSO_2INF = '162656105584';   // NUOVO 2 INFO 26/27 Laboratorio Informatica (config/classi.json)
+  var work = Classroom.Courses.CourseWork.create({
+    title: 'VERIFICA: il ciclo FOR',
+    description: '1) Apri il Modulo allegato.\n2) Scrivi cognome e nome.\n3) Rispondi a tutte le domande: in alcune le risposte giuste sono più di una.\n4) Nelle ultime scrivi tu il codice: puoi provarlo in Lazarus.\n5) Alla fine premi «Invia». Fatto.',
+    workType: 'ASSIGNMENT', state: 'PUBLISHED', maxPoints: 100,
+    materials: [{ link: { url: form.getPublishedUrl() } }]
+  }, CORSO_2INF);
+  Logger.log('Compito su Classroom: ' + work.alternateLink);
 }
