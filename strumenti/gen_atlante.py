@@ -9,7 +9,7 @@ import markdown
 
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CARTELLA = "atlante-k4x9w2"
-VERS_PARCO = "1.1"   # «Il parco del corso», la versione pubblica con la sola mappa
+VERS_PARCO = "1.2"   # «Il parco del corso», la versione pubblica con la sola mappa
 BASE = "https://nicolaregge-pulse.github.io/corso-informatica/"
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 e = html.escape
@@ -35,16 +35,19 @@ ZONE = [
   "La prima superiore: il binario, le versioni, la copia del treno e la prima proposta di modifica.",
   [("Compito del 13/10: la mia prima Pull Request", "compito/1inf-20261013-proposta/"), ("I voti", "1inf-voti/"), ("Il backlog", "1inf-backlog/"),
    ("Il monitor della lezione", "1inf-monitor/"), ("Cosa è cambiato nel gioco", "1inf-novita/"), ("La classifica", "1inf-top/"),
-   ("Cruscotto del prof (cifrato)", "1inf-cruscotto/"), ("Compito del 09/10: le versioni", "compito/1inf-20261009-versioni/"), ("Decimale e binario", "1inf-conversione/")]),
+   ("Cruscotto del prof (cifrato)", "1inf-cruscotto/"), ("Monta il PC (simulatore)", "monta-pc-v3/"), ("Ripasso e test: assemblaggio (16/10)", "verifica/?b=1inf-assemblaggio"),
+   ("La sfida lampo sui pezzi del PC", "sfida-pc/"), ("Compito del 09/10: le versioni", "compito/1inf-20261009-versioni/"), ("Decimale e binario", "1inf-conversione/")]),
  ("2inf", 215, 455, "#1c7ed6", "Quartiere 2INF", "seconda: l'azienda in classe", "compito/2inf-20261012-documento/", "casa",
   "La seconda: 129 proposte e 20 versioni in tre ore, poi ripasso, verifica e recupero.",
   [("Il tuo Documento (12-13/10)", "compito/2inf-20261012-documento/"), ("I voti", "2inf-voti/"), ("Il backlog", "2inf-backlog/"),
    ("Il monitor della lezione", "2inf-monitor/"), ("Cosa è cambiato nel gioco", "2inf-novita/"), ("La classifica", "2inf-top/"),
-   ("Cruscotto del prof (cifrato)", "2inf-cruscotto/"), ("If annidati e il cassiere del cinema", "2inf-if/")]),
+   ("Cruscotto del prof (cifrato)", "2inf-cruscotto/"), ("Il ciclo FOR (15/10)", "verifica/?b=2inf-for"), ("Il ciclo FOR, seconda parte (19/10)", "verifica/?b=2inf-for2"),
+   ("If annidati e il cassiere del cinema", "2inf-if/")]),
  ("3inf", 440, 640, "#2b8a3e", "Quartiere 3INF", "terza: siti e il gioco", "compito/3inf-20261012-documento/", "casa",
   "La terza: il primo sito pubblico, la copia del treno, le proposte in tempo reale.",
   [("Il tuo Documento (12/10)", "compito/3inf-20261012-documento/"), ("Il backlog", "3inf-backlog/"), ("Le Pull Request in tempo reale", "3inf-gioco/"),
-   ("Il sito pubblicato online", "3inf-sito/"), ("I siti della classe", "siti-classe/")]),
+   ("Il sito pubblicato online", "3inf-sito/"), ("Il mio sito diventa il mio portfolio (19/10)", "verifica/?b=3inf-portfolio"),
+   ("Il mio punto: cosa mi manca", "3inf-mio-punto/"), ("Il monitor della lezione", "3inf-monitor/"), ("I voti", "3inf-voti/"), ("I siti della classe", "siti-classe/")]),
  ("4ti", 1180, 455, "#0b7285", "Laboratorio dello Stage", "quarta: progetti veri", "4ti-progetti/", "officina",
   "La quarta: reti e progetti di stage, un deposito per ragazzo e una chat con il prof e l'assistente.",
   [("Cruscotto dei progetti (dal vivo)", "4ti-progetti/"), ("Il viaggio di un pacchetto (ISO/OSI)", "4ti-iso-osi/"), ("App di reti", "4ti-app/"),
@@ -56,7 +59,8 @@ ZONE = [
  ("prof", 1185, 175, "#495057", "Sala di controllo", "gli strumenti del prof", "docenti/", "schermo",
   "Da qui il docente guida la lezione: cruscotti cifrati, strumenti per il registro e per la classe virtuale.",
   [("Strumenti per il registro e la classe virtuale", "docenti/"), ("Cruscotto 2INF", "2inf-cruscotto/"), ("Cruscotto 1INF", "1inf-cruscotto/"),
-   ("Controlla chi ha fatto giusto", "controlla/"), ("Valutazione dei singoli 2INF", "2inf-valutazione/")]),
+   ("Controlla chi ha fatto giusto", "controlla/"), ("Valutazione dei singoli 2INF", "2inf-valutazione/"),
+   ("Monitor dal vivo: 3INF portfolio", "avanzamento/?b=3inf-portfolio-v1"), ("Monitor dal vivo: 2INF ciclo FOR", "avanzamento/?b=2inf-for2-v1")]),
  ("giochi", 965, 645, "#ae3ec9", "Sala giochi", "i minigiochi del corso", "gioco/", "joystick",
   "I minigiochi costruiti e usati nelle lezioni, e l'azienda dei videogiochi.",
   [("Tutti i minigiochi", "gioco/"), ("L'azienda dei videogiochi", "azienda/"), ("Assalto dei mostri", "giochi/assalto-dei-mostri/"),
@@ -148,6 +152,8 @@ DOCUMENTI = [   # i documenti del prof: si aprono su GitHub (il PDF si legge imp
    ("I rami delle classi e il gioco", "20261012_Organizzazione-Rami-Classi_Docente_v1.1.pdf"), ("Guida al gioco della classe", "manuale-docenti/gioco-della-classe/20261008_Gioco-Della-Classe_Guida-Docente_v1.1.pdf")]),
  ("Strumenti e automazione", [("Strumenti per il registro e la classe virtuale", "manuale-docenti/strumenti-didaweb-google/20261007_Strumenti-DIDAweb-Google_Docente_v1.3.pdf"),
    ("Inventario degli strumenti e dell'automazione", "20261007_Inventario-Strumenti-e-Automazione_Docente_v1.0.pdf")]),
+ ("Le regole fisse", [("Il patto e il flusso che funziona (MANIFESTO)", "MANIFESTO.md"), ("Audit: il monitoraggio dal vivo", "AUDIT-MONITORAGGIO-DAL-VIVO.md"),
+   ("Regia della 3INF del 19/10 (portfolio)", "classe-3/sito-github/20261019_Classe-3_Regia-Portfolio_Docente_v1.0.pdf"), ("Orario della settimana 19-23/10", "orario/settimana-2026-10-19.md")]),
  ("Migliorare", [("Revisione e retrospettiva (Agile)", "20261013_Agile-Cerimonie_Docente_v1.2.pdf"), ("Le retrospettive, come storia", "RETROSPETTIVE.md"),
    ("Il registro degli errori di Claude", "REGISTRO-ERRORI-CLAUDE.md"), ("Le prove che il metodo funziona", "PROVE-METODO.md")]),
  ("Comunicazione", [("Comunicazione e marketing", "comunicazione-marketing/README.md"), ("Le edizioni e come si controllano", "comunicazione-marketing/EDIZIONI.md"),
@@ -204,7 +210,7 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
     # la versione per la comunicazione: la mappa e le zone, niente testo interno, niente cruscotti né pagine del docente
     pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso · versione " + VERS_PARCO).replace(
         "Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.", "Sotto la mappa trovi le stesse zone, con i loro link.")
-    pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
+    pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti|avanzamento|mio-punto)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
     # i progetti di stage: fuori si vede solo la pagina di presentazione, senza i nomi negli indirizzi
     pubbl = re.sub(r'<li><a href="[^"]*4ti-progetti/"[^>]*>[^<]*</a></li>', "", pubbl).replace(u("4ti-progetti/"), u("cm-qma7yay4q5/progetti/"))
     pubbl = pubbl.replace('href="' + u("docenti/") + '"', 'href="#"').replace("<ol></ol>", '<ol><li class="mu">Gli strumenti del docente sono riservati.</li></ol>')

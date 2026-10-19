@@ -1,6 +1,6 @@
 # Le edizioni della comunicazione e dell'Atlante
 
-**Versione 1.2** — 13/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.3** — 19/10/2026 — Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 Come si numera l'insieme dei materiali (Atlante, mappa, racconto, PDF) e come si controlla che sia tutto giusto.
 
@@ -37,6 +37,7 @@ python3 strumenti/controlla_edizione.py --browser
 
 | Edizione | Data | Composizione | Impronta |
 |---|---|---|---|
+| 1.3 | 19/10/2026 | Atlante 1.6 · Il parco del corso 1.2 · Pagina «Il laboratorio raccontato» 1.1 · Racconto 1.0 · Progetti della quarta 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.6 | 5ed347a6b3 |
 | 1.2 | 13/10/2026 · commit 3792bfaabe | Atlante 1.5 · Il parco del corso 1.1 · Pagina «Il laboratorio raccontato» 1.1 · Racconto 1.0 · Progetti della quarta 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.6 | 2b9c24b5d5 |
 | 1.1 | 13/10/2026 · commit c50b78018f | Atlante 1.4 · Il parco del corso 1.0 · Pagina «Il laboratorio raccontato» 1.0 · Racconto 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.5 | fce06e3c08 |
 | 1.0 | 13/10/2026 · commit bd2a58004f | Atlante 1.3 · Il parco del corso 1.0 · Pagina «Il laboratorio raccontato» 1.0 · Racconto 1.0 · Brochure 1.4 · Presentazione 1.2 · Progetto del treno 1.2 · Indice della comunicazione 0.5 | 63d129690e |
