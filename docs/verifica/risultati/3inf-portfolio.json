@@ -1,9 +1,61 @@
 {
  "titolo": "Il mio sito diventa il mio portfolio",
  "classe": "3INF",
- "aggiornato": "19/10/2026 09:32",
+ "aggiornato": "19/10/2026 09:37",
  "come": "<b>Come si legge.</b> Le crocette si correggono da sole (40%). Le risposte scritte le legge l'assistente (30%). Il portfolio online è controllato sul sito vero (30%). Il voto è un giudizio complessivo; con il recupero sale.",
  "allievi": [
+  {
+   "allievo": "Alessandro A.",
+   "modo": "verifica",
+   "quando": "09.10",
+   "aree": [
+    {
+     "nome": "Nozioni (crocette)",
+     "giuste": 11,
+     "su": 12
+    },
+    {
+     "nome": "Risposte scritte",
+     "giuste": 5,
+     "su": 5
+    },
+    {
+     "nome": "Portfolio online",
+     "giuste": 0,
+     "su": 1
+    }
+   ],
+   "scritte": "5 scritte.",
+   "antiplagio": "",
+   "voto": "80",
+   "giudizio": "Crocette 11 su 12: molto bene. Risposte scritte: 5 su 5. Portfolio online: la pagina competenze.html non c'è ancora: è il lavoro di oggi (schede 8-9, «Il mio punto»). Vale il 30%."
+  },
+  {
+   "allievo": "Ariel D.",
+   "modo": "verifica",
+   "quando": "09.36",
+   "aree": [
+    {
+     "nome": "Nozioni (crocette)",
+     "giuste": 11,
+     "su": 12
+    },
+    {
+     "nome": "Risposte scritte",
+     "giuste": 6,
+     "su": 5
+    },
+    {
+     "nome": "Portfolio online",
+     "giuste": 0,
+     "su": 1
+    }
+   ],
+   "scritte": "6 scritte.",
+   "antiplagio": "uscite: 1",
+   "voto": "80",
+   "giudizio": "Crocette 11 su 12: molto bene. Risposte scritte: 6 su 5. Portfolio online: la pagina competenze.html non c'è ancora: è il lavoro di oggi (schede 8-9, «Il mio punto»). Vale il 30%."
+  },
   {
    "allievo": "Samuele U.",
    "modo": "verifica",
@@ -81,32 +133,6 @@
    "antiplagio": "",
    "voto": "45",
    "giudizio": "Crocette 4 su 12: poche giuste: rileggi le schede 1-4. Risposte scritte: tutte vuote. Valgono il 30%: nel recupero scrivile con parole tue. Portfolio online: la pagina competenze.html non c'è ancora: è il lavoro di oggi (schede 8-9, «Il mio punto»). Vale il 30%. Consegnata in 3 minuti: troppo in fretta. Fai il recupero quando la pagina è online: incolla l'indirizzo e scrivi le risposte."
-  },
-  {
-   "allievo": "Alessandro A.",
-   "modo": "verifica",
-   "quando": " 9.10",
-   "aree": [
-    {
-     "nome": "Nozioni (crocette)",
-     "giuste": 11,
-     "su": 12
-    },
-    {
-     "nome": "Risposte scritte",
-     "giuste": 5,
-     "su": 5
-    },
-    {
-     "nome": "Portfolio online",
-     "giuste": 0,
-     "su": 1
-    }
-   ],
-   "scritte": "5 scritte.",
-   "antiplagio": "",
-   "voto": "80",
-   "giudizio": "Crocette 11 su 12: molto bene. Risposte scritte: 5 su 5. Portfolio online: la pagina competenze.html non c'è ancora: è il lavoro di oggi (schede 8-9, «Il mio punto»). Vale il 30%."
   }
  ]
 }
