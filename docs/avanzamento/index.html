@@ -54,6 +54,8 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))return iso;var s=Math.round((Date.now()-t)/1000);if(s<15)return'adesso';if(s<60)return s+' s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+' h fa';}
 function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
 // SCHERMI (Veyon): l'assistente legge gli screenshot del docente e scrive <banca>-schermi.json (PC, cosa fa, fuori).
+var VOTI=null;function voti(){fetch('../avanzamento/'+B+'-voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){VOTI=d;}).catch(function(){});}
+function votoDi(nome){if(!VOTI)return null;var a=tok(nome);for(var k in VOTI.voti){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return VOTI.voti[k];}return null;}
 var SITI=null;function siti(){fetch('../avanzamento/'+B+'-siti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){SITI=d;}).catch(function(){});}
 function sitoDi(nome){if(!SITI)return null;var a=tok(nome);for(var k in SITI){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return SITI[k];}return null;}
 var SCH=null;function schermi(){fetch('../avanzamento/'+B+'-schermi.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){SCH=d;}).catch(function(){});}
@@ -87,10 +89,11 @@ function render(d,origine){
     if(x.quiz)tags+='<span class="tag '+(x.quiz.voto>=60?'ok':'ko')+'">quiz '+(x.quiz.modo==='recupero'?'recupero ':'')+x.quiz.giusti+'/'+x.quiz.su+' → '+x.quiz.voto+'</span>';
     if(x.sim)tags+='<span class="tag">🔧 '+x.sim.asm+' montati'+(x.sim.dis?' · '+x.sim.dis+' smontati':'')+'</span>';
     if(x.aiuto&&x.aiuto.domanda)tags+='<span class="tag q">❓ '+esc(x.aiuto.domanda.slice(0,70))+'</span>';
+    var vt=votoDi(x.nome);if(vt)tags+='<span class="tag" style="border-color:var(--acc)" title="'+esc(VOTI.pesi)+'">★ <b>'+vt.voto+'</b> proposto · '+esc(vt.conto)+'</span>';
     var st=sitoDi(x.nome);if(st)tags+='<span class="tag '+(st.fatti>=st.su?'ok':(st.fatti===0?'ko':''))+'">🌐 <a href="'+esc(st.url)+'" target="_blank" rel="noopener">portfolio</a> '+st.fatti+'/'+st.su+(st.fatti>=st.su?' completo':(st.manca&&st.manca.length?' · manca: '+esc(st.manca[0]):''))+' <small>('+esc(st.ora)+')</small> · <a href="'+esc(st.sito)+'" target="_blank" rel="noopener">sito</a></span>';
     if(x._sch)tags+='<span class="tag '+(x._sch.fuori?'ko':'')+'">🖥 '+esc(x._sch.pc)+' · '+esc(SCH.ora)+': '+esc(x._sch.cosa)+'</span>';
     if(x._solo)tags+='<span class="tag ko">non ha ancora scritto il nome sulla pagina</span>';
-    return '<div class="row '+(sc>=tot?'fin ':'')+(fermo(ult)&&!x._solo?'fermo':'')+(x._sch&&x._sch.fuori?' fuori':'')+'"><span class="nm">'+esc(x.nome)+'</span><span class="last">'+(x._solo?'solo su Veyon':fa(ult))+'</span>'+
+    return '<div class="row '+(sc>=tot?'fin ':'')+(fermo(ult)&&!x._solo&&(!x._sch||x._sch.fuori)?'fermo':'')+(x._sch&&x._sch.fuori?' fuori':'')+'"><span class="nm">'+esc(x.nome)+'</span><span class="last">'+(x._solo?'solo su Veyon':fa(ult))+'</span>'+
       (x._solo?'':'<div class="teo"><span class="pos">teoria <b>'+sc+'/'+tot+'</b>'+(t.titolo?' · '+esc(t.titolo):'')+'</span><span class="barw"><i style="width:'+pct+'%"></i></span><span class="pct">'+pct+'%</span></div>')+
       (tags?'<div class="tags">'+tags+'</div>':'')+'</div>';
   }).join('');
@@ -116,7 +119,7 @@ function apri(){
   TOK=document.getElementById('tok').value.trim(); if(!TOK)return;
   try{localStorage.setItem('monitor-tok',TOK)}catch(e){}
   document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');document.getElementById('err').textContent='';
-  siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
+  voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
 }
 document.getElementById('ok').onclick=apri;
 document.getElementById('tok').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
