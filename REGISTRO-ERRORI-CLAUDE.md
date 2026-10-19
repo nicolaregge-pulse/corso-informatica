@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.54** — 19/10/2026
+**Versione 2.55** — 19/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 19/10/2026 — Firma del registro: il verde voleva dire «firmata» (#87)
+
+1. **Errore.** Davanti allo screenshot del registro della 2INF con «FIRMA ✓» in verde su tutte le ore ho scritto che non potevo capire se erano firmate e ho ricordato di firmare.
+2. **Regola.** «FIRMA ✓» con la scritta in verde = ora firmata, è OK (Nicola). Si ricorda la firma solo per le ore senza il verde.
 
 ## 19/10/2026 — Lo script fermo dalle 04:07 e il compito non pubblicato (#82)
 
