@@ -1,30 +1,30 @@
 {
- "ora": "10:21",
- "sintesi": "17 PC accesi: 9 lavorano, 8 fuori (PC 12 negozio; PC 13 chat AI; PC 14 Maps; PC 37 foto; PC 23 desktop vuoto; PC 21, 29, 32 schermo bloccato). La classe ha finito la verifica e si sta sciogliendo: serve il passo successivo adesso.",
+ "ora": "10:32",
+ "sintesi": "17 PC accesi: 10 lavorano, 7 fuori (PC 12 desktop; PC 13 GitHub benvenuto; PC 14 negozio; PC 16 calcolatrice; PC 21 bloccato; PC 22 e PC 24 Google). Gervasoni è già sulla scheda 12 (foto di sfondo); Beatrice sta caricando file su GitHub.",
  "righe": [
   {
    "pc": "PC 12",
    "nome": "ALESSANDRO AMICI",
-   "cosa": "negozio online di telefoni, non la lezione (terzo giro fuori)",
+   "cosa": "sfondo del desktop (tramonto), nessun programma: non lavora (quarto giro fuori)",
    "fuori": true
   },
   {
    "pc": "PC 13",
    "nome": "KELVIN VICTOR PEREZ",
-   "cosa": "Google con una chat AI, non la lezione",
+   "cosa": "GitHub: pagina di benvenuto, non il suo repository",
    "fuori": true
   },
   {
    "pc": "PC 14",
    "nome": "RAFI FORHAD",
-   "cosa": "Google Maps, non la lezione",
+   "cosa": "negozio online di giocattoli, non la lezione",
    "fuori": true
   },
   {
    "pc": "PC 16",
    "nome": "MAHMOUD ELKERAN",
-   "cosa": "la lezione: la casella dell'assistente (sta scrivendo)",
-   "fuori": false
+   "cosa": "Google: una calcolatrice, non la lezione",
+   "fuori": true
   },
   {
    "pc": "PC 18",
@@ -35,31 +35,31 @@
   {
    "pc": "PC 21",
    "nome": "SAMUELE UCCHEDDU",
-   "cosa": "schermo bloccato (10:20): non è al PC (quindicesimo giro fuori)",
+   "cosa": "schermo bloccato dalle 10:20: non è al PC",
    "fuori": true
   },
   {
    "pc": "PC 22",
    "nome": "EMMANUEL FRANCISCO",
-   "cosa": "la lezione: verifica, risposta scritta",
-   "fuori": false
+   "cosa": "Google con un menu aperto, non la lezione",
+   "fuori": true
   },
   {
    "pc": "PC 23",
    "nome": "ERIC FABRIZIO CARRASCO",
-   "cosa": "sfondo del desktop, nessun programma aperto",
-   "fuori": true
+   "cosa": "la lezione: la casella dell'assistente",
+   "fuori": false
   },
   {
    "pc": "PC 24",
    "nome": "FILIPPO MENDOZA",
-   "cosa": "Classroom: il compito della lezione",
-   "fuori": false
+   "cosa": "Google vuoto, non la lezione",
+   "fuori": true
   },
   {
    "pc": "PC 27",
    "nome": "ARIEL DOMI",
-   "cosa": "la lezione: i risultati della classe",
+   "cosa": "la lezione: scheda 11, collaboratori (risponde)",
    "fuori": false
   },
   {
@@ -71,38 +71,38 @@
   {
    "pc": "PC 29",
    "nome": "SIMONE GIARAMIDARO",
-   "cosa": "schermo bloccato (10:21): si è alzato",
-   "fuori": true
+   "cosa": "la lezione: in cima, ripasso (tornato)",
+   "fuori": false
   },
   {
    "pc": "PC 32",
    "nome": "GABRIELE ROVITO",
-   "cosa": "schermo bloccato (10:20): si è alzato dopo la consegna",
-   "fuori": true
+   "cosa": "la lezione: i risultati della classe",
+   "fuori": false
   },
   {
    "pc": "PC 34",
    "nome": "BEATRICE NOVOROJDIN",
-   "cosa": "la lezione: i risultati della classe",
+   "cosa": "GitHub: finestra di caricamento file (Upload) in corso",
    "fuori": false
   },
   {
    "pc": "PC 35",
    "nome": "DENIS ANDRONACHE",
-   "cosa": "la lezione: il recupero / i risultati",
+   "cosa": "la pagina della classe: «La tua postazione» (scheda 11, cerca il compagno)",
    "fuori": false
   },
   {
    "pc": "PC 36",
    "nome": "ANDREA GERVASONI",
-   "cosa": "il suo sito: «Ciao, sono Andre» (lo sistema)",
+   "cosa": "la lezione: scheda 12, la foto di sfondo (già partito)",
    "fuori": false
   },
   {
    "pc": "PC 37",
    "nome": "NOAH VALERIO",
-   "cosa": "foto di una costa, non la lezione",
-   "fuori": true
+   "cosa": "la lezione: in cima, ripasso",
+   "fuori": false
   }
  ]
 }

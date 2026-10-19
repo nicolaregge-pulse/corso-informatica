@@ -1693,6 +1693,114 @@
     }
    ],
    "sintesi": "17 PC accesi: 9 lavorano, 8 fuori (PC 12 negozio; PC 13 chat AI; PC 14 Maps; PC 37 foto; PC 23 desktop vuoto; PC 21, 29, 32 schermo bloccato). La classe ha finito la verifica e si sta sciogliendo: serve il passo successivo adesso."
+  },
+  {
+   "ora": "10:32",
+   "righe": [
+    {
+     "pc": "PC 12",
+     "alunno": "Alessandro A.",
+     "cosa": "sfondo del desktop (tramonto), nessun programma: non lavora (quarto giro fuori)",
+     "fuori": true
+    },
+    {
+     "pc": "PC 13",
+     "alunno": "Kelvin P.",
+     "cosa": "GitHub: pagina di benvenuto, non il suo repository",
+     "fuori": true
+    },
+    {
+     "pc": "PC 14",
+     "alunno": "Rafi F.",
+     "cosa": "negozio online di giocattoli, non la lezione",
+     "fuori": true
+    },
+    {
+     "pc": "PC 16",
+     "alunno": "Mahmoud E.",
+     "cosa": "Google: una calcolatrice, non la lezione",
+     "fuori": true
+    },
+    {
+     "pc": "PC 18",
+     "alunno": "Dani S.",
+     "cosa": "la lezione: i risultati della classe",
+     "fuori": false
+    },
+    {
+     "pc": "PC 21",
+     "alunno": "Samuele U.",
+     "cosa": "schermo bloccato dalle 10:20: non è al PC",
+     "fuori": true
+    },
+    {
+     "pc": "PC 22",
+     "alunno": "Emmanuel F.",
+     "cosa": "Google con un menu aperto, non la lezione",
+     "fuori": true
+    },
+    {
+     "pc": "PC 23",
+     "alunno": "Eric C.",
+     "cosa": "la lezione: la casella dell'assistente",
+     "fuori": false
+    },
+    {
+     "pc": "PC 24",
+     "alunno": "Filippo M.",
+     "cosa": "Google vuoto, non la lezione",
+     "fuori": true
+    },
+    {
+     "pc": "PC 27",
+     "alunno": "Ariel D.",
+     "cosa": "la lezione: scheda 11, collaboratori (risponde)",
+     "fuori": false
+    },
+    {
+     "pc": "PC 28",
+     "alunno": "Nicolo C.",
+     "cosa": "la lezione: i risultati della classe",
+     "fuori": false
+    },
+    {
+     "pc": "PC 29",
+     "alunno": "Simone G.",
+     "cosa": "la lezione: in cima, ripasso (tornato)",
+     "fuori": false
+    },
+    {
+     "pc": "PC 32",
+     "alunno": "Gabriele R.",
+     "cosa": "la lezione: i risultati della classe",
+     "fuori": false
+    },
+    {
+     "pc": "PC 34",
+     "alunno": "Beatrice N.",
+     "cosa": "GitHub: finestra di caricamento file (Upload) in corso",
+     "fuori": false
+    },
+    {
+     "pc": "PC 35",
+     "alunno": "Denis A.",
+     "cosa": "la pagina della classe: «La tua postazione» (scheda 11, cerca il compagno)",
+     "fuori": false
+    },
+    {
+     "pc": "PC 36",
+     "alunno": "Andrea G.",
+     "cosa": "la lezione: scheda 12, la foto di sfondo (già partito)",
+     "fuori": false
+    },
+    {
+     "pc": "PC 37",
+     "alunno": "Noah V.",
+     "cosa": "la lezione: in cima, ripasso",
+     "fuori": false
+    }
+   ],
+   "sintesi": "17 PC accesi: 10 lavorano, 7 fuori (PC 12 desktop; PC 13 GitHub benvenuto; PC 14 negozio; PC 16 calcolatrice; PC 21 bloccato; PC 22 e PC 24 Google). Gervasoni è già sulla scheda 12 (foto di sfondo); Beatrice sta caricando file su GitHub."
   }
  ],
  "note": []
