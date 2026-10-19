@@ -54,6 +54,10 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))return iso;var s=Math.round((Date.now()-t)/1000);if(s<15)return'adesso';if(s<60)return s+' s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+' h fa';}
 function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
 // SCHERMI (Veyon): l'assistente legge gli screenshot del docente e scrive <banca>-schermi.json (PC, cosa fa, fuori).
+var STATO=null;function stato(){fetch('../verifica/stato/'+B.replace(/-v\d+$/,'')+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){STATO=d;}).catch(function(){});}
+// ORDINE (Nicola 10:26): dal più bravo al meno. All'inizio della lezione conta ciò che ha SVOLTO, verso la fine conta il VOTO proposto.
+function pesoVoto(){if(!STATO||!STATO.inizio||!STATO.scadenza)return 0.5;var a=new Date(STATO.inizio).getTime(),b=new Date(STATO.scadenza).getTime(),n=Date.now();if(isNaN(a)||isNaN(b)||b<=a)return 0.5;return Math.max(0,Math.min(1,(n-a)/(b-a)));}
+function punteggio(x,tot){var t=x.teoria||{},sc=Math.min(1,(t.scheda||0)/(tot||11));var st=sitoDi(x.nome),sito=st&&st.su>1?st.fatti/st.su:0;var svolto=0.4*sc+0.4*sito+0.2*(x.quiz?1:0);var vt=votoDi(x.nome),voto=vt?Math.max(0,Math.min(1,(vt.voto-40)/40)):svolto;var w=pesoVoto();return (1-w)*svolto+w*voto;}
 var RISP=null;function risposte(){fetch('../assistente/risposte/verifica-'+B.replace(/-v\d+$/,'')+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){RISP=d;}).catch(function(){});}
 function rispostaA(nome,dom){if(!RISP)return null;var a=tok(nome);for(var i=RISP.length-1;i>=0;i--){var r=RISP[i];if(tok(r.nome).some(function(t){return a.indexOf(t)>=0;})&&String(r.domanda).slice(0,40)===String(dom).slice(0,40))return r;}return null;}
 function ora(iso){var t=new Date(iso||0);return isNaN(t.getTime())?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});}
@@ -70,7 +74,8 @@ function render(d,origine){
   var r=((d&&d.righe)||[]).slice(),out=document.getElementById('out');
   if(SCH){var visti={};r.forEach(function(x){var s=schermoDi(x.nome);x._sch=s;if(s)visti[s.pc]=1;});
     SCH.righe.forEach(function(s){if(!visti[s.pc])r.push({nome:s.nome,_sch:s,_solo:true});});}
-  document.getElementById('stato').innerHTML=(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● aggiornato dall\'assistente</b> · ogni minuto circa'+(d&&d.aggiornato?' · ultima lettura del Foglio alle '+esc(d.aggiornato):''))+' · '+new Date().toLocaleTimeString('it-IT');
+  var tot0=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot0)tot0=x.teoria.totale;});r.forEach(function(x){x._p=x._solo?-1:punteggio(x,tot0||(d&&d.totale_schede)||11);});r.sort(function(a,b){return b._p-a._p;});
+  var pw=Math.round(pesoVoto()*100);document.getElementById('stato').innerHTML='<span class="mu">ordine: dal più bravo al meno · adesso conta '+(100-pw)+'% ciò che ha svolto e '+pw+'% il voto proposto</span> · '+(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● aggiornato dall\'assistente</b> · ogni minuto circa'+(d&&d.aggiornato?' · ultima lettura del Foglio alle '+esc(d.aggiornato):''))+' · '+new Date().toLocaleTimeString('it-IT');
   if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che lavorano.</div>';document.getElementById('kpi').innerHTML='';return;}
   var tot=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot)tot=x.teoria.totale;});tot=tot||(d.totale_schede||10);
   var fin=r.filter(function(x){return x.teoria&&x.teoria.scheda>=tot;}).length,quiz=r.filter(function(x){return x.quiz;}).length;
@@ -127,7 +132,7 @@ function apri(){
   TOK=document.getElementById('tok').value.trim(); if(!TOK)return;
   try{localStorage.setItem('monitor-tok',TOK)}catch(e){}
   document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');document.getElementById('err').textContent='';
-  risposte(); setInterval(risposte,60000); thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
+  stato(); setInterval(stato,120000); risposte(); setInterval(risposte,60000); thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
 }
 document.getElementById('ok').onclick=apri;
 document.getElementById('tok').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
