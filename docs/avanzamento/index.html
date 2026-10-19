@@ -24,7 +24,7 @@ h1{font-size:clamp(22px,5vw,30px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0
 .tags{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap;font-size:13px}
 .tag{border:1px solid var(--ln);border-radius:20px;padding:2px 10px;color:var(--mu)}
 .tag.ok{border-color:var(--ok);color:var(--ok);font-weight:800}.tag a{color:inherit;text-decoration:underline}.tag.ko{border-color:var(--ko);color:var(--ko);font-weight:800}.tag.q{border-color:var(--warn);color:var(--warn)}
-.row.fin .barw>i{background:var(--ok)}.row.fermo{opacity:.55}.row.finito{border-left:5px solid var(--ok)}.row.fuori{border-left:5px solid var(--ko,#c0392b)}
+.row.fin .barw>i{background:var(--ok)}.row.fermo{opacity:.55}.ths{display:flex;gap:8px;margin-top:6px;flex-wrap:wrap}.th{display:block;text-align:center;font-size:11px;color:var(--mu);text-decoration:none}.th img{width:160px;height:100px;object-fit:cover;object-position:top;border:1px solid var(--ln);border-radius:6px;background:#fff;display:block}.row.finito{border-left:5px solid var(--ok)}.row.fuori{border-left:5px solid var(--ko,#c0392b)}
 .empty{background:var(--card);border:1px dashed var(--ln);border-radius:12px;padding:26px;text-align:center;color:var(--mu)}
 .hide{display:none}
 </style></head>
@@ -54,6 +54,8 @@ function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return
 function fa(iso){if(!iso)return'';var t=new Date(iso).getTime();if(isNaN(t))return iso;var s=Math.round((Date.now()-t)/1000);if(s<15)return'adesso';if(s<60)return s+' s fa';if(s<3600)return Math.round(s/60)+' min fa';return Math.round(s/3600)+' h fa';}
 function fermo(iso){var t=new Date(iso||0).getTime();return !isNaN(t)&&(Date.now()-t)>120000;}
 // SCHERMI (Veyon): l'assistente legge gli screenshot del docente e scrive <banca>-schermi.json (PC, cosa fa, fuori).
+var THUMB=null;function thumbs(){fetch('../avanzamento/thumb/'+B+'/indice.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){THUMB=d;}).catch(function(){});}
+function thumbDi(nome){if(!THUMB)return null;var a=tok(nome);for(var k in THUMB){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return THUMB[k];}return null;}
 var VOTI=null;function voti(){fetch('../avanzamento/'+B+'-voti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){VOTI=d;}).catch(function(){});}
 function votoDi(nome){if(!VOTI)return null;var a=tok(nome);for(var k in VOTI.voti){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return VOTI.voti[k];}return null;}
 var SITI=null;function siti(){fetch('../avanzamento/'+B+'-siti.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){SITI=d;}).catch(function(){});}
@@ -97,10 +99,11 @@ function render(d,origine){
     if(x._solo)tags+='<span class="tag ko">non ha ancora scritto il nome sulla pagina</span>';
     return '<div class="row '+(sc>=tot?'fin ':'')+(finito?'finito ':'')+(fermo(ult)&&!x._solo&&(!x._sch||x._sch.fuori)?'fermo':'')+(x._sch&&x._sch.fuori?' fuori':'')+'"><span class="nm">'+(finito?'🏁 ':'')+esc(x.nome)+'</span><span class="last">'+(x._solo?'solo su Veyon':fa(ult))+'</span>'+
       (x._solo?'':'<div class="teo"><span class="pos">teoria <b>'+sc+'/'+tot+'</b>'+(t.titolo?' · '+esc(t.titolo):'')+'</span><span class="barw"><i style="width:'+pct+'%"></i></span><span class="pct">'+pct+'%</span></div>')+
-      (tags?'<div class="tags">'+tags+'</div>':'')+'</div>';
+      (tags?'<div class="tags">'+tags+'</div>':'')+miniature(x,st0)+'</div>';
   }).join('');
   if(SCH&&SCH.sintesi)document.getElementById('kpi').innerHTML+='<div class="k"><b>🖥 '+esc(SCH.ora)+'</b><span>'+esc(SCH.sintesi)+'</span></div>';
 }
+function miniature(x,st){var t=thumbDi(x.nome);if(!t)return '';var base=st?st.sito:'';var h='';['index','competenze','passione'].forEach(function(p){if(t[p])h+='<a href="'+esc(base+p+'.html')+'" target="_blank" rel="noopener" class="th"><img src="../avanzamento/'+esc(t[p])+'?t='+Math.floor(Date.now()/60000)+'" alt="'+p+'"><span>'+p+'.html</span></a>';});return h?'<div class="ths">'+h+'</div>':'';}
 function statico(){fetch('../avanzamento/'+B+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){
   if(!d)return; var righe=(d.righe||[]).map(function(x){return x.teoria?x:{nome:x.nome,ultimo:x.quando,teoria:{scheda:x.scheda,totale:x.totale||d.totale_schede,titolo:x.titolo,quando:x.quando}}});
   render({righe:righe,totale_schede:d.totale_schede,aggiornato:d.aggiornato},'static');}).catch(function(){});}
@@ -121,7 +124,7 @@ function apri(){
   TOK=document.getElementById('tok').value.trim(); if(!TOK)return;
   try{localStorage.setItem('monitor-tok',TOK)}catch(e){}
   document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');document.getElementById('err').textContent='';
-  voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
+  thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
 }
 document.getElementById('ok').onclick=apri;
 document.getElementById('tok').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
