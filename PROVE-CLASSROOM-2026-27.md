@@ -1,6 +1,6 @@
 # 00 Prove salvate su Classroom 2026/27
 
-**Versione 0.1** — 14/10/2026 — Area Docente. Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
+**Versione 0.2** — 19/10/2026 — Area Docente. Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
 
 > **Nota:** minimo 2 prove per quadrimestre per classe; il nostro obiettivo è 3-4. Una prova vale se il lavoro del ragazzo sta dentro Classroom: Modulo Google allegato al compito, oppure consegna nel compito.
 
@@ -11,8 +11,8 @@
 | Classe | Prove finora | Obiettivo | Stato |
 |---|---|---|---|
 | 1INF | 3 | 3-4 | raggiunto il minimo |
-| 2INF | 4 | 3-4 | obiettivo raggiunto |
-| 3INF | 2 | 3-4 | manca almeno una prova |
+| 2INF | 5 | 3-4 | obiettivo raggiunto |
+| 3INF | 3 | 3-4 | raggiunto il minimo dell'obiettivo |
 | 4TI | 1 | 3-4 | mancano almeno due prove |
 
 ## 02 Le prove, una per una
@@ -26,11 +26,14 @@
    2. 07/10: Quiz 1, Cosa scrive il programma? (if/then/else)
    3. 09/10: Sicurezza, 2ª ora prevenzione e protezione (quiz)
    4. 12/10: Versioning, il Documento nell'albero delle versioni (Pull Request valutate)
+   5. 19/10: Verifica sul ciclo FOR (quiz su Google Moduli, 25 domande, allegato al compito)
 3. 3INF
    1. 05/10: Pagina personale HTML (consegna su Classroom, voti)
    2. 14/10: Verifica su versioni, Pull Request e Agile (quiz su Google Moduli, 16 consegne)
+   3. 19/10: Il mio sito diventa il mio portfolio (compito su Classroom messo dal docente; verifica nel motore della lezione, 18 consegne)
 4. 4TI
    1. 06/10: Quiz ISO/OSI, 20 domande (quiz su Google Moduli)
 
 ## 03 Registro delle versioni
+2. **v0.2 (19/10/2026)**: 2INF verifica ciclo FOR su Moduli; 3INF portfolio.
 1. **v0.1 (14/10/2026)**: primo conteggio, dai compiti pubblicati su Classroom dal 01/10 al 14/10.
