@@ -1,30 +1,30 @@
 {
- "ora": "09:12",
- "sintesi": "17 PC accesi: 15 lavorano, 2 fuori (PC 21 nono giro; PC 34 Beatrice su una dispensa vecchia). Rovito ha già la pagina «Cosa so fare» online.",
+ "ora": "09:15",
+ "sintesi": "17 PC accesi: 13 lavorano, 4 fuori: PC 16 Elkeran GIOCA al treno; PC 21 decimo giro; PC 13 e PC 34 su pagine di GitHub che non sono il loro repository.",
  "righe": [
   {
    "pc": "PC 12",
    "nome": "ALESSANDRO AMICI",
-   "cosa": "Classroom: il compito della lezione",
+   "cosa": "Classroom: il compito della lezione (verifica consegnata, 80)",
    "fuori": false
   },
   {
    "pc": "PC 13",
    "nome": "KELVIN VICTOR PEREZ",
-   "cosa": "GitHub: il codice di una pagina",
-   "fuori": false
+   "cosa": "GitHub: pagina delle novità di GitHub, non il suo repository",
+   "fuori": true
   },
   {
    "pc": "PC 14",
    "nome": "RAFI FORHAD",
-   "cosa": "la lezione: scheda 9, fallo tuo",
+   "cosa": "la lezione: verifica, risposta scritta",
    "fuori": false
   },
   {
    "pc": "PC 16",
    "nome": "MAHMOUD ELKERAN",
-   "cosa": "Classroom: la pagina della 3INF, cerca il compito",
-   "fuori": false
+   "cosa": "GIOCA al treno della classe (il gioco di Godot), non la lezione",
+   "fuori": true
   },
   {
    "pc": "PC 18",
@@ -35,31 +35,31 @@
   {
    "pc": "PC 21",
    "nome": "SAMUELE UCCHEDDU",
-   "cosa": "Google vuoto, non la lezione (nono giro fuori)",
+   "cosa": "Google vuoto, non la lezione (decimo giro fuori)",
    "fuori": true
   },
   {
    "pc": "PC 22",
    "nome": "EMMANUEL FRANCISCO",
-   "cosa": "la lezione: scheda 9, fallo tuo",
+   "cosa": "la lezione: scheda 9, risponde",
    "fuori": false
   },
   {
    "pc": "PC 23",
    "nome": "ERIC FABRIZIO CARRASCO",
-   "cosa": "la lezione: scheda 8, la pratica",
+   "cosa": "GitHub: impostazioni del repository (Pages)",
    "fuori": false
   },
   {
    "pc": "PC 24",
    "nome": "FILIPPO MENDOZA",
-   "cosa": "la lezione: verifica, domanda 2",
+   "cosa": "la lezione: verifica, domanda 3",
    "fuori": false
   },
   {
    "pc": "PC 27",
    "nome": "ARIEL DOMI",
-   "cosa": "la lezione: schede 8-9, la pratica",
+   "cosa": "la dispensa 5 del sito (codice del portfolio), lavora",
    "fuori": false
   },
   {
@@ -71,19 +71,19 @@
   {
    "pc": "PC 29",
    "nome": "SIMONE GIARAMIDARO",
-   "cosa": "la lezione: scheda 9, risponde",
+   "cosa": "la lezione: verifica, risposta scritta",
    "fuori": false
   },
   {
    "pc": "PC 32",
    "nome": "GABRIELE ROVITO",
-   "cosa": "il suo sito: pagina «Cosa so fare» già online con le competenze",
+   "cosa": "la lezione: scheda 1, risponde",
    "fuori": false
   },
   {
    "pc": "PC 34",
    "nome": "BEATRICE NOVOROJDIN",
-   "cosa": "la dispensa del 08/10 (Compito 4, sito a due pagine), non la lezione di oggi",
+   "cosa": "GitHub: pagina di benvenuto, non il suo repository",
    "fuori": true
   },
   {
