@@ -83,7 +83,7 @@
         "كابل النحاس (Cat 5e / Cat 6) بقابس RJ45 حتى ١٠٠ متر. الألياف البصرية تنقل الضوء وتصل إلى مسافات بعيدة جدًا.",
         "铜网线（Cat 5e / Cat 6）用 RJ45 插头，最长 100 米。光纤传输光，可以传很远。") }
     ],
-    strumenti: [],
+    strumenti: [{ t: 'Il monitor della lezione', u: '../1inf-monitor/', c: '#6e40c9' }],
     via: C("nozioni", L("Un bit può valere…", "البِت يمكن أن يكون…", "一个比特可以是……"), ["0 oppure 1", "da 0 a 9", "una lettera"], "Acceso o spento."),
     prepara: [
       { q: L("Guarda il tuo telefono (Impostazioni → Memoria): quanti GB ha in tutto? Scrivi il numero e la marca del telefono. Se non lo sai, scrivi: non lo so.", "كم GB في هاتفك؟", "你的手机有多少 GB？"), min: 2 }
