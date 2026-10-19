@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.56** — 19/10/2026
+**Versione 2.57** — 19/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 19/10/2026 — Tre compiti uguali su Classroom (#89)
+
+1. **Errore.** Ho messo il quiz in coda, poi l'ho dato per perso e ho fatto pubblicare a mano la versione completa. Il timer è ripartito per un momento e ha pubblicato anche la coda (senza poter scrivere su GitHub, quindi non lo vedevo); una prima esecuzione a mano ne ha fatto un terzo. Il docente ha dovuto cancellarne due.
+2. **Regola.** Una sola strada per volta: prima di passare alla strada a mano, la voce in coda si annulla e si controlla su Classroom che non sia già uscita. Il titolo del compito resta lo stesso, così il controllo anti-doppione dello script lo riconosce.
 
 ## 19/10/2026 — «Lo script è vivo», e il battito era vecchio di 13 minuti (#88)
 
