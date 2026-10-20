@@ -73,4 +73,7 @@ Da definire con il prof.
 
 ## Promemoria per il prof
 
+Quando il limite settimanale è ripartito, da mercoledì 21 ottobre dopo le 10: rendere più leggere le chat del corso. Un file per ripartire, un CLAUDE.md più corto e una chat nuova ogni giorno di lezione.
+
+
 Ogni giorno firmare il registro in aula, prima delle 14 e 05.
