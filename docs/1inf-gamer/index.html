@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laboratorio del gamer</title>
+<style>
+:root{--bg:#0f1420;--card:#18203a;--fg:#eef2ff;--mu:#9aa6c4;--acc:#ffcf4a;--ok:#5ad08a;--ko:#ff6b6b;--ln:#2c3760}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.45}
+.w{max-width:900px;margin:0 auto;padding:16px}
+h1{margin:6px 0 2px;font-size:28px}h2{margin:0 0 6px;font-size:21px;color:var(--acc)}
+.mu{color:var(--mu)}.t3{display:block;color:var(--mu);font-size:.92em}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:14px 0}
+canvas{width:100%;max-width:860px;background:#0a0e18;border-radius:10px;display:block;touch-action:manipulation}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+button,select,input{font-size:16px;border-radius:9px;border:1px solid var(--ln);background:#24305a;color:var(--fg);padding:8px 12px}
+button{cursor:pointer;font-weight:700}button.on{background:var(--acc);color:#1b2430}
+.big{font-size:26px;font-weight:800;color:var(--ok)}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid var(--ln);padding:5px 7px;text-align:left}
+a{color:var(--acc)}
+</style>
+</head>
+<body><div class="w">
+<h1>Laboratorio del gamer</h1>
+<div class="mu">Ping, jitter, lag, FPS e Hz: provali con le tue mani. <span class="t3" lang="ar" dir="rtl">مختبر اللاعب: جرّب التأخير وعدد الإطارات بنفسك.</span><span class="t3" lang="zh">玩家实验室：亲手试试延迟和帧率。</span></div>
+
+<div class="card"><h2>1. Il lag: colpisci i bersagli</h2>
+<div class="mu">Clicca i cerchi gialli il più in fretta possibile. Il gioco aggiunge un ritardo come se il server fosse lontano. <span class="t3" lang="ar" dir="rtl">انقر الدوائر الصفراء بسرعة. اللعبة تضيف تأخيرًا مثل خادم بعيد.</span><span class="t3" lang="zh">尽快点击黄色圆圈。游戏会像远方的服务器一样加上延迟。</span></div>
+<div class="row">Ping <select id="ping"><option>0</option><option selected>20</option><option>100</option><option>200</option><option>400</option></select> ms
+ · Jitter <select id="jit"><option selected>0</option><option>30</option><option>80</option><option>150</option></select> ms
+ <button id="via">Via! (20 secondi)</button></div>
+<canvas id="cv1" width="860" height="300"></canvas>
+<div class="row">Colpiti: <span class="big" id="punti">0</span> · ritardo medio: <b id="rit">–</b> ms</div>
+<div class="mu">Scrivi i tuoi punti con ping 20 e con ping 200: ti serviranno nella verifica.</div>
+</div>
+
+<div class="card"><h2>2. FPS: quante immagini al secondo</h2>
+<div class="mu">Lo stesso quadrato si muove con FPS diversi. Guarda quando sembra fluido e quando va a scatti. <span class="t3" lang="ar" dir="rtl">نفس المربع بعدد إطارات مختلف. متى يبدو سلسًا؟</span><span class="t3" lang="zh">同一个方块，不同的帧率。什么时候看起来流畅？</span></div>
+<div class="row" id="fpsbtn"></div>
+<canvas id="cv2" width="860" height="160"></canvas>
+<div class="mu">Attenzione: lo schermo che stai usando ne mostra al massimo <b id="hz">?</b> al secondo (i suoi Hz). Sopra quel numero non vedi differenze.</div>
+</div>
+
+<div class="card"><h2>3. La banda del cavo video</h2>
+<div class="mu">Quanti dati passano ogni secondo dalla scheda video al monitor? Scegli il tuo monitor. <span class="t3" lang="ar" dir="rtl">كم من البيانات تمر كل ثانية من بطاقة الرسوميات إلى الشاشة؟</span><span class="t3" lang="zh">每秒有多少数据从显卡传到显示器？</span></div>
+<div class="row">Risoluzione <select id="ris"><option value="1280x720">HD 1280×720</option><option value="1920x1080" selected>Full HD 1920×1080</option><option value="2560x1440">2K 2560×1440</option><option value="3840x2160">4K 3840×2160</option></select>
+ Hz <select id="hzv"><option>60</option><option>75</option><option>144</option><option>240</option></select></div>
+<div class="row">Servono circa <span class="big" id="gbit">–</span> Gbit al secondo</div>
+<div class="mu" id="conto"></div>
+<table><tr><th>Cavo</th><th>Banda massima (circa)</th><th>Basta?</th></tr><tbody id="cavi"></tbody></table>
+</div>
+<p class="mu">Torna alla lezione: <a href="../verifica/?b=1inf-gamer" target="_blank" rel="noopener">pagina della lezione</a></p>
+</div>
+<script>
+/* 1. LAG */
+(function(){
+  var cv=document.getElementById('cv1'),c=cv.getContext('2d'),t=null,fine=0,punti=0,somma=0,n=0,b=null;
+  function nuovo(){b={x:40+Math.random()*(cv.width-80),y:40+Math.random()*(cv.height-80),r:26};}
+  function disegna(){c.clearRect(0,0,cv.width,cv.height);if(!t){c.fillStyle='#9aa6c4';c.font='20px sans-serif';c.fillText('Premi «Via!»',cv.width/2-60,cv.height/2);return;}
+    c.fillStyle='#ffcf4a';c.beginPath();c.arc(b.x,b.y,b.r,0,7);c.fill();c.fillStyle='#eef2ff';c.font='16px sans-serif';c.fillText(Math.max(0,Math.ceil((fine-Date.now())/1000))+' s',10,22);}
+  function loop(){if(t&&Date.now()>fine){t=null;}disegna();requestAnimationFrame(loop);}
+  cv.addEventListener('pointerdown',function(e){if(!t)return;var r=cv.getBoundingClientRect(),x=(e.clientX-r.left)*cv.width/r.width,y=(e.clientY-r.top)*cv.height/r.height;
+    var p=+document.getElementById('ping').value,j=+document.getElementById('jit').value,d=p+Math.round((Math.random()*2-1)*j);if(d<0)d=0;
+    var bb=b;setTimeout(function(){if(!t||b!==bb)return;if(Math.hypot(x-bb.x,y-bb.y)<bb.r){punti++;somma+=d;n++;document.getElementById('punti').textContent=punti;document.getElementById('rit').textContent=Math.round(somma/n);nuovo();}},d);
+    /* il bersaglio si sposta ogni tanto: con il lag lo manchi */});
+  setInterval(function(){if(t&&Math.random()<0.5)nuovo();},700);
+  document.getElementById('via').onclick=function(){punti=0;somma=0;n=0;document.getElementById('punti').textContent=0;document.getElementById('rit').textContent='–';nuovo();t=1;fine=Date.now()+20000;};
+  loop();
+})();
+/* 2. FPS */
+(function(){
+  var cv=document.getElementById('cv2'),c=cv.getContext('2d'),fps=60,x=0,ult=0,last=performance.now(),fr=0,t0=performance.now();
+  var box=document.getElementById('fpsbtn');[5,15,30,60,144].forEach(function(f){var b=document.createElement('button');b.textContent=f+' FPS';if(f===60)b.className='on';b.onclick=function(){fps=f;[].forEach.call(box.children,function(z){z.className='';});b.className='on';};box.appendChild(b);});
+  function loop(now){fr++;if(now-t0>1000){document.getElementById('hz').textContent=Math.round(fr*1000/(now-t0));fr=0;t0=now;}
+    x=(x+(now-last)*0.35)%(cv.width+60);last=now;
+    if(now-ult>=1000/fps-1){ult=now;c.clearRect(0,0,cv.width,cv.height);c.fillStyle='#5ad08a';c.fillRect(x-60,50,60,60);c.fillStyle='#eef2ff';c.font='18px sans-serif';c.fillText(fps+' FPS',10,24);}
+    requestAnimationFrame(loop);}
+  requestAnimationFrame(loop);
+})();
+/* 3. BANDA */
+(function(){
+  var C=[['HDMI 1.4',10.2],['HDMI 2.0',18],['DisplayPort 1.4',32.4],['HDMI 2.1',48]];
+  function calc(){var r=document.getElementById('ris').value.split('x'),w=+r[0],h=+r[1],hz=+document.getElementById('hzv').value;
+    var g=w*h*24*hz/1e9;document.getElementById('gbit').textContent=g.toFixed(1);
+    document.getElementById('conto').textContent=w+' × '+h+' pixel × 24 bit (3 byte di colore) × '+hz+' immagini al secondo = '+Math.round(w*h*24*hz/1e6)+' milioni di bit al secondo (senza contare la compressione e i dati extra).';
+    document.getElementById('cavi').innerHTML=C.map(function(k){return '<tr><td>'+k[0]+'</td><td>'+k[1]+' Gbit/s</td><td style="color:'+(k[1]>g*1.2?'var(--ok)':'var(--ko)')+'">'+(k[1]>g*1.2?'sì':'no')+'</td></tr>';}).join('');}
+  document.getElementById('ris').onchange=calc;document.getElementById('hzv').onchange=calc;calc();
+})();
+</script>
+</body>
+</html>

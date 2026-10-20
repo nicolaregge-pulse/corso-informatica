@@ -31,7 +31,10 @@ Promemoria: i ragazzi devono sapere quanti gigabyte ha il loro telefono.
 
 ### Prima informatica, dalle 8 alle 11, Laboratorio professionale, tre ore
 
-Da definire con il prof.
+Argomento: il laboratorio del gamer. Ping, jitter, lag e scatti nei giochi online; FPS e Hz; i tipi di monitor, le schede video e la banda dei cavi video.
+Attività: prima si finisce il test di martedì su bit e byte. Poi le prove dal vivo nella pagina del laboratorio: il gioco dei bersagli con il ritardo, il quadrato che si muove a FPS diversi, il calcolo della banda del proprio monitor. Alla fine la verifica e «il mio setup da gamer».
+Materiali: la pagina della lezione e la pagina del laboratorio, in italiano, arabo e cinese.
+La prossima volta: il percorso a sfide sul binario, con il proprio nome in binario, il messaggio segreto, la gara a tempo e la pixel art con la galleria della classe.
 
 ### Seconda informatica, dalle 11 alle 12, Sicurezza professionale, un'ora
 
