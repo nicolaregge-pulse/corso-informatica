@@ -69,6 +69,16 @@ var THUMB=null;function thumbs(){getJ('../avanzamento/thumb/'+B+'/indice.json').
 function thumbDi(nome){if(!THUMB)return null;var a=tok(nome);for(var k in THUMB){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return THUMB[k];}return null;}
 var VOTI=null;function voti(){getJ('../avanzamento/'+B+'-voti.json').then(function(d){VOTI=d;}).catch(function(){});}
 function votoDi(nome){if(!VOTI)return null;var a=tok(nome);for(var k in VOTI.voti){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return VOTI.voti[k];}return null;}
+var LAV=null;function lavori(){getJ('../avanzamento/'+B+'-lavori.json').then(function(d){LAV=d;}).catch(function(){});}
+function lavDi(nome){if(!LAV)return null;var a=tok(nome);for(var k in LAV.lavori){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return LAV.lavori[k];}return null;}
+// LAVORI FATTI (20/10, Nicola): dal cruscotto si aprono verifica, recupero e quiz di ognuno, con le risposte date.
+function lavHtml(l){if(!l)return '';var h='',n=0;['verifica','recupero'].forEach(function(m){var v=l[m];if(!v)return;n++;var g=v.crocette.filter(function(c){return c.ok;}).length;
+  h+='<div><b>'+m.toUpperCase()+'</b> · '+esc(v.quando)+' · '+(v.minuti!=null?v.minuti+' min · ':'')+'crocette '+g+'/'+v.crocette.length+(v.in_ritardo?' · <span class="ko">in ritardo</span>':'')+'</div><ol>'+
+  v.crocette.map(function(c){return '<li>'+esc(c.q)+'<br>'+(c.ok?'<span class="ok">✔ '+esc(c.data)+'</span>':'<span class="ko">✘ '+esc(c.data||'(vuota)')+'</span> · giusta: '+esc(c.giusta))+'</li>';}).join('')+
+  v.aperte.map(function(a){var p=+a.parole||0;return '<li>'+esc(a.q)+'<br><i'+(p<(+a.min||15)?' class="ko"':'')+'>'+(a.testo?esc(a.testo):'(vuota)')+'</i> <small>('+p+' parole)</small></li>';}).join('')+'</ol>'+
+  (v.antiplagio?'<div><small>antiplagio: '+esc(JSON.stringify(v.antiplagio))+'</small></div>':'');});
+  if(l.quiz){n++;h+='<div><b>QUIZ MODULI</b> · '+esc(l.quiz.punteggio)+'/'+esc(l.quiz.massimo)+' · '+ora(l.quiz.ora)+'</div>';}
+  return '<details class="dom"><summary><b>📄 lavori fatti ('+n+')</b>: apri per controllare</summary>'+h+'</details>';}
 var SITI=null;function siti(){getJ('../avanzamento/'+B+'-siti.json').then(function(d){SITI=d;}).catch(function(){});}
 function sitoDi(nome){if(!SITI)return null;var a=tok(nome);for(var k in SITI){var b=tok(k);if(a.some(function(t){return b.indexOf(t)>=0;}))return SITI[k];}return null;}
 var SCH=null;function schermi(){getJ('../avanzamento/'+B+'-schermi.json').then(function(d){SCH=d;}).catch(function(){});}
@@ -105,7 +115,7 @@ function render(d,origine){
     if(x.quiz)tags+='<span class="tag '+(x.quiz.voto>=60?'ok':'ko')+'">quiz '+(x.quiz.modo==='recupero'?'recupero ':'')+x.quiz.giusti+'/'+x.quiz.su+' → '+x.quiz.voto+'</span>';
     if(x.sim)tags+='<span class="tag">🔧 '+x.sim.asm+' montati'+(x.sim.dis?' · '+x.sim.dis+' smontati':'')+'</span>';
     if(x.aiuto&&x.aiuto.domanda){var rr=rispostaA(x.nome,x.aiuto.domanda);tags+='<details class="dom"><summary><b>DOMANDA'+(x.aiuto.quando?' delle '+ora(x.aiuto.quando):'')+':</b> «'+esc(x.aiuto.domanda.slice(0,90))+(x.aiuto.domanda.length>90?'…':'')+'» '+(rr?'<span class="ok">✅ risposta data</span>':'<span class="ko">⏳ senza risposta</span>')+'</summary><div><b>Domanda:</b> '+esc(x.aiuto.domanda)+'</div>'+(rr?'<div><b>Risposta dell\'assistente:</b> '+esc(rr.risposta)+'</div>':'<div>L\'assistente non ha ancora risposto.</div>')+'</details>';}
-    var vt=votoDi(x.nome);if(vt)tags+='<span class="tag" style="border-color:var(--acc)" title="'+esc(VOTI.pesi)+'">★ <b>'+vt.voto+'</b> proposto · '+esc(vt.conto)+'</span>';
+    tags+=lavHtml(lavDi(x.nome));var vt=votoDi(x.nome);if(vt)tags+='<span class="tag" style="border-color:var(--acc)" title="'+esc(VOTI.pesi)+'">★ <b>'+vt.voto+'</b> proposto · '+esc(vt.conto)+'</span>';
     var st=sitoDi(x.nome);if(st)tags+='<span class="tag '+(st.fatti>=st.su?'ok':(st.fatti===0?'ko':''))+'">🌐 '+(st.comp_ok!==false?'<a href="'+esc(st.url)+'" target="_blank" rel="noopener">portfolio</a> ':'portfolio (pagina non ancora nel repository) ')+st.fatti+'/'+st.su+(st.fatti>=st.su?' completo':(st.manca&&st.manca.length?' · <b>manca:</b> '+esc(st.manca.join(' · ')):''))+' <small>('+esc(st.ora)+')</small> · '+(st.home_ok!==false?'<a href="'+esc(st.sito)+'" target="_blank" rel="noopener">sito</a>':'sito: repository non trovato')+'</span>';
     if(x._sch)tags+='<span class="tag '+(x._sch.fuori?'ko':'')+'">🖥 '+esc(x._sch.pc)+' · '+esc(SCH.ora)+': '+esc(x._sch.cosa)+'</span>';
     if(x._solo)tags+='<span class="tag ko">non ha ancora scritto il nome sulla pagina</span>';
@@ -136,7 +146,7 @@ function apri(){
   TOK=document.getElementById('tok').value.trim(); if(!TOK)return;
   try{localStorage.setItem('monitor-tok',TOK)}catch(e){}
   document.getElementById('gate').classList.add('hide');document.getElementById('view').classList.remove('hide');document.getElementById('err').textContent='';
-  stato(); setInterval(stato,120000); risposte(); setInterval(risposte,60000); thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
+  stato(); setInterval(stato,120000); risposte(); setInterval(risposte,60000); thumbs(); setInterval(thumbs,60000); voti(); setInterval(voti,60000); siti(); setInterval(siti,60000); lavori(); setInterval(lavori,60000); schermi(); setInterval(schermi,30000); live(); clearInterval(timerPoll); timerPoll=setInterval(live,5000);
 }
 document.getElementById('ok').onclick=apri;
 document.getElementById('tok').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
