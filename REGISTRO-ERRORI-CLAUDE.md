@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.59** — 20/10/2026
+**Versione 2.60** — 20/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 20/10/2026 — «Altro» contato come non presente (#92)
+
+1. **Errore.** Nelle presenze della 4TI ho contato 5 presenti, lasciando fuori un allievo segnato «Altro» sul registro.
+2. **Regola.** «Altro» vuol dire entrata o uscita fuori orario: l'allievo è presente e si conta tra i presenti.
 
 ## 20/10/2026 — «Manca la voce ISO/OSI», e c'era (#91)
 
