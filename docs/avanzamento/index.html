@@ -88,6 +88,8 @@ function render(d,origine){
   var r=((d&&d.righe)||[]).slice(),out=document.getElementById('out');
   if(SCH){var visti={};r.forEach(function(x){var s=schermoDi(x.nome);x._sch=s;if(s)visti[s.pc]=1;});
     SCH.righe.forEach(function(s){if(!visti[s.pc])r.push({nome:s.nome,_sch:s,_solo:true});});}
+  // 20/10: anche chi ha consegnato (quiz Moduli, verifica) senza aprire la pagina compare, con i suoi lavori
+  if(LAV){Object.keys(LAV.lavori).forEach(function(k){var b=tok(k);if(!r.some(function(x){var a=tok(x.nome);return a.some(function(t){return b.indexOf(t)>=0;});}))r.push({nome:k,_lav:1});});}
   var tot0=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot0)tot0=x.teoria.totale;});r.forEach(function(x){x._p=x._solo?-1:punteggio(x,tot0||(d&&d.totale_schede)||11);});r.sort(function(a,b){return b._p-a._p;});
   var pw=Math.round(pesoVoto()*100);document.getElementById('stato').innerHTML='<span class="mu">ordine: dal più bravo al meno · adesso conta '+(100-pw)+'% ciò che ha svolto e '+pw+'% il voto proposto</span> · '+(origine==='live'?'<b class="live">● dal vivo</b> · letto dallo script':'<b class="static">● aggiornato dall\'assistente</b> · ogni minuto circa'+(d&&d.aggiornato?' · ultima lettura del Foglio alle '+esc(d.aggiornato):''))+' · '+new Date().toLocaleTimeString('it-IT');
   if(!r.length){out.innerHTML='<div class="empty">In attesa… compariranno man mano che lavorano.</div>';document.getElementById('kpi').innerHTML='';return;}
