@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.58** — 19/10/2026
+**Versione 2.59** — 20/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 20/10/2026 — «Manca la voce ISO/OSI», e c'era (#91)
+
+1. **Errore.** Per controllare i titoli del registro della 4TI ho guardato il vecchio `allegato-a-2026-27/allegato-a-classe-4.md` (v0.1) e ho detto che la voce ISO/OSI mancava. Nell'Allegato A vero del 14/10 (`programmi-ufficiali/2026-27/consegna/`) c'è, nella competenza 16, con le sotto-voci.
+2. **Regola.** I titoli del registro si controllano SOLO sull'Allegato A più recente in `programmi-ufficiali/2026-27/consegna/` (il .docx), mai sui file v0.1 di `allegato-a-2026-27/`.
 
 ## 19/10/2026 — «Nessuna AI» su un PC che aveva Gemini aperto (#90)
 
