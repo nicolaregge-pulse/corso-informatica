@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.60** — 20/10/2026
+**Versione 2.61** — 20/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 20/10/2026 — Quattro compiti in due posti, e il quiz uguale alla verifica (#93)
+
+1. **Errore.** Per la 4TI e la 1INF ho pubblicato due compiti a testa su Classroom (la lezione e il quiz su Moduli) e il quiz aveva le stesse domande della verifica sulla pagina. Per i ragazzi era confuso: «la stessa domanda in due posti», e chi consegnava la verifica vuota leggeva «hai finito».
+2. **Regola.** Un solo compito su Classroom per lezione, con un solo link alla pagina; il quiz su Moduli, se serve, ha domande diverse dalla verifica e sta dentro lo stesso compito. La pagina non deve dire «hai finito» quando le risposte scritte sono vuote.
 
 ## 20/10/2026 — «Altro» contato come non presente (#92)
 
