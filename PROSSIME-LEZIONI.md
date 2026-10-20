@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-Aggiornato lunedì 19 ottobre 2026, sera. Prima la lezione più vicina.
+Aggiornato martedì 20 ottobre 2026, mattina. Prima la lezione più vicina.
 
 ## Martedì 20 ottobre
 
@@ -47,7 +47,9 @@ Materiali: la scheda «Prova generale della Pull Request», da far vedere al pro
 
 ### Seconda informatica, dalle 8 alle 11, Laboratorio professionale, tre ore
 
-Da definire con il prof. Possibile: continuare il ciclo WHILE in Lazarus.
+Argomento: ancora il ciclo WHILE in Lazarus.
+Attività: si finiscono le interrogazioni sul gioco del dado, iniziate martedì, più due ragazzi estratti a sorte. Chi non è interrogato completa il gioco del dado e prova la sfida dei due sei.
+Da definire con il prof il resto della lezione.
 
 ### Terza informatica, dalle 11 alle 13, Laboratorio professionale, due ore
 
