@@ -11,7 +11,7 @@
     id: "1inf-gamer-v1",
     classe: "1INF",
     titolo: "Il laboratorio del gamer · مختبر اللاعب · 玩家实验室",
-    sotto: "1INF · 21/10/2026 · ping, jitter, lag, FPS, Hz, monitor, schede video, cavi",
+    sotto: "1INF · 21/10/2026 · bit e byte di immagini e film, ping, lag, FPS, Hz, monitor, schede video, cavi VGA e HDMI",
     stato: "stato/1inf-gamer.json",
     risultati: "risultati.html?b=1inf-gamer",
     minuti: 20,
@@ -23,7 +23,7 @@
       spiega: { nome: "Saperlo spiegare (parole tue)", peso: 20 },
       parere: { nome: "Il tuo parere (non conta per il voto)", peso: 0 }
     },
-    schede_temi: { ripasso: 1, ping: 2, jitter: 3, lag: 4, fps: 5, hz: 6, monitor: 7, scheda: 8, cavi: 9, setup: 10 },
+    schede_temi: { ripasso: 1, ping: 2, jitter: 3, lag: 4, fps: 5, hz: 6, monitor: 7, scheda: 8, immagini: 9, cavi: 10, setup: 11 },
     schede: [
       { titolo: "1. Ripasso: Mbps e MB · مراجعة · 复习", testo: "La rete si misura in <b>Mbps</b> (megabit al secondo). 1 byte = 8 bit, quindi 100 Mbps = 12,5 MB al secondo. Per i giochi però la velocità non basta: conta anche <b>quanto in fretta</b> arriva la risposta." },
       { titolo: "2. Il ping · البينغ · 延迟(ping)", testo: "Il <b>ping</b> è il tempo che un messaggio impiega ad andare dal tuo PC al server del gioco e tornare indietro. Si misura in <b>millisecondi (ms)</b>: 1000 ms = 1 secondo." + T([["Ping", "Come si gioca"], ["sotto 30 ms", "ottimo"], ["30-60 ms", "buono"], ["60-100 ms", "si sente un po'"], ["oltre 150 ms", "lag: i colpi arrivano in ritardo"]]) + "Il ping dipende soprattutto dalla <b>distanza</b> dal server, non dai Mbps. " + LAB + ": prova il gioco dei bersagli con ping 20 e con ping 200." },
@@ -33,8 +33,9 @@
       { titolo: "6. Gli Hz del monitor · الهرتز · 刷新率(Hz)", testo: "Gli <b>Hz</b> (hertz) dicono quante volte al secondo il <b>monitor</b> ridisegna l'immagine. Un monitor da 60 Hz mostra al massimo 60 immagini al secondo: se la scheda video ne fa 200, ne vedi comunque 60.<br>Regola: <b>FPS della scheda video e Hz del monitor devono andare d'accordo</b>. Monitor da gaming: 144 o 240 Hz. Il laboratorio ti dice gli Hz dello schermo che stai usando." },
       { titolo: "7. I tipi di monitor · أنواع الشاشات · 显示器类型", testo: T([["Tipo", "Pregio", "Difetto"], ["<b>TN</b>", "velocissimo, economico", "colori spenti, angolo di visione stretto"], ["<b>IPS</b>", "colori belli, si vede bene di lato", "un po' più lento"], ["<b>VA</b>", "neri profondi, buon contrasto", "a volte scie nelle scene veloci"], ["<b>OLED</b>", "neri perfetti, velocissimo", "costoso"]]) + "Il <b>tempo di risposta</b> (1-5 ms) dice quanto in fretta un pixel cambia colore: più basso, meno scie." },
       { titolo: "8. La scheda video · بطاقة الرسوميات · 显卡", testo: "La <b>scheda video</b> (GPU) disegna le immagini del gioco.<br><b>Integrata</b>: dentro il processore, consuma poco, va bene per scuola e video.<br><b>Dedicata</b>: una scheda a parte con la sua memoria (<b>VRAM</b>, per esempio 8 GB), serve per i giochi pesanti.<br>Più la risoluzione è alta (4K) e più gli FPS che vuoi, più la scheda video deve essere potente." },
-      { titolo: "9. Il cavo video e la banda · كابل الفيديو · 视频线", testo: "Dalla scheda video al monitor passano tantissimi dati. Il conto: <b>pixel × 3 byte di colore × Hz</b>. Full HD a 60 Hz: 1920 × 1080 × 24 bit × 60 ≈ <b>3 Gbit al secondo</b>." + T([["Cavo", "Banda massima (circa)"], ["HDMI 1.4", "10 Gbit/s"], ["HDMI 2.0", "18 Gbit/s"], ["DisplayPort 1.4", "32 Gbit/s"], ["HDMI 2.1", "48 Gbit/s"]]) + "Per un monitor 4K a 144 Hz serve un cavo nuovo. " + LAB + ", parte 3: calcola la banda del tuo monitor ideale." },
-      { titolo: "10. Il mio setup da gamer · إعدادي · 我的游戏设备", testo: "Ultima prova: scegli il tuo <b>gioco preferito</b> e il setup giusto per giocarlo: cavo o Wi-Fi, quanti Hz, che monitor, che scheda video, che cavo video. Lo scrivi nella verifica con le tue parole e i tuoi numeri." }
+      { titolo: "9. Quanto pesano immagini e film · حجم الصور والأفلام · 图片和电影有多大", testo: "Un'immagine è fatta di <b>pixel</b>; ogni pixel ha un colore di <b>3 byte</b> (rosso, verde, blu). Una foto Full HD: 1920 × 1080 pixel × 3 byte ≈ <b>6 MB</b> senza compressione. Il formato <b>JPG</b> la comprime a circa 0,5-1 MB.<br>Un <b>film</b> è un'immagine ripetuta 24-30 volte al secondo: 2 ore senza compressione sarebbero più di 1000 GB! Grazie alla compressione (MP4) diventa circa 2 GB. Per questo lo streaming funziona anche con pochi Mbps." },
+      { titolo: "10. Il cavo video e la banda · كابل الفيديو · 视频线", testo: "Il PC si collega al monitor con un cavo video: <b>VGA</b> (vecchio, analogico, connettore blu a 15 piedini, immagine meno nitida), <b>DVI</b> (digitale, bianco), <b>HDMI</b> (digitale, porta anche l'audio, il più diffuso), <b>DisplayPort</b> (digitale, per i monitor da gaming). Dalla scheda video al monitor passano tantissimi dati. Il conto: <b>pixel × 3 byte di colore × Hz</b>. Full HD a 60 Hz: 1920 × 1080 × 24 bit × 60 ≈ <b>3 Gbit al secondo</b>." + T([["Cavo", "Banda massima (circa)"], ["HDMI 1.4", "10 Gbit/s"], ["HDMI 2.0", "18 Gbit/s"], ["DisplayPort 1.4", "32 Gbit/s"], ["HDMI 2.1", "48 Gbit/s"]]) + "Per un monitor 4K a 144 Hz serve un cavo nuovo. " + LAB + ", parte 3: calcola la banda del tuo monitor ideale." },
+      { titolo: "11. Il mio setup da gamer · إعدادي · 我的游戏设备", testo: "Ultima prova: scegli il tuo <b>gioco preferito</b> e il setup giusto per giocarlo: cavo o Wi-Fi, quanti Hz, che monitor, che scheda video, che cavo video. Lo scrivi nella verifica con le tue parole e i tuoi numeri." }
     ],
     strumenti: [{ t: 'Il laboratorio del gamer (prove dal vivo)', u: '../1inf-gamer/', c: '#d4a017' }, { t: 'Il monitor della lezione', u: '../1inf-monitor/', c: '#6e40c9' }],
     via: C("nozioni", "Il ping si misura in…", ["millisecondi (ms)", "gigabyte (GB)", "hertz (Hz)"], "1000 ms = 1 secondo."),
@@ -49,7 +50,8 @@
       S(6, C("nozioni", "Monitor da 60 Hz, scheda video a 200 FPS: quante immagini vedi al secondo?", ["60", "200", "260"], "Il monitor ne mostra al massimo quanti sono i suoi Hz.")),
       S(7, C("nozioni", "Il monitor con i neri perfetti ma costoso è…", ["OLED", "TN", "VA"], "OLED.")),
       S(8, C("nozioni", "La memoria della scheda video si chiama…", ["VRAM", "ROM", "SSD"], "Video RAM.")),
-      S(9, C("nozioni", "Per un monitor 4K a 144 Hz serve…", ["un cavo con tanta banda, come HDMI 2.1", "un cavo qualsiasi", "il Wi-Fi"], "Tanti pixel e tanti Hz = tanti dati."))
+      S(9, C("nozioni", "Perché un film di 2 ore pesa solo 2 GB?", ["perché è compresso (MP4)", "perché ha pochi pixel", "perché è in bianco e nero"], "Senza compressione sarebbe enorme.")),
+      S(10, C("nozioni", "Per un monitor 4K a 144 Hz serve…", ["un cavo con tanta banda, come HDMI 2.1", "un cavo qualsiasi", "il Wi-Fi"], "Tanti pixel e tanti Hz = tanti dati."))
     ],
     crocette: [
       C("nozioni", "Ping 25 ms: com'è?", ["ottimo", "lag forte", "il gioco non parte"], "", "ping"),
@@ -63,6 +65,8 @@
       C("nozioni", "Una scheda video integrata…", ["sta dentro il processore", "ha sempre 24 GB di VRAM", "si collega con il Wi-Fi"], "", "scheda"),
       C("nozioni", "Full HD a 60 Hz ha bisogno di circa…", ["3 Gbit/s", "3 Mbit/s", "300 Gbit/s"], "", "cavi"),
       C("nozioni", "Tra questi cavi, quello con più banda è…", ["HDMI 2.1", "HDMI 1.4", "HDMI 2.0"], "", "cavi"),
+      C("nozioni", "Il cavo video vecchio, analogico, con il connettore blu è…", ["VGA", "HDMI", "DisplayPort"], "", "cavi"),
+      C("nozioni", "Una foto Full HD senza compressione pesa circa…", ["6 MB", "6 KB", "6 GB"], "", "immagini"),
       C("nozioni", "Tempo di risposta del monitor 1 ms rispetto a 5 ms…", ["meno scie nelle scene veloci", "più scie", "nessuna differenza"], "", "monitor")
     ],
     scale: [{ area: "parere", q: "Quanto ti è piaciuto il laboratorio del gamer?", basso: "per niente", alto: "moltissimo", ultima: true }],
