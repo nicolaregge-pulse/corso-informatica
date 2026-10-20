@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.62** — 20/10/2026
+**Versione 2.63** — 20/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 20/10/2026 — Voti del quiz calcolati su 100 invece che su 70; quiz giusto non riconosciuto (#95)
+
+1. **Errore:** nella 1INF ho calcolato i voti del quiz breve come se il massimo fosse 100, ma il quiz valeva 70 punti (14 domande da 5): tutti i voti erano troppo bassi. Me ne sono accorto solo dallo screenshot di Moduli di Nicola. Inoltre tre ragazzi che dicevano «l'ho fatto» avevano fatto il quiz da 20 domande del mattino, e io li avevo messi a 40. Il monitor, poi, non mostrava chi aveva consegnato senza aprire la pagina della lezione.
+2. **Correzione:** voto = 40 + 40 × punti / massimo, leggendo SEMPRE la colonna «massimo»; letti tutti e due i quiz; monitor che mostra «✅ QUIZ CONSEGNATO» con il punteggio anche per chi non ha aperto la pagina.
+3. **Regola:** prima di dare una stringa di voti si controllano il massimo di ogni quiz e tutti i quiz aperti per quella classe nel giorno; se un ragazzo dice «l'ho fatto», si cerca in tutti, mai rispondere «non risulta» su una sola fonte.
 
 ## 20/10/2026 — Lo stream di Classroom non dice cosa fare (#94)
 
