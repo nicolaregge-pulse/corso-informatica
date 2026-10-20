@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.61** — 20/10/2026
+**Versione 2.62** — 20/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 20/10/2026 — Lo stream di Classroom non dice cosa fare (#94)
+
+1. **Errore:** nello stream della 1INF i lavori comparivano tutti come «Nicola Regge ha pubblicato un nuovo compito attraverso Consegne Classroom → Git…», uguali tra loro; a lezione cambiata (studio delle prime 5 pagine e quiz breve) i ragazzi non capivano quale aprire. Nicola: «Capisci che per loro non è facile capire cosa devono fare?».
+2. **Correzione:** annuncio in cima allo stream con «OGGI FATE SOLO QUESTE 2 COSE, IN QUESTO ORDINE», i due link diretti e la riga nelle tre lingue (pubblicato da Nicola alle 13:42).
+3. **Regola:** a ogni lezione, insieme ai compiti, un annuncio in cima allo stream con il titolo «OGGI FATE SOLO…», i passi numerati e i link diretti; ogni cambio di programma in classe = nuovo annuncio, mai solo a voce.
 
 ## 20/10/2026 — Quattro compiti in due posti, e il quiz uguale alla verifica (#93)
 
