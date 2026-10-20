@@ -27,3 +27,4 @@
    2. Così a fine anno lo svolto è un pezzo del previsto, senza buchi.
    3. Compito di Claude: quando dà i testi per la firma, li prende dalle voci dell'Allegato A; se una lezione non ha la sua voce, lo dice subito, e la voce si aggiunge entro il 30 ottobre (dopo si può solo togliere).
    4. Primo controllo, 14/10: nei quattro Allegati v0.1 mancano le voci di quello che facciamo da settimane: controllo delle versioni (versioni, rami, fork, Pull Request, merge, release), il gioco della classe, Godot, i siti su GitHub Pages, i progetti di stage della quarta.
+   5. Controllo del 20/10: nell'Allegato A della 4TI manca una voce esplicita «Modello ISO/OSI» (ci sono «Protocolli di rete» e «TCP/IP porte»): da aggiungere entro il 30/10, nella competenza 16. 1INF bit, byte e velocità della rete: coperto dalle voci «Rappresentazione delle informazioni … bit e byte, unità di misura» e «Reti LAN e WLAN; pacchetti; velocità 2.4/5 GHz; cavo e Speed Test».
