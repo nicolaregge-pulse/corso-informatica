@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-Aggiornato martedì 20 ottobre 2026, mattina. Prima la lezione più vicina.
+Aggiornato mercoledì 21 ottobre 2026, mattina. Prima la lezione più vicina.
 
 ## Martedì 20 ottobre
 
@@ -31,20 +31,21 @@ Promemoria: i ragazzi devono sapere quanti gigabyte ha il loro telefono.
 
 ### Prima informatica, dalle 8 alle 11, Laboratorio professionale, tre ore
 
-Argomento: il laboratorio del gamer. Ping, jitter, lag e scatti nei giochi online; FPS e Hz; i tipi di monitor, le schede video e la banda dei cavi video.
-Attività: prima si finisce il test di martedì su bit e byte. Poi le prove dal vivo nella pagina del laboratorio: il gioco dei bersagli con il ritardo, il quadrato che si muove a FPS diversi, il calcolo della banda del proprio monitor. Alla fine la verifica e «il mio setup da gamer».
-Materiali: la pagina della lezione e la pagina del laboratorio, in italiano, arabo e cinese.
-La prossima volta: il percorso a sfide sul binario, con il proprio nome in binario, il messaggio segreto, la gara a tempo e la pixel art con la galleria della classe.
+Argomento: la velocità della rete e il laboratorio del gamer: ping, jitter, lag, FPS e Hz, monitor, schede video e cavi video.
+Attività: prima il prof finisce la lezione frontale con le slide dalla pagina 6 alla 13. Poi i ragazzi leggono la teoria e fanno il ripasso sulla pagina della lezione, provano il laboratorio del gamer e alla fine fanno il quiz.
+Materiali: su Classroom un solo compito e un solo annuncio, «Oggi fate solo queste quattro cose», con i link alle slide, alla lezione, al laboratorio e al quiz di venti domande su Google Moduli.
 
 ### Seconda informatica, dalle 11 alle 12, Sicurezza professionale, un'ora
 
-Da definire con il prof.
+Argomento: la terza ora del corso sulla sicurezza della Regione, l'organizzazione della prevenzione in azienda.
+Attività: si studia la terza ora sul sito ufficiale, poi si leggono le quattro schede sulla pagina della lezione e si fa il quiz di venti casi pratici su Google Moduli.
+Materiali: su Classroom un solo compito e un solo annuncio con i link.
 
 ### Terza informatica, dalle 12 alle 14, Laboratorio professionale, due ore
 
-Argomento: lavorare in coppia sul sito portfolio, come in un'azienda.
-Attività: ognuno è collaboratore del sito del compagno e gli propone una modifica con una Pull Request. Il compagno la controlla e la accetta.
-Materiali: la scheda «Prova generale della Pull Request», da far vedere al prof prima di pubblicarla.
+Argomento: il sito in ordine, più bello, e il lavoro in coppia come in un'azienda.
+Attività: ognuno controlla la struttura del suo sito con la pagina «L'albero del mio sito», che legge i file da GitHub e segna in rosso quello che manca. Poi l'immagine di sfondo e una piccola animazione in CSS. Poi a coppie: ognuno propone una modifica al sito del compagno con una Pull Request, il compagno la accetta, e sale il numero di versione. Sfida finale: risolvere un conflitto.
+Materiali: su Classroom un solo compito e un solo annuncio, con il link alla lezione, alla pagina dell'albero e al quiz.
 
 ## Giovedì 22 ottobre
 
