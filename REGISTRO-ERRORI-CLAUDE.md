@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.69** — 21/10/2026
+**Versione 2.70** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Test di orientamento «di un'ora» finito in pochi minuti (#102)
+
+1. **Errore:** ho dato al test di orientamento 60 minuti (10 + 15 + 20 + 10 + 5) senza misurare quanto tempo chiedono davvero le domande: 7 di logica, 8 di matematica, 4 livelli del robot e 6 domande, 7 frasi. Il primo ragazzo ha finito quasi subito. Nicola: «Avevo ragione io, non hai la minima idea dei tempi».
+2. **Correzione:** a chi finisce si dà «Monta il PC» (`docs/monta-pc/`); la v1.1 avrà il doppio delle domande, 8 livelli del robot, una sfida extra e i minuti reali per blocco nella valutazione.
+3. **Regola:** una durata si stima dal contenuto (circa 1 minuto per domanda a crocette, 2-3 minuti per livello del robot) e si controlla con una prova a tempo prima di darla; dopo ogni uso si confrontano i minuti reali con quelli previsti.
 
 ## 21/10/2026 — TERZA volta il #50: copiare il codice e poi copiare l'indirizzo di Apps Script (#101)
 
