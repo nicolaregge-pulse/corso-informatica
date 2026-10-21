@@ -25,7 +25,7 @@ a{color:var(--acc)}
 </style>
 </head>
 <body>
-<div class="punti">I tuoi punti: <span id="pt">0</span> ⭐ <span class="mu" style="color:#1b2430">· gioca a tutti e 4 i giochi</span></div>
+<div class="punti"><input id="gnome" placeholder="Nome e cognome" style="font-size:15px;padding:4px 8px;border-radius:8px;border:0;width:190px;margin-right:8px"> I tuoi punti: <span id="pt">0</span> ⭐ <span class="mu" style="color:#1b2430">· gioca a tutti e 4 i giochi</span></div>
 <div class="w">
 <h1>I giochi dei byte</h1>
 <div class="mu">Quanto pesa un'immagine? Quanto ci vuole a scaricare? Basta la mia rete per un video? Scoprilo giocando.
@@ -84,7 +84,13 @@ La tua rete <input id="g3r" type="range" min="1" max="50" value="8" style="width
 </div>
 <script>
 var $=function(i){return document.getElementById(i)},PT=0,fatti={};
-function punti(n,gioco){PT+=n;if(gioco)fatti[gioco]=1;$('pt').textContent=PT+(Object.keys(fatti).length>=4?' · 🏆 tutti e 4 i giochi!':'');}
+// 21/10: i progressi vanno al cruscotto del prof (giochi fatti e punti); il nome si ricorda
+var GCONF={};fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){GCONF=c||{}}).catch(function(){});
+function gnome(){var n=($('gnome')&&$('gnome').value||'').trim();try{if(n)localStorage.setItem('quante-nome',JSON.stringify(n))}catch(e){}return n}
+function segnaleGiochi(){var n=gnome();if(!n||!GCONF.invio)return;var d={id:'avz-1inf-giochi-v1',modo:'avanzamento',classe:'1INF',nome:n,scheda:Object.keys(fatti).length,totale:4,risposte:PT,titolo:PT+' punti · giochi '+Object.keys(fatti).sort().join(','),quando:new Date().toISOString()};
+ try{fetch(GCONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}catch(e){}}
+function punti(n,gioco){if(!gnome()){alert('Scrivi prima nome e cognome in alto: i punti vanno al prof.');$('gnome').focus();return;}PT+=n;if(gioco)fatti[gioco]=1;$('pt').textContent=PT+(Object.keys(fatti).length>=4?' · 🏆 tutti e 4 i giochi!':'');segnaleGiochi();}
+try{var nn=JSON.parse(localStorage.getItem('quante-nome')||'null');if(nn)setTimeout(function(){$('gnome').value=nn},0)}catch(e){}
 function fmt(b){if(b<1000)return b.toLocaleString('it-IT')+' byte';if(b<1e6)return (b/1e3).toLocaleString('it-IT',{maximumFractionDigits:1})+' KB';if(b<1e9)return (b/1e6).toLocaleString('it-IT',{maximumFractionDigits:1})+' MB';return (b/1e9).toLocaleString('it-IT',{maximumFractionDigits:2})+' GB';}
 function tempo(s){if(s<60)return s.toLocaleString('it-IT',{maximumFractionDigits:1})+' secondi';if(s<3600)return Math.round(s/60)+' minuti';return (s/3600).toLocaleString('it-IT',{maximumFractionDigits:1})+' ore';}
 /* GIOCO 1 */
