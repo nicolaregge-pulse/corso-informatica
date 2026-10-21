@@ -50,7 +50,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 1. Presenze nel diario riservato (`diario/<classe>/AAAA-MM-GG.md`); «Altro» = presente.
 2. Titoli del registro ≤40 caratteri, voce dell'Allegato A; la firma è fatta se la colonna «Firma» ha data e ora.
 3. Domande orali: risposta secca 70 giusta, 50 sbagliata, nel diario e nel cruscotto.
-4. Veyon: solo fatti, nel diario e nel cruscotto.
+4. Veyon: solo fatti, nel diario e nel cruscotto. **Se un riquadro non mostra il nome dell'utente (PC acceso con schermata di blocco, schermo blu, video, utente non indicato), CHIEDERE SUBITO a Nicola chi c'è** (Nicola, 21/10/2026): mai lasciare «utente non indicato».
 5. **3INF, a ogni lezione (Nicola, 21/10):** si controllano TUTTI i siti dei ragazzi con `python3 generatori/lavori_3inf_oggi.py` nel riservato (giro ogni 3 minuti per tutta la lezione): file e nomi giusti, cartella img, sfondo, animazione, versione, rami, Pull Request, merge, commit del giorno. Gli utenti GitHub stanno in `config/3inf-github.json`; chi non c'è si aggiunge appena si vede il suo indirizzo.
 6. A fine lezione: stringa per DIDAweb `GG/MM/AAAA h N | argomento | COGNOME NOME;voto …` con voti 40-80 = 40 + 40 × punti/massimo (leggere SEMPRE il massimo del quiz) e tutti i presenti.
 
