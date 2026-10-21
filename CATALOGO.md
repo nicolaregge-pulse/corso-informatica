@@ -169,6 +169,7 @@
 | I siti della classe | `docs/siti-classe/` | Elenco dei siti dei ragazzi |
 | Test di rete | `docs/test-rete/` | Prova della velocità e della rete |
 | La password del mio libro | `docs/password-libro/` | Per aprire il proprio libro personale cifrato |
+| Carica il tuo file | `docs/carica/` | Un ragazzo manda al prof un PDF o una foto (anche grande, a pezzi) con lo script delle consegne; arriva nel riservato in `dati/verifiche/caricamenti-<data>/` |
 | Test di orientamento | `docs/orientamento/` | Per i ragazzi di terza media: logica, matematica, robot a blocchi e motivazione, con profilo finale; banca `banca-orientamento-v1.0.js`, scheda del docente nel riservato |
 | Deepfake | `docs/sicurezza-deepfake/` | Voci e volti falsi, in tre lingue |
 | Monta il PC | `docs/monta-pc/`, `docs/monta-pc-v2/`, `docs/monta-pc-v3/`, `docs/sfida-pc/`, `docs/classifica/`, `docs/monta-pc-cruscotto/` | Gioco di assemblaggio del PC, sfida lampo e classifica |
