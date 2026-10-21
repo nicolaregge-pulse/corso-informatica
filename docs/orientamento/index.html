@@ -55,15 +55,29 @@ ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
 .tag{font-size:13px;padding:2px 10px;border-radius:999px;font-weight:600}
 .tag.forte{background:var(--ok-bg);color:var(--ok)}.tag.cresce{background:var(--warn-bg);color:var(--warn)}.tag.allena{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
 .piccolo{font-size:14px;color:var(--muted)}
+.totale{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-top:6px}
+#stampa{display:none}
+@page{size:A4;margin:16mm 16mm 18mm}
+@media print{
+  html,body{background:#fff;color:#000}#app{display:none!important}#stampa{display:block;font-family:"Segoe UI",Arial,sans-serif;font-size:11.5pt;line-height:1.45;color:#000}
+  #stampa h1{font-size:19pt;margin:0 0 2mm;color:#12467a}#stampa h2{font-size:13pt;margin:6mm 0 2mm;color:#12467a;border-bottom:1.5pt solid #d5dde8;padding-bottom:1mm;break-after:avoid}
+  #stampa table{border-collapse:collapse;width:100%}#stampa th,#stampa td{border:1px solid #9aa8b8;padding:2mm 3mm;text-align:left;vertical-align:top}#stampa th{background:#e9f0f8}
+  #stampa ol{margin:0;padding-left:6mm}#stampa li{margin:1mm 0}
+  #stampa .firma{margin-top:14mm;display:flex;justify-content:space-between;gap:10mm;break-inside:avoid}#stampa .firma div{flex:1;border-top:1px solid #000;padding-top:2mm;font-size:10pt}
+  #stampa .nota{font-size:9.5pt;color:#333;margin-top:6mm}
+}
 </style>
 </head>
 <body>
 <div class="wrap" id="app"></div>
+<div id="stampa"></div>
 <script src="banca-orientamento-v1.0.js"></script>
 <script>
 (function () {
   var B = window.BANCA_ORIENTAMENTO, app = document.getElementById('app');
-  var punti = {}, motivazione = [], timerId = null, passo = 0;
+  var punti = {}, motivazione = [], timerId = null, passo = 0, nome = '', inizioTest = 0, totaleId = null;
+  var TOTALE_MIN = 60, PAUSA_MIN = 2;
   // Ordine delle schermate: inizio, blocchi 1-2, pausa, blocchi 3-4, risultati
   var schermate = ['inizio', 0, 1, 'pausa', 2, 3, 'fine'];
 
@@ -96,16 +110,29 @@ ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
   function inizio() {
     app.appendChild(el('<div><div class="eyebrow">Corsi di informatica · versione ' + B.versione + '</div><h1>Test di orientamento</h1><p class="lead">Scopri se l\'informatica fa per te. Dura circa un\'ora. Non è un compito in classe: non ci sono voti.</p></div>'));
     var passi = B.blocchi.map(function (b, i) { return '<li><b>' + esc(b.titolo) + '</b>, ' + b.minuti + ' minuti</li>'; });
-    passi.splice(2, 0, '<li>Pausa, 5 minuti</li>');
+    passi.splice(2, 0, '<li>Pausa, ' + PAUSA_MIN + ' minuti</li>'); passi.push('<li>La tua valutazione da stampare, 5 minuti</li>');
     app.appendChild(el('<div class="card"><h2>Come funziona</h2><ol class="passi">' + passi.join('') + '</ol>' +
       '<p class="piccolo">In alto vedi il tempo che resta. Quando finisce, completa la domanda e vai avanti. Alla fine vedi i tuoi risultati e il tuo profilo. Non scriviamo il tuo nome e non salviamo niente: tutto resta su questo computer.</p></div>'));
+    var n = el('<div class="card"><label for="nome"><b>Scrivi il tuo nome e cognome</b></label><input class="nome" id="nome" autocomplete="off" maxlength="60"><p class="piccolo">Serve solo per la valutazione finale da stampare. Non viene salvato e non viene mandato a nessuno.</p></div>');
+    app.appendChild(n);
     var b = el('<div class="azioni"><button class="main">Inizia il test</button></div>');
-    b.querySelector('button').onclick = avanti; app.appendChild(b);
+    b.querySelector('button').onclick = function () {
+      nome = document.getElementById('nome').value.trim();
+      if (!nome) { document.getElementById('nome').focus(); return; }
+      inizioTest = Date.now(); avanti();
+    };
+    app.appendChild(b);
+  }
+  // Tempo totale del test (un'ora, compresa la valutazione finale)
+  function totale(box) {
+    clearInterval(totaleId);
+    function tic() { var m = Math.max(0, Math.ceil((inizioTest + TOTALE_MIN * 60000 - Date.now()) / 60000)); box.textContent = 'Tempo totale rimasto: circa ' + m + ' minuti'; }
+    tic(); totaleId = setInterval(tic, 15000);
   }
 
   function pausa() {
-    app.appendChild(el('<div><div class="eyebrow">Metà del test</div><h1>Pausa</h1><p class="lead">Bravo, hai finito logica e matematica. Riposati 5 minuti. Quando sei pronto, vai avanti con la parte al computer.</p></div>'));
-    var t = el('<div class="top"><span class="timer"></span></div>'); app.appendChild(t); avvia(5, t.querySelector('.timer'));
+    app.appendChild(el('<div><div class="eyebrow">Metà del test</div><h1>Pausa</h1><p class="lead">Bravo, hai finito logica e matematica. Riposati ' + PAUSA_MIN + ' minuti. Quando sei pronto, vai avanti con la parte al computer.</p></div>'));
+    var t = el('<div class="top"><span class="timer"></span><span class="totale"></span></div>'); app.appendChild(t); avvia(PAUSA_MIN, t.querySelector('.timer')); totale(t.querySelector('.totale'));
     var b = el('<div class="azioni"><button class="main">Sono pronto: avanti</button></div>');
     b.querySelector('button').onclick = avanti; app.appendChild(b);
   }
@@ -127,7 +154,7 @@ ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
 
   function blocco(b, n) {
     var t = el('<div class="top"><div class="eyebrow">Parte ' + (n + 1) + ' di ' + B.blocchi.length + '</div><span class="timer"></span></div>');
-    app.appendChild(t);
+    app.appendChild(t); var tt = el('<div class="totale"></div>'); app.appendChild(tt); totale(tt);
     app.appendChild(el('<div><h1>' + esc(b.titolo) + '</h1><p class="lead">' + esc(b.intro) + '</p></div>'));
     avvia(b.minuti, t.querySelector('.timer'));
     var robotFatti = { n: 0 };
@@ -209,6 +236,19 @@ ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
       c.appendChild(el('<div><div class="riga"><span>' + esc(b.titolo) + '</span><span class="tag ' + f[0] + '">' + f[1] + '</span></div><div class="barra"><i style="width:' + Math.round(p * 100) + '%"></i></div></div>'));
     });
     app.appendChild(c);
+    var pr = profilo();
+    app.appendChild(el('<div class="card"><h2>Il tuo profilo</h2>' + pr.testo.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
+      '<p><b>Corsi consigliati:</b> ' + esc(pr.corsi.join('; ')) + '.</p>' +
+      '<p class="piccolo">Ora stampa la tua valutazione: il professore la firma e te la lascia. Niente di questo è stato salvato.</p></div>'));
+    var st = el('<div class="azioni"><button class="main">Stampa la mia valutazione (PDF)</button></div>');
+    st.querySelector('button').onclick = function () { stampa(pr); };
+    app.appendChild(st);
+    var b = el('<div class="azioni"><button>Ricomincia da capo (per il prossimo ragazzo)</button></div>');
+    b.querySelector('button').onclick = function () { punti = {}; motivazione = []; nome = ''; passo = 0; document.getElementById('stampa').innerHTML = ''; clearInterval(totaleId); mostra(); window.scrollTo(0, 0); };
+    app.appendChild(b);
+  }
+
+  function profilo() {
     var lo = punti.logica || 0, ma = punti.matematica || 0, inf = punti.informatica || 0, mo = punti.motivazione || 0;
     var testo = [];
     if (mo >= 0.7) testo.push('Hai tanta voglia di creare e di capire come funzionano le cose: è la cosa più importante per studiare informatica.');
@@ -223,11 +263,28 @@ ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
     if (motivazione[4] >= 4) strade.push('montare e riparare computer e reti (tecnico hardware e reti)');
     if (motivazione[5] >= 4) strade.push('lavorare in squadra su un progetto, come in un\'azienda');
     if (strade.length) testo.push('Ti potrebbe piacere: ' + strade.join('; ') + '.');
-    app.appendChild(el('<div class="card"><h2>Il tuo profilo</h2>' + testo.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
-      '<p class="piccolo">Parlane con il professore: ti può spiegare che cosa si fa nei nostri corsi di informatica. Niente di questo è stato salvato.</p></div>'));
-    var b = el('<div class="azioni"><button>Ricomincia da capo (per il prossimo ragazzo)</button></div>');
-    b.querySelector('button').onclick = function () { punti = {}; motivazione = []; passo = 0; mostra(); window.scrollTo(0, 0); };
-    app.appendChild(b);
+    var corsi = ['Operatore informatico, percorso triennale con qualifica: programmazione, siti, giochi, hardware e reti, sempre in laboratorio'];
+    if (motivazione[3] >= 4 || inf >= 0.6) corsi.push('dentro il percorso, i laboratori di programmazione: videogiochi, siti web e app');
+    if (motivazione[4] >= 4) corsi.push('dentro il percorso, i laboratori di hardware e reti: montare, configurare e riparare computer');
+    if (mo >= 0.6) corsi.push('dopo la qualifica, il quarto anno da Tecnico informatico');
+    return { testo: testo, corsi: corsi };
+  }
+
+  // La valutazione da stampare (A4, senza emoji): il nome resta solo in questa pagina
+  function stampa(pr) {
+    var oggi = new Date().toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    var righe = B.blocchi.map(function (b) { var p = punti[b.id] || 0;
+      return '<tr><td>' + esc(b.titolo) + '</td><td>' + Math.round(p * 100) + ' su 100</td><td>' + fascia(p)[1] + '</td></tr>'; }).join('');
+    document.getElementById('stampa').innerHTML =
+      '<h1>Test di orientamento all\'informatica</h1><p>Valutazione orientativa · data ' + oggi + ' · versione del test ' + B.versione + '</p>' +
+      '<table><tr><th style="width:30%">Nome e cognome</th><td>' + esc(nome) + '</td></tr></table>' +
+      '<h2>01 Risultati per area</h2><table><tr><th>Area</th><th>Punteggio</th><th>Fascia</th></tr>' + righe + '</table>' +
+      '<p class="nota">Fasce: punto di forza da 70 su 100; in crescita da 40 a 69; da allenare sotto 40. Per la motivazione il punteggio viene dalle risposte del ragazzo su di sé.</p>' +
+      '<h2>02 Profilo orientativo</h2><ol>' + pr.testo.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>' +
+      '<h2>03 Corsi consigliati</h2><ol>' + pr.corsi.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>' +
+      '<p class="nota">Questa valutazione non è un voto: è una fotografia di oggi, per aiutare a scegliere. Il test è al computer e non salva nessun dato.</p>' +
+      '<div class="firma"><div>Data</div><div>Il docente, prof. Regge Nicola</div></div>';
+    window.print();
   }
 
   mostra();
