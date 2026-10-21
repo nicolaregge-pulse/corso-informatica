@@ -62,6 +62,10 @@ ZONE = [
    ("Controlla chi ha fatto giusto", "controlla/"), ("Valutazione dei singoli 2INF", "2inf-valutazione/"),
    ("Cruscotto dal vivo: 3INF portfolio", "avanzamento/?b=3inf-portfolio-v1"), ("Cruscotto dal vivo: 2INF ciclo FOR", "avanzamento/?b=2inf-for2-v1"),
    ("Il cruscotto in demo, senza nomi", "demo/cruscotto/?b=3inf-portfolio-v1")]),
+ ("info", 955, 430, "#f59f00", "Ufficio informazioni", "i registri che crescono", "avanzamento/registri.html", "info",
+  "Tutti i registri che si aggiornano da soli e crescono a ogni lezione: il cruscotto della lezione, le uscite dall'aula, il fuori compito con le foto di Veyon, i diari, le consegne, le prossime lezioni.",
+  [("L'ufficio informazioni", "avanzamento/registri.html"), ("Cruscotto della lezione", "avanzamento/oggi.html"), ("Uscite dall'aula", "avanzamento/uscite.html"),
+   ("Registro del fuori compito", "avanzamento/fuori-compito.html"), ("Pubblica senza script (piano B)", "prof-pubblica/")]),
  ("giochi", 965, 645, "#ae3ec9", "Sala giochi", "i minigiochi del corso", "gioco/", "joystick",
   "I minigiochi costruiti e usati nelle lezioni, e l'azienda dei videogiochi.",
   [("Tutti i minigiochi", "gioco/"), ("L'azienda dei videogiochi", "azienda/"), ("Assalto dei mostri", "giochi/assalto-dei-mostri/"),
@@ -93,6 +97,7 @@ def edificio(tipo, c):
         "officina": '<circle cx="0" cy="-12" r="16" fill="none" stroke="#fff8e6" stroke-width="7" stroke-dasharray="7 5"/><circle cx="0" cy="-12" r="6" fill="#fff8e6"/>',
         "schermo": '<rect x="-22" y="-30" width="44" height="28" rx="3" fill="#a5d8ff"/><rect x="-6" y="-2" width="12" height="8" fill="#fff8e6"/><polyline points="-16,-12 -6,-20 4,-14 16,-24" fill="none" stroke="#1c7ed6" stroke-width="3"/>',
         "joystick": '<rect x="-24" y="-24" width="48" height="24" rx="12" fill="#fff8e6"/><circle cx="-11" cy="-12" r="4" fill="#333"/><circle cx="11" cy="-15" r="3" fill="#e03131"/><circle cx="16" cy="-9" r="3" fill="#2f9e44"/>',
+        "info": '<circle cx="0" cy="-12" r="22" fill="#fff8e6"/><circle cx="0" cy="-24" r="3.5" fill="#7a3d1d"/><rect x="-3.5" y="-17" width="7" height="18" rx="2" fill="#7a3d1d"/>',
         "libro": '<path d="M-24,-30 Q-12,-36 0,-28 Q12,-36 24,-30 V2 Q12,-4 0,4 Q-12,-4 -24,2 Z" fill="#fff8e6"/><line x1="0" y1="-28" x2="0" y2="4" stroke="#7a3d1d" stroke-width="2"/>',
     }[tipo]
     return f'<rect x="-56" y="-46" width="112" height="66" rx="6" fill="{c}"/><polygon points="-66,-44 0,-84 66,-44" fill="#7a3d1d"/>{icona}'
@@ -211,7 +216,7 @@ table{border-collapse:collapse;width:100%}td,th{border:1px solid var(--bd);paddi
     # la versione per la comunicazione: la mappa e le zone, niente testo interno, niente cruscotti né pagine del docente
     pubbl = pagina.replace(corpo, "").replace("Area Docente · versione " + vers, "Il parco del corso · versione " + VERS_PARCO).replace(
         "Sotto la mappa trovi le stesse zone con tutti i loro link, e poi l'Atlante da leggere.", "Sotto la mappa trovi le stesse zone, con i loro link.")
-    pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti|avanzamento|mio-punto)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
+    pubbl = re.sub(r'<li><a href="[^"]*(cruscotto|valutazione|controlla|docenti|avanzamento|mio-punto|prof-pubblica|corso-informatica-riservato)[^"]*"[^>]*>[^<]*</a></li>', "", pubbl)
     # i progetti di stage: fuori si vede solo la pagina di presentazione, senza i nomi negli indirizzi
     pubbl = re.sub(r'<li><a href="[^"]*4ti-progetti/"[^>]*>[^<]*</a></li>', "", pubbl).replace(u("4ti-progetti/"), u("cm-qma7yay4q5/progetti/"))
     pubbl = pubbl.replace('href="' + u("docenti/") + '"', 'href="#"').replace("<ol></ol>", '<ol><li class="mu">Gli strumenti del docente sono riservati.</li></ol>')

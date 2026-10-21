@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.7** — 19/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.8** — 21/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -72,7 +72,8 @@
 3. **Il monitor dal vivo del docente:** `avanzamento/?b=<lezione>-v1`, password dell'area docente. Legge lo script ogni 5 secondi; se lo script non risponde, ripiega sulla copia che Claude aggiorna ogni 1-2 minuti. Avvisa quando metà classe ha finito: il passo dopo deve essere già pronto.
 4. **Il cruscotto dal vivo** (19/10, `CRUSCOTTO-DAL-VIVO.md`): una riga per allievo con schede, 🏁 se il lavoro vero è completo, «manca: …», le miniature del suo sito, l'ultimo giro Veyon, la domanda all'assistente con la risposta, la verifica e il voto proposto (40-80) con il conto. Ordine dal più bravo al meno. I dati con nomi e voti sono cifrati: si leggono solo con il codice del docente. A fine lezione il pacchetto dei voti per DIDAweb è già pronto.
 5. **Prima di dare un link:** la prova automatica come un ragazzo (`strumenti/prova_verifica.js`) deve dire «Tutto a posto».
-6. Come si rifà una verifica: `VERIFICA-COME-SI-FA.md`. Il cruscotto: `CRUSCOTTO-DAL-VIVO.md`. Le regole fisse: `MANIFESTO.md`.
+6. **L'ufficio informazioni** (21/10, `avanzamento/registri.html`, nella mappa vicino al lago): in un solo posto tutti i registri che si aggiornano da soli e crescono a ogni lezione. Il cruscotto unico della lezione (approvato il 21/10: teoria, esercizi, giochi, quiz, domande orali 70/50, Veyon e note, voto proposto 40-80); le uscite dall'aula (bagno, uscita e rientro, classifica per classe e per allievo con date, ore e minuti); il registro del fuori compito (quante volte, che cosa, la foto del giro di Veyon); i diari delle classi, le consegne, le lavagne con i voti, le bobine nel riservato; prossime lezioni, argomenti svolti, registro degli errori.
+7. Come si rifà una verifica: `VERIFICA-COME-SI-FA.md`. Il cruscotto: `CRUSCOTTO-DAL-VIVO.md`. Le regole fisse: `MANIFESTO.md`.
 
 ## 07 I progetti di stage della 4TI
 
@@ -135,6 +136,7 @@
 
 ## 14 Registro delle versioni
 
+1. **v1.8 (21/10/2026):** l'ufficio informazioni (capitolo 06 e una zona nuova nella mappa): i registri che crescono a ogni lezione, il cruscotto unico, le uscite dall'aula, il fuori compito con le foto di Veyon.
 1. **v1.7 (19/10/2026):** il cruscotto dal vivo del docente (capitolo 06, documento `CRUSCOTTO-DAL-VIVO.md`), nato con la 3INF: 🏁, «manca», miniature, Veyon dentro, voto proposto, ordine dal più bravo, dati cifrati; nella Sala di controllo il cruscotto e la demo senza nomi.
 1. **v1.6 (19/10/2026):** i tre framework e il monitor dal vivo (capitolo 06); il giro automatico e l'assistente nella giornata di lezione; l'applicazione web dello script v7.9; nella mappa le lezioni del 15-19/10 (assemblaggio 1INF, ciclo FOR 2INF, portfolio 3INF), il monitor dal vivo nella Sala di controllo, nuovi documenti del prof (MANIFESTO, audit del monitoraggio, regia del 19/10).
 1. **v1.5 (13/10/2026):** nella zona della quarta, al posto dei link ai progetti dei ragazzi (con il loro nome nell'indirizzo), la pagina «Progetti della quarta» senza nomi; il link vero si chiede al prof.
