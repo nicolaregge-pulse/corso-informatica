@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.5** — 19/10/2026
+**Versione 0.6** — 21/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -40,6 +40,9 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 01/10/2026 | Sicurezza sul lavoro — modulo 1: concetti di Rischio, Danno, Prevenzione e Protezione (slide + videolezione formazione); verifica con quiz (Google Moduli, 20 domande, autocorrezione) e test a risposta aperta | formazione-sicurezza (sito Piamarta) · sicurezza-test-aperto | Sicurezza sul lavoro · Cittadinanza |
 | 12/10/2026 | Laboratorio, 3 ore: Versioning e teoria Agile (Manifesto e 10 regole); Pull Request sul gioco della classe dal Modulo «Consegna»; backlog con pesi di Fibonacci; 20 versioni del gioco (v0.12-v0.31) con changelog e grafo; Feedback sulla teoria; voti sulle PR | `docs/compito/2inf-20261012-documento/`, `docs/teoria/agile-it/`, `docs/2inf-backlog/`, `GIRO-PULL-REQUEST.md` | Strumenti di versioning e lavoro in team (da agganciare al numero dell'Allegato A) |
 | 19/10/2026 | Laboratorio, 3 ore: ciclo FOR in Lazarus, seconda parte: programma «Contatore» con due TEdit (da… a…), TButton e TMemo; `for x := StrToInt(Edit1.Text) to StrToInt(Edit2.Text)` con `Memo1.Lines.Add(IntToStr(x))` e `sleep(1000)` per vedere il ciclo che conta | Lazarus, progetto Contatore (guidato dal docente) | 15 — voce 5 «Programmazione in Lazarus: cicli for e while» |
+| 09/10/2026 | Sicurezza sul lavoro (Regione), 2ª ora: prevenzione e protezione (studio della lezione ufficiale; quiz su Moduli). Sul registro (h 1, bloccato) il titolo è «Organizzazione della prevenzione aziendale…» | sito ufficiale 2-ora, quiz 2ª ora | Sicurezza sul lavoro |
+| 16/10/2026 | Sicurezza sul lavoro (Regione), 3ª ora: organizzazione della prevenzione aziendale (video e slide ufficiali). Registro h 1 | sito ufficiale 3-ora | Sicurezza sul lavoro |
+| 21/10/2026 | Sicurezza sul lavoro (Regione), 4ª ora: diritti, doveri, sanzioni e organi di vigilanza; quiz di 20 casi su Moduli; recupero dei quiz delle ore 1-3 (tutti devono avere le 4 ore). Sul registro (h 4) il titolo è «Sicurezza: organizzazione prevenzione» | sito ufficiale 4-ora, quiz 4ª ora, `strumenti/sicurezza_2inf.py` | Sicurezza sul lavoro |
 
 ## 4. Classe 3 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
@@ -54,6 +57,8 @@ rifiniscono man mano confrontando con l'Allegato A.*
 4. `PIANO-ORE-LEZIONE` — il piano ora-per-ora (previsto), da confrontare con lo svolto.
 
 ## 6. Changelog
+
+1. **v0.6 (21/10/2026)**: Classe 2 — corso sicurezza della Regione, ore 2, 3 e 4 con la corrispondenza alle ore del registro (titoli bloccati).
 5. **v0.5 (19/10/2026)**: 2INF ciclo FOR seconda parte (programma Contatore); 3INF sito portfolio con verifica e recupero.
 4. **v0.4 (12/10/2026)**: lezione del 12/10 di Classe 2 (2INF) e Classe 3 (3INF): versioning, Agile, Pull Request, backlog, versioni del gioco.
 3. **v0.3 (01/10/2026)**: Classe 1 — bit/byte e conversione binario→decimale + esercitazione; Classe 2 — Lazarus convertitore temperature e Sicurezza modulo 1 (rischio/danno) con quiz e test aperto.
