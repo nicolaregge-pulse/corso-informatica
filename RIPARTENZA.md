@@ -25,7 +25,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 2. **Coda** `coda/*.json` (stato `da-pubblicare` → compito su Classroom) e **ponte** `comandi/*.json` (stato `da-eseguire`: `forms.crea_quiz`, `forms.risposte`, `drive.esporta`, `classroom.compiti`, `classroom.consegne`, `classroom.annuncio`, `classroom.annuncio_cancella`).
 3. ID dei corsi: 1INF 877008807336 · 2INF 162656105584 · 3INF 25324574640 · 4TI 25324465949.
 4. Foglio «Arrivi verifiche»: `1hpyJGHZpwDW7Y4ZwajtB_Qzr9AHc29Q_esgHr8NqJs8`.
-5. **Se lo script è fermo:** piano B `docs/prof-pubblica/` (generatore `strumenti/gen_pianob.py AAAA-MM-GG`), piano C il testo da copiare. Per aggiornare lo script: codice dal link pubblico (`strumenti/automazione-corso.gs` su raw.githubusercontent), Ctrl+A, Ctrl+V, Ctrl+S, poi Esegui il deployment → Gestisci deployment → matita → Nuova versione → Esegui il deployment.
+5. **Se lo script è fermo:** piano B `docs/prof-pubblica/` (generatore `strumenti/gen_pianob.py AAAA-MM-GG`), piano C il testo da copiare. **Per aggiornare lo script, SEMPRE in questo ordine (REGISTRO-ERRORI #50, #57, #101: la seconda copia cancella la prima):** 1) Ctrl+T, `https://script.google.com/home`, progetto «Consegne Classroom → Git», file «automazione-corso.gs»; 2) Ctrl+T, il link pubblico `https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strumenti/automazione-corso.gs`; 3) Ctrl+A, Ctrl+C; 4) tornare alla scheda di Apps Script, clic nel codice, Ctrl+A, Ctrl+V, Ctrl+S; 5) Esegui il deployment → Gestisci deployment → matita → Nuova versione → Esegui il deployment. Nessun riquadro da copiare tra il punto 3 e il punto 4.
 
 ## 04 Come si fa una lezione (deciso il 21/10)
 
