@@ -24,8 +24,8 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <h1 id="tit">Cruscotto della lezione</h1>
 <div class="mu" id="stato">—</div>
 <div class="kpi" id="kpi"></div>
-<table><thead><tr><th>#</th><th>Allievo</th><th>Teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
-<p class="mu">Voto proposto = media dei voti che ci sono (esercizi e quiz), ognuno da 40 a 80; chi non ha consegnato niente: 40. Teoria e ripasso non fanno voto: dicono se sta lavorando. Ordine: dal voto più alto. Riga gialla = fermo da più di 5 minuti.</p>
+<table><thead><tr><th>#</th><th>Allievo</th><th>Teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Domande orali (70/50)</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
+<p class="mu">Voto proposto = media dei voti che ci sono (esercizi, quiz e domande orali: risposta secca giusta 70, sbagliata 50), ognuno da 40 a 80; chi non ha consegnato niente: 40. Teoria e ripasso non fanno voto: dicono se sta lavorando. Ordine: dal voto più alto. Riga gialla = fermo da più di 5 minuti.</p>
 </div></div>
 <script>
 // CRUSCOTTO UNICO (21/10/2026, Nicola): in una sola pagina tutte le attività della lezione.
@@ -53,13 +53,14 @@ async function giro(){
  ((DT.righe)||[]).forEach(function(r){var x=trova(r.nome);x.teo=r.teoria;x.ult=r.ultimo});
  ((DE.righe)||[]).forEach(function(r){var x=trova(r.nome);x.ese=r;if((r.ultimo||'')>(x.ult||''))x.ult=r.ultimo});
  if(Q&&Q.quiz)for(var k in Q.quiz){trova(k).quiz=Q.quiz[k]}
- per.forEach(function(x){var v=[];if(x.ese&&x.ese.quiz)v.push(40+40*x.ese.quiz.giusti/10);if(x.quiz)v.push(40+40*x.quiz.punti/x.quiz.max);x.voto=v.length?Math.round(v.reduce(function(s,y){return s+y},0)/v.length):40;x.nv=v.length});
+ if(Q&&Q.orali)for(var k2 in Q.orali){trova(k2).orali=Q.orali[k2]}
+ per.forEach(function(x){var v=[];if(x.ese&&x.ese.quiz)v.push(40+40*x.ese.quiz.giusti/10);if(x.quiz)v.push(40+40*x.quiz.punti/x.quiz.max);(x.orali||[]).forEach(function(o){v.push(o)});x.voto=v.length?Math.round(v.reduce(function(s,y){return s+y},0)/v.length):40;x.nv=v.length});
  per.sort(function(a,b){return b.voto-a.voto||(b.nv-a.nv)});
  $('righe').innerHTML=per.map(function(x,i){var t=x.teo,e=x.ese,q=x.quiz;
   var ct=t?'scheda <b>'+t.scheda+'/'+t.totale+'</b> · '+(t.risposte||0)+' risposte<div class="bar"><i style="width:'+Math.round(100*t.scheda/(t.totale||1))+'%"></i></div>':'<span class="mu">non aperta</span>';
   var ce=e?((e.teoria?'passo <b>'+e.teoria.scheda+'/'+e.teoria.totale+'</b> · ':'')+(e.quiz?'<span class="'+(e.quiz.giusti>=6?'ok':'ko')+'">'+e.quiz.giusti+' giusti su '+e.quiz.su+' fatti</span> → '+Math.round(40+40*e.quiz.giusti/10):'percorso guidato')+'<div class="bar"><i style="width:'+Math.round(100*((e.teoria&&e.teoria.scheda)||0)/14)+'%"></i></div>'):'<span class="mu">non iniziati</span>';
   var cq=q?'<span class="'+(q.punti/q.max>=0.6?'ok':'ko')+'">'+q.punti+'/'+q.max+'</span> → '+Math.round(40+40*q.punti/q.max)+' <span class="mu">('+ora(q.ora)+')</span>':'<span class="mu">non fatto</span>';
-  return '<tr class="'+(fermo(x.ult)?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b><div class="mu">'+(x.ult?'ultimo segnale '+ora(x.ult):'nessun segnale')+'</div></td><td>'+ct+'</td><td>'+ce+'</td><td>'+cq+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
+  return '<tr class="'+(fermo(x.ult)?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b><div class="mu">'+(x.ult?'ultimo segnale '+ora(x.ult):'nessun segnale')+'</div></td><td>'+ct+'</td><td>'+ce+'</td><td>'+cq+'</td><td>'+((x.orali&&x.orali.length)?x.orali.map(function(o){return '<span class="'+(o>=70?'ok':'ko')+'">'+o+'</span>'}).join(' '):'<span class="mu">—</span>')+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
  var n=per.length,qq=per.filter(function(x){return x.quiz}).length,ee=per.filter(function(x){return x.ese&&x.ese.quiz&&x.ese.quiz.su>=10}).length,tt=per.filter(function(x){return x.teo}).length;
  $('kpi').innerHTML='<div class="k"><b>'+n+'</b>allievi</div><div class="k"><b>'+tt+'</b>sulla teoria</div><div class="k"><b>'+ee+'</b>esercizi finiti</div><div class="k"><b>'+qq+'</b>quiz consegnati</div>';
  $('stato').textContent='Si aggiorna da solo ogni 20 secondi · teoria e esercizi dal vivo dallo script · quiz Moduli letto ogni 3 minuti'+(Q&&Q.ora?' (ultima lettura '+Q.ora+')':'')+' · '+new Date().toLocaleTimeString('it-IT');
