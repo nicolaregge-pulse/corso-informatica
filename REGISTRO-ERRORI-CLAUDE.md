@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.64** — 21/10/2026
+**Versione 2.65** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Scadenza del compito dopo la campanella (#97)
+
+1. **Errore:** il quiz della 1INF è stato pubblicato con la consegna alle 10:58, ma la 3ª ora finisce alle 10:50 e poi c'è l'intervallo. Nicola l'ha cambiata a mano in 10:50.
+2. **Correzione:** le scadenze si fissano SEMPRE sulle campanelle vere (RIFERIMENTI §1.10): 08:55 · 09:55 · 10:50 · intervallo · 11:10 · 12:05 · 13:05 · 14:00.
+3. **Regola:** prima di pubblicare, controllo che la scadenza cada dentro l'ora giusta della classe, sulla campanella della sua ultima ora (es. 1INF 8-11 → 10:50; 2INF 11-12 → 12:05; 3INF 12-14 → 14:00).
 
 ## 21/10/2026 — Firma ricordata su ore già firmate (#96)
 
