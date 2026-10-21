@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Test di orientamento</title>
+<style>
+/* Una schermata alla volta: inizio, quattro blocchi con timer, pausa, risultati. Nessun dato esce dalla pagina. */
+:root{--bg:#f3f6f8;--surface:#ffffff;--ink:#16202a;--muted:#5a6878;--line:#d5dde5;--accent:#0b6e99;--accent-ink:#ffffff;
+  --ok:#1f7a3f;--ok-bg:#e3f4e8;--warn:#9a5b00;--warn-bg:#fdf1dc;--bad:#b3261e;--bad-bg:#fbe7e5;--wall:#5a6878;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;
+  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--bad-bg:#3a1a18;--wall:#93a3b3;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;
+  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--bad-bg:#3a1a18;--wall:#93a3b3;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html,body{background:var(--bg);color:var(--ink)}
+body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 56px;display:flex;flex-direction:column;gap:16px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;font-size:20px;padding:4px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.timer.fine{color:var(--warn);background:var(--warn-bg);border-color:var(--warn)}
+h1{margin:0;font-size:clamp(26px,5vw,34px);line-height:1.15}
+h2{margin:0 0 4px;font-size:22px}
+.lead{margin:0;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.q p{margin:0 0 10px;font-weight:600}
+.opts{display:grid;gap:8px}
+.opts label{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+.opts input{width:20px;height:20px;accent-color:var(--accent)}
+.opts label:has(input:checked){border-color:var(--accent);outline:2px solid var(--accent)}
+.scala{display:flex;flex-wrap:wrap;gap:6px}
+.scala label{flex:1 1 90px;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14px}
+.scala input{display:block;margin:0 auto 4px;accent-color:var(--accent)}
+.scala label:has(input:checked){border-color:var(--accent);outline:2px solid var(--accent)}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 16px;min-height:44px}
+button.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.azioni{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
+.grid{display:grid;gap:4px;margin:10px 0;max-width:340px}
+.cell{aspect-ratio:1;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--bg)}
+.cell.wall{background:var(--wall);border-color:var(--wall)}
+.blocchi{display:flex;gap:8px;flex-wrap:wrap}
+.blocchi button{font-size:20px;min-width:56px}
+.prog{display:flex;flex-wrap:wrap;gap:6px;min-height:48px;padding:8px;border:2px dashed var(--line);border-radius:10px;margin:10px 0}
+.prog span{background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:4px 10px;font-weight:700}
+.prog span.now{outline:3px solid var(--warn)}
+.msg{margin:8px 0 0;font-weight:600}
+.msg.ok{color:var(--ok)}.msg.bad{color:var(--bad)}
+.barra{height:14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.barra i{display:block;height:100%;background:var(--accent)}
+.area{display:grid;gap:6px}
+.area .riga{display:flex;justify-content:space-between;gap:10px;font-weight:600}
+.tag{font-size:13px;padding:2px 10px;border-radius:999px;font-weight:600}
+.tag.forte{background:var(--ok-bg);color:var(--ok)}.tag.cresce{background:var(--warn-bg);color:var(--warn)}.tag.allena{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
+.piccolo{font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script src="banca-orientamento-v1.0.js"></script>
+<script>
+(function () {
+  var B = window.BANCA_ORIENTAMENTO, app = document.getElementById('app');
+  var punti = {}, motivazione = [], timerId = null, passo = 0;
+  // Ordine delle schermate: inizio, blocchi 1-2, pausa, blocchi 3-4, risultati
+  var schermate = ['inizio', 0, 1, 'pausa', 2, 3, 'fine'];
+
+  function mescola(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function el(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function avvia(minuti, box) {
+    clearInterval(timerId);
+    var fine = Date.now() + minuti * 60000;
+    function tic() {
+      var s = Math.max(0, Math.round((fine - Date.now()) / 1000));
+      box.textContent = '⏱ ' + Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+      if (!s) { box.classList.add('fine'); box.textContent = 'Tempo finito: completa e vai avanti'; clearInterval(timerId); }
+    }
+    tic(); timerId = setInterval(tic, 1000);
+  }
+
+  function avanti() { passo++; mostra(); window.scrollTo(0, 0); }
+
+  function mostra() {
+    clearInterval(timerId); app.innerHTML = '';
+    var s = schermate[passo];
+    if (s === 'inizio') return inizio();
+    if (s === 'pausa') return pausa();
+    if (s === 'fine') return risultati();
+    blocco(B.blocchi[s], s);
+  }
+
+  function inizio() {
+    app.appendChild(el('<div><div class="eyebrow">Corsi di informatica · versione ' + B.versione + '</div><h1>Test di orientamento</h1><p class="lead">Scopri se l\'informatica fa per te. Dura circa un\'ora. Non è un compito in classe: non ci sono voti.</p></div>'));
+    var passi = B.blocchi.map(function (b, i) { return '<li><b>' + esc(b.titolo) + '</b>, ' + b.minuti + ' minuti</li>'; });
+    passi.splice(2, 0, '<li>Pausa, 5 minuti</li>');
+    app.appendChild(el('<div class="card"><h2>Come funziona</h2><ol class="passi">' + passi.join('') + '</ol>' +
+      '<p class="piccolo">In alto vedi il tempo che resta. Quando finisce, completa la domanda e vai avanti. Alla fine vedi i tuoi risultati e il tuo profilo. Non scriviamo il tuo nome e non salviamo niente: tutto resta su questo computer.</p></div>'));
+    var b = el('<div class="azioni"><button class="main">Inizia il test</button></div>');
+    b.querySelector('button').onclick = avanti; app.appendChild(b);
+  }
+
+  function pausa() {
+    app.appendChild(el('<div><div class="eyebrow">Metà del test</div><h1>Pausa</h1><p class="lead">Bravo, hai finito logica e matematica. Riposati 5 minuti. Quando sei pronto, vai avanti con la parte al computer.</p></div>'));
+    var t = el('<div class="top"><span class="timer"></span></div>'); app.appendChild(t); avvia(5, t.querySelector('.timer'));
+    var b = el('<div class="azioni"><button class="main">Sono pronto: avanti</button></div>');
+    b.querySelector('button').onclick = avanti; app.appendChild(b);
+  }
+
+  function domande(lista, nome) {
+    var box = el('<div style="display:grid;gap:12px"></div>');
+    lista.forEach(function (d, i) {
+      var opts = mescola([d[1]].concat(d[2])).map(function (o) {
+        return '<label><input type="radio" name="' + nome + i + '" value="' + esc(o) + '">' + esc(o) + '</label>'; }).join('');
+      box.appendChild(el('<div class="card q"><p>' + (i + 1) + '. ' + esc(d[0]) + '</p><div class="opts">' + opts + '</div></div>'));
+    });
+    return box;
+  }
+  function conta(lista, nome) {
+    var giuste = 0;
+    lista.forEach(function (d, i) { var c = app.querySelector('input[name="' + nome + i + '"]:checked'); if (c && c.value === d[1]) giuste++; });
+    return giuste / lista.length;
+  }
+
+  function blocco(b, n) {
+    var t = el('<div class="top"><div class="eyebrow">Parte ' + (n + 1) + ' di ' + B.blocchi.length + '</div><span class="timer"></span></div>');
+    app.appendChild(t);
+    app.appendChild(el('<div><h1>' + esc(b.titolo) + '</h1><p class="lead">' + esc(b.intro) + '</p></div>'));
+    avvia(b.minuti, t.querySelector('.timer'));
+    var robotFatti = { n: 0 };
+    if (b.robot) app.appendChild(robot(b.robot, robotFatti));
+    if (b.domande) app.appendChild(domande(b.domande, b.id));
+    if (b.frasi) {
+      b.frasi.forEach(function (f, i) {
+        var sc = b.scala.map(function (v, k) { return '<label><input type="radio" name="mot' + i + '" value="' + (k + 1) + '">' + esc(v) + '</label>'; }).join('');
+        app.appendChild(el('<div class="card q"><p>' + esc(f) + '</p><div class="scala">' + sc + '</div></div>'));
+      });
+    }
+    var ultimo = n === B.blocchi.length - 1;
+    var az = el('<div class="azioni"><button class="main">' + (ultimo ? 'Vedi i miei risultati' : 'Ho finito: avanti') + '</button></div>');
+    az.querySelector('button').onclick = function () {
+      if (b.frasi) {
+        motivazione = b.frasi.map(function (f, i) { var c = app.querySelector('input[name="mot' + i + '"]:checked'); return c ? +c.value : 3; });
+        punti[b.id] = motivazione.reduce(function (a, v) { return a + v; }, 0) / (motivazione.length * 5);
+      } else if (b.robot) {
+        punti[b.id] = 0.5 * robotFatti.n / b.robot.length + 0.5 * conta(b.domande, b.id);
+      } else punti[b.id] = conta(b.domande, b.id);
+      avanti();
+    };
+    app.appendChild(az);
+  }
+
+  // Il robot a blocchi: si costruisce il programma con le frecce, poi «Esegui»
+  function robot(livelli, fatti) {
+    var card = el('<div class="card"><h2>Il robot a blocchi</h2><p class="piccolo">Premi le frecce per mettere i blocchi in fila, poi premi «Esegui». Il robot 🤖 deve arrivare alla bandiera 🏁 senza toccare i muri grigi.</p>' +
+      '<div class="eyebrow liv"></div><div class="grid"></div>' +
+      '<div class="blocchi"><button data-m="su">⬆️</button><button data-m="giu">⬇️</button><button data-m="sx">⬅️</button><button data-m="dx">➡️</button></div>' +
+      '<div class="prog"></div><div class="azioni"><button class="togli">Togli l\'ultimo</button><button class="svuota">Svuota</button><button class="main esegui">Esegui</button></div><p class="msg"></p></div>');
+    var L = 0, prog = [], pos, mappa, corre = false;
+    var DIR = { su: [-1, 0], giu: [1, 0], sx: [0, -1], dx: [0, 1] }, ICO = { su: '⬆️', giu: '⬇️', sx: '⬅️', dx: '➡️' };
+    var grid = card.querySelector('.grid'), pr = card.querySelector('.prog'), msg = card.querySelector('.msg');
+    function carica() {
+      mappa = livelli[L].righe.map(function (r) { return r.split(''); });
+      mappa.forEach(function (r, i) { r.forEach(function (c, j) { if (c === 'R') pos = [i, j]; }); });
+      prog = []; card.querySelector('.liv').textContent = livelli[L].nome + ' di ' + livelli.length; msg.textContent = ''; msg.className = 'msg'; disegna();
+    }
+    function disegna(attivo) {
+      grid.style.gridTemplateColumns = 'repeat(' + mappa[0].length + ',1fr)';
+      grid.innerHTML = '';
+      mappa.forEach(function (r, i) { r.forEach(function (c, j) {
+        var d = document.createElement('div'); d.className = 'cell' + (c === '#' ? ' wall' : '');
+        d.textContent = (pos[0] === i && pos[1] === j) ? '🤖' : (c === 'B' ? '🏁' : ''); grid.appendChild(d); }); });
+      pr.innerHTML = prog.length ? prog.map(function (m, k) { return '<span' + (k === attivo ? ' class="now"' : '') + '>' + ICO[m] + '</span>'; }).join('') : '<span class="piccolo" style="background:none;color:var(--muted)">I tuoi blocchi compaiono qui</span>';
+    }
+    card.querySelectorAll('.blocchi button').forEach(function (b) { b.onclick = function () { if (!corre && prog.length < 20) { prog.push(b.dataset.m); disegna(); } }; });
+    card.querySelector('.togli').onclick = function () { if (!corre) { prog.pop(); disegna(); } };
+    card.querySelector('.svuota').onclick = function () { if (!corre) { prog = []; disegna(); } };
+    card.querySelector('.esegui').onclick = function () {
+      if (corre || !prog.length) return;
+      corre = true; var k = 0, start = pos.slice();
+      (function step() {
+        if (k === prog.length) { fine(mappa[pos[0]][pos[1]] === 'B' ? null : 'Il robot non è arrivato alla bandiera. Riprova!'); return; }
+        var d = DIR[prog[k]], ni = pos[0] + d[0], nj = pos[1] + d[1];
+        if (ni < 0 || nj < 0 || ni >= mappa.length || nj >= mappa[0].length || mappa[ni][nj] === '#') { disegna(k); fine('Ops, il robot ha sbattuto. Cambia i blocchi e riprova!'); return; }
+        pos = [ni, nj]; disegna(k); k++; setTimeout(step, 400);
+      })();
+      function fine(errore) {
+        corre = false;
+        if (errore) { msg.textContent = errore; msg.className = 'msg bad'; pos = start; setTimeout(function () { disegna(); }, 900); return; }
+        fatti.n = Math.max(fatti.n, L + 1);
+        if (L < livelli.length - 1) { msg.textContent = 'Bravo, ce l\'hai fatta! Ecco il livello dopo.'; msg.className = 'msg ok'; setTimeout(function () { L++; carica(); }, 1300); }
+        else { msg.textContent = 'Fantastico: hai finito tutti i livelli! Ora rispondi alle domande qui sotto.'; msg.className = 'msg ok'; }
+      }
+    };
+    carica();
+    return card;
+  }
+
+  function fascia(p) { return p >= 0.7 ? ['forte', 'punto di forza'] : p >= 0.4 ? ['cresce', 'in crescita'] : ['allena', 'da allenare']; }
+
+  function risultati() {
+    app.appendChild(el('<div><div class="eyebrow">Test finito</div><h1>I tuoi risultati</h1><p class="lead">Bravo, sei arrivato in fondo. Ecco come sei andato in ogni parte. Non è un voto: è una fotografia di oggi.</p></div>'));
+    var c = el('<div class="card area"></div>');
+    B.blocchi.forEach(function (b) {
+      var p = punti[b.id] || 0, f = fascia(p);
+      c.appendChild(el('<div><div class="riga"><span>' + esc(b.titolo) + '</span><span class="tag ' + f[0] + '">' + f[1] + '</span></div><div class="barra"><i style="width:' + Math.round(p * 100) + '%"></i></div></div>'));
+    });
+    app.appendChild(c);
+    var lo = punti.logica || 0, ma = punti.matematica || 0, inf = punti.informatica || 0, mo = punti.motivazione || 0;
+    var testo = [];
+    if (mo >= 0.7) testo.push('Hai tanta voglia di creare e di capire come funzionano le cose: è la cosa più importante per studiare informatica.');
+    else if (mo >= 0.5) testo.push('La curiosità per l\'informatica c\'è: con progetti pratici, come giochi e siti, può crescere molto.');
+    else testo.push('Forse l\'informatica non è ancora la tua passione: prova una lezione da noi e scopri se ti piace creare qualcosa di tuo.');
+    if (inf >= 0.6) testo.push('Con il robot e le domande al computer te la sei cavata bene: hai il modo di ragionare di chi programma.');
+    else testo.push('La parte al computer si impara facendo: nei nostri corsi si parte da zero, un passo alla volta.');
+    if (lo >= 0.6 || ma >= 0.6) testo.push('Logica e matematica sono una buona base per i nostri corsi.');
+    else testo.push('Logica e matematica si allenano: nei nostri laboratori le usi per costruire cose vere, non solo per fare esercizi.');
+    var strade = [];
+    if (motivazione[3] >= 4) strade.push('creare videogiochi, siti e app (programmazione)');
+    if (motivazione[4] >= 4) strade.push('montare e riparare computer e reti (tecnico hardware e reti)');
+    if (motivazione[5] >= 4) strade.push('lavorare in squadra su un progetto, come in un\'azienda');
+    if (strade.length) testo.push('Ti potrebbe piacere: ' + strade.join('; ') + '.');
+    app.appendChild(el('<div class="card"><h2>Il tuo profilo</h2>' + testo.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
+      '<p class="piccolo">Parlane con il professore: ti può spiegare che cosa si fa nei nostri corsi di informatica. Niente di questo è stato salvato.</p></div>'));
+    var b = el('<div class="azioni"><button>Ricomincia da capo (per il prossimo ragazzo)</button></div>');
+    b.querySelector('button').onclick = function () { punti = {}; motivazione = []; passo = 0; mostra(); window.scrollTo(0, 0); };
+    app.appendChild(b);
+  }
+
+  mostra();
+})();
+</script>
+</body>
+</html>
