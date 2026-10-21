@@ -27,6 +27,9 @@ for f in sorted(glob.glob(RIS + "/*/*.md")):
             continue
         u = {"classe": classe, "data": data, "ora": ora, "nome": nome, "tipo": tipo}
         righe.append(u); aperte[nome] = u
+    # 21/10/2026 (Nicola): se il rientro non è segnato, valgono 2 minuti (stimati)
+    for u in aperte.values():
+        u["minuti"] = 2; u["stimati"] = True
 out = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "avanzamento", "uscite.json")
 scrivi(out, {"uscite": righe})
 print(len(righe), "uscite")
