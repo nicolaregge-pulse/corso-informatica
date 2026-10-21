@@ -16,7 +16,7 @@ th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical
 .bar{height:8px;background:#e6eaf0;border-radius:4px;overflow:hidden;min-width:80px;margin-top:3px}.bar i{display:block;height:100%;background:var(--acc)}
 .ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:18px;font-weight:800}.fermo{background:#fff6e5}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
-.th{width:150px;border-radius:6px;border:1px solid var(--ln);display:block}.al{font-family:monospace;font-size:12px;white-space:pre-wrap}.chk span{display:inline-block;margin:1px 4px 1px 0}
+.th{width:150px;border-radius:6px;border:1px solid var(--ln);display:block}.al{font-family:monospace;font-size:12px;white-space:pre-wrap}.cp{background:#fff;border-radius:12px;padding:10px 12px;min-width:250px;flex:1;font-size:14px}.cp b.t{font-size:16px}.chk span{display:inline-block;margin:1px 4px 1px 0}
 </style>
 </head>
 <body><div class="w">
@@ -25,6 +25,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <h1>Cruscotto 3INF · il sito in ordine, più bello, e lavoro in coppia</h1>
 <div class="mu" id="stato">—</div>
 <div class="kpi" id="kpi"></div>
+<h2 style="font-size:20px;margin:14px 0 6px">Il lavoro in coppia</h2><div id="coppie" class="kpi"></div>
 <table><thead><tr><th>#</th><th>Allievo</th><th>Il sito (miniatura della home)</th><th>Albero e controlli</th><th>Versione, rami, Pull Request, merge</th><th>Schede della lezione</th><th>Quiz su Moduli</th><th>Veyon e note</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
 <p class="mu">Voto proposto = 40 + 40 × punti/8. Un punto per: albero in ordine (i 4 file, nomi giusti), cartella img, sfondo, animazione, numero di versione, Pull Request del compagno accettata con merge sul proprio sito, contributo sul sito del compagno; più il quiz (fino a 1 punto). 🏁 = ha fatto tutto. «manca: …» dice il passo successivo. Veyon: rosso = fuori compito. Riga gialla = nessun commit e nessun segnale da più di 10 minuti. Ordine: dal voto più alto.</p>
 </div></div>
@@ -69,6 +70,15 @@ async function giro(){
   var cq=q?'<span class="'+(q.punti/q.max>=0.6?'ok':'ko')+'">'+q.punti+'/'+q.max+'</span> → '+Math.round(40+40*q.punti/q.max)+' <span class="mu">('+ora(q.ora)+')</span>':'<span class="mu">non fatto</span>';
   var fermo=!(s.commit_oggi)&&!(x.ult&&(Date.now()-new Date(x.ult).getTime())<600000);
   return '<tr class="'+(fermo?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b>'+(x.manca.length?'<div class="ko">manca: '+esc(x.manca.slice(0,3).join(', '))+'</div>':' 🏁')+'</td><td>'+th+'</td><td>'+al+'</td><td>'+gv+'</td><td>'+ct+'</td><td>'+cq+'</td><td>'+vyHtml(x)+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
+ var CP=(Q&&Q.coppie)||[];function sx(k){return per.filter(function(p){return p.nome.toUpperCase().indexOf(k)===0})[0]}
+ $('coppie').innerHTML=CP.map(function(c){var mem=c.map(sx).filter(Boolean),fase=0,txt=[];
+  mem.forEach(function(m){var s=m.s||{},r=(s.rami||[]).filter(function(x){return x!=='main'});
+   var riga='<b>'+esc(m.nome.split(' ')[0])+'</b>: ';if(!s.albero){riga+='<span class="ko">nessun sito</span>'}else{
+    riga+=(s.pr&&s.pr.length?'<span class="ok">'+s.pr.length+' Pull Request ricevut'+(s.pr.length>1?'e':'a')+'</span>':'0 Pull Request ricevute')+' · '+(s.merge_oggi?'<span class="ok">merge '+s.merge_oggi+'</span>':'nessun merge')+(r.length?' · rami: '+esc(r.join(', ')):'')+((s.contributi||[]).length?' · <span class="ok">ha lavorato sul sito di '+esc(s.contributi.map(function(z){return z.split(' ')[0]}).join(', '))+'</span>':'');
+    fase=Math.max(fase,s.merge_oggi?3:(s.pr&&s.pr.length?2:(r.length||(s.contributi||[]).length?1:0)))}
+   txt.push(riga)});
+  var F=['🔴 non ha ancora iniziato la Pull Request','🟡 ramo creato, manca la Pull Request','🟠 Pull Request aperta, manca il merge','🟢 merge fatto'];
+  return '<div class="cp"><b class="t">'+esc(mem.map(function(m){return m.nome.split(' ')[0]}).join(' + ')||c.join(' + '))+'</b><div>'+F[fase]+'</div>'+txt.map(function(t){return '<div>'+t+'</div>'}).join('')+'</div>'}).join('');
  var n=per.length,f=function(fn){return per.filter(fn).length};
  $('kpi').innerHTML='<div class="k"><b>'+n+'</b>allievi</div><div class="k"><b>'+f(function(x){return x.s&&x.s.albero&&!(x.s.mancano||[]).length})+'</b>albero in ordine</div><div class="k"><b>'+f(function(x){return x.s&&x.s.sfondo})+'</b>con lo sfondo</div><div class="k"><b>'+f(function(x){return x.s&&x.s.animazione})+'</b>con l\'animazione</div><div class="k"><b>'+f(function(x){return x.s&&(x.s.pr||[]).length})+'</b>con Pull Request</div><div class="k"><b>'+f(function(x){return x.s&&x.s.merge_oggi})+'</b>merge oggi</div><div class="k"><b>'+f(function(x){return x.quiz})+'</b>quiz</div>';
  $('stato').textContent='Si aggiorna da solo ogni 20 secondi · siti, albero, versioni e miniature riletti da GitHub ogni 3 minuti'+(Q&&Q.ora?' (ultima lettura '+Q.ora+')':'')+' · '+new Date().toLocaleTimeString('it-IT');
