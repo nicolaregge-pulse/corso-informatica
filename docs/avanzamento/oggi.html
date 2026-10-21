@@ -49,14 +49,14 @@ async function giro(){
  var a=await live(TEO),b=await live(ESE);Q=await getJ('../avanzamento/'+QZ+'.json')||Q;V=await getJ('../avanzamento/'+VY+'.json')||V;
  if(a&&a.errore==='codice'){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';return}
  if(a&&a.ok)DT=a;if(b&&b.ok)DE=b;
- var per=[];function trova(n){for(var i=0;i<per.length;i++)if(stesso(per[i].nome,n))return per[i];var x={nome:n};per.push(x);return x}
+ var per=[];function trova(n){var t=tok(n),best=null,bs=0;for(var i=0;i<per.length;i++){var u=tok(per[i].nome),sc=t.filter(function(z){return u.indexOf(z)>=0}).length;if(sc>bs){bs=sc;best=per[i]}}if(best&&(bs>=2||t.length<2||tok(best.nome).length<2||bs===Math.min(t.length,tok(best.nome).length)))return best;var x={nome:n};per.push(x);return x}
  ((Q&&Q.presenti)||[]).forEach(function(n){trova(n)});
  ((DT.righe)||[]).forEach(function(r){var x=trova(r.nome);x.teo=r.teoria;x.ult=r.ultimo});
  ((DE.righe)||[]).forEach(function(r){var x=trova(r.nome);x.ese=r;if((r.ultimo||'')>(x.ult||''))x.ult=r.ultimo});
  if(Q&&Q.quiz)for(var k in Q.quiz){trova(k).quiz=Q.quiz[k]}
  if(Q&&Q.orali)for(var k2 in Q.orali){trova(k2).orali=Q.orali[k2]}
  if(V&&V.veyon)for(var k3 in V.veyon){trova(k3).vy=V.veyon[k3]}
- if(V&&V.note)for(var k4 in V.note){trova(k4).note=V.note[k4]}
+ if(V&&V.note)for(var k4 in V.note){if(/^PC\d/.test(k4))continue;trova(k4).note=V.note[k4]}
  per.forEach(function(x){var v=[];if(x.ese&&x.ese.quiz)v.push(40+40*x.ese.quiz.giusti/10);if(x.quiz)v.push(40+40*x.quiz.punti/x.quiz.max);(x.orali||[]).forEach(function(o){v.push(o)});x.voto=v.length?Math.round(v.reduce(function(s,y){return s+y},0)/v.length):40;x.nv=v.length});
  per.sort(function(a,b){return b.voto-a.voto||(b.nv-a.nv)});
  $('righe').innerHTML=per.map(function(x,i){var t=x.teo,e=x.ese,q=x.quiz;
