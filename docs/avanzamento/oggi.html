@@ -38,7 +38,9 @@ function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[̀
 function stesso(a,b){var x=tok(a),y=tok(b);return x.some(function(t){return y.indexOf(t)>=0})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 var _kc=null;async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
-async function getJ(u){try{var r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return null;var d=await r.json();if(!d.cifrato)return d;var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}catch(e){return null}}
+// 21/10: i dati si leggono direttamente da GitHub (raw), senza aspettare la pubblicazione del sito (che con tanti aggiornamenti arriva in ritardo)
+var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/';
+async function getJ(u){try{var r=null;var f=u.split('/').pop();try{r=await fetch(RAW+f+'?t='+Date.now(),{cache:'no-store'});}catch(e){r=null}if(!r||!r.ok)r=await fetch(u+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return null;var d=await r.json();if(!d.cifrato)return d;var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}catch(e){return null}}
 function live(id){return new Promise(function(ok){var cb='cu'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(e){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
