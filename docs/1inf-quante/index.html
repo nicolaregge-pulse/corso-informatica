@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quante ce ne stanno?</title>
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--fg:#1b2430;--mu:#5c6672;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b;--gi:#ffcf4a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.5}
+.w{max-width:820px;margin:0 auto;padding:16px}h1{margin:4px 0;font-size:28px}h2{margin:0 0 8px;font-size:21px}
+.mu{color:var(--mu)}.t3{display:block;color:var(--mu);font-size:.92em}
+.card{background:var(--card);border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 1px 3px #0002}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0}
+input{font-size:18px;padding:8px 10px;border-radius:9px;border:1px solid #bbb;width:170px}
+button{font-size:17px;font-weight:700;padding:9px 16px;border-radius:10px;border:0;background:var(--acc);color:#fff;cursor:pointer}
+button.sec{background:#e9edf3;color:var(--fg)}
+.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}
+.passi{display:flex;gap:4px;flex-wrap:wrap;margin:8px 0}.passi i{width:22px;height:10px;border-radius:5px;background:#d5dbe3}.passi i.f{background:var(--ok)}.passi i.c{background:var(--gi)}
+.scatole{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}.sc{border:2px solid var(--acc);border-radius:8px;padding:4px;display:flex;gap:2px;flex-wrap:wrap;width:86px;min-height:34px}
+.sc b{width:14px;height:14px;border-radius:3px;background:var(--gi);display:inline-block;animation:entra .3s ease both}@keyframes entra{from{transform:scale(0)}to{transform:scale(1)}}
+.resto b{background:#e74c3c}.conto{font-family:Consolas,monospace;background:#f6f8fa;padding:8px 10px;border-radius:8px;font-size:17px}
+.voto{position:sticky;top:0;z-index:2;background:var(--gi);font-weight:800;padding:8px 12px;border-radius:0 0 12px 12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="voto" id="barra">Scrivi il tuo nome per cominciare</div>
+<div class="w">
+<h1>Quante ce ne stanno?</h1>
+<div class="mu">Impari a calcolare quante foto, canzoni o film ci stanno in un telefono, in una chiavetta o in un disco. Prima un percorso guidato, poi 10 esercizi tutti tuoi, con numeri diversi da quelli dei compagni.
+<span class="t3" lang="ar" dir="rtl">تتعلم حساب كم صورة أو أغنية أو فيلم تتسع في هاتف أو ذاكرة. أولًا مسار موجَّه، ثم ١٠ تمارين خاصة بك.</span>
+<span class="t3" lang="zh">学会计算手机或U盘能放多少照片、歌曲或电影。先跟着引导走，再做 10 道属于你的练习题。</span></div>
+<div class="card" id="inizio"><div class="row"><input id="nome" placeholder="Nome e cognome" style="width:260px"><button id="parti">Comincia</button></div>
+<div class="mu">Il prof vede dal suo monitor a che punto sei e il tuo voto. <span lang="ar" dir="rtl">الأستاذ يرى تقدمك.</span> · <span lang="zh">老师能看到你的进度。</span></div></div>
+<div class="passi" id="passi"></div>
+<div id="zona"></div>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)},CONF={},NOME='',ID='1inf-quante-v1',PASSO=0,RIS=[],RNG;
+var GUIDATI=4,NES=10,TOT=GUIDATI+NES;
+function prendi(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(x){return null}}
+function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
+fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){CONF=c||{}}).catch(function(){});
+function manda(d){if(!CONF.invio)return;try{fetch(CONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}catch(x){}}
+function segnale(titolo){manda({id:'avz-'+ID,modo:'avanzamento',classe:'1INF',nome:NOME,scheda:PASSO,totale:TOT,risposte:RIS.length,titolo:titolo,quando:new Date().toISOString()});}
+function giusti(){return RIS.filter(function(r){return r.ok}).length}
+function voto(){return Math.round(40+40*giusti()/NES)}
+function invia(){manda({id:ID,modo:'verifica',classe:'1INF',nome:NOME,quando:new Date().toLocaleString('it-IT'),consegnata:PASSO>=TOT,crocette:RIS.map(function(r){return{q:r.q,data:r.data,giusta:r.giusta,ok:r.ok,tentativi:r.t}}),voto_pagina:voto()});}
+function barra(){var es=Math.max(0,PASSO-GUIDATI);$('barra').textContent=NOME?(NOME+' · passo '+Math.min(PASSO+1,TOT)+' di '+TOT+' · esercizi giusti '+giusti()+' su '+NES+' · voto '+voto()):'';
+ $('passi').innerHTML=Array.from({length:TOT},function(_,i){return '<i class="'+(i<PASSO?'f':i===PASSO?'c':'')+'"></i>'}).join('');}
+function salva(){metti('quante-'+NOME.toLowerCase(),{PASSO:PASSO,RIS:RIS});}
+// numeri personali: dal nome nasce sempre la stessa serie (se ricarichi la pagina ritrovi gli stessi esercizi)
+function seme(s){var h=1779033703;for(var i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19}return function(){h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
+function num(n){return n.toLocaleString('it-IT')}
+function leggi(v){return parseFloat(String(v).replace(/\./g,'').replace(',','.'))}
+var U={KB:1e3,MB:1e6,GB:1e9,TB:1e12};
+var COSE=[['un messaggio',1,'KB'],['un documento',200,'KB'],['una foto',3,'MB'],['una canzone',4,'MB'],['un video di 1 minuto',100,'MB'],['un film',2,'GB'],['un gioco',50,'GB']];
+var CONT=[['un floppy disk',1440,'KB'],['un CD',700,'MB'],['una chiavetta',16,'GB'],['una chiavetta',32,'GB'],['un telefono',64,'GB'],['un telefono',128,'GB'],['un SSD',512,'GB'],['un hard disk',1,'TB'],['un hard disk',2,'TB']];
+function nuovoEsercizio(){var c,o,t=0;do{c=CONT[Math.floor(RNG()*CONT.length)].slice();o=COSE[Math.floor(RNG()*COSE.length)].slice();
+  if(RNG()<.5&&c[2]!=='KB')c[1]=Math.max(1,Math.round(c[1]*(0.3+RNG()*0.6)));t++;}
+ while((c[1]*U[c[2]]/(o[1]*U[o[2]])<2||c[1]*U[c[2]]/(o[1]*U[o[2]])>5e7)&&t<50);
+ var r=Math.floor(c[1]*U[c[2]]/(o[1]*U[o[2]]));return{c:c,o:o,r:r};}
+// ===== IL PERCORSO GUIDATO =====
+var GUIDA=[
+ {t:'1. Dividere vuol dire: quante volte ci sta?',
+  h:'<p>Hai <b>12 caramelle</b> e scatole che ne tengono <b>4</b>. Quante scatole riempi? Guarda:</p><div class="scatole" id="anim"></div><p class="conto">12 : 4 = 3 scatole</p><p>Dividere = contare <b>quante volte</b> un pezzo piccolo ci sta in uno grande.</p><p class="mu">التقسيم = كم مرة يتسع الشيء الصغير في الكبير. · 除法 = 小的东西能放进大的里面几次。</p>',
+  q:'Hai 20 caramelle e scatole da 5. Quante scatole riempi?',a:4,aiuto:'20 : 5'},
+ {t:'2. A volte avanza qualcosa',
+  h:'<p>Hai <b>14 caramelle</b> e scatole da <b>4</b>: riempi <b>3</b> scatole e ne <b>avanzano 2</b> (in rosso).</p><div class="scatole" id="anim"></div><p class="conto">14 : 4 = 3,5 → scatole PIENE: 3</p><p>Con i file è uguale: una foto a metà non si salva. Si tiene solo la <b>parte intera</b> (il numero prima della virgola).</p><p class="mu">نحتفظ بالجزء الصحيح فقط. · 只保留整数部分。</p>',
+  q:'Una chiavetta ha 10 MB liberi, una foto pesa 3 MB. Quante foto INTERE ci stanno?',a:3,aiuto:'10 : 3 = 3,33… tieni solo 3'},
+ {t:'3. Stessa unità: si divide subito',
+  h:'<p>Un CD tiene <b>700 MB</b>. Una canzone pesa <b>4 MB</b>. Tutti e due sono in <b>MB</b>: si divide subito.</p><p class="conto">700 : 4 = 175 canzoni</p>',
+  q:'Una chiavetta ha 900 MB liberi. Un video di 1 minuto pesa 100 MB. Quanti video ci stanno?',a:9,aiuto:'900 : 100'},
+ {t:'4. Unità diverse: PRIMA trasformo, POI divido',
+  h:'<p>Un telefono ha <b>64 GB</b>, una foto pesa <b>3 MB</b>. GB e MB sono diversi: prima porto tutto in MB.</p><p class="conto">1) 64 GB × 1000 = 64.000 MB<br>2) 64.000 : 3 = 21.333,3 → 21.333 foto</p><p>Ricorda la scala: <b>KB → MB → GB → TB</b>, ogni gradino × 1000.</p><p class="mu">أولًا نحوّل إلى نفس الوحدة، ثم نقسم. · 先换成同一单位，再做除法。</p>',
+  q:'Una chiavetta da 2 GB. Una canzone pesa 4 MB. Quante canzoni ci stanno?',a:500,aiuto:'2 GB = 2.000 MB, poi 2.000 : 4'}
+];
+function anim(n,k){var a=$('anim');if(!a)return;var h='',b=0;for(var s=0;s<Math.ceil(n/k);s++){var full=Math.min(k,n-s*k);h+='<div class="sc'+(full<k?' resto':'')+'">';for(var i=0;i<full;i++){h+='<b style="animation-delay:'+(b++*0.08)+'s"></b>'}h+='</div>'}a.innerHTML=h;}
+function mostra(){barra();salva();var z=$('zona');
+ if(PASSO<GUIDATI){var g=GUIDA[PASSO];segnale(g.t);
+  z.innerHTML='<div class="card"><h2>'+g.t+'</h2>'+g.h+'<div class="row"><b>'+g.q+'</b></div><div class="row"><input id="r" inputmode="decimal"><button id="ok">Controlla</button><button class="sec" id="aiuto">Aiuto</button></div><div id="es"></div></div>';
+  if(PASSO===0)anim(12,4);if(PASSO===1)anim(14,4);
+  $('aiuto').onclick=function(){$('es').innerHTML='<p class="mu">Aiuto: '+g.aiuto+'</p>'};
+  $('ok').onclick=function(){if(leggi($('r').value)===g.a){$('es').innerHTML='<p class="ok">Giusto! Bravo. ✔</p>';PASSO++;setTimeout(mostra,900);}else $('es').innerHTML='<p class="ko">Non ancora. Premi «Aiuto» e riprova.</p>';};
+  $('r').onkeydown=function(e){if(e.key==='Enter')$('ok').click()};$('r').focus();return;}
+ if(PASSO<TOT){var n=PASSO-GUIDATI+1,E=nuovoDa(n);segnale('Esercizio '+n+' di '+NES);var tent=0;
+  var q=E.c[0][0].toUpperCase()+E.c[0].slice(1)+' ha <b>'+num(E.c[1])+' '+E.c[2]+'</b> liberi. '+E.o[0][0].toUpperCase()+E.o[0].slice(1)+' pesa <b>'+num(E.o[1])+' '+E.o[2]+'</b>. Quant'+(/^(una )/.test(E.o[0])?'e':'i')+' ce ne stanno, intere?';
+  z.innerHTML='<div class="card"><h2>Esercizio '+n+' di '+NES+' · tutto tuo</h2><p style="font-size:19px">'+q+'</p><div class="row"><input id="r" inputmode="decimal"><button id="ok">Controlla</button></div><div id="es"></div><p class="mu">Hai 2 tentativi. Usa la calcolatrice del computer se vuoi (tasto Windows, scrivi «calcolatrice»). · لديك محاولتان. · 你有两次机会。</p></div>';
+  $('ok').onclick=function(){var v=leggi($('r').value);if(isNaN(v))return;tent++;var ok=Math.abs(v-E.r)<=Math.max(1,E.r*0.001);
+   var sol=(E.c[2]===E.o[2]?'':'1) '+num(E.c[1])+' '+E.c[2]+' = '+num(E.c[1]*U[E.c[2]]/U[E.o[2]])+' '+E.o[2]+'<br>2) ')+num(E.c[1]*U[E.c[2]]/U[E.o[2]])+' : '+num(E.o[1])+' = '+num(Math.round(E.c[1]*U[E.c[2]]/U[E.o[2]]/E.o[1]*100)/100)+' → <b>'+num(E.r)+'</b>';
+   if(ok||tent>=2){RIS.push({q:q.replace(/<[^>]+>/g,''),data:String(v),giusta:String(E.r),ok:ok,t:tent});invia();
+    $('es').innerHTML=(ok?'<p class="ok">Giusto! ✔</p>':'<p class="ko">La risposta giusta è '+num(E.r)+'. Ecco il conto:</p>')+'<p class="conto">'+sol+'</p><button id="av">Avanti</button>';$('ok').disabled=true;
+    $('av').onclick=function(){PASSO++;mostra()};}
+   else $('es').innerHTML='<p class="ko">Non ancora: hai ancora un tentativo. Le unità sono uguali? Se no, trasforma prima.</p>';barra();};
+  $('r').onkeydown=function(e){if(e.key==='Enter')$('ok').click()};$('r').focus();return;}
+ segnale('Finito');invia();
+ z.innerHTML='<div class="card"><h2>🏆 Hai finito!</h2><p style="font-size:20px">Esercizi giusti: <b>'+giusti()+' su '+NES+'</b> · voto <b>'+voto()+'</b></p><p>Il tuo risultato è già arrivato al prof. Adesso prova i <a href="../1inf-byte-giochi/">giochi dei byte</a>.</p></div>';}
+function nuovoDa(n){RNG=seme(NOME.toLowerCase()+'#quante');var e;for(var i=0;i<n;i++)e=nuovoEsercizio();return e;}
+$('parti').onclick=function(){var n=$('nome').value.trim();if(n.split(/\s+/).length<2){alert('Scrivi nome e cognome.');return;}NOME=n;metti('quante-nome',NOME);
+ var s=prendi('quante-'+NOME.toLowerCase());if(s){PASSO=s.PASSO;RIS=s.RIS;}$('inizio').style.display='none';mostra();};
+var nn=prendi('quante-nome');if(nn)$('nome').value=nn;
+</script>
+</body>
+</html>
