@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Uscite dall'aula</title>
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ko:#c0392b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:16px}h1{margin:4px 0;font-size:26px}h2{margin:22px 0 8px;font-size:21px}.mu{color:var(--mu)}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px}.gate button,.b{font:inherit;font-weight:800;padding:10px 14px;border:0;border-radius:10px;background:var(--acc);color:#fff;cursor:pointer}.gate button{width:100%}
+.hide{display:none}table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:15px;margin-bottom:6px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{background:#eef1f5;font-size:13px}
+.n{font-size:20px;font-weight:800;text-align:center;width:70px}.pos{width:40px;font-weight:700}.top .n{color:var(--ko)}
+.ore{font-size:13px;color:var(--mu)}
+@media print{.noprint{display:none}body{background:#fff}h2{page-break-after:avoid}table{page-break-inside:auto}tr{page-break-inside:avoid}}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate hide"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" style="color:var(--ko)"></div></div>
+<div id="view" class="hide">
+<h1>Uscite dall'aula (bagno)</h1>
+<div class="mu" id="sotto"></div>
+<p class="noprint"><button class="b" onclick="window.print()">Stampa o salva in PDF</button></p>
+<div id="classi"></div>
+</div></div>
+<script>
+// USCITE DALL'AULA (21/10/2026, Nicola): per classe (in ordine), per allievo, classifica di quante volte, con date e ore.
+// Dati cifrati in uscite.json (strumenti/uscite.py legge i diari del riservato).
+var TOK='',ORD=['1INF','2INF','3INF','4TI'];
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function apriDati(){var r=await fetch('uscite.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();
+ var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))));}
+function dt(d){return d.slice(8,10)+'/'+d.slice(5,7)}
+async function apri(){TOK=$('tok').value.trim()||TOK;if(!TOK)return;
+ try{var D=await apriDati();}catch(e){$('gate').classList.remove('hide');$('view').classList.add('hide');$('err').textContent='Codice sbagliato.';return}
+ try{localStorage.setItem('monitor-tok',TOK)}catch(e){}$('gate').classList.add('hide');$('view').classList.remove('hide');
+ var U=D.uscite||[],per={};U.forEach(function(u){var c=per[u.classe]||(per[u.classe]={});var s=c[u.nome]||(c[u.nome]=[]);s.push(u)});
+ var classi=Object.keys(per).sort(function(a,b){var i=ORD.indexOf(a),j=ORD.indexOf(b);return(i<0?99:i)-(j<0?99:j)||a.localeCompare(b)});
+ $('sotto').textContent='Totale: '+U.length+' uscite · aggiornato '+new Date().toLocaleString('it-IT');
+ $('classi').innerHTML=classi.map(function(c){var al=Object.keys(per[c]).map(function(n){return{nome:n,u:per[c][n]}}).sort(function(a,b){return b.u.length-a.u.length||a.nome.localeCompare(b.nome)});
+  var tot=al.reduce(function(s,a){return s+a.u.length},0);
+  return '<h2>'+esc(c)+' · '+tot+' uscit'+(tot===1?'a':'e')+'</h2><table><tr><th class="pos">#</th><th>Allievo</th><th>Volte</th><th>Date e ore</th></tr>'+
+   al.map(function(a,i){return '<tr class="'+(i===0&&a.u.length>1?'top':'')+'"><td class="pos">'+(i+1)+'</td><td>'+esc(a.nome)+'</td><td class="n">'+a.u.length+'</td><td class="ore">'+a.u.map(function(u){return dt(u.data)+' ore '+esc(u.ora)}).join(' · ')+'</td></tr>'}).join('')+'</table>'}).join('')||'<p>Nessuna uscita registrata.</p>';}
+$('ok').onclick=apri;$('tok').onkeydown=function(e){if(e.key==='Enter')apri()};
+try{TOK=localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide');
+</script>
+</body></html>
