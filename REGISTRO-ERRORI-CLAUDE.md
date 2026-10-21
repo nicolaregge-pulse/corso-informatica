@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.65** — 21/10/2026
+**Versione 2.66** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Stringa dei voti con la materia sbagliata (#98)
+
+1. **Errore:** ho dato la stringa per DIDAweb con «h 1» senza dire la materia dell'ora: DIDAweb era su Tecnologia professionale, le ore della 1INF di mercoledì sono di Laboratorio professionale, e il segnalibro ha risposto «non c'è la lezione». Nicola: «Sbagli sempre qualcosa».
+2. **Correzione:** il passo «Disciplina in alto → LABORATORIO PROFESSIONALE», poi la stessa stringa.
+3. **Regola:** ogni stringa dei voti si dà con PRIMA il passo che sceglie classe e materia in alto in DIDAweb, letta da `orario/settimana-*.md` per quel giorno e quell'ora.
 
 ## 21/10/2026 — Scadenza del compito dopo la campanella (#97)
 
