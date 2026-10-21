@@ -1,6 +1,6 @@
 # 00 Il cruscotto dal vivo del docente
 
-**Versione 1.0** — 19/10/2026 · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
+**Versione 1.1** — 21/10/2026 · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
 
 *Il framework nato e provato in classe con la 3INF il 19/10/2026 (lezione «Il mio sito diventa il mio portfolio», 18 allievi, 8:00-10:50). Una sola pagina dice al docente, per ogni allievo, che cosa sta facendo, che cosa ha fatto, che cosa gli manca e quanto vale. Il docente non controlla le pagine: guarda il cruscotto, va di persona da chi è fermo e dà a Claude le correzioni. Senza nomi di allievi.*
 
@@ -26,6 +26,15 @@
 7. **DOMANDA delle hh:mm: «…» ✅ risposta data / ⏳ senza risposta**: cliccando si leggono la domanda all'assistente e la risposta.
 8. **Verifica**: crocette giuste, voto della verifica.
 9. **★ voto proposto** in centesimi, con il conto (vedi capitolo 05).
+
+## 04b Il cruscotto UNICO della lezione (21/10/2026, regole di Nicola)
+
+1. **A che cosa serve:** a TENERE SOTTO CONTROLLO LE ATTIVITÀ DEGLI ALLIEVI. È sempre questa la logica.
+2. **Uno solo per lezione:** in una pagina tutte le attività del giorno (lettura della teoria e ripasso, esercizi, quiz su Moduli), una riga per ogni presente, anche chi non ha fatto niente. Modello: `docs/avanzamento/oggi.html?t=<teoria>&e=<esercizi>&q=<quiz cifrato>&v=<veyon e note cifrati>`.
+3. **Le domande orali:** la risposta secca in interrogazione (giusta 70, sbagliata 50) ha la sua colonna ed entra nella media del voto proposto.
+4. **Veyon e note:** il cruscotto tiene conto delle attività rilevate da Veyon (ultimo giro, rosso = fuori compito, quante volte fuori compito, tutti i giri apribili) e delle note della lezione (nota sul registro, uscite, entrate fuori orario). Solo fatti, come nel diario.
+5. **Voto proposto 40-80:** media dei voti che ci sono (esercizi, quiz, domande orali); chi non ha consegnato niente 40. Per DIDAweb la prova che resta è il quiz su Moduli.
+6. **Storico:** i dati dei cruscotti si storicizzano sempre, per poterli riguardare (riservato `storico/cruscotti/<classe>/<data>/`; le consegne grezze in `dati/verifiche/<id>/arrivi/`).
 
 ## 04 Le regole del cruscotto (sempre valide, 19/10/2026)
 

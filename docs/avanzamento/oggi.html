@@ -24,13 +24,13 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <h1 id="tit">Cruscotto della lezione</h1>
 <div class="mu" id="stato">—</div>
 <div class="kpi" id="kpi"></div>
-<table><thead><tr><th>#</th><th>Allievo</th><th>Pagina «gamer»: teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Domande orali (70/50)</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
-<p class="mu">Voto proposto = media dei voti che ci sono (esercizi, quiz e domande orali: risposta secca giusta 70, sbagliata 50), ognuno da 40 a 80; chi non ha consegnato niente: 40. Teoria e ripasso non fanno voto: dicono se sta lavorando. Ordine: dal voto più alto. Riga gialla = fermo da più di 5 minuti.</p>
+<table><thead><tr><th>#</th><th>Allievo</th><th>Pagina «gamer»: teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Domande orali (70/50)</th><th>Veyon e note</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
+<p class="mu">Voto proposto = media dei voti che ci sono (esercizi, quiz e domande orali: risposta secca giusta 70, sbagliata 50), ognuno da 40 a 80; chi non ha consegnato niente: 40. Teoria e ripasso non fanno voto: dicono se sta lavorando. «Veyon e note»: l'ultimo giro di Veyon (rosso = fuori compito), quante volte è stato fuori compito, e le note della lezione (registro, uscite). Ordine: dal voto più alto. Riga gialla = fermo da più di 5 minuti.</p>
 </div></div>
 <script>
 // CRUSCOTTO UNICO (21/10/2026, Nicola): in una sola pagina tutte le attività della lezione.
 // ?t=<teoria-vN>&e=<esercizi-vN>&q=<file quiz cifrato>  · i dati con i nomi sono cifrati, si aprono con il codice del docente.
-var P=new URLSearchParams(location.search),TEO=P.get('t')||'1inf-gamer-v1',ESE=P.get('e')||'1inf-quante-v1',QZ=P.get('q')||'1inf-oggi-quiz';
+var P=new URLSearchParams(location.search),TEO=P.get('t')||'1inf-gamer-v1',ESE=P.get('e')||'1inf-quante-v1',QZ=P.get('q')||'1inf-oggi-quiz',VY=P.get('v')||'1inf-oggi-veyon',V=null;
 var EXEC='',TOK='',_n=0,DT={},DE={},Q=null;
 function $(i){return document.getElementById(i)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -43,9 +43,10 @@ function live(id){return new Promise(function(ok){var cb='cu'+(++_n),s=document.
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(e){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
 function ora(iso){var m=String(iso||'').match(/(\d+)\/(\d+)\/(\d{4}),? (\d+):(\d+)/);if(m)return m[4].padStart(2,'0')+':'+m[5];var t=new Date(iso||0);return isNaN(t)?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
+function vyHtml(x){var h='';var vy=x.vy||[],f=vy.filter(function(a){return a[2]}).length;if(vy.length){var u=vy[vy.length-1];h+='<span class="'+(u[2]?'ko':'ok')+'">'+esc(u[0])+' '+esc(u[1])+'</span>'+(f?' <b class="ko">· fuori compito '+f+' volt'+(f>1?'e':'a')+'</b>':'')+(vy.length>1?'<details><summary>tutti i giri ('+vy.length+')</summary>'+vy.map(function(a){return '<div class="'+(a[2]?'ko':'')+'">'+esc(a[0])+' '+esc(a[1])+'</div>'}).join('')+'</details>':'');}(x.note||[]).forEach(function(n){h+='<div class="mu">📝 '+esc(n)+'</div>'});return h||'<span class="mu">—</span>';}
 function fermo(iso){var t=new Date(iso||0).getTime();return t&&(Date.now()-t)>300000}
 async function giro(){
- var a=await live(TEO),b=await live(ESE);Q=await getJ('../avanzamento/'+QZ+'.json')||Q;
+ var a=await live(TEO),b=await live(ESE);Q=await getJ('../avanzamento/'+QZ+'.json')||Q;V=await getJ('../avanzamento/'+VY+'.json')||V;
  if(a&&a.errore==='codice'){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';return}
  if(a&&a.ok)DT=a;if(b&&b.ok)DE=b;
  var per=[];function trova(n){for(var i=0;i<per.length;i++)if(stesso(per[i].nome,n))return per[i];var x={nome:n};per.push(x);return x}
@@ -54,13 +55,15 @@ async function giro(){
  ((DE.righe)||[]).forEach(function(r){var x=trova(r.nome);x.ese=r;if((r.ultimo||'')>(x.ult||''))x.ult=r.ultimo});
  if(Q&&Q.quiz)for(var k in Q.quiz){trova(k).quiz=Q.quiz[k]}
  if(Q&&Q.orali)for(var k2 in Q.orali){trova(k2).orali=Q.orali[k2]}
+ if(V&&V.veyon)for(var k3 in V.veyon){trova(k3).vy=V.veyon[k3]}
+ if(V&&V.note)for(var k4 in V.note){trova(k4).note=V.note[k4]}
  per.forEach(function(x){var v=[];if(x.ese&&x.ese.quiz)v.push(40+40*x.ese.quiz.giusti/10);if(x.quiz)v.push(40+40*x.quiz.punti/x.quiz.max);(x.orali||[]).forEach(function(o){v.push(o)});x.voto=v.length?Math.round(v.reduce(function(s,y){return s+y},0)/v.length):40;x.nv=v.length});
  per.sort(function(a,b){return b.voto-a.voto||(b.nv-a.nv)});
  $('righe').innerHTML=per.map(function(x,i){var t=x.teo,e=x.ese,q=x.quiz;
   var ct=t?'scheda <b>'+t.scheda+'/'+t.totale+'</b> · '+(t.risposte||0)+' risposte<div class="bar"><i style="width:'+Math.round(100*t.scheda/(t.totale||1))+'%"></i></div>':'<span class="mu">non aperta</span>';
   var ce=e?((e.teoria?'passo <b>'+e.teoria.scheda+'/'+e.teoria.totale+'</b> · ':'')+(e.quiz?'<span class="'+(e.quiz.giusti>=6?'ok':'ko')+'">'+e.quiz.giusti+' giusti su '+e.quiz.su+' fatti</span> → '+Math.round(40+40*e.quiz.giusti/10):'percorso guidato')+'<div class="bar"><i style="width:'+Math.round(100*((e.teoria&&e.teoria.scheda)||0)/14)+'%"></i></div>'):'<span class="mu">non iniziati</span>';
   var cq=q?'<span class="'+(q.punti/q.max>=0.6?'ok':'ko')+'">'+q.punti+'/'+q.max+'</span> → '+Math.round(40+40*q.punti/q.max)+' <span class="mu">('+ora(q.ora)+')</span>':'<span class="mu">non fatto</span>';
-  return '<tr class="'+(fermo(x.ult)?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b><div class="mu">'+(x.ult?'ultimo segnale '+ora(x.ult):'nessun segnale')+'</div></td><td>'+ct+'</td><td>'+ce+'</td><td>'+cq+'</td><td>'+((x.orali&&x.orali.length)?x.orali.map(function(o){return '<span class="'+(o>=70?'ok':'ko')+'">'+o+'</span>'}).join(' '):'<span class="mu">—</span>')+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
+  return '<tr class="'+(fermo(x.ult)?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b><div class="mu">'+(x.ult?'ultimo segnale '+ora(x.ult):'nessun segnale')+'</div></td><td>'+ct+'</td><td>'+ce+'</td><td>'+cq+'</td><td>'+((x.orali&&x.orali.length)?x.orali.map(function(o){return '<span class="'+(o>=70?'ok':'ko')+'">'+o+'</span>'}).join(' '):'<span class="mu">—</span>')+'</td><td>'+vyHtml(x)+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
  var n=per.length,qq=per.filter(function(x){return x.quiz}).length,ee=per.filter(function(x){return x.ese&&x.ese.quiz&&x.ese.quiz.su>=10}).length,tt=per.filter(function(x){return x.teo}).length;
  $('kpi').innerHTML='<div class="k"><b>'+n+'</b>allievi</div><div class="k"><b>'+tt+'</b>sulla teoria</div><div class="k"><b>'+ee+'</b>esercizi finiti</div><div class="k"><b>'+qq+'</b>quiz consegnati</div>';
  $('stato').textContent='Si aggiorna da solo ogni 20 secondi · teoria e esercizi dal vivo dallo script · quiz Moduli letto ogni 3 minuti'+(Q&&Q.ora?' (ultima lettura '+Q.ora+')':'')+' · '+new Date().toLocaleTimeString('it-IT');
