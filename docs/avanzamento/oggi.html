@@ -24,7 +24,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <h1 id="tit">Cruscotto della lezione</h1>
 <div class="mu" id="stato">—</div>
 <div class="kpi" id="kpi"></div>
-<table><thead><tr><th>#</th><th>Allievo</th><th>Teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Domande orali (70/50)</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
+<table><thead><tr><th>#</th><th>Allievo</th><th>Pagina «gamer»: teoria e ripasso</th><th>Esercizi «Quante ce ne stanno?»</th><th>Quiz su Moduli</th><th>Domande orali (70/50)</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
 <p class="mu">Voto proposto = media dei voti che ci sono (esercizi, quiz e domande orali: risposta secca giusta 70, sbagliata 50), ognuno da 40 a 80; chi non ha consegnato niente: 40. Teoria e ripasso non fanno voto: dicono se sta lavorando. Ordine: dal voto più alto. Riga gialla = fermo da più di 5 minuti.</p>
 </div></div>
 <script>
@@ -42,7 +42,7 @@ async function getJ(u){try{var r=await fetch(u+'?t='+Date.now(),{cache:'no-store
 function live(id){return new Promise(function(ok){var cb='cu'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(e){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
-function ora(iso){var t=new Date(iso||0);return isNaN(t)?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
+function ora(iso){var m=String(iso||'').match(/(\d+)\/(\d+)\/(\d{4}),? (\d+):(\d+)/);if(m)return m[4].padStart(2,'0')+':'+m[5];var t=new Date(iso||0);return isNaN(t)?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
 function fermo(iso){var t=new Date(iso||0).getTime();return t&&(Date.now()-t)>300000}
 async function giro(){
  var a=await live(TEO),b=await live(ESE);Q=await getJ('../avanzamento/'+QZ+'.json')||Q;
