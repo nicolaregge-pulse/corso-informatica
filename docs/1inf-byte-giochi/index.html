@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giochi dei byte</title>
+<style>
+:root{--bg:#10162a;--card:#1a2340;--fg:#eef2ff;--mu:#9aa6c4;--acc:#ffcf4a;--ok:#5ad08a;--ko:#ff6b6b;--ln:#2c3760;--bl:#4aa3ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.45}
+.w{max-width:900px;margin:0 auto;padding:16px}h1{margin:6px 0 2px;font-size:28px}h2{margin:0 0 6px;font-size:21px;color:var(--acc)}
+.mu{color:var(--mu)}.t3{display:block;color:var(--mu);font-size:.92em}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:14px 0}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+button,select,input{font-size:16px;border-radius:9px;border:1px solid var(--ln);background:#24305a;color:var(--fg);padding:8px 12px}
+button{cursor:pointer;font-weight:700}button.on,button.go{background:var(--acc);color:#1b2430}
+input{width:120px}.big{font-size:26px;font-weight:800;color:var(--ok)}.ko{color:var(--ko)}.ok{color:var(--ok)}
+canvas{width:100%;background:#0a0e18;border-radius:10px;display:block;image-rendering:pixelated}
+.bar{height:26px;background:#0a0e18;border-radius:8px;overflow:hidden;margin:6px 0;position:relative}.bar i{display:block;height:100%;width:0;background:var(--bl)}
+.bar span{position:absolute;left:8px;top:3px;font-size:14px}
+.punti{position:sticky;top:0;z-index:2;background:var(--acc);color:#1b2430;font-weight:800;padding:8px 12px;border-radius:0 0 12px 12px;text-align:center}
+.video{height:180px;border-radius:10px;background:linear-gradient(120deg,#1f6feb,#8a3ffc,#ff6b6b);background-size:300% 300%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800}
+.video.play{animation:scorre 3s linear infinite}@keyframes scorre{0%{background-position:0% 50%}100%{background-position:100% 50%}}
+.spin{width:44px;height:44px;border:5px solid #fff5;border-top-color:#fff;border-radius:50%;animation:gira .8s linear infinite}@keyframes gira{to{transform:rotate(360deg)}}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="punti">I tuoi punti: <span id="pt">0</span> ⭐ <span class="mu" style="color:#1b2430">· gioca a tutti e 4 i giochi</span></div>
+<div class="w">
+<h1>I giochi dei byte</h1>
+<div class="mu">Quanto pesa un'immagine? Quanto ci vuole a scaricare? Basta la mia rete per un video? Scoprilo giocando.
+<span class="t3" lang="ar" dir="rtl">كم تزن الصورة؟ كم من الوقت للتنزيل؟ هل تكفي شبكتي للفيديو؟ اكتشف ذلك باللعب.</span>
+<span class="t3" lang="zh">一张图片有多大？下载要多久？我的网络够看视频吗？边玩边发现。</span></div>
+
+<!-- GIOCO 1 -->
+<div class="card"><h2>1. Costruisci un'immagine: quanti byte pesa?</h2>
+<div class="mu">Ogni quadratino è un <b>pixel</b>. Ogni pixel ha un colore. Più pixel e più colori = più byte.
+<span class="t3" lang="ar" dir="rtl">كل مربع صغير هو «بكسل». بكسلات أكثر وألوان أكثر = بايتات أكثر.</span>
+<span class="t3" lang="zh">每个小方块是一个像素。像素越多、颜色越多 = 字节越多。</span></div>
+<div class="row">Pixel per lato <select id="g1lato"><option>8</option><option selected>16</option><option>32</option><option>64</option></select>
+Colori <select id="g1col"><option value="1">bianco e nero (1 bit)</option><option value="8">256 grigi (8 bit = 1 byte)</option><option value="24" selected>milioni di colori (24 bit = 3 byte)</option></select></div>
+<canvas id="g1cv" width="320" height="320" style="max-width:320px"></canvas>
+<div class="row">Il conto: <b id="g1conto"></b></div>
+<div class="row">Peso: <span class="big" id="g1peso"></span></div>
+<div class="row">E una foto vera del telefono, 4000 × 3000 pixel a 3 byte? Indovina in MB: <input id="g1ris" type="number" step="1"> <button class="go" id="g1ok">Controlla</button> <span id="g1esito"></span></div>
+</div>
+
+<!-- GIOCO 2 -->
+<div class="card"><h2>2. La gara dei download</h2>
+<div class="mu">Scegli un file e due connessioni. Prima <b>indovina</b> chi arriva prima e in quanti secondi, poi premi Via. Ricorda: Mbps sono <b>megabit</b>, 1 byte = 8 bit.
+<span class="t3" lang="ar" dir="rtl">اختر ملفًا واتصالين. خمّن أولًا ثم اضغط «ابدأ». تذكّر: ١ بايت = ٨ بت.</span>
+<span class="t3" lang="zh">选一个文件和两种网络。先猜，再按“开始”。记住：1 字节 = 8 比特。</span></div>
+<div class="row">File <select id="g2file"><option value="4">una canzone (4 MB)</option><option value="3">una foto (3 MB)</option><option value="100" selected>un video di 1 minuto (100 MB)</option><option value="2000">un film (2 GB)</option><option value="50000">un gioco (50 GB)</option></select></div>
+<div class="row">Corsia A <select id="g2a"><option value="7">ADSL vecchia (7 Mbps)</option><option value="30" selected>4G del telefono (30 Mbps)</option><option value="100">Wi-Fi di casa (100 Mbps)</option><option value="1000">fibra (1000 Mbps)</option></select>
+Corsia B <select id="g2b"><option value="7">ADSL vecchia (7 Mbps)</option><option value="30">4G del telefono (30 Mbps)</option><option value="100">Wi-Fi di casa (100 Mbps)</option><option value="1000" selected>fibra (1000 Mbps)</option></select></div>
+<div class="row">Quanti secondi ci mette la corsia A? <input id="g2ris" type="number" step="any"> <button class="go" id="g2via">Via!</button></div>
+<div class="bar"><i id="g2ba"></i><span id="g2ta">A</span></div><div class="bar"><i id="g2bb" style="background:var(--ok)"></i><span id="g2tb">B</span></div>
+<div id="g2esito" class="row"></div>
+</div>
+
+<!-- GIOCO 3 -->
+<div class="card"><h2>3. Streaming: si blocca o no?</h2>
+<div class="mu">Un video in streaming arriva un pezzo alla volta. Se la qualità chiede più Mbps di quelli che hai, il video si ferma a caricare (il cerchio che gira).
+<span class="t3" lang="ar" dir="rtl">إذا طلبت الجودة سرعة أكبر من شبكتك، يتوقف الفيديو للتحميل.</span>
+<span class="t3" lang="zh">如果画质需要的速度比你的网络快，视频就会停下来缓冲。</span></div>
+<div class="row">Qualità <select id="g3q"><option value="1.5">480p (1,5 Mbps)</option><option value="3">720p (3 Mbps)</option><option value="5" selected>1080p Full HD (5 Mbps)</option><option value="20">4K (20 Mbps)</option></select>
+La tua rete <input id="g3r" type="range" min="1" max="50" value="8" style="width:160px"> <b id="g3rv"></b></div>
+<div class="video" id="g3v">▶</div>
+<div class="row" id="g3info"></div>
+<div class="row">Sfida: trova la rete più lenta che fa vedere il 4K senza blocchi, poi premi <button class="go" id="g3ok">Ho trovato!</button> <span id="g3esito"></span></div>
+</div>
+
+<!-- GIOCO 4 -->
+<div class="card"><h2>4. Più grande o più piccolo? (30 secondi)</h2>
+<div class="mu">Clicca la quantità più grande. Ogni risposta giusta vale un punto.
+<span class="t3" lang="ar" dir="rtl">انقر على الكمية الأكبر. كل إجابة صحيحة = نقطة.</span>
+<span class="t3" lang="zh">点击更大的那个。每答对一题得一分。</span></div>
+<div class="row"><button class="go" id="g4via">Via!</button> <span id="g4t"></span></div>
+<div class="row" id="g4scelte" style="font-size:22px"></div>
+<div id="g4esito"></div>
+</div>
+<p class="mu">Torna al <a href="../1inf-gamer/">laboratorio del gamer</a> o alla <a href="../verifica/?b=1inf-gamer">lezione</a>.</p>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)},PT=0,fatti={};
+function punti(n,gioco){PT+=n;if(gioco)fatti[gioco]=1;$('pt').textContent=PT+(Object.keys(fatti).length>=4?' · 🏆 tutti e 4 i giochi!':'');}
+function fmt(b){if(b<1000)return b.toLocaleString('it-IT')+' byte';if(b<1e6)return (b/1e3).toLocaleString('it-IT',{maximumFractionDigits:1})+' KB';if(b<1e9)return (b/1e6).toLocaleString('it-IT',{maximumFractionDigits:1})+' MB';return (b/1e9).toLocaleString('it-IT',{maximumFractionDigits:2})+' GB';}
+function tempo(s){if(s<60)return s.toLocaleString('it-IT',{maximumFractionDigits:1})+' secondi';if(s<3600)return Math.round(s/60)+' minuti';return (s/3600).toLocaleString('it-IT',{maximumFractionDigits:1})+' ore';}
+/* GIOCO 1 */
+(function(){var cv=$('g1cv'),c=cv.getContext('2d');
+ function draw(){var n=+$('g1lato').value,bit=+$('g1col').value,s=cv.width/n;
+  for(var y=0;y<n;y++)for(var x=0;x<n;x++){var v=Math.random();c.fillStyle=bit===1?(v>.5?'#fff':'#000'):bit===8?'hsl(0,0%,'+Math.round(v*100)+'%)':'hsl('+Math.round(v*360)+',80%,55%)';c.fillRect(x*s,y*s,s,s);}
+  var px=n*n,byte=px*bit/8;$('g1conto').textContent=n+' × '+n+' = '+px+' pixel × '+bit+' bit = '+(px*bit).toLocaleString('it-IT')+' bit = '+byte.toLocaleString('it-IT')+' byte';$('g1peso').textContent=fmt(byte);}
+ $('g1lato').onchange=draw;$('g1col').onchange=draw;draw();
+ $('g1ok').onclick=function(){var r=+$('g1ris').value,g=36;if(Math.abs(r-g)<=2){$('g1esito').innerHTML='<b class="ok">Giusto! 4000 × 3000 × 3 = 36 000 000 byte = 36 MB. Il JPG la comprime a circa 3 MB.</b>';punti(3,'g1');}else $('g1esito').innerHTML='<span class="ko">Non ancora: fai pixel × 3 byte, poi dividi per 1 000 000.</span>';};
+})();
+/* GIOCO 2 */
+(function(){var T=null;
+ $('g2via').onclick=function(){var mb=+$('g2file').value,a=+$('g2a').value,b=+$('g2b').value,ta=mb*8/a,tb=mb*8/b,mx=Math.max(ta,tb),dur=Math.min(8000,Math.max(2500,mx*40)),t0=performance.now();
+  var guess=parseFloat(String($('g2ris').value).replace(',','.'));cancelAnimationFrame(T);$('g2esito').textContent='';
+  (function anim(now){var k=(now-t0)/dur,sim=k*mx;$('g2ba').style.width=Math.min(100,sim/ta*100)+'%';$('g2bb').style.width=Math.min(100,sim/tb*100)+'%';
+   $('g2ta').textContent='A · '+a+' Mbps · '+tempo(Math.min(sim,ta));$('g2tb').textContent='B · '+b+' Mbps · '+tempo(Math.min(sim,tb));
+   if(k<1)T=requestAnimationFrame(anim);else{var ok=guess>0&&Math.abs(guess-ta)/ta<=0.15;
+    $('g2esito').innerHTML='Il conto della corsia A: '+mb.toLocaleString('it-IT')+' MB × 8 = '+(mb*8).toLocaleString('it-IT')+' megabit, diviso '+a+' Mbps = <b>'+tempo(ta)+'</b>. '+(ok?'<b class="ok">Hai indovinato! +3 ⭐</b>':(isNaN(guess)?'<span class="mu">La prossima volta scrivi la tua previsione prima di partire.</span>':'<span class="ko">La tua previsione era '+guess+' secondi: ricorda di moltiplicare per 8.</span>'));if(ok)punti(3,'g2');else fatti.g2=1;}})(t0);};
+})();
+/* GIOCO 3 */
+(function(){var buf=0,att=0,blocchi=0;
+ function giro(){var q=+$('g3q').value,r=+$('g3r').value;$('g3rv').textContent=r+' Mbps';buf+=r-q;if(buf>20)buf=20;
+  var v=$('g3v');if(buf<0){v.classList.remove('play');v.innerHTML='<div class="spin"></div>';buf=Math.max(buf,-3);blocchi++;}else{v.classList.add('play');v.textContent='▶ il video va';}
+  $('g3info').innerHTML='Questa qualità chiede <b>'+q+' Mbps</b>, la tua rete ne dà <b>'+r+'</b>: '+(r>=q?'<span class="ok">basta</span>':'<span class="ko">non basta, il video si blocca</span>')+'. In un\'ora di video consumi circa <b>'+fmt(q*1e6/8*3600)+'</b> di dati.';}
+ setInterval(giro,600);giro();
+ $('g3ok').onclick=function(){var r=+$('g3r').value;if(+$('g3q').value!==20){$('g3esito').innerHTML='<span class="ko">Prima scegli la qualità 4K.</span>';return;}
+  if(r===20){$('g3esito').innerHTML='<b class="ok">Esatto: 20 Mbps, né uno di più né uno di meno! +3 ⭐</b>';punti(3,'g3');}else if(r>20)$('g3esito').innerHTML='<span class="ko">Funziona, ma puoi scendere ancora.</span>';else $('g3esito').innerHTML='<span class="ko">Si blocca: serve almeno quanto chiede la qualità.</span>';};
+})();
+/* GIOCO 4 */
+(function(){var U=[['bit',1/8],['byte',1],['KB',1e3],['MB',1e6],['GB',1e9],['TB',1e12]],tm=null,fine=0,giusti=0;
+ function coppia(){var a,b;do{a=[Math.ceil(Math.random()*900),U[Math.floor(Math.random()*6)]];b=[Math.ceil(Math.random()*900),U[Math.floor(Math.random()*6)]];}while(a[0]*a[1][1]===b[0]*b[1][1]);
+  $('g4scelte').innerHTML='';[a,b].forEach(function(x){var bt=document.createElement('button');bt.textContent=x[0]+' '+x[1][0];bt.style.fontSize='22px';bt.onclick=function(){if(Date.now()>fine)return;var ok=x[0]*x[1][1]>=Math.max(a[0]*a[1][1],b[0]*b[1][1]);if(ok){giusti++;punti(1,'g4');}$('g4esito').innerHTML=ok?'<span class="ok">Giusto!</span>':'<span class="ko">No: '+a[0]+' '+a[1][0]+' contro '+b[0]+' '+b[1][0]+'. Guarda prima l\'unità, poi il numero.</span>';coppia();};$('g4scelte').appendChild(bt);});}
+ $('g4via').onclick=function(){giusti=0;fine=Date.now()+30000;coppia();clearInterval(tm);tm=setInterval(function(){var s=Math.ceil((fine-Date.now())/1000);$('g4t').textContent=s>0?s+' s':'Tempo! Giuste: '+giusti;if(s<=0){clearInterval(tm);$('g4scelte').innerHTML='';}},250);};
+})();
+</script>
+</body>
+</html>
