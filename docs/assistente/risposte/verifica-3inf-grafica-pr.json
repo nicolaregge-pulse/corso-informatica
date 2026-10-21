@@ -3,5 +3,10 @@
   "nome": "Noah Valerio",
   "domanda": "Ho un dubbio, voglio sapere nel punto 4 quale parte di codice dobbiamo mettere e dove. non ho ben capito quella parte.",
   "risposta": "Ciao Noah! Tutto va nel file style.css, niente in index.html. 1) Su GitHub apri style.css e clicca la matita. 2) Vai in FONDO al file, dopo l'ultima parentesi }. 3) Incolla queste due righe: @keyframes entra { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }  e sotto: h1 { animation: entra 1s ease; } 4) Premi Commit changes, aspetta un minuto e ricarica il tuo sito: il titolo entra scendendo dall'alto. Se vuoi anche l'effetto sul menu, aggiungi: nav a { transition: transform 0.3s; } nav a:hover { transform: scale(1.15); } e passa col mouse sui link. Il tuo sito ha già lo sfondo: con l'animazione sei quasi alla fine!"
+ },
+ {
+  "nome": "Noah Valerio",
+  "domanda": "Spiegami per bene e tutti i passaggi del punto 5 e 6",
+  "risposta": "Ciao Noah! Ho preparato una pagina con TUTTI i passi, uno per riga, e chi fa cosa: https://nicolaregge-pulse.github.io/corso-informatica/3inf-pr/ . In breve. PUNTO 5 (in coppia, tu sei A sul tuo sito): 1) Settings, Collaborators, Add people, scrivi il nome GitHub del compagno. 2) Il compagno accetta l'invito (nella pagina c'è il bottone che porta dritto all'invito). 3) Il compagno apre il tuo index.html, clicca la matita, aggiunge la sezione «Il mio compagno di lavoro», poi Commit changes, sceglie «Create a new branch… and start a pull request», Propose changes, Create pull request. 4) Tu apri la scheda Pull requests del tuo repository, clicchi il titolo, poi Merge pull request e Confirm merge: compare «Merged» viola. PUNTO 6: nel tuo index.html scrivi nel piè di pagina <footer>Versione 1.1</footer> e fai Commit changes. Poi vi scambiate i ruoli. La sfida del conflitto è l'ultima cosa, solo se avete finito tutto."
  }
 ]
