@@ -1,6 +1,6 @@
 # Catalogo del corso
 
-**Versione 1.1** — 21/10/2026 · Area Docente · senza nomi di allievi
+**Versione 1.2** — 21/10/2026 · Area Docente · senza nomi di allievi
 
 *Il catalogo è l'elenco completo di tutto quello che abbiamo prodotto: ogni pagina del sito, gioco, strumento, script e cartella, con a che cosa serve e dove sta. L'Atlante con la mappa illustrata resta la parte da mostrare (experience, comunicazione, prova e simulazione); il catalogo è il magazzino del docente. I documenti con la loro versione sono elencati in `INDICE-DOCUMENTI.md`.*
 
@@ -68,7 +68,44 @@
    3. riservato: `generatori/moduli_live.py`, `dati/quiz-sicurezza-2INF/`, il conteggio delle prove in `PROVE-CLASSROOM-2026-27.md` (pubblico).
 4. **Dove l'abbiamo usato:** il corso sulla sicurezza della Regione in 2INF (ore 1-4).
 
-## 02 Pagine della 1INF
+## 02 Registro DIDAweb e pubblicazione su Classroom
+
+*Gli attrezzi che lavorano fuori dal sito: il registro elettronico DIDAweb e Google Classroom, nella finestra dell'account PIAMARTA.*
+
+### 02a I segnalibri di DIDAweb
+
+| Segnalibro | Codice (riservato `strumenti/`) | Che cosa fa |
+|---|---|---|
+| Voti DIDAweb (automatico) | `didaweb-auto.js` | Dal pacchetto preparato da Claude (data e ora, argomento, «Cognome Nome;voto» per ognuno) crea la colonna, scrive voti e argomento, chiede conferma e salva |
+| Voti DIDAweb (a mano) | `didaweb-segnalibro.js` | Scrive i voti in una colonna già creata; non salva |
+| Firma | `didaweb-firma.js` | Scrive l'argomento delle ore del docente e le firma, un'ora per clic |
+| Diagnosi | `didaweb-diagnosi.js` | Legge la struttura della pagina, senza nomi né voti, per aggiornare i segnalibri |
+| Copia HTML | — | Copia la pagina per costruire un segnalibro nuovo |
+
+1. Gli indirizzi da incollare nei preferiti sono nei file `*-URL.txt` accanto al codice; stanno nella cartella «DidaWeb» della barra dei preferiti.
+2. La guida passo per passo è `docs/docenti/02-didaweb-i-segnalibri-che-scrivono-i-voti.html`.
+
+### 02b Lo script «Consegne Classroom → Git»
+
+1. **Dove sta:** progetto Apps Script nell'account PIAMARTA, file `automazione-corso.gs`. Il codice da incollare si copia dal link pubblico `strumenti/automazione-corso.gs` (raw.githubusercontent).
+2. **Come lavora:** gira da solo ogni minuto (lun-ven 7-15). Legge la coda (`coda/*.json`, compiti da pubblicare) e il ponte (`comandi/*.json`, azioni su Google) nel riservato.
+3. **Che cosa fa su Classroom:**
+   1. pubblica i compiti con PDF, Documento per ogni allievo e quiz su Moduli;
+   2. chiude alla scadenza e porta le consegne su Git;
+   3. aggiorna il testo delle istruzioni;
+   4. mette i voti (in bozza o restituiti);
+   5. pubblica, modifica e cancella gli annunci.
+4. **Dietro le quinte (v8.2, 21/10/2026):**
+   1. **bozza:** un compito o un annuncio si prepara in bozza; il docente lo vede in Classroom, i ragazzi no;
+   2. **mostra:** con un comando la bozza diventa visibile ai ragazzi;
+   3. **programmato:** la bozza si pubblica da sola all'ora scelta (per esempio alla prima campanella);
+   4. **modifica:** titolo, istruzioni, scadenza e punti di un compito;
+   5. **cancella:** solo con la conferma scritta «CANCELLA» e solo se nessuno ha ancora consegnato.
+5. **Limite di Google:** lo script modifica, mostra e cancella solo le cose create da lui; un compito già pubblicato non torna in bozza.
+6. **Piano B:** se lo script è fermo, `docs/prof-pubblica/` (generatore `strumenti/gen_pianob.py`).
+7. **Guide:** `docs/docenti/03-google-lo-script-automatico-consegne-classroom-git.html`, `strumenti/classroom-script/VISIONE-AUTOMAZIONE.md`.
+
+## 03 Pagine della 1INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -84,7 +121,7 @@
 | Talpa: richieste per il prof | `docs/1inf-talpa-prof/` | Le proposte dei ragazzi per il gioco della talpa |
 | Cruscotti | `docs/1inf-cruscotto/`, `docs/1inf-prof/`, `docs/1inf-prof-live/`, `docs/1inf-test/` | Cruscotto, pannello del prof, cruscotto dal vivo, cruscotto del test |
 
-## 03 Pagine della 2INF
+## 04 Pagine della 2INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -97,7 +134,7 @@
 | Consegna e controllo | `docs/2inf-consegna/`, `docs/2inf-controlla/` | Consegna del gioco «Indovina» e controllo di chi ha fatto giusto |
 | Cruscotto | `docs/2inf-cruscotto/` | Cruscotto della classe |
 
-## 04 Pagine della 3INF
+## 05 Pagine della 3INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -110,7 +147,7 @@
 | Agile | `docs/3inf-agile/`, `docs/teoria/agile/`, `docs/teoria/agile-it/`, `docs/teoria/3inf-agile-lavoro/` | Cruscotto del Product Manager e teoria Agile |
 | Cruscotti | `docs/3inf-cruscotto/`, `docs/3inf-prof-live/` | Cruscotto della classe e cruscotto dal vivo del docente |
 
-## 05 Pagine della 4TI
+## 06 Pagine della 4TI
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -118,7 +155,7 @@
 | App di reti | `docs/4ti-app/` | Strumenti pratici sulle reti |
 | Cruscotto dei progetti | `docs/4ti-progetti/` | Avanzamento dei progetti di stage |
 
-## 06 Pagine comuni a tutte le classi
+## 07 Pagine comuni a tutte le classi
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -135,7 +172,7 @@
 | Deepfake | `docs/sicurezza-deepfake/` | Voci e volti falsi, in tre lingue |
 | Monta il PC | `docs/monta-pc/`, `docs/monta-pc-v2/`, `docs/monta-pc-v3/`, `docs/sfida-pc/`, `docs/classifica/`, `docs/monta-pc-cruscotto/` | Gioco di assemblaggio del PC, sfida lampo e classifica |
 
-## 07 Pagine del docente
+## 08 Pagine del docente
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -152,7 +189,7 @@
 
 I dati con i nomi in queste pagine sono sempre cifrati con `strumenti/cifra_json.py`.
 
-## 08 Giochi
+## 09 Giochi
 
 | Gioco | Sorgente Godot | Pubblicato in |
 |---|---|---|
@@ -174,7 +211,7 @@ I dati con i nomi in queste pagine sono sempre cifrati con `strumenti/cifra_json
 
 Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `strumenti/pubblica_versione_*.py`.
 
-## 09 Vetrina (vedi l'Atlante)
+## 10 Vetrina (vedi l'Atlante)
 
 | Cosa | Percorso | A che cosa serve |
 |---|---|---|
@@ -185,7 +222,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Comunicazione e marketing | `comunicazione-marketing/`, `brochure/`, `presentazione-demo/` | Edizioni della comunicazione, brochure e presentazioni |
 | Cassaforte | `docs/cassaforte/` | Proteggere i file con una password |
 
-## 10 Strumenti (script del repository pubblico)
+## 11 Strumenti (script del repository pubblico)
 
 | Gruppo | Script | A che cosa serve |
 |---|---|---|
@@ -197,7 +234,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Script di Google | `automazione-corso.gs`, `demo-accesso.gs`, `classroom-script/` | Lo script «Consegne Classroom → Git» (coda e ponte) e gli script di Classroom |
 | Dati delle classi | `schede-classi.json` | Le schede delle classi usate dalle pagine |
 
-## 11 Automatismi di GitHub
+## 12 Automatismi di GitHub
 
 | Automatismo | File | A che cosa serve |
 |---|---|---|
@@ -205,7 +242,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Controllo dei giochi | `.github/workflows/giochi-controllo.yml` | Controlla che una Pull Request dei ragazzi tocchi solo `docs/giochi/` |
 | Bobina automatica | `.claude/hooks/bobina-automatica.py` | A ogni risposta di Claude scrive la bobina del giorno nel riservato |
 
-## 12 Repository riservato
+## 13 Repository riservato
 
 Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di minori e restano nel riservato.
 
@@ -225,7 +262,7 @@ Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di m
 | `strategico/` | Dati della rete della scuola e dati personali del docente |
 | `backup/` | Due copie zip della cartella di lavoro di inizio ottobre (02/10 e 05/10) |
 
-## 13 Materiali e documenti
+## 14 Materiali e documenti
 
 | Cartella | Contenuto |
 |---|---|
@@ -236,7 +273,8 @@ Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di m
 | `guida-docenti-alunni-non-italofoni/`, `guida-md-con-gemini/`, `corso-docente-ai/`, `quiz-recupero-invalsi/`, `libro-paganini/` | Guide, corso sull'AI per docenti, recupero INVALSI, confronto con il libro di testo |
 | Documenti nella cartella principale | Elencati con la versione in `INDICE-DOCUMENTI.md` |
 
-## 14 Registro delle versioni
+## 15 Registro delle versioni
 
-1. **v1.1 (21/10/2026)**: nuovo capitolo 01 «I tre framework», la parte più importante, dettata da Nicola; gli altri capitoli scalano di un numero.
-2. **v1.0 (21/10/2026)**: prima versione, chiesta da Nicola: tutto quello che è stato prodotto, separato dall'Atlante (la vetrina).
+1. **v1.2 (21/10/2026)**: nuovo capitolo 02 «Registro DIDAweb e pubblicazione su Classroom», con lo script v8.2 (bozze, mostra, pubblicazione programmata, modifica e cancellazione).
+2. **v1.1 (21/10/2026)**: nuovo capitolo 01 «I tre framework», la parte più importante, dettata da Nicola; gli altri capitoli scalano di un numero.
+3. **v1.0 (21/10/2026)**: prima versione, chiesta da Nicola: tutto quello che è stato prodotto, separato dall'Atlante (la vetrina).

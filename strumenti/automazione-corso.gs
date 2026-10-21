@@ -1,5 +1,15 @@
 /**
- * AUTOMAZIONE CORSO v8.1 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.2: CLASSROOM DA DIETRO LE QUINTE (Nicola, 21/10: «preparate tutto ma che i ragazzi non lo vedano, io si»).
+ *       1) BOZZE: un compito della coda con "bozza": true, o un annuncio del ponte con a.bozza, nasce in BOZZA:
+ *          il docente lo vede in Classroom, i ragazzi no. Con "programma_iso" Classroom lo pubblica da solo a
+ *          quell'ora. 2) Azioni nuove del ponte: classroom.mostra (bozza -> pubblicato), classroom.programma,
+ *          classroom.compito_modifica, classroom.annuncio_modifica, classroom.compito_cancella (vuole
+ *          a.conferma = "CANCELLA" e si ferma se qualcuno ha gia' consegnato, salvo a.anche_con_consegne),
+ *          classroom.voti (voti in bozza o restituiti), classroom.annunci (elenco, bozze comprese).
+ *          3) classroom.annuncio_cancella accetta a.annuncio_id oppure a.id. 4) classroom.compiti elenca anche
+ *          le bozze. LIMITE DI GOOGLE: lo script modifica, mostra e cancella SOLO le cose create da lui; un
+ *          compito pubblicato non torna bozza (si puo' solo modificare o cancellare).
  * v8.1: I SEGNALI LEGGERI NON BLOCCANO PIU' IL GIRO (21/10: 21 ragazzi = decine di doPost al minuto, ognuno con
  *       commit su Git sotto il lucchetto: il giro saltava sempre e la quota finiva). I segnali di avanzamento e i
  *       risultati parziali (d.modo === 'avanzamento' o d.parziale) vanno SOLO nel Foglio di riserva: niente Git,
@@ -246,13 +256,15 @@ function AUTO_pubblica(job) {
   }
   var s = new Date(job.scadenza_iso);
   var work = {
-    title: job.titolo, description: job.descrizione || '', workType: 'ASSIGNMENT', state: 'PUBLISHED',
+    title: job.titolo, description: job.descrizione || '', workType: 'ASSIGNMENT', state: job.bozza || job.programma_iso ? 'DRAFT' : 'PUBLISHED',   // v8.2
     materials: materiali,
     dueDate: { year: s.getUTCFullYear(), month: s.getUTCMonth() + 1, day: s.getUTCDate() },
     dueTime: { hours: s.getUTCHours(), minutes: s.getUTCMinutes() }
   };
   if (job.punti) work.maxPoints = job.punti;
+  if (job.programma_iso) work.scheduledTime = new Date(job.programma_iso).toISOString();   // v8.2: Classroom lo pubblica da solo
   var c = Classroom.Courses.CourseWork.create(work, courseId);
+  job.stato_classroom = c.state;   // v8.2: DRAFT = lo vede solo il docente
   job.course_id = courseId; job.coursework_id = c.id; job.link = c.alternateLink;
   Logger.log('PUBBLICATO ' + job.classe + ': ' + c.title + ' -> ' + c.alternateLink);
 }
@@ -603,18 +615,62 @@ function AUTO_azione(a) {
       return (Classroom.Courses.list({ teacherId: 'me', courseStates: ['ACTIVE'] }).courses || []).map(function (c) { return { id: c.id, nome: c.name, link: c.alternateLink }; });
     case 'classroom.compiti': {     // a.classe
       var cid = AUTO_courseId(a.classe);
-      return (Classroom.Courses.CourseWork.list(cid, { pageSize: 50 }).courseWork || []).map(function (w) {
-        return { id: w.id, titolo: w.title, stato: w.state, scadenza: w.dueDate ? [w.dueDate.day, w.dueDate.month, w.dueDate.year].join('/') : '', link: w.alternateLink }; }); }
+      return (Classroom.Courses.CourseWork.list(cid, { pageSize: 50, courseWorkStates: ['PUBLISHED', 'DRAFT'] }).courseWork || []).map(function (w) {
+        return { id: w.id, titolo: w.title, stato: w.state, programmato: w.scheduledTime || '', scadenza: w.dueDate ? [w.dueDate.day, w.dueDate.month, w.dueDate.year].join('/') : '', link: w.alternateLink }; }); }
+    case 'classroom.annunci': {     // v8.2: a.classe — anche le bozze
+      return (Classroom.Courses.Announcements.list(AUTO_courseId(a.classe), { pageSize: 30, announcementStates: ['PUBLISHED', 'DRAFT'] }).announcements || []).map(function (x) {
+        return { id: x.id, stato: x.state, programmato: x.scheduledTime || '', testo: String(x.text || '').slice(0, 120), link: x.alternateLink }; }); }
     case 'classroom.consegne': {    // a.classe, a.coursework_id: chi ha consegnato e chi no
       var cid2 = AUTO_courseId(a.classe);
       return ((Classroom.Courses.CourseWork.StudentSubmissions.list(cid2, a.coursework_id).studentSubmissions) || []).map(function (s) {
         return { nome: AUTO_nome(s.userId), stato: s.state, voto_bozza: s.draftGrade, voto: s.assignedGrade, in_ritardo: !!s.late }; }); }
-    case 'classroom.annuncio': {    // a.classe, a.testo (solo con l'OK del docente scritto nel file)
-      var an = Classroom.Courses.Announcements.create({ text: a.testo, state: 'PUBLISHED' }, AUTO_courseId(a.classe));
-      return { id: an.id, link: an.alternateLink }; }
-    case 'classroom.annuncio_cancella': {   // v7.7: a.classe, a.annuncio_id — cancella SOLO un annuncio (mai il lavoro degli allievi). Per test e pulizia.
-      Classroom.Courses.Announcements.remove(AUTO_courseId(a.classe), a.annuncio_id);
-      return { cancellato: a.annuncio_id }; }
+    case 'classroom.annuncio': {    // a.classe, a.testo (solo con l'OK del docente scritto nel file); v8.2: a.bozza, a.programma_iso
+      var na = { text: a.testo, state: a.bozza || a.programma_iso ? 'DRAFT' : 'PUBLISHED' };
+      if (a.programma_iso) na.scheduledTime = new Date(a.programma_iso).toISOString();
+      var an = Classroom.Courses.Announcements.create(na, AUTO_courseId(a.classe));
+      return { id: an.id, stato: an.state, link: an.alternateLink }; }
+    case 'classroom.annuncio_modifica': {   // v8.2: a.classe, a.annuncio_id, a.testo
+      var am = Classroom.Courses.Announcements.patch({ text: a.testo }, AUTO_courseId(a.classe), a.annuncio_id || a.id, { updateMask: 'text' });
+      return { id: am.id, stato: am.state }; }
+    case 'classroom.annuncio_cancella': {   // v7.7: a.classe, a.annuncio_id — cancella SOLO un annuncio (mai il lavoro degli allievi). v8.2: anche a.id
+      var aid = a.annuncio_id || a.id;
+      if (!aid) throw new Error('Manca annuncio_id');
+      Classroom.Courses.Announcements.remove(AUTO_courseId(a.classe), aid);
+      return { cancellato: aid }; }
+    case 'classroom.mostra': {      // v8.2: a.classe + a.coursework_id oppure a.annuncio_id: da BOZZA a PUBBLICATO (i ragazzi lo vedono)
+      var cm = AUTO_courseId(a.classe);
+      var mo = a.coursework_id ? Classroom.Courses.CourseWork.patch({ state: 'PUBLISHED' }, cm, a.coursework_id, { updateMask: 'state' })
+                               : Classroom.Courses.Announcements.patch({ state: 'PUBLISHED' }, cm, a.annuncio_id, { updateMask: 'state' });
+      return { id: mo.id, stato: mo.state, link: mo.alternateLink }; }
+    case 'classroom.programma': {   // v8.2: a.classe, a.coursework_id oppure a.annuncio_id, a.programma_iso: una BOZZA si pubblica da sola a quell'ora
+      var cp = AUTO_courseId(a.classe), quando = { scheduledTime: new Date(a.programma_iso).toISOString() };
+      var pr = a.coursework_id ? Classroom.Courses.CourseWork.patch(quando, cp, a.coursework_id, { updateMask: 'scheduledTime' })
+                               : Classroom.Courses.Announcements.patch(quando, cp, a.annuncio_id, { updateMask: 'scheduledTime' });
+      return { id: pr.id, stato: pr.state, programmato: pr.scheduledTime }; }
+    case 'classroom.compito_modifica': {   // v8.2: a.classe, a.coursework_id; facoltativi a.titolo, a.descrizione, a.scadenza_iso, a.punti
+      var w2 = {}, mk = [];
+      if (a.titolo) { w2.title = a.titolo; mk.push('title'); }
+      if (a.descrizione !== undefined) { w2.description = a.descrizione; mk.push('description'); }
+      if (a.punti) { w2.maxPoints = a.punti; mk.push('maxPoints'); }
+      if (a.scadenza_iso) {
+        var sc = new Date(a.scadenza_iso);
+        w2.dueDate = { year: sc.getUTCFullYear(), month: sc.getUTCMonth() + 1, day: sc.getUTCDate() };
+        w2.dueTime = { hours: sc.getUTCHours(), minutes: sc.getUTCMinutes() }; mk.push('dueDate', 'dueTime');
+      }
+      if (!mk.length) throw new Error('Niente da modificare');
+      var cw = Classroom.Courses.CourseWork.patch(w2, AUTO_courseId(a.classe), a.coursework_id, { updateMask: mk.join(',') });
+      return { id: cw.id, stato: cw.state, modificati: mk }; }
+    case 'classroom.compito_cancella': {   // v8.2: a.classe, a.coursework_id, a.conferma = "CANCELLA" (solo con l'OK del docente)
+      if (a.conferma !== 'CANCELLA') throw new Error('Per cancellare un compito serve conferma = "CANCELLA"');
+      var cc = AUTO_courseId(a.classe);
+      var consegnati = ((Classroom.Courses.CourseWork.StudentSubmissions.list(cc, a.coursework_id).studentSubmissions) || [])
+        .filter(function (s) { return s.state === 'TURNED_IN' || s.state === 'RETURNED'; }).length;
+      if (consegnati && !a.anche_con_consegne) throw new Error('Fermo: ' + consegnati + ' allievi hanno gia consegnato. Per cancellare lo stesso: anche_con_consegne = true');
+      Classroom.Courses.CourseWork.remove(cc, a.coursework_id);
+      return { cancellato: a.coursework_id, consegne_perse: consegnati }; }
+    case 'classroom.voti': {        // v8.2: a.classe, a.coursework_id, a.voti {"Cognome Nome": voto}, a.voti_su (facoltativo), a.restituisci (facoltativo)
+      return AUTO_voti({ classe: a.classe, titolo: a.coursework_id, course_id: AUTO_courseId(a.classe), coursework_id: a.coursework_id,
+                         voti: a.voti, voti_su: a.voti_su, voti_restituisci: !!a.restituisci }); }
     /* ---- Gmail: SOLO bozze ---- */
     case 'gmail.bozza': {           // a.a, a.oggetto, a.testo
       var bz = GmailApp.createDraft(a.a, a.oggetto, a.testo); return { bozza_id: bz.getId() }; }

@@ -21,7 +21,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 
 ## 03 Lo script di Google «Consegne Classroom → Git» (account PIAMARTA)
 
-1. Versione in uso: **v8.1** (deployment Versione 3, 21/10/2026, ore 09:35): i segnali di avanzamento vanno solo nel Foglio, niente lucchetto; il giro gira ogni minuto.
+1. Versione in uso: **v8.1** (deployment Versione 3, 21/10/2026, ore 09:35): i segnali di avanzamento vanno solo nel Foglio, niente lucchetto; il giro gira ogni minuto. **v8.2 pronta su Git, da incollare e da pubblicare come nuova versione:** bozze (il docente vede, i ragazzi no), `classroom.mostra`, `classroom.programma`, `classroom.compito_modifica`, `classroom.annuncio_modifica`, `classroom.compito_cancella` (conferma «CANCELLA», si ferma se ci sono consegne), `classroom.voti`, `classroom.annunci`.
 2. **Coda** `coda/*.json` (stato `da-pubblicare` → compito su Classroom) e **ponte** `comandi/*.json` (stato `da-eseguire`: `forms.crea_quiz`, `forms.risposte`, `drive.esporta`, `classroom.compiti`, `classroom.consegne`, `classroom.annuncio`, `classroom.annuncio_cancella`).
 3. ID dei corsi: 1INF 877008807336 · 2INF 162656105584 · 3INF 25324574640 · 4TI 25324465949.
 4. Foglio «Arrivi verifiche»: `1hpyJGHZpwDW7Y4ZwajtB_Qzr9AHc29Q_esgHr8NqJs8`.
@@ -62,7 +62,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 4. In 2INF e 3INF, quando hanno finito: i giochi dei byte della 1INF.
 5. 2INF sicurezza: rileggere `classe-2/sicurezza-piano/PIANO-SICUREZZA-2INF.md` prima di ogni ora (ore n. 6-7 chiusura della formazione generale, dall'ora n. 8 i 12 argomenti del coordinatore).
 6. Storico dei cruscotti: fotografia di fine lezione in `storico/cruscotti/<classe>/<data>/` del riservato (fatto il 21/10; da automatizzare a ogni giro).
-7. Script v8.2: azione `classroom.voti` (voti nei compiti) e correzione di `classroom.annuncio_cancella` (vuole `annuncio_id`, non `id`).
+7. Script v8.2 scritto il 21/10 (anche `classroom.voti` e `annuncio_cancella` con `annuncio_id` o `id`): manca solo che Nicola lo incolli e pubblichi la nuova versione.
 8. 3INF: voti di Classroom del 21/10 da caricare con la v8.2; recupero individuale per Uccheddu (sito `SAMUELE-UCCHEDDU1` fermo al 07/10) e Mendoza; report Uccheddu v1.1 da correggere (il repository esiste).
 9. 2INF sicurezza: recupero dei quiz delle ore 1-4 (tabella nel riservato `dati/situazione/2INF_sicurezza-ore.md`); dall'ora n. 8 i 12 argomenti del coordinatore.
 10. 1INF: compito di Noemi del 20/10 non trovato in nessun Modulo né consegna (chiederle dove l'ha fatto).
