@@ -35,7 +35,8 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 4. Prova come un ragazzo prima di pubblicare: `NODE_PATH=$(npm root -g) node strumenti/prova_verifica.js <banca>` (serve `cd docs && python3 -m http.server 8765`).
 5. **Scadenze sulle campanelle vere:** 08:55 · 09:55 · 10:50 · intervallo · 11:10 · 12:05 · 13:05 · 14:00; la scadenza è la campanella dell'ultima ora della classe (REGISTRO-ERRORI #97).
 6b. **Richieste bloccanti in ROSSO (Nicola, 21/10/2026):** in chat ogni cosa che blocca il lavoro e aspetta Nicola (un «pubblica», un clic, una conferma) si scrive con 🔴 e in grassetto, in cima o subito dopo il passo.
-6. Nicola ha detto «pubblica tutto, fai tu» il 21/10: si pubblica la sera prima o all'alba, in orario utile; si dice sempre cosa si è pubblicato.
+6. **Non si chiede più «pubblica» (Nicola, 21/10/2026, «a me sta storia che devo dire pubblica non piace tanto»):** Claude pubblica da solo e scrive sempre che cosa ha pubblicato con il link.
+6a. Nicola ha detto «pubblica tutto, fai tu» il 21/10: si pubblica la sera prima o all'alba, in orario utile; si dice sempre cosa si è pubblicato.
 
 ## 05 Il cruscotto unico (approvato il 21/10) e l'ufficio informazioni
 
