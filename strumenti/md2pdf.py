@@ -9,7 +9,7 @@ md = open(src, encoding="utf-8").read()
 vers = re.search(r"\*\*Versione (\d+\.\d+)\*\*", md).group(1)
 e = html.escape
 def inline(t):
-    t = e(t); t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t); return re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t)
+    t = e(t); t = re.sub(r"`([^`]+)`", r"<code>\1</code>", t); t = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", t); return re.sub(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])", r"<i>\1</i>", t)
 out, righe, i = [], md.split("\n"), 0
 while i < len(righe):
     r = righe[i]
@@ -37,7 +37,7 @@ while i < len(righe):
             cont[liv] += 1
             for k in range(liv + 1, len(cont)): cont[k] = 0
             num = ".".join(str(cont[k]) for k in range(liv + 1))
-            html_l.append(f"<div class='li l{liv}'><span class='n'>{num}</span>{inline(testo)}</div>")
+            html_l.append(f"<div class='li l{liv}'><span class='n'>{num}</span><span>{inline(testo)}</span></div>")
         out.append("<div class='ol'>" + "".join(html_l) + "</div>"); continue
     for k, tag in ((4, "h3"), (3, "h2"), (2, "h1")):
         if r.startswith("#" * (k - 1) + " "): out.append(f"<{tag}>{inline(r[k:])}</{tag}>"); break
