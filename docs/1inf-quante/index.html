@@ -44,7 +44,7 @@ function manda(d){if(!CONF.invio)return;try{fetch(CONF.invio,{method:'POST',mode
 function segnale(titolo){manda({id:'avz-'+ID,modo:'avanzamento',classe:'1INF',nome:NOME,scheda:PASSO,totale:TOT,risposte:RIS.length,titolo:titolo,quando:new Date().toISOString()});}
 function giusti(){return RIS.filter(function(r){return r.ok}).length}
 function voto(){return Math.round(40+40*giusti()/NES)}
-function invia(){manda({id:ID,modo:'verifica',classe:'1INF',nome:NOME,quando:new Date().toISOString(),ora:new Date().toLocaleString('it-IT'),consegnata:PASSO>=TOT,crocette:RIS.map(function(r){return{q:r.q,data:r.data,giusta:r.giusta,ok:r.ok,tentativi:r.t}}),voto_pagina:voto()});}
+function invia(){manda({id:ID,modo:'verifica',classe:'1INF',nome:NOME,quando:new Date().toISOString(),ora:new Date().toLocaleString('it-IT'),consegnata:PASSO>=TOT,parziale:PASSO<TOT,crocette:RIS.map(function(r){return{q:r.q,data:r.data,giusta:r.giusta,ok:r.ok,tentativi:r.t}}),voto_pagina:voto()});}
 function barra(){var es=Math.max(0,PASSO-GUIDATI);$('barra').textContent=NOME?(NOME+' · passo '+Math.min(PASSO+1,TOT)+' di '+TOT+' · esercizi giusti '+giusti()+' su '+NES+' · voto '+voto()):'';
  $('passi').innerHTML=Array.from({length:TOT},function(_,i){return '<i class="'+(i<PASSO?'f':i===PASSO?'c':'')+'"></i>'}).join('');}
 function salva(){metti('quante-'+NOME.toLowerCase(),{PASSO:PASSO,RIS:RIS});}

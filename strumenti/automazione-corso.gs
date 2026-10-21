@@ -1,5 +1,9 @@
 /**
- * AUTOMAZIONE CORSO v8.0 (19/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.1 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.1: I SEGNALI LEGGERI NON BLOCCANO PIU' IL GIRO (21/10: 21 ragazzi = decine di doPost al minuto, ognuno con
+ *       commit su Git sotto il lucchetto: il giro saltava sempre e la quota finiva). I segnali di avanzamento e i
+ *       risultati parziali (d.modo === 'avanzamento' o d.parziale) vanno SOLO nel Foglio di riserva: niente Git,
+ *       niente lucchetto, risposta immediata. Il monitor li legge dal Foglio come prima.
  * v8.0: NON SI SPEGNE PIU' PER QUOTA (lezione del 19/10: timer morto alle 04:07, quota giornaliera finita).
  *       1) Di notte e nel fine settimana il giro dorme (solo lun-ven 7:00-15:00, ora di Roma): prima faceva
  *          35 chiamate a GitHub al minuto anche alle 4 di notte. 2) Legge solo i file della coda degli ultimi
@@ -810,6 +814,11 @@ function doPost(e) {
   try { email = Session.getActiveUser().getEmail() || ''; } catch (x) {}
   d._arrivo = adesso.toISOString(); d._email = email;
   testo = JSON.stringify(d, null, 1);
+  // v8.1: segnali leggeri -> solo Foglio, subito (niente Git, niente lucchetto)
+  if (d.modo === 'avanzamento' || d.parziale) {
+    try { AUTO_foglioArrivi().appendRow([adesso, id, d.modo === 'avanzamento' ? 'avanzamento' : modo, nome, email, 'segnale', testo.slice(0, 45000)]); } catch (x) { Logger.log('Foglio (segnale): ' + x); }
+    return ContentService.createTextOutput('ok');
+  }
   var file = 'dati/verifiche/' + id + '/arrivi/' + Utilities.formatDate(adesso, 'Europe/Rome', 'HHmmss') + '_' + modo + '_' + AUTO_slug(nome) + '.json';
   var ok = false, okFoglio = false, lock = LockService.getScriptLock();
   try {
