@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.67** — 21/10/2026
+**Versione 2.68** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — PC senza nome lasciato come «utente non indicato» (#100)
+
+1. **Errore:** nei giri di Veyon ho scritto «PC38: video di pugilato, utente non indicato» invece di chiedere chi c'era; era Elkeran.
+2. **Correzione:** Nicola ha detto il nome; diario e configurazione aggiornati (PC38).
+3. **Regola:** se un riquadro di Veyon non mostra il nome dell'utente, chiedo subito a Nicola chi c'è a quel PC (scritto in `RIPARTENZA.md` §06).
 
 ## 21/10/2026 — Lezione di sicurezza già vista dalla classe (#99)
 
