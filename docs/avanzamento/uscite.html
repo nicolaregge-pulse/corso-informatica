@@ -20,7 +20,7 @@ th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:left;vertica
 <body><div class="w">
 <div id="gate" class="gate hide"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" style="color:var(--ko)"></div></div>
 <div id="view" class="hide">
-<h1>Uscite dall'aula (bagno)</h1>
+<h1>Uscite dall'aula</h1>
 <div class="mu" id="sotto"></div>
 <p class="noprint"><button class="b" onclick="window.print()">Stampa o salva in PDF</button></p>
 <div id="classi"></div>
@@ -45,8 +45,8 @@ async function apri(){TOK=$('tok').value.trim()||TOK;if(!TOK)return;
  $('sotto').textContent='Totale: '+U.length+' uscite · aggiornato '+new Date().toLocaleString('it-IT');
  $('classi').innerHTML=classi.map(function(c){var al=Object.keys(per[c]).map(function(n){return{nome:n,u:per[c][n]}}).sort(function(a,b){return b.u.length-a.u.length||a.nome.localeCompare(b.nome)});
   var tot=al.reduce(function(s,a){return s+a.u.length},0);
-  return '<h2>'+esc(c)+' · '+tot+' uscit'+(tot===1?'a':'e')+'</h2><table><tr><th class="pos">#</th><th>Allievo</th><th>Volte</th><th>Date e ore</th></tr>'+
-   al.map(function(a,i){return '<tr class="'+(i===0&&a.u.length>1?'top':'')+'"><td class="pos">'+(i+1)+'</td><td>'+esc(a.nome)+'</td><td class="n">'+a.u.length+'</td><td class="ore">'+a.u.map(function(u){return dt(u.data)+' ore '+esc(u.ora)}).join(' · ')+'</td></tr>'}).join('')+'</table>'}).join('')||'<p>Nessuna uscita registrata.</p>';}
+  return '<h2>'+esc(c)+' · '+tot+' uscit'+(tot===1?'a':'e')+'</h2><table><tr><th class="pos">#</th><th>Allievo</th><th>Volte</th><th>Minuti fuori</th><th>Date e ore</th></tr>'+
+   al.map(function(a,i){return '<tr class="'+(i===0&&a.u.length>1?'top':'')+'"><td class="pos">'+(i+1)+'</td><td>'+esc(a.nome)+'</td><td class="n">'+a.u.length+'</td><td class="n">'+(a.u.some(function(u){return u.minuti!=null})?a.u.reduce(function(s,u){return s+(u.minuti||0)},0):'—')+'</td><td class="ore">'+a.u.map(function(u){return dt(u.data)+' ore '+esc(u.ora)+(u.rientro?'-'+esc(u.rientro)+' ('+u.minuti+' min)':'')+(u.tipo&&u.tipo!=='bagno'?' '+esc(u.tipo):'')}).join(' · ')+'</td></tr>'}).join('')+'</table>'}).join('')||'<p>Nessuna uscita registrata.</p>';}
 $('ok').onclick=apri;$('tok').onkeydown=function(e){if(e.key==='Enter')apri()};
 try{TOK=localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide');
 </script>
