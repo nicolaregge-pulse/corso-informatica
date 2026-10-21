@@ -61,4 +61,8 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 3. 1INF prossima volta: il percorso a sfide sul binario e la pixel art.
 4. In 2INF e 3INF, quando hanno finito: i giochi dei byte della 1INF.
 5. 2INF sicurezza: rileggere `classe-2/sicurezza-piano/PIANO-SICUREZZA-2INF.md` prima di ogni ora (ore n. 6-7 chiusura della formazione generale, dall'ora n. 8 i 12 argomenti del coordinatore).
-6. Storico dei cruscotti: una fotografia a ogni giro in `storico/cruscotti/` del riservato (da fare).
+6. Storico dei cruscotti: fotografia di fine lezione in `storico/cruscotti/<classe>/<data>/` del riservato (fatto il 21/10; da automatizzare a ogni giro).
+7. Script v8.2: azione `classroom.voti` (voti nei compiti) e correzione di `classroom.annuncio_cancella` (vuole `annuncio_id`, non `id`).
+8. 3INF: voti di Classroom del 21/10 da caricare con la v8.2; recupero individuale per Uccheddu (sito `SAMUELE-UCCHEDDU1` fermo al 07/10) e Mendoza; report Uccheddu v1.1 da correggere (il repository esiste).
+9. 2INF sicurezza: recupero dei quiz delle ore 1-4 (tabella nel riservato `dati/situazione/2INF_sicurezza-ore.md`); dall'ora n. 8 i 12 argomenti del coordinatore.
+10. 1INF: compito di Noemi del 20/10 non trovato in nessun Modulo né consegna (chiederle dove l'ha fatto).
