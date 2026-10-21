@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Carica un file</title>
+<style>
+/* Un riquadro: si sceglie il file, si preme un bottone, il file arriva al prof (script delle consegne, repository riservato). */
+:root{--bg:#f3f6f8;--surface:#ffffff;--ink:#16202a;--muted:#5a6878;--line:#d5dde5;--accent:#0b6e99;--accent-ink:#ffffff;--ok:#1f7a3f;--bad:#b3261e;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;--ok:#6fd38f;--bad:#f28b82;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;--ok:#6fd38f;--bad:#f28b82;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{margin:0;font-family:var(--sans);font-size:18px;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto;padding:28px 16px 56px;display:flex;flex-direction:column;gap:18px}
+h1{margin:0;font-size:30px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:14px}
+label{font-weight:700}
+input[type=file]{font:inherit;width:100%;padding:14px;border:2px dashed var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+button{font:inherit;font-weight:700;cursor:pointer;border-radius:12px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);padding:14px 18px;min-height:52px}
+button:disabled{opacity:.5;cursor:default}
+.msg{margin:0;font-weight:700}.msg.ok{color:var(--ok)}.msg.bad{color:var(--bad)}
+.piccolo{font-size:15px;color:var(--muted);margin:0}
+ul{margin:0;padding-left:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Carica il tuo file</h1>
+  <div class="card">
+    <label for="file">1. Clicca qui sotto e scegli il file (cerca in «Documenti»)</label>
+    <input type="file" id="file" multiple accept=".pdf,image/*">
+    <button id="manda" disabled>2. Manda al prof</button>
+    <p class="msg" id="msg"></p>
+    <ul id="fatti"></ul>
+    <p class="piccolo">Il file arriva solo al professore. Puoi mandare anche più file.</p>
+  </div>
+</div>
+<script>
+(function () {
+  var INVIO = 'https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec';
+  var ID = 'caricamenti-' + new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  var PEZZO = 200000;   // lo script accetta al massimo 300.000 caratteri per invio: i file grandi partono a pezzi
+  var input = document.getElementById('file'), bt = document.getElementById('manda'), msg = document.getElementById('msg'), fatti = document.getElementById('fatti');
+  input.onchange = function () { bt.disabled = !input.files.length; msg.textContent = ''; };
+  function leggi(f) {
+    return new Promise(function (ok, ko) { var r = new FileReader(); r.onload = function () { ok(String(r.result).split(',')[1] || ''); }; r.onerror = ko; r.readAsDataURL(f); });
+  }
+  function manda(d) {
+    return fetch(INVIO, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) });
+  }
+  bt.onclick = async function () {
+    bt.disabled = true; msg.className = 'msg'; msg.textContent = 'Sto mandando…';
+    try {
+      for (var f of input.files) {
+        var b64 = await leggi(f), parti = Math.max(1, Math.ceil(b64.length / PEZZO)), chiave = Date.now().toString(36);
+        for (var i = 0; i < parti; i++) {
+          await manda({ id: ID, modo: 'verifica', nome: f.name.slice(0, 60), file: f.name, tipo: f.type, chiave: chiave, parte: i + 1, parti: parti,
+                        base64: b64.slice(i * PEZZO, (i + 1) * PEZZO), quando: new Date().toISOString() });
+          msg.textContent = 'Sto mandando ' + f.name + '… ' + Math.round((i + 1) / parti * 100) + '%';
+        }
+        var li = document.createElement('li'); li.textContent = f.name + ': mandato'; fatti.appendChild(li);
+      }
+      msg.className = 'msg ok'; msg.textContent = 'Inviato. Il prof controlla che sia arrivato.';
+      input.value = '';
+    } catch (x) {
+      msg.className = 'msg bad'; msg.textContent = 'Non è partito. Controlla internet e premi di nuovo «Manda al prof».'; bt.disabled = false;
+    }
+  };
+})();
+</script>
+</body>
+</html>
