@@ -5,30 +5,34 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Test di orientamento</title>
 <style>
-/* Una schermata alla volta: inizio, quattro blocchi con timer, pausa, risultati. Nessun dato esce dalla pagina. */
+/* Una schermata alla volta: inizio bilingue con la scelta della lingua, quattro blocchi con timer, pausa, risultati.
+   Alla fine due copie da stampare: per il docente in italiano, per il ragazzo nella sua lingua. Nessun dato esce dalla pagina. */
 :root{--bg:#f3f6f8;--surface:#ffffff;--ink:#16202a;--muted:#5a6878;--line:#d5dde5;--accent:#0b6e99;--accent-ink:#ffffff;
-  --ok:#1f7a3f;--ok-bg:#e3f4e8;--warn:#9a5b00;--warn-bg:#fdf1dc;--bad:#b3261e;--bad-bg:#fbe7e5;--wall:#5a6878;
-  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+  --ok:#1f7a3f;--ok-bg:#e3f4e8;--warn:#9a5b00;--warn-bg:#fdf1dc;--bad:#b3261e;--wall:#5a6878;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Naskh Arabic",sans-serif}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;
-  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--bad-bg:#3a1a18;--wall:#93a3b3;color-scheme:dark}}
+  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--wall:#93a3b3;color-scheme:dark}}
 :root[data-theme="dark"]{--bg:#10161c;--surface:#18212a;--ink:#e6edf3;--muted:#93a3b3;--line:#2b3743;--accent:#5cc1e8;--accent-ink:#0b1a22;
-  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--bad-bg:#3a1a18;--wall:#93a3b3;color-scheme:dark}
+  --ok:#6fd38f;--ok-bg:#16301f;--warn:#f0b75a;--warn-bg:#33270f;--bad:#f28b82;--wall:#93a3b3;color-scheme:dark}
 *{box-sizing:border-box}[hidden]{display:none!important}
 html,body{background:var(--bg);color:var(--ink)}
 body{margin:0;font-family:var(--sans);font-size:17px;line-height:1.5}
 .wrap{max-width:760px;margin:0 auto;padding:20px 16px 56px;display:flex;flex-direction:column;gap:16px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .timer{font-variant-numeric:tabular-nums;font-weight:700;font-size:20px;padding:4px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
-.timer.fine{color:var(--warn);background:var(--warn-bg);border-color:var(--warn)}
-h1{margin:0;font-size:clamp(26px,5vw,34px);line-height:1.15}
+.timer.fine{color:var(--warn);background:var(--warn-bg);border-color:var(--warn);font-size:16px}
+.totale{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
+h1{margin:0;font-size:clamp(26px,5vw,34px);line-height:1.2}
 h2{margin:0 0 4px;font-size:22px}
 .lead{margin:0;color:var(--muted)}
+.ar{display:block;font-size:1.05em}
+.it+.ar{color:var(--muted);margin-top:2px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
 .q p{margin:0 0 10px;font-weight:600}
 .opts{display:grid;gap:8px}
 .opts label{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
-.opts input{width:20px;height:20px;accent-color:var(--accent)}
+.opts input{width:20px;height:20px;flex:none;accent-color:var(--accent)}
 .opts label:has(input:checked){border-color:var(--accent);outline:2px solid var(--accent)}
 .scala{display:flex;flex-wrap:wrap;gap:6px}
 .scala label{flex:1 1 90px;text-align:center;padding:8px 6px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14px}
@@ -36,36 +40,44 @@ h2{margin:0 0 4px;font-size:22px}
 .scala label:has(input:checked){border-color:var(--accent);outline:2px solid var(--accent)}
 button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:10px 16px;min-height:44px}
 button.main{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.lingue{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lingue button{font-size:22px;padding:18px;font-weight:700}
 .azioni{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-ol.passi{margin:0;padding-left:22px}ol.passi li{margin:4px 0}
-.grid{display:grid;gap:4px;margin:10px 0;max-width:340px}
+ol.passi{margin:0;padding-inline-start:22px}ol.passi li{margin:4px 0}
+input.campo,textarea.campo{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-top:6px}
+.grid{display:grid;gap:4px;margin:10px 0;max-width:340px;direction:ltr}
 .cell{aspect-ratio:1;border-radius:8px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:26px;background:var(--bg)}
 .cell.wall{background:var(--wall);border-color:var(--wall)}
-.blocchi{display:flex;gap:8px;flex-wrap:wrap}
+.blocchi{display:flex;gap:8px;flex-wrap:wrap;direction:ltr}
 .blocchi button{font-size:20px;min-width:56px}
-.prog{display:flex;flex-wrap:wrap;gap:6px;min-height:48px;padding:8px;border:2px dashed var(--line);border-radius:10px;margin:10px 0}
+.prog{display:flex;flex-wrap:wrap;gap:6px;min-height:48px;padding:8px;border:2px dashed var(--line);border-radius:10px;margin:10px 0;direction:ltr}
 .prog span{background:var(--accent);color:var(--accent-ink);border-radius:8px;padding:4px 10px;font-weight:700}
 .prog span.now{outline:3px solid var(--warn)}
+.prog .vuoto{background:none;color:var(--muted);font-weight:400}
 .msg{margin:8px 0 0;font-weight:600}
 .msg.ok{color:var(--ok)}.msg.bad{color:var(--bad)}
 .barra{height:14px;border-radius:999px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
 .barra i{display:block;height:100%;background:var(--accent)}
-.area{display:grid;gap:6px}
+.area{display:grid;gap:10px}
 .area .riga{display:flex;justify-content:space-between;gap:10px;font-weight:600}
-.tag{font-size:13px;padding:2px 10px;border-radius:999px;font-weight:600}
+.tag{font-size:13px;padding:2px 10px;border-radius:999px;font-weight:600;white-space:nowrap}
 .tag.forte{background:var(--ok-bg);color:var(--ok)}.tag.cresce{background:var(--warn-bg);color:var(--warn)}.tag.allena{background:var(--bg);color:var(--muted);border:1px solid var(--line)}
 .piccolo{font-size:14px;color:var(--muted)}
-.totale{font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums}
-input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin-top:6px}
 #stampa{display:none}
-@page{size:A4;margin:16mm 16mm 18mm}
+@page{size:A4;margin:11mm 13mm}
 @media print{
-  html,body{background:#fff;color:#000}#app{display:none!important}#stampa{display:block;font-family:"Segoe UI",Arial,sans-serif;font-size:11.5pt;line-height:1.45;color:#000}
-  #stampa h1{font-size:19pt;margin:0 0 2mm;color:#12467a}#stampa h2{font-size:13pt;margin:6mm 0 2mm;color:#12467a;border-bottom:1.5pt solid #d5dde8;padding-bottom:1mm;break-after:avoid}
-  #stampa table{border-collapse:collapse;width:100%}#stampa th,#stampa td{border:1px solid #9aa8b8;padding:2mm 3mm;text-align:left;vertical-align:top}#stampa th{background:#e9f0f8}
-  #stampa ol{margin:0;padding-left:6mm}#stampa li{margin:1mm 0}
-  #stampa .firma{margin-top:14mm;display:flex;justify-content:space-between;gap:10mm;break-inside:avoid}#stampa .firma div{flex:1;border-top:1px solid #000;padding-top:2mm;font-size:10pt}
-  #stampa .nota{font-size:9.5pt;color:#333;margin-top:6mm}
+  html,body{background:#fff;color:#000}#app{display:none!important}
+  #stampa{display:block;direction:ltr;text-align:left;font-family:"Segoe UI",Arial,"Noto Naskh Arabic","Amiri",sans-serif;font-size:10.5pt;line-height:1.3;color:#000}
+  #stampa .copia{page-break-after:always;break-after:page}#stampa .copia:last-child{page-break-after:auto;break-after:auto}
+  #stampa .chi{font-size:8.5pt;color:#555;text-transform:uppercase;letter-spacing:.06em;margin:0 0 1mm}
+  #stampa h1{font-size:17pt;margin:0 0 1mm;color:#12467a}
+  #stampa h2{font-size:11.5pt;margin:3.5mm 0 1.2mm;color:#12467a;border-bottom:1.5pt solid #d5dde8;padding-bottom:.8mm;break-after:avoid}
+  #stampa table{border-collapse:collapse;width:100%}#stampa th,#stampa td{border:1px solid #9aa8b8;padding:1mm 2.2mm;text-align:start;vertical-align:top}#stampa th{background:#e9f0f8}
+  #stampa ol{margin:0;padding-inline-start:6mm}#stampa li{margin:.6mm 0}
+  #stampa .ar{display:block;direction:rtl;text-align:right;color:#333;font-size:10pt}
+  #stampa .bil{font-size:9pt;line-height:1.22}#stampa .bil h1{font-size:14pt}#stampa .bil h2{margin:2.5mm 0 1mm;font-size:10.5pt}#stampa .bil .ar{font-size:9pt}#stampa .bil .firma{margin-top:8mm}#stampa .bil th,#stampa .bil td{padding:.7mm 2mm}
+  #stampa .firma{margin-top:10mm;display:flex;justify-content:space-between;gap:10mm;break-inside:avoid}#stampa .firma div{flex:1;border-top:1px solid #000;padding-top:1.5mm;font-size:9.5pt}
+  #stampa .nota{font-size:8.5pt;color:#333;margin:1.5mm 0 0}
 }
 </style>
 </head>
@@ -76,14 +88,61 @@ input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line
 <script>
 (function () {
   var B = window.BANCA_ORIENTAMENTO, app = document.getElementById('app');
-  var punti = {}, motivazione = [], timerId = null, passo = 0, nome = '', inizioTest = 0, totaleId = null;
+  var lingua = null, punti = {}, motivazione = [], chi = {}, timerId = null, totaleId = null, passo = 0, inizioTest = 0;
   var TOTALE_MIN = 60, PAUSA_MIN = 2;
-  // Ordine delle schermate: inizio, blocchi 1-2, pausa, blocchi 3-4, risultati
-  var schermate = ['inizio', 0, 1, 'pausa', 2, 3, 'fine'];
+  // Ordine delle schermate: lingua, inizio, blocchi 1-2, pausa, blocchi 3-4, risultati
+  var schermate = ['lingua', 'inizio', 0, 1, 'pausa', 2, 3, 'fine'];
 
+  // Testi dell'interfaccia: [italiano, arabo]
+  var U = {
+    corsi: ['Corsi di informatica', 'دورات المعلوماتية'], titolo: ['Test di orientamento', 'اختبار التوجيه'],
+    lead: ["Scopri se l'informatica fa per te. Dura un'ora. Non è un compito in classe: non ci sono voti.", 'اكتشف إذا كانت المعلوماتية مناسبة لك. يستغرق ساعة واحدة. ليس امتحانًا: لا توجد علامات.'],
+    scegli: ['Scegli la lingua del test', 'اختر لغة الاختبار'],
+    come: ['Come funziona', 'كيف يعمل'], min: ['minuti', 'دقائق'], pausa: ['Pausa', 'استراحة'], valut: ['La tua valutazione da stampare', 'تقييمك للطباعة'],
+    regole: ['In alto vedi il tempo che resta. Quando finisce, completa la domanda e vai avanti. Non salviamo niente: tutto resta su questo computer.',
+             'في الأعلى ترى الوقت المتبقي. عندما ينتهي، أكمل السؤال وانتقل إلى التالي. لا نحفظ أي شيء: كل شيء يبقى على هذا الحاسوب.'],
+    chiSei: ['Chi sei', 'من أنت'],
+    nome: ['Il tuo nome', 'اسمك'], cognome: ['Il tuo cognome', 'اسم العائلة'], scuola: ['La tua scuola media (nome e città)', 'مدرستك الإعدادية (الاسم والمدينة)'],
+    famiglia: ['Con chi vivi? Per esempio: mamma, papà, 2 fratelli', 'مع من تعيش؟ مثلًا: أمي، أبي، أخوان'],
+    perche: ['Perché vuoi fare informatica? Scrivi con parole tue', 'لماذا تريد دراسة المعلوماتية؟ اكتب بكلماتك'],
+    privacy: ['Serve solo per la tua valutazione da stampare. Non viene salvato e non viene mandato a nessuno.', 'هذا فقط لتقييمك المطبوع. لا يُحفظ ولا يُرسل إلى أحد.'],
+    inizia: ['Inizia il test', 'ابدأ الاختبار'],
+    meta: ['Metà del test', 'نصف الاختبار'],
+    riposa: ['Bravo, hai finito logica e matematica. Riposati qualche minuto, poi vai avanti con la parte al computer.', 'أحسنت، أنهيت المنطق والرياضيات. استرح بضع دقائق، ثم تابع إلى الجزء العملي على الحاسوب.'],
+    pronto: ['Sono pronto: avanti', 'أنا مستعد: التالي'], parte: ['Parte', 'الجزء'], di: ['di', 'من'],
+    finito: ['Tempo finito: completa e vai avanti', 'انتهى الوقت: أكمل وانتقل'],
+    totale: ['Tempo totale rimasto: circa', 'الوقت الكلي المتبقي: حوالي'],
+    avanti: ['Ho finito: avanti', 'انتهيت: التالي'], vedi: ['Vedi i miei risultati', 'اعرض نتائجي'],
+    robot: ['Il robot a blocchi', 'الروبوت بالمكعبات'], livello: ['Livello', 'المستوى'],
+    robotIstr: ['Premi le frecce per mettere i blocchi in fila, poi premi «Esegui». Il robot 🤖 deve arrivare alla bandiera 🏁 senza toccare i muri grigi.',
+                'اضغط على الأسهم لتضع المكعبات بالترتيب، ثم اضغط «تنفيذ». يجب أن يصل الروبوت 🤖 إلى العلم 🏁 دون أن يلمس الجدران الرمادية.'],
+    togli: ["Togli l'ultimo", 'احذف الأخير'], svuota: ['Svuota', 'امسح الكل'], esegui: ['Esegui', 'تنفيذ'], vuoto: ['I tuoi blocchi compaiono qui', 'تظهر مكعباتك هنا'],
+    nonArriva: ['Il robot non è arrivato alla bandiera. Riprova!', 'لم يصل الروبوت إلى العلم. حاول مرة أخرى!'],
+    sbatte: ['Ops, il robot ha sbattuto. Cambia i blocchi e riprova!', 'أوه، اصطدم الروبوت. غيّر المكعبات وحاول مرة أخرى!'],
+    bravo: ["Bravo, ce l'hai fatta! Ecco il livello dopo.", 'أحسنت، نجحت! إليك المستوى التالي.'],
+    tutti: ['Fantastico: hai finito tutti i livelli! Ora rispondi alle domande qui sotto.', 'رائع: أنهيت كل المستويات! الآن أجب عن الأسئلة في الأسفل.'],
+    fine: ['Test finito', 'انتهى الاختبار'], risultati: ['I tuoi risultati', 'نتائجك'],
+    leadFine: ['Bravo, sei arrivato in fondo. Ecco come sei andato in ogni parte. Non è un voto: è una fotografia di oggi.', 'أحسنت، وصلت إلى النهاية. هذه نتيجتك في كل جزء. ليست علامة: إنها صورة لليوم.'],
+    forte: ['punto di forza', 'نقطة قوة'], cresce: ['in crescita', 'في تحسّن'], allena: ['da allenare', 'تحتاج إلى تمرين'],
+    profilo: ['Il tuo profilo', 'ملفك'], consigliati: ['Corsi consigliati', 'الدورات المقترحة'],
+    stampaNota: ['Ora stampa la tua valutazione: escono due fogli, uno per il professore e uno per te. Il professore li firma. Niente di questo è stato salvato.',
+                 'الآن اطبع تقييمك: تخرج ورقتان، واحدة للأستاذ وواحدة لك. الأستاذ يوقّعهما. لم يُحفظ أي شيء.'],
+    stampa: ['Stampa la mia valutazione (PDF)', 'اطبع تقييمي (PDF)'], ricomincia: ['Ricomincia da capo (per il prossimo ragazzo)', 'ابدأ من جديد (للطالب التالي)']
+  };
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function it(x) { return Array.isArray(x) ? x[0] : x; }
+  function ar(x) { return Array.isArray(x) ? x[1] : x; }
+  // Testo nella lingua scelta; prima della scelta, tutte e due
+  function T(x) {
+    if (lingua === 'ar') return '<span class="ar" dir="rtl" lang="ar">' + esc(ar(x)) + '</span>';
+    if (lingua === 'it' || !Array.isArray(x)) return esc(it(x));
+    return '<span class="it">' + esc(it(x)) + '</span><span class="ar" dir="rtl" lang="ar">' + esc(ar(x)) + '</span>';
+  }
+  function testo(x) { return lingua === 'ar' ? ar(x) : it(x); }
   function mescola(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
   function el(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function bottone(cls, x, fn) { var b = el('<div class="azioni"><button class="' + cls + '">' + T(x) + '</button></div>'); b.querySelector('button').onclick = fn; return b; }
 
   function avvia(minuti, box) {
     clearInterval(timerId);
@@ -91,84 +150,101 @@ input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line
     function tic() {
       var s = Math.max(0, Math.round((fine - Date.now()) / 1000));
       box.textContent = '⏱ ' + Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
-      if (!s) { box.classList.add('fine'); box.textContent = 'Tempo finito: completa e vai avanti'; clearInterval(timerId); }
+      if (!s) { box.classList.add('fine'); box.textContent = testo(U.finito); clearInterval(timerId); }
     }
     tic(); timerId = setInterval(tic, 1000);
   }
+  function totale(box) {
+    clearInterval(totaleId);
+    function tic() { var m = Math.max(0, Math.ceil((inizioTest + TOTALE_MIN * 60000 - Date.now()) / 60000)); box.textContent = testo(U.totale) + ' ' + m + ' ' + testo(U.min); }
+    tic(); totaleId = setInterval(tic, 15000);
+  }
+  function testata(eyebrow, minuti) {
+    var t = el('<div><div class="top"><div class="eyebrow">' + eyebrow + '</div><span class="timer"></span></div><div class="totale"></div></div>');
+    app.appendChild(t); avvia(minuti, t.querySelector('.timer')); totale(t.querySelector('.totale'));
+  }
 
   function avanti() { passo++; mostra(); window.scrollTo(0, 0); }
-
   function mostra() {
     clearInterval(timerId); app.innerHTML = '';
+    document.documentElement.lang = lingua === 'ar' ? 'ar' : 'it';
+    document.documentElement.dir = lingua === 'ar' ? 'rtl' : 'ltr';
     var s = schermate[passo];
+    if (s === 'lingua') return scegliLingua();
     if (s === 'inizio') return inizio();
     if (s === 'pausa') return pausa();
     if (s === 'fine') return risultati();
     blocco(B.blocchi[s], s);
   }
 
-  function inizio() {
-    app.appendChild(el('<div><div class="eyebrow">Corsi di informatica · versione ' + B.versione + '</div><h1>Test di orientamento</h1><p class="lead">Scopri se l\'informatica fa per te. Dura circa un\'ora. Non è un compito in classe: non ci sono voti.</p></div>'));
-    var passi = B.blocchi.map(function (b, i) { return '<li><b>' + esc(b.titolo) + '</b>, ' + b.minuti + ' minuti</li>'; });
-    passi.splice(2, 0, '<li>Pausa, ' + PAUSA_MIN + ' minuti</li>'); passi.push('<li>La tua valutazione da stampare, 5 minuti</li>');
-    app.appendChild(el('<div class="card"><h2>Come funziona</h2><ol class="passi">' + passi.join('') + '</ol>' +
-      '<p class="piccolo">In alto vedi il tempo che resta. Quando finisce, completa la domanda e vai avanti. Alla fine vedi i tuoi risultati e il tuo profilo. Non scriviamo il tuo nome e non salviamo niente: tutto resta su questo computer.</p></div>'));
-    var n = el('<div class="card"><label for="nome"><b>Scrivi il tuo nome e cognome</b></label><input class="nome" id="nome" autocomplete="off" maxlength="60"><p class="piccolo">Serve solo per la valutazione finale da stampare. Non viene salvato e non viene mandato a nessuno.</p></div>');
-    app.appendChild(n);
-    var b = el('<div class="azioni"><button class="main">Inizia il test</button></div>');
-    b.querySelector('button').onclick = function () {
-      nome = document.getElementById('nome').value.trim();
-      if (!nome) { document.getElementById('nome').focus(); return; }
-      inizioTest = Date.now(); avanti();
-    };
-    app.appendChild(b);
+  function scegliLingua() {
+    app.appendChild(el('<div><div class="eyebrow">' + T(U.corsi) + '</div><h1>' + T(U.titolo) + '</h1><p class="lead">' + T(U.lead) + '</p></div>'));
+    var c = el('<div class="card"><h2>' + T(U.scegli) + '</h2><div class="lingue"><button class="main" data-l="it">Italiano</button><button class="main" data-l="ar" lang="ar">العربية</button></div></div>');
+    c.querySelectorAll('button').forEach(function (b) { b.onclick = function () { lingua = b.dataset.l; avanti(); }; });
+    app.appendChild(c);
   }
-  // Tempo totale del test (un'ora, compresa la valutazione finale)
-  function totale(box) {
-    clearInterval(totaleId);
-    function tic() { var m = Math.max(0, Math.ceil((inizioTest + TOTALE_MIN * 60000 - Date.now()) / 60000)); box.textContent = 'Tempo totale rimasto: circa ' + m + ' minuti'; }
-    tic(); totaleId = setInterval(tic, 15000);
+
+  function inizio() {
+    app.appendChild(el('<div><div class="eyebrow">' + T(U.corsi) + ' · v' + B.versione + '</div><h1>' + T(U.titolo) + '</h1></div>'));
+    var passi = B.blocchi.map(function (b) { return '<li><b>' + T(b.titolo) + '</b>, ' + b.minuti + ' ' + T(U.min) + '</li>'; });
+    passi.splice(2, 0, '<li>' + T(U.pausa) + ', ' + PAUSA_MIN + ' ' + T(U.min) + '</li>'); passi.push('<li>' + T(U.valut) + ', 5 ' + T(U.min) + '</li>');
+    app.appendChild(el('<div class="card"><h2>' + T(U.come) + '</h2><ol class="passi">' + passi.join('') + '</ol><p class="piccolo">' + T(U.regole) + '</p></div>'));
+    var campi = [['nome', 'input'], ['cognome', 'input'], ['scuola', 'input'], ['famiglia', 'input'], ['perche', 'textarea']];
+    var n = el('<div class="card" style="display:grid;gap:12px"><h2>' + T(U.chiSei) + '</h2></div>');
+    campi.forEach(function (c) {
+      n.appendChild(el('<div><label for="' + c[0] + '"><b>' + T(U[c[0]]) + '</b></label>' + (c[1] === 'input'
+        ? '<input class="campo" id="' + c[0] + '" autocomplete="off" maxlength="80">'
+        : '<textarea class="campo" id="' + c[0] + '" rows="3" maxlength="400"></textarea>') + '</div>'));
+    });
+    n.appendChild(el('<p class="piccolo">' + T(U.privacy) + '</p>'));
+    app.appendChild(n);
+    app.appendChild(bottone('main', U.inizia, function () {
+      chi = {};
+      for (var k = 0; k < campi.length; k++) {
+        var v = document.getElementById(campi[k][0]).value.trim();
+        if (!v) { document.getElementById(campi[k][0]).focus(); return; }
+        chi[campi[k][0]] = v;
+      }
+      inizioTest = Date.now(); avanti();
+    }));
   }
 
   function pausa() {
-    app.appendChild(el('<div><div class="eyebrow">Metà del test</div><h1>Pausa</h1><p class="lead">Bravo, hai finito logica e matematica. Riposati ' + PAUSA_MIN + ' minuti. Quando sei pronto, vai avanti con la parte al computer.</p></div>'));
-    var t = el('<div class="top"><span class="timer"></span><span class="totale"></span></div>'); app.appendChild(t); avvia(PAUSA_MIN, t.querySelector('.timer')); totale(t.querySelector('.totale'));
-    var b = el('<div class="azioni"><button class="main">Sono pronto: avanti</button></div>');
-    b.querySelector('button').onclick = avanti; app.appendChild(b);
+    testata(T(U.meta), PAUSA_MIN);
+    app.appendChild(el('<div><h1>' + T(U.pausa) + '</h1><p class="lead">' + T(U.riposa) + '</p></div>'));
+    app.appendChild(bottone('main', U.pronto, avanti));
   }
 
+  // Le risposte si confrontano per posizione (0 = giusta), così valgono in tutte e due le lingue
   function domande(lista, nome) {
     var box = el('<div style="display:grid;gap:12px"></div>');
     lista.forEach(function (d, i) {
-      var opts = mescola([d[1]].concat(d[2])).map(function (o) {
-        return '<label><input type="radio" name="' + nome + i + '" value="' + esc(o) + '">' + esc(o) + '</label>'; }).join('');
-      box.appendChild(el('<div class="card q"><p>' + (i + 1) + '. ' + esc(d[0]) + '</p><div class="opts">' + opts + '</div></div>'));
+      var opts = mescola([d.g].concat(d.s).map(function (o, k) { return [o, k]; })).map(function (o) {
+        return '<label><input type="radio" name="' + nome + i + '" value="' + o[1] + '"><span>' + T(o[0]) + '</span></label>'; }).join('');
+      box.appendChild(el('<div class="card q"><p>' + (i + 1) + '. ' + T(d.q) + '</p><div class="opts">' + opts + '</div></div>'));
     });
     return box;
   }
   function conta(lista, nome) {
     var giuste = 0;
-    lista.forEach(function (d, i) { var c = app.querySelector('input[name="' + nome + i + '"]:checked'); if (c && c.value === d[1]) giuste++; });
+    lista.forEach(function (d, i) { var c = app.querySelector('input[name="' + nome + i + '"]:checked'); if (c && c.value === '0') giuste++; });
     return giuste / lista.length;
   }
 
   function blocco(b, n) {
-    var t = el('<div class="top"><div class="eyebrow">Parte ' + (n + 1) + ' di ' + B.blocchi.length + '</div><span class="timer"></span></div>');
-    app.appendChild(t); var tt = el('<div class="totale"></div>'); app.appendChild(tt); totale(tt);
-    app.appendChild(el('<div><h1>' + esc(b.titolo) + '</h1><p class="lead">' + esc(b.intro) + '</p></div>'));
-    avvia(b.minuti, t.querySelector('.timer'));
+    testata(T(U.parte) + ' ' + (n + 1) + ' ' + T(U.di) + ' ' + B.blocchi.length, b.minuti);
+    app.appendChild(el('<div><h1>' + T(b.titolo) + '</h1><p class="lead">' + T(b.intro) + '</p></div>'));
     var robotFatti = { n: 0 };
     if (b.robot) app.appendChild(robot(b.robot, robotFatti));
     if (b.domande) app.appendChild(domande(b.domande, b.id));
     if (b.frasi) {
       b.frasi.forEach(function (f, i) {
-        var sc = b.scala.map(function (v, k) { return '<label><input type="radio" name="mot' + i + '" value="' + (k + 1) + '">' + esc(v) + '</label>'; }).join('');
-        app.appendChild(el('<div class="card q"><p>' + esc(f) + '</p><div class="scala">' + sc + '</div></div>'));
+        var sc = b.scala.map(function (v, k) { return '<label><input type="radio" name="mot' + i + '" value="' + (k + 1) + '">' + T(v) + '</label>'; }).join('');
+        app.appendChild(el('<div class="card q"><p>' + T(f) + '</p><div class="scala">' + sc + '</div></div>'));
       });
     }
     var ultimo = n === B.blocchi.length - 1;
-    var az = el('<div class="azioni"><button class="main">' + (ultimo ? 'Vedi i miei risultati' : 'Ho finito: avanti') + '</button></div>');
-    az.querySelector('button').onclick = function () {
+    app.appendChild(bottone('main', ultimo ? U.vedi : U.avanti, function () {
       if (b.frasi) {
         motivazione = b.frasi.map(function (f, i) { var c = app.querySelector('input[name="mot' + i + '"]:checked'); return c ? +c.value : 3; });
         punti[b.id] = motivazione.reduce(function (a, v) { return a + v; }, 0) / (motivazione.length * 5);
@@ -176,23 +252,23 @@ input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line
         punti[b.id] = 0.5 * robotFatti.n / b.robot.length + 0.5 * conta(b.domande, b.id);
       } else punti[b.id] = conta(b.domande, b.id);
       avanti();
-    };
-    app.appendChild(az);
+    }));
   }
 
   // Il robot a blocchi: si costruisce il programma con le frecce, poi «Esegui»
   function robot(livelli, fatti) {
-    var card = el('<div class="card"><h2>Il robot a blocchi</h2><p class="piccolo">Premi le frecce per mettere i blocchi in fila, poi premi «Esegui». Il robot 🤖 deve arrivare alla bandiera 🏁 senza toccare i muri grigi.</p>' +
+    var card = el('<div class="card"><h2>' + T(U.robot) + '</h2><p class="piccolo">' + T(U.robotIstr) + '</p>' +
       '<div class="eyebrow liv"></div><div class="grid"></div>' +
       '<div class="blocchi"><button data-m="su">⬆️</button><button data-m="giu">⬇️</button><button data-m="sx">⬅️</button><button data-m="dx">➡️</button></div>' +
-      '<div class="prog"></div><div class="azioni"><button class="togli">Togli l\'ultimo</button><button class="svuota">Svuota</button><button class="main esegui">Esegui</button></div><p class="msg"></p></div>');
+      '<div class="prog"></div><div class="azioni"><button class="togli">' + T(U.togli) + '</button><button class="svuota">' + T(U.svuota) + '</button><button class="main esegui">' + T(U.esegui) + '</button></div><p class="msg"></p></div>');
     var L = 0, prog = [], pos, mappa, corre = false;
     var DIR = { su: [-1, 0], giu: [1, 0], sx: [0, -1], dx: [0, 1] }, ICO = { su: '⬆️', giu: '⬇️', sx: '⬅️', dx: '➡️' };
     var grid = card.querySelector('.grid'), pr = card.querySelector('.prog'), msg = card.querySelector('.msg');
     function carica() {
       mappa = livelli[L].righe.map(function (r) { return r.split(''); });
       mappa.forEach(function (r, i) { r.forEach(function (c, j) { if (c === 'R') pos = [i, j]; }); });
-      prog = []; card.querySelector('.liv').textContent = livelli[L].nome + ' di ' + livelli.length; msg.textContent = ''; msg.className = 'msg'; disegna();
+      prog = []; card.querySelector('.liv').textContent = testo(U.livello) + ' ' + (L + 1) + ' ' + testo(U.di) + ' ' + livelli.length;
+      msg.textContent = ''; msg.className = 'msg'; disegna();
     }
     function disegna(attivo) {
       grid.style.gridTemplateColumns = 'repeat(' + mappa[0].length + ',1fr)';
@@ -200,8 +276,9 @@ input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line
       mappa.forEach(function (r, i) { r.forEach(function (c, j) {
         var d = document.createElement('div'); d.className = 'cell' + (c === '#' ? ' wall' : '');
         d.textContent = (pos[0] === i && pos[1] === j) ? '🤖' : (c === 'B' ? '🏁' : ''); grid.appendChild(d); }); });
-      pr.innerHTML = prog.length ? prog.map(function (m, k) { return '<span' + (k === attivo ? ' class="now"' : '') + '>' + ICO[m] + '</span>'; }).join('') : '<span class="piccolo" style="background:none;color:var(--muted)">I tuoi blocchi compaiono qui</span>';
+      pr.innerHTML = prog.length ? prog.map(function (m, k) { return '<span' + (k === attivo ? ' class="now"' : '') + '>' + ICO[m] + '</span>'; }).join('') : '<span class="vuoto">' + esc(testo(U.vuoto)) + '</span>';
     }
+    function scrivi(x, cls) { msg.textContent = testo(x); msg.className = 'msg ' + cls; }
     card.querySelectorAll('.blocchi button').forEach(function (b) { b.onclick = function () { if (!corre && prog.length < 20) { prog.push(b.dataset.m); disegna(); } }; });
     card.querySelector('.togli').onclick = function () { if (!corre) { prog.pop(); disegna(); } };
     card.querySelector('.svuota').onclick = function () { if (!corre) { prog = []; disegna(); } };
@@ -209,81 +286,89 @@ input.nome{font:inherit;width:100%;padding:10px 12px;border:1px solid var(--line
       if (corre || !prog.length) return;
       corre = true; var k = 0, start = pos.slice();
       (function step() {
-        if (k === prog.length) { fine(mappa[pos[0]][pos[1]] === 'B' ? null : 'Il robot non è arrivato alla bandiera. Riprova!'); return; }
+        if (k === prog.length) { fine(mappa[pos[0]][pos[1]] === 'B' ? null : U.nonArriva); return; }
         var d = DIR[prog[k]], ni = pos[0] + d[0], nj = pos[1] + d[1];
-        if (ni < 0 || nj < 0 || ni >= mappa.length || nj >= mappa[0].length || mappa[ni][nj] === '#') { disegna(k); fine('Ops, il robot ha sbattuto. Cambia i blocchi e riprova!'); return; }
+        if (ni < 0 || nj < 0 || ni >= mappa.length || nj >= mappa[0].length || mappa[ni][nj] === '#') { disegna(k); fine(U.sbatte); return; }
         pos = [ni, nj]; disegna(k); k++; setTimeout(step, 400);
       })();
       function fine(errore) {
         corre = false;
-        if (errore) { msg.textContent = errore; msg.className = 'msg bad'; pos = start; setTimeout(function () { disegna(); }, 900); return; }
+        if (errore) { scrivi(errore, 'bad'); pos = start; setTimeout(function () { disegna(); }, 900); return; }
         fatti.n = Math.max(fatti.n, L + 1);
-        if (L < livelli.length - 1) { msg.textContent = 'Bravo, ce l\'hai fatta! Ecco il livello dopo.'; msg.className = 'msg ok'; setTimeout(function () { L++; carica(); }, 1300); }
-        else { msg.textContent = 'Fantastico: hai finito tutti i livelli! Ora rispondi alle domande qui sotto.'; msg.className = 'msg ok'; }
+        if (L < livelli.length - 1) { scrivi(U.bravo, 'ok'); setTimeout(function () { L++; carica(); }, 1300); }
+        else scrivi(U.tutti, 'ok');
       }
     };
     carica();
     return card;
   }
 
-  function fascia(p) { return p >= 0.7 ? ['forte', 'punto di forza'] : p >= 0.4 ? ['cresce', 'in crescita'] : ['allena', 'da allenare']; }
+  function fascia(p) { return p >= 0.7 ? ['forte', U.forte] : p >= 0.4 ? ['cresce', U.cresce] : ['allena', U.allena]; }
+
+  // Il profilo: ogni frase è [italiano, arabo]
+  function profilo() {
+    var lo = punti.logica || 0, ma = punti.matematica || 0, inf = punti.informatica || 0, mo = punti.motivazione || 0, f = [];
+    if (mo >= 0.7) f.push(['Hai tanta voglia di creare e di capire come funzionano le cose: è la cosa più importante per studiare informatica.', 'لديك رغبة كبيرة في الإبداع وفهم كيف تعمل الأشياء: هذا أهم شيء لدراسة المعلوماتية.']);
+    else if (mo >= 0.5) f.push(["La curiosità per l'informatica c'è: con progetti pratici, come giochi e siti, può crescere molto.", 'عندك فضول للمعلوماتية: مع مشاريع عملية، مثل الألعاب والمواقع، يمكن أن يكبر كثيرًا.']);
+    else f.push(["Forse l'informatica non è ancora la tua passione: prova una lezione da noi e scopri se ti piace creare qualcosa di tuo.", 'ربما المعلوماتية ليست شغفك بعد: جرّب درسًا عندنا واكتشف إن كنت تحب أن تصنع شيئًا خاصًا بك.']);
+    if (inf >= 0.6) f.push(['Con il robot e le domande al computer te la sei cavata bene: hai il modo di ragionare di chi programma.', 'أحسنت مع الروبوت وأسئلة الحاسوب: لديك طريقة تفكير المبرمج.']);
+    else f.push(['La parte al computer si impara facendo: nei nostri corsi si parte da zero, un passo alla volta.', 'الجزء العملي على الحاسوب نتعلمه بالممارسة: في دوراتنا نبدأ من الصفر، خطوة بخطوة.']);
+    if (lo >= 0.6 || ma >= 0.6) f.push(['Logica e matematica sono una buona base per i nostri corsi.', 'المنطق والرياضيات أساس جيد لدوراتنا.']);
+    else f.push(['Logica e matematica si allenano: nei nostri laboratori le usi per costruire cose vere, non solo per fare esercizi.', 'المنطق والرياضيات يمكن تمرينهما: في مختبراتنا تستخدمهما لصنع أشياء حقيقية، وليس فقط لحل التمارين.']);
+    var s = [];
+    if (motivazione[3] >= 4) s.push(['creare videogiochi, siti e app (programmazione)', 'صنع ألعاب الفيديو والمواقع والتطبيقات (البرمجة)']);
+    if (motivazione[4] >= 4) s.push(['montare e riparare computer e reti (tecnico hardware e reti)', 'تركيب وإصلاح الحواسيب والشبكات (فني أجهزة وشبكات)']);
+    if (motivazione[5] >= 4) s.push(["lavorare in squadra su un progetto, come in un'azienda", 'العمل في فريق على مشروع، كما في شركة']);
+    if (s.length) f.push(['Ti potrebbe piacere: ' + s.map(it).join('; ') + '.', 'قد يعجبك: ' + s.map(ar).join('؛ ') + '.']);
+    var c = [['Operatore informatico, percorso triennale con qualifica: programmazione, siti, giochi, hardware e reti, sempre in laboratorio', 'عامل معلوماتية (Operatore informatico)، مسار ثلاث سنوات مع شهادة: برمجة، مواقع، ألعاب، أجهزة وشبكات، دائمًا في المختبر']];
+    if (motivazione[3] >= 4 || inf >= 0.6) c.push(['dentro il percorso, i laboratori di programmazione: videogiochi, siti web e app', 'داخل المسار، مختبرات البرمجة: ألعاب الفيديو والمواقع والتطبيقات']);
+    if (motivazione[4] >= 4) c.push(['dentro il percorso, i laboratori di hardware e reti: montare, configurare e riparare computer', 'داخل المسار، مختبرات الأجهزة والشبكات: تركيب الحواسيب وإعدادها وإصلاحها']);
+    if (mo >= 0.6) c.push(['dopo la qualifica, il quarto anno da Tecnico informatico', 'بعد الشهادة، السنة الرابعة: فني معلوماتية (Tecnico informatico)']);
+    return { frasi: f, corsi: c };
+  }
 
   function risultati() {
-    app.appendChild(el('<div><div class="eyebrow">Test finito</div><h1>I tuoi risultati</h1><p class="lead">Bravo, sei arrivato in fondo. Ecco come sei andato in ogni parte. Non è un voto: è una fotografia di oggi.</p></div>'));
+    clearInterval(totaleId);
+    app.appendChild(el('<div><div class="eyebrow">' + T(U.fine) + '</div><h1>' + T(U.risultati) + '</h1><p class="lead">' + T(U.leadFine) + '</p></div>'));
     var c = el('<div class="card area"></div>');
     B.blocchi.forEach(function (b) {
       var p = punti[b.id] || 0, f = fascia(p);
-      c.appendChild(el('<div><div class="riga"><span>' + esc(b.titolo) + '</span><span class="tag ' + f[0] + '">' + f[1] + '</span></div><div class="barra"><i style="width:' + Math.round(p * 100) + '%"></i></div></div>'));
+      c.appendChild(el('<div><div class="riga"><span>' + T(b.titolo) + '</span><span class="tag ' + f[0] + '">' + T(f[1]) + '</span></div><div class="barra"><i style="width:' + Math.round(p * 100) + '%"></i></div></div>'));
     });
     app.appendChild(c);
     var pr = profilo();
-    app.appendChild(el('<div class="card"><h2>Il tuo profilo</h2>' + pr.testo.map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
-      '<p><b>Corsi consigliati:</b> ' + esc(pr.corsi.join('; ')) + '.</p>' +
-      '<p class="piccolo">Ora stampa la tua valutazione: il professore la firma e te la lascia. Niente di questo è stato salvato.</p></div>'));
-    var st = el('<div class="azioni"><button class="main">Stampa la mia valutazione (PDF)</button></div>');
-    st.querySelector('button').onclick = function () { stampa(pr); };
-    app.appendChild(st);
-    var b = el('<div class="azioni"><button>Ricomincia da capo (per il prossimo ragazzo)</button></div>');
-    b.querySelector('button').onclick = function () { punti = {}; motivazione = []; nome = ''; passo = 0; document.getElementById('stampa').innerHTML = ''; clearInterval(totaleId); mostra(); window.scrollTo(0, 0); };
-    app.appendChild(b);
+    app.appendChild(el('<div class="card"><h2>' + T(U.profilo) + '</h2>' + pr.frasi.map(function (t) { return '<p>' + T(t) + '</p>'; }).join('') +
+      '<p><b>' + T(U.consigliati) + ':</b></p><ol class="passi">' + pr.corsi.map(function (t) { return '<li>' + T(t) + '</li>'; }).join('') + '</ol>' +
+      '<p class="piccolo">' + T(U.stampaNota) + '</p></div>'));
+    app.appendChild(bottone('main', U.stampa, function () { stampa(pr); }));
+    app.appendChild(bottone('', U.ricomincia, function () {
+      punti = {}; motivazione = []; chi = {}; lingua = null; passo = 0; document.getElementById('stampa').innerHTML = ''; mostra(); window.scrollTo(0, 0);
+    }));
   }
 
-  function profilo() {
-    var lo = punti.logica || 0, ma = punti.matematica || 0, inf = punti.informatica || 0, mo = punti.motivazione || 0;
-    var testo = [];
-    if (mo >= 0.7) testo.push('Hai tanta voglia di creare e di capire come funzionano le cose: è la cosa più importante per studiare informatica.');
-    else if (mo >= 0.5) testo.push('La curiosità per l\'informatica c\'è: con progetti pratici, come giochi e siti, può crescere molto.');
-    else testo.push('Forse l\'informatica non è ancora la tua passione: prova una lezione da noi e scopri se ti piace creare qualcosa di tuo.');
-    if (inf >= 0.6) testo.push('Con il robot e le domande al computer te la sei cavata bene: hai il modo di ragionare di chi programma.');
-    else testo.push('La parte al computer si impara facendo: nei nostri corsi si parte da zero, un passo alla volta.');
-    if (lo >= 0.6 || ma >= 0.6) testo.push('Logica e matematica sono una buona base per i nostri corsi.');
-    else testo.push('Logica e matematica si allenano: nei nostri laboratori le usi per costruire cose vere, non solo per fare esercizi.');
-    var strade = [];
-    if (motivazione[3] >= 4) strade.push('creare videogiochi, siti e app (programmazione)');
-    if (motivazione[4] >= 4) strade.push('montare e riparare computer e reti (tecnico hardware e reti)');
-    if (motivazione[5] >= 4) strade.push('lavorare in squadra su un progetto, come in un\'azienda');
-    if (strade.length) testo.push('Ti potrebbe piacere: ' + strade.join('; ') + '.');
-    var corsi = ['Operatore informatico, percorso triennale con qualifica: programmazione, siti, giochi, hardware e reti, sempre in laboratorio'];
-    if (motivazione[3] >= 4 || inf >= 0.6) corsi.push('dentro il percorso, i laboratori di programmazione: videogiochi, siti web e app');
-    if (motivazione[4] >= 4) corsi.push('dentro il percorso, i laboratori di hardware e reti: montare, configurare e riparare computer');
-    if (mo >= 0.6) corsi.push('dopo la qualifica, il quarto anno da Tecnico informatico');
-    return { testo: testo, corsi: corsi };
-  }
-
-  // La valutazione da stampare (A4, senza emoji): il nome resta solo in questa pagina
-  function stampa(pr) {
+  // Due copie A4, senza emoji: 1) per il docente, in italiano; 2) per il ragazzo, bilingue se ha scelto l'arabo.
+  // Il nome e le risposte restano solo in questa pagina.
+  function copia(pr, bil, perChi) {
+    function B2(x) { return esc(it(x)) + (bil && Array.isArray(x) ? '<span class="ar" dir="rtl" lang="ar">' + esc(ar(x)) + '</span>' : ''); }
     var oggi = new Date().toLocaleDateString('it-IT', { day: '2-digit', month: '2-digit', year: 'numeric' });
     var righe = B.blocchi.map(function (b) { var p = punti[b.id] || 0;
-      return '<tr><td>' + esc(b.titolo) + '</td><td>' + Math.round(p * 100) + ' su 100</td><td>' + fascia(p)[1] + '</td></tr>'; }).join('');
-    document.getElementById('stampa').innerHTML =
-      '<h1>Test di orientamento all\'informatica</h1><p>Valutazione orientativa · data ' + oggi + ' · versione del test ' + B.versione + '</p>' +
-      '<table><tr><th style="width:30%">Nome e cognome</th><td>' + esc(nome) + '</td></tr></table>' +
-      '<h2>01 Risultati per area</h2><table><tr><th>Area</th><th>Punteggio</th><th>Fascia</th></tr>' + righe + '</table>' +
-      '<p class="nota">Fasce: punto di forza da 70 su 100; in crescita da 40 a 69; da allenare sotto 40. Per la motivazione il punteggio viene dalle risposte del ragazzo su di sé.</p>' +
-      '<h2>02 Profilo orientativo</h2><ol>' + pr.testo.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>' +
-      '<h2>03 Corsi consigliati</h2><ol>' + pr.corsi.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>' +
-      '<p class="nota">Questa valutazione non è un voto: è una fotografia di oggi, per aiutare a scegliere. Il test è al computer e non salva nessun dato.</p>' +
-      '<div class="firma"><div>Data</div><div>Il docente, prof. Regge Nicola</div></div>';
+      return '<tr><td>' + B2(b.titolo) + '</td><td>' + Math.round(p * 100) + ' / 100</td><td>' + B2(fascia(p)[1]) + '</td></tr>'; }).join('');
+    var chiR = [[['Nome e cognome', 'الاسم واسم العائلة'], chi.nome + ' ' + chi.cognome], [['Scuola di provenienza', 'المدرسة'], chi.scuola],
+                [['Con chi vive', 'مع من يعيش'], chi.famiglia], [['Perché vuole fare informatica', 'لماذا يريد دراسة المعلوماتية'], chi.perche]];
+    return '<div class="copia' + (bil ? ' bil' : '') + '"><p class="chi">' + perChi + '</p>' +
+      '<h1>' + B2(['Test di orientamento all\'informatica', 'اختبار التوجيه إلى المعلوماتية']) + '</h1>' +
+      '<p>Valutazione orientativa · data ' + oggi + ' · test v' + B.versione + ' · lingua del test: ' + (lingua === 'ar' ? 'arabo' : 'italiano') + '</p>' +
+      '<table>' + chiR.map(function (r) { return '<tr><th style="width:30%">' + B2(r[0]) + '</th><td>' + esc(r[1]) + '</td></tr>'; }).join('') + '</table>' +
+      '<h2>01 ' + B2(['Risultati per area', 'النتائج حسب المجال']) + '</h2><table><tr><th>' + B2(['Area', 'المجال']) + '</th><th>' + B2(['Punteggio', 'النتيجة']) + '</th><th>' + B2(['Fascia', 'المستوى']) + '</th></tr>' + righe + '</table>' +
+      '<p class="nota">Fasce: punto di forza da 70 su 100; in crescita da 40 a 69; da allenare sotto 40. La motivazione viene dalle risposte del ragazzo su di sé.</p>' +
+      '<h2>02 ' + B2(['Profilo orientativo', 'الملف التوجيهي']) + '</h2><ol>' + pr.frasi.map(function (t) { return '<li>' + B2(t) + '</li>'; }).join('') + '</ol>' +
+      '<h2>03 ' + B2(['Corsi consigliati', 'الدورات المقترحة']) + '</h2><ol>' + pr.corsi.map(function (t) { return '<li>' + B2(t) + '</li>'; }).join('') + '</ol>' +
+      '<p class="nota">' + B2(['Questa valutazione non è un voto: è una fotografia di oggi, per aiutare a scegliere. Il test è al computer e non salva nessun dato.', 'هذا التقييم ليس علامة: إنه صورة لليوم، للمساعدة في الاختيار. الاختبار على الحاسوب ولا يحفظ أي بيانات.']) + '</p>' +
+      '<div class="firma"><div>' + B2(['Data', 'التاريخ']) + '</div><div>' + B2(['Il docente, prof. Regge Nicola', 'الأستاذ Regge Nicola']) + '</div></div></div>';
+  }
+  function stampa(pr) {
+    document.getElementById('stampa').innerHTML = copia(pr, false, 'Copia per il docente') +
+      copia(pr, lingua === 'ar', lingua === 'ar' ? 'Copia per il ragazzo · نسخة للطالب' : 'Copia per il ragazzo');
     window.print();
   }
 
