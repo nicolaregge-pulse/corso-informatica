@@ -77,6 +77,8 @@ Da definire con il prof.
 
 ## Promemoria per il prof
 
+In seconda e in terza, quando i ragazzi hanno finito il lavoro, proporre i giochi dei byte e dei pixel della prima: quanto pesa un'immagine, la gara dei download, lo streaming e la sfida delle unità.
+
 Quando il limite settimanale è ripartito, da mercoledì 21 ottobre dopo le 10: rendere più leggere le chat del corso. Un file per ripartire, un CLAUDE.md più corto e una chat nuova ogni giorno di lezione.
 
 
