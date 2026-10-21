@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.68** — 21/10/2026
+**Versione 2.69** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,13 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — TERZA volta il #50: copiare il codice e poi copiare l'indirizzo di Apps Script (#101)
+
+1. **Errore:** nei passi per lo script v8.2 ho fatto copiare il codice (passo 2) e poi l'indirizzo di Apps Script dal riquadro (passo 3): la seconda copia cancella la prima. Nicola se n'è accorto prima di incollare («Lo fai SEMPRE quell'errore»). È la terza volta (#50, #57).
+2. **Causa:** in `RIPARTENZA.md` §03 la procedura era scritta nell'ordine sbagliato («codice dal link pubblico, Ctrl+A, Ctrl+V…») e la chat nuova l'ha ricopiata.
+3. **Correzione:** passi rifatti nell'ordine giusto; Nicola ha incollato le 948 righe giuste.
+4. **Regola:** la procedura per aggiornare lo script è scritta UNA volta, già nell'ordine giusto, in `RIPARTENZA.md` §03 punto 5: si ricopia da lì, mai a memoria. Ordine fisso: 1) aprire Apps Script e il file; 2) aprire il link del codice; 3) copiare; 4) tornare e incollare. Nessun riquadro da copiare tra una copia e il suo incolla.
 
 ## 21/10/2026 — PC senza nome lasciato come «utente non indicato» (#100)
 
