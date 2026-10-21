@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.63** — 20/10/2026
+**Versione 2.64** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Firma ricordata su ore già firmate (#96)
+
+1. **Errore:** sulla schermata del registro le tre ore avevano «FIRMA ✓» in rosso e ho chiesto di firmarle; erano già firmate.
+2. **Correzione:** Nicola ha mostrato l'elenco delle ore firmate (data, ora, classe, disciplina, argomento, data e ora della firma).
+3. **Regola:** se un'ora compare in quell'elenco è firmata; non si ricorda più la firma per quell'ora.
 
 ## 20/10/2026 — Voti del quiz calcolati su 100 invece che su 70; quiz giusto non riconosciuto (#95)
 
