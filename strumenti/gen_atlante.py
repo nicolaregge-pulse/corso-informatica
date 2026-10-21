@@ -120,7 +120,9 @@ def mappa():
         s.append(f'<path d="M{gx},{gy} Q{cx:.0f},{cy:.0f} {x},{y + 30}" fill="none" stroke="#f1e3c6" stroke-width="22" stroke-linecap="round"/>')
     # gli alberi, lontani dalle zone e dal lago
     alberi = []
-    while len(alberi) < 70:
+    prove = 0   # 21/10: con una zona in più lo spazio libero cala: si smette dopo tanti tentativi (prima girava all'infinito)
+    while len(alberi) < 70 and prove < 20000:
+        prove += 1
         x, y = rnd.randint(110, 1290), rnd.randint(110, 800)
         if any((x - z[1]) ** 2 + (y - z[2]) ** 2 < 150 ** 2 for z in ZONE): continue
         if ((x - 700) / 190) ** 2 + ((y - 505) / 105) ** 2 < 1: continue
