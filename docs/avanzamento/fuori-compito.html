@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Registro del fuori compito</title>
+<style>
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ko:#c0392b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:16px}h1{margin:4px 0;font-size:26px}h2{margin:22px 0 8px;font-size:21px}.mu{color:var(--mu)}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px}.gate button,.b{font:inherit;font-weight:800;padding:10px 14px;border:0;border-radius:10px;background:var(--acc);color:#fff;cursor:pointer}.gate button{width:100%}
+.hide{display:none}table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{background:#eef1f5;font-size:13px}
+.n{font-size:20px;font-weight:800;text-align:center;width:70px;color:var(--ko)}.pos{width:40px;font-weight:700}
+.o{font-size:14px;margin:3px 0}.o a{color:var(--acc);cursor:pointer;text-decoration:underline}
+#big{position:fixed;inset:0;background:#000c;display:none;align-items:center;justify-content:center;z-index:9}#big img{max-width:96vw;max-height:92vh}#big b{position:absolute;top:10px;left:14px;color:#fff}
+@media print{.noprint{display:none}body{background:#fff}tr{page-break-inside:avoid}}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate hide"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" style="color:var(--ko)"></div></div>
+<div id="view" class="hide">
+<h1>Registro del fuori compito</h1>
+<div class="mu" id="sotto"></div>
+<p class="mu">Quante volte un allievo non fa il lavoro assegnato, visto da Veyon: data, ora, che cosa faceva e la foto del giro (clic su «foto»). Solo fatti.</p>
+<p class="noprint"><button class="b" onclick="window.print()">Stampa o salva in PDF</button></p>
+<div id="classi"></div>
+</div></div>
+<div id="big" onclick="this.style.display='none'"><b id="bigt"></b><img id="bigi" alt="schermata di Veyon"></div>
+<script>
+// REGISTRO DEL FUORI COMPITO (21/10/2026, Nicola): per classe (in ordine), per allievo, classifica con date, ore e foto di Veyon.
+// Dati cifrati in fuori-compito.json (strumenti/fuori_compito.py legge le osservazioni di Veyon dal riservato).
+var TOK='',ORD=['1INF','2INF','3INF','4TI'],F={};
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function dati(){var u='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/fuori-compito.json?t='+Date.now(),r;
+ try{r=await fetch(u,{cache:'no-store'})}catch(e){}if(!r||!r.ok)r=await fetch('fuori-compito.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();
+ var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))));}
+function foto(k){$('bigi').src='data:image/jpeg;base64,'+F[k];$('bigt').textContent='Veyon · '+k;$('big').style.display='flex'}
+async function apri(){TOK=$('tok').value.trim()||TOK;if(!TOK)return;var D;
+ try{D=await dati()}catch(e){$('gate').classList.remove('hide');$('view').classList.add('hide');$('err').textContent='Codice sbagliato.';return}
+ try{localStorage.setItem('monitor-tok',TOK)}catch(e){}$('gate').classList.add('hide');$('view').classList.remove('hide');F=D.foto||{};
+ var O=D.oss||[],per={};O.forEach(function(o){var c=per[o.classe]||(per[o.classe]={});(c[o.nome]=c[o.nome]||[]).push(o)});
+ var cl=Object.keys(per).sort(function(a,b){var i=ORD.indexOf(a),j=ORD.indexOf(b);return(i<0?99:i)-(j<0?99:j)});
+ $('sotto').textContent='Totale: '+O.length+' volte fuori compito · aggiornato '+new Date().toLocaleString('it-IT');
+ $('classi').innerHTML=cl.map(function(c){var al=Object.keys(per[c]).map(function(n){return{nome:n,o:per[c][n]}}).sort(function(a,b){return b.o.length-a.o.length||a.nome.localeCompare(b.nome)});
+  return '<h2>'+esc(c)+'</h2><table><tr><th class="pos">#</th><th>Allievo</th><th>Volte</th><th>Quando e che cosa</th></tr>'+al.map(function(a,i){return '<tr><td class="pos">'+(i+1)+'</td><td>'+esc(a.nome)+'</td><td class="n">'+a.o.length+'</td><td>'+a.o.map(function(o){return '<div class="o">'+o.data.slice(8,10)+'/'+o.data.slice(5,7)+' ore '+esc(o.ora)+' · '+esc(o.cosa)+(o.foto?' · <a onclick="foto(\''+o.foto+'\')">foto</a>':'')+'</div>'}).join('')+'</td></tr>'}).join('')+'</table>'}).join('')||'<p>Nessuna osservazione.</p>';}
+$('ok').onclick=apri;$('tok').onkeydown=function(e){if(e.key==='Enter')apri()};
+try{TOK=localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide');
+</script>
+</body></html>
