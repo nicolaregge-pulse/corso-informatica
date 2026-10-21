@@ -54,7 +54,7 @@
       var n = (nome.value || leggi('assistente-nome')).trim().toLowerCase(); if (!n) return;
       fetch(base + 'assistente/risposte/' + pagina + '.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (L) {
         var mie = (L || []).filter(function (x) { var a = String(x.nome || '').toLowerCase(); return a && (n.indexOf(a.replace(/\.$/, '').split(' ')[0]) === 0); });
-        document.getElementById('as-r').innerHTML = mie.length ? '<h3 style="font-size:18px;margin:12px 0 4px">' + e(tr('r')) + '</h3>' + mie.map(function (x) { return '<p style="margin:6px 0"><i>' + e(x.domanda) + '</i><br><b>' + e(x.risposta) + '</b></p>'; }).join('') : '';
+        document.getElementById('as-r').innerHTML = mie.length ? '<h3 style="font-size:18px;margin:12px 0 4px">' + e(tr('r')) + '</h3>' + mie.map(function (x) { return '<p style="margin:6px 0"><i>' + e(x.domanda) + '</i><br><b style="white-space:pre-line">' + e(x.risposta) + '</b></p>'; }).join('') : '';
       }).catch(function () {});
     }
     risposte(); setInterval(risposte, 60000);
