@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'albero del mio sito</title>
+<style>
+:root{--bg:#0f1722;--card:#17212f;--fg:#eef3fa;--mu:#9aabc0;--acc:#ffcf4a;--ok:#4fd18b;--ko:#ff6b6b;--ln:#2a3a50}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:"Segoe UI",system-ui,Arial,sans-serif;line-height:1.45}
+.w{max-width:980px;margin:0 auto;padding:16px}
+h1{margin:4px 0;font-size:28px}h2{margin:0 0 8px;font-size:19px;color:var(--acc)}
+.mu{color:var(--mu)}.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px;margin:12px 0}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input{flex:1;min-width:240px;font-size:16px;padding:10px 12px;border-radius:10px;border:1px solid var(--ln);background:#0c131d;color:var(--fg)}
+button{font-size:16px;font-weight:700;padding:10px 16px;border-radius:10px;border:0;background:var(--acc);color:#1b2430;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:760px){.cols{grid-template-columns:1fr}}
+.tree{font-family:Consolas,monospace;font-size:15px;white-space:pre;overflow-x:auto}
+.tree .bad{color:var(--ko);font-weight:700}.tree .dir{color:var(--acc)}
+.ck{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--ln)}.ck:last-child{border:0}
+.ck b{min-width:22px}.ok{color:var(--ok)}.ko{color:var(--ko)}.fix{color:var(--mu);font-size:14px;margin-top:2px}
+.big{font-size:30px;font-weight:800}.bar{height:12px;background:#0c131d;border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ok);transition:width .6s}
+.nota{font-size:13px;color:var(--mu)}a{color:var(--acc)}
+.festa{animation:salta .6s ease 3}@keyframes salta{50%{transform:scale(1.08)}}
+</style>
+</head>
+<body><div class="w">
+<h1>L'albero del mio sito</h1>
+<div class="mu">Scrivi l'indirizzo del tuo sito e premi «Controlla». Vedi le cartelle e i file come in Esplora file, e una spunta verde o una croce rossa per ogni cosa che serve.</div>
+
+<div class="card"><div class="row">
+<input id="sito" placeholder="https://tuonome.github.io/nome-del-repository/" autocomplete="off">
+<button id="vai">Controlla</button></div>
+<div class="nota" id="info">Il controllo legge i file direttamente da GitHub. Dopo aver fatto un Commit aspetta un minuto e premi di nuovo.</div></div>
+
+<div id="esito" class="card" style="display:none"><div class="row"><span class="big" id="punti"></span><span class="mu" id="frase"></span></div><div class="bar"><i id="barra" style="width:0"></i></div></div>
+
+<div class="cols">
+<div class="card"><h2>1. Il tuo albero (da GitHub)</h2><div class="tree" id="albero"><span class="mu">Premi «Controlla».</span></div></div>
+<div class="card"><h2>2. Che cosa serve</h2><div id="lista"><span class="mu">Qui compare la lista dei controlli.</span></div></div>
+</div>
+<p class="nota">La struttura giusta: nella cartella principale del repository ci sono <b>index.html</b>, <b>style.css</b>, <b>competenze.html</b>, <b>passione.html</b> e la cartella <b>img</b> con le tue immagini. Nomi tutti minuscoli, senza spazi.</p>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+var RICH=['index.html','style.css','competenze.html','passione.html'];
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function leggiSito(u){u=u.trim();var m=u.match(/https?:\/\/([a-z0-9-]+)\.github\.io\/?([^\/?#]*)/i);if(m)return{u:m[1],r:m[2]||(m[1]+'.github.io')};m=u.match(/github\.com\/([^\/]+)\/([^\/?#]+)/i);if(m)return{u:m[1],r:m[2]};return null;}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+// LETTURA OTTIMIZZATA: 1 sola chiamata all'API (elenco dei file) con ETag: se non è cambiato niente GitHub risponde 304 e non conta nel limite.
+// Se la rete della scuola ha finito le letture (403/429), si passa alla copia di jsDelivr (qualche minuto di ritardo).
+async function elenco(s){
+  var key='albero:'+s.u+'/'+s.r,old=null;try{old=JSON.parse(ls(key)||'null');}catch(e){}
+  var h={Accept:'application/vnd.github+json'};if(old&&old.etag)h['If-None-Match']=old.etag;
+  try{var r=await fetch('https://api.github.com/repos/'+s.u+'/'+s.r+'/git/trees/HEAD?recursive=1',{headers:h});
+    if(r.status===304&&old)return{files:old.files,da:'GitHub (nessuna modifica dall\'ultimo controllo)'};
+    if(r.ok){var d=await r.json();var f=(d.tree||[]).map(function(t){return{p:t.path,d:t.type==='tree'}});ls(key,JSON.stringify({etag:r.headers.get('ETag'),files:f}));return{files:f,da:'GitHub, adesso'};}
+    if(r.status===404)return{err:'Repository non trovato: controlla l\'indirizzo del sito (nome utente e nome del repository) e che il repository sia pubblico.'};
+  }catch(e){}
+  for(var b of ['main','master']){try{var j=await fetch('https://data.jsdelivr.com/v1/packages/gh/'+s.u+'/'+s.r+'@'+b+'?structure=flat');if(j.ok){var dj=await j.json();var ff=[],dirs={};(dj.files||[]).forEach(function(x){var p=x.name.replace(/^\//,'');ff.push({p:p,d:false});var parts=p.split('/');for(var i=1;i<parts.length;i++)dirs[parts.slice(0,i).join('/')]=1;});Object.keys(dirs).forEach(function(k){ff.push({p:k,d:true})});return{files:ff,da:'copia di jsDelivr (dati di qualche minuto fa)',ramo:b};}}catch(e){}}
+  if(old)return{files:old.files,da:'ultimo controllo salvato (GitHub non risponde)'};
+  return{err:'GitHub non risponde in questo momento. Riprova tra un minuto.'};
+}
+function raw(s,f){return fetch('https://raw.githubusercontent.com/'+s.u+'/'+s.r+'/HEAD/'+f.split('/').map(encodeURIComponent).join('/')).then(function(r){return r.ok?r.text():null}).catch(function(){return null});}
+function disegna(files,bad){
+  var out='',ord=files.slice().sort(function(a,b){return a.p.localeCompare(b.p)});
+  ord.forEach(function(f){var parts=f.p.split('/'),lv=parts.length-1,nm=parts[lv];out+='   '.repeat(lv)+(f.d?'📁 ':'📄 ')+'<span class="'+(bad[f.p]?'bad':(f.d?'dir':''))+'">'+esc(nm)+(f.d?'/':'')+'</span>'+(bad[f.p]?'  ← '+esc(bad[f.p]):'')+'\n';});
+  return out||'<span class="mu">Il repository è vuoto.</span>';}
+async function controlla(){
+  var s=leggiSito($('sito').value);if(!s){$('albero').innerHTML='<span class="ko">Scrivi l\'indirizzo del sito, per esempio https://tuonome.github.io/nome-del-repository/</span>';return;}
+  ls('albero:sito',$('sito').value.trim());$('vai').disabled=true;var t=30;var cd=setInterval(function(){$('vai').textContent='Controlla ('+(--t)+')';if(t<=0){clearInterval(cd);$('vai').disabled=false;$('vai').textContent='Controlla';}},1000);
+  $('albero').innerHTML='<span class="mu">Leggo da GitHub…</span>';
+  var e=await elenco(s);if(e.err){$('albero').innerHTML='<span class="ko">'+esc(e.err)+'</span>';return;}
+  var files=e.files,set={},low={},bad={},ck=[];files.forEach(function(f){set[f.p]=f;low[f.p.toLowerCase()]=f.p;});
+  // 1. file richiesti nella cartella principale
+  RICH.forEach(function(n){if(set[n])ck.push([1,'C\'è '+n]);else{var vic=low[n]||Object.keys(set).find(function(p){var b=p.split('/').pop().toLowerCase();return b===n||b===n+'.txt'||(b.slice(0,6)===n.slice(0,6)&&/\.html?$/.test(b));});
+    if(vic){bad[vic]='dovrebbe essere '+n;ck.push([0,'Manca '+n+' nel posto giusto: c\'è «'+vic+'»',vic.indexOf('/')>=0?'Il file è dentro una cartella: aprilo su GitHub, matita, e nel nome in alto cancella la cartella davanti (es. «sito/'+n+'» diventa «'+n+'»), poi Commit changes.':'Rinominalo: aprilo su GitHub, matita, cambia il nome in alto in «'+n+'» (tutto minuscolo), Commit changes.']);}
+    else ck.push([0,'Manca '+n,'Su GitHub: Add file, Create new file, scrivi il nome «'+n+'», incolla il contenuto della scheda, Commit changes.']);}});
+  // 2. cartella img con almeno un'immagine
+  var imgs=files.filter(function(f){return /^img\/[^\/]+\.(png|jpe?g|gif|webp|svg)$/i.test(f.p)});
+  if(imgs.length)ck.push([1,'La cartella img ha '+imgs.length+' immagin'+(imgs.length>1?'i':'e')]);else{var imgAlt=files.find(function(f){return f.d&&/^(images?|immagini|IMG|Img)$/i.test(f.p)});var sciolte=files.filter(function(f){return /^[^\/]+\.(png|jpe?g|gif|webp)$/i.test(f.p)});ck.push([0,'Manca la cartella img con almeno un\'immagine',sciolte.length?'Hai immagini fuori dalla cartella img ('+sciolte.map(function(f){return f.p}).join(', ')+'): aprile su GitHub, matita, e davanti al nome scrivi «img/». Poi nei collegamenti scrivi «img/» davanti al nome.':imgAlt?'Hai la cartella «'+imgAlt.p+'»: il nome giusto è «img», tutto minuscolo.':'Su GitHub: Add file, Upload files, trascina l\'immagine; nel nome scrivi davanti «img/» per metterla nella cartella img, poi Commit changes.']);if(imgAlt)bad[imgAlt.p]='dovrebbe chiamarsi img';}
+  // 3. nomi con spazi, maiuscole o doppia estensione
+  files.forEach(function(f){var n=f.p.split('/').pop();if(/\s/.test(n)){bad[f.p]='spazio nel nome';ck.push([0,'«'+f.p+'» ha uno spazio nel nome','I nomi dei file non devono avere spazi: rinominalo con il trattino (es. «mia-foto.jpg»).']);}
+    else if(/\.(html|css)\.txt$/i.test(n)){bad[f.p]='doppia estensione';ck.push([0,'«'+f.p+'» finisce con .txt','Rinominalo togliendo «.txt» alla fine.']);}
+    else if(!f.d&&/[A-Z]/.test(n)&&/\.(html|css)$/i.test(n)&&!bad[f.p]){bad[f.p]='maiuscole';ck.push([0,'«'+f.p+'» ha lettere maiuscole','Le pagine si chiamano tutte in minuscolo: rinominalo.']);}});
+  // 4. collegamenti: ogni link e immagine deve puntare a un file che esiste (GitHub distingue maiuscole e minuscole)
+  var rotti=0,css='';for(var n of RICH){if(!set[n])continue;var txt=await raw(s,n);if(txt===null)continue;if(n==='style.css')css=txt;
+    var refs=[];txt.replace(/(?:href|src)\s*=\s*["']([^"'#?]+)["']/gi,function(_,u){refs.push(u)});txt.replace(/url\(\s*["']?([^"')?#]+)["']?\s*\)/gi,function(_,u){refs.push(u)});
+    refs.forEach(function(u){if(/^(https?:|mailto:|tel:|data:|\/\/)/i.test(u)||!u.trim())return;var p=u.replace(/^\.\//,'');if(p.endsWith('/'))p+='index.html';if(set[p])return;rotti++;
+      var giusto=low[p.toLowerCase()]||Object.keys(set).find(function(k){return k.replace(/\.[^.\/]+$/,'').toLowerCase()===p.replace(/\.[^.\/]+$/,'').toLowerCase();});ck.push([0,'In '+n+' il collegamento «'+u+'» non trova il file',giusto?'Il file si chiama «'+giusto+'»: correggi il collegamento uguale, lettera per lettera.':'Controlla il nome: il file non c\'è nel repository, oppure è in un\'altra cartella.']);});}
+  if(!rotti)ck.push([1,'Tutti i collegamenti e le immagini trovano il loro file']);
+  // 5. grafica di oggi: sfondo con immagine e animazione
+  if(css){var bg=/background(-image)?\s*:[^;]*url\(/i.test(css);ck.push([bg?1:0,'style.css usa un\'immagine di sfondo (background-image)',bg?'':'Aggiungi in style.css, dentro body { }: background-image: url("img/sfondo.jpg"); background-size: cover;']);
+    var an=/@keyframes|transition\s*:|animation\s*:/i.test(css);ck.push([an?1:0,'style.css ha un\'animazione (transition o @keyframes)',an?'':'Prova la scheda dell\'animazione: per esempio a:hover { transform: scale(1.1); } con transition: transform .3s;']);}
+  var ok=ck.filter(function(c){return c[0]}).length;
+  $('albero').innerHTML=disegna(files,bad);
+  $('lista').innerHTML=ck.map(function(c){return '<div class="ck"><b class="'+(c[0]?'ok':'ko')+'">'+(c[0]?'✔':'✘')+'</b><div>'+esc(c[1])+(c[2]?'<div class="fix">'+esc(c[2])+'</div>':'')+'</div></div>';}).join('');
+  $('esito').style.display='';$('punti').textContent=ok+' su '+ck.length;$('barra').style.width=Math.round(ok/ck.length*100)+'%';
+  $('frase').textContent=ok===ck.length?'Tutto verde: il tuo sito è in ordine! Fallo vedere al compagno.':'Sistema le croci rosse una alla volta, poi premi di nuovo «Controlla».';
+  $('esito').classList.remove('festa');if(ok===ck.length){void $('esito').offsetWidth;$('esito').classList.add('festa');}
+  $('info').textContent='Letto da: '+e.da+' · '+new Date().toLocaleTimeString('it-IT')+' · sito: '+s.u+'/'+s.r;
+}
+$('vai').onclick=controlla;$('sito').addEventListener('keydown',function(e){if(e.key==='Enter')controlla();});
+var q=(location.search.match(/[?&]sito=([^&]+)/)||[])[1];$('sito').value=q?decodeURIComponent(q):(ls('albero:sito')||'');if($('sito').value)controlla();
+</script>
+</body>
+</html>
