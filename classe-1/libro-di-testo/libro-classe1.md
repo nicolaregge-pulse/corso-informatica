@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 0.6** — 09/10/2026
+**Versione 0.7** — 21/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -197,6 +197,21 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
    standard (form factor, PCIe, socket, processori per marca, memorie) e inserire
    immagini dal web descrivendo la tipologia; consegna su Classroom.
 
+### 7.1 Quanto pesa un file e quanto va veloce la rete (20 e 21/10)
+
+1. **Bit e byte:** il bit vale 0 oppure 1; 8 bit fanno 1 byte, cioè una lettera. Il bit si scrive con la **b** piccola, il byte con la **B** grande.
+2. **Le unità:** ogni gradino è circa 1000 volte più grande: KB, MB, GB, TB. Una foto pesa circa 3 MB, un film circa 2 GB.
+3. **Il conto:** prima si porta tutto nella stessa unità, poi si divide. Esempio: 64 GB = 64000 MB; 64000 : 3 = circa 21000 foto.
+4. **La velocità della rete** si misura in **Mbps** (megabit al secondo): 100 Mbps = 12,5 MB al secondo.
+5. **Il controllo dei dati (CRC):** chi spedisce aggiunge un numero di controllo, chi riceve rifà il conto; se non torna, un bit si è rovinato e il pacchetto si chiede di nuovo.
+6. **Nel cavo i bit sono corrente:** 5 volt = 1, 0 volt = 0.
+
+![La lavagna del 20/10: bit, byte, Mbps e il controllo dei dati](immagini/20261020_lavagna-bit-byte-crc_slide.jpg)
+
+![La lavagna del 20/10: il byte diventa corrente nel cavo](immagini/20261020_lavagna-segnale-0V-5V_slide.jpg)
+
+7. **Il laboratorio del gamer (21/10):** il **ping** è il tempo di andata e ritorno verso il server (sotto 30 ms ottimo); il **jitter** è quanto il ping cambia; il **lag** è il ritardo che si sente giocando. Gli **FPS** sono le immagini al secondo prodotte dalla scheda video; gli **Hz** sono quante volte al secondo il monitor ridisegna l'immagine. I cavi video: VGA (vecchio, analogico), HDMI (porta anche l'audio), DisplayPort (monitor da gaming). Documento completo: `classe-1/gamer/1inf-gamer.md`.
+
 ## 8. Glossario (essenziale)
 1. **CPU:** processore, il "cervello" del PC.
 2. **RAM:** memoria di lavoro veloce e temporanea.
@@ -207,6 +222,7 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 9. Changelog
+7. **v0.7 (21/10/2026)**: aggiunta 7.1 "Quanto pesa un file e quanto va veloce la rete" (bit, byte, unità, Mbps, CRC, segnale 0V/5V, laboratorio del gamer) con le due foto della lavagna del 20/10.
 6. **v0.6 (09/10/2026)**: aggiunta 5.2 "La lavagna del 09/10" (numeri major.minor.patch.build, ramo principale, changelog, fork, Pull Request accettata e rifiutata) con la foto.
 5. **v0.5 (09/10/2026)**: aggiunta 5.1 "La storia del nostro gioco: versioni, rami, fork e merge" (grafo del Treno blindato, versioni minor e major, Godot v2.0).
 4. **v0.4 (24/09/2026)**: aggiunta 2.4.1 "In parole semplici — la storia dello storage" (paginetta descrittiva con analogia).
