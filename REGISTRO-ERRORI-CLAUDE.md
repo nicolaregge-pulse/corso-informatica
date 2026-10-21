@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.70** — 21/10/2026
+**Versione 2.71** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Test di orientamento: risultati solo sul PC del ragazzo, inutilizzabili per il docente (#103)
+
+1. **Errore:** ho letto «nessun dato raccolto» alla lettera e ho fatto un test i cui risultati restavano solo nel browser del ragazzo, con la stampa come unica uscita. Con la stampante guasta e gli utenti ospite, Nicola non ha potuto avere i tre PDF: io da qui non arrivo a quei PC. Nicola: «Ma come ti è venuto in mente di fare qualcosa non utilizzabile da me».
+2. **Correzione:** PDF ricostruiti da Veyon (PC12 completo dall'anteprima di stampa, PC11 e PC13 con le fasce e i campi da scrivere a mano).
+3. **Regola:** ogni pagina che produce un risultato deve farlo arrivare al docente, come tutte le altre pagine del corso (script delle consegne, riservato, cifrato); la stampa sul PC del ragazzo è solo una riserva. «Niente dati» vuol dire niente dati sul pubblico, non niente dati per il docente: nel dubbio si chiede prima.
 
 ## 21/10/2026 — Test di orientamento «di un'ora» finito in pochi minuti (#102)
 
