@@ -59,4 +59,5 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 2. 2INF giovedì 22/10: finire le interrogazioni sul WHILE (sorteggio di due).
 3. 1INF prossima volta: il percorso a sfide sul binario e la pixel art.
 4. In 2INF e 3INF, quando hanno finito: i giochi dei byte della 1INF.
-5. Storico dei cruscotti: una fotografia a ogni giro in `storico/cruscotti/` del riservato (da fare).
+5. 2INF sicurezza: rileggere `classe-2/sicurezza-piano/PIANO-SICUREZZA-2INF.md` prima di ogni ora (ore n. 6-7 chiusura della formazione generale, dall'ora n. 8 i 12 argomenti del coordinatore).
+6. Storico dei cruscotti: una fotografia a ogni giro in `storico/cruscotti/` del riservato (da fare).
