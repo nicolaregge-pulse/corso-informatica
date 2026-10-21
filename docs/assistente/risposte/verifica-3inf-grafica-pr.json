@@ -1,0 +1,7 @@
+[
+ {
+  "nome": "Noah Valerio",
+  "domanda": "Ho un dubbio, voglio sapere nel punto 4 quale parte di codice dobbiamo mettere e dove. non ho ben capito quella parte.",
+  "risposta": "Ciao Noah! Tutto va nel file style.css, niente in index.html. 1) Su GitHub apri style.css e clicca la matita. 2) Vai in FONDO al file, dopo l'ultima parentesi }. 3) Incolla queste due righe: @keyframes entra { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }  e sotto: h1 { animation: entra 1s ease; } 4) Premi Commit changes, aspetta un minuto e ricarica il tuo sito: il titolo entra scendendo dall'alto. Se vuoi anche l'effetto sul menu, aggiungi: nav a { transition: transform 0.3s; } nav a:hover { transform: scale(1.15); } e passa col mouse sui link. Il tuo sito ha già lo sfondo: con l'animazione sei quasi alla fine!"
+ }
+]
