@@ -1,6 +1,6 @@
 # Catalogo del corso
 
-**Versione 1.0** — 21/10/2026 · Area Docente · senza nomi di allievi
+**Versione 1.1** — 21/10/2026 · Area Docente · senza nomi di allievi
 
 *Il catalogo è l'elenco completo di tutto quello che abbiamo prodotto: ogni pagina del sito, gioco, strumento, script e cartella, con a che cosa serve e dove sta. L'Atlante con la mappa illustrata resta la parte da mostrare (experience, comunicazione, prova e simulazione); il catalogo è il magazzino del docente. I documenti con la loro versione sono elencati in `INDICE-DOCUMENTI.md`.*
 
@@ -14,7 +14,61 @@
    2. `INDICE-DOCUMENTI.md`: i documenti (MD e PDF) con il numero di versione.
    3. `CATALOGO.md` (questo): tutte le cose prodotte, una per riga.
 
-## 01 Pagine della 1INF
+## 01 I tre framework
+
+*La parte più importante del corso. Ogni lezione usa uno dei tre framework: si sceglie il framework, poi si riempie con il contenuto della lezione. In tutti e tre ci sono il monitor o il cruscotto dal vivo e il voto per ognuno con il conto (MANIFESTO §9.8).*
+
+**Regole comuni a tutti e tre (Nicola, 21/10/2026):**
+
+1. **L'assistente che aiuta:** in ogni pagina dei ragazzi c'è la casella «Chiedi aiuto all'assistente del Prof Regge» (`docs/assistente/`). Le domande vanno all'assistente, non al prof.
+2. **L'avanzamento si vede:** ogni framework fa vedere a che punto si è. I ragazzi hanno il monitor della classe e il proprio andamento, per regolarsi da soli; il docente ha il cruscotto dal vivo cifrato.
+3. **Il quadro generale della classe:** ogni ragazzo vede la situazione di tutta la classe (monitor e classifica), così capisce se è indietro o alla pari con i compagni.
+4. **Il voto per ognuno con il conto:** parte da 40 e sale con le cose fatte, fino a 80; nella tabella ci sono tutti i presenti.
+
+### 01a Framework 1: il codice in team con le Pull Request
+
+1. **Che cos'è:** il gioco o il sito della classe cresce con le Pull Request dei ragazzi. Ogni Pull Request accettata diventa una versione nuova.
+2. **Che cosa fa:**
+   1. tiene traccia di tutto: chi ha proposto che cosa, quando, che cosa è entrato;
+   2. ha sempre i sei bottoni della classe: voti, backlog, monitor, novità, classifica, valutazione;
+   3. mostra le versioni, dice che cosa cambia da una all'altra e le lascia aprire e provare tutte, per sempre.
+3. **I pezzi:**
+   1. pagine: i sei bottoni `docs/<classe>-voti/`, `-backlog/`, `-monitor/`, `-novita/`, `-top/`, `-valutazione/`; le versioni giocabili `docs/giochi/<gioco>/versioni/`; il grafo `docs/giochi/grafo/`; `docs/lezione-versioni/`, `docs/2inf-revisione/`, `docs/3inf-gioco/`, `docs/3inf-pr/`;
+   2. strumenti: `rilascia_versione_pr.py` (una Pull Request in produzione come versione nuova), `pubblica_versione_*.py`, `versione_treno_godot.py`, `gen_novita.py`, `gen_revisione_2inf.py`, `talpa_versione.py`, `talpa_voti.py`;
+   3. GitHub: `.github/workflows/giochi-controllo.yml` controlla che una Pull Request dei ragazzi tocchi solo i file del gioco;
+   4. riservato: `generatori/` per backlog, voti delle Pull Request e cruscotti (per esempio `giro_backlog_3inf.py`, `voti_pr_2inf.py`, `cruscotto_1inf_pr.py`).
+4. **Dove l'abbiamo usato:** il treno blindato della 2INF, la talpa e il treno della 1INF, il gioco e i siti in coppia della 3INF.
+5. **Documenti:** `GIRO-PULL-REQUEST.md`, `AGILE-CERIMONIE.md`, `ORGANIZZAZIONE-RAMI-CLASSI.md`.
+
+### 01b Framework 2: Classroom, quiz o verifica, recupero, nuovo quiz e cruscotto
+
+1. **Che cos'è:** la lezione normale tracciata dall'inizio alla fine. Il modello è la 1INF del 21/10.
+2. **Il giro:**
+   1. su Classroom un solo compito e un solo annuncio, «OGGI FATE SOLO QUESTE COSE, IN QUESTO ORDINE», con i link diretti;
+   2. teoria e ripasso sulla pagina `verifica/?b=<banca>`;
+   3. quiz o verifica su Google Moduli, creato dal ponte con `forms.crea_quiz` (traccia per la Regione);
+   4. correzione automatica e recupero per chi è sotto;
+   5. nuovo quiz per chi ha fatto il recupero;
+   6. il cruscotto unico segue tutto dal vivo, una riga per presente, con il voto proposto 40-80.
+3. **I pezzi:**
+   1. pagine: `docs/verifica/` con le banche in `docs/verifica/banche/`; `docs/recupero/`; `docs/verifica-moduli/`; il cruscotto `docs/avanzamento/oggi.html?t=…&e=…&g=…&q=…&v=…`; uscite e fuori compito in `docs/avanzamento/`;
+   2. strumenti: `banca2md.py` (documento della lezione), `prova_verifica.js` (prova come un ragazzo), `gen_recupero.py`, `cifra_json.py`, `giro_veyon.py`, `uscite.py`, `fuori_compito.py`, `gen_pianob.py`;
+   3. script di Google: `automazione-corso.gs` con la coda (`coda/`) e il ponte (`comandi/`) nel riservato;
+   4. riservato: `generatori/moduli_live.py`, `giro_compito_unico.py`, `correggi_verifica.py`, `recupero.py`, `crusc_1inf_cifrato.py`.
+4. **Dove l'abbiamo usato:** 1INF del 21/10 (bit, byte, velocità e gamer), il portfolio della 3INF del 19/10, il ciclo FOR e il WHILE della 2INF.
+5. **Documenti:** `FRAMEWORK-LEZIONE.md`, `VERIFICA-COME-SI-FA.md`, `CRUSCOTTO-DAL-VIVO.md`.
+
+### 01c Framework 3: il quiz
+
+1. **Che cos'è:** la lezione che si chiude con un questionario su Google Moduli allegato al compito su Classroom. Il lavoro del ragazzo resta dentro Classroom, valido per la Regione.
+2. **Il giro:** si studia il materiale (pagina della lezione o sito ufficiale), poi il quiz su Moduli; le risposte arrivano con il ponte `forms.risposte` e vanno nel cruscotto e nei voti.
+3. **I pezzi:**
+   1. script di Google: `automazione-corso.gs`, azioni `forms.crea_quiz`, `forms.risposte`, `classroom.compiti`, `classroom.annuncio`;
+   2. pagine: `docs/verifica-moduli/` e il cruscotto `docs/avanzamento/oggi.html` con il quiz cifrato;
+   3. riservato: `generatori/moduli_live.py`, `dati/quiz-sicurezza-2INF/`, il conteggio delle prove in `PROVE-CLASSROOM-2026-27.md` (pubblico).
+4. **Dove l'abbiamo usato:** il corso sulla sicurezza della Regione in 2INF (ore 1-4).
+
+## 02 Pagine della 1INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -30,7 +84,7 @@
 | Talpa: richieste per il prof | `docs/1inf-talpa-prof/` | Le proposte dei ragazzi per il gioco della talpa |
 | Cruscotti | `docs/1inf-cruscotto/`, `docs/1inf-prof/`, `docs/1inf-prof-live/`, `docs/1inf-test/` | Cruscotto, pannello del prof, cruscotto dal vivo, cruscotto del test |
 
-## 02 Pagine della 2INF
+## 03 Pagine della 2INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -43,7 +97,7 @@
 | Consegna e controllo | `docs/2inf-consegna/`, `docs/2inf-controlla/` | Consegna del gioco «Indovina» e controllo di chi ha fatto giusto |
 | Cruscotto | `docs/2inf-cruscotto/` | Cruscotto della classe |
 
-## 03 Pagine della 3INF
+## 04 Pagine della 3INF
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -56,7 +110,7 @@
 | Agile | `docs/3inf-agile/`, `docs/teoria/agile/`, `docs/teoria/agile-it/`, `docs/teoria/3inf-agile-lavoro/` | Cruscotto del Product Manager e teoria Agile |
 | Cruscotti | `docs/3inf-cruscotto/`, `docs/3inf-prof-live/` | Cruscotto della classe e cruscotto dal vivo del docente |
 
-## 04 Pagine della 4TI
+## 05 Pagine della 4TI
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -64,7 +118,7 @@
 | App di reti | `docs/4ti-app/` | Strumenti pratici sulle reti |
 | Cruscotto dei progetti | `docs/4ti-progetti/` | Avanzamento dei progetti di stage |
 
-## 05 Pagine comuni a tutte le classi
+## 06 Pagine comuni a tutte le classi
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -81,7 +135,7 @@
 | Deepfake | `docs/sicurezza-deepfake/` | Voci e volti falsi, in tre lingue |
 | Monta il PC | `docs/monta-pc/`, `docs/monta-pc-v2/`, `docs/monta-pc-v3/`, `docs/sfida-pc/`, `docs/classifica/`, `docs/monta-pc-cruscotto/` | Gioco di assemblaggio del PC, sfida lampo e classifica |
 
-## 06 Pagine del docente
+## 07 Pagine del docente
 
 | Pagina | Percorso | A che cosa serve |
 |---|---|---|
@@ -98,7 +152,7 @@
 
 I dati con i nomi in queste pagine sono sempre cifrati con `strumenti/cifra_json.py`.
 
-## 07 Giochi
+## 08 Giochi
 
 | Gioco | Sorgente Godot | Pubblicato in |
 |---|---|---|
@@ -120,7 +174,7 @@ I dati con i nomi in queste pagine sono sempre cifrati con `strumenti/cifra_json
 
 Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `strumenti/pubblica_versione_*.py`.
 
-## 08 Vetrina (vedi l'Atlante)
+## 09 Vetrina (vedi l'Atlante)
 
 | Cosa | Percorso | A che cosa serve |
 |---|---|---|
@@ -131,7 +185,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Comunicazione e marketing | `comunicazione-marketing/`, `brochure/`, `presentazione-demo/` | Edizioni della comunicazione, brochure e presentazioni |
 | Cassaforte | `docs/cassaforte/` | Proteggere i file con una password |
 
-## 09 Strumenti (script del repository pubblico)
+## 10 Strumenti (script del repository pubblico)
 
 | Gruppo | Script | A che cosa serve |
 |---|---|---|
@@ -143,7 +197,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Script di Google | `automazione-corso.gs`, `demo-accesso.gs`, `classroom-script/` | Lo script «Consegne Classroom → Git» (coda e ponte) e gli script di Classroom |
 | Dati delle classi | `schede-classi.json` | Le schede delle classi usate dalle pagine |
 
-## 10 Automatismi di GitHub
+## 11 Automatismi di GitHub
 
 | Automatismo | File | A che cosa serve |
 |---|---|---|
@@ -151,7 +205,7 @@ Ogni versione pubblicata resta giocabile per sempre; la pubblicano gli script `s
 | Controllo dei giochi | `.github/workflows/giochi-controllo.yml` | Controlla che una Pull Request dei ragazzi tocchi solo `docs/giochi/` |
 | Bobina automatica | `.claude/hooks/bobina-automatica.py` | A ogni risposta di Claude scrive la bobina del giorno nel riservato |
 
-## 11 Repository riservato
+## 12 Repository riservato
 
 Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di minori e restano nel riservato.
 
@@ -171,7 +225,7 @@ Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di m
 | `strategico/` | Dati della rete della scuola e dati personali del docente |
 | `backup/` | Due copie zip della cartella di lavoro di inizio ottobre (02/10 e 05/10) |
 
-## 12 Materiali e documenti
+## 13 Materiali e documenti
 
 | Cartella | Contenuto |
 |---|---|
@@ -182,6 +236,7 @@ Qui si elencano solo le cartelle e i tipi di script: i contenuti hanno nomi di m
 | `guida-docenti-alunni-non-italofoni/`, `guida-md-con-gemini/`, `corso-docente-ai/`, `quiz-recupero-invalsi/`, `libro-paganini/` | Guide, corso sull'AI per docenti, recupero INVALSI, confronto con il libro di testo |
 | Documenti nella cartella principale | Elencati con la versione in `INDICE-DOCUMENTI.md` |
 
-## 13 Registro delle versioni
+## 14 Registro delle versioni
 
-1. **v1.0 (21/10/2026)**: prima versione, chiesta da Nicola: tutto quello che è stato prodotto, separato dall'Atlante (la vetrina).
+1. **v1.1 (21/10/2026)**: nuovo capitolo 01 «I tre framework», la parte più importante, dettata da Nicola; gli altri capitoli scalano di un numero.
+2. **v1.0 (21/10/2026)**: prima versione, chiesta da Nicola: tutto quello che è stato prodotto, separato dall'Atlante (la vetrina).
