@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.66** — 21/10/2026
+**Versione 2.67** — 21/10/2026
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 21/10/2026 — Lezione di sicurezza già vista dalla classe (#99)
+
+1. **Errore:** per la 2INF ho preparato la 3ª ora della sicurezza (Regione) senza rileggere la storia della classe: il 16/10 la 3ª ora era già stata data con video e slide. I ragazzi: «il modulo 3 l'abbiamo già fatto».
+2. **Correzione:** il quiz di oggi vale come verifica della 3ª ora (mai verificata); la prossima lezione di sicurezza è la 4ª ora.
+3. **Regola:** prima di preparare una lezione si rileggono, per quella classe, gli annunci e i compiti degli ultimi giorni (`comandi/` e `coda/` del riservato) e `ARGOMENTI-SVOLTI-2026-27.md`; il punto di arrivo si scrive in `PROSSIME-LEZIONI.md`.
 
 ## 21/10/2026 — Stringa dei voti con la materia sbagliata (#98)
 
