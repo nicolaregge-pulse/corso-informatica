@@ -30,6 +30,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 24/09/2026 | Configurazione di un PC — standard hardware (form factor AT/ATX/microATX/Mini-ITX, slot PCIe, socket Intel LGA/AMD PGA, processori per marca, RAM DDR3/4/5); esercitazione: documento con teoria + immagini dal web, consegna su Classroom | standard-hardware · consegna-configurazione-pc | Tecnologia professionale · Hardware |
 | 01/10/2026 | Bit, byte e numeri binari: sistema decimale vs binario, il bit (0/1), il byte (8 bit), conversione binario→decimale col metodo delle caselle a valori posizionali (128…1), multipli (KB/MB/GB). Lezione alla lavagna + dispensa trilingue (IT/AR/ZH) con foto della lavagna | bit-e-byte/dispensa-bit-byte · lavagne/20261001 | Fondamenti di informatica · Rappresentazione dell'informazione |
 | 01/10/2026 | Esercitazione "Da binario a decimale": 16 esercizi (griglia a valori posizionali, 1 evidenziati), consegna su Google Classroom; correzione con valutazione | bit-e-byte/compito-bit-byte | Rappresentazione dell'informazione · Calcolo |
+| 21/10/2026 | Laboratorio, 3 ore: sizing and transfer rate (quanto pesa un file, quante ne stanno, tempo di download, streaming e buffering); ping, jitter, lag e FPS nei giochi; monitor, schede video e cavi video; percorso guidato «Quante ce ne stanno?», giochi dei byte, quiz gamer e quiz velocità su Moduli, domande orali | `docs/1inf-gamer/`, `docs/1inf-quante/`, `docs/1inf-byte-giochi/`, slide v1.3 | Reti e trasmissione dati · Hardware (DA CONFERMARE da Nicola) |
 
 > [GIALLO] Supporto trasversale usato in queste attività: il Glossario L2 multilingue (italiano · inglese · cinese · arabo), per agganciare i termini tecnici alla lingua degli allievi.
 
@@ -49,6 +50,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 |---|---|---|---|
 | 12/10/2026 | Laboratorio, 3 ore: Versioning, il Documento come ramo dell'albero delle versioni; come si chiede una modifica (Pull Request PR1, PR2…); Manifesto Agile e 10 regole; backlog Agile; Feedback sulla teoria | `docs/compito/3inf-20261012-documento/`, `docs/teoria/agile/`, `docs/3inf-backlog/` | Strumenti di versioning e lavoro in team (da agganciare al numero dell'Allegato A) |
 | 19/10/2026 | Laboratorio, 3 ore: sviluppo web, il sito personale diventa portfolio: ripasso HTML5, CSS3 e GitHub Pages; pagina competenze.html «Cosa so fare» con menu e link nella Home; verifica (crocette, risposte scritte, indirizzo della pagina) e recupero; sfida foto di sfondo; collaboratori in coppia per il lavoro del 21/10 | `docs/verifica/?b=3inf-portfolio`, cruscotto dal vivo | 15 — voce 1 «Sviluppo web: HTML5, CSS3, GitHub Pages, portfolio delle competenze» |
+| 21/10/2026 | Laboratorio, 2 ore: sito web, struttura dei file e CSS (albero del sito, nomi giusti, cartella img, immagine di sfondo, animazione con transition e @keyframes, numero di versione); lavoro in team: invito come collaboratore, ramo, Pull Request e merge sul sito del compagno; quiz su Moduli | `docs/verifica/?b=3inf-grafica-pr`, `docs/3inf-albero/`, `docs/3inf-pr/`, cruscotto `docs/avanzamento/3inf-oggi.html` | 15 — Sviluppo web e lavoro in team (DA CONFERMARE da Nicola) |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
@@ -58,7 +60,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 
 ## 6. Changelog
 
-1. **v0.6 (21/10/2026)**: Classe 2 — corso sicurezza della Regione, ore 2, 3 e 4 con la corrispondenza alle ore del registro (titoli bloccati).
+1. **v0.6 (21/10/2026)**: Classe 1 bit, byte, velocità e gamer; Classe 3 sito e Pull Request (da confermare); Classe 2 — corso sicurezza della Regione, ore 2, 3 e 4 con la corrispondenza alle ore del registro (titoli bloccati).
 5. **v0.5 (19/10/2026)**: 2INF ciclo FOR seconda parte (programma Contatore); 3INF sito portfolio con verifica e recupero.
 4. **v0.4 (12/10/2026)**: lezione del 12/10 di Classe 2 (2INF) e Classe 3 (3INF): versioning, Agile, Pull Request, backlog, versioni del gioco.
 3. **v0.3 (01/10/2026)**: Classe 1 — bit/byte e conversione binario→decimale + esercitazione; Classe 2 — Lazarus convertitore temperature e Sicurezza modulo 1 (rischio/danno) con quiz e test aperto.
