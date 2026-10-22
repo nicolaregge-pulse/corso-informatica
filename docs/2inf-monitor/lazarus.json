@@ -1,5 +1,5 @@
 {
- "ora": "09:50",
+ "ora": "09:54",
  "cartella": "salvadanaio",
  "scadenza": "09:35",
  "righe": [
@@ -13,7 +13,7 @@
    "ultimo": "09:43",
    "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Pezzo 2: scrivi il FOR da 1 a 7 nel Button1. Attenzione: Veyon ti ha visto fuori lezione (08:42). Nel repository: nella cartella principale c'è un progetto vecchio (project1.exe, project1.ico, project1.lpi, project1.lpr, project1.lps, project1.res): il salvadanaio va nella cartella «salvadanaio»; più progetti diversi (project1, salvadanaio): un progetto per cartella.",
+   "messaggio": "IL PROF TI HA SISTEMATO IL CODICE: apri https://nicolaregge-pulse.github.io/corso-informatica/2inf-monitor/codice/s25.html e segui i 5 passi. Pezzo 2: scrivi il FOR da 1 a 7 nel Button1. Attenzione: Veyon ti ha visto fuori lezione (08:42). Nel repository: nella cartella principale c'è un progetto vecchio (project1.exe, project1.ico, project1.lpi, project1.lpr, project1.lps, project1.res): il salvadanaio va nella cartella «salvadanaio»; più progetti diversi (project1, salvadanaio): un progetto per cartella.",
    "fuori": 1,
    "albero": [
     "README.md",
@@ -279,14 +279,13 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [],
-   "salvataggi": 5,
-   "ultimo": "09:50",
+   "salvataggi": 6,
+   "ultimo": "09:51",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (09:00).",
    "fuori": 1,
    "albero": [
-    "README.md",
     "project1.exe",
     "project1.ico",
     "project1.lpi",
@@ -304,22 +303,19 @@
   {
    "alunno": "Francesco M.",
    "pezzi": [],
-   "salvataggi": 1,
-   "ultimo": "09:49",
+   "salvataggi": 4,
+   "ultimo": "09:51",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (09:05).",
    "fuori": 2,
    "albero": [
-    "README.md",
     "euro.exe",
     "euro.ico",
     "euro.lpi",
     "euro.lpr",
     "euro.lps",
     "euro.res",
-    "project1.lps",
-    "project1.res",
     "unit1.lfm",
     "unit1.pas"
    ],
@@ -436,15 +432,33 @@
   },
   {
    "alunno": "Egor M.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files).",
+   "pezzi": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salvataggi": 2,
+   "ultimo": "09:52",
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Tutto fatto, anche la sfida: preparati a spiegarlo a voce. Nel repository: hai caricato i file senza la cartella: la prossima volta trascina la cartella «salvadanaio» intera; hai caricato anche il .exe: non serve, basta il progetto.",
    "fuori": 0,
-   "albero": [],
-   "problemi": []
+   "albero": [
+    "README.md",
+    "salvadanio2.exe",
+    "salvadanio2.ico",
+    "salvadanio2.lpi",
+    "salvadanio2.lpr",
+    "salvadanio2.lps",
+    "salvadanio2.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ],
+   "problemi": [
+    "hai caricato i file senza la cartella: la prossima volta trascina la cartella «salvadanaio» intera",
+    "hai caricato anche il .exe: non serve, basta il progetto"
+   ]
   },
   {
    "alunno": "Riccardo B.",
@@ -460,15 +474,44 @@
   },
   {
    "alunno": "Alejandro G.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files).",
+   "pezzi": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salvataggi": 2,
+   "ultimo": "09:53",
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Tutto fatto, anche la sfida: preparati a spiegarlo a voce. Nel repository: la cartella si chiama «salvadanio»: il nome giusto è «salvadanaio»; hai caricato anche il .exe: non serve, basta il progetto.",
    "fuori": 0,
-   "albero": [],
-   "problemi": []
+   "albero": [
+    "README.md",
+    "salvadanio/backup/salvadanio.lpi",
+    "salvadanio/backup/salvadanio.lps",
+    "salvadanio/backup/unit1.lfm",
+    "salvadanio/backup/unit1.pas",
+    "salvadanio/lib/i386-win32/salvadanio.compiled",
+    "salvadanio/lib/i386-win32/salvadanio.o",
+    "salvadanio/lib/i386-win32/salvadanio.or",
+    "salvadanio/lib/i386-win32/salvadanio.res",
+    "salvadanio/lib/i386-win32/unit1.lfm",
+    "salvadanio/lib/i386-win32/unit1.o",
+    "salvadanio/lib/i386-win32/unit1.ppu",
+    "salvadanio/salvadanio.exe",
+    "salvadanio/salvadanio.ico",
+    "salvadanio/salvadanio.lpi",
+    "salvadanio/salvadanio.lpr",
+    "salvadanio/salvadanio.lps",
+    "salvadanio/salvadanio.res",
+    "salvadanio/unit1.lfm",
+    "salvadanio/unit1.pas"
+   ],
+   "problemi": [
+    "la cartella si chiama «salvadanio»: il nome giusto è «salvadanaio»",
+    "hai caricato anche il .exe: non serve, basta il progetto"
+   ]
   },
   {
    "alunno": "Shahenda E.",
