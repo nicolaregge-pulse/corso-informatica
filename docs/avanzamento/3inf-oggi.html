@@ -1,91 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Cruscotto 3INF</title>
+<title>Cruscotto 3INF oggi</title>
 <style>
-:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b;--gi:#b7791f}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:"Segoe UI",system-ui,Arial,sans-serif}
-.w{max-width:1200px;margin:0 auto;padding:14px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}
-.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px}.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
-.hide{display:none}.kpi{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.k{background:var(--card);border-radius:12px;padding:8px 12px;min-width:120px}.k b{display:block;font-size:22px}
-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;font-size:14px}
-th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{background:#eef1f5;font-size:13px}
-.bar{height:8px;background:#e6eaf0;border-radius:4px;overflow:hidden;min-width:80px;margin-top:3px}.bar i{display:block;height:100%;background:var(--acc)}
-.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:18px;font-weight:800}.fermo{background:#fff6e5}
+/* 3INF 22/10/2026 (Nicola): cruscotto del DOCENTE del recupero del sito (teoria, sito, quiz, comportamento, indicazioni, osservati).
+   Dati CIFRATI (3inf-recupero-oggi.json), si aprono con il codice del monitor. Generatore: riservato generatori/sito_3inf_recupero.py */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1300px;margin:0 auto;padding:14px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:1400px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
+.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
-.th{width:150px;border-radius:6px;border:1px solid var(--ln);display:block}.al{font-family:monospace;font-size:12px;white-space:pre-wrap}.cp{background:#fff;border-radius:12px;padding:10px 12px;min-width:250px;flex:1;font-size:14px}.cp b.t{font-size:16px}.chk span{display:inline-block;margin:1px 4px 1px 0}
 </style>
 </head>
 <body><div class="w">
-<div id="gate" class="gate hide"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
+<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
 <div id="view" class="hide">
-<h1>Cruscotto 3INF · il sito in ordine, più bello, e lavoro in coppia</h1>
+<h1>Cruscotto 3INF di oggi: recupero del sito</h1>
 <div class="mu" id="stato">—</div>
-<div class="kpi" id="kpi"></div>
-<h2 style="font-size:20px;margin:14px 0 6px">Il lavoro in coppia</h2><div id="coppie" class="kpi"></div>
-<table><thead><tr><th>#</th><th>Allievo</th><th>Il sito (miniatura della home)</th><th>Albero e controlli</th><th>Versione, rami, Pull Request, merge</th><th>Schede della lezione</th><th>Quiz su Moduli</th><th>Veyon e note</th><th>Voto proposto (40-80)</th></tr></thead><tbody id="righe"></tbody></table>
-<p class="mu">Voto proposto = 40 + 40 × punti/8. Un punto per: albero in ordine (i 4 file, nomi giusti), cartella img, sfondo, animazione, numero di versione, Pull Request del compagno accettata con merge sul proprio sito, contributo sul sito del compagno; più il quiz (fino a 1 punto). 🏁 = ha fatto tutto. «manca: …» dice il passo successivo. Veyon: rosso = fuori compito. Riga gialla = nessun commit e nessun segnale da più di 10 minuti. Ordine: dal voto più alto.</p>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria</th><th>2. Il sito (7)</th><th>3. Quiz</th><th>Comportamento (Veyon, note)</th><th>Le mie indicazioni</th><th>Sito</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">⭐ = osservati speciali di oggi (Perez, Uccheddu, Beatrice, Elkeran). Sito = 40 + 40 × cose fatte / 7; quiz = 40 + 40 × crocette giuste; voto di oggi = media dei due − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../3inf-oggi/">La mia giornata</a>, senza note e indicazioni.</p>
 </div></div>
 <script>
-// CRUSCOTTO 3INF (21/10/2026, Nicola: «il cruscotto con le solite logiche, tutto da controllare; deve pubblicare versioni, albero e miniature»).
-// Dati cifrati: 3inf-oggi-quiz.json (presenti, siti, quiz) e 3inf-oggi-veyon.json; schede della lezione dal vivo dallo script.
-var TEO=new URLSearchParams(location.search).get('t')||'3inf-grafica-pr-v1',EXEC='',TOK='',_n=0,DT={},Q=null,V=null;
+var TOK='',_kc=null,_n=0,EXEC='',LIVE=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/3inf-recupero-oggi.json';
 function $(i){return document.getElementById(i)}
-function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
-var _kc=null;async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
-var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/';
-async function getJ(f){try{var r=null;try{r=await fetch(RAW+f+'?t='+Date.now(),{cache:'no-store'})}catch(e){}if(!r||!r.ok)r=await fetch(f+'?t='+Date.now(),{cache:'no-store'});if(!r.ok)return null;var d=await r.json();if(!d.cifrato)return d;var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}catch(e){return null}}
-function live(id){return new Promise(function(ok){var cb='c3'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
- window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(e){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
+function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('3inf-recupero-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='c3'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
+ window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
-function ora(iso){var m=String(iso||'').match(/(\d+)\/(\d+)\/(\d{4}),? (\d+):(\d+)/);if(m)return m[4].padStart(2,'0')+':'+m[5];var t=new Date(iso||0);return isNaN(t)?'':t.toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
-function vyHtml(x){var h='';var vy=x.vy||[],f=vy.filter(function(a){return a[2]}).length;if(vy.length){var u=vy[vy.length-1];h+='<span class="'+(u[2]?'ko':'ok')+'">'+esc(u[0])+' '+esc(u[1])+'</span>'+(f?' <b class="ko">· fuori compito '+f+' volt'+(f>1?'e':'a')+'</b>':'')+(vy.length>1?'<details><summary>tutti i giri ('+vy.length+')</summary>'+vy.map(function(a){return '<div class="'+(a[2]?'ko':'')+'">'+esc(a[0])+' '+esc(a[1])+'</div>'}).join('')+'</details>':'');}(x.note||[]).forEach(function(n){h+='<div class="mu">📝 '+esc(n)+'</div>'});return h||'<span class="mu">—</span>';}
-function c(ok,t){return '<span class="'+(ok?'ok':'ko')+'">'+(ok?'✔':'✘')+' '+t+'</span>'}
-async function giro(){
- var a=await live(TEO);if(a&&a.errore==='codice'){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';return}
- if(a&&a.ok)DT=a;Q=await getJ('3inf-oggi-quiz.json')||Q;V=await getJ('3inf-oggi-veyon.json')||V;
- var per=[];function trova(n){var t=tok(n),best=null,bs=0;for(var i=0;i<per.length;i++){var u=tok(per[i].nome),sc=t.filter(function(z){return u.indexOf(z)>=0}).length;if(sc>bs){bs=sc;best=per[i]}}if(best&&bs>=1)return best;var x={nome:n,extra:1};per.push(x);return x}
- ((Q&&Q.presenti)||[]).forEach(function(n){per.push({nome:n})});
- ((Q&&Q.siti)||[]).forEach(function(s){var x=per.filter(function(p){return p.nome===s.nome})[0];if(x)x.s=s});
- ((DT.righe)||[]).forEach(function(r){var x=trova(r.nome);x.teo=r.teoria;x.ult=r.ultimo});
- if(Q&&Q.quiz)for(var k in Q.quiz)trova(k).quiz=Q.quiz[k];
- if(V&&V.veyon)for(var k3 in V.veyon)trova(k3).vy=V.veyon[k3];
- if(V&&V.note)for(var k4 in V.note){if(/^PC\d/.test(k4))continue;trova(k4).note=V.note[k4]}
- per=per.filter(function(x){return !x.extra||x.teo||x.quiz});
- per.forEach(function(x){var s=x.s||{},p=0,m=[];
-  var alb=s.albero&&!(s.mancano||[]).length&&!(s.nomi_sbagliati||[]).length;
-  [[alb,'albero in ordine'],[s.img,'cartella img'],[s.sfondo,'sfondo'],[s.animazione,'animazione'],[s.versione,'numero di versione'],[(s.merge_oggi||0)>0,'merge di una Pull Request sul suo sito'],[(s.contributi||[]).length>0,'Pull Request sul sito del compagno']].forEach(function(z){if(z[0])p++;else m.push(z[1])});
-  if(x.quiz)p+=x.quiz.punti/x.quiz.max;else m.push('quiz');x.punti=p;x.manca=m;x.voto=Math.round(40+40*p/8)});
- per.sort(function(a,b){return b.voto-a.voto});
- $('righe').innerHTML=per.map(function(x,i){var s=x.s||{},t=x.teo,q=x.quiz;
-  var th=s.thumb?'<a href="'+esc(s.sito)+'" target="_blank" rel="noopener"><img class="th" src="data:image/jpeg;base64,'+s.thumb+'" alt="home del sito"></a><div class="mu">ultimo commit '+esc(s.ultimo_commit||'')+'</div>':'<span class="ko">'+esc(s.note||'nessun sito')+'</span>';
-  var al=s.albero?'<div class="chk">'+c(!(s.mancano||[]).length,(s.mancano||[]).length?'manca '+s.mancano.join(', '):'4 file')+c(!(s.nomi_sbagliati||[]).length,(s.nomi_sbagliati||[]).length?'nomi: '+s.nomi_sbagliati.join(', '):'nomi giusti')+c(s.img,'img')+c(s.sfondo,'sfondo')+c(s.animazione,'animazione')+'</div><details><summary>albero ('+s.albero.length+' file)</summary><div class="al">'+esc(s.albero.join('\n'))+'</div></details>':'<span class="mu">—</span>';
-  var gv=s.albero?('versione <b>'+esc(s.versione||'—')+'</b><br>rami: '+esc((s.rami||[]).join(', '))+'<br>Pull Request: <b>'+(s.pr||[]).length+'</b> · merge oggi: <b>'+(s.merge_oggi||0)+'</b><br>commit oggi: '+(s.commit_oggi||0)+((s.contributi||[]).length?'<br><span class="ok">ha lavorato sul sito di '+esc(s.contributi.join(', '))+'</span>':'')):'<span class="mu">—</span>';
-  var ct=t?'scheda <b>'+t.scheda+'/'+t.totale+'</b> · '+(t.risposte||0)+' risposte<div class="bar"><i style="width:'+Math.round(100*t.scheda/(t.totale||1))+'%"></i></div>':'<span class="mu">non aperta</span>';
-  var cq=q?'<span class="'+(q.punti/q.max>=0.6?'ok':'ko')+'">'+q.punti+'/'+q.max+'</span> → '+Math.round(40+40*q.punti/q.max)+' <span class="mu">('+ora(q.ora)+')</span>':'<span class="mu">non fatto</span>';
-  var fermo=!(s.commit_oggi)&&!(x.ult&&(Date.now()-new Date(x.ult).getTime())<600000);
-  return '<tr class="'+(fermo?'fermo':'')+'"><td>'+(i+1)+'</td><td><b>'+esc(x.nome)+'</b>'+(x.manca.length?'<div class="ko">manca: '+esc(x.manca.slice(0,3).join(', '))+'</div>':' 🏁')+'</td><td>'+th+'</td><td>'+al+'</td><td>'+gv+'</td><td>'+ct+'</td><td>'+cq+'</td><td>'+vyHtml(x)+'</td><td class="v">'+x.voto+'</td></tr>'}).join('');
- var CP=(Q&&Q.coppie)||[];function sx(k){return per.filter(function(p){return p.nome.toUpperCase().indexOf(k)===0})[0]}
- $('coppie').innerHTML=CP.map(function(c){var mem=c.map(sx).filter(Boolean),fase=0,txt=[];
-  mem.forEach(function(m){var s=m.s||{},r=(s.rami||[]).filter(function(x){return x!=='main'});
-   var riga='<b>'+esc(m.nome.split(' ')[0])+'</b>: ';if(!s.albero){riga+='<span class="ko">nessun sito</span>'}else{
-    riga+=(s.pr&&s.pr.length?'<span class="ok">'+s.pr.length+' Pull Request ricevut'+(s.pr.length>1?'e':'a')+'</span>':'0 Pull Request ricevute')+' · '+(s.merge_oggi?'<span class="ok">merge '+s.merge_oggi+'</span>':'nessun merge')+(r.length?' · rami: '+esc(r.join(', ')):'')+((s.contributi||[]).length?' · <span class="ok">ha lavorato sul sito di '+esc(s.contributi.map(function(z){return z.split(' ')[0]}).join(', '))+'</span>':'');
-    fase=Math.max(fase,s.merge_oggi?3:(s.pr&&s.pr.length?2:(r.length||(s.contributi||[]).length?1:0)))}
-   txt.push(riga)});
-  var F=['🔴 non ha ancora iniziato la Pull Request','🟡 ramo creato, manca la Pull Request','🟠 Pull Request aperta, manca il merge','🟢 merge fatto'];
-  return '<div class="cp"><b class="t">'+esc(mem.map(function(m){return m.nome.split(' ')[0]}).join(' + ')||c.join(' + '))+'</b><div>'+F[fase]+'</div>'+txt.map(function(t){return '<div>'+t+'</div>'}).join('')+'</div>'}).join('');
- var n=per.length,f=function(fn){return per.filter(fn).length};
- $('kpi').innerHTML='<div class="k"><b>'+n+'</b>allievi</div><div class="k"><b>'+f(function(x){return x.s&&x.s.albero&&!(x.s.mancano||[]).length})+'</b>albero in ordine</div><div class="k"><b>'+f(function(x){return x.s&&x.s.sfondo})+'</b>con lo sfondo</div><div class="k"><b>'+f(function(x){return x.s&&x.s.animazione})+'</b>con l\'animazione</div><div class="k"><b>'+f(function(x){return x.s&&(x.s.pr||[]).length})+'</b>con Pull Request</div><div class="k"><b>'+f(function(x){return x.s&&x.s.merge_oggi})+'</b>merge oggi</div><div class="k"><b>'+f(function(x){return x.quiz})+'</b>quiz</div>';
- $('stato').textContent='Si aggiorna da solo ogni 20 secondi · siti, albero, versioni e miniature riletti da GitHub ogni 3 minuti'+(Q&&Q.ora?' (ultima lettura '+Q.ora+')':'')+' · '+new Date().toLocaleTimeString('it-IT');
-}
-function apri(){TOK=$('tok').value.trim()||TOK;if(!TOK)return;try{localStorage.setItem('monitor-tok',TOK)}catch(e){}$('gate').classList.add('hide');$('view').classList.remove('hide');giro();setInterval(giro,20000)}
-$('ok').onclick=apri;$('tok').onkeydown=function(e){if(e.key==='Enter')apri()};
+function teo(nome){if(!LIVE||!LIVE.righe)return null;var a=tok(nome),best=null,bs=0;LIVE.righe.forEach(function(r){var b=tok(r.nome),sc=a.filter(function(x){return b.indexOf(x)>=0}).length;if(sc>bs){bs=sc;best=r}});return bs?best:null}
+function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')}
+var TUTTI=['index','style','competenze','passione','sfondo','animazione','versione'];
+function chips(f){return TUTTI.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+x+'</span>':'<span class="ko c">○ '+x+'</span>'}).join(' ')}
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
+ $('gate').classList.add('hide');$('view').classList.remove('hide');
+ var a=await live('3inf-recupero-v1');if(a&&a.ok)LIVE=a;
+ $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' in elenco · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
+ $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[];
+  return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b><div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
+  '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
+  '<td>'+cteo(teo(r.nome))+'</td>'+
+  '<td><b>'+r.voto_sito+'</b> '+chips(r.pezzi)+'<div class="p">'+e(r.messaggio)+'</div><div class="p">salvataggi oggi: '+r.commit_oggi+(r.ultimo?' · ultimo '+e(r.ultimo):'')+'</div></td>'+
+  '<td><b>'+r.voto_quiz+'</b> '+(r.quiz?'<span class="ok">'+r.quiz.ok+'/'+r.quiz.su+'</span>':'<span class="ko">non fatto</span>')+'</td>'+
+  '<td><span class="'+(r.fuori?'ko':'ok')+'">'+e(r.comportamento)+'</span>'+(vy.length?'<details><summary>Veyon ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+'</div>'}).join('')+'</details>':'')+(r.note||[]).map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('')+'</td>'+
+  '<td>'+(r.indicazioni.length?r.indicazioni.map(function(n){return '<div>👉 '+e(n)+'</div>'}).join(''):'<span class="mu">—</span>')+'</td>'+
+  '<td>'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" style="width:120px;border-radius:6px;border:1px solid var(--ln)"></a>':(r.sito?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener">apri</a>':''))+'</td></tr>'}).join('')}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
 fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){}).then(function(){
- try{TOK=localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide')});
+ try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000)});
 </script>
-</body></html>
+</body>
+</html>

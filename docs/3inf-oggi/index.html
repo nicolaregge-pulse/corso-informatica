@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La mia giornata</title>
+<style>
+/* 3INF 22/10/2026 (Nicola): il cruscotto dei ragazzi. Che cosa va e che cosa no del sito, il quiz, come ti sei comportato, il voto presunto. */
+:root{--bg:#f3f6f8;--card:#fff;--ink:#16202a;--mu:#5a6878;--ln:#d5dde5;--ok:#1f7a3f;--ko:#b3261e;--acc:#0b6e99}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82;--acc:#5cc1e8}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82;--acc:#5cc1e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:16px}h1{margin:0 0 4px;font-size:26px}.mu{color:var(--mu)}
+.tab{overflow-x:auto;background:var(--card);border:1px solid var(--ln);border-radius:12px;margin-top:12px}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
+th{font-size:14px;color:var(--mu)}.v{font-size:22px;font-weight:800}.ok{color:var(--ok)}.ko{color:var(--ko)}.c{white-space:nowrap}.conto{font-size:12px;color:var(--mu)}a{color:var(--acc)}
+</style>
+</head>
+<body><div class="w">
+<h1>La mia giornata di oggi: voto, fatto e da fare</h1>
+<div class="mu" id="stato">Carico…</div>
+<p class="mu">Il <b>sito</b> vale 40 + 40 × le cose fatte su 7 (index, style, competenze, passione, sfondo, animazione, versione). Il <b>quiz</b> vale 40 + le crocette giuste (quiz non fatto: 40; il quiz è la linguetta «2. Verifica» in alto nella lezione). Il <b>voto di oggi</b> è la media dei due, −3 ogni volta che Veyon ti vede fuori lezione. Si aggiorna da solo ogni 5 minuti.</p>
+<div class="tab"><table><thead><tr><th>#</th><th>Alunno</th><th>Voto di oggi</th><th>1. Il mio sito</th><th>2. Quiz</th><th>Come ti sei comportato</th><th>Che cosa fare adesso</th></tr></thead><tbody id="t"></tbody></table></div>
+<p><a href="../3inf-recupero">Torna alla lezione</a></p>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function chips(f,m){return f.map(function(x){return '<span class="ok c">✔ '+e(x)+'</span>'}).concat(m.map(function(x){return '<span class="ko c">○ '+e(x)+'</span>'})).join(' ')}
+var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/3inf-oggi/oggi.json';
+function locale(){return fetch('oggi.json?t='+Date.now(),{cache:'no-store'})}
+function giro(){fetch(RAW+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r:locale()},locale).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' in elenco';
+ document.getElementById('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b></td><td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td>'+
+  '<td><b>'+e(r.voto_sito)+'</b><br>'+chips(r.sito_fatto,r.sito_manca)+'</td>'+
+  '<td><b>'+e(r.voto_quiz)+'</b><br>'+(r.quiz?'<span class="ok">✔ '+e(r.quiz)+'</span>':'<span class="ko">quiz non ancora fatto: linguetta «2. Verifica», poi «Consegna»</span>')+'</td>'+
+  '<td>'+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+'<span class="'+(r.fuori?'ko':'ok')+'">'+e(r.comportamento)+'</span></td>'+
+  '<td>'+e(r.cosa_fare)+'</td></tr>'}).join('');
+}).catch(function(){document.getElementById('stato').textContent='Non riesco a leggere i dati: ricarica la pagina (F5).'})}
+giro();setInterval(giro,60000);
+</script>
+</body>
+</html>
