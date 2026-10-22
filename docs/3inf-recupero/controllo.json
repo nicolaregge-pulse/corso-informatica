@@ -1,5 +1,5 @@
 {
- "ora": "12:42",
+ "ora": "12:44",
  "cartella": "sito",
  "scadenza": "12:50",
  "pezzi_nomi": [
@@ -29,8 +29,8 @@
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
-   "salvataggi": 13,
-   "ultimo": "12:37",
+   "salvataggi": 15,
+   "ultimo": "12:42",
    "fuori": 0,
    "voto": 80
   },
@@ -107,6 +107,25 @@
    "messaggio": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
    "salvataggi": 9,
    "ultimo": "12:30",
+   "fuori": 0,
+   "voto": 80
+  },
+  {
+   "alunno": "Emmanuel F.",
+   "pezzi": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
+   "salvataggi": 7,
+   "ultimo": "12:41",
    "fuori": 0,
    "voto": 80
   },
@@ -204,24 +223,6 @@
    "voto": 74
   },
   {
-   "alunno": "Emmanuel F.",
-   "pezzi": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione",
-    "versione"
-   ],
-   "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\").",
-   "salvataggi": 5,
-   "ultimo": "12:27",
-   "fuori": 0,
-   "voto": 74
-  },
-  {
    "alunno": "Tomas L.",
    "pezzi": [
     "index",
@@ -234,8 +235,8 @@
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
-   "salvataggi": 16,
-   "ultimo": "12:33",
+   "salvataggi": 19,
+   "ultimo": "12:43",
    "fuori": 0,
    "voto": 74
   },
@@ -270,8 +271,8 @@
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\").",
-   "salvataggi": 10,
-   "ultimo": "12:38",
+   "salvataggi": 11,
+   "ultimo": "12:40",
    "fuori": 0,
    "voto": 74
   },
@@ -294,6 +295,54 @@
    "voto": 74
   },
   {
+   "alunno": "Simone G.",
+   "pezzi": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione"
+   ],
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\").",
+   "salvataggi": 6,
+   "ultimo": "12:41",
+   "fuori": 0,
+   "voto": 69
+  },
+  {
+   "alunno": "Kevin R.",
+   "pezzi": [
+    "index",
+    "style",
+    "animazione",
+    "versione"
+   ],
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: Mio-sito/index.html.",
+   "salvataggi": 2,
+   "ultimo": "12:41",
+   "fuori": 0,
+   "voto": 63
+  },
+  {
+   "alunno": "Filippo M.",
+   "pezzi": [
+    "index",
+    "style",
+    "competenze"
+   ],
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo 4: metti passione.html (file pronti).",
+   "salvataggi": 14,
+   "ultimo": "12:42",
+   "fuori": 0,
+   "voto": 57
+  },
+  {
    "alunno": "David A.",
    "pezzi": [
     "index",
@@ -308,35 +357,6 @@
    "ultimo": "13:50",
    "fuori": 0,
    "voto": 63
-  },
-  {
-   "alunno": "Filippo M.",
-   "pezzi": [
-    "index",
-    "style"
-   ],
-   "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo 3: metti competenze.html (file pronti).",
-   "salvataggi": 12,
-   "ultimo": "12:38",
-   "fuori": 0,
-   "voto": 51
-  },
-  {
-   "alunno": "Simone G.",
-   "pezzi": [
-    "index",
-    "style",
-    "competenze"
-   ],
-   "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo 4: metti passione.html (file pronti).",
-   "salvataggi": 5,
-   "ultimo": "12:26",
-   "fuori": 0,
-   "voto": 57
   },
   {
    "alunno": "Kelvin P.",
@@ -354,17 +374,6 @@
    "voto": 57
   },
   {
-   "alunno": "Kevin R.",
-   "pezzi": [],
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "I tuoi file sono nella cartella «Mio-sito»: vanno nella cartella principale. Chiedi all'assistente come spostarli.",
-   "salvataggi": 0,
-   "ultimo": "13:08",
-   "fuori": 0,
-   "voto": 40
-  },
-  {
    "alunno": "Mahmoud E.",
    "pezzi": [
     "index",
@@ -373,7 +382,7 @@
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo 3: metti competenze.html (file pronti).",
-   "salvataggi": 0,
+   "salvataggi": 1,
    "ultimo": "13:54",
    "fuori": 1,
    "voto": 51
