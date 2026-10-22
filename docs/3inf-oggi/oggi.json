@@ -1,5 +1,5 @@
 {
- "ora": "12:42",
+ "ora": "12:44",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -18,7 +18,7 @@
    "voto_sito": 80,
    "quiz": "8 su 8",
    "voto_quiz": 80,
-   "comportamento": "lavora: 13 salvataggi oggi",
+   "comportamento": "lavora: 15 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -132,6 +132,33 @@
    "vy_ult": [
     "12:41",
     "editor del codice",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Emmanuel F.",
+   "voto": 78,
+   "conto": "sito 80 · quiz 75 → media 78 = 78",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
+   "comportamento": "lavora: 7 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "GitHub, file",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -274,34 +301,6 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Emmanuel F.",
-   "voto": 74,
-   "conto": "sito 74 · quiz 75 → media 74 = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [
-    "sfondo"
-   ],
-   "voto_sito": 74,
-   "quiz": "7 su 8",
-   "voto_quiz": 75,
-   "comportamento": "lavora: 5 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "GitHub, file",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
    "alunno": "Tomas L.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
@@ -319,7 +318,7 @@
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 16 salvataggi oggi",
+   "comportamento": "lavora: 19 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -375,7 +374,7 @@
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 10 salvataggi oggi",
+   "comportamento": "lavora: 11 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -414,6 +413,90 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Simone G.",
+   "voto": 69,
+   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione"
+   ],
+   "sito_manca": [
+    "sfondo",
+    "versione"
+   ],
+   "voto_sito": 69,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 6 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "GitHub Pages, impostazioni",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
+   "alunno": "Kevin R.",
+   "voto": 64,
+   "conto": "sito 63 · quiz 65 → media 64 = 64",
+   "sito_fatto": [
+    "index",
+    "style",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [
+    "competenze",
+    "passione",
+    "sfondo"
+   ],
+   "voto_sito": 63,
+   "quiz": "5 su 8",
+   "voto_quiz": 65,
+   "comportamento": "lavora: 2 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "editor del codice",
+    0
+   ],
+   "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: Mio-sito/index.html."
+  },
+  {
+   "alunno": "Filippo M.",
+   "voto": 64,
+   "conto": "sito 57 · quiz 70 → media 64 = 64",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze"
+   ],
+   "sito_manca": [
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 57,
+   "quiz": "6 su 8",
+   "voto_quiz": 70,
+   "comportamento": "lavora: 14 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "GitHub, caricamento",
+    0
+   ],
+   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
+  },
+  {
    "alunno": "David A.",
    "voto": 63,
    "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
@@ -436,62 +519,6 @@
    "fuori": 0,
    "vy_ult": null,
    "cosa_fare": "Assente oggi. Passo 4: metti passione.html (file pronti). Attenzione al nome: passione, non passioni."
-  },
-  {
-   "alunno": "Filippo M.",
-   "voto": 60,
-   "conto": "sito 51 · quiz 70 → media 60 = 60",
-   "sito_fatto": [
-    "index",
-    "style"
-   ],
-   "sito_manca": [
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 51,
-   "quiz": "6 su 8",
-   "voto_quiz": 70,
-   "comportamento": "lavora: 12 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "GitHub, caricamento",
-    0
-   ],
-   "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
-  },
-  {
-   "alunno": "Simone G.",
-   "voto": 57,
-   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze"
-   ],
-   "sito_manca": [
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 57,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 5 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "GitHub Pages, impostazioni",
-    0
-   ],
-   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
   },
   {
    "alunno": "Kelvin P.",
@@ -520,33 +547,6 @@
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: comp.html, contacts.html, other.html."
-  },
-  {
-   "alunno": "Kevin R.",
-   "voto": 52,
-   "conto": "sito 40 · quiz 65 → media 52 = 52",
-   "sito_fatto": [],
-   "sito_manca": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 40,
-   "quiz": "5 su 8",
-   "voto_quiz": 65,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "editor del codice",
-    0
-   ],
-   "cosa_fare": "I tuoi file sono nella cartella «Mio-sito»: vanno nella cartella principale. Chiedi all'assistente come spostarli."
   },
   {
    "alunno": "Mahmoud E.",
