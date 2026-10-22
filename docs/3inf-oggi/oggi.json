@@ -1,5 +1,5 @@
 {
- "ora": "12:55",
+ "ora": "13:17",
  "righe": [
   {
    "alunno": "Nicolo C.",
@@ -191,6 +191,34 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Rafi F.",
+   "voto": 77,
+   "conto": "sito 74 · quiz 80 → media 77 = 77",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
+   "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:53",
+    "verifica, domanda scritta",
+    0
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
    "alunno": "Dani S.",
    "voto": 77,
    "conto": "sito 74 · quiz 80 → media 77 = 77",
@@ -331,6 +359,34 @@
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
+   "alunno": "Mahmoud E.",
+   "voto": 63,
+   "conto": "sito 51 · quiz 80 → media 66 − 3×1 fuori compito = 63",
+   "sito_fatto": [
+    "index",
+    "style"
+   ],
+   "sito_manca": [
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 51,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
+   "comportamento": "fuori lezione 1 volta",
+   "assente": false,
+   "fuori": 1,
+   "vy_ult": [
+    "12:53",
+    "verifica",
+    0
+   ],
+   "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
+  },
+  {
    "alunno": "Andrea G.",
    "voto": 57,
    "conto": "sito 80 · quiz 40 → media 60 − 3×1 fuori compito = 57",
@@ -356,34 +412,6 @@
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Rafi F.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 5 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:53",
-    "verifica, domanda scritta",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
    "alunno": "Beatrice N.",
@@ -548,34 +576,6 @@
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: comp.html, contacts.html, other.html."
-  },
-  {
-   "alunno": "Mahmoud E.",
-   "voto": 43,
-   "conto": "sito 51 · quiz 40 → media 46 − 3×1 fuori compito = 43",
-   "sito_fatto": [
-    "index",
-    "style"
-   ],
-   "sito_manca": [
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 51,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "fuori lezione 1 volta",
-   "assente": false,
-   "fuori": 1,
-   "vy_ult": [
-    "12:53",
-    "verifica",
-    0
-   ],
-   "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
   }
  ]
 }
