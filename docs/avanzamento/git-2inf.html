@@ -45,7 +45,7 @@ function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var c
 function teo(id,nome){var d=LIVE[id];if(!d||!d.righe)return null;var a=tok(nome),best=null,bs=0;d.righe.forEach(function(r){var b=tok(r.nome),sc=a.filter(function(x){return b.indexOf(x)>=0}).length;if(sc>bs){bs=sc;best=r}});return bs?best:null}
 function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')+'<div style="height:6px;background:#e6eaf0;border-radius:3px;margin-top:3px"><i style="display:block;height:100%;width:'+p+'%;background:var(--acc);border-radius:3px"></i></div>'}
 function chips(f,tutti){return tutti.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+e(x)+'</span>':'<span class="ko c">○ '+e(x)+'</span>'}).join(' ')}
-function quiz(v,q){return '<b>'+v+'</b> '+(q?'<span class="ok">'+q.ok+'/'+q.su+'</span><div class="p">'+e(q.ora)+'</div>':'<span class="ko">no</span>')}
+function quiz(v,q){return '<b>'+v+'</b> '+(q?'<span class="ok">'+q.ok+'/'+q.su+'</span><div class="p">'+e(q.ora)+'</div>':'<span class="ko">non fatto</span>')}
 async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var a=await live('2inf-salvadanaio-v1'),b=await live('2inf-github-v1');if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
