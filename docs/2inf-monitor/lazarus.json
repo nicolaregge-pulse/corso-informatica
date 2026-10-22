@@ -1,5 +1,5 @@
 {
- "ora": "10:23",
+ "ora": "10:30",
  "cartella": "salvadanaio",
  "scadenza": "09:35",
  "righe": [
@@ -207,20 +207,15 @@
   {
    "alunno": "Youssef A.",
    "pezzi": [],
-   "salvataggi": 4,
-   "ultimo": "10:03",
+   "salvataggi": 9,
+   "ultimo": "10:29",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Nella cartella salvadanaio mancano i file .lpi, .lpr, .pas, .lfm: in Lazarus salva tutto (Ctrl+Maiusc+S) e ricarica TUTTA la cartella. Attenzione: Veyon ti ha visto fuori lezione (10:01). Nel repository: nella cartella principale c'è un progetto vecchio (project1.lpi, project1.lpr, salvadanaio, salvadanaio.exe, salvadanaio.ico, salvadanaio.lpi): il salvadanaio va nella cartella «salvadanaio»; più progetti diversi (project1, salvadanaio): un progetto per cartella.",
+   "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (10:01).",
    "fuori": 3,
    "albero": [
     "README.md",
-    "project1.lpi",
-    "project1.lpr",
-    "salvadanaio",
-    "salvadanaio.exe",
     "salvadanaio.ico",
-    "salvadanaio.lpi",
     "salvadanaio.lpr",
     "salvadanaio.lps",
     "salvadanaio.res",
@@ -228,9 +223,8 @@
     "unit1.pas"
    ],
    "problemi": [
-    "nella cartella principale c'è un progetto vecchio (project1.lpi, project1.lpr, salvadanaio, salvadanaio.exe, salvadanaio.ico, salvadanaio.lpi): il salvadanaio va nella cartella «salvadanaio»",
-    "più progetti diversi (project1, salvadanaio): un progetto per cartella",
-    "hai caricato anche il .exe: non serve, basta il progetto"
+    "nella cartella principale c'è un progetto vecchio (salvadanaio.ico, salvadanaio.lpr, salvadanaio.lps, salvadanaio.res, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»",
+    "c'è il .lps ma manca il .lpi: il progetto non si riapre"
    ]
   },
   {
