@@ -1,5 +1,5 @@
 {
- "ora": "12:50",
+ "ora": "12:53",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -18,7 +18,7 @@
    "voto_sito": 80,
    "quiz": "8 su 8",
    "voto_quiz": 80,
-   "comportamento": "lavora: 16 salvataggi oggi",
+   "comportamento": "lavora: 17 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -110,33 +110,6 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Emmanuel F.",
-   "voto": 78,
-   "conto": "sito 80 · quiz 75 → media 78 = 78",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [],
-   "voto_sito": 80,
-   "quiz": "7 su 8",
-   "voto_quiz": 75,
-   "comportamento": "lavora: 7 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "GitHub, file",
-    0
-   ],
-   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Ariel D.",
    "voto": 77,
    "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) − 3×1 fuori compito = 77",
@@ -219,7 +192,7 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Tomas L.",
+   "alunno": "Emmanuel F.",
    "voto": 74,
    "conto": "sito 74 · quiz 75 → media 74 = 74",
    "sito_fatto": [
@@ -227,16 +200,44 @@
     "style",
     "competenze",
     "passione",
-    "sfondo",
-    "animazione"
+    "animazione",
+    "versione"
    ],
    "sito_manca": [
-    "versione"
+    "sfondo"
    ],
    "voto_sito": 74,
    "quiz": "7 su 8",
    "voto_quiz": 75,
-   "comportamento": "lavora: 19 salvataggi oggi",
+   "comportamento": "lavora: 9 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "GitHub, file",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
+   "alunno": "Tomas L.",
+   "voto": 72,
+   "conto": "sito 69 · quiz 75 → media 72 = 72",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "passione",
+    "versione"
+   ],
+   "voto_sito": 69,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
+   "comportamento": "lavora: 20 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -244,7 +245,7 @@
     "editor del codice",
     0
    ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+   "cosa_fare": "Passo 4: metti passione.html (file pronti). Attenzione al nome: passione, non passioni."
   },
   {
    "alunno": "Kevin R.",
@@ -276,23 +277,23 @@
   },
   {
    "alunno": "Filippo M.",
-   "voto": 64,
-   "conto": "sito 57 · quiz 70 → media 64 = 64",
+   "voto": 66,
+   "conto": "sito 63 · quiz 70 → media 66 = 66",
    "sito_fatto": [
     "index",
     "style",
-    "competenze"
+    "competenze",
+    "passione"
    ],
    "sito_manca": [
-    "passione",
     "sfondo",
     "animazione",
     "versione"
    ],
-   "voto_sito": 57,
+   "voto_sito": 63,
    "quiz": "6 su 8",
    "voto_quiz": 70,
-   "comportamento": "lavora: 14 salvataggi oggi",
+   "comportamento": "lavora: 17 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -300,7 +301,7 @@
     "GitHub, caricamento",
     0
    ],
-   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
    "alunno": "Nicolo C.",
