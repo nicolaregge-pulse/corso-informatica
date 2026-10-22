@@ -1,5 +1,5 @@
 {
- "ora": "12:34",
+ "ora": "12:35",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -19,6 +19,7 @@
    "quiz": "3 su 3",
    "voto_quiz": 80,
    "comportamento": "lavora: 11 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -45,6 +46,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 3 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -71,6 +73,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -97,6 +100,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 11 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -123,6 +127,7 @@
    "quiz": "8 su 8",
    "voto_quiz": 80,
    "comportamento": "lavora: 3 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -149,6 +154,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -175,6 +181,7 @@
    "quiz": "7 su 8",
    "voto_quiz": 75,
    "comportamento": "lavora: 9 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -202,6 +209,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 4 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -229,6 +237,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -256,6 +265,7 @@
    "quiz": "7 su 8",
    "voto_quiz": 75,
    "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -283,6 +293,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 16 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -310,6 +321,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -337,6 +349,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 7 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -364,6 +377,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "fuori lezione 1 volta",
+   "assente": false,
    "fuori": 1,
    "vy_ult": [
     "12:27",
@@ -391,6 +405,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 7 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -398,6 +413,30 @@
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
+   "alunno": "David A.",
+   "voto": 63,
+   "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "sfondo"
+   ],
+   "sito_manca": [
+    "passione",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 63,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "assente oggi",
+   "assente": true,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Assente oggi. Passo 4: metti passione.html (file pronti). Attenzione al nome: passione, non passioni."
   },
   {
    "alunno": "Filippo M.",
@@ -418,6 +457,7 @@
    "quiz": "6 su 8",
    "voto_quiz": 70,
    "comportamento": "lavora: 9 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -445,6 +485,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -472,6 +513,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
@@ -499,6 +541,7 @@
    "quiz": "",
    "voto_quiz": 40,
    "comportamento": "fuori lezione 1 volta",
+   "assente": false,
    "fuori": 1,
    "vy_ult": [
     "12:27",
@@ -525,6 +568,7 @@
    "quiz": "1 su 3",
    "voto_quiz": 53,
    "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
    "fuori": 0,
    "vy_ult": [
     "12:27",
