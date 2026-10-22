@@ -1,5 +1,5 @@
 {
- "ora": "10:45",
+ "ora": "10:50",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -228,14 +228,17 @@
   {
    "alunno": "Luca B.",
    "pezzi": [],
-   "salvataggi": 1,
-   "ultimo": "09:27",
+   "salvataggi": 4,
+   "ultimo": "10:49",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
+    "esercizio-3/README.md",
+    "esercizio-4/README.md",
+    "primo-programma/README.md",
     "project1.lpi",
     "project1.lpr",
     "salvadanio/backup/project1.lpi",
@@ -338,19 +341,17 @@
   },
   {
    "alunno": "Antonio M.",
-   "pezzi": [],
-   "salvataggi": 1,
-   "ultimo": "09:48",
+   "pezzi": [
+    "no .exe"
+   ],
+   "salvataggi": 5,
+   "ultimo": "10:49",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project14.exe, project14.lpi, project14.lps, project17.lps…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project55.lpi, unit55.pas): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
    "fuori": 2,
    "albero": [
     "README.md",
-    "project14.exe",
-    "project14.lpi",
-    "project14.lps",
-    "project17.lps",
     "project55.lpi",
     "unit55.pas"
    ]
@@ -358,16 +359,20 @@
   {
    "alunno": "Mathias P.",
    "pezzi": [
+    "cartelle",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "09:27",
+   "salvataggi": 4,
+   "ultimo": "10:50",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
+    "esercizio-3/README.md",
+    "esercizio-4/README.md",
+    "primo-programma/README.md",
     "primo_programma.lpi",
     "primo_programma.lpr",
     "primo_programma.lps",
@@ -404,8 +409,8 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma».",
-   "fuori": 0,
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:45).",
+   "fuori": 1,
    "albero": [
     "GitHub.lpi",
     "GitHub.lpr",
