@@ -1,0 +1,133 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Codice sistemato</title><style>
+:root{--bg:#f3f6f8;--ink:#16202a;--accent:#0b6e99;--ok:#1f7a3f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--ink:#e6edf3;--accent:#5cc1e8;--ok:#6fd38f}}
+:root[data-theme="dark"]{--bg:#10161c;--ink:#e6edf3;--accent:#5cc1e8;--ok:#6fd38f}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:20px 16px}ol{padding-left:22px}
+button{font:inherit;font-weight:700;background:var(--accent);color:#fff;border:0;border-radius:12px;padding:14px 20px;cursor:pointer}
+pre{background:#0f1720;color:#e6edf3;padding:14px;border-radius:12px;overflow:auto;font-size:14px}#ok{color:var(--ok);font-weight:700}</style></head>
+<body><div class="w"><h1>Il tuo salvadanaio, sistemato</h1>
+<p>Il tuo Button3 (la sfida) l'ho lasciato com'è. Ho scritto il FOR nel Button1 e il WHILE nel Button2.</p>
+<ol><li>Premi il bottone blu <b>Copia tutto il codice</b>.</li>
+<li>In Lazarus clicca dentro il codice di <b>unit1.pas</b>, premi <b>Ctrl+A</b> e poi <b>Ctrl+V</b>.</li>
+<li>Premi <b>F9</b> e prova i 3 bottoni.</li>
+<li>Salva con <b>Ctrl+Maiusc+S</b> e ricarica la cartella «salvadanaio» su GitHub (Add file, Upload files, Commit changes).</li>
+<li>Leggi i commenti verdi con <b>//</b>: devi saper spiegare a voce che cosa fa ogni riga.</li></ol>
+<p><button id="b">Copia tutto il codice</button> <span id="ok"></span></p>
+<pre id="c">unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Button1Click(Sender: TObject);
+var giorno, euro, totale: integer;
+begin
+  Randomize;
+  Memo1.Clear;
+  totale := 30;
+  // ciclo FOR: giorno da 1 a 7
+  for giorno := 1 to 7 do
+  begin
+    euro := Random(5) + 1;          // euro a caso da 1 a 5
+    totale := totale + euro;        // aggiungo gli euro al totale
+    Memo1.Lines.Add(&#x27;Giorno &#x27; + IntToStr(giorno) + &#x27;: +&#x27; + IntToStr(euro) + &#x27; euro&#x27;);
+  end;
+  // dopo il ciclo: il totale della settimana
+  Memo1.Lines.Add(&#x27;Totale della settimana: &#x27; + IntToStr(totale) + &#x27; euro&#x27;);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var giorni, euro, totale, prezzo: integer;
+begin
+  Randomize;
+  prezzo := StrToInt(Edit2.Text);
+  Memo1.Clear;
+  totale := 30;
+  giorni := 0;
+  // ciclo WHILE: finché il totale è minore del prezzo
+  while totale &lt; prezzo do
+  begin
+    euro := Random(5) + 1;          // euro a caso da 1 a 5
+    totale := totale + euro;        // aggiungo gli euro al totale
+    giorni := giorni + 1;           // un giorno in più
+  end;
+  // dopo il ciclo: quanti giorni servono
+  Memo1.Lines.Add(&#x27;Per &#x27; + Edit1.Text + &#x27; ti servono &#x27; + IntToStr(giorni) + &#x27; giorni&#x27;);
+  Memo1.Lines.Add(&#x27;Cioè &#x27; + IntToStr(giorni div 7) + &#x27; settimane e &#x27; + IntToStr(giorni mod 7) + &#x27; giorni&#x27;);
+end;
+
+  procedure TForm1.Button3Click(Sender: TObject);
+  var
+    giorni, euro, totale, prezzo: integer;
+  begin
+    Randomize;
+    prezzo := StrToInt(Edit2.Text);
+    Memo1.Clear;
+    totale := 0;
+    giorni := 0;
+
+    // Ciclo WHILE
+    while totale &lt; prezzo do
+    begin
+      euro := Random(5) + 1;
+      totale := totale + euro;
+      giorni := giorni + 1;
+
+      // Controlla se è sabato
+      if giorni mod 7 = 0 then
+      begin
+        totale := totale + 10;
+        Memo1.Lines.Add(&#x27;Sabato: paghetta +10 euro!&#x27;);
+      end;
+
+      Memo1.Lines.Add(&#x27;Giorno &#x27; + IntToStr(giorni) + &#x27;: ho &#x27; + IntToStr(totale) + &#x27; euro&#x27;);
+    end;
+
+    // Risultato finale
+    Memo1.Lines.Add(&#x27;Per &#x27; + Edit1.Text + &#x27; ti servono &#x27; + IntToStr(giorni) + &#x27; giorni&#x27;);
+    Memo1.Lines.Add(&#x27;Cioè &#x27; + IntToStr(giorni div 7) + &#x27; settimane e &#x27; + IntToStr(giorni mod 7) + &#x27; giorni&#x27;);
+  end;
+
+
+
+end.
+
+</pre></div>
+<script>document.getElementById('b').onclick=function(){var t=document.getElementById('c').textContent;
+(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){document.getElementById('ok').textContent='Copiato! Ora vai in Lazarus: Ctrl+A e Ctrl+V.'},function(){var r=document.createRange();r.selectNodeContents(document.getElementById('c'));var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');document.getElementById('ok').textContent='Copiato! Ora vai in Lazarus: Ctrl+A e Ctrl+V.'});};</script></body></html>
