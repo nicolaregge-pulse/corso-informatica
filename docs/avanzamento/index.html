@@ -163,8 +163,8 @@ fetch('../verifica/config.json?t='+Date.now(),{cache:'no-store'}).then(function(
 </script><script src="../2inf-monitor/caricamento.js"></script>
 <script>
 // 22/10/2026: per il salvadanaio della 2INF, lo stesso riquadro dei ragazzi «chi ha caricato su GitHub e chi manca»
-(function(){var b=(new URLSearchParams(location.search).get('b')||'');if(b.indexOf('2inf-salvadanaio')!==0)return;
- function giro(){fetch('../2inf-monitor/lazarus.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(d)document.getElementById('carica').innerHTML=bannerCaricamento(d);}).catch(function(){});}
+(function(){var b=(new URLSearchParams(location.search).get('b')||'');var F=b.indexOf('2inf-salvadanaio')===0?'lazarus.json':(b.indexOf('2inf-github')===0?'ordine.json':'');if(!F)return;
+ function giro(){fetch('../2inf-monitor/'+F+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(d)document.getElementById('carica').innerHTML=bannerCaricamento(d);}).catch(function(){});}
  giro();setInterval(giro,60000);})();
 </script>
 </body></html>
