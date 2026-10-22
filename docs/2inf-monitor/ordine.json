@@ -1,5 +1,5 @@
 {
- "ora": "10:24",
+ "ora": "10:30",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -187,27 +187,21 @@
   {
    "alunno": "Youssef A.",
    "pezzi": [
+    "no .exe",
     "README"
    ],
-   "salvataggi": 4,
-   "ultimo": "10:03",
+   "salvataggi": 11,
+   "ultimo": "10:30",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, salvadanaio, salvadanaio.exe…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (salvadanaio.ico, salvadanaio.lpr, salvadanaio.lps, salvadanaio.res): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
    "fuori": 3,
    "albero": [
     "README.md",
-    "project1.lpi",
-    "project1.lpr",
-    "salvadanaio",
-    "salvadanaio.exe",
     "salvadanaio.ico",
-    "salvadanaio.lpi",
     "salvadanaio.lpr",
     "salvadanaio.lps",
-    "salvadanaio.res",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanaio.res"
    ]
   },
   {
