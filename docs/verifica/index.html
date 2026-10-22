@@ -124,6 +124,14 @@ svg text{fill:var(--fg)}
     var S = (B.strumenti || []).concat([{ t: 'I risultati della verifica', u: 'risultati.html?b=' + idB, c: '#1a7f37' }]);
     $('strumenti').hidden = false;
     $('strumenti').innerHTML = '<span class="mu" style="align-self:center">Per regolarti da solo:</span> ' + S.map(function (x) { return '<a target="_blank" href="' + e(x.u) + '" style="background:' + (x.c || '#6e40c9') + '">' + e(x.t) + '</a>'; }).join(' ');
+    // 22/10/2026: il controllo del progetto di ognuno (es. Lazarus su GitHub), in alto alla teoria, per tutti
+    if (B.controllo && !$('controllo')) {
+      var cbox = document.createElement('div'); cbox.id = 'controllo'; cbox.className = 'card'; $('strumenti').parentNode.insertBefore(cbox, $('strumenti').nextSibling);
+      var leggiC = function () { fetch(B.controllo + '?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (!d) return;
+        cbox.innerHTML = '<h2 style="margin-top:0">Il controllo del tuo progetto (' + e(d.ora) + ', cartella «' + e(d.cartella) + '»)</h2><div style="overflow-x:auto"><table style="border-collapse:collapse;width:100%;font-size:14px"><tr><th style="text-align:left">Alunno</th><th>Cartella</th><th>Pezzi</th><th>Salvataggi</th><th style="text-align:left">Cosa fare adesso</th></tr>' +
+          d.righe.map(function (r) { return '<tr style="border-top:1px solid #ccc' + (r.fuori ? ';background:rgba(224,65,58,.12)' : '') + '"><td><b>' + e(r.alunno) + '</b></td><td>' + (r.cartella_ok ? '✔' : '✘') + '</td><td>' + ['Form', 'FOR', 'WHILE', 'sfida'].map(function (x) { return (r.pezzi.indexOf(x) >= 0 ? '✔' : '○') + ' ' + x; }).join(' ') + '</td><td>' + e(r.salvataggi) + (r.ultimo ? ' (' + e(r.ultimo) + ')' : '') + '</td><td>' + e(r.messaggio) + (r.fuori ? ' <b style="color:#e0413a">Veyon: fuori lezione ' + e(r.fuori) + ' volte</b>' : '') + '</td></tr>'; }).join('') + '</table></div>'; }).catch(function () {}); };
+      leggiC(); setInterval(leggiC, 60000);
+    }
   }
   function orologioConsegna() {
     if (!STATO.scadenza) return '';
