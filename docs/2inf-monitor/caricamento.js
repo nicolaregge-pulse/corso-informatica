@@ -8,7 +8,7 @@ function bannerCaricamento(d) {
   var scaduto = ora > d.scadenza, tutti = !no.length;
   var col = tutti ? '#1f7a3f' : (scaduto ? '#e0413a' : '#d08a00');
   return '<div style="border:3px solid ' + col + ';border-radius:14px;padding:14px 16px;margin:12px 0;font-size:18px;line-height:1.5">' +
-    '<b style="font-size:22px;color:' + col + '">💾 Cartella «' + e(d.cartella) + '» su GitHub: entro le ' + e(d.scadenza) + (scaduto && !tutti ? ' (tempo scaduto)' : '') + '</b><br>' +
+    '<b style="font-size:22px;color:' + col + '">💾 ' + (d.banner ? e(d.banner) : 'Cartella «' + e(d.cartella) + '» su GitHub') + ': entro le ' + e(d.scadenza) + (scaduto && !tutti ? ' (tempo scaduto)' : '') + '</b><br>' +
     '<b>' + e(d.si || 'Caricato') + ' ' + si.length + ' su ' + d.righe.length + '</b> · controllo delle ' + e(d.ora) + ' (ogni 5 minuti)<br>' +
     '<span style="color:#1f7a3f">✔ ' + e(d.si || 'Caricato') + ': ' + (si.length ? si.map(function (r) { return e(r.alunno); }).join(', ') : 'ancora nessuno') + '</span><br>' +
     (no.length ? '<span style="color:#e0413a">✘ ' + e(d.no || 'Manca') + ': ' + no.map(function (r) { return e(r.alunno); }).join(', ') + '</span>' : '<span style="color:#1f7a3f">Tutti hanno caricato. Bravi!</span>') +
