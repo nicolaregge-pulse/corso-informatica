@@ -1,5 +1,5 @@
 {
- "ora": "10:21",
+ "ora": "10:24",
  "data": "2026-10-22",
  "righe": [
   {
@@ -59,6 +59,34 @@
    "orale": null
   },
   {
+   "alunno": "Egor M.",
+   "voto": 56,
+   "conto": "GitHub 48 · salvadanaio 80 · verifica 40 → media 56 = 56",
+   "v_github": 48,
+   "v_salv": 80,
+   "v_ver": 40,
+   "github": [
+    "pulito"
+   ],
+   "github_manca": [
+    "cartelle",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio2): rinominale (scheda 10).",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "",
+   "fuori": 0,
+   "orale": null
+  },
+  {
    "alunno": "Mathias P.",
    "voto": 56,
    "conto": "GitHub 48 · salvadanaio 80 · verifica 40 → media 56 = 56",
@@ -95,14 +123,14 @@
    "v_ver": 40,
    "github": [
     "pulito",
-    "no .exe"
+    "salvadanaio"
    ],
    "github_manca": [
     "cartelle",
-    "README",
-    "salvadanaio"
+    "no .exe",
+    "README"
    ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4».",
+   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «esercizio-3», «esercizio-4».",
    "salv": [
     "Form",
     "FOR",
@@ -214,33 +242,6 @@
     "salvadanaio"
    ],
    "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "orale": null
-  },
-  {
-   "alunno": "Egor M.",
-   "voto": 53,
-   "conto": "GitHub 40 · salvadanaio 80 · verifica 40 → media 53 = 53",
-   "v_github": 40,
-   "v_salv": 80,
-   "v_ver": 40,
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (salvadanio2.exe, salvadanio2.ico, salvadanio2.lpi, salvadanio2.lpr…): spostali nella cartella «primo-programma».",
    "salv": [
     "Form",
     "FOR",
