@@ -1,5 +1,5 @@
 {
- "ora": "10:30",
+ "ora": "10:37",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -170,38 +170,59 @@
   },
   {
    "alunno": "Giorgio A.",
-   "pezzi": [
-    "pulito",
-    "no .exe"
-   ],
-   "salvataggi": 4,
-   "ultimo": "09:47",
+   "pezzi": [],
+   "salvataggi": 5,
+   "ultimo": "10:30",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
+   "cartella_ok": false,
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
    "fuori": 2,
    "albero": [
-    "README.md"
+    "README.md",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "unit1.lfm",
+    "unit1.pas"
    ]
   },
   {
    "alunno": "Youssef A.",
    "pezzi": [
-    "no .exe",
-    "README"
+    "pulito",
+    "README",
+    "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "10:30",
+   "salvataggi": 18,
+   "ultimo": "10:35",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (salvadanaio.ico, salvadanaio.lpr, salvadanaio.lps, salvadanaio.res): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
+   "cartella_ok": true,
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
    "fuori": 3,
    "albero": [
     "README.md",
-    "salvadanaio.ico",
-    "salvadanaio.lpr",
-    "salvadanaio.lps",
-    "salvadanaio.res"
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
    ]
   },
   {
