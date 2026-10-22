@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.71** — 21/10/2026
+**Versione 2.72** — 22/10/2026 (dieci voci del 22/10: #104-#113)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,56 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+## 22/10/2026 — Le consegne dei ragazzi cadute per i MIEI salvataggi ogni 5 minuti (#112)
+
+1. **Errore.** Il giro automatico spingeva i dati sul repository riservato ogni 5 minuti. Lo script di Google salva le consegne nello stesso repository: trovandolo occupato, il suo salvataggio falliva e la consegna restava solo nel Foglio di riserva, mentre la pagina diceva al ragazzo «arrivata al prof». In 3INF sono cadute 5 verifiche (Valerio, Domi, Dimalo, Catalano, Gervasoni), in 2INF 6. Il docente: «qualcosa non funziona nel tuo giro», «ogni giorno un tuo errore».
+2. **Regola.** Durante la lezione i giri automatici NON spingono sul riservato: commit locali, push a fine ora. Ogni giro che legge le consegne controlla anche il Foglio di riserva (comando `drive.esporta` del Foglio «Arrivi verifiche») e recupera le righe «SOLO QUI». La pagina della verifica deve dire «arrivata» solo dopo la risposta vera dello script (da correggere nel motore).
+
+## 22/10/2026 — Audit «Ponte OK» per deduzione, con il timer fermo da tre giorni (#104)
+
+1. **Errore.** L'audit pre-lezione ha scritto «Ponte OK» senza una prova: il timer dello script era fermo dal pomeriggio del 21/10 e alle 08:40 niente era su Classroom. Il docente: «3 giorni che mi dici tutto ok poi non riesci a pubblicare».
+2. **Regola.** «OK» si scrive solo dopo un comando di prova eseguito dallo script (file in `comandi/` passato a «eseguito» con l'ora). Se la prova non c'è, l'audit dice «NON VERIFICATO» in rosso e propone il piano B.
+
+## 22/10/2026 — «Pubblicata» detto per la sola pagina, senza Classroom (#105)
+
+1. **Errore.** Ho detto al docente che la lezione del salvadanaio era pubblicata quando era online solo la pagina del sito; su Classroom non c'era né il compito né l'annuncio («Non vedo niente su classroom»).
+2. **Regola.** Pubblicare = pagina + compito + annuncio su Classroom (RIPARTENZA 6d). Finché manca uno dei tre si dice che cosa manca, mai «pubblicata».
+
+## 22/10/2026 — Nome del bottone del piano B inventato (#106)
+
+1. **Errore.** Ho scritto «Condividi su Classroom» mentre il bottone vero si chiama «1. Pubblica il COMPITO». Il docente: «ma ne fai UNA giusta?».
+2. **Regola.** I nomi dei bottoni si copiano dalla pagina vera (o dallo screenshot), mai a memoria.
+
+## 22/10/2026 — Annuncio vecchio lasciato e secondo annuncio in coda (#107)
+
+1. **Errore.** L'annuncio delle 09:12 (in ritardo, con «entro le 9:15» e la consegna sbagliata) l'ho lasciato e ne ho messo in coda un secondo. Il docente: «doppie pubblicazioni creano solo problemi».
+2. **Regola.** Un annuncio sbagliato si cancella o si corregge (`classroom.annuncio_cancella` / `annuncio_modifica`); su Classroom resta un solo annuncio e un solo compito al giorno per classe.
+
+## 22/10/2026 — Monitor senza i presenti e con un nome falso; omonimi confusi (#108)
+
+1. **Errore.** Nel monitor mancavano allievi presenti e c'era «xxx sddd»; il controllo Lazarus ha abbinato Khella con Aciobanitei (tutti e due Giorgio) e ha incluso un assente.
+2. **Regola.** Nelle tabelle ci sono tutti e soli i presenti (Veyon o registro); l'abbinamento dei nomi si fa per cognome, mai per nome di battesimo.
+
+## 22/10/2026 — «Fuori compito» segnato senza averlo verificato (#109)
+
+1. **Errore.** Picco alle 09:05 (riquadro scuro «da verificare») e Acevedo alle 08:41 (scheda vuota) sono finiti nei messaggi ai ragazzi come «Veyon ti ha visto fuori lezione»; Elkeran alle 11:25 era una pubblicità a comparsa, non una pagina cercata da lui.
+2. **Regola.** «Da verificare» non va mai nel pubblico. Fuori compito solo quando lo schermo mostra chiaramente un'altra attività; una pubblicità, una scheda vuota o uno schermo bloccato non lo sono.
+
+## 22/10/2026 — Lezione GitHub troppo lunga, prima vittoria troppo tardi (#110)
+
+1. **Errore.** 11 schede per 45 minuti, con i primi 5 passi su Esplora file che il controllo non vede: dopo 30 minuti nessuno aveva creato una cartella. Il docente: «o ci vuole più tempo, o è troppo difficile, oppure hai spiegato male».
+2. **Regola.** Il primo passo di ogni lezione produce qualcosa di visibile nel controllo entro 10 minuti; i passi nell'editor del browser si fanno prima tutti insieme con la Demo di Veyon. La procedura facilitata nasce con la lezione, non dopo.
+
+## 22/10/2026 — Due ritagli uguali nel report dei fatti (#111)
+
+1. **Errore.** Nel PDF dei fatti su Uccheddu c'erano due immagini identiche (schermo bloccato alle 11:31 e 11:33). Il docente: «che senso ha mettere 2 immagini uguali?».
+2. **Regola.** Prima di mettere due ritagli consecutivi si confrontano: se sono uguali ne resta uno con le due ore nella didascalia.
+
+## 22/10/2026 — Richiesta «scrivi i tuoi errori nel file» rimandata a fine giornata (#113)
+
+1. **Errore.** Alle 08:5x il docente ha chiesto tre cose, la terza era scrivere subito nel registro degli errori tutto ciò che non aveva funzionato. L'ho rimandata «a fine giornata»; alle 13:30: «hai visto il documento dei tuoi errori?».
+2. **Regola.** Quando il docente chiede di registrare un errore, si scrive subito, prima di qualsiasi altro lavoro, e si dice il numero della voce.
 
 ## 21/10/2026 — Test di orientamento: risultati solo sul PC del ragazzo, inutilizzabili per il docente (#103)
 
