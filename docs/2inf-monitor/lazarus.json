@@ -1,5 +1,5 @@
 {
- "ora": "09:44",
+ "ora": "09:48",
  "cartella": "salvadanaio",
  "scadenza": "09:35",
  "righe": [
@@ -135,44 +135,50 @@
   },
   {
    "alunno": "Katherine A.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files).",
+   "pezzi": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salvataggi": 1,
+   "ultimo": "09:47",
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Tutto fatto, anche la sfida: preparati a spiegarlo a voce. Nel repository: hai caricato i file senza la cartella: la prossima volta trascina la cartella «salvadanaio» intera; più progetti diversi (SALVADANAIO, project1): un progetto per cartella.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "SALVADANAIO.exe",
+    "SALVADANAIO.ico",
+    "SALVADANAIO.lpi",
+    "SALVADANAIO.lpr",
+    "SALVADANAIO.lps",
+    "SALVADANAIO.res",
     "project1.lpi",
     "project1.lpr",
     "unit1.lfm",
     "unit1.pas"
    ],
    "problemi": [
-    "nella cartella principale c'è un progetto vecchio (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»"
+    "hai caricato i file senza la cartella: la prossima volta trascina la cartella «salvadanaio» intera",
+    "più progetti diversi (SALVADANAIO, project1): un progetto per cartella",
+    "hai caricato anche il .exe: non serve, basta il progetto"
    ]
   },
   {
    "alunno": "Giorgio A.",
    "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 4,
+   "ultimo": "09:47",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (08:42).",
    "fuori": 2,
    "albero": [
-    "README.md",
-    "project1.lpi",
-    "project1.lps",
-    "unit1.lfm",
-    "unit1.pas"
+    "README.md"
    ],
-   "problemi": [
-    "nella cartella principale c'è un progetto vecchio (project1.lpi, project1.lps, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»",
-    "manca il .lpr (il file principale del progetto)"
-   ]
+   "problemi": []
   },
   {
    "alunno": "Youssef A.",
@@ -274,22 +280,19 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 2,
+   "ultimo": "09:48",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (09:00).",
    "fuori": 1,
    "albero": [
     "README.md",
-    "project1.lps",
-    "project1.res",
     "unit1.lfm",
     "unit1.pas"
    ],
    "problemi": [
-    "nella cartella principale c'è un progetto vecchio (project1.lps, project1.res, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»",
-    "c'è il .lps ma manca il .lpi: il progetto non si riapre",
+    "nella cartella principale c'è un progetto vecchio (unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»",
     "manca il .lpr (il file principale del progetto)"
    ]
   },
