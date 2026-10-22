@@ -1,5 +1,5 @@
 {
- "ora": "12:02",
+ "ora": "12:06",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -18,7 +18,7 @@
    "voto_sito": 80,
    "quiz": "3 su 3",
    "voto_quiz": 80,
-   "comportamento": "lavora: 3 salvataggi oggi",
+   "comportamento": "lavora: 8 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -96,7 +96,7 @@
    "voto_sito": 80,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 8 salvataggi oggi",
+   "comportamento": "lavora: 9 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -185,6 +185,60 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Eric C.",
+   "voto": 74,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [
+    "sfondo"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 3 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "Google Immagini, forse la foto di sfondo",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
+   "alunno": "Emmanuel F.",
+   "voto": 74,
+   "conto": "sito 74 · quiz 75 → media 74 = 74",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [
+    "sfondo"
+   ],
+   "voto_sito": 74,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
+   "comportamento": "lavora: 2 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "Google Immagini, forse la foto di sfondo",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
    "alunno": "Beatrice N.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
@@ -212,33 +266,6 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Emmanuel F.",
-   "voto": 72,
-   "conto": "sito 69 · quiz 75 → media 72 = 72",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "versione"
-   ],
-   "voto_sito": 69,
-   "quiz": "7 su 8",
-   "voto_quiz": 75,
-   "comportamento": "lavora: 1 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "Google Immagini, forse la foto di sfondo",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
    "alunno": "Andrea G.",
    "voto": 71,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 71",
@@ -264,33 +291,6 @@
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Eric C.",
-   "voto": 69,
-   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "versione"
-   ],
-   "voto_sito": 69,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 2 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "Google Immagini, forse la foto di sfondo",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
    "alunno": "Tomas L.",
@@ -337,7 +337,7 @@
    "voto_sito": 63,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
+   "comportamento": "lavora: 2 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
