@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cruscotto 1INF oggi</title>
+<style>
+/* 3INF 22/10/2026 (Nicola): cruscotto del DOCENTE del recupero del sito (teoria, sito, quiz, comportamento, indicazioni, osservati).
+   Dati CIFRATI (1inf-sicurezza-oggi.json), si aprono con il codice del monitor. Generatore: riservato generatori/sito_3inf_recupero.py */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1300px;margin:0 auto;padding:14px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:1400px}
+th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
+.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
+details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
+<div id="view" class="hide">
+<h1>Cruscotto 1INF di oggi: sicurezza 1</h1>
+<div class="mu" id="stato">—</div>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria (schede)</th><th>2. Verifica (20 casi)</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Verifica = 40 + 2 per risposta giusta (non fatta entro le 14:00: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
+</div></div>
+<script>
+var TOK='',_kc=null,_n=0,EXEC='',LIVE=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/1inf-sicurezza-oggi.json';
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('1inf-sicurezza-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='c3'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
+ window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
+ s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
+function teo(nome){if(!LIVE||!LIVE.righe)return null;var a=tok(nome),best=null,bs=0;LIVE.righe.forEach(function(r){var b=tok(r.nome),sc=a.filter(function(x){return b.indexOf(x)>=0}).length;if(sc>bs){bs=sc;best=r}});return bs?best:null}
+function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')}
+var TUTTI=['index','style','competenze','passione','sfondo','animazione','versione'];
+function chips(f){return TUTTI.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+x+'</span>':'<span class="ko c">○ '+x+'</span>'}).join(' ')}
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
+ $('gate').classList.add('hide');$('view').classList.remove('hide');
+ var a=await live('1inf-sicurezza-1ora-v1');if(a&&a.ok)LIVE=a;
+ $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
+ $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[];
+  return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b><div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
+  '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
+  '<td>'+cteo(teo(r.nome))+'</td>'+
+  '<td><b>'+(r.voto_ver==null?'—':r.voto_ver)+'</b> '+(r.verifica?'<span class="ok">'+r.verifica.ok+'/'+r.verifica.su+'</span><div class="p">'+e(r.verifica.ora)+(r.verifica.min?' · '+r.verifica.min+' min':'')+' · scritte: '+(r.verifica.aperte||0)+'</div>':'<span class="ko">non fatta</span>')+'</td>'+
+  '<td>'+(r.fuori?'<b class="ko">fuori '+r.fuori+'</b>':'<span class="ok">ok</span>')+(vy.length?'<details><summary>Veyon ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+'</div>'}).join('')+'</details>':'')+(r.note||[]).map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('')+'</td>'+
+  '</td></tr>'}).join('')}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
+fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){}).then(function(){
+ try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000)});
+</script>
+</body>
+</html>
