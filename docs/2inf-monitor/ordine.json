@@ -1,5 +1,5 @@
 {
- "ora": "10:11",
+ "ora": "10:17",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -249,21 +249,16 @@
   {
    "alunno": "Luciano C.",
    "pezzi": [
+    "pulito",
     "no .exe"
    ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (progetto1.lps, progetto1.res, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
+   "cartella_ok": true,
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4».",
    "fuori": 0,
-   "albero": [
-    "README.md",
-    "progetto1.lps",
-    "progetto1.res",
-    "unit1.lfm",
-    "unit1.pas"
-   ]
+   "albero": []
   },
   {
    "alunno": "Oscar F.",
