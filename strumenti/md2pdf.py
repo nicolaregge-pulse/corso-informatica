@@ -42,7 +42,7 @@ while i < len(righe):
     for k, tag in ((4, "h3"), (3, "h2"), (2, "h1")):
         if r.startswith("#" * (k - 1) + " "): out.append(f"<{tag}>{inline(r[k:])}</{tag}>"); break
     else:
-        if r.strip(): out.append(f"<p>{inline(r)}</p>")
+        if r.strip(): out.append(f"<p dir='auto'>{inline(r)}</p>")
     i += 1
 CSS = """body{font-family:"Segoe UI",Arial,sans-serif;color:#1a2330;font-size:12.5px;line-height:1.45;margin:18px 26px}h1{color:#12467a;font-size:22px}
 h2{color:#12467a;font-size:17px;border-bottom:2px solid #d5dde8;padding-bottom:3px;margin-top:20px;break-after:avoid}h3{font-size:14px;break-after:avoid}

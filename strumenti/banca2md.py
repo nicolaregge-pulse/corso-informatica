@@ -12,9 +12,11 @@ B = json.loads(subprocess.check_output(["node", "-e", js]))
 
 
 def testo(h):
-    h = re.sub(r"<pre>(.*?)</pre>", lambda m: "\n```\n" + html.unescape(m.group(1)) + "\n```\n", h, flags=re.S)
+    h = re.sub(r"<pre[^>]*>(.*?)</pre>", lambda m: "\n```\n" + html.unescape(m.group(1)) + "\n```\n", h, flags=re.S)
     h = re.sub(r"<a [^>]*href=\"([^\"]+)\"[^>]*>(.*?)</a>", r"\2 (\1)", h)
+    h = re.sub(r"<span lang=\"(ar|zh)\"[^>]*>", "\n\n", h)   # righe in arabo e cinese (L() delle banche 1INF): paragrafo a parte
     h = re.sub(r"<br\s*/?>", "\n", h)
+    h = re.sub(r"<div[^>]*>(.*?)</div>", r"\n\n\1\n", h, flags=re.S)
     h = re.sub(r"</?b>", "**", h)
     h = re.sub(r"</?code>", "`", h)
     h = re.sub(r"<[^>]+>", "", h)
