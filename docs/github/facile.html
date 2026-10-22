@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Procedura facilitata</title>
+<style>
+/* 2INF 22/10/2026 (Nicola: «un bottone in alto alla lezione con PROCEDURA FACILITATA»): solo github.com, solo clic e un nome da scrivere. */
+:root{--bg:#f3f6f8;--card:#fff;--ink:#16202a;--mu:#5a6878;--ln:#d5dde5;--acc:#0b6e99;--ok:#1f7a3f;--warm:#b45309}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--warm:#f6ad55}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--warm:#f6ad55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:18px 16px 60px}h1{font-size:28px;margin:0 0 6px;color:var(--warm)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;margin:14px 0}
+.card h2{margin:0 0 6px;font-size:21px}ol{margin:6px 0;padding-left:24px}li{margin:4px 0}
+.box{display:flex;gap:8px;align-items:center;margin:6px 0}.box code{flex:1;background:#0f1720;color:#e6edf3;border-radius:8px;padding:8px 10px;font-size:17px}
+.box button{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:8px;padding:8px 12px;background:var(--acc);color:#fff;cursor:pointer}
+.fatto{background:#dafbe1;color:#14532d;border:2px solid #1a7f37;border-radius:8px;padding:6px 10px;font-weight:700;margin-top:8px}
+.mu{color:var(--mu)}a{color:var(--acc)}
+</style>
+</head>
+<body><div class="w">
+<h1>Procedura facilitata: 4 cartelle in 10 minuti</h1>
+<p class="mu">Tutto su <b>github.com</b>, con il mouse. Niente editor, niente Esplora file. Ogni cartella si crea scrivendo il suo nome con una barra <b>/</b> davanti a README.md: la barra crea la cartella.</p>
+
+<div class="card"><h2>1. Apri il tuo repository «lazarus»</h2><ol>
+<li>Vai su <b>github.com</b>.</li>
+<li>In alto a destra clicca la tua <b>foto</b>, poi <b>Your repositories</b> (i tuoi repository).</li>
+<li>Clicca <b>lazarus</b>.</li></ol><div class="fatto">FATTO! Vedi la pagina del tuo repository lazarus.</div></div>
+
+<div class="card"><h2>2. Crea la cartella «primo-programma»</h2><ol>
+<li>Clicca il bottone <b>Add file</b> (a sinistra del bottone verde «Code»), poi <b>Create new file</b> (crea un file nuovo).</li>
+<li>In alto, nella casella del nome, incolla questo (bottone <b>Copia</b>, poi clic nella casella e <b>Ctrl+V</b>):</li></ol>
+<div class="box"><code>primo-programma/README.md</code><button>Copia</button></div>
+<ol start="3"><li>Nel riquadro grande sotto incolla:</li></ol>
+<div class="box"><code>Il mio primo programma Lazarus</code><button>Copia</button></div>
+<ol start="4"><li>Clicca il bottone verde <b>Commit changes…</b> in alto a destra, poi di nuovo <b>Commit changes</b> nella finestrella.</li></ol>
+<div class="fatto">FATTO! Nel repository c'è la cartella primo-programma.</div></div>
+
+<div class="card"><h2>3. Crea la cartella «esercizio-3»</h2><ol>
+<li>Torna al repository: in alto clicca la scritta <b>lazarus</b>.</li>
+<li><b>Add file</b> → <b>Create new file</b>. Nome:</li></ol>
+<div class="box"><code>esercizio-3/README.md</code><button>Copia</button></div>
+<ol start="3"><li>Testo:</li></ol>
+<div class="box"><code>Qui andrà l'esercizio 3</code><button>Copia</button></div>
+<ol start="4"><li><b>Commit changes…</b> → <b>Commit changes</b>.</li></ol>
+<div class="fatto">FATTO! C'è la cartella esercizio-3.</div></div>
+
+<div class="card"><h2>4. Crea la cartella «esercizio-4»</h2><ol>
+<li>Torna al repository (scritta <b>lazarus</b> in alto). <b>Add file</b> → <b>Create new file</b>. Nome:</li></ol>
+<div class="box"><code>esercizio-4/README.md</code><button>Copia</button></div>
+<ol start="2"><li>Testo:</li></ol>
+<div class="box"><code>Qui andrà l'esercizio 4</code><button>Copia</button></div>
+<ol start="3"><li><b>Commit changes…</b> → <b>Commit changes</b>.</li></ol>
+<div class="fatto">FATTO! C'è la cartella esercizio-4.</div></div>
+
+<div class="card"><h2>5. La cartella «salvadanaio» (se non c'è ancora)</h2><ol>
+<li>Torna al repository. <b>Add file</b> → <b>Upload files</b> (carica file).</li>
+<li>Apri <b>Esplora file</b>, trova la cartella del tuo salvadanaio e <b>trascinala</b> dentro la pagina (tieni premuto, passa sull'icona di Chrome in basso, lascia al centro della pagina).</li>
+<li>Aspetta la barra verde piena e clicca <b>Commit changes</b>.</li></ol>
+<p class="mu">La cartella si deve chiamare <b>salvadanaio</b>. Se si chiama in un altro modo, va bene lo stesso per oggi: la sistemiamo insieme la prossima volta.</p>
+<div class="fatto">FATTO! Il tuo repository ha 4 cartelle: primo-programma, salvadanaio, esercizio-3, esercizio-4.</div></div>
+
+<div class="card"><h2>6. Il tuo README (Fallo tuo)</h2><ol>
+<li>Nel repository clicca il file <b>README.md</b> (quello fuori dalle cartelle), poi la <b>matita</b> in alto a destra.</li>
+<li>Cancella tutto (<b>Ctrl+A</b>, <b>Canc</b>) e incolla, poi cambia il nome con il tuo:</li></ol>
+<div class="box"><code id="rd"># I miei progetti Lazarus — Sono (il tuo nome), 2INF. 1. primo-programma 2. salvadanaio 3. esercizio-3 4. esercizio-4</code><button>Copia</button></div>
+<ol start="3"><li><b>Commit changes…</b> → <b>Commit changes</b>.</li></ol>
+<div class="fatto">FATTO! Il tuo repository si presenta da solo.</div></div>
+
+<p class="mu">I file sparsi del progetto vecchio e i file .exe li mettiamo a posto <b>tutti insieme</b> la prossima lezione. Bloccato? Scrivi all'assistente in fondo alla pagina della lezione.</p>
+<p><a href="../verifica/?b=2inf-github">Torna alla lezione</a> · <a href="../2inf-oggi/">La mia giornata: voto, fatto e da fare</a></p>
+</div>
+<script>
+document.querySelectorAll('.box button').forEach(function(b){b.onclick=function(){var t=b.previousElementSibling.textContent;
+ function ok(){b.textContent='Copiato!';setTimeout(function(){b.textContent='Copia'},1500)}
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(ok,function(){var r=document.createRange();r.selectNodeContents(b.previousElementSibling);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');ok()})}});
+</script>
+</body>
+</html>
