@@ -88,6 +88,8 @@ function render(d,origine){
   var r=((d&&d.righe)||[]).slice(),out=document.getElementById('out');
   if(SCH){var visti={};r.forEach(function(x){var s=schermoDi(x.nome);x._sch=s;if(s)visti[s.pc]=1;});
     SCH.righe.forEach(function(s){if(!visti[s.pc])r.push({nome:s.nome,_sch:s,_solo:true});});}
+  // 22/10/2026 (Nicola): nel monitor ci sono TUTTI e SOLO i presenti; i presenti sono le righe del giro Veyon
+  if(SCH&&SCH.righe&&SCH.righe.length){r=r.filter(function(x){return x._solo||x._sch;});}
   // 20/10: anche chi ha consegnato (quiz Moduli, verifica) senza aprire la pagina compare, con i suoi lavori
   if(LAV){Object.keys(LAV.lavori).forEach(function(k){var b=tok(k);if(!r.some(function(x){var a=tok(x.nome);return a.some(function(t){return b.indexOf(t)>=0;});}))r.push({nome:k,_lav:1});});}
   var tot0=0;r.forEach(function(x){if(x.teoria&&x.teoria.totale>tot0)tot0=x.teoria.totale;});r.forEach(function(x){x._p=x._solo?-1:punteggio(x,tot0||(d&&d.totale_schede)||11);});r.sort(function(a,b){return b._p-a._p;});
