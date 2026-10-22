@@ -7,7 +7,6 @@
    "alunno": "Hagar A.",
    "pezzi": [
     "Form",
-    "WHILE",
     "sfida"
    ],
    "salvataggi": 1,
@@ -280,16 +279,27 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [],
-   "salvataggi": 4,
-   "ultimo": "09:48",
+   "salvataggi": 5,
+   "ultimo": "09:50",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Non vedo la cartella «salvadanaio» nel tuo repository lazarus: salva il progetto in Documenti\\salvadanaio e caricala tutta (Add file, Upload files). Attenzione: Veyon ti ha visto fuori lezione (09:00).",
    "fuori": 1,
    "albero": [
-    "README.md"
+    "README.md",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "unit1.lfm",
+    "unit1.pas"
    ],
-   "problemi": []
+   "problemi": [
+    "nella cartella principale c'è un progetto vecchio (project1.exe, project1.ico, project1.lpi, project1.lpr, project1.lps, project1.res): il salvadanaio va nella cartella «salvadanaio»",
+    "hai caricato anche il .exe: non serve, basta il progetto"
+   ]
   },
   {
    "alunno": "Francesco M.",
