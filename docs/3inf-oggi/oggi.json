@@ -1,5 +1,5 @@
 {
- "ora": "12:38",
+ "ora": "12:39",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -18,7 +18,7 @@
    "voto_sito": 80,
    "quiz": "8 su 8",
    "voto_quiz": 80,
-   "comportamento": "lavora: 11 salvataggi oggi",
+   "comportamento": "lavora: 13 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -191,6 +191,61 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Andrea G.",
+   "voto": 77,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 77",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "fuori lezione 1 volta",
+   "assente": false,
+   "fuori": 1,
+   "vy_ult": [
+    "12:27",
+    "editor del codice",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Dani S.",
+   "voto": 77,
+   "conto": "sito 74 · quiz 80 → media 77 = 77",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
+   "comportamento": "lavora: 7 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:27",
+    "GitHub",
+    0
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
    "alunno": "Alessandro A.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
@@ -331,7 +386,7 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Dani S.",
+   "alunno": "Samuele U.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
    "sito_fatto": [
@@ -339,72 +394,16 @@
     "style",
     "competenze",
     "passione",
-    "sfondo",
-    "animazione"
+    "animazione",
+    "versione"
    ],
    "sito_manca": [
-    "versione"
+    "sfondo"
    ],
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 7 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:27",
-    "GitHub",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Andrea G.",
-   "voto": 71,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 71",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "fuori lezione 1 volta",
-   "assente": false,
-   "fuori": 1,
-   "vy_ult": [
-    "12:27",
-    "editor del codice",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Samuele U.",
-   "voto": 69,
-   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "versione"
-   ],
-   "voto_sito": 69,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 7 salvataggi oggi",
+   "comportamento": "lavora: 10 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
@@ -456,7 +455,7 @@
    "voto_sito": 51,
    "quiz": "6 su 8",
    "voto_quiz": 70,
-   "comportamento": "lavora: 9 salvataggi oggi",
+   "comportamento": "lavora: 12 salvataggi oggi",
    "assente": false,
    "fuori": 0,
    "vy_ult": [
