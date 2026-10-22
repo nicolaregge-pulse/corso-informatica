@@ -1,5 +1,5 @@
 {
- "ora": "11:39",
+ "ora": "11:43",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -54,7 +54,86 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Ariel D.",
+   "voto": 60,
+   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 1 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "tabella del controllo",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Noah V.",
+   "voto": 60,
+   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 4 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "il suo sito, pagina «Il mio sogno»",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
    "alunno": "Nicolo C.",
+   "voto": 57,
+   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 2 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "verifica",
+    0
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Tomas L.",
    "voto": 57,
    "conto": "sito 74 · quiz 40 → media 57 = 57",
    "sito_fatto": [
@@ -75,34 +154,7 @@
    "fuori": 0,
    "vy_ult": [
     "11:31",
-    "verifica",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Ariel D.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "tabella del controllo",
+    "pagina bianca",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -157,33 +209,6 @@
    "vy_ult": [
     "11:31",
     "«L'albero del mio sito»",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Noah V.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "il suo sito, pagina «Il mio sogno»",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -270,6 +295,33 @@
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
+   "alunno": "Alessandro A.",
+   "voto": 52,
+   "conto": "sito 63 · quiz 40 → media 52 = 52",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione"
+   ],
+   "sito_manca": [
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 63,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 1 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "Classroom, compito di ieri",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
    "alunno": "Rafi F.",
    "voto": 52,
    "conto": "sito 63 · quiz 40 → media 52 = 52",
@@ -295,60 +347,6 @@
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
-   "alunno": "Tomas L.",
-   "voto": 52,
-   "conto": "sito 63 · quiz 40 → media 52 = 52",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 63,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "pagina bianca",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
-   "alunno": "Alessandro A.",
-   "voto": 48,
-   "conto": "sito 57 · quiz 40 → media 48 = 48",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze"
-   ],
-   "sito_manca": [
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 57,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "Classroom, compito di ieri",
-    0
-   ],
-   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
   },
   {
    "alunno": "Simone G.",
@@ -405,6 +403,33 @@
    "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: comp.html, contacts.html, other.html."
   },
   {
+   "alunno": "Dani S.",
+   "voto": 48,
+   "conto": "sito 57 · quiz 40 → media 48 = 48",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze"
+   ],
+   "sito_manca": [
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 57,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 1 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "GitHub",
+    0
+   ],
+   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
+  },
+  {
    "alunno": "Filippo M.",
    "voto": 46,
    "conto": "sito 51 · quiz 40 → media 46 = 46",
@@ -427,33 +452,6 @@
    "vy_ult": [
     "11:31",
     "lezione di recupero, la tabella",
-    0
-   ],
-   "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
-  },
-  {
-   "alunno": "Dani S.",
-   "voto": 46,
-   "conto": "sito 51 · quiz 40 → media 46 = 46",
-   "sito_fatto": [
-    "index",
-    "style"
-   ],
-   "sito_manca": [
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 51,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "GitHub",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
