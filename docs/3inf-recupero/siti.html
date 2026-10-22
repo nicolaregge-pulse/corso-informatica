@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>I siti della 3INF</title>
+<style>
+/* 3INF 22/10/2026 (Nicola): il cruscotto dei siti come il PDF, ma dal vivo. Dati CIFRATI in 3inf-recupero-oggi.json
+   (nomi di minori), si aprono con il codice del monitor. Generatore: riservato generatori/sito_3inf_recupero.py (ogni 5 minuti). */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b;--giallo:#fff8db;--code:#f3f5f8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--giallo:#3a2f10;--code:#0f1720}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--giallo:#3a2f10;--code:#0f1720}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1250px;margin:0 auto;padding:14px 16px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.kpi{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.k{background:var(--card);border-radius:12px;padding:8px 12px;min-width:110px}.k b{display:block;font-size:22px}
+.card{display:flex;gap:12px;background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px;margin:0 0 10px;align-items:flex-start}
+.th{width:30%;flex:none}.th img{width:100%;border:1px solid var(--ln);border-radius:6px;display:block}.noth{height:120px;border:1px dashed var(--ln);border-radius:6px;color:var(--mu);display:flex;align-items:center;justify-content:center}
+.url{font-size:12px;word-break:break-all;margin-top:4px}.url a{color:var(--acc)}
+.body{flex:1;min-width:0}h2{font-size:18px;margin:0 0 4px;color:var(--acc)}h2 small{font-size:13px;color:var(--tx);font-weight:400}
+.chips span{display:inline-block;font-size:13px;margin:2px 6px 2px 0;white-space:nowrap}.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko)}
+.meta{font-size:13px;color:var(--mu);margin:4px 0}.msg{font-size:13px;background:var(--giallo);border-left:3px solid #d4a017;padding:5px 8px;margin-top:5px}
+.tree{width:26%;flex:none;margin:0;font:12px/1.35 Consolas,monospace;background:var(--code);border-radius:6px;padding:8px;white-space:pre;overflow:auto;max-height:260px}
+.star{background:rgba(214,158,46,.12)}
+.leg{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:8px 12px;margin:0 0 10px;font-size:13px}.leg summary{cursor:pointer}.lt{border-collapse:collapse;width:100%;margin-top:6px}.lt th,.lt td{border-bottom:1px solid var(--ln);padding:4px 6px;text-align:left;vertical-align:top}.lt th{color:var(--mu);font-size:12px}
+@media (max-width:800px){.card{flex-wrap:wrap}.th,.tree{width:100%}}
+</style>
+</head>
+<body><div class="w">
+<div id="view">
+<h1>I siti della 3INF: a che punto è ognuno</h1>
+<div class="mu" id="stato">—</div>
+<div class="kpi" id="kpi"></div>
+<details class="leg" open><summary><b>Legenda: che cosa vuol dire ogni cerchio rosso e gli errori più comuni</b></summary>
+<table class="lt"><tr><th>Cerchio rosso</th><th>Che cosa manca</th><th>Come si sistema</th></tr>
+<tr><td>○ index</td><td>nella cartella principale non c'è <b>index.html</b> (la Home)</td><td>file pronti → index.html; se i file sono in una sottocartella (es. Mio-sito/) vanno spostati nella principale</td></tr>
+<tr><td>○ style</td><td>non c'è <b>style.css</b> con quel nome esatto</td><td>file pronti → style.css (non Style.css, stile.css)</td></tr>
+<tr><td>○ competenze</td><td>non c'è <b>competenze.html</b></td><td>file pronti → competenze.html; se c'è comp.html o un altro nome, creare quella giusta</td></tr>
+<tr><td>○ passione</td><td>non c'è <b>passione.html</b></td><td>file pronti → passione.html (non passioni.html)</td></tr>
+<tr><td>○ sfondo</td><td>nel CSS manca <b>background-image</b> oppure nel repository non c'è nessuna immagine (.jpg/.png)</td><td>foto come img/sfondo.jpg e la riga background-image nel CSS; attenzione ai .jfif e ai nomi lunghissimi</td></tr>
+<tr><td>○ animazione</td><td>nel CSS manca <b>@keyframes</b> (o transition)</td><td>prendere lo style.css dei file pronti, che ha l'animazione «entra»</td></tr>
+<tr><td>○ versione</td><td>nella Home non c'è scritto <b>Versione</b> seguita da un numero</td><td>riga &lt;footer&gt;Versione 1.0&lt;/footer&gt; in fondo a index.html; si alza a ogni merge</td></tr>
+</table>
+<p class="mu" style="margin:6px 0 0">Altri errori visti in classe: sito dentro una sottocartella (Mio-sito/, sito_official/); nomi diversi da quelli richiesti (comp.html, contacts.html); immagine con estensione .jfif o nome di 90 caratteri; Pull Request fatta a se stesso invece che al compagno; copia doppia del sito in un'altra cartella.</p></details>
+<div id="cards"></div>
+<p class="mu">Una scheda per allievo, dal sito più completo al meno. Le 7 cose: ✔ fatta, ○ manca. Voto sito = 40 + 40 × cose/7; voto di oggi = media con il quiz (il quiz non fatto conta dalle 12:50) − 3 per fuori lezione. Si aggiorna da sola ogni minuto (dati ogni 5).</p>
+</div></div>
+<script>
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/3inf-recupero/siti.json';
+function locale(){return fetch('siti.json?t='+Date.now(),{cache:'no-store'})}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await locale();return r.json()}
+var OK=['index','style','competenze','passione','sfondo','animazione','versione'];
+function albero(files){var t={};files.forEach(function(f){var d=t;f.split('/').forEach(function(p){d=d[p]=d[p]||{}})});var out=[];
+ (function rec(d,pre){var ks=Object.keys(d).sort(function(a,b){var da=Object.keys(d[a]).length>0,db=Object.keys(d[b]).length>0;return da!==db?(da?-1:1):a.toLowerCase().localeCompare(b.toLowerCase())});
+  ks.forEach(function(k,i){var last=i===ks.length-1,dir=Object.keys(d[k]).length>0;out.push(pre+(last?'└── ':'├── ')+k+(dir?'/':''));rec(d[k],pre+(last?'    ':'│   '))})})(t,'');return out.join('\n')}
+async function giro(){var d;try{d=await leggi()}catch(x){$('stato').textContent='Non riesco a leggere i dati: ricarica (F5).';return}
+ var R=d.righe.slice().sort(function(a,b){return b.pezzi.length-a.pezzi.length||a.alunno.localeCompare(b.alunno)});
+ var compl=R.filter(function(r){return r.pezzi.length===7}).length,quiz=R.filter(function(r){return r.quiz}).length,salv=R.filter(function(r){return r.commit_oggi}).length;
+ $('stato').textContent='Dati delle '+d.ora+' · '+R.length+' in classe · si ricarica ogni minuto';
+ $('kpi').innerHTML='<div class="k"><b>'+compl+'</b>siti completi (7/7)</div><div class="k"><b>'+salv+'</b>hanno salvato oggi</div><div class="k"><b>'+quiz+'</b>quiz fatti</div>';
+ $('cards').innerHTML=R.map(function(r){
+  return '<div class="card"><div class="th">'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<div class="noth">nessuna Home</div>')+'</div>'+
+  '<div class="body"><h2>'+e(r.alunno)+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
+  '<div class="chips">'+OK.map(function(x){return r.pezzi.indexOf(x)>=0?'<span class="ok">✔ '+x+'</span>':'<span class="ko">○ '+x+'</span>'}).join('')+'</div>'+
+  '<div class="meta">salvataggi oggi: '+r.commit_oggi+' · ultimo: '+e(r.ultimo||'—')+' · rami: '+(r.rami||0)+' · Pull Request: '+(r.pr||0)+' · quiz: '+(r.quiz||'non fatto')+' · fuori lezione: '+r.fuori+'</div>'+
+  '<div class="msg">'+e(r.messaggio)+'</div></div>'+
+  '<pre class="tree">'+(e(albero(r.albero||[]))||'(repository vuoto o non trovato)')+'</pre></div>'}).join('')}
+giro();setInterval(giro,60000);
+</script>
+</body>
+</html>
