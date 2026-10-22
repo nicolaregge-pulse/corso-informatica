@@ -1,5 +1,5 @@
 {
- "ora": "10:49",
+ "ora": "10:56",
  "cartella": "salvadanaio",
  "scadenza": "09:35",
  "righe": [
@@ -263,7 +263,7 @@
     "WHILE",
     "sfida"
    ],
-   "salvataggi": 3,
+   "salvataggi": 4,
    "ultimo": "10:49",
    "caricato": true,
    "cartella_ok": true,
@@ -272,6 +272,7 @@
    "albero": [
     "README.md",
     "esercizio-3/README.md",
+    "esercizio-4/README.md",
     "primo-programma/README.md",
     "project1.lpi",
     "project1.lpr",
@@ -390,7 +391,7 @@
   {
    "alunno": "Antonio M.",
    "pezzi": [],
-   "salvataggi": 3,
+   "salvataggi": 5,
    "ultimo": "10:49",
    "caricato": false,
    "cartella_ok": false,
@@ -398,13 +399,11 @@
    "fuori": 2,
    "albero": [
     "README.md",
-    "project14.lps",
-    "project17.lps",
     "project55.lpi",
     "unit55.pas"
    ],
    "problemi": [
-    "nella cartella principale c'è un progetto vecchio (project14.lps, project17.lps, project55.lpi, unit55.pas): il salvadanaio va nella cartella «salvadanaio»",
+    "nella cartella principale c'è un progetto vecchio (project55.lpi, unit55.pas): il salvadanaio va nella cartella «salvadanaio»",
     "manca il .lpr (il file principale del progetto)"
    ]
   },
@@ -416,8 +415,8 @@
     "WHILE",
     "sfida"
    ],
-   "salvataggi": 3,
-   "ultimo": "10:49",
+   "salvataggi": 4,
+   "ultimo": "10:50",
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Tutto fatto, anche la sfida: preparati a spiegarlo a voce. Nel repository: nella cartella principale c'è un progetto vecchio (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»; più progetti diversi (primo_programma, salvadanaio): un progetto per cartella.",
@@ -425,6 +424,7 @@
    "albero": [
     "README.md",
     "esercizio-3/README.md",
+    "esercizio-4/README.md",
     "primo-programma/README.md",
     "primo_programma.lpi",
     "primo_programma.lpr",
