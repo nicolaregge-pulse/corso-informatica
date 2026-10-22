@@ -14,6 +14,7 @@
   window.BANCA = {
     id: "2inf-salvadanaio-v1",
     classe: "2INF",
+    controllo: "../2inf-monitor/lazarus.json",
     titolo: "Il mio salvadanaio: FOR e WHILE insieme",
     sotto: "2INF · 22/10/2026 · Lazarus · un programma tuo con il FOR e il WHILE (circa 2 ore)",
     stato: "stato/2inf-salvadanaio.json",
