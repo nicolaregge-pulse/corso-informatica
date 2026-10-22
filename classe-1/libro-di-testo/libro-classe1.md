@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 0.7** — 21/10/2026
+**Versione 0.8** — 22/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -183,6 +183,13 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 3. **Se hai finito**: ripassa, fai lo schema a mano sul quaderno, aiuta un
    compagno, prova a spiegare a voce cosa hai capito.
 
+### 6.1 Sicurezza 1: pericolo, danno, rischio (22/10)
+1. **Pericolo:** una cosa che **può** fare male (il coltello, l'olio bollente, la presa rotta, il pavimento bagnato, il cavo per terra). Domanda magica: «Che cosa qui mi può fare male?».
+2. **Danno:** il male che **succede davvero** (un taglio, una bruciatura, una caviglia storta, gli occhi stanchi dopo ore di schermo).
+3. **Rischio:** quanto è **facile** che il danno succeda e quanto è **grave**. Lo stesso pericolo ha un rischio diverso a seconda di come lo usi: motorino con il casco allacciato (basso) o senza casco, veloce, con il telefono in mano (alto); telefono in carica sul tavolo (basso) o sotto il cuscino tutta la notte (alto).
+4. **«Per un pelo» (quasi incidente):** non ti sei fatto niente, ma il pericolo c'era: lo dici subito, così il prossimo non si fa male.
+5. La prossima volta: **prevenzione** (il danno succede meno spesso) e **protezione** (il danno è meno grave). Documento completo: `classe-1/sicurezza-1ora/1inf-sicurezza-1ora.md`.
+
 ## 7. Esercitazioni svolte
 1. **Io e la mia famiglia** — presentazione di sé e della famiglia con Google
    Documenti, consegna su Classroom (anche scrivendo nella propria lingua +
@@ -222,6 +229,7 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 9. Changelog
+8. **v0.8 (22/10/2026)**: aggiunta 6.1 "Sicurezza 1: pericolo, danno, rischio" (prima lezione del corso sulla sicurezza, con casi della vita di tutti i giorni).
 7. **v0.7 (21/10/2026)**: aggiunta 7.1 "Quanto pesa un file e quanto va veloce la rete" (bit, byte, unità, Mbps, CRC, segnale 0V/5V, laboratorio del gamer) con le due foto della lavagna del 20/10.
 6. **v0.6 (09/10/2026)**: aggiunta 5.2 "La lavagna del 09/10" (numeri major.minor.patch.build, ramo principale, changelog, fork, Pull Request accettata e rifiutata) con la foto.
 5. **v0.5 (09/10/2026)**: aggiunta 5.1 "La storia del nostro gioco: versioni, rami, fork e merge" (grafo del Treno blindato, versioni minor e major, Godot v2.0).
