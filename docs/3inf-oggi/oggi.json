@@ -1,10 +1,10 @@
 {
- "ora": "11:43",
+ "ora": "11:44",
  "righe": [
   {
    "alunno": "Denis A.",
-   "voto": 60,
-   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "voto": 80,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -29,8 +29,8 @@
   },
   {
    "alunno": "Mirko D.",
-   "voto": 60,
-   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "voto": 80,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -55,8 +55,8 @@
   },
   {
    "alunno": "Ariel D.",
-   "voto": 60,
-   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "voto": 80,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -81,8 +81,8 @@
   },
   {
    "alunno": "Noah V.",
-   "voto": 60,
-   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "voto": 80,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -107,8 +107,8 @@
   },
   {
    "alunno": "Nicolo C.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "voto": 74,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
    "sito_fatto": [
     "index",
     "style",
@@ -134,8 +134,8 @@
   },
   {
    "alunno": "Tomas L.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "voto": 74,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
    "sito_fatto": [
     "index",
     "style",
@@ -161,8 +161,8 @@
   },
   {
    "alunno": "Beatrice N.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "voto": 74,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
    "sito_fatto": [
     "index",
     "style",
@@ -188,8 +188,8 @@
   },
   {
    "alunno": "Gabriele R.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "voto": 74,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
    "sito_fatto": [
     "index",
     "style",
@@ -214,9 +214,36 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Emmanuel F.",
+   "voto": 72,
+   "conto": "sito 69 · quiz 75 → media 72 = 72",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione"
+   ],
+   "sito_manca": [
+    "sfondo",
+    "versione"
+   ],
+   "voto_sito": 69,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
+   "comportamento": "nessun salvataggio oggi sul sito",
+   "fuori": 0,
+   "vy_ult": [
+    "11:31",
+    "lezione di recupero",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
    "alunno": "Andrea G.",
-   "voto": 54,
-   "conto": "sito 74 · quiz 40 → media 57 − 3×1 fuori compito = 54",
+   "voto": 71,
+   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 71",
    "sito_fatto": [
     "index",
     "style",
@@ -242,8 +269,8 @@
   },
   {
    "alunno": "Eric C.",
-   "voto": 54,
-   "conto": "sito 69 · quiz 40 → media 54 = 54",
+   "voto": 69,
+   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
    "sito_fatto": [
     "index",
     "style",
@@ -268,36 +295,9 @@
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
-   "alunno": "Emmanuel F.",
-   "voto": 54,
-   "conto": "sito 69 · quiz 40 → media 54 = 54",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "versione"
-   ],
-   "voto_sito": 69,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "lezione di recupero",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
    "alunno": "Alessandro A.",
-   "voto": 52,
-   "conto": "sito 63 · quiz 40 → media 52 = 52",
+   "voto": 63,
+   "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
    "sito_fatto": [
     "index",
     "style",
@@ -323,8 +323,8 @@
   },
   {
    "alunno": "Rafi F.",
-   "voto": 52,
-   "conto": "sito 63 · quiz 40 → media 52 = 52",
+   "voto": 63,
+   "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
    "sito_fatto": [
     "index",
     "style",
@@ -350,8 +350,8 @@
   },
   {
    "alunno": "Simone G.",
-   "voto": 48,
-   "conto": "sito 57 · quiz 40 → media 48 = 48",
+   "voto": 57,
+   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
    "sito_fatto": [
     "index",
     "style",
@@ -377,8 +377,8 @@
   },
   {
    "alunno": "Kelvin P.",
-   "voto": 48,
-   "conto": "sito 57 · quiz 40 → media 48 = 48",
+   "voto": 57,
+   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
    "sito_fatto": [
     "index",
     "style",
@@ -404,8 +404,8 @@
   },
   {
    "alunno": "Dani S.",
-   "voto": 48,
-   "conto": "sito 57 · quiz 40 → media 48 = 48",
+   "voto": 57,
+   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
    "sito_fatto": [
     "index",
     "style",
@@ -431,8 +431,8 @@
   },
   {
    "alunno": "Filippo M.",
-   "voto": 46,
-   "conto": "sito 51 · quiz 40 → media 46 = 46",
+   "voto": 51,
+   "conto": "sito 51 (il quiz è ancora da fare: fallo per completare il voto) = 51",
    "sito_fatto": [
     "index",
     "style"
@@ -458,8 +458,8 @@
   },
   {
    "alunno": "Samuele U.",
-   "voto": 46,
-   "conto": "sito 51 · quiz 40 → media 46 = 46",
+   "voto": 51,
+   "conto": "sito 51 (il quiz è ancora da fare: fallo per completare il voto) = 51",
    "sito_fatto": [
     "index",
     "style"
@@ -485,8 +485,8 @@
   },
   {
    "alunno": "Mahmoud E.",
-   "voto": 43,
-   "conto": "sito 51 · quiz 40 → media 46 − 3×1 fuori compito = 43",
+   "voto": 48,
+   "conto": "sito 51 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 48",
    "sito_fatto": [
     "index",
     "style"
@@ -513,7 +513,7 @@
   {
    "alunno": "Kevin R.",
    "voto": 40,
-   "conto": "sito 40 · quiz 40 → media 40 = 40",
+   "conto": "sito 40 (il quiz è ancora da fare: fallo per completare il voto) = 40",
    "sito_fatto": [],
    "sito_manca": [
     "index",
