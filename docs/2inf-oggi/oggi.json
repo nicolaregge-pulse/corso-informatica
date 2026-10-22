@@ -1,5 +1,5 @@
 {
- "ora": "10:47",
+ "ora": "10:50",
  "data": "2026-10-22",
  "righe": [
   {
@@ -49,6 +49,97 @@
    "orale": null
   },
   {
+   "alunno": "Luca B.",
+   "voto": 67,
+   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 67 (facilitato) · verifica GitHub 80 → media 67 = 67",
+   "v_github": 40,
+   "v_facile": 67,
+   "facile": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 80,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "10:12",
+    "pagina di Google",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Mathias P.",
+   "voto": 67,
+   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 67 (facilitato) · verifica GitHub 80 → media 67 = 67",
+   "v_github": 56,
+   "v_facile": 67,
+   "facile": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 80,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartelle",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "pulito",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): spostali nella cartella «primo-programma».",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "10:12",
+    "pagina di Google",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Youssef A.",
    "voto": 64,
    "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 64 · verifica GitHub 80 → media 73 − 3×3 fuori compito = 64",
@@ -87,51 +178,6 @@
    "salv_manca": [],
    "verifica": "9 su 13",
    "fuori": 3,
-   "vy_ult": [
-    "10:12",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Luca B.",
-   "voto": 62,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 47 (facilitato) · verifica GitHub 80 → media 62 = 62",
-   "v_github": 40,
-   "v_facile": 47,
-   "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
    "vy_ult": [
     "10:12",
     "pagina di Google",
@@ -277,6 +323,52 @@
    "orale": 80
   },
   {
+   "alunno": "Sara A.",
+   "voto": 55,
+   "conto": "salvadanaio 80 · verifica salvadanaio 64 · GitHub 48 · verifica GitHub 40 → media 58 − 3×1 fuori compito = 55",
+   "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 80,
+   "v_ver": 64,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "3 su 5",
+   "fuori": 1,
+   "vy_ult": [
+    "10:12",
+    "scheda nuova vuota",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Sid C.",
    "voto": 54,
    "conto": "salvadanaio 70 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 40 → media 54 = 54",
@@ -324,52 +416,6 @@
    "orale": 70
   },
   {
-   "alunno": "Mathias P.",
-   "voto": 52,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 52 = 52",
-   "v_github": 48,
-   "v_facile": 47,
-   "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
    "alunno": "Katherine A.",
    "voto": 50,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 50 = 50",
@@ -414,52 +460,6 @@
    "orale": null
   },
   {
-   "alunno": "Sara A.",
-   "voto": 49,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 52 − 3×1 fuori compito = 49",
-   "v_github": 48,
-   "v_facile": 47,
-   "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 1,
-   "vy_ult": [
-    "10:12",
-    "scheda nuova vuota",
-    0
-   ],
-   "orale": null
-  },
-  {
    "alunno": "Ney V.",
    "voto": 48,
    "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 48 · verifica GitHub 40 → media 51 − 3×1 fuori compito = 48",
@@ -488,7 +488,7 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma».",
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:45).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -552,6 +552,52 @@
    "orale": null
   },
   {
+   "alunno": "Antonio M.",
+   "voto": 46,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 80 → media 52 − 3×2 fuori compito = 46",
+   "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "no .exe"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project55.lpi, unit55.pas): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 2,
+   "vy_ult": [
+    "10:12",
+    "tabella del controllo",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Oscar F.",
    "voto": 45,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 73 → media 48 − 3×1 fuori compito = 45",
@@ -591,50 +637,6 @@
    "vy_ult": [
     "10:12",
     "scheda nuova vuota",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Antonio M.",
-   "voto": 44,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 80 → media 50 − 3×2 fuori compito = 44",
-   "v_github": 40,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project14.exe, project14.lpi, project14.lps, project17.lps…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 2,
-   "vy_ult": [
-    "10:12",
-    "tabella del controllo",
     0
    ],
    "orale": null
