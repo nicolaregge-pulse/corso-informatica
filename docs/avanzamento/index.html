@@ -42,6 +42,7 @@ h1{font-size:clamp(22px,5vw,30px);margin:0 0 2px}.sub{color:var(--mu);margin:0 0
 <div id="view" class="hide">
   <p class="stato" id="stato">—</p>
   <div class="kpi" id="kpi"></div>
+  <div id="carica"></div>
   <div id="out"><div class="empty">In attesa… compariranno man mano che lavorano.</div></div>
 </div>
 </div>
@@ -159,4 +160,11 @@ fetch('../verifica/config.json?t='+Date.now(),{cache:'no-store'}).then(function(
   var saved='';try{saved=localStorage.getItem('monitor-tok')||''}catch(e){}
   if(saved){document.getElementById('tok').value=saved;apri();}
 });
-</script></body></html>
+</script><script src="../2inf-monitor/caricamento.js"></script>
+<script>
+// 22/10/2026: per il salvadanaio della 2INF, lo stesso riquadro dei ragazzi «chi ha caricato su GitHub e chi manca»
+(function(){var b=(new URLSearchParams(location.search).get('b')||'');if(b.indexOf('2inf-salvadanaio')!==0)return;
+ function giro(){fetch('../2inf-monitor/lazarus.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(d)document.getElementById('carica').innerHTML=bannerCaricamento(d);}).catch(function(){});}
+ giro();setInterval(giro,60000);})();
+</script>
+</body></html>
