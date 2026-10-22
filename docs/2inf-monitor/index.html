@@ -22,10 +22,11 @@ function carica(){fetch('monitor.json?t='+Date.now(),{cache:'no-store'}).then(fu
   return '<h2>Giro delle '+e(g.ora)+(f?' · <span class="ko">'+f+' fuori compito</span>':'')+'</h2><div class="card"><table><thead><tr><th>PC</th><th>Alunno</th><th>Sullo schermo</th></tr></thead><tbody>'+
   g.righe.map(function(r){return '<tr class="'+(r.fuori?'fuori':'')+'"><td>'+e(r.pc)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+e(r.cosa)+'</td></tr>'}).join('')+'</tbody></table></div>'}).join('')}).catch(function(){})}
 // 22/10/2026: il progetto Lazarus di ognuno, letto dal suo GitHub a ogni salvataggio (cartella giusta, file, pezzi fatti)
-function lazarus(){fetch('lazarus.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d)return;
+var FILE_LAZ='ordine.json';   // 22/10 10:00: lezione GitHub (prima lazarus.json)
+function lazarus(){fetch(FILE_LAZ+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){if(!d)return;
  if(window.bannerCaricamento)document.getElementById('carica').innerHTML=bannerCaricamento(d);
  document.getElementById('laz').innerHTML='<h2>Il tuo progetto Lazarus: controllo delle '+e(d.ora)+' (cartella «'+e(d.cartella)+'»)</h2><div class="card"><table><thead><tr><th>Alunno</th><th>Cartella e file</th><th>Pezzi fatti</th><th>Salvataggi oggi</th><th>Cosa fare adesso</th></tr></thead><tbody>'+
- d.righe.map(function(r){var p=['Form','FOR','WHILE','sfida'].map(function(x){return (r.pezzi.indexOf(x)>=0?'<span class="ok">✔ ':'<span class="mu">○ ')+x+'</span>'}).join(' ');
+ d.righe.map(function(r){var p=(d.pezzi_nomi||['Form','FOR','WHILE','sfida']).map(function(x){return (r.pezzi.indexOf(x)>=0?'<span class="ok">✔ ':'<span class="mu">○ ')+x+'</span>'}).join(' ');
   return '<tr class="'+(r.fuori?'fuori':'')+'"><td><b>'+e(r.alunno)+'</b></td><td class="'+(r.cartella_ok?'ok':'ko')+'">'+(r.cartella_ok?'✔ giusta':'✘ da sistemare')+'</td><td>'+p+'</td><td>'+e(r.salvataggi)+(r.ultimo?' (ultimo '+e(r.ultimo)+')':'')+'</td><td>'+e(r.messaggio)+'</td></tr>'}).join('')+'</tbody></table></div>'}).catch(function(){})}
 carica();setInterval(carica,60000);lazarus();setInterval(lazarus,60000);
 </script></body></html>

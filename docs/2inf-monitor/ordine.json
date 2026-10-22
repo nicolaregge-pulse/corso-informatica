@@ -1,26 +1,29 @@
 {
- "ora": "09:57",
+ "ora": "10:02",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
   "cartelle",
   "pulito",
   "no .exe",
-  "README"
+  "README",
+  "salvadanaio"
  ],
- "banner": "Repository «lazarus» in ordine",
+ "banner": "Repository «lazarus» in ordine (5 cose su 5)",
  "si": "In ordine",
  "no": "Da sistemare",
  "righe": [
   {
    "alunno": "Hagar A.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 1,
    "ultimo": "09:43",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
-   "fuori": 1,
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:57).",
+   "fuori": 2,
    "albero": [
     "README.md",
     "project1.exe",
@@ -54,12 +57,14 @@
   },
   {
    "alunno": "Lina A.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 2,
    "ultimo": "09:30",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -100,15 +105,36 @@
   },
   {
    "alunno": "Sara A.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "pezzi": [
+    "salvadanaio"
+   ],
+   "salvataggi": 1,
+   "ultimo": "09:58",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
    "fuori": 1,
    "albero": [
     "README.md",
+    "SALVADANAIO/SALVADANAIO.exe",
+    "SALVADANAIO/SALVADANAIO.ico",
+    "SALVADANAIO/SALVADANAIO.lpi",
+    "SALVADANAIO/SALVADANAIO.lpr",
+    "SALVADANAIO/SALVADANAIO.lps",
+    "SALVADANAIO/SALVADANAIO.res",
+    "SALVADANAIO/backup/SALVADANAIO.lpi",
+    "SALVADANAIO/backup/SALVADANAIO.lps",
+    "SALVADANAIO/backup/unit1.lfm",
+    "SALVADANAIO/backup/unit1.pas",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.compiled",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.o",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.obj",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.res",
+    "SALVADANAIO/lib/x86_64-win64/unit1.lfm",
+    "SALVADANAIO/lib/x86_64-win64/unit1.o",
+    "SALVADANAIO/lib/x86_64-win64/unit1.ppu",
+    "SALVADANAIO/unit1.lfm",
+    "SALVADANAIO/unit1.pas",
     "project1.exe",
     "project1.ico",
     "project1.lpi",
@@ -126,7 +152,7 @@
    "ultimo": "09:47",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (SALVADANAIO.exe, SALVADANAIO.ico, SALVADANAIO.lpi, SALVADANAIO.lpr…): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (SALVADANAIO.exe, SALVADANAIO.ico, SALVADANAIO.lpi, SALVADANAIO.lpr…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -152,7 +178,7 @@
    "ultimo": "09:47",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo 2 e 5: servono due cartelle, «primo-programma» e «salvadanaio». Adesso hai: nessuna. Attenzione: Veyon ti ha visto fuori lezione (08:42).",
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
    "fuori": 2,
    "albero": [
     "README.md"
@@ -167,7 +193,7 @@
    "ultimo": "09:42",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, salvadanaio, salvadanaio.exe…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, salvadanaio, salvadanaio.exe…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
    "fuori": 2,
    "albero": [
     "README.md",
@@ -191,7 +217,7 @@
    "ultimo": "09:27",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -229,7 +255,7 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (progetto1.lps, progetto1.res, unit1.lfm, unit1.pas): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (progetto1.lps, progetto1.res, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -246,7 +272,7 @@
    "ultimo": "09:51",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:00).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:00).",
    "fuori": 1,
    "albero": [
     "project1.exe",
@@ -266,8 +292,8 @@
    "ultimo": "09:51",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (euro.exe, euro.ico, euro.lpi, euro.lpr…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
-   "fuori": 2,
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (euro.exe, euro.ico, euro.lpi, euro.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:57).",
+   "fuori": 3,
    "albero": [
     "euro.exe",
     "euro.ico",
@@ -286,7 +312,7 @@
    "ultimo": "09:48",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (project14.exe, project14.lpi, project14.lps, project17.lps…): mettili nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (project14.exe, project14.lpi, project14.lps, project17.lps…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
    "fuori": 2,
    "albero": [
     "README.md",
@@ -300,12 +326,14 @@
   },
   {
    "alunno": "Mathias P.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 1,
    "ultimo": "09:27",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -345,7 +373,7 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "GitHub.lpi",
@@ -358,17 +386,23 @@
   },
   {
    "alunno": "Giorgio K.",
-   "pezzi": [
-    "pulito",
-    "no .exe"
-   ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "pezzi": [],
+   "salvataggi": 1,
+   "ultimo": "09:58",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo 2 e 5: servono due cartelle, «primo-programma» e «salvadanaio». Adesso hai: nessuna.",
+   "cartella_ok": false,
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (salvadanaio.exe, salvadanaio.ico, salvadanaio.lpi, salvadanaio.lpr…): spostali nella cartella «primo-programma».",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "salvadanaio.exe",
+    "salvadanaio.ico",
+    "salvadanaio.lpi",
+    "salvadanaio.lpr",
+    "salvadanaio.lps",
+    "salvadanaio.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Egor M.",
@@ -377,7 +411,7 @@
    "ultimo": "09:52",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo 2: nella pagina principale ci sono file sparsi (salvadanio2.exe, salvadanio2.ico, salvadanio2.lpi, salvadanio2.lpr…): mettili nella cartella «primo-programma».",
+   "messaggio": "Passo 6: nella pagina principale ci sono file sparsi (salvadanio2.exe, salvadanio2.ico, salvadanio2.lpi, salvadanio2.lpr…): spostali nella cartella «primo-programma».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -401,7 +435,7 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo 2 e 5: servono due cartelle, «primo-programma» e «salvadanaio». Adesso hai: nessuna. Attenzione: Veyon ti ha visto fuori lezione (09:11).",
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (09:11).",
    "fuori": 1,
    "albero": []
   },
@@ -414,7 +448,7 @@
    "ultimo": "09:53",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo 2 e 5: servono due cartelle, «primo-programma» e «salvadanaio». Adesso hai: salvadanio.",
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio): rinominale (scheda 10).",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -448,7 +482,7 @@
    "ultimo": "09:42",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo 2 e 5: servono due cartelle, «primo-programma» e «salvadanaio». Adesso hai: for e while. Attenzione: Veyon ti ha visto fuori lezione (08:42).",
+   "messaggio": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (for e while): rinominale (scheda 10). Attenzione: Veyon ti ha visto fuori lezione (08:42).",
    "fuori": 1,
    "albero": [
     "for e while/FOREWHILE.exe",
