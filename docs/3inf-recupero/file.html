@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>File pronti del sito</title>
+<style>
+/* 3INF 22/10/2026: i 4 file del sito personale, ognuno con il bottone Copia (si copia sul proprio PC). */
+:root{--bg:#f3f6f8;--card:#fff;--ink:#16202a;--mu:#5a6878;--ln:#d5dde5;--acc:#1a7f37}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#3fb950}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#3fb950}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:860px;margin:0 auto;padding:18px 16px 60px}h1{margin:0 0 6px;font-size:28px}.mu{color:var(--mu)}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;margin:14px 0}.card h2{margin:0;font-size:22px}
+.box{display:flex;gap:8px;align-items:flex-start;margin:6px 0}.box code,.box pre{flex:1;margin:0;background:#0f1720;color:#e6edf3;border-radius:8px;padding:8px 10px;font-size:15px;overflow-x:auto}
+.box.big pre{max-height:320px;overflow:auto}.box button{font:inherit;font-size:15px;font-weight:700;border:0;border-radius:8px;padding:8px 14px;background:var(--acc);color:#fff;cursor:pointer}
+a{color:#0b6e99}
+</style>
+</head>
+<body><div class="w">
+<h1>I file pronti del tuo sito</h1>
+<p>Ogni file ha due bottoni <b>Copia</b>: uno per il <b>nome</b> e uno per il <b>testo</b>. Su GitHub: <b>Add file</b> → <b>Create new file</b>, incolla il nome, incolla il testo, <b>Commit changes…</b> → <b>Commit changes</b>. Se il file c'è già: aprilo, <b>matita</b>, <b>Ctrl+A</b>, incolla, <b>Commit changes</b>.</p>
+<p class="mu">Metti <b>solo</b> i file che la tabella della lezione dice che ti mancano. Poi cambia le parole in MAIUSCOLO con le tue: è il tuo sito.</p>
+<div class="card"><h2>index.html</h2><p class="mu">La Home. Cambia IL TUO NOME e le frasi in maiuscolo.</p><p><b>Nome del file</b> (si copia anche questo):</p><div class="box"><code>index.html</code><button>Copia</button></div><p><b>Testo del file:</b></p><div class="box big"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Il sito di IL TUO NOME&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;competenze.html&quot;&gt;Competenze&lt;/a&gt;
+    &lt;a href=&quot;passione.html&quot;&gt;Passione&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Ciao, sono IL TUO NOME&lt;/h1&gt;
+    &lt;p&gt;Frequento la 3INF all&#x27;Istituto Piamarta. Questo è il mio sito personale.&lt;/p&gt;
+    &lt;p&gt;Di me ti dico che: SCRIVI QUI UNA FRASE SU DI TE.&lt;/p&gt;
+    &lt;p&gt;Da grande vorrei: SCRIVI QUI IL TUO SOGNO.&lt;/p&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;Versione 1.0&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><button>Copia</button></div></div><div class="card"><h2>style.css</h2><p class="mu">Lo stile: menu, sfondo (img/sfondo.jpg) e animazione. Puoi cambiare il colore #1f6feb del menu.</p><p><b>Nome del file</b> (si copia anche questo):</p><div class="box"><code>style.css</code><button>Copia</button></div><p><b>Testo del file:</b></p><div class="box big"><pre>body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #222;
+  background-image: url(&quot;img/sfondo.jpg&quot;);
+  background-size: cover;
+  background-attachment: fixed;
+}
+nav {
+  background: #1f6feb;
+  padding: 14px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 14px;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+main {
+  background: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px 26px;
+  border-radius: 14px;
+  animation: entra 1s ease;
+}
+footer {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+  text-shadow: 0 0 4px black;
+}
+@keyframes entra {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}</pre><button>Copia</button></div></div><div class="card"><h2>competenze.html</h2><p class="mu">La pagina delle competenze. Scrivi 3 cose che sai fare.</p><p><b>Nome del file</b> (si copia anche questo):</p><div class="box"><code>competenze.html</code><button>Copia</button></div><p><b>Testo del file:</b></p><div class="box big"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Le mie competenze&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;competenze.html&quot;&gt;Competenze&lt;/a&gt;
+    &lt;a href=&quot;passione.html&quot;&gt;Passione&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Che cosa so fare&lt;/h1&gt;
+    &lt;ol&gt;
+      &lt;li&gt;SCRIVI QUI LA PRIMA COSA CHE SAI FARE (per esempio: scrivere una pagina in HTML)&lt;/li&gt;
+      &lt;li&gt;SCRIVI QUI LA SECONDA&lt;/li&gt;
+      &lt;li&gt;SCRIVI QUI LA TERZA&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;Versione 1.0&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><button>Copia</button></div></div><div class="card"><h2>passione.html</h2><p class="mu">La pagina della passione. Scrivi la tua passione.</p><p><b>Nome del file</b> (si copia anche questo):</p><div class="box"><code>passione.html</code><button>Copia</button></div><p><b>Testo del file:</b></p><div class="box big"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;La mia passione&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;nav&gt;
+    &lt;a href=&quot;index.html&quot;&gt;Home&lt;/a&gt;
+    &lt;a href=&quot;competenze.html&quot;&gt;Competenze&lt;/a&gt;
+    &lt;a href=&quot;passione.html&quot;&gt;Passione&lt;/a&gt;
+  &lt;/nav&gt;
+  &lt;main&gt;
+    &lt;h1&gt;La mia passione&lt;/h1&gt;
+    &lt;p&gt;La mia passione è: SCRIVI QUI (sport, musica, giochi, cucina, moto…).&lt;/p&gt;
+    &lt;p&gt;Mi piace perché: SCRIVI QUI IL PERCHÉ.&lt;/p&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;Versione 1.0&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><button>Copia</button></div></div>
+<div class="card"><h2>La foto di sfondo</h2><p>Salva una foto sul PC con il nome qui sotto, poi su GitHub crea la cartella <b>img</b> (Create new file, nome <b>img/LEGGIMI.md</b>), entra in img e fai <b>Upload files</b> della foto.</p><div class="box"><code>sfondo.jpg</code><button>Copia</button></div><div class="box"><code>img/LEGGIMI.md</code><button>Copia</button></div></div>
+<p><a href="../verifica/?b=3inf-recupero">Torna alla lezione</a></p>
+</div>
+<script>
+document.querySelectorAll('.box button').forEach(function(b){b.onclick=function(){var el=b.previousElementSibling,t=el.textContent;
+ function ok(){b.textContent='Copiato!';setTimeout(function(){b.textContent='Copia'},1500)}
+ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(ok,function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy');ok()})}});
+</script>
+</body>
+</html>
