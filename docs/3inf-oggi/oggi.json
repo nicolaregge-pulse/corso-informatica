@@ -1,5 +1,5 @@
 {
- "ora": "12:35",
+ "ora": "12:38",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -16,7 +16,7 @@
    ],
    "sito_manca": [],
    "voto_sito": 80,
-   "quiz": "3 su 3",
+   "quiz": "8 su 8",
    "voto_quiz": 80,
    "comportamento": "lavora: 11 salvataggi oggi",
    "assente": false,
@@ -523,6 +523,33 @@
    "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: comp.html, contacts.html, other.html."
   },
   {
+   "alunno": "Kevin R.",
+   "voto": 52,
+   "conto": "sito 40 · quiz 65 → media 52 = 52",
+   "sito_fatto": [],
+   "sito_manca": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 40,
+   "quiz": "5 su 8",
+   "voto_quiz": 65,
+   "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:27",
+    "editor del codice",
+    0
+   ],
+   "cosa_fare": "I tuoi file sono nella cartella «Mio-sito»: vanno nella cartella principale. Chiedi all'assistente come spostarli."
+  },
+  {
    "alunno": "Mahmoud E.",
    "voto": 48,
    "conto": "sito 51 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 48",
@@ -549,33 +576,6 @@
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
-  },
-  {
-   "alunno": "Kevin R.",
-   "voto": 46,
-   "conto": "sito 40 · quiz 53 → media 46 = 46",
-   "sito_fatto": [],
-   "sito_manca": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "voto_sito": 40,
-   "quiz": "1 su 3",
-   "voto_quiz": 53,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:27",
-    "editor del codice",
-    0
-   ],
-   "cosa_fare": "I tuoi file sono nella cartella «Mio-sito»: vanno nella cartella principale. Chiedi all'assistente come spostarli."
   }
  ]
 }
