@@ -1,5 +1,5 @@
 {
- "ora": "11:57",
+ "ora": "12:02",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -96,11 +96,37 @@
    "voto_sito": 80,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 5 salvataggi oggi",
+   "comportamento": "lavora: 8 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
     "lezione, il codice",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Gabriele R.",
+   "voto": 80,
+   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 3 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "lezione, la Pull Request",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -159,33 +185,6 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Tomas L.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 5 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "il suo sito («Ciao, sono Tomas»)",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Beatrice N.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
@@ -208,33 +207,6 @@
    "vy_ult": [
     "11:43",
     "tabella del controllo",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Gabriele R.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 2 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "lezione, la Pull Request",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -321,6 +293,33 @@
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
   },
   {
+   "alunno": "Tomas L.",
+   "voto": 69,
+   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione"
+   ],
+   "sito_manca": [
+    "sfondo",
+    "versione"
+   ],
+   "voto_sito": 69,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 7 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "il suo sito («Ciao, sono Tomas»)",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
    "alunno": "Rafi F.",
    "voto": 63,
    "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
@@ -365,7 +364,7 @@
    "voto_sito": 63,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 3 salvataggi oggi",
+   "comportamento": "lavora: 4 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
