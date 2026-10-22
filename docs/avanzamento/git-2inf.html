@@ -15,7 +15,7 @@
 .w{max-width:1300px;margin:0 auto;padding:14px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
 .gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
 .gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
-.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:980px}
+.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:1250px}
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
 .ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
@@ -24,35 +24,49 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <body><div class="w">
 <div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
 <div id="view" class="hide">
-<h1>Cruscotto 2INF di oggi: salvadanaio, GitHub, verifica, disciplina</h1>
+<h1>Cruscotto 2INF di oggi: una colonna per ogni attività</h1>
 <div class="mu" id="stato">—</div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>GitHub in ordine (5)</th><th>Salvadanaio (4)</th><th>Verifica</th><th>Orale</th><th>Veyon</th><th>Uscite</th><th>Note del prof</th></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">Un voto per attività, da 40 a 80: GitHub 40 + 8 per cosa in ordine; salvadanaio 40 + 10 per pezzo; verifica 40 + 40 × crocette giuste (non consegnata 40). Voto di oggi = media dei tre − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza uscite e note.</p>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
 </div></div>
 <script>
-var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-git-oggi.json';
+// 2INF 22/10/2026 (Nicola: «teoria, quiz, teoria2, git, quiz… e colonna per monitoraggio»): una colonna per ogni attività della giornata.
+var TOK='',_kc=null,_n=0,EXEC='',LIVE={},RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-git-oggi.json';
 function $(i){return document.getElementById(i)}
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
 async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('2inf-git-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+// la teoria dal vivo: la legge lo script (come il cruscotto unico oggi.html)
+function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='cg'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
+ window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
+ s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
+function teo(id,nome){var d=LIVE[id];if(!d||!d.righe)return null;var a=tok(nome),best=null,bs=0;d.righe.forEach(function(r){var b=tok(r.nome),sc=a.filter(function(x){return b.indexOf(x)>=0}).length;if(sc>bs){bs=sc;best=r}});return bs?best:null}
+function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')+'<div style="height:6px;background:#e6eaf0;border-radius:3px;margin-top:3px"><i style="display:block;height:100%;width:'+p+'%;background:var(--acc);border-radius:3px"></i></div>'}
 function chips(f,tutti){return tutti.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+e(x)+'</span>':'<span class="ko c">○ '+e(x)+'</span>'}).join(' ')}
+function quiz(v,q){return '<b>'+v+'</b> '+(q?'<span class="ok">'+q.ok+'/'+q.su+'</span><div class="p">'+e(q.ora)+'</div>':'<span class="ko">no</span>')}
 async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
  $('gate').classList.add('hide');$('view').classList.remove('hide');
- $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · si ricarica ogni minuto';
+ var a=await live('2inf-salvadanaio-v1'),b=await live('2inf-github-v1');if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
+ $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · teoria dal vivo '+(LIVE['2inf-github-v1']||LIVE['2inf-salvadanaio-v1']?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
  $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[],u=vy[vy.length-1];
+  var mon=(u?'<span class="'+(u[2]?'ko':'ok')+'">'+e(u[0])+' '+e(u[1])+'</span>':'')+(r.fuori?' <b class="ko">· fuori '+r.fuori+'</b>':'')+(vy.length>1?'<details><summary>tutti i giri ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+'</div>'}).join('')+'</details>':'')+
+   (r.uscite.length?'<div>🚻 '+e(r.uscite.join(' · '))+'</div>':'')+r.note.map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('');
   return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b>'+(r.repo?'<div class="p"><a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a></div>':'')+'</td>'+
   '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
-  '<td><b>'+r.v_github+'</b> '+chips(r.ordine,['cartelle','pulito','no .exe','README','salvadanaio'])+'<div class="p">'+e(r.ordine_msg)+'</div></td>'+
+  '<td>'+cteo(teo('2inf-salvadanaio-v1',r.nome))+'</td>'+
   '<td><b>'+r.v_salv+'</b> '+chips(r.salv,['Form','FOR','WHILE','sfida'])+(r.salv_ult?'<div class="p">ultimo salvataggio '+e(r.salv_ult)+'</div>':'')+'</td>'+
-  '<td><b>'+r.v_ver+'</b> '+(r.verifica?'<span class="ok">'+r.verifica.ok+'/'+r.verifica.su+'</span><div class="p">'+e(r.verifica.ora)+'</div>':'<span class="ko">no</span>')+'</td>'+
+  '<td>'+quiz(r.v_ver,r.verifica)+'</td>'+
+  '<td>'+cteo(teo('2inf-github-v1',r.nome))+'</td>'+
+  '<td><b>'+r.v_github+'</b> '+chips(r.ordine,['cartelle','pulito','no .exe','README','salvadanaio'])+'<div class="p">'+e(r.ordine_msg)+'</div></td>'+
+  '<td>'+quiz(r.v_vgit,r.vgit)+'</td>'+
   '<td>'+(r.orale?'<b>'+e(r.orale)+'</b>':'<span class="mu">—</span>')+'</td>'+
-  '<td>'+(u?'<span class="'+(u[2]?'ko':'ok')+'">'+e(u[0])+' '+e(u[1])+'</span>':'')+(r.fuori?' <b class="ko">· fuori '+r.fuori+'</b>':'')+(vy.length>1?'<details><summary>tutti i giri ('+vy.length+')</summary>'+vy.map(function(a){return '<div class="'+(a[2]?'ko':'')+'">'+e(a[0])+' '+e(a[1])+'</div>'}).join('')+'</details>':'')+'</td>'+
-  '<td>'+(r.uscite.length?e(r.uscite.join(' · ')):'<span class="mu">—</span>')+'</td>'+
-  '<td>'+(r.note.length?r.note.map(function(n){return '<div>📝 '+e(n)+'</div>'}).join(''):'<span class="mu">—</span>')+'</td></tr>'}).join('')}
+  '<td>'+(mon||'<span class="mu">—</span>')+'</td></tr>'}).join('')}
 $('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
 $('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
-try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+fetch('../verifica/config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){EXEC=(c&&c.invio)||''}).catch(function(){}).then(function(){
+ try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000)});
 </script>
 </body>
 </html>
