@@ -1,5 +1,5 @@
 {
- "ora": "12:27",
+ "ora": "12:29",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -158,6 +158,32 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
+   "alunno": "Eric C.",
+   "voto": 78,
+   "conto": "sito 80 · quiz 75 → media 78 = 78",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
+   "comportamento": "lavora: 8 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "Google Immagini, forse la foto di sfondo",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
    "alunno": "Alessandro A.",
    "voto": 74,
    "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
@@ -185,33 +211,6 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Eric C.",
-   "voto": 74,
-   "conto": "sito 74 · quiz 75 → media 74 = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [
-    "sfondo"
-   ],
-   "voto_sito": 74,
-   "quiz": "7 su 8",
-   "voto_quiz": 75,
-   "comportamento": "lavora: 6 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "Google Immagini, forse la foto di sfondo",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
    "alunno": "Emmanuel F.",
    "voto": 74,
    "conto": "sito 74 · quiz 75 → media 74 = 74",
@@ -229,7 +228,7 @@
    "voto_sito": 74,
    "quiz": "7 su 8",
    "voto_quiz": 75,
-   "comportamento": "lavora: 4 salvataggi oggi",
+   "comportamento": "lavora: 5 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -237,33 +236,6 @@
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
-   "alunno": "Simone G.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 2 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:43",
-    "verifica",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
    "alunno": "Tomas L.",
@@ -283,7 +255,7 @@
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 14 salvataggi oggi",
+   "comportamento": "lavora: 15 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -418,7 +390,7 @@
    "voto_sito": 63,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 4 salvataggi oggi",
+   "comportamento": "lavora: 6 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -445,7 +417,7 @@
    "voto_sito": 51,
    "quiz": "6 su 8",
    "voto_quiz": 70,
-   "comportamento": "lavora: 5 salvataggi oggi",
+   "comportamento": "lavora: 6 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:43",
@@ -453,6 +425,33 @@
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
+  },
+  {
+   "alunno": "Simone G.",
+   "voto": 57,
+   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze"
+   ],
+   "sito_manca": [
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "voto_sito": 57,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 5 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "verifica",
+    0
+   ],
+   "cosa_fare": "Passo 4: metti passione.html (file pronti)."
   },
   {
    "alunno": "Kelvin P.",
