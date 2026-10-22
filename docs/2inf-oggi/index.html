@@ -12,7 +12,7 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,"Segoe UI",Arial,sans-serif}
 .w{max-width:1100px;margin:0 auto;padding:16px}h1{margin:0 0 4px;font-size:26px}.mu{color:var(--mu)}
 .tab{overflow-x:auto;background:var(--card);border:1px solid var(--ln);border-radius:12px;margin-top:12px}
-table{border-collapse:collapse;width:100%;min-width:760px}th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
 th{font-size:14px;color:var(--mu)}.v{font-size:22px;font-weight:800}.ok{color:var(--ok)}.ko{color:var(--ko)}.c{white-space:nowrap}
 .conto{font-size:12px;color:var(--mu)}a{color:var(--acc)}
 </style>
@@ -20,8 +20,8 @@ th{font-size:14px;color:var(--mu)}.v{font-size:22px;font-weight:800}.ok{color:va
 <body><div class="w">
 <h1>La mia giornata di oggi: voto, fatto e da fare</h1>
 <div class="mu" id="stato">Carico…</div>
-<p class="mu">Ogni attività ha il suo voto, da 40 a 80: <b>GitHub</b> 40 + 8 per ogni cosa in ordine; <b>salvadanaio</b> 40 + 10 per ogni pezzo; ogni <b>verifica</b> 40 + le crocette giuste (non consegnata: 40). Il <b>voto di oggi</b> è la media dei quattro, −3 ogni volta che Veyon ti vede fuori lezione. Si aggiorna da solo ogni 5 minuti.</p>
-<div class="tab"><table><thead><tr><th>#</th><th>Alunno</th><th>Voto di oggi</th><th>1. Salvadanaio</th><th>2. Verifica salvadanaio</th><th>3. GitHub in ordine</th><th>4. Verifica GitHub</th><th>Monitoraggio (Veyon)</th><th>Che cosa fare adesso</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Ogni attività ha il suo voto, da 40 a 80: <b>GitHub</b> 40 + 8 per ogni cosa in ordine; <b>GitHub facilitato</b> 40 + 40 × cose fatte / 6 (vale il migliore dei due); <b>salvadanaio</b> 40 + 10 per ogni pezzo; ogni <b>verifica</b> 40 + le crocette giuste (non consegnata: 40). Il <b>voto di oggi</b> è la media dei quattro, −3 ogni volta che Veyon ti vede fuori lezione. Si aggiorna da solo ogni 5 minuti.</p>
+<div class="tab"><table><thead><tr><th>#</th><th>Alunno</th><th>Voto di oggi</th><th>1. Salvadanaio</th><th>2. Verifica salvadanaio</th><th>3. GitHub in ordine</th><th>3b. GitHub facilitato</th><th>4. Verifica GitHub</th><th>Monitoraggio (Veyon)</th><th>Che cosa fare adesso</th></tr></thead><tbody id="t"></tbody></table></div>
 <p><a href="../github">Torna alla lezione GitHub</a> · <a href="../salvadanaio">Torna al salvadanaio</a></p>
 </div>
 <script>
@@ -31,7 +31,7 @@ var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/m
 function locale(){return fetch('oggi.json?t='+Date.now(),{cache:'no-store'})}
 function giro(){fetch(RAW+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r:locale()},locale).then(function(r){return r.json()}).then(function(d){
  document.getElementById('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti';
- document.getElementById('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b>'+(r.orale?'<div class="conto">interrogazione: '+e(r.orale)+'</div>':'')+'</td><td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td><td><b>'+e(r.v_salv)+'</b><br>'+chips(r.salv,r.salv_manca)+'</td><td><b>'+e(r.v_ver)+'</b><br>'+(r.verifica?'<span class="ok">✔ '+e(r.verifica)+'</span>':'<span class="ko">non consegnata</span>')+'</td><td><b>'+e(r.v_github)+'</b><br>'+chips(r.github,r.github_manca)+'</td><td><b>'+e(r.v_vgit)+'</b><br>'+(r.vgit?'<span class="ok">✔ '+e(r.vgit)+'</span>':'<span class="ko">non consegnata</span>')+'</td><td>'+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+(r.fuori?'<b class="ko">fuori lezione '+r.fuori+' volt'+(r.fuori>1?'e':'a')+'</b>':'<span class="ok">mai fuori lezione</span>')+'</td><td>'+e(r.cosa_fare)+'</td></tr>'}).join('');
+ document.getElementById('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b>'+(r.orale?'<div class="conto">interrogazione: '+e(r.orale)+'</div>':'')+'</td><td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td><td><b>'+e(r.v_salv)+'</b><br>'+chips(r.salv,r.salv_manca)+'</td><td><b>'+e(r.v_ver)+'</b><br>'+(r.verifica?'<span class="ok">✔ '+e(r.verifica)+'</span>':'<span class="ko">non consegnata</span>')+'</td><td><b>'+e(r.v_github)+'</b><br>'+chips(r.github,r.github_manca)+'</td><td><b>'+e(r.v_facile)+'</b><br>'+chips(r.facile||[],r.facile_manca||[])+'</td><td><b>'+e(r.v_vgit)+'</b><br>'+(r.vgit?'<span class="ok">✔ '+e(r.vgit)+'</span>':'<span class="ko">non consegnata</span>')+'</td><td>'+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+(r.fuori?'<b class="ko">fuori lezione '+r.fuori+' volt'+(r.fuori>1?'e':'a')+'</b>':'<span class="ok">mai fuori lezione</span>')+'</td><td>'+e(r.cosa_fare)+'</td></tr>'}).join('');
 }).catch(function(){document.getElementById('stato').textContent='Non riesco a leggere i dati: ricarica la pagina (F5).'})}
 giro();setInterval(giro,60000);
 </script>

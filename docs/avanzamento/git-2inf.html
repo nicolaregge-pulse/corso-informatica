@@ -15,7 +15,7 @@
 .w{max-width:1300px;margin:0 auto;padding:14px}h1{margin:4px 0;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
 .gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
 .gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
-.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:1250px}
+.tab{overflow-x:auto;background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;min-width:1400px}
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
 .ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
@@ -26,8 +26,8 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div id="view" class="hide">
 <h1>Cruscotto 2INF di oggi: una colonna per ogni attività</h1>
 <div class="mu" id="stato">—</div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>5b. GitHub facilitato</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; GitHub facilitato 40 + 40 × cose fatte / 6 (per il voto vale il migliore dei due); ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
 </div></div>
 <script>
 // 2INF 22/10/2026 (Nicola: «teoria, quiz, teoria2, git, quiz… e colonna per monitoraggio»): una colonna per ogni attività della giornata.
@@ -60,6 +60,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
   '<td>'+quiz(r.v_ver,r.verifica)+'</td>'+
   '<td>'+cteo(teo('2inf-github-v1',r.nome))+'</td>'+
   '<td><b>'+r.v_github+'</b> '+chips(r.ordine,['cartelle','pulito','no .exe','README','salvadanaio'])+'<div class="p">'+e(r.ordine_msg)+'</div></td>'+
+  '<td><b>'+r.v_facile+'</b> '+chips(r.facile||[],['primo-programma','esercizio-3','esercizio-4','salvadanaio','README','no .exe'])+'</td>'+
   '<td>'+quiz(r.v_vgit,r.vgit)+'</td>'+
   '<td>'+(r.orale?'<b>'+e(r.orale)+'</b>':'<span class="mu">—</span>')+'</td>'+
   '<td>'+(mon||'<span class="mu">—</span>')+'</td></tr>'}).join('')}
