@@ -1,7 +1,42 @@
 {
- "ora": "10:37",
+ "ora": "10:44",
  "data": "2026-10-22",
  "righe": [
+  {
+   "alunno": "Lina A.",
+   "voto": 69,
+   "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 48 · verifica GitHub 80 → media 69 = 69",
+   "v_github": 48,
+   "v_salv": 80,
+   "v_ver": 68,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma».",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "9 su 13",
+   "fuori": 0,
+   "vy_ult": [
+    "10:12",
+    "schermata di accesso a Windows",
+    0
+   ],
+   "orale": null
+  },
   {
    "alunno": "Egor M.",
    "voto": 62,
@@ -38,24 +73,24 @@
    "orale": null
   },
   {
-   "alunno": "Lina A.",
-   "voto": 59,
-   "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 48 · verifica GitHub 40 → media 59 = 59",
+   "alunno": "Alejandro G.",
+   "voto": 60,
+   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 73 → media 60 = 60",
    "v_github": 48,
    "v_salv": 80,
-   "v_ver": 68,
-   "v_vgit": 40,
-   "vgit": "",
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
    "github": [
-    "salvadanaio"
+    "pulito"
    ],
    "github_manca": [
     "cartelle",
-    "pulito",
     "no .exe",
-    "README"
+    "README",
+    "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma».",
+   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio): rinominale (scheda 10).",
    "salv": [
     "Form",
     "FOR",
@@ -63,11 +98,11 @@
     "sfida"
    ],
    "salv_manca": [],
-   "verifica": "9 su 13",
+   "verifica": "",
    "fuori": 0,
    "vy_ult": [
     "10:12",
-    "schermata di accesso a Windows",
+    "tabella del controllo",
     0
    ],
    "orale": null
@@ -177,41 +212,6 @@
     0
    ],
    "orale": 70
-  },
-  {
-   "alunno": "Alejandro G.",
-   "voto": 52,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 52 = 52",
-   "v_github": 48,
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "pulito"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio): rinominale (scheda 10).",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "tabella del controllo",
-    0
-   ],
-   "orale": null
   },
   {
    "alunno": "Mathias P.",
