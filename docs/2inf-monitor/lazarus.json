@@ -1,5 +1,5 @@
 {
- "ora": "10:19",
+ "ora": "10:23",
  "cartella": "salvadanaio",
  "scadenza": "09:35",
  "righe": [
@@ -496,16 +496,13 @@
     "WHILE",
     "sfida"
    ],
-   "salvataggi": 7,
-   "ultimo": "10:19",
+   "salvataggi": 12,
+   "ultimo": "10:20",
    "caricato": true,
    "cartella_ok": false,
-   "messaggio": "Hai file del progetto fuori dalla cartella salvadanaio: salvadanio2.lpi, salvadanio2.lpr, salvadanio2.lps. Tutto deve stare solo in salvadanaio. Nel repository: la cartella si chiama «salvadanio2»: il nome giusto è «salvadanaio»; nella cartella principale c'è un progetto vecchio (salvadanio2.lps, salvadanio2.res, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio».",
+   "messaggio": "Hai file del progetto fuori dalla cartella salvadanaio: salvadanio2.lpi, salvadanio2.lpr, salvadanio2.lps. Tutto deve stare solo in salvadanaio. Nel repository: la cartella si chiama «salvadanio2»: il nome giusto è «salvadanaio»; hai caricato anche il .exe: non serve, basta il progetto.",
    "fuori": 0,
    "albero": [
-    "README.md",
-    "salvadanio2.lps",
-    "salvadanio2.res",
     "salvadanio2/backup/salvadanio2.lpi",
     "salvadanio2/backup/salvadanio2.lps",
     "salvadanio2/backup/unit1.lfm",
@@ -524,13 +521,10 @@
     "salvadanio2/salvadanio2.lps",
     "salvadanio2/salvadanio2.res",
     "salvadanio2/unit1.lfm",
-    "salvadanio2/unit1.pas",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanio2/unit1.pas"
    ],
    "problemi": [
     "la cartella si chiama «salvadanio2»: il nome giusto è «salvadanaio»",
-    "nella cartella principale c'è un progetto vecchio (salvadanio2.lps, salvadanio2.res, unit1.lfm, unit1.pas): il salvadanaio va nella cartella «salvadanaio»",
     "hai caricato anche il .exe: non serve, basta il progetto"
    ]
   },
