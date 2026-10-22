@@ -2,36 +2,9 @@
  "ora": "13:17",
  "righe": [
   {
-   "alunno": "Nicolo C.",
-   "voto": 80,
-   "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) = 80",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [],
-   "voto_sito": 80,
-   "quiz": "in verifica",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 3 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:53",
-    "Classroom, compito",
-    0
-   ],
-   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Mirko D.",
    "voto": 80,
-   "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) = 80",
+   "conto": "sito 80 · quiz 80 → media 80 = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -43,8 +16,8 @@
    ],
    "sito_manca": [],
    "voto_sito": 80,
-   "quiz": "in verifica",
-   "voto_quiz": 40,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
    "comportamento": "nessun salvataggio oggi sul sito",
    "assente": false,
    "fuori": 0,
@@ -139,7 +112,7 @@
   {
    "alunno": "Ariel D.",
    "voto": 77,
-   "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) − 3×1 fuori compito = 77",
+   "conto": "sito 80 · quiz 80 → media 80 − 3×1 fuori compito = 77",
    "sito_fatto": [
     "index",
     "style",
@@ -151,14 +124,41 @@
    ],
    "sito_manca": [],
    "voto_sito": 80,
-   "quiz": "in verifica",
-   "voto_quiz": 40,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
    "comportamento": "fuori lezione 1 volta",
    "assente": false,
    "fuori": 1,
    "vy_ult": [
     "12:53",
     "lezione, tabella",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Andrea G.",
+   "voto": 77,
+   "conto": "sito 80 · quiz 80 → media 80 − 3×1 fuori compito = 77",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
+   "comportamento": "fuori lezione 1 volta",
+   "assente": false,
+   "fuori": 1,
+   "vy_ult": [
+    "12:53",
+    "«La mia giornata»",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -303,6 +303,33 @@
    "cosa_fare": "Passo 4: metti passione.html (file pronti). Attenzione al nome: passione, non passioni."
   },
   {
+   "alunno": "Nicolo C.",
+   "voto": 70,
+   "conto": "sito 80 · quiz 60 → media 70 = 70",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "4 su 8",
+   "voto_quiz": 60,
+   "comportamento": "lavora: 3 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:53",
+    "Classroom, compito",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
    "alunno": "Kevin R.",
    "voto": 70,
    "conto": "sito 74 · quiz 65 → media 70 = 70",
@@ -385,33 +412,6 @@
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
-  },
-  {
-   "alunno": "Andrea G.",
-   "voto": 57,
-   "conto": "sito 80 · quiz 40 → media 60 − 3×1 fuori compito = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [],
-   "voto_sito": 80,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "fuori lezione 1 volta",
-   "assente": false,
-   "fuori": 1,
-   "vy_ult": [
-    "12:53",
-    "«La mia giornata»",
-    0
-   ],
-   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
    "alunno": "Beatrice N.",
