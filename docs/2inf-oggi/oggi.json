@@ -1,5 +1,5 @@
 {
- "ora": "10:44",
+ "ora": "10:45",
  "data": "2026-10-22",
  "righe": [
   {
@@ -7,6 +7,17 @@
    "voto": 69,
    "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 48 · verifica GitHub 80 → media 69 = 69",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 68,
    "v_vgit": 80,
@@ -42,6 +53,17 @@
    "voto": 62,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 80 → media 62 = 62",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 40,
    "v_vgit": 80,
@@ -77,6 +99,17 @@
    "voto": 60,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 73 → media 60 = 60",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 40,
    "v_vgit": 73,
@@ -112,6 +145,16 @@
    "voto": 56,
    "conto": "salvadanaio 70 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 73 → media 56 = 56",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 70,
    "v_ver": 40,
    "v_vgit": 73,
@@ -147,6 +190,17 @@
    "voto": 54,
    "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 64 · verifica GitHub 40 → media 63 − 3×3 fuori compito = 54",
    "v_github": 64,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "README"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 68,
    "v_vgit": 40,
@@ -179,20 +233,31 @@
   },
   {
    "alunno": "Sid C.",
-   "voto": 52,
-   "conto": "salvadanaio 70 · verifica salvadanaio 40 · GitHub 56 · verifica GitHub 40 → media 52 = 52",
-   "v_github": 56,
+   "voto": 54,
+   "conto": "salvadanaio 70 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 40 → media 54 = 54",
+   "v_github": 64,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README"
+   ],
    "v_salv": 70,
    "v_ver": 40,
    "v_vgit": 40,
    "vgit": "",
    "github": [
     "pulito",
+    "no .exe",
     "salvadanaio"
    ],
    "github_manca": [
     "cartelle",
-    "no .exe",
     "README"
    ],
    "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «esercizio-3», «esercizio-4».",
@@ -214,10 +279,66 @@
    "orale": 70
   },
   {
+   "alunno": "Luca B.",
+   "voto": 52,
+   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 47 (facilitato) · verifica GitHub 40 → media 52 = 52",
+   "v_github": 40,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 80,
+   "v_ver": 40,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
+   "salv": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "salv_manca": [],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "10:12",
+    "pagina di Google",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Mathias P.",
    "voto": 52,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 52 = 52",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 40,
    "v_vgit": 40,
@@ -253,6 +374,17 @@
    "voto": 51,
    "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 48 · verifica GitHub 40 → media 51 = 51",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README"
+   ],
    "v_salv": 40,
    "v_ver": 77,
    "v_vgit": 40,
@@ -288,6 +420,16 @@
    "voto": 50,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 50 = 50",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 40,
    "v_vgit": 40,
@@ -318,44 +460,21 @@
    "orale": null
   },
   {
-   "alunno": "Luca B.",
-   "voto": 50,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 50 = 50",
-   "v_github": 40,
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
    "alunno": "Sara A.",
    "voto": 49,
    "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 52 − 3×1 fuori compito = 49",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 80,
    "v_ver": 40,
    "v_vgit": 40,
@@ -391,6 +510,17 @@
    "voto": 47,
    "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 56 · verifica GitHub 40 → media 53 − 3×2 fuori compito = 47",
    "v_github": 56,
+   "v_facile": 47,
+   "facile": [
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README"
+   ],
    "v_salv": 40,
    "v_ver": 77,
    "v_vgit": 40,
@@ -426,6 +556,16 @@
    "voto": 45,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 73 → media 48 − 3×1 fuori compito = 45",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 73,
@@ -460,6 +600,16 @@
    "voto": 44,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 80 → media 50 − 3×2 fuori compito = 44",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 80,
@@ -494,6 +644,17 @@
    "voto": 41,
    "conto": "salvadanaio 60 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 47 − 3×2 fuori compito = 41",
    "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 60,
    "v_ver": 40,
    "v_vgit": 40,
@@ -530,6 +691,16 @@
    "voto": 40,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 40 − 3×2 fuori compito = 40",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 40,
@@ -564,6 +735,16 @@
    "voto": 40,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 42 − 3×1 fuori compito = 40",
    "v_github": 48,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 40,
@@ -599,6 +780,16 @@
    "voto": 40,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 40 − 3×4 fuori compito = 40",
    "v_github": 40,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 40,
