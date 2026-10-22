@@ -1,6 +1,32 @@
 {
- "ora": "11:35",
+ "ora": "11:39",
  "righe": [
+  {
+   "alunno": "Denis A.",
+   "voto": 60,
+   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 1 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:33",
+    "lezione di recupero, passo 1",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
   {
    "alunno": "Mirko D.",
    "voto": 60,
@@ -28,33 +54,6 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Denis A.",
-   "voto": 57,
-   "conto": "sito 74 · quiz 40 → media 57 = 57",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "fuori": 0,
-   "vy_ult": [
-    "11:33",
-    "lezione di recupero, passo 1",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Nicolo C.",
    "voto": 57,
    "conto": "sito 74 · quiz 40 → media 57 = 57",
@@ -72,7 +71,7 @@
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
+   "comportamento": "lavora: 1 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
     "11:31",
@@ -507,8 +506,8 @@
    "comportamento": "fuori lezione 1 volta",
    "fuori": 1,
    "vy_ult": [
-    "11:33",
-    "Classroom, compito del recupero",
+    "11:35",
+    "pagina vecchia del 15/10 (gioco Agile), non il recupero; schede: compito di oggi, 3 pagine del recupero, La mia giornata, verifica, script.google",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."

@@ -1,5 +1,5 @@
 {
- "ora": "11:35",
+ "ora": "11:39",
  "cartella": "sito",
  "scadenza": "12:50",
  "pezzi_nomi": [
@@ -15,6 +15,25 @@
  "si": "Completo",
  "no": "Da completare",
  "righe": [
+  {
+   "alunno": "Denis A.",
+   "pezzi": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
+   "salvataggi": 1,
+   "ultimo": "11:37",
+   "fuori": 0,
+   "voto": 80
+  },
   {
    "alunno": "Mirko D.",
    "pezzi": [
@@ -35,24 +54,6 @@
    "voto": 80
   },
   {
-   "alunno": "Denis A.",
-   "pezzi": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
-   "salvataggi": 0,
-   "ultimo": "13:36",
-   "fuori": 0,
-   "voto": 74
-  },
-  {
    "alunno": "Nicolo C.",
    "pezzi": [
     "index",
@@ -65,7 +66,7 @@
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto).",
-   "salvataggi": 0,
+   "salvataggi": 1,
    "ultimo": "13:12",
    "fuori": 0,
    "voto": 74
