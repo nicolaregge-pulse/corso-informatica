@@ -1,5 +1,5 @@
 {
- "ora": "12:49",
+ "ora": "12:50",
  "righe": [
   {
    "alunno": "Denis A.",
@@ -29,36 +29,9 @@
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Nicolo C.",
-   "voto": 80,
-   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [],
-   "voto_sito": 80,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 3 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "Classroom",
-    0
-   ],
-   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Mirko D.",
    "voto": 80,
-   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
+   "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) = 80",
    "sito_fatto": [
     "index",
     "style",
@@ -70,7 +43,7 @@
    ],
    "sito_manca": [],
    "voto_sito": 80,
-   "quiz": "",
+   "quiz": "in verifica",
    "voto_quiz": 40,
    "comportamento": "nessun salvataggio oggi sul sito",
    "assente": false,
@@ -166,7 +139,7 @@
   {
    "alunno": "Ariel D.",
    "voto": 77,
-   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 77",
+   "conto": "sito 80 (quiz dichiarato fatto: in verifica nella riserva dello script) − 3×1 fuori compito = 77",
    "sito_fatto": [
     "index",
     "style",
@@ -178,7 +151,7 @@
    ],
    "sito_manca": [],
    "voto_sito": 80,
-   "quiz": "",
+   "quiz": "in verifica",
    "voto_quiz": 40,
    "comportamento": "fuori lezione 1 volta",
    "assente": false,
@@ -187,33 +160,6 @@
     "12:41",
     "Google Immagini, foto di persone/vestiti, non la lezione",
     1
-   ],
-   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Andrea G.",
-   "voto": 77,
-   "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 77",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [],
-   "voto_sito": 80,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "fuori lezione 1 volta",
-   "assente": false,
-   "fuori": 1,
-   "vy_ult": [
-    "12:41",
-    "GitHub, Pull Request",
-    0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
@@ -273,37 +219,9 @@
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
-   "alunno": "Rafi F.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 5 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "editor del codice",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
    "alunno": "Tomas L.",
    "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
+   "conto": "sito 74 · quiz 75 → media 74 = 74",
    "sito_fatto": [
     "index",
     "style",
@@ -316,8 +234,8 @@
     "versione"
    ],
    "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
+   "quiz": "7 su 8",
+   "voto_quiz": 75,
    "comportamento": "lavora: 19 salvataggi oggi",
    "assente": false,
    "fuori": 0,
@@ -325,90 +243,6 @@
     "12:41",
     "editor del codice",
     0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Beatrice N.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "nessun salvataggio oggi sul sito",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "documento di testo (CV), non il sito",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Samuele U.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione",
-    "versione"
-   ],
-   "sito_manca": [
-    "sfondo"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 12 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "«I siti di tutti», la sua scheda",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
-   "alunno": "Alessandro A.",
-   "voto": 71,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 71",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "fuori lezione 1 volta",
-   "assente": false,
-   "fuori": 1,
-   "vy_ult": [
-    "12:41",
-    "sito di notizie con foto di persone e video, non la lezione",
-    1
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
@@ -436,34 +270,6 @@
    "vy_ult": [
     "12:41",
     "editor del codice",
-    0
-   ],
-   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
-  },
-  {
-   "alunno": "Simone G.",
-   "voto": 69,
-   "conto": "sito 69 (il quiz è ancora da fare: fallo per completare il voto) = 69",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "animazione"
-   ],
-   "sito_manca": [
-    "sfondo",
-    "versione"
-   ],
-   "voto_sito": 69,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 6 salvataggi oggi",
-   "assente": false,
-   "fuori": 0,
-   "vy_ult": [
-    "12:41",
-    "GitHub Pages, impostazioni",
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
@@ -497,9 +303,203 @@
    "cosa_fare": "Passo 4: metti passione.html (file pronti)."
   },
   {
+   "alunno": "Nicolo C.",
+   "voto": 60,
+   "conto": "sito 80 · quiz 40 → media 60 = 60",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 3 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "Classroom",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Andrea G.",
+   "voto": 57,
+   "conto": "sito 80 · quiz 40 → media 60 − 3×1 fuori compito = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "fuori lezione 1 volta",
+   "assente": false,
+   "fuori": 1,
+   "vy_ult": [
+    "12:41",
+    "GitHub, Pull Request",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Rafi F.",
+   "voto": 57,
+   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 5 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "editor del codice",
+    0
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Beatrice N.",
+   "voto": 57,
+   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "nessun salvataggio oggi sul sito",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "documento di testo (CV), non il sito",
+    0
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Samuele U.",
+   "voto": 57,
+   "conto": "sito 74 · quiz 40 → media 57 = 57",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [
+    "sfondo"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 12 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "«I siti di tutti», la sua scheda",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
+   "alunno": "Alessandro A.",
+   "voto": 54,
+   "conto": "sito 74 · quiz 40 → media 57 − 3×1 fuori compito = 54",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione"
+   ],
+   "sito_manca": [
+    "versione"
+   ],
+   "voto_sito": 74,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "fuori lezione 1 volta",
+   "assente": false,
+   "fuori": 1,
+   "vy_ult": [
+    "12:41",
+    "sito di notizie con foto di persone e video, non la lezione",
+    1
+   ],
+   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Simone G.",
+   "voto": 54,
+   "conto": "sito 69 · quiz 40 → media 54 = 54",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "animazione"
+   ],
+   "sito_manca": [
+    "sfondo",
+    "versione"
+   ],
+   "voto_sito": 69,
+   "quiz": "",
+   "voto_quiz": 40,
+   "comportamento": "lavora: 6 salvataggi oggi",
+   "assente": false,
+   "fuori": 0,
+   "vy_ult": [
+    "12:41",
+    "GitHub Pages, impostazioni",
+    0
+   ],
+   "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
+  },
+  {
    "alunno": "David A.",
-   "voto": 63,
-   "conto": "sito 63 (il quiz è ancora da fare: fallo per completare il voto) = 63",
+   "voto": 52,
+   "conto": "sito 63 · quiz 40 → media 52 = 52",
    "sito_fatto": [
     "index",
     "style",
@@ -522,8 +522,8 @@
   },
   {
    "alunno": "Kelvin P.",
-   "voto": 57,
-   "conto": "sito 57 (il quiz è ancora da fare: fallo per completare il voto) = 57",
+   "voto": 48,
+   "conto": "sito 57 · quiz 40 → media 48 = 48",
    "sito_fatto": [
     "index",
     "style",
@@ -550,8 +550,8 @@
   },
   {
    "alunno": "Mahmoud E.",
-   "voto": 48,
-   "conto": "sito 51 (il quiz è ancora da fare: fallo per completare il voto) − 3×1 fuori compito = 48",
+   "voto": 43,
+   "conto": "sito 51 · quiz 40 → media 46 − 3×1 fuori compito = 43",
    "sito_fatto": [
     "index",
     "style"
