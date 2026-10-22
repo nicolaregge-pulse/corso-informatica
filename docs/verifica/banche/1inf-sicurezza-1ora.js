@@ -60,7 +60,7 @@
         "تنزلق على الأرض المبللة لكنك تمسك بالطاولة ولا تتأذى: هذا «حادث وشيك». أخبر فوراً المعلم أو المدرب أو المسؤول، حتى لا يسقط الشخص التالي.",
         "在湿地板上滑了一下，但扶住了桌子，没受伤：这是“险些发生的事故”。马上告诉老师、教练或老板，这样下一个人就不会摔倒。") }
     ],
-    strumenti: [{ t: 'Il monitor della lezione', u: '../1inf-monitor/', c: '#6e40c9' }],
+    strumenti: [{ t: 'La mia giornata: voto, fatto e da fare', u: '../1inf-oggi/', c: '#b45309' }, { t: 'Il monitor della lezione', u: '../1inf-monitor/', c: '#6e40c9' }],
     via: C("sic", L("Una cosa che PUÒ fare male si chiama…", "الشيء الذي يمكن أن يؤذي اسمه…", "可能伤人的东西叫……"), ["pericolo", "danno", "rischio"], "Il pericolo: non ha ancora fatto male, ma potrebbe."),
     prepara: [
       { q: L("Guardati intorno, qui in aula. Scrivi UNA cosa che può fare male.", "انظر حولك في القاعة. اكتب شيئاً واحداً يمكن أن يؤذي.", "看看教室四周，写一个可能伤人的东西。"), aiuto: "Anche nella tua lingua. Esempio: «il cavo sotto il mio banco».", min: 5 },
