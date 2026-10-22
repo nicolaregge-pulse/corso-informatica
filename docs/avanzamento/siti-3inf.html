@@ -3,8 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Cruscotto dei siti 3INF</title>
+<title>I siti della 3INF</title>
 <style>
 /* 3INF 22/10/2026 (Nicola): il cruscotto dei siti come il PDF, ma dal vivo. Dati CIFRATI in 3inf-recupero-oggi.json
    (nomi di minori), si aprono con il codice del monitor. Generatore: riservato generatori/sito_3inf_recupero.py (ogni 5 minuti). */
@@ -29,9 +28,8 @@
 </style>
 </head>
 <body><div class="w">
-<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
-<div id="view" class="hide">
-<h1>Cruscotto dei siti 3INF: stato, albero dei file e anteprima della Home</h1>
+<div id="view">
+<h1>I siti della 3INF: a che punto è ognuno</h1>
 <div class="mu" id="stato">—</div>
 <div class="kpi" id="kpi"></div>
 <details class="leg" open><summary><b>Legenda: che cosa vuol dire ogni cerchio rosso e gli errori più comuni</b></summary>
@@ -46,35 +44,31 @@
 </table>
 <p class="mu" style="margin:6px 0 0">Altri errori visti in classe: sito dentro una sottocartella (Mio-sito/, sito_official/); nomi diversi da quelli richiesti (comp.html, contacts.html); immagine con estensione .jfif o nome di 90 caratteri; Pull Request fatta a se stesso invece che al compagno; copia doppia del sito in un'altra cartella.</p></details>
 <div id="cards"></div>
-<p class="mu">Una scheda per allievo, dal sito più completo al meno. Le 7 cose: ✔ fatta, ○ manca. Voto sito = 40 + 40 × cose/7; voto di oggi = media con il quiz (il quiz non fatto conta dalle 12:50) − 3 per fuori lezione. ⭐ = osservati. Si aggiorna ogni minuto (dati ogni 5).</p>
+<p class="mu">Una scheda per allievo, dal sito più completo al meno. Le 7 cose: ✔ fatta, ○ manca. Voto sito = 40 + 40 × cose/7; voto di oggi = media con il quiz (il quiz non fatto conta dalle 12:50) − 3 per fuori lezione. Si aggiorna da sola ogni minuto (dati ogni 5).</p>
 </div></div>
 <script>
-var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/3inf-recupero-oggi.json';
 function $(i){return document.getElementById(i)}
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
-async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
-async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('3inf-recupero-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+var RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/3inf-recupero/siti.json';
+function locale(){return fetch('../3inf-recupero/siti.json?t='+Date.now(),{cache:'no-store'})}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await locale();return r.json()}
 var OK=['index','style','competenze','passione','sfondo','animazione','versione'];
 function albero(files){var t={};files.forEach(function(f){var d=t;f.split('/').forEach(function(p){d=d[p]=d[p]||{}})});var out=[];
  (function rec(d,pre){var ks=Object.keys(d).sort(function(a,b){var da=Object.keys(d[a]).length>0,db=Object.keys(d[b]).length>0;return da!==db?(da?-1:1):a.toLowerCase().localeCompare(b.toLowerCase())});
   ks.forEach(function(k,i){var last=i===ks.length-1,dir=Object.keys(d[k]).length>0;out.push(pre+(last?'└── ':'├── ')+k+(dir?'/':''));rec(d[k],pre+(last?'    ':'│   '))})})(t,'');return out.join('\n')}
-async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
- $('gate').classList.add('hide');$('view').classList.remove('hide');
- var R=d.righe.slice().sort(function(a,b){return b.pezzi.length-a.pezzi.length||a.nome.localeCompare(b.nome)});
+async function giro(){var d;try{d=await leggi()}catch(x){$('stato').textContent='Non riesco a leggere i dati: ricarica (F5).';return}
+ var R=d.righe.slice().sort(function(a,b){return b.pezzi.length-a.pezzi.length||a.alunno.localeCompare(b.alunno)});
  var compl=R.filter(function(r){return r.pezzi.length===7}).length,quiz=R.filter(function(r){return r.quiz}).length,salv=R.filter(function(r){return r.commit_oggi}).length;
- $('stato').textContent='Dati delle '+d.ora+' · '+R.length+' presenti · si ricarica ogni minuto';
- $('kpi').innerHTML='<div class="k"><b>'+compl+'</b>siti completi (7/7)</div><div class="k"><b>'+salv+'</b>hanno salvato oggi</div><div class="k"><b>'+quiz+'</b>quiz fatti</div><div class="k"><b>'+R.filter(function(r){return r.fuori}).length+'</b>visti fuori lezione</div>';
- $('cards').innerHTML=R.map(function(r){var q=r.quiz;
-  return '<div class="card'+(r.osservato?' star':'')+'"><div class="th">'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<div class="noth">nessuna Home</div>')+'<div class="url"><a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div></div>'+
-  '<div class="body"><h2>'+(r.osservato?'⭐ ':'')+e(r.nome)+' <small>PC '+e(r.pc)+' · voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
+ $('stato').textContent='Dati delle '+d.ora+' · '+R.length+' in classe · si ricarica ogni minuto';
+ $('kpi').innerHTML='<div class="k"><b>'+compl+'</b>siti completi (7/7)</div><div class="k"><b>'+salv+'</b>hanno salvato oggi</div><div class="k"><b>'+quiz+'</b>quiz fatti</div>';
+ $('cards').innerHTML=R.map(function(r){
+  return '<div class="card"><div class="th">'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<div class="noth">nessuna Home</div>')+'</div>'+
+  '<div class="body"><h2>'+e(r.alunno)+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
   '<div class="chips">'+OK.map(function(x){return r.pezzi.indexOf(x)>=0?'<span class="ok">✔ '+x+'</span>':'<span class="ko">○ '+x+'</span>'}).join('')+'</div>'+
-  '<div class="meta">salvataggi oggi: '+r.commit_oggi+' · ultimo: '+e(r.ultimo||'—')+' · rami: '+(r.rami||0)+' · PR: '+(r.pr||0)+' · quiz: '+(q?q.ok+'/'+q.su+' ('+e(q.ora)+')':'non fatto')+' · fuori lezione: '+r.fuori+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div>'+
-  '<div class="msg">'+e(r.messaggio)+'</div>'+((r.note||[]).length?'<div class="meta">'+r.note.map(function(n){return '📝 '+e(n)}).join('<br>')+'</div>':'')+'</div>'+
+  '<div class="meta">salvataggi oggi: '+r.commit_oggi+' · ultimo: '+e(r.ultimo||'—')+' · rami: '+(r.rami||0)+' · Pull Request: '+(r.pr||0)+' · quiz: '+(r.quiz||'non fatto')+' · fuori lezione: '+r.fuori+'</div>'+
+  '<div class="msg">'+e(r.messaggio)+'</div></div>'+
   '<pre class="tree">'+(e(albero(r.albero||[]))||'(repository vuoto o non trovato)')+'</pre></div>'}).join('')}
-$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
-$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
-try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+giro();setInterval(giro,60000);
 </script>
 </body>
 </html>
