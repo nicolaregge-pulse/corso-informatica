@@ -1,8 +1,34 @@
 {
- "ora": "11:44",
+ "ora": "11:48",
  "righe": [
   {
    "alunno": "Denis A.",
+   "voto": 80,
+   "conto": "sito 80 · quiz 80 → media 80 = 80",
+   "sito_fatto": [
+    "index",
+    "style",
+    "competenze",
+    "passione",
+    "sfondo",
+    "animazione",
+    "versione"
+   ],
+   "sito_manca": [],
+   "voto_sito": 80,
+   "quiz": "8 su 8",
+   "voto_quiz": 80,
+   "comportamento": "lavora: 1 salvataggi oggi",
+   "fuori": 0,
+   "vy_ult": [
+    "11:43",
+    "verifica",
+    0
+   ],
+   "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
+  },
+  {
+   "alunno": "Nicolo C.",
    "voto": 80,
    "conto": "sito 80 (il quiz è ancora da fare: fallo per completare il voto) = 80",
    "sito_fatto": [
@@ -18,11 +44,11 @@
    "voto_sito": 80,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
+   "comportamento": "lavora: 3 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:33",
-    "lezione di recupero, passo 1",
+    "11:43",
+    "«La mia giornata»",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -70,11 +96,11 @@
    "voto_sito": 80,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
+   "comportamento": "lavora: 2 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "tabella del controllo",
+    "11:43",
+    "lezione, il codice",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -96,41 +122,14 @@
    "voto_sito": 80,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 4 salvataggi oggi",
+   "comportamento": "lavora: 5 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "il suo sito, pagina «Il mio sogno»",
+    "11:43",
+    "lezione, la tabella",
     0
    ],
    "cosa_fare": "Il tuo sito è completo: aprilo su internet (passo 6), fai il quiz (linguetta «2. Verifica») e poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
-  },
-  {
-   "alunno": "Nicolo C.",
-   "voto": 74,
-   "conto": "sito 74 (il quiz è ancora da fare: fallo per completare il voto) = 74",
-   "sito_fatto": [
-    "index",
-    "style",
-    "competenze",
-    "passione",
-    "sfondo",
-    "animazione"
-   ],
-   "sito_manca": [
-    "versione"
-   ],
-   "voto_sito": 74,
-   "quiz": "",
-   "voto_quiz": 40,
-   "comportamento": "lavora: 2 salvataggi oggi",
-   "fuori": 0,
-   "vy_ult": [
-    "11:31",
-    "verifica",
-    0
-   ],
-   "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
   },
   {
    "alunno": "Tomas L.",
@@ -150,11 +149,11 @@
    "voto_sito": 74,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
+   "comportamento": "lavora: 3 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "pagina bianca",
+    "11:43",
+    "il suo sito («Ciao, sono Tomas»)",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -180,8 +179,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:33",
-    "Classroom, compito del recupero",
+    "11:43",
+    "tabella del controllo",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -207,8 +206,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "«L'albero del mio sito»",
+    "11:43",
+    "lezione, la Pull Request",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -234,8 +233,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "lezione di recupero",
+    "11:43",
+    "Google Immagini, forse la foto di sfondo",
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
@@ -261,8 +260,8 @@
    "comportamento": "fuori lezione 1 volta",
    "fuori": 1,
    "vy_ult": [
-    "11:31",
-    "GitHub, il repository",
+    "11:43",
+    "GitHub Copilot: chiede all'AI di migliorare la grafica del sito",
     0
    ],
    "cosa_fare": "Ultimo: scrivi in fondo alla Home la riga <footer>Versione 1.0</footer> (è già nella index.html dei file pronti). Poi vai alla lezione di ieri su collaborazione e Pull Request (bottone viola in alto)."
@@ -288,8 +287,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "pagina di Google (entrato adesso)",
+    "11:43",
+    "Google Immagini, forse la foto di sfondo",
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
@@ -312,11 +311,11 @@
    "voto_sito": 63,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
+   "comportamento": "lavora: 2 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "Classroom, compito di ieri",
+    "11:43",
+    "Google Immagini (auto), forse la foto di sfondo",
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
@@ -342,8 +341,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "«L'albero del mio sito»",
+    "11:43",
+    "Google Immagini",
     0
    ],
    "cosa_fare": "Passo 5: la foto di sfondo. Salvala come sfondo.jpg, mettila nella cartella img, e in style.css ci vuole background-image: url(\"img/sfondo.jpg\")."
@@ -369,8 +368,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "lezione, scheda sul CSS",
+    "11:43",
+    "verifica",
     0
    ],
    "cosa_fare": "Passo 4: metti passione.html (file pronti)."
@@ -396,8 +395,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:33",
-    "PC13 spento o scollegato",
+    "11:43",
+    "editor del codice",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti). Hai un file con un nome diverso: comp.html, contacts.html, other.html."
@@ -420,11 +419,11 @@
    "voto_sito": 57,
    "quiz": "",
    "voto_quiz": 40,
-   "comportamento": "lavora: 1 salvataggi oggi",
+   "comportamento": "lavora: 2 salvataggi oggi",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "GitHub",
+    "11:43",
+    "lezione",
     0
    ],
    "cosa_fare": "Passo 4: metti passione.html (file pronti)."
@@ -450,8 +449,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "lezione di recupero, la tabella",
+    "11:43",
+    "PC25 spento o scollegato",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
@@ -477,8 +476,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:33",
-    "PC ancora bloccato (dalle 11:31)",
+    "11:43",
+    "GitHub, impostazioni del repository",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
@@ -504,8 +503,8 @@
    "comportamento": "fuori lezione 1 volta",
    "fuori": 1,
    "vy_ult": [
-    "11:35",
-    "pagina vecchia del 15/10 (gioco Agile), non il recupero; schede: compito di oggi, 3 pagine del recupero, La mia giornata, verifica, script.google",
+    "11:43",
+    "ancora la pagina vecchia del 15/10 (gioco Agile)",
     0
    ],
    "cosa_fare": "Passo 3: metti competenze.html (file pronti)."
@@ -530,8 +529,8 @@
    "comportamento": "nessun salvataggio oggi sul sito",
    "fuori": 0,
    "vy_ult": [
-    "11:31",
-    "Classroom, compito di ieri",
+    "11:43",
+    "lezione, la tabella",
     0
    ],
    "cosa_fare": "I tuoi file sono nella cartella «Mio-sito»: vanno nella cartella principale. Chiedi all'assistente come spostarli."
