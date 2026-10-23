@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # Dispensa «Rete e gamer» (1INF, 23/10/2026): 3 documenti monolingui (IT, AR, ZH), MD + HTML + PDF.
 # Uso: python3 _build/genera.py   (poi il PDF lo fa _build/pdf.js)
-import importlib.util, os, re
+import importlib.util, os, re, sys
 QUI = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.dirname(QUI)
 VER = '1.0'; IMG = '../immagini/lavagna-20261023/'
 FONT = '/home/user/corso-informatica/strumenti/render-pdf/fonts/'
 def carica(n):
     s = importlib.util.spec_from_file_location(n, os.path.join(QUI, n + '.py')); m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
-def nome(L): return '20261023_Classe-1-Dispensa_v%s_Rete-Gamer_%s' % (VER, L['lang'].upper())
+def nome(L): return (L.get('file', '20261023_Classe-1-Dispensa_v%s_Rete-Gamer') % VER) + '_' + L['lang'].upper()
 def md_testo(t): return re.sub(r'<br>', '  \n', re.sub(r'</?b>', '**', t))
 def tab_html(r): return '<table><tr>' + ''.join('<th>%s</th>' % c for c in r[0]) + '</tr>' + ''.join('<tr>' + ''.join('<td>%s</td>' % c for c in x) + '</tr>' for x in r[1:]) + '</table>'
 CSS = '''@font-face{font-family:Amiri;src:url(file://%samiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file://%samiri-arabic-700-normal.woff2)}
@@ -18,7 +18,9 @@ h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3m
 .box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
 .box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
 .cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}'''
-for n in ('testi_it', 'testi_ar', 'testi_zh'):
+# Uso: python3 _build/genera.py [prefisso=testi] (linee = linee guida del compito)
+PRE = sys.argv[1] if len(sys.argv) > 1 else 'testi'
+for n in (PRE + '_it', PRE + '_ar', PRE + '_zh'):
     m = carica(n); L = m.L; f = nome(L)
     h = ['<!doctype html><html lang="%s" dir="%s"><head><meta charset="utf-8"><title>%s</title><style>%s</style></head><body class="%s">' % (L['lang'], L['dir'], L['titolo'], CSS % (FONT, FONT), L['lang'])]
     h.append('<div class="cop"><h1>%s</h1><p class="s">%s</p><p>%s · v%s</p><p>%s</p></div>' % (L['titolo'], L['sotto'], L['classe'], VER, L['intro']))
