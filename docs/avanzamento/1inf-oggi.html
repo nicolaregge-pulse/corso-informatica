@@ -26,7 +26,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div id="view" class="hide">
 <h1>Cruscotto 1INF di oggi</h1>
 <div class="mu" id="stato">—</div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria (schede)</th><th>2. Verifica</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Verifica</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
 </div></div>
 <script>
@@ -41,7 +41,7 @@ function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var c
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
 function teo(nome){if(!LIVE||!LIVE.righe)return null;var a=tok(nome),best=null,bs=0;LIVE.righe.forEach(function(r){var b=tok(r.nome),sc=a.filter(function(x){return b.indexOf(x)>=0}).length;if(sc>bs){bs=sc;best=r}});return bs?best:null}
-function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')}
+function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')+(t.titolo?'<div class="p">'+e(t.titolo)+'</div>':'')+(r.inizio?'<div class="p">dalle '+e(String(new Date(r.inizio).toLocaleTimeString('it-IT')).slice(0,5))+' · ultimo '+e(String(new Date(t.quando).toLocaleTimeString('it-IT')).slice(0,5))+'</div>':'')}
 var TUTTI=['index','style','competenze','passione','sfondo','animazione','versione'];
 function chips(f){return TUTTI.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+x+'</span>':'<span class="ko c">○ '+x+'</span>'}).join(' ')}
 async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
