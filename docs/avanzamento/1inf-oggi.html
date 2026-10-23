@@ -25,7 +25,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
 <div id="view" class="hide">
 <h1>Cruscotto 1INF di oggi</h1>
-<div class="mu" id="stato">—</div>
+<div class="mu" id="stato">—</div><div id="script" style="margin:6px 0;font-weight:700"></div>
 <div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Tempi, Documento, qualità</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
 </div></div>
@@ -37,6 +37,7 @@ function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0
 function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
 async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('1inf-sicurezza-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function battito(){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='cb'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);window[cb]=function(d){clearTimeout(t);s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};s.src=EXEC+'?ping=1&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
 function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='c3'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
  s.src=EXEC+'?live='+encodeURIComponent(id)+'&tok='+encodeURIComponent(TOK)+'&callback='+cb+'&t='+Date.now();document.body.appendChild(s)})}
@@ -50,6 +51,8 @@ function chips(f){return TUTTI.map(function(x){return f.indexOf(x)>=0?'<span cla
 async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var a=await live(d.banca||'1inf-sicurezza-1ora-v1');if(a&&a.ok)LIVE=a;
+ var pb=await battito(),vivo=pb&&pb.timer>0&&pb.battito&&(Date.now()-new Date(pb.battito))<5*60000;
+ $('script').innerHTML=(vivo?'<span class="ok">Script vivo (ultimo battito '+e(new Date(pb.battito).toLocaleTimeString('it-IT').slice(0,5))+')</span>':'<span class="ko">🔴 Script FERMO o non raggiungibile'+(pb?' (timer '+pb.timer+', battito '+e(pb.battito)+')':'')+': dimmelo subito</span>')+(d.ponte&&d.ponte!=='ok'?' · <span class="ko">🔴 Ponte '+e(d.ponte)+'</span>':' · <span class="ok">Ponte ok</span>')+(d.parole_alle?' · parole contate alle '+e(d.parole_alle):'');
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
  $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[];
   return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b><div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
