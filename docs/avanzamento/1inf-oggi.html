@@ -26,7 +26,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div id="view" class="hide">
 <h1>Cruscotto 1INF di oggi</h1>
 <div class="mu" id="stato">—</div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Verifica</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Tempi, Documento, qualità</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
 </div></div>
 <script>
@@ -52,7 +52,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
   return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b><div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
   '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
   '<td>'+cteo(teo(r.nome))+'</td>'+
-  '<td><b>'+(r.voto_ver==null?'—':r.voto_ver)+'</b> '+(r.verifica?'<span class="ok">'+r.verifica.ok+'/'+r.verifica.su+'</span><div class="p">'+e(r.verifica.ora)+(r.verifica.min?' · '+r.verifica.min+' min':'')+' · scritte: '+(r.verifica.aperte||0)+'</div>':'<span class="ko">non fatta</span>')+'</td>'+
+  (r.stato!=null?'<td><b class="'+(/ritardo|non ha/.test(r.stato)?'ko':'ok')+'">'+e(r.stato)+'</b><div>'+r.tappe+'/5 tappe'+(r.parole!=null?' · <b>'+r.parole+'</b> parole':' · Documento non ancora trovato')+'</div>'+(r.titolo?'<div class="p">'+e(r.titolo)+'</div>':'')+((r.qualita||[]).length?'<div class="ko">'+e(r.qualita.join(' · '))+'</div>':'')+'<div class="p">→ '+e(r.cosa||'')+'</div></td>':'<td><b>'+(r.voto_ver==null?'—':r.voto_ver)+'</b> '+(r.verifica?'<span class="ok">'+r.verifica.ok+'/'+r.verifica.su+'</span><div class="p">'+e(r.verifica.ora)+(r.verifica.min?' · '+r.verifica.min+' min':'')+' · scritte: '+(r.verifica.aperte||0)+'</div>':'<span class="ko">non fatta</span>')+'</td>')+
   '<td>'+(r.fuori?'<b class="ko">fuori '+r.fuori+'</b>':'<span class="ok">ok</span>')+(vy.length?'<details><summary>Veyon ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+'</div>'}).join('')+'</details>':'')+(r.note||[]).map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('')+'</td>'+
   '</td></tr>'}).join('')}
 $('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
