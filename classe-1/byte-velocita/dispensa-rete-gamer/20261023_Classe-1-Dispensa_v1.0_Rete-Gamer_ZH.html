@@ -1,0 +1,83 @@
+<!doctype html><html lang="zh" dir="ltr"><head><meta charset="utf-8"><title>网络与游戏</title><style>@font-face{font-family:Amiri;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-700-normal.woff2)}
+@page{size:A4;margin:16mm 16mm 18mm}body{font-family:"DejaVu Sans",Arial,sans-serif;font-size:11.5pt;line-height:1.5;color:#1b2430}
+body.ar{font-family:Amiri,serif;font-size:14pt;line-height:1.7}body.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3mm;border-bottom:2px solid #1f6feb;padding-bottom:1mm;break-after:avoid}
+.sec{break-inside:auto}table{border-collapse:collapse;width:100%;margin:3mm 0;break-inside:avoid}th,td{border:1px solid #b9c2cc;padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
+.box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
+.cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}</style></head><body class="zh">
+<div class="cop"><h1>网络与游戏</h1><p class="s">延迟(ping)、抖动(jitter)、TCP 和 UDP、帧率 FPS 和刷新率 Hz、像素、显示器、显卡、视频线</p><p>一年级 · 2026年10月23日的课 · v1.0</p><p>这份讲义整理了这节课：幻灯片、黑板照片和很多带计算的例子。最后有“你来试试”练习和答案。TCP、FPS、Hz 这些词保留英文字母，因为在游戏和设置里你看到的就是这样写的。</p></div>
+<div class="sec"><h2>01 延迟(ping)</h2>
+<p><b>ping</b> 是一条消息从你的电脑到游戏服务器再返回所需要的时间。单位是<b>毫秒 (ms)</b>：1000 ms = 1 秒。</p>
+<table><tr><th>ping</th><th>游戏感觉</th></tr><tr><td>30 ms 以下</td><td>非常好</td></tr><tr><td>30-60 ms</td><td>好</td></tr><tr><td>60-100 ms</td><td>有一点感觉</td></tr><tr><td>150 ms 以上</td><td>卡顿(lag)：子弹打出去晚到</td></tr></table>
+<p>ping 主要取决于你和服务器之间的<b>距离</b>，而不是网速 Mbps。</p>
+<div class="box es"><b class="t">例子</b>你在米兰的服务器上玩：ping 15 ms。同一个游戏在美国的服务器上：ping 120 ms。你的网络是一样的（100 Mbps），只是消息走的路变长了。ping 120 ms 时，你按“开枪”，服务器 60 ms 后才收到（路程的一半）：这时对手已经移动了。</div>
+<figure><img src="../immagini/lavagna-20261023/01_streaming-ftp-ping-jitter_doc.jpg"><figcaption>课堂上的黑板: 上面：在线播放不重传，FTP 会重传（第 03 章）。中间：ping 的图，时间是 23、30、40 ms，还有一个很高的尖峰。下面：抖动的波浪。</figcaption></figure>
+</div>
+<div class="sec"><h2>02 抖动(jitter)</h2>
+<p><b>抖动</b>就是 ping 每时每刻<b>变化</b>多少。</p>
+<div class="box es"><b class="t">例子</b>测到的 ping：40、41、39、40 ms。只变化 1-2 ms：抖动<b>低</b>，游戏很平稳。<br>测到的 ping：20、120、30、110 ms。变化大约 100 ms：抖动<b>高</b>，人物会跳，有时会“瞬移”。</div>
+<p>黑板上：大波浪是断断续续的连接（抖动高）；下面几乎是直线的是稳定的连接（抖动低）。</p>
+<div class="box nota"><b class="t">注意</b>一直稳定的 50 ms，比在 20 和 120 ms 之间跳来跳去的 ping 更好。</div>
+</div>
+<div class="sec"><h2>03 重传还是不重传：TCP 和 UDP</h2>
+<p>在网络里，数据被分成<b>数据包</b>，也就是小块来传送。有时一个数据包会在路上丢失。发送数据有两种规则，叫做<b>协议</b>：</p>
+<table><tr><th>协议</th><th>如果丢了一个数据包</th><th>优点</th><th>用在哪里</th></tr><tr><td>TCP</td><td>重新发送（重传，英文 retry）</td><td>全部到达，顺序正确</td><td>文件 (FTP)、网页、邮件、下载</td></tr><tr><td>UDP</td><td>不重新发送（不重传）</td><td>更快，延迟更小</td><td>在线播放、视频通话、网络游戏</td></tr></table>
+<div class="box es"><b class="t">例子</b>你用 FTP 下载一个文件：只要少一个数据包，文件就坏了，所以 TCP 会重发。在网络游戏里，丢一个数据包只是一个小卡顿：如果等它，游戏就会停住，所以用 UDP。</div>
+<div class="box nota"><b class="t">注意</b>记忆方法：TCP 像带回执的挂号信；UDP 像塞进信箱的广告单：到得更快，但丢了也没人再发。TCP/IP 是整个互联网规则家族的名字。</div>
+</div>
+<div class="sec"><h2>04 延迟、卡顿和丢包</h2>
+<table><tr><th>词</th><th>意思</th><th>原因</th></tr><tr><td>lag（延迟）</td><td>游戏反应慢</td><td>ping 高</td></tr><tr><td>网络卡顿</td><td>动作一跳一跳</td><td>抖动高</td></tr><tr><td>丢包</td><td>有些信息没有到达</td><td>Wi-Fi 信号弱，网络太挤</td></tr><tr><td>电脑卡顿</td><td>没有网络时画面也卡</td><td>显卡太慢（FPS 低）</td></tr></table>
+<div class="box es"><b class="t">例子</b>不连网玩游戏也卡：问题不在网络，而在显卡。如果只有在线时才卡，就检查 ping 和抖动，并试试用网线代替 Wi-Fi。</div>
+<div class="box nota"><b class="t">注意</b>网线的 ping 和抖动比 Wi-Fi 低：所以玩家都用网线。</div>
+</div>
+<div class="sec"><h2>05 帧率(FPS)</h2>
+<p>视频或游戏是由很多<b>静止的图片</b>一张接一张显示出来的，就像动画片。<b>FPS</b> 是 “frame per second”，意思是每秒多少张图片。这些图片由<b>显卡</b>来做。</p>
+<table><tr><th>FPS</th><th>看起来怎样</th></tr><tr><td>15</td><td>一卡一卡的</td></tr><tr><td>30</td><td>可以接受：电影和老游戏机</td></tr><tr><td>60</td><td>流畅</td></tr><tr><td>144 以上</td><td>非常流畅，适合快速游戏</td></tr></table>
+<div class="box es"><b class="t">例子</b>60 FPS 时，每张图片在屏幕上停留 1000 ÷ 60 ≈ 17 ms。30 FPS 时停留 1000 ÷ 30 ≈ 33 ms，是两倍：看起来不够流畅。144 FPS 时大约停留 7 ms。</div>
+</div>
+<div class="sec"><h2>06 显示器的刷新率(Hz)</h2>
+<p><b>Hz</b>（赫兹）表示<b>显示器</b>每秒重新画多少次画面。英文叫 “refresh rate”，刷新率。</p>
+<div class="box nota"><b class="t">注意</b>规则：显卡的 FPS 和显示器的 Hz 要互相匹配。</div>
+<div class="box es"><b class="t">例子</b>显卡 30 FPS，显示器 120 Hz：显示器每秒画 120 次，但只有 30 张新图片。每张图片显示 4 次（120 ÷ 30 = 4）：快的显示器浪费了。<br>显卡 200 FPS，显示器 60 Hz：你每秒还是只能看到 60 张图片：显卡浪费了。<br>显卡 144 FPS，显示器 144 Hz：完全匹配，最流畅。</div>
+<figure><img src="../immagini/lavagna-20261023/02_tcp-udp-fps-hz_doc.jpg"><figcaption>课堂上的黑板: 上面：TCP/IP 和 UDP。中间：一排图片（每秒 15 到 240 张）。下面：30 FPS 在 120 Hz 显示器上，每张图片重复 4 次。</figcaption></figure>
+</div>
+<div class="sec"><h2>07 像素和分辨率</h2>
+<p>屏幕是由彩色小方块组成的网格：每个小方块叫做<b>像素 (pixel)</b>。<b>分辨率</b>表示宽和高各有多少像素。</p>
+<table><tr><th>名称</th><th>宽 × 高</th><th>像素总数（约）</th></tr><tr><td>HD</td><td>1280 × 720</td><td>90 万</td></tr><tr><td>Full HD</td><td>1920 × 1080</td><td>200 万</td></tr><tr><td>2K (QHD)</td><td>2560 × 1440</td><td>370 万</td></tr><tr><td>4K</td><td>3840 × 2160</td><td>830 万</td></tr></table>
+<div class="box es"><b class="t">例子</b>1920 × 1080 = 2,073,600，大约 200 万像素。<br>4K 的宽是 Full HD 的两倍，高也是两倍：2 × 2 = 4 倍的 Full HD。所以需要更强的显卡。</div>
+<figure><img src="../immagini/lavagna-20261023/04_pixel-risoluzione_doc.jpg"><figcaption>课堂上的黑板: 像素网格和计算 1920 × 1080 ≈ 200 万。</figcaption></figure>
+</div>
+<div class="sec"><h2>08 显示器的种类</h2>
+<p>屏幕可以用不同的方式做成，叫做<b>面板</b>。<b>可视角度</b>表示从侧面看，多大角度还能看清颜色。</p>
+<table><tr><th>面板</th><th>角度（黑板）</th><th>优点</th><th>缺点</th></tr><tr><td>TN</td><td>约 90°</td><td>非常快（Hz 高），便宜</td><td>颜色暗淡，角度窄</td></tr><tr><td>IPS</td><td>120°</td><td>颜色好看，侧面也看得清</td><td>稍微慢一点</td></tr><tr><td>VA</td><td>160°</td><td>黑色深，对比度好</td><td>运动的东西后面有拖影</td></tr><tr><td>OLED</td><td>很宽</td><td>完美的黑色，非常快</td><td>很贵</td></tr></table>
+<p>在 VA 屏幕上，移动的小球会留下拖影，特别是暗的画面：这叫 <b>ghosting</b>，“鬼影”。<b>响应时间</b>（1-5 ms）表示一个像素变颜色有多快：越低，拖影越少。</p>
+<div class="box es"><b class="t">例子</b>玩快速射击游戏、钱不多的人：选 TN 或快速的 IPS。在黑暗中看电影的人：选 VA 或 OLED。想要最好、也能花钱的人：选 OLED。</div>
+<div class="box nota"><b class="t">注意</b>现在 IPS 和 VA 面板的角度已经接近 178°，也有 144-240 Hz 的 IPS：黑板上的数字是为了帮你理解不同面板的区别。</div>
+<figure><img src="../immagini/lavagna-20261023/03_pannelli-tn-va-oled_doc.jpg"><figcaption>课堂上的黑板: 可视角度（90°、120°、160°），VA 的拖影，很贵的 OLED。</figcaption></figure>
+</div>
+<div class="sec"><h2>09 显卡</h2>
+<p><b>显卡</b>（英文 GPU）负责画出游戏的画面。<b>集成显卡</b>：在处理器里面，耗电少，适合学习和看视频。<b>独立显卡</b>：单独的一块卡，有自己的显存（<b>VRAM</b>，比如 8 GB），玩大型游戏需要它。</p>
+<div class="box es"><b class="t">例子</b>上学、看视频、用 Classroom，集成显卡就够了。玩 Full HD、144 FPS 的 3D 游戏，需要至少 8 GB 显存的独立显卡。</div>
+</div>
+<div class="sec"><h2>10 图片和电影有多大</h2>
+<p>每个像素的颜色由 <b>3 个字节</b>组成：红、绿、蓝。</p>
+<div class="box es"><b class="t">例子</b>一张 Full HD 照片：2,073,600 像素 × 3 字节 = 6,220,800 字节，大约 <b>6 MB</b>。JPG 格式把它压缩（变小）到大约 0.5-1 MB。<br>一部 2 小时的电影每秒显示 24 张图片：6 MB × 24 = 每秒 144 MB；2 小时 = 7200 秒；144 × 7200 = 1,036,800 MB，大约 <b>1000 GB</b>。用 MP4 压缩后大约 2 GB：小了 500 倍。所以网速不高也能在线播放。</div>
+</div>
+<div class="sec"><h2>11 视频线和带宽</h2>
+<p>电脑用<b>视频线</b>连接显示器：<b>VGA</b>（旧的，蓝色 15 针插头，画面不太清楚），<b>DVI</b>（数字，白色），<b>HDMI</b>（数字，也能传声音，最常见），<b>DisplayPort</b>（数字，用于游戏显示器）。<b>带宽</b>是每秒通过线的数据量：像素 × 24 位颜色 × Hz。</p>
+<table><tr><th>线</th><th>最大带宽（约）</th></tr><tr><td>HDMI 1.4</td><td>10 Gbit/s</td></tr><tr><td>HDMI 2.0</td><td>18 Gbit/s</td></tr><tr><td>DisplayPort 1.4</td><td>32 Gbit/s</td></tr><tr><td>HDMI 2.1</td><td>48 Gbit/s</td></tr></table>
+<div class="box es"><b class="t">例子</b>Full HD、60 Hz：1920 × 1080 × 24 × 60 = 每秒 2,985,984,000 位，大约 <b>3 Gbit/s</b>：HDMI 1.4 也够。<br>4K、144 Hz：3840 × 2160 × 24 × 144 = 大约 <b>28.7 Gbit/s</b>：HDMI 2.0（18）不够，需要 DisplayPort 1.4（32）或 HDMI 2.1（48）。</div>
+</div>
+<div class="sec"><h2>12 完整例子：我的游戏装备</h2>
+<p>这是为一个快速游戏选的装备，带计算。然后轮到你，用你最喜欢的游戏来做。</p>
+<table><tr><th>什么</th><th>选择</th><th>为什么</th></tr><tr><td>游戏</td><td>在线射击游戏</td><td>需要快</td></tr><tr><td>网络</td><td>网线，ping 低于 30 ms</td><td>ping 和抖动低</td></tr><tr><td>显示器</td><td>IPS，Full HD，144 Hz</td><td>快，颜色好看</td></tr><tr><td>显卡</td><td>独立显卡，8 GB 显存</td><td>Full HD 下能到 144 FPS</td></tr><tr><td>视频线</td><td>DisplayPort 1.4</td><td>1920 × 1080 × 24 × 144 ≈ 7.2 Gbit/s：HDMI 2.0 也够</td></tr></table>
+</div>
+<div class="sec"><h2>13 你来试试</h2>
+<ol><li>测到的 ping：35、36、34、35 ms。抖动高还是低？</li><li>显卡 60 FPS，显示器 240 Hz：每张图片显示几次？</li><li>1280 × 720 的屏幕有多少像素？</li><li>下载游戏更新：用 TCP 还是 UDP？队伍语音聊天呢？</li><li>不连网时游戏也卡：是网络的问题还是显卡的问题？</li><li>2K（2560 × 1440）、60 Hz 的显示器：HDMI 1.4 线够吗？</li></ol>
+<div class="box sol"><b class="t">答案</b><ol><li>低：只变化 1-2 ms。</li><li>4 次：240 ÷ 60 = 4。</li><li>1280 × 720 = 921,600 像素。</li><li>更新用 TCP：文件必须完整到达。语音用 UDP：小跳一下比延迟好。</li><li>显卡的问题（FPS 低）。</li><li>2560 × 1440 × 24 × 60 ≈ 5.3 Gbit/s：够，HDMI 1.4 能到 10。</li></ol></div>
+</div>
+<div class="sec"><h2>14 新词</h2>
+<table><tr><th>词</th><th>意思</th></tr><tr><td>ping（延迟）</td><td>消息往返的时间，单位 ms</td></tr><tr><td>jitter（抖动）</td><td>ping 变化多少</td></tr><tr><td>lag</td><td>游戏里的延迟</td></tr><tr><td>数据包</td><td>在网络上传送的一小块数据</td></tr><tr><td>协议</td><td>发送数据的规则（TCP、UDP）</td></tr><tr><td>FPS</td><td>显卡每秒做出的图片数</td></tr><tr><td>Hz</td><td>显示器每秒重画几次</td></tr><tr><td>像素 (pixel)</td><td>屏幕上的彩色小方块</td></tr><tr><td>分辨率</td><td>宽的像素 × 高的像素</td></tr><tr><td>面板</td><td>屏幕的种类：TN、IPS、VA、OLED</td></tr><tr><td>VRAM（显存）</td><td>显卡的内存</td></tr><tr><td>带宽</td><td>每秒通过的数据量</td></tr></table>
+</div>
+</body></html>
