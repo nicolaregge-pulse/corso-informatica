@@ -1,5 +1,5 @@
 {
- "ora": "12:01",
+ "ora": "12:04",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
@@ -32,7 +32,7 @@
    "alunno": "Lopez A.",
    "voto": 52,
    "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
-   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "verifica": "2 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -42,7 +42,7 @@
    ],
    "vy_prob": [],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 2."
   },
   {
    "alunno": "Moaaz M.",
@@ -317,7 +317,7 @@
    "alunno": "Thomas R.",
    "voto": 46,
    "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "1 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -475,7 +475,7 @@
    "alunno": "Md M.",
    "voto": 40,
    "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "0 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -505,7 +505,7 @@
    "alunno": "Andrea S.",
    "voto": 40,
    "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "0 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
