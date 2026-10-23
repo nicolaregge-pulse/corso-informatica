@@ -1,5 +1,5 @@
 {
- "ora": "11:46",
+ "ora": "11:56",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
@@ -9,15 +9,23 @@
    "alunno": "Giovanni S.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "231 parole · 2 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "231 parole · 2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC21 Documento Google, scrive",
-    0
+    "11:46",
+    "PC21 ChatGPT aperto",
+    0,
+    "veyon/1146_pc21.webp"
    ],
-   "vy_prob": [],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC21 ChatGPT aperto",
+     0,
+     "veyon/1146_pc21.webp"
+    ]
+   ],
    "comportamento": "ok",
    "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 231 parole: l'obiettivo di questa tappa è 800."
   },
@@ -25,7 +33,7 @@
    "alunno": "Cristian C.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "67 parole · 2 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "67 parole · 2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -41,7 +49,7 @@
    "alunno": "Lopez A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "2 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -57,15 +65,22 @@
    "alunno": "Moaaz M.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "2 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC37 Documento con molto testo",
+    "11:55",
+    "PC37 Google Traduttore",
     0
    ],
-   "vy_prob": [],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC37 Documento con molto testo ordinato",
+     0,
+     "veyon/1146_pc37.webp"
+    ]
+   ],
    "comportamento": "ok",
    "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
   },
@@ -73,12 +88,12 @@
    "alunno": "Abdel N.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "2 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC36 app in arabo",
+    "11:55",
+    "PC36 Google Traduttore",
     0
    ],
    "vy_prob": [],
@@ -89,7 +104,7 @@
    "alunno": "Shanzay S.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "189 parole · 1 tappe su 5 · in pari con i tempi",
+   "verifica": "189 parole · 1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -106,18 +121,18 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole. Nel Documento hai 189 parole: l'obiettivo di questa tappa è 350."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 189 parole: l'obiettivo di questa tappa è 350."
   },
   {
    "alunno": "Giexther A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "138 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "138 parole · 1 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC15 Documento Google",
+    "11:55",
+    "PC15 legge la dispensa",
     0
    ],
    "vy_prob": [],
@@ -128,7 +143,7 @@
    "alunno": "Martinez F.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "115 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "115 parole · 1 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -144,45 +159,68 @@
    "alunno": "Udugampalage F.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "114 parole · 1 tappe su 5 · in pari con i tempi",
+   "verifica": "114 parole · 1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC16 app, tappa 1",
-    0
+    "11:46",
+    "PC16 ChatGPT aperto",
+    0,
+    "veyon/1146_pc16.webp"
    ],
-   "vy_prob": [],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC16 ChatGPT aperto",
+     0,
+     "veyon/1146_pc16.webp"
+    ]
+   ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole. Nel Documento hai 114 parole: l'obiettivo di questa tappa è 350."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 114 parole: l'obiettivo di questa tappa è 350."
   },
   {
    "alunno": "Aya B.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "61 parole · 1 tappe su 5 · in pari con i tempi",
+   "verifica": "61 parole · 1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC18 Documento Google",
-    0
+    "11:55",
+    "PC18 chat di intelligenza artificiale aperta",
+    0,
+    "veyon/1155_pc18.webp"
    ],
-   "vy_prob": [],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC18 Gemini aperto, con dentro la consegna del capitolo",
+     0,
+     "veyon/1146_pc18.webp"
+    ],
+    [
+     "11:55",
+     "PC18 chat di intelligenza artificiale aperta",
+     0,
+     "veyon/1155_pc18.webp"
+    ]
+   ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole. Nel Documento hai 61 parole: l'obiettivo di questa tappa è 350. Scrivi con parole tue: le parti copiate non contano."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 61 parole: l'obiettivo di questa tappa è 350. Scrivi con parole tue: le parti copiate non contano."
   },
   {
    "alunno": "Christian A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC26 app, tappa 1",
-    0
+    "11:46",
+    "PC26 ricerca Google con la risposta dell'AI",
+    0,
+    "veyon/1146_pc26.webp"
    ],
    "vy_prob": [
     [
@@ -190,16 +228,22 @@
      "PC26 ancora sull'accesso a Chrome",
      0,
      "veyon/1134_pc26.webp"
+    ],
+    [
+     "11:46",
+     "PC26 ricerca Google con la risposta dell'AI",
+     0,
+     "veyon/1146_pc26.webp"
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Pachas A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -216,13 +260,13 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Alessio C.",
    "voto": 40,
    "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -239,13 +283,13 @@
     ]
    ],
    "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Muhid H.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -255,13 +299,13 @@
    ],
    "vy_prob": [],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Yinlin L.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -271,20 +315,20 @@
    ],
    "vy_prob": [],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Muhammad N.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC23 chat di intelligenza artificiale",
+    "11:46",
+    "PC23 Documento con testo incollato",
     0,
-    "veyon/1138_pc23.webp"
+    "veyon/1146_pc23.webp"
    ],
    "vy_prob": [
     [
@@ -292,16 +336,22 @@
      "PC23 chat di intelligenza artificiale",
      0,
      "veyon/1138_pc23.webp"
+    ],
+    [
+     "11:46",
+     "PC23 Documento con testo incollato",
+     0,
+     "veyon/1146_pc23.webp"
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Thomas R.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -318,18 +368,18 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Enea Z.",
    "voto": 40,
    "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in pari con i tempi",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
-    "11:38",
-    "PC27 app, test del ping",
+    "11:46",
+    "PC27 Informazioni sul sistema di Windows: ok",
     0
    ],
    "vy_prob": [
@@ -341,21 +391,29 @@
     ]
    ],
    "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
   },
   {
    "alunno": "Moaaz A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC38 Documento con molto testo",
-    0
+    "11:55",
+    "PC38 pagina iniziale di Google, non sul compito",
+    0,
+    "veyon/1155_pc38.webp"
    ],
-   "vy_prob": [],
+   "vy_prob": [
+    [
+     "11:55",
+     "PC38 pagina iniziale di Google, non sul compito",
+     0,
+     "veyon/1155_pc38.webp"
+    ]
+   ],
    "comportamento": "ok",
    "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
   },
@@ -363,14 +421,14 @@
    "alunno": "Gonzales J.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:38",
-    "PC31 Documento con un pannello laterale",
+    "11:46",
+    "PC31 Google in modalità AI, con dentro la consegna del capitolo",
     0,
-    "veyon/1138_pc31.webp"
+    "veyon/1146_pc31.webp"
    ],
    "vy_prob": [
     [
@@ -384,6 +442,12 @@
      "PC31 Documento con un pannello laterale",
      0,
      "veyon/1138_pc31.webp"
+    ],
+    [
+     "11:46",
+     "PC31 Google in modalità AI, con dentro la consegna del capitolo",
+     0,
+     "veyon/1146_pc31.webp"
     ]
    ],
    "comportamento": "ok",
@@ -392,14 +456,15 @@
   {
    "alunno": "Md M.",
    "voto": 40,
-   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · in ritardo di 1 tappa",
+   "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "11:38",
-    "PC13 Documento Google",
-    0
+    "11:55",
+    "PC13 sito di sfondi: fuori compito",
+    1,
+    "veyon/1155_pc13.webp"
    ],
    "vy_prob": [
     [
@@ -407,22 +472,29 @@
      "PC13 pagina iniziale di Google, non sul compito",
      0,
      "veyon/1126_pc13.webp"
+    ],
+    [
+     "11:55",
+     "PC13 sito di sfondi: fuori compito",
+     1,
+     "veyon/1155_pc13.webp"
     ]
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
   },
   {
    "alunno": "Andrea S.",
    "voto": 40,
-   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · in ritardo di 1 tappa",
+   "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "11:38",
-    "PC14 app e Documento",
-    0
+    "11:55",
+    "PC14 pagina di video e giochi: fuori compito",
+    1,
+    "veyon/1155_pc14.webp"
    ],
    "vy_prob": [
     [
@@ -430,9 +502,15 @@
      "PC14 desktop vuoto: non ha ancora iniziato",
      0,
      "veyon/1126_pc14.webp"
+    ],
+    [
+     "11:55",
+     "PC14 pagina di video e giochi: fuori compito",
+     1,
+     "veyon/1155_pc14.webp"
     ]
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
   }
  ]
