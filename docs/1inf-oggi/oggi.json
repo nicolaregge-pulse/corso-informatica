@@ -1,5 +1,5 @@
 {
- "ora": "11:29",
+ "ora": "11:35",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
@@ -9,12 +9,12 @@
    "alunno": "Martinez F.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "1 tappe su 5 · in anticipo di 1 tappa",
+   "verifica": "1 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC12 app delle misure, tappa 1",
+    "11:34",
+    "PC12 app, test del ping fatto",
     0
    ],
    "comportamento": "ok",
@@ -27,7 +27,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC38 Documento Google",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -38,7 +42,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC26 ancora sull'accesso a Chrome",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -49,7 +57,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC34 Classroom, compito",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -57,16 +69,16 @@
    "alunno": "Giexther A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · in pari con i tempi",
+   "verifica": "0 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC15 Classroom, compito aperto",
+    "11:34",
+    "PC15 Documento Google",
     0
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 0."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
   },
   {
    "alunno": "Pachas A.",
@@ -76,8 +88,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC25 pagina di Google",
+    "11:34",
+    "PC25 Classroom del corso",
     0
    ],
    "comportamento": "ok",
@@ -91,8 +103,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC18 pagina di accesso a Google",
+    "11:34",
+    "PC18 app, test del ping fatto",
     0
    ],
    "comportamento": "ok",
@@ -101,16 +113,16 @@
   {
    "alunno": "Alessio C.",
    "voto": 40,
-   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "11:26",
-    "PC24 Classroom del corso",
-    0
+    "11:34",
+    "PC24 Google Maps Street View: fuori compito",
+    1
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
   {
@@ -121,8 +133,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC32 Classroom, compito aperto",
+    "11:34",
+    "PC32 app, tappa 0",
     0
    ],
    "comportamento": "ok",
@@ -136,8 +148,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC16 app delle misure",
+    "11:34",
+    "PC16 Classroom, compito",
     0
    ],
    "comportamento": "ok",
@@ -150,7 +162,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC35 Classroom del corso",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -161,7 +177,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC31 pagina iniziale di Google, non sul compito",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -173,8 +193,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC29 finestra di accesso",
+    "11:34",
+    "PC29 app/dispensa in cinese",
     0
    ],
    "comportamento": "ok",
@@ -187,7 +207,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC37 pagina in arabo (app o Documento)",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -199,8 +223,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC13 pagina iniziale di Google, non sul compito",
+    "11:34",
+    "PC13 app, test del ping fatto",
     0
    ],
    "comportamento": "ok",
@@ -213,7 +237,26 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:34",
+    "PC36 app in arabo",
+    0
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
+  },
+  {
+   "alunno": "Muhammad N.",
+   "voto": 40,
+   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "11:34",
+    "PC23 Classroom, compito",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -225,8 +268,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC28 pagina scura di impostazioni, da controllare",
+    "11:34",
+    "PC28 Documento Google (vuoto)",
     0
    ],
    "comportamento": "ok",
@@ -240,8 +283,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC14 desktop vuoto: non ha ancora iniziato",
+    "11:34",
+    "PC14 app, tappa 0",
     0
    ],
    "comportamento": "ok",
@@ -255,8 +298,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC21 Classroom del corso",
+    "11:34",
+    "PC21 Documento Google",
     0
    ],
    "comportamento": "ok",
@@ -270,8 +313,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "11:26",
-    "PC17 desktop vuoto: non ha ancora iniziato",
+    "11:34",
+    "PC17 app, test del ping fatto",
     0
    ],
    "comportamento": "ok",
@@ -280,16 +323,16 @@
   {
    "alunno": "Enea Z.",
    "voto": 40,
-   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "conto": "40 − 3×1 fuori compito = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "11:26",
-    "PC27 Classroom, compito aperto",
-    0
+    "11:34",
+    "PC27 immagini dello spazio (galassie): fuori compito",
+    1
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   }
  ]
