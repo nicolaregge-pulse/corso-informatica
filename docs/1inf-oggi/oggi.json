@@ -1,54 +1,15 @@
 {
- "ora": "12:12",
+ "ora": "12:15",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
  "spiega": "Il voto di oggi parte da 40 e sale con il tuo lavoro: +6 per ogni tappa finita (fino a 4), +1 ogni 100 parole nel Documento (fino a +14). −3 ogni volta che Veyon ti vede fuori lezione, −5 se il testo è copiato. Massimo 80. Qui vedi anche se sei in pari con i tempi e che cosa fare adesso. Si aggiorna ogni 10 minuti circa.",
  "righe": [
   {
-   "alunno": "Giovanni S.",
-   "voto": 54,
-   "conto": "40 + 6×2 tappe + 2 (1 ogni 100 parole) = 54",
-   "verifica": "231 parole · 2 tappe su 5 · in pari con i tempi",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:46",
-     "PC21 ChatGPT aperto",
-     0,
-     "veyon/1146_pc21.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 231 parole: l'obiettivo di questa tappa è 800."
-  },
-  {
-   "alunno": "Lopez A.",
-   "voto": 52,
-   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
-   "verifica": "2 tappe su 5 · in pari con i tempi",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [],
-   "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
-  },
-  {
    "alunno": "Moaaz M.",
-   "voto": 52,
-   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
-   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "voto": 64,
+   "conto": "40 + 6×4 tappe + 0 (1 ogni 100 parole) = 64",
+   "verifica": "5 tappe su 5 · ha finito tutte le tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -72,13 +33,13 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
+   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom."
   },
   {
    "alunno": "Abdel N.",
-   "voto": 52,
-   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
-   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "voto": 64,
+   "conto": "40 + 6×4 tappe + 0 (1 ogni 100 parole) = 64",
+   "verifica": "5 tappe su 5 · ha finito tutte le tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -96,228 +57,13 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
-  },
-  {
-   "alunno": "Shanzay S.",
-   "voto": 47,
-   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
-   "verifica": "189 parole · 1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:03",
-    "PC17 guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:26",
-     "PC17 desktop vuoto: non ha ancora iniziato",
-     0,
-     "veyon/1126_pc17.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 189 parole: l'obiettivo di questa tappa è 350."
-  },
-  {
-   "alunno": "Giexther A.",
-   "voto": 47,
-   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
-   "verifica": "138 parole · 1 tappe su 5 · in ritardo di 2 tappe",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "PC15 legge la dispensa",
-    0
-   ],
-   "vy_prob": [],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 138 parole: l'obiettivo di questa tappa è 350."
-  },
-  {
-   "alunno": "Martinez F.",
-   "voto": 47,
-   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
-   "verifica": "115 parole · 1 tappe su 5 · in ritardo di 2 tappe",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "11:38",
-    "PC12 Documento Google",
-    0
-   ],
-   "vy_prob": [],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 115 parole: l'obiettivo di questa tappa è 350."
-  },
-  {
-   "alunno": "Udugampalage F.",
-   "voto": 47,
-   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
-   "verifica": "113 parole · 1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:46",
-     "PC16 ChatGPT aperto",
-     0,
-     "veyon/1146_pc16.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 113 parole: l'obiettivo di questa tappa è 350."
-  },
-  {
-   "alunno": "Cristian C.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe (su 2 premute: poche parole) + 0 (1 ogni 100 parole) = 46",
-   "verifica": "67 parole · 2 tappe su 5 · in pari con i tempi",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "11:38",
-    "PC32 app, tappa 2",
-    0
-   ],
-   "vy_prob": [],
-   "comportamento": "ok",
-   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 67 parole: l'obiettivo di questa tappa è 800."
-  },
-  {
-   "alunno": "Christian A.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:34",
-     "PC26 ancora sull'accesso a Chrome",
-     0,
-     "veyon/1134_pc26.webp"
-    ],
-    [
-     "11:46",
-     "PC26 ricerca Google con la risposta dell'AI",
-     0,
-     "veyon/1146_pc26.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Pachas A.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "guarda la pagina «La mia giornata»",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:26",
-     "PC25 pagina di Google",
-     0,
-     "veyon/1126_pc25.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Muhid H.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "PC35 desktop vuoto, non sul compito",
-    0,
-    "veyon/1200_pc35.webp"
-   ],
-   "vy_prob": [
-    [
-     "12:00",
-     "PC35 desktop vuoto, non sul compito",
-     0,
-     "veyon/1200_pc35.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Yinlin L.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "11:38",
-    "PC29 Documento Google",
-    0
-   ],
-   "vy_prob": [],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Muhammad N.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:03",
-    "PC23 Documento con testo incollato e selezionato",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:38",
-     "PC23 chat di intelligenza artificiale",
-     0,
-     "veyon/1138_pc23.webp"
-    ],
-    [
-     "11:46",
-     "PC23 Documento con testo incollato",
-     0,
-     "veyon/1146_pc23.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
+   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom."
   },
   {
    "alunno": "Thomas R.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
+   "voto": 64,
+   "conto": "40 + 6×4 tappe + 0 (1 ogni 100 parole) = 64",
+   "verifica": "5 tappe su 5 · ha finito tutte le tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -334,88 +80,36 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
+   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom."
   },
   {
-   "alunno": "Alessio C.",
-   "voto": 43,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 43",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 1,
-   "vy_ult": [
-    "12:03",
-    "PC24 chat di intelligenza artificiale aperta",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:34",
-     "PC24 Google Maps Street View: fuori compito",
-     1,
-     "veyon/1134_pc24.webp"
-    ]
-   ],
-   "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Enea Z.",
-   "voto": 43,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 43",
-   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
-   "voto_ver": null,
-   "fuori": 1,
-   "vy_ult": [
-    "11:46",
-    "PC27 Informazioni sul sistema di Windows: ok",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:34",
-     "PC27 immagini dello spazio: fuori compito",
-     1,
-     "veyon/1134_pc27.webp"
-    ]
-   ],
-   "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
-  },
-  {
-   "alunno": "Aya B.",
-   "voto": 41,
-   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) − 5 copiato = 41",
-   "verifica": "61 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "alunno": "Giovanni S.",
+   "voto": 54,
+   "conto": "40 + 6×2 tappe (su 4 premute: poche parole) + 2 (1 ogni 100 parole) = 54",
+   "verifica": "231 parole · 4 tappe su 5 · in anticipo di 2 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "12:03",
-    "PC18 chat di intelligenza artificiale aperta",
+    "12:00",
+    "guarda la pagina «La mia giornata»",
     0
    ],
    "vy_prob": [
     [
      "11:46",
-     "PC18 Gemini aperto, con dentro la consegna del capitolo",
+     "PC21 ChatGPT aperto",
      0,
-     "veyon/1146_pc18.webp"
-    ],
-    [
-     "11:55",
-     "PC18 chat di intelligenza artificiale aperta",
-     0,
-     "veyon/1155_pc18.webp"
+     "veyon/1146_pc21.webp"
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 61 parole: l'obiettivo di questa tappa è 350. Scrivi con parole tue: le parti copiate non contano."
+   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 231 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Moaaz A.",
-   "voto": 40,
-   "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "voto": 52,
+   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -433,13 +127,13 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
   },
   {
    "alunno": "Gonzales J.",
-   "voto": 40,
-   "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "voto": 52,
+   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -468,13 +162,42 @@
     ]
    ],
    "comportamento": "ok",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
+  },
+  {
+   "alunno": "Muhammad N.",
+   "voto": 52,
+   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) = 52",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:03",
+    "PC23 Documento con testo incollato e selezionato",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:38",
+     "PC23 chat di intelligenza artificiale",
+     0,
+     "veyon/1138_pc23.webp"
+    ],
+    [
+     "11:46",
+     "PC23 Documento con testo incollato",
+     0,
+     "veyon/1146_pc23.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
   },
   {
    "alunno": "Md M.",
-   "voto": 40,
-   "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "voto": 51,
+   "conto": "40 + 6×2 tappe + 2 (1 ogni 100 parole) − 3×1 fuori compito = 51",
+   "verifica": "257 parole · 2 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -498,13 +221,290 @@
     ]
    ],
    "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 0."
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 257 parole: l'obiettivo di questa tappa è 800."
+  },
+  {
+   "alunno": "Alessio C.",
+   "voto": 49,
+   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 49",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 1,
+   "vy_ult": [
+    "12:03",
+    "PC24 chat di intelligenza artificiale aperta",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:34",
+     "PC24 Google Maps Street View: fuori compito",
+     1,
+     "veyon/1134_pc24.webp"
+    ]
+   ],
+   "comportamento": "fuori compito 1 volte",
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
+  },
+  {
+   "alunno": "Enea Z.",
+   "voto": 49,
+   "conto": "40 + 6×2 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 49",
+   "verifica": "2 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 1,
+   "vy_ult": [
+    "11:46",
+    "PC27 Informazioni sul sistema di Windows: ok",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:34",
+     "PC27 immagini dello spazio: fuori compito",
+     1,
+     "veyon/1134_pc27.webp"
+    ]
+   ],
+   "comportamento": "fuori compito 1 volte",
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole."
+  },
+  {
+   "alunno": "Martinez F.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe (su 3 premute: poche parole) + 1 (1 ogni 100 parole) = 47",
+   "verifica": "115 parole · 3 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "11:38",
+    "PC12 Documento Google",
+    0
+   ],
+   "vy_prob": [],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 3, obiettivo 1200 parole. Nel Documento hai 115 parole: l'obiettivo di questa tappa è 1200."
+  },
+  {
+   "alunno": "Giexther A.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe (su 2 premute: poche parole) + 1 (1 ogni 100 parole) = 47",
+   "verifica": "138 parole · 2 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "PC15 legge la dispensa",
+    0
+   ],
+   "vy_prob": [],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 2. Nel Documento hai 138 parole: l'obiettivo di questa tappa è 800."
+  },
+  {
+   "alunno": "Muhid H.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe (su 2 premute: poche parole) + 1 (1 ogni 100 parole) = 47",
+   "verifica": "108 parole · 2 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "PC35 desktop vuoto, non sul compito",
+    0,
+    "veyon/1200_pc35.webp"
+   ],
+   "vy_prob": [
+    [
+     "12:00",
+     "PC35 desktop vuoto, non sul compito",
+     0,
+     "veyon/1200_pc35.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 108 parole: l'obiettivo di questa tappa è 800."
+  },
+  {
+   "alunno": "Shanzay S.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
+   "verifica": "189 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:03",
+    "PC17 guarda la pagina «La mia giornata»",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:26",
+     "PC17 desktop vuoto: non ha ancora iniziato",
+     0,
+     "veyon/1126_pc17.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 189 parole: l'obiettivo di questa tappa è 350."
+  },
+  {
+   "alunno": "Christian A.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
+   "verifica": "156 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "guarda la pagina «La mia giornata»",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:34",
+     "PC26 ancora sull'accesso a Chrome",
+     0,
+     "veyon/1134_pc26.webp"
+    ],
+    [
+     "11:46",
+     "PC26 ricerca Google con la risposta dell'AI",
+     0,
+     "veyon/1146_pc26.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 156 parole: l'obiettivo di questa tappa è 350."
+  },
+  {
+   "alunno": "Udugampalage F.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
+   "verifica": "113 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "guarda la pagina «La mia giornata»",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC16 ChatGPT aperto",
+     0,
+     "veyon/1146_pc16.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 113 parole: l'obiettivo di questa tappa è 350."
+  },
+  {
+   "alunno": "Lopez A.",
+   "voto": 47,
+   "conto": "40 + 6×1 tappe + 1 (1 ogni 100 parole) = 47",
+   "verifica": "100 parole · 1 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "guarda la pagina «La mia giornata»",
+    0
+   ],
+   "vy_prob": [],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 100 parole: l'obiettivo di questa tappa è 350."
+  },
+  {
+   "alunno": "Cristian C.",
+   "voto": 46,
+   "conto": "40 + 6×1 tappe (su 5 premute: poche parole) + 0 (1 ogni 100 parole) = 46",
+   "verifica": "67 parole · 5 tappe su 5 · ha finito tutte le tappe",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "11:38",
+    "PC32 app, tappa 2",
+    0
+   ],
+   "vy_prob": [],
+   "comportamento": "ok",
+   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom. Nel Documento hai 67 parole: l'obiettivo di questa tappa è 1500."
+  },
+  {
+   "alunno": "Yinlin L.",
+   "voto": 46,
+   "conto": "40 + 6×1 tappe (su 2 premute: poche parole) + 0 (1 ogni 100 parole) = 46",
+   "verifica": "91 parole · 2 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "11:38",
+    "PC29 Documento Google",
+    0
+   ],
+   "vy_prob": [],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 2, obiettivo 800 parole. Nel Documento hai 91 parole: l'obiettivo di questa tappa è 800."
+  },
+  {
+   "alunno": "Pachas A.",
+   "voto": 46,
+   "conto": "40 + 6×1 tappe + 0 (1 ogni 100 parole) = 46",
+   "verifica": "1 tappe su 5 · in ritardo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "guarda la pagina «La mia giornata»",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:26",
+     "PC25 pagina di Google",
+     0,
+     "veyon/1126_pc25.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1."
+  },
+  {
+   "alunno": "Aya B.",
+   "voto": 41,
+   "conto": "40 + 6×1 tappe (su 4 premute: poche parole) + 0 (1 ogni 100 parole) − 5 copiato = 41",
+   "verifica": "61 parole · 4 tappe su 5 · in anticipo di 2 tappe",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:03",
+    "PC18 chat di intelligenza artificiale aperta",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC18 Gemini aperto, con dentro la consegna del capitolo",
+     0,
+     "veyon/1146_pc18.webp"
+    ],
+    [
+     "11:55",
+     "PC18 chat di intelligenza artificiale aperta",
+     0,
+     "veyon/1155_pc18.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 61 parole: l'obiettivo di questa tappa è 1500. Scrivi con parole tue: le parti copiate non contano."
   },
   {
    "alunno": "Andrea S.",
    "voto": 40,
    "conto": "40 + 6×0 tappe + 0 (1 ogni 100 parole) − 3×1 fuori compito = 40",
-   "verifica": "0 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "40 parole · 0 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
