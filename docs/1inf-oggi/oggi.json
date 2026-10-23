@@ -1,10 +1,25 @@
 {
- "ora": "11:21",
+ "ora": "11:29",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
  "spiega": "Oggi: le tappe dell'app «Le misure del mio PC» e il tuo Documento Google, da consegnare su Classroom entro le 14:00. Qui vedi se sei in pari con i tempi, quante parole hai e che cosa fare. −3 ogni volta che Veyon ti vede fuori lezione. Si aggiorna ogni 10 minuti circa.",
  "righe": [
+  {
+   "alunno": "Martinez F.",
+   "voto": 40,
+   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
+   "verifica": "1 tappe su 5 · in anticipo di 1 tappa",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "11:26",
+    "PC12 app delle misure, tappa 1",
+    0
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Vai avanti così: tappa 1, obiettivo 350 parole."
+  },
   {
    "alunno": "Moaaz A.",
    "voto": 40,
@@ -42,12 +57,16 @@
    "alunno": "Giexther A.",
    "voto": 40,
    "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
+   "verifica": "0 tappe su 5 · in pari con i tempi",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC15 Classroom, compito aperto",
+    0
+   ],
    "comportamento": "ok",
-   "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
+   "cosa_fare": "Vai avanti così: tappa 0."
   },
   {
    "alunno": "Pachas A.",
@@ -56,7 +75,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC25 pagina di Google",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -67,7 +90,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC18 pagina di accesso a Google",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -78,7 +105,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC24 Classroom del corso",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -89,7 +120,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC32 Classroom, compito aperto",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -100,18 +135,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
-   "comportamento": "ok",
-   "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
-  },
-  {
-   "alunno": "Martinez F.",
-   "voto": 40,
-   "conto": "40 = 40 (voto di oggi: regola delle tappe da approvare; il Documento si valuta dopo)",
-   "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC16 app delle misure",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -144,7 +172,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC29 finestra di accesso",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -166,7 +198,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC13 pagina iniziale di Google, non sul compito",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -188,7 +224,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC28 pagina scura di impostazioni, da controllare",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -199,7 +239,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC14 desktop vuoto: non ha ancora iniziato",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -210,7 +254,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC21 Classroom del corso",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -221,7 +269,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC17 desktop vuoto: non ha ancora iniziato",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   },
@@ -232,7 +284,11 @@
    "verifica": "0 tappe su 5 · non ha ancora aperto l'app (o non ha scritto il nome)",
    "voto_ver": null,
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "11:26",
+    "PC27 Classroom, compito aperto",
+    0
+   ],
    "comportamento": "ok",
    "cosa_fare": "Apri l'app «Le misure del mio PC», scrivi nome e cognome e premi «Inizia la tappa»."
   }
