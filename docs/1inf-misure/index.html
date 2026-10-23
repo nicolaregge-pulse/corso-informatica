@@ -102,7 +102,7 @@ function voto(p){return p<30?t('v1'):p<60?t('v2'):p<100?t('v3'):t('v4')}
 async function misura(url,opt){const v=[];for(let i=0;i<11;i++){const a=performance.now();try{await fetch(url+(url.includes('?')?'&':'?')+'r='+Math.random(),Object.assign({cache:'no-store'},opt))}catch(e){return null}const d=performance.now()-a;if(i>0)v.push(Math.round(d));}return v}
 function riga(nome,v){if(!v)return '<tr><td>'+nome+'</td><td colspan="2" class="ko">'+t('blocc')+'</td></tr>';
  const m=v.reduce((a,b)=>a+b,0)/v.length;let j=0;for(let i=1;i<v.length;i++)j+=Math.abs(v[i]-v[i-1]);j/=v.length-1;
- return '<tr><td><b>'+nome+'</b><br><span class="ts">'+t('mis')+': '+v.join(', ')+'</span></td><td>'+t('med')+': <b>'+n(m,0)+' ms</b> ('+voto(m)+')<br>'+t('min')+' '+Math.min(...v)+' · '+t('max')+' '+Math.max(...v)+'</td><td>'+t('jit')+': <b>'+n(j,0)+' ms</b><br>'+(j<10?t('jb'):t('ja'))+'</td></tr>'}
+ return '<tr><td><b>'+nome+'</b><br><span class="ts">'+t('mis')+': '+v.join(', ')+'</span></td><td>'+t('med')+': <b>'+n(m,0)+' ms</b> ('+voto(m)+')<br>'+(T[L]||T.it).min+' '+Math.min(...v)+' · '+t('max')+' '+Math.max(...v)+'</td><td>'+t('jit')+': <b>'+n(j,0)+' ms</b><br>'+(j<10?t('jb'):t('ja'))+'</td></tr>'}
 async function test1(e){e.target.disabled=true;const a=await misura('p.txt',{}),b=await misura('https://www.google.com/generate_204',{mode:'no-cors'});
  ultimi.r1=()=>{const r=document.getElementById('r1');r.innerHTML='<table>'+riga(t('srvA'),a)+riga(t('srvB'),b)+'</table>'+timbro();r.classList.add('on')};ultimi.r1();e.target.disabled=false}
 async function test2(e){e.target.disabled=true;const bar=document.getElementById('bar');bar.style.width='0';
