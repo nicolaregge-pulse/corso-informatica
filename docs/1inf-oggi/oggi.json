@@ -1,9 +1,9 @@
 {
- "ora": "12:58",
+ "ora": "13:09",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
- "parole_alle": "12:58",
+ "parole_alle": "13:09",
  "spiega": "Il voto di oggi parte da 40 e sale con il tuo lavoro: +6 per ogni tappa finita (fino a 4), +1 ogni 100 parole nel Documento (fino a +14). −3 ogni volta che Veyon ti vede fuori lezione, −5 se il testo è copiato. Massimo 80. Qui vedi anche se sei in pari con i tempi e che cosa fare adesso. Le tappe contano quando premi FATTO! nell'app; le parole del Documento le contiamo ogni 10 minuti circa: se scrivi, il voto sale al giro dopo.",
  "righe": [
   {
@@ -95,7 +95,7 @@
    "alunno": "Moaaz A.",
    "voto": 64,
    "conto": "40 + 6×4 tappe + 0 per le parole (+13 sospesi: AI vista, si sbloccano dopo la prova a voce con il prof) = 64",
-   "verifica": "1334 parole · 4 tappe su 5 · in pari con i tempi",
+   "verifica": "1334 parole · 4 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -115,7 +115,7 @@
    "ai": [
     "12:35"
    ],
-   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 1334 parole: l'obiettivo di questa tappa è 1500."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 4. Nel Documento hai 1334 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Cristian C.",
@@ -182,7 +182,7 @@
    "alunno": "Md M.",
    "voto": 59,
    "conto": "40 + 6×3 tappe (su 4 premute: poche parole) + 4 (1 ogni 100 parole) − 3×1 fuori compito = 59",
-   "verifica": "434 parole · 4 tappe su 5 · in pari con i tempi",
+   "verifica": "434 parole · 4 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -207,7 +207,7 @@
    ],
    "comportamento": "fuori compito 1 volte",
    "ai": [],
-   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 434 parole: l'obiettivo di questa tappa è 1500."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 4. Nel Documento hai 434 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Moaaz M.",
@@ -305,7 +305,7 @@
    "alunno": "Enea Z.",
    "voto": 55,
    "conto": "40 + 6×3 tappe + 0 per le parole (+11 sospesi: AI vista, si sbloccano dopo la prova a voce con il prof) − 3×1 fuori compito = 55",
-   "verifica": "1119 parole · 3 tappe su 5 · in ritardo di 1 tappa",
+   "verifica": "1119 parole · 3 tappe su 5 · in ritardo di 2 tappe",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -396,7 +396,7 @@
    "alunno": "Yinlin L.",
    "voto": 54,
    "conto": "40 + 6×2 tappe (su 4 premute: poche parole) + 2 (1 ogni 100 parole) = 54",
-   "verifica": "214 parole · 4 tappe su 5 · in pari con i tempi",
+   "verifica": "214 parole · 4 tappe su 5 · in ritardo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -407,13 +407,13 @@
    "vy_prob": [],
    "comportamento": "ok",
    "ai": [],
-   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 214 parole: l'obiettivo di questa tappa è 1500."
+   "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 4. Nel Documento hai 214 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Lopez A.",
    "voto": 54,
    "conto": "40 + 6×2 tappe + 2 (1 ogni 100 parole) = 54",
-   "verifica": "249 parole · 2 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "249 parole · 2 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -430,7 +430,7 @@
    "alunno": "Muhid H.",
    "voto": 54,
    "conto": "40 + 6×2 tappe + 2 (1 ogni 100 parole) = 54",
-   "verifica": "230 parole · 2 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "230 parole · 2 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -523,7 +523,7 @@
    "alunno": "Christian A.",
    "voto": 52,
    "conto": "40 + 6×2 tappe + 0 per le parole (+7 sospesi: AI vista, si sbloccano dopo la prova a voce con il prof) = 52",
-   "verifica": "709 parole · 2 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "709 parole · 2 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -555,7 +555,7 @@
    "alunno": "Udugampalage F.",
    "voto": 52,
    "conto": "40 + 6×2 tappe + 0 per le parole (+3 sospesi: AI vista, si sbloccano dopo la prova a voce con il prof) = 52",
-   "verifica": "312 parole · 2 tappe su 5 · in ritardo di 2 tappe",
+   "verifica": "312 parole · 2 tappe su 5 · in ritardo di 3 tappe",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
