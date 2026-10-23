@@ -39,7 +39,7 @@ it: [
   'Scrivi i capitoli 11, 12 e 13.',
   'Guarda in basso a sinistra nel Documento: hai almeno 1500 parole? Se no, aggiungi esempi ai capitoli più corti.',
   'Torna su Classroom, nel riquadro «Il tuo lavoro» clicca il bottone blu «Consegna» e poi di nuovo «Consegna». FATTO!'], cap: [
-  ['11. Il gioco dei bersagli con il lag', 'Che cosa cambia tra ping 20 e ping 200? Quanti bersagli hai preso nei due casi? Collega quello che hai sentito con il ping che hai misurato nella tappa 1.', 100],
+  ['11. Il gioco dei bersagli con il lag', 'Che cosa cambia tra ping 20 e ping 200? Quanti bersagli hai preso nei due casi? Nella tappa 1 hai misurato il ping del tuo PC (per esempio 12 ms): è più vicino a 20 o a 200? Allora, giocando da questo PC, avresti lag o no?', 100],
   ['12. Il PC del laboratorio va bene per giocare?', 'Usa tutti i tuoi numeri (ping, jitter, Mbps, Hz, risoluzione) e le tabelle della dispensa: per ogni numero di\' se va bene o no. Alla fine dai il tuo voto al PC.', 150],
   ['13. Che cosa ho imparato', 'Tre cose che hai imparato oggi, una cosa che non ti è ancora chiara, e come spiegheresti il ping a un amico.', 100],
   ['Il mio glossario', 'In fondo al Documento, sotto il titolo «Il mio glossario»: aggiungi le parole nuove di questa tappa (lag, scheda video, VRAM, pannello). Per ognuna: che cosa vuol dire, con parole tue, e un esempio.', 30]]}
@@ -82,7 +82,7 @@ ar: [
   'اكتب الفصول 11 و12 و13.',
   'انظر في الأسفل على اليسار في المستند: هل عندك 1500 كلمة على الأقل؟ إذا لا، أضف أمثلة إلى الفصول الأقصر.',
   'ارجع إلى Classroom، في مربع «Il tuo lavoro» اضغط الزر الأزرق «Consegna» (تسليم) ثم مرة أخرى «Consegna». تمّ!'], cap: [
-  ['11. لعبة الأهداف مع التأخير', 'ماذا يتغيّر بين بينغ 20 وبينغ 200؟ كم هدفًا أصبت في الحالتين؟ اربط ما شعرت به بالبينغ الذي قسته في المرحلة 1.', 100],
+  ['11. لعبة الأهداف مع التأخير', 'ماذا يتغيّر بين بينغ 20 وبينغ 200؟ كم هدفًا أصبت في الحالتين؟ في المرحلة 1 قست بينغ حاسوبك (مثلًا 12 ms): هل هو أقرب إلى 20 أم إلى 200؟ إذن، لو لعبت من هذا الحاسوب، هل سيكون عندك تأخير (lag) أم لا؟', 100],
   ['12. هل حاسوب المختبر مناسب للعب؟', 'استعمل كل أرقامك (البينغ، التذبذب، Mbps، Hz، الدقّة) وجداول الملف: لكل رقم قل هل هو جيد أم لا. في النهاية أعطِ علامتك للحاسوب.', 150],
   ['13. ماذا تعلّمت', 'ثلاثة أشياء تعلّمتها اليوم، شيء واحد ما زال غير واضح، وكيف تشرح البينغ لصديق.', 100],
   ['مسرد كلماتي', 'في آخر المستند، تحت العنوان «Il mio glossario» (مسرد كلماتي): أضف الكلمات الجديدة في هذه المرحلة (lag, scheda video, VRAM, pannello). لكل كلمة: ماذا تعني بكلماتك، ومثال.', 30]]}
@@ -125,7 +125,7 @@ zh: [
   '写第 11、12、13 章。',
   '看文档左下角：至少 1500 个词了吗？如果没有，在短的章节里加例子。',
   '回到 Classroom，在 «Il tuo lavoro» 框里点蓝色按钮 «Consegna»（提交），再点一次 «Consegna»。完成！'], cap: [
-  ['11. 有延迟的打靶游戏', 'ping 20 和 ping 200 有什么不同？两次各打中几个靶？把你的感觉和第 1 步测到的 ping 联系起来。', 100],
+  ['11. 有延迟的打靶游戏', 'ping 20 和 ping 200 有什么不同？两次各打中几个靶？第 1 步你测了自己电脑的 ping（比如 12 ms）：它更接近 20 还是 200？那么用这台电脑玩游戏，会不会卡（lag）？', 100],
   ['12. 实验室的电脑适合玩游戏吗？', '用你所有的数字（ping、抖动、Mbps、Hz、分辨率）和讲义里的表格：每个数字说说好不好。最后给这台电脑打分。', 150],
   ['13. 我学到了什么', '今天学到的三件事，一件还不清楚的事，以及你会怎么向朋友解释 ping。', 100],
   ['我的词汇表', '在文档最后，标题 «Il mio glossario»（我的词汇表）下面：加上这一步的新词（lag, scheda video, VRAM, pannello）。每个词写：用你自己的话说它是什么意思，再举一个例子。', 30]]}
