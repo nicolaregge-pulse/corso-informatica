@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le misure del mio PC</title>
+<!-- 1INF 23/10/2026. App per i ragazzi (Nicola: «la LIM non si vede bene: fai un'app HTML che gestisca le cose e i tempi»;
+     «fagli fare i test e raccontarli: download, ping…; qui è quasi tutto bloccato dal firewall»).
+     Tappe con il tempo di ognuno, i test dentro le tappe, i capitoli del Documento Google. I test usano solo github.io e Google.
+     Nessun dato viene inviato: il tempo e le tappe fatte restano solo nel browser del ragazzo. Testi delle tappe: tappe.js. -->
+<style>
+:root{--bg:#f6f8fb;--fg:#1b2430;--mu:#5c6672;--card:#fff;--ln:#c9d2dc;--blu:#1f6feb;--ok:#2e7d32;--ko:#c62828;--gi:#f9a825}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",Arial,sans-serif}
+main{max-width:920px;margin:0 auto;padding:10px 16px 40px}h1{margin:6px 0 2px;font-size:28px}h2{margin:0;font-size:21px}
+.lingue{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 8px}.lingue button{font:inherit;padding:6px 14px;border-radius:20px;border:2px solid var(--blu);background:#fff;cursor:pointer}.lingue button.on{background:var(--blu);color:#fff}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:12px 16px;margin:12px 0}
+.tappa{border-width:2px}.tappa.fatta{border-color:var(--ok);background:#f1f8f2}.tappa.ora{border-color:var(--blu);box-shadow:0 2px 10px #1f6feb33}
+.testa{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer}.corpo{display:none;margin-top:8px}.tappa.aperta .corpo{display:block}
+.timer{font-weight:800;font-size:22px;font-variant-numeric:tabular-nums;white-space:nowrap}.timer.fine{color:var(--ko)}
+.go{font:inherit;font-weight:700;padding:10px 18px;border:0;border-radius:10px;background:var(--blu);color:#fff;cursor:pointer;margin:6px 6px 6px 0;text-decoration:none;display:inline-block}.go:disabled{opacity:.5}.go.verde{background:var(--ok)}
+.ris{margin-top:10px;padding:10px 12px;border-radius:10px;background:#eef3fb;display:none}.ris.on{display:block}
+.big{font-size:26px;font-weight:800}.ts{font-size:14px;color:var(--mu)}table{border-collapse:collapse;width:100%;margin:6px 0}td,th{border:1px solid var(--ln);padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.nota{background:#fff8e1;border-inline-start:5px solid var(--gi);padding:8px 12px;border-radius:8px;margin:8px 0;font-size:16px}
+.ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}input{font:inherit;padding:6px 10px;border:1px solid var(--ln);border-radius:8px;width:100%;max-width:420px}
+.bar{height:14px;background:#dde3ea;border-radius:7px;overflow:hidden;margin:6px 0}.bar i{display:block;height:100%;width:0;background:var(--blu)}
+.prog{display:flex;gap:6px;margin:6px 0}.prog span{flex:1;height:12px;border-radius:6px;background:#dde3ea}.prog span.f{background:var(--ok)}.prog span.o{background:var(--blu)}
+ol{margin:4px 0;padding-inline-start:26px}.mu{color:var(--mu)}
+</style></head><body>
+<main>
+<div class="lingue"><button data-l="it">Italiano</button><button data-l="ar">العربية</button><button data-l="zh">中文</button></div>
+<h1 data-t="titApp"></h1><p data-t="introApp" class="mu"></p>
+<div class="prog" id="prog"></div>
+<div class="card"><label data-t="nome"></label><br><input id="nome" autocomplete="off"></div>
+<div id="tappe"></div>
+<div class="nota" data-t="shot"></div>
+<div class="nota" data-t="aiuto"></div>
+</main>
+<script src="tappe.js"></script>
+<script>
+const T={
+it:{tit:'Il laboratorio delle misure',intro:'Oggi misuri tu la rete e lo schermo del PC che stai usando. Ogni risultato ha la data e l\'ora: fai lo screenshot e incollalo nel tuo Documento Google, poi racconta con parole tue che cosa hai misurato e che cosa vuol dire.',nome:'Scrivi il tuo nome (compare sui risultati, non viene inviato a nessuno)',
+t1:'Test 1 · Il ping e il jitter',t1d:'Il PC manda 10 piccoli messaggi a due server e misura quanto ci mettono ad andare e tornare. Server A: il sito del corso (GitHub). Server B: Google.',b1:'Misura il ping',
+t2:'Test 2 · La velocità di download',t2d:'Il PC scarica un file di 20 MB dal sito del corso e misura quanti secondi ci mette. Poi calcola la velocità in Mbps e in MB al secondo.',b2:'Scarica il file di prova',
+t3:'Test 3 · Lo schermo: Hz, risoluzione, pixel',t3d:'La pagina conta quante volte al secondo lo schermo si ridisegna (Hz) e legge la risoluzione. Poi fa i conti: pixel, peso di una foto, banda del cavo video.',b3:'Misura lo schermo',
+shot:'Screenshot: premi Windows + Shift + S, trascina un rettangolo sul risultato, poi nel Documento premi Ctrl + V. Sotto l\'immagine scrivi che cosa si vede.',
+srvA:'Server A (sito del corso)',srvB:'Server B (Google)',mis:'misure (ms)',med:'ping medio',jit:'jitter',min:'minimo',max:'massimo',blocc:'bloccato dal firewall della scuola',
+v1:'ottimo',v2:'buono',v3:'si sente un po\'',v4:'lag',jb:'basso: gioco regolare',ja:'alto: il personaggio salta',
+sec:'secondi',vel:'velocità',film:'Un film da 2 GB con questa velocità ci mette circa',minuti:'minuti',err:'Il download non è riuscito: probabilmente lo blocca il firewall. Scrivilo nel Documento: anche questo è un risultato!',
+hz:'Frequenza dello schermo',ris:'Risoluzione',pix:'Pixel in tutto',foto:'Una foto di questo schermo senza compressione',video:'1 minuto di video senza compressione a 30 FPS',banda:'Banda del cavo video (pixel × 24 × Hz)',cavo:'Cavo che basta',quante:'Il 4K ha quante volte i tuoi pixel',ms:'Ogni immagine resta sullo schermo',ora:'Misurato il'},
+ar:{tit:'مختبر القياسات',intro:'اليوم أنت تقيس الشبكة وشاشة الحاسوب الذي تستعمله. كل نتيجة فيها التاريخ والساعة: خذ لقطة شاشة والصقها في مستند Google، ثم احكِ بكلماتك ماذا قست وماذا يعني.',nome:'اكتب اسمك (يظهر على النتائج، ولا يُرسل لأحد)',
+t1:'الاختبار 1 · البينغ والتذبذب',t1d:'الحاسوب يرسل 10 رسائل صغيرة إلى خادمين ويقيس كم تحتاج لتذهب وتعود. الخادم A: موقع الدرس (GitHub). الخادم B: Google.',b1:'قِس البينغ',
+t2:'الاختبار 2 · سرعة التنزيل',t2d:'الحاسوب ينزّل ملفًا حجمه 20 MB من موقع الدرس ويقيس كم ثانية يحتاج. ثم يحسب السرعة بـ Mbps وبـ MB في الثانية.',b2:'نزّل ملف التجربة',
+t3:'الاختبار 3 · الشاشة: Hz، الدقّة، البكسلات',t3d:'الصفحة تعدّ كم مرة في الثانية ترسم الشاشة الصورة (Hz) وتقرأ الدقّة. ثم تحسب: البكسلات، وزن صورة، نطاق كابل الفيديو.',b3:'قِس الشاشة',
+shot:'لقطة الشاشة: اضغط Windows + Shift + S، اسحب مستطيلًا على النتيجة، ثم في المستند اضغط Ctrl + V. تحت الصورة اكتب ماذا نرى.',
+srvA:'الخادم A (موقع الدرس)',srvB:'الخادم B (Google)',mis:'القياسات (ms)',med:'متوسط البينغ',jit:'التذبذب',min:'الأدنى',max:'الأعلى',blocc:'محجوب بجدار الحماية في المدرسة',
+v1:'ممتاز',v2:'جيد',v3:'تأخير قليل',v4:'تأخير (lag)',jb:'منخفض: اللعب منتظم',ja:'عالٍ: الشخصية تقفز',
+sec:'ثانية',vel:'السرعة',film:'فيلم 2 GB بهذه السرعة يحتاج تقريبًا',minuti:'دقيقة',err:'لم ينجح التنزيل: ربما يحجبه جدار الحماية. اكتب ذلك في المستند: هذه أيضًا نتيجة!',
+hz:'تردّد الشاشة',ris:'الدقّة',pix:'كل البكسلات',foto:'صورة لهذه الشاشة بدون ضغط',video:'دقيقة فيديو بدون ضغط بـ 30 FPS',banda:'نطاق كابل الفيديو (البكسلات × 24 × Hz)',cavo:'الكابل الذي يكفي',quante:'كم مرة بكسلات 4K أكثر من بكسلاتك',ms:'كل صورة تبقى على الشاشة',ora:'تاريخ القياس'},
+zh:{tit:'测量实验室',intro:'今天你自己来测量你正在用的电脑的网络和屏幕。每个结果都有日期和时间：截图并粘贴到你的 Google 文档里，然后用自己的话说说你测了什么、这代表什么。',nome:'写你的名字（显示在结果上，不会发送给任何人）',
+t1:'测试 1 · ping 和抖动',t1d:'电脑向两个服务器发送 10 条小消息，测量往返需要多久。服务器 A：课程网站 (GitHub)。服务器 B：Google。',b1:'测量 ping',
+t2:'测试 2 · 下载速度',t2d:'电脑从课程网站下载一个 20 MB 的文件，测量需要几秒。然后算出以 Mbps 和每秒 MB 为单位的速度。',b2:'下载测试文件',
+t3:'测试 3 · 屏幕：Hz、分辨率、像素',t3d:'网页会数屏幕每秒重画几次 (Hz)，并读取分辨率。然后计算：像素、一张图片的大小、视频线的带宽。',b3:'测量屏幕',
+shot:'截图：按 Windows + Shift + S，拖一个长方形框住结果，然后在文档里按 Ctrl + V。在图片下面写图上是什么。',
+srvA:'服务器 A（课程网站）',srvB:'服务器 B（Google）',mis:'测量值 (ms)',med:'平均 ping',jit:'抖动',min:'最小',max:'最大',blocc:'被学校防火墙拦截',
+v1:'非常好',v2:'好',v3:'有一点感觉',v4:'卡顿 (lag)',jb:'低：游戏平稳',ja:'高：人物会跳',
+sec:'秒',vel:'速度',film:'用这个速度下载 2 GB 的电影大约需要',minuti:'分钟',err:'下载没有成功：可能被防火墙拦截了。把这个写进文档：这也是一个结果！',
+hz:'屏幕刷新率',ris:'分辨率',pix:'像素总数',foto:'这个屏幕一张不压缩的图片',video:'30 FPS 不压缩的 1 分钟视频',banda:'视频线带宽（像素 × 24 × Hz）',cavo:'够用的线',quante:'4K 的像素是你的几倍',ms:'每张图片在屏幕上停留',ora:'测量时间'}};
+
+const U={it:{titApp:'Le misure del mio PC',introApp:'Oggi misuri la rete e lo schermo del tuo PC e scrivi il tuo Documento Google. Fai una tappa alla volta: ogni tappa ha il suo tempo. Quando hai finito una tappa premi FATTO! e si apre la successiva.',inizia:'Inizia la tappa',fatto:'FATTO!',fine:'Tempo finito: chiudi il capitolo che stai scrivendo e premi FATTO!',min:'minuti',obiettivo:'Obiettivo: arrivare a',parole:'parole',cap:'Capitolo',cosa:'Che cosa scrivere',pmin:'Parole minime',passi:'Che cosa fare',lab:'Apri il Laboratorio del gamer',brava:'Tappa fatta: bravo/a! Fallo vedere al tuo vicino e poi vai alla prossima.',tutto:'Hai finito tutte le tappe! Controlla di aver premuto «Consegna» su Classroom.',aiuto:'Sei bloccato? Scrivi qui sotto all\'assistente: puoi incollare anche uno screenshot. Al prof solo per problemi del PC o dell\'account.',riapri:'Rifai'},
+ar:{titApp:'قياسات حاسوبي',introApp:'اليوم تقيس الشبكة وشاشة حاسوبك وتكتب مستند Google الخاص بك. افعل مرحلة واحدة كل مرة: لكل مرحلة وقتها. عندما تنتهي من مرحلة اضغط «تمّ!» فتُفتح المرحلة التالية.',inizia:'ابدأ المرحلة',fatto:'تمّ!',fine:'انتهى الوقت: أكمل الفصل الذي تكتبه واضغط «تمّ!»',min:'دقيقة',obiettivo:'الهدف: أن تصل إلى',parole:'كلمة',cap:'الفصل',cosa:'ماذا تكتب',pmin:'أقل عدد كلمات',passi:'ماذا تفعل',lab:'افتح مختبر اللاعب',brava:'أنهيت المرحلة: أحسنت! أرِها لزميلك ثم انتقل إلى التالية.',tutto:'أنهيت كل المراحل! تأكّد أنك ضغطت «Consegna» في Classroom.',aiuto:'هل توقّفت؟ اكتب للمساعد في الأسفل: يمكنك أيضًا لصق لقطة شاشة. الأستاذ فقط لمشاكل الحاسوب أو الحساب.',riapri:'أعد'},
+zh:{titApp:'我的电脑测量',introApp:'今天你要测量你电脑的网络和屏幕，并写你的 Google 文档。一次做一步：每一步都有自己的时间。做完一步就按“完成！”，下一步就会打开。',inizia:'开始这一步',fatto:'完成！',fine:'时间到：写完正在写的那一章，然后按“完成！”',min:'分钟',obiettivo:'目标：达到',parole:'个词',cap:'章',cosa:'写什么',pmin:'最少词数',passi:'要做什么',lab:'打开玩家实验室',brava:'这一步完成了：真棒！给旁边的同学看看，然后进入下一步。',tutto:'所有步骤都完成了！确认你在 Classroom 上点了 «Consegna»。',aiuto:'卡住了？在下面给助手写信：也可以粘贴截图。只有电脑或账号出问题时才找老师。',riapri:'重做'}};
+let L='it';const S={fatte:[],inizio:{}};
+function leggi(){try{L=localStorage.getItem('1inf-misure-l')||'it';Object.assign(S,JSON.parse(localStorage.getItem('1inf-misure-s')||'{}'));const nm=localStorage.getItem('1inf-misure-n');if(nm)document.getElementById('nome').value=nm}catch(e){}}
+function salva(){try{localStorage.setItem('1inf-misure-s',JSON.stringify(S));localStorage.setItem('1inf-misure-l',L);localStorage.setItem('1inf-misure-n',document.getElementById('nome').value)}catch(e){}}
+const t=k=>(U[L]&&U[L][k])||(T[L]||T.it)[k]||'';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const n=(x,d=1)=>Number(x).toLocaleString(L==='zh'?'zh':'it',{maximumFractionDigits:d});
+const timbro=()=>{const nm=document.getElementById('nome').value.trim();return '<div class="ts">'+(nm?esc(nm)+' · ':'')+t('ora')+' '+new Date().toLocaleString('it-IT')+'</div>'};
+let aperta=-1;const ultimi={};
+const corrente=()=>{const tp=TAPPE.it;for(let i=0;i<tp.length;i++)if(!S.fatte.includes(i))return i;return tp.length};
+function disegna(){const tp=TAPPE[L],c=corrente();if(aperta<0)aperta=c;
+ document.getElementById('prog').innerHTML=tp.map((x,i)=>'<span class="'+(S.fatte.includes(i)?'f':i===c?'o':'')+'"></span>').join('');
+ document.getElementById('tappe').innerHTML=(c>=tp.length?'<div class="card nota" style="font-size:20px">'+t('tutto')+'</div>':'')+tp.map((x,i)=>{
+  const fatta=S.fatte.includes(i),cl='card tappa'+(fatta?' fatta':'')+(i===c?' ora':'')+(i===aperta?' aperta':'');
+  const test={ping:'<button class="go" id="b1">'+t('b1')+'</button><div class="ris" id="r1"></div>',down:'<button class="go" id="b2">'+t('b2')+'</button><div class="bar"><i id="bar"></i></div><div class="ris" id="r2"></div>',schermo:'<button class="go" id="b3">'+t('b3')+'</button><div class="ris" id="r3"></div>',lab:'<a class="go" href="../1inf-gamer/" target="_blank">'+t('lab')+'</a>'}[x.test]||'';
+  const cap=x.cap.length?'<table><tr><th>'+t('cap')+'</th><th>'+t('cosa')+'</th><th>'+t('pmin')+'</th></tr>'+x.cap.map(r=>'<tr><td><b>'+esc(r[0])+'</b></td><td>'+esc(r[1])+'</td><td>'+r[2]+'</td></tr>').join('')+'</table>':'';
+  return '<section class="'+cl+'" data-i="'+i+'"><div class="testa"><h2>'+(fatta?'✓ ':'')+esc(x.tit)+'</h2><span class="timer" id="tm'+i+'">'+x.min+' '+t('min')+'</span></div><div class="corpo">'+
+   (x.parole?'<p><b>'+t('obiettivo')+' '+x.parole+' '+t('parole')+'</b></p>':'')+
+   (S.inizio[i]||fatta?'':'<button class="go" data-inizia="'+i+'">'+t('inizia')+'</button>')+
+   '<h3 style="margin:8px 0 2px">'+t('passi')+'</h3><ol>'+x.passi.map(p=>'<li>'+esc(p)+'</li>').join('')+'</ol>'+test+cap+
+   (fatta?'<p class="ok">'+t('brava')+'</p><button class="go" data-rifai="'+i+'" style="background:#5c6672">'+t('riapri')+'</button>':'<button class="go verde" data-fatto="'+i+'">'+t('fatto')+'</button>')+'</div></section>'}).join('');
+ lega();Object.keys(ultimi).forEach(k=>{if(document.getElementById(k))ultimi[k]()});tic()}
+function lega(){
+ document.querySelectorAll('.testa').forEach(h=>h.onclick=()=>{const i=+h.parentNode.dataset.i;aperta=aperta===i?-2:i;disegna()});
+ document.querySelectorAll('[data-inizia]').forEach(b=>b.onclick=()=>{S.inizio[b.dataset.inizia]=Date.now();salva();disegna()});
+ document.querySelectorAll('[data-fatto]').forEach(b=>b.onclick=()=>{const i=+b.dataset.fatto;if(!S.fatte.includes(i))S.fatte.push(i);if(!S.inizio[i])S.inizio[i]=Date.now();const c=corrente();aperta=c;if(c<TAPPE.it.length&&!S.inizio[c])S.inizio[c]=Date.now();salva();disegna();window.scrollTo({top:0,behavior:'smooth'})});
+ document.querySelectorAll('[data-rifai]').forEach(b=>b.onclick=()=>{const i=+b.dataset.rifai;S.fatte=S.fatte.filter(x=>x!==i);delete S.inizio[i];aperta=i;salva();disegna()});
+ const g=id=>document.getElementById(id);if(g('b1'))g('b1').onclick=test1;if(g('b2'))g('b2').onclick=test2;if(g('b3'))g('b3').onclick=test3}
+function tic(){TAPPE.it.forEach((x,i)=>{const el=document.getElementById('tm'+i);if(!el)return;if(S.fatte.includes(i)){el.textContent='✓';el.className='timer';return}
+ if(!S.inizio[i]){el.textContent=x.min+' '+t('min');return}const r=Math.round((S.inizio[i]+x.min*60000-Date.now())/1000);
+ if(r<=0){el.textContent='0:00';el.className='timer fine';const c=el.closest('.tappa').querySelector('.corpo');if(c&&!c.querySelector('.fineT')){c.insertAdjacentHTML('afterbegin','<div class="nota fineT">'+t('fine')+'</div>')}}
+ else{el.textContent=Math.floor(r/60)+':'+String(r%60).padStart(2,'0');el.className='timer'}})}
+setInterval(tic,1000);
+function voto(p){return p<30?t('v1'):p<60?t('v2'):p<100?t('v3'):t('v4')}
+async function misura(url,opt){const v=[];for(let i=0;i<11;i++){const a=performance.now();try{await fetch(url+(url.includes('?')?'&':'?')+'r='+Math.random(),Object.assign({cache:'no-store'},opt))}catch(e){return null}const d=performance.now()-a;if(i>0)v.push(Math.round(d));}return v}
+function riga(nome,v){if(!v)return '<tr><td>'+nome+'</td><td colspan="2" class="ko">'+t('blocc')+'</td></tr>';
+ const m=v.reduce((a,b)=>a+b,0)/v.length;let j=0;for(let i=1;i<v.length;i++)j+=Math.abs(v[i]-v[i-1]);j/=v.length-1;
+ return '<tr><td><b>'+nome+'</b><br><span class="ts">'+t('mis')+': '+v.join(', ')+'</span></td><td>'+t('med')+': <b>'+n(m,0)+' ms</b> ('+voto(m)+')<br>'+t('min')+' '+Math.min(...v)+' · '+t('max')+' '+Math.max(...v)+'</td><td>'+t('jit')+': <b>'+n(j,0)+' ms</b><br>'+(j<10?t('jb'):t('ja'))+'</td></tr>'}
+async function test1(e){e.target.disabled=true;const a=await misura('p.txt',{}),b=await misura('https://www.google.com/generate_204',{mode:'no-cors'});
+ ultimi.r1=()=>{const r=document.getElementById('r1');r.innerHTML='<table>'+riga(t('srvA'),a)+riga(t('srvB'),b)+'</table>'+timbro();r.classList.add('on')};ultimi.r1();e.target.disabled=false}
+async function test2(e){e.target.disabled=true;const bar=document.getElementById('bar');bar.style.width='0';
+ try{const a=performance.now();const res=await fetch('file-20MB.bin?r='+Math.random(),{cache:'no-store'});if(!res.ok)throw 0;const tot=+res.headers.get('content-length')||20000000;const rd=res.body.getReader();let got=0;
+  for(;;){const {done,value}=await rd.read();if(done)break;got+=value.length;const b2=document.getElementById('bar');if(b2)b2.style.width=Math.min(100,got/tot*100)+'%'}
+  const s=(performance.now()-a)/1000,MB=got/1e6,mbps=MB*8/s;
+  ultimi.r2=()=>{const r=document.getElementById('r2');r.innerHTML='<div class="big">'+n(mbps)+' Mbps</div><div>'+n(MB)+' MB · '+n(s,2)+' '+t('sec')+' → '+n(MB/s,2)+' MB/s ('+n(MB*8)+' Mbit : '+n(s,2)+' s)</div><div>'+t('film')+' <b>'+n(2000/(MB/s)/60)+' '+t('minuti')+'</b> (2000 MB : '+n(MB/s,2)+' MB/s)</div>'+timbro();r.classList.add('on')};
+ }catch(x){ultimi.r2=()=>{const r=document.getElementById('r2');r.innerHTML='<span class="ko">'+t('err')+'</span>'+timbro();r.classList.add('on')}}
+ ultimi.r2();e.target.disabled=false}
+function test3(e){e.target.disabled=true;let k=0;const a=performance.now();
+ (function g(){k++;if(performance.now()-a<1500)return requestAnimationFrame(g);
+  const raw=k/((performance.now()-a)/1000),std=[50,60,75,90,100,120,144,165,240,360],hz=std.reduce((p,c)=>Math.abs(c-raw)<Math.abs(p-raw)?c:p);
+  const dpr=window.devicePixelRatio||1,w=Math.round(screen.width*dpr),h=Math.round(screen.height*dpr),px=w*h,foto=px*3/1e6,bnd=px*24*hz/1e9;
+  const cavo=bnd<=10?'HDMI 1.4 (10 Gbit/s)':bnd<=18?'HDMI 2.0 (18 Gbit/s)':bnd<=32?'DisplayPort 1.4 (32 Gbit/s)':'HDMI 2.1 (48 Gbit/s)';
+  ultimi.r3=()=>{const r=document.getElementById('r3');r.innerHTML='<table><tr><td>'+t('hz')+'</td><td><b>'+hz+' Hz</b> ('+n(raw)+')</td></tr><tr><td>'+t('ms')+'</td><td>1000 : '+hz+' = <b>'+n(1000/hz)+' ms</b></td></tr><tr><td>'+t('ris')+'</td><td><b>'+w+' × '+h+'</b></td></tr><tr><td>'+t('pix')+'</td><td>'+w+' × '+h+' = <b>'+n(px,0)+'</b></td></tr><tr><td>'+t('quante')+'</td><td>8.294.400 : '+n(px,0)+' = <b>'+n(8294400/px)+'</b></td></tr><tr><td>'+t('foto')+'</td><td>'+n(px,0)+' × 3 byte = <b>'+n(foto)+' MB</b></td></tr><tr><td>'+t('video')+'</td><td>'+n(foto)+' MB × 30 × 60 = <b>'+n(foto*1800/1000)+' GB</b></td></tr><tr><td>'+t('banda')+'</td><td>'+n(px,0)+' × 24 × '+hz+' = <b>'+n(bnd,2)+' Gbit/s</b></td></tr><tr><td>'+t('cavo')+'</td><td><b>'+cavo+'</b></td></tr></table>'+timbro();r.classList.add('on')};
+  ultimi.r3();e.target.disabled=false})()}
+function lingua(l){L=l;salva();document.documentElement.lang=l;document.documentElement.dir=l==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-t]').forEach(x=>x.textContent=t(x.dataset.t));document.querySelectorAll('.lingue button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));disegna()}
+document.getElementById('nome').oninput=salva;
+document.querySelectorAll('.lingue button').forEach(b=>b.onclick=()=>lingua(b.dataset.l));leggi();lingua(L);
+</script>
+<script src="../assistente/assistente.js" data-pagina="1inf-misure" data-lingue="it,ar,zh"></script>
+</body></html>
