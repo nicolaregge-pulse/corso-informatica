@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.72** — 22/10/2026 (dieci voci del 22/10: #104-#113)
+**Versione 2.73** — 23/10/2026 (tre voci del 23/10: #114-#116)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -9,6 +9,22 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ---
 
+
+
+## 23/10/2026 — Ponte bloccato 22 minuti da un MIO comando troppo grande (#114)
+
+1. **Errore.** Durante la lezione della 1INF ho mandato allo script un comando con 18 azioni (16 Documenti da esportare, ognuno con un salvataggio su GitHub). Lo script non lo ha finito: è rimasto «da eseguire» dalle 11:52 alle 12:14, e dietro di lui si sono fermati anche i comandi successivi. Per 22 minuti i cruscotti hanno mostrato dati vecchi; un ragazzo ha detto «ho fatto molto ma tu non vedi il mio lavoro», e aveva ragione. Il docente: «come mai si bloccano gli script, lo hai sistemato per 5 giorni di fila, detto risolto e alla fine continuano a bloccarsi».
+2. **Regola.** Un comando del ponte = poche azioni e UN solo salvataggio (per leggere i Documenti si usa `docs.leggi`, che mette i testi nel risultato del comando, non `drive.esporta` uno per uno). Il giro controlla che ogni comando sia eseguito entro 5 minuti; se no, lo dice subito al docente, in rosso nel cruscotto, invece di aspettare in silenzio.
+
+## 23/10/2026 — «Risolto» detto più volte per lo script, senza prova nel tempo (#115)
+
+1. **Errore.** Negli ultimi giorni ho detto più volte che il blocco dello script era risolto. Ogni volta avevo corretto una causa sola (il timer di Google che si spegne, i miei salvataggi che si scontrano con i suoi, i comandi troppo lunghi), ma non le altre, e non l'ho misurato nei giorni dopo. Le cause sono almeno tre e si sommano.
+2. **Regola.** Mai più «risolto» per lo script: si dice che cosa è cambiato, che cosa resta fragile e come lo si vede (battito dello script visibile nel cruscotto del docente). Si dichiara stabile solo dopo 5 giorni di lezione senza blocchi.
+
+## 23/10/2026 — Voto per numero di parole senza difesa: un ragazzo ha scritto lettere a caso (#116)
+
+1. **Errore.** Ho pubblicato il voto «+1 ogni 100 parole» senza filtrare le parole finte. Dopo pochi minuti un ragazzo ha riempito il Documento di «xcxc», «hahaha», «9g9g» per far salire il conto.
+2. **Regola.** Ogni conteggio automatico che dà punti si protegge dagli abusi PRIMA di pubblicarlo (parole vere, tappe valide solo con il lavoro scritto, testo copiato o generato che non conta), e la regola si spiega ai ragazzi insieme al voto.
 
 ## 22/10/2026 — Le consegne dei ragazzi cadute per i MIEI salvataggi ogni 5 minuti (#112)
 
