@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.73** — 23/10/2026 (tre voci del 23/10: #114-#116)
+**Versione 2.74** — 23/10/2026 (cinque voci del 23/10: #114-#118)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -10,6 +10,17 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 ---
 
 
+
+
+## 23/10/2026 — Pacchetto dei voti per DIDAweb senza dire quale Disciplina scegliere (#117)
+
+1. **Errore.** Ho dato la riga dei voti della 5ª ora senza scrivere che la pagina di DIDAweb doveva essere su «LABORATORIO PROFESSIONALE»: era rimasta su Tecnologia (l'ora delle 8) e il segnalibro ha risposto «Nel registro non c'è la lezione del 23/10/2026 h 5». Il docente: «continui a fare audit ma continui a fare gli stessi errori».
+2. **Regola.** Ogni pacchetto per DIDAweb ha SOPRA, in grassetto, la riga «Disciplina da scegliere: …» (la materia firmata in quell'ora sul registro), e il passo «scegli la Disciplina» è il primo della tabella.
+
+## 23/10/2026 — Pagina dei ragazzi bloccata da un mio errore di scrittura (#118)
+
+1. **Errore.** Aggiungendo l'avviso «POSSIBILE USO AI ECCESSIVO» alla pagina «La mia giornata» ho dimenticato un «+» nel codice: la pagina restava su «Carico…» per tutti i ragazzi finché il docente non l'ha segnalato («Non va più»). Avevo provato la pagina del docente ma non quella dei ragazzi.
+2. **Regola.** Dopo ogni modifica a una pagina, prima di pubblicarla: controllo automatico della sintassi di TUTTI gli script della pagina (`node --check`) e prova della pagina vera in un browser, sia quella del docente sia quella dei ragazzi.
 
 ## 23/10/2026 — Ponte bloccato 22 minuti da un MIO comando troppo grande (#114)
 
