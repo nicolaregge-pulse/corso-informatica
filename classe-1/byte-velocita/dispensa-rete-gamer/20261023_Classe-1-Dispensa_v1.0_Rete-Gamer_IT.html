@@ -1,0 +1,83 @@
+<!doctype html><html lang="it" dir="ltr"><head><meta charset="utf-8"><title>Rete e gamer</title><style>@font-face{font-family:Amiri;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-700-normal.woff2)}
+@page{size:A4;margin:16mm 16mm 18mm}body{font-family:"DejaVu Sans",Arial,sans-serif;font-size:11.5pt;line-height:1.5;color:#1b2430}
+body.ar{font-family:Amiri,serif;font-size:14pt;line-height:1.7}body.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3mm;border-bottom:2px solid #1f6feb;padding-bottom:1mm;break-after:avoid}
+.sec{break-inside:auto}table{border-collapse:collapse;width:100%;margin:3mm 0;break-inside:avoid}th,td{border:1px solid #b9c2cc;padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
+.box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
+.cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}</style></head><body class="it">
+<div class="cop"><h1>Rete e gamer</h1><p class="s">Ping, jitter, TCP e UDP, FPS e Hz, pixel, monitor, scheda video, cavi video</p><p>Classe 1 · lezione del 23/10/2026 · v1.0</p><p>Questa dispensa raccoglie la lezione: le slide, le foto della lavagna e tanti esempi con i conti fatti. In fondo trovi gli esercizi «Prova tu» con le soluzioni.</p></div>
+<div class="sec"><h2>01 Il ping</h2>
+<p>Il <b>ping</b> è il tempo che un messaggio impiega ad andare dal tuo PC al server del gioco e a tornare indietro. Si misura in <b>millisecondi (ms)</b>: 1000 ms = 1 secondo.</p>
+<table><tr><th>Ping</th><th>Come si gioca</th></tr><tr><td>sotto 30 ms</td><td>ottimo</td></tr><tr><td>30-60 ms</td><td>buono</td></tr><tr><td>60-100 ms</td><td>si sente un po'</td></tr><tr><td>oltre 150 ms</td><td>lag: i colpi arrivano in ritardo</td></tr></table>
+<p>Il ping dipende soprattutto dalla <b>distanza</b> dal server, non dai Mbps.</p>
+<div class="box es"><b class="t">Esempio</b>Giochi su un server a Milano: ping 15 ms. Lo stesso gioco su un server in America: ping 120 ms. La tua linea è la stessa (100 Mbps): cambia solo la strada che fa il messaggio. Con 120 ms premi «spara» e il server lo riceve 60 ms dopo (metà del viaggio): intanto l'avversario si è già spostato.</div>
+<figure><img src="../immagini/lavagna-20261023/01_streaming-ftp-ping-jitter_doc.jpg"><figcaption>La lavagna della lezione: In alto: streaming senza ritrasmissione e FTP con ritrasmissione (capitolo 03). Al centro: il grafico del ping, con tempi di 23, 30 e 40 ms e un picco molto più alto. In basso: le onde del jitter.</figcaption></figure>
+</div>
+<div class="sec"><h2>02 Il jitter</h2>
+<p>Il <b>jitter</b> è quanto il ping <b>cambia</b> da un momento all'altro.</p>
+<div class="box es"><b class="t">Esempio</b>Ping misurati: 40, 41, 39, 40 ms. Cambiano di 1-2 ms: jitter <b>basso</b>, il gioco è regolare.<br>Ping misurati: 20, 120, 30, 110 ms. Cambiano di circa 100 ms: jitter <b>alto</b>, il personaggio salta e a volte si teletrasporta.</div>
+<p>Sulla lavagna: le onde grandi sono una connessione a scatti (jitter alto); la riga quasi piatta in fondo è una connessione stabile (jitter basso).</p>
+<div class="box nota"><b class="t">Nota</b>Meglio un ping di 50 ms sempre uguale che un ping che salta tra 20 e 120 ms.</div>
+</div>
+<div class="sec"><h2>03 Con o senza ritrasmissione: TCP e UDP</h2>
+<p>In rete i dati viaggiano a <b>pacchetti</b>, cioè piccoli pezzi. A volte un pacchetto si perde per strada. Per spedire ci sono due regole, che si chiamano <b>protocolli</b>:</p>
+<table><tr><th>Protocollo</th><th>Se un pacchetto si perde</th><th>Pregio</th><th>Si usa per</th></tr><tr><td>TCP</td><td>viene rimandato (con ritrasmissione, in inglese «retry»)</td><td>arriva tutto, in ordine</td><td>file (FTP), pagine web, email, download</td></tr><tr><td>UDP</td><td>non viene rimandato (senza ritrasmissione)</td><td>più veloce, meno ritardo</td><td>streaming, videochiamate, giochi online</td></tr></table>
+<div class="box es"><b class="t">Esempio</b>Scarichi un file con FTP: se manca anche un solo pacchetto il file è rotto, quindi TCP lo rimanda. In una partita online un pacchetto perso diventa solo un piccolo scatto: aspettarlo bloccherebbe il gioco, quindi si usa UDP.</div>
+<div class="box nota"><b class="t">Nota</b>Per ricordarlo: TCP è una raccomandata con ricevuta di ritorno; UDP è un volantino nella cassetta della posta: arriva prima, ma se si perde nessuno lo rimanda. TCP/IP è il nome di tutta la famiglia di regole di Internet.</div>
+</div>
+<div class="sec"><h2>04 Lag, scatti e pacchetti persi</h2>
+<table><tr><th>Parola</th><th>Che cosa vuol dire</th><th>Da dove viene</th></tr><tr><td>lag</td><td>il gioco risponde in ritardo</td><td>ping alto</td></tr><tr><td>scatti di rete</td><td>movimenti a salti</td><td>jitter alto</td></tr><tr><td>pacchetti persi</td><td>pezzi di informazione che non arrivano</td><td>Wi-Fi debole, rete piena</td></tr><tr><td>scatti del PC</td><td>l'immagine va a scatti anche senza Internet</td><td>scheda video troppo lenta (FPS bassi)</td></tr></table>
+<div class="box es"><b class="t">Esempio</b>Il gioco va a scatti anche quando giochi senza Internet: la colpa non è della rete ma della scheda video. Se invece va a scatti solo online, controlla ping e jitter e prova il cavo al posto del Wi-Fi.</div>
+<div class="box nota"><b class="t">Nota</b>Il cavo di rete dà ping e jitter più bassi del Wi-Fi: per questo i gamer usano il cavo.</div>
+</div>
+<div class="sec"><h2>05 Gli FPS</h2>
+<p>Un video o un gioco è fatto di tante <b>immagini ferme</b> mostrate una dopo l'altra, come un cartone animato. <b>FPS</b> vuol dire «frame per second», cioè immagini al secondo. Gli FPS li prepara la <b>scheda video</b>.</p>
+<table><tr><th>FPS</th><th>Come appare</th></tr><tr><td>15</td><td>a scatti</td></tr><tr><td>30</td><td>accettabile: film e console vecchie</td></tr><tr><td>60</td><td>fluido</td></tr><tr><td>144 e più</td><td>molto fluido, per i giochi veloci</td></tr></table>
+<div class="box es"><b class="t">Esempio</b>A 60 FPS ogni immagine resta sullo schermo 1000 : 60 ≈ 17 ms. A 30 FPS resta 1000 : 30 ≈ 33 ms, il doppio: si vede meno fluido. A 144 FPS resta circa 7 ms.</div>
+</div>
+<div class="sec"><h2>06 Gli Hz del monitor</h2>
+<p>Gli <b>Hz</b> (hertz) dicono quante volte al secondo il <b>monitor</b> ridisegna lo schermo. In inglese si dice «refresh rate», frequenza di aggiornamento.</p>
+<div class="box nota"><b class="t">Nota</b>Regola: gli FPS della scheda video e gli Hz del monitor devono andare d'accordo.</div>
+<div class="box es"><b class="t">Esempio</b>Scheda video a 30 FPS, monitor a 120 Hz: il monitor ridisegna 120 volte al secondo ma ha solo 30 immagini nuove. Ogni immagine viene mostrata 4 volte (120 : 30 = 4): il monitor veloce è sprecato.<br>Scheda video a 200 FPS, monitor a 60 Hz: vedi comunque solo 60 immagini al secondo: la scheda video è sprecata.<br>Scheda video a 144 FPS, monitor a 144 Hz: tutto d'accordo, massima fluidità.</div>
+<figure><img src="../immagini/lavagna-20261023/02_tcp-udp-fps-hz_doc.jpg"><figcaption>La lavagna della lezione: In alto: TCP/IP e UDP. Al centro: le immagini in fila (da 15 a 240 al secondo). In basso: 30 FPS su un monitor a 120 Hz, ogni immagine ripetuta 4 volte.</figcaption></figure>
+</div>
+<div class="sec"><h2>07 Pixel e risoluzione</h2>
+<p>Lo schermo è una griglia di quadratini colorati: ogni quadratino è un <b>pixel</b>. La <b>risoluzione</b> dice quanti pixel ci sono in larghezza e in altezza.</p>
+<table><tr><th>Nome</th><th>Larghezza × altezza</th><th>Pixel in tutto (circa)</th></tr><tr><td>HD</td><td>1280 × 720</td><td>0,9 milioni</td></tr><tr><td>Full HD</td><td>1920 × 1080</td><td>2 milioni</td></tr><tr><td>2K (QHD)</td><td>2560 × 1440</td><td>3,7 milioni</td></tr><tr><td>4K</td><td>3840 × 2160</td><td>8,3 milioni</td></tr></table>
+<div class="box es"><b class="t">Esempio</b>1920 × 1080 = 2.073.600, cioè circa 2 milioni di pixel.<br>Il 4K ha il doppio dei pixel in larghezza e il doppio in altezza: 2 × 2 = 4 volte il Full HD. Per questo serve una scheda video più potente.</div>
+<figure><img src="../immagini/lavagna-20261023/04_pixel-risoluzione_doc.jpg"><figcaption>La lavagna della lezione: La griglia dei pixel e il conto 1920 × 1080 ≈ 2 milioni.</figcaption></figure>
+</div>
+<div class="sec"><h2>08 I tipi di monitor</h2>
+<p>Lo schermo può essere fatto in modi diversi: si chiamano <b>pannelli</b>. L'<b>angolo di visione</b> dice da quanto di lato vedi ancora bene i colori.</p>
+<table><tr><th>Pannello</th><th>Angolo (lavagna)</th><th>Pregio</th><th>Difetto</th></tr><tr><td>TN</td><td>circa 90°</td><td>velocissimo (tanti Hz), economico</td><td>colori spenti, angolo stretto</td></tr><tr><td>IPS</td><td>120°</td><td>colori belli, si vede bene di lato</td><td>un po' più lento</td></tr><tr><td>VA</td><td>160°</td><td>neri profondi, buon contrasto</td><td>scia dietro le cose che si muovono</td></tr><tr><td>OLED</td><td>molto ampio</td><td>neri perfetti, velocissimo</td><td>costa tanto</td></tr></table>
+<p>Sul VA la pallina che si muove lascia una scia, soprattutto nelle scene scure: si chiama <b>ghosting</b>, «immagine fantasma». Il <b>tempo di risposta</b> (1-5 ms) dice quanto in fretta un pixel cambia colore: più è basso, meno scie.</p>
+<div class="box es"><b class="t">Esempio</b>Chi gioca a sparatutto veloci e ha pochi soldi: TN o IPS veloce. Chi guarda film al buio: VA o OLED. Chi vuole il massimo e può spendere: OLED.</div>
+<div class="box nota"><b class="t">Nota</b>Oggi i pannelli IPS e VA arrivano quasi a 178° e ci sono anche IPS a 144-240 Hz: i numeri della lavagna servono a capire la differenza tra i pannelli.</div>
+<figure><img src="../immagini/lavagna-20261023/03_pannelli-tn-va-oled_doc.jpg"><figcaption>La lavagna della lezione: Gli angoli di visione (90°, 120°, 160°), la scia del VA, l'OLED che costa tanto.</figcaption></figure>
+</div>
+<div class="sec"><h2>09 La scheda video</h2>
+<p>La <b>scheda video</b> (in inglese GPU) disegna le immagini del gioco. <b>Integrata</b>: è dentro il processore, consuma poco, va bene per la scuola e i video. <b>Dedicata</b>: è una scheda a parte con la sua memoria (<b>VRAM</b>, per esempio 8 GB) e serve per i giochi pesanti.</p>
+<div class="box es"><b class="t">Esempio</b>Per scuola, video e Classroom basta la scheda integrata. Per un gioco 3D in Full HD a 144 FPS serve una scheda dedicata con almeno 8 GB di VRAM.</div>
+</div>
+<div class="sec"><h2>10 Quanto pesano immagini e film</h2>
+<p>Ogni pixel ha un colore fatto di <b>3 byte</b>: rosso, verde, blu.</p>
+<div class="box es"><b class="t">Esempio</b>Una foto Full HD: 2.073.600 pixel × 3 byte = 6.220.800 byte, circa <b>6 MB</b>. Il formato JPG la comprime (la rende più piccola) a circa 0,5-1 MB.<br>Un film di 2 ore mostra 24 immagini al secondo: 6 MB × 24 = 144 MB ogni secondo; 2 ore sono 7200 secondi; 144 × 7200 = 1.036.800 MB, circa <b>1000 GB</b>. Con la compressione MP4 diventa circa 2 GB: 500 volte più piccolo. Per questo lo streaming funziona anche con pochi Mbps.</div>
+</div>
+<div class="sec"><h2>11 Il cavo video e la banda</h2>
+<p>Il PC si collega al monitor con un <b>cavo video</b>: <b>VGA</b> (vecchio, connettore blu a 15 piedini, immagine meno nitida), <b>DVI</b> (digitale, bianco), <b>HDMI</b> (digitale, porta anche l'audio, il più diffuso), <b>DisplayPort</b> (digitale, per i monitor da gaming). La <b>banda</b> è quanti dati passano nel cavo ogni secondo: pixel × 24 bit di colore × Hz.</p>
+<table><tr><th>Cavo</th><th>Banda massima (circa)</th></tr><tr><td>HDMI 1.4</td><td>10 Gbit/s</td></tr><tr><td>HDMI 2.0</td><td>18 Gbit/s</td></tr><tr><td>DisplayPort 1.4</td><td>32 Gbit/s</td></tr><tr><td>HDMI 2.1</td><td>48 Gbit/s</td></tr></table>
+<div class="box es"><b class="t">Esempio</b>Full HD a 60 Hz: 1920 × 1080 × 24 × 60 = 2.985.984.000 bit al secondo, circa <b>3 Gbit/s</b>: va bene anche HDMI 1.4.<br>4K a 144 Hz: 3840 × 2160 × 24 × 144 = circa <b>28,7 Gbit/s</b>: HDMI 2.0 (18) non basta, serve DisplayPort 1.4 (32) o HDMI 2.1 (48).</div>
+</div>
+<div class="sec"><h2>12 Esempio completo: il mio setup da gamer</h2>
+<p>Ecco un setup scelto per un gioco veloce, con i conti. Poi tocca a te, con il tuo gioco preferito.</p>
+<table><tr><th>Che cosa</th><th>Scelta</th><th>Perché</th></tr><tr><td>gioco</td><td>uno sparatutto online</td><td>serve rapidità</td></tr><tr><td>rete</td><td>cavo, ping sotto 30 ms</td><td>ping e jitter bassi</td></tr><tr><td>monitor</td><td>IPS, Full HD, 144 Hz</td><td>veloce e con bei colori</td></tr><tr><td>scheda video</td><td>dedicata, 8 GB di VRAM</td><td>fa 144 FPS in Full HD</td></tr><tr><td>cavo video</td><td>DisplayPort 1.4</td><td>1920 × 1080 × 24 × 144 ≈ 7,2 Gbit/s: basta anche HDMI 2.0</td></tr></table>
+</div>
+<div class="sec"><h2>13 Prova tu</h2>
+<ol><li>Ping misurati: 35, 36, 34, 35 ms. Il jitter è alto o basso?</li><li>Scheda video a 60 FPS, monitor a 240 Hz: quante volte viene mostrata ogni immagine?</li><li>Quanti pixel ha uno schermo 1280 × 720?</li><li>Scarichi un aggiornamento del gioco: TCP o UDP? E per la voce nella chat della squadra?</li><li>Il gioco va a scatti anche senza Internet: colpa della rete o della scheda video?</li><li>Un monitor 2K (2560 × 1440) a 60 Hz: basta un cavo HDMI 1.4?</li></ol>
+<div class="box sol"><b class="t">Soluzioni</b><ol><li>Basso: cambia solo di 1-2 ms.</li><li>4 volte: 240 : 60 = 4.</li><li>1280 × 720 = 921.600 pixel.</li><li>L'aggiornamento con TCP: il file deve arrivare intero. La voce con UDP: meglio un piccolo salto che un ritardo.</li><li>Della scheda video (FPS bassi).</li><li>2560 × 1440 × 24 × 60 ≈ 5,3 Gbit/s: sì, HDMI 1.4 arriva a 10.</li></ol></div>
+</div>
+<div class="sec"><h2>14 Parole nuove</h2>
+<table><tr><th>Parola</th><th>Che cosa vuol dire</th></tr><tr><td>ping</td><td>tempo di andata e ritorno di un messaggio, in ms</td></tr><tr><td>jitter</td><td>quanto cambia il ping</td></tr><tr><td>lag</td><td>ritardo nel gioco</td></tr><tr><td>pacchetto</td><td>piccolo pezzo di dati che viaggia in rete</td></tr><tr><td>protocollo</td><td>regola per spedire i dati (TCP, UDP)</td></tr><tr><td>FPS</td><td>immagini al secondo preparate dalla scheda video</td></tr><tr><td>Hz</td><td>volte al secondo che il monitor ridisegna lo schermo</td></tr><tr><td>pixel</td><td>quadratino colorato dello schermo</td></tr><tr><td>risoluzione</td><td>pixel in larghezza × pixel in altezza</td></tr><tr><td>pannello</td><td>il tipo di schermo: TN, IPS, VA, OLED</td></tr><tr><td>VRAM</td><td>la memoria della scheda video</td></tr><tr><td>banda</td><td>quanti dati passano ogni secondo</td></tr></table>
+</div>
+</body></html>

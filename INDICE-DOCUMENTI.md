@@ -198,3 +198,6 @@ l'intestazione del file.
 ### 10. Attestati (non testuali)
 1. `attestati/ATTESTATO-RUOLI.html` → `ATTESTATO-RUOLI-v0.4.pdf` (unico PDF, 4 pagine, con logo Piamarta).
 
+
+### 11. Dispense Classe 1 (una per lingua)
+1. `classe-1/byte-velocita/dispensa-rete-gamer/20261023_Classe-1-Dispensa_v1.0_Rete-Gamer_{IT,AR,ZH}.md/.pdf` — v1.0 (23/10/2026: ping, jitter, TCP/UDP, FPS/Hz, pixel, monitor, scheda video, cavi video; foto lavagna, esempi, «Prova tu»; generatore `_build/genera.py` + `_build/pdf.js`).
