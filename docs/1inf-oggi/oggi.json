@@ -1,9 +1,9 @@
 {
- "ora": "12:33",
+ "ora": "12:34",
  "banca": "1inf-misure-v1",
  "fine": "14:00",
  "link": "../1inf-misure/",
- "parole_alle": "12:33",
+ "parole_alle": "12:34",
  "spiega": "Il voto di oggi parte da 40 e sale con il tuo lavoro: +6 per ogni tappa finita (fino a 4), +1 ogni 100 parole nel Documento (fino a +14). −3 ogni volta che Veyon ti vede fuori lezione, −5 se il testo è copiato. Massimo 80. Qui vedi anche se sei in pari con i tempi e che cosa fare adesso. Le tappe contano quando premi FATTO! nell'app; le parole del Documento le contiamo ogni 10 minuti circa: se scrivi, il voto sale al giro dopo.",
  "righe": [
   {
@@ -33,6 +33,32 @@
    "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 1102 parole: l'obiettivo di questa tappa è 1500."
   },
   {
+   "alunno": "Pachas A.",
+   "voto": 69,
+   "conto": "40 + 6×3 tappe + 11 (1 ogni 100 parole) = 69",
+   "verifica": "1103 parole · 3 tappe su 5 · in pari con i tempi",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:05",
+    "PC25 ChatGPT aperto",
+    0
+   ],
+   "vy_prob": [
+    [
+     "11:26",
+     "PC25 pagina di Google",
+     0,
+     "veyon/1126_pc25.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "ai": [
+    "12:05"
+   ],
+   "cosa_fare": "Vai avanti così: tappa 3, obiettivo 1200 parole. Nel Documento hai 1103 parole: l'obiettivo di questa tappa è 1200."
+  },
+  {
    "alunno": "Shanzay S.",
    "voto": 66,
    "conto": "40 + 6×3 tappe + 8 (1 ogni 100 parole) = 66",
@@ -57,6 +83,37 @@
     "12:05"
    ],
    "cosa_fare": "Vai avanti così: tappa 3, obiettivo 1200 parole. Nel Documento hai 801 parole: l'obiettivo di questa tappa è 1200."
+  },
+  {
+   "alunno": "Moaaz M.",
+   "voto": 62,
+   "conto": "40 + 6×3 tappe (su 5 premute: poche parole) + 4 (1 ogni 100 parole) = 62",
+   "verifica": "479 parole · 5 tappe su 5 · ha finito tutte le tappe",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "12:00",
+    "PC37 Documento con un testo lungo e ordinato",
+    0,
+    "veyon/1200_pc37.webp"
+   ],
+   "vy_prob": [
+    [
+     "11:46",
+     "PC37 Documento con molto testo ordinato",
+     0,
+     "veyon/1146_pc37.webp"
+    ],
+    [
+     "12:00",
+     "PC37 Documento con un testo lungo e ordinato",
+     0,
+     "veyon/1200_pc37.webp"
+    ]
+   ],
+   "comportamento": "ok",
+   "ai": [],
+   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom. Nel Documento hai 479 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Aya B.",
@@ -380,37 +437,6 @@
    "cosa_fare": "Sei indietro: chiudi il capitolo che stai scrivendo e passa alla tappa 1. Nel Documento hai 172 parole: l'obiettivo di questa tappa è 350."
   },
   {
-   "alunno": "Moaaz M.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe (su 5 premute: Documento non trovato) + 0 (1 ogni 100 parole) = 46",
-   "verifica": "5 tappe su 5 · ha finito tutte le tappe",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:00",
-    "PC37 Documento con un testo lungo e ordinato",
-    0,
-    "veyon/1200_pc37.webp"
-   ],
-   "vy_prob": [
-    [
-     "11:46",
-     "PC37 Documento con molto testo ordinato",
-     0,
-     "veyon/1146_pc37.webp"
-    ],
-    [
-     "12:00",
-     "PC37 Documento con un testo lungo e ordinato",
-     0,
-     "veyon/1200_pc37.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "ai": [],
-   "cosa_fare": "Controlla il Documento (almeno 1500 parole) e premi «Consegna» su Classroom."
-  },
-  {
    "alunno": "Abdel N.",
    "voto": 46,
    "conto": "40 + 6×1 tappe (su 5 premute: Documento non trovato) + 0 (1 ogni 100 parole) = 46",
@@ -462,8 +488,8 @@
   {
    "alunno": "Muhammad N.",
    "voto": 46,
-   "conto": "40 + 6×1 tappe (su 4 premute: Documento non trovato) + 0 (1 ogni 100 parole) = 46",
-   "verifica": "4 tappe su 5 · in anticipo di 1 tappa",
+   "conto": "40 + 6×1 tappe (su 4 premute: poche parole) + 0 (1 ogni 100 parole) = 46",
+   "verifica": "0 parole · 4 tappe su 5 · in anticipo di 1 tappa",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
@@ -489,39 +515,13 @@
    "ai": [
     "11:38"
    ],
-   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole."
-  },
-  {
-   "alunno": "Pachas A.",
-   "voto": 46,
-   "conto": "40 + 6×1 tappe (su 3 premute: Documento non trovato) + 0 (1 ogni 100 parole) = 46",
-   "verifica": "3 tappe su 5 · in pari con i tempi",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "12:05",
-    "PC25 ChatGPT aperto",
-    0
-   ],
-   "vy_prob": [
-    [
-     "11:26",
-     "PC25 pagina di Google",
-     0,
-     "veyon/1126_pc25.webp"
-    ]
-   ],
-   "comportamento": "ok",
-   "ai": [
-    "12:05"
-   ],
-   "cosa_fare": "Vai avanti così: tappa 3, obiettivo 1200 parole."
+   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 0 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Alessio C.",
    "voto": 43,
-   "conto": "40 + 6×1 tappe (su 4 premute: Documento non trovato) + 0 (1 ogni 100 parole) − 3×1 fuori compito = 43",
-   "verifica": "4 tappe su 5 · in anticipo di 1 tappa",
+   "conto": "40 + 6×1 tappe (su 4 premute: poche parole) + 0 (1 ogni 100 parole) − 3×1 fuori compito = 43",
+   "verifica": "0 parole · 4 tappe su 5 · in anticipo di 1 tappa",
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
@@ -542,7 +542,7 @@
     "12:03",
     "12:05"
    ],
-   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole."
+   "cosa_fare": "Vai avanti così: tappa 4, obiettivo 1500 parole. Nel Documento hai 0 parole: l'obiettivo di questa tappa è 1500."
   },
   {
    "alunno": "Andrea S.",
