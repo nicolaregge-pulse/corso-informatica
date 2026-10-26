@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.80** — 26/10/2026 (#124 del 26/10)
+**Versione 2.81** — 26/10/2026 (#122 riallineato con il #97; CHECKLIST-LEZIONE)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -27,6 +27,7 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 1. **Errore.** Nel compito «OGGI: il mio GitHub in ordine» ho messo la consegna alle 13:45 senza che il docente l'avesse detta; era un lavoro di preparazione, che si spera di finire prima, non una consegna con l'ora. Con la scadenza lo script avrebbe anche chiuso il compito da solo dopo le 13:45.
 2. **Regola.** La scadenza di un compito la decide il docente: se non l'ha detta, il compito si pubblica senza scadenza e senza chiusura automatica. Non si inventano orari, durate o voti che il docente non ha dato.
+3. **Aggiornamento (26/10/2026, revisione degli errori).** Questa regola e il #97 dicevano due cose diverse. Vale: la scadenza la dice il docente; se non l'ha detta, si mette la campanella dell'ultima ora della classe e lo si scrive in chat (CHECKLIST-LEZIONE §02.3). Lo stesso giorno il docente ha fissato «scadenza h 14».
 
 ## 26/10/2026 — 2INF: due compiti su Classroom, il mio e quello del docente (#121)
 
