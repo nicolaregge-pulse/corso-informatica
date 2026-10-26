@@ -1,5 +1,5 @@
 {
- "ora": "13:05",
+ "ora": "13:09",
  "data": "2026-10-26",
  "righe": [
   {
@@ -41,7 +41,7 @@
    "verifica": "9 su 13",
    "fuori": 1,
    "vy_ult": [
-    "12:33",
+    "13:04",
     "Esplora file, cartelle del PC",
     0
    ],
@@ -87,8 +87,8 @@
    "verifica": "12 su 13",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "Classroom",
+    "13:04",
+    "GitHub, modifica di un file",
     0
    ],
    "orale": null
@@ -133,8 +133,8 @@
    "verifica": "3 su 5",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "GitHub, repository",
+    "13:04",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
@@ -179,7 +179,7 @@
    "verifica": "3 su 5",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
+    "13:04",
     "GitHub, caricamento file da Esplora file",
     0
    ],
@@ -224,8 +224,8 @@
    "verifica": "",
    "fuori": 1,
    "vy_ult": [
-    "12:33",
-    "Classroom",
+    "13:04",
+    "schermo bloccato (lavoro finito)",
     0
    ],
    "orale": null
@@ -270,8 +270,54 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "GitHub, repository lazarus",
+    "13:04",
+    "schermo bloccato",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Shahenda E.",
+   "voto": 56,
+   "conto": "salvadanaio 40 · verifica salvadanaio 80 · GitHub 64 · verifica GitHub 40 → media 56 = 56",
+   "v_github": 64,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "pulito",
+    "no .exe",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "13 su 13",
+   "fuori": 0,
+   "vy_ult": [
+    "13:04",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
@@ -316,8 +362,8 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, controllo",
+    "13:04",
+    "GitHub, pagina iniziale",
     0
    ],
    "orale": null
@@ -362,8 +408,53 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "GitHub, repository",
+    "13:04",
+    "pagina della lezione, controllo",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Oscar F.",
+   "voto": 55,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 80 · verifica GitHub 73 → media 58 − 3×1 fuori compito = 55",
+   "v_github": 80,
+   "v_facile": 60,
+   "facile": [
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [],
+   "cosa_fare": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 1,
+   "vy_ult": [
+    "13:04",
+    "GitHub, file del repository",
     0
    ],
    "orale": null
@@ -408,8 +499,8 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "chat di un'AI",
+    "13:04",
+    "GitHub e pagina della lezione",
     0
    ],
    "orale": null
@@ -454,8 +545,8 @@
    "verifica": "",
    "fuori": 1,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, controllo",
+    "13:04",
+    "Esplora file e GitHub",
     0
    ],
    "orale": null
@@ -465,12 +556,12 @@
    "voto": 54,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 56 · verifica GitHub 80 → media 54 = 54",
    "v_github": 56,
-   "v_facile": 53,
+   "v_facile": 47,
    "facile": [
-    "primo-programma",
     "no .exe"
    ],
    "facile_manca": [
+    "primo-programma",
     "esercizio-3",
     "esercizio-4",
     "salvadanaio",
@@ -489,97 +580,6 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo B o E: mancano le cartelle «salvadanaio».",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "pagina della lezione, passi",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Oscar F.",
-   "voto": 53,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 72 · verifica GitHub 73 → media 56 − 3×1 fuori compito = 53",
-   "v_github": 72,
-   "v_facile": 53,
-   "facile": [
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [
-    "cartelle",
-    "pulito",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "no .exe"
-   ],
-   "cosa_fare": "Passo D: cancella i file .exe (primo programma/project1.exe, salvadanaio/project1.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 1,
-   "vy_ult": [
-    "12:33",
-    "pagina della lezione, passi",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Shahenda E.",
-   "voto": 52,
-   "conto": "salvadanaio 40 · verifica salvadanaio 80 · GitHub 48 · verifica GitHub 40 → media 52 = 52",
-   "v_github": 48,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "pulito"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
    "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "salv": [],
    "salv_manca": [
@@ -588,11 +588,11 @@
     "WHILE",
     "sfida"
    ],
-   "verifica": "13 su 13",
+   "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "GitHub, file del repository",
+    "13:04",
+    "pagina della lezione, passi",
     0
    ],
    "orale": null
@@ -637,27 +637,27 @@
    "verifica": "12 su 13",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, codice",
+    "13:04",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
   },
   {
    "alunno": "Riccardo B.",
-   "voto": 47,
-   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 56 · verifica GitHub 40 → media 53 − 3×2 fuori compito = 47",
-   "v_github": 56,
-   "v_facile": 47,
+   "voto": 49,
+   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 64 · verifica GitHub 40 → media 55 − 3×2 fuori compito = 49",
+   "v_github": 64,
+   "v_facile": 53,
    "facile": [
+    "README",
     "no .exe"
    ],
    "facile_manca": [
     "primo-programma",
     "esercizio-3",
     "esercizio-4",
-    "salvadanaio",
-    "README"
+    "salvadanaio"
    ],
    "v_salv": 40,
    "v_ver": 77,
@@ -665,11 +665,11 @@
    "vgit": "",
    "github": [
     "pulito",
-    "no .exe"
+    "no .exe",
+    "README"
    ],
    "github_manca": [
     "cartelle",
-    "README",
     "salvadanaio"
    ],
    "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:13).",
@@ -683,8 +683,8 @@
    "verifica": "12 su 13",
    "fuori": 2,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, passi",
+    "13:04",
+    "GitHub, modifica di un file",
     0
    ],
    "orale": null
@@ -729,8 +729,8 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, passi",
+    "13:04",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
@@ -775,8 +775,8 @@
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "12:33",
-    "GitHub, repository lazarus",
+    "13:04",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
@@ -821,8 +821,8 @@
    "verifica": "",
    "fuori": 2,
    "vy_ult": [
-    "12:33",
-    "pagina della lezione, passi",
+    "13:04",
+    "pagina di una lezione Lazarus",
     0
    ],
    "orale": null
