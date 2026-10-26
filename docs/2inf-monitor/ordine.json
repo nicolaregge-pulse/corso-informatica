@@ -1,5 +1,5 @@
 {
- "ora": "13:36",
+ "ora": "13:39",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -17,19 +17,18 @@
    "alunno": "Hagar A.",
    "pezzi": [
     "cartelle",
-    "no .exe",
+    "pulito",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 10,
-   "ultimo": "13:13",
+   "salvataggi": 12,
+   "ultimo": "13:38",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 2 file sparsi (project1.lpr, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cartella_ok": true,
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera), salvadanaio/salvadanaio.lps, salvadanaio/salvadanaio.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "project1.lpr",
     "salvadanaio/backup/salvadanaio.lpi",
     "salvadanaio/backup/salvadanaio.lps",
     "salvadanaio/backup/unit1.lfm",
@@ -47,8 +46,7 @@
     "salvadanaio/salvadanaio.lps",
     "salvadanaio/salvadanaio.res",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas",
-    "unit1.pas"
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -56,15 +54,14 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "salvataggi": 20,
    "ultimo": "13:34",
-   "caricato": true,
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera), salvadanaio/salvadanaio.lps, salvadanaio/salvadanaio.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -92,7 +89,6 @@
    "alunno": "Sara A.",
    "pezzi": [
     "cartelle",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
@@ -153,7 +149,6 @@
   {
    "alunno": "Giorgio A.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe"
    ],
@@ -161,7 +156,7 @@
    "ultimo": "13:32",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio».",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -220,15 +215,14 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "salvataggi": 15,
    "ultimo": "13:05",
-   "caricato": true,
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Passo D: cancella i file che non servono (primo programma/project1.lps, primo programma/project1.res, salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
@@ -264,15 +258,14 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "salvataggi": 18,
    "ultimo": "13:10",
-   "caricato": true,
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo D: cancella i file che non servono (primo programma/backup (cartella intera), primo programma/lib (cartella intera), salvadanaio/backup (cartella intera), salvadanaio/euro.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -312,7 +305,6 @@
   {
    "alunno": "Antonio M.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "README"
    ],
@@ -320,7 +312,7 @@
    "ultimo": "13:32",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file .exe (salvadanaio/project55.exe): non servono, basta il progetto.",
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (primo-programma): rinominale.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -381,15 +373,14 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "salvataggi": 16,
    "ultimo": "13:23",
-   "caricato": true,
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -530,15 +521,14 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 17,
-   "ultimo": "13:34",
-   "caricato": true,
+   "salvataggi": 18,
+   "ultimo": "13:37",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/FOREWHILE.res, salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",

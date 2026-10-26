@@ -100,7 +100,7 @@ ol{padding-left:24px;margin:6px 0}li{margin:4px 0}.mu{color:var(--mu)}b.k{backgr
 <p class="mu">Bloccato? Scrivi qui sotto all'assistente, anche con uno screenshot. Al prof solo per problemi del PC o dell'account.</p></div>
 </main>
 <script>
-var D=null,NOMI={cartelle:'Cartelle dei progetti',pulito:'Pagina principale pulita','no .exe':'Niente .exe',README:'README scritto',salvadanaio:'Salvadanaio caricato'};
+var D=null,NOMI={cartelle:'Cartelle dei progetti',pulito:'Pagina principale pulita','no .exe':'Niente file inutili (.exe, lib, backup)',README:'README scritto',salvadanaio:'Salvadanaio caricato'};
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function albero(a){if(!a||!a.length)return 'repository vuoto';var out=[],dirs={};a.forEach(function(f){var p=f.split('/');if(p.length===1){out.push((/\.exe$/i.test(f)||!/^readme\.md$/i.test(f))&&!/^readme\.md$/i.test(f)?'<span class="bad">'+e(f)+'   ← da togliere</span>':e(f))}else{(dirs[p[0]]=dirs[p[0]]||[]).push(p.slice(1).join('/'))}});
  Object.keys(dirs).sort().forEach(function(d){out.push('<span class="dir">'+e(d)+'/</span>');dirs[d].slice(0,12).forEach(function(f){out.push('   '+(/\.exe$/i.test(f)?'<span class="bad">'+e(f)+'   ← .exe da togliere</span>':(/(\.(lps|res|o|ppu|compiled|rst|bak)$|^(lib|backup)\/)/i.test(f)?'<span class="bad">'+e(f)+'   ← non serve</span>':e(f))))});if(dirs[d].length>12)out.push('   … altri '+(dirs[d].length-12)+' file')});return out.join('\n')}
