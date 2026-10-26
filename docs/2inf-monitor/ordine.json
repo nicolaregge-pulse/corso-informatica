@@ -1,5 +1,5 @@
 {
- "ora": "12:42",
+ "ora": "12:47",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -169,18 +169,17 @@
   {
    "alunno": "Giorgio A.",
    "pezzi": [
+    "pulito",
     "no .exe"
    ],
-   "salvataggi": 10,
-   "ultimo": "12:29",
+   "salvataggi": 12,
+   "ultimo": "12:44",
    "caricato": false,
-   "cartella_ok": false,
+   "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "README.md",
-    "primo-programma",
-    "salvadanaio"
+    "README.md"
    ]
   },
   {
@@ -199,11 +198,10 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "README",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "12:38",
+   "salvataggi": 2,
+   "ultimo": "12:42",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file .exe (primo-programma/migliakilometri.exe, salvadanaio/salvadanaio.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
@@ -253,8 +251,8 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [],
-   "salvataggi": 1,
-   "ultimo": "12:36",
+   "salvataggi": 4,
+   "ultimo": "12:45",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
@@ -279,12 +277,9 @@
     "primo programma/project1.res",
     "primo programma/unit1.lfm",
     "primo programma/unit1.pas",
-    "project1.exe",
     "project1.ico",
     "project1.lpi",
     "project1.lpr",
-    "project1.lps",
-    "project1.res",
     "unit1.lfm",
     "unit1.pas"
    ]
@@ -292,19 +287,16 @@
   {
    "alunno": "Francesco M.",
    "pezzi": [],
-   "salvataggi": 1,
-   "ultimo": "12:37",
+   "salvataggi": 4,
+   "ultimo": "12:45",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "euro.exe",
     "euro.ico",
-    "euro.lpi",
     "euro.lpr",
     "euro.lps",
-    "euro.res",
     "primo programma/backup/euro.lpi",
     "primo programma/backup/euro.lps",
     "primo programma/backup/unit1.lfm",
@@ -372,8 +364,8 @@
     "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 10,
-   "ultimo": "12:39",
+   "salvataggi": 12,
+   "ultimo": "12:44",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe). Attenzione: Veyon ti ha visto fuori lezione (12:08).",
@@ -396,8 +388,6 @@
     "salvadanaio/lib/x86_64-win64/unit1.ppu",
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
-    "salvadanaio/salvadanaio.lpr",
-    "salvadanaio/salvadanaio.lps",
     "salvadanaio/unit1.lfm",
     "salvadanaio/unit1.pas"
    ]
@@ -489,28 +479,21 @@
    "alunno": "Alejandro G.",
    "pezzi": [
     "pulito",
+    "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 3,
-   "ultimo": "12:39",
+   "salvataggi": 7,
+   "ultimo": "12:46",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "primo programma/salvadanio.exe",
-    "primo programma/salvadanio.lpi",
-    "salvaDANAIO/backup/project1.lpi",
-    "salvaDANAIO/backup/project1.lps",
-    "salvaDANAIO/backup/unit1.lfm",
-    "salvaDANAIO/backup/unit1.pas",
-    "salvaDANAIO/lib/i386-win32/project1.compiled",
     "salvaDANAIO/project1.ico",
     "salvaDANAIO/project1.lpi",
     "salvaDANAIO/project1.lpr",
     "salvaDANAIO/project1.lps",
-    "salvaDANAIO/project1.res",
     "salvaDANAIO/unit1.lfm",
     "salvaDANAIO/unit1.pas"
    ]
@@ -521,27 +504,13 @@
     "pulito",
     "no .exe"
    ],
-   "salvataggi": 3,
+   "salvataggi": 4,
    "ultimo": "12:42",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": [
-    "for e while/FOREWHILE.ico",
-    "for e while/FOREWHILE.lpi",
-    "for e while/FOREWHILE.lpr",
-    "for e while/FOREWHILE.lps",
-    "for e while/lib/x86_64-win64/FOREWHILE.compiled",
-    "for e while/lib/x86_64-win64/FOREWHILE.o",
-    "for e while/lib/x86_64-win64/FOREWHILE.obj",
-    "for e while/lib/x86_64-win64/FOREWHILE.res",
-    "for e while/lib/x86_64-win64/unit1.lfm",
-    "for e while/lib/x86_64-win64/unit1.o",
-    "for e while/lib/x86_64-win64/unit1.ppu",
-    "for e while/unit1.lfm",
-    "for e while/unit1.pas"
-   ]
+   "albero": []
   },
   {
    "alunno": "Prof R.",
