@@ -1,5 +1,5 @@
 {
- "ora": "13:26",
+ "ora": "13:31",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -310,49 +310,49 @@
   {
    "alunno": "Antonio M.",
    "pezzi": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README"
    ],
-   "salvataggi": 10,
-   "ultimo": "13:08",
+   "salvataggi": 11,
+   "ultimo": "13:30",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio».",
+   "messaggio": "Passo D: cancella i file .exe (salvadanaio/project55.exe): non servono, basta il progetto.",
    "fuori": 0,
    "albero": [
-    "README.md"
+    "README.md",
+    "salvadanaio/project55.exe"
    ]
   },
   {
    "alunno": "Mahammed M.",
    "pezzi": [
     "cartelle",
+    "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 4 file sparsi (project1.lps, project1.res, unit1.lfm, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "salvataggi": 5,
+   "ultimo": "13:30",
+   "caricato": true,
+   "cartella_ok": true,
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
    "fuori": 0,
    "albero": [
-    "README.md",
-    "project1.lps",
-    "project1.res",
-    "unit1.lfm",
-    "unit1.pas"
+    "README.md"
    ]
   },
   {
    "alunno": "Mathias P.",
    "pezzi": [
     "pulito",
+    "no .exe",
     "README"
    ],
-   "salvataggi": 20,
-   "ultimo": "13:26",
+   "salvataggi": 24,
+   "ultimo": "13:28",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (esercizio-3, esercizio-4, primo-programma): rinominale. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
@@ -361,19 +361,9 @@
     "README.md",
     "esercizio-3/README.md",
     "esercizio-4/README.md",
-    "primo-programma/lib/x86_64-win64/tabelline.compiled",
-    "primo-programma/lib/x86_64-win64/tabelline.o",
-    "primo-programma/lib/x86_64-win64/tabelline.obj",
-    "primo-programma/lib/x86_64-win64/tabelline.res",
-    "primo-programma/lib/x86_64-win64/unit1.lfm",
-    "primo-programma/lib/x86_64-win64/unit1.o",
-    "primo-programma/lib/x86_64-win64/unit1.ppu",
-    "primo-programma/tabelline.exe",
     "primo-programma/tabelline.ico",
     "primo-programma/tabelline.lpi",
     "primo-programma/tabelline.lpr",
-    "primo-programma/tabelline.lps",
-    "primo-programma/tabelline.res",
     "primo-programma/unit1.lfm",
     "primo-programma/unit1.pas"
    ]
