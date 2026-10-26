@@ -19,6 +19,7 @@
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
 .ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
+.sologit th:nth-child(4),.sologit td:nth-child(4),.sologit th:nth-child(5),.sologit td:nth-child(5),.sologit th:nth-child(6),.sologit td:nth-child(6),.sologit th:nth-child(7),.sologit td:nth-child(7),.sologit th:nth-child(9),.sologit td:nth-child(9),.sologit th:nth-child(10),.sologit td:nth-child(10){display:none}
 </style>
 </head>
 <body><div class="w">
@@ -46,7 +47,7 @@ function teo(id,nome){var d=LIVE[id];if(!d||!d.righe)return null;var a=tok(nome)
 function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')+'<div style="height:6px;background:#e6eaf0;border-radius:3px;margin-top:3px"><i style="display:block;height:100%;width:'+p+'%;background:var(--acc);border-radius:3px"></i></div>'}
 function chips(f,tutti){return tutti.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+e(x)+'</span>':'<span class="ko c">○ '+e(x)+'</span>'}).join(' ')}
 function quiz(v,q){return '<b>'+v+'</b> '+(q?'<span class="ok">'+q.ok+'/'+q.su+'</span><div class="p">'+e(q.ora)+'</div>':'<span class="ko">non fatto</span>')}
-async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}document.querySelectorAll('table').forEach(function(t){t.classList.toggle('sologit',!!d.solo_github)});   /* 26/10: oggi conta solo GitHub, via le colonne del 22/10 */
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var a=await live('2inf-salvadanaio-v1'),b=await live('2inf-github-v1');if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · teoria dal vivo '+(LIVE['2inf-github-v1']||LIVE['2inf-salvadanaio-v1']?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
