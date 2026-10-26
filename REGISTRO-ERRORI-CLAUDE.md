@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.79** — 26/10/2026 (#123 del 26/10)
+**Versione 2.80** — 26/10/2026 (#124 del 26/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 26/10/2026 — 2INF: la casella dell'assistente ha scritto «Mandata!» e la domanda non è mai arrivata (#124)
+
+1. **Errore.** Verso le 13:00 un ragazzo ha mandato una domanda all'assistente: la pagina gli ha scritto «Mandata! La risposta compare qui sotto entro qualche minuto», ma la domanda non è arrivata nel riservato. Il messaggio compariva subito, prima ancora di sapere se l'invio era partito. Durante la lezione io salvavo nel riservato ogni pochi minuti (uscite, Veyon, controllo dei repository): può essere la stessa collisione del #112.
+2. **Regola.** «Mandata!» compare solo quando l'invio è partito davvero (corretto in `docs/assistente/assistente.js`). In lezione non salvo nel riservato più spesso del necessario. Se un ragazzo dice di aver scritto e la domanda non c'è, lo dico subito al docente e gli faccio rimandare la domanda.
 
 ## 26/10/2026 — 2INF: passo B troppo difficile, ragazzi sopravvalutati; domande all'assistente senza risposta (#123)
 
