@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Il mio GitHub in ordine</title>
+<!-- 2INF 26/10/2026 (Nicola: «sistemare GitHub perché funzioni per tutti: un repository con una sottocartella per ogni progetto Lazarus;
+     una pagina che li aiuti passo passo: 1) controllare che cosa hanno, 2) fare quello che manca o correggere»). Solo italiano.
+     Dati: ../2inf-monitor/ordine.json (Nome C., aggiornato ogni pochi minuti da generatori/ordine_github_2inf.py). -->
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--fg:#1a2330;--mu:#5c6672;--ln:#d5dde5;--blu:#1f6feb;--ok:#1e7a44;--ko:#c0392b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
+main{max-width:900px;margin:0 auto;padding:12px 16px 40px}h1{font-size:28px;margin:6px 0}h2{font-size:22px;margin:0 0 6px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;margin:12px 0}
+select{font:inherit;padding:8px;border-radius:8px;border:2px solid var(--blu);max-width:100%}
+.ck{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.ck span{padding:6px 12px;border-radius:20px;font-weight:700}.si{background:#eafaf0;color:var(--ok)}.no{background:#fdecea;color:var(--ko)}
+.next{background:#e8f0fe;border-left:6px solid var(--blu);padding:10px 12px;border-radius:8px;font-size:20px;font-weight:700}
+.tree{font:15px/1.4 Consolas,monospace;background:#0d1117;color:#e6edf3;padding:10px 12px;border-radius:8px;white-space:pre;overflow-x:auto;max-height:340px}
+.tree .bad{color:#ff7b72}.tree .dir{color:#79c0ff}
+ol{padding-left:24px;margin:6px 0}li{margin:4px 0}.mu{color:var(--mu)}b.k{background:#eef;border:1px solid #99a;border-radius:4px;padding:0 5px;font-size:15px}
+.passo{border-left:6px solid var(--ln)}.passo.ora{border-left-color:var(--blu)}.big{font-size:22px;font-weight:800}
+.ok{color:var(--ok);font-weight:700}
+</style></head><body><main>
+<h1>Il mio GitHub in ordine</h1>
+<p class="mu">Il tuo repository «lazarus» deve essere come una libreria: <b>una cartella per ogni progetto</b> e, nella pagina principale, <b>solo il README e le cartelle</b>.</p>
+
+<div class="card"><h2>1. Controlla il tuo repository</h2>
+<p>Scegli il tuo nome. La pagina guarda il tuo GitHub e ti dice che cosa va bene e che cosa manca.</p>
+<select id="chi"><option value="">— scegli il tuo nome —</option></select>
+<div id="stato" class="mu" style="margin-top:6px"></div>
+<div id="io" style="display:none">
+ <div class="ck" id="ck"></div>
+ <div class="next" id="next"></div>
+ <p style="margin:10px 0 4px"><b>Che cosa c'è adesso nel tuo repository</b> <span class="mu">(in rosso quello che va tolto o spostato)</span></p>
+ <div class="tree" id="tree"></div>
+</div></div>
+
+<div class="card"><h2>Come deve diventare</h2>
+<div class="tree"><span class="dir">lazarus/</span>
+├── README.md                  ← chi sei e i tuoi progetti
+├── <span class="dir">primo-programma/</span>       ← il primo progetto (.lpi .lpr .pas .lfm)
+└── <span class="dir">salvadanaio/</span>           ← il salvadanaio (.lpi .lpr .pas .lfm)</div>
+<p class="mu">Niente file .exe: non servono, basta il progetto. Ogni nuovo progetto Lazarus avrà la sua cartella.</p></div>
+
+<h2 style="margin-top:20px">2. Fai quello che manca</h2>
+<p class="mu">Fai solo il passo che ti dice il riquadro blu qui sopra. Poi aspetta 2-3 minuti e ricarica la pagina con <b class="k">F5</b>: il controllo si aggiorna.</p>
+
+<div class="card passo" id="pA"><h2>Passo A · Apri il tuo repository</h2><ol>
+<li>Apri <b>github.com</b> e fai l'accesso.</li>
+<li>In alto a sinistra clicca sul tuo repository <b>lazarus</b>.</li></ol></div>
+
+<div class="card passo" id="pB"><h2>Passo B · Crea la cartella «primo-programma» e carica il primo programma</h2><ol>
+<li>Sul PC apri la cartella dove hai il tuo primo programma Lazarus.</li>
+<li>Su GitHub, nel repository, clicca il bottone <b>Add file</b> (in alto a destra), poi <b>Upload files</b>.</li>
+<li>Trascina nella pagina <b>la cartella intera</b> del primo programma. Se la cartella non si chiama «primo-programma», prima rinominala sul PC.</li>
+<li>In fondo clicca il bottone verde <b>Commit changes</b>.</li></ol></div>
+
+<div class="card passo" id="pC"><h2>Passo C · Cancella i file sparsi nella pagina principale</h2><ol>
+<li>Nella pagina principale del repository clicca un file sparso (per esempio <b>project1.lpi</b>).</li>
+<li>In alto a destra clicca i <b>tre puntini</b> <b class="k">…</b>, poi <b>Delete file</b>.</li>
+<li>Clicca il bottone verde <b>Commit changes</b>, poi ancora <b>Commit changes</b>.</li>
+<li>Torna alla pagina principale (clicca <b>lazarus</b> in alto) e rifai per il file successivo.</li></ol>
+<p class="mu">Prima di cancellare controlla che lo stesso progetto sia già dentro la sua cartella (passo B).</p></div>
+
+<div class="card passo" id="pD"><h2>Passo D · Cancella i file .exe</h2><ol>
+<li>Apri la cartella dove c'è il file .exe e clicca il file .exe.</li>
+<li>In alto a destra <b class="k">…</b>, poi <b>Delete file</b>, poi <b>Commit changes</b> due volte.</li></ol></div>
+
+<div class="card passo" id="pE"><h2>Passo E · Carica il salvadanaio nella cartella «salvadanaio»</h2><ol>
+<li>Sul PC trova la cartella del tuo salvadanaio (di solito <b>Documenti</b>). Se non si chiama «salvadanaio», rinominala.</li>
+<li>Su GitHub clicca <b>Add file</b>, poi <b>Upload files</b>.</li>
+<li>Trascina nella pagina <b>la cartella intera</b> «salvadanaio».</li>
+<li>Clicca il bottone verde <b>Commit changes</b>.</li></ol></div>
+
+<div class="card passo" id="pF"><h2>Passo F · Scrivi il tuo README</h2><ol>
+<li>Nella pagina principale clicca <b>README.md</b>, poi la <b>matita</b> in alto a destra.</li>
+<li>Scrivi almeno 4 righe: il tuo nome, la classe, e l'elenco dei progetti (primo-programma, salvadanaio).</li>
+<li>Clicca il bottone verde <b>Commit changes</b>, poi ancora <b>Commit changes</b>.</li></ol>
+<p class="mu">Se README.md non c'è: <b>Add file</b> → <b>Create new file</b>, nome <b>README.md</b>, scrivi e <b>Commit changes</b>.</p></div>
+
+<div class="card" style="text-align:center"><p class="big ok" id="fine" style="display:none">Repository in ordine: bravo! Fallo vedere al tuo vicino.</p>
+<p class="mu">Bloccato? Scrivi qui sotto all'assistente, anche con uno screenshot. Al prof solo per problemi del PC o dell'account.</p></div>
+</main>
+<script>
+var D=null,NOMI={cartelle:'Cartelle dei progetti',pulito:'Pagina principale pulita','no .exe':'Niente .exe',README:'README scritto',salvadanaio:'Salvadanaio caricato'};
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function albero(a){if(!a||!a.length)return 'repository vuoto';var out=[],dirs={};a.forEach(function(f){var p=f.split('/');if(p.length===1){out.push((/\.exe$/i.test(f)||!/^readme\.md$/i.test(f))&&!/^readme\.md$/i.test(f)?'<span class="bad">'+e(f)+'   ← da togliere</span>':e(f))}else{(dirs[p[0]]=dirs[p[0]]||[]).push(p.slice(1).join('/'))}});
+ Object.keys(dirs).sort().forEach(function(d){out.push('<span class="dir">'+e(d)+'/</span>');dirs[d].slice(0,12).forEach(function(f){out.push('   '+(/\.exe$/i.test(f)?'<span class="bad">'+e(f)+'   ← .exe da togliere</span>':e(f)))});if(dirs[d].length>12)out.push('   … altri '+(dirs[d].length-12)+' file')});return out.join('\n')}
+function mostra(){var n=document.getElementById('chi').value;try{localStorage.setItem('gh-chi',n)}catch(x){}var r=D&&D.righe.filter(function(x){return x.alunno===n})[0];var io=document.getElementById('io');if(!r){io.style.display='none';return}io.style.display='block';
+ document.getElementById('ck').innerHTML=D.pezzi_nomi.map(function(p){var s=r.pezzi.indexOf(p)>=0;return '<span class="'+(s?'si':'no')+'">'+(s?'✔ ':'○ ')+e(NOMI[p]||p)+'</span>'}).join('');
+ document.getElementById('next').textContent=r.messaggio;document.getElementById('tree').innerHTML=albero(r.albero);
+ var m=(r.messaggio.match(/Passo ([A-F])/)||[])[1];['A','B','C','D','E','F'].forEach(function(k){document.getElementById('p'+k).classList.toggle('ora',k===m)});
+ document.getElementById('fine').style.display=r.pezzi.length===D.pezzi_nomi.length?'block':'none'}
+function carica(){fetch('../2inf-monitor/ordine.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;var s=document.getElementById('chi'),v=s.value;
+ if(s.options.length<2){d.righe.map(function(r){return r.alunno}).sort().forEach(function(n){var o=document.createElement('option');o.textContent=n;s.appendChild(o)});try{v=localStorage.getItem('gh-chi')||''}catch(x){}s.value=v}
+ document.getElementById('stato').textContent='Controllo del tuo GitHub alle '+d.ora+' (si aggiorna da solo ogni 3 minuti)';mostra()}).catch(function(){document.getElementById('stato').textContent='Non riesco a leggere il controllo: ricarica con F5.'})}
+document.getElementById('chi').onchange=mostra;carica();setInterval(carica,180000);
+</script>
+<script src="../assistente/assistente.js" data-pagina="2inf-github-ordine" data-lingue="it"></script>
+</body></html>
