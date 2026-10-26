@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.78** — 26/10/2026 (#122 del 26/10)
+**Versione 2.79** — 26/10/2026 (#123 del 26/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 26/10/2026 — 2INF: passo B troppo difficile, ragazzi sopravvalutati; domande all'assistente senza risposta (#123)
+
+1. **Errore.** Il passo B chiedeva di trovare sul PC la cartella del primo programma, rinominarla e trascinarla su GitHub: alle 12:33 quasi tutti erano fermi lì e chiamavano il docente. Il docente: «te l'avevo già detto di fare le cose semplici, continui a sopravvalutare i ragazzi; devi pensarli come ragazzi di 12 anni». Due domande all'assistente (12:34 e 12:35, una era «non ho capito nulla») sono rimaste senza risposta finché il docente non ha chiesto il report.
+2. **Regola.** Ogni passo è un'azione che si vede sullo schermo, pensata per un dodicenne; se il lavoro si può fare tutto su GitHub (spostare un file con la matita scrivendo «cartella/» davanti al nome) non si manda il ragazzo a cercare sul PC. Le domande all'assistente si leggono e si risolvono a ogni giro, e il report va al docente (CLAUDE.md regola 22).
 
 ## 26/10/2026 — 2INF: scadenza del compito inventata (#122)
 
