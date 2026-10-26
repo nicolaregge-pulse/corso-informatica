@@ -31,13 +31,13 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 </div></div>
 <script>
 // 2INF 22/10/2026 (Nicola: «teoria, quiz, teoria2, git, quiz… e colonna per monitoraggio»): una colonna per ogni attività della giornata.
-var TOK='',_kc=null,_n=0,EXEC='',LIVE={},RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-git-oggi.json';
+var TOK='',_kc=null,_n=0,EXEC='',LIVE={},RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-git-oggi.json';var LOC='2inf-git-oggi.json';(function(){var f=new URLSearchParams(location.search).get('f')||'';if(/^archivio\/[\w.-]+\.json$/.test(f)){LOC=f;RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/'+f;}})();   /* 26/10/2026: cruscotto unico con il calendario */
 function $(i){return document.getElementById(i)}
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
-async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch('2inf-git-oggi.json?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch(LOC+'?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
 // la teoria dal vivo: la legge lo script (come il cruscotto unico oggi.html)
 function live(id){return new Promise(function(ok){if(!EXEC)return ok(null);var cb='cg'+(++_n),s=document.createElement('script'),t=setTimeout(function(){ok(null)},9000);
  window[cb]=function(d){clearTimeout(t);try{delete window[cb]}catch(x){}s.remove();ok(d)};s.onerror=function(){clearTimeout(t);ok(null)};
