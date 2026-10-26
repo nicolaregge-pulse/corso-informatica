@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.8** — 26/10/2026
+**Versione 0.9** — 26/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -30,7 +30,10 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 24/09/2026 | Configurazione di un PC — standard hardware (form factor AT/ATX/microATX/Mini-ITX, slot PCIe, socket Intel LGA/AMD PGA, processori per marca, RAM DDR3/4/5); esercitazione: documento con teoria + immagini dal web, consegna su Classroom | standard-hardware · consegna-configurazione-pc | Tecnologia professionale · Hardware |
 | 01/10/2026 | Bit, byte e numeri binari: sistema decimale vs binario, il bit (0/1), il byte (8 bit), conversione binario→decimale col metodo delle caselle a valori posizionali (128…1), multipli (KB/MB/GB). Lezione alla lavagna + dispensa trilingue (IT/AR/ZH) con foto della lavagna | bit-e-byte/dispensa-bit-byte · lavagne/20261001 | Fondamenti di informatica · Rappresentazione dell'informazione |
 | 01/10/2026 | Esercitazione "Da binario a decimale": 16 esercizi (griglia a valori posizionali, 1 evidenziati), consegna su Google Classroom; correzione con valutazione | bit-e-byte/compito-bit-byte | Rappresentazione dell'informazione · Calcolo |
+| 20/10/2026 | Tecnologia, 1 ora: quanto pesa un file e quanto va veloce la rete: bit e byte, KB, MB, GB, TB, la velocità in Mbps, b piccola (bit) e B grande (byte), tempo di download, streaming, Wi-Fi o cavo | `docs/verifica/?b=1inf-byte-velocita`, slide IT/AR/ZH | Reti e trasmissione dati |
 | 21/10/2026 | Laboratorio, 3 ore: sizing and transfer rate (quanto pesa un file, quante ne stanno, tempo di download, streaming e buffering), fino al ping escluso; percorso guidato «Quante ce ne stanno?», giochi dei byte, quiz su Moduli, domande orali. Da fare la prossima volta: ping, jitter, lag e FPS; monitor, schede video e cavi video | `docs/1inf-quante/`, `docs/1inf-byte-giochi/`, slide v1.3 | Reti e trasmissione dati |
+| 22/10/2026 | Sicurezza sul lavoro (Regione), 1ª ora: rischio e danno, pericolo, prevenzione e protezione; quiz su Moduli | `docs/verifica/?b=1inf-sicurezza-1ora` | Sicurezza sul lavoro |
+| 23/10/2026 | Tecnologia 1 ora + Laboratorio 3 ore: rete e gamer alla lavagna (ping, jitter, TCP e UDP, FPS e Hz, pannelli TN, VA e OLED, pixel e risoluzione); dispensa «Rete e gamer» in italiano, arabo e cinese; app «Le misure del mio PC» con le prove di ping, download e schermo e il Documento personale; quiz su Moduli | dispensa «Rete e gamer» v1.0, `docs/1inf-misure/`, quiz «rete e gamer» | Reti e trasmissione dati · Hardware |
 
 > [GIALLO] Supporto trasversale usato in queste attività: il Glossario L2 multilingue (italiano · inglese · cinese · arabo), per agganciare i termini tecnici alla lingua degli allievi.
 

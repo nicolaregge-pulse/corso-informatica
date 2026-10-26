@@ -101,7 +101,7 @@ l'intestazione del file.
 5b. `programmi-ufficiali/2026-27/` (script unico `programmi-ufficiali/_build/aggiorna_allegati.py` + `allegati_comune.py`; fonte `PROGRAMMI-DI-MASSIMA-2026-27.md` v1.0; procedura `COME-SI-AGGIORNA-ALLEGATO-A.md` v1.2) — v1.0 (14/10: i quattro Allegati A veri della scuola con la parte di Regge solo nelle aree Digitale e Tecnico-professionali, voci tecniche con sotto-voci; rosa = 2026/27, verde = anni scorsi, giallo/bianco = altri docenti; si parte SEMPRE dal file più recente della scuola, `--verifica` dopo il caricamento; originali in `originali-20261014/`, ultimi pronti in `consegna/`; consegna entro il 30/10)
 6. `MIE-PARTI-ALLEGATO-A.md` — v0.2 (parti di Regge estratte dai PFP)
 7. `ARGOMENTI-SVOLTI.md` — v0.3 (svolto 2025/26, nomenclatura 26/27)
-7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.8 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
+7b. `ARGOMENTI-SVOLTI-2026-27.md` — v0.9 (registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
 7c. `allegato-a-stato/allegato-a-stato.md` (+ `allegato-a-stato.html` → `Allegato-A-Stato-v0.3.pdf`) — v0.3 (Allegato A stato fatto/da fare, da fare in giallo; Classi 1-4; 2/3/4 generate da MIE-PARTI con build_allegato.py)
 7d. `allegato-a-2026-27/allegato-a-classe-{1,2,3,4}.md` (→ `allegato-a-classe-N-v0.1.pdf`) — v0.1 (le mie parti Regge mappate per competenza/area, pronte da incollare negli Argomenti del PFP ufficiale; sorgente per compilare poi il docx ufficiale in `programmi-ufficiali/`; generati da `gen_allegati.py`)
 8. `programma-svolto/README.md` — v1.0
