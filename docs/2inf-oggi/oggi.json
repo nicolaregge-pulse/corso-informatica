@@ -1,233 +1,49 @@
 {
- "ora": "13:21",
- "data": "2026-10-22",
+ "ora": "12:53",
+ "data": "2026-10-26",
  "righe": [
   {
-   "alunno": "Sid C.",
-   "voto": 73,
-   "conto": "salvadanaio 70 · verifica salvadanaio 77 · GitHub 64 · verifica GitHub 80 → media 73 = 73",
+   "alunno": "Antonio M.",
+   "voto": 65,
+   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 64 · verifica GitHub 80 → media 65 = 65",
    "v_github": 64,
    "v_facile": 53,
    "facile": [
-    "salvadanaio",
+    "README",
     "no .exe"
    ],
    "facile_manca": [
     "primo-programma",
     "esercizio-3",
     "esercizio-4",
-    "README"
+    "salvadanaio"
    ],
-   "v_salv": 70,
+   "v_salv": 40,
    "v_ver": 77,
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
     "pulito",
     "no .exe",
-    "salvadanaio"
+    "README"
    ],
    "github_manca": [
     "cartelle",
-    "README"
+    "salvadanaio"
    ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «esercizio-3», «esercizio-4».",
-   "salv": [
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
     "Form",
     "FOR",
-    "WHILE"
-   ],
-   "salv_manca": [
+    "WHILE",
     "sfida"
    ],
    "verifica": "12 su 13",
    "fuori": 0,
    "vy_ult": [
-    "10:12",
-    "Classroom, bacheca",
-    0
-   ],
-   "orale": 70
-  },
-  {
-   "alunno": "Lina A.",
-   "voto": 68,
-   "conto": "salvadanaio 80 · verifica salvadanaio 64 · GitHub 48 · verifica GitHub 80 → media 68 = 68",
-   "v_github": 48,
-   "v_facile": 47,
-   "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 64,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "3 su 5",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "schermata di accesso a Windows",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Luca B.",
-   "voto": 67,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 67 (facilitato) · verifica GitHub 80 → media 67 = 67",
-   "v_github": 40,
-   "v_facile": 67,
-   "facile": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Mathias P.",
-   "voto": 67,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 67 (facilitato) · verifica GitHub 80 → media 67 = 67",
-   "v_github": 56,
-   "v_facile": 67,
-   "facile": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "cartelle",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): spostali nella cartella «primo-programma».",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Sara A.",
-   "voto": 65,
-   "conto": "salvadanaio 80 · verifica salvadanaio 64 · GitHub 48 · verifica GitHub 80 → media 68 − 3×1 fuori compito = 65",
-   "v_github": 48,
-   "v_facile": 47,
-   "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 64,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "3 su 5",
-   "fuori": 1,
-   "vy_ult": [
-    "10:12",
-    "scheda nuova vuota",
+    "12:33",
+    "Classroom",
     0
    ],
    "orale": null
@@ -235,190 +51,282 @@
   {
    "alunno": "Youssef A.",
    "voto": 64,
-   "conto": "salvadanaio 80 · verifica salvadanaio 68 · GitHub 64 · verifica GitHub 80 → media 73 − 3×3 fuori compito = 64",
-   "v_github": 64,
-   "v_facile": 53,
+   "conto": "salvadanaio 40 · verifica salvadanaio 68 · GitHub 80 · verifica GitHub 80 → media 67 − 3×1 fuori compito = 64",
+   "v_github": 80,
+   "v_facile": 67,
    "facile": [
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
     "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
+    "salvadanaio",
+    "README",
     "no .exe"
    ],
-   "v_salv": 80,
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
    "v_ver": 68,
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
+    "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "github_manca": [
-    "cartelle",
-    "no .exe"
-   ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
-   "salv": [
+   "github_manca": [],
+   "cosa_fare": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "salv": [],
+   "salv_manca": [
     "Form",
     "FOR",
     "WHILE",
     "sfida"
    ],
-   "salv_manca": [],
    "verifica": "9 su 13",
-   "fuori": 3,
+   "fuori": 1,
    "vy_ult": [
-    "10:12",
-    "pagina di Google",
+    "12:33",
+    "Esplora file, cartelle del PC",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Lina A.",
+   "voto": 60,
+   "conto": "salvadanaio 40 · verifica salvadanaio 64 · GitHub 56 · verifica GitHub 80 → media 60 = 60",
+   "v_github": 56,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 64,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "3 su 5",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, repository",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Sara A.",
+   "voto": 60,
+   "conto": "salvadanaio 40 · verifica salvadanaio 64 · GitHub 56 · verifica GitHub 80 → media 60 = 60",
+   "v_github": 56,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 64,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "3 su 5",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, caricamento file da Esplora file",
     0
    ],
    "orale": null
   },
   {
    "alunno": "Egor M.",
-   "voto": 62,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 80 → media 62 = 62",
-   "v_github": 48,
-   "v_facile": 47,
+   "voto": 57,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 80 · verifica GitHub 80 → media 60 − 3×1 fuori compito = 57",
+   "v_github": 80,
+   "v_facile": 67,
    "facile": [
-    "salvadanaio"
-   ],
-   "facile_manca": [
     "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio2): rinominale (scheda 10).",
-   "salv": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "salv_manca": [],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "10:12",
-    "schermata di accesso a Windows",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Katherine A.",
-   "voto": 60,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 80 → media 60 = 60",
-   "v_github": 40,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
     "salvadanaio",
     "README",
     "no .exe"
    ],
-   "v_salv": 80,
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 80,
    "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
+   "github": [
     "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (SALVADANAIO.exe, SALVADANAIO.ico, SALVADANAIO.lpi, SALVADANAIO.lpr…): spostali nella cartella «primo-programma».",
-   "salv": [
+   "github_manca": [],
+   "cosa_fare": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "salv": [],
+   "salv_manca": [
     "Form",
     "FOR",
     "WHILE",
     "sfida"
    ],
-   "salv_manca": [],
    "verifica": "",
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "10:12",
-    "PC bloccato",
+    "12:33",
+    "Classroom",
     0
    ],
    "orale": null
   },
   {
-   "alunno": "Alejandro G.",
-   "voto": 60,
-   "conto": "salvadanaio 80 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 73 → media 60 = 60",
-   "v_github": 48,
-   "v_facile": 47,
+   "alunno": "Giorgio A.",
+   "voto": 56,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 80 → media 56 = 56",
+   "v_github": 64,
+   "v_facile": 60,
    "facile": [
-    "salvadanaio"
+    "primo-programma",
+    "salvadanaio",
+    "no .exe"
    ],
    "facile_manca": [
+    "esercizio-3",
+    "esercizio-4",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "no .exe"
+   ],
+   "github_manca": [
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, repository lazarus",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Mathias P.",
+   "voto": 55,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 73 (facilitato) · verifica GitHub 80 → media 58 − 3×1 fuori compito = 55",
+   "v_github": 72,
+   "v_facile": 73,
+   "facile": [
     "primo-programma",
     "esercizio-3",
     "esercizio-4",
-    "README",
+    "salvadanaio",
     "no .exe"
    ],
-   "v_salv": 80,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [
-    "pulito"
+   "facile_manca": [
+    "README"
    ],
-   "github_manca": [
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
     "cartelle",
+    "pulito",
     "no .exe",
-    "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (salvadanio): rinominale (scheda 10).",
-   "salv": [
+   "github_manca": [
+    "README"
+   ],
+   "cosa_fare": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe). Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "salv": [],
+   "salv_manca": [
     "Form",
     "FOR",
     "WHILE",
     "sfida"
    ],
-   "salv_manca": [],
    "verifica": "",
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "10:12",
-    "tabella del controllo",
+    "12:33",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
   },
   {
-   "alunno": "Antonio M.",
-   "voto": 55,
-   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 48 · verifica GitHub 80 → media 61 − 3×2 fuori compito = 55",
-   "v_github": 48,
+   "alunno": "Shahenda E.",
+   "voto": 54,
+   "conto": "salvadanaio 40 · verifica salvadanaio 80 · GitHub 56 · verifica GitHub 40 → media 54 = 54",
+   "v_github": 56,
    "v_facile": 47,
    "facile": [
     "no .exe"
@@ -431,19 +339,19 @@
     "README"
    ],
    "v_salv": 40,
-   "v_ver": 77,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
+   "v_ver": 80,
+   "v_vgit": 40,
+   "vgit": "",
    "github": [
+    "pulito",
     "no .exe"
    ],
    "github_manca": [
     "cartelle",
-    "pulito",
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project55.lpi, unit55.pas): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:05).",
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -451,34 +359,81 @@
     "WHILE",
     "sfida"
    ],
-   "verifica": "12 su 13",
-   "fuori": 2,
+   "verifica": "13 su 13",
+   "fuori": 0,
    "vy_ult": [
-    "10:12",
-    "tabella del controllo",
+    "12:33",
+    "GitHub, file del repository",
     0
    ],
    "orale": null
   },
   {
-   "alunno": "Giorgio K.",
+   "alunno": "Alejandro G.",
    "voto": 54,
-   "conto": "salvadanaio 70 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 67 → media 54 = 54",
-   "v_github": 40,
-   "v_facile": 40,
-   "facile": [],
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 73 → media 54 = 54",
+   "v_github": 64,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "no .exe"
+   ],
    "facile_manca": [
     "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "pulito",
+    "no .exe",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "pagina della lezione, controllo",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Katherine A.",
+   "voto": 52,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 47 (facilitato) · verifica GitHub 80 → media 52 = 52",
+   "v_github": 40,
+   "v_facile": 47,
+   "facile": [
+    "primo-programma"
+   ],
+   "facile_manca": [
     "esercizio-3",
     "esercizio-4",
     "salvadanaio",
     "README",
     "no .exe"
    ],
-   "v_salv": 70,
+   "v_salv": 40,
    "v_ver": 40,
-   "v_vgit": 67,
-   "vgit": "2 su 3",
+   "v_vgit": 80,
+   "vgit": "6 su 6",
    "github": [],
    "github_manca": [
     "cartelle",
@@ -487,28 +442,73 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (salvadanaio.exe, salvadanaio.ico, salvadanaio.lpi, salvadanaio.lpr…): spostali nella cartella «primo-programma».",
-   "salv": [
+   "cosa_fare": "Passo C: nella pagina principale ci sono ancora 8 file sparsi (SALVADANAIO.ico, SALVADANAIO.lpi, SALVADANAIO.lps, SALVADANAIO.res…): cancellali (sono già nella cartella del progetto).",
+   "salv": [],
+   "salv_manca": [
     "Form",
     "FOR",
-    "WHILE"
-   ],
-   "salv_manca": [
+    "WHILE",
     "sfida"
    ],
    "verifica": "",
    "fuori": 0,
    "vy_ult": [
-    "10:12",
-    "verifica del salvadanaio (non la lezione GitHub)",
+    "12:33",
+    "pagina della lezione, passi",
     0
    ],
-   "orale": 80
+   "orale": null
+  },
+  {
+   "alunno": "Giorgio K.",
+   "voto": 51,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 56 · verifica GitHub 67 → media 51 = 51",
+   "v_github": 56,
+   "v_facile": 47,
+   "facile": [
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 67,
+   "vgit": "2 su 3",
+   "github": [
+    "pulito",
+    "no .exe"
+   ],
+   "github_manca": [
+    "cartelle",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "chat di un'AI",
+    0
+   ],
+   "orale": null
   },
   {
    "alunno": "Ney V.",
-   "voto": 48,
-   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 48 · verifica GitHub 40 → media 51 − 3×1 fuori compito = 48",
+   "voto": 51,
+   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 48 · verifica GitHub 40 → media 51 = 51",
    "v_github": 48,
    "v_facile": 47,
    "facile": [
@@ -534,7 +534,7 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (GitHub.lpi, GitHub.lpr, GitHub.lps, unit1.lfm…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:45).",
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -543,11 +543,57 @@
     "sfida"
    ],
    "verifica": "12 su 13",
-   "fuori": 1,
+   "fuori": 0,
    "vy_ult": [
-    "10:45",
-    "gioco del serpente (PC37), non la lezione",
-    1
+    "12:33",
+    "pagina della lezione, codice",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Francesco M.",
+   "voto": 50,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 73 → media 50 = 50",
+   "v_github": 48,
+   "v_facile": 47,
+   "facile": [
+    "salvadanaio"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, repository",
+    0
    ],
    "orale": null
   },
@@ -580,7 +626,7 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:13).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -591,104 +637,16 @@
    "verifica": "12 su 13",
    "fuori": 2,
    "vy_ult": [
-    "10:12",
-    "PC bloccato",
+    "12:33",
+    "pagina della lezione, passi",
     0
    ],
    "orale": null
   },
   {
    "alunno": "Oscar F.",
-   "voto": 45,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 73 → media 48 − 3×1 fuori compito = 45",
-   "v_github": 40,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:00).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 1,
-   "vy_ult": [
-    "10:12",
-    "scheda nuova vuota",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Giorgio A.",
-   "voto": 44,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 80 → media 50 − 3×2 fuori compito = 44",
-   "v_github": 40,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (08:42).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 2,
-   "vy_ult": [
-    "10:45",
-    "pagina di Google",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Hagar A.",
-   "voto": 41,
-   "conto": "salvadanaio 60 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 47 − 3×2 fuori compito = 41",
+   "voto": 47,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 73 → media 50 − 3×1 fuori compito = 47",
    "v_github": 48,
    "v_facile": 47,
    "facile": [
@@ -701,10 +659,10 @@
     "README",
     "no .exe"
    ],
-   "v_salv": 60,
+   "v_salv": 40,
    "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
+   "v_vgit": 73,
+   "vgit": "5 su 6",
    "github": [
     "salvadanaio"
    ],
@@ -714,53 +672,7 @@
     "no .exe",
     "README"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (project1.exe, project1.ico, project1.lpi, project1.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (09:57).",
-   "salv": [
-    "Form",
-    "sfida"
-   ],
-   "salv_manca": [
-    "FOR",
-    "WHILE"
-   ],
-   "verifica": "",
-   "fuori": 2,
-   "vy_ult": [
-    "10:12",
-    "monitor della lezione",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Shahenda E.",
-   "voto": 40,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 40 → media 42 − 3×1 fuori compito = 40",
-   "v_github": 48,
-   "v_facile": 40,
-   "facile": [],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "pulito"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passi 5 e 8: mancano le cartelle «primo-programma», «salvadanaio», «esercizio-3», «esercizio-4». Hai cartelle con un altro nome (for e while): rinominale (scheda 10). Attenzione: Veyon ti ha visto fuori lezione (08:42).",
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -771,16 +683,154 @@
    "verifica": "",
    "fuori": 1,
    "vy_ult": [
-    "10:12",
-    "PC spento",
+    "12:33",
+    "pagina della lezione, passi",
     0
    ],
    "orale": null
   },
   {
-   "alunno": "Francesco M.",
+   "alunno": "Hagar A.",
+   "voto": 45,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 60 (facilitato) · verifica GitHub 40 → media 45 = 45",
+   "v_github": 56,
+   "v_facile": 60,
+   "facile": [
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "no .exe",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "README"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "pagina della lezione, passi",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Mahammed M.",
+   "voto": 43,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 53 (facilitato) · verifica GitHub 40 → media 43 = 43",
+   "v_github": 48,
+   "v_facile": 53,
+   "facile": [
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "no .exe"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, repository lazarus",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Shaharia A.",
    "voto": 40,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 73 → media 48 − 3×4 fuori compito = 40",
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 40 → media 46 − 3×2 fuori compito = 40",
+   "v_github": 64,
+   "v_facile": 53,
+   "facile": [
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README"
+   ],
+   "github_manca": [
+    "cartelle",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:17).",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 2,
+   "vy_ult": [
+    "12:33",
+    "pagina della lezione, passi",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Mohamed J.",
+   "voto": 40,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 40 · verifica GitHub 40 → media 40 − 3×1 fuori compito = 40",
    "v_github": 40,
    "v_facile": 40,
    "facile": [],
@@ -794,8 +844,8 @@
    ],
    "v_salv": 40,
    "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
+   "v_vgit": 40,
+   "vgit": "",
    "github": [],
    "github_manca": [
     "cartelle",
@@ -804,7 +854,7 @@
     "README",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo 6: nella pagina principale ci sono file sparsi (euro.exe, euro.ico, euro.lpi, euro.lpr…): spostali nella cartella «primo-programma». Attenzione: Veyon ti ha visto fuori lezione (10:01).",
+   "cosa_fare": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -813,11 +863,11 @@
     "sfida"
    ],
    "verifica": "",
-   "fuori": 4,
+   "fuori": 1,
    "vy_ult": [
-    "10:12",
-    "Classroom, compito GitHub",
-    0
+    "12:17",
+    "immagine di calcio",
+    1
    ],
    "orale": null
   }
