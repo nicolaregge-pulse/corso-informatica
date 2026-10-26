@@ -118,6 +118,8 @@ Nicola non dice **"avanti"**. Serve a **non far scorrere la chat**. Comportament
 - Dettaglio completo nel file interno `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (le nostre
   convenzioni, da non confondere con le regole PER i ragazzi).
 
+**3bis. Prefisso `PRI` = PRIORITARIO (26/10/2026, Nicola).** Una riga che comincia con `PRI`: niente output in chat, ma è la PRIMA cosa che Nicola si aspetta che io faccia, prima di tutto il resto. Il `PPP` invece si fa in background quando ho tempo. Dettaglio in `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (regole d'oro n. 7, §C.1bis).
+
 **4. Registro (firma ore): segnare SEMPRE il PROGRAMMA INIZIALE su tutte le ore.**
 Logica di Nicola: firma in anticipo il programma previsto su ogni ora, per non
 rischiare di lasciare **ore non firmate**; a fine giornata lo aggiorna con gli

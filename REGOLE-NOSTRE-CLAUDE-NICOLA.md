@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.5** — 06/10/2026
+**Versione 2.6** — 26/10/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 
@@ -27,6 +27,9 @@ ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
    file destinati agli allievi. *(§2.11, §2.20)*
 6. **Esempi eterogenei + termini spiegati.** Non file di grafi uguali: esempi da
    mondi diversi; ogni termine tecnico spiegato con un'analogia. *(§2.25)*
+7. **PPP e PRI (26/10/2026).** `PPP` = trascura nell'output: lo faccio in background quando ho
+   tempo. `PRI` = PRIORITARIO: niente output, ma è la PRIMA cosa che Nicola si aspetta che io
+   faccia, prima di tutto il resto. *(§C.1, §C.1bis)*
 
 ## B. ✅ CHECKLIST PRE-INVIO
 
@@ -63,6 +66,12 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
 6. **Se non sto facendo niente, vado avanti comunque (06/10/2026):** un PPP non mi
    tiene fermo. Se ho finito il resto, porto a termine il lavoro parcheggiato e lo
    tengo pronto (o lo consegno, se era stato chiesto con "dammi/fammi").
+
+### 1bis. PRI — prioritario (26/10/2026)
+1. **Significato:** una riga che comincia con `PRI` è la **prima cosa da fare**, prima di qualunque
+   altro lavoro in corso.
+2. **Niente output:** non scrivo spiegazioni né risultati in chat; la eseguo e basta.
+3. **Differenza con il PPP:** il `PPP` si fa in background quando ho tempo; il `PRI` passa davanti a tutto.
 
 ### 2.19 Interazioni brevi (Nicola ha poco tempo)
 1. Rispondere con **poco testo**: confermare in poche righe, andare al sodo.
@@ -322,6 +331,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 13. **v0.6 (23/09/2026)**: `Classe-N-PerTutti` per il materiale di classe.
 14. **v0.5 (23/09/2026)**: nel `Chi` il file di un allievo include la classe.
 15. **v0.4 (23/09/2026)**: schema nomi esteso col token `Chi`.
+0. **v2.6 (26/10/2026)**: regola d’oro 7 e §C.1bis: `PRI` = prioritario, niente output ma prima cosa da fare; `PPP` = in background quando ho tempo.
 0. **v2.5 (06/10/2026)**: PPP punti 5 e 6 («fammeli» vince sul PPP; se non sto facendo niente vado avanti).
 16. **v0.3 (23/09/2026)**: PPP subito e in silenzio; voti in centesimi; 2.11.
 17. **v0.2 (21/09/2026)**: "Lezioni dagli errori" (2.1–2.5).
