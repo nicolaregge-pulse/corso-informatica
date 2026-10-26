@@ -120,6 +120,10 @@ Nicola non dice **"avanti"**. Serve a **non far scorrere la chat**. Comportament
 
 **3bis. Prefisso `PRI` = PRIORITARIO (26/10/2026, Nicola).** Una riga che comincia con `PRI`: niente output in chat, ma è la PRIMA cosa che Nicola si aspetta che io faccia, prima di tutto il resto. Il `PPP` invece si fa in background quando ho tempo. Dettaglio in `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (regole d'oro n. 7, §C.1bis).
 
+**3ter. Prefisso `PRI+` (26/10/2026, Nicola).** Come `PRI` (prima cosa da fare), ma con l'output: rispondo subito, do la lista dei comandi PRI/PRI+ aperti con la loro posizione in ordine di priorità e chiedo in che posizione mettere l'ultimo PRI+. Ogni PRI+ riceve sempre una risposta.
+
+**3quater. Uscite senza rientro (26/10/2026, Nicola).** Se dopo 5 minuti da un'uscita Nicola non mi ha detto che il ragazzo è rientrato, gli chiedo conferma.
+
 **4. Registro (firma ore): segnare SEMPRE il PROGRAMMA INIZIALE su tutte le ore.**
 Logica di Nicola: firma in anticipo il programma previsto su ogni ora, per non
 rischiare di lasciare **ore non firmate**; a fine giornata lo aggiorna con gli
