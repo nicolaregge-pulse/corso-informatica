@@ -1,5 +1,5 @@
 {
- "ora": "13:39",
+ "ora": "13:42",
  "data": "2026-10-26",
  "righe": [
   {
@@ -410,6 +410,52 @@
    "orale": null
   },
   {
+   "alunno": "Sara A.",
+   "voto": 72,
+   "conto": "GitHub 4 su 5 in ordine → 72 = 72",
+   "v_github": 72,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "README"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 64,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "no .exe"
+   ],
+   "cosa_fare": "Passo D: cancella i file che non servono (SALVADANAIO/SALVADANAIO.lps, SALVADANAIO/SALVADANAIO.res, SALVADANAIO/backup (cartella intera), SALVADANAIO/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "3 su 5",
+   "fuori": 0,
+   "vy_ult": [
+    "13:11",
+    "pagina della lezione, passi",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Katherine A.",
    "voto": 72,
    "conto": "GitHub 4 su 5 in ordine → 72 = 72",
@@ -640,35 +686,35 @@
    "orale": null
   },
   {
-   "alunno": "Sara A.",
+   "alunno": "Antonio M.",
    "voto": 64,
    "conto": "GitHub 3 su 5 in ordine → 64 = 64",
    "v_github": 64,
-   "v_facile": 53,
+   "v_facile": 60,
    "facile": [
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
     "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
+    "README",
     "no .exe"
    ],
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
    "v_salv": 40,
-   "v_ver": 64,
+   "v_ver": 77,
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
-    "cartelle",
-    "README",
-    "salvadanaio"
+    "pulito",
+    "no .exe",
+    "README"
    ],
    "github_manca": [
-    "pulito",
-    "no .exe"
+    "cartelle",
+    "salvadanaio"
    ],
-   "cosa_fare": "Passo C: nella pagina principale ci sono ancora 1 file sparsi (indovina1.ico): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cosa_fare": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (primo-programma): rinominale.",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -676,11 +722,11 @@
     "WHILE",
     "sfida"
    ],
-   "verifica": "3 su 5",
+   "verifica": "12 su 13",
    "fuori": 0,
    "vy_ult": [
     "13:11",
-    "pagina della lezione, passi",
+    "pagina della lezione, controllo",
     0
    ],
    "orale": null
@@ -738,29 +784,29 @@
    "v_github": 64,
    "v_facile": 53,
    "facile": [
-    "README",
-    "no .exe"
+    "salvadanaio",
+    "README"
    ],
    "facile_manca": [
     "primo-programma",
     "esercizio-3",
     "esercizio-4",
-    "salvadanaio"
+    "no .exe"
    ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 40,
    "vgit": "",
    "github": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README"
    ],
    "github_manca": [
-    "cartelle",
+    "no .exe",
     "salvadanaio"
    ],
-   "cosa_fare": "Passo B o E: mancano le cartelle «salvadanaio». Attenzione: Veyon ti ha visto fuori lezione (12:17).",
+   "cosa_fare": "Passo D: cancella i file che non servono (salvadanaio/project1.exe, salvadanaio/project1.lps, salvadanaio/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico. Attenzione: Veyon ti ha visto fuori lezione (12:17).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -773,52 +819,6 @@
    "vy_ult": [
     "13:11",
     "pagina di una lezione Lazarus, codice",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Antonio M.",
-   "voto": 56,
-   "conto": "GitHub 2 su 5 in ordine → 56 = 56",
-   "v_github": 56,
-   "v_facile": 53,
-   "facile": [
-    "primo-programma",
-    "README"
-   ],
-   "facile_manca": [
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 77,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito",
-    "README"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (primo-programma): rinominale.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "12 su 13",
-   "fuori": 0,
-   "vy_ult": [
-    "13:11",
-    "pagina della lezione, controllo",
     0
    ],
    "orale": null
