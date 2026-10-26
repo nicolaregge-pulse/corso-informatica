@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.77** — 26/10/2026 (#121 del 26/10)
+**Versione 2.78** — 26/10/2026 (#122 del 26/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 26/10/2026 — 2INF: scadenza del compito inventata (#122)
+
+1. **Errore.** Nel compito «OGGI: il mio GitHub in ordine» ho messo la consegna alle 13:45 senza che il docente l'avesse detta; era un lavoro di preparazione, che si spera di finire prima, non una consegna con l'ora. Con la scadenza lo script avrebbe anche chiuso il compito da solo dopo le 13:45.
+2. **Regola.** La scadenza di un compito la decide il docente: se non l'ha detta, il compito si pubblica senza scadenza e senza chiusura automatica. Non si inventano orari, durate o voti che il docente non ha dato.
 
 ## 26/10/2026 — 2INF: due compiti su Classroom, il mio e quello del docente (#121)
 
