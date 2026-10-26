@@ -1,5 +1,5 @@
 {
- "ora": "13:12",
+ "ora": "13:16",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -17,10 +17,11 @@
    "alunno": "Hagar A.",
    "pezzi": [
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 7,
-   "ultimo": "12:51",
+   "salvataggi": 10,
+   "ultimo": "13:13",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
@@ -53,10 +54,11 @@
    "alunno": "Lina A.",
    "pezzi": [
     "pulito",
+    "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 14,
-   "ultimo": "12:41",
+   "salvataggi": 18,
+   "ultimo": "13:15",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
@@ -74,7 +76,6 @@
     "salvadanaio/lib/x86_64-win64/unit1.lfm",
     "salvadanaio/lib/x86_64-win64/unit1.o",
     "salvadanaio/lib/x86_64-win64/unit1.ppu",
-    "salvadanaio/salvadanaio.exe",
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
@@ -122,18 +123,26 @@
   {
    "alunno": "Katherine A.",
    "pezzi": [
+    "cartelle",
     "pulito",
-    "no .exe"
+    "no .exe",
+    "salvadanaio"
    ],
-   "salvataggi": 15,
-   "ultimo": "13:07",
+   "salvataggi": 17,
+   "ultimo": "13:14",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
    "fuori": 0,
    "albero": [
     "README.md",
-    "salvadanaio/README.md"
+    "primo-programma/README.md",
+    "salvadanaio/README.md",
+    "salvadanaio/SALVADANIO/SALVADANAIO.ico",
+    "salvadanaio/SALVADANIO/SALVADANAIO.lpi",
+    "salvadanaio/SALVADANIO/SALVADANAIO.lpr",
+    "salvadanaio/SALVADANIO/unit1.lfm",
+    "salvadanaio/SALVADANIO/unit1.pas"
    ]
   },
   {
@@ -334,22 +343,21 @@
   {
    "alunno": "Mathias P.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 13,
-   "ultimo": "13:08",
+   "salvataggi": 15,
+   "ultimo": "13:15",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe). Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
     "esercizio-3/README.md",
     "esercizio-4/README.md",
-    "primo-programma/README.md",
     "salvadanaio/backup/salvadanaio.lpi",
     "salvadanaio/backup/salvadanaio.lps",
     "salvadanaio/backup/unit1.lfm",
@@ -372,18 +380,18 @@
    "pezzi": [
     "no .exe"
    ],
-   "salvataggi": 1,
-   "ultimo": "13:01",
+   "salvataggi": 2,
+   "ultimo": "13:15",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "GitHub.lpi",
     "GitHub.lpr",
     "GitHub.lps",
     "PRIMO PROGETTO",
     "README.md",
+    "primo-programma",
     "unit1.lfm"
    ]
   },
@@ -452,14 +460,31 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 8,
-   "ultimo": "13:11",
+   "salvataggi": 12,
+   "ultimo": "13:15",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:13).",
    "fuori": 2,
    "albero": [
     "README.md",
+    "primo-progetto/backup/project1.lpi",
+    "primo-progetto/backup/project1.lpr",
+    "primo-progetto/backup/project1.lps",
+    "primo-progetto/backup/unit1.lfm",
+    "primo-progetto/backup/unit1.pas",
+    "primo-progetto/lib/x86_64-win64/project1.compiled",
+    "primo-progetto/lib/x86_64-win64/project1.o",
+    "primo-progetto/lib/x86_64-win64/project1.obj",
+    "primo-progetto/lib/x86_64-win64/project1.res",
+    "primo-progetto/lib/x86_64-win64/unit1.lfm",
+    "primo-progetto/lib/x86_64-win64/unit1.o",
+    "primo-progetto/lib/x86_64-win64/unit1.ppu",
+    "primo-progetto/project1.ico",
+    "primo-progetto/project1.lpi",
+    "primo-progetto/project1.lpr",
+    "primo-progetto/unit1.lfm",
+    "primo-progetto/unit1.pas",
     "salvadanaio/project1.ico",
     "salvadanaio/project1.lpi",
     "salvadanaio/project1.lpr",
@@ -473,13 +498,14 @@
     "cartelle",
     "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 16,
-   "ultimo": "13:08",
-   "caricato": false,
+   "salvataggi": 17,
+   "ultimo": "13:13",
+   "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -508,13 +534,14 @@
     "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 14,
-   "ultimo": "13:09",
+   "salvataggi": 15,
+   "ultimo": "13:14",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
+    "README.md",
     "salvadanaio/FOREWHILE.ico",
     "salvadanaio/FOREWHILE.lpr",
     "salvadanaio/FOREWHILE.res",
