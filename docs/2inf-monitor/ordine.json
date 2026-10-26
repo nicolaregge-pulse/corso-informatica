@@ -1,5 +1,5 @@
 {
- "ora": "12:56",
+ "ora": "13:02",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -122,10 +122,11 @@
   {
    "alunno": "Katherine A.",
    "pezzi": [
-    "pulito"
+    "pulito",
+    "no .exe"
    ],
-   "salvataggi": 12,
-   "ultimo": "12:54",
+   "salvataggi": 13,
+   "ultimo": "12:58",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio».",
@@ -133,7 +134,6 @@
    "albero": [
     "README.md",
     "primo-programma/README.md",
-    "primo-programma/SALVADANIO/SALVADANAIO.exe",
     "primo-programma/SALVADANIO/SALVADANAIO.ico",
     "primo-programma/SALVADANIO/SALVADANAIO.lpi",
     "primo-programma/SALVADANIO/SALVADANAIO.lpr",
@@ -222,6 +222,7 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [
+    "cartelle",
     "pulito",
     "README",
     "salvadanaio"
@@ -230,7 +231,7 @@
    "ultimo": "12:55",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Passo D: cancella i file .exe (primo programma/project1.exe, salvadanaio/project1.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
@@ -277,6 +278,7 @@
   {
    "alunno": "Francesco M.",
    "pezzi": [
+    "cartelle",
     "pulito",
     "README",
     "salvadanaio"
@@ -285,7 +287,7 @@
    "ultimo": "12:54",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "messaggio": "Passo D: cancella i file .exe (primo programma/euro.exe, salvadanaio/euro.exe): non servono, basta il progetto.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -332,18 +334,18 @@
   {
    "alunno": "Antonio M.",
    "pezzi": [
-    "pulito",
     "no .exe",
     "README"
    ],
-   "salvataggi": 3,
-   "ultimo": "12:41",
+   "salvataggi": 4,
+   "ultimo": "12:59",
    "caricato": false,
-   "cartella_ok": true,
+   "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "README.md"
+    "README.md",
+    "salvadanaio"
    ]
   },
   {
@@ -406,8 +408,8 @@
    "pezzi": [
     "no .exe"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 1,
+   "ultimo": "13:01",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
@@ -416,39 +418,46 @@
     "GitHub.lpi",
     "GitHub.lpr",
     "GitHub.lps",
+    "PRIMO PROGETTO",
     "README.md",
-    "unit1.lfm",
-    "unit1.pas"
+    "unit1.lfm"
    ]
   },
   {
    "alunno": "Giorgio K.",
    "pezzi": [
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "12:55",
+   "salvataggi": 19,
+   "ultimo": "13:02",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
-    "salvadanaio/lib/x86_64-win64/unit1.lfm",
-    "salvadanaio/lib/x86_64-win64/unit1.o",
-    "salvadanaio/lib/x86_64-win64/unit1.ppu",
-    "salvadanaio/salvadanaio.exe",
+    "primo-progetto/backup/project1.lpi",
+    "primo-progetto/backup/project1.lps",
+    "primo-progetto/backup/unit1.lfm",
+    "primo-progetto/backup/unit1.pas",
+    "primo-progetto/lib/x86_64-win64/project1.compiled",
+    "primo-progetto/lib/x86_64-win64/project1.o",
+    "primo-progetto/lib/x86_64-win64/project1.obj",
+    "primo-progetto/lib/x86_64-win64/project1.res",
+    "primo-progetto/lib/x86_64-win64/unit1.lfm",
+    "primo-progetto/lib/x86_64-win64/unit1.o",
+    "primo-progetto/lib/x86_64-win64/unit1.ppu",
+    "primo-progetto/project1.ico",
+    "primo-progetto/project1.lpi",
+    "primo-progetto/project1.lpr",
+    "primo-progetto/unit1.lfm",
+    "primo-progetto/unit1.pas",
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
-    "salvadanaio/salvadanaio.lps",
-    "salvadanaio/salvadanaio.res",
     "salvadanaio/unit1.lfm",
     "salvadanaio/unit1.pas"
    ]
@@ -499,19 +508,31 @@
   {
    "alunno": "Alejandro G.",
    "pezzi": [
+    "cartelle",
     "pulito",
     "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 8,
-   "ultimo": "12:50",
+   "salvataggi": 13,
+   "ultimo": "13:00",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
    "fuori": 0,
    "albero": [
     "README.md",
-    "primo programma/while.ico",
+    "primo-programma/project1.ico",
+    "primo-programma/project1.lpi",
+    "primo-programma/project1.lpr",
+    "primo-programma/project1.lps",
+    "primo-programma/project1.res",
+    "primo-programma/unit1.lfm",
+    "primo-programma/unit1.pas",
+    "primo-programma/w.ico",
+    "primo-programma/w.lpi",
+    "primo-programma/w.lpr",
+    "primo-programma/w.lps",
+    "primo-programma/w.res",
     "salvaDANAIO/project1.ico",
     "salvaDANAIO/project1.lpi",
     "salvaDANAIO/project1.lpr",
@@ -523,16 +544,35 @@
   {
    "alunno": "Shahenda E.",
    "pezzi": [
-    "pulito",
-    "no .exe"
+    "pulito"
    ],
-   "salvataggi": 6,
-   "ultimo": "12:49",
+   "salvataggi": 7,
+   "ultimo": "12:58",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "for e while/FOREWHILE.exe",
+    "for e while/FOREWHILE.ico",
+    "for e while/FOREWHILE.lpr",
+    "for e while/FOREWHILE.lps",
+    "for e while/FOREWHILE.res",
+    "for e while/backup/FOREWHILE.lpi",
+    "for e while/backup/FOREWHILE.lps",
+    "for e while/backup/unit1.lfm",
+    "for e while/backup/unit1.pas",
+    "for e while/lib/x86_64-win64/FOREWHILE.compiled",
+    "for e while/lib/x86_64-win64/FOREWHILE.o",
+    "for e while/lib/x86_64-win64/FOREWHILE.obj",
+    "for e while/lib/x86_64-win64/FOREWHILE.res",
+    "for e while/lib/x86_64-win64/unit1.lfm",
+    "for e while/lib/x86_64-win64/unit1.o",
+    "for e while/lib/x86_64-win64/unit1.ppu",
+    "for e while/primo programma.lpi",
+    "for e while/unit1.lfm",
+    "for e while/unit1.pas"
+   ]
   },
   {
    "alunno": "Prof R.",
