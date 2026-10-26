@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.75** — 26/10/2026 (#119 del 26/10)
+**Versione 2.76** — 26/10/2026 (#120 del 26/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 26/10/2026 — 2INF: «pubblicata» detto di nuovo per la sola pagina, e una domanda invece di fare (#120)
+
+1. **Errore.** Ho detto «la lezione è già pubblicata» per la pagina «Il mio GitHub in ordine», ma su Classroom non c'erano né il compito né l'annuncio: è lo stesso errore del #105. Prima di pubblicare non avevo riletto il registro degli errori e non avevo fatto passare la pagina dal controllo «solo italiano» (#49). Ho anche chiuso la risposta con una domanda («se lo volete fare oggi, aggiungo…») invece di farlo. Il docente: «Siamo rimasti d'accordo che pubblichi tu, rileggi i documenti e gli errori».
+2. **Regola.** Prima di dire «pubblicata» controllo i tre pezzi: la pagina (con `solo_italiano.py` per la 2INF), il compito della coda con lo stato «PUBLISHED» e l'annuncio «OGGI FATE SOLO…» con il link. Li pubblico io (regola 17) e scrivo in chat che cosa manca finché non ci sono tutti e tre. Una cosa decisa dal docente in classe si prepara subito, senza chiederla di nuovo.
 
 ## 26/10/2026 — Teoria della 3INF fatta anche in arabo e cinese (#119)
 
