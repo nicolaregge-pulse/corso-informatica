@@ -1,5 +1,5 @@
 {
- "ora": "12:52",
+ "ora": "12:56",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -121,19 +121,17 @@
   },
   {
    "alunno": "Katherine A.",
-   "pezzi": [],
-   "salvataggi": 4,
-   "ultimo": "12:52",
+   "pezzi": [
+    "pulito"
+   ],
+   "salvataggi": 12,
+   "ultimo": "12:54",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 8 file sparsi (SALVADANAIO.ico, SALVADANAIO.lpi, SALVADANAIO.lps, SALVADANAIO.res…): cancellali (sono già nella cartella del progetto).",
+   "cartella_ok": true,
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio».",
    "fuori": 0,
    "albero": [
     "README.md",
-    "SALVADANAIO.ico",
-    "SALVADANAIO.lpi",
-    "SALVADANAIO.lps",
-    "SALVADANAIO.res",
     "primo-programma/README.md",
     "primo-programma/SALVADANIO/SALVADANAIO.exe",
     "primo-programma/SALVADANIO/SALVADANAIO.ico",
@@ -153,11 +151,7 @@
     "primo-programma/SALVADANIO/lib/x86_64-win64/unit1.o",
     "primo-programma/SALVADANIO/lib/x86_64-win64/unit1.ppu",
     "primo-programma/SALVADANIO/unit1.lfm",
-    "primo-programma/SALVADANIO/unit1.pas",
-    "project1.lpi",
-    "project1.lpr",
-    "unit1.lfm",
-    "unit1.pas"
+    "primo-programma/SALVADANIO/unit1.pas"
    ]
   },
   {
@@ -205,7 +199,7 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 12,
+   "salvataggi": 13,
    "ultimo": "12:52",
    "caricato": true,
    "cartella_ok": true,
@@ -221,7 +215,6 @@
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
-    "salvadanaio/salvadanaio.res",
     "salvadanaio/unit1.lfm",
     "salvadanaio/unit1.pas"
    ]
@@ -229,15 +222,18 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [
+    "pulito",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 5,
-   "ultimo": "12:50",
+   "salvataggi": 11,
+   "ultimo": "12:55",
    "caricato": false,
-   "cartella_ok": false,
+   "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
+    "README.md",
     "primo programma/backup/project1.lpi",
     "primo programma/backup/project1.lps",
     "primo programma/backup/unit1.lfm",
@@ -257,9 +253,6 @@
     "primo programma/project1.res",
     "primo programma/unit1.lfm",
     "primo programma/unit1.pas",
-    "project1.ico",
-    "project1.lpi",
-    "project1.lpr",
     "salvadanaio/backup/project1.lpi",
     "salvadanaio/backup/project1.lps",
     "salvadanaio/backup/unit1.lfm",
@@ -277,23 +270,25 @@
     "salvadanaio/project1.lpr",
     "salvadanaio/project1.lps",
     "salvadanaio/project1.res",
-    "salvadanaio/unit1.lfm"
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
    ]
   },
   {
    "alunno": "Francesco M.",
    "pezzi": [
+    "pulito",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 6,
-   "ultimo": "12:50",
+   "salvataggi": 11,
+   "ultimo": "12:54",
    "caricato": false,
-   "cartella_ok": false,
+   "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "euro.lpr",
-    "euro.lps",
+    "README.md",
     "primo programma/backup/euro.lpi",
     "primo programma/backup/euro.lps",
     "primo programma/backup/unit1.lfm",
@@ -430,15 +425,33 @@
    "alunno": "Giorgio K.",
    "pezzi": [
     "pulito",
-    "no .exe"
+    "README",
+    "salvadanaio"
    ],
-   "salvataggi": 8,
-   "ultimo": "12:52",
+   "salvataggi": 11,
+   "ultimo": "12:55",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
+   ]
   },
   {
    "alunno": "Egor M.",
