@@ -1,5 +1,5 @@
 {
- "ora": "12:13",
+ "ora": "12:18",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -60,15 +60,14 @@
    "pezzi": [
     "salvadanaio"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 1,
+   "ultimo": "12:17",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "project1.exe",
     "project1.ico",
     "project1.lpi",
     "project1.lpr",
@@ -170,24 +169,30 @@
   },
   {
    "alunno": "Giorgio A.",
+   "pezzi": [
+    "pulito",
+    "no .exe"
+   ],
+   "salvataggi": 8,
+   "ultimo": "12:16",
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "fuori": 0,
+   "albero": [
+    "README.md"
+   ]
+  },
+  {
+   "alunno": "Shaharia A.",
    "pezzi": [],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
    "fuori": 0,
-   "albero": [
-    "README.md",
-    "project1.exe",
-    "project1.ico",
-    "project1.lpi",
-    "project1.lpr",
-    "project1.lps",
-    "project1.res",
-    "unit1.lfm",
-    "unit1.pas"
-   ]
+   "albero": []
   },
   {
    "alunno": "Youssef A.",
@@ -200,8 +205,8 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "fuori": 1,
    "albero": [
     "README.md",
     "salvadanaio/backup/salvadanaio.lpi",
@@ -226,90 +231,14 @@
    ]
   },
   {
-   "alunno": "Luca B.",
-   "pezzi": [
-    "README"
-   ],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 4 file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): cancellali (sono già nella cartella del progetto).",
-   "fuori": 0,
-   "albero": [
-    "README.md",
-    "esercizio-3/README.md",
-    "esercizio-4/README.md",
-    "primo-programma/README.md",
-    "project1.lpi",
-    "project1.lpr",
-    "salvadanio/backup/project1.lpi",
-    "salvadanio/backup/project1.lps",
-    "salvadanio/backup/unit1.lfm",
-    "salvadanio/backup/unit1.pas",
-    "salvadanio/lib/x86_64-win64/project1.compiled",
-    "salvadanio/lib/x86_64-win64/project1.o",
-    "salvadanio/lib/x86_64-win64/project1.obj",
-    "salvadanio/lib/x86_64-win64/project1.res",
-    "salvadanio/lib/x86_64-win64/unit1.lfm",
-    "salvadanio/lib/x86_64-win64/unit1.o",
-    "salvadanio/lib/x86_64-win64/unit1.ppu",
-    "salvadanio/project1.exe",
-    "salvadanio/project1.ico",
-    "salvadanio/project1.lpi",
-    "salvadanio/project1.lpr",
-    "salvadanio/project1.lps",
-    "salvadanio/project1.res",
-    "salvadanio/unit1.lfm",
-    "salvadanio/unit1.pas",
-    "unit1.lfm",
-    "unit1.pas"
-   ]
-  },
-  {
-   "alunno": "Luciano C.",
-   "pezzi": [
-    "pulito",
-    "no .exe",
-    "salvadanaio"
-   ],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
-   "albero": [
-    "README.md",
-    "salvadanaio/backup/salvadanaio.lpi",
-    "salvadanaio/backup/salvadanaio.lps",
-    "salvadanaio/backup/unit1.lfm",
-    "salvadanaio/backup/unit1.pas",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
-    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
-    "salvadanaio/lib/x86_64-win64/unit1.lfm",
-    "salvadanaio/lib/x86_64-win64/unit1.o",
-    "salvadanaio/lib/x86_64-win64/unit1.ppu",
-    "salvadanaio/salvadanaio.ico",
-    "salvadanaio/salvadanaio.lpi",
-    "salvadanaio/salvadanaio.lpr",
-    "salvadanaio/salvadanaio.lps",
-    "salvadanaio/salvadanaio.res",
-    "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas"
-   ]
-  },
-  {
    "alunno": "Oscar F.",
    "pezzi": [],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "fuori": 1,
    "albero": [
     "project1.exe",
     "project1.ico",
@@ -387,8 +316,8 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 6 file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): cancellali (sono già nella cartella del progetto).",
-   "fuori": 0,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 6 file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): cancellali (sono già nella cartella del progetto). Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "fuori": 1,
    "albero": [
     "README.md",
     "esercizio-3/README.md",
@@ -442,56 +371,19 @@
    ]
   },
   {
-   "alunno": "Giorgio K.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
-   "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
-   "albero": [
-    "salvadanaio.exe",
-    "salvadanaio.ico",
-    "salvadanaio.lpi",
-    "salvadanaio.lpr",
-    "salvadanaio.lps",
-    "salvadanaio.res",
-    "unit1.lfm",
-    "unit1.pas"
-   ]
-  },
-  {
    "alunno": "Egor M.",
    "pezzi": [
-    "pulito"
+    "pulito",
+    "no .exe"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 2,
+   "ultimo": "12:17",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "fuori": 1,
    "albero": [
-    "salvadanio2/backup/salvadanio2.lpi",
-    "salvadanio2/backup/salvadanio2.lps",
-    "salvadanio2/backup/unit1.lfm",
-    "salvadanio2/backup/unit1.pas",
-    "salvadanio2/lib/x86_64-win64/salvadanio2.compiled",
-    "salvadanio2/lib/x86_64-win64/salvadanio2.o",
-    "salvadanio2/lib/x86_64-win64/salvadanio2.obj",
-    "salvadanio2/lib/x86_64-win64/salvadanio2.res",
-    "salvadanio2/lib/x86_64-win64/unit1.lfm",
-    "salvadanio2/lib/x86_64-win64/unit1.o",
-    "salvadanio2/lib/x86_64-win64/unit1.ppu",
-    "salvadanio2/salvadanio2.exe",
-    "salvadanio2/salvadanio2.ico",
-    "salvadanio2/salvadanio2.lpi",
-    "salvadanio2/salvadanio2.lpr",
-    "salvadanio2/salvadanio2.lps",
-    "salvadanio2/salvadanio2.res",
-    "salvadanio2/unit1.lfm",
-    "salvadanio2/unit1.pas"
+    "README.md"
    ]
   },
   {
@@ -504,8 +396,8 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "fuori": 0,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:13).",
+   "fuori": 2,
    "albero": []
   },
   {
@@ -574,6 +466,17 @@
     "for e while/unit1.lfm",
     "for e while/unit1.pas"
    ]
+  },
+  {
+   "alunno": "Prof R.",
+   "pezzi": [],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": false,
+   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "fuori": 0,
+   "albero": []
   }
  ]
 }
