@@ -208,7 +208,7 @@ bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71
 
 **20. Messaggi tra chat (19/10/2026, Nicola).** Un messaggio che passa da una chat Claude a un'altra comincia con «Da chat <nome> a chat <nome>:». Quando ne scrivo uno per un'altra chat lo intesto così; quando ne arriva uno senza intestazione e Nicola dice da dove viene, lo tratto come richiesta di Nicola.
 
-**21. Prima di cominciare un lavoro: rileggere le regole (26/10/2026, VINCOLANTE, REGISTRO-ERRORI #119).** Prima di preparare qualunque materiale o di dare istruzioni, rileggo questo file, `MODUS-OPERANDI.md` e le ultime voci di `REGISTRO-ERRORI-CLAUDE.md`, e controllo per quale classe è il lavoro. **Lingue:** italiano, arabo e cinese SOLO per la 1INF (ragazzi che non parlano italiano); per 2INF, 3INF e 4TI solo italiano, salvo richiesta di Nicola.
+**21. Prima di cominciare un lavoro: rileggere le regole (26/10/2026, VINCOLANTE, REGISTRO-ERRORI #119).** Prima di preparare qualunque materiale o di dare istruzioni, rileggo questo file, `MODUS-OPERANDI.md` e il registro degli errori già fatti `REGISTRO-ERRORI-CLAUDE.md` (tutte le regole nate dagli errori, non solo le ultime voci), e controllo per quale classe è il lavoro. **Lingue:** italiano, arabo e cinese SOLO per la 1INF (ragazzi che non parlano italiano); per 2INF, 3INF e 4TI solo italiano, salvo richiesta di Nicola.
 
 **8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
 si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
