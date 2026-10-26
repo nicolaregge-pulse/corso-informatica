@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cruscotto della lezione</title>
+<style>
+/* 26/10/2026 (Nicola): un solo indirizzo per il cruscotto, per allievi e docente, con il calendario per rivedere ogni giorno */
+:root{--bg:#f4f6f9;--card:#fff;--txt:#1b1f24;--mu:#5b6573;--bordo:#d5dbe3;--blu:#1f6feb}
+body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--txt)}
+header{background:var(--card);border-bottom:1px solid var(--bordo);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+h1{font-size:19px;margin:0 12px 0 0}
+label{font-size:14px;color:var(--mu);display:flex;align-items:center;gap:6px}
+select,input[type=date]{font-size:16px;padding:6px 8px;border:1px solid var(--bordo);border-radius:8px;background:#fff}
+.ruolo{display:flex;gap:6px}
+.ruolo button{font-size:16px;padding:7px 14px;border:1px solid var(--bordo);border-radius:8px;background:#fff;cursor:pointer}
+.ruolo button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
+#nota{font-size:14px;color:var(--mu);padding:6px 16px;margin:0}
+iframe{display:block;width:100%;height:calc(100vh - 110px);border:0;background:#fff}
+</style>
+</head>
+<body>
+<header>
+  <h1>Cruscotto della lezione</h1>
+  <label>Classe <select id="classe"><option>1INF</option><option selected>2INF</option><option>3INF</option></select></label>
+  <label>Giorno <input type="date" id="giorno"></label>
+  <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
+</header>
+<p id="nota"></p>
+<iframe id="vista" title="Cruscotto"></iframe>
+<script>
+// Allievo: la pagina dei ragazzi (Nome C., voto, che cosa manca). Docente: il cruscotto cifrato, chiede la password.
+// Giorni passati: i file in avanzamento/archivio/ (indice.json dice quali giorni ci sono per ogni classe).
+var OGGI_PAG = {
+  '1INF': {allievo: '../1inf-oggi/', docente: '../avanzamento/1inf-oggi.html'},
+  '2INF': {allievo: '../2inf-oggi/', docente: '../avanzamento/git-2inf.html'},
+  '3INF': {allievo: '../3inf-oggi/', docente: '../avanzamento/3inf-oggi.html'}
+};
+var IND = {}, ruolo = 'allievo';
+var $ = function (id) { return document.getElementById(id); };
+function oggi() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+function salva() { try { localStorage.setItem('cruscotto', JSON.stringify({c: $('classe').value, r: ruolo})); } catch (e) {} }
+function mostra() {
+  var c = $('classe').value, g = $('giorno').value || oggi(), giorni = IND[c] || [], src;
+  if (g !== oggi() && giorni.indexOf(g) >= 0) {
+    var f = 'archivio/' + c.toLowerCase() + '-' + g + (ruolo === 'allievo' ? '-allievi' : '') + '.json';
+    src = OGGI_PAG[c][ruolo] + '?f=' + encodeURIComponent(f);
+    $('nota').textContent = 'Stai guardando il ' + g.split('-').reverse().join('/') + ' (giorno salvato).';
+  } else {
+    src = OGGI_PAG[c][ruolo];
+    $('nota').textContent = g === oggi() ? 'Oggi, dal vivo.' :
+      'Per questo giorno non c\'è un cruscotto salvato: mostro quello di oggi.' + (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
+  }
+  if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
+  salva();
+}
+function scegli(r) { ruolo = r; $('allievo').className = r === 'allievo' ? 'on' : ''; $('docente').className = r === 'docente' ? 'on' : ''; mostra(); }
+$('allievo').onclick = function () { scegli('allievo'); };
+$('docente').onclick = function () { scegli('docente'); };
+$('classe').onchange = mostra; $('giorno').onchange = mostra;
+try { var s = JSON.parse(localStorage.getItem('cruscotto') || '{}'); if (s.c) $('classe').value = s.c; if (s.r) ruolo = s.r; } catch (e) {}
+var q = new URLSearchParams(location.search);
+if (q.get('classe') && OGGI_PAG[q.get('classe').toUpperCase()]) $('classe').value = q.get('classe').toUpperCase();
+if (q.get('ruolo') === 'docente' || q.get('ruolo') === 'allievo') ruolo = q.get('ruolo');
+$('giorno').value = q.get('giorno') || oggi(); $('giorno').max = oggi();
+fetch('../avanzamento/archivio/indice.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : {}; })
+  .catch(function () { return {}; }).then(function (d) { IND = d || {}; scegli(ruolo); });
+</script>
+</body>
+</html>

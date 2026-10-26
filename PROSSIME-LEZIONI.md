@@ -1,6 +1,11 @@
 # Prossime lezioni
 
-Aggiornato mercoledì 21 ottobre 2026, mattina. Prima la lezione più vicina.
+Aggiornato lunedì 26 ottobre 2026, pomeriggio. Prima la lezione più vicina.
+
+## Promemoria per la prossima lezione della seconda informatica
+
+All'inizio della lezione il prof fa a tutti, a voce, questa domanda: perché su GitHub non mettiamo il file punto exe? La risposta giusta: perché il file exe è il programma già pronto, Lazarus lo rifà quando si preme Esegui; su GitHub si mettono solo i file del progetto, cioè lpi, lpr, pas e lfm.
+Poi si finisce di pulire il repository lazarus: si cancellano le cartelle lib e backup dentro i progetti. Chi non ha ancora caricato i progetti li carica dal suo computer.
 
 ## Martedì 20 ottobre
 
