@@ -1,5 +1,5 @@
 {
- "ora": "13:31",
+ "ora": "13:36",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -57,13 +57,14 @@
     "cartelle",
     "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 18,
-   "ultimo": "13:15",
-   "caricato": false,
+   "salvataggi": 20,
+   "ultimo": "13:34",
+   "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -91,18 +92,18 @@
    "alunno": "Sara A.",
    "pezzi": [
     "cartelle",
-    "pulito",
+    "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 8,
-   "ultimo": "12:27",
+   "salvataggi": 11,
+   "ultimo": "13:34",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file .exe (SALVADANAIO/SALVADANAIO.exe): non servono, basta il progetto.",
+   "cartella_ok": false,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 1 file sparsi (indovina1.ico): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
    "fuori": 0,
    "albero": [
     "README.md",
-    "SALVADANAIO/SALVADANAIO.exe",
     "SALVADANAIO/SALVADANAIO.ico",
     "SALVADANAIO/SALVADANAIO.lpi",
     "SALVADANAIO/SALVADANAIO.lpr",
@@ -120,7 +121,8 @@
     "SALVADANAIO/lib/x86_64-win64/unit1.o",
     "SALVADANAIO/lib/x86_64-win64/unit1.ppu",
     "SALVADANAIO/unit1.lfm",
-    "SALVADANAIO/unit1.pas"
+    "SALVADANAIO/unit1.pas",
+    "indovina1.ico"
    ]
   },
   {
@@ -155,8 +157,8 @@
     "pulito",
     "no .exe"
    ],
-   "salvataggi": 14,
-   "ultimo": "12:50",
+   "salvataggi": 15,
+   "ultimo": "13:32",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
@@ -314,14 +316,15 @@
     "pulito",
     "README"
    ],
-   "salvataggi": 11,
-   "ultimo": "13:30",
+   "salvataggi": 12,
+   "ultimo": "13:32",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file .exe (salvadanaio/project55.exe): non servono, basta il progetto.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "primo-programma/project1.lpi",
     "salvadanaio/project55.exe"
    ]
   },
@@ -347,25 +350,30 @@
   {
    "alunno": "Mathias P.",
    "pezzi": [
+    "cartelle",
     "pulito",
     "no .exe",
-    "README"
+    "README",
+    "salvadanaio"
    ],
-   "salvataggi": 24,
-   "ultimo": "13:28",
-   "caricato": false,
+   "salvataggi": 32,
+   "ultimo": "13:35",
+   "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (esercizio-3, esercizio-4, primo-programma): rinominale. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
-    "esercizio-3/README.md",
-    "esercizio-4/README.md",
     "primo-programma/tabelline.ico",
     "primo-programma/tabelline.lpi",
     "primo-programma/tabelline.lpr",
     "primo-programma/unit1.lfm",
-    "primo-programma/unit1.pas"
+    "primo-programma/unit1.pas",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -523,13 +531,14 @@
     "cartelle",
     "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 15,
-   "ultimo": "13:14",
-   "caricato": false,
+   "salvataggi": 17,
+   "ultimo": "13:34",
+   "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
    "fuori": 0,
    "albero": [
     "README.md",
