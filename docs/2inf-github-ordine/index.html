@@ -39,6 +39,20 @@ ol{padding-left:24px;margin:6px 0}li{margin:4px 0}.mu{color:var(--mu)}b.k{backgr
 └── <span class="dir">salvadanaio/</span>           ← il salvadanaio (.lpi .lpr .pas .lfm)</div>
 <p class="mu">Niente file .exe: non servono, basta il progetto. Ogni nuovo progetto Lazarus avrà la sua cartella.</p></div>
 
+<div class="card"><h2>Quali file di Lazarus portare su GitHub</h2>
+<p>Guarda l'estensione: sono le lettere dopo il punto nel nome del file. Su GitHub portiamo solo i file che servono a riaprire il progetto in Lazarus.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px">
+<tr><th style="text-align:left">Estensione</th><th style="text-align:left">Che cos'è</th><th>Su GitHub?</th></tr>
+<tr><td><b>.lpi</b></td><td>il progetto: si apre con Lazarus</td><td>✔ sì</td></tr>
+<tr><td><b>.lpr</b></td><td>il programma principale</td><td>✔ sì</td></tr>
+<tr><td><b>.pas</b></td><td>il codice che hai scritto</td><td>✔ sì</td></tr>
+<tr><td><b>.lfm</b></td><td>la finestra (form) con bottoni e caselle</td><td>✔ sì</td></tr>
+<tr><td><b>.ico</b></td><td>l'icona, se l'hai scelta</td><td>✔ sì</td></tr>
+<tr><td>.exe</td><td>il programma già pronto: Lazarus lo rifà quando premi Esegui</td><td>✘ no</td></tr>
+<tr><td>.lps .res .o .ppu .compiled</td><td>file che Lazarus si crea da solo</td><td>✘ no</td></tr>
+<tr><td>cartelle lib e backup</td><td>copie e file di lavoro di Lazarus</td><td>✘ no</td></tr>
+</table>
+<p class="mu">Regola facile: carica solo i file .lpi, .lpr, .pas, .lfm (e .ico).</p></div>
 <h2 style="margin-top:20px">2. Fai quello che manca</h2>
 <p class="mu">Fai solo il passo che ti dice il riquadro blu qui sopra. Poi aspetta 2-3 minuti e ricarica la pagina con <b class="k">F5</b>: il controllo si aggiorna.</p>
 
@@ -82,7 +96,7 @@ ol{padding-left:24px;margin:6px 0}li{margin:4px 0}.mu{color:var(--mu)}b.k{backgr
 var D=null,NOMI={cartelle:'Cartelle dei progetti',pulito:'Pagina principale pulita','no .exe':'Niente .exe',README:'README scritto',salvadanaio:'Salvadanaio caricato'};
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function albero(a){if(!a||!a.length)return 'repository vuoto';var out=[],dirs={};a.forEach(function(f){var p=f.split('/');if(p.length===1){out.push((/\.exe$/i.test(f)||!/^readme\.md$/i.test(f))&&!/^readme\.md$/i.test(f)?'<span class="bad">'+e(f)+'   ← da togliere</span>':e(f))}else{(dirs[p[0]]=dirs[p[0]]||[]).push(p.slice(1).join('/'))}});
- Object.keys(dirs).sort().forEach(function(d){out.push('<span class="dir">'+e(d)+'/</span>');dirs[d].slice(0,12).forEach(function(f){out.push('   '+(/\.exe$/i.test(f)?'<span class="bad">'+e(f)+'   ← .exe da togliere</span>':e(f)))});if(dirs[d].length>12)out.push('   … altri '+(dirs[d].length-12)+' file')});return out.join('\n')}
+ Object.keys(dirs).sort().forEach(function(d){out.push('<span class="dir">'+e(d)+'/</span>');dirs[d].slice(0,12).forEach(function(f){out.push('   '+(/\.exe$/i.test(f)?'<span class="bad">'+e(f)+'   ← .exe da togliere</span>':(/(\.(lps|res|o|ppu|compiled)$|^(lib|backup)\/)/i.test(f)?'<span class="bad">'+e(f)+'   ← non serve</span>':e(f))))});if(dirs[d].length>12)out.push('   … altri '+(dirs[d].length-12)+' file')});return out.join('\n')}
 function mostra(){var n=document.getElementById('chi').value;try{localStorage.setItem('gh-chi',n)}catch(x){}var r=D&&D.righe.filter(function(x){return x.alunno===n})[0];var io=document.getElementById('io');if(!r){io.style.display='none';return}io.style.display='block';
  document.getElementById('ck').innerHTML=D.pezzi_nomi.map(function(p){var s=r.pezzi.indexOf(p)>=0;return '<span class="'+(s?'si':'no')+'">'+(s?'✔ ':'○ ')+e(NOMI[p]||p)+'</span>'}).join('');
  document.getElementById('next').textContent=r.messaggio;document.getElementById('tree').innerHTML=albero(r.albero);
