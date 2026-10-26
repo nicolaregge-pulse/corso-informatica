@@ -202,3 +202,6 @@ l'intestazione del file.
 ### 11. Dispense Classe 1 (una per lingua)
 1. `classe-1/byte-velocita/dispensa-rete-gamer/20261023_Classe-1-Dispensa_v1.0_Rete-Gamer_{IT,AR,ZH}.md/.pdf` — v1.0 (23/10/2026: ping, jitter, TCP/UDP, FPS/Hz, pixel, monitor, scheda video, cavi video; foto lavagna, esempi, «Prova tu»; generatore `_build/genera.py` + `_build/pdf.js`).
 2. `classe-1/byte-velocita/dispensa-rete-gamer/20261023_Classe-1-Linee-Guida_v1.0_Documento-Rete-Gamer_{IT,AR,ZH}.md/.pdf` — v1.0 (23/10/2026: linee guida del compito su Google Documenti, almeno 1500 parole, 13 capitoli personali, creare/contare parole/consegnare, regole antiplagio; `python3 _build/genera.py linee` + `node _build/pdf.js Linee-Guida`).
+
+### 12. Classe 3
+1. `classe-3/pascal-vs-java/20261026_Classe-3-Teoria_v1.0_Object-Pascal-e-Java_{IT,AR,ZH}.md/.pdf` — v1.0 (26/10/2026: Hello World, variabili senza new, finestra con un bottone, riassunto; `python3 _build/genera.py teoria` + `node _build/pdf.js Object-Pascal`).

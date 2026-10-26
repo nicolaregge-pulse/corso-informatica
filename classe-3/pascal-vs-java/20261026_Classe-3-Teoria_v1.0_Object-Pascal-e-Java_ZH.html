@@ -1,0 +1,79 @@
+<!doctype html><html lang="zh" dir="ltr"><head><meta charset="utf-8"><title>Object Pascal 和 Java 的比较</title><style>@font-face{font-family:Amiri;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-700-normal.woff2)}
+@page{size:A4;margin:16mm 16mm 18mm}body{font-family:"DejaVu Sans",Arial,sans-serif;font-size:11.5pt;line-height:1.5;color:#1b2430}
+body.ar{font-family:Amiri,serif;font-size:14pt;line-height:1.7}body.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3mm;border-bottom:2px solid #1f6feb;padding-bottom:1mm;break-after:avoid}
+.sec{break-inside:auto}table{border-collapse:collapse;width:100%;margin:3mm 0;break-inside:avoid}th,td{border:1px solid #b9c2cc;padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
+.box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
+pre{background:#0d1117;color:#e6edf3;padding:3mm 4mm;border-radius:2mm;font:10pt/1.4 'DejaVu Sans Mono',monospace;direction:ltr;text-align:left;white-space:pre;overflow:hidden;break-inside:avoid}.lab{font-weight:700;margin:3mm 0 1mm}
+.cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}</style></head><body class="zh">
+<div class="cop"><h1>Object Pascal 和 Java 的比较</h1><p class="s">为什么用 Object Pascal（Lazarus）学得更快：代码更少，变量不用 “new”，窗口用鼠标画</p><p>三年级 · 2026年10月26日 · v1.0</p><p>同一个程序用两种语言来写。看看需要几行、要学多少新词：你就会明白为什么我们先用 Lazarus。代码保留英文字母。</p></div>
+<div class="sec"><h2>01 两种语言</h2>
+<p><b>Object Pascal</b> 是 <b>Lazarus</b>（和 Delphi）的语言。<b>Java</b> 在公司和 Android 应用里用得很多。</p>
+<table><tr><th></th><th>Object Pascal (Lazarus)</th><th>Java</th></tr><tr><td>怎样变成程序</td><td>编译：变成一个 .exe 文件</td><td>先编译成 “bytecode”，再由 Java 虚拟机解释执行</td></tr><tr><td>电脑上需要什么</td><td>什么都不需要：.exe 自己就能运行</td><td>要安装 Java（虚拟机）</td></tr><tr><td>窗口</td><td>用鼠标画</td><td>用代码写</td></tr></table>
+</div>
+<div class="sec"><h2>02 Hello World</h2>
+<div class="lab">Object Pascal</div><pre>begin
+  writeln(&#x27;Hello World&#x27;);
+end.</pre>
+<div class="lab">Java</div><pre>public class Ciao {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello World&quot;);
+    }
+}</pre>
+<p>在 Java 里，只写一句话就需要一个 <b>class</b> 和 <b>main</b> 方法，还有 <b>public</b>、<b>static</b>、<b>void</b>、<b>String[] args</b> 这些词。在 Object Pascal 里只要 <b>begin</b> 和 <b>end</b>。</p>
+</div>
+<div class="sec"><h2>03 变量：不用 “new”</h2>
+<p>在 Object Pascal 里，变量在 <b>var</b> 部分写上名字和类型，然后马上就能用。数组（array）也已经准备好了。</p>
+<div class="lab">Object Pascal</div><pre>var
+  nome: string;
+  eta: integer;
+  voti: array[1..5] of integer;
+begin
+  nome := &#x27;Ali&#x27;;
+  eta := 16;
+  voti[1] := 8;
+  readln(nome);        // leggo dalla tastiera
+end.</pre>
+<p>在 Java 里，简单类型（int、double）没问题，但数组或从键盘读取，就必须用 <b>new</b> 来<b>创建一个对象</b>。</p>
+<div class="lab">Java</div><pre>String nome = &quot;Ali&quot;;
+int eta = 16;
+int[] voti = new int[5];          // serve new
+voti[0] = 8;                       // si parte da 0
+Scanner tastiera = new Scanner(System.in);   // serve new
+nome = tastiera.nextLine();</pre>
+<div class="box nota"><b class="t">要知道</b>Java 的数组从 0 开始；Pascal 由你决定从哪里开始（这里从 1）。在 Java 里每个 “大” 东西都要先用 new 创建才能用。</div>
+</div>
+<div class="sec"><h2>04 有一个按钮的窗口</h2>
+<p>用 Lazarus，把按钮拖到窗体（Form）上，双击，写<b>一行</b>：</p>
+<div class="lab">Object Pascal (Lazarus)</div><pre>procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ShowMessage(&#x27;Hello World&#x27;);
+end;</pre>
+<p>在 Java（Swing）里，窗口和按钮全部要用代码写，每一个都要用 <b>new</b> 创建：</p>
+<div class="lab">Java</div><pre>JFrame finestra = new JFrame(&quot;Ciao&quot;);
+JButton bottone = new JButton(&quot;Premi&quot;);
+bottone.addActionListener(e -&gt;
+    JOptionPane.showMessageDialog(null, &quot;Hello World&quot;));
+finestra.add(bottone);
+finestra.setSize(300, 200);
+finestra.setVisible(true);</pre>
+</div>
+<div class="sec"><h2>05 总结</h2>
+<table><tr><th>什么</th><th>Object Pascal</th><th>Java</th></tr><tr><td>Hello World</td><td>begin…end 里一行</td><td>5 行，有 class 和 main</td></tr><tr><td>变量和数组</td><td>在 var 部分，马上能用</td><td>数组和很多对象要用 new</td></tr><tr><td>从键盘读取</td><td>readln</td><td>new Scanner(System.in)</td></tr><tr><td>窗口和按钮</td><td>用鼠标画</td><td>用代码和 new 写</td></tr><tr><td>做好的程序</td><td>一个到处都能运行的 .exe</td><td>需要安装 Java</td></tr></table>
+</div>
+<div class="sec"><h2>06 说实话</h2>
+<p>在 Object Pascal 里，比较复杂的<b>类</b>也要先创建（<b>Create</b>），用完再释放（<b>Free</b>）。Java 会自己释放内存。而且 Java 在工作中用得非常多：所以知道它是好的。</p>
+<div class="lab">Object Pascal</div><pre>var lista: TStringList;
+begin
+  lista := TStringList.Create;   // anche qui si crea
+  lista.Add(&#x27;Ali&#x27;);
+  lista.Free;                    // e si libera
+end;</pre>
+<div class="box nota"><b class="t">要知道</b>但是要学编程、马上看到结果，用 Lazarus 的 Object Pascal 是最简单的路：要学的词更少，窗口用鼠标画，.exe 到处都能运行。</div>
+</div>
+<div class="sec"><h2>07 你来试试</h2>
+<ol><li>Hello World 在 Object Pascal 里要几行？在 Java 里要几行？</li><li>在 Java 里，创建一个有 5 个数字的数组需要什么？</li><li>为什么用 Lazarus 做的程序不用安装任何东西就能在每台 Windows 电脑上运行？</li></ol>
+<div class="box sol"><b class="t">答案</b><ol><li>Object Pascal：1 行（在 begin…end 里）。Java：5 行，有 class 和 main。</li><li>要用 new：int[] voti = new int[5];</li><li>因为它被编译成 .exe 文件；而 Java 需要安装它的虚拟机。</li></ol></div>
+</div>
+</body></html>

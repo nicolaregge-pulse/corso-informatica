@@ -1,0 +1,79 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>مقارنة بين Object Pascal و Java</title><style>@font-face{font-family:Amiri;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-700-normal.woff2)}
+@page{size:A4;margin:16mm 16mm 18mm}body{font-family:"DejaVu Sans",Arial,sans-serif;font-size:11.5pt;line-height:1.5;color:#1b2430}
+body.ar{font-family:Amiri,serif;font-size:14pt;line-height:1.7}body.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3mm;border-bottom:2px solid #1f6feb;padding-bottom:1mm;break-after:avoid}
+.sec{break-inside:auto}table{border-collapse:collapse;width:100%;margin:3mm 0;break-inside:avoid}th,td{border:1px solid #b9c2cc;padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
+.box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
+pre{background:#0d1117;color:#e6edf3;padding:3mm 4mm;border-radius:2mm;font:10pt/1.4 'DejaVu Sans Mono',monospace;direction:ltr;text-align:left;white-space:pre;overflow:hidden;break-inside:avoid}.lab{font-weight:700;margin:3mm 0 1mm}
+.cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}</style></head><body class="ar">
+<div class="cop"><h1>مقارنة بين Object Pascal و Java</h1><p class="s">لماذا نتعلّم أسرع مع Object Pascal (Lazarus): كود أقل، متغيّرات بدون «new»، نوافذ نرسمها بالفأرة</p><p>الصف الثالث · 26/10/2026 · v1.0</p><p>نفس البرنامج مكتوب بلغتين. انظر كم سطرًا نحتاج وكم كلمة جديدة يجب أن تتعلّم: ستفهم لماذا نبدأ بـ Lazarus. الكود يبقى بالحروف اللاتينية.</p></div>
+<div class="sec"><h2>01 لغتان</h2>
+<p><b>Object Pascal</b> هي لغة <b>Lazarus</b> (و Delphi). <b>Java</b> لغة مستعملة كثيرًا في الشركات وفي تطبيقات Android.</p>
+<table><tr><th></th><th>Object Pascal (Lazarus)</th><th>Java</th></tr><tr><td>كيف يصبح برنامجًا</td><td>يُترجم (compilato): يصبح ملف .exe</td><td>يُترجم إلى «bytecode» ثم تفسّره آلة Java الافتراضية</td></tr><tr><td>ماذا نحتاج على الحاسوب</td><td>لا شيء: ملف .exe يعمل وحده</td><td>Java مثبّتة (الآلة الافتراضية)</td></tr><tr><td>النوافذ</td><td>ترسمها بالفأرة</td><td>تكتبها بالكود</td></tr></table>
+</div>
+<div class="sec"><h2>02 Hello World</h2>
+<div class="lab">Object Pascal</div><pre>begin
+  writeln(&#x27;Hello World&#x27;);
+end.</pre>
+<div class="lab">Java</div><pre>public class Ciao {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello World&quot;);
+    }
+}</pre>
+<p>في Java، لكتابة جملة واحدة فقط نحتاج <b>class</b> و <b>main</b> وكلمات مثل <b>public</b> و <b>static</b> و <b>void</b> و <b>String[] args</b>. في Object Pascal يكفي <b>begin</b> و <b>end</b>.</p>
+</div>
+<div class="sec"><h2>03 المتغيّرات: بدون «new»</h2>
+<p>في Object Pascal نُعلن المتغيّرات في قسم <b>var</b> بالاسم والنوع، ثم نستعملها مباشرة. حتى المصفوفة (array) جاهزة.</p>
+<div class="lab">Object Pascal</div><pre>var
+  nome: string;
+  eta: integer;
+  voti: array[1..5] of integer;
+begin
+  nome := &#x27;Ali&#x27;;
+  eta := 16;
+  voti[1] := 8;
+  readln(nome);        // leggo dalla tastiera
+end.</pre>
+<p>في Java الأنواع البسيطة (int، double) لا مشكلة فيها، لكن للمصفوفة أو للقراءة من لوحة المفاتيح يجب <b>إنشاء كائن</b> بكلمة <b>new</b>.</p>
+<div class="lab">Java</div><pre>String nome = &quot;Ali&quot;;
+int eta = 16;
+int[] voti = new int[5];          // serve new
+voti[0] = 8;                       // si parte da 0
+Scanner tastiera = new Scanner(System.in);   // serve new
+nome = tastiera.nextLine();</pre>
+<div class="box nota"><b class="t">اعرف هذا</b>في Java المصفوفة تبدأ من 0؛ في Pascal تختار أنت أين تبدأ (هنا من 1). في Java كل شيء «كبير» يجب إنشاؤه بـ new قبل استعماله.</div>
+</div>
+<div class="sec"><h2>04 نافذة فيها زر</h2>
+<p>مع Lazarus تسحب الزر إلى النموذج (Form)، تضغط مرتين وتكتب <b>سطرًا واحدًا</b>:</p>
+<div class="lab">Object Pascal (Lazarus)</div><pre>procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ShowMessage(&#x27;Hello World&#x27;);
+end;</pre>
+<p>في Java (مع Swing) النافذة والزر يُكتبان كلّهما بالكود، وكل واحد يُنشأ بـ <b>new</b>:</p>
+<div class="lab">Java</div><pre>JFrame finestra = new JFrame(&quot;Ciao&quot;);
+JButton bottone = new JButton(&quot;Premi&quot;);
+bottone.addActionListener(e -&gt;
+    JOptionPane.showMessageDialog(null, &quot;Hello World&quot;));
+finestra.add(bottone);
+finestra.setSize(300, 200);
+finestra.setVisible(true);</pre>
+</div>
+<div class="sec"><h2>05 الخلاصة</h2>
+<table><tr><th>ماذا</th><th>Object Pascal</th><th>Java</th></tr><tr><td>Hello World</td><td>سطر واحد داخل begin…end</td><td>5 أسطر مع class و main</td></tr><tr><td>المتغيّرات والمصفوفات</td><td>في قسم var، جاهزة فورًا</td><td>المصفوفات وكائنات كثيرة بـ new</td></tr><tr><td>القراءة من لوحة المفاتيح</td><td>readln</td><td>new Scanner(System.in)</td></tr><tr><td>النوافذ والأزرار</td><td>نرسمها بالفأرة</td><td>نكتبها بالكود و new</td></tr><tr><td>البرنامج النهائي</td><td>ملف .exe يعمل في كل مكان</td><td>نحتاج Java مثبّتة</td></tr></table>
+</div>
+<div class="sec"><h2>06 لنكن صادقين</h2>
+<p>حتى في Object Pascal، <b>الأصناف</b> الأكثر تعقيدًا تُنشأ (<b>Create</b>) ثم تُحرَّر (<b>Free</b>). أمّا Java فتحرّر الذاكرة وحدها. و Java مستعملة كثيرًا في العمل: لهذا من الجيد أن نعرف أنها موجودة.</p>
+<div class="lab">Object Pascal</div><pre>var lista: TStringList;
+begin
+  lista := TStringList.Create;   // anche qui si crea
+  lista.Add(&#x27;Ali&#x27;);
+  lista.Free;                    // e si libera
+end;</pre>
+<div class="box nota"><b class="t">اعرف هذا</b>لكن لتتعلّم البرمجة وترى النتيجة فورًا، Object Pascal مع Lazarus هي الطريق الأسهل: كلمات أقل، نوافذ بالفأرة، ملف .exe يعمل في كل مكان.</div>
+</div>
+<div class="sec"><h2>07 جرّب بنفسك</h2>
+<ol><li>كم سطرًا نحتاج لـ Hello World في Object Pascal وكم في Java؟</li><li>في Java، ماذا نحتاج لإنشاء مصفوفة من 5 أرقام؟</li><li>لماذا يعمل برنامج Lazarus على كل حاسوب Windows بدون تثبيت أي شيء؟</li></ol>
+<div class="box sol"><b class="t">الحلول</b><ol><li>Object Pascal: سطر واحد (داخل begin…end). Java: 5 أسطر مع class و main.</li><li>كلمة new: int[] voti = new int[5];</li><li>لأنه يُترجم إلى ملف .exe؛ أمّا Java فتحتاج آلتها الافتراضية مثبّتة.</li></ol></div>
+</div>
+</body></html>

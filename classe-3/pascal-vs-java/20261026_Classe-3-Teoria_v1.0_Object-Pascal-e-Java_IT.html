@@ -1,0 +1,79 @@
+<!doctype html><html lang="it" dir="ltr"><head><meta charset="utf-8"><title>Object Pascal e Java a confronto</title><style>@font-face{font-family:Amiri;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-400-normal.woff2)}@font-face{font-family:Amiri;font-weight:700;src:url(file:///home/user/corso-informatica/strumenti/render-pdf/fonts/amiri-arabic-700-normal.woff2)}
+@page{size:A4;margin:16mm 16mm 18mm}body{font-family:"DejaVu Sans",Arial,sans-serif;font-size:11.5pt;line-height:1.5;color:#1b2430}
+body.ar{font-family:Amiri,serif;font-size:14pt;line-height:1.7}body.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+h1{font-size:26pt;margin:0 0 4mm;color:#1f6feb}h2{font-size:16pt;margin:7mm 0 3mm;border-bottom:2px solid #1f6feb;padding-bottom:1mm;break-after:avoid}
+.sec{break-inside:auto}table{border-collapse:collapse;width:100%;margin:3mm 0;break-inside:avoid}th,td{border:1px solid #b9c2cc;padding:4px 8px;text-align:start;vertical-align:top}th{background:#e8f0fe}
+.box{border-radius:3mm;padding:3mm 4mm;margin:3mm 0;break-inside:avoid}.es{background:#e8f5e9;border-inline-start:5px solid #2e7d32}.nota{background:#fff8e1;border-inline-start:5px solid #f9a825}.sol{background:#e3f2fd;border-inline-start:5px solid #1565c0}
+.box b.t{display:block;margin-bottom:1mm}figure{margin:3mm 0;text-align:center;break-inside:avoid}figure img{max-height:105mm;max-width:100%;border-radius:2mm}figcaption{font-size:.9em;color:#5c6672}
+pre{background:#0d1117;color:#e6edf3;padding:3mm 4mm;border-radius:2mm;font:10pt/1.4 'DejaVu Sans Mono',monospace;direction:ltr;text-align:left;white-space:pre;overflow:hidden;break-inside:avoid}.lab{font-weight:700;margin:3mm 0 1mm}
+.cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}</style></head><body class="it">
+<div class="cop"><h1>Object Pascal e Java a confronto</h1><p class="s">Perché con Object Pascal (Lazarus) si impara prima: meno codice, variabili senza «new», finestre disegnate con il mouse</p><p>Classe 3 · 26/10/2026 · v1.0</p><p>Lo stesso programma scritto in due linguaggi. Guarda quante righe servono e quante parole nuove devi imparare: capirai perché per cominciare usiamo Lazarus.</p></div>
+<div class="sec"><h2>01 Due linguaggi</h2>
+<p><b>Object Pascal</b> è il linguaggio di <b>Lazarus</b> (e di Delphi). <b>Java</b> è un linguaggio molto usato nelle aziende e nelle app Android.</p>
+<table><tr><th></th><th>Object Pascal (Lazarus)</th><th>Java</th></tr><tr><td>Come diventa un programma</td><td>compilato: diventa un file .exe</td><td>compilato in «bytecode», poi interpretato dalla Java Virtual Machine</td></tr><tr><td>Che cosa serve sul PC</td><td>niente: il .exe parte da solo</td><td>Java installato (la macchina virtuale)</td></tr><tr><td>Le finestre</td><td>le disegni con il mouse</td><td>le scrivi con il codice</td></tr></table>
+</div>
+<div class="sec"><h2>02 Hello World</h2>
+<div class="lab">Object Pascal</div><pre>begin
+  writeln(&#x27;Hello World&#x27;);
+end.</pre>
+<div class="lab">Java</div><pre>public class Ciao {
+    public static void main(String[] args) {
+        System.out.println(&quot;Hello World&quot;);
+    }
+}</pre>
+<p>In Java già per scrivere una frase servono una <b>classe</b> e il metodo <b>main</b>, con parole come <b>public</b>, <b>static</b>, <b>void</b>, <b>String[] args</b>. In Object Pascal bastano <b>begin</b> ed <b>end</b>.</p>
+</div>
+<div class="sec"><h2>03 Le variabili: niente «new»</h2>
+<p>In Object Pascal le variabili si <b>dichiarano</b> nella sezione <b>var</b> con nome e tipo, e poi si usano subito. Anche un array è già pronto.</p>
+<div class="lab">Object Pascal</div><pre>var
+  nome: string;
+  eta: integer;
+  voti: array[1..5] of integer;
+begin
+  nome := &#x27;Ali&#x27;;
+  eta := 16;
+  voti[1] := 8;
+  readln(nome);        // leggo dalla tastiera
+end.</pre>
+<p>In Java i tipi semplici (int, double) vanno bene, ma per un array o per leggere dalla tastiera bisogna <b>creare un oggetto</b> con la parola <b>new</b>.</p>
+<div class="lab">Java</div><pre>String nome = &quot;Ali&quot;;
+int eta = 16;
+int[] voti = new int[5];          // serve new
+voti[0] = 8;                       // si parte da 0
+Scanner tastiera = new Scanner(System.in);   // serve new
+nome = tastiera.nextLine();</pre>
+<div class="box nota"><b class="t">Da sapere</b>In Java l'array parte da 0; in Pascal decidi tu dove parte (qui da 1). In Java ogni cosa «grande» va creata con new prima di usarla.</div>
+</div>
+<div class="sec"><h2>04 Una finestra con un bottone</h2>
+<p>Con Lazarus trascini il bottone sul Form, fai doppio clic e scrivi <b>una riga</b>:</p>
+<div class="lab">Object Pascal (Lazarus)</div><pre>procedure TForm1.Button1Click(Sender: TObject);
+begin
+  ShowMessage(&#x27;Hello World&#x27;);
+end;</pre>
+<p>In Java (con Swing) la finestra e il bottone si scrivono tutti con il codice, e ognuno si crea con <b>new</b>:</p>
+<div class="lab">Java</div><pre>JFrame finestra = new JFrame(&quot;Ciao&quot;);
+JButton bottone = new JButton(&quot;Premi&quot;);
+bottone.addActionListener(e -&gt;
+    JOptionPane.showMessageDialog(null, &quot;Hello World&quot;));
+finestra.add(bottone);
+finestra.setSize(300, 200);
+finestra.setVisible(true);</pre>
+</div>
+<div class="sec"><h2>05 Riassunto</h2>
+<table><tr><th>Che cosa</th><th>Object Pascal</th><th>Java</th></tr><tr><td>Hello World</td><td>1 riga dentro begin…end</td><td>5 righe con classe e main</td></tr><tr><td>Variabili e array</td><td>nella sezione var, pronte subito</td><td>gli array e molti oggetti con new</td></tr><tr><td>Leggere dalla tastiera</td><td>readln</td><td>new Scanner(System.in)</td></tr><tr><td>Finestre e bottoni</td><td>disegnati con il mouse</td><td>scritti con il codice e new</td></tr><tr><td>Programma finito</td><td>un .exe che parte ovunque</td><td>serve Java installato</td></tr></table>
+</div>
+<div class="sec"><h2>06 Per essere onesti</h2>
+<p>Anche in Object Pascal le <b>classi</b> più complesse si creano (<b>Create</b>) e poi si liberano (<b>Free</b>). Java invece libera la memoria da solo. E Java è usatissimo nel lavoro: per questo è bene sapere che esiste.</p>
+<div class="lab">Object Pascal</div><pre>var lista: TStringList;
+begin
+  lista := TStringList.Create;   // anche qui si crea
+  lista.Add(&#x27;Ali&#x27;);
+  lista.Free;                    // e si libera
+end;</pre>
+<div class="box nota"><b class="t">Da sapere</b>Per imparare a programmare e vedere subito il risultato, però, Object Pascal con Lazarus è la strada più semplice: meno parole da imparare, finestre con il mouse, un .exe che funziona ovunque.</div>
+</div>
+<div class="sec"><h2>07 Prova tu</h2>
+<ol><li>Quante righe servono per Hello World in Object Pascal e quante in Java?</li><li>In Java, che cosa serve per creare un array di 5 numeri?</li><li>Perché un programma fatto con Lazarus parte su ogni PC Windows senza installare niente?</li></ol>
+<div class="box sol"><b class="t">Soluzioni</b><ol><li>Object Pascal: 1 riga (dentro begin…end). Java: 5 righe con classe e main.</li><li>La parola new: int[] voti = new int[5];</li><li>Perché è compilato in un file .exe; Java invece ha bisogno della sua macchina virtuale installata.</li></ol></div>
+</div>
+</body></html>
