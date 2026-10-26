@@ -1,5 +1,5 @@
 {
- "ora": "13:39",
+ "ora": "13:41",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -89,14 +89,15 @@
    "alunno": "Sara A.",
    "pezzi": [
     "cartelle",
+    "pulito",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "13:34",
+   "salvataggi": 12,
+   "ultimo": "13:39",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 1 file sparsi (indovina1.ico): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cartella_ok": true,
+   "messaggio": "Passo D: cancella i file che non servono (SALVADANAIO/SALVADANAIO.lps, SALVADANAIO/SALVADANAIO.res, SALVADANAIO/backup (cartella intera), SALVADANAIO/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -117,8 +118,7 @@
     "SALVADANAIO/lib/x86_64-win64/unit1.o",
     "SALVADANAIO/lib/x86_64-win64/unit1.ppu",
     "SALVADANAIO/unit1.lfm",
-    "SALVADANAIO/unit1.pas",
-    "indovina1.ico"
+    "SALVADANAIO/unit1.pas"
    ]
   },
   {
@@ -167,18 +167,24 @@
   {
    "alunno": "Shaharia A.",
    "pezzi": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README"
    ],
-   "salvataggi": 2,
-   "ultimo": "12:51",
+   "salvataggi": 3,
+   "ultimo": "13:39",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Attenzione: Veyon ti ha visto fuori lezione (12:17).",
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/project1.exe, salvadanaio/project1.lps, salvadanaio/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico. Attenzione: Veyon ti ha visto fuori lezione (12:17).",
    "fuori": 2,
    "albero": [
-    "README.md"
+    "README.md",
+    "salvadanaio/project1.exe",
+    "salvadanaio/project1.ico",
+    "salvadanaio/project1.lpi",
+    "salvadanaio/project1.lpr",
+    "salvadanaio/project1.lps",
+    "salvadanaio/project1.res"
    ]
   },
   {
@@ -306,18 +312,18 @@
    "alunno": "Antonio M.",
    "pezzi": [
     "pulito",
+    "no .exe",
     "README"
    ],
-   "salvataggi": 12,
-   "ultimo": "13:32",
+   "salvataggi": 13,
+   "ultimo": "13:40",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (primo-programma): rinominale.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "primo-programma/project1.lpi",
-    "salvadanaio/project55.exe"
+    "primo-programma/project1.lpi"
    ]
   },
   {
