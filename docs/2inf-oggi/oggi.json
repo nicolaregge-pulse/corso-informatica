@@ -1,53 +1,7 @@
 {
- "ora": "13:01",
+ "ora": "13:05",
  "data": "2026-10-26",
  "righe": [
-  {
-   "alunno": "Antonio M.",
-   "voto": 65,
-   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 64 · verifica GitHub 80 → media 65 = 65",
-   "v_github": 64,
-   "v_facile": 53,
-   "facile": [
-    "README",
-    "no .exe"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio"
-   ],
-   "v_salv": 40,
-   "v_ver": 77,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito",
-    "no .exe",
-    "README"
-   ],
-   "github_manca": [
-    "cartelle",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "12 su 13",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "Classroom",
-    0
-   ],
-   "orale": null
-  },
   {
    "alunno": "Youssef A.",
    "voto": 64,
@@ -89,6 +43,52 @@
    "vy_ult": [
     "12:33",
     "Esplora file, cartelle del PC",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Antonio M.",
+   "voto": 63,
+   "conto": "salvadanaio 40 · verifica salvadanaio 77 · GitHub 56 · verifica GitHub 80 → media 63 = 63",
+   "v_github": 56,
+   "v_facile": 53,
+   "facile": [
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio"
+   ],
+   "v_salv": 40,
+   "v_ver": 77,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "no .exe",
+    "README"
+   ],
+   "github_manca": [
+    "cartelle",
+    "pulito",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "12 su 13",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "Classroom",
     0
    ],
    "orale": null
@@ -277,6 +277,144 @@
    "orale": null
   },
   {
+   "alunno": "Alejandro G.",
+   "voto": 56,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 72 · verifica GitHub 73 → media 56 = 56",
+   "v_github": 72,
+   "v_facile": 60,
+   "facile": [
+    "primo-programma",
+    "salvadanaio",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4",
+    "README"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "no .exe",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "README"
+   ],
+   "cosa_fare": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "pagina della lezione, controllo",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Francesco M.",
+   "voto": 56,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 72 · verifica GitHub 73 → media 56 = 56",
+   "v_github": 72,
+   "v_facile": 53,
+   "facile": [
+    "salvadanaio",
+    "README"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "no .exe"
+   ],
+   "cosa_fare": "Passo D: cancella i file .exe (primo programma/euro.exe, salvadanaio/euro.exe): non servono, basta il progetto.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, repository",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Giorgio K.",
+   "voto": 55,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 72 · verifica GitHub 67 → media 55 = 55",
+   "v_github": 72,
+   "v_facile": 60,
+   "facile": [
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 67,
+   "vgit": "2 su 3",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "chat di un'AI",
+    0
+   ],
+   "orale": null
+  },
+  {
    "alunno": "Mathias P.",
    "voto": 55,
    "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 73 (facilitato) · verifica GitHub 80 → media 58 − 3×1 fuori compito = 55",
@@ -323,215 +461,31 @@
    "orale": null
   },
   {
-   "alunno": "Shahenda E.",
-   "voto": 54,
-   "conto": "salvadanaio 40 · verifica salvadanaio 80 · GitHub 56 · verifica GitHub 40 → media 54 = 54",
-   "v_github": 56,
-   "v_facile": 47,
-   "facile": [
-    "no .exe"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "pulito",
-    "no .exe"
-   ],
-   "github_manca": [
-    "cartelle",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "13 su 13",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "GitHub, file del repository",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Alejandro G.",
-   "voto": 54,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 73 → media 54 = 54",
-   "v_github": 64,
-   "v_facile": 53,
-   "facile": [
-    "salvadanaio",
-    "no .exe"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "README"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [
-    "pulito",
-    "no .exe",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "README"
-   ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "pagina della lezione, controllo",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Francesco M.",
-   "voto": 54,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 73 → media 54 = 54",
-   "v_github": 64,
-   "v_facile": 53,
-   "facile": [
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [
-    "pulito",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe"
-   ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "GitHub, repository",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Giorgio K.",
-   "voto": 53,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 67 → media 53 = 53",
-   "v_github": 64,
-   "v_facile": 53,
-   "facile": [
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 67,
-   "vgit": "2 su 3",
-   "github": [
-    "pulito",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle",
-    "no .exe"
-   ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "12:33",
-    "chat di un'AI",
-    0
-   ],
-   "orale": null
-  },
-  {
    "alunno": "Katherine A.",
-   "voto": 52,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 48 · verifica GitHub 80 → media 52 = 52",
-   "v_github": 48,
-   "v_facile": 47,
+   "voto": 54,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 56 · verifica GitHub 80 → media 54 = 54",
+   "v_github": 56,
+   "v_facile": 53,
    "facile": [
-    "primo-programma"
+    "primo-programma",
+    "no .exe"
    ],
    "facile_manca": [
     "esercizio-3",
     "esercizio-4",
     "salvadanaio",
-    "README",
-    "no .exe"
+    "README"
    ],
    "v_salv": 40,
    "v_ver": 40,
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
-    "pulito"
+    "pulito",
+    "no .exe"
    ],
    "github_manca": [
     "cartelle",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
@@ -554,9 +508,9 @@
   },
   {
    "alunno": "Oscar F.",
-   "voto": 51,
-   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 64 · verifica GitHub 73 → media 54 − 3×1 fuori compito = 51",
-   "v_github": 64,
+   "voto": 53,
+   "conto": "salvadanaio 40 · verifica salvadanaio 40 · GitHub 72 · verifica GitHub 73 → media 56 − 3×1 fuori compito = 53",
+   "v_github": 72,
    "v_facile": 53,
    "facile": [
     "salvadanaio",
@@ -573,15 +527,15 @@
    "v_vgit": 73,
    "vgit": "5 su 6",
    "github": [
+    "cartelle",
     "pulito",
     "README",
     "salvadanaio"
    ],
    "github_manca": [
-    "cartelle",
     "no .exe"
    ],
-   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "cosa_fare": "Passo D: cancella i file .exe (primo programma/project1.exe, salvadanaio/project1.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -594,6 +548,51 @@
    "vy_ult": [
     "12:33",
     "pagina della lezione, passi",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Shahenda E.",
+   "voto": 52,
+   "conto": "salvadanaio 40 · verifica salvadanaio 80 · GitHub 48 · verifica GitHub 40 → media 52 = 52",
+   "v_github": 48,
+   "v_facile": 40,
+   "facile": [],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 40,
+   "vgit": "",
+   "github": [
+    "pulito"
+   ],
+   "github_manca": [
+    "cartelle",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "cosa_fare": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "13 su 13",
+   "fuori": 0,
+   "vy_ult": [
+    "12:33",
+    "GitHub, file del repository",
     0
    ],
    "orale": null
