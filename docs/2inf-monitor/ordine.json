@@ -1,5 +1,5 @@
 {
- "ora": "11:59",
+ "ora": "12:04",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -15,36 +15,135 @@
  "righe": [
   {
    "alunno": "Hagar A.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Lina A.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "salvadanaio.exe",
+    "salvadanaio.ico",
+    "salvadanaio.lpi",
+    "salvadanaio.lpr",
+    "salvadanaio.lps",
+    "salvadanaio.res",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Sara A.",
-   "pezzi": [],
+   "pezzi": [
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "SALVADANAIO/SALVADANAIO.exe",
+    "SALVADANAIO/SALVADANAIO.ico",
+    "SALVADANAIO/SALVADANAIO.lpi",
+    "SALVADANAIO/SALVADANAIO.lpr",
+    "SALVADANAIO/SALVADANAIO.lps",
+    "SALVADANAIO/SALVADANAIO.res",
+    "SALVADANAIO/backup/SALVADANAIO.lpi",
+    "SALVADANAIO/backup/SALVADANAIO.lps",
+    "SALVADANAIO/backup/unit1.lfm",
+    "SALVADANAIO/backup/unit1.pas",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.compiled",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.o",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.obj",
+    "SALVADANAIO/lib/x86_64-win64/SALVADANAIO.res",
+    "SALVADANAIO/lib/x86_64-win64/unit1.lfm",
+    "SALVADANAIO/lib/x86_64-win64/unit1.o",
+    "SALVADANAIO/lib/x86_64-win64/unit1.ppu",
+    "SALVADANAIO/unit1.lfm",
+    "SALVADANAIO/unit1.pas",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Katherine A.",
@@ -53,9 +152,21 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "SALVADANAIO.exe",
+    "SALVADANAIO.ico",
+    "SALVADANAIO.lpi",
+    "SALVADANAIO.lpr",
+    "SALVADANAIO.lps",
+    "SALVADANAIO.res",
+    "project1.lpi",
+    "project1.lpr",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Giorgio A.",
@@ -64,42 +175,131 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Youssef A.",
-   "pezzi": [],
+   "pezzi": [
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
+   ]
   },
   {
    "alunno": "Luca B.",
-   "pezzi": [],
+   "pezzi": [
+    "README"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 4 file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): cancellali (sono già nella cartella del progetto).",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "esercizio-3/README.md",
+    "esercizio-4/README.md",
+    "primo-programma/README.md",
+    "project1.lpi",
+    "project1.lpr",
+    "salvadanio/backup/project1.lpi",
+    "salvadanio/backup/project1.lps",
+    "salvadanio/backup/unit1.lfm",
+    "salvadanio/backup/unit1.pas",
+    "salvadanio/lib/x86_64-win64/project1.compiled",
+    "salvadanio/lib/x86_64-win64/project1.o",
+    "salvadanio/lib/x86_64-win64/project1.obj",
+    "salvadanio/lib/x86_64-win64/project1.res",
+    "salvadanio/lib/x86_64-win64/unit1.lfm",
+    "salvadanio/lib/x86_64-win64/unit1.o",
+    "salvadanio/lib/x86_64-win64/unit1.ppu",
+    "salvadanio/project1.exe",
+    "salvadanio/project1.ico",
+    "salvadanio/project1.lpi",
+    "salvadanio/project1.lpr",
+    "salvadanio/project1.lps",
+    "salvadanio/project1.res",
+    "salvadanio/unit1.lfm",
+    "salvadanio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Luciano C.",
-   "pezzi": [],
+   "pezzi": [
+    "pulito",
+    "no .exe",
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
+   ]
   },
   {
    "alunno": "Oscar F.",
@@ -108,9 +308,18 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "project1.exe",
+    "project1.ico",
+    "project1.lpi",
+    "project1.lpr",
+    "project1.lps",
+    "project1.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Francesco M.",
@@ -119,20 +328,35 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "euro.exe",
+    "euro.ico",
+    "euro.lpi",
+    "euro.lpr",
+    "euro.lps",
+    "euro.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Antonio M.",
-   "pezzi": [],
+   "pezzi": [
+    "no .exe"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "project55.lpi",
+    "unit55.pas"
+   ]
   },
   {
    "alunno": "Mahammed M.",
@@ -155,14 +379,47 @@
   },
   {
    "alunno": "Mathias P.",
-   "pezzi": [],
+   "pezzi": [
+    "cartelle",
+    "salvadanaio"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 6 file sparsi (primo_programma.lpi, primo_programma.lpr, primo_programma.lps, primo_programma.res…): cancellali (sono già nella cartella del progetto).",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "esercizio-3/README.md",
+    "esercizio-4/README.md",
+    "primo-programma/README.md",
+    "primo_programma.lpi",
+    "primo_programma.lpr",
+    "primo_programma.lps",
+    "primo_programma.res",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.exe",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Ney V.",
@@ -191,20 +448,51 @@
    "ultimo": "",
    "caricato": false,
    "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "salvadanaio.exe",
+    "salvadanaio.ico",
+    "salvadanaio.lpi",
+    "salvadanaio.lpr",
+    "salvadanaio.lps",
+    "salvadanaio.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
   },
   {
    "alunno": "Egor M.",
-   "pezzi": [],
+   "pezzi": [
+    "pulito"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "salvadanio2/backup/salvadanio2.lpi",
+    "salvadanio2/backup/salvadanio2.lps",
+    "salvadanio2/backup/unit1.lfm",
+    "salvadanio2/backup/unit1.pas",
+    "salvadanio2/lib/x86_64-win64/salvadanio2.compiled",
+    "salvadanio2/lib/x86_64-win64/salvadanio2.o",
+    "salvadanio2/lib/x86_64-win64/salvadanio2.obj",
+    "salvadanio2/lib/x86_64-win64/salvadanio2.res",
+    "salvadanio2/lib/x86_64-win64/unit1.lfm",
+    "salvadanio2/lib/x86_64-win64/unit1.o",
+    "salvadanio2/lib/x86_64-win64/unit1.ppu",
+    "salvadanio2/salvadanio2.exe",
+    "salvadanio2/salvadanio2.ico",
+    "salvadanio2/salvadanio2.lpi",
+    "salvadanio2/salvadanio2.lpr",
+    "salvadanio2/salvadanio2.lps",
+    "salvadanio2/salvadanio2.res",
+    "salvadanio2/unit1.lfm",
+    "salvadanio2/unit1.pas"
+   ]
   },
   {
    "alunno": "Riccardo B.",
@@ -222,25 +510,70 @@
   },
   {
    "alunno": "Alejandro G.",
-   "pezzi": [],
+   "pezzi": [
+    "pulito"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md",
+    "salvadanio/backup/salvadanio.lpi",
+    "salvadanio/backup/salvadanio.lps",
+    "salvadanio/backup/unit1.lfm",
+    "salvadanio/backup/unit1.pas",
+    "salvadanio/lib/i386-win32/salvadanio.compiled",
+    "salvadanio/lib/i386-win32/salvadanio.o",
+    "salvadanio/lib/i386-win32/salvadanio.or",
+    "salvadanio/lib/i386-win32/salvadanio.res",
+    "salvadanio/lib/i386-win32/unit1.lfm",
+    "salvadanio/lib/i386-win32/unit1.o",
+    "salvadanio/lib/i386-win32/unit1.ppu",
+    "salvadanio/salvadanio.exe",
+    "salvadanio/salvadanio.ico",
+    "salvadanio/salvadanio.lpi",
+    "salvadanio/salvadanio.lpr",
+    "salvadanio/salvadanio.lps",
+    "salvadanio/salvadanio.res",
+    "salvadanio/unit1.lfm",
+    "salvadanio/unit1.pas"
+   ]
   },
   {
    "alunno": "Shahenda E.",
-   "pezzi": [],
+   "pezzi": [
+    "pulito"
+   ],
    "salvataggi": 0,
    "ultimo": "",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "for e while/FOREWHILE.exe",
+    "for e while/FOREWHILE.ico",
+    "for e while/FOREWHILE.lpi",
+    "for e while/FOREWHILE.lpr",
+    "for e while/FOREWHILE.lps",
+    "for e while/FOREWHILE.res",
+    "for e while/backup/FOREWHILE.lpi",
+    "for e while/backup/FOREWHILE.lps",
+    "for e while/backup/unit1.lfm",
+    "for e while/backup/unit1.pas",
+    "for e while/lib/x86_64-win64/FOREWHILE.compiled",
+    "for e while/lib/x86_64-win64/FOREWHILE.o",
+    "for e while/lib/x86_64-win64/FOREWHILE.obj",
+    "for e while/lib/x86_64-win64/FOREWHILE.res",
+    "for e while/lib/x86_64-win64/unit1.lfm",
+    "for e while/lib/x86_64-win64/unit1.o",
+    "for e while/lib/x86_64-win64/unit1.ppu",
+    "for e while/unit1.lfm",
+    "for e while/unit1.pas"
+   ]
   }
  ]
 }
