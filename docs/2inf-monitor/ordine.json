@@ -1,5 +1,5 @@
 {
- "ora": "12:21",
+ "ora": "12:23",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -104,8 +104,8 @@
    "pezzi": [
     "salvadanaio"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 1,
+   "ultimo": "12:22",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
@@ -131,7 +131,6 @@
     "SALVADANAIO/lib/x86_64-win64/unit1.ppu",
     "SALVADANAIO/unit1.lfm",
     "SALVADANAIO/unit1.pas",
-    "project1.exe",
     "project1.ico",
     "project1.lpi",
     "project1.lpr",
@@ -373,14 +372,32 @@
     "pulito",
     "no .exe"
    ],
-   "salvataggi": 2,
-   "ultimo": "12:17",
+   "salvataggi": 4,
+   "ultimo": "12:22",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
-    "README.md"
+    "README.md",
+    "primo-programma/backup/contatore.lpi",
+    "primo-programma/backup/contatore.lps",
+    "primo-programma/backup/unit1.lfm",
+    "primo-programma/backup/unit1.pas",
+    "primo-programma/contatore.ico",
+    "primo-programma/contatore.lpi",
+    "primo-programma/contatore.lpr",
+    "primo-programma/contatore.lps",
+    "primo-programma/contatore.res",
+    "primo-programma/lib/x86_64-win64/contatore.compiled",
+    "primo-programma/lib/x86_64-win64/contatore.o",
+    "primo-programma/lib/x86_64-win64/contatore.obj",
+    "primo-programma/lib/x86_64-win64/contatore.res",
+    "primo-programma/lib/x86_64-win64/unit1.lfm",
+    "primo-programma/lib/x86_64-win64/unit1.o",
+    "primo-programma/lib/x86_64-win64/unit1.ppu",
+    "primo-programma/unit1.lfm",
+    "primo-programma/unit1.pas"
    ]
   },
   {
