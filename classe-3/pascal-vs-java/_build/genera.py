@@ -3,7 +3,7 @@
 # Uso: python3 _build/genera.py   (poi il PDF lo fa _build/pdf.js)
 import importlib.util, os, re, sys, html
 QUI = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.dirname(QUI)
-VER = '1.0'; IMG = ''
+VER = '1.1'; IMG = ''
 FONT = '/home/user/corso-informatica/strumenti/render-pdf/fonts/'
 def carica(n):
     s = importlib.util.spec_from_file_location(n, os.path.join(QUI, n + '.py')); m = importlib.util.module_from_spec(s); s.loader.exec_module(m); return m
@@ -21,7 +21,7 @@ pre{background:#0d1117;color:#e6edf3;padding:3mm 4mm;border-radius:2mm;font:10pt
 .cop{text-align:center;padding-top:50mm;break-after:page}.cop .s{font-size:14pt;color:#5c6672}ol{margin:2mm 0}'''
 # Uso: python3 _build/genera.py [prefisso=testi] (linee = linee guida del compito)
 PRE = sys.argv[1] if len(sys.argv) > 1 else 'teoria'
-for n in (PRE + '_it', PRE + '_ar', PRE + '_zh'):
+for n in [x for x in (PRE + '_it', PRE + '_ar', PRE + '_zh', PRE + '_bn') if os.path.exists(os.path.join(QUI, x + '.py'))]:
     m = carica(n); L = m.L; f = nome(L)
     h = ['<!doctype html><html lang="%s" dir="%s"><head><meta charset="utf-8"><title>%s</title><style>%s</style></head><body class="%s">' % (L['lang'], L['dir'], L['titolo'], CSS % (FONT, FONT), L['lang'])]
     h.append('<div class="cop"><h1>%s</h1><p class="s">%s</p><p>%s · v%s</p><p>%s</p></div>' % (L['titolo'], L['sotto'], L['classe'], VER, L['intro']))
