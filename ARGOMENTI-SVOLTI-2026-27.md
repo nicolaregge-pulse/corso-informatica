@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.7** — 21/10/2026
+**Versione 0.8** — 26/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -46,6 +46,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 21/10/2026 | Sicurezza sul lavoro (Regione), 4ª ora: diritti, doveri, sanzioni e organi di vigilanza; quiz di 20 casi su Moduli; recupero dei quiz delle ore 1-3 (tutti devono avere le 4 ore). Sul registro (h 4) il titolo è «Sicurezza: organizzazione prevenzione» | sito ufficiale 4-ora, quiz 4ª ora, `strumenti/sicurezza_2inf.py` | Sicurezza sul lavoro |
 | 20/10/2026 | Laboratorio, 2 ore: ciclo WHILE in Lazarus («ripeti finché»): teoria, ripasso, gioco del dado (lancia finché esce il numero magico e conta i tiri), ciclo infinito e come fermarlo; verifica con il codice spiegato | pagina della lezione WHILE, Lazarus | 15 — voce 5 «Programmazione in Lazarus: cicli for e while» |
 | 22/10/2026 | Laboratorio, 3 ore: interrogazioni sul ciclo WHILE (sorteggio); FOR e WHILE nel programma «Salvadanaio» (fermato alle 10:00); GitHub: repository «lazarus» con un progetto per sottocartella (da riprendere: il 26/10 nessun repository era in ordine) | pagina del salvadanaio, controllo `ordine_github_2inf.py` | 15 — voce 5 «cicli for e while»; versioning |
+| 26/10/2026 | Laboratorio, 3 ore (11-14): a che cosa serve il repository (uno per i progetti Lazarus, uno per i progetti HTML); il repository «lazarus» in ordine, una cartella per progetto, spostando i file con la matita di GitHub; i file di un progetto Lazarus: a che cosa servono, file di testo e file binari, quali vanno su GitHub (.lpi .lpr .pas .lfm) e quali no (.exe, lib, backup); report finale con le foto dello schermo consegnato su Classroom | pagina «Il mio GitHub in ordine», dispensa «I file di un progetto Lazarus» v1.0, compito su Classroom con il report | 15 — versioning e GitHub (voce da aggiungere all'Allegato A entro il 30/10) |
 
 ## 4. Classe 3 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
