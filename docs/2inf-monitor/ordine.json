@@ -1,5 +1,5 @@
 {
- "ora": "12:32",
+ "ora": "12:35",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -376,18 +376,39 @@
    ]
   },
   {
+   "alunno": "Giorgio K.",
+   "pezzi": [],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": false,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "fuori": 0,
+   "albero": [
+    "salvadanaio.exe",
+    "salvadanaio.ico",
+    "salvadanaio.lpi",
+    "salvadanaio.lpr",
+    "salvadanaio.lps",
+    "salvadanaio.res",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
+  },
+  {
    "alunno": "Egor M.",
    "pezzi": [
     "cartelle",
     "pulito",
     "no .exe",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 14,
-   "ultimo": "12:29",
-   "caricato": false,
+   "salvataggi": 15,
+   "ultimo": "12:33",
+   "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe). Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
@@ -422,14 +443,16 @@
    "pezzi": [
     "pulito"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 1,
+   "ultimo": "12:32",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "primo programma/salvadanio.exe",
+    "primo programma/salvadanio.lpi",
     "salvadanio/backup/salvadanio.lpi",
     "salvadanio/backup/salvadanio.lps",
     "salvadanio/backup/unit1.lfm",
