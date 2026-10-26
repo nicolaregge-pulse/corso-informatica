@@ -1,0 +1,39 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>File di Lazarus</title><style>body{font-family:system-ui,Segoe UI,Arial,sans-serif;max-width:860px;margin:0 auto;padding:16px;line-height:1.5;color:#1b1f24;background:#fff}
+h1{font-size:28px;margin:8px 0 0}h2{font-size:21px;margin:26px 0 8px;break-after:avoid}.ver{color:#555;margin:2px 0 12px}
+table{width:100%;border-collapse:collapse;font-size:15px}th,td{border:1px solid #ccd;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#eef2f7}tr.si td:last-child{color:#11663a}tr.no td:last-child{color:#b3261e}tr{break-inside:avoid}
+.box{border-radius:8px;padding:10px 14px;margin:10px 0}.giallo{background:#fff6d6;border-left:6px solid #e0b400}.blu{background:#e6f0ff;border-left:6px solid #2f6fdb}
+pre{background:#f4f6f8;padding:12px;border-radius:8px;overflow-x:auto;font-size:15px}.pdf a{display:inline-block;background:#1f6feb;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none}
+@media (max-width:600px){table{font-size:13px}th,td{padding:4px}}</style></head><body><h1>I file di un progetto Lazarus</h1><p class="ver">Versione 1.0 — 26/10/2026 — Classe 2INF</p>
+<p class="pdf"><a href="20261026_Classe-2_v1.0_File-di-Lazarus_IT.pdf" download>Scarica il PDF</a></p>
+<h2>01 Che cosa crea Lazarus</h2><ol><li>Quando salvi un progetto, Lazarus mette nella cartella tanti file, non uno solo.</li><li>Alcuni sono la RICETTA: li hai fatti tu (il codice, la finestra). Altri sono la TORTA già cotta: Lazarus li crea da solo quando premi Esegui.</li><li>Su GitHub mettiamo solo la ricetta. Con la ricetta chiunque rifà la torta: apre il progetto e preme Esegui.</li></ol>
+<h2>02 File di testo e file binari</h2><ol><li>Un file di TESTO si apre con Blocco note e dentro leggi parole e codice.</li><li>Un file BINARIO aperto con Blocco note mostra solo simboli strani: lo capisce solo il computer.</li><li>Prova: clic destro sul file, poi «Apri con», poi «Blocco note». Se leggi parole è testo, se vedi simboli è binario. Chiudi senza salvare.</li></ol>
+<h2>03 Tutti i file, uno per uno</h2><table><tr><th>Estensione</th><th>Nome</th><th>A che cosa serve</th><th>Testo o binario</th><th>Su GitHub</th></tr>
+<tr class="si"><td><b>.lpi</b></td><td>Lazarus Project Information</td><td>La scheda del progetto: le sue impostazioni. Con un doppio clic si apre il progetto in Lazarus.</td><td>testo</td><td><b>SÌ</b></td></tr>
+<tr class="si"><td><b>.lpr</b></td><td>Lazarus Program</td><td>Il programma principale: il punto da cui parte tutto.</td><td>testo</td><td><b>SÌ</b></td></tr>
+<tr class="si"><td><b>.pas</b></td><td>Pascal (unit)</td><td>Il codice che scrivi tu, per esempio unit1.pas.</td><td>testo</td><td><b>SÌ</b></td></tr>
+<tr class="si"><td><b>.lfm</b></td><td>Lazarus Form</td><td>Com&#x27;è fatta la finestra: bottoni, caselle, posizioni, Caption.</td><td>testo</td><td><b>SÌ</b></td></tr>
+<tr class="si"><td><b>.ico</b></td><td>Icona</td><td>L&#x27;icona del programma. Lazarus non la rifà da solo.</td><td>binario</td><td><b>SÌ</b></td></tr>
+<tr class="no"><td><b>.lps</b></td><td>Lazarus Project Session</td><td>Quali file avevi aperto e dove era il cursore. È solo tua.</td><td>testo</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>.res</b></td><td>Risorse</td><td>L&#x27;icona e altre informazioni già «impacchettate». Lazarus la rifà.</td><td>binario</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>.o  .ppu</b></td><td>Pezzi compilati</td><td>Pezzi di programma già tradotti per il computer. Lazarus li rifà.</td><td>binario</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>.compiled</b></td><td>Nota di compilazione</td><td>Un appunto di Lazarus su come ha compilato.</td><td>testo</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>.exe</b></td><td>Programma pronto</td><td>Il programma finito. Lazarus lo rifà quando premi Esegui.</td><td>binario</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>backup/</b></td><td>Cartella</td><td>Copie vecchie dei tuoi file, fatte da Lazarus.</td><td>—</td><td><b>NO</b></td></tr>
+<tr class="no"><td><b>lib/</b></td><td>Cartella</td><td>I pezzi compilati (.o, .ppu, .res, .compiled).</td><td>—</td><td><b>NO</b></td></tr>
+</table>
+<h2>04 La regola facile</h2><div class="box giallo">Su GitHub vanno solo 4 tipi di file: .lpi, .lpr, .pas, .lfm (e l&#x27;icona .ico, se l&#x27;hai scelta). Tutto il resto Lazarus lo rifà da solo.</div><div class="box blu">Perché niente .exe? GitHub serve per conservare la ricetta. Il .exe è la torta: pesa, cambia ogni volta che premi Esegui e non si può leggere. Chi vuole il programma apre il progetto e preme Esegui.</div>
+<h2>05 Come deve essere il tuo repository</h2><pre>lazarus/
+├── README.md
+├── primo-programma/
+│   ├── project1.lpi
+│   ├── project1.lpr
+│   ├── unit1.pas
+│   └── unit1.lfm
+└── salvadanaio/
+    ├── salvadanaio.lpi
+    ├── salvadanaio.lpr
+    ├── unit1.pas
+    └── unit1.lfm</pre>
+<h2>06 Sai spiegarlo?</h2><p>Rispondi a voce, con parole tue:</p><ol><li>In quale file c&#x27;è il codice che hai scritto tu?</li><li>In quale file c&#x27;è com&#x27;è fatta la tua finestra?</li><li>Come capisci se un file è di testo o binario?</li><li>Perché su GitHub non mettiamo il file .exe?</li></ol>
+<script src="../assistente/assistente.js" data-pagina="2inf-file-lazarus" data-lingue="it"></script></body></html>
