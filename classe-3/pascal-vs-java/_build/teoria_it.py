@@ -27,7 +27,18 @@ S = [
  ('p', 'Anche in Object Pascal le <b>classi</b> più complesse si creano (<b>Create</b>) e poi si liberano (<b>Free</b>). Java invece libera la memoria da solo. E Java è usatissimo nel lavoro: per questo è bene sapere che esiste.'),
  ('code', 'Object Pascal', CP),
  ('nota', 'Per imparare a programmare e vedere subito il risultato, però, Object Pascal con Lazarus è la strada più semplice: meno parole da imparare, finestre con il mouse, un .exe che funziona ovunque.')]),
-('07 Prova tu', [
+('07 I due programmi completi, con la finestra e il bottone', [
+ ('p', '<b>Lazarus.</b> Tutto questo codice lo scrive Lazarus da solo quando trascini il bottone sul Form. Tu scrivi <b>una riga</b> sola: quella con ShowMessage.'),
+ ('code', 'Object Pascal: Unit1.pas', UP),
+ ('p', '<b>Java.</b> Qui ogni riga la scrivi tu: la finestra, il bottone, che cosa succede al clic, la grandezza, la chiusura. Ogni oggetto si crea con <b>new</b>.'),
+ ('code', 'Java: Ciao.java', JC)]),
+('08 Provare Java senza installare niente', [
+ ('p', 'A scuola non si installa niente. Ci sono due modi per vedere la finestra di Java.'),
+ ('ol', ['<b>Nel browser, con JavaFiddle.</b> Apri l\'indirizzo qui sotto, cancella il codice di esempio, incolla il programma Ciao.java e premi «Run»: la finestra con il bottone si apre dentro la pagina. Funziona solo se il firewall della scuola lascia passare il sito.', '<b>Java portabile, come Godot.</b> Si scarica Java in versione .zip (per esempio «Eclipse Temurin JDK», file zip) e si scompatta in una cartella, per esempio C:\\java\\jdk: niente installazione e niente amministratore. Dalla Java 11 in poi basta un comando per far partire il file Ciao.java, senza compilarlo a parte.']),
+ ('p', 'Indirizzo di JavaFiddle, da scrivere così: <b>javafiddle.leaningtech.com</b>'),
+ ('code', 'Comando per Java portabile (cartella del file Ciao.java)', JR),
+ ('nota', 'Con Lazarus invece il programma diventa un file .exe: lo copi su una chiavetta e parte su qualunque PC Windows, anche senza Lazarus.')]),
+('09 Prova tu', [
  ('ol', ['Quante righe servono per Hello World in Object Pascal e quante in Java?', 'In Java, che cosa serve per creare un array di 5 numeri?', 'Perché un programma fatto con Lazarus parte su ogni PC Windows senza installare niente?']),
  ('sol', ['Object Pascal: 1 riga (dentro begin…end). Java: 5 righe con classe e main.', 'La parola new: int[] voti = new int[5];', 'Perché è compilato in un file .exe; Java invece ha bisogno della sua macchina virtuale installata.'])]),
 ]

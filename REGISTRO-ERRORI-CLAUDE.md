@@ -16,7 +16,8 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 ## 26/10/2026 — Teoria della 3INF fatta anche in arabo e cinese (#119)
 
 1. **Errore.** Per la 3INF ho preparato la teoria «Object Pascal e Java» in italiano, arabo e cinese, copiando il modo di lavorare della 1INF. In 3INF le tre lingue non servono. Il docente: «siamo nella 3, perché mi dai queste lingue, continui a sbagliare».
-2. **Regola.** Prima di preparare un materiale controllo la classe: le 3 lingue (italiano, arabo, cinese) solo per la 1INF, dove ci sono ragazzi che non parlano italiano; per 2INF, 3INF e 4TI solo italiano, salvo richiesta del docente.
+2. **Secondo errore, subito dopo.** Correggendo, ho scritto «3INF solo italiano»: sbagliato anche questo. In MODUS-OPERANDI e FRAMEWORK-LEZIONE c'è scritto che in 3INF serve anche il bangla (bengalese) per l'allievo che ne ha bisogno, e il registro lo dice dal 05/10 (bangla solo sul PC 14). Il docente: «hai sbagliato ancora», «non chiederle a me, fai un audit tu».
+3. **Regola.** Prima di preparare un materiale rileggo le regole sulle lingue nei documenti (MODUS-OPERANDI, FRAMEWORK-LEZIONE, questo registro): 1INF italiano, arabo, cinese; 2INF solo italiano; 3INF italiano + bangla per l'allievo che ne ha bisogno; 4TI italiano. Le regole le controllo io con un audit, non le chiedo al docente.
 
 ## 23/10/2026 — Pacchetto dei voti per DIDAweb senza dire quale Disciplina scegliere (#117)
 
