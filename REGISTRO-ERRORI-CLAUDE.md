@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.74** — 23/10/2026 (cinque voci del 23/10: #114-#118)
+**Versione 2.75** — 26/10/2026 (#119 del 26/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -11,6 +11,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+
+## 26/10/2026 — Teoria della 3INF fatta anche in arabo e cinese (#119)
+
+1. **Errore.** Per la 3INF ho preparato la teoria «Object Pascal e Java» in italiano, arabo e cinese, copiando il modo di lavorare della 1INF. In 3INF le tre lingue non servono. Il docente: «siamo nella 3, perché mi dai queste lingue, continui a sbagliare».
+2. **Regola.** Prima di preparare un materiale controllo la classe: le 3 lingue (italiano, arabo, cinese) solo per la 1INF, dove ci sono ragazzi che non parlano italiano; per 2INF, 3INF e 4TI solo italiano, salvo richiesta del docente.
 
 ## 23/10/2026 — Pacchetto dei voti per DIDAweb senza dire quale Disciplina scegliere (#117)
 
