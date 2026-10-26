@@ -44,6 +44,8 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 09/10/2026 | Sicurezza sul lavoro (Regione), 2ª ora: prevenzione e protezione (studio della lezione ufficiale; quiz su Moduli). Sul registro (h 1, bloccato) il titolo è «Organizzazione della prevenzione aziendale…» | sito ufficiale 2-ora, quiz 2ª ora | Sicurezza sul lavoro |
 | 16/10/2026 | Sicurezza sul lavoro (Regione), 3ª ora: organizzazione della prevenzione aziendale (video e slide ufficiali). Registro h 1 | sito ufficiale 3-ora | Sicurezza sul lavoro |
 | 21/10/2026 | Sicurezza sul lavoro (Regione), 4ª ora: diritti, doveri, sanzioni e organi di vigilanza; quiz di 20 casi su Moduli; recupero dei quiz delle ore 1-3 (tutti devono avere le 4 ore). Sul registro (h 4) il titolo è «Sicurezza: organizzazione prevenzione» | sito ufficiale 4-ora, quiz 4ª ora, `strumenti/sicurezza_2inf.py` | Sicurezza sul lavoro |
+| 20/10/2026 | Laboratorio, 2 ore: ciclo WHILE in Lazarus («ripeti finché»): teoria, ripasso, gioco del dado (lancia finché esce il numero magico e conta i tiri), ciclo infinito e come fermarlo; verifica con il codice spiegato | pagina della lezione WHILE, Lazarus | 15 — voce 5 «Programmazione in Lazarus: cicli for e while» |
+| 22/10/2026 | Laboratorio, 3 ore: interrogazioni sul ciclo WHILE (sorteggio); FOR e WHILE nel programma «Salvadanaio» (fermato alle 10:00); GitHub: repository «lazarus» con un progetto per sottocartella (da riprendere: il 26/10 nessun repository era in ordine) | pagina del salvadanaio, controllo `ordine_github_2inf.py` | 15 — voce 5 «cicli for e while»; versioning |
 
 ## 4. Classe 3 — a.s. 2026/2027
 | Data | Attività svolta | Materiale del corso | Competenza (Allegato A) |
