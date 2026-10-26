@@ -75,9 +75,10 @@
       if (foto) { d.immagine = foto; foto = ''; document.getElementById('as-fp').innerHTML = ''; document.getElementById('as-f').value = ''; }
       // 15/10: lo script ci mette fino a un minuto a rispondere; la domanda però è già partita, quindi lo diciamo subito
       // e svuotiamo la casella adesso (mai dopo, per non cancellare quello che il ragazzo sta scrivendo)
-      document.getElementById('as-q').value = ''; st.textContent = tr('ok');
+      document.getElementById('as-q').value = ''; st.textContent = '…';   // 26/10: «Mandata!» solo quando l'invio è partito davvero (domanda di Bettinelli persa)
       setTimeout(function () { bt.disabled = false; bt.style.opacity = '1'; }, 3000);
       fetch(cfg.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) })
+        .then(function () { st.textContent = tr('ok'); })
         .catch(function () { st.textContent = tr('ko'); document.getElementById('as-q').value = q; });
     };
     function risposte() {
