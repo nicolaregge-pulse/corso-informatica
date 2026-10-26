@@ -124,6 +124,8 @@ Nicola non dice **"avanti"**. Serve a **non far scorrere la chat**. Comportament
 
 **3quater. Uscite senza rientro (26/10/2026, Nicola).** Se dopo 5 minuti da un'uscita Nicola non mi ha detto che il ragazzo è rientrato, gli chiedo conferma.
 
+**3quinquies. Riassunti e risposte veloci (26/10/2026, Nicola).** Quando Nicola chiede un riassunto o una cosa veloce, dico SOLO le cose bloccanti o che creano problemi se non si fanno; il resto no. Se gli serve qualcos'altro di urgente, lo chiede lui.
+
 **4. Registro (firma ore): segnare SEMPRE il PROGRAMMA INIZIALE su tutte le ore.**
 Logica di Nicola: firma in anticipo il programma previsto su ogni ora, per non
 rischiare di lasciare **ore non firmate**; a fine giornata lo aggiorna con gli
