@@ -1,5 +1,5 @@
 {
- "ora": "12:47",
+ "ora": "12:51",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -16,21 +16,19 @@
   {
    "alunno": "Hagar A.",
    "pezzi": [
+    "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "12:38",
+   "salvataggi": 6,
+   "ultimo": "12:49",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "project1.ico",
-    "project1.lpi",
     "project1.lpr",
     "project1.lps",
-    "project1.res",
     "salvadanaio/backup/salvadanaio.lpi",
     "salvadanaio/backup/salvadanaio.lps",
     "salvadanaio/backup/unit1.lfm",
@@ -42,7 +40,6 @@
     "salvadanaio/lib/x86_64-win64/unit1.lfm",
     "salvadanaio/lib/x86_64-win64/unit1.o",
     "salvadanaio/lib/x86_64-win64/unit1.ppu",
-    "salvadanaio/salvadanaio.exe",
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
@@ -50,7 +47,6 @@
     "salvadanaio/salvadanaio.res",
     "salvadanaio/unit1.lfm",
     "salvadanaio/unit1.pas",
-    "unit1.lfm",
     "unit1.pas"
    ]
   },
@@ -169,61 +165,57 @@
   {
    "alunno": "Giorgio A.",
    "pezzi": [
+    "cartelle",
     "pulito",
     "no .exe"
    ],
-   "salvataggi": 12,
-   "ultimo": "12:44",
+   "salvataggi": 14,
+   "ultimo": "12:50",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
+   "messaggio": "Passo F: scrivi il tuo README (chi sei e l'elenco dei tuoi progetti, almeno 4 righe).",
    "fuori": 0,
    "albero": [
-    "README.md"
+    "README.md",
+    "primo-programma/il primo progetto",
+    "salvadanaio/il salvadanaio"
    ]
   },
   {
    "alunno": "Shaharia A.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "pezzi": [
+    "pulito",
+    "no .exe"
+   ],
+   "salvataggi": 1,
+   "ultimo": "12:49",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
-   "fuori": 0,
-   "albero": []
+   "cartella_ok": true,
+   "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:17).",
+   "fuori": 2,
+   "albero": [
+    "README.md"
+   ]
   },
   {
    "alunno": "Youssef A.",
    "pezzi": [
     "cartelle",
     "pulito",
+    "README",
     "salvadanaio"
    ],
-   "salvataggi": 2,
-   "ultimo": "12:42",
+   "salvataggi": 7,
+   "ultimo": "12:51",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file .exe (primo-programma/migliakilometri.exe, salvadanaio/salvadanaio.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
+   "messaggio": "Passo D: cancella i file .exe (salvadanaio/salvadanaio.exe): non servono, basta il progetto. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
    "fuori": 1,
    "albero": [
     "README.md",
-    "primo-programma/backup/migliakilometri.lpi",
-    "primo-programma/backup/migliakilometri.lps",
-    "primo-programma/backup/unit1.lfm",
-    "primo-programma/backup/unit1.pas",
-    "primo-programma/lib/x86_64-win64/migliakilometri.compiled",
-    "primo-programma/lib/x86_64-win64/migliakilometri.o",
-    "primo-programma/lib/x86_64-win64/migliakilometri.obj",
-    "primo-programma/lib/x86_64-win64/migliakilometri.res",
-    "primo-programma/lib/x86_64-win64/unit1.lfm",
-    "primo-programma/lib/x86_64-win64/unit1.o",
-    "primo-programma/lib/x86_64-win64/unit1.ppu",
-    "primo-programma/migliakilometri.exe",
     "primo-programma/migliakilometri.ico",
     "primo-programma/migliakilometri.lpi",
     "primo-programma/migliakilometri.lpr",
-    "primo-programma/migliakilometri.lps",
     "primo-programma/migliakilometri.res",
     "primo-programma/unit1.lfm",
     "primo-programma/unit1.pas",
@@ -250,9 +242,11 @@
   },
   {
    "alunno": "Oscar F.",
-   "pezzi": [],
-   "salvataggi": 4,
-   "ultimo": "12:45",
+   "pezzi": [
+    "salvadanaio"
+   ],
+   "salvataggi": 5,
+   "ultimo": "12:50",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
@@ -280,21 +274,38 @@
     "project1.ico",
     "project1.lpi",
     "project1.lpr",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanaio/backup/project1.lpi",
+    "salvadanaio/backup/project1.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/project1.compiled",
+    "salvadanaio/lib/x86_64-win64/project1.o",
+    "salvadanaio/lib/x86_64-win64/project1.obj",
+    "salvadanaio/lib/x86_64-win64/project1.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/project1.exe",
+    "salvadanaio/project1.ico",
+    "salvadanaio/project1.lpi",
+    "salvadanaio/project1.lpr",
+    "salvadanaio/project1.lps",
+    "salvadanaio/project1.res",
+    "salvadanaio/unit1.lfm"
    ]
   },
   {
    "alunno": "Francesco M.",
-   "pezzi": [],
-   "salvataggi": 4,
-   "ultimo": "12:45",
+   "pezzi": [
+    "salvadanaio"
+   ],
+   "salvataggi": 6,
+   "ultimo": "12:50",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "euro.ico",
     "euro.lpr",
     "euro.lps",
     "primo programma/backup/euro.lpi",
@@ -316,8 +327,25 @@
     "primo programma/lib/x86_64-win64/unit1.ppu",
     "primo programma/unit1.lfm",
     "primo programma/unit1.pas",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanaio/backup/euro.lpi",
+    "salvadanaio/backup/euro.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/euro.exe",
+    "salvadanaio/euro.ico",
+    "salvadanaio/euro.lpi",
+    "salvadanaio/euro.lpr",
+    "salvadanaio/euro.lps",
+    "salvadanaio/euro.res",
+    "salvadanaio/lib/x86_64-win64/euro.compiled",
+    "salvadanaio/lib/x86_64-win64/euro.o",
+    "salvadanaio/lib/x86_64-win64/euro.obj",
+    "salvadanaio/lib/x86_64-win64/euro.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -414,16 +442,16 @@
   },
   {
    "alunno": "Giorgio K.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "pezzi": [
+    "no .exe"
+   ],
+   "salvataggi": 2,
+   "ultimo": "12:51",
    "caricato": false,
    "cartella_ok": false,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
-    "salvadanaio.exe",
-    "salvadanaio.ico",
     "salvadanaio.lpi",
     "salvadanaio.lpr",
     "salvadanaio.lps",
@@ -482,14 +510,15 @@
     "no .exe",
     "salvadanaio"
    ],
-   "salvataggi": 7,
-   "ultimo": "12:46",
+   "salvataggi": 8,
+   "ultimo": "12:50",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "primo programma/while.ico",
     "salvaDANAIO/project1.ico",
     "salvaDANAIO/project1.lpi",
     "salvaDANAIO/project1.lpr",
@@ -504,8 +533,8 @@
     "pulito",
     "no .exe"
    ],
-   "salvataggi": 4,
-   "ultimo": "12:42",
+   "salvataggi": 6,
+   "ultimo": "12:49",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B: crea la cartella «primo-programma» e caricaci il tuo primo programma.",
