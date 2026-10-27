@@ -1,7 +1,99 @@
 {
- "ora": "09:28",
+ "ora": "09:36",
  "data": "2026-10-27",
  "righe": [
+  {
+   "alunno": "Alejandro G.",
+   "voto": 56,
+   "conto": "calcolatrice: 2 su 5 → 56 = 56",
+   "v_github": 56,
+   "v_facile": 60,
+   "facile": [
+    "primo-programma",
+    "salvadanaio",
+    "README"
+   ],
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
+   "github": [
+    "cartella",
+    "4 file"
+   ],
+   "github_manca": [
+    "pulita",
+    "3 commit",
+    "v1.0"
+   ],
+   "cosa_fare": "Nella cartella «calcolatrice» cancella i file che non servono: calcolatrice/backup/project1.lpi, calcolatrice/backup/project1.lps, calcolatrice/backup/unit1.lfm.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:23",
+    "Lazarus",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Egor M.",
+   "voto": 56,
+   "conto": "calcolatrice: 2 su 5 → 56 = 56",
+   "v_github": 56,
+   "v_facile": 67,
+   "facile": [
+    "primo-programma",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "facile_manca": [
+    "esercizio-3",
+    "esercizio-4"
+   ],
+   "v_salv": 40,
+   "v_ver": 40,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartella",
+    "pulita"
+   ],
+   "github_manca": [
+    "4 file",
+    "3 commit",
+    "v1.0"
+   ],
+   "cosa_fare": "Nella cartella «calcolatrice» carica i 4 file .lpi .lpr .pas .lfm.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:23",
+    "dispensa della calcolatrice",
+    0
+   ],
+   "orale": null
+  },
   {
    "alunno": "Hagar A.",
    "voto": 40,
@@ -24,11 +116,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -69,11 +161,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -114,11 +206,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -159,11 +251,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -204,11 +296,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -249,11 +341,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -294,11 +386,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -339,11 +431,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -384,11 +476,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -429,11 +521,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -474,11 +566,11 @@
    "vgit": "5 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -493,51 +585,6 @@
    "vy_ult": [
     "09:23",
     "Classroom, compito di oggi",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Alejandro G.",
-   "voto": 40,
-   "conto": "calcolatrice: 0 su 5 → 40 = 40",
-   "v_github": 40,
-   "v_facile": 60,
-   "facile": [
-    "primo-programma",
-    "salvadanaio",
-    "README"
-   ],
-   "facile_manca": [
-    "esercizio-3",
-    "esercizio-4",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:23",
-    "Lazarus",
     0
    ],
    "orale": null
@@ -564,56 +611,11 @@
    "vgit": "2 su 3",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:23",
-    "dispensa della calcolatrice",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Egor M.",
-   "voto": 40,
-   "conto": "calcolatrice: 0 su 5 → 40 = 40",
-   "v_github": 40,
-   "v_facile": 67,
-   "facile": [
-    "primo-programma",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "facile_manca": [
-    "esercizio-3",
-    "esercizio-4"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [],
-   "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -654,11 +656,11 @@
    "vgit": "5 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -699,11 +701,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -744,11 +746,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -789,11 +791,11 @@
    "vgit": "6 su 6",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -834,11 +836,11 @@
    "vgit": "",
    "github": [],
    "github_manca": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
+    "cartella",
+    "4 file",
+    "pulita",
+    "3 commit",
+    "v1.0"
    ],
    "cosa_fare": "Crea la cartella «calcolatrice» (Add file, Create new file, calcolatrice/README.md).",
    "salv": [],
@@ -857,5 +859,15 @@
    ],
    "orale": null
   }
- ]
+ ],
+ "solo_github": true,
+ "pezzi_col5": [
+  "cartella",
+  "4 file",
+  "pulita",
+  "3 commit",
+  "v1.0"
+ ],
+ "titolo_col5": "Oggi: calcolatrice su GitHub",
+ "spiega": "Voto di oggi: 40 + 8 per ogni cosa fatta del progetto «calcolatrice» (cartella, 4 file giusti, cartella pulita, almeno 3 commit, release v1.0), meno 3 per ogni fuori compito di Veyon, tra 40 e 80."
 }
