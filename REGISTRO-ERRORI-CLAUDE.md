@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.82** — 27/10/2026 (#125-#127 del 27/10)
+**Versione 2.83** — 27/10/2026 (#125-#131 del 27/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,26 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 27/10/2026 — 1INF: «è tutto a posto», ma su Classroom non c'era niente (#128)
+
+1. **Errore.** Alla domanda del docente «per la 1INF è tutto a posto?» ho risposto che le pagine erano online e che i ragazzi potevano cominciare. Su Classroom non c'era né un compito né un annuncio con i link: i ragazzi sono rimasti 11 minuti davanti al monitor senza niente. Avevo pubblicato solo le pagine sul sito, non il post su Classroom (stesso errore di #94, #105 e #120). Il docente: «mi ha detto delle cose non vere».
+2. **Regola.** «Tutto a posto» si dice solo dopo tre prove, scritte in chat: il post su Classroom con lo stato «PUBLISHED», il sito «PUBBLICATO» e il quiz con il suo link. Se ne manca una, dico che cosa manca, non che è a posto.
+
+## 27/10/2026 — 1INF: quiz preparati durante la lezione e affidati allo script (#129)
+
+1. **Errore.** I quiz andavano preparati prima. Prima ho creato due quiz generici, poi, su richiesta del docente, li ho rifatti a lezione iniziata, mettendoli in coda allo script (che gira ogni 5 minuti). Nelle pagine c'era scritto «Il quiz arriva tra poco»: un passo dei ragazzi dipendeva dai tempi dello script (contro la regola 14).
+2. **Regola.** Quiz e Moduli si creano il giorno prima o prima della campanella, mai a lezione iniziata. Una pagina per i ragazzi non dice mai «arriva tra poco»: se un pezzo manca, la pagina si pubblica senza quel pezzo e lo dico al docente.
+
+## 27/10/2026 — Tempi promessi che dipendevano dallo script (#130)
+
+1. **Errore.** Ho scritto al docente «dovrebbero arrivare entro pochi minuti» per i quiz in coda: una promessa che non dipendeva da me.
+2. **Regola.** Non prometto tempi per ciò che fa lo script. Do la strada che il docente può fare subito a mano (piano B, #131) e intanto aspetto lo script.
+
+## 27/10/2026 — Nessun piano B pronto per pubblicare quando lo script non arriva (#131)
+
+1. **Errore.** Quando la pubblicazione dipende dallo script e lo script è lento o fermo, il docente resta senza niente da mettere su Classroom. Il testo dell'annuncio l'ho dato solo dopo la sua protesta.
+2. **Regola (piano B, da confermare dal docente).** Per ogni lezione, 10 minuti prima della campanella, do in chat il testo pronto dell'annuncio per Classroom con i link, in un riquadro da copiare, anche quando deve pubblicare lo script. Alla campanella controllo Classroom: se il post dello script non è «PUBLISHED», scrivo «PIANO B» e il docente incolla l'annuncio.
 
 ## 27/10/2026 — Lo script ha finito il limite giornaliero di Google per colpa dei miei comandi (#125)
 
