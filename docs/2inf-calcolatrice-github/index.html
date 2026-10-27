@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La calcolatrice su GitHub</title>
+<style>
+/* 27/10/2026 2INF: percorso guidato, un passo alla volta; si va avanti solo se il controllo su GitHub è giusto. Solo italiano. */
+:root{--bg:#f4f6f9;--card:#fff;--txt:#1b1f24;--mu:#5b6573;--ok:#11663a;--okbg:#e6f6ec;--ko:#b3261e;--kobg:#fdecea;--blu:#1f6feb;--ln:#d5dbe3}
+body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.5}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:26px;margin:6px 0}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;margin:14px 0}
+.card h2{font-size:20px;margin:0 0 6px}
+.passo.chiuso{opacity:.45;pointer-events:none}
+.passo.chiuso::after{content:"Si apre quando hai finito il passo prima.";display:block;color:var(--mu);font-size:14px;margin-top:6px}
+ol li{margin:6px 0}
+.k{background:#eef2f7;border:1px solid var(--ln);border-radius:6px;padding:1px 6px;font-family:ui-monospace,Consolas,monospace}
+button{font-size:17px;padding:9px 16px;border-radius:8px;border:0;background:var(--blu);color:#fff;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}
+input[type=text]{font-size:17px;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;width:min(320px,100%)}
+.esito{margin-top:10px;padding:10px 12px;border-radius:8px;display:none;white-space:pre-line}
+.esito.ok{display:block;background:var(--okbg);color:var(--ok);font-weight:600}
+.esito.ko{display:block;background:var(--kobg);color:var(--ko)}
+.mu{color:var(--mu);font-size:15px}
+table{border-collapse:collapse;width:100%;font-size:15px}th,td{border:1px solid var(--ln);padding:6px 8px;text-align:left;vertical-align:top}th{background:#eef2f7}
+.barra{height:10px;background:#e3e8ef;border-radius:6px;overflow:hidden;margin:8px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+pre{background:#0d1117;color:#e6edf3;border-radius:8px;padding:10px 12px;overflow-x:auto;font-size:15px}
+</style>
+</head>
+<body>
+<main>
+<h1>La calcolatrice su GitHub</h1>
+<p>Un passo alla volta. Ogni passo si apre solo quando quello prima è <b>giusto</b>: la pagina controlla da sola il tuo GitHub.</p>
+<div class="barra"><i id="barra"></i></div>
+<p class="mu" id="punto">Passo 1 di 7</p>
+
+<div class="card">
+<h2>Prima di tutto: due posti diversi</h2>
+<table>
+<tr><th>Che cosa</th><th>Dove</th><th>Quando</th><th>Come</th></tr>
+<tr><td><b>Salvare</b></td><td>sul tuo PC (in locale, sul disco)</td><td>spessissimo, ogni pochi minuti</td><td>in Lazarus premi <span class="k">Ctrl</span> + <span class="k">S</span></td></tr>
+<tr><td><b>Commit</b></td><td>su GitHub (su internet)</td><td>ogni volta che una cosa nuova funziona</td><td>carichi i 4 file e premi «Commit changes»</td></tr>
+</table>
+<p>Il PC e GitHub non si aggiornano da soli: sei tu a portare i file dal PC a GitHub. Prima salvi sul PC, poi fai il commit.</p>
+</div>
+
+<div class="card passo" id="p1">
+<h2>Passo 1 · Il tuo nome su GitHub</h2>
+<ol><li>Scrivi qui il tuo nome utente di GitHub (quello che vedi in alto a destra su github.com, o nell'indirizzo del tuo repository).</li></ol>
+<input type="text" id="utente" placeholder="il tuo nome utente GitHub" autocomplete="off">
+<p><button id="b1">Controlla</button></p>
+<div class="esito" id="e1"></div>
+</div>
+
+<div class="card passo chiuso" id="p2">
+<h2>Passo 2 · Salva la calcolatrice sul tuo PC</h2>
+<ol>
+<li>In Lazarus clicca il menu «File», poi «Salva progetto con nome».</li>
+<li>Crea una cartella nuova che si chiama <span class="k">calcolatrice</span> e salva lì dentro.</li>
+<li>Come nome del progetto scrivi <span class="k">calcolatrice</span> e premi «Salva». Poi salva anche unit1 nella stessa cartella.</li>
+<li>Da adesso, ogni pochi minuti premi <span class="k">Ctrl</span> + <span class="k">S</span>.</li>
+<li>Apri Esplora file, la cartella calcolatrice. In alto clicca «Visualizza», «Mostra», e metti la spunta su «Estensioni nomi file». Ora vedi calcolatrice.lpi, unit1.pas…</li>
+</ol>
+<p class="mu">Questo passo è sul tuo PC: la pagina non lo può vedere. Premi il bottone solo quando vedi i file con le estensioni.</p>
+<p><button id="b2">Fatto: vedo calcolatrice.lpi, calcolatrice.lpr, unit1.pas, unit1.lfm</button></p>
+<div class="esito" id="e2"></div>
+</div>
+
+<div class="card passo chiuso" id="p3">
+<h2>Passo 3 · Crea la cartella «calcolatrice» su GitHub</h2>
+<ol>
+<li>Apri il tuo repository <b>lazarus</b> su GitHub.</li>
+<li>Clicca il bottone «Add file», poi «Create new file».</li>
+<li>Nella casella del nome scrivi esattamente: <span class="k">calcolatrice/README.md</span> (la barra / crea la cartella).</li>
+<li>Nel riquadro grande scrivi una riga: <span class="k">La mia calcolatrice in Lazarus</span></li>
+<li>Clicca il bottone verde «Commit changes», poi ancora «Commit changes».</li>
+</ol>
+<p><button id="b3">Controlla</button></p>
+<div class="esito" id="e3"></div>
+</div>
+
+<div class="card passo chiuso" id="p4">
+<h2>Passo 4 · La prima volta: carica SOLO i 4 file giusti</h2>
+<ol>
+<li>Su GitHub clicca la cartella <b>calcolatrice</b>.</li>
+<li>Clicca «Add file», poi «Upload files».</li>
+<li>Clicca «choose your files»: si apre la finestra del PC.</li>
+<li>Apri la cartella calcolatrice e scegli <b>solo</b> questi 4 file, tenendo premuto <span class="k">Ctrl</span>: calcolatrice.<b>lpi</b>, calcolatrice.<b>lpr</b>, unit1.<b>pas</b>, unit1.<b>lfm</b>.</li>
+<li>Clicca «Apri».</li>
+<li>Nella casella sotto scrivi: <span class="k">prima versione</span></li>
+<li>Clicca il bottone verde «Commit changes».</li>
+</ol>
+<p class="mu">NON caricare: .exe, .lps, .res, e le cartelle lib e backup. Lazarus li rifà da solo.</p>
+<p><button id="b4">Controlla</button></p>
+<div class="esito" id="e4"></div>
+</div>
+
+<div class="card passo chiuso" id="p5">
+<h2>Passo 5 · Fai un commit quando una cosa nuova funziona</h2>
+<ol>
+<li>In Lazarus aggiungi o cambia qualcosa (per esempio il bottone per) e provalo con «Esegui».</li>
+<li>Funziona? Premi <span class="k">Ctrl</span> + <span class="k">S</span>: hai salvato sul PC.</li>
+<li>Su GitHub clicca la cartella <b>calcolatrice</b>, poi «Add file», «Upload files».</li>
+<li>Clicca «choose your files» e scegli di nuovo i 4 file con <span class="k">Ctrl</span>. Clicca «Apri»: GitHub mette i nuovi al posto dei vecchi.</li>
+<li>Nella casella scrivi che cosa hai cambiato, per esempio: <span class="k">aggiunto il bottone per</span></li>
+<li>Clicca il bottone verde «Commit changes».</li>
+</ol>
+<p class="mu">Regola facile: ha funzionato? Commit. Più commit fai, più la storia del tuo progetto è chiara.</p>
+<p><button id="b5">Controlla</button></p>
+<div class="esito" id="e5"></div>
+</div>
+
+<div class="card passo chiuso" id="p6">
+<h2>Passo 6 · La release v1.0: la versione da mostrare</h2>
+<ol>
+<li>Nella pagina principale del repository <b>lazarus</b>, nella colonna a destra, clicca «Releases» (oppure «Create a new release»).</li>
+<li>Clicca «Choose a tag», scrivi <span class="k">v1.0</span> e clicca «Create new tag».</li>
+<li>Nel titolo scrivi: <span class="k">Calcolatrice versione 1</span></li>
+<li>Clicca il bottone verde «Publish release».</li>
+</ol>
+<p><button id="b6">Controlla</button></p>
+<div class="esito" id="e6"></div>
+</div>
+
+<div class="card passo chiuso" id="p7">
+<h2>Passo 7 · Sai spiegarlo?</h2>
+<ol>
+<li>Che differenza c'è tra salvare con Ctrl + S e fare un commit?</li>
+<li>Perché su GitHub non mettiamo il file .exe?</li>
+<li>Che cos'è la release v1.0?</li>
+</ol>
+<p>Rispondi a voce al tuo compagno di banco. Poi aspetta il prof: con la versione 2 aggiungiamo meno e divisione, e farai la release <b>v2.0</b>.</p>
+<div class="esito ok">Bravo! Il tuo progetto è al sicuro su GitHub e ha la sua prima versione.</div>
+</div>
+
+<p class="mu" id="nota"></p>
+</main>
+<script>
+(function () {
+  var API = 'https://api.github.com/repos/';
+  var $ = function (id) { return document.getElementById(id); };
+  var stato = 1, utente = '';
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function apri(n) {
+    stato = Math.max(stato, n);
+    for (var i = 1; i <= 7; i++) $('p' + i).classList.toggle('chiuso', i > stato);
+    $('barra').style.width = Math.round((stato - 1) / 6 * 100) + '%';
+    $('punto').textContent = stato >= 7 ? 'Finito!' : 'Passo ' + stato + ' di 7';
+    scrivi('calc-stato', String(stato));
+    if (n > 1 && $('p' + n)) $('p' + n).scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+  function esito(n, ok, testo) { var e = $('e' + n); e.className = 'esito ' + (ok ? 'ok' : 'ko'); e.textContent = testo; }
+  function chiedi(url) {
+    return fetch(API + url, {cache: 'no-store'}).then(function (r) {
+      if (r.status === 404) return null;
+      if (r.status === 403 || r.status === 429) throw new Error('limite');
+      if (!r.ok) throw new Error('rete');
+      return r.json();
+    });
+  }
+  function errore(n, x) {
+    esito(n, false, x.message === 'limite'
+      ? 'GitHub oggi ha ricevuto troppe domande da questa scuola. Aspetta 2 minuti e premi di nuovo «Controlla».'
+      : 'Non riesco a parlare con GitHub. Controlla internet e premi di nuovo «Controlla».');
+  }
+  function file(lista) { return (lista || []).map(function (f) { return {nome: f.name, tipo: f.type}; }); }
+
+  $('b1').onclick = function () {
+    utente = $('utente').value.trim().replace(/^@/, '').replace(/^https?:\/\/github\.com\//, '').split('/')[0];
+    if (!utente) { esito(1, false, 'Scrivi il tuo nome utente di GitHub.'); return; }
+    chiedi(utente + '/lazarus').then(function (r) {
+      if (!r) { esito(1, false, 'Non trovo il repository «lazarus» di «' + utente + '». Controlla di aver scritto bene il nome utente (lettere maiuscole e minuscole comprese).'); return; }
+      scrivi('calc-utente', utente);
+      esito(1, true, 'Giusto! Ho trovato il tuo repository lazarus. Vai al passo 2.');
+      apri(2);
+    }).catch(function (x) { errore(1, x); });
+  };
+  $('b2').onclick = function () { esito(2, true, 'Bene! Il tuo progetto è salvato sul PC. Vai al passo 3.'); apri(3); };
+  $('b3').onclick = function () {
+    chiedi(utente + '/lazarus/contents/calcolatrice').then(function (r) {
+      if (!r) {
+        chiedi(utente + '/lazarus/contents/').then(function (root) {
+          var simili = file(root).filter(function (f) { return f.tipo === 'dir' && /calc/i.test(f.nome); }).map(function (f) { return f.nome; });
+          esito(3, false, simili.length ? 'Ho trovato la cartella «' + simili[0] + '», ma deve chiamarsi esattamente «calcolatrice», tutto minuscolo.' : 'Non trovo la cartella «calcolatrice». Rifai i passi qui sopra: nel nome scrivi calcolatrice/README.md');
+        }).catch(function (x) { errore(3, x); });
+        return;
+      }
+      esito(3, true, 'Giusto! La cartella calcolatrice c\'è. Vai al passo 4.'); apri(4);
+    }).catch(function (x) { errore(3, x); });
+  };
+  $('b4').onclick = function () {
+    chiedi(utente + '/lazarus/contents/calcolatrice').then(function (r) {
+      var f = file(r), nomi = f.map(function (x) { return x.nome.toLowerCase(); });
+      var manca = ['.lpi', '.lpr', '.pas', '.lfm'].filter(function (e) { return !nomi.some(function (n) { return n.slice(-e.length) === e; }); });
+      var inutili = f.filter(function (x) { return x.tipo === 'dir' || /\.(exe|lps|res|o|ppu|compiled|bak)$/i.test(x.nome); }).map(function (x) { return x.nome; });
+      if (manca.length) { esito(4, false, 'Nella cartella calcolatrice mancano i file: ' + manca.join(' ') + '\nCaricali con «Add file», «Upload files».'); return; }
+      if (inutili.length) { esito(4, false, 'Ci sono file che non servono: ' + inutili.join(', ') + '\nCancellali: clicca il file, i tre puntini in alto a destra, «Delete file», «Commit changes».'); return; }
+      esito(4, true, 'Perfetto! Ci sono solo i 4 file giusti. Vai al passo 5.'); apri(5);
+    }).catch(function (x) { errore(4, x); });
+  };
+  $('b5').onclick = function () {
+    chiedi(utente + '/lazarus/commits?path=calcolatrice&per_page=10').then(function (r) {
+      var n = (r || []).length;
+      if (n < 3) { esito(5, false, 'Nella cartella calcolatrice vedo ' + n + ' commit. Servono almeno 3: il README, la prima versione e una modifica nuova. Fai funzionare una cosa nuova, salva con Ctrl + S e ricarica i 4 file.'); return; }
+      var ultimo = r[0] && r[0].commit && r[0].commit.message || '';
+      esito(5, true, 'Giusto! Hai ' + n + (n >= 10 ? ' o più' : '') + ' commit. L\'ultimo dice: «' + ultimo + '». Vai al passo 6.'); apri(6);
+    }).catch(function (x) { errore(5, x); });
+  };
+  $('b6').onclick = function () {
+    chiedi(utente + '/lazarus/releases?per_page=10').then(function (r) {
+      var tag = (r || []).map(function (x) { return x.tag_name; });
+      if (tag.indexOf('v1.0') < 0) { esito(6, false, tag.length ? 'Ho trovato le release: ' + tag.join(', ') + '. Ne serve una con il tag esattamente «v1.0».' : 'Non trovo ancora nessuna release. Rifai i passi qui sopra e premi «Publish release».'); return; }
+      esito(6, true, 'Fantastico! La tua calcolatrice ha la release v1.0.'); apri(7);
+    }).catch(function (x) { errore(6, x); });
+  };
+
+  utente = leggi('calc-utente'); if (utente) $('utente').value = utente;
+  var s = parseInt(leggi('calc-stato'), 10); apri(s && utente ? s : 1);
+})();
+</script>
+<script src="../assistente/assistente.js" data-pagina="2inf-calcolatrice-github" data-lingue="it"></script>
+</body>
+</html>
