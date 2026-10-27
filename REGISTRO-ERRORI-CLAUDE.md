@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.81** — 26/10/2026 (#122 riallineato con il #97; CHECKLIST-LEZIONE)
+**Versione 2.82** — 27/10/2026 (#125-#127 del 27/10)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,21 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 27/10/2026 — Lo script ha finito il limite giornaliero di Google per colpa dei miei comandi (#125)
+
+1. **Errore.** La mattina del 27/10 lo script era fermo con «Servizio richiamato troppe volte in un giorno: premium urlfetch». Il giorno prima avevo mandato decine di comandi al ponte e tenuto accesi giri automatici ogni pochi minuti. Il docente ha dovuto pubblicare a mano. In più avevo detto che lo script era a posto.
+2. **Regola.** Pochi comandi al ponte e solo quando servono; prima di dire che lo script funziona, una prova eseguita (CHECKLIST §01.8). Proposta da fare: più account Google per dividere il limite.
+
+## 27/10/2026 — 2INF: seconda lezione-progetto con metà classe sotto la sufficienza (#126)
+
+1. **Errore.** Calcolatrice su GitHub: 9 ragazzi su 19 non hanno caricato niente. La pagina guidata aveva 7 passi e la versione facile è arrivata a lezione quasi finita. Il docente: «è la seconda volta che fai un progetto e nessuno riesce ad arrivare alla sufficienza, devi rivedere teoria e procedure al ribasso».
+2. **Regola.** La versione facile (al massimo 3 passi) si prepara PRIMA della lezione ed è quella da dare a tutti; la versione completa è per chi finisce. Il controllo della lezione deve dare punti anche ai passi intermedi visibili.
+
+## 27/10/2026 — Cruscotto fermo senza dirlo, e una correzione dichiarata ma non fatta (#127)
+
+1. **Errore.** Avevo spento gli aggiornamenti del cruscotto e il docente ha visto i dati delle 09:36 come se fossero di fine lezione («nessuno arriva alla sufficienza»); in più il controllo non contava la release scritta «1.0». Poi ho scritto in chat di aver registrato l'errore, prima di averlo fatto.
+2. **Regola.** Quando i dati di una pagina sono fermi, in alto compare in rosso l'ora dei dati. In chat dico «fatto» solo dopo averlo fatto (#115).
 
 ## 26/10/2026 — 2INF: la casella dell'assistente ha scritto «Mandata!» e la domanda non è mai arrivata (#124)
 
