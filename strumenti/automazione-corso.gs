@@ -183,6 +183,7 @@ function autoCiclo(forza) {
   if (!forza && !AUTO_inOrario(adesso)) { Logger.log('Fuori orario (lun-ven 7-15): dormo.'); return; }   // v8.0
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(2000)) { Logger.log('Giro precedente ancora in corso: salto.'); return; }
+  AUTO_conta('GIRI');   // v8.3
   try {
     var r = AUTO_gh('get', '/contents/' + AUTO.CODA + '?ref=' + AUTO.BRANCH);
     if (r.getResponseCode() === 404) { Logger.log('Coda vuota.'); AUTO_battito('coda vuota'); return; }
@@ -742,13 +743,15 @@ function AUTO_commit(repoPath, blob, msg) {
 function AUTO_gh(method, path, payload) {
   var token = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
   if (!token) throw new Error('Manca GITHUB_TOKEN nelle Proprieta dello script.');
-  return UrlFetchApp.fetch('https://api.github.com/repos/' + AUTO.REPO + path, {
+  var risp = UrlFetchApp.fetch('https://api.github.com/repos/' + AUTO.REPO + path, {
     method: method,
     headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
     contentType: 'application/json',
     payload: payload ? JSON.stringify(payload) : null,
     muteHttpExceptions: true
   });
+  AUTO_conta('CHIAMATE', risp);   // v8.3: contatori per il cruscotto
+  return risp;
 }
 
 
@@ -758,13 +761,32 @@ function AUTO_gh(method, path, payload) {
    Se Git non risponde, il risultato resta comunque nel Foglio «Arrivi verifiche» (riserva) e si recupera dopo.
    Messa in funzione (una volta): Distribuisci -> Nuova distribuzione -> Applicazione web -> Esegui come: me ->
    Chi ha accesso: chiunque nella scuola (o chiunque) -> Distribuisci -> copia l'URL che finisce con /exec. */
+/* v8.3 — CONTATORI per il cruscotto del docente (Nicola 27/10: «quanti giri, in che modalità, il massimo e quando si azzera»).
+   Per ogni giorno (ora di Roma): giri fatti e chiamate a internet. Da GitHub: richieste rimaste nell'ora e ora dell'azzeramento. */
+function AUTO_conta(chiave, risp) {
+  try {
+    var pr = PropertiesService.getScriptProperties(), g = Utilities.formatDate(new Date(), 'Europe/Rome', 'yyyyMMdd');
+    var k = chiave + '_' + g; pr.setProperty(k, String(+(pr.getProperty(k) || 0) + 1));
+    if (risp) { var hd = risp.getHeaders() || {}, rim = hd['x-ratelimit-remaining'] || hd['X-RateLimit-Remaining'], rs = hd['x-ratelimit-reset'] || hd['X-RateLimit-Reset'];
+      if (rim !== undefined) pr.setProperties({ GH_RIMASTE: String(rim), GH_RESET: String(rs || '') }); }
+  } catch (e) {}
+}
+function AUTO_stato() {
+  var pr = PropertiesService.getScriptProperties(), g = Utilities.formatDate(new Date(), 'Europe/Rome', 'yyyyMMdd');
+  var rs = +(pr.getProperty('GH_RESET') || 0);
+  return { versione: '8.3', ritmo: +(pr.getProperty('RITMO') || 5), giri_oggi: +(pr.getProperty('GIRI_' + g) || 0),
+    chiamate_oggi: +(pr.getProperty('CHIAMATE_' + g) || 0), limite_google_giorno: 100000,
+    github_rimaste: pr.getProperty('GH_RIMASTE') || '', github_limite_ora: 5000, github_reset: rs ? new Date(rs * 1000).toISOString() : '' };
+}
+
 function doGet(e) {
   AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   var p = (e && e.parameter) || {};
   if (p.ping) {   // v8.0: stato del timer, leggibile da chiunque (nessun dato dei ragazzi)
     var tr = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; }).length;
     var b = ''; try { b = String(AUTO_foglioArrivi().getParent().getSheetByName('Battito').getRange('A1').getValue()); } catch (x) {}
-    return AUTO_rispostaJs(JSON.stringify({ versione: '8.0', timer: tr, battito: b, inOrario: AUTO_inOrario(new Date()), ora: new Date().toISOString() }), p.callback);
+    var st = AUTO_stato(); st.timer = tr; st.battito = b; st.inOrario = AUTO_inOrario(new Date()); st.ora = new Date().toISOString();   // v8.3
+    return AUTO_rispostaJs(JSON.stringify(st), p.callback);
   }
   if (p.live) return AUTO_live(p.live, p.sim, p.tok, p.callback);                    // v7.9: monitor dal vivo del docente
   if (p.cruscotto) return AUTO_cruscotto(p.cruscotto, p.callback);                     // v7.8: classifica dal vivo
