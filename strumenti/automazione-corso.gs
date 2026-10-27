@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * v8.2: CLASSROOM DA DIETRO LE QUINTE (Nicola, 21/10: «preparate tutto ma che i ragazzi non lo vedano, io si»).
  *       1) BOZZE: un compito della coda con "bozza": true, o un annuncio del ponte con a.bozza, nasce in BOZZA:
  *          il docente lo vede in Classroom, i ragazzi no. Con "programma_iso" Classroom lo pubblica da solo a
@@ -80,21 +80,22 @@ var AUTO = {
 };
 
 /* ====================== DA ESEGUIRE UNA VOLTA ====================== */
-function attivaAutomatico() {
-  ScriptApp.getProjectTriggers().forEach(function (t) {
-    if (t.getHandlerFunction() === 'autoCiclo') ScriptApp.deleteTrigger(t);
-  });
-  ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(1).create();  // v7.1: ogni minuto
-  Logger.log('Timer ATTIVO: autoCiclo ogni minuto. Ora faccio subito il primo giro...');
-  autoCiclo();
+/* v8.3 (27/10/2026, Nicola: «ogni minuto è troppo: cicli a ritmi diversi, spenti quando non c'è lezione»).
+   Il RITMO del giro si sceglie: Esegui -> ritmo1 (ogni minuto, durante le consegne), ritmo5 (ogni 5 minuti, normale),
+   ritmo10 (ogni 10 minuti, lezione senza consegne), disattivaAutomatico (spento). Google permette solo 1, 5, 10, 15, 30 minuti.
+   Si cambia anche dal ponte: azione «script.ritmo» con a.minuti = 1 | 5 | 10 | 0 (0 = spento). */
+function AUTO_ritmo(min) {
+  ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'autoCiclo') ScriptApp.deleteTrigger(t); });
+  PropertiesService.getScriptProperties().setProperty('RITMO', String(min || 0));
+  if (min) ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(min).create();
+  Logger.log(min ? 'Timer ATTIVO: autoCiclo ogni ' + min + ' minuti.' : 'Timer SPENTO.');
 }
+function ritmo1() { AUTO_ritmo(1); autoCiclo(); }
+function ritmo5() { AUTO_ritmo(5); autoCiclo(); }
+function ritmo10() { AUTO_ritmo(10); autoCiclo(); }
+function attivaAutomatico() { ritmo5(); }   // v8.3: il ritmo normale è ogni 5 minuti
 
-function disattivaAutomatico() {
-  ScriptApp.getProjectTriggers().forEach(function (t) {
-    if (t.getHandlerFunction() === 'autoCiclo') ScriptApp.deleteTrigger(t);
-  });
-  Logger.log('Timer DISATTIVATO.');
-}
+function disattivaAutomatico() { AUTO_ritmo(0); }
 
 /* v7.7 — SI RIPARA DA SOLO: se il timer di autoCiclo non c'e' piu' (Google a volte lo spegne),
    lo ricrea. Viene chiamato a ogni contatto del web app (doGet/doPost): cosi' qualunque
@@ -102,7 +103,8 @@ function disattivaAutomatico() {
 function AUTO_assicuraTimer() {
   try {
     var c = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; });
-    if (c.length === 0) { ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(1).create(); Logger.log('Timer RI-CREATO (self-healing).'); }
+    var rit = +(PropertiesService.getScriptProperties().getProperty('RITMO') || 5);   // v8.3: rispetta il ritmo scelto
+    if (c.length === 0 && rit) { ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(rit).create(); Logger.log('Timer RI-CREATO (self-healing), ogni ' + rit + ' minuti.'); }
     else if (c.length > 1) { c.slice(1).forEach(function (t) { ScriptApp.deleteTrigger(t); }); }  // niente doppioni
   } catch (e) { Logger.log('AUTO_assicuraTimer: ' + e); }
 }
@@ -474,9 +476,12 @@ function AUTO_comandi() {
   var r = AUTO_gh('get', '/contents/comandi?ref=' + AUTO.BRANCH);
   if (r.getResponseCode() !== 200) return 0;
   var n = 0;
+  // v8.3: un comando già letto e non cambiato (stesso sha) non si rilegge: prima erano centinaia di letture al minuto
+  var pr = PropertiesService.getScriptProperties(), visti = JSON.parse(pr.getProperty('CMD_VISTI') || '{}'), nuovi = {};
   JSON.parse(r.getContentText()).filter(function (f) { return /\.json$/.test(f.name); }).forEach(function (f) {
+    if (visti[f.name] === f.sha) { nuovi[f.name] = f.sha; return; }
     var item = AUTO_leggiJson(f.path), cmd = item.json;
-    if (cmd.stato !== 'da-eseguire') return;
+    if (cmd.stato !== 'da-eseguire') { nuovi[f.name] = f.sha; return; }
     var ris = [], errori = 0;
     (cmd.azioni || []).forEach(function (a, i) {
       try { ris.push({ n: i + 1, tipo: a.tipo, ok: true, dati: AUTO_azione(a) }); }
@@ -485,12 +490,16 @@ function AUTO_comandi() {
     cmd.risultati = ris; cmd.stato = errori ? 'errore' : 'eseguito'; cmd.eseguito_il = new Date().toISOString();
     AUTO_scriviJson(f.path, cmd, item.sha, 'Ponte Google: ' + f.name + ' (' + cmd.stato + ')'); n++;
   });
+  try { pr.setProperty('CMD_VISTI', JSON.stringify(nuovi)); } catch (e) { Logger.log('CMD_VISTI: ' + e); }
   return n;
 }
 
 function AUTO_azione(a) {
   switch (a.tipo) {
     /* ---- Drive ---- */
+    case 'script.ritmo': {         // v8.3: a.minuti = 1 | 5 | 10 | 0 (spento)
+      var mm = +a.minuti; if ([0, 1, 5, 10].indexOf(mm) < 0) throw new Error('Ritmo non valido: usa 1, 5, 10 oppure 0');
+      AUTO_ritmo(mm); return { ritmo: mm }; }
     case 'drive.cerca': {           // a.query = sintassi di ricerca di Drive, es: "title contains 'Quiz'"
       var it = DriveApp.searchFiles(a.query), out = [];
       while (it.hasNext() && out.length < (a.max || 50)) { var f = it.next();
