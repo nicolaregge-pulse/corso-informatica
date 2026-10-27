@@ -1,5 +1,5 @@
 {
- "ora": "14:01",
+ "ora": "02:58",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -22,8 +22,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 16,
-   "ultimo": "13:49",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
@@ -40,17 +40,16 @@
   {
    "alunno": "Lina A.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 30,
-   "ultimo": "13:59",
-   "caricato": true,
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo G: rinomina la cartella «PRIMO-PROGRAMMA» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "PRIMO-PROGRAMMA/PRIMOPROGRAMMA.ico",
@@ -74,8 +73,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 12,
-   "ultimo": "13:39",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (SALVADANAIO/SALVADANAIO.lps, SALVADANAIO/SALVADANAIO.res, SALVADANAIO/backup (cartella intera), SALVADANAIO/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
@@ -105,17 +104,16 @@
   {
    "alunno": "Katherine A.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 18,
-   "ultimo": "13:45",
-   "caricato": true,
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo E: nella cartella «primo-programma» mancano dei file del progetto: caricali dal tuo PC (.lpi .lpr .pas .lfm).",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -136,8 +134,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 17,
-   "ultimo": "13:51",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (salvadanaio/project1.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
@@ -159,12 +157,12 @@
     "pulito",
     "README"
    ],
-   "salvataggi": 4,
-   "ultimo": "13:41",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/project1.lps, salvadanaio/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico. Attenzione: Veyon ti ha visto fuori lezione (12:17).",
-   "fuori": 2,
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/project1.lps, salvadanaio/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "salvadanaio/project1.ico",
@@ -183,12 +181,12 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 14,
-   "ultimo": "13:49",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
-   "fuori": 1,
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "primo-programma/migliakilometri.ico",
@@ -204,6 +202,83 @@
    ]
   },
   {
+   "alunno": "Luca B.",
+   "pezzi": [
+    "README",
+    "salvadanaio"
+   ],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": false,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 4 file sparsi (project1.lpi, project1.lpr, unit1.lfm, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "fuori": 0,
+   "albero": [
+    "README.md",
+    "esercizio-3/README.md",
+    "esercizio-4/README.md",
+    "primo-programma/README.md",
+    "project1.lpi",
+    "project1.lpr",
+    "salvadanio/backup/project1.lpi",
+    "salvadanio/backup/project1.lps",
+    "salvadanio/backup/unit1.lfm",
+    "salvadanio/backup/unit1.pas",
+    "salvadanio/lib/x86_64-win64/project1.compiled",
+    "salvadanio/lib/x86_64-win64/project1.o",
+    "salvadanio/lib/x86_64-win64/project1.obj",
+    "salvadanio/lib/x86_64-win64/project1.res",
+    "salvadanio/lib/x86_64-win64/unit1.lfm",
+    "salvadanio/lib/x86_64-win64/unit1.o",
+    "salvadanio/lib/x86_64-win64/unit1.ppu",
+    "salvadanio/project1.exe",
+    "salvadanio/project1.ico",
+    "salvadanio/project1.lpi",
+    "salvadanio/project1.lpr",
+    "salvadanio/project1.lps",
+    "salvadanio/project1.res",
+    "salvadanio/unit1.lfm",
+    "salvadanio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
+   ]
+  },
+  {
+   "alunno": "Luciano C.",
+   "pezzi": [
+    "cartelle",
+    "pulito",
+    "salvadanaio"
+   ],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo D: cancella i file che non servono (salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera), salvadanaio/salvadanaio.lps, salvadanaio/salvadanaio.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "fuori": 0,
+   "albero": [
+    "README.md",
+    "salvadanaio/backup/salvadanaio.lpi",
+    "salvadanaio/backup/salvadanaio.lps",
+    "salvadanaio/backup/unit1.lfm",
+    "salvadanaio/backup/unit1.pas",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.compiled",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.o",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.obj",
+    "salvadanaio/lib/x86_64-win64/salvadanaio.res",
+    "salvadanaio/lib/x86_64-win64/unit1.lfm",
+    "salvadanaio/lib/x86_64-win64/unit1.o",
+    "salvadanaio/lib/x86_64-win64/unit1.ppu",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/salvadanaio.lps",
+    "salvadanaio/salvadanaio.res",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
+   ]
+  },
+  {
    "alunno": "Oscar F.",
    "pezzi": [
     "cartelle",
@@ -211,12 +286,12 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 15,
-   "ultimo": "13:05",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (primo programma/project1.lps, primo programma/project1.res, salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico. Attenzione: Veyon ti ha visto fuori lezione (13:46).",
-   "fuori": 3,
+   "messaggio": "Passo D: cancella i file che non servono (primo programma/project1.lps, primo programma/project1.res, salvadanaio/backup (cartella intera), salvadanaio/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "primo programma/project1.ico",
@@ -254,8 +329,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 18,
-   "ultimo": "13:10",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (primo programma/backup (cartella intera), primo programma/lib (cartella intera), salvadanaio/backup (cartella intera), salvadanaio/euro.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
@@ -302,8 +377,8 @@
     "no .exe",
     "README"
    ],
-   "salvataggi": 15,
-   "ultimo": "13:45",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (primo-programma): rinominale.",
@@ -323,8 +398,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 5,
-   "ultimo": "13:30",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
@@ -342,12 +417,12 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 32,
-   "ultimo": "13:35",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
-   "fuori": 1,
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "primo-programma/tabelline.ico",
@@ -371,8 +446,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 17,
-   "ultimo": "13:48",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
@@ -389,17 +464,16 @@
   {
    "alunno": "Giorgio K.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 21,
-   "ultimo": "13:04",
-   "caricato": true,
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo G: rinomina la cartella «primo-progetto» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -424,12 +498,12 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 15,
-   "ultimo": "12:33",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:08).",
-   "fuori": 1,
+   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "primo-programma/contatore.ico",
@@ -447,18 +521,17 @@
   {
    "alunno": "Riccardo B.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 14,
-   "ultimo": "13:16",
-   "caricato": true,
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno. Attenzione: Veyon ti ha visto fuori lezione (12:13).",
-   "fuori": 2,
+   "messaggio": "Passo G: rinomina la cartella «primo-progetto» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "fuori": 0,
    "albero": [
     "README.md",
     "primo-progetto/project1.ico",
@@ -476,17 +549,16 @@
   {
    "alunno": "Alejandro G.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 21,
-   "ultimo": "13:20",
-   "caricato": true,
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo G: rinomina la cartella «salvaDANAIO» in «salvadanaio» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -513,8 +585,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 22,
-   "ultimo": "13:48",
+   "salvataggi": 0,
+   "ultimo": "",
    "caricato": true,
    "cartella_ok": true,
    "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
