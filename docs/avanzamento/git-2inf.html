@@ -29,7 +29,7 @@ table.sologit{min-width:0;table-layout:auto}.sologit .c{white-space:normal}   /*
 <h1>Cruscotto 2INF di oggi: una colonna per ogni attività</h1>
 <div class="mu" id="stato">—</div>
 <div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>5b. GitHub facilitato</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; GitHub facilitato 40 + 40 × cose fatte / 6 (per il voto vale il migliore dei due); ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
+<p class="mu" id="spiega">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; GitHub facilitato 40 + 40 × cose fatte / 6 (per il voto vale il migliore dei due); ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
 </div></div>
 <script>
 // 2INF 22/10/2026 (Nicola: «teoria, quiz, teoria2, git, quiz… e colonna per monitoraggio»): una colonna per ogni attività della giornata.
@@ -48,7 +48,7 @@ function teo(id,nome){var d=LIVE[id];if(!d||!d.righe)return null;var a=tok(nome)
 function cteo(r){if(!r||!r.teoria)return '<span class="ko">non aperta</span>';var t=r.teoria,p=Math.round(100*t.scheda/(t.totale||1));return '<b>'+t.scheda+'/'+t.totale+'</b>'+(p>=100?' <span class="ok">✔</span>':'')+'<div style="height:6px;background:#e6eaf0;border-radius:3px;margin-top:3px"><i style="display:block;height:100%;width:'+p+'%;background:var(--acc);border-radius:3px"></i></div>'}
 function chips(f,tutti){return tutti.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+e(x)+'</span>':'<span class="ko c">○ '+e(x)+'</span>'}).join(' ')}
 function quiz(v,q){return '<b>'+v+'</b> '+(q?'<span class="ok">'+q.ok+'/'+q.su+'</span><div class="p">'+e(q.ora)+'</div>':'<span class="ko">non fatto</span>')}
-async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}document.querySelectorAll('table').forEach(function(t){t.classList.toggle('sologit',!!d.solo_github)});   /* 26/10: oggi conta solo GitHub, via le colonne del 22/10 */
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}document.querySelectorAll('table').forEach(function(t){t.classList.toggle('sologit',!!d.solo_github)});window.COL5=d.pezzi_col5||null;if(d.titolo_col5){var th=document.querySelector('thead th:nth-child(8)');if(th)th.textContent=d.titolo_col5}if(d.spiega&&document.getElementById('spiega'))document.getElementById('spiega').textContent=d.spiega;   /* 27/10: la colonna misura l'attività del giorno (oggi la calcolatrice) */   /* 26/10: oggi conta solo GitHub, via le colonne del 22/10 */
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var a=await live('2inf-salvadanaio-v1'),b=await live('2inf-github-v1');if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · teoria dal vivo '+(LIVE['2inf-github-v1']||LIVE['2inf-salvadanaio-v1']?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
@@ -61,7 +61,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
   '<td><b>'+r.v_salv+'</b> '+chips(r.salv,['Form','FOR','WHILE','sfida'])+(r.salv_ult?'<div class="p">ultimo salvataggio '+e(r.salv_ult)+'</div>':'')+'</td>'+
   '<td>'+quiz(r.v_ver,r.verifica)+'</td>'+
   '<td>'+cteo(teo('2inf-github-v1',r.nome))+'</td>'+
-  '<td><b>'+r.v_github+'</b> '+chips(r.ordine,['cartelle','pulito','no .exe','README','salvadanaio'])+'<div class="p">'+e(r.ordine_msg)+'</div></td>'+
+  '<td><b>'+r.v_github+'</b> '+chips(r.ordine,window.COL5||['cartelle','pulito','no .exe','README','salvadanaio'])+'<div class="p">'+e(r.ordine_msg)+'</div></td>'+
   '<td><b>'+r.v_facile+'</b> '+chips(r.facile||[],['primo-programma','esercizio-3','esercizio-4','salvadanaio','README','no .exe'])+'</td>'+
   '<td>'+quiz(r.v_vgit,r.vgit)+'</td>'+
   '<td>'+(r.orale?'<b>'+e(r.orale)+'</b>':'<span class="mu">—</span>')+'</td>'+
