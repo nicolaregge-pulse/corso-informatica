@@ -1,5 +1,5 @@
 {
- "ora": "13:48",
+ "ora": "13:52",
  "banca": "1inf-quiz-2710",
  "fine": "14:00",
  "spiega": "Oggi: ripasso e scheda video e cavi, con un quiz su Moduli alla fine di ognuno. Il voto parte da 40: fino a +20 per il quiz del ripasso e fino a +20 per il quiz nuovo; −3 ogni volta che Veyon ti vede fuori lezione.",
@@ -15,6 +15,20 @@
    "vy_ult": [
     "13:43",
     "risultati",
+    false
+   ],
+   "cosa_fare": "Hai finito i due quiz. Bravo!"
+  },
+  {
+   "alunno": "Thomas R.",
+   "voto": 80,
+   "conto": "40 + ripasso 20 + quiz nuovo 20 = 80",
+   "verifica": "17 su 17",
+   "voto_ver": 80,
+   "fuori": 0,
+   "vy_ult": [
+    "13:43",
+    "schede della lezione",
     false
    ],
    "cosa_fare": "Hai finito i due quiz. Bravo!"
@@ -99,6 +113,20 @@
    "vy_ult": [
     "13:43",
     "pagina scura, non chiara",
+    false
+   ],
+   "cosa_fare": "Hai finito i due quiz. Bravo!"
+  },
+  {
+   "alunno": "Yinlin L.",
+   "voto": 78,
+   "conto": "40 + ripasso 18 + quiz nuovo 20 = 78",
+   "verifica": "16 su 17",
+   "voto_ver": 78,
+   "fuori": 0,
+   "vy_ult": [
+    "13:43",
+    "schede della lezione",
     false
    ],
    "cosa_fare": "Hai finito i due quiz. Bravo!"
@@ -258,32 +286,18 @@
    "cosa_fare": "Hai finito i due quiz. Bravo!"
   },
   {
-   "alunno": "Thomas R.",
-   "voto": 60,
-   "conto": "40 + ripasso 20 + quiz nuovo 0 = 60",
-   "verifica": "8 su 8",
-   "voto_ver": 60,
+   "alunno": "Martinez F.",
+   "voto": 55,
+   "conto": "40 + ripasso 8 + quiz nuovo 7 = 55",
+   "verifica": "6 su 17",
+   "voto_ver": 55,
    "fuori": 0,
    "vy_ult": [
     "13:43",
-    "schede della lezione",
+    "quiz su Moduli",
     false
    ],
-   "cosa_fare": "Fai: Quiz scheda video e cavi (bottone in fondo alle schede), entro le 14:00."
-  },
-  {
-   "alunno": "Yinlin L.",
-   "voto": 58,
-   "conto": "40 + ripasso 18 + quiz nuovo 0 = 58",
-   "verifica": "7 su 8",
-   "voto_ver": 58,
-   "fuori": 0,
-   "vy_ult": [
-    "13:43",
-    "schede della lezione",
-    false
-   ],
-   "cosa_fare": "Fai: Quiz scheda video e cavi (bottone in fondo alle schede), entro le 14:00."
+   "cosa_fare": "Hai finito i due quiz. Bravo!"
   },
   {
    "alunno": "Andrea S.",
@@ -293,20 +307,6 @@
    "voto_ver": 53,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Fai: Quiz del ripasso (bottone in fondo alle schede), entro le 14:00."
-  },
-  {
-   "alunno": "Martinez F.",
-   "voto": 47,
-   "conto": "40 + ripasso 0 + quiz nuovo 7 = 47",
-   "verifica": "3 su 9",
-   "voto_ver": 47,
-   "fuori": 0,
-   "vy_ult": [
-    "13:43",
-    "quiz su Moduli",
-    false
-   ],
    "cosa_fare": "Fai: Quiz del ripasso (bottone in fondo alle schede), entro le 14:00."
   }
  ]
