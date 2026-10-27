@@ -1,6 +1,6 @@
 # Inventario degli strumenti e dell'automazione
 
-**Versione 1.0** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
+**Versione 1.1** — 07/10/2026 · Area Docente · Prof. Nicola Regge, Centro Padre Piamarta, Milano
 
 Fotografia di come abbiamo lavorato dal 25/09 al 07/10/2026: le modalità di lavoro, le piattaforme, chi fa cosa e, per ogni passaggio, che cosa è già automatico, che cosa è semiautomatico (serve un clic del docente) e che cosa resta a mano. Il file MD è la fonte (da dare anche a un'AI); il PDF è per la lettura. Nessun nome di allievo.
 
@@ -24,7 +24,7 @@ Fotografia di come abbiamo lavorato dal 25/09 al 07/10/2026: le modalità di lav
 | Google Drive, Documenti, Fogli | PIAMARTA | Documento personale di ogni compito, export PDF/TXT | script |
 | Google Moduli | PIAMARTA | quiz con punteggio, moduli a risposta scritta (password del libro) | script |
 | Gmail | PIAMARTA | solo bozze preparate dallo script; le invia il docente | docente |
-| Apps Script «Consegne Classroom → Git» | PIAMARTA | lo script che collega Google e Git, ogni 5 minuti | automatico |
+| Apps Script «Consegne Classroom → Git» | PIAMARTA | lo script che collega Google e Git; ritmo 1, 5 o 10 minuti, o spento (v8.3, 27/10) | automatico |
 | DIDAweb (registro elettronico) | credenziali del docente | firma ore, argomenti, voti, annotazioni | docente + segnalibri |
 | Chrome: segnalibri della cartella «DidaWeb» | PIAMARTA | programmi-segnalibro che leggono e scrivono la pagina di DIDAweb | docente (un clic) |
 | Veyon | PC del docente | vedere gli schermi, riavviare, aprire siti sui PC degli allievi | docente |
@@ -98,3 +98,4 @@ Fotografia di come abbiamo lavorato dal 25/09 al 07/10/2026: le modalità di lav
 ## 07 Changelog
 
 1. **v1.0 (07/10/2026)** — prima versione: piattaforme, modalità, giro della lezione, automatico/semiautomatico/a mano, lezioni imparate, prossimi passi.
+2. v1.1 (27/10/2026): ritmo dello script v8.3.

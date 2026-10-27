@@ -168,7 +168,7 @@ pubblica all'inizio della lezione e solo il lavoro da fare in classe, o a casa p
 
 9.12 **Il battito dello script (19/10).** In ogni giro e in ogni audit della sera si controlla che lo script sia vivo
 (ultimo commit dello script nel riservato, data del Foglio). Se è fermo da più di 3 minuti in orario di lezione, lo dico
-subito in una riga. Script v8.0: di notte dorme, così la quota di Google non finisce più.
+subito in una riga. Script v8.0: di notte dorme. Script v8.3 (27/10): ritmo scelto (1, 5, 10 minuti o spento), comandi letti solo se nuovi, contatori dei limiti nel cruscotto: la quota non deve più finire (REGISTRO-ERRORI #125).
 
 ---
 

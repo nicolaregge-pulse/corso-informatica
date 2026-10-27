@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.0** — 26/10/2026 — documento interno del docente e di Claude
+**Versione 1.1** — 26/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -15,7 +15,7 @@ Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e c
 5. Controllo che ogni consegna abbia UN bottone che consegna davvero; mai «copia, apri, incolla» (#81, #62, regola 15).
 6. Ogni passo per i ragazzi è un'azione che si vede sullo schermo, pensata per un dodicenne; il primo risultato visibile nel controllo arriva entro 10 minuti; niente ricerche sul PC se si può fare su GitHub (#110, #123).
 7. Ogni controllo automatico che dà punti è protetto dagli abusi e non è più rigido dello scopo della lezione (#116, #123; il 26/10 il controllo voleva un nome di cartella preciso).
-8. Battito dello script: meno di 3 minuti, provato con un comando del ponte, altrimenti «NON VERIFICATO» e piano B (#82, #88, #104).
+8. Ritmo dello script (v8.3): ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione; i comandi eseguiti si archiviano subito in `comandi/archivio/`; pochi comandi, solo se servono (#125). Battito dello script: meno di 3 minuti, provato con un comando del ponte, altrimenti «NON VERIFICATO» e piano B (#82, #88, #104).
 9. Audit di tutte le pagine, anche del docente, bottone per bottone, sul telefono: `node --check` sugli script e prova nel browser (#75, #80, #118).
 
 ## 02 Pubblicare
@@ -54,3 +54,4 @@ Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e c
 ## Changelog
 
 1. v1.0 (26/10/2026): prima versione, dalla revisione di tutto il registro degli errori.
+2. v1.1 (27/10/2026): ritmo dello script e archivio dei comandi eseguiti (#125).

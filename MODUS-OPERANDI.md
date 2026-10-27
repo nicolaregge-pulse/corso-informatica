@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.5** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.6** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -38,7 +38,7 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
    2. «Il tuo testo, commento o proposta di modifica»: casella grande (paragrafo); per una PR: Titolo · Cosa cambia · Dove · Perché.
    3. «Carica i tuoi file»: facoltativo.
 2. **Modulo Feedback sulla teoria**, uno per classe e per lezione.
-3. **Lo script «Consegne Classroom → Git»** gira ogni minuto; i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
+3. **Lo script «Consegne Classroom → Git»** gira con il ritmo scelto (v8.3, 27/10: ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione); i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
 
 ## 04 Il giro delle Pull Request
 
@@ -99,7 +99,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 ```
 
 2. Il progetto si apre da `script.google.com/home` → «Consegne Classroom → Git». Ha 5 file: il codice va in **automazione-corso.gs**, non in «Codice.gs» che si apre per primo (#51).
-3. Dopo aver incollato: Ctrl+S, poi «Esegui» su `attivaAutomatico` e su `attivaInvioModuli`.
+3. Dopo aver incollato: Ctrl+S, poi «Esegui» su `ritmo5` (v8.3) e su `attivaInvioModuli`; poi «Esegui il deployment → Gestisci deployment → matita → Nuova versione», perché la pagina dello script (consegne, contatori) usi il codice nuovo.
 
 ## 10 Il registro (DIDAweb)
 
@@ -141,3 +141,4 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 3. **v1.2 (12/10/2026)**: capitolo 08 punto 8, in classe solo messaggi brevi; i lavori lunghi il lunedì e il mercoledì pomeriggio.
 2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.
 1. **v1.0 (12/10/2026)**: prima versione, con le decisioni del 09/10 e del 12/10/2026.
+39. v1.6 (27/10/2026): ritmo dello script (v8.3) e nuova versione del deployment dopo ogni cambio dello script.
