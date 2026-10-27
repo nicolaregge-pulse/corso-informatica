@@ -1,6 +1,6 @@
 # Atlante del corso
 
-**Versione 1.8** — 21/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
+**Versione 1.9** — 21/10/2026 · Il laboratorio di informatica secondo le idee di Nicola Regge. Area Docente.
 
 *L'Atlante è la mappa unica del corso: che cosa c'è, dove sta, a che cosa serve, come si lavora in una giornata di lezione e quali parole dire a Claude. In cima c'è la mappa illustrata: ogni zona si clicca e porta alla pagina vera. Senza nomi di allievi.*
 
@@ -84,7 +84,7 @@
 
 ## 08 L'automazione
 
-1. **Lo script «Consegne Classroom → Git»** (account di lavoro del docente) gira ogni 5 minuti: pubblica i compiti della coda, raccoglie le consegne, esegue i comandi del ponte.
+1. **Lo script «Consegne Classroom → Git»** (account di lavoro del docente, v8.3 del 27/10) gira con un ritmo scelto: ogni minuto solo durante le consegne, ogni 5 minuti di norma, ogni 10 minuti in una lezione senza consegne, spento quando non c'è lezione (funzioni `ritmo1`, `ritmo5`, `ritmo10`, `disattivaAutomatico`, oppure dal ponte con `script.ritmo`). Rilegge solo i comandi nuovi; in alto nel cruscotto si vedono giri e chiamate di oggi e i limiti (Google 100.000 chiamate al giorno, GitHub 5.000 richieste l'ora, con l'ora dell'azzeramento). Ogni volta: pubblica i compiti della coda, raccoglie le consegne, esegue i comandi del ponte.
 2. **Coda** (`coda/` nel riservato): un file per compito, con stato «da-pubblicare».
 3. **Ponte** (`comandi/` nel riservato): Moduli, Documenti, Drive, Fogli, letture delle risposte.
 4. **Applicazione web dello script (v7.9, pubblicata il 18/10):** riceve consegne, segnali di avanzamento e domande con un clic, e risponde al monitor dal vivo con il codice `MONITOR_TOKEN` (proprietà dello script = password dell'area docente).
@@ -150,3 +150,7 @@
 4. **v0.3 (30/09/2026):** capitolo «se voglio X, dico Y».
 5. **v0.2 (30/09/2026):** nome Atlante, due ambienti, tipi di artefatto, Manuale a due assi, comandi.
 6. **v0.1 (30/09/2026):** prima stesura come «Topologia libri e metodologia».
+
+## Changelog
+
+1. v1.9 (27/10/2026): lo script v8.3 con il ritmo (1, 5, 10 minuti o spento), i comandi letti solo se nuovi e i contatori dei limiti nel cruscotto.
