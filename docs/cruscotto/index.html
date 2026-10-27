@@ -27,6 +27,7 @@ iframe{display:block;width:100%;height:calc(100vh - 110px);border:0;background:#
   <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
 </header>
 <p id="nota"></p>
+<p id="script" style="font-size:14px;margin:0;padding:4px 16px;color:var(--mu)">Script: controllo in corso…</p>
 <iframe id="vista" title="Cruscotto"></iframe>
 <script>
 // Allievo: la pagina dei ragazzi (Nome C., voto, che cosa manca). Docente: il cruscotto cifrato, chiede la password.
@@ -65,6 +66,22 @@ if (q.get('ruolo') === 'docente' || q.get('ruolo') === 'allievo') ruolo = q.get(
 $('giorno').value = q.get('giorno') || oggi(); $('giorno').max = oggi();
 fetch('../avanzamento/archivio/indice.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : {}; })
   .catch(function () { return {}; }).then(function (d) { IND = d || {}; scegli(ruolo); });
+
+// 27/10/2026 (Nicola): lo stato dello script in alto: giri fatti oggi, ritmo, massimo e quando si azzera.
+window.statoScript = function (s) {
+  var rit = s.ritmo ? 'ogni ' + s.ritmo + (s.ritmo === 1 ? ' minuto' : ' minuti') : 'SPENTO';
+  var t = s.timer ? '' : ' · timer FERMO';
+  var gh = s.github_rimaste !== '' ? ' · GitHub: ' + s.github_rimaste + ' richieste rimaste su ' + s.github_limite_ora + ' l\'ora' + (s.github_reset ? ', si azzera alle ' + new Date(s.github_reset).toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'}) : '') : '';
+  var el = document.getElementById('script');
+  el.textContent = 'Script v' + s.versione + ': ' + rit + t + ' · giri oggi ' + s.giri_oggi + ' · chiamate oggi ' + s.chiamate_oggi + ' su ' + s.limite_google_giorno + ' (si azzera ogni giorno)' + gh;
+  el.style.color = (!s.timer || !s.ritmo || (s.github_rimaste !== '' && +s.github_rimaste < 500)) ? '#c0392b' : '';
+};
+fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) {
+  if (!c || !c.invio) return;
+  var sc = document.createElement('script'); sc.src = c.invio + (c.invio.indexOf('?') < 0 ? '?' : '&') + 'ping=1&callback=statoScript';
+  sc.onerror = function () { document.getElementById('script').textContent = 'Script: non risponde.'; document.getElementById('script').style.color = '#c0392b'; };
+  document.body.appendChild(sc);
+}).catch(function () {});
 </script>
 </body>
 </html>
