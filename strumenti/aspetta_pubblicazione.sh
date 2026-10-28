@@ -5,7 +5,8 @@ H=$(git rev-parse HEAD); R=nicolaregge-pulse/corso-informatica
 for i in $(seq 1 60); do
   S=$(gh api "repos/$R/actions/runs?head_sha=$H&per_page=5" --jq '[.workflow_runs[]|select(.name|test("Pages"))][0]|(.status+" "+(.conclusion//""))' 2>/dev/null)
   case "$S" in
-    "completed success") echo "PUBBLICATO ${H:0:7}"; exit 0;;
+    "completed success") echo "$H" > "$(git rev-parse --absolute-git-dir)/ultimo-pubblicato" 2>/dev/null  # timbro per l'hook controllo-messaggio.py (link solo dopo PUBBLICATO)
+      echo "PUBBLICATO ${H:0:7}"; exit 0;;
     "completed cancelled") # superato da un commit più nuovo: aspetto quello
       N=$(gh api "repos/$R/actions/runs?per_page=1" --jq '.workflow_runs[0].head_sha'); [ "$N" != "$H" ] && H=$N;;
     "completed "*) echo "PUBBLICAZIONE FALLITA: $S"; exit 1;;

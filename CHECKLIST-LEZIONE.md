@@ -1,10 +1,10 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.3** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.4** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
-Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gli hook di Claude Code (ordine copia/incolla, cosa bloccante in prima riga, «fatto» senza prova, massimo 3 comandi per turno); come funzionano e quando valgono in `.claude/hooks/LEGGIMI-controlli.md`.
+Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gli hook di Claude Code (ordine copia/incolla, cosa bloccante in prima riga, «fatto» senza prova, massimo 3 comandi per turno); come funzionano e quando valgono in `.claude/hooks/LEGGIMI-controlli.md`. Dal 28/10/2026 sera `MAPPA-REGOLE-CONTROLLI.md` dice per ogni voce del registro quale controllo la copre (A automatico, B passo notturno, C superata, D scoperta); la Chat del giorno esegue ogni notte i passi di `.claude/passi-notturni.md`. Per le voci D questa lista resta l'unico controllo.
 
 > **Nota:** una regola sola non basta: questo elenco esiste perché il 26/10 ho ripetuto errori già scritti (#105, #110, #112, #89). Da ora la checklist si spunta davvero, punto per punto, e nel resoconto di fine lezione si scrive quali controlli sono saltati.
 
@@ -60,3 +60,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 2. v1.1 (27/10/2026): ritmo dello script e archivio dei comandi eseguiti (#125).
 3. v1.2 (28/10/2026): rimando ai controlli automatici (`.claude/hooks/LEGGIMI-controlli.md`).
 4. v1.3 (28/10/2026): punto 02.6, verifica della lezione con `verifica_lezione.py` prima di dire «pubblicato».
+5. v1.4 (28/10/2026): rimando a `MAPPA-REGOLE-CONTROLLI.md` e ai passi notturni; nuovi controlli automatici (hook del messaggio e prima del push, audit notturno).
