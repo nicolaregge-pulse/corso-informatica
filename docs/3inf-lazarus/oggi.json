@@ -14,7 +14,7 @@
   {
    "alunno": "Alessandro A.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -23,20 +23,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Denis A.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -45,20 +61,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "David A.",
    "voto": 40,
-   "conto": "40 − 3×1 fuori compito = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 − 3×1 fuori compito = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 1,
@@ -67,20 +99,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Cueva C.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -89,20 +137,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Nicolo' C.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -111,14 +175,30 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
@@ -146,7 +226,7 @@
   {
    "alunno": "Ariel D.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -155,20 +235,36 @@
     "Eclipse in avvio",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Mahmoud E.",
    "voto": 40,
-   "conto": "40 − 3×1 fuori compito = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 − 3×1 fuori compito = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 1,
@@ -177,20 +273,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Rafi F.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -199,20 +311,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Olivas F.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -221,20 +349,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Andrea G.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -243,20 +387,36 @@
     "Eclipse aperto",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Simone G.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -265,14 +425,30 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
@@ -318,7 +494,7 @@
   {
    "alunno": "Iniguez M.",
    "voto": 40,
-   "conto": "40 − 3×1 fuori compito = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 − 3×1 fuori compito = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 1,
@@ -327,20 +503,36 @@
     "pagina di notizie",
     true
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Beatrice N.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -349,20 +541,36 @@
     "Eclipse aperto",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Nieves P.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -371,20 +579,36 @@
     "Google, pagina iniziale",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Milroy R.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -393,20 +617,36 @@
     "Eclipse Installer (versione sbagliata da installare)",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Gabriele R.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -415,20 +655,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Dani S.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -437,20 +693,36 @@
     "Eclipse aperto",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Samuele U.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -459,20 +731,36 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   },
   {
    "alunno": "Noah V.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
+   "conto": "40 = 40 (provvisorio, Documento letto alle 13:14)",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
@@ -481,14 +769,30 @@
     "guida Eclipse / estrazione",
     false
    ],
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 14:00.",
+   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
+   "doc": {
+    "lazarus": false,
+    "screenshot_lazarus": false,
+    "java": false,
+    "screenshot_java": false,
+    "frase": false,
+    "manca": [
+     "codice Lazarus",
+     "screenshot Lazarus",
+     "codice Java",
+     "screenshot Java",
+     "frase"
+    ],
+    "letto_alle": "13:14",
+    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
+    "avviso": ""
+   },
    "guida": null
   }
  ]
