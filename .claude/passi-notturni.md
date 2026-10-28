@@ -61,3 +61,5 @@ python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py 1I
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione, dalla mappa regole-controlli.
+
+15. Regola 28: per ogni classe del giorno controlla che cruscotto docente e pagina dei ragazzi mostrino per ogni presente avanzamento, consegna letta, mancanze, minuti da fermo, Veyon, voto con il conto; prova con 2 allievi veri; se manca qualcosa, sistemalo prima della campanella.
