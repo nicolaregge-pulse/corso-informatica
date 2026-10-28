@@ -336,7 +336,9 @@ async function caricaDomande() {
     var d = await r.json(); if (d.cifrato) d = await decifra(d);
     // 28/10/2026 (Nicola): Claude risponde SEMPRE a tutte, in ordine di arrivo; la spunta «Priorità» passa avanti una domanda.
     var L = (d.domande || []).filter(function (x) { return x.giorno === g; });
-    var coda = L.filter(function (x) { return !x.risposta; }), fatte = L.filter(function (x) { return !!x.risposta; });
+    // 28/10/2026 (Nicola): le domande valgono solo in giornata; quelle dei giorni prima senza risposta sono «chiuse».
+    var coda = L.filter(function (x) { return !x.risposta && x.stato !== 'chiusa'; }), fatte = L.filter(function (x) { return !!x.risposta; }),
+        chiuse = L.filter(function (x) { return !x.risposta && x.stato === 'chiusa'; });
     coda.sort(function (a, b) { return (b.priorita ? 1 : 0) - (a.priorita ? 1 : 0) || String(a.ora).localeCompare(String(b.ora)); });
     var prio = coda.filter(function (x) { return x.priorita; }).length;
     function riga(x, i, attesa) {
@@ -347,7 +349,8 @@ async function caricaDomande() {
     $('domande').innerHTML = (PROVA ? BANNER : '') + '<p><b>In coda: ' + coda.length + ' · con priorità: ' + prio + '</b></p><p style="color:var(--mu);font-size:14px">Aggiornato alle ' + esc(d.aggiornato || '?') +
       '. Claude risponde a tutte, in ordine di arrivo; prima quelle con la spunta «Priorità».</p>' +
       (coda.length ? coda.map(function (x, i) { return riga(x, i, true); }).join('') : '<p>Nessuna domanda in coda.</p>') +
-      (fatte.length ? '<h2 style="margin-top:14px">Già risposte</h2>' + fatte.map(function (x) { return riga(x, 0, false); }).join('') : '');
+      (fatte.length ? '<h2 style="margin-top:14px">Già risposte</h2>' + fatte.map(function (x) { return riga(x, 0, false); }).join('') : '') +
+      (chiuse.length ? '<h2 style="margin-top:14px">Chiuse a fine giornata, senza risposta</h2>' + chiuse.map(function (x) { return riga(x, 0, false); }).join('') : '');
     Array.prototype.forEach.call(document.querySelectorAll('[data-p]'), function (cb) {
       cb.onchange = function () {
         var x = coda[+cb.dataset.p];
