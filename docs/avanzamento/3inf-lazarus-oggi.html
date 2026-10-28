@@ -36,6 +36,7 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div class="tab"><table id="tb"><thead id="th"><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Tempi, Documento, qualità</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu" id="pie">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../3inf-lazarus/">La mia giornata</a>, senza note.</p>
 </div></div>
+<script src="orario-lezione.js"></script>
 <script>
 var TOK='',_kc=null,_n=0,EXEC='',LIVE=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/3inf-lazarus-oggi.json';
 function $(i){return document.getElementById(i)}
@@ -66,8 +67,10 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var CR=d.righe.some(function(r){return r.classroom});
  if(!CR){var a=await live(d.banca||'3inf-hello-lazarus-java-v1');if(a&&a.ok)LIVE=a;}
+ // 28/10/2026 (docente): dopo la lezione della classe (fine + 15 minuti) niente allarme rosso sullo script, in grigio i dati finali
+ var SL=await statoLezione('3INF'),FINALE=(SL.stato==='dopo'||SL.stato==='nessuna')?'Dati finali della lezione, letti alle '+e(d.ora||d.aggiornato||'')+'.':'';
  var pb=await battito(),vivo=pb&&pb.timer>0&&pb.battito&&(Date.now()-new Date(pb.battito))<5*60000;
- $('script').innerHTML=(vivo?'<span class="ok">Script vivo (ultimo battito '+e(new Date(pb.battito).toLocaleTimeString('it-IT').slice(0,5))+')</span>':'<span class="ko">🔴 Script FERMO o non raggiungibile'+(pb?' (timer '+pb.timer+', battito '+e(pb.battito)+')':'')+': dimmelo subito</span>')+(d.ponte&&d.ponte!=='ok'?' · <span class="ko">🔴 Ponte '+e(d.ponte)+'</span>':' · <span class="ok">Ponte ok</span>')+(d.parole_alle?' · parole contate alle '+e(d.parole_alle):'');
+ $('script').innerHTML=(vivo?'<span class="ok">Script vivo (ultimo battito '+e(new Date(pb.battito).toLocaleTimeString('it-IT').slice(0,5))+')</span>':(FINALE?'<span style="color:#666">'+FINALE+'</span>':'<span class="ko">🔴 Script FERMO o non raggiungibile'+(pb?' (timer '+pb.timer+', battito '+e(pb.battito)+')':'')+': dimmelo subito</span>'))+(d.ponte&&d.ponte!=='ok'?' · <span class="ko">🔴 Ponte '+e(d.ponte)+'</span>':' · <span class="ok">Ponte ok</span>')+(d.parole_alle?' · parole contate alle '+e(d.parole_alle):'');
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
  if(TH0===null)TH0=$('th').innerHTML;
  if(CR){var nc=d.righe.filter(function(r){return r.classroom&&(r.classroom.stato==='consegnato'||r.classroom.stato==='restituito')}).length,cl=d.classroom||{};

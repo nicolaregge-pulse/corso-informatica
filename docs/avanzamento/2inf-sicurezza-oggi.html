@@ -16,6 +16,7 @@
 .gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
 .gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
 .riep{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:3px solid var(--acc);font-size:21px;font-weight:800}
+.finale{margin:8px 0;padding:10px 14px;border-radius:12px;background:#eceff1;color:#555;font-weight:600}
 .allarme{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--ko);color:#fff;font-weight:800}
 .giallo{margin:8px 0;padding:8px 14px;border-radius:12px;background:var(--gi);color:var(--gitx);font-weight:700}
 .tab{background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;table-layout:fixed}
@@ -43,6 +44,7 @@ th:nth-child(1){width:4%}th:nth-child(2){width:22%}th:nth-child(3),th:nth-child(
 <div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>1ª ora</th><th>2ª ora</th><th>3ª ora</th><th>4ª ora</th><th>Veyon / note</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu">Voto del quiz = 40 + 40 × punti / massimo. ❌ MANCA = quiz non ancora fatto. Sotto ✅: data e ora della risposta migliore (tra parentesi quante volte è stato fatto); i punti di Moduli passando il mouse sulla casella. La pagina si aggiorna da sola ogni minuto; i dati arrivano dai Moduli ogni 5 minuti circa. Pagina dei ragazzi: <a href="../2inf-sicurezza-recupero/" target="_blank">2inf-sicurezza-recupero</a>.</p>
 </div></div>
+<script src="orario-lezione.js"></script>
 <script>
 var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-sicurezza-oggi.json';
 function $(i){return document.getElementById(i)}
@@ -59,7 +61,11 @@ function mostra(D){
  var min=Math.round((Date.now()-new Date(D.dato+':00+01:00').getTime())/60000);
  $('fonte').textContent='Dati letti da Google Moduli alle '+ora(D.dato);
  $('stato').textContent='Ultimo dato dai Moduli: ore '+ora(D.dato)+' ('+min+' min fa) · pagina rigenerata alle '+ora(D.generato)+' · controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
- if(min>15){$('vecchio').textContent='ATTENZIONE: il dato ha '+min+' minuti (più di 15). I Moduli non sono stati riletti: la tabella può non essere aggiornata.';$('vecchio').className='allarme'}else $('vecchio').className='allarme hide';
+ // 28/10/2026 (docente): l'allarme rosso solo durante la lezione della 2INF e fino a 15 minuti dopo; dopo, in grigio i dati finali
+ statoLezione('2INF').then(function(s){var v=$('vecchio');
+  if(s.stato==='durante'||s.stato==='ignoto'){if(min>15){v.textContent='ATTENZIONE: il dato ha '+min+' minuti (più di 15). I Moduli non sono stati riletti: la tabella può non essere aggiornata.';v.className='allarme'}else v.className='allarme hide'}
+  else if(s.stato==='prima'){v.textContent='La lezione comincia alle '+s.inizio+': i dati si aggiornano durante la lezione (ultimo dato letto alle '+ora(D.dato)+').';v.className='finale'}
+  else{v.textContent='Dati finali della lezione, letti alle '+ora(D.dato)+'.';v.className='finale'}});
  $('t').innerHTML=R.map(function(r,i){
   var q=r.ore.map(function(o,j){var l='<span class="lab">'+(j+1)+'ª ora</span>';
    return '<td class="qc">'+l+(o.v==null?'<span class="q no">❌ MANCA</span>':'<span class="q '+(o.nuovo?'nu':'si')+'"'+(o.p!=null?' title="Moduli: '+o.p+'/'+o.m+' punti"':'')+'>✅ '+o.v+'</span>'+(o.quando?'<span class="dt">'+e(o.quando)+(o.volte>1?' ('+o.volte+' volte)':'')+'</span>':''))+'</td>'}).join('');
