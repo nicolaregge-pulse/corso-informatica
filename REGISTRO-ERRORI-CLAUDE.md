@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.84** — 28/10/2026 (#125-#136)
+**Versione 2.85** — 28/10/2026 (#125-#137)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 28/10/2026 — La firma del registro scritta in mezzo al messaggio: il docente non l'ha vista (#137)
+
+1. **Errore.** Alle 14:2x ho scritto il controllo della firma della 3INF dentro un messaggio lungo, tra altri punti; il docente: «se fai così io mi perdo la cosa e non la vedo». Alle 14:33 le 14:05 erano già passate.
+2. **Regola.** Una cosa bloccante (firma, scadenza, PC rotto, allievo fuori) va da sola, in cima al messaggio, in una riga, prima di tutto il resto; la firma si controlla alle 13:30 di ogni giorno, non dopo.
 
 ## 28/10/2026 — PC 32: «a posto» senza verificare e un consiglio che ha rotto Lazarus (#135)
 
