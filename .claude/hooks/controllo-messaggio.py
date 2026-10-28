@@ -10,13 +10,20 @@ Se trova uno degli errori registrati, blocca la fine del turno con
        PC rotto, non compila presenti ma non nelle prime 2 righe.
 3. (c) «Fatto», «a posto», «funziona», «risolto» detti senza prova nello
        stesso messaggio (#63, #115, #128, #135).
+4. (d) «pubblicat…», «è tutto pronto», «tutto a posto», «è online», «possono
+       cominciare» riferiti a una classe senza la verifica sulla fonte vera:
+       nel riservato serve dati/verifiche-lezione/<oggi>_<CLASSE>.json,
+       VERDE e non più vecchio di 15 minuti (generatori/verifica_lezione.py;
+       #63 #83 #104 #105 #115 #120 #127 #128 #135).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
 """
+import datetime
 import json
 import os
 import re
 import sys
+from zoneinfo import ZoneInfo
 
 # ---------------------------------------------------------------- utilità
 
@@ -196,6 +203,78 @@ def controllo_fatto_senza_prova(testo):
             % (trovate[0], trovate[0]))
 
 
+# ------------------------------- (d) «pubblicato» senza verifica_lezione.py
+
+RIS = "/home/user/corso-informatica-riservato"
+RE_PRONTO = re.compile(
+    r"pubblicat\w*|(?:è|e')\s+tutto\s+pronto|tutto\s+a\s+posto|(?:è|sono)\s+online|"
+    r"possono\s+(?:cominciare|iniziare)", re.I)
+RE_NEGAZIONE = re.compile(r"\b(?:non|ancora\s+da|da)\s+(?:\w+\s+){0,2}$", re.I)
+RE_CLASSE = re.compile(r"\b([1-4])\s*(INF|INFO|TI)\b", re.I)
+
+
+def classi_in(testo):
+    out = []
+    for m in RE_CLASSE.finditer(testo):
+        c = m.group(1) + ("TI" if m.group(2).upper() == "TI" else "INF")
+        if c not in out:
+            out.append(c)
+    return out
+
+
+def stato_verifica(classe, oggi, adesso):
+    """None se la verifica c'è, è VERDE e ha meno di 15 minuti; altrimenti il problema."""
+    nomi = [classe] + (["4TI", "4INF"] if classe in ("4TI", "4INF") else [])
+    for nome in nomi:
+        f = os.path.join(RIS, "dati", "verifiche-lezione", "%s_%s.json" % (oggi, nome))
+        if not os.path.exists(f):
+            continue
+        d = json.load(open(f, encoding="utf-8"))
+        ora = datetime.datetime.fromisoformat(d["ora"])
+        eta = (adesso - ora).total_seconds() / 60
+        if eta > 15:
+            return "la verifica della %s è di %d minuti fa (massimo 15)" % (classe, eta)
+        if d.get("esito") != "VERDE":
+            return "la verifica della %s non è VERDE: %s" % (classe, d.get("riga", d.get("esito")))
+        return None
+    return "manca dati/verifiche-lezione/%s_%s.json nel riservato" % (oggi, classe)
+
+
+def controllo_pronto_senza_verifica(testo):
+    if not os.path.isdir(RIS):
+        return None
+    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    classi_messaggio = classi_in(base)
+    if not classi_messaggio:
+        return None
+    da_verificare, frase = [], None
+    for riga in base.splitlines():
+        for m in RE_PRONTO.finditer(riga):
+            if RE_NEGAZIONE.search(riga[max(0, m.start() - 25):m.start()]):
+                continue
+            frase = frase or m.group(0)
+            for c in (classi_in(riga) or classi_messaggio):
+                if c not in da_verificare:
+                    da_verificare.append(c)
+    if not da_verificare:
+        return None
+    adesso = datetime.datetime.now(ZoneInfo("Europe/Rome"))
+    oggi = adesso.strftime("%Y-%m-%d")
+    problemi = []
+    for c in da_verificare:
+        p = stato_verifica(c, oggi, adesso)
+        if p:
+            problemi.append(p)
+    if not problemi:
+        return None
+    return ("Pubblicazione non verificata (#63 #83 #104 #105 #115 #120 #127 #128 #135): hai scritto "
+            "«%s» per la %s, ma %s. Prima lancia (una riga per classe):\n"
+            "python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py %s\n"
+            "e scrivi «pubblicato» / «è tutto pronto» solo se stampa VERDE; con GIALLO o ROSSO "
+            "riscrivi il messaggio dicendo che cosa manca."
+            % (frase, ", ".join(da_verificare), "; ".join(problemi), da_verificare[0]))
+
+
 # ------------------------------------------------------------- transcript
 
 def ultimo_testo_assistente(transcript_path, max_righe=4000):
@@ -235,7 +314,8 @@ def main():
     if not testo.strip():
         return
     motivi = []
-    for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_fatto_senza_prova):
+    for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_fatto_senza_prova,
+                      controllo_pronto_senza_verifica):
         try:
             m = controllo(testo)
         except Exception:

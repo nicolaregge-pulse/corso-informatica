@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.2** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.3** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -27,6 +27,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 3. Scadenza: la dice il docente; se non l'ha detta, la campanella dell'ultima ora della classe (es. 2INF 11-14 → 14:00) e lo scrivo in chat (#97, #122; il 26/10 Nicola ha fissato le 14).
 4. Un solo compito e un solo annuncio al giorno per classe; un annuncio sbagliato si corregge, non se ne aggiunge un altro (#93, #107).
 5. Nei testi per Classroom: titoletti in maiuscolo, una riga per passo, nomi dei bottoni copiati dalla pagina vera (errore del 05/10 in 3INF, #106).
+6. Prima di scrivere «pubblicato», «è tutto pronto», «è online», «possono cominciare» per una classe lancio `python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py <CLASSE>` (Classroom vero via ponte + pagina pubblicata) e lo dico solo se stampa VERDE, entro 15 minuti; l'hook `controllo-messaggio.py` blocca il messaggio altrimenti (#63, #83, #104, #105, #115, #120, #127, #128, #135).
 
 ## 03 Durante la lezione
 
@@ -58,3 +59,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 1. v1.0 (26/10/2026): prima versione, dalla revisione di tutto il registro degli errori.
 2. v1.1 (27/10/2026): ritmo dello script e archivio dei comandi eseguiti (#125).
 3. v1.2 (28/10/2026): rimando ai controlli automatici (`.claude/hooks/LEGGIMI-controlli.md`).
+4. v1.3 (28/10/2026): punto 02.6, verifica della lezione con `verifica_lezione.py` prima di dire «pubblicato».
