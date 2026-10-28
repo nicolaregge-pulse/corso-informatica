@@ -21,9 +21,9 @@
 .tab{background:var(--card);border-radius:12px;margin-top:10px}table{border-collapse:collapse;width:100%;table-layout:fixed}
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:middle;overflow-wrap:anywhere}th{font-size:13px;color:var(--mu)}
 th:nth-child(1){width:4%}th:nth-child(2){width:22%}th:nth-child(3),th:nth-child(4),th:nth-child(5),th:nth-child(6){width:13%}th:nth-child(7){width:22%}
-.q{display:inline-block;min-width:96px;font-size:18px;text-align:center;font-weight:900;padding:5px 8px;border-radius:8px;line-height:1.15}.q small{display:block;font-size:12px;font-weight:600}
+.q{display:inline-block;min-width:70px;text-align:center;font-weight:800;padding:5px 8px;border-radius:8px}
 .si{background:#1a7f37;color:#fff}.no{background:#c0392b;color:#fff}.nu{outline:4px solid #f5c400;background:#f5c400;color:#1b2430}
-.dt{display:block;margin-top:3px;font-size:13px;font-weight:700;color:var(--tx)}.dt small{font-size:11px;font-weight:600;color:var(--mu)}td.qc .dt{text-align:left}
+.dt{display:block;margin-top:2px;font-size:12px;font-weight:600;color:var(--mu)}td.qc .dt{text-align:left}
 .fuori{color:var(--ko);font-weight:700}.lab{display:none}
 @media (max-width:760px){table,thead,tbody,tr,td{display:block;width:auto!important}thead{display:none}tr{border-bottom:2px solid var(--ln);padding:6px 0}
  td{border:0;padding:3px 8px}td.qc{display:inline-block}.lab{display:inline;font-size:12px;color:var(--mu);margin-right:4px}}
@@ -41,7 +41,7 @@ th:nth-child(1){width:4%}th:nth-child(2){width:22%}th:nth-child(3),th:nth-child(
 <div class="mu" id="stato">—</div>
 <div class="giallo">In giallo: quiz fatti OGGI (dopo le 10:01).</div>
 <div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>1ª ora</th><th>2ª ora</th><th>3ª ora</th><th>4ª ora</th><th>Veyon / note</th></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">Voto del quiz = 40 + 40 × punti / massimo. NON FATTO = quiz non ancora fatto. Sotto FATTO: data e ora della risposta migliore (tra parentesi quante volte è stato fatto). La pagina si aggiorna da sola ogni minuto; i dati arrivano dai Moduli ogni 5 minuti circa. Pagina dei ragazzi: <a href="../2inf-sicurezza-recupero/" target="_blank">2inf-sicurezza-recupero</a>.</p>
+<p class="mu">Voto del quiz = 40 + 40 × punti / massimo. ❌ MANCA = quiz non ancora fatto. Sotto ✅: data e ora della risposta migliore (tra parentesi quante volte è stato fatto); i punti di Moduli passando il mouse sulla casella. La pagina si aggiorna da sola ogni minuto; i dati arrivano dai Moduli ogni 5 minuti circa. Pagina dei ragazzi: <a href="../2inf-sicurezza-recupero/" target="_blank">2inf-sicurezza-recupero</a>.</p>
 </div></div>
 <script>
 var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-sicurezza-oggi.json';
@@ -62,7 +62,7 @@ function mostra(D){
  if(min>15){$('vecchio').textContent='ATTENZIONE: il dato ha '+min+' minuti (più di 15). I Moduli non sono stati riletti: la tabella può non essere aggiornata.';$('vecchio').className='allarme'}else $('vecchio').className='allarme hide';
  $('t').innerHTML=R.map(function(r,i){
   var q=r.ore.map(function(o,j){var l='<span class="lab">'+(j+1)+'ª ora</span>';
-   return '<td class="qc">'+l+(o.v==null?'<span class="q no">NON FATTO</span>':'<span class="q '+(o.nuovo?'nu':'si')+'">FATTO<small>'+(o.p!=null?o.p+'/'+o.m+' · ':'')+'voto '+o.v+'</small></span>'+(o.quando?'<span class="dt">'+e(o.quando)+(o.volte>1?' <small>('+o.volte+' volte)</small>':'')+'</span>':''))+'</td>'}).join('');
+   return '<td class="qc">'+l+(o.v==null?'<span class="q no">❌ MANCA</span>':'<span class="q '+(o.nuovo?'nu':'si')+'"'+(o.p!=null?' title="Moduli: '+o.p+'/'+o.m+' punti"':'')+'>✅ '+o.v+'</span>'+(o.quando?'<span class="dt">'+e(o.quando)+(o.volte>1?' ('+o.volte+' volte)':'')+'</span>':''))+'</td>'}).join('');
   var vy=(r.veyon||[]).map(function(x){return '<div class="'+(x[2]?'fuori':'')+'">'+e(x[0])+' '+e(x[1])+(x[2]?' (fuori compito)':'')+'</div>'}).join('');
   var nf=(r.veyon||[]).filter(function(x){return x[2]}).length;
   return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b><div class="mu">'+r.fatti+' su 4'+(nf?' · <span class="fuori">fuori compito '+nf+' volte</span>':'')+'</div></td>'+q+'<td>'+(vy||'<span class="mu">—</span>')+(r.note?'<div>'+e(r.note)+'</div>':'')+'</td></tr>'}).join('');
