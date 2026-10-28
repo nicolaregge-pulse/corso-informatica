@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.6** — 26/10/2026
+**Versione 2.7** — 28/10/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 
@@ -97,10 +97,10 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
    mai la cosa "nuda".
 4. **Dentro lo ZIP dei libri individuali il naming si INVERTE:** i PDF interni
    iniziano da **`Cognome-Nome`**, poi oggetto, **data in fondo**
-   (es. `Faruoli-Oscar_Libro-Individuale-Git_20260925.pdf`); lo **ZIP** invece
+   (es. `Bianchi-Luca_Libro-Individuale-Git_20260925.pdf`); lo **ZIP** invece
    resta con **data all'inizio** (`20260925_Classe-2_Libri-Individuali-Git_v1.0.zip`).
 5. Esempi:
-   - `20260924_Classe-1-Sala-Andrea_v1.0_Libro-Studente.pdf`
+   - `20260924_Classe-1-Bianchi-Luca_v1.0_Libro-Studente.pdf`
    - `20260924_Classe-1-PerTutti_v1.0_Standard-Configurazione-PC_IT.pdf`
    - `20260924_Comune_v1.0_Regole-Laboratorio_multilingua.pdf`
 6. **Migrazione graduale**: i file esistenti si adeguano man mano.
@@ -117,7 +117,7 @@ cartelle** (Windows o Git).
 4. Il singolo `_` resta separatore dei campi dentro il NomeFile; `__` solo per cartelle.
 5. Esempi:
    - `classe-1__utenze-password__20260923_Le-Mie-Utenze-Password_multilingua_v1.0.pdf` → `classe-1/utenze-password/…`
-   - `quaderni__classe-1__Sala-Andrea__20260923_Libro-Studente_v1.0.pdf` → `quaderni/classe-1/Sala-Andrea/…`
+   - `quaderni__classe-1__Bianchi-Luca__20260923_Libro-Studente_v1.0.pdf` → `quaderni/classe-1/Bianchi-Luca/…`
 6. Strumento: `strumenti/nome-albero.py` (espandi/collassa). Utile per i file inviati "sciolti".
 7. Vale da qui in poi; i file già dentro le cartelle non si rinominano.
 
@@ -301,6 +301,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
+0. **v2.7 (28/10/2026)**: privacy — negli esempi dei nomi dei file (punto 4 e 5 della convenzione sui nomi) tolti gli ultimi due nomi veri di allievi rimasti, sostituiti con un nome inventato (audit del 28/10).
 0. **v2.4 (04/10/2026)**: privacy — tolti i nomi veri di allievi (esempi della 2.21 sostituiti con nomi inventati; l'allievo di lingua bengalese indicato senza nome). Regola: i nomi veri stanno solo nel repo riservato.
 1. **v2.3 (28/09/2026)**: 2.21 — con nomi doppi usare sempre cognome e nome.
 2. **v2.2 (28/09/2026)**: 2.21 — si usa il nome con cui Nicola chiama l'allievo, ma
