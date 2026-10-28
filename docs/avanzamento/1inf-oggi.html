@@ -21,6 +21,9 @@ td img{max-width:100%;height:auto}td{overflow-wrap:anywhere}
 @media (max-width:900px){table,thead,tbody,tr,td,th{display:block;width:auto!important}thead{display:none}tr{border-bottom:2px solid var(--ln);padding:6px 0}}
 th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{font-size:13px;color:var(--mu)}
 .ok{color:var(--ok);font-weight:700}.ko{color:var(--ko);font-weight:700}.v{font-size:20px;font-weight:800}.c{white-space:nowrap}.p{font-size:12px;color:var(--mu)}
+table.cr th:nth-child(1){width:4%}table.cr th:nth-child(2){width:22%}table.cr th:nth-child(3){width:30%}table.cr th:nth-child(4){width:16%}table.cr th:nth-child(5){width:28%}
+.si{display:inline-block;background:#1a7f37;color:#fff;font-weight:800;font-size:17px;padding:6px 10px;border-radius:8px}.no{display:inline-block;background:#c0392b;color:#fff;font-weight:800;font-size:17px;padding:6px 10px;border-radius:8px}
+.riep{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:3px solid var(--acc);font-size:22px;font-weight:800}
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 </style>
 </head>
@@ -29,9 +32,9 @@ details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 <div id="view" class="hide">
 <h1>Cruscotto 1INF di oggi</h1>
 <div style="margin:4px 0 8px"><a href="uscite.html" target="_blank" style="font-weight:700;background:var(--acc);color:#fff;padding:6px 12px;border-radius:8px;text-decoration:none">🚻 Uscite dall'aula (bagno)</a> <a href="../1inf-oggi/" target="_blank" style="margin-left:8px">La mia giornata (pagina dei ragazzi)</a></div>
-<div class="mu" id="stato">—</div><div id="script" style="margin:6px 0;font-weight:700"></div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Tempi, Documento, qualità</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
+<div class="mu" id="stato">—</div><div id="script" style="margin:6px 0;font-weight:700"></div><div id="riep" class="riep hide"></div>
+<div class="tab"><table id="tb"><thead id="th"><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Avanzamento (tappe dell'app o schede)</th><th>2. Tempi, Documento, qualità</th><th>Comportamento (Veyon, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu" id="pie">Verifica = 40 + 2 per risposta giusta (non fatta entro la fine: 40); voto di oggi = verifica − 3 per fuori compito (Veyon). I ragazzi vedono lo stesso voto nella loro pagina <a href="../1inf-oggi/">La mia giornata</a>, senza note.</p>
 </div></div>
 <script>
 var TOK='',_kc=null,_n=0,EXEC='',LIVE=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/1inf-sicurezza-oggi.json';
@@ -51,13 +54,27 @@ var TMIN=[5,20,20,20,20];
 function statoLive(r){var lv=teo(r.nome);if(!lv||!lv.teoria||!lv.inizio)return null;var f=lv.teoria.scheda,e=(Date.now()-new Date(lv.inizio))/60000,c=0,n=0;TMIN.forEach(function(m){c+=m;if(e>=c)n++});
  if(f>=5)return 'ha finito tutte le tappe (dal vivo)';if(f===n)return 'in pari con i tempi (dal vivo)';return f>n?'in anticipo di '+(f-n)+' (dal vivo)':'in ritardo di '+(n-f)+' (dal vivo)'}
 var TUTTI=['index','style','competenze','passione','sfondo','animazione','versione'];
+var TH0=null;
+function crCella(c){if(!c)return '<span class="mu">—</span>';
+ if(c.stato==='consegnato'||c.stato==='restituito')return '<span class="si">✅ '+(c.stato==='restituito'?'RESTITUITO':'CONSEGNATO')+(c.ora?' alle '+e(c.ora):'')+(c.allegati!=null?' ('+c.allegati+' allegat'+(c.allegati===1?'o':'i')+')':'')+'</span>'+(c.ritardo?' <b class="ko">in ritardo</b>':'');
+ return '<span class="no">❌ NON ANCORA</span>'+(c.stato==='ritirato'?'<div class="p">ha ritirato la consegna</div>':'')+(c.stato==='non trovato'?'<div class="p">non trovato su Classroom</div>':'')}
+function compo(r){var vy=r.vy||[];return (r.fuori?'<b class="ko">fuori '+r.fuori+'</b>':'<span class="ok">ok</span>')+(vy.filter(function(x){return x[3]}).slice(-1).map(function(x){return '<div><a href="../1inf-oggi/'+e(x[3])+'" target="_blank"><img src="../1inf-oggi/'+e(x[3])+'" style="width:150px;border-radius:6px;border:2px solid '+(x[2]?'#c0392b':'#d69e2e')+'"></a><div class="p">'+e(x[0])+' '+e(x[1])+'</div></div>'}).join(''))+(vy.length?'<details><summary>Veyon ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+(x[3]?'<br><a href="../1inf-oggi/'+e(x[3])+'" target="_blank"><img src="../1inf-oggi/'+e(x[3])+'" style="width:200px;border-radius:6px"></a>':'')+'</div>'}).join('')+'</details>':'')+(r.note||[]).map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('')}
 function chips(f){return TUTTI.map(function(x){return f.indexOf(x)>=0?'<span class="ok c">✔ '+x+'</span>':'<span class="ko c">○ '+x+'</span>'}).join(' ')}
 async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
  $('gate').classList.add('hide');$('view').classList.remove('hide');
- var a=await live(d.banca||'1inf-sicurezza-1ora-v1');if(a&&a.ok)LIVE=a;
+ var CR=d.righe.some(function(r){return r.classroom});
+ if(!CR){var a=await live(d.banca||'1inf-sicurezza-1ora-v1');if(a&&a.ok)LIVE=a;}
  var pb=await battito(),vivo=pb&&pb.timer>0&&pb.battito&&(Date.now()-new Date(pb.battito))<5*60000;
  $('script').innerHTML=(vivo?'<span class="ok">Script vivo (ultimo battito '+e(new Date(pb.battito).toLocaleTimeString('it-IT').slice(0,5))+')</span>':'<span class="ko">🔴 Script FERMO o non raggiungibile'+(pb?' (timer '+pb.timer+', battito '+e(pb.battito)+')':'')+': dimmelo subito</span>')+(d.ponte&&d.ponte!=='ok'?' · <span class="ko">🔴 Ponte '+e(d.ponte)+'</span>':' · <span class="ok">Ponte ok</span>')+(d.parole_alle?' · parole contate alle '+e(d.parole_alle):'');
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
+ if(TH0===null)TH0=$('th').innerHTML;
+ if(CR){var nc=d.righe.filter(function(r){return r.classroom&&(r.classroom.stato==='consegnato'||r.classroom.stato==='restituito')}).length,cl=d.classroom||{};
+  $('tb').className='cr';$('th').innerHTML='<tr><th>#</th><th>Allievo</th><th>Consegnato su Classroom?</th><th>Voto di oggi</th><th>Comportamento (Veyon, note)</th></tr>';
+  $('riep').classList.remove('hide');$('riep').innerHTML='Consegnati: <span class="ok">'+nc+'</span> su '+d.righe.length+(d.righe.length-nc?' · <span class="ko">mancano '+(d.righe.length-nc)+'</span>':' · tutti!')+'<div class="p" style="font-weight:400">Stato di Classroom letto alle '+e(cl.letto_alle||'?')+' ('+(cl.fonte==='ponte'?'ponte, ogni 5 minuti':'situazione dello script')+'). «alle» = ora in cui la consegna è stata vista.</div>';
+  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · si ricarica ogni minuto';
+  $('pie').textContent='Voto provvisorio: 40, +20 quando il Documento è consegnato su Classroom, −3 per fuori compito (Veyon). Il resto dopo la correzione del Documento.';
+  $('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b>'+(r.pc?'<div class="p">PC '+e(r.pc)+'</div>':'')+'</td><td>'+crCella(r.classroom)+'</td><td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td><td>'+compo(r)+'</td></tr>'}).join('');return}
+ $('tb').className='';$('th').innerHTML=TH0;$('riep').classList.add('hide');
  $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[];
   return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b>'+((r.ai||[]).length?'<div class="ko" style="font-size:12px">⚠️ POSSIBILE USO AI ECCESSIVO ('+e(r.ai.join(', '))+')</div>':'')+'<div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
   '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
