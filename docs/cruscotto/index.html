@@ -17,8 +17,10 @@ select,input[type=date]{font-size:16px;padding:6px 8px;border:1px solid var(--bo
 .ruolo button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
 #nota{font-size:14px;color:var(--mu);padding:6px 16px;margin:0}
 /* 28/10/2026: leva del ritmo dello script, solo per il docente (dopo il codice) */
-#leva{display:none;flex-wrap:wrap;gap:6px;align-items:center;padding:4px 0;font-size:14px;color:var(--mu)}
-#leva button{font-size:14px;padding:5px 10px;border:1px solid var(--bordo);border-radius:8px;background:#fff;cursor:pointer}
+#leva{display:none;flex-wrap:wrap;gap:8px;align-items:center;padding:4px 0;font-size:15px;color:var(--mu)}
+#leva b{flex-basis:100%;color:var(--txt);font-size:16px}
+#leva button{font-size:17px;padding:12px 18px;min-height:48px;border:1px solid var(--bordo);border-radius:10px;background:#fff;cursor:pointer;flex:1 1 140px}
+#levaSubito{flex-basis:100%;font-size:16px;font-weight:700;color:#1e8e3e;margin:2px 0}
 #leva button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
 #levaMsg{flex-basis:100%}
 iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;border:0;background:#fff}
@@ -52,7 +54,48 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 .dom .r{white-space:pre-line;margin:6px 0;color:#163d7a}
 .dom .az{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
 .dom .az button{font-size:14px;padding:6px 10px}
-#giorni button{display:block;width:100%;text-align:left;font-size:16px;padding:9px 12px;margin:0 0 8px;border:1px solid var(--bordo);border-radius:8px;background:var(--card);cursor:pointer}
+/* 28/10/2026 (Nicola): «Riepilogo» al posto di «Giorni passati»: che cosa è successo negli ultimi giorni, tutte le classi */
+#t-riepilogo .box{max-width:1280px}
+.rp-meta{font-size:14px;color:var(--mu);margin:0 0 10px}
+.rp h3{font-size:16px;margin:18px 0 8px}
+.rp table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
+.rp th,.rp td{border:1px solid var(--bordo);padding:6px 8px;text-align:left;vertical-align:top}
+.rp th{background:#eef1f5;font-weight:600}
+.rp tr.clic{cursor:pointer}.rp tr.clic:hover td{background:#f2f7ff}
+.rp .nd{color:#c0392b;font-style:italic}
+.rp .nf{color:#8a4b00}
+.rp .rosso{color:#c0392b;font-weight:700}
+.rp small,.rp .fonti{color:var(--mu);font-size:12px}
+.rp details.fonti summary{cursor:pointer}
+.rp ul{margin:0;padding-left:18px}
+.rp .cl{display:inline-block;font-weight:700;padding:1px 7px;border-radius:6px;background:#e3ecfb;color:#163d7a}
+.rp .ragazzo{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:8px 10px;margin:0 0 8px;font-size:14px}
+.rp .giorno-p{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:8px 10px;margin:0 0 8px;font-size:14px}
+.rp .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.rp .cod input{font-size:16px;padding:7px 9px;border:1px solid var(--bordo);border-radius:8px;min-width:0;flex:1 1 180px;max-width:280px}
+@media (max-width:760px){
+  .rp table.carte,.rp table.carte tbody,.rp table.carte tr,.rp table.carte td{display:block;width:auto}
+  .rp table.carte thead{display:none}
+  .rp table.carte tr{border:1px solid var(--bordo);border-radius:8px;margin:0 0 10px;background:var(--card)}
+  .rp table.carte td{border:0;border-bottom:1px solid #eef1f5;padding:5px 10px}
+  .rp table.carte td:before{content:attr(data-l);display:block;font-size:12px;color:var(--mu);font-weight:600}
+}
+/* 28/10/2026 (Nicola): «Script e ponte» con riquadri, barre e istogramma */
+.kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:0 0 14px}
+.kpi .k{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:10px 12px}
+.kpi .kt{font-size:13px;color:var(--mu)}
+.kpi .kv{font-size:26px;font-weight:700;margin:2px 0}
+.kpi .ks{font-size:13px;color:var(--mu)}
+.kpi .k.r .kv{color:#c0392b}
+.kpi .bar{height:10px;border-radius:5px;background:#e6e9ee;overflow:hidden;margin:6px 0 4px}
+.kpi .bar i{display:block;height:100%;background:#5b7fb3}
+.kpi .bar i.r{background:#c0392b}
+.kpi .pn{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:14px;margin-top:4px}
+.kpi .pn b{font-size:18px}
+#isto{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:8px 8px 4px;margin:0 0 14px}
+#isto svg{display:block;width:100%;height:auto}
+.leg{font-size:13px;color:var(--mu);margin:4px 4px 6px}
+.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin:0 4px 0 10px}
 </style>
 </head>
 <body>
@@ -63,7 +106,7 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
   <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
 </header>
 <nav id="tabs">
-  <button data-t="oggi">Oggi dal vivo</button><button data-t="piano">Piano del giorno</button><button data-t="aiuto">Chiedi aiuto</button><button data-t="domande">Domande dei ragazzi</button><button data-t="scrivi">Scrivi a Claude</button><button data-t="uscite">Uscite</button><button data-t="script">Script e ponte</button><button data-t="passati">Giorni passati</button>
+  <button data-t="oggi">Oggi dal vivo</button><button data-t="piano">Piano del giorno</button><button data-t="aiuto">Chiedi aiuto</button><button data-t="domande">Domande dei ragazzi</button><button data-t="scrivi">Scrivi a Claude</button><button data-t="uscite">Uscite</button><button data-t="script">Script e ponte</button><button data-t="riepilogo">Riepilogo</button>
 </nav>
 <p id="nota"></p>
 <section class="tab" id="t-oggi"><iframe id="vista" title="Cruscotto"></iframe></section>
@@ -77,17 +120,22 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 <button class="btn" id="scInvia">Invia</button> <span id="scStato"></span>
 <h2 style="margin-top:16px">Ultimi messaggi da questo browser</h2><div id="scElenco"></div></div></section>
 <section class="tab" id="t-uscite"><iframe id="usc" title="Uscite dall'aula"></iframe></section>
-<section class="tab" id="t-script"><div class="box">
-<p id="script" style="font-size:15px;margin:0 0 8px;color:var(--mu)"><span id="stato">Script: controllo in corso…</span><span id="ponte"></span></p>
-<div id="leva"><b>Ritmo dello script:</b>
+<section class="tab" id="t-script"><div class="box" style="max-width:1000px">
+<h2>Script e ponte</h2>
+<p id="script" style="font-size:14px;margin:0 0 10px;color:var(--mu)"><span id="stato">Script: controllo in corso…</span><span id="ponte"></span></p>
+<div class="kpi" id="kpi"></div>
+<h2>Comandi del ponte, ora per ora (oggi)</h2>
+<div id="isto"><p style="margin:6px;color:var(--mu)">Carico…</p></div>
+<div id="leva"><b>Ritmo dello script</b>
   <button data-m="1">ogni 1 minuto</button><button data-m="5">ogni 5 minuti</button><button data-m="10">ogni 10 minuti</button><button data-m="0">spento</button>
-  <span id="levaOra"></span><span id="levaMsg"></span></div>
+  <span id="levaSubito"></span><span id="levaOra"></span><span id="levaMsg"></span></div>
 <p id="levaNo" style="font-size:14px;color:var(--mu)">La leva del ritmo compare dopo aver scritto il codice del docente nella linguetta «Oggi dal vivo».</p>
 </div></section>
-<section class="tab" id="t-passati"><div class="box"><h2>Giorni salvati</h2><div id="giorni"></div></div></section>
+<section class="tab" id="t-riepilogo"><div class="box rp" id="riepilogo"></div></section>
 <script>
 // Allievo: la pagina dei ragazzi (Nome C., voto, che cosa manca). Docente: il cruscotto cifrato, chiede la password.
-// Giorni passati: i file in avanzamento/archivio/ (indice.json dice quali giorni ci sono per ogni classe).
+// Giorni passati: i file in avanzamento/archivio/ (indice.json dice quali giorni ci sono per ogni classe); si aprono dal
+// calendario in alto o cliccando una riga della linguetta «Riepilogo» (solo Docente, dati cifrati in riepilogo.json).
 var OGGI_PAG = {
   '1INF': {allievo: '../1inf-oggi/', docente: '../avanzamento/1inf-oggi.html'},
   '2INF': {allievo: '../2inf-oggi/', docente: '../avanzamento/git-2inf.html'},
@@ -100,7 +148,7 @@ var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
 // ?prova=1: dati SIMULATI (file con suffisso -prova, nomi inventati) e nessun invio vero allo script.
 var PROVA = new URLSearchParams(location.search).get('prova') === '1';
 var BANNER = '<p class="manca" style="background:#fff3b0;border-color:#d4a017"><b>DATI DI PROVA</b>: nomi e domande inventati, i messaggi non partono.</p>';
-var IND = {}, ruolo = 'allievo', tab = 'oggi', PIANO = null, TABS = ['oggi', 'piano', 'aiuto', 'domande', 'scrivi', 'uscite', 'script', 'passati'];
+var IND = {}, ruolo = 'allievo', tab = 'oggi', PIANO = null, TABS = ['oggi', 'piano', 'aiuto', 'domande', 'scrivi', 'uscite', 'script', 'riepilogo'];
 var $ = function (id) { return document.getElementById(id); };
 function oggi() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
 function salva() { try { localStorage.setItem('cruscotto', JSON.stringify({c: $('classe').value, r: ruolo, t: tab})); } catch (e) {} }
@@ -123,7 +171,7 @@ function mostra() {
       'Per questo giorno non c\'è un cruscotto salvato: mostro quello di oggi.' + (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
   }
   if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
-  caricaPiano(c, g); elencoGiorni(c, giorni); linguette();
+  caricaPiano(c, g); linguette();
   salva();
 }
 // ---- Linguette (28/10/2026, Nicola): Allievo vede solo «Oggi dal vivo» e «Piano del giorno» ----
@@ -143,6 +191,8 @@ function linguette() {
   $('scInvia').disabled = !TOK_OK;
   if (eff === 'aiuto') casellaAiuto();
   if (eff === 'domande') caricaDomande();
+  if (eff === 'riepilogo') caricaRiepilogo();
+  if (eff === 'script') disegnaScript();
   if (eff === 'scrivi') { $('scClasse').textContent = 'Classe ' + $('classe').value + ' · giorno ' + ($('giorno').value || oggi()).split('-').reverse().join('/'); elencoMsg(); }
 }
 Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
@@ -287,16 +337,151 @@ async function caricaDomande() {
     });
   } catch (e) { domChiesto = ''; $('domande').innerHTML = '<p class="manca">Le domande di questa classe non sono ancora disponibili.</p>'; }
 }
-// ---- Giorni passati (solo Docente) ----
-function elencoGiorni(c, giorni) {
-  var el = $('giorni'); el.innerHTML = '';
-  if (!giorni.length) { el.innerHTML = '<p>Per la ' + esc(c) + ' non ci sono ancora giorni salvati.</p>'; return; }
-  giorni.slice().reverse().forEach(function (g) {
-    var b = document.createElement('button');
-    b.textContent = new Date(g + 'T12:00:00').toLocaleDateString('it-IT', {weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric'});
-    b.onclick = function () { $('giorno').value = g; tab = 'oggi'; mostra(); };
-    el.appendChild(b);
+// ---- Riepilogo (solo Docente, 28/10/2026): ultimi giorni di TUTTE le classi, da riepilogo.json CIFRATO ----
+// Lo scrive generatori/riepilogo_cruscotto.py (riservato) ogni notte e a fine giornata. Dove un dato manca: «dato non disponibile».
+var RP = null, rpChiesto = '', ND = 'dato non disponibile';
+function nd(x) { return x === ND || x == null || x === '' ? '<span class="nd">' + ND + '</span>' : esc(x); }
+function gg(g) { return String(g || '').split('-').reverse().join('/'); }
+function giornoSett(g) { try { return new Date(g + 'T12:00:00').toLocaleDateString('it-IT', {weekday: 'short'}) + ' '; } catch (e) { return ''; } }
+async function caricaRiepilogo() {
+  if (!TOK_OK) { disegnaRiepilogo(); return; }
+  if (rpChiesto === TOK_OK && RP) { disegnaRiepilogo(); return; }
+  rpChiesto = TOK_OK; $('riepilogo').textContent = 'Carico il riepilogo…';
+  try {
+    var r = await fetch('riepilogo.json?t=' + Date.now(), {cache: 'no-store'}); if (!r.ok) throw 0;
+    var d = await r.json(); RP = d.cifrato ? await decifra(d) : d;
+  } catch (e) { RP = null; rpChiesto = ''; $('riepilogo').innerHTML = '<p class="manca">Il riepilogo non è ancora disponibile (riepilogo.json mancante o codice sbagliato).</p>'; return; }
+  disegnaRiepilogo();
+}
+function disegnaRiepilogo() {
+  var el = $('riepilogo');
+  if (!TOK_OK) {
+    el.innerHTML = '<h2>Riepilogo degli ultimi giorni</h2><p class="manca">Il riepilogo contiene nomi e voti: è cifrato. Scrivi il codice del docente.</p>' +
+      '<div class="cod"><input id="rpCod" type="password" autocomplete="current-password" placeholder="Codice del docente"><button class="btn" id="rpApri">Apri</button><span id="rpErr"></span></div>';
+    var apri = function () {
+      var t = $('rpCod').value.trim(); if (!t) return;
+      $('rpErr').textContent = 'Controllo…';
+      provaCodice(t).then(function (ok) {
+        if (!ok) { $('rpErr').innerHTML = '<span class="ko">Codice sbagliato.</span>'; return; }
+        TOK_OK = t; try { sessionStorage.setItem('tokmon', t); } catch (e) {}
+        disegnaPiano(); linguette(); levaAggiorna();
+      }).catch(function () { $('rpErr').innerHTML = '<span class="ko">Codice sbagliato.</span>'; });
+    };
+    $('rpApri').onclick = apri; $('rpCod').onkeydown = function (e) { if (e.key === 'Enter') apri(); };
+    return;
+  }
+  if (!RP) return;
+  var d = RP, h = '<h2>Riepilogo: che cosa è successo negli ultimi giorni</h2>';
+  h += '<p class="rp-meta">Tutte le classi, dal ' + gg(d.dal) + ' al ' + gg(d.al) + '. Dati letti il ' + esc(d.generato) + '. Clic su una riga = apre quel giorno di quella classe nel cruscotto.</p>';
+  // 1. Lezioni
+  h += '<h3>1. Lezioni per giorno e classe</h3><table class="carte"><thead><tr><th>Giorno</th><th>Classe</th><th>Argomento</th><th>Presenti</th><th>Consegnati</th><th>Voto medio</th><th>Fuori compito</th><th>Non finito</th></tr></thead><tbody>';
+  (d.lezioni || []).forEach(function (x, i) {
+    var lav = (x.lavori || []).map(function (l) {
+      var n = l.fatti == null ? '<span class="nd">' + ND + '</span>' : esc(l.fatti) + (l.su != null && l.su !== ND ? ' su ' + esc(l.su) : '');
+      return '<li>' + esc(l.tipo) + ' «' + esc(l.t) + '»: <b>' + n + '</b></li>';
+    }).join('');
+    var nf = (x.nonfinito || []).map(function (t) { return t === ND ? '<li><span class="nd">' + ND + '</span></li>' : '<li class="nf">' + esc(t) + '</li>'; }).join('');
+    var voto = x.voto === ND ? nd(ND) : '<b' + (x.voto.media < 60 ? ' class="rosso"' : '') + '>' + esc(x.voto.media) + '</b><br><small>' + esc(x.voto.fonte) + '</small>';
+    var fuori = x.fuori === ND ? nd(ND) : '<b' + (x.fuori >= 10 ? ' class="rosso"' : '') + '>' + esc(x.fuori) + '</b>';
+    h += '<tr' + (x.cruscotto ? ' class="clic" data-i="' + i + '" title="Apri il cruscotto di quel giorno"' : '') + '>' +
+      '<td data-l="Giorno"><b>' + giornoSett(x.giorno) + gg(x.giorno) + '</b></td><td data-l="Classe"><span class="cl">' + esc(x.classe) + '</span>' + (x.cruscotto ? '' : '<br><small>nessun cruscotto</small>') + '</td>' +
+      '<td data-l="Argomento">' + nd(x.argomento) + '</td><td data-l="Presenti">' + nd(x.presenti) + '</td>' +
+      '<td data-l="Consegnati">' + (lav ? '<ul>' + lav + '</ul>' : nd(ND)) + '</td><td data-l="Voto medio">' + voto + '</td><td data-l="Fuori compito">' + fuori + '</td>' +
+      '<td data-l="Non finito">' + (nf ? '<ul>' + nf + '</ul>' : '<span style="color:#1e8e3e">niente in sospeso nei dati</span>') +
+      '<details class="fonti"><summary>da dove vengono i dati</summary><ul>' + (x.fonti || []).map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul></details></td></tr>';
   });
+  h += '</tbody></table>';
+  // 2. Ragazzi da seguire
+  h += '<h3>2. Ragazzi da seguire</h3><p class="rp-meta">Più lavori mancanti, voti bassi ripetuti (sotto 60) o più fuori compito nelle ultime 2 settimane.</p>';
+  Object.keys(d.seguire || {}).forEach(function (c) {
+    var L = d.seguire[c] || [];
+    h += '<p style="margin:10px 0 6px"><span class="cl">' + esc(c) + '</span></p>';
+    if (!L.length) { h += '<p class="rp-meta">Nessuno da segnalare con i dati disponibili.</p>'; return; }
+    h += L.map(function (r) {
+      return '<div class="ragazzo"><b>' + esc(r.nome) + '</b>' +
+        (r.mancanti.length ? '<br>Manca (' + r.mancanti.length + '): ' + r.mancanti.map(esc).join('; ') : '') +
+        (r.bassi.length ? '<br><span' + (r.bassi.length >= 2 ? ' class="rosso"' : '') + '>Voti bassi (' + r.bassi.length + '):</span> ' + r.bassi.map(esc).join('; ') : '') +
+        (r.fuori ? '<br>Fuori compito (Veyon): <b' + (r.fuori >= 5 ? ' class="rosso"' : '') + '>' + esc(r.fuori) + '</b>' : '') + '</div>';
+    }).join('');
+  });
+  // 3. Prove per la Regione
+  var pr = d.prove || {};
+  h += '<h3>3. Prove per la Regione (salvate su Classroom, 1° quadrimestre)</h3><table><thead><tr><th>Classe</th><th>Prove</th><th>Obiettivo</th><th>Stato</th></tr></thead><tbody>' +
+    (pr.righe || []).map(function (r) {
+      return '<tr><td><span class="cl">' + esc(r.classe) + '</span></td><td' + (r.sotto ? ' class="rosso"' : '') + '>' + nd(r.prove) + (r.sotto ? ' (sotto 3)' : '') + '</td><td>' + esc(r.obiettivo) + '</td><td' + (r.sotto ? ' class="rosso"' : '') + '>' + nd(r.stato) + '</td></tr>';
+    }).join('') + '</tbody></table><p class="fonti">Fonte: ' + esc(pr.fonte) + ', ' + esc(pr.aggiornato) + '.</p>';
+  // 4. Sicurezza
+  h += '<h3>4. Sicurezza sul lavoro</h3><table class="carte"><thead><tr><th>Classe</th><th>Ore sul registro</th><th>Ora del corso Regione</th><th>Ultima ora</th><th>Quiz</th><th>Prossima</th></tr></thead><tbody>' +
+    (d.sicurezza || []).map(function (r) {
+      return '<tr><td data-l="Classe"><span class="cl">' + esc(r.classe) + '</span></td><td data-l="Ore sul registro">' + nd(r.ore_registro) + '</td><td data-l="Ora del corso Regione">' + (r.ora_regione ? esc(r.ora_regione) + 'ª' : nd(ND)) + '</td>' +
+        '<td data-l="Ultima ora">' + nd(r.ultima) + '</td><td data-l="Quiz">' + nd(r.quiz) + (r.quiz_letto ? '<br><small>letto ' + esc(r.quiz_letto) + '</small>' : '') + '</td><td data-l="Prossima">' + nd(r.prossima) +
+        ((r.fonti || []).length ? '<br><small>fonti: ' + r.fonti.map(esc).join(', ') + '</small>' : '') + '</td></tr>';
+    }).join('') + '</tbody></table>';
+  // 5. Prossime lezioni
+  h += '<h3>5. Prossime lezioni</h3><p class="rp-meta">Da PROSSIME-LEZIONI.md (' + esc(d.prossime_aggiornato) + ') e dal piano del giorno del cruscotto.</p>';
+  var P = d.prossime || [];
+  h += P.length ? P.map(function (p) {
+    var pi = p.piano ? (p.piano.scelta ? '<br>Proposta scelta: <b>' + esc(p.piano.scelta) + '</b>' : (p.piano.proposte || []).length ? '<br>Proposte (nessuna scelta): ' + p.piano.proposte.map(esc).join(' · ') : '') : '';
+    return '<div class="giorno-p"><b>' + giornoSett(p.giorno) + gg(p.giorno) + '</b> <span class="cl">' + esc(p.classe) + '</span> ' + nd(p.ore) + ', ' + nd(p.materia) + '<br>' + nd(p.argomento) + pi + '</div>';
+  }).join('') : '<p>' + nd(ND) + '</p>';
+  // dati mancanti
+  var M = d.mancanti_dati || [];
+  if (M.length) h += '<details style="margin-top:12px"><summary>Dati mancanti (' + M.length + ')</summary><p class="fonti">' + M.map(esc).join(' · ') + '</p></details>';
+  if ((d.note || []).length) h += '<p class="fonti" style="margin-top:10px">' + d.note.map(esc).join('<br>') + '</p>';
+  el.innerHTML = h;
+  Array.prototype.forEach.call(el.querySelectorAll('tr.clic'), function (tr) {
+    tr.onclick = function (ev) {
+      if (ev.target.closest && ev.target.closest('details')) return;
+      var x = d.lezioni[+tr.dataset.i];
+      $('classe').value = x.classe; $('giorno').value = x.giorno; tab = 'oggi'; mostra(); window.scrollTo(0, 0);
+    };
+  });
+}
+// ---- Script e ponte (28/10/2026, Nicola): riquadri con barre e istogramma dei comandi per ora (solo numeri) ----
+var PONTE = null;
+function fmt(n) { return Number(n || 0).toLocaleString('it-IT'); }
+function barra(v, max, rossa) { var p = max ? Math.max(0, Math.min(100, 100 * v / max)) : 0; return '<div class="bar"><i' + (rossa ? ' class="r"' : '') + ' style="width:' + p.toFixed(1) + '%"></i></div>'; }
+function disegnaScript() {
+  var s = STATO, p = PONTE, h = '';
+  if (s) {
+    var rit = s.ritmo ? 'ogni ' + s.ritmo + (s.ritmo === 1 ? ' minuto' : ' minuti') : 'SPENTO', spento = !s.ritmo || !s.timer;
+    h += '<div class="k' + (spento ? ' r' : '') + '"><div class="kt">Ritmo attuale</div><div class="kv">' + esc(rit) + '</div><div class="ks">Script v' + esc(s.versione) + (s.timer ? ' · timer acceso' : ' · timer FERMO') + (s.inOrario === false ? ' · fuori orario, dorme' : '') + '</div></div>';
+    h += '<div class="k"><div class="kt">Giri oggi</div><div class="kv">' + fmt(s.giri_oggi) + '</div><div class="ks">giri dello script da stamattina</div></div>';
+    var lim = +s.limite_google_giorno || 100000, ch = +s.chiamate_oggi || 0, chR = ch / lim >= 0.8;
+    h += '<div class="k' + (chR ? ' r' : '') + '"><div class="kt">Chiamate Google oggi</div><div class="kv">' + fmt(ch) + '</div>' + barra(ch, lim, chR) + '<div class="ks">su ' + fmt(lim) + ' (' + (100 * ch / lim).toFixed(1) + '%), si azzera ogni giorno</div></div>';
+    if (s.github_rimaste !== '' && s.github_rimaste != null) {
+      var gl = +s.github_limite_ora || 5000, gr = +s.github_rimaste, gR = gr < 500;
+      h += '<div class="k' + (gR ? ' r' : '') + '"><div class="kt">Richieste GitHub rimaste</div><div class="kv">' + fmt(gr) + '</div>' + barra(gr, gl, gR) + '<div class="ks">su ' + fmt(gl) + ' l\'ora' + (s.github_reset ? ', si azzera alle ' + new Date(s.github_reset).toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'}) : '') + '</div></div>';
+    } else h += '<div class="k"><div class="kt">Richieste GitHub rimaste</div><div class="kv">—</div><div class="ks">lo script non ha dato il dato</div></div>';
+  } else {
+    h += '<div class="k r"><div class="kt">Script</div><div class="kv">?</div><div class="ks">' + esc($('stato').textContent) + '</div></div>';
+  }
+  if (p) {
+    var quando = p.oggi === oggi() ? 'oggi' : 'il ' + gg(p.oggi);
+    h += '<div class="k' + (p.errori_oggi ? ' r' : '') + '"><div class="kt">Comandi del ponte ' + quando + '</div><div class="pn">' +
+      '<span>eseguiti<br><b>' + fmt(p.eseguiti_oggi) + '</b></span><span' + (p.errori_oggi ? ' class="ko"' : '') + '>con errore<br><b>' + fmt(p.errori_oggi) + '</b></span>' +
+      '<span>da eseguire<br><b>' + fmt(p.da_eseguire) + '</b></span><span>in attesa del docente<br><b>' + fmt(p.in_attesa_altro) + '</b></span></div>' +
+      '<div class="ks">' + (p.ultimo_eseguito ? 'ultimo alle ' + esc(p.ultimo_eseguito) + ' · ' : '') + (p.da_eseguire_dal ? 'in attesa dalle ' + esc(p.da_eseguire_dal) + ' · ' : '') + 'conteggio delle ' + esc(p.aggiornato) + '</div></div>';
+  }
+  $('kpi').innerHTML = h;
+  // istogramma: eseguiti (blu) e con errore (rosso) per ora
+  var O = (p && p.per_ora) || [];
+  if (!O.length) { $('isto').innerHTML = '<p style="margin:6px;color:var(--mu)">Il conteggio per ora non è ancora disponibile.</p>'; return; }
+  var W = 640, H = 230, ml = 34, mb = 26, mt = 12, max = 1;
+  O.forEach(function (x) { max = Math.max(max, x.eseguiti, x.errori); });
+  var passo = Math.max(1, Math.ceil(max / 4)), top = passo * Math.ceil(max / passo), cw = (W - ml - 6) / O.length, bw = Math.max(4, Math.min(22, cw / 2 - 3));
+  var y = function (v) { return mt + (H - mt - mb) * (1 - v / top); }, svg = '';
+  for (var v = 0; v <= top; v += passo) svg += '<line x1="' + ml + '" x2="' + W + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#e6e9ee"/><text x="' + (ml - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" font-size="12" fill="#5b6573">' + v + '</text>';
+  O.forEach(function (x, i) {
+    var cx = ml + cw * i + cw / 2;
+    svg += '<rect x="' + (cx - bw - 1) + '" y="' + y(x.eseguiti) + '" width="' + bw + '" height="' + (y(0) - y(x.eseguiti)) + '" fill="#5b7fb3" rx="2"><title>' + x.ora + ': ' + x.eseguiti + ' eseguiti</title></rect>';
+    svg += '<rect x="' + (cx + 1) + '" y="' + y(x.errori) + '" width="' + bw + '" height="' + (y(0) - y(x.errori)) + '" fill="#c0392b" rx="2"><title>' + x.ora + ': ' + x.errori + ' con errore</title></rect>';
+    if (x.eseguiti) svg += '<text x="' + (cx - bw / 2 - 1) + '" y="' + (y(x.eseguiti) - 3) + '" text-anchor="middle" font-size="11" fill="#1b1f24">' + x.eseguiti + '</text>';
+    if (x.errori) svg += '<text x="' + (cx + bw / 2 + 1) + '" y="' + (y(x.errori) - 3) + '" text-anchor="middle" font-size="11" fill="#c0392b">' + x.errori + '</text>';
+    svg += '<text x="' + cx + '" y="' + (H - 8) + '" text-anchor="middle" font-size="12" fill="#5b6573">' + x.ora + '</text>';
+  });
+  $('isto').innerHTML = '<div class="leg"><i style="background:#5b7fb3"></i>eseguiti<i style="background:#c0392b"></i>con errore · per ora del giorno (' + esc(p.oggi === oggi() ? 'oggi' : gg(p.oggi)) + ')</div>' +
+    '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Comandi del ponte per ora">' + svg + '</svg>';
 }
 function scegli(r) { ruolo = r; if (typeof controllaCodice === 'function') setTimeout(controllaCodice, 0); $('allievo').className = r === 'allievo' ? 'on' : ''; $('docente').className = r === 'docente' ? 'on' : ''; mostra(); }
 $('allievo').onclick = function () { scegli('allievo'); };
@@ -320,19 +505,20 @@ window.statoScript = function (s) {
   var el = document.getElementById('stato');
   el.textContent = 'Script v' + s.versione + ': ' + rit + t + ' · giri oggi ' + s.giri_oggi + ' · chiamate oggi ' + s.chiamate_oggi + ' su ' + s.limite_google_giorno + ' (si azzera ogni giorno)' + gh;
   SCRIPT_KO = !s.timer || !s.ritmo || (s.github_rimaste !== '' && +s.github_rimaste < 500);
-  document.getElementById('script').style.color = SCRIPT_KO ? '#c0392b' : ''; linguette();
+  document.getElementById('script').style.color = SCRIPT_KO ? '#c0392b' : ''; linguette(); disegnaScript();
 };
 fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) {
   if (!c || !c.invio) return;
   var sc = document.createElement('script'); sc.src = c.invio + (c.invio.indexOf('?') < 0 ? '?' : '&') + 'ping=1&callback=statoScript';
   INVIO = c.invio;
-  sc.onerror = function () { document.getElementById('stato').textContent = 'Script: non risponde.'; document.getElementById('script').style.color = '#c0392b'; SCRIPT_KO = true; linguette(); };
+  sc.onerror = function () { document.getElementById('stato').textContent = 'Script: non risponde.'; document.getElementById('script').style.color = '#c0392b'; SCRIPT_KO = true; linguette(); disegnaScript(); };
   document.body.appendChild(sc);
 }).catch(function () {});
 
 // 28/10/2026 (orario/da-fare-cruscotto.md punto 7): comandi del ponte di oggi, da docs/cruscotto/ponte.json (solo numeri e ore).
 fetch('ponte.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
   if (!p) return;
+  PONTE = p; disegnaScript();
   var quando = p.oggi === oggi() ? 'oggi' : 'il ' + p.oggi.split('-').reverse().join('/');
   document.getElementById('ponte').textContent = ' · ponte ' + quando + ': ' + p.eseguiti_oggi + ' comandi eseguiti' +
     (p.errori_oggi ? ', ' + p.errori_oggi + ' con errore' : '') + (p.ultimo_eseguito ? ' (ultimo alle ' + p.ultimo_eseguito + ')' : '') +
@@ -387,7 +573,9 @@ function levaAggiorna() {
   if (!vis) return;
   var r = STATO ? +STATO.ritmo : -1;
   Array.prototype.forEach.call(document.querySelectorAll('#leva button'), function (b) { b.className = +b.dataset.m === r ? 'on' : ''; });
-  document.getElementById('levaMsg').textContent = (CLIC ? 'Per ora il ritmo si cambia chiedendolo a Claude in chat. ' : '') + (STATO && STATO.leva_ritmo ? 'Il cambio vale da subito.' : quandoParte());
+  // 28/10/2026: la riga «Il cambio vale da subito» in evidenza quando lo script accetta la leva (v8.4, ping leva_ritmo)
+  document.getElementById('levaSubito').textContent = STATO && STATO.leva_ritmo ? 'Il cambio vale da subito.' : '';
+  document.getElementById('levaMsg').textContent = (CLIC ? 'Per ora il ritmo si cambia chiedendolo a Claude in chat. ' : '') + (STATO && STATO.leva_ritmo ? '' : quandoParte());
   document.getElementById('levaOra').textContent = STATO ? 'adesso: ' + (r ? 'ogni ' + r + (r === 1 ? ' minuto' : ' minuti') : 'spento') : 'adesso: non so (lo script non ha risposto)';
 }
 Array.prototype.forEach.call(document.querySelectorAll('#leva button'), function (b) {
