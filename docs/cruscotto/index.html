@@ -132,6 +132,7 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 <p id="levaNo" style="font-size:14px;color:var(--mu)">La leva del ritmo compare dopo aver scritto il codice del docente nella linguetta «Oggi dal vivo».</p>
 </div></section>
 <section class="tab" id="t-riepilogo"><div class="box rp" id="riepilogo"></div></section>
+<script src="../avanzamento/orario-lezione.js"></script>
 <script>
 // Allievo: la pagina dei ragazzi (Nome C., voto, che cosa manca). Docente: il cruscotto cifrato, chiede la password.
 // Giorni passati: i file in avanzamento/archivio/ (indice.json dice quali giorni ci sono per ogni classe); si aprono dal
@@ -175,7 +176,8 @@ function mostra() {
   salva();
 }
 // ---- Linguette (28/10/2026, Nicola): Allievo vede solo «Oggi dal vivo» e «Piano del giorno» ----
-function permessa(t) { return t === 'oggi' || t === 'aiuto' || (t === 'piano' && !!PIANO) || (ruolo === 'docente' && TABS.indexOf(t) > 2); }
+// 28/10/2026 (docente): «Piano del giorno» compare SEMPRE, anche quando il piano di quel giorno non c'è (lo dice la linguetta)
+function permessa(t) { return t === 'oggi' || t === 'aiuto' || t === 'piano' || (ruolo === 'docente' && TABS.indexOf(t) > 2); }
 function linguette() {
   // «tab» è la linguetta voluta (ricordata); se oggi non c'è (niente piano, o modalità Allievo) si mostra «Oggi dal vivo».
   var eff = permessa(tab) ? tab : 'oggi';
@@ -202,17 +204,35 @@ Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function
 function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (ch) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch]; }); }
 function url(u) { u = String(u || ''); return /^(https?:|\/|\.\.\/|\.\/)/.test(u) ? u : '../' + u; }   // relativo alla cartella docs/
 var MOD = {versioning: 'Lavoro con versioning (GitHub)', guidato: 'Percorso guidato a passi', 'teoria-quiz': 'Teoria a schede e quiz'};
-var pianoChiesto = '';
+var pianoChiesto = '', pianoPronto = false;
 function caricaPiano(c, g) {
   var k = c.toLowerCase() + '-' + g;
   if (k === pianoChiesto) { disegnaPiano(); return; }
-  pianoChiesto = k; PIANO = null; disegnaPiano();
+  pianoChiesto = k; PIANO = null; pianoPronto = false; disegnaPiano();
   fetch('piano/' + k + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; })
-    .catch(function () { return null; }).then(function (p) { if (pianoChiesto !== k) return; PIANO = p; disegnaPiano(); linguette(); });
+    .catch(function () { return null; }).then(function (p) { if (pianoChiesto !== k) return; PIANO = p; pianoPronto = true; disegnaPiano(); linguette(); });
+}
+// Piano che non c'è (28/10/2026, docente): lo si dice e, se esiste, si dà il link al piano della prossima lezione della classe
+function pianoMancante() {
+  var c = $('classe').value, g = $('giorno').value || oggi(), k0 = pianoChiesto;
+  var h = '<h2>Piano del giorno · ' + esc(c) + ' · ' + esc(g.split('-').reverse().join('/')) + '</h2>';
+  if (!pianoPronto) { $('piano').innerHTML = h + '<p>Carico il piano…</p>'; return; }
+  $('piano').innerHTML = h + '<p class="manca">Il piano per questa classe e questo giorno non c\'è ancora: lo prepara la chat della notte prima del giorno di lezione.</p><p id="pianoProx"></p>';
+  if (!window.prossimaLezione) return;
+  prossimaLezione(c, g).then(function (d) {
+    if (!d || pianoChiesto !== k0) return null;
+    return fetch('piano/' + c.toLowerCase() + '-' + d + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'})
+      .then(function (r) {
+        var el = $('pianoProx');
+        if (!r.ok || pianoChiesto !== k0 || !el) return;
+        el.innerHTML = '<a href="#" id="pianoVai">Apri il piano della prossima lezione della ' + esc(c) + ': ' + esc(d.split('-').reverse().join('/')) + '</a>';
+        $('pianoVai').onclick = function (e) { e.preventDefault(); $('giorno').value = d; mostra(); };
+      });
+  }).catch(function () {});
 }
 function disegnaPiano() {
   var p = PIANO, h = '';
-  if (!p) { $('piano').innerHTML = ''; return; }
+  if (!p) { pianoMancante(); return; }
   var props = p.proposte || [], scelta = props.filter(function (x) { return x.n === p.scelta; })[0];
   if (PROVA) h += BANNER;
   h += '<h2>Piano del giorno · ' + esc(p.classe) + ' · ' + esc(String(p.giorno || '').split('-').reverse().join('/')) + '</h2>';
