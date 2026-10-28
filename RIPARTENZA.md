@@ -1,6 +1,6 @@
 # RIPARTENZA — da qui riparte ogni chat nuova
 
-**Versione 1.3** — 28/10/2026 · Area Docente · senza nomi di allievi · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
+**Versione 1.4** — 28/10/2026 · Area Docente · senza nomi di allievi · v1.4: punto 08.3, la Chat del giorno parte a mezzanotte (non alle 6:47) · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
 
 *Perché esiste: le chat lunghe consumano il limite settimanale (ogni messaggio rilegge tutta la conversazione). Regola nuova: **una chat nuova ogni giorno di lezione**. La chat nuova legge questo file (corto) e `CLAUDE.md` (le regole), e trova tutto il resto su Git. Questo file lo aggiorna Claude a fine giornata.*
 
@@ -86,7 +86,7 @@ Una chat nuova riparte da qui senza chiedere niente al docente. Prima di tutto: 
    2.2. Il promemoria degli errori da non ripetere è `.claude/promemoria-errori.md`.
    2.3. **La Chat del giorno esegue TUTTI i passi di `.claude/passi-notturni.md`, in ordine, prima del messaggio del mattino** (audit delle regole, prove dei controlli, sito pubblicato, verifica di ogni classe, domande sì/no sulla lezione, promemoria a orario). Quale controllo copre ogni voce del registro: `MAPPA-REGOLE-CONTROLLI.md`.
    2.4. **Controllore dei controlli:** `python3 /home/user/corso-informatica/strumenti/controlla_controlli.py` dice in un colpo, una riga VERDE o ROSSO per controllo, se gli hook sono registrati (repository e /home/user), se le prove sono tutte «N/N», se i passi notturni si leggono e se la notte precedente ha lasciato `stato/notte-<giorno>.json` nel riservato (lo scrive l'ultimo passo dei passi notturni, sezione 06). Se dice ROSSO, si sistema prima di tutto il resto.
-3. **Attività programmata «Chat del giorno»**: ogni lunedì-venerdì alle 6:47 parte una sessione nuova che prepara la giornata. La chat nuova del mattino è quella.
+3. **Attività programmata «Chat del giorno»**: ogni lunedì-venerdì a mezzanotte (0:00, ora di Roma) parte una sessione nuova che prepara la giornata; alle 6:31 il «Controllore del controllore» verifica che abbia lasciato `stato/notte-<giorno>.json` nel riservato. La chat nuova del mattino è quella.
 4. **Regole e registri nuovi.**
    4.1. Regola 23 di `CLAUDE.md`: in 1INF si dà sempre qualcosa da ricopiare sul quaderno, e lo si ricorda a ogni cambio di attività.
    4.2. Regola 24: un report PDF per ogni ora con gli screenshot di Veyon a piena risoluzione; solo nel riservato in `report/AAAA-MM-GG/`; script `generatori/report_ore.py` con `config/report-ore-AAAAMMGG.json`.
