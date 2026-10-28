@@ -9,3 +9,4 @@ PROMEMORIA ERRORI (dal REGISTRO-ERRORI-CLAUDE.md) — valgono in OGNI risposta:
 8. Nomi degli allievi in chat sempre COGNOME Nome, come nel registro.
 9. Nelle pagine dei ragazzi nessun link al sito della Regione: solo nostre pagine e nostri Moduli (#136).
 10. «Pubblicato» o un link solo dopo aver visto PUBBLICATO (sito) e PUBLISHED (Classroom) (#79 #128).
+11. Mai blocchi lunghi, log o JSON nella chat: output dei comandi su file temporanei o silenzioso; al docente solo brevi sintesi in italiano (regola 25).
