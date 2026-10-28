@@ -13,6 +13,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+## 28/10/2026 — Comandi e risultati lunghi nella chat: il docente non riesce a leggere (#132)
+
+1. **Errore.** Il 27/10 e il 28/10 il docente ha chiesto tre volte riquadri più corti: i miei comandi lunghi e i loro risultati fanno scorrere la chat mentre legge. Ho promesso «una riga» e ho continuato con comandi e risultati lunghi.
+2. **Regola (necessità importante del docente).** Ogni comando è di una riga e stampa al massimo una riga («ok» o il numero che serve). Il lavoro lungo va in file di script nella cartella di lavoro; i risultati lunghi vanno in un file, mai sullo schermo.
+
 ## 27/10/2026 — 1INF: «è tutto a posto», ma su Classroom non c'era niente (#128)
 
 1. **Errore.** Alla domanda del docente «per la 1INF è tutto a posto?» ho risposto che le pagine erano online e che i ragazzi potevano cominciare. Su Classroom non c'era né un compito né un annuncio con i link: i ragazzi sono rimasti 11 minuti davanti al monitor senza niente. Avevo pubblicato solo le pagine sul sito, non il post su Classroom (stesso errore di #94, #105 e #120). Il docente: «mi ha detto delle cose non vere».
