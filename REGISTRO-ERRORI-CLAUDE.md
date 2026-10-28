@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.85** — 28/10/2026 (#125-#137)
+**Versione 2.86** — 28/10/2026 (#125-#138)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 28/10/2026 — Di nuovo la sequenza di copia e incolla che si cancella da sola (#138, ripete #50)
+
+1. **Errore.** Per lo script v8.4 ho scritto: copia l'indirizzo del testo, copia tutto il codice (Ctrl+C), POI copia e incolla l'indirizzo di Apps Script, POI incolla il codice. Copiare il secondo indirizzo cancella il codice dagli appunti: al passo 6 si sarebbe incollato un indirizzo. È l'errore #50, già scritto come regola 9 («prima si apre la pagina dove si incolla, poi si copia, poi si incolla»). L'ho ripetuto perché ho riusato a memoria l'elenco del 27/10 senza controllare, passo per passo, che cosa c'è negli appunti.
+2. **Regola.** Prima di mandare passi con due «copia», per ogni passo scrivo (per me) che cosa c'è negli appunti; un Ctrl+V deve usare l'ultima cosa copiata. Ordine fisso per lo script: 1) aprire Apps Script e il file giusto; 2) aprire il testo e copiarlo; 3) tornare sulla scheda di Apps Script e incollare.
 
 ## 28/10/2026 — La firma del registro scritta in mezzo al messaggio: il docente non l'ha vista (#137)
 
