@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.2** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.3** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: niente più promesse, servono meccanismi. Questi controlli (hook di Claude Code, in `.claude/settings.json`) girano da soli: non dipendono dalla memoria di Claude. Nascono dagli errori di `REGISTRO-ERRORI-CLAUDE.md`.
 
@@ -11,7 +11,7 @@ Nicola, 28/10/2026: niente più promesse, servono meccanismi. Questi controlli (
    1. Dal 4° comando dello stesso turno il comando viene rifiutato: il lavoro va a un subagente.
    2. Un comando più lungo di 600 caratteri viene rifiutato: il codice va in un file nello scratchpad.
    3. Un turno comincia a ogni messaggio che arriva nella sessione (del docente, programmato o resoconto di un subagente). I comandi dei subagenti non si contano e non si bloccano.
-   4. Per TUTTI, anche i subagenti (v1.2): cancellare con rm o git rm una versione in docs/ (PDF, «vN.N», jolly) è rifiutato (01/10 n. 13, #4).
+   4. Per TUTTI, anche i subagenti (v1.2): cancellare con rm o git rm una versione in docs/ (PDF, «vN.N», jolly) è rifiutato (01/10 n. 13, #4). Dalla v1.3 anche spostarla o rinominarla con mv o git mv: il 28/10 tre dispense arabe erano sparite da docs/ così (rimesse al loro posto dall'audit).
    5. Per TUTTI: prima di un «git push» del pubblico, i file di docs/ cambiati rispetto a origin/main passano da `controlli_pagine.py` (lingue della classe #49 #82 #119, link al sito della Regione #136, nomi di allievi in chiaro #85, sintassi degli script con node --check #118); se c'è un problema il push è rifiutato con l'elenco.
    6. Per TUTTI: prima di un «git push» del riservato, coda/*.json e comandi/*.json devono leggersi (05/10 n. 12).
    7. Falso allarme dei punti 4-6: si aggiunge al comando il commento «# PAGINE-OK: <motivo>» e lo si dice al docente.
@@ -41,6 +41,11 @@ python3 /home/user/corso-informatica-riservato/generatori/audit_regole.py
 ```
 
 6. **Passi notturni** (`.claude/passi-notturni.md`): comandi, domande sì/no sulla lezione e promemoria a orario che la Chat del giorno esegue tutti (RIPARTENZA sezione 08). La mappa di quale voce del registro è coperta da quale controllo è `MAPPA-REGOLE-CONTROLLI.md`.
+7. **Controllore dei controlli** (`strumenti/controlla_controlli.py`, v1.3): in un colpo dice se i controlli sono vivi (hook registrati nel repository e in /home/user, file degli hook senza errori, attiva-controlli-home.py idempotente, tutte le prove «N/N», passi notturni leggibili, file `stato/notte-<giorno>.json` della notte precedente nel riservato); una riga VERDE o ROSSO per controllo. Lo lancia l'ultimo passo dei passi notturni (sezione 06).
+
+```
+python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
+```
 
 ## 02 Quando valgono
 
@@ -56,8 +61,8 @@ python3 /home/user/corso-informatica/.claude/hooks/attiva-controlli-home.py
 1. Sono controlli sulle parole, non sul significato: possono sbagliare in tutte e due le direzioni (un «fatto» detto con altre parole passa; una parola bloccante usata per altro fa riscrivere il messaggio).
 2. Non verificano che la prova citata sia vera: controllano solo che ci sia.
 3. Non coprono gli errori di contenuto (dati sbagliati, pagine): per quelli resta `CHECKLIST-LEZIONE.md`. Lo stato di Classroom e del sito lo controlla `verifica_lezione.py` (punto 01.4).
-5. `verifica_lezione.py` non legge il testo del compito da Classroom (lo script v8.4 non lo restituisce): lo prende dalla coda locale che ha creato il compito; un compito creato a mano dal docente risulta GIALLO per i link. Se lo script Google è spento (ritmo spento), dopo 12 minuti l'esito è ROSSO.
 4. Se uno script ha un problema, esce senza bloccare: la sessione non si rompe mai.
+5. `verifica_lezione.py` non legge il testo del compito da Classroom (lo script v8.4 non lo restituisce): lo prende dalla coda locale che ha creato il compito; un compito creato a mano dal docente risulta GIALLO per i link. Se lo script Google è spento (ritmo spento), dopo 12 minuti l'esito è ROSSO.
 
 ## 04 Prove
 
@@ -74,8 +79,13 @@ python3 /home/user/corso-informatica/.claude/hooks/prove/prova_limite.py
 ```
 
 1. `prova_messaggio.py`: 59 casi sui controlli (e)-(v) e su main (blocca una volta, subagenti liberi, input rotto = uscita 0).
-2. `prova_limite.py`: 23 casi (versioni, push del pubblico con cinese, arabo nel solo `<pre>`, Regione, script rotto, nomi in chiaro, «Nome I.», push del riservato con conflitto, limite dei comandi, input rotto).
+2. `prova_limite.py`: 27 casi dalla v1.3 (versioni, spostamento di versioni con mv e git mv, push del pubblico con cinese, arabo nel solo `<pre>`, Regione, script rotto, nomi in chiaro, «Nome I.», push del riservato con conflitto, limite dei comandi, input rotto).
 3. `generatori/prova_audit_regole.py` nel riservato: 11 casi.
-4. Sugli ultimi 250 messaggi veri i controlli nuovi (f)-(v) hanno bloccato una sola frase, che la regola vieta («lo fa al prossimo giro, entro 5 minuti»); il controllo (e) dipende dallo stato del repository e non si prova sul passato. Tre falsi allarmi trovati («non hanno consegnato» letto su Classroom, «ha copiato» detto di Windows, «si incolla in Apps Script» senza Ctrl+V) («ha copiato» detto di Windows, «si incolla in Apps Script» senza Ctrl+V) sono stati tolti.
+4. Sugli ultimi 250 messaggi veri i controlli nuovi (f)-(v) hanno bloccato una sola frase, che la regola vieta («lo fa al prossimo giro, entro 5 minuti»); il controllo (e) dipende dallo stato del repository e non si prova sul passato. Tre falsi allarmi trovati («non hanno consegnato» letto su Classroom, «ha copiato» detto di Windows, «si incolla in Apps Script» senza Ctrl+V) sono stati tolti.
 
 Prove del 28/10/2026 per il controllo 4 dell'hook: 11 casi (senza file, verde recente, verde vecchio di 20 minuti, giallo, stop_hook_active, negazione, nessuna classe, citazione, 4TI, input rotto), tutti come atteso.
+
+## Changelog
+
+1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
+2. v1.3 (28/10/2026, audit): mv e git mv di una versione in docs/ rifiutati (4 prove nuove, 27 in tutto); controllore dei controlli `strumenti/controlla_controlli.py` (punto 01.7); punti di 03 rimessi in ordine; tolta una frase ripetuta in 04.4.
