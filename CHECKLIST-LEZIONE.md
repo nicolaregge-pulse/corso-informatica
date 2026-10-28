@@ -35,7 +35,7 @@ Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e c
 5. Durante la lezione NON spingo sul riservato più del necessario: salvo in locale e spingo a fine ora; le consegne dei ragazzi passano dallo stesso repository (#112, #124).
 6. Prima di dire «fatto», «risolto» o «c'è» controllo la prova nel repository o su Classroom (#63, #83, #115).
 7. Quando Nicola chiede di scrivere un errore, lo scrivo subito e do il numero (#113).
-8. Firma del registro entro le 14:05, solo per le ore senza «FIRMA ✓» in verde (#52, #87, #96).
+8. Firma del registro entro le 14:05: prima si legge `FIRME-REGISTRO-2026-27.md`; si ricorda solo un ora che lì non risulta firmata, una volta sola (#52, #87, #96, #137).
 
 ## 04 Dopo la lezione
 
