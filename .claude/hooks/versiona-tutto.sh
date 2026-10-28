@@ -16,6 +16,12 @@ if [[ "$(printf '%s' "$input" | jq -r '.stop_hook_active' 2>/dev/null)" == "true
 fi
 
 PUB="/home/user/corso-godot"
+# 28/10/2026: se il vecchio repo pubblico non c'è (o la sessione parte da /home/user, CLAUDE_PROJECT_DIR=/home/user),
+# si controlla il repository in cui sta questo script, con percorso assoluto di riserva.
+if [[ ! -d "$PUB" ]]; then
+  PUB="$(cd "$(dirname "$0")/../.." 2>/dev/null && pwd)"
+  [[ -d "$PUB" ]] || PUB="/home/user/corso-informatica"
+fi
 PRIV="/home/user/corso-informatica-riservato"
 problems=""
 

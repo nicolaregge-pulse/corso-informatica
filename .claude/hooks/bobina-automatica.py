@@ -295,6 +295,12 @@ def main():
     base = os.environ.get('CLAUDE_PROJECT_DIR') or dati.get('cwd') or os.getcwd()
     repo = radice_repo(base) or base
     conf_p = os.path.join(repo, '.claude', 'bobina.json')
+    if not os.path.exists(conf_p):
+        # 28/10/2026: sessione avviata da /home/user (CLAUDE_PROJECT_DIR=/home/user, non è un repository):
+        # si usa il repository in cui sta questo script, con percorso assoluto.
+        qui = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        repo = radice_repo(qui) or qui
+        conf_p = os.path.join(repo, '.claude', 'bobina.json')
     conf = json.load(open(conf_p)) if os.path.exists(conf_p) else {'dest': ['bobine']}
     dest = None
     for c in conf.get('dest', []):
