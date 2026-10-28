@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 0.8** — 22/10/2026
+**Versione 0.9** — 28/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -219,16 +219,279 @@ corso; la lingua è l'italiano (l'AI fa da ponte per arabo e cinese).*
 
 7. **Il laboratorio del gamer (21/10):** il **ping** è il tempo di andata e ritorno verso il server (sotto 30 ms ottimo); il **jitter** è quanto il ping cambia; il **lag** è il ritardo che si sente giocando. Gli **FPS** sono le immagini al secondo prodotte dalla scheda video; gli **Hz** sono quante volte al secondo il monitor ridisegna l'immagine. I cavi video: VGA (vecchio, analogico), HDMI (porta anche l'audio), DisplayPort (monitor da gaming). Documento completo: `classe-1/gamer/1inf-gamer.md`.
 
-## 8. Glossario (essenziale)
+## 8. Lazarus: il mio primo programma (28/10)
+
+*Programmazione · Informatica, laboratorio · 28/10/2026 · la prima finestra con una casella (TEdit) e un bottone (TButton): scrivi il nome, premi e compare «Ciao» con il tuo nome; i file del progetto; consegna su Classroom. Dispensa completa in tre lingue (italiano, arabo, cinese): `classe-1/lazarus-ciao/20261028_Classe-1_v1.0_Lazarus-Primo-Programma_IT.md` (e `_AR`, `_ZH`).*
+
+### 8.1 Che cos'è Lazarus
+
+**Lazarus** è un programma che serve a **creare altri programmi**, con le finestre e i bottoni, come quelli che usi ogni giorno. Funziona come i **mattoncini**: prendi un pezzo già pronto (un bottone, una casella), lo metti nella finestra e poi scrivi **che cosa deve fare**. Il linguaggio si chiama **Pascal**.
+
+Oggi facciamo il primo programma di tutti i programmatori: il **«Ciao»**. Scrivi il tuo nome in una casella, premi un bottone e il programma ti saluta: **Ciao Ahmed**.
+
+Per aprire Lazarus: doppio clic sull'icona di Lazarus (il prof vi mostra dove si trova). Poi vai al capitolo 02: lì prepari il progetto nuovo e la tua cartella.
+
+### 8.2 Partenza pulita: nuovo progetto e cartella nuova
+
+Prima di mettere i pezzi nella finestra prepariamo il posto giusto. **Un progetto = una cartella sola**: tutti i file del tuo programma stanno insieme, nella tua cartella. Così nessun file si perde e nessun file si mescola con quelli di un altro.
+
+Fai un passo alla volta. Dopo ogni passo guarda lo schermo.
+
+**1.** In alto a sinistra in Lazarus clicca il menu «File».
+
+**2.** Nel menu clicca «Chiudi tutto». Così si chiudono i file rimasti aperti.
+
+**3.** Se Lazarus chiede di salvare un progetto vecchio, clicca «No».
+
+**4.** In alto clicca il menu «Progetto».
+
+**5.** Nel menu clicca «Chiudi progetto». Se la voce è grigia, non si può cliccare: va bene così, vai al passo 6.
+
+**6.** Ora fai il progetto nuovo. In alto clicca il menu «Progetto».
+
+**7.** Nel menu clicca «Nuovo progetto…». Si apre una finestra con un elenco.
+
+**8.** Nell'elenco a sinistra clicca «Applicazione».
+
+**9.** In basso nella finestra clicca «OK». Al centro compare la finestra vuota **Form1**.
+
+**10.** SUBITO si salva. In alto clicca il menu «Progetto».
+
+**11.** Nel menu clicca «Salva progetto con nome…». Si apre la finestra per salvare.
+
+**12.** In alto nella finestra clicca il bottone «Nuova cartella». (Non lo vedi? Clic con il tasto destro su un punto vuoto della finestra → «Nuovo» → «Cartella».)
+
+**13.** Scrivi il nome della cartella e premi `Invio`:
+
+```
+ciao
+```
+
+**14.** Fai **doppio clic** sulla cartella `ciao` per entrarci. In alto ora c'è scritto `ciao`.
+
+**15.** In basso, nella casella «Nome file», scrivi il nome del progetto:
+
+```
+ciao.lpi
+```
+
+**16.** In basso a destra clicca «Salva».
+
+**17.** Lazarus apre una seconda finestra: chiede il nome della **unit** (il file del codice). Nella casella «Nome file» lascia o scrivi:
+
+```
+unit1.pas
+```
+
+**18.** In basso a destra clicca «Salva».
+
+**19.** Controlla: guarda in alto, nella barra del titolo di Lazarus. C'è scritto `ciao`. FATTO: il tuo progetto ha la sua cartella!
+
+### 8.3 Le finestre di Lazarus
+
+Quando apri un progetto nuovo vedi più finestre. Ognuna ha un lavoro:
+
+| Dove | Si chiama | A che cosa serve |
+|---|---|---|
+| in alto | **menu** e **palette dei componenti** | i comandi («File», «Progetto», «Esegui»…) e, sotto, i pezzi da mettere nella finestra, divisi in linguette |
+| a sinistra | **Ispettore oggetti** | le **proprietà** del pezzo selezionato (il testo, il nome, il colore) e i suoi **eventi** (che cosa succede quando lo clicchi) |
+| al centro | **Form1**, con i puntini | la **finestra del tuo programma**: qui metti i pezzi |
+| dietro la Form | **Editor del codice** (unit1.pas) | qui scrivi **che cosa fa** il programma |
+| in basso | **Messaggi** | Lazarus ti dice se è andato tutto bene o dove c'è un errore |
+
+Per passare dalla Form al codice e ritorno: tasto `F12`.
+
+**Da ricopiare sul quaderno**
+
+```
++--------------------------------------------------+
+| MENU:  File  Progetto  Esegui ...                |
+| PALETTE: [Standard]  [OK] [abc] [A] ...          |
++------------+-------------------------------------+
+| ISPETTORE  |                                     |
+| OGGETTI    |   FORM1  (la mia finestra)          |
+|            |    +-----------------+              |
+| Proprieta  |    | Edit1           |  <- TEdit    |
+|  Caption   |    +-----------------+              |
+|  Text      |       [ Saluta ]       <- TButton   |
+| Eventi     |                                     |
+|  OnClick   |   (F12 = vado al codice)            |
++------------+-------------------------------------+
+| MESSAGGI: errori e avvisi                        |
++--------------------------------------------------+
+```
+
+![Foto della lavagna: la lavagna del 28/10/2026: le finestre di Lazarus. In alto la palette con gli oggetti (i componenti); a sinistra l'Object Inspector (l'Ispettore oggetti) con le proprietà e i metodi (gli eventi); a destra la Form e, sotto, il codice.](immagini/20261028_lavagna-finestre-lazarus.jpg)
+
+### 8.4 La palette: come scegliere il pezzo giusto
+
+La **palette dei componenti** è la fila di icone in alto, sotto il menu. I pezzi di oggi sono nella linguetta «Standard». Per scegliere, chiediti: **che cosa deve fare chi usa il programma?**
+
+| Deve… | Pezzo (componente) | Icona nella palette | Proprietà che conta |
+|---|---|---|---|
+| **scrivere** qualcosa | **TEdit** (casella di testo) | una casella bianca con «abc» o «ab\|» | `Text` = quello che c'è scritto dentro |
+| **premere** per far succedere una cosa | **TButton** (bottone) | un bottone con «OK» | `Caption` = la scritta sul bottone |
+| **leggere** un testo (solo guardare) | **TLabel** (etichetta) | una «A» | `Caption` = il testo che si vede |
+
+Per metterlo nella finestra: **un clic** sull'icona nella palette, poi **un clic** sulla Form1, nel punto dove lo vuoi. Lazarus gli dà un nome da solo: `Edit1`, `Button1`. Il **nome** (`Name`) è quello che userai nel codice.
+
+### 8.5 Esercitazione: il mio «Ciao»
+
+Un passo alla volta. Dopo ogni passo guarda lo schermo: deve essere uguale.
+
+**1.** Nella palette, linguetta «Standard», clicca **TEdit**, poi clicca nella Form1, in alto a sinistra. Compare una casella con scritto `Edit1`.
+
+**2.** Con la casella selezionata, nell'Ispettore oggetti trova la proprietà `Text` e cancella la scritta «Edit1»: la casella resta vuota.
+
+**3.** Nella palette clicca **TButton**, poi clicca nella Form1 sotto la casella. Compare `Button1`.
+
+**4.** Con il bottone selezionato, nell'Ispettore oggetti cambia `Caption` in `Saluta`. FATTO: la finestra è pronta!
+
+**5.** Fai **doppio clic sul bottone**. Si apre il codice, con il cursore qui:
+
+```
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  // qui scrivi la tua riga
+end;
+```
+
+**6.** Tra `begin` e `end;` scrivi questa riga:
+
+```
+ShowMessage('Ciao ' + Edit1.Text);
+```
+
+Che cosa vuol dire, pezzo per pezzo:
+
+| Pezzo | Vuol dire |
+|---|---|
+| `ShowMessage( … )` | apre una **finestrella** con un messaggio e il bottone **OK**. Quello che c'è tra le parentesi è il messaggio |
+| `Edit1.Text` | il testo scritto dentro la casella Edit1 (il nome) |
+| `'Ciao '` | una scritta fissa. Va tra apici. Lo **spazio** dopo Ciao serve per non avere «CiaoAhmed» |
+| `+` | attacca due scritte una dopo l'altra |
+| `;` | fine dell'istruzione (come il punto alla fine di una frase) |
+
+Tutto insieme: **«apri una finestrella con scritto Ciao e il nome che c'è nella casella»**. Come alla lavagna: scrivi MARIO, premi Saluta, compare **Ciao MARIO** con il bottone OK. È la funzione che risponde al **clic** del bottone: si chiama `Button1Click`.
+
+**Da ricopiare sul quaderno**
+
+```
+scrivo MARIO -> clic su [Saluta] -> OnClick -> Button1Click
+   -> ShowMessage('Ciao ' + Edit1.Text) -> | Ciao MARIO  [OK] |
+```
+
+![Foto della lavagna: la lavagna del 28/10/2026. In alto la finestra con la casella (MARIO) e il bottone Saluta; il clic apre la finestrella «Ciao MARIO» con il bottone OK. Sotto: 1) chiudere tutti i file; 2) creare la cartella e salvare tutti i file lì dentro.](immagini/20261028_lavagna-lazarus-ciao.jpg)
+
+### 8.6 Salva e fai partire
+
+La cartella `ciao` l'hai già fatta nel capitolo 02. Adesso basta poco.
+
+1. Premi `Ctrl` + `S`: Lazarus salva tutto nella tua cartella.
+2. Premi `F9` (oppure la freccia verde ▶ in alto). Lazarus prepara il programma e lo fa partire: si apre la TUA finestra.
+3. Clicca nella casella e scrivi il tuo nome.
+4. Clicca il bottone **Saluta**. Si apre una finestrella con **Ciao** e il tuo nome.
+5. Clicca **OK**. Ce l'hai fatta: hai scritto il tuo primo programma!
+
+> [GIALLO] **Errore? È normale, succede a tutti i programmatori.** Guarda la finestra «Messaggi» in basso: dice la riga. I più comuni: manca il `;`; hai scritto `=` invece di `:=`; manca un apice `'`; la riga è fuori da begin … end.
+
+### 8.7 I file del progetto, uno per uno
+
+Dopo `F9` apri la cartella `ciao` con Esplora file. Lazarus ha creato tanti file. L'**estensione** sono le lettere dopo il punto nel nome del file: dice **che tipo di file è**. Non vedi le estensioni? In Esplora file, in alto: «Visualizza» → «Mostra» → «Estensioni nomi file».
+
+**Gruppo 1. Il progetto**
+
+| File | Che cos'è | Che cosa c'è dentro | Si può cancellare? |
+|---|---|---|---|
+| `ciao.lpi` | informazioni del progetto (**L**azarus **P**roject **I**nformation)<br>*Come: la scheda del progetto, con l'elenco dei pezzi e le istruzioni per montarli* | un testo in formato **XML** (testo con le etichette tra < e >): quali file fanno parte del progetto e le **opzioni** del progetto e del compilatore, quelle che si cambiano dal menu «Progetto» → «Opzioni progetto…». Con doppio clic su questo file riapri il progetto | **NO** |
+| `ciao.lpr` | programma principale (**L**azarus **PR**ogram)<br>*Come: il fischio di inizio della partita: fa partire tutto* | le poche righe in Pascal che fanno partire tutto e aprono Form1. Non si tocca | **NO** |
+| `ciao.lps` | sessione (**L**azarus **P**roject **S**ession)<br>*Come: un segnalibro: la memoria di dove eri rimasto* | quali file erano aperti nell'editor, in che ordine erano le linguette, dov'era il cursore. **Non contiene il programma**: se la cancelli, il tuo lavoro c'è ancora tutto | sì: Lazarus la rifà |
+| `ciao.res` | risorse (**RES**ource)<br>*Come: lo zaino con le cose da portare dentro l'exe: icona e versione* | l'icona e la versione del programma, pronte da mettere dentro l'exe | sì: Lazarus la rifà |
+| `ciao.ico` | icona (**ICO**n)<br>*Come: la foto profilo del programma* | il disegnino del programma, quello che vedi sulla barra di Windows | sì: Lazarus la rifà |
+
+**Gruppo 2. La finestra e il codice**
+
+| File | Che cos'è | Che cosa c'è dentro | Si può cancellare? |
+|---|---|---|---|
+| `unit1.lfm` | la form (**L**azarus **F**or**M**)<br>*Come: la piantina di una stanza: dove stanno i mobili* | **com'è fatta la finestra**: quali pezzi ci sono, dove stanno, quanto sono grandi, Caption e Text | **NO** |
+| `unit1.pas` | la unit (un file di codice in **Pas**cal)<br>*Come: la ricetta: le istruzioni che hai scritto tu* | il **TUO codice**: la procedura `Button1Click` con la riga del Ciao. Una unit può avere anche l'estensione `.pp` | **NO** |
+
+**Gruppo 3. Il programma finito**
+
+| File | Che cos'è | Che cosa c'è dentro | Si può cancellare? |
+|---|---|---|---|
+| `ciao.exe` | eseguibile (**EXE**cutable), nella cartella del progetto<br>*Come: la torta già cotta: si mangia anche senza la ricetta* | il **programma finito**, creato con F9. Si apre anche senza Lazarus | sì: si rifà con F9 |
+
+**Gruppo 4. File di lavoro del compilatore** (il **compilatore** è il programma che trasforma il Pascal in un programma che il computer sa eseguire)
+
+| File | Che cos'è | Che cosa c'è dentro | Si può cancellare? |
+|---|---|---|---|
+| `lib\x86_64-win64\` | cartella<br>*Come: il tavolo della cucina dove si preparano i pezzi* | i pezzi intermedi che servono per fare l'exe (qui sotto) | sì: Lazarus la rifà |
+| `.o` | file oggetto (**O**bject)<br>*Come: un ingrediente già cotto, uno solo* | il codice macchina di **una sola** unit, per esempio `unit1.o` | sì |
+| `.ppu` | unit compilata di Free Pascal (**P**ascal **P**recompiled **U**nit)<br>*Come: un pezzo già montato, con l'etichetta che dice che cosa sa fare* | le informazioni sulla unit già tradotta, per esempio `unit1.ppu` | sì |
+| `.compiled` | promemoria della compilazione<br>*Come: lo scontrino: ricorda com'è andata l'ultima volta* | come è stato compilato il progetto l'ultima volta: così Lazarus sa se deve rifare tutto | sì |
+| `.or` | risorse compilate<br>*Come: lo zaino del .res già chiuso, pronto da caricare* | il file `.res` già pronto da attaccare all'exe | sì |
+| `backup\` | cartella delle copie di sicurezza<br>*Come: la fotocopia del compito prima di correggerlo* | quando salvi un file che esisteva già, Lazarus mette qui la versione di prima. Le copie dei file del progetto hanno **lo stesso nome** dell'originale (`unit1.pas`, `unit1.lfm`, `ciao.lpi`…); un file che non fa parte del progetto prende in più `.bak` (per esempio `prova.pas.bak`). La cartella compare dal secondo salvataggio | sì |
+
+Con le impostazioni normali di Lazarus 4, fuori dalla cartella `backup` non trovi copie con `~` o `.bak`. Se le vedi, qualcuno ha cambiato le impostazioni delle copie (menu «Strumenti» → «Opzioni…», pagina «Backup»).
+
+Regola da ricordare: i **4 file da tenere**, da consegnare e da mettere su GitHub sono `.lpi` `.lpr` `.pas` `.lfm`. Tutto il resto Lazarus lo rifà da solo.
+
+**Da ricopiare sul quaderno**
+
+```
+ciao\                       <- UNA cartella = UN progetto
+ |- ciao.lpi    progetto (+ opzioni)      TENERE
+ |- ciao.lpr    programma principale      TENERE
+ |- unit1.pas   il mio codice             TENERE
+ |- unit1.lfm   com'e' fatta la finestra  TENERE
+ |- ciao.lps    sessione                  si rifa'
+ |- ciao.res    risorse (icona)           si rifa'
+ |- ciao.ico    icona                     si rifa'
+ |- ciao.exe    programma finito (F9)     si rifa'
+ |- lib\x86_64-win64\
+ |     .o .ppu .compiled .or (compilatore) si rifa'
+ |- backup\     copie di sicurezza        si butta
+```
+
+![Foto della lavagna: la lavagna del 28/10/2026: i 4 file da tenere, con un progetto che si chiama PIPPO. PIPPO.LPI è il progetto; PIPPO.LPR è il Lazarus Program (il programma principale); UNIT1.PAS è il codice in Object Pascal; UNIT1.LFM è la Lazarus Form (com'è fatta la finestra).](immagini/20261028_lavagna-file-progetto.jpg)
+
+### 8.8 Fallo tuo
+
+Il programma funziona? Adesso rendilo **tuo**. Scegli almeno una cosa:
+
+1. Il saluto nella **tua lingua**: al posto di `'Ciao '` scrivi `'Hello '`, `'مرحبا '`, `'你好 '`, `'Hola '`…
+2. Il **titolo** della finestra: clicca su un punto vuoto della Form1, nell'Ispettore oggetti cambia `Caption` (per esempio «Il saluto di Ahmed»).
+3. Il **colore**: sempre sulla Form1, proprietà `Color`, scegli un colore dalla tendina.
+4. Per i più veloci: aggiungi una TLabel e una seconda riga, `Label1.Caption := 'Ciao ' + Edit1.Text;`: il saluto resta scritto anche nella finestra.
+
+Poi **spiegalo in 30 secondi** al compagno: «Ho messo una TEdit e un TButton; quando clicco, la funzione Button1Click apre una finestrella con Ciao e il nome».
+
+### 8.9 Consegna
+
+Su Classroom c'è il compito **«Il mio primo programma: Ciao in Lazarus»**. Dentro c'è un **Documento Google** già pronto, solo tuo. Aprilo e fai 3 cose:
+
+1. **Il codice.** In Lazarus seleziona con il mouse la tua procedura, da `procedure TForm1.Button1Click` fino a `end;`, premi `Ctrl` + `C`; nel Documento clicca sotto «1. Il mio codice» e premi `Ctrl` + `V`.
+2. **Lo screenshot.** Fai partire il programma (`F9`), scrivi il tuo nome e premi Saluta. Poi premi `Win` + `Shift` + `S` e trascina un rettangolo intorno alla tua finestra. Nel Documento clicca sotto «2. Il mio programma che funziona» e premi `Ctrl` + `V`.
+3. **Con parole tue.** Sotto «3» scrivi in una o due frasi che cosa fa la riga `ShowMessage('Ciao ' + Edit1.Text);`. Puoi scrivere anche nella tua lingua.
+
+Poi in Classroom premi «Consegna» (il bottone blu in alto a destra nel compito).
+
+
+## 9. Glossario (essenziale)
 1. **CPU:** processore, il "cervello" del PC.
 2. **RAM:** memoria di lavoro veloce e temporanea.
 3. **SSD/Hard Disk:** memoria permanente dove si salvano i file.
 4. **Repository:** cartella-progetto con i file e la storia delle modifiche.
 5. **Commit:** un salvataggio (una "fotografia") delle modifiche fatte.
 6. **Compatibilità:** quando due pezzi funzionano bene insieme.
+7. **Lazarus:** il programma con cui si creano altri programmi con finestre e bottoni; il linguaggio è il Pascal.
+8. **Compilatore:** il programma che trasforma il codice Pascal in un programma che il computer sa eseguire (il file .exe).
+9. **Estensione:** le lettere dopo il punto nel nome di un file (.pas, .lpi, .exe): dicono che tipo di file è.
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
-## 9. Changelog
+## 10. Changelog
+9. **v0.9 (28/10/2026)**: aggiunto il capitolo 8 "Lazarus: il mio primo programma" (Lazarus e le sue finestre, la palette, l'esercitazione «Ciao» con ShowMessage, salva e fai partire, i file del progetto spiegati uno per uno, fallo tuo, consegna su Classroom; tre foto della lavagna del 28/10 e gli schemi da ricopiare sul quaderno); glossario e changelog diventano i capitoli 9 e 10; nel glossario Lazarus, compilatore, estensione.
 8. **v0.8 (22/10/2026)**: aggiunta 6.1 "Sicurezza 1: pericolo, danno, rischio" (prima lezione del corso sulla sicurezza, con casi della vita di tutti i giorni).
 7. **v0.7 (21/10/2026)**: aggiunta 7.1 "Quanto pesa un file e quanto va veloce la rete" (bit, byte, unità, Mbps, CRC, segnale 0V/5V, laboratorio del gamer) con le due foto della lavagna del 20/10.
 6. **v0.6 (09/10/2026)**: aggiunta 5.2 "La lavagna del 09/10" (numeri major.minor.patch.build, ramo principale, changelog, fork, Pull Request accettata e rifiutata) con la foto.
