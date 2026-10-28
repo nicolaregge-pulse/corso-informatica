@@ -13,6 +13,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+## 28/10/2026 — Audit fatti sulla pagina e non sul dato (#134)
+
+1. **Errore.** Il docente: «ti continuo a chiedere di fare audit e c'è sempre un errore». I miei controlli verificano che una pagina si apra senza errori, non che i dati siano veri rispetto alla fonte (Classroom, Moduli): così il 28/10 il cruscotto 1INF ha mostrato per un'ora «0 consegnati» mentre metà classe aveva consegnato (#133). Nel caso BETTINELLI (2INF) il dato era invece giusto, ma il docente non aveva modo di verificarlo da solo.
+2. **Regola.** Ogni audit confronta almeno 2 allievi con la fonte vera (Classroom, Moduli) prima di dare il link; ogni monitor scrive accanto ai dati da dove vengono e a che ora sono stati letti.
+
 ## 28/10/2026 — ERRORE GRAVE: il cruscotto non dice chi ha consegnato su Classroom (#133)
 
 1. **Errore.** Nella lezione con consegna su Classroom il cruscotto del docente mostrava le colonne di un'altra lezione («non aperta», «non fatta») e un dato delle consegne fermo alle 08:50. Il docente non poteva sapere chi aveva consegnato: la cosa più importante del monitoraggio.
