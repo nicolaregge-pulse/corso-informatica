@@ -1,10 +1,11 @@
 # Da fare: il cruscotto del docente (richieste di Nicola, aperte al 28/10/2026)
 
 1. Riga dello script con giri, chiamate, limite e azzeramento: fatta; si vede dopo la «Nuova versione» del deployment (passo di Nicola, non ancora confermato).
-2. Bottoni per cambiare il ritmo dello script (ogni 1, 5, 10 minuti, spento) dal cruscotto.
+2. Bottoni per cambiare il ritmo dello script (ogni 1, 5, 10 minuti, spento) dal cruscotto. Fatto il 28/10 a metà: i quattro bottoni ci sono, solo in modalità Docente con il codice giusto, con il ritmo attuale evidenziato e «fra quanto vale il cambio» (prossimo giro = ultimo battito + ritmo). Lo script v8.3 NON accetta il ritmo dal web (doGet conosce solo ping, live, cruscotto): per ora i bottoni dicono «Per ora il ritmo si cambia chiedendolo a Claude in chat» e Claude scrive il comando «script.ritmo» nel ponte, che vale al prossimo giro. Da spento il ponte non gira: un comando non riaccende lo script (serve «ritmo5» da Apps Script).
+   2.1. Che cosa servirebbe nello script v8.4: in doGet un parametro «?ritmo=0|1|5|10&k=<chiave>» che chiama AUTO_ritmo subito, protetto da una chiave nelle proprietà dello script (RITMO_CHIAVE, uguale a MONITOR_TOKEN per non avere un secondo codice), e «leva_ritmo: true» nella risposta del ping. Codice pronto in strumenti/automazione-corso-v8.4-ritmo.patch.gs (il file principale non è cambiato). Quando il ping dice leva_ritmo, il cruscotto apre da solo una scheda verso <invio>?ritmo=N&k=<codice>: nessuna modifica alla pagina.
 3. Zona del pregresso: i giorni passati, con il lavoro e i voti di ognuno.
 4. Vista dell'allievo: che cosa vede un ragazzo e la vista dei compagni; «impersona un allievo».
 5. Grafico dell'uso dell'AI (Claude): quanto resta nel giorno, quanto fino al rinnovo annuale, stima di quanto si può ancora usare con il modello e la modalità attuali.
 6. Il cruscotto della lezione legge solo lo scopo del giorno (configurazione del giorno), per tutte le classi.
-7. Comandi del ponte: quanti eseguiti oggi e quanti ancora da eseguire.
+7. Comandi del ponte: quanti eseguiti oggi e quanti ancora da eseguire. Fatto il 28/10 nella riga dello script, letto da docs/cruscotto/ponte.json (solo numeri e ore). Si aggiorna con: python3 /home/user/corso-informatica-riservato/generatori/stato_ponte.py --push
 8. Nel grafico AI: tempo e token ancora disponibili con il modello e la modalità attuali, per decidere se usare Fable.
