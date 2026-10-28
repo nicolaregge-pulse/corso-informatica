@@ -44,7 +44,7 @@
 </table>
 <p class="mu" style="margin:6px 0 0">Altri errori visti in classe: sito dentro una sottocartella (Mio-sito/, sito_official/); nomi diversi da quelli richiesti (comp.html, contacts.html); immagine con estensione .jfif o nome di 90 caratteri; Pull Request fatta a se stesso invece che al compagno; copia doppia del sito in un'altra cartella.</p></details>
 <div id="cards"></div>
-<p class="mu">Una scheda per allievo, dal sito più completo al meno. Le 7 cose: ✔ fatta, ○ manca. Voto sito = 40 + 40 × cose/7; voto di oggi = media con il quiz (il quiz non fatto conta dalle 12:50) − 3 per fuori lezione. Si aggiorna da sola ogni minuto (dati ogni 5).</p>
+<p class="mu">Privacy (28/10/2026): i link dei siti che contengono il cognome non si mostrano qui; sono nel cruscotto del docente. Una scheda per allievo, dal sito più completo al meno. Le 7 cose: ✔ fatta, ○ manca. Voto sito = 40 + 40 × cose/7; voto di oggi = media con il quiz (il quiz non fatto conta dalle 12:50) − 3 per fuori lezione. Si aggiorna da sola ogni minuto (dati ogni 5).</p>
 </div></div>
 <script>
 function $(i){return document.getElementById(i)}
@@ -62,8 +62,8 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('stato').textContent=
  $('stato').textContent='Dati delle '+d.ora+' · '+R.length+' allievi ('+R.filter(function(r){return !r.assente}).length+' presenti) · si ricarica ogni minuto';
  $('kpi').innerHTML='<div class="k"><b>'+compl+'</b>siti completi (7/7)</div><div class="k"><b>'+salv+'</b>hanno salvato oggi</div><div class="k"><b>'+quiz+'</b>quiz fatti</div>';
  $('cards').innerHTML=R.map(function(r){
-  return '<div class="card"'+(r.assente?' style="opacity:.6"':'')+'><div class="th">'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<div class="noth">nessuna Home</div>')+'</div>'+
-  '<div class="body"><h2>'+e(r.alunno)+(r.assente?' <span class="ko">(assente oggi)</span>':'')+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
+  return '<div class="card"'+(r.assente?' style="opacity:.6"':'')+'><div class="th">'+(r.thumb?(r.sito?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<img src="data:image/jpeg;base64,'+r.thumb+'" alt="">'):'<div class="noth">nessuna Home</div>')+'</div>'+
+  '<div class="body"><h2>'+e(r.alunno)+(r.assente?' <span class="ko">(assente oggi)</span>':'')+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':(r.sito_nota?'<div class="url mu" style="font-size:14px;margin:0 0 4px">🌐 '+e(r.sito_nota)+'</div>':''))+
   '<div class="chips">'+OK.map(function(x){return r.pezzi.indexOf(x)>=0?'<span class="ok">✔ '+x+'</span>':'<span class="ko">○ '+x+'</span>'}).join('')+'</div>'+
   '<div class="meta">salvataggi oggi: '+r.commit_oggi+' · ultimo: '+e(r.ultimo||'—')+' · rami: '+(r.rami||0)+' · Pull Request: '+(r.pr||0)+' · quiz: '+(r.quiz||'non fatto')+' · fuori lezione: '+r.fuori+'</div>'+
   '<div class="msg">'+e(r.messaggio)+'</div></div>'+

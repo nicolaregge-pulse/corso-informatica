@@ -401,6 +401,8 @@ e incoraggianti anche in prosa sobria e con liste numerate.
 
 ## ⭐ Ogni testo per i ragazzi nelle 3 lingue (VINCOLANTE — richiesto da Nicola)
 
+**Le lingue sono per classe (vedi la regola 21):** 1INF italiano, arabo e cinese; 2INF solo italiano; 3INF italiano più il bangla solo per il PC 14; 4TI solo italiano. Questa sezione vale dove le tre lingue servono (1INF).
+
 Ogni testo **destinato agli allievi** (consegne, esercizi, guide, avvisi, schede)
 deve essere **disponibile nelle 3 lingue** del gruppo: **italiano, arabo, cinese
 semplificato**. Regole pratiche:

@@ -1,6 +1,6 @@
 # RIPARTENZA — da qui riparte ogni chat nuova
 
-**Versione 1.4** — 28/10/2026 · Area Docente · senza nomi di allievi · v1.4: punto 08.3, la Chat del giorno parte a mezzanotte (non alle 6:47) · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
+**Versione 1.5** — 28/10/2026 · Area Docente · senza nomi di allievi · v1.5: punto 04.5, compito del mattino SENZA scadenza (regola 27) · v1.4: punto 08.3, la Chat del giorno parte a mezzanotte (non alle 6:47) · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
 
 *Perché esiste: le chat lunghe consumano il limite settimanale (ogni messaggio rilegge tutta la conversazione). Regola nuova: **una chat nuova ogni giorno di lezione**. La chat nuova legge questo file (corto) e `CLAUDE.md` (le regole), e trova tutto il resto su Git. Questo file lo aggiorna Claude a fine giornata.*
 
@@ -33,7 +33,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 2. Teoria e ripasso sulla pagina `verifica/?b=<banca>` (motore unico, banche in `docs/verifica/banche/`); gli **esercizi valutati sono un quiz su Google Moduli** (traccia per la Regione) creato dal ponte con `forms.crea_quiz`.
 3. Documento della lezione MD+PDF dalla banca: `python3 strumenti/banca2md.py <banca> <cartella> AAAAMMGG <Nome-Pdf> [passi…]`.
 4. Prova come un ragazzo prima di pubblicare: `NODE_PATH=$(npm root -g) node strumenti/prova_verifica.js <banca>` (serve `cd docs && python3 -m http.server 8765`).
-5. **Scadenze sulle campanelle vere:** 08:55 · 09:55 · 10:50 · intervallo · 11:10 · 12:05 · 13:05 · 14:00; la scadenza è la campanella dell'ultima ora della classe (REGISTRO-ERRORI #97).
+5. **Scadenze: il compito del mattino su Classroom si pubblica SENZA scadenza** (CLAUDE.md regola 27, 28/10/2026; superata la vecchia regola della campanella dell'ultima ora, REGISTRO-ERRORI #97). Le campanelle restano l'orario dei tempi della lezione: 08:55 · 09:55 · 10:50 · intervallo · 11:10 · 12:05 · 13:05 · 14:00.
 6d. **«Pubblicare» vuol dire ANCHE Classroom (Nicola, 22/10/2026):** una lezione è pubblicata solo quando sono pubblicati la pagina sul sito E, su Classroom, il compito con la spiegazione e il link e l'annuncio «OGGI FATE SOLO QUESTE COSE». Mai dire «pubblicata» per la sola pagina.
 6c. **TEMPI STRETTI, SEMPRE MISURATI (Nicola, 22/10/2026: «una cosa essenziale per ogni classe»):** mai tempi lunghi; ogni lavoro ha un tempo per ogni pezzo (10-15 minuti) e una scadenza vicina; a fine lezione si scrive nel diario quanto ci hanno messo davvero (primo, metà classe, ultimo) e la volta dopo si usa quel dato (REGISTRO-ERRORI #102).
 6b. **Richieste bloccanti in ROSSO (Nicola, 21/10/2026):** in chat ogni cosa che blocca il lavoro e aspetta Nicola (un «pubblica», un clic, una conferma) si scrive con 🔴 e in grassetto, in cima o subito dopo il passo.

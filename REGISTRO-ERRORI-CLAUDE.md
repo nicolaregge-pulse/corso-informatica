@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.86** — 28/10/2026 (#125-#138)
+**Versione 2.87** — 28/10/2026 (#125-#138; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -35,7 +35,7 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ## 28/10/2026 — Audit fatti sulla pagina e non sul dato (#134)
 
-1. **Errore.** Il docente: «ti continuo a chiedere di fare audit e c'è sempre un errore». I miei controlli verificano che una pagina si apra senza errori, non che i dati siano veri rispetto alla fonte (Classroom, Moduli): così il 28/10 il cruscotto 1INF ha mostrato per un'ora «0 consegnati» mentre metà classe aveva consegnato (#133). Nel caso BETTINELLI (2INF) il dato era invece giusto, ma il docente non aveva modo di verificarlo da solo.
+1. **Errore.** Il docente: «ti continuo a chiedere di fare audit e c'è sempre un errore». I miei controlli verificano che una pagina si apra senza errori, non che i dati siano veri rispetto alla fonte (Classroom, Moduli): così il 28/10 il cruscotto 1INF ha mostrato per un'ora «0 consegnati» mentre metà classe aveva consegnato (#133). Nel caso R. B. (2INF) il dato era invece giusto, ma il docente non aveva modo di verificarlo da solo.
 2. **Regola.** Ogni audit confronta almeno 2 allievi con la fonte vera (Classroom, Moduli) prima di dare il link; ogni monitor scrive accanto ai dati da dove vengono e a che ora sono stati letti.
 
 ## 28/10/2026 — ERRORE GRAVE: il cruscotto non dice chi ha consegnato su Classroom (#133)
@@ -142,7 +142,7 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ## 22/10/2026 — Le consegne dei ragazzi cadute per i MIEI salvataggi ogni 5 minuti (#112)
 
-1. **Errore.** Il giro automatico spingeva i dati sul repository riservato ogni 5 minuti. Lo script di Google salva le consegne nello stesso repository: trovandolo occupato, il suo salvataggio falliva e la consegna restava solo nel Foglio di riserva, mentre la pagina diceva al ragazzo «arrivata al prof». In 3INF sono cadute 5 verifiche (Valerio, Domi, Dimalo, Catalano, Gervasoni), in 2INF 6. Il docente: «qualcosa non funziona nel tuo giro», «ogni giorno un tuo errore».
+1. **Errore.** Il giro automatico spingeva i dati sul repository riservato ogni 5 minuti. Lo script di Google salva le consegne nello stesso repository: trovandolo occupato, il suo salvataggio falliva e la consegna restava solo nel Foglio di riserva, mentre la pagina diceva al ragazzo «arrivata al prof». In 3INF sono cadute 5 verifiche (N. V., A. D., M. D., N. C., A. G.), in 2INF 6. Il docente: «qualcosa non funziona nel tuo giro», «ogni giorno un tuo errore».
 2. **Regola.** Durante la lezione i giri automatici NON spingono sul riservato: commit locali, push a fine ora. Ogni giro che legge le consegne controlla anche il Foglio di riserva (comando `drive.esporta` del Foglio «Arrivi verifiche») e recupera le righe «SOLO QUI». La pagina della verifica deve dire «arrivata» solo dopo la risposta vera dello script (da correggere nel motore).
 
 ## 22/10/2026 — Audit «Ponte OK» per deduzione, con il timer fermo da tre giorni (#104)
@@ -167,12 +167,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ## 22/10/2026 — Monitor senza i presenti e con un nome falso; omonimi confusi (#108)
 
-1. **Errore.** Nel monitor mancavano allievi presenti e c'era «xxx sddd»; il controllo Lazarus ha abbinato Khella con Aciobanitei (tutti e due Giorgio) e ha incluso un assente.
+1. **Errore.** Nel monitor mancavano allievi presenti e c'era «xxx sddd»; il controllo Lazarus ha abbinato G. K. con G. A. (tutti e due Giorgio) e ha incluso un assente.
 2. **Regola.** Nelle tabelle ci sono tutti e soli i presenti (Veyon o registro); l'abbinamento dei nomi si fa per cognome, mai per nome di battesimo.
 
 ## 22/10/2026 — «Fuori compito» segnato senza averlo verificato (#109)
 
-1. **Errore.** Picco alle 09:05 (riquadro scuro «da verificare») e Acevedo alle 08:41 (scheda vuota) sono finiti nei messaggi ai ragazzi come «Veyon ti ha visto fuori lezione»; Elkeran alle 11:25 era una pubblicità a comparsa, non una pagina cercata da lui.
+1. **Errore.** M. P. alle 09:05 (riquadro scuro «da verificare») e K. A. alle 08:41 (scheda vuota) sono finiti nei messaggi ai ragazzi come «Veyon ti ha visto fuori lezione»; M. E. alle 11:25 era una pubblicità a comparsa, non una pagina cercata da lui.
 2. **Regola.** «Da verificare» non va mai nel pubblico. Fuori compito solo quando lo schermo mostra chiaramente un'altra attività; una pubblicità, una scheda vuota o uno schermo bloccato non lo sono.
 
 ## 22/10/2026 — Lezione GitHub troppo lunga, prima vittoria troppo tardi (#110)
@@ -182,7 +182,7 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ## 22/10/2026 — Due ritagli uguali nel report dei fatti (#111)
 
-1. **Errore.** Nel PDF dei fatti su Uccheddu c'erano due immagini identiche (schermo bloccato alle 11:31 e 11:33). Il docente: «che senso ha mettere 2 immagini uguali?».
+1. **Errore.** Nel PDF dei fatti su S. U. c'erano due immagini identiche (schermo bloccato alle 11:31 e 11:33). Il docente: «che senso ha mettere 2 immagini uguali?».
 2. **Regola.** Prima di mettere due ritagli consecutivi si confrontano: se sono uguali ne resta uno con le due ore nella didascalia.
 
 ## 22/10/2026 — Richiesta «scrivi i tuoi errori nel file» rimandata a fine giornata (#113)
@@ -211,7 +211,7 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 ## 21/10/2026 — PC senza nome lasciato come «utente non indicato» (#100)
 
-1. **Errore:** nei giri di Veyon ho scritto «PC38: video di pugilato, utente non indicato» invece di chiedere chi c'era; era Elkeran.
+1. **Errore:** nei giri di Veyon ho scritto «PC38: video di pugilato, utente non indicato» invece di chiedere chi c'era; era M. E..
 2. **Correzione:** Nicola ha detto il nome; diario e configurazione aggiornati (PC38).
 3. **Regola:** se un riquadro di Veyon non mostra il nome dell'utente, chiedo subito a Nicola chi c'è a quel PC (scritto in `RIPARTENZA.md` §06).
 
@@ -509,9 +509,9 @@ lezione.*
 13. **05/10, 11:50 — due compiti pubblicati insieme.** Ho messo su Classroom subito sia il primo lavoro (programma su GitHub) sia il secondo (Indovina il numero): i ragazzi non hanno capito quale fare per primo. **Regola (RIFERIMENTI §2.39):** su Classroom c'è UN solo compito aperto alla volta. Il secondo si prepara in coda e si pubblica solo quando Nicola dice che la classe ha finito il primo. Il titolo dice sempre l'ordine ("1 di 2", "2 di 2") e le istruzioni del secondo iniziano con "PRIMA finisci ...".
 14. **05/10, 12:00 — istruzioni GitHub poco chiare e pagina rigenerata male.** Per pubblicare il programma Lazarus avevo scelto il copia-incolla del codice (Ctrl + A, Ctrl + C, Create new file): né Nicola né i ragazzi l'hanno capito; Nicola si aspettava il caricamento dei file da GitHub web. In più, rigenerando la pagina, il generatore ha rimesso in vista dispensa e compito degli if, che dovevano restare nascosti. **Regole:** 1) per caricare file su GitHub si usa il metodo standard **Add file → Upload files → choose your files**, salvo diversa indicazione di Nicola; nel dubbio si chiede PRIMA di scrivere i passi. 2) Dopo ogni rigenerazione di una pagina della classe si apre la pagina nel browser di prova e si controlla che si veda SOLO il lavoro di oggi (numero di riquadri) prima di pubblicare.
 15. **05/10, 12:08 — istruzione "seleziona unit1.pas, unit1.lfm…" impossibile da seguire.** Sui PC della scuola Windows nasconde le estensioni: i ragazzi vedono due "unit1" e due "project1" e non sanno quali prendere. **Regola:** mai chiedere di riconoscere un file dall'estensione. Per scegliere più file si dà un bottone COPIA con i nomi tra virgolette (es. "unit1.pas" "unit1.lfm"), da incollare nella casella "Nome file" della finestra di Windows.
-16. **05/10, 12:15 — "nessuno ha caricato" detto senza verificare bene.** Cercavo i lavori indovinando nomi utente e il nome esatto `lazarus`, e leggendo con raw (con cache): Picco aveva caricato in `lazarus-`, Castelletta e Moussa avevano caricato dopo il mio controllo. **Regola (RIFERIMENTI §2.40):** ricerca GitHub dei repository creati oggi + `git clone`; mai dire "non ha caricato" senza il clone.
+16. **05/10, 12:15 — "nessuno ha caricato" detto senza verificare bene.** Cercavo i lavori indovinando nomi utente e il nome esatto `lazarus`, e leggendo con raw (con cache): M. P. aveva caricato in `lazarus-`, L. C. e M. M. avevano caricato dopo il mio controllo. **Regola (RIFERIMENTI §2.40):** ricerca GitHub dei repository creati oggi + `git clone`; mai dire "non ha caricato" senza il clone.
 17. **05/10, sera — file da scaricare poco chiari.** Ho mandato lo zip dei libri protetti intero (troppo grande, 31 MB) e poi le 2 parti: Nicola si è trovato 4 file senza sapere quali scaricare. **Regola:** se un file supera il limite, lo divido PRIMA e mando solo le parti; nel messaggio dico esattamente quali file scaricare e quanti sono.
-18. **05/10, sera — voti di Indovina calcolati prima della raccolta dei Documenti e due errori nel correttore.** Ho chiuso la classe alle 13:51, prima della raccolta delle 13:56: mancavano i punti del Documento. In più il correttore abbinava il Documento per pezzo di cognome ("abdel" trovava anche Abdelfattah) e contava le domande del modello vuoto come risposte. **Regole:** 1) la chiusura si fa DOPO l'ultima raccolta delle consegne; 2) gli abbinamenti allievo ↔ file si fanno su parole intere di tutto il cognome; 3) dal Documento si conta solo il testo scritto dal ragazzo, tolte le righe del modello.
+18. **05/10, sera — voti di Indovina calcolati prima della raccolta dei Documenti e due errori nel correttore.** Ho chiuso la classe alle 13:51, prima della raccolta delle 13:56: mancavano i punti del Documento. In più il correttore abbinava il Documento per pezzo di cognome (un pezzo di cognome trovava anche il cognome più lungo di un altro allievo) e contava le domande del modello vuoto come risposte. **Regole:** 1) la chiusura si fa DOPO l'ultima raccolta delle consegne; 2) gli abbinamenti allievo ↔ file si fanno su parole intere di tutto il cognome; 3) dal Documento si conta solo il testo scritto dal ragazzo, tolte le righe del modello.
 19. **06/10, 08:30 — «nessun guasto segnalato prima» detto senza la fonte giusta.** Per il PC 33 ho detto che non c'erano segnalazioni precedenti: in realtà era già nella segnalazione all'assistenza del 28-29/09, che non era salvata nel repository. **Regola:** tutte le segnalazioni all'assistenza si salvano nel repo riservato (`dati/manutenzione/`, con il registro dei guasti); prima di dire «mai segnalato» si controlla lì e, se manca qualcosa, si chiede al docente. A ogni lezione si verifica se i guasti aperti esistono ancora.
 20. **06/10, 08:10-09:10 — lista «Cose da fare» pubblicata rotta.** Aggiungendo una voce ho sostituito il blocco dei dati con una ricerca automatica che ha preso anche il codice della pagina: la pagina non partiva più. **Regola:** quando si ripubblica una pagina che si salva da sola, il blocco dei dati si sostituisce una volta sola e in un punto preciso; prima di pubblicare si controlla il codice e si apre la pagina in un browser di prova.
 21. **06/10, mattina — report dei voti trattenuto per un PPP.** Nicola aveva chiesto «dammi il report con tutte le valutazioni»; i messaggi PPP successivi ne precisavano il contenuto, ma io ho risposto «te lo do al tuo avanti». Nicola: «smettila con avanti, se ti dico di farmeli fammeli». **Regola (Regole nostre, PPP punti 5-6):** se un risultato è stato chiesto, il PPP successivo ne cambia solo il contenuto e il risultato si consegna appena è pronto; e un PPP non mi tiene mai fermo: se non sto facendo niente, vado avanti.
