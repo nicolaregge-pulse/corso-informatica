@@ -1,16 +1,36 @@
 {
- "ora": "10:13",
+ "ora": "10:15",
  "banca": "1inf-lazarus-ciao",
  "fine": "11:00",
  "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni; il resto dopo la correzione. −3 ogni volta che Veyon ti vede fuori lezione.",
  "link": "../verifica/?b=1inf-lazarus-ciao",
  "classroom": {
-  "consegnati": 10,
+  "consegnati": 16,
   "su": 20,
-  "letto_alle": "10:10",
-  "fonte": "situazione"
+  "letto_alle": "10:15",
+  "fonte": "ponte"
  },
  "righe": [
+  {
+   "alunno": "Moaaz A.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "solo desktop",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
   {
    "alunno": "Giexther A.",
    "voto": 60,
@@ -52,6 +72,46 @@
    }
   },
   {
+   "alunno": "Aya B.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "sta consegnando",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
+  {
+   "alunno": "Alessio C.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "sta consegnando",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
+  {
    "alunno": "Martinez F.",
    "voto": 60,
    "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
@@ -87,6 +147,66 @@
    "classroom": {
     "stato": "consegnato",
     "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
+  {
+   "alunno": "Yinlin L.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "Lazarus o Classroom",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
+  {
+   "alunno": "Moaaz M.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "Lazarus o Classroom",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
+    "allegati": 1,
+    "ritardo": false
+   }
+  },
+  {
+   "alunno": "Md M.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:11",
+    "schermata di blocco",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:15",
     "allegati": 1,
     "ritardo": false
    }
@@ -212,26 +332,6 @@
    }
   },
   {
-   "alunno": "Moaaz A.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "solo desktop",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
    "alunno": "Christian A.",
    "voto": 40,
    "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
@@ -252,46 +352,6 @@
    }
   },
   {
-   "alunno": "Aya B.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "sta consegnando",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
-   "alunno": "Alessio C.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "sta consegnando",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
    "alunno": "Cristian C.",
    "voto": 40,
    "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
@@ -301,66 +361,6 @@
    "vy_ult": [
     "10:11",
     "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
-   "alunno": "Yinlin L.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
-   "alunno": "Moaaz M.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "allegati": 1,
-    "ritardo": false
-   }
-  },
-  {
-   "alunno": "Md M.",
-   "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "10:11",
-    "schermata di blocco",
     false
    ],
    "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
