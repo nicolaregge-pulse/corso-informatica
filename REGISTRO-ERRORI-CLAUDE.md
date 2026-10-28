@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.83** — 27/10/2026 (#125-#131 del 27/10)
+**Versione 2.84** — 28/10/2026 (#125-#136)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,16 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 28/10/2026 — PC 32: «a posto» senza verificare e un consiglio che ha rotto Lazarus (#135)
+
+1. **Errore.** Un'installazione di Lazarus 4.8 avviata da un allievo si è fermata su un file di sistema. Ho consigliato «Interrompi» invece di «Ignora» (il file non serve a Lazarus su Windows): l'installazione è rimasta a metà. Poi, vedendo le date dei file, ho scritto che Lazarus era a posto senza controllare quale versione ci fosse: era un misto 4.8 e 4.2 che non trova il compilatore.
+2. **Regola.** Davanti a un errore di installazione su un file di sistema non necessario si sceglie «Ignora» e si arriva in fondo. «A posto» si dice solo dopo una compilazione riuscita (F9) sul PC.
+
+## 28/10/2026 — 2INF: link al TEST ufficiale della Regione nella pagina dei ragazzi (#136)
+
+1. **Errore.** Nel ripasso delle 4 ore della 2INF ho messo i link alla teoria ufficiale della Regione: in quelle pagine c'è il bottone «TEST», il quiz ufficiale che non si può usare prima di gennaio-febbraio. Il docente: «se come quiz hai usato il 3° bottone hai sbagliato tutto».
+2. **Regola.** Nelle pagine dei ragazzi nessun link al sito della Regione: il ripasso sta dentro le nostre pagine e i quiz sono solo i nostri Google Moduli.
 
 ## 28/10/2026 — Audit fatti sulla pagina e non sul dato (#134)
 
