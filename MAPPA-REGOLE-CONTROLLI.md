@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.0** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.1** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -77,9 +77,9 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
    2.4. Push del riservato: coda/ e comandi/ devono leggersi (#12), per tutti, nuovo.
 3. `generatori/verifica_lezione.py` del riservato: compito PUBLISHED, pagina pubblicata e, nuovo, annuncio più recente con «OGGI…» (#94); l'hook (d) lo esige prima di «pubblicato».
 4. `generatori/audit_regole.py` del riservato (passi notturni 01.1), nuovo: pagine cambiate (lingue, Regione, «arriva tra poco», nomi, sintassi, Modulo con incolla, foto e telefono, link a file mancanti), un compito e un annuncio per classe al giorno, scadenze sulle campanelle, istruzioni impaginate, comandi del ponte (fermi, troppo grandi, non archiviati, più di 40 al giorno), versioni cancellate, sezione del giorno in FIRME-REGISTRO.
-5. `.claude/passi-notturni.md`, nuovo: i comandi notturni, 14 domande sì/no sulla lezione del giorno e 4 promemoria a orario (firma alle 13:30, piano B 10 minuti prima, fine classe, argomenti svolti alle 14:10).
+5. `.claude/passi-notturni.md`, nuovo: i comandi notturni, 15 domande sì/no sulla lezione del giorno (dalla v1.1 anche la regola 28) e 4 promemoria a orario (firma alle 13:30, piano B 10 minuti prima, fine classe, argomenti svolti alle 14:10); dalla v1.1 l'ultimo passo scrive `stato/notte-<giorno>.json` nel riservato e `strumenti/controlla_controlli.py` controlla che i controlli siano vivi (controllore del controllore).
 6. Già attivi: Chat del giorno, passo 5 (pagina, compito in bozza, quiz, cruscotto con le consegne, piano B, battito, 2 allievi confrontati con la fonte); audit pre-lezione delle 06:50 (comandi fermi, pubblicazione, sei bottoni, consegne «SOLO QUI»); `versiona-tutto.sh`.
-7. Prove: `.claude/hooks/prove/prova_messaggio.py` (59 casi), `.claude/hooks/prove/prova_limite.py` (23 casi), `generatori/prova_audit_regole.py` del riservato (11 casi): tutti superati il 28/10/2026. Ogni controllo, se si rompe, esce con 0 e non blocca.
+7. Prove: `.claude/hooks/prove/prova_messaggio.py` (59 casi), `.claude/hooks/prove/prova_limite.py` (27 casi dalla v1.1: anche mv e git mv di una versione), `generatori/prova_audit_regole.py` del riservato (11 casi): tutti superati il 28/10/2026. Ogni controllo, se si rompe, esce con 0 e non blocca.
 
 ## 04 Tabella delle voci
 
@@ -320,3 +320,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
+2. v1.1 (28/10/2026, audit): passi notturni v1.1 con lo stato della notte e il controllore dei controlli; hook limite-comandi.py anche contro mv e git mv delle versioni; audit_regole.py vede anche le versioni rinominate.
