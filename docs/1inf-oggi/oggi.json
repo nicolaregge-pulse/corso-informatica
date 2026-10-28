@@ -1,13 +1,13 @@
 {
- "ora": "10:54",
+ "ora": "10:58",
  "banca": "1inf-lazarus-ciao",
  "fine": "11:00",
  "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni il Documento con il codice; +10 con lo screenshot; +10 con la tua frase. −3 ogni volta che Veyon ti vede fuori lezione.",
  "link": "../verifica/?b=1inf-lazarus-ciao",
  "classroom": {
-  "consegnati": 20,
+  "consegnati": 19,
   "su": 20,
-  "letto_alle": "10:50",
+  "letto_alle": "10:55",
   "fonte": "ponte"
  },
  "righe": [
@@ -478,37 +478,6 @@
    }
   },
   {
-   "alunno": "Pachas A.",
-   "voto": 70,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 = 70 (provvisorio, Documento letto alle 10:53)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Nel tuo Documento manca: frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": false,
-    "manca": [
-     "frase"
-    ],
-    "letto_alle": "10:53",
-    "testo": "codice ✓ · screenshot ✓ · frase ✗",
-    "avviso": "CONSEGNATO INCOMPLETO: manca frase"
-   }
-  },
-  {
    "alunno": "Yinlin L.",
    "voto": 70,
    "conto": "40 + consegnato con il codice 20 + screenshot 10 = 70 (provvisorio, Documento letto alle 10:53)",
@@ -569,6 +538,37 @@
     "letto_alle": "10:53",
     "testo": "codice ✗ · screenshot ✓ · frase ✗",
     "avviso": "CONSEGNATO INCOMPLETO: manca codice, frase"
+   }
+  },
+  {
+   "alunno": "Pachas A.",
+   "voto": 40,
+   "conto": "40 = 40 (provvisorio, Documento letto alle 10:53)",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": [
+    "10:20",
+    "Lazarus o Classroom",
+    false
+   ],
+   "cosa_fare": "Nel tuo Documento manca: frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "classroom": {
+    "stato": "non trovato",
+    "ora": null,
+    "allegati": null,
+    "ritardo": false
+   },
+   "doc": {
+    "codice": true,
+    "screenshot": true,
+    "frase": false,
+    "manca": [
+     "frase"
+    ],
+    "letto_alle": "10:53",
+    "testo": "codice ✓ · screenshot ✓ · frase ✗",
+    "avviso": ""
    }
   },
   {
