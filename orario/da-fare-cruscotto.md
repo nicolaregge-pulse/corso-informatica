@@ -6,3 +6,5 @@
 4. Vista dell'allievo: che cosa vede un ragazzo e la vista dei compagni; «impersona un allievo».
 5. Grafico dell'uso dell'AI (Claude): quanto resta nel giorno, quanto fino al rinnovo annuale, stima di quanto si può ancora usare con il modello e la modalità attuali.
 6. Il cruscotto della lezione legge solo lo scopo del giorno (configurazione del giorno), per tutte le classi.
+7. Comandi del ponte: quanti eseguiti oggi e quanti ancora da eseguire.
+8. Nel grafico AI: tempo e token ancora disponibili con il modello e la modalità attuali, per decidere se usare Fable.
