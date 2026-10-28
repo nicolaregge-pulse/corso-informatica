@@ -1,0 +1,14 @@
+{
+  "classe": "1INF",
+  "giorno": "2026-10-28",
+  "modalita": ["guidato", "teoria-quiz"],
+  "proposte": [
+    {"n": 1, "titolo": "Lazarus: il primo programma Ciao", "descrizione": "Percorso guidato a passi: si apre Lazarus, si mette un bottone e un'etichetta e il programma dice Ciao con il tuo nome. Poi la scheda di teoria e il quiz.", "preferita": true}
+  ],
+  "scelta": 1,
+  "link": [
+    {"t": "La lezione di oggi: il primo programma Ciao", "u": "verifica/?b=1inf-lazarus-ciao"},
+    {"t": "La guida passo passo", "u": "1inf-howto-progetto/"}
+  ],
+  "mancanze": "Chiudere il primo programma Ciao in Lazarus per chi non lo ha ancora finito."
+}
