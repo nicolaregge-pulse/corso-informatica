@@ -1,6 +1,6 @@
 # RIPARTENZA — da qui riparte ogni chat nuova
 
-**Versione 1.0** — 21/10/2026 · Area Docente · senza nomi di allievi
+**Versione 1.1** — 28/10/2026 · Area Docente · senza nomi di allievi · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
 
 *Perché esiste: le chat lunghe consumano il limite settimanale (ogni messaggio rilegge tutta la conversazione). Regola nuova: **una chat nuova ogni giorno di lezione**. La chat nuova legge questo file (corto) e `CLAUDE.md` (le regole), e trova tutto il resto su Git. Questo file lo aggiorna Claude a fine giornata.*
 
@@ -21,7 +21,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 
 ## 03 Lo script di Google «Consegne Classroom → Git» (account PIAMARTA)
 
-1. Versione in uso: **v8.3 (27/10/2026)**: il giro ha un RITMO scelto dal docente o da Claude — `ritmo1` (ogni minuto, solo durante le consegne), `ritmo5` (ogni 5 minuti, il normale), `ritmo10` (lezione senza consegne), `disattivaAutomatico` (spento quando non c'è lezione); dal ponte l'azione `script.ritmo` con `minuti` 1, 5, 10 o 0. I comandi già letti non si rileggono (prima: centinaia di letture al minuto, limite di GitHub di 5.000 l'ora superato e limite di Google di 100.000 chiamate al giorno finito, REGISTRO-ERRORI #125). Contatori nel cruscotto (giri e chiamate di oggi, richieste GitHub rimaste e ora dell'azzeramento) da `?ping=1`. Claude archivia in `comandi/archivio/` i comandi eseguiti. Prima: **v8.1** (deployment Versione 3, 21/10/2026, ore 09:35): i segnali di avanzamento vanno solo nel Foglio, niente lucchetto; il giro gira ogni minuto. **v8.2 pronta su Git, da incollare e da pubblicare come nuova versione:** bozze (il docente vede, i ragazzi no), `classroom.mostra`, `classroom.programma`, `classroom.compito_modifica`, `classroom.annuncio_modifica`, `classroom.compito_cancella` (conferma «CANCELLA», si ferma se ci sono consegne), `classroom.voti`, `classroom.annunci`.
+1. Versione in uso dal 28/10/2026: **v8.4** (leva del ritmo dal cruscotto, vedi sezione 08). Prima: **v8.3 (27/10/2026)**: il giro ha un RITMO scelto dal docente o da Claude — `ritmo1` (ogni minuto, solo durante le consegne), `ritmo5` (ogni 5 minuti, il normale), `ritmo10` (lezione senza consegne), `disattivaAutomatico` (spento quando non c'è lezione); dal ponte l'azione `script.ritmo` con `minuti` 1, 5, 10 o 0. I comandi già letti non si rileggono (prima: centinaia di letture al minuto, limite di GitHub di 5.000 l'ora superato e limite di Google di 100.000 chiamate al giorno finito, REGISTRO-ERRORI #125). Contatori nel cruscotto (giri e chiamate di oggi, richieste GitHub rimaste e ora dell'azzeramento) da `?ping=1`. Claude archivia in `comandi/archivio/` i comandi eseguiti. Prima: **v8.1** (deployment Versione 3, 21/10/2026, ore 09:35): i segnali di avanzamento vanno solo nel Foglio, niente lucchetto; il giro gira ogni minuto. **v8.2 pronta su Git, da incollare e da pubblicare come nuova versione:** bozze (il docente vede, i ragazzi no), `classroom.mostra`, `classroom.programma`, `classroom.compito_modifica`, `classroom.annuncio_modifica`, `classroom.compito_cancella` (conferma «CANCELLA», si ferma se ci sono consegne), `classroom.voti`, `classroom.annunci`.
 2. **Coda** `coda/*.json` (stato `da-pubblicare` → compito su Classroom) e **ponte** `comandi/*.json` (stato `da-eseguire`: `forms.crea_quiz`, `forms.risposte`, `drive.esporta`, `classroom.compiti`, `classroom.consegne`, `classroom.annuncio`, `classroom.annuncio_cancella`).
 3. ID dei corsi: 1INF 877008807336 · 2INF 162656105584 · 3INF 25324574640 · 4TI 25324465949.
 4. Foglio «Arrivi verifiche»: `1hpyJGHZpwDW7Y4ZwajtB_Qzr9AHc29Q_esgHr8NqJs8`.
@@ -60,7 +60,7 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 5. **3INF, a ogni lezione (Nicola, 21/10):** si controllano TUTTI i siti dei ragazzi con `python3 generatori/lavori_3inf_oggi.py` nel riservato (giro ogni 3 minuti per tutta la lezione): file e nomi giusti, cartella img, sfondo, animazione, versione, rami, Pull Request, merge, commit del giorno. Gli utenti GitHub stanno in `config/3inf-github.json`; chi non c'è si aggiunge appena si vede il suo indirizzo.
 6. A fine lezione: stringa per DIDAweb `GG/MM/AAAA h N | argomento | COGNOME NOME;voto …` con voti 40-80 = 40 + 40 × punti/massimo (leggere SEMPRE il massimo del quiz) e tutti i presenti.
 
-## 07 Cose aperte (21/10)
+## 07 Cose aperte (21/10) — storiche, lo stato attuale è nella sezione 08
 
 1. 3INF del 21/10: dopo la lezione, il cruscotto dei siti dalla pagina «L'albero del mio sito».
 2. 2INF giovedì 22/10: finire le interrogazioni sul WHILE (sorteggio di due).
@@ -69,6 +69,39 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 5. 2INF sicurezza: rileggere `classe-2/sicurezza-piano/PIANO-SICUREZZA-2INF.md` prima di ogni ora (ore n. 6-7 chiusura della formazione generale, dall'ora n. 8 i 12 argomenti del coordinatore).
 6. Storico dei cruscotti: fotografia di fine lezione in `storico/cruscotti/<classe>/<data>/` del riservato (fatto il 21/10; da automatizzare a ogni giro).
 7. Script v8.2 scritto il 21/10 (anche `classroom.voti` e `annuncio_cancella` con `annuncio_id` o `id`): manca solo che Nicola lo incolli e pubblichi la nuova versione.
-8. 3INF: voti di Classroom del 21/10 da caricare con la v8.2; recupero individuale per Uccheddu (sito `SAMUELE-UCCHEDDU1` fermo al 07/10) e Mendoza; report Uccheddu v1.1 da correggere (il repository esiste).
+8. 3INF: voti di Classroom del 21/10 da caricare con la v8.2; recupero individuale per due allievi (nomi nel riservato); un report individuale v1.1 da correggere (il repository esiste).
 9. 2INF sicurezza: recupero dei quiz delle ore 1-4 (tabella nel riservato `dati/situazione/2INF_sicurezza-ore.md`); dall'ora n. 8 i 12 argomenti del coordinatore.
-10. 1INF: compito di Noemi del 20/10 non trovato in nessun Modulo né consegna (chiederle dove l'ha fatto).
+10. 1INF: compito di un'allieva del 20/10 non trovato in nessun Modulo né consegna (chiederle dove l'ha fatto).
+
+## 08 Stato al 28/10/2026 sera
+
+Una chat nuova riparte da qui senza chiedere niente al docente. Prima di tutto: regola 21 di `CLAUDE.md` (rileggere regole, `MODUS-OPERANDI.md`, `REGISTRO-ERRORI-CLAUDE.md`, `CHECKLIST-LEZIONE.md`).
+
+1. **Script Apps Script v8.4** (`strumenti/automazione-corso.gs`).
+   1.1. Il ritmo del giro si cambia dal cruscotto con la leva: indirizzo `?ritmo=N&k=<codice>`; la risposta è «Il cambio vale da subito».
+   1.2. Ritmo consigliato: 5 minuti durante la lezione, 1 minuto durante le consegne, 10 minuti fuori lezione.
+   1.3. Da «spento» solo Apps Script lo riaccende (la leva non basta): evitare di spegnerlo se non serve.
+2. **Controlli automatici (hook)** in `.claude/hooks/`, spiegati in `.claude/hooks/LEGGIMI-controlli.md`.
+   2.1. Se la sessione parte da `/home/user`, attivarli con `python3 /home/user/corso-informatica/.claude/hooks/attiva-controlli-home.py`.
+   2.2. Il promemoria degli errori da non ripetere è `.claude/promemoria-errori.md`.
+3. **Attività programmata «Chat del giorno»**: ogni lunedì-venerdì alle 6:47 parte una sessione nuova che prepara la giornata. La chat nuova del mattino è quella.
+4. **Regole e registri nuovi.**
+   4.1. Regola 23 di `CLAUDE.md`: in 1INF si dà sempre qualcosa da ricopiare sul quaderno, e lo si ricorda a ogni cambio di attività.
+   4.2. Regola 24: un report PDF per ogni ora con gli screenshot di Veyon a piena risoluzione; solo nel riservato in `report/AAAA-MM-GG/`; script `generatori/report_ore.py` con `config/report-ore-AAAAMMGG.json`.
+   4.3. Prima di ricordare una firma si legge `FIRME-REGISTRO-2026-27.md`.
+   4.4. Il registro degli errori arriva al #138.
+5. **Lezioni del 28/10 (fatte).**
+   5.1. 1INF Lazarus «Ciao»: pagina `docs/verifica/?b=1inf-lazarus-ciao`, guida `docs/1inf-howto-progetto/`; tutti i progetti stanno nella cartella `Documenti\Lazarus`.
+   5.2. 2INF sicurezza: recupero dei quiz delle ore 1-4 (`docs/2inf-sicurezza-recupero/`), monitor `docs/avanzamento/2inf-sicurezza-oggi.html`.
+   5.3. 3INF Java: Eclipse portabile da zip, guida `docs/3inf-eclipse-guida/` v1.1; la consegna è spostata a giovedì 29/10 ore 13:00.
+6. **Cose aperte che riguardano il docente** (chiederle UNA volta sola, quando servono).
+   6.1. Voti 1INF del 28/10: ora tutti 80 provvisori, da confermare.
+   6.2. Punti per i voti della 3INF.
+   6.3. Conferma del piano B per pubblicare: annuncio pronto 10 minuti prima.
+   6.4. Presenze 2INF del 28/10.
+   6.5. PC 32 dell'aula 11: Lazarus 4.8 a metà installazione; va reinstallato fino in fondo, premendo «Ignora» sull'errore `Qt4Pas5.dll`.
+   6.6. Facoltativa: richiesta su GitHub ad Anthropic per nascondere i riquadri.
+7. **Cose aperte che fa Claude da solo.**
+   7.1. Cruscotto: giorni passati, vista dell'allievo, grafico dell'uso dell'AI.
+   7.2. Ripasso 3INF di giovedì.
+   7.3. Lezioni di giovedì 29/10: vedi `PROSSIME-LEZIONI.md`.
