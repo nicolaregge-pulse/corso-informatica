@@ -39,7 +39,8 @@ Argomento da decidere con il prof.
 
 Argomento: Hello World in Lazarus e in Java.
 Attività: il prof mostra Lazarus; per Java si prova un sito che esegue i programmi nel browser senza installare niente, anche con le finestre e i bottoni.
-Da fare prima: il prof prova il sito JavaFiddle da un computer della scuola.
+Materiali: la pagina della lezione «Hello World in Lazarus e in Java», in italiano con una riga in bangla, e il compito su Classroom con un Documento per ognuno, ancora in bozza.
+Da fare prima: il prof prova il sito JavaFiddle da un computer della scuola e pubblica il compito con il bottone Assegna.
 
 ## Giovedì 29 ottobre
 
