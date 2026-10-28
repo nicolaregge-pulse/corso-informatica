@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * v8.2: CLASSROOM DA DIETRO LE QUINTE (Nicola, 21/10: «preparate tutto ma che i ragazzi non lo vedano, io si»).
  *       1) BOZZE: un compito della coda con "bozza": true, o un annuncio del ponte con a.bozza, nasce in BOZZA:
  *          il docente lo vede in Classroom, i ragazzi no. Con "programma_iso" Classroom lo pubblica da solo a
@@ -774,7 +774,7 @@ function AUTO_conta(chiave, risp) {
 function AUTO_stato() {
   var pr = PropertiesService.getScriptProperties(), g = Utilities.formatDate(new Date(), 'Europe/Rome', 'yyyyMMdd');
   var rs = +(pr.getProperty('GH_RESET') || 0);
-  return { versione: '8.3', ritmo: +(pr.getProperty('RITMO') || 5), giri_oggi: +(pr.getProperty('GIRI_' + g) || 0),
+  return { versione: '8.4', leva_ritmo: true, ritmo: +(pr.getProperty('RITMO') || 5), giri_oggi: +(pr.getProperty('GIRI_' + g) || 0),
     chiamate_oggi: +(pr.getProperty('CHIAMATE_' + g) || 0), limite_google_giorno: 100000,
     github_rimaste: pr.getProperty('GH_RIMASTE') || '', github_limite_ora: 5000, github_reset: rs ? new Date(rs * 1000).toISOString() : '' };
 }
@@ -782,6 +782,7 @@ function AUTO_stato() {
 function doGet(e) {
   AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   var p = (e && e.parameter) || {};
+  if (p.ritmo !== undefined) return AUTO_ritmoDaWeb(p.ritmo, p.k, p.callback);   // v8.4: la leva del ritmo dal cruscotto
   if (p.ping) {   // v8.0: stato del timer, leggibile da chiunque (nessun dato dei ragazzi)
     var tr = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; }).length;
     var b = ''; try { b = String(AUTO_foglioArrivi().getParent().getSheetByName('Battito').getRange('A1').getValue()); } catch (x) {}
@@ -850,6 +851,25 @@ function AUTO_live(id, sim, tok, cb) {
   payload = JSON.stringify({ ok: true, id: id, sim: sim, quando: new Date().toISOString(), righe: righe });
   return AUTO_rispostaJs(payload, cb);
 }
+// v8.4 (28/10/2026): ?ritmo=0|1|5|10&k=<codice del monitor> cambia il timer subito, anche da spento.
+function AUTO_ritmoDaWeb(min, k, cb) {
+  var pr = PropertiesService.getScriptProperties(), atteso = pr.getProperty('RITMO_CHIAVE') || pr.getProperty('MONITOR_TOKEN') || '';
+  var mm = +min;
+  if (!atteso || String(k || '') !== atteso) {
+    var e1 = { ok: false, errore: atteso ? 'codice' : 'manca MONITOR_TOKEN nelle proprieta dello script' };
+    return cb ? AUTO_rispostaJs(JSON.stringify(e1), cb)
+      : AUTO_paginaArrivo('Ritmo NON cambiato', atteso ? 'Il codice non e\' giusto.' : 'Manca MONITOR_TOKEN nelle proprieta dello script.', '#c0392b');
+  }
+  if ([0, 1, 5, 10].indexOf(mm) < 0) {
+    return cb ? AUTO_rispostaJs(JSON.stringify({ ok: false, errore: 'ritmo 0, 1, 5 o 10' }), cb)
+      : AUTO_paginaArrivo('Ritmo NON cambiato', 'Il ritmo puo\' essere 1, 5, 10 minuti o 0 (spento).', '#c0392b');
+  }
+  AUTO_ritmo(mm);                                    // cancella il vecchio timer e ne crea uno nuovo: vale da subito
+  var st = AUTO_stato(); st.ok = true; st.ora = new Date().toISOString();
+  if (cb) return AUTO_rispostaJs(JSON.stringify(st), cb);
+  return AUTO_paginaArrivo('Ritmo cambiato', mm ? 'Lo script ora gira ogni ' + mm + (mm === 1 ? ' minuto.' : ' minuti.') : 'Lo script ora e\' SPENTO.', '#1a7f37');
+}
+
 function AUTO_rispostaJs(payload, cb) {
   if (cb) return ContentService.createTextOutput(String(cb).replace(/[^\w$.]/g, '') + '(' + payload + ')').setMimeType(ContentService.MimeType.JAVASCRIPT);
   return ContentService.createTextOutput(payload).setMimeType(ContentService.MimeType.JSON);
