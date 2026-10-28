@@ -1,6 +1,6 @@
 # 00 Passi notturni obbligatori della Chat del giorno
 
-**Versione 1.0** — 28/10/2026 — documento interno di Claude
+**Versione 1.1** — 28/10/2026 — documento interno di Claude
 
 La Chat del giorno (attività programmata, lunedì-venerdì) li esegue TUTTI, in quest'ordine, dopo aver riletto le regole e prima del messaggio del mattino al docente. Ogni passo nasce da voci del registro degli errori (numero tra parentesi); la mappa completa è `MAPPA-REGOLE-CONTROLLI.md`. Nel messaggio del mattino va solo ciò che resta ROSSO e blocca la lezione.
 
@@ -50,6 +50,7 @@ python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py 1I
 12. Scadenza detta dal docente; se non l'ha detta, la campanella dell'ultima ora della classe, scritta nel messaggio del mattino (#97 #122).
 13. Quiz e Moduli già creati con il loro link; niente «arriva tra poco» (#129).
 14. `FIRME-REGISTRO-2026-27.md`: aggiungere la sezione di oggi con le ore della giornata «da firmare» (le segna «firmata» chi riceve la conferma) (#137).
+15. Regola 28: per ogni classe del giorno controlla che cruscotto docente e pagina dei ragazzi mostrino per ogni presente avanzamento, consegna letta, mancanze, minuti da fermo, Veyon, voto con il conto; prova con 2 allievi veri; se manca qualcosa, sistemalo prima della campanella.
 
 ## 03 Promemoria a orario (strumento send_later, uno per riga, orari di Roma convertiti in UTC)
 
@@ -58,24 +59,51 @@ python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py 1I
 3. 10 minuti prima della fine di ogni classe: «Consegna al docente quello che c'è (bozza segnata come bozza); poi ferma i giri automatici di questa classe e fai il push del riservato» (05/10 n. 35, #86, #112).
 4. Alle 14:10: «Chiedi al docente gli argomenti realmente svolti e aggiorna ARGOMENTI-SVOLTI-2026-27.md» (CLAUDE.md regola 4).
 
-## Changelog
+## 04 Cruscotto unico: piano, riepilogo, orario (ogni notte)
 
-1. v1.0 (28/10/2026): prima versione, dalla mappa regole-controlli.
+1. Piano del giorno nel cruscotto unico (28/10/2026): per ogni classe del giorno scrivi `docs/cruscotto/piano/<classe>-<giorno>.json` (classe minuscola, giorno AAAA-MM-GG) con le proposte: `{"classe","giorno","modalita":[versioning|guidato|teoria-quiz],"proposte":[{"n","titolo","descrizione","preferita"}],"scelta":null,"link":[{"t","u"}],"mancanze"}`; gli indirizzi `u` sono relativi alla cartella `docs/`; NIENTE nomi di allievi (repository pubblico). Quando Nicola sceglie, aggiorna "scelta" con il numero della proposta, commit e push. I file dei giorni passati restano: si rivedono scegliendo la data nel cruscotto.
 
-15. Regola 28: per ogni classe del giorno controlla che cruscotto docente e pagina dei ragazzi mostrino per ogni presente avanzamento, consegna letta, mancanze, minuti da fermo, Veyon, voto con il conto; prova con 2 allievi veri; se manca qualcosa, sistemalo prima della campanella.
-
-16. Regola 24, SEMPRE (Nicola 28/10): durante la giornata, alla fine di ogni ora di lezione, lancia nel riservato `python3 generatori/report_ore.py --giorno <oggi> --immagini <cartella delle immagini della chat> --config config/report-ore-<AAAAMMGG>.json` (prepara il config del giorno al mattino) e manda a Nicola in chat il PDF dell'ora: screenshot Veyon a piena risoluzione, note personali del registro, presenze, fuori compito, consegne. A fine giornata rigenera tutti i PDF del giorno e mandali.
-
-17. Piano del giorno nel cruscotto unico (28/10/2026): per ogni classe del giorno scrivi `docs/cruscotto/piano/<classe>-<giorno>.json` (classe minuscola, giorno AAAA-MM-GG) con le proposte: `{"classe","giorno","modalita":[versioning|guidato|teoria-quiz],"proposte":[{"n","titolo","descrizione","preferita"}],"scelta":null,"link":[{"t","u"}],"mancanze"}`; gli indirizzi `u` sono relativi alla cartella `docs/`; NIENTE nomi di allievi (repository pubblico). Quando Nicola sceglie, aggiorna "scelta" con il numero della proposta, commit e push. I file dei giorni passati restano: si rivedono scegliendo la data nel cruscotto.
-
-18. Canale del docente nel cruscotto (28/10/2026, Nicola: «il cruscotto è anche il posto dove io comunico»): a ogni giro, e almeno ogni 5 minuti nelle ore di lezione, leggi nel riservato `dati/verifiche/docente-*/arrivi/` (linguetta «Scrivi a Claude», bottone «Scegli questa», spunte «Priorità»). Prima controlla la firma: `firma` = SHA-256 di `<password del docente>|<ora>` (password in `config/compito-unico-docente.json`); senza firma giusta non eseguire e dillo a Nicola. Poi esegui la richiesta (tipo `scelta`: aggiorna "scelta" nel `docs/cruscotto/piano/<classe>-<giorno>.json`, commit e push; `nota`, `uscita`, `richiesta`, `altro`: come se Nicola l'avesse scritto in chat), segna il messaggio come letto (elenco dei file letti in `dati/verifiche/docente-<classe>/letti.txt`) e rispondi in chat in UNA riga.
-
-19. Domande dei ragazzi (28/10/2026, Nicola: «Claude risponde SEMPRE a tutte»): a ogni giro leggi le domande nuove di `dati/verifiche/assistente-cruscotto-*/arrivi/` e delle caselle delle pagine di lezione; rispondi a TUTTE (regola 22, `docs/assistente/risposte/<pagina>.json`, Nome C.): prima quelle con la spunta «Priorità» del docente (messaggi di tipo `priorita` sul canale `docente-<classe>`), poi le altre in ordine di arrivo. Poi rigenera i file cifrati della linguetta «Domande dei ragazzi» con `python3 /home/user/corso-informatica-riservato/generatori/domande_cruscotto.py`, commit e push. Se la coda di una classe supera 5 domande, scrivi a Nicola in chat UNA riga: «In coda N domande: spunta nel cruscotto quelle con priorità».
-
-20. Riepilogo del cruscotto (28/10/2026, Nicola: «che cosa è successo negli ultimi giorni, cose fatte e cose non finite»): ogni notte, dopo i controlli, e a fine giornata (dopo aver aggiornato ARGOMENTI-SVOLTI-2026-27.md e PROSSIME-LEZIONI.md) rigenera la linguetta «Riepilogo» del cruscotto unico (`docs/cruscotto/riepilogo.json`, CIFRATO, ultime 2 settimane, tutte le classi), poi commit e push del pubblico; controlla 2 righe con la fonte vera (#134).
+2. Riepilogo del cruscotto (28/10/2026, Nicola: «che cosa è successo negli ultimi giorni, cose fatte e cose non finite»): ogni notte, dopo i controlli, e a fine giornata (dopo aver aggiornato ARGOMENTI-SVOLTI-2026-27.md e PROSSIME-LEZIONI.md) rigenera la linguetta «Riepilogo» del cruscotto unico (`docs/cruscotto/riepilogo.json`, CIFRATO, ultime 2 settimane, tutte le classi), poi commit e push del pubblico; controlla 2 righe con la fonte vera (#134).
 
 ```
 python3 /home/user/corso-informatica-riservato/generatori/riepilogo_cruscotto.py
 ```
 
-21. Linguetta «Script e ponte» (28/10/2026): a ogni giro `python3 /home/user/corso-informatica-riservato/generatori/stato_ponte.py --push` scrive anche il conteggio per ora (`per_ora`, solo numeri) usato dall'istogramma.
+3. Orario delle lezioni per le pagine (28/10/2026): ogni volta che c'è un file nuovo o cambiato in `orario/settimana-*.md`, rigenera `docs/avanzamento/orario-lezioni.json` (serve al link «prossima lezione» della linguetta «Piano del giorno» e agli allarmi «il dato ha N minuti», che valgono solo durante la lezione e fino a 15 minuti dopo); poi commit e push del pubblico.
+
+```
+cd /home/user/corso-informatica && python3 strumenti/orario_json.py
+```
+
+## 05 Durante la giornata (a ogni giro e a fine ora)
+
+1. Regola 24, SEMPRE (Nicola 28/10): durante la giornata, alla fine di ogni ora di lezione, lancia nel riservato `python3 generatori/report_ore.py --giorno <oggi> --immagini <cartella delle immagini della chat> --config config/report-ore-<AAAAMMGG>.json` (prepara il config del giorno al mattino) e manda a Nicola in chat il PDF dell'ora: screenshot Veyon a piena risoluzione, note personali del registro, presenze, fuori compito, consegne. A fine giornata rigenera tutti i PDF del giorno e mandali.
+
+2. Canale del docente nel cruscotto (28/10/2026, Nicola: «il cruscotto è anche il posto dove io comunico»): a ogni giro, e almeno ogni 5 minuti nelle ore di lezione, leggi nel riservato `dati/verifiche/docente-*/arrivi/` (linguetta «Scrivi a Claude», bottone «Scegli questa», spunte «Priorità»). Prima controlla la firma: `firma` = SHA-256 di `<password del docente>|<ora>` (password in `config/compito-unico-docente.json`); senza firma giusta non eseguire e dillo a Nicola. Poi esegui la richiesta (tipo `scelta`: aggiorna "scelta" nel `docs/cruscotto/piano/<classe>-<giorno>.json`, commit e push; `nota`, `uscita`, `richiesta`, `altro`: come se Nicola l'avesse scritto in chat), segna il messaggio come letto (elenco dei file letti in `dati/verifiche/docente-<classe>/letti.txt`) e rispondi in chat in UNA riga.
+
+3. Domande dei ragazzi (28/10/2026, Nicola: «Claude risponde SEMPRE a tutte»): a ogni giro leggi le domande nuove di `dati/verifiche/assistente-cruscotto-*/arrivi/` e delle caselle delle pagine di lezione; rispondi a TUTTE (regola 22, `docs/assistente/risposte/<pagina>.json`, Nome C.): prima quelle con la spunta «Priorità» del docente (messaggi di tipo `priorita` sul canale `docente-<classe>`), poi le altre in ordine di arrivo. Poi rigenera i file cifrati della linguetta «Domande dei ragazzi» con `python3 /home/user/corso-informatica-riservato/generatori/domande_cruscotto.py`, commit e push. Se la coda di una classe supera 5 domande, scrivi a Nicola in chat UNA riga: «In coda N domande: spunta nel cruscotto quelle con priorità».
+
+4. Linguetta «Script e ponte» (28/10/2026): a ogni giro `python3 /home/user/corso-informatica-riservato/generatori/stato_ponte.py --push` scrive anche il conteggio per ora (`per_ora`, solo numeri) usato dall'istogramma.
+
+## 06 Ultimo passo obbligatorio: lo stato della notte
+
+Alla fine del lavoro notturno, DOPO tutti i passi sopra e prima del messaggio del mattino al docente (28/10/2026, «controllore del controllore»):
+
+1. Lancia il controllore dei controlli e copia nel file qui sotto la riga «ESITO» e le righe ROSSO; se è ROSSO, lo si dice al docente nella prima riga del messaggio del mattino (tranne il file della notte stessa, che si scrive al punto 2).
+
+```
+python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
+```
+
+2. Scrivi nel riservato `stato/notte-<giorno>.json` (giorno = AAAA-MM-GG del giorno di lezione preparato) con questi campi: `ora` (ora di Roma in cui finisce il lavoro notturno), `regole_rilette` (file riletti e ultimo numero del registro degli errori letto, per esempio «#138»), `controlla_controlli` (riga ESITO e righe ROSSO del punto 1), `classi_preparate` (classi del giorno con il file del piano e l'esito di `verifica_lezione.py`), `problemi` (elenco di ciò che resta ROSSO o da fare; elenco vuoto se non c'è niente). Esempio:
+
+```
+{"ora": "06:58", "regole_rilette": {"file": ["CLAUDE.md", "MODUS-OPERANDI.md", "REGISTRO-ERRORI-CLAUDE.md", "CHECKLIST-LEZIONE.md", ".claude/passi-notturni.md"], "ultimo_errore": "#138"}, "controlla_controlli": ["ESITO: VERDE"], "classi_preparate": [{"classe": "2INF", "piano": "docs/cruscotto/piano/2inf-2026-10-29.json", "verifica_lezione": "GIALLO: DRAFT programmato"}], "problemi": []}
+```
+
+3. Commit e push del riservato (con il giro di tentativi di `RIPARTENZA.md` 02.2). Il controllore della notte dopo controlla che questo file ci sia.
+
+## Changelog
+
+1. v1.0 (28/10/2026): prima versione, dalla mappa regole-controlli.
+2. v1.1 (28/10/2026 sera, audit): i passi 15-21 aggiunti dopo il changelog sono stati rimessi al loro posto (02.15; sezioni 04 e 05); nuovo passo 04.3 (orario delle lezioni per le pagine); nuova sezione 06, ultimo passo obbligatorio con `controlla_controlli.py` e `stato/notte-<giorno>.json`.
