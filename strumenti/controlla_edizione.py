@@ -94,7 +94,10 @@ if os.path.exists(riservato):
     exec(re.search(r"ROSTER=\{.*?\n\}", src, re.S).group(0), ns)
     for v in ns["ROSTER"].values():
         nomi |= {t.lower() for t in v[0].split() if len(t) > 3}
-    nomi |= {"chase", "giulian", "deleon", "alvarez", "bettinelli", "acevedo"}
+    try:   # nomi in più: elenco nel riservato (28/10/2026, privacy), se manca si va avanti in silenzio
+        nomi |= {n.lower() for n in json.load(open(os.path.join(os.path.dirname(QUI), "corso-informatica-riservato", "config", "nomi-controllo.json"), encoding="utf-8"))["nomi"]}
+    except Exception:
+        pass
 else:
     avvisi.append("elenco delle classi non trovato (repository riservato): i nomi dei ragazzi non sono stati cercati")
 for p in E["parti"]:

@@ -1,6 +1,6 @@
 # 00 Passi notturni obbligatori della Chat del giorno
 
-**Versione 1.1** — 28/10/2026 — documento interno di Claude
+**Versione 1.2** — 28/10/2026 — documento interno di Claude
 
 La Chat del giorno (attività programmata, lunedì-venerdì) li esegue TUTTI, in quest'ordine, dopo aver riletto le regole e prima del messaggio del mattino al docente. Ogni passo nasce da voci del registro degli errori (numero tra parentesi); la mappa completa è `MAPPA-REGOLE-CONTROLLI.md`. Nel messaggio del mattino va solo ciò che resta ROSSO e blocca la lezione.
 
@@ -47,7 +47,7 @@ python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py 1I
 9. La pagina della classe mostra solo il lavoro di oggi (05/10 n. 10).
 10. Sei bottoni, cruscotto e pagine del docente con la DATA DI OGGI, ogni bottone aperto mostra dati di oggi (#71 #75 #77 #80 #60).
 11. Lingue della classe controllate anche sul testo del compito della coda (1INF italiano, arabo, cinese; 2INF solo italiano; 3INF italiano + bangla per il PC 14; 4TI italiano) (#49 #82 #119).
-12. Scadenza detta dal docente; se non l'ha detta, la campanella dell'ultima ora della classe, scritta nel messaggio del mattino (#97 #122).
+12. Compito del mattino SENZA scadenza (CLAUDE.md regola 27, 28/10/2026): nella coda niente `scadenza_iso`; l'audit lo segnala come errore. La vecchia regola della campanella (#97 #122) è superata.
 13. Quiz e Moduli già creati con il loro link; niente «arriva tra poco» (#129).
 14. `FIRME-REGISTRO-2026-27.md`: aggiungere la sezione di oggi con le ore della giornata «da firmare» (le segna «firmata» chi riceve la conferma) (#137).
 15. Regola 28: per ogni classe del giorno controlla che cruscotto docente e pagina dei ragazzi mostrino per ogni presente avanzamento, consegna letta, mancanze, minuti da fermo, Veyon, voto con il conto; prova con 2 allievi veri; se manca qualcosa, sistemalo prima della campanella.
@@ -107,3 +107,4 @@ python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
 
 1. v1.0 (28/10/2026): prima versione, dalla mappa regole-controlli.
 2. v1.1 (28/10/2026 sera, audit): i passi 15-21 aggiunti dopo il changelog sono stati rimessi al loro posto (02.15; sezioni 04 e 05); nuovo passo 04.3 (orario delle lezioni per le pagine); nuova sezione 06, ultimo passo obbligatorio con `controlla_controlli.py` e `stato/notte-<giorno>.json`.
+3. v1.2 (28/10/2026): passo 02.12 allineato alla regola 27 di `CLAUDE.md`: compito del mattino SENZA scadenza.

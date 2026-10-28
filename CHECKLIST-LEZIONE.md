@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.4** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.5** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -24,7 +24,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 
 1. Prima di creare un compito leggo i compiti del giorno della classe (`classroom.compiti`): se il docente ha già pubblicato, gli do solo il testo da aggiungere (#89, #93, #121).
 2. Pubblicare = pagina + compito + annuncio «OGGI FATE SOLO…». Dico «pubblicato» solo dopo aver visto lo stato «PUBLISHED» di Classroom e il sito con «PUBBLICATO» (#79, #94, #105, #120).
-3. Scadenza: la dice il docente; se non l'ha detta, la campanella dell'ultima ora della classe (es. 2INF 11-14 → 14:00) e lo scrivo in chat (#97, #122; il 26/10 Nicola ha fissato le 14).
+3. Scadenza: il compito del mattino su Classroom si pubblica SENZA scadenza (CLAUDE.md regola 27, 28/10/2026); l'audit notturno segnala come errore un compito in coda con la scadenza. Prima valeva la campanella dell'ultima ora (#97, #122): superata.
 4. Un solo compito e un solo annuncio al giorno per classe; un annuncio sbagliato si corregge, non se ne aggiunge un altro (#93, #107).
 5. Nei testi per Classroom: titoletti in maiuscolo, una riga per passo, nomi dei bottoni copiati dalla pagina vera (errore del 05/10 in 3INF, #106).
 6. Prima di scrivere «pubblicato», «è tutto pronto», «è online», «possono cominciare» per una classe lancio `python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py <CLASSE>` (Classroom vero via ponte + pagina pubblicata) e lo dico solo se stampa VERDE, entro 15 minuti; l'hook `controllo-messaggio.py` blocca il messaggio altrimenti (#63, #83, #104, #105, #115, #120, #127, #128, #135).
@@ -52,7 +52,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 1. Controllo dei repository della 2INF: conta solo una cartella con un progetto vero; lib, backup e i file che Lazarus rifà sono segnalati; il nome del primo progetto è libero; chi non ha progetti prepara solo il repository (#123).
 2. Casella dell'assistente: «Mandata!» solo quando l'invio è partito (#124).
 3. Cruscotto unico con il calendario e i giorni salvati: allievo o docente con la password (richiesta di Nicola).
-4. Regola della scadenza riallineata: #97 e #122 dicevano due cose diverse; vale il punto 02.3 di questa lista.
+4. Regola della scadenza riallineata: #97 e #122 dicevano due cose diverse; vale il punto 02.3 di questa lista (dal 28/10/2026: nessuna scadenza, regola 27).
 
 ## Changelog
 
@@ -61,3 +61,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 3. v1.2 (28/10/2026): rimando ai controlli automatici (`.claude/hooks/LEGGIMI-controlli.md`).
 4. v1.3 (28/10/2026): punto 02.6, verifica della lezione con `verifica_lezione.py` prima di dire «pubblicato».
 5. v1.4 (28/10/2026): rimando a `MAPPA-REGOLE-CONTROLLI.md` e ai passi notturni; nuovi controlli automatici (hook del messaggio e prima del push, audit notturno).
+6. v1.5 (28/10/2026): punto 02.3 allineato alla regola 27 di `CLAUDE.md`: compito del mattino SENZA scadenza (non più la campanella).

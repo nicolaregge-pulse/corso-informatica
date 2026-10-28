@@ -53,7 +53,7 @@
 ## v1.4 — 08/10/2026 12:55 — Treno più veloce, Nash, Dylan, il cielo che cambia subito
 
 1. PR #17 di Noah (PC 35), MOTORE FISICA: velocità del treno 2, «più intenso e più difficile».
-2. PR #15 di Domi (PC 13), PERSONAGGI: Nash ha la giacca blu e nera e quando vince dice «Bella partita… ma il migliore resta uno solo».
+2. PR #15 di Ariel D. (PC 13), PERSONAGGI: Nash ha la giacca blu e nera e quando vince dice «Bella partita… ma il migliore resta uno solo».
 3. PR #19 di Emmanuel (PC 22), TEST QUALITÀ: il cattivo Dylan, mimetica grigio scuro, esce da dietro un vagone blindato e grida «GAAA!!».
 4. PR #18 di Eric (PC 23): Franciscos ha la mimetica azzurra e bianca.
 5. DIFETTO trovato da Dani (PR #20) e Ale (PR #21), SCENARI: al livello 2 il cielo cambiava in ritardo. Sistemato: quando sali di livello cambia subito anche l'ambiente.
@@ -62,7 +62,7 @@
 
 1. PR #8 di Mirko (PC 16), SCENARI: cespugli vicino ai binari da cui escono i banditi, con armi diverse (fucile d'assalto, revolver, pistola).
 2. PR #13 di Dani (PC 18) e #14 di Ale (PC 17), SCENARI: in montagna greggi di mucche e pecore che pascolano senza intralciare la strada.
-3. PR #10 di Domi (PC 13) e #11 di Tomas (PC 15), PERSONAGGI: Travor esce da palazzi, tombini e cespugli e dice «Tutto qui quello che sai fare?»; il protagonista si chiama Nash.
+3. PR #10 di Ariel D. (PC 13) e #11 di Tomas (PC 15), PERSONAGGI: Travor esce da palazzi, tombini e cespugli e dice «Tutto qui quello che sai fare?»; il protagonista si chiama Nash.
 4. PR #12 di Eric (PC 23), TEST QUALITÀ: il cattivo Franciscos, mimetica azzurra, esce da un cespuglio con il revolver e grida «ARGENTINAA!».
 
 ## v1.2 — 08/10/2026 12:30 — Montagna, tempo che peggiora, Travor

@@ -4,7 +4,7 @@
 
 1. PR #8 di Mirko (PC 16), SCENARI: cespugli vicino ai binari da cui escono i banditi, con armi diverse (fucile d'assalto, revolver, pistola).
 2. PR #13 di Dani (PC 18) e #14 di Ale (PC 17), SCENARI: in montagna greggi di mucche e pecore che pascolano senza intralciare la strada.
-3. PR #10 di Domi (PC 13) e #11 di Tomas (PC 15), PERSONAGGI: Travor esce da palazzi, tombini e cespugli e dice «Tutto qui quello che sai fare?»; il protagonista si chiama Nash.
+3. PR #10 di Ariel D. (PC 13) e #11 di Tomas (PC 15), PERSONAGGI: Travor esce da palazzi, tombini e cespugli e dice «Tutto qui quello che sai fare?»; il protagonista si chiama Nash.
 4. PR #12 di Eric (PC 23), TEST QUALITÀ: il cattivo Franciscos, mimetica azzurra, esce da un cespuglio con il revolver e grida «ARGENTINAA!».
 
 ## v1.2 — 08/10/2026 12:30 — Montagna, tempo che peggiora, Travor
