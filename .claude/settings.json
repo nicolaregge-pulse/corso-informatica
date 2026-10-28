@@ -8,6 +8,35 @@
             "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/versiona-tutto.sh\"",
             "timeout": 90,
             "statusMessage": "Controllo che tutto sia versionato (pubblico + privato)..."
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/controllo-messaggio.py\"",
+            "timeout": 20,
+            "statusMessage": "Controllo il messaggio contro il registro degli errori..."
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/promemoria-errori.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/limite-comandi.py\"",
+            "timeout": 20
           }
         ]
       }
