@@ -4,6 +4,12 @@
  "fine": "11:00",
  "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni; il resto dopo la correzione. −3 ogni volta che Veyon ti vede fuori lezione.",
  "link": "../verifica/?b=1inf-lazarus-ciao",
+ "classroom": {
+  "consegnati": 10,
+  "su": 20,
+  "letto_alle": "10:10",
+  "fonte": "situazione"
+ },
  "righe": [
   {
    "alunno": "Giexther A.",
@@ -17,7 +23,13 @@
     "pagina della lezione",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Pachas A.",
@@ -31,7 +43,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Martinez F.",
@@ -45,7 +63,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Muhid H.",
@@ -59,7 +83,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Muhammad N.",
@@ -73,7 +103,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Thomas R.",
@@ -87,7 +123,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Giovanni S.",
@@ -101,7 +143,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Enea Z.",
@@ -115,7 +163,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Lopez A.",
@@ -129,7 +183,13 @@
     "ricerca immagini di mouse su Google",
     true
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Udugampalage F.",
@@ -143,7 +203,13 @@
     "Google Maps",
     true
    ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7)."
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:10",
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Moaaz A.",
@@ -157,7 +223,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Christian A.",
@@ -171,7 +243,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Aya B.",
@@ -185,7 +263,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Alessio C.",
@@ -199,7 +283,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Cristian C.",
@@ -213,7 +303,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Yinlin L.",
@@ -227,7 +323,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Moaaz M.",
@@ -241,7 +343,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Md M.",
@@ -255,7 +363,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Abdel N.",
@@ -269,7 +383,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   },
   {
    "alunno": "Andrea S.",
@@ -283,7 +403,13 @@
     "Lazarus o Documento della consegna",
     false
    ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00."
+   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "allegati": 1,
+    "ritardo": false
+   }
   }
  ]
 }
