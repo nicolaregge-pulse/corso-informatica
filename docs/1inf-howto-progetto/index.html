@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nuovo progetto Lazarus</title>
+<style>
+/* 1INF 28/10/2026: come si crea un progetto nuovo in Lazarus. Vale per tutti i progetti dell'anno. IT/AR/ZH. */
+:root{--bg:#f3f6f8;--card:#fff;--ink:#16202a;--mu:#5a6878;--ln:#d5dde5;--ok:#1f7a3f;--okbg:#e6f4ea;--acc:#0b6e99;--code:#eef2f7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--okbg:#17321f;--acc:#5cc1e8;--code:#22303c}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--okbg:#17321f;--acc:#5cc1e8;--code:#22303c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.5 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:26px;margin:0 0 6px;line-height:1.25}
+h2{font-size:21px;margin:24px 0 8px}
+.mu{color:var(--mu)}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:17px;margin:4px 0}
+.zh{color:var(--mu);font-size:17px;margin:4px 0}
+.passo{background:var(--card);border:2px solid var(--ln);border-radius:14px;padding:12px 14px;margin:12px 0;display:flex;gap:12px;align-items:flex-start}
+.passo.fatto{border-color:var(--ok);background:var(--okbg)}
+.n{flex:0 0 40px;height:40px;border-radius:50%;background:var(--acc);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:19px}
+.passo.fatto .n{background:var(--ok)}
+.t{flex:1;min-width:0}
+.t p{margin:0 0 4px}
+.it{font-size:19px}
+label.f{display:inline-flex;align-items:center;gap:10px;margin-top:8px;padding:8px 14px;border:2px solid var(--ok);border-radius:10px;font-weight:800;color:var(--ok);cursor:pointer;user-select:none}
+label.f input{width:26px;height:26px;accent-color:#1f7a3f}
+code{background:var(--code);border:1px solid var(--ln);border-radius:6px;padding:1px 6px;overflow-wrap:anywhere}
+pre{background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;font-size:16px;overflow-x:auto;margin:8px 0}
+img{max-width:100%;border-radius:10px;border:1px solid var(--ln)}
+.box{background:var(--card);border:2px solid var(--acc);border-radius:14px;padding:12px 14px;margin:16px 0}
+.bar{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:12px 0;font-weight:700}
+button.az{font:inherit;font-size:15px;padding:6px 12px;border-radius:8px;border:1px solid var(--ln);background:var(--card);color:var(--ink);cursor:pointer}
+</style>
+</head>
+<body><div class="w">
+<h1>Come si crea un progetto nuovo in Lazarus</h1>
+<p class="ar" lang="ar">كيف أنشئ مشروعًا جديدًا في Lazarus</p>
+<p class="zh" lang="zh">怎么在 Lazarus 里新建一个项目</p>
+<p>Vale per <b>ogni</b> progetto dell'anno. Tutti i tuoi progetti stanno nella cartella <b>Documenti → Lazarus</b>. Ogni progetto ha la <b>sua</b> cartella: un progetto = una cartella.</p>
+<p class="ar" lang="ar">هذه الخطوات لكل مشروع. كل مشاريعك في المجلد Documenti ← Lazarus. لكل مشروع مجلده: مشروع واحد = مجلد واحد.</p>
+<p class="zh" lang="zh">每个项目都这样做。你所有的项目都在文件夹 Documenti → Lazarus 里。每个项目有自己的文件夹：一个项目 = 一个文件夹。</p>
+<pre>Documenti\
+  Lazarus\          &lt;- TUTTI i miei progetti
+    Ciao\           &lt;- UN progetto = UNA cartella
+    Calcolatrice\
+    (prossimo)\</pre>
+<p>Fai un passo alla volta. Quando hai finito un passo, clicca <b>Fatto</b>.</p>
+<p class="ar" lang="ar">نفّذ خطوة واحدة في كل مرة. عندما تنتهي اضغط «Fatto» (تمّ).</p>
+<p class="zh" lang="zh">一次只做一步。做完一步，点「Fatto」（完成）。</p>
+<div class="bar" id="conta">0 passi fatti</div>
+<div id="passi"></div>
+<p><button class="az" id="azzera" type="button">Ricomincia da capo (togli tutte le spunte)</button></p>
+<div class="box">
+<h2 style="margin-top:0">Per riaprire un progetto</h2>
+<p>Menu <b>Progetto</b> → <b>Apri progetto…</b> → a sinistra <b>Documenti</b> → doppio clic su <b>Lazarus</b> → doppio clic sulla cartella del progetto → clic sul file che finisce con <code>.lpi</code> → <b>Apri</b>.</p>
+<p class="ar" lang="ar">لفتح مشروع من جديد: قائمة «Progetto» ← «Apri progetto» ← Documenti ← Lazarus ← مجلد المشروع ← الملف الذي ينتهي بـ ‎.lpi‎ ← «Apri» (فتح).</p>
+<p class="zh" lang="zh">重新打开项目：菜单 Progetto →「Apri progetto」→ Documenti → Lazarus → 项目文件夹 → 以 .lpi 结尾的文件 →「Apri」（打开）。</p>
+</div>
+</div>
+<script>
+var P=[
+ ['In alto a sinistra in Lazarus clicca il menu <b>File</b>.',
+  'في الأعلى على اليسار في Lazarus اضغط القائمة «File».',
+  '在 Lazarus 左上角点菜单 File。'],
+ ['Nel menu clicca <b>Chiudi tutto</b>. Se Lazarus chiede di salvare un progetto vecchio, clicca <b>No</b>.',
+  'في القائمة اضغط «Chiudi tutto» (إغلاق الكل). إذا سأل Lazarus عن حفظ مشروع قديم اضغط «No».',
+  '在菜单里点「Chiudi tutto」（全部关闭）。如果 Lazarus 问要不要保存旧项目，点「No」。'],
+ ['In alto clicca il menu <b>Progetto</b>.',
+  'في الأعلى اضغط القائمة «Progetto» (مشروع).',
+  '在上面点菜单 Progetto（项目）。'],
+ ['Nel menu clicca <b>Nuovo progetto…</b>. Si apre una finestra con un elenco.',
+  'في القائمة اضغط «Nuovo progetto» (مشروع جديد). تُفتح نافذة فيها قائمة.',
+  '在菜单里点「Nuovo progetto」（新项目）。会打开一个有列表的窗口。'],
+ ['Nell\'elenco clicca <b>Applicazione</b>.',
+  'في القائمة اضغط «Applicazione» (تطبيق).',
+  '在列表里点「Applicazione」（应用程序）。'],
+ ['In basso nella finestra clicca <b>OK</b>. Compare la finestra vuota <b>Form1</b>.',
+  'في أسفل النافذة اضغط OK. تظهر النافذة الفارغة Form1.',
+  '在窗口下面点 OK。会出现空的窗口 Form1。'],
+ ['SUBITO si salva: in alto clicca il menu <b>Progetto</b>.',
+  'نحفظ فورًا: في الأعلى اضغط القائمة «Progetto».',
+  '马上保存：在上面点菜单 Progetto。'],
+ ['Nel menu clicca <b>Salva progetto con nome…</b>. Si apre la finestra per salvare.',
+  'في القائمة اضغط «Salva progetto con nome» (حفظ المشروع باسم). تُفتح نافذة الحفظ.',
+  '在菜单里点「Salva progetto con nome」（项目另存为）。会打开保存窗口。'],
+ ['Nella finestra per salvare, nel pannello a sinistra, clicca <b>Documenti</b>.',
+  'في نافذة الحفظ، في اللوحة على اليسار، اضغط «Documenti» (المستندات).',
+  '在保存窗口左边，点「Documenti」（文档）。'],
+ ['Fai <b>doppio clic</b> sulla cartella <b>Lazarus</b>. In alto c\'è scritto <b>Documenti › Lazarus</b>.',
+  'انقر مرتين على المجلد Lazarus. في الأعلى يظهر Documenti › Lazarus.',
+  '双击文件夹 Lazarus。上面会写着 Documenti › Lazarus。'],
+ ['In alto nella finestra clicca il bottone <b>Nuova cartella</b>.<br><img src="../verifica/foto/1inf-lazarus-ciao-6.jpg" alt="la finestra per salvare: percorso Documenti, Lazarus, bottone Nuova cartella, cartella Ciao">',
+  'في أعلى النافذة اضغط الزر «Nuova cartella» (مجلد جديد).',
+  '在窗口上面点「Nuova cartella」（新建文件夹）按钮。'],
+ ['Scrivi il <b>nome del progetto</b>, senza spazi. Per esempio <code>Ciao</code> oppure <code>Calcolatrice</code>.',
+  'اكتب اسم المشروع بدون فراغات، مثلًا Ciao أو Calcolatrice.',
+  '写项目的名字，不要空格，比如 Ciao 或 Calcolatrice。'],
+ ['Premi il tasto <b>Invio</b>.',
+  'اضغط مفتاح Invio (الإدخال).',
+  '按 Invio（回车）键。'],
+ ['Fai <b>doppio clic</b> sulla cartella nuova per entrarci.',
+  'انقر مرتين على المجلد الجديد للدخول إليه.',
+  '双击新文件夹，进去。'],
+ ['In basso, nella casella <b>Nome file</b>, scrivi lo <b>stesso nome</b> della cartella, con <code>.lpi</code> alla fine. Per esempio <code>Ciao.lpi</code>',
+  'في الأسفل، في خانة «Nome file» (اسم الملف)، اكتب نفس اسم المجلد وفي آخره ‎.lpi‎، مثلًا Ciao.lpi',
+  '在下面「Nome file」（文件名）框里写和文件夹一样的名字，后面加上 .lpi，比如 Ciao.lpi。'],
+ ['In basso a destra clicca <b>Salva</b>.',
+  'في الأسفل على اليمين اضغط «Salva» (حفظ).',
+  '在右下角点「Salva」（保存）。'],
+ ['Lazarus chiede il nome della <b>unit</b> (il file del codice). Lascia <code>unit1.pas</code> e clicca <b>Salva</b>.',
+  'يسأل Lazarus عن اسم الوحدة (ملف الكود). اترك unit1.pas واضغط «Salva».',
+  'Lazarus 会问单元（代码文件）的名字。保留 unit1.pas，点「Salva」。'],
+ ['Controlla: nella barra in alto di Lazarus c\'è il <b>nome del progetto</b> e il percorso che finisce con <code>Documents\\Lazarus\\NomeProgetto</code> (Windows scrive Documents, in inglese: è la stessa cartella Documenti). FATTO!',
+  'تحقّق: في الشريط العلوي لـ Lazarus يظهر اسم المشروع والمسار الذي ينتهي بـ Documents\\Lazarus\\اسم المشروع. أحسنت!',
+  '检查：Lazarus 最上面一栏有项目名字和以 Documents\\Lazarus\\项目名 结尾的路径。完成了！']
+];
+var KEY='howto-progetto-lazarus', S={};
+try{S=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){S={}}
+function salva(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+function disegna(){
+ var h='';
+ P.forEach(function(p,i){var f=!!S[i];
+  h+='<div class="passo'+(f?' fatto':'')+'"><div class="n">'+(i+1)+'</div><div class="t"><p class="it">'+p[0]+'</p><p class="ar" lang="ar">'+p[1]+'</p><p class="zh" lang="zh">'+p[2]+'</p>'+
+   '<label class="f"><input type="checkbox" data-i="'+i+'"'+(f?' checked':'')+'> Fatto · تمّ · 完成</label></div></div>'});
+ document.getElementById('passi').innerHTML=h;
+ var n=P.filter(function(_,i){return S[i]}).length;
+ document.getElementById('conta').textContent=n+' passi fatti su '+P.length+(n===P.length?' · Bravo! Il progetto è pronto.':'');
+}
+document.getElementById('passi').addEventListener('change',function(e){var i=e.target.getAttribute('data-i');if(i==null)return;S[i]=e.target.checked;salva();disegna()});
+document.getElementById('azzera').addEventListener('click',function(){S={};salva();disegna()});
+disegna();
+</script>
+</body>
+</html>
