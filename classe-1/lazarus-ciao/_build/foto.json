@@ -14,7 +14,13 @@
   }
  ],
  "5": [
-  "foto/1inf-lazarus-ciao-1.jpg"
+  "foto/1inf-lazarus-ciao-1.jpg",
+  {
+   "f": "foto/1inf-lazarus-ciao-5.jpg",
+   "d": "Lo schermo del prof. A sinistra, linguetta Eventi: OnClick è collegato a Button1Click (si collega da solo con il doppio clic sul bottone). Nella casella il prof ha scritto «Scrivi il tuo nome» nella proprietà Text. Nel codice il prof ha messo il nome prima: ShowMessage(Edit1.Text + ' ciao'); va bene lo stesso: cambia solo l'ordine delle scritte unite con il +.",
+   "ar": "شاشة الأستاذ: في لسان «Eventi» الحدث OnClick مربوط بـ Button1Click (يُربط وحده بالنقر مرتين على الزر). الأستاذ وضع الاسم أولًا: ShowMessage(Edit1.Text + ' ciao'); وهذا صحيح أيضًا، يتغيّر فقط ترتيب الكلمات.",
+   "zh": "老师的屏幕：在 Eventi 标签里，OnClick 连着 Button1Click（双击按钮就会自动连上）。老师把名字放在前面：ShowMessage(Edit1.Text + ' ciao'); 这样也对，只是用 + 连起来的文字顺序不同。"
+  }
  ],
  "7": [
   {
