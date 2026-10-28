@@ -1,20 +1,20 @@
 {
- "ora": "10:29",
+ "ora": "10:34",
  "banca": "1inf-lazarus-ciao",
  "fine": "11:00",
- "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni; il resto dopo la correzione. −3 ogni volta che Veyon ti vede fuori lezione.",
+ "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni il Documento con il codice; +10 con lo screenshot; +10 con la tua frase. −3 ogni volta che Veyon ti vede fuori lezione.",
  "link": "../verifica/?b=1inf-lazarus-ciao",
  "classroom": {
   "consegnati": 19,
   "su": 20,
-  "letto_alle": "10:25",
+  "letto_alle": "10:30",
   "fonte": "ponte"
  },
  "righe": [
   {
    "alunno": "Moaaz A.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -29,12 +29,13 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Christian A.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -49,12 +50,13 @@
     "ora": "10:20",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Giexther A.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -69,12 +71,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Pachas A.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -89,12 +92,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Aya B.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -109,12 +113,13 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Alessio C.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -129,12 +134,34 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
+  },
+  {
+   "alunno": "Cristian C.",
+   "voto": 60,
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 0,
+   "vy_ult": [
+    "10:20",
+    "sito di Lazarus, pagina di download",
+    false
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:30",
+    "allegati": 1,
+    "ritardo": false
+   },
+   "doc": null
   },
   {
    "alunno": "Martinez F.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -149,12 +176,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Muhid H.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -169,12 +197,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Yinlin L.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -189,12 +218,13 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Moaaz M.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -209,12 +239,13 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Md M.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -229,12 +260,13 @@
     "ora": "10:15",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Abdel N.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -249,12 +281,13 @@
     "ora": "10:20",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Muhammad N.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -269,12 +302,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Thomas R.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -289,12 +323,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Giovanni S.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -309,12 +344,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Enea Z.",
    "voto": 60,
-   "conto": "40 + consegnato 20 = 60 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 = 60 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 0,
@@ -329,12 +365,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Lopez A.",
    "voto": 54,
-   "conto": "40 + consegnato 20 − 3×2 fuori compito = 54 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 − 3×2 fuori compito = 54 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 2,
@@ -349,32 +386,13 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
-  },
-  {
-   "alunno": "Andrea S.",
-   "voto": 54,
-   "conto": "40 + consegnato 20 − 3×2 fuori compito = 54 (provvisorio: il Documento si corregge dopo)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 2,
-   "vy_ult": [
-    "10:20",
-    "sito «Hacker Simulator»",
-    true
-   ],
-   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:25",
-    "allegati": 1,
-    "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
    "alunno": "Udugampalage F.",
    "voto": 51,
-   "conto": "40 + consegnato 20 − 3×3 fuori compito = 51 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 + consegnato 20 − 3×3 fuori compito = 51 (provvisorio: Documento non ancora letto)",
    "verifica": "consegnato",
    "voto_ver": 60,
    "fuori": 3,
@@ -389,27 +407,29 @@
     "ora": "10:10",
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   },
   {
-   "alunno": "Cristian C.",
+   "alunno": "Andrea S.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: il Documento si corregge dopo)",
+   "conto": "40 − 3×2 fuori compito = 40 (provvisorio: Documento non ancora letto)",
    "verifica": "",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 2,
    "vy_ult": [
     "10:20",
-    "sito di Lazarus, pagina di download",
-    false
+    "sito «Hacker Simulator»",
+    true
    ],
    "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
    "classroom": {
-    "stato": "non ancora",
+    "stato": "ritirato",
     "ora": null,
     "allegati": 1,
     "ritardo": false
-   }
+   },
+   "doc": null
   }
  ]
 }
