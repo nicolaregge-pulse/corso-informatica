@@ -16,8 +16,9 @@ Controlla:
   5. la notte precedente ha lasciato nel riservato stato/notte-<giorno>.json (scritto dall'ultimo passo dei passi
      notturni) e il file si legge;
   6. privacy del pubblico (28/10/2026): nei file tracciati di questo repository (tranne i JSON cifrati e
-     .claude/hooks/prove/) non c'è nessun cognome dei ragazzi, né da solo né attaccato dentro un link o un nome
-     utente («nomecognome.github.io», «github.com/nomecognome…»). L'elenco dei cognomi viene dalle anagrafiche del
+     .claude/hooks/prove/) non c'è nessun cognome dei ragazzi scritto come testo (nome e cognome visibili).
+     Link e nomi utente GitHub dei ragazzi («nomecognome.github.io», «github.com/nomecognome…») NON si segnalano
+     (28/10/2026, Nicola: sono i loro account pubblici e servono alle pagine). L'elenco dei cognomi viene dalle anagrafiche del
      riservato (generatori/privacy_nomi.py); se il riservato manca il controllo è GIALLO e non conta come errore.
      Il rosso dice solo i file e quanti cognomi, mai i cognomi.
 Stampa una riga per controllo, «VERDE: <cosa>», «GIALLO: <cosa>» o «ROSSO: <cosa>», e in fondo «ESITO: VERDE» o
@@ -94,7 +95,7 @@ def controlla_privacy():
         h = privacy_nomi.trova(testo, codice=rel.endswith(CODICE))
         if h:
             trovati.append("%s (%d)" % (rel, len(h)))
-    esito(not trovati, "privacy del pubblico: %d file letti, %d cognomi cercati (anche attaccati nei link)" % (letti, n_cognomi)
+    esito(not trovati, "privacy del pubblico: %d file letti, %d cognomi cercati nel testo (link e nomi utente GitHub esclusi)" % (letti, n_cognomi)
           + (": cognomi in " + ", ".join(trovati[:15]) + (" e altri %d" % (len(trovati) - 15) if len(trovati) > 15 else "") if trovati else ""))
 
 
