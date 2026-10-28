@@ -39,7 +39,8 @@ const MAPPA =
 '+------------------------------------------------------------+';
 const S = [];
 S.push({ titolo: '1. Oggi: Java con Eclipse, senza installare niente · আজ: Eclipse দিয়ে Java, কিছু ইনস্টল না করে',
-  testo: '<div style="background:#fff4c2;border:2px solid #d4a017;border-radius:10px;padding:10px 12px;margin:0 0 12px"><p style="margin:0 0 6px"><b>Questa pagina cambia durante la lezione: ogni tanto premi F5 per vedere la versione nuova.</b></p>' + bn('<b>এই পাতাটি ক্লাসের সময় বদলায়: মাঝে মাঝে F5 চাপো, নতুন সংস্করণ দেখতে।</b>') + '</div>' +
+  testo: '<a href="../3inf-eclipse-guida/" style="display:block;text-align:center;background:#1f6feb;color:#fff;font-weight:bold;font-size:20px;text-decoration:none;border-radius:12px;padding:14px 12px;margin:0 0 12px">LA GUIDA CON LE FOTO: Eclipse passo per passo, fino al bottone Hello World<span lang="bn" style="display:block;font-weight:normal;font-size:16px;margin-top:4px">ছবিসহ গাইড: ধাপে ধাপে Eclipse, Hello World বোতাম পর্যন্ত</span></a>' +
+    '<div style="background:#fff4c2;border:2px solid #d4a017;border-radius:10px;padding:10px 12px;margin:0 0 12px"><p style="margin:0 0 6px"><b>Questa pagina cambia durante la lezione: ogni tanto premi F5 per vedere la versione nuova.</b></p>' + bn('<b>এই পাতাটি ক্লাসের সময় বদলায়: মাঝে মাঝে F5 চাপো, নতুন সংস্করণ দেখতে।</b>') + '</div>' +
     p('Oggi scrivi il tuo primo programma Java in un programma vero da programmatori: <b>Eclipse</b>.', 'আজ তুমি প্রোগ্রামারদের আসল প্রোগ্রাম Eclipse-এ তোমার প্রথম Java প্রোগ্রাম লিখবে।') +
     p('Eclipse è un <b>IDE</b> (si legge «ài-di-ì»), cioè un <b>ambiente di sviluppo</b>: un unico programma che contiene tre cose.', 'Eclipse একটি IDE, মানে উন্নয়নের পরিবেশ: একটি প্রোগ্রামের ভিতরে তিনটি জিনিস।') +
     tab(['Pezzo', 'Che cosa fa', 'In Lazarus'], [
