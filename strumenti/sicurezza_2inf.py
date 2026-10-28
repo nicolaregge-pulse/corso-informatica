@@ -33,4 +33,7 @@ for n in sorted(CLASSE):
     righe.append('| ' + n + ' | ' + ' | '.join(str(T[n].get(o[0], 'manca')) for o in ORE) + ' | ' + (', '.join(m) or 'nessuno') + ' |')
 righe += ['', '## Quanti hanno fatto ogni ora', ''] + ['%d. %s %s (%s): %d su %d' % (i + 1, o[0], o[1], o[2], sum(1 for n in CLASSE if o[0] in T[n]), len(CLASSE)) for i, o in enumerate(ORE)]
 open(R + 'dati/situazione/2INF_sicurezza-ore.md', 'w', encoding='utf-8').write('\n'.join(righe) + '\n')
+# 28/10/2026: anche in JSON (per la pagina del recupero, generatori/2inf_sicurezza_recupero.py nel riservato)
+json.dump({n: {'voti': T[n], 'mancano': [i + 1 for i, o in enumerate(ORE) if o[0] not in T[n]]} for n in sorted(CLASSE)},
+          open(R + 'dati/situazione/2INF_sicurezza-ore.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print('\n'.join(righe))
