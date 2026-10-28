@@ -10,13 +10,28 @@ riesce a leggere. Regole:
 Le chiamate dei subagenti (campo agent_id nell'input) non si contano e non si
 bloccano: il lavoro lungo va proprio lì.
 
+Controlli che valgono per TUTTI (anche i subagenti), nel momento dell'azione:
+3. Cancellare una versione in docs/ (PDF o file «vN.N») con rm / git rm: rifiutato
+   (errori del 01/10 n. 13 e del 05/10 n. 4: le versioni si tengono, si bumpa).
+4. «git push» del repository PUBBLICO: prima si controllano i file di docs/ cambiati
+   rispetto a origin/main (controlli_pagine.py: lingue della classe #49 #82 #119,
+   link alla Regione #136, nomi in chiaro #85, sintassi degli script #118).
+5. «git push» del RISERVATO: coda/*.json e comandi/*.json devono leggersi (05/10 n. 12).
+Per un falso allarme si aggiunge al comando il commento «# PAGINE-OK: <motivo>».
+
 Robusto: per qualunque errore interno esce 0 senza output (comando permesso).
 """
 import fcntl
+import glob
 import json
 import os
+import re
+import subprocess
 import sys
 import tempfile
+import time
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 MAX_COMANDI = 3
 MAX_CARATTERI = 600
@@ -109,14 +124,119 @@ def nega(motivo):
     sys.stdout.write(json.dumps(out, ensure_ascii=False))
 
 
+# ------------------------------------------- controlli per tutti (anche subagenti)
+
+PUB = "/home/user/corso-informatica"
+RIS = "/home/user/corso-informatica-riservato"
+RX_RM = re.compile(r"(?:^|[;&|(]\s*|\s)(?:git\s+rm|rm)((?:\s+[^\s;&|)]+)+)")
+RX_PUSH = re.compile(r"\bgit\b[^;&|\n]*\bpush\b")
+
+
+def cancella_versioni(comando):
+    for m in RX_RM.finditer(comando):
+        for arg in m.group(1).split():
+            if arg.startswith("-"):
+                continue
+            a = arg.strip("'\"")
+            if "docs/" in a and (a.endswith(".pdf") or "*" in a or re.search(r"v\d+[._]\d+", a)):
+                return ("Non si cancella una versione in docs/ («%s»): le versioni già date restano, si "
+                        "bumpa e la pagina punta alla nuova (REGISTRO-ERRORI 01/10 n. 13, 05/10 n. 4)." % a)
+    return None
+
+
+def repo_del_push(comando, cwd):
+    if "corso-informatica-riservato" in comando:
+        return RIS
+    if re.search(r"/home/user/corso-informatica(?![-\w])", comando):
+        return PUB
+    cwd = cwd or ""
+    if cwd.startswith(RIS):
+        return RIS
+    if cwd.startswith(PUB):
+        return PUB
+    return None
+
+
+def git(cartella, *arg):
+    r = subprocess.run(["git", "-C", cartella] + list(arg), capture_output=True, text=True, timeout=8)
+    return r.stdout if r.returncode == 0 else ""
+
+
+def controlla_push_pubblico(comando):
+    import controlli_pagine as cp
+    inizio = time.time()
+    nomi = set(git(PUB, "diff", "--name-only", "origin/main", "--", "docs").split())
+    if re.search(r"\bgit\b[^;&|]*\badd\b", comando):
+        nomi |= set(git(PUB, "ls-files", "--others", "--exclude-standard", "--", "docs").split())
+    problemi = []
+    for nome in sorted(nomi)[:40]:
+        if time.time() - inizio > 12:
+            break
+        if not cp.da_controllare(nome):
+            continue
+        f = os.path.join(PUB, nome)
+        if not os.path.isfile(f) or os.path.getsize(f) > 3_000_000:
+            continue
+        try:
+            testo = open(f, encoding="utf-8", errors="replace").read()
+        except Exception:
+            continue
+        problemi.extend(cp.controlla(nome, testo, cp.SICURI))
+    if not problemi:
+        return None
+    return ("Push del sito fermato: %d problemi nelle pagine (controlli_pagine.py).\n%s\nCorreggi e "
+            "rilancia il push. Solo se è un falso allarme, aggiungi al comando il commento "
+            "«# PAGINE-OK: <motivo>» e dillo al docente." % (len(problemi), "\n".join(problemi[:6])))
+
+
+def controlla_push_riservato():
+    rotti = []
+    for f in glob.glob(os.path.join(RIS, "coda", "*.json")) + glob.glob(os.path.join(RIS, "comandi", "*.json")):
+        try:
+            testo = open(f, encoding="utf-8").read()
+            if "<<<<<<<" in testo or ">>>>>>>" in testo:
+                raise ValueError("conflitto")
+            json.loads(testo)
+        except Exception:
+            rotti.append(os.path.relpath(f, RIS))
+    if not rotti:
+        return None
+    return ("Push del riservato fermato: questi file della coda o del ponte non si leggono (JSON rotto o "
+            "segni di conflitto): %s. Riscrivi il file intero, non prendere un lato a caso "
+            "(REGISTRO-ERRORI 05/10 n. 12)." % ", ".join(rotti[:5]))
+
+
+def controllo_comando(data, comando):
+    if "PAGINE-OK" in comando:
+        return None
+    m = cancella_versioni(comando)
+    if m:
+        return m
+    if not RX_PUSH.search(comando):
+        return None
+    repo = repo_del_push(comando, data.get("cwd"))
+    if repo == PUB and os.path.isdir(PUB):
+        return controlla_push_pubblico(comando)
+    if repo == RIS and os.path.isdir(RIS):
+        return controlla_push_riservato()
+    return None
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
-    if data.get("agent_id"):
-        return  # chiamata di un subagente: libera
     if data.get("tool_name") != "Bash":
         return
     comando = str((data.get("tool_input") or {}).get("command") or "")
+    try:
+        motivo = controllo_comando(data, comando)
+    except Exception:
+        motivo = None
+    if motivo:
+        nega(motivo)
+        return
+    if data.get("agent_id"):
+        return  # chiamata di un subagente: libera dal limite dei comandi
     tid = data.get("tool_use_id") or ""
 
     chiave_tr, ids_tr = None, set()
