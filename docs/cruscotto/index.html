@@ -38,7 +38,9 @@ var OGGI_PAG = {
   '3INF': {allievo: '../3inf-oggi/', docente: '../avanzamento/3inf-oggi.html'}
 };
 // Pagine docente speciali per un giorno preciso (classe:AAAA-MM-GG); gli altri giorni restano come sopra.
-var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html'};
+var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
+  // 28/10/2026 3INF: Hello World in Lazarus e in Java (consegna del Documento su Classroom)
+  '3INF:2026-10-28': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: Hello World in Lazarus e in Java.'}};
 var IND = {}, ruolo = 'allievo';
 var $ = function (id) { return document.getElementById(id); };
 function oggi() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
@@ -49,6 +51,9 @@ function mostra() {
     var f = 'archivio/' + c.toLowerCase() + '-' + g + (ruolo === 'allievo' ? '-allievi' : '') + '.json';
     src = OGGI_PAG[c][ruolo] + '?f=' + encodeURIComponent(f);
     $('nota').textContent = 'Stai guardando il ' + g.split('-').reverse().join('/') + ' (giorno salvato).';
+  } else if (g === oggi() && typeof GIORNO_PAG[c + ':' + g] === 'object') {
+    src = GIORNO_PAG[c + ':' + g][ruolo];
+    $('nota').textContent = GIORNO_PAG[c + ':' + g].nota;
   } else if (c === '2INF' && ruolo === 'docente' && g === oggi() && GIORNO_PAG['2INF:' + g]) {
     // 28/10/2026: oggi la 2INF fa il recupero dei quiz di sicurezza, il docente vede il monitor dedicato
     src = GIORNO_PAG['2INF:' + g];
