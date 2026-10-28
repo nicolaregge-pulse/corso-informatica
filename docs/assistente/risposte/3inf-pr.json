@@ -1,6 +1,6 @@
 [
  {
-  "nome": "Noah Valerio",
+  "nome": "Noah V.",
   "domanda": "spiegami il punto 3 perchè sul file index.html non c'è scritto </main> e quindi non sappiamo dove mettere la parte di codice",
   "risposta": "Giusto, non tutti i siti hanno <main>. Allora fai così:\n1. Nel file index.html scendi fino in fondo.\n2. Cerca la riga </body> (è quasi l'ultima, prima di </html>).\n3. Clicca all'inizio della riga </body> e premi Invio: si crea una riga vuota SOPRA.\n4. Nella riga vuota scrivi:\n<h2>Il mio compagno di lavoro</h2>\n<p>Tre righe sul tuo compagno e un consiglio per il suo sito.</p>\n5. Se c'è un <footer>, mettila prima del <footer>, così resta sopra il piè di pagina.\nRegola: la tua sezione deve stare DENTRO <body> ... </body>, mai dopo </body>.\nPoi Commit changes, scegli «Create a new branch…», Propose changes e Create pull request."
  }

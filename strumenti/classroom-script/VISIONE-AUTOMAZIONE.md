@@ -74,7 +74,7 @@ CONTENUTI e la VALUTAZIONE li fa l'AI. Nomi/voti dei minori: solo repo privato.*
 5. **Test parte automatica (02/10):** letto+corretto in automatico le 20 consegne depositate dal
    ponte (PDF, estrazione `extraction_mode="layout"`). La **maggioranza combacia al 100%** con la
    correzione manuale di ieri (i 16/15/14 tornano identici). **MA** per alcuni (nehara, moaaz
-   megahed, matteo, abdel) il conteggio è più basso: non per errori loro, ma perché **l'estrazione
+   M., matteo, abdel) il conteggio è più basso: non per errori loro, ma perché **l'estrazione
    da PDF perde/confonde qualche risposta** (le tabelle del Google Doc esportato non si leggono
    sempre pulite). → **FIX:** il ponte deve depositare anche una **versione TESTO pulita** (il testo
    del Google Doc via `DocumentApp.getBody().getText()`), non solo il PDF. PDF per leggere, testo
