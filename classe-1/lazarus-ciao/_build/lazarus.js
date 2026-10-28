@@ -16,7 +16,7 @@ S.push({ titolo: '1. Che cos\'è Lazarus · ١. ما هو Lazarus · 1. Lazarus 
     '<p>Per aprire Lazarus: doppio clic sull\'icona di Lazarus (il prof vi mostra dove si trova). Poi in alto: menu <b>Progetto</b> → <b>Nuovo progetto</b> → <b>Applicazione</b> → <b>OK</b>.</p>' + foto(1) +
     ar('Lazarus برنامج نصنع به برامج أخرى بنوافذ وأزرار. نأخذ قطعة جاهزة (زر، خانة) ونضعها في النافذة، ثم نكتب ماذا تفعل. اللغة اسمها Pascal. اليوم نصنع برنامج «Ciao» (مرحبًا): تكتب اسمك، تضغط الزر، فيقول لك البرنامج مرحبًا.') +
     zh('Lazarus 是用来做其他程序的软件，可以做有窗口和按钮的程序。像搭积木一样：拿一个现成的零件（按钮、输入框），放进窗口，再写它要做什么。语言叫 Pascal。今天做第一个程序「Ciao」（你好）：写名字，按按钮，程序就跟你打招呼。') });
-S.push({ titolo: '2. Le finestre di Lazarus · ٢. نوافذ Lazarus · 2. Lazarus 的窗口',
+S.push({ titolo: '3. Le finestre di Lazarus · ٣. نوافذ Lazarus · 3. Lazarus 的窗口',
   testo: '<p>Quando apri un progetto nuovo vedi più finestre. Ognuna ha un lavoro:</p>' +
     tab(['Dove', 'Si chiama', 'A che cosa serve'], [
       ['in alto', '<b>menu</b> e <b>palette dei componenti</b>', 'i comandi (File, Progetto, Esegui…) e, sotto, i pezzi da mettere nella finestra, divisi in linguette'],
@@ -24,19 +24,19 @@ S.push({ titolo: '2. Le finestre di Lazarus · ٢. نوافذ Lazarus · 2. Laza
       ['al centro', '<b>Form1</b>, con i puntini', 'la <b>finestra del tuo programma</b>: qui metti i pezzi'],
       ['dietro la Form', '<b>Editor del codice</b> (unit1.pas)', 'qui scrivi <b>che cosa fa</b> il programma'],
       ['in basso', '<b>Messaggi</b>', 'Lazarus ti dice se è andato tutto bene o dove c\'è un errore']]) +
-    '<p>Per passare dalla Form al codice e ritorno: tasto ' + k('F12') + '.</p>' + foto(2) +
+    '<p>Per passare dalla Form al codice e ritorno: tasto ' + k('F12') + '.</p>' + foto(3) +
     ar('في الأعلى: القوائم ولوحة المكوّنات. على اليسار: «مفتش الكائنات» (الخصائص والأحداث). في الوسط: Form1 وهي نافذة برنامجك. خلفها: محرر الكود. في الأسفل: الرسائل والأخطاء. للتنقل بين النافذة والكود: F12.') +
     zh('上面：菜单和组件面板。左边：对象检查器（属性和事件）。中间：Form1，就是你的程序窗口。后面：代码编辑器。下面：消息（错误会写在这里）。窗口和代码之间切换：按 F12。') });
-S.push({ titolo: '3. La palette: come scegliere il pezzo giusto · ٣. لوحة المكوّنات: كيف نختار القطعة · 3. 组件面板：怎么选零件',
+S.push({ titolo: '4. La palette: come scegliere il pezzo giusto · ٤. لوحة المكوّنات: كيف نختار القطعة · 4. 组件面板：怎么选零件',
   testo: '<p>La <b>palette dei componenti</b> è la fila di icone in alto, sotto il menu. I pezzi di oggi sono nella linguetta <b>Standard</b>. Per scegliere, chiediti: <b>che cosa deve fare chi usa il programma?</b></p>' +
     tab(['Deve…', 'Pezzo (componente)', 'Icona nella palette', 'Proprietà che conta'], [
       ['<b>scrivere</b> qualcosa', '<b>TEdit</b> (casella di testo)', 'una casella bianca con «abc» o «ab|»', k('Text') + ' = quello che c\'è scritto dentro'],
       ['<b>premere</b> per far succedere una cosa', '<b>TButton</b> (bottone)', 'un bottone con «OK»', k('Caption') + ' = la scritta sul bottone'],
       ['<b>leggere</b> un testo (solo guardare)', '<b>TLabel</b> (etichetta)', 'una «A»', k('Caption') + ' = il testo che si vede']]) +
-    '<p>Per metterlo nella finestra: <b>un clic</b> sull\'icona nella palette, poi <b>un clic</b> sulla Form1, nel punto dove lo vuoi. Lazarus gli dà un nome da solo: ' + k('Edit1') + ', ' + k('Button1') + '. Il <b>nome</b> (' + k('Name') + ') è quello che userai nel codice.</p>' + foto(3) +
+    '<p>Per metterlo nella finestra: <b>un clic</b> sull\'icona nella palette, poi <b>un clic</b> sulla Form1, nel punto dove lo vuoi. Lazarus gli dà un nome da solo: ' + k('Edit1') + ', ' + k('Button1') + '. Il <b>nome</b> (' + k('Name') + ') è quello che userai nel codice.</p>' + foto(4) +
     ar('لوحة المكوّنات هي صف الأيقونات في الأعلى، اللسان «Standard». اسأل نفسك: ماذا يفعل المستخدم؟ يكتب ← TEdit (خانة نص، الخاصية Text). يضغط ← TButton (زر، الخاصية Caption). يقرأ فقط ← TLabel. نقرة على الأيقونة ثم نقرة على Form1.') +
     zh('组件面板是上面一排图标，在 Standard 标签里。问自己：用户要做什么？要写字 → TEdit（输入框，属性 Text）。要按 → TButton（按钮，属性 Caption）。只看文字 → TLabel。点一下图标，再点一下 Form1。') });
-S.push({ titolo: '4. Esercitazione: il mio «Ciao» · ٤. التمرين: برنامج «Ciao» · 4. 练习：我的「Ciao」',
+S.push({ titolo: '5. Esercitazione: il mio «Ciao» · ٥. التمرين: برنامج «Ciao» · 5. 练习：我的「Ciao」',
   testo: '<p>Un passo alla volta. Dopo ogni passo guarda lo schermo: deve essere uguale.</p>' +
     '<p><b>1.</b> Nella palette, linguetta <b>Standard</b>, clicca <b>TEdit</b>, poi clicca nella Form1, in alto a sinistra. Compare una casella con scritto ' + k('Edit1') + '.</p>' +
     '<p><b>2.</b> Con la casella selezionata, nell\'Ispettore oggetti trova la proprietà ' + k('Text') + ' e cancella la scritta «Edit1»: la casella resta vuota.</p>' +
@@ -52,7 +52,7 @@ S.push({ titolo: '4. Esercitazione: il mio «Ciao» · ٤. التمرين: بر�
       [k("'Ciao '"), 'una scritta fissa. Va tra apici. Lo <b>spazio</b> dopo Ciao serve per non avere «CiaoAhmed»'],
       [k('+'), 'attacca due scritte una dopo l\'altra'],
       [k(';'), 'fine dell\'istruzione (come il punto alla fine di una frase)']]) +
-    '<p>Tutto insieme: <b>«apri una finestrella con scritto Ciao e il nome che c\'è nella casella»</b>. Come alla lavagna: scrivi MARIO, premi Saluta, compare <b>Ciao MARIO</b> con il bottone OK. È la funzione che risponde al <b>clic</b> del bottone: si chiama ' + k('Button1Click') + '.</p>' + foto(4) +
+    '<p>Tutto insieme: <b>«apri una finestrella con scritto Ciao e il nome che c\'è nella casella»</b>. Come alla lavagna: scrivi MARIO, premi Saluta, compare <b>Ciao MARIO</b> con il bottone OK. È la funzione che risponde al <b>clic</b> del bottone: si chiama ' + k('Button1Click') + '.</p>' + foto(5) +
     ar('١) ضع TEdit في النافذة وامسح نص «Edit1» من الخاصية Text. ٢) ضع TButton واجعل Caption = Saluta. ٣) انقر مرتين على الزر، يُفتح الكود. ٤) بين begin و end اكتب: ShowMessage(\'Ciao \' + Edit1.Text); المعنى: تفتح نافذة صغيرة فيها «Ciao» + الاسم وزر OK.') +
     zh('1）放一个 TEdit，在 Text 属性里删掉「Edit1」。2）放一个 TButton，Caption 改成 Saluta。3）双击按钮，打开代码。4）在 begin 和 end 中间写：ShowMessage(\'Ciao \' + Edit1.Text); 意思：打开一个小窗口，写着「Ciao」加上名字，还有 OK 按钮。') });
 S.push({ titolo: '5. Salva e fai partire · ٥. احفظ وشغّل · 5. 保存并运行',
@@ -78,7 +78,7 @@ S.push({ titolo: '6. I file del progetto, uno per uno · ٦. ملفات المش
     '<p>Regola da ricordare: i <b>4 file importanti</b> sono ' + k('.lpi') + ' ' + k('.lpr') + ' ' + k('.pas') + ' ' + k('.lfm') + '. Con questi 4 il progetto si rifà su qualunque computer.</p>' + foto(6) +
     ar('لكل ملف امتداد (الحروف بعد النقطة). المهمّة أربعة: .lpi (إعدادات المشروع، نفتحه لنكمل العمل)، .lpr (البرنامج الرئيسي)، .pas (الكود الخاص بك)، .lfm (شكل النافذة). الباقي (.lps، .res، .exe، lib، backup) يصنعه Lazarus وحده.') +
     zh('每个文件都有扩展名（点后面的字母）。重要的有 4 个：.lpi（项目设置，双击它继续工作）、.lpr（主程序）、.pas（你的代码）、.lfm（窗口的样子）。其他的（.lps、.res、.exe、lib、backup）Lazarus 会自己再做。') });
-S.push({ titolo: '7. Fallo tuo · ٧. اجعله خاصًا بك · 7. 做成你自己的',
+S.push({ titolo: '8. Fallo tuo · ٨. اجعله خاصًا بك · 8. 做成你自己的',
   testo: '<p>Il programma funziona? Adesso rendilo <b>tuo</b>. Scegli almeno una cosa:</p>' +
     '<p><b>1.</b> Il saluto nella <b>tua lingua</b>: al posto di ' + k("'Ciao '") + ' scrivi ' + k("'Hello '") + ', ' + k("'مرحبا '") + ', ' + k("'你好 '") + ', ' + k("'Hola '") + '…</p>' +
     '<p><b>2.</b> Il <b>titolo</b> della finestra: clicca su un punto vuoto della Form1, nell\'Ispettore oggetti cambia ' + k('Caption') + ' (per esempio «Il saluto di Ahmed»).</p>' +
@@ -87,7 +87,7 @@ S.push({ titolo: '7. Fallo tuo · ٧. اجعله خاصًا بك · 7. 做成你
     '<p>Poi <b>spiegalo in 30 secondi</b> al compagno: «Ho messo una TEdit e un TButton; quando clicco, la funzione Button1Click apre una finestrella con Ciao e il nome».</p>' +
     ar('غيّر التحية إلى لغتك (مرحبا، 你好، Hello)، غيّر عنوان النافذة (Caption في Form1) ولونها (Color). ثم اشرح لزميلك في 30 ثانية ماذا يفعل برنامجك.') +
     zh('把问候改成你的语言（你好、مرحبا、Hello），改窗口的标题（Form1 的 Caption）和颜色（Color）。然后用 30 秒跟同学讲你的程序做什么。') });
-S.push({ titolo: '8. Consegna · ٨. التسليم · 8. 提交',
+S.push({ titolo: '9. Consegna · ٩. التسليم · 9. 提交',
   testo: '<p>Su Classroom c\'è il compito <b>«Il mio primo programma: Ciao in Lazarus»</b>. Dentro c\'è un <b>Documento Google</b> già pronto, solo tuo. Aprilo e fai 3 cose:</p>' +
     '<p><b>1. Il codice.</b> In Lazarus seleziona con il mouse la tua procedura, da ' + k('procedure TForm1.Button1Click') + ' fino a ' + k('end;') + ', premi ' + k('Ctrl') + ' + ' + k('C') + '; nel Documento clicca sotto «1. Il mio codice» e premi ' + k('Ctrl') + ' + ' + k('V') + '.</p>' +
     '<p><b>2. Lo screenshot.</b> Fai partire il programma (' + k('F9') + '), scrivi il tuo nome e premi Saluta. Poi premi ' + k('Win') + ' + ' + k('Shift') + ' + ' + k('S') + ' e trascina un rettangolo intorno alla tua finestra. Nel Documento clicca sotto «2. Il mio programma che funziona» e premi ' + k('Ctrl') + ' + ' + k('V') + '.</p>' +
