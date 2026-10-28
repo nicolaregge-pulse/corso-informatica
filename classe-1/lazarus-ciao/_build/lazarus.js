@@ -44,21 +44,21 @@ S.push({ titolo: '4. Esercitazione: il mio «Ciao» · ٤. التمرين: بر�
     '<p><b>4.</b> Con il bottone selezionato, nell\'Ispettore oggetti cambia ' + k('Caption') + ' in ' + k('Saluta') + '. FATTO: la finestra è pronta!</p>' +
     '<p><b>5.</b> Fai <b>doppio clic sul bottone</b>. Si apre il codice, con il cursore qui:</p>' +
     box('procedure TForm1.Button1Click(Sender: TObject);\nbegin\n  <span style="color:#7ee787">// qui scrivi la tua riga</span>\nend;') +
-    '<p><b>6.</b> Tra ' + k('begin') + ' e ' + k('end;') + ' scrivi questa riga:</p>' + box("Edit1.Text := 'Ciao ' + Edit1.Text;") +
+    '<p><b>6.</b> Tra ' + k('begin') + ' e ' + k('end;') + ' scrivi questa riga:</p>' + box("ShowMessage('Ciao ' + Edit1.Text);") +
     '<p>Che cosa vuol dire, pezzo per pezzo:</p>' +
     tab(['Pezzo', 'Vuol dire'], [
-      [k('Edit1.Text'), 'il testo dentro la casella Edit1'],
-      [k(':='), '«diventa» (metti dentro). Attenzione: due punti e uguale, attaccati'],
+      [k('ShowMessage( … )'), 'apre una <b>finestrella</b> con un messaggio e il bottone <b>OK</b>. Quello che c\'è tra le parentesi è il messaggio'],
+      [k('Edit1.Text'), 'il testo scritto dentro la casella Edit1 (il nome)'],
       [k("'Ciao '"), 'una scritta fissa. Va tra apici. Lo <b>spazio</b> dopo Ciao serve per non avere «CiaoAhmed»'],
       [k('+'), 'attacca due scritte una dopo l\'altra'],
       [k(';'), 'fine dell\'istruzione (come il punto alla fine di una frase)']]) +
-    '<p>Tutto insieme: <b>«il testo della casella diventa Ciao più il testo che c\'era»</b>. È la funzione che risponde al <b>clic</b> del bottone: si chiama ' + k('Button1Click') + '.</p>' + foto(4) +
-    ar('١) ضع TEdit في النافذة وامسح نص «Edit1» من الخاصية Text. ٢) ضع TButton واجعل Caption = Saluta. ٣) انقر مرتين على الزر، يُفتح الكود. ٤) بين begin و end اكتب: Edit1.Text := \'Ciao \' + Edit1.Text; المعنى: نص الخانة يصبح «Ciao» + الاسم الذي كتبته.') +
-    zh('1）放一个 TEdit，在 Text 属性里删掉「Edit1」。2）放一个 TButton，Caption 改成 Saluta。3）双击按钮，打开代码。4）在 begin 和 end 中间写：Edit1.Text := \'Ciao \' + Edit1.Text; 意思：输入框的文字变成「Ciao」加上你写的名字。') });
+    '<p>Tutto insieme: <b>«apri una finestrella con scritto Ciao e il nome che c\'è nella casella»</b>. Come alla lavagna: scrivi MARIO, premi Saluta, compare <b>Ciao MARIO</b> con il bottone OK. È la funzione che risponde al <b>clic</b> del bottone: si chiama ' + k('Button1Click') + '.</p>' + foto(4) +
+    ar('١) ضع TEdit في النافذة وامسح نص «Edit1» من الخاصية Text. ٢) ضع TButton واجعل Caption = Saluta. ٣) انقر مرتين على الزر، يُفتح الكود. ٤) بين begin و end اكتب: ShowMessage(\'Ciao \' + Edit1.Text); المعنى: تفتح نافذة صغيرة فيها «Ciao» + الاسم وزر OK.') +
+    zh('1）放一个 TEdit，在 Text 属性里删掉「Edit1」。2）放一个 TButton，Caption 改成 Saluta。3）双击按钮，打开代码。4）在 begin 和 end 中间写：ShowMessage(\'Ciao \' + Edit1.Text); 意思：打开一个小窗口，写着「Ciao」加上名字，还有 OK 按钮。') });
 S.push({ titolo: '5. Salva e fai partire · ٥. احفظ وشغّل · 5. 保存并运行',
-  testo: '<p><b>1.</b> Prima di tutto si <b>salva</b>. Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. Crea una cartella tua (bottone «Nuova cartella»), per esempio ' + k('ciao') + ', ed entraci. Salva il progetto come ' + k('ciao.lpi') + ' e poi la unit come ' + k('unit1.pas') + '.</p>' +
+  testo: '<p><b>0.</b> Come alla lavagna: prima <b>chiudi tutti i file</b> aperti (menu <b>File</b> → <b>Chiudi tutto</b>), poi crei la tua cartella e salvi lì dentro tutti i file.</p><p><b>1.</b> Prima di tutto si <b>salva</b>. Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. Crea una cartella tua (bottone «Nuova cartella»), per esempio ' + k('ciao') + ', ed entraci. Salva il progetto come ' + k('ciao.lpi') + ' e poi la unit come ' + k('unit1.pas') + '.</p>' +
     '<p><b>2.</b> Premi ' + k('F9') + ' (oppure la freccia verde ▶ in alto). Lazarus prepara il programma e lo fa partire: si apre la TUA finestra.</p>' +
-    '<p><b>3.</b> Scrivi il tuo nome nella casella e premi <b>Saluta</b>. Compare <b>Ciao</b> e il tuo nome. Ce l\'hai fatta: hai scritto il tuo primo programma!</p>' +
+    '<p><b>3.</b> Scrivi il tuo nome nella casella e premi <b>Saluta</b>. Si apre una finestrella con <b>Ciao</b> e il tuo nome: premi <b>OK</b>. Ce l\'hai fatta: hai scritto il tuo primo programma!</p>' +
     '<p><b>4.</b> Per tornare a lavorare chiudi la finestra del programma con la X. Da ora in poi: ogni volta che una cosa funziona, ' + k('Ctrl') + ' + ' + k('S') + '.</p>' +
     '<p><b>Errore? È normale, succede a tutti i programmatori.</b> Guarda la finestra Messaggi in basso: dice la riga. I più comuni: manca il ' + k(';') + '; hai scritto ' + k('=') + ' invece di ' + k(':=') + '; manca un apice ' + k("'") + '; la riga è fuori da begin … end.</p>' + foto(5) +
     ar('احفظ أولًا: قائمة «Progetto» ثم «Salva progetto con nome»، في مجلد خاص بك اسمه ciao. ثم اضغط F9: تفتح نافذتك. اكتب اسمك واضغط Saluta. خطأ؟ هذا طبيعي: انظر إلى «Messaggi» في الأسفل (ينقص ; أو كتبت = بدل :=).') +
@@ -83,15 +83,15 @@ S.push({ titolo: '7. Fallo tuo · ٧. اجعله خاصًا بك · 7. 做成你
     '<p><b>1.</b> Il saluto nella <b>tua lingua</b>: al posto di ' + k("'Ciao '") + ' scrivi ' + k("'Hello '") + ', ' + k("'مرحبا '") + ', ' + k("'你好 '") + ', ' + k("'Hola '") + '…</p>' +
     '<p><b>2.</b> Il <b>titolo</b> della finestra: clicca su un punto vuoto della Form1, nell\'Ispettore oggetti cambia ' + k('Caption') + ' (per esempio «Il saluto di Ahmed»).</p>' +
     '<p><b>3.</b> Il <b>colore</b>: sempre sulla Form1, proprietà ' + k('Color') + ', scegli un colore dalla tendina.</p>' +
-    '<p><b>4.</b> Per i più veloci: una seconda riga nella procedura, ' + k("ShowMessage('Benvenuto!');") + ', apre una finestrella con un messaggio.</p>' +
-    '<p>Poi <b>spiegalo in 30 secondi</b> al compagno: «Ho messo una TEdit e un TButton; quando clicco, la funzione Button1Click mette Ciao davanti al nome».</p>' +
+    '<p><b>4.</b> Per i più veloci: aggiungi una TLabel e una seconda riga, ' + k("Label1.Caption := 'Ciao ' + Edit1.Text;") + ': il saluto resta scritto anche nella finestra.</p>' +
+    '<p>Poi <b>spiegalo in 30 secondi</b> al compagno: «Ho messo una TEdit e un TButton; quando clicco, la funzione Button1Click apre una finestrella con Ciao e il nome».</p>' +
     ar('غيّر التحية إلى لغتك (مرحبا، 你好، Hello)، غيّر عنوان النافذة (Caption في Form1) ولونها (Color). ثم اشرح لزميلك في 30 ثانية ماذا يفعل برنامجك.') +
     zh('把问候改成你的语言（你好、مرحبا、Hello），改窗口的标题（Form1 的 Caption）和颜色（Color）。然后用 30 秒跟同学讲你的程序做什么。') });
 S.push({ titolo: '8. Consegna · ٨. التسليم · 8. 提交',
   testo: '<p>Su Classroom c\'è il compito <b>«Il mio primo programma: Ciao in Lazarus»</b>. Dentro c\'è un <b>Documento Google</b> già pronto, solo tuo. Aprilo e fai 3 cose:</p>' +
     '<p><b>1. Il codice.</b> In Lazarus seleziona con il mouse la tua procedura, da ' + k('procedure TForm1.Button1Click') + ' fino a ' + k('end;') + ', premi ' + k('Ctrl') + ' + ' + k('C') + '; nel Documento clicca sotto «1. Il mio codice» e premi ' + k('Ctrl') + ' + ' + k('V') + '.</p>' +
     '<p><b>2. Lo screenshot.</b> Fai partire il programma (' + k('F9') + '), scrivi il tuo nome e premi Saluta. Poi premi ' + k('Win') + ' + ' + k('Shift') + ' + ' + k('S') + ' e trascina un rettangolo intorno alla tua finestra. Nel Documento clicca sotto «2. Il mio programma che funziona» e premi ' + k('Ctrl') + ' + ' + k('V') + '.</p>' +
-    '<p><b>3. Con parole tue.</b> Sotto «3» scrivi in una o due frasi che cosa fa la riga ' + k("Edit1.Text := 'Ciao ' + Edit1.Text;") + '. Puoi scrivere anche nella tua lingua.</p>' +
+    '<p><b>3. Con parole tue.</b> Sotto «3» scrivi in una o due frasi che cosa fa la riga ' + k("ShowMessage('Ciao ' + Edit1.Text);") + '. Puoi scrivere anche nella tua lingua.</p>' +
     '<p>Poi in Classroom premi <b>Consegna</b> (il bottone blu in alto a destra nel compito).</p>' +
     ar('في Classroom الواجب «Il mio primo programma». داخله مستند Google خاص بك. ١) انسخ الكود من procedure إلى end; (Ctrl+C) والصقه (Ctrl+V). ٢) شغّل البرنامج، اكتب اسمك، اضغط Saluta، ثم Win+Shift+S وحدد نافذتك، والصق في المستند. ٣) اكتب بكلماتك ماذا يفعل السطر. ثم اضغط «Consegna» (الزر الأزرق).') +
     zh('Classroom 里有作业「Il mio primo programma」，里面有一份你自己的 Google 文档。1）复制代码，从 procedure 到 end;（Ctrl+C），粘贴（Ctrl+V）。2）运行程序，写名字，按 Saluta，然后按 Win+Shift+S 框住你的窗口，粘贴到文档里。3）用你自己的话写这一行做什么。然后按「Consegna」（蓝色按钮）提交。') });
