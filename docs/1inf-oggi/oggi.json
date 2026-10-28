@@ -1,13 +1,13 @@
 {
- "ora": "10:34",
+ "ora": "10:38",
  "banca": "1inf-lazarus-ciao",
  "fine": "11:00",
  "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni il Documento con il codice; +10 con lo screenshot; +10 con la tua frase. −3 ogni volta che Veyon ti vede fuori lezione.",
  "link": "../verifica/?b=1inf-lazarus-ciao",
  "classroom": {
-  "consegnati": 19,
+  "consegnati": 20,
   "su": 20,
-  "letto_alle": "10:30",
+  "letto_alle": "10:35",
   "fonte": "ponte"
  },
  "righe": [
@@ -390,6 +390,27 @@
    "doc": null
   },
   {
+   "alunno": "Andrea S.",
+   "voto": 54,
+   "conto": "40 + consegnato 20 − 3×2 fuori compito = 54 (provvisorio: Documento non ancora letto)",
+   "verifica": "consegnato",
+   "voto_ver": 60,
+   "fuori": 2,
+   "vy_ult": [
+    "10:20",
+    "sito «Hacker Simulator»",
+    true
+   ],
+   "cosa_fare": "Consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "10:35",
+    "allegati": 1,
+    "ritardo": false
+   },
+   "doc": null
+  },
+  {
    "alunno": "Udugampalage F.",
    "voto": 51,
    "conto": "40 + consegnato 20 − 3×3 fuori compito = 51 (provvisorio: Documento non ancora letto)",
@@ -405,27 +426,6 @@
    "classroom": {
     "stato": "consegnato",
     "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": null
-  },
-  {
-   "alunno": "Andrea S.",
-   "voto": 40,
-   "conto": "40 − 3×2 fuori compito = 40 (provvisorio: Documento non ancora letto)",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 2,
-   "vy_ult": [
-    "10:20",
-    "sito «Hacker Simulator»",
-    true
-   ],
-   "cosa_fare": "Fai il programma «Ciao», poi nel Documento su Classroom: codice, screenshot, una frase. Poi «Consegna» entro le 11:00.",
-   "classroom": {
-    "stato": "ritirato",
-    "ora": null,
     "allegati": 1,
     "ritardo": false
    },
