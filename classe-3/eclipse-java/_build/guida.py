@@ -10,7 +10,7 @@ QUI = os.path.dirname(os.path.abspath(__file__))
 RADICE = os.path.abspath(os.path.join(QUI, '../../..'))
 OUT_DIR = os.path.abspath(os.path.join(QUI, '..'))
 PAGINA = os.path.join(RADICE, 'docs/3inf-eclipse-guida/index.html')
-VERSIONE = '1.0'
+VERSIONE = '1.1'
 NOME = f'20261028_Classe-3_v{VERSIONE}_Eclipse-Hello-World'
 TITOLO = 'Java con Eclipse: la finestra con il bottone Hello World'
 TITOLO_BN = 'Eclipse দিয়ে Java: Hello World বোতামসহ জানালা'
@@ -85,6 +85,7 @@ PARTI = [
    ('img', '03-nuovo-progetto.jpg', 'New Java Project: Project name HelloWorld; in basso la sezione Module.', 'New Java Project: Project name HelloWorld; নিচে Module অংশ।')]),
   dict(t='Togli la spunta module-info', bn='module-info-র টিক তুলে দাও', el=[
    ('p', 'In fondo alla finestra, nella parte **«Module»** (Modulo), **togli la spunta** a **«Create module-info.java file»** (Crea il file module-info.java). L\'avviso giallo sparisce.', 'জানালার নিচে Module অংশে Create module-info.java file-এর টিক তুলে দাও। হলুদ সতর্কবার্তা চলে যায়।'),
+   ('stop', 'La spunta **«Create module-info.java file»** va **TOLTA**. Se resta, dopo compaiono gli errori «Unresolved compilation problem» e «A package name must be specified for a module» (vedi gli errori comuni in fondo).', 'Create module-info.java file-এর টিক অবশ্যই তুলে দিতে হবে। থেকে গেলে পরে «Unresolved compilation problem» আর «A package name must be specified for a module» ভুল আসে (শেষে সাধারণ ভুল দেখো)।'),
    ('img', '04-senza-module-info.jpg', 'Spunta tolta, nessun avviso: ora si può fare Finish.', 'টিক তোলা, কোনো সতর্কবার্তা নেই: এখন Finish করা যায়।')]),
   dict(t='Finish', bn='Finish', el=[
    ('p', 'Clicca **«Finish»** (Fine) in basso a destra. A sinistra compare il progetto **HelloWorld**.', 'নিচে ডানদিকে Finish (শেষ) ক্লিক করো। বামে HelloWorld প্রজেক্ট দেখা যাবে।'),
@@ -166,11 +167,35 @@ RIGHE = [
 
 ERRORI = [
  ('«unable to locate its companion shared library»', 'lo ZIP non è stato scompattato tutto', 'cancella la cartella ec e rifai dal passo 1, aspettando la fine', 'ZIP পুরো আনজিপ হয়নি: ec মুছে ১ নম্বর ধাপ থেকে আবার করো'),
+ ('«Unresolved compilation problem», X rossa sulla riga `import javax.swing`', 'il progetto ha il file module-info.java', 'cancella module-info.java, poi Ctrl + S e Run', 'প্রজেক্টে module-info.java আছে: সেটি মুছে দাও, তারপর Ctrl + S আর Run'),
+ ('«A package name must be specified for a module»', 'il progetto ha il file module-info.java', 'cancella module-info.java, poi rifai la classe', 'প্রজেক্টে module-info.java আছে: সেটি মুছে দাও, তারপর ক্লাস আবার বানাও'),
  ('«Type name is empty»', 'Main scritto in Package', 'Package vuoto, Main in Name', 'Main Package-এ লেখা: Package খালি, Main যাবে Name-এ'),
  ('righe doppie e X rossa', 'incollato dentro una riga un testo vecchio', 'copia di nuovo, poi Ctrl + A e Ctrl + V', 'লাইনের ভিতরে পুরনো লেখা: আবার কপি, তারপর Ctrl + A আর Ctrl + V'),
  ('pallino nero sulla linguetta', 'il file non è salvato', 'Ctrl + S', 'ফাইল সেভ হয়নি: Ctrl + S'),
  ('Hello World accanto al bottone', 'codice vecchio', 'rifai i passi 18, 19 e 20', 'পুরনো কোড: ১৮, ১৯, ২০ ধাপ আবার করো'),
  ('premi Run e non si vede niente', 'la finestra è dietro Eclipse', 'cercala nella barra in basso dello schermo', 'জানালা Eclipse-এর পিছনে: নিচের বারে খোঁজো'),
+]
+
+# Errori comuni con la schermata e la soluzione passo per passo (28/10/2026, v1.1)
+ERRORI_IMG = [
+ dict(t='«Unresolved compilation problem» e la X rossa su import javax.swing', bn='«Unresolved compilation problem» আর import javax.swing-এ লাল X',
+  el=[
+  ('p', 'Premi Run e in basso, nella scheda **«Console»**, compare in rosso **«Unresolved compilation problem»** (problema di compilazione non risolto). Sulla riga `import javax.swing.*;` c\'è una **X rossa**.', 'Run চাপলে নিচে Console ট্যাবে লাল রঙে «Unresolved compilation problem» আসে। import javax.swing.*; লাইনে লাল X থাকে।'),
+  ('img', '15-errore-import-module.jpg', 'ERRORE: X rossa sulla riga 1 e «Unresolved compilation problem» nella Console.', 'ভুল: ১ নম্বর লাইনে লাল X আর Console-এ «Unresolved compilation problem»।'),
+  ('p', 'Perché: il progetto è stato creato **con** il file **module-info.java** (la spunta non è stata tolta). Questo file non lascia usare le finestre di `javax.swing`.', 'কারণ: প্রজেক্ট module-info.java ফাইলসহ বানানো হয়েছে (টিক তোলা হয়নি)। এই ফাইল javax.swing-এর জানালা ব্যবহার করতে দেয় না।'),
+  ('p', 'Soluzione 1: a sinistra, nel **Package Explorer**, apri **HelloWorld** e poi **src**.', 'সমাধান ১: বামে Package Explorer-এ HelloWorld খোলো, তারপর src।'),
+  ('p', 'Soluzione 2: fai clic **destro** su **module-info.java** e scegli **«Delete»** (Elimina).', 'সমাধান ২: module-info.java-তে ডান ক্লিক করো, Delete (মুছে ফেলো) বেছে নাও।'),
+  ('p', 'Soluzione 3: nella finestrella clicca **«OK»**.', 'সমাধান ৩: ছোট জানালায় OK ক্লিক করো।'),
+  ('p', 'Soluzione 4: clicca dentro Main.java, premi `Ctrl` + `S` e poi **Run**.', 'সমাধান ৪: Main.java-র ভিতরে ক্লিক করো, Ctrl + S চাপো, তারপর Run।'),
+  ('nota', 'Se nella Console leggi **Main.Main.main**, la classe è finita nel pacchetto «Main»: rifai la classe lasciando vuota la casella **Package** (passo 15).', 'Console-এ Main.Main.main লেখা থাকলে ক্লাসটি «Main» প্যাকেজে চলে গেছে: Package ঘর খালি রেখে ক্লাস আবার বানাও (১৫ নম্বর ধাপ)।')]),
+ dict(t='«A package name must be specified for a module»', bn='«A package name must be specified for a module»',
+  el=[
+  ('p', 'Nella finestra **«New Java Class»** compare in alto, con la X rossa, **«A package name must be specified for a module»** (per un modulo serve il nome del pacchetto) e **Finish** è grigio.', 'New Java Class জানালায় উপরে লাল X-সহ «A package name must be specified for a module» আসে, আর Finish ধূসর থাকে।'),
+  ('img', '16-errore-package-module.jpg', 'ERRORE: la X rossa in alto e Finish grigio.', 'ভুল: উপরে লাল X আর Finish ধূসর।'),
+  ('p', 'Perché: è la stessa causa, il progetto ha il file **module-info.java**.', 'কারণ: একই কারণ, প্রজেক্টে module-info.java ফাইল আছে।'),
+  ('p', 'Soluzione 1: clicca **«Cancel»** (Annulla) in basso a destra.', 'সমাধান ১: নিচে ডানদিকে Cancel (বাতিল) ক্লিক করো।'),
+  ('p', 'Soluzione 2: cancella **module-info.java** come sopra: **Package Explorer**, **src**, clic destro, **«Delete»**, **«OK»**.', 'সমাধান ২: উপরের মতো module-info.java মুছে দাও: Package Explorer, src, ডান ক্লিক, Delete, OK।'),
+  ('p', 'Soluzione 3: rifai la classe dal passo 14 (clic destro su **src**, New, Class).', 'সমাধান ৩: ১৪ নম্বর ধাপ থেকে ক্লাস আবার বানাও (src-এ ডান ক্লিক, New, Class)।')]),
 ]
 
 # numerazione continua dei passi
@@ -232,7 +257,12 @@ def corpo_html(img_dir, pagina):
     i += 1
     o.append(f'<section class="parte"><h2>{i:02d} Errori comuni: succede a tutti<span class="bn h" lang="bn">সাধারণ ভুল: সবার হয়</span></h2>')
     o.append('<p>Sbagliare è normale, anche per i programmatori professionisti. Con `Ctrl` + `Z` annulli l\'ultima modifica.</p>'.replace('`Ctrl`', '<code>Ctrl</code>').replace('`Z`', '<code>Z</code>') + bnp('ভুল হওয়া স্বাভাবিক, পেশাদার প্রোগ্রামারদেরও। Ctrl + Z দিয়ে শেষ পরিবর্তন বাতিল করো।'))
-    o.append('<div class="tab"><table><tr><th>Che cosa vedi</th><th>Perché</th><th>Come si sistema</th></tr>' + ''.join(f'<tr><td>{inl(a)}</td><td>{inl(b)}</td><td>{inl(c)}<span class="bn" lang="bn">{inl(d)}</span></td></tr>' for a, b, c, d in ERRORI) + '</table></div></section>')
+    o.append('<div class="tab"><table><tr><th>Che cosa vedi</th><th>Perché</th><th>Come si sistema</th></tr>' + ''.join(f'<tr><td>{inl(a)}</td><td>{inl(b)}</td><td>{inl(c)}<span class="bn" lang="bn">{inl(d)}</span></td></tr>' for a, b, c, d in ERRORI) + '</table></div>')
+    for x in ERRORI_IMG:
+        o.append(f'<div class="passo errore"><div class="testa"><span class="num">!</span><h3>{inl(x["t"])}<span class="bn h" lang="bn">{inl(x["bn"])}</span></h3></div>')
+        for e in x['el']: o.append(el_html(e, None))
+        o.append('</div>')
+    o.append('</section>')
     return '\n'.join(o)
 
 def copia_html(t, codice=False):
@@ -315,7 +345,7 @@ h2{break-after:avoid;page-break-after:avoid}.parte{break-before:auto}code{font-s
 <div class="intest"><p><b>Versione {VERSIONE}</b> · 28/10/2026 · Classe 3INF · dispensa per gli allievi (italiano con una riga di aiuto in bangla)</p>
 <p>La pagina con le spunte e il bottone Copia: nicolaregge-pulse.github.io/corso-informatica/3inf-eclipse-guida/</p></div>
 {corpo_html(img, False)}
-<h2>{len(PARTI)+4:02d} Changelog</h2><p>1. Versione 1.0 (28/10/2026): prima versione, con le schermate reali di Eclipse 2026-09 prese dal docente.</p>
+<h2>{len(PARTI)+4:02d} Changelog</h2><p>1. Versione 1.0 (28/10/2026): prima versione, con le schermate reali di Eclipse 2026-09 prese dal docente.</p><p>2. Versione 1.1 (28/10/2026): due errori comuni con la schermata e la soluzione («Unresolved compilation problem» con la X rossa su import javax.swing; «A package name must be specified for a module»): si cancella module-info.java; riquadro rosso al passo della spunta module-info.</p>
 </main></body></html>'''
 
 # ---------- Markdown ----------
@@ -353,8 +383,11 @@ def md():
     L += [f'## {i:02d} Errori comuni: succede a tutti', '', '*সাধারণ ভুল: সবার হয়*', '',
           'Sbagliare è normale, anche per i programmatori professionisti. Con `Ctrl` + `Z` annulli l\'ultima modifica.', '', '*ভুল হওয়া স্বাভাবিক, পেশাদার প্রোগ্রামারদেরও। Ctrl + Z দিয়ে শেষ পরিবর্তন বাতিল করো।*', '',
           '| Che cosa vedi | Perché | Come si sistema | বাংলা |', '|---|---|---|---|', *[f'| {a} | {b} | {c} | {d} |' for a, b, c, d in ERRORI], '']
+    for x in ERRORI_IMG:
+        L += [f'### {x["t"]}', '', f'*{x["bn"]}*', '']
+        for e in x['el']: L += el(e)
     i += 1
-    L += [f'## {i:02d} Changelog', '', '1. Versione 1.0 (28/10/2026): prima versione, con le schermate reali di Eclipse 2026-09 prese dal docente.', '']
+    L += [f'## {i:02d} Changelog', '', '1. Versione 1.0 (28/10/2026): prima versione, con le schermate reali di Eclipse 2026-09 prese dal docente.', '2. Versione 1.1 (28/10/2026): due errori comuni con la schermata e la soluzione («Unresolved compilation problem» con la X rossa su import javax.swing; «A package name must be specified for a module»): si cancella module-info.java; riquadro rosso al passo della spunta module-info.', '']
     return '\n'.join(L)
 
 os.makedirs(os.path.dirname(PAGINA), exist_ok=True)

@@ -1,0 +1,210 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><title>20261028_Classe-3_v1.1_Eclipse-Hello-World</title><style>
+:root{--bg:#f6f8fb;--card:#fff;--tx:#1d2733;--mu:#5b6573;--bd:#d5dbe3;--ac:#1f6feb;--ok:#2f855a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Verdana,"Segoe UI",Arial,"Noto Sans Bengali","Nirmala UI","Vrinda",sans-serif;font-size:11pt;line-height:1.6}
+main{max-width:860px;margin:0 auto;padding:12px 16px 60px}
+h1{font-size:1.5em;line-height:1.25;margin:14px 0 4px}h2{font-size:1.3em;margin:28px 0 10px;border-bottom:3px solid var(--ac);padding-bottom:4px}
+h3{font-size:1.1em;margin:0;line-height:1.3}
+.bn{display:block;color:var(--mu);font-size:.92em;margin-top:-4px;font-family:"Noto Sans Bengali","Nirmala UI","Vrinda",FreeSans,sans-serif}
+.h{font-weight:normal;font-size:.8em;margin-top:2px}
+p{margin:8px 0}code{background:#eef2f7;border:1px solid var(--bd);border-radius:5px;padding:0 5px;font-family:Consolas,"JetBrains Mono",monospace;font-size:.92em;word-break:break-word}
+.banner{background:#fff4c2;border:2px solid #d4a017;border-radius:10px;padding:10px 12px;margin:10px 0}
+.passo{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:12px 14px;margin:14px 0}
+.passo.ok{border-color:var(--ok);background:#f1faf4}
+.testa{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}
+.num{flex:0 0 auto;background:var(--ac);color:#fff;font-weight:bold;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;font-size:1.05em}
+.passo.ok .num{background:var(--ok)}
+.testa h3{flex:1 1 200px}
+.fatto-chk{flex:0 0 auto;border:2px solid var(--ok);border-radius:10px;padding:4px 10px;font-weight:bold;color:var(--ok);cursor:pointer;user-select:none;font-size:.9em}
+.fatto-chk input{width:20px;height:20px;vertical-align:middle;accent-color:var(--ok)}
+figure{margin:10px 0}figure img{width:100%;height:auto;border:1px solid var(--bd);border-radius:8px;display:block}
+figure.piccola img{max-width:520px}
+figcaption{font-size:.85em;color:var(--mu);margin-top:4px}
+.box{border-radius:10px;padding:8px 12px;margin:10px 0;border:2px solid}
+.box p{margin:4px 0}.nota{background:#fff8d6;border-color:#d4a017}.stop{background:#fde8e8;border-color:#c53030}.fatto{background:#e8f7ee;border-color:var(--ok)}
+.copia{position:relative;margin:8px 0}
+.copia pre{background:#0d1117;color:#e6edf3;padding:12px;padding-right:90px;border-radius:10px;font-size:15px;overflow-x:auto;margin:0;font-family:Consolas,"JetBrains Mono",monospace;line-height:1.45}
+.bt-copia{position:absolute;top:6px;right:6px;background:var(--ok);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer}
+.tab{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;margin:8px 0;font-size:.9em}
+th,td{border:1px solid var(--bd);padding:6px;text-align:left;vertical-align:top}th{background:#eef2f7}td .bn{margin-top:4px}
+.contatore{position:sticky;top:0;z-index:5;background:var(--ac);color:#fff;border-radius:0 0 10px 10px;padding:6px 12px;font-weight:bold;font-size:.95em}
+.torna{display:inline-block;margin-top:6px;color:var(--ac)}
+
+body{background:#fff;font-family:"DejaVu Sans",FreeSans,sans-serif}.bn{font-family:FreeSans,"DejaVu Sans",sans-serif}
+main{max-width:none;padding:0}.bt-copia{display:none}.copia pre{padding-right:12px;font-size:9pt;white-space:pre-wrap}
+.passo{padding:8px 12px;margin:10px 0}figure,.box,.copia,tr{break-inside:avoid;page-break-inside:avoid}.testa,h2,h2+p,h2+p+p.bn{break-after:avoid;page-break-after:avoid}figure img{max-height:105mm;width:auto;max-width:100%}
+h2{break-after:avoid;page-break-after:avoid}.parte{break-before:auto}code{font-size:.88em}
+.fine{break-before:page;page-break-before:always}.intest{border:1px solid #d5dbe3;border-radius:8px;padding:8px 12px;margin:8px 0;font-size:.9em}
+</style></head><body><main>
+<h1>Java con Eclipse: la finestra con il bottone Hello World</h1><p class="bn" lang="bn">Eclipse দিয়ে Java: Hello World বোতামসহ জানালা</p>
+<div class="intest"><p><b>Versione 1.1</b> · 28/10/2026 · Classe 3INF · dispensa per gli allievi (italiano con una riga di aiuto in bangla)</p>
+<p>La pagina con le spunte e il bottone Copia: nicolaregge-pulse.github.io/corso-informatica/3inf-eclipse-guida/</p></div>
+<section class="parte"><h2>01 Prima di cominciare<span class="bn h" lang="bn">শুরু করার আগে</span></h2>
+<p>Oggi fai il tuo primo programma Java con la finestra, in <b>Eclipse</b>: un programma vero da programmatori.</p><p class="bn" lang="bn">আজ তুমি Eclipse-এ জানালাসহ তোমার প্রথম Java প্রোগ্রাম বানাবে: প্রোগ্রামারদের আসল প্রোগ্রাম।</p>
+<p>La meta: una finestra con il bottone <b>Premi</b>. Lo premi e si apre una finestrella con scritto <b>Hello World</b> e il bottone <b>OK</b>. È come <code>ShowMessage</code> di Lazarus.</p><p class="bn" lang="bn">লক্ষ্য: Premi বোতামসহ একটি জানালা। চাপলে ছোট জানালা খোলে, তাতে Hello World লেখা আর OK বোতাম। Lazarus-এর ShowMessage-এর মতো।</p>
+<p>Eclipse è <b>in inglese</b>: qui trovi il nome inglese esatto di ogni bottone e, tra parentesi, la traduzione italiana.</p><p class="bn" lang="bn">Eclipse ইংরেজিতে: এখানে প্রতিটি বোতামের সঠিক ইংরেজি নাম আছে, আর বন্ধনীতে ইতালীয় অনুবাদ।</p>
+<p>Ogni passo è <b>una sola azione</b>. Quando l'hai fatta, metti la spunta <b>Fatto</b>.</p><p class="bn" lang="bn">প্রতিটি ধাপে একটি মাত্র কাজ। করা হলে Fatto (হয়ে গেছে)-তে টিক দাও।</p>
+</section>
+<section class="parte"><h2>02 Scompattare Eclipse<span class="bn h" lang="bn">Eclipse আনজিপ করা</span></h2>
+<p>Il prof ti dà il file <b>eclipse-java-2026-09-R-win32-x86_64.zip</b> (360 MB). È uno ZIP, cioè un pacchetto compresso: Eclipse non si installa, si scompatta e basta.</p><p class="bn" lang="bn">প্রফেসর তোমাকে eclipse-java-2026-09-R-win32-x86_64.zip ফাইল (৩৬০ MB) দেবেন। এটি ZIP, মানে সংকুচিত প্যাকেট: Eclipse ইনস্টল করতে হয় না, শুধু আনজিপ করতে হয়।</p>
+<div class="passo" id="passo-1"><div class="testa"><span class="num">1</span><h3>Estrai tutto<span class="bn h" lang="bn">Estrai tutto (সব বের করো)</span></h3></div>
+<p>Fai clic <b>destro</b> sul file ZIP e scegli <b>Estrai tutto…</b></p><p class="bn" lang="bn">ZIP ফাইলে ডান ক্লিক করো, Estrai tutto… বেছে নাও।</p>
+</div>
+<div class="passo" id="passo-2"><div class="testa"><span class="num">2</span><h3>Una cartella dal nome corto<span class="bn h" lang="bn">ছোট নামের ফোল্ডার</span></h3></div>
+<p>Copia questo percorso con il bottone <b>Copia</b>:</p><p class="bn" lang="bn">Copia বোতাম দিয়ে এই পথটি কপি করো:</p>
+<div class="copia"><pre>C:\Users\Public\ec</pre><button type="button" class="bt-copia" onclick="copia(this)">Copia</button></div>
+<p>Nella finestra di Estrai tutto clicca nella casella del percorso, premi <code>Ctrl</code> + <code>A</code> e poi <code>Ctrl</code> + <code>V</code>.</p><p class="bn" lang="bn">Estrai tutto জানালায় পথের ঘরে ক্লিক করো, Ctrl + A তারপর Ctrl + V চাপো।</p>
+<div class="box nota"><p><b>Nota</b> Il nome deve essere corto (per esempio anche <code>Documenti\ec</code>): Eclipse ha file con nomi lunghissimi e con un percorso lungo Windows non li scompatta tutti.</p><p class="bn" lang="bn"><b>মনে রাখো</b> নাম ছোট হতে হবে (যেমন Documenti\ec): Eclipse-এ খুব লম্বা নামের ফাইল আছে, পথ লম্বা হলে Windows সব আনজিপ করতে পারে না।</p></div>
+</div>
+<div class="passo" id="passo-3"><div class="testa"><span class="num">3</span><h3>Aspetta la fine<span class="bn h" lang="bn">শেষ পর্যন্ত অপেক্ষা করো</span></h3></div>
+<p>Clicca <b>Estrai</b> in basso a destra e aspetta che la finestra con la barra verde si chiuda <b>da sola</b>. Dura qualche minuto: sono migliaia di file.</p><p class="bn" lang="bn">নিচে ডানদিকে Estrai ক্লিক করো, সবুজ বারের জানালা নিজে বন্ধ হওয়া পর্যন্ত অপেক্ষা করো। কয়েক মিনিট লাগে: হাজার হাজার ফাইল।</p>
+</div>
+<div class="passo" id="passo-4"><div class="testa"><span class="num">4</span><h3>Controlla la cartella eclipse<span class="bn h" lang="bn">eclipse ফোল্ডার যাচাই করো</span></h3></div>
+<p>Apri la cartella <b>ec</b> e poi la cartella <b>eclipse</b>. Dentro ci devono essere le cartelle <b>configuration</b>, <b>features</b> e <b>plugins</b>.</p><p class="bn" lang="bn">ec ফোল্ডার খোলো, তারপর eclipse ফোল্ডার। ভিতরে configuration, features আর plugins ফোল্ডার থাকতে হবে।</p>
+<div class="box stop"><p><b>Attenzione</b> Mancano <b>features</b> o <b>plugins</b>? L'estrazione non è finita. Se fai partire Eclipse così, compare l'errore «unable to locate its companion shared library» (non trova i suoi pezzi). Cancella la cartella <b>ec</b> e rifai dal passo 1, aspettando la fine.</p><p class="bn" lang="bn"><b>সাবধান</b> features বা plugins নেই? আনজিপ শেষ হয়নি। এভাবে চালালে «unable to locate its companion shared library» ভুল আসে। ec ফোল্ডার মুছে ১ নম্বর ধাপ থেকে আবার করো, শেষ পর্যন্ত অপেক্ষা করে।</p></div>
+</div>
+<div class="passo" id="passo-5"><div class="testa"><span class="num">5</span><h3>Avvia Eclipse<span class="bn h" lang="bn">Eclipse চালু করো</span></h3></div>
+<p>Nella cartella <b>eclipse</b> fai doppio clic su <b>eclipse.exe</b> (l'icona con il cerchio viola). La prima volta si apre piano: aspetta.</p><p class="bn" lang="bn">eclipse ফোল্ডারে eclipse.exe-তে (বেগুনি বৃত্তের আইকন) দুবার ক্লিক করো। প্রথমবার ধীরে খোলে: অপেক্ষা করো।</p>
+</div>
+<div class="passo" id="passo-6"><div class="testa"><span class="num">6</span><h3>Il workspace: Launch<span class="bn h" lang="bn">workspace: Launch</span></h3></div>
+<p>Compare la finestra del <b>workspace</b> (la cartella dove Eclipse salva i tuoi progetti). Non cambiare niente e clicca <b>«Launch»</b> (Avvia) in basso a destra.</p><p class="bn" lang="bn">workspace জানালা আসবে (যে ফোল্ডারে Eclipse তোমার প্রজেক্ট রাখে)। কিছু বদলিও না, নিচে ডানদিকে Launch (চালু করো) ক্লিক করো।</p>
+</div>
+</section>
+<section class="parte"><h2>03 Il primo avvio<span class="bn h" lang="bn">প্রথমবার চালু</span></h2>
+<div class="passo" id="passo-7"><div class="testa"><span class="num">7</span><h3>La pagina Sponsor: Later<span class="bn h" lang="bn">Sponsor পাতা: Later</span></h3></div>
+<p>Si apre la pagina <b>«Sponsor the Eclipse IDE»</b> (Sostieni Eclipse). Clicca il bottone arancione <b>«Later»</b> (Più tardi).</p><p class="bn" lang="bn">«Sponsor the Eclipse IDE» পাতা খুলবে। কমলা রঙের Later (পরে) বোতামে ক্লিক করো।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/01-sponsor.jpg" alt="La pagina Sponsor: il bottone «Later» è arancione."><figcaption>La pagina Sponsor: il bottone «Later» è arancione.<span class="bn" lang="bn">Sponsor পাতা: Later বোতামটি কমলা রঙের।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-8"><div class="testa"><span class="num">8</span><h3>Chiudi le linguette<span class="bn h" lang="bn">ট্যাবগুলো বন্ধ করো</span></h3></div>
+<p>In alto restano delle linguette (schede) aperte. Chiudile una alla volta con la <b>X</b> accanto al nome. A sinistra compare il riquadro <b>«Package Explorer»</b> (Esplora pacchetti) con la scritta blu <b>«Create a Java project»</b>.</p><p class="bn" lang="bn">উপরে কিছু ট্যাব খোলা থাকে। নামের পাশের X দিয়ে একটা একটা করে বন্ধ করো। বামে Package Explorer দেখা যাবে, নীল লেখা Create a Java project সহ।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/02-package-explorer.jpg" alt="A sinistra il Package Explorer con «Create a Java project»."><figcaption>A sinistra il Package Explorer con «Create a Java project».<span class="bn" lang="bn">বামে Package Explorer, Create a Java project সহ।</span></figcaption></figure>
+</div>
+</section>
+<section class="parte"><h2>04 Il progetto HelloWorld<span class="bn h" lang="bn">HelloWorld প্রজেক্ট</span></h2>
+<p>Come in Lazarus: <b>un progetto = una cartella</b>. Eclipse la crea da solo.</p><p class="bn" lang="bn">Lazarus-এর মতো: একটি প্রজেক্ট = একটি ফোল্ডার। Eclipse নিজেই বানায়।</p>
+<div class="passo" id="passo-9"><div class="testa"><span class="num">9</span><h3>Create a Java project<span class="bn h" lang="bn">Create a Java project</span></h3></div>
+<p>A sinistra clicca la scritta blu <b>«Create a Java project»</b> (Crea un progetto Java). Si apre la finestra <b>«New Java Project»</b> (Nuovo progetto Java).</p><p class="bn" lang="bn">বামে নীল লেখা Create a Java project-এ ক্লিক করো। New Java Project জানালা খুলবে।</p>
+</div>
+<div class="passo" id="passo-10"><div class="testa"><span class="num">10</span><h3>Il nome del progetto<span class="bn h" lang="bn">প্রজেক্টের নাম</span></h3></div>
+<p>Nella casella in alto <b>«Project name»</b> (Nome del progetto) scrivi, tutto attaccato:</p><p class="bn" lang="bn">উপরের Project name ঘরে লেখো, একসাথে:</p>
+<div class="copia"><pre>HelloWorld</pre><button type="button" class="bt-copia" onclick="copia(this)">Copia</button></div>
+<div class="box nota"><p><b>Nota</b> Compare un avviso giallo sul nome del modulo («discouraged module name»): si ignora, sparisce al passo dopo.</p><p class="bn" lang="bn"><b>মনে রাখো</b> মডিউলের নাম নিয়ে হলুদ সতর্কবার্তা আসে: উপেক্ষা করো, পরের ধাপে চলে যায়।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/03-nuovo-progetto.jpg" alt="New Java Project: Project name HelloWorld; in basso la sezione Module."><figcaption>New Java Project: Project name HelloWorld; in basso la sezione Module.<span class="bn" lang="bn">New Java Project: Project name HelloWorld; নিচে Module অংশ।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-11"><div class="testa"><span class="num">11</span><h3>Togli la spunta module-info<span class="bn h" lang="bn">module-info-র টিক তুলে দাও</span></h3></div>
+<p>In fondo alla finestra, nella parte <b>«Module»</b> (Modulo), <b>togli la spunta</b> a <b>«Create module-info.java file»</b> (Crea il file module-info.java). L'avviso giallo sparisce.</p><p class="bn" lang="bn">জানালার নিচে Module অংশে Create module-info.java file-এর টিক তুলে দাও। হলুদ সতর্কবার্তা চলে যায়।</p>
+<div class="box stop"><p><b>Attenzione</b> La spunta <b>«Create module-info.java file»</b> va <b>TOLTA</b>. Se resta, dopo compaiono gli errori «Unresolved compilation problem» e «A package name must be specified for a module» (vedi gli errori comuni in fondo).</p><p class="bn" lang="bn"><b>সাবধান</b> Create module-info.java file-এর টিক অবশ্যই তুলে দিতে হবে। থেকে গেলে পরে «Unresolved compilation problem» আর «A package name must be specified for a module» ভুল আসে (শেষে সাধারণ ভুল দেখো)।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/04-senza-module-info.jpg" alt="Spunta tolta, nessun avviso: ora si può fare Finish."><figcaption>Spunta tolta, nessun avviso: ora si può fare Finish.<span class="bn" lang="bn">টিক তোলা, কোনো সতর্কবার্তা নেই: এখন Finish করা যায়।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-12"><div class="testa"><span class="num">12</span><h3>Finish<span class="bn h" lang="bn">Finish</span></h3></div>
+<p>Clicca <b>«Finish»</b> (Fine) in basso a destra. A sinistra compare il progetto <b>HelloWorld</b>.</p><p class="bn" lang="bn">নিচে ডানদিকে Finish (শেষ) ক্লিক করো। বামে HelloWorld প্রজেক্ট দেখা যাবে।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/05-progetto-creato.jpg" alt="Il progetto HelloWorld nel Package Explorer."><figcaption>Il progetto HelloWorld nel Package Explorer.<span class="bn" lang="bn">Package Explorer-এ HelloWorld প্রজেক্ট।</span></figcaption></figure>
+<div class="box fatto"><p><b>FATTO!</b> Il tuo primo progetto Java esiste.</p><p class="bn" lang="bn"><b>হয়ে গেছে!</b> তোমার প্রথম Java প্রজেক্ট তৈরি।</p></div>
+</div>
+</section>
+<section class="parte"><h2>05 La classe Main<span class="bn h" lang="bn">Main ক্লাস</span></h2>
+<p>Il codice Java sta dentro una <b>classe</b>: per ora pensala come la unit di Lazarus, un file di codice.</p><p class="bn" lang="bn">Java কোড একটি ক্লাসের ভিতরে থাকে: এখন এটাকে Lazarus-এর unit-এর মতো ভাবো, একটি কোডের ফাইল।</p>
+<div class="passo" id="passo-13"><div class="testa"><span class="num">13</span><h3>Apri il progetto<span class="bn h" lang="bn">প্রজেক্ট খোলো</span></h3></div>
+<p>A sinistra clicca la <b>freccina</b> accanto a <b>HelloWorld</b>: compare la cartella <b>src</b> (da «source», il codice).</p><p class="bn" lang="bn">বামে HelloWorld-এর পাশের ছোট তীরে ক্লিক করো: src ফোল্ডার দেখা যাবে (source = কোড)।</p>
+</div>
+<div class="passo" id="passo-14"><div class="testa"><span class="num">14</span><h3>New Class<span class="bn h" lang="bn">New Class</span></h3></div>
+<p>Clic <b>destro</b> su <b>src</b>, poi <b>«New»</b> (Nuovo), poi <b>«Class»</b> (Classe). Si apre la finestra <b>«New Java Class»</b>.</p><p class="bn" lang="bn">src-এ ডান ক্লিক, তারপর New (নতুন), তারপর Class (ক্লাস)। New Java Class জানালা খুলবে।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/06-nuova-classe.jpg" alt="La finestra New Java Class."><figcaption>La finestra New Java Class.<span class="bn" lang="bn">New Java Class জানালা।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-15"><div class="testa"><span class="num">15</span><h3>Il nome: Main<span class="bn h" lang="bn">নাম: Main</span></h3></div>
+<p>Clicca nella casella <b>«Name»</b> (Nome) e scrivi, con la M maiuscola:</p><p class="bn" lang="bn">Name (নাম) ঘরে ক্লিক করো আর লেখো, বড় হাতের M দিয়ে:</p>
+<div class="copia"><pre>Main</pre><button type="button" class="bt-copia" onclick="copia(this)">Copia</button></div>
+<div class="box stop"><p><b>Attenzione</b> Errore comune: Main scritto nella casella <b>«Package»</b> (Pacchetto) invece che in <b>«Name»</b>. Compare «Type name is empty» (il nome è vuoto). La casella <b>Package resta vuota</b>.</p><p class="bn" lang="bn"><b>সাবধান</b> সাধারণ ভুল: Main লেখা হয়েছে Package ঘরে, Name-এ নয়। «Type name is empty» আসে। Package ঘর খালি থাকবে।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/06b-errore-package.jpg" alt="ERRORE: Main finito in Package. Va in Name."><figcaption>ERRORE: Main finito in Package. Va in Name.<span class="bn" lang="bn">ভুল: Main গেছে Package-এ। এটা Name-এ যাবে।</span></figcaption></figure>
+<div class="box nota"><p><b>Nota</b> Con il nome giusto compare l'avviso giallo «The use of the default package is discouraged» (meglio non usare il pacchetto di base). Si ignora.</p><p class="bn" lang="bn"><b>মনে রাখো</b> সঠিক নাম দিলে হলুদ সতর্কবার্তা আসে «The use of the default package is discouraged»। উপেক্ষা করো।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/07-avviso-default-package.jpg" alt="Name: Main. L&#x27;avviso giallo si ignora."><figcaption>Name: Main. L'avviso giallo si ignora.<span class="bn" lang="bn">Name: Main। হলুদ সতর্কবার্তা উপেক্ষা করো।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-16"><div class="testa"><span class="num">16</span><h3>La spunta main<span class="bn h" lang="bn">main-এর টিক</span></h3></div>
+<p>Più sotto metti la spunta a <b>«public static void main(String[] args)»</b>: è il punto di partenza del programma.</p><p class="bn" lang="bn">নিচে public static void main(String[] args)-এ টিক দাও: এটা প্রোগ্রামের শুরুর জায়গা।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/08-pronto-finish.jpg" alt="Tutto pronto: Name Main e la spunta main."><figcaption>Tutto pronto: Name Main e la spunta main.<span class="bn" lang="bn">সব তৈরি: Name Main আর main-এর টিক।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-17"><div class="testa"><span class="num">17</span><h3>Finish: si apre Main.java<span class="bn h" lang="bn">Finish: Main.java খোলে</span></h3></div>
+<p>Clicca <b>«Finish»</b> (Fine). Al centro si apre il file <b>Main.java</b> con un po' di codice già scritto da Eclipse.</p><p class="bn" lang="bn">Finish ক্লিক করো। মাঝখানে Main.java খুলবে, Eclipse-এর লেখা কিছু কোডসহ।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/09-main-java.jpg" alt="Main.java aperto al centro."><figcaption>Main.java aperto al centro.<span class="bn" lang="bn">মাঝখানে Main.java খোলা।</span></figcaption></figure>
+</div>
+</section>
+<section class="parte"><h2>06 Il codice e il bottone Hello World<span class="bn h" lang="bn">কোড আর Hello World বোতাম</span></h2>
+<div class="passo" id="passo-18"><div class="testa"><span class="num">18</span><h3>Copia il codice<span class="bn h" lang="bn">কোড কপি করো</span></h3></div>
+<p>Clicca il bottone <b>Copia</b> del riquadro qui sotto: copia tutto il programma.</p><p class="bn" lang="bn">নিচের বাক্সের Copia বোতামে ক্লিক করো: পুরো প্রোগ্রাম কপি হবে।</p>
+<div class="copia lungo"><pre>import javax.swing.*;
+import java.awt.FlowLayout;
+
+public class Main {
+
+    public static void main(String[] args) {
+        JFrame finestra = new JFrame(&quot;Il mio primo programma&quot;);
+        JButton bottone = new JButton(&quot;Premi&quot;);
+
+        bottone.addActionListener(e -&gt; JOptionPane.showMessageDialog(finestra, &quot;Hello World&quot;));
+
+        finestra.setLayout(new FlowLayout());
+        finestra.add(bottone);
+        finestra.setSize(300, 150);
+        finestra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        finestra.setVisible(true);
+    }
+
+}</pre><button type="button" class="bt-copia" onclick="copia(this)">Copia</button></div>
+</div>
+<div class="passo" id="passo-19"><div class="testa"><span class="num">19</span><h3>Incolla al posto di tutto<span class="bn h" lang="bn">সবকিছুর জায়গায় পেস্ট করো</span></h3></div>
+<p>Clicca dentro il codice di <b>Main.java</b>, premi <code>Ctrl</code> + <code>A</code> (seleziona tutto) e poi <code>Ctrl</code> + <code>V</code> (incolla).</p><p class="bn" lang="bn">Main.java-র কোডের ভিতরে ক্লিক করো, Ctrl + A (সব বাছো) তারপর Ctrl + V (পেস্ট) চাপো।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/14-codice-v2.jpg" alt="Il codice incollato. Il pallino nero sulla linguetta Main.java vuol dire: non ancora salvato."><figcaption>Il codice incollato. Il pallino nero sulla linguetta Main.java vuol dire: non ancora salvato.<span class="bn" lang="bn">পেস্ট করা কোড। Main.java ট্যাবে কালো বিন্দু মানে: এখনো সেভ হয়নি।</span></figcaption></figure>
+<div class="box stop"><p><b>Attenzione</b> Errore comune: righe doppie e una <b>X rossa</b> a sinistra. Hai incollato dentro una riga un testo vecchio rimasto negli appunti. Copia di nuovo con il bottone Copia, poi <code>Ctrl</code> + <code>A</code> e <code>Ctrl</code> + <code>V</code>.</p><p class="bn" lang="bn"><b>সাবধান</b> সাধারণ ভুল: দুবার লাইন আর বামে লাল X। একটি লাইনের ভিতরে পুরনো লেখা পেস্ট হয়েছে। আবার Copia দিয়ে কপি করো, তারপর Ctrl + A আর Ctrl + V।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/13-errore-incolla.jpg" alt="ERRORE: testo vecchio incollato dentro una riga."><figcaption>ERRORE: testo vecchio incollato dentro una riga.<span class="bn" lang="bn">ভুল: একটি লাইনের ভিতরে পুরনো লেখা পেস্ট হয়েছে।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-20"><div class="testa"><span class="num">20</span><h3>Salva<span class="bn h" lang="bn">সেভ করো</span></h3></div>
+<p>Premi <code>Ctrl</code> + <code>S</code> (salva). Il pallino nero sulla linguetta sparisce.</p><p class="bn" lang="bn">Ctrl + S (সেভ) চাপো। ট্যাবের কালো বিন্দু চলে যায়।</p>
+<p>In basso, nella scheda <b>«Problems»</b> (Problemi), conta solo <b>0 errors</b> (0 errori). Un <b>warning</b> (avviso giallo) non blocca niente.</p><p class="bn" lang="bn">নিচে Problems (সমস্যা) ট্যাবে শুধু 0 errors (০ ভুল) দরকার। warning (হলুদ সতর্কবার্তা) কিছু আটকায় না।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/11-salvato.jpg" alt="Esempio in basso: «0 errors, 1 warning». Va bene."><figcaption>Esempio in basso: «0 errors, 1 warning». Va bene.<span class="bn" lang="bn">নিচে উদাহরণ: «0 errors, 1 warning»। ঠিক আছে।</span></figcaption></figure>
+</div>
+<div class="passo" id="passo-21"><div class="testa"><span class="num">21</span><h3>Run<span class="bn h" lang="bn">Run</span></h3></div>
+<p>In alto clicca il <b>cerchio verde con il triangolo bianco</b>: è <b>«Run»</b> (Esegui), come il triangolo verde di Lazarus.</p><p class="bn" lang="bn">উপরে সবুজ বৃত্তে সাদা ত্রিভুজে ক্লিক করো: এটা Run (চালাও), Lazarus-এর সবুজ ত্রিভুজের মতো।</p>
+<p>Si apre la finestra <b>«Il mio primo programma»</b> con il bottone <b>Premi</b>. Se non la vedi, è dietro Eclipse: cercala nella barra in basso dello schermo.</p><p class="bn" lang="bn">«Il mio primo programma» জানালা খুলবে, Premi বোতামসহ। না দেখলে, এটা Eclipse-এর পিছনে: স্ক্রিনের নিচের বারে খোঁজো।</p>
+</div>
+<div class="passo" id="passo-22"><div class="testa"><span class="num">22</span><h3>Premi<span class="bn h" lang="bn">Premi চাপো</span></h3></div>
+<p>Clicca <b>Premi</b>. Si apre una finestrella con scritto <b>Hello World</b> e il bottone <b>OK</b>.</p><p class="bn" lang="bn">Premi ক্লিক করো। ছোট জানালা খুলবে, Hello World লেখা আর OK বোতাম।</p>
+<div class="box stop"><p><b>Attenzione</b> Vedi «Hello World» scritto <b>accanto al bottone</b>, nella stessa finestra, senza finestrella? Hai ancora il codice vecchio: rifai i passi 18, 19 e 20 (copia, incolla, salva).</p><p class="bn" lang="bn"><b>সাবধান</b> বোতামের পাশে, একই জানালায় Hello World দেখছো, ছোট জানালা ছাড়া? পুরনো কোড আছে: ১৮, ১৯, ২০ ধাপ আবার করো (কপি, পেস্ট, সেভ)।</p></div>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/12-versione1-finestra.jpg" alt="Così è il codice VECCHIO: la scritta nella stessa finestra."><figcaption>Così è il codice VECCHIO: la scritta nella stessa finestra.<span class="bn" lang="bn">এটা পুরনো কোড: একই জানালায় লেখা।</span></figcaption></figure>
+<div class="box fatto"><p><b>FATTO!</b> La finestrella <b>Hello World</b> con <b>OK</b>: il tuo primo programma Java con la finestra! Clicca OK e chiudi con la X.</p><p class="bn" lang="bn"><b>হয়ে গেছে!</b> OK-সহ Hello World ছোট জানালা: জানালাসহ তোমার প্রথম Java প্রোগ্রাম! OK ক্লিক করো, X দিয়ে বন্ধ করো।</p></div>
+</div>
+<div class="passo" id="passo-23"><div class="testa"><span class="num">23</span><h3>Fallo tuo<span class="bn h" lang="bn">নিজের মতো করো</span></h3></div>
+<p>Nel codice cambia <b>"Hello World"</b> con una frase tua e <b>"Premi"</b> con una parola tua. Lascia le virgolette <code>"</code>. Poi <code>Ctrl</code> + <code>S</code> e Run.</p><p class="bn" lang="bn">কোডে "Hello World"-এর জায়গায় তোমার নিজের বাক্য আর "Premi"-এর জায়গায় তোমার শব্দ লেখো। " চিহ্ন রেখে দাও। তারপর Ctrl + S আর Run।</p>
+<p><b>Mostralo</b> al compagno: premi il bottone davanti a lui.</p><p class="bn" lang="bn">সহপাঠীকে দেখাও: তার সামনে বোতাম চাপো।</p>
+</div>
+</section>
+<section class="parte fine"><h2>07 Lazarus e Java a confronto<span class="bn h" lang="bn">Lazarus আর Java তুলনা</span></h2>
+<p>Hai già fatto lo stesso programma in Lazarus: cambiano le parole, l'idea è la stessa.</p><p class="bn" lang="bn">তুমি একই প্রোগ্রাম Lazarus-এ বানিয়েছো: শব্দ বদলায়, ধারণা একই।</p>
+<div class="tab"><table><tr><th>Che cosa</th><th>Lazarus</th><th>Java</th></tr><tr><td>la finestra</td><td><code>Form1</code></td><td><code>JFrame</code></td></tr><tr><td>il bottone</td><td><code>TButton</code></td><td><code>JButton</code></td></tr><tr><td>quando premi il bottone</td><td><code>Button1Click</code></td><td><code>addActionListener</code></td></tr><tr><td>il messaggio</td><td><code>ShowMessage('Hello World');</code></td><td><code>JOptionPane.showMessageDialog(finestra, "Hello World");</code></td></tr></table></div><p class="bn" lang="bn">Form1 = JFrame (জানালা)। TButton = JButton (বোতাম)। Button1Click = addActionListener (বোতাম চাপলে)। ShowMessage = JOptionPane.showMessageDialog (বার্তা)।</p>
+<figure class="piccola"><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/lazarus-showmessage.jpg" alt="Lazarus: ShowMessage Hello World"><figcaption>In Lazarus: Form1, Button1 e la finestrella di <code>ShowMessage</code> con OK.<span class="bn" lang="bn">Lazarus-এ: Form1, Button1 আর ShowMessage-এর OK-সহ ছোট জানালা।</span></figcaption></figure></section>
+<section class="parte fine"><h2>08 Il codice riga per riga<span class="bn h" lang="bn">লাইন ধরে ধরে কোড</span></h2>
+<div class="tab"><table><tr><th>Riga</th><th>Che cosa vuol dire</th></tr><tr><td><code>import javax.swing.*;</code></td><td>prende i pezzi per fare le finestre (come <code>uses</code> in Lazarus)<span class="bn" lang="bn">জানালা বানানোর অংশ আনে (Lazarus-এর uses-এর মতো)</span></td></tr><tr><td><code>import java.awt.FlowLayout;</code></td><td>prende il modo di mettere in fila i componenti<span class="bn" lang="bn">অংশগুলো সারিতে রাখার নিয়ম আনে</span></td></tr><tr><td><code>public class Main {</code></td><td>la classe: il nome è uguale al file Main.java<span class="bn" lang="bn">ক্লাস: নাম ফাইল Main.java-র মতো</span></td></tr><tr><td><code>public static void main(String[] args) {</code></td><td>il punto di partenza: il programma comincia da qui<span class="bn" lang="bn">শুরুর জায়গা: প্রোগ্রাম এখান থেকে শুরু</span></td></tr><tr><td><code>JFrame finestra = new JFrame("…");</code></td><td>crea la finestra con il titolo (il Form)<span class="bn" lang="bn">শিরোনামসহ জানালা বানায় (Form)</span></td></tr><tr><td><code>JButton bottone = new JButton("Premi");</code></td><td>crea il bottone (TButton)<span class="bn" lang="bn">বোতাম বানায় (TButton)</span></td></tr><tr><td><code>bottone.addActionListener(e -&gt; …);</code></td><td>quando premi il bottone, fai questo (Button1Click)<span class="bn" lang="bn">বোতাম চাপলে এটা করো (Button1Click)</span></td></tr><tr><td><code>JOptionPane.showMessageDialog(finestra, "Hello World")</code></td><td>apre la finestrella con il messaggio e OK (ShowMessage)<span class="bn" lang="bn">বার্তা আর OK-সহ ছোট জানালা খোলে (ShowMessage)</span></td></tr><tr><td><code>finestra.setLayout(new FlowLayout());</code></td><td>i componenti si mettono in fila, uno dopo l'altro<span class="bn" lang="bn">অংশগুলো একটার পর একটা সারিতে বসে</span></td></tr><tr><td><code>finestra.add(bottone);</code></td><td>mette il bottone nella finestra<span class="bn" lang="bn">বোতামটি জানালায় রাখে</span></td></tr><tr><td><code>finestra.setSize(300, 150);</code></td><td>larghezza e altezza (Width e Height)<span class="bn" lang="bn">প্রস্থ আর উচ্চতা (Width, Height)</span></td></tr><tr><td><code>setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE)</code></td><td>con la X il programma si chiude davvero<span class="bn" lang="bn">X চাপলে প্রোগ্রাম সত্যিই বন্ধ হয়</span></td></tr><tr><td><code>finestra.setVisible(true);</code></td><td>mostra la finestra<span class="bn" lang="bn">জানালা দেখায়</span></td></tr><tr><td><code>;</code> e <code>{ }</code></td><td>fine istruzione; inizio e fine di un blocco (<code>begin … end</code>)<span class="bn" lang="bn">নির্দেশের শেষ; ব্লকের শুরু আর শেষ (begin … end)</span></td></tr></table></div>
+<div class="box nota"><p><b>Prova del nove</b> Spiega al compagno, in 30 secondi e con parole tue, che cosa succede quando premi il bottone.</p><p class="bn" lang="bn"><b>নিজে যাচাই</b> ৩০ সেকেন্ডে, নিজের ভাষায়, সহপাঠীকে বলো বোতাম চাপলে কী হয়।</p></div></section>
+<section class="parte"><h2>09 Errori comuni: succede a tutti<span class="bn h" lang="bn">সাধারণ ভুল: সবার হয়</span></h2>
+<p>Sbagliare è normale, anche per i programmatori professionisti. Con <code>Ctrl</code> + <code>Z</code> annulli l'ultima modifica.</p><p class="bn" lang="bn">ভুল হওয়া স্বাভাবিক, পেশাদার প্রোগ্রামারদেরও। Ctrl + Z দিয়ে শেষ পরিবর্তন বাতিল করো।</p>
+<div class="tab"><table><tr><th>Che cosa vedi</th><th>Perché</th><th>Come si sistema</th></tr><tr><td>«unable to locate its companion shared library»</td><td>lo ZIP non è stato scompattato tutto</td><td>cancella la cartella ec e rifai dal passo 1, aspettando la fine<span class="bn" lang="bn">ZIP পুরো আনজিপ হয়নি: ec মুছে ১ নম্বর ধাপ থেকে আবার করো</span></td></tr><tr><td>«Unresolved compilation problem», X rossa sulla riga <code>import javax.swing</code></td><td>il progetto ha il file module-info.java</td><td>cancella module-info.java, poi Ctrl + S e Run<span class="bn" lang="bn">প্রজেক্টে module-info.java আছে: সেটি মুছে দাও, তারপর Ctrl + S আর Run</span></td></tr><tr><td>«A package name must be specified for a module»</td><td>il progetto ha il file module-info.java</td><td>cancella module-info.java, poi rifai la classe<span class="bn" lang="bn">প্রজেক্টে module-info.java আছে: সেটি মুছে দাও, তারপর ক্লাস আবার বানাও</span></td></tr><tr><td>«Type name is empty»</td><td>Main scritto in Package</td><td>Package vuoto, Main in Name<span class="bn" lang="bn">Main Package-এ লেখা: Package খালি, Main যাবে Name-এ</span></td></tr><tr><td>righe doppie e X rossa</td><td>incollato dentro una riga un testo vecchio</td><td>copia di nuovo, poi Ctrl + A e Ctrl + V<span class="bn" lang="bn">লাইনের ভিতরে পুরনো লেখা: আবার কপি, তারপর Ctrl + A আর Ctrl + V</span></td></tr><tr><td>pallino nero sulla linguetta</td><td>il file non è salvato</td><td>Ctrl + S<span class="bn" lang="bn">ফাইল সেভ হয়নি: Ctrl + S</span></td></tr><tr><td>Hello World accanto al bottone</td><td>codice vecchio</td><td>rifai i passi 18, 19 e 20<span class="bn" lang="bn">পুরনো কোড: ১৮, ১৯, ২০ ধাপ আবার করো</span></td></tr><tr><td>premi Run e non si vede niente</td><td>la finestra è dietro Eclipse</td><td>cercala nella barra in basso dello schermo<span class="bn" lang="bn">জানালা Eclipse-এর পিছনে: নিচের বারে খোঁজো</span></td></tr></table></div>
+<div class="passo errore"><div class="testa"><span class="num">!</span><h3>«Unresolved compilation problem» e la X rossa su import javax.swing<span class="bn h" lang="bn">«Unresolved compilation problem» আর import javax.swing-এ লাল X</span></h3></div>
+<p>Premi Run e in basso, nella scheda <b>«Console»</b>, compare in rosso <b>«Unresolved compilation problem»</b> (problema di compilazione non risolto). Sulla riga <code>import javax.swing.*;</code> c'è una <b>X rossa</b>.</p><p class="bn" lang="bn">Run চাপলে নিচে Console ট্যাবে লাল রঙে «Unresolved compilation problem» আসে। import javax.swing.*; লাইনে লাল X থাকে।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/15-errore-import-module.jpg" alt="ERRORE: X rossa sulla riga 1 e «Unresolved compilation problem» nella Console."><figcaption>ERRORE: X rossa sulla riga 1 e «Unresolved compilation problem» nella Console.<span class="bn" lang="bn">ভুল: ১ নম্বর লাইনে লাল X আর Console-এ «Unresolved compilation problem»।</span></figcaption></figure>
+<p>Perché: il progetto è stato creato <b>con</b> il file <b>module-info.java</b> (la spunta non è stata tolta). Questo file non lascia usare le finestre di <code>javax.swing</code>.</p><p class="bn" lang="bn">কারণ: প্রজেক্ট module-info.java ফাইলসহ বানানো হয়েছে (টিক তোলা হয়নি)। এই ফাইল javax.swing-এর জানালা ব্যবহার করতে দেয় না।</p>
+<p>Soluzione 1: a sinistra, nel <b>Package Explorer</b>, apri <b>HelloWorld</b> e poi <b>src</b>.</p><p class="bn" lang="bn">সমাধান ১: বামে Package Explorer-এ HelloWorld খোলো, তারপর src।</p>
+<p>Soluzione 2: fai clic <b>destro</b> su <b>module-info.java</b> e scegli <b>«Delete»</b> (Elimina).</p><p class="bn" lang="bn">সমাধান ২: module-info.java-তে ডান ক্লিক করো, Delete (মুছে ফেলো) বেছে নাও।</p>
+<p>Soluzione 3: nella finestrella clicca <b>«OK»</b>.</p><p class="bn" lang="bn">সমাধান ৩: ছোট জানালায় OK ক্লিক করো।</p>
+<p>Soluzione 4: clicca dentro Main.java, premi <code>Ctrl</code> + <code>S</code> e poi <b>Run</b>.</p><p class="bn" lang="bn">সমাধান ৪: Main.java-র ভিতরে ক্লিক করো, Ctrl + S চাপো, তারপর Run।</p>
+<div class="box nota"><p><b>Nota</b> Se nella Console leggi <b>Main.Main.main</b>, la classe è finita nel pacchetto «Main»: rifai la classe lasciando vuota la casella <b>Package</b> (passo 15).</p><p class="bn" lang="bn"><b>মনে রাখো</b> Console-এ Main.Main.main লেখা থাকলে ক্লাসটি «Main» প্যাকেজে চলে গেছে: Package ঘর খালি রেখে ক্লাস আবার বানাও (১৫ নম্বর ধাপ)।</p></div>
+</div>
+<div class="passo errore"><div class="testa"><span class="num">!</span><h3>«A package name must be specified for a module»<span class="bn h" lang="bn">«A package name must be specified for a module»</span></h3></div>
+<p>Nella finestra <b>«New Java Class»</b> compare in alto, con la X rossa, <b>«A package name must be specified for a module»</b> (per un modulo serve il nome del pacchetto) e <b>Finish</b> è grigio.</p><p class="bn" lang="bn">New Java Class জানালায় উপরে লাল X-সহ «A package name must be specified for a module» আসে, আর Finish ধূসর থাকে।</p>
+<figure><img src="file:///home/user/corso-informatica/docs/3inf-eclipse-guida/img/16-errore-package-module.jpg" alt="ERRORE: la X rossa in alto e Finish grigio."><figcaption>ERRORE: la X rossa in alto e Finish grigio.<span class="bn" lang="bn">ভুল: উপরে লাল X আর Finish ধূসর।</span></figcaption></figure>
+<p>Perché: è la stessa causa, il progetto ha il file <b>module-info.java</b>.</p><p class="bn" lang="bn">কারণ: একই কারণ, প্রজেক্টে module-info.java ফাইল আছে।</p>
+<p>Soluzione 1: clicca <b>«Cancel»</b> (Annulla) in basso a destra.</p><p class="bn" lang="bn">সমাধান ১: নিচে ডানদিকে Cancel (বাতিল) ক্লিক করো।</p>
+<p>Soluzione 2: cancella <b>module-info.java</b> come sopra: <b>Package Explorer</b>, <b>src</b>, clic destro, <b>«Delete»</b>, <b>«OK»</b>.</p><p class="bn" lang="bn">সমাধান ২: উপরের মতো module-info.java মুছে দাও: Package Explorer, src, ডান ক্লিক, Delete, OK।</p>
+<p>Soluzione 3: rifai la classe dal passo 14 (clic destro su <b>src</b>, New, Class).</p><p class="bn" lang="bn">সমাধান ৩: ১৪ নম্বর ধাপ থেকে ক্লাস আবার বানাও (src-এ ডান ক্লিক, New, Class)।</p>
+</div>
+</section>
+<h2>10 Changelog</h2><p>1. Versione 1.0 (28/10/2026): prima versione, con le schermate reali di Eclipse 2026-09 prese dal docente.</p><p>2. Versione 1.1 (28/10/2026): due errori comuni con la schermata e la soluzione («Unresolved compilation problem» con la X rossa su import javax.swing; «A package name must be specified for a module»): si cancella module-info.java; riquadro rosso al passo della spunta module-info.</p>
+</main></body></html>
