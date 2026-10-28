@@ -1,8 +1,10 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.1** — 26/10/2026 — documento interno del docente e di Claude
+**Versione 1.2** — 28/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
+
+Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gli hook di Claude Code (ordine copia/incolla, cosa bloccante in prima riga, «fatto» senza prova, massimo 3 comandi per turno); come funzionano e quando valgono in `.claude/hooks/LEGGIMI-controlli.md`.
 
 > **Nota:** una regola sola non basta: questo elenco esiste perché il 26/10 ho ripetuto errori già scritti (#105, #110, #112, #89). Da ora la checklist si spunta davvero, punto per punto, e nel resoconto di fine lezione si scrive quali controlli sono saltati.
 
@@ -55,3 +57,4 @@ Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e c
 
 1. v1.0 (26/10/2026): prima versione, dalla revisione di tutto il registro degli errori.
 2. v1.1 (27/10/2026): ritmo dello script e archivio dei comandi eseguiti (#125).
+3. v1.2 (28/10/2026): rimando ai controlli automatici (`.claude/hooks/LEGGIMI-controlli.md`).
