@@ -33,6 +33,8 @@ figcaption{font-size:.85em;color:var(--mu);margin-top:4px}
 th,td{border:1px solid var(--bd);padding:6px;text-align:left;vertical-align:top}th{background:#eef2f7}td .bn{margin-top:4px}
 .contatore{position:sticky;top:0;z-index:5;background:var(--ac);color:#fff;border-radius:0 0 10px 10px;padding:6px 12px;font-weight:bold;font-size:.95em}
 .torna{display:inline-block;margin-top:6px;color:var(--ac)}
+.nome-box{background:#fff8e1;border:2px solid #e0a800;border-radius:12px;padding:12px 14px;margin:14px 0}
+.nome-box input{width:100%;box-sizing:border-box;font-size:1.1em;padding:8px;border:2px solid var(--bd);border-radius:8px;margin-top:6px}
 </style></head><body>
 <div class="contatore">3INF · Passi fatti: <span id="cnt">0 / 23</span></div>
 <main>
@@ -40,6 +42,7 @@ th,td{border:1px solid var(--bd);padding:6px;text-align:left;vertical-align:top}
 <h1>Java con Eclipse: la finestra con il bottone Hello World</h1><p class="bn" lang="bn">Eclipse দিয়ে Java: Hello World বোতামসহ জানালা</p>
 <p style="color:var(--mu);font-size:.85em">3INF · 28/10/2026 · guida con le schermate vere di Eclipse · versione 1.0</p>
 <a class="torna" href="../verifica/?b=3inf-eclipse-java">Torna alla lezione di oggi</a>
+<div class="nome-box"><label for="nome-ragazzo"><b>Il tuo nome e cognome</b></label><span class="bn" lang="bn">তোমার নাম ও পদবি</span><input id="nome-ragazzo" type="text" autocomplete="name" placeholder="Esempio: Rossi Mario"><p style="margin:6px 0 0;font-size:.9em;color:var(--mu)">Scrivilo una volta: così il prof vede a che passo sei.</p><span class="bn" lang="bn">একবার লেখো: তাহলে প্রফেসর দেখবেন তুমি কোন ধাপে আছ।</span></div>
 <section class="parte"><h2>01 Prima di cominciare<span class="bn h" lang="bn">শুরু করার আগে</span></h2>
 <p>Oggi fai il tuo primo programma Java con la finestra, in <b>Eclipse</b>: un programma vero da programmatori.</p><p class="bn" lang="bn">আজ তুমি Eclipse-এ জানালাসহ তোমার প্রথম Java প্রোগ্রাম বানাবে: প্রোগ্রামারদের আসল প্রোগ্রাম।</p>
 <p>La meta: una finestra con il bottone <b>Premi</b>. Lo premi e si apre una finestrella con scritto <b>Hello World</b> e il bottone <b>OK</b>. È come <code>ShowMessage</code> di Lazarus.</p><p class="bn" lang="bn">লক্ষ্য: Premi বোতামসহ একটি জানালা। চাপলে ছোট জানালা খোলে, তাতে Hello World লেখা আর OK বোতাম। Lazarus-এর ShowMessage-এর মতো।</p>
@@ -195,6 +198,15 @@ function vecchio(t){var a=document.createElement('textarea');a.value=t;document.
 var K='3inf-eclipse-guida-v1',S={};try{S=JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){S={}}
 function conta(){var c=document.querySelectorAll('.fatto-chk input'),f=0;c.forEach(function(x){if(x.checked)f++});document.getElementById('cnt').textContent=f+' / '+c.length}
 document.querySelectorAll('.fatto-chk input').forEach(function(x){var k=x.dataset.k;x.checked=!!S[k];x.closest('.passo').classList.toggle('ok',x.checked);
- x.addEventListener('change',function(){S[k]=x.checked;x.closest('.passo').classList.toggle('ok',x.checked);try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}conta()})});
+ x.addEventListener('change',function(){S[k]=x.checked;x.closest('.passo').classList.toggle('ok',x.checked);try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}conta();invia()})});
 conta();
+var INVIO='https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec',KN='3inf-eclipse-guida-nome',ultimoInvio=0,timer=null,ultimoTesto='';
+var cN=document.getElementById('nome-ragazzo');try{cN.value=localStorage.getItem(KN)||''}catch(e){}
+cN.addEventListener('input',function(){try{localStorage.setItem(KN,cN.value.trim())}catch(e){}});
+cN.addEventListener('change',function(){invia()});
+function manda(){timer=null;var nome=cN.value.trim();if(!nome)return;var fatti=[];document.querySelectorAll('.fatto-chk input').forEach(function(x){if(x.checked)fatti.push(Number(x.dataset.k))});
+ var d={id:'3inf-eclipse-guida',classe:'3INF',nome:nome,passo:fatti.length?Math.max.apply(null,fatti):0,fatti:fatti,totale:23,quando:new Date().toISOString()};
+ var t=JSON.stringify([d.nome,d.fatti]);if(t===ultimoTesto)return;ultimoTesto=t;ultimoInvio=Date.now();
+ try{fetch(INVIO,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))}).catch(function(){})}catch(e){}}
+function invia(){if(timer)return;var att=20000-(Date.now()-ultimoInvio);timer=setTimeout(manda,att>0?att:0)}
 </script></body></html>

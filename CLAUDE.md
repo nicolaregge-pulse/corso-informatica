@@ -537,3 +537,5 @@ L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md
 5. Per farla subito, a mano: `python3 .claude/hooks/bobina-automatica.py --sessione-corrente`
 
 **23. Quaderno della 1INF (28/10/2026, Nicola).** Ai ragazzi di prima si dà sempre qualcosa da RICOPIARE sul quaderno (poche righe, dalla lavagna o dalla pagina): li attiva e li mette in silenzio. Claude lo prepara per ogni lezione della 1INF e lo ricorda a Nicola spesso, a ogni cambio di attività.
+
+**24. Report PDF per ogni ora, con gli screenshot (28/10/2026, Nicola: «NUOVA REGOLA»).** Per ogni ora di lezione si crea un PDF di report con tutti gli screenshot di Veyon dell ora in risoluzione massima (originali, non ridotti), con ora, presenti, fuori compito, uscite, note e consegne. Contiene nomi: si salva SOLO nel repository riservato (report/AAAA-MM-GG/) e si manda a Nicola in chat.
