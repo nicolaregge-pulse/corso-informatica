@@ -1,0 +1,40 @@
+{
+ "classe": "1INF",
+ "modalita": [
+  "guidato",
+  "teoria-quiz"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Lazarus: il primo programma Ciao",
+   "descrizione": "Percorso guidato: bottone ed etichetta che dicono Ciao con il tuo nome; poi scheda e quiz.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Ripasso del byte con il quiz",
+   "descrizione": "Teoria a schede sul byte e quiz su Moduli.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Sicurezza al computer, seconda parte",
+   "descrizione": "Scheda e quiz breve sulle password.",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [
+  {
+   "t": "La lezione: il primo programma Ciao",
+   "u": "verifica/?b=1inf-lazarus-ciao"
+  },
+  {
+   "t": "La guida passo passo",
+   "u": "1inf-howto-progetto/"
+  }
+ ],
+ "mancanze": "PROVA: 3 allievi senza il primo progetto.",
+ "giorno": "2026-10-28"
+}

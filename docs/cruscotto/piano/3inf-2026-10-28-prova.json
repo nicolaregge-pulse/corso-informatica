@@ -1,0 +1,30 @@
+{
+ "classe": "3INF",
+ "modalita": [
+  "versioning",
+  "guidato"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Hello World in Lazarus e in Java",
+   "descrizione": "Due programmi, consegna del Documento su Classroom.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Pull request sul sito di classe",
+   "descrizione": "Ogni allievo apre una PR con la sua pagina.",
+   "preferita": false
+  }
+ ],
+ "scelta": 1,
+ "link": [
+  {
+   "t": "La lezione",
+   "u": "3inf-lazarus/"
+  }
+ ],
+ "mancanze": "PROVA: 2 consegne mancanti.",
+ "giorno": "2026-10-28"
+}

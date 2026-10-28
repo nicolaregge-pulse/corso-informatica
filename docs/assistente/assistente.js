@@ -31,7 +31,9 @@
       (diretta ? '<button id="as-b" style="font:inherit;font-weight:700;background:#1a7f37;color:#fff;border:0;border-radius:8px;padding:10px 20px;cursor:pointer">' + e(tr('b')) + '</button>' :
         '<ol style="padding-left:22px"><li>' + e(tr('m1')) + '<br><button id="as-c" style="font:inherit;font-weight:700;background:#1f6feb;color:#fff;border:0;border-radius:8px;padding:8px 16px;cursor:pointer">' + e(tr('cq')) + '</button></li><li>' + e(tr('m2')) + '<br><a target="_blank" rel="noopener" href="' + MODULO + '" style="display:inline-block;font-weight:700;background:#1f6feb;color:#fff;border-radius:8px;padding:8px 16px;text-decoration:none">' + e(tr('am')) + '</a></li><li>' + e(tr('m3')) + '</li></ol>') + ' <span id="as-st"></span>' +
       '<div id="as-r"></div>';
-    document.body.appendChild(box);
+    // 28/10/2026: data-dove="id" mette la casella dentro quel contenitore (linguetta «Chiedi aiuto» del cruscotto)
+    var dove = me.dataset.dove && document.getElementById(me.dataset.dove);
+    (dove || document.body).appendChild(box);
     var nome = document.getElementById('as-nome'); nome.value = leggi('assistente-nome');
     if (!diretta) document.getElementById('as-c').onclick = function () {
       var q = document.getElementById('as-q').value.trim(), n = nome.value.trim(), st = document.getElementById('as-st');
@@ -82,6 +84,7 @@
         .catch(function () { st.textContent = tr('ko'); document.getElementById('as-q').value = q; });
     };
     function risposte() {
+      if (!document.body.contains(box)) return;   // casella tolta (il cruscotto ha cambiato classe)
       var n = (nome.value || leggi('assistente-nome')).trim().toLowerCase(); if (!n) return;
       fetch(base + 'assistente/risposte/' + pagina + '.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : []; }).then(function (L) {
         var mie = (L || []).filter(function (x) { var a = String(x.nome || '').toLowerCase(); return a && (n.indexOf(a.replace(/\.$/, '').split(' ')[0]) === 0); });
