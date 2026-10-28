@@ -13,6 +13,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+## 28/10/2026 — ERRORE GRAVE: il cruscotto non dice chi ha consegnato su Classroom (#133)
+
+1. **Errore.** Nella lezione con consegna su Classroom il cruscotto del docente mostrava le colonne di un'altra lezione («non aperta», «non fatta») e un dato delle consegne fermo alle 08:50. Il docente non poteva sapere chi aveva consegnato: la cosa più importante del monitoraggio.
+2. **Regola.** Prima della lezione il cruscotto si progetta sulla consegna del giorno: la prima colonna dice «consegnato sì/no, a che ora», con il totale in alto, letto da Classroom ogni 5 minuti. Si prova prima della campanella con una consegna di prova.
+
 ## 28/10/2026 — Comandi e risultati lunghi nella chat: il docente non riesce a leggere (#132)
 
 1. **Errore.** Il 27/10 e il 28/10 il docente ha chiesto tre volte riquadri più corti: i miei comandi lunghi e i loro risultati fanno scorrere la chat mentre legge. Ho promesso «una riga» e ho continuato con comandi e risultati lunghi.
