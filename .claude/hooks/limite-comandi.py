@@ -11,7 +11,7 @@ Le chiamate dei subagenti (campo agent_id nell'input) non si contano e non si
 bloccano: il lavoro lungo va proprio lì.
 
 Controlli che valgono per TUTTI (anche i subagenti), nel momento dell'azione:
-3. Cancellare una versione in docs/ (PDF o file «vN.N») con rm / git rm: rifiutato
+3. Cancellare una versione in docs/ (PDF o file «vN.N») con rm / git rm, o spostarla con mv / git mv: rifiutato
    (errori del 01/10 n. 13 e del 05/10 n. 4: le versioni si tengono, si bumpa).
 4. «git push» del repository PUBBLICO: prima si controllano i file di docs/ cambiati
    rispetto a origin/main (controlli_pagine.py: lingue della classe #49 #82 #119,
@@ -129,6 +129,7 @@ def nega(motivo):
 PUB = "/home/user/corso-informatica"
 RIS = "/home/user/corso-informatica-riservato"
 RX_RM = re.compile(r"(?:^|[;&|(]\s*|\s)(?:git\s+rm|rm)((?:\s+[^\s;&|)]+)+)")
+RX_MV = re.compile(r"(?:^|[;&|(]\s*|\s)(?:git\s+mv|mv)((?:\s+[^\s;&|)]+)+)")
 RX_PUSH = re.compile(r"\bgit\b[^;&|\n]*\bpush\b")
 
 
@@ -141,6 +142,13 @@ def cancella_versioni(comando):
             if "docs/" in a and (a.endswith(".pdf") or "*" in a or re.search(r"v\d+[._]\d+", a)):
                 return ("Non si cancella una versione in docs/ («%s»): le versioni già date restano, si "
                         "bumpa e la pagina punta alla nuova (REGISTRO-ERRORI 01/10 n. 13, 05/10 n. 4)." % a)
+    # audit 28/10/2026: anche spostare o rinominare una versione (mv / git mv) la toglie da docs/
+    for m in RX_MV.finditer(comando):
+        arg = [x.strip("'\"") for x in m.group(1).split() if not x.startswith("-")]
+        for a in arg[:-1]:
+            if "docs/" in a and (a.endswith(".pdf") or "*" in a or re.search(r"v\d+[._]\d+", a)):
+                return ("Non si sposta né si rinomina una versione in docs/ («%s»): si copia (cp) la nuova "
+                        "versione accanto alla vecchia, che resta (REGISTRO-ERRORI 01/10 n. 13, 05/10 n. 4)." % a)
     return None
 
 
