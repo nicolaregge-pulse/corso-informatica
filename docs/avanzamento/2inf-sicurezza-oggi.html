@@ -54,7 +54,7 @@ function mostra(D){
  $('riep').textContent='Quiz completati: '+tutti+' allievi su '+R.length+' hanno tutti e 4 i quiz · quiz fatti oggi: '+nuovi;
  $('pres').className=D.presenze_segnate?'giallo hide':'giallo';
  var min=Math.round((Date.now()-new Date(D.dato+':00+01:00').getTime())/60000);
- $('stato').textContent='Ultimo dato dai Moduli: ore '+ora(D.dato)+' ('+min+' min fa) · pagina rigenerata alle '+ora(D.generato)+' · controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});
+ $('stato').textContent='Ultimo dato dai Moduli: ore '+ora(D.dato)+' ('+min+' min fa) · pagina rigenerata alle '+ora(D.generato)+' · controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
  if(min>15){$('vecchio').textContent='ATTENZIONE: il dato ha '+min+' minuti (più di 15). I Moduli non sono stati riletti: la tabella può non essere aggiornata.';$('vecchio').className='allarme'}else $('vecchio').className='allarme hide';
  $('t').innerHTML=R.map(function(r,i){
   var q=r.ore.map(function(o,j){var l='<span class="lab">'+(j+1)+'ª ora</span>';
