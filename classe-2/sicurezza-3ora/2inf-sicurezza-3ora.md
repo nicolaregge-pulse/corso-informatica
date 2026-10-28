@@ -1,12 +1,12 @@
 # Sicurezza sul lavoro — 3ª ora: l'organizzazione della prevenzione in azienda
 
-**Versione 1.0** — 21/10/2026 · 2INF · 21/10/2026 · prima la teoria ufficiale, poi il ripasso e la verifica
+**Versione 1.1** — 28/10/2026 (prima edizione 21/10/2026) · 2INF · 21/10/2026 · prima la teoria, poi il ripasso e la verifica
 
 La pagina della lezione, con il ripasso: https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=2inf-sicurezza-3ora
 
 ## 01 La squadra della prevenzione
 
-Prima studia la **3ª ora** sul sito ufficiale della formazione: apri la teoria (si apre in una scheda nuova) (https://sites.google.com/piamarta.it/formazionesicurezzamilano/3-ora).
+La teoria della **3ª ora** è in questa pagina: leggi le 4 schede, una alla volta.
 
 In azienda la sicurezza è organizzata come una squadra. Il **datore di lavoro** decide e risponde. Il **Servizio di Prevenzione e Protezione** (SPP), guidato dal **RSPP**, studia i rischi e propone le soluzioni. Il **medico competente** controlla la salute. Il **RLS** parla a nome dei lavoratori. I **preposti** controllano sul campo.
 
@@ -24,6 +24,11 @@ Ogni azienda ha gli **addetti alle emergenze**: gli **addetti antincendio** (usa
 
 ## 05 Che cosa fare oggi
 
-1. Studia la 3ª ora sul sito ufficiale: https://sites.google.com/piamarta.it/formazionesicurezzamilano/3-ora
-2. Leggi le 4 schede e fai il ripasso sulla pagina della lezione.
+1. La teoria della 3ª ora è in questa pagina: leggi le 4 schede, una alla volta.
+2. Fai il ripasso sulla pagina della lezione.
 3. Fai il quiz su Google Moduli (link su Classroom) e premi Invia.
+
+## Changelog
+
+1. v1.1 (28/10/2026): tolto il link al sito della formazione della Regione; la teoria della 3ª ora è nelle schede di questa pagina.
+2. v1.0 (21/10/2026): prima edizione.

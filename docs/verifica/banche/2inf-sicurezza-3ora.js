@@ -1,5 +1,5 @@
 // 2INF · Sicurezza sul lavoro — 3ª ora (Regione): organizzazione della prevenzione aziendale (21/10/2026).
-// Teoria ufficiale sul sito della formazione (3ª ora); qui ripasso + verifica di 20 casi a scenario, anti-IA:
+// Teoria della 3ª ora nelle schede di questa pagina (niente link al sito della Regione, 28/10/2026); qui ripasso + verifica di 20 casi a scenario, anti-IA:
 // incolla bloccato, ordine personale, tempo e uscite misurati, due domande sulla PROPRIA aula. Solo italiano (2INF).
 (function () {
   function C(area, q, o, spiega, tema) { return { tipo: "c", area: area, tema: tema || "", q: q, o: o, a: 0, spiega: spiega }; }
@@ -8,7 +8,7 @@
     id: "2inf-sicurezza-3ora-v1",
     classe: "2INF",
     titolo: "Sicurezza sul lavoro — 3ª ora: l'organizzazione della prevenzione in azienda",
-    sotto: "2INF · 21/10/2026 · prima la teoria ufficiale, poi il ripasso e la verifica",
+    sotto: "2INF · 21/10/2026 · prima la teoria, poi il ripasso e la verifica",
     stato: "stato/2inf-sicurezza-3ora.json",
     risultati: "risultati.html?b=2inf-sicurezza-3ora",
     minuti: 20,
@@ -20,7 +20,7 @@
     },
     schede_temi: { spp: 1, dvr: 2, emergenze: 3, formazione: 4 },
     schede: [
-      { titolo: "1. La squadra della prevenzione", testo: "Prima studia la <b>3ª ora</b> sul sito ufficiale della formazione: <a href=\"https://sites.google.com/piamarta.it/formazionesicurezzamilano/3-ora\" target=\"_blank\" rel=\"noopener\">apri la teoria (si apre in una scheda nuova)</a>.<br><br>In azienda la sicurezza è organizzata come una squadra. Il <b>datore di lavoro</b> decide e risponde. Il <b>Servizio di Prevenzione e Protezione</b> (SPP), guidato dal <b>RSPP</b>, studia i rischi e propone le soluzioni. Il <b>medico competente</b> controlla la salute. Il <b>RLS</b> parla a nome dei lavoratori. I <b>preposti</b> controllano sul campo." },
+      { titolo: "1. La squadra della prevenzione", testo: "La teoria della <b>3ª ora</b> è in questa pagina: leggi le 4 schede, una alla volta.<br><br>In azienda la sicurezza è organizzata come una squadra. Il <b>datore di lavoro</b> decide e risponde. Il <b>Servizio di Prevenzione e Protezione</b> (SPP), guidato dal <b>RSPP</b>, studia i rischi e propone le soluzioni. Il <b>medico competente</b> controlla la salute. Il <b>RLS</b> parla a nome dei lavoratori. I <b>preposti</b> controllano sul campo." },
       { titolo: "2. Il DVR: la mappa dei rischi", testo: "Il <b>DVR</b> (Documento di Valutazione dei Rischi) è il documento dove l'azienda scrive <b>tutti i rischi</b> di ogni lavoro e <b>che cosa fa</b> per ridurli. Lo firma il datore di lavoro, con l'RSPP e il medico competente, sentito l'RLS. Il datore di lavoro <b>non può delegarlo</b> a nessuno. Si aggiorna quando cambia qualcosa: una macchina nuova, un reparto nuovo, dopo un infortunio. Almeno <b>una volta l'anno</b> c'è la <b>riunione periodica</b> della squadra della sicurezza." },
       { titolo: "3. Le emergenze: chi interviene", testo: "Ogni azienda ha gli <b>addetti alle emergenze</b>: gli <b>addetti antincendio</b> (usano gli estintori e guidano l'evacuazione) e gli <b>addetti al primo soccorso</b> (aiutano chi si fa male e chiamano il <b>112</b>). C'è un <b>piano di emergenza</b>: vie di fuga, <b>uscite di emergenza</b> con il cartello verde, <b>punto di raccolta</b> fuori dall'edificio. Durante l'evacuazione: niente ascensore, niente corsa, non si torna indietro a prendere le cose." },
       { titolo: "4. Formazione, informazione, addestramento", testo: "<b>Informazione</b>: ti dicono quali rischi ci sono e chi sono le persone della sicurezza. <b>Formazione</b>: un corso per capire (come questo: 4 ore generali + le ore specifiche). <b>Addestramento</b>: provi davvero, con le mani, l'attrezzo o il DPI, con qualcuno che ti guarda. Si fanno <b>durante l'orario di lavoro</b> e <b>non costano niente al lavoratore</b>. Valgono anche per lo <b>studente in stage</b>." }
