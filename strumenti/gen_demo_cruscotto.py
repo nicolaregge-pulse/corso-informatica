@@ -6,6 +6,7 @@ toglie indirizzi dei siti (contengono il nome utente), miniature (mostrano il no
 docs/demo/cruscotto/dati/ in chiaro e la pagina docs/demo/cruscotto/index.html, che si apre senza codice.
 Uso: python3 strumenti/gen_demo_cruscotto.py 3inf-portfolio-v1
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cifra_json

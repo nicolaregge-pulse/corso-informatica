@@ -14,6 +14,7 @@ Uso:
       [--pr 3] [--arrivo 09:35] [--foto-ok] [--secondo]
   python3 strumenti/talpa_versione.py --inizio     (crea la v1.0, il fork con la sola talpa originale)
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import argparse, datetime, json, os, re, unicodedata
 from PIL import Image
 

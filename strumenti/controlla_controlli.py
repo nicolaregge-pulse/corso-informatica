@@ -14,15 +14,21 @@ Controlla:
   4. .claude/passi-notturni.md si legge, ha la versione, l'ultimo passo «stato della notte» e i comandi che cita
      puntano a file che esistono;
   5. la notte precedente ha lasciato nel riservato stato/notte-<giorno>.json (scritto dall'ultimo passo dei passi
-     notturni) e il file si legge.
-Stampa una riga per controllo, «VERDE: <cosa>» o «ROSSO: <cosa>», e in fondo «ESITO: VERDE» o «ESITO: ROSSO (N)».
+     notturni) e il file si legge;
+  6. privacy del pubblico (28/10/2026): nei file tracciati di questo repository (tranne i JSON cifrati e
+     .claude/hooks/prove/) non c'è nessun cognome dei ragazzi, né da solo né attaccato dentro un link o un nome
+     utente («nomecognome.github.io», «github.com/nomecognome…»). L'elenco dei cognomi viene dalle anagrafiche del
+     riservato (generatori/privacy_nomi.py); se il riservato manca il controllo è GIALLO e non conta come errore.
+     Il rosso dice solo i file e quanti cognomi, mai i cognomi.
+Stampa una riga per controllo, «VERDE: <cosa>», «GIALLO: <cosa>» o «ROSSO: <cosa>», e in fondo «ESITO: VERDE» o
+«ESITO: ROSSO (N)».
 Esce con 0 se tutto è VERDE, 1 altrimenti. Non scrive niente nei repository. Nessun segreto: legge solo impostazioni,
 prove e nomi di file.
 Uso (una riga):
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py --notte 2026-10-29
 Opzioni: --notte AAAA-MM-GG controlla quella notte (predefinito: l'ultima notte di lavoro attesa, vedi notte_attesa);
-         --senza-prove salta il punto 3 (più veloce).
+         --senza-prove salta il punto 3 (più veloce); --solo-privacy fa solo il punto 6.
 """
 import argparse, datetime, glob, json, os, re, subprocess, sys, tempfile
 
@@ -46,6 +52,50 @@ righe = []
 
 def esito(ok, cosa):
     righe.append(("VERDE" if ok else "ROSSO", cosa))
+
+
+def giallo(cosa):
+    righe.append(("GIALLO", cosa))
+
+
+BINARI = re.compile(r"\.(png|jpe?g|webp|gif|ico|pdf|zip|7z|woff2?|ttf|otf|mp3|mp4|wav|ogg|xlsx|docx|pptx|pck|wasm|import|exe)$", re.I)
+CODICE = (".py", ".js", ".mjs", ".gd", ".sh", ".gs")
+
+
+def controlla_privacy():
+    gen = os.path.join(RIS, "generatori")
+    if not os.path.isfile(os.path.join(gen, "privacy_nomi.py")):
+        giallo("privacy del pubblico: repository riservato non trovato accanto, cognomi non cercati")
+        return
+    try:
+        if gen not in sys.path:
+            sys.path.append(gen)
+        import privacy_nomi
+        privacy_nomi.disattiva()   # qui si legge soltanto
+        n_cognomi = len(privacy_nomi.cognomi())
+    except Exception as e:
+        giallo("privacy del pubblico: elenco dei cognomi non leggibile (%s)" % str(e)[:80])
+        return
+    if not n_cognomi:
+        giallo("privacy del pubblico: nessun cognome nelle anagrafiche del riservato")
+        return
+    file_git = subprocess.run(["git", "-C", PUB, "ls-files"], capture_output=True, text=True).stdout.splitlines()
+    trovati, letti = [], 0
+    for rel in file_git:
+        if rel.startswith(".claude/hooks/prove/") or BINARI.search(rel):
+            continue
+        try:
+            testo = open(os.path.join(PUB, rel), encoding="utf-8").read()
+        except Exception:
+            continue
+        if privacy_nomi._CIFRATO.match(testo):   # JSON cifrati (cifra_json e i formati più vecchi salt/iv/ct)
+            continue
+        letti += 1
+        h = privacy_nomi.trova(testo, codice=rel.endswith(CODICE))
+        if h:
+            trovati.append("%s (%d)" % (rel, len(h)))
+    esito(not trovati, "privacy del pubblico: %d file letti, %d cognomi cercati (anche attaccati nei link)" % (letti, n_cognomi)
+          + (": cognomi in " + ", ".join(trovati[:15]) + (" e altri %d" % (len(trovati) - 15) if len(trovati) > 15 else "") if trovati else ""))
 
 
 def notte_attesa(adesso):
@@ -179,8 +229,16 @@ def main():
     a = argparse.ArgumentParser(description="Controllore dei controlli automatici")
     a.add_argument("--notte", default=None, help="AAAA-MM-GG della notte da controllare")
     a.add_argument("--senza-prove", action="store_true")
+    a.add_argument("--solo-privacy", action="store_true")
     args = a.parse_args()
     adesso = datetime.datetime.now(ROMA) if ROMA else datetime.datetime.now()
+    if args.solo_privacy:
+        controlla_privacy()
+        for e, cosa in righe:
+            print("%s: %s" % (e, cosa))
+        rossi = sum(1 for e, _ in righe if e == "ROSSO")
+        print("ESITO: VERDE" if not rossi else "ESITO: ROSSO (%d)" % rossi)
+        return 0 if not rossi else 1
     controlla_impostazioni()
     controlla_file_hook()
     controlla_attiva_home()
@@ -188,6 +246,7 @@ def main():
         controlla_prove()
     controlla_passi()
     controlla_notte(args.notte or notte_attesa(adesso))
+    controlla_privacy()
     for e, cosa in righe:
         print("%s: %s" % (e, cosa))
     rossi = sum(1 for e, _ in righe if e == "ROSSO")

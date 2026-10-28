@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Gioco della talpa 1INF: dà il nome vero a «Personaggio N» (elenco, versioni, backlog).
 Uso: python3 strumenti/talpa_nome.py 5 "Muhammad N." """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import json, os, re, sys, unicodedata
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 n, nome = sys.argv[1], sys.argv[2]

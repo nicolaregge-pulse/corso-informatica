@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # Situazione dei quiz di sicurezza (Regione) della 2INF, ora per ora (21/10/2026, Nicola: «tutti devono fare i quiz delle prime 4 ore»).
 # Legge i risultati dei Moduli nel riservato e scrive dati/situazione/2INF_sicurezza-ore.md (con i nomi: SOLO riservato).
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import csv, json, os, sys, unicodedata
 R = '/home/user/corso-informatica-riservato/'
 ORE = [("1ª ora", "Rischio e danno", "01/10", "2inf-quiz-sicurezza1-20261001"),

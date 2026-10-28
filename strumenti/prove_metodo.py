@@ -8,6 +8,7 @@ Legge i dati pubblici di una lezione (voti, backlog, monitor) e scrive:
 Uso:  python3 strumenti/prove_metodo.py 20261012_2INF 2inf 13:22
       (id della lezione, prefisso delle pagine in docs/, ora in cui i voti sono diventati pubblici)
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import collections, json, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

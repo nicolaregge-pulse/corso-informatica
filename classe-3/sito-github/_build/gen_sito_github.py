@@ -10,6 +10,7 @@ Genera (HTML -> PDF con Chrome headless):
 
 Uso:  python3 classe-3/sito-github/_build/gen_sito_github.py
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.join(_op.path.dirname(_op.path.abspath(__file__)), '../../../strumenti')); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, os, shutil, subprocess, glob
 
 VER = "1.0"

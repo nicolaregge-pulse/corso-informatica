@@ -9,6 +9,7 @@ Uso:
   python3 strumenti/pubblica_versione_treno3inf.py v0.0 "Prima idea" "cosa..." --da-commit d729f5e         (da un commit vecchio)
 Dopo: commit + push; poi si rilancia con --commit-di <versione> per scrivere il commit nella pagina.
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, json, os, shutil, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 GIOCO = os.path.join(ROOT, "docs", "giochi", "treno-3inf")

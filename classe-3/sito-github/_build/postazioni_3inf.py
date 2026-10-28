@@ -8,25 +8,25 @@ Sulla pagina pubblica NON ci sono nomi di allievi: solo il numero del PC (e il n
 """
 AGGIORNATO = "09:30"
 
-# PC: (nome utente GitHub o "", fatto bene, [passi da fare], testo in bengali o "")
+# PC: ("" (il nome utente GitHub sta nel riservato, config/3inf-pc-github.json), fatto bene, [passi da fare], testo in bengali o "")
 PC = {
-    "12": ("alessandroamiciPIA", "hai caricato index.html e style.css su GitHub: hai capito come si pubblica.",
+    "12": ("", "hai caricato index.html e style.css su GitHub: hai capito come si pubblica.",
            ["I tuoi file giusti sono nel repository <b>mio-sito1</b>. Negli altri (mio-sito, mio---sito) c'è solo il README: per questo vedi 404 o la scritta \"mio-sito\".",
             "Apri il repository <b>mio-sito1</b> &rarr; <b>Settings</b> &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
             "Dopo 2 minuti il tuo sito sarà su <b>.../mio-sito1/</b>: mettilo nel Documento.",
             "<b>Fallo tuo</b>: passioni e sogno sono ancora quelli dell'esempio (index.html &rarr; matita &rarr; Commit changes)."], ""),
-    "14": ("rafiforhad", "hai creato il tuo repository su GitHub.",
+    "14": ("", "hai creato il tuo repository su GitHub.",
            ["Nel repository clic su <b>Add file</b> &rarr; <b>Upload files</b>.",
             "Trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito. Bottone verde <b>Commit changes</b>.",
             "<b>Settings</b> &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
             "Aspetta 2 minuti, poi torna qui e premi Ctrl + F5: qui sotto vedrai il tuo sito."],
            "<b>Add file</b> &rarr; <b>Upload files</b> &rarr; index.html ও style.css &rarr; <b>Commit changes</b>। তারপর <b>Settings</b> &rarr; <b>Pages</b> &rarr; <b>main</b> &rarr; <b>Save</b>। ২ মিনিট পরে এখানে Ctrl + F5: নিচে তোমার সাইট দেখবে।"),
-    "15": ("tomaslous", "hai creato il repository e hai già iniziato il Documento.",
+    "15": ("", "hai creato il repository e hai già iniziato il Documento.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "18": ("danisaracino", "il tuo sito è online, con il tuo nome!",
+    "18": ("", "il tuo sito è online, con il tuo nome!",
            ["Nel repository <b>mio-sito</b> c'è <b>solo il README</b>: per questo il sito dà 404.",
             "Clic su <b>Aggiungi file</b> (Add file) &rarr; <b>Carica file</b> (Upload files) &rarr; trascina <b>index.html</b> e <b>style.css</b> dalla cartella mio-sito &rarr; bottone verde <b>Commit changes</b>.",
             "Aspetta 2 minuti e premi Ctrl + F5 su questa pagina: il riquadro qui sotto diventa verde."], ""),
@@ -34,7 +34,7 @@ PC = {
            ["Salva <b>index.html</b> e <b>style.css</b> nella cartella <b>mio-sito</b> (Salva come: <b>Tutti i file</b>).",
             "Doppio clic su index.html: la tua pagina si apre nel browser.",
             "Poi passa alla <b>scheda facile 2</b> (su internet)."], ""),
-    "23": ("ericcarrasco", "la tua pagina funziona, con il tuo nome, e hai già fatto lo screenshot.",
+    "23": ("", "la tua pagina funziona, con il tuo nome, e hai già fatto lo screenshot.",
            ["Nel repository <b>mio-sito</b>: <b>Add file</b> &rarr; <b>Upload files</b> &rarr; index.html e style.css &rarr; <b>Commit changes</b>.",
             "<b>Settings</b> &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>.",
             "Aspetta 2 minuti, poi torna qui e premi Ctrl + F5: qui sotto vedrai il tuo sito."], ""),
@@ -45,34 +45,34 @@ PC = {
     "25": ("", "stai seguendo la scheda facile passo per passo.",
            ["Usa il <b>TUO</b> account, non quello di un compagno: il lavoro deve arrivare a tuo nome. Password dimenticata? Chiedi al professore.",
             "Intanto finisci la <b>scheda facile 1</b>: la pagina sul computer non ha bisogno di account."], ""),
-    "26": ("mahmoudelkeran", "il tuo sito è online: hai fatto tutto il percorso, bravo!",
+    "26": ("", "il tuo sito è online: hai fatto tutto il percorso, bravo!",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Fallo tuo</b>: passioni e sogno sono ancora quelli dell'esempio. Su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi i tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "27": ("3infpiamartauser1", "hai recuperato l'account e pubblicato il tuo sito: bravo!",
+    "27": ("", "hai recuperato l'account e pubblicato il tuo sito: bravo!",
            ["<b>Fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; passioni e sogno <b>tuoi</b> &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link del sito, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot. Poi <b>Consegna</b>."], ""),
-    "28": ("nicolocatalanoPIA", "hai creato il tuo account GitHub.",
+    "28": ("", "hai creato il tuo account GitHub.",
            ["Apri la <b>scheda facile 1</b> e fai il <b>passo 1</b> adesso: la cartella mio-sito.",
             "Poi un passo alla volta: ce la fai!"], ""),
-    "29": ("simonegiaramidaro", "hai caricato index.html e style.css su GitHub con il tuo nome.",
+    "29": ("", "hai caricato index.html e style.css su GitHub con il tuo nome.",
            ["Chiudi le altre pagine.", "Apri la <b>scheda facile 1</b>: passo 1, la cartella mio-sito."], ""),
-    "32": ("gabrielerovito", "il tuo sito è online, con il tuo nome: ce l'hai fatta!",
+    "32": ("", "il tuo sito è online, con il tuo nome: ce l'hai fatta!",
            ["Accendi il sito: Settings &rarr; Pages &rarr; main &rarr; Save."], ""),
-    "22": ("emmanuelfranciscoPIA", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
-    "33": ("kevinrobinsonPIA", "hai creato il tuo repository Mio-sito.", [], ""),
-    "34": ("filippomendoza", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
-    "35": ("denisandronache", "hai caricato i file su GitHub tra i primi della classe.",
+    "22": ("", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
+    "33": ("", "hai creato il tuo repository Mio-sito.", [], ""),
+    "34": ("", "hai caricato index.html e style.css su GitHub con il tuo nome.", [], ""),
+    "35": ("", "hai caricato i file su GitHub tra i primi della classe.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b> (passioni e sogno sono ancora quelli dell'esempio): su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "36": ("andreagervasoniPIA", "hai caricato i file su GitHub e cambiato i colori: l'hai già fatto un po' tuo.",
+    "36": ("", "hai caricato i file su GitHub e cambiato i colori: l'hai già fatto un po' tuo.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b>: su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
             "Poi il Documento del compito: 1) il link verde qui sotto, 2) tutto l'HTML, 3) tutto il CSS a parte, 4) lo screenshot, 5) la spiegazione. Poi <b>Consegna</b>."], ""),
-    "37": ("noahvalerio", "hai recuperato la password da solo e creato il tuo repository.",
+    "37": ("", "hai recuperato la password da solo e creato il tuo repository.",
            ["<b>Il riquadro qui sotto controlla da solo</b> se il tuo sito è online (verde) oppure no (giallo).",
             "<b>Se è GIALLO:</b> nel tuo repository <b>Settings</b> (se non lo vedi: <b>More &#9662;</b>) &rarr; <b>Pages</b> &rarr; Branch: <b>main</b> &rarr; <b>Save</b>. Aspetta 2 minuti e premi Ctrl + F5 su questa pagina.",
             "<b>Se è VERDE:</b> <b>fallo tuo</b> (passioni e sogno sono ancora quelli dell'esempio): su GitHub apri <b>index.html</b> &rarr; matita &rarr; scrivi passioni e sogno tuoi &rarr; <b>Commit changes</b>.",
@@ -276,9 +276,17 @@ def siti_classe_html():
 
 
 def scrivi_pc_json(path):
-    """PC -> utente GitHub (senza nomi): le pagine del docente lo leggono e si aggiornano da sole."""
-    import json as _j
-    _j.dump({n: PC[n][0] for n in PC if PC[n][0]}, open(path, "w"), indent=1)
-    _j.dump({PC[n][0].lower(): REPO.get(n, "mio-sito") for n in PC if PC[n][0]}, open(path.replace("pc.json", "repo.json"), "w"), indent=1)
+    """PC -> utente GitHub. Privacy (28/10/2026): il nome utente contiene nome e cognome, quindi nel pubblico
+    pc.json e repo.json restano vuoti; la tabella vera sta nel riservato (config/3inf-pc-github.json) e va
+    nel pubblico solo cifrata (docs/avanzamento/3inf-sito-pc.json, cruscotto del docente)."""
+    import json as _j, os as _o, sys as _s
+    _j.dump({}, open(path, "w"), indent=1)
+    _j.dump({}, open(path.replace("pc.json", "repo.json"), "w"), indent=1)
+    radice = _o.path.abspath(_o.path.join(_o.path.dirname(path), "..", ".."))
+    ris = _o.path.join(_o.path.dirname(radice), "corso-informatica-riservato", "config", "3inf-pc-github.json")
+    if _o.path.exists(ris):
+        _s.path.insert(0, _o.path.join(radice, "strumenti"))
+        import cifra_json
+        cifra_json.scrivi(_o.path.join(radice, "docs", "avanzamento", "3inf-sito-pc.json"), _j.load(open(ris, encoding="utf-8")))
     import os as _os
     open(_os.path.join(_os.path.dirname(path), "versione.txt"), "w").write(VERSIONE + "\n")

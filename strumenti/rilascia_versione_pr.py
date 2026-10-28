@@ -12,6 +12,7 @@ Prima di lanciarlo si modifica il codice del gioco (index.html, regole.json…) 
 Uso: python3 strumenti/rilascia_versione_pr.py <id-lezione> <versione> "<nome>" "<riassunto>" '<righe del changelog in JSON>' '<pesi da aggiornare in JSON>'
 Esempio: python3 strumenti/rilascia_versione_pr.py 20261012_2INF v0.27 "Binari gialli" "PR di Katherine A." '["riga 1","riga 2"]' '{"email|ora":{"fatto":"v0.27"}}'
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import json, sys, subprocess, datetime, os, time
 PUB = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PRIV = os.path.join(os.path.dirname(PUB), "corso-informatica-riservato")

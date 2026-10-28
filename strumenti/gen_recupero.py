@@ -11,6 +11,7 @@ Per chi è andato male (voto sotto 60 o lavoro non svolto). Regole delle pagine 
 Niente nomi di allievi (pagine pubbliche). Genera docs/recupero/<slug>/index.html e docs/recupero/index.html.
 Uso: python3 strumenti/gen_recupero.py
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, json, os
 
 DOCS = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "recupero")

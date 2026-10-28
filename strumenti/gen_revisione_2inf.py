@@ -2,6 +2,7 @@
 """Revisione delle versioni del treno della 2INF (12/10/2026): una riga positiva e una da migliorare per versione.
 Scrive docs/2inf-revisione/index.html (solo italiano) e classe-2/revisione-versioni/revisione-versioni.md.
 Uso: python3 strumenti/gen_revisione_2inf.py"""
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 V = {x["versione"]: x for x in json.load(open(os.path.join(ROOT, "docs/giochi/treno-blindato/versioni/versioni.json"), encoding="utf-8"))}
