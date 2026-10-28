@@ -4,6 +4,7 @@ Fonte del testo: ATLANTE.md (la versione si legge da lì). Le zone della mappa e
 Uscite: docs/<CARTELLA>/index.html (pagina raggiungibile solo con il link, noindex) e <data>_Atlante_Docente_vX.Y.pdf
 nella radice, con i link cliccabili anche nel PDF.
 Uso: python3 strumenti/gen_atlante.py"""
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, json, os, random, re, subprocess
 import markdown
 

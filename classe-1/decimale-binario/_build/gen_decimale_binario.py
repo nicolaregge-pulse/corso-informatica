@@ -5,6 +5,7 @@
 # Genera: Dispensa IT/AR/ZH + Compito IT/AR/ZH (PDF) con grafica IDENTICA (§2.19): la tabella
 # delle divisioni e la griglia del byte sono le STESSE immagini (SVG) in dispensa e compito.
 # Il compito ha un NUCLEO BASE (per tutti) + SFIDE EXTRA (per chi finisce prima) (§2.24).
+import sys as _sp, os as _op; _sp.path.append(_op.path.join(_op.path.dirname(_op.path.abspath(__file__)), '../../../strumenti')); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import os, subprocess, base64, json
 
 HERE = os.path.dirname(os.path.abspath(__file__))

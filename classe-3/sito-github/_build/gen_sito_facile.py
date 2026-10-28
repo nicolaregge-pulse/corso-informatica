@@ -6,6 +6,7 @@ IT e IT-BN. Stessi codici (RIQUADRO 1 e 2) della Dispensa 1: si copiano dalla pa
 Le mette in cima alla pagina unica docs/3inf-sito/ e rigenera tutto (Dispense 1-4).
 Uso:  python3 classe-3/sito-github/_build/gen_sito_facile.py
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.join(_op.path.dirname(_op.path.abspath(__file__)), '../../../strumenti')); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import os, sys, glob, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_sito_github as G

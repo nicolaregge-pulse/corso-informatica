@@ -2,6 +2,7 @@
 """Banca di una lezione (docs/verifica/banche/<banca>.js) -> documento MD della lezione (fonte per l'AI dei ragazzi) + PDF.
 Un solo posto da cui nasce tutto: la pagina della lezione e il suo documento restano uguali.
 Uso: python3 strumenti/banca2md.py <banca> <cartella-di-uscita> <AAAAMMGG> <Nome-Pdf> [riga «Compito» ...]"""
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import html, json, os, re, subprocess, sys
 
 banca, out, data, nome = sys.argv[1:5]

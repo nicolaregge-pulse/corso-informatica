@@ -13,6 +13,7 @@ Uso (una riga, dalla cartella del repository pubblico):
     python3 strumenti/orario_json.py
 Va rilanciato ogni volta che si aggiunge o si cambia un file orario/settimana-*.md (passi notturni).
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import glob, json, os, re, sys
 
 PUB = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

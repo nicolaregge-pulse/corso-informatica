@@ -4,6 +4,7 @@ Regole: «in attesa» finché il personaggio non è nel gioco; personaggio nel g
 ogni altra PR entrata nel gioco (seconda, terza: modifiche) +10; personaggio fra i primi tre del premio +10; massimo 100.
 Scrive docs/1inf-voti/voti.json (pagina dei voti e classifica) e docs/compito/1inf-20261014-talpa/voti.json («Il mio punto»).
 Uso: python3 strumenti/talpa_voti.py"""
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import datetime, json, os
 QUI = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 def j(p, d):

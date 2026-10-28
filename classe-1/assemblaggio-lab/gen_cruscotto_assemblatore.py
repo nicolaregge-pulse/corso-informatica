@@ -6,6 +6,7 @@
 # (montare = 1, smontare = 0,7) + classifica. NIENTE nel repo pubblico (contiene nomi).
 #
 # Uso:  python3 gen_cruscotto_assemblatore.py <cartella_arrivi> [out.html]
+import sys as _sp, os as _op; _sp.path.append(_op.path.join(_op.path.dirname(_op.path.abspath(__file__)), '../../strumenti')); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import sys, os, json, glob, html
 
 def main():

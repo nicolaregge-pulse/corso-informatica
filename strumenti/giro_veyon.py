@@ -8,6 +8,7 @@ e questo script lo mette in DUE posti:
   2. docs/avanzamento/<banca>-schermi.json (cruscotto del docente: ultimo giro, nome intero come nel Foglio)
 Uso: python3 strumenti/giro_veyon.py <classe es. 3inf> <banca es. 3inf-portfolio-v1> <ora HH:MM> <righe.json> [sintesi]
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import cifra_json, json, sys, os
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 classe, banca, ora, frighe = sys.argv[1:5]

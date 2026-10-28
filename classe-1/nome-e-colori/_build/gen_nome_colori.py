@@ -3,6 +3,7 @@
 # Continua il METODO DELLE MONETE (stessa griglia del byte, §2.19). Trucco chiave: ogni lettera
 # MAIUSCOLA = 64 + posizione nell'alfabeto -> il byte comincia sempre con 010.
 # Genera Dispensa + Compito IT/AR/ZH (PDF) + coda per l'automazione (Doc da compilare).
+import sys as _sp, os as _op; _sp.path.append(_op.path.join(_op.path.dirname(_op.path.abspath(__file__)), '../../../strumenti')); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import os, sys, json
 sys.path.insert(0, "/home/user/corso-godot/classe-1/decimale-binario/_build")
 from gen_decimale_binario import CSS, POS, byte, pdf

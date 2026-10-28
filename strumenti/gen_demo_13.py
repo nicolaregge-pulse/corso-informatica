@@ -11,6 +11,7 @@ Stessa numerazione «Allievo NN» della giornata del 12/10 (strumenti/gen_demo.p
 Se dopo la sostituzione resta anche un solo nome, si ferma e non scrive niente.
 Uso: python3 strumenti/gen_demo_13.py   (si rilancia a fine lezione, con risultati e retrospettiva)
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import json, os, re, shutil, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import gen_demo as G

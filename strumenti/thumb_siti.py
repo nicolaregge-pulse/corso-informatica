@@ -6,6 +6,7 @@ index.html, style.css, competenze.html, passione.html, li rende in locale con Pl
 docs/avanzamento/thumb/<banca>/<utente>-<pagina>.png. Nel cruscotto compaiono come immagini cliccabili (link al sito vero).
 Uso: python3 strumenti/thumb_siti.py <banca>      (es. 3inf-portfolio-v1)
 """
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import cifra_json, json, os, re, sys, subprocess, tempfile, urllib.request
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 B = sys.argv[1]

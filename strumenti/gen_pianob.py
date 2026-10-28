@@ -5,6 +5,7 @@ classe, tipo (compito o annuncio), titolo e testo arrivano già compilati; lui p
 Piano C, sulla stessa pagina: il testo con il bottone «Copia» per incollarlo a mano.
 Legge i compiti del giorno da coda/ del riservato (solo titoli, testi e link: niente nomi di allievi).
 Uso: python3 strumenti/gen_pianob.py AAAA-MM-GG"""
+import sys as _sp, os as _op; _sp.path.append(_op.path.dirname(_op.path.abspath(__file__))); import privacy_pubblico  # noqa: E401,F401 privacy 28/10/2026: nel pubblico i ragazzi solo come «Nome C.»
 import glob, html, json, os, sys, urllib.parse
 
 giorno = sys.argv[1]
