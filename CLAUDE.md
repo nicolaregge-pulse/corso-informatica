@@ -535,3 +535,5 @@ L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md
    il blocco «Messaggio segnalato»). Le bobine fatte a mano restano dove sono.
 4. Se compare un avviso «Bobina automatica: …», va sistemato subito e detto a Nicola.
 5. Per farla subito, a mano: `python3 .claude/hooks/bobina-automatica.py --sessione-corrente`
+
+**23. Quaderno della 1INF (28/10/2026, Nicola).** Ai ragazzi di prima si dà sempre qualcosa da RICOPIARE sul quaderno (poche righe, dalla lavagna o dalla pagina): li attiva e li mette in silenzio. Claude lo prepara per ogni lezione della 1INF e lo ricorda a Nicola spesso, a ogni cambio di attività.
