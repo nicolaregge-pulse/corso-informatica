@@ -8,5 +8,10 @@
   "nome": "Egor M.",
   "domanda": "NEL passaggio 27 io noin ho la rigacon calcolatrice da zero anche se quando ho fatto commit l'ho scritto · non so come fare il passaggio 27",
   "risposta": "Ciao Egor, tranquillo: il tuo lavoro c'è! Su GitHub il tuo commit delle 09:01 si chiama «Add files via upload»: il messaggio scritto da te non è stato salvato, è rimasto quello di GitHub. Va bene lo stesso.\n1) Su GitHub apri la cartella calcolatrice.\n2) In alto a destra, sopra l'elenco dei file, clicca «History» (il disegno di un orologio).\n3) Clicca il commit «Add files via upload» delle 09:01.\n4) Fai lo screenshot di quella pagina e incollalo nel Documento sotto «3. Il mio commit».\nLa prossima volta scrivi il messaggio nella prima casella della finestra verde, prima di premere Commit changes."
+ },
+ {
+  "nome": "Egor M.",
+  "domanda": "è corretto cosi? non mi ha sovrascritto gli altri 2 file",
+  "risposta": "Sì Egor, è corretto! GitHub mette il messaggio nuovo solo sui file che sono cambiati: unit1.pas e unit1.lfm (i bottoni nuovi). calcolatrice.lpi e calcolatrice.lpr sono uguali a prima, quindi tengono il messaggio vecchio. Il tuo commit «versione 2.0: diviso e meno» c'è.\nUltimo passo: la release. Nella pagina del repository lazarus, a destra sotto «Releases», clicca «Create a new release», scrivi il tag v1.2, il titolo «Calcolatrice: quattro operazioni» e premi «Publish release»."
  }
 ]

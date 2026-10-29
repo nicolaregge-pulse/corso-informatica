@@ -1,5 +1,5 @@
 {
- "ora": "09:46",
+ "ora": "09:49",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -320,23 +320,23 @@
   {
    "alunno": "Shaharia A.",
    "check": {
-    "cartella": false,
+    "cartella": true,
     "file": false,
-    "pulita": false,
-    "commit": false,
-    "messaggio": false,
-    "piu": false,
-    "per": false,
+    "pulita": true,
+    "commit": true,
+    "messaggio": true,
+    "piu": true,
+    "per": true,
     "titolo": false,
     "release": false,
     "v12_codice": false,
     "v12_commit": false,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes).",
-   "messaggio_v12": "Prima fai la versione 1.0: torna alla pagina della calcolatrice e carica la cartella su GitHub."
+   "messaggio": "Nella cartella calcolatrice mancano .lpi: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Shahenda E.",
@@ -349,7 +349,7 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false,
+    "release": true,
     "v12_codice": true,
     "v12_commit": true,
     "v12_release": false,
