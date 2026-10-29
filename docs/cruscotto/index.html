@@ -216,12 +216,17 @@ function mostra() {
     // 28/10/2026: oggi la 2INF fa il recupero dei quiz di sicurezza, il docente vede il monitor dedicato
     src = GIORNO_PAG['2INF:' + g];
     $('nota').textContent = 'Oggi, dal vivo: monitor dei quiz di sicurezza.';
-  } else {
+  } else if (g === oggi()) {
     src = OGGI_PAG[c][ruolo];
-    $('nota').textContent = g === oggi() ? 'Oggi, dal vivo.' :
-      'Per questo giorno non c\'è un cruscotto salvato: mostro quello di oggi.' + (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
+    $('nota').textContent = 'Oggi, dal vivo.';
+  } else {
+    // 29/10/2026 (audit E2E): «Oggi dal vivo» segue la data scelta; per un giorno senza dati non si mostra quello di oggi
+    src = 'about:blank';
+    $('nota').textContent = (g > oggi() ? 'Il ' + g.split('-').reverse().join('/') + ' la lezione non è ancora cominciata: i dati compaiono quel giorno, durante la lezione.'
+      : 'Per il ' + g.split('-').reverse().join('/') + ' non c\'è un cruscotto salvato.') +
+      (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
   }
-  $('nota').style.color = '';
+  $('nota').style.color = src === 'about:blank' ? '#c0392b' : '';
   // 29/10/2026 (Nicola): per la classe che ha Sicurezza quel giorno, il link alla situazione dei quiz (<classe>-sicurezza-oggi.html)
   var SIC = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html', '1INF:2026-10-29': '../avanzamento/1inf-sicurezza-oggi.html'};
   if (SIC[c + ':' + g]) { $('sicLink').innerHTML = 'Sicurezza: <a href="' + SIC[c + ':' + g] + '" target="_blank">situazione dei quiz di ' + c + '</a>'; $('sicLink').style.display = ''; }

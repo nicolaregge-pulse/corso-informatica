@@ -39,7 +39,7 @@ async function apriDati(){var r=await fetch('uscite.json?t='+Date.now(),{cache:'
 function dt(d){return d.slice(8,10)+'/'+d.slice(5,7)}
 async function apri(){TOK=$('tok').value.trim()||TOK;if(!TOK)return;
  try{var D=await apriDati();}catch(e){$('gate').classList.remove('hide');$('view').classList.add('hide');$('err').textContent='Codice sbagliato.';return}
- try{localStorage.setItem('monitor-tok',TOK)}catch(e){}$('gate').classList.add('hide');$('view').classList.remove('hide');
+ try{localStorage.setItem('monitor-tok',TOK);sessionStorage.setItem('tokmon',TOK)}catch(e){}$('gate').classList.add('hide');$('view').classList.remove('hide');
  var U=D.uscite||[],per={};U.forEach(function(u){var c=per[u.classe]||(per[u.classe]={});var s=c[u.nome]||(c[u.nome]=[]);s.push(u)});
  var classi=Object.keys(per).sort(function(a,b){var i=ORD.indexOf(a),j=ORD.indexOf(b);return(i<0?99:i)-(j<0?99:j)||a.localeCompare(b)});
  $('sotto').textContent='Totale: '+U.length+' uscite · aggiornato '+new Date().toLocaleString('it-IT');
@@ -52,6 +52,6 @@ function orario(pc){var h={};Object.keys(pc).forEach(function(n){pc[n].forEach(f
  var ks=Object.keys(h).sort().reverse();if(!ks.length)return '';
  return '<h3 style="margin:14px 0 4px">Uscite per ogni ora di lezione</h3><table><tr><th>Giorno</th><th>Ora</th><th>Quante</th><th>Chi (a che ora)</th></tr>'+ks.map(function(k){var d=k.slice(0,10),o=parseInt(k.slice(11),10);return '<tr><td>'+dt(d)+'</td><td>'+o+':00-'+(o+1)+':00</td><td class="n">'+h[k].length+'</td><td class="ore">'+h[k].join(' · ')+'</td></tr>'}).join('')+'</table>'}
 $('ok').onclick=apri;$('tok').onkeydown=function(e){if(e.key==='Enter')apri()};
-try{TOK=localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide');
+try{TOK=sessionStorage.getItem('tokmon')||localStorage.getItem('monitor-tok')||''}catch(e){}if(TOK)apri();else $('gate').classList.remove('hide');
 </script>
 </body></html>
