@@ -5,7 +5,7 @@ function disegnaCruscotto(D,docente){
   var R=D.righe||[],h='<p class="mu">Aggiornato alle <b>'+e(D.ora)+'</b> · '+e(D.fonte)+'</p>';
   if(D.kpi_proposti)h+='<p class="mu"><b>KPI proposti, da confermare con il prof:</b> base 40; per ogni ora +5 unit1.pas, +3 screenshot, +3 codice verificato; quiz +7 se almeno 60%. Massimo 80.</p>';
   h+='<div class="tw"><table><thead><tr><th class="fix" rowspan="2">Allievo</th><th rowspan="2">Teoria · quiz</th>';
-  [1,2,3].forEach(function(o){h+='<th colspan="4" class="o'+o+'">Ora '+o+' · '+['','cartello','soprannome','segnapunti'][o]+'</th>'});
+  [1,2,3].forEach(function(o){h+='<th colspan="4" class="o'+o+'">Ora '+o+' · '+['','pasticcio','soprannome','segnapunti'][o]+'</th>'});
   h+='<th rowspan="2">Fermo da</th><th rowspan="2">Veyon</th><th rowspan="2">Voto</th></tr><tr>';
   [1,2,3].forEach(function(o){h+='<th class="o'+o+'">passo</th><th class="o'+o+'">.pas</th><th class="o'+o+'">foto</th><th class="o'+o+'">codice</th>'});
   h+='</tr></thead><tbody>';
@@ -21,6 +21,6 @@ function disegnaCruscotto(D,docente){
     h+='<td><b class="voto">'+r.voto+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>';
   });
   h+='</tbody></table></div>';
-  h+='<section class="card"><h2>Come si legge</h2><ol><li>Una riga per ogni presente, dal più avanti al più indietro. 🏁 = ha consegnato unit1.pas e screenshot di tutte e tre le ore.</li><li><b>passo</b>: il passo raggiunto nel percorso (o «facile» per il percorso facilitato) e l\'ora dell\'ultimo segnale.</li><li><b>.pas</b> e <b>foto</b>: ✔ arrivati (dalla pagina di consegna o da Classroom), ✘ manca, · nessun dato.</li><li><b>codice</b>: ✔ il controllo automatico ha trovato i pezzi dell\'ora (ora 1 Caption e colore, ora 2 String ed Edit1.Text, ora 3 Integer, StrToInt e IntToStr); ✘ con che cosa manca.</li><li><b>Fermo da</b>: l\'ora dell\'ultima cosa fatta. <b>Veyon</b>: in rosso chi era fuori compito.</li><li><b>Voto</b>: la proposta 40-80; apri «il conto» per vedere il perché.</li></ol></section>';
+  h+='<section class="card"><h2>Come si legge</h2><ol><li>Una riga per ogni presente, dal più avanti al più indietro. 🏁 = ha consegnato unit1.pas e screenshot di tutte e tre le ore.</li><li><b>passo</b>: il passo raggiunto nel percorso (o «facile» per il percorso facilitato) e l\'ora dell\'ultimo segnale.</li><li><b>.pas</b> e <b>foto</b>: ✔ arrivati (dalla pagina di consegna o da Classroom), ✘ manca, · nessun dato.</li><li><b>codice</b>: ✔ il controllo automatico ha trovato i pezzi dell\'ora (ora 1 \'5\' + \'3\', variabili Integer e IntToStr, ora 2 String ed Edit1.Text, ora 3 Integer, StrToInt e IntToStr); ✘ con che cosa manca.</li><li><b>Fermo da</b>: l\'ora dell\'ultima cosa fatta. <b>Veyon</b>: in rosso chi era fuori compito.</li><li><b>Voto</b>: la proposta 40-80; apri «il conto» per vedere il perché.</li></ol></section>';
   return h;
 }

@@ -16,7 +16,7 @@ Regola di Nicola (29/10/2026): «per tutto fai una cosa e prepara un piano B, de
 ## 02 Che cosa serve il giorno della lezione
 
 1. In `docs/anteprima/1inf-lab-30-10/config.json` mettere `"attivo": true`: senza, le pagine non mandano niente (anteprima).
-2. Creare i tre compiti Classroom «Ora 1 · Il cartello», «Ora 2 · Il soprannome», «Ora 3 · Il segnapunti» con cartella di raccolta `lab3010-ora1/2/3`, e scrivere i loro `coursework_id` in `config/1inf-lab3010.json` del riservato.
+2. Creare i tre compiti Classroom «Ora 1 · Il pasticcio dei numeri», «Ora 2 · Il soprannome», «Ora 3 · Il segnapunti» con cartella di raccolta `lab3010-ora1/2/3`, e scrivere i loro `coursework_id` in `config/1inf-lab3010.json` del riservato.
 3. Dopo il comando del quiz: l'id del Modulo in `config/1inf-lab3010.json` (`quiz_moduli_id`).
 4. A ogni giro: `python3 generatori/cruscotto_1inf_lab3010.py comando`, poi `python3 generatori/cruscotto_1inf_lab3010.py`.
 
