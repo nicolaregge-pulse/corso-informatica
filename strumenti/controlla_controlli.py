@@ -96,6 +96,9 @@ def controlla_privacy():
         if privacy_nomi._CIFRATO.match(testo):   # JSON cifrati (cifra_json e i formati più vecchi salt/iv/ct)
             continue
         letti += 1
+        # 29/10/2026 (audit): le immagini incorporate (data:...;base64,...) non sono testo: un cognome corto può
+        # comparire per caso dentro i caratteri base64 (falso rosso nei libri di testo HTML del 29/10).
+        testo = re.sub(r"data:[a-z0-9.+/-]+;base64,[A-Za-z0-9+/=\s]+", " ", testo, flags=re.I)
         h = privacy_nomi.trova(testo, codice=rel.endswith(CODICE))
         if h:
             trovati.append("%s (%d)" % (rel, len(h)))

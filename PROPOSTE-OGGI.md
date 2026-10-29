@@ -1,8 +1,8 @@
 # Proposte di lezione di oggi
 
-**Versione 1.0** — 29/10/2026 — documento interno per il docente, senza nomi di allievi
+**Versione 1.1** — 29/10/2026 — documento interno per il docente, senza nomi di allievi
 
-Preparate la mattina del 29/10 (la chat della notte non era partita). Si sceglie nel cruscotto unico, linguetta «Piano del giorno» (bottone «Scegli questa»), oppure in chat. Niente è stato pubblicato su Classroom.
+Preparate la mattina del 29/10 (la chat della notte non era partita). Si sceglie nel cruscotto unico, linguetta «Piano del giorno» (bottone «Scelgo questa»), oppure in chat. Niente è stato pubblicato su Classroom.
 
 ## 01 2INF, ore 8-11, Laboratorio, 3 ore
 
@@ -29,3 +29,4 @@ Preparate la mattina del 29/10 (la chat della notte non era partita). Si sceglie
 ## Changelog
 
 1. v1.0 (29/10/2026): prima versione.
+2. v1.1 (29/10/2026): nome del bottone corretto («Scelgo questa», come nel cruscotto).
