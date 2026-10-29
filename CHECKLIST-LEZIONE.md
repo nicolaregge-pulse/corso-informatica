@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.6** — 29/10/2026 — documento interno del docente e di Claude
+**Versione 1.7** — 29/10/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -19,6 +19,8 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 7. Ogni controllo automatico che dà punti è protetto dagli abusi e non è più rigido dello scopo della lezione (#116, #123; il 26/10 il controllo voleva un nome di cartella preciso).
 8. Ritmo dello script (v8.3): ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione; i comandi eseguiti si archiviano subito in `comandi/archivio/`; pochi comandi, solo se servono (#125). Battito dello script: meno di 3 minuti, provato con un comando del ponte, altrimenti «NON VERIFICATO» e piano B (#82, #88, #104).
 9. Audit di tutte le pagine, anche del docente, bottone per bottone, sul telefono: `node --check` sugli script e prova nel browser (#75, #80, #118).
+10. Ogni esercitazione Lazarus si consegna SEMPRE con unit1.pas + screenshot del programma che gira (Nicola, 29/10/2026): la pagina ha il passo di consegna di tutti e due i file e il cruscotto ha le colonne «.pas» e «screenshot».
+11. Per ogni cosa c'è il piano B, già pronto e provato (Nicola, 29/10/2026): consegna, quiz, cruscotto, percorso facilitato; la pagina dei ragazzi mostra «Se il bottone non funziona: …».
 
 ## 02 Pubblicare
 
@@ -72,4 +74,5 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 4. v1.3 (28/10/2026): punto 02.6, verifica della lezione con `verifica_lezione.py` prima di dire «pubblicato».
 5. v1.4 (28/10/2026): rimando a `MAPPA-REGOLE-CONTROLLI.md` e ai passi notturni; nuovi controlli automatici (hook del messaggio e prima del push, audit notturno).
 6. v1.5 (28/10/2026): punto 02.3 allineato alla regola 27 di `CLAUDE.md`: compito del mattino SENZA scadenza (non più la campanella).
+8. v1.7 (29/10/2026): §01 punti 10 e 11, consegna Lazarus con unit1.pas + screenshot e piano B per ogni cosa (Nicola).
 7. v1.6 (29/10/2026): §06 controlli nati dagli errori #147-#154 (controllati da `controlla_controlli.py` e dall'hook del messaggio).

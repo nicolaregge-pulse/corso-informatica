@@ -1,6 +1,6 @@
 # Modus operandi del corso
 
-**Versione 1.6** — 12/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.7** — 29/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
 Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
 
@@ -11,6 +11,7 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
 3. **Decide il docente.** Se il docente ragiona ad alta voce o scrive considerazioni, Claude non decide al suo posto: se non è chiaro, fa una domanda sola (#54). Se il docente dice «fai tu», Claude decide con le regole di questo documento e avvisa di ogni cosa fatta.
 4. **Prima i fatti, poi le parole:** si dice «fatto» solo dopo un controllo vero (pagina provata nel browser, controllo automatico passato, file pubblicato).
 5. **Tutto versionato:** ogni file va nel repository, con commit e push; i dati con i nomi dei ragazzi solo nel repository riservato.
+6. **Per ogni cosa si prepara anche il piano B, già pronto e provato (Nicola, 29/10/2026).**
 
 ## 01 Il compito della lezione
 
@@ -38,7 +39,8 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
    2. «Il tuo testo, commento o proposta di modifica»: casella grande (paragrafo); per una PR: Titolo · Cosa cambia · Dove · Perché.
    3. «Carica i tuoi file»: facoltativo.
 2. **Modulo Feedback sulla teoria**, uno per classe e per lezione.
-3. **Lo script «Consegne Classroom → Git»** gira con il ritmo scelto (v8.3, 27/10: ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione); i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
+3. **Ogni esercitazione Lazarus si consegna SEMPRE con unit1.pas + screenshot del programma che gira (Nicola, 29/10/2026).**
+4. **Lo script «Consegne Classroom → Git»** gira con il ritmo scelto (v8.3, 27/10: ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione); i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
 
 ## 04 Il giro delle Pull Request
 
@@ -142,3 +144,4 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.
 1. **v1.0 (12/10/2026)**: prima versione, con le decisioni del 09/10 e del 12/10/2026.
 39. v1.6 (27/10/2026): ritmo dello script (v8.3) e nuova versione del deployment dopo ogni cambio dello script.
+40. v1.7 (29/10/2026): capitolo 00 punto 6, il piano B per ogni cosa; capitolo 03 punto 3, Lazarus si consegna sempre con unit1.pas e screenshot.

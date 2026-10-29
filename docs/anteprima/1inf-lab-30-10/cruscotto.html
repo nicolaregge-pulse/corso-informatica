@@ -1,0 +1,19 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Cruscotto laboratorio 1INF</title><link rel="stylesheet" href="cruscotto.css"></head><body><main>
+<p class="ante"><b>ANTEPRIMA PER IL PROF, non pubblicata.</b> Cruscotto del laboratorio di venerdì 30/10: tre percorsi Lazarus. Pagina dei ragazzi: <a href="cruscotto-ragazzi.html">cruscotto-ragazzi.html</a>.</p>
+<h1>1INF · Laboratorio 30/10 · i tre percorsi</h1>
+<div id="gate" class="card"><b>Solo per il prof.</b> Scrivi il codice del monitor. <input id="tok" type="password" placeholder="codice del monitor"> <button id="ok">Apri</button> <span id="err" style="color:var(--ko)"></span></div>
+<div id="app"></div>
+<script src="cruscotto-vista.js"></script>
+<script>
+var TOK='',_kc=null,JN='cruscotto.json',RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-lab-30-10/'+JN;
+function $(i){return document.getElementById(i)}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function dec(d){if(!d.cifrato)return d;var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function leggi(){var t=Date.now(),L=await Promise.all([RAW+'?t='+t,JN+'?t='+t].map(function(u){return fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}));
+ L=L.filter(Boolean);if(!L.length)throw new Error('nessun dato');var X=[];for(var i=0;i<L.length;i++)X.push(await dec(L[i]));X.sort(function(a,b){return String(b.generato||'').localeCompare(String(a.generato||''))});return X[0]}
+async function giro(){try{var D=await leggi();$('gate').hidden=true;$('app').innerHTML=disegnaCruscotto(D,true)}catch(x){$('err').textContent=String(x.message||x).indexOf('dato')>=0?'Dati non ancora pronti.':'Codice sbagliato.';_kc=null}}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+</script></main></body></html>
