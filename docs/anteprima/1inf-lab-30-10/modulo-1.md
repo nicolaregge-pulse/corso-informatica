@@ -1,20 +1,20 @@
-# Ora 1: String e Integer, poi il cartello APERTO / CHIUSO
+# Ora 1: String e Integer, il pasticcio dei numeri
 
 **Versione 1.0** — 29/10/2026 — ANTEPRIMA per il prof, non pubblicata
 
-*1INF · Laboratorio · venerdì 30/10/2026, 11:00-12:00 · progetto `cartello` · si consegnano SEMPRE unit1.pas e lo screenshot*
+*1INF · Laboratorio · venerdì 30/10/2026, 11:00-12:00 · progetto `pasticcio` · si consegnano SEMPRE unit1.pas e lo screenshot*
 
-الساعة 1: String و Integer، ثم لافتة APERTO / CHIUSO
+الساعة 1: String و Integer، لخبطة الأرقام
 
-第 1 节：String 和 Integer，然后做 APERTO / CHIUSO 牌子
+第 1 节：String 和 Integer，数字的混乱
 
 ## 01 Che cosa fai in quest'ora
 
-Prima mezz'ora: la teoria in 6 schede, con una domanda dopo ogni scheda, e il quiz. Poi il programma: un cartello per il tuo negozio inventato. Premi <b>Apri</b> e compare APERTO in verde, premi <b>Chiudi</b> e compare CHIUSO in rosso.
+Tutta l'ora parla di <b>String</b> e <b>Integer</b>. Prima mezz'ora: la teoria in 6 schede, con una domanda dopo ogni scheda, e il quiz. Poi un programma piccolo che mostra la differenza: il bottone <b>Testo</b> fa <code>'5' + '3'</code> e compare <b>53</b>; il bottone <b>Numeri</b> fa 5 + 3 con due Integer e compare <b>8</b>.
 
-النصف ساعة الأولى: النظرية في 6 بطاقات، مع سؤال بعد كل بطاقة، ثم الاختبار. بعدها البرنامج: لافتة لمتجرك المتخيَّل. تضغط Apri فيظهر APERTO بالأخضر، وتضغط Chiudi فيظهر CHIUSO بالأحمر.
+الساعة كلها عن String و Integer. النصف ساعة الأولى: النظرية في 6 بطاقات، مع سؤال بعد كل بطاقة، ثم الاختبار. بعدها برنامج صغير يُظهر الفرق: الزر Testo يفعل '5' + '3' فيظهر 53؛ والزر Numeri يفعل 5 + 3 بعددين Integer فيظهر 8.
 
-前半小时：6 张理论卡片，每张后面一个问题，然后做测验。之后写程序：给你想象的商店做一个牌子。按 Apri 出现绿色的 APERTO，按 Chiudi 出现红色的 CHIUSO。
+这一节课都讲 String 和 Integer。前半小时：6 张理论卡片，每张后面一个问题，然后做测验。之后写一个小程序来看区别：Testo 按钮做 '5' + '3'，出现 53；Numeri 按钮用两个 Integer 做 5 + 3，出现 8。
 
 ## 02 Fase 1: teoria e quiz
 
@@ -158,14 +158,14 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
     在 Form1 放一个 Label（A）和一个按钮（OK）。双击按钮，写这一行。
 
     ```
-      Label1.Caption := 'APERTO';
+      Label1.Caption := '5' + '3';
     ```
 
-3. Premi F9 e clicca il bottone: compare APERTO. Fai lo screenshot e consegnalo.
+3. Premi F9 e clicca il bottone: compare 53. Fai lo screenshot e consegnalo.
 
-    اضغط F9 وانقر الزر: يظهر APERTO. خذ لقطة شاشة وسلّمها.
+    اضغط F9 وانقر الزر: يظهر 53. خذ لقطة شاشة وسلّمها.
 
-    按 F9，点按钮：出现 APERTO。截图并提交。
+    按 F9，点按钮：出现 53。截图并提交。
 
 ## 04 L'esercitazione, passo per passo
 
@@ -182,101 +182,107 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
     菜单 Progetto → Salva progetto con nome…。在窗口左边点 Documenti，再点上方 Nuova cartella。写下面的名字，按回车，双击文件夹进去。
 
     ```
-    cartello
+    pasticcio
     ```
 
-3. **Il nome del progetto.** In basso, nella casella <b>Nome file</b>, scrivi il nome qui sotto e clicca <b>Salva</b>. Lazarus chiede il nome della unit: lascia <code>unit1.pas</code> e clicca <b>Salva</b>. In alto, nel titolo di Lazarus, c'è scritto <b>cartello</b>: FATTO!
+3. **Il nome del progetto.** In basso, nella casella <b>Nome file</b>, scrivi il nome qui sotto e clicca <b>Salva</b>. Lazarus chiede il nome della unit: lascia <code>unit1.pas</code> e clicca <b>Salva</b>. In alto, nel titolo di Lazarus, c'è scritto <b>pasticcio</b>: FATTO!
 
-    في الأسفل، في خانة Nome file، اكتب الاسم أدناه وانقر Salva. يسأل Lazarus عن اسم الـ unit: اترك unit1.pas وانقر Salva. في عنوان Lazarus مكتوب cartello: تم!
+    في الأسفل، في خانة Nome file، اكتب الاسم أدناه وانقر Salva. يسأل Lazarus عن اسم الـ unit: اترك unit1.pas وانقر Salva. في عنوان Lazarus مكتوب pasticcio: تم!
 
-    在下面 Nome file 框里写下面的名字，点 Salva。Lazarus 问 unit 的名字：保留 unit1.pas，点 Salva。Lazarus 标题里写着 cartello：完成！
-
-    ```
-    cartello.lpi
-    ```
-
-4. **Il cartello: la Label.** Nella palette <b>Standard</b> clicca la <b>A</b> (è la <b>TLabel</b>, la scritta) e poi clicca nella Form1, in alto. Compare <b>Label1</b>.
-
-    في لوحة Standard انقر A (هي TLabel، الكتابة) ثم انقر في Form1 في الأعلى. يظهر Label1.
-
-    在 Standard 组件面板点 A（就是 TLabel，文字），再点 Form1 上方。出现 Label1。
-
-5. **Fallo tuo: il nome del negozio.** Con Label1 selezionata, a sinistra nell'<b>Ispettore oggetti</b> trova <b>Caption</b> e scrivi il nome del tuo negozio inventato (per esempio <i>Pizzeria da Ahmed</i>). La scritta cambia SUBITO nella Form1: prima vittoria!
-
-    مع تحديد Label1، يساراً في Ispettore oggetti ابحث عن Caption واكتب اسم متجرك المتخيَّل (مثلاً Pizzeria da Ahmed). الكتابة تتغير فوراً في Form1: أول فوز!
-
-    选中 Label1，在左边 Ispettore oggetti 找到 Caption，写你想象的商店名字（比如 Pizzeria da Ahmed）。Form1 里的文字马上变了：第一个胜利！
-
-6. **Scritta grande.** Sempre nell'Ispettore oggetti, clicca il piccolo segno a sinistra di <b>Font</b>: si apre l'elenco. Trova <b>Size</b> e scrivi <b>28</b>, poi premi Invio.
-
-    في Ispettore oggetti انقر العلامة الصغيرة على يسار Font: تفتح القائمة. ابحث عن Size واكتب 28 ثم اضغط Invio.
-
-    还是在 Ispettore oggetti，点 Font 左边的小符号：展开列表。找到 Size，写 28，按回车。
+    在下面 Nome file 框里写下面的名字，点 Salva。Lazarus 问 unit 的名字：保留 unit1.pas，点 Salva。Lazarus 标题里写着 pasticcio：完成！
 
     ```
-    28
+    pasticcio.lpi
     ```
 
-7. **Due bottoni.** Nella palette clicca il bottone <b>OK</b> (è il <b>TButton</b>) e clicca nella Form1 sotto la scritta: compare <b>Button1</b>. Nell'Ispettore oggetti cambia <b>Caption</b> in <b>Apri</b>. Rifai: secondo bottone <b>Button2</b> con Caption <b>Chiudi</b>.
+4. **La scritta del risultato.** Nella palette <b>Standard</b> clicca la <b>A</b> (è la <b>TLabel</b>) e poi clicca nella Form1, in alto: compare <b>Label1</b>. Nell'Ispettore oggetti cambia <b>Caption</b> in <b>?</b> e, nel piccolo segno a sinistra di <b>Font</b> → <b>Size</b>, scrivi 36.
 
-    في اللوحة انقر الزر OK (هو TButton) وانقر في Form1 تحت الكتابة: يظهر Button1. في Ispettore oggetti غيّر Caption إلى Apri. كرّر: زر ثانٍ Button2 بـ Caption هو Chiudi.
+    في لوحة Standard انقر A (هي TLabel) ثم انقر في Form1 في الأعلى: يظهر Label1. في Ispettore oggetti غيّر Caption إلى ? وفي العلامة الصغيرة يسار Font ← Size اكتب 36.
 
-    在组件面板点 OK 按钮（就是 TButton），再点 Form1 文字下面：出现 Button1。在 Ispettore oggetti 把 Caption 改成 Apri。再做一次：第二个按钮 Button2，Caption 写 Chiudi。
-
-8. **Il codice di Apri.** Fai <b>doppio clic</b> sul bottone <b>Apri</b>: si apre il codice con <code>procedure TForm1.Button1Click</code>. Tra <code>begin</code> e <code>end;</code> scrivi le due righe. <code>'APERTO'</code> è una <b>String</b>: va tra apici.
-
-    انقر مرتين على الزر Apri: يفتح الكود مع procedure TForm1.Button1Click. بين begin و end; اكتب السطرين. 'APERTO' هي String: توضع بين علامتي اقتباس.
-
-    双击 Apri 按钮：打开代码，有 procedure TForm1.Button1Click。在 begin 和 end; 之间写这两行。'APERTO' 是 String：要放在单引号里。
+    在 Standard 组件面板点 A（就是 TLabel），再点 Form1 上方：出现 Label1。在 Ispettore oggetti 把 Caption 改成 ?，点 Font 左边的小符号 → Size，写 36。
 
     ```
-      Label1.Caption := 'APERTO';
-      Label1.Font.Color := clGreen;
+    36
     ```
 
-9. **Il codice di Chiudi.** Premi <b>F12</b>: torni alla Form1. Fai doppio clic sul bottone <b>Chiudi</b> (si apre <code>Button2Click</code>) e scrivi:
+5. **Due bottoni.** Nella palette clicca il bottone <b>OK</b> (è il <b>TButton</b>) e clicca nella Form1 sotto la scritta: compare <b>Button1</b>, cambia <b>Caption</b> in <b>Testo</b>. Rifai: secondo bottone <b>Button2</b> con Caption <b>Numeri</b>.
 
-    اضغط F12: تعود إلى Form1. انقر مرتين على الزر Chiudi (يفتح Button2Click) واكتب:
+    في اللوحة انقر الزر OK (هو TButton) وانقر في Form1 تحت الكتابة: يظهر Button1، غيّر Caption إلى Testo. كرّر: زر ثانٍ Button2 بـ Caption هو Numeri.
 
-    按 F12：回到 Form1。双击 Chiudi 按钮（打开 Button2Click），写：
+    在组件面板点 OK 按钮（就是 TButton），再点 Form1 文字下面：出现 Button1，把 Caption 改成 Testo。再做一次：第二个按钮 Button2，Caption 写 Numeri。
 
-    ```
-      Label1.Caption := 'CHIUSO';
-      Label1.Font.Color := clRed;
-    ```
+6. **Il bottone Testo: due String.** Fai <b>doppio clic</b> sul bottone <b>Testo</b>: si apre <code>procedure TForm1.Button1Click</code>. Tra <code>begin</code> e <code>end;</code> scrivi la riga. <code>'5'</code> e <code>'3'</code> hanno gli apici: sono due <b>String</b>.
 
-10. **Fai partire: F9.** Premi <b>F9</b>. Si apre il TUO programma. Clicca <b>Apri</b>: APERTO in verde. Clicca <b>Chiudi</b>: CHIUSO in rosso. FATTO! Fallo vedere al compagno.
+    انقر مرتين على الزر Testo: يفتح procedure TForm1.Button1Click. بين begin و end; اكتب السطر. '5' و'3' لهما علامات اقتباس: هما نصّان String.
 
-    اضغط F9. يفتح برنامجك. انقر Apri: APERTO بالأخضر. انقر Chiudi: CHIUSO بالأحمر. تم! أرِه لزميلك.
-
-    按 F9。打开你的程序。点 Apri：绿色的 APERTO。点 Chiudi：红色的 CHIUSO。完成！给同桌看看。
-
-11. **L'errore che insegna (succede a tutti).** Chiudi il tuo programma. Nella riga di Apri cambia <code>'APERTO'</code> in <code>7</code> (senza apici) e premi F9. In basso, in <b>Messaggi</b>, compare l'errore <b>Incompatible types</b>: la Caption vuole una <b>String</b>, 7 è un <b>Integer</b>. Correggi così e premi F9: compare 7. Poi rimetti <code>'APERTO'</code>.
-
-    أغلق برنامجك. في سطر Apri غيّر 'APERTO' إلى 7 (بلا علامات اقتباس) واضغط F9. في الأسفل في Messaggi يظهر الخطأ Incompatible types: الـ Caption تريد String، و7 هو Integer. صحّح هكذا واضغط F9: يظهر 7. ثم أرجع 'APERTO'.
-
-    关掉你的程序。在 Apri 那行把 'APERTO' 改成 7（不加引号），按 F9。下面 Messaggi 里出现错误 Incompatible types：Caption 要的是 String，7 是 Integer。照下面改正，按 F9：出现 7。然后改回 'APERTO'。
+    双击 Testo 按钮：打开 procedure TForm1.Button1Click。在 begin 和 end; 之间写这一行。'5' 和 '3' 有引号：是两个 String。
 
     ```
-      Label1.Caption := IntToStr(7);
+      Label1.Caption := '5' + '3';
     ```
 
-12. **Fallo tuo: i tuoi colori.** Cambia <code>clGreen</code> e <code>clRed</code> con i colori che vuoi: <code>clBlue</code>, <code>clPurple</code>, <code>clFuchsia</code>, <code>clNavy</code>, <code>clOlive</code>, <code>clTeal</code>. Poi clicca un punto vuoto della Form1 e nell'Ispettore oggetti cambia <b>Color</b> (lo sfondo). Chi ha finito: terzo bottone <b>Pausa</b> che scrive <i>TORNO SUBITO</i>.
+7. **Fai partire: F9.** Premi <b>F9</b>. Clicca <b>Testo</b>: compare <b>53</b>, non 8! Due String si ATTACCANO. FATTO: prima vittoria. Fallo vedere al compagno.
 
-    غيّر clGreen و clRed بالألوان التي تريدها: clBlue، clPurple، clFuchsia، clNavy، clOlive، clTeal. ثم انقر مكاناً فارغاً في Form1 وفي Ispettore oggetti غيّر Color (الخلفية). من أنهى: زر ثالث Pausa يكتب TORNO SUBITO.
+    اضغط F9. انقر Testo: يظهر 53 وليس 8! النصّان يُلصقان. تم: أول فوز. أرِه لزميلك.
 
-    把 clGreen 和 clRed 换成你喜欢的颜色：clBlue、clPurple、clFuchsia、clNavy、clOlive、clTeal。再点 Form1 的空白处，在 Ispettore oggetti 改 Color（背景）。做完的同学：第三个按钮 Pausa，写出 TORNO SUBITO。
+    按 F9。点 Testo：出现 53，不是 8！两个 String 是连起来。完成：第一个胜利。给同桌看看。
+
+8. **Il bottone Numeri: le scatole Integer.** Chiudi il programma e premi <b>F12</b>: torni alla Form1. Fai doppio clic su <b>Numeri</b>: si apre <code>Button2Click</code>. Clicca alla fine della riga <code>procedure</code>, premi Invio e scrivi PRIMA di <code>begin</code>: due scatole di tipo <b>Integer</b>.
+
+    أغلق البرنامج واضغط F12: تعود إلى Form1. انقر مرتين على Numeri: يفتح Button2Click. انقر في نهاية سطر procedure، اضغط Invio واكتب قبل begin: صندوقان من نوع Integer.
+
+    关掉程序，按 F12：回到 Form1。双击 Numeri：打开 Button2Click。点 procedure 那一行的末尾，按回车，在 begin 前面写：两个 Integer 类型的盒子。
+
+    ```
+    var
+      a, b: Integer;
+    ```
+
+9. **L'errore che insegna (succede a tutti).** Tra <code>begin</code> e <code>end;</code> scrivi le tre righe e premi <b>F9</b>. In basso, in <b>Messaggi</b>, compare l'errore <b>Incompatible types</b>: la Caption vuole una <b>String</b> e <code>a + b</code> è un <b>Integer</b>. È normale: lo correggi nel passo dopo.
+
+    بين begin و end; اكتب الأسطر الثلاثة واضغط F9. في الأسفل في Messaggi يظهر الخطأ Incompatible types: الـ Caption تريد String و a + b هو Integer. هذا طبيعي: تصحّحه في الخطوة التالية.
+
+    在 begin 和 end; 之间写这三行，按 F9。下面 Messaggi 里出现错误 Incompatible types：Caption 要的是 String，a + b 是 Integer。这很正常：下一步就改好。
+
+    ```
+      a := 5;
+      b := 3;
+      Label1.Caption := a + b;
+    ```
+
+10. **Il traduttore IntToStr.** Cambia l'ultima riga così: <code>IntToStr</code> trasforma il numero 8 nel testo '8'. Premi <b>F9</b>. Clicca <b>Testo</b>: 53. Clicca <b>Numeri</b>: 8. FATTO! Lo stesso 5 e 3, due risultati diversi.
+
+    غيّر السطر الأخير هكذا: IntToStr يحوّل الرقم 8 إلى النص '8'. اضغط F9. انقر Testo: 53. انقر Numeri: 8. تم! نفس 5 و3، ونتيجتان مختلفتان.
+
+    把最后一行改成这样：IntToStr 把数字 8 变成文字 '8'。按 F9。点 Testo：53。点 Numeri：8。完成！同样的 5 和 3，两个不同的结果。
+
+    ```
+      Label1.Caption := IntToStr(a + b);
+    ```
+
+11. **Fallo tuo: i tuoi numeri.** Scegli due numeri tuoi (per esempio la tua età e il tuo numero di maglia): cambiali in tutti e due i bottoni, nel Testo tra apici e nei Numeri senza apici. Prima di F9 scrivi sul quaderno che cosa ti aspetti, poi controlla. Chi ha finito: <b>Button3</b> con Caption <b>Tutti e due</b> e questa riga:
+
+    اختر رقمين خاصين بك (مثلاً عمرك ورقم قميصك): غيّرهما في الزرين، في Testo بين علامات اقتباس وفي Numeri بلا علامات. قبل F9 اكتب في الدفتر ما تتوقعه، ثم تحقّق. من أنهى: Button3 بـ Caption هو Tutti e due وهذا السطر:
+
+    选两个你自己的数字（比如你的年龄和你的球衣号码）：在两个按钮里都改掉，Testo 里加引号，Numeri 里不加引号。按 F9 之前先在本子上写下你预计的结果，再检查。做完的同学：Button3，Caption 写 Tutti e due，写这一行：
+
+    ```
+      Label1.Caption := '5' + '3' + ' oppure ' + IntToStr(5 + 3);
+    ```
 
 ## 05 Tre aiuti
 
-1. Indizio: Ogni riga va tra <code>begin</code> e <code>end;</code> e finisce con <code>;</code>. La scritta va tra apici: <code>'APERTO'</code>. Il colore comincia con <code>cl</code>.
+1. Indizio: Testo: i numeri tra apici sono String e il + li attacca. Numeri: le righe <code>var</code> vanno prima di <code>begin</code>; la Caption vuole una String, quindi <code>IntToStr(a + b)</code>.
 2. Il pezzo di codice:
 
     ```
-    procedure TForm1.Button1Click(Sender: TObject);
+    procedure TForm1.Button2Click(Sender: TObject);
+    var
+      a, b: Integer;
     begin
-      Label1.Caption := 'APERTO';
-      Label1.Font.Color := clGreen;
+      a := 5;
+      b := 3;
+      Label1.Caption := IntToStr(a + b);
     end;
     ```
 
@@ -284,24 +290,24 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
 
 ## 06 Spiegalo in 30 secondi
 
-Al compagno: perché <code>'APERTO'</code> ha gli apici e <code>7</code> no? Che cosa vuole la Caption?
+Al compagno: perché lo stesso 5 e 3 dà 53 con <b>Testo</b> e 8 con <b>Numeri</b>? A che cosa serve <code>IntToStr</code>?
 
-لزميلك: لماذا 'APERTO' لها علامات اقتباس و7 لا؟ ماذا تريد الـ Caption؟
+لزميلك: لماذا نفس 5 و3 يعطيان 53 مع Testo و8 مع Numeri؟ لماذا نحتاج IntToStr؟
 
-对同桌说：为什么 'APERTO' 有引号而 7 没有？Caption 要的是什么？
+对同桌说：为什么同样的 5 和 3，按 Testo 是 53，按 Numeri 是 8？IntToStr 有什么用？
 
 ## 07 Consegna: unit1.pas + screenshot
 
 1. Piano A: pagina `consegna.html?ora=1`: scegli unit1.pas e lo screenshot, il controllo automatico dice subito se il codice va bene, un bottone manda tutto.
 2. Piano B, se il bottone non funziona: Classroom, passi C1-C5.
 
-    1. **C1 Lo screenshot del programma che gira.** Premi <b>F9</b>: il tuo programma è aperto. Premi insieme <b>Win + Shift + S</b> e con il mouse disegna un rettangolo intorno alla tua finestra. In basso a destra clicca l'avviso <b>Ritaglio</b>: si apre lo Strumento di cattura. Premi <b>Ctrl + S</b>, a sinistra clicca <b>Documenti</b>, doppio clic sulla cartella <b>cartello</b>, in <b>Nome file</b> scrivi il nome qui sotto e clicca <b>Salva</b>.
+    1. **C1 Lo screenshot del programma che gira.** Premi <b>F9</b>: il tuo programma è aperto. Premi insieme <b>Win + Shift + S</b> e con il mouse disegna un rettangolo intorno alla tua finestra. In basso a destra clicca l'avviso <b>Ritaglio</b>: si apre lo Strumento di cattura. Premi <b>Ctrl + S</b>, a sinistra clicca <b>Documenti</b>, doppio clic sulla cartella <b>pasticcio</b>, in <b>Nome file</b> scrivi il nome qui sotto e clicca <b>Salva</b>.
 
         ```
         ora1_screenshot.png
         ```
 
-    2. **C2 Trova unit1.pas.** Premi <b>Win + E</b> (Esplora file). A sinistra clicca <b>Documenti</b> e fai doppio clic sulla cartella <b>cartello</b>. In alto clicca <b>Visualizza</b> → <b>Mostra</b> → <b>Estensioni nomi file</b>: ora vedi le lettere dopo il punto. Il file del tuo codice è <code>unit1.pas</code>.
+    2. **C2 Trova unit1.pas.** Premi <b>Win + E</b> (Esplora file). A sinistra clicca <b>Documenti</b> e fai doppio clic sulla cartella <b>pasticcio</b>. In alto clicca <b>Visualizza</b> → <b>Mostra</b> → <b>Estensioni nomi file</b>: ora vedi le lettere dopo il punto. Il file del tuo codice è <code>unit1.pas</code>.
 
     3. **C3 Fai la copia da consegnare.** Clicca una volta <code>unit1.pas</code>. Premi <b>Ctrl + C</b> e poi <b>Ctrl + V</b>: compare <code>unit1 - Copia.pas</code>. Cliccala una volta, premi <b>F2</b>, scrivi il nome qui sotto e premi Invio. (L'originale <code>unit1.pas</code> resta lì: il progetto funziona ancora.)
 
@@ -309,15 +315,15 @@ Al compagno: perché <code>'APERTO'</code> ha gli apici e <code>7</code> no? Che
         ora1_unit1.pas
         ```
 
-    4. **C4 Su Classroom: aggiungi i due file.** Apri il compito <b>Ora 1 · Il cartello</b> su Classroom. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>cartello</b>, scegli <code>ora1_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora1_screenshot.png</code>.
+    4. **C4 Su Classroom: aggiungi i due file.** Apri il compito <b>Ora 1 · Il pasticcio dei numeri</b> su Classroom. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>pasticcio</b>, scegli <code>ora1_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora1_screenshot.png</code>.
 
     5. **C5 Consegna.** Nel riquadro <b>Il tuo lavoro</b> vedi i due file: <code>ora1_unit1.pas</code> e <code>ora1_screenshot.png</code>. Clicca <b>Consegna</b> e poi ancora <b>Consegna</b>. FATTO!
 
 ## 08 Controllo finale
 
 1. So dire che cos'è una String e che cos'è un Integer, con un esempio.
-2. So perché '5' + '3' fa '53' e 5 + 3 fa 8.
-3. Il mio cartello cambia scritta e colore quando premo i bottoni.
+2. Il mio programma mostra 53 con Testo e 8 con Numeri (o i risultati dei miei numeri).
+3. So perché Label1.Caption := a + b; dà errore e come si corregge.
 4. Ho consegnato ora1_unit1.pas e ora1_screenshot.png.
 
 ## 09 Da ricopiare sul quaderno
@@ -327,7 +333,8 @@ VARIABILE = una scatola con un nome dentro c'e' un valore
 STRING  = testo, sempre tra apici:   'Ciao'   '5'
 INTEGER = numero intero, senza apici:  5   12   -3
 '5' + '3' = '53'  (attacca)      5 + 3 = 8  (somma)
-Edit1.Text e Label1.Caption sono STRING
+Label1.Caption := a + b;            ERRORE: la Caption vuole una String
+Label1.Caption := IntToStr(a + b);  giusto: 8
 StrToInt: da String a Integer    '7' -> 7
 IntToStr: da Integer a String     7 -> '7'
 ```

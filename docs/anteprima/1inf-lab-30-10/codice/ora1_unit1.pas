@@ -34,14 +34,16 @@ implementation
 
 procedure TForm1.Button1Click(Sender: TObject);
 begin
-  Label1.Caption := 'APERTO';
-  Label1.Font.Color := clGreen;
+  Label1.Caption := '5' + '3';
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
+var
+  a, b: Integer;
 begin
-  Label1.Caption := 'CHIUSO';
-  Label1.Font.Color := clRed;
+  a := 5;
+  b := 3;
+  Label1.Caption := IntToStr(a + b);
 end;
 
 end.

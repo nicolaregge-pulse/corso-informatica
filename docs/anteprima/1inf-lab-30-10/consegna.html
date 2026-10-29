@@ -41,7 +41,7 @@ code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}</style>
 <script>
 (function () {
   var qs = new URLSearchParams(location.search), ORA = Math.min(3, Math.max(1, +qs.get('ora') || 1));
-  var CART = ['', 'cartello', 'soprannome', 'segnapunti'][ORA], ID = '1inf-lab3010-ora' + ORA, PEZZO = 200000, CONF = {};
+  var CART = ['', 'pasticcio', 'soprannome', 'segnapunti'][ORA], ID = '1inf-lab3010-ora' + ORA, PEZZO = 200000, CONF = {};
   function $(i) { return document.getElementById(i); }
   function prendi(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (x) { return d; } }
   function metti(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (x) {} }
