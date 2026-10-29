@@ -101,7 +101,7 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 <body>
 <header>
   <h1>Cruscotto della lezione</h1>
-  <label>Classe <select id="classe"><option>1INF</option><option selected>2INF</option><option>3INF</option></select></label>
+  <label>Classe <select id="classe"><option>1INF</option><option selected>2INF</option><option>3INF</option><option>4TI</option></select></label>
   <label>Giorno <input type="date" id="giorno"></label>
   <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
 </header>
@@ -140,7 +140,9 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 var OGGI_PAG = {
   '1INF': {allievo: '../1inf-oggi/', docente: '../avanzamento/1inf-oggi.html'},
   '2INF': {allievo: '../2inf-oggi/', docente: '../avanzamento/git-2inf.html'},
-  '3INF': {allievo: '../3inf-oggi/', docente: '../avanzamento/3inf-oggi.html'}
+  '3INF': {allievo: '../3inf-oggi/', docente: '../avanzamento/3inf-oggi.html'},
+  // 29/10/2026: la quarta (4TI, martedì 3ª-5ª ora) entra nel cruscotto unico; pagina del giorno con i link della classe
+  '4TI': {allievo: '../4ti-oggi/', docente: '../4ti-oggi/'}
 };
 // Pagine docente speciali per un giorno preciso (classe:AAAA-MM-GG); gli altri giorni restano come sopra.
 var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
@@ -310,7 +312,7 @@ $('scInvia').onclick = async function () {
   if (await invia({tipo: $('scTipo').value, testo: t}, $('scStato'), this)) $('scTesto').value = '';
 };
 // ---- Chiedi aiuto: la casella dell'assistente, pagina «cruscotto-<classe>» ----
-var LINGUE = {'1INF': 'it,ar,zh', '2INF': 'it', '3INF': 'it'}, aiutoDi = '';
+var LINGUE = {'1INF': 'it,ar,zh', '2INF': 'it', '3INF': 'it', '4TI': 'it'}, aiutoDi = '';
 function casellaAiuto() {
   var c = $('classe').value; if (aiutoDi === c) return; aiutoDi = c;
   $('aiuto').innerHTML = '';
