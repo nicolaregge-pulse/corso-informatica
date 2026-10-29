@@ -9,7 +9,7 @@
     id: "1inf-sicurezza-3ora-v1",
     classe: "1INF",
     titolo: "Sicurezza 3: prevenzione aziendale · الوقاية في الشركة · 企业中的预防",
-    sotto: "1INF · 30/10/2026 · sicurezza, 3ª lezione · chi si occupa della sicurezza al lavoro · teoria, ripasso e quiz",
+    sotto: "1INF · 29/10/2026 · sicurezza, 3ª lezione · chi si occupa della sicurezza al lavoro · teoria, ripasso e quiz",
     stato: "stato/1inf-sicurezza-3ora.json",
     risultati: "risultati.html?b=1inf-sicurezza-3ora",
     minuti: 25,
