@@ -75,6 +75,7 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
  <div id="avvisoVer" class="mu"></div>
  <div class="barra"><i id="barra"></i></div>
  <div id="punto" style="font-weight:700"></div>
+ <div id="cambio" hidden><a href="#" id="cambiaNome" style="font-size:16px">Non sei tu? Cambia nome</a></div>
  <ol class="fatti" id="fatti"></ol>
 </div>
 
@@ -158,6 +159,9 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
   var VERS = { completa: COMPLETA, facile: FACILE, facilissima: FACILISSIMA };
 
   var CONF = {}, ACC = false, CTRL = null, ver = '', idx = 0, nome = leggi('calc29-nome');
+  // 29/10 10:00 (docente): lo stato si salva PER NOME, così sui PC condivisi ognuno ritrova il suo passo
+  function KS(k) { return 'c12-' + k + (nome ? '|' + nome : ''); }
+  (function () { if (!nome || leggi('c12-migrato')) return; ['completa', 'facile', 'facilissima'].forEach(function (v) { [v, v + '-fine'].forEach(function (k) { var x = leggi('c12-' + k); if (x && !leggi(KS(k))) scrivi(KS(k), x); }); }); var vv = leggi('c12-ver'); if (vv && !leggi(KS('ver'))) scrivi(KS('ver'), vv); scrivi('c12-migrato', '1'); })();
   var params = new URLSearchParams(location.search);
 
   function manda(n, extra) {
@@ -170,9 +174,9 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
 
   function scegliVer(v, salva) {
     if (!VERS[v] || (v === 'facilissima' && !ACC)) v = 'completa';
-    ver = v; if (salva) scrivi('c12-ver', v);
-    idx = Math.min(+leggi('c12-' + v) || (nome ? 1 : 0), VERS[v].length - 1);
-    if (leggi('c12-' + v + '-fine') === '1' && idx < VERS[v].length - 1) { idx++; scrivi('c12-' + v + '-fine', ''); scrivi('c12-' + v, String(idx)); }
+    ver = v; if (salva) scrivi(KS('ver'), v);
+    idx = Math.min(+leggi(KS(v)) || (nome ? 1 : 0), VERS[v].length - 1);
+    if (leggi(KS(v + '-fine')) === '1' && idx < VERS[v].length - 1) { idx++; scrivi(KS(v + '-fine'), ''); scrivi(KS(v), String(idx)); }
     if (!nome) idx = 0;
     [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.classList.toggle('on', b.getAttribute('data-v') === v); });
     $('avvisoVer').innerHTML = v === 'completa' ? 'Tanti passi piccoli, uno alla volta. Ti sembra troppo? Scegli <b>Facile</b>: 3 passi.' : v === 'facile' ? 'Versione facile: 3 passi: i bottoni, il commit e la release. Quando hai finito puoi passare alla versione completa.' : '<span class="rosso">Oggi il prof ha acceso la versione facilissima:</span> 4 passi, solo il progetto su GitHub e la release.';
@@ -181,15 +185,16 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
 
   function disegna() {
     var P = VERS[ver], s = P[idx], tot = P.length;
-    var fine = idx >= tot - 1 && leggi('c12-' + ver + '-fine') === '1';
+    var fine = idx >= tot - 1 && leggi(KS(ver + '-fine')) === '1';
     $('barra').style.width = Math.round((fine ? tot : idx) / tot * 100) + '%';
     $('punto').textContent = fine ? 'Hai finito tutti i passi!' : 'Passo ' + (idx + 1) + ' di ' + tot + (nome ? ' · ' + nome : '');
+    $('cambio').hidden = !nome || idx === 0;
     var da = Math.max(0, idx - 3); $('fatti').setAttribute('start', da + 1); $('fatti').innerHTML = P.slice(da, idx).map(function (x) { return '<li>✓ Fatto: ' + e(x.t) + '</li>'; }).join('');
     if (fine) {
       $('passo').innerHTML = '<p class="festa">Bravo! Hai finito il percorso.</p><p>Controlla qui sotto che il tuo GitHub sia tutto verde. Poi fai vedere la tua calcolatrice al compagno di banco e spiegagli come funziona.</p>' +
         (ver !== 'completa' ? '<p><button class="fatto" id="aCompleta">Passa alla versione completa</button></p>' : '') + '<a href="#" class="indietro" id="ind">Torna al passo prima</a>';
       if ($('aCompleta')) $('aCompleta').onclick = function () { scegliVer('completa', true); };
-      $('ind').onclick = function (ev) { ev.preventDefault(); scrivi('c12-' + ver + '-fine', ''); disegna(); };
+      $('ind').onclick = function (ev) { ev.preventDefault(); scrivi(KS(ver + '-fine'), ''); disegna(); };
       return;
     }
     var h = '<span class="parte">' + e(s.p) + '</span><h2>' + (idx + 1) + '. ' + e(s.t) + '</h2>' + s.h;
@@ -211,7 +216,8 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
       var sel = $('selNome'), nomi = (CTRL && CTRL.righe || []).map(function (r) { return r.alunno; }).sort();
       nomi.forEach(function (n) { var o = document.createElement('option'); o.textContent = n; sel.appendChild(o); });
       var oa = document.createElement('option'); oa.value = '__altro'; oa.textContent = 'Non trovo il mio nome: lo scrivo io'; sel.appendChild(oa);
-      if (nome && nomi.indexOf(nome) >= 0) sel.value = nome; else if (nome) { sel.value = '__altro'; $('altroBox').hidden = false; $('altroNome').value = nome; }
+      var op = document.createElement('option'); op.value = 'PROVA PROF'; op.textContent = 'Prof (prova)'; sel.appendChild(op);
+      if (nome && (nomi.indexOf(nome) >= 0 || nome === 'PROVA PROF')) sel.value = nome; else if (nome) { sel.value = '__altro'; $('altroBox').hidden = false; $('altroNome').value = nome; }
       var aggiorna = function () { $('altroBox').hidden = sel.value !== '__altro'; var v = sel.value === '__altro' ? $('altroNome').value.trim() : sel.value; ok = v.length >= 3; risposta = v; stato(); };
       sel.onchange = aggiorna; $('altroNome').oninput = aggiorna; aggiorna();
     }
@@ -238,13 +244,13 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
     stato();
     bF.onclick = function () {
       if (bF.disabled) return;
-      if (s.nome) { nome = risposta; scrivi('calc29-nome', nome); mostraCtrl(); }
-      if (s.prova && s.prova.libero) scrivi('c12-titolo', risposta);
+      if (s.nome) { nome = risposta; scrivi('calc29-nome', nome); mostraCtrl(); var vs = leggi(KS('ver')) || ver; if (+leggi(KS(vs)) > 0) { manda(0, risposta); scegliVer(vs, false); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' }); return; } }
+      if (s.prova && s.prova.libero) scrivi(KS('titolo'), risposta);
       manda(idx, risposta);
-      if (idx >= VERS[ver].length - 1) scrivi('c12-' + ver + '-fine', '1'); else idx++;
-      scrivi('c12-' + ver, String(idx)); disegna(); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' });
+      if (idx >= VERS[ver].length - 1) scrivi(KS(ver + '-fine'), '1'); else idx++;
+      scrivi(KS(ver), String(idx)); disegna(); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' });
     };
-    if ($('ind')) $('ind').onclick = function (ev) { ev.preventDefault(); idx = Math.max(0, idx - 1); scrivi('c12-' + ver, String(idx)); disegna(); };
+    if ($('ind')) $('ind').onclick = function (ev) { ev.preventDefault(); idx = Math.max(0, idx - 1); scrivi(KS(ver), String(idx)); disegna(); };
   }
 
   var NOMI_CK = { cartella: 'Cartella calcolatrice', file: 'I 3 file (.lpi .pas .lfm)', v12_codice: 'Codice di - e DIV', v12_commit: 'Commit di oggi con il codice nuovo', v12_release: 'Release v1.2 di oggi' };
@@ -263,13 +269,14 @@ img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;m
   }
 
   [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.onclick = function () { scegliVer(b.getAttribute('data-v'), true); }; });
+  $('cambiaNome').onclick = function (ev) { ev.preventDefault(); idx = 0; disegna(); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' }); };
   Promise.all([
     fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}),
     fetch('../2inf-calcolatrice-v12/stato.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (s) { ACC = !!(s && s.facilissima); }).catch(function () {}),
     caricaCtrl()
   ]).then(function () {
     $('btFacilissima').hidden = !ACC;
-    var v = params.get('v') || leggi('c12-ver') || (ACC ? 'facilissima' : 'completa');
+    var v = params.get('v') || leggi(KS('ver')) || (ACC ? 'facilissima' : 'completa');
     scegliVer(v, false);
   });
   setInterval(caricaCtrl, 120000);
