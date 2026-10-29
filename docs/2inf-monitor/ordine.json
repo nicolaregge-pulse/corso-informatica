@@ -1,5 +1,5 @@
 {
- "ora": "09:46",
+ "ora": "09:49",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -216,14 +216,13 @@
    "pezzi": [
     "cartelle",
     "pulito",
-    "no .exe",
     "README"
    ],
-   "salvataggi": 2,
-   "ultimo": "08:43",
+   "salvataggi": 3,
+   "ultimo": "09:48",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo E: carica il tuo salvadanaio nella cartella «salvadanaio».",
+   "messaggio": "Passo D: cancella i file che non servono (calcolatrice/project29.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "CalcolatriceLazarus/calcolatrice.lpi",
@@ -231,6 +230,11 @@
     "CalcolatriceLazarus/unit1.lfm",
     "CalcolatriceLazarus/unit1.pas",
     "README.md",
+    "calcolatrice/project29.ico",
+    "calcolatrice/project29.lpr",
+    "calcolatrice/project29.lps",
+    "calcolatrice/unit1.lfm",
+    "calcolatrice/unit1.pas",
     "salvadanaio/project1.ico",
     "salvadanaio/project1.lpi",
     "salvadanaio/project1.lpr"
@@ -302,16 +306,16 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [
-    "pulito",
+    "cartelle",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 17,
-   "ultimo": "09:27",
+   "salvataggi": 22,
+   "ultimo": "09:48",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "cartella_ok": false,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 1 file sparsi (unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -323,7 +327,8 @@
     "primo programma/unit1.pas",
     "salvadanaio/project1.lpi",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas"
+    "salvadanaio/unit1.pas",
+    "unit1.pas"
    ]
   },
   {
