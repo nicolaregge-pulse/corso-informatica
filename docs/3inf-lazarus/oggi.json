@@ -1,6 +1,6 @@
 {
- "ora": "12:00",
- "fonte": "Percorso: 53 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 4 · Veyon 41 giri · presenze dal registro",
+ "ora": "12:04",
+ "fonte": "Percorso: 55 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 4 · Veyon 41 giri · presenze dal registro",
  "ultimo_dato": "06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia)",
  "banca": "3inf-confronto",
  "modello": "confronto",
@@ -47,12 +47,18 @@
     "totale": 10,
     "titolo": "Sezione 6: la tabella, seconda metà",
     "ora": "11:58",
-    "fermo_min": 2,
+    "fermo_min": 5,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": true,
     "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
@@ -93,16 +99,22 @@
     "ritardo": false
    },
    "percorso": {
-    "passo": 5,
+    "passo": 6,
     "totale": 10,
-    "titolo": "Sezione 2: lo screenshot di Lazarus",
-    "ora": "11:54",
-    "fermo_min": 5,
+    "titolo": "Sezione 4: lo screenshot di Eclipse",
+    "ora": "12:01",
+    "fermo_min": 2,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": true,
     "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
@@ -147,12 +159,18 @@
     "totale": 10,
     "titolo": "Eclipse aperto, con Main.java",
     "ora": "11:42",
-    "fermo_min": 18,
+    "fermo_min": 21,
     "fermo": true,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": true,
     "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
@@ -197,12 +215,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:28",
-    "fermo_min": 32,
+    "fermo_min": 36,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": true,
     "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
@@ -229,7 +253,7 @@
     "PC 27: Eclipse aperto, si vede il codice",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 7 · Sezione 6: la tabella, prima metà. Sei fermo da 19 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -241,12 +265,18 @@
     "totale": 10,
     "titolo": "Sezione 4: lo screenshot di Eclipse",
     "ora": "11:40",
-    "fermo_min": 19,
+    "fermo_min": 23,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -273,7 +303,7 @@
     "PC 36: percorso o Documento",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 7 · Sezione 6: la tabella, prima metà. Sei fermo da 16 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -285,12 +315,18 @@
     "totale": 10,
     "titolo": "Sezione 4: lo screenshot di Eclipse",
     "ora": "11:44",
-    "fermo_min": 16,
+    "fermo_min": 19,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -317,7 +353,7 @@
     "PC 38: schermata di blocco",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 7 · Sezione 6: la tabella, prima metà. Sei fermo da 12 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [
     "screenshot Lazarus",
     "screenshot Java",
@@ -333,12 +369,18 @@
     "totale": 10,
     "titolo": "Sezione 4: lo screenshot di Eclipse",
     "ora": "11:48",
-    "fermo_min": 12,
+    "fermo_min": 16,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -365,7 +407,7 @@
     "PC 18: WhatsApp Web",
     true
    ],
-   "cosa_fare": "Prossimo passo del percorso: 4 · Apri il tuo Documento.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -377,12 +419,18 @@
     "totale": 10,
     "titolo": "Run: la finestrella Hello World",
     "ora": "11:57",
-    "fermo_min": 2,
+    "fermo_min": 6,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -409,7 +457,7 @@
     "PC 23: tabella del confronto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 4 · Apri il tuo Documento.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -421,12 +469,18 @@
     "totale": 10,
     "titolo": "Run: la finestrella Hello World",
     "ora": "11:51",
-    "fermo_min": 8,
-    "fermo": false,
+    "fermo_min": 12,
+    "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -453,7 +507,7 @@
     "PC 28: Classroom",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 36 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -465,12 +519,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:24",
-    "fermo_min": 36,
+    "fermo_min": 40,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -497,7 +557,7 @@
     "PC 32: Eclipse in caricamento",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -508,13 +568,19 @@
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
-    "ora": "11:51",
-    "fermo_min": 8,
+    "ora": "12:00",
+    "fermo_min": 3,
     "fermo": false,
     "finito": false,
-    "dove": "Eclipse si apre, ma il programma non funziona"
+    "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -541,7 +607,7 @@
     "PC 25: Eclipse aperto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 34 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -553,12 +619,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:25",
-    "fermo_min": 34,
+    "fermo_min": 38,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -585,7 +657,7 @@
     "PC 12: percorso, passo 1",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -597,12 +669,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:51",
-    "fermo_min": 9,
-    "fermo": false,
+    "fermo_min": 13,
+    "fermo": true,
     "finito": false,
     "dove": "Non ho ancora scompattato o aperto Eclipse"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -629,7 +707,7 @@
     "PC 11: percorso «Lazarus e Java a confronto»",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -641,12 +719,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:58",
-    "fermo_min": 2,
+    "fermo_min": 6,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -673,7 +757,7 @@
     "PC 24: solo le cartelle",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 36 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -685,12 +769,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:23",
-    "fermo_min": 36,
+    "fermo_min": 40,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -717,7 +807,7 @@
     "PC 29: app di chat",
     true
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 24 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -729,12 +819,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:36",
-    "fermo_min": 24,
+    "fermo_min": 27,
     "fermo": true,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -761,7 +857,7 @@
     "PC 21: Eclipse aperto con una finestra di dialogo",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 33 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -773,12 +869,18 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:27",
-    "fermo_min": 33,
+    "fermo_min": 37,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -805,7 +907,7 @@
     "PC 16: Eclipse aperto",
     false
    ],
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -814,6 +916,12 @@
    },
    "percorso": null,
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -840,7 +948,7 @@
     "PC 26: schermata di blocco con il suo nome",
     false
    ],
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -849,6 +957,12 @@
    },
    "percorso": null,
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -875,7 +989,7 @@
     "PC 14: Classroom",
     false
    ],
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -884,6 +998,12 @@
    },
    "percorso": null,
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
@@ -910,7 +1030,7 @@
     "PC 22: Classroom",
     false
    ],
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -919,6 +1039,12 @@
    },
    "percorso": null,
    "doc": {
+    "strada2": {
+     "stato": "non letto",
+     "consegnato": false,
+     "letto_alle": "",
+     "pdf": null
+    },
     "consegnato": false,
     "ora": null,
     "ritardo": false,
