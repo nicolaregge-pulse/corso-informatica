@@ -43,10 +43,11 @@ Argomento da decidere con il prof.
 
 ### Quarta, dalle 9 e 55 alle 13 e 5, cioè dalla terza alla quinta ora, Laboratorio professionale, tre ore
 
-Argomento: le reti e i loro dispositivi, si continua dalla lezione di martedì 27 ottobre.
-Attività: la notte prima Claude prepara tre proposte di lezione per la quarta nel cruscotto, linguetta «Piano del giorno»; il prof ne sceglie una al mattino. Dopo, ognuno porta avanti il suo progetto.
-Materiali: le pagine della quarta sui progetti, sui sette livelli e sulle app delle reti.
-Da fare prima: il prof sceglie la proposta e conferma l'orario della settimana sul registro.
+Argomento: le reti e i loro dispositivi, si continua dalla lezione di martedì 27 ottobre, quando si sono visti lo switch, il router, l'access point, il firewall e il comando ipconfig. Non si rifanno: si va avanti.
+Attività consigliata: nella prima ora le schede sull'indirizzo IPv4, cioè quale parte del numero è la rete e quale il computer, la maschera, il gateway, il DHCP e il DNS, partendo dal numero che ognuno ha letto sul suo computer il 27 ottobre. Nella seconda ora gli esercizi su due computer nella stessa rete oppure no, e il quiz su Google Moduli allegato al compito di Classroom, che serve anche come prova per la Regione. Nella terza ora ognuno porta avanti il suo progetto: aggiorna su GitHub la parte che spiega che cosa c'entra la rete, con un commit dal messaggio chiaro.
+Le altre due proposte sono il modello TCP/IP, cioè che cosa succede quando si apre un sito, e una mattina dedicata solo al progetto, con i recuperi e la prima versione su GitHub.
+Materiali: la pagina della lezione si prepara dopo la scelta del prof; ci sono già le pagine della quarta sui progetti, sui sette livelli, sulle app delle reti e la lezione del 27 ottobre.
+Da fare prima: il prof sceglie una delle tre proposte nel cruscotto, alla linguetta «Piano del giorno»; Claude legge i quiz e i documenti di progetto del 27 ottobre e prepara i recuperi per chi era assente.
 
 ## Promemoria per tutte le classi
 

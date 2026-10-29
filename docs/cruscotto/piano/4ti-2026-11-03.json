@@ -1,0 +1,53 @@
+{
+ "classe": "4TI",
+ "giorno": "2026-11-03",
+ "modalita": [
+  "teoria-quiz",
+  "versioning",
+  "guidato"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "L'indirizzo IPv4: rete e PC, maschera, gateway, DHCP e DNS; poi il progetto",
+   "descrizione": "Modalità: teoria a schede + quiz su Moduli, poi versioning. Obiettivo: partendo dal numero letto con ipconfig il 27/10, ognuno sa dire quale parte dell'indirizzo è la rete e quale il PC, se due PC sono nella stessa rete e a che cosa servono gateway, DHCP e DNS (Allegato A, modulo «Indirizzamento IPv4 e subnetting», prime voci). Non si rifanno i dispositivi del 27/10. Attività: 1ª ora: schede brevi: l'indirizzo IPv4 in quattro numeri da 0 a 255, la maschera 255.255.255.0 (cioè /24), stessa rete o no, il gateway come porta d'uscita, il DHCP che dà l'indirizzo, il DNS che traduce i nomi, il 169.254 che vuol dire «il DHCP non ha risposto»; riquadro «Spiegalo in 30 secondi». 2ª ora: esercizi «stessa rete?» su coppie di indirizzi e tre casi da tecnico (il PC non va su Internet: che cosa guardi, in che ordine), poi il quiz su Moduli allegato al compito di Classroom (prova per la Regione). 3ª ora: progetto individuale: nel README del proprio repository si aggiorna il punto «Che cosa c'entra la rete» con gli indirizzi che userà il progetto e si fa un commit dal messaggio chiaro; chi non ha ancora il repository lo crea su github.com con il README. Prima vittoria (entro 10 minuti): scrivi nella pagina l'IPv4 del tuo PC e la pagina colora la parte di rete e la parte del PC. Consegna: le risposte della pagina, il quiz su Moduli su Classroom, il commit del README su GitHub. Controllo: risultati della pagina e del quiz nel cruscotto (voto 40 + 40 per i punti del quiz), commit letti dal cruscotto dei progetti, giro di Veyon. Chi è indietro: percorso facilitato di 3 passi: scrivi il tuo IPv4, scrivi il tuo gateway, rispondi «stessa rete?» a tre coppie di indirizzi. Chi era assente il 20/10 fa anche il recupero ISO/OSI nella pagina del ripasso.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Il modello TCP/IP: che cosa succede quando apri un sito; poi il progetto",
+   "descrizione": "Modalità: teoria a schede + quiz su Moduli, poi versioning. Obiettivo: chiudere il primo modulo dell'Allegato A con il modello TCP/IP, finora solo accennato il 06/10: i suoi 4 livelli accanto ai 7 di ISO/OSI e il viaggio di una pagina web (DHCP, DNS, TCP, HTTP). Attività: 1ª ora: schede brevi: i 4 livelli di TCP/IP accanto ai 7 di ISO/OSI, quale protocollo lavora a quale livello, il viaggio passo passo quando scrivi un indirizzo nel browser; si rivede il viaggio con l'app «Il viaggio di un messaggio»; riquadro «Spiegalo in 30 secondi». 2ª ora: esercizio «metti in ordine il viaggio» e il quiz su Moduli allegato al compito di Classroom (prova per la Regione). 3ª ora: progetto individuale, come nella proposta 1: il README aggiornato con un commit dal messaggio chiaro. Prima vittoria (entro 10 minuti): la prima domanda giusta: HTTP sta nel livello Applicazione. Consegna: le risposte della pagina, il quiz su Moduli su Classroom, il commit del README su GitHub. Controllo: risultati della pagina e del quiz nel cruscotto (voto 40 + 40 per i punti del quiz), cruscotto dei progetti, giro di Veyon. Chi è indietro: percorso facilitato di 3 passi: scrivi in ordine i 4 livelli di TCP/IP, abbina HTTP, TCP e IP al loro livello, metti in ordine tre passi del viaggio (DNS, TCP, HTTP).",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Mattina del progetto: si chiudono i recuperi e si arriva alla v0.1 su GitHub",
+   "descrizione": "Modalità: versioning + percorso guidato. Obiettivo: ognuno ha il repository del suo progetto con il README e una prima release v0.1, anche piccola; si chiudono i lavori mancanti del 20/10 e del 27/10. Attività: 1ª ora: recuperi: la verifica ISO/OSI per chi era assente il 20/10, i quiz delle 4 parti del 27/10 per chi non li ha fatti, il documento del progetto per chi non l'ha consegnato. 2ª e 3ª ora: percorso guidato su github.com: il repository del progetto, il README con le parti del documento del 27/10, il primo file del progetto, la release v0.1; chi ha già il repository avanza alla versione successiva, un commit per ogni passo. Prima vittoria (entro 10 minuti): il repository del progetto creato con il README, visibile nel cruscotto dei progetti. Consegna: l'indirizzo del repository con la release, i recuperi nelle loro pagine. Controllo: cruscotto dei progetti (commit e release), recuperi nel cruscotto, giro di Veyon. Chi è indietro: percorso facilitato di 3 passi: crea il repository con il nome del progetto, scrivi nel README il titolo e tre frasi su che cosa fa, premi «Commit changes».",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [
+  {
+   "t": "La pagina della quarta",
+   "u": "4ti-oggi/"
+  },
+  {
+   "t": "La lezione del 27/10: le reti e i loro dispositivi",
+   "u": "verifica/?b=4ti-reti-dispositivi"
+  },
+  {
+   "t": "Ripasso e recupero ISO/OSI (per chi era assente il 20/10)",
+   "u": "verifica/?b=4ti-iso-osi-ripasso"
+  },
+  {
+   "t": "I progetti della classe",
+   "u": "4ti-progetti/"
+  },
+  {
+   "t": "Le app delle reti",
+   "u": "4ti-app/"
+  }
+ ],
+ "mancanze": "Ultime 2 settimane, lezioni del 20/10 e del 27/10, 9 allievi. La verifica ISO/OSI del 20/10 manca a 3 su 9, assenti quel giorno: si recupera nella pagina del ripasso. Un allievo era assente il 27/10 e non ha visto la lezione sui dispositivi di rete. I risultati dei 4 quiz su Moduli del 27/10 e i documenti di progetto consegnati il 27/10 (compiti creati a mano su Classroom) non sono ancora stati letti: si leggono prima della lezione. Un allievo non ha ancora scelto e descritto il suo progetto; i progetti avviati su GitHub sono 2 su 9. Prove su Classroom per la Regione: ne risulta una sola (06/10), sotto il minimo di 3. Il 20/10 Veyon ha visto più volte fuori compito metà dei presenti. Elenco per allievo nel riservato: report/2026-11-03/mancanze-4ti.md."
+}
