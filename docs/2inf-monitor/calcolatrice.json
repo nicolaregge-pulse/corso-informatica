@@ -1,21 +1,27 @@
 {
- "ora": "09:31",
+ "ora": "09:40",
  "cartella": "calcolatrice",
  "righe": [
   {
    "alunno": "Antonio M.",
    "check": {
-    "cartella": false,
+    "cartella": true,
     "file": false,
     "pulita": false,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
-    "piu": false,
-    "per": false,
+    "piu": true,
+    "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes)."
+   "messaggio": "Nella cartella calcolatrice mancano .lpi, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. La cartella si chiama «calcolatrice 3»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Egor M.",
@@ -28,9 +34,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Francesco M.",
@@ -43,9 +55,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio A.",
@@ -58,9 +76,15 @@
     "piu": false,
     "per": false,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella."
+   "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio K.",
@@ -73,9 +97,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Hagar A.",
@@ -88,9 +118,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Katherine A.",
@@ -103,9 +139,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Lina A.",
@@ -118,9 +160,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Luca B.",
@@ -133,9 +181,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": true,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Mahammed M.",
@@ -148,9 +202,15 @@
     "piu": false,
     "per": false,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella."
+   "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Mathias P.",
@@ -163,9 +223,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Ney V.",
@@ -175,12 +241,18 @@
     "pulita": true,
     "commit": true,
     "messaggio": false,
-    "piu": false,
-    "per": false,
+    "piu": true,
+    "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": true,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Oscar F.",
@@ -193,9 +265,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Riccardo B.",
@@ -205,12 +283,18 @@
     "pulita": true,
     "commit": true,
     "messaggio": false,
-    "piu": false,
-    "per": false,
+    "piu": true,
+    "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": true,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Sara A.",
@@ -223,9 +307,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Shaharia A.",
@@ -238,9 +328,15 @@
     "piu": false,
     "per": false,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes)."
+   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes).",
+   "messaggio_v12": "Prima fai la versione 1.0: torna alla pagina della calcolatrice e carica la cartella su GitHub."
   },
   {
    "alunno": "Shahenda E.",
@@ -253,9 +349,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Youssef A.",
@@ -268,9 +370,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false
+    "release": false,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": false,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   }
  ]
 }

@@ -1,5 +1,5 @@
 {
- "ora": "09:31",
+ "ora": "09:40",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -367,18 +367,16 @@
     "pulito",
     "README"
    ],
-   "salvataggi": 1,
-   "ultimo": "09:23",
+   "salvataggi": 3,
+   "ultimo": "09:34",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (CalcolatriceLazarus, primo-programma): rinominale.",
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (calcolatrice 3, primo-programma): rinominale.",
    "fuori": 0,
    "albero": [
-    "CalcolatriceLazarus/backup/calcolatrice.lpi",
-    "CalcolatriceLazarus/backup/calcolatrice.lps",
-    "CalcolatriceLazarus/backup/unit1.lfm",
-    "CalcolatriceLazarus/calcolatrice.exe",
     "README.md",
+    "calcolatrice 3/calcolatrice3.exe",
+    "calcolatrice 3/unit6.pas",
     "primo-programma/project1.lpi",
     "salvadanaio/project55"
    ]
@@ -408,19 +406,21 @@
   {
    "alunno": "Mathias P.",
    "pezzi": [
-    "pulito",
+    "cartelle",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 5,
-   "ultimo": "09:04",
+   "salvataggi": 6,
+   "ultimo": "09:38",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "cartella_ok": false,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 4 file sparsi (calcolatrice.lpi, calcolatrice.lpr, unit1.lfm, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
    "fuori": 0,
    "albero": [
     "README.md",
+    "calcolatrice.lpi",
+    "calcolatrice.lpr",
     "calcolatrice/calcolatrice.lpi",
     "calcolatrice/calcolatrice.lpr",
     "calcolatrice/unit1.lfm",
@@ -434,7 +434,9 @@
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas"
+    "salvadanaio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
    ]
   },
   {
@@ -516,8 +518,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 5,
-   "ultimo": "09:03",
+   "salvataggi": 10,
+   "ultimo": "09:40",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
