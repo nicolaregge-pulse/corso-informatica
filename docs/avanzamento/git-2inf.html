@@ -21,6 +21,11 @@ th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical
 details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
 table.sologit{min-width:0;table-layout:auto}.sologit .c{white-space:normal}   /* 27/10: quando conta solo GitHub la tabella sta nello schermo, senza barra di scorrimento */
 .sologit th:nth-child(4),.sologit td:nth-child(4),.sologit th:nth-child(5),.sologit td:nth-child(5),.sologit th:nth-child(6),.sologit td:nth-child(6),.sologit th:nth-child(7),.sologit td:nth-child(7),.sologit th:nth-child(9),.sologit td:nth-child(9),.sologit th:nth-child(10),.sologit td:nth-child(10){display:none}
+.q4l{background:var(--card);border:2px solid var(--acc);border-radius:12px;padding:10px 14px;margin:10px 0;font-size:16px}.q4l ol{margin:6px 0 6px 20px;padding:0}
+.q4t{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:17px;margin:8px 0}
+table.q4{border-collapse:collapse;width:100%;min-width:0;background:var(--card);border-radius:12px;margin-bottom:14px}table.q4 th,table.q4 td{padding:8px;border-bottom:1px solid var(--ln);text-align:center;font-size:17px}
+table.q4 td:first-child,table.q4 th:first-child{text-align:left}.sy{color:var(--ok);font-size:24px!important;font-weight:800}.sn{color:var(--ko);font-size:24px!important;font-weight:800;cursor:pointer}
+.sn small{display:block;font-size:13px;font-weight:600;max-width:220px;margin:0 auto}tr.fin td{background:rgba(26,127,55,.12)}
 </style>
 </head>
 <body><div class="w">
@@ -28,6 +33,7 @@ table.sologit{min-width:0;table-layout:auto}.sologit .c{white-space:normal}   /*
 <div id="view" class="hide">
 <h1>Cruscotto 2INF di oggi: una colonna per ogni attività</h1>
 <div class="mu" id="stato">Carico i dati…</div>
+<div id="q4"></div>
 <div class="tab hide" id="tabgen"><table style="min-width:0"><thead id="hgen"></thead><tbody id="tg"></tbody></table></div>
 <div class="tab hide" id="tabvec"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>5b. GitHub facilitato</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu" id="spiega">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; GitHub facilitato 40 + 40 × cose fatte / 6 (per il voto vale il migliore dei due); ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
@@ -36,6 +42,15 @@ table.sologit{min-width:0;table-layout:auto}.sologit .c{white-space:normal}   /*
 // 2INF 22/10/2026 (Nicola: «teoria, quiz, teoria2, git, quiz… e colonna per monitoraggio»): una colonna per ogni attività della giornata.
 var TOK='',_kc=null,_n=0,EXEC='',LIVE={},RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/2inf-git-oggi.json';var LOC='2inf-git-oggi.json';(function(){var f=new URLSearchParams(location.search).get('f')||'';if(/^archivio\/[\w.-]+\.json$/.test(f)){LOC=f;RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/'+f;}})();   /* 26/10/2026: cruscotto unico con il calendario */
 function $(i){return document.getElementById(i)}
+/* 29/10 09:52 (docente: «non riesco a capire chi ha fatto la v1 e la v2»): tabella semplice V1/V2, un ✘ si tocca e dice che cosa manca */
+function q4html(righe,tot){var R=righe.filter(function(r){return r.q4});if(!R.length)return '';R=R.slice().sort(function(a,b){return a.nome.localeCompare(b.nome)});
+ var T=['V1 codice: + e x','V1 release','V2 codice: − e DIV','V2 release'],n=R.length;
+ var h='<div class="q4l"><b>Come si legge</b><ol><li><b>V1 codice ✔</b> = nel file unit1.pas caricato oggi su GitHub ci sono il + e il x.</li><li><b>V1 release ✔</b> = su GitHub c\'è la release v1.0 (o v1.1 per chi aveva già la v1.0 del 27/10) fatta oggi.</li><li><b>V2 codice ✔</b> = nel file ci sono anche il − e il DIV.</li><li><b>V2 release ✔</b> = c\'è la release della versione con quattro operazioni (v1.1 o v1.2).</li></ol><b>Un ragazzo ha finito tutto quando ha 4 ✔.</b> Tocca un ✘ per vedere che cosa manca.</div>';
+ h+='<div class="q4t">'+T.map(function(x,k){return '<span>'+x+': <b>'+((tot&&tot[k])||R.filter(function(r){return r.q4[k].ok}).length)+' su '+n+'</b></span>'}).join('')+'</div>';
+ h+='<table class="q4"><thead><tr><th>Allievo</th>'+T.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>'+R.map(function(r){var tutti=r.q4.every(function(c){return c.ok});
+  return '<tr'+(tutti?' class="fin"':'')+'><td><b>'+e(r.nome)+'</b></td>'+r.q4.map(function(c){return c.ok?'<td class="sy">✔</td>':'<td class="sn" title="'+e(c.manca)+'" onclick="var s=this.querySelector(\'small\');s.hidden=!s.hidden">✘<small hidden>'+e(c.manca)+'</small></td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+ return h}
+
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 function tok(n){return String(n||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').split(/[^a-z]+/).filter(function(t){return t.length>=3})}
@@ -54,6 +69,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  var a=d.colonne?null:await live('2inf-salvadanaio-v1'),b=d.colonne?null:await live('2inf-github-v1');   /* 29/10: con le colonne del giorno non si aspetta la teoria dal vivo (fino a 18 s di tabella vuota con l'intestazione vecchia) */if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
  var _g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),_vecchio=d.data&&d.data!==_g;$('stato').style.color=_vecchio?'#c0392b':'';$('stato').style.fontWeight=_vecchio?'700':'';
  $('stato').textContent=(d.totali?d.totali+' · ':'')+(_vecchio?'DATI DEL '+d.data.split('-').reverse().join('/')+', NON DI OGGI · ':'')+(d.fonte?'Dati da: '+d.fonte+' · ultimo dato: '+(d.ultimo_dato||'nessuno')+' · ':'')+'Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · teoria dal vivo '+(LIVE['2inf-github-v1']||LIVE['2inf-salvadanaio-v1']?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
+ $('q4').innerHTML=q4html(d.righe,d.q4_tot);
  if(d.colonne){$('tabgen').classList.remove('hide');$('tabvec').classList.add('hide');$('hgen').innerHTML='<tr><th>#</th><th>Allievo</th><th>Voto di oggi</th>'+d.colonne.map(function(c,k){return '<th>'+e(c)+(k===0&&/GitHub/.test(c)?' <a href="../2inf-repo-calcolatrice/" target="_blank">(tutti i repository)</a>':'')+'</th>'}).join('')+'<th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr>';}else{$('tabgen').classList.add('hide');$('tabvec').classList.remove('hide')}   /* 29/10: colonne del giorno decise dal generatore */
  $(d.colonne?'tg':'t').innerHTML=d.righe.map(function(r,i){try{return riga(r,i)}catch(x){return '<tr><td>'+(i+1)+'</td><td colspan="8" class="ko">'+e(r.nome)+': riga non disegnata ('+e(x.message)+')</td></tr>'}}).join('');
  function riga(r,i){var vy=r.vy||[],u=vy[vy.length-1];

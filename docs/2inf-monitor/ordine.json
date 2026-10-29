@@ -1,5 +1,5 @@
 {
- "ora": "09:51",
+ "ora": "09:57",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -243,26 +243,28 @@
   {
    "alunno": "Youssef A.",
    "pezzi": [
-    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 2,
-   "ultimo": "09:43",
-   "caricato": true,
+   "salvataggi": 10,
+   "ultimo": "09:54",
+   "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Repository in ordine: bravo! Il tuo GitHub è uguale alla cartella lazarus del tuo PC. Fallo vedere al compagno.",
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "calcolatrice/Calcolatrice2.lpi",
+    "calcolatrice/Calcolatrice2.lpr",
+    "calcolatrice/unit1.lfm",
+    "calcolatrice/unit1.pas",
     "primo-programma/migliakilometri.ico",
     "primo-programma/migliakilometri.lpi",
     "primo-programma/migliakilometri.lpr",
     "primo-programma/unit1.lfm",
     "primo-programma/unit1.pas",
-    "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
     "salvadanaio/unit1.lfm",
@@ -587,22 +589,21 @@
   {
    "alunno": "Shahenda E.",
    "pezzi": [
-    "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 19,
-   "ultimo": "09:51",
+   "salvataggi": 20,
+   "ultimo": "09:52",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (calcolatrice diviso e meno/calcolatricedivisoemeno.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
     "calcolatrice diviso e meno/calcolatricedivisoemeno.lpi",
     "calcolatrice diviso e meno/calcolatricedivisoemeno.lpr",
-    "calcolatrice diviso e meno/calcolatricedivisoemeno.lps",
     "calcolatrice diviso e meno/unit1.lfm",
     "calcolatrice diviso e meno/unit1.pas",
     "calcolatrice v2/calcolatricev2.ico",

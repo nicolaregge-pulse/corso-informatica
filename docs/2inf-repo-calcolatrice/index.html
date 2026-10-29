@@ -20,6 +20,11 @@
 .r b.n{font-size:17px}.st{font-weight:800;margin:4px 0}.ok{color:var(--ok)}.ko{color:var(--ko)}
 .l{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.l a,.l span{padding:6px 10px;border-radius:8px;border:1px solid var(--ln);text-decoration:none;color:var(--acc);font-size:14px}
 .l span{color:var(--mu)}#tot{font-weight:800}
+.q4l{background:var(--card);border:2px solid var(--acc);border-radius:12px;padding:10px 14px;margin:10px 0;font-size:16px}.q4l ol{margin:6px 0 6px 20px;padding:0}
+.q4t{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:17px;margin:8px 0}
+table.q4{border-collapse:collapse;width:100%;min-width:0;background:var(--card);border-radius:12px;margin-bottom:14px}table.q4 th,table.q4 td{padding:8px;border-bottom:1px solid var(--ln);text-align:center;font-size:17px}
+table.q4 td:first-child,table.q4 th:first-child{text-align:left}.sy{color:var(--ok);font-size:24px!important;font-weight:800}.sn{color:var(--ko);font-size:24px!important;font-weight:800;cursor:pointer}
+.sn small{display:block;font-size:13px;font-weight:600;max-width:220px;margin:0 auto}tr.fin td{background:rgba(26,127,55,.12)}
 </style>
 </head>
 <body><div class="w">
@@ -27,6 +32,7 @@
 <div id="view" class="hide">
 <h1>2INF: la calcolatrice nei repository</h1>
 <div class="mu" id="stato">Carico i dati…</div>
+<div id="q4"></div>
 <div id="tot"></div>
 <div id="t"></div>
 <p class="mu">v1.0 completa = cartella con .lpi .pas .lfm caricata oggi, bottoni + e x, commit di oggi, release v1.0 (v1.1 per chi aveva la v1.0 del 27/10). Quattro operazioni = anche − e div, un commit dopo la v1.0 e la release v1.1 o v1.2. I link compaiono solo se il controllo ha trovato davvero il repository. Si aggiorna da sola ogni minuto (i dati ogni 5 minuti).</p>
@@ -34,6 +40,15 @@
 <script>
 var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/2inf-repo-calcolatrice/dati.json',LOC='dati.json';
 function $(i){return document.getElementById(i)}
+/* 29/10 09:52 (docente: «non riesco a capire chi ha fatto la v1 e la v2»): tabella semplice V1/V2, un ✘ si tocca e dice che cosa manca */
+function q4html(righe,tot){var R=righe.filter(function(r){return r.q4});if(!R.length)return '';R=R.slice().sort(function(a,b){return a.nome.localeCompare(b.nome)});
+ var T=['V1 codice: + e x','V1 release','V2 codice: − e DIV','V2 release'],n=R.length;
+ var h='<div class="q4l"><b>Come si legge</b><ol><li><b>V1 codice ✔</b> = nel file unit1.pas caricato oggi su GitHub ci sono il + e il x.</li><li><b>V1 release ✔</b> = su GitHub c\'è la release v1.0 (o v1.1 per chi aveva già la v1.0 del 27/10) fatta oggi.</li><li><b>V2 codice ✔</b> = nel file ci sono anche il − e il DIV.</li><li><b>V2 release ✔</b> = c\'è la release della versione con quattro operazioni (v1.1 o v1.2).</li></ol><b>Un ragazzo ha finito tutto quando ha 4 ✔.</b> Tocca un ✘ per vedere che cosa manca.</div>';
+ h+='<div class="q4t">'+T.map(function(x,k){return '<span>'+x+': <b>'+((tot&&tot[k])||R.filter(function(r){return r.q4[k].ok}).length)+' su '+n+'</b></span>'}).join('')+'</div>';
+ h+='<table class="q4"><thead><tr><th>Allievo</th>'+T.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>'+R.map(function(r){var tutti=r.q4.every(function(c){return c.ok});
+  return '<tr'+(tutti?' class="fin"':'')+'><td><b>'+e(r.nome)+'</b></td>'+r.q4.map(function(c){return c.ok?'<td class="sy">✔</td>':'<td class="sn" title="'+e(c.manca)+'" onclick="var s=this.querySelector(\'small\');s.hidden=!s.hidden">✘<small hidden>'+e(c.manca)+'</small></td>'}).join('')+'</tr>'}).join('')+'</tbody></table>';
+ return h}
+
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
@@ -42,7 +57,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),vec=d.data!==g;
  $('stato').innerHTML=(vec?'<b class="ko">DATI DEL '+e(d.data.split('-').reverse().join('/'))+', NON DI OGGI · </b>':'')+'Ultimo controllo dei repository: <b>'+e(d.ora)+'</b> · '+d.righe.length+' presenti';
- $('tot').textContent=d.totali||'';
+ $('tot').textContent=d.totali||'';$('q4').innerHTML=q4html(d.righe,null);
  $('t').innerHTML=d.righe.map(function(r){
   var l=[];
   l.push(r.repo?'<a href="'+e(r.repo)+'" target="_blank" rel="noopener">Repository lazarus</a>':'<span>repository non trovato</span>');
