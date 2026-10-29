@@ -29,7 +29,7 @@
 <div class="mu" id="stato">Carico i dati…</div>
 <div id="tot"></div>
 <div id="t"></div>
-<p class="mu">✔ = nel repository «lazarus» c'è una cartella con .lpi .pas .lfm caricata con un commit di oggi. I link compaiono solo se il controllo ha trovato davvero il repository. Si aggiorna da sola ogni minuto (i dati ogni 5 minuti).</p>
+<p class="mu">v1.0 completa = cartella con .lpi .pas .lfm caricata oggi, bottoni + e x, commit di oggi, release v1.0 (v1.1 per chi aveva la v1.0 del 27/10). Quattro operazioni = anche − e div, un commit dopo la v1.0 e la release v1.1 o v1.2. I link compaiono solo se il controllo ha trovato davvero il repository. Si aggiorna da sola ogni minuto (i dati ogni 5 minuti).</p>
 </div></div>
 <script>
 var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/2inf-repo-calcolatrice/dati.json',LOC='dati.json';
@@ -42,13 +42,14 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),vec=d.data!==g;
  $('stato').innerHTML=(vec?'<b class="ko">DATI DEL '+e(d.data.split('-').reverse().join('/'))+', NON DI OGGI · </b>':'')+'Ultimo controllo dei repository: <b>'+e(d.ora)+'</b> · '+d.righe.length+' presenti';
- var n=d.righe.filter(function(r){return r.ok}).length;$('tot').innerHTML='<span class="ok">✔ '+n+'</span> · <span class="ko">✘ '+(d.righe.length-n)+'</span>';
+ $('tot').textContent=d.totali||'';
  $('t').innerHTML=d.righe.map(function(r){
   var l=[];
   l.push(r.repo?'<a href="'+e(r.repo)+'" target="_blank" rel="noopener">Repository lazarus</a>':'<span>repository non trovato</span>');
   if(r.cartella_url)l.push('<a href="'+e(r.cartella_url)+'" target="_blank" rel="noopener">Cartella «'+e(r.cartella)+'»</a>');
   if(r.commit_url)l.push('<a href="'+e(r.commit_url)+'" target="_blank" rel="noopener">Commit di oggi '+e(r.commit_ora)+'</a>');
-  return '<div class="r"><b class="n">'+e(r.nome)+'</b><div class="st '+(r.ok?'ok':'ko')+'">'+(r.ok?'✔ calcolatrice caricata oggi':'✘ '+e(r.manca))+'</div>'+
+  function v(x){return x&&x.testo?'<div class="st '+(x.ok?'ok':'ko')+'">'+e(x.testo)+'</div>':''}
+  return '<div class="r"><b class="n">'+e(r.nome)+'</b>'+(r.v10&&r.v10.testo?v(r.v10)+v(r.v11):'<div class="st '+(r.ok?'ok':'ko')+'">'+(r.ok?'✔ calcolatrice caricata oggi':'✘ '+e(r.manca))+'</div>')+
    (r.ok&&r.manca?'<div class="mu">'+e(r.manca)+'</div>':'')+(r.commit_msg?'<div class="mu">messaggio del commit: «'+e(r.commit_msg)+'»</div>':'')+'<div class="l">'+l.join('')+'</div></div>'}).join('')}
 $('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
 $('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
