@@ -1,12 +1,12 @@
 {
- "ora": "10:35",
+ "ora": "10:43",
  "cartella": "calcolatrice",
  "righe": [
   {
    "alunno": "Antonio M.",
    "check": {
     "cartella": true,
-    "file": false,
+    "file": true,
     "pulita": false,
     "commit": true,
     "messaggio": false,
@@ -17,10 +17,10 @@
     "v12_codice": false,
     "v12_commit": false,
     "v12_release": false,
-    "meno": false,
+    "meno": true,
     "div": false
    },
-   "messaggio": "Nella cartella calcolatrice mancano .lpi, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. La cartella si chiama «calcolatrice 3»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 4»: va bene, la prossima volta chiamala «calcolatrice».",
    "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
@@ -181,15 +181,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false,
+    "release": true,
     "v12_codice": true,
     "v12_commit": true,
-    "v12_release": false,
+    "v12_release": true,
     "meno": true,
     "div": true
    },
-   "messaggio": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto».",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio": "Tutto verde, anche la release v1.0! Fai gli screenshot nel Documento e, se vuoi, l'extra: bottoni − e DIV, nuovo commit e release v1.2.",
+   "messaggio_v12": "Tutto verde per la versione 1.2, anche la release! Fai lo screenshot della release nel Documento."
   },
   {
    "alunno": "Mahammed M.",
