@@ -1,5 +1,5 @@
 {
- "ora": "08:31",
+ "ora": "08:36",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -119,14 +119,14 @@
    "check": {
     "cartella": true,
     "file": true,
-    "pulita": true,
+    "pulita": false,
     "commit": false,
     "messaggio": false,
-    "piu": true,
-    "per": true,
+    "piu": false,
+    "per": false,
     "titolo": false
    },
-   "messaggio": "La cartella si chiama «calcolatrice v1»: il nome giusto è «calcolatrice»."
+   "messaggio": "La cartella si chiama «calcolatrice v2»: il nome giusto è «calcolatrice»."
   },
   {
    "alunno": "Luca B.",
