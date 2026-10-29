@@ -70,6 +70,15 @@ Argomento da decidere con il prof.
 
 Argomento da decidere con il prof.
 
+## Martedì 3 novembre
+
+### Quarta, dalle 9 e 55 alle 13 e 5, cioè dalla terza alla quinta ora, Laboratorio professionale, tre ore
+
+Argomento: le reti e i loro dispositivi, si continua dalla lezione di martedì 27 ottobre.
+Attività: la notte prima Claude prepara tre proposte di lezione per la quarta nel cruscotto, linguetta «Piano del giorno»; il prof ne sceglie una al mattino. Dopo, ognuno porta avanti il suo progetto.
+Materiali: le pagine della quarta sui progetti, sui sette livelli e sulle app delle reti.
+Da fare prima: il prof sceglie la proposta e conferma l'orario della settimana sul registro.
+
 ## Promemoria per tutte le classi
 
 In seconda e in terza, quando i ragazzi hanno finito il lavoro, si possono proporre i giochi dei byte e dei pixel della prima.
