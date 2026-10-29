@@ -144,6 +144,7 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 </div>
 <div class="box" id="avvisoCl" style="display:none"></div>
 <p id="nota"></p>
+<p id="sicLink" style="display:none;font-weight:700"></p>
 <section class="tab" id="t-oggi"><iframe id="vista" title="Cruscotto"></iframe></section>
 <section class="tab" id="t-piano"><div class="box" id="piano"></div></section>
 <section class="tab" id="t-aiuto"><div class="box"><p style="margin:0">Sei bloccato o in difficoltà? Scrivi qui: ti risponde l'assistente, subito. La risposta compare sotto la casella.</p><div id="aiuto"></div></div></section>
@@ -221,6 +222,10 @@ function mostra() {
       'Per questo giorno non c\'è un cruscotto salvato: mostro quello di oggi.' + (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
   }
   $('nota').style.color = '';
+  // 29/10/2026 (Nicola): per la classe che ha Sicurezza quel giorno, il link alla situazione dei quiz (<classe>-sicurezza-oggi.html)
+  var SIC = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html', '1INF:2026-10-29': '../avanzamento/1inf-sicurezza-oggi.html'};
+  if (SIC[c + ':' + g]) { $('sicLink').innerHTML = 'Sicurezza: <a href="' + SIC[c + ':' + g] + '" target="_blank">situazione dei quiz di ' + c + '</a>'; $('sicLink').style.display = ''; }
+  else $('sicLink').style.display = 'none';
   if (g === oggi() && typeof statoLezione === 'function') avvisoGiorno(c, $('nota').textContent);
   if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
   caricaPiano(c, g); linguette();
