@@ -32,7 +32,11 @@ prove e nomi di file.
 Uso (una riga):
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py --notte 2026-10-29
+  8. fine giornata (29/10/2026 sera, #141 #144 #145 #146 #155 #156): per ogni classe del giorno precedente compito
+     uscito entro la campanella, verifica VERDE, presenze nel diario, cruscotto con una riga per presente e senza
+     «null», nessun 40 a chi ha finito, report PDF di ogni ora, domande con risposta, non-andato.md scritto.
 Opzioni: --notte AAAA-MM-GG controlla quella notte (predefinito: oggi, ora di Roma);
+         --fine-giornata AAAA-MM-GG fa solo il punto 8 per quel giorno;
          --senza-prove salta il punto 3 (più veloce); --solo-privacy fa solo il punto 6.
 """
 import argparse, datetime, glob, json, os, re, subprocess, sys, tempfile
@@ -511,6 +515,153 @@ def controlla_sicurezza_pronta(giorno, pub=None, ris=None):
     return problemi
 
 
+# ----------------------------------------------- fine giornata (29/10/2026 sera: #141 #144 #145 #146 #155 #156, regole 22 e 24)
+
+def _ora_roma(iso):
+    try:
+        d = datetime.datetime.fromisoformat(str(iso).replace("Z", "+00:00"))
+        return d.astimezone(ROMA).strftime("%H:%M") if ROMA else d.strftime("%H:%M")
+    except Exception:
+        return ""
+
+
+def _presenti_diario(ris, classe, giorno):
+    """Numero dei presenti dal diario della classe (ultimo numero detto: entrate in ritardo comprese)."""
+    f = os.path.join(ris, "diario", classe.upper(), "%s.md" % giorno)
+    try:
+        t = open(f, encoding="utf-8").read()
+    except Exception:
+        return None
+    m = re.findall(r"presenti(?:\s+sono)?\s*\(?(\d+)|(\d+)\s+presenti", t, re.I)
+    vals = [int(a or b) for a, b in m]
+    return vals[-1] if vals else None
+
+
+def _ultimo_cruscotto(ris, classe, giorno):
+    for c in (classe.lower(), classe.upper()):
+        d = os.path.join(ris, "storico", "cruscotti", c, giorno)
+        if os.path.isdir(d):
+            fs = sorted(os.listdir(d), key=lambda x: re.sub(r"\D", "", x))
+            if fs:
+                return os.path.join(d, fs[-1])
+    return None
+
+
+def controlla_fine_giornata(giorno, pub=None, ris=None):
+    """Controllore di fine giornata: per ogni classe in orario il giorno indicato, sul dato vero.
+    1. compito su Classroom uscito entro la prima campanella (piano «pubblicata», #141) e piano senza bottoni dopo
+       la pubblicazione (#144); 2. ultimo cruscotto: una riga per presente, nessun «null»/«None» nel testo, nessun 40 a
+       chi ha finito o consegnato (#146, #156); 3. diario con le presenze; 4. report PDF di ogni ora (regola 24);
+    5. domande all'assistente del giorno con risposta (regola 22, #145); 6. elenco di fine giornata
+       report/<giorno>/non-andato.md scritto (#155). Restituisce l'elenco dei problemi."""
+    pub, ris = pub or PUB, ris or RIS
+    if not os.path.isdir(ris):
+        giallo("fine giornata %s: riservato assente, controllo saltato" % giorno)
+        return []
+    try:
+        lez = json.load(open(os.path.join(pub, "docs", "avanzamento", "orario-lezioni.json"), encoding="utf-8"))["lezioni"].get(giorno) or []
+    except Exception:
+        lez = []
+    if not lez:
+        esito(True, "fine giornata %s: nessuna lezione" % giorno)
+        return []
+    problemi = []
+    classi = {}
+    for l in lez:
+        classi.setdefault(l["classe"], []).append(l)
+    rep = os.path.join(ris, "report", giorno)
+    rep_files = os.listdir(rep) if os.path.isdir(rep) else []
+    g8 = giorno.replace("-", "")
+    for classe, ore in classi.items():
+        da = min(l["da"] for l in ore)
+        try:
+            piano = json.load(open(os.path.join(pub, "docs", "cruscotto", "piano", "%s-%s.json" % (classe.lower(), giorno)), encoding="utf-8"))
+        except Exception:
+            piano = {}
+        uscita = str(piano.get("pubblicata") or "")
+        if not uscita:
+            problemi.append("%s: il piano non dice quando il compito è uscito su Classroom (#144)" % classe)
+        elif uscita > da:
+            problemi.append("%s: compito uscito su Classroom alle %s, dopo la campanella delle %s (#141)" % (classe, uscita, da))
+        try:
+            v = json.load(open(os.path.join(ris, "dati", "verifiche-lezione", "%s_%s.json" % (giorno, classe)), encoding="utf-8"))
+            if v.get("esito") != "VERDE":
+                problemi.append("%s: verifica della lezione %s" % (classe, v.get("esito")))
+        except Exception:
+            problemi.append("%s: manca dati/verifiche-lezione/%s_%s.json" % (classe, giorno, classe))
+        n_pres = _presenti_diario(ris, classe, giorno)
+        if n_pres is None:
+            problemi.append("%s: presenze assenti in diario/%s/%s.md" % (classe, classe, giorno))
+        cr = _ultimo_cruscotto(ris, classe, giorno)
+        if not cr:
+            problemi.append("%s: nessuna fotografia del cruscotto in storico/cruscotti" % classe)
+        else:
+            try:
+                d = json.load(open(cr, encoding="utf-8"))
+                righe_c = d.get("righe") if isinstance(d, dict) else d
+                righe_c = righe_c if isinstance(righe_c, list) else []
+                if n_pres is not None and len(righe_c) != n_pres:
+                    problemi.append("%s: cruscotto con %d righe, presenti %d (%s)" % (classe, len(righe_c), n_pres, os.path.basename(cr)))
+                testi = re.findall(r'"((?:[^"\\]|\\.)*)"', json.dumps(d, ensure_ascii=False))
+                if any(re.search(r"\bnull\b|\bNone\b|undefined|NaN", s) for s in testi):
+                    problemi.append("%s: «null» o «None» scritto nel cruscotto (#146)" % classe)
+                quaranta = 0
+                for r in righe_c:
+                    s = json.dumps(r, ensure_ascii=False)
+                    if isinstance(r, dict) and r.get("voto") == 40 and ('"finito": true' in s or "CONSEGNATO" in s):
+                        quaranta += 1
+                if quaranta:
+                    problemi.append("%s: %d allievi con voto 40 pur avendo finito o consegnato (#156)" % (classe, quaranta))
+            except Exception as e:
+                problemi.append("%s: cruscotto %s illeggibile (%s)" % (classe, os.path.basename(cr), e))
+        mancano_pdf = []
+        for l in ore:
+            h0, h1 = int(l["da"][:2]), int(l["a"][:2])
+            for h in range(h0, h1):
+                nome = "%s_%s_ore-%02d-%02d_report.pdf" % (g8, classe, h, h + 1)
+                if nome not in rep_files:
+                    mancano_pdf.append("%02d-%02d" % (h, h + 1))
+        if mancano_pdf:
+            problemi.append("%s: report PDF dell'ora mancante (regola 24): %s" % (classe, ", ".join(mancano_pdf)))
+    # domande all'assistente del giorno (regola 22)
+    senza = 0
+    tot = 0
+    for f in glob.glob(os.path.join(ris, "dati", "verifiche", "assistente-*", "arrivi", "*.json")):
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        if d.get("modo") != "domanda":
+            continue
+        o = d.get("ora") or d.get("_arrivo") or ""
+        try:
+            t0 = datetime.datetime.fromisoformat(o.replace("Z", "+00:00"))
+            t0 = t0.astimezone(ROMA) if ROMA else t0
+        except Exception:
+            continue
+        if t0.date().isoformat() != giorno:
+            continue
+        tot += 1
+        pag = str(d.get("id", "")).replace("assistente-", "")
+        try:
+            risp = json.load(open(os.path.join(pub, "docs", "assistente", "risposte", pag + ".json"), encoding="utf-8"))
+        except Exception:
+            risp = []
+        nome = (d.get("nome") or "").strip().lower().split(" ")[0]
+        q = (d.get("domanda") or "").strip()[:30].lower()
+        ok = any((r.get("risposta") or "").strip() and (
+                 (q and (r.get("domanda") or "").strip()[:30].lower() == q) or
+                 (nome and (r.get("nome") or "").strip().lower().startswith(nome))) for r in risp if isinstance(r, dict))
+        if not ok:
+            senza += 1
+    if senza:
+        problemi.append("domande all'assistente del %s senza risposta: %d su %d (regola 22)" % (giorno, senza, tot))
+    if not os.path.isfile(os.path.join(rep, "non-andato.md")):
+        problemi.append("manca report/%s/non-andato.md: il controllo di fine giornata non è stato fatto (#155)" % giorno)
+    esito(not problemi, "fine giornata %s (%s)" % (giorno, ", ".join(classi)) + (": " + "; ".join(problemi) if problemi else ""))
+    return problemi
+
+
 def stampa(da_sapere):
     """Prima riga = l'esito con le cose che il docente deve sapere subito (29/10/2026, REGISTRO-ERRORI #139)."""
     rossi = sum(1 for e, _ in righe if e == "ROSSO")
@@ -528,8 +679,12 @@ def main():
     a.add_argument("--notte", default=None, help="AAAA-MM-GG della notte da controllare")
     a.add_argument("--senza-prove", action="store_true")
     a.add_argument("--solo-privacy", action="store_true")
+    a.add_argument("--fine-giornata", default=None, help="AAAA-MM-GG: fa solo il controllo di fine giornata")
     args = a.parse_args()
     adesso = datetime.datetime.now(ROMA) if ROMA else datetime.datetime.now()
+    if args.fine_giornata:
+        controlla_fine_giornata(args.fine_giornata)
+        return stampa([])
     if args.solo_privacy:
         controlla_privacy()
         for e, cosa in righe:
@@ -549,6 +704,8 @@ def main():
     controlla_coppie_docente_ragazzi()
     controlla_ponte_quiz(giorno=oggi)
     controlla_sicurezza_pronta(oggi)
+    ieri = (datetime.date.fromisoformat(oggi) - datetime.timedelta(days=1)).isoformat()
+    controlla_fine_giornata(ieri)   # 29/10/2026 sera: la giornata precedente, sul dato vero
     controlla_privacy()
     return stampa(da_sapere)
 

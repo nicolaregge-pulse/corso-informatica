@@ -239,8 +239,20 @@ def link_mancanti(percorso, testo, radice):
     return out
 
 
-SICURI = (lingue, regione, nomi_in_chiaro, sintassi)
-TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono)
+def valore_nudo(percorso, testo):
+    """#146 (29/10/2026): un voto (o un PC) scritto nella pagina senza controllo del vuoto mostra «null» al docente.
+    Segnala «'+r.voto+'» e «'+r.pc+'» concatenati senza e() e senza «==null»."""
+    if not percorso.endswith((".html", ".js")):
+        return []
+    m = re.search(r"'\+r\.(voto|pc)\+'", testo)
+    if not m:
+        return []
+    return ["%s: r.%s scritto nudo nella pagina, se manca compare «null» (riga %d) (#146): usare (r.%s==null?'—':r.%s)"
+            % (percorso, m.group(1), _riga(testo, m.start()), m.group(1), m.group(1))]
+
+
+SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo)
+TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo)
 
 
 def controlla(percorso, testo, controlli=SICURI, radice=None):

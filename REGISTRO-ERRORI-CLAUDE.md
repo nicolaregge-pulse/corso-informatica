@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.96** — 29/10/2026 (#125-#154; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.97** — 29/10/2026 (#125-#157; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,24 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Release spiegata come se valesse per una cartella: GitHub la fa di tutto il repository (#157)
+
+1. **Errore.** Nella 2INF le release della calcolatrice (v1.0, v1.2) sono state proposte come «release della calcolatrice», ma il repository «lazarus» dei ragazzi contiene anche il primo programma e il salvadanaio: alle 10:39 il docente ha scoperto che la release è la fotografia di TUTTO il repository, non del progetto. Prima c'era stata anche confusione tra v2.0 e v1.2.
+2. **Regola.** Una release vale per tutto il repository. Decisione del docente (29/10): il repository «lazarus» resta il contenitore dei progetti; per un progetto serio si crea un repository nuovo con il suo nome e lì si fanno le release. Ogni pagina o messaggio che parla di release lo dice.
+3. **Controllo.** Hook `controllo-messaggio.py` (aa): «release della cartella / del progetto / della calcolatrice» senza «tutto il repository» o «repository a parte» blocca il messaggio. Prove: 3 casi.
+
+## 29/10/2026 — Il migliore della classe con voto 40 nel cruscotto (#156)
+
+1. **Errore.** Nel cruscotto della 3INF un allievo che il docente indica come il migliore della classe aveva voto 40, perché il voto contava solo il Documento consegnato su Classroom e non il lavoro fatto nel percorso. Il docente: «se metti lui a 40 c'è qualcosa che non mi torna». Ripete in parte il #146 (il 40 a chi non aveva consegnato).
+2. **Regola.** Chi non ha ancora consegnato non ha un voto ma «voto dopo la consegna» con quello che ha già fatto; un 40 compare solo se il controllo vero dice che non c'è nessun lavoro. Prima di mostrare i voti si confrontano i primi 3 della classe con quello che il docente vede in aula.
+3. **Controllo.** `strumenti/controlla_controlli.py` (fine giornata): nell'ultima fotografia del cruscotto di ogni classe nessuna riga con voto 40 se il percorso è finito o la consegna c'è; il voto mancante si scrive «—» (controllo `valore_nudo` in `controlli_pagine.py`).
+
+## 29/10/2026 — «Hai lavorato 24 ore per una schifezza»: tanto lavoro dichiarato, situazione peggiorata (#155)
+
+1. **Errore.** Dal 28/10 sera al 29/10 Claude ha lavorato quasi senza sosta (controlli, aiutanti, pagine, flusso notturno) dicendo più volte «sistemato»; in aula il 29/10 il docente ha trovato il bottone invisibile (#140), Classroom vuoto alle 8 (#141), il cruscotto poco utile (#142), il piano con i bottoni (#144), le domande ferme al 28/10 (#145), il percorso della 3INF non controllabile (#146). Il docente: «hai lavorato 24 ore per una schifezza, era meglio la chat di ieri»; «la situazione è peggiorata».
+2. **Regola.** Si misura il risultato, non il lavoro: a fine giornata un controllore confronta sul dato vero (file, git log, comandi del ponte, esiti) che cosa doveva succedere e che cosa è successo, e scrive l'elenco delle cose non andate. Meno cose nuove, ognuna provata nelle condizioni del docente prima di dirla fatta.
+3. **Controllo.** `strumenti/controlla_controlli.py --fine-giornata AAAA-MM-GG` (e ogni mattina sul giorno prima): compito uscito entro la campanella, verifica VERDE, presenze nel diario, cruscotto con una riga per presente e senza «null», report PDF di ogni ora, domande con risposta, e `report/<giorno>/non-andato.md` scritto nel riservato; se manca è ROSSO.
 
 ## 29/10/2026 — Claude chiede al docente cose già decise o già scritte nei file (#154)
 
@@ -70,36 +88,43 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
    3. Ogni passo ha una sola cosa da fare, con le parole che il ragazzo vede sullo schermo.
    4. Il cruscotto non mostra mai «null», ore UTC o PC non confermati.
    5. Se a 20 minuti dall'inizio meno di metà classe è avanti, si passa SUBITO al piano B scritto in anticipo: meno passi, una sola consegna.
+3. **Controllo.** `.claude/hooks/controlli_pagine.py` (`valore_nudo`, prima del push): un voto o un PC scritto senza controllo del vuoto blocca il push; `strumenti/controlla_controlli.py` (fine giornata): nessun «null» o «None» nel testo del cruscotto e una riga per presente.
 
 ## 29/10/2026 — Scheda «Domande dei ragazzi» ferma a ieri sera: il docente non vede le domande di oggi (#145)
 
 1. **Errore.** Alle 11:40 il docente apre il cruscotto, scheda «Domande dei ragazzi» della 3INF: «Aggiornato alle 28/10 18:47 · Nessuna domanda in coda». Oggi invece le domande c'erano (4 in 2INF, 3 in 3INF) e l'assistente aveva risposto; Claude le ha date solo in chat. La scheda legge un file che nessun giro rigenera. Il docente: «perché io non ce l'ho nelle risposte? NON STA FUNZIONANDO NIENTE».
 2. **Regola.** Ogni scheda del cruscotto che mostra un dato ha un giro che la rigenera durante la lezione e scrive l'ora; se l'ora è di un altro giorno, la scheda lo dice in rosso. Le domande del giorno si vedono tutte, anche quelle con risposta. All'audit del mattino si controlla l'ora di aggiornamento di ogni scheda, non solo che si apra.
+3. **Controllo.** `strumenti/controlla_controlli.py` (fine giornata): ogni domanda del giorno in `dati/verifiche/assistente-*/arrivi/` deve avere la risposta in `docs/assistente/risposte/<pagina>.json` (regola 22).
 
 ## 29/10/2026 — Il piano mostra ancora «Scelgo questa» e «Pubblica» dopo la pubblicazione; molti «risolto» non erano risolti (#144)
 
 1. **Errore.** Alle 11:30 il docente apre il «Piano del giorno» e vede ancora i bottoni «Scelgo questa» sulle proposte non scelte e «Pubblica» su quella scelta della 2INF, pubblicata alle 8:26: la pagina non legge che la lezione è già uscita su Classroom, e la proposta mostrata (teoria dei file) non è nemmeno quella fatta in aula (la calcolatrice). Il docente: «credo che ne hai risolti pochi di quelli che hai detto». Oggi più volte un problema è stato detto «sistemato» guardando il file e non la pagina che vede il docente (#140, #142).
 2. **Regola.** Un problema si dice risolto solo dopo averlo visto sparito nella pagina vera del docente (sito pubblicato, modalità Docente). Il piano del giorno, dopo la pubblicazione, mostra solo la proposta fatta con l'ora di uscita su Classroom e nessun bottone; se in aula si è cambiato lavoro, lo scrive. A fine giornata si rilegge l'elenco dei «risolto» del giorno e si controlla ognuno sul sito vero.
+3. **Controllo.** `strumenti/controlla_controlli.py` (fine giornata): il piano del giorno senza il campo «pubblicata» è ROSSO; hook `controllo-messaggio.py` (c) contro «risolto» senza prova.
 
 ## 29/10/2026 — Troppi aiutanti: consumano i token e non migliorano la qualità (#143)
 
 1. **Errore.** Il 29/10 giravano insieme fino a 6-7 aiutanti (giro 2INF, 3INF, 1INF, piano e criticità, ascolto dei bottoni, audit, controlli singoli), due dei quali facevano lo stesso lavoro (tutti e due riferivano lo stesso «Pubblica» del cruscotto). Alle 10:26 si è raggiunto il limite di utilizzo e il giro della 2INF si è fermato a metà; la qualità non è migliorata (dati del cruscotto sbagliati, #142). Il docente: «tutti i tuoi agenti succhiano potenza, ma non hanno migliorato la qualità».
 2. **Regola.** Durante la lezione al massimo 2 aiutanti accesi insieme: uno per la classe in aula e uno di servizio (bottoni e criticità). Mai due aiutanti sullo stesso compito. Un controllo che si fa con un comando lo faccio io, senza aiutante. Prima di accenderne uno nuovo, ne spengo uno.
+3. **Controllo.** Hook `controllo-messaggio.py` (bb): un messaggio che annuncia più di 2 aiutanti accesi insieme viene bloccato. Prove: 3 casi.
 
 ## 29/10/2026 — Cruscotto poco utile in classe: le risposte arrivavano a mano, non dalla pagina (#142)
 
 1. **Errore.** Nella 2INF il docente voleva sapere, per ogni allievo, se c'erano la versione 1 con il codice giusto, la versione 2 con il codice giusto, la release e il Documento. Il cruscotto non lo mostrava: prima aveva le colonne della lezione sbagliata, poi dava per fatti dei lavori che non c'erano (file vuoti, commit vecchi, cartelle senza .lpi o .lfm), e la tabella giusta è arrivata solo in chat verso le 10:25, controllando i repository a mano. Il docente: «oggi il tuo cruscotto è stato poco utile».
 2. **Regola.** Prima della campanella il cruscotto della classe ha già le colonne dei KPI del giorno (regola 13), riempite dal controllo vero (file del giorno, codice letto, tag delle release) e con il link a ogni repository. Un «sì» vale solo se il controllo ha aperto il file. Se il cruscotto non è pronto alla campanella, lo si dice al docente nella prima riga.
+3. **Controllo.** `strumenti/controlla_controlli.py` (fine giornata): l'ultima fotografia del cruscotto ha una riga per ogni presente del diario; pagina docente e ragazzi con gli stessi dati (#148).
 
 ## 29/10/2026 — Promessa del 28/10 non mantenuta: la 2INF in aula con Classroom vuoto (#141)
 
 1. **Errore.** Il 28/10 alle 15:47 Claude aveva garantito: ogni notte una chat nuova che prepara la giornata, al mattino le proposte pronte, il docente sceglie con un bottone e Claude pubblica da solo. Stanotte la chat di mezzanotte si è fermata dopo un minuto (senza il repository riservato e bloccata dal limite dei 3 comandi); le proposte sono state fatte all'alba a mano; alle 8:00 il bottone «Scelgo questa» non si vedeva (#140); la regola 27 era stata cambiata in «pubblica solo quando Nicola scrive pubblica», e così alle 8:00 la 2INF era in aula senza niente su Classroom; alle 8:40 il cruscotto della 2INF mostrava le colonne del Salvadanaio e nessun allievo, mentre la classe faceva la calcolatrice (ripete #133). Il docente: «non ha funzionato niente», «mi hai garantito il flusso … ma non è cambiato niente», «ti ho già detto di non aspettare», «hai lavorato per 24 ore per fare una schifezza, era meglio la chat di ieri».
 2. **Regola.** Non si garantisce un flusso che non è stato provato almeno una volta dall'inizio alla fine nelle condizioni vere (la notte, la chat che parte da sola, il sito vero, Classroom). Regola 27 allineata alla 30: appena c'è la scelta Claude pubblica da solo; alla campanella senza scelta pubblica la proposta consigliata. La preparazione notturna gira ora nella sessione che ha tutti e due i repository; il controllo delle 6:31 deve dire VERDE solo se Classroom ha già il compito pronto o la scelta è arrivata.
+3. **Controllo.** `strumenti/controlla_controlli.py`: notte girata da sola prima delle 6:30 (#152) e, a fine giornata, compito uscito su Classroom entro la prima campanella di ogni classe (ROSSO se «pubblicata» è dopo l'inizio della lezione).
 
 ## 29/10/2026 — Bottone «Scelgo questa» dato per presente, e sul sito vero il docente non lo vede (#140)
 
 1. **Errore.** L'audit del mattino ha scritto «bottoni «Scelgo questa»: 3, 3 e 1» provando i file su un server locale (github.io bloccato dall'ambiente di Claude). Alle 8:00 il docente, nel cruscotto vero in modalità Docente, non ha visto nessun bottone sotto le proposte né un bottone «Pubblica»; la 2INF è partita senza niente su Classroom e con l'annuncio dato a mano.
 2. **Regola.** Un bottone si dichiara presente solo se si vede nelle condizioni del docente: indirizzo vero, browser nuovo senza memoria (localStorage vuoto), modalità Docente, telefono e computer. Se il sito vero non si può aprire, lo si scrive come «NON VERIFICATO sul sito vero», mai come VERDE. Il «Piano del giorno» del docente ha sempre «Scelgo questa» e «Pubblica».
+3. **Controllo.** `strumenti/controlla_controlli.py` (fine giornata): il piano di ogni classe deve dire l'ora di uscita su Classroom (campo «pubblicata»); hook `controllo-messaggio.py` (y) contro la pagina provata solo in locale o con dati simulati (#153).
 
 ## 29/10/2026 — Audit dichiarato a posto con un ROSSO liquidato come atteso (#139)
 

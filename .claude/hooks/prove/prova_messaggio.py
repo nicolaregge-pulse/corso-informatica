@@ -211,6 +211,16 @@ caso("z: chiede i voti già decisi", cm.controllo_chiede_cose_note("Quali voti m
 caso("z: domanda d'altro", cm.controllo_chiede_cose_note("Vuoi la versione PDF?", risz, "2026-10-29"), False)
 caso("z: altro giorno senza file", cm.controllo_chiede_cose_note("Mi mandi le presenze della 1INF?", risz, "2026-10-30"), False)
 
+# (aa) release della cartella (#157)
+caso("aa: release della cartella", cm.controllo_release_cartella("Fai la release della cartella Calc1 con il tag v1.0.") is not None, True)
+caso("aa: release di tutto il repository", cm.controllo_release_cartella("La release della calcolatrice vale per tutto il repository lazarus."), False)
+caso("aa: nessuna release", cm.controllo_release_cartella("Carica la cartella su GitHub."), False)
+
+# (bb) troppi aiutanti (#143)
+caso("bb: accendo 4 aiutanti", cm.controllo_troppi_aiutanti("Accendo 4 aiutanti per le tre classi.") is not None, True)
+caso("bb: sei agenti insieme", cm.controllo_troppi_aiutanti("Ora ci sono sei agenti al lavoro insieme.") is not None, True)
+caso("bb: 2 aiutanti", cm.controllo_troppi_aiutanti("Accendo 2 aiutanti: uno per la 3INF e uno di servizio."), False)
+
 # main(): blocca una volta sola, non blocca i subagenti, input rotto = exit 0
 def main_con(dati):
     sys.stdin = io.StringIO(json.dumps(dati))
