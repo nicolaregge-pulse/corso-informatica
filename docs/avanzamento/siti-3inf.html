@@ -63,7 +63,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('stato').textContent=
  $('kpi').innerHTML='<div class="k"><b>'+compl+'</b>siti completi (7/7)</div><div class="k"><b>'+salv+'</b>hanno salvato oggi</div><div class="k"><b>'+quiz+'</b>quiz fatti</div>';
  $('cards').innerHTML=R.map(function(r){
   return '<div class="card"'+(r.assente?' style="opacity:.6"':'')+'><div class="th">'+(r.thumb?'<a href="'+e(r.sito)+'" target="_blank" rel="noopener"><img src="data:image/jpeg;base64,'+r.thumb+'" alt=""></a>':'<div class="noth">nessuna Home</div>')+'</div>'+
-  '<div class="body"><h2>'+e(r.alunno)+(r.assente?' <span class="ko">(assente oggi)</span>':'')+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+r.voto+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
+  '<div class="body"><h2>'+e(r.alunno)+(r.assente?' <span class="ko">(assente oggi)</span>':'')+' <small>voto sito <b>'+r.voto_sito+'</b> · voto di oggi <b>'+(r.voto==null?'—':r.voto)+'</b></small></h2>'+(r.sito?'<div class="url" style="font-size:14px;margin:0 0 4px">🌐 <a href="'+e(r.sito)+'" target="_blank" rel="noopener">'+e(r.sito)+'</a></div>':'')+
   '<div class="chips">'+OK.map(function(x){return r.pezzi.indexOf(x)>=0?'<span class="ok">✔ '+x+'</span>':'<span class="ko">○ '+x+'</span>'}).join('')+'</div>'+
   '<div class="meta">salvataggi oggi: '+r.commit_oggi+' · ultimo: '+e(r.ultimo||'—')+' · rami: '+(r.rami||0)+' · Pull Request: '+(r.pr||0)+' · quiz: '+(r.quiz||'non fatto')+' · fuori lezione: '+r.fuori+'</div>'+
   '<div class="msg">'+e(r.messaggio)+'</div></div>'+

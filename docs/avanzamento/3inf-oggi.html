@@ -50,7 +50,7 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
  $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[];
   return '<tr'+(r.osservato?' style="background:rgba(214,158,46,.15)"':'')+'><td>'+(i+1)+'</td><td><b>'+(r.osservato?'⭐ ':'')+e(r.nome)+'</b><div class="p">PC '+e(r.pc)+(r.repo?' · <a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a>':'')+'</div></td>'+
-  '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
+  '<td><span class="v">'+(r.voto==null?'—':r.voto)+'</span><div class="p">'+e(r.conto)+'</div></td>'+
   '<td>'+cteo(teo(r.nome))+'</td>'+
   '<td><b>'+r.voto_sito+'</b> '+chips(r.pezzi)+'<div class="p">'+e(r.messaggio)+'</div><div class="p">salvataggi oggi: '+r.commit_oggi+(r.ultimo?' · ultimo '+e(r.ultimo):'')+'</div></td>'+
   '<td><b>'+r.voto_quiz+'</b> '+(r.quiz?'<span class="ok">'+r.quiz.ok+'/'+r.quiz.su+'</span>':'<span class="ko">non fatto</span>')+'</td>'+

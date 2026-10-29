@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 0.9** — 26/10/2026
+**Versione 1.0** — 29/10/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -60,6 +60,9 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 28/10/2026 | 1INF Laboratorio 3 ore: Lazarus, il primo programma: progetto nuovo in una cartella (Documenti\Lazarus), palette, TEdit e TButton, ShowMessage «Ciao», i file del progetto per estensione; consegna del Documento su Classroom | `docs/verifica/?b=1inf-lazarus-ciao` | IDE Lazarus: form e componenti |
 | 28/10/2026 | 2INF Sicurezza 1 ora: ripasso delle ore 1-4 della formazione generale e recupero dei quiz mancanti su Moduli | `docs/2inf-sicurezza-recupero/` | Prevenzione e protezione |
 | 28/10/2026 | 3INF Laboratorio 2 ore: Java senza installare (siti web a gruppi), Eclipse portabile, HelloWorld con finestra e bottone, confronto Java e Lazarus; consegna spostata alla lezione del 29/10 | `docs/3inf-eclipse-guida/` | Creazioni di applicazioni con Lazarus |
+| 29/10/2026 | 2INF Laboratorio 3 ore: GitHub e versioning con Lazarus, la calcolatrice in due versioni (v1.0 e v1.2) caricate su GitHub con commit e release, Documento con screenshot | `docs/2inf-calcolatrice/`, `docs/2inf-calcolatrice-v12/`, `docs/2inf-file-lazarus/` | Creazioni di applicazioni con Lazarus |
+| 29/10/2026 | 3INF Laboratorio 2 ore: Hello World, differenze tra Lazarus e Java Eclipse (percorso guidato a passi, consegna su Classroom) | `docs/3inf-confronto/`, `docs/3inf-eclipse-guida/` | Creazioni di applicazioni con Lazarus |
+| 29/10/2026 | 1INF Sicurezza 1 ora (fatte la 2ª e la 3ª ora del corso): Sicurezza 2, prevenzione e protezione, schede di ripasso e quiz su Moduli | `docs/verifica/` (banche 1inf-sicurezza-2ora e 3ora) | Prevenzione e protezione |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
@@ -69,6 +72,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 
 ## 6. Changelog
 
+11. **v1.0 (29/10/2026)**: lezioni del 29/10 di 2INF, 3INF e 1INF (argomenti firmati sul registro), scritte dal controllore di fine giornata.
 1. **v0.7 (21/10/2026)**: confermati da Nicola gli argomenti del 21/10; Classe 1 arrivata fino al ping escluso (ping, jitter, lag, FPS, monitor, schede e cavi video alla prossima lezione).
 2. **v0.6 (21/10/2026)**: Classe 1 bit, byte, velocità e gamer; Classe 3 sito e Pull Request (da confermare); Classe 2 — corso sicurezza della Regione, ore 2, 3 e 4 con la corrispondenza alle ore del registro (titoli bloccati).
 5. **v0.5 (19/10/2026)**: 2INF ciclo FOR seconda parte (programma Contatore); 3INF sito portfolio con verifica e recupero.

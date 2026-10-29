@@ -1,32 +1,32 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.3** — 29/10/2026 — documento interno del docente e di Claude
+**Versione 1.4** — 29/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
 ## 01 Conteggio
 
-1. Voci del registro contate qui: 176 (14 del 01/10, 15 del 02/10, 139 numerate dal #1 al #138 con il #82 doppio, più le 8 voci dal #147 al #154 del 29/10/2026 pomeriggio). Le voci dal #139 al #146 hanno la loro regola nel registro e non sono ancora in questa tabella.
+1. Voci del registro contate qui: 187 (14 del 01/10, 15 del 02/10, 139 numerate dal #1 al #138 con il #82 doppio, le 8 voci dal #139 al #146 e le 8 dal #147 al #154 del 29/10/2026, le 3 dal #155 al #157 del controllore di fine giornata del 29/10/2026).
 2. Copertura dopo i controlli aggiunti il 28/10/2026 sera, e prima:
 
 | Copertura | Ora | Prima |
 |---|---|---|
-| A controllo automatico | 72 | 21 |
+| A controllo automatico | 83 | 21 |
 | B passo obbligatorio notturno | 46 | 13 |
 | C superata | 4 | 4 |
-| D scoperta | 54 | 138 |
-| Totale | 176 | 176 |
+| D scoperta | 54 | 149 |
+| Totale | 187 | 187 |
 
 3. Voci per schema dell'errore, con la copertura di adesso:
 
 | Schema | Voci | A | B | C | D |
 |---|---|---|---|---|---|
 | 1 non applica la regola sapendola | 46 | 31 | 8 | 0 | 7 |
-| 2 dichiara senza verificare | 35 | 18 | 8 | 0 | 9 |
-| 3 promette invece di costruire | 4 | 1 | 1 | 1 | 1 |
-| 4 prepara in ritardo | 24 | 3 | 16 | 0 | 5 |
-| 5 scrive per sé e non per chi legge | 23 | 9 | 5 | 0 | 9 |
-| 6 altro | 44 | 10 | 8 | 3 | 23 |
+| 2 dichiara senza verificare | 39 | 22 | 8 | 0 | 9 |
+| 3 promette invece di costruire | 5 | 2 | 1 | 1 | 1 |
+| 4 prepara in ritardo | 27 | 6 | 16 | 0 | 5 |
+| 5 scrive per sé e non per chi legge | 24 | 10 | 5 | 0 | 9 |
+| 6 altro | 46 | 12 | 8 | 3 | 23 |
 
 4. Lettura: lo schema 1 (la regola c'era e non l'ho applicata) è coperto da A o B in 38 voci su 45, lo schema 2 (ho dichiarato senza verificare) in 23 su 32. Le voci scoperte sono soprattutto giudizi didattici o di progetto (schema 6) e lavori fatti in lezione che non passano da un file, da un comando o da un messaggio.
 
@@ -74,11 +74,14 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
    1.24. (x) attività automatica o notturna dichiarata pronta senza giro di prova (#152), 29/10/2026.
    1.25. (y) pagina provata solo con dati simulati «?prova=1» (#153), 29/10/2026.
    1.26. (z) domanda al docente su presenze o voti già nei file del giorno (#154), 29/10/2026.
+   1.27. (aa) release «della cartella» o «del progetto» senza dire che vale per tutto il repository (#157), 29/10/2026 sera.
+   1.28. (bb) più di 2 aiutanti accesi insieme (#143), 29/10/2026 sera.
 2. `.claude/hooks/limite-comandi.py` (prima di ogni comando Bash).
    2.1. Massimo 3 comandi per turno e 600 caratteri, solo sessione principale (#132).
    2.2. Cancellare una versione in docs/ (PDF o «vN.N») con rm o git rm: rifiutato, per tutti (01/10 n. 13, #4), nuovo.
    2.3. Push del pubblico: le pagine cambiate passano da `controlli_pagine.py` (lingue della classe, link alla Regione, nomi in chiaro, sintassi degli script; #49 #82 #85 #118 #119 #136), per tutti, nuovo.
    2.4. Push del riservato: coda/ e comandi/ devono leggersi (#12), per tutti, nuovo.
+   2.5. `controlli_pagine.py`, controllo `valore_nudo` (29/10/2026 sera): un voto o un PC scritto nella pagina senza controllo del vuoto (mostra «null») blocca il push (#146, #156).
 3. `generatori/verifica_lezione.py` del riservato: compito PUBLISHED, pagina pubblicata e, nuovo, annuncio più recente con «OGGI…» (#94); l'hook (d) lo esige prima di «pubblicato».
 4. `generatori/audit_regole.py` del riservato (passi notturni 01.1), nuovo: pagine cambiate (lingue, Regione, «arriva tra poco», nomi, sintassi, Modulo con incolla, foto e telefono, link a file mancanti), un compito e un annuncio per classe al giorno, scadenze sulle campanelle, istruzioni impaginate, comandi del ponte (fermi, troppo grandi, non archiviati, più di 40 al giorno), versioni cancellate, sezione del giorno in FIRME-REGISTRO.
 5. `.claude/passi-notturni.md`, nuovo: i comandi notturni, 15 domande sì/no sulla lezione del giorno (dalla v1.1 anche la regola 28) e 4 promemoria a orario (firma alle 13:30, piano B 10 minuti prima, fine classe, argomenti svolti alle 14:10); dalla v1.1 l'ultimo passo scrive `stato/notte-<giorno>.json` nel riservato e `strumenti/controlla_controlli.py` controlla che i controlli siano vivi (controllore del controllore).
@@ -86,6 +89,8 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 7. Prove: `.claude/hooks/prove/prova_messaggio.py` (74 casi dal 29/10/2026), `.claude/hooks/prove/prova_limite.py` (27 casi dalla v1.1: anche mv e git mv di una versione), `generatori/prova_audit_regole.py` del riservato (11 casi): tutti superati il 28/10/2026. Ogni controllo, se si rompe, esce con 0 e non blocca.
 8. Regola 30 di CLAUDE.md (29/10/2026), nuovo: le criticità per il docente stanno in `docs/cruscotto/criticita.json` e nel bottone rosso «Serve te (N)» del cruscotto, riletto ogni minuto; i «Fatto» del docente arrivano in `dati/verifiche/docente-<classe>/arrivi/` (tipo «fatto») e `strumenti/aspetta_scelta.sh` del riservato li stampa come «FATTO …». A ogni giro Claude toglie le voci risolte; quello che può fare da solo non ci va.
 9. `strumenti/controlla_controlli.py`, controlli aggiunti il 29/10/2026 pomeriggio: formato dei JSON delle pagine compatibile con le versioni delle ultime 24 ore (#147); pagina del docente e dei ragazzi con lo stesso «generato» (#148); quiz del giorno letti tutti insieme dal ponte e ogni quiz del giorno con il suo comando di lettura (#149); Sicurezza preparata prima della lezione, con l'ora dopo pronta (#150); notte ROSSA se finita dopo le 6:30 o con il controllore non eseguito (#152). Prove: `strumenti/prova_controlla_controlli.py` (24 casi) e `strumenti/prova_situazione_quiz.py` (6 casi, abbinamento dei cognomi composti), lanciate anche da `controlla_controlli.py`.
+
+10. `strumenti/controlla_controlli.py --fine-giornata AAAA-MM-GG` (29/10/2026 sera; gira anche ogni mattina sul giorno prima): compito uscito su Classroom entro la campanella (#141), piano con «pubblicata» (#140, #144), verifica della lezione VERDE, presenze nel diario, ultimo cruscotto con una riga per presente, senza «null» e senza 40 a chi ha finito (#142, #146, #156), report PDF di ogni ora (regola 24), domande del giorno con risposta (regola 22, #145), `report/<giorno>/non-andato.md` scritto (#155).
 
 ## 04 Tabella delle voci
 
@@ -259,6 +264,14 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #136 | Nessun link al sito della Regione nelle pagine dei ragazzi | 6 | D | A | hook limite-comandi.py (prima del push) + audit_regole.py (passi notturni 01.1) 01 |
 | #137 | La cosa bloccante va da sola nella prima riga | 5 | A | A | hook controllo-messaggio.py (b) + passi-notturni.md 03.1 (firma alle 13:30) |
 | #138 | Copia e incolla: un Ctrl+V usa l'ultima cosa copiata | 1 | A | A | hook controllo-messaggio.py (a) |
+| #139 | Un ROSSO dell'audit non si liquida come atteso: va in prima riga | 2 | D | A | controlla_controlli.py (prima riga «DA SAPERE SUBITO», notte di oggi) |
+| #140 | Un bottone è presente solo se si vede sul sito vero, modalità Docente | 2 | D | A | hook controllo-messaggio.py (y) + controlla_controlli.py --fine-giornata (piano con «pubblicata») |
+| #141 | Nessuna classe in aula con Classroom vuoto | 3 | D | A | controlla_controlli.py (notte girata da sola, #152) + --fine-giornata (compito uscito entro la campanella) |
+| #142 | Cruscotto con i KPI del giorno e una riga per presente alla campanella | 4 | D | A | controlla_controlli.py --fine-giornata (righe = presenti) + coppia docente/ragazzi (#148) |
+| #143 | Al massimo 2 aiutanti accesi insieme | 6 | D | A | hook controllo-messaggio.py (bb) |
+| #144 | Dopo la pubblicazione il piano mostra solo la proposta fatta, senza bottoni | 2 | D | A | controlla_controlli.py --fine-giornata (piano senza «pubblicata» = ROSSO) + hook (c) |
+| #145 | Le domande del giorno si vedono tutte e hanno risposta | 4 | D | A | controlla_controlli.py --fine-giornata (domande senza risposta, regola 22) |
+| #146 | Percorso provato da capo; mai «null» o PC non confermati nel cruscotto | 4 | D | A | controlli_pagine.py (valore_nudo, prima del push) + controlla_controlli.py --fine-giornata (nessun «null») |
 | #147 | Un JSON letto da una pagina non perde campi: i vecchi restano come alias | 6 | D | A | controlla_controlli.py (formato dei JSON, #147) |
 | #148 | Docente e ragazzi leggono dati dello stesso giro (stesso «generato») | 6 | D | A | controlla_controlli.py (coppia docente/ragazzi, #148) |
 | #149 | Tutti i quiz del giorno letti insieme, ognuno con il suo comando | 6 | D | A | controlla_controlli.py (ponte dei quiz, #149) |
@@ -267,6 +280,9 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #152 | Attività automatica pronta solo dopo un giro di prova vero | 2 | D | A | hook controllo-messaggio.py (x) + controlla_controlli.py (notte girata da sola) |
 | #153 | Pagina verificata sul sito vero con i dati veri, non con ?prova=1 | 2 | D | A | hook controllo-messaggio.py (y) |
 | #154 | Prima di chiedere al docente si guarda nei file del giorno | 1 | D | A | hook controllo-messaggio.py (z) |
+| #155 | Si misura il risultato: controllore di fine giornata sul dato vero | 2 | D | A | controlla_controlli.py --fine-giornata (report/<giorno>/non-andato.md) |
+| #156 | Nessun 40 a chi ha finito o consegnato; senza consegna «voto dopo la consegna» | 6 | D | A | controlla_controlli.py --fine-giornata (40 con percorso finito) + controlli_pagine.py (valore_nudo) |
+| #157 | Una release vale per tutto il repository; progetto serio = repository suo | 5 | D | A | hook controllo-messaggio.py (aa) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -337,3 +353,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 2. v1.1 (28/10/2026, audit): passi notturni v1.1 con lo stato della notte e il controllore dei controlli; hook limite-comandi.py anche contro mv e git mv delle versioni; audit_regole.py vede anche le versioni rinominate.
 3. v1.2 (29/10/2026): §03 punto 8, regola 30 (bottone «Serve te» del cruscotto con le sole criticità per il docente).
 4. v1.3 (29/10/2026, audit della giornata): voci #147-#154 con i loro controlli (hook w, x, y, z; 5 controlli nuovi in `controlla_controlli.py`); conteggio a 176 voci.
+5. v1.4 (29/10/2026, controllore di fine giornata): voci #139-#146 e #155-#157 in tabella, tutte A; hook (aa) e (bb), controllo `valore_nudo` prima del push, `controlla_controlli.py --fine-giornata`; conteggio a 187 voci.

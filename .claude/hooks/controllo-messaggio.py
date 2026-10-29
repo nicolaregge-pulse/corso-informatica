@@ -40,6 +40,9 @@ Aggiunti il 29/10/2026 pomeriggio (audit della giornata):
 24. (x) attività automatica o notturna dichiarata pronta senza una prova eseguita (#152);
 25. (y) pagina provata solo con dati simulati «?prova=1» (#153);
 26. (z) domanda al docente su presenze o voti già nei file del giorno (#154).
+Aggiunti il 29/10/2026 sera (controllore di fine giornata):
+27. (aa) release detta «della cartella» o «del progetto» dentro un repository con più progetti (#157);
+28. (bb) più di 2 aiutanti accesi insieme durante la lezione (#143).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
 """
@@ -738,6 +741,43 @@ def controllo_chiede_cose_note(testo, ris=None, oggi=None):
     return None
 
 
+# (aa) release «della cartella/del progetto» quando il repository contiene più progetti (#157)
+RE_RELEASE_CARTELLA = re.compile(r"\brelease\b[^.\n]{0,60}?\b(?:della\s+cartella|per\s+la\s+cartella|"
+                                 r"solo\s+(?:la|il|per)\s+\w+|della\s+(?:sola\s+)?calcolatrice|del\s+(?:solo\s+)?progetto)\b", re.I)
+RE_RELEASE_OK = re.compile(r"tutto\s+il\s+repository|repository\s+(?:a\s+parte|nuovo|suo|del\s+progetto)|"
+                           r"nome\s+del\s+progetto\s+davanti", re.I)
+
+
+def controllo_release_cartella(testo):
+    base = senza_citazioni(senza_riquadri(testo))
+    m = RE_RELEASE_CARTELLA.search(base)
+    if not m or RE_RELEASE_OK.search(base):
+        return None
+    return ("«%s» (#157): una release di GitHub è la fotografia di TUTTO il repository, non di una cartella. "
+            "Se il repository contiene più progetti, dillo («la release vale per tutto il repository») o usa un "
+            "repository a parte per il progetto." % m.group(0).strip())
+
+
+# (bb) più di 2 aiutanti accesi insieme (#143)
+NUMERI = {"tre": 3, "quattro": 4, "cinque": 5, "sei": 6, "sette": 7, "otto": 8}
+RE_AIUTANTI = re.compile(r"\b(\d+|tre|quattro|cinque|sei|sette|otto)\s+(?:nuovi\s+)?(?:aiutanti|agenti|subagent\w*)\b"
+                         r"[^.\n]{0,40}?\b(?:accés\w*|acces\w*|avviat\w*|lanciat\w*|partit\w*|insieme|in\s+parallelo|"
+                         r"al\s+lavoro|girano|lavorano)\b|\b(?:accendo|avvio|lancio|faccio\s+partire)\s+"
+                         r"(\d+|tre|quattro|cinque|sei|sette|otto)\s+(?:nuovi\s+)?(?:aiutanti|agenti)\b", re.I)
+
+
+def controllo_troppi_aiutanti(testo):
+    base = senza_citazioni(senza_riquadri(testo))
+    for m in RE_AIUTANTI.finditer(base):
+        n = (m.group(1) or m.group(2) or "").lower()
+        n = NUMERI.get(n, int(n) if n.isdigit() else 0)
+        if n > 2:
+            return ("«%s» (#143): durante la lezione al massimo 2 aiutanti accesi insieme (uno per la classe in "
+                    "aula, uno di servizio). Prima di accenderne un altro, se ne spegne uno; un controllo che si fa "
+                    "con un comando lo faccio io." % m.group(0).strip())
+    return None
+
+
 # ------------------------------------------------------------- transcript
 
 def ultimo_testo_assistente(transcript_path, max_righe=4000):
@@ -786,7 +826,8 @@ def main():
                       controllo_script_diretto, controllo_lungo_in_lezione, controllo_non_risulta,
                       controllo_copiato, lambda t: controllo_avanti(t, data), controllo_rimando_riquadri,
                       controllo_file_apps_script, controllo_conteggio_senza_fonte,
-                      controllo_attivita_non_provata, controllo_solo_simulati, controllo_chiede_cose_note):
+                      controllo_attivita_non_provata, controllo_solo_simulati, controllo_chiede_cose_note,
+                      controllo_release_cartella, controllo_troppi_aiutanti):
         try:
             m = controllo(testo)
         except Exception:
