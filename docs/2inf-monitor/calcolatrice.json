@@ -1,5 +1,5 @@
 {
- "ora": "09:01",
+ "ora": "09:06",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -22,13 +22,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
     "titolo": true
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
   },
   {
    "alunno": "Francesco M.",
@@ -36,13 +36,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": true,
+    "commit": false,
     "messaggio": false,
     "piu": true,
     "per": true,
     "titolo": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Giorgio A.",
@@ -50,7 +50,7 @@
     "cartella": true,
     "file": false,
     "pulita": true,
-    "commit": true,
+    "commit": false,
     "messaggio": false,
     "piu": false,
     "per": false,
@@ -92,13 +92,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": true
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «calcolatrice v1»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Luca B.",
@@ -120,7 +120,7 @@
     "cartella": true,
     "file": false,
     "pulita": true,
-    "commit": true,
+    "commit": false,
     "messaggio": false,
     "piu": false,
     "per": false,
@@ -134,13 +134,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": true
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
   },
   {
    "alunno": "Ney V.",
@@ -148,13 +148,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
-    "piu": true,
-    "per": true,
+    "piu": false,
+    "per": false,
     "titolo": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Oscar F.",
@@ -176,13 +176,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
-    "piu": true,
-    "per": true,
+    "piu": false,
+    "per": false,
     "titolo": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «una calcolatrice»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Sara A.",
@@ -218,13 +218,13 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": true
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice»."
   }
  ]
 }
