@@ -28,7 +28,8 @@ table.sologit{min-width:0;table-layout:auto}.sologit .c{white-space:normal}   /*
 <div id="view" class="hide">
 <h1>Cruscotto 2INF di oggi: una colonna per ogni attività</h1>
 <div class="mu" id="stato">—</div>
-<div class="tab"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>5b. GitHub facilitato</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
+<div class="tab hide" id="tabgen"><table style="min-width:0"><thead id="hgen"></thead><tbody id="tg"></tbody></table></div>
+<div class="tab" id="tabvec"><table><thead><tr><th>#</th><th>Allievo</th><th>Voto di oggi</th><th>1. Teoria salvadanaio</th><th>2. Programma salvadanaio</th><th>3. Quiz salvadanaio</th><th>4. Teoria GitHub</th><th>5. GitHub in ordine</th><th>5b. GitHub facilitato</th><th>6. Quiz GitHub</th><th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu" id="spiega">Un voto per attività, da 40 a 80: programma salvadanaio 40 + 10 per pezzo; GitHub 40 + 8 per cosa in ordine; GitHub facilitato 40 + 40 × cose fatte / 6 (per il voto vale il migliore dei due); ogni quiz 40 + 40 × crocette giuste (non consegnato 40). Voto di oggi = media dei quattro − 3 per fuori compito (Veyon). La teoria non fa voto: dice se sta lavorando (dal vivo). I ragazzi vedono lo stesso voto e il conto nella loro pagina <a href="../2inf-oggi/">La mia giornata</a>, senza monitoraggio.</p>
 </div></div>
 <script>
@@ -53,9 +54,13 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  var a=await live('2inf-salvadanaio-v1'),b=await live('2inf-github-v1');if(a&&a.ok)LIVE['2inf-salvadanaio-v1']=a;if(b&&b.ok)LIVE['2inf-github-v1']=b;
  var _g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),_vecchio=d.data&&d.data!==_g;$('stato').style.color=_vecchio?'#c0392b':'';$('stato').style.fontWeight=_vecchio?'700':'';
  $('stato').textContent=(_vecchio?'DATI DEL '+d.data.split('-').reverse().join('/')+', NON DI OGGI · ':'')+(d.fonte?'Dati da: '+d.fonte+' · ultimo dato: '+(d.ultimo_dato||'nessuno')+' · ':'')+'Aggiornato alle '+d.ora+' · '+d.righe.length+' presenti · teoria dal vivo '+(LIVE['2inf-github-v1']||LIVE['2inf-salvadanaio-v1']?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
- $('t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[],u=vy[vy.length-1];
+ if(d.colonne){$('tabgen').classList.remove('hide');$('tabvec').classList.add('hide');$('hgen').innerHTML='<tr><th>#</th><th>Allievo</th><th>Voto di oggi</th>'+d.colonne.map(function(c){return '<th>'+e(c)+'</th>'}).join('')+'<th>Orale</th><th>Monitoraggio (Veyon, uscite, note)</th></tr>';}else{$('tabgen').classList.add('hide');$('tabvec').classList.remove('hide')}   /* 29/10: colonne del giorno decise dal generatore */
+ $(d.colonne?'tg':'t').innerHTML=d.righe.map(function(r,i){var vy=r.vy||[],u=vy[vy.length-1];
   var mon=(u?'<span class="'+(u[2]?'ko':'ok')+'">'+e(u[0])+' '+e(u[1])+'</span>':'')+(r.fuori?' <b class="ko">· fuori '+r.fuori+'</b>':'')+(vy.length>1?'<details><summary>tutti i giri ('+vy.length+')</summary>'+vy.map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+'</div>'}).join('')+'</details>':'')+
    (r.uscite.length?'<div>🚻 '+e(r.uscite.join(' · '))+'</div>':'')+r.note.map(function(n){return '<div>📝 '+e(n)+'</div>'}).join('');
+  if(d.colonne)return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b>'+(r.repo?'<div class="p"><a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a></div>':'')+'</td><td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
+   (r.col||[]).map(function(c){return '<td><b>'+c.v+'</b> '+c.fatti.map(function(x){return '<span class="ok c">✔ '+e(x)+'</span>'}).concat(c.manca.map(function(x){return '<span class="ko c">○ '+e(x)+'</span>'})).join(' ')+(c.info?'<div class="p">'+e(c.info)+'</div>':'')+'</td>'}).join('')+
+   '<td>'+(r.orale?'<b>'+e(r.orale)+'</b>':'<span class="mu">—</span>')+'</td><td>'+(mon||'<span class="mu">—</span>')+'</td></tr>';
   return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b>'+(r.repo?'<div class="p"><a href="'+e(r.repo)+'" target="_blank" rel="noopener">repository</a></div>':'')+'</td>'+
   '<td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td>'+
   '<td>'+cteo(teo('2inf-salvadanaio-v1',r.nome))+'</td>'+
