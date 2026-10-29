@@ -10,3 +10,4 @@ PROMEMORIA ERRORI (dal REGISTRO-ERRORI-CLAUDE.md) — valgono in OGNI risposta:
 9. Nelle pagine dei ragazzi nessun link al sito della Regione: solo nostre pagine e nostri Moduli (#136).
 10. «Pubblicato» o un link solo dopo aver visto PUBBLICATO (sito) e PUBLISHED (Classroom) (#79 #128).
 11. Mai blocchi lunghi, log o JSON nella chat: output dei comandi su file temporanei o silenzioso; al docente solo brevi sintesi in italiano (regola 25).
+12. Un ROSSO non si spiega mai come atteso senza aver aperto il risultato vero (sessione della notte, file del giorno); l'audit controlla il lavoro del giorno, non solo gli strumenti (#139).

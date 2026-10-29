@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.87** — 28/10/2026 (#125-#138; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.88** — 29/10/2026 (#125-#139; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Audit dichiarato a posto con un ROSSO liquidato come atteso (#139)
+
+1. **Errore.** Audit dichiarato a posto con un ROSSO liquidato come atteso: la preparazione notturna era fallita e mancavano le proposte del giorno. Alle 6:20 `strumenti/controlla_controlli.py` cercava ancora la notte del giorno prima (stato/notte-2026-10-28.json) e non guardava i piani del giorno.
+2. **Regola.** Un ROSSO non si spiega mai come atteso senza aver aperto il risultato vero (sessione della notte, file del giorno); l'audit controlla il lavoro del giorno, non solo gli strumenti.
+3. **Controllo.** `controlla_controlli.py` ora guarda la notte di OGGI (ora di Roma) e il lavoro del giorno (un piano `docs/cruscotto/piano/<classe>-<oggi>.json` con almeno 3 proposte, 1 per la Sicurezza, per ogni classe in orario, e `PROPOSTE-OGGI.md` con la data di oggi); la prima riga dell'esito dice subito che cosa manca. Prove: `strumenti/prova_controlla_controlli.py`.
 
 ## 28/10/2026 — Di nuovo la sequenza di copia e incolla che si cancella da sola (#138, ripete #50)
 
