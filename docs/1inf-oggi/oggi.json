@@ -1,211 +1,591 @@
 {
- "ora": "07:09",
- "fonte": "verifiche consegnate dalla pagina 1inf-sicurezza-2ora-v1 (0 arrivi) · Veyon nessun giro · presenze NON ancora segnate (elenco del 28/10)",
+ "ora": "08:30",
+ "fonte": "quiz su Moduli non ancora letto (0 risposte) · recupero 1ª ora dalla pagina Sicurezza 1 · Veyon nessun giro · presenze NON ancora segnate: in elenco tutta la classe",
  "ultimo_dato": "nessuno",
  "banca": "1inf-sicurezza-2ora-v1",
  "fine": "14:00",
- "spiega": "Oggi: Sicurezza 2, prevenzione e protezione. Leggi le 8 schede, fai il ripasso, poi i 20 casi della verifica entro le 14:00. Il voto parte da 40 e sale con le risposte giuste (40 + 40 × giuste/20); −3 ogni volta che Veyon ti vede fuori lezione. (Presenze non ancora segnate: per ora in elenco ci sono i presenti dell'ultima lezione.)",
+ "spiega": "Oggi: Sicurezza 2, prevenzione e protezione. In ordine: 1) solo chi non ha fatto la 1ª ora: il recupero (8 domande facili); 2) le 8 schede e il ripasso della Sicurezza 2; 3) il quiz su Moduli (20 casi, 5 punti l'uno, massimo 100); 4) sul quaderno le due definizioni e la regola d'oro. Voto di oggi = 40 + 40 × punti del quiz / 100; −3 ogni volta che Veyon ti vede fuori lezione. (Presenze non ancora segnate: in elenco c'è tutta la classe.)",
  "link": "../verifica/?b=1inf-sicurezza-2ora",
+ "colonne": [
+  "1. Recupero 1ª ora (solo chi non l'ha fatta)",
+  "2. Schede e ripasso",
+  "3. Quiz su Moduli (20 casi)"
+ ],
+ "riepilogo": "Quiz su Moduli consegnati: 0 su 22 · recupero della 1ª ora: 0 su 1",
+ "quiz_url": "https://docs.google.com/forms/d/e/1FAIpQLSfNVtYELVo5gTJbKZTcUMYCiWeHF_uy42Rbls1sFBPgQG9mBQ/viewform",
  "righe": [
   {
    "alunno": "Moaaz A.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Christian A.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Matteo A.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Giexther A.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Anthony A.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Aya B.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Alessio C.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Cristian C.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Nehara F.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Sara F.",
+   "celle": [
+    {
+     "t": "DA FARE PER PRIMO: recupero della 1ª ora (8 domande)",
+     "ok": false,
+     "link": "../verifica/?b=1inf-sicurezza-1ora&modo=recupero"
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "PRIMA il recupero della 1ª ora: apri la lezione Sicurezza 1 e premi «Fai il recupero» (8 domande facili). Poi la Sicurezza 2."
   },
   {
    "alunno": "Muhid H.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
+  },
+  {
+   "alunno": "Wesley J.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
+   "voto": 40,
+   "conto": "quiz non ancora fatto: 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Yinlin L.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Moaaz M.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Md M.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Abdel N.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Muhammad N.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Thomas R.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Andrea S.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Giovanni S.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
+  },
+  {
+   "alunno": "Shanzay S.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
+   "voto": 40,
+   "conto": "quiz non ancora fatto: 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   },
   {
    "alunno": "Enea Z.",
+   "celle": [
+    {
+     "t": "non serve: la 1ª ora è fatta",
+     "ok": null
+    },
+    {
+     "t": "pagina Sicurezza 2: 8 schede e 13 domande di ripasso",
+     "ok": null,
+     "link": "../verifica/?b=1inf-sicurezza-2ora"
+    },
+    {
+     "t": "○ non ancora consegnato",
+     "ok": false
+    }
+   ],
    "voto": 40,
-   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "conto": "quiz non ancora fatto: 40",
    "verifica": "",
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+   "comportamento": "ok",
+   "cosa_fare": "Leggi le 8 schede della Sicurezza 2 e rispondi al ripasso; poi il quiz su Moduli (20 casi) dal compito di Classroom e premi «Invia»."
   }
  ]
 }
