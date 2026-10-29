@@ -41,7 +41,7 @@ const path = require('path');
       await p.waitForTimeout(2500);
       const piano = p.locator('#t-piano');
       r.schede.piano = {
-        testo: (await piano.innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 1500),
+        testo: (await piano.innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 20000),
         scelgo: await piano.locator('button', { hasText: 'Scelgo questa' }).count(),
         pubblica: await piano.locator('button', { hasText: 'Pubblica' }).count(),
         titoli_visti: [],
