@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.88** — 29/10/2026 (#125-#139; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.89** — 29/10/2026 (#125-#140; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Bottone «Scelgo questa» dato per presente, e sul sito vero il docente non lo vede (#140)
+
+1. **Errore.** L'audit del mattino ha scritto «bottoni «Scelgo questa»: 3, 3 e 1» provando i file su un server locale (github.io bloccato dall'ambiente di Claude). Alle 8:00 il docente, nel cruscotto vero in modalità Docente, non ha visto nessun bottone sotto le proposte né un bottone «Pubblica»; la 2INF è partita senza niente su Classroom e con l'annuncio dato a mano.
+2. **Regola.** Un bottone si dichiara presente solo se si vede nelle condizioni del docente: indirizzo vero, browser nuovo senza memoria (localStorage vuoto), modalità Docente, telefono e computer. Se il sito vero non si può aprire, lo si scrive come «NON VERIFICATO sul sito vero», mai come VERDE. Il «Piano del giorno» del docente ha sempre «Scelgo questa» e «Pubblica».
 
 ## 29/10/2026 — Audit dichiarato a posto con un ROSSO liquidato come atteso (#139)
 
