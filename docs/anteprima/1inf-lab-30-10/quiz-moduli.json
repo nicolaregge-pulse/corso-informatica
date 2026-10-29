@@ -1,0 +1,239 @@
+{
+ "titolo": "Quiz — String e Integer (1INF, laboratorio 30/10)",
+ "descrizione": "22 domande su String e Integer. Ogni risposta giusta vale 1 punto. Leggi BENE il codice: un apice cambia tutto.\n٢٢ سؤالاً عن String و Integer. اقرأ الكود جيداً: علامة اقتباس واحدة تغيّر كل شيء.\n22 道关于 String 和 Integer 的题。仔细读代码：一个引号就能改变一切。",
+ "punti": 1,
+ "mescola": true,
+ "versioni": [
+  "A"
+ ],
+ "domande": [
+  {
+   "A": [
+    "1) Che tipo è '42'?\nما نوع '42'؟\n'42' 是什么类型？",
+    "String",
+    [
+     "Integer",
+     "nessuno dei due"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "2) Che tipo è 42 (senza apici)?\nما نوع 42 (بلا علامات اقتباس)؟\n42（不带引号）是什么类型？",
+    "Integer",
+    [
+     "String",
+     "nessuno dei due"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "3) Che tipo è '007'?\nما نوع '007'؟\n'007' 是什么类型？",
+    "String",
+    [
+     "Integer, perché sono cifre",
+     "Integer: vale 7"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "4) Che tipo è ' 12' (con uno spazio prima del 12)?\nما نوع ' 12' (مع مسافة قبل 12)؟\n' 12'（12 前面有一个空格）是什么类型？",
+    "String",
+    [
+     "Integer",
+     "nessuno: è un errore"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "5) Che tipo è -5?\nما نوع -5؟\n-5 是什么类型？",
+    "Integer",
+    [
+     "String",
+     "non è un numero"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "6) 3.5 è un Integer?\nهل 3.5 هو Integer؟\n3.5 是 Integer 吗？",
+    "no: ha la virgola, non è un numero intero",
+    [
+     "sì",
+     "no: è una String"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "7) L'utente scrive 15 nella casella Edit1. Che cos'è Edit1.Text?\nيكتب المستخدم 15 في الخانة Edit1. ما هو Edit1.Text؟\n用户在输入框 Edit1 里写 15。Edit1.Text 是什么？",
+    "la String '15'",
+    [
+     "l'Integer 15",
+     "l'Integer 0"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "8) var anno: String; e poi anno := '2026';. Di che tipo è anno?\nvar anno: String; ثم anno := '2026';. ما نوع anno؟\nvar anno: String; 然后 anno := '2026';。anno 是什么类型？",
+    "String, anche se dentro ci sono cifre",
+    [
+     "Integer, perché 2026 è un numero",
+     "cambia tipo da solo"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "9) Che cosa dà IntToStr(5) + '5'?\nماذا يعطي IntToStr(5) + '5'؟\nIntToStr(5) + '5' 得到什么？",
+    "la String '55'",
+    [
+     "l'Integer 10",
+     "la String '10'",
+     "un errore"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "10) Che cosa dà StrToInt('3') + 2?\nماذا يعطي StrToInt('3') + 2؟\nStrToInt('3') + 2 得到什么？",
+    "l'Integer 5",
+    [
+     "la String '32'",
+     "la String '5'",
+     "un errore"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "11) Che cosa dà '3' + '4'?\nماذا يعطي '3' + '4'؟\n'3' + '4' 得到什么？",
+    "'34'",
+    [
+     "7",
+     "'7'"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "12) a e b sono Integer: a := 2; b := 3;. Che cosa mostra Label1.Caption := IntToStr(a + b);?\na و b من نوع Integer: a := 2; b := 3;. ماذا يُظهر Label1.Caption := IntToStr(a + b);؟\na 和 b 是 Integer：a := 2; b := 3;。Label1.Caption := IntToStr(a + b); 显示什么？",
+    "5",
+    [
+     "23",
+     "un errore"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "13) Stessi a := 2; b := 3;. Che cosa mostra Label1.Caption := IntToStr(a) + IntToStr(b);?\nنفس a := 2; b := 3;. ماذا يُظهر Label1.Caption := IntToStr(a) + IntToStr(b);؟\n同样 a := 2; b := 3;。Label1.Caption := IntToStr(a) + IntToStr(b); 显示什么？",
+    "23",
+    [
+     "5",
+     "un errore"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "14) Che cosa dà 'Ciao' + 5?\nماذا يعطي 'Ciao' + 5؟\n'Ciao' + 5 得到什么？",
+    "errore quando premi F9: non si attacca un Integer a una String",
+    [
+     "'Ciao5'",
+     "'Ciao 5'"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "15) Quale riga dà errore quando premi F9 (Lazarus non la compila)?\nأيّ سطر يعطي خطأ عندما تضغط F9 (لا يترجمه Lazarus)؟\n按 F9 时哪一行会出错（Lazarus 编译不了）？",
+    "Label1.Caption := 7;",
+    [
+     "Label1.Caption := '7';",
+     "Label1.Caption := IntToStr(7);",
+     "Label1.Caption := '7' + '7';"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "16) n è un Integer. Quale riga è GIUSTA?\nn من نوع Integer. أيّ سطر صحيح؟\nn 是 Integer。哪一行是对的？",
+    "n := StrToInt(Edit1.Text);",
+    [
+     "n := Edit1.Text;",
+     "n := 'Edit1.Text';",
+     "n := IntToStr(Edit1.Text);"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "17) Il programma esegue n := StrToInt('ciao');. Che cosa succede?\nالبرنامج ينفّذ n := StrToInt('ciao');. ماذا يحدث؟\n程序执行 n := StrToInt('ciao');。会发生什么？",
+    "parte, ma quando arriva a questa riga si ferma con un errore: 'ciao' non è un numero",
+    [
+     "n vale 0",
+     "n vale 4 (le lettere)",
+     "n vale 'ciao'"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "18) Che cosa mostra la Label alla fine?\nvar s: String;\nbegin\n  s := '1';\n  s := s + '1';\n  s := s + '1';\n  Label1.Caption := s;\nماذا تُظهر الـ Label في النهاية؟\n最后 Label 显示什么？",
+    "111",
+    [
+     "3",
+     "1"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "19) Che cosa mostra la Label alla fine?\nvar n: Integer;\nbegin\n  n := 1;\n  n := n + n;\n  n := n + n;\n  Label1.Caption := IntToStr(n);\nماذا تُظهر الـ Label في النهاية؟\n最后 Label 显示什么？",
+    "4",
+    [
+     "2",
+     "11",
+     "1111"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "20) Nella casella Edit1 c'è scritto 7. Che cosa mostra la Label?\nvar n: Integer;\nbegin\n  n := StrToInt(Edit1.Text) + 3;\n  Label1.Caption := Edit1.Text + IntToStr(n);\nفي الخانة Edit1 مكتوب 7. ماذا تُظهر الـ Label؟\n输入框 Edit1 里写着 7。Label 显示什么？",
+    "710",
+    [
+     "10",
+     "17",
+     "73"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "21) Che cosa mostra la Label alla fine?\nvar x: Integer; s: String;\nbegin\n  x := 4;\n  s := IntToStr(x) + IntToStr(x);\n  x := StrToInt(s) + 1;\n  Label1.Caption := IntToStr(x);\nماذا تُظهر الـ Label في النهاية؟\n最后 Label 显示什么？",
+    "45",
+    [
+     "9",
+     "441",
+     "8"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "22) Che cosa mostra la Label alla fine?\nvar nome: String;\nbegin\n  nome := 'Sara';\n  Label1.Caption := 'nome' + ' ' + nome;\nماذا تُظهر الـ Label في النهاية؟\n最后 Label 显示什么？",
+    "nome Sara",
+    [
+     "Sara Sara",
+     "nome nome"
+    ]
+   ]
+  }
+ ]
+}

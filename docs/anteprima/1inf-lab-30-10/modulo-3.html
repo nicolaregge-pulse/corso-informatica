@@ -1,0 +1,189 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Lazarus ora 3</title><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--q:#fff4c2;--ante:#fde8e8;--blu:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+pre{background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;overflow-x:auto;font-size:16px;white-space:pre-wrap;margin:8px 0}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+.ante{background:var(--ante);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.b{background:#fff0;color:var(--acc);border:2px solid var(--acc);font-weight:600}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+.win{max-width:360px;border:2px solid #6e7781;border-radius:8px;overflow:hidden;margin:8px auto;background:#f0f0f0;color:#111}
+.win .tb{background:#dfe3e8;padding:4px 8px;font-size:14px;display:flex;justify-content:space-between}.win .co{padding:14px;text-align:center}
+.win .lb{font-size:28px;font-weight:800;margin:6px 0}.win .ed{display:block;background:#fff;border:1px solid #8a8a8a;text-align:left;padding:3px 6px;margin:6px auto;width:80%;font-size:16px}
+.win .bu{display:inline-block;background:#e1e1e1;border:1px solid #8a8a8a;border-radius:3px;padding:4px 10px;margin:3px;font-size:15px}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}
+.chk label{display:flex;gap:10px;align-items:flex-start;margin:8px 0}.chk input{width:22px;height:22px;flex:0 0 22px;margin-top:3px}
+input[type=text]{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+.mu{color:var(--mu);font-size:.92em}</style></head><body><main>
+<p class="ante"><b>ANTEPRIMA PER IL PROF, non pubblicata.</b> Nessuna pagina dei ragazzi porta qui. Percorso 3 di 3 · <a href="./">indice dell'anteprima</a></p>
+<h1>Ora 3: gli Integer, il segnapunti con StrToInt e IntToStr</h1><p class="ar" lang="ar" dir="rtl">الساعة 3: Integer، عدّاد النقاط مع StrToInt و IntToStr</p><p class="zh" lang="zh">第 3 节：Integer，用 StrToInt 和 IntToStr 做记分牌</p>
+<p class="mu">1INF · venerdì 30/10/2026 · 13:00-14:00 · progetto <code>segnapunti</code></p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span lang="zh">按 F5 查看新版本。</span></p>
+<a class="bt b" href="../../1inf-oggi/" target="_blank" rel="noopener">La mia giornata · يومي · 我的一天</a>
+<section class="card"><h2>Chi sei? · من أنت؟ · 你是谁？</h2><p>Scrivi nome e cognome: serve al cruscotto per vedere a che punto sei.</p><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب: يحتاجه لوح المتابعة ليعرف أين وصلت.</p><p class="zh" lang="zh">写你的名字和姓：看板用它来知道你做到哪里了。</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+<section class="card"><h2>Che cosa fai in quest'ora</h2><p>Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al centro: <b>+1</b> aggiunge un punto, <b>Aggiungi</b> aggiunge i punti che scrivi nella casella, <b>Azzera</b> torna a 0. Per fare i conti serve un <b>Integer</b>.</p><p class="ar" lang="ar" dir="rtl">برنامج جديد: عدّاد نقاط مباراة. رقم كبير في الوسط: +1 يضيف نقطة، Aggiungi يضيف النقاط التي تكتبها في الخانة، Azzera يرجع إلى 0. للحساب نحتاج Integer.</p><p class="zh" lang="zh">一个新程序：比赛的记分牌。中间一个大数字：+1 加一分，Aggiungi 加上你在输入框里写的分数，Azzera 回到 0。要算数就需要 Integer。</p><div class="win" aria-label="Come sarà il tuo programma"><div class="tb"><span>Form1</span><span>_ □ ×</span></div><div class="co"><div class="lb" style="color:#0b6e99">12</div><span class="ed">3</span><span class="bu">+1</span><span class="bu">Aggiungi</span><span class="bu">Azzera</span></div></div></section>
+<section class="card" style="border:2px solid #b45309"><h2>Percorso facilitato: 3 passi · المسار الميسّر · 简单路线</h2><p>Per chi oggi fa fatica: fai solo questi 3 passi. Va bene così: è un programma vero.</p><p class="ar" lang="ar" dir="rtl">لمن يجد صعوبة اليوم: افعل هذه الخطوات الثلاث فقط. هذا جيد: إنه برنامج حقيقي.</p><p class="zh" lang="zh">今天觉得难的同学：只做这 3 步。这样就很好：这是一个真正的程序。</p><div class="passo" data-p="F1"><span class="bollo">da fare</span><h2><span class="num">1</span>Facile 1</h2><p>Progetto nuovo. Metti una scritta (A) con Caption 0 e un bottone (OK) con Caption +1.</p><p class="ar" lang="ar" dir="rtl">مشروع جديد. ضع كتابة (A) بـ Caption هو 0 وزراً (OK) بـ Caption هو +1.</p><p class="zh" lang="zh">新项目。放一个文字（A），Caption 写 0；一个按钮（OK），Caption 写 +1。</p><button class="fb">Fatto! · تم · 完成</button></div><div class="passo" data-p="F2"><span class="bollo">da fare</span><h2><span class="num">2</span>Facile 2</h2><p>Doppio clic sul bottone e scrivi questa riga sola tra begin e end;.</p><p class="ar" lang="ar" dir="rtl">انقر مرتين على الزر واكتب هذا السطر وحده بين begin و end;.</p><p class="zh" lang="zh">双击按钮，在 begin 和 end; 之间只写这一行。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := IntToStr(StrToInt(Label1.Caption) + 1);</pre><button class="fb">Fatto! · تم · 完成</button></div><div class="passo" data-p="F3"><span class="bollo">da fare</span><h2><span class="num">3</span>Facile 3</h2><p>Premi F9 e clicca +1: il numero sale. Screenshot e consegna.</p><p class="ar" lang="ar" dir="rtl">اضغط F9 وانقر +1: الرقم يرتفع. لقطة شاشة وسلّم.</p><p class="zh" lang="zh">按 F9，点 +1：数字增加。截图并提交。</p><button class="fb">Fatto! · تم · 完成</button></div><p class="mu">Per consegnare bastano lo screenshot e unit1.pas: passi C1-C5 in fondo.</p></section>
+<section class="card quad"><p><b>Ripasso in 1 minuto.</b> Un <b>Integer</b> è un numero intero, senza apici: <code>12</code>. Con gli Integer si fanno i conti: <code>12 + 3</code> = <code>15</code>. Ma la Caption e la casella hanno solo <b>String</b>. Servono i due traduttori: <code>StrToInt('12')</code> dà il numero 12, <code>IntToStr(15)</code> dà il testo '15'.</p><p class="ar" lang="ar" dir="rtl">مراجعة في دقيقة. Integer هو عدد صحيح بلا علامات اقتباس: 12. بالأعداد نحسب: 12 + 3 = 15. لكن الـ Caption والخانة فيهما String فقط. نحتاج المترجمَين: StrToInt('12') يعطي الرقم 12، و IntToStr(15) يعطي النص '15'.</p><p class="zh" lang="zh">1 分钟复习。Integer 是整数，不加引号：12。整数可以算：12 + 3 = 15。可是 Caption 和输入框里只有 String。需要两个翻译：StrToInt('12') 得到数字 12，IntToStr(15) 得到文字 '15'。</p></section>
+<div class="passo" data-p="1"><span class="bollo">da fare</span><h2><span class="num">1</span>Progetto nuovo</h2><p class="ar" lang="ar" dir="rtl">مشروع جديد</p><p class="zh" lang="zh">新项目</p><p>In alto clicca il menu <b>Progetto</b> → <b>Nuovo progetto…</b> → a sinistra <b>Applicazione</b> → <b>OK</b>. Al centro compare la finestra vuota <b>Form1</b>.</p><p class="ar" lang="ar" dir="rtl">في الأعلى انقر القائمة Progetto ← Nuovo progetto… ← على اليسار Applicazione ← OK. في الوسط تظهر النافذة الفارغة Form1.</p><p class="zh" lang="zh">点上方菜单 Progetto → Nuovo progetto… → 左边 Applicazione → OK。中间出现空窗口 Form1。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="2"><span class="bollo">da fare</span><h2><span class="num">2</span>Salva subito, nella cartella nuova</h2><p class="ar" lang="ar" dir="rtl">احفظ فوراً في مجلد جديد</p><p class="zh" lang="zh">马上保存到新文件夹</p><p>Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. Nella finestra clicca a sinistra <b>Documenti</b>, poi in alto <b>Nuova cartella</b>. Scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella per entrarci.</p><p class="ar" lang="ar" dir="rtl">القائمة Progetto ← Salva progetto con nome…. في النافذة انقر يساراً Documenti ثم في الأعلى Nuova cartella. اكتب الاسم أدناه، اضغط Invio وانقر مرتين على المجلد للدخول.</p><p class="zh" lang="zh">菜单 Progetto → Salva progetto con nome…。在窗口左边点 Documenti，再点上方 Nuova cartella。写下面的名字，按回车，双击文件夹进去。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">segnapunti</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="3"><span class="bollo">da fare</span><h2><span class="num">3</span>Il nome del progetto</h2><p class="ar" lang="ar" dir="rtl">اسم المشروع</p><p class="zh" lang="zh">项目的名字</p><p>In basso, nella casella <b>Nome file</b>, scrivi il nome qui sotto e clicca <b>Salva</b>. Lazarus chiede il nome della unit: lascia <code>unit1.pas</code> e clicca <b>Salva</b>. In alto, nel titolo di Lazarus, c'è scritto <b>segnapunti</b>: FATTO!</p><p class="ar" lang="ar" dir="rtl">في الأسفل، في خانة Nome file، اكتب الاسم أدناه وانقر Salva. يسأل Lazarus عن اسم الـ unit: اترك unit1.pas وانقر Salva. في عنوان Lazarus مكتوب segnapunti: تم!</p><p class="zh" lang="zh">在下面 Nome file 框里写下面的名字，点 Salva。Lazarus 问 unit 的名字：保留 unit1.pas，点 Salva。Lazarus 标题里写着 segnapunti：完成！</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">segnapunti.lpi</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="4"><span class="bollo">da fare</span><h2><span class="num">4</span>Il numero grande</h2><p class="ar" lang="ar" dir="rtl">الرقم الكبير</p><p class="zh" lang="zh">大数字</p><p>Metti una <b>TLabel</b> (la A) al centro della Form1: compare <b>Label1</b>. Nell'Ispettore oggetti cambia <b>Caption</b> in <b>0</b> (zero) e in <b>Font</b> → <b>Size</b> scrivi 48.</p><p class="ar" lang="ar" dir="rtl">ضع TLabel (الحرف A) في وسط Form1: يظهر Label1. في Ispettore oggetti غيّر Caption إلى 0 (صفر) وفي Font ← Size اكتب 48.</p><p class="zh" lang="zh">在 Form1 中间放一个 TLabel（A）：出现 Label1。在 Ispettore oggetti 把 Caption 改成 0（零），在 Font → Size 写 48。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">0</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Il bottone +1</h2><p class="ar" lang="ar" dir="rtl">الزر +1</p><p class="zh" lang="zh">+1 按钮</p><p>Metti un <b>TButton</b> sotto il numero: compare <b>Button1</b>. Cambia <b>Caption</b> in:</p><p class="ar" lang="ar" dir="rtl">ضع TButton تحت الرقم: يظهر Button1. غيّر Caption إلى:</p><p class="zh" lang="zh">在数字下面放一个 TButton：出现 Button1。把 Caption 改成：</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">+1</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>La scatola per il numero</h2><p class="ar" lang="ar" dir="rtl">الصندوق للرقم</p><p class="zh" lang="zh">装数字的盒子</p><p>Doppio clic su <b>+1</b>: si apre <code>Button1Click</code>. Clicca alla fine della riga <code>procedure</code>, premi Invio e scrivi prima di <code>begin</code>: una scatola di tipo <b>Integer</b>.</p><p class="ar" lang="ar" dir="rtl">انقر مرتين على +1: يفتح Button1Click. انقر في نهاية سطر procedure، اضغط Invio واكتب قبل begin: صندوق من نوع Integer.</p><p class="zh" lang="zh">双击 +1：打开 Button1Click。点 procedure 那一行的末尾，按回车，在 begin 前面写：一个 Integer 类型的盒子。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">var
+  punti: Integer;</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Tre righe: traduci, conta, traduci</h2><p class="ar" lang="ar" dir="rtl">ثلاثة أسطر: ترجم، احسب، ترجم</p><p class="zh" lang="zh">三行：翻译、计算、翻译</p><p>Tra <code>begin</code> e <code>end;</code> scrivi: 1) <code>StrToInt</code> trasforma la scritta '0' nel numero 0; 2) aggiungi 1; 3) <code>IntToStr</code> trasforma il numero in scritta per la Caption.</p><p class="ar" lang="ar" dir="rtl">بين begin و end; اكتب: 1) StrToInt يحوّل الكتابة '0' إلى الرقم 0؛ 2) أضف 1؛ 3) IntToStr يحوّل الرقم إلى كتابة للـ Caption.</p><p class="zh" lang="zh">在 begin 和 end; 之间写：1）StrToInt 把文字 '0' 变成数字 0；2）加 1；3）IntToStr 把数字变回文字给 Caption。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  punti := StrToInt(Label1.Caption);
+  punti := punti + 1;
+  Label1.Caption := IntToStr(punti);</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Fai partire: F9</h2><p class="ar" lang="ar" dir="rtl">شغّل: F9</p><p class="zh" lang="zh">运行：F9</p><p>Premi <b>F9</b> e clicca <b>+1</b> tante volte: 1, 2, 3, 4… FATTO! Sfida il compagno: chi arriva prima a 30?</p><p class="ar" lang="ar" dir="rtl">اضغط F9 وانقر +1 مرات كثيرة: 1، 2، 3، 4… تم! تحدَّ زميلك: من يصل أولاً إلى 30؟</p><p class="zh" lang="zh">按 F9，多次点 +1：1、2、3、4…… 完成！和同桌比赛：谁先到 30？</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="9"><span class="bollo">da fare</span><h2><span class="num">9</span>La casella dei punti</h2><p class="ar" lang="ar" dir="rtl">خانة النقاط</p><p class="zh" lang="zh">分数的输入框</p><p>Chiudi il programma e premi <b>F12</b> per tornare alla Form1. Metti una <b>TEdit</b> (abc): compare <b>Edit1</b>. Nell'Ispettore oggetti cambia <b>Text</b> in:</p><p class="ar" lang="ar" dir="rtl">أغلق البرنامج واضغط F12 للعودة إلى Form1. ضع TEdit (abc): يظهر Edit1. في Ispettore oggetti غيّر Text إلى:</p><p class="zh" lang="zh">关掉程序，按 F12 回到 Form1。放一个 TEdit（abc）：出现 Edit1。在 Ispettore oggetti 把 Text 改成：</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">3</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="10"><span class="bollo">da fare</span><h2><span class="num">10</span>Il bottone Aggiungi</h2><p class="ar" lang="ar" dir="rtl">الزر Aggiungi</p><p class="zh" lang="zh">Aggiungi 按钮</p><p>Metti un secondo <b>TButton</b> accanto alla casella: compare <b>Button2</b>. Cambia <b>Caption</b> in <b>Aggiungi</b>. Fai doppio clic su Aggiungi: si apre <code>Button2Click</code>. Prima di <code>begin</code> scrivi due scatole Integer:</p><p class="ar" lang="ar" dir="rtl">ضع TButton ثانياً بجانب الخانة: يظهر Button2. غيّر Caption إلى Aggiungi. انقر مرتين على Aggiungi: يفتح Button2Click. قبل begin اكتب صندوقين Integer:</p><p class="zh" lang="zh">在输入框旁边放第二个 TButton：出现 Button2。把 Caption 改成 Aggiungi。双击 Aggiungi：打开 Button2Click。在 begin 前面写两个 Integer 盒子：</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">var
+  punti: Integer;
+  aggiunta: Integer;</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="11"><span class="bollo">da fare</span><h2><span class="num">11</span>Il codice di Aggiungi</h2><p class="ar" lang="ar" dir="rtl">كود Aggiungi</p><p class="zh" lang="zh">Aggiungi 的代码</p><p>Tra <code>begin</code> e <code>end;</code> scrivi le quattro righe: anche la casella ha una String, quindi anche lì serve <code>StrToInt</code>.</p><p class="ar" lang="ar" dir="rtl">بين begin و end; اكتب الأسطر الأربعة: الخانة أيضاً فيها String، لذلك نحتاج هناك أيضاً StrToInt.</p><p class="zh" lang="zh">在 begin 和 end; 之间写这四行：输入框里也是 String，所以那里也要用 StrToInt。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  punti := StrToInt(Label1.Caption);
+  aggiunta := StrToInt(Edit1.Text);
+  punti := punti + aggiunta;
+  Label1.Caption := IntToStr(punti);</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="12"><span class="bollo">da fare</span><h2><span class="num">12</span>Prova Aggiungi</h2><p class="ar" lang="ar" dir="rtl">جرّب Aggiungi</p><p class="zh" lang="zh">试试 Aggiungi</p><p>Premi <b>F9</b>. Clicca <b>Aggiungi</b>: il numero sale di 3. Scrivi 10 nella casella e clicca ancora: sale di 10. FATTO! Fai lo screenshot.</p><p class="ar" lang="ar" dir="rtl">اضغط F9. انقر Aggiungi: يرتفع الرقم 3. اكتب 10 في الخانة وانقر مجدداً: يرتفع 10. تم! خذ لقطة شاشة.</p><p class="zh" lang="zh">按 F9。点 Aggiungi：数字加 3。在输入框写 10，再点：加 10。完成！截图。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="13"><span class="bollo">da fare</span><h2><span class="num">13</span>Il bottone Azzera</h2><p class="ar" lang="ar" dir="rtl">الزر Azzera</p><p class="zh" lang="zh">Azzera 按钮</p><p>Chiudi il programma, F12. Metti un terzo <b>TButton</b>: <b>Button3</b>, Caption <b>Azzera</b>. Doppio clic e scrivi la riga. '0' ha gli apici: la Caption vuole una String.</p><p class="ar" lang="ar" dir="rtl">أغلق البرنامج، F12. ضع TButton ثالثاً: Button3، Caption هو Azzera. انقر مرتين واكتب السطر. '0' لها علامتا اقتباس: الـ Caption تريد String.</p><p class="zh" lang="zh">关掉程序，F12。放第三个 TButton：Button3，Caption 写 Azzera。双击，写这一行。'0' 有引号：Caption 要的是 String。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := &#x27;0&#x27;;</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="14"><span class="bollo">da fare</span><h2><span class="num">14</span>La trappola del 53</h2><p class="ar" lang="ar" dir="rtl">فخ الـ 53</p><p class="zh" lang="zh">53 的陷阱</p><p>Prova a capire senza scriverlo: se in Aggiungi ci fosse <code>Label1.Caption := Label1.Caption + Edit1.Text;</code>, con 5 sul display e 3 nella casella, comparirebbe <b>53</b>, non 8. Perché? Due String si ATTACCANO, due Integer si SOMMANO. Scrivilo nel quaderno.</p><p class="ar" lang="ar" dir="rtl">حاول أن تفهم دون أن تكتبه: لو كان في Aggiungi السطر Label1.Caption := Label1.Caption + Edit1.Text; مع 5 على الشاشة و3 في الخانة، لظهر 53 وليس 8. لماذا؟ نصّان يُلصقان، وعددان يُجمعان. اكتبه في الدفتر.</p><p class="zh" lang="zh">不写代码，想一想：如果 Aggiungi 里写的是 Label1.Caption := Label1.Caption + Edit1.Text;，显示 5，输入框写 3，会出现 53，而不是 8。为什么？两个 String 是连起来，两个 Integer 是相加。写进本子里。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="15"><span class="bollo">da fare</span><h2><span class="num">15</span>Fallo tuo</h2><p class="ar" lang="ar" dir="rtl">اجعله لك</p><p class="zh" lang="zh">做成你自己的</p><p>Una scritta con il tuo nome sopra il numero (una Label con Caption <i>Segnapunti di Ahmed</i>), i tuoi colori, e il bottone <b>+1</b> che diventa <b>+2</b> (cambia <code>punti + 1</code> e la Caption). Chi ha finito: un bottone <b>-1</b>.</p><p class="ar" lang="ar" dir="rtl">كتابة باسمك فوق الرقم (Label بـ Caption هو Segnapunti di Ahmed)، ألوانك، والزر +1 يصبح +2 (غيّر punti + 1 والـ Caption). من أنهى: زر -1.</p><p class="zh" lang="zh">数字上方加一行写着你名字的文字（一个 Label，Caption 写 Segnapunti di Ahmed），你的颜色，再把 +1 按钮变成 +2（改 punti + 1 和 Caption）。做完的同学：加一个 -1 按钮。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<section class="card"><h2>Sei bloccato? Tre aiuti, uno alla volta · ثلاث مساعدات · 三个提示</h2>
+<details><summary>Aiuto 1: un indizio</summary><p>La Caption è una String: per contare la traduci in Integer con <code>StrToInt</code>, fai il conto, e la ritraduci con <code>IntToStr</code>. Le righe <code>var</code> vanno prima di <code>begin</code>.</p><p class="ar" lang="ar" dir="rtl">الـ Caption هي String: للحساب تترجمها إلى Integer بـ StrToInt، تحسب، ثم تعيدها بـ IntToStr. أسطر var قبل begin.</p><p class="zh" lang="zh">Caption 是 String：要计算就先用 StrToInt 翻译成 Integer，算完再用 IntToStr 翻译回来。var 那几行写在 begin 前面。</p></details>
+<details><summary>Aiuto 2: il pezzo di codice</summary><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">procedure TForm1.Button2Click(Sender: TObject);
+var
+  punti: Integer;
+  aggiunta: Integer;
+begin
+  punti := StrToInt(Label1.Caption);
+  aggiunta := StrToInt(Edit1.Text);
+  punti := punti + aggiunta;
+  Label1.Caption := IntToStr(punti);
+end;</pre></details>
+<details><summary>Aiuto 3: tutto unit1.pas</summary><p>Non copiare tutto: le righe in alto le scrive Lazarus da solo quando metti i pezzi nella Form. Tu scrivi solo le righe dentro le procedure.</p><p class="ar" lang="ar" dir="rtl">لا تنسخ كل شيء: الأسطر في الأعلى يكتبها Lazarus وحده عندما تضع القطع في الـ Form. أنت تكتب فقط الأسطر داخل الإجراءات.</p><p class="zh" lang="zh">不要全部照抄：上面那些行是你往 Form 里放组件时 Lazarus 自己写的。你只写过程里面的那几行。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Edit1: TEdit;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  punti: Integer;
+begin
+  punti := StrToInt(Label1.Caption);
+  punti := punti + 1;
+  Label1.Caption := IntToStr(punti);
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+var
+  punti: Integer;
+  aggiunta: Integer;
+begin
+  punti := StrToInt(Label1.Caption);
+  aggiunta := StrToInt(Edit1.Text);
+  punti := punti + aggiunta;
+  Label1.Caption := IntToStr(punti);
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Label1.Caption := &#x27;0&#x27;;
+end;
+
+end.
+</pre></details>
+</section>
+<section class="card"><h2>Spiegalo in 30 secondi</h2><p>Al compagno: nel tuo segnapunti, che cosa fa <code>StrToInt</code> e che cosa fa <code>IntToStr</code>? Perché servono tutti e due?</p><p class="ar" lang="ar" dir="rtl">لزميلك: في عدّاد نقاطك، ماذا يفعل StrToInt وماذا يفعل IntToStr؟ لماذا نحتاج الاثنين؟</p><p class="zh" lang="zh">对同桌说：在你的记分牌里，StrToInt 做什么，IntToStr 做什么？为什么两个都需要？</p></section>
+<h2 style="margin-top:22px">Consegna: unit1.pas + screenshot · التسليم · 提交</h2>
+<section class="card" style="border:3px solid var(--ok)"><p>Si consegnano SEMPRE due file: <code>unit1.pas</code> (il tuo codice) e lo screenshot del programma che gira. Prima fai lo screenshot (passo C1), poi apri la pagina di consegna: scegli i due file e premi un bottone.</p><p class="ar" lang="ar" dir="rtl">نسلّم دائماً ملفين: unit1.pas (الكود) ولقطة شاشة للبرنامج وهو يعمل. أولاً خذ لقطة الشاشة (الخطوة C1)، ثم افتح صفحة التسليم: اختر الملفين واضغط زراً واحداً.</p><p class="zh" lang="zh">永远提交两个文件：unit1.pas（你的代码）和程序运行时的截图。先截图（C1 步），再打开提交页面：选两个文件，按一个按钮。</p><a class="bt v" href="consegna.html?ora=3" target="_blank" rel="noopener">Consegna con un bottone · سلّم بزر واحد · 一键提交</a>
+<p><b>Se il bottone non funziona:</b> consegna su Classroom con i passi C2-C5 qui sotto. · <span lang="ar">إذا لم يعمل الزر: سلّم على Classroom بالخطوات C2-C5.</span> · <span lang="zh">如果按钮不能用：按下面 C2-C5 步在 Classroom 提交。</span></p></section>
+<div class="passo" data-p="C1"><span class="bollo">da fare</span><h2><span class="num">C1</span>Lo screenshot del programma che gira</h2><p class="ar" lang="ar" dir="rtl">لقطة شاشة للبرنامج وهو يعمل</p><p class="zh" lang="zh">程序运行时的截图</p><p>Premi <b>F9</b>: il tuo programma è aperto. Premi insieme <b>Win + Shift + S</b> e con il mouse disegna un rettangolo intorno alla tua finestra. In basso a destra clicca l'avviso <b>Ritaglio</b>: si apre lo Strumento di cattura. Premi <b>Ctrl + S</b>, a sinistra clicca <b>Documenti</b>, doppio clic sulla cartella <b>segnapunti</b>, in <b>Nome file</b> scrivi il nome qui sotto e clicca <b>Salva</b>.</p><p class="ar" lang="ar" dir="rtl">اضغط F9: برنامجك مفتوح. اضغط معاً Win + Shift + S وارسم بالفأرة مستطيلاً حول نافذتك. في الأسفل يميناً انقر الإشعار: تفتح أداة القص. اضغط Ctrl + S، يساراً انقر Documenti، انقر مرتين على المجلد segnapunti، في Nome file اكتب الاسم أدناه وانقر Salva.</p><p class="zh" lang="zh">按 F9：你的程序打开了。同时按 Win + Shift + S，用鼠标在你的窗口周围画一个方框。点右下角的截图通知：打开截图工具。按 Ctrl + S，左边点 Documenti，双击文件夹 segnapunti，在 Nome file 写下面的名字，点 Salva。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">ora3_screenshot.png</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C2"><span class="bollo">da fare</span><h2><span class="num">C2</span>Trova unit1.pas</h2><p class="ar" lang="ar" dir="rtl">اعثر على unit1.pas</p><p class="zh" lang="zh">找到 unit1.pas</p><p>Premi <b>Win + E</b> (Esplora file). A sinistra clicca <b>Documenti</b> e fai doppio clic sulla cartella <b>segnapunti</b>. In alto clicca <b>Visualizza</b> → <b>Mostra</b> → <b>Estensioni nomi file</b>: ora vedi le lettere dopo il punto. Il file del tuo codice è <code>unit1.pas</code>.</p><p class="ar" lang="ar" dir="rtl">اضغط Win + E. يساراً انقر Documenti وانقر مرتين على المجلد segnapunti. في الأعلى Visualizza ← Mostra ← Estensioni nomi file: الآن ترى الحروف بعد النقطة. ملف الكود هو unit1.pas.</p><p class="zh" lang="zh">按 Win + E（文件资源管理器）。左边点 Documenti，双击文件夹 segnapunti。上方点 Visualizza → Mostra → Estensioni nomi file：现在能看到点后面的字母。你的代码文件是 unit1.pas。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C3"><span class="bollo">da fare</span><h2><span class="num">C3</span>Fai la copia da consegnare</h2><p class="ar" lang="ar" dir="rtl">اصنع نسخة للتسليم</p><p class="zh" lang="zh">做一个要提交的副本</p><p>Clicca una volta <code>unit1.pas</code>. Premi <b>Ctrl + C</b> e poi <b>Ctrl + V</b>: compare <code>unit1 - Copia.pas</code>. Cliccala una volta, premi <b>F2</b>, scrivi il nome qui sotto e premi Invio. (L'originale <code>unit1.pas</code> resta lì: il progetto funziona ancora.)</p><p class="ar" lang="ar" dir="rtl">انقر مرة على unit1.pas. اضغط Ctrl + C ثم Ctrl + V: يظهر unit1 - Copia.pas. انقر عليه مرة، اضغط F2، اكتب الاسم أدناه واضغط Invio. (الأصلي unit1.pas يبقى: المشروع يعمل.)</p><p class="zh" lang="zh">点一下 unit1.pas。按 Ctrl + C，再按 Ctrl + V：出现 unit1 - Copia.pas。点它一下，按 F2，写下面的名字，按回车。（原来的 unit1.pas 还在：项目照样能用。）</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">ora3_unit1.pas</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C4"><span class="bollo">da fare</span><h2><span class="num">C4</span>Su Classroom: aggiungi i due file</h2><p class="ar" lang="ar" dir="rtl">على Classroom: أضف الملفين</p><p class="zh" lang="zh">在 Classroom：添加两个文件</p><p>Apri il compito <b>Ora 3 · Il segnapunti</b> su Classroom. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>segnapunti</b>, scegli <code>ora3_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora3_screenshot.png</code>.</p><p class="ar" lang="ar" dir="rtl">افتح الواجب Ora 3 · Il segnapunti على Classroom. يميناً في مربع Il tuo lavoro انقر + Aggiungi o crea ← File ← Sfoglia. اذهب إلى Documenti ← segnapunti، اختر ora3_unit1.pas وانقر Apri. كرّر نفس الشيء لـ ora3_screenshot.png.</p><p class="zh" lang="zh">在 Classroom 打开作业 Ora 3 · Il segnapunti。右边 Il tuo lavoro 框里点 + Aggiungi o crea → File → Sfoglia。进入 Documenti → segnapunti，选 ora3_unit1.pas，点 Apri。对 ora3_screenshot.png 再做一次。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C5"><span class="bollo">da fare</span><h2><span class="num">C5</span>Consegna</h2><p class="ar" lang="ar" dir="rtl">سلّم</p><p class="zh" lang="zh">提交</p><p>Nel riquadro <b>Il tuo lavoro</b> vedi i due file: <code>ora3_unit1.pas</code> e <code>ora3_screenshot.png</code>. Clicca <b>Consegna</b> e poi ancora <b>Consegna</b>. FATTO!</p><p class="ar" lang="ar" dir="rtl">في مربع Il tuo lavoro ترى الملفين. انقر Consegna ثم Consegna مرة أخرى. تم!</p><p class="zh" lang="zh">在 Il tuo lavoro 框里看到两个文件。点 Consegna，再点一次 Consegna。完成！</p><button class="fb">Fatto! · تم · 完成</button></div>
+<section class="card chk"><h2>Controllo finale: lo so fare? · هل أعرف؟ · 我会了吗？</h2>
+<label><input type="checkbox" data-k="0"><span>Il mio segnapunti sale con +1 e con Aggiungi, e torna a 0 con Azzera.<br><span class="ar" lang="ar" dir="rtl" style="display:block">عدّاد نقاطي يرتفع بـ +1 وبـ Aggiungi ويعود إلى 0 بـ Azzera.</span><span class="zh" lang="zh" style="display:block">我的记分牌用 +1 和 Aggiungi 增加，用 Azzera 回到 0。</span></span></label>
+<label><input type="checkbox" data-k="1"><span>So dire perché serve StrToInt prima del conto e IntToStr dopo.<br><span class="ar" lang="ar" dir="rtl" style="display:block">أعرف أن أقول لماذا نحتاج StrToInt قبل الحساب و IntToStr بعده.</span><span class="zh" lang="zh" style="display:block">我能说出为什么计算前要 StrToInt，计算后要 IntToStr。</span></span></label>
+<label><input type="checkbox" data-k="2"><span>So spiegare perché '5' + '3' darebbe 53.<br><span class="ar" lang="ar" dir="rtl" style="display:block">أعرف أن أشرح لماذا '5' + '3' تعطي 53.</span><span class="zh" lang="zh" style="display:block">我能解释为什么 '5' + '3' 会得到 53。</span></span></label>
+<label><input type="checkbox" data-k="3"><span>Ho consegnato ora3_unit1.pas e ora3_screenshot.png.<br><span class="ar" lang="ar" dir="rtl" style="display:block">سلّمت ora3_unit1.pas و ora3_screenshot.png.</span><span class="zh" lang="zh" style="display:block">我提交了 ora3_unit1.pas 和 ora3_screenshot.png。</span></span></label>
+</section>
+<section class="card"><h2>Da ricopiare sul quaderno · انسخ في الدفتر · 抄在本子上</h2><div class="quad"><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">var punti: Integer;                  scatola per un numero intero
+punti := StrToInt(Label1.Caption);   testo -&gt; numero   &#x27;5&#x27; -&gt; 5
+punti := punti + 1;                  il conto (solo con gli Integer)
+Label1.Caption := IntToStr(punti);   numero -&gt; testo   6 -&gt; &#x27;6&#x27;
+&#x27;5&#x27; + &#x27;3&#x27; = &#x27;53&#x27;          5 + 3 = 8</pre></div></section>
+<script>
+(function(){
+var ORA=3, K='lab3010-ora'+ORA, KN='lab3010-nome', CONF={};
+function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
+function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
+var S=prendi(K,{}), NOME=prendi(KN,'')||'', P=[].slice.call(document.querySelectorAll('.passo')), principali=P.filter(function(p){return /^\d+$/.test(p.dataset.p)});
+var inp=document.getElementById('nome'); inp.value=NOME;
+inp.addEventListener('change',function(){var v=inp.value.trim().replace(/\s+/g,' ');if(v.split(' ').length<2){document.getElementById('nomeok').textContent='Scrivi nome e cognome.';return}NOME=v;metti(KN,v);document.getElementById('nomeok').textContent='Ciao '+v+'!';ping(true)});
+fetch('config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){CONF=c||{}}).catch(function(){});
+var ultimo=-1;
+function ping(forza){   // stesso segnale di avanzamento delle pagine di teoria (modo «avanzamento», va nel Foglio di riserva)
+  if(!CONF.attivo||!CONF.invio||!NOME)return; var fatti=principali.filter(function(p){return S[p.dataset.p]}).length; if(fatti===ultimo&&!forza)return; ultimo=fatti;
+  var max=0;principali.forEach(function(p){if(S[p.dataset.p])max=Math.max(max,+p.dataset.p)});
+  var tit=max?principali[max-1].querySelector('h2').textContent.replace(/^\d+/,''):'';
+  var facili=['F1','F2','F3'].filter(function(k){return S[k]}).length, cons=['C1','C2','C3','C4','C5'].filter(function(k){return S[k]}).length;
+  var d={id:'avz-1inf-lab3010-ora'+ORA,modo:'avanzamento',classe:'1INF',nome:NOME,scheda:max,totale:principali.length,risposte:fatti,titolo:tit,facile:facili,consegna:cons,quando:new Date().toISOString()};
+  try{fetch(CONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}catch(x){}
+}
+function disegna(){
+  var prossimo=null; P.forEach(function(p){var f=!!S[p.dataset.p];p.classList.toggle('fatto',f);p.classList.remove('ora');p.querySelector('.bollo').textContent=f?'FATTO':'da fare';p.querySelector('.fb').textContent=f?'Fatto ✓ (clic per togliere)':'Fatto! · تم · 完成';if(!f&&!prossimo&&/^\d+$/.test(p.dataset.p))prossimo=p});
+  if(prossimo){prossimo.classList.add('ora');prossimo.querySelector('.bollo').textContent='ADESSO'}
+  var n=principali.filter(function(p){return S[p.dataset.p]}).length;document.getElementById('barra').style.width=Math.round(100*n/principali.length)+'%';
+  document.getElementById('conta').textContent='Passi fatti: '+n+' su '+principali.length;
+}
+P.forEach(function(p){p.querySelector('.fb').onclick=function(){S[p.dataset.p]=!S[p.dataset.p];metti(K,S);disegna();ping(false)}});
+var C=prendi(K+'-chk',{});[].forEach.call(document.querySelectorAll('.chk input'),function(c){c.checked=!!C[c.dataset.k];c.onchange=function(){C[c.dataset.k]=c.checked;metti(K+'-chk',C)}});
+disegna();setInterval(function(){ping(true)},120000);
+})();
+</script>
+</main></body></html>

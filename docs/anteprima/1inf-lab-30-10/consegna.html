@@ -1,0 +1,126 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Consegna Lazarus</title>
+<style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--ko:#c0392b;--q:#fff4c2;--ante:#fde8e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--ante:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--ante:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.4em}h2{font-size:1.1em;margin:.2em 0 .4em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0}.zh{color:var(--mu);font-size:.95em;margin:4px 0}
+.ante{background:var(--ante);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em}
+input[type=text]{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+input[type=file]{font:inherit;width:100%;padding:10px;border:2px dashed var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+button.bt{display:block;width:100%;background:var(--ok);color:#fff;font:inherit;font-size:22px;font-weight:800;padding:14px;border-radius:12px;border:0;cursor:pointer;margin:10px 0}
+button.bt[disabled]{opacity:.45;cursor:not-allowed}
+.v{list-style:none;padding:0;margin:8px 0}.v li{padding:6px 10px;border-radius:8px;margin:4px 0;border:1px solid var(--bd)}
+.v li.ok{border-color:var(--ok)}.v li.ko{border-color:var(--ko);background:rgba(192,57,43,.08)}.v li.av{border-color:#d4a017;background:var(--q)}
+.v b{margin-right:6px}#anteprima img{max-width:100%;max-height:260px;border:2px solid var(--bd);border-radius:8px;display:block;margin:8px 0}
+.msg{font-weight:700;font-size:1.05em}.msg.ok{color:var(--ok)}.msg.ko{color:var(--ko)}.mu{color:var(--mu);font-size:.92em}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}</style></head><body><main>
+<p class="ante"><b>ANTEPRIMA PER IL PROF, non pubblicata.</b> L'invio è spento finché in <code>config.json</code> non c'è <code>"attivo": true</code>.</p>
+<h1 id="tit">Consegna: unit1.pas + screenshot</h1>
+<p class="ar" lang="ar" dir="rtl">التسليم: unit1.pas + لقطة الشاشة</p><p class="zh" lang="zh">提交：unit1.pas + 截图</p>
+<section class="card"><h2>1. Chi sei?</h2>
+<p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب.</p><p class="zh" lang="zh">写你的名字和姓。</p>
+<input type="text" id="nome" placeholder="Nome Cognome" autocomplete="name"></section>
+<section class="card"><h2>2. Scegli il tuo unit1.pas</h2>
+<p>Clicca il riquadro, vai in <b>Documenti</b> → cartella <b id="cart">…</b> e scegli <code>unit1.pas</code>. Il controllo automatico ti dice subito se il codice va bene.</p>
+<p class="ar" lang="ar" dir="rtl">انقر المربع، اذهب إلى Documenti ← المجلد واختر unit1.pas. الفحص الآلي يقول لك فوراً إن كان الكود جيداً.</p>
+<p class="zh" lang="zh">点这个框，进入 Documenti → 文件夹，选 unit1.pas。自动检查马上告诉你代码对不对。</p>
+<input type="file" id="pas" accept=".pas,.pp,text/plain"><ul class="v" id="voci"></ul><p class="mu" id="esito"></p></section>
+<section class="card"><h2>3. Scegli lo screenshot del programma che gira</h2>
+<p>Lo hai salvato nella stessa cartella (<code id="nomeimg">…</code>).</p>
+<p class="ar" lang="ar" dir="rtl">حفظتها في نفس المجلد.</p><p class="zh" lang="zh">你把它保存在同一个文件夹里了。</p>
+<input type="file" id="img" accept="image/*"><div id="anteprima"></div></section>
+<section class="card"><h2>4. Manda al prof</h2>
+<p class="ar" lang="ar" dir="rtl">أرسل إلى الأستاذ.</p><p class="zh" lang="zh">发给老师。</p>
+<button class="bt" id="manda" disabled>Manda al prof · أرسل · 发送</button>
+<p class="msg" id="msg"></p>
+<p><b>Se il bottone non funziona:</b> consegna i due file su Classroom con i passi C2-C5 della <a id="torna" href="#">pagina del percorso</a>. · <span lang="ar">إذا لم يعمل الزر: سلّم على Classroom.</span> · <span lang="zh">如果按钮不能用：在 Classroom 提交。</span></p></section>
+<script src="controlla-pas.js"></script>
+<script>
+(function () {
+  var qs = new URLSearchParams(location.search), ORA = Math.min(3, Math.max(1, +qs.get('ora') || 1));
+  var CART = ['', 'cartello', 'soprannome', 'segnapunti'][ORA], ID = '1inf-lab3010-ora' + ORA, PEZZO = 200000, CONF = {};
+  function $(i) { return document.getElementById(i); }
+  function prendi(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (x) { return d; } }
+  function metti(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (x) {} }
+  $('tit').textContent = 'Ora ' + ORA + ' · Consegna: unit1.pas + screenshot'; $('cart').textContent = CART;
+  $('nomeimg').textContent = 'ora' + ORA + '_screenshot.png'; $('torna').href = 'modulo-' + ORA + '.html#C2';
+  var PAS = null, CHECK = null, IMG = null, NOME = prendi('lab3010-nome', '') || '';
+  $('nome').value = NOME;
+  fetch('config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () { CONF = {}; });
+  function pronto() { NOME = $('nome').value.trim().replace(/\s+/g, ' '); $('manda').disabled = !(NOME.split(' ').length >= 2 && (PAS || IMG)); }
+  $('nome').addEventListener('input', function () { pronto(); metti('lab3010-nome', $('nome').value.trim()); });
+  $('pas').onchange = function () {
+    var f = $('pas').files[0]; PAS = null; CHECK = null; $('voci').innerHTML = ''; $('esito').textContent = '';
+    if (!f) return pronto();
+    var r = new FileReader();
+    r.onload = function () {
+      PAS = { nome: f.name, testo: String(r.result || '').slice(0, 60000) };
+      try {   // il controllo è solo un aiuto: se va in errore, si consegna lo stesso
+        CHECK = ControllaPas(PAS.testo, ORA);
+        $('voci').innerHTML = CHECK.voci.map(function (v) {
+          var c = v.ok ? 'ok' : (v.avviso ? 'av' : 'ko'), s = v.ok ? '✔' : (v.avviso ? '!' : '✘');
+          return '<li class="' + c + '"><b>' + s + '</b>' + v.it + '<div class="ar" lang="ar" dir="rtl">' + v.ar + '</div><div class="zh" lang="zh">' + v.zh + '</div></li>';
+        }).join('');
+        $('esito').innerHTML = CHECK.ok ? '<b style="color:var(--ok)">Il codice va bene: bravo!</b>' : 'Qualcosa manca: guarda le righe rosse e correggi in Lazarus (poi Ctrl + S e scegli di nuovo il file). Puoi anche mandare lo stesso.';
+      } catch (x) { CHECK = { ok: null, errore: String(x) }; $('esito').textContent = 'Controllo non riuscito: puoi mandare lo stesso.'; }
+      pronto();
+    };
+    r.onerror = function () { $('esito').textContent = 'Non riesco a leggere il file: scegline un altro o usa Classroom.'; pronto(); };
+    r.readAsText(f);
+  };
+  $('img').onchange = function () {
+    var f = $('img').files[0]; IMG = null; $('anteprima').innerHTML = '';
+    if (!f) return pronto();
+    var r = new FileReader();
+    r.onload = function () {
+      var url = String(r.result), im = new Image();
+      im.onload = function () {
+        $('anteprima').innerHTML = '<img alt="il tuo screenshot" src="' + url + '"><span class="mu">' + f.name + '</span>';
+        try {   // più leggero: al massimo 1600 punti di larghezza, JPEG (lo script accetta 300.000 caratteri per invio)
+          var w = Math.min(1600, im.naturalWidth), h = Math.round(im.naturalHeight * w / im.naturalWidth), c = document.createElement('canvas');
+          c.width = w; c.height = h; c.getContext('2d').drawImage(im, 0, 0, w, h);
+          IMG = { nome: 'ora' + ORA + '_screenshot.jpg', tipo: 'image/jpeg', b64: c.toDataURL('image/jpeg', 0.85).split(',')[1], originale: f.name };
+        } catch (x) { IMG = { nome: f.name, tipo: f.type, b64: url.split(',')[1], originale: f.name }; }
+        pronto();
+      };
+      im.onerror = function () { IMG = { nome: f.name, tipo: f.type, b64: url.split(',')[1], originale: f.name }; pronto(); };
+      im.src = url;
+    };
+    r.readAsDataURL(f);
+  };
+  function pausa(ms) { return new Promise(function (ok) { setTimeout(ok, ms); }); }
+  function posta(d) { return fetch(CONF.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) }); }
+  function postaForm(d) {   // l'ultimo invio apre la pagina «Consegna arrivata al prof» dello script (come la verifica)
+    var f = document.createElement('form'); f.method = 'POST'; f.action = CONF.invio; f.target = '_blank'; f.acceptCharset = 'UTF-8';
+    var i = document.createElement('input'); i.type = 'hidden'; i.name = 'd'; i.value = JSON.stringify(d); f.appendChild(i);
+    document.body.appendChild(f); f.submit(); f.remove();
+  }
+  window.costruisciInvii = function (nome, ora, pas, check, img, chiave) {   // esposta per la prova automatica
+    var out = [], parti = img ? Math.max(1, Math.ceil(img.b64.length / PEZZO)) : 0, base = { id: '1inf-lab3010-ora' + ora, modo: 'verifica', classe: '1INF', nome: nome, ora: ora, chiave: chiave };
+    for (var k = 0; k < parti; k++) out.push(Object.assign({}, base, { cosa: 'screenshot', file: img.nome, tipo: img.tipo, originale: img.originale, parte: k + 1, parti: parti, base64: img.b64.slice(k * PEZZO, (k + 1) * PEZZO), quando: new Date().toISOString() }));
+    out.push(Object.assign({}, base, { cosa: 'unit1', file: 'ora' + ora + '_unit1.pas', originale: pas ? pas.nome : '', testo_pas: pas ? pas.testo : '',
+      controllo: check ? { ok: check.ok, ora_trovata: check.ora_trovata, mancano: (check.voci || []).filter(function (v) { return !v.ok; }).map(function (v) { return v.it; }) } : null,
+      screenshot: img ? { file: img.nome, parti: parti } : null, quando: new Date().toISOString() }));
+    return out;
+  };
+  $('manda').onclick = async function () {
+    pronto(); if ($('manda').disabled) return;
+    var inv = window.costruisciInvii(NOME, ORA, PAS, CHECK, IMG, Date.now().toString(36));
+    if (!PAS || !IMG) { if (!confirm('Manca ' + (!PAS ? 'unit1.pas' : 'lo screenshot') + '. Mandi lo stesso? Poi manda anche l\'altro.')) return; }
+    if (!CONF.attivo || !CONF.invio) { $('msg').className = 'msg ko'; $('msg').textContent = 'ANTEPRIMA: invio spento. Partirebbero ' + inv.length + ' invii (' + inv.map(function (d) { return d.cosa; }).join(', ') + ').'; return; }
+    $('manda').disabled = true; $('msg').className = 'msg'; $('msg').textContent = 'Sto mandando…';
+    try {
+      for (var i = 0; i < inv.length - 1; i++) { await posta(inv[i]); $('msg').textContent = 'Sto mandando lo screenshot… ' + Math.round((i + 1) / (inv.length - 1) * 100) + '%'; await pausa(1300); }
+      postaForm(inv[inv.length - 1]);
+      $('msg').className = 'msg ok'; $('msg').textContent = 'Mandato! Si è aperta una scheda con scritto «Consegna arrivata al prof». Se non la vedi, consegna anche su Classroom.';
+      metti('lab3010-consegnato-ora' + ORA, new Date().toISOString());
+    } catch (x) {
+      $('msg').className = 'msg ko'; $('msg').textContent = 'Non è partito. Premi di nuovo «Manda al prof» oppure consegna su Classroom.'; $('manda').disabled = false;
+    }
+  };
+})();
+</script>
+</main></body></html>

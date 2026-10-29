@@ -1,0 +1,165 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Lazarus ora 1</title><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--q:#fff4c2;--ante:#fde8e8;--blu:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+pre{background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;overflow-x:auto;font-size:16px;white-space:pre-wrap;margin:8px 0}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+.ante{background:var(--ante);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.b{background:#fff0;color:var(--acc);border:2px solid var(--acc);font-weight:600}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+.win{max-width:360px;border:2px solid #6e7781;border-radius:8px;overflow:hidden;margin:8px auto;background:#f0f0f0;color:#111}
+.win .tb{background:#dfe3e8;padding:4px 8px;font-size:14px;display:flex;justify-content:space-between}.win .co{padding:14px;text-align:center}
+.win .lb{font-size:28px;font-weight:800;margin:6px 0}.win .ed{display:block;background:#fff;border:1px solid #8a8a8a;text-align:left;padding:3px 6px;margin:6px auto;width:80%;font-size:16px}
+.win .bu{display:inline-block;background:#e1e1e1;border:1px solid #8a8a8a;border-radius:3px;padding:4px 10px;margin:3px;font-size:15px}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}
+.chk label{display:flex;gap:10px;align-items:flex-start;margin:8px 0}.chk input{width:22px;height:22px;flex:0 0 22px;margin-top:3px}
+input[type=text]{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+.mu{color:var(--mu);font-size:.92em}</style></head><body><main>
+<p class="ante"><b>ANTEPRIMA PER IL PROF, non pubblicata.</b> Nessuna pagina dei ragazzi porta qui. Percorso 1 di 3 · <a href="./">indice dell'anteprima</a></p>
+<h1>Ora 1: String e Integer, poi il cartello APERTO / CHIUSO</h1><p class="ar" lang="ar" dir="rtl">الساعة 1: String و Integer، ثم لافتة APERTO / CHIUSO</p><p class="zh" lang="zh">第 1 节：String 和 Integer，然后做 APERTO / CHIUSO 牌子</p>
+<p class="mu">1INF · venerdì 30/10/2026 · 11:00-12:00 · progetto <code>cartello</code></p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span lang="zh">按 F5 查看新版本。</span></p>
+<a class="bt b" href="../../1inf-oggi/" target="_blank" rel="noopener">La mia giornata · يومي · 我的一天</a>
+<section class="card"><h2>Chi sei? · من أنت؟ · 你是谁？</h2><p>Scrivi nome e cognome: serve al cruscotto per vedere a che punto sei.</p><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب: يحتاجه لوح المتابعة ليعرف أين وصلت.</p><p class="zh" lang="zh">写你的名字和姓：看板用它来知道你做到哪里了。</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+<section class="card"><h2>Che cosa fai in quest'ora</h2><p>Prima mezz'ora: la teoria in 6 schede, con una domanda dopo ogni scheda, e il quiz. Poi il programma: un cartello per il tuo negozio inventato. Premi <b>Apri</b> e compare APERTO in verde, premi <b>Chiudi</b> e compare CHIUSO in rosso.</p><p class="ar" lang="ar" dir="rtl">النصف ساعة الأولى: النظرية في 6 بطاقات، مع سؤال بعد كل بطاقة، ثم الاختبار. بعدها البرنامج: لافتة لمتجرك المتخيَّل. تضغط Apri فيظهر APERTO بالأخضر، وتضغط Chiudi فيظهر CHIUSO بالأحمر.</p><p class="zh" lang="zh">前半小时：6 张理论卡片，每张后面一个问题，然后做测验。之后写程序：给你想象的商店做一个牌子。按 Apri 出现绿色的 APERTO，按 Chiudi 出现红色的 CHIUSO。</p><div class="win" aria-label="Come sarà il tuo programma"><div class="tb"><span>Pizzeria da Ahmed</span><span>_ □ ×</span></div><div class="co"><div class="lb" style="color:#1a7f37">APERTO</div><span class="bu">Apri</span><span class="bu">Chiudi</span></div></div></section>
+<section class="card" style="border:2px solid #b45309"><h2>Percorso facilitato: 3 passi · المسار الميسّر · 简单路线</h2><p>Per chi oggi fa fatica: fai solo questi 3 passi. Va bene così: è un programma vero.</p><p class="ar" lang="ar" dir="rtl">لمن يجد صعوبة اليوم: افعل هذه الخطوات الثلاث فقط. هذا جيد: إنه برنامج حقيقي.</p><p class="zh" lang="zh">今天觉得难的同学：只做这 3 步。这样就很好：这是一个真正的程序。</p><div class="passo" data-p="F1"><span class="bollo">da fare</span><h2><span class="num">1</span>Facile 1</h2><p>Leggi le schede 2 e 3 (String e Integer) e rispondi alle loro domande.</p><p class="ar" lang="ar" dir="rtl">اقرأ البطاقتين 2 و3 (String و Integer) وأجب عن أسئلتهما.</p><p class="zh" lang="zh">读第 2、3 张卡片（String 和 Integer），回答它们的问题。</p><button class="fb">Fatto! · تم · 完成</button></div><div class="passo" data-p="F2"><span class="bollo">da fare</span><h2><span class="num">2</span>Facile 2</h2><p>Nella Form1 metti una Label (la A) e un bottone (OK). Doppio clic sul bottone e scrivi la riga.</p><p class="ar" lang="ar" dir="rtl">في Form1 ضع Label (الحرف A) وزراً (OK). انقر مرتين على الزر واكتب السطر.</p><p class="zh" lang="zh">在 Form1 放一个 Label（A）和一个按钮（OK）。双击按钮，写这一行。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := &#x27;APERTO&#x27;;</pre><button class="fb">Fatto! · تم · 完成</button></div><div class="passo" data-p="F3"><span class="bollo">da fare</span><h2><span class="num">3</span>Facile 3</h2><p>Premi F9 e clicca il bottone: compare APERTO. Fai lo screenshot e consegnalo.</p><p class="ar" lang="ar" dir="rtl">اضغط F9 وانقر الزر: يظهر APERTO. خذ لقطة شاشة وسلّمها.</p><p class="zh" lang="zh">按 F9，点按钮：出现 APERTO。截图并提交。</p><button class="fb">Fatto! · تم · 完成</button></div><p class="mu">Per consegnare bastano lo screenshot e unit1.pas: passi C1-C5 in fondo.</p></section>
+<section class="card" style="border:3px solid var(--blu)"><h2>Fase 1: teoria e quiz (30 minuti)</h2>
+<p>Apri la teoria: 6 schede corte, con una domanda dopo ogni scheda. Poi il prof apre il quiz su String e Integer: leggi BENE il codice, un apice cambia tutto.</p><p class="ar" lang="ar" dir="rtl">افتح النظرية: 6 بطاقات قصيرة، مع سؤال بعد كل بطاقة. ثم يفتح الأستاذ الاختبار عن String و Integer: اقرأ الكود جيداً، علامة اقتباس واحدة تغيّر كل شيء.</p><p class="zh" lang="zh">打开理论：6 张短卡片，每张后面一个问题。然后老师打开关于 String 和 Integer 的测验：仔细读代码，一个引号就能改变一切。</p>
+<a class="bt" href="../../verifica/?b=1inf-lab3010-tipi" target="_blank" rel="noopener">Teoria e quiz: String e Integer · النظرية والاختبار · 理论和测验</a>
+<p class="mu" id="moduli-riga">Se il prof vi dà il quiz su Moduli Google, il link arriva su Classroom. · <span lang="ar">إذا أعطاكم الأستاذ الاختبار على Google Moduli، يصل الرابط على Classroom.</span> · <span lang="zh">如果老师用 Google 表单测验，链接会发在 Classroom 上。</span></p></section>
+<h2 style="margin-top:22px">Fase 2: l'esercitazione</h2>
+<div class="passo" data-p="1"><span class="bollo">da fare</span><h2><span class="num">1</span>Progetto nuovo</h2><p class="ar" lang="ar" dir="rtl">مشروع جديد</p><p class="zh" lang="zh">新项目</p><p>In alto clicca il menu <b>Progetto</b> → <b>Nuovo progetto…</b> → a sinistra <b>Applicazione</b> → <b>OK</b>. Al centro compare la finestra vuota <b>Form1</b>.</p><p class="ar" lang="ar" dir="rtl">في الأعلى انقر القائمة Progetto ← Nuovo progetto… ← على اليسار Applicazione ← OK. في الوسط تظهر النافذة الفارغة Form1.</p><p class="zh" lang="zh">点上方菜单 Progetto → Nuovo progetto… → 左边 Applicazione → OK。中间出现空窗口 Form1。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="2"><span class="bollo">da fare</span><h2><span class="num">2</span>Salva subito, nella cartella nuova</h2><p class="ar" lang="ar" dir="rtl">احفظ فوراً في مجلد جديد</p><p class="zh" lang="zh">马上保存到新文件夹</p><p>Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. Nella finestra clicca a sinistra <b>Documenti</b>, poi in alto <b>Nuova cartella</b>. Scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella per entrarci.</p><p class="ar" lang="ar" dir="rtl">القائمة Progetto ← Salva progetto con nome…. في النافذة انقر يساراً Documenti ثم في الأعلى Nuova cartella. اكتب الاسم أدناه، اضغط Invio وانقر مرتين على المجلد للدخول.</p><p class="zh" lang="zh">菜单 Progetto → Salva progetto con nome…。在窗口左边点 Documenti，再点上方 Nuova cartella。写下面的名字，按回车，双击文件夹进去。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">cartello</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="3"><span class="bollo">da fare</span><h2><span class="num">3</span>Il nome del progetto</h2><p class="ar" lang="ar" dir="rtl">اسم المشروع</p><p class="zh" lang="zh">项目的名字</p><p>In basso, nella casella <b>Nome file</b>, scrivi il nome qui sotto e clicca <b>Salva</b>. Lazarus chiede il nome della unit: lascia <code>unit1.pas</code> e clicca <b>Salva</b>. In alto, nel titolo di Lazarus, c'è scritto <b>cartello</b>: FATTO!</p><p class="ar" lang="ar" dir="rtl">في الأسفل، في خانة Nome file، اكتب الاسم أدناه وانقر Salva. يسأل Lazarus عن اسم الـ unit: اترك unit1.pas وانقر Salva. في عنوان Lazarus مكتوب cartello: تم!</p><p class="zh" lang="zh">在下面 Nome file 框里写下面的名字，点 Salva。Lazarus 问 unit 的名字：保留 unit1.pas，点 Salva。Lazarus 标题里写着 cartello：完成！</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">cartello.lpi</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="4"><span class="bollo">da fare</span><h2><span class="num">4</span>Il cartello: la Label</h2><p class="ar" lang="ar" dir="rtl">اللافتة: Label</p><p class="zh" lang="zh">牌子：Label</p><p>Nella palette <b>Standard</b> clicca la <b>A</b> (è la <b>TLabel</b>, la scritta) e poi clicca nella Form1, in alto. Compare <b>Label1</b>.</p><p class="ar" lang="ar" dir="rtl">في لوحة Standard انقر A (هي TLabel، الكتابة) ثم انقر في Form1 في الأعلى. يظهر Label1.</p><p class="zh" lang="zh">在 Standard 组件面板点 A（就是 TLabel，文字），再点 Form1 上方。出现 Label1。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Fallo tuo: il nome del negozio</h2><p class="ar" lang="ar" dir="rtl">اجعله لك: اسم المتجر</p><p class="zh" lang="zh">做成你自己的：商店名字</p><p>Con Label1 selezionata, a sinistra nell'<b>Ispettore oggetti</b> trova <b>Caption</b> e scrivi il nome del tuo negozio inventato (per esempio <i>Pizzeria da Ahmed</i>). La scritta cambia SUBITO nella Form1: prima vittoria!</p><p class="ar" lang="ar" dir="rtl">مع تحديد Label1، يساراً في Ispettore oggetti ابحث عن Caption واكتب اسم متجرك المتخيَّل (مثلاً Pizzeria da Ahmed). الكتابة تتغير فوراً في Form1: أول فوز!</p><p class="zh" lang="zh">选中 Label1，在左边 Ispettore oggetti 找到 Caption，写你想象的商店名字（比如 Pizzeria da Ahmed）。Form1 里的文字马上变了：第一个胜利！</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>Scritta grande</h2><p class="ar" lang="ar" dir="rtl">كتابة كبيرة</p><p class="zh" lang="zh">大字</p><p>Sempre nell'Ispettore oggetti, clicca il piccolo segno a sinistra di <b>Font</b>: si apre l'elenco. Trova <b>Size</b> e scrivi <b>28</b>, poi premi Invio.</p><p class="ar" lang="ar" dir="rtl">في Ispettore oggetti انقر العلامة الصغيرة على يسار Font: تفتح القائمة. ابحث عن Size واكتب 28 ثم اضغط Invio.</p><p class="zh" lang="zh">还是在 Ispettore oggetti，点 Font 左边的小符号：展开列表。找到 Size，写 28，按回车。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">28</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Due bottoni</h2><p class="ar" lang="ar" dir="rtl">زرّان</p><p class="zh" lang="zh">两个按钮</p><p>Nella palette clicca il bottone <b>OK</b> (è il <b>TButton</b>) e clicca nella Form1 sotto la scritta: compare <b>Button1</b>. Nell'Ispettore oggetti cambia <b>Caption</b> in <b>Apri</b>. Rifai: secondo bottone <b>Button2</b> con Caption <b>Chiudi</b>.</p><p class="ar" lang="ar" dir="rtl">في اللوحة انقر الزر OK (هو TButton) وانقر في Form1 تحت الكتابة: يظهر Button1. في Ispettore oggetti غيّر Caption إلى Apri. كرّر: زر ثانٍ Button2 بـ Caption هو Chiudi.</p><p class="zh" lang="zh">在组件面板点 OK 按钮（就是 TButton），再点 Form1 文字下面：出现 Button1。在 Ispettore oggetti 把 Caption 改成 Apri。再做一次：第二个按钮 Button2，Caption 写 Chiudi。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Il codice di Apri</h2><p class="ar" lang="ar" dir="rtl">كود Apri</p><p class="zh" lang="zh">Apri 的代码</p><p>Fai <b>doppio clic</b> sul bottone <b>Apri</b>: si apre il codice con <code>procedure TForm1.Button1Click</code>. Tra <code>begin</code> e <code>end;</code> scrivi le due righe. <code>'APERTO'</code> è una <b>String</b>: va tra apici.</p><p class="ar" lang="ar" dir="rtl">انقر مرتين على الزر Apri: يفتح الكود مع procedure TForm1.Button1Click. بين begin و end; اكتب السطرين. 'APERTO' هي String: توضع بين علامتي اقتباس.</p><p class="zh" lang="zh">双击 Apri 按钮：打开代码，有 procedure TForm1.Button1Click。在 begin 和 end; 之间写这两行。'APERTO' 是 String：要放在单引号里。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := &#x27;APERTO&#x27;;
+  Label1.Font.Color := clGreen;</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="9"><span class="bollo">da fare</span><h2><span class="num">9</span>Il codice di Chiudi</h2><p class="ar" lang="ar" dir="rtl">كود Chiudi</p><p class="zh" lang="zh">Chiudi 的代码</p><p>Premi <b>F12</b>: torni alla Form1. Fai doppio clic sul bottone <b>Chiudi</b> (si apre <code>Button2Click</code>) e scrivi:</p><p class="ar" lang="ar" dir="rtl">اضغط F12: تعود إلى Form1. انقر مرتين على الزر Chiudi (يفتح Button2Click) واكتب:</p><p class="zh" lang="zh">按 F12：回到 Form1。双击 Chiudi 按钮（打开 Button2Click），写：</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := &#x27;CHIUSO&#x27;;
+  Label1.Font.Color := clRed;</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="10"><span class="bollo">da fare</span><h2><span class="num">10</span>Fai partire: F9</h2><p class="ar" lang="ar" dir="rtl">شغّل: F9</p><p class="zh" lang="zh">运行：F9</p><p>Premi <b>F9</b>. Si apre il TUO programma. Clicca <b>Apri</b>: APERTO in verde. Clicca <b>Chiudi</b>: CHIUSO in rosso. FATTO! Fallo vedere al compagno.</p><p class="ar" lang="ar" dir="rtl">اضغط F9. يفتح برنامجك. انقر Apri: APERTO بالأخضر. انقر Chiudi: CHIUSO بالأحمر. تم! أرِه لزميلك.</p><p class="zh" lang="zh">按 F9。打开你的程序。点 Apri：绿色的 APERTO。点 Chiudi：红色的 CHIUSO。完成！给同桌看看。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="11"><span class="bollo">da fare</span><h2><span class="num">11</span>L'errore che insegna (succede a tutti)</h2><p class="ar" lang="ar" dir="rtl">الخطأ الذي يعلّم (يحدث للجميع)</p><p class="zh" lang="zh">能教你东西的错误（谁都会遇到）</p><p>Chiudi il tuo programma. Nella riga di Apri cambia <code>'APERTO'</code> in <code>7</code> (senza apici) e premi F9. In basso, in <b>Messaggi</b>, compare l'errore <b>Incompatible types</b>: la Caption vuole una <b>String</b>, 7 è un <b>Integer</b>. Correggi così e premi F9: compare 7. Poi rimetti <code>'APERTO'</code>.</p><p class="ar" lang="ar" dir="rtl">أغلق برنامجك. في سطر Apri غيّر 'APERTO' إلى 7 (بلا علامات اقتباس) واضغط F9. في الأسفل في Messaggi يظهر الخطأ Incompatible types: الـ Caption تريد String، و7 هو Integer. صحّح هكذا واضغط F9: يظهر 7. ثم أرجع 'APERTO'.</p><p class="zh" lang="zh">关掉你的程序。在 Apri 那行把 'APERTO' 改成 7（不加引号），按 F9。下面 Messaggi 里出现错误 Incompatible types：Caption 要的是 String，7 是 Integer。照下面改正，按 F9：出现 7。然后改回 'APERTO'。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">  Label1.Caption := IntToStr(7);</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="12"><span class="bollo">da fare</span><h2><span class="num">12</span>Fallo tuo: i tuoi colori</h2><p class="ar" lang="ar" dir="rtl">اجعله لك: ألوانك</p><p class="zh" lang="zh">做成你自己的：你的颜色</p><p>Cambia <code>clGreen</code> e <code>clRed</code> con i colori che vuoi: <code>clBlue</code>, <code>clPurple</code>, <code>clFuchsia</code>, <code>clNavy</code>, <code>clOlive</code>, <code>clTeal</code>. Poi clicca un punto vuoto della Form1 e nell'Ispettore oggetti cambia <b>Color</b> (lo sfondo). Chi ha finito: terzo bottone <b>Pausa</b> che scrive <i>TORNO SUBITO</i>.</p><p class="ar" lang="ar" dir="rtl">غيّر clGreen و clRed بالألوان التي تريدها: clBlue، clPurple، clFuchsia، clNavy، clOlive، clTeal. ثم انقر مكاناً فارغاً في Form1 وفي Ispettore oggetti غيّر Color (الخلفية). من أنهى: زر ثالث Pausa يكتب TORNO SUBITO.</p><p class="zh" lang="zh">把 clGreen 和 clRed 换成你喜欢的颜色：clBlue、clPurple、clFuchsia、clNavy、clOlive、clTeal。再点 Form1 的空白处，在 Ispettore oggetti 改 Color（背景）。做完的同学：第三个按钮 Pausa，写出 TORNO SUBITO。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<section class="card"><h2>Sei bloccato? Tre aiuti, uno alla volta · ثلاث مساعدات · 三个提示</h2>
+<details><summary>Aiuto 1: un indizio</summary><p>Ogni riga va tra <code>begin</code> e <code>end;</code> e finisce con <code>;</code>. La scritta va tra apici: <code>'APERTO'</code>. Il colore comincia con <code>cl</code>.</p><p class="ar" lang="ar" dir="rtl">كل سطر يوضع بين begin و end; وينتهي بـ ;. الكتابة توضع بين علامتي اقتباس: 'APERTO'. اللون يبدأ بـ cl.</p><p class="zh" lang="zh">每一行都写在 begin 和 end; 之间，以 ; 结尾。文字放在单引号里：'APERTO'。颜色以 cl 开头。</p></details>
+<details><summary>Aiuto 2: il pezzo di codice</summary><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Label1.Caption := &#x27;APERTO&#x27;;
+  Label1.Font.Color := clGreen;
+end;</pre></details>
+<details><summary>Aiuto 3: tutto unit1.pas</summary><p>Non copiare tutto: le righe in alto le scrive Lazarus da solo quando metti i pezzi nella Form. Tu scrivi solo le righe dentro le procedure.</p><p class="ar" lang="ar" dir="rtl">لا تنسخ كل شيء: الأسطر في الأعلى يكتبها Lazarus وحده عندما تضع القطع في الـ Form. أنت تكتب فقط الأسطر داخل الإجراءات.</p><p class="zh" lang="zh">不要全部照抄：上面那些行是你往 Form 里放组件时 Lazarus 自己写的。你只写过程里面的那几行。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Label1.Caption := &#x27;APERTO&#x27;;
+  Label1.Font.Color := clGreen;
+end;
+
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Label1.Caption := &#x27;CHIUSO&#x27;;
+  Label1.Font.Color := clRed;
+end;
+
+end.
+</pre></details>
+</section>
+<section class="card"><h2>Spiegalo in 30 secondi</h2><p>Al compagno: perché <code>'APERTO'</code> ha gli apici e <code>7</code> no? Che cosa vuole la Caption?</p><p class="ar" lang="ar" dir="rtl">لزميلك: لماذا 'APERTO' لها علامات اقتباس و7 لا؟ ماذا تريد الـ Caption؟</p><p class="zh" lang="zh">对同桌说：为什么 'APERTO' 有引号而 7 没有？Caption 要的是什么？</p></section>
+<h2 style="margin-top:22px">Consegna: unit1.pas + screenshot · التسليم · 提交</h2>
+<section class="card" style="border:3px solid var(--ok)"><p>Si consegnano SEMPRE due file: <code>unit1.pas</code> (il tuo codice) e lo screenshot del programma che gira. Prima fai lo screenshot (passo C1), poi apri la pagina di consegna: scegli i due file e premi un bottone.</p><p class="ar" lang="ar" dir="rtl">نسلّم دائماً ملفين: unit1.pas (الكود) ولقطة شاشة للبرنامج وهو يعمل. أولاً خذ لقطة الشاشة (الخطوة C1)، ثم افتح صفحة التسليم: اختر الملفين واضغط زراً واحداً.</p><p class="zh" lang="zh">永远提交两个文件：unit1.pas（你的代码）和程序运行时的截图。先截图（C1 步），再打开提交页面：选两个文件，按一个按钮。</p><a class="bt v" href="consegna.html?ora=1" target="_blank" rel="noopener">Consegna con un bottone · سلّم بزر واحد · 一键提交</a>
+<p><b>Se il bottone non funziona:</b> consegna su Classroom con i passi C2-C5 qui sotto. · <span lang="ar">إذا لم يعمل الزر: سلّم على Classroom بالخطوات C2-C5.</span> · <span lang="zh">如果按钮不能用：按下面 C2-C5 步在 Classroom 提交。</span></p></section>
+<div class="passo" data-p="C1"><span class="bollo">da fare</span><h2><span class="num">C1</span>Lo screenshot del programma che gira</h2><p class="ar" lang="ar" dir="rtl">لقطة شاشة للبرنامج وهو يعمل</p><p class="zh" lang="zh">程序运行时的截图</p><p>Premi <b>F9</b>: il tuo programma è aperto. Premi insieme <b>Win + Shift + S</b> e con il mouse disegna un rettangolo intorno alla tua finestra. In basso a destra clicca l'avviso <b>Ritaglio</b>: si apre lo Strumento di cattura. Premi <b>Ctrl + S</b>, a sinistra clicca <b>Documenti</b>, doppio clic sulla cartella <b>cartello</b>, in <b>Nome file</b> scrivi il nome qui sotto e clicca <b>Salva</b>.</p><p class="ar" lang="ar" dir="rtl">اضغط F9: برنامجك مفتوح. اضغط معاً Win + Shift + S وارسم بالفأرة مستطيلاً حول نافذتك. في الأسفل يميناً انقر الإشعار: تفتح أداة القص. اضغط Ctrl + S، يساراً انقر Documenti، انقر مرتين على المجلد cartello، في Nome file اكتب الاسم أدناه وانقر Salva.</p><p class="zh" lang="zh">按 F9：你的程序打开了。同时按 Win + Shift + S，用鼠标在你的窗口周围画一个方框。点右下角的截图通知：打开截图工具。按 Ctrl + S，左边点 Documenti，双击文件夹 cartello，在 Nome file 写下面的名字，点 Salva。</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">ora1_screenshot.png</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C2"><span class="bollo">da fare</span><h2><span class="num">C2</span>Trova unit1.pas</h2><p class="ar" lang="ar" dir="rtl">اعثر على unit1.pas</p><p class="zh" lang="zh">找到 unit1.pas</p><p>Premi <b>Win + E</b> (Esplora file). A sinistra clicca <b>Documenti</b> e fai doppio clic sulla cartella <b>cartello</b>. In alto clicca <b>Visualizza</b> → <b>Mostra</b> → <b>Estensioni nomi file</b>: ora vedi le lettere dopo il punto. Il file del tuo codice è <code>unit1.pas</code>.</p><p class="ar" lang="ar" dir="rtl">اضغط Win + E. يساراً انقر Documenti وانقر مرتين على المجلد cartello. في الأعلى Visualizza ← Mostra ← Estensioni nomi file: الآن ترى الحروف بعد النقطة. ملف الكود هو unit1.pas.</p><p class="zh" lang="zh">按 Win + E（文件资源管理器）。左边点 Documenti，双击文件夹 cartello。上方点 Visualizza → Mostra → Estensioni nomi file：现在能看到点后面的字母。你的代码文件是 unit1.pas。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C3"><span class="bollo">da fare</span><h2><span class="num">C3</span>Fai la copia da consegnare</h2><p class="ar" lang="ar" dir="rtl">اصنع نسخة للتسليم</p><p class="zh" lang="zh">做一个要提交的副本</p><p>Clicca una volta <code>unit1.pas</code>. Premi <b>Ctrl + C</b> e poi <b>Ctrl + V</b>: compare <code>unit1 - Copia.pas</code>. Cliccala una volta, premi <b>F2</b>, scrivi il nome qui sotto e premi Invio. (L'originale <code>unit1.pas</code> resta lì: il progetto funziona ancora.)</p><p class="ar" lang="ar" dir="rtl">انقر مرة على unit1.pas. اضغط Ctrl + C ثم Ctrl + V: يظهر unit1 - Copia.pas. انقر عليه مرة، اضغط F2، اكتب الاسم أدناه واضغط Invio. (الأصلي unit1.pas يبقى: المشروع يعمل.)</p><p class="zh" lang="zh">点一下 unit1.pas。按 Ctrl + C，再按 Ctrl + V：出现 unit1 - Copia.pas。点它一下，按 F2，写下面的名字，按回车。（原来的 unit1.pas 还在：项目照样能用。）</p><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">ora1_unit1.pas</pre><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C4"><span class="bollo">da fare</span><h2><span class="num">C4</span>Su Classroom: aggiungi i due file</h2><p class="ar" lang="ar" dir="rtl">على Classroom: أضف الملفين</p><p class="zh" lang="zh">在 Classroom：添加两个文件</p><p>Apri il compito <b>Ora 1 · Il cartello</b> su Classroom. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>cartello</b>, scegli <code>ora1_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora1_screenshot.png</code>.</p><p class="ar" lang="ar" dir="rtl">افتح الواجب Ora 1 · Il cartello على Classroom. يميناً في مربع Il tuo lavoro انقر + Aggiungi o crea ← File ← Sfoglia. اذهب إلى Documenti ← cartello، اختر ora1_unit1.pas وانقر Apri. كرّر نفس الشيء لـ ora1_screenshot.png.</p><p class="zh" lang="zh">在 Classroom 打开作业 Ora 1 · Il cartello。右边 Il tuo lavoro 框里点 + Aggiungi o crea → File → Sfoglia。进入 Documenti → cartello，选 ora1_unit1.pas，点 Apri。对 ora1_screenshot.png 再做一次。</p><button class="fb">Fatto! · تم · 完成</button></div>
+<div class="passo" data-p="C5"><span class="bollo">da fare</span><h2><span class="num">C5</span>Consegna</h2><p class="ar" lang="ar" dir="rtl">سلّم</p><p class="zh" lang="zh">提交</p><p>Nel riquadro <b>Il tuo lavoro</b> vedi i due file: <code>ora1_unit1.pas</code> e <code>ora1_screenshot.png</code>. Clicca <b>Consegna</b> e poi ancora <b>Consegna</b>. FATTO!</p><p class="ar" lang="ar" dir="rtl">في مربع Il tuo lavoro ترى الملفين. انقر Consegna ثم Consegna مرة أخرى. تم!</p><p class="zh" lang="zh">在 Il tuo lavoro 框里看到两个文件。点 Consegna，再点一次 Consegna。完成！</p><button class="fb">Fatto! · تم · 完成</button></div>
+<section class="card chk"><h2>Controllo finale: lo so fare? · هل أعرف؟ · 我会了吗？</h2>
+<label><input type="checkbox" data-k="0"><span>So dire che cos'è una String e che cos'è un Integer, con un esempio.<br><span class="ar" lang="ar" dir="rtl" style="display:block">أعرف أن أقول ما هي String وما هو Integer، مع مثال.</span><span class="zh" lang="zh" style="display:block">我能说出什么是 String、什么是 Integer，并举例。</span></span></label>
+<label><input type="checkbox" data-k="1"><span>So perché '5' + '3' fa '53' e 5 + 3 fa 8.<br><span class="ar" lang="ar" dir="rtl" style="display:block">أعرف لماذا '5' + '3' تعطي '53' و5 + 3 تعطي 8.</span><span class="zh" lang="zh" style="display:block">我知道为什么 '5' + '3' 是 '53'，而 5 + 3 是 8。</span></span></label>
+<label><input type="checkbox" data-k="2"><span>Il mio cartello cambia scritta e colore quando premo i bottoni.<br><span class="ar" lang="ar" dir="rtl" style="display:block">لافتتي تغيّر الكتابة واللون عندما أضغط الأزرار.</span><span class="zh" lang="zh" style="display:block">我按按钮时，牌子的文字和颜色会变。</span></span></label>
+<label><input type="checkbox" data-k="3"><span>Ho consegnato ora1_unit1.pas e ora1_screenshot.png.<br><span class="ar" lang="ar" dir="rtl" style="display:block">سلّمت ora1_unit1.pas و ora1_screenshot.png.</span><span class="zh" lang="zh" style="display:block">我提交了 ora1_unit1.pas 和 ora1_screenshot.png。</span></span></label>
+</section>
+<section class="card"><h2>Da ricopiare sul quaderno · انسخ في الدفتر · 抄在本子上</h2><div class="quad"><pre style="background:#0d1117;color:#e6edf3;padding:10px;border-radius:8px;white-space:pre-wrap">VARIABILE = una scatola con un nome dentro c&#x27;e&#x27; un valore
+STRING  = testo, sempre tra apici:   &#x27;Ciao&#x27;   &#x27;5&#x27;
+INTEGER = numero intero, senza apici:  5   12   -3
+&#x27;5&#x27; + &#x27;3&#x27; = &#x27;53&#x27;  (attacca)      5 + 3 = 8  (somma)
+Edit1.Text e Label1.Caption sono STRING
+StrToInt: da String a Integer    &#x27;7&#x27; -&gt; 7
+IntToStr: da Integer a String     7 -&gt; &#x27;7&#x27;</pre></div></section>
+<script>
+(function(){
+var ORA=1, K='lab3010-ora'+ORA, KN='lab3010-nome', CONF={};
+function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
+function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
+var S=prendi(K,{}), NOME=prendi(KN,'')||'', P=[].slice.call(document.querySelectorAll('.passo')), principali=P.filter(function(p){return /^\d+$/.test(p.dataset.p)});
+var inp=document.getElementById('nome'); inp.value=NOME;
+inp.addEventListener('change',function(){var v=inp.value.trim().replace(/\s+/g,' ');if(v.split(' ').length<2){document.getElementById('nomeok').textContent='Scrivi nome e cognome.';return}NOME=v;metti(KN,v);document.getElementById('nomeok').textContent='Ciao '+v+'!';ping(true)});
+fetch('config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){CONF=c||{}}).catch(function(){});
+var ultimo=-1;
+function ping(forza){   // stesso segnale di avanzamento delle pagine di teoria (modo «avanzamento», va nel Foglio di riserva)
+  if(!CONF.attivo||!CONF.invio||!NOME)return; var fatti=principali.filter(function(p){return S[p.dataset.p]}).length; if(fatti===ultimo&&!forza)return; ultimo=fatti;
+  var max=0;principali.forEach(function(p){if(S[p.dataset.p])max=Math.max(max,+p.dataset.p)});
+  var tit=max?principali[max-1].querySelector('h2').textContent.replace(/^\d+/,''):'';
+  var facili=['F1','F2','F3'].filter(function(k){return S[k]}).length, cons=['C1','C2','C3','C4','C5'].filter(function(k){return S[k]}).length;
+  var d={id:'avz-1inf-lab3010-ora'+ORA,modo:'avanzamento',classe:'1INF',nome:NOME,scheda:max,totale:principali.length,risposte:fatti,titolo:tit,facile:facili,consegna:cons,quando:new Date().toISOString()};
+  try{fetch(CONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}catch(x){}
+}
+function disegna(){
+  var prossimo=null; P.forEach(function(p){var f=!!S[p.dataset.p];p.classList.toggle('fatto',f);p.classList.remove('ora');p.querySelector('.bollo').textContent=f?'FATTO':'da fare';p.querySelector('.fb').textContent=f?'Fatto ✓ (clic per togliere)':'Fatto! · تم · 完成';if(!f&&!prossimo&&/^\d+$/.test(p.dataset.p))prossimo=p});
+  if(prossimo){prossimo.classList.add('ora');prossimo.querySelector('.bollo').textContent='ADESSO'}
+  var n=principali.filter(function(p){return S[p.dataset.p]}).length;document.getElementById('barra').style.width=Math.round(100*n/principali.length)+'%';
+  document.getElementById('conta').textContent='Passi fatti: '+n+' su '+principali.length;
+}
+P.forEach(function(p){p.querySelector('.fb').onclick=function(){S[p.dataset.p]=!S[p.dataset.p];metti(K,S);disegna();ping(false)}});
+var C=prendi(K+'-chk',{});[].forEach.call(document.querySelectorAll('.chk input'),function(c){c.checked=!!C[c.dataset.k];c.onchange=function(){C[c.dataset.k]=c.checked;metti(K+'-chk',C)}});
+disegna();setInterval(function(){ping(true)},120000);
+})();
+</script>
+</main></body></html>
