@@ -1,6 +1,6 @@
 # 00 Il cruscotto dal vivo del docente
 
-**Versione 1.1** — 21/10/2026 · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
+**Versione 1.2** — 29/10/2026 · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
 
 *Il framework nato e provato in classe con la 3INF il 19/10/2026 (lezione «Il mio sito diventa il mio portfolio», 18 allievi, 8:00-10:50). Una sola pagina dice al docente, per ogni allievo, che cosa sta facendo, che cosa ha fatto, che cosa gli manca e quanto vale. Il docente non controlla le pagine: guarda il cruscotto, va di persona da chi è fermo e dà a Claude le correzioni. Senza nomi di allievi.*
 
@@ -36,6 +36,8 @@
 5. **Voto proposto 40-80:** media dei voti che ci sono (esercizi, quiz, domande orali); chi non ha consegnato niente 40. Per DIDAweb la prova che resta è il quiz su Moduli.
 6. **APPROVATO da Nicola il 21/10/2026 («così va bene»):** questo è il modello del cruscotto per tutte le lezioni e tutte le classi. Colonne fisse: allievo e ultimo segnale · teoria e ripasso · esercizi della lezione · quiz su Moduli · domande orali (70/50) · Veyon e note · voto proposto 40-80. Una riga per ogni presente, ordine dal voto più alto, giallo chi è fermo. Si cambiano solo le attività del giorno nei parametri della pagina.
 7. **Storico:** i dati dei cruscotti si storicizzano sempre, per poterli riguardare (riservato `storico/cruscotti/<classe>/<data>/`; le consegne grezze in `dati/verifiche/<id>/arrivi/`).
+8. **Piano del giorno, tutte le classi (29/10/2026, Nicola: «avevo chiesto tutti insieme in una pagina»):** nel cruscotto unico `docs/cruscotto/`, linguetta «Piano del giorno», la voce «Tutte» del menu Classe mostra una sotto l'altra le proposte del giorno di ogni classe che ha un piano (in ordine di orario, con ore e disciplina, la consigliata evidenziata, la scelta segnata). Indirizzo: `cruscotto/?tab=piano&classe=tutte`; è la vista predefinita della linguetta quando l'indirizzo non dice la classe. Con «Tutte» le linguette di una classe sola (Oggi dal vivo, Chiedi aiuto, Domande, Scrivi a Claude) dicono «scegli una classe».
+9. **Bottoni del docente (29/10/2026):** in modalità Docente «Scelgo questa» c'è SEMPRE sotto ogni proposta e «Pubblica» sulla proposta scelta; il codice del docente si chiede al clic, se non è già stato scritto. Tutti e due mandano un messaggio sul canale `docente-<classe>` (tipo «scelta» o «pubblica»), che legge `strumenti/aspetta_scelta.sh` del riservato. La scelta definitiva sta nel campo «scelta» del piano (`docs/cruscotto/piano/<classe>-<giorno>.json`, numero della proposta). La barra in alto e le linguette restano ferme mentre la pagina scorre.
 
 ## 04 Le regole del cruscotto (sempre valide, 19/10/2026)
 
@@ -80,3 +82,4 @@
 ## 10 Registro delle versioni
 
 1. **v1.0 (19/10/2026):** prima versione, dalla lezione della 3INF: righe complete, 🏁, «manca», miniature, Veyon dentro il cruscotto, domande con risposta, voto proposto 40-80 con la regola delle domande, ordine dal più bravo, dati cifrati.
+2. **v1.2 (29/10/2026):** §04b punti 8 e 9: vista «Tutte le classi» del Piano del giorno, bottoni «Scelgo questa» e «Pubblica» sempre visibili per il docente, barra in alto fissa.
