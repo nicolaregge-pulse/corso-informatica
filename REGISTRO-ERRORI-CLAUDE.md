@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.92** — 29/10/2026 (#125-#143; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.93** — 29/10/2026 (#125-#144; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Il piano mostra ancora «Scelgo questa» e «Pubblica» dopo la pubblicazione; molti «risolto» non erano risolti (#144)
+
+1. **Errore.** Alle 11:30 il docente apre il «Piano del giorno» e vede ancora i bottoni «Scelgo questa» sulle proposte non scelte e «Pubblica» su quella scelta della 2INF, pubblicata alle 8:26: la pagina non legge che la lezione è già uscita su Classroom, e la proposta mostrata (teoria dei file) non è nemmeno quella fatta in aula (la calcolatrice). Il docente: «credo che ne hai risolti pochi di quelli che hai detto». Oggi più volte un problema è stato detto «sistemato» guardando il file e non la pagina che vede il docente (#140, #142).
+2. **Regola.** Un problema si dice risolto solo dopo averlo visto sparito nella pagina vera del docente (sito pubblicato, modalità Docente). Il piano del giorno, dopo la pubblicazione, mostra solo la proposta fatta con l'ora di uscita su Classroom e nessun bottone; se in aula si è cambiato lavoro, lo scrive. A fine giornata si rilegge l'elenco dei «risolto» del giorno e si controlla ognuno sul sito vero.
 
 ## 29/10/2026 — Troppi aiutanti: consumano i token e non migliorano la qualità (#143)
 
