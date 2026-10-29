@@ -36,6 +36,8 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 .prop{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:10px 12px;margin:0 0 10px}
 .prop.pref{border:2px solid #d4a017;background:#fffbea}
 .prop.scelta{border:2px solid #1e8e3e;background:#e9f7ee}
+.btn.big{display:block;width:100%;font-size:19px;font-weight:700;padding:14px 16px;margin-top:8px}
+.scok{display:block;margin-top:6px;font-weight:700;color:#1e8e3e}
 .prop b.n{display:inline-block;min-width:24px}
 .et{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
 .et.v{background:#1e8e3e;color:#fff}.et.g{background:#d4a017;color:#fff}
@@ -235,19 +237,20 @@ function pianoMancante() {
 function disegnaPiano() {
   var p = PIANO, h = '';
   if (!p) { pianoMancante(); return; }
-  var props = p.proposte || [], scelta = props.filter(function (x) { return x.n === p.scelta; })[0];
+  var props = p.proposte || [], sn = p.scelta || sceltaLocale(p), scelta = props.filter(function (x) { return x.n === sn; })[0];
   if (PROVA) h += BANNER;
   h += '<h2>Piano del giorno · ' + esc(p.classe) + ' · ' + esc(String(p.giorno || '').split('-').reverse().join('/')) + '</h2>';
   function prop(x) {
-    var cl = x.n === p.scelta ? ' scelta' : (x.preferita && ruolo === 'docente' ? ' pref' : '');
+    var cl = x.n === sn ? ' scelta' : (x.preferita && ruolo === 'docente' ? ' pref' : '');
     return '<div class="prop' + cl + '"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b>' +
-      (x.n === p.scelta ? '<span class="et v">SCELTA</span>' : '') + (x.preferita && ruolo === 'docente' ? '<span class="et g">CONSIGLIATA</span>' : '') +
+      (x.n === sn ? '<span class="et v">SCELTA</span>' : '') + (x.preferita && ruolo === 'docente' ? '<span class="et g">CONSIGLIATA</span>' : '') +
       (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') +
-      (ruolo === 'docente' && TOK_OK && x.n !== p.scelta ? '<p><button class="btn sec" data-scegli="' + esc(x.n) + '">Scegli questa</button> <span id="sc-' + esc(x.n) + '"></span></p>' : '') + '</div>';
+      (ruolo === 'docente' && x.n === sn && SCELTA_MSG[chiaveScelta(p)] ? '<span class="scok">' + esc(SCELTA_MSG[chiaveScelta(p)]) + '</span>' : '') +
+      (ruolo === 'docente' && (TOK_OK || PROVA) && x.n !== sn && !p.scelta ? '<button class="btn big" data-scegli="' + esc(x.n) + '">Scelgo questa</button><span id="sc-' + esc(x.n) + '"></span>' : '') + '</div>';
   }
   if (ruolo === 'docente') {
     if ((p.modalita || []).length) h += '<p>' + p.modalita.map(function (m) { return '<span class="chip">' + esc(MOD[m] || m) + '</span>'; }).join('') + '</p>';
-    if (!scelta) h += '<p class="manca">Nessuna proposta ancora scelta: dilla a Claude in chat.</p>';
+    if (!scelta) h += '<p class="manca">Nessuna proposta ancora scelta: premi «Scelgo questa» sotto la proposta che vuoi. Claude prepara subito il materiale e lo pubblica per i ragazzi solo quando scrivi «pubblica».</p>';
     h += props.map(prop).join('');
     if (p.mancanze) h += '<p class="manca"><b>Che cosa manca alla classe:</b> ' + esc(p.mancanze) + '</p>';
   } else {
@@ -258,10 +261,27 @@ function disegnaPiano() {
   $('piano').innerHTML = h;
   Array.prototype.forEach.call(document.querySelectorAll('[data-scegli]'), function (b) {
     b.onclick = function () {
-      var n = +b.dataset.scegli, t = (props.filter(function (x) { return x.n === n; })[0] || {}).titolo || '';
-      invia({tipo: 'scelta', proposta: n, testo: 'Scelgo la proposta ' + n + ': ' + t}, $('sc-' + n), b);
+      var n = +b.dataset.scegli, t = (props.filter(function (x) { return x.n === n; })[0] || {}).titolo || '', st = $('sc-' + n);
+      var fatto = function () {
+        var k = chiaveScelta(p), msg = 'Scelta inviata a Claude alle ' + hhmm(new Date()) + ': sto preparando il materiale' + (PROVA ? ' (PROVA: non è partito niente)' : '');
+        SCELTA_MSG[k] = msg; try { localStorage.setItem('cruscotto-scelta-' + k, JSON.stringify({n: n, msg: msg})); } catch (e) {}
+        disegnaPiano();
+      };
+      // 29/10/2026 (Nicola): «Scelgo questa» manda un messaggio «scelta» sul canale docente-<classe>, come la spunta Priorità.
+      if (PROVA) { b.disabled = true; st.textContent = 'Sto mandando…'; setTimeout(fatto, 300); return; }
+      invia({tipo: 'scelta', proposta: n, titolo: t, classe: p.classe || $('classe').value, giorno: p.giorno || $('giorno').value || oggi(),
+        testo: 'Scelgo la proposta ' + n + ': ' + t}, st, b).then(function (ok) { if (ok) fatto(); });
     };
   });
+}
+// Scelta ricordata sul dispositivo (29/10/2026): vale finché il json del piano non ha «scelta» valorizzato.
+var SCELTA_MSG = {};
+function chiaveScelta(p) { return (PROVA ? 'prova-' : '') + String(p.classe || '').toLowerCase() + '-' + (p.giorno || ''); }
+function sceltaLocale(p) {
+  var k = chiaveScelta(p), v = null;
+  try { v = JSON.parse(localStorage.getItem('cruscotto-scelta-' + k) || 'null'); } catch (e) {}
+  if (v && v.msg && !SCELTA_MSG[k]) SCELTA_MSG[k] = v.msg;
+  return v ? v.n : null;
 }
 // ---- Canale del docente (28/10/2026, Nicola: «il cruscotto è anche il posto dove io comunico») ----
 // Stesso canale della casella dell'assistente: POST allo script (config.json → invio), id «docente-<classe>»:

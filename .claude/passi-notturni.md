@@ -1,6 +1,6 @@
 # 00 Passi notturni obbligatori della Chat del giorno
 
-**Versione 1.3** — 29/10/2026 — documento interno di Claude
+**Versione 1.4** — 29/10/2026 — documento interno di Claude
 
 La Chat del giorno (attività programmata, lunedì-venerdì) li esegue TUTTI, in quest'ordine, dopo aver riletto le regole e prima del messaggio del mattino al docente. Ogni passo nasce da voci del registro degli errori (numero tra parentesi); la mappa completa è `MAPPA-REGOLE-CONTROLLI.md`. Nel messaggio del mattino va solo ciò che resta ROSSO e blocca la lezione.
 
@@ -61,7 +61,7 @@ python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py 1I
 
 ## 04 Cruscotto unico: piano, riepilogo, orario (ogni notte)
 
-1. Piano del giorno nel cruscotto unico (28/10/2026): per ogni classe del giorno (dall'orario `orario/settimana-*.md`: 1INF, 2INF, 3INF e anche la 4TI, la quarta, il martedì dalla 3ª alla 5ª ora; 29/10/2026) scrivi `docs/cruscotto/piano/<classe>-<giorno>.json` (classe minuscola, giorno AAAA-MM-GG) con le proposte: `{"classe","giorno","modalita":[versioning|guidato|teoria-quiz],"proposte":[{"n","titolo","descrizione","preferita"}],"scelta":null,"link":[{"t","u"}],"mancanze"}`; gli indirizzi `u` sono relativi alla cartella `docs/`; NIENTE nomi di allievi (repository pubblico). Quando Nicola sceglie, aggiorna "scelta" con il numero della proposta, commit e push. I file dei giorni passati restano: si rivedono scegliendo la data nel cruscotto.
+1. Piano del giorno nel cruscotto unico (28/10/2026): per ogni classe del giorno (dall'orario `orario/settimana-*.md`: 1INF, 2INF, 3INF e anche la 4TI, la quarta, il martedì dalla 3ª alla 5ª ora; 29/10/2026) scrivi `docs/cruscotto/piano/<classe>-<giorno>.json` (classe minuscola, giorno AAAA-MM-GG) con le proposte: `{"classe","giorno","modalita":[versioning|guidato|teoria-quiz],"proposte":[{"n","titolo","descrizione","preferita"}],"scelta":null,"link":[{"t","u"}],"mancanze"}`; gli indirizzi `u` sono relativi alla cartella `docs/`; NIENTE nomi di allievi (repository pubblico). Quando Nicola sceglie, aggiorna "scelta" con il numero della proposta, commit e push. I file dei giorni passati restano: si rivedono scegliendo la data nel cruscotto. Aggiornata il 29/10/2026 (Nicola): Nicola sceglie una delle 3 proposte con il bottone "Scelgo questa" nel cruscotto; Claude prepara subito tutto il materiale e pubblica per i ragazzi SOLO quando Nicola scrive "pubblica". La scelta arriva in `dati/verifiche/docente-<classe>/arrivi/` del riservato (messaggio di tipo «scelta»): la si aspetta con `bash strumenti/aspetta_scelta.sh <minuti>` nel riservato.
 
 2. Riepilogo del cruscotto (28/10/2026, Nicola: «che cosa è successo negli ultimi giorni, cose fatte e cose non finite»): ogni notte, dopo i controlli, e a fine giornata (dopo aver aggiornato ARGOMENTI-SVOLTI-2026-27.md e PROSSIME-LEZIONI.md) rigenera la linguetta «Riepilogo» del cruscotto unico (`docs/cruscotto/riepilogo.json`, CIFRATO, ultime 2 settimane, tutte le classi), poi commit e push del pubblico; controlla 2 righe con la fonte vera (#134).
 
@@ -109,3 +109,4 @@ python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
 2. v1.1 (28/10/2026 sera, audit): i passi 15-21 aggiunti dopo il changelog sono stati rimessi al loro posto (02.15; sezioni 04 e 05); nuovo passo 04.3 (orario delle lezioni per le pagine); nuova sezione 06, ultimo passo obbligatorio con `controlla_controlli.py` e `stato/notte-<giorno>.json`.
 3. v1.2 (28/10/2026): passo 02.12 allineato alla regola 27 di `CLAUDE.md`: compito del mattino SENZA scadenza.
 4. v1.3 (29/10/2026): passo 04.1, la quarta (4TI, martedì 3ª-5ª ora) è tra le classi a cui si preparano le 3 proposte.
+5. v1.4 (29/10/2026): passo 04.1, Nicola sceglie con il bottone «Scelgo questa» del cruscotto; Claude prepara subito e pubblica per i ragazzi solo dopo «pubblica»; `aspetta_scelta.sh` nel riservato.
