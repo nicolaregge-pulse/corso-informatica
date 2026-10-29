@@ -1,0 +1,57 @@
+{
+ "classe": "2INF",
+ "giorno": "2026-10-29",
+ "modalita": [
+  "versioning",
+  "guidato",
+  "teoria-quiz"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "GitHub in ordine, poi il Salvadanaio caricato con il suo commit",
+   "descrizione": "Modalità: versioning + percorso guidato. Obiettivo: a fine mattina ogni repository «lazarus» ha una cartella per progetto, solo i file giusti (.lpi .lpr .pas .lfm) e il Salvadanaio dentro. Attività: 1ª ora: ognuno segue la pagina «Il mio GitHub in ordine», che legge il suo repository e dice il passo successivo. 2ª e 3ª ora: chi ha il repository in ordine finisce il Salvadanaio con FOR e WHILE e lo carica nella cartella «salvadanaio» con un messaggio di commit chiaro; chi finisce scrive il README con l'elenco dei progetti. Prima vittoria (entro 10 minuti): il controllo automatico della pagina segna un passo in più verde (per esempio la cartella backup cancellata). Consegna: il repository su GitHub (lo legge il controllo automatico) e la verifica del Salvadanaio. Controllo: controllo automatico del repository nel cruscotto, verifica del Salvadanaio, giro di Veyon. Chi è indietro: percorso facilitato di 3 passi: cancella lib e backup, cancella il file .exe, una cartella per ogni progetto. Il Salvadanaio si fa nella versione facile.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Recupero dei cicli: l'app FOR «da… a…» e il Salvadanaio",
+   "descrizione": "Modalità: percorso guidato + versioning. Obiettivo: chiudere i lavori sui cicli che mancano (l'app FOR del 15/10 non è su Classroom per molti). Attività: 1ª ora: l'app FOR guidata passo passo; 2ª ora: il Salvadanaio con FOR e WHILE; 3ª ora: si caricano le due app su GitHub, una cartella ciascuna. Prima vittoria (entro 10 minuti): il programma FOR conta da un numero all'altro nel Memo. Consegna: le due app in due cartelle del repository «lazarus» e la verifica del Salvadanaio. Controllo: verifica del Salvadanaio e controllo automatico del repository nel cruscotto. Chi è indietro: chi ha già fatto le app passa alla proposta 1 (ordine del repository e README).",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Teoria e verifica: i file di un progetto Lazarus e GitHub",
+   "descrizione": "Modalità: teoria a schede + verifica, poi versioning. Obiettivo: saper dire a voce quali file vanno su GitHub e perché il file .exe no. Attività: 1ª ora: la dispensa «I file di un progetto Lazarus» e la verifica «Il mio repository lazarus in ordine»; 2ª e 3ª ora: si mette in pratica sul proprio repository con la pagina «Il mio GitHub in ordine». Prima vittoria (entro 10 minuti): la prima domanda della verifica giusta (quali file vanno su GitHub). Consegna: la verifica e il repository in ordine. Controllo: risultati della verifica e controllo automatico del repository nel cruscotto. Chi è indietro: recupero della verifica nella stessa pagina; percorso facilitato di 3 passi sul repository.",
+   "preferita": false
+  }
+ ],
+ "scelta": 1,
+ "link": [
+  {
+   "t": "Il mio GitHub in ordine",
+   "u": "2inf-github-ordine/"
+  },
+  {
+   "t": "I file di un progetto Lazarus",
+   "u": "2inf-file-lazarus/"
+  },
+  {
+   "t": "Il mio salvadanaio: FOR e WHILE",
+   "u": "verifica/?b=2inf-salvadanaio"
+  },
+  {
+   "t": "La verifica: il repository lazarus in ordine",
+   "u": "verifica/?b=2inf-github"
+  },
+  {
+   "t": "La mia giornata",
+   "u": "2inf-oggi/"
+  },
+  {
+   "t": "Il monitor della lezione",
+   "u": "2inf-monitor/"
+  }
+ ],
+ "mancanze": "PROVA: Al controllo del 27/10 solo 3 repository «lazarus» su 19 erano in ordine; l'app FOR del 15/10 risulta consegnata su Classroom da 7 su 20; 2 quiz di sicurezza (3ª e 4ª ora) da recuperare. Elenco per allievo nel riservato: report/2026-10-29/mancanze-2inf.md."
+}
