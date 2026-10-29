@@ -24,6 +24,7 @@ Argomento: la seconda ora di sicurezza della Regione, prevenzione e protezione.
 Attività: otto schede brevi con casi veri di casa, aula, strada, sport e lavoretti, in italiano con una riga in arabo e in cinese; il ripasso; poi i venti casi del quiz su Google Moduli. Sul quaderno si ricopiano le due definizioni e la regola d'oro: prima togli il pericolo, poi proteggiti.
 Materiali: la pagina «Sicurezza 2: prevenzione e protezione» e il quiz su Moduli, che si crea quando il prof dà il via.
 Da fare prima: il prof guarda la pagina e dà il via al quiz.
+Aggiunta delle 13:30: chi ha finito la seconda ora passa subito alla terza, «Sicurezza 3: prevenzione aziendale», con le otto schede su chi si occupa della sicurezza al lavoro, il ripasso e il suo quiz su Moduli. Sul quaderno si ricopiano che cosa sono l'RLS e il DVR.
 
 ## Venerdì 30 ottobre
 
