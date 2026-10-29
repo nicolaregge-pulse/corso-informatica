@@ -237,6 +237,9 @@ CLASSI["2INF"] = {
         dict(data="2026-10-28", slug="sicurezza-ripasso", titolo="Sicurezza: ripasso delle ore 1-4", ore="1 ora, Sicurezza",
              fatto="Ripasso delle ore 1-4 della formazione generale e recupero dei quiz mancanti su Moduli.",
              fonti=[("html", "docs/2inf-sicurezza-recupero/index.html")]),
+        dict(data="2026-10-29", slug="calcolatrice-da-zero", titolo="La calcolatrice da zero, con Git", ore="2 ore, Informatica",
+             fatto="La calcolatrice rifatta da zero a passi guidati (V 1.0 con + e x, dalla lavagna), salvata in Documenti\\Lazarus\\calcolatrice e caricata su GitHub con un commit; per chi finisce la V 2.0 (: e −) con il secondo commit; Documento con gli screenshot su Classroom.",
+             fonti=[("md", "classe-2/calcolatrice-da-zero/calcolatrice-da-zero.md")]),
     ],
 }
 
