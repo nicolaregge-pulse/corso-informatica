@@ -51,6 +51,20 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 .pmeta{font-size:14px;color:var(--mu)}
 .plink summary{cursor:pointer;font-size:15px;margin:4px 0 8px;color:var(--blu)}
 #avvisoCl .btn{margin:0 6px 8px 0}
+/* 29/10/2026 (Nicola): bottone rosso «Serve te» nella barra fissa, con il riquadro delle sole cose che richiedono il docente */
+.serve{font-size:18px;font-weight:700;padding:10px 18px;min-height:46px;border:0;border-radius:10px;background:#c0392b;color:#fff;cursor:pointer;margin-left:auto}
+.serve.grigio{background:#8a939e;font-weight:600}
+#critBox{position:absolute;left:0;right:0;top:100%;max-height:75vh;overflow:auto;background:#fff;border-bottom:3px solid #c0392b;box-shadow:0 6px 16px rgba(0,0,0,.18);padding:10px 16px 14px;box-sizing:border-box}
+#critBox .critTesta{display:flex;align-items:center;justify-content:space-between;gap:10px}
+#critBox h2{font-size:19px;margin:4px 0;color:#c0392b}
+#critBox .cv{border:2px solid #c0392b;border-radius:10px;padding:8px 12px;margin:0 0 10px;max-width:900px}
+#critBox .cv.fatta{border:1px solid var(--bordo);opacity:.75}
+#critBox .cv p{margin:4px 0;font-size:16px}
+#critBox .cv .az{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+#critBox .cv .az .btn{font-size:17px;padding:10px 18px;min-height:44px}
+#critBox .cl{display:inline-block;font-weight:700;padding:1px 8px;border-radius:6px;background:#e3ecfb;color:#163d7a}
+#critBox .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+#critBox .cod input{font-size:16px;padding:9px;border:1px solid var(--bordo);border-radius:8px;flex:1 1 180px;min-width:0;max-width:280px}
 .et{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
 .et.v{background:#1e8e3e;color:#fff}.et.g{background:#d4a017;color:#fff}
 .prop p{margin:6px 0 0;font-size:15px;line-height:1.4}
@@ -119,10 +133,12 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
   <label>Classe <select id="classe"><option value="TUTTE">Tutte</option><option>1INF</option><option selected>2INF</option><option>3INF</option><option>4TI</option></select></label>
   <label>Giorno <input type="date" id="giorno"></label>
   <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
+  <button id="serveTe" class="serve" style="display:none">Serve te (?)</button>
 </header>
 <nav id="tabs">
   <button data-t="oggi">Oggi dal vivo</button><button data-t="piano">Piano del giorno</button><button data-t="aiuto">Chiedi aiuto</button><button data-t="domande">Domande dei ragazzi</button><button data-t="scrivi">Scrivi a Claude</button><button data-t="uscite">Uscite</button><button data-t="script">Script e ponte</button><button data-t="riepilogo">Riepilogo</button>
 </nav>
+<div id="critBox" style="display:none"></div>
 </div>
 <div class="box" id="avvisoCl" style="display:none"></div>
 <p id="nota"></p>
@@ -238,6 +254,7 @@ function linguette() {
   $('nota').style.display = eff === 'oggi' ? '' : 'none';
   Array.prototype.forEach.call(document.querySelectorAll('.nocod'), function (x) { x.style.display = TOK_OK ? 'none' : ''; });
   $('scInvia').disabled = !TOK_OK;
+  if (typeof disegnaCrit === 'function' && $('serveTe').onclick) disegnaCrit();
   if (serve) return;
   if (eff === 'aiuto') casellaAiuto();
   if (eff === 'domande') caricaDomande();
@@ -694,6 +711,84 @@ function disegnaScript() {
   $('isto').innerHTML = '<div class="leg"><i style="background:#5b7fb3"></i>eseguiti<i style="background:#c0392b"></i>con errore · per ora del giorno (' + esc(p.oggi === oggi() ? 'oggi' : gg(p.oggi)) + ')</div>' +
     '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Comandi del ponte per ora">' + svg + '</svg>';
 }
+// ---- «Serve te» (29/10/2026, Nicola: «Dammi bottone rosso per le criticità che necessitano mio intervento, per il resto
+// prepara tutto, fai audit che funzioni, pubblica e risolvi tutti i casini da solo»). Regola 30 di CLAUDE.md.
+// Fonte: docs/cruscotto/criticita.json, scritto da Claude (cifrato con strumenti/cifra_json.py se ha nomi, #85), riletto ogni minuto.
+// Formato: {aggiornato: "29/10/2026 08:58", voci: [{id, classe, ora, entro, cosa, bottoni?: ["Fatto"], vai?: {classe, tab}}]}
+// «Fatto» manda un messaggio tipo «fatto» sul canale docente-<classe>, come «Scelgo questa».
+var CRIT = null, CRIT_LETTO = null, CRIT_ERR = '', CRIT_APERTO = false, CRIT_MSG = {};
+function critFatte() { var F = null; try { F = JSON.parse(localStorage.getItem('cruscotto-crit-fatte' + (PROVA ? '-prova' : '')) || 'null'); } catch (e) {} return F || {}; }
+function critSegna(id, msg) { var F = critFatte(); F[id] = {msg: msg, quando: Date.now()}; try { localStorage.setItem('cruscotto-crit-fatte' + (PROVA ? '-prova' : ''), JSON.stringify(F)); } catch (e) {} }
+function critVoci() { return (CRIT && CRIT.voci) || []; }
+function critAperte() { var F = critFatte(); return critVoci().filter(function (v) { return !F[v.id]; }); }
+async function caricaCrit() {
+  try {
+    var r = await fetch('criticita' + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'}); if (!r.ok) throw 0;
+    var d = await r.json();
+    if (d.cifrato) {
+      if (!TOK_OK) { CRIT_ERR = 'cifrato'; disegnaCrit(); return; }
+      d = await decifra(d);
+    }
+    CRIT = d; CRIT_ERR = ''; CRIT_LETTO = new Date();
+  } catch (e) { CRIT_ERR = 'manca'; }
+  disegnaCrit();
+}
+function disegnaCrit() {
+  var b = $('serveTe'), box = $('critBox'), doc = ruolo === 'docente';
+  b.style.display = doc ? '' : 'none';
+  if (!doc) { box.style.display = 'none'; return; }
+  var A = critAperte(), n = A.length, ignoto = CRIT_ERR && !CRIT;
+  b.textContent = ignoto ? 'Serve te (?)' : (n ? 'Serve te (' + n + ')' : 'Niente per te');
+  b.className = 'serve' + (!ignoto && !n ? ' grigio' : '');
+  box.style.display = CRIT_APERTO ? '' : 'none';
+  if (!CRIT_APERTO) return;
+  var h = '<div class="critTesta"><h2>' + (n ? 'Serve te: ' + n + (n === 1 ? ' cosa' : ' cose') : 'Niente per te') + '</h2><button class="btn sec" id="critChiudi">Chiudi</button></div>';
+  if (PROVA) h += BANNER;
+  h += '<p class="pmeta">Qui ci sono SOLO le cose che richiedono te; il resto lo fa Claude da solo. ' +
+    (CRIT ? 'Elenco scritto da Claude: ' + esc(CRIT.aggiornato || '?') + ' · riletto alle ' + hhmm(CRIT_LETTO) + ' (ogni minuto).' : '') + '</p>';
+  if (CRIT_ERR === 'cifrato' && !CRIT) h += '<p class="manca">L\'elenco contiene nomi: è cifrato. Scrivi il codice del docente nella linguetta «Oggi dal vivo» (o in un bottone «Fatto»).</p>';
+  else if (CRIT_ERR && !CRIT) h += '<p class="manca ko">Non riesco a leggere l\'elenco delle criticità (criticita.json): chiedi a Claude in chat.</p>';
+  else if (CRIT_ERR) h += '<p class="manca ko">Ultima lettura non riuscita: mostro l\'elenco letto alle ' + hhmm(CRIT_LETTO) + '.</p>';
+  var F = critFatte();
+  function voce(v, fatta) {
+    var bt = (v.bottoni && v.bottoni.length ? v.bottoni : ['Fatto']);
+    return '<div class="cv' + (fatta ? ' fatta' : '') + '" data-id="' + esc(v.id) + '"><div><span class="cl">' + esc(v.classe || 'tutte') + '</span> <b>' + esc(v.ora || '') + '</b>' +
+      (v.entro ? ' · <span class="ko">entro le ' + esc(v.entro) + '</span>' : '') + '</div><p>' + esc(v.cosa) + '</p>' +
+      (fatta ? '<span class="scok">' + esc(F[v.id].msg) + '</span>' :
+        '<div class="az">' + bt.map(function (t, i) { return '<button class="btn" data-fatto="' + i + '">' + esc(t) + '</button>'; }).join('') +
+        (v.vai ? '<button class="btn sec" data-vai="1">Apri</button>' : '') + '</div><span data-st="c"></span>') + '</div>';
+  }
+  h += A.map(function (v) { return voce(v, false); }).join('');
+  var G = critVoci().filter(function (v) { return F[v.id]; });
+  if (G.length) h += '<h3 class="pmeta">Già mandate a Claude da questo dispositivo</h3>' + G.map(function (v) { return voce(v, true); }).join('');
+  box.innerHTML = h;
+  $('critChiudi').onclick = function () { CRIT_APERTO = false; disegnaCrit(); };
+  Array.prototype.forEach.call(box.querySelectorAll('.cv:not(.fatta)'), function (el) {
+    var v = critVoci().filter(function (x) { return x.id === el.dataset.id; })[0]; if (!v) return;
+    var st = el.querySelector('[data-st="c"]');
+    Array.prototype.forEach.call(el.querySelectorAll('[data-fatto]'), function (b) {
+      b.onclick = function () {
+        var et = (v.bottoni && v.bottoni.length ? v.bottoni : ['Fatto'])[+b.dataset.fatto];
+        var cl = v.classe || (CLASSI.indexOf($('classe').value) >= 0 ? $('classe').value : 'tutte');
+        conCodice(st, function () {
+          invia({tipo: 'fatto', voce: v.id, esito: et, classe: cl, giorno: oggi(), testo: et + ': ' + v.cosa}, st, b).then(function (ok) {
+            if (!ok) return;
+            critSegna(v.id, 'Mandato a Claude alle ' + hhmm(new Date()) + ': «' + et + '»' + (PROVA ? ' (PROVA: non è partito niente)' : ''));
+            disegnaCrit();
+          });
+        });
+      };
+    });
+    var va = el.querySelector('[data-vai]');
+    if (va) va.onclick = function () {
+      CL_UTENTE = true; CL_AUTO = ''; if (v.vai.classe) $('classe').value = v.vai.classe;
+      if (v.vai.tab && TABS.indexOf(v.vai.tab) >= 0) tab = v.vai.tab;
+      CRIT_APERTO = false; mostra(); disegnaCrit(); window.scrollTo(0, 0);
+    };
+  });
+}
+$('serveTe').onclick = function () { CRIT_APERTO = !CRIT_APERTO; disegnaCrit(); };
+caricaCrit(); setInterval(caricaCrit, 60000);
 function scegli(r) { ruolo = r; if (typeof controllaCodice === 'function') setTimeout(controllaCodice, 0); $('allievo').className = r === 'allievo' ? 'on' : ''; $('docente').className = r === 'docente' ? 'on' : ''; mostra(); }
 $('allievo').onclick = function () { scegli('allievo'); };
 $('docente').onclick = function () { scegli('docente'); };
@@ -756,7 +851,7 @@ function controllaCodice() {
   var t = ''; try { t = sessionStorage.getItem('tokmon') || ''; } catch (e) {}
   if (!t || t === TOK_OK || t === provato) { levaAggiorna(); return; }
   provato = t;
-  provaCodice(t).then(function (ok) { if (ok) { TOK_OK = t; disegnaPiano(); linguette(); } levaAggiorna(); }).catch(function () { levaAggiorna(); });
+  provaCodice(t).then(function (ok) { if (ok) { TOK_OK = t; disegnaPiano(); linguette(); if (CRIT_ERR === 'cifrato') caricaCrit(); } levaAggiorna(); }).catch(function () { levaAggiorna(); });
 }
 setInterval(controllaCodice, 3000);   // il codice si scrive nella pagina docente qui sotto (stessa scheda): lo vedo da qui
 function hhmm(d) { return d.toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Rome'}); }

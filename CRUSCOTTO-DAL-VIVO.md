@@ -38,6 +38,7 @@
 7. **Storico:** i dati dei cruscotti si storicizzano sempre, per poterli riguardare (riservato `storico/cruscotti/<classe>/<data>/`; le consegne grezze in `dati/verifiche/<id>/arrivi/`).
 8. **Piano del giorno, tutte le classi (29/10/2026, Nicola: «avevo chiesto tutti insieme in una pagina»):** nel cruscotto unico `docs/cruscotto/`, linguetta «Piano del giorno», la voce «Tutte» del menu Classe mostra una sotto l'altra le proposte del giorno di ogni classe che ha un piano (in ordine di orario, con ore e disciplina, la consigliata evidenziata, la scelta segnata). Indirizzo: `cruscotto/?tab=piano&classe=tutte`; è la vista predefinita della linguetta quando l'indirizzo non dice la classe. Con «Tutte» le linguette di una classe sola (Oggi dal vivo, Chiedi aiuto, Domande, Scrivi a Claude) dicono «scegli una classe».
 9. **Bottoni del docente (29/10/2026):** in modalità Docente «Scelgo questa» c'è SEMPRE sotto ogni proposta e «Pubblica» sulla proposta scelta; il codice del docente si chiede al clic, se non è già stato scritto. Tutti e due mandano un messaggio sul canale `docente-<classe>` (tipo «scelta» o «pubblica»), che legge `strumenti/aspetta_scelta.sh` del riservato. La scelta definitiva sta nel campo «scelta» del piano (`docs/cruscotto/piano/<classe>-<giorno>.json`, numero della proposta). La barra in alto e le linguette restano ferme mentre la pagina scorre.
+10. **Bottone rosso «Serve te (N)» (29/10/2026, regola 30):** nella barra fissa, in modalità Docente e in tutte le linguette; apre il riquadro con le SOLE cose che richiedono il docente (da `docs/cruscotto/criticita.json`, riletto ogni minuto, con l'ora dell'ultimo aggiornamento), ognuna con classe, ora, che cosa fare e il bottone «Fatto» (canale `docente-<classe>`, tipo «fatto»). Grigio «Niente per te» quando non c'è niente.
 
 ## 04 Le regole del cruscotto (sempre valide, 19/10/2026)
 
@@ -82,4 +83,4 @@
 ## 10 Registro delle versioni
 
 1. **v1.0 (19/10/2026):** prima versione, dalla lezione della 3INF: righe complete, 🏁, «manca», miniature, Veyon dentro il cruscotto, domande con risposta, voto proposto 40-80 con la regola delle domande, ordine dal più bravo, dati cifrati.
-2. **v1.2 (29/10/2026):** §04b punti 8 e 9: vista «Tutte le classi» del Piano del giorno, bottoni «Scelgo questa» e «Pubblica» sempre visibili per il docente, barra in alto fissa.
+2. **v1.2 (29/10/2026):** §04b punti 8, 9 e 10: bottone rosso «Serve te», vista «Tutte le classi» del Piano del giorno, bottoni «Scelgo questa» e «Pubblica» sempre visibili per il docente, barra in alto fissa.
