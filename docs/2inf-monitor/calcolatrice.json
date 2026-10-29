@@ -1,5 +1,5 @@
 {
- "ora": "09:22",
+ "ora": "09:26",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -38,14 +38,14 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
     "titolo": false,
     "release": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Giorgio A.",
@@ -187,7 +187,7 @@
    "check": {
     "cartella": true,
     "file": true,
-    "pulita": false,
+    "pulita": true,
     "commit": false,
     "messaggio": false,
     "piu": true,
