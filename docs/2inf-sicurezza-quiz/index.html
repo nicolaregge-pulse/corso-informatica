@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Quiz sicurezza 2INF</title>
+<style>
+/* 2INF 29/10/2026: pagina dei RAGAZZI della situazione dei quiz di sicurezza (1ª e 2ª ora), solo «Nome C.». Dati: dati.json (generatore riservato 1inf_sicurezza_monitor.py) */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--ok:#1a7f37;--ko:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:14px 16px}h1{font-size:22px;margin:4px 0}.mu{color:var(--mu)}
+.box{background:var(--card);border-radius:12px;padding:10px 14px;margin:8px 0}.ar{direction:rtl;font-family:Amiri,serif}.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
+.tab{overflow-x:auto;max-width:100%;background:var(--card);border-radius:12px}table{border-collapse:separate;border-spacing:0;min-width:100%}td.al,th.al{position:sticky;left:0;background:var(--card);border-right:2px solid var(--ln);min-width:110px}th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;overflow-wrap:anywhere}
+.q{display:inline-block;font-weight:800;padding:4px 8px;border-radius:8px}.si{background:#1a7f37;color:#fff}.no{background:#c0392b;color:#fff}.nu{background:#f5c400;color:#1b2430}
+.dt{display:block;font-size:12px;color:var(--mu);white-space:nowrap}.q{white-space:nowrap}
+</style>
+</head>
+<body><div class="w">
+<h1>2INF Sicurezza: i tuoi quiz</h1>
+<div class="box">Trova il tuo nome: vedi se hai fatto il quiz della 1ª ora e quello di oggi. Se c'è ❌, fallo adesso. Hai consegnato e vedi ancora ❌? Aspetta 5 minuti e premi F5.
+
+</div>
+<div class="box"><b id="dato">Ultimo dato: —</b></div>
+<div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">In giallo: fatto oggi. In verde: fatto prima. Voto = 40 + 40 × punti / massimo. Domande? Chiedi all'assistente nella pagina della lezione.</p>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function c(o){if(!o)return '<td><span class="q no">❌</span></td>';return '<td><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.quando?' · '+e(o.quando):'')+'</span></td>'}
+function giro(){fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){var C=d.colonne||[];
+ document.getElementById('dato').textContent='Ultimo dato da Google Moduli: ore '+(d.dato?d.dato.slice(11,16):'—')+' · pagina aggiornata alle '+String(d.generato||'').slice(11,16);
+ document.getElementById('th').innerHTML='<th class="al">Alunno</th>'+C.map(function(x){return '<th>'+e(C.length>4?x.corta:x.etichetta)+'</th>'}).join('')+'<th>Che cosa manca</th>';
+ document.getElementById('t').innerHTML=(d.righe||[]).map(function(r){return '<tr><td class="al"><b>'+e(r.alunno)+'</b></td>'+C.map(function(x,j){return c(r.q[j])}).join('')+'<td>'+(r.manca.length?e(r.manca.join('; ')):'tutto fatto')+'</td></tr>'}).join('')}).catch(function(){})}
+giro();setInterval(giro,60000);
+</script>
+</body>
+</html>

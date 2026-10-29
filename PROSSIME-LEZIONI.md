@@ -1,44 +1,29 @@
 # Prossime lezioni
 
-Aggiornato giovedì 29 ottobre 2026, mattina. Prima la lezione più vicina.
-
-## Giovedì 29 ottobre
-
-### Seconda informatica, dalle 8 alle 11, Laboratorio professionale, tre ore
-
-Argomento: si continua con il repository GitHub e i progetti Lazarus.
-Attività proposta, da scegliere con il prof: nella prima ora ognuno mette in ordine il suo repository lazarus con la pagina «Il mio GitHub in ordine», che dice il passo successivo; poi si finisce il Salvadanaio con il FOR e il WHILE e lo si carica nella sua cartella con un messaggio di commit chiaro. Le altre due proposte sono il recupero dei cicli e la verifica sui file di un progetto Lazarus.
-Materiali: la pagina «Il mio GitHub in ordine», la dispensa «I file di un progetto Lazarus» e la pagina del Salvadanaio.
-Da fare prima: il prof sceglie una delle tre proposte nel cruscotto, alla linguetta «Piano del giorno».
-
-### Terza informatica, dalle 11 alle 13, Laboratorio professionale, due ore
-
-Argomento: Hello World in Java con Eclipse, si finisce e si consegna.
-Attività proposta: si riprende la guida di Eclipse portabile fino alla finestra con il bottone che scrive Hello World; poi la pagina con il confronto tra Lazarus e Java e il Documento su Classroom, da consegnare entro le 13. Le altre due proposte aggiungono, nella seconda ora, il progetto Java su GitHub oppure il recupero del sito personale.
-Materiali: la guida di Eclipse, la pagina «Java con Eclipse portabile» e la pagina «Hello World in Lazarus e in Java».
-Da fare prima: il prof sceglie la proposta nel cruscotto.
-
-### Prima informatica, dalle 13 alle 14, Sicurezza professionale, un'ora
-
-Argomento: la seconda ora di sicurezza della Regione, prevenzione e protezione.
-Attività: otto schede brevi con casi veri di casa, aula, strada, sport e lavoretti, in italiano con una riga in arabo e in cinese; il ripasso; poi i venti casi del quiz su Google Moduli. Sul quaderno si ricopiano le due definizioni e la regola d'oro: prima togli il pericolo, poi proteggiti.
-Materiali: la pagina «Sicurezza 2: prevenzione e protezione» e il quiz su Moduli, che si crea quando il prof dà il via.
-Da fare prima: il prof guarda la pagina e dà il via al quiz.
-Aggiunta delle 13:30: chi ha finito la seconda ora passa subito alla terza, «Sicurezza 3: prevenzione aziendale», con le otto schede su chi si occupa della sicurezza al lavoro, il ripasso e il suo quiz su Moduli. Sul quaderno si ricopiano che cosa sono l'RLS e il DVR.
+Aggiornato giovedì 29 ottobre 2026, sera. Prima la lezione più vicina.
 
 ## Venerdì 30 ottobre
 
 ### Prima informatica, dalle 8 alle 9, Tecnologia professionale, un'ora
 
-Argomento da decidere con il prof.
+Argomento proposto: il computer scrive in tutte le lingue, cioè da ASCII a Unicode e quanti byte pesa una lettera.
+Attività: otto schede in italiano, arabo e cinese con una casella dove ognuno scrive il suo nome nella sua lingua e vede il numero di ogni carattere; tre righe da ricopiare sul quaderno; il quiz su Google Moduli di quindici domande.
+Materiali: la pagina «Il computer scrive in tutte le lingue»; il quiz lo crea lo script insieme al compito in bozza.
+Da fare prima: il prof sceglie la proposta nel cruscotto e scrive pubblica.
 
 ### Seconda informatica, dalle 9 alle 10, Sicurezza professionale, un'ora
 
-Argomento da decidere con il prof.
+Argomento: la quinta ora di sicurezza della Regione, il rischio infortuni, prima ora della formazione specifica.
+Attività: otto schede e il ripasso su infortunio, quasi infortunio, infortunio in itinere, cause e INAIL; poi i venti casi del quiz su Google Moduli; chi finisce recupera le ore mancanti.
+Materiali: la pagina «Sicurezza, quinta ora: il rischio infortuni», la pagina dei propri quiz e la situazione quiz per il prof.
+Da fare prima: il prof scrive pubblica.
 
 ### Prima informatica, dalle 11 alle 14, Laboratorio professionale, tre ore
 
-Argomento da decidere con il prof.
+Argomento proposto: Lazarus, Ciao 2, cioè il saluto in una Label grande e colorata e il bottone Cancella.
+Attività: percorso a otto passi, con la versione facile di tre passi; chi non ha consegnato il Ciao di mercoledì lo fa prima. Si consegna un Documento su Classroom con il codice, lo screenshot e una frase. Sul quaderno si ricopia la differenza tra Edit e Label.
+Materiali: la pagina «Lazarus, Ciao 2: la Label e i colori» e il Documento modello nel compito in bozza.
+Da fare prima: il prof sceglie la proposta nel cruscotto e scrive pubblica.
 
 ## Martedì 3 novembre
 
