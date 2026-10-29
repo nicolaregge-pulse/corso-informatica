@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lazarus e Java</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* 3INF 29/10/2026 · percorso guidato «Lazarus e Java a confronto» · generata da classe-3/confronto-lazarus-java/_build/genera.py: non modificare a mano */
+:root{--bg:#f6f8fb;--card:#fff;--tx:#1d2733;--mu:#5b6573;--bd:#d5dbe3;--ac:#1f6feb;--ok:#2f855a;--ko:#c53030;--gi:#fff8d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#9fb0c0;--bd:#2f3b47;--ac:#58a6ff;--ok:#56c785;--ko:#ff7b72;--gi:#3a3214}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#9fb0c0;--bd:#2f3b47;--ac:#58a6ff;--ok:#56c785;--ko:#ff7b72;--gi:#3a3214}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Verdana,"Segoe UI",Arial,"Noto Sans Bengali","Nirmala UI","Vrinda",sans-serif;font-size:18px;line-height:1.55}
+main{max-width:880px;margin:0 auto;padding:10px 16px 60px}
+h1{font-size:1.5em;line-height:1.25;margin:12px 0 4px}h2{font-size:1.3em;margin:30px 0 8px;border-bottom:3px solid var(--ac);padding-bottom:4px}
+h3{font-size:1.1em;margin:0;line-height:1.3}p{margin:8px 0}a{color:var(--ac)}
+.bn{display:none;color:var(--mu);font-size:.92em;font-family:"Noto Sans Bengali","Nirmala UI","Vrinda",FreeSans,sans-serif}
+body.bn-on .bn{display:block}h2 .bn,h3 .bn{font-weight:normal;font-size:.8em}
+code,kbd{background:rgba(127,140,160,.15);border:1px solid var(--bd);border-radius:5px;padding:0 5px;font-family:Consolas,monospace;font-size:.92em;word-break:break-word}
+.barra{position:sticky;top:0;z-index:5;background:var(--ac);color:#fff;padding:6px 12px;font-weight:bold;font-size:.95em;display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.barra a{color:#fff}
+.banner{background:var(--gi);border:2px solid #d4a017;border-radius:10px;padding:8px 12px;margin:10px 0}
+.box{border-radius:10px;padding:8px 12px;margin:10px 0;border:2px solid}.box p{margin:4px 0}
+.nota{background:var(--gi);border-color:#d4a017}.guida{border-color:var(--ac)}.fatto-box{background:rgba(47,133,90,.12);border-color:var(--ok)}
+.val{border:3px solid var(--ok);border-radius:12px;padding:10px 14px;margin:12px 0;background:var(--card)}
+.val h2{margin:0 0 6px;border:0;font-size:1.15em}.val ol{margin:4px 0;padding-left:24px}
+.chi{background:var(--card);border:2px solid var(--ac);border-radius:12px;padding:10px 14px;margin:12px 0}
+.chi label{display:block;margin:6px 0;font-weight:bold}.chi input,.chi select{font:inherit;padding:6px 8px;border:1px solid var(--bd);border-radius:8px;width:100%;max-width:420px;background:var(--card);color:var(--tx)}
+.bottoni{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.bt{display:inline-block;text-decoration:none;font-weight:bold;border-radius:10px;padding:9px 14px;background:var(--ac);color:#fff;border:0;font:inherit;font-weight:bold;cursor:pointer}
+.bt.v{background:var(--ok)}.bt.g{background:#6e40c9}.bt.r{background:#b3541e}.bt-cl{background:#1a7f37;color:#fff}
+.passo{background:var(--card);border:2px solid var(--bd);border-radius:14px;padding:12px 14px;margin:14px 0}
+.passo.ok{border-color:var(--ok)}.passo.corrente{border:3px solid var(--ac);box-shadow:0 0 0 4px rgba(31,111,235,.15)}
+.passo.bloccato{opacity:.6}
+.testa{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap}.testa h3{flex:1 1 200px}
+.num{flex:0 0 auto;background:var(--ac);color:#fff;font-weight:bold;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center}
+.passo.ok .num{background:var(--ok)}.stato{font-weight:bold;font-size:.9em;color:var(--ok)}
+.prova{border-top:2px dashed var(--bd);margin-top:10px;padding-top:8px}
+.prova .dom{margin:4px 0}.risp{font:inherit;width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--card);color:var(--tx)}
+.scelte label{display:block;padding:6px 8px;border:1px solid var(--bd);border-radius:8px;margin:5px 0;cursor:pointer}
+.scelte input{width:20px;height:20px;vertical-align:middle;margin-right:6px}
+.riga-bt{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:8px}
+button.fatto{font:inherit;font-weight:bold;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:10px 22px;cursor:pointer}
+button.fatto:disabled{background:#8a96a3;cursor:not-allowed}.esito{font-weight:bold}.esito.ko{color:var(--ko)}.esito.ok{color:var(--ok)}
+.copia{position:relative;margin:8px 0}
+.copia pre{background:#0d1117;color:#e6edf3;padding:12px;padding-right:90px;border-radius:10px;font-size:15px;overflow-x:auto;margin:0;font-family:Consolas,monospace;line-height:1.45;white-space:pre}
+.bt-copia{position:absolute;top:6px;right:6px;background:var(--ok);color:#fff;border:0;border-radius:8px;padding:8px 14px;font-size:16px;font-weight:bold;cursor:pointer}
+.tab{overflow-x:auto;max-width:100%}table{border-collapse:collapse;width:100%;margin:8px 0;font-size:.9em}
+th,td{border:1px solid var(--bd);padding:6px;text-align:left;vertical-align:top}th{background:rgba(127,140,160,.15)}
+tr.es td{background:rgba(47,133,90,.12)}tr.nuova td{background:rgba(31,111,235,.08)}
+details.facile{border:3px solid #b3541e;border-radius:12px;padding:8px 12px;margin:10px 0}details.facile summary{cursor:pointer}
+ol.fac>li{margin:10px 0}
+#tutti-facile{display:none;background:#b3541e;color:#fff;border-radius:10px;padding:8px 12px;font-weight:bold;margin:10px 0}
+#aiuto{scroll-margin-top:50px}
+body.stampa .chi,body.stampa .prova,body.stampa .barra,body.stampa .bottoni,body.stampa #aiuto,body.stampa .banner{display:none}
+body.stampa .passo{break-inside:avoid}
+@media (max-width:500px){body{font-size:17px}main{padding:8px 12px 50px}.copia pre{font-size:13px}}
+</style></head><body>
+<div class="barra"><span>3INF · Passi fatti: <span id="cnt">0 / {{TOTALE}}</span></span><a href="#aiuto">Chiedi aiuto</a></div>
+<main>
+<div class="banner"><p><b>La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</b></p><p class="bn" lang="bn">ক্লাসের সময় পাতাটি প্রায়ই আপডেট হয়: নতুন সংস্করণ দেখতে F5 চাপো।</p></div>
+<h1>Lazarus e Java a confronto</h1><p class="bn" lang="bn">Lazarus আর Java তুলনা</p>
+<p style="color:var(--mu)">3INF · giovedì 29/10/2026 · percorso guidato · versione {{VERSIONE}}</p>
+<p>Oggi finisci Hello World in Eclipse e poi, nel tuo Documento di Classroom, metti a confronto <b>Lazarus (Object Pascal)</b> e <b>Eclipse (Java)</b>. Un passo alla volta: alla fine di ogni passo premi <b>✓ Fatto</b>.</p>
+<p class="bn" lang="bn">আজ Eclipse-এ Hello World শেষ করো, তারপর Classroom-এর ডকুমেন্টে Lazarus (Object Pascal) আর Eclipse (Java) তুলনা করো। একবারে একটি ধাপ: প্রতিটি ধাপের শেষে ✓ Fatto চাপো।</p>
+<div class="bottoni">
+<a class="bt v" href="../3inf-lazarus/" target="_blank" rel="noopener">La mia giornata della 3INF</a>
+<a class="bt g" href="../3inf-monitor/" target="_blank" rel="noopener">Il monitor della lezione</a>
+<a class="bt" href="../3inf-eclipse-guida/" target="_blank" rel="noopener">Guida Eclipse passo passo</a>
+<a class="bt r" href="#aiuto">Chiedi aiuto all'assistente del Prof Regge</a>
+</div>
+<div class="chi" id="chi"><p><b>Chi sei?</b> Lo scrivi una volta sola.</p>
+<label>Nome e cognome<input id="nome" autocomplete="off" placeholder="per esempio Mario Rossi"></label>
+<label>Il numero del tuo PC<select id="pc"><option value="">scegli</option></select></label>
+<p id="ciao" style="color:var(--mu)"></p></div>
+<div class="val"><h2>Come viene valutato il Documento</h2><p class="bn" lang="bn">ডকুমেন্টে কীভাবে নম্বর দেওয়া হয়</p>
+<p>Il voto parte da <b>40</b> e sale fino a <b>80</b>:</p>{{VALUTAZIONE}}
+<p>Consegna su Classroom <b>entro le 13:00</b>. Dopo le 13 si valuta lo stesso, ma il ritardo viene segnato.</p>
+<p class="bn" lang="bn">১৩:০০-র মধ্যে Classroom-এ জমা দাও। ১৩টার পরে মূল্যায়ন হয়, কিন্তু দেরি লেখা থাকে।</p>
+<p style="font-size:.9em">Non contano: righe vuote, righe copiate dall'esempio, testo senza senso. Gli screenshot si contano solo nel Documento consegnato. Il voto della tua giornata è provvisorio: decide il prof.</p>
+<p class="bn" lang="bn">খালি, উদাহরণ থেকে কপি করা বা অর্থহীন লাইন গোনা হয় না। স্ক্রিনশট শুধু জমা দেওয়া ডকুমেন্টে গোনা হয়। নম্বর অস্থায়ী: প্রফেসর ঠিক করবেন।</p></div>
+<div id="tutti-facile">Oggi tutti: al passo 2 fate il percorso facilitato (3 passi).</div>
+{{PASSI}}
+<div id="aiuto"></div>
+</main>
+<script>
+var DATI={{DATI}};
+function copia(b){var t=b.previousElementSibling.innerText;function ok(){b.textContent='Copiato!';setTimeout(function(){b.textContent='Copia'},2000)}
+ if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,function(){vecchio(t);ok()})}else{vecchio(t);ok()}}
+function vecchio(t){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(e){}document.body.removeChild(a)}
+(function(){
+ if(document.body.classList.contains('stampa'))return;
+ var K='3inf-confronto-v1',S={};
+ function leggi(){try{S=JSON.parse(localStorage.getItem(K)||'{}')||{}}catch(e){S={}}S.fatti=S.fatti||{}}
+ function salva(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+ function $(i){return document.getElementById(i)}
+ leggi();
+ var q=new URLSearchParams(location.search);
+ if(q.get('pc')){S.pc=q.get('pc').replace(/\D/g,'').slice(0,2);salva()}
+ if(!S.nome){try{S.nome=localStorage.getItem('assistente-nome')||''}catch(e){}}
+ var sel=$('pc');for(var n=1;n<=40;n++){var o=document.createElement('option');o.value=String(n);o.textContent='PC '+n;sel.appendChild(o)}
+ sel.value=S.pc||'';$('nome').value=S.nome||'';
+ function lingua(){document.body.classList.toggle('bn-on',S.pc==='14'||q.get('bn')==='1')}
+ function ciao(){$('ciao').textContent=S.nome&&S.pc?'Ciao '+S.nome+' (PC '+S.pc+'). Hai sbagliato? Correggi qui sopra.':'Scrivi il nome e scegli il PC: servono per il tuo ✓ Fatto.'}
+ $('nome').addEventListener('change',function(){var v=this.value.trim().replace(/\s+/g,' ');if(S.nome&&v&&v.toLowerCase()!==S.nome.toLowerCase())S.fatti={};S.nome=v;try{localStorage.setItem('assistente-nome',v)}catch(e){}salva();ciao();aggiorna()});
+ sel.addEventListener('change',function(){S.pc=this.value;salva();lingua();ciao()});
+ lingua();ciao();
+ var passi=document.querySelectorAll('section.passo');
+ function primo(){for(var i=0;i<passi.length;i++)if(!S.fatti[i])return i;return passi.length}
+ function aggiorna(){var f=0,cur=primo();
+  passi.forEach(function(s,i){var d=S.fatti[i],b=s.querySelector('button.fatto');s.classList.toggle('ok',!!d);s.classList.toggle('corrente',i===cur);s.classList.toggle('bloccato',i>cur);
+   s.querySelector('.stato').textContent=d?'✓ fatto alle '+d.ora:(i===cur?'← sei qui':'');if(d)f++;
+   b.disabled=i>cur;b.textContent=d?'✓ Fatto (rifai)':'✓ Fatto';
+   var es=s.querySelector('.esito');if(i>cur&&!d){es.className='esito';es.textContent='Prima finisci il passo '+(cur+1)+'.'}else if(!d&&/Prima finisci/.test(es.textContent))es.textContent=''});
+  $('cnt').textContent=f+' / '+passi.length}
+ function parole(t){return (t.match(/[A-Za-zÀ-ÿঀ-৿0-9]{2,}/g)||[]).filter(function(w){return /[aeiouàèéìòùAEIOUঀ-৿0-9]/.test(w)&&!/(.)\1\1/.test(w)}).length}
+ function norm(t){return t.toLowerCase().replace(/\s+/g,' ').replace(/[–—]/g,'-').trim()}
+ function controlla(i,s){var p=DATI.passi[i].prova,v='',ris;
+  if(p.tipo==='scelta'){var c=s.querySelector('input[type=radio]:checked');if(!c)return {no:'Scegli una risposta.'};v=+c.value;ris=p.scelte[v][0];
+   if(p.giusta!=null&&v!==p.giusta)return {no:p.no||'Riprova.'};return {ok:ris,dopo:p.dopo?p.dopo[v][0]:''}}
+  v=(s.querySelector('.risp').value||'').trim();if(!v)return {no:'Scrivi la risposta nella casella.'};
+  if(p.tipo==='numero'){var n=parseInt(v,10);if(isNaN(n))return {no:'Scrivi un numero.'};if(n<(p.minimo||0))return {no:p.no};return {ok:String(n)}}
+  if(p.regex&&!new RegExp(p.regex,'i').test(v))return {no:p.no};
+  if(p.tipo==='riga'&&norm(v)===norm(DATI.esempio))return {no:'Questa è la riga di esempio: scrivi la tua.'};
+  if(parole(v)<(p.min||1))return {no:p.min>1?'Scrivi almeno '+p.min+' parole vere.':'Scrivi la risposta con parole vere.'};
+  return {ok:v}}
+ function ora(){return new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'})}
+ var INVIO='';fetch('../verifica/config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){INVIO=(c&&c.invio)||''}).catch(function(){});
+ function manda(i,prova){var fatti=Object.keys(S.fatti).map(Number).map(function(x){return x+1}).sort(function(a,b){return a-b});
+  var d={id:DATI.id,modo:'passo',classe:'3INF',nome:S.nome,pc:S.pc,passo:i+1,titolo:DATI.passi[i].t,prova:prova,fatti:fatti,totale:DATI.totale,versione:DATI.versione,quando:new Date().toISOString()};
+  if(!INVIO)return Promise.reject(new Error('senza indirizzo'));
+  return fetch(INVIO,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}
+ passi.forEach(function(s,i){var b=s.querySelector('button.fatto'),es=s.querySelector('.esito');
+  if(i===0)s.querySelectorAll('input[type=radio]').forEach(function(r){r.addEventListener('change',function(){if(r.value==='2'){var f=$('facile');if(f)f.open=true}})});
+  b.addEventListener('click',function(){
+   if(!S.nome||S.nome.split(' ').length<2||!S.pc){es.className='esito ko';es.textContent='Prima scrivi nome e cognome e scegli il PC, in alto.';$('chi').scrollIntoView({behavior:'smooth'});return}
+   var r=controlla(i,s);if(r.no){es.className='esito ko';es.textContent=r.no;return}
+   b.disabled=true;es.className='esito';es.textContent='Mando…';
+   S.fatti[i]={ora:ora(),prova:r.ok};
+   manda(i,r.ok).then(function(){salva();var p=DATI.passi[i].prova;es.className='esito ok';es.textContent='Arrivato al prof alle '+S.fatti[i].ora+'. '+(r.dopo||'');
+     if(p.fatto){var x=document.createElement('div');x.className='box fatto-box';x.innerHTML='<p><b>'+p.fatto[0]+'</b></p>';s.appendChild(x)}
+     aggiorna();var nx=passi[i+1];if(nx&&!S.fatti[i+1])setTimeout(function(){nx.scrollIntoView({behavior:'smooth',block:'start'})},900)},
+    function(){delete S.fatti[i];es.className='esito ko';es.textContent='Non è partito: controlla Internet e premi di nuovo ✓ Fatto.';b.disabled=false})})});
+ aggiorna();
+ if(primo()>0&&primo()<passi.length)setTimeout(function(){passi[primo()].scrollIntoView({block:'start'})},300);
+ function statoLezione(){fetch('stato.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():{}}).then(function(st){if(st&&st.facilitato){$('tutti-facile').style.display='block';var f=$('facile');if(f&&!S.fatti[1])f.open=true}}).catch(function(){})}
+ statoLezione();setInterval(statoLezione,120000);
+})();
+</script>
+<script src="../assistente/assistente.js" data-pagina="3inf-confronto" data-lingue="it" data-dove="aiuto"></script>
+</body></html>
