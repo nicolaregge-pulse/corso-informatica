@@ -1,5 +1,5 @@
 {
- "ora": "10:20",
+ "ora": "10:35",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -55,26 +55,26 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false,
-    "v12_codice": true,
-    "v12_commit": true,
-    "v12_release": false,
-    "meno": true,
-    "div": true
+    "release": true,
+    "v12_codice": false,
+    "v12_commit": false,
+    "v12_release": true,
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice3»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio A.",
    "check": {
-    "cartella": false,
-    "file": false,
+    "cartella": true,
+    "file": true,
     "pulita": false,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
-    "piu": false,
-    "per": false,
+    "piu": true,
+    "per": true,
     "titolo": false,
     "release": false,
     "v12_codice": false,
@@ -83,8 +83,8 @@
     "meno": false,
     "div": false
    },
-   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes).",
-   "messaggio_v12": "Prima fai la versione 1.0: torna alla pagina della calcolatrice e carica la cartella su GitHub."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio K.",
@@ -139,15 +139,15 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false,
+    "release": true,
     "v12_codice": true,
     "v12_commit": true,
-    "v12_release": false,
+    "v12_release": true,
     "meno": true,
     "div": true
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio_v12": "Tutto verde per la versione 1.2, anche la release! Fai lo screenshot della release nel Documento."
   },
   {
    "alunno": "Lina A.",
@@ -265,15 +265,15 @@
     "piu": true,
     "per": true,
     "titolo": false,
-    "release": false,
+    "release": true,
     "v12_codice": true,
     "v12_commit": true,
-    "v12_release": false,
+    "v12_release": true,
     "meno": true,
     "div": true
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio_v12": "Tutto verde per la versione 1.2, anche la release! Fai lo screenshot della release nel Documento."
   },
   {
    "alunno": "Riccardo B.",

@@ -27,7 +27,7 @@ table.q4{border-collapse:collapse;width:100%;min-width:0;background:var(--card);
 table.q4 td:first-child,table.q4 th:first-child{text-align:left}.sy{color:var(--ok);font-size:24px!important;font-weight:800}.sn{color:var(--ko);font-size:24px!important;font-weight:800;cursor:pointer}
 .sn small{display:block;font-size:13px;font-weight:600;max-width:220px;margin:0 auto}tr.fin td{background:rgba(26,127,55,.12)}
 .vt{margin:8px 0 16px}.vtt{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:17px;margin:6px 0}
-table.vtab{border-collapse:separate;border-spacing:3px;width:100%;min-width:0;table-layout:fixed}table.vtab th{font-size:12px;padding:4px 2px;text-align:center}table.vtab th:first-child{width:34%;text-align:left}
+table.vtab{border-collapse:separate;border-spacing:3px;width:100%;min-width:0;table-layout:fixed}table.vtab th{font-size:12px;padding:4px 2px;text-align:center}table.vtab th:first-child{width:28%;text-align:left}td.vr{font-size:11px!important;background:var(--card);word-break:break-word}td.vv{font-size:18px;background:var(--card)}
 table.vtab td{padding:6px 2px;text-align:center;font-weight:800;font-size:18px;border-radius:6px;border:0;vertical-align:middle}
 table.vtab td.vn{text-align:left;font-size:14px;font-weight:700;background:var(--card);word-break:break-word}.vn small{display:block;font-size:11px;font-weight:600;color:var(--mu)}
 td.cy{background:#1a7f37;color:#fff}td.cy a{color:#fff;text-decoration:none;display:block}td.cn{background:#c0392b;color:#fff;cursor:pointer}td.cg{background:#8a939c;color:#fff;font-size:12px!important}
@@ -56,15 +56,15 @@ function cv(ok,url,txt,manca){return ok?'<td class="cy">'+(url?'<a href="'+e(url
 async function verTab(){var d;try{d=await leggiVer()}catch(x){$('q4').innerHTML='<p class="ko">Tabella delle versioni non leggibile ('+e(x.message)+').</p>';return}
  var T=d.tot,n=d.n,g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'});
  var h='<div class="vt"><div class="vtt"><span>Ver1 <b>'+T.ver1+'/'+n+'</b></span><span>Codice V1 <b>'+T.cod1+'/'+n+'</b></span><span>Ver2 <b>'+T.ver2+'/'+n+'</b></span><span>Codice V2 <b>'+T.cod2+'/'+n+'</b></span><span>Compito <b>'+(d.compito_fonte?T.compito+'/'+n:'da leggere')+'</b></span><span class="mu">controllo delle '+e(d.ora)+(d.data!==g?' · <b class="ko">NON DI OGGI</b>':'')+'</span></div>'+
-  '<div class="mu" style="margin:4px 0 6px">Come si legge: Ver1 = primo commit di oggi con .lpi .pas .lfm · Codice V1 = lì ci sono + e x · Ver2 = un commit dopo, con il progetto cambiato · Codice V2 = anche − e DIV. Il nome apre il repository, ✔ apre il commit o il file unit1.pas, ✘ si tocca e dice che cosa manca.</div>'+
-  '<table class="vtab"><thead><tr><th>Allievo</th><th>Ver1</th><th>Cod V1<br>+ x</th><th>Ver2</th><th>Cod V2<br>− DIV</th><th>Compito</th></tr></thead><tbody>'+
+  '<div class="mu" style="margin:4px 0 6px">Come si legge: Ver1 = primo commit di oggi con .lpi .pas .lfm · Codice V1 = lì ci sono + e x · Ver2 = un commit dopo, con il progetto cambiato · Codice V2 = anche − e DIV · Voto = 40 +20 V1 +15 V2 +5 release (max 80). Il nome apre il repository, ✔ apre il commit o il file unit1.pas, ✘ si tocca e dice che cosa manca.</div>'+
+  '<table class="vtab"><thead><tr><th>Allievo</th><th>Ver1</th><th>Cod V1<br>+ x</th><th>Ver2</th><th>Cod V2<br>− DIV</th><th>Release</th><th>Doc.</th><th>Voto</th></tr></thead><tbody>'+
   d.righe.map(function(r){var v1=r.ver1,v2=r.ver2;
    return '<tr><td class="vn">'+(r.repo?'<a href="'+e(r.repo)+'" target="_blank" rel="noopener">'+e(r.nome)+'</a>':e(r.nome))+(r.release&&r.release.length?'<small>release '+e(r.release.join(' '))+'</small>':'')+'</td>'+
     cv(!!v1,v1&&v1.url,v1&&v1.ora,r.manca[0]||'nessun commit di oggi con .lpi .pas .lfm')+
     cv(!!(v1&&r.cod1),v1&&v1.pas,'',v1?'nella prima versione manca il + o il x':'prima serve la versione 1')+
     cv(!!v2,v2&&v2.url,v2&&v2.ora,v1?'nessuna seconda versione (un altro commit di oggi con il progetto cambiato)':'prima serve la versione 1')+
     cv(!!(v2&&r.cod2),v2&&v2.pas,'',v2?'nella seconda versione manca il − o il DIV':'prima serve la versione 2')+
-    (r.compito&&r.compito.ok?cv(true,'',r.compito.ora||'',''):(d.compito_fonte?cv(false,'','','compito non ancora consegnato su Classroom'):'<td class="cg">da leggere</td>'))+'</tr>'}).join('')+'</tbody></table></div>';
+    '<td class="vr">'+(r.release&&r.release.length?e(r.release.join(' ')):'—')+'</td>'+(r.compito&&r.compito.ok?cv(true,'',r.compito.ora||'',''):(d.compito_fonte?cv(false,'','','compito non ancora consegnato su Classroom'):'<td class="cg">da leggere</td>'))+'<td class="vv" title="'+e(r.conto||'')+'">'+e(r.voto)+'</td></tr>'}).join('')+'</tbody></table></div>';
  $('q4').innerHTML=h}
 
 /* 29/10 09:52 (docente: «non riesco a capire chi ha fatto la v1 e la v2»): tabella semplice V1/V2, un ✘ si tocca e dice che cosa manca */
