@@ -1,5 +1,5 @@
 {
- "ora": "10:56",
+ "ora": "11:01",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -56,14 +56,14 @@
     "per": true,
     "titolo": false,
     "release": true,
-    "v12_codice": true,
-    "v12_commit": true,
+    "v12_codice": false,
+    "v12_commit": false,
     "v12_release": true,
-    "meno": true,
-    "div": true
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice3»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Tutto verde per la versione 1.2, anche la release! Fai lo screenshot della release nel Documento."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio A.",
