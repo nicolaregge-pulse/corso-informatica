@@ -1,0 +1,53 @@
+{
+ "classe": "3INF",
+ "giorno": "2026-10-29",
+ "modalita": [
+  "guidato",
+  "teoria-quiz",
+  "versioning"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Hello World in Java con Eclipse: si finisce e si consegna entro le 13",
+   "descrizione": "Modalità: percorso guidato + teoria e quiz. Obiettivo: tutti hanno una finestra Java con un bottone che scrive «Hello World» e la confrontano con Lazarus. Attività: 1ª ora: la guida di Eclipse portabile dal punto in cui ognuno è arrivato (ZIP, primo avvio, progetto HelloWorld, classe Main, la finestra con il bottone). 2ª ora: la pagina «Hello World in Lazarus e in Java» (teoria e domande), poi il Documento su Classroom con le due foto dello schermo, entro le 13. Chi finisce: la scheda 11, la finestra che saluta il tuo nome. Prima vittoria (entro 10 minuti): «Hello World» scritto nella Console di Eclipse (scheda 6 della guida). Consegna: il Documento del compito di ieri su Classroom (già assegnato) e le risposte della pagina. Controllo: consegne lette da Classroom alle 13, risultati delle due pagine e Veyon nel cruscotto. Chi è indietro: percorso facilitato di 3 passi: scompatta lo ZIP in una cartella corta, apri Eclipse, incolla la classe Main e premi Run.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Hello World, poi il progetto Java su GitHub",
+   "descrizione": "Modalità: percorso guidato + versioning. Obiettivo: il primo programma Java finisce in un repository «java», come i progetti Lazarus. Attività: 1ª ora: come la proposta 1 fino alla finestra con il bottone e la consegna. 2ª ora: repository «java» su github.com, si carica il file Main.java nella cartella del progetto, con un commit che dice che cosa fa. Prima vittoria (entro 10 minuti): «Hello World» nella Console di Eclipse. Consegna: il Documento su Classroom e l'indirizzo del repository «java». Controllo: consegne di Classroom, indirizzo del repository letto da Claude, cruscotto. Chi è indietro: chi non ha finito Java resta sulla guida e consegna; GitHub si fa la volta dopo.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Hello World, poi il recupero del sito personale",
+   "descrizione": "Modalità: percorso guidato + verifica di recupero. Obiettivo: chiudere Java e i debiti del sito di ottobre. Attività: 1ª ora: come la proposta 1 fino alla consegna. 2ª ora: chi ha il sito da sistemare fa il recupero «il mio sito personale funziona»; gli altri fanno la finestra Java che saluta il tuo nome. Prima vittoria (entro 10 minuti): «Hello World» nella Console di Eclipse. Consegna: il Documento su Classroom e il recupero del sito. Controllo: consegne di Classroom e risultati del recupero nel cruscotto. Chi è indietro: il recupero del sito ha già la sua versione uguale per tutti, passo passo.",
+   "preferita": false
+  }
+ ],
+ "scelta": 1,
+ "link": [
+  {
+   "t": "Java con Eclipse portabile (guida)",
+   "u": "verifica/?b=3inf-eclipse-java"
+  },
+  {
+   "t": "Eclipse: la guida passo passo",
+   "u": "3inf-eclipse-guida/"
+  },
+  {
+   "t": "Hello World in Lazarus e in Java",
+   "u": "verifica/?b=3inf-hello-lazarus-java"
+  },
+  {
+   "t": "La mia giornata",
+   "u": "3inf-oggi/"
+  },
+  {
+   "t": "Il monitor della lezione",
+   "u": "3inf-monitor/"
+  }
+ ],
+ "mancanze": "PROVA: Il Documento «Hello World in Lazarus e in Java» risulta consegnato da 4 su 21: la consegna è stata spostata a oggi alle 13. Pochi recuperi aperti sul sito e sul quiz del 21/10. Elenco per allievo nel riservato: report/2026-10-29/mancanze-3inf.md."
+}
