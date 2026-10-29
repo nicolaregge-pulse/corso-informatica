@@ -1,5 +1,5 @@
 {
- "ora": "09:26",
+ "ora": "09:31",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -303,16 +303,16 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [
-    "cartelle",
+    "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 15,
-   "ultimo": "09:25",
+   "salvataggi": 17,
+   "ultimo": "09:27",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 2 file sparsi (unit1.lfm, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cartella_ok": true,
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -324,9 +324,7 @@
     "primo programma/unit1.pas",
     "salvadanaio/project1.lpi",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -337,19 +335,15 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 9,
-   "ultimo": "09:24",
+   "salvataggi": 11,
+   "ultimo": "09:28",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (salvadanaio/backup (cartella intera), salvadanaio/euro.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "calcolatirce2/calcolatirce2/calcolo.lpi",
-    "calcolatirce2/calcolatirce2/unit1.lfm",
-    "calcolatirce2/calcolatirce2/unit1.pas",
     "calcolatirce2/calcolo.lpi",
-    "calcolatirce2/calcolo.lpr",
     "calcolatirce2/unit1.lfm",
     "calcolatirce2/unit1.pas",
     "primo programma/euro.ico",
