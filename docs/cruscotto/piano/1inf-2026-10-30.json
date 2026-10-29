@@ -9,52 +9,48 @@
   {
    "n": 1,
    "titolo": "Tecnologia 8-9: il computer scrive in tutte le lingue (Unicode)",
-   "descrizione": "Modalità: teoria a schede + quiz su Moduli. Obiettivo: dall'ASCII del 02/10 (A = 65) a Unicode, una tabella per tutte le lingue, e quanti byte pesa una lettera in UTF-8. Attività: 8 schede in italiano, arabo e cinese con la casella dove ognuno scrive il suo nome nella sua lingua e vede il numero e i byte di ogni carattere (15 minuti); 3 righe da ricopiare sul quaderno (5 minuti); quiz su Moduli di 15 domande (20 minuti). Prima vittoria (entro 10 minuti): il proprio nome nella casella con i numeri Unicode. Consegna: il quiz su Moduli allegato al compito di Classroom. Controllo: risultati del quiz letti dal ponte. Chi è indietro: le 3 righe del quaderno e le prime 8 domande. KPI: 40 + 40 × punti/15. Registro: «Codifica di testi, immagini e suoni».",
-   "preferita": true
+   "descrizione": "Modalità: teoria a schede + quiz su Moduli. Obiettivo: dall'ASCII del 02/10 (A = 65) a Unicode, una tabella per tutte le lingue, e quanti byte pesa una lettera in UTF-8. Attività: 8 schede in italiano, arabo e cinese con la casella dove ognuno scrive il suo nome nella sua lingua e vede il numero e i byte di ogni carattere (15 minuti); 3 righe da ricopiare sul quaderno (5 minuti); quiz su Moduli di 15 domande (20 minuti). Prima vittoria (entro 10 minuti): il proprio nome nella casella con i numeri Unicode. Consegna: il quiz su Moduli allegato al compito di Classroom. Controllo: risultati del quiz letti dal ponte. Chi è indietro: le 3 righe del quaderno e le prime 8 domande. KPI: 40 + 40 × punti/15. Registro: «Codifica di testi, immagini e suoni». KPI (regola 13): 1) quiz Unicode consegnato su Moduli; 2) punteggio del quiz → voto 40 + 40 × punti/15; 3) nome scritto nella casella Unicode (segnale della pagina). Piano B: se il Modulo non va, una sola consegna su Classroom: nel compito di oggi scrivi il tuo nome e il numero Unicode della prima lettera.",
+   "preferita": true,
+   "pubblicata": "18:18 del 29/10"
   },
   {
    "n": 2,
    "titolo": "Tecnologia 8-9: ripasso e recupero dei quiz di rete e video",
-   "descrizione": "Modalità: teoria-quiz. Obiettivo: chiudere i quiz mancanti o bassi (verifica «quante» del 23/10, quiz «video» e «ripasso» del 27/10) con le pagine che esistono già (1inf-quante, verifica 1inf-ripasso-2710 e 1inf-video-cavi). Prima vittoria: la prima scheda di ripasso giusta. Consegna: un solo Modulo di ripasso. KPI: 40 + 40 × punti. Registro: «Memorie e unità di misura». Materiale da adattare: serve un Modulo nuovo di ripasso.",
+   "descrizione": "Modalità: teoria-quiz. Obiettivo: chiudere i quiz mancanti o bassi (verifica «quante» del 23/10, quiz «video» e «ripasso» del 27/10) con le pagine che esistono già (1inf-quante, verifica 1inf-ripasso-2710 e 1inf-video-cavi). Prima vittoria: la prima scheda di ripasso giusta. Consegna: un solo Modulo di ripasso. KPI: 40 + 40 × punti. Registro: «Memorie e unità di misura». Materiale da adattare: serve un Modulo nuovo di ripasso. KPI: quiz di ripasso consegnato; voto 40 + 40 × punti/massimo. Piano B: una sola consegna su Classroom con le risposte scritte.",
    "preferita": false
   },
   {
    "n": 3,
    "titolo": "Tecnologia 8-9: dal codice al programma (editor, compilatore, eseguibile)",
-   "descrizione": "Modalità: teoria a schede + quiz su Moduli. Obiettivo: capire che cosa fa Lazarus quando si preme F9 (sorgente .pas, compilatore, file .exe), come ponte verso il laboratorio delle 11. Prima vittoria: riconoscere i file del progetto Ciao per estensione. Consegna: quiz su Moduli. KPI: 40 + 40 × punti. Materiale da preparare.",
+   "descrizione": "Modalità: teoria a schede + quiz su Moduli. Obiettivo: capire che cosa fa Lazarus quando si preme F9 (sorgente .pas, compilatore, file .exe), come ponte verso il laboratorio delle 11. Prima vittoria: riconoscere i file del progetto Ciao per estensione. Consegna: quiz su Moduli. KPI: 40 + 40 × punti. Materiale da preparare. KPI: quiz consegnato; voto 40 + 40 × punti/massimo. Piano B: una sola consegna su Classroom: i nomi dei 3 file del progetto Ciao e a che cosa servono.",
    "preferita": false
   },
   {
    "n": 4,
-   "titolo": "Laboratorio 11-14: Lazarus, Ciao 2: la Label, la Caption e i colori",
-   "descrizione": "Modalità: percorso guidato (8 passi) con percorso facilitato di 3 passi (passi 3, 4, 5). Obiettivo: il saluto va in una Label (Label1.Caption := 'Ciao ' + Edit1.Text), grande e con i propri colori; chi finisce aggiunge il bottone Cancella. Prima vittoria (entro 10 minuti): F9 e compare «Ciao» e il proprio nome nella Label. Consegna: UN Documento su Classroom con codice, screenshot e una frase con parole proprie (si legge davvero il Documento, non i «Fatto»). Controllo: Documenti consegnati e letti dal ponte, Veyon. Recupero: i 2 senza il Ciao del 28/10 fanno prima quello (stessa pagina, link in alto). KPI: 40, +15 Documento consegnato, +10 codice con Label1.Caption, +10 screenshot del programma che funziona, +5 frase propria = 80. Quaderno: Edit/Text, Label/Caption, := . Registro: «Programmazione con Lazarus».",
-   "preferita": true
+   "preferita": true,
+   "titolo": "Laboratorio 11-14: Lazarus in tre ore, String e Integer (i tre moduli chiesti il 29/10)",
+   "descrizione": "Modalità: teoria a schede + quiz, poi percorso guidato con percorso facilitato di 3 passi in ogni modulo. 1ª ora «Il pasticcio dei numeri»: teoria su String e Integer, quiz di 22 domande (19 a scelta con trabocchetti e 3 aperte), poi il bottone «Testo» mostra '5' + '3' = 53 e il bottone «Numeri» mostra IntToStr(5 + 3) = 8 (prima l'errore «Incompatible types», poi la correzione). 2ª ora «Il soprannome»: due Edit e variabili String. 3ª ora «Il segnapunti»: contatore con Integer, StrToInt e IntToStr. Prima vittoria (entro 10 minuti): la prima scheda e la prima domanda del quiz. Consegna di ogni ora: unit1.pas + screenshot del programma che gira (pagina di consegna con un bottone e controllo automatico del codice). Codici provati con Free Pascal il 29/10 sera; invio vero allo script NON provato da qui. KPI (proposti il 29/10, da confermare): per ogni ora unit1.pas +5, screenshot +3, codice verificato +3; quiz almeno al 60% +7; si parte da 40, massimo 80; niente voto prima della prima consegna. Piano B: una sola consegna su Classroom, nel compito del laboratorio: unit1.pas e screenshot allegati. Anteprima (non pubblicata): anteprima/1inf-lab-30-10/. Registro: «Programmazione con Lazarus»."
   },
   {
    "n": 5,
-   "titolo": "Laboratorio 11-14: la mini calcolatrice (due numeri e la somma)",
-   "descrizione": "Modalità: percorso guidato. Obiettivo: leggere due numeri da due Edit (StrToInt), sommarli e mostrarli in una Label (IntToStr). Prima vittoria: 2 + 3 = 5 nella Label. Consegna: Documento con codice e screenshot. Più difficile: meglio dopo la Label. Materiale da preparare.",
+   "titolo": "Laboratorio 11-14: Lazarus, Ciao 2: la Label, la Caption e i colori (bozza già su Classroom)",
+   "descrizione": "Modalità: percorso guidato (8 passi) con percorso facilitato di 3 passi (passi 3, 4, 5). Obiettivo: il saluto va in una Label (Label1.Caption := 'Ciao ' + Edit1.Text), grande e con i propri colori; chi finisce aggiunge il bottone Cancella. Prima vittoria (entro 10 minuti): F9 e compare «Ciao» e il proprio nome nella Label. Consegna: UN Documento su Classroom con codice, screenshot e una frase con parole proprie (si legge davvero il Documento, non i «Fatto»). Controllo: Documenti consegnati e letti dal ponte, Veyon. Recupero: i 2 senza il Ciao del 28/10 fanno prima quello (stessa pagina, link in alto). KPI (regola 13): 40, +15 Documento consegnato, +10 codice con Label1.Caption, +10 screenshot del programma che funziona, +5 frase propria = 80. Quaderno: Edit/Text, Label/Caption, := . Registro: «Programmazione con Lazarus». Piano B: la stessa consegna (Documento su Classroom) con solo codice e screenshot. Il 29/10 alle 18:09 il docente ha detto che questa esercitazione è scarsa: per questo la consigliata è la 4.",
    "preferita": false
   },
   {
    "n": 6,
-   "titolo": "Laboratorio 11-14: Ciao 2 + sicurezza 4ª ora",
-   "descrizione": "Modalità: percorso guidato + teoria-quiz. 11-13 come la proposta 4; 13-14 Sicurezza 4ª ora (diritti e doveri) con quiz su Moduli, per tenere il passo con la 2INF. Due consegne nella stessa giornata: da usare solo se il docente vuole avanzare con la sicurezza. Materiale della 4ª ora 1INF da preparare (c'è quello della 2INF in solo italiano).",
+   "titolo": "Laboratorio 11-14: la mini calcolatrice (due numeri e la somma)",
+   "descrizione": "Modalità: percorso guidato. Obiettivo: leggere due numeri da due Edit (StrToInt), sommarli e mostrarli in una Label (IntToStr). Prima vittoria: 2 + 3 = 5 nella Label. Consegna: Documento con codice e screenshot. Più difficile: meglio dopo la Label. Materiale da preparare. KPI: Documento consegnato +15, codice con StrToInt e IntToStr +15, screenshot con la somma giusta +10 (da 40 a 80). Piano B: una sola consegna su Classroom con unit1.pas e screenshot.",
    "preferita": false
   }
  ],
  "scelta": [
-  1,
-  4
+  1
  ],
  "link": [
   {
    "t": "Tecnologia 8-9: il computer scrive in tutte le lingue",
    "u": "1inf-unicode/"
-  },
-  {
-   "t": "Laboratorio 11-14: Lazarus, Ciao 2",
-   "u": "1inf-lazarus-label/"
   },
   {
    "t": "Recupero: il Ciao del 28/10",
@@ -73,7 +69,7 @@
    "u": "avanzamento/1inf-unicode-oggi.html"
   },
   {
-   "t": "Cruscotto: laboratorio, KPI (prof)",
+   "t": "Cruscotto: laboratorio Ciao 2, KPI (prof)",
    "u": "avanzamento/1inf-lab-oggi.html"
   },
   {
@@ -104,5 +100,5 @@
    "preferita": 4
   }
  ],
- "nota": "Scelta confermata dal docente il 29/10 alle 15:0x (proposte consigliate); una per lezione: 1 = Tecnologia 8-9, 4 = Laboratorio 11-14."
+ "nota": "Tecnologia 8-9: proposta 1 confermata dal docente il 29/10 e pubblicata su Classroom alle 18:18 del 29/10 (compito PUBLISHED, letto dal ponte). Laboratorio 11-14: da scegliere; il 29/10 alle 18:09 il docente ha chiesto tre moduli nuovi (proposta 4, consigliata, in anteprima); la bozza Ciao 2 (proposta 5) è su Classroom come DRAFT e non è pubblicata."
 }

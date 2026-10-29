@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 1.1** — 29/10/2026 — documento interno del docente e di Claude
+**Versione 1.2** — 30/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -22,7 +22,18 @@ Fonte: screenshot dell'elenco delle ore firmate (colonna «Firma» con data e or
 5. Ora 12-13, 3INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:45; argomento «Hello world differenze tra LAzarus e Java Eclipse».
 6. Ora 13-14, 1INF, Sicurezza professionale: FIRMATA il 29/10/2026 alle 10:33; argomento «Sicurezza 2: prevenzione e protezione».
 
+## 03 Venerdì 30/10/2026
+
+Preparata dalla chat della notte (alle 00:30): tutte le ore sono DA FIRMARE finché Nicola non dice «firmate» o non manda l'elenco delle ore firmate. Firma entro le 14:05.
+
+1. Ora 08-09, 1INF, Tecnologia professionale: da firmare; argomento previsto «Codifica di testi, immagini e suoni».
+2. Ora 09-10, 2INF, Sicurezza professionale: da firmare; argomento previsto «Sicurezza ora 5: rischio infortuni».
+3. Ora 11-12, 1INF, Laboratorio professionale: da firmare; argomento previsto «Programmazione con Lazarus».
+4. Ora 12-13, 1INF, Laboratorio professionale: da firmare; argomento previsto «Programmazione con Lazarus».
+5. Ora 13-14, 1INF, Laboratorio professionale: da firmare; argomento previsto «Programmazione con Lazarus».
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
 2. v1.1 (29/10/2026): giovedì 29/10, tutte e 6 le ore firmate, con argomento e ora di firma.
+3. v1.2 (30/10/2026): venerdì 30/10, 5 ore da firmare (sezione preparata nella notte).

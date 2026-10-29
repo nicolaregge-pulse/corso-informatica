@@ -408,7 +408,18 @@ function corpoPiano(p, tutte) {
   leggiPub(p);
   // 29/10/2026 (docente): proposta già pubblicata («pubblicata»: "HH:MM" nel json) = niente più bottoni; le altre piccole e grigie
   var pub = p.pubblicata && scelta ? p.pubblicata : '';
+  // 30/10/2026 (notte): una classe con due lezioni nello stesso giorno (1INF: Tecnologia e Laboratorio). «pubblicata» sulla
+  // singola proposta = quella lezione è uscita su Classroom: niente bottoni per lei e per le altre proposte della stessa lezione.
+  function pubLez(n) {
+    var lz = (p.lezioni || []).filter(function (l) { return (l.proposte || []).indexOf(n) >= 0; })[0];
+    var vicine = lz ? props.filter(function (y) { return lz.proposte.indexOf(y.n) >= 0; }) : [];
+    return vicine.filter(function (y) { return y.pubblicata; })[0] || null;
+  }
   function prop(x) {
+    var lp = pub ? null : pubLez(x.n);
+    if (lp && lp !== x) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
+    if (lp) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(x.pubblicata) + '</span>' +
+      (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + '</div>';
     if (pub && !inScelta(sn, x.n)) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
     if (pub) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(pub) + '</span>' +
       (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + (p.nota ? '<p class="pnota">' + esc(p.nota) + '</p>' : '') + '</div>';
