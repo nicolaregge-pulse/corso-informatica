@@ -537,12 +537,15 @@ async function decifra(d) {
   var k = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(d.salt), iterations: d.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
   return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(d.iv)}, k, b64(d.ct))));
 }
-var domChiesto = '';
+// 29/10/2026 (docente: «perché io non ce l'ho nelle risposte?»): si rilegge ogni minuto, non una volta sola
+var domChiesto = '', domQuando = 0;
+setInterval(function () { if (tab === 'domande' && TOK_OK && $('classe').value !== 'TUTTE') { domChiesto = ''; caricaDomande(); } }, 60000);
 async function caricaDomande() {
   var c = $('classe').value, g = $('giorno').value || oggi(), k = c + g + TOK_OK;
   if (!TOK_OK) { $('domande').innerHTML = ''; return; }
-  if (k === domChiesto) return; domChiesto = k;
-  $('domande').textContent = 'Carico…';
+  if (k === domChiesto && Date.now() - domQuando < 60000) return;
+  if (k !== domChiesto) $('domande').textContent = 'Carico…';
+  domChiesto = k; domQuando = Date.now();
   try {
     var r = await fetch('../avanzamento/domande-' + c.toLowerCase() + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'});
     if (!r.ok) throw 0;
