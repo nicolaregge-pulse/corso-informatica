@@ -1,7 +1,7 @@
 {
- "ora": "09:40",
- "fonte": "08:45 teoria del prof alla lavagna (fino alle 09:05 circa: nessuno risulta fermo) · GitHub, repository «lazarus» di ognuno (controllo delle 09:40) · Veyon 5 giri (ultimo 09:20) · presenze dal registro · voto: media di verifica, percorso, GitHub calcolatrice e Documento (provvisorio)",
- "ultimo_dato": "09:40",
+ "ora": "09:46",
+ "fonte": "08:45 teoria del prof alla lavagna (fino alle 09:05 circa: nessuno risulta fermo) · GitHub, repository «lazarus» di ognuno (controllo delle 09:46) · Veyon 5 giri (ultimo 09:20) · presenze dal registro · voto: media di verifica, percorso, GitHub calcolatrice e Documento (provvisorio)",
+ "ultimo_dato": "09:46",
  "presenze": true,
  "data": "2026-10-29",
  "righe": [
@@ -27,18 +27,19 @@
      "manca": [
       "release v1.0 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
     },
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
+      "testo": "✘ manca: commit dopo la v1.0; release v1.1 o v1.2"
      },
      "v": null,
      "extra": true,
-     "fatti": [],
+     "fatti": [
+      "− e div nel codice"
+     ],
      "manca": [
-      "− e div nel codice",
       "commit dopo la v1.0",
       "release v1.1 o v1.2"
      ],
@@ -74,7 +75,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -137,18 +138,19 @@
      "manca": [
       "release v1.1 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. · controllo delle 09:40"
+     "info": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto». · controllo delle 09:46"
     },
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
+      "testo": "✘ manca: commit dopo la v1.0; release v1.2"
      },
      "v": null,
      "extra": true,
-     "fatti": [],
+     "fatti": [
+      "− e div nel codice"
+     ],
      "manca": [
-      "− e div nel codice",
       "commit dopo la v1.0",
       "release v1.2"
      ],
@@ -184,7 +186,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -247,18 +249,19 @@
      "manca": [
       "release v1.1 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. · controllo delle 09:40"
+     "info": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto». · controllo delle 09:46"
     },
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
+      "testo": "✘ manca: commit dopo la v1.0; release v1.2"
      },
      "v": null,
      "extra": true,
-     "fatti": [],
+     "fatti": [
+      "− e div nel codice"
+     ],
      "manca": [
-      "− e div nel codice",
       "commit dopo la v1.0",
       "release v1.2"
      ],
@@ -294,7 +297,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -310,13 +313,13 @@
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
-    "cartelle",
+    "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
    "github_manca": [
-    "pulito"
+    "cartelle"
    ],
    "cosa_fare": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release.",
    "salv": [],
@@ -331,6 +334,228 @@
    "vy_ult": [
     "09:20",
     "PC 23: percorso, controllo GitHub",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Ney V.",
+   "voto": 70,
+   "conto": "v1.0 70 · verifica 80 · percorso 80 · documento 48 → media 70 = 70",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release."
+     },
+     "v": 70,
+     "fatti": [
+      "cartella con .lpi .pas .lfm caricata oggi",
+      "bottoni + e x nel codice",
+      "commit di oggi"
+     ],
+     "manca": [
+      "release v1.0 di oggi"
+     ],
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
+    },
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
+     },
+     "v": null,
+     "extra": true,
+     "fatti": [],
+     "manca": [
+      "− e div nel codice",
+      "commit dopo la v1.0",
+      "release v1.1 o v1.2"
+     ],
+     "info": "extra: non entra nella media"
+    },
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "oggi alle 09:24 · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 80,
+     "fatti": [
+      "passo 35 di 35"
+     ],
+     "manca": [],
+     "info": "Completa · percorso finito · ultimo dato 09:43 · La release v1.2",
+     "fermo": 0,
+     "passo": 35,
+     "su": 35
+    },
+    {
+     "v": 48,
+     "fatti": [
+      "trovato"
+     ],
+     "manca": [
+      "nome scritto",
+      "due frasi",
+      "consegnato",
+      "3 screenshot"
+     ],
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle"
+   ],
+   "cosa_fare": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:20",
+    "PC 36: pagina della verifica; PC 37: dispensa",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Luca B.",
+   "voto": 68,
+   "conto": "v1.0 70 · verifica 80 · percorso 74 · documento 48 → media 68 = 68",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release."
+     },
+     "v": 70,
+     "fatti": [
+      "cartella con .lpi .pas .lfm caricata oggi",
+      "bottoni + e x nel codice",
+      "commit di oggi"
+     ],
+     "manca": [
+      "release v1.1 di oggi"
+     ],
+     "info": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto». · controllo delle 09:46"
+    },
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
+     },
+     "v": null,
+     "extra": true,
+     "fatti": [],
+     "manca": [
+      "− e div nel codice",
+      "commit dopo la v1.0",
+      "release v1.2"
+     ],
+     "info": "extra: non entra nella media"
+    },
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 1 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 74,
+     "fatti": [
+      "passo 25 di 29"
+     ],
+     "manca": [
+      "passi 26-29"
+     ],
+     "info": "Completa · al passo da 6 min · ultimo dato 09:39 · Il commit",
+     "fermo": 6,
+     "passo": 25,
+     "su": 29
+    },
+    {
+     "v": 48,
+     "fatti": [
+      "trovato"
+     ],
+     "manca": [
+      "nome scritto",
+      "due frasi",
+      "consegnato",
+      "3 screenshot"
+     ],
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle"
+   ],
+   "cosa_fare": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:20",
+    "PC 34: percorso «Il codice del bottone +»",
     0
    ],
    "orale": null
@@ -357,18 +582,19 @@
      "manca": [
       "release v1.0 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
     },
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
+      "testo": "✘ manca: commit dopo la v1.0; release v1.1 o v1.2"
      },
      "v": null,
      "extra": true,
-     "fatti": [],
+     "fatti": [
+      "− e div nel codice"
+     ],
      "manca": [
-      "− e div nel codice",
       "commit dopo la v1.0",
       "release v1.1 o v1.2"
      ],
@@ -404,7 +630,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -467,7 +693,7 @@
      "manca": [
       "release v1.0 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
     },
     {
      "grande": {
@@ -514,7 +740,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -577,7 +803,7 @@
       "cartella con .lpi .pas .lfm caricata oggi",
       "release v1.0 di oggi"
      ],
-     "info": "Nella cartella calcolatrice mancano .lpi, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. La cartella si chiama «calcolatrice 3»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
+     "info": "Nella cartella calcolatrice mancano .lpi, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. La cartella si chiama «calcolatrice 3»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
     },
     {
      "grande": {
@@ -624,7 +850,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -666,9 +892,233 @@
    "orale": null
   },
   {
-   "alunno": "Luca B.",
-   "voto": 63,
-   "conto": "v1.0 50 · verifica 80 · percorso 73 · documento 48 → media 63 = 63",
+   "alunno": "Riccardo B.",
+   "voto": 66,
+   "conto": "v1.0 70 · verifica 80 · percorso 66 · documento 48 → media 66 = 66",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release."
+     },
+     "v": 70,
+     "fatti": [
+      "cartella con .lpi .pas .lfm caricata oggi",
+      "bottoni + e x nel codice",
+      "commit di oggi"
+     ],
+     "manca": [
+      "release v1.0 di oggi"
+     ],
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
+    },
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
+     },
+     "v": null,
+     "extra": true,
+     "fatti": [],
+     "manca": [
+      "− e div nel codice",
+      "commit dopo la v1.0",
+      "release v1.1 o v1.2"
+     ],
+     "info": "extra: non entra nella media"
+    },
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "oggi alle 09:25 · ripasso: scheda 11 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 66,
+     "fatti": [
+      "passo 23 di 35"
+     ],
+     "manca": [
+      "passi 24-35"
+     ],
+     "info": "Completa · al passo da 3 min · ultimo dato 09:43 · Add file, Upload files",
+     "fermo": 3,
+     "passo": 23,
+     "su": 35
+    },
+    {
+     "v": 48,
+     "fatti": [
+      "trovato"
+     ],
+     "manca": [
+      "nome scritto",
+      "due frasi",
+      "consegnato",
+      "3 screenshot"
+     ],
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle"
+   ],
+   "cosa_fare": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:20",
+    "PC 38: pagina di testo del percorso",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Katherine A.",
+   "voto": 65,
+   "conto": "v1.0 70 · verifica 80 · percorso 62 · documento 48 → media 65 = 65",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release."
+     },
+     "v": 70,
+     "fatti": [
+      "cartella con .lpi .pas .lfm caricata oggi",
+      "bottoni + e x nel codice",
+      "commit di oggi"
+     ],
+     "manca": [
+      "release v1.1 di oggi"
+     ],
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. · controllo delle 09:46"
+    },
+    {
+     "grande": {
+      "ok": false,
+      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
+     },
+     "v": null,
+     "extra": true,
+     "fatti": [],
+     "manca": [
+      "− e div nel codice",
+      "commit dopo la v1.0",
+      "release v1.2"
+     ],
+     "info": "extra: non entra nella media"
+    },
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 8 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 62,
+     "fatti": [
+      "passo 16 di 29"
+     ],
+     "manca": [
+      "passi 17-29"
+     ],
+     "info": "Completa · fermo da 11 minuti · ultimo dato 09:35 · Prova la x",
+     "fermo": 11,
+     "passo": 16,
+     "su": 29
+    },
+    {
+     "v": 48,
+     "fatti": [
+      "trovato"
+     ],
+     "manca": [
+      "nome scritto",
+      "due frasi",
+      "consegnato",
+      "3 screenshot"
+     ],
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "cartelle"
+   ],
+   "cosa_fare": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release.",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "09:20",
+    "PC 35: percorso «Crea la cartella calcolatrice»",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Sara A.",
+   "voto": 64,
+   "conto": "v1.0 50 · verifica 80 · percorso 79 · documento 48 → media 64 = 64",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -687,7 +1137,7 @@
       "commit di oggi",
       "release v1.1 di oggi"
      ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
+     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:46"
     },
     {
      "grande": {
@@ -713,16 +1163,16 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 1 di 11 · la risposta scritta la valuta il prof"
     },
     {
-     "v": 73,
+     "v": 79,
      "fatti": [
-      "passo 24 di 29"
+      "passo 28 di 29"
      ],
      "manca": [
-      "passi 25-29"
+      "passi 29-29"
      ],
-     "info": "Completa · al passo da 5 min · ultimo dato 09:34 · Trascina la cartella",
-     "fermo": 5,
-     "passo": 24,
+     "info": "Completa · al passo da 7 min · ultimo dato 09:39 · Lo so spiegare",
+     "fermo": 7,
+     "passo": 28,
      "su": 29
     },
     {
@@ -736,7 +1186,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -752,13 +1202,13 @@
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "github_manca": [
-    "cartelle"
+    "no .exe"
    ],
    "cosa_fare": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.1 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes.",
    "salv": [],
@@ -772,7 +1222,7 @@
    "fuori": 0,
    "vy_ult": [
     "09:20",
-    "PC 34: percorso «Il codice del bottone +»",
+    "PC 29: Documento del compito",
     0
    ],
    "orale": null
@@ -799,7 +1249,7 @@
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
+     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:46"
     },
     {
      "grande": {
@@ -846,7 +1296,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -888,252 +1338,27 @@
    "orale": null
   },
   {
-   "alunno": "Sara A.",
-   "voto": 62,
-   "conto": "v1.0 50 · verifica 80 · percorso 70 · documento 48 → media 62 = 62",
-   "v_github": 72,
+   "alunno": "Youssef A.",
+   "voto": 59,
+   "conto": "v1.0 40 · verifica 80 · percorso 69 · documento 48 → media 59 = 59",
+   "v_github": 80,
    "v_facile": 40,
    "facile": [],
    "col": [
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.1 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes."
+      "testo": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; bottoni + e x nel codice; commit di oggi; release v1.0 di oggi. la cartella della calcolatrice. Su GitHub apri lazarus → Add file → Upload files → trascina la cartella calcolatrice del PC → Commit changes."
      },
-     "v": 50,
-     "fatti": [
-      "bottoni + e x nel codice"
-     ],
-     "manca": [
-      "cartella con .lpi .pas .lfm caricata oggi",
-      "commit di oggi",
-      "release v1.1 di oggi"
-     ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
-    },
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
-     },
-     "v": null,
-     "extra": true,
+     "v": 40,
      "fatti": [],
      "manca": [
-      "− e div nel codice",
-      "commit dopo la v1.0",
-      "release v1.2"
-     ],
-     "info": "extra: non entra nella media"
-    },
-    {
-     "v": 80,
-     "fatti": [
-      "consegnata 6/6"
-     ],
-     "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 1 di 11 · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": 70,
-     "fatti": [
-      "passo 22 di 29"
-     ],
-     "manca": [
-      "passi 23-29"
-     ],
-     "info": "Completa · al passo da 5 min · ultimo dato 09:34 · Apri il tuo repository «lazarus»",
-     "fermo": 5,
-     "passo": 22,
-     "su": 29
-    },
-    {
-     "v": 48,
-     "fatti": [
-      "trovato"
-     ],
-     "manca": [
-      "nome scritto",
-      "due frasi",
-      "consegnato",
-      "3 screenshot"
-     ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
-    }
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "cartelle",
-    "pulito",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "no .exe"
-   ],
-   "cosa_fare": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.1 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:20",
-    "PC 29: Documento del compito",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Ney V.",
-   "voto": 62,
-   "conto": "v1.0 70 · verifica 80 · percorso 51 · documento 48 → media 62 = 62",
-   "v_github": 72,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release."
-     },
-     "v": 70,
-     "fatti": [
       "cartella con .lpi .pas .lfm caricata oggi",
       "bottoni + e x nel codice",
-      "commit di oggi"
-     ],
-     "manca": [
-      "release v1.0 di oggi"
-     ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
-    },
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
-     },
-     "v": null,
-     "extra": true,
-     "fatti": [],
-     "manca": [
-      "− e div nel codice",
-      "commit dopo la v1.0",
-      "release v1.1 o v1.2"
-     ],
-     "info": "extra: non entra nella media"
-    },
-    {
-     "v": 80,
-     "fatti": [
-      "consegnata 6/6"
-     ],
-     "manca": [],
-     "info": "oggi alle 09:24 · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": 51,
-     "fatti": [
-      "passo 10 di 35"
-     ],
-     "manca": [
-      "passi 11-35"
-     ],
-     "info": "Completa · al passo da 4 min · ultimo dato 09:36 · Le scritte dei bottoni",
-     "fermo": 4,
-     "passo": 10,
-     "su": 35
-    },
-    {
-     "v": 48,
-     "fatti": [
-      "trovato"
-     ],
-     "manca": [
-      "nome scritto",
-      "due frasi",
-      "consegnato",
-      "3 screenshot"
-     ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
-    }
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle"
-   ],
-   "cosa_fare": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:20",
-    "PC 36: pagina della verifica; PC 37: dispensa",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Youssef A.",
-   "voto": 61,
-   "conto": "v1.0 50 · verifica 80 · percorso 66 · documento 48 → media 61 = 61",
-   "v_github": 72,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.0 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes."
-     },
-     "v": 50,
-     "fatti": [
-      "bottoni + e x nel codice"
-     ],
-     "manca": [
-      "cartella con .lpi .pas .lfm caricata oggi",
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
+     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 09:46"
     },
     {
      "grande": {
@@ -1159,16 +1384,16 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
     },
     {
-     "v": 66,
+     "v": 69,
      "fatti": [
-      "passo 19 di 29"
+      "passo 21 di 29"
      ],
      "manca": [
-      "passi 20-29"
+      "passi 22-29"
      ],
-     "info": "Completa · al passo da 5 min · ultimo dato 09:35 · Apri la cartella sul PC",
-     "fermo": 5,
-     "passo": 19,
+     "info": "Completa · al passo da 7 min · ultimo dato 09:39 · Togli quello che non serve",
+     "fermo": 7,
+     "passo": 21,
      "su": 29
     },
     {
@@ -1182,7 +1407,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -1198,15 +1423,14 @@
    "v_vgit": 80,
    "vgit": "6 su 6",
    "github": [
+    "cartelle",
     "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "github_manca": [
-    "cartelle"
-   ],
-   "cosa_fare": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.0 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes.",
+   "github_manca": [],
+   "cosa_fare": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; bottoni + e x nel codice; commit di oggi; release v1.0 di oggi. la cartella della calcolatrice. Su GitHub apri lazarus → Add file → Upload files → trascina la cartella calcolatrice del PC → Commit changes.",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -1219,230 +1443,6 @@
    "vy_ult": [
     "09:20",
     "PC 17: percorso, passo 7",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Riccardo B.",
-   "voto": 61,
-   "conto": "v1.0 70 · verifica 80 · percorso 45 · documento 48 → media 61 = 61",
-   "v_github": 72,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release."
-     },
-     "v": 70,
-     "fatti": [
-      "cartella con .lpi .pas .lfm caricata oggi",
-      "bottoni + e x nel codice",
-      "commit di oggi"
-     ],
-     "manca": [
-      "release v1.0 di oggi"
-     ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
-    },
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.1 o v1.2"
-     },
-     "v": null,
-     "extra": true,
-     "fatti": [],
-     "manca": [
-      "− e div nel codice",
-      "commit dopo la v1.0",
-      "release v1.1 o v1.2"
-     ],
-     "info": "extra: non entra nella media"
-    },
-    {
-     "v": 80,
-     "fatti": [
-      "consegnata 6/6"
-     ],
-     "manca": [],
-     "info": "oggi alle 09:25 · ripasso: scheda 11 di 11 · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": 45,
-     "fatti": [
-      "passo 4 di 35"
-     ],
-     "manca": [
-      "passi 5-35"
-     ],
-     "info": "Completa · al passo da 2 min · ultimo dato 09:37 · Metti due bottoni",
-     "fermo": 2,
-     "passo": 4,
-     "su": 35
-    },
-    {
-     "v": 48,
-     "fatti": [
-      "trovato"
-     ],
-     "manca": [
-      "nome scritto",
-      "due frasi",
-      "consegnato",
-      "3 screenshot"
-     ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
-    }
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle"
-   ],
-   "cosa_fare": "✘ manca la release v1.0: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.0, poi Publish release.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:20",
-    "PC 38: pagina di testo del percorso",
-    0
-   ],
-   "orale": null
-  },
-  {
-   "alunno": "Katherine A.",
-   "voto": 60,
-   "conto": "v1.0 50 · verifica 80 · percorso 62 · documento 48 → media 60 = 60",
-   "v_github": 72,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.1 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes."
-     },
-     "v": 50,
-     "fatti": [
-      "bottoni + e x nel codice"
-     ],
-     "manca": [
-      "cartella con .lpi .pas .lfm caricata oggi",
-      "commit di oggi",
-      "release v1.1 di oggi"
-     ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
-    },
-    {
-     "grande": {
-      "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
-     },
-     "v": null,
-     "extra": true,
-     "fatti": [],
-     "manca": [
-      "− e div nel codice",
-      "commit dopo la v1.0",
-      "release v1.2"
-     ],
-     "info": "extra: non entra nella media"
-    },
-    {
-     "v": 80,
-     "fatti": [
-      "consegnata 6/6"
-     ],
-     "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 8 di 11 · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": 62,
-     "fatti": [
-      "passo 16 di 29"
-     ],
-     "manca": [
-      "passi 17-29"
-     ],
-     "info": "Completa · al passo da 5 min · ultimo dato 09:35 · Prova la x",
-     "fermo": 5,
-     "passo": 16,
-     "su": 29
-    },
-    {
-     "v": 48,
-     "fatti": [
-      "trovato"
-     ],
-     "manca": [
-      "nome scritto",
-      "due frasi",
-      "consegnato",
-      "3 screenshot"
-     ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
-    }
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "cartelle"
-   ],
-   "cosa_fare": "✘ manca: cartella con .lpi .pas .lfm caricata oggi; commit di oggi; release v1.1 di oggi. la cartella «calcolatrice» è dei giorni scorsi. Oggi carica la calcolatrice nuova: Add file → Upload files → trascina la cartella del PC → Commit changes.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": [
-    "09:20",
-    "PC 35: percorso «Crea la cartella calcolatrice»",
     0
    ],
    "orale": null
@@ -1469,18 +1469,19 @@
      "manca": [
       "release v1.1 di oggi"
      ],
-     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:40"
+     "info": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice diviso e meno»: va bene, la prossima volta chiamala «calcolatrice». · controllo delle 09:46"
     },
     {
      "grande": {
       "ok": false,
-      "testo": "✘ manca: − e div nel codice; commit dopo la v1.0; release v1.2"
+      "testo": "✘ manca: commit dopo la v1.0; release v1.2"
      },
      "v": null,
      "extra": true,
-     "fatti": [],
+     "fatti": [
+      "− e div nel codice"
+     ],
      "manca": [
-      "− e div nel codice",
       "commit dopo la v1.0",
       "release v1.2"
      ],
@@ -1502,8 +1503,8 @@
      "manca": [
       "passi 32-35"
      ],
-     "info": "Completa · al passo da 4 min · ultimo dato 09:35 · Il titolo della release",
-     "fermo": 4,
+     "info": "Completa · fermo da 10 minuti · ultimo dato 09:35 · Il titolo della release",
+     "fermo": 10,
      "passo": 31,
      "su": 35
     },
@@ -1518,7 +1519,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -1534,13 +1535,13 @@
    "v_vgit": 40,
    "vgit": "",
    "github": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
    "github_manca": [
-    "cartelle"
+    "no .exe"
    ],
    "cosa_fare": "✘ manca la release v1.1: nella pagina del repository, a destra sotto Releases, «Create a new release», tag v1.1, poi Publish release. · Poi la verifica: apri la pagina della verifica e alla fine premi «Consegna».",
    "salv": [],
@@ -1580,7 +1581,7 @@
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · controllo delle 09:40"
+     "info": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · controllo delle 09:46"
     },
     {
      "grande": {
@@ -1613,8 +1614,8 @@
      "manca": [
       "passi 16-29"
      ],
-     "info": "Completa · al passo da 9 min · ultimo dato 09:31 · Il codice del bottone x",
-     "fermo": 9,
+     "info": "Completa · fermo da 15 minuti · ultimo dato 09:31 · Il codice del bottone x",
+     "fermo": 15,
      "passo": 15,
      "su": 29
     },
@@ -1629,7 +1630,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -1673,7 +1674,7 @@
   {
    "alunno": "Mahammed M.",
    "voto": 48,
-   "conto": "v1.0 40 · verifica 40 · percorso 63 · documento 48 → media 48 = 48",
+   "conto": "v1.0 40 · verifica 40 · percorso 66 · documento 48 → media 48 = 48",
    "v_github": 80,
    "v_facile": 40,
    "facile": [],
@@ -1691,7 +1692,7 @@
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · controllo delle 09:40"
+     "info": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · controllo delle 09:46"
     },
     {
      "grande": {
@@ -1717,16 +1718,16 @@
      "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
-     "v": 63,
+     "v": 66,
      "fatti": [
-      "passo 17 di 29"
+      "passo 19 di 29"
      ],
      "manca": [
-      "passi 18-29"
+      "passi 20-29"
      ],
-     "info": "Completa · al passo da 3 min · ultimo dato 09:37 · Screenshot 1: la calcolatrice funziona",
-     "fermo": 3,
-     "passo": 17,
+     "info": "Completa · al passo da 4 min · ultimo dato 09:42 · Apri la cartella sul PC",
+     "fermo": 4,
+     "passo": 19,
      "su": 29
     },
     {
@@ -1740,7 +1741,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -1802,7 +1803,7 @@
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:40"
+     "info": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 09:46"
     },
     {
      "grande": {
@@ -1835,8 +1836,8 @@
      "manca": [
       "passi 2-35"
      ],
-     "info": "Completa · fermo da 14 minuti · ultimo dato 09:25 · Il tuo nome",
-     "fermo": 14,
+     "info": "Completa · fermo da 21 minuti · ultimo dato 09:25 · Il tuo nome",
+     "fermo": 21,
      "passo": 1,
      "su": 35
     },
@@ -1851,7 +1852,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
@@ -1913,7 +1914,7 @@
       "commit di oggi",
       "release v1.0 di oggi"
      ],
-     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 09:40"
+     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 09:46"
     },
     {
      "grande": {
@@ -1946,8 +1947,8 @@
      "manca": [
       "passi 2-4"
      ],
-     "info": "Facile · fermo da 35 minuti · ultimo dato 09:00 · Il tuo nome",
-     "fermo": 35,
+     "info": "Facile · fermo da 41 minuti · ultimo dato 09:00 · Il tuo nome",
+     "fermo": 41,
      "passo": 1,
      "su": 4
     },
@@ -1962,7 +1963,7 @@
       "consegnato",
       "3 screenshot"
      ],
-     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:40"
+     "info": "trovato, testo non ancora letto · sez. 4 vuota · immagini: si contano dopo la consegna · letto alle 09:46"
     }
    ],
    "facile_manca": [
