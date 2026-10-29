@@ -18,7 +18,7 @@
   }
  ],
  "dato": "2026-10-29T13:15",
- "generato": "2026-10-29T13:20",
+ "generato": "2026-10-29T13:21",
  "righe": [
   {
    "alunno": "Giexther A.",
@@ -127,6 +127,28 @@
    "su": 2
   },
   {
+   "alunno": "Andrea S.",
+   "q": [
+    {
+     "p": 8,
+     "m": 8,
+     "v": 80,
+     "quando": "29/10 13:20",
+     "oggi": true,
+     "volte": 2,
+     "modo": "recupero"
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
    "alunno": "Enea Z.",
    "q": [
     {
@@ -178,7 +200,7 @@
      "v": 78,
      "quando": "22/10 13:45",
      "oggi": false,
-     "volte": 1
+     "volte": 2
     },
     null,
     null
@@ -240,27 +262,6 @@
      "m": 20,
      "v": 78,
      "quando": "22/10 13:43",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "alunno": "Andrea S.",
-   "q": [
-    {
-     "p": 19,
-     "m": 20,
-     "v": 78,
-     "quando": "22/10 13:42",
      "oggi": false,
      "volte": 1
     },
