@@ -1,5 +1,5 @@
 {
- "ora": "08:51",
+ "ora": "08:57",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -42,7 +42,7 @@
     "per": true,
     "titolo": false
    },
-   "messaggio": "La cartella si chiama «calcolatirce2»: il nome giusto è «calcolatrice»."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Giorgio A.",
@@ -91,14 +91,14 @@
    "check": {
     "cartella": true,
     "file": true,
-    "pulita": false,
+    "pulita": true,
     "commit": false,
     "messaggio": false,
-    "piu": false,
-    "per": false,
+    "piu": true,
+    "per": true,
     "titolo": false
    },
-   "messaggio": "La cartella si chiama «calcolatrice v2»: il nome giusto è «calcolatrice»."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «calcolatrice v1»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Luca B.",
@@ -126,7 +126,7 @@
     "per": false,
     "titolo": false
    },
-   "messaggio": "La cartella si chiama «Calcolatrice»: il nome giusto è «calcolatrice»."
+   "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella."
   },
   {
    "alunno": "Mathias P.",
@@ -182,7 +182,7 @@
     "per": true,
     "titolo": false
    },
-   "messaggio": "La cartella si chiama «una calcolatrice»: il nome giusto è «calcolatrice»."
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «una calcolatrice»: va bene, la prossima volta chiamala «calcolatrice»."
   },
   {
    "alunno": "Sara A.",

@@ -1,5 +1,5 @@
 {
- "ora": "08:51",
+ "ora": "08:57",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -208,8 +208,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 6,
-   "ultimo": "08:47",
+   "salvataggi": 10,
+   "ultimo": "08:56",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (calcolatrice, primo-programma, salvadanio): rinominale.",
@@ -232,18 +232,9 @@
     "salvadanio/backup/project1.lps",
     "salvadanio/backup/unit1.lfm",
     "salvadanio/backup/unit1.pas",
-    "salvadanio/lib/x86_64-win64/project1.compiled",
-    "salvadanio/lib/x86_64-win64/project1.o",
-    "salvadanio/lib/x86_64-win64/project1.obj",
-    "salvadanio/lib/x86_64-win64/project1.res",
-    "salvadanio/lib/x86_64-win64/unit1.lfm",
-    "salvadanio/lib/x86_64-win64/unit1.o",
-    "salvadanio/lib/x86_64-win64/unit1.ppu",
-    "salvadanio/project1.ico",
     "salvadanio/project1.lpi",
     "salvadanio/project1.lpr",
     "salvadanio/project1.lps",
-    "salvadanio/project1.res",
     "salvadanio/unit1.lfm",
     "salvadanio/unit1.pas"
    ]
@@ -571,14 +562,19 @@
   },
   {
    "alunno": "Prof R.",
-   "pezzi": [],
-   "salvataggi": 0,
-   "ultimo": "",
+   "pezzi": [
+    "pulito",
+    "no .exe"
+   ],
+   "salvataggi": 2,
+   "ultimo": "08:52",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Non trovo il tuo repository «lazarus»: crealo su github.com (bottone verde New, nome lazarus, Public, Create repository).",
+   "cartella_ok": true,
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio».",
    "fuori": 0,
-   "albero": []
+   "albero": [
+    "README.md"
+   ]
   }
  ]
 }
