@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 1.0** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.1** — 29/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -13,10 +13,16 @@ Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere 
 
 ## 02 Giovedì 29/10/2026
 
-1. Ora 08-09, 2INF, Laboratorio professionale: firmata («FIRMA ✓» in verde, screenshot delle 08:17 circa); argomento scritto «Provvisorio», da sostituire con il titolo vero.
-2. Ore 09-10, 10-11, 2INF, Laboratorio professionale: NON firmate alle 08:17 circa (bottone «FIRMA» rosso senza segno verde).
-3. Ore 11-13, 3INF, Laboratorio professionale, e ora 13-14, 1INF, Sicurezza professionale: nessuna notizia.
+Fonte: screenshot dell'elenco delle ore firmate (colonna «Firma» con data e ora). Tutte e 6 le ore sono FIRMATE: non si ricorda più nessuna firma di oggi.
+
+1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:31; argomento «GitHub e versioning con LAzarus» (non più «Provvisorio»).
+2. Ora 09-10, 2INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:31; argomento «GitHub e versioning con LAzarus».
+3. Ora 10-11, 2INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:32; argomento «GitHub e versioning con LAzarus».
+4. Ora 11-12, 3INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:45; argomento «Hello world differenze tra LAzarus e Java Eclipse».
+5. Ora 12-13, 3INF, Laboratorio professionale: FIRMATA il 29/10/2026 alle 10:45; argomento «Hello world differenze tra LAzarus e Java Eclipse».
+6. Ora 13-14, 1INF, Sicurezza professionale: FIRMATA il 29/10/2026 alle 10:33; argomento «Sicurezza 2: prevenzione e protezione».
 
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
+2. v1.1 (29/10/2026): giovedì 29/10, tutte e 6 le ore firmate, con argomento e ora di firma.
