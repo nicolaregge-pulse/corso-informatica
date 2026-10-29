@@ -1,370 +1,504 @@
 {
+ "titolo": "1INF Sicurezza: quiz della 1ª e della 2ª ora (29/10)",
+ "colonne": [
+  {
+   "etichetta": "1ª ora (verifica o recupero)",
+   "corta": "1ª",
+   "conta": true
+  },
+  {
+   "etichetta": "2ª ora ripasso",
+   "corta": "2ª rip.",
+   "conta": false
+  },
+  {
+   "etichetta": "2ª ora quiz Moduli",
+   "corta": "2ª",
+   "conta": true
+  }
+ ],
  "dato": "2026-10-29T13:15",
- "generato": "2026-10-29T13:16",
+ "generato": "2026-10-29T13:20",
  "righe": [
   {
-   "alunno": "Moaaz A.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:46"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Christian A.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:45"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Matteo A.",
-   "o1": {
-    "p": 18,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:41"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
    "alunno": "Giexther A.",
-   "o1": {
-    "p": 20,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:43"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 20,
+     "m": 20,
+     "v": 80,
+     "quando": "22/10 13:43",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Anthony A.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:51"
-   },
-   "rp": null,
-   "o2": null,
    "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
    ],
-   "fatti": 1
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Aya B.",
-   "o1": {
-    "p": 20,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:57"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 20,
+     "m": 20,
+     "v": 80,
+     "quando": "22/10 13:57",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Alessio C.",
-   "o1": {
-    "p": 17,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:47"
-   },
-   "rp": null,
-   "o2": null,
    "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Cristian C.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:43"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Nehara F.",
-   "o1": {
-    "p": 17,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:51"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Sara F.",
-   "o1": {
-    "p": 5,
-    "m": 5,
-    "modo": "recupero",
-    "quando": "22/10 13:48"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 5,
+     "m": 5,
+     "v": 80,
+     "quando": "22/10 13:48",
+     "oggi": false,
+     "volte": 1,
+     "modo": "recupero"
+    },
+    null,
+    null
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Muhid H.",
-   "o1": {
-    "p": 3,
-    "m": 4,
-    "modo": "recupero",
-    "quando": "22/10 13:46"
-   },
-   "rp": null,
-   "o2": null,
    "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
    ],
-   "fatti": 1
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Wesley J.",
-   "o1": {
-    "p": 20,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:50"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 20,
+     "m": 20,
+     "v": 80,
+     "quando": "22/10 13:50",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
    ],
-   "fatti": 1
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Yinlin L.",
-   "o1": {
-    "p": 20,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:47"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 20,
+     "m": 20,
+     "v": 80,
+     "quando": "22/10 13:47",
+     "oggi": false,
+     "volte": 2
+    },
+    null,
+    null
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Moaaz M.",
-   "o1": {
-    "p": 7,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:41"
-   },
-   "rp": null,
-   "o2": null,
    "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
    ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Md M.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:43"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Abdel N.",
-   "o1": {
-    "p": 6,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:34"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Muhammad N.",
-   "o1": {
-    "p": 17,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:47"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Thomas R.",
-   "o1": {
-    "p": 16,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:50"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Andrea S.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:42"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Giovanni S.",
-   "o1": {
-    "p": 18,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:37"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
-  },
-  {
-   "alunno": "Shanzay S.",
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "modo": "verifica",
-    "quando": "22/10 13:53"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
-   ],
-   "fatti": 1
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Enea Z.",
-   "o1": {
-    "p": 8,
-    "m": 8,
-    "modo": "recupero",
-    "quando": "22/10 13:47"
-   },
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    {
+     "p": 8,
+     "m": 8,
+     "v": 80,
+     "quando": "22/10 13:47",
+     "oggi": false,
+     "volte": 2,
+     "modo": "recupero"
+    },
+    null,
+    null
    ],
-   "fatti": 1
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Moaaz A.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:46",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Christian A.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:45",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Anthony A.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:51",
+     "oggi": false,
+     "volte": 2
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Cristian C.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:43",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Md M.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:43",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Andrea S.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:42",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Shanzay S.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:53",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Matteo A.",
+   "q": [
+    {
+     "p": 18,
+     "m": 20,
+     "v": 76,
+     "quando": "22/10 13:41",
+     "oggi": false,
+     "volte": 2
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Giovanni S.",
+   "q": [
+    {
+     "p": 18,
+     "m": 20,
+     "v": 76,
+     "quando": "22/10 13:37",
+     "oggi": false,
+     "volte": 3
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Alessio C.",
+   "q": [
+    {
+     "p": 17,
+     "m": 20,
+     "v": 74,
+     "quando": "22/10 13:47",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Nehara F.",
+   "q": [
+    {
+     "p": 17,
+     "m": 20,
+     "v": 74,
+     "quando": "22/10 13:51",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Muhammad N.",
+   "q": [
+    {
+     "p": 17,
+     "m": 20,
+     "v": 74,
+     "quando": "22/10 13:47",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Thomas R.",
+   "q": [
+    {
+     "p": 16,
+     "m": 20,
+     "v": 72,
+     "quando": "22/10 13:50",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Muhid H.",
+   "q": [
+    {
+     "p": 3,
+     "m": 4,
+     "v": 70,
+     "quando": "22/10 13:46",
+     "oggi": false,
+     "volte": 2,
+     "modo": "recupero"
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Moaaz M.",
+   "q": [
+    {
+     "p": 7,
+     "m": 20,
+     "v": 54,
+     "quando": "22/10 13:41",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Abdel N.",
+   "q": [
+    {
+     "p": 6,
+     "m": 20,
+     "v": 52,
+     "quando": "22/10 13:34",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 1,
+   "su": 2
   },
   {
    "alunno": "Alaa M.",
-   "o1": null,
-   "rp": null,
-   "o2": null,
-   "manca": [
-    "1ª ora: verifica o recupero (pagina Sicurezza 1)",
-    "2ª ora: schede e ripasso",
-    "2ª ora: quiz su Moduli"
+   "q": [
+    null,
+    null,
+    null
    ],
-   "fatti": 0
+   "manca": [
+    "1ª ora (verifica o recupero)",
+    "2ª ora ripasso",
+    "2ª ora quiz Moduli"
+   ],
+   "fatti": 0,
+   "su": 2
   }
  ]
 }

@@ -10,13 +10,12 @@
 :root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--ok:#1a7f37;--ko:#c0392b}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82}}
 :root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
 .w{max-width:1000px;margin:0 auto;padding:14px 16px}h1{font-size:22px;margin:4px 0}.mu{color:var(--mu)}
 .box{background:var(--card);border-radius:12px;padding:10px 14px;margin:8px 0}.ar{direction:rtl;font-family:Amiri,serif}.zh{font-family:"WenQuanYi Zen Hei",sans-serif}
-table{border-collapse:collapse;width:100%;background:var(--card);border-radius:12px}th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;overflow-wrap:anywhere}
+.tab{overflow-x:auto;max-width:100%;background:var(--card);border-radius:12px}table{border-collapse:separate;border-spacing:0;min-width:100%}td.al,th.al{position:sticky;left:0;background:var(--card);border-right:2px solid var(--ln);min-width:110px}th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;overflow-wrap:anywhere}
 .q{display:inline-block;font-weight:800;padding:4px 8px;border-radius:8px}.si{background:#1a7f37;color:#fff}.no{background:#c0392b;color:#fff}.nu{background:#f5c400;color:#1b2430}
-.lab{display:none}
-@media (max-width:760px){table,thead,tbody,tr,td{display:block}thead{display:none}tr{border-bottom:2px solid var(--ln);padding:6px 0}td{border:0;padding:3px 8px}.lab{display:inline;font-size:12px;color:var(--mu);margin-right:4px}}
+.dt{display:block;font-size:12px;color:var(--mu);white-space:nowrap}.q{white-space:nowrap}
 </style>
 </head>
 <body><div class="w">
@@ -25,16 +24,16 @@ table{border-collapse:collapse;width:100%;background:var(--card);border-radius:1
 <div class="ar">ابحث عن اسمك: ترى إذا قمت باختبار الحصة الأولى واختبار اليوم. إذا رأيت ❌ قم به الآن. سلّمت وما زلت ترى ❌؟ انتظر 5 دقائق واضغط F5.</div>
 <div class="zh">找到你的名字：看看你是否做了第一课的测验和今天的测验。如果有 ❌，现在就做。已经提交但还看到 ❌？等 5 分钟，然后按 F5。</div></div>
 <div class="box"><b id="dato">Ultimo dato: —</b></div>
-<table><thead><tr><th>Alunno</th><th>1ª ora</th><th>2ª ora ripasso</th><th>2ª ora quiz Moduli</th><th>Che cosa manca</th></tr></thead><tbody id="t"></tbody></table>
-<p class="mu">Voto = 40 + 40 × punti / massimo. Domande? Chiedi all'assistente nella pagina della lezione.</p>
+<div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">In giallo: fatto oggi. In verde: fatto prima. Voto = 40 + 40 × punti / massimo. Domande? Chiedi all'assistente nella pagina della lezione.</p>
 </div>
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function c(o,lab,oggi){var l='<span class="lab">'+lab+'</span>';if(!o)return '<td>'+l+'<span class="q no">❌ da fare</span></td>';var v=o.m?40+Math.round(40*o.p/o.m):'';
- return '<td>'+l+'<span class="q '+(oggi?'nu':'si')+'">✅ '+v+'</span> <span class="mu">'+o.p+'/'+o.m+(o.quando?' · '+e(o.quando):'')+'</span></td>'}
-function giro(){fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){
+function c(o){if(!o)return '<td><span class="q no">❌</span></td>';return '<td><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.quando?' · '+e(o.quando):'')+'</span></td>'}
+function giro(){fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){var C=d.colonne||[];
  document.getElementById('dato').textContent='Ultimo dato da Google Moduli: ore '+(d.dato?d.dato.slice(11,16):'—')+' · pagina aggiornata alle '+String(d.generato||'').slice(11,16);
- document.getElementById('t').innerHTML=(d.righe||[]).map(function(r){return '<tr><td><b>'+e(r.alunno)+'</b></td>'+c(r.o1,'1ª ora',r.o1&&/^29\/10/.test(r.o1.quando||''))+c(r.rp,'ripasso',true)+c(r.o2,'quiz 2ª ora',true)+'<td>'+(r.manca.length?e(r.manca.join('; ')):'tutto fatto')+'</td></tr>'}).join('')}).catch(function(){})}
+ document.getElementById('th').innerHTML='<th class="al">Alunno</th>'+C.map(function(x){return '<th>'+e(C.length>4?x.corta:x.etichetta)+'</th>'}).join('')+'<th>Che cosa manca</th>';
+ document.getElementById('t').innerHTML=(d.righe||[]).map(function(r){return '<tr><td class="al"><b>'+e(r.alunno)+'</b></td>'+C.map(function(x,j){return c(r.q[j])}).join('')+'<td>'+(r.manca.length?e(r.manca.join('; ')):'tutto fatto')+'</td></tr>'}).join('')}).catch(function(){})}
 giro();setInterval(giro,60000);
 </script>
 </body>
