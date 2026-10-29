@@ -1,5 +1,5 @@
 {
- "ora": "09:40",
+ "ora": "09:46",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -30,19 +30,19 @@
     "file": true,
     "pulita": true,
     "commit": true,
-    "messaggio": false,
+    "messaggio": true,
     "piu": true,
     "per": true,
     "titolo": true,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto».",
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Francesco M.",
@@ -98,14 +98,14 @@
     "per": true,
     "titolo": false,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Hagar A.",
@@ -134,11 +134,11 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false,
+    "titolo": true,
     "release": false,
     "v12_codice": false,
     "v12_commit": false,
@@ -146,7 +146,7 @@
     "meno": false,
     "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
    "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
@@ -161,14 +161,14 @@
     "per": true,
     "titolo": true,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Luca B.",
@@ -176,19 +176,19 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
-    "messaggio": false,
+    "commit": true,
+    "messaggio": true,
     "piu": true,
     "per": true,
-    "titolo": false,
+    "titolo": true,
     "release": false,
     "v12_codice": false,
     "v12_commit": false,
     "v12_release": false,
-    "meno": true,
+    "meno": false,
     "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
+   "messaggio": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto».",
    "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
@@ -219,19 +219,19 @@
     "file": true,
     "pulita": true,
     "commit": true,
-    "messaggio": false,
+    "messaggio": true,
     "piu": true,
     "per": true,
     "titolo": true,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Ultimo passo: la release di oggi. La tua v1.0 è del 27/10: fai una release nuova con il tag v1.1 e il titolo «Calcolatrice v1.1: somma e prodotto».",
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Ney V.",
@@ -348,27 +348,27 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": true,
+    "titolo": false,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice diviso e meno»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Youssef A.",
    "check": {
-    "cartella": true,
-    "file": true,
-    "pulita": true,
+    "cartella": false,
+    "file": false,
+    "pulita": false,
     "commit": false,
     "messaggio": false,
-    "piu": true,
-    "per": true,
+    "piu": false,
+    "per": false,
     "titolo": false,
     "release": false,
     "v12_codice": false,
@@ -377,8 +377,8 @@
     "meno": false,
     "div": false
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes).",
+   "messaggio_v12": "Prima fai la versione 1.0: torna alla pagina della calcolatrice e carica la cartella su GitHub."
   }
  ]
 }
