@@ -27,8 +27,8 @@
    "conta": true
   }
  ],
- "dato": "2026-10-29T13:52",
- "generato": "2026-10-29T13:55",
+ "dato": "2026-10-29T13:57",
+ "generato": "2026-10-29T13:59",
  "righe": [
   {
    "o1": {
@@ -468,6 +468,60 @@
   },
   {
    "o1": {
+    "p": 19,
+    "m": 20,
+    "v": 78,
+    "quando": "29/10 13:46",
+    "oggi": true,
+    "volte": 2
+   },
+   "rp": null,
+   "o2": {
+    "p": 95,
+    "m": 100,
+    "v": 78,
+    "quando": "29/10 13:32",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Thomas R.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "29/10 13:46",
+     "oggi": true,
+     "volte": 2
+    },
+    null,
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "29/10 13:32",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 80,
+     "m": 100,
+     "v": 72,
+     "quando": "29/10 13:55",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "3ª ora ripasso"
+   ],
+   "fatti": 3,
+   "su": 3
+  },
+  {
+   "o1": {
     "p": 8,
     "m": 8,
     "v": 80,
@@ -673,6 +727,62 @@
      "m": 100,
      "v": 70,
      "quando": "29/10 13:51",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "3ª ora ripasso"
+   ],
+   "fatti": 3,
+   "su": 3
+  },
+  {
+   "o1": {
+    "p": 8,
+    "m": 8,
+    "v": 80,
+    "quando": "29/10 13:30",
+    "oggi": true,
+    "volte": 3,
+    "modo": "recupero"
+   },
+   "rp": null,
+   "o2": {
+    "p": 85,
+    "m": 100,
+    "v": 74,
+    "quando": "29/10 13:27",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Sara F.",
+   "q": [
+    {
+     "p": 8,
+     "m": 8,
+     "v": 80,
+     "quando": "29/10 13:30",
+     "oggi": true,
+     "volte": 3,
+     "modo": "recupero"
+    },
+    null,
+    {
+     "p": 85,
+     "m": 100,
+     "v": 74,
+     "quando": "29/10 13:27",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 75,
+     "m": 100,
+     "v": 70,
+     "quando": "29/10 13:53",
      "oggi": true,
      "volte": 1
     }
@@ -936,104 +1046,6 @@
      "m": 100,
      "v": 76,
      "quando": "29/10 13:28",
-     "oggi": true,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "3ª ora ripasso",
-    "3ª ora quiz Moduli"
-   ],
-   "fatti": 2,
-   "su": 3
-  },
-  {
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "v": 78,
-    "quando": "29/10 13:46",
-    "oggi": true,
-    "volte": 2
-   },
-   "rp": null,
-   "o2": {
-    "p": 95,
-    "m": 100,
-    "v": 78,
-    "quando": "29/10 13:32",
-    "oggi": true,
-    "volte": 1
-   },
-   "alunno": "Thomas R.",
-   "q": [
-    {
-     "p": 19,
-     "m": 20,
-     "v": 78,
-     "quando": "29/10 13:46",
-     "oggi": true,
-     "volte": 2
-    },
-    null,
-    {
-     "p": 95,
-     "m": 100,
-     "v": 78,
-     "quando": "29/10 13:32",
-     "oggi": true,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "3ª ora ripasso",
-    "3ª ora quiz Moduli"
-   ],
-   "fatti": 2,
-   "su": 3
-  },
-  {
-   "o1": {
-    "p": 8,
-    "m": 8,
-    "v": 80,
-    "quando": "29/10 13:30",
-    "oggi": true,
-    "volte": 3,
-    "modo": "recupero"
-   },
-   "rp": null,
-   "o2": {
-    "p": 85,
-    "m": 100,
-    "v": 74,
-    "quando": "29/10 13:27",
-    "oggi": true,
-    "volte": 1
-   },
-   "alunno": "Sara F.",
-   "q": [
-    {
-     "p": 8,
-     "m": 8,
-     "v": 80,
-     "quando": "29/10 13:30",
-     "oggi": true,
-     "volte": 3,
-     "modo": "recupero"
-    },
-    null,
-    {
-     "p": 85,
-     "m": 100,
-     "v": 74,
-     "quando": "29/10 13:27",
      "oggi": true,
      "volte": 1
     },
