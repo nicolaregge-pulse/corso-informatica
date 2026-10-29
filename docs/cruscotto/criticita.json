@@ -1,0 +1,12 @@
+{
+  "aggiornato": "29/10/2026 08:17",
+  "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi: se ce ne sono, il file va cifrato con strumenti/cifra_json.py.",
+  "voci": [
+    {"id": "2026-10-29-firma-2inf", "classe": "2INF", "ora": "ore 9-10 e 10-11", "entro": "14:05", "cosa": "Firma sul registro le ore 9-10 e 10-11 della 2INF (la 8-9 è già firmata).", "bottoni": ["Firmate"]},
+    {"id": "2026-10-29-presenze-2inf", "classe": "2INF", "ora": "ore 8-11", "cosa": "Manda a Claude in chat le presenze di oggi della 2INF (foto o elenco del registro).", "bottoni": ["Mandate"]},
+    {"id": "2026-10-29-scelta-3inf", "classe": "3INF", "ora": "ore 11-13", "entro": "10:50", "cosa": "Scegli la proposta di oggi per la 3INF: premi «Scelgo questa» nel Piano del giorno.", "bottoni": ["Scelta fatta"], "vai": {"classe": "3INF", "tab": "piano"}},
+    {"id": "2026-10-29-firma-3inf", "classe": "3INF", "ora": "ore 11-12 e 12-13", "entro": "14:05", "cosa": "Firma sul registro le ore 11-12 e 12-13 della 3INF con il programma previsto.", "bottoni": ["Firmate"]},
+    {"id": "2026-10-29-quiz-1inf", "classe": "1INF", "ora": "ora 13-14", "entro": "12:30", "cosa": "Quiz su Moduli della Sicurezza (2ª ora della Regione) per la 1INF: Claude lo crea?", "bottoni": ["Sì, crealo", "No"]},
+    {"id": "2026-10-29-firma-1inf", "classe": "1INF", "ora": "ora 13-14", "entro": "14:05", "cosa": "Firma sul registro l'ora 13-14 della 1INF (Sicurezza) con il programma previsto.", "bottoni": ["Firmata"]}
+  ]
+}
