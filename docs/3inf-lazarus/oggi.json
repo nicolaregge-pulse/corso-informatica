@@ -1,16 +1,16 @@
 {
- "ora": "13:01",
- "fonte": "Percorso: 109 «Fatto» arrivati · Classroom compito 25510294360 letto alle 12:23 (ponte) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 11 · Veyon 89 giri · presenze dal registro",
- "ultimo_dato": "12:23",
+ "ora": "13:06",
+ "fonte": "Percorso: 110 «Fatto» arrivati · Classroom compito 25510294360 letto alle 13:02 (ponte) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 11 · Veyon 89 giri · presenze dal registro",
+ "ultimo_dato": "13:02",
  "banca": "3inf-confronto",
  "modello": "confronto",
  "fine": "13:00",
  "spiega": "Oggi: «Lazarus e Java a confronto». Il Documento viene valutato: parte da 40; +10 screenshot Lazarus (sezione 2); +10 screenshot Eclipse (sezione 4); +10 tabella completa (sezione 6, con parole tue); +10 le 3 frasi (sezione 7). I punti si contano solo nel Documento consegnato su Classroom, entro le 13:00 (dopo si valuta lo stesso, ma il ritardo si segna). Voto provvisorio: decide il prof.",
  "link": "../3inf-confronto/",
  "classroom": {
-  "consegnati": 5,
+  "consegnati": 14,
   "su": 21,
-  "letto_alle": "12:23",
+  "letto_alle": "13:02",
   "fonte": "ponte"
  },
  "riepilogo": {
@@ -47,7 +47,7 @@
     "totale": 10,
     "titolo": "Consegna su Classroom",
     "ora": "12:07",
-    "fermo_min": 54,
+    "fermo_min": 59,
     "fermo": false,
     "finito": true,
     "dove": "Hello World in Eclipse funziona già"
@@ -56,7 +56,7 @@
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
     "consegnato": true,
@@ -82,11 +82,11 @@
     "PC 36: Documento «le mie perplessità»",
     false
    ],
-   "cosa_fare": "Hai consegnato il Documento delle perplessità. Il prof lo legge.",
+   "cosa_fare": "Hai consegnato il Documento delle perplessità. ",
    "ieri": [],
    "classroom": {
-    "stato": "non ancora",
-    "ora": null,
+    "stato": "consegnato",
+    "ora": "entro le 12:48",
     "ritardo": false
    },
    "percorso": {
@@ -94,7 +94,7 @@
     "totale": 10,
     "titolo": "Consegna su Classroom",
     "ora": "12:30",
-    "fermo_min": 31,
+    "fermo_min": 36,
     "fermo": false,
     "finito": true,
     "dove": "Hello World in Eclipse funziona già"
@@ -103,7 +103,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 96,
       "immagini": 2,
@@ -127,20 +127,140 @@
       ]
      }
     },
-    "consegnato": false,
-    "ora": null,
+    "consegnato": true,
+    "ora": "entro le 12:48",
     "ritardo": false,
-    "stato": "non ancora",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
+    "stato": "consegnato",
+    "tabella": 6,
+    "frasi": 3,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 12:48",
     "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
+     "tabella 6/7 righe (sezione 6)"
     ]
+   }
+  },
+  {
+   "alunno": "Tomas L.",
+   "voto": 80,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 + tabella completa 10 + 3 frasi 10 = 80 (provvisorio: decide il prof; PDF della consegna letto alle 12:48)",
+   "fuori": 0,
+   "vy_ult": [
+    "12:37",
+    "PC 15: schermo bloccato",
+    false
+   ],
+   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: la finestra Java che saluta il tuo nome (lezione Java, scheda 11).",
+   "ieri": [
+    "codice Lazarus",
+    "screenshot Lazarus",
+    "codice Java",
+    "screenshot Java",
+    "frase"
+   ],
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "entro le 12:48",
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 10,
+    "totale": 10,
+    "titolo": "Consegna su Classroom",
+    "ora": "12:30",
+    "fermo_min": 35,
+    "fermo": false,
+    "finito": true,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "strada2": {
+     "stato": "non ancora",
+     "consegnato": false,
+     "letto_alle": "13:02",
+     "pdf": null
+    },
+    "consegnato": true,
+    "ora": "entro le 12:48",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 7,
+    "frasi": 3,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 4,
+    "fonte": "PDF della consegna, 12:48",
+    "manca": []
+   }
+  },
+  {
+   "alunno": "Noah V.",
+   "voto": 80,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 + tabella completa 10 + 3 frasi 10 = 80 (provvisorio: decide il prof; PDF della consegna letto alle 12:48)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:55",
+    "PC 38: schermata di blocco",
+    false
+   ],
+   "cosa_fare": "Hai consegnato il Documento delle perplessità. ",
+   "ieri": [
+    "screenshot Lazarus",
+    "screenshot Java",
+    "frase"
+   ],
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "entro le 12:48",
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 10,
+    "totale": 10,
+    "titolo": "Consegna su Classroom",
+    "ora": "12:24",
+    "fermo_min": 42,
+    "fermo": false,
+    "finito": true,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "strada2": {
+     "stato": "consegnato",
+     "consegnato": true,
+     "letto_alle": "13:02",
+     "pdf": {
+      "parole": 96,
+      "immagini": 0,
+      "punti": [
+       [
+        "consegnato con un testo (almeno 30 parole vere)",
+        10
+       ],
+       [
+        "confronto con Lazarus",
+        10
+       ],
+       [
+        "testo lungo (80 parole) o screenshot dell'errore",
+        10
+       ]
+      ]
+     }
+    },
+    "consegnato": true,
+    "ora": "entro le 12:48",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 7,
+    "frasi": 3,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 12:48",
+    "manca": []
    }
   },
   {
@@ -158,14 +278,14 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:51",
-    "fermo_min": 70,
+    "fermo_min": 75,
     "fermo": true,
     "finito": false,
     "dove": "Non ho ancora scompattato o aperto Eclipse"
@@ -174,7 +294,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 368,
       "immagini": 0,
@@ -200,7 +320,7 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
     "tabella": 0,
     "frasi": 0,
@@ -229,14 +349,14 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:23",
-    "fermo_min": 97,
+    "fermo_min": 102,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -245,7 +365,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 86,
       "immagini": 0,
@@ -271,7 +391,7 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
     "tabella": 0,
     "frasi": 0,
@@ -286,31 +406,76 @@
    }
   },
   {
-   "alunno": "Noah V.",
+   "alunno": "Eric C.",
    "voto": 70,
-   "conto": "40 + consegnato con un testo (almeno 30 parole vere) 10 + confronto con Lazarus 10 + testo lungo (80 parole) o screenshot dell'errore 10 = 70 (Documento delle perplessità: proposta, decide il prof)",
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 + tabella completa 10 = 70 (provvisorio: decide il prof; PDF della consegna letto alle 12:48)",
    "fuori": 0,
    "vy_ult": [
     "11:55",
-    "PC 38: schermata di blocco",
+    "PC 23: tabella del confronto",
     false
    ],
-   "cosa_fare": "Hai consegnato il Documento delle perplessità. Il prof lo legge.",
-   "ieri": [
-    "screenshot Lazarus",
-    "screenshot Java",
-    "frase"
-   ],
+   "cosa_fare": "Nel Documento consegnato manca: frasi 1/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [],
    "classroom": {
-    "stato": "non ancora",
-    "ora": null,
+    "stato": "consegnato",
+    "ora": "entro le 12:48",
     "ritardo": false
    },
    "percorso": {
     "passo": 10,
     "totale": 10,
     "titolo": "Consegna su Classroom",
-    "ora": "12:24",
+    "ora": "12:45",
+    "fermo_min": 21,
+    "fermo": false,
+    "finito": true,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "strada2": {
+     "stato": "non ancora",
+     "consegnato": false,
+     "letto_alle": "13:02",
+     "pdf": null
+    },
+    "consegnato": true,
+    "ora": "entro le 12:48",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 7,
+    "frasi": 1,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 12:48",
+    "manca": [
+     "frasi 1/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Ariel D.",
+   "voto": 70,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 + 3 frasi 10 = 70 (provvisorio: decide il prof; PDF della consegna letto alle 12:47)",
+   "fuori": 1,
+   "vy_ult": [
+    "12:36",
+    "PC 27: pagina di notizie e video",
+    true
+   ],
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [],
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "entro le 12:47",
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 10,
+    "totale": 10,
+    "titolo": "Consegna su Classroom",
+    "ora": "12:29",
     "fermo_min": 36,
     "fermo": false,
     "finito": true,
@@ -318,41 +483,23 @@
    },
    "doc": {
     "strada2": {
-     "stato": "consegnato",
-     "consegnato": true,
-     "letto_alle": "12:23",
-     "pdf": {
-      "parole": 96,
-      "immagini": 0,
-      "punti": [
-       [
-        "consegnato con un testo (almeno 30 parole vere)",
-        10
-       ],
-       [
-        "confronto con Lazarus",
-        10
-       ],
-       [
-        "testo lungo (80 parole) o screenshot dell'errore",
-        10
-       ]
-      ]
-     }
+     "stato": "non ancora",
+     "consegnato": false,
+     "letto_alle": "13:02",
+     "pdf": null
     },
-    "consegnato": false,
-    "ora": null,
+    "consegnato": true,
+    "ora": "entro le 12:47",
     "ritardo": false,
-    "stato": "non ancora",
+    "stato": "consegnato",
     "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
+    "frasi": 3,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 12:47",
     "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
+     "tabella 0/7 righe (sezione 6)"
     ]
    }
   },
@@ -384,7 +531,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:28",
-    "fermo_min": 93,
+    "fermo_min": 98,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -393,7 +540,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 103,
       "immagini": 0,
@@ -444,14 +591,14 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:36",
-    "fermo_min": 84,
+    "fermo_min": 90,
     "fermo": true,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
@@ -460,7 +607,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 86,
       "immagini": 0,
@@ -482,7 +629,7 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
     "tabella": 0,
     "frasi": 0,
@@ -509,16 +656,16 @@
    "cosa_fare": "Hai consegnato il Documento delle perplessità. Il prof lo legge.",
    "ieri": [],
    "classroom": {
-    "stato": "non ancora",
+    "stato": "ritirato",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": null,
    "doc": {
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 199,
       "immagini": 0,
@@ -540,14 +687,64 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
+    "ritardo": true,
+    "stato": "ritirato",
     "tabella": 0,
     "frasi": 0,
     "img_lazarus": null,
     "img_java": null,
     "immagini": null,
     "fonte": "Documento di lavoro letto alle 11:37",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Alessandro A.",
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 12:47)",
+   "fuori": 2,
+   "vy_ult": [
+    "12:36",
+    "PC 18: WhatsApp",
+    true
+   ],
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [],
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "entro le 12:47",
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 9,
+    "totale": 10,
+    "titolo": "Sezione 7: in 3 frasi",
+    "ora": "12:37",
+    "fermo_min": 29,
+    "fermo": true,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "strada2": {
+     "stato": "non ancora",
+     "consegnato": false,
+     "letto_alle": "13:02",
+     "pdf": null
+    },
+    "consegnato": true,
+    "ora": "entro le 12:47",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 12:47",
     "manca": [
      "tabella 0/7 righe (sezione 6)",
      "frasi 0/3 (sezione 7)"
@@ -582,7 +779,7 @@
     "totale": 10,
     "titolo": "Eclipse aperto, con Main.java",
     "ora": "11:42",
-    "fermo_min": 79,
+    "fermo_min": 84,
     "fermo": true,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
@@ -591,7 +788,7 @@
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
     "consegnato": true,
@@ -625,14 +822,14 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:25",
-    "fermo_min": 95,
+    "fermo_min": 100,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -641,7 +838,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 32,
       "immagini": 0,
@@ -659,7 +856,7 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
     "tabella": 0,
     "frasi": 0,
@@ -695,7 +892,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:27",
-    "fermo_min": 94,
+    "fermo_min": 99,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -704,7 +901,7 @@
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
     "consegnato": true,
@@ -745,7 +942,7 @@
     "totale": 10,
     "titolo": "Run: la finestrella Hello World",
     "ora": "12:03",
-    "fermo_min": 57,
+    "fermo_min": 62,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -754,7 +951,7 @@
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
     "consegnato": true,
@@ -789,14 +986,14 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:24",
-    "fermo_min": 97,
+    "fermo_min": 102,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -805,7 +1002,7 @@
     "strada2": {
      "stato": "consegnato",
      "consegnato": true,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": {
       "parole": 18,
       "immagini": 0,
@@ -814,214 +1011,8 @@
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Eric C.",
-   "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
-   "fuori": 0,
-   "vy_ult": [
-    "11:55",
-    "PC 23: tabella del confronto",
-    false
-   ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
-   "ieri": [],
-   "classroom": {
-    "stato": "ritirato",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 10,
-    "totale": 10,
-    "titolo": "Consegna su Classroom",
-    "ora": "12:45",
-    "fermo_min": 16,
-    "fermo": false,
-    "finito": true,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "strada2": {
-     "stato": "non ancora",
-     "consegnato": false,
-     "letto_alle": "12:23",
-     "pdf": null
-    },
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "ritirato",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Ariel D.",
-   "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
-   "fuori": 1,
-   "vy_ult": [
-    "12:36",
-    "PC 27: pagina di notizie e video",
-    true
-   ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
-   "ieri": [],
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 10,
-    "totale": 10,
-    "titolo": "Consegna su Classroom",
-    "ora": "12:29",
-    "fermo_min": 31,
-    "fermo": false,
-    "finito": true,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "strada2": {
-     "stato": "non ancora",
-     "consegnato": false,
-     "letto_alle": "12:23",
-     "pdf": null
-    },
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Tomas L.",
-   "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
-   "fuori": 0,
-   "vy_ult": [
-    "12:37",
-    "PC 15: schermo bloccato",
-    false
-   ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
-   "ieri": [
-    "codice Lazarus",
-    "screenshot Lazarus",
-    "codice Java",
-    "screenshot Java",
-    "frase"
-   ],
-   "classroom": {
-    "stato": "ritirato",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 10,
-    "totale": 10,
-    "titolo": "Consegna su Classroom",
-    "ora": "12:30",
-    "fermo_min": 30,
-    "fermo": false,
-    "finito": true,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "strada2": {
-     "stato": "non ancora",
-     "consegnato": false,
-     "letto_alle": "12:23",
-     "pdf": null
-    },
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "ritirato",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Alessandro A.",
-   "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
-   "fuori": 2,
-   "vy_ult": [
-    "12:36",
-    "PC 18: WhatsApp",
-    true
-   ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
-   "ieri": [],
-   "classroom": {
-    "stato": "ritirato",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 9,
-    "totale": 10,
-    "titolo": "Sezione 7: in 3 frasi",
-    "ora": "12:37",
-    "fermo_min": 23,
-    "fermo": true,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "strada2": {
-     "stato": "non ancora",
-     "consegnato": false,
-     "letto_alle": "12:23",
-     "pdf": null
-    },
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "ritirato",
     "tabella": 0,
     "frasi": 0,
     "img_lazarus": null,
@@ -1037,41 +1028,41 @@
   {
    "alunno": "Emmanuel F.",
    "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "conto": "voto dopo la raccolta del PDF (consegnato: i punti arrivano quando lo script raccoglie il PDF della consegna, 12:20, 12:45, 13:10) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": [
     "11:55",
     "PC 22: Classroom",
     false
    ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
+   "cosa_fare": "Consegnato. I punti compaiono dopo la prossima raccolta dello script (12:20, 12:45, 13:10).",
    "ieri": [],
    "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
+    "stato": "consegnato",
+    "ora": "entro le 13:02",
+    "ritardo": true
    },
    "percorso": {
-    "passo": 9,
+    "passo": 10,
     "totale": 10,
-    "titolo": "Sezione 7: in 3 frasi",
-    "ora": "12:58",
-    "fermo_min": 2,
+    "titolo": "Consegna su Classroom",
+    "ora": "13:00",
+    "fermo_min": 6,
     "fermo": false,
-    "finito": false,
+    "finito": true,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
+    "consegnato": true,
+    "ora": "entro le 13:02",
+    "ritardo": true,
+    "stato": "consegnato",
     "tabella": 0,
     "frasi": 0,
     "img_lazarus": null,
@@ -1087,18 +1078,18 @@
   {
    "alunno": "Mirko D.",
    "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "conto": "Documento delle perplessità consegnato: voto dopo la raccolta del PDF (12:45, 13:10)",
    "fuori": 1,
    "vy_ult": [
     "12:19",
     "PC 16: pagina dei voti",
     false
    ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
+   "cosa_fare": "Hai consegnato il Documento delle perplessità. ",
    "ieri": [],
    "classroom": {
-    "stato": "non ancora",
-    "ora": null,
+    "stato": "consegnato",
+    "ora": "entro le 13:02",
     "ritardo": false
    },
    "percorso": {
@@ -1106,22 +1097,22 @@
     "totale": 10,
     "titolo": "Sezione 6: la tabella, prima metà",
     "ora": "12:55",
-    "fermo_min": 6,
-    "fermo": false,
+    "fermo_min": 11,
+    "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
     "strada2": {
-     "stato": "non ancora",
-     "consegnato": false,
-     "letto_alle": "12:23",
+     "stato": "consegnato",
+     "consegnato": true,
+     "letto_alle": "13:02",
      "pdf": null
     },
-    "consegnato": false,
-    "ora": null,
+    "consegnato": true,
+    "ora": "entro le 13:02",
     "ritardo": false,
-    "stato": "non ancora",
+    "stato": "consegnato",
     "tabella": 0,
     "frasi": 0,
     "img_lazarus": null,
@@ -1137,18 +1128,18 @@
   {
    "alunno": "Simone G.",
    "voto": "voto dopo la consegna",
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "conto": "voto dopo la raccolta del PDF (consegnato: i punti arrivano quando lo script raccoglie il PDF della consegna, 12:20, 12:45, 13:10) · provvisorio: decide il prof",
    "fuori": 1,
    "vy_ult": [
     "12:25",
     "PC 32: di nuovo al PC, sul percorso",
     false
    ],
-   "cosa_fare": "Entro le 13:00, una delle due: Java funziona → completa e consegna il Documento «Hello World in Lazarus e in Java» (percorso, passi 4-10). Java non funziona → consegna il compito «NON SONO RIUSCITO AD ESEGUIRE HELLO WORLD JAVA»: che cosa non hai capito di Java e il confronto con Lazarus.",
+   "cosa_fare": "Consegnato. I punti compaiono dopo la prossima raccolta dello script (12:20, 12:45, 13:10).",
    "ieri": [],
    "classroom": {
-    "stato": "non ancora",
-    "ora": null,
+    "stato": "consegnato",
+    "ora": "entro le 13:02",
     "ritardo": false
    },
    "percorso": {
@@ -1156,7 +1147,7 @@
     "totale": 10,
     "titolo": "Run: la finestrella Hello World",
     "ora": "12:13",
-    "fermo_min": 47,
+    "fermo_min": 53,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -1165,13 +1156,13 @@
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
-    "consegnato": false,
-    "ora": null,
+    "consegnato": true,
+    "ora": "entro le 13:02",
     "ritardo": false,
-    "stato": "non ancora",
+    "stato": "consegnato",
     "tabella": 0,
     "frasi": 0,
     "img_lazarus": null,
@@ -1199,19 +1190,19 @@
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "ritardo": false
+    "ritardo": true
    },
    "percorso": null,
    "doc": {
     "strada2": {
      "stato": "non ancora",
      "consegnato": false,
-     "letto_alle": "12:23",
+     "letto_alle": "13:02",
      "pdf": null
     },
     "consegnato": false,
     "ora": null,
-    "ritardo": false,
+    "ritardo": true,
     "stato": "non ancora",
     "tabella": 0,
     "frasi": 0,
