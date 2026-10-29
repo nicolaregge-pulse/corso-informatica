@@ -17,8 +17,8 @@
    "conta": true
   }
  ],
- "dato": "2026-10-29T13:27",
- "generato": "2026-10-29T13:29",
+ "dato": "2026-10-29T13:32",
+ "generato": "2026-10-29T13:35",
  "righe": [
   {
    "o1": {
@@ -200,6 +200,50 @@
   },
   {
    "o1": {
+    "p": 20,
+    "m": 20,
+    "v": 80,
+    "quando": "22/10 13:57",
+    "oggi": false,
+    "volte": 1
+   },
+   "rp": null,
+   "o2": {
+    "p": 90,
+    "m": 100,
+    "v": 76,
+    "quando": "29/10 13:28",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Aya B.",
+   "q": [
+    {
+     "p": 20,
+     "m": 20,
+     "v": 80,
+     "quando": "22/10 13:57",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 90,
+     "m": 100,
+     "v": 76,
+     "quando": "29/10 13:28",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "o1": {
     "p": 19,
     "m": 20,
     "v": 78,
@@ -288,12 +332,12 @@
   },
   {
    "o1": {
-    "p": 5,
-    "m": 5,
+    "p": 8,
+    "m": 8,
     "v": 80,
-    "quando": "22/10 13:48",
-    "oggi": false,
-    "volte": 1,
+    "quando": "29/10 13:30",
+    "oggi": true,
+    "volte": 2,
     "modo": "recupero"
    },
    "rp": null,
@@ -308,12 +352,12 @@
    "alunno": "Sara F.",
    "q": [
     {
-     "p": 5,
-     "m": 5,
+     "p": 8,
+     "m": 8,
      "v": 80,
-     "quando": "22/10 13:48",
-     "oggi": false,
-     "volte": 1,
+     "quando": "29/10 13:30",
+     "oggi": true,
+     "volte": 2,
      "modo": "recupero"
     },
     null,
@@ -471,6 +515,50 @@
     "p": 17,
     "m": 20,
     "v": 74,
+    "quando": "22/10 13:51",
+    "oggi": false,
+    "volte": 1
+   },
+   "rp": null,
+   "o2": {
+    "p": 95,
+    "m": 100,
+    "v": 78,
+    "quando": "29/10 13:28",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Nehara F.",
+   "q": [
+    {
+     "p": 17,
+     "m": 20,
+     "v": 74,
+     "quando": "22/10 13:51",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "29/10 13:28",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "o1": {
+    "p": 17,
+    "m": 20,
+    "v": 74,
     "quando": "22/10 13:47",
     "oggi": false,
     "volte": 1
@@ -544,6 +632,94 @@
      "m": 100,
      "v": 74,
      "quando": "29/10 13:25",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "o1": {
+    "p": 19,
+    "m": 20,
+    "v": 78,
+    "quando": "22/10 13:51",
+    "oggi": false,
+    "volte": 2
+   },
+   "rp": null,
+   "o2": {
+    "p": 80,
+    "m": 100,
+    "v": 72,
+    "quando": "29/10 13:28",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Anthony A.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "22/10 13:51",
+     "oggi": false,
+     "volte": 2
+    },
+    null,
+    {
+     "p": 80,
+     "m": 100,
+     "v": 72,
+     "quando": "29/10 13:28",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "2ª ora ripasso"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "o1": {
+    "p": 16,
+    "m": 20,
+    "v": 72,
+    "quando": "22/10 13:50",
+    "oggi": false,
+    "volte": 1
+   },
+   "rp": null,
+   "o2": {
+    "p": 95,
+    "m": 100,
+    "v": 78,
+    "quando": "29/10 13:32",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Thomas R.",
+   "q": [
+    {
+     "p": 16,
+     "m": 20,
+     "v": 72,
+     "quando": "22/10 13:50",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "29/10 13:32",
      "oggi": true,
      "volte": 1
     }
@@ -646,33 +822,46 @@
   },
   {
    "o1": {
-    "p": 20,
+    "p": 6,
     "m": 20,
-    "v": 80,
-    "quando": "22/10 13:57",
+    "v": 52,
+    "quando": "22/10 13:34",
     "oggi": false,
     "volte": 1
    },
    "rp": null,
-   "o2": null,
-   "alunno": "Aya B.",
+   "o2": {
+    "p": 30,
+    "m": 100,
+    "v": 52,
+    "quando": "29/10 13:28",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Abdel N.",
    "q": [
     {
-     "p": 20,
+     "p": 6,
      "m": 20,
-     "v": 80,
-     "quando": "22/10 13:57",
+     "v": 52,
+     "quando": "22/10 13:34",
      "oggi": false,
      "volte": 1
     },
     null,
-    null
+    {
+     "p": 30,
+     "m": 100,
+     "v": 52,
+     "quando": "29/10 13:28",
+     "oggi": true,
+     "volte": 1
+    }
    ],
    "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
+    "2ª ora ripasso"
    ],
-   "fatti": 1,
+   "fatti": 2,
    "su": 2
   },
   {
@@ -695,37 +884,6 @@
      "quando": "22/10 13:50",
      "oggi": false,
      "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "o1": {
-    "p": 19,
-    "m": 20,
-    "v": 78,
-    "quando": "22/10 13:51",
-    "oggi": false,
-    "volte": 2
-   },
-   "rp": null,
-   "o2": null,
-   "alunno": "Anthony A.",
-   "q": [
-    {
-     "p": 19,
-     "m": 20,
-     "v": 78,
-     "quando": "22/10 13:51",
-     "oggi": false,
-     "volte": 2
     },
     null,
     null
@@ -770,74 +928,12 @@
   },
   {
    "o1": {
-    "p": 17,
-    "m": 20,
-    "v": 74,
-    "quando": "22/10 13:51",
-    "oggi": false,
-    "volte": 1
-   },
-   "rp": null,
-   "o2": null,
-   "alunno": "Nehara F.",
-   "q": [
-    {
-     "p": 17,
-     "m": 20,
-     "v": 74,
-     "quando": "22/10 13:51",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "o1": {
-    "p": 16,
-    "m": 20,
-    "v": 72,
-    "quando": "22/10 13:50",
-    "oggi": false,
-    "volte": 1
-   },
-   "rp": null,
-   "o2": null,
-   "alunno": "Thomas R.",
-   "q": [
-    {
-     "p": 16,
-     "m": 20,
-     "v": 72,
-     "quando": "22/10 13:50",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "o1": {
     "p": 7,
     "m": 20,
     "v": 54,
     "quando": "22/10 13:41",
     "oggi": false,
-    "volte": 1
+    "volte": 2
    },
    "rp": null,
    "o2": null,
@@ -849,38 +945,7 @@
      "v": 54,
      "quando": "22/10 13:41",
      "oggi": false,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "o1": {
-    "p": 6,
-    "m": 20,
-    "v": 52,
-    "quando": "22/10 13:34",
-    "oggi": false,
-    "volte": 1
-   },
-   "rp": null,
-   "o2": null,
-   "alunno": "Abdel N.",
-   "q": [
-    {
-     "p": 6,
-     "m": 20,
-     "v": 52,
-     "quando": "22/10 13:34",
-     "oggi": false,
-     "volte": 1
+     "volte": 2
     },
     null,
     null
