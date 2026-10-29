@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.93** — 29/10/2026 (#125-#144; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.94** — 29/10/2026 (#125-#145; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Scheda «Domande dei ragazzi» ferma a ieri sera: il docente non vede le domande di oggi (#145)
+
+1. **Errore.** Alle 11:40 il docente apre il cruscotto, scheda «Domande dei ragazzi» della 3INF: «Aggiornato alle 28/10 18:47 · Nessuna domanda in coda». Oggi invece le domande c'erano (4 in 2INF, 3 in 3INF) e l'assistente aveva risposto; Claude le ha date solo in chat. La scheda legge un file che nessun giro rigenera. Il docente: «perché io non ce l'ho nelle risposte? NON STA FUNZIONANDO NIENTE».
+2. **Regola.** Ogni scheda del cruscotto che mostra un dato ha un giro che la rigenera durante la lezione e scrive l'ora; se l'ora è di un altro giorno, la scheda lo dice in rosso. Le domande del giorno si vedono tutte, anche quelle con risposta. All'audit del mattino si controlla l'ora di aggiornamento di ogni scheda, non solo che si apra.
 
 ## 29/10/2026 — Il piano mostra ancora «Scelgo questa» e «Pubblica» dopo la pubblicazione; molti «risolto» non erano risolti (#144)
 
