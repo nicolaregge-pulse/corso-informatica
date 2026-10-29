@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.91** — 29/10/2026 (#125-#142; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.92** — 29/10/2026 (#125-#143; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Troppi aiutanti: consumano i token e non migliorano la qualità (#143)
+
+1. **Errore.** Il 29/10 giravano insieme fino a 6-7 aiutanti (giro 2INF, 3INF, 1INF, piano e criticità, ascolto dei bottoni, audit, controlli singoli), due dei quali facevano lo stesso lavoro (tutti e due riferivano lo stesso «Pubblica» del cruscotto). Alle 10:26 si è raggiunto il limite di utilizzo e il giro della 2INF si è fermato a metà; la qualità non è migliorata (dati del cruscotto sbagliati, #142). Il docente: «tutti i tuoi agenti succhiano potenza, ma non hanno migliorato la qualità».
+2. **Regola.** Durante la lezione al massimo 2 aiutanti accesi insieme: uno per la classe in aula e uno di servizio (bottoni e criticità). Mai due aiutanti sullo stesso compito. Un controllo che si fa con un comando lo faccio io, senza aiutante. Prima di accenderne uno nuovo, ne spengo uno.
 
 ## 29/10/2026 — Cruscotto poco utile in classe: le risposte arrivavano a mano, non dalla pagina (#142)
 
