@@ -1,690 +1,683 @@
 {
- "ora": "07:12",
- "fonte": "Classroom, compito 25510294360 (situazione delle consegne) · Documenti letti alle 07:12 · Veyon nessun giro · presenze NON ancora segnate (tutta la classe)",
+ "ora": "08:33",
+ "fonte": "Percorso: 0 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (situazione dello script) · Documenti di lavoro letti alle mai · PDF delle consegne: 4 · Veyon nessun giro · presenze NON ancora segnate (tutta la classe)",
  "ultimo_dato": "06:40",
- "banca": "3inf-hello-lazarus-java",
+ "banca": "3inf-confronto",
+ "modello": "confronto",
  "fine": "13:00",
- "spiega": "Oggi: Hello World in Lazarus e in Java. Consegna: il Documento su Classroom entro le 13:00. Il voto parte da 40; nel Documento consegnato: +10 codice Lazarus, +10 screenshot Lazarus, +10 codice Java, +5 screenshot Java, +5 la tua frase. −3 ogni volta che Veyon ti vede fuori lezione. (Presenze non ancora segnate: per ora in elenco c'è tutta la classe.)",
- "link": "../verifica/?b=3inf-hello-lazarus-java",
+ "spiega": "Oggi: «Lazarus e Java a confronto». Il Documento viene valutato: parte da 40; +10 screenshot Lazarus (sezione 2); +10 screenshot Eclipse (sezione 4); +10 tabella completa (sezione 6, con parole tue); +10 le 3 frasi (sezione 7). I punti si contano solo nel Documento consegnato su Classroom, entro le 13:00 (dopo si valuta lo stesso, ma il ritardo si segna). Voto provvisorio: decide il prof. (Presenze non ancora segnate: per ora in elenco c'è tutta la classe.)",
+ "link": "../3inf-confronto/",
  "classroom": {
   "consegnati": 4,
   "su": 22,
   "letto_alle": "06:40",
   "fonte": "situazione"
  },
+ "riepilogo": {
+  "passo_medio": 0.0,
+  "oltre_eclipse": 0,
+  "facilitato_per_tutti": false
+ },
  "righe": [
   {
    "alunno": "Denis A.",
-   "voto": 80,
-   "conto": "40 + codice Lazarus 10 + screenshot Lazarus 10 + codice Java 10 + screenshot Java 5 + frase 5 = 80 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 6) o la finestra Java (scheda 7).",
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
    "classroom": {
     "stato": "consegnato",
     "ora": "entro le 06:40",
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": true,
-    "screenshot_lazarus": true,
-    "java": true,
-    "screenshot_java": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✓ · screenshot Lazarus ✓ · codice Java ✓ · screenshot Java ✓ · frase ✓",
-    "avviso": ""
-   },
-   "guida": null
+    "consegnato": true,
+    "ora": "entro le 06:40",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 3,
+    "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "David A.",
-   "voto": 80,
-   "conto": "40 + codice Lazarus 10 + screenshot Lazarus 10 + codice Java 10 + screenshot Java 5 + frase 5 = 80 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 6) o la finestra Java (scheda 7).",
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
    "classroom": {
     "stato": "consegnato",
     "ora": "entro le 06:40",
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": true,
-    "screenshot_lazarus": true,
-    "java": true,
-    "screenshot_java": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✓ · screenshot Lazarus ✓ · codice Java ✓ · screenshot Java ✓ · frase ✓",
-    "avviso": ""
-   },
-   "guida": null
+    "consegnato": true,
+    "ora": "entro le 06:40",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Tomas L.",
-   "voto": 80,
-   "conto": "40 + codice Lazarus 10 + screenshot Lazarus 10 + codice Java 10 + screenshot Java 5 + frase 5 = 80 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 6) o la finestra Java (scheda 7).",
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
    "classroom": {
     "stato": "consegnato",
     "ora": "entro le 06:40",
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": true,
-    "screenshot_lazarus": true,
-    "java": true,
-    "screenshot_java": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✓ · screenshot Lazarus ✓ · codice Java ✓ · screenshot Java ✓ · frase ✓",
-    "avviso": ""
-   },
-   "guida": null
+    "consegnato": true,
+    "ora": "entro le 06:40",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Dani S.",
-   "voto": 80,
-   "conto": "40 + codice Lazarus 10 + screenshot Lazarus 10 + codice Java 10 + screenshot Java 5 + frase 5 = 80 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 6) o la finestra Java (scheda 7).",
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
    "classroom": {
     "stato": "consegnato",
     "ora": "entro le 06:40",
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": true,
-    "screenshot_lazarus": true,
-    "java": true,
-    "screenshot_java": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✓ · screenshot Lazarus ✓ · codice Java ✓ · screenshot Java ✓ · frase ✓",
-    "avviso": ""
-   },
-   "guida": null
+    "consegnato": true,
+    "ora": "entro le 06:40",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 3,
+    "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Alessandro A.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Eric C.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Nicolo' C.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 13:00.",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
-   "guida": null
+   "percorso": null,
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Mirko D.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 13:00.",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
-   "doc": null,
-   "guida": null
+   "percorso": null,
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Ariel D.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Mahmoud E.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Rafi F.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Emmanuel F.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Andrea G.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Simone G.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Zhan L.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio: Documento non ancora letto)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Fai Hello World in Lazarus e in Java, poi nel Documento su Classroom: i due codici, i due screenshot, una frase. Poi «Consegna» entro le 13:00.",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non trovato",
     "ora": null,
-    "allegati": null,
     "ritardo": false
    },
-   "doc": null,
-   "guida": null
+   "percorso": null,
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non trovato",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Filippo M.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Beatrice N.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Kelvin P.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Kevin R.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Gabriele R.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Samuele U.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, screenshot Lazarus, codice Java, screenshot Java, frase. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": false,
-    "java": false,
-    "screenshot_java": false,
-    "frase": false,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "screenshot Lazarus",
-     "codice Java",
-     "screenshot Java",
-     "frase"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✗ · codice Java ✗ · screenshot Java ✗ · frase ✗",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   },
   {
    "alunno": "Noah V.",
    "voto": 40,
-   "conto": "40 = 40 (provvisorio, Documento letto alle 07:12)",
-   "verifica": "",
-   "voto_ver": null,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
    "vy_ult": null,
-   "cosa_fare": "Nel tuo Documento manca: codice Lazarus, codice Java. Aggiungilo e premi Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
+   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
    "classroom": {
     "stato": "non ancora",
     "ora": null,
-    "allegati": 1,
     "ritardo": false
    },
+   "percorso": null,
    "doc": {
-    "lazarus": false,
-    "screenshot_lazarus": true,
-    "java": false,
-    "screenshot_java": true,
-    "frase": true,
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
-     "codice Lazarus",
-     "codice Java"
-    ],
-    "letto_alle": "07:12",
-    "testo": "codice Lazarus ✗ · screenshot Lazarus ✓ · codice Java ✗ · screenshot Java ✓ · frase ✓",
-    "avviso": ""
-   },
-   "guida": null
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
   }
  ]
 }
