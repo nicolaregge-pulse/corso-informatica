@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cruscotto 1INF laboratorio</title>
+<style>
+/* 1INF 30/10/2026: cruscotto del DOCENTE del laboratorio «Lazarus, Ciao 2: la Label» con le colonne dei KPI per prime (regola 13),
+   il quiz Unicode di Tecnologia (8-9) e il Ciao del 28/10 per chi non l'aveva consegnato. Dati CIFRATI: 1inf-lab-oggi.json
+   (si leggono il raw e la copia del sito, vale il più recente). Generatore: riservato generatori/cruscotto_1inf_label.py.
+   La pagina dei ragazzi (1inf-oggi/oggi.json) è scritta dallo stesso giro, con lo stesso «generato» (#148). */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b;--gi:#fff3a6;--gitx:#1b2430;--ar:#fde7c8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--gi:#5a4d00;--gitx:#fff6c2;--ar:#4a3417}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--gi:#5a4d00;--gitx:#fff6c2;--ar:#4a3417}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1500px;margin:0 auto;padding:14px 16px}h1{margin:4px 0;font-size:22px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.riep{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:3px solid var(--acc);font-size:19px;font-weight:800}
+.riep .p{font-size:13px;font-weight:400}
+.finale{margin:8px 0;padding:10px 14px;border-radius:12px;background:#eceff1;color:#555;font-weight:600}
+.allarme{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--ko);color:#fff;font-weight:800}
+.giallo{margin:8px 0;padding:8px 14px;border-radius:12px;background:var(--gi);color:var(--gitx);font-weight:600}
+.leg{margin:8px 0;padding:8px 14px;border-radius:12px;background:var(--card);border-left:5px solid var(--acc);font-size:14px}
+.tab{background:var(--card);border-radius:12px;margin-top:10px;overflow-x:auto;max-width:100%}
+table{border-collapse:separate;border-spacing:0;min-width:100%}
+th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top;background:var(--card)}th{font-size:13px;color:var(--mu);white-space:nowrap}
+th.k{color:var(--acc)}
+td.al,th.al{position:sticky;left:0;z-index:1;min-width:170px;max-width:230px;border-right:2px solid var(--ln)}
+tr.ciao td{background:var(--ar)}
+td.ve{min-width:240px}
+.q{display:inline-block;min-width:44px;text-align:center;font-weight:800;padding:4px 8px;border-radius:8px;white-space:nowrap}
+.si{background:#1a7f37;color:#fff}.no{background:#c0392b;color:#fff}.nu{background:#e8eaed;color:#1b2430}
+.v{font-size:22px;font-weight:800}.p{display:block;font-size:12px;color:var(--mu)}.ko{color:var(--ko);font-weight:700}.ok{color:var(--ok);font-weight:700}
+.bad{display:inline-block;margin-top:3px;background:#e67e22;color:#fff;font-weight:800;font-size:12px;padding:2px 6px;border-radius:6px}
+details{font-size:13px}summary{cursor:pointer;color:var(--acc)}
+@media (max-width:760px){td.al,th.al{min-width:118px;max-width:140px;font-size:13px}td.ve{min-width:200px}.v{font-size:19px}}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
+<div id="view" class="hide">
+<h1 id="tit">1INF: laboratorio «Ciao 2: la Label»</h1>
+<div id="riep" class="riep">—</div>
+<div id="vecchio" class="allarme hide"></div>
+<div id="blocco" class="allarme hide"></div>
+<div id="pres" class="giallo hide">Presenze di oggi non ancora segnate: compaiono tutti gli allievi della classe.</div>
+<div id="leg" class="leg"></div>
+<div class="mu" id="stato">—</div>
+<div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Su telefono la tabella scorre di lato con il dito; il nome resta fermo. La pagina si rilegge da sola ogni minuto; i dati arrivano da Classroom ogni 5 minuti, dai Documenti a ogni raccolta dello script.</p>
+</div></div>
+<script src="orario-lezione.js"></script>
+<script>
+var TOK='',_kc=null,JN='1inf-lab-oggi.json',RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/avanzamento/'+JN;
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function dec(d){var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function leggi(){var t=Date.now(),L=await Promise.all([RAW+'?t='+t,JN+'?t='+t].map(function(u){return fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){return d?dec(d):null}).catch(function(){return null})}));
+ L=L.filter(Boolean);if(!L.length)throw new Error('nessun dato');L.sort(function(a,b){return String(b.generato||'').localeCompare(String(a.generato||''))});return L[0]}
+function si(t){return '<span class="q si">✔</span><span class="p">'+e(t||'')+'</span>'}
+function no(t){return '<span class="q no">○</span><span class="p">'+e(t||'manca')+'</span>'}
+function grigio(t){return '<span class="q nu">…</span><span class="p">'+e(t)+'</span>'}
+function kcel(v,lav,cons,txt){if(v===true)return si(txt);if(v===false)return no('manca nel Documento consegnato');if(cons)return grigio('consegnato: si legge alla prossima raccolta');if(lav)return grigio('nel Documento di lavoro (non consegnato)');return no('')}
+function mostra(D){
+ var R=D.righe||[],K=D.kpi||[],C=D.classroom||{},P=D.riepilogo||{};
+ if(D.titolo){$('tit').textContent=D.titolo;document.title=D.titolo}
+ $('riep').innerHTML=(C.pubblicato?'Consegnati: <span class="ok">'+P.consegnati+'</span> su '+P.su+' · codice '+P.codice+' · screenshot '+P.screenshot+' · frase '+P.frase:'<span class="ko">Compito del laboratorio non ancora pubblicato su Classroom</span>')+
+  ' · quiz Unicode '+P.quiz+' su '+P.su+(P.senza_ciao?' · <span class="ko">senza Ciao 28/10: '+P.senza_ciao_ora+' su '+P.senza_ciao+'</span>':'')+
+  '<span class="p">'+e(D.fonte||'')+'</span>';
+ $('pres').className=D.presenze_segnate?'giallo hide':'giallo';
+ $('leg').textContent=D.legenda||'';
+ $('blocco').textContent=D.bloccato?'Ponte di Google fermo: '+D.bloccato+'.':'';$('blocco').className=D.bloccato?'allarme':'allarme hide';
+ var gen=D.generato?new Date(D.generato+':00+01:00').getTime():null,min=gen?Math.round((Date.now()-gen)/60000):null;
+ $('stato').textContent='Pagina rigenerata alle '+String(D.generato||'').slice(11,16)+(min!=null?' ('+min+' min fa)':'')+' · controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
+ statoLezione('1INF').then(function(s){var v=$('vecchio'),oggi=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'});
+  if(D.giorno&&D.giorno!==oggi){v.textContent='Questi sono i dati del '+D.giorno.split('-').reverse().join('/')+', non di oggi.';v.className=D.giorno>oggi?'finale':'allarme';return}
+  if(s.stato==='durante'||s.stato==='ignoto'){if(min==null||min>12){v.textContent='ATTENZIONE: la pagina ha '+(min==null?'?':min)+' minuti (più di 12): il giro automatico può essere fermo.';v.className='allarme'}else v.className='allarme hide'}
+  else if(s.stato==='prima'){v.textContent='La lezione comincia alle '+s.inizio+'.';v.className='finale'}
+  else{v.textContent='Dati finali della lezione, rigenerati alle '+String(D.generato||'').slice(11,16)+'.';v.className='finale'}}).catch(function(){});
+ $('th').innerHTML='<th class="al"># Allievo</th>'+K.map(function(k){return '<th class="k">'+e(k)+'</th>'}).join('')+'<th>Voto lab.</th><th>Quiz Unicode</th><th>Ciao 28/10</th><th>Veyon, note, prossimo passo</th>';
+ $('t').innerHTML=R.map(function(r,i){var k=r.kpi||{},c=r.classroom||{},cons=/consegnato|restituito/.test(c.stato||''),lav=k.lavoro||{},q=r.quiz,ci=r.ciao||{},ciok=/consegnato|restituito/.test(ci.stato||'');
+  var doc=k.doc?si('consegnato'+(c.ora?' alle '+c.ora:'')+(c.ritardo?' (in ritardo)':'')):k.vuoto?'<span class="q no">VUOTO</span><span class="p">consegnato senza codice, screenshot, frase</span>':no(c.stato==='compito non pubblicato'?'compito non ancora uscito':c.stato==='non trovato'?'non trovato su Classroom':c.stato==='ritirato'?'ha ritirato la consegna':'non ancora consegnato');
+  var vy=(r.vy||[]).map(function(x){return '<div class="'+(x[2]?'ko':'')+'">'+e(x[0])+' '+e(x[1])+(x[2]?' (fuori compito)':'')+'</div>'}).join('');
+  var nt=(r.note||[]).map(function(x){return Array.isArray(x)?x.join(' '):x}).join(' · ');
+  var dett=((r.righe_codice||[]).length?'<div class="p">codice: '+e(r.righe_codice.join(' | '))+'</div>':'')+((r.frase_testo||[]).length?'<div class="p">frase: «'+e(r.frase_testo.join(' '))+'»</div>':'');
+  return '<tr class="'+(r.senza_ciao&&!ciok?'ciao':'')+'"><td class="al">'+(i+1)+'. <b>'+e(r.nome)+'</b>'+(r.senza_ciao?'<div><span class="bad">'+(ciok?'Ciao 28/10 recuperato':'SENZA il Ciao del 28/10')+'</span></div>':'')+(r.fuori?'<div class="ko">fuori compito '+r.fuori+' volte</div>':'')+'</td>'+
+   '<td>'+doc+'</td><td>'+kcel(k.codice,lav.codice,cons,'Label1.Caption :=')+'</td><td>'+kcel(k.screenshot,false,cons,'screenshot')+'</td><td>'+kcel(k.frase,lav.frase,cons,'frase propria')+'</td>'+
+   '<td><span class="v">'+e(r.voto)+'</span><span class="p">'+e(r.conto)+'</span></td>'+
+   '<td>'+(q?'<span class="q si">'+q.v+'</span><span class="p">'+q.p+'/'+q.m+(q.quando?' · '+e(q.quando):'')+(q.volte>1?' ('+q.volte+' volte)':'')+'</span>':no('non fatto'))+'</td>'+
+   '<td>'+(r.senza_ciao?(ciok?si('consegnato'+(ci.ora?' '+ci.ora:'')):no('da consegnare (letto alle '+(ci.letto||'?')+')')):'<span class="p">fatto il 28/10</span>')+'</td>'+
+   '<td class="ve">'+(vy?'<details><summary>Veyon ('+(r.vy||[]).length+')</summary>'+vy+'</details>':'<span class="p">Veyon: nessun giro</span>')+(nt?'<div>📝 '+e(nt)+'</div>':'')+dett+'<div style="margin-top:4px"><b>Prossimo passo:</b> '+e(r.messaggio)+'</div></td></tr>'}).join('');
+}
+async function giro(){try{var D=await leggi();$('gate').className='gate hide';$('view').className='';$('err').textContent='';mostra(D)}catch(x){if($('view').className==='hide'){$('err').textContent='Codice sbagliato o dati non leggibili.';_kc=null}else $('stato').textContent='Errore nel rileggere i dati: riprovo tra un minuto.'}}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+</script>
+</body>
+</html>
