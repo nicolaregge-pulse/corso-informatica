@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 2
 
-**Versione 1.1** — 29/10/2026
+**Versione 1.2** — 29/10/2026
 *Il libro di testo della 2INF: raccoglie in un unico posto la teoria e le esercitazioni svolte in classe, lezione per lezione. Cresce a ogni lezione. Il PDF (libro-classe2-vX.Y.pdf) serve per leggere e stampare; questo MD è la fonte versionata, da dare alla tua AI (NotebookLM, Gemini) perché ti spieghi ogni parte con parole semplici. Ogni lezione ha anche il suo libro parziale nella cartella lezioni.*
 
 ---
@@ -1966,6 +1966,7 @@ Cognome e nome
 Passo 2. Premi il bottone.
 
 Il Modulo si apre con l'account della scuola. Dopo l'invio, la pagina si aggiorna entro qualche minuto.
+
 ### L22 29/10/2026 — La calcolatrice da zero, con Git
 
 *Libro parziale: lezioni/2026-10-29_calcolatrice-da-zero.md*
@@ -1973,9 +1974,11 @@ Il Modulo si apre con l'account della scuola. Dopo l'invio, la pagina si aggiorn
 #### Che cosa abbiamo fatto
 
 1. **Quando:** 29/10/2026, 2 ore, Informatica.
-2. **Argomenti:** La calcolatrice rifatta da zero a passi guidati (V 1.0 con + e x, dalla lavagna), salvata in Documenti\Lazarus\calcolatrice e caricata su GitHub con un commit; per chi finisce la V 2.0 (: e −) con il secondo commit.
+2. **Argomenti:** La calcolatrice rifatta da zero a passi guidati (V 1.0 con + e x, dalla lavagna), salvata in Documenti\Lazarus\calcolatrice e caricata su GitHub con un commit; per chi finisce la V 2.0 (: e −) con il secondo commit; Documento con gli screenshot su Classroom.
 
 #### La teoria e l'esercitazione
+
+La pagina della lezione: https://nicolaregge-pulse.github.io/corso-informatica/2inf-calcolatrice/
 
 ##### 01 Che cosa facciamo oggi
 
@@ -2079,5 +2082,6 @@ Lo screenshot: tasti **Windows + Maiusc + S**, si trascina un rettangolo, poi **
 <!-- LEZIONI:FINE -->
 
 ## 2 Changelog
+2. **v1.2 (29/10/2026)**: lezione del 29/10/2026 (audit della giornata)
 1. **v1.0 (29/10/2026)**: prima versione completa: le 21 lezioni dal 21/09 al 28/10, ognuna con la teoria e l'esercitazione (prende il posto della dispensa v0.1).
 2. **v1.1 (29/10/2026)**: aggiunta la lezione L22 del 29/10 «La calcolatrice da zero, con Git», con la foto della lavagna (V 1.0, V 2.0, i file del progetto, i commit v1 e v2).
