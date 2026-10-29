@@ -149,7 +149,9 @@ var OGGI_PAG = {
 // Pagine docente speciali per un giorno preciso (classe:AAAA-MM-GG); gli altri giorni restano come sopra.
 var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
   // 28/10/2026 3INF: Hello World in Lazarus e in Java (consegna del Documento su Classroom)
-  '3INF:2026-10-28': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: Hello World in Lazarus e in Java.'}};
+  '3INF:2026-10-28': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: Hello World in Lazarus e in Java.'},
+  // 29/10/2026 (audit, #133): la 3INF consegna oggi entro le 13 lo stesso Documento: il cruscotto segue quella consegna
+  '3INF:2026-10-29': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: consegna del Documento «Hello World in Lazarus e in Java» entro le 13.'}};
 // ?prova=1: dati SIMULATI (file con suffisso -prova, nomi inventati) e nessun invio vero allo script.
 var PROVA = new URLSearchParams(location.search).get('prova') === '1';
 var BANNER = '<p class="manca" style="background:#fff3b0;border-color:#d4a017"><b>DATI DI PROVA</b>: nomi e domande inventati, i messaggi non partono.</p>';
@@ -175,9 +177,22 @@ function mostra() {
     $('nota').textContent = g === oggi() ? 'Oggi, dal vivo.' :
       'Per questo giorno non c\'è un cruscotto salvato: mostro quello di oggi.' + (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
   }
+  $('nota').style.color = '';
+  if (g === oggi() && typeof statoLezione === 'function') avvisoGiorno(c, $('nota').textContent);
   if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
   caricaPiano(c, g); linguette();
   salva();
+}
+// 29/10/2026 (audit, #127 #71): prima della lezione, o in un giorno senza lezione della classe, la pagina qui sotto
+// mostra ancora i dati dell'ultima lezione: lo si scrive in rosso, così nessuno li prende per dati di oggi.
+function avvisoGiorno(c, base) {
+  statoLezione(c).then(function (s) {
+    if ($('classe').value !== c || ($('giorno').value || oggi()) !== oggi()) return;
+    var t = '';
+    if (s.stato === 'prima') t = 'La lezione di oggi della ' + c + ' comincia alle ' + s.inizio + ': qui sotto ci sono ancora i dati dell\'ultima lezione, NON di oggi.';
+    else if (s.stato === 'nessuna') t = 'Oggi la ' + c + ' non ha lezione: qui sotto ci sono i dati dell\'ultima lezione, NON di oggi.';
+    if (t) { $('nota').textContent = t; $('nota').style.color = '#c0392b'; }
+  }).catch(function () {});
 }
 // ---- Linguette (28/10/2026, Nicola): Allievo vede solo «Oggi dal vivo» e «Piano del giorno» ----
 // 28/10/2026 (docente): «Piano del giorno» compare SEMPRE, anche quando il piano di quel giorno non c'è (lo dice la linguetta)
@@ -254,7 +269,7 @@ function disegnaPiano() {
     h += props.map(prop).join('');
     if (p.mancanze) h += '<p class="manca"><b>Che cosa manca alla classe:</b> ' + esc(p.mancanze) + '</p>';
   } else {
-    h += scelta ? prop(scelta) : '<p class="manca">Il lavoro di oggi sta per arrivare: premi F5 tra poco.</p>';
+    h += scelta ? prop(scelta) : '<p class="manca">Il prof non ha ancora scelto il lavoro di oggi: intanto apri «La mia giornata» qui sotto.</p>';
   }
   if ((p.link || []).length) h += '<h2>Link del giorno</h2><div class="link">' + p.link.map(function (l) {
     return '<a href="' + esc(url(l.u)) + '" target="_blank" rel="noopener">' + esc(l.t) + '</a>'; }).join('') + '</div>';
