@@ -1,6 +1,6 @@
 {
- "ora": "11:34",
- "fonte": "Percorso: 24 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle mai · PDF delle consegne: 4 · Veyon 20 giri · presenze dal registro",
+ "ora": "11:36",
+ "fonte": "Percorso: 30 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle mai · PDF delle consegne: 4 · Veyon 20 giri · presenze dal registro",
  "ultimo_dato": "06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia)",
  "banca": "3inf-confronto",
  "modello": "confronto",
@@ -14,8 +14,8 @@
   "fonte": "situazione"
  },
  "riepilogo": {
-  "passo_medio": 1.0,
-  "oltre_eclipse": 2,
+  "passo_medio": 1.3,
+  "oltre_eclipse": 4,
   "facilitato_per_tutti": false
  },
  "righe": [
@@ -30,24 +30,31 @@
     false
    ],
    "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [
+    "codice Lazarus",
+    "screenshot Lazarus",
+    "codice Java",
+    "screenshot Java",
+    "frase"
+   ],
    "classroom": {
     "stato": "consegnato",
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false
    },
    "percorso": {
-    "passo": 5,
+    "passo": 6,
     "totale": 10,
-    "titolo": "Sezione 2: lo screenshot di Lazarus",
-    "ora": "11:33",
-    "fermo_min": 0,
+    "titolo": "Sezione 4: lo screenshot di Eclipse",
+    "ora": "11:35",
+    "fermo_min": 1,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
     "consegnato": true,
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
     "stato": "consegnato",
     "tabella": 0,
@@ -55,49 +62,6 @@
     "img_lazarus": true,
     "img_java": true,
     "immagini": 3,
-    "fonte": "PDF della consegna, 06:40",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "David A.",
-   "voto": 60,
-   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 11: su Classroom (compito)",
-    false
-   ],
-   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "entro le 06:40",
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:28",
-    "fermo_min": 6,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": true,
-    "ora": "entro le 06:40",
-    "ritardo": false,
-    "stato": "consegnato",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": true,
-    "img_java": true,
-    "immagini": 2,
     "fonte": "PDF della consegna, 06:40",
     "manca": [
      "tabella 0/7 righe (sezione 6)",
@@ -116,24 +80,81 @@
     false
    ],
    "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [
+    "codice Lazarus",
+    "screenshot Lazarus",
+    "codice Java",
+    "screenshot Java",
+    "frase"
+   ],
    "classroom": {
     "stato": "consegnato",
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 2,
+    "totale": 10,
+    "titolo": "Eclipse aperto, con Main.java",
+    "ora": "11:34",
+    "fermo_min": 2,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": true,
+    "ora": "ieri 28/10, entro le 14:10",
+    "ritardo": false,
+    "stato": "consegnato",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": true,
+    "img_java": true,
+    "immagini": 2,
+    "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "David A.",
+   "voto": 60,
+   "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 11: su Classroom (compito)",
+    false
+   ],
+   "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [
+    "codice Lazarus",
+    "screenshot Lazarus",
+    "codice Java",
+    "screenshot Java",
+    "frase"
+   ],
+   "classroom": {
+    "stato": "consegnato",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false
    },
    "percorso": {
     "passo": 1,
     "totale": 10,
     "titolo": "Dove sei arrivato?",
-    "ora": "11:22",
-    "fermo_min": 11,
-    "fermo": true,
+    "ora": "11:28",
+    "fermo_min": 8,
+    "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
     "consegnato": true,
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
     "stato": "consegnato",
     "tabella": 0,
@@ -159,9 +180,16 @@
     true
    ],
    "cosa_fare": "Nel Documento consegnato manca: tabella 0/7 righe (sezione 6), frasi 0/3 (sezione 7). Su Classroom «Annulla consegna», completa, poi di nuovo «Consegna».",
+   "ieri": [
+    "codice Lazarus",
+    "screenshot Lazarus",
+    "codice Java",
+    "screenshot Java",
+    "frase"
+   ],
    "classroom": {
     "stato": "consegnato",
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false
    },
    "percorso": {
@@ -169,14 +197,14 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:26",
-    "fermo_min": 7,
+    "fermo_min": 10,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
    "doc": {
     "consegnato": true,
-    "ora": "entro le 06:40",
+    "ora": "ieri 28/10, entro le 14:10",
     "ritardo": false,
     "stato": "consegnato",
     "tabella": 0,
@@ -192,112 +220,31 @@
    }
   },
   {
-   "alunno": "Ariel D.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 27: sul percorso 3inf-confronto",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 4 · Apri il tuo Documento.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 3,
-    "totale": 10,
-    "titolo": "Run: la finestrella Hello World",
-    "ora": "11:29",
-    "fermo_min": 4,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Andrea G.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 36: sul percorso 3inf-confronto",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 3 · Run: la finestrella Hello World.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 2,
-    "totale": 10,
-    "titolo": "Eclipse aperto, con Main.java",
-    "ora": "11:31",
-    "fermo_min": 2,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
    "alunno": "Noah V.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
     "PC 38: su Classroom (compito)",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 3 · Run: la finestrella Hello World.",
+   "cosa_fare": "Prossimo passo del percorso: 5 · Sezione 2: lo screenshot di Lazarus.",
+   "ieri": [
+    "screenshot Lazarus",
+    "screenshot Java",
+    "frase"
+   ],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "ritardo": false
    },
    "percorso": {
-    "passo": 2,
+    "passo": 4,
     "totale": 10,
-    "titolo": "Eclipse aperto, con Main.java",
-    "ora": "11:33",
+    "titolo": "Apri il tuo Documento",
+    "ora": "11:36",
     "fermo_min": 0,
     "fermo": false,
     "finito": false,
@@ -321,241 +268,27 @@
    }
   },
   {
-   "alunno": "Eric C.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "alunno": "Ariel D.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
-    "PC 23: pagina non chiara",
+    "PC 27: sul percorso 3inf-confronto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "cosa_fare": "Prossimo passo del percorso: 4 · Apri il tuo Documento.",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
     "ritardo": false
    },
    "percorso": {
-    "passo": 1,
+    "passo": 3,
     "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:24",
-    "fermo_min": 9,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Nicolo' C.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 28: su Classroom (compito)",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:24",
-    "fermo_min": 10,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Simone G.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 1,
-   "vy_ult": [
-    "11:26",
-    "PC 31: pagina di Google vuota",
-    true
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
+    "titolo": "Run: la finestrella Hello World",
     "ora": "11:29",
-    "fermo_min": 4,
-    "fermo": false,
-    "finito": false,
-    "dove": "Non ho ancora scompattato o aperto Eclipse"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Filippo M.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 25: sul percorso 3inf-confronto",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:25",
-    "fermo_min": 8,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Kevin R.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 24: sul percorso 3inf-confronto",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:23",
-    "fermo_min": 10,
-    "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Samuele U.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 1,
-   "vy_ult": [
-    "11:26",
-    "PC 21: tornato su Classroom",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:27",
     "fermo_min": 7,
     "fermo": false,
     "finito": false,
@@ -579,9 +312,361 @@
    }
   },
   {
+   "alunno": "Andrea G.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 36: sul percorso 3inf-confronto",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 4 · Apri il tuo Documento.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 3,
+    "totale": 10,
+    "titolo": "Run: la finestrella Hello World",
+    "ora": "11:34",
+    "fermo_min": 2,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Eric C.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 23: pagina non chiara",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 12 minuti: chiedi all'assistente in fondo alla pagina.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:24",
+    "fermo_min": 12,
+    "fermo": true,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Nicolo' C.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 28: su Classroom (compito)",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 12 minuti: chiedi all'assistente in fondo alla pagina.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:24",
+    "fermo_min": 12,
+    "fermo": true,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Simone G.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 1,
+   "vy_ult": [
+    "11:26",
+    "PC 31: pagina di Google vuota",
+    true
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:29",
+    "fermo_min": 7,
+    "fermo": false,
+    "finito": false,
+    "dove": "Non ho ancora scompattato o aperto Eclipse"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Filippo M.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 25: sul percorso 3inf-confronto",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 11 minuti: chiedi all'assistente in fondo alla pagina.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:25",
+    "fermo_min": 11,
+    "fermo": true,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Kevin R.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 24: sul percorso 3inf-confronto",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 12 minuti: chiedi all'assistente in fondo alla pagina.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:23",
+    "fermo_min": 12,
+    "fermo": true,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Gabriele R.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 29: su Classroom (compito)",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:36",
+    "fermo_min": 0,
+    "fermo": false,
+    "finito": false,
+    "dove": "Eclipse si apre, ma il programma non funziona"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Samuele U.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 1,
+   "vy_ult": [
+    "11:26",
+    "PC 21: tornato su Classroom",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:27",
+    "fermo_min": 9,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
    "alunno": "Alessandro A.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
@@ -589,6 +674,7 @@
     false
    ],
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -614,8 +700,8 @@
   },
   {
    "alunno": "Mirko D.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 1,
    "vy_ult": [
     "11:22",
@@ -623,6 +709,7 @@
     true
    ],
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -648,11 +735,12 @@
   },
   {
    "alunno": "Mahmoud E.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": null,
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -678,8 +766,8 @@
   },
   {
    "alunno": "Rafi F.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
@@ -687,6 +775,7 @@
     false
    ],
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -712,8 +801,8 @@
   },
   {
    "alunno": "Emmanuel F.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
@@ -721,6 +810,7 @@
     false
    ],
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -746,8 +836,8 @@
   },
   {
    "alunno": "Beatrice N.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": [
     "11:22",
@@ -755,6 +845,7 @@
     false
    ],
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
@@ -780,45 +871,12 @@
   },
   {
    "alunno": "Kelvin P.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
    "fuori": 0,
    "vy_ult": null,
    "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": null,
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Gabriele R.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 29: su Classroom (compito)",
-    false
-   ],
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
+   "ieri": [],
    "classroom": {
     "stato": "non ancora",
     "ora": null,
