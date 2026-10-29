@@ -35,6 +35,11 @@ Aggiunti il 28/10/2026 sera (MAPPA-REGOLE-CONTROLLI.md):
 21. (u) rimando a riquadri di messaggi precedenti (05/10 n. 31);
 22. (v) «incolla» in Apps Script senza il file automazione-corso.gs (#51);
 e in (g) anche i voti sotto 40 nella stringa DIDAweb (05/10 n. 23).
+Aggiunti il 29/10/2026 pomeriggio (audit della giornata):
+23. (w) «N consegnati su M» senza fonte e ora della lettura (#151);
+24. (x) attività automatica o notturna dichiarata pronta senza una prova eseguita (#152);
+25. (y) pagina provata solo con dati simulati «?prova=1» (#153);
+26. (z) domanda al docente su presenze o voti già nei file del giorno (#154).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
 """
@@ -648,6 +653,91 @@ def controllo_file_apps_script(testo):
     return None
 
 
+# ------------------------------------------- controlli aggiunti il 29/10/2026 pomeriggio (#151-#154)
+
+# (w) «N consegnati su M» senza la fonte e l'ora della lettura (#151, #134)
+RE_CONTEGGIO = re.compile(r"\b\d+\s+(?:consegnat\w*|hanno\s+consegnato|fatt[oi]|completat\w*)\s+su\s+\d+\b|"
+                          r"\b\d+\s+su\s+\d+\s+(?:hanno\s+)?(?:consegnat\w*|fatt[oi]|completat\w*)\b", re.I)
+RE_FONTE_ORA = re.compile(r"(?:lett[oaie]|letto|leggo|ponte|classroom|moduli|_RISULTATI|fonte)[^.\n]{0,80}?"
+                          r"\b(?:alle\s+)?\d{1,2}[:.]\d{2}\b", re.I)
+
+
+def controllo_conteggio_senza_fonte(testo):
+    base = senza_citazioni(senza_riquadri(testo))
+    m = RE_CONTEGGIO.search(base)
+    if not m or RE_FONTE_ORA.search(base):
+        return None
+    return ("«%s» senza fonte e ora (#151): un conteggio di consegne si dà solo dopo averlo letto alla fonte "
+            "(Classroom via ponte, risultati di Moduli) e si scrive da dove e a che ora, es. «letto da Classroom "
+            "alle 13:58». Un report con un conteggio vecchio non si consegna." % m.group(0))
+
+
+# (x) attività automatica o notturna «creata/attiva» senza una prova eseguita (#152, #141)
+RE_ATTIVITA = re.compile(r"(?:attivit[àa]|task|giro|chat)\s+(?:\w+\s+){0,2}(?:automatic\w*|programmat\w*|nottur\w*|"
+                         r"di\s+mezzanotte|delle\s+0[:.]00)[^.\n]{0,60}?\b(?:creat\w*|attivat\w*|impostat\w*|pront\w*|"
+                         r"accés\w*|acces\w*|partir[àa]|gira)\b", re.I)
+RE_PROVA_ESEGUITA = re.compile(r"prova\s+(?:eseguita|fatta|completa)|provat[oaie]\s+(?:da\s+capo|dall'inizio|con)|"
+                               r"giro\s+di\s+prova|ha\s+girato|stato/notte-\d{4}", re.I)
+
+
+def controllo_attivita_non_provata(testo):
+    base = senza_citazioni(senza_riquadri(testo))
+    m = RE_ATTIVITA.search(base)
+    if not m or RE_PROVA_ESEGUITA.search(testo):
+        return None
+    return ("«%s» (#152, #141): un'attività automatica si dichiara pronta solo dopo una prova eseguita da capo "
+            "nelle condizioni vere (sessione con i DUE repository, limite dei comandi, risultato nel riservato). "
+            "Scrivi che cosa ha fatto la prova (es. «giro di prova delle 14:20: stato/notte-… scritto») o che non "
+            "è ancora provata." % m.group(0).strip())
+
+
+# (y) pagina verificata solo con dati simulati (?prova=1) (#153, #140)
+RE_SIMULATI = re.compile(r"\?prova=1|prova=1\b|dati\s+(?:simulat\w*|fint\w*|di\s+prova)", re.I)
+RE_VERIFICATO = re.compile(r"verificat\w*|provat\w*|funzion\w*|controllat\w*|\bva\b|a\s+posto", re.I)
+RE_DATI_VERI = re.compile(r"dati\s+veri|sito\s+vero|codice\s+vero|senza\s+[«\"]?\??prova=1|risposte\s+vere", re.I)
+
+
+def controllo_solo_simulati(testo):
+    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    if not (RE_SIMULATI.search(testo) and RE_VERIFICATO.search(base)) or RE_DATI_VERI.search(testo):
+        return None
+    return ("Pagina provata con dati simulati (#153): «?prova=1» o dati finti non bastano. Si prova sul sito "
+            "vero, con il codice pubblicato e i dati veri (risposte vere del Modulo), e lo si scrive "
+            "(«provata sul sito vero con i dati veri delle 13:58»).")
+
+
+# (z) domanda al docente su cose già decise o già nei file: presenze, voti (#154)
+RE_DOMANDA_PRESENZE = re.compile(r"[^.?!\n]*\b(?:presenz\w*|presenti|assenti)\b[^.?!\n]*\?", re.I)
+RE_DOMANDA_VOTI = re.compile(r"[^.?!\n]*\b(?:vot[oi]|valutazion\w*)\b[^.?!\n]*\?", re.I)
+
+
+def controllo_chiede_cose_note(testo, ris=None, oggi=None):
+    ris = ris or RIS
+    if not os.path.isdir(ris):
+        return None
+    adesso = datetime.datetime.now(ZoneInfo("Europe/Rome"))
+    g = oggi or adesso.strftime("%Y-%m-%d")
+    g8 = g.replace("-", "")
+    base = senza_citazioni(senza_riquadri(testo))
+    import glob as _glob
+    m = RE_DOMANDA_PRESENZE.search(base)
+    if m:
+        classi = classi_in(m.group(0))
+        file_p = [f for f in _glob.glob(os.path.join(ris, "config", "*-presenti-%s.json" % g8))
+                  if not classi or any(os.path.basename(f).lower().startswith(c.lower()) for c in classi)]
+        if file_p:
+            return ("Domanda sulle presenze già note (#154): «%s» — sono già in %s. Si usano quelle; si chiede "
+                    "solo ciò che manca davvero." % (m.group(0).strip(), ", ".join("config/" + os.path.basename(f) for f in file_p)))
+    m = RE_DOMANDA_VOTI.search(base)
+    if m:
+        file_v = [f for f in [os.path.join(ris, "report", g, "voti-decisi-docente.txt")] +
+                  _glob.glob(os.path.join(ris, "config", "*-voto-%s.json" % g8)) if os.path.exists(f)]
+        if file_v:
+            return ("Domanda sui voti già decisi (#154): «%s» — i voti decisi dal docente sono già in %s. Si "
+                    "rileggono prima di chiedere." % (m.group(0).strip(), ", ".join(os.path.relpath(f, ris) for f in file_v)))
+    return None
+
+
 # ------------------------------------------------------------- transcript
 
 def ultimo_testo_assistente(transcript_path, max_righe=4000):
@@ -695,7 +785,8 @@ def main():
                       lambda t: controllo_errore_rimandato(t, data), controllo_link_riservato,
                       controllo_script_diretto, controllo_lungo_in_lezione, controllo_non_risulta,
                       controllo_copiato, lambda t: controllo_avanti(t, data), controllo_rimando_riquadri,
-                      controllo_file_apps_script):
+                      controllo_file_apps_script, controllo_conteggio_senza_fonte,
+                      controllo_attivita_non_provata, controllo_solo_simulati, controllo_chiede_cose_note):
         try:
             m = controllo(testo)
         except Exception:

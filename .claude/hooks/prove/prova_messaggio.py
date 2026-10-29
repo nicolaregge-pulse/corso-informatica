@@ -184,6 +184,33 @@ caso("u: riquadro ripetuto", cm.controllo_rimando_riquadri("Incolla questo:\n```
 caso("v: Apps Script, Ctrl+V senza file", cm.controllo_file_apps_script("Apri script.google.com/home, clic nel codice, Ctrl+A, Ctrl+V."), True)
 caso("v: Apps Script con automazione-corso.gs", cm.controllo_file_apps_script("Apri script.google.com/home, clicca «automazione-corso.gs», Ctrl+A, Ctrl+V."), False)
 
+# (w) conteggio senza fonte e ora (#151)
+caso("w: «2 consegnati su 14» senza fonte", cm.controllo_conteggio_senza_fonte("Report pronto: 2 consegnati su 14."), True)
+caso("w: conteggio con fonte e ora", cm.controllo_conteggio_senza_fonte("7 consegnati su 19, letto da Classroom alle 13:58."), False)
+caso("w: «18 su 20 hanno fatto» senza fonte", cm.controllo_conteggio_senza_fonte("Quiz: 18 su 20 hanno fatto il quiz."), True)
+caso("w: niente conteggio", cm.controllo_conteggio_senza_fonte("Il report è nel riservato."), False)
+
+# (x) attività automatica non provata (#152)
+caso("x: attività notturna creata senza prova", cm.controllo_attivita_non_provata("Ho creato l'attività notturna delle 0:00, partirà da sola."), True)
+caso("x: attività notturna con giro di prova", cm.controllo_attivita_non_provata("Attività notturna creata; giro di prova delle 14:20 eseguito: stato/notte-2026-10-30.json scritto."), False)
+caso("x: frase senza attività", cm.controllo_attivita_non_provata("Il cruscotto è aggiornato."), False)
+
+# (y) solo dati simulati (#153)
+caso("y: verificata con ?prova=1", cm.controllo_solo_simulati("Ho verificato la pagina con ?prova=1: le colonne si vedono."), True)
+caso("y: anche con i dati veri", cm.controllo_solo_simulati("Provata con ?prova=1 e poi sul sito vero con i dati veri delle 13:58."), False)
+caso("y: nessun dato simulato", cm.controllo_solo_simulati("Ho verificato la pagina sul sito."), False)
+
+# (z) domanda su presenze e voti già nei file (#154)
+risz = T + "/risz"
+os.makedirs(risz + "/config"); os.makedirs(risz + "/report/2026-10-29")
+json.dump(["X"], open(risz + "/config/1inf-presenti-20261029.json", "w"))
+open(risz + "/report/2026-10-29/voti-decisi-docente.txt", "w").write("x")
+caso("z: chiede le presenze 1INF già nel file", cm.controllo_chiede_cose_note("Mi mandi le presenze della 1INF?", risz, "2026-10-29") is not None, True)
+caso("z: chiede le presenze 3INF senza file", cm.controllo_chiede_cose_note("Mi mandi le presenze della 3INF?", risz, "2026-10-29"), False)
+caso("z: chiede i voti già decisi", cm.controllo_chiede_cose_note("Quali voti metto alla 3INF?", risz, "2026-10-29") is not None, True)
+caso("z: domanda d'altro", cm.controllo_chiede_cose_note("Vuoi la versione PDF?", risz, "2026-10-29"), False)
+caso("z: altro giorno senza file", cm.controllo_chiede_cose_note("Mi mandi le presenze della 1INF?", risz, "2026-10-30"), False)
+
 # main(): blocca una volta sola, non blocca i subagenti, input rotto = exit 0
 def main_con(dati):
     sys.stdin = io.StringIO(json.dumps(dati))
