@@ -23,7 +23,7 @@ table{border-collapse:collapse;width:100%}th,td{padding:9px 8px;border-bottom:1p
 th{font-size:14px;color:var(--mu)}td:first-child,th:first-child{text-align:left}
 .y,.n{font-size:26px;font-weight:800}.y{color:var(--ok)}.y a{color:var(--ok);text-decoration:none}.n{color:var(--ko);cursor:pointer}
 .n small,.y small{display:block;font-size:12px;font-weight:600;color:var(--mu)}.n small{color:var(--ko);max-width:200px;margin:0 auto}
-tr.fin td{background:var(--okb)}.rel{font-size:12px;color:var(--mu)}
+tr.fin td{background:var(--okb)}td.g{color:#fff;background:#8a939c;font-weight:700;font-size:13px;border-radius:6px}.rel{font-size:12px;color:var(--mu)}
 </style>
 </head>
 <body><div class="w">
@@ -54,14 +54,14 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  $('gate').classList.add('hide');$('view').classList.remove('hide');
  var g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),vec=d.data!==g;
  $('stato').innerHTML=(vec?'<b style="color:var(--ko)">DATI DEL '+e(d.data.split('-').reverse().join('/'))+', NON DI OGGI · </b>':'')+'Ultimo controllo dei repository: <b>'+e(d.ora)+'</b> · '+d.n+' presenti';
- var T=d.tot;$('tot').innerHTML=['Ver1','Codice V1','Ver2','Codice V2','Compito'].map(function(x,k){return '<span>'+x+': <b>'+[T.ver1,T.cod1,T.ver2,T.cod2,T.compito][k]+' su '+d.n+'</b></span>'}).join('');
+ var T=d.tot;$('tot').innerHTML=['Ver1','Codice V1','Ver2','Codice V2','Compito'].map(function(x,k){return '<span>'+x+': <b>'+(k===4&&!d.compito_fonte?'da leggere':[T.ver1,T.cod1,T.ver2,T.cod2,T.compito][k]+' su '+d.n)+'</b></span>'}).join('');
  $('t').innerHTML=d.righe.map(function(r){var v1=r.ver1,v2=r.ver2,fin=v1&&r.cod1&&v2&&r.cod2;
   return '<tr'+(fin?' class="fin"':'')+'><td><b>'+e(r.nome)+'</b>'+(r.release&&r.release.length?'<div class="rel">release di oggi: '+e(r.release.join(' '))+'</div>':'')+'</td>'+
    (v1?si(v1.url,v1.ora):no(r.manca[0]||'nessun commit di oggi con .lpi .pas .lfm'))+
    (v1?(r.cod1?si(v1.url,''):no('nella prima versione manca il + o il x')):no('prima serve la versione 1'))+
    (v2?si(v2.url,v2.ora):no(v1?'nessuna seconda versione: serve un altro commit di oggi con il progetto cambiato':'prima serve la versione 1'))+
    (v2?(r.cod2?si(v2.url,''):no('nella seconda versione manca il − o il DIV')):no('prima serve la versione 2'))+
-   (r.compito&&r.compito.ok?si('',r.compito.ora?'alle '+r.compito.ora:'consegnato'):no('compito non ancora consegnato su Classroom'))+'</tr>'}).join('')}
+   (r.compito&&r.compito.ok?si('',r.compito.ora?'alle '+r.compito.ora:'consegnato'):(d.compito_fonte?no('compito non ancora consegnato su Classroom'):'<td class="g">da leggere</td>'))+'</tr>'}).join('')}
 $('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
 $('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
 try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
