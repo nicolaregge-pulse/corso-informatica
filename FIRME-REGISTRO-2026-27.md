@@ -13,8 +13,8 @@ Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere 
 
 ## 02 Giovedì 29/10/2026
 
-1. Ora 08-09, 2INF, Laboratorio professionale: firmata («FIRMA ✓» in verde, screenshot delle 08:55); argomento scritto «Provvisorio», da sostituire con il titolo vero.
-2. Ore 09-10, 10-11, 2INF, Laboratorio professionale: NON firmate alle 08:55 (bottone «FIRMA» rosso senza segno verde).
+1. Ora 08-09, 2INF, Laboratorio professionale: firmata («FIRMA ✓» in verde, screenshot delle 08:17 circa); argomento scritto «Provvisorio», da sostituire con il titolo vero.
+2. Ore 09-10, 10-11, 2INF, Laboratorio professionale: NON firmate alle 08:17 circa (bottone «FIRMA» rosso senza segno verde).
 3. Ore 11-13, 3INF, Laboratorio professionale, e ora 13-14, 1INF, Sicurezza professionale: nessuna notizia.
 
 ## Changelog
