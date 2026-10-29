@@ -1,5 +1,15 @@
 {
-  "aggiornato": "29/10/2026 12:54",
+  "aggiornato": "29/10/2026 13:00",
   "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi: se ce ne sono, il file va cifrato con strumenti/cifra_json.py.",
-  "voci": []
+  "voci": [
+    {
+      "classe": "1INF",
+      "ora": "ora 13-14",
+      "cosa": "Manda a Claude in chat le presenze di oggi della 1INF (screenshot del registro).",
+      "bottoni": [
+        "Mandate"
+      ],
+      "id": "2026-10-29-presenze-1inf"
+    }
+  ]
 }
