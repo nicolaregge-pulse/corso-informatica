@@ -1,10 +1,12 @@
 # Proposte di lezione di oggi
 
-**Versione 1.1** — 29/10/2026 — documento interno per il docente, senza nomi di allievi
+**Versione 1.2** — 29/10/2026 — documento interno per il docente, senza nomi di allievi
 
 Preparate la mattina del 29/10 (la chat della notte non era partita). Si sceglie nel cruscotto unico, linguetta «Piano del giorno» (bottone «Scelgo questa»), oppure in chat. Niente è stato pubblicato su Classroom.
 
 ## 01 2INF, ore 8-11, Laboratorio, 3 ore
+
+> [GIALLO] SCELTA del docente (29/10, ore 8:15 circa): proposta 3, «Teoria e verifica: i file di un progetto Lazarus e GitHub». Scritta nel campo «scelta» del piano del cruscotto.
 
 1. **GitHub in ordine, poi il Salvadanaio caricato con il suo commit** (consigliata). Modalità: versioning + percorso guidato. Obiettivo: a fine mattina ogni repository «lazarus» ha una cartella per progetto, solo i file giusti (.lpi .lpr .pas .lfm) e il Salvadanaio dentro. Attività: 1ª ora: ognuno segue la pagina «Il mio GitHub in ordine», che legge il suo repository e dice il passo successivo. 2ª e 3ª ora: chi ha il repository in ordine finisce il Salvadanaio con FOR e WHILE e lo carica nella cartella «salvadanaio» con un messaggio di commit chiaro; chi finisce scrive il README con l'elenco dei progetti. Prima vittoria (entro 10 minuti): il controllo automatico della pagina segna un passo in più verde (per esempio la cartella backup cancellata). Consegna: il repository su GitHub (lo legge il controllo automatico) e la verifica del Salvadanaio. Controllo: controllo automatico del repository nel cruscotto, verifica del Salvadanaio, giro di Veyon. Chi è indietro: percorso facilitato di 3 passi: cancella lib e backup, cancella il file .exe, una cartella per ogni progetto. Il Salvadanaio si fa nella versione facile.
 2. **Recupero dei cicli: l'app FOR «da… a…» e il Salvadanaio**. Modalità: percorso guidato + versioning. Obiettivo: chiudere i lavori sui cicli che mancano (l'app FOR del 15/10 non è su Classroom per molti). Attività: 1ª ora: l'app FOR guidata passo passo; 2ª ora: il Salvadanaio con FOR e WHILE; 3ª ora: si caricano le due app su GitHub, una cartella ciascuna. Prima vittoria (entro 10 minuti): il programma FOR conta da un numero all'altro nel Memo. Consegna: le due app in due cartelle del repository «lazarus» e la verifica del Salvadanaio. Controllo: verifica del Salvadanaio e controllo automatico del repository nel cruscotto. Chi è indietro: chi ha già fatto le app passa alla proposta 1 (ordine del repository e README).
@@ -30,3 +32,4 @@ Preparate la mattina del 29/10 (la chat della notte non era partita). Si sceglie
 
 1. v1.0 (29/10/2026): prima versione.
 2. v1.1 (29/10/2026): nome del bottone corretto («Scelgo questa», come nel cruscotto).
+3. v1.2 (29/10/2026): 2INF, scelta del docente: proposta 3 (prima era stata indicata la 1, corretta dal docente). Nel cruscotto la vista «Tutte le classi» mostra le proposte di tutte le classi in una pagina: `cruscotto/?tab=piano&classe=tutte`.
