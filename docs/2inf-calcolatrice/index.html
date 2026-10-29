@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La calcolatrice da zero</title>
+<!-- 2INF 29/10/2026 (Nicola: «ripartiamo con la calcolatrice da 0», progetto Lazarus tenuto su Git).
+     Percorso guidato: un passo per schermata, «Fatto» con una prova breve; il passo dopo si apre solo dopo.
+     Ogni «Fatto» manda un segnale allo script (id avz-2inf-calcolatrice-v1, modo avanzamento) -> Foglio «Arrivi verifiche».
+     Tre versioni sotto lo stesso link: completa, facile (3 passi), facilissima (3 passi, solo Git; si accende con stato.json).
+     Controllo GitHub: riservato generatori/calcolatrice_2inf_oggi.py -> ../2inf-monitor/calcolatrice.json (Nome C.). Solo italiano.
+     La lezione del 27/10 resta in 27-10.html. -->
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--fg:#1a2330;--mu:#5c6672;--ln:#d5dde5;--blu:#1f6feb;--ok:#1a7f37;--okbg:#e6f6ec;--ko:#b3261e;--kobg:#fdecea;--gi:#fff6d6;--code:#0d1117}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--fg:#e6edf3;--mu:#9fb0c0;--ln:#2b3743;--okbg:#17321f;--kobg:#3a1715;--gi:#3a3214}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--fg:#e6edf3;--mu:#9fb0c0;--ln:#2b3743;--okbg:#17321f;--kobg:#3a1715;--gi:#3a3214}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 40px}
+h1{font-size:28px;margin:6px 0 2px;line-height:1.2}h2{font-size:23px;margin:0 0 8px}
+.mu{color:var(--mu);font-size:16px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;margin:12px 0}
+.f5{background:var(--gi);border:2px solid #d4a017;border-radius:10px;padding:8px 12px;font-weight:700;font-size:16px}
+.bottoni{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.bottoni a{flex:1 1 180px;text-align:center;background:#b45309;color:#fff;font-weight:700;padding:10px;border-radius:10px;text-decoration:none;font-size:16px}
+.bottoni a.g{background:#57606a}
+.versione{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.versione button{font:inherit;font-size:15px;padding:6px 12px;border-radius:20px;border:2px solid var(--blu);background:var(--card);color:var(--fg);cursor:pointer}
+.versione button.on{background:var(--blu);color:#fff}
+.barra{height:14px;background:#e3e8ef;border-radius:8px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
+.parte{display:inline-block;background:#e8f0fe;color:#0b3d91;border-radius:8px;padding:2px 10px;font-weight:700;font-size:15px;margin-bottom:6px}
+#passo{border:5px solid var(--blu);box-shadow:0 0 0 4px rgba(31,111,235,.15)}
+#passo ol{padding-left:26px;margin:8px 0}#passo li{margin:8px 0}
+.k{display:inline-block;background:#eef2f7;color:#111;border:1px solid #99a;border-radius:6px;padding:0 8px;font-family:Consolas,ui-monospace,monospace;font-weight:700}
+.scrivi{display:block;background:#f3f5f8;color:#111;border:2px dashed #8a96a3;border-radius:8px;padding:8px 12px;font:20px/1.4 Consolas,ui-monospace,monospace;font-weight:700;margin:6px 0;overflow-x:auto;white-space:pre}
+pre{background:var(--code);color:#e6edf3;border-radius:10px;padding:12px;font:17px/1.5 Consolas,ui-monospace,monospace;overflow-x:auto;margin:8px 0}
+pre b{color:#ffd166}
+.fatto-box{background:var(--okbg);border:2px solid var(--ok);border-radius:10px;padding:8px 12px;margin:10px 0;font-weight:700;color:var(--ok)}
+.nota{background:var(--gi);border-left:6px solid #e0b400;border-radius:8px;padding:8px 12px;margin:10px 0;font-size:17px}
+.prova{background:#e8f0fe;border-radius:10px;padding:10px 12px;margin:12px 0;color:#0b3d91}
+.prova input{font:inherit;padding:8px 10px;border:2px solid var(--blu);border-radius:8px;width:min(320px,100%);background:#fff;color:#111}
+.scelte button{display:block;width:100%;text-align:left;font:inherit;margin:6px 0;padding:8px 12px;border-radius:8px;border:2px solid var(--ln);background:#fff;color:#111;cursor:pointer}
+.scelte button.si{border-color:var(--ok);background:var(--okbg)}.scelte button.no{border-color:var(--ko);background:var(--kobg)}
+.esito{margin-top:8px;font-weight:700}.esito.si{color:var(--ok)}.esito.no{color:var(--ko)}
+button.fatto{font:inherit;font-size:22px;font-weight:800;padding:12px 26px;border-radius:12px;border:0;background:var(--ok);color:#fff;cursor:pointer;margin-top:8px}
+button.fatto:disabled{opacity:.45;cursor:default}
+a.indietro{font-size:15px;color:var(--mu);margin-left:14px}
+select,input.nome{font:inherit;padding:8px;border-radius:8px;border:2px solid var(--blu);max-width:100%;background:#fff;color:#111}
+img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;margin:8px 0}
+.fatti{font-size:15px;color:var(--mu);margin:4px 0 0;padding-left:20px}.fatti li{margin:2px 0}
+.ck{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.ck span{padding:4px 10px;border-radius:20px;font-weight:700;font-size:15px}.ck .si{background:var(--okbg);color:var(--ok)}.ck .no{background:var(--kobg);color:var(--ko)}
+.next{background:#e8f0fe;color:#0b3d91;border-left:6px solid var(--blu);padding:8px 12px;border-radius:8px;font-weight:700}
+.rosso{color:var(--ko);font-weight:700}
+.festa{font-size:26px;font-weight:800;color:var(--ok);text-align:center}
+@media (max-width:480px){body{font-size:18px}h1{font-size:24px}h2{font-size:21px}.scrivi{font-size:17px}pre{font-size:15px}button.fatto{width:100%}}
+</style></head><body><main>
+<h1>La calcolatrice da zero, con Git</h1>
+<p class="mu">2INF · giovedì 29/10/2026 · Lazarus e GitHub · un passo alla volta</p>
+<div class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</div>
+<div class="bottoni">
+ <a href="../2inf-oggi/" target="_blank" rel="noopener">La mia giornata</a>
+ <a href="../2inf-monitor/" target="_blank" rel="noopener" class="g">Il monitor della classe</a>
+ <a href="#controllo" class="g">Il controllo del mio GitHub</a>
+</div>
+<p class="mu" style="margin:0">I bottoni si aprono in una scheda nuova: quando hai finito, chiudi quella scheda e torni qui.</p>
+
+<div class="card" id="cardVer">
+ <div class="versione"><span class="mu">Versione:</span>
+  <button data-v="completa">Completa</button>
+  <button data-v="facile">Facile (3 passi)</button>
+  <button data-v="facilissima" id="btFacilissima" hidden>Facilissima (3 passi)</button>
+ </div>
+ <div id="avvisoVer" class="mu"></div>
+ <div class="barra"><i id="barra"></i></div>
+ <div id="punto" style="font-weight:700"></div>
+ <ol class="fatti" id="fatti"></ol>
+</div>
+
+<section class="card" id="passo"></section>
+
+<div class="card" id="controllo">
+ <h2>Il controllo del mio GitHub</h2>
+ <p class="mu">La pagina guarda il tuo repository «lazarus» ogni pochi minuti. Qui vedi che cosa va bene e che cosa manca.</p>
+ <div id="ctrlStato" class="mu"></div>
+ <div id="ctrlIo"></div>
+</div>
+
+<div class="card">
+ <h2>Bloccato?</h2>
+ <p>Scrivi la domanda all'assistente qui sotto, anche con uno screenshot. Al prof solo per problemi del PC o dell'account.</p>
+ <p class="mu">Sbagliare è normale: succede a tutti i programmatori, anche ai più bravi. Con <b>Torna al passo prima</b> rifai un passo quando vuoi.</p>
+</div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var BID = '2inf-calcolatrice-v1';
+  var $ = function (id) { return document.getElementById(id); };
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (x) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
+  function K(t) { return '<span class="k">' + t + '</span>'; }
+  function W(t) { return '<span class="scrivi">' + t + '</span>'; }
+  function F(t) { return '<div class="fatto-box">FATTO! ' + t + '</div>'; }
+  function N(t) { return '<div class="nota">' + t + '</div>'; }
+  var CODPIU = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) + StrToInt(Edit2.Text));';
+  var CODPER = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) * StrToInt(Edit2.Text));';
+  var SCREEN = 'Premi insieme i tasti ' + K('Windows') + ' ' + K('Maiusc') + ' ' + K('S') + '. Lo schermo diventa grigio.';
+
+  // ===== I PASSI. p = parte; h = che cosa fare; prova = domanda breve (risposte giuste in ok); scelta = domanda a crocette =====
+  var NOME = { p: 'Partenza', t: 'Il tuo nome', nome: true, h: '<p>Scegli il tuo nome dall\'elenco. Se non lo trovi, scegli l\'ultima voce e scrivilo tu.</p>' };
+  var COMPLETA = [
+    NOME,
+    { p: 'Parte 1 · La finestra', t: 'Apri un progetto nuovo', h: '<ol><li>In Lazarus, in alto, clicca il menu ' + K('Progetto') + '.</li><li>Clicca ' + K('Nuovo progetto…') + '.</li><li>Nell\'elenco clicca ' + K('Applicazione') + ', poi in basso ' + K('OK') + '.</li></ol>' + N('Lazarus chiede di salvare il progetto di prima? Clicca ' + K('No') + '.'),
+      prova: { q: 'Compare una finestra vuota con i puntini. Che nome c\'è scritto in alto su quella finestra?', ok: ['form1'], aiuto: 'Guarda la barra in alto della finestra con i puntini: c\'è una parola con un numero.' } },
+    { p: 'Parte 1 · La finestra', t: 'Metti tre caselle', h: '<ol><li>In alto, sopra i componenti, clicca la scheda ' + K('Standard') + '.</li><li>Clicca l\'icona con scritto ' + K('abc') + ': è la casella (TEdit).</li><li>Clicca dentro la finestra con i puntini: compare la casella.</li><li>Rifallo altre due volte: tre caselle, una sotto l\'altra.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto dentro la terza casella?', ok: ['edit3'], aiuto: 'Dentro ogni casella c\'è il suo nome: Edit1, Edit2… Ti servono tre caselle.' } },
+    { p: 'Parte 1 · La finestra', t: 'Metti due bottoni', h: '<ol><li>Nella scheda ' + K('Standard') + ' clicca l\'icona con scritto ' + K('OK') + ': è il bottone (TButton).</li><li>Clicca dentro la finestra, accanto alle caselle: compare il bottone.</li><li>Rifallo un\'altra volta: due bottoni.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto sul secondo bottone?', ok: ['button2'], aiuto: 'Sul bottone c\'è il suo nome: Button1, poi Button2.' } },
+    { p: 'Parte 1 · La finestra', t: 'Premi F9: la tua finestra parte!', h: '<ol><li>Premi il tasto ' + K('F9') + ' (in alto sulla tastiera). Aspetta qualche secondo.</li><li>Si apre la TUA finestra, con le caselle e i bottoni: è un programma vero!</li><li>Chiudila con la ' + K('X') + ' in alto a destra della tua finestra.</li></ol>' + F('Hai fatto partire il tuo programma. Prima vittoria!'),
+      scelta: { q: 'Quando hai premuto F9, che cosa è successo?', o: ['Si è aperta la mia finestra con le caselle e i bottoni', 'Non è successo niente', 'È comparso un messaggio rosso'], a: 0, aiuto: 'Niente finestra o un messaggio rosso? Scrivi all\'assistente qui sotto: ti aiuta subito.' } },
+    { p: 'Parte 2 · Salva subito', t: 'Apri la finestra per salvare', h: '<ol><li>In alto clicca il menu ' + K('Progetto') + '.</li><li>Clicca ' + K('Salva progetto con nome…') + '. Si apre la finestra per salvare.</li></ol>' + N('Salvare subito è la regola dei programmatori: così non perdi niente.') },
+    { p: 'Parte 2 · Salva subito', t: 'Vai nella cartella Lazarus', h: '<ol><li>Nella finestra per salvare, a sinistra, clicca ' + K('Documenti') + '.</li><li>Fai doppio clic sulla cartella ' + K('Lazarus') + '.</li></ol><p>In alto ora c\'è scritto <b>Documenti › Lazarus</b>. Qui stanno tutti i tuoi progetti.</p>' },
+    { p: 'Parte 2 · Salva subito', t: 'Crea la cartella «calcolatrice»', h: '<ol><li>In alto nella finestra clicca ' + K('Nuova cartella') + '.</li><li>Scrivi il nome, tutto minuscolo:' + W('calcolatrice') + '</li><li>Premi ' + K('Invio') + '.</li><li>Fai doppio clic sulla cartella <b>calcolatrice</b> per entrarci.</li></ol><img src="../verifica/foto/1inf-lazarus-ciao-6.jpg" alt="la finestra per salvare: in alto il percorso Documenti, Lazarus e il bottone Nuova cartella">' + N('Windows dice che la cartella calcolatrice c\'è già? È quella del 27/10: va bene, fai doppio clic su quella.') },
+    { p: 'Parte 2 · Salva subito', t: 'Salva i due file', h: '<ol><li>In basso, nella casella <b>Nome file</b>, scrivi:' + W('calcolatrice.lpi') + '</li><li>Clicca ' + K('Salva') + '.</li><li>Lazarus chiede il nome della unit: lascia <b>unit1.pas</b> e clicca ' + K('Salva') + '.</li></ol>' + N('Windows chiede se vuoi sostituire un file che c\'è già? Clicca ' + K('Sì') + ': è la tua versione nuova.'),
+      prova: { q: 'Guarda la barra in alto di Lazarus: c\'è il percorso del progetto. Qual è l\'ultima cartella del percorso?', ok: ['calcolatrice'], aiuto: 'Il percorso finisce con Lazarus\\calcolatrice. Se vedi un\'altra cartella, rifai il passo prima.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Le scritte dei bottoni', h: '<ol><li>Clicca una volta il bottone <b>Button1</b> nella finestra con i puntini.</li><li>A sinistra, nell\'<b>Ispettore oggetti</b>, cerca la riga ' + K('Caption') + ' e cliccaci sopra.</li><li>Cancella Button1 e scrivi il segno più:' + W('+') + 'poi premi ' + K('Invio') + '.</li><li>Fai lo stesso con <b>Button2</b>: nella riga Caption scrivi la lettera x (vuol dire «per»):' + W('x') + '</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto adesso sul primo bottone?', ok: ['+'], aiuto: 'Clicca Button1, poi nell\'Ispettore oggetti la riga Caption: scrivi + e premi Invio.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Fallo tuo: il titolo e il colore', h: '<ol><li>Clicca un punto vuoto della finestra con i puntini (non su un bottone).</li><li>Nell\'Ispettore oggetti, nella riga ' + K('Caption') + ', scrivi il titolo che vuoi tu. Per esempio:' + W('La calcolatrice di Sara') + 'e premi ' + K('Invio') + '.</li><li>Nella riga ' + K('Color') + ' scegli il colore che ti piace.</li></ol>',
+      prova: { q: 'Scrivi qui il titolo che hai messo alla tua finestra, uguale:', libero: 4, aiuto: 'Scrivi il titolo vero: il controllo lo ritrova su GitHub, nel file della finestra.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Prima capire: testo e numeri', h: '<p>Quello che scrivi in una casella è <b>testo</b>, anche se sono cifre. Con il testo non si fanno i conti.</p><ol><li><b>StrToInt</b> trasforma il testo in un numero.</li><li>Poi il computer fa il conto.</li><li><b>IntToStr</b> trasforma il numero di nuovo in testo, per scriverlo nella casella.</li></ol><pre>Edit1.Text  →  StrToInt  →  numero  →  conto  →  IntToStr  →  Edit3.Text</pre>',
+      scelta: { q: 'Quale parola trasforma il testo di una casella in un numero?', o: ['IntToStr', 'StrToInt', 'Caption'], a: 1, aiuto: 'Str vuol dire testo (string), Int vuol dire numero intero: «da testo a numero» è StrToInt.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Il codice del bottone +', h: '<ol><li>Fai doppio clic sul bottone <b>+</b> nella finestra con i puntini. Si apre il codice.</li><li>Il cursore è tra <b>begin</b> e <b>end;</b>. Scrivi questa riga, con calma, uguale:</li></ol><pre>procedure TForm1.Button1Click(Sender: TObject);\nbegin\n  <b>' + CODPIU + '</b>\nend;</pre>' + N('Scrivi solo la riga gialla: il resto lo ha già scritto Lazarus. Attento alle parentesi e al punto e virgola alla fine.') + '<p>Leggila così: «nella casella 3 scrivi il testo del numero della casella 1 più il numero della casella 2».</p>' },
+    { p: 'Parte 3 · La calcolatrice', t: 'Prova il +', h: '<ol><li>Premi ' + K('F9') + '.</li><li>Nella prima casella scrivi <b>3</b>, nella seconda <b>4</b>.</li><li>Clicca il bottone <b>+</b>.</li></ol>' + N('Compare un messaggio rosso in basso in Lazarus? Succede a tutti: guarda la riga che dice, di solito manca una parentesi o il punto e virgola. Correggi e premi F9 di nuovo.'),
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['7'], aiuto: 'Deve comparire 7. Se non c\'è, ricontrolla la riga del codice lettera per lettera.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Il codice del bottone x', h: '<ol><li>Chiudi la tua finestra con la ' + K('X') + '.</li><li>Torna sulla finestra con i puntini e fai doppio clic sul bottone <b>x</b>.</li><li>Tra begin e end scrivi questa riga. È uguale a quella del +, cambia solo il segno: in Pascal «per» si scrive con l\'asterisco <b>*</b>.</li></ol><pre>procedure TForm1.Button2Click(Sender: TObject);\nbegin\n  <b>' + CODPER + '</b>\nend;</pre>' },
+    { p: 'Parte 3 · La calcolatrice', t: 'Prova la x', h: '<ol><li>Premi ' + K('F9') + '.</li><li>Scrivi <b>3</b> e <b>4</b> nelle prime due caselle.</li><li>Clicca il bottone <b>x</b>.</li></ol>',
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['12'], aiuto: '3 per 4 fa 12. Se compare 7, nel codice del bottone x hai lasciato il segno + al posto di *.' } },
+    { p: 'Parte 3 · La calcolatrice', t: 'Screenshot 1: la calcolatrice funziona', h: '<ol><li>Lascia aperta la tua finestra con un conto fatto (per esempio 3 x 4 = 12).</li><li>' + SCREEN + '</li><li>Tieni premuto il tasto sinistro del mouse e trascina un rettangolo sopra la tua finestra. Lascia il tasto.</li><li>Apri il tuo Documento del compito di oggi su Classroom.</li><li>Clicca sotto il titolo <b>1. La mia calcolatrice funziona</b> e premi ' + K('Ctrl') + ' ' + K('V') + '.</li></ol>' + F('La tua calcolatrice funziona e c\'è la prova nel Documento.') },
+    { p: 'Parte 3 · La calcolatrice', t: 'Salva tutto', h: '<ol><li>Chiudi la tua finestra con la ' + K('X') + '.</li><li>In Lazarus premi insieme ' + K('Ctrl') + ' ' + K('Maiusc') + ' ' + K('S') + ': salva tutti i file.</li></ol>' + N('Salvare sul PC e fare il commit su GitHub sono due cose diverse. Adesso hai salvato sul PC. Tra poco fai il commit.') },
+    { p: 'Parte 4 · Su GitHub', t: 'Apri la cartella sul PC', h: '<ol><li>In basso sulla barra di Windows clicca la cartella gialla: <b>Esplora file</b>.</li><li>A sinistra clicca ' + K('Documenti') + '.</li><li>Fai doppio clic su <b>Lazarus</b>, poi doppio clic su <b>calcolatrice</b>.</li></ol>' },
+    { p: 'Parte 4 · Su GitHub', t: 'Fai vedere le estensioni', h: '<p>L\'estensione è il pezzo dopo il punto nel nome del file: .lpi, .pas, .exe…</p><ol><li>In alto in Esplora file clicca ' + K('Visualizza') + '.</li><li>Clicca ' + K('Mostra') + '.</li><li>Clicca ' + K('Estensioni nomi file') + ': compare la spunta.</li></ol>',
+      prova: { q: 'Adesso vedi i nomi interi. Come si chiama il file del progetto, quello che finisce con .lpi?', ok: ['calcolatrice.lpi'], aiuto: 'Cerca il file che si chiama calcolatrice e finisce con .lpi. Non lo vedi? Rifai i passi del salvataggio.' } },
+    { p: 'Parte 4 · Su GitHub', t: 'Togli quello che non serve', h: '<p>Su GitHub va solo la «ricetta» del progetto. Il programma già pronto e le copie le rifà Lazarus.</p><ol><li>Clicca la cartella <b>lib</b>.</li><li>Tieni premuto ' + K('Ctrl') + ' e clicca la cartella <b>backup</b> e il file <b>calcolatrice.exe</b>. (Una delle due cartelle non c\'è? Va bene.)</li><li>Premi il tasto ' + K('Canc') + '.</li></ol><p class="mu">Restano calcolatrice.lpi, calcolatrice.lpr, unit1.pas, unit1.lfm e qualche file piccolo. Tutta la spiegazione: <a href="../2inf-file-lazarus/" target="_blank" rel="noopener">I file di un progetto Lazarus</a>.</p>',
+      scelta: { q: 'Perché il file calcolatrice.exe non va su GitHub?', o: ['Perché Lazarus lo rifà quando premi F9', 'Perché è un virus', 'Perché GitHub non accetta i file'], a: 0, aiuto: 'Il .exe è la «torta già cotta»: con la ricetta (lpi, lpr, pas, lfm) Lazarus la rifà ogni volta.' } },
+    { p: 'Parte 4 · Su GitHub', t: 'Apri il tuo repository «lazarus»', h: '<ol><li>In Chrome apri <b>github.com</b>.</li><li>In alto a destra clicca la tua foto, poi ' + K('Your repositories') + ' (i tuoi repository).</li><li>Clicca <b>lazarus</b>.</li></ol>' },
+    { p: 'Parte 4 · Su GitHub', t: 'Add file, Upload files', h: '<ol><li>In alto, a sinistra del bottone verde <b>Code</b>, clicca ' + K('Add file') + ' (aggiungi file).</li><li>Clicca ' + K('Upload files') + ' (carica file).</li></ol><p>Si apre una pagina con un grande riquadro: qui trascini la cartella.</p>' },
+    { p: 'Parte 4 · Su GitHub', t: 'Trascina la cartella', h: '<ol><li>In Esplora file torna in <b>Documenti › Lazarus</b> (in alto clicca <b>Lazarus</b>).</li><li>Tieni premuto il mouse sulla cartella <b>calcolatrice</b> e trascinala dentro il riquadro della pagina di GitHub.</li><li>Lascia il mouse e aspetta: compare l\'elenco dei file.</li></ol>' + N('Esplora file copre la pagina? Trascina la cartella sull\'icona di Chrome in basso e aspetta un secondo: Chrome viene davanti.'),
+      scelta: { q: 'Nell\'elenco dei file su GitHub, i nomi cominciano con…', o: ['calcolatrice/', 'lib/', 'non vedo nessun file'], a: 0, aiuto: 'Non vedi i file? Ritrascina la cartella calcolatrice, non i file uno per uno.' } },
+    { p: 'Parte 4 · Su GitHub', t: 'Il commit', h: '<ol><li>Scendi in fondo alla pagina. Nella prima casella sotto <b>Commit changes</b> scrivi il messaggio:' + W('calcolatrice da zero') + '</li><li>Clicca il bottone verde ' + K('Commit changes') + '.</li></ol>' + N('Avevi già una cartella calcolatrice del 27/10? GitHub mette i file nuovi al posto dei vecchi: è una VERSIONE NUOVA. La vecchia resta nella storia. È proprio a questo che serve Git.') + F('Il tuo progetto è al sicuro su GitHub.') },
+    { p: 'Parte 4 · Su GitHub', t: 'Screenshot 2: la cartella su GitHub', h: '<ol><li>Su GitHub clicca la cartella <b>calcolatrice</b>: vedi i file .lpi, .lpr, .pas, .lfm.</li><li>' + SCREEN + '</li><li>Trascina un rettangolo sopra l\'elenco dei file.</li><li>Nel tuo Documento clicca sotto il titolo <b>2. La cartella «calcolatrice» nel mio repository GitHub</b> e premi ' + K('Ctrl') + ' ' + K('V') + '.</li></ol>' },
+    { p: 'Parte 4 · Su GitHub', t: 'Screenshot 3: il commit', h: '<ol><li>Sopra l\'elenco dei file c\'è una riga con il messaggio <b>calcolatrice da zero</b>: cliccaci sopra. Si apre la pagina del commit.</li><li>' + SCREEN + '</li><li>Trascina un rettangolo sopra il messaggio e l\'elenco dei file cambiati.</li><li>Nel tuo Documento clicca sotto il titolo <b>3. Il mio commit</b> e premi ' + K('Ctrl') + ' ' + K('V') + '.</li></ol>' },
+    { p: 'Parte 4 · Su GitHub', t: 'Lo so spiegare', h: '<p>Nel tuo Documento, sotto il titolo <b>4</b>, scrivi due frasi con parole tue:</p><ol><li>Quali file vanno su GitHub.</li><li>Perché il file .exe no.</li></ol><p>Poi dillo a voce al tuo compagno di banco.</p>',
+      scelta: { q: 'Quali file della calcolatrice vanno su GitHub?', o: ['.lpi .lpr .pas .lfm', 'solo calcolatrice.exe', 'le cartelle lib e backup'], a: 0, aiuto: 'Vanno i file della «ricetta»: il progetto (.lpi, .lpr), il codice (.pas) e la finestra (.lfm).' } },
+    { p: 'Extra · per chi ha finito', t: 'La versione 2: meno e diviso', h: '<ol><li>In Lazarus aggiungi due bottoni: Caption <b>-</b> e Caption <b>:</b>.</li><li>Nel codice del bottone - scrivi la riga del + con il segno <b>-</b>.</li><li>Nel codice del bottone : usa <b>div</b> (la divisione intera, senza virgola) al posto di +.</li><li>Prova con F9, poi ' + K('Ctrl') + ' ' + K('Maiusc') + ' ' + K('S') + '.</li><li>Su GitHub carica di nuovo la cartella calcolatrice (Add file, Upload files) con il messaggio:' + W('versione 2: meno e diviso') + '</li></ol>' + F('Due commit: la storia del tuo progetto ha due versioni. Bravo!') },
+  ];
+  var FACILE = [
+    NOME,
+    { p: 'Facile · passo 1 di 3', t: 'La calcolatrice con il +', h: '<ol><li>In Lazarus: menu ' + K('Progetto') + ', ' + K('Nuovo progetto…') + ', ' + K('Applicazione') + ', ' + K('OK') + '.</li><li>Scheda ' + K('Standard') + ': clicca ' + K('abc') + ' e poi nella finestra, per 3 volte (tre caselle).</li><li>Clicca ' + K('OK') + ' e poi nella finestra: un bottone.</li><li>Doppio clic sul bottone. Tra begin e end scrivi:</li></ol><pre><b>' + CODPIU + '</b></pre><ol start="5"><li>Premi ' + K('F9') + ', scrivi 3 e 4, clicca il bottone.</li></ol>',
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['7'], aiuto: 'Ricontrolla la riga del codice: parentesi e punto e virgola.' } },
+    { p: 'Facile · passo 2 di 3', t: 'Salva nella cartella calcolatrice', h: '<ol><li>Chiudi la tua finestra con la X.</li><li>Menu ' + K('Progetto') + ', ' + K('Salva progetto con nome…') + '.</li><li>A sinistra ' + K('Documenti') + ', doppio clic su <b>Lazarus</b>.</li><li>' + K('Nuova cartella') + ', scrivi ' + W('calcolatrice') + K('Invio') + ', doppio clic per entrarci.</li><li>Nome file ' + W('calcolatrice.lpi') + K('Salva') + ', poi ancora ' + K('Salva') + ' per unit1.pas.</li></ol>',
+      prova: { q: 'Qual è l\'ultima cartella del percorso nella barra in alto di Lazarus?', ok: ['calcolatrice'], aiuto: 'Deve finire con Lazarus\\calcolatrice.' } },
+    { p: 'Facile · passo 3 di 3', t: 'Su GitHub', h: '<ol><li>Su github.com apri il tuo repository <b>lazarus</b>.</li><li>Clicca ' + K('Add file') + ', poi ' + K('Upload files') + '.</li><li>Da Esplora file (Documenti › Lazarus) trascina la cartella <b>calcolatrice</b> nella pagina.</li><li>In fondo scrivi il messaggio ' + W('calcolatrice da zero') + 'e clicca il bottone verde ' + K('Commit changes') + '.</li></ol>' + F('Il tuo progetto è su GitHub. Guarda il controllo qui sotto tra qualche minuto.') },
+  ];
+  var FACILISSIMA = [
+    NOME,
+    { p: 'Facilissima · passo 1 di 3', t: 'Una finestra con un bottone', h: '<ol><li>In Lazarus: menu ' + K('Progetto') + ', ' + K('Nuovo progetto…') + ', ' + K('Applicazione') + ', ' + K('OK') + '.</li><li>Scheda ' + K('Standard') + ': clicca ' + K('OK') + ' e poi nella finestra: un bottone.</li><li>Premi ' + K('F9') + ': si apre la tua finestra.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto sul bottone?', ok: ['button1'], aiuto: 'Sul bottone c\'è il suo nome con un numero.' } },
+    FACILE[2],
+    FACILE[3]
+  ];
+  var VERS = { completa: COMPLETA, facile: FACILE, facilissima: FACILISSIMA };
+
+  var CONF = {}, ACC = false, CTRL = null, ver = '', idx = 0, nome = leggi('calc29-nome');
+  var params = new URLSearchParams(location.search);
+
+  function manda(n, extra) {
+    if (!CONF.invio || !nome) return;
+    var P = VERS[ver], s = P[n] || {};
+    var d = { id: 'avz-' + BID, modo: 'avanzamento', classe: '2INF', nome: nome, versione: ver, scheda: n + 1, totale: P.length, titolo: s.t || '', prova: extra || '', quando: new Date().toISOString() };
+    try { fetch(CONF.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) }); } catch (x) {}
+  }
+  function norm(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"'.]+$/g, ''); }
+
+  function scegliVer(v, salva) {
+    if (!VERS[v] || (v === 'facilissima' && !ACC)) v = 'completa';
+    ver = v; if (salva) scrivi('calc29-ver', v);
+    idx = Math.min(+leggi('calc29-' + v) || (nome ? 1 : 0), VERS[v].length - 1);
+    if (!nome) idx = 0;
+    [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.classList.toggle('on', b.getAttribute('data-v') === v); });
+    $('avvisoVer').innerHTML = v === 'completa' ? 'Tanti passi piccoli, uno alla volta. Ti sembra troppo? Scegli <b>Facile</b>: 3 passi.' : v === 'facile' ? 'Versione facile: 3 passi, solo il bottone +. Quando hai finito puoi passare alla versione completa.' : '<span class="rosso">Oggi il prof ha acceso la versione facilissima:</span> 3 passi, solo il progetto su GitHub.';
+    disegna();
+  }
+
+  function disegna() {
+    var P = VERS[ver], s = P[idx], tot = P.length;
+    var fine = idx >= tot - 1 && leggi('calc29-' + ver + '-fine') === '1';
+    $('barra').style.width = Math.round((fine ? tot : idx) / tot * 100) + '%';
+    $('punto').textContent = fine ? 'Hai finito tutti i passi!' : 'Passo ' + (idx + 1) + ' di ' + tot + (nome ? ' · ' + nome : '');
+    var da = Math.max(0, idx - 3); $('fatti').setAttribute('start', da + 1); $('fatti').innerHTML = P.slice(da, idx).map(function (x) { return '<li>✓ Fatto: ' + e(x.t) + '</li>'; }).join('');
+    if (fine) {
+      $('passo').innerHTML = '<p class="festa">Bravo! Hai finito il percorso.</p><p>Controlla qui sotto che il tuo GitHub sia tutto verde. Poi fai vedere la tua calcolatrice al compagno di banco e spiegagli come funziona.</p>' +
+        (ver !== 'completa' ? '<p><button class="fatto" id="aCompleta">Passa alla versione completa</button></p>' : '') + '<a href="#" class="indietro" id="ind">Torna al passo prima</a>';
+      if ($('aCompleta')) $('aCompleta').onclick = function () { scegliVer('completa', true); };
+      $('ind').onclick = function (ev) { ev.preventDefault(); scrivi('calc29-' + ver + '-fine', ''); disegna(); };
+      return;
+    }
+    var h = '<span class="parte">' + e(s.p) + '</span><h2>' + (idx + 1) + '. ' + e(s.t) + '</h2>' + s.h;
+    if (s.nome) {
+      h += '<p><select id="selNome"><option value="">— scegli il tuo nome —</option></select></p><p id="altroBox" hidden><input class="nome" id="altroNome" placeholder="nome e cognome"></p>';
+    } else if (s.prova) {
+      h += '<div class="prova"><b>Prova:</b> ' + s.prova.q + '<br><input id="risp" autocomplete="off"><div class="esito" id="esito"></div></div>';
+    } else if (s.scelta) {
+      h += '<div class="prova"><b>Prova:</b> ' + s.scelta.q + '<div class="scelte" id="scelte">' + s.scelta.o.map(function (o, i) { return '<button data-i="' + i + '">' + e(o) + '</button>'; }).join('') + '</div><div class="esito" id="esito"></div></div>';
+    }
+    h += '<button class="fatto" id="bFatto">✓ Fatto</button>' + (idx > 0 ? '<a href="#" class="indietro" id="ind">Torna al passo prima</a>' : '');
+    $('passo').innerHTML = h;
+    var bF = $('bFatto'), ok = !(s.prova || s.scelta || s.nome), risposta = '';
+    // contro i clic a raffica (#116): il bottone si accende dopo qualche secondo di lettura
+    var attesa = s.nome ? 0 : (s.prova || s.scelta ? 0 : 6);
+    function stato() { bF.disabled = !ok || attesa > 0; bF.textContent = attesa > 0 && ok ? '✓ Fatto (' + attesa + ')' : '✓ Fatto'; }
+    if (attesa) { var tm = setInterval(function () { attesa--; stato(); if (attesa <= 0) clearInterval(tm); }, 1000); }
+    if (s.nome) {
+      var sel = $('selNome'), nomi = (CTRL && CTRL.righe || []).map(function (r) { return r.alunno; }).sort();
+      nomi.forEach(function (n) { var o = document.createElement('option'); o.textContent = n; sel.appendChild(o); });
+      var oa = document.createElement('option'); oa.value = '__altro'; oa.textContent = 'Non trovo il mio nome: lo scrivo io'; sel.appendChild(oa);
+      if (nome && nomi.indexOf(nome) >= 0) sel.value = nome; else if (nome) { sel.value = '__altro'; $('altroBox').hidden = false; $('altroNome').value = nome; }
+      var aggiorna = function () { $('altroBox').hidden = sel.value !== '__altro'; var v = sel.value === '__altro' ? $('altroNome').value.trim() : sel.value; ok = v.length >= 3; risposta = v; stato(); };
+      sel.onchange = aggiorna; $('altroNome').oninput = aggiorna; aggiorna();
+    }
+    if (s.prova) {
+      var inp = $('risp'), es = $('esito');
+      inp.oninput = function () {
+        var v = inp.value.trim(); risposta = v;
+        if (s.prova.libero) { ok = v.replace(/[^a-zà-ú0-9]/gi, '').length >= s.prova.libero && !/^form1$/i.test(v); es.className = 'esito ' + (ok ? 'si' : 'no'); es.textContent = ok ? 'Bene!' : (v ? s.prova.aiuto : ''); }
+        else { ok = s.prova.ok.indexOf(norm(v)) >= 0; es.className = 'esito ' + (ok ? 'si' : 'no'); es.textContent = ok ? 'Giusto! Premi «Fatto».' : (v.length >= s.prova.ok[0].length ? s.prova.aiuto : ''); }
+        stato();
+      };
+      inp.focus();
+    }
+    if (s.scelta) {
+      [].forEach.call(document.querySelectorAll('#scelte button'), function (b) {
+        b.onclick = function () {
+          var i = +b.getAttribute('data-i'), giusta = i === s.scelta.a;
+          [].forEach.call(document.querySelectorAll('#scelte button'), function (x) { x.className = ''; });
+          b.className = giusta ? 'si' : 'no'; ok = giusta; risposta = s.scelta.o[i];
+          $('esito').className = 'esito ' + (giusta ? 'si' : 'no'); $('esito').textContent = giusta ? 'Giusto! Premi «Fatto».' : s.scelta.aiuto; stato();
+        };
+      });
+    }
+    stato();
+    bF.onclick = function () {
+      if (bF.disabled) return;
+      if (s.nome) { nome = risposta; scrivi('calc29-nome', nome); mostraCtrl(); }
+      if (s.prova && s.prova.libero) scrivi('calc29-titolo', risposta);
+      manda(idx, risposta);
+      if (idx >= VERS[ver].length - 1) scrivi('calc29-' + ver + '-fine', '1'); else idx++;
+      scrivi('calc29-' + ver, String(idx)); disegna(); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' });
+    };
+    if ($('ind')) $('ind').onclick = function (ev) { ev.preventDefault(); idx = Math.max(0, idx - 1); scrivi('calc29-' + ver, String(idx)); disegna(); };
+  }
+
+  var NOMI_CK = { cartella: 'Cartella calcolatrice', file: 'I 4 file (.lpi .lpr .pas .lfm)', pulita: 'Niente .exe, lib, backup', commit: 'Commit di oggi', messaggio: 'Messaggio del commit scritto da te', piu: 'Codice del +', per: 'Codice della x', titolo: 'Titolo tuo nella finestra' };
+  function mostraCtrl() {
+    if (!CTRL) { $('ctrlStato').innerHTML = '<span class="rosso">Il controllo non si legge adesso: premi F5 tra un minuto.</span>'; return; }
+    $('ctrlStato').innerHTML = 'Controllo del tuo GitHub alle <b>' + e(CTRL.ora) + '</b> (si aggiorna ogni pochi minuti).';
+    var r = (CTRL.righe || []).filter(function (x) { return x.alunno === nome; })[0];
+    if (!nome) { $('ctrlIo').innerHTML = '<p class="mu">Scegli il tuo nome al passo 1 e qui compare il tuo controllo.</p>'; return; }
+    if (!r) { $('ctrlIo').innerHTML = '<p class="mu">Non trovo «' + e(nome) + '» nel controllo. Scrivi all\'assistente qui sotto il tuo nome utente di GitHub.</p>'; return; }
+    var ck = r.check || {};
+    $('ctrlIo').innerHTML = '<div class="ck">' + Object.keys(NOMI_CK).map(function (k) { var si = !!ck[k]; return '<span class="' + (si ? 'si' : 'no') + '">' + (si ? '✔ ' : '○ ') + NOMI_CK[k] + '</span>'; }).join('') + '</div><div class="next">' + e(r.messaggio || '') + '</div>';
+  }
+  function caricaCtrl() {
+    return fetch('../2inf-monitor/calcolatrice.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { CTRL = d; mostraCtrl(); }).catch(function () { mostraCtrl(); });
+  }
+
+  [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.onclick = function () { scegliVer(b.getAttribute('data-v'), true); }; });
+  Promise.all([
+    fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}),
+    fetch('stato.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (s) { ACC = !!(s && s.facilissima); }).catch(function () {}),
+    caricaCtrl()
+  ]).then(function () {
+    $('btFacilissima').hidden = !ACC;
+    var v = params.get('v') || leggi('calc29-ver') || (ACC ? 'facilissima' : 'completa');
+    scegliVer(v, false);
+  });
+  setInterval(caricaCtrl, 120000);
+})();
+</script>
+<script src="../assistente/assistente.js" data-pagina="2inf-calcolatrice" data-lingue="it"></script>
+</body></html>
