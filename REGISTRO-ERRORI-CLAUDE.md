@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.95** — 29/10/2026 (#125-#146; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.96** — 29/10/2026 (#125-#154; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,54 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Claude chiede al docente cose già decise o già scritte nei file (#154)
+
+1. **Errore.** Nel pomeriggio del 29/10 Claude ha chiesto al docente le presenze e i voti quando erano già nei file del giorno (presenze in `config/<classe>-presenti-<giorno>.json`, voti decisi in `report/<giorno>/voti-decisi-docente.txt` e `config/<classe>-voto-<giorno>.json` del riservato). Ogni domanda inutile toglie al docente tempo in aula e ripete il #74 e la regola 30 («al docente solo le criticità»).
+2. **Regola.** Prima di chiedere qualcosa al docente si guarda nei file del giorno; si chiede solo quello che manca davvero, dicendo dove si è già guardato.
+3. **Controllo.** Hook `controllo-messaggio.py` (z): una domanda su presenze o voti viene bloccata se nel riservato c'è già il file del giorno (per la classe nominata). Prove: `.claude/hooks/prove/prova_messaggio.py` (5 casi).
+
+## 29/10/2026 — Pagina dei quiz verificata solo con i dati simulati (#153)
+
+1. **Errore.** La pagina della situazione quiz è stata controllata con `?prova=1` (dati simulati) e dichiarata a posto; il codice pubblicato con i dati veri non era stato aperto. In aula il docente ha trovato dati diversi (vedi #147). Ripete il #140: provato in condizioni diverse da quelle del docente.
+2. **Regola.** Una pagina si dichiara verificata solo dopo averla aperta sul sito vero, con il codice pubblicato e i dati veri del giorno; i dati simulati servono solo a provare il disegno.
+3. **Controllo.** Hook `controllo-messaggio.py` (y): «?prova=1» o «dati simulati» insieme a «verificato», «funziona», «a posto» senza «sito vero» o «dati veri» blocca il messaggio. Prove: 3 casi.
+
+## 29/10/2026 — Attività automatiche della notte create senza il riservato e non provate (#152)
+
+1. **Errore.** Le attività automatiche della notte sono state create (di nuovo) senza verificare che la sessione avesse il repository riservato e senza farne girare una prova completa: è lo stesso difetto del #141, quando la chat di mezzanotte si è fermata dopo un minuto. La notte del 29/10 ha lasciato `stato/notte-2026-10-29.json` scritto a mano alle 6:50 con «non eseguito».
+2. **Regola.** Un'attività automatica si dichiara pronta solo dopo un giro di prova da capo nelle condizioni vere: sessione con i DUE repository, limite dei comandi attivo, file `stato/notte-<giorno>.json` scritto dal giro stesso.
+3. **Controllo.** Hook `controllo-messaggio.py` (x): «attività notturna/automatica creata/attiva/pronta» senza «giro di prova» o «prova eseguita» blocca il messaggio. `strumenti/controlla_controlli.py`: la notte è ROSSA se `stato/notte-<giorno>.json` è finito dopo le 6:30 o dice «non eseguito». Prove: 3 casi nell'hook, 2 in `strumenti/prova_controlla_controlli.py`.
+
+## 29/10/2026 — Report consegnato con un conteggio non letto alla fonte (#151)
+
+1. **Errore.** Il report v1.0 su un allievo della 3INF è stato consegnato con «2 consegnati su 14» mentre lo stato vero, su Classroom, era 7 su 19: il dato non era stato riletto alla fonte prima della consegna (ripete #134 e #83).
+2. **Regola.** Un conteggio di consegne si rilegge alla fonte (Classroom con il ponte, risultati di Moduli) subito prima di consegnare il report, e il report e il messaggio scrivono da dove viene e a che ora è stato letto.
+3. **Controllo.** Hook `controllo-messaggio.py` (w): «N consegnati su M» (o «N su M hanno fatto») senza fonte e ora della lettura blocca il messaggio. Prove: 4 casi.
+
+## 29/10/2026 — Terza ora di Sicurezza della 1INF preparata a lezione iniziata (#150, ripete #129)
+
+1. **Errore.** Alle 13:26 il docente ha chiesto di fare subito anche la 3ª ora di Sicurezza della 1INF: schede, ripasso e quiz sono stati preparati in aula e pubblicati alle 13:37, 11 minuti di lezione persi. L'ora successiva non era pronta in anticipo (#129: «quiz e Moduli si creano il giorno prima»).
+2. **Regola.** Per ogni classe con Sicurezza si prepara prima della lezione il compito dell'ora prevista con il quiz E la pagina dell'ora dopo, così se il docente chiede un'altra ora è già pronta.
+3. **Controllo.** `strumenti/controlla_controlli.py` (Sicurezza preparata prima della lezione): per ogni classe con Sicurezza nel giorno serve il compito in coda con il quiz; la banca dell'ora dopo (`docs/verifica/banche/<classe>-sicurezza-<N+1>ora.js`) manca = ROSSO se la classe ha 2 o più ore, GIALLO se ne ha una. Prove: 3 casi in `strumenti/prova_controlla_controlli.py`.
+
+## 29/10/2026 — Situazione quiz con dati vecchi di 15 minuti: il ponte leggeva un quiz alla volta (#149)
+
+1. **Errore.** Durante l'ora di Sicurezza della 1INF il generatore della situazione quiz chiedeva al ponte le risposte di un quiz per giro: mentre i ragazzi rispondevano, la colonna della 3ª ora restava indietro di 10-15 minuti (corretto alle 13:48: a ogni giro si chiedono tutti i quiz). La 2INF, per il 30/10, aveva la colonna del quiz della 5ª ora senza comando di lettura.
+2. **Regola.** A ogni giro si leggono TUTTI i quiz del giorno insieme; ogni colonna di un quiz del giorno ha il suo comando di lettura; la pagina scrive l'ora del dato del quiz letto da più tempo.
+3. **Controllo.** `strumenti/controlla_controlli.py` (quiz del giorno letti tutti insieme): ROSSO se tra l'ultima lettura di un quiz e quella di un altro passano più di 6 minuti, o se una colonna con la data di oggi o successiva non ha il comando nel «ponte» della configurazione. Prove: 3 casi.
+
+## 29/10/2026 — Pagina del docente e pagina dei ragazzi con dati diversi (#148)
+
+1. **Errore.** Nella situazione quiz della 1INF il JSON cifrato della pagina del docente non veniva riscritto, mentre quello dei ragazzi sì: due file per gli stessi dati, e il docente vedeva i dati vecchi (alle 13:56 anche per la cache del sito; correzione delle 13:57: la pagina legge la copia più recente).
+2. **Regola.** Docente e ragazzi leggono dati generati nello stesso momento dallo stesso giro: i due file si scrivono insieme e portano lo stesso «generato».
+3. **Controllo.** `strumenti/controlla_controlli.py` (pagina del docente e dei ragazzi con gli stessi dati): per ogni configurazione `config/situazione-quiz/*.json` con la pagina dei ragazzi, il «generato» del JSON del docente (decifrato) deve essere uguale a quello dei ragazzi. Prove: 2 casi.
+
+## 29/10/2026 — Monitor dei quiz della 1INF tutto «MANCA»: formato del JSON cambiato senza compatibilità (#147)
+
+1. **Errore.** Alle 13:30 il monitor dei quiz della 1INF segnava «MANCA» per tutti: la pagina rimasta nella cache del browser (prima versione, campi o1/rp/o2) leggeva il JSON nuovo, che aveva i campi con altri nomi. Il formato era stato cambiato senza lasciare i campi vecchi.
+2. **Regola.** Quando cambia il formato di un JSON letto da una pagina, i campi vecchi restano come alias per almeno un giorno (la pagina vecchia può essere ancora aperta o in cache); i campi si aggiungono, non si tolgono.
+3. **Controllo.** `strumenti/controlla_controlli.py` (formato dei JSON delle pagine): per `docs/avanzamento/*-quiz.json` e `docs/*/dati.json` confronta i campi (in cima e nelle righe, anche dei JSON cifrati) con le versioni delle ultime 24 ore; un campo sparito è ROSSO. Prove: 2 casi. Alla prima esecuzione (29/10 14:10) ha trovato `1inf-sicurezza-quiz.json` senza i campi `arrivi_ripasso` e `risposte_moduli` del formato del mattino.
 
 ## 29/10/2026 — Per la seconda volta di fila un percorso non controllabile e che non funziona (3INF) (#146)
 

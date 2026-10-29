@@ -267,6 +267,9 @@ def controlla_prove():
     extra = os.path.join(RIS, "generatori", "prova_audit_regole.py")
     if os.path.isfile(extra):
         prove.append(extra)
+    for extra in ("prova_controlla_controlli.py", "prova_situazione_quiz.py"):   # 29/10/2026 (#147-#152)
+        if os.path.isfile(os.path.join(PUB, "strumenti", extra)):
+            prove.append(os.path.join(PUB, "strumenti", extra))
     if not prove:
         esito(False, "prove degli hook: nessun file in .claude/hooks/prove/")
         return
@@ -316,9 +319,196 @@ def controlla_notte(giorno, ris=None):
         return "La notte del %s ha lasciato %s illeggibile" % (giorno, rel)
     mancano = [k for k in ("ora", "regole_rilette", "controlla_controlli", "classi_preparate", "problemi") if k not in d]
     esito(not mancano, "notte del %s: %s presente" % (giorno, rel) + (", mancano i campi " + ", ".join(mancano) if mancano else ""))
+    # #152 (29/10/2026): la notte vale solo se ha girato DA SOLA prima delle 6:30 e ha eseguito il controllore
+    cc_txt = json.dumps(d.get("controlla_controlli", ""), ensure_ascii=False).lower()
+    tardi = str(d.get("ora", "")) > "06:30"
+    non_eseguito = "non eseguito" in cc_txt or "fallit" in cc_txt
+    esito(not (tardi or non_eseguito), "notte del %s girata da sola (#152)" % giorno +
+          ((": " + ", ".join(x for x, s in (("finita alle %s, dopo le 6:30" % d.get("ora"), tardi),
+                                             ("controllore non eseguito o notte fallita", non_eseguito)) if s)) if (tardi or non_eseguito) else ""))
+    if tardi or non_eseguito:
+        return "La preparazione della notte del %s non ha girato da sola (%s)" % (giorno, "finita alle %s" % d.get("ora") if tardi else "controllore non eseguito")
     if d.get("problemi"):
         return "La notte del %s ha lasciato problemi aperti: %s" % (giorno, "; ".join(map(str, d["problemi"]))[:300])
     return ""
+
+
+# ----------------------------------------------- controlli aggiunti il 29/10/2026 pomeriggio (#147-#150, #152)
+
+def _git(cwd, *a):
+    try:
+        return subprocess.run(["git", "-C", cwd] + list(a), capture_output=True, text=True, timeout=60).stdout
+    except Exception:
+        return ""
+
+
+def _leggi_json_testo(t):
+    try:
+        d = json.loads(t)
+    except Exception:
+        return None
+    if isinstance(d, dict) and d.get("cifrato"):
+        try:
+            sys.path.insert(0, os.path.join(PUB, "strumenti"))
+            import cifra_json
+            d = cifra_json.decifra(d)
+        except Exception:
+            return None
+    return d
+
+
+def firma_campi(d):
+    """Campi che una pagina può leggere: chiavi in cima e chiavi delle righe (d['righe'] o lista)."""
+    if not isinstance(d, (dict, list)):
+        return set()
+    out = set(d.keys()) if isinstance(d, dict) else set()
+    righe_d = d.get("righe") if isinstance(d, dict) else d
+    if isinstance(righe_d, list):
+        for r in righe_d[:50]:
+            if isinstance(r, dict):
+                out |= {"righe." + k for k in r.keys()}
+    return out
+
+
+def controlla_formato_json(pub=None, ore=24, file_=None):
+    """#147: un JSON letto dalle pagine non perde campi rispetto alle versioni delle ultime 24 ore: una pagina rimasta
+    nella cache del browser legge ancora i campi vecchi (29/10 13:30, monitor quiz 1INF tutto «MANCA»).
+    Restituisce l'elenco dei problemi."""
+    pub = pub or PUB
+    if file_ is None:
+        file_ = sorted(glob.glob(os.path.join(pub, "docs", "avanzamento", "*-quiz.json")) +
+                       glob.glob(os.path.join(pub, "docs", "*", "dati.json")))
+    problemi = []
+    for f in file_:
+        rel = os.path.relpath(f, pub)
+        shas = _git(pub, "log", "--since=%d hours ago" % ore, "--format=%h", "--", rel).split()
+        if not shas:
+            continue
+        try:
+            ora_d = _leggi_json_testo(open(f, encoding="utf-8").read())
+        except Exception:
+            continue
+        adesso_c = firma_campi(ora_d)
+        if not adesso_c:
+            continue
+        persi = set()
+        for s in shas[:: max(1, len(shas) // 12)][:12] + shas[-1:]:
+            vecchio = _leggi_json_testo(_git(pub, "show", "%s:%s" % (s, rel)))
+            persi |= firma_campi(vecchio) - adesso_c
+        persi = {p for p in persi if p not in ("generato",)}
+        if persi:
+            problemi.append("%s ha perso i campi %s" % (rel, ", ".join(sorted(persi)[:6])))
+    esito(not problemi, "formato dei JSON delle pagine compatibile con le versioni delle ultime %d ore (#147)" % ore +
+          (": " + "; ".join(problemi) + " (rimetterli come alias)" if problemi else ""))
+    return problemi
+
+
+def controlla_coppie_docente_ragazzi(pub=None, ris=None, configs=None):
+    """#148: la pagina del docente (JSON cifrato) e quella dei ragazzi (dati.json) mostrano gli stessi dati: stesso
+    «generato». Restituisce l'elenco dei problemi."""
+    pub, ris = pub or PUB, ris or RIS
+    if configs is None:
+        configs = sorted(glob.glob(os.path.join(ris, "config", "situazione-quiz", "*.json")))
+    problemi = []
+    for c in configs:
+        try:
+            cfg = json.load(open(c, encoding="utf-8"))
+        except Exception:
+            continue
+        if not cfg.get("ragazzi") or not cfg.get("pubblico"):
+            continue
+        fd = os.path.join(pub, "docs", "avanzamento", cfg["pubblico"])
+        fr = os.path.join(pub, "docs", cfg["ragazzi"], "dati.json")
+        if not (os.path.exists(fd) and os.path.exists(fr)):
+            continue
+        dd = _leggi_json_testo(open(fd, encoding="utf-8").read())
+        dr = _leggi_json_testo(open(fr, encoding="utf-8").read())
+        if dd is None:
+            giallo("coppia docente/ragazzi %s: JSON del docente non decifrabile qui" % os.path.basename(c))
+            continue
+        gd, gr = (dd or {}).get("generato", ""), (dr or {}).get("generato", "")
+        if gd != gr:
+            problemi.append("%s: docente %s, ragazzi %s" % (os.path.basename(c), gd or "?", gr or "?"))
+    esito(not problemi, "pagina del docente e dei ragazzi con gli stessi dati (#148)" +
+          (": " + "; ".join(problemi) if problemi else ""))
+    return problemi
+
+
+def controlla_ponte_quiz(ris=None, configs=None, giorno=None, scarto_min=6):
+    """#149: i quiz del giorno si leggono TUTTI a ogni giro (dati della stessa ora, scarto massimo 6 minuti tra
+    l'ultima lettura di un quiz e quella di un altro). Una colonna «moduli» del giorno (cartella con la data di oggi o
+    successiva) deve avere il suo comando di lettura nel «ponte». Restituisce l'elenco dei problemi."""
+    ris = ris or RIS
+    giorno = giorno or (datetime.datetime.now(ROMA) if ROMA else datetime.datetime.now()).strftime("%Y-%m-%d")
+    g8 = giorno.replace("-", "")
+    if configs is None:
+        configs = sorted(glob.glob(os.path.join(ris, "config", "situazione-quiz", "*.json")))
+    problemi = []
+    for c in configs:
+        try:
+            cfg = json.load(open(c, encoding="utf-8"))
+        except Exception:
+            continue
+        po = cfg.get("ponte") or []
+        po = [po] if isinstance(po, dict) else po
+        salva = {os.path.normpath(p.get("salva_in", "")) for p in po}
+        for col in cfg.get("colonne", []):
+            m = re.search(r"(\d{8})$", col.get("dir", ""))
+            if col.get("tipo") == "moduli" and m and m.group(1) >= g8 and os.path.normpath(col["dir"]) not in salva:
+                problemi.append("%s: «%s» senza comando di lettura nel ponte" % (os.path.basename(c), col.get("corta", col.get("etichetta"))))
+        ore_l = []
+        for p in po:
+            base = os.path.splitext(os.path.basename(p.get("comando", "")))[0]
+            if not base:
+                continue
+            t = _git(ris, "log", "-1", "--format=%ct", "--grep=Ponte Google: " + base, "--", p["comando"]).strip()
+            if t.isdigit():
+                ore_l.append(int(t))
+        oggi_l = [t for t in ore_l if datetime.datetime.fromtimestamp(t, ROMA).strftime("%Y-%m-%d") == giorno] if ROMA else ore_l
+        if len(oggi_l) >= 2 and (max(oggi_l) - min(oggi_l)) > scarto_min * 60:
+            problemi.append("%s: quiz letti a turno, scarto di %d minuti" % (os.path.basename(c), (max(oggi_l) - min(oggi_l)) // 60))
+    esito(not problemi, "quiz del giorno letti tutti insieme dal ponte (#149)" + (": " + "; ".join(problemi) if problemi else ""))
+    return problemi
+
+
+def controlla_sicurezza_pronta(giorno, pub=None, ris=None):
+    """#150 (ripete #129): per ogni classe con Sicurezza nel giorno, il compito con il quiz è già in coda prima della
+    lezione e la pagina dell'ora DOPO è già pronta (docs/verifica/banche/<classe>-sicurezza-<N+1>ora.js), così se il
+    docente chiede un'altra ora non si lavora a lezione iniziata. Restituisce l'elenco dei problemi."""
+    pub, ris = pub or PUB, ris or RIS
+    ore, _ = lezioni_di(giorno, pub)
+    classi = {}
+    for classe, disc in ore:
+        if "sicurezza" in (disc or "").lower():
+            classi[classe] = classi.get(classe, 0) + 1
+    problemi, gialli = [], []
+    for classe, n_ore in sorted(classi.items()):
+        coda = [f for f in glob.glob(os.path.join(ris, "coda", "%s_%s_*sicurezza*.json" % (giorno, classe))) +
+                glob.glob(os.path.join(ris, "coda", "archivio", "%s_%s_*sicurezza*.json" % (giorno, classe)))]
+        con_quiz = []
+        for f in coda:
+            try:
+                d = json.load(open(f, encoding="utf-8"))
+            except Exception:
+                continue
+            if d.get("quiz") or d.get("moduli") or "docs.google.com/forms" in (d.get("descrizione") or ""):
+                con_quiz.append(os.path.basename(f))
+        if not con_quiz:
+            problemi.append("%s: nessun compito di Sicurezza con il quiz in coda per il %s" % (classe, giorno))
+            continue
+        m = re.search(r"sicurezza-(\d+)ora", " ".join(con_quiz))
+        if not m:
+            continue
+        dopo = int(m.group(1)) + n_ore
+        banca = os.path.join(pub, "docs", "verifica", "banche", "%s-sicurezza-%dora.js" % (classe.lower(), dopo))
+        if not os.path.exists(banca):
+            (problemi if n_ore >= 2 else gialli).append("%s: l'ora dopo (%dª) non è pronta (%s)" % (
+                classe, dopo, os.path.relpath(banca, pub)))
+    for x in gialli:
+        giallo("Sicurezza %s: %s (#150)" % (giorno, x))
+    esito(not problemi, "Sicurezza del %s preparata prima della lezione (#150)" % giorno +
+          (": " + "; ".join(problemi) if problemi else ""))
+    return problemi
 
 
 def stampa(da_sapere):
@@ -355,6 +545,10 @@ def main():
     controlla_passi()
     oggi = args.notte or notte_attesa(adesso)
     da_sapere = [controlla_lavoro_del_giorno(oggi), controlla_notte(oggi)]
+    controlla_formato_json()
+    controlla_coppie_docente_ragazzi()
+    controlla_ponte_quiz(giorno=oggi)
+    controlla_sicurezza_pronta(oggi)
     controlla_privacy()
     return stampa(da_sapere)
 
