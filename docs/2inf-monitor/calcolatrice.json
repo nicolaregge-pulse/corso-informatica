@@ -1,5 +1,5 @@
 {
- "ora": "10:06",
+ "ora": "10:11",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -140,14 +140,14 @@
     "per": true,
     "titolo": true,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Lina A.",
@@ -226,12 +226,12 @@
     "release": true,
     "v12_codice": true,
     "v12_commit": true,
-    "v12_release": false,
+    "v12_release": true,
     "meno": true,
     "div": true
    },
    "messaggio": "Tutto verde, anche la release v1.0! Fai gli screenshot nel Documento e, se vuoi, l'extra: bottoni − e DIV, nuovo commit e release v1.2.",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio_v12": "Tutto verde per la versione 1.2, anche la release! Fai lo screenshot della release nel Documento."
   },
   {
    "alunno": "Ney V.",

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Versioni calcolatrice 2INF</title>
+<style>
+/* 2INF 29/10/2026 (docente: «per allievo Ver1, codice V1, Ver2, codice V2»): solo per il prof, dati CIFRATI (dati.json, codice del monitor).
+   Generatore: riservato generatori/versioni_2inf.py, a ogni giro (commit veri di oggi, clonati). */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b;--okb:rgba(26,127,55,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--okb:rgba(111,211,143,.14)}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82;--okb:rgba(111,211,143,.14)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1000px;margin:0 auto;padding:16px}h1{margin:4px 0 6px;font-size:24px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}
+.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.leg{background:var(--card);border:2px solid var(--acc);border-radius:12px;padding:10px 14px;margin:10px 0}.leg ol{margin:6px 0 6px 20px;padding:0}
+.tot{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:18px;margin:10px 0}.tot b{font-size:20px}
+.tab{overflow-x:auto;background:var(--card);border-radius:12px}
+table{border-collapse:collapse;width:100%}th,td{padding:9px 8px;border-bottom:1px solid var(--ln);text-align:center}
+th{font-size:14px;color:var(--mu)}td:first-child,th:first-child{text-align:left}
+.y,.n{font-size:26px;font-weight:800}.y{color:var(--ok)}.y a{color:var(--ok);text-decoration:none}.n{color:var(--ko);cursor:pointer}
+.n small,.y small{display:block;font-size:12px;font-weight:600;color:var(--mu)}.n small{color:var(--ko);max-width:200px;margin:0 auto}
+tr.fin td{background:var(--okb)}.rel{font-size:12px;color:var(--mu)}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
+<div id="view" class="hide">
+<h1>2INF: le due versioni della calcolatrice</h1>
+<div class="mu" id="stato">Carico i dati…</div>
+<div class="leg"><b>Come si legge</b><ol>
+<li><b>Ver1 ✔</b> = su GitHub c'è una prima versione di oggi della calcolatrice (un commit di oggi con .lpi .pas .lfm).</li>
+<li><b>Codice V1 ✔</b> = in quella prima versione il codice ha il + e il x.</li>
+<li><b>Ver2 ✔</b> = su GitHub c'è una seconda versione di oggi (un commit successivo di oggi con il progetto cambiato).</li>
+<li><b>Codice V2 ✔</b> = nella seconda versione il codice ha anche il − e il DIV.</li>
+</ol>Un ✔ si clicca e apre il commit su GitHub, per vedere il codice. Un ✘ si tocca e dice che cosa manca. Le release sono scritte piccole sotto il nome.</div>
+<div class="tot" id="tot"></div>
+<div class="tab"><table><thead><tr><th>Allievo</th><th>Ver1</th><th>Codice V1<br>+ e x</th><th>Ver2</th><th>Codice V2<br>− e DIV</th><th>Compito<br>consegnato</th></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu">Dati dai commit veri di oggi nei repository «lazarus» (controllo ogni 5 minuti). Il compito consegnato si vede quando su Classroom il ragazzo ha premuto «Consegna» e lo script ha salvato il PDF.</p>
+</div></div>
+<script>
+var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/2inf-versioni/dati.json',LOC='dati.json';
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch(LOC+'?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function si(url,txt){return '<td class="y">'+(url?'<a href="'+e(url)+'" target="_blank" rel="noopener">✔</a>':'✔')+(txt?'<small>'+e(txt)+'</small>':'')+'</td>'}
+function no(txt){return '<td class="n" onclick="var s=this.querySelector(\'small\');s.hidden=!s.hidden">✘<small hidden>'+e(txt)+'</small></td>'}
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
+ $('gate').classList.add('hide');$('view').classList.remove('hide');
+ var g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),vec=d.data!==g;
+ $('stato').innerHTML=(vec?'<b style="color:var(--ko)">DATI DEL '+e(d.data.split('-').reverse().join('/'))+', NON DI OGGI · </b>':'')+'Ultimo controllo dei repository: <b>'+e(d.ora)+'</b> · '+d.n+' presenti';
+ var T=d.tot;$('tot').innerHTML=['Ver1','Codice V1','Ver2','Codice V2','Compito'].map(function(x,k){return '<span>'+x+': <b>'+[T.ver1,T.cod1,T.ver2,T.cod2,T.compito][k]+' su '+d.n+'</b></span>'}).join('');
+ $('t').innerHTML=d.righe.map(function(r){var v1=r.ver1,v2=r.ver2,fin=v1&&r.cod1&&v2&&r.cod2;
+  return '<tr'+(fin?' class="fin"':'')+'><td><b>'+e(r.nome)+'</b>'+(r.release&&r.release.length?'<div class="rel">release di oggi: '+e(r.release.join(' '))+'</div>':'')+'</td>'+
+   (v1?si(v1.url,v1.ora):no(r.manca[0]||'nessun commit di oggi con .lpi .pas .lfm'))+
+   (v1?(r.cod1?si(v1.url,''):no('nella prima versione manca il + o il x')):no('prima serve la versione 1'))+
+   (v2?si(v2.url,v2.ora):no(v1?'nessuna seconda versione: serve un altro commit di oggi con il progetto cambiato':'prima serve la versione 1'))+
+   (v2?(r.cod2?si(v2.url,''):no('nella seconda versione manca il − o il DIV')):no('prima serve la versione 2'))+
+   (r.compito&&r.compito.ok?si('',r.compito.ora?'alle '+r.compito.ora:'consegnato'):no('compito non ancora consegnato su Classroom'))+'</tr>'}).join('')}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+</script>
+</body>
+</html>
