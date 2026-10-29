@@ -1,41 +1,43 @@
 {
- "ora": "08:31",
+ "ora": "08:43",
  "data": "2026-10-29",
  "righe": [
   {
-   "alunno": "Lina A.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "alunno": "Francesco M.",
+   "voto": 62,
+   "conto": "verifica 73 · percorso 40 · GitHub calcolatrice 72 → media 62 (esclusi: documento, dato non disponibile) = 62",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
    "col": [
     {
-     "v": 80,
+     "v": 73,
      "fatti": [
-      "consegnata 6/6"
+      "consegnata 5/6"
      ],
      "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
+    },
+    {
+     "v": 72,
+     "fatti": [
       "commit di oggi",
-      "4 file",
-      "messaggio suo",
+      "3 file della lavagna",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatrice v1»: il nome giusto è «calcolatrice». · controllo delle 08:31"
+     "manca": [
+      "messaggio suo"
+     ],
+     "info": "La cartella si chiama «calcolatirce2»: il nome giusto è «calcolatrice». · commit di oggi: 08:42 Delete calcolatirce2/calcolo.ico · controllo delle 08:43"
     },
     {
      "v": null,
@@ -54,9 +56,9 @@
     "no .exe"
    ],
    "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
+   "v_ver": 73,
+   "v_vgit": 73,
+   "vgit": "5 su 6",
    "github": [
     "cartelle",
     "pulito",
@@ -66,7 +68,7 @@
    "github_manca": [
     "no .exe"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatrice v1»: il nome giusto è «calcolatrice». · controllo delle 08:31",
+   "cosa_fare": "La cartella si chiama «calcolatirce2»: il nome giusto è «calcolatrice». · commit di oggi: 08:42 Delete calcolatirce2/calcolo.ico · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -76,90 +78,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
-   "orale": null
-  },
-  {
-   "alunno": "Sara A.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
-   "v_github": 72,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "v": 80,
-     "fatti": [
-      "consegnata 6/6"
-     ],
-     "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
-    },
-    {
-     "v": 40,
-     "fatti": [],
-     "manca": [
-      "commit di oggi",
-      "4 file",
-      "messaggio suo",
-      "codice + e ×",
-      "pulita"
-     ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
-    },
-    {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "Documento non ancora letto (si legge dalle 09:30; escluso dal voto)",
-     "rosso": true
-    }
+   "vy_ult": [
+    "08:36",
+    "PC 14: Lazarus, progetto aperto nel designer",
+    0
    ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 80,
-   "v_vgit": 80,
-   "vgit": "6 su 6",
-   "github": [
-    "cartelle",
-    "pulito",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [
-    "no .exe"
-   ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": null,
    "orale": null
   },
   {
    "alunno": "Giorgio A.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "voto": 59,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 56 → media 59 (esclusi: documento, dato non disponibile) = 59",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -173,23 +102,25 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
-    },
-    {
      "v": 40,
      "fatti": [],
      "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
+    },
+    {
+     "v": 56,
+     "fatti": [
       "commit di oggi",
-      "4 file",
-      "messaggio suo",
-      "codice + e ×",
       "pulita"
      ],
-     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31"
+     "manca": [
+      "3 file della lavagna",
+      "messaggio suo",
+      "codice + e ×"
+     ],
+     "info": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · commit di oggi: 08:38 Create calcolatrice · controllo delle 08:43"
     },
     {
      "v": null,
@@ -220,7 +151,167 @@
    "github_manca": [
     "cartelle"
    ],
-   "cosa_fare": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31",
+   "cosa_fare": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella. · commit di oggi: 08:38 Create calcolatrice · controllo delle 08:43",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": null,
+   "orale": null
+  },
+  {
+   "alunno": "Lina A.",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 40,
+     "fatti": [],
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
+    },
+    {
+     "v": 40,
+     "fatti": [],
+     "manca": [
+      "commit di oggi",
+      "3 file della lavagna",
+      "messaggio suo",
+      "codice + e ×",
+      "pulita"
+     ],
+     "info": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatrice v2»: il nome giusto è «calcolatrice». · controllo delle 08:43"
+    },
+    {
+     "v": null,
+     "fatti": [],
+     "manca": [],
+     "info": "Documento non ancora letto (si legge dalle 09:30; escluso dal voto)",
+     "rosso": true
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "no .exe"
+   ],
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatrice v2»: il nome giusto è «calcolatrice». · controllo delle 08:43",
+   "salv": [],
+   "salv_manca": [
+    "Form",
+    "FOR",
+    "WHILE",
+    "sfida"
+   ],
+   "verifica": "",
+   "fuori": 0,
+   "vy_ult": [
+    "08:36",
+    "PC 29: menu Start aperto, nessuna attività visibile",
+    0
+   ],
+   "orale": null
+  },
+  {
+   "alunno": "Sara A.",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
+   "v_github": 72,
+   "v_facile": 40,
+   "facile": [],
+   "col": [
+    {
+     "v": 80,
+     "fatti": [
+      "consegnata 6/6"
+     ],
+     "manca": [],
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 1 di 11 · la risposta scritta la valuta il prof"
+    },
+    {
+     "v": 40,
+     "fatti": [],
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
+    },
+    {
+     "v": 40,
+     "fatti": [],
+     "manca": [
+      "commit di oggi",
+      "3 file della lavagna",
+      "messaggio suo",
+      "codice + e ×",
+      "pulita"
+     ],
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
+    },
+    {
+     "v": null,
+     "fatti": [],
+     "manca": [],
+     "info": "Documento non ancora letto (si legge dalle 09:30; escluso dal voto)",
+     "rosso": true
+    }
+   ],
+   "facile_manca": [
+    "primo-programma",
+    "esercizio-3",
+    "esercizio-4",
+    "salvadanaio",
+    "README",
+    "no .exe"
+   ],
+   "v_salv": 40,
+   "v_ver": 80,
+   "v_vgit": 80,
+   "vgit": "6 su 6",
+   "github": [
+    "cartelle",
+    "pulito",
+    "README",
+    "salvadanaio"
+   ],
+   "github_manca": [
+    "no .exe"
+   ],
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -235,8 +326,8 @@
   },
   {
    "alunno": "Luca B.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
    "v_github": 56,
    "v_facile": 40,
    "facile": [],
@@ -247,26 +338,27 @@
       "consegnata 6/6"
      ],
      "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 1 di 11 · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -297,7 +389,7 @@
     "pulito",
     "no .exe"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -307,13 +399,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 34: pagina «Passo A / Passo B» del 27/10: sta usando la pagina del 27/10",
+    0
+   ],
    "orale": null
   },
   {
    "alunno": "Egor M.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -327,23 +423,24 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -374,7 +471,7 @@
    "github_manca": [
     "cartelle"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -389,8 +486,8 @@
   },
   {
    "alunno": "Antonio M.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
    "v_github": 64,
    "v_facile": 40,
    "facile": [],
@@ -404,23 +501,24 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31"
+     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:43"
     },
     {
      "v": null,
@@ -451,7 +549,7 @@
     "cartelle",
     "salvadanaio"
    ],
-   "cosa_fare": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31",
+   "cosa_fare": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -461,13 +559,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 12: GitHub, pagina dei commit",
+    0
+   ],
    "orale": null
   },
   {
    "alunno": "Mathias P.",
-   "voto": 60,
-   "conto": "verifica 80 · GitHub calcolatrice 40 → media 60 (esclusi: percorso, documento, dato non disponibile) = 60",
+   "voto": 53,
+   "conto": "verifica 80 · percorso 40 · GitHub calcolatrice 40 → media 53 (esclusi: documento, dato non disponibile) = 53",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -481,23 +583,24 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -528,7 +631,7 @@
    "github_manca": [
     "cartelle"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -543,8 +646,8 @@
   },
   {
    "alunno": "Oscar F.",
-   "voto": 56,
-   "conto": "verifica 73 · GitHub calcolatrice 40 → media 56 (esclusi: percorso, documento, dato non disponibile) = 56",
+   "voto": 51,
+   "conto": "verifica 73 · percorso 40 · GitHub calcolatrice 40 → media 51 (esclusi: documento, dato non disponibile) = 51",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -555,26 +658,27 @@
       "consegnata 5/6"
      ],
      "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
+     "info": "consegnata il 22/10, oggi non ancora rifatta · ripasso: scheda 11 di 11 · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -605,7 +709,7 @@
    "github_manca": [
     "no .exe"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -615,13 +719,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 36: pagina con la casella «Chiedi aiuto all'assistente»",
+    0
+   ],
    "orale": null
   },
   {
    "alunno": "Giorgio K.",
-   "voto": 56,
-   "conto": "verifica 73 · GitHub calcolatrice 40 → media 56 (esclusi: percorso, documento, dato non disponibile) = 56",
+   "voto": 51,
+   "conto": "verifica 73 · percorso 40 · GitHub calcolatrice 40 → media 51 (esclusi: documento, dato non disponibile) = 51",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -635,23 +743,24 @@
      "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -682,7 +791,7 @@
    "github_manca": [
     "cartelle"
    ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31",
+   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -696,39 +805,41 @@
    "orale": null
   },
   {
-   "alunno": "Francesco M.",
-   "voto": 56,
-   "conto": "verifica 73 · GitHub calcolatrice 40 → media 56 (esclusi: percorso, documento, dato non disponibile) = 56",
-   "v_github": 72,
+   "alunno": "Mahammed M.",
+   "voto": 45,
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 56 → media 45 (esclusi: documento, dato non disponibile) = 45",
+   "v_github": 80,
    "v_facile": 40,
    "facile": [],
    "col": [
     {
-     "v": 73,
-     "fatti": [
-      "consegnata 5/6"
-     ],
-     "manca": [],
-     "info": "consegnata il 22/10, oggi non ancora rifatta · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "consegna"
+     ],
+     "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
+    },
+    {
+     "v": 56,
+     "fatti": [
       "commit di oggi",
-      "4 file",
-      "messaggio suo",
-      "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatirce2»: il nome giusto è «calcolatrice». · controllo delle 08:31"
+     "manca": [
+      "3 file della lavagna",
+      "messaggio suo",
+      "codice + e ×"
+     ],
+     "info": "La cartella si chiama «Calcolatrice»: il nome giusto è «calcolatrice». · commit di oggi: 08:37 Create Calcolatrice · controllo delle 08:43"
     },
     {
      "v": null,
@@ -747,19 +858,18 @@
     "no .exe"
    ],
    "v_salv": 40,
-   "v_ver": 73,
-   "v_vgit": 73,
-   "vgit": "5 su 6",
+   "v_ver": 40,
+   "v_vgit": 40,
+   "vgit": "",
    "github": [
     "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "github_manca": [
-    "no .exe"
-   ],
-   "cosa_fare": "cartella del 27/10, oggi nessun commit · La cartella si chiama «calcolatirce2»: il nome giusto è «calcolatrice». · controllo delle 08:31",
+   "github_manca": [],
+   "cosa_fare": "Prima la verifica: apri la pagina della verifica, rispondi alle domande e alla fine premi «Consegna». Poi il percorso della calcolatrice.",
    "salv": [],
    "salv_manca": [
     "Form",
@@ -775,7 +885,7 @@
   {
    "alunno": "Hagar A.",
    "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 40 → media 40 (esclusi: documento, dato non disponibile) = 40",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -789,23 +899,24 @@
      "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -852,7 +963,7 @@
   {
    "alunno": "Shaharia A.",
    "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 40 → media 40 (esclusi: documento, dato non disponibile) = 40",
    "v_github": 64,
    "v_facile": 40,
    "facile": [],
@@ -866,23 +977,24 @@
      "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31"
+     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:43"
     },
     {
      "v": null,
@@ -923,13 +1035,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 13: pagina «Il mio repository lazarus in ordine»",
+    0
+   ],
    "orale": null
   },
   {
    "alunno": "Riccardo B.",
    "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 40 → media 40 (esclusi: documento, dato non disponibile) = 40",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -943,23 +1059,24 @@
      "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella si chiama «una calcolatrice»: il nome giusto è «calcolatrice». · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella si chiama «una calcolatrice»: il nome giusto è «calcolatrice». · controllo delle 08:43"
     },
     {
      "v": null,
@@ -1000,13 +1117,17 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 38: riquadro di codice scuro (percorso o dispensa)",
+    0
+   ],
    "orale": null
   },
   {
    "alunno": "Shahenda E.",
    "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 40 → media 40 (esclusi: documento, dato non disponibile) = 40",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -1017,26 +1138,27 @@
      "manca": [
       "consegna"
      ],
-     "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
+     "info": " · ripasso: scheda 0 di 11 · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -1067,82 +1189,6 @@
    "github_manca": [
     "cartelle"
    ],
-   "cosa_fare": "Prima la verifica: apri la pagina della verifica, rispondi alle domande e alla fine premi «Consegna». Poi il percorso della calcolatrice.",
-   "salv": [],
-   "salv_manca": [
-    "Form",
-    "FOR",
-    "WHILE",
-    "sfida"
-   ],
-   "verifica": "",
-   "fuori": 0,
-   "vy_ult": null,
-   "orale": null
-  },
-  {
-   "alunno": "Mahammed M.",
-   "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
-   "v_github": 80,
-   "v_facile": 40,
-   "facile": [],
-   "col": [
-    {
-     "v": 40,
-     "fatti": [],
-     "manca": [
-      "consegna"
-     ],
-     "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
-    },
-    {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
-    },
-    {
-     "v": 40,
-     "fatti": [],
-     "manca": [
-      "commit di oggi",
-      "4 file",
-      "messaggio suo",
-      "codice + e ×",
-      "pulita"
-     ],
-     "info": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes). · controllo delle 08:31"
-    },
-    {
-     "v": null,
-     "fatti": [],
-     "manca": [],
-     "info": "Documento non ancora letto (si legge dalle 09:30; escluso dal voto)",
-     "rosso": true
-    }
-   ],
-   "facile_manca": [
-    "primo-programma",
-    "esercizio-3",
-    "esercizio-4",
-    "salvadanaio",
-    "README",
-    "no .exe"
-   ],
-   "v_salv": 40,
-   "v_ver": 40,
-   "v_vgit": 40,
-   "vgit": "",
-   "github": [
-    "cartelle",
-    "pulito",
-    "no .exe",
-    "README",
-    "salvadanaio"
-   ],
-   "github_manca": [],
    "cosa_fare": "Prima la verifica: apri la pagina della verifica, rispondi alle domande e alla fine premi «Consegna». Poi il percorso della calcolatrice.",
    "salv": [],
    "salv_manca": [
@@ -1159,7 +1205,7 @@
   {
    "alunno": "Ney V.",
    "voto": 40,
-   "conto": "verifica 40 · GitHub calcolatrice 40 → media 40 (esclusi: percorso, documento, dato non disponibile) = 40",
+   "conto": "verifica 40 · percorso 40 · GitHub calcolatrice 40 → media 40 (esclusi: documento, dato non disponibile) = 40",
    "v_github": 72,
    "v_facile": 40,
    "facile": [],
@@ -1173,23 +1219,24 @@
      "info": " · ripasso non ancora aperto oggi · la risposta scritta la valuta il prof"
     },
     {
-     "v": null,
+     "v": 40,
      "fatti": [],
-     "manca": [],
-     "info": "DATO NON DISPONIBILE: la pagina del percorso non manda ancora i passi (escluso dal voto)",
-     "rosso": true
+     "manca": [
+      "percorso non aperto"
+     ],
+     "info": "nessun passo arrivato oggi"
     },
     {
      "v": 40,
      "fatti": [],
      "manca": [
       "commit di oggi",
-      "4 file",
+      "3 file della lavagna",
       "messaggio suo",
       "codice + e ×",
       "pulita"
      ],
-     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:31"
+     "info": "cartella del 27/10, oggi nessun commit · La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. · controllo delle 08:43"
     },
     {
      "v": null,
@@ -1230,7 +1277,11 @@
    ],
    "verifica": "",
    "fuori": 0,
-   "vy_ult": null,
+   "vy_ult": [
+    "08:36",
+    "PC 24: percorso calcolatrice, passo 2 «Apri un progetto nuovo»",
+    0
+   ],
    "orale": null
   }
  ]
