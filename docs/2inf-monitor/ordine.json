@@ -1,5 +1,5 @@
 {
- "ora": "08:26",
+ "ora": "08:31",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -183,23 +183,21 @@
   {
    "alunno": "Giorgio A.",
    "pezzi": [
-    "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 2,
+   "ultimo": "08:30",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (primo-programma/project1.lps, primo-programma/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo E: nella cartella «primo-programma» mancano dei file del progetto: caricali dal tuo PC (.lpi .lpr .pas .lfm).",
    "fuori": 0,
    "albero": [
     "README.md",
     "primo-programma/il primo progetto",
     "primo-programma/project1.lpi",
-    "primo-programma/project1.lps",
-    "primo-programma/project1.res",
     "primo-programma/unit1.pas",
     "salvadanaio/il salvadanaio",
     "salvadanaio/project1.lpi",
