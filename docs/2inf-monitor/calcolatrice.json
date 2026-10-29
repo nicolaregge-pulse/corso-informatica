@@ -1,5 +1,5 @@
 {
- "ora": "09:57",
+ "ora": "10:01",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -56,14 +56,14 @@
     "per": true,
     "titolo": false,
     "release": false,
-    "v12_codice": true,
-    "v12_commit": true,
+    "v12_codice": false,
+    "v12_commit": false,
     "v12_release": false,
-    "meno": true,
-    "div": true
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice3»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
    "alunno": "Giorgio A.",
@@ -321,21 +321,21 @@
    "alunno": "Shaharia A.",
    "check": {
     "cartella": true,
-    "file": false,
+    "file": true,
     "pulita": true,
-    "commit": true,
-    "messaggio": true,
+    "commit": false,
+    "messaggio": false,
     "piu": true,
-    "per": true,
+    "per": false,
     "titolo": false,
     "release": false,
     "v12_codice": false,
     "v12_commit": false,
     "v12_release": false,
-    "meno": true,
-    "div": true
+    "meno": false,
+    "div": false
    },
-   "messaggio": "Nella cartella calcolatrice mancano .lpi: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella.",
+   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «CalcolatriceLazarus»: va bene, la prossima volta chiamala «calcolatrice».",
    "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
   },
   {
