@@ -1,5 +1,8 @@
 /**
- * AUTOMAZIONE CORSO v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.5: COMPITI SENZA SCADENZA (29/10/2026, giro delle 08:37 fallito; CLAUDE.md regola 27). dueDate e dueTime si
+ *       mettono SOLO se la voce della coda ha scadenza_iso; senza scadenza il compito nasce senza quei campi e la
+ *       chiusura automatica non lo chiude mai.
  * v8.2: CLASSROOM DA DIETRO LE QUINTE (Nicola, 21/10: «preparate tutto ma che i ragazzi non lo vedano, io si»).
  *       1) BOZZE: un compito della coda con "bozza": true, o un annuncio del ponte con a.bozza, nasce in BOZZA:
  *          il docente lo vede in Classroom, i ragazzi no. Con "programma_iso" Classroom lo pubblica da solo a
@@ -208,7 +211,7 @@ function autoCiclo(forza) {
           AUTO_pubblica(job);
           job.stato = 'pubblicato'; job.pubblicato_il = adesso.toISOString();
           AUTO_scriviJson(f.path, job, item.sha, 'Pubblicato su Classroom: ' + job.titolo); fatto++;
-        } else if (job.stato === 'pubblicato' &&
+        } else if (job.stato === 'pubblicato' && job.scadenza_iso &&   // v8.5: senza scadenza non si chiude
                    adesso.getTime() > new Date(job.scadenza_iso).getTime() + AUTO.MINUTI_DOPO_SCADENZA * 60000) {
           var esito = AUTO_chiudi(job);
           job.stato = 'chiuso'; job.chiuso_il = adesso.toISOString(); job.esito_chiusura = esito;
@@ -257,13 +260,15 @@ function AUTO_pubblica(job) {
     });
     job.descrizione = testo;
   }
-  var s = new Date(job.scadenza_iso);
   var work = {
     title: job.titolo, description: job.descrizione || '', workType: 'ASSIGNMENT', state: job.bozza || job.programma_iso ? 'DRAFT' : 'PUBLISHED',   // v8.2
-    materials: materiali,
-    dueDate: { year: s.getUTCFullYear(), month: s.getUTCMonth() + 1, day: s.getUTCDate() },
-    dueTime: { hours: s.getUTCHours(), minutes: s.getUTCMinutes() }
+    materials: materiali
   };
+  if (job.scadenza_iso) {   // v8.5: dueDate e dueTime solo se c'e' la scadenza
+    var s = new Date(job.scadenza_iso);
+    work.dueDate = { year: s.getUTCFullYear(), month: s.getUTCMonth() + 1, day: s.getUTCDate() };
+    work.dueTime = { hours: s.getUTCHours(), minutes: s.getUTCMinutes() };
+  }
   if (job.punti) work.maxPoints = job.punti;
   if (job.programma_iso) work.scheduledTime = new Date(job.programma_iso).toISOString();   // v8.2: Classroom lo pubblica da solo
   var c = Classroom.Courses.CourseWork.create(work, courseId);
