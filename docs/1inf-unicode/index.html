@@ -16,4 +16,5 @@ UNICODE = una tabella per TUTTE le lingue.
 UTF-8 = latino 1 byte, arabo 2, cinese 3, emoji 4.</pre></div></section><section class="card"><h2>8. Il quiz</h2><p>Il quiz su Google Moduli è nel compito di oggi su Classroom: 15 domande, premi «Invia» alla fine.</p><p class="ar" lang="ar" dir="rtl">الاختبار على Google Moduli موجود في واجب اليوم على Classroom: 15 سؤالاً، اضغط «إرسال» في النهاية.</p><p class="zh" lang="zh">Google Moduli 上的测验在今天 Classroom 的作业里：15 道题，最后点“提交”。</p></section></main><script>var t=document.getElementById('t'),tb=document.getElementById('tb'),n=document.getElementById('n');
 function f(){var r='<tr><th>car.</th><th>numero</th><th>byte</th></tr>',c=0;for(var ch of t.value){if(ch===' ')continue;c++;var cp=ch.codePointAt(0),b=new TextEncoder().encode(ch).length;
 r+='<tr><td class="big">'+ch.replace(/</g,'&lt;')+'</td><td>'+cp+'</td><td>'+b+'</td></tr>';}tb.innerHTML=r;n.textContent=c?'FATTO! '+c+' caratteri · ✔':'';}
-t.addEventListener('input',f);f();</script></body></html>
+t.addEventListener('input',f);f();</script><script src="../assistente/assistente.js" data-pagina="1inf-unicode" data-lingue="it,ar,zh"></script>
+</body></html>
