@@ -164,6 +164,12 @@ CLASSI["1INF"] = {
              breve=("Con Lazarus costruiamo una finestra con una casella (TEdit) e un bottone (TButton): al clic compare «Ciao» e il nome.",
                     "مع Lazarus نبني نافذة فيها خانة نص (TEdit) وزر (TButton): عند النقر تظهر «Ciao» مع الاسم.",
                     "用 Lazarus 做一个窗口，有文本框（TEdit）和按钮（TButton）：点击后出现“Ciao”和名字。")),
+        dict(data="2026-10-29", slug="sicurezza-2-3", titolo="Sicurezza 2 e 3: prevenzione, protezione e prevenzione aziendale",
+             ore="1 ora, Sicurezza", fatto="Sicurezza sul lavoro (Regione), 2ª ora: prevenzione e protezione, con schede, ripasso e quiz su Moduli; su richiesta del docente anche la 3ª ora: l'organizzazione della prevenzione in azienda, con schede e quiz su Moduli.",
+             fonti=[("banca", "1inf-sicurezza-2ora.js"), ("banca", "1inf-sicurezza-3ora.js")],
+             breve=("La prevenzione evita che il danno succeda; la protezione riduce il danno se succede. In azienda ognuno ha un compito per la sicurezza.",
+                    "الوقاية تمنع حدوث الضرر؛ والحماية تقلّل الضرر إذا حدث. في الشركة لكل شخص دور في السلامة.",
+                    "预防是不让伤害发生；防护是在发生时减少伤害。在公司里每个人都有安全方面的任务。")),
     ],
 }
 
@@ -297,6 +303,9 @@ CLASSI["3INF"] = {
         dict(data="2026-10-28", slug="hello-lazarus-java", titolo="Hello World in Lazarus e in Java", ore="2 ore, Laboratorio",
              fatto="Java senza installare (siti web), Eclipse portabile, HelloWorld con finestra e bottone, confronto Java e Lazarus.",
              fonti=[("banca", "3inf-hello-lazarus-java.js"), ("banca", "3inf-eclipse-java.js")]),
+        dict(data="2026-10-29", slug="confronto-lazarus-java", titolo="Lazarus e Java a confronto", ore="2 ore, Laboratorio",
+             fatto="Percorso guidato «Lazarus e Java a confronto» (Eclipse portabile, Hello World in Java accanto a quello in Lazarus) e Documento valutato su Classroom; per chi non è riuscito a far girare Java, un Documento con le perplessità e il confronto.",
+             fonti=[("md", "classe-3/confronto-lazarus-java/20261029_Classe-3_v1.0_Confronto-Lazarus-Java.md")]),
     ],
 }
 

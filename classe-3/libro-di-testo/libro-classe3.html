@@ -375,7 +375,7 @@ body{font-family:"DejaVu Serif","Amiri","WenQuanYi Zen Hei","Noto Sans Bengali",
 .scheda{border:1px solid #d9d0c2;border-left:4px solid #3a6ea5;border-radius:6px;padding:2.5mm 4mm;margin:2mm 0 4mm;background:#fbfaf7}
 .scheda img{max-width:100%;max-height:120mm}
 .breve p{margin:1mm 0}
-</style></head><body><section class="cover"><div class="title">Libro di Testo — Informatica Classe 3</div><div class="rule-cover"></div><div class="subtitle">Corso di Informatica — a.s. 2026/27</div><div class="meta">Versione 1.0 · 29/10/2026</div><div class="author">Corso a cura del prof. Nicola Regge</div></section><main><h2 id="0-come-lavoriamo-leggere-per-prime" class="sec">0 Come lavoriamo (leggere per prime)</h2>
+</style></head><body><section class="cover"><div class="title">Libro di Testo — Informatica Classe 3</div><div class="rule-cover"></div><div class="subtitle">Corso di Informatica — a.s. 2026/27</div><div class="meta">Versione 1.1 · 29/10/2026</div><div class="author">Corso a cura del prof. Nicola Regge</div></section><main><h2 id="0-come-lavoriamo-leggere-per-prime" class="sec">0 Come lavoriamo (leggere per prime)</h2>
 <ol>
 <li>Si lavora un passo alla volta, con un risultato concreto da vedere subito.</li>
 <li>Consegne e materiali stanno su Google Classroom; i progetti stanno su GitHub, ognuno nel suo repository.</li>
@@ -2252,9 +2252,239 @@ public <span class="kw">class</span> Ciao {
 <h5 id="11-per-chi-ha-finito-saluta-il-tuo-nome-facoltativo">11. Per chi ha finito: saluta il tuo nome (facoltativo) · যারা শেষ করেছে: শুভেচ্ছা জানানো জানালা (ঐচ্ছিক)</h5>
 <div class="scheda"><p>Lo stesso programma «Ciao» che la 1INF ha fatto oggi in Lazarus, ma in Java: una casella per il nome, un bottone, un messaggio. Qui la finestra non si disegna con il mouse: si scrive con il codice (si chiama <b>Swing</b>).</p><p lang="bn" style="color:#5b6573;margin-top:-6px">1INF আজ Lazarus-এ যে «Ciao» প্রোগ্রাম বানিয়েছে, সেটাই Java-তে: নামের ঘর, বোতাম, বার্তা। এখানে জানালা মাউসে আঁকা হয় না: কোডে লেখা হয় (Swing)।</p><p><b>1.</b> A sinistra clic destro su <b>src</b> ⟶ <b>«New»</b> (Nuovo) ⟶ <b>«Class»</b> (Classe).</p><p lang="bn" style="color:#5b6573;margin-top:-6px">বামে src-এ ডান ক্লিক ⟶ New ⟶ Class।</p><p><b>2.</b> Casella <b>«Package»</b> (Pacchetto): <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Ctrl</code> + <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">A</code> e <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Canc</code> (vuota). Casella <b>«Name»</b> (Nome):</p><p lang="bn" style="color:#5b6573;margin-top:-6px">Package: Ctrl + A আর Canc (খালি)। Name ঘরে:</p><div style="position:relative"><pre style="background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;font-size:16px;overflow-x:auto">Finestra</pre><button type="button" onclick="var b=this;navigator.clipboard.writeText(b.previousElementSibling.innerText).then(function(){b.textContent='Copiato!';setTimeout(function(){b.textContent='Copia'},2000)})" style="position:absolute;top:6px;right:6px;background:#2f855a;color:#fff;border:0;border-radius:8px;padding:6px 12px;font-size:15px;font-weight:bold;cursor:pointer">Copia</button></div><p><b>3.</b> Clicca <b>«Finish»</b> (Fine). Poi clicca <b>Copia</b> qui sotto.</p><p lang="bn" style="color:#5b6573;margin-top:-6px">Finish ক্লিক করো। তারপর নিচে Copia।</p><div style="position:relative"><pre style="background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;font-size:16px;overflow-x:auto">import javax.swing.*;  public class Finestra {     public static void main(String[] args) {         JFrame finestra = new JFrame("Il mio saluto");         JTextField casella = new JTextField(12);         JButton bottone = new JButton("Saluta");         bottone.addActionListener(e -&gt;             JOptionPane.showMessageDialog(null, "Ciao " + casella.getText() + "!"));         JPanel pannello = new JPanel();         pannello.add(casella);         pannello.add(bottone);         finestra.add(pannello);         finestra.setSize(350, 120);         finestra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);         finestra.setVisible(true);     } }</pre><button type="button" onclick="var b=this;navigator.clipboard.writeText(b.previousElementSibling.innerText).then(function(){b.textContent='Copiato!';setTimeout(function(){b.textContent='Copia'},2000)})" style="position:absolute;top:6px;right:6px;background:#2f855a;color:#fff;border:0;border-radius:8px;padding:6px 12px;font-size:15px;font-weight:bold;cursor:pointer">Copia</button></div><p><b>4.</b> Nell'editor: <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Ctrl</code> + <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">A</code>, <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Ctrl</code> + <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">V</code>, <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Ctrl</code> + <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">S</code>. Poi il triangolo verde <b>«Run»</b> (Esegui).</p><p lang="bn" style="color:#5b6573;margin-top:-6px">editor-এ: Ctrl + A, Ctrl + V, Ctrl + S। তারপর সবুজ Run।</p><p><b>5.</b> Scrivi il tuo nome nella casella e premi <b>Saluta</b>.</p><p lang="bn" style="color:#5b6573;margin-top:-6px">ঘরে তোমার নাম লেখো আর Saluta চাপো।</p><div style="overflow-x:auto;max-width:100%"><table style="border-collapse:collapse;width:100%;margin:8px 0"><tr><th style="border:1px solid #d5dbe3;padding:6px;background:#eef2f7;text-align:left">Java (Swing)</th><th style="border:1px solid #d5dbe3;padding:6px;background:#eef2f7;text-align:left">Lazarus</th></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">JFrame</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">il Form (la finestra)</td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">JTextField</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">TEdit (la casella di testo)</td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">JButton</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">TButton (il bottone)</td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">addActionListener(e -> …)</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">il doppio clic sul bottone: Button1Click</td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">casella.getText()</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">Edit1.Text</code></td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">JOptionPane.showMessageDialog(null, …)</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">ShowMessage(…)</code></td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">JPanel</code> + <code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">add(…)</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">mettere i componenti sul Form</td></tr><tr><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top"><code style="background:#eef2f7;border:1px solid #d5dbe3;border-radius:6px;padding:1px 6px">setVisible(true)</code></td><td style="border:1px solid #d5dbe3;padding:6px;vertical-align:top">mostra la finestra</td></tr></table></div><p lang="bn" style="color:#5b6573;margin-top:-6px">JFrame = Form, JTextField = TEdit, JButton = TButton, addActionListener = Button1Click, getText() = Edit1.Text, showMessageDialog = ShowMessage, setVisible(true) = জানালা দেখায়।</p><p><b>Fallo tuo:</b> cambia il titolo «Il mio saluto» e la parola «Ciao» con quello che vuoi tu.</p><p lang="bn" style="color:#5b6573;margin-top:-6px">নিজের মতো করো: «Il mio saluto» শিরোনাম আর «Ciao» শব্দ বদলে দাও।</p></div>
 
+<h3 id="l17-29102026-lazarus-e-java-a-confronto">L17 29/10/2026 — Lazarus e Java a confronto</h3>
+<p><em>Libro parziale: lezioni/2026-10-29_confronto-lazarus-java.md</em></p>
+<h4 id="che-cosa-abbiamo-fatto_16">Che cosa abbiamo fatto</h4>
+<ol>
+<li><strong>Quando:</strong> 29/10/2026, 2 ore, Laboratorio.</li>
+<li><strong>Argomenti:</strong> Percorso guidato «Lazarus e Java a confronto» (Eclipse portabile, Hello World in Java accanto a quello in Lazarus) e Documento valutato su Classroom; per chi non è riuscito a far girare Java, un Documento con le perplessità e il confronto.</li>
+</ol>
+<h4 id="la-teoria-e-lesercitazione_16">La teoria e l&rsquo;esercitazione</h4>
+<p>Pagina per i ragazzi (indirizzo fisso): <code>https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/</code> (con <code>?pc=14</code> compare la riga in bangla).</p>
+<h5 id="00-che-cosa-si-fa-oggi">00 Che cosa si fa oggi</h5>
+<ol>
+<li>Parte 1: si finisce Hello World in Eclipse, ognuno dal punto in cui è arrivato il 28/10 (passi 1-3; percorso facilitato di 3 passi per chi deve ancora scompattare o aprire Eclipse).</li>
+<li>Parte 2: si completa il Documento del compito di ieri su Classroom «Hello World in Lazarus e in Java» (sezioni 2 e 4) e si aggiungono la tabella del confronto (sezione 6) e 3 frasi (sezione 7) (passi 4-10).</li>
+<li>Ogni passo si chiude con « Fatto» e una prova breve, che arriva al prof (riservato <code>dati/verifiche/3inf-confronto/arrivi/</code>): il cruscotto sa a che passo è ognuno.</li>
+<li>Consegna su Classroom entro le 13:00.</li>
+</ol>
+<h5 id="01-come-viene-valutato">01 Come viene valutato</h5>
+<p>Il Documento del confronto viene valutato. Il voto parte da 40 (massimo 80):</p>
+<ol>
+<li>+10 lo screenshot di Hello World in Lazarus (sezione 2)</li>
+<li>+10 lo screenshot di Hello World in Eclipse/Java (sezione 4)</li>
+<li>+10 la tabella del confronto completa (sezione 6): righe scritte con parole tue, non copiate dall&rsquo;esempio</li>
+<li>+10 le 3 frasi finali (sezione 7)</li>
+<li>Consegnato entro le 13:00; dopo le 13 si valuta lo stesso, ma il ritardo viene segnato.</li>
+</ol>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Protezione dagli abusi: righe vuote, copiate dall&rsquo;esempio o testo senza senso non contano; gli screenshot si contano solo nel PDF della consegna vera. Il voto del cruscotto è provvisorio: decide il prof.</p></div>
+<h5 id="02-il-documento-alla-fine">02 Il Documento alla fine</h5>
+<ol>
+<li>Il mio codice Lazarus — di ieri</li>
+<li>Il mio programma Lazarus che funziona (screenshot) — oggi: +10</li>
+<li>Il mio codice Java — di ieri</li>
+<li>Il mio programma Java che funziona (screenshot) — oggi: +10, lo screenshot di Eclipse</li>
+<li>Con parole mie — di ieri</li>
+<li>Lazarus e Java a confronto (la tabella) — nuova: +10</li>
+<li>In 3 frasi: che cosa cambia e che cosa resta uguale — nuova: +10</li>
+</ol>
+<h5 id="03-la-tabella-del-confronto-sezione-6">03 La tabella del confronto (sezione 6)</h5>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Riga</th>
+<th>Lazarus</th>
+<th>Java</th>
+<th>Domanda che aiuta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ambiente</td>
+<td>Lazarus</td>
+<td>Eclipse</td>
+<td>Esempio già scritto: copialo così.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Linguaggio</td>
+<td>…</td>
+<td>…</td>
+<td>Come si chiama la lingua del codice in Lazarus? E in Eclipse?</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dove si scrive il codice</td>
+<td>…</td>
+<td>…</td>
+<td>In quale file e in quale parte della finestra scrivi le istruzioni?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Come si avvia</td>
+<td>…</td>
+<td>…</td>
+<td>Quale tasto premi in Lazarus? Quale bottone in Eclipse?</td>
+</tr>
+<tr>
+<td>5</td>
+<td>La finestra e il bottone</td>
+<td>…</td>
+<td>…</td>
+<td>Come si chiamano in Lazarus? E nel codice Java (guarda le righe con new)?</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Il punto e virgola e le parentesi</td>
+<td>…</td>
+<td>…</td>
+<td>Dove metti il ; in tutti e due? Che virgolette usa ShowMessage e che virgolette usa Java?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>begin…end contro { }</td>
+<td>…</td>
+<td>…</td>
+<td>Con che cosa apri e chiudi un blocco di istruzioni in Lazarus? E in Java?</td>
+</tr>
+<tr>
+<td>8</td>
+<td>File del progetto</td>
+<td>…</td>
+<td>…</td>
+<td>Quali file ha il progetto Lazarus (.lpi .pas .lfm)? E quello Java (.java, e dopo il Run .class)?</td>
+</tr>
+</tbody>
+</table>
+<p>La riga 1 è l&rsquo;esempio già scritto: non conta per il voto.</p>
+<h5 id="04-i-passi">04 I passi</h5>
+<h6 id="passo-1-dove-sei-arrivato">Passo 1 · Dove sei arrivato?</h6>
+<p>Guarda il tuo PC e scegli la frase giusta. Non ci sono risposte sbagliate: serve a sapere da dove ripartire.</p>
+<p>Prova: Dove sei arrivato con Eclipse? Scelte: Hello World in Eclipse funziona già · Eclipse si apre, ma il programma non funziona · Non ho ancora scompattato o aperto Eclipse</p>
+<h6 id="passo-2-eclipse-aperto-con-mainjava">Passo 2 · Eclipse aperto, con Main.java</h6>
+<p>Percorso facilitato (3 passi):</p>
+<ol>
+<li><strong>Scompatta lo ZIP in una cartella corta.</strong> Fai clic destro sul file eclipse-java-2026-09-R-win32-x86_64.zip e scegli «Estrai tutto…». Nella casella del percorso premi Ctrl + A, scrivi il percorso qui sotto, clicca «Estrai» e aspetta che la finestra si chiuda da sola.</li>
+</ol>
+<pre class="code"><code>C:\Users\Public\ec
+</code></pre>
+<ol>
+<li><strong>Apri Eclipse e crea il progetto.</strong> Apri la cartella C:\Users\Public\ec\eclipse e fai doppio clic su eclipse.exe. Clicca «Launch», poi «Later». A sinistra clicca «Create a Java project», scrivi il nome qui sotto, togli la spunta «Create module-info.java» e clicca «Finish».</li>
+</ol>
+<pre class="code"><code>HelloWorld
+</code></pre>
+<ol>
+<li><strong>Incolla la classe Main e premi Run.</strong> Clicca «Copia» sul codice qui sotto. A sinistra apri HelloWorld e clicca una volta su src. Premi Ctrl + V: Eclipse crea da solo Main.java. Poi in alto clicca il cerchio verde (Run).</li>
+</ol>
+<pre class="code"><code><span class="kw">import</span> javax.swing.*;
+<span class="kw">import</span> java.awt.FlowLayout;
+
+public <span class="kw">class</span> Main {
+
+    public <span class="kw">static</span> <span class="kw">void</span> main(String[] args) {
+        JFrame finestra = <span class="kw">new</span> JFrame(<span class="str">&quot;Il mio primo programma&quot;</span>);
+        JButton bottone = <span class="kw">new</span> JButton(<span class="str">&quot;Premi&quot;</span>);
+
+        bottone.addActionListener(e -&gt; JOptionPane.showMessageDialog(finestra, <span class="str">&quot;Hello World&quot;</span>));
+
+        finestra.setLayout(<span class="kw">new</span> FlowLayout());
+        finestra.add(bottone);
+        finestra.setSize(<span class="num">300</span>, <span class="num">150</span>);
+        finestra.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        finestra.setVisible(<span class="kw">true</span>);
+    }
+
+}
+</code></pre>
+<p>Chi ha già Eclipse aperto riparte dalla guida <code>docs/3inf-eclipse-guida/</code>:</p>
+<ol>
+<li>Eclipse non si apre o dà un errore: guida, passi 1-6</li>
+<li>Eclipse è aperto ma non c&rsquo;è il progetto HelloWorld: guida, passi 9-12</li>
+<li>C&rsquo;è il progetto ma non c&rsquo;è Main.java: guida, passi 13-17</li>
+<li>Main.java c&rsquo;è, ma il codice è vecchio o ha la X rossa: guida, passi 18-22, poi «Errori comuni» in fondo</li>
+</ol>
+<p>Prova: Scrivi il nome della linguetta aperta al centro di Eclipse, sopra il codice.</p>
+<h6 id="passo-3-run-la-finestrella-hello-world">Passo 3 · Run: la finestrella Hello World</h6>
+<ol>
+<li>In alto clicca il cerchio verde con il triangolo bianco: è «Run» (Esegui), come F9 in Lazarus.</li>
+<li>Si apre la finestra con il bottone Premi: cliccalo.</li>
+</ol>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Non vedi la finestra? È dietro Eclipse: cercala nella barra in basso dello schermo.</p></div>
+<p>Prova: Che cosa c&rsquo;è scritto nella finestrella che si apre?</p>
+<h6 id="passo-4-apri-il-tuo-documento">Passo 4 · Apri il tuo Documento</h6>
+<ol>
+<li>Clicca il bottone qui sotto: si apre il compito su Classroom «Hello World in Lazarus e in Java».</li>
+<li>A destra, nel riquadro «Il tuo lavoro», clicca il Documento con il tuo nome.</li>
+</ol>
+<p>Link: https://classroom.google.com/c/MjUzMjQ1NzQ2NDBa/a/MjU1MTAyOTQzNjBa/details</p>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Hai già consegnato ieri? In alto a destra clicca «Annulla consegna»: così puoi modificare il Documento. Alla fine lo consegni di nuovo (passo 10).</p></div>
+<p>Le sezioni del Documento sono nella sezione 02.</p>
+<p>Prova: Come si chiama la sezione 2 del tuo Documento? Scelte: Il mio codice Java · Il mio programma Lazarus che funziona (screenshot) · Con parole mie (giusta: «Il mio programma Lazarus che funziona (screenshot)»)</p>
+<h6 id="passo-5-sezione-2-lo-screenshot-di-lazarus">Passo 5 · Sezione 2: lo screenshot di Lazarus</h6>
+<ol>
+<li>Apri Lazarus e il tuo progetto di ieri. Premi F9 e poi il bottone: compare il saluto.</li>
+<li>Premi Windows + Maiusc + S e trascina il mouse sopra la finestra del programma.</li>
+<li>Nel Documento clicca nella riga vuota sotto il titolo «2.» e premi Ctrl + V.</li>
+</ol>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Non trovi il progetto di ieri? Fanne uno nuovo: «File», «Nuovo», «Applicazione»; metti un bottone; doppio clic sul bottone; scrivi ShowMessage(&lsquo;Hello World&rsquo;); e premi F9.</p></div>
+<p>Prova: Che cosa scrive il tuo programma Lazarus quando premi il bottone?</p>
+<h6 id="passo-6-sezione-4-lo-screenshot-di-eclipse">Passo 6 · Sezione 4: lo screenshot di Eclipse</h6>
+<ol>
+<li>Torna in Eclipse, premi Run e poi il bottone Premi: si apre la finestrella Hello World.</li>
+<li>Premi Windows + Maiusc + S e prendi la finestra con la finestrella.</li>
+<li>Nel Documento clicca nella riga vuota sotto il titolo «4.» e premi Ctrl + V.</li>
+</ol>
+<p>Prova: Quante immagini ci sono adesso nel tuo Documento? Scrivi il numero.</p>
+<h6 id="passo-7-sezione-6-la-tabella-prima-meta">Passo 7 · Sezione 6: la tabella, prima metà</h6>
+<ol>
+<li>Nel Documento premi Ctrl + Fine: vai in fondo.</li>
+<li>Scrivi il titolo:</li>
+</ol>
+<pre class="code"><code><span class="num">6</span>. Lazarus e Java a confronto
+</code></pre>
+<p>Sotto, scrivi la riga di esempio:</p>
+<pre class="code"><code>Ambiente: Lazarus - Eclipse
+</code></pre>
+<p>Poi scrivi le righe da 2 a 5 della tabella qui sotto, una per riga, con parole tue: il nome della riga, i due punti, Lazarus, un trattino, Java. La domanda accanto ti aiuta.</p>
+<p>Righe 1-5 della tabella (sezione 03).</p>
+<p>Prova: Scrivi qui la tua riga «Come si avvia», uguale a quella del Documento.</p>
+<h6 id="passo-8-sezione-6-la-tabella-seconda-meta">Passo 8 · Sezione 6: la tabella, seconda metà</h6>
+<p>Sotto le righe di prima scrivi le righe da 6 a 8, sempre una per riga e con parole tue.</p>
+<p>Righe 6-8 della tabella (sezione 03).</p>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Le righe vuote, copiate dall&rsquo;esempio o senza senso non contano per il voto.</p></div>
+<p>Prova: Scrivi qui la tua riga «File del progetto», uguale a quella del Documento.</p>
+<h6 id="passo-9-sezione-7-in-3-frasi">Passo 9 · Sezione 7: in 3 frasi</h6>
+<ol>
+<li>Sotto la tabella scrivi il titolo:</li>
+</ol>
+<pre class="code"><code><span class="num">7</span>. In <span class="num">3</span> frasi: che cosa cambia e che cosa resta uguale
+</code></pre>
+<p>Poi scrivi 3 frasi tue, una per riga. Puoi cominciare così:</p>
+<ol>
+<li>In tutti e due i programmi resta uguale che …</li>
+<li>In Java invece cambia che …</li>
+<li>Secondo me il più facile è … perché …</li>
+</ol>
+<p>Prova: Scrivi qui la tua prima frase, uguale a quella del Documento.</p>
+<h6 id="passo-10-consegna-su-classroom">Passo 10 · Consegna su Classroom</h6>
+<ol>
+<li>Torna nella scheda di Classroom del compito.</li>
+<li>In alto a destra clicca il bottone blu «Consegna», poi ancora «Consegna» nella finestrella.</li>
+</ol>
+<div class="box box-giallo"><span class="box-tag">Nota</span><p>Entro le 13:00. Dopo le 13 il Documento si valuta lo stesso, ma il ritardo viene segnato.</p></div>
+<p>Prova: Che cosa c&rsquo;è scritto adesso sul bottone in alto a destra? Scelte: Consegna · Annulla consegna · Aggiungi o crea (giusta: «Annulla consegna»)</p>
+<h5 id="05-per-il-docente-che-cosa-vede-il-cruscotto">05 Per il docente: che cosa vede il cruscotto</h5>
+<ol>
+<li>Colonna Percorso: passo raggiunto (1-10) e da quanti minuti il ragazzo è fermo.</li>
+<li>Colonna Documento: consegnato sì/no e a che ora; sezioni compilate (lette dal Documento); dopo la consegna le immagini contate dal PDF.</li>
+<li>Voto 40-80 con il conto, provvisorio: decide il prof. Tutti i presenti.</li>
+</ol>
 <!-- LEZIONI:FINE -->
 
 <h2 id="2-changelog" class="sec">2 Changelog</h2>
 <ol>
+<li><strong>v1.1 (29/10/2026)</strong>: lezione del 29/10/2026 (audit della giornata)</li>
 <li><strong>v1.0 (29/10/2026)</strong>: prima versione completa: le 16 lezioni dal 23/09 al 28/10, ognuna con la teoria e l&rsquo;esercitazione.</li>
 </ol></main></body></html>
