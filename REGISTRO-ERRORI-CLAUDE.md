@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.90** — 29/10/2026 (#125-#141; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.91** — 29/10/2026 (#125-#142; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Cruscotto poco utile in classe: le risposte arrivavano a mano, non dalla pagina (#142)
+
+1. **Errore.** Nella 2INF il docente voleva sapere, per ogni allievo, se c'erano la versione 1 con il codice giusto, la versione 2 con il codice giusto, la release e il Documento. Il cruscotto non lo mostrava: prima aveva le colonne della lezione sbagliata, poi dava per fatti dei lavori che non c'erano (file vuoti, commit vecchi, cartelle senza .lpi o .lfm), e la tabella giusta è arrivata solo in chat verso le 10:25, controllando i repository a mano. Il docente: «oggi il tuo cruscotto è stato poco utile».
+2. **Regola.** Prima della campanella il cruscotto della classe ha già le colonne dei KPI del giorno (regola 13), riempite dal controllo vero (file del giorno, codice letto, tag delle release) e con il link a ogni repository. Un «sì» vale solo se il controllo ha aperto il file. Se il cruscotto non è pronto alla campanella, lo si dice al docente nella prima riga.
 
 ## 29/10/2026 — Promessa del 28/10 non mantenuta: la 2INF in aula con Classroom vuoto (#141)
 
