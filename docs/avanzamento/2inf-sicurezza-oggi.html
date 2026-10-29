@@ -55,7 +55,11 @@ function $(i){return document.getElementById(i)}
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
-async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch(JN+'?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function dec(d){var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+// 29/10/2026 13:56 (bug): una copia del raw di GitHub può restare indietro di qualche minuto. Si leggono il raw e la copia del sito
+// e si mostra la più recente («generato»).
+async function leggi(){var t=Date.now(),L=await Promise.all([RAW+'?t='+t,JN+'?t='+t].map(function(u){return fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){return d?dec(d):null}).catch(function(){return null})}));
+ L=L.filter(Boolean);if(!L.length)throw new Error('nessun dato');L.sort(function(a,b){return String(b.generato||'').localeCompare(String(a.generato||''))});return L[0]}
 function ora(s){return String(s||'').slice(11,16)}
 function cella(o,col){var t=col.etichetta;if(!o)return '<td title="'+e(t)+'"><span class="q no">❌</span></td>';
  return '<td title="'+e(t)+' · '+o.p+'/'+o.m+'"><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.modo==='recupero'?' rec.':'')+(o.quando?' · '+e(o.oggi?o.quando.slice(6):o.quando):'')+(o.volte>1?' ('+o.volte+' volte)':'')+'</span></td>'}

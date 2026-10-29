@@ -145,6 +145,7 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 <div class="box" id="avvisoCl" style="display:none"></div>
 <p id="nota"></p>
 <p id="sicLink" style="display:none;font-weight:700"></p>
+<p id="oggiLink" style="display:none"></p>
 <section class="tab" id="t-oggi"><iframe id="vista" title="Cruscotto"></iframe></section>
 <section class="tab" id="t-piano"><div class="box" id="piano"></div></section>
 <section class="tab" id="t-aiuto"><div class="box"><p style="margin:0">Sei bloccato o in difficoltà? Scrivi qui: ti risponde l'assistente, subito. La risposta compare sotto la casella.</p><div id="aiuto"></div></div></section>
@@ -185,7 +186,18 @@ var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
   // 28/10/2026 3INF: Hello World in Lazarus e in Java (consegna del Documento su Classroom)
   '3INF:2026-10-28': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: Hello World in Lazarus e in Java.'},
   // 29/10/2026 (audit, #133): la 3INF consegna oggi entro le 13 lo stesso Documento: il cruscotto segue quella consegna
-  '3INF:2026-10-29': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: consegna del Documento «Hello World in Lazarus e in Java» entro le 13.'}};
+  '3INF:2026-10-29': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: consegna del Documento «Hello World in Lazarus e in Java» entro le 13.'},
+  // 30/10/2026: 1INF Tecnologia 8-9 (quiz Unicode) e Laboratorio 11-14 (Lazarus «Ciao 2», KPI); «prima» vale fino alle 10:30
+  '1INF:2026-10-30': {docente: '../avanzamento/1inf-lab-oggi.html', allievo: '../1inf-oggi/', nota: 'Oggi, dal vivo: laboratorio Lazarus «Ciao 2: la Label» (colonne dei KPI).',
+    prima: {fino: '10:30', docente: '../avanzamento/1inf-unicode-oggi.html', allievo: '../1inf-oggi/', nota: 'Oggi, dal vivo: quiz «Il computer scrive in tutte le lingue» (8-9). Dalle 10:30 qui c\'è il laboratorio.'}},
+  '2INF:2026-10-30': {docente: '../avanzamento/2inf-sicurezza-oggi.html', allievo: '../2inf-sicurezza-quiz/', nota: 'Oggi, dal vivo: Sicurezza 5ª ora, situazione dei quiz (colonna 5ª).'}};
+// 30/10/2026: link alle pagine del giorno, in cima alla linguetta «Oggi dal vivo» (tutte le classi del giorno)
+var OGGI_LINK = {'2026-10-30': [
+  {c: '1INF', t: '1INF 8-9 quiz Unicode', docente: '../avanzamento/1inf-unicode-oggi.html', allievo: '../1inf-unicode-quiz/'},
+  {c: '2INF', t: '2INF 9-10 Sicurezza 5ª ora', docente: '../avanzamento/2inf-sicurezza-oggi.html', allievo: '../2inf-sicurezza-quiz/'},
+  {c: '1INF', t: '1INF 11-14 laboratorio «Ciao 2» (KPI)', docente: '../avanzamento/1inf-lab-oggi.html', allievo: '../1inf-oggi/'}]};
+function oraRoma() { return new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome'}); }
+function giornoPag(k) { var x = GIORNO_PAG[k]; if (x && typeof x === 'object' && x.prima && oraRoma() < x.prima.fino) return x.prima; return x; }
 // ?prova=1: dati SIMULATI (file con suffisso -prova, nomi inventati) e nessun invio vero allo script.
 var PROVA = new URLSearchParams(location.search).get('prova') === '1';
 var BANNER = '<p class="manca" style="background:#fff3b0;border-color:#d4a017"><b>DATI DI PROVA</b>: nomi e domande inventati, i messaggi non partono.</p>';
@@ -210,8 +222,8 @@ function mostra() {
     src = OGGI_PAG[c][ruolo] + '?f=' + encodeURIComponent(f);
     $('nota').textContent = 'Stai guardando il ' + g.split('-').reverse().join('/') + ' (giorno salvato).';
   } else if (g === oggi() && typeof GIORNO_PAG[c + ':' + g] === 'object') {
-    src = GIORNO_PAG[c + ':' + g][ruolo];
-    $('nota').textContent = GIORNO_PAG[c + ':' + g].nota;
+    src = giornoPag(c + ':' + g)[ruolo];
+    $('nota').textContent = giornoPag(c + ':' + g).nota;
   } else if (c === '2INF' && ruolo === 'docente' && g === oggi() && GIORNO_PAG['2INF:' + g]) {
     // 28/10/2026: oggi la 2INF fa il recupero dei quiz di sicurezza, il docente vede il monitor dedicato
     src = GIORNO_PAG['2INF:' + g];
@@ -228,9 +240,13 @@ function mostra() {
   }
   $('nota').style.color = src === 'about:blank' ? '#c0392b' : '';
   // 29/10/2026 (Nicola): per la classe che ha Sicurezza quel giorno, il link alla situazione dei quiz (<classe>-sicurezza-oggi.html)
-  var SIC = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html', '1INF:2026-10-29': '../avanzamento/1inf-sicurezza-oggi.html'};
+  var SIC = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html', '1INF:2026-10-29': '../avanzamento/1inf-sicurezza-oggi.html', '2INF:2026-10-30': '../avanzamento/2inf-sicurezza-oggi.html'};
   if (SIC[c + ':' + g]) { $('sicLink').innerHTML = 'Sicurezza: <a href="' + SIC[c + ':' + g] + '" target="_blank">situazione dei quiz di ' + c + '</a>'; $('sicLink').style.display = ''; }
   else $('sicLink').style.display = 'none';
+  var OL = OGGI_LINK[g] || [];
+  $('oggiLink').innerHTML = OL.length ? 'Le pagine del ' + g.split('-').reverse().join('/') + ': ' + OL.map(function (x) {
+    return '<a href="' + x[ruolo] + '" target="_blank"' + (x.c === c ? ' style="font-weight:800"' : ' style="font-weight:400"') + '>' + esc(x.t) + '</a>'; }).join(' · ') : '';
+  $('oggiLink').style.display = OL.length ? '' : 'none';
   if (g === oggi() && typeof statoLezione === 'function') avvisoGiorno(c, $('nota').textContent);
   if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
   caricaPiano(c, g); linguette();
@@ -264,6 +280,7 @@ function linguette() {
   var bOn = document.querySelector('#tabs button.on'); if (bOn) $('tabs').scrollLeft = Math.max(0, bOn.offsetLeft - 16);
   if (eff === 'uscite' && !$('usc').getAttribute('src')) $('usc').setAttribute('src', '../avanzamento/uscite.html');
   $('nota').style.display = eff === 'oggi' ? '' : 'none';
+  if ($('oggiLink').innerHTML) $('oggiLink').style.display = eff === 'oggi' ? '' : 'none';
   Array.prototype.forEach.call(document.querySelectorAll('.nocod'), function (x) { x.style.display = TOK_OK ? 'none' : ''; });
   $('scInvia').disabled = !TOK_OK;
   if (typeof disegnaCrit === 'function' && $('serveTe').onclick) disegnaCrit();
@@ -371,7 +388,7 @@ function disegnaTutte() {
   h += PIANI.map(function (p, i) {
     var sn = sceltaDi(p);
     return '<section class="pclasse" id="pc-' + esc(String(p.classe).toLowerCase()) + '" data-i="' + i + '"><h3><span class="cl">' + esc(p.classe) + '</span> ' + esc(oreDi(p)) +
-      (p.pubblicata && sn ? ' <span class="et v">PUBBLICATA alle ' + esc(p.pubblicata) + '</span>' : sn ? ' <span class="et v">SCELTA: ' + esc(sn) + '</span>' : (ruolo === 'docente' ? ' <span class="et g">DA SCEGLIERE</span>' : '')) + '</h3>' +
+      (p.pubblicata && sn ? ' <span class="et v">PUBBLICATA alle ' + esc(p.pubblicata) + '</span>' : sn ? ' <span class="et v">SCELTA: ' + esc(testoScelta(sn)) + '</span>' : (ruolo === 'docente' ? ' <span class="et g">DA SCEGLIERE</span>' : '')) + '</h3>' +
       corpoPiano(p, true) + '<p><button class="btn sec" data-solo="' + esc(p.classe) + '">Solo la ' + esc(p.classe) + '</button></p></section>';
   }).join('');
   $('piano').innerHTML = h;
@@ -382,17 +399,20 @@ function disegnaTutte() {
 }
 // Proposta scelta: quella mandata da questo dispositivo (se c'è), altrimenti «scelta» del json del piano (numero della proposta)
 function sceltaDi(p) { if (p.pubblicata && p.scelta) return p.scelta; var l = sceltaLocale(p); return l != null ? l : (p.scelta || null); }
+// 29/10/2026 (preparazione del 30/10): «scelta» può essere un elenco, una proposta per lezione (1INF: Tecnologia e Laboratorio)
+function inScelta(sn, n) { return Array.isArray(sn) ? sn.indexOf(n) >= 0 : sn === n; }
+function testoScelta(sn) { return Array.isArray(sn) ? sn.join(' e ') : sn; }
 // 29/10/2026 (Nicola, screenshot 08:00 e 08:10): in modalità Docente i bottoni ci sono SEMPRE; il codice si chiede al clic.
 function corpoPiano(p, tutte) {
-  var props = p.proposte || [], sn = sceltaDi(p), scelta = props.filter(function (x) { return x.n === sn; })[0], k = chiaveScelta(p), doc = ruolo === 'docente', h = '';
+  var props = p.proposte || [], sn = sceltaDi(p), scelte = props.filter(function (x) { return inScelta(sn, x.n); }), scelta = scelte[0], k = chiaveScelta(p), doc = ruolo === 'docente', h = '';
   leggiPub(p);
   // 29/10/2026 (docente): proposta già pubblicata («pubblicata»: "HH:MM" nel json) = niente più bottoni; le altre piccole e grigie
   var pub = p.pubblicata && scelta ? p.pubblicata : '';
   function prop(x) {
-    if (pub && x.n !== sn) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
+    if (pub && !inScelta(sn, x.n)) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
     if (pub) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(pub) + '</span>' +
       (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + (p.nota ? '<p class="pnota">' + esc(p.nota) + '</p>' : '') + '</div>';
-    var sc = x.n === sn, cl = sc ? ' scelta' : (x.preferita && doc ? ' pref' : '');
+    var sc = inScelta(sn, x.n), cl = sc ? ' scelta' : (x.preferita && doc ? ' pref' : '');
     return '<div class="prop' + cl + '"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b>' +
       (sc ? '<span class="et v">SCELTA</span>' : '') + (x.preferita && doc ? '<span class="et g">CONSIGLIATA</span>' : '') +
       (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') +
@@ -403,12 +423,12 @@ function corpoPiano(p, tutte) {
   }
   if (doc) {
     if ((p.modalita || []).length) h += '<p>' + p.modalita.map(function (m) { return '<span class="chip">' + esc(MOD[m] || m) + '</span>'; }).join('') + '</p>';
-    if (pub) props = [scelta].concat(props.filter(function (x) { return x !== scelta; }));
+    if (pub) props = scelte.concat(props.filter(function (x) { return scelte.indexOf(x) < 0; }));
     if (!scelta) h += '<p class="manca">Nessuna proposta ancora scelta: premi «Scelgo questa» sotto la proposta che vuoi. Claude prepara subito il materiale; quando vuoi che lo veda la classe premi «Pubblica».</p>';
     h += props.map(prop).join('');
     if (p.mancanze) h += '<p class="manca"><b>Che cosa manca alla classe:</b> ' + esc(p.mancanze) + '</p>';
   } else {
-    h += scelta ? prop(scelta) : '<p class="manca">Il prof non ha ancora scelto il lavoro di oggi: intanto apri «La mia giornata» qui sotto.</p>';
+    h += scelta ? scelte.map(prop).join('') : '<p class="manca">Il prof non ha ancora scelto il lavoro di oggi: intanto apri «La mia giornata» qui sotto.</p>';
   }
   var L = p.link || [];
   if (L.length) {
