@@ -27,8 +27,8 @@
    "conta": true
   }
  ],
- "dato": "2026-10-29T13:42",
- "generato": "2026-10-29T13:45",
+ "dato": "2026-10-29T13:43",
+ "generato": "2026-10-29T13:50",
  "righe": [
   {
    "o1": {
@@ -327,6 +327,54 @@
     "p": 19,
     "m": 20,
     "v": 78,
+    "quando": "29/10 13:46",
+    "oggi": true,
+    "volte": 2
+   },
+   "rp": null,
+   "o2": {
+    "p": 95,
+    "m": 100,
+    "v": 78,
+    "quando": "29/10 13:32",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Thomas R.",
+   "q": [
+    {
+     "p": 19,
+     "m": 20,
+     "v": 78,
+     "quando": "29/10 13:46",
+     "oggi": true,
+     "volte": 2
+    },
+    null,
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "29/10 13:32",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "3ª ora ripasso",
+    "3ª ora quiz Moduli"
+   ],
+   "fatti": 2,
+   "su": 3
+  },
+  {
+   "o1": {
+    "p": 19,
+    "m": 20,
+    "v": 78,
     "quando": "22/10 13:45",
     "oggi": false,
     "volte": 3
@@ -425,7 +473,7 @@
     "v": 80,
     "quando": "29/10 13:30",
     "oggi": true,
-    "volte": 2,
+    "volte": 3,
     "modo": "recupero"
    },
    "rp": null,
@@ -445,7 +493,7 @@
      "v": 80,
      "quando": "29/10 13:30",
      "oggi": true,
-     "volte": 2,
+     "volte": 3,
      "modo": "recupero"
     },
     null,
@@ -621,7 +669,7 @@
     "v": 74,
     "quando": "22/10 13:51",
     "oggi": false,
-    "volte": 1
+    "volte": 2
    },
    "rp": null,
    "o2": {
@@ -640,7 +688,7 @@
      "v": 74,
      "quando": "22/10 13:51",
      "oggi": false,
-     "volte": 1
+     "volte": 2
     },
     null,
     {
@@ -760,54 +808,6 @@
   },
   {
    "o1": {
-    "p": 16,
-    "m": 20,
-    "v": 72,
-    "quando": "22/10 13:50",
-    "oggi": false,
-    "volte": 1
-   },
-   "rp": null,
-   "o2": {
-    "p": 95,
-    "m": 100,
-    "v": 78,
-    "quando": "29/10 13:32",
-    "oggi": true,
-    "volte": 1
-   },
-   "alunno": "Thomas R.",
-   "q": [
-    {
-     "p": 16,
-     "m": 20,
-     "v": 72,
-     "quando": "22/10 13:50",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    {
-     "p": 95,
-     "m": 100,
-     "v": 78,
-     "quando": "29/10 13:32",
-     "oggi": true,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "3ª ora ripasso",
-    "3ª ora quiz Moduli"
-   ],
-   "fatti": 2,
-   "su": 3
-  },
-  {
-   "o1": {
     "p": 17,
     "m": 20,
     "v": 74,
@@ -890,6 +890,56 @@
      "m": 100,
      "v": 74,
      "quando": "29/10 13:25",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "2ª ora ripasso",
+    "3ª ora ripasso",
+    "3ª ora quiz Moduli"
+   ],
+   "fatti": 2,
+   "su": 3
+  },
+  {
+   "o1": {
+    "p": 3,
+    "m": 6,
+    "v": 60,
+    "quando": "29/10 13:35",
+    "oggi": true,
+    "volte": 3,
+    "modo": "recupero"
+   },
+   "rp": null,
+   "o2": {
+    "p": 50,
+    "m": 100,
+    "v": 60,
+    "quando": "29/10 13:46",
+    "oggi": true,
+    "volte": 1
+   },
+   "alunno": "Moaaz M.",
+   "q": [
+    {
+     "p": 3,
+     "m": 6,
+     "v": 60,
+     "quando": "29/10 13:35",
+     "oggi": true,
+     "volte": 3,
+     "modo": "recupero"
+    },
+    null,
+    {
+     "p": 50,
+     "m": 100,
+     "v": 60,
+     "quando": "29/10 13:46",
      "oggi": true,
      "volte": 1
     },
@@ -1007,43 +1057,6 @@
      "quando": "22/10 13:53",
      "oggi": false,
      "volte": 1
-    },
-    null,
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "2ª ora ripasso",
-    "2ª ora quiz Moduli",
-    "3ª ora ripasso",
-    "3ª ora quiz Moduli"
-   ],
-   "fatti": 1,
-   "su": 3
-  },
-  {
-   "o1": {
-    "p": 3,
-    "m": 6,
-    "v": 60,
-    "quando": "29/10 13:35",
-    "oggi": true,
-    "volte": 3,
-    "modo": "recupero"
-   },
-   "rp": null,
-   "o2": null,
-   "alunno": "Moaaz M.",
-   "q": [
-    {
-     "p": 3,
-     "m": 6,
-     "v": 60,
-     "quando": "29/10 13:35",
-     "oggi": true,
-     "volte": 3,
-     "modo": "recupero"
     },
     null,
     null,
