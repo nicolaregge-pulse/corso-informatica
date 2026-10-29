@@ -1,5 +1,5 @@
 {
- "ora": "09:18",
+ "ora": "09:22",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -304,15 +304,14 @@
    "alunno": "Oscar F.",
    "pezzi": [
     "cartelle",
-    "pulito",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "09:03",
+   "salvataggi": 2,
+   "ultimo": "09:20",
    "caricato": false,
-   "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (calcolatrice/backup (cartella intera), primo programma/project1.lps, primo programma/project1.res, salvadanaio/backup (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "cartella_ok": false,
+   "messaggio": "Passo C: nella pagina principale ci sono ancora 2 file sparsi (unit1.lfm, unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -348,7 +347,9 @@
     "salvadanaio/project1.lps",
     "salvadanaio/project1.res",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas"
+    "salvadanaio/unit1.pas",
+    "unit1.lfm",
+    "unit1.pas"
    ]
   },
   {
@@ -495,24 +496,21 @@
   {
    "alunno": "Giorgio K.",
    "pezzi": [
-    "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "09:15",
+   "salvataggi": 4,
+   "ultimo": "09:19",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (CALCOLATRICE 2/project1.exe, CALCOLATRICE 2/project1.lps, CALCOLATRICE 2/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo G: rinomina la cartella «CALCOLATRICE 2» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
-    "CALCOLATRICE 2/project1.exe",
     "CALCOLATRICE 2/project1.ico",
     "CALCOLATRICE 2/project1.lpi",
     "CALCOLATRICE 2/project1.lpr",
-    "CALCOLATRICE 2/project1.lps",
-    "CALCOLATRICE 2/project1.res",
     "CALCOLATRICE 2/unit1.lfm",
     "CALCOLATRICE 2/unit1.pas",
     "README.md",
@@ -611,8 +609,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 7,
-   "ultimo": "09:06",
+   "salvataggi": 14,
+   "ultimo": "09:21",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
@@ -630,6 +628,7 @@
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas",
     "calcolatricenuova/calcolatricenuova.lpi",
+    "calcolatricenuova/calcolatricenuova.lpr",
     "calcolatricenuova/unit1.lfm",
     "calcolatricenuova/unit1.pas",
     "salvadanaio/FOREWHILE.ico",

@@ -1,5 +1,5 @@
 {
- "ora": "09:18",
+ "ora": "09:22",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -12,7 +12,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes)."
   },
@@ -26,7 +27,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": true
+    "titolo": true,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
   },
@@ -40,7 +42,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -54,7 +57,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella."
   },
@@ -63,12 +67,13 @@
    "check": {
     "cartella": true,
     "file": true,
-    "pulita": false,
+    "pulita": true,
     "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «CALCOLATRICE 2»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -82,7 +87,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   },
@@ -96,7 +102,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   },
@@ -110,7 +117,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": true
+    "titolo": true,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice-4operazioni»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -124,7 +132,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   },
@@ -138,7 +147,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Nella cartella calcolatrice mancano .lpi, .pas, .lfm: in Lazarus premi Ctrl+Maiusc+S e ricarica tutta la cartella."
   },
@@ -152,7 +162,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": true
+    "titolo": true,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub."
   },
@@ -166,7 +177,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice 1.0 a 2,0»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -180,7 +192,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   },
@@ -194,7 +207,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «QUELA DIAVOLO DI CALCOLATRICE»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -208,7 +222,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   },
@@ -222,7 +237,8 @@
     "messaggio": false,
     "piu": false,
     "per": false,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "Non vedo la cartella «calcolatrice» nel tuo repository lazarus: fai i passi della Parte 4 (Add file, Upload files, trascina la cartella, Commit changes)."
   },
@@ -236,7 +252,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": true
+    "titolo": true,
+    "release": false
    },
    "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatricenuova»: va bene, la prossima volta chiamala «calcolatrice»."
   },
@@ -250,7 +267,8 @@
     "messaggio": false,
     "piu": true,
     "per": true,
-    "titolo": false
+    "titolo": false,
+    "release": false
    },
    "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes."
   }
