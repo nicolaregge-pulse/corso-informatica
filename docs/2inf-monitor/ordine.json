@@ -1,5 +1,5 @@
 {
- "ora": "10:06",
+ "ora": "10:11",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -57,11 +57,11 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "09:43",
+   "salvataggi": 13,
+   "ultimo": "10:06",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (calcolatrice v1/calcolatrice.lps, calcolatrice v2/calcolatricev2.res, calcolatrice-4operazioni/calcolatrice4operazioni.res, primo-programma/backup (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo D: cancella i file che non servono (calcolatrice v1/calcolatrice.lps, calcolatrice v2/calcolatricev2.res, primo-programma/backup (cartella intera), primo-programma/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -77,10 +77,8 @@
     "calcolatrice v2/calcolatricev2.res",
     "calcolatrice v2/unit1.lfm",
     "calcolatrice v2/unit1.pas",
-    "calcolatrice-4operazioni/calcolatrice4operazioni.ico",
     "calcolatrice-4operazioni/calcolatrice4operazioni.lpi",
     "calcolatrice-4operazioni/calcolatrice4operazioni.lpr",
-    "calcolatrice-4operazioni/calcolatrice4operazioni.res",
     "calcolatrice-4operazioni/unit1.lfm",
     "calcolatrice-4operazioni/unit1.pas",
     "primo-programma/backup/PRIMOPROGRAMMA.lpi",
@@ -103,7 +101,9 @@
     "primo-programma/unit1.lfm",
     "primo-programma/unit1.pas",
     "salvadanaio/salvadanaio.ico",
-    "salvadanaio/salvadanaio.lpi"
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/unit1.lfm"
    ]
   },
   {
@@ -155,8 +155,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 1,
-   "ultimo": "09:43",
+   "salvataggi": 2,
+   "ultimo": "10:10",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
@@ -417,8 +417,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "09:42",
+   "salvataggi": 12,
+   "ultimo": "10:07",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
@@ -427,6 +427,11 @@
     "README.md",
     "calcolatrice/calcolatrice.lpi",
     "calcolatrice/calcolatrice.lpr",
+    "calcolatrice/calcolatrice/calcolatrice.ico",
+    "calcolatrice/calcolatrice/calcolatrice.lpi",
+    "calcolatrice/calcolatrice/calcolatrice.lpr",
+    "calcolatrice/calcolatrice/unit1.lfm",
+    "calcolatrice/calcolatrice/unit1.pas",
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas",
     "primo-programma/tabelline.ico",
