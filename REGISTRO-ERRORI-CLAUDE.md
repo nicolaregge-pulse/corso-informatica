@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.89** — 29/10/2026 (#125-#140; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.90** — 29/10/2026 (#125-#141; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Promessa del 28/10 non mantenuta: la 2INF in aula con Classroom vuoto (#141)
+
+1. **Errore.** Il 28/10 alle 15:47 Claude aveva garantito: ogni notte una chat nuova che prepara la giornata, al mattino le proposte pronte, il docente sceglie con un bottone e Claude pubblica da solo. Stanotte la chat di mezzanotte si è fermata dopo un minuto (senza il repository riservato e bloccata dal limite dei 3 comandi); le proposte sono state fatte all'alba a mano; alle 8:00 il bottone «Scelgo questa» non si vedeva (#140); la regola 27 era stata cambiata in «pubblica solo quando Nicola scrive pubblica», e così alle 8:00 la 2INF era in aula senza niente su Classroom; alle 8:40 il cruscotto della 2INF mostrava le colonne del Salvadanaio e nessun allievo, mentre la classe faceva la calcolatrice (ripete #133). Il docente: «non ha funzionato niente», «mi hai garantito il flusso … ma non è cambiato niente», «ti ho già detto di non aspettare», «hai lavorato per 24 ore per fare una schifezza, era meglio la chat di ieri».
+2. **Regola.** Non si garantisce un flusso che non è stato provato almeno una volta dall'inizio alla fine nelle condizioni vere (la notte, la chat che parte da sola, il sito vero, Classroom). Regola 27 allineata alla 30: appena c'è la scelta Claude pubblica da solo; alla campanella senza scelta pubblica la proposta consigliata. La preparazione notturna gira ora nella sessione che ha tutti e due i repository; il controllo delle 6:31 deve dire VERDE solo se Classroom ha già il compito pronto o la scelta è arrivata.
 
 ## 29/10/2026 — Bottone «Scelgo questa» dato per presente, e sul sito vero il docente non lo vede (#140)
 
