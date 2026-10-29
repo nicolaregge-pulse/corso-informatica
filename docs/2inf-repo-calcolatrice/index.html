@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Repository calcolatrice 2INF</title>
+<style>
+/* 2INF 29/10/2026 (docente: «vorrei una pagina con il link del repository calcolatrice dei ragazzi»): solo per il prof.
+   Dati CIFRATI (dati.json, password dell'area docente). Generatore: riservato generatori/repo_calcolatrice_2inf.py, a ogni giro. */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ok:#1a7f37;--ko:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ok:#6fd38f;--ko:#f28b82}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:900px;margin:0 auto;padding:16px}h1{margin:4px 0 6px;font-size:23px}.mu{color:var(--mu)}.hide{display:none}
+.gate{max-width:420px;margin:40px auto;background:var(--card);padding:18px;border-radius:14px}
+.gate input{width:100%;font:inherit;padding:10px;margin:8px 0;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{width:100%;font:inherit;font-weight:800;padding:11px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+.r{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 12px;margin:8px 0}
+.r b.n{font-size:17px}.st{font-weight:800;margin:4px 0}.ok{color:var(--ok)}.ko{color:var(--ko)}
+.l{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}.l a,.l span{padding:6px 10px;border-radius:8px;border:1px solid var(--ln);text-decoration:none;color:var(--acc);font-size:14px}
+.l span{color:var(--mu)}#tot{font-weight:800}
+</style>
+</head>
+<body><div class="w">
+<div id="gate" class="gate"><b>Solo per il prof.</b> Scrivi il codice del monitor.<input id="tok" type="password" placeholder="codice del monitor"><button id="ok">Apri</button><div id="err" class="ko"></div></div>
+<div id="view" class="hide">
+<h1>2INF: la calcolatrice nei repository</h1>
+<div class="mu" id="stato">Carico i dati…</div>
+<div id="tot"></div>
+<div id="t"></div>
+<p class="mu">✔ = nel repository «lazarus» c'è una cartella con .lpi .pas .lfm caricata con un commit di oggi. I link compaiono solo se il controllo ha trovato davvero il repository. Si aggiorna da sola ogni minuto (i dati ogni 5 minuti).</p>
+</div></div>
+<script>
+var TOK='',_kc=null,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/2inf-repo-calcolatrice/dati.json',LOC='dati.json';
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function leggi(){var r=null;try{r=await fetch(RAW+'?t='+Date.now(),{cache:'no-store'})}catch(x){}if(!r||!r.ok)r=await fetch(LOC+'?t='+Date.now(),{cache:'no-store'});var d=await r.json();var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add('hide');$('gate').classList.remove('hide');$('err').textContent='Codice sbagliato.';_kc=null;return}
+ $('gate').classList.add('hide');$('view').classList.remove('hide');
+ var g=new Date().toLocaleDateString('sv-SE',{timeZone:'Europe/Rome'}),vec=d.data!==g;
+ $('stato').innerHTML=(vec?'<b class="ko">DATI DEL '+e(d.data.split('-').reverse().join('/'))+', NON DI OGGI · </b>':'')+'Ultimo controllo dei repository: <b>'+e(d.ora)+'</b> · '+d.righe.length+' presenti';
+ var n=d.righe.filter(function(r){return r.ok}).length;$('tot').innerHTML='<span class="ok">✔ '+n+'</span> · <span class="ko">✘ '+(d.righe.length-n)+'</span>';
+ $('t').innerHTML=d.righe.map(function(r){
+  var l=[];
+  l.push(r.repo?'<a href="'+e(r.repo)+'" target="_blank" rel="noopener">Repository lazarus</a>':'<span>repository non trovato</span>');
+  if(r.cartella_url)l.push('<a href="'+e(r.cartella_url)+'" target="_blank" rel="noopener">Cartella «'+e(r.cartella)+'»</a>');
+  if(r.commit_url)l.push('<a href="'+e(r.commit_url)+'" target="_blank" rel="noopener">Commit di oggi '+e(r.commit_ora)+'</a>');
+  return '<div class="r"><b class="n">'+e(r.nome)+'</b><div class="st '+(r.ok?'ok':'ko')+'">'+(r.ok?'✔ calcolatrice caricata oggi':'✘ '+e(r.manca))+'</div>'+
+   (r.ok&&r.manca?'<div class="mu">'+e(r.manca)+'</div>':'')+(r.commit_msg?'<div class="mu">messaggio del commit: «'+e(r.commit_msg)+'»</div>':'')+'<div class="l">'+l.join('')+'</div></div>'}).join('')}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+</script>
+</body>
+</html>

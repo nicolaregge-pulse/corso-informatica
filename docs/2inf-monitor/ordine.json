@@ -1,5 +1,5 @@
 {
- "ora": "09:10",
+ "ora": "09:18",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -495,18 +495,26 @@
   {
    "alunno": "Giorgio K.",
    "pezzi": [
+    "cartelle",
     "pulito",
-    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 0,
-   "ultimo": "",
+   "salvataggi": 1,
+   "ultimo": "09:15",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "messaggio": "Passo D: cancella i file che non servono (CALCOLATRICE 2/project1.exe, CALCOLATRICE 2/project1.lps, CALCOLATRICE 2/project1.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
+    "CALCOLATRICE 2/project1.exe",
+    "CALCOLATRICE 2/project1.ico",
+    "CALCOLATRICE 2/project1.lpi",
+    "CALCOLATRICE 2/project1.lpr",
+    "CALCOLATRICE 2/project1.lps",
+    "CALCOLATRICE 2/project1.res",
+    "CALCOLATRICE 2/unit1.lfm",
+    "CALCOLATRICE 2/unit1.pas",
     "README.md",
     "calcolatrice/calcolatrice.ico",
     "calcolatrice/calcolatrice.lpi",
