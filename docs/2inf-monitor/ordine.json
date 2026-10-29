@@ -1,5 +1,5 @@
 {
- "ora": "09:06",
+ "ora": "09:10",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -57,8 +57,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 3,
-   "ultimo": "09:03",
+   "salvataggi": 4,
+   "ultimo": "09:06",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (calcolatrice v1/calcolatrice.lps, calcolatrice v2/backup (cartella intera), calcolatrice v2/calcolatricev2.lps, calcolatrice v2/calcolatricev2.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
@@ -92,7 +92,6 @@
     "calcolatrice-4operazioni/calcolatrice4operazioni.ico",
     "calcolatrice-4operazioni/calcolatrice4operazioni.lpi",
     "calcolatrice-4operazioni/calcolatrice4operazioni.lpr",
-    "calcolatrice-4operazioni/calcolatrice4operazioni.lps",
     "calcolatrice-4operazioni/calcolatrice4operazioni.res",
     "calcolatrice-4operazioni/unit1.lfm",
     "calcolatrice-4operazioni/unit1.pas",
@@ -103,7 +102,8 @@
     "primo-programma/lib/x86_64-win64/PRIMOPROGRAMMA.compiled",
     "primo-programma/lib/x86_64-win64/PRIMOPROGRAMMA.o",
     "primo-programma/lib/x86_64-win64/PRIMOPROGRAMMA.obj",
-    "primo-programma/lib/x86_64-win64/PRIMOPROGRAMMA.res"
+    "primo-programma/lib/x86_64-win64/PRIMOPROGRAMMA.res",
+    "primo-programma/lib/x86_64-win64/unit1.lfm"
    ]
   },
   {
@@ -145,6 +145,39 @@
     "calcolatrice/calcolatrice.lpr",
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas"
+   ]
+  },
+  {
+   "alunno": "Katherine A.",
+   "pezzi": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "fuori": 0,
+   "albero": [
+    "README.md",
+    "calcolatrice/CALCOLATRICE.lpi",
+    "calcolatrice/CALCOLATRICE.lpr",
+    "calcolatrice/README.md",
+    "calcolatrice/unit1.lfm",
+    "calcolatrice/unit1.pas",
+    "primo-programma/CALCOLATRICE.lpr",
+    "primo-programma/README.md",
+    "primo-programma/unit1.lfm",
+    "primo-programma/unit1.pas",
+    "salvadanaio/README.md",
+    "salvadanaio/SALVADANIO/SALVADANAIO.ico",
+    "salvadanaio/SALVADANIO/SALVADANAIO.lpi",
+    "salvadanaio/SALVADANIO/SALVADANAIO.lpr",
+    "salvadanaio/SALVADANIO/unit1.lfm",
+    "salvadanaio/SALVADANIO/unit1.pas"
    ]
   },
   {
@@ -199,6 +232,38 @@
     "salvadanaio/project1.ico",
     "salvadanaio/project1.lpi",
     "salvadanaio/project1.lpr"
+   ]
+  },
+  {
+   "alunno": "Youssef A.",
+   "pezzi": [
+    "pulito",
+    "no .exe",
+    "README",
+    "salvadanaio"
+   ],
+   "salvataggi": 0,
+   "ultimo": "",
+   "caricato": false,
+   "cartella_ok": true,
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
+   "fuori": 0,
+   "albero": [
+    "README.md",
+    "calcolatrice/Calcolatrice.lpi",
+    "calcolatrice/Calcolatrice.lpr",
+    "calcolatrice/unit1.lfm",
+    "calcolatrice/unit1.pas",
+    "primo-programma/migliakilometri.ico",
+    "primo-programma/migliakilometri.lpi",
+    "primo-programma/migliakilometri.lpr",
+    "primo-programma/unit1.lfm",
+    "primo-programma/unit1.pas",
+    "salvadanaio/salvadanaio.ico",
+    "salvadanaio/salvadanaio.lpi",
+    "salvadanaio/salvadanaio.lpr",
+    "salvadanaio/unit1.lfm",
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -397,16 +462,16 @@
   {
    "alunno": "Ney V.",
    "pezzi": [
-    "cartelle",
+    "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 7,
-   "ultimo": "09:05",
+   "salvataggi": 12,
+   "ultimo": "09:06",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 5 file sparsi (calcolatrice2.ico, calcolatrice2.lpi, calcolatrice2.lpr, unit1.lfm…): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cartella_ok": true,
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -420,16 +485,11 @@
     "calcolatrice/calcolatrici.lpr",
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas",
-    "calcolatrice2.ico",
-    "calcolatrice2.lpi",
-    "calcolatrice2.lpr",
     "salvadanaio/salvadanaio.ico",
     "salvadanaio/salvadanaio.lpi",
     "salvadanaio/salvadanaio.lpr",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas",
-    "unit1.lfm",
-    "unit1.pas"
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -538,16 +598,16 @@
   {
    "alunno": "Shahenda E.",
    "pezzi": [
-    "cartelle",
     "pulito",
+    "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 6,
+   "salvataggi": 7,
    "ultimo": "09:06",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (calcolatricenuova/calcolatricenuova.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
@@ -562,7 +622,6 @@
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas",
     "calcolatricenuova/calcolatricenuova.lpi",
-    "calcolatricenuova/calcolatricenuova.lps",
     "calcolatricenuova/unit1.lfm",
     "calcolatricenuova/unit1.pas",
     "salvadanaio/FOREWHILE.ico",
