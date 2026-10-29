@@ -42,6 +42,8 @@ iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;bord
 .scok{display:block;margin-top:6px;font-weight:700;color:#1e8e3e}
 .prop b.n{display:inline-block;min-width:24px}
 .btn.big.pub{background:#1e8e3e}
+.prop.chiusa{background:#f1f3f5;border-color:#e1e5ea;color:#8a939e;font-size:13px;padding:5px 10px;margin:0 0 6px}
+.prop .pnota{font-weight:700;color:#163d7a}
 .prop .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
 .prop .cod input{font-size:16px;padding:9px;border:1px solid var(--bordo);border-radius:8px;flex:1 1 180px;min-width:0;max-width:280px}
 /* 29/10/2026: vista «Tutte le classi» del piano del giorno */
@@ -359,7 +361,7 @@ function disegnaTutte() {
   h += PIANI.map(function (p, i) {
     var sn = sceltaDi(p);
     return '<section class="pclasse" id="pc-' + esc(String(p.classe).toLowerCase()) + '" data-i="' + i + '"><h3><span class="cl">' + esc(p.classe) + '</span> ' + esc(oreDi(p)) +
-      (sn ? ' <span class="et v">SCELTA: ' + esc(sn) + '</span>' : (ruolo === 'docente' ? ' <span class="et g">DA SCEGLIERE</span>' : '')) + '</h3>' +
+      (p.pubblicata && sn ? ' <span class="et v">PUBBLICATA alle ' + esc(p.pubblicata) + '</span>' : sn ? ' <span class="et v">SCELTA: ' + esc(sn) + '</span>' : (ruolo === 'docente' ? ' <span class="et g">DA SCEGLIERE</span>' : '')) + '</h3>' +
       corpoPiano(p, true) + '<p><button class="btn sec" data-solo="' + esc(p.classe) + '">Solo la ' + esc(p.classe) + '</button></p></section>';
   }).join('');
   $('piano').innerHTML = h;
@@ -369,12 +371,17 @@ function disegnaTutte() {
   });
 }
 // Proposta scelta: quella mandata da questo dispositivo (se c'è), altrimenti «scelta» del json del piano (numero della proposta)
-function sceltaDi(p) { var l = sceltaLocale(p); return l != null ? l : (p.scelta || null); }
+function sceltaDi(p) { if (p.pubblicata && p.scelta) return p.scelta; var l = sceltaLocale(p); return l != null ? l : (p.scelta || null); }
 // 29/10/2026 (Nicola, screenshot 08:00 e 08:10): in modalità Docente i bottoni ci sono SEMPRE; il codice si chiede al clic.
 function corpoPiano(p, tutte) {
   var props = p.proposte || [], sn = sceltaDi(p), scelta = props.filter(function (x) { return x.n === sn; })[0], k = chiaveScelta(p), doc = ruolo === 'docente', h = '';
   leggiPub(p);
+  // 29/10/2026 (docente): proposta già pubblicata («pubblicata»: "HH:MM" nel json) = niente più bottoni; le altre piccole e grigie
+  var pub = p.pubblicata && scelta ? p.pubblicata : '';
   function prop(x) {
+    if (pub && x.n !== sn) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
+    if (pub) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(pub) + '</span>' +
+      (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + (p.nota ? '<p class="pnota">' + esc(p.nota) + '</p>' : '') + '</div>';
     var sc = x.n === sn, cl = sc ? ' scelta' : (x.preferita && doc ? ' pref' : '');
     return '<div class="prop' + cl + '"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b>' +
       (sc ? '<span class="et v">SCELTA</span>' : '') + (x.preferita && doc ? '<span class="et g">CONSIGLIATA</span>' : '') +
@@ -386,6 +393,7 @@ function corpoPiano(p, tutte) {
   }
   if (doc) {
     if ((p.modalita || []).length) h += '<p>' + p.modalita.map(function (m) { return '<span class="chip">' + esc(MOD[m] || m) + '</span>'; }).join('') + '</p>';
+    if (pub) props = [scelta].concat(props.filter(function (x) { return x !== scelta; }));
     if (!scelta) h += '<p class="manca">Nessuna proposta ancora scelta: premi «Scelgo questa» sotto la proposta che vuoi. Claude prepara subito il materiale; quando vuoi che lo veda la classe premi «Pubblica».</p>';
     h += props.map(prop).join('');
     if (p.mancanze) h += '<p class="manca"><b>Che cosa manca alla classe:</b> ' + esc(p.mancanze) + '</p>';
