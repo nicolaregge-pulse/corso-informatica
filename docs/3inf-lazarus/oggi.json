@@ -1,20 +1,20 @@
 {
- "ora": "11:19",
- "fonte": "Percorso: 0 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle mai · PDF delle consegne: 4 · Veyon nessun giro · presenze NON ancora segnate (tutta la classe)",
+ "ora": "11:24",
+ "fonte": "Percorso: 4 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle mai · PDF delle consegne: 4 · Veyon nessun giro · presenze dal registro",
  "ultimo_dato": "06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia)",
  "banca": "3inf-confronto",
  "modello": "confronto",
  "fine": "13:00",
- "spiega": "Oggi: «Lazarus e Java a confronto». Il Documento viene valutato: parte da 40; +10 screenshot Lazarus (sezione 2); +10 screenshot Eclipse (sezione 4); +10 tabella completa (sezione 6, con parole tue); +10 le 3 frasi (sezione 7). I punti si contano solo nel Documento consegnato su Classroom, entro le 13:00 (dopo si valuta lo stesso, ma il ritardo si segna). Voto provvisorio: decide il prof. (Presenze non ancora segnate: per ora in elenco c'è tutta la classe.)",
+ "spiega": "Oggi: «Lazarus e Java a confronto». Il Documento viene valutato: parte da 40; +10 screenshot Lazarus (sezione 2); +10 screenshot Eclipse (sezione 4); +10 tabella completa (sezione 6, con parole tue); +10 le 3 frasi (sezione 7). I punti si contano solo nel Documento consegnato su Classroom, entro le 13:00 (dopo si valuta lo stesso, ma il ritardo si segna). Voto provvisorio: decide il prof.",
  "link": "../3inf-confronto/",
  "classroom": {
   "consegnati": 4,
-  "su": 22,
+  "su": 21,
   "letto_alle": "06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia)",
   "fonte": "situazione"
  },
  "riepilogo": {
-  "passo_medio": 0.0,
+  "passo_medio": 0.2,
   "oltre_eclipse": 0,
   "facilitato_per_tutti": false
  },
@@ -31,7 +31,16 @@
     "ora": "entro le 06:40",
     "ritardo": false
    },
-   "percorso": null,
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:23",
+    "fermo_min": 0,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
    "doc": {
     "consegnato": true,
     "ora": "entro le 06:40",
@@ -50,7 +59,7 @@
    }
   },
   {
-   "alunno": "David A.",
+   "alunno": "Tomas L.",
    "voto": 60,
    "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
@@ -61,7 +70,16 @@
     "ora": "entro le 06:40",
     "ritardo": false
    },
-   "percorso": null,
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:22",
+    "fermo_min": 1,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
    "doc": {
     "consegnato": true,
     "ora": "entro le 06:40",
@@ -80,7 +98,7 @@
    }
   },
   {
-   "alunno": "Tomas L.",
+   "alunno": "David A.",
    "voto": 60,
    "conto": "40 + screenshot Lazarus 10 + screenshot Eclipse 10 = 60 (provvisorio: decide il prof; PDF della consegna letto alle 06:40)",
    "fuori": 0,
@@ -133,6 +151,84 @@
     "img_java": true,
     "immagini": 3,
     "fonte": "PDF della consegna, 06:40",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Andrea G.",
+   "voto": 40,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:22",
+    "fermo_min": 2,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Noah V.",
+   "voto": 40,
+   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 1,
+    "totale": 10,
+    "titolo": "Dove sei arrivato?",
+    "ora": "11:19",
+    "fermo_min": 4,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": null,
+    "frasi": null,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento non ancora letto",
     "manca": [
      "tabella 0/7 righe (sezione 6)",
      "frasi 0/3 (sezione 7)"
@@ -380,36 +476,6 @@
    }
   },
   {
-   "alunno": "Andrea G.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": null,
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": null,
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
    "alunno": "Simone G.",
    "voto": 40,
    "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
@@ -427,36 +493,6 @@
     "ora": null,
     "ritardo": false,
     "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Zhan L.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": null,
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
-   "classroom": {
-    "stato": "non trovato",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": null,
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non trovato",
     "tabella": null,
     "frasi": null,
     "img_lazarus": null,
@@ -621,36 +657,6 @@
   },
   {
    "alunno": "Samuele U.",
-   "voto": 40,
-   "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
-   "fuori": 0,
-   "vy_ult": null,
-   "cosa_fare": "Apri il percorso «Lazarus e Java a confronto» e comincia dal passo 1: https://nicolaregge-pulse.github.io/corso-informatica/3inf-confronto/",
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": null,
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": null,
-    "frasi": null,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento non ancora letto",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Noah V.",
    "voto": 40,
    "conto": "40 = 40 (non ancora consegnato: i punti si contano solo nel Documento consegnato) · provvisorio: decide il prof",
    "fuori": 0,
