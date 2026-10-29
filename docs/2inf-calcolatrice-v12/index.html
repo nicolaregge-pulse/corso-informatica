@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La calcolatrice v1.2</title>
+<!-- 2INF 29/10/2026 09:35 (Nicola: «un nuovo percorso per farglielo fare e poi fare la release»): la calcolatrice v1.2,
+     bottoni - e DIV, commit «versione 1.2: meno e diviso», release v1.2. Stesso motore di ../2inf-calcolatrice/ (un passo per schermata,
+     «Fatto» con prova breve). Segnali allo script: id avz-2inf-calcolatrice-v12-v1, modo avanzamento. Il nome si condivide con la pagina v1.0.
+     Controllo GitHub: riservato generatori/calcolatrice_2inf_oggi.py -> ../2inf-monitor/calcolatrice.json (campi v12_*). Solo italiano. -->
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--fg:#1a2330;--mu:#5c6672;--ln:#d5dde5;--blu:#1f6feb;--ok:#1a7f37;--okbg:#e6f6ec;--ko:#b3261e;--kobg:#fdecea;--gi:#fff6d6;--code:#0d1117}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--fg:#e6edf3;--mu:#9fb0c0;--ln:#2b3743;--okbg:#17321f;--kobg:#3a1715;--gi:#3a3214}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--fg:#e6edf3;--mu:#9fb0c0;--ln:#2b3743;--okbg:#17321f;--kobg:#3a1715;--gi:#3a3214}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:19px/1.5 "Segoe UI",system-ui,Arial,sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 40px}
+h1{font-size:28px;margin:6px 0 2px;line-height:1.2}h2{font-size:23px;margin:0 0 8px}
+.mu{color:var(--mu);font-size:16px}
+.card{background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:14px 16px;margin:12px 0}
+.f5{background:var(--gi);border:2px solid #d4a017;border-radius:10px;padding:8px 12px;font-weight:700;font-size:16px}
+.bottoni{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.bottoni a{flex:1 1 180px;text-align:center;background:#b45309;color:#fff;font-weight:700;padding:10px;border-radius:10px;text-decoration:none;font-size:16px}
+.bottoni a.g{background:#57606a}
+.versione{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
+.versione button{font:inherit;font-size:15px;padding:6px 12px;border-radius:20px;border:2px solid var(--blu);background:var(--card);color:var(--fg);cursor:pointer}
+.versione button.on{background:var(--blu);color:#fff}
+.barra{height:14px;background:#e3e8ef;border-radius:8px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
+.parte{display:inline-block;background:#e8f0fe;color:#0b3d91;border-radius:8px;padding:2px 10px;font-weight:700;font-size:15px;margin-bottom:6px}
+#passo{border:5px solid var(--blu);box-shadow:0 0 0 4px rgba(31,111,235,.15)}
+#passo ol{padding-left:26px;margin:8px 0}#passo li{margin:8px 0}
+.k{display:inline-block;background:#eef2f7;color:#111;border:1px solid #99a;border-radius:6px;padding:0 8px;font-family:Consolas,ui-monospace,monospace;font-weight:700}
+.scrivi{display:block;background:#f3f5f8;color:#111;border:2px dashed #8a96a3;border-radius:8px;padding:8px 12px;font:20px/1.4 Consolas,ui-monospace,monospace;font-weight:700;margin:6px 0;overflow-x:auto;white-space:pre}
+pre{background:var(--code);color:#e6edf3;border-radius:10px;padding:12px;font:17px/1.5 Consolas,ui-monospace,monospace;overflow-x:auto;margin:8px 0}
+pre b{color:#ffd166}
+.fatto-box{background:var(--okbg);border:2px solid var(--ok);border-radius:10px;padding:8px 12px;margin:10px 0;font-weight:700;color:var(--ok)}
+.nota{background:var(--gi);border-left:6px solid #e0b400;border-radius:8px;padding:8px 12px;margin:10px 0;font-size:17px}
+.prova{background:#e8f0fe;border-radius:10px;padding:10px 12px;margin:12px 0;color:#0b3d91}
+.prova input{font:inherit;padding:8px 10px;border:2px solid var(--blu);border-radius:8px;width:min(320px,100%);background:#fff;color:#111}
+.scelte button{display:block;width:100%;text-align:left;font:inherit;margin:6px 0;padding:8px 12px;border-radius:8px;border:2px solid var(--ln);background:#fff;color:#111;cursor:pointer}
+.scelte button.si{border-color:var(--ok);background:var(--okbg)}.scelte button.no{border-color:var(--ko);background:var(--kobg)}
+.esito{margin-top:8px;font-weight:700}.esito.si{color:var(--ok)}.esito.no{color:var(--ko)}
+button.fatto{font:inherit;font-size:22px;font-weight:800;padding:12px 26px;border-radius:12px;border:0;background:var(--ok);color:#fff;cursor:pointer;margin-top:8px}
+button.fatto:disabled{opacity:.45;cursor:default}
+a.indietro{font-size:15px;color:var(--mu);margin-left:14px}
+select,input.nome{font:inherit;padding:8px;border-radius:8px;border:2px solid var(--blu);max-width:100%;background:#fff;color:#111}
+img{max-width:100%;border-radius:10px;border:1px solid var(--ln);display:block;margin:8px 0}
+.fatti{font-size:15px;color:var(--mu);margin:4px 0 0;padding-left:20px}.fatti li{margin:2px 0}
+.ck{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.ck span{padding:4px 10px;border-radius:20px;font-weight:700;font-size:15px}.ck .si{background:var(--okbg);color:var(--ok)}.ck .no{background:var(--kobg);color:var(--ko)}
+.next{background:#e8f0fe;color:#0b3d91;border-left:6px solid var(--blu);padding:8px 12px;border-radius:8px;font-weight:700}
+.rosso{color:var(--ko);font-weight:700}
+.festa{font-size:26px;font-weight:800;color:var(--ok);text-align:center}
+@media (max-width:480px){body{font-size:18px}h1{font-size:24px}h2{font-size:21px}.scrivi{font-size:17px}pre{font-size:15px}button.fatto{width:100%}}
+</style></head><body><main>
+<h1>La calcolatrice v1.2: meno e diviso</h1>
+<p class="mu">2INF · giovedì 29/10/2026 · Lazarus e GitHub · un passo alla volta</p>
+<div class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</div>
+<div class="bottoni">
+ <a href="../2inf-oggi/" target="_blank" rel="noopener">La mia giornata</a>
+ <a href="../2inf-monitor/" target="_blank" rel="noopener" class="g">Il monitor della classe</a>
+ <a href="#controllo" class="g">Il controllo del mio GitHub</a>
+</div>
+<p class="mu" style="margin:0">I bottoni si aprono in una scheda nuova: quando hai finito, chiudi quella scheda e torni qui.</p>
+
+<div class="card" id="lavagna">
+ <h2>La versione 1.2: quattro operazioni</h2>
+ <p><b>Regola delle versioni:</b> aggiungo una cosa nuova = sale il numero dopo il punto (v1.0 → v1.2); il primo numero sale solo quando il programma cambia tutto.</p>
+ <figure style="margin:8px 0"><a href="../2inf-calcolatrice/codice-prof-quattro-bottoni.jpg" target="_blank" rel="noopener"><img src="../2inf-calcolatrice/codice-prof-quattro-bottoni.jpg" alt="Lazarus del prof: il codice dei quattro bottoni con a, b e c, e la finestra con i bottoni +, x, DIV e -"></a><figcaption class="mu" style="text-align:center">Il codice del prof: quattro bottoni (clicca per vederla grande)</figcaption></figure>
+ <p class="mu">Prima hai finito la versione 1.0? Se no, torna alla <a href="../2inf-calcolatrice/">calcolatrice versione 1.0</a>.</p>
+</div>
+
+<div class="card" id="cardVer">
+ <div class="versione"><span class="mu">Versione:</span>
+  <button data-v="completa">Completa</button>
+  <button data-v="facile">Facile (3 passi)</button>
+  <button data-v="facilissima" id="btFacilissima" hidden>Facilissima (4 passi)</button>
+ </div>
+ <div id="avvisoVer" class="mu"></div>
+ <div class="barra"><i id="barra"></i></div>
+ <div id="punto" style="font-weight:700"></div>
+ <ol class="fatti" id="fatti"></ol>
+</div>
+
+<section class="card" id="passo"></section>
+
+<div class="card" id="controllo">
+ <h2>Il controllo del mio GitHub</h2>
+ <p class="mu">La pagina guarda il tuo repository «lazarus» ogni pochi minuti. Qui vedi che cosa va bene e che cosa manca.</p>
+ <div id="ctrlStato" class="mu"></div>
+ <div id="ctrlIo"></div>
+</div>
+
+<div class="card">
+ <h2>Bloccato?</h2>
+ <p>Scrivi la domanda all'assistente qui sotto, anche con uno screenshot. Al prof solo per problemi del PC o dell'account.</p>
+ <p class="mu">Sbagliare è normale: succede a tutti i programmatori, anche ai più bravi. Con <b>Torna al passo prima</b> rifai un passo quando vuoi.</p>
+</div>
+</main>
+<script>
+(function () {
+  'use strict';
+  var BID = '2inf-calcolatrice-v12-v1';
+  var $ = function (id) { return document.getElementById(id); };
+  function e(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (x) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (x) {} }
+  function K(t) { return '<span class="k">' + t + '</span>'; }
+  function W(t) { return '<span class="scrivi">' + t + '</span>'; }
+  function F(t) { return '<div class="fatto-box">FATTO! ' + t + '</div>'; }
+  function N(t) { return '<div class="nota">' + t + '</div>'; }
+  var CODPIU = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) + StrToInt(Edit2.Text));';
+  var CODPER = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) * StrToInt(Edit2.Text));';
+  var SCREEN = 'Premi insieme i tasti ' + K('Windows') + ' ' + K('Maiusc') + ' ' + K('S') + '. Lo schermo diventa grigio.';
+
+  // ===== I PASSI. p = parte; h = che cosa fare; prova = domanda breve (risposte giuste in ok); scelta = domanda a crocette =====
+  var NOME = { p: 'Partenza', t: 'Il tuo nome', nome: true, h: '<p>Scegli il tuo nome dall\'elenco. Se non lo trovi, scegli l\'ultima voce e scrivilo tu.</p>' };
+  var CODMENO = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) - StrToInt(Edit2.Text));';
+  var CODDIV = 'Edit3.Text := IntToStr(StrToInt(Edit1.Text) div StrToInt(Edit2.Text));';
+  var ABC = N('Hai scritto il + con <b>a</b>, <b>b</b> e <b>c</b>, come il prof? Allora scrivi anche questo bottone nello stesso modo e cambia solo il segno.');
+  var NUOVA = '<ol><li>Nella pagina principale del repository <b>lazarus</b>, nella colonna a destra, clicca la parola ' + K('Releases') + '.</li><li>Si apre l\'elenco delle release. In alto a destra clicca ' + K('Draft a new release') + ' (prepara una nuova release).</li></ol>' + N('Non hai ancora nessuna release? Sotto Releases c\'è il link blu ' + K('Create a new release') + ': clicca quello.');
+  var COMPLETA = [
+    NOME,
+    { p: 'Parte 1 · Il progetto', t: 'Apri il tuo progetto', h: '<ol><li>In Lazarus, in alto, clicca il menu ' + K('Progetto') + ', poi ' + K('Apri progetto…') + '.</li><li>A sinistra clicca ' + K('Documenti') + ', poi doppio clic su <b>Lazarus</b>.</li><li>Doppio clic sulla cartella della tua calcolatrice.</li><li>Clicca il file che finisce con <b>.lpi</b>, poi ' + K('Apri') + '.</li></ol>',
+      prova: { q: 'Quanti bottoni ha adesso la tua finestra con i puntini?', ok: ['2', 'due'], aiuto: 'Devono essere 2: il + e la x della versione 1.0. Non vedi la finestra? Menu Progetto, poi Moduli (Form), Form1.' } },
+    { p: 'Parte 1 · Il progetto', t: 'Il terzo bottone: meno', h: '<ol><li>Scheda ' + K('Standard') + ': clicca l\'icona ' + K('OK') + ', poi clicca nella finestra con i puntini.</li><li>Nell\'Ispettore oggetti, nella riga ' + K('Caption') + ', scrivi il segno meno:' + W('-') + 'e premi ' + K('Invio') + '.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto sul terzo bottone?', ok: ['-', '−'], aiuto: 'Nella riga Caption scrivi solo il segno meno, il tasto vicino allo 0.' } },
+    { p: 'Parte 1 · Il progetto', t: 'Il quarto bottone: DIV', h: '<ol><li>Clicca di nuovo l\'icona ' + K('OK') + ' e poi nella finestra.</li><li>Nella riga ' + K('Caption') + ' scrivi:' + W('DIV') + 'e premi ' + K('Invio') + '.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto sul quarto bottone?', ok: ['div'], aiuto: 'Nella riga Caption scrivi DIV.' } },
+    { p: 'Parte 2 · Il codice', t: 'Il codice del meno', h: '<ol><li>Fai doppio clic sul bottone <b>-</b>. Si apre il codice: Lazarus ha già scritto la prima riga, begin e end.</li><li>Tra begin e end scrivi questa riga, uguale a quella del + ma con il meno:</li></ol><pre><b>' + CODMENO + '</b></pre>' + ABC },
+    { p: 'Parte 2 · Il codice', t: 'Il codice del DIV', h: '<p><b>div</b> è la divisione senza virgola: 7 DIV 2 fa 3 (il resto si butta).</p><ol><li>Torna sulla finestra con i puntini e fai doppio clic sul bottone <b>DIV</b>.</li><li>Tra begin e end scrivi:</li></ol><pre><b>' + CODDIV + '</b></pre>' + ABC,
+      scelta: { q: 'Quanto fa 7 DIV 2?', o: ['3', '3,5', '4'], a: 0, aiuto: 'div non usa la virgola: 7 diviso 2 fa 3 con il resto di 1, e il resto si butta.' } },
+    { p: 'Parte 2 · Il codice', t: 'Prova il meno', h: '<ol><li>Premi ' + K('F9') + '.</li><li>Nella prima casella scrivi <b>8</b>, nella seconda <b>2</b>.</li><li>Clicca il bottone <b>-</b>.</li></ol>' + N('Un messaggio rosso in basso in Lazarus? Succede a tutti: di solito manca una parentesi o il punto e virgola.'),
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['6'], aiuto: '8 meno 2 fa 6. Se vedi un altro numero, controlla il segno nella riga del bottone -.' } },
+    { p: 'Parte 2 · Il codice', t: 'Prova il DIV', h: '<ol><li>Lascia 8 e 2 nelle caselle.</li><li>Clicca il bottone <b>DIV</b>.</li></ol>',
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['4'], aiuto: '8 DIV 2 fa 4. Se vedi un altro numero, controlla che nella riga del bottone DIV ci sia div.' } },
+    { p: 'Parte 2 · Il codice', t: 'Salva tutto', h: '<ol><li>Chiudi la tua finestra con la ' + K('X') + '.</li><li>In Lazarus premi insieme ' + K('Ctrl') + ' ' + K('Maiusc') + ' ' + K('S') + ': salva tutti i file.</li></ol>' },
+    { p: 'Parte 3 · Su GitHub', t: 'Togli di nuovo quello che non serve', h: '<p>Con F9 Lazarus ha rifatto la cartella lib e il file .exe.</p><ol><li>Apri <b>Esplora file</b>: Documenti › Lazarus › la cartella della calcolatrice.</li><li>Clicca la cartella <b>lib</b>, tieni premuto ' + K('Ctrl') + ' e clicca <b>backup</b> e il file <b>.exe</b>.</li><li>Premi ' + K('Canc') + '.</li></ol>',
+      scelta: { q: 'Perché il file .exe non va su GitHub?', o: ['Perché Lazarus lo rifà quando premi F9', 'Perché è un virus', 'Perché GitHub non accetta i file'], a: 0, aiuto: 'Il .exe è la «torta già cotta»: con la ricetta (.lpi .pas .lfm) Lazarus la rifà.' } },
+    { p: 'Parte 3 · Su GitHub', t: 'Add file, Upload files', h: '<ol><li>In Chrome apri il tuo repository <b>lazarus</b> su github.com.</li><li>Clicca ' + K('Add file') + ', poi ' + K('Upload files') + '.</li></ol>' },
+    { p: 'Parte 3 · Su GitHub', t: 'Trascina la cartella', h: '<ol><li>In Esplora file torna in <b>Documenti › Lazarus</b>.</li><li>Trascina la cartella della calcolatrice dentro il riquadro della pagina di GitHub.</li><li>Aspetta: compare l\'elenco dei file.</li></ol>' },
+    { p: 'Parte 3 · Su GitHub', t: 'Il commit', h: '<ol><li>In fondo alla pagina scrivi il messaggio:' + W('versione 1.2: meno e diviso') + '</li><li>Clicca il verde ' + K('Commit changes') + '.</li><li>Clicca la cartella della calcolatrice.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto sopra l\'elenco dei file, accanto al tuo nome?', ok: ['versione1.2:menoediviso', 'versione1.2menoediviso', 'versione1.2'], aiuto: 'Deve esserci il messaggio del tuo commit: versione 1.2: meno e diviso.' } },
+    { p: 'Parte 4 · La release', t: 'Una release nuova', h: NUOVA },
+    { p: 'Parte 4 · La release', t: 'Il tag v1.2', h: '<ol><li>In alto a sinistra clicca ' + K('Tag: Select tag') + '.</li><li>Nella casella scrivi:' + W('v1.2') + '</li><li>Clicca ' + K('Create new tag') + ', poi il verde ' + K('Create') + '.</li></ol>' + N('GitHub dice che v1.2 c\'è già? Scrivi ' + K('v1.3') + ', e anche nel titolo.') },
+    { p: 'Parte 4 · La release', t: 'Il titolo della release', h: '<ol><li>Clicca nella casella <b>Title</b>.</li><li>Scrivi:' + W('Calcolatrice v1.2: quattro operazioni') + '</li></ol>' },
+    { p: 'Parte 4 · La release', t: 'Publish release', h: '<ol><li>Scendi in fondo alla pagina.</li><li>Clicca il verde ' + K('Publish release') + '.</li></ol>' + F('La versione 1.2 della tua calcolatrice è pubblicata.'),
+      prova: { q: 'Che cosa c\'è scritto nell\'etichetta verde accanto al titolo?', ok: ['latest'], aiuto: 'È una parola inglese che vuol dire «la più recente».' } },
+    { p: 'Parte 4 · La release', t: 'Screenshot della release', h: '<ol><li>Resta sulla pagina della release v1.2.</li><li>' + SCREEN + '</li><li>Trascina un rettangolo sopra il titolo, il tag e l\'etichetta Latest.</li><li>Nel tuo Documento del compito clicca sotto la sezione <b>3. Il mio commit</b> e premi ' + K('Ctrl') + ' ' + K('V') + '.</li></ol>' },
+    { p: 'Parte 4 · La release', t: 'Lo so spiegare', h: '<p>Spiega al tuo compagno di banco, a voce: perché questa è la versione <b>1.2</b> e non la 2.0?</p>',
+      scelta: { q: 'Perché 1.2 e non 2.0?', o: ['Ho aggiunto delle cose, ma è sempre la stessa calcolatrice: sale il numero dopo il punto', 'Perché la 2.0 non esiste', 'Lo decide GitHub da solo'], a: 0, aiuto: 'Il primo numero sale solo quando il programma cambia tutto. Se aggiungo qualcosa, sale il numero dopo il punto.' } }
+  ];
+  var FACILE = [
+    NOME,
+    { p: 'Facile · passo 1 di 3', t: 'I bottoni - e DIV', h: '<ol><li>In Lazarus: ' + K('Progetto') + ', ' + K('Apri progetto…') + ', Documenti › Lazarus › la tua calcolatrice, il file .lpi, ' + K('Apri') + '.</li><li>Aggiungi due bottoni (icona ' + K('OK') + '). Nella riga Caption scrivi ' + W('-') + 'e nell\'altro ' + W('DIV') + '</li><li>Doppio clic sul bottone -, tra begin e end scrivi:</li></ol><pre><b>' + CODMENO + '</b></pre><ol start="4"><li>Doppio clic sul bottone DIV e scrivi:</li></ol><pre><b>' + CODDIV + '</b></pre><ol start="5"><li>Premi ' + K('F9') + ', scrivi 8 e 2, clicca il bottone -.</li></ol>',
+      prova: { q: 'Che numero compare nella terza casella?', ok: ['6'], aiuto: '8 meno 2 fa 6. Controlla il segno nella riga del bottone -.' } },
+    { p: 'Facile · passo 2 di 3', t: 'Su GitHub', h: '<ol><li>Chiudi la finestra e premi ' + K('Ctrl') + ' ' + K('Maiusc') + ' ' + K('S') + '.</li><li>Su GitHub, nel repository <b>lazarus</b>: ' + K('Add file') + ', ' + K('Upload files') + '.</li><li>Da Esplora file (Documenti › Lazarus) trascina la cartella della calcolatrice.</li><li>Scrivi il messaggio ' + W('versione 1.2: meno e diviso') + 'e clicca ' + K('Commit changes') + '.</li></ol>' },
+    { p: 'Facile · passo 3 di 3', t: 'La release v1.2', h: '<ol><li>Nella pagina del repository, a destra, clicca ' + K('Releases') + ', poi ' + K('Draft a new release') + '.</li><li>' + K('Tag: Select tag') + ': scrivi ' + W('v1.2') + 'poi ' + K('Create new tag') + ' e il verde ' + K('Create') + '.</li><li>Nella casella <b>Title</b> scrivi ' + W('Calcolatrice v1.2: quattro operazioni') + '</li><li>In fondo clicca il verde ' + K('Publish release') + '.</li></ol>',
+      prova: { q: 'Che cosa c\'è scritto nell\'etichetta verde accanto al titolo?', ok: ['latest'], aiuto: 'È una parola inglese che vuol dire «la più recente».' } }
+  ];
+  var FACILISSIMA = FACILE;
+  var VERS = { completa: COMPLETA, facile: FACILE, facilissima: FACILISSIMA };
+
+  var CONF = {}, ACC = false, CTRL = null, ver = '', idx = 0, nome = leggi('calc29-nome');
+  var params = new URLSearchParams(location.search);
+
+  function manda(n, extra) {
+    if (!CONF.invio || !nome) return;
+    var P = VERS[ver], s = P[n] || {};
+    var d = { id: 'avz-' + BID, modo: 'avanzamento', classe: '2INF', nome: nome, versione: ver, scheda: n + 1, totale: P.length, titolo: s.t || '', prova: extra || '', quando: new Date().toISOString() };
+    try { fetch(CONF.invio, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: 'd=' + encodeURIComponent(JSON.stringify(d)) }); } catch (x) {}
+  }
+  function norm(s) { return String(s || '').toLowerCase().replace(/\s+/g, '').replace(/[«»"'.]+$/g, ''); }
+
+  function scegliVer(v, salva) {
+    if (!VERS[v] || (v === 'facilissima' && !ACC)) v = 'completa';
+    ver = v; if (salva) scrivi('c12-ver', v);
+    idx = Math.min(+leggi('c12-' + v) || (nome ? 1 : 0), VERS[v].length - 1);
+    if (leggi('c12-' + v + '-fine') === '1' && idx < VERS[v].length - 1) { idx++; scrivi('c12-' + v + '-fine', ''); scrivi('c12-' + v, String(idx)); }
+    if (!nome) idx = 0;
+    [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.classList.toggle('on', b.getAttribute('data-v') === v); });
+    $('avvisoVer').innerHTML = v === 'completa' ? 'Tanti passi piccoli, uno alla volta. Ti sembra troppo? Scegli <b>Facile</b>: 3 passi.' : v === 'facile' ? 'Versione facile: 3 passi: i bottoni, il commit e la release. Quando hai finito puoi passare alla versione completa.' : '<span class="rosso">Oggi il prof ha acceso la versione facilissima:</span> 4 passi, solo il progetto su GitHub e la release.';
+    disegna();
+  }
+
+  function disegna() {
+    var P = VERS[ver], s = P[idx], tot = P.length;
+    var fine = idx >= tot - 1 && leggi('c12-' + ver + '-fine') === '1';
+    $('barra').style.width = Math.round((fine ? tot : idx) / tot * 100) + '%';
+    $('punto').textContent = fine ? 'Hai finito tutti i passi!' : 'Passo ' + (idx + 1) + ' di ' + tot + (nome ? ' · ' + nome : '');
+    var da = Math.max(0, idx - 3); $('fatti').setAttribute('start', da + 1); $('fatti').innerHTML = P.slice(da, idx).map(function (x) { return '<li>✓ Fatto: ' + e(x.t) + '</li>'; }).join('');
+    if (fine) {
+      $('passo').innerHTML = '<p class="festa">Bravo! Hai finito il percorso.</p><p>Controlla qui sotto che il tuo GitHub sia tutto verde. Poi fai vedere la tua calcolatrice al compagno di banco e spiegagli come funziona.</p>' +
+        (ver !== 'completa' ? '<p><button class="fatto" id="aCompleta">Passa alla versione completa</button></p>' : '') + '<a href="#" class="indietro" id="ind">Torna al passo prima</a>';
+      if ($('aCompleta')) $('aCompleta').onclick = function () { scegliVer('completa', true); };
+      $('ind').onclick = function (ev) { ev.preventDefault(); scrivi('c12-' + ver + '-fine', ''); disegna(); };
+      return;
+    }
+    var h = '<span class="parte">' + e(s.p) + '</span><h2>' + (idx + 1) + '. ' + e(s.t) + '</h2>' + s.h;
+    if (s.nome) {
+      h += '<p><select id="selNome"><option value="">— scegli il tuo nome —</option></select></p><p id="altroBox" hidden><input class="nome" id="altroNome" placeholder="nome e cognome"></p>';
+    } else if (s.prova) {
+      h += '<div class="prova"><b>Prova:</b> ' + s.prova.q + '<br><input id="risp" autocomplete="off"><div class="esito" id="esito"></div></div>';
+    } else if (s.scelta) {
+      h += '<div class="prova"><b>Prova:</b> ' + s.scelta.q + '<div class="scelte" id="scelte">' + s.scelta.o.map(function (o, i) { return '<button data-i="' + i + '">' + e(o) + '</button>'; }).join('') + '</div><div class="esito" id="esito"></div></div>';
+    }
+    h += '<button class="fatto" id="bFatto">✓ Fatto</button>' + (idx > 0 ? '<a href="#" class="indietro" id="ind">Torna al passo prima</a>' : '');
+    $('passo').innerHTML = h;
+    var bF = $('bFatto'), ok = !(s.prova || s.scelta || s.nome), risposta = '';
+    // contro i clic a raffica (#116): il bottone si accende dopo qualche secondo di lettura
+    var attesa = s.nome ? 0 : (s.prova || s.scelta ? 0 : 6);
+    function stato() { bF.disabled = !ok || attesa > 0; bF.textContent = attesa > 0 && ok ? '✓ Fatto (' + attesa + ')' : '✓ Fatto'; }
+    if (attesa) { var tm = setInterval(function () { attesa--; stato(); if (attesa <= 0) clearInterval(tm); }, 1000); }
+    if (s.nome) {
+      var sel = $('selNome'), nomi = (CTRL && CTRL.righe || []).map(function (r) { return r.alunno; }).sort();
+      nomi.forEach(function (n) { var o = document.createElement('option'); o.textContent = n; sel.appendChild(o); });
+      var oa = document.createElement('option'); oa.value = '__altro'; oa.textContent = 'Non trovo il mio nome: lo scrivo io'; sel.appendChild(oa);
+      if (nome && nomi.indexOf(nome) >= 0) sel.value = nome; else if (nome) { sel.value = '__altro'; $('altroBox').hidden = false; $('altroNome').value = nome; }
+      var aggiorna = function () { $('altroBox').hidden = sel.value !== '__altro'; var v = sel.value === '__altro' ? $('altroNome').value.trim() : sel.value; ok = v.length >= 3; risposta = v; stato(); };
+      sel.onchange = aggiorna; $('altroNome').oninput = aggiorna; aggiorna();
+    }
+    if (s.prova) {
+      var inp = $('risp'), es = $('esito');
+      inp.oninput = function () {
+        var v = inp.value.trim(); risposta = v;
+        if (s.prova.libero) { ok = v.replace(/[^a-zà-ú0-9]/gi, '').length >= s.prova.libero && !/^form1$/i.test(v); es.className = 'esito ' + (ok ? 'si' : 'no'); es.textContent = ok ? 'Bene!' : (v ? s.prova.aiuto : ''); }
+        else { ok = s.prova.ok.indexOf(norm(v)) >= 0; es.className = 'esito ' + (ok ? 'si' : 'no'); es.textContent = ok ? 'Giusto! Premi «Fatto».' : (v.length >= s.prova.ok[0].length ? s.prova.aiuto : ''); }
+        stato();
+      };
+      inp.focus({ preventScroll: true });
+    }
+    if (s.scelta) {
+      [].forEach.call(document.querySelectorAll('#scelte button'), function (b) {
+        b.onclick = function () {
+          var i = +b.getAttribute('data-i'), giusta = i === s.scelta.a;
+          [].forEach.call(document.querySelectorAll('#scelte button'), function (x) { x.className = ''; });
+          b.className = giusta ? 'si' : 'no'; ok = giusta; risposta = s.scelta.o[i];
+          $('esito').className = 'esito ' + (giusta ? 'si' : 'no'); $('esito').textContent = giusta ? 'Giusto! Premi «Fatto».' : s.scelta.aiuto; stato();
+        };
+      });
+    }
+    stato();
+    bF.onclick = function () {
+      if (bF.disabled) return;
+      if (s.nome) { nome = risposta; scrivi('calc29-nome', nome); mostraCtrl(); }
+      if (s.prova && s.prova.libero) scrivi('c12-titolo', risposta);
+      manda(idx, risposta);
+      if (idx >= VERS[ver].length - 1) scrivi('c12-' + ver + '-fine', '1'); else idx++;
+      scrivi('c12-' + ver, String(idx)); disegna(); window.scrollTo({ top: $('cardVer').offsetTop - 8, behavior: 'smooth' });
+    };
+    if ($('ind')) $('ind').onclick = function (ev) { ev.preventDefault(); idx = Math.max(0, idx - 1); scrivi('c12-' + ver, String(idx)); disegna(); };
+  }
+
+  var NOMI_CK = { cartella: 'Cartella calcolatrice', file: 'I 3 file (.lpi .pas .lfm)', v12_codice: 'Codice di - e DIV', v12_commit: 'Commit di oggi con il codice nuovo', v12_release: 'Release v1.2 di oggi' };
+  function mostraCtrl() {
+    if (!CTRL) { $('ctrlStato').innerHTML = '<span class="rosso">Il controllo non si legge adesso: premi F5 tra un minuto.</span>'; return; }
+    $('ctrlStato').innerHTML = 'Controllo del tuo GitHub alle <b>' + e(CTRL.ora) + '</b> (si aggiorna ogni pochi minuti).';
+    var r = (CTRL.righe || []).filter(function (x) { return x.alunno === nome; })[0];
+    if (!nome) { $('ctrlIo').innerHTML = '<p class="mu">Scegli il tuo nome al passo 1 e qui compare il tuo controllo.</p>'; return; }
+    if (!r) { $('ctrlIo').innerHTML = '<p class="mu">Non trovo «' + e(nome) + '» nel controllo. Scrivi all\'assistente qui sotto il tuo nome utente di GitHub.</p>'; return; }
+    var ck = r.check || {};
+    $('ctrlIo').innerHTML = '<div class="ck">' + Object.keys(NOMI_CK).map(function (k) { var si = !!ck[k]; return '<span class="' + (si ? 'si' : 'no') + '">' + (si ? '✔ ' : '○ ') + NOMI_CK[k] + '</span>'; }).join('') + '</div><div class="next">' + e(r.messaggio_v12 || r.messaggio || '') + '</div>';
+  }
+  function caricaCtrl() {
+    return fetch('../2inf-monitor/calcolatrice.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) { CTRL = d; mostraCtrl(); }).catch(function () { mostraCtrl(); });
+  }
+
+  [].forEach.call(document.querySelectorAll('.versione button'), function (b) { b.onclick = function () { scegliVer(b.getAttribute('data-v'), true); }; });
+  Promise.all([
+    fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () {}),
+    fetch('../2inf-calcolatrice-v12/stato.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (s) { ACC = !!(s && s.facilissima); }).catch(function () {}),
+    caricaCtrl()
+  ]).then(function () {
+    $('btFacilissima').hidden = !ACC;
+    var v = params.get('v') || leggi('c12-ver') || (ACC ? 'facilissima' : 'completa');
+    scegliVer(v, false);
+  });
+  setInterval(caricaCtrl, 120000);
+})();
+</script>
+<script src="../assistente/assistente.js" data-pagina="2inf-calcolatrice-v12" data-lingue="it"></script>
+</body></html>
