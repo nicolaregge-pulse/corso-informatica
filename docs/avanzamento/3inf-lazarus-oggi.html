@@ -71,12 +71,12 @@ async function giro(){var d;try{d=await leggi()}catch(x){$('view').classList.add
  var SL=await statoLezione('3INF'),FINALE=(SL.stato==='dopo'||SL.stato==='nessuna')?'Dati finali della lezione, letti alle '+e(d.ora||d.aggiornato||'')+'.':'';
  var pb=await battito(),vivo=pb&&pb.timer>0&&pb.battito&&(Date.now()-new Date(pb.battito))<5*60000;
  $('script').innerHTML=(vivo?'<span class="ok">Script vivo (ultimo battito '+e(new Date(pb.battito).toLocaleTimeString('it-IT').slice(0,5))+')</span>':(FINALE?'<span style="color:#666">'+FINALE+'</span>':'<span class="ko">🔴 Script FERMO o non raggiungibile'+(pb?' (timer '+pb.timer+', battito '+e(pb.battito)+')':'')+': dimmelo subito</span>'))+(d.ponte&&d.ponte!=='ok'?' · <span class="ko">🔴 Ponte '+e(d.ponte)+'</span>':' · <span class="ok">Ponte ok</span>')+(d.parole_alle?' · parole contate alle '+e(d.parole_alle):'');
- $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
+ $('stato').textContent=(d.fonte?'Dati da: '+d.fonte+' · ultimo dato: '+(d.ultimo_dato||'nessuno')+' · ':'')+'Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · teoria dal vivo '+(LIVE?'sì':'non raggiungibile')+' · si ricarica ogni minuto';
  if(TH0===null)TH0=$('th').innerHTML;
  if(CR){var nc=d.righe.filter(function(r){return r.classroom&&(r.classroom.stato==='consegnato'||r.classroom.stato==='restituito')}).length,cl=d.classroom||{};
   $('tb').className='cr';$('th').innerHTML='<tr><th>#</th><th>Allievo</th><th>Consegnato su Classroom?</th><th>Guida Eclipse</th><th>Documento</th><th>Voto di oggi</th><th>Comportamento (Veyon, note)</th></tr>';
   $('riep').classList.remove('hide');$('riep').innerHTML='Consegnati: <span class="ok">'+nc+'</span> su '+d.righe.length+(d.righe.length-nc?' · <span class="ko">mancano '+(d.righe.length-nc)+'</span>':' · tutti!')+'<div class="p" style="font-weight:400">Stato di Classroom letto alle '+e(cl.letto_alle||'?')+' ('+(cl.fonte==='ponte'?'ponte, ogni 5 minuti':'situazione dello script')+'). «alle» = ora in cui la consegna è stata vista.</div>';
-  $('stato').textContent='Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · si ricarica ogni minuto';
+  $('stato').textContent=(d.fonte?'Dati da: '+d.fonte+' · ultimo dato: '+(d.ultimo_dato||'nessuno')+' · ':'')+'Aggiornato alle '+d.ora+' · '+d.righe.length+' allievi · si ricarica ogni minuto';
   $('pie').textContent=d.pie||'Voto provvisorio: vedi il conto di ogni riga.';
   $('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.nome)+'</b>'+(r.pc?'<div class="p">PC '+e(r.pc)+'</div>':'')+'</td><td>'+crCella(r.classroom)+'</td><td>'+guidaCella(r.guida)+'</td><td>'+docCella(r.doc)+'</td><td><span class="v">'+r.voto+'</span><div class="p">'+e(r.conto)+'</div></td><td>'+compo(r)+'</td></tr>'}).join('');return}
  $('tb').className='';$('th').innerHTML=TH0;$('riep').classList.add('hide');

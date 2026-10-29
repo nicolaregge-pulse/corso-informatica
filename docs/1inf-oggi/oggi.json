@@ -1,608 +1,211 @@
 {
- "ora": "20:57",
- "banca": "1inf-lazarus-ciao",
- "fine": "11:00",
- "spiega": "Oggi: il primo programma in Lazarus («Ciao»). Consegna: il Documento su Classroom con il codice, lo screenshot e una frase tua. Il voto parte da 40; +20 quando consegni il Documento con il codice; +10 con lo screenshot; +10 con la tua frase. −3 ogni volta che Veyon ti vede fuori lezione.",
- "link": "../verifica/?b=1inf-lazarus-ciao",
- "classroom": {
-  "consegnati": 20,
-  "su": 20,
-  "letto_alle": "11:15",
-  "fonte": "ponte"
- },
+ "ora": "07:09",
+ "fonte": "verifiche consegnate dalla pagina 1inf-sicurezza-2ora-v1 (0 arrivi) · Veyon nessun giro · presenze NON ancora segnate (elenco del 28/10)",
+ "ultimo_dato": "nessuno",
+ "banca": "1inf-sicurezza-2ora-v1",
+ "fine": "14:00",
+ "spiega": "Oggi: Sicurezza 2, prevenzione e protezione. Leggi le 8 schede, fai il ripasso, poi i 20 casi della verifica entro le 14:00. Il voto parte da 40 e sale con le risposte giuste (40 + 40 × giuste/20); −3 ogni volta che Veyon ti vede fuori lezione. (Presenze non ancora segnate: per ora in elenco ci sono i presenti dell'ultima lezione.)",
+ "link": "../verifica/?b=1inf-sicurezza-2ora",
  "righe": [
   {
    "alunno": "Moaaz A.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
    "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Giexther A.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Aya B.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Alessio C.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Cristian C.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "sito di Lazarus, pagina di download",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:30",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Sara F.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "cruscotto dei voti",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Muhid H.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Md M.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Abdel N.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:20",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Muhammad N.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Thomas R.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Giovanni S.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Enea Z.",
-   "voto": 80,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 = 80 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Matteo A.",
-   "voto": 74,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 − 3×2 fuori compito = 74 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 2,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
-  },
-  {
-   "alunno": "Nehara F.",
-   "voto": 71,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 + frase 10 − 3×3 fuori compito = 71 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 3,
-   "vy_ult": [
-    "10:20",
-    "Google Maps / Street View, terza volta",
-    true
-   ],
-   "cosa_fare": "Documento completo e consegnato. Bravo! Se hai tempo: «Fallo tuo» (scheda 7).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:10",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": true,
-    "manca": [],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✓",
-    "avviso": ""
-   }
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   },
   {
    "alunno": "Christian A.",
-   "voto": 70,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 = 70 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
    "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "accesso a Google",
-    false
-   ],
-   "cosa_fare": "Nel tuo Documento manca: frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:20",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": false,
-    "manca": [
-     "frase"
-    ],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✗",
-    "avviso": "CONSEGNATO INCOMPLETO: manca frase"
-   }
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Matteo A.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Giexther A.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   },
   {
    "alunno": "Anthony A.",
-   "voto": 70,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 = 70 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
    "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Nel tuo Documento manca: frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "11:01",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": false,
-    "manca": [
-     "frase"
-    ],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✗",
-    "avviso": "CONSEGNATO INCOMPLETO: manca frase"
-   }
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Aya B.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Alessio C.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Cristian C.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Nehara F.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Sara F.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Muhid H.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   },
   {
    "alunno": "Yinlin L.",
-   "voto": 70,
-   "conto": "40 + consegnato con il codice 20 + screenshot 10 = 70 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
    "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "Lazarus o Classroom",
-    false
-   ],
-   "cosa_fare": "Nel tuo Documento manca: frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": true,
-    "screenshot": true,
-    "frase": false,
-    "manca": [
-     "frase"
-    ],
-    "letto_alle": "11:05",
-    "testo": "codice ✓ · screenshot ✓ · frase ✗",
-    "avviso": "CONSEGNATO INCOMPLETO: manca frase"
-   }
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   },
   {
    "alunno": "Moaaz M.",
-   "voto": 50,
-   "conto": "40 + 0 (consegnato ma senza codice) + screenshot 10 = 50 (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
    "fuori": 0,
-   "vy_ult": [
-    "10:20",
-    "solo desktop (ha consegnato)",
-    false
-   ],
-   "cosa_fare": "Nel tuo Documento manca: codice, frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:15",
-    "allegati": 1,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": false,
-    "screenshot": true,
-    "frase": false,
-    "manca": [
-     "codice",
-     "frase"
-    ],
-    "letto_alle": "11:05",
-    "testo": "codice ✗ · screenshot ✓ · frase ✗",
-    "avviso": "CONSEGNATO INCOMPLETO: manca codice, frase"
-   }
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Md M.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Abdel N.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Muhammad N.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Thomas R.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   },
   {
    "alunno": "Andrea S.",
    "voto": 40,
-   "conto": "40 + 0 (consegnato ma senza codice) − 3×2 fuori compito = 40 (il voto non scende sotto 40) (provvisorio, Documento letto alle 11:05)",
-   "verifica": "consegnato",
-   "voto_ver": 60,
-   "fuori": 2,
-   "vy_ult": [
-    "10:20",
-    "sito «Hacker Simulator»",
-    true
-   ],
-   "cosa_fare": "Nel tuo Documento manca: codice, screenshot, frase. Aggiungilo e premi di nuovo Consegna (se l'hai già consegnato: Annulla consegna, completa, Consegna).",
-   "classroom": {
-    "stato": "consegnato",
-    "ora": "10:35",
-    "allegati": 2,
-    "ritardo": false
-   },
-   "doc": {
-    "codice": false,
-    "screenshot": false,
-    "frase": false,
-    "manca": [
-     "codice",
-     "screenshot",
-     "frase"
-    ],
-    "letto_alle": "11:05",
-    "testo": "codice ✗ · screenshot ✗ · frase ✗",
-    "avviso": "CONSEGNATO VUOTO: manca codice, screenshot, frase"
-   }
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Giovanni S.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
+  },
+  {
+   "alunno": "Enea Z.",
+   "voto": 40,
+   "conto": "verifica ancora da fare (conta dalle 14:00) = 40",
+   "verifica": "",
+   "voto_ver": null,
+   "fuori": 0,
+   "vy_ult": null,
+   "cosa_fare": "Leggi le schede e fai il ripasso; poi la linguetta «2. Verifica» e «Consegna» entro le 14:00."
   }
  ]
 }
