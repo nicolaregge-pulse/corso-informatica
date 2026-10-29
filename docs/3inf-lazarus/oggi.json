@@ -1,6 +1,6 @@
 {
- "ora": "11:45",
- "fonte": "Percorso: 39 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 4 · Veyon 20 giri · presenze dal registro",
+ "ora": "11:49",
+ "fonte": "Percorso: 45 «Fatto» arrivati · Classroom compito 25510294360 letto alle 06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia) (situazione dello script) · Documenti di lavoro letti alle 11:37 · PDF delle consegne: 4 · Veyon 20 giri · presenze dal registro",
  "ultimo_dato": "06:40 (ultimo cambio: lo script ricontrolla ogni 10 minuti e riscrive solo se cambia)",
  "banca": "3inf-confronto",
  "modello": "confronto",
@@ -14,7 +14,7 @@
   "fonte": "situazione"
  },
  "riepilogo": {
-  "passo_medio": 1.7,
+  "passo_medio": 2.0,
   "oltre_eclipse": 5,
   "facilitato_per_tutti": true
  },
@@ -43,11 +43,11 @@
     "ritardo": false
    },
    "percorso": {
-    "passo": 6,
+    "passo": 7,
     "totale": 10,
-    "titolo": "Sezione 4: lo screenshot di Eclipse",
-    "ora": "11:35",
-    "fermo_min": 9,
+    "titolo": "Sezione 6: la tabella, prima metà",
+    "ora": "11:46",
+    "fermo_min": 2,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -97,7 +97,7 @@
     "totale": 10,
     "titolo": "Apri il tuo Documento",
     "ora": "11:39",
-    "fermo_min": 5,
+    "fermo_min": 9,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -147,7 +147,7 @@
     "totale": 10,
     "titolo": "Eclipse aperto, con Main.java",
     "ora": "11:42",
-    "fermo_min": 2,
+    "fermo_min": 7,
     "fermo": false,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
@@ -197,7 +197,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:28",
-    "fermo_min": 16,
+    "fermo_min": 21,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -241,7 +241,7 @@
     "totale": 10,
     "titolo": "Sezione 4: lo screenshot di Eclipse",
     "ora": "11:40",
-    "fermo_min": 4,
+    "fermo_min": 8,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -273,7 +273,7 @@
     "PC 36: sul percorso 3inf-confronto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 5 · Sezione 2: lo screenshot di Lazarus.",
+   "cosa_fare": "Prossimo passo del percorso: 7 · Sezione 6: la tabella, prima metà.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -281,11 +281,11 @@
     "ritardo": false
    },
    "percorso": {
-    "passo": 4,
+    "passo": 6,
     "totale": 10,
-    "titolo": "Apri il tuo Documento",
-    "ora": "11:43",
-    "fermo_min": 1,
+    "titolo": "Sezione 4: lo screenshot di Eclipse",
+    "ora": "11:44",
+    "fermo_min": 5,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -317,7 +317,7 @@
     "PC 38: su Classroom (compito)",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 5 · Sezione 2: lo screenshot di Lazarus.",
+   "cosa_fare": "Prossimo passo del percorso: 7 · Sezione 6: la tabella, prima metà.",
    "ieri": [
     "screenshot Lazarus",
     "screenshot Java",
@@ -329,11 +329,55 @@
     "ritardo": false
    },
    "percorso": {
-    "passo": 4,
+    "passo": 6,
     "totale": 10,
-    "titolo": "Apri il tuo Documento",
-    "ora": "11:36",
-    "fermo_min": 8,
+    "titolo": "Sezione 4: lo screenshot di Eclipse",
+    "ora": "11:48",
+    "fermo_min": 1,
+    "fermo": false,
+    "finito": false,
+    "dove": "Hello World in Eclipse funziona già"
+   },
+   "doc": {
+    "consegnato": false,
+    "ora": null,
+    "ritardo": false,
+    "stato": "non ancora",
+    "tabella": 0,
+    "frasi": 0,
+    "img_lazarus": null,
+    "img_java": null,
+    "immagini": null,
+    "fonte": "Documento di lavoro letto alle 11:37",
+    "manca": [
+     "tabella 0/7 righe (sezione 6)",
+     "frasi 0/3 (sezione 7)"
+    ]
+   }
+  },
+  {
+   "alunno": "Eric C.",
+   "voto": null,
+   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
+   "fuori": 0,
+   "vy_ult": [
+    "11:22",
+    "PC 23: pagina non chiara",
+    false
+   ],
+   "cosa_fare": "Prossimo passo del percorso: 3 · Run: la finestrella Hello World.",
+   "ieri": [],
+   "classroom": {
+    "stato": "non ancora",
+    "ora": null,
+    "ritardo": false
+   },
+   "percorso": {
+    "passo": 2,
+    "totale": 10,
+    "titolo": "Eclipse aperto, con Main.java",
+    "ora": "11:45",
+    "fermo_min": 4,
     "fermo": false,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -377,52 +421,8 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:44",
-    "fermo_min": 0,
+    "fermo_min": 5,
     "fermo": false,
-    "finito": false,
-    "dove": "Hello World in Eclipse funziona già"
-   },
-   "doc": {
-    "consegnato": false,
-    "ora": null,
-    "ritardo": false,
-    "stato": "non ancora",
-    "tabella": 0,
-    "frasi": 0,
-    "img_lazarus": null,
-    "img_java": null,
-    "immagini": null,
-    "fonte": "Documento di lavoro letto alle 11:37",
-    "manca": [
-     "tabella 0/7 righe (sezione 6)",
-     "frasi 0/3 (sezione 7)"
-    ]
-   }
-  },
-  {
-   "alunno": "Eric C.",
-   "voto": null,
-   "conto": "voto dopo la consegna (i punti si contano solo nel Documento consegnato)",
-   "fuori": 0,
-   "vy_ult": [
-    "11:22",
-    "PC 23: pagina non chiara",
-    false
-   ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 20 minuti: chiedi all'assistente in fondo alla pagina.",
-   "ieri": [],
-   "classroom": {
-    "stato": "non ancora",
-    "ora": null,
-    "ritardo": false
-   },
-   "percorso": {
-    "passo": 1,
-    "totale": 10,
-    "titolo": "Dove sei arrivato?",
-    "ora": "11:24",
-    "fermo_min": 20,
-    "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
    },
@@ -453,7 +453,7 @@
     "PC 28: su Classroom (compito)",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 20 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 25 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -465,7 +465,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:24",
-    "fermo_min": 20,
+    "fermo_min": 25,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -497,7 +497,7 @@
     "PC 31: pagina di Google vuota",
     true
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 15 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 19 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -509,7 +509,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:29",
-    "fermo_min": 15,
+    "fermo_min": 19,
     "fermo": true,
     "finito": false,
     "dove": "Non ho ancora scompattato o aperto Eclipse"
@@ -541,7 +541,7 @@
     "PC 25: sul percorso 3inf-confronto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 19 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 24 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -553,7 +553,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:25",
-    "fermo_min": 19,
+    "fermo_min": 24,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -585,7 +585,7 @@
     "PC 24: sul percorso 3inf-confronto",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 21 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 25 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -597,7 +597,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:23",
-    "fermo_min": 21,
+    "fermo_min": 25,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
@@ -629,7 +629,7 @@
     "PC 29: su Classroom (compito)",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 13 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -641,8 +641,8 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:36",
-    "fermo_min": 8,
-    "fermo": false,
+    "fermo_min": 13,
+    "fermo": true,
     "finito": false,
     "dove": "Eclipse si apre, ma il programma non funziona"
    },
@@ -673,7 +673,7 @@
     "PC 21: tornato su Classroom",
     false
    ],
-   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 17 minuti: chiedi all'assistente in fondo alla pagina.",
+   "cosa_fare": "Prossimo passo del percorso: 2 · Eclipse aperto, con Main.java. Sei fermo da 22 minuti: chiedi all'assistente in fondo alla pagina.",
    "ieri": [],
    "classroom": {
     "stato": "non ancora",
@@ -685,7 +685,7 @@
     "totale": 10,
     "titolo": "Dove sei arrivato?",
     "ora": "11:27",
-    "fermo_min": 17,
+    "fermo_min": 22,
     "fermo": true,
     "finito": false,
     "dove": "Hello World in Eclipse funziona già"
