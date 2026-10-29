@@ -1,5 +1,5 @@
 {
- "ora": "09:49",
+ "ora": "09:51",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -277,8 +277,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 18,
-   "ultimo": "09:44",
+   "salvataggi": 19,
+   "ultimo": "09:49",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (calcolatrice, primo-programma, salvadanio): rinominale.",
@@ -306,19 +306,21 @@
   {
    "alunno": "Oscar F.",
    "pezzi": [
-    "cartelle",
+    "pulito",
     "no .exe",
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 22,
-   "ultimo": "09:48",
+   "salvataggi": 25,
+   "ultimo": "09:50",
    "caricato": false,
-   "cartella_ok": false,
-   "messaggio": "Passo C: nella pagina principale ci sono ancora 1 file sparsi (unit1.pas): cancellali uno alla volta (tre puntini, Delete file, Commit changes).",
+   "cartella_ok": true,
+   "messaggio": "Passo G: rinomina la cartella «calcolatrice» in «primo-programma» (tutto minuscolo, con il trattino): così il repository è uguale per tutti.",
    "fuori": 0,
    "albero": [
     "README.md",
+    "calcolatrice/calcolo.lpi",
+    "calcolatrice/calcolo.lpr",
     "calcolatrice/project1.lpi",
     "calcolatrice/unit1.lfm",
     "calcolatrice/unit1.pas",
@@ -327,8 +329,7 @@
     "primo programma/unit1.pas",
     "salvadanaio/project1.lpi",
     "salvadanaio/unit1.lfm",
-    "salvadanaio/unit1.pas",
-    "unit1.pas"
+    "salvadanaio/unit1.pas"
    ]
   },
   {
@@ -339,8 +340,8 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "09:28",
+   "salvataggi": 19,
+   "ultimo": "09:50",
    "caricato": false,
    "cartella_ok": true,
    "messaggio": "Passo D: cancella i file che non servono (salvadanaio/backup (cartella intera), salvadanaio/euro.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
@@ -350,6 +351,9 @@
     "calcolatirce2/calcolo.lpi",
     "calcolatirce2/unit1.lfm",
     "calcolatirce2/unit1.pas",
+    "calcolatrice3/calcolo.lpi",
+    "calcolatrice3/unit1.lfm",
+    "calcolatrice3/unit1.pas",
     "primo programma/euro.ico",
     "primo programma/euro.lpr",
     "primo programma/unit1.lfm",
@@ -588,19 +592,17 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 17,
-   "ultimo": "09:46",
+   "salvataggi": 19,
+   "ultimo": "09:51",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (calcolatrice diviso e meno/calcolatricedivisoemeno.lps, calcolatrice diviso e meno/calcolatricedivisoemeno.res): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo D: cancella i file che non servono (calcolatrice diviso e meno/calcolatricedivisoemeno.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "calcolatrice diviso e meno/calcolatricedivisoemeno.ico",
     "calcolatrice diviso e meno/calcolatricedivisoemeno.lpi",
     "calcolatrice diviso e meno/calcolatricedivisoemeno.lpr",
     "calcolatrice diviso e meno/calcolatricedivisoemeno.lps",
-    "calcolatrice diviso e meno/calcolatricedivisoemeno.res",
     "calcolatrice diviso e meno/unit1.lfm",
     "calcolatrice diviso e meno/unit1.pas",
     "calcolatrice v2/calcolatricev2.ico",

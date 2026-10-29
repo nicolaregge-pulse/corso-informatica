@@ -1,5 +1,5 @@
 {
- "ora": "09:49",
+ "ora": "09:51",
  "cartella": "calcolatrice",
  "righe": [
   {
@@ -56,14 +56,14 @@
     "per": true,
     "titolo": false,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatirce2»: va bene, la prossima volta chiamala «calcolatrice».",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub. La cartella si chiama «calcolatrice3»: va bene, la prossima volta chiamala «calcolatrice».",
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Giorgio A.",
@@ -160,7 +160,7 @@
     "piu": true,
     "per": true,
     "titolo": true,
-    "release": false,
+    "release": true,
     "v12_codice": true,
     "v12_commit": true,
     "v12_release": false,
@@ -260,20 +260,20 @@
     "cartella": true,
     "file": true,
     "pulita": true,
-    "commit": false,
+    "commit": true,
     "messaggio": false,
     "piu": true,
     "per": true,
     "titolo": false,
     "release": false,
-    "v12_codice": false,
-    "v12_commit": false,
+    "v12_codice": true,
+    "v12_commit": true,
     "v12_release": false,
-    "meno": false,
-    "div": false
+    "meno": true,
+    "div": true
    },
-   "messaggio": "La cartella c'è, ma oggi non hai ancora fatto il commit: ricarica la cartella calcolatrice con Upload files e Commit changes.",
-   "messaggio_v12": "Nel codice su GitHub non trovo ancora i bottoni - e DIV: scrivili, provali con F9 e carica di nuovo la cartella."
+   "messaggio": "Nel prossimo commit scrivi tu il messaggio (per esempio «calcolatrice da zero»), non lasciare quello di GitHub.",
+   "messaggio_v12": "Ultimo passo: la release v1.2 (Releases, Draft a new release, tag v1.2, titolo «Calcolatrice v1.2: quattro operazioni», Publish release)."
   },
   {
    "alunno": "Riccardo B.",
