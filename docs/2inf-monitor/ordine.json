@@ -1,5 +1,5 @@
 {
- "ora": "10:35",
+ "ora": "10:43",
  "cartella": "lazarus",
  "scadenza": "10:45",
  "pezzi_nomi": [
@@ -202,13 +202,20 @@
     "README",
     "salvadanaio"
    ],
-   "salvataggi": 11,
-   "ultimo": "10:19",
+   "salvataggi": 12,
+   "ultimo": "10:40",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo D: cancella i file che non servono (Calcolatrice/backup (cartella intera), Calcolatrice/lib (cartella intera), Calcolatrice/project1.exe, Calcolatrice/project1.lps): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
+   "messaggio": "Passo D: cancella i file che non servono (Calcolatrice 1.1/calcolatrice.lps, Calcolatrice 1.1/calcolatrice.res, Calcolatrice/backup (cartella intera), Calcolatrice/lib (cartella intera)): clicca il file o la cartella, tre puntini, Delete. Lascia solo .lpi .lpr .pas .lfm .ico.",
    "fuori": 0,
    "albero": [
+    "Calcolatrice 1.1/calcolatrice.ico",
+    "Calcolatrice 1.1/calcolatrice.lpi",
+    "Calcolatrice 1.1/calcolatrice.lpr",
+    "Calcolatrice 1.1/calcolatrice.lps",
+    "Calcolatrice 1.1/calcolatrice.res",
+    "Calcolatrice 1.1/unit1.lfm",
+    "Calcolatrice 1.1/unit1.pas",
     "Calcolatrice/backup/project1.lpi",
     "Calcolatrice/backup/project1.lps",
     "Calcolatrice/backup/unit1.lfm",
@@ -403,16 +410,18 @@
     "pulito",
     "README"
    ],
-   "salvataggi": 3,
-   "ultimo": "09:34",
+   "salvataggi": 5,
+   "ultimo": "10:35",
    "caricato": false,
    "cartella_ok": true,
-   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (calcolatrice 3, primo-programma): rinominale.",
+   "messaggio": "Passo B o E: mancano le cartelle «salvadanaio». Hai cartelle con un altro nome (calcolatrice 4, primo-programma): rinominale.",
    "fuori": 0,
    "albero": [
     "README.md",
-    "calcolatrice 3/calcolatrice3.exe",
-    "calcolatrice 3/unit6.pas",
+    "calcolatrice 4/backup/unit7.lfm.bak",
+    "calcolatrice 4/calcolatrice4.lpi",
+    "calcolatrice 4/unit7.lfm",
+    "calcolatrice 4/unit7.pas",
     "primo-programma/project1.lpi",
     "salvadanaio/project55"
    ]
