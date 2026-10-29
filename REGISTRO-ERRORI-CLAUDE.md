@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.94** — 29/10/2026 (#125-#145; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.95** — 29/10/2026 (#125-#146; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,16 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 29/10/2026 — Per la seconda volta di fila un percorso non controllabile e che non funziona (3INF) (#146)
+
+1. **Errore.** Come ieri, il percorso «Lazarus e Java a confronto» della 3INF non ha dato al docente il controllo della classe. Alle 11:20 nessun «Fatto», perché il percorso parte solo se si scrivono nome e PC. Alle 11:45 solo 5 su 21 erano oltre Eclipse. Nel cruscotto sono comparsi «null» al posto del voto, i PC sbagliati (presi da quello che scrivono i ragazzi), il 40 a chi non aveva consegnato e «consegnato entro le 06:40». Il passo 2 chiedeva una «linguetta» che i ragazzi non trovavano: 4 domande uguali. Un allievo era bloccato per un errore di Eclipse (package e module-info) che il percorso non prevedeva. Il docente: «per la seconda volta di fila hai creato un percorso di lavoro non controllabile e non funzionante».
+2. **Regola.**
+   1. Un percorso nuovo si prova DA CAPO prima della lezione, come un ragazzo: PC della scuola o Eclipse vero, nome e PC sbagliati, passo saltato.
+   2. Il controllo si basa su una prova che il docente vede senza pagine nostre: il Documento su Classroom, con lo screenshot.
+   3. Ogni passo ha una sola cosa da fare, con le parole che il ragazzo vede sullo schermo.
+   4. Il cruscotto non mostra mai «null», ore UTC o PC non confermati.
+   5. Se a 20 minuti dall'inizio meno di metà classe è avanti, si passa SUBITO al piano B scritto in anticipo: meno passi, una sola consegna.
 
 ## 29/10/2026 — Scheda «Domande dei ragazzi» ferma a ieri sera: il docente non vede le domande di oggi (#145)
 
