@@ -1,13 +1,13 @@
 {
- "ora": "09:11",
- "generato": "2026-10-30T09:11",
- "fonte": "Classroom: compito pubblicato, non ancora letto · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 9 risposte (lette alle 09:08) · Ciao 28/10 letto alle 11:15 · Veyon 57 righe · presenze dal registro",
- "ultimo_dato": "09:08",
+ "ora": "11:58",
+ "generato": "2026-10-30T11:58",
+ "fonte": "Classroom: compito letto alle 11:53 (ponte) · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 9 risposte (lette alle 09:33) · Ciao 28/10 letto alle 11:15 · Veyon 76 righe · presenze dal registro",
+ "ultimo_dato": "11:53",
  "banca": "1inf-lazarus-label",
  "fine": "14:00",
  "spiega": "Oggi: 8-9 quiz «Il computer scrive in tutte le lingue»; 11-14 Lazarus «Ciao 2: la Label». Voto del laboratorio: parte da 40; +15 Documento consegnato su Classroom; +10 il codice con Label1.Caption; +10 lo screenshot; +5 una frase con parole tue (anche nella tua lingua) = 80. I punti si contano nel Documento CONSEGNATO. Prima delle 10:30 il voto è quello del quiz. Si aggiorna ogni 5 minuti: premi F5. · العربية: الدرجة تبدأ من 40: ‎+15 تسليم المستند، ‎+10 الكود مع Label1.Caption، ‎+10 لقطة الشاشة، ‎+5 جملة بكلماتك = 80. · 中文：从 40 分开始：交文档 +15，有 Label1.Caption 的代码 +10，截图 +10，你自己的一句话 +5 = 80。",
- "link": "../1inf-unicode/",
- "link_t": "La lezione «Il computer scrive in tutte le lingue»",
+ "link": "../1inf-lazarus-label/",
+ "link_t": "La lezione «Ciao 2»",
  "colonne": [
   "1. Documento consegnato (+15)",
   "2. Codice con la Label (+10)",
@@ -16,8 +16,8 @@
   "Quiz Unicode (8-9)",
   "Ciao del 28/10"
  ],
- "riepilogo": "Laboratorio: consegnati 0 su 19 · quiz Unicode fatti: 9 su 19",
- "quiz_url": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform",
+ "riepilogo": "Laboratorio: consegnati 0 su 19 (Classroom letto alle 11:53) · quiz Unicode fatti: 9 su 19",
+ "quiz_url": "",
  "righe": [
   {
    "alunno": "Moaaz A.",
@@ -47,15 +47,15 @@
      "ok": true
     }
    ],
-   "voto": 80,
-   "conto": "Quiz Unicode: 40 + 40 × 15/15 = 80",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "15 su 15",
    "voto_ver": 80,
    "fuori": 1,
    "vy_ult": [
-    "08:50",
-    "PC 12: immagini satellitari (Google Earth o Maps)",
-    true
+    "11:48",
+    "PC 12: lettura della dispensa PDF",
+    false
    ],
    "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
@@ -88,14 +88,14 @@
      "ok": true
     }
    ],
-   "voto": 77,
-   "conto": "Quiz Unicode: 40 + 40 × 14/15 = 77",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "14 su 15",
    "voto_ver": 77,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 15: pagina del cruscotto dei ragazzi",
+    "11:48",
+    "PC 15: lettura della dispensa PDF",
     false
    ],
    "comportamento": "ok",
@@ -129,14 +129,14 @@
      "ok": true
     }
    ],
-   "voto": 75,
-   "conto": "Quiz Unicode: 40 + 40 × 13/15 = 75",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "13 su 15",
    "voto_ver": 75,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 27: quiz o teoria",
+    "11:48",
+    "PC 27: compito di laboratorio su Classroom",
     false
    ],
    "comportamento": "ok",
@@ -170,14 +170,14 @@
      "ok": true
     }
    ],
-   "voto": 69,
-   "conto": "Quiz Unicode: 40 + 40 × 11/15 = 69",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "11 su 15",
    "voto_ver": 69,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 25: pagina del cruscotto dei ragazzi",
+    "11:48",
+    "PC 25: pagina dell'avanzamento dei ragazzi",
     false
    ],
    "comportamento": "ok",
@@ -211,15 +211,15 @@
      "ok": true
     }
    ],
-   "voto": 67,
-   "conto": "Quiz Unicode: 40 + 40 × 10/15 = 67",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "10 su 15",
    "voto_ver": 67,
    "fuori": 1,
    "vy_ult": [
-    "08:50",
-    "PC 12: immagini satellitari (Google Earth o Maps)",
-    true
+    "11:48",
+    "PC 12: lettura della dispensa PDF",
+    false
    ],
    "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
@@ -252,14 +252,14 @@
      "ok": true
     }
    ],
-   "voto": 61,
-   "conto": "Quiz Unicode: 40 + 40 × 8/15 = 61",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "8 su 15",
    "voto_ver": 61,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 21: quiz o teoria",
+    "11:48",
+    "PC 21: compito di laboratorio su Classroom",
     false
    ],
    "comportamento": "ok",
@@ -293,14 +293,14 @@
      "ok": true
     }
    ],
-   "voto": 59,
-   "conto": "Quiz Unicode: 40 + 40 × 7/15 = 59",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "7 su 15",
    "voto_ver": 59,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 14: quiz o teoria",
+    "11:48",
+    "PC 14: lettura della dispensa PDF",
     false
    ],
    "comportamento": "ok",
@@ -334,14 +334,14 @@
      "ok": true
     }
    ],
-   "voto": 56,
-   "conto": "Quiz Unicode: 40 + 40 × 6/15 = 56",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "6 su 15",
    "voto_ver": 56,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 11: quiz o teoria",
+    "11:48",
+    "PC 11: lettura della dispensa PDF",
     false
    ],
    "comportamento": "ok",
@@ -375,15 +375,15 @@
      "ok": true
     }
    ],
-   "voto": 53,
-   "conto": "Quiz Unicode: 40 + 40 × 5/15 = 53",
+   "voto": 40,
+   "conto": "Laboratorio: 40 = 40",
    "verifica": "5 su 15",
    "voto_ver": 53,
    "fuori": 1,
    "vy_ult": [
-    "08:50",
-    "PC 13: immagini satellitari (Google Earth o Maps)",
-    true
+    "11:48",
+    "PC 13: spento, non visibile",
+    false
    ],
    "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
@@ -423,12 +423,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 34: quiz o teoria",
+    "11:48",
+    "PC 34: quiz della dispensa",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Aya B.",
@@ -465,12 +465,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 18: pagina del cruscotto dei ragazzi (finalmente entrata)",
+    "11:48",
+    "PC 18: compito di laboratorio su Classroom",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Alessio C.",
@@ -507,12 +507,12 @@
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
-    "08:50",
-    "PC 24: quiz o teoria",
+    "11:48",
+    "PC 24: quiz della dispensa",
     false
    ],
    "comportamento": "fuori compito 1 volte",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Nehara F.",
@@ -549,12 +549,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 16: quiz o teoria",
+    "11:48",
+    "PC 16: lettura della dispensa PDF",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Muhid H.",
@@ -591,12 +591,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 35: quiz o teoria",
+    "11:48",
+    "PC 35: quiz della dispensa",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Yinlin L.",
@@ -633,12 +633,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 29: quiz o teoria",
+    "11:48",
+    "PC 29: quiz della dispensa (in cinese)",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Abdel N.",
@@ -675,12 +675,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 36: quiz o teoria",
+    "11:48",
+    "PC 36: pagina dell'avanzamento dei ragazzi",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Muhammad N.",
@@ -717,12 +717,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 23: quiz o teoria",
+    "11:48",
+    "PC 23: pagina dell'avanzamento dei ragazzi",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Thomas R.",
@@ -759,12 +759,12 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 28: quiz o teoria",
+    "11:48",
+    "PC 28: quiz della dispensa",
     false
    ],
    "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Shanzay S.",
@@ -802,8 +802,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:50",
-    "PC 17: Classroom",
+    "11:48",
+    "PC 17: compito di laboratorio su Classroom",
     false
    ],
    "comportamento": "ok",
