@@ -26,26 +26,20 @@
    "tipo": "moduli"
   },
   {
-   "etichetta": "5ª ora ripasso (pagina)",
-   "corta": "5ª rip.",
-   "conta": false,
-   "tipo": "banca"
-  },
-  {
    "etichetta": "5ª ora: rischio infortuni (quiz Moduli)",
    "corta": "5ª",
    "conta": true,
    "tipo": "moduli"
   },
   {
-   "etichetta": "Allenamento nel ripasso in pagina (fuori voto)",
-   "corta": "Allen.",
+   "etichetta": "Allenamenti (fuori voto): prove nelle pagine di ripasso delle ore 3ª, 4ª e 5ª",
+   "corta": "Allenamenti",
    "conta": false,
    "tipo": "pratica"
   }
  ],
- "dato": "2026-10-30T09:28",
- "generato": "2026-10-30T09:31",
+ "dato": "2026-10-30T09:33",
+ "generato": "2026-10-30T09:39",
  "righe": [
   {
    "alunno": "Luca B.",
@@ -82,7 +76,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -93,9 +86,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -134,7 +125,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -145,9 +135,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -186,7 +174,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -197,9 +184,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -238,7 +223,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -249,9 +233,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -290,7 +272,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -301,9 +282,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -342,7 +321,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -353,9 +331,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -394,7 +370,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 95,
      "m": 100,
@@ -405,9 +380,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -446,7 +419,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -457,9 +429,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -498,7 +468,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -509,9 +478,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -550,7 +517,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 100,
      "m": 100,
@@ -561,9 +527,7 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
    "su": 5
   },
@@ -602,7 +566,6 @@
      "oggi": false,
      "volte": 1
     },
-    null,
     {
      "p": 85,
      "m": 100,
@@ -613,10 +576,52 @@
     },
     null
    ],
-   "manca": [
-    "5ª ora ripasso (pagina)"
-   ],
+   "manca": [],
    "fatti": 5,
+   "su": 5
+  },
+  {
+   "alunno": "Katherine A.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "01/10 13:33",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:24",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:36",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:44",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    null
+   ],
+   "manca": [
+    "5ª ora: rischio infortuni (quiz Moduli)"
+   ],
+   "fatti": 4,
    "su": 5
   },
   {
@@ -655,11 +660,9 @@
      "volte": 1
     },
     null,
-    null,
     null
    ],
    "manca": [
-    "5ª ora ripasso (pagina)",
     "5ª ora: rischio infortuni (quiz Moduli)"
    ],
    "fatti": 4,

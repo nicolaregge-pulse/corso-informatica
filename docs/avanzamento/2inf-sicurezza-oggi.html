@@ -43,7 +43,7 @@ td.ve{min-width:200px}
 <div id="blocco" class="allarme hide"></div>
 <div id="pres" class="giallo hide">Presenze di oggi non ancora segnate: compaiono tutti gli allievi della classe.</div>
 <div id="riep" class="riep"></div>
-<div class="giallo">Voto del quiz = 40 + 40 × punti/massimo. In giallo: fatti OGGI. In verde: fatti prima. ❌ = manca.<br>Colonna «Allen.» (fuori voto, non conta in «N su M» né in «Manca»): risposte date nel ripasso in pagina delle ore 3, 4 e 5 (quante in tutto, quali ore, ultima ora, quante aperture). La pagina manda solo quante risposte e fino a che scheda, NON se sono giuste: il punteggio dell'allenamento non esiste. L'allenamento delle ore 1-2 (pagina di recupero) non registra niente.</div>
+<div class="giallo">Voto del quiz = 40 + 40 × punti/massimo. In giallo: fatti OGGI. In verde: fatti prima. ❌ = manca.<br>Colonna «Allenamenti» (fuori voto, non conta in «N su M» né in «Manca»): quante prove nelle pagine di ripasso delle ore 3ª, 4ª e 5ª (consegne della pagina verifica e aperture del ripasso con risposte), quali ore, ultima ora. «—» = nessuna prova registrata. Attenzione: i segnali del ripasso in pagina e l'allenamento della pagina di recupero (ore 1-2) NON arrivano qui (lo script li scrive solo nel suo Foglio di riserva): oggi la colonna conta solo le consegne della pagina verifica. Gli assenti di oggi sono in fondo, in grigio.</div>
 <div class="mu" id="stato">—</div>
 <div class="tab" id="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu">Sotto il voto: punti, data e ora della risposta migliore (e quante volte). Su telefono la tabella scorre di lato con il dito; il nome resta fermo. La pagina si aggiorna da sola ogni minuto; i dati arrivano dai Moduli ogni 5 minuti circa. Pagina dei ragazzi: <a href="../2inf-sicurezza-quiz/" target="_blank">2inf-sicurezza-quiz</a>.</p>
@@ -61,8 +61,8 @@ async function dec(d){var k=await chiave(d);return JSON.parse(new TextDecoder().
 async function leggi(){var t=Date.now(),L=await Promise.all([RAW+'?t='+t,JN+'?t='+t].map(function(u){return fetch(u,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){return d?dec(d):null}).catch(function(){return null})}));
  L=L.filter(Boolean);if(!L.length)throw new Error('nessun dato');L.sort(function(a,b){return String(b.generato||'').localeCompare(String(a.generato||''))});return L[0]}
 function ora(s){return String(s||'').slice(11,16)}
-function cella(o,col){var t=col.etichetta;if(o&&o.pratica)return '<td title="'+e(t)+'"><span class="q nu">'+o.risposte+' risp.</span><span class="dt">'+e(o.ore)+(o.quando?' · '+e(o.oggi?o.quando.slice(6):o.quando):'')+(o.volte>1?' ('+o.volte+' aperture)':'')+'</span></td>';if(!o)return '<td title="'+e(t)+'"><span class="q no">❌</span></td>';
- return '<td title="'+e(t)+' · '+o.p+'/'+o.m+'"><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.modo==='recupero'?' rec.':'')+(o.quando?' · '+e(o.oggi?o.quando.slice(6):o.quando):'')+(o.volte>1?' ('+o.volte+' volte)':'')+'</span></td>'}
+function cella(o,col){var t=col.etichetta;if(col.tipo==='pratica'){if(!o)return '<td title="'+e(t)+'"><span class="q nu">—</span></td>';var np=o.prove!=null?o.prove:o.volte;return '<td title="'+e(t)+'"><span class="q nu">'+(np||0)+(np===1?' prova':' prove')+'</span><span class="dt">'+e(o.ore||'—')+' · '+e(o.quando||'—')+(o.risposte?' · '+o.risposte+' risp.':'')+'</span></td>'}if(!o)return '<td title="'+e(t)+'"><span class="q no">❌</span></td>';
+ return '<td title="'+e(t)+' · '+o.p+'/'+o.m+'"><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.modo==='recupero'?' rec.':'')+' · '+e(o.quando||'—')+(o.volte>1?' ('+o.volte+' volte)':'')+'</span></td>'}
 function mostra(D){
  var R=D.righe||[],C=D.colonne||[],P=R.filter(function(r){return r.presente!==false});
  if(D.titolo){$('tit').textContent=D.titolo;document.title=D.titolo}
