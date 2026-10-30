@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><title>Lezione frontale: stringhe e interi v1.0</title>
+<style>
+@page{size:A4;margin:14mm}
+body{font-family:DejaVu Sans,Arial,sans-serif;font-size:12.5pt;line-height:1.4;color:#111}
+h1{font-size:20pt;margin:0 0 4px}
+h2{font-size:14.5pt;margin:16px 0 6px;border-bottom:2px solid #333;padding-bottom:2px;page-break-after:avoid}
+.sub{color:#444;margin-bottom:10px}
+.lav{border:2px solid #1a5fb4;background:#eef4ff;padding:8px 12px;margin:8px 0;font-family:DejaVu Sans Mono,monospace;font-size:13pt;white-space:pre}
+.dom{border-left:5px solid #c88800;background:#fff7e0;padding:6px 10px;margin:6px 0}
+.q{border:2px dashed #2a7a2a;padding:8px 12px;margin:8px 0;background:#f0fff0}
+table{border-collapse:collapse;width:100%;margin:6px 0}
+td,th{border:1px solid #666;padding:5px 8px;text-align:left}
+th{background:#eee}
+code{font-family:DejaVu Sans Mono,monospace}
+.min{color:#555;font-size:10.5pt}
+</style></head><body>
+<h1>Lezione frontale: stringhe e interi</h1>
+<div class="sub">1INF, venerdì 30/10/2026, ora 8-9 (Tecnologia) · versione 1.0 · traccia per il docente, circa 25 minuti, poi i ragazzi fanno la teoria e il quiz al PC</div>
+
+<h2>1 La variabile è una scatola con l'etichetta (5 min)</h2>
+<p>Disegna alla lavagna due scatole con un'etichetta sopra.</p>
+<div class="lav">[ nome ]        [ eta ]
+ "Ahmed"          14</div>
+<div class="dom">Domanda alla classe: «Che differenza vedete tra le due scatole?» (una ha le virgolette, l'altra no).</div>
+<p>Regola: ogni scatola accetta UN solo tipo di cosa. Il tipo si decide quando si crea la scatola.</p>
+
+<h2>2 String e Integer (5 min)</h2>
+<table>
+<tr><th>Tipo</th><th>Che cosa contiene</th><th>Come si scrive</th><th>Esempi</th></tr>
+<tr><td><b>String</b></td><td>testo, lettere, anche cifre</td><td>tra apici <code>' '</code></td><td><code>'ciao'</code> <code>'42'</code> <code>'007'</code></td></tr>
+<tr><td><b>Integer</b></td><td>numero intero, si può fare il conto</td><td>senza apici</td><td><code>42</code> <code>-5</code> <code>0</code></td></tr>
+</table>
+<div class="lav">var nome: String;
+    eta:  Integer;</div>
+<div class="dom">Domande al volo (alzata di mano): <code>'42'</code> è String o Integer? <code>-5</code>? <code>'007'</code>? <code>3,5</code>? (3,5 NON è Integer: ha la virgola.)</div>
+
+<h2>3 La trappola del più (5 min)</h2>
+<div class="lav">'5' + '3'   =   '53'     (String: le attacca)
+ 5  +  3    =    8       (Integer: fa il conto)</div>
+<div class="dom">Prima di scrivere il risultato chiedi: «Quanto fa '5' + '3'?» Lascia che rispondano 8, poi mostra 53. È il momento che ricordano.</div>
+
+<h2>4 In Lazarus tutto quello che si vede è String (5 min)</h2>
+<div class="lav">Edit1.Text       → String  (anche se scrivi 15)
+Label1.Caption   → String</div>
+<p>Per fare i conti servono i due «traduttori»:</p>
+<div class="lav">StrToInt('15')   →  15     (da testo a numero)
+IntToStr(8)      →  '8'    (da numero a testo)</div>
+<div class="lav">a := StrToInt(Edit1.Text);
+b := StrToInt(Edit2.Text);
+Label1.Caption := IntToStr(a + b);</div>
+<div class="dom">Domanda: «Che cosa succede se scrivo <code>Label1.Caption := a + b;</code>?» Risposta: F9 dà errore, tipi incompatibili. «E se scrivo <code>Edit1.Text + Edit2.Text</code> con 5 e 3?» Risposta: 53.</div>
+
+<h2>5 Da ricopiare sul quaderno (3 min)</h2>
+<div class="q">1. String = testo, si scrive tra apici: '42' è testo.<br>
+2. Integer = numero intero, si può sommare: 42 è un numero.<br>
+3. '5' + '3' fa '53'; 5 + 3 fa 8.<br>
+4. StrToInt: da testo a numero. IntToStr: da numero a testo.</div>
+
+<h2>6 Poi al PC (resto dell'ora)</h2>
+<p>Compito Unicode su Classroom, passi 4-6: teoria «Stringhe e interi», quiz su Moduli, righe sul quaderno. Chi ha domande le scrive nella casella dell'assistente.</p>
+<p class="min">Fotografa la lavagna a fine spiegazione e mandala in chat: entra nella teoria della lezione.</p>
+</body></html>
