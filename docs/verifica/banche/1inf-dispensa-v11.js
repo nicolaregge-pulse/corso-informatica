@@ -1,4 +1,4 @@
-// 1INF · quiz su tutta la dispensa v1.1 (classe-1/dispensa/dispensa-1inf.md). PIANO B del quiz su Moduli. CHIUSA: preparata il 30/10/2026, NON pubblicata ai ragazzi; la verifica resta chiusa finché non esiste stato/1inf-dispensa-v11.json con "verifica": "aperta" (solo dopo il sì di Nicola).
+// 1INF · quiz su tutta la dispensa v1.1 (classe-1/dispensa/dispensa-1inf.md). PIANO B del quiz su Moduli. Preparata il 30/10/2026, APERTA il 30/10 alle ~11:30 («apri quiz» di Nicola) con stato/1inf-dispensa-v11.json. Dopo la consegna: bottone verso Lazarus Ora 1 (campo «dopo»).
 window.BANCA = {
  "id": "1inf-dispensa-v11-v1",
  "classe": "1INF",
@@ -6,6 +6,7 @@ window.BANCA = {
  "sotto": "1INF · dispensa v1.1 · lezioni dal 15/09 al 30/10/2026 · 15 crocette e 5 domande scritte",
  "stato": "stato/1inf-dispensa-v11.json",
  "minuti": 30,
+ "dopo": {"t": "Finito il quiz: Lazarus, Ora 1 · Il pasticcio dei numeri", "u": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/1inf-lab-30-10/modulo-1.html", "nota": "Se ti blocchi a creare il progetto, alza la mano: arriva il Professore."},
  "anteprima": "4195422281",
  "aree": {
   "dispensa": {

@@ -411,7 +411,8 @@ svg text{fill:var(--fg)}
     if (CONF.invio) {
       var mandaH = inv ? '<div class="card" style="border:4px solid var(--verde)"><h2 style="margin-top:0">Hai finito: la ' + modo + ' è arrivata al prof alle ' + e(inv.ora) + '</h2><p>Si è aperta una scheda con scritto <b>«Consegna arrivata al prof»</b>. Puoi chiuderla.</p><button class="bt g" id="manda">Mandala di nuovo</button></div>'
         : '<div class="card" style="border:4px solid var(--rosso)"><h2 style="margin-top:0">Manca un clic: manda la ' + modo + ' al prof</h2><button class="bt v" id="manda" style="font-size:22px;padding:16px 28px">Manda al prof</button></div>';
-      var pa = perArea(R), h = avvisoV + mandaH + '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
+      var dopoH = (B.dopo && inv) ? '<div class="card" style="border:4px solid #6e40c9"><h2 style="margin-top:0">Prossimo passo</h2><a class="bt v" target="_blank" href="' + e(B.dopo.u) + '">' + e(B.dopo.t) + '</a>' + (B.dopo.nota ? '<p>' + e(B.dopo.nota) + '</p>' : '') + '</div>' : ''; // 30/10/2026: il passo dopo il quiz (campo facoltativo «dopo» della banca)
+      var pa = perArea(R), h = avvisoV + mandaH + dopoH + '<div class="card"><h2>' + (modo === 'recupero' ? 'Recupero' : 'Verifica') + ' consegnata</h2><div class="mu">' + e(R.nome) + ' · ' + e(R.quando) + '</div><ol>';
       Object.keys(pa).forEach(function (k) { h += '<li>' + e((B.aree[k] || {}).nome || k) + ': <b>' + pa[k].giuste + ' giuste su ' + pa[k].su + '</b></li>'; });
       h += '<li>Risposte scritte: le valuta il prof.</li></ol><p>Il voto è un <b>giudizio complessivo</b>: lo trovi nella pagina dei risultati appena il prof ha corretto.</p>' + (B.risultati ? '<a class="bt g" href="' + B.risultati + '" target="_blank">Risultati della classe</a>' : '') + '</div>';
       h += correzione(R);
