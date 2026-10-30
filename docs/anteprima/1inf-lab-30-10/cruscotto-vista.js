@@ -15,7 +15,7 @@ function disegnaCruscotto(D,docente){
   R.forEach(function(r){
     var finito=[1,2,3].every(function(o){var v=r.ore[o];return v.pas&&v.png});
     var t=r.teoria||{},q=r.quiz;
-    h+='<tr><td class="fix"><b>'+e(r.nome)+'</b>'+(finito?' 🏁':'')+'</td>'+qm(r.dispensa).replace('</td>',(r.dispensa&&r.dispensa.corte?'<br><span class="mini">'+r.dispensa.corte+' aperte corte</span>':'')+'</td>')+qm((r.mattina||{}).uni)+qm((r.mattina||{}).si)+'<td>'+(t.schede?('schede '+t.schede+'/6'):'<span class="mu">·</span>')+(q?'<br>quiz <b>'+q.giuste+'/'+q.su+'</b>':'')+'</td>';
+    h+='<tr><td class="fix"><b>'+e(r.nome)+'</b>'+(finito?' 🏁':'')+'</td>'+qm(r.dispensa).replace('</td>',(r.dispensa&&r.dispensa.corte?'<br><span class="mini">'+r.dispensa.corte+' aperte corte</span>':'')+(r.dispensa&&r.dispensa.rec?'<br><span class="mini"><b>recupero '+e(r.dispensa.rec)+'</b></span>':'')+'</td>')+qm((r.mattina||{}).uni)+qm((r.mattina||{}).si)+'<td>'+(t.schede?('schede '+t.schede+'/6'):'<span class="mu">·</span>')+(q?'<br>quiz <b>'+q.giuste+'/'+q.su+'</b>':'')+'</td>';
     [1,2,3].forEach(function(o){var v=r.ore[o],ps=v.passo?(v.passo+'/'+v.tot):(v.facile?('facile '+v.facile+'/3'):'·');
       var manca=(v.manca||[]).length?'manca: '+v.manca.join(', '):'';
       h+='<td class="o'+o+'" title="'+e(v.titolo||'')+'">'+ps+(v.ultimo?'<br><span class="mu">'+e(v.ultimo)+'</span>':'')+'</td>'+cella(v.pas||(v.stato_cr?false:null),v.fonti.join(', ')||v.stato_cr)+cella(v.png||(v.stato_cr?false:null),v.fonti.join(', '))+(v.ok===null?'<td class="nu">·</td>':cella(v.ok,manca)).replace('</td>',(v.ok===false&&docente?'<br><span class="mini">'+e(manca)+'</span>':'')+'</td>')});
