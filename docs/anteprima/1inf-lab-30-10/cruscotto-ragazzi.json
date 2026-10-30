@@ -1,7 +1,7 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T12:25",
- "ora": "12:25",
+ "generato": "2026-10-30T12:30",
+ "ora": "12:30",
  "fonte": "piani A + B · segnali Foglio: 28 · consegne pagina: 0 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
@@ -20,8 +20,8 @@
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
-   "ora": "12:15",
-   "iso": "2026-10-30T12:15+01:00",
+   "ora": "12:26",
+   "iso": "2026-10-30T12:26+01:00",
    "vecchio": false
   },
   {
@@ -262,7 +262,12 @@
      "ora": "08:43"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 6,
+    "m": 15,
+    "corte": 5,
+    "ora": "12:18"
+   },
    "teoria": {
     "schede": 6,
     "risposte": 0
@@ -275,7 +280,8 @@
    "svolto": 0.0,
    "conto": [
     "base 40",
-    "quiz S/I 21/22 (almeno 60%) +7"
+    "quiz S/I 21/22 (almeno 60%) +7",
+    "quiz dispensa 6/15: si vede, per ora non conta"
    ]
   },
   {
@@ -798,7 +804,12 @@
      "ora": "08:54"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 10,
+    "m": 15,
+    "corte": 5,
+    "ora": "11:52"
+   },
    "teoria": {
     "schede": 0,
     "risposte": 0
@@ -811,7 +822,8 @@
    "svolto": 0.0,
    "conto": [
     "base 40",
-    "quiz S/I 14/22 (almeno 60%) +7"
+    "quiz S/I 14/22 (almeno 60%) +7",
+    "quiz dispensa 10/15: si vede, per ora non conta"
    ]
   },
   {
@@ -872,7 +884,7 @@
     "p": 2,
     "m": 15,
     "corte": 5,
-    "ora": "12:14"
+    "ora": "12:26"
    },
    "teoria": {
     "schede": 6,
@@ -1176,7 +1188,12 @@
      "ora": "08:45"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 2,
+    "m": 15,
+    "corte": 4,
+    "ora": "12:13"
+   },
    "teoria": {
     "schede": 6,
     "risposte": 12
@@ -1189,7 +1206,8 @@
    "svolto": 0.0,
    "conto": [
     "base 40",
-    "quiz S/I 12/22 (sotto il 60%) +0"
+    "quiz S/I 12/22 (sotto il 60%) +0",
+    "quiz dispensa 2/15: si vede, per ora non conta"
    ]
   },
   {
