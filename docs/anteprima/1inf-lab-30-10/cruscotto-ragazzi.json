@@ -1,8 +1,8 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T13:50",
- "ora": "13:50",
- "fonte": "piani A + B · segnali Foglio: 41 · consegne pagina: 1 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
+ "generato": "2026-10-30T13:52",
+ "ora": "13:52",
+ "fonte": "piani A + B · segnali Foglio: 41 · consegne pagina: 2 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "fonti_ora": [
@@ -215,6 +215,88 @@
    ]
   },
   {
+   "nome": "Giexther A.",
+   "ore": {
+    "1": {
+     "passo": 10,
+     "tot": 11,
+     "titolo": "Il traduttore IntToStr",
+     "facile": 0,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "13:37"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 15,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "mattina": {
+    "uni": {
+     "p": 14,
+     "m": 15,
+     "ora": "08:50"
+    },
+    "si": {
+     "p": 16,
+     "m": 22,
+     "ora": "08:45"
+    }
+   },
+   "dispensa": {
+    "p": 9,
+    "m": 15,
+    "corte": 3,
+    "ora": "12:18"
+   },
+   "teoria": {
+    "schede": 6,
+    "risposte": 9
+   },
+   "quiz": null,
+   "fermo_da": "13:51",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.9090909090909092,
+   "conto": [
+    "base 40",
+    "ora 1 screenshot +3",
+    "quiz S/I 16/22 (almeno 60%) +7",
+    "quiz dispensa 9/15: si vede, per ora non conta"
+   ]
+  },
+  {
    "nome": "Muhid H.",
    "ore": {
     "1": {
@@ -292,86 +374,6 @@
     "base 40",
     "quiz S/I 22/22 (almeno 60%) +7",
     "quiz dispensa 6/15: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Giexther A.",
-   "ore": {
-    "1": {
-     "passo": 10,
-     "tot": 11,
-     "titolo": "Il traduttore IntToStr",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "13:37"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 47,
-   "mattina": {
-    "uni": {
-     "p": 14,
-     "m": 15,
-     "ora": "08:50"
-    },
-    "si": {
-     "p": 16,
-     "m": 22,
-     "ora": "08:45"
-    }
-   },
-   "dispensa": {
-    "p": 9,
-    "m": 15,
-    "corte": 3,
-    "ora": "12:18"
-   },
-   "teoria": {
-    "schede": 6,
-    "risposte": 9
-   },
-   "quiz": null,
-   "fermo_da": "13:37",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.9090909090909091,
-   "conto": [
-    "base 40",
-    "quiz S/I 16/22 (almeno 60%) +7",
-    "quiz dispensa 9/15: si vede, per ora non conta"
    ]
   },
   {
