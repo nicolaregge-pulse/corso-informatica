@@ -20,9 +20,36 @@
    "tipo": "moduli"
   }
  ],
- "dato": "2026-10-30T12:14",
- "generato": "2026-10-30T12:18",
+ "dato": "2026-10-30T12:18",
+ "generato": "2026-10-30T12:23",
  "righe": [
+  {
+   "alunno": "Matteo A.",
+   "q": [
+    {
+     "p": 15,
+     "m": 15,
+     "v": 80,
+     "quando": "30/10 12:14",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 22,
+     "m": 22,
+     "v": 80,
+     "quando": "30/10 08:53",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
   {
    "alunno": "Moaaz A.",
    "q": [
@@ -94,6 +121,33 @@
      "m": 22,
      "v": 80,
      "quando": "30/10 08:50",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "alunno": "Muhid H.",
+   "q": [
+    {
+     "p": 14,
+     "m": 15,
+     "v": 77,
+     "quando": "30/10 12:15",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 22,
+     "m": 22,
+     "v": 80,
+     "quando": "30/10 08:53",
      "oggi": true,
      "volte": 1
     }
@@ -321,6 +375,33 @@
    "su": 2
   },
   {
+   "alunno": "Nehara F.",
+   "q": [
+    {
+     "p": 11,
+     "m": 15,
+     "v": 69,
+     "quando": "30/10 12:16",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 12,
+     "m": 22,
+     "v": 62,
+     "quando": "30/10 08:45",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
    "alunno": "Alessio C.",
    "q": [
     {
@@ -429,48 +510,6 @@
    "su": 2
   },
   {
-   "alunno": "Matteo A.",
-   "q": [
-    null,
-    null,
-    {
-     "p": 22,
-     "m": 22,
-     "v": 80,
-     "quando": "30/10 08:53",
-     "oggi": true,
-     "volte": 1
-    }
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "alunno": "Muhid H.",
-   "q": [
-    null,
-    null,
-    {
-     "p": 22,
-     "m": 22,
-     "v": 80,
-     "quando": "30/10 08:53",
-     "oggi": true,
-     "volte": 1
-    }
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
    "alunno": "Abdel N.",
    "q": [
     null,
@@ -480,27 +519,6 @@
      "m": 22,
      "v": 80,
      "quando": "30/10 08:50",
-     "oggi": true,
-     "volte": 1
-    }
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)"
-   ],
-   "fatti": 1,
-   "su": 2
-  },
-  {
-   "alunno": "Nehara F.",
-   "q": [
-    null,
-    null,
-    {
-     "p": 12,
-     "m": 22,
-     "v": 62,
-     "quando": "30/10 08:45",
      "oggi": true,
      "volte": 1
     }
