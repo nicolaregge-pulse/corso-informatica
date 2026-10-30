@@ -1,7 +1,7 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T13:40",
- "ora": "13:40",
+ "generato": "2026-10-30T13:42",
+ "ora": "13:42",
  "fonte": "piani A + B · segnali Foglio: 41 · consegne pagina: 1 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
@@ -14,14 +14,14 @@
   },
   {
    "fonte": "Quiz Stringhe e interi (Moduli)",
-   "ora": "13:38",
-   "iso": "2026-10-30T13:38+01:00",
-   "vecchio": false
+   "ora": "12:03",
+   "iso": "2026-10-30T12:03+01:00",
+   "vecchio": true
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
-   "ora": "13:36",
-   "iso": "2026-10-30T13:36+01:00",
+   "ora": "13:40",
+   "iso": "2026-10-30T13:40+01:00",
    "vecchio": false
   },
   {
@@ -432,7 +432,13 @@
      "ora": "11:33"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 0,
+    "m": 0,
+    "corte": 0,
+    "ora": "",
+    "rec": "13:40"
+   },
    "teoria": {
     "schede": 6,
     "risposte": 8
@@ -445,7 +451,8 @@
    "svolto": 0.8,
    "conto": [
     "base 40",
-    "quiz S/I 15/22 (almeno 60%) +7"
+    "quiz S/I 15/22 (almeno 60%) +7",
+    "quiz dispensa 0/0: si vede, per ora non conta"
    ]
   },
   {
