@@ -44,9 +44,61 @@
    "tipo": "pratica"
   }
  ],
- "dato": "2026-10-30T09:23",
- "generato": "2026-10-30T09:26",
+ "dato": "2026-10-30T09:28",
+ "generato": "2026-10-30T09:31",
  "righe": [
+  {
+   "alunno": "Luca B.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 11:49",
+     "oggi": false,
+     "volte": 2
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 19:44",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 11:58",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 12:03",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "30/10 09:24",
+     "oggi": true,
+     "volte": 1
+    },
+    null
+   ],
+   "manca": [
+    "5ª ora ripasso (pagina)"
+   ],
+   "fatti": 5,
+   "su": 5
+  },
   {
    "alunno": "Riccardo B.",
    "q": [
@@ -565,52 +617,6 @@
     "5ª ora ripasso (pagina)"
    ],
    "fatti": 5,
-   "su": 5
-  },
-  {
-   "alunno": "Luca B.",
-   "q": [
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 11:49",
-     "oggi": false,
-     "volte": 2
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 19:44",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 11:58",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 12:03",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "5ª ora ripasso (pagina)",
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
    "su": 5
   },
   {
