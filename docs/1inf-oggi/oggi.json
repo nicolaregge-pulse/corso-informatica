@@ -1,8 +1,8 @@
 {
- "ora": "08:41",
- "generato": "2026-10-30T08:41",
- "fonte": "Classroom: compito pubblicato, non ancora letto · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 0 risposte (lette alle 08:37) · Ciao 28/10 letto alle 11:15 · Veyon 38 righe · presenze dal registro",
- "ultimo_dato": "08:37",
+ "ora": "08:45",
+ "generato": "2026-10-30T08:45",
+ "fonte": "Classroom: compito pubblicato, non ancora letto · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 1 risposte (lette alle 08:42) · Ciao 28/10 letto alle 11:15 · Veyon 38 righe · presenze dal registro",
+ "ultimo_dato": "08:42",
  "banca": "1inf-lazarus-label",
  "fine": "14:00",
  "spiega": "Oggi: 8-9 quiz «Il computer scrive in tutte le lingue»; 11-14 Lazarus «Ciao 2: la Label». Voto del laboratorio: parte da 40; +15 Documento consegnato su Classroom; +10 il codice con Label1.Caption; +10 lo screenshot; +5 una frase con parole tue (anche nella tua lingua) = 80. I punti si contano nel Documento CONSEGNATO. Prima delle 10:30 il voto è quello del quiz. Si aggiorna ogni 5 minuti: premi F5. · العربية: الدرجة تبدأ من 40: ‎+15 تسليم المستند، ‎+10 الكود مع Label1.Caption، ‎+10 لقطة الشاشة، ‎+5 جملة بكلماتك = 80. · 中文：从 40 分开始：交文档 +15，有 Label1.Caption 的代码 +10，截图 +10，你自己的一句话 +5 = 80。",
@@ -16,9 +16,50 @@
   "Quiz Unicode (8-9)",
   "Ciao del 28/10"
  ],
- "riepilogo": "Laboratorio: consegnati 0 su 19 · quiz Unicode fatti: 0 su 19",
+ "riepilogo": "Laboratorio: consegnati 0 su 19 · quiz Unicode fatti: 1 su 19",
  "quiz_url": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform",
  "righe": [
+  {
+   "alunno": "Enea Z.",
+   "celle": [
+    {
+     "t": "○ non ancora: premi «Consegna»",
+     "ok": false
+    },
+    {
+     "t": "○ manca la riga con Label1.Caption",
+     "ok": false
+    },
+    {
+     "t": "○ manca lo screenshot",
+     "ok": false
+    },
+    {
+     "t": "○ manca la frase con parole tue",
+     "ok": false
+    },
+    {
+     "t": "✔ 13/15 → 75",
+     "ok": true
+    },
+    {
+     "t": "✔ fatto il 28/10",
+     "ok": true
+    }
+   ],
+   "voto": 75,
+   "conto": "Quiz Unicode: 40 + 40 × 13/15 = 75",
+   "verifica": "13 su 15",
+   "voto_ver": 75,
+   "fuori": 0,
+   "vy_ult": [
+    "08:37",
+    "PC 27: quiz Moduli",
+    false
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
+  },
   {
    "alunno": "Moaaz A.",
    "celle": [
@@ -775,48 +816,6 @@
    ],
    "comportamento": "ok",
    "cosa_fare": "Prima il Ciao del 28/10: fai il programma Ciao e consegna quel Documento su Classroom (stessa pagina, link in alto). Poi la Label."
-  },
-  {
-   "alunno": "Enea Z.",
-   "celle": [
-    {
-     "t": "○ non ancora: premi «Consegna»",
-     "ok": false
-    },
-    {
-     "t": "○ manca la riga con Label1.Caption",
-     "ok": false
-    },
-    {
-     "t": "○ manca lo screenshot",
-     "ok": false
-    },
-    {
-     "t": "○ manca la frase con parole tue",
-     "ok": false
-    },
-    {
-     "t": "○ non ancora fatto",
-     "ok": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform"
-    },
-    {
-     "t": "✔ fatto il 28/10",
-     "ok": true
-    }
-   ],
-   "voto": 40,
-   "conto": "Laboratorio: 40 = 40",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "08:37",
-    "PC 27: quiz Moduli",
-    false
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
   }
  ]
 }
