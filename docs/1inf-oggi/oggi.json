@@ -1,8 +1,8 @@
 {
- "ora": "13:29",
- "generato": "2026-10-30T13:29",
- "fonte": "Classroom: compito letto alle 13:28 (ponte) · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle 13:29 · quiz Unicode: 18 risposte (lette alle 12:40) · Ciao 28/10 letto alle 13:28 · Veyon 76 righe · presenze dal registro",
- "ultimo_dato": "13:28",
+ "ora": "13:34",
+ "generato": "2026-10-30T13:34",
+ "fonte": "Classroom: compito letto alle 13:32 (ponte) · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle 13:29 · quiz Unicode: 18 risposte (lette alle 13:31) · Ciao 28/10 letto alle 13:28 · Veyon 76 righe · presenze dal registro",
+ "ultimo_dato": "13:32",
  "banca": "1inf-lazarus-label",
  "fine": "14:00",
  "spiega": "Oggi: 8-9 quiz «Il computer scrive in tutte le lingue»; 11-14 Lazarus «Ciao 2: la Label». Voto del laboratorio: parte da 40; +15 Documento consegnato su Classroom; +10 il codice con Label1.Caption; +10 lo screenshot; +5 una frase con parole tue (anche nella tua lingua) = 80. I punti si contano nel Documento CONSEGNATO. Prima delle 10:30 il voto è quello del quiz. Si aggiorna ogni 5 minuti: premi F5. · العربية: الدرجة تبدأ من 40: ‎+15 تسليم المستند، ‎+10 الكود مع Label1.Caption، ‎+10 لقطة الشاشة، ‎+5 جملة بكلماتك = 80. · 中文：从 40 分开始：交文档 +15，有 Label1.Caption 的代码 +10，截图 +10，你自己的一句话 +5 = 80。",
@@ -16,7 +16,7 @@
   "Quiz Unicode (8-9)",
   "Ciao del 28/10"
  ],
- "riepilogo": "Laboratorio: consegnati 1 su 19 (Classroom letto alle 13:28) · quiz Unicode fatti: 18 su 19",
+ "riepilogo": "Laboratorio: consegnati 2 su 19 (Classroom letto alle 13:32) · quiz Unicode fatti: 18 su 19",
  "quiz_url": "",
  "righe": [
   {
@@ -58,6 +58,47 @@
     false
    ],
    "comportamento": "fuori compito 1 volte",
+   "cosa_fare": "Consegnato. I punti di codice, screenshot e frase arrivano alla prossima raccolta dello script (13:35)."
+  },
+  {
+   "alunno": "Nehara F.",
+   "celle": [
+    {
+     "t": "✔ CONSEGNATO alle 13:32",
+     "ok": true
+    },
+    {
+     "t": "consegnato: si conta alla prossima raccolta",
+     "ok": null
+    },
+    {
+     "t": "consegnato: si conta alla prossima raccolta",
+     "ok": null
+    },
+    {
+     "t": "consegnato: si conta alla prossima raccolta",
+     "ok": null
+    },
+    {
+     "t": "✔ 11/15 → 69",
+     "ok": true
+    },
+    {
+     "t": "✔ fatto il 28/10",
+     "ok": true
+    }
+   ],
+   "voto": 55,
+   "conto": "Laboratorio: 40 + Documento consegnato 15 = 55 · codice, screenshot e frase si contano quando lo script raccoglie il Documento (prossima raccolta 13:35)",
+   "verifica": "11 su 15",
+   "voto_ver": 69,
+   "fuori": 0,
+   "vy_ult": [
+    "11:48",
+    "PC 16: lettura della dispensa PDF",
+    false
+   ],
+   "comportamento": "ok",
    "cosa_fare": "Consegnato. I punti di codice, screenshot e frase arrivano alla prossima raccolta dello script (13:35)."
   },
   {
@@ -470,47 +511,6 @@
    ],
    "comportamento": "ok",
    "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
-  },
-  {
-   "alunno": "Nehara F.",
-   "celle": [
-    {
-     "t": "○ non ancora: premi «Consegna»",
-     "ok": false
-    },
-    {
-     "t": "nel Documento: sì (conta quando consegni)",
-     "ok": null
-    },
-    {
-     "t": "○ manca lo screenshot",
-     "ok": false
-    },
-    {
-     "t": "○ manca la frase con parole tue",
-     "ok": false
-    },
-    {
-     "t": "✔ 11/15 → 69",
-     "ok": true
-    },
-    {
-     "t": "✔ fatto il 28/10",
-     "ok": true
-    }
-   ],
-   "voto": 40,
-   "conto": "Laboratorio: 40 = 40",
-   "verifica": "11 su 15",
-   "voto_ver": 69,
-   "fuori": 0,
-   "vy_ult": [
-    "11:48",
-    "PC 16: lettura della dispensa PDF",
-    false
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Prossimo passo: screenshot. Poi premi «Consegna» su Classroom."
   },
   {
    "alunno": "Moaaz M.",
