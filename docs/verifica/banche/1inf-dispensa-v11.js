@@ -135,7 +135,7 @@ window.BANCA = {
    "tipo": "c",
    "area": "dispensa",
    "tema": "errori",
-   "q": "Nel segnapunti (ora 3) c'è <code>var punti: Integer;</code>. Quale riga dà errore quando premi F9?<span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">في عدّاد النقاط (الساعة 3) يوجد var punti: Integer;. أيّ سطر يعطي خطأ عندما تضغط F9؟</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">在记分牌程序里（第 3 节）有 var punti: Integer;。按 F9 时哪一行会出错？</span>",
+   "q": "Nel programma c'è <code>var punti: Integer;</code> e nella Label1 c'è scritto 5. Quale riga dà errore quando premi F9?<span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">في البرنامج يوجد var punti: Integer; وفي Label1 مكتوب 5. أيّ سطر يعطي خطأ عندما تضغط F9؟</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">程序里有 var punti: Integer;，Label1 里写着 5。按 F9 时哪一行会出错？</span>",
    "o": [
     "punti := Label1.Caption;",
     "punti := StrToInt(Label1.Caption);",
@@ -149,15 +149,15 @@ window.BANCA = {
    "tipo": "c",
    "area": "dispensa",
    "tema": "tipi",
-   "q": "Generatore di soprannomi (ora 2). Nella casella Edit1 scrivi Ahmed e premi il bottone. Che cosa compare?<br><code>nome := Edit1.Text;</code><br><code>Label1.Caption := 'nome' + ' detto ' + nome;</code><span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">مولّد الألقاب (الساعة 2). تكتب Ahmed في الخانة Edit1 وتضغط الزر. ماذا يظهر؟</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">起外号程序（第 2 节）。在输入框 Edit1 里写 Ahmed，然后按按钮。会显示什么？</span>",
+   "q": "Lavagna del 30/10 (ora 8-9): quale di questi valori è una String?<span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">سبورة 30/10 (الساعة 8-9): أيّ قيمة من هذه هي نص (String)؟</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">10月30日黑板（8-9 点）：下面哪个值是字符串（String）？</span>",
    "o": [
-    "nome detto Ahmed",
-    "Ahmed detto Ahmed",
-    "nome detto nome",
-    "errore quando premi F9"
+    "'007'",
+    "7",
+    "2026",
+    "-5"
    ],
    "a": 0,
-   "spiega": "'nome' con gli apici è la PAROLA nome; nome senza apici è la SCATOLA, che contiene Ahmed."
+   "spiega": "Con gli apici è testo (String) anche se ci sono cifre; senza apici è un Integer."
   },
   {
    "tipo": "c",
@@ -248,10 +248,10 @@ window.BANCA = {
   {
    "area": "mia",
    "tema": "lazarus",
-   "q": "Descrivi il programma Lazarus che hai fatto TU oggi in laboratorio (il pasticcio dei numeri, il soprannome o il segnapunti): che cosa c'è nella tua finestra e che cosa fa il bottone quando lo premi. Poi copia, scrivendola tu, UNA riga del TUO codice e spiega con parole tue che cosa fa.<span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">صِف برنامج Lazarus الذي صنعته أنت اليوم في المختبر (فوضى الأرقام، أو اللقب، أو عدّاد النقاط): ماذا يوجد في نافذتك وماذا يفعل الزر عندما تضغطه. ثم اكتب بنفسك سطراً واحداً من كودك واشرح بكلماتك ماذا يفعل.</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">描述你今天在实验课上自己做的 Lazarus 程序（数字大杂烩、起外号或记分牌）：你的窗口里有什么，按下按钮时会发生什么。然后亲手写出你代码中的一行，用你自己的话解释它做什么。</span>",
-   "aiuto": "Almeno 25 parole, con parole tue. Puoi scrivere anche nella tua lingua. Racconta il TUO lavoro: l'AI non lo conosce.",
+   "q": "Descrivi il programma Lazarus \"Ciao\" che hai fatto il 28/10: che cosa c'era nella finestra e che cosa faceva il bottone quando lo premevi. Poi scrivi, con parole tue, una riga di codice che si usa per cambiare la scritta di una Label (per esempio con Caption) e spiega che cosa fa.<span lang=\"ar\" dir=\"rtl\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px\">صِف برنامج Lazarus «Ciao» الذي صنعته يوم 28/10: ماذا كان يوجد في النافذة وماذا كان يفعل الزر عندما تضغطه. ثم اكتب بكلماتك سطراً من الكود يُستعمل لتغيير كتابة Label (مثلاً مع Caption) واشرح ماذا يفعل.</span><span lang=\"zh\" style=\"display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px\">描述你 10月28日做的 Lazarus「Ciao」程序：窗口里有什么，按下按钮时会发生什么。然后用你自己的话写一行用来改变 Label 文字的代码（比如用 Caption），并解释它做什么。</span>",
+   "aiuto": "Almeno 25 parole, con parole tue. Puoi scrivere anche nella tua lingua. Racconta il TUO lavoro: il programma Ciao che hai fatto tu il 28/10.",
    "min_parole": 25,
-   "criteri": "nomina il proprio programma; descrive i pezzi della finestra (Label, Edit, Button) e che cosa compare al clic; una riga vera del codice (IntToStr, StrToInt o + tra String) spiegata con le parole String e Integer; coerente con la consegna dell'ora"
+   "criteri": "il programma Ciao del 28/10: nella finestra una TEdit (casella per il nome) e un TButton (Saluta); al clic compare la finestrella con Ciao e il nome (ShowMessage('Ciao ' + Edit1.Text)); una riga con Label1.Caption := ... (per esempio 'Ciao' tra apici) spiegata: cambia la scritta della Label, la Caption è una String"
   },
   {
    "area": "mia",
