@@ -1,4 +1,4 @@
-// 1INF · laboratorio 30/10/2026, 1ª ora: String e Integer. ANTEPRIMA, non collegata. Generato da classe-1/lazarus-lab-30-10/_build/genera.py
+// 1INF · 30/10/2026: String e Integer. APERTA ai ragazzi alle 06:45 (Tecnologia 8-9, parte 2 della lezione Unicode, e laboratorio): teoria e ripasso; il quiz è su Moduli. Generato da classe-1/lazarus-lab-30-10/_build/genera.py
 window.BANCA = {
  "id": "1inf-lab3010-tipi-v1",
  "classe": "1INF",
