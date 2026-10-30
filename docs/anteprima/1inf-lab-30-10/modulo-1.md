@@ -315,7 +315,7 @@ Al compagno: perché lo stesso 5 e 3 dà 53 con <b>Testo</b> e 8 con <b>Numeri</
         ora1_unit1.pas
         ```
 
-    4. **C4 Su Classroom: aggiungi i due file.** Apri il compito <b>Ora 1 · Il pasticcio dei numeri</b> su Classroom. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>pasticcio</b>, scegli <code>ora1_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora1_screenshot.png</code>.
+    4. **C4 Su Classroom: aggiungi i due file.** Apri il compito <b>Laboratorio 11-14: stringhe e interi in Lazarus</b> su Classroom (è uno solo per le tre ore). Se vedi il bottone <b>Annulla consegna</b>, cliccalo prima: i file delle ore prima restano lì. A destra, nel riquadro <b>Il tuo lavoro</b>, clicca <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>. Vai in <b>Documenti</b> → <b>pasticcio</b>, scegli <code>ora1_unit1.pas</code> e clicca <b>Apri</b>. Rifai lo stesso per <code>ora1_screenshot.png</code>.
 
     5. **C5 Consegna.** Nel riquadro <b>Il tuo lavoro</b> vedi i due file: <code>ora1_unit1.pas</code> e <code>ora1_screenshot.png</code>. Clicca <b>Consegna</b> e poi ancora <b>Consegna</b>. FATTO!
 
