@@ -1,39 +1,39 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T12:15",
- "ora": "12:15",
- "fonte": "piani A + B · segnali Foglio: 27 · consegne pagina: 0 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
+ "generato": "2026-10-30T12:19",
+ "ora": "12:19",
+ "fonte": "piani A + B · segnali Foglio: 28 · consegne pagina: 0 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "fonti_ora": [
   {
    "fonte": "Quiz Unicode (Moduli)",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
+   "ora": "12:18",
+   "iso": "2026-10-30T12:18+01:00",
    "vecchio": false
   },
   {
    "fonte": "Quiz Stringhe e interi (Moduli)",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
+   "ora": "12:18",
+   "iso": "2026-10-30T12:18+01:00",
    "vecchio": false
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
-   "ora": "12:14",
-   "iso": "2026-10-30T12:14+01:00",
+   "ora": "12:15",
+   "iso": "2026-10-30T12:15+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: passi (Foglio segnali)",
-   "ora": "12:14",
-   "iso": "2026-10-30T12:14+01:00",
+   "ora": "12:18",
+   "iso": "2026-10-30T12:18+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: consegne Classroom",
-   "ora": "12:14",
-   "iso": "2026-10-30T12:14+01:00",
+   "ora": "12:18",
+   "iso": "2026-10-30T12:18+01:00",
    "vecchio": false
   },
   {
@@ -129,6 +129,79 @@
    ]
   },
   {
+   "nome": "Enea Z.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "Classroom"
+     ],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 3,
+     "tot": 15,
+     "titolo": "Il nome del progetto",
+     "facile": 3,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": "12:16"
+    }
+   },
+   "voto": null,
+   "mattina": {
+    "uni": {
+     "p": 13,
+     "m": 15,
+     "ora": "08:40"
+    },
+    "si": {
+     "p": 15,
+     "m": 22,
+     "ora": "11:33"
+    }
+   },
+   "dispensa": null,
+   "teoria": {
+    "schede": 6,
+    "risposte": 8
+   },
+   "quiz": null,
+   "fermo_da": "12:16",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.2,
+   "conto": [
+    "voto dopo la consegna"
+   ]
+  },
+  {
    "nome": "Moaaz A.",
    "ore": {
     "1": {
@@ -217,20 +290,20 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:11"
+     "ultimo": "12:18"
     },
     "2": {
      "passo": 0,
      "tot": 13,
      "titolo": "",
-     "facile": 0,
+     "facile": 1,
      "pas": false,
      "png": false,
      "ok": null,
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": ""
+     "ultimo": "12:17"
     },
     "3": {
      "passo": 0,
@@ -265,7 +338,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "12:11",
+   "fermo_da": "12:18",
    "veyon": {
     "fuori": 0
    },
@@ -321,7 +394,11 @@
    },
    "voto": null,
    "mattina": {
-    "uni": null,
+    "uni": {
+     "p": 15,
+     "m": 15,
+     "ora": "12:14"
+    },
     "si": {
      "p": 22,
      "m": 22,
@@ -619,7 +696,11 @@
    },
    "voto": null,
    "mattina": {
-    "uni": null,
+    "uni": {
+     "p": 11,
+     "m": 15,
+     "ora": "12:16"
+    },
     "si": {
      "p": 12,
      "m": 22,
@@ -699,7 +780,12 @@
      "ora": "08:42"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 4,
+    "m": 15,
+    "corte": 4,
+    "ora": "12:15"
+   },
    "teoria": {
     "schede": 6,
     "risposte": 8
@@ -761,7 +847,11 @@
    },
    "voto": null,
    "mattina": {
-    "uni": null,
+    "uni": {
+     "p": 14,
+     "m": 15,
+     "ora": "12:15"
+    },
     "si": {
      "p": 22,
      "m": 22,
@@ -877,7 +967,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:12"
+     "ultimo": "12:16"
     },
     "2": {
      "passo": 0,
@@ -925,7 +1015,7 @@
     "risposte": 7
    },
    "quiz": null,
-   "fermo_da": "12:12",
+   "fermo_da": "12:16",
    "veyon": {
     "fuori": 1
    },
@@ -1024,7 +1114,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:13"
+     "ultimo": "12:18"
     },
     "2": {
      "passo": 0,
@@ -1072,7 +1162,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "12:13",
+   "fermo_da": "12:18",
    "veyon": {
     "fuori": 0
    },
@@ -1370,79 +1460,6 @@
    },
    "quiz": null,
    "fermo_da": "11:37",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "voto dopo la consegna"
-   ]
-  },
-  {
-   "nome": "Enea Z.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 3,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": "12:10"
-    }
-   },
-   "voto": null,
-   "mattina": {
-    "uni": {
-     "p": 13,
-     "m": 15,
-     "ora": "08:40"
-    },
-    "si": {
-     "p": 15,
-     "m": 22,
-     "ora": "11:33"
-    }
-   },
-   "dispensa": null,
-   "teoria": {
-    "schede": 6,
-    "risposte": 8
-   },
-   "quiz": null,
-   "fermo_da": "12:10",
    "veyon": {
     "fuori": 0
    },
