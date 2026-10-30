@@ -1,6 +1,6 @@
 # Dispensa unica 1INF — lezioni ed esercizi fino al 30/10/2026
 
-**Versione 1.0** — 30/10/2026
+**Versione 1.1** — 30/10/2026
 
 *Classe 1INF · Informatica, Tecnologia, Laboratorio e Sicurezza · a.s. 2026/2027. Una sola dispensa, uguale per tutti: le lezioni dal 15/09 al 30/10/2026 in ordine di data, con la teoria in breve, le foto della lavagna, le righe da ricopiare sul quaderno e tutti i compiti dati su Classroom. Il PDF serve per leggere e stampare; questo file MD si dà alla propria AI (Gemini, NotebookLM), che lo spiega e lo traduce nella propria lingua.*
 
@@ -929,6 +929,7 @@ StrToInt = da testo a numero. IntToStr = da numero a testo.
 
 ### 26.2 Che cosa si fa
 1. Tre programmi in Lazarus, uno per ora, per usare String e Integer: il pasticcio dei numeri, il soprannome, il segnapunti. Ogni ora ha un percorso facilitato di 3 passi per chi è in difficoltà.
+2. **Aiuto Lazarus:** se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto. Per le altre domande usa la casella dell'assistente.
 
 ### 26.3 La teoria
 1. La teoria è quella del capitolo 25.4: variabile, String, Integer, la trappola del `+`, StrToInt e IntToStr.
@@ -1118,3 +1119,4 @@ La tabella elenca i 47 compiti dati su Classroom alla 1INF fino al 30/10/2026, i
 
 ## 29 Changelog
 1. **v1.0 (30/10/2026)**: prima versione. Le lezioni della 1INF dal 15/09 al 30/10/2026 (26 capitoli), con la teoria in breve, le foto della lavagna, le righe del quaderno, i compiti dati su Classroom e la tabella di riepilogo; glossario.
+2. **v1.1 (30/10/2026)**: capitolo 26, laboratorio del 30/10: aggiunta la riga «Aiuto Lazarus» (alza la mano, viene il Professore a creare il progetto con te), come nei tre percorsi della lezione.
