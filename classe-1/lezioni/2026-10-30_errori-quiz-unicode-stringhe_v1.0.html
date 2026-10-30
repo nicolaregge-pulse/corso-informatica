@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><title>Errori dei quiz v1.0</title>
+<style>
+@page{size:A4;margin:13mm}
+body{font-family:"DejaVu Sans","WenQuanYi Zen Hei","Amiri",Arial,sans-serif;font-size:13pt;line-height:1.4;color:#111}
+h1{font-size:19pt;margin:0 0 4px}
+h2{font-size:15pt;margin:14px 0 6px;border-bottom:2px solid #333;page-break-after:avoid}
+.sub{color:#444;margin-bottom:8px}
+.err{border-left:6px solid #c01c28;background:#fdecec;padding:6px 10px;margin:6px 0}
+.ok{border-left:6px solid #2a7a2a;background:#eefbee;padding:6px 10px;margin:6px 0}
+.lav{border:2px solid #1a5fb4;background:#eef4ff;padding:8px 12px;margin:8px 0;font-family:"DejaVu Sans Mono","WenQuanYi Zen Hei","Amiri",monospace;font-size:14pt;white-space:pre}
+.big{border:3px solid #111;padding:10px;font-size:15pt;text-align:center;margin:10px 0;background:#fff7d6}
+</style></head><body>
+<h1>Gli errori più comuni nei quiz di oggi</h1>
+<div class="sub">1INF, venerdì 30/10/2026, ora 8-9 · versione 1.0 · da spiegare in 5 minuti alla lavagna</div>
+
+<h2>1 ASCII: il vecchio elenco</h2>
+<div class="err">Risposte sbagliate: «l'ASCII ha 1000 caratteri», «150.000», «sì, ci sono tutte le lingue».</div>
+<div class="ok">Giusto: l'ASCII ha <b>128</b> caratteri (la versione a 8 bit ne ha 256). Solo lettere inglesi, cifre e punteggiatura. <b>Niente</b> arabo, <b>niente</b> cinese, niente lettere accentate.</div>
+<div class="lav">A = 65      B = 66      a = 97</div>
+
+<h2>2 Unicode: il nuovo elenco di tutto il mondo</h2>
+<div class="ok">Unicode ha <b>più di 150.000</b> caratteri: tutte le lingue, anche le emoji.</div>
+<div class="lav">A  = U+0041
+ب  = U+0628   (arabo)
+中 = U+4E2D   (cinese)</div>
+<div class="big">ASCII = 128, solo inglese &nbsp;·&nbsp; Unicode = tutto il mondo</div>
+
+<h2>3 Stringa o intero? Guarda gli apici</h2>
+<div class="err">Risposte sbagliate: «'007' è Integer perché sono cifre», «' 12' è un errore».</div>
+<div class="ok">Se ci sono gli apici <b>' '</b> è <b>sempre una stringa</b>, anche se dentro ci sono cifre o spazi.</div>
+<div class="lav">'42'   → String       42   → Integer
+'007'  → String       ' 12' → String (con lo spazio)</div>
+
+<h2>4 Il + cambia lavoro</h2>
+<div class="lav">'12' + '15'  = '1215'   (stringhe: le attacca)
+ 12  +  15   =  27      (interi: fa la somma)</div>
+
+<h2>5 StrToInt e IntToStr: i due traduttori</h2>
+<div class="lav">StrToInt('3') + 2   = 5        (prima diventa numero 3, poi 3 + 2)
+a := 2;  b := 3;
+IntToStr(a + b)            = '5'   (prima la somma, poi testo)
+IntToStr(a) + IntToStr(b)  = '23'  (prima due testi, poi li attacca)</div>
+<div class="big">Prima guarda che cosa fa il + : somma o attacca?</div>
+
+<h2>6 Adesso</h2>
+<p>Rileggi il riquadro giallo «In parole semplici» nella pagina della lezione (premi F5) e rifai il quiz: conta il tentativo migliore.</p>
+</body></html>
