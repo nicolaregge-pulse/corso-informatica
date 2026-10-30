@@ -19,8 +19,8 @@ window.BANCA = {
  },
  "strumenti": [
   {
-   "t": "La mia giornata: voto, fatto e da fare",
-   "u": "../1inf-oggi/",
+   "t": "Il mio andamento nel laboratorio",
+   "u": "../anteprima/1inf-lab-30-10/cruscotto-ragazzi.html",
    "c": "#b45309"
   }
  ],

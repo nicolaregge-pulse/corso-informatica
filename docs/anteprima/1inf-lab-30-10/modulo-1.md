@@ -1,6 +1,6 @@
 # Ora 1: String e Integer, il pasticcio dei numeri
 
-**Versione 1.0** — 29/10/2026 — ANTEPRIMA per il prof, non pubblicata
+**Versione 1.1** — 29/10/2026 — pubblicata il 30/10/2026; aggiornata alle 12:40 (passo «Salva» nel percorso facilitato)
 
 *1INF · Laboratorio · venerdì 30/10/2026, 11:00-12:00 · progetto `pasticcio` · si consegnano SEMPRE unit1.pas e lo screenshot*
 
@@ -10,16 +10,20 @@
 
 ## 01 Che cosa fai in quest'ora
 
-Tutta l'ora parla di <b>String</b> e <b>Integer</b>. Prima mezz'ora: la teoria in 6 schede, con una domanda dopo ogni scheda, e il quiz. Poi un programma piccolo che mostra la differenza: il bottone <b>Testo</b> fa <code>'5' + '3'</code> e compare <b>53</b>; il bottone <b>Numeri</b> fa 5 + 3 con due Integer e compare <b>8</b>.
+Tutta l'ora parla di <b>String</b> e <b>Integer</b>. La teoria e il quiz li hai fatti stamattina. Adesso un programma piccolo che mostra la differenza: il bottone <b>Testo</b> fa <code>'5' + '3'</code> e compare <b>53</b>; il bottone <b>Numeri</b> fa 5 + 3 con due Integer e compare <b>8</b>.
 
-الساعة كلها عن String و Integer. النصف ساعة الأولى: النظرية في 6 بطاقات، مع سؤال بعد كل بطاقة، ثم الاختبار. بعدها برنامج صغير يُظهر الفرق: الزر Testo يفعل '5' + '3' فيظهر 53؛ والزر Numeri يفعل 5 + 3 بعددين Integer فيظهر 8.
+الساعة كلها عن String و Integer. النظرية والاختبار تمّا هذا الصباح. الآن برنامج صغير يُظهر الفرق: الزر Testo يفعل '5' + '3' فيظهر 53؛ والزر Numeri يفعل 5 + 3 بعددين Integer فيظهر 8.
 
-这一节课都讲 String 和 Integer。前半小时：6 张理论卡片，每张后面一个问题，然后做测验。之后写一个小程序来看区别：Testo 按钮做 '5' + '3'，出现 53；Numeri 按钮用两个 Integer 做 5 + 3，出现 8。
+这一节课都讲 String 和 Integer。理论和测验今天早上已经做完。现在写一个小程序来看区别：Testo 按钮做 '5' + '3'，出现 53；Numeri 按钮用两个 Integer 做 5 + 3，出现 8。
 
-## 02 Fase 1: teoria e quiz
+## 02 Teoria e quiz già fatti stamattina → vai alla Fase 2
 
-1. Teoria in 6 schede con le domande di ripasso: pagina `docs/verifica/?b=1inf-lab3010-tipi`.
-2. Quiz di 22 domande su String e Integer: su Moduli Google (piano A) oppure nella stessa pagina, modo verifica (piano B).
+النظرية والاختبار تمّا هذا الصباح ← انتقل إلى المرحلة 2
+
+理论和测验今天早上已经做完 → 去第 2 阶段
+
+1. Chi stamattina non li ha fatti: torna alla pagina del laboratorio (`docs/anteprima/1inf-lab-30-10/`) e fai il passo 3.
+2. Le 6 schede qui sotto restano per ripassare: pagina `docs/verifica/?b=1inf-lab3010-tipi`.
 
 ### 02.1 1. La variabile: una scatola con un nome
 
@@ -143,7 +147,7 @@ Il viaggio di un numero: casella → <code>StrToInt</code> → conto → <code>I
 Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Caption
 ```
 
-## 03 Percorso facilitato (3 passi)
+## 03 Percorso facilitato (4 passi)
 
 > **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
 >
@@ -159,7 +163,17 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
 
     读第 2、3 张卡片（String 和 Integer），回答它们的问题。
 
-2. Nella Form1 metti una Label (la A) e un bottone (OK). Doppio clic sul bottone e scrivi la riga.
+2. **Salva subito, nella cartella nuova.** Prima il progetto nuovo: menu Progetto → Nuovo progetto… → Applicazione → OK. Menu Progetto → Salva progetto con nome…. A sinistra clicca Documenti, in alto Nuova cartella, scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella. In Nome file scrivi lo stesso nome e clicca Salva; per unit1.pas clicca ancora Salva.
+
+    أولاً مشروع جديد: القائمة Progetto ← Nuovo progetto… ← Applicazione ← OK. القائمة Progetto ← Salva progetto con nome…. انقر يساراً Documenti، ثم في الأعلى Nuova cartella، اكتب الاسم أدناه، اضغط Invio وانقر مرتين على المجلد. في Nome file اكتب نفس الاسم وانقر Salva؛ ولـ unit1.pas انقر Salva مرة أخرى.
+
+    先建新项目：菜单 Progetto → Nuovo progetto… → Applicazione → OK。菜单 Progetto → Salva progetto con nome…。左边点 Documenti，上方点 Nuova cartella，写下面的名字，按回车，双击文件夹进去。在 Nome file 里写同样的名字，点 Salva；unit1.pas 再点一次 Salva。
+
+    ```
+    pasticcio
+    ```
+
+3. Nella Form1 metti una Label (la A) e un bottone (OK). Doppio clic sul bottone e scrivi la riga.
 
     في Form1 ضع Label (الحرف A) وزراً (OK). انقر مرتين على الزر واكتب السطر.
 
@@ -169,7 +183,7 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
       Label1.Caption := '5' + '3';
     ```
 
-3. Premi F9 e clicca il bottone: compare 53. Fai lo screenshot e consegnalo.
+4. Premi F9 e clicca il bottone: compare 53. Fai lo screenshot e consegnalo.
 
     اضغط F9 وانقر الزر: يظهر 53. خذ لقطة شاشة وسلّمها.
 

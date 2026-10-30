@@ -15,6 +15,11 @@
     if (/\bCaption\s*:=/i.test(c)) return 1;
     return 0;
   }
+  var FACILE = {   // la riga del percorso facilitato di ogni ora (modulo-N.html); stesse regole in cruscotto_1inf_lab3010.py
+    1: /\bLabel1\s*\.\s*Caption\s*:=\s*''\s*\+\s*''/i,                                   // Label1.Caption := '5' + '3';
+    2: /\bLabel1\s*\.\s*Caption\s*:=[^;]*\+\s*Edit1\s*\.\s*Text\b/i,                       // Label1.Caption := 'Ciao ' + Edit1.Text;
+    3: /\bLabel1\s*\.\s*Caption\s*:=\s*IntToStr\s*\(\s*StrToInt\s*\(\s*Label1\s*\.\s*Caption\s*\)\s*\+/i   // IntToStr(StrToInt(Label1.Caption) + 1)
+  };
   function ControllaPas(testo, ora) {
     var grezzo = String(testo || ''), c0 = pulisci(grezzo), c = senzaScritte(c0), S = scritte(c0), V = [];
     var unita = /\bunit\s+\w+\s*;/i.test(c) && /\bimplementation\b/i.test(c) && /\bend\s*\.\s*$/i.test(c.trim());
@@ -43,8 +48,13 @@
       V.push(voce(/\bIntToStr\s*\(/i.test(c), 'C\'è IntToStr: il numero torna testo per la Caption.', 'يوجد IntToStr: الرقم يعود نصاً للـ Caption.', '有 IntToStr：数字变回文字给 Caption。'));
       V.push(voce(/\bStrToInt\s*\(\s*Edit1\s*\.\s*Text\s*\)/i.test(c), 'Il bottone Aggiungi legge la casella: StrToInt(Edit1.Text).', 'زر Aggiungi يقرأ الخانة: StrToInt(Edit1.Text).', 'Aggiungi 按钮读取输入框：StrToInt(Edit1.Text)。', true));
     }
-    var errori = V.filter(function (v) { return !v.ok && !v.avviso; }).length;
-    return { ok: errori === 0, voci: V, ora_trovata: oraTrovata(c) };
+    var errori = V.filter(function (v) { return !v.ok && !v.avviso; }).length, fac = false;
+    if (errori > 0 && clic && FACILE[ora] && FACILE[ora].test(c)) {   // 30/10 12:45: il codice del percorso facilitato conta come verificato
+      fac = true; V.forEach(function (v) { if (!v.ok) v.avviso = true; });
+      V.push(voce(true, 'Percorso facilitato: il codice è giusto. Bravo! Le righe gialle sono per chi fa il percorso completo.', 'المسار الميسّر: الكود صحيح. أحسنت! الأسطر الصفراء لمن يتبع المسار الكامل.', '简单路线：代码正确。真棒！黄色的行是给走完整路线的同学的。'));
+      errori = 0;
+    }
+    return { ok: errori === 0, facile: fac, voci: V, ora_trovata: oraTrovata(c) };
   }
   g.ControllaPas = ControllaPas;
   if (typeof module !== 'undefined') module.exports = ControllaPas;
