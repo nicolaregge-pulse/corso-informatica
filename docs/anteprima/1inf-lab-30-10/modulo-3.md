@@ -1,6 +1,6 @@
 # Ora 3: gli Integer, il segnapunti con StrToInt e IntToStr
 
-**Versione 1.0** — 29/10/2026 — ANTEPRIMA per il prof, non pubblicata
+**Versione 1.1** — 29/10/2026 — pubblicata il 30/10/2026; aggiornata alle 12:40 (passo «Salva» nel percorso facilitato)
 
 *1INF · Laboratorio · venerdì 30/10/2026, 13:00-14:00 · progetto `segnapunti` · si consegnano SEMPRE unit1.pas e lo screenshot*
 
@@ -24,7 +24,7 @@ Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al cen
 
 1 分钟复习。Integer 是整数，不加引号：12。整数可以算：12 + 3 = 15。可是 Caption 和输入框里只有 String。需要两个翻译：StrToInt('12') 得到数字 12，IntToStr(15) 得到文字 '15'。
 
-## 03 Percorso facilitato (3 passi)
+## 03 Percorso facilitato (4 passi)
 
 > **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
 >
@@ -40,7 +40,17 @@ Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al cen
 
     新项目。放一个文字（A），Caption 写 0；一个按钮（OK），Caption 写 +1。
 
-2. Doppio clic sul bottone e scrivi questa riga sola tra begin e end;.
+2. **Salva subito, nella cartella nuova.** Menu Progetto → Salva progetto con nome…. A sinistra clicca Documenti, in alto Nuova cartella, scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella. In Nome file scrivi lo stesso nome e clicca Salva; per unit1.pas clicca ancora Salva.
+
+    القائمة Progetto ← Salva progetto con nome…. انقر يساراً Documenti، ثم في الأعلى Nuova cartella، اكتب الاسم أدناه، اضغط Invio وانقر مرتين على المجلد. في Nome file اكتب نفس الاسم وانقر Salva؛ ولـ unit1.pas انقر Salva مرة أخرى.
+
+    菜单 Progetto → Salva progetto con nome…。左边点 Documenti，上方点 Nuova cartella，写下面的名字，按回车，双击文件夹进去。在 Nome file 里写同样的名字，点 Salva；unit1.pas 再点一次 Salva。
+
+    ```
+    segnapunti
+    ```
+
+3. Doppio clic sul bottone e scrivi questa riga sola tra begin e end;.
 
     انقر مرتين على الزر واكتب هذا السطر وحده بين begin و end;.
 
@@ -50,7 +60,7 @@ Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al cen
       Label1.Caption := IntToStr(StrToInt(Label1.Caption) + 1);
     ```
 
-3. Premi F9 e clicca +1: il numero sale. Screenshot e consegna.
+4. Premi F9 e clicca +1: il numero sale. Screenshot e consegna.
 
     اضغط F9 وانقر +1: الرقم يرتفع. لقطة شاشة وسلّم.
 

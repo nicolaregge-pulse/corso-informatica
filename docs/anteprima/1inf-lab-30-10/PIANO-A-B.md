@@ -1,6 +1,6 @@
 # Piano A e piano B, laboratorio 1INF del 30/10/2026
 
-**Versione 1.1** — 30/10/2026 — documento interno del docente e di Claude. ANTEPRIMA, niente è pubblicato.
+**Versione 1.2** — 30/10/2026 — documento interno del docente e di Claude. Pubblicato: il laboratorio è in corso (hub, moduli, consegna e cruscotti sono online).
 
 Regola di Nicola (29/10/2026): «per tutto fai una cosa e prepara un piano B, devono esserci tutte e due le cose già pronte».
 
@@ -10,7 +10,7 @@ Regola di Nicola (29/10/2026): «per tutto fai una cosa e prepara un piano B, de
 |---|---|---|---|
 | Percorso | `modulo-N.html`, percorso completo | percorso facilitato di 3 passi, nella stessa pagina (riquadro arancione) | lo sceglie il ragazzo o glielo dice il prof; nessun cambio tecnico |
 | Consegna | `consegna.html?ora=N`: sceglie unit1.pas e lo screenshot, controllo automatico subito (verde/rosso, non blocca mai), un bottone manda tutto allo script delle consegne (`dati/verifiche/1inf-lab3010-oraN/arrivi/`) | allegati al compito Classroom unico «Laboratorio 11-14: stringhe e interi in Lazarus» (896632311675; `oraN_unit1.pas` e `oraN_screenshot.png`), passi C2-C5 della pagina; lo script li raccoglie in `dati/consegne/1INF/lab3010-unico/` e il generatore ricava l'ora dal codice | ogni pagina mostra sempre «Se il bottone non funziona: …»; il prof lo dice a voce |
-| Quiz | Modulo Google creato dal comando `comandi/2026-10-30_quiz-1inf-lab3010-tipi.json` (22 crocette), link solo dopo il «pubblica» | `docs/verifica/?b=1inf-lab3010-tipi`, modo verifica (stesse 22 crocette + 3 aperte); si apre con `docs/verifica/stato/1inf-lab3010-tipi.json` → `"verifica": "aperta"` | Claude apre lo stato della verifica e mette il link nel compito |
+| Quiz | Modulo Google creato dal comando `comandi/2026-10-30_quiz-1inf-lab3010-tipi.json` (22 crocette), fatto su Moduli la mattina del 30/10 | `docs/verifica/?b=1inf-lab3010-tipi`, modo verifica (stesse 22 crocette + 3 aperte); si apre con `docs/verifica/stato/1inf-lab3010-tipi.json` → `"verifica": "aperta"` | Claude apre lo stato della verifica e mette il link nel compito |
 | Cruscotto | `generatori/cruscotto_1inf_lab3010.py`: segnali delle pagine (Foglio «Arrivi verifiche» via `drive.esporta`), consegne della pagina, quiz, Veyon | stesso generatore con `--piano-b`: solo file e stato di Classroom | Claude lancia il generatore con `--piano-b`; la pagina è la stessa |
 
 ## 02 Che cosa serve il giorno della lezione

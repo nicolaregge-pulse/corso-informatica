@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La mia giornata</title>
+<style>
+/* 1INF 22/10/2026 sicurezza: il cruscotto dei ragazzi. La verifica, come ti sei comportato, il voto di oggi. */
+:root{--bg:#f3f6f8;--card:#fff;--ink:#16202a;--mu:#5a6878;--ln:#d5dde5;--ok:#1f7a3f;--ko:#b3261e;--acc:#0b6e99}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82;--acc:#5cc1e8}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--ink:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--ok:#6fd38f;--ko:#f28b82;--acc:#5cc1e8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,"Segoe UI",Arial,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:16px}h1{margin:0 0 4px;font-size:26px}.mu{color:var(--mu)}
+.tab{overflow-x:auto;background:var(--card);border:1px solid var(--ln);border-radius:12px;margin-top:12px}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}
+th{font-size:14px;color:var(--mu)}.v{font-size:22px;font-weight:800}.ok{color:var(--ok)}.ko{color:var(--ko)}.c{white-space:nowrap}.conto{font-size:12px;color:var(--mu)}a{color:var(--acc)}
+</style>
+</head>
+<body><div class="w">
+<h1>La mia giornata di oggi: voto, fatto e da fare</h1>
+<div class="mu" id="stato">Carico…</div><div id="riep" style="display:none;margin:10px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:3px solid var(--acc);font-size:22px;font-weight:800"></div>
+<div id="aiall" style="display:none;margin:10px 0;padding:10px 14px;border-radius:10px;background:#fdecea;border:2px solid #b3261e;color:#b3261e;font-weight:700">⚠️ POSSIBILE USO AI ECCESSIVO: chi ha questo segnale è stato visto da Veyon con ChatGPT, Gemini o l'AI di Google aperta mentre scriveva. L'AI serve solo per capire una parola: i testi scritti dall'AI non contano. Riscrivi con parole tue e con i tuoi numeri.</div>
+<p class="mu" id="spiega">La <b>verifica</b> vale 40 + 40 × le risposte giuste (tutte giuste = 80). Non fatta entro la fine: 40. −3 ogni volta che Veyon ti vede fuori lezione. La verifica è la linguetta «2. Verifica» in alto nella lezione; alla fine premi «Consegna». Si aggiorna da solo ogni 5 minuti.</p>
+<div class="tab"><table><thead id="th"><tr><th>#</th><th>Alunno</th><th>Voto di oggi</th><th>La verifica</th><th>Come ti sei comportato</th><th>Che cosa fare adesso</th></tr></thead><tbody id="t"></tbody></table></div>
+<p><a id="link" href="../verifica/?b=1inf-gamer">Torna alla lezione</a> · <a href="../1inf-sicurezza-quiz/">I tuoi quiz di sicurezza </a> · <a href="../1inf-unicode-quiz/">Il tuo quiz Unicode (30/10)</a></p>
+</div>
+<script>
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function chips(f,m){return f.map(function(x){return '<span class="ok c">✔ '+e(x)+'</span>'}).concat(m.map(function(x){return '<span class="ko c">○ '+e(x)+'</span>'})).join(' ')}
+var MIS=false,RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/1inf-oggi/oggi.json';
+function locale(){return fetch('oggi.json?t='+Date.now(),{cache:'no-store'})}
+function giro(){fetch(RAW+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r:locale()},locale).then(function(r){return r.json()}).then(function(d){
+ document.getElementById('stato').textContent=(d.fonte?'Dati da: '+d.fonte+' · ultimo dato: '+(d.ultimo_dato||'nessuno')+' · ':'')+'Aggiornato alle '+d.ora+' · '+d.righe.length+' in elenco'+(d.parole_alle?' · parole dei Documenti contate alle '+d.parole_alle+' (il conto arriva ogni 10 minuti circa: continua a scrivere)':'');if(d.spiega)document.getElementById('spiega').textContent=d.spiega;document.getElementById('aiall').style.display=d.righe.some(function(r){return (r.ai||[]).length})?'block':'none';if(d.link)document.getElementById('link').href=d.link;MIS=/^1inf-misure/.test(d.banca||'');if(MIS)document.querySelectorAll('th')[3].textContent='Tempi e Documento';
+if(d.colonne){/* 29/10/2026: cruscotto a colonne, una per attivita' (regola 29) */var rp=document.getElementById('riep');rp.style.display='block';rp.innerHTML=e(d.riepilogo||'')+(d.quiz_url||d.link_t?'<div style="margin-top:8px">'+(d.quiz_url?'<a href="'+e(d.quiz_url)+'" target="_blank" style="display:inline-block;background:#1f7a3f;color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none">Apri il quiz su Moduli</a> ':'')+'<a href="'+e(d.link||'#')+'" style="display:inline-block;margin-left:6px;font-size:17px">'+e(d.link_t||'La lezione')+'</a></div>':'')+'<div class="mu" style="font-size:13px;font-weight:400">Hai consegnato e vedi ancora ○? Aspetta 5 minuti e premi F5.</div>';function cel(c){if(!c)return '';var k=c.ok===true?'ok':c.ok===false?'ko':'mu';return '<span class="'+k+'">'+e(c.t)+'</span>'+(c.ok===false&&c.link?'<br><a href="'+e(c.link)+'">apri</a>':'')}document.getElementById('th').innerHTML='<tr><th>#</th><th>Alunno</th>'+d.colonne.map(function(x){return '<th>'+e(x)+'</th>'}).join('')+'<th>Voto di oggi</th><th>Come ti sei comportato</th><th>Che cosa fare adesso</th></tr>';document.getElementById('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b></td>'+(r.celle||[]).map(function(c){return '<td>'+cel(c)+'</td>'}).join('')+'<td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td><td>'+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+'<span class="'+(r.fuori?'ko':'ok')+'">'+e(r.comportamento||'ok')+'</span></td><td><b>'+e(r.cosa_fare)+'</b></td></tr>'}).join('');return}
+var CR=d.righe.some(function(r){return r.classroom});if(CR){var nc=d.righe.filter(function(r){return r.classroom&&/consegnato|restituito/.test(r.classroom.stato)}).length;
+  var rp=document.getElementById('riep');rp.style.display='block';rp.innerHTML='Hanno consegnato su Classroom: <span class="ok">'+nc+'</span> su '+d.righe.length+'<div class="mu" style="font-size:13px;font-weight:400">Controllato alle '+e((d.classroom||{}).letto_alle||d.ora)+'. Hai consegnato e vedi ancora ❌? Aspetta 5 minuti e premi F5.</div>';
+  document.getElementById('th').innerHTML='<tr><th>#</th><th>Alunno</th><th>Consegnato su Classroom?</th><th>Il tuo Documento</th><th>Voto di oggi</th><th>Come ti sei comportato</th><th>Che cosa fare adesso</th></tr>';
+  document.getElementById('t').innerHTML=d.righe.map(function(r,i){var c=r.classroom||{},ok=/consegnato|restituito/.test(c.stato||'');return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b></td><td>'+(ok?'<span style="display:inline-block;background:#1f7a3f;color:#fff;font-weight:800;padding:5px 9px;border-radius:8px">✅ CONSEGNATO'+(c.ora?' alle '+e(c.ora):'')+'</span>':'<span style="display:inline-block;background:#b3261e;color:#fff;font-weight:800;padding:5px 9px;border-radius:8px">❌ NON ANCORA</span>')+'</td><td>'+(r.doc?'<b>'+e(r.doc.testo)+'</b>'+(r.doc.avviso?'<div style="color:#b3261e;font-weight:800">'+e(r.doc.avviso)+'</div>':''):'<span class="mu">non ancora letto</span>')+'</td><td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td><td>'+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+'<span class="'+(r.fuori?'ko':'ok')+'">'+(r.fuori?'fuori lezione '+r.fuori+' volte':'ok')+'</span></td><td>'+e(r.cosa_fare)+'</td></tr>'}).join('');return}
+ document.getElementById('t').innerHTML=d.righe.map(function(r,i){return '<tr><td>'+(i+1)+'</td><td><b>'+e(r.alunno)+'</b>'+((r.ai||[]).length?'<div style="margin-top:4px;color:#b3261e;font-weight:800;font-size:13px">⚠️ POSSIBILE USO AI ECCESSIVO<br><span style="font-weight:400">visto alle '+e(r.ai.join(', '))+'</span></div>':'')+'</td><td><span class="v">'+e(r.voto)+'</span><div class="conto">'+e(r.conto)+'</div></td>'+
+  '<td><b>'+e(r.voto_ver==null?'—':r.voto_ver)+'</b><br>'+(r.verifica?'<span class="ok">✔ '+e(r.verifica)+'</span>':(MIS?'<span class="mu">lo valuta il prof dopo la consegna</span>':'<span class="ko">non ancora fatta: linguetta «2. Verifica», poi «Consegna»</span>'))+'</td>'+
+  '<td>'+(r.vy_prob||[]).map(function(x){return '<div style="margin:4px 0"><b class="'+(x[2]?'ko':'')+'">'+e(x[0])+'</b> '+e(x[1])+(x[3]?'<br><a href="'+e(x[3])+'" target="_blank"><img src="'+e(x[3])+'" style="width:170px;border-radius:6px;border:2px solid '+(x[2]?'#b3261e':'#d69e2e')+'"></a>':'')+'</div>'}).join('')+(r.vy_ult?'<span class="'+(r.vy_ult[2]?'ko':'ok')+'">'+e(r.vy_ult[0])+' '+e(r.vy_ult[1])+'</span><br>':'')+'<span class="'+(r.fuori?'ko':'ok')+'">'+e(r.comportamento)+'</span></td>'+
+  '<td>'+e(r.cosa_fare)+'</td></tr>'}).join('');
+}).catch(function(){document.getElementById('stato').textContent='Non riesco a leggere i dati: ricarica la pagina (F5).'})}
+giro();setInterval(giro,60000);
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # Ora 2: le caselle e le String, il generatore di soprannomi
 
-**Versione 1.0** — 29/10/2026 — ANTEPRIMA per il prof, non pubblicata
+**Versione 1.1** — 29/10/2026 — pubblicata il 30/10/2026; aggiornata alle 12:40 (passo «Salva» nel percorso facilitato)
 
 *1INF · Laboratorio · venerdì 30/10/2026, 12:00-13:00 · progetto `soprannome` · si consegnano SEMPRE unit1.pas e lo screenshot*
 
@@ -24,7 +24,7 @@ Un programma nuovo: scrivi il tuo nome e un animale, premi il bottone e il progr
 
 1 分钟复习。String 是文字：放在单引号里 'Ciao'。+ 把两个 String 连起来：'Ciao ' + 'Ahmed' = 'Ciao Ahmed'。用户在 Edit1 里写的东西用 Edit1.Text 读取，它永远是 String。变量是一个有名字的盒子：var nome: String; 准备一个叫 nome 的盒子装文字。
 
-## 03 Percorso facilitato (3 passi)
+## 03 Percorso facilitato (4 passi)
 
 > **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
 >
@@ -40,7 +40,17 @@ Un programma nuovo: scrivi il tuo nome e un animale, premi il bottone e il progr
 
     新项目：Progetto → Nuovo progetto… → Applicazione → OK。放一个输入框（abc）、一个按钮（OK）和一个文字（A）。
 
-2. Doppio clic sul bottone e scrivi la riga tra begin e end;.
+2. **Salva subito, nella cartella nuova.** Menu Progetto → Salva progetto con nome…. A sinistra clicca Documenti, in alto Nuova cartella, scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella. In Nome file scrivi lo stesso nome e clicca Salva; per unit1.pas clicca ancora Salva.
+
+    القائمة Progetto ← Salva progetto con nome…. انقر يساراً Documenti، ثم في الأعلى Nuova cartella، اكتب الاسم أدناه، اضغط Invio وانقر مرتين على المجلد. في Nome file اكتب نفس الاسم وانقر Salva؛ ولـ unit1.pas انقر Salva مرة أخرى.
+
+    菜单 Progetto → Salva progetto con nome…。左边点 Documenti，上方点 Nuova cartella，写下面的名字，按回车，双击文件夹进去。在 Nome file 里写同样的名字，点 Salva；unit1.pas 再点一次 Salva。
+
+    ```
+    soprannome
+    ```
+
+3. Doppio clic sul bottone e scrivi la riga tra begin e end;.
 
     انقر مرتين على الزر واكتب السطر بين begin و end;.
 
@@ -50,7 +60,7 @@ Un programma nuovo: scrivi il tuo nome e un animale, premi il bottone e il progr
       Label1.Caption := 'Ciao ' + Edit1.Text;
     ```
 
-3. Premi F9, scrivi il tuo nome e premi il bottone: compare Ciao e il tuo nome. Screenshot e consegna.
+4. Premi F9, scrivi il tuo nome e premi il bottone: compare Ciao e il tuo nome. Screenshot e consegna.
 
     اضغط F9، اكتب اسمك واضغط الزر: يظهر Ciao واسمك. لقطة شاشة وسلّم.
 

@@ -1,4 +1,4 @@
-// 1INF · quiz su tutta la dispensa v1.1 (classe-1/dispensa/dispensa-1inf.md). PIANO B del quiz su Moduli. Preparata il 30/10/2026, APERTA il 30/10 alle ~11:30 («apri quiz» di Nicola) con stato/1inf-dispensa-v11.json. Dopo la consegna: bottone verso Lazarus Ora 1 (campo «dopo»).
+// 1INF · quiz su tutta la dispensa v1.1 (classe-1/dispensa/dispensa-1inf.md). PIANO B del quiz su Moduli. Preparata il 30/10/2026, APERTA il 30/10 alle ~11:30 («apri quiz» di Nicola) con stato/1inf-dispensa-v11.json. Dopo la consegna: bottone verso la pagina del laboratorio, passo 3 (campo «dopo», corretto il 30/10 alle 12:45).
 window.BANCA = {
  "id": "1inf-dispensa-v11-v1",
  "classe": "1INF",
@@ -6,7 +6,7 @@ window.BANCA = {
  "sotto": "1INF · dispensa v1.1 · lezioni dal 15/09 al 30/10/2026 · 15 crocette e 5 domande scritte",
  "stato": "stato/1inf-dispensa-v11.json",
  "minuti": 30,
- "dopo": {"t": "Finito il quiz: Lazarus, Ora 1 · Il pasticcio dei numeri", "u": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/1inf-lab-30-10/modulo-1.html", "nota": "Se ti blocchi a creare il progetto, alza la mano: arriva il Professore."},
+ "dopo": {"t": "Finito il quiz: torna alla pagina del laboratorio e fai il passo 3, poi Lazarus · ارجع إلى صفحة المختبر: الخطوة 3 ثم Lazarus · 回到实验室页面：做第 3 步，然后 Lazarus", "u": "../anteprima/1inf-lab-30-10/", "nota": "Passo 3 solo se stamattina non hai fatto i due quiz. Se ti blocchi a creare il progetto, alza la mano: arriva il Professore."},
  "anteprima": "4195422281",
  "aree": {
   "dispensa": {
@@ -20,8 +20,8 @@ window.BANCA = {
  },
  "strumenti": [
   {
-   "t": "La mia giornata: voto, fatto e da fare",
-   "u": "../1inf-oggi/",
+   "t": "Il mio andamento nel laboratorio",
+   "u": "../anteprima/1inf-lab-30-10/cruscotto-ragazzi.html",
    "c": "#b45309"
   }
  ],
