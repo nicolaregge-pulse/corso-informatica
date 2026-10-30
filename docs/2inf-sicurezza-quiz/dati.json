@@ -38,9 +38,58 @@
    "tipo": "pratica"
   }
  ],
- "dato": "2026-10-30T09:33",
- "generato": "2026-10-30T09:39",
+ "dato": "2026-10-30T09:42",
+ "generato": "2026-10-30T09:50",
  "righe": [
+  {
+   "alunno": "Katherine A.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "01/10 13:33",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:24",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:36",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:44",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "30/10 09:40",
+     "oggi": true,
+     "volte": 1
+    },
+    null
+   ],
+   "manca": [],
+   "fatti": 5,
+   "su": 5
+  },
   {
    "alunno": "Luca B.",
    "q": [
@@ -581,50 +630,6 @@
    "su": 5
   },
   {
-   "alunno": "Katherine A.",
-   "q": [
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "01/10 13:33",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "28/10 11:24",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "28/10 11:36",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "28/10 11:44",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null
-   ],
-   "manca": [
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
-   "su": 5
-  },
-  {
    "alunno": "Antonio M.",
    "q": [
     {
@@ -659,13 +664,18 @@
      "oggi": false,
      "volte": 1
     },
-    null,
+    {
+     "p": 90,
+     "m": 100,
+     "v": 76,
+     "quando": "30/10 09:34",
+     "oggi": true,
+     "volte": 1
+    },
     null
    ],
-   "manca": [
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
+   "manca": [],
+   "fatti": 5,
    "su": 5
   }
  ]
