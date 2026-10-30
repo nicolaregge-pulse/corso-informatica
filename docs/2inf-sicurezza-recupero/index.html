@@ -28,6 +28,8 @@ button,.quiz{display:block;width:100%;font:inherit;font-weight:700;font-size:19p
 .stop{background:#fdecea;border:3px solid #b3261e;color:#7a1410;border-radius:12px;padding:14px 16px;margin:12px 0;font-weight:700;font-size:18px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stop{background:#3a1512;color:#ffd7d2;border-color:#f28b82}}
 :root[data-theme="dark"] .stop{background:#3a1512;color:#ffd7d2;border-color:#f28b82}
+.op{display:block;width:100%;text-align:left;font:inherit;font-weight:400;font-size:17px;padding:10px 12px;margin-top:8px;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--ink);cursor:pointer}
+.op.giusta{border-color:var(--ok);background:var(--okbg)}.op.sbagliata{border-color:var(--ko)}
 </style>
 </head>
 <body><div class="w">
@@ -56,6 +58,16 @@ button,.quiz{display:block;width:100%;font:inherit;font-weight:700;font-size:19p
 <p>Il lavoratore ha <b>diritto</b> alla formazione, ai DPI e alla visita medica.</p>
 <p>Ha anche dei <b>doveri</b>: usare i DPI, seguire le regole, segnalare subito un pericolo.</p>
 <p>Chi non rispetta le regole riceve una <b>sanzione</b> (una multa o una punizione). Gli <b>organi di vigilanza</b> (ATS e Ispettorato del lavoro) fanno i controlli.</p></div>
+
+<h2 id="allenamento">ALLENAMENTO: rifai le domande quante volte vuoi</h2>
+<p>Qui non vale per il voto: serve per allenarti. Sbagli? Rileggi la scheda e riprova.</p>
+<div class="card"><h3>1ª e 2ª ora: allenati qui</h3><div id="allena"></div></div>
+<div class="card"><h3>3ª, 4ª e 5ª ora: allenati nel ripasso</h3>
+<p>Nel ripasso ogni scheda ha la sua domanda: la correzione è subito e puoi riprovare.</p>
+<a class="quiz" target="_blank" rel="noopener" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=2inf-sicurezza-3ora">Allenamento 3ª ora: organizzazione della prevenzione</a>
+<a class="quiz" target="_blank" rel="noopener" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=2inf-sicurezza-mod2">Allenamento 4ª ora: diritti, doveri, vigilanza</a>
+<a class="quiz" target="_blank" rel="noopener" href="https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=2inf-sicurezza-5ora">Allenamento 5ª ora: il rischio infortuni</a></div>
+<p class="mu">I quiz su Moduli si fanno una volta sola: prima allenati qui, poi fai quello della 5ª ora.</p>
 
 <h2>2. I TUOI quiz da fare</h2>
 <div class="card">
@@ -102,6 +114,23 @@ function mostra(){
 document.getElementById("vedi").addEventListener("click",mostra);
 document.getElementById("nome").addEventListener("keydown",function(e){if(e.key==="Enter")mostra()});
 leggi().catch(function(){});
+</script>
+<script>
+/* 30/10/2026: allenamento ore 1-2, solo nella pagina: non manda niente a nessuno. */
+(function(){var D=[
+["1ª ora","Un pavimento bagnato è…",["un pericolo","un danno","una sanzione"],"Il pericolo è una cosa che può fare male."],
+["1ª ora","Ti fai una ferita. La ferita è…",["il danno","il pericolo","la prevenzione"],"Il danno è il male che succede davvero."],
+["1ª ora","Il rischio dipende da…",["probabilità e gravità del danno","solo dal colore della macchina","solo dall'età del lavoratore"],"Rischio = probabilità × danno."],
+["2ª ora","La prevenzione agisce…",["prima, perché il danno succeda meno spesso","dopo, per curare la ferita","solo quando arriva l'ispettore"],"Prevenzione: formazione, ordine, regole."],
+["2ª ora","Guanti, occhiali e scarpe di sicurezza sono…",["DPI, dispositivi di protezione individuale","documenti del datore di lavoro","sanzioni"],"I DPI proteggono te, se il danno succede."],
+["2ª ora","La protezione serve a…",["far meno male se il danno succede","evitare la formazione","scegliere l'RLS"],"La protezione riduce il danno."]];
+var box=document.getElementById("allena");
+D.forEach(function(q,i){var d=document.createElement("div");d.style.marginTop="14px";
+ var o=q[2].map(function(t,k){return[t,k]});for(var j=o.length-1;j>0;j--){var r=Math.floor(Math.random()*(j+1)),x=o[j];o[j]=o[r];o[r]=x}
+ d.innerHTML="<b>"+(i+1)+". ("+q[0]+") "+q[1]+"</b>"+o.map(function(a){return'<button type="button" class="op" data-k="'+a[1]+'">'+a[0]+"</button>"}).join("")+'<p class="mu" hidden></p>';
+ d.querySelectorAll(".op").forEach(function(b){b.addEventListener("click",function(){var ok=b.dataset.k==="0";d.querySelectorAll(".op").forEach(function(x){x.className="op"});b.className="op "+(ok?"giusta":"sbagliata");var m=d.querySelector("p");m.hidden=false;m.innerHTML=ok?'<b style="color:var(--ok)">Giusto!</b> '+q[3]:'<span class="ko">Non è questa: rileggi la scheda e riprova.</span>'})});
+ box.appendChild(d)});
+})();
 </script>
 </body>
 </html>
