@@ -63,6 +63,13 @@ figcaption{font-size:10.5pt}
 LAT = re.compile(r"[A-Za-z0-9'«À-ɏ](?:[\x20-\x7EÀ-ɏ«»→]*[A-Za-z0-9'»)À-ɏ])?")
 
 
+def avvolgi(m):
+    t, coda = m.group(0), ''
+    while t and t[-1] in ')»' and t.count(t[-1]) > t.count('(' if t[-1] == ')' else '«'):
+        t, coda = t[:-1].rstrip(), t[len(t[:-1].rstrip()):] + coda  # la parentesi di chiusura resta nel testo arabo
+    return (f'<span dir="ltr">{t}</span>' if t else '') + coda
+
+
 def isola_latino(corpo):
     """Avvolge in <span dir="ltr"> i pezzi in caratteri latini del testo normale (non in code, pre, a, span, style)."""
     out, salta = [], 0
@@ -75,7 +82,7 @@ def isola_latino(corpo):
         elif salta > 0 or not re.search(r'[؀-ۿ]', pezzo):
             out.append(pezzo)
         else:
-            out.append(LAT.sub(lambda m: f'<span dir="ltr">{m.group(0)}</span>', pezzo))
+            out.append(LAT.sub(avvolgi, pezzo))
     return ''.join(out)
 
 
