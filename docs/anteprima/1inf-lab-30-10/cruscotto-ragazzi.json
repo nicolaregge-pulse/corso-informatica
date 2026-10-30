@@ -1,7 +1,7 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T13:35",
- "ora": "13:35",
+ "generato": "2026-10-30T13:37",
+ "ora": "13:37",
  "fonte": "piani A + B · segnali Foglio: 40 · consegne pagina: 1 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
@@ -20,8 +20,8 @@
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
-   "ora": "13:33",
-   "iso": "2026-10-30T13:33+01:00",
+   "ora": "13:36",
+   "iso": "2026-10-30T13:36+01:00",
    "vecchio": false
   },
   {
@@ -1465,20 +1465,26 @@
      "ora": "11:50"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 7,
+    "m": 15,
+    "corte": 0,
+    "ora": "13:35"
+   },
    "teoria": {
     "schede": 6,
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "13:29",
+   "fermo_da": "13:35",
    "veyon": {
     "fuori": 0
    },
    "svolto": 0.0,
    "conto": [
     "base 40",
-    "quiz S/I 11/22 (sotto il 60%) +0"
+    "quiz S/I 11/22 (sotto il 60%) +0",
+    "quiz dispensa 7/15: si vede, per ora non conta"
    ]
   },
   {
