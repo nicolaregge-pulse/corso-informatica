@@ -1,8 +1,8 @@
 {
- "ora": "08:50",
- "generato": "2026-10-30T08:50",
- "fonte": "Classroom: compito pubblicato, non ancora letto · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 4 risposte (lette alle 08:48) · Ciao 28/10 letto alle 11:15 · Veyon 38 righe · presenze dal registro",
- "ultimo_dato": "08:48",
+ "ora": "08:55",
+ "generato": "2026-10-30T08:55",
+ "fonte": "Classroom: compito pubblicato, non ancora letto · Documenti consegnati raccolti: 0 · Documenti di lavoro letti alle mai · quiz Unicode: 6 risposte (lette alle 08:53) · Ciao 28/10 letto alle 11:15 · Veyon 57 righe · presenze dal registro",
+ "ultimo_dato": "08:53",
  "banca": "1inf-lazarus-label",
  "fine": "14:00",
  "spiega": "Oggi: 8-9 quiz «Il computer scrive in tutte le lingue»; 11-14 Lazarus «Ciao 2: la Label». Voto del laboratorio: parte da 40; +15 Documento consegnato su Classroom; +10 il codice con Label1.Caption; +10 lo screenshot; +5 una frase con parole tue (anche nella tua lingua) = 80. I punti si contano nel Documento CONSEGNATO. Prima delle 10:30 il voto è quello del quiz. Si aggiorna ogni 5 minuti: premi F5. · العربية: الدرجة تبدأ من 40: ‎+15 تسليم المستند، ‎+10 الكود مع Label1.Caption، ‎+10 لقطة الشاشة، ‎+5 جملة بكلماتك = 80. · 中文：从 40 分开始：交文档 +15，有 Label1.Caption 的代码 +10，截图 +10，你自己的一句话 +5 = 80。",
@@ -16,9 +16,91 @@
   "Quiz Unicode (8-9)",
   "Ciao del 28/10"
  ],
- "riepilogo": "Laboratorio: consegnati 0 su 19 · quiz Unicode fatti: 4 su 19",
+ "riepilogo": "Laboratorio: consegnati 0 su 19 · quiz Unicode fatti: 6 su 19",
  "quiz_url": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform",
  "righe": [
+  {
+   "alunno": "Moaaz A.",
+   "celle": [
+    {
+     "t": "○ non ancora: premi «Consegna»",
+     "ok": false
+    },
+    {
+     "t": "○ manca la riga con Label1.Caption",
+     "ok": false
+    },
+    {
+     "t": "○ manca lo screenshot",
+     "ok": false
+    },
+    {
+     "t": "○ manca la frase con parole tue",
+     "ok": false
+    },
+    {
+     "t": "✔ 15/15 → 80",
+     "ok": true
+    },
+    {
+     "t": "✔ fatto il 28/10",
+     "ok": true
+    }
+   ],
+   "voto": 80,
+   "conto": "Quiz Unicode: 40 + 40 × 15/15 = 80",
+   "verifica": "15 su 15",
+   "voto_ver": 80,
+   "fuori": 1,
+   "vy_ult": [
+    "08:50",
+    "PC 12: immagini satellitari (Google Earth o Maps)",
+    true
+   ],
+   "comportamento": "fuori compito 1 volte",
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
+  },
+  {
+   "alunno": "Giexther A.",
+   "celle": [
+    {
+     "t": "○ non ancora: premi «Consegna»",
+     "ok": false
+    },
+    {
+     "t": "○ manca la riga con Label1.Caption",
+     "ok": false
+    },
+    {
+     "t": "○ manca lo screenshot",
+     "ok": false
+    },
+    {
+     "t": "○ manca la frase con parole tue",
+     "ok": false
+    },
+    {
+     "t": "✔ 14/15 → 77",
+     "ok": true
+    },
+    {
+     "t": "✔ fatto il 28/10",
+     "ok": true
+    }
+   ],
+   "voto": 77,
+   "conto": "Quiz Unicode: 40 + 40 × 14/15 = 77",
+   "verifica": "14 su 15",
+   "voto_ver": 77,
+   "fuori": 0,
+   "vy_ult": [
+    "08:50",
+    "PC 15: pagina del cruscotto dei ragazzi",
+    false
+   ],
+   "comportamento": "ok",
+   "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
+  },
   {
    "alunno": "Enea Z.",
    "celle": [
@@ -53,8 +135,8 @@
    "voto_ver": 75,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 27: quiz Moduli",
+    "08:50",
+    "PC 27: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -94,8 +176,8 @@
    "voto_ver": 59,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 14: quiz Moduli",
+    "08:50",
+    "PC 14: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -135,8 +217,8 @@
    "voto_ver": 56,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 11: quiz Moduli",
+    "08:50",
+    "PC 11: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -174,56 +256,14 @@
    "conto": "Quiz Unicode: 40 + 40 × 5/15 = 53",
    "verifica": "5 su 15",
    "voto_ver": 53,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "08:37",
-    "PC 13: quiz Moduli",
-    false
+    "08:50",
+    "PC 13: immagini satellitari (Google Earth o Maps)",
+    true
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Prossimo passo: codice con Label1.Caption. Poi premi «Consegna» su Classroom."
-  },
-  {
-   "alunno": "Moaaz A.",
-   "celle": [
-    {
-     "t": "○ non ancora: premi «Consegna»",
-     "ok": false
-    },
-    {
-     "t": "○ manca la riga con Label1.Caption",
-     "ok": false
-    },
-    {
-     "t": "○ manca lo screenshot",
-     "ok": false
-    },
-    {
-     "t": "○ manca la frase con parole tue",
-     "ok": false
-    },
-    {
-     "t": "○ non ancora fatto",
-     "ok": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform"
-    },
-    {
-     "t": "✔ fatto il 28/10",
-     "ok": true
-    }
-   ],
-   "voto": 40,
-   "conto": "Laboratorio: 40 = 40",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "08:37",
-    "PC 12: quiz Moduli",
-    false
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
   },
   {
    "alunno": "Christian A.",
@@ -260,8 +300,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 25: accesso a Chrome, non lavora ancora",
+    "08:50",
+    "PC 25: pagina del cruscotto dei ragazzi",
     false
    ],
    "comportamento": "ok",
@@ -302,50 +342,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 34: quiz Moduli",
-    false
-   ],
-   "comportamento": "ok",
-   "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
-  },
-  {
-   "alunno": "Giexther A.",
-   "celle": [
-    {
-     "t": "○ non ancora: premi «Consegna»",
-     "ok": false
-    },
-    {
-     "t": "○ manca la riga con Label1.Caption",
-     "ok": false
-    },
-    {
-     "t": "○ manca lo screenshot",
-     "ok": false
-    },
-    {
-     "t": "○ manca la frase con parole tue",
-     "ok": false
-    },
-    {
-     "t": "○ non ancora fatto",
-     "ok": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSegqxhNi56-IiLTOvWmIYDvC3rFf8KJm3AOg-HneFKDinwIxg/viewform"
-    },
-    {
-     "t": "✔ fatto il 28/10",
-     "ok": true
-    }
-   ],
-   "voto": 40,
-   "conto": "Laboratorio: 40 = 40",
-   "verifica": "",
-   "voto_ver": null,
-   "fuori": 0,
-   "vy_ult": [
-    "08:37",
-    "PC 15: teoria",
+    "08:50",
+    "PC 34: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -386,8 +384,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "non vista su nessun PC (PC 26 spento)",
+    "08:50",
+    "PC 18: pagina del cruscotto dei ragazzi (finalmente entrata)",
     false
    ],
    "comportamento": "ok",
@@ -428,8 +426,8 @@
    "voto_ver": null,
    "fuori": 1,
    "vy_ult": [
-    "08:37",
-    "PC 24: teoria (tornato sul compito)",
+    "08:50",
+    "PC 24: quiz o teoria",
     false
    ],
    "comportamento": "fuori compito 1 volte",
@@ -470,8 +468,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 16: quiz Moduli",
+    "08:50",
+    "PC 16: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -512,8 +510,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 35: quiz Moduli",
+    "08:50",
+    "PC 35: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -554,8 +552,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 29: teoria",
+    "08:50",
+    "PC 29: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -594,13 +592,13 @@
    "conto": "Laboratorio: 40 = 40",
    "verifica": "",
    "voto_ver": null,
-   "fuori": 0,
+   "fuori": 1,
    "vy_ult": [
-    "08:37",
-    "PC 12: quiz Moduli",
-    false
+    "08:50",
+    "PC 12: immagini satellitari (Google Earth o Maps)",
+    true
    ],
-   "comportamento": "ok",
+   "comportamento": "fuori compito 1 volte",
    "cosa_fare": "Fai il quiz «Il computer scrive in tutte le lingue» (link nel compito di Classroom) e premi «Invia»."
   },
   {
@@ -638,8 +636,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 36: «La lavagna di oggi»",
+    "08:50",
+    "PC 36: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -680,8 +678,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 23: teoria",
+    "08:50",
+    "PC 23: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -722,8 +720,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 28: teoria",
+    "08:50",
+    "PC 28: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -764,8 +762,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 21: quiz Moduli",
+    "08:50",
+    "PC 21: quiz o teoria",
     false
    ],
    "comportamento": "ok",
@@ -807,8 +805,8 @@
    "voto_ver": null,
    "fuori": 0,
    "vy_ult": [
-    "08:37",
-    "PC 17: quiz Moduli",
+    "08:50",
+    "PC 17: Classroom",
     false
    ],
    "comportamento": "ok",

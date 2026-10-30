@@ -17,9 +17,63 @@
    "conta": true
   }
  ],
- "dato": "2026-10-30T08:47",
- "generato": "2026-10-30T08:50",
+ "dato": "2026-10-30T08:52",
+ "generato": "2026-10-30T08:55",
  "righe": [
+  {
+   "alunno": "Moaaz A.",
+   "q": [
+    {
+     "p": 15,
+     "m": 15,
+     "v": 80,
+     "quando": "30/10 08:49",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 21,
+     "m": 22,
+     "v": 78,
+     "quando": "30/10 08:43",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
+  {
+   "alunno": "Giexther A.",
+   "q": [
+    {
+     "p": 14,
+     "m": 15,
+     "v": 77,
+     "quando": "30/10 08:50",
+     "oggi": true,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 16,
+     "m": 22,
+     "v": 69,
+     "quando": "30/10 08:45",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 2,
+   "su": 2
+  },
   {
    "alunno": "Andrea S.",
    "q": [
@@ -102,7 +156,70 @@
    "su": 2
   },
   {
-   "alunno": "Moaaz A.",
+   "alunno": "Aya B.",
+   "q": [
+    null,
+    null,
+    {
+     "p": 22,
+     "m": 22,
+     "v": 80,
+     "quando": "30/10 08:50",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Quiz Unicode (15 domande, Moduli)",
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Moaaz M.",
+   "q": [
+    null,
+    null,
+    {
+     "p": 22,
+     "m": 22,
+     "v": 80,
+     "quando": "30/10 08:50",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Quiz Unicode (15 domande, Moduli)",
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Abdel N.",
+   "q": [
+    null,
+    null,
+    {
+     "p": 22,
+     "m": 22,
+     "v": 80,
+     "quando": "30/10 08:50",
+     "oggi": true,
+     "volte": 1
+    }
+   ],
+   "manca": [
+    "Quiz Unicode (15 domande, Moduli)",
+    "Stringhe e interi: ripasso (pagina)"
+   ],
+   "fatti": 1,
+   "su": 2
+  },
+  {
+   "alunno": "Shanzay S.",
    "q": [
     null,
     null,
@@ -110,7 +227,7 @@
      "p": 21,
      "m": 22,
      "v": 78,
-     "quando": "30/10 08:43",
+     "quando": "30/10 08:51",
      "oggi": true,
      "volte": 1
     }
@@ -186,15 +303,15 @@
    "su": 2
   },
   {
-   "alunno": "Giexther A.",
+   "alunno": "Christian A.",
    "q": [
     null,
     null,
     {
-     "p": 16,
+     "p": 18,
      "m": 22,
-     "v": 69,
-     "quando": "30/10 08:45",
+     "v": 73,
+     "quando": "30/10 08:51",
      "oggi": true,
      "volte": 1
     }
@@ -228,37 +345,7 @@
    "su": 2
   },
   {
-   "alunno": "Christian A.",
-   "q": [
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)",
-    "Quiz Stringhe e interi (22 domande, Moduli)"
-   ],
-   "fatti": 0,
-   "su": 2
-  },
-  {
    "alunno": "Matteo A.",
-   "q": [
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)",
-    "Quiz Stringhe e interi (22 domande, Moduli)"
-   ],
-   "fatti": 0,
-   "su": 2
-  },
-  {
-   "alunno": "Aya B.",
    "q": [
     null,
     null,
@@ -318,52 +405,7 @@
    "su": 2
   },
   {
-   "alunno": "Moaaz M.",
-   "q": [
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)",
-    "Quiz Stringhe e interi (22 domande, Moduli)"
-   ],
-   "fatti": 0,
-   "su": 2
-  },
-  {
-   "alunno": "Abdel N.",
-   "q": [
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)",
-    "Quiz Stringhe e interi (22 domande, Moduli)"
-   ],
-   "fatti": 0,
-   "su": 2
-  },
-  {
    "alunno": "Thomas R.",
-   "q": [
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "Quiz Unicode (15 domande, Moduli)",
-    "Stringhe e interi: ripasso (pagina)",
-    "Quiz Stringhe e interi (22 domande, Moduli)"
-   ],
-   "fatti": 0,
-   "su": 2
-  },
-  {
-   "alunno": "Shanzay S.",
    "q": [
     null,
     null,
