@@ -1,12 +1,12 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.4** — 29/10/2026 — documento interno del docente e di Claude
+**Versione 1.5** — 30/10/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
 ## 01 Conteggio
 
-1. Voci del registro contate qui: 187 (14 del 01/10, 15 del 02/10, 139 numerate dal #1 al #138 con il #82 doppio, le 8 voci dal #139 al #146 e le 8 dal #147 al #154 del 29/10/2026, le 3 dal #155 al #157 del controllore di fine giornata del 29/10/2026).
+1. Voci del registro contate qui: 200 (le 13 dal #158 al #170 aggiunte dal controllore di fine giornata del 30/10/2026, tutte A; prima: 187, 14 del 01/10, 15 del 02/10, 139 numerate dal #1 al #138 con il #82 doppio, le 8 voci dal #139 al #146 e le 8 dal #147 al #154 del 29/10/2026, le 3 dal #155 al #157 del controllore di fine giornata del 29/10/2026).
 2. Copertura dopo i controlli aggiunti il 28/10/2026 sera, e prima:
 
 | Copertura | Ora | Prima |
@@ -283,6 +283,19 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #155 | Si misura il risultato: controllore di fine giornata sul dato vero | 2 | D | A | controlla_controlli.py --fine-giornata (report/<giorno>/non-andato.md) |
 | #156 | Nessun 40 a chi ha finito o consegnato; senza consegna «voto dopo la consegna» | 6 | D | A | controlla_controlli.py --fine-giornata (40 con percorso finito) + controlli_pagine.py (valore_nudo) |
 | #157 | Una release vale per tutto il repository; progetto serio = repository suo | 5 | D | A | hook controllo-messaggio.py (aa) |
+| #158 | Incolla in Apps Script: clic dentro il codice, Ctrl+A «tutto blu», Ctrl+V, controllo righe | 5 | D | A | hook controllo-messaggio.py (ii) |
+| #159 | «Prima ora» = ora della giornata; nella risposta si scrive l'orario | 6 | D | A | hook controllo-messaggio.py (gg) |
+| #160 | Il quiz chiede solo lavoro già fatto prima del quiz | 4 | D | A | controlla_controlli.py --fine-giornata (_quiz_lavoro_futuro) |
+| #161 | Mai «non arrivato» su dati di più di 5 minuti; il docente non controlla da solo | 2 | D | A | hook controllo-messaggio.py (hh) + watchdog del laboratorio |
+| #162 | Laboratorio di 2-3 ore: un lavoro per ogni ora, pronto entro le 18 del giorno prima | 4 | D | A | controlla_controlli.py --fine-giornata (proposta non divisa ora per ora) |
+| #163 | 1INF: ogni materiale per i ragazzi in italiano, arabo e cinese insieme | 1 | D | A | controlla_controlli.py --fine-giornata (dispensa e pagine del piano senza ar/zh) |
+| #164 | Ai ragazzi un solo posto: compito del giorno con la pagina hub | 5 | D | A | hook controllo-messaggio.py (ff) + controlla_controlli.py --fine-giornata (troppi compiti «OGGI») |
+| #165 | I dati del docente si scrivono in caselle (foglio Google), non in un PDF | 5 | D | A | hook controllo-messaggio.py (ee) |
+| #166 | Una domanda del docente chiede una spiegazione; si toglie solo con «togli/elimina» | 6 | D | A | hook controllo-messaggio.py (cc) |
+| #167 | Il genere di un allievo non si dà per scontato: si usa il nome | 6 | D | A | hook controllo-messaggio.py (dd) |
+| #168 | Script nuovo provato con una bozza vera la sera prima; piano B pronto subito | 4 | D | A | verifica_lezione.py (coda senza id = ROSSO, «sospeso» = verde) + controlla_controlli.py --fine-giornata |
+| #169 | I giri del cruscotto lasciano un segnale e si riaccendono; nessun buco > 12 minuti | 2 | D | A | controlla_controlli.py --fine-giornata (buchi nello storico) |
+| #170 | Colonna del cruscotto solo dopo un invio vero; fonte vuota detta subito | 2 | D | A | controlla_controlli.py --fine-giornata (colonna «pratica» vuota) + situazione_quiz.py (storico) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -354,3 +367,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 3. v1.2 (29/10/2026): §03 punto 8, regola 30 (bottone «Serve te» del cruscotto con le sole criticità per il docente).
 4. v1.3 (29/10/2026, audit della giornata): voci #147-#154 con i loro controlli (hook w, x, y, z; 5 controlli nuovi in `controlla_controlli.py`); conteggio a 176 voci.
 5. v1.4 (29/10/2026, controllore di fine giornata): voci #139-#146 e #155-#157 in tabella, tutte A; hook (aa) e (bb), controllo `valore_nudo` prima del push, `controlla_controlli.py --fine-giornata`; conteggio a 187 voci.
+6. v1.5 (30/10/2026, controllore di fine giornata): voci #158-#170 in tabella, tutte A; hook (cc)-(ii), 7 controlli nuovi in `controlla_controlli.py --fine-giornata` (#160, #162, #163, #164, #168, #169, #170), voci «sospeso» verdi in `verifica_lezione.py`, storico dei quiz in `situazione_quiz.py`; conteggio a 200 voci.

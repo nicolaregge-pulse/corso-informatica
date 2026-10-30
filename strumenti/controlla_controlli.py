@@ -59,6 +59,22 @@ except Exception:  # pragma: no cover
 righe = []
 
 
+
+def _uscita_dopo(uscita, da, giorno):
+    """True se il compito è uscito DOPO la campanella del giorno. «18:18 del 29/10» = giorno prima: va bene.
+    (30/10/2026, controllore di fine giornata: prima si confrontavano solo le ore e la sera prima risultava «dopo».)"""
+    m = re.match(r"\s*(\d{1,2})[:.](\d{2})(?:\s+del\s+(\d{1,2})/(\d{1,2}))?", uscita)
+    if not m:
+        return True
+    if m.group(3):
+        gg, mm = int(m.group(3)), int(m.group(4))
+        y, mo, d = (int(x) for x in giorno.split("-"))
+        if (mm, gg) < (mo, d):
+            return False
+        if (mm, gg) > (mo, d):
+            return True
+    return "%02d:%02d" % (int(m.group(1)), int(m.group(2))) > da
+
 def esito(ok, cosa):
     righe.append(("VERDE" if ok else "ROSSO", cosa))
 
@@ -547,6 +563,152 @@ def _ultimo_cruscotto(ris, classe, giorno):
     return None
 
 
+
+def _hhmm_min(x):
+    m = re.search(r"(\d{2})(\d{2})(?!.*\d{4})", x)
+    return int(m.group(1)) * 60 + int(m.group(2)) if m else None
+
+
+
+def _quiz_lavoro_futuro(classe, giorno, pub, ris, testi=None):
+    """#160: le banche dei quiz della classe toccate nel giorno non devono chiedere i lavori del laboratorio dello
+    stesso giorno (titoli «Ora N · Titolo» delle voci di coda) né «il programma che hai fatto oggi in laboratorio»,
+    salvo il segno «dopo_il_lavoro» nella banca (quiz fatto DOPO il lavoro). testi = {nome: testo} per le prove."""
+    titoli = []
+    for f in glob.glob(os.path.join(ris, "coda", "%s_%s_*.json" % (giorno, classe.upper()))):
+        try:
+            t = json.load(open(f, encoding="utf-8")).get("titolo", "")
+        except Exception:
+            continue
+        m = re.search(r"\bOra\s+\d\s*·\s*([^·]+)", t)
+        if m:
+            parola = [w for w in re.findall(r"[a-zà-ù]{5,}", m.group(1).lower()) if w not in ("numeri", "della", "delle")]
+            titoli.extend(parola[:1])
+    if testi is None:
+        testi = {}
+        try:
+            r = subprocess.run(["git", "-C", pub, "log", "--since", giorno + " 00:00", "--until", giorno + " 23:59",
+                                "--name-only", "--format=", "--", "docs/verifica/banche/"], capture_output=True, text=True, timeout=60)
+            for f in set(r.stdout.split()):
+                if os.path.basename(f).lower().startswith(classe.lower()) and os.path.exists(os.path.join(pub, f)):
+                    testi[f] = open(os.path.join(pub, f), encoding="utf-8").read()
+        except Exception:
+            pass
+    out = []
+    for f, t in testi.items():
+        if f == "_prova" or "dopo_il_lavoro" in t:
+            continue
+        # le domande della verifica le vedono solo se la verifica o il recupero sono stati aperti nel giorno
+        ms = re.search(r'"stato"\s*:\s*"([^"]+)"', t)
+        if ms and not testi.get("_prova"):
+            st = os.path.join("docs", "verifica", ms.group(1))
+            try:
+                r = subprocess.run(["git", "-C", pub, "log", "-p", "--since", giorno + " 00:00", "--until", giorno + " 23:59",
+                                    "--", st], capture_output=True, text=True, timeout=60).stdout
+                r += open(os.path.join(pub, st), encoding="utf-8").read()
+            except Exception:
+                r = '"verifica": "aperta"'
+            if not re.search(r'"verifica"\s*:\s*"aperta"|"recupero"\s*:\s*"aperto"', r):
+                continue
+        low = t.lower()
+        trovate = [w for w in titoli if w in low]
+        if re.search(r"(?:hai\s+fatto|fatto\s+tu)\s+oggi\s+in\s+laboratorio", low):
+            trovate.append("«fatto oggi in laboratorio»")
+        if trovate:
+            out.append("%s: il quiz %s chiede il lavoro di oggi non ancora fatto (%s) (#160)"
+                       % (classe, os.path.basename(f), ", ".join(trovate)))
+    return out
+
+def _controlli_30_10(classe, ore, giorno, pub, ris, piano):
+    """Controlli nati il 30/10/2026 (REGISTRO-ERRORI #162-#170), sul dato vero.
+    1. #168: voci di coda del giorno senza id Classroom e non sospese (lo script non le ha create, e niente piano B).
+    2. #169: buchi di più di 12 minuti tra due fotografie del cruscotto durante le ore di lezione (giri morti).
+    3. #170: colonna «pratica» (allenamenti) vuota per tutti i presenti nell'ultima fotografia dei quiz.
+    4. #164: più compiti «OGGI» del giorno su Classroom che blocchi di lezione della classe (un solo posto per i ragazzi).
+    5. #163: 1INF, dispensa o pagina del piano senza arabo e cinese.
+    6. #162: piano del laboratorio (2 ore o più) senza una proposta divisa ora per ora."""
+    out = []
+    g8 = giorno.replace("-", "")
+    # 1. coda
+    for f in glob.glob(os.path.join(ris, "coda", "%s_%s_*.json" % (giorno, classe.upper()))):
+        try:
+            q = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        st = str(q.get("stato", ""))
+        if not q.get("coursework_id") and not st.startswith(("sospeso", "annullato", "superato", "in-attesa")):
+            out.append("%s: %s in coda senza id Classroom e non sospeso (#168: script che non crea, piano B mancante)"
+                       % (classe, os.path.basename(f)))
+    # 2. giri del cruscotto
+    for c in (classe.lower(), classe.upper()):
+        d = os.path.join(ris, "storico", "cruscotti", c, giorno)
+        if not os.path.isdir(d):
+            continue
+        tempi = sorted({t for t in (_hhmm_min(x) for x in os.listdir(d)) if t is not None})
+        for l in ore:
+            a, b = int(l["da"][:2]) * 60 + int(l["da"][3:5]), int(l["a"][:2]) * 60 + int(l["a"][3:5])
+            dentro = [t for t in tempi if a <= t <= b]
+            punti = [a + 5] + dentro + [b - 5]
+            buchi = ["%02d:%02d-%02d:%02d" % (x // 60, x % 60, y // 60, y % 60)
+                     for x, y in zip(punti, punti[1:]) if y - x > 12]
+            if buchi:
+                out.append("%s: giri del cruscotto fermi %s (#169)" % (classe, ", ".join(buchi)))
+        break
+    # 3. allenamenti vuoti
+    for f in sorted(glob.glob(os.path.join(ris, "storico", "cruscotti", classe.lower(), giorno, "quiz-*.json")))[-1:]:
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        for i, col in enumerate(d.get("colonne", [])):
+            if col.get("tipo") == "pratica" and d.get("righe") and \
+                    not any((r.get("q") or [None] * (i + 1))[i] for r in d["righe"]):
+                out.append("%s: colonna «%s» vuota per tutti i %d presenti: la consegna del ripasso non arriva (#170)"
+                           % (classe, col.get("corta", col.get("etichetta")), len(d["righe"])))
+    # 4. compiti «OGGI» del giorno
+    try:
+        v = json.load(open(os.path.join(ris, "dati", "verifiche-lezione", "%s_%s.json" % (giorno, classe)), encoding="utf-8"))
+        gg = "%s/%s" % (giorno[8:10], giorno[5:7])
+        oggi = [p for p in v.get("pezzi", []) if p.get("pezzo", "").startswith("compito «OGGI") and gg in p.get("pezzo", "")
+                and p.get("dettaglio") == "PUBLISHED"]
+        if len(oggi) > len(ore):
+            out.append("%s: %d compiti «OGGI %s» pubblicati per %d blocchi di lezione: ai ragazzi un solo posto (#164)"
+                       % (classe, len(oggi), gg, len(ore)))
+    except Exception:
+        pass
+    # 5. tre lingue in 1INF
+    if classe.upper() == "1INF":
+        ar, zh = re.compile("[\u0600-\u06ff]"), re.compile("[\u4e00-\u9fff]")
+        disp = glob.glob(os.path.join(pub, "docs", "dispense", "dispensa-1inf-v*.pdf"))
+        for f in disp:
+            ver = re.search(r"-v([\d.]+)\.pdf$", f).group(1)
+            for lg in ("ar", "zh"):
+                if not glob.glob(os.path.join(pub, "docs", "dispense", "dispensa-1inf-%s-v*.pdf" % lg)):
+                    out.append("1INF: dispensa v%s senza la versione %s (#163)" % (ver, lg))
+        for l in piano.get("link", []) if isinstance(piano, dict) else []:
+            u = str(l.get("u", "")).split("?")[0]
+            if not u.startswith("1inf") or any(x in u for x in ("oggi", "monitor", "prof", "avanzamento")):
+                continue
+            pg = os.path.join(pub, "docs", u, "index.html") if u.endswith("/") else os.path.join(pub, "docs", u)
+            try:
+                t = open(pg, encoding="utf-8").read()
+            except Exception:
+                continue
+            if not ar.search(t) or not zh.search(t):
+                out.append("1INF: pagina %s senza arabo o cinese (#163)" % u)
+    # 7. #160: quiz del giorno che chiede il lavoro del laboratorio di oggi (non ancora fatto quando si fa il quiz)
+    out.extend(_quiz_lavoro_futuro(classe, giorno, pub, ris))
+    # 6. laboratorio diviso ora per ora
+    for l in ore:
+        if int(l["a"][:2]) - int(l["da"][:2]) >= 2 and isinstance(piano, dict):
+            prop = [p for p in piano.get("proposte", []) if str(p.get("preferita")) == "True"
+                    and re.search(r"laborat", str(p.get("titolo", "")), re.I)]
+            for p in prop:
+                if len(re.findall(r"\b[1-3]ª\s+ora\b", str(p.get("descrizione", "")))) < 2:
+                    out.append("%s: proposta «%s» del laboratorio di %s-%s non divisa ora per ora (#162)"
+                               % (classe, str(p.get("titolo", ""))[:50], l["da"], l["a"]))
+    return out
+
 def controlla_fine_giornata(giorno, pub=None, ris=None):
     """Controllore di fine giornata: per ogni classe in orario il giorno indicato, sul dato vero.
     1. compito su Classroom uscito entro la prima campanella (piano «pubblicata», #141) e piano senza bottoni dopo
@@ -581,7 +743,7 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
         uscita = str(piano.get("pubblicata") or "")
         if not uscita:
             problemi.append("%s: il piano non dice quando il compito è uscito su Classroom (#144)" % classe)
-        elif uscita > da:
+        elif _uscita_dopo(uscita, da, giorno):
             problemi.append("%s: compito uscito su Classroom alle %s, dopo la campanella delle %s (#141)" % (classe, uscita, da))
         try:
             v = json.load(open(os.path.join(ris, "dati", "verifiche-lezione", "%s_%s.json" % (giorno, classe)), encoding="utf-8"))
@@ -623,6 +785,8 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
                     mancano_pdf.append("%02d-%02d" % (h, h + 1))
         if mancano_pdf:
             problemi.append("%s: report PDF dell'ora mancante (regola 24): %s" % (classe, ", ".join(mancano_pdf)))
+        # 30/10/2026 (controllore di fine giornata, #162-#170): controlli nati dagli errori del 30/10
+        problemi.extend(_controlli_30_10(classe, ore, giorno, pub, ris, piano))
     # domande all'assistente del giorno (regola 22)
     senza = 0
     tot = 0

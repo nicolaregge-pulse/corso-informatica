@@ -43,6 +43,14 @@ Aggiunti il 29/10/2026 pomeriggio (audit della giornata):
 Aggiunti il 29/10/2026 sera (controllore di fine giornata):
 27. (aa) release detta «della cartella» o «del progetto» dentro un repository con più progetti (#157);
 28. (bb) più di 2 aiutanti accesi insieme durante la lezione (#143).
+Aggiunti il 30/10/2026 sera (controllore di fine giornata):
+29. (cc) il docente fa una domanda o indica una cosa («la penultima», «cosa serve») e Claude annuncia di toglierla (#166);
+30. (dd) genere dato per scontato: «lei», «la ragazza», «l'allieva» nella stessa frase del nome di un allievo (#167);
+31. (ee) il docente chiede una griglia o caselle per scrivere i suoi voti e Claude dà un PDF (#165);
+32. (ff) ai ragazzi più indirizzi diversi nello stesso messaggio invece di un solo posto (#164).
+33. (gg) il docente dice «prima/seconda/terza ora» e la risposta non dice l'orario (8-9, 11-12) (#159);
+34. (hh) «non arrivato», «manca», «non risulta» su una consegna senza una lettura di meno di 5 minuti (#161);
+35. (ii) incolla in Apps Script con Ctrl+A e Ctrl+V senza «clic dentro il codice» e «tutto blu» (#158).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
 """
@@ -778,6 +786,132 @@ def controllo_troppi_aiutanti(testo):
     return None
 
 
+# (cc) domanda o indicazione del docente presa per un ordine di togliere (#166)
+RE_DOCENTE_CHIEDE = re.compile(r"\?|\bnon\s+capisco\b|\bcosa\s+(?:serve|vuol\s+dire|significa|è)\b|\bche\s+cos[''’]?è\b|"
+                               r"^\s*(?:la|il|l[''’])\s*(?:penultim|ultim|prim|second)\w*\b[^.\n]{0,20}$", re.I | re.M)
+RE_DOCENTE_ORDINA = re.compile(r"\b(?:togli|toglila|toglilo|elimin\w*|rimuov\w*|cancell\w*|nascond\w*|leva)\b", re.I)
+RE_ANNUNCIA_TOLGO = re.compile(r"\b(?:tolgo|rimuovo|elimino|cancello|nascondo|ho\s+tolto|ho\s+rimosso|ho\s+eliminato)\b", re.I)
+
+
+def controllo_toglie_su_domanda(testo, data):
+    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
+    if not richiesta or not RE_DOCENTE_CHIEDE.search(richiesta) or RE_DOCENTE_ORDINA.search(richiesta):
+        return None
+    m = RE_ANNUNCIA_TOLGO.search(senza_citazioni(senza_riquadri(testo)))
+    if not m:
+        return None
+    return ("«%s» (#166): il docente ha fatto una domanda o ha indicato una cosa («%s»), non ha chiesto di toglierla. "
+            "Prima si spiega che cosa è e a che cosa serve; si toglie solo se lo dice lui con un verbo chiaro "
+            "(«togli», «elimina»)." % (m.group(0), richiesta.strip()[:60]))
+
+
+# (dd) genere dato per scontato (#167)
+RE_NOME_ALLIEVO = re.compile(r"\b[A-ZÀ-Ý][A-ZÀ-Ý'’]{2,}(?:\s+[A-ZÀ-Ý][A-ZÀ-Ý'’]{1,})*\b")
+RE_FEMMINILE = re.compile(r"\b(?:lei|la\s+ragazza|una\s+ragazza|l[''’]allieva|trovarla|cercarla|la\s+uso|la\s+trovo)\b", re.I)
+SIGLE_OK = {"PC", "OK", "PDF", "URL", "HTML", "INF", "1INF", "2INF", "3INF", "4TI", "DIDAWEB", "VEYON", "GIT", "AI",
+            "PUBBLICATO", "PUBLISHED", "DRAFT", "VERDE", "ROSSO", "GIALLO", "FATTO", "OGGI", "IT", "AR", "ZH"}
+
+
+def controllo_genere(testo):
+    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    frasi = re.split(r"(?<=[.!?:\n])\s+", base)
+    for k, frase in enumerate(frasi):
+        f = RE_FEMMINILE.search(frase)
+        if not f:
+            continue
+        vicino = " ".join(frasi[max(0, k - 1):k + 1])  # il nome può stare nella frase prima («...di ROSSI. Uso lei...»)
+        nomi = [n for n in RE_NOME_ALLIEVO.findall(vicino) if n.split()[0].upper() not in SIGLE_OK]
+        if nomi:
+            return ("«%s» vicino a «%s» (#167): il genere di un allievo non si dà per scontato. Si usa il nome "
+                    "(COGNOME Nome), senza «lei», «la ragazza», «trovarla»." % (f.group(0), nomi[0]))
+    return None
+
+
+# (ee) griglia per i voti del docente data come PDF (#165)
+RE_CHIEDE_CASELLE = re.compile(r"\bgriglia\b|\bcasell\w*\b|spazio\s+per\s+(?:il\s+)?vot|dove\s+(?:io\s+)?poss\w*\s+scrivere", re.I)
+RE_PDF = re.compile(r"\bPDF\b|\.pdf\b", re.I)
+RE_SCRIVIBILE = re.compile(r"docs\.google\.com/spreadsheets|foglio\s+google|caselle\s+(?:dove|in\s+cui)\s+scriv|si\s+scriv\w*\s+(?:anche\s+)?dal\s+telefono", re.I)
+
+
+def controllo_griglia_pdf(testo, data):
+    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
+    if not richiesta or not RE_CHIEDE_CASELLE.search(richiesta) or not re.search(r"\bvot", richiesta, re.I):
+        return None
+    if RE_PDF.search(testo) and not RE_SCRIVIBILE.search(testo):
+        return ("Il docente ha chiesto dove scrivere i SUOI voti (#165): un PDF non si scrive. Si dà un foglio Google "
+                "con le caselle (COGNOME Nome, voto proposto, casella per il suo voto), apribile anche dal telefono.")
+    return None
+
+
+# (ff) ai ragazzi più indirizzi diversi invece di un solo posto (#164)
+RE_AI_RAGAZZI = re.compile(r"\b(?:ai\s+ragazzi|alla\s+classe|dì\s+(?:ai|alla)|di[''’]\s+ai\s+ragazzi|cosa\s+dire)\b", re.I)
+RE_URL_RAGAZZI = re.compile(r"https?://(?:nicolaregge-pulse\.github\.io|classroom\.google\.com|docs\.google\.com/forms)\S+", re.I)
+
+
+def controllo_troppi_indirizzi(testo):
+    if not RE_AI_RAGAZZI.search(testo):
+        return None
+    urls = {u.rstrip(").,»") for u in RE_URL_RAGAZZI.findall(testo)
+            if not re.search(r"prof|docent|cruscotto|avanzamento/[^ ]*oggi", u, re.I)}
+    if len(urls) > 1:
+        return ("%d indirizzi diversi per i ragazzi nello stesso messaggio (#164): «i ragazzi fanno casino se diamo URL "
+                "diversi». Ai ragazzi un solo posto: il compito del giorno con dentro la pagina unica (hub) che ha "
+                "tutti i passi." % len(urls))
+    return None
+
+
+# (gg) «prima ora» del docente: si dice l'orario (#159)
+RE_ORA_ORDINALE = re.compile(r"\b(?:prima|seconda|terza|quarta|quinta|sesta|[1-6]\s*[aª°]?)\s+ora\b", re.I)
+RE_ORARIO = re.compile(r"\b(?:[01]?\d|2[0-3])(?::\d{2})?\s*[-–]\s*(?:[01]?\d|2[0-3])(?::\d{2})?\b|\bdalle\s+\d{1,2}\b|\balle\s+\d{1,2}\b")
+
+
+def controllo_ora_ordinale(testo, data):
+    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
+    m = RE_ORA_ORDINALE.search(richiesta or "")
+    if not m or re.search(r"sicurezza|quiz\s+della|[1-5]ª\s+ora\s+di\s+sicurezza", richiesta, re.I):
+        return None
+    if RE_ORARIO.search(senza_riquadri(testo)):
+        return None
+    return ("Il docente ha detto «%s» (#159): «prima ora» è l'ora della GIORNATA. Nella risposta si scrive l'orario "
+            "(per esempio «8-9») così l'equivoco si vede subito; nel dubbio si fa in entrambe." % m.group(0))
+
+
+# (hh) «non arrivato» su dati vecchi (#161)
+RE_NON_ARRIVATO = re.compile(r"\bnon\s+(?:è\s+|sono\s+)?(?:ancora\s+)?arrivat\w*|\bnon\s+(?:gli\s+|le\s+)?risulta(?:no)?\b|"
+                             r"\bnon\s+(?:ha|hanno)\s+(?:ancora\s+)?consegnat\w*|\bmancano\s+ancora\b", re.I)
+RE_LETTO_ALLE = re.compile(r"(?:lett[oaie]|lettura|rilett[oaie]|controllat[oaie]|aggiornat[oaie]|dato|dati)\s+(?:delle|alle|di|delle\s+ore)\s+(\d{1,2})[:.](\d{2})", re.I)
+
+
+def controllo_non_arrivato_vecchio(testo, adesso=None):
+    base = senza_citazioni(senza_riquadri(testo))
+    m = RE_NON_ARRIVATO.search(base)
+    if not m:
+        return None
+    adesso = adesso or datetime.datetime.now(ZoneInfo("Europe/Rome"))
+    letture = [int(a) * 60 + int(b) for a, b in RE_LETTO_ALLE.findall(base)]
+    ora = adesso.hour * 60 + adesso.minute
+    if letture and min(ora - t for t in letture if t <= ora + 1) <= 5:
+        return None
+    return ("«%s» (#161): mai «non arrivato» o «manca» senza una lettura di tutte le fonti fatta da meno di 5 minuti, "
+            "scritta nel messaggio («letto alle %02d:%02d»). Prima si rilegge (Moduli, Foglio di riserva, Git, Classroom), "
+            "poi si dice." % (m.group(0), adesso.hour, adesso.minute))
+
+
+# (ii) incolla in Apps Script senza clic dentro il codice e controllo «tutto blu» (#158)
+RE_CTRL_A = re.compile(r"ctrl\s*\+\s*a\b", re.I)
+RE_CTRL_V = re.compile(r"ctrl\s*\+\s*v\b", re.I)
+
+
+def controllo_incolla_apps_script(testo):
+    if not (RE_CTRL_A.search(testo) and RE_CTRL_V.search(testo) and re.search(r"apps\s*script|\.gs\b", testo, re.I)):
+        return None
+    if re.search(r"(?:clic|clicca|fai\s+clic)\w*\s+(?:\w+\s+){0,3}dentro\s+(?:al\s+|il\s+)?codice", testo, re.I) and \
+            re.search(r"tutto\s+blu|diventa\s+(?:tutto\s+)?blu|evidenziat\w*\s+(?:in\s+)?blu", testo, re.I):
+        return None
+    return ("Incolla in Apps Script (#158): prima un clic DENTRO il codice, poi Ctrl+A con il controllo «diventa tutto "
+            "blu», poi Ctrl+V, poi il controllo della riga 2 e dell'ultima riga prima di salvare.")
+
+
 # ------------------------------------------------------------- transcript
 
 def ultimo_testo_assistente(transcript_path, max_righe=4000):
@@ -827,7 +961,11 @@ def main():
                       controllo_copiato, lambda t: controllo_avanti(t, data), controllo_rimando_riquadri,
                       controllo_file_apps_script, controllo_conteggio_senza_fonte,
                       controllo_attivita_non_provata, controllo_solo_simulati, controllo_chiede_cose_note,
-                      controllo_release_cartella, controllo_troppi_aiutanti):
+                      controllo_release_cartella, controllo_troppi_aiutanti,
+                      lambda t: controllo_toglie_su_domanda(t, data), controllo_genere,
+                      lambda t: controllo_griglia_pdf(t, data), controllo_troppi_indirizzi,
+                      lambda t: controllo_ora_ordinale(t, data), controllo_non_arrivato_vecchio,
+                      controllo_incolla_apps_script):
         try:
             m = controllo(testo)
         except Exception:

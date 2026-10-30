@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.01** — 30/10/2026 (#125-#161; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.02** — 30/10/2026 (#125-#170; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -13,25 +13,84 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+## 30/10/2026 — 2INF: il ripasso della 5ª ora non si poteva consegnare e la colonna «Allenamenti» è rimasta vuota (#170)
+
+1. **Errore.** 30/10 alle 09:37 il docente: «dicono che il ripasso non si può consegnare». Le prove di ripasso nelle pagine non sono mai arrivate nel riservato (nessuna cartella `avz-2inf-sicurezza-*`): la colonna «Allenamenti» del cruscotto, voluta dal docente alle 09:40, è rimasta «—» per tutti i 13 presenti. La colonna era stata messa senza una prova vera dell'invio.
+2. **Regola.** Una colonna del cruscotto si mette solo dopo un invio vero dalla pagina pubblicata arrivato nel riservato; se la fonte resta vuota mentre la classe lavora, si dice al docente nel primo giro, non si lascia il trattino.
+3. **Controllo.** `strumenti/controlla_controlli.py --fine-giornata`: colonna «pratica» vuota per tutti i presenti nell'ultima fotografia dei quiz = ROSSO; `generatori/situazione_quiz.py` ora salva la fotografia in `storico/cruscotti/<classe>/<giorno>/quiz-<id>-<HHMM>.json` (prima non la salvava: per la 2INF il 30/10 non c'era storico).
+
+## 30/10/2026 — I giri del cruscotto sono morti 3 volte quando la sessione si è riavviata (#169)
+
+1. **Errore.** 30/10: i giri automatici del cruscotto erano processi di questa chat e sono morti a ogni riavvio della sessione (08:11, 09:33, 12:40); due volte li ha trovati fermi il docente. Buchi nello storico: 1INF 08:11-08:35, 11:05-11:54, 12:40-13:24; 2INF nessuna fotografia durante l'ora.
+2. **Regola.** Un giro che deve durare la lezione lascia un segnale a ogni passaggio e viene ricontrollato a ogni messaggio del docente; se il segnale è più vecchio di 10 minuti si riaccende subito e lo si dice.
+3. **Controllo.** `controlla_controlli.py --fine-giornata`: buchi di più di 12 minuti tra due fotografie del cruscotto durante le ore di lezione = ROSSO, con gli orari.
+
+## 30/10/2026 — Lo script v8.5 non ha creato i compiti dalla coda: piano B con la bozza esistente (#168)
+
+1. **Errore.** La v8.5 (compiti senza scadenza) non era stata provata prima della notte: dalle 07:26 il ponte non ha creato le 3 bozze del laboratorio 1INF (l'errore è solo nel log di Apps Script). Alle 07:58 piano B: la bozza esistente «Lazarus Label» rinominata e riscritta, pubblicata alle 09:14 come compito unico.
+2. **Regola.** Una versione nuova dello script si prova con una bozza vera la sera prima (bozza creata = id nella coda); senza prova, il piano B (modificare una bozza esistente) si prepara subito, non alle 8.
+3. **Controllo.** `generatori/verifica_lezione.py`: voce di coda senza id Classroom = ROSSO (le voci «sospeso» del piano B ora sono verdi con il motivo); `controlla_controlli.py --fine-giornata`: voce di coda del giorno senza id e non sospesa = ROSSO (#168).
+
+## 30/10/2026 — Genere di un allievo dato per scontato (#167)
+
+1. **Errore.** 30/10 alle 13:24 ho scritto «uso lei come prova del nove» parlando di un ragazzo. Il docente: «è un maschio».
+2. **Regola.** Per gli allievi si usa il nome (COGNOME Nome), mai «lei», «lui», «la ragazza» se il genere non è scritto nei file del docente.
+3. **Controllo.** Hook `controllo-messaggio.py` (dd): «lei», «la ragazza», «l'allieva», «trovarla» nella stessa frase o in quella dopo il nome di un allievo blocca il messaggio.
+
+## 30/10/2026 — Colonna tolta quando il docente chiedeva solo che cosa voleva dire (#166)
+
+1. **Errore.** 30/10 alle 10:22 il docente: «non capisco l'ultima colonna»; alle 10:25 «la penultima allora». Ho risposto «Tolgo la penultima colonna» e ho cominciato a toglierla. Alle 10:26: «No, chiedo cosa serve».
+2. **Regola.** Una domanda o un'indicazione («la penultima») chiede una spiegazione. Si toglie qualcosa solo con un verbo chiaro del docente («togli», «elimina»); nel dubbio si spiega e si chiede.
+3. **Controllo.** Hook `controllo-messaggio.py` (cc): se l'ultimo messaggio del docente è una domanda o un'indicazione senza verbo di togliere e la risposta dice «tolgo», «rimuovo», «elimino», il messaggio si blocca.
+
+## 30/10/2026 — Griglia dei voti data in PDF invece di caselle dove scrivere (#165)
+
+1. **Errore.** 30/10 alle 13:32 il docente ha chiesto «una griglia con cognome nome, tuo voto proposto e lo spazio per il voto che scelgo». Ho dato un PDF da stampare (`1INF_griglia-voti_v1.0.pdf`). Il docente: «avevo detto con casella dove io possa scrivere, lì non si può» (13:37), «dammi qualcosa in cui farlo, anche URL» (13:38). Dopo: foglio Google con le caselle.
+2. **Regola.** Quando il docente deve scrivere i SUOI dati (voti, scelte), si dà un posto dove si scrive (foglio Google con caselle, apribile dal telefono), non un PDF.
+3. **Controllo.** Hook `controllo-messaggio.py` (ee): richiesta di griglia, caselle o spazio per i voti e risposta con un PDF senza foglio Google = messaggio bloccato.
+
+## 30/10/2026 — Tanti indirizzi e tanti compiti: i ragazzi si confondono (#164)
+
+1. **Errore.** 30/10 laboratorio 1INF: dispensa, quiz sulla dispensa, compito unico, tre percorsi, cruscotto dei ragazzi, ognuno con il suo indirizzo, più il compito della mattina e la bozza vecchia. Il docente alle 11:44-11:46: «vorrei che ci fosse un compito pubblicato che gli dicesse tutto», «i ragazzi fanno casino se diamo URL diversi o compiti diversi». Alle 11:53: pagina unica (hub) in cima al compito e nell'annuncio.
+2. **Regola.** Ai ragazzi un solo posto per lezione: il compito del giorno con in cima UNA pagina (hub) che contiene tutti i passi in ordine (teoria, quiz, lavoro, consegna). Gli altri indirizzi stanno dentro l'hub.
+3. **Controllo.** Hook `controllo-messaggio.py` (ff): più di un indirizzo per i ragazzi nello stesso messaggio = bloccato; `controlla_controlli.py --fine-giornata`: più compiti «OGGI <giorno>» pubblicati che blocchi di lezione della classe = ROSSO.
+
+## 30/10/2026 — Dispensa della 1INF solo in italiano (#163)
+
+1. **Errore.** 30/10: la dispensa unica della 1INF è uscita alle 11:22 solo in italiano. Il docente alle 11:19: «c'è anche arabo e cinese?», alle 11:23: «PRI+ dispensa in arabo e cinese». Arabo e cinese sono arrivati alle 11:37, a lettura già cominciata.
+2. **Regola.** In 1INF ogni materiale per i ragazzi nasce in italiano, arabo e cinese insieme (regola 21): non si consegna la sola versione italiana.
+3. **Controllo.** `controlla_controlli.py --fine-giornata` (e la mattina sul giorno prima): dispensa 1INF senza la versione «ar» o «zh», o pagina 1INF del piano senza caratteri arabi e cinesi = ROSSO.
+
+## 30/10/2026 — Esercitazione del laboratorio «scarsa», rifatta la sera prima (#162)
+
+1. **Errore.** 29/10 alle 18:09 il docente: «l'esercitazione delle 3 ore di laboratorio è scarsa, prepara 3 moduli». La proposta della notte per le 3 ore era un solo esercizio corto (Ciao 2 con la Label): i tre moduli sono stati costruiti la sera e la mattina presto, con il compito ancora da creare alle 7.
+2. **Regola.** Per un laboratorio di 2 o 3 ore la proposta ha un lavoro per ogni ora (1ª, 2ª, 3ª ora), con una vittoria visibile per ora, ed è pronta entro le 18 del giorno prima.
+3. **Controllo.** `controlla_controlli.py --fine-giornata`: proposta scelta di un laboratorio di 2 ore o più che non nomina almeno due ore («1ª ora», «2ª ora») = ROSSO.
+
 ## 30/10/2026 — Laboratorio 1INF: il docente ha dovuto controllare da solo le consegne (#161)
 
 1. **Errore.** 30/10 laboratorio 1INF: il docente ha dovuto controllare da solo le consegne (cruscotto con dati vecchi, giro fermo, consegne bloccate nel Foglio, messaggio "arrivata" falso; io ho detto "non arrivato" su dati di 30 minuti prima).
 2. **Correzione.** Watchdog ogni 5 minuti che rilegge tutte le fonti, recupera il Foglio, rigenera, controlla 3 allievi sulla fonte; mai dire "non arrivato" senza una lettura di meno di 5 minuti. La pagina della verifica (`docs/verifica/index.html`) dice «inviata, in attesa di conferma» con il bottone «Rimanda» e mostra il verde «arrivata» solo dopo la conferma.
+3. **Controllo (30/10 sera).** Hook `controllo-messaggio.py` (hh): «non arrivato», «non risulta», «mancano ancora» senza «letto alle HH:MM» di meno di 5 minuti = messaggio bloccato.
 
 ## 30/10/2026 — Quiz che chiede un lavoro non ancora fatto (#160)
 
 1. **Errore.** Quiz sulla dispensa 1INF (30/10): una domanda aperta chiedeva il programma Lazarus di oggi, che i ragazzi non avevano ancora fatto (Lazarus veniva DOPO il quiz). Anche due crocette citavano il soprannome (ora 2) e il segnapunti (ora 3) del laboratorio di oggi.
 2. **Correzione.** Ogni domanda chiede solo lavoro già svolto prima del momento in cui il quiz si fa; controllo dell'ordine delle attività prima di aprire un quiz. La domanda aperta ora chiede il programma «Ciao» del 28/10 e una riga con Caption (stesso id, tipo e minimo di parole); le due crocette sono riscritte sulla teoria delle 8-9 (String e Integer, StrToInt).
+3. **Controllo (30/10 sera).** `controlla_controlli.py --fine-giornata`: banca di quiz della classe toccata nel giorno, con verifica o recupero aperti, che nomina i lavori del laboratorio dello stesso giorno (titoli «Ora N · …» della coda) o «fatto oggi in laboratorio» = ROSSO.
 
 ## 30/10/2026 — «Prima ora» intesa come prima ora del laboratorio invece che della giornata (#159)
 
 1. **Errore.** «"Prima ora teoria: integer e string" (29/10) era la prima ora della giornata (8-9, 1INF Tecnologia), non la prima ora del laboratorio: messo solo nel laboratorio.»
 2. **Regola.** Quando Nicola dice "prima/seconda ora" si intende l'ora della giornata; nel dubbio si mette in entrambe.
 3. **Correzione del 30/10.** Alle 06:45 String e Integer (schede, ripasso e quiz su Moduli) sono entrati anche nella lezione delle 8-9: parte 2 «Stringhe e interi» in `docs/1inf-unicode/`, link nel compito già pubblicato con un annuncio, colonne nel cruscotto del quiz.
+4. **Controllo (30/10 sera).** Hook `controllo-messaggio.py` (gg): il docente dice «prima/seconda/terza ora» e la risposta non scrive l'orario («8-9») = messaggio bloccato.
 
 ## 29/10/2026 — Incolla dello script v8.5 mescolato al codice vecchio (#158)
 
 Ho guidato il docente a sostituire il codice in Apps Script con «Ctrl+A, Ctrl+V» senza dire di cliccare prima DENTRO il codice e di controllare che diventasse tutto blu: il testo nuovo è finito in mezzo al vecchio (riga 1011). Correzione: prima un clic dentro il codice, poi Ctrl+A con controllo «tutto blu», poi Ctrl+V, poi controllo della riga 2 e dell'ultima riga PRIMA di salvare.
+
+Controllo (30/10 sera): hook `controllo-messaggio.py` (ii): Ctrl+A e Ctrl+V in Apps Script senza «clic dentro il codice» e «tutto blu» = messaggio bloccato.
 
 ## 29/10/2026 — Release spiegata come se valesse per una cartella: GitHub la fa di tutto il repository (#157)
 

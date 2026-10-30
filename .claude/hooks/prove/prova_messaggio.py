@@ -230,6 +230,31 @@ def main_con(dati):
     return "block" in out.getvalue()
 
 
+# (cc)-(ff) 30/10/2026
+transcript("la penultima allora")
+caso("cc: «la penultima» e Claude toglie", cm.controllo_toglie_su_domanda("Tolgo la penultima colonna, «Allenamenti».", {"transcript_path": tr}) is not None, True)
+caso("cc: «la penultima» e Claude spiega", cm.controllo_toglie_su_domanda("La penultima colonna conta gli allenamenti.", {"transcript_path": tr}), False)
+transcript("Togli la penultima colonna")
+caso("cc: ordine esplicito di togliere", cm.controllo_toglie_su_domanda("Tolgo la penultima colonna.", {"transcript_path": tr}), False)
+caso("dd: «uso lei» nella frase dopo il nome (caso vero del 30/10)", cm.controllo_genere("Lo script ha ricevuto il recupero di ROSSI Mario alle 13:20. Uso lei come prova del nove: se non la trovo, leggo nel posto sbagliato.") is not None, True)
+caso("dd: nome senza pronomi", cm.controllo_genere("Uso ROSSI Mario come prova del nove."), False)
+transcript("Mi dai una griglia con cognome nome tuo voto proposto e lo spazio per il voto che scelgo")
+caso("ee: griglia voti data come PDF", cm.controllo_griglia_pdf("Ecco la griglia in PDF da stampare: 1INF_griglia-voti_v1.0.pdf", {"transcript_path": tr}) is not None, True)
+caso("ee: griglia voti come foglio Google", cm.controllo_griglia_pdf("Ecco il foglio Google con le caselle: https://docs.google.com/spreadsheets/d/x/edit", {"transcript_path": tr}), False)
+caso("ff: due indirizzi ai ragazzi", cm.controllo_troppi_indirizzi("Dì ai ragazzi di aprire https://nicolaregge-pulse.github.io/corso-informatica/1inf-unicode/ e poi https://nicolaregge-pulse.github.io/corso-informatica/verifica/?b=x") is not None, True)
+caso("ff: un solo indirizzo ai ragazzi", cm.controllo_troppi_indirizzi("Dì ai ragazzi di aprire https://nicolaregge-pulse.github.io/corso-informatica/anteprima/1inf-lab-30-10/"), False)
+
+# (gg)-(ii) 30/10/2026
+transcript("Prima ora teoria: integer e string")
+caso("gg: «prima ora» senza orario", cm.controllo_ora_ordinale("Metto String e Integer nella teoria del laboratorio.", {"transcript_path": tr}) is not None, True)
+caso("gg: «prima ora» con l'orario", cm.controllo_ora_ordinale("Metto String e Integer nell'ora 8-9 della 1INF.", {"transcript_path": tr}), False)
+_ad = datetime.datetime(2026, 10, 30, 13, 11, tzinfo=TZ)
+caso("hh: «non arrivato» senza lettura", cm.controllo_non_arrivato_vecchio("Il quiz di BIANCHI non è arrivato.", _ad) is not None, True)
+caso("hh: «non arrivato» con lettura vecchia", cm.controllo_non_arrivato_vecchio("Letto alle 12:40: il quiz di BIANCHI non è arrivato.", _ad) is not None, True)
+caso("hh: «non arrivato» con lettura fresca", cm.controllo_non_arrivato_vecchio("Letto alle 13:09: il quiz di BIANCHI non è arrivato.", _ad), False)
+caso("ii: Ctrl+A e Ctrl+V senza clic dentro", cm.controllo_incolla_apps_script("In Apps Script premi Ctrl+A e poi Ctrl+V nel file automazione-corso.gs.") is not None, True)
+caso("ii: con clic dentro e tutto blu", cm.controllo_incolla_apps_script("In Apps Script fai clic dentro il codice, premi Ctrl+A: diventa tutto blu. Poi Ctrl+V nel file automazione-corso.gs."), False)
+
 caso("main: messaggio con «onestamente» bloccato", main_con({"last_assistant_message": "Onestamente va."}), True)
 caso("main: stop_hook_active non blocca di nuovo", main_con({"last_assistant_message": "Onestamente va.", "stop_hook_active": True}), False)
 caso("main: subagente non controllato", main_con({"last_assistant_message": "Onestamente va.", "agent_id": "x"}), False)
