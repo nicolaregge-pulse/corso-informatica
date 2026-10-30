@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.98** — 29/10/2026 (#125-#158; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 2.99** — 30/10/2026 (#125-#159; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,12 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 30/10/2026 — «Prima ora» intesa come prima ora del laboratorio invece che della giornata (#159)
+
+1. **Errore.** «"Prima ora teoria: integer e string" (29/10) era la prima ora della giornata (8-9, 1INF Tecnologia), non la prima ora del laboratorio: messo solo nel laboratorio.»
+2. **Regola.** Quando Nicola dice "prima/seconda ora" si intende l'ora della giornata; nel dubbio si mette in entrambe.
+3. **Correzione del 30/10.** Alle 06:45 String e Integer (schede, ripasso e quiz su Moduli) sono entrati anche nella lezione delle 8-9: parte 2 «Stringhe e interi» in `docs/1inf-unicode/`, link nel compito già pubblicato con un annuncio, colonne nel cruscotto del quiz.
 
 ## 29/10/2026 — Incolla dello script v8.5 mescolato al codice vecchio (#158)
 

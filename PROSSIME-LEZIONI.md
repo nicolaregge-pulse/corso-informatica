@@ -6,7 +6,7 @@ Aggiornato venerdì 30 ottobre 2026, nella notte. Prima la lezione più vicina.
 
 ### Prima informatica, dalle 8 alle 9, Tecnologia professionale, un'ora
 
-Argomento proposto: il computer scrive in tutte le lingue, cioè da ASCII a Unicode e quanti byte pesa una lettera.
+Argomento proposto: il computer scrive in tutte le lingue, cioè da ASCII a Unicode e quanti byte pesa una lettera. Seconda parte della stessa ora: stringhe e interi, cioè String e Integer, con le schede, il ripasso e il quiz su Moduli.
 Attività: otto schede in italiano, arabo e cinese con una casella dove ognuno scrive il suo nome nella sua lingua e vede il numero di ogni carattere; tre righe da ricopiare sul quaderno; il quiz su Google Moduli di quindici domande.
 Materiali: la pagina «Il computer scrive in tutte le lingue» e il quiz su Google Moduli.
 Stato: il compito è già pubblicato su Classroom da giovedì sera alle 18 e 18, con l'approvazione del prof.
