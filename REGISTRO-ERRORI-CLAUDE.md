@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 2.99** — 30/10/2026 (#125-#159; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.00** — 30/10/2026 (#125-#160; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -12,6 +12,11 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+
+## 30/10/2026 — Quiz che chiede un lavoro non ancora fatto (#160)
+
+1. **Errore.** Quiz sulla dispensa 1INF (30/10): una domanda aperta chiedeva il programma Lazarus di oggi, che i ragazzi non avevano ancora fatto (Lazarus veniva DOPO il quiz). Anche due crocette citavano il soprannome (ora 2) e il segnapunti (ora 3) del laboratorio di oggi.
+2. **Correzione.** Ogni domanda chiede solo lavoro già svolto prima del momento in cui il quiz si fa; controllo dell'ordine delle attività prima di aprire un quiz. La domanda aperta ora chiede il programma «Ciao» del 28/10 e una riga con Caption (stesso id, tipo e minimo di parole); le due crocette sono riscritte sulla teoria delle 8-9 (String e Integer, StrToInt).
 
 ## 30/10/2026 — «Prima ora» intesa come prima ora del laboratorio invece che della giornata (#159)
 
