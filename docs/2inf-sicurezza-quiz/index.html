@@ -25,11 +25,11 @@
 </div>
 <div class="box"><b id="dato">Ultimo dato: —</b></div>
 <div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
-<p class="mu">In giallo: fatto oggi. In verde: fatto prima. Voto = 40 + 40 × punti / massimo. Domande? Chiedi all'assistente nella pagina della lezione.</p>
+<p class="mu">In giallo: fatto oggi. In verde: fatto prima. Voto = 40 + 40 × punti / massimo. Colonna «Allen.»: quante risposte hai dato allenandoti nel ripasso delle ore 3, 4 e 5; non conta per il voto e la pagina non registra se erano giuste. L'allenamento delle ore 1 e 2 non viene registrato. Domande? Chiedi all'assistente nella pagina della lezione.</p>
 </div>
 <script>
 function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function c(o){if(!o)return '<td><span class="q no">❌</span></td>';return '<td><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.quando?' · '+e(o.quando):'')+'</span></td>'}
+function c(o){if(o&&o.pratica)return '<td><span class="q nu">'+o.risposte+' risp.</span><span class="dt">'+e(o.ore)+(o.quando?' · '+e(o.quando):'')+'</span></td>';if(!o)return '<td><span class="q no">❌</span></td>';return '<td><span class="q '+(o.oggi?'nu':'si')+'">✅ '+o.v+'</span><span class="dt">'+o.p+'/'+o.m+(o.quando?' · '+e(o.quando):'')+'</span></td>'}
 function giro(){fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){var C=d.colonne||[];
  document.getElementById('dato').textContent='Ultimo dato da Google Moduli: ore '+(d.dato?d.dato.slice(11,16):'—')+' · pagina aggiornata alle '+String(d.generato||'').slice(11,16);
  document.getElementById('th').innerHTML='<th class="al">Alunno</th>'+C.map(function(x){return '<th>'+e(C.length>4?x.corta:x.etichetta)+'</th>'}).join('')+'<th>Che cosa manca</th>';
