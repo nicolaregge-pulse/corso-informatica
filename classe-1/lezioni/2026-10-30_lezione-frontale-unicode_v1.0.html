@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><title>Lezione frontale: Unicode v1.0</title>
+<style>
+@page{size:A4;margin:14mm}
+body{font-family:"DejaVu Sans","WenQuanYi Zen Hei","Amiri",Arial,sans-serif;font-size:12.5pt;line-height:1.4;color:#111}
+h1{font-size:20pt;margin:0 0 4px}
+h2{font-size:14.5pt;margin:16px 0 6px;border-bottom:2px solid #333;padding-bottom:2px;page-break-after:avoid}
+.sub{color:#444;margin-bottom:10px}
+.lav{border:2px solid #1a5fb4;background:#eef4ff;padding:8px 12px;margin:8px 0;font-family:"DejaVu Sans Mono","WenQuanYi Zen Hei","Amiri",monospace;font-size:13pt;white-space:pre}
+.dom{border-left:5px solid #c88800;background:#fff7e0;padding:6px 10px;margin:6px 0}
+.q{border:2px dashed #2a7a2a;padding:8px 12px;margin:8px 0;background:#f0fff0}
+table{border-collapse:collapse;width:100%;margin:6px 0}
+td,th{border:1px solid #666;padding:5px 8px;text-align:left}
+th{background:#eee}
+code{font-family:"DejaVu Sans Mono",monospace}
+.min{color:#555;font-size:10.5pt}
+</style></head><body>
+<h1>Lezione frontale: il computer scrive in tutte le lingue (Unicode)</h1>
+<div class="sub">1INF, venerdì 30/10/2026, ora 8-9 (Tecnologia), prima parte · versione 1.0 · traccia per il docente, circa 20 minuti; poi la seconda parte «Stringhe e interi»</div>
+
+<h2>1 Il computer conosce solo i numeri (4 min)</h2>
+<div class="dom">Domanda di apertura: «Il computer capisce le lettere?» Lascia rispondere. Poi: no, dentro ci sono solo numeri (0 e 1).</div>
+<p>Per scrivere una lettera serve un accordo: <b>ogni carattere ha il suo numero</b>. Come un elenco telefonico dei caratteri.</p>
+<div class="lav">A → 65     B → 66     a → 97     spazio → 32     0 → 48</div>
+
+<h2>2 Il vecchio elenco: ASCII, solo 128 caratteri (4 min)</h2>
+<p>Negli anni '60 gli americani fecero l'elenco ASCII: lettere inglesi, cifre, punteggiatura. Stava tutto in 128 numeri.</p>
+<div class="dom">Domanda: «Che cosa manca nell'elenco ASCII?» Risposte attese: le lettere accentate (è, à), l'arabo, il cinese, il bangla, le emoji.</div>
+<p>Ogni paese allora si fece il suo elenco: lo stesso numero voleva dire lettere diverse, e i testi uscivano pieni di simboli strani (Ã¨ al posto di è).</p>
+
+<h2>3 La soluzione: Unicode, un elenco per tutto il mondo (6 min)</h2>
+<p>Unicode dà un numero a <b>ogni</b> carattere di ogni lingua: più di 150 000 caratteri. Il numero si scrive U+ e poi in esadecimale.</p>
+<table>
+<tr><th>Carattere</th><th>Lingua</th><th>Numero Unicode</th></tr>
+<tr><td style="font-size:16pt">A</td><td>italiano / inglese</td><td><code>U+0041</code> (65)</td></tr>
+<tr><td style="font-size:16pt">è</td><td>italiano</td><td><code>U+00E8</code> (232)</td></tr>
+<tr><td style="font-size:16pt">ب</td><td>arabo</td><td><code>U+0628</code> (1576)</td></tr>
+<tr><td style="font-size:16pt">中</td><td>cinese</td><td><code>U+4E2D</code> (20013)</td></tr>
+<tr><td style="font-size:16pt">অ</td><td>bangla</td><td><code>U+0985</code> (2437)</td></tr>
+<tr><td style="font-size:16pt">😀</td><td>emoji</td><td><code>U+1F600</code> (128512)</td></tr>
+</table>
+<div class="dom">Momento «fallo tuo»: chiedi a due o tre ragazzi di dire una lettera della loro lingua; scrivila alla lavagna. «Anche questa ha il suo numero in Unicode.»</div>
+
+<h2>4 UTF-8: come si salvano i numeri (3 min)</h2>
+<p>UTF-8 è il modo di salvare i numeri Unicode nei file: le lettere inglesi occupano 1 byte, è e l'arabo 2 byte, il cinese 3 byte, le emoji 4 byte.</p>
+<div class="lav">A = 1 byte    è = 2 byte    ب = 2 byte    中 = 3 byte    😀 = 4 byte</div>
+<p>Se un programma legge UTF-8 come se fosse il vecchio elenco, compaiono i caratteri strani: è diventa Ã¨.</p>
+
+<h2>5 Il ponte con Lazarus e le stringhe (3 min)</h2>
+<p>Una String è una fila di caratteri, e ogni carattere è un numero. In Pascal:</p>
+<div class="lav">Ord('A')   →  65      (dal carattere al numero)
+Chr(65)    →  'A'     (dal numero al carattere)</div>
+<p>Questo porta alla seconda parte dell'ora: String e Integer sono due cose diverse.</p>
+
+<h2>6 Da ricopiare sul quaderno (3 min)</h2>
+<div class="q">1. Il computer conosce solo numeri: ogni carattere ha il suo numero.<br>
+2. ASCII: il vecchio elenco, 128 caratteri, solo inglese.<br>
+3. Unicode: un numero per ogni carattere di tutte le lingue (A = U+0041, 中 = U+4E2D).<br>
+4. UTF-8: il modo di salvare Unicode nei file.</div>
+
+<h2>7 Poi al PC</h2>
+<p>Compito Unicode su Classroom: passi 1-3 (Unicode, quiz), poi passi 4-6 (Stringhe e interi). Le domande vanno alla casella dell'assistente.</p>
+<p class="min">Fotografa la lavagna a fine spiegazione e mandala in chat: entra nella teoria della lezione.</p>
+</body></html>
