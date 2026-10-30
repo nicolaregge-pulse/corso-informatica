@@ -170,6 +170,12 @@ CLASSI["1INF"] = {
              breve=("La prevenzione evita che il danno succeda; la protezione riduce il danno se succede. In azienda ognuno ha un compito per la sicurezza.",
                     "الوقاية تمنع حدوث الضرر؛ والحماية تقلّل الضرر إذا حدث. في الشركة لكل شخص دور في السلامة.",
                     "预防是不让伤害发生；防护是在发生时减少伤害。在公司里每个人都有安全方面的任务。")),
+        dict(data="2026-10-30", slug="unicode-ascii", titolo="Unicode e codice ASCII",
+             ore="ora 8-9, Informatica", fatto="Il codice ASCII (A 65 01000001, B 66 01000010), solo 256 caratteri con 8 bit; Unicode, una tabella per tutte le lingue; interi e stringhe.",
+             fonti=[("md", "classe-1/unicode/20261030_lavagna-unicode-ascii.md")],
+             breve=("Ogni lettera ha un numero: A = 65 = 01000001. Con 8 bit ci stanno solo 256 caratteri: per tutte le lingue del mondo è nato Unicode.",
+                    "لكل حرف رقم: A = 65 = 01000001. مع 8 بت لا يتسع إلا 256 رمزاً: لكل لغات العالم وُلد Unicode.",
+                    "每个字母都有一个数字：A = 65 = 01000001。8 个比特只能放 256 个字符：为了世界上所有的语言，有了 Unicode。")),
     ],
 }
 

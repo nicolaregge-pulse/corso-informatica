@@ -1,6 +1,6 @@
 # Libro di testo — Informatica Classe 1
 
-**Versione 1.1** — 29/10/2026
+**Versione 1.2** — 30/10/2026
 *Il libro di testo della Classe 1: raccoglie in un unico posto gli appunti, la
 teoria e le esercitazioni svolte in classe. Cresce a ogni lezione. Due formati:
 il PDF (`libro-classe1-vX.Y.pdf`) per leggere e stampare; questo MD è la fonte
@@ -2781,6 +2781,32 @@ Ecco un setup scelto per un gioco veloce, con i conti. Poi tocca a te, con il tu
 
 <div class="scheda"><b>INFORMAZIONE</b>: ti dicono quali rischi ci sono e chi sono le persone della sicurezza.<br><b>FORMAZIONE</b>: un corso per capire, come questo.<br><b>ADDESTRAMENTO</b>: provi davvero, con le mani, l'attrezzo o il DPI, con qualcuno che ti guarda.<br>Sono <b>gratis</b>, in orario di lavoro, anche per lo studente in <b>stage</b>.<span lang="ar" dir="rtl" style="display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:4px">الإعلام: يقولون لك ما هي المخاطر ومن هم أشخاص السلامة. التكوين: دورة لتفهم، مثل هذه. التدريب العملي: تجرّب فعلاً بيديك الأداة أو وسيلة الحماية، وشخص يراقبك. كلها مجانية، في وقت العمل، وأيضاً للطالب في التدريب.</span><span lang="zh" style="display:block;font-weight:400;color:var(--mu);font-size:.95em;margin-top:2px">告知：告诉你有哪些风险，谁是负责安全的人。培训：一门帮你理解的课，就像这门课。实操训练：在别人看着的情况下，你亲手试用工具或防护装备。这些都免费，在工作时间内进行，实习学生也一样。</span><!--QUIZNUOVO--><div style="margin-top:18px;padding:14px;border:2px solid #1a7f37;border-radius:12px"><p><b>FINE DELLE SCHEDE · نهاية البطاقات · 卡片结束</b></p><p>Fai il ripasso qui sotto, poi il quiz su Moduli (20 casi, 5 punti l'uno, massimo 100). · راجِع ثم أجب عن الاختبار. · 先复习，再做测验。</p><p><a href="https://docs.google.com/forms/d/e/1FAIpQLSd6-FoHcINBi9ieRm4Bzv58jjb1o89T0DhM4xqB9kiUGemdTQ/viewform" target="_blank" rel="noopener" style="display:inline-block;background:#1a7f37;color:#fff;padding:12px 18px;border-radius:10px;font-weight:700;text-decoration:none;font-size:18px">QUIZ su Moduli · اختبار · 测验</a></p><p><b>Sul quaderno ricopia:</b> RLS = il lavoratore eletto dai colleghi: è la loro voce. DVR = il documento con tutti i rischi e che cosa si fa per abbassarli. REGOLA D'ORO: allarme = niente ascensore, non correre, vai al punto di raccolta.</p><p lang="ar" dir="rtl">انسخ في الدفتر: RLS = العامل الذي ينتخبه زملاؤه، هو صوتهم. DVR = الوثيقة التي فيها كل المخاطر وما نفعله لتخفيضها. القاعدة الذهبية: إنذار = لا مصعد، لا ركض، اذهب إلى نقطة التجمع.</p><p lang="zh">抄在本子上：RLS = 同事选出的工人，是大家的声音。DVR = 写着所有风险以及如何降低风险的文件。黄金法则：警报 = 不坐电梯，不跑，去集合点。</p></div><!--/QUIZNUOVO--></div>
 
+
+### L25 30/10/2026 — Unicode e codice ASCII
+
+*Libro parziale: lezioni/2026-10-30_unicode-ascii.md*
+
+#### Che cosa abbiamo fatto
+
+1. **Quando:** 30/10/2026, ora 8-9, Informatica.
+2. **Argomenti:** Il codice ASCII (A 65 01000001, B 66 01000010), solo 256 caratteri con 8 bit; Unicode, una tabella per tutte le lingue; interi e stringhe.
+
+#### In breve · باختصار · 简要
+
+<div class="scheda breve"><p lang="it">Ogni lettera ha un numero: A = 65 = 01000001. Con 8 bit ci stanno solo 256 caratteri: per tutte le lingue del mondo è nato Unicode.</p><p lang="ar" dir="rtl">لكل حرف رقم: A = 65 = 01000001. مع 8 بت لا يتسع إلا 256 رمزاً: لكل لغات العالم وُلد Unicode.</p><p lang="zh">每个字母都有一个数字：A = 65 = 01000001。8 个比特只能放 256 个字符：为了世界上所有的语言，有了 Unicode。</p></div>
+
+#### La teoria e l'esercitazione
+
+##### La lavagna del 30/10
+
+![La lavagna del 30/10: Unicode, interi e stringhe, codice ASCII, solo 256 caratteri](../unicode/immagini/20261030_lavagna-unicode-ascii.jpg)
+
+1. Oggi: 1) **Unicode** · 2) **Interi e stringhe**.
+2. Il computer conosce solo 0 e 1: 0101010101010.
+3. **Codice ASCII:** ogni lettera ha un numero. **A** = 65 = 01000001; **B** = 66 = 01000010.
+4. In rosso: **solo 256 caratteri**, da 00000000 a 11111111.
+
+<div class="scheda"><p lang="it">Perché 256? Con 8 bit ci sono 256 combinazioni: da 00000000 a 11111111. Il primissimo ASCII usava 7 bit, cioè 128 caratteri; la versione a 8 bit ne ha 256. Per tutte le lingue del mondo 256 non bastano: per questo è nato <b>Unicode</b>.</p><p lang="ar" dir="rtl">لماذا 256؟ مع 8 بت توجد 256 تركيبة: من 00000000 إلى 11111111. أول ASCII كان يستعمل 7 بت، أي 128 رمزاً؛ ونسخة 8 بت فيها 256. لكل لغات العالم 256 لا تكفي: لهذا وُلد Unicode.</p><p lang="zh">为什么是 256？8 个比特有 256 种组合：从 00000000 到 11111111。最早的 ASCII 用 7 个比特，也就是 128 个字符；8 比特的版本有 256 个。世界上所有的语言，256 个远远不够：所以有了 Unicode。</p></div>
 <!-- LEZIONI:FINE -->
 
 ## 10. Glossario (essenziale)
@@ -2796,6 +2822,7 @@ Ecco un setup scelto per un gioco veloce, con i conti. Poi tocca a te, con il tu
 (Il glossario completo multilingue è nel documento `glossario-l2`.)
 
 ## 11. Changelog
+12. **v1.2 (30/10/2026)**: aggiunta la lezione L25 del 30/10 «Unicode e codice ASCII» con la foto della lavagna e la trascrizione.
 11. **v1.1 (29/10/2026)**: lezione del 29/10/2026 (audit della giornata)
 10. **v1.0 (29/10/2026)**: aggiunto il capitolo 9 «Le lezioni una per una»: le 23 lezioni dal 15/09 al 28/10, ognuna con «In breve» in italiano, arabo e cinese, la teoria e l'esercitazione (binario, Pull Request del treno, talpa, assemblaggio, rete e gamer, schede video e cavi, Lazarus); ogni lezione ha anche il suo libro parziale nella cartella lezioni.
 9. **v0.9 (28/10/2026)**: aggiunto il capitolo 8 "Lazarus: il mio primo programma" (Lazarus e le sue finestre, la palette, l'esercitazione «Ciao» con ShowMessage, salva e fai partire, i file del progetto spiegati uno per uno, fallo tuo, consegna su Classroom; tre foto della lavagna del 28/10 e gli schemi da ricopiare sul quaderno); glossario e changelog diventano i capitoli 9 e 10; nel glossario Lazarus, compilatore, estensione.
