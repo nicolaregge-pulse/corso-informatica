@@ -4,36 +4,48 @@
   {
    "etichetta": "1ª ora: rischio e danno",
    "corta": "1ª",
-   "conta": true
+   "conta": true,
+   "tipo": "moduli"
   },
   {
    "etichetta": "2ª ora: prevenzione e protezione",
    "corta": "2ª",
-   "conta": true
+   "conta": true,
+   "tipo": "moduli"
   },
   {
    "etichetta": "3ª ora: organizzazione della prevenzione",
    "corta": "3ª",
-   "conta": true
+   "conta": true,
+   "tipo": "moduli"
   },
   {
    "etichetta": "4ª ora: diritti, doveri, vigilanza",
    "corta": "4ª",
-   "conta": true
+   "conta": true,
+   "tipo": "moduli"
   },
   {
    "etichetta": "5ª ora ripasso (pagina)",
    "corta": "5ª rip.",
-   "conta": false
+   "conta": false,
+   "tipo": "banca"
   },
   {
    "etichetta": "5ª ora: rischio infortuni (quiz Moduli)",
    "corta": "5ª",
-   "conta": true
+   "conta": true,
+   "tipo": "moduli"
+  },
+  {
+   "etichetta": "Allenamento nel ripasso in pagina (fuori voto)",
+   "corta": "Allen.",
+   "conta": false,
+   "tipo": "pratica"
   }
  ],
  "dato": "2026-10-30T08:53",
- "generato": "2026-10-30T08:55",
+ "generato": "2026-10-30T08:59",
  "righe": [
   {
    "alunno": "Luca B.",
@@ -70,6 +82,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
@@ -116,6 +129,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -160,6 +174,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
@@ -206,6 +221,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -250,6 +266,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
@@ -296,6 +313,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -340,6 +358,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
@@ -386,6 +405,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -430,6 +450,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
@@ -476,6 +497,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -521,6 +543,7 @@
      "volte": 1
     },
     null,
+    null,
     null
    ],
    "manca": [
@@ -565,6 +588,7 @@
      "oggi": false,
      "volte": 1
     },
+    null,
     null,
     null
    ],
