@@ -44,9 +44,165 @@
    "tipo": "pratica"
   }
  ],
- "dato": "2026-10-30T09:03",
- "generato": "2026-10-30T09:06",
+ "dato": "2026-10-30T09:08",
+ "generato": "2026-10-30T09:11",
  "righe": [
+  {
+   "alunno": "Egor M.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "01/10 13:33",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 90,
+     "m": 100,
+     "v": 76,
+     "quando": "28/10 11:27",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "28/10 11:41",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 11:47",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "30/10 09:08",
+     "oggi": true,
+     "volte": 1
+    },
+    null
+   ],
+   "manca": [
+    "5ª ora ripasso (pagina)"
+   ],
+   "fatti": 5,
+   "su": 5
+  },
+  {
+   "alunno": "Mathias P.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 11:49",
+     "oggi": false,
+     "volte": 2
+    },
+    {
+     "p": 85,
+     "m": 100,
+     "v": 74,
+     "quando": "28/10 11:26",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 12:00",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "21/10 12:05",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "30/10 09:08",
+     "oggi": true,
+     "volte": 1
+    },
+    null
+   ],
+   "manca": [
+    "5ª ora ripasso (pagina)"
+   ],
+   "fatti": 5,
+   "su": 5
+  },
+  {
+   "alunno": "Alejandro G.",
+   "q": [
+    {
+     "p": 100,
+     "m": 100,
+     "v": 80,
+     "quando": "01/10 13:32",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 80,
+     "m": 100,
+     "v": 72,
+     "quando": "28/10 11:27",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "28/10 11:36",
+     "oggi": false,
+     "volte": 1
+    },
+    {
+     "p": 95,
+     "m": 100,
+     "v": 78,
+     "quando": "28/10 11:41",
+     "oggi": false,
+     "volte": 1
+    },
+    null,
+    {
+     "p": 85,
+     "m": 100,
+     "v": 74,
+     "quando": "30/10 09:06",
+     "oggi": true,
+     "volte": 1
+    },
+    null
+   ],
+   "manca": [
+    "5ª ora ripasso (pagina)"
+   ],
+   "fatti": 5,
+   "su": 5
+  },
   {
    "alunno": "Luca B.",
    "q": [
@@ -309,144 +465,6 @@
      "m": 100,
      "v": 76,
      "quando": "21/10 11:59",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "5ª ora ripasso (pagina)",
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
-   "su": 5
-  },
-  {
-   "alunno": "Egor M.",
-   "q": [
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "01/10 13:33",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 90,
-     "m": 100,
-     "v": 76,
-     "quando": "28/10 11:27",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "28/10 11:41",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 11:47",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "5ª ora ripasso (pagina)",
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
-   "su": 5
-  },
-  {
-   "alunno": "Mathias P.",
-   "q": [
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 11:49",
-     "oggi": false,
-     "volte": 2
-    },
-    {
-     "p": 85,
-     "m": 100,
-     "v": 74,
-     "quando": "28/10 11:26",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 12:00",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "21/10 12:05",
-     "oggi": false,
-     "volte": 1
-    },
-    null,
-    null,
-    null
-   ],
-   "manca": [
-    "5ª ora ripasso (pagina)",
-    "5ª ora: rischio infortuni (quiz Moduli)"
-   ],
-   "fatti": 4,
-   "su": 5
-  },
-  {
-   "alunno": "Alejandro G.",
-   "q": [
-    {
-     "p": 100,
-     "m": 100,
-     "v": 80,
-     "quando": "01/10 13:32",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 80,
-     "m": 100,
-     "v": 72,
-     "quando": "28/10 11:27",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 95,
-     "m": 100,
-     "v": 78,
-     "quando": "28/10 11:36",
-     "oggi": false,
-     "volte": 1
-    },
-    {
-     "p": 95,
-     "m": 100,
-     "v": 78,
-     "quando": "28/10 11:41",
      "oggi": false,
      "volte": 1
     },
