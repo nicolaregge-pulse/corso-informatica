@@ -35,12 +35,16 @@ def pagina(titolo, h1, sotto, corpo, js=''):
             '<a class="bt" href="../1inf-oggi/" target="_blank" rel="noopener">La mia giornata · يومي · 我的一天</a>'
             + corpo + '</main>' + ('<script>' + js + '</script>' if js else '') + '</body></html>')
 
+# Foto della lavagna del 30/10 dentro le schede (Nicola: «Integra le foto nella teoria»)
+FOTO_LAVAGNA_1 = '<img src="immagini/lavagna-2026-10-30.jpg" alt="La lavagna del 30/10: codice ASCII, A 65 01000001, B 66 01000010, solo 256 caratteri" style="display:block;width:100%;max-width:520px;height:auto;margin:10px auto 4px;border-radius:10px;border:1px solid var(--bd)" loading="lazy"><p>La lavagna di oggi: <b>A</b> = 65 = <code>01000001</code>, <b>B</b> = 66 = <code>01000010</code>; con 8 bit solo 256 caratteri.</p><p class="ar" lang="ar" dir="rtl">سبورة اليوم: A = 65 = 01000001، B = 66 = 01000010؛ مع 8 بت 256 رمزاً فقط.</p><p class="zh" lang="zh">今天的白板：A = 65 = 01000001，B = 66 = 01000010；8 个比特只有 256 个字符。</p>'
+FOTO_LAVAGNA_2 = '<img src="immagini/lavagna-2026-10-30-2.jpg" alt="La lavagna del 30/10: A U+0041, arabo U+0628, cinese U+4E2D, cifre esadecimali da 0 a F" style="display:block;width:100%;max-width:520px;height:auto;margin:10px auto 4px;border-radius:10px;border:1px solid var(--bd)" loading="lazy"><p>La lavagna di oggi: <b>A</b> = <code>U+0041</code>, <b>ب</b> = <code>U+0628</code>, <b>中</b> = <code>U+4E2D</code>. Il numero dopo U+ usa le 16 cifre esadecimali: 0-9 e poi A = 10 … F = 15.</p><p class="ar" lang="ar" dir="rtl">سبورة اليوم: A = U+0041، ب = U+0628، 中 = U+4E2D. الرقم بعد U+ يستعمل الأرقام السداسية العشرية الـ16: 0-9 ثم A = 10 … F = 15.</p><p class="zh" lang="zh">今天的白板：A = U+0041，ب = U+0628，中 = U+4E2D。U+ 后面的数字用 16 个十六进制数字：0-9，然后 A = 10 … F = 15。</p>'
+
 # ---------------- Tecnologia: Unicode ----------------
 U = []
 U.append(card('1. Ripasso: il tuo nome in ASCII', L(
     'Il 2 ottobre hai scritto il tuo nome in binario: ogni lettera ha un <b>numero</b>. La <b>A</b> è 65, la <b>B</b> è 66… Questa tabella si chiama <b>ASCII</b>: 128 caratteri, solo lettere latine, cifre e segni.',
     'في 2 أكتوبر كتبت اسمك بالثنائي: لكل حرف رقم. A هو 65، B هو 66… هذا الجدول اسمه ASCII: 128 رمزاً فقط، حروف لاتينية وأرقام وعلامات.',
-    '10月2日你把名字写成了二进制：每个字母都有一个数字。A 是 65，B 是 66……这个表叫 ASCII：只有 128 个字符，只有拉丁字母、数字和符号。')))
+    '10月2日你把名字写成了二进制：每个字母都有一个数字。A 是 65，B 是 66……这个表叫 ASCII：只有 128 个字符，只有拉丁字母、数字和符号。') + FOTO_LAVAGNA_1))
 U.append(card('2. Il problema: e l\'arabo? E il cinese?', L(
     'In 128 posti non ci stanno le lettere arabe, i caratteri cinesi, le emoji. Ogni paese faceva la sua tabella e i testi si rompevano: comparivano simboli strani come <code>Ã©</code> o <code>???</code>.',
     'في 128 مكاناً لا تتسع الحروف العربية ولا الرموز الصينية ولا الإيموجي. كل بلد صنع جدوله والنصوص كانت تفسد: تظهر رموز غريبة مثل ??? .',
@@ -48,7 +52,7 @@ U.append(card('2. Il problema: e l\'arabo? E il cinese?', L(
 U.append(card('3. La soluzione: Unicode', L(
     '<b>Unicode</b> è UNA tabella per TUTTE le lingue del mondo: più di 150.000 caratteri. Ogni carattere ha il suo numero, uguale in tutti i computer e telefoni. Le prime 128 posizioni sono proprio l\'ASCII: la A resta 65.',
     'Unicode جدول واحد لكل لغات العالم: أكثر من 150000 رمز. لكل رمز رقمه، نفسه في كل الحواسيب والهواتف. أول 128 مكاناً هي ASCII: الحرف A يبقى 65.',
-    'Unicode 是一张给世界上所有语言用的表：超过 15 万个字符。每个字符都有自己的数字，在所有电脑和手机上都一样。前 128 个位置就是 ASCII：A 还是 65。')))
+    'Unicode 是一张给世界上所有语言用的表：超过 15 万个字符。每个字符都有自己的数字，在所有电脑和手机上都一样。前 128 个位置就是 ASCII：A 还是 65。') + FOTO_LAVAGNA_2))
 U.append(card('4. Prova tu: scrivi il tuo nome nella tua lingua', L(
     'Scrivi qui il tuo nome, anche in arabo o in cinese, o una emoji. Sotto vedi il numero Unicode di ogni carattere. Prima vittoria: trova il numero della prima lettera del tuo nome.',
     'اكتب اسمك هنا، بالعربية أيضاً، أو إيموجي. ترى تحته رقم Unicode لكل حرف. أول فوز: اعثر على رقم أول حرف من اسمك.',

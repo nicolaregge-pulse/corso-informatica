@@ -409,6 +409,22 @@ CRITERI = ['riga vera con StrToInt(Edit1.Text) e il nome della propria variabile
            'valori propri delle caselle e frase comparsa; solo testo attaccato con +, nessun conto, quindi niente Integer']
 
 
+# Foto della lavagna dentro le schede (30/10/2026, Nicola: «Integra le foto nella teoria"). Percorso visto da docs/verifica/.
+FOTO_SCHEDE = {
+    3: ('../1inf-unicode/immagini/lavagna-2026-10-30-3.jpg',
+        "La lavagna del 30/10: stringhe e interi, '12' + '15' = '1215' e 12 + 15 = 27",
+        T("La lavagna di oggi: con gli apici <code>'12' + '15' = '1215'</code> (String, attacca); senza apici <code>12 + 15 = 27</code> (Integer, somma).",
+          "سبورة اليوم: مع علامات الاقتباس '12' + '15' = '1215' (String، تلصق)؛ بدون علامات الاقتباس 12 + 15 = 27 (Integer، تجمع).",
+          "今天的白板：有引号 '12' + '15' = '1215'（String，连起来）；没有引号 12 + 15 = 27（Integer，相加）。")),
+}
+
+
+def foto(f):
+    if not f:
+        return ''
+    src, alt, cap = f
+    return ('<img src="%s" alt="%s" style="display:block;width:100%%;max-width:520px;height:auto;margin:10px auto 4px;border-radius:10px;border:1px solid #d5dbe3" loading="lazy">' % (src, html.escape(alt))) + par(cap)
+
 def banca():
     B = {
         'id': BANCA_ID + '-v1', 'classe': '1INF',
@@ -419,8 +435,8 @@ def banca():
         'strumenti': [{'t': 'La mia giornata: voto, fatto e da fare', 'u': '../1inf-oggi/', 'c': '#b45309'}],
         'schede': [], 'allenamento': [], 'crocette': [], 'aperte': [], 'recupero': [],
     }
-    for tit, testi, cod in SCHEDE:
-        B['schede'].append({'titolo': ' · '.join(tit), 'testo': ''.join(par(t) for t in testi) + pre(cod)})
+    for i, (tit, testi, cod) in enumerate(SCHEDE):
+        B['schede'].append({'titolo': ' · '.join(tit), 'testo': ''.join(par(t) for t in testi) + pre(cod) + foto(FOTO_SCHEDE.get(i))})
     for sc, q, o, sp in ALLENA:
         B['allenamento'].append({'tipo': 'c', 'area': 'tipi', 'tema': '', 'q': q3(q), 'o': o, 'a': 0, 'spiega': sp, 'scheda': sc})
     for tema, q, o, sp in CROCETTE:
@@ -626,7 +642,7 @@ if __name__ == '__main__':
         open(OUT + '/modulo-%d.md' % n, 'w', encoding='utf-8').write(md(m))
     B = banca()
     open(PUB + '/docs/verifica/banche/' + BANCA_ID + '.js', 'w', encoding='utf-8').write(
-        '// 1INF · laboratorio 30/10/2026, 1ª ora: String e Integer. ANTEPRIMA, non collegata. Generato da classe-1/lazarus-lab-30-10/_build/genera.py\nwindow.BANCA = ' + json.dumps(B, ensure_ascii=False, indent=1) + ';\n')
+        '// 1INF · 30/10/2026: String e Integer. APERTA ai ragazzi alle 06:45 (Tecnologia 8-9, parte 2 della lezione Unicode, e laboratorio): teoria e ripasso; il quiz è su Moduli. Generato da classe-1/lazarus-lab-30-10/_build/genera.py\nwindow.BANCA = ' + json.dumps(B, ensure_ascii=False, indent=1) + ';\n')
     st = PUB + '/docs/verifica/stato/' + BANCA_ID + '.json'
     if not os.path.exists(st):
         json.dump({'verifica': 'chiusa', 'recupero': 'chiuso', 'recupero_per': [], '_nota': '29/10: anteprima per il prof. La verifica (22 crocette + 3 aperte) si apre solo con il suo via.'}, open(st, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
