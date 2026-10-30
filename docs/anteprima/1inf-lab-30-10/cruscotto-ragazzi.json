@@ -1,8 +1,8 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T12:09",
- "ora": "12:09",
- "fonte": "piani A + B · segnali Foglio: 25 · consegne pagina: 0 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
+ "generato": "2026-10-30T12:14",
+ "ora": "12:14",
+ "fonte": "piani A + B · segnali Foglio: 27 · consegne pagina: 0 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "fonti_ora": [
@@ -20,20 +20,20 @@
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
-   "ora": "12:01",
-   "iso": "2026-10-30T12:01+01:00",
+   "ora": "12:14",
+   "iso": "2026-10-30T12:14+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: passi (Foglio segnali)",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
+   "ora": "12:14",
+   "iso": "2026-10-30T12:14+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: consegne Classroom",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
+   "ora": "12:14",
+   "iso": "2026-10-30T12:14+01:00",
    "vecchio": false
   },
   {
@@ -212,7 +212,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:03"
+     "ultimo": "12:11"
     },
     "2": {
      "passo": 0,
@@ -260,7 +260,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "12:03",
+   "fermo_da": "12:11",
    "veyon": {
     "fuori": 0
    },
@@ -474,7 +474,12 @@
      "ora": "08:50"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 5,
+    "m": 15,
+    "corte": 4,
+    "ora": "12:09"
+   },
    "teoria": {
     "schede": 0,
     "risposte": 0
@@ -867,7 +872,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:02"
+     "ultimo": "12:12"
     },
     "2": {
      "passo": 0,
@@ -911,11 +916,11 @@
    },
    "dispensa": null,
    "teoria": {
-    "schede": 0,
-    "risposte": 0
+    "schede": 6,
+    "risposte": 7
    },
    "quiz": null,
-   "fermo_da": "12:02",
+   "fermo_da": "12:12",
    "veyon": {
     "fuori": 1
    },
@@ -940,7 +945,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:01"
+     "ultimo": "12:03"
     },
     "2": {
      "passo": 0,
@@ -984,7 +989,7 @@
     "risposte": 8
    },
    "quiz": null,
-   "fermo_da": "12:01",
+   "fermo_da": "12:04",
    "veyon": {
     "fuori": 0
    },
@@ -1009,7 +1014,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "12:03"
+     "ultimo": "12:13"
     },
     "2": {
      "passo": 0,
@@ -1057,7 +1062,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "12:03",
+   "fermo_da": "12:13",
    "veyon": {
     "fuori": 0
    },
@@ -1082,7 +1087,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": ""
+     "ultimo": "12:08"
     },
     "2": {
      "passo": 0,
@@ -1130,7 +1135,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "11:53",
+   "fermo_da": "12:08",
    "veyon": {
     "fuori": 0
    },
@@ -1343,7 +1348,12 @@
      "ora": "08:51"
     }
    },
-   "dispensa": null,
+   "dispensa": {
+    "p": 9,
+    "m": 15,
+    "corte": 4,
+    "ora": "12:14"
+   },
    "teoria": {
     "schede": 0,
     "risposte": 0
@@ -1400,7 +1410,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": "12:00"
+     "ultimo": "12:10"
     }
    },
    "voto": null,
@@ -1422,7 +1432,7 @@
     "risposte": 8
    },
    "quiz": null,
-   "fermo_da": "12:00",
+   "fermo_da": "12:10",
    "veyon": {
     "fuori": 0
    },
