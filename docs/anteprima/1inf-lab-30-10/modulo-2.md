@@ -26,6 +26,14 @@ Un programma nuovo: scrivi il tuo nome e un animale, premi il bottone e il progr
 
 ## 03 Percorso facilitato (3 passi)
 
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
+
 1. Progetto nuovo: menu Progetto → Nuovo progetto… → Applicazione → OK. Metti una casella (abc), un bottone (OK) e una scritta (A).
 
     مشروع جديد: Progetto ← Nuovo progetto… ← Applicazione ← OK. ضع خانة (abc) وزراً (OK) وكتابة (A).
@@ -49,6 +57,14 @@ Un programma nuovo: scrivi il tuo nome e un animale, premi il bottone e il progr
     按 F9，写你的名字，按按钮：出现 Ciao 和你的名字。截图并提交。
 
 ## 04 L'esercitazione, passo per passo
+
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
 
 1. **Progetto nuovo.** In alto clicca il menu <b>Progetto</b> → <b>Nuovo progetto…</b> → a sinistra <b>Applicazione</b> → <b>OK</b>. Al centro compare la finestra vuota <b>Form1</b>.
 

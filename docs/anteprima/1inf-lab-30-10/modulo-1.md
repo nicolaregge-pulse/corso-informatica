@@ -145,6 +145,14 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
 
 ## 03 Percorso facilitato (3 passi)
 
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
+
 1. Leggi le schede 2 e 3 (String e Integer) e rispondi alle loro domande.
 
     اقرأ البطاقتين 2 و3 (String و Integer) وأجب عن أسئلتهما.
@@ -168,6 +176,14 @@ Edit1.Text   '7'  --StrToInt-->  7  --(+1)-->  8  --IntToStr-->  '8'   Label1.Ca
     按 F9，点按钮：出现 53。截图并提交。
 
 ## 04 L'esercitazione, passo per passo
+
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
 
 1. **Progetto nuovo.** In alto clicca il menu <b>Progetto</b> → <b>Nuovo progetto…</b> → a sinistra <b>Applicazione</b> → <b>OK</b>. Al centro compare la finestra vuota <b>Form1</b>.
 

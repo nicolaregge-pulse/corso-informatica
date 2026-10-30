@@ -26,6 +26,14 @@ Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al cen
 
 ## 03 Percorso facilitato (3 passi)
 
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
+
 1. Progetto nuovo. Metti una scritta (A) con Caption 0 e un bottone (OK) con Caption +1.
 
     مشروع جديد. ضع كتابة (A) بـ Caption هو 0 وزراً (OK) بـ Caption هو +1.
@@ -49,6 +57,14 @@ Un programma nuovo: il <b>segnapunti</b> di una partita. Un numero grande al cen
     按 F9，点 +1：数字增加。截图并提交。
 
 ## 04 L'esercitazione, passo per passo
+
+> **AIUTO LAZARUS: se sei in difficoltà a creare il progetto Lazarus, alza la mano e chiedi aiuto al Professore: viene lui al tuo posto.**
+>
+> إذا وجدت صعوبة في إنشاء مشروع Lazarus، ارفع يدك واطلب المساعدة من الأستاذ: سيأتي هو إلى مكانك.
+>
+> 如果你创建 Lazarus 项目有困难，请举手请老师帮忙：老师会到你的座位来。
+>
+> Per le altre domande usa la casella dell'assistente.
 
 1. **Progetto nuovo.** In alto clicca il menu <b>Progetto</b> → <b>Nuovo progetto…</b> → a sinistra <b>Applicazione</b> → <b>OK</b>. Al centro compare la finestra vuota <b>Form1</b>.
 
