@@ -1,22 +1,22 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T13:37",
- "ora": "13:37",
- "fonte": "piani A + B · segnali Foglio: 40 · consegne pagina: 1 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
+ "generato": "2026-10-30T13:40",
+ "ora": "13:40",
+ "fonte": "piani A + B · segnali Foglio: 41 · consegne pagina: 1 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "fonti_ora": [
   {
    "fonte": "Quiz Unicode (Moduli)",
-   "ora": "12:18",
-   "iso": "2026-10-30T12:18+01:00",
-   "vecchio": true
+   "ora": "13:39",
+   "iso": "2026-10-30T13:39+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Quiz Stringhe e interi (Moduli)",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
-   "vecchio": true
+   "ora": "13:38",
+   "iso": "2026-10-30T13:38+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
@@ -26,14 +26,14 @@
   },
   {
    "fonte": "Lazarus: passi (Foglio segnali)",
-   "ora": "13:32",
-   "iso": "2026-10-30T13:32+01:00",
+   "ora": "13:39",
+   "iso": "2026-10-30T13:39+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: consegne Classroom",
-   "ora": "13:32",
-   "iso": "2026-10-30T13:32+01:00",
+   "ora": "13:39",
+   "iso": "2026-10-30T13:39+01:00",
    "vecchio": false
   },
   {
@@ -62,12 +62,12 @@
      "png": false,
      "ok": true,
      "manca": [],
-     "stato_cr": "CREATED",
+     "stato_cr": "TURNED_IN",
      "fonti": [
       "pagina",
       "Classroom"
      ],
-     "ultimo": "13:29"
+     "ultimo": "13:37"
     },
     "2": {
      "passo": 0,
@@ -121,7 +121,7 @@
     "risposte": 7
    },
    "quiz": null,
-   "fermo_da": "13:29",
+   "fermo_da": "13:37",
    "veyon": {
     "fuori": 1
    },
@@ -215,6 +215,86 @@
    ]
   },
   {
+   "nome": "Muhid H.",
+   "ore": {
+    "1": {
+     "passo": 11,
+     "tot": 11,
+     "titolo": "Fallo tuo: i tuoi numeri",
+     "facile": 3,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "Classroom"
+     ],
+     "ultimo": "13:36"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": "13:36"
+    },
+    "3": {
+     "passo": 0,
+     "tot": 15,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 47,
+   "mattina": {
+    "uni": {
+     "p": 14,
+     "m": 15,
+     "ora": "12:15"
+    },
+    "si": {
+     "p": 22,
+     "m": 22,
+     "ora": "08:53"
+    }
+   },
+   "dispensa": {
+    "p": 6,
+    "m": 15,
+    "corte": 5,
+    "ora": "12:01"
+   },
+   "teoria": {
+    "schede": 0,
+    "risposte": 0
+   },
+   "quiz": null,
+   "fermo_da": "13:36",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "quiz S/I 22/22 (almeno 60%) +7",
+    "quiz dispensa 6/15: si vede, per ora non conta"
+   ]
+  },
+  {
    "nome": "Giexther A.",
    "ore": {
     "1": {
@@ -230,7 +310,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:29"
+     "ultimo": "13:37"
     },
     "2": {
      "passo": 0,
@@ -283,7 +363,7 @@
     "risposte": 9
    },
    "quiz": null,
-   "fermo_da": "13:29",
+   "fermo_da": "13:37",
    "veyon": {
     "fuori": 0
    },
@@ -336,7 +416,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": "13:29"
+     "ultimo": "13:35"
     }
    },
    "voto": 47,
@@ -358,7 +438,7 @@
     "risposte": 8
    },
    "quiz": null,
-   "fermo_da": "13:29",
+   "fermo_da": "13:35",
    "veyon": {
     "fuori": 0
    },
@@ -375,7 +455,7 @@
      "passo": 3,
      "tot": 11,
      "titolo": "Il nome del progetto",
-     "facile": 0,
+     "facile": 1,
      "pas": false,
      "png": false,
      "ok": null,
@@ -384,7 +464,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:13"
+     "ultimo": "13:37"
     },
     "2": {
      "passo": 0,
@@ -438,7 +518,7 @@
     "risposte": 14
    },
    "quiz": null,
-   "fermo_da": "13:21",
+   "fermo_da": "13:37",
    "veyon": {
     "fuori": 0
    },
@@ -447,6 +527,86 @@
     "base 40",
     "quiz S/I 20/22 (almeno 60%) +7",
     "quiz dispensa 5/15: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Matteo A.",
+   "ore": {
+    "1": {
+     "passo": 1,
+     "tot": 11,
+     "titolo": "Progetto nuovo",
+     "facile": 3,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "Classroom"
+     ],
+     "ultimo": "13:38"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": "13:37"
+    },
+    "3": {
+     "passo": 0,
+     "tot": 15,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 47,
+   "mattina": {
+    "uni": {
+     "p": 15,
+     "m": 15,
+     "ora": "12:14"
+    },
+    "si": {
+     "p": 22,
+     "m": 22,
+     "ora": "08:53"
+    }
+   },
+   "dispensa": {
+    "p": 7,
+    "m": 15,
+    "corte": 5,
+    "ora": "12:00"
+   },
+   "teoria": {
+    "schede": 0,
+    "risposte": 0
+   },
+   "quiz": null,
+   "fermo_da": "13:38",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.09090909090909091,
+   "conto": [
+    "base 40",
+    "quiz S/I 22/22 (almeno 60%) +7",
+    "quiz dispensa 7/15: si vede, per ora non conta"
    ]
   },
   {
@@ -611,86 +771,6 @@
    ]
   },
   {
-   "nome": "Matteo A.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 3,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "13:19"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 47,
-   "mattina": {
-    "uni": {
-     "p": 15,
-     "m": 15,
-     "ora": "12:14"
-    },
-    "si": {
-     "p": 22,
-     "m": 22,
-     "ora": "08:53"
-    }
-   },
-   "dispensa": {
-    "p": 7,
-    "m": 15,
-    "corte": 5,
-    "ora": "12:00"
-   },
-   "teoria": {
-    "schede": 0,
-    "risposte": 0
-   },
-   "quiz": null,
-   "fermo_da": "13:19",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40",
-    "quiz S/I 22/22 (almeno 60%) +7",
-    "quiz dispensa 7/15: si vede, per ora non conta"
-   ]
-  },
-  {
    "nome": "Aya B.",
    "ore": {
     "1": {
@@ -848,86 +928,6 @@
     "base 40",
     "quiz S/I 18/22 (almeno 60%) +7",
     "quiz dispensa 4/15: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Muhid H.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 2,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "13:28"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": "13:28"
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 47,
-   "mattina": {
-    "uni": {
-     "p": 14,
-     "m": 15,
-     "ora": "12:15"
-    },
-    "si": {
-     "p": 22,
-     "m": 22,
-     "ora": "08:53"
-    }
-   },
-   "dispensa": {
-    "p": 6,
-    "m": 15,
-    "corte": 5,
-    "ora": "12:01"
-   },
-   "teoria": {
-    "schede": 0,
-    "risposte": 0
-   },
-   "quiz": null,
-   "fermo_da": "13:28",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40",
-    "quiz S/I 22/22 (almeno 60%) +7",
-    "quiz dispensa 6/15: si vede, per ora non conta"
    ]
   },
   {
@@ -1254,7 +1254,7 @@
      "passo": 0,
      "tot": 11,
      "titolo": "",
-     "facile": 0,
+     "facile": 1,
      "pas": false,
      "png": false,
      "ok": null,
@@ -1263,7 +1263,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:30"
+     "ultimo": "13:36"
     },
     "2": {
      "passo": 0,
@@ -1316,7 +1316,7 @@
     "risposte": 12
    },
    "quiz": null,
-   "fermo_da": "13:30",
+   "fermo_da": "13:36",
    "veyon": {
     "fuori": 0
    },
@@ -1423,7 +1423,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:29"
+     "ultimo": "13:33"
     },
     "2": {
      "passo": 0,
