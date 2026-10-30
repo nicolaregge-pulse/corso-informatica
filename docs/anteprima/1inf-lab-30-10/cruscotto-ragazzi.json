@@ -1,22 +1,22 @@
 {
  "titolo": "1INF · Laboratorio 30/10 · tre percorsi Lazarus",
- "generato": "2026-10-30T13:52",
- "ora": "13:52",
- "fonte": "piani A + B · segnali Foglio: 41 · consegne pagina: 2 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
+ "generato": "2026-10-30T13:55",
+ "ora": "13:55",
+ "fonte": "piani A + B · segnali Foglio: 43 · consegne pagina: 2 · file Classroom: 0 · quiz: 0 · Veyon: 76 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "fonti_ora": [
   {
    "fonte": "Quiz Unicode (Moduli)",
-   "ora": "12:18",
-   "iso": "2026-10-30T12:18+01:00",
-   "vecchio": true
+   "ora": "13:54",
+   "iso": "2026-10-30T13:54+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Quiz Stringhe e interi (Moduli)",
-   "ora": "12:03",
-   "iso": "2026-10-30T12:03+01:00",
-   "vecchio": true
+   "ora": "13:53",
+   "iso": "2026-10-30T13:53+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Quiz dispensa (ultimo arrivo)",
@@ -26,14 +26,14 @@
   },
   {
    "fonte": "Lazarus: passi (Foglio segnali)",
-   "ora": "13:39",
-   "iso": "2026-10-30T13:39+01:00",
+   "ora": "13:54",
+   "iso": "2026-10-30T13:54+01:00",
    "vecchio": false
   },
   {
    "fonte": "Lazarus: consegne Classroom",
-   "ora": "13:39",
-   "iso": "2026-10-30T13:39+01:00",
+   "ora": "13:54",
+   "iso": "2026-10-30T13:54+01:00",
    "vecchio": false
   },
   {
@@ -54,9 +54,9 @@
    "nome": "Md M.",
    "ore": {
     "1": {
-     "passo": 5,
+     "passo": 11,
      "tot": 11,
-     "titolo": "Due bottoni",
+     "titolo": "Fallo tuo: i tuoi numeri",
      "facile": 3,
      "pas": true,
      "png": false,
@@ -67,7 +67,7 @@
       "pagina",
       "Classroom"
      ],
-     "ultimo": "13:37"
+     "ultimo": "13:51"
     },
     "2": {
      "passo": 0,
@@ -93,7 +93,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": "12:53"
+     "ultimo": "13:51"
     }
    },
    "voto": 48,
@@ -121,11 +121,11 @@
     "risposte": 7
    },
    "quiz": null,
-   "fermo_da": "13:37",
+   "fermo_da": "13:51",
    "veyon": {
     "fuori": 1
    },
-   "svolto": 2.4545454545454546,
+   "svolto": 3.0,
    "conto": [
     "base 40",
     "ora 1 unit1.pas +5",
@@ -231,7 +231,7 @@
       "pagina",
       "Classroom"
      ],
-     "ultimo": "13:37"
+     "ultimo": "13:45"
     },
     "2": {
      "passo": 0,
@@ -244,7 +244,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": ""
+     "ultimo": "13:52"
     },
     "3": {
      "passo": 0,
@@ -284,7 +284,7 @@
     "risposte": 9
    },
    "quiz": null,
-   "fermo_da": "13:51",
+   "fermo_da": "13:52",
    "veyon": {
     "fuori": 0
    },
@@ -294,6 +294,86 @@
     "ora 1 screenshot +3",
     "quiz S/I 16/22 (almeno 60%) +7",
     "quiz dispensa 9/15: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Matteo A.",
+   "ore": {
+    "1": {
+     "passo": 11,
+     "tot": 11,
+     "titolo": "Fallo tuo: i tuoi numeri",
+     "facile": 3,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "Classroom"
+     ],
+     "ultimo": "13:52"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": "13:51"
+    },
+    "3": {
+     "passo": 0,
+     "tot": 15,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 47,
+   "mattina": {
+    "uni": {
+     "p": 15,
+     "m": 15,
+     "ora": "12:14"
+    },
+    "si": {
+     "p": 22,
+     "m": 22,
+     "ora": "08:53"
+    }
+   },
+   "dispensa": {
+    "p": 7,
+    "m": 15,
+    "corte": 5,
+    "ora": "12:00"
+   },
+   "teoria": {
+    "schede": 0,
+    "risposte": 0
+   },
+   "quiz": null,
+   "fermo_da": "13:52",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "quiz S/I 22/22 (almeno 60%) +7",
+    "quiz dispensa 7/15: si vede, per ora non conta"
    ]
   },
   {
@@ -312,7 +392,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:36"
+     "ultimo": "13:48"
     },
     "2": {
      "passo": 0,
@@ -325,7 +405,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": "13:36"
+     "ultimo": "13:48"
     },
     "3": {
      "passo": 0,
@@ -365,7 +445,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "13:36",
+   "fermo_da": "13:48",
    "veyon": {
     "fuori": 0
    },
@@ -418,7 +498,7 @@
      "manca": [],
      "stato_cr": "",
      "fonti": [],
-     "ultimo": "13:35"
+     "ultimo": "13:39"
     }
    },
    "voto": 47,
@@ -446,7 +526,7 @@
     "risposte": 8
    },
    "quiz": null,
-   "fermo_da": "13:35",
+   "fermo_da": "13:39",
    "veyon": {
     "fuori": 0
    },
@@ -455,6 +535,86 @@
     "base 40",
     "quiz S/I 15/22 (almeno 60%) +7",
     "quiz dispensa 0/0: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Shanzay S.",
+   "ore": {
+    "1": {
+     "passo": 7,
+     "tot": 11,
+     "titolo": "Fai partire: F9",
+     "facile": 1,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "Classroom"
+     ],
+     "ultimo": "13:48"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 15,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 47,
+   "mattina": {
+    "uni": {
+     "p": 15,
+     "m": 15,
+     "ora": "11:40"
+    },
+    "si": {
+     "p": 21,
+     "m": 22,
+     "ora": "08:51"
+    }
+   },
+   "dispensa": {
+    "p": 9,
+    "m": 15,
+    "corte": 4,
+    "ora": "12:14"
+   },
+   "teoria": {
+    "schede": 0,
+    "risposte": 0
+   },
+   "quiz": null,
+   "fermo_da": "13:48",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.6363636363636364,
+   "conto": [
+    "base 40",
+    "quiz S/I 21/22 (almeno 60%) +7",
+    "quiz dispensa 9/15: si vede, per ora non conta"
    ]
   },
   {
@@ -473,7 +633,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:37"
+     "ultimo": "13:51"
     },
     "2": {
      "passo": 0,
@@ -527,7 +687,7 @@
     "risposte": 14
    },
    "quiz": null,
-   "fermo_da": "13:37",
+   "fermo_da": "13:51",
    "veyon": {
     "fuori": 0
    },
@@ -536,86 +696,6 @@
     "base 40",
     "quiz S/I 20/22 (almeno 60%) +7",
     "quiz dispensa 5/15: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Matteo A.",
-   "ore": {
-    "1": {
-     "passo": 1,
-     "tot": 11,
-     "titolo": "Progetto nuovo",
-     "facile": 3,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "13:38"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": "13:37"
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 47,
-   "mattina": {
-    "uni": {
-     "p": 15,
-     "m": 15,
-     "ora": "12:14"
-    },
-    "si": {
-     "p": 22,
-     "m": 22,
-     "ora": "08:53"
-    }
-   },
-   "dispensa": {
-    "p": 7,
-    "m": 15,
-    "corte": 5,
-    "ora": "12:00"
-   },
-   "teoria": {
-    "schede": 0,
-    "risposte": 0
-   },
-   "quiz": null,
-   "fermo_da": "13:38",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.09090909090909091,
-   "conto": [
-    "base 40",
-    "quiz S/I 22/22 (almeno 60%) +7",
-    "quiz dispensa 7/15: si vede, per ora non conta"
    ]
   },
   {
@@ -1177,86 +1257,6 @@
    ]
   },
   {
-   "nome": "Shanzay S.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 15,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 47,
-   "mattina": {
-    "uni": {
-     "p": 15,
-     "m": 15,
-     "ora": "11:40"
-    },
-    "si": {
-     "p": 21,
-     "m": 22,
-     "ora": "08:51"
-    }
-   },
-   "dispensa": {
-    "p": 9,
-    "m": 15,
-    "corte": 4,
-    "ora": "12:14"
-   },
-   "teoria": {
-    "schede": 0,
-    "risposte": 0
-   },
-   "quiz": null,
-   "fermo_da": "12:14",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40",
-    "quiz S/I 21/22 (almeno 60%) +7",
-    "quiz dispensa 9/15: si vede, per ora non conta"
-   ]
-  },
-  {
    "nome": "Nehara F.",
    "ore": {
     "1": {
@@ -1272,7 +1272,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:36"
+     "ultimo": "13:48"
     },
     "2": {
      "passo": 0,
@@ -1325,7 +1325,7 @@
     "risposte": 12
    },
    "quiz": null,
-   "fermo_da": "13:36",
+   "fermo_da": "13:48",
    "veyon": {
     "fuori": 0
    },
@@ -1432,7 +1432,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "13:33"
+     "ultimo": "13:41"
     },
     "2": {
      "passo": 0,
@@ -1485,7 +1485,7 @@
     "risposte": 0
    },
    "quiz": null,
-   "fermo_da": "13:35",
+   "fermo_da": "13:41",
    "veyon": {
     "fuori": 0
    },
