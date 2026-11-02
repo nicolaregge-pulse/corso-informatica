@@ -1,5 +1,7 @@
 {
  "invio": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
  "attivo": true,
- "_nota": "ANTEPRIMA 02/11/2026 06:30. attivo=false: le pagine NON mandano segnali né consegne finché il docente non dice «pubblica»; allora Claude mette true (stessa procedura del 30/10, piano A)."
+ "_nota": "ANTEPRIMA 02/11/2026 06:30. attivo=false: le pagine NON mandano segnali né consegne finché il docente non dice «pubblica»; allora Claude mette true (stessa procedura del 30/10, piano A).",
+ "ore_sbloccate": 1,
+ "_ore": "UN'ORA PER VOLTA: ore_sbloccate=1 mostra solo l'ora 1; il docente mette 2 e poi 3 quando vuole (strumenti/sblocca_ora.py). Le pagine delle ore chiuse mostrano solo «non ancora»."
 }
