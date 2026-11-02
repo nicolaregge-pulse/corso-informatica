@@ -5,16 +5,17 @@ unit UnitClient;
     - "Gioca da solo": il programma pensa lui il codice, non serve la rete.
   I colori sono 6 e possono RIPETERSI (rosso, rosso, blu, giallo e' un codice valido).
   Piolini di risposta: NERO = colore giusto al posto giusto, BIANCO = colore giusto al posto sbagliato.
-  Come si gioca: clicca i colori nella colonna di destra (si riempiono i 4 buchi della riga
+  Come si gioca: clicca i colori nella fascia sotto la tavola (si riempiono i 4 buchi della riga
   illuminata), poi premi "Prova". Con "Togli l'ultimo" correggi.
-  Ogni richiesta alla rete: ti colleghi, mandi UNA riga, leggi UNA riga, chiudi. }
+  Ogni richiesta alla rete: ti colleghi, mandi UNA riga, leggi UNA riga, chiudi.
+  Versione v3.0: grafica a 90%, disegno ad alta risoluzione (vedi Comune/DisegnoMastermind.inc). }
 
 {$mode objfpc}{$H+}
 
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  Classes, SysUtils, Types, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
   sockets, ssockets;
 
 type
@@ -36,6 +37,7 @@ type
     LblStato: TLabel;
     PbTavola: TPaintBox;
     PbTavolozza: TPaintBox;
+    PbMessaggio: TPaintBox;
     BtnProva: TButton;
     BtnCancella: TButton;
     LblPosizione: TLabel;
@@ -51,6 +53,7 @@ type
     procedure Timer1Timer(Sender: TObject);
     procedure PbTavolaPaint(Sender: TObject);
     procedure PbTavolozzaPaint(Sender: TObject);
+    procedure PbMessaggioPaint(Sender: TObject);
     procedure PbTavolozzaMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   private
@@ -92,7 +95,8 @@ procedure Valuta(const Segreto, Prova: TCodice; out Neri, Bianchi: Integer);
 
 var
   FormClient: TFormClient;
-  FondoTavola, FondoTavolozza: TBitmap;   // il legno, disegnato una volta sola
+  FondoTavola: TBitmap;      // il legno (tavola + fascia dei colori, UN solo pezzo), disegnato una volta sola, in grande
+  BufTavola, BufTavolozza, BufMessaggio: TBitmap;   // le tele grandi su cui si disegna, poi si rimpiccioliscono
 
 implementation
 
@@ -101,17 +105,22 @@ implementation
 const
   PORTA_SERVER = 5050;      // la porta del server: non toccarla
   TEMPO_MS = 2000;          // dopo 2 secondi senza risposta ci arrendiamo
+  // le misure sono in "pixel di progetto" (schermo al 100%), versione v3.0 al 90%
   RIGHE = 10;               // righe visibili sulla tavola
-  CELLA = 40;               // altezza di una riga
-  PASSO_X = 44;             // distanza tra i buchi in orizzontale
-  TITOLO = 40;              // la fascia in alto con la scritta intagliata
-  MARGINE = 14;
-  RAGGIO = 17;              // raggio di un piolo grande
-  LARG_TAVOLA = 270;
-  ALT_TAVOLA = 468;         // TITOLO + 2 * MARGINE + RIGHE * CELLA
-  LARG_PALETTE = 90;
-  ALT_PALETTE = 330;
-  // sei colori, in ordine 1..6: rosso, giallo, verde, blu, arancio, viola (formato BGR)
+  CELLA = 36;               // altezza di una riga
+  PASSO_X = 47;             // distanza tra i buchi in orizzontale
+  TITOLO = 36;              // la fascia in alto con la scritta intagliata
+  MARGINE = 13;
+  RAGGIO = 14;              // raggio di un piolo grande
+  RAGGIO_BUCO = 12;
+  LARG_TAVOLA = 243;
+  ALT_TAVOLA = 422;         // TITOLO + 2 * MARGINE + RIGHE * CELLA
+  ALT_FASCIA = 60;          // la fascia dei 6 colori, sotto la tavola, stesso legno
+  X_PRIMO = 32;             // centro del primo buco di ogni riga
+  LATO_RISP = 34;           // la nicchia delle risposte e' un QUADRATO 34 x 34
+  X_PRIMO_COLORE = 22;      // centro del primo colore nella fascia
+  PASSO_COLORE = 40;
+  // sei colori, in ordine 1..6: rosso, giallo, verde, blu, arancio, porpora (formato BGR)
   COLORI: array[1..6] of Integer = ($002828DC, $001EC8F0, $003CA028, $00DC5A28, $001E82F0, $00AA328C);
   NOMI_COLORI: array[1..6] of String = ('rosso', 'giallo', 'verde', 'blu', 'arancio', 'porpora');
   LETTERE_COLORI: array[1..6] of String = ('R', 'G', 'V', 'B', 'A', 'P');   // la lettera di ogni colore
@@ -145,341 +154,39 @@ begin
     if CS[I] < CP[I] then Inc(Bianchi, CS[I]) else Inc(Bianchi, CP[I]);
 end;
 
-{ ---------- i colori: mischia un colore col bianco (Perc da 0 a 100) ---------- }
+{$I ../Comune/DisegnoMastermind.inc}
 
-function MioColore(R, G, B: Integer): Integer;
+{ ---------- i fondi (disegnati UNA volta, in grande) e le tele ---------- }
+
+procedure LiberaFondi;
 begin
-  Result := R or (G shl 8) or (B shl 16);
+  FreeAndNil(FondoTavola);
+  FreeAndNil(BufTavola);
+  FreeAndNil(BufTavolozza);
+  FreeAndNil(BufMessaggio);
 end;
 
-function Schiarisci(Col, Perc: Integer): Integer;
-var
-  R, G, B: Integer;
+function NuovaTela(W, H: Integer): TBitmap;
 begin
-  R := Col and $FF;
-  G := (Col shr 8) and $FF;
-  B := (Col shr 16) and $FF;
-  R := R + (255 - R) * Perc div 100;
-  G := G + (255 - G) * Perc div 100;
-  B := B + (255 - B) * Perc div 100;
-  Result := MioColore(R, G, B);
+  Result := TBitmap.Create;
+  Result.Width := Sc(W);
+  Result.Height := Sc(H);
 end;
 
-{ ---------- il disegno: legno, buchi, pioli ---------- }
-
-{ ---------- il legno: fibre sottili, toni morbidi, striature, fessure, pori, bordi piu' scuri ----------
-  Si usa un "caso" tutto nostro con il seme fisso, cosi' la tavola e' SEMPRE uguale.
-  Si disegna UNA volta su una bitmap e poi si copia sullo schermo: e' veloce. }
-
-var
-  SemeLegno: Int64;
-  BordoW, BordoH: Integer;
-
-procedure InizioCaso(S: Integer);
+procedure PreparaFondi(Ppi: Integer);
 begin
-  SemeLegno := S;
-end;
-
-function Caso(N: Integer): Integer;       // un numero da 0 a N-1, sempre la stessa sequenza
-begin
-  SemeLegno := (SemeLegno * 1103515245 + 12345) and $7FFFFFFF;
-  Result := (SemeLegno shr 8) mod N;
-end;
-
-function Mescola(A, B, Perc: Integer): Integer;     // A mescolato con B (Perc% di B): come un colore semitrasparente
-var
-  Ra, Ga, Ba, Rb, Gb, Bb: Integer;
-begin
-  Ra := A and $FF;
-  Ga := (A shr 8) and $FF;
-  Ba := (A shr 16) and $FF;
-  Rb := B and $FF;
-  Gb := (B shr 8) and $FF;
-  Bb := (B shr 16) and $FF;
-  Result := MioColore(Ra + (Rb - Ra) * Perc div 100, Ga + (Gb - Ga) * Perc div 100,
-    Ba + (Bb - Ba) * Perc div 100);
-end;
-
-{ il colore del legno in un punto: dal miele al rovere con macchie larghe e morbide,
-  e un po' piu' scuro vicino ai bordi della tavola }
-function TonoLegno(X, Y: Integer): Integer;
-var
-  F, V: Integer;
-begin
-  F := 50 + Round(26 * Sin(Y * 0.011 + X * 0.0028 + 0.7) + 14 * Sin(Y * 0.029 - X * 0.0049 + 2.1) +
-    8 * Sin(X * 0.011 + Y * 0.017));
-  if F < 0 then F := 0;
-  if F > 100 then F := 100;
-  Result := Mescola(MioColore(212, 166, 102), MioColore(170, 120, 66), F * 7 div 10);
-  V := X;
-  if BordoW - 1 - X < V then V := BordoW - 1 - X;
-  if Y < V then V := Y;
-  if BordoH - 1 - Y < V then V := BordoH - 1 - Y;
-  if V < 0 then V := 0;
-  if V < 34 then Result := Mescola(Result, MioColore(48, 26, 10), (34 - V) * 30 div 34);
-end;
-
-procedure DisegnaLegno(C: TCanvas; W, H, Semi: Integer);
-var
-  I, N, X, Y, Y0, X0, Lun, Xe, Perc, K, Pezzo: Integer;
-  Amp, Fre, Fase: Double;
-  NNodi, NodoX, NodoY, Tono: Integer;
-  Chiaro: Boolean;
-
-  function Dentro(Xp: Integer): Integer;
-  begin
-    Result := Xp;
-    if Result < 0 then Result := 0;
-    if Result > W - 1 then Result := W - 1;
-  end;
-
-  { la fibra ondeggia piano e, vicino al nodino, gira intorno }
-  function Deforma(Xp, Yb: Integer; Ap, Fr, Fa: Double): Integer;
-  var
-    D: Double;
-  begin
-    D := Ap * Sin(Xp * Fr + Fa) + Ap * 0.5 * Sin(Xp * Fr * 2.3 + Fa * 1.7);
-    if NNodi > 0 then
-      D := D + 6 * (Yb - NodoY) / (Abs(Yb - NodoY) + 12) * Exp(-Sqr((Xp - NodoX) / 26.0));
-    Result := Yb + Round(D);
-  end;
-
-begin
-  BordoW := W;
-  BordoH := H;
-  InizioCaso(Semi);
-  C.Brush.Style := bsSolid;
-  C.Pen.Style := psSolid;
-  C.Pen.Width := 1;
-  NNodi := 0;
-  NodoX := 0;
-  NodoY := 0;
-  if (W >= 200) and (H >= 300) then            // un solo nodino piccolo, solo sulla tavola grande
-  begin
-    NNodi := 1;
-    NodoX := 60 + Caso(W - 120);
-    NodoY := 100 + Caso(H - 200);
-  end;
-  // 1) i toni di base: un pixel alla volta, il colore cambia piano piano (niente righe nette)
-  Y := 0;
-  while Y < H do
-  begin
-    X := 0;
-    C.Pen.Color := TonoLegno(0, Y);
-    C.MoveTo(0, Y);
-    while X < W do
-    begin
-      Inc(X, 6);
-      C.Pen.Color := TonoLegno(X, Y);
-      C.LineTo(X, Y);
-    end;
-    Inc(Y);
-  end;
-  // 2) le fibre: tante linee sottilissime, un po' piu' chiare o piu' scure del legno sotto
-  N := (W * H) div 55;
-  for I := 1 to N do
-  begin
-    Y0 := Caso(H);
-    X0 := Caso(W) - 30;
-    Lun := 60 + Caso(W + 40);
-    Amp := 1.0 + Caso(35) / 10.0;
-    Fre := 0.005 + Caso(16) / 1000.0;
-    Fase := Caso(628) / 100.0;
-    Chiaro := Caso(100) < 36;
-    Tono := TonoLegno(Dentro(X0), Y0);
-    if Chiaro then
-      C.Pen.Color := Mescola(Tono, MioColore(232, 190, 130), 14 + Caso(18))
-    else
-      C.Pen.Color := Mescola(Tono, MioColore(66, 38, 16), 16 + Caso(26));
-    X := X0;
-    C.MoveTo(X, Deforma(X, Y0, Amp, Fre, Fase));
-    Xe := X0 + Lun;
-    while X < Xe do
-    begin
-      Inc(X, 5);
-      C.LineTo(X, Deforma(X, Y0, Amp, Fre, Fase));
-    end;
-  end;
-  // 3) qualche striatura piu' scura, lunga e sottile
-  for I := 1 to (W * H) div 4000 do
-  begin
-    Y0 := Caso(H);
-    X0 := Caso(W) - 40;
-    Lun := 100 + Caso(W);
-    Amp := 2.0 + Caso(30) / 10.0;
-    Fre := 0.004 + Caso(9) / 1000.0;
-    Fase := Caso(628) / 100.0;
-    Perc := 40 + Caso(18);
-    C.Pen.Color := Mescola(TonoLegno(Dentro(X0), Y0), MioColore(60, 34, 12), Perc);
-    X := X0;
-    C.MoveTo(X, Deforma(X, Y0, Amp, Fre, Fase));
-    Xe := X0 + Lun;
-    while X < Xe do
-    begin
-      Inc(X, 5);
-      C.LineTo(X, Deforma(X, Y0, Amp, Fre, Fase));
-    end;
-  end;
-  // 4) qualche fessura sottile e interrotta
-  for I := 1 to 3 + (W * H) div 30000 do
-  begin
-    Y0 := Caso(H);
-    X0 := Caso(W) - 30;
-    Lun := 80 + Caso(W);
-    Fase := Caso(628) / 100.0;
-    X := X0;
-    while X < X0 + Lun do
-    begin
-      Pezzo := 8 + Caso(40);
-      C.Pen.Color := Mescola(TonoLegno(Dentro(X), Y0), MioColore(30, 16, 6), 66 + Caso(10));
-      C.MoveTo(X, Deforma(X, Y0, 2.0, 0.012, Fase));
-      Xe := X + Pezzo;
-      while X < Xe do
-      begin
-        Inc(X, 4);
-        C.LineTo(X, Deforma(X, Y0, 2.0, 0.012, Fase));
-      end;
-      Inc(X, 4 + Caso(24));
-    end;
-  end;
-  // 5) i pori: piccoli trattini scuri lunghi 3-14 pixel
-  for I := 1 to (W * H) div 200 do
-  begin
-    X := Caso(W);
-    Y := Caso(H);
-    Lun := 3 + Caso(12);
-    Perc := 34 + Caso(21);
-    C.Pen.Color := Mescola(TonoLegno(X, Y), MioColore(50, 28, 10), Perc);
-    C.MoveTo(X, Deforma(X, Y, 1.5, 0.012, 1.0));
-    C.LineTo(X + Lun, Deforma(X + Lun, Y, 1.5, 0.012, 1.0));
-  end;
-  // 6) il nodino: tre anelli sottili e un centro scuro
-  if NNodi > 0 then
-  begin
-    C.Brush.Style := bsClear;
-    Tono := TonoLegno(NodoX, NodoY);
-    for K := 3 downto 1 do
-    begin
-      C.Pen.Color := Mescola(Tono, MioColore(60, 34, 12), 16 + K * 4);
-      C.Ellipse(NodoX - K * 5 - 3, NodoY - K * 2 - 2, NodoX + K * 5 + 4, NodoY + K * 2 + 3);
-    end;
-    C.Brush.Style := bsSolid;
-    C.Brush.Color := Mescola(Tono, MioColore(40, 22, 8), 55);
-    C.Pen.Color := C.Brush.Color;
-    C.Ellipse(NodoX - 3, NodoY - 2, NodoX + 4, NodoY + 3);
-  end;
-  // 7) la cornice lucida: luce in alto a sinistra, ombra in basso a destra
-  C.Brush.Style := bsClear;
-  C.Pen.Width := 6;
-  C.Pen.Color := MioColore(84, 50, 22);
-  C.Rectangle(0, 0, W, H);
-  C.Pen.Width := 1;
-  C.Pen.Color := MioColore(150, 100, 52);
-  C.Rectangle(3, 3, W - 3, H - 3);
-  C.Pen.Color := MioColore(232, 190, 132);
-  C.MoveTo(4, 4);
-  C.LineTo(W - 5, 4);
-  C.MoveTo(4, 4);
-  C.LineTo(4, H - 5);
-  C.Pen.Color := MioColore(255, 230, 176);
-  C.MoveTo(8, 6);
-  C.LineTo(W - 14, 6);
-  C.Pen.Color := MioColore(54, 30, 12);
-  C.MoveTo(W - 5, 5);
-  C.LineTo(W - 5, H - 5);
-  C.LineTo(4, H - 5);
-  C.Brush.Style := bsSolid;
-end;
-
-{ la scritta INTAGLIATA nel legno: ombra scura in alto a sinistra, bordo chiaro in basso a destra }
-procedure IncidiScritta(C: TCanvas; W, Alt: Integer; const Testo: String);
-var
-  Tx, Ty: Integer;
-begin
-  C.Brush.Style := bsClear;
-  C.Font.Name := 'Arial';
-  C.Font.Size := 22;
-  C.Font.Style := [fsBold];
-  Tx := (W - C.TextWidth(Testo)) div 2;
-  Ty := (Alt - C.TextHeight(Testo)) div 2;
-  C.Font.Color := MioColore(46, 24, 8);
-  C.TextOut(Tx - 1, Ty - 1, Testo);
-  C.Font.Color := MioColore(236, 194, 134);
-  C.TextOut(Tx + 1, Ty + 1, Testo);
-  C.Font.Color := MioColore(98, 58, 26);
-  C.TextOut(Tx, Ty, Testo);
-  C.Brush.Style := bsSolid;
-end;
-
-{ si disegna il legno una volta sola su una bitmap, poi basta copiarla }
-procedure PreparaFondi;
-begin
+  if ImpostaScala(Ppi) then LiberaFondi;          // se lo schermo e' cambiato si rifa' tutto
   if FondoTavola = nil then
   begin
-    FondoTavola := TBitmap.Create;
-    FondoTavola.Width := LARG_TAVOLA;
-    FondoTavola.Height := ALT_TAVOLA;
-    DisegnaLegno(FondoTavola.Canvas, LARG_TAVOLA, ALT_TAVOLA, 7);
-    IncidiScritta(FondoTavola.Canvas, LARG_TAVOLA, TITOLO + 12, '3 INF');
+    // UN solo pezzo di legno: tavola + fascia dei colori, stesso tono
+    FondoTavola := NuovaTela(LARG_TAVOLA, ALT_TAVOLA + ALT_FASCIA);
+    DisegnaLegno(FondoTavola.Canvas, FondoTavola.Width, FondoTavola.Height, 7);
+    IncidiScritta(FondoTavola.Canvas, FondoTavola.Width, Sc(TITOLO + 10), '3 INF');
+    DisegnaScanalatura(FondoTavola.Canvas, Sc(8), Sc(LARG_TAVOLA - 8), Sc(ALT_TAVOLA));
+    BufTavola := NuovaTela(LARG_TAVOLA, ALT_TAVOLA);
+    BufTavolozza := NuovaTela(LARG_TAVOLA, ALT_FASCIA);
+    BufMessaggio := NuovaTela(LARG_TAVOLA + 4, 32);
   end;
-  if FondoTavolozza = nil then
-  begin
-    FondoTavolozza := TBitmap.Create;
-    FondoTavolozza.Width := LARG_PALETTE;
-    FondoTavolozza.Height := ALT_PALETTE;
-    DisegnaLegno(FondoTavolozza.Canvas, LARG_PALETTE, ALT_PALETTE, 19);
-  end;
-end;
-
-procedure DisegnaBuco(C: TCanvas; Cx, Cy, R: Integer);
-begin
-  C.Pen.Style := psClear;
-  C.Brush.Color := MioColore(48, 28, 12);
-  C.Ellipse(Cx - R, Cy - R, Cx + R + 1, Cy + R + 1);
-  C.Brush.Color := MioColore(78, 48, 24);
-  C.Ellipse(Cx - R + 2, Cy - R + 2, Cx + R - 1, Cy + R - 1);
-  C.Brush.Color := MioColore(40, 22, 8);
-  C.Ellipse(Cx - R + 3, Cy - R + 3, Cx + R - 3, Cy + R - 3);
-  C.Pen.Style := psSolid;
-end;
-
-{ un piolo: cerchi sempre piu' piccoli e piu' chiari, spostati in alto a sinistra: sembra una sfera }
-procedure DisegnaPiolo(C: TCanvas; Cx, Cy, R, Col: Integer);
-var
-  K, Rk, Off: Integer;
-begin
-  C.Pen.Style := psClear;
-  C.Brush.Color := MioColore(40, 24, 10);                       // l'ombra sul legno
-  C.Ellipse(Cx - R + 2, Cy - R + 3, Cx + R + 3, Cy + R + 4);
-  for K := 0 to 5 do
-  begin
-    Rk := R - (K * R) div 7;
-    Off := -(K * R) div 14;
-    C.Brush.Color := Schiarisci(Col, K * 11);
-    C.Ellipse(Cx + Off - Rk, Cy + Off - Rk, Cx + Off + Rk + 1, Cy + Off + Rk + 1);
-  end;
-  C.Pen.Style := psSolid;
-end;
-
-{ piolino di risposta (piccolo): nero o bianco }
-procedure DisegnaRisposta(C: TCanvas; Cx, Cy, R: Integer; Nero: Boolean);
-begin
-  C.Pen.Style := psClear;
-  if Nero then
-  begin
-    C.Brush.Color := MioColore(12, 12, 12);
-    C.Ellipse(Cx - R, Cy - R, Cx + R + 1, Cy + R + 1);
-    C.Brush.Color := MioColore(90, 90, 90);
-    C.Ellipse(Cx - R div 2 - 1, Cy - R div 2 - 1, Cx - 1, Cy - 1);
-  end
-  else
-  begin
-    C.Brush.Color := MioColore(235, 235, 235);
-    C.Ellipse(Cx - R, Cy - R, Cx + R + 1, Cy + R + 1);
-    C.Brush.Color := MioColore(255, 255, 255);
-    C.Ellipse(Cx - R div 2 - 1, Cy - R div 2 - 1, Cx - 1, Cy - 1);
-  end;
-  C.Pen.Style := psSolid;
 end;
 
 { ---------- la finestra ---------- }
@@ -534,6 +241,7 @@ begin
   if not Assigned(Timer1.OnTimer) then Timer1.OnTimer := @Timer1Timer;
   if not Assigned(PbTavola.OnPaint) then PbTavola.OnPaint := @PbTavolaPaint;
   if not Assigned(PbTavolozza.OnPaint) then PbTavolozza.OnPaint := @PbTavolozzaPaint;
+  if not Assigned(PbMessaggio.OnPaint) then PbMessaggio.OnPaint := @PbMessaggioPaint;
   if not Assigned(PbTavolozza.OnMouseDown) then PbTavolozza.OnMouseDown := @PbTavolozzaMouseDown;
   KeyPreview := True;                                   // la finestra legge i tasti prima dei bottoni
   if not Assigned(OnKeyPress) then OnKeyPress := @TastoPremuto;
@@ -672,13 +380,13 @@ begin
   Tot := Campo(R, Dopo + 2);
   Mig := Campo(R, Dopo + 3);
   Peg := Campo(R, Dopo + 4);
-  if Mig = '0' then LblMigliore.Caption := 'Migliore: nessuno ha ancora finito'
-  else LblMigliore.Caption := 'Migliore: ' + Mig + ' tentativi';
+  if Mig = '0' then LblMigliore.Caption := 'Migliore: -'
+  else LblMigliore.Caption := 'Migliore: ' + Mig;
   if Peg = '0' then LblPeggiore.Caption := 'Peggiore: -'
-  else LblPeggiore.Caption := 'Peggiore: ' + Peg + ' tentativi';
-  if (Pos_ = '0') or (Pos_ = '') then LblPosizione.Caption := 'Il tuo posto: non hai ancora indovinato'
-  else LblPosizione.Caption := 'Il tuo posto: ' + Pos_ + 'o';
-  LblFiniti.Caption := 'Hanno finito: ' + Tot;
+  else LblPeggiore.Caption := 'Peggiore: ' + Peg;
+  if (Pos_ = '0') or (Pos_ = '') then LblPosizione.Caption := 'Posto: non ancora'
+  else LblPosizione.Caption := 'Posto: ' + Pos_ + 'o';
+  LblFiniti.Caption := 'Finiti: ' + Tot;
 end;
 
 procedure TFormClient.AggiornaBottoni;
@@ -686,6 +394,7 @@ begin
   BtnProva.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr = 4);
   BtnCancella.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr > 0);
   PbTavola.Invalidate;
+  PbMessaggio.Invalidate;
 end;
 
 { la prima riga della storia che si vede: se hai fatto piu' di 10 tentativi scorre }
@@ -732,7 +441,7 @@ begin
   end;
   Ricomincia;
   LblStato.Caption := 'DA SOLO: indovina il codice';
-  LblEsito.Caption := 'Ho pensato 4 colori (anche uguali). Clicca i colori a destra e premi Prova.';
+  LblEsito.Caption := 'Ho pensato 4 colori (anche uguali). Clicca i colori sotto la tavola e premi Prova.';
   AggiornaBottoni;
 end;
 
@@ -810,15 +519,18 @@ end;
 procedure TFormClient.PbTavolozzaMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 var
-  I, Dx, Dy: Integer;
+  I: Integer;
+  S, Dx, Dy: Double;
 begin
-  for I := 1 to 6 do
+  S := 1;                                   // quanto lo schermo ingrandisce rispetto al progetto
+  if PbTavolozza.Width > 0 then S := PbTavolozza.Width / LARG_TAVOLA;
+  for I := 0 to 5 do
   begin
-    Dx := X - LARG_PALETTE div 2;
-    Dy := Y - (35 + (I - 1) * 50);
+    Dx := X / S - (X_PRIMO_COLORE + I * PASSO_COLORE);
+    Dy := Y / S - ALT_FASCIA div 2;
     if Dx * Dx + Dy * Dy <= (RAGGIO + 4) * (RAGGIO + 4) then
     begin
-      AggiungiColore(I);
+      AggiungiColore(I + 1);
       Exit;
     end;
   end;
@@ -850,7 +562,7 @@ begin
   end;
   if NCorr <> 4 then
   begin
-    LblEsito.Caption := 'Servono 4 colori: clicca ancora sui colori a destra.';
+    LblEsito.Caption := 'Servono 4 colori: clicca ancora sui colori sotto la tavola.';
     Exit;
   end;
   if Modo = mLocale then ProvaInLocale else ProvaInRete;
@@ -951,68 +663,145 @@ begin
   AggiornaBottoni;
 end;
 
-{ ---------- il disegno della tavola e della tavolozza ---------- }
+
+{ ---------- il disegno della tavola, della fascia dei colori e della legenda ---------- }
 
 procedure TFormClient.PbTavolaPaint(Sender: TObject);
 var
-  Cv: TCanvas;
-  Riga, Col, K, Cx, Cy, Ind, Prima: Integer;
+  B: TCanvas;
+  Riga, Col, K, Cx, Cy, Ind, Prima, Bx0, Bx1: Integer;
 begin
-  Cv := PbTavola.Canvas;
-  PreparaFondi;
-  Cv.Draw(0, 0, FondoTavola);
+  PreparaFondi(PixelsPerInch);
+  B := BufTavola.Canvas;
+  B.Draw(0, 0, FondoTavola);                     // il legno (la parte alta del pezzo grande)
   Prima := PrimaRigaVisibile;
   for Riga := 0 to RIGHE - 1 do
   begin
-    Cy := TITOLO + MARGINE + Riga * CELLA + CELLA div 2;
+    Cy := Sc(TITOLO + MARGINE + Riga * CELLA + CELLA div 2);
     Ind := Prima + Riga;
     if (Ind = NT) and (Modo <> mNessuno) and (not Finita) then
     begin
       // la riga che stai riempiendo e' "illuminata"
-      Cv.Brush.Style := bsClear;
-      Cv.Pen.Width := 2;
-      Cv.Pen.Color := MioColore(255, 226, 120);
-      Cv.Rectangle(MARGINE - 4, Cy - CELLA div 2 + 2, LARG_TAVOLA - MARGINE + 4, Cy + CELLA div 2 - 1);
-      Cv.Pen.Width := 1;
-      Cv.Brush.Style := bsSolid;
+      B.Brush.Style := bsClear;
+      B.Pen.Width := Sc(2);
+      B.Pen.Color := MioColore(255, 226, 120);
+      B.Rectangle(Sc(7), Cy - Sc(CELLA div 2 - 2), Sc(LARG_TAVOLA - 7), Cy + Sc(CELLA div 2 - 2));
+      B.Pen.Width := 1;
+      B.Brush.Style := bsSolid;
     end;
     for Col := 0 to 3 do
     begin
-      Cx := MARGINE + 22 + Col * PASSO_X;
+      Cx := Sc(X_PRIMO + Col * PASSO_X);
       if Ind < NT then
-        DisegnaPiolo(Cv, Cx, Cy, RAGGIO, COLORI[Storia[Ind].Colori[Col]])
-      else if (Ind = NT) and (Col < NCorr) then
-        DisegnaPiolo(Cv, Cx, Cy, RAGGIO, COLORI[Corrente[Col]])
+        DisegnaPiolo(B, Cx, Cy, Sc(RAGGIO), COLORI[Storia[Ind].Colori[Col]])
+      else if (Ind = NT) and (Col < NCorr) and (Modo <> mNessuno) then
+        DisegnaPiolo(B, Cx, Cy, Sc(RAGGIO), COLORI[Corrente[Col]])
       else
-        DisegnaBuco(Cv, Cx, Cy, RAGGIO - 3);
+        DisegnaBuco(B, Cx, Cy, Sc(RAGGIO_BUCO));
     end;
+    // la nicchia delle risposte: un QUADRATO nello stesso legno, solo un bordo incavato
+    Bx1 := Sc(LARG_TAVOLA - 11);
+    Bx0 := Bx1 - Sc(LATO_RISP);
+    B.Pen.Style := psSolid;
+    B.Pen.Width := Sc(2);
+    B.Pen.Color := MioColore(84, 50, 22);        // ombra sopra e a sinistra
+    B.MoveTo(Bx1, Cy - Sc(LATO_RISP div 2));
+    B.LineTo(Bx0, Cy - Sc(LATO_RISP div 2));
+    B.LineTo(Bx0, Cy + Sc(LATO_RISP div 2));
+    B.Pen.Width := Sc(1);
+    B.Pen.Color := MioColore(236, 194, 134);     // luce sotto e a destra
+    B.MoveTo(Bx0, Cy + Sc(LATO_RISP div 2));
+    B.LineTo(Bx1, Cy + Sc(LATO_RISP div 2));
+    B.LineTo(Bx1, Cy - Sc(LATO_RISP div 2));
+    B.Pen.Width := 1;
     // i 4 piolini piccoli di risposta, a 2 a 2
     for K := 0 to 3 do
     begin
-      Cx := 218 + (K mod 2) * 20;
-      Cy := TITOLO + MARGINE + Riga * CELLA + CELLA div 2 - 10 + (K div 2) * 20;
+      Cx := Bx0 + Sc(9 + (K mod 2) * 16);
+      Col := Cy - Sc(8) + Sc((K div 2) * 16);
       if Ind < NT then
       begin
-        if K < Storia[Ind].Neri then DisegnaRisposta(Cv, Cx, Cy, 7, True)
-        else if K < Storia[Ind].Neri + Storia[Ind].Bianchi then DisegnaRisposta(Cv, Cx, Cy, 7, False)
-        else DisegnaBuco(Cv, Cx, Cy, 5);
+        if K < Storia[Ind].Neri then DisegnaRisposta(B, Cx, Col, Sc(6), True)
+        else if K < Storia[Ind].Neri + Storia[Ind].Bianchi then DisegnaRisposta(B, Cx, Col, Sc(6), False)
+        else DisegnaBuco(B, Cx, Col, Sc(4));
       end
       else
-        DisegnaBuco(Cv, Cx, Cy, 5);
+        DisegnaBuco(B, Cx, Col, Sc(4));
+    end;
+    if (Ind < NT) and (Storia[Ind].Neri = 4) then      // tutto giusto: la nicchia si illumina di verde
+    begin
+      B.Brush.Style := bsClear;
+      B.Pen.Width := Sc(3);
+      B.Pen.Color := MioColore(120, 220, 120);
+      B.RoundRect(Bx0, Cy - Sc(LATO_RISP div 2), Bx1, Cy + Sc(LATO_RISP div 2), Sc(6), Sc(6));
+      B.Pen.Width := 1;
+      B.Brush.Style := bsSolid;
     end;
   end;
+  RiduciSu(PbTavola.Canvas, Rect(0, 0, PbTavola.Width, PbTavola.Height), BufTavola);
 end;
 
 procedure TFormClient.PbTavolozzaPaint(Sender: TObject);
 var
-  Cv: TCanvas;
-  I: Integer;
+  B: TCanvas;
+  I, Cx, Cy: Integer;
 begin
-  Cv := PbTavolozza.Canvas;
-  PreparaFondi;
-  Cv.Draw(0, 0, FondoTavolozza);
-  for I := 1 to 6 do
-    DisegnaPiolo(Cv, LARG_PALETTE div 2, 35 + (I - 1) * 50, RAGGIO, COLORI[I]);   // solo pioli colorati da cliccare
+  PreparaFondi(PixelsPerInch);
+  B := BufTavolozza.Canvas;
+  // la parte bassa dello stesso pezzo di legno
+  B.CopyRect(Rect(0, 0, BufTavolozza.Width, BufTavolozza.Height), FondoTavola.Canvas,
+    Rect(0, Sc(ALT_TAVOLA), BufTavolozza.Width, Sc(ALT_TAVOLA) + BufTavolozza.Height));
+  Cy := Sc(ALT_FASCIA div 2);
+  for I := 0 to 5 do
+  begin
+    Cx := Sc(X_PRIMO_COLORE + I * PASSO_COLORE);
+    DisegnaBuco(B, Cx, Cy, Sc(RAGGIO));
+    DisegnaPiolo(B, Cx, Cy, Sc(RAGGIO - 1), COLORI[I + 1]);   // solo pioli colorati da cliccare
+  end;
+  RiduciSu(PbTavolozza.Canvas, Rect(0, 0, PbTavolozza.Width, PbTavolozza.Height), BufTavolozza);
+end;
+
+{ la legenda: l'ultimo tentativo con i piolini veri (nero = giusto al posto giusto, bianco = posto sbagliato) }
+procedure TFormClient.PbMessaggioPaint(Sender: TObject);
+var
+  B: TCanvas;
+  Ex, Cy: Integer;
+  Testo: String;
+begin
+  PreparaFondi(PixelsPerInch);
+  B := BufMessaggio.Canvas;
+  B.Brush.Style := bsSolid;
+  B.Brush.Color := MioColore(255, 250, 235);
+  B.Pen.Style := psSolid;
+  B.Pen.Width := Sc(1);
+  B.Pen.Color := MioColore(190, 170, 120);
+  B.Rectangle(0, 0, BufMessaggio.Width, BufMessaggio.Height);
+  B.Pen.Width := 1;
+  B.Font.Name := 'Arial';
+  B.Font.Height := -Sc(13);
+  B.Font.Quality := fqCleartype;
+  B.Font.Style := [];
+  B.Font.Color := MioColore(0, 0, 0);
+  B.Brush.Style := bsClear;
+  Cy := BufMessaggio.Height div 2;
+  Ex := Sc(14);
+  if NT = 0 then
+  begin
+    B.Font.Color := MioColore(90, 70, 40);
+    B.TextOut(Sc(8), Cy - B.TextHeight('Nero') div 2, 'Nero: giusto al posto giusto. Bianco: posto sbagliato.');
+  end
+  else
+  begin
+    DisegnaRisposta(B, Ex, Cy, Sc(6), True);
+    Testo := IntToStr(Storia[NT - 1].Neri) + ' neri';
+    B.TextOut(Ex + Sc(11), Cy - B.TextHeight(Testo) div 2, Testo);
+    Ex := Ex + Sc(11) + B.TextWidth(Testo) + Sc(22);
+    DisegnaRisposta(B, Ex, Cy, Sc(6), False);
+    Testo := IntToStr(Storia[NT - 1].Bianchi) + ' bianchi';
+    B.TextOut(Ex + Sc(11), Cy - B.TextHeight(Testo) div 2, Testo);
+  end;
+  B.Brush.Style := bsSolid;
+  RiduciSu(PbMessaggio.Canvas, Rect(0, 0, PbMessaggio.Width, PbMessaggio.Height), BufMessaggio);
 end;
 
 end.

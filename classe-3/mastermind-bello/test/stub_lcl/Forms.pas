@@ -9,6 +9,7 @@ type
     OnDestroy: TNotifyEvent;
     KeyPreview: Boolean;               // nella vera LCL esiste: la finestra legge i tasti prima dei controlli
     OnKeyPress: TKeyPressEvent;
+    PixelsPerInch: Integer;            // la scala dello schermo (96 = 100%)
     ActiveControl: TControl;           // nella vera LCL e' il controllo con il fuoco
   end;
 implementation
