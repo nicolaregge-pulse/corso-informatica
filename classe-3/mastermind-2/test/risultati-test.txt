@@ -1,0 +1,162 @@
+MASTERMIND 2.0 - risultati delle prove (02/11/2026 07:09) - fpc 3.2.2
+
+##### 1. LOGICA PURA (test_logica)
+== Valutazione esatte/spostate (stessa logica del Mastermind normale)
+  OK   1234 vs 1234 = 4 esatte
+  OK   1234 vs 4321 = 0 esatte 4 spostate
+  OK   1123 vs 1111 = 2 esatte 0 spostate
+  OK   1234 vs 1355 = 1 esatta 1 spostata
+  OK   1122 vs 2211 = 0 esatte 4 spostate
+  OK   codice valido 1234
+  OK   codice non valido 1237 / 123 / abcd / 12345
+  OK   stesso seme = stesso codice
+  OK   codice da seme: 4 cifre da 1 a 6
+== Partita (orologio finto)
+  OK   prima del Via: WAIT  [WAIT]
+  OK   prima del Via nessun giocatore registrato
+  OK   codice non valido  [ERR;codice non valido (servono 4 cifre da 1 a 6)]
+  OK   nome mancante  [ERR;nome non valido]
+  OK   comando sconosciuto  [ERR;comando sconosciuto]
+  OK   tentativo sbagliato: RESULT
+  OK     ... 1 tentativo, posizione 0, totale 0
+  OK   Anna indovina al 2o tentativo dopo 10 s  [WIN;Anna;2;10;1;1;2;2]
+  OK   Bruno al 1o tentativo dopo 20 s: primo  [WIN;Bruno;1;20;1;2;1;2]
+  OK   Anna ora e' seconda
+  OK   Dino pari merito con Anna (2 tentativi, 10 s): posizione 2
+  OK     ... e Anna resta seconda
+  OK   Ennio (2 tentativi, 15 s) e' quarto (dopo il pari merito)
+  OK   Carla: 3 tentativi, posizione 5 di 5
+  OK   migliore = 1 tentativo, peggiore = 3 tentativi
+  OK   Fabio (non finito): 1 tentativo, posizione 0, totale resta 5
+  OK   Anna riprova dopo aver vinto: resta WIN con 2 tentativi  [WIN;Anna;2;10;2;5;1;3]
+  OK   nomi senza distinzione maiuscole: "anna" e' Anna
+== Chi arriva tardi
+  OK   Gina entra molto dopo e indovina subito: WIN dopo 1000 s, seconda  [WIN;Gina;1;1000;2;6;1;3]
+  OK     ... Anna e Dino scalano al 3o posto, Ennio 5o, Carla 6a
+  OK   STATO di chi non ha ancora provato (Hugo)  [STATO;GIOCO;0;0;6;1;3]
+== Console dello studente
+  OK   testo console  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 3 tentativi, posizione 6 di 6]
+  OK   testo console chi non ha finito  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 1 tentativi, non hai ancora indovinato (hanno finito in 6)]
+  OK   ParsaRisposta capisce WIN
+  OK   ParsaRisposta capisce WAIT
+  OK   ParsaRisposta rifiuta rumore
+== File ranking.txt riletto da un client
+  OK   ranking.txt contiene la riga di Carla
+  OK   ranking.txt: MIGLIORE;1 e PEGGIORE;3
+  OK   partita.txt dopo il Via contiene il seme
+== Nuova partita
+  OK   tabella vuota, di nuovo in attesa, codice nuovo
+  OK   WAIT di nuovo  [WAIT]
+  OK   partita.txt in attesa NON rivela il seme
+== IP -> nome (ip-nomi.txt)
+  OK   IP noto: il nome scritto dal client viene ignorato
+  OK   IP sconosciuto: vale il nome scritto
+  OK   pannello presenze: Sara non ha ancora provato
+  OK     ... e Luca sta provando
+
+RISULTATO: 45 prove OK su 45, fallite: 0
+
+##### 2. TRASPORTO FILE (test_file): server + 5 client sulla stessa cartella
+== Prima del Via
+  OK   partita.txt in attesa NON contiene il seme
+  OK   il client risponde WAIT prima del Via
+  OK     ... e non scrive nulla
+  OK   console in attesa: nessuno ha indovinato
+== Via!
+  OK   partita.txt ora contiene il seme
+  OK   ERR se il codice e' scritto male
+  OK   Anna sbaglia: RESULT, 1 tentativo
+  OK   Anna indovina: WIN, 2 tentativi, 10 secondi
+  OK   Bruno indovina subito: WIN, 1 tentativo, 20 s
+  OK   Carla: WIN con 3 tentativi
+  OK   Anna dopo la vittoria: il suo file resta di 2 righe
+== Il server rilegge la cartella
+  OK   Poll vede 8 tentativi nuovi (2+1+3+2)
+  OK   un secondo Poll non conta due volte
+  OK   tabella del server: Anna 2 tentativi 10 s
+  OK   Dino pari merito con Anna (posizione 2)
+  OK   Carla e' quarta di 4
+  OK   migliore 1, peggiore 3
+== I client leggono ranking.txt
+  OK   console di Carla  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 3 tentativi, posizione 4 di 4]
+  OK   console di Anna  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 2 tentativi, posizione 2 di 4]
+== Chi arriva tardi
+  OK   Gina entra tardi e indovina: WIN, 1 tentativo, 2000 s (conta dal Via)
+  OK   console di Gina  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 1 tentativi, posizione 2 di 5]
+== Righe strane
+  OK   riga di una partita vecchia (altro id): ignorata
+  OK   riga a meta' (senza a capo): non ancora letta
+  OK   quando arriva l'a capo la riga conta; il server ha ricalcolato: e' una vittoria
+== Nuova partita
+  OK   dopo Nuova partita le vecchie righe non contano
+  OK   client: WAIT di nuovo
+== File di configurazione accanto al programma
+  OK   solo cartella.txt: modo file
+  OK   server.txt IP:PORTA: modo rete
+  OK   server.txt solo IP: porta predefinita 5050
+  OK   nessun file: non configurato
+
+RISULTATO: 30 prove OK su 30, fallite: 0
+
+##### 3. RETE TCP su localhost (server_mastermind vero + client simulati)
+######## PROVE A: server senza ip-nomi.txt (porta 5077)
+== Prima del Via (rete)
+  OK   STATO risponde ATTESA
+  OK   GUESS prima del Via: WAIT
+  OK   riga cruda  [WAIT]
+  OK   riga senza senso: ERR, il server non muore
+  OK   server ancora vivo dopo la riga strana
+== Via!
+  OK   dopo il comando Via lo STATO e' GIOCO
+  OK   Anna sbaglia: RESULT, 1 tentativo, posizione 0
+  OK   Anna indovina: WIN al 2o tentativo, posizione 1 di 1
+  OK     ... ha impiegato almeno 1 secondo
+  OK   Bruno indovina al 1o: primo, Anna scende a seconda
+  OK   Bruno vede migliore 1 e peggiore 2
+  OK   richiesta ASINCRONA (thread) completata con CheckSynchronize
+  OK   Carla (async): WIN a 3 tentativi, ultima
+  OK   console di Carla  [Migliore: 1 tentativi · Peggiore: 3 tentativi · Tu: 3 tentativi, posizione 3 di 3]
+  OK   Dino 2 tentativi come Anna ma piu' lento: dietro Anna
+  OK   Gina (ritardataria) indovina al 1o: seconda per tentativi
+  OK   dopo aver vinto, ripetere non cambia i tentativi
+  OK   server ancora vivo dopo un client muto
+== Server spento: il client passa da solo ai file (piano B)
+  OK   rete non raggiungibile -> modo file automatico
+  OK   il server ha letto Ivo dal file e lo mette in ranking.txt
+== ranking.txt scritto dal server per chi usa i file
+  OK   contiene Bruno primo
+  OK   contiene Carla
+  OK   MIGLIORE;1 PEGGIORE;3
+== Nuova partita (comando) 
+  OK   dopo NUOVA: di nuovo ATTESA
+  OK     ... e Anna non ha piu' tentativi
+
+RISULTATO: 25 prove OK su 25, fallite: 0
+######## PROVE B: server con ip-nomi.txt (porta 5078)
+== IP noto -> nome dalla tabella ip-nomi.txt
+  OK   GUESS accettato
+  OK   WIN
+  OK   ranking.txt ha il nome VERO "Mario Rossi"
+  OK     ... e NON il nome falso scritto dal client
+
+RISULTATO: 4 prove OK su 4, fallite: 0
+
+------------------------------------------------
+MASTERMIND 2.0 - SERVER   [V] Via!  [N] Nuova partita  [R] ridisegna  [I] ip-nom
+i  [Q] esci
+Rete: in ascolto sulla porta 5077  Cartella: /tmp/claude-0/-home-user/b09df496-8
+25b-5f09-8a08-1a0a65c53666/scratchpad/o4/cartA
+
+PARTITA P3x65003 - IN ATTESA DEL VIA - finiti: 0 di 0 - migliore: 0 - peggiore: 
+0
+ Pos  Nome                  Tentativi  Secondi  Stato
+ (nessuno ha ancora provato)
+
+CHI HA GIA' PROVATO / CHI NO (dalla lista ip-nomi.txt)
+  (nessun file ip-nomi.txt: si usano i nomi scritti dai ragazzi)
+
+
+##### 4. CONTROLLO DI COMPILAZIONE della scheda dello studente (unit1_client.pas) contro finte unita' LCL
+  OK   unit1_client.pas compila (sintassi e tipi; NON e' una prova con la vera LCL)
+
+TUTTO OK
