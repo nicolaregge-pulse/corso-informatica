@@ -149,6 +149,7 @@ l'intestazione del file.
 ### 6b. Materiali della Classe 2
 1. `classe-2/condizioni-if-then.md` — v0.1 (condizioni SE/ALLORA: IFTTT, funzione SE di Google Fogli, social, Lazarus if/then/else)
 2. `classe-2/if-annidati/` (generatori `_build/gen_if_annidati.py`, `gen_cinema.py`; pagina unica `docs/2inf-if/`) — v1.0 (05/10: dispensa if/then/else e if annidati con la regola dei rientri §2.27, riscaldamento R1-R4, gioco Indovina il numero a 4 livelli + compito; 08/10: Il cassiere del cinema, 3 if annidati, or, CheckBox, tabella di prova + compito)
+3. `classe-2/lezioni/2026-11-02_reti-ora1_v1.0.md` (+ PDF `20261102_2INF-ora1-reti_v1.0.pdf`) — v1.0 (02/11/2026, 2INF ora 1: IP, MAC, gateway, DNS, DHCP, scheda d'identità, quiz di 12 domande; risposte solo nell'ultima pagina per il docente)
 3. `classe-2/lazarus-convertitore/` — v1.0-2.2 (convertitori mph/km/h e temperature, 29/09-01/10) · `classe-2/sicurezza-1ora-rischio-danno/quiz/` — v1.0 · `classe-2/sicurezza-phishing/` — v1.0 (Email sicura o truffa)
 
 ### 6c. Materiale trasversale (tutti gli anni)
