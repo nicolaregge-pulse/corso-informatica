@@ -12,6 +12,7 @@ type
   public
     Caption: String;
     Enabled: Boolean;
+    OnClick: TNotifyEvent;
     constructor Create(AOwner: TComponent); override;
   end;
 const

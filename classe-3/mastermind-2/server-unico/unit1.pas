@@ -78,6 +78,8 @@ type
     procedure AggiornaClassifica;
     procedure NuovaPartita;
   public
+    Avviato: Boolean;                 // True quando FormCreate e' gia' partita
+    procedure AfterConstruction; override;
   end;
 
 var
@@ -214,6 +216,7 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  Avviato := True;
   Randomize;
   Srv := nil;
   Gioco := False;
@@ -241,6 +244,22 @@ begin
   AggiornaStato;
   AggiornaSegreto;
   Scrivi('Benvenuto! Premi "Avvia server" per cominciare.');
+end;
+
+{ A prova di errore: se il form e' stato caricato senza i collegamenti dei bottoni
+  (succede quando si incolla il form PRIMA del codice) li colleghiamo da qui,
+  dopo che la finestra e' stata costruita. Se erano gia' collegati non cambia nulla. }
+procedure TForm1.AfterConstruction;
+begin
+  inherited AfterConstruction;
+  if not Assigned(BtnAvvia.OnClick) then BtnAvvia.OnClick := @BtnAvviaClick;
+  if not Assigned(BtnVia.OnClick) then BtnVia.OnClick := @BtnViaClick;
+  if not Assigned(BtnNuova.OnClick) then BtnNuova.OnClick := @BtnNuovaClick;
+  if not Assigned(LblSegreto.OnClick) then LblSegreto.OnClick := @LblSegretoClick;
+  if not Assigned(EdPorta.OnChange) then EdPorta.OnChange := @EdPortaChange;
+  if not Assigned(Timer1.OnTimer) then Timer1.OnTimer := @Timer1Timer;
+  if not Assigned(OnDestroy) then OnDestroy := @FormDestroy;
+  if not Avviato then FormCreate(nil);
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
