@@ -1,0 +1,7 @@
+/* Pagina chiusa finche config.json ha ore_sbloccate < 1. Controlla ogni 30 s e si apre da sola. */
+(function(){var base=document.currentScript.src.replace(/[^\/]*$/,''),st=document.createElement('style');st.textContent='main{display:none!important}';document.head.appendChild(st);
+function leggi(cb){fetch(base+'config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){cb(+(c&&c.ore_sbloccate)||0)}).catch(function(){cb(null)})}
+function pronto(f){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',f);else f()}
+function chiudi(m){pronto(function(){if(document.getElementById('ore-chiuso'))return;var d=document.createElement('div');d.id='ore-chiuso';d.style.cssText='max-width:640px;margin:40px auto;padding:20px 18px;border:3px solid #1f6feb;border-radius:14px;font:20px/1.5 system-ui,Arial,sans-serif;background:#fff;color:#111';d.innerHTML='<h1 style="font-size:1.3em;margin:0 0 8px">Questa ora non è ancora aperta</h1><p>'+(m==='errore'?'Non riesco a controllare se è aperta. Premi F5 tra poco.':'Il Professore la apre tra poco. Quando sarà il momento, questa pagina si apre da sola.')+'</p>';document.body.appendChild(d)})}
+function controlla(p){leggi(function(n){if(n!==null&&n>=1){if(p){st.remove();var d=document.getElementById('ore-chiuso');if(d)d.remove()}else location.reload();return}if(p)chiudi(n===null?'errore':'chiuso')})}
+controlla(true);setInterval(function(){controlla(false)},30000)})();
