@@ -143,7 +143,7 @@ for n, passi in ((1, PASSI1), (2, PASSI2), (3, PASSI3)):
     f = FAC[n]
     fac = NOTA_FAC % (f[0], f[1], f[2], f[3])
     h = pagina(SLUG, '1INF', 'Ora %d · %s' % (n, TIT[n][0]), '1INF · Laboratorio · mercoledì 04/11/2026 · si consegnano SEMPRE unit1.pas e lo screenshot', n, passi, ('ar', 'zh'), 'it,ar,zh',
-               h1l={'ar': 'الساعة %d · %s' % (n, TIT[n][1]), 'zh': '第 %d 节 · %s' % (n, TIT[n][2])}, extra_mid=fac)
+               h1l={'ar': 'الساعة %d · %s' % (n, TIT[n][1]), 'zh': '第 %d 节 · %s' % (n, TIT[n][2])}, extra_mid=fac, avz='1inf-lab0411-ora%d' % n)
     h = h.replace('id="nome"', 'id="nome"')  # (campo nome comune)
     open(D + 'modulo-%d.html' % n, 'w', encoding='utf-8').write(h)
 

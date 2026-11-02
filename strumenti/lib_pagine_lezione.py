@@ -171,7 +171,7 @@ disegna(); giro(); setInterval(giro,30000); setInterval(function(){ping(true)},1
 """
 
 
-def pagina(slug, classe, titolo, sotto, ora, passi, lingue, assist_lingue, extra_top='', extra_mid='', extra_bottom='', h1l=None, ore_gate=None, ip=False):
+def pagina(slug, classe, titolo, sotto, ora, passi, lingue, assist_lingue, extra_top='', extra_mid='', extra_bottom='', h1l=None, ore_gate=None, ip=False, avz=None):
     """Scrive docs/anteprima/<slug>/<nome file> non qui: restituisce l'HTML della pagina a passi."""
     gate = ore_gate if ore_gate is not None else ora
     h = ['<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">',
@@ -192,5 +192,5 @@ def pagina(slug, classe, titolo, sotto, ora, passi, lingue, assist_lingue, extra
     h.append(extra_bottom)
     h.append('<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p><div id="aiuto"></div></main>')
     h.append('<script src="../../assistente/assistente.js" data-pagina="%s" data-lingue="%s" data-dove="aiuto"></script>' % (slug, assist_lingue))
-    h.append('<script>' + JS.replace('__SLUG__', slug).replace('__ORA__', str(ora)).replace('__NS__', str(len(passi))).replace('__CLASSE__', classe) + '</script></body></html>')
+    h.append('<script>' + JS.replace('__SLUG__', avz or slug).replace('__ORA__', str(ora)).replace('__NS__', str(len(passi))).replace('__CLASSE__', classe) + '</script></body></html>')
     return '\n'.join(h)
