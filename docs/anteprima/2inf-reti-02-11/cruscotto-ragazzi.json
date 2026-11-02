@@ -1,8 +1,8 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T12:03",
- "ora": "12:03",
- "fonte": "piani A + B · segnali schede: 0 · schede PC: 1 · analisi mail: 0 · 2FA: 2 allievi · Veyon: nessun giro · presenti: dal registro",
+ "generato": "2026-11-02T12:07",
+ "ora": "12:07",
+ "fonte": "piani A + B · segnali schede: 0 · schede PC: 1 · analisi mail: 0 · 2FA: 4 allievi · Veyon: nessun giro · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "presenti_ok": true,
@@ -17,7 +17,7 @@
    "fonte": "Scheda d'identità (pagina)",
    "ora": "11:49",
    "iso": "2026-11-02T11:49+01:00",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Analisi mail (phishing)",
@@ -33,8 +33,8 @@
   },
   {
    "fonte": "2FA GitHub (pagina)",
-   "ora": "12:02",
-   "iso": "2026-11-02T12:02+01:00",
+   "ora": "12:06",
+   "iso": "2026-11-02T12:06+01:00",
    "vecchio": false
   },
   {
@@ -67,10 +67,10 @@
    },
    "phishing": null,
    "fa2": {
-    "passi": 3,
+    "passi": 5,
     "tot": 8,
     "fatto": false,
-    "ora": "12:02"
+    "ora": "12:05"
    },
    "quiz_reti": null,
    "quiz_ph": null,
@@ -78,7 +78,43 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "12:02",
+   "fermo_da": "12:05",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40"
+   ]
+  },
+  {
+   "nome": "Antonio M.",
+   "voto": 40,
+   "teoria": {
+    "reti": 0,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 5,
+    "tot": 8,
+    "fatto": false,
+    "ora": "12:06"
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:06",
    "veyon": {
     "fuori": 0
    },
@@ -103,10 +139,10 @@
    },
    "phishing": null,
    "fa2": {
-    "passi": 3,
+    "passi": 5,
     "tot": 8,
     "fatto": false,
-    "ora": "12:02"
+    "ora": "12:05"
    },
    "quiz_reti": null,
    "quiz_ph": null,
@@ -114,7 +150,43 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "12:02",
+   "fermo_da": "12:05",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40"
+   ]
+  },
+  {
+   "nome": "Shaharia A.",
+   "voto": 40,
+   "teoria": {
+    "reti": 0,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 4,
+    "tot": 8,
+    "fatto": false,
+    "ora": "12:06"
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:06",
    "veyon": {
     "fuori": 0
    },
@@ -311,42 +383,6 @@
   },
   {
    "nome": "Giorgio A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Shaharia A.",
    "voto": 40,
    "teoria": {
     "reti": 0,
@@ -604,42 +640,6 @@
   },
   {
    "nome": "Francesco M.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Antonio M.",
    "voto": 40,
    "teoria": {
     "reti": 0,
