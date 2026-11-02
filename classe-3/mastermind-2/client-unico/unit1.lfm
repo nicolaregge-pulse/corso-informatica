@@ -1,0 +1,171 @@
+object Form1: TForm1
+  Left = 200
+  Height = 560
+  Top = 80
+  Width = 640
+  Caption = 'Mastermind 2.0 - il tuo CLIENT'
+  ClientHeight = 560
+  ClientWidth = 640
+  OnCreate = FormCreate
+  LCLVersion = '4.2.0.0'
+  object LblIp: TLabel
+    Left = 16
+    Height = 17
+    Top = 12
+    Width = 200
+    Caption = 'IP del server (scritto nella pagina)'
+    ParentColor = False
+  end
+  object EdIp: TEdit
+    Left = 16
+    Height = 34
+    Top = 32
+    Width = 200
+    Font.Height = -19
+    ParentFont = False
+    TabOrder = 0
+    Text = '192.168.38.70'
+  end
+  object LblNome: TLabel
+    Left = 236
+    Height = 17
+    Top = 12
+    Width = 200
+    Caption = 'Il tuo nome'
+    ParentColor = False
+  end
+  object EdNome: TEdit
+    Left = 236
+    Height = 34
+    Top = 32
+    Width = 220
+    Font.Height = -19
+    ParentFont = False
+    TabOrder = 1
+  end
+  object BtnConnetti: TButton
+    Left = 476
+    Height = 34
+    Top = 32
+    Width = 148
+    Caption = 'Connetti'
+    OnClick = BtnConnettiClick
+    TabOrder = 2
+  end
+  object LblEsito: TLabel
+    Left = 16
+    Height = 40
+    Top = 76
+    Width = 608
+    AutoSize = False
+    Caption = 'Scrivi il tuo nome e premi Connetti.'
+    Font.Height = -16
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object LblStato: TLabel
+    Left = 16
+    Height = 40
+    Top = 124
+    Width = 608
+    AutoSize = False
+    Caption = 'Non collegato'
+    Font.Height = -29
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblTentativo: TLabel
+    Left = 16
+    Height = 17
+    Top = 176
+    Width = 300
+    Caption = 'Il tuo tentativo (4 cifre, ognuna da 1 a 6)'
+    ParentColor = False
+  end
+  object EdTentativo: TEdit
+    Left = 16
+    Height = 40
+    Top = 196
+    Width = 200
+    Font.Height = -24
+    MaxLength = 4
+    ParentFont = False
+    TabOrder = 3
+  end
+  object BtnProva: TButton
+    Left = 236
+    Height = 40
+    Top = 196
+    Width = 148
+    Caption = 'Prova'
+    Enabled = False
+    OnClick = BtnProvaClick
+    TabOrder = 4
+  end
+  object MemoStoria: TMemo
+    Left = 16
+    Height = 220
+    Top = 252
+    Width = 330
+    Font.Height = -16
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoVertical
+    TabOrder = 5
+  end
+  object LblMigliore: TLabel
+    Left = 364
+    Height = 30
+    Top = 252
+    Width = 260
+    AutoSize = False
+    Caption = 'Migliore: -'
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object LblPeggiore: TLabel
+    Left = 364
+    Height = 30
+    Top = 300
+    Width = 260
+    AutoSize = False
+    Caption = 'Peggiore: -'
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblPosizione: TLabel
+    Left = 364
+    Height = 50
+    Top = 348
+    Width = 260
+    AutoSize = False
+    Caption = 'Il tuo posto: -'
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object LblFiniti: TLabel
+    Left = 364
+    Height = 30
+    Top = 416
+    Width = 260
+    AutoSize = False
+    Caption = 'Hanno finito: -'
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 3000
+    OnTimer = Timer1Timer
+    left = 560
+    top = 500
+  end
+end
