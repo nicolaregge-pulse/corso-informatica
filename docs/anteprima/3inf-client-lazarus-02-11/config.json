@@ -1,9 +1,9 @@
 {
  "invio": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
- "attivo": false,
+ "attivo": true,
  "ore_sbloccate": 1,
  "server_ip": "192.168.38.70",
- "consegna_link": "",
+ "consegna_link": "consegna.html",
  "piano_b": "",
- "_nota": "ore_sbloccate 0 = pagina chiusa, 1 = aperta (strumenti/sblocca_ora.py 3inf-client 1). server_ip = SOLO l'indirizzo, senza porta (la pagina aggiunge :5050; strumenti/imposta_ip_server.py). attivo=false: nessun segnale al cruscotto finche' non e' collegata. consegna_link e piano_b: se non vuoti compaiono nella pagina."
+ "_nota": "ore_sbloccate 0 = pagina chiusa, 1 = aperta (strumenti/sblocca_ora.py 3inf-client 1). server_ip = SOLO l'indirizzo, senza porta (la pagina aggiunge :5050; strumenti/imposta_ip_server.py). attivo=false: nessun segnale al cruscotto finche' non e' collegata. consegna_link e piano_b: se non vuoti compaiono nella pagina. 02/11 11:0x: attivo=true, consegna_link=consegna.html (id 3inf-client-0211), segnali avz-3inf-client-lazarus-0211."
 }
