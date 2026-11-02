@@ -30,7 +30,7 @@ body.pc14 .bn{display:block}
 .esito{border:4px solid var(--ok);border-radius:12px;padding:10px 14px;margin-top:12px}
 @media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.3em}}
 body.pdf{background:#fff;color:#111;font-size:14.5px}body.pdf [data-nopdf]{display:none!important}body.pdf .bts{display:none}body.pdf .card,body.pdf .passo,body.pdf .anim{break-inside:avoid}
-body.pdf .cap{min-height:0}body.pdf main{max-width:none;padding:0}body.pdf .anim svg{max-width:340px}body.pdf figure img{max-width:560px}
+body.pdf .hid{transition:none!important}body.pdf svg *{transition:none!important}body.pdf .cap{min-height:0}body.pdf main{max-width:none;padding:0}body.pdf .anim svg{max-width:340px}body.pdf figure img{max-width:560px}
 body.pdf .card{page-break-inside:avoid}
 </style></head><body><main>
 <p class="mu">3INF · lunedì 02/11/2026 · Mastermind in rete</p><h1>Quiz: Mastermind in rete</h1><p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p><a class="bt b" href="./" style="background:#5b6573">Torna alla teoria</a><div class="nomebox card" data-nopdf><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve per mandare il quiz.</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p></div><section class="card" id="quiz" data-sc="8" data-nopdf><span class="area">Quiz</span><h2>Quiz: 8 domande</h2><p>Rispondi a tutte. Ogni risposta giusta vale <b>1 punto</b>. Sotto ogni domanda vedi subito la spiegazione. La risposta non si cambia.</p><p class="bn" lang="bn">উত্তর দাও। প্রতিটি সঠিক উত্তরে ১ পয়েন্ট। প্রতিটি প্রশ্নের নিচে সঙ্গে সঙ্গে ব্যাখ্যা দেখা যায়।</p><div class="conta" id="qconta">Fatte: 0 su 8</div><div id="qbox"></div><div id="qfine" hidden></div></section><div class="aiutoprof" data-nopdf><p><b>Sei bloccato? Scrivi la tua domanda nella casella dell'assistente in fondo alla pagina: ti risponde subito. Dal Prof vai solo se il PC non funziona.</b></p><p class="bn" lang="bn">আটকে গেছো? পেজের নিচে সহকারীর বক্সে প্রশ্ন লেখো: সে সঙ্গে সঙ্গে উত্তর দেবে।</p></div><script src="../../assistente/assistente.js" data-pagina="3inf-rete-cs-02-11" data-lingue="it" data-dove="aiuto" data-nopdf></script>
@@ -56,7 +56,7 @@ var Q=[{"q": "L'indirizzo IP identifica:", "bn": "আইপি ঠিকান�
   bp.onclick=play;
   bn.onclick=function(){stop();bp.textContent='Ricomincia';if(i>=steps.length-1){reset();i=-1}mostra(i+1);bn.textContent=(i>=steps.length-1)?'Rivedi dall\'inizio':'Prossimo passo'};
   reset();
-  if(PDF){mostra(steps.length-1);steps[steps.length-1].fin&&steps[steps.length-1].fin();cap.textContent=steps[steps.length-1].cap}
+  if(PDF){for(var z=0;z<steps.length;z++)mostra(z)}
   return {fine:function(){mostra(steps.length-1)}};
  }
  /* 1 palazzo */
