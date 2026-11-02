@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Generatore di codici per GitHub</title>
+<style>
+:root{--bg:#f4f6fb;--fg:#1d2433;--card:#fff;--bd:#cfd6e4;--blu:#0b6bcb;--ver:#2da44e}
+@media(prefers-color-scheme:dark){:root{--bg:#10141c;--fg:#e8ecf5;--card:#1a2030;--bd:#3a4560}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.7rem;margin:.2em 0}h2{font-size:1.35rem;margin:1.2em 0 .4em}h3{font-size:1.1rem;margin:0 0 .2em}
+.box{border-radius:12px;padding:12px 14px;margin:10px 0;border-left:8px solid;font-weight:600}
+.rosso{background:#fde7e7;border-color:#c62828;color:#5b1212}
+.giallo{background:#fff4cc;border-color:#d99a00;color:#4a3600}
+.blu{background:#e1efff;border-color:#0b6bcb;color:#0a2f57}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0}
+label{display:block;font-weight:700;margin:.6em 0 .2em}
+input[type=text]{width:100%;font-size:1.1rem;padding:12px;border:2px solid var(--bd);border-radius:10px;background:var(--card);color:var(--fg)}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px 18px;cursor:pointer;color:#fff;background:var(--blu);min-height:48px}
+button.grande{width:100%;font-size:1.3rem;min-height:60px}
+button.elim{background:#b3261e;font-size:.95rem;padding:8px 12px;min-height:40px}
+.acc{border:2px solid var(--bd);border-radius:14px;padding:12px;margin:12px 0;background:var(--card)}
+.nome{font-weight:800;font-size:1.2rem}
+.num{font-size:clamp(2.6rem,16vw,4.6rem);font-weight:800;letter-spacing:.06em;color:var(--blu);text-align:center;font-variant-numeric:tabular-nums;margin:.1em 0;user-select:all}
+.barra{height:14px;background:#d5dae4;border-radius:7px;overflow:hidden}
+.barra i{display:block;height:100%;width:100%;background:var(--ver)}
+.barra.poco i{background:#c62828}
+.sec{text-align:center;font-size:.95rem;margin:.2em 0 .6em}
+.ora{font-size:1rem}
+.err{color:#c62828;font-weight:700;min-height:1.4em}
+ol.steps{list-style:none;padding:0;margin:0}
+.step{display:flex;gap:10px;margin:14px 0}
+.n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--blu);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.sb{flex:1;min-width:0}.sb p{margin:.2em 0 .5em}
+.fig svg{width:100%;max-width:420px;height:auto;display:block;border-radius:10px}
+.fig svg text{font-family:system-ui,Arial,sans-serif}
+.pie{margin-top:.2em}
+ul.s{margin:.3em 0;padding-left:1.2em}
+</style></head><body><main>
+<h1>Generatore di codici per GitHub</h1>
+<p>GitHub vuole un codice in più quando entri. Questa pagina lo crea per te, ogni 30 secondi.</p>
+<div class="box rosso">Il codice segreto è come una password: NON darlo a nessuno e NON incollarlo su altre pagine.</div>
+<div class="box giallo">Scarica e salva i codici di recupero che GitHub ti dà: se perdi questa pagina o cambi PC, servono.</div>
+<div class="box blu">I dati stanno solo in questo browser: se cancelli i dati del browser perdi il generatore.</div>
+<div id="avvisoStorage" class="box rosso" hidden>Questo browser non può salvare i dati. Il generatore funziona finché la pagina resta aperta. Non chiuderla.</div>
+
+<h2>I tuoi codici</h2>
+<div id="lista"></div>
+<div class="card">
+<h3>Aggiungi un codice nuovo</h3>
+<label for="sec">Codice segreto (quello di GitHub)</label>
+<input id="sec" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Incollalo qui con Ctrl+V">
+<label for="nm">Nome (per esempio GitHub)</label>
+<input id="nm" type="text" autocomplete="off" maxlength="30" placeholder="GitHub">
+<p class="err" id="err" role="alert"></p>
+<button class="grande" id="add" type="button">Aggiungi</button>
+</div>
+<p class="ora">Ora del tuo PC: <b id="ora">--:--:--</b></p>
+<p>Se GitHub dice codice sbagliato, controlla che l'ora del PC sia giusta.</p>
+
+<h2>Guida: come si fa, passo per passo</h2>
+<p>I nomi dei bottoni sono in inglese tra virgolette. Se il sito è tradotto, cerca il bottone per posizione e colore.</p>
+<ol class="steps">
+<li class="step"><div class="n">1</div><div class="sb"><h3>Apri GitHub e vai su «Settings»</h3><p>Vai su github.com e accedi. In alto a destra clicca la tua piccola foto tonda. Poi clicca «Settings» (Impostazioni).</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="14" font-weight="bold" fill="#222">GitHub</text><circle cx="290" cy="42" r="12" fill="#9aa5c0"/><ellipse cx="290" cy="42" rx="19.200000000000003" ry="12" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/><rect x="205" y="60" width="105" height="80" rx="6" fill="#fff" stroke="#8a94a6"/><text x="214" y="80" font-size="10" font-weight="normal" fill="#222">Your profile</text><rect x="209" y="88" width="97" height="20" rx="4" fill="#ffe9a8"/><text x="214" y="102" font-size="10" font-weight="bold" fill="#222">Settings</text><text x="214" y="126" font-size="10" font-weight="normal" fill="#222">Sign out</text><line x1="150" y1="98" x2="205" y2="98" stroke="#d11" stroke-width="3"/><circle cx="205" cy="98" r="4" fill="#d11"/></svg></div></div></li>
+<li class="step"><div class="n">2</div><div class="sb"><h3>Cerca «Password and authentication»</h3><p>Nel menu a sinistra clicca «Password and authentication» (Password e autenticazione).</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="16" y="50" font-size="10" font-weight="normal" fill="#222">Public profile</text><text x="16" y="74" font-size="10" font-weight="normal" fill="#222">Account</text><rect x="10" y="84" width="110" height="20" rx="5" fill="#ffe9a8"/><text x="16" y="98" font-size="10" font-weight="normal" fill="#222">Password and authentication</text><text x="16" y="122" font-size="10" font-weight="normal" fill="#222">Emails</text><text x="16" y="146" font-size="10" font-weight="normal" fill="#222">Sessions</text><text x="150" y="60" font-size="14" font-weight="bold" fill="#222">Settings</text><rect x="150" y="75" width="150" height="8" rx="4" fill="#d5dae4"/><rect x="150" y="92" width="110" height="8" rx="4" fill="#d5dae4"/><ellipse cx="65" cy="114" rx="22.400000000000002" ry="14" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/></svg></div></div></li>
+<li class="step"><div class="n">3</div><div class="sb"><h3>Clicca il bottone verde «Enable two-factor authentication»</h3><p>Scendi fino alla parte «Two-factor authentication». Clicca il bottone VERDE «Enable two-factor authentication» (Attiva la verifica in due passaggi).</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="13" font-weight="bold" fill="#222">Two-factor authentication</text><rect x="20" y="62" width="200" height="8" rx="4" fill="#d5dae4"/><rect x="20" y="86" width="210" height="28" rx="6" fill="#2da44e"/><text x="28" y="104.0" font-size="11" font-weight="bold" fill="#fff">Enable two-factor authentication</text><ellipse cx="125" cy="100" rx="28.8" ry="18" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/><line x1="290" y1="60" x2="235" y2="98" stroke="#d11" stroke-width="3"/><circle cx="235" cy="98" r="4" fill="#d11"/></svg></div></div></li>
+<li class="step"><div class="n">4</div><div class="sb"><h3>Scegli «Authenticator app»</h3><p>GitHub chiede come vuoi ricevere i codici. Scegli «Authenticator app» (App di autenticazione). NON scegliere i messaggi SMS.</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><rect x="20" y="40" width="130" height="50" rx="8" fill="#ffe9a8" stroke="#d11" stroke-width="3"/><text x="30" y="70" font-size="11" font-weight="bold" fill="#222">Authenticator app</text><rect x="170" y="40" width="130" height="50" rx="8" fill="#f1f3f8" stroke="#8a94a6"/><text x="200" y="70" font-size="11" font-weight="normal" fill="#222">SMS / text</text><rect x="20" y="110" width="100" height="28" rx="6" fill="#2da44e"/><text x="28" y="128.0" font-size="11" font-weight="bold" fill="#fff">Continue</text><line x1="250" y1="130" x2="160" y2="92" stroke="#d11" stroke-width="3"/><circle cx="160" cy="92" r="4" fill="#d11"/></svg></div></div></li>
+<li class="step"><div class="n">5</div><div class="sb"><h3>Clicca «setup key» sotto il disegno a quadretti</h3><p>GitHub mostra un disegno a quadretti. NON serve. Sotto il disegno c'è una scritta azzurra «setup key» (chiave di configurazione). Cliccala.</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><rect x="20" y="38" width="64" height="64" fill="#fff" stroke="#222"/><rect x="24" y="84" width="7" height="7" fill="#222"/><rect x="24" y="91" width="7" height="7" fill="#222"/><rect x="31" y="63" width="7" height="7" fill="#222"/><rect x="31" y="70" width="7" height="7" fill="#222"/><rect x="31" y="77" width="7" height="7" fill="#222"/><rect x="38" y="42" width="7" height="7" fill="#222"/><rect x="38" y="49" width="7" height="7" fill="#222"/><rect x="38" y="56" width="7" height="7" fill="#222"/><rect x="38" y="77" width="7" height="7" fill="#222"/><rect x="38" y="91" width="7" height="7" fill="#222"/><rect x="45" y="49" width="7" height="7" fill="#222"/><rect x="45" y="56" width="7" height="7" fill="#222"/><rect x="45" y="70" width="7" height="7" fill="#222"/><rect x="45" y="77" width="7" height="7" fill="#222"/><rect x="52" y="42" width="7" height="7" fill="#222"/><rect x="52" y="70" width="7" height="7" fill="#222"/><rect x="59" y="49" width="7" height="7" fill="#222"/><rect x="59" y="56" width="7" height="7" fill="#222"/><rect x="59" y="63" width="7" height="7" fill="#222"/><rect x="59" y="70" width="7" height="7" fill="#222"/><rect x="59" y="77" width="7" height="7" fill="#222"/><rect x="59" y="84" width="7" height="7" fill="#222"/><rect x="66" y="42" width="7" height="7" fill="#222"/><rect x="66" y="56" width="7" height="7" fill="#222"/><rect x="66" y="63" width="7" height="7" fill="#222"/><rect x="66" y="77" width="7" height="7" fill="#222"/><rect x="66" y="84" width="7" height="7" fill="#222"/><rect x="66" y="91" width="7" height="7" fill="#222"/><rect x="73" y="49" width="7" height="7" fill="#222"/><rect x="73" y="63" width="7" height="7" fill="#222"/><rect x="73" y="84" width="7" height="7" fill="#222"/><text x="100" y="56" font-size="11" font-weight="bold" fill="#222">Scan the QR code</text><text x="100" y="76" font-size="10" font-weight="normal" fill="#222">Trouble scanning?</text><text x="100" y="92" font-size="11" fill="#0969da" text-decoration="underline" font-weight="bold">setup key</text><ellipse cx="130" cy="89" rx="19.200000000000003" ry="12" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/><line x1="250" y1="120" x2="170" y2="95" stroke="#d11" stroke-width="3"/><circle cx="170" cy="95" r="4" fill="#d11"/></svg></div></div></li>
+<li class="step"><div class="n">6</div><div class="sb"><h3>Copia il codice segreto</h3><p>Compare una riga di lettere e numeri: è il CODICE SEGRETO. Selezionalo con il mouse e premi Ctrl+C, oppure clicca l'icona «copia» accanto.</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="12" font-weight="bold" fill="#222">Your two-factor secret</text><rect x="20" y="62" width="250" height="26" rx="5" fill="#ffe9a8" stroke="#d11" stroke-width="3"/><text x="28" y="80" font-size="13" font-weight="bold" fill="#222">ABCD EFGH IJKL MNOP</text><rect x="278" y="62" width="26" height="26" rx="5" fill="#fff" stroke="#8a94a6"/><text x="283" y="80" font-size="14" font-weight="normal" fill="#222">⧉</text><text x="20" y="120" font-size="12" font-weight="bold" fill="#d11">Poi premi Ctrl + C</text></svg></div></div></li>
+<li class="step"><div class="n">7</div><div class="sb"><h3>Incolla il codice nella nostra pagina</h3><p>Torna a questa pagina (scheda del browser). Premi Ctrl+V nella casella «Codice segreto». Scrivi un nome, per esempio GitHub. Premi «Aggiungi».</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="11" font-weight="bold" fill="#222">Codice segreto</text><rect x="20" y="56" width="280" height="22" rx="5" fill="#fff" stroke="#d11" stroke-width="3"/><text x="28" y="71" font-size="11" font-weight="normal" fill="#222">ABCD EFGH IJKL MNOP</text><text x="20" y="98" font-size="11" font-weight="bold" fill="#222">Nome</text><rect x="20" y="104" width="130" height="22" rx="5" fill="#fff" stroke="#8a94a6"/><text x="28" y="119" font-size="11" font-weight="normal" fill="#222">GitHub</text><rect x="170" y="102" width="100" height="26" rx="6" fill="#0b6bcb"/><text x="178" y="119.0" font-size="11" font-weight="bold" fill="#fff">Aggiungi</text><text x="20" y="150" font-size="12" font-weight="bold" fill="#d11">Ctrl + V</text></svg></div></div></li>
+<li class="step"><div class="n">8</div><div class="sb"><h3>Guarda il numero grande</h3><p>Qui sotto compare un numero con 6 cifre. Si cambia ogni 30 secondi. La barra mostra quanto tempo resta.</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="45" font-size="12" font-weight="bold" fill="#222">GitHub</text><text x="60" y="110" font-size="40" font-weight="bold" fill="#0b6bcb">123 456</text><rect x="20" y="124" width="280" height="10" rx="5" fill="#e2e6ef"/><rect x="20" y="124" width="170" height="10" rx="5" fill="#2da44e"/><rect x="20" y="142" width="120" height="22" rx="6" fill="#0b6bcb"/><text x="28" y="157.0" font-size="11" font-weight="bold" fill="#fff">Copia il numero</text><ellipse cx="120" cy="98" rx="35.2" ry="22" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/></svg></div></div></li>
+<li class="step"><div class="n">9</div><div class="sb"><h3>Scrivi il numero su GitHub</h3><p>Torna alla scheda di GitHub. Nella casella «Verify the code from the app» (Verifica il codice dall'app) scrivi le 6 cifre. Si va avanti da soli. Se non succede, clicca «Continue».</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="11" font-weight="bold" fill="#222">Verify the code from the app</text><rect x="20" y="60" width="150" height="26" rx="5" fill="#fff" stroke="#d11" stroke-width="3"/><text x="30" y="78" font-size="13" font-weight="normal" fill="#222">123456</text><rect x="20" y="104" width="90" height="26" rx="6" fill="#2da44e"/><text x="28" y="121.0" font-size="11" font-weight="bold" fill="#fff">Continue</text><line x1="250" y1="70" x2="176" y2="73" stroke="#d11" stroke-width="3"/><circle cx="176" cy="73" r="4" fill="#d11"/></svg></div></div></li>
+<li class="step"><div class="n">10</div><div class="sb"><h3>Salva i codici di recupero</h3><p>GitHub mostra i «recovery codes» (codici di recupero). Clicca «Download» (Scarica) e tieni il file al sicuro. Poi clicca «I have saved my recovery codes».</p><div class="fig"><svg viewBox="0 0 320 170" role="img" aria-label="Schema del passo" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="316" height="166" rx="10" fill="#fff" stroke="#8a94a6" stroke-width="2"/><rect x="2" y="2" width="316" height="24" rx="10" fill="#e6eaf2"/><rect x="2" y="14" width="316" height="12" fill="#e6eaf2"/><circle cx="16" cy="14" r="4" fill="#c9d0de"/><circle cx="28" cy="14" r="4" fill="#c9d0de"/><rect x="48" y="7" width="170" height="14" rx="7" fill="#fff"/><text x="58" y="18" font-size="10" fill="#444">github.com</text><text x="20" y="50" font-size="12" font-weight="bold" fill="#222">Save your recovery codes</text><rect x="20" y="58" width="150" height="50" rx="5" fill="#f6f8fa" stroke="#8a94a6"/><text x="28" y="76" font-size="10" font-weight="normal" fill="#222">a1b2c-3d4e5</text><text x="28" y="92" font-size="10" font-weight="normal" fill="#222">f6g7h-8i9j0</text><rect x="190" y="60" width="100" height="26" rx="6" fill="#57606a"/><text x="198" y="77.0" font-size="11" font-weight="bold" fill="#fff">Download</text><ellipse cx="240" cy="73" rx="25.6" ry="16" fill="none" stroke="#d11" stroke-width="3" stroke-dasharray="6 3"/><rect x="20" y="120" width="230" height="28" rx="6" fill="#2da44e"/><text x="28" y="138.0" font-size="11" font-weight="bold" fill="#fff">I have saved my recovery codes</text></svg></div></div></li>
+</ol>
+<div class="box giallo">Fatto! Da adesso, quando GitHub chiede il codice, apri questa pagina e scrivi il numero grande.</div>
+
+<h2>Se non va</h2>
+<ul class="s">
+<li>GitHub dice «codice sbagliato»: aspetta che il numero cambi e riprova con quello nuovo.</li>
+<li>Ancora sbagliato: controlla l'ora del PC. Deve essere quella giusta, anche i minuti.</li>
+<li>La pagina dice «codice segreto non valido»: ricopia il codice da GitHub. Ci sono solo lettere e numeri da 2 a 7.</li>
+<li>Non trovi «setup key»: sul disegno a quadretti cerca una scritta azzurra sotto, con la parola «key» o «code».</li>
+<li>Hai chiuso GitHub a metà: ricomincia dal passo 3 e usa il codice segreto nuovo.</li>
+<li>Non puoi entrare più: usa uno dei codici di recupero che hai scaricato.</li>
+</ul>
+</main>
+<script>
+(function(){
+"use strict";
+var ALF="ABCDEFGHIJKLMNOPQRSTUVWXYZ234567",KEY="gen2fa_v1";
+function nowMs(){return (typeof window.__fakeNow==="number")?window.__fakeNow:Date.now();}
+function b32(s){s=String(s).replace(/[\s\-=]/g,"").toUpperCase();if(!s)throw new Error("vuoto");
+ var bits=0,val=0,out=[];for(var i=0;i<s.length;i++){var k=ALF.indexOf(s[i]);if(k<0)throw new Error("car");
+ val=(val<<5)|k;bits+=5;if(bits>=8){out.push((val>>>(bits-8))&255);bits-=8;val&=(1<<bits)-1;}}
+ return new Uint8Array(out);}
+async function totp(secret,unix,digits){digits=digits||6;
+ var raw=b32(secret);var c=Math.floor(unix/30);var buf=new ArrayBuffer(8),dv=new DataView(buf);
+ dv.setUint32(0,Math.floor(c/4294967296));dv.setUint32(4,c>>>0);
+ var key=await crypto.subtle.importKey("raw",raw,{name:"HMAC",hash:"SHA-1"},false,["sign"]);
+ var h=new Uint8Array(await crypto.subtle.sign("HMAC",key,buf));var o=h[19]&15;
+ var bin=((h[o]&127)<<24)|(h[o+1]<<16)|(h[o+2]<<8)|h[o+3];
+ var s=String(bin%Math.pow(10,digits));while(s.length<digits)s="0"+s;return s;}
+window.totp=totp;
+var accs=[],okStorage=true;
+function carica(){try{var r=localStorage.getItem(KEY);accs=r?JSON.parse(r):[];if(!Array.isArray(accs))accs=[];}catch(e){okStorage=false;accs=[];}}
+function salva(){if(!okStorage)return;try{localStorage.setItem(KEY,JSON.stringify(accs));}catch(e){okStorage=false;show();}}
+function show(){document.getElementById("avvisoStorage").hidden=okStorage;}
+var $=function(i){return document.getElementById(i);};
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e;}
+function render(){var L=$("lista");L.textContent="";
+ if(!accs.length){L.appendChild(el("p",null,"Non hai ancora nessun codice. Aggiungine uno qui sotto."));return;}
+ accs.forEach(function(a,i){var d=el("div","acc");d.appendChild(el("div","nome",a.n));
+  var n=el("div","num","------");n.id="num"+i;d.appendChild(n);
+  var b=el("div","barra");b.appendChild(el("i"));b.id="bar"+i;d.appendChild(b);
+  var s=el("div","sec","");s.id="sec"+i;d.appendChild(s);
+  var c=el("button","grande","Copia il numero");c.type="button";c.id="cp"+i;c.onclick=function(){copia(i,c);};d.appendChild(c);
+  var x=el("button","elim","Elimina");x.type="button";x.style.marginTop="10px";
+  x.onclick=function(){if(confirm("Vuoi eliminare «"+a.n+"»? Poi non potrai più avere i suoi codici qui.")){accs.splice(i,1);salva();render();tick(true);}};
+  d.appendChild(x);L.appendChild(d);});}
+function copia(i,btn){var t=($("num"+i).textContent||"").replace(/\s/g,"");if(!/^\d{6}$/.test(t))return;
+ var ok=function(){btn.textContent="Copiato!";setTimeout(function(){btn.textContent="Copia il numero";},1500);};
+ var ripiego=function(){try{var r=document.createRange();r.selectNodeContents($("num"+i));var s=getSelection();s.removeAllRanges();s.addRange(r);
+  if(document.execCommand("copy"))ok();else btn.textContent="Numero selezionato: premi Ctrl+C";}catch(e){btn.textContent="Numero selezionato: premi Ctrl+C";}};
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,ripiego);}else ripiego();}catch(e){ripiego();}}
+var ultimo=-1;
+async function tick(force){var ms=nowMs(),u=Math.floor(ms/1000),c=Math.floor(u/30),resto=30-(u%30);
+ var p=new Date(ms),pad=function(x){return (x<10?"0":"")+x;};
+ $("ora").textContent=pad(p.getHours())+":"+pad(p.getMinutes())+":"+pad(p.getSeconds());
+ var frac=(30000-(ms%30000))/30000;
+ for(var i=0;i<accs.length;i++){var bar=$("bar"+i);if(!bar)continue;
+  bar.firstChild.style.width=(frac*100).toFixed(1)+"%";bar.classList.toggle("poco",resto<=5);
+  $("sec"+i).textContent="Cambia tra "+resto+" secondi";}
+ if(c!==ultimo||force===true){ultimo=c;
+  for(var j=0;j<accs.length;j++){var n=$("num"+j);if(!n)continue;
+   try{var code=await totp(accs[j].s,c*30,6);n.textContent=code.slice(0,3)+" "+code.slice(3);}
+   catch(e){n.textContent="Errore";}}}}
+function aggiungi(){var e=$("err");e.textContent="";
+ var s=$("sec").value.replace(/[\s\-]/g,"").toUpperCase(),n=($("nm").value||"").trim()||"GitHub";
+ if(!s){e.textContent="Incolla prima il codice segreto di GitHub.";return;}
+ if(!/^[A-Z2-7]+=*$/.test(s)||s.length<8){e.textContent="Il codice segreto non va bene. Ricopialo da GitHub: ci sono solo lettere e numeri da 2 a 7.";return;}
+ if(!(window.crypto&&crypto.subtle)){e.textContent="Questo browser non può calcolare i codici. Usa Chrome o Edge aggiornati.";return;}
+ accs.push({n:n,s:s});salva();$("sec").value="";$("nm").value="";render();tick(true);}
+$("add").onclick=aggiungi;
+carica();show();render();
+setInterval(function(){tick(false);},250);tick(true);
+})();
+</script></body></html>
