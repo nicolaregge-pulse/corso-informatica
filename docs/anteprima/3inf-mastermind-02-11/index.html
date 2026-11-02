@@ -35,22 +35,22 @@ details{margin:8px 0}summary{cursor:pointer;font-weight:700}
 @media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.25em}pre{font-size:14px}}
 
 a.bt{font-size:1.05em}.ore{border-top:1px solid var(--bd);padding-top:8px;margin-top:8px}</style></head><body><main>
-<h1>Creazioni di applicazioni con Lazarus</h1><p class="mu">3INF · lunedì 02/11/2026 · 08:00-11:00 · Mastermind e Slideshow</p>
-<p>Questa è l'unica pagina di oggi. Fai i passi in ordine, dall'alto in basso. Ogni passo è piccolo e finisce con «Ho fatto!».</p>
+<h1>Creazioni di applicazioni con Lazarus</h1><p class="mu">3INF · lunedì 02/11/2026 · 08:00-11:00 · un'ora per volta</p>
+<p>Questa è l'unica pagina di oggi. Si lavora <b>un'ora per volta</b>: le ore successive si aprono quando lo dice il Professore. Fai i passi in ordine, dall'alto in basso. Ogni passo è piccolo e finisce con «Ho fatto!».</p>
 <p class="bn" lang="bn">এটাই আজকের একমাত্র পেজ। ওপর থেকে নিচে, পরপর ধাপগুলো করো।</p>
 <p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
 <section class="passo" style="border-color:var(--blu)"><h2><span class="num">1</span>Ora 1 · Mastermind, parte 1: il codice segreto</h2>
 <p>Il computer pensa un codice segreto di 4 cifre. Tu provi, e un Memo ricorda i tentativi. <b>Dopo 10 minuti vedi già il codice segreto sullo schermo.</b></p>
 <p class="bn" lang="bn">কম্পিউটার ৪ সংখ্যার গোপন কোড ভাবে। তুমি চেষ্টা করো।</p>
 <div class="ore"><a class="bt" href="modulo-1.html">Ora 1 · Mastermind 1</a><a class="bt b" href="consegna.html?ora=1">Manda al prof ora 1</a></div></section>
-<section class="passo" style="border-color:var(--blu)"><h2><span class="num">2</span>Ora 2 · Mastermind, parte 2: esatte, spostate e schede</h2>
+<section class="passo" data-ora-aperto="2" hidden style="border-color:var(--blu)"><h2><span class="num">2</span>Ora 2 · Mastermind, parte 2: esatte, spostate e schede</h2>
 <p>Il gioco conta le cifre esatte e spostate. Aggiungi «Nuova partita» e le 3 schede: Gioco, Regole, Record.</p>
 <p class="bn" lang="bn">খেলাটা esatte আর spostate গুনবে। নতুন খেলার বাটন আর ৩টা ট্যাব।</p>
-<div class="ore"><a class="bt" href="modulo-2.html">Ora 2 · Mastermind 2</a><a class="bt b" href="consegna.html?ora=2">Manda al prof ora 2</a></div></section>
-<section class="passo" style="border-color:var(--blu)"><h2><span class="num">3</span>Ora 3 · Slideshow (se c'è tempo)</h2>
+<div class="ore"><a class="bt" href="modulo-2.html">Ora 2 · Mastermind 2</a><a class="bt b" href="consegna.html?ora=2">Manda al prof ora 2</a></div></section><section class="passo" data-ora-chiuso="2" style="border-color:var(--bd);opacity:.85"><h2><span class="num">2</span>Ora 2 · in arrivo</h2><p><b>Si sblocca tra poco: te lo dice il Professore.</b> Per ora fai l'ora 1; questa pagina si aggiorna da sola.</p><p class="bn" lang="bn">এটা একটু পরে খুলবে, স্যার বলবেন। এখন ১ম ঘণ্টা করো।</p></section>
+<section class="passo" data-ora-aperto="3" hidden style="border-color:var(--blu)"><h2><span class="num">3</span>Ora 3 · Slideshow (se c'è tempo)</h2>
 <p>Una presentazione con diapositive che cambiano con Avanti e Indietro e da sole con un timer. <b>Se il Mastermind non è finito, non iniziare: finiscilo e rendilo tuo.</b></p>
 <p class="bn" lang="bn">স্লাইডশো: Avanti, Indietro আর টাইমার। Mastermind শেষ না হলে সেটাই শেষ করো।</p>
-<div class="ore"><a class="bt" href="modulo-3.html">Ora 3 · Slideshow</a><a class="bt b" href="consegna.html?ora=3">Manda al prof ora 3</a></div></section>
+<div class="ore"><a class="bt" href="modulo-3.html">Ora 3 · Slideshow</a><a class="bt b" href="consegna.html?ora=3">Manda al prof ora 3</a></div></section><section class="passo" data-ora-chiuso="3" style="border-color:var(--bd);opacity:.85"><h2><span class="num">3</span>Ora 3 · in arrivo</h2><p><b>Si sblocca tra poco: te lo dice il Professore.</b> Per ora fai l'ora 1; questa pagina si aggiorna da sola.</p><p class="bn" lang="bn">এটা একটু পরে খুলবে, স্যার বলবেন। এখন ১ম ঘণ্টা করো।</p></section>
 <section class="passo" style="border-color:var(--ok)"><h2><span class="num">4</span>Consegna: unit1.pas + screenshot</h2>
 <p>Alla fine di ogni ora: lo screenshot del programma che gira e il file <code>unit1.pas</code>. Il bottone «Manda al prof» di ogni ora fa tutto in un colpo. Se non funziona, c'è il piano B in fondo a ogni percorso (Classroom).</p>
 <p class="bn" lang="bn">প্রতি ঘণ্টা শেষে: প্রোগ্রামের স্ক্রিনশট আর unit1.pas ফাইল। «Manda al prof» বাটন সব পাঠায়।</p>
@@ -60,6 +60,7 @@ a.bt{font-size:1.05em}.ore{border-top:1px solid var(--bd);padding-top:8px;margin
 <p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
 <p style="color:var(--mu);font-size:.85em;text-align:center"><a href="./?pc=14">PC 14: aiuto in bangla</a> · <a href="cruscotto.html">Cruscotto del Professore</a> (dati cifrati, solo per il docente)</p>
 <div id="aiuto"></div></main>
+<script src="ore.js" data-hub></script>
 <script src="../../assistente/assistente.js" data-pagina="3inf-mastermind-02-11" data-lingue="it" data-dove="aiuto"></script>
 <script>try{if(/[?&]pc=14\b/.test(location.search))localStorage.setItem('mm0211-pc14','1');if(localStorage.getItem('mm0211-pc14')==='1')document.body.classList.add('pc14')}catch(x){}</script>
 </body></html>
