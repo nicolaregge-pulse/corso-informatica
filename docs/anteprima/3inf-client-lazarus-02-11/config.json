@@ -1,0 +1,9 @@
+{
+ "invio": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
+ "attivo": false,
+ "ore_sbloccate": 0,
+ "server_ip": "",
+ "consegna_link": "",
+ "piano_b": "",
+ "_nota": "ore_sbloccate 0 = pagina chiusa, 1 = aperta (strumenti/sblocca_ora.py 3inf-client 1). server_ip = SOLO l'indirizzo, senza porta (la pagina aggiunge :5050; strumenti/imposta_ip_server.py). attivo=false: nessun segnale al cruscotto finche' non e' collegata. consegna_link e piano_b: se non vuoti compaiono nella pagina."
+}
