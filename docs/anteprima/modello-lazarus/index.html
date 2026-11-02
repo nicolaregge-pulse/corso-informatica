@@ -1,0 +1,68 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Il modello Lazarus · parti da qui</title>
+<script src="ore.js" data-ora="1"></script>
+<style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--q:#fff4c2;--bozza:#fde8e8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--bozza:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--bozza:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:760px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}
+.bozza{background:var(--bozza);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em;margin:10px 0}
+.passo{background:var(--card);border:3px solid var(--bd);border-radius:14px;padding:8px 14px 12px;margin:14px 0}
+.num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:var(--acc);color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:8px}
+.schema{display:block;width:100%;max-width:420px;margin:8px auto 2px;border:1px solid var(--bd);border-radius:10px;background:#fff}
+.nota{font-size:.82em;color:var(--mu);text-align:center;margin:0 0 6px}
+pre{background:#0d1117;color:#e6edf3;padding:10px 12px;border-radius:10px;overflow-x:auto;white-space:pre-wrap;font-size:16px;margin:8px 0}
+.fatto{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:8px 12px;margin-top:8px}
+.vinto{background:var(--card);border:4px solid var(--ok);border-radius:14px;padding:10px 14px;margin:16px 0}
+a.bt{display:block;text-align:center;background:var(--acc);color:#fff;font-weight:700;padding:12px;border-radius:10px;text-decoration:none}</style></head><body><main>
+<h1>Il tuo programma Lazarus: parti da qui</h1>
+<p>Qui c'è un programma già pronto. Lo scarichi, lo apri, lo provi e poi lo fai TUO. Sono 6 passi piccoli.</p>
+<div class="bozza"><b>BOZZA.</b> Questa pagina non è ancora aperta ai ragazzi: la apre il Professore quando è il momento.</div>
+
+<div class="passo"><h2><span class="num">1</span>Scarica la cartella da GitHub</h2>
+<p>Apri questa pagina e clicca il bottone verde «Code» in alto a destra. In fondo al menu clicca «Download ZIP».</p>
+<a class="bt" href="https://github.com/nicolaregge-pulse/corso-informatica">Apri la pagina del corso</a>
+<svg class="schema" viewBox="0 0 420 170" role="img" aria-label="Schema: il bottone verde Code e la voce Download ZIP"><rect x="10" y="10" width="400" height="150" rx="8" fill="#f0f0f0" stroke="#999"/><rect x="250" y="24" width="90" height="34" rx="6" fill="#1a7f37"/><text x="295" y="46" text-anchor="middle" font-size="16" fill="#fff" font-family="sans-serif">Code ▾</text><rect x="200" y="66" width="190" height="80" rx="8" fill="#fff" stroke="#999"/><text x="214" y="92" font-size="14" fill="#333" font-family="sans-serif">Clone</text><rect x="206" y="108" width="178" height="30" rx="5" fill="#ffe08a" stroke="#d4a017" stroke-width="3"/><text x="295" y="129" text-anchor="middle" font-size="15" fill="#000" font-family="sans-serif" font-weight="700">Download ZIP</text><path d="M170 120 L200 124" stroke="#c0392b" stroke-width="4"/><text x="40" y="124" font-size="14" fill="#c0392b" font-family="sans-serif" font-weight="700">clicca qui</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> Nella cartella «Download» c'è un file che finisce con .zip.</div></div>
+
+<div class="passo"><h2><span class="num">2</span>Apri lo ZIP</h2>
+<p>Vai nella cartella «Download». Clicca con il tasto destro sul file ZIP. Scegli «Estrai tutto…» e poi il bottone «Estrai».</p>
+<svg class="schema" viewBox="0 0 420 150" role="img" aria-label="Schema: file ZIP che diventa una cartella"><rect x="30" y="40" width="110" height="70" rx="6" fill="#ffe08a" stroke="#b8860b"/><text x="85" y="82" text-anchor="middle" font-size="22" font-family="sans-serif" font-weight="700">ZIP</text><path d="M160 75 L250 75" stroke="#333" stroke-width="5"/><path d="M250 75 l-14 -9 v18z" fill="#333"/><path d="M280 50 h40 l10 12 h50 v58 h-100z" fill="#9ecbff" stroke="#2d6cb4" stroke-width="2"/><text x="330" y="100" text-anchor="middle" font-size="14" font-family="sans-serif">cartella</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> Vedi una cartella nuova che si chiama «corso-informatica-main».</div></div>
+
+<div class="passo"><h2><span class="num">3</span>Copia la cartella e dalle un nome tuo</h2>
+<p>Apri le cartelle una dopo l'altra, in questo ordine:</p>
+<pre>corso-informatica-main
+classe-2
+modello-lazarus
+ModelloLazarus</pre>
+<p>Clicca con il tasto destro sulla cartella «ModelloLazarus» e scegli «Copia». Vai nei tuoi «Documenti», clicca con il tasto destro e scegli «Incolla». Poi clicca con il tasto destro sulla cartella copiata, scegli «Rinomina» e scrivi un nome TUO, per esempio il nome del tuo gioco.</p>
+<svg class="schema" viewBox="0 0 420 130" role="img" aria-label="Schema: la cartella ModelloLazarus copiata in Documenti con un nome tuo"><path d="M30 40 h40 l10 12 h50 v58 h-100z" fill="#9ecbff" stroke="#2d6cb4" stroke-width="2"/><text x="80" y="92" text-anchor="middle" font-size="12" font-family="sans-serif">ModelloLazarus</text><path d="M150 80 L240 80" stroke="#333" stroke-width="5"/><path d="M240 80 l-14 -9 v18z" fill="#333"/><path d="M270 40 h40 l10 12 h50 v58 h-100z" fill="#c8f0c8" stroke="#1a7f37" stroke-width="2"/><text x="320" y="92" text-anchor="middle" font-size="13" font-family="sans-serif" font-weight="700">IlMioGioco</text><text x="320" y="124" text-anchor="middle" font-size="12" font-family="sans-serif">in Documenti</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> In «Documenti» c'è la tua cartella con il tuo nome.</div></div>
+
+<div class="passo"><h2><span class="num">4</span>Apri il programma con Lazarus</h2>
+<p>Apri Lazarus. Nel menu in alto clicca «Progetto», poi «Apri progetto…». Entra nella tua cartella e scegli il file «ModelloLazarus.lpi». Premi «Apri».</p>
+<svg class="schema" viewBox="0 0 420 150" role="img" aria-label="Schema: menu Progetto, voce Apri progetto"><rect x="10" y="10" width="400" height="130" rx="6" fill="#f0f0f0" stroke="#999"/><text x="24" y="34" font-size="14" font-family="sans-serif">File   Modifica   Cerca   Vista   </text><rect x="236" y="18" width="70" height="22" fill="#ffe08a" stroke="#d4a017" stroke-width="2"/><text x="271" y="34" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="700">Progetto</text><rect x="236" y="42" width="170" height="84" fill="#fff" stroke="#999"/><rect x="240" y="48" width="162" height="26" fill="#ffe08a" stroke="#d4a017" stroke-width="2"/><text x="248" y="66" font-size="14" font-family="sans-serif" font-weight="700">Apri progetto…</text><text x="248" y="96" font-size="13" fill="#777" font-family="sans-serif">Salva progetto con nome…</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> Vedi la finestra del programma con una casella, un bottone e una scritta.</div></div>
+
+<div class="passo"><h2><span class="num">5</span>Dai il tuo nome al progetto</h2>
+<p>Nel menu clicca «Progetto», poi «Salva progetto con nome…». Scrivi un nome TUO, senza spazi, e premi «Salva». Lazarus può chiederti anche il nome del file del codice: lascia «unit1» e premi «Salva».</p>
+<p>Poi dillo a voce a un compagno: «Il mio progetto si chiama …».</p>
+<svg class="schema" viewBox="0 0 420 130" role="img" aria-label="Schema: finestra Salva con il nome del progetto"><rect x="30" y="10" width="360" height="110" rx="6" fill="#f0f0f0" stroke="#999"/><text x="46" y="36" font-size="14" font-family="sans-serif">Nome del file:</text><rect x="46" y="44" width="250" height="28" fill="#fff" stroke="#2d6cb4" stroke-width="2"/><text x="56" y="64" font-size="15" font-family="sans-serif">IlMioGioco</text><rect x="310" y="84" width="70" height="28" rx="5" fill="#ffe08a" stroke="#d4a017" stroke-width="2"/><text x="345" y="103" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="700">Salva</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> In alto, nella barra della finestra di Lazarus, c'è il TUO nome.</div></div>
+
+<div class="passo"><h2><span class="num">6</span>Fai partire il programma</h2>
+<p>Premi il tasto F9 sulla tastiera. Si apre la finestra del programma. Scrivi il tuo nome nella casella e premi il bottone «Salutami».</p>
+<svg class="schema" viewBox="0 0 420 170" role="img" aria-label="Schema: la finestra del programma con il saluto"><rect x="90" y="10" width="240" height="150" rx="6" fill="#f0f0f0" stroke="#666"/><rect x="90" y="10" width="240" height="22" fill="#dfe3e8"/><text x="100" y="26" font-size="13" font-family="sans-serif">Il mio primo programma</text><text x="104" y="56" font-size="13" font-family="sans-serif">Come ti chiami?</text><rect x="104" y="62" width="210" height="24" fill="#fff" stroke="#999"/><text x="112" y="79" font-size="14" font-family="sans-serif">Giulia</text><rect x="104" y="94" width="210" height="28" rx="4" fill="#e1e1e1" stroke="#777"/><text x="209" y="113" text-anchor="middle" font-size="14" font-family="sans-serif">Salutami</text><text x="104" y="148" font-size="16" font-family="sans-serif" font-weight="700" fill="#1a7f37">Ciao Giulia!</text></svg>
+<p class="nota">Schema disegnato (non è una foto dello schermo).</p>
+<div class="fatto"><b>FATTO!</b> Sotto il bottone compare «Ciao» e il tuo nome. Hai fatto partire il TUO programma.</div></div>
+
+<div class="vinto"><h2>Fallo tuo</h2>
+<p>Chiudi la finestra del programma. Nel codice di <b>unit1</b> cerca la riga con scritto «QUI». Cambia la parola «Ciao» con una frase tua, poi premi F9 e guarda cosa succede. Se sbagli, non succede niente di grave: si annulla con Ctrl+Z.</p>
+<p>Poi mostralo a un compagno e raccontagli con parole tue che cosa fa il bottone.</p></div>
+</main></body></html>

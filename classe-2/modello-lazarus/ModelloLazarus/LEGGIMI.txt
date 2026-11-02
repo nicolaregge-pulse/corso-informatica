@@ -1,0 +1,11 @@
+MODELLO LAZARUS - il punto di partenza
+
+Che cosa c'e' in questa cartella (tutti i file stanno qui, insieme):
+  ModelloLazarus.lpi   il progetto: si apre con Lazarus (Progetto -> Apri progetto)
+  ModelloLazarus.lpr   il file principale: non serve toccarlo
+  unit1.pas            il CODICE: qui scrivi tu (cerca la scritta  >>> QUI)
+  unit1.lfm            l'aspetto della finestra: lo modifica Lazarus quando muovi i componenti
+
+Una sola finestra (Form1) e una sola unit con il codice.
+Premi F9 per far partire il programma.
+Quando hai provato: Progetto -> Salva progetto con nome, e dai un nome TUO, sempre in questa cartella.
