@@ -1,7 +1,7 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T12:53",
- "ora": "12:53",
+ "generato": "2026-11-02T12:59",
+ "ora": "12:59",
  "fonte": "piani A + B · segnali schede: 18 · schede PC: 11 · analisi mail: 0 · 2FA: 11 allievi · Veyon: nessun giro · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
@@ -9,15 +9,15 @@
  "fonti_ora": [
   {
    "fonte": "Segnali delle schede (Foglio)",
-   "ora": "12:48",
-   "iso": "2026-11-02T12:48+01:00",
+   "ora": "12:58",
+   "iso": "2026-11-02T12:58+01:00",
    "vecchio": false
   },
   {
    "fonte": "Scheda d'identità (pagina)",
    "ora": "12:40",
    "iso": "2026-11-02T12:40+01:00",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Analisi mail (phishing)",
@@ -27,14 +27,14 @@
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "12:48",
-   "iso": "2026-11-02T12:48+01:00",
+   "ora": "12:58",
+   "iso": "2026-11-02T12:58+01:00",
    "vecchio": false
   },
   {
    "fonte": "2FA GitHub (pagina)",
-   "ora": "12:51",
-   "iso": "2026-11-02T12:51+01:00",
+   "ora": "12:57",
+   "iso": "2026-11-02T12:57+01:00",
    "vecchio": false
   },
   {
@@ -51,6 +51,87 @@
   }
  ],
  "righe": [
+  {
+   "nome": "Giorgio A.",
+   "voto": 55,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 8,
+    "tot": 8,
+    "fatto": true,
+    "ora": "12:23"
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:50",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 2.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10"
+   ]
+  },
+  {
+   "nome": "Youssef A.",
+   "voto": 55,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": "12:19"
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 8,
+    "tot": 8,
+    "fatto": true,
+    "ora": "12:23"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12,
+    "ora": "12:16"
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:49",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 2.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
+   ]
+  },
   {
    "nome": "Luciano C.",
    "voto": 55,
@@ -90,48 +171,6 @@
    "conto": [
     "base 40",
     "teoria reti letta (6 schede) +5",
-    "scheda d'identità consegnata +10",
-    "quiz di chiusura rete 12/12: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Youssef A.",
-   "voto": 50,
-   "teoria": {
-    "reti": 4,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": true,
-    "classroom": "TURNED_IN",
-    "consegnata": true,
-    "ora": "12:19"
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 8,
-    "tot": 8,
-    "fatto": true,
-    "ora": "12:23"
-   },
-   "quiz_reti": {
-    "p": 12,
-    "m": 12,
-    "ora": "12:16"
-   },
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "12:45",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 1.6666666666666665,
-   "conto": [
-    "base 40",
     "scheda d'identità consegnata +10",
     "quiz di chiusura rete 12/12: si vede, per ora non conta"
    ]
@@ -179,40 +218,45 @@
    ]
   },
   {
-   "nome": "Giorgio A.",
-   "voto": 45,
+   "nome": "Mathias P.",
+   "voto": 50,
    "teoria": {
-    "reti": 6,
+    "reti": 0,
     "ph": 0,
     "tot": 6
    },
    "scheda": {
-    "pagina": false,
-    "classroom": "CREATED",
-    "consegnata": false,
-    "ora": ""
+    "pagina": true,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": "12:32"
    },
    "phishing": null,
    "fa2": {
-    "passi": 8,
+    "passi": 7,
     "tot": 8,
-    "fatto": true,
-    "ora": "12:23"
+    "fatto": false,
+    "ora": "12:57"
    },
-   "quiz_reti": null,
+   "quiz_reti": {
+    "p": 12,
+    "m": 12,
+    "ora": "12:52"
+   },
    "quiz_ph": null,
    "extra": {
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "12:23",
+   "fermo_da": "12:57",
    "veyon": {
     "fuori": 0
    },
    "svolto": 1.0,
    "conto": [
     "base 40",
-    "teoria reti letta (6 schede) +5"
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
    ]
   },
   {
@@ -289,7 +333,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "12:42",
+   "fermo_da": "12:49",
    "veyon": {
     "fuori": 0
    },
@@ -321,7 +365,11 @@
     "fatto": false,
     "ora": "12:05"
    },
-   "quiz_reti": null,
+   "quiz_reti": {
+    "p": 12,
+    "m": 12,
+    "ora": "12:52"
+   },
    "quiz_ph": null,
    "extra": {
     "classroom": "",
@@ -335,44 +383,8 @@
    "conto": [
     "base 40",
     "teoria reti letta (6 schede) +5",
-    "scheda d'identità consegnata +10"
-   ]
-  },
-  {
-   "nome": "Mathias P.",
-   "voto": 50,
-   "teoria": {
-    "reti": 1,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": true,
-    "classroom": "TURNED_IN",
-    "consegnata": true,
-    "ora": "12:32"
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 5,
-    "tot": 8,
-    "fatto": false,
-    "ora": "12:05"
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "12:42",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 1.1666666666666667,
-   "conto": [
-    "base 40",
-    "scheda d'identità consegnata +10"
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
    ]
   },
   {
@@ -456,49 +468,6 @@
    "conto": [
     "base 40",
     "quiz di chiusura rete 12/12: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Sara A.",
-   "voto": 55,
-   "teoria": {
-    "reti": 6,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": true,
-    "classroom": "CREATED",
-    "consegnata": true,
-    "ora": "12:31"
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": {
-    "p": 11,
-    "m": 12,
-    "ora": "12:34"
-   },
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "12:31",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 2.0,
-   "conto": [
-    "base 40",
-    "teoria reti letta (6 schede) +5",
-    "scheda d'identità consegnata +10",
-    "quiz di chiusura rete 11/12: si vede, per ora non conta"
    ]
   },
   {
@@ -625,6 +594,48 @@
    ]
   },
   {
+   "nome": "Sara A.",
+   "voto": 50,
+   "teoria": {
+    "reti": 0,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "CREATED",
+    "consegnata": true,
+    "ora": "12:31"
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12,
+    "ora": "12:34"
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:54",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 11/12: si vede, per ora non conta"
+   ]
+  },
+  {
    "nome": "Oscar F.",
    "voto": 45,
    "teoria": {
@@ -655,7 +666,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "12:22",
+   "fermo_da": "12:51",
    "veyon": {
     "fuori": 0
    },
@@ -687,7 +698,11 @@
     "fatto": false,
     "ora": ""
    },
-   "quiz_reti": null,
+   "quiz_reti": {
+    "p": 11,
+    "m": 12,
+    "ora": "12:54"
+   },
    "quiz_ph": null,
    "extra": {
     "classroom": "",
@@ -700,7 +715,8 @@
    "svolto": 1.0,
    "conto": [
     "base 40",
-    "teoria reti letta (6 schede) +5"
+    "teoria reti letta (6 schede) +5",
+    "quiz di chiusura rete 11/12: si vede, per ora non conta"
    ]
   },
   {
