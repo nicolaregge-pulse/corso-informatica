@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-Aggiornato lunedì 2 novembre 2026, nel pomeriggio. Si pianifica sempre la settimana intera, da martedì a lunedì successivo compresi. Prima la lezione più vicina. Nulla è pubblicato per i ragazzi: si pubblica solo all'inizio di ogni lezione, un'ora per volta, quando il prof lo dice.
+Aggiornato lunedì 2 novembre 2026, sera. Si pianifica sempre la settimana intera, da martedì a lunedì successivo compresi. Prima la lezione più vicina. Nulla è pubblicato per i ragazzi: si pubblica solo all'inizio di ogni lezione, un'ora per volta, quando il prof lo dice.
 
 ## Martedì 3 novembre
 
@@ -14,11 +14,13 @@ Prima informatica, dalle 13 alle 14, Tecnologia professionale, un'ora, un compit
 
 ## Mercoledì 4 novembre
 
-Prima informatica, dalle 8 alle 11, Laboratorio professionale, tre ore. Argomento proposto: Lazarus con stringhe e numeri interi in pratica. Attività: nella prima ora «Il pasticcio dei numeri», dove cinque più tre scritti come testo fanno cinquantatré e come numeri fanno otto, con il quiz; nella seconda ora «Il soprannome» con due caselle di testo; nella terza «Il segnapunti», un contatore. A ogni ora si consegnano il file e lo screenshot, e si ricopia qualcosa sul quaderno.
+Tutto è pronto ma chiuso ai ragazzi: le pagine si aprono una ora per volta quando il prof lo dice e i compiti su Classroom sono in bozza che i ragazzi non vedono. C'è un compito per ogni ora. Ai ragazzi si danno solo l'ora in corso, mai le successive.
 
-Seconda informatica, dalle 11 alle 12, Sicurezza professionale, un'ora. Argomento proposto: l'ora successiva del programma di sicurezza della Regione, con schede, ripasso e quiz su Google Moduli. La voce esatta va controllata nel programma.
+Prima informatica, dalle 8 alle 11, Laboratorio professionale, tre ore, in italiano, arabo e cinese. Argomento: programmi utili in Lazarus con testo e numeri interi. Ora 1, il convertitore di misure: chilometri in metri, ore in minuti, euro in centesimi, gradi Celsius in Fahrenheit e minuti in ore e minuti con div e mod, più un quiz breve su Google Moduli su cinque più tre come testo contro come numeri. Ora 2, la calcolatrice a quattro bottoni con StrToIntDef e il risultato scritto come frase, con la divisione per zero come extra. Ora 3, il cassiere: il resto, banconote e monete con div e mod e lo scontrino con il nome del cliente. A ogni ora si consegnano il file unit1.pas e lo screenshot con un bottone e si ricopia qualcosa sul quaderno. Voce dell'Allegato A: «Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento», competenza 15, primo anno.
 
-Terza, dalle 12 alle 14, Laboratorio professionale, due ore. Argomento proposto: il Mastermind in rete. Attività: nella prima ora ognuno aggiorna il programma client con il codice nuovo e si collega al server del prof; nella seconda una partita di classe, il commit su GitHub con messaggio chiaro e il quiz sulla rete su Google Moduli.
+Seconda informatica, dalle 11 alle 12, Sicurezza professionale, un'ora, solo in italiano. Argomento: la sesta ora del programma di sicurezza della Regione, i rischi meccanici ed elettrici generali, con otto schede, il ripasso e il quiz su Google Moduli di venti casi. Voce dell'Allegato A: «Sicurezza sul lavoro: le 16 lezioni del corso ufficiale», competenza 14, secondo anno.
+
+Terza, dalle 12 alle 14, Laboratorio professionale, due ore, in italiano. Argomento: il Mastermind in rete. Nella prima ora ognuno ricollega il proprio client al server del prof e gioca. Nella seconda la partita di classe, il progetto su GitHub con un commit dal messaggio chiaro e il quiz di otto domande su Google Moduli. Voci dell'Allegato A: «Reti locali: indirizzamento IP», competenza 16, e «Sviluppo collaborativo: release e changelog», competenza 12, terzo anno.
 
 ## Giovedì 5 novembre
 
