@@ -1,7 +1,7 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T13:25",
- "ora": "13:25",
+ "generato": "2026-11-02T13:30",
+ "ora": "13:30",
  "fonte": "piani A + B · segnali schede: 18 · schede PC: 14 · analisi mail: 0 · 2FA: 16 allievi · Veyon: nessun giro · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
@@ -9,14 +9,14 @@
  "fonti_ora": [
   {
    "fonte": "Segnali delle schede (Foglio)",
-   "ora": "13:17",
-   "iso": "2026-11-02T13:17+01:00",
+   "ora": "13:29",
+   "iso": "2026-11-02T13:29+01:00",
    "vecchio": false
   },
   {
    "fonte": "Scheda d'identità (pagina)",
-   "ora": "13:24",
-   "iso": "2026-11-02T13:24+01:00",
+   "ora": "13:29",
+   "iso": "2026-11-02T13:29+01:00",
    "vecchio": false
   },
   {
@@ -27,8 +27,8 @@
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "13:18",
-   "iso": "2026-11-02T13:18+01:00",
+   "ora": "13:29",
+   "iso": "2026-11-02T13:29+01:00",
    "vecchio": false
   },
   {
@@ -125,7 +125,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:16",
+   "fermo_da": "13:24",
    "veyon": {
     "fuori": 0
    },
@@ -211,7 +211,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:11",
+   "fermo_da": "13:20",
    "veyon": {
     "fuori": 0
    },
@@ -292,7 +292,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:14",
+   "fermo_da": "13:26",
    "veyon": {
     "fuori": 0
    },
@@ -488,7 +488,7 @@
     "pagina": true,
     "classroom": "TURNED_IN",
     "consegnata": true,
-    "ora": "13:19"
+    "ora": "13:25"
    },
    "phishing": null,
    "fa2": {
@@ -507,7 +507,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:19",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 0
    },
@@ -563,6 +563,44 @@
    ]
   },
   {
+   "nome": "Mahammed M.",
+   "voto": 55,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 8,
+    "tot": 8,
+    "fatto": true,
+    "ora": "13:10"
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "13:10",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 2.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10"
+   ]
+  },
+  {
    "nome": "Mathias P.",
    "voto": 55,
    "teoria": {
@@ -606,43 +644,6 @@
    ]
   },
   {
-   "nome": "Mahammed M.",
-   "voto": 45,
-   "teoria": {
-    "reti": 6,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "CREATED",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 8,
-    "tot": 8,
-    "fatto": true,
-    "ora": "13:10"
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "13:10",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 1.0,
-   "conto": [
-    "base 40",
-    "teoria reti letta (6 schede) +5"
-   ]
-  },
-  {
    "nome": "Antonio M.",
    "voto": 55,
    "teoria": {
@@ -654,7 +655,7 @@
     "pagina": true,
     "classroom": "CREATED",
     "consegnata": true,
-    "ora": "13:23"
+    "ora": "13:29"
    },
    "phishing": null,
    "fa2": {
@@ -673,7 +674,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:23",
+   "fermo_da": "13:29",
    "veyon": {
     "fuori": 0
    },
@@ -801,7 +802,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:07",
+   "fermo_da": "13:24",
    "veyon": {
     "fuori": 0
    },
