@@ -71,7 +71,7 @@ var
 begin
   try
     try
-      Data.IOTimeout := 2000;           // un client muto non blocca il server
+      Data.IOTimeout := 700;            // un client muto blocca gli altri al massimo 0,7 secondi
       linea := '';
       repeat
         n := Data.Read(c, 1);
