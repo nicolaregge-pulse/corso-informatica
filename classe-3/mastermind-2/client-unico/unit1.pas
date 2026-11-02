@@ -109,14 +109,24 @@ var
   Ch: Char;
   N: Integer;
   Fine: QWord;
-  Buf: String;
+  Buf, Host: String;
+  Porta, K: Integer;
 begin
   Result := '';
   Risposta := '';
   S := nil;
+  // se qualcuno scrive anche ":5050" dopo l'IP, va bene lo stesso
+  Host := Trim(EdIp.Text);
+  Porta := PORTA;
+  K := Pos(':', Host);
+  if K > 0 then
+  begin
+    Porta := StrToIntDef(Trim(Copy(Host, K + 1, 10)), PORTA);
+    Host := Trim(Copy(Host, 1, K - 1));
+  end;
   try
     try
-      S := TInetSocket.Create(Trim(EdIp.Text), PORTA, TEMPO_MS);
+      S := TInetSocket.Create(Host, Porta, TEMPO_MS);
       S.IOTimeout := TEMPO_MS;
       Buf := Riga + #10;
       S.WriteBuffer(Buf[1], Length(Buf));

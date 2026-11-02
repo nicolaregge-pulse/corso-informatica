@@ -25,3 +25,4 @@ cat "$OUT"/c*.log | grep -c " FINE " | sed 's/^/client arrivati alla vittoria: /
 cat "$OUT"/c*.log | grep -i "ERRORE" | head
 grep -h " FINE " "$OUT"/c1.log "$OUT"/c2.log; grep -h "connetti" "$OUT"/c1.log
 echo "== server: vittorie registrate: $(grep -c 'HA VINTO' "$OUT/registro.txt")"; head -8 "$OUT/griglia.txt"
+echo "== IP con :5050 dopo =="; "$OUT/test_client" 127.0.0.1:5050 ZZ spento 2>&1 | head -2
