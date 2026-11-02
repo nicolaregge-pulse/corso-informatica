@@ -1,5 +1,10 @@
 /**
- * AUTOMAZIONE CORSO v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.6: ANTI-DOPPIONE (02/11/2026, CLAUDE.md regola 34, REGISTRO-ERRORI #174: il ponte aveva creato un secondo
+ *       «Mastermind in rete: il tuo CLIENT» accanto a quello fatto a mano dal docente). Prima di creare un compito
+ *       (coda) o un annuncio (classroom.annuncio) si legge l'elenco Classroom (bozze comprese): se c'e' gia' un post
+ *       con lo stesso titolo normalizzato (minuscole, spazi doppi tolti) creato negli ultimi 120 minuti NON se ne crea
+ *       un altro: risultato «doppione_evitato» con l'id esistente. Il resto invariato.
  * v8.5: COMPITI SENZA SCADENZA (29/10/2026, giro delle 08:37 fallito; CLAUDE.md regola 27). dueDate e dueTime si
  *       mettono SOLO se la voce della coda ha scadenza_iso; senza scadenza il compito nasce senza quei campi e la
  *       chiusura automatica non lo chiude mai.
@@ -228,6 +233,22 @@ function autoCiclo(forza) {
   } finally { lock.releaseLock(); }
 }
 
+/* v8.6 — ANTI-DOPPIONE (regola 34): titolo normalizzato = minuscole, spazi doppi tolti. */
+var AUTO_FINESTRA_DOPPIONE_MIN = 120;
+function AUTO_norm(t) { return String(t || '').toLowerCase().replace(/\s+/g, ' ').trim(); }
+function AUTO_trovaDoppione(courseId, titolo, tipo) {   // tipo: 'compito' | 'annuncio'; ritorna {id, link} oppure null
+  var limite = Date.now() - AUTO_FINESTRA_DOPPIONE_MIN * 60000, n = AUTO_norm(titolo);
+  var lista = tipo === 'annuncio'
+    ? (Classroom.Courses.Announcements.list(courseId, { pageSize: 100, announcementStates: ['PUBLISHED', 'DRAFT'] }).announcements || [])
+    : (Classroom.Courses.CourseWork.list(courseId, { pageSize: 100, courseWorkStates: ['PUBLISHED', 'DRAFT'] }).courseWork || []);
+  for (var i = 0; i < lista.length; i++) {
+    var w = lista[i], t = tipo === 'annuncio' ? w.text : w.title;
+    var quando = w.creationTime ? new Date(w.creationTime).getTime() : 0;
+    if (AUTO_norm(t) === n && quando >= limite) return { id: w.id, link: w.alternateLink };
+  }
+  return null;
+}
+
 /* ====================== 1. PUBBLICA ====================== */
 function AUTO_pubblica(job) {
   var courseId = AUTO_courseId(job.classe);
@@ -237,6 +258,11 @@ function AUTO_pubblica(job) {
   if (esist.length) {
     job.course_id = courseId; job.coursework_id = esist[0].id; job.link = esist[0].alternateLink;
     Logger.log('Gia\' presente su Classroom, lo adotto: ' + job.titolo); return;
+  }
+  var dop = AUTO_trovaDoppione(courseId, job.titolo, 'compito');   // v8.6: anche bozze, titolo normalizzato, ultimi 120 minuti
+  if (dop) {
+    job.course_id = courseId; job.coursework_id = dop.id; job.link = dop.link; job.risultato = 'doppione_evitato';
+    Logger.log('doppione_evitato: ' + job.titolo + ' esiste gia\' (' + dop.id + ')'); return;
   }
   var cart = AUTO_cartella(job.cartella_drive || job.titolo);
   var materiali = [];
@@ -640,6 +666,8 @@ function AUTO_azione(a) {
       return ((Classroom.Courses.CourseWork.StudentSubmissions.list(cid2, a.coursework_id).studentSubmissions) || []).map(function (s) {
         return { nome: AUTO_nome(s.userId), stato: s.state, voto_bozza: s.draftGrade, voto: s.assignedGrade, in_ritardo: !!s.late }; }); }
     case 'classroom.annuncio': {    // a.classe, a.testo (solo con l'OK del docente scritto nel file); v8.2: a.bozza, a.programma_iso
+      var dopA = AUTO_trovaDoppione(AUTO_courseId(a.classe), a.testo, 'annuncio');   // v8.6: anti-doppione
+      if (dopA) return { risultato: 'doppione_evitato', id: dopA.id, link: dopA.link };
       var na = { text: a.testo, state: a.bozza || a.programma_iso ? 'DRAFT' : 'PUBLISHED' };
       if (a.programma_iso) na.scheduledTime = new Date(a.programma_iso).toISOString();
       var an = Classroom.Courses.Announcements.create(na, AUTO_courseId(a.classe));
