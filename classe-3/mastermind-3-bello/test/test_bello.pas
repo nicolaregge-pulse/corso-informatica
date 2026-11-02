@@ -138,7 +138,9 @@ begin
   Ridisegna;
   Verifica(ContaCerchi(F.PbTavola.Canvas, 7, NERO) = 1, 'sulla tavola: 1 piolino nero (trovati ' + IntToStr(ContaCerchi(F.PbTavola.Canvas, 7, NERO)) + ')');
   Verifica(ContaCerchi(F.PbTavola.Canvas, 7, BIANCO) = 2, 'sulla tavola: 2 piolini bianchi (trovati ' + IntToStr(ContaCerchi(F.PbTavola.Canvas, 7, BIANCO)) + ')');
-  Verifica(F.PbTavola.Canvas.Linee > 100, 'le venature del legno sono disegnate (linee: ' + IntToStr(F.PbTavola.Canvas.Linee) + ')');
+  Verifica(FondoTavola.Canvas.Linee > 20000, 'le fibre del legno sono disegnate nella bitmap (linee: ' + IntToStr(FondoTavola.Canvas.Linee) + ')');
+  Verifica(FondoTavola.Canvas.Testi = 3, 'la scritta 3 INF e'' intagliata (3 passate di testo: ombra, luce, fondo)');
+  Verifica(F.PbTavola.Canvas.Copie >= 1, 'il legno viene copiato dalla bitmap sulla tavola');
   F.PbTavolozza.Canvas.Pulisci; F.PbTavolozza.OnPaint(nil);
   Verifica(F.PbTavolozza.Canvas.Cerchi.Count > 6 * 6, 'la tavolozza disegna i 6 piolini colorati');
   { tanti tentativi sbagliati: la tavola scorre senza errori }

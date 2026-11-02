@@ -4,6 +4,7 @@
 #  - rete: N client contro il server-unico della cartella mastermind-2 (porta 5050).
 # Uso: bash prova_bello.sh [numero_client]   (serve fpc 3.2.x; NON compila con la vera LCL: serve Lazarus)
 AQUI="$(cd "$(dirname "$0")" && pwd)"; SRV="$AQUI/../../mastermind-2/server-unico/test"; OUT="${OUT:-/tmp/mm_out_bello}"
+cd /tmp   # importante: da qui fpc non trova per sbaglio un altro unit1.pas nella cartella corrente
 rm -rf "$OUT"; mkdir -p "$OUT/oc" "$OUT/os"; N="${1:-6}"; PORTA=5050
 FCL=""; [ -d /usr/share/fpcsrc/3.2.2/packages/fcl-net/src ] && FCL="-Fu/usr/share/fpcsrc/3.2.2/packages/fcl-net/src -Fu/usr/share/fpcsrc/3.2.2/packages/fcl-base/src"
 mkdir -p "$OUT/stubc"; cp "$AQUI"/stub_lcl/*.pas "$OUT/stubc/"; sed 's/{\$R \*.lfm}//' "$AQUI/../unit1.pas" > "$OUT/stubc/Unit1.pas"
