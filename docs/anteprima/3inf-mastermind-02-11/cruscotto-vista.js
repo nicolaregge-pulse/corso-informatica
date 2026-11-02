@@ -8,8 +8,10 @@ function disegnaCruscotto(D,docente){
   h+='<p class="mu"><b>Il voto:</b> si parte da 40; per ogni ora +5 unit1.pas, +3 screenshot, +3 codice giusto (vale anche il percorso facilitato). Massimo 80. '+(docente?'È una proposta: la conferma il docente.':'È una proposta: lo conferma il Professore.')+'</p>';
   h+='<div class="tw"><table><thead><tr><th class="fix" rowspan="2">Allievo</th>';
   [1,2,3].forEach(function(o){h+='<th colspan="4" class="o'+o+'">Ora '+o+' · '+NOMI[o]+'</th>'});
+  h+='<th colspan="3">Client in rete</th>';
   h+='<th rowspan="2">Fermo da</th><th rowspan="2">'+(docente?'Veyon / note':'Veyon')+'</th><th rowspan="2">Voto</th></tr><tr>';
   [1,2,3].forEach(function(o){h+='<th class="o'+o+'">passo</th><th class="o'+o+'">unit1.pas</th><th class="o'+o+'">foto</th><th class="o'+o+'">codice</th>'});
+  h+='<th>passo</th><th>unit1.pas</th><th>foto</th>';
   h+='</tr></thead><tbody>';
   R.forEach(function(r){
     var finito=[1,2].every(function(o){var v=r.ore[o];return v.pas&&v.png});
@@ -17,6 +19,8 @@ function disegnaCruscotto(D,docente){
     [1,2,3].forEach(function(o){var v=r.ore[o],ps=v.passo?(v.passo+'/'+v.tot):(v.facile?('facile '+v.facile+'/3'):'·');
       var manca=(v.manca||[]).length?'manca: '+v.manca.join(', '):'';
       h+='<td class="o'+o+'" title="'+e(v.titolo||'')+'">'+ps+(v.ultimo?'<br><span class="mini">'+e(v.ultimo)+'</span>':'')+'</td>'+cella(v.pas||(v.stato_cr?false:null),(v.fonti||[]).join(', ')||v.stato_cr)+cella(v.png||(v.stato_cr?false:null),(v.fonti||[]).join(', '))+(v.ok===true?'<td class="si">✔</td>':v.ok===false?'<td class="no" title="'+e(manca)+'">✘<br><span class="mini">'+e(manca)+'</span></td>':'<td class="nu">·</td>')});
+    var cl=r.client||{};
+    h+='<td>'+(cl.passo?(cl.passo+'/'+cl.tot+(cl.ultimo?'<br><span class="mini">'+e(cl.ultimo)+'</span>':'')):'·')+'</td>'+cella(cl.pas||null,'consegna client')+cella(cl.png||null,'consegna client');
     var vy=r.veyon||{};
     h+='<td>'+(e(r.fermo_da)||'<span class="mu">mai</span>')+'</td><td'+(vy.fuori?' class="no"':'')+'>'+(vy.fuori?vy.fuori+' fuori compito':(vy.giri?'ok':'·'))+(docente&&vy.ultimo?'<br><span class="mini">'+e(vy.ultimo)+'</span>':'')+(docente&&(vy.fuori_dett||[]).length?'<br><span class="mini">'+vy.fuori_dett.map(e).join('<br>')+'</span>':'')+(docente&&(r.note||[]).length?'<br><span class="mini">'+r.note.map(e).join('<br>')+'</span>':'')+'</td>';
     h+='<td><b class="voto">'+(r.voto==null?'—':r.voto)+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>';

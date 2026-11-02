@@ -1,0 +1,7 @@
+[
+ {
+  "nome": "Nicolò C.",
+  "domanda": "unit1.pas(23,3) Error: Impossibile trovare mm_logica usato da Unit1",
+  "risposta": "Bravo che hai mandato l'errore, così lo sistemiamo subito! Succede a tutti, anche ai pro. Hai incollato il codice vecchio: nel codice nuovo la parola mm_logica non c'è più. Facciamolo un'azione alla volta.\n1. Riapri questa pagina e premi F5, così vedi la versione nuova.\n2. In Lazarus clicca la scheda Unit1 (se non la vedi premi F12).\n3. Premi Ctrl + A: tutto il testo diventa azzurro.\n4. Nel passo 3 di questa pagina, clicca il bottone Copia sopra il riquadro nero del codice.\n5. Torna in Lazarus e premi Ctrl + V. Il vecchio codice sparisce: è giusto così.\n6. Premi Ctrl + S per salvare.\n7. Premi F9: la finestra del Mastermind si apre.\nÈ un file solo, non devi scaricare altro. Se poi ti esce un altro errore, scrivimelo qui e lo guardiamo insieme."
+ }
+]

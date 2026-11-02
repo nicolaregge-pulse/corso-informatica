@@ -1,19 +1,41 @@
 {
-  "aggiornato": "02/11/2026 09:10",
+  "aggiornato": "02/11/2026 11:05",
   "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi.",
   "voci": [
     {
       "classe": "3INF",
       "ora": "ora 8-11",
-      "cosa": "Manda a Claude in chat lo screenshot del registro con le presenze di oggi della 3INF.",
-      "bottoni": ["Mandate"],
-      "id": "2026-11-02-presenze-3inf"
+      "cosa": "Un'allieva è fuori dall'aula dalle 10:24 circa (bagno): dimmi quando è rientrata.",
+      "bottoni": [
+        "Rientrata"
+      ],
+      "id": "2026-11-02-rientro-3inf"
+    },
+    {
+      "classe": "2INF",
+      "ora": "ora 11-14",
+      "cosa": "Scrivimi «pubblica» per la lezione, e mandami lo screenshot del registro con i presenti.",
+      "bottoni": [
+        "Fatto"
+      ],
+      "id": "2026-11-02-2inf-pubblica-presenti"
+    },
+    {
+      "classe": "3INF",
+      "ora": "ora 8-11",
+      "cosa": "Firma il registro delle ore 8-11 entro le 14:05: non risulta ancora la firma verde.",
+      "bottoni": [
+        "Fatto"
+      ],
+      "id": "2026-11-02-firma-3inf"
     },
     {
       "classe": "3INF",
       "ora": "ora 8-11",
       "cosa": "Controlla di persona il PC 26 (Veyon non lo raggiunge) e il PC 33 (niente rete).",
-      "bottoni": ["Fatto"],
+      "bottoni": [
+        "Fatto"
+      ],
       "id": "2026-11-02-pc-26-33"
     }
   ]
