@@ -5,7 +5,7 @@ uses Classes, Controls;
 type
   TLabel = class(TControl) end;
   TButton = class(TControl) end;
-  TEdit = class(TControl) public Text: String; end;
+  TEdit = class(TControl) public Text: String; OnChange: TNotifyEvent; end;
   TMemo = class(TControl)
   public
     Lines: TStringList;

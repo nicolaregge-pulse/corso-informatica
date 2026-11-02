@@ -11,7 +11,7 @@ fpc -Mobjfpc -Sh -vewn -FU"$OUT/o" -Fu"$AQUI/stub_lcl_server" $FCL -o"$OUT/test_
 rm -f "$AQUI/stub_lcl_server/Unit1.pas"
 [ -x "$OUT/test_finestra" ] || { echo "COMPILAZIONE FALLITA"; exit 1; }
 echo "== prova con $N client sulla porta $PORTA =="
-"$OUT/test_finestra" $PORTA "$OUT/fatto" "$OUT" > "$OUT/driver.log" 2>&1 &
+"$OUT/test_finestra" $PORTA "$OUT/fatto" "$OUT" "${2:-b}" > "$OUT/driver.log" 2>&1 &
 PID=$!; sleep 1
 python3 "$AQUI/prova_22.py" $PORTA $N "$OUT/fatto"
 wait $PID

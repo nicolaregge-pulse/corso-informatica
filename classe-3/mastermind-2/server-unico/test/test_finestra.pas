@@ -26,7 +26,8 @@ end;
 
 begin
   porta := ParamStr(1); marc := ParamStr(2); uscita := ParamStr(3);
-  F := TForm1.Create(nil);
+  { come la LCL vera: prima si costruiscono i componenti, poi scatta AfterConstruction }
+  F := TForm1(TForm1.NewInstance);   { senza costruttore: niente AfterConstruction anticipato }
   F.LblPorta := TLabel.Create(F); F.EdPorta := TEdit.Create(F); F.BtnAvvia := TButton.Create(F);
   F.LblStato := TLabel.Create(F); F.LblIp := TLabel.Create(F); F.LblIndirizzo := TLabel.Create(F);
   F.EdIndirizzo := TEdit.Create(F); F.BtnVia := TButton.Create(F); F.BtnNuova := TButton.Create(F);
@@ -35,7 +36,18 @@ begin
   F.Timer1 := TTimer.Create(F);
   F.BtnVia.Enabled := False; F.BtnNuova.Enabled := False;   // come nel .lfm
   F.EdPorta.Text := porta;
-  F.FormCreate(nil);
+  if ParamStr(4) = 'a' then   // caso (a): eventi gia' collegati dal .lfm, il form chiama FormCreate
+  begin
+    F.BtnAvvia.OnClick := @F.BtnAvviaClick; F.BtnVia.OnClick := @F.BtnViaClick;
+    F.BtnNuova.OnClick := @F.BtnNuovaClick; F.LblSegreto.OnClick := @F.LblSegretoClick;
+    F.EdPorta.OnChange := @F.EdPortaChange; F.Timer1.OnTimer := @F.Timer1Timer;
+    F.OnDestroy := @F.FormDestroy;
+    F.FormCreate(nil);
+    F.AfterConstruction;
+    if not F.Avviato then begin WriteLn('ERRORE: Avviato falso'); Halt(3); end;
+  end
+  else F.AfterConstruction;   // caso (b): non collegati, AfterConstruction fa tutto
+  if not Assigned(F.BtnAvvia.OnClick) or not Assigned(F.OnDestroy) or not F.Avviato then begin WriteLn('ERRORE: collegamenti/Avviato'); Halt(3); end;
   F.BtnAvviaClick(nil);                 // clic su "Avvia server"
   t0 := GetTickCount64; viaDato := False; finito := False; ticks := 0;
   quando := 0;
