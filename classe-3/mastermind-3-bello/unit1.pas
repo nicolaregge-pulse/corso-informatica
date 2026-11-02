@@ -157,37 +157,118 @@ end;
 { ---------- il disegno: legno, buchi, pioli ---------- }
 
 procedure DisegnaLegno(C: TCanvas; W, H: Integer);
+const
+  PH = 52;                       // altezza di una doga (una tavola di legno)
 var
-  Y, D: Integer;
+  P, Y0, Y1, X, Y, Yv, T, Seme, K, Nx, Ny: Integer;
+  Fase, Amp, Fre: Double;
+  Base: Integer;
 begin
   C.Brush.Style := bsSolid;
   C.Pen.Style := psSolid;
   C.Pen.Width := 1;
-  C.Brush.Color := MioColore(170, 118, 66);
-  C.Pen.Color := MioColore(170, 118, 66);
-  C.Rectangle(0, 0, W, H);
-  // le venature: righe orizzontali di marrone un po' piu' chiaro o scuro
-  Y := 0;
-  while Y < H do
+  P := 0;
+  Y0 := 0;
+  while Y0 < H do
   begin
-    D := ((Y * 37) mod 23) - 11;
-    C.Pen.Color := MioColore(170 + D, 118 + D, 66 + D div 2);
-    C.MoveTo(0, Y);
-    C.LineTo(W, Y);
-    if (Y mod 29) = 5 then
+    Y1 := Y0 + PH;
+    if Y1 > H then Y1 := H;
+    Seme := (P * 53 + 17) mod 97;                 // ogni doga e' diversa dalle altre
+    T := (Seme mod 5) * 7 - 14;                   // il tono cambia da una doga all'altra
+    Base := MioColore(172 + T, 120 + T, 68 + T div 2);
+    C.Brush.Style := bsSolid;
+    C.Brush.Color := Base;
+    C.Pen.Color := Base;
+    C.Rectangle(0, Y0, W, Y1 + 1);
+    // LE VENATURE: linee che ondeggiano, chiare, medie e scure, una accanto all'altra
+    Fase := Seme * 0.37;
+    Fre := 0.020 + (Seme mod 4) * 0.004;
+    Y := Y0 + 2;
+    while Y < Y1 - 1 do
     begin
-      C.Pen.Color := MioColore(120, 78, 40);   // ogni tanto una vena piu' scura
-      C.MoveTo(0, Y + 1);
-      C.LineTo(W, Y + 1);
+      Amp := 3 + ((Y div 9 + Seme) mod 3);        // le righe vicine ondeggiano insieme
+      if (((Y div 3) + Seme) mod 6) = 0 then
+      begin
+        C.Pen.Color := MioColore(104 + T, 64 + T, 30 + T div 2);    // vena scura, spessa
+        C.Pen.Width := 2;
+      end
+      else if (((Y div 3) + Seme) mod 6) = 3 then
+      begin
+        C.Pen.Color := MioColore(204 + T, 156 + T, 100 + T div 2);  // vena chiara
+        C.Pen.Width := 1;
+      end
+      else
+      begin
+        C.Pen.Color := MioColore(148 + T, 100 + T, 52 + T div 2);   // vena media
+        C.Pen.Width := 1;
+      end;
+      X := 0;
+      Yv := Y + Round(Amp * Sin(Fase + Y * 0.10));
+      if Yv < Y0 + 1 then Yv := Y0 + 1;
+      if Yv > Y1 - 1 then Yv := Y1 - 1;
+      C.MoveTo(0, Yv);
+      while X < W do
+      begin
+        Inc(X, 5);
+        Yv := Y + Round(Amp * Sin(X * Fre + Fase + Y * 0.10));
+        if Yv < Y0 + 1 then Yv := Y0 + 1;
+        if Yv > Y1 - 1 then Yv := Y1 - 1;
+        C.LineTo(X, Yv);
+      end;
+      Inc(Y, 3);
     end;
-    Inc(Y, 3);
+    C.Pen.Width := 1;
+    // un nodo del legno in quasi tutte le doghe: anelli scuri allungati
+    if (Seme mod 3) <> 0 then
+    begin
+      Nx := 30 + (Seme * 29) mod (W - 60);
+      Ny := Y0 + PH div 2;
+      C.Brush.Style := bsClear;
+      for K := 4 downto 1 do
+      begin
+        C.Pen.Color := MioColore(92 + K * 9 + T, 56 + K * 7 + T, 26 + K * 4 + T div 2);
+        C.Ellipse(Nx - K * 5 - 3, Ny - K * 2 - 1, Nx + K * 5 + 4, Ny + K * 2 + 2);
+      end;
+      C.Brush.Style := bsSolid;
+      C.Brush.Color := MioColore(66, 38, 16);
+      C.Pen.Color := MioColore(66, 38, 16);
+      C.Ellipse(Nx - 3, Ny - 2, Nx + 4, Ny + 3);
+    end;
+    // il giunto fra due doghe: una riga scura e sotto una riga chiara
+    if Y0 > 0 then
+    begin
+      C.Pen.Color := MioColore(58, 32, 12);
+      C.Pen.Width := 2;
+      C.MoveTo(0, Y0);
+      C.LineTo(W, Y0);
+      C.Pen.Color := MioColore(218, 170, 112);
+      C.Pen.Width := 1;
+      C.MoveTo(0, Y0 + 2);
+      C.LineTo(W, Y0 + 2);
+    end;
+    Inc(P);
+    Inc(Y0, PH);
   end;
-  // la cornice
+  // la cornice lucida: tre strati, luce in alto a sinistra, ombra in basso a destra
   C.Brush.Style := bsClear;
   C.Pen.Width := 6;
-  C.Pen.Color := MioColore(92, 56, 26);
+  C.Pen.Color := MioColore(86, 50, 22);
   C.Rectangle(0, 0, W, H);
   C.Pen.Width := 1;
+  C.Pen.Color := MioColore(142, 92, 46);
+  C.Rectangle(3, 3, W - 3, H - 3);
+  C.Pen.Color := MioColore(236, 194, 134);        // luce
+  C.MoveTo(4, 4);
+  C.LineTo(W - 5, 4);
+  C.MoveTo(4, 4);
+  C.LineTo(4, H - 5);
+  C.Pen.Color := MioColore(255, 230, 176);        // riflesso lucido
+  C.MoveTo(8, 6);
+  C.LineTo(W - 14, 6);
+  C.Pen.Color := MioColore(54, 30, 12);           // ombra
+  C.MoveTo(W - 5, 5);
+  C.LineTo(W - 5, H - 5);
+  C.LineTo(4, H - 5);
   C.Brush.Style := bsSolid;
 end;
 
