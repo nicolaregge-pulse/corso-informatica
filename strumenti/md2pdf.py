@@ -39,6 +39,8 @@ while i < len(righe):
             num = ".".join(str(cont[k]) for k in range(liv + 1))
             html_l.append(f"<div class='li l{liv}'><span class='n'>{num}</span><span>{inline(testo)}</span></div>")
         out.append("<div class='ol'>" + "".join(html_l) + "</div>"); continue
+    if r.strip()=="<<PAGINA>>":
+        out.append("<div style='break-before:page'></div>"); i += 1; continue
     for k, tag in ((4, "h3"), (3, "h2"), (2, "h1")):
         if r.startswith("#" * (k - 1) + " "): out.append(f"<{tag}>{inline(r[k:])}</{tag}>"); break
     else:
