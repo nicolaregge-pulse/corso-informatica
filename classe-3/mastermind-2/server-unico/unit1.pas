@@ -24,6 +24,7 @@ uses
 type
   TGioc = record            // un ragazzo
     Nome: String;
+    Ip: String;             // indirizzo IP del PC del ragazzo
     Tent: Integer;          // tentativi fatti
     Secondi: Integer;       // secondi dal Via alla vittoria
     Risolto: Boolean;
@@ -223,7 +224,7 @@ begin
   Sporco := True;
   MostraSegreto := False;
   UltimoGiro := 0;
-  Griglia.ColCount := 4;
+  Griglia.ColCount := 5;
   Griglia.RowCount := 1;
   Griglia.FixedRows := 1;
   Griglia.FixedCols := 0;
@@ -231,10 +232,12 @@ begin
   Griglia.Cells[1, 0] := 'Nome';
   Griglia.Cells[2, 0] := 'Tentativi';
   Griglia.Cells[3, 0] := 'Stato';
-  Griglia.ColWidths[0] := 50;
-  Griglia.ColWidths[1] := 130;
-  Griglia.ColWidths[2] := 70;
-  Griglia.ColWidths[3] := 140;
+  Griglia.Cells[4, 0] := 'IP';
+  Griglia.ColWidths[0] := 40;
+  Griglia.ColWidths[1] := 110;
+  Griglia.ColWidths[2] := 60;
+  Griglia.ColWidths[3] := 100;
+  Griglia.ColWidths[4] := 100;
   IpPc := MMIpDelPc;
   if IpPc = '' then
     LblIp.Caption := 'IP di questo PC: non si ricava (chiedi al prof)'
@@ -380,7 +383,10 @@ begin
   if nome = '' then
     i := -1
   else
+  begin
     i := Trova(nome, True);
+    G[i].Ip := Ip;
+  end;
   if cmd = 'STATO' then
   begin
     if Gioco then Result := 'STATO;GIOCO;' else Result := 'STATO;ATTESA;';
@@ -524,6 +530,7 @@ begin
         Griglia.Cells[1, i + 1] := Nome;
         Griglia.Cells[2, i + 1] := IntToStr(Tent);
         Griglia.Cells[3, i + 1] := stato;
+        Griglia.Cells[4, i + 1] := Ip;
       end;
   finally
     Griglia.EndUpdate;
