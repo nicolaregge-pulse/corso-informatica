@@ -88,6 +88,7 @@ procedure Valuta(const Segreto, Prova: TCodice; out Neri, Bianchi: Integer);
 
 var
   Form1: TForm1;
+  FondoTavola, FondoTavolozza: TBitmap;   // il legno, disegnato una volta sola
 
 implementation
 
@@ -97,11 +98,13 @@ const
   PORTA_SERVER = 5050;      // la porta del server: non toccarla
   TEMPO_MS = 2000;          // dopo 2 secondi senza risposta ci arrendiamo
   RIGHE = 10;               // righe visibili sulla tavola
-  CELLA = 44;               // altezza di una riga e distanza tra i buchi
+  CELLA = 40;               // altezza di una riga
+  PASSO_X = 44;             // distanza tra i buchi in orizzontale
+  TITOLO = 40;              // la fascia in alto con la scritta intagliata
   MARGINE = 14;
   RAGGIO = 17;              // raggio di un piolo grande
   LARG_TAVOLA = 270;
-  ALT_TAVOLA = 468;         // 2 * MARGINE + RIGHE * CELLA
+  ALT_TAVOLA = 468;         // TITOLO + 2 * MARGINE + RIGHE * CELLA
   LARG_PALETTE = 90;
   ALT_PALETTE = 330;
   // sei colori, in ordine 1..6: rosso, giallo, verde, blu, arancio, viola (formato BGR)
@@ -156,120 +159,268 @@ end;
 
 { ---------- il disegno: legno, buchi, pioli ---------- }
 
-procedure DisegnaLegno(C: TCanvas; W, H: Integer);
-const
-  PH = 52;                       // altezza di una doga (una tavola di legno)
+{ ---------- il legno: fibre sottili, toni morbidi, striature, fessure, pori, bordi piu' scuri ----------
+  Si usa un "caso" tutto nostro con il seme fisso, cosi' la tavola e' SEMPRE uguale.
+  Si disegna UNA volta su una bitmap e poi si copia sullo schermo: e' veloce. }
+
 var
-  P, Y0, Y1, X, Y, Yv, T, Seme, K, Nx, Ny: Integer;
-  Fase, Amp, Fre: Double;
-  Base: Integer;
+  SemeLegno: Int64;
+  BordoW, BordoH: Integer;
+
+procedure InizioCaso(S: Integer);
 begin
+  SemeLegno := S;
+end;
+
+function Caso(N: Integer): Integer;       // un numero da 0 a N-1, sempre la stessa sequenza
+begin
+  SemeLegno := (SemeLegno * 1103515245 + 12345) and $7FFFFFFF;
+  Result := (SemeLegno shr 8) mod N;
+end;
+
+function Mescola(A, B, Perc: Integer): Integer;     // A mescolato con B (Perc% di B): come un colore semitrasparente
+var
+  Ra, Ga, Ba, Rb, Gb, Bb: Integer;
+begin
+  Ra := A and $FF;
+  Ga := (A shr 8) and $FF;
+  Ba := (A shr 16) and $FF;
+  Rb := B and $FF;
+  Gb := (B shr 8) and $FF;
+  Bb := (B shr 16) and $FF;
+  Result := MioColore(Ra + (Rb - Ra) * Perc div 100, Ga + (Gb - Ga) * Perc div 100,
+    Ba + (Bb - Ba) * Perc div 100);
+end;
+
+{ il colore del legno in un punto: dal miele al rovere con macchie larghe e morbide,
+  e un po' piu' scuro vicino ai bordi della tavola }
+function TonoLegno(X, Y: Integer): Integer;
+var
+  F, V: Integer;
+begin
+  F := 50 + Round(26 * Sin(Y * 0.011 + X * 0.0028 + 0.7) + 14 * Sin(Y * 0.029 - X * 0.0049 + 2.1) +
+    8 * Sin(X * 0.011 + Y * 0.017));
+  if F < 0 then F := 0;
+  if F > 100 then F := 100;
+  Result := Mescola(MioColore(212, 166, 102), MioColore(170, 120, 66), F * 7 div 10);
+  V := X;
+  if BordoW - 1 - X < V then V := BordoW - 1 - X;
+  if Y < V then V := Y;
+  if BordoH - 1 - Y < V then V := BordoH - 1 - Y;
+  if V < 0 then V := 0;
+  if V < 34 then Result := Mescola(Result, MioColore(48, 26, 10), (34 - V) * 30 div 34);
+end;
+
+procedure DisegnaLegno(C: TCanvas; W, H, Semi: Integer);
+var
+  I, N, X, Y, Y0, X0, Lun, Xe, Perc, K, Pezzo: Integer;
+  Amp, Fre, Fase: Double;
+  NNodi, NodoX, NodoY, Tono: Integer;
+  Chiaro: Boolean;
+
+  function Dentro(Xp: Integer): Integer;
+  begin
+    Result := Xp;
+    if Result < 0 then Result := 0;
+    if Result > W - 1 then Result := W - 1;
+  end;
+
+  { la fibra ondeggia piano e, vicino al nodino, gira intorno }
+  function Deforma(Xp, Yb: Integer; Ap, Fr, Fa: Double): Integer;
+  var
+    D: Double;
+  begin
+    D := Ap * Sin(Xp * Fr + Fa) + Ap * 0.5 * Sin(Xp * Fr * 2.3 + Fa * 1.7);
+    if NNodi > 0 then
+      D := D + 6 * (Yb - NodoY) / (Abs(Yb - NodoY) + 12) * Exp(-Sqr((Xp - NodoX) / 26.0));
+    Result := Yb + Round(D);
+  end;
+
+begin
+  BordoW := W;
+  BordoH := H;
+  InizioCaso(Semi);
   C.Brush.Style := bsSolid;
   C.Pen.Style := psSolid;
   C.Pen.Width := 1;
-  P := 0;
-  Y0 := 0;
-  while Y0 < H do
+  NNodi := 0;
+  NodoX := 0;
+  NodoY := 0;
+  if W >= 200 then            // un solo nodino piccolo, solo sulla tavola grande
   begin
-    Y1 := Y0 + PH;
-    if Y1 > H then Y1 := H;
-    Seme := (P * 53 + 17) mod 97;                 // ogni doga e' diversa dalle altre
-    T := (Seme mod 5) * 7 - 14;                   // il tono cambia da una doga all'altra
-    Base := MioColore(172 + T, 120 + T, 68 + T div 2);
-    C.Brush.Style := bsSolid;
-    C.Brush.Color := Base;
-    C.Pen.Color := Base;
-    C.Rectangle(0, Y0, W, Y1 + 1);
-    // LE VENATURE: linee che ondeggiano, chiare, medie e scure, una accanto all'altra
-    Fase := Seme * 0.37;
-    Fre := 0.020 + (Seme mod 4) * 0.004;
-    Y := Y0 + 2;
-    while Y < Y1 - 1 do
-    begin
-      Amp := 3 + ((Y div 9 + Seme) mod 3);        // le righe vicine ondeggiano insieme
-      if (((Y div 3) + Seme) mod 6) = 0 then
-      begin
-        C.Pen.Color := MioColore(104 + T, 64 + T, 30 + T div 2);    // vena scura, spessa
-        C.Pen.Width := 2;
-      end
-      else if (((Y div 3) + Seme) mod 6) = 3 then
-      begin
-        C.Pen.Color := MioColore(204 + T, 156 + T, 100 + T div 2);  // vena chiara
-        C.Pen.Width := 1;
-      end
-      else
-      begin
-        C.Pen.Color := MioColore(148 + T, 100 + T, 52 + T div 2);   // vena media
-        C.Pen.Width := 1;
-      end;
-      X := 0;
-      Yv := Y + Round(Amp * Sin(Fase + Y * 0.10));
-      if Yv < Y0 + 1 then Yv := Y0 + 1;
-      if Yv > Y1 - 1 then Yv := Y1 - 1;
-      C.MoveTo(0, Yv);
-      while X < W do
-      begin
-        Inc(X, 5);
-        Yv := Y + Round(Amp * Sin(X * Fre + Fase + Y * 0.10));
-        if Yv < Y0 + 1 then Yv := Y0 + 1;
-        if Yv > Y1 - 1 then Yv := Y1 - 1;
-        C.LineTo(X, Yv);
-      end;
-      Inc(Y, 3);
-    end;
-    C.Pen.Width := 1;
-    // un nodo del legno in quasi tutte le doghe: anelli scuri allungati
-    if (Seme mod 3) <> 0 then
-    begin
-      Nx := 30 + (Seme * 29) mod (W - 60);
-      Ny := Y0 + PH div 2;
-      C.Brush.Style := bsClear;
-      for K := 4 downto 1 do
-      begin
-        C.Pen.Color := MioColore(92 + K * 9 + T, 56 + K * 7 + T, 26 + K * 4 + T div 2);
-        C.Ellipse(Nx - K * 5 - 3, Ny - K * 2 - 1, Nx + K * 5 + 4, Ny + K * 2 + 2);
-      end;
-      C.Brush.Style := bsSolid;
-      C.Brush.Color := MioColore(66, 38, 16);
-      C.Pen.Color := MioColore(66, 38, 16);
-      C.Ellipse(Nx - 3, Ny - 2, Nx + 4, Ny + 3);
-    end;
-    // il giunto fra due doghe: una riga scura e sotto una riga chiara
-    if Y0 > 0 then
-    begin
-      C.Pen.Color := MioColore(58, 32, 12);
-      C.Pen.Width := 2;
-      C.MoveTo(0, Y0);
-      C.LineTo(W, Y0);
-      C.Pen.Color := MioColore(218, 170, 112);
-      C.Pen.Width := 1;
-      C.MoveTo(0, Y0 + 2);
-      C.LineTo(W, Y0 + 2);
-    end;
-    Inc(P);
-    Inc(Y0, PH);
+    NNodi := 1;
+    NodoX := 60 + Caso(W - 120);
+    NodoY := 100 + Caso(H - 200);
   end;
-  // la cornice lucida: tre strati, luce in alto a sinistra, ombra in basso a destra
+  // 1) i toni di base: un pixel alla volta, il colore cambia piano piano (niente righe nette)
+  Y := 0;
+  while Y < H do
+  begin
+    X := 0;
+    C.Pen.Color := TonoLegno(0, Y);
+    C.MoveTo(0, Y);
+    while X < W do
+    begin
+      Inc(X, 6);
+      C.Pen.Color := TonoLegno(X, Y);
+      C.LineTo(X, Y);
+    end;
+    Inc(Y);
+  end;
+  // 2) le fibre: tante linee sottilissime, un po' piu' chiare o piu' scure del legno sotto
+  N := (W * H) div 55;
+  for I := 1 to N do
+  begin
+    Y0 := Caso(H);
+    X0 := Caso(W) - 30;
+    Lun := 60 + Caso(W + 40);
+    Amp := 1.0 + Caso(35) / 10.0;
+    Fre := 0.005 + Caso(16) / 1000.0;
+    Fase := Caso(628) / 100.0;
+    Chiaro := Caso(100) < 36;
+    Tono := TonoLegno(Dentro(X0), Y0);
+    if Chiaro then
+      C.Pen.Color := Mescola(Tono, MioColore(232, 190, 130), 14 + Caso(18))
+    else
+      C.Pen.Color := Mescola(Tono, MioColore(66, 38, 16), 16 + Caso(26));
+    X := X0;
+    C.MoveTo(X, Deforma(X, Y0, Amp, Fre, Fase));
+    Xe := X0 + Lun;
+    while X < Xe do
+    begin
+      Inc(X, 5);
+      C.LineTo(X, Deforma(X, Y0, Amp, Fre, Fase));
+    end;
+  end;
+  // 3) qualche striatura piu' scura, lunga e sottile
+  for I := 1 to (W * H) div 4000 do
+  begin
+    Y0 := Caso(H);
+    X0 := Caso(W) - 40;
+    Lun := 100 + Caso(W);
+    Amp := 2.0 + Caso(30) / 10.0;
+    Fre := 0.004 + Caso(9) / 1000.0;
+    Fase := Caso(628) / 100.0;
+    Perc := 40 + Caso(18);
+    C.Pen.Color := Mescola(TonoLegno(Dentro(X0), Y0), MioColore(60, 34, 12), Perc);
+    X := X0;
+    C.MoveTo(X, Deforma(X, Y0, Amp, Fre, Fase));
+    Xe := X0 + Lun;
+    while X < Xe do
+    begin
+      Inc(X, 5);
+      C.LineTo(X, Deforma(X, Y0, Amp, Fre, Fase));
+    end;
+  end;
+  // 4) qualche fessura sottile e interrotta
+  for I := 1 to 3 + (W * H) div 30000 do
+  begin
+    Y0 := Caso(H);
+    X0 := Caso(W) - 30;
+    Lun := 80 + Caso(W);
+    Fase := Caso(628) / 100.0;
+    X := X0;
+    while X < X0 + Lun do
+    begin
+      Pezzo := 8 + Caso(40);
+      C.Pen.Color := Mescola(TonoLegno(Dentro(X), Y0), MioColore(30, 16, 6), 66 + Caso(10));
+      C.MoveTo(X, Deforma(X, Y0, 2.0, 0.012, Fase));
+      Xe := X + Pezzo;
+      while X < Xe do
+      begin
+        Inc(X, 4);
+        C.LineTo(X, Deforma(X, Y0, 2.0, 0.012, Fase));
+      end;
+      Inc(X, 4 + Caso(24));
+    end;
+  end;
+  // 5) i pori: piccoli trattini scuri lunghi 3-14 pixel
+  for I := 1 to (W * H) div 200 do
+  begin
+    X := Caso(W);
+    Y := Caso(H);
+    Lun := 3 + Caso(12);
+    Perc := 34 + Caso(21);
+    C.Pen.Color := Mescola(TonoLegno(X, Y), MioColore(50, 28, 10), Perc);
+    C.MoveTo(X, Deforma(X, Y, 1.5, 0.012, 1.0));
+    C.LineTo(X + Lun, Deforma(X + Lun, Y, 1.5, 0.012, 1.0));
+  end;
+  // 6) il nodino: tre anelli sottili e un centro scuro
+  if NNodi > 0 then
+  begin
+    C.Brush.Style := bsClear;
+    Tono := TonoLegno(NodoX, NodoY);
+    for K := 3 downto 1 do
+    begin
+      C.Pen.Color := Mescola(Tono, MioColore(60, 34, 12), 16 + K * 4);
+      C.Ellipse(NodoX - K * 5 - 3, NodoY - K * 2 - 2, NodoX + K * 5 + 4, NodoY + K * 2 + 3);
+    end;
+    C.Brush.Style := bsSolid;
+    C.Brush.Color := Mescola(Tono, MioColore(40, 22, 8), 55);
+    C.Pen.Color := C.Brush.Color;
+    C.Ellipse(NodoX - 3, NodoY - 2, NodoX + 4, NodoY + 3);
+  end;
+  // 7) la cornice lucida: luce in alto a sinistra, ombra in basso a destra
   C.Brush.Style := bsClear;
   C.Pen.Width := 6;
-  C.Pen.Color := MioColore(86, 50, 22);
+  C.Pen.Color := MioColore(84, 50, 22);
   C.Rectangle(0, 0, W, H);
   C.Pen.Width := 1;
-  C.Pen.Color := MioColore(142, 92, 46);
+  C.Pen.Color := MioColore(150, 100, 52);
   C.Rectangle(3, 3, W - 3, H - 3);
-  C.Pen.Color := MioColore(236, 194, 134);        // luce
+  C.Pen.Color := MioColore(232, 190, 132);
   C.MoveTo(4, 4);
   C.LineTo(W - 5, 4);
   C.MoveTo(4, 4);
   C.LineTo(4, H - 5);
-  C.Pen.Color := MioColore(255, 230, 176);        // riflesso lucido
+  C.Pen.Color := MioColore(255, 230, 176);
   C.MoveTo(8, 6);
   C.LineTo(W - 14, 6);
-  C.Pen.Color := MioColore(54, 30, 12);           // ombra
+  C.Pen.Color := MioColore(54, 30, 12);
   C.MoveTo(W - 5, 5);
   C.LineTo(W - 5, H - 5);
   C.LineTo(4, H - 5);
   C.Brush.Style := bsSolid;
+end;
+
+{ la scritta INTAGLIATA nel legno: ombra scura in alto a sinistra, bordo chiaro in basso a destra }
+procedure IncidiScritta(C: TCanvas; W, Alt: Integer; const Testo: String);
+var
+  Tx, Ty: Integer;
+begin
+  C.Brush.Style := bsClear;
+  C.Font.Name := 'Arial';
+  C.Font.Size := 22;
+  C.Font.Style := [fsBold];
+  Tx := (W - C.TextWidth(Testo)) div 2;
+  Ty := (Alt - C.TextHeight(Testo)) div 2;
+  C.Font.Color := MioColore(46, 24, 8);
+  C.TextOut(Tx - 1, Ty - 1, Testo);
+  C.Font.Color := MioColore(236, 194, 134);
+  C.TextOut(Tx + 1, Ty + 1, Testo);
+  C.Font.Color := MioColore(98, 58, 26);
+  C.TextOut(Tx, Ty, Testo);
+  C.Brush.Style := bsSolid;
+end;
+
+{ si disegna il legno una volta sola su una bitmap, poi basta copiarla }
+procedure PreparaFondi;
+begin
+  if FondoTavola = nil then
+  begin
+    FondoTavola := TBitmap.Create;
+    FondoTavola.Width := LARG_TAVOLA;
+    FondoTavola.Height := ALT_TAVOLA;
+    DisegnaLegno(FondoTavola.Canvas, LARG_TAVOLA, ALT_TAVOLA, 7);
+    IncidiScritta(FondoTavola.Canvas, LARG_TAVOLA, TITOLO + 12, '3 INF');
+  end;
+  if FondoTavolozza = nil then
+  begin
+    FondoTavolozza := TBitmap.Create;
+    FondoTavolozza.Width := LARG_PALETTE;
+    FondoTavolozza.Height := ALT_PALETTE;
+    DisegnaLegno(FondoTavolozza.Canvas, LARG_PALETTE, ALT_PALETTE, 19);
+  end;
 end;
 
 procedure DisegnaBuco(C: TCanvas; Cx, Cy, R: Integer);
@@ -721,11 +872,12 @@ var
   Riga, Col, K, Cx, Cy, Ind, Prima: Integer;
 begin
   Cv := PbTavola.Canvas;
-  DisegnaLegno(Cv, LARG_TAVOLA, ALT_TAVOLA);
+  PreparaFondi;
+  Cv.Draw(0, 0, FondoTavola);
   Prima := PrimaRigaVisibile;
   for Riga := 0 to RIGHE - 1 do
   begin
-    Cy := MARGINE + Riga * CELLA + CELLA div 2;
+    Cy := TITOLO + MARGINE + Riga * CELLA + CELLA div 2;
     Ind := Prima + Riga;
     if (Ind = NT) and (Modo <> mNessuno) and (not Finita) then
     begin
@@ -739,7 +891,7 @@ begin
     end;
     for Col := 0 to 3 do
     begin
-      Cx := MARGINE + 22 + Col * CELLA;
+      Cx := MARGINE + 22 + Col * PASSO_X;
       if Ind < NT then
         DisegnaPiolo(Cv, Cx, Cy, RAGGIO, COLORI[Storia[Ind].Colori[Col]])
       else if (Ind = NT) and (Col < NCorr) then
@@ -751,7 +903,7 @@ begin
     for K := 0 to 3 do
     begin
       Cx := 218 + (K mod 2) * 20;
-      Cy := MARGINE + Riga * CELLA + CELLA div 2 - 10 + (K div 2) * 20;
+      Cy := TITOLO + MARGINE + Riga * CELLA + CELLA div 2 - 10 + (K div 2) * 20;
       if Ind < NT then
       begin
         if K < Storia[Ind].Neri then DisegnaRisposta(Cv, Cx, Cy, 7, True)
@@ -770,7 +922,8 @@ var
   I: Integer;
 begin
   Cv := PbTavolozza.Canvas;
-  DisegnaLegno(Cv, LARG_PALETTE, ALT_PALETTE);
+  PreparaFondi;
+  Cv.Draw(0, 0, FondoTavolozza);
   for I := 1 to 6 do
     DisegnaPiolo(Cv, LARG_PALETTE div 2, 35 + (I - 1) * 50, RAGGIO, COLORI[I]);
 end;
