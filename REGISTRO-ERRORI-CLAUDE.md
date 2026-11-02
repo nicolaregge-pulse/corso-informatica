@@ -13,6 +13,14 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
+## 02/11/2026 — Cruscotto 2INF con dati sbagliati, scoperti dal docente alle 13:40 (#182-#186)
+
+1. **#182 Il cruscotto prendeva l'ultimo segnale di ogni ragazzo.** Una pagina riaperta manda 0 e cancellava le schede già lette: 15 ragazzi su 18 avevano il segnale finale più basso del massimo, teoria reti a 0 o 1 su 6 invece di 6. Regola: nel cruscotto il lavoro fatto è il MASSIMO raggiunto, mai l'ultimo valore; l'audit confronta ultimo e massimo.
+2. **#183 Nome scritto senza spazio non riconosciuto.** Un'allieva con il cognome scritto senza spazio compariva con un nome sbagliato, teoria 0 e nessun quiz, anche se aveva quiz 12/12. Regola: i nomi si confrontano senza spazi e senza maiuscole contro l'elenco del registro, e un presente senza dati si segnala come «non riconosciuto», non come «manca».
+3. **#184 2FA a 0/8 per chi l'aveva fatta.** Cinque allievi avevano la 2FA attiva (fatta insieme al docente) ma il cruscotto diceva «manca», perché il segnale «Ho fatto!» non era stato premuto. Regola: quando il docente conferma un lavoro fatto in aula, il cruscotto lo registra come «confermato dal docente» e lo conta.
+4. **#185 Scheda già consegnata data come mancante e istruzione sbagliata.** Un allievo aveva già consegnato la scheda del PC su Classroom, ma il cruscotto diceva «manca» e «CREATED» (dato vecchio), e io ho detto al docente di far cliccare «CONSEGNA». Regola: prima di dire «manca» o di dare un passo si rilegge la consegna su Classroom dell'ultimo minuto; un «manca» senza lettura fresca si scrive «non letto alle HH:MM».
+5. **#186 Veyon «ok» per tutti.** Il cruscotto diceva «ok» per tutti i presenti mentre un allievo (PC 36) era su un sito di annunci immobiliari alle 13:18, e il gruppo Veyon era vuoto. Regola: la colonna Veyon non scrive mai «ok» senza uno screenshot letto negli ultimi 5 minuti; se manca, scrive «non letto».
+
 ## 02/11/2026 — Audit di fine lezione 3INF: sei errori della giornata non ancora scritti (#176-#181)
 
 1. **#176 Compito del client su Classroom con il codice vecchio.** Il compito «Mastermind in rete: il tuo CLIENT» è stato pubblicato alle 09:57 con il form e il codice a 4 file (mm_logica, mm_tcp, client_unit) e l'IP di prova; dopo la riscrittura di #175 non è stato più modificato. Un allievo ha avuto l'errore «impossibile trovare mm_logica». Regola: dopo ogni riscrittura del codice per i ragazzi si modificano subito anche i compiti Classroom già pubblicati e si confronta il testo del compito con il file nuovo.
