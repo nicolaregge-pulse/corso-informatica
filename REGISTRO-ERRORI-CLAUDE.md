@@ -1034,3 +1034,8 @@ lezione.*
 
 1. **Errore.** Ho scritto al docente «pubblicate» per la pagina 4TI di martedì, ma mi riferivo solo al sito (PUBBLICATO e8632ac, ore_sbloccate=0). `verifica_lezione.py 4TI` non era stata lanciata, quindi la pubblicazione non era verificata (il compito su Classroom mancava).
 2. **Regola.** Dire «pubblicato» o «tutto pronto» solo dopo l'esito VERDE di `verifica_lezione.py` per quella classe; se non è lanciata o non è verde, dire che cosa è pubblicato (per esempio solo il sito) e che cosa manca.
+
+2/11/2026 — verifica_lezione.py cercava la coda con l'alias e dava ROSSO falso per la 4TI (#192)
+
+1. **Errore.** `verifica_lezione.py` cercava i file `coda/<giorno>_<classe>_*.json` con l'alias 4INF e non trovava quelli della 4TI: ROSSO falso. Il ROSSO è stato spiegato come atteso senza aprire il file (#139).
+2. **Regola.** Corretto il glob: la coda si cerca con entrambi i nomi (4TI e 4INF); l'alias per Classroom resta. Un ROSSO inatteso si controlla aprendo il file, mai spiegandolo a memoria.
