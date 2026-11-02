@@ -67,7 +67,10 @@ type
     procedure ProvaInRete;
     function PrimaRigaVisibile: Integer;
     procedure MostraDemo;
+    procedure TastoPremuto(Sender: TObject; var Key: Char);
+    procedure TitoloTimer(Sender: TObject);
   public
+    TimerTitolo: TTimer;              // fa tornare il titolo normale dopo un istante
     Avviato: Boolean;                 // True quando FormCreate e' gia' partita
     Modo: TModo;
     Finita: Boolean;                  // True dopo che hai indovinato
@@ -110,7 +113,11 @@ const
   ALT_PALETTE = 330;
   // sei colori, in ordine 1..6: rosso, giallo, verde, blu, arancio, viola (formato BGR)
   COLORI: array[1..6] of Integer = ($002828DC, $001EC8F0, $003CA028, $00DC5A28, $001E82F0, $00AA328C);
-  NOMI_COLORI: array[1..6] of String = ('rosso', 'giallo', 'verde', 'blu', 'arancio', 'viola');
+  NOMI_COLORI: array[1..6] of String = ('rosso', 'giallo', 'verde', 'blu', 'arancio', 'porpora');
+  LETTERE_COLORI: array[1..6] of String = ('R', 'G', 'V', 'B', 'A', 'P');   // la lettera di ogni colore
+  TEMPO_TITOLO_MS = 200;    // quanto dura la legenda nel titolo (200 = 2 decimi di secondo; metti 2000 per 2 secondi)
+  TITOLO_FORM = 'Mastermind bello - il tuo CLIENT';
+  LEGENDA_FORM = 'R rosso, G giallo, V verde, B blu, A arancio, P porpora';
 
 { ---------- il cervello: nessuna finestra, nessuna rete ---------- }
 
@@ -528,7 +535,55 @@ begin
   if not Assigned(PbTavola.OnPaint) then PbTavola.OnPaint := @PbTavolaPaint;
   if not Assigned(PbTavolozza.OnPaint) then PbTavolozza.OnPaint := @PbTavolozzaPaint;
   if not Assigned(PbTavolozza.OnMouseDown) then PbTavolozza.OnMouseDown := @PbTavolozzaMouseDown;
+  KeyPreview := True;                                   // la finestra legge i tasti prima dei bottoni
+  if not Assigned(OnKeyPress) then OnKeyPress := @TastoPremuto;
+  // la legenda delle lettere compare un istante nel titolo della finestra, poi torna il titolo normale
+  TimerTitolo := TTimer.Create(Self);
+  TimerTitolo.Enabled := False;
+  TimerTitolo.Interval := TEMPO_TITOLO_MS;
+  TimerTitolo.OnTimer := @TitoloTimer;
+  Caption := LEGENDA_FORM;
+  TimerTitolo.Enabled := True;
   if not Avviato then FormCreate(nil);
+end;
+
+procedure TForm1.TitoloTimer(Sender: TObject);
+begin
+  TimerTitolo.Enabled := False;
+  Caption := TITOLO_FORM;
+end;
+
+{ Si puo' giocare anche con la tastiera: R G V B A P = Rosso Giallo Verde Blu Arancio Porpora,
+  Cancella (Backspace) toglie l'ultimo, Invio prova. Se stai scrivendo il nome o l'IP non succede niente. }
+procedure TForm1.TastoPremuto(Sender: TObject; var Key: Char);
+var
+  C: Integer;
+begin
+  if ActiveControl is TEdit then Exit;
+  C := 0;
+  case UpCase(Key) of
+    'R': C := 1;
+    'G': C := 2;
+    'V': C := 3;
+    'B': C := 4;
+    'A': C := 5;
+    'P': C := 6;
+  end;
+  if C > 0 then
+  begin
+    AggiungiColore(C);
+    Key := #0;
+  end
+  else if Key = #8 then
+  begin
+    TogliUltimo;
+    Key := #0;
+  end
+  else if Key = #13 then
+  begin
+    if BtnProva.Enabled then ProvaTentativo;
+    Key := #0;
+  end;
 end;
 
 { il quarto, il terzo... campo di una riga separata da punto e virgola }
@@ -670,7 +725,7 @@ begin
   for I := 0 to 3 do Segreto[I] := Random(6) + 1;   // i colori possono ripetersi
   Ricomincia;
   LblStato.Caption := 'DA SOLO: indovina il codice';
-  LblEsito.Caption := 'Ho pensato 4 colori (anche uguali). Clicca i colori a destra e premi Prova.';
+  LblEsito.Caption := 'Ho pensato 4 colori (anche uguali). Clicca i colori a destra, oppure scrivi le lettere R G V B A P, e premi Prova (o Invio).';
   AggiornaBottoni;
 end;
 
@@ -950,7 +1005,19 @@ begin
   PreparaFondi;
   Cv.Draw(0, 0, FondoTavolozza);
   for I := 1 to 6 do
+  begin
     DisegnaPiolo(Cv, LARG_PALETTE div 2, 35 + (I - 1) * 50, RAGGIO, COLORI[I]);
+    // la lettera del colore, scolpita accanto al piolo: R G V B A P
+    Cv.Brush.Style := bsClear;
+    Cv.Font.Name := 'Arial';
+    Cv.Font.Size := 11;
+    Cv.Font.Style := [fsBold];
+    Cv.Font.Color := MioColore(236, 194, 134);
+    Cv.TextOut(LARG_PALETTE - 21, 35 + (I - 1) * 50 - 9, LETTERE_COLORI[I]);
+    Cv.Font.Color := MioColore(60, 34, 12);
+    Cv.TextOut(LARG_PALETTE - 22, 35 + (I - 1) * 50 - 10, LETTERE_COLORI[I]);
+    Cv.Brush.Style := bsSolid;
+  end;
 end;
 
 end.
