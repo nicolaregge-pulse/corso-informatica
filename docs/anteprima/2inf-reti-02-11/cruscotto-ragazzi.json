@@ -1,23 +1,23 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T12:07",
- "ora": "12:07",
- "fonte": "piani A + B · segnali schede: 0 · schede PC: 1 · analisi mail: 0 · 2FA: 4 allievi · Veyon: nessun giro · presenti: dal registro",
+ "generato": "2026-11-02T12:12",
+ "ora": "12:12",
+ "fonte": "piani A + B · segnali schede: 18 · schede PC: 2 · analisi mail: 0 · 2FA: 4 allievi · Veyon: nessun giro · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "presenti_ok": true,
  "fonti_ora": [
   {
    "fonte": "Segnali delle schede (Foglio)",
-   "ora": "11:09",
-   "iso": "2026-11-02T11:09+01:00",
-   "vecchio": true
+   "ora": "12:08",
+   "iso": "2026-11-02T12:08+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Scheda d'identità (pagina)",
-   "ora": "11:49",
-   "iso": "2026-11-02T11:49+01:00",
-   "vecchio": true
+   "ora": "12:11",
+   "iso": "2026-11-02T12:11+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Analisi mail (phishing)",
@@ -27,8 +27,8 @@
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "12:02",
-   "iso": "2026-11-02T12:02+01:00",
+   "ora": "12:08",
+   "iso": "2026-11-02T12:08+01:00",
    "vecchio": false
   },
   {
@@ -53,15 +53,15 @@
  "righe": [
   {
    "nome": "Luca B.",
-   "voto": 40,
+   "voto": 45,
    "teoria": {
-    "reti": 0,
+    "reti": 6,
     "ph": 0,
     "tot": 6
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -82,22 +82,23 @@
    "veyon": {
     "fuori": 0
    },
-   "svolto": 0.0,
+   "svolto": 1.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "teoria reti letta (6 schede) +5"
    ]
   },
   {
    "nome": "Antonio M.",
-   "voto": 40,
+   "voto": 45,
    "teoria": {
-    "reti": 0,
+    "reti": 6,
     "ph": 0,
     "tot": 6
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -118,9 +119,10 @@
    "veyon": {
     "fuori": 0
    },
-   "svolto": 0.0,
+   "svolto": 1.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "teoria reti letta (6 schede) +5"
    ]
   },
   {
@@ -133,7 +135,7 @@
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -169,7 +171,7 @@
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -197,15 +199,15 @@
   },
   {
    "nome": "Luciano C.",
-   "voto": 50,
+   "voto": 55,
    "teoria": {
-    "reti": 0,
+    "reti": 6,
     "ph": 0,
     "tot": 6
    },
    "scheda": {
     "pagina": true,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": true,
     "ora": "11:49"
    },
@@ -226,15 +228,391 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "11:49",
+   "fermo_da": "11:57",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 2.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Lina A.",
+   "voto": 50,
+   "teoria": {
+    "reti": 0,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "CREATED",
+    "consegnata": true,
+    "ora": "12:11"
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "12:11",
    "veyon": {
     "fuori": 0
    },
    "svolto": 1.0,
    "conto": [
     "base 40",
-    "scheda d'identità consegnata +10",
-    "quiz di chiusura rete 12/12: si vede, per ora non conta"
+    "scheda d'identità consegnata +10"
+   ]
+  },
+  {
+   "nome": "Sara A.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:40",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Katherine A.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:43",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Giorgio A.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:39",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Youssef A.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:42",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Riccardo B.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:40",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Shahenda E.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:28",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Alejandro G.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12,
+    "ora": "11:52"
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:40",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "quiz di chiusura rete 11/12: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Francesco M.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:27",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
+   ]
+  },
+  {
+   "nome": "Mahammed M.",
+   "voto": 45,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": false,
+    "classroom": "CREATED",
+    "consegnata": false,
+    "ora": ""
+   },
+   "phishing": null,
+   "fa2": {
+    "passi": 0,
+    "tot": 8,
+    "fatto": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:55",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5"
    ]
   },
   {
@@ -247,259 +625,7 @@
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Lina A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Sara A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Katherine A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Giorgio A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Youssef A.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Riccardo B.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Shahenda E.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -535,7 +661,7 @@
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
@@ -552,54 +678,13 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "",
+   "fermo_da": "12:00",
    "veyon": {
     "fuori": 0
    },
    "svolto": 0.0,
    "conto": [
     "base 40"
-   ]
-  },
-  {
-   "nome": "Alejandro G.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": {
-    "p": 11,
-    "m": 12,
-    "ora": "11:52"
-   },
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40",
-    "quiz di chiusura rete 11/12: si vede, per ora non conta"
    ]
   },
   {
@@ -612,79 +697,7 @@
    },
    "scheda": {
     "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Francesco M.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 0,
-    "tot": 8,
-    "fatto": false,
-    "ora": ""
-   },
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Mahammed M.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
+    "classroom": "CREATED",
     "consegnata": false,
     "ora": ""
    },
