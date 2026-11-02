@@ -1029,3 +1029,8 @@ lezione.*
 
 1. **Errore.** Il 09/10 il docente ha detto «mi piacerebbe spostare tutto su Godot» e il 12/10 «PPP mettiamola su Godot». Ho portato su Godot solo il treno della 1INF (v2.0); le 20 versioni della 2INF del 12/10 e quelle della 3INF sono rimaste in HTML. Ho risposto «preparo tutto e lo consegno al tuo avanti» e poi non l'ho messo nell'elenco dei lavori aperti: il docente l'ha scoperto da solo la sera.
 2. **Regola.** Ogni richiesta del docente, anche dentro un PPP, va subito nell'elenco dei lavori aperti (`orario/da-fare-*.md`) e compare in ogni aggiornamento sui lavori finché non è fatta o il docente non la toglie. Il gioco della classe si porta su Godot.
+
+## 02/11/2026 — «Pubblicate» detto per la pagina 4TI senza la verifica della classe (#191)
+
+1. **Errore.** Ho scritto al docente «pubblicate» per la pagina 4TI di martedì, ma mi riferivo solo al sito (PUBBLICATO e8632ac, ore_sbloccate=0). `verifica_lezione.py 4TI` non era stata lanciata, quindi la pubblicazione non era verificata (il compito su Classroom mancava).
+2. **Regola.** Dire «pubblicato» o «tutto pronto» solo dopo l'esito VERDE di `verifica_lezione.py` per quella classe; se non è lanciata o non è verde, dire che cosa è pubblicato (per esempio solo il sito) e che cosa manca.
