@@ -1,0 +1,17 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Mail 5</title><style>*{box-sizing:border-box}body{margin:0;background:#e9edf2;font:18px/1.5 'Segoe UI',system-ui,Arial,sans-serif;color:#1f2328}
+main{max-width:900px;margin:0 auto;padding:12px}
+.bozza{background:#fff3cd;border:2px solid #d9a400;border-radius:10px;padding:8px 14px;margin:8px 0;font-weight:700}
+.mail{background:#fff;border:1px solid #c9d1da;border-radius:6px;margin:12px 0}
+.top{background:#2b4a6f;color:#fff;padding:9px 18px;font-weight:700;font-size:15px;border-radius:6px 6px 0 0}
+.ogg{font-size:24px;font-weight:700;padding:14px 22px 6px}
+.da{padding:4px 22px 12px;border-bottom:1px solid #e3e7ec}.da .ind{color:#4a5563;font-size:15px}
+.corpo{padding:16px 22px 8px}.corpo p{margin:0 0 12px}
+.btn{display:inline-block;background:#1a73e8;color:#fff;padding:11px 22px;border-radius:6px;font-weight:700;margin:6px 0 14px}
+.stato{word-break:break-all;background:#2d2f33;color:#e8eaed;font:14px/1.3 Consolas,Menlo,monospace;padding:8px 14px;border-top:3px solid #888}
+.stato small{display:block;font:12px 'Segoe UI',Arial,sans-serif;color:#aab;margin-bottom:2px}
+.vero{background:#e7f1ff;border:2px solid #1f6feb;border-radius:8px;padding:8px 14px;margin:10px 0;font-weight:700}
+.caso{background:#fff;border:1px solid #c9d1da;border-radius:10px;padding:12px 16px;margin:12px 0}
+.caso h3{margin:0 0 6px}.sms{background:#dcf8c6;border-radius:12px;padding:10px 14px;margin:8px 0}
+button.sc{font:inherit;padding:8px 18px;border-radius:8px;border:2px solid #1f6feb;background:#fff;margin:4px 6px 4px 0;cursor:pointer}
+.ris{margin-top:8px;font-weight:700}.ok{color:#116329}.ko{color:#b3261e}
+a{color:#0b57d0}</style><script src="ore.js" data-ora="1"></script></head><body><main><div class="bozza">BOZZA per il docente: non pubblicata. Mail inventata per l'esercizio, nessun link è cliccabile.</div><div class="mail"><div class="top">Posta · Esempio — Mail 5 di 8</div><div class="ogg">Il tuo pacco sarà consegnato domani</div><div class="da"><b>DHL Express</b><div class="ind">&lt;noreply@dhl.com&gt;</div><div class="ind">A: me · 3 nov, 11:15</div></div><div class="corpo"><p>Gentile cliente,</p><p>il corriere consegnerà il tuo pacco domani tra le 9 e le 17.</p><p>Se non ci sei, lasceremo un avviso con le istruzioni per il ritiro.</p><span class="btn">Segui la spedizione</span></div><div class="stato"><small>Dove porta davvero il bottone (è solo testo, non si clicca):</small>https://www.dhl.com/it-it/home/tracking.html</div></div><div class="vero">Per confrontare: il sito vero di DHL è «dhl.com».</div><div class="caso"><b>Mittente, link e sito vero: sono nello stesso dominio?</b><br><button class="sc" onclick="r('sicura')">È sicura</button><button class="sc" onclick="r('phishing')">È phishing</button><div class="ris" id="ris"></div></div><p><a href="index.html">Torna all'esercitazione</a></p></main><script>var G="sicura",I="Mittente e link sono su dhl.com, il sito vero. Non chiede pagamenti né dati. (Il percorso dopo dhl.com è inventato.)";function r(x){var o=document.getElementById("ris");o.className="ris "+(x===G?"ok":"ko");o.textContent=(x===G?"Giusto! ":"Non è così. Era: "+G+". ")+I;}</script></body></html>
