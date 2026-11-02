@@ -10,6 +10,7 @@ E = html.escape
 
 
 def _t(x, y, s, size=20, bold=False, fill='#1f2328', anchor='start', mono=False):
+    n_ = len(s) - len(s.lstrip(' ')); s = '\u00a0' * n_ + s.lstrip(' ')
     fam = 'Consolas,Menlo,monospace' if mono else 'Arial,Helvetica,sans-serif'
     return '<text x="%d" y="%d" font-size="%d" fill="%s" font-weight="%s" text-anchor="%s" font-family="%s">%s</text>' % (
         x, y, size, fill, 'bold' if bold else 'normal', anchor, fam, E(s))
@@ -78,7 +79,7 @@ def svg(path, titolo, items, hl=(), nota=''):
 
 
 def codesvg(path, titolo, codice, nota=''):
-    righe = codice.strip('\n').split('\n')[:12]
+    righe = codice.strip('\n').split('\n\n')[0].split('\n')[:11]
     svg(path, titolo, [('code', righe, 40, 70, 720)], (), nota or 'Il codice da scrivere (esempio)')
 
 

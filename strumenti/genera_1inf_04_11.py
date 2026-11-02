@@ -168,7 +168,7 @@ for f in ('cruscotto.css', 'cruscotto-vista.js'):
     shutil.copy(SLUGDIR + '1inf-deepfake-03-11/' + f, D + f)
 r = open(SLUGDIR + '1inf-deepfake-03-11/cruscotto-ragazzi.html', encoding='utf-8').read().replace('03/11', '04/11')
 open(D + 'cruscotto-ragazzi.html', 'w', encoding='utf-8').write(r)
-open(D + 'cruscotto-ragazzi.json', 'w', encoding='utf-8').write(json.dumps({"titolo": "1INF 04/11", "generato": "", "ora": "-", "fonte": "dati non ancora letti: il docente preme LEGGI I DATI quando serve", "righe": []}, ensure_ascii=False, indent=1))
+(not os.path.exists(D + 'cruscotto-ragazzi.json')) and open(D + 'cruscotto-ragazzi.json', 'w', encoding='utf-8').write(json.dumps({"titolo": "1INF 04/11", "generato": "", "ora": "-", "fonte": "dati non ancora letti: il docente preme LEGGI I DATI quando serve", "righe": []}, ensure_ascii=False, indent=1))
 json.dump({"invio": INVIO, "attivo": True, "ore_sbloccate": 0,
            "_nota": "1INF 04/11/2026, Laboratorio 8-11: convertitore, calcolatrice, cassiere (Allegato A PFP_1 Comp. 15, I anno). Pagina CHIUSA finche il docente non sblocca (regola 31).",
            "_ore": "0 = tutta chiusa; il docente alza di UNA ora alla volta con strumenti/sblocca_ora.py 1inf-lab-04-11 N."},
