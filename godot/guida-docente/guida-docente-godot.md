@@ -19,9 +19,9 @@ Per chi sa Lazarus e non ha mai usato Godot. Si legge dall'inizio alla fine in c
 2. È molto leggero: è **un solo file .exe**. Non si installa e non chiede l'amministratore. È perfetto per la scuola.
 3. Il linguaggio si chiama **GDScript** ed è molto simile a Python: poche parole, niente punto e virgola, si scrive con il rientro (come in Python).
 4. Perché serve a noi, secondo l'Allegato A:
-   1. **2INF** (Comp. 15): «Sviluppo di videogiochi con Godot Engine: scene, nodi, segnali, GDScript, game loop».
-   2. **3INF** (Comp. 13 e 15): Godot, «GDScript, game loop, collisioni, dati in JSON».
-   3. 1INF: previsto più avanti.
+    1. **2INF** (Comp. 15): «Sviluppo di videogiochi con Godot Engine: scene, nodi, segnali, GDScript, game loop».
+    2. **3INF** (Comp. 13 e 15): Godot, «GDScript, game loop, collisioni, dati in JSON».
+    3. 1INF: previsto più avanti.
 5. Perché motiva i ragazzi: il primo risultato (un personaggio che si muove con le frecce) arriva in **10 minuti** ed è un gioco vero, che possono mostrare ai compagni. Questo è esattamente il motore del corso: «Vinci subito, Fallo tuo, Mostralo».
 
 ## 02 Il ponte da Lazarus
@@ -136,10 +136,10 @@ Titolo per i ragazzi: **«Il mio primo videogioco: Raccogli le stelle»**. Una s
 
 1. 10 minuti: tutti fanno la sezione 06 (primi 10 minuti). Chi finisce aiuta il vicino.
 2. **Fallo tuo**, a scelta del ragazzo (10 minuti). Ogni modifica si prova con F5:
-   1. Cambiare la velocità: `300` diventa `600` (più veloce) o `150` (più lenta).
-   2. Cambiare il colore: nell'Ispettore, **Modulate** (sotto Canvas Item → Visibility): scegli un colore.
-   3. Cambiare la grandezza: **Scale** (per esempio 0.5 o 2).
-   4. Cambiare l'immagine: trascinare nel campo Texture un'altra immagine (una foto, un meme, un disegno) messa nella cartella del progetto.
+    1. Cambiare la velocità: `300` diventa `600` (più veloce) o `150` (più lenta).
+    2. Cambiare il colore: nell'Ispettore, **Modulate** (sotto Canvas Item → Visibility): scegli un colore.
+    3. Cambiare la grandezza: **Scale** (per esempio 0.5 o 2).
+    4. Cambiare l'immagine: trascinare nel campo Texture un'altra immagine (una foto, un meme, un disegno) messa nella cartella del progetto.
 3. **Mostralo**: il ragazzo fa vedere il suo gioco a un compagno e dice a voce, con parole sue, che cosa fa `position += direzione * velocità * delta`. Questa è la prova del nove.
 4. Quaderno (regola 23 solo per la 1INF): non si applica qui. Chiedi invece uno **screenshot del gioco in esecuzione** (tasto Stamp o Windows+Maiusc+S) da consegnare.
 
@@ -166,10 +166,10 @@ func _physics_process(_delta):
 5. Salva la scena (Ctrl+S) con il nome `player`.
 6. **La stella.** Nuova scena, nodo radice **Area2D**, rinominato `Stella`. Aggiungi due figli: `Sprite2D` (immagine `icon.svg`, **Scale** 0.5, **Modulate** giallo) e `CollisionShape2D` (forma **CircleShape2D**, raggio circa 40).
 7. Il **segnale**, passo per passo (è l'evento di Lazarus):
-   1. Seleziona il nodo `Stella`.
-   2. Nella zona a destra clic sulla scheda **Nodo (Node)** accanto a Ispettore.
-   3. Sotto **Segnali (Signals)** fai **doppio clic** su `body_entered(body: Node2D)`.
-   4. Nella finestra clic su **Connetti (Connect)**. Godot apre lo script e crea la funzione `_on_body_entered`.
+    1. Seleziona il nodo `Stella`.
+    2. Nella zona a destra clic sulla scheda **Nodo (Node)** accanto a Ispettore.
+    3. Sotto **Segnali (Signals)** fai **doppio clic** su `body_entered(body: Node2D)`.
+    4. Nella finestra clic su **Connetti (Connect)**. Godot apre lo script e crea la funzione `_on_body_entered`.
 8. Gruppo: sempre nella scheda **Nodo**, sezione **Gruppi (Groups)**: scrivi `stelle` e clic su **Aggiungi (Add)**.
 9. Seleziona tutto lo script della stella (Ctrl+A) e incolla:
 
