@@ -66,6 +66,7 @@ type
     procedure ProvaInLocale;
     procedure ProvaInRete;
     function PrimaRigaVisibile: Integer;
+    procedure MostraDemo;
   public
     Avviato: Boolean;                 // True quando FormCreate e' gia' partita
     Modo: TModo;
@@ -476,6 +477,29 @@ end;
 
 { ---------- la finestra ---------- }
 
+{ una partita di ESEMPIO: appena premi F9 vedi subito il legno, i pioli colorati e i
+  piolini neri e bianchi. Sparisce quando premi "Gioca da solo" o "Connetti". }
+procedure TForm1.MostraDemo;
+const
+  DEMO: array[0..4, 0..3] of Integer =
+    ((2, 2, 5, 6), (1, 1, 2, 3), (1, 4, 4, 3), (4, 1, 1, 3), (1, 4, 1, 5));
+var
+  I, J: Integer;
+  Sec: TCodice;
+begin
+  Sec[0] := 1;      // il codice dell'esempio: rosso, blu, rosso, verde (il rosso si ripete)
+  Sec[1] := 4;
+  Sec[2] := 1;
+  Sec[3] := 3;
+  for I := 0 to 4 do
+  begin
+    for J := 0 to 3 do Storia[I].Colori[J] := DEMO[I, J];
+    Valuta(Sec, Storia[I].Colori, Storia[I].Neri, Storia[I].Bianchi);
+  end;
+  NT := 5;
+  NCorr := 0;
+end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Avviato := True;
@@ -487,7 +511,8 @@ begin
   Timer1.Enabled := False;
   Timer1.Interval := 3000;
   LblStato.Caption := 'Scegli come giocare';
-  LblEsito.Caption := 'Premi "Gioca da solo", oppure scrivi il tuo nome e premi Connetti.';
+  LblEsito.Caption := 'Questa e'' una partita di esempio. Premi "Gioca da solo" per giocare davvero.';
+  MostraDemo;
   AggiornaBottoni;
 end;
 
