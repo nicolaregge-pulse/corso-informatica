@@ -151,6 +151,6 @@ Se ci sono tutti e due, il client prova la rete e, se non risponde, usa i file.
 | `mm_file.pas` | trasporto B: file |
 | `mm_tcp.pas` | trasporto A: TCP con `ssockets` (unità di Free Pascal, niente da installare) |
 | `client_unit.pas` | la parte dello studente |
-| `unit1_client.pas` | il Mastermind normale con la scheda Classifica |
+| `unit1_client.pas` + `unit1_client.lfm` | la finestra dello studente: indirizzo server, nome, Connetti, tentativo, Prova, storia, classifica e posizione |
 | `server_mastermind.pas` | il server a console del prof |
 | `test/` | le prove automatiche |
