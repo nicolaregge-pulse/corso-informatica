@@ -1,0 +1,40 @@
+MASTERMIND BELLO - CLIENT E SERVER (3INF)
+=========================================
+
+Cosa c'e' dentro
+  Client\   il programma dei ragazzi   (progetto ClientMastermind)
+  Server\   il programma del prof       (progetto ServerMastermind)
+  Risorse\  le due icone (IconaClient, IconaServer)
+
+Come si apre e si prova (Lazarus)
+  1. Doppio clic su  Client\ClientMastermind.lpi  (oppure Server\ServerMastermind.lpi).
+  2. Premi F9. La prima volta Lazarus compila: ci vuole un po'.
+  3. Il client mostra subito una partita di esempio. Premi "Gioca da solo" per giocare
+     senza rete: per 2,3 secondi il codice segreto compare nel titolo della finestra
+     (per spegnerlo: MOSTRA_CODICE_NEL_TITOLO = False in UnitClient.pas).
+  4. Per giocare in classe: sul PC del prof apri il Server, premi "Avvia server".
+     Se Windows chiede il permesso, clicca "Consenti accesso" (e' il firewall).
+     Il server scrive in grande l'indirizzo: i ragazzi lo scrivono nella casella
+     "IP del server" del client, poi il loro nome, poi "Connetti".
+  5. Quando sono collegati, il prof preme "Via!". "Stop" mette in pausa, "Nuova
+     combinazione" ricomincia con un altro codice, "Mostra il codice" fa vedere i 4 pioli.
+
+Regole del gioco
+  I colori sono 6 (rosso, giallo, verde, blu, arancio, porpora) e possono ripetersi.
+  Piolino nero = colore giusto al posto giusto. Piolino bianco = colore giusto al posto sbagliato.
+  Scorciatoia da tastiera nel client: R G V B A P, Backspace (toglie l'ultimo), Invio (prova).
+
+Rete
+  Porta 5050 (sempre uguale, non va cambiata). Protocollo: una riga in, una riga fuori:
+  STATO;nome  e  GUESS;nome;1234  (le cifre 1..6 sono i colori).
+
+Come e' fatto
+  Ogni programma e' un form con una sola unit (UnitClient.pas, UnitServer.pas) e il suo
+  file .lfm. Nomi esemplari: FormClient / FormServer. I file .res vengono riscritti da
+  Lazarus alla prima compilazione (contengono l'icona).
+
+Cosa e' stato provato e cosa no
+  Provato con il compilatore Free Pascal su finte unita' LCL: compilazione, conteggio dei
+  neri e bianchi con colori ripetuti, partita da soli, 6 client in rete contro il server.
+  NON provato con la vera Lazarus in questa versione: apertura dei .lpi, aspetto reale
+  delle finestre. Se Lazarus segnala un errore, mandare uno screenshot.
