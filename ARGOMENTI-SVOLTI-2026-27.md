@@ -64,9 +64,9 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 29/10/2026 | 3INF Laboratorio 2 ore: Hello World, differenze tra Lazarus e Java Eclipse (percorso guidato a passi, consegna su Classroom) | `docs/3inf-confronto/`, `docs/3inf-eclipse-guida/` | Creazioni di applicazioni con Lazarus |
 | 29/10/2026 | 1INF Sicurezza 1 ora (fatte la 2ª e la 3ª ora del corso): Sicurezza 2, prevenzione e protezione, schede di ripasso e quiz su Moduli | `docs/verifica/` (banche 1inf-sicurezza-2ora e 3ora) | Prevenzione e protezione |
 | 02/11/2026 | 3INF Laboratorio 3 ore: Mastermind in Lazarus, codice con Random, schede e punteggio, poi client e server in rete (server del prof, porta 5000) | `docs/anteprima/3inf-client-lazarus-02-11/`, `classe-3/mastermind-2/` | Creazioni di applicazioni semplici con Lazarus (Comp. 15, II anno); Reti Hardware e software (Comp. 16, II anno) |
-| 02/11/2026 | 2INF 11-12, Laboratorio: la rete del mio PC (IP, MAC, gateway e DNS con ipconfig), scheda d'identità del PC, ripasso e quiz su Moduli | `docs/anteprima/2inf-reti-02-11/` | Reti MAC address (Comp. 16, I anno) |
-| 02/11/2026 | 2INF 12-13, Laboratorio: DHCP e DNS, 4 schede, la mia mappa e quiz di 8 domande su Moduli | `docs/anteprima/2inf-dhcp-dns-02-11/` | La rete: Hardware e software (Comp. 8, I anno); la voce «DHCP e DNS» manca nell'Allegato A e va aggiunta |
-| 02/11/2026 | 2INF 13-14, Sicurezza: social engineering e phishing, analisi delle mail e quiz su Moduli | `docs/anteprima/2inf-sicurezza-02-11/` | Rischi in rete (Comp. 8, I anno) |
+| 02/11/2026 | 2INF 11-12, Laboratorio: la rete del mio PC (IP, MAC, gateway e DNS con ipconfig), scheda d'identità del PC, ripasso e quiz su Moduli | `docs/anteprima/2inf-reti-02-11/` | Reti di calcolatori: indirizzo IP, indirizzo MAC, gateway (modulo 7, Comp. 16) |
+| 02/11/2026 | 2INF 12-13, Laboratorio: DHCP e DNS, 4 schede, la mia mappa e quiz di 8 domande su Moduli | `docs/anteprima/2inf-dhcp-dns-02-11/` | Reti di calcolatori: servizi DHCP e DNS (modulo 7, Comp. 16; la voce c'è nel programma di massima) |
+| 02/11/2026 | 2INF 13-14, Sicurezza: social engineering e phishing, analisi delle mail e quiz su Moduli | `docs/anteprima/2inf-sicurezza-02-11/` | Sicurezza informatica: phishing e ingegneria sociale (modulo 12, Comp. 8) |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
