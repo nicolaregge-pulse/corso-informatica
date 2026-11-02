@@ -1,0 +1,168 @@
+object Form1: TForm1
+  Left = 200
+  Height = 640
+  Top = 80
+  Width = 800
+  Caption = 'Mastermind 2.0 - SERVER del prof'
+  ClientHeight = 640
+  ClientWidth = 800
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  LCLVersion = '4.2.0.0'
+  object LblPorta: TLabel
+    Left = 16
+    Height = 17
+    Top = 12
+    Width = 100
+    Caption = 'Porta'
+    ParentColor = False
+  end
+  object EdPorta: TEdit
+    Left = 16
+    Height = 34
+    Top = 32
+    Width = 90
+    Font.Height = -19
+    OnChange = EdPortaChange
+    ParentFont = False
+    TabOrder = 0
+    Text = '5050'
+  end
+  object BtnAvvia: TButton
+    Left = 124
+    Height = 34
+    Top = 32
+    Width = 170
+    Caption = 'Avvia server'
+    OnClick = BtnAvviaClick
+    TabOrder = 1
+  end
+  object LblStato: TLabel
+    Left = 312
+    Height = 34
+    Top = 36
+    Width = 470
+    AutoSize = False
+    Caption = 'Server SPENTO'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblIp: TLabel
+    Left = 16
+    Height = 17
+    Top = 76
+    Width = 400
+    Caption = 'IP di questo PC: '
+    ParentColor = False
+  end
+  object LblIndirizzo: TLabel
+    Left = 16
+    Height = 17
+    Top = 104
+    Width = 300
+    Caption = 'Da dire ai ragazzi (scrivilo nel loro programma):'
+    ParentColor = False
+  end
+  object EdIndirizzo: TEdit
+    Left = 16
+    Height = 34
+    Top = 126
+    Width = 250
+    Font.Height = -19
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 2
+  end
+  object BtnVia: TButton
+    Left = 16
+    Height = 52
+    Top = 174
+    Width = 220
+    Caption = 'Via!'
+    Enabled = False
+    Font.Height = -24
+    Font.Style = [fsBold]
+    OnClick = BtnViaClick
+    ParentFont = False
+    TabOrder = 3
+  end
+  object BtnNuova: TButton
+    Left = 252
+    Height = 52
+    Top = 174
+    Width = 220
+    Caption = 'Nuova combinazione'
+    Enabled = False
+    OnClick = BtnNuovaClick
+    TabOrder = 4
+  end
+  object LblSegreto: TLabel
+    Left = 492
+    Height = 52
+    Top = 174
+    Width = 290
+    AutoSize = False
+    Caption = 'Combinazione segreta: (non ancora scelta)'
+    Layout = tlCenter
+    OnClick = LblSegretoClick
+    ParentColor = False
+    WordWrap = True
+  end
+  object LblGiocatori: TLabel
+    Left = 16
+    Height = 24
+    Top = 238
+    Width = 766
+    AutoSize = False
+    Caption = 'Giocatori collegati: 0'
+    Font.Height = -17
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblClassifica: TLabel
+    Left = 16
+    Height = 17
+    Top = 274
+    Width = 100
+    Caption = 'Classifica'
+    ParentColor = False
+  end
+  object LblRegistro: TLabel
+    Left = 420
+    Height = 17
+    Top = 274
+    Width = 200
+    Caption = 'Registro (collegamenti e tentativi)'
+    ParentColor = False
+  end
+  object Griglia: TStringGrid
+    Left = 16
+    Height = 330
+    Top = 294
+    Width = 392
+    Anchors = [akTop, akLeft, akBottom]
+    ColCount = 4
+    FixedCols = 0
+    RowCount = 1
+    TabOrder = 5
+  end
+  object MemoRegistro: TMemo
+    Left = 420
+    Height = 330
+    Top = 294
+    Width = 362
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ReadOnly = True
+    ScrollBars = ssAutoVertical
+    TabOrder = 6
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 50
+    OnTimer = Timer1Timer
+    Left = 700
+    Top = 80
+  end
+end
