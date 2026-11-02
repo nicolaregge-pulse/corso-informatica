@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 1.8** — 02/11/2026 — documento interno del docente e di Claude
+**Versione 1.9** — 02/11/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -67,6 +67,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 7. Prima di chiedere al docente presenze o voti si guarda nei file del giorno (#154).
 8. Nessuna pagina dei ragazzi dice «alza la mano» o «chiedi al prof» per problemi di contenuto: si scrive all'assistente; la mano alzata solo se il PC non funziona (#171, controllo `alza_la_mano` in `controlli_pagine.py`).
 9. Ogni quiz per i ragazzi è un Modulo Google in modalità quiz (forms.crea_quiz), con il link nel compito su Classroom prima di pubblicare; la copia sul sito è solo ripasso e non conta (#173, regola 33; audit: fallisce se nel compito di un quiz manca un link docs.google.com/forms).
+10. Prima di accodare o creare un post su Classroom: `bash strumenti/prima_di_pubblicare.sh "<titolo>"` e l'elenco Classroom deve avere meno di 2 minuti; se il post esiste già si modifica, non si crea (#174, regola 34).
 
 ## Changelog
 
@@ -79,3 +80,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 8. v1.7 (29/10/2026): §01 punti 10 e 11, consegna Lazarus con unit1.pas + screenshot e piano B per ogni cosa (Nicola).
 7. v1.6 (29/10/2026): §06 controlli nati dagli errori #147-#154 (controllati da `controlla_controlli.py` e dall'hook del messaggio).
 9. v1.8 (02/11/2026): §06 punto 9, i quiz sono sempre su Moduli (#173, regola 33).
+10. v1.9 (02/11/2026): §06 punto 10, nessun doppione su Classroom (#174, regola 34).
