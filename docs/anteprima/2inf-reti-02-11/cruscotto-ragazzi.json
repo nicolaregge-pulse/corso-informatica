@@ -1,16 +1,16 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T13:56",
- "ora": "13:56",
- "fonte": "piani A + B · segnali schede: 18 · schede PC: 16 · analisi mail: 0 · 2FA: 19 allievi · Veyon: 1 righe · presenti: dal registro",
+ "generato": "2026-11-02T14:01",
+ "ora": "14:01",
+ "fonte": "piani A + B · segnali schede: 18 · schede PC: 16 · analisi mail: 2 · 2FA: 19 allievi · Veyon: 1 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "presenti_ok": true,
  "fonti_ora": [
   {
    "fonte": "Segnali delle schede (Foglio)",
-   "ora": "13:48",
-   "iso": "2026-11-02T13:48+01:00",
+   "ora": "13:57",
+   "iso": "2026-11-02T13:57+01:00",
    "vecchio": false
   },
   {
@@ -21,14 +21,14 @@
   },
   {
    "fonte": "Analisi mail (phishing)",
-   "ora": "",
-   "iso": "",
-   "vecchio": true
+   "ora": "13:56",
+   "iso": "2026-11-02T13:56+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "13:48",
-   "iso": "2026-11-02T13:48+01:00",
+   "ora": "13:58",
+   "iso": "2026-11-02T13:58+01:00",
    "vecchio": false
   },
   {
@@ -51,6 +51,112 @@
   }
  ],
  "righe": [
+  {
+   "nome": "Lina A.",
+   "voto": 75,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": "13:16"
+   },
+   "phishing": {
+    "p": 8,
+    "su": 8,
+    "indizi_ok": 3,
+    "ora": "13:56",
+    "parole": [
+     11,
+     9
+    ]
+   },
+   "fa2": {
+    "passi": 8,
+    "tot": 8,
+    "fatto": false,
+    "ora": "13:09"
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12,
+    "ora": "12:16"
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "13:56",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 3.0,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10",
+    "phishing 8/8 mail giuste +20",
+    "quiz di chiusura rete 11/12: si vede, per ora non conta"
+   ]
+  },
+  {
+   "nome": "Luciano C.",
+   "voto": 73,
+   "teoria": {
+    "reti": 6,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "TURNED_IN",
+    "consegnata": true,
+    "ora": "11:49"
+   },
+   "phishing": {
+    "p": 7,
+    "su": 8,
+    "indizi_ok": 3,
+    "ora": "13:56",
+    "parole": [
+     20,
+     11
+    ]
+   },
+   "fa2": {
+    "passi": 8,
+    "tot": 8,
+    "fatto": true,
+    "ora": "12:34"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12,
+    "ora": "11:52"
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "13:56",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 2.875,
+   "conto": [
+    "base 40",
+    "teoria reti letta (6 schede) +5",
+    "scheda d'identità consegnata +10",
+    "phishing 7/8 mail giuste +18",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
+   ]
+  },
   {
    "nome": "Hagar A.",
    "voto": 55,
@@ -92,49 +198,6 @@
     "teoria reti letta (6 schede) +5",
     "scheda d'identità consegnata +10",
     "quiz di chiusura rete 12/12: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Lina A.",
-   "voto": 55,
-   "teoria": {
-    "reti": 6,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": true,
-    "classroom": "TURNED_IN",
-    "consegnata": true,
-    "ora": "13:16"
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 8,
-    "tot": 8,
-    "fatto": false,
-    "ora": "13:09"
-   },
-   "quiz_reti": {
-    "p": 11,
-    "m": 12,
-    "ora": "12:16"
-   },
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "13:24",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 2.0,
-   "conto": [
-    "base 40",
-    "teoria reti letta (6 schede) +5",
-    "scheda d'identità consegnata +10",
-    "quiz di chiusura rete 11/12: si vede, per ora non conta"
    ]
   },
   {
@@ -424,49 +487,6 @@
     "consegnato": false
    },
    "fermo_da": "13:14",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 2.0,
-   "conto": [
-    "base 40",
-    "teoria reti letta (6 schede) +5",
-    "scheda d'identità consegnata +10",
-    "quiz di chiusura rete 12/12: si vede, per ora non conta"
-   ]
-  },
-  {
-   "nome": "Luciano C.",
-   "voto": 55,
-   "teoria": {
-    "reti": 6,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": true,
-    "classroom": "TURNED_IN",
-    "consegnata": true,
-    "ora": "11:49"
-   },
-   "phishing": null,
-   "fa2": {
-    "passi": 8,
-    "tot": 8,
-    "fatto": true,
-    "ora": "12:34"
-   },
-   "quiz_reti": {
-    "p": 12,
-    "m": 12,
-    "ora": "11:52"
-   },
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "13:36",
    "veyon": {
     "fuori": 0
    },
