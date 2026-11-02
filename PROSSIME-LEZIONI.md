@@ -1,6 +1,15 @@
 # Prossime lezioni
 
-Aggiornato venerdì 30 ottobre 2026, nella notte. Prima la lezione più vicina.
+Aggiornato lunedì 2 novembre 2026, di mattina presto (solo la lezione di seconda informatica; le altre voci sono di venerdì). Prima la lezione più vicina.
+
+## Lunedì 2 novembre
+
+### Seconda informatica, dalle 11 alle 14, Laboratorio professionale, tre ore
+
+Argomento proposto: nelle prime due ore, come parla il computer in rete, cioè indirizzo IP, indirizzo MAC, gateway, DNS e DHCP. Nella terza ora, sicurezza informatica: come si riconoscono le mail false, il phishing.
+Attività: sei schede di teoria con il ripasso; la pratica in cui ognuno legge dalle Impostazioni di Windows i numeri del proprio computer e compila il Documento «La scheda d'identità del mio PC»; un quiz di chiusura; poi otto mail finte da analizzare, sicure o phishing, con gli indizi, sullo schermo grande e da soli. Se restano tempo e forze c'è un extra di novanta minuti: il proprio budget in Fogli di Google, con somma, media e un semaforo rosso.
+Materiali: la pagina unica di oggi con i quattro passi, il Documento su Classroom e le mail finte, fatte con marchi inventati.
+Stato: è tutto pronto in anteprima. Nulla è pubblicato: si pubblica solo quando il prof dice «pubblica».
 
 ## Venerdì 30 ottobre
 

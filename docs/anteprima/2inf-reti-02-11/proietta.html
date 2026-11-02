@@ -1,0 +1,29 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Mail sullo schermo</title><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--ko:#c0392b;--q:#fff4c2;--blu:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:1100px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.2em;margin:.2em 0 .4em}h3{font-size:1.05em;margin:.8em 0 .3em}
+.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}.mu{color:var(--mu);font-size:.92em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;font-size:1.1em;padding:14px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.b{background:#fff0;color:var(--acc);border:2px solid var(--acc);font-weight:600;font-size:1em;padding:10px}button.bt[disabled]{opacity:.45;cursor:not-allowed}
+.passo{border:3px solid var(--blu);border-radius:14px;padding:8px 14px 12px;margin:16px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:42px;height:42px;border-radius:50%;background:var(--blu);color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:10px 14px;margin:12px 0}
+.vinci{border-color:var(--ok);background:rgba(26,127,55,.07)}.fatto{color:var(--ok);font-weight:800}
+ol.pp{padding-left:1.3em}ol.pp li{margin:.5em 0}code,kbd{background:rgba(127,127,127,.18);border-radius:5px;padding:1px 6px;font-family:Consolas,monospace}
+input[type=text],textarea,select{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}textarea{min-height:86px}
+.msg{font-weight:700}.msg.ok{color:var(--ok)}.msg.ko{color:var(--ko)}
+.ore{border-top:1px solid var(--bd);padding-top:8px;margin-top:8px}
+.mailimg{width:100%;border:1px solid var(--bd);border-radius:8px;display:block}
+.sc{display:flex;gap:10px;margin:10px 0}.sc label{flex:1;text-align:center;border:3px solid var(--bd);border-radius:12px;padding:12px 6px;font-weight:800;cursor:pointer;background:var(--card)}
+.sc input{position:absolute;opacity:0;pointer-events:none}.sc label.sel{border-color:var(--blu);background:rgba(31,111,235,.12)}
+.ind label{display:block;padding:6px 10px;border:1px solid var(--bd);border-radius:8px;margin:4px 0;cursor:pointer;background:var(--card)}.ind label.sel{border-color:var(--blu);background:rgba(31,111,235,.10)}
+.ris{border-left:6px solid var(--ok);padding:6px 12px;margin:8px 0;background:var(--card);border-radius:8px}.ris.ko{border-color:var(--ko)}</style></head><body><main>
+<p class="mu"><a href="./">&larr; Torna alla pagina di oggi</a> · Frecce destra e sinistra per cambiare mail · premi <b>F</b> per lo schermo intero</p>
+<div style="display:flex;gap:8px;align-items:center;justify-content:space-between"><button class="bt b" id="pr" style="width:auto;padding:8px 18px">&larr; Prima</button><h1 id="tit" style="margin:0">Mail 1 di 8</h1><button class="bt b" id="su" style="width:auto;padding:8px 18px">Dopo &rarr;</button></div>
+<img id="im" class="mailimg" alt="Mail" src="mail/mail-1.png" style="margin-top:10px">
+<p class="mu">Domande per la classe: chi scrive? Che dominio ha? Mette fretta? Dove porta il bottone? Sicura o phishing?</p>
+<script>var N=1;function vai(n){N=Math.max(1,Math.min(8,n));document.getElementById('im').src='mail/mail-'+N+'.png';document.getElementById('im').alt='Mail '+N;document.getElementById('tit').textContent='Mail '+N+' di 8';try{history.replaceState(null,'','#'+N)}catch(x){}}
+document.getElementById('pr').onclick=function(){vai(N-1)};document.getElementById('su').onclick=function(){vai(N+1)};
+document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')vai(N+1);if(e.key==='ArrowLeft')vai(N-1);if(e.key==='f'||e.key==='F'){if(document.fullscreenElement)document.exitFullscreen();else document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}});
+if(/^#[1-8]$/.test(location.hash))vai(+location.hash.slice(1));</script></main></body></html>
