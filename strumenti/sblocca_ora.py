@@ -7,7 +7,11 @@ import json, subprocess, sys, pathlib
 CART = {'3inf': 'docs/anteprima/3inf-mastermind-02-11', '2inf': 'docs/anteprima/2inf-reti-02-11',
         '3inf-client': 'docs/anteprima/3inf-client-lazarus-02-11',
         '2inf-dhcp': 'docs/anteprima/2inf-dhcp-dns-02-11',
-        '2inf-sicurezza': 'docs/anteprima/2inf-sicurezza-02-11'}
+        '2inf-sicurezza': 'docs/anteprima/2inf-sicurezza-02-11',
+        '2inf-oggi': 'docs/anteprima/2inf-03-11',
+        '2inf-phishing': 'docs/anteprima/2inf-phishing-v2',
+        '4ti': 'docs/anteprima/4ti-ipv4-03-11',
+        '1inf-deepfake': 'docs/anteprima/1inf-deepfake-03-11'}
 if len(sys.argv) != 3 or sys.argv[1] not in CART or sys.argv[2] not in ('0', '1', '2', '3'):
     sys.exit(__doc__)
 radice = pathlib.Path(__file__).resolve().parent.parent
