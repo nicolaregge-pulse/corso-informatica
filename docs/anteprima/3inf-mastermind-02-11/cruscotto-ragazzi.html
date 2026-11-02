@@ -1,0 +1,9 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Il mio andamento · Creazioni di applicazioni con Lazarus</title><link rel="stylesheet" href="cruscotto.css"></head><body><main>
+<h1>Oggi: a che punto sono?</h1>
+<p class="mu">Trova il tuo nome: vedi i passi fatti, che cosa hai consegnato e che cosa ti manca. Premi F5 per aggiornare. <a href="./">Torna alla pagina della lezione</a></p>
+<div id="app">Carico…</div>
+<script src="cruscotto-vista.js"></script>
+<script>
+fetch('cruscotto-ragazzi.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){document.getElementById('app').innerHTML=disegnaCruscotto(D,false)}).catch(function(){document.getElementById('app').textContent='Dati non ancora pronti.'});
+</script></main></body></html>
