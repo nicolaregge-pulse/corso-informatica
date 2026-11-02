@@ -15,7 +15,8 @@ echo "== server spento =="; "$OUT/test_client" 127.0.0.1 Prova spento
 echo "== IP sbagliato (non raggiungibile) =="; "$OUT/test_client" 10.255.255.1 Prova spento
 echo "== IP scritto male =="; "$OUT/test_client" 192.168.x.y Prova spento
 "$OUT/test_finestra" $PORTA "$OUT/fatto" "$OUT" b > "$OUT/driver.log" 2>&1 &
-SPID=$!; sleep 1
+SPID=$!
+for i in $(seq 1 60); do python3 -c "import socket,sys;sys.exit(socket.socket().connect_ex(('127.0.0.1',$PORTA)))" 2>/dev/null && break; sleep 0.5; done   # aspetta che il server ascolti
 echo "== prima del Via =="; "$OUT/test_client" 127.0.0.1 Wait1 wait; "$OUT/test_client" 127.0.0.1 Err1 errori
 echo "== $N client in parallelo =="
 for i in $(seq 1 $N); do "$OUT/test_client" 127.0.0.1 "Alunno$i" gioca > "$OUT/c$i.log" 2>&1 & done
