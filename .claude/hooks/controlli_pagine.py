@@ -196,6 +196,21 @@ def copia_incolla_modulo(percorso, testo):
     return []
 
 
+# 6c. «Alza la mano / chiedi al prof» per problemi di contenuto (regole 14 e 30, #171)
+RX_ALZA = re.compile(r"alza\s+la\s+mano(?!\s+solo\s+se)|chiedi\s+al\s+prof|chiama\s+il\s+prof|"
+                     r"il\s+professore\s+(?:viene|arriva)|arriva\s+il\s+professore", re.I)
+
+
+def alza_la_mano(percorso, testo):
+    if pagina_docente(percorso) or not percorso.endswith((".html", ".js")):
+        return []
+    m = RX_ALZA.search(testo)
+    if m:
+        return ["%s: «%s»: le domande vanno all'assistente, il prof solo per PC rotto, salute, comportamento (#171)"
+                % (percorso, m.group(0))]
+    return []
+
+
 # 6b. Passo con la foto o il telefono in una pagina dei ragazzi (#44)
 RX_FOTO = re.compile(r"fai\s+(?:una|la)\s+foto|fotograf\w*\s+(?:il|la|lo)\s+(?:foglio|quaderno|disegno|lavagna)|"
                      r"con\s+il\s+(?:tuo\s+)?(?:telefono|cellulare)", re.I)
@@ -251,8 +266,8 @@ def valore_nudo(percorso, testo):
             % (percorso, m.group(1), _riga(testo, m.start()), m.group(1), m.group(1))]
 
 
-SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo)
-TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo)
+SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo, alza_la_mano)
+TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo, alza_la_mano)
 
 
 def controlla(percorso, testo, controlli=SICURI, radice=None):

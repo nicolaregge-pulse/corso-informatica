@@ -65,6 +65,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 5. Un conteggio di consegne si rilegge alla fonte prima di consegnare un report e porta fonte e ora (#151).
 6. Un'attività automatica si dichiara pronta solo dopo un giro di prova vero (#152); una pagina si dichiara verificata solo sul sito vero con i dati veri, non con «?prova=1» (#153).
 7. Prima di chiedere al docente presenze o voti si guarda nei file del giorno (#154).
+8. Nessuna pagina dei ragazzi dice «alza la mano» o «chiedi al prof» per problemi di contenuto: si scrive all'assistente; la mano alzata solo se il PC non funziona (#171, controllo `alza_la_mano` in `controlli_pagine.py`).
 
 ## Changelog
 
