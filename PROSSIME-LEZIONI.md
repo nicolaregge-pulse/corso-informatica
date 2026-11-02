@@ -1,50 +1,49 @@
 # Prossime lezioni
 
-Aggiornato lunedì 2 novembre 2026, di mattina presto (solo la lezione di seconda informatica; le altre voci sono di venerdì). Prima la lezione più vicina.
-
-## Lunedì 2 novembre
-
-### Seconda informatica, dalle 11 alle 14, Laboratorio professionale, tre ore
-
-Argomento proposto: nelle prime due ore, come parla il computer in rete, cioè indirizzo IP, indirizzo MAC, gateway, DNS e DHCP. Nella terza ora, sicurezza informatica: come si riconoscono le mail false, il phishing.
-Attività: sei schede di teoria con il ripasso; la pratica in cui ognuno legge dalle Impostazioni di Windows i numeri del proprio computer e compila il Documento «La scheda d'identità del mio PC»; un quiz di chiusura; poi otto mail finte da analizzare, sicure o phishing, con gli indizi, sullo schermo grande e da soli. Se restano tempo e forze c'è un extra di novanta minuti: il proprio budget in Fogli di Google, con somma, media e un semaforo rosso.
-Materiali: la pagina unica di oggi con i quattro passi, il Documento su Classroom e le mail finte, fatte con marchi inventati.
-Stato: è tutto pronto in anteprima. Nulla è pubblicato: si pubblica solo quando il prof dice «pubblica».
-
-## Venerdì 30 ottobre
-
-### Prima informatica, dalle 8 alle 9, Tecnologia professionale, un'ora
-
-Argomento proposto: il computer scrive in tutte le lingue, cioè da ASCII a Unicode e quanti byte pesa una lettera. Seconda parte della stessa ora: stringhe e interi, cioè String e Integer, con le schede, il ripasso e il quiz su Moduli.
-Attività: otto schede in italiano, arabo e cinese con una casella dove ognuno scrive il suo nome nella sua lingua e vede il numero di ogni carattere; tre righe da ricopiare sul quaderno; il quiz su Google Moduli di quindici domande.
-Materiali: la pagina «Il computer scrive in tutte le lingue» e il quiz su Google Moduli.
-Stato: il compito è già pubblicato su Classroom da giovedì sera alle 18 e 18, con l'approvazione del prof.
-
-### Seconda informatica, dalle 9 alle 10, Sicurezza professionale, un'ora
-
-Argomento: la quinta ora di sicurezza della Regione, il rischio infortuni, prima ora della formazione specifica.
-Attività: otto schede e il ripasso su infortunio, quasi infortunio, infortunio in itinere, cause e INAIL; poi i venti casi del quiz su Google Moduli; chi finisce recupera le ore mancanti.
-Materiali: la pagina «Sicurezza, quinta ora: il rischio infortuni», la pagina dei propri quiz e la situazione quiz per il prof.
-Stato: il compito è già pubblicato su Classroom da giovedì sera alle 18 e 18, con l'approvazione del prof.
-
-### Prima informatica, dalle 11 alle 14, Laboratorio professionale, tre ore
-
-Argomento consigliato: Lazarus in tre ore, le stringhe e i numeri interi, cioè i tre moduli che il prof ha chiesto giovedì sera.
-Attività: nella prima ora la teoria su String e Integer, un quiz di ventidue domande e il programma «Il pasticcio dei numeri», dove cinque più tre scritti come testo fanno cinquantatré e come numeri fanno otto. Nella seconda ora «Il soprannome», con due caselle di testo. Nella terza ora «Il segnapunti», un contatore con StrToInt e IntToStr. Ogni ora si consegnano il file unit1.pas e lo screenshot del programma che gira.
-Le altre due proposte sono «Ciao 2», cioè il saluto in una Label colorata, che è già in bozza su Classroom, e la mini calcolatrice con due numeri e la somma.
-Materiali: i tre moduli sono pronti in anteprima e non sono ancora visibili ai ragazzi; il quiz su Google Moduli è già creato.
-Da fare prima: il prof sceglie la proposta nel cruscotto, conferma i punti del voto e scrive pubblica.
+Aggiornato lunedì 2 novembre 2026, nel pomeriggio. Si pianifica sempre la settimana intera, da martedì a lunedì successivo compresi. Prima la lezione più vicina. Nulla è pubblicato per i ragazzi: si pubblica solo all'inizio di ogni lezione, un'ora per volta, quando il prof lo dice.
 
 ## Martedì 3 novembre
 
-### Quarta, dalle 9 e 55 alle 13 e 5, cioè dalla terza alla quinta ora, Laboratorio professionale, tre ore
+Seconda informatica, dalle 8 alle 10, Informatica, due ore. Argomento proposto: la verifica in due passaggi di GitHub per tutti e come si riconosce una mail di phishing, con indirizzi realistici da confrontare con il sito vero. Attività: nella prima ora chi non l'ha ancora fatto attiva la verifica in due passaggi con il generatore della scuola e prova l'accesso; nella seconda ora otto mail e quattro messaggi da analizzare, poi il quiz su Google Moduli. Materiali: la pagina della verifica in due passaggi, già pronta; le pagine del phishing nuovo sono in bozza e vanno approvate dal prof un caso alla volta.
 
-Argomento: le reti e i loro dispositivi, si continua dalla lezione di martedì 27 ottobre, quando si sono visti lo switch, il router, l'access point, il firewall e il comando ipconfig. Non si rifanno: si va avanti.
-Attività consigliata: nella prima ora le schede sull'indirizzo IPv4, cioè quale parte del numero è la rete e quale il computer, la maschera, il gateway, il DHCP e il DNS, partendo dal numero che ognuno ha letto sul suo computer il 27 ottobre. Nella seconda ora gli esercizi su due computer nella stessa rete oppure no, e il quiz su Google Moduli allegato al compito di Classroom, che serve anche come prova per la Regione. Nella terza ora ognuno porta avanti il suo progetto: aggiorna su GitHub la parte che spiega che cosa c'entra la rete, con un commit dal messaggio chiaro.
-Le altre due proposte sono il modello TCP/IP, cioè che cosa succede quando si apre un sito, e una mattina dedicata solo al progetto, con i recuperi e la prima versione su GitHub.
-Materiali: la pagina della lezione si prepara dopo la scelta del prof; ci sono già le pagine della quarta sui progetti, sui sette livelli, sulle app delle reti e la lezione del 27 ottobre.
-Da fare prima: il prof sceglie una delle tre proposte nel cruscotto, alla linguetta «Piano del giorno»; Claude legge i quiz e i documenti di progetto del 27 ottobre e prepara i recuperi per chi era assente.
+Quarta, dalle 10 alle 13, Laboratorio professionale, tre ore. Argomento proposto: l'indirizzo IPv4, cioè quale parte è la rete e quale il computer, la maschera, il gateway, il DHCP e il DNS. Attività: nella prima ora le schede; nella seconda esercizi su due computer nella stessa rete o in reti diverse e il quiz su Google Moduli, che vale come prova per la Regione; nella terza ora ognuno aggiorna il progetto su GitHub con un commit dal messaggio chiaro. Materiali: la pagina della lezione si prepara dopo la scelta del prof.
+
+Prima informatica, dalle 13 alle 14, Tecnologia professionale, un'ora. Argomento proposto: ripasso di Unicode, stringhe e interi. Attività: dieci minuti per ricodificare il proprio nome, venti di esercizi, il quiz su Google Moduli e cinque minuti per ricopiare qualcosa sul quaderno. Materiali: la pagina di venerdì 30 ottobre e il quiz già creato.
+
+## Mercoledì 4 novembre
+
+Prima informatica, dalle 8 alle 11, Laboratorio professionale, tre ore. Argomento proposto: Lazarus con stringhe e numeri interi in pratica. Attività: nella prima ora «Il pasticcio dei numeri», dove cinque più tre scritti come testo fanno cinquantatré e come numeri fanno otto, con il quiz; nella seconda ora «Il soprannome» con due caselle di testo; nella terza «Il segnapunti», un contatore. A ogni ora si consegnano il file e lo screenshot, e si ricopia qualcosa sul quaderno.
+
+Seconda informatica, dalle 11 alle 12, Sicurezza professionale, un'ora. Argomento proposto: l'ora successiva del programma di sicurezza della Regione, con schede, ripasso e quiz su Google Moduli. La voce esatta va controllata nel programma.
+
+Terza, dalle 12 alle 14, Laboratorio professionale, due ore. Argomento proposto: il Mastermind in rete. Attività: nella prima ora ognuno aggiorna il programma client con il codice nuovo e si collega al server del prof; nella seconda una partita di classe, il commit su GitHub con messaggio chiaro e il quiz sulla rete su Google Moduli.
+
+## Giovedì 5 novembre
+
+Seconda informatica, dalle 8 alle 11, Laboratorio professionale, tre ore. Argomento proposto: DHCP e DNS completo e GitHub. Attività: le schede e la mappa del proprio computer, il quiz di otto domande su Google Moduli, poi un commit sul proprio repository. Chi è rimasto indietro recupera schede e quiz.
+
+Terza, dalle 11 alle 13, Laboratorio professionale, due ore. Argomento proposto: Mastermind in rete, miglioramenti e prima versione su GitHub. Attività: ognuno aggiunge una miglioria al proprio client, poi la versione su GitHub e la spiegazione a voce.
+
+Prima informatica, dalle 13 alle 14, Sicurezza professionale, un'ora. Argomento proposto: l'ora successiva del programma di sicurezza della Regione, con quiz su Google Moduli e qualcosa da ricopiare sul quaderno.
+
+## Venerdì 6 novembre
+
+Prima informatica, dalle 8 alle 9, Tecnologia professionale, un'ora. Argomento proposto: i giochi dei byte e dei pixel, a coppie, con un breve quiz su Google Moduli.
+
+Seconda informatica, dalle 9 alle 10, Sicurezza professionale, un'ora. Argomento proposto: l'ora successiva del programma di sicurezza della Regione, con quiz su Google Moduli.
+
+Prima informatica, dalle 11 alle 14, Laboratorio professionale, tre ore. Argomento proposto: la mini calcolatrice in Lazarus. Attività: nella prima ora la somma di due numeri; nella seconda gli altri operatori; nella terza il repository su GitHub e due commit dal messaggio chiaro.
+
+## Lunedì 9 novembre
+
+L'orario di questo giorno va confermato, perché non è ancora nel calendario. Se segue la struttura dei lunedì, la terza è dalle 8 alle 11 e la seconda dalle 11 alle 14.
+
+Terza informatica, Laboratorio professionale, tre ore. Argomento proposto: rifinitura e consegna del progetto di rete, con una breve relazione e un commit dal messaggio chiaro.
+
+Seconda informatica, Laboratorio professionale, tre ore. Argomento proposto: Git e il progetto calcolatrice. Attività: repository, cartelle e file giusti con il commit; la versione 1.0; poi la prova del nove a voce e i recuperi della settimana.
+
+Nel pomeriggio di lunedì si decidono gli argomenti dei sette giorni successivi, da martedì 10 a lunedì 16 novembre.
 
 ## Promemoria per tutte le classi
 
-In seconda e in terza, quando i ragazzi hanno finito il lavoro, si possono proporre i giochi dei byte e dei pixel della prima.
+In seconda e in terza, quando i ragazzi hanno finito il lavoro, si possono proporre i giochi dei byte e dei pixel della prima. Ogni ora della prima si dà qualcosa da ricopiare sul quaderno.
