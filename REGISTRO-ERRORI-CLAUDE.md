@@ -13,13 +13,16 @@ data. NON contiene nomi di allievi (quelli restano nel repo privato).*
 
 
 
-## 02/11/2026 — Cruscotto 2INF con dati sbagliati, scoperti dal docente alle 13:40 (#182-#186)
+## 02/11/2026 — Cruscotto 2INF con dati sbagliati, scoperti dal docente alle 13:40 (#182-#188)
 
 1. **#182 Il cruscotto prendeva l'ultimo segnale di ogni ragazzo.** Una pagina riaperta manda 0 e cancellava le schede già lette: 15 ragazzi su 18 avevano il segnale finale più basso del massimo, teoria reti a 0 o 1 su 6 invece di 6. Regola: nel cruscotto il lavoro fatto è il MASSIMO raggiunto, mai l'ultimo valore; l'audit confronta ultimo e massimo.
 2. **#183 Nome scritto senza spazio non riconosciuto.** Un'allieva con il cognome scritto senza spazio compariva con un nome sbagliato, teoria 0 e nessun quiz, anche se aveva quiz 12/12. Regola: i nomi si confrontano senza spazi e senza maiuscole contro l'elenco del registro, e un presente senza dati si segnala come «non riconosciuto», non come «manca».
 3. **#184 2FA a 0/8 per chi l'aveva fatta.** Cinque allievi avevano la 2FA attiva (fatta insieme al docente) ma il cruscotto diceva «manca», perché il segnale «Ho fatto!» non era stato premuto. Regola: quando il docente conferma un lavoro fatto in aula, il cruscotto lo registra come «confermato dal docente» e lo conta.
 4. **#185 Scheda già consegnata data come mancante e istruzione sbagliata.** Un allievo aveva già consegnato la scheda del PC su Classroom, ma il cruscotto diceva «manca» e «CREATED» (dato vecchio), e io ho detto al docente di far cliccare «CONSEGNA». Regola: prima di dire «manca» o di dare un passo si rilegge la consegna su Classroom dell'ultimo minuto; un «manca» senza lettura fresca si scrive «non letto alle HH:MM».
 5. **#186 Veyon «ok» per tutti.** Il cruscotto diceva «ok» per tutti i presenti mentre un allievo (PC 36) era su un sito di annunci immobiliari alle 13:18, e il gruppo Veyon era vuoto. Regola: la colonna Veyon non scrive mai «ok» senza uno screenshot letto negli ultimi 5 minuti; se manca, scrive «non letto».
+
+6. **#187 Quiz del phishing e mail senza un confronto possibile.** Nelle mail della 2INF il dominio del mittente era uguale a quello del link e nessun testo diceva qual è il sito vero, quindi i ragazzi non potevano distinguere una mail sicura da un dominio con una lettera cambiata (tipo ikea e ikkea). Il quiz stesso chiedeva di ricordare messaggi inventati e di scegliere «l'indizio più importante» tra risposte facili da indovinare (la giusta è la più lunga). Regola: ogni mail o messaggio di un esercizio sul phishing dichiara il sito o il numero vero da confrontare; nel quiz ci sono casi con domini quasi uguali e casi sicuri difficili; le risposte sbagliate devono essere plausibili e della stessa lunghezza.
+7. **#188 Sblocco di un'ora con l'id sbagliato e «sbloccata» dichiarato senza verifica.** Ho eseguito sblocca_ora.py con «2inf-reti» invece di «2inf», senza leggere il risultato, e ho detto che l'ora era sbloccata mentre la pagina «Analizza le 8 mail» restava chiusa durante l'ora. Regola: dopo ogni sblocco si legge config.json (ore_sbloccate) e si dice «sbloccata» solo con PUBBLICATO e il valore letto.
 
 ## 02/11/2026 — Audit di fine lezione 3INF: sei errori della giornata non ancora scritti (#176-#181)
 
