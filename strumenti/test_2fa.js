@@ -35,6 +35,16 @@ let fail = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); i
     await pg.reload(); await pg.waitForSelector('#num0'); ok(true, 'account salvato dopo ricarica');
     const sc = await pg.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth); ok(sc, w + 'px nessuno scroll orizzontale');
     ok(errs.length === 0, w + 'px zero errori console ' + errs.join('|'));
+    if (w === 390) {
+      const posts = []; await pg.route('https://script.google.com/**', r => { posts.push(decodeURIComponent(r.request().postData() || '')); r.fulfill({ status: 200, body: 'ok' }); });
+      ok(await pg.isDisabled('#consegna'), 'consegna bloccata a inizio');
+      for (let i = 1; i <= 8; i++) await pg.check('input[data-p="' + i + '"]');
+      await pg.fill('#chi', 'Beretta Luca'); await pg.fill('#ncod', 'ABCD'); await pg.fill('#fatto', 'fatto'); await pg.click('#consegna');
+      ok(/solo il numero/.test(await pg.textContent('#finerr')), 'rifiuta codici scritti a lettere');
+      await pg.fill('#ncod', '16'); await pg.click('#consegna'); await pg.waitForTimeout(400);
+      ok((await pg.textContent('#avtxt')) === '8 passi su 8', 'avanzamento 8 su 8');
+      ok(posts.length === 9 && /consegna/.test(posts[8]) && /codici_recupero_scaricati":16/.test(posts[8]) && !/GEZD/.test(posts.join('')), 'segnali: ' + posts.length + ' invii, consegna senza segreti');
+    }
     await ctx.close();
   }
   await b.close(); srv.close(); console.log(fail ? 'FALLITO ' + fail : 'TUTTO OK'); process.exit(fail ? 1 : 0);
