@@ -1,0 +1,203 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Creazioni di applicazioni con Lazarus · ora 1</title><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--q:#fff4c2;--ante:#fde8e8;--blu:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+pre{background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;overflow-x:auto;font-size:16px;white-space:pre-wrap;margin:8px 0}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+.ante{background:var(--ante);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.b{background:#fff0;color:var(--acc);border:2px solid var(--acc);font-weight:600}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+.win{max-width:360px;border:2px solid #6e7781;border-radius:8px;overflow:hidden;margin:8px auto;background:#f0f0f0;color:#111}
+.win .tb{background:#dfe3e8;padding:4px 8px;font-size:14px;display:flex;justify-content:space-between}.win .co{padding:14px;text-align:center}
+.win .lb{font-size:28px;font-weight:800;margin:6px 0}.win .ed{display:block;background:#fff;border:1px solid #8a8a8a;text-align:left;padding:3px 6px;margin:6px auto;width:80%;font-size:16px}
+.win .bu{display:inline-block;background:#e1e1e1;border:1px solid #8a8a8a;border-radius:3px;padding:4px 10px;margin:3px;font-size:15px}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}
+.chk label{display:flex;gap:10px;align-items:flex-start;margin:8px 0}.chk input{width:22px;height:22px;flex:0 0 22px;margin-top:3px}
+input[type=text]{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+.mu{color:var(--mu);font-size:.92em}
+pre{position:relative}.cp{position:absolute;right:6px;top:6px;font:inherit;font-size:13px;padding:3px 9px;border-radius:7px;border:0;background:#30363d;color:#fff;cursor:pointer}
+.bn{display:none;background:#eef7ee;border-left:4px solid var(--ok);padding:4px 10px;margin:4px 0;color:#111;font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif}
+body.pc14 .bn{display:block}.aiutoprof p{margin:0 0 6px}
+details{margin:8px 0}summary{cursor:pointer;font-weight:700}
+@media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.25em}pre{font-size:14px}}
+</style></head><body><main>
+<p class="mu">Parte 1 di 3 · 3INF lunedì 02/11/2026, 08:00-09:00 · progetto <code>mastermind</code></p>
+<h1>Ora 1 · Mastermind, parte 1: il codice segreto</h1><p class="mu">Creazioni di applicazioni con Lazarus</p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
+<a class="bt b" href="cruscotto-ragazzi.html">Il mio andamento</a> <a class="bt" href="./">Pagina della lezione</a>
+<section class="card"><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve al cruscotto per vedere a che punto sei.</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+<section class="card"><h2>Che cosa fai in quest'ora</h2><p>In questa ora costruisci la prima parte del <b>Mastermind</b>: il computer pensa un codice segreto di 4 cifre (da 1 a 6) con <b>Random</b>; tu provi, e un <b>Memo</b> ricorda tutti i tentativi. Dopo 10 minuti il computer ti mostra già il suo codice segreto.</p><p class="bn" lang="bn">এই ঘণ্টায় তুমি ধাপে ধাপে একটা খেলা/প্রোগ্রাম বানাবে। প্রতিটি ধাপ শেষে «Ho fatto!» চাপো।</p></section>
+<section class="card" style="border:2px solid #b45309"><h2>Percorso facilitato: 3 passi</h2><p>Per chi oggi fa fatica: fai solo questi 3 passi. Va bene così: è un programma vero.</p><p class="bn" lang="bn">যার আজ কঠিন লাগছে: শুধু এই ৩টা ধাপ করো। এটাও আসল প্রোগ্রাম।</p>
+<div class="passo" data-p="F1"><span class="bollo">da fare</span><h2><span class="num">F1</span>Facile 1 · Progetto e due pezzi</h2><p>Menu <b>Progetto</b> → <b>Nuovo progetto…</b> → <b>Applicazione</b> → <b>OK</b>. Poi <b>Progetto</b> → <b>Salva progetto con nome…</b>: a sinistra <b>Documenti</b>, in alto <b>Nuova cartella</b>, scrivi <code>mastermind</code>, Invio, doppio clic sulla cartella, <b>Salva</b> (due volte). Nella palette <b>Standard</b> metti una <b>A</b> (Label1) e un bottone <b>OK</b> (Button1) nella Form1.</p><p class="bn" lang="bn">নতুন প্রজেক্ট খোলো, নাম দিয়ে Documenti-এর ভেতরে mastermind ফোল্ডারে সেভ করো। তারপর একটা Label (A) আর একটা Button (OK) ফর্মে রাখো।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="F2"><span class="bollo">da fare</span><h2><span class="num">F2</span>Facile 2 · Un numero a caso</h2><p>Doppio clic su un punto vuoto della Form1: si apre <code>FormCreate</code>. Scrivi <code>Randomize;</code> tra <code>begin</code> e <code>end;</code>. Poi torna alla Form1 (<b>F12</b>), doppio clic sul bottone e scrivi la riga.</p><p class="bn" lang="bn">ফর্মের খালি জায়গায় ডাবল ক্লিক করে Randomize; লেখো। তারপর বাটনে ডাবল ক্লিক করে নিচের লাইনটা লেখো।</p><pre>  Randomize;
+  // ...e nel bottone:
+  Label1.Caption := IntToStr(Random(6) + 1);</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="F3"><span class="bollo">da fare</span><h2><span class="num">F3</span>Facile 3 · Fai partire</h2><p>Premi <b>F9</b> e clicca il bottone più volte: il numero cambia ogni volta, da 1 a 6. Fai lo screenshot e consegna (passi in fondo).</p><p class="bn" lang="bn">F9 চাপো, বাটনে বারবার ক্লিক করো: সংখ্যা বদলায়।</p><button class="fb">Ho fatto!</button></div>
+</section>
+<div class="aiutoprof" style="background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:10px 12px;margin:12px 0;color:#000"><p style="font-size:1.15em"><b>Se sei in difficoltà con Lazarus, alza la mano: il Professore viene da te.</b></p><p class="bn" lang="bn">Lazarus-এ সমস্যা হলে হাত তোলো, স্যার আসবেন।</p><p style="font-size:.9em;color:#333">Per le altre domande usa la casella dell'assistente in fondo alla pagina.</p></div>
+<h2 style="margin-top:22px">Il percorso completo</h2>
+<div class="passo" data-p="1"><span class="bollo">da fare</span><h2><span class="num">1</span>Apri Lazarus e crea il progetto</h2><p>Menu <b>Progetto</b> → <b>Nuovo progetto…</b> → <b>Applicazione</b> → <b>OK</b>. Compare una finestra grigia: è la <b>Form1</b>. FATTO!</p><p class="bn" lang="bn">Lazarus খোলো। মেনু Progetto → Nuovo progetto… → Applicazione → OK।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="2"><span class="bollo">da fare</span><h2><span class="num">2</span>Salva subito, nella cartella nuova</h2><p>Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. A sinistra clicca <b>Documenti</b>, in alto <b>Nuova cartella</b>, scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella. In <b>Nome file</b> scrivi lo stesso nome e clicca <b>Salva</b>; per <code>unit1.pas</code> clicca ancora <b>Salva</b>.</p><p class="bn" lang="bn">Progetto → Salva progetto con nome। বাঁদিকে Documenti, ওপরে Nuova cartella, নাম লেখো: mastermind, Invio। ভেতরে ঢুকে Salva চাপো।</p><pre>mastermind</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="3"><span class="bollo">da fare</span><h2><span class="num">3</span>Due scritte</h2><p>Nella palette <b>Standard</b> clicca la <b>A</b> (è la <b>TLabel</b>) e clicca nella Form1, in alto: compare <b>Label1</b>. Mettine una seconda sotto: <b>Label2</b>. In Label1 cambia <b>Caption</b> in <b>Scrivi 4 cifre</b>; in Label2 cambia <b>Caption</b> in <b>?</b> e <b>Font → Size</b> in 36. Label1 mostrerà il risultato, Label2 il codice segreto.</p><p class="bn" lang="bn">Standard ট্যাবে A (Label) চাপো, ফর্মে ক্লিক করো: Label1। আরেকটা: Label2। Caption বদলাও (Ispettore oggetti)।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="4"><span class="bollo">da fare</span><h2><span class="num">4</span>Dove tiene il segreto il programma</h2><p>Premi <b>F12</b>: vedi il codice. Cerca la parola <code>private</code>. Sotto, scrivi le due righe. Sono due <b>variabili</b> (scatole che ricordano): una è un testo, l'altra un numero.</p><p class="bn" lang="bn">F12 চাপো। private শব্দটা খোঁজো। তার নিচে দুটো লাইন লেখো: একটা লেখা (String), একটা সংখ্যা (Integer)।</p><pre>  private
+    Segreto: String;      // il codice segreto, per esempio '3142'
+    Tentativi: Integer;   // quanti tentativi hai fatto</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Il computer sceglie il codice (Random)</h2><p>Torna alla Form1 (<b>F12</b>). Doppio clic su un punto vuoto della Form1 (non sulle scritte): si apre <code>procedure TForm1.FormCreate</code>. Riscrivila così. <b>Randomize</b> mescola i numeri; <b>Random(6)</b> dà un numero da 0 a 5, il <b>+ 1</b> lo porta da 1 a 6; il ciclo <b>for</b> lo fa 4 volte e il <b>+</b> attacca le cifre, come <code>'5' + '3'</code> = 53.</p><p class="bn" lang="bn">ফর্মের খালি জায়গায় ডাবল ক্লিক করো, FormCreate খুলবে। নিচের কোড লেখো। Random(6) 0 থেকে 5 দেয়, +1 করলে 1 থেকে 6।</p><pre>procedure TForm1.FormCreate(Sender: TObject);
+var
+  i: Integer;
+begin
+  Randomize;
+  Segreto := '';
+  for i := 1 to 4 do
+    Segreto := Segreto + IntToStr(Random(6) + 1);
+  Tentativi := 0;
+  Label2.Caption := 'Codice segreto: ' + Segreto;
+end;</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>PRIMA VITTORIA: fai partire (F9)</h2><p>Premi <b>F9</b>. Nella finestra compare il codice segreto, quattro cifre. Chiudi la finestra e premi di nuovo <b>F9</b>: il codice è diverso! Il computer ha scelto a caso. FATTO: hai già un pezzo di Mastermind. Fallo vedere al compagno.</p><p class="bn" lang="bn">F9 চাপো। জানালায় গোপন কোড দেখা যাবে। বন্ধ করে আবার F9: কোড আলাদা! তুমি পেরেছো।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>La casella, il bottone e il Memo</h2><p>Nella palette <b>Standard</b> metti nella Form1: una <b>casella di testo</b> (<b>TEdit</b>, l'icona con le lettere ab) = <b>Edit1</b>; un bottone <b>OK</b> (<b>TButton</b>) = <b>Button1</b> con <b>Caption</b> <b>Prova</b>; un <b>TMemo</b> grande = <b>Memo1</b>. In Edit1 cancella il testo (<b>Text</b>). Il Memo è il foglio dei tentativi: dentro cancella la riga (<b>Lines</b>).</p><p class="bn" lang="bn">Standard থেকে: Edit1 (লেখার ঘর), Button1 (Caption: Prova), Memo1 (বড় ঘর)। Edit1-এর Text মুছে দাও।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Il bottone Prova</h2><p>Doppio clic sul bottone <b>Prova</b>: si apre <code>Button1Click</code>. Riscrivila così. Il computer guarda le 4 cifre una per una e conta quelle <b>giuste al posto giusto</b>. <code>tentativo[i]</code> è la cifra numero i.</p><p class="bn" lang="bn">Prova বাটনে ডাবল ক্লিক করো। নিচের কোড লেখো। কম্পিউটার চারটা সংখ্যা একটা একটা করে মেলায়।</p><pre>procedure TForm1.Button1Click(Sender: TObject);
+var
+  i, giuste: Integer;
+  tentativo: String;
+begin
+  tentativo := Edit1.Text;
+  if Length(tentativo) &lt;&gt; 4 then
+  begin
+    Label1.Caption := 'Scrivi 4 cifre!';
+    Exit;
+  end;
+  Tentativi := Tentativi + 1;
+  giuste := 0;
+  for i := 1 to 4 do
+    if tentativo[i] = Segreto[i] then
+      giuste := giuste + 1;
+  Memo1.Lines.Add(IntToStr(Tentativi) + ') ' + tentativo + ' -&gt; giuste: ' + IntToStr(giuste));
+  if giuste = 4 then
+    Label1.Caption := 'BRAVO! Hai indovinato in ' + IntToStr(Tentativi) + ' tentativi'
+  else
+    Label1.Caption := 'Cifre al posto giusto: ' + IntToStr(giuste);
+  Edit1.Clear;
+end;</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="9"><span class="bollo">da fare</span><h2><span class="num">9</span>Gioca!</h2><p>Premi <b>F9</b>. Per provare, guarda il codice segreto in Label2: scrivilo nella casella e premi <b>Prova</b>: compare BRAVO. Poi scrivi un numero diverso: il Memo si riempie e Label1 dice quante cifre sono al posto giusto. FATTO: il tuo Mastermind gira!</p><p class="bn" lang="bn">F9 চাপো। Label2-এর কোডটা ঘরে লিখে Prova চাপো: BRAVO আসবে। অন্য সংখ্যা লিখলে Memo ভরবে।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="10"><span class="bollo">da fare</span><h2><span class="num">10</span>Fallo tuo</h2><p>Scegli almeno due cose tue: il titolo della finestra (<b>Form1</b> → <b>Caption</b>, per esempio il nome del tuo gioco), il colore dello sfondo (<b>Color</b>), la dimensione dei numeri, il testo di Label1. Bonus: cambia <code>Random(6) + 1</code> in <code>Random(9) + 1</code> per usare le cifre da 1 a 9.</p><p class="bn" lang="bn">দুটো জিনিস নিজের মতো করো: জানালার নাম (Caption), রং (Color)।</p><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="11"><span class="bollo">da fare</span><h2><span class="num">11</span>Lo screenshot del programma che gira</h2><p>Premi <b>F9</b>: il tuo programma è aperto. Premi insieme <b>Win + Shift + S</b> e con il mouse disegna un rettangolo intorno alla tua finestra. In basso a destra clicca l'avviso <b>Ritaglio</b>. Premi <b>Ctrl + S</b>, a sinistra clicca <b>Documenti</b>, doppio clic sulla cartella <b>mastermind</b>, in <b>Nome file</b> scrivi il nome qui sotto e clicca <b>Salva</b>.</p><p class="bn" lang="bn">F9 চাপো। Win+Shift+S চেপে জানালার ছবি নাও। Ctrl+S, Documenti → mastermind ফোল্ডার, নিচের নামে Salva।</p><pre>ora1_screenshot.png</pre><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="12"><span class="bollo">da fare</span><h2><span class="num">12</span>Manda il lavoro al prof</h2><p>Premi il bottone: scegli <code>unit1.pas</code> e lo screenshot, il controllo ti dice subito se il codice va bene (non ti blocca mai) e un solo bottone manda tutto.</p><p class="bn" lang="bn">নিচের বাটন চাপো: unit1.pas আর ছবি বাছো, তারপর একটা বাটনে সব পাঠাও।</p><a class="bt v" href="consegna.html?ora=1">Manda al prof (ora 1)</a><button class="fb">Ho fatto!</button></div>
+<section class="card"><h2>Sei bloccato? Tre aiuti, uno alla volta</h2><p class="bn" lang="bn">আটকে গেলে: তিনটি সাহায্য, একটা একটা করে।</p>
+<details><summary>Aiuto 1: un indizio</summary><p>Il codice segreto è una String di 4 cifre. Si costruisce con un ciclo for e <code>Segreto := Segreto + IntToStr(Random(6) + 1);</code>. Le variabili Segreto e Tentativi vanno sotto <code>private</code>. In Button1Click ricorda <code>var</code> prima di <code>begin</code>.</p></details>
+<details><summary>Aiuto 2: il pezzo difficile</summary><p>Il pezzo più difficile è il confronto: <code>if tentativo[i] = Segreto[i] then giuste := giuste + 1;</code> dentro il ciclo <code>for i := 1 to 4 do</code>.</p></details>
+<details><summary>Aiuto 3: il unit1.pas completo</summary><p>Prima prova da solo con gli aiuti 1 e 2. Se copi, poi spiega a voce con parole tue che cosa fa ogni pezzo: è la prova che hai capito. Se il file non parte, controlla che i componenti della Form abbiano gli stessi nomi (Button1, Edit1, Label1, Memo1…).</p><pre>unit Unit1;
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+  TForm1 = class(TForm)
+    Button1: TButton;      // Prova
+    Edit1: TEdit;          // dove scrivi il tuo tentativo (4 cifre)
+    Label1: TLabel;        // il risultato del tentativo
+    Label2: TLabel;        // il codice segreto (per ora lo vediamo, poi lo nascondiamo)
+    Memo1: TMemo;          // la lista dei tentativi
+    procedure Button1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    Segreto: String;       // il codice segreto, per esempio '3142'
+    Tentativi: Integer;    // quanti tentativi hai fatto
+  public
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  i: Integer;
+begin
+  Randomize;                         // mescola i numeri a caso
+  Segreto := '';
+  for i := 1 to 4 do
+    Segreto := Segreto + IntToStr(Random(6) + 1);   // una cifra da 1 a 6
+  Tentativi := 0;
+  Label2.Caption := 'Codice segreto: ' + Segreto;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  i, giuste: Integer;
+  tentativo: String;
+begin
+  tentativo := Edit1.Text;
+  if Length(tentativo) &lt;&gt; 4 then
+  begin
+    Label1.Caption := 'Scrivi 4 cifre!';
+    Exit;
+  end;
+  Tentativi := Tentativi + 1;
+  giuste := 0;
+  for i := 1 to 4 do
+    if tentativo[i] = Segreto[i] then
+      giuste := giuste + 1;
+  Memo1.Lines.Add(IntToStr(Tentativi) + ') ' + tentativo + ' -&gt; giuste: ' + IntToStr(giuste));
+  if giuste = 4 then
+    Label1.Caption := 'BRAVO! Hai indovinato in ' + IntToStr(Tentativi) + ' tentativi'
+  else
+    Label1.Caption := 'Cifre al posto giusto: ' + IntToStr(giuste);
+  Edit1.Clear;
+end;
+
+end.</pre></details></section>
+<details class="card" id="PB"><summary>Piano B: se il bottone «Manda al prof» non funziona</summary><ol><li>Apri Classroom, il compito di oggi «Creazioni di applicazioni con Lazarus».</li><li>Premi <b>+ Aggiungi o crea</b> → <b>File</b> → <b>Sfoglia</b>.</li><li>Vai in <b>Documenti</b> → <b>mastermind</b>, scegli <code>unit1.pas</code> e premi <b>Apri</b>. Rifai per lo screenshot <code>ora1_screenshot.png</code>.</li><li>Prima di allegare, clicca una volta <code>unit1.pas</code>, <b>Ctrl + C</b>, <b>Ctrl + V</b>, <b>F2</b> e chiamala <code>ora1_unit1.pas</code>.</li><li>Premi <b>Consegna</b>.</li></ol><p class="bn" lang="bn">বাটন কাজ না করলে: Classroom-এ কাজটা খুলে ফাইল দুটো (unit1.pas আর ছবি) যোগ করে Consegna চাপো।</p></details>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
+<div id="aiuto"></div></main>
+<script src="../../assistente/assistente.js" data-pagina="3inf-mastermind-02-11" data-lingue="it" data-dove="aiuto"></script>
+<script>
+(function(){
+var ORA=1, K='mm0211-ora'+ORA, KN='mm0211-nome', CONF={};
+function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
+function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
+try{if(/[?&]pc=14\b/.test(location.search))localStorage.setItem('mm0211-pc14','1');if(localStorage.getItem('mm0211-pc14')==='1')document.body.classList.add('pc14')}catch(x){}
+var S=prendi(K,{}), NOME=prendi(KN,'')||'', P=[].slice.call(document.querySelectorAll('.passo')), principali=P.filter(function(p){return /^\d+$/.test(p.dataset.p)});
+var inp=document.getElementById('nome'); inp.value=NOME;
+inp.addEventListener('change',function(){var v=inp.value.trim().replace(/\s+/g,' ');if(v.split(' ').length<2){document.getElementById('nomeok').textContent='Scrivi nome e cognome.';return}NOME=v;metti(KN,v);document.getElementById('nomeok').textContent='Ciao '+v+'!';ping(true)});
+fetch('config.json?t='+Date.now()).then(function(r){return r.json()}).then(function(c){CONF=c||{}}).catch(function(){});
+var ultimo=-1;
+function ping(forza){
+  if(!CONF.attivo||!CONF.invio||!NOME)return; var fatti=principali.filter(function(p){return S[p.dataset.p]}).length; if(fatti===ultimo&&!forza)return; ultimo=fatti;
+  var max=0;principali.forEach(function(p){if(S[p.dataset.p])max=Math.max(max,+p.dataset.p)});
+  var tit=max?principali[max-1].querySelector('h2').textContent.replace(/^\d+/,''):'';
+  var facili=['F1','F2','F3'].filter(function(k){return S[k]}).length;
+  var d={id:'avz-3inf-mm0211-ora'+ORA,modo:'avanzamento',classe:'3INF',nome:NOME,scheda:max,totale:principali.length,risposte:fatti,titolo:tit,facile:facili,quando:new Date().toISOString()};
+  try{fetch(CONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))})}catch(x){}
+}
+function disegna(){
+  var prossimo=null; P.forEach(function(p){var f=!!S[p.dataset.p];p.classList.toggle('fatto',f);p.classList.remove('ora');p.querySelector('.bollo').textContent=f?'FATTO':'da fare';p.querySelector('.fb').textContent=f?'Fatto ✓ (clic per togliere)':'Ho fatto!';if(!f&&!prossimo&&/^\d+$/.test(p.dataset.p))prossimo=p});
+  if(prossimo){prossimo.classList.add('ora');prossimo.querySelector('.bollo').textContent='ADESSO'}
+  var n=principali.filter(function(p){return S[p.dataset.p]}).length;document.getElementById('barra').style.width=Math.round(100*n/principali.length)+'%';
+  document.getElementById('conta').textContent='Passi fatti: '+n+' su '+principali.length+(n===principali.length?' — BRAVO, hai finito l\'ora!':'');
+}
+P.forEach(function(p){p.querySelector('.fb').onclick=function(){S[p.dataset.p]=!S[p.dataset.p];metti(K,S);disegna();ping(false)}});
+[].forEach.call(document.querySelectorAll('pre'),function(pr){var b=document.createElement('button');b.className='cp';b.type='button';b.textContent='Copia';b.onclick=function(){var t=pr.childNodes[0]&&pr.childNodes[0].nodeType===3?pr.textContent.replace(/Copia$/,''):pr.textContent.replace(/Copia$/,'');try{navigator.clipboard.writeText(t).then(function(){b.textContent='Copiato!'},function(){b.textContent='Seleziona a mano'})}catch(x){b.textContent='Seleziona a mano'}setTimeout(function(){b.textContent='Copia'},1800)};pr.appendChild(b)});
+disegna();setInterval(function(){ping(true)},120000);
+})();
+</script>
+</body></html>
