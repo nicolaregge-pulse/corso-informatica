@@ -54,7 +54,7 @@ implementation
 {$R *.lfm}
 
 const
-  PORTA = 5050;      // la porta del server: non toccarla
+  PORTA_SERVER = 5050;      // la porta del server: non toccarla
   TEMPO_MS = 2000;   // dopo 2 secondi senza risposta ci arrendiamo
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -117,11 +117,11 @@ begin
   S := nil;
   // se qualcuno scrive anche ":5050" dopo l'IP, va bene lo stesso
   Host := Trim(EdIp.Text);
-  Porta := PORTA;
+  Porta := PORTA_SERVER;
   K := Pos(':', Host);
   if K > 0 then
   begin
-    Porta := StrToIntDef(Trim(Copy(Host, K + 1, 10)), PORTA);
+    Porta := StrToIntDef(Trim(Copy(Host, K + 1, 10)), PORTA_SERVER);
     Host := Trim(Copy(Host, 1, K - 1));
   end;
   try
