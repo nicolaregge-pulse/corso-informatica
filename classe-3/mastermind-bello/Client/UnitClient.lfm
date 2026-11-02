@@ -8,7 +8,6 @@ object FormClient: TFormClient
   Caption = 'Mastermind bello - il tuo CLIENT'
   ClientHeight = 736
   ClientWidth = 265
-  Constraints.MaxWidth = 300
   LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object LblIp: TLabel
