@@ -1,15 +1,15 @@
 {
  "titolo": "3INF · Lunedì 02/11 · Mastermind e Slideshow",
- "generato": "2026-11-02T08:48",
- "ora": "08:48",
- "fonte": "piani A + B · segnali Foglio: 13 · consegne pagina: 0 · file Classroom: 0 · Veyon: 16 righe · presenti: dal registro",
+ "generato": "2026-11-02T09:52",
+ "ora": "09:52",
+ "fonte": "piani A + B · segnali Foglio: 14 · consegne pagina: 10 · file Classroom: 0 · Veyon: 16 righe · presenti: dal registro",
  "piano": "A+B",
  "fonti_ora": [
   {
    "fonte": "Passi (Foglio segnali)",
-   "ora": "08:42",
-   "iso": "2026-11-02T08:42+01:00",
-   "vecchio": false
+   "ora": "08:52",
+   "iso": "2026-11-02T08:52+01:00",
+   "vecchio": true
   },
   {
    "fonte": "Consegne Classroom",
@@ -19,21 +19,21 @@
   },
   {
    "fonte": "Consegne dalla pagina",
-   "ora": "",
-   "iso": "",
-   "vecchio": true
+   "ora": "09:52",
+   "iso": "2026-11-02T09:52+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Veyon",
    "ora": "08:39",
    "iso": "2026-11-02T08:39+01:00",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Note",
    "ora": "08:39",
    "iso": "2026-11-02T08:39+01:00",
-   "vecchio": false
+   "vecchio": true
   }
  ],
  "righe": [
@@ -41,19 +41,20 @@
    "nome": "Andrea G.",
    "ore": {
     "1": {
-     "passo": 10,
+     "passo": 11,
      "tot": 12,
-     "titolo": "Fallo tuo",
+     "titolo": "Lo screenshot del programma che gira",
      "facile": 3,
      "pas": false,
-     "png": false,
+     "png": true,
      "ok": null,
      "manca": [],
      "stato_cr": "CREATED",
      "fonti": [
+      "pagina",
       "Classroom"
      ],
-     "ultimo": "08:39"
+     "ultimo": "08:50"
     },
     "2": {
      "passo": 0,
@@ -82,33 +83,35 @@
      "ultimo": ""
     }
    },
-   "voto": 40,
+   "voto": 43,
    "conto": [
-    "base 40 (tutti i presenti)"
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
    ],
-   "fermo_da": "08:39",
+   "fermo_da": "08:53",
    "veyon": {
     "fuori": 0
    },
-   "svolto": 0.8333333333333334
+   "svolto": 1.9166666666666665
   },
   {
    "nome": "Noah V.",
    "ore": {
     "1": {
-     "passo": 10,
+     "passo": 11,
      "tot": 12,
-     "titolo": "Fallo tuo",
+     "titolo": "Lo screenshot del programma che gira",
      "facile": 3,
      "pas": false,
-     "png": false,
+     "png": true,
      "ok": null,
      "manca": [],
      "stato_cr": "CREATED",
      "fonti": [
+      "pagina",
       "Classroom"
      ],
-     "ultimo": "08:39"
+     "ultimo": "08:50"
     },
     "2": {
      "passo": 0,
@@ -137,15 +140,73 @@
      "ultimo": ""
     }
    },
-   "voto": 40,
+   "voto": 43,
    "conto": [
-    "base 40 (tutti i presenti)"
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
    ],
-   "fermo_da": "08:39",
+   "fermo_da": "08:53",
    "veyon": {
     "fuori": 0
    },
-   "svolto": 0.8333333333333334
+   "svolto": 1.9166666666666665
+  },
+  {
+   "nome": "Beatrice N.",
+   "ore": {
+    "1": {
+     "passo": 8,
+     "tot": 12,
+     "titolo": "Il bottone Prova",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:51"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "08:56",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.6666666666666665
   },
   {
    "nome": "Tomas L.",
@@ -156,6 +217,462 @@
      "titolo": "La casella, il bottone e il Memo",
      "facile": 3,
      "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:50"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:40",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.5833333333333335
+  },
+  {
+   "nome": "Mirko D.",
+   "ore": {
+    "1": {
+     "passo": 2,
+     "tot": 12,
+     "titolo": "Salva subito, nella cartella nuova",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:49"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:50",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.1666666666666667
+  },
+  {
+   "nome": "Dani S.",
+   "ore": {
+    "1": {
+     "passo": 2,
+     "tot": 12,
+     "titolo": "Salva subito, nella cartella nuova",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:48"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:34",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.1666666666666667
+  },
+  {
+   "nome": "Mahmoud E.",
+   "ore": {
+    "1": {
+     "passo": 1,
+     "tot": 12,
+     "titolo": "Apri Lazarus e crea il progetto",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:50"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:23",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0833333333333333
+  },
+  {
+   "nome": "Filippo M.",
+   "ore": {
+    "1": {
+     "passo": 1,
+     "tot": 12,
+     "titolo": "Apri Lazarus e crea il progetto",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:49"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:51",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0833333333333333
+  },
+  {
+   "nome": "David A.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:52",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0
+  },
+  {
+   "nome": "Eric C.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:50",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0
+  },
+  {
+   "nome": "Rafi F.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 12,
+     "titolo": "",
+     "facile": 3,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "CREATED",
+     "fonti": [
+      "pagina",
+      "Classroom"
+     ],
+     "ultimo": "08:50"
+    },
+    "2": {
+     "passo": 0,
+     "tot": 11,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 10,
+     "titolo": "",
+     "facile": 0,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "stato_cr": "",
+     "fonti": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 43,
+   "conto": [
+    "base 40 (tutti i presenti)",
+    "ora 1 screenshot +3"
+   ],
+   "fermo_da": "09:32",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0
+  },
+  {
+   "nome": "Emmanuel F.",
+   "ore": {
+    "1": {
+     "passo": 1,
+     "tot": 12,
+     "titolo": "Apri Lazarus e crea il progetto",
+     "facile": 3,
+     "pas": false,
      "png": false,
      "ok": null,
      "manca": [],
@@ -163,7 +680,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "08:41"
+     "ultimo": "08:51"
     },
     "2": {
      "passo": 0,
@@ -196,11 +713,11 @@
    "conto": [
     "base 40 (tutti i presenti)"
    ],
-   "fermo_da": "08:41",
+   "fermo_da": "08:51",
    "veyon": {
     "fuori": 0
    },
-   "svolto": 0.5833333333333334
+   "svolto": 0.08333333333333333
   },
   {
    "nome": "Alessandro A.",
@@ -313,187 +830,22 @@
    "svolto": 0.0
   },
   {
-   "nome": "David A.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Eric C.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
    "nome": "Nicolo' C.",
    "ore": {
     "1": {
      "passo": 0,
      "tot": 12,
      "titolo": "",
-     "facile": 1,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:41"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:41",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Mirko D.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
      "facile": 2,
      "pas": false,
      "png": false,
      "ok": null,
      "manca": [],
-     "stato_cr": "CREATED",
+     "stato_cr": "TURNED_IN",
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "08:39"
+     "ultimo": "08:51"
     },
     "2": {
      "passo": 0,
@@ -526,227 +878,7 @@
    "conto": [
     "base 40 (tutti i presenti)"
    ],
-   "fermo_da": "08:39",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Ariel D.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Mahmoud E.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Rafi F.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
-     "facile": 1,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:40"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:40",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Emmanuel F.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
-     "facile": 2,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:41"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:41",
+   "fermo_da": "08:51",
    "veyon": {
     "fuori": 0
    },
@@ -808,225 +940,7 @@
    "svolto": 0.0
   },
   {
-   "nome": "Zhan L.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Filippo M.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
-     "facile": 2,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:39"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:39",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Beatrice N.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
-     "facile": 2,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:41"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:41",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
    "nome": "Kelvin P.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Kevin R.",
    "ore": {
     "1": {
      "passo": 0,
@@ -1087,7 +1001,7 @@
      "passo": 0,
      "tot": 12,
      "titolo": "",
-     "facile": 2,
+     "facile": 3,
      "pas": false,
      "png": false,
      "ok": null,
@@ -1096,7 +1010,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "08:39"
+     "ultimo": "08:50"
     },
     "2": {
      "passo": 0,
@@ -1129,62 +1043,7 @@
    "conto": [
     "base 40 (tutti i presenti)"
    ],
-   "fermo_da": "08:39",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Dani S.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 12,
-     "titolo": "",
-     "facile": 2,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "CREATED",
-     "fonti": [
-      "Classroom"
-     ],
-     "ultimo": "08:38"
-    },
-    "2": {
-     "passo": 0,
-     "tot": 11,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 10,
-     "titolo": "",
-     "facile": 0,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "stato_cr": "",
-     "fonti": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "conto": [
-    "base 40 (tutti i presenti)"
-   ],
-   "fermo_da": "08:38",
+   "fermo_da": "08:50",
    "veyon": {
     "fuori": 0
    },
@@ -1197,7 +1056,7 @@
      "passo": 0,
      "tot": 12,
      "titolo": "",
-     "facile": 2,
+     "facile": 3,
      "pas": false,
      "png": false,
      "ok": null,
@@ -1206,7 +1065,7 @@
      "fonti": [
       "Classroom"
      ],
-     "ultimo": "08:40"
+     "ultimo": "08:50"
     },
     "2": {
      "passo": 0,
@@ -1239,7 +1098,7 @@
    "conto": [
     "base 40 (tutti i presenti)"
    ],
-   "fermo_da": "08:40",
+   "fermo_da": "08:50",
    "veyon": {
     "fuori": 0
    },
