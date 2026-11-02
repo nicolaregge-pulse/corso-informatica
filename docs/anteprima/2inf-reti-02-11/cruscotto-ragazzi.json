@@ -1,22 +1,22 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T13:46",
- "ora": "13:46",
- "fonte": "piani A + B · segnali schede: 18 · schede PC: 15 · analisi mail: 0 · 2FA: 19 allievi · Veyon: 1 righe · presenti: dal registro",
+ "generato": "2026-11-02T13:51",
+ "ora": "13:51",
+ "fonte": "piani A + B · segnali schede: 18 · schede PC: 16 · analisi mail: 0 · 2FA: 19 allievi · Veyon: 1 righe · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "presenti_ok": true,
  "fonti_ora": [
   {
    "fonte": "Segnali delle schede (Foglio)",
-   "ora": "13:43",
-   "iso": "2026-11-02T13:43+01:00",
+   "ora": "13:48",
+   "iso": "2026-11-02T13:48+01:00",
    "vecchio": false
   },
   {
    "fonte": "Scheda d'identità (pagina)",
-   "ora": "13:34",
-   "iso": "2026-11-02T13:34+01:00",
+   "ora": "13:50",
+   "iso": "2026-11-02T13:50+01:00",
    "vecchio": false
   },
   {
@@ -27,8 +27,8 @@
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "13:44",
-   "iso": "2026-11-02T13:44+01:00",
+   "ora": "13:48",
+   "iso": "2026-11-02T13:48+01:00",
    "vecchio": false
   },
   {
@@ -232,10 +232,10 @@
     "tot": 6
    },
    "scheda": {
-    "pagina": false,
+    "pagina": true,
     "classroom": "TURNED_IN",
     "consegnata": true,
-    "ora": ""
+    "ora": "13:50"
    },
    "phishing": null,
    "fa2": {
@@ -250,7 +250,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:13",
+   "fermo_da": "13:50",
    "veyon": {
     "fuori": 0
    },
@@ -597,7 +597,7 @@
     "classroom": "",
     "consegnato": false
    },
-   "fermo_da": "13:10",
+   "fermo_da": "13:45",
    "veyon": {
     "fuori": 1
    },
