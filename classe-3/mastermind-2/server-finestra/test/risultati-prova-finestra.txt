@@ -1,0 +1,72 @@
+== compilazione (fpc 3.2.2), nessun thread: niente cthreads ==
+uriparser.pp(432,3) Warning: unreachable code
+uriparser.pp(463,3) Warning: unreachable code
+netdb.pp(486,24) Warning: Symbol "HostToNet" is deprecated
+netdb.pp(492,12) Warning: Symbol "NetToHost" is deprecated
+netdb.pp(614,14) Warning: Symbol "HostToNet" is deprecated
+netdb.pp(1134,7) Warning: Symbol "HostToNet" is deprecated
+netdb.pp(1496,17) Warning: Symbol "NetToHost" is deprecated
+resolve.pp(330,15) Warning: Symbol "HostToNet" is deprecated
+resolve.pp(357,17) Warning: Symbol "NetToHost" is deprecated
+resolve.pp(360,18) Warning: Symbol "NetToHost" is deprecated
+resolve.pp(433,11) Warning: Symbol "HostToNet" is deprecated
+resolve.pp(439,11) Warning: Symbol "HostToNet" is deprecated
+resolve.pp(483,16) Warning: Symbol "NetToHost" is deprecated
+resolve.pp(561,11) Warning: Symbol "HostToNet" is deprecated
+resolve.pp(694,11) Warning: Symbol "ShortHostToNet" is deprecated
+ssockets.pp(867,21) Warning: Symbol "ShortHostToNet" is deprecated
+ssockets.pp(950,3) Warning: Symbol "Str2UnixSockAddr" is deprecated
+ssockets.pp(1136,20) Warning: Symbol "ShortHostToNet" is deprecated
+ssockets.pp(1137,27) Warning: Symbol "HostToNet" is deprecated
+ssockets.pp(1204,3) Warning: Symbol "Str2UnixSockAddr" is deprecated
+6272 lines compiled, 0.4 sec
+20 warning(s) issued
+== prova con 22 client sulla porta 5779 ==
+prima del Via, GUESS: WAIT
+codice sbagliato: ERR;codice non valido (servono 4 cifre da 1 a 6)
+tempo totale 2.1s, errori: []
+vinto: 22 di 22; combinazioni diverse: {'3531'}
+latenza risposta: max 0.13s, media 0.070s su 110 richieste
+== griglia vista dalla finestra ==
+Stato: Server acceso (porta 5779) - GIOCO IN CORSO
+Segreto: Combinazione segreta: ????   (clicca per vederla)
+IP: IP di questo PC: 192.0.2.2  Indirizzo: 192.0.2.2:5779
+Giocatori collegati: 25     Hanno vinto: 22     Stanno provando: 0
+Righe di griglia: 26   Timer chiamato 112 volte
+Posto | Nome | Tentativi | Stato | 
+1 | Alunno02 | 3 | HA VINTO (0 s) | 
+1 | Alunno15 | 3 | HA VINTO (0 s) | 
+3 | Alunno01 | 4 | HA VINTO (0 s) | 
+3 | Alunno03 | 4 | HA VINTO (0 s) | 
+5 | Alunno16 | 4 | HA VINTO (1 s) | 
+6 | Alunno04 | 5 | HA VINTO (0 s) | 
+6 | Alunno05 | 5 | HA VINTO (0 s) | 
+6 | Alunno06 | 5 | HA VINTO (0 s) | 
+6 | Alunno07 | 5 | HA VINTO (0 s) | 
+10 | Alunno08 | 5 | HA VINTO (1 s) | 
+10 | Alunno10 | 5 | HA VINTO (1 s) | 
+10 | Alunno12 | 5 | HA VINTO (1 s) | 
+10 | Alunno13 | 5 | HA VINTO (1 s) | 
+10 | Alunno14 | 5 | HA VINTO (1 s) | 
+10 | Alunno20 | 5 | HA VINTO (1 s) | 
+10 | Alunno21 | 5 | HA VINTO (1 s) | 
+17 | Alunno09 | 6 | HA VINTO (1 s) | 
+17 | Alunno11 | 6 | HA VINTO (1 s) | 
+17 | Alunno17 | 6 | HA VINTO (1 s) | 
+17 | Alunno18 | 6 | HA VINTO (1 s) | 
+17 | Alunno19 | 6 | HA VINTO (1 s) | 
+22 | Alunno22 | 7 | HA VINTO (1 s) | 
+- | Anticipo | 0 | collegato, non ha ancora provato | 
+- | Sbaglio | 0 | collegato, non ha ancora provato | 
+- | Zz | 0 | collegato, non ha ancora provato | 
+== ultime righe del registro ==
+08:46:04  *** Alunno12 HA VINTO! 5 tentativi, 1 secondi, posto n. 10 ***
+08:46:04  *** Alunno09 HA VINTO! 6 tentativi, 1 secondi, posto n. 16 ***
+08:46:04  *** Alunno20 HA VINTO! 5 tentativi, 1 secondi, posto n. 10 ***
+08:46:04  *** Alunno11 HA VINTO! 6 tentativi, 1 secondi, posto n. 17 ***
+08:46:04  Alunno18 prova 5531:  3 esatte, 0 spostate  (tentativo n. 5)
+08:46:04  Alunno22 prova 3511:  3 esatte, 0 spostate  (tentativo n. 6)
+08:46:04  *** Alunno18 HA VINTO! 6 tentativi, 1 secondi, posto n. 17 ***
+08:46:04  *** Alunno22 HA VINTO! 7 tentativi, 1 secondi, posto n. 22 ***
+== righe di registro: 143, vittorie registrate: 22
+== messaggi a video ==
