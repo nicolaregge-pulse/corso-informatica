@@ -1,15 +1,20 @@
 {
-  "aggiornato": "29/10/2026 14:10",
-  "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi: se ce ne sono, il file va cifrato con strumenti/cifra_json.py.",
+  "aggiornato": "02/11/2026 09:10",
+  "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi.",
   "voci": [
     {
-      "classe": "1INF",
-      "ora": "ora 13-14",
-      "cosa": "Manda a Claude in chat le presenze di oggi della 1INF (screenshot del registro).",
-      "bottoni": [
-        "Mandate"
-      ],
-      "id": "2026-10-29-presenze-1inf"
+      "classe": "3INF",
+      "ora": "ora 8-11",
+      "cosa": "Manda a Claude in chat lo screenshot del registro con le presenze di oggi della 3INF.",
+      "bottoni": ["Mandate"],
+      "id": "2026-11-02-presenze-3inf"
+    },
+    {
+      "classe": "3INF",
+      "ora": "ora 8-11",
+      "cosa": "Controlla di persona il PC 26 (Veyon non lo raggiunge) e il PC 33 (niente rete).",
+      "bottoni": ["Fatto"],
+      "id": "2026-11-02-pc-26-33"
     }
   ]
 }
