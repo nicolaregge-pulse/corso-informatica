@@ -4,13 +4,14 @@ unit Graphics;
   Ha anche i pezzi che servono per il legno: font, testo, bitmap. }
 {$mode objfpc}{$H+}
 interface
-uses Classes, SysUtils;
+uses Classes, SysUtils, Types;
 type
   TColor = Longint;
   TPenStyle = (psSolid, psClear);
   TBrushStyle = (bsSolid, bsClear);
   TFontStyle = (fsBold, fsItalic, fsUnderline, fsStrikeOut);
   TFontStyles = set of TFontStyle;
+  TFontQuality = (fqDefault, fqDraft, fqProof, fqNonAntialiased, fqAntialiased, fqCleartype);
   TPen = class
   public
     Color: TColor; Width: Integer; Style: TPenStyle;
@@ -21,7 +22,7 @@ type
   end;
   TFont = class
   public
-    Name: String; Size: Integer; Color: TColor; Style: TFontStyles;
+    Name: String; Size, Height: Integer; Color: TColor; Style: TFontStyles; Quality: TFontQuality;
   end;
   TCanvas = class;
   TBitmap = class
@@ -46,6 +47,8 @@ type
     function TextWidth(const S: String): Integer;
     function TextHeight(const S: String): Integer;
     procedure Draw(X, Y: Integer; B: TBitmap);
+    procedure CopyRect(const Dest: TRect; Canvas: TCanvas; const Source: TRect);
+    procedure RoundRect(X1, Y1, X2, Y2, RX, RY: Integer);
     procedure Pulisci;
   end;
 implementation
@@ -56,6 +59,14 @@ end;
 constructor TCanvas.Create;
 begin
   Pen := TPen.Create; Brush := TBrush.Create; Font := TFont.Create; Cerchi := TStringList.Create;
+end;
+procedure TCanvas.CopyRect(const Dest: TRect; Canvas: TCanvas; const Source: TRect);
+begin
+  Inc(Copie);
+end;
+procedure TCanvas.RoundRect(X1, Y1, X2, Y2, RX, RY: Integer);
+begin
+  Inc(Rettangoli);
 end;
 procedure TCanvas.Pulisci;
 begin
@@ -82,10 +93,12 @@ begin
 end;
 function TCanvas.TextWidth(const S: String): Integer;
 begin
+  if Font.Height <> 0 then Result := Length(S) * (Abs(Font.Height) * 5 div 9) else
   Result := Length(S) * (Font.Size * 2 div 3 + 4);
 end;
 function TCanvas.TextHeight(const S: String): Integer;
 begin
+  if Font.Height <> 0 then Result := Abs(Font.Height) * 5 div 4 else
   Result := Font.Size * 4 div 3 + 2;
 end;
 procedure TCanvas.Draw(X, Y: Integer; B: TBitmap);

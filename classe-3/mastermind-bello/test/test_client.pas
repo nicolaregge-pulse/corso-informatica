@@ -25,7 +25,7 @@ begin
     LblIp := TLabel.Create(Result); EdIp := TEdit.Create(Result); LblNome := TLabel.Create(Result);
     EdNome := TEdit.Create(Result); BtnConnetti := TButton.Create(Result); BtnLocale := TButton.Create(Result);
     LblEsito := TLabel.Create(Result); LblStato := TLabel.Create(Result);
-    PbTavola := TPaintBox.Create(Result); PbTavolozza := TPaintBox.Create(Result);
+    PbTavola := TPaintBox.Create(Result); PbTavolozza := TPaintBox.Create(Result); PbMessaggio := TPaintBox.Create(Result);
     BtnProva := TButton.Create(Result); BtnCancella := TButton.Create(Result);
     LblPosizione := TLabel.Create(Result); LblMigliore := TLabel.Create(Result);
     LblPeggiore := TLabel.Create(Result); LblFiniti := TLabel.Create(Result);
@@ -37,7 +37,7 @@ begin
   if not (Assigned(Result.BtnConnetti.OnClick) and Assigned(Result.BtnLocale.OnClick) and
           Assigned(Result.BtnProva.OnClick) and Assigned(Result.BtnCancella.OnClick) and
           Assigned(Result.Timer1.OnTimer) and Assigned(Result.PbTavola.OnPaint) and
-          Assigned(Result.PbTavolozza.OnPaint) and Assigned(Result.PbTavolozza.OnMouseDown) and Result.Avviato) then
+          Assigned(Result.PbTavolozza.OnPaint) and Assigned(Result.PbMessaggio.OnPaint) and Assigned(Result.PbTavolozza.OnMouseDown) and Result.Avviato) then
   begin
     WriteLn('ERRORE: eventi non collegati'); Halt(3);
   end;
@@ -99,15 +99,16 @@ begin
 end;
 
 const NERO = $0C0C0C; BIANCO = $EBEBEB;      // colori dei piolini piccoli di risposta
+      R_RISP = 12;                          // raggio dei piolini di risposta nel disegno grande (6 x scala 2)
 
 procedure Ridisegna;
 begin
-  F.PbTavola.Canvas.Pulisci; F.PbTavola.OnPaint(nil);
+  if BufTavola <> nil then BufTavola.Canvas.Pulisci; F.PbTavola.Canvas.Pulisci; F.PbTavola.OnPaint(nil);
 end;
 
 procedure Clicca(c: Integer);      // come un click vero sul piolo c della tavolozza
 begin
-  F.PbTavolozza.OnMouseDown(nil, mbLeft, [], 45, 35 + (c - 1) * 50);
+  F.PbTavolozza.OnMouseDown(nil, mbLeft, [], 22 + (c - 1) * 40, 30);        // il centro del colore c nella fascia
 end;
 
 procedure ModoLocale;
@@ -140,13 +141,15 @@ begin
     IntToStr(F.Storia[0].Neri) + ' e ' + IntToStr(F.Storia[0].Bianchi) + ')');
   Verifica(F.NCorr = 0, 'la riga corrente si svuota dopo Prova');
   Ridisegna;
-  Verifica(ContaCerchi(F.PbTavola.Canvas, 7, NERO) = 1, 'sulla tavola: 1 piolino nero (trovati ' + IntToStr(ContaCerchi(F.PbTavola.Canvas, 7, NERO)) + ')');
-  Verifica(ContaCerchi(F.PbTavola.Canvas, 7, BIANCO) = 2, 'sulla tavola: 2 piolini bianchi (trovati ' + IntToStr(ContaCerchi(F.PbTavola.Canvas, 7, BIANCO)) + ')');
+  Verifica(ContaCerchi(BufTavola.Canvas, R_RISP, NERO) = 1, 'sulla tavola: 1 piolino nero (trovati ' + IntToStr(ContaCerchi(BufTavola.Canvas, R_RISP, NERO)) + ')');
+  Verifica(ContaCerchi(BufTavola.Canvas, R_RISP, BIANCO) = 2, 'sulla tavola: 2 piolini bianchi (trovati ' + IntToStr(ContaCerchi(BufTavola.Canvas, R_RISP, BIANCO)) + ')');
   Verifica(FondoTavola.Canvas.Linee > 20000, 'le fibre del legno sono disegnate nella bitmap (linee: ' + IntToStr(FondoTavola.Canvas.Linee) + ')');
   Verifica(FondoTavola.Canvas.Testi = 3, 'la scritta 3 INF e'' intagliata (3 passate di testo: ombra, luce, fondo)');
   Verifica(F.PbTavola.Canvas.Copie >= 1, 'il legno viene copiato dalla bitmap sulla tavola');
-  F.PbTavolozza.Canvas.Pulisci; F.PbTavolozza.OnPaint(nil);
-  Verifica(F.PbTavolozza.Canvas.Cerchi.Count > 6 * 6, 'la tavolozza disegna i 6 piolini colorati');
+  if BufTavolozza <> nil then BufTavolozza.Canvas.Pulisci; F.PbTavolozza.Canvas.Pulisci; F.PbTavolozza.OnPaint(nil);
+  F.PbMessaggio.OnPaint(nil);
+  Verifica(F.PbMessaggio.Canvas.Copie >= 1, 'la legenda viene disegnata e rimpicciolita sullo schermo');
+  Verifica(BufTavolozza.Canvas.Cerchi.Count >= 6 * 12, 'la tavolozza disegna i 6 piolini colorati');
   { tanti tentativi sbagliati: la tavola scorre senza errori }
   for t := 1 to 12 do begin Clicca(2); Clicca(2); Clicca(2); Clicca(2); F.BtnProva.OnClick(nil); end;
   Ridisegna;
@@ -174,7 +177,7 @@ begin
   Verifica(F.Finita and (F.LblStato.Caption = 'HAI VINTO!'), 'partita vinta per eliminazione in ' + IntToStr(F.NT) + ' tentativi');
   Verifica(not F.BtnProva.Enabled, 'dopo la vittoria Prova e'' spento');
   Ridisegna;
-  Verifica(ContaCerchi(F.PbTavola.Canvas, 7, NERO) >= 4, 'la riga vincente mostra 4 piolini neri');
+  Verifica(ContaCerchi(BufTavola.Canvas, R_RISP, NERO) >= 4, 'la riga vincente mostra 4 piolini neri');
 end;
 
 procedure ModoRete(const Host, Nome: String);

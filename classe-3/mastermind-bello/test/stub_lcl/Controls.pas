@@ -16,6 +16,7 @@ type
   public
     Caption: String;
     Enabled: Boolean;
+    Width, Height: Integer;
     OnClick: TNotifyEvent;
     constructor Create(AOwner: TComponent); override;
   end;

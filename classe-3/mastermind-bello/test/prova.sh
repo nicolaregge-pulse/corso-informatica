@@ -8,7 +8,7 @@ cd /tmp
 rm -rf "$OUT"; mkdir -p "$OUT/oc" "$OUT/os" "$OUT/stub"; N="${1:-6}"; PORTA=5050
 FCL=""; [ -d /usr/share/fpcsrc/3.2.2/packages/fcl-net/src ] && FCL="-Fu/usr/share/fpcsrc/3.2.2/packages/fcl-net/src -Fu/usr/share/fpcsrc/3.2.2/packages/fcl-base/src"
 cp "$AQUI"/stub_lcl/*.pas "$OUT/stub/"
-mkdir -p "$OUT/cl" "$OUT/sv"
+mkdir -p "$OUT/cl" "$OUT/sv"; cp -r "$AQUI/../Comune" "$OUT/Comune"
 sed 's/{\$R \*.lfm}//' "$AQUI/../Client/UnitClient.pas" > "$OUT/cl/UnitClient.pas"
 sed 's/{\$R \*.lfm}//' "$AQUI/../Server/UnitServer.pas" > "$OUT/sv/UnitServer.pas"
 fpc -Mobjfpc -Sh -vewn -FU"$OUT/oc" -Fu"$OUT/stub" -Fu"$OUT/cl" $FCL -o"$OUT/test_client" "$AQUI/test_client.pas" 2>&1 | grep -iE "error|fatal|lines compiled"
