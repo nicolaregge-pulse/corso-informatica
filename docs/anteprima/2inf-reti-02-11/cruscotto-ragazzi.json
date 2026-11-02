@@ -1,8 +1,8 @@
 {
  "titolo": "2INF · Laboratorio 02/11 · reti e phishing",
- "generato": "2026-11-02T11:23",
- "ora": "11:23",
- "fonte": "piani A + B · segnali schede: 0 · schede PC: 0 · analisi mail: 0 · Veyon: nessun giro · presenti: dal registro",
+ "generato": "2026-11-02T12:02",
+ "ora": "12:02",
+ "fonte": "piani A + B · segnali schede: 0 · schede PC: 1 · analisi mail: 0 · Veyon: nessun giro · presenti: dal registro",
  "piano": "A+B",
  "kpi_proposti": true,
  "presenti_ok": true,
@@ -11,13 +11,13 @@
    "fonte": "Segnali delle schede (Foglio)",
    "ora": "11:09",
    "iso": "2026-11-02T11:09+01:00",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Scheda d'identità (pagina)",
-   "ora": "",
-   "iso": "",
-   "vecchio": true
+   "ora": "11:49",
+   "iso": "2026-11-02T11:49+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Analisi mail (phishing)",
@@ -27,8 +27,8 @@
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "11:09",
-   "iso": "2026-11-02T11:09+01:00",
+   "ora": "12:02",
+   "iso": "2026-11-02T12:02+01:00",
    "vecchio": false
   },
   {
@@ -39,12 +39,48 @@
   },
   {
    "fonte": "Note",
-   "ora": "",
-   "iso": "",
-   "vecchio": true
+   "ora": "12:02",
+   "iso": "2026-11-02T12:02+01:00",
+   "vecchio": false
   }
  ],
  "righe": [
+  {
+   "nome": "Luciano C.",
+   "voto": 50,
+   "teoria": {
+    "reti": 0,
+    "ph": 0,
+    "tot": 6
+   },
+   "scheda": {
+    "pagina": true,
+    "classroom": "",
+    "consegnata": true,
+    "ora": "11:49"
+   },
+   "phishing": null,
+   "quiz_reti": {
+    "p": 12,
+    "m": 12,
+    "ora": ""
+   },
+   "quiz_ph": null,
+   "extra": {
+    "classroom": "",
+    "consegnato": false
+   },
+   "fermo_da": "11:49",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "scheda d'identità consegnata +10",
+    "quiz di chiusura rete 12/12: si vede, per ora non conta"
+   ]
+  },
   {
    "nome": "Karim A.",
    "voto": 40,
@@ -316,36 +352,6 @@
    ]
   },
   {
-   "nome": "Luciano C.",
-   "voto": 40,
-   "teoria": {
-    "reti": 0,
-    "ph": 0,
-    "tot": 6
-   },
-   "scheda": {
-    "pagina": false,
-    "classroom": "",
-    "consegnata": false,
-    "ora": ""
-   },
-   "phishing": null,
-   "quiz_reti": null,
-   "quiz_ph": null,
-   "extra": {
-    "classroom": "",
-    "consegnato": false
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
-   ]
-  },
-  {
    "nome": "Shahenda E.",
    "voto": 40,
    "teoria": {
@@ -420,7 +426,11 @@
     "ora": ""
    },
    "phishing": null,
-   "quiz_reti": null,
+   "quiz_reti": {
+    "p": 11,
+    "m": 12,
+    "ora": ""
+   },
    "quiz_ph": null,
    "extra": {
     "classroom": "",
@@ -432,7 +442,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz di chiusura rete 11/12: si vede, per ora non conta"
    ]
   },
   {
