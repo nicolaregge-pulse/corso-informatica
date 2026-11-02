@@ -44,32 +44,16 @@ details{margin:8px 0}summary{cursor:pointer;font-weight:700}
 <p class="mu">3INF · progetto <code>mastermind-client</code> · si gioca tutti insieme, in rete</p>
 <h1>Il client del Mastermind: giochiamo tutti insieme</h1><p class="mu">Creazioni di applicazioni con Lazarus</p>
 <p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
-<div id="ip" class="vuoto"><b>IP del server</b><div class="g" id="ipg">lo scrive il Prof alla lavagna/qui appena è pronto</div><p class="bn" lang="bn">সার্ভারের IP ঠিকানা: প্রফেসর বোর্ডে লিখবেন বা এখানে দেখাবেন।</p><p class="mu">Questo riquadro si aggiorna da solo ogni 30 secondi. La porta è sempre <b>5050</b>.</p></div>
+<div id="ip" class="vuoto"><b>IP del server</b><div class="g" id="ipg">lo scrive il Prof alla lavagna/qui appena è pronto</div><p class="bn" lang="bn">সার্ভারের IP ঠিকানা: প্রফেসর বোর্ডে লিখবেন বা এখানে দেখাবেন।</p><p class="mu">Questo riquadro si aggiorna da solo ogni 30 secondi. Scrivi solo questi numeri: la porta c'è già.</p></div>
 <section class="card"><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve al cruscotto per vedere a che punto sei.</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
 <section class="card"><h2>Che cosa fai</h2><p>Costruisci il <b>client</b> del Mastermind: la finestra con cui giochi. Il <b>server</b> (il PC del Prof) pensa un solo codice segreto per tutta la classe e tiene la classifica. Tu provi a indovinarlo e vedi dove sei rispetto ai compagni.</p><p class="bn" lang="bn">তুমি Mastermind খেলার জানালা (client) বানাবে। প্রফেসরের PC (server) একটা গোপন কোড ঠিক করে, পুরো ক্লাস একসাথে খেলে।</p></section>
 <div class="aiutoprof" style="background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:10px 12px;margin:12px 0;color:#000"><p style="font-size:1.15em"><b>Sei bloccato? Scrivi la tua domanda nella casella dell'assistente in fondo alla pagina: ti risponde subito. Alza la mano solo se il PC non funziona (non si accende, niente rete, Lazarus non si apre).</b></p><p class="bn" lang="bn">আটকে গেলে পেজের নিচে সহকারীর বক্সে প্রশ্ন লেখো। শুধু PC কাজ না করলে হাত তোলো।</p></div>
-<div class="passo" data-p="1"><span class="bollo">da fare</span><h2><span class="num">1</span>Apri Lazarus e crea il progetto</h2><p>Menu <b>Progetto</b> → <b>Nuovo progetto…</b> → <b>Applicazione</b> → <b>OK</b>. Compare una finestra grigia: è la <b>Form1</b>. FATTO!</p><p class="bn" lang="bn">Lazarus খোলো। মেনু Progetto → Nuovo progetto… → Applicazione → OK।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c01.svg" alt="Progetto, Nuovo progetto, Applicazione" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="2"><span class="bollo">da fare</span><h2><span class="num">2</span>Salva il progetto in una cartella nuova</h2><p>Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. A sinistra clicca <b>Documenti</b>, in alto <b>Nuova cartella</b>, scrivi il nome qui sotto, premi Invio e fai doppio clic sulla cartella. In <b>Nome file</b> scrivi <code>mastermind</code> e clicca <b>Salva</b>; per <code>unit1.pas</code> clicca ancora <b>Salva</b>.</p><p class="bn" lang="bn">Progetto → Salva progetto con nome। Documenti-এ নতুন ফোল্ডার mastermind-client বানাও, ভেতরে ঢুকে নাম mastermind দিয়ে Salva চাপো।</p><pre><span class="t">mastermind-client</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c02.svg" alt="Salva progetto con nome" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="3"><span class="bollo">da fare</span><h2><span class="num">3</span>Scarica il file client_unit.pas</h2><p>Questo file è il postino che parla col server. Torna al <b>browser</b> (questa pagina). Fai clic <b>destro</b> sul bottone verde, scegli <b>Salva collegamento con nome…</b>, vai in <b>Documenti</b> → <b>mastermind-client</b> e clicca <b>Salva</b>.</p><p class="bn" lang="bn">বাটনে ডান ক্লিক করো, «Salva collegamento con nome…» বাছো, Documenti → mastermind-client ফোল্ডারে Salva চাপো।</p><a class="bt v" href="file/client_unit.pas" download="client_unit.pas">client_unit.pas</a><figure style="margin:8px 0"><img class="sx-img" src="img/c03.svg" alt="Salva client_unit.pas" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="4"><span class="bollo">da fare</span><h2><span class="num">4</span>Scarica il file mm_logica.pas</h2><p>Questo file è le regole del Mastermind. Torna al <b>browser</b> (questa pagina). Fai clic <b>destro</b> sul bottone verde, scegli <b>Salva collegamento con nome…</b>, vai in <b>Documenti</b> → <b>mastermind-client</b> e clicca <b>Salva</b>.</p><p class="bn" lang="bn">বাটনে ডান ক্লিক করো, «Salva collegamento con nome…» বাছো, Documenti → mastermind-client ফোল্ডারে Salva চাপো।</p><a class="bt v" href="file/mm_logica.pas" download="mm_logica.pas">mm_logica.pas</a><figure style="margin:8px 0"><img class="sx-img" src="img/c04.svg" alt="Salva mm_logica.pas" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Scarica il file mm_file.pas</h2><p>Questo file è il piano B con i file. Torna al <b>browser</b> (questa pagina). Fai clic <b>destro</b> sul bottone verde, scegli <b>Salva collegamento con nome…</b>, vai in <b>Documenti</b> → <b>mastermind-client</b> e clicca <b>Salva</b>.</p><p class="bn" lang="bn">বাটনে ডান ক্লিক করো, «Salva collegamento con nome…» বাছো, Documenti → mastermind-client ফোল্ডারে Salva চাপো।</p><a class="bt v" href="file/mm_file.pas" download="mm_file.pas">mm_file.pas</a><figure style="margin:8px 0"><img class="sx-img" src="img/c05.svg" alt="Salva mm_file.pas" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>Scarica il file mm_tcp.pas</h2><p>Questo file è il collegamento in rete. Torna al <b>browser</b> (questa pagina). Fai clic <b>destro</b> sul bottone verde, scegli <b>Salva collegamento con nome…</b>, vai in <b>Documenti</b> → <b>mastermind-client</b> e clicca <b>Salva</b>.</p><p class="bn" lang="bn">বাটনে ডান ক্লিক করো, «Salva collegamento con nome…» বাছো, Documenti → mastermind-client ফোল্ডারে Salva চাপো।</p><a class="bt v" href="file/mm_tcp.pas" download="mm_tcp.pas">mm_tcp.pas</a><figure style="margin:8px 0"><img class="sx-img" src="img/c06.svg" alt="Salva mm_tcp.pas" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Controlla la cartella</h2><p>Apri <b>Esplora file</b> → <b>Documenti</b> → <b>mastermind-client</b>. Devi vedere i 4 file <code>.pas</code> che hai scaricato (client_unit, mm_logica, mm_file, mm_tcp) più i file del tuo progetto. Se ne manca uno, scaricalo di nuovo dal passo di prima.</p><p class="bn" lang="bn">ফোল্ডারে ৪টা .pas ফাইল আছে কিনা দেখো। না থাকলে আবার ডাউনলোড করো।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c07.svg" alt="La cartella con i 4 file" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Incolla il codice di Unit1</h2><p>Torna a <b>Lazarus</b>. Clicca la scheda <b>Unit1</b> (il testo del codice; se non la vedi premi <b>F12</b>). Premi <b>Ctrl + A</b> per selezionare tutto. Poi copia il riquadro nero qui sotto con il bottone <b>Copia</b> e premi <b>Ctrl + V</b> in Lazarus. Il vecchio codice sparisce: è giusto così.</p><p class="bn" lang="bn">Lazarus-এ Unit1 ট্যাবে ক্লিক করো, Ctrl+A চাপো, নিচের কোড কপি করে Ctrl+V দিয়ে বসাও।</p><pre><span class="t">unit Unit1;
-{ MASTERMIND 2.0 - IL CLIENT DEI RAGAZZI (la finestra).
-
-  Tutta la classe gioca INSIEME sulla stessa combinazione segreta, pensata dal
-  PC del prof (il SERVER). Tu provi, il server ti dice quante cifre sono
-  &quot;esatte&quot; e quante &quot;spostate&quot;, e ti mette in classifica.
-
-  I passi del gioco, nell&#x27;ordine:
-    1. Scrivi l&#x27;indirizzo del server (te lo dice il prof) e il tuo nome.
-    2. Premi &quot;Connetti&quot;: il programma chiede al server &quot;ci sei?&quot;.
-    3. Scrivi 4 cifre da 1 a 6 e premi &quot;Prova&quot;.
-    4. Ogni 3 secondi la classifica si aggiorna da sola.
-
-  Le parti difficili (rete, protocollo) stanno nei file mm_logica, mm_tcp e
-  client_unit: qui c&#x27;e&#x27; solo la finestra. }
+<div class="passo" data-p="1"><span class="bollo">da fare</span><h2><span class="num">1</span>Crea il progetto</h2><p>In Lazarus, menu <b>Progetto</b> → <b>Nuovo progetto…</b> → <b>Applicazione</b> → <b>OK</b>. Compare una finestra grigia: è la <b>Form1</b>. FATTO!</p><p class="bn" lang="bn">Lazarus: Progetto → Nuovo progetto… → Applicazione → OK।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c01.svg" alt="Progetto, Nuovo progetto, Applicazione" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="2"><span class="bollo">da fare</span><h2><span class="num">2</span>Salva il progetto in Documenti</h2><p>Menu <b>Progetto</b> → <b>Salva progetto con nome…</b>. A sinistra clicca <b>Documenti</b>, poi <b>Nuova cartella</b> e scrivi il nome qui sotto. Entra nella cartella, in <b>Nome file</b> scrivi <code>mastermind</code> e clicca <b>Salva</b>; per <code>unit1.pas</code> clicca ancora <b>Salva</b>.</p><p class="bn" lang="bn">Documenti-এ নতুন ফোল্ডার mastermind-client বানাও, ভেতরে mastermind নামে Salva চাপো।</p><pre><span class="t">mastermind-client</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c02.svg" alt="Salva progetto con nome" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="3"><span class="bollo">da fare</span><h2><span class="num">3</span>Incolla il codice in Unit1</h2><p>Clicca la scheda <b>Unit1</b> (se non la vedi premi <b>F12</b>). Premi <b>Ctrl + A</b>. Copia il riquadro nero qui sotto con il bottone <b>Copia</b> e premi <b>Ctrl + V</b> in Lazarus. Il vecchio codice sparisce: è giusto così. Questo è l'<b>unico file</b> del programma: non devi scaricare altro.</p><p class="bn" lang="bn">Unit1 ট্যাবে ক্লিক করো, Ctrl+A, নিচের কোড কপি করে Ctrl+V। আর কোনো ফাইল লাগবে না।</p><pre><span class="t">unit Unit1;
+{ MASTERMIND 2.0 - CLIENT (per i ragazzi), TUTTO IN UN FILE.
+  Ti collegi al PC del prof, quando il prof dice &quot;Via&quot; provi le combinazioni.
+  Ogni richiesta: ti colleghi, mandi UNA riga, leggi UNA riga, chiudi. }
 
 {$mode objfpc}{$H+}
 
@@ -77,37 +61,41 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
-  mm_logica, mm_tcp, client_unit;
+  sockets, ssockets;
 
 type
   TForm1 = class(TForm)
-    LblTitoloServer: TLabel;   // scritta sopra l&#x27;indirizzo
-    LblTitoloNome: TLabel;     // scritta sopra il nome
-    LblTitoloTentativo: TLabel; // scritta sopra il tentativo
-    EdServer: TEdit;        // indirizzo del server, per esempio 192.168.10.5:5050
-    EdNome: TEdit;          // il tuo nome
-    BtnConnetti: TButton;   // &quot;Connetti&quot;
-    EdTentativo: TEdit;     // le 4 cifre che provi
-    BtnProva: TButton;      // &quot;Prova&quot;
-    LblStato: TLabel;       // dice se sei collegato al server
-    LblEsito: TLabel;       // risultato dell&#x27;ultimo tentativo
-    LblClassifica: TLabel;  // migliore e peggiore della classe
-    LblPosizione: TLabel;   // la tua posizione
-    MemoStoria: TMemo;      // tutti i tuoi tentativi
-    Timer1: TTimer;         // ogni 3 secondi chiede la classifica
+    LblIp: TLabel;
+    EdIp: TEdit;
+    LblNome: TLabel;
+    EdNome: TEdit;
+    BtnConnetti: TButton;
+    LblEsito: TLabel;
+    LblStato: TLabel;
+    LblTentativo: TLabel;
+    EdTentativo: TEdit;
+    BtnProva: TButton;
+    MemoStoria: TMemo;
+    LblMigliore: TLabel;
+    LblPeggiore: TLabel;
+    LblPosizione: TLabel;
+    LblFiniti: TLabel;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure BtnConnettiClick(Sender: TObject);
     procedure BtnProvaClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
   private
-    Cl: TMMClient;                 // il &quot;postino&quot;: parla con il server
-    UltimoTentativo: String;       // le cifre appena inviate
-    InAttesa: Boolean;             // True se stiamo aspettando una risposta
-    procedure RispostaConnessione(Sender: TObject);
-    procedure RispostaTentativo(Sender: TObject);
-    procedure RispostaClassifica(Sender: TObject);
-    procedure AggiornaClassifica;  // scrive migliore, peggiore e posizione
+    Collegato: Boolean;
+    Errori: Integer;
+    Nome: String;
+    function PulisciNome: String;
+    function Chiedi(const Riga: String; out Risposta: String): String;
+    function Campo(const S: String; N: Integer): String;
+    procedure Mostra(const R: String; Dopo: Integer);
   public
+    Avviato: Boolean;                 // True quando FormCreate e&#x27; gia&#x27; partita
+    procedure AfterConstruction; override;
   end;
 
 var
@@ -117,298 +105,448 @@ implementation
 
 {$R *.lfm}
 
-{ Parte quando si apre il programma }
+const
+  PORTA_SERVER = 5050;      // la porta del server: non toccarla
+  TEMPO_MS = 2000;   // dopo 2 secondi senza risposta ci arrendiamo
+
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  Cl := TMMClient.Create;
-  Cl.Modo := moRete;              // useremo la rete (TCP)
-  InAttesa := False;
-  BtnProva.Enabled := False;      // si accende solo dopo &quot;Connetti&quot;
-  Timer1.Enabled := False;        // parte solo dopo &quot;Connetti&quot;
-  LblStato.Caption := &#x27;Non collegato. Scrivi il tuo nome e premi Connetti.&#x27;;
-  LblEsito.Caption := &#x27;&#x27;;
-  LblClassifica.Caption := &#x27;Classifica: appare dopo Connetti&#x27;;
-  LblPosizione.Caption := &#x27;&#x27;;
+  Avviato := True;
+  Collegato := False;
+  Errori := 0;
+  Timer1.Enabled := False;
+  Timer1.Interval := 3000;
+  BtnProva.Enabled := False;
+  LblStato.Caption := &#x27;Non collegato&#x27;;
+  LblEsito.Caption := &#x27;Scrivi il tuo nome e premi Connetti.&#x27;;
 end;
 
-{ Passo 2: il bottone Connetti }
+{ Se Lazarus non ha collegato i bottoni, li colleghiamo noi da qui }
+procedure TForm1.AfterConstruction;
+begin
+  inherited AfterConstruction;
+  if not Assigned(BtnConnetti.OnClick) then BtnConnetti.OnClick := @BtnConnettiClick;
+  if not Assigned(BtnProva.OnClick) then BtnProva.OnClick := @BtnProvaClick;
+  if not Assigned(Timer1.OnTimer) then Timer1.OnTimer := @Timer1Timer;
+  if not Avviato then FormCreate(nil);
+end;
+
+{ il quarto, il terzo... campo di una riga separata da punto e virgola }
+function TForm1.Campo(const S: String; N: Integer): String;
+var
+  L: TStringList;
+begin
+  Result := &#x27;&#x27;;
+  L := TStringList.Create;
+  try
+    L.StrictDelimiter := True;
+    L.Delimiter := &#x27;;&#x27;;
+    L.DelimitedText := S;
+    if (N &gt;= 0) and (N &lt; L.Count) then Result := Trim(L[N]);
+  finally
+    L.Free;
+  end;
+end;
+
+function TForm1.PulisciNome: String;
+begin
+  Result := Trim(StringReplace(EdNome.Text, &#x27;;&#x27;, &#x27;&#x27;, [rfReplaceAll]));
+end;
+
+{ Manda UNA riga al server e legge UNA riga. Risultato: &#x27;&#x27; se tutto bene,
+  altrimenti il motivo dell&#x27;errore in parole semplici. }
+function TForm1.Chiedi(const Riga: String; out Risposta: String): String;
+var
+  S: TInetSocket;
+  Ch: Char;
+  N: Integer;
+  Fine: QWord;
+  Buf, Host: String;
+  Porta, K: Integer;
+begin
+  Result := &#x27;&#x27;;
+  Risposta := &#x27;&#x27;;
+  S := nil;
+  // se qualcuno scrive anche &quot;:5050&quot; dopo l&#x27;IP, va bene lo stesso
+  Host := Trim(EdIp.Text);
+  Porta := PORTA_SERVER;
+  K := Pos(&#x27;:&#x27;, Host);
+  if K &gt; 0 then
+  begin
+    Porta := StrToIntDef(Trim(Copy(Host, K + 1, 10)), PORTA_SERVER);
+    Host := Trim(Copy(Host, 1, K - 1));
+  end;
+  try
+    try
+      S := TInetSocket.Create(Host, Porta, TEMPO_MS);
+      S.IOTimeout := TEMPO_MS;
+      Buf := Riga + #10;
+      S.WriteBuffer(Buf[1], Length(Buf));
+      Fine := GetTickCount64 + TEMPO_MS;
+      repeat
+        N := S.Read(Ch, 1);
+        if N &lt;= 0 then Break;
+        if Ch = #10 then Break;
+        if Ch &lt;&gt; #13 then Risposta := Risposta + Ch;
+      until GetTickCount64 &gt; Fine;
+      if Risposta = &#x27;&#x27; then Result := &#x27;Il server non ha risposto. Riprova tra un attimo.&#x27;;
+    except
+      on E: ESocketError do
+        case E.Code of
+          seConnectFailed:
+            Result := &#x27;Connessione rifiutata: il server non e&#x27;&#x27; acceso oppure la porta e&#x27;&#x27; sbagliata.&#x27;;
+          seConnectTimeOut, seIOTimeOut:
+            Result := &#x27;Il server non risponde: controlla l&#x27;&#x27;IP (deve essere quello scritto in alto nella pagina) e il firewall.&#x27;;
+          seHostNotFound:
+            Result := &#x27;L&#x27;&#x27;IP non e&#x27;&#x27; scritto bene: deve avere 4 numeri separati da punti.&#x27;;
+        else
+          Result := &#x27;Non riesco a collegarmi: controlla l&#x27;&#x27;IP e che il server sia acceso.&#x27;;
+        end;
+      on E: Exception do
+        Result := &#x27;Non riesco a collegarmi: controlla l&#x27;&#x27;IP e che il server sia acceso.&#x27;;
+    end;
+  finally
+    S.Free;
+  end;
+end;
+
+{ Aggiorna le scritte grandi. Dopo = posizione del campo &quot;tentativi&quot; nella risposta }
+procedure TForm1.Mostra(const R: String; Dopo: Integer);
+var
+  Mig, Peg, Pos_, Tot: String;
+begin
+  Pos_ := Campo(R, Dopo + 1);
+  Tot := Campo(R, Dopo + 2);
+  Mig := Campo(R, Dopo + 3);
+  Peg := Campo(R, Dopo + 4);
+  if Mig = &#x27;0&#x27; then LblMigliore.Caption := &#x27;Migliore: nessuno ha ancora finito&#x27;
+  else LblMigliore.Caption := &#x27;Migliore: &#x27; + Mig + &#x27; tentativi&#x27;;
+  if Peg = &#x27;0&#x27; then LblPeggiore.Caption := &#x27;Peggiore: -&#x27;
+  else LblPeggiore.Caption := &#x27;Peggiore: &#x27; + Peg + &#x27; tentativi&#x27;;
+  if (Pos_ = &#x27;0&#x27;) or (Pos_ = &#x27;&#x27;) then LblPosizione.Caption := &#x27;Il tuo posto: non hai ancora indovinato&#x27;
+  else LblPosizione.Caption := &#x27;Il tuo posto: &#x27; + Pos_ + &#x27;o&#x27;;
+  LblFiniti.Caption := &#x27;Hanno finito: &#x27; + Tot;
+end;
+
 procedure TForm1.BtnConnettiClick(Sender: TObject);
 var
-  testo: String;
-  k: Integer;
+  R, Err: String;
 begin
-  if PulisciNome(EdNome.Text) = &#x27;&#x27; then
+  Nome := PulisciNome;
+  if Nome = &#x27;&#x27; then
   begin
-    LblStato.Caption := &#x27;Scrivi prima il tuo nome!&#x27;;
+    LblEsito.Caption := &#x27;Scrivi prima il tuo nome nella casella.&#x27;;
     Exit;
   end;
-  // l&#x27;indirizzo e&#x27; del tipo  IP:PORTA  (se manca la porta usiamo 5050)
-  testo := Trim(EdServer.Text);
-  k := Pos(&#x27;:&#x27;, testo);
-  if k = 0 then
+  if Trim(EdIp.Text) = &#x27;&#x27; then
   begin
-    Cl.Host := testo;
-    Cl.Porta := 5050;
-  end
-  else
-  begin
-    Cl.Host := Trim(Copy(testo, 1, k - 1));
-    Cl.Porta := StrToIntDef(Trim(Copy(testo, k + 1, 10)), 5050);
+    LblEsito.Caption := &#x27;Scrivi l&#x27;&#x27;IP del server (e&#x27;&#x27; scritto in alto nella pagina).&#x27;;
+    Exit;
   end;
-  Cl.Nome := EdNome.Text;
-  LblStato.Caption := &#x27;Mi collego al server...&#x27;;
-  BtnConnetti.Enabled := False;
-  // la domanda parte in un THREAD (un aiutante): la finestra non si blocca
-  TMMRichiestaAsync.Create(Cl.Host, Cl.Porta, Cl.RigaStato, @RispostaConnessione);
+  LblEsito.Caption := &#x27;Mi collego...&#x27;;
+  Err := Chiedi(&#x27;STATO;&#x27; + Nome, R);
+  if (Err = &#x27;&#x27;) and (Campo(R, 0) &lt;&gt; &#x27;STATO&#x27;) then
+    Err := &#x27;Risposta strana dal server: &#x27; + R;
+  if Err &lt;&gt; &#x27;&#x27; then
+  begin
+    Collegato := False;
+    Timer1.Enabled := False;
+    BtnProva.Enabled := False;
+    LblStato.Caption := &#x27;Non collegato&#x27;;
+    LblEsito.Caption := Err;
+    Exit;
+  end;
+  Collegato := True;
+  Errori := 0;
+  BtnProva.Enabled := True;
+  LblEsito.Caption := &#x27;Collegato! Ciao &#x27; + Nome + &#x27;.&#x27;;
+  Mostra(R, 2);
+  if Campo(R, 1) = &#x27;GIOCO&#x27; then LblStato.Caption := &#x27;GIOCO: provaci!&#x27;
+  else LblStato.Caption := &#x27;ATTESA: aspetta il Via del Prof&#x27;;
+  Timer1.Enabled := True;
 end;
 
-{ Il server ha risposto alla domanda &quot;ci sei?&quot; }
-procedure TForm1.RispostaConnessione(Sender: TObject);
-var
-  R: TRisposta;
-begin
-  R := Cl.ApplicaRisposta(TMMRichiestaAsync(Sender).Risposta);
-  if R.Tipo = &#x27;STATO&#x27; then
-  begin
-    LblStato.Caption := &#x27;Collegato come &#x27; + PulisciNome(EdNome.Text) + &#x27;!  Giochiamo.&#x27;;
-    EdNome.Enabled := False;        // il nome non si cambia piu&#x27;
-    EdServer.Enabled := False;
-    BtnProva.Enabled := True;
-    Timer1.Enabled := True;
-    AggiornaClassifica;
-  end
-  else
-  begin
-    LblStato.Caption := &#x27;Non trovo il server. Controlla l&#x27;&#x27;indirizzo e riprova.&#x27;;
-    BtnConnetti.Enabled := True;     // si puo&#x27; riprovare, nessun problema!
-  end;
-end;
-
-{ Passo 3: il bottone Prova }
 procedure TForm1.BtnProvaClick(Sender: TObject);
+var
+  R, Err, Cod, T: String;
+  I: Integer;
+  Ok: Boolean;
 begin
-  if InAttesa then Exit;                  // un tentativo alla volta
-  UltimoTentativo := Trim(EdTentativo.Text);
-  if not CodiceValido(UltimoTentativo) then
+  if not Collegato then
   begin
-    LblEsito.Caption := &#x27;Scrivi 4 cifre, ognuna da 1 a 6 (per esempio 1234)&#x27;;
+    LblEsito.Caption := &#x27;Prima premi Connetti.&#x27;;
     Exit;
   end;
-  InAttesa := True;
-  LblEsito.Caption := &#x27;Invio al server...&#x27;;
-  TMMRichiestaAsync.Create(Cl.Host, Cl.Porta, Cl.RigaProva(UltimoTentativo), @RispostaTentativo);
-end;
-
-{ Il server ha risposto al tentativo }
-procedure TForm1.RispostaTentativo(Sender: TObject);
-var
-  R: TRisposta;
-begin
-  InAttesa := False;
-  R := Cl.ApplicaRisposta(TMMRichiestaAsync(Sender).Risposta);
-  LblEsito.Caption := Cl.TestoRisposta(R);        // per esempio &quot;Esatte: 1  Spostate: 2&quot;
-  if (R.Tipo = &#x27;RESULT&#x27;) or (R.Tipo = &#x27;WIN&#x27;) then
+  Cod := Trim(EdTentativo.Text);
+  Ok := Length(Cod) = 4;
+  for I := 1 to Length(Cod) do
+    if not (Cod[I] in [&#x27;1&#x27;..&#x27;6&#x27;]) then Ok := False;
+  if not Ok then
   begin
-    MemoStoria.Lines.Add(IntToStr(R.Sintesi.Tentativi) + &#x27;)  &#x27; + UltimoTentativo +
-      &#x27;   esatte: &#x27; + IntToStr(R.Esatte) + &#x27;   spostate: &#x27; + IntToStr(R.Spostate));
-    EdTentativo.Clear;
+    LblEsito.Caption := &#x27;Servono 4 cifre, ognuna da 1 a 6 (esempio: 1234).&#x27;;
+    Exit;
   end;
-  if R.Tipo = &#x27;WIN&#x27; then
+  Err := Chiedi(&#x27;GUESS;&#x27; + Nome + &#x27;;&#x27; + Cod, R);
+  if Err &lt;&gt; &#x27;&#x27; then
   begin
-    MemoStoria.Lines.Add(&#x27;*** INDOVINATO! ***&#x27;);
-    BtnProva.Enabled := False;                     // hai finito, ora guardi la classifica
+    LblEsito.Caption := Err;
+    Exit;
   end;
-  AggiornaClassifica;
-end;
-
-{ Ogni 3 secondi: chiedo solo la classifica (nessun tentativo) }
-procedure TForm1.Timer1Timer(Sender: TObject);
-begin
-  TMMRichiestaAsync.Create(Cl.Host, Cl.Porta, Cl.RigaStato, @RispostaClassifica);
-end;
-
-procedure TForm1.RispostaClassifica(Sender: TObject);
-begin
-  Cl.ApplicaRisposta(TMMRichiestaAsync(Sender).Risposta);
-  AggiornaClassifica;
-end;
-
-{ Scrive nelle due etichette cio&#x27; che il server ci ha detto }
-procedure TForm1.AggiornaClassifica;
-begin
-  LblClassifica.Caption := Cl.Console;
-  if Cl.Ultima.Posizione &gt; 0 then
-    LblPosizione.Caption := &#x27;La tua posizione: &#x27; + IntToStr(Cl.Ultima.Posizione) +
-      &#x27; su &#x27; + IntToStr(Cl.Ultima.Totale)
+  T := Campo(R, 0);
+  if T = &#x27;WAIT&#x27; then
+  begin
+    LblEsito.Caption := &#x27;Il Prof non ha ancora detto Via: aspetta.&#x27;;
+    LblStato.Caption := &#x27;ATTESA: aspetta il Via del Prof&#x27;;
+  end
+  else if T = &#x27;RESULT&#x27; then
+  begin
+    LblStato.Caption := &#x27;GIOCO: provaci!&#x27;;
+    LblEsito.Caption := Cod + &#x27;: &#x27; + Campo(R, 1) + &#x27; esatte, &#x27; + Campo(R, 2) + &#x27; spostate&#x27;;
+    MemoStoria.Lines.Add(&#x27;n. &#x27; + Campo(R, 3) + &#x27;   &#x27; + Cod + &#x27;   esatte &#x27; + Campo(R, 1) +
+      &#x27;   spostate &#x27; + Campo(R, 2));
+    Mostra(R, 3);
+    EdTentativo.Text := &#x27;&#x27;;
+  end
+  else if T = &#x27;WIN&#x27; then
+  begin
+    LblStato.Caption := &#x27;HAI VINTO!&#x27;;
+    LblEsito.Caption := &#x27;BRAVO! Hai indovinato in &#x27; + Campo(R, 2) + &#x27; tentativi e &#x27; +
+      Campo(R, 3) + &#x27; secondi.&#x27;;
+    MemoStoria.Lines.Add(&#x27;n. &#x27; + Campo(R, 2) + &#x27;   &#x27; + Cod + &#x27;   INDOVINATO!  Posto &#x27; + Campo(R, 4));
+    Mostra(R, 3);
+    BtnProva.Enabled := False;
+  end
+  else if T = &#x27;ERR&#x27; then
+    LblEsito.Caption := &#x27;Il server dice: &#x27; + Campo(R, 1)
   else
-    LblPosizione.Caption := &#x27;La tua posizione: non hai ancora indovinato&#x27;;
+    LblEsito.Caption := &#x27;Risposta strana dal server: &#x27; + R;
+end;
+
+{ ogni 3 secondi chiede al server come siamo messi }
+procedure TForm1.Timer1Timer(Sender: TObject);
+var
+  R, Err: String;
+begin
+  if not Collegato then Exit;
+  Err := Chiedi(&#x27;STATO;&#x27; + Nome, R);
+  if Err &lt;&gt; &#x27;&#x27; then
+  begin
+    Inc(Errori);
+    LblEsito.Caption := Err;
+    if Errori &gt;= 3 then
+    begin
+      Collegato := False;
+      Timer1.Enabled := False;
+      BtnProva.Enabled := False;
+      LblStato.Caption := &#x27;Non collegato&#x27;;
+      LblEsito.Caption := &#x27;Il server non risponde piu&#x27;&#x27;: premi Connetti per riprovare.&#x27;;
+    end;
+    Exit;
+  end;
+  Errori := 0;
+  if Campo(R, 0) &lt;&gt; &#x27;STATO&#x27; then Exit;
+  Mostra(R, 2);
+  if (LblStato.Caption = &#x27;HAI VINTO!&#x27;) and (Campo(R, 3) = &#x27;0&#x27;) then
+  begin
+    // il Prof ha ricominciato con un&#x27;altra combinazione
+    MemoStoria.Lines.Clear;
+    BtnProva.Enabled := True;
+    LblStato.Caption := &#x27;&#x27;;
+  end;
+  if LblStato.Caption &lt;&gt; &#x27;HAI VINTO!&#x27; then
+    if Campo(R, 1) = &#x27;GIOCO&#x27; then LblStato.Caption := &#x27;GIOCO: provaci!&#x27;
+    else LblStato.Caption := &#x27;ATTESA: aspetta il Via del Prof&#x27;;
 end;
 
 end.
 </span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c08.svg" alt="Unit1: Ctrl+A e Ctrl+V" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="9"><span class="bollo">da fare</span><h2><span class="num">9</span>Incolla la finestra del gioco</h2><p>Fai clic <b>destro</b> sulla finestra grigia (Form1) e scegli la voce del <b>sorgente (.lfm)</b> (il nome può cambiare un po' tra le versioni di Lazarus). Premi <b>Ctrl + A</b>. Copia il riquadro nero qui sotto con il bottone <b>Copia</b> e premi <b>Ctrl + V</b>. Poi fai ancora clic destro e torna alla finestra: compare il Mastermind!</p><p class="bn" lang="bn">ফর্মে ডান ক্লিক করে (.lfm) সোর্স খোলো, Ctrl+A, নিচের কোড কপি করে Ctrl+V। আবার ডান ক্লিক করে ফর্মে ফিরে যাও।</p><pre><span class="t">object Form1: TForm1
-  Left = 300
+<div class="passo" data-p="4"><span class="bollo">da fare</span><h2><span class="num">4</span>Incolla la finestra del gioco</h2><p>Fai clic <b>destro</b> sulla finestra grigia (Form1) e scegli <b>Visualizza form come testo</b> (il nome può cambiare un po' tra le versioni di Lazarus). Premi <b>Ctrl + A</b>. Copia il riquadro nero qui sotto con il bottone <b>Copia</b> e premi <b>Ctrl + V</b>. Poi fai ancora clic destro e scegli di tornare alla finestra: compare il Mastermind!</p><p class="bn" lang="bn">ফর্মে ডান ক্লিক → Visualizza form come testo, Ctrl+A, নিচের কোড কপি করে Ctrl+V।</p><pre><span class="t">object Form1: TForm1
+  Left = 200
   Height = 560
-  Top = 120
-  Width = 520
-  Caption = &#x27;Mastermind 2.0 - tutta la classe insieme&#x27;
+  Top = 80
+  Width = 640
+  Caption = &#x27;Mastermind 2.0 - il tuo CLIENT&#x27;
   ClientHeight = 560
-  ClientWidth = 520
+  ClientWidth = 640
   OnCreate = FormCreate
   LCLVersion = &#x27;4.2.0.0&#x27;
-  object LblTitoloServer: TLabel
+  object LblIp: TLabel
     Left = 16
     Height = 17
     Top = 12
-    Width = 300
-    Caption = &#x27;Indirizzo del server (te lo dice il prof)&#x27;
+    Width = 200
+    Caption = &#x27;IP del server (scritto nella pagina)&#x27;
     ParentColor = False
   end
-  object EdServer: TEdit
+  object EdIp: TEdit
     Left = 16
     Height = 34
     Top = 32
-    Width = 260
+    Width = 200
     Font.Height = -19
     ParentFont = False
     TabOrder = 0
-    Text = &#x27;192.168.10.5:5050&#x27;
+    Text = &#x27;192.168.38.70&#x27;
   end
-  object LblTitoloNome: TLabel
-    Left = 16
+  object LblNome: TLabel
+    Left = 236
     Height = 17
-    Top = 76
-    Width = 300
+    Top = 12
+    Width = 200
     Caption = &#x27;Il tuo nome&#x27;
     ParentColor = False
   end
   object EdNome: TEdit
-    Left = 16
+    Left = 236
     Height = 34
-    Top = 96
-    Width = 260
+    Top = 32
+    Width = 220
     Font.Height = -19
-    MaxLength = 20
     ParentFont = False
     TabOrder = 1
-    Text = &#x27;&#x27;
   end
   object BtnConnetti: TButton
-    Left = 296
+    Left = 476
     Height = 34
-    Top = 96
-    Width = 200
+    Top = 32
+    Width = 148
     Caption = &#x27;Connetti&#x27;
     OnClick = BtnConnettiClick
     TabOrder = 2
   end
-  object LblStato: TLabel
+  object LblEsito: TLabel
     Left = 16
     Height = 40
-    Top = 140
-    Width = 480
+    Top = 76
+    Width = 608
     AutoSize = False
-    Caption = &#x27;&#x27;
-    Font.Height = -15
+    Caption = &#x27;Scrivi il tuo nome e premi Connetti.&#x27;
+    Font.Height = -16
     ParentColor = False
     ParentFont = False
     WordWrap = True
   end
-  object LblTitoloTentativo: TLabel
+  object LblStato: TLabel
+    Left = 16
+    Height = 40
+    Top = 124
+    Width = 608
+    AutoSize = False
+    Caption = &#x27;Non collegato&#x27;
+    Font.Height = -29
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblTentativo: TLabel
     Left = 16
     Height = 17
-    Top = 190
+    Top = 176
     Width = 300
-    Caption = &#x27;Il tuo tentativo: 4 cifre da 1 a 6&#x27;
+    Caption = &#x27;Il tuo tentativo (4 cifre, ognuna da 1 a 6)&#x27;
     ParentColor = False
   end
   object EdTentativo: TEdit
     Left = 16
-    Height = 34
-    Top = 210
-    Width = 130
-    Font.Height = -20
+    Height = 40
+    Top = 196
+    Width = 200
+    Font.Height = -24
     MaxLength = 4
     ParentFont = False
     TabOrder = 3
-    Text = &#x27;&#x27;
   end
   object BtnProva: TButton
-    Left = 160
-    Height = 34
-    Top = 210
-    Width = 100
+    Left = 236
+    Height = 40
+    Top = 196
+    Width = 148
     Caption = &#x27;Prova&#x27;
+    Enabled = False
     OnClick = BtnProvaClick
     TabOrder = 4
   end
-  object LblEsito: TLabel
-    Left = 16
-    Height = 30
-    Top = 256
-    Width = 480
-    AutoSize = False
-    Caption = &#x27;&#x27;
-    Font.Height = -19
-    ParentColor = False
-    ParentFont = False
-    WordWrap = True
-  end
   object MemoStoria: TMemo
     Left = 16
-    Height = 170
-    Top = 296
-    Width = 480
+    Height = 220
+    Top = 252
+    Width = 330
+    Font.Height = -16
+    ParentFont = False
     ReadOnly = True
     ScrollBars = ssAutoVertical
     TabOrder = 5
   end
-  object LblClassifica: TLabel
-    Left = 16
-    Height = 40
-    Top = 476
-    Width = 480
+  object LblMigliore: TLabel
+    Left = 364
+    Height = 30
+    Top = 252
+    Width = 260
     AutoSize = False
-    Caption = &#x27;&#x27;
-    Font.Height = -15
-    ParentColor = False
-    ParentFont = False
-    WordWrap = True
-  end
-  object LblPosizione: TLabel
-    Left = 16
-    Height = 28
-    Top = 520
-    Width = 480
-    AutoSize = False
-    Caption = &#x27;&#x27;
+    Caption = &#x27;Migliore: -&#x27;
     Font.Height = -19
     ParentColor = False
     ParentFont = False
     WordWrap = True
+  end
+  object LblPeggiore: TLabel
+    Left = 364
+    Height = 30
+    Top = 300
+    Width = 260
+    AutoSize = False
+    Caption = &#x27;Peggiore: -&#x27;
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblPosizione: TLabel
+    Left = 364
+    Height = 50
+    Top = 348
+    Width = 260
+    AutoSize = False
+    Caption = &#x27;Il tuo posto: -&#x27;
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
+    WordWrap = True
+  end
+  object LblFiniti: TLabel
+    Left = 364
+    Height = 30
+    Top = 416
+    Width = 260
+    AutoSize = False
+    Caption = &#x27;Hanno finito: -&#x27;
+    Font.Height = -19
+    ParentColor = False
+    ParentFont = False
   end
   object Timer1: TTimer
     Enabled = False
     Interval = 3000
     OnTimer = Timer1Timer
-    Left = 440
-    Top = 200
+    left = 560
+    top = 500
   end
 end
 </span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c09.svg" alt="Form1 come testo: Ctrl+A e Ctrl+V" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="10"><span class="bollo">da fare</span><h2><span class="num">10</span>Fai partire il programma</h2><p>Premi <b>F9</b>. Dopo qualche secondo compare la finestra <b>Mastermind 2.0</b>. Se Lazarus ti chiede di salvare, clicca <b>Salva</b>.</p><p class="bn" lang="bn">F9 চাপো। কিছুক্ষণ পরে Mastermind 2.0 উইন্ডো আসবে।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c10.svg" alt="F9: compare la finestra del gioco" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="11"><span class="bollo">da fare</span><h2><span class="num">11</span>Scrivi il server e il tuo nome</h2><p>Nel programma, nella prima casella cancella quello che c'è (clic dentro, <b>Ctrl + A</b>, <b>Cancella</b>) e scrivi l'indirizzo del server qui sotto, con <code>:5050</code> alla fine. Nella seconda casella scrivi il tuo nome e cognome.</p><p class="bn" lang="bn">প্রথম বাক্সে সার্ভারের ঠিকানা (IP) আর :5050 লেখো। দ্বিতীয় বাক্সে নিজের নাম লেখো।</p><div id="ipcopia" hidden><p>Copia questo indirizzo e incollalo (<b>Ctrl + V</b>) nella prima casella:</p><pre><span class="t" id="ipt"></span></pre></div><p id="ipnonc" class="ante">L'indirizzo del server non c'è ancora: lo scrive il Prof. Guarda il riquadro grande in alto: appare da solo.</p><figure style="margin:8px 0"><img class="sx-img" src="img/c11.svg" alt="Indirizzo del server e nome" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="12"><span class="bollo">da fare</span><h2><span class="num">12</span>Premi Connetti</h2><p>Clicca il bottone <b>Connetti</b>. Se tutto va bene, sotto compare: <b>Collegato come… Giochiamo.</b></p><p class="bn" lang="bn">«Connetti» বাটন চাপো। «Collegato come…» লেখা আসবে।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c12.svg" alt="Il bottone Connetti" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="13"><span class="bollo">da fare</span><h2><span class="num">13</span>Prova a indovinare il codice</h2><p>Il Prof preme il <b>Via</b> per tutta la classe (prima del Via il programma dice «Aspetta il Via del prof…»). Scrivi 4 cifre da 1 a 6 (per esempio <code>1234</code>) e clicca <b>Prova</b>. <b>Esatte</b> = cifre giuste al posto giusto. <b>Spostate</b> = cifre giuste ma al posto sbagliato. Riprova finché indovini: il codice è lo stesso per tutta la classe!</p><p class="bn" lang="bn">শুরুর সংকেতের পর ১ থেকে ৬ এর মধ্যে ৪টা সংখ্যা লেখো, Prova চাপো। Esatte = ঠিক জায়গায় ঠিক সংখ্যা। Spostate = সংখ্যা ঠিক, জায়গা ভুল।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c13.svg" alt="Scrivi le 4 cifre e clicca Prova" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="14"><span class="bollo">da fare</span><h2><span class="num">14</span>Guarda la classifica</h2><p>Sotto i tentativi, ogni 3 secondi il programma aggiorna da solo la classifica: il <b>migliore</b> (meno tentativi), il <b>peggiore</b> e <b>la tua posizione</b>. Dopo che hai indovinato, resti in classifica con il tuo risultato.</p><p class="bn" lang="bn">ক্লাসের তালিকা নিজে নিজে বদলায়: সেরা, সবচেয়ে খারাপ, আর তোমার জায়গা।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c14.svg" alt="La classifica: migliore, peggiore, la tua posizione" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="15"><span class="bollo">da fare</span><h2><span class="num">15</span>Fai lo screenshot</h2><p>Premi <b>Win + Shift + S</b>, seleziona la finestra del gioco con la classifica, poi <b>Ctrl + S</b>: salva in <b>Documenti</b> → <b>mastermind-client</b> con il nome qui sotto.</p><p class="bn" lang="bn">Win+Shift+S দিয়ে গেমের উইন্ডোর ছবি নাও। Ctrl+S, mastermind-client ফোল্ডারে নিচের নামে Salva।</p><pre><span class="t">client_screenshot.png</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c15.svg" alt="Screenshot con Win + Shift + S" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
-<div class="passo" data-p="16"><span class="bollo">da fare</span><h2><span class="num">16</span>Consegna</h2><p>Manda al Prof lo screenshot e <code>unit1.pas</code> (la cartella <b>mastermind-client</b>).</p><p class="bn" lang="bn">প্রফেসরকে ছবি আর unit1.pas পাঠাও।</p><div id="cons"><p class="ante">Il bottone per consegnare lo attiva il Prof appena è pronto: comparirà qui.</p></div><figure style="margin:8px 0"><img class="sx-img" src="img/c16.svg" alt="Consegna al Prof" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Fai partire il programma</h2><p>Premi <b>F9</b>. Dopo qualche secondo compare la finestra <b>Mastermind 2.0</b>. Se Lazarus ti chiede di salvare, clicca <b>Salva</b>.</p><p class="bn" lang="bn">F9 চাপো। Mastermind 2.0 উইন্ডো আসবে।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c10.svg" alt="F9: compare la finestra del gioco" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>Scrivi il tuo nome e controlla l'IP</h2><p>Nel programma la prima casella ha già l'IP del server. Confrontalo con il riquadro grande in alto in questa pagina: se è diverso, clic dentro la casella, <b>Ctrl + A</b> e scrivi quello della pagina. Nella casella <b>Il tuo nome</b> scrivi nome e cognome.</p><p class="bn" lang="bn">প্রথম বাক্সে সার্ভারের IP আছে; পেজের উপরের IP-র সাথে মেলাও। নিজের নাম লেখো।</p><div id="ipcopia" hidden><p>L'IP della pagina (se vuoi copiarlo, <b>Ctrl + V</b> nella prima casella):</p><pre><span class="t" id="ipt"></span></pre></div><p id="ipnonc" class="ante">L'IP del server non c'è ancora: lo scrive il Prof. Guarda il riquadro grande in alto: appare da solo.</p><figure style="margin:8px 0"><img class="sx-img" src="img/c11.svg" alt="IP del server e nome" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Premi Connetti</h2><p>Clicca il bottone <b>Connetti</b>. Se tutto va bene, in alto compare <b>Collegato!</b> e sotto <b>ATTESA: aspetta il Via del Prof</b>.</p><p class="bn" lang="bn">«Connetti» বাটন চাপো। «Collegato!» লেখা আসবে।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c12.svg" alt="Il bottone Connetti" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Quando il Prof dice «Via», gioca</h2><p>Quando il Prof dice <b>Via</b>, la scritta grande diventa <b>GIOCO</b>. Scrivi 4 cifre da 1 a 6 (per esempio <code>1234</code>) e clicca <b>Prova</b>. <b>Esatte</b> = cifre giuste al posto giusto. <b>Spostate</b> = cifre giuste ma al posto sbagliato. Riprova finché indovini: il codice è lo stesso per tutta la classe. A destra vedi il migliore, il peggiore e il tuo posto: si aggiornano da soli ogni 3 secondi.</p><p class="bn" lang="bn">Via-র পর ১ থেকে ৬ এর ৪টা সংখ্যা লেখো, Prova চাপো। Esatte = ঠিক জায়গায় ঠিক সংখ্যা। Spostate = সংখ্যা ঠিক, জায়গা ভুল।</p><figure style="margin:8px 0"><img class="sx-img" src="img/c13.svg" alt="Scrivi le 4 cifre e clicca Prova" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="9"><span class="bollo">da fare</span><h2><span class="num">9</span>Fai lo screenshot</h2><p>Premi <b>Win + Shift + S</b>, seleziona la finestra del gioco, poi <b>Ctrl + S</b>: salva in <b>Documenti</b> → <b>mastermind-client</b> con il nome qui sotto.</p><p class="bn" lang="bn">Win+Shift+S দিয়ে গেমের উইন্ডোর ছবি নাও। নিচের নামে Salva।</p><pre><span class="t">client_screenshot.png</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/c15.svg" alt="Screenshot con Win + Shift + S" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+<div class="passo" data-p="10"><span class="bollo">da fare</span><h2><span class="num">10</span>Consegna</h2><p>Manda al Prof lo screenshot e <code>unit1.pas</code> (nella cartella <b>mastermind-client</b>).</p><p class="bn" lang="bn">প্রফেসরকে ছবি আর unit1.pas পাঠাও।</p><div id="cons"><p class="ante">Il bottone per consegnare lo attiva il Prof appena è pronto: comparirà qui.</p></div><figure style="margin:8px 0"><img class="sx-img" src="img/c16.svg" alt="Consegna al Prof" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
+
 <section class="card" id="senonva"><h2>Se non va</h2><p class="bn" lang="bn">কাজ না করলে নিচে দেখো। দরকার হলে সহকারীকে লেখো।</p>
-<div class="err"><b>Il programma scrive «Non trovo il server» e dice «rifiutata»</b><p>Il server non è ancora acceso, oppure la porta è sbagliata. Controlla che alla fine dell'indirizzo ci sia <code>:5050</code>. Aspetta un minuto e premi di nuovo <b>Connetti</b>: non succede niente di grave.</p></div>
-<div class="err"><b>Il programma aspetta tanto e poi scrive «Non trovo il server» (tempo scaduto)</b><p>L'indirizzo è sbagliato (una cifra o un punto), oppure il firewall del PC del Prof blocca. Confronta con il riquadro grande in alto, cifra per cifra. Se è uguale, scrivi all'assistente.</p></div>
-<div class="err"><b>«Scrivi prima il tuo nome!»</b><p>La seconda casella è vuota. Scrivi nome e cognome, poi premi <b>Connetti</b>.</p></div>
-<div class="err"><b>«Aspetta il Via del prof…»</b><p>Va tutto bene. Aspetta che il Prof prema il Via.</p></div>
-<div class="err"><b>Lazarus dice che non trova una unit (per esempio mm_logica)</b><p>Manca un file .pas nella cartella <b>mastermind-client</b>. Rifai i passi da 3 a 7 e scarica quello che manca.</p></div>
+<div class="err"><b>«Connessione rifiutata»</b><p>Il server del Prof non è ancora acceso, oppure hai cambiato qualcosa nell'IP. Aspetta un minuto e premi di nuovo <b>Connetti</b>: non succede niente di grave.</p></div>
+<div class="err"><b>«Il server non risponde»</b><p>L'IP è sbagliato (una cifra o un punto) oppure il firewall del PC del Prof blocca. Confrontalo con il riquadro grande in alto, cifra per cifra. Se è uguale, scrivi all'assistente.</p></div>
+<div class="err"><b>«L'IP non è scritto bene»</b><p>Nella prima casella ci sono 4 numeri separati da punti, senza spazi né lettere. Scrivilo come nel riquadro grande in alto.</p></div>
+<div class="err"><b>«Scrivi prima il tuo nome nella casella»</b><p>La casella <b>Il tuo nome</b> è vuota. Scrivi nome e cognome, poi premi <b>Connetti</b>.</p></div>
+<div class="err"><b>«ATTESA: aspetta il Via del Prof»</b><p>Va tutto bene. Aspetta che il Prof dica Via.</p></div>
+<div class="err"><b>Il bottone Prova non si preme</b><p>Prima premi <b>Connetti</b>. Il bottone Prova si accende solo quando sei collegato.</p></div>
+<div class="err"><b>Premendo F9 Lazarus segna un errore e non parte</b><p>Quasi sempre il codice non è stato incollato tutto. Rifai il passo 3: clicca dentro Unit1, <b>Ctrl + A</b>, poi incolla di nuovo. Poi rifai il passo 4.</p></div>
 <p>Per qualsiasi altro problema: scrivi nella casella dell'assistente in fondo alla pagina.</p></section>
 <details class="card" id="PB"><summary>Piano B: se la rete non funziona proprio</summary><p id="pbt">Il Prof ti dice come giocare con i file condivisi al posto della rete. Resta su questa pagina: lo scrive qui.</p><p class="bn" lang="bn">নেটওয়ার্ক একদম না চললে প্রফেসর ফাইলের মাধ্যমে খেলার উপায় বলবেন।</p></details>
 <p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>
@@ -416,7 +554,7 @@ end
 <script src="../../assistente/assistente.js" data-pagina="3inf-client-lazarus-02-11" data-lingue="it" data-dove="aiuto"></script>
 <script>
 (function(){
-var ORA=1, K='cl0211', KN='mm0211-nome', CONF={}, NS=16;
+var ORA=1, K='cl0211', KN='mm0211-nome', CONF={}, NS=10;
 function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
 function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
 try{if(/[?&]pc=14\b/.test(location.search))localStorage.setItem('mm0211-pc14','1');if(localStorage.getItem('mm0211-pc14')==='1')document.body.classList.add('pc14')}catch(x){}
@@ -443,8 +581,8 @@ var IPS='';
 function mostraIP(){
   var ip=(CONF.server_ip||'').trim(), box=document.getElementById('ip'), g=document.getElementById('ipg');
   box.classList.toggle('vuoto',!ip);
-  g.textContent=ip?ip+':5050':'lo scrive il Prof alla lavagna/qui appena è pronto';
-  document.getElementById('ipt').textContent=ip?ip+':5050':''; document.getElementById('ipcopia').hidden=!ip; document.getElementById('ipnonc').hidden=!!ip;
+  g.textContent=ip?ip:'lo scrive il Prof alla lavagna/qui appena è pronto';
+  document.getElementById('ipt').textContent=ip?ip:''; document.getElementById('ipcopia').hidden=!ip; document.getElementById('ipnonc').hidden=!!ip;
   var c=document.getElementById('cons'); if(CONF.consegna_link){c.innerHTML='<a class="bt v" href="'+encodeURI(CONF.consegna_link)+'">Manda al prof</a>'}
   if(CONF.piano_b)document.getElementById('pbt').textContent=CONF.piano_b;
 }
