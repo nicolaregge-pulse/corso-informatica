@@ -1,0 +1,143 @@
+{
+ "titolo": "Quiz di rete: il protocollo del Mastermind (3INF, 04/11)",
+ "descrizione": "12 domande sul protocollo spiegato oggi (STATO, GUESS, WAIT, RESULT, WIN, ERR, la porta 5050, la UnitRete). Ogni risposta giusta vale 1 punto. Per il voto serve almeno 8 su 12.",
+ "punti": 1,
+ "mescola": true,
+ "versioni": [
+  "A"
+ ],
+ "domande": [
+  {
+   "A": [
+    "1) Su quale porta ascolta il server del Mastermind?",
+    "5050",
+    [
+     "80",
+     "21",
+     "1234"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "2) Quale riga manda il client per chiedere \"come va la partita?\" (il nome è Sara)?",
+    "STATO;Sara",
+    [
+     "GUESS;Sara;STATO",
+     "WAIT;Sara",
+     "RESULT;Sara"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "3) Il Prof non ha ancora premuto Via. Sara manda GUESS;Sara;1234. Che cosa risponde il server?",
+    "WAIT",
+    [
+     "WIN;Sara;1;0;1;1;1;1",
+     "RESULT;4;0;1;0;0;0;0",
+     "STATO;GIOCO;0;0;0;0;0"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "4) Il server risponde RESULT;2;1;4;0;3;3;7. Quanti piolini neri e quanti bianchi?",
+    "2 neri e 1 bianco",
+    [
+     "1 nero e 2 bianchi",
+     "4 neri e 0 bianchi",
+     "0 neri e 4 bianchi"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "5) Nella stessa riga RESULT;2;1;4;0;3;3;7 il campo \"posto\" vale 0. Che cosa vuol dire?",
+    "Non hai ancora finito: non hai ancora un posto in classifica",
+    [
+     "Sei arrivato ultimo",
+     "Il server ha sbagliato",
+     "Hai vinto con 0 tentativi"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "6) Il server risponde WIN;Sara;5;62;2;4;3;8. Quanti tentativi e quanti secondi?",
+    "5 tentativi e 62 secondi",
+    [
+     "62 tentativi e 5 secondi",
+     "2 tentativi e 4 secondi",
+     "3 tentativi e 8 secondi"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "7) Sara scrive per errore GUESS;Sara;1237. Che cosa risponde il server?",
+    "ERR;codice non valido (servono 4 cifre da 1 a 6)",
+    [
+     "WAIT",
+     "RESULT;4;0;1;0;0;0;0",
+     "WIN;Sara;1;0;1;1;1;1"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "8) Nella riga RESULT;1;2;5;0;3;4;9 il primo campo (RESULT) è il numero 0. Quale numero ha il campo dei bianchi?",
+    "2",
+    [
+     "1",
+     "3",
+     "0"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "9) Il codice segreto è 1123 e il tentativo è 1211. Quanti neri e quanti bianchi risponde il server?",
+    "1 nero e 2 bianchi",
+    [
+     "2 neri e 1 bianco",
+     "0 neri e 4 bianchi",
+     "3 neri e 0 bianchi"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "10) Ogni quanto tempo il client chiede STATO al server, anche se nessuno preme niente?",
+    "Ogni 3 secondi",
+    [
+     "Mai",
+     "Solo quando si preme Prova",
+     "Ogni ora"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "11) Quando arriva una riga RESULT, che cosa fa la UnitRete per avvisare la finestra?",
+    "Fa partire l'evento OnRisultato, come un click su un bottone",
+    [
+     "Disegna lei i piolini sulla tavola",
+     "Chiude il programma",
+     "Scrive nella finestra con Forms"
+    ]
+   ]
+  },
+  {
+   "A": [
+    "12) Quale unit contiene i socket e il protocollo, e NON conosce nessuna finestra?",
+    "UnitRete",
+    [
+     "UnitInterfaccia",
+     "UnitServer",
+     "DisegnoMastermind"
+    ]
+   ]
+  }
+ ]
+}

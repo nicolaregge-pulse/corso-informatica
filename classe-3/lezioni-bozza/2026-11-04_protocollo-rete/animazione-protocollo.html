@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Il protocollo del Mastermind</title>
+<style>
+:root{--bg:#f4f1ea;--fg:#1d1d1f;--mu:#5d5a52;--card:#fffdf8;--bd:#cfc8b8;--acc:#0b5fa5;--c:#0b5fa5;--s:#a24a00;--ok:#1a7f37;--bad:#b3261e;--wood:#b98a52;--wood2:#8a5a2b;--tube:#d9d2c0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15130f;--fg:#f1ede3;--mu:#b5ae9d;--card:#211e17;--bd:#3d382c;--acc:#6db3f2;--c:#6db3f2;--s:#ffb066;--ok:#56d364;--bad:#ff7b72;--wood:#8a5a2b;--wood2:#5e3b18;--tube:#33301f}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:20px/1.45 system-ui,"Segoe UI",Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:10px 16px 30px}
+h1{font-size:1.35em;margin:.2em 0}
+.sub{color:var(--mu);font-size:.8em;margin:0 0 6px}
+.stage{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:6px}
+svg{width:100%;height:auto;display:block}
+svg text{font-family:system-ui,"Segoe UI",Arial,sans-serif;fill:var(--fg)}
+.mono{font-family:Consolas,"Courier New",monospace}
+.box{fill:var(--card);stroke:var(--bd);stroke-width:2}
+.on{stroke:#e0a100;stroke-width:5}
+.lab{font-size:19px;font-weight:700}
+.small{font-size:14px;fill:var(--mu)}
+.cap{background:var(--card);border:1px solid var(--bd);border-left:8px solid var(--acc);border-radius:10px;padding:10px 14px;margin:10px 0;min-height:4.4em}
+.cap b.t{display:block;font-size:1.1em;margin-bottom:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;min-height:64px;align-items:flex-end}
+.chip{text-align:center;border-radius:8px;padding:4px 9px;border:2px solid var(--bd);background:var(--card);font-family:Consolas,"Courier New",monospace;font-size:1.05em}
+.chip i{display:block;font:normal .62em system-ui,Arial,sans-serif;color:var(--mu)}
+.chip.k{border-color:var(--acc);font-weight:700}
+.ctrl{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0}
+button{font:inherit;font-weight:700;padding:10px 22px;border-radius:10px;border:2px solid var(--acc);background:var(--acc);color:#fff;cursor:pointer}
+button.alt{background:transparent;color:var(--acc)}
+button:disabled{opacity:.4;cursor:default}
+.cnt{color:var(--mu);margin-left:auto}
+#log{background:#14110d;color:#f1ede3;border-radius:10px;padding:10px 12px;font:16px/1.5 Consolas,"Courier New",monospace;height:12.5em;overflow:auto;white-space:pre-wrap}
+#log .c{color:#7fc2ff}#log .s{color:#ffb066}#log .n{color:#a8a291}
+.hint{color:var(--mu);font-size:.75em}
+@media (max-width:700px){body{font-size:17px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Mastermind in rete: come parlano il client e il server</h1>
+<p class="sub">Premi <b>Avanti</b> (o la freccia a destra della tastiera). Questo è uno SCHEMA animato, non il programma vero.</p>
+
+<div class="stage">
+<svg id="sv" viewBox="0 0 1000 470" role="img" aria-label="Schema animato: client, rete e server">
+  <!-- CLIENT -->
+  <rect x="10" y="8" width="400" height="450" rx="16" class="box"/>
+  <text x="30" y="38" class="lab" style="fill:var(--c)">CLIENT: il PC di Sara</text>
+  <rect id="bInt" x="30" y="52" width="360" height="212" rx="12" class="box"/>
+  <text x="44" y="78" class="lab">UnitInterfaccia</text>
+  <text x="44" y="96" class="small">la finestra: disegni, bottoni, pioli</text>
+  <g id="board" transform="translate(60,106)"></g>
+  <text id="stInt" x="210" y="248" text-anchor="middle" class="lab" style="fill:var(--c);font-size:26px"></text>
+  <!-- frecce interne -->
+  <g id="aDown" opacity="0"><path d="M150 266 V318" stroke="#e0a100" stroke-width="6" fill="none"/><path d="M138 306 L150 322 L162 306 Z" fill="#e0a100"/><text id="tDown" x="168" y="298" class="small" style="font-size:16px"></text></g>
+  <g id="aUp" opacity="0"><path d="M300 322 V270" stroke="#e0a100" stroke-width="6" fill="none"/><path d="M288 282 L300 266 L312 282 Z" fill="#e0a100"/><text id="tUp" x="296" y="298" text-anchor="end" class="small" style="font-size:16px"></text></g>
+  <rect id="bRete" x="30" y="324" width="360" height="118" rx="12" class="box"/>
+  <text x="44" y="352" class="lab">UnitRete</text>
+  <text x="44" y="372" class="small">tutta la rete + il protocollo</text>
+  <text x="44" y="396" class="small">non conosce nessuna finestra</text>
+  <text id="stRete" x="44" y="428" class="mono" style="font-size:16px"></text>
+  <!-- TUBO -->
+  <rect x="410" y="360" width="190" height="34" rx="17" fill="var(--tube)" stroke="var(--bd)" stroke-width="2"/>
+  <text x="505" y="418" text-anchor="middle" class="small" style="font-size:17px">la rete, porta 5050</text>
+  <text x="505" y="436" text-anchor="middle" class="small">una riga va, una riga torna</text>
+  <!-- SERVER -->
+  <rect x="600" y="8" width="390" height="450" rx="16" class="box"/>
+  <text x="620" y="38" class="lab" style="fill:var(--s)">SERVER: il PC del Prof</text>
+  <rect id="bSrv" x="620" y="52" width="350" height="390" rx="12" class="box"/>
+  <text x="634" y="78" class="lab">UnitServer</text>
+  <text x="634" y="98" class="small">ascolta alla porta 5050</text>
+  <text x="634" y="140" class="small" style="font-size:16px">Il codice segreto (lo sa SOLO il server):</text>
+  <g id="secret" transform="translate(650,160)"></g>
+  <text x="634" y="228" class="small" style="font-size:16px">Il gioco è:</text>
+  <rect id="gioco" x="740" y="208" width="130" height="30" rx="15" fill="#888"/>
+  <text id="giocoT" x="805" y="229" text-anchor="middle" class="lab" style="fill:#fff;font-size:17px">ATTESA</text>
+  <text x="634" y="268" class="small" style="font-size:16px">Ragazzi che conosce:</text>
+  <text id="ragazzi" x="634" y="294" class="mono" style="font-size:17px">nessuno</text>
+  <text x="634" y="338" class="small" style="font-size:16px">Cosa sta facendo:</text>
+  <text id="srvDo" x="634" y="364" style="font-size:17px"></text>
+  <!-- pacchetto -->
+  <g id="pk" opacity="0"><rect id="pkR" x="0" y="0" width="250" height="40" rx="10" stroke="#fff" stroke-width="2"/><text id="pkT" x="125" y="26" text-anchor="middle" class="mono" style="fill:#fff;font-size:15px;font-weight:700"></text></g>
+</svg>
+</div>
+
+<div class="cap" id="cap"><b class="t" id="capT"></b><span id="capD"></span></div>
+<div class="chips" id="chips" aria-label="Come si legge la riga"></div>
+
+<div class="ctrl">
+  <button id="bI" class="alt">&larr; Indietro</button>
+  <button id="bA">Avanti &rarr;</button>
+  <button id="bR" class="alt">Riparti</button>
+  <span class="cnt" id="cnt"></span>
+</div>
+<div id="log" aria-label="Le righe che sono passate sulla rete"></div>
+<p class="hint">Blu = righe che scrive il client. Arancione = righe che risponde il server. Tasti: freccia destra = avanti, freccia sinistra = indietro, R = riparti.</p>
+</main>
+
+<script>
+(function(){
+"use strict";
+var COL=["","#DC2828","#F0C81E","#28A03C","#285ADC","#F0821E","#8C32AA"];
+var NOMI=["","rosso","giallo","verde","blu","arancio","porpora"];
+var SEGRETO=[1,4,1,3];
+var NS="http://www.w3.org/2000/svg";
+function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e;}
+
+/* classifica: tentativi;posto;finiti;migliore;peggiore */
+var S=[
+ {t:"Due programmi, un tubo",d:"A sinistra il CLIENT: è il programma di Sara. A destra il SERVER: è il programma del Prof. In mezzo c'è la rete. Parlano scrivendosi RIGHE DI TESTO.",hi:[]},
+ {t:"La porta 5050",d:"Il server sta in ascolto alla porta 5050: è il numero della sua porta. Sara scrive l'IP del Prof e il suo nome, poi preme Connetti.",hi:["bInt","bSrv"],st:"Connetti!"},
+ {t:"La finestra chiama la rete",d:"La finestra (UnitInterfaccia) non sa parlare con la rete. Chiede alla UnitRete: \"Rete.ChiediStato\". La finestra non scrive nessuna riga: la scrive la UnitRete.",hi:["bInt","bRete"],down:"Rete.ChiediStato",rete:"RigaStato"},
+ {t:"Va una riga: STATO;Sara",d:"UnitRete costruisce la riga STATO;Sara. Vuol dire: \"Come va la partita? Io sono Sara\". La riga finisce con un 'a capo'.",hi:["bRete"],pk:{dir:"c",txt:"STATO;Sara",log:"STATO;Sara"},chips:[["STATO","il comando","k"],["Sara","il mio nome"]]},
+ {t:"Il server prende nota",d:"Il server legge la riga, vede un nome nuovo (Sara) e la mette nella sua lista. Poi prepara la risposta.",hi:["bSrv"],ragazzi:"Sara",srv:"aggiunge Sara alla lista"},
+ {t:"Torna una riga: STATO;ATTESA;...",d:"Il server risponde STATO e dice ATTESA: il Prof non ha ancora premuto Via. Gli altri numeri sono la classifica: per ora sono tutti 0.",hi:["bSrv"],pk:{dir:"s",txt:"STATO;ATTESA;0;0;0;0;0",log:"STATO;ATTESA;0;0;0;0;0"},chips:[["STATO","tipo di risposta","k"],["ATTESA","il gioco è fermo"],["0","tuoi tentativi"],["0","tuo posto"],["0","quanti hanno finito"],["0","migliore"],["0","peggiore"]],srv:"risponde"},
+ {t:"La rete avvisa la finestra: evento OnStato",d:"UnitRete legge il primo campo della riga (STATO) e fa partire l'EVENTO OnStato, come un click su un bottone. La finestra lo ascolta e scrive \"ATTESA\" sullo schermo.",hi:["bRete","bInt"],up:"evento OnStato",st:"ATTESA",rete:"Elabora(STATO...)"},
+ {t:"Sara prova troppo presto",d:"Sara non aspetta il Via e prova 1 2 3 4 (rosso, giallo, verde, blu). La UnitRete scrive GUESS;Sara;1234. GUESS vuol dire \"tentativo\". Le cifre 1..6 sono i colori.",hi:["bRete"],pk:{dir:"c",txt:"GUESS;Sara;1234",log:"GUESS;Sara;1234"},chips:[["GUESS","il comando: ecco il mio tentativo","k"],["Sara","il nome"],["1234","rosso, giallo, verde, blu"]],rete:"RigaGuess(1234)"},
+ {t:"Risposta: WAIT",d:"Il Prof non ha ancora detto Via, quindi il tentativo non conta. Il server risponde solo WAIT, che vuol dire \"aspetta\".",hi:["bSrv"],pk:{dir:"s",txt:"WAIT",log:"WAIT"},chips:[["WAIT","aspetta il Via del Prof","k"]],srv:"risponde WAIT"},
+ {t:"Evento OnAttesa",d:"UnitRete riconosce WAIT e fa partire l'evento OnAttesa. La finestra scrive: \"aspetta il Via del Prof\".",hi:["bRete","bInt"],up:"evento OnAttesa",st:"ATTESA",rete:"Elabora(WAIT)"},
+ {t:"Il Prof preme Via!",d:"Sul PC del Prof c'è il bottone Via. Adesso il gioco è acceso e i tentativi contano. Il codice segreto è già scelto: solo il server lo conosce.",hi:["bSrv"],gioco:true,srv:"il Prof ha premuto Via"},
+ {t:"Sara riprova: GUESS;Sara;1234",d:"Stessa riga di prima, ma questa volta il gioco è acceso.",hi:["bRete"],pk:{dir:"c",txt:"GUESS;Sara;1234",log:"GUESS;Sara;1234"},chips:[["GUESS","tentativo","k"],["Sara","il nome"],["1234","rosso giallo verde blu"]],gioco:true},
+ {t:"Il server confronta",d:"Il server confronta 1234 con il segreto 1413. Rosso è giusto al posto giusto: 1 NERO. Il verde e il blu ci sono nel segreto ma stanno al posto sbagliato: 2 BIANCHI. Il giallo non c'è.",hi:["bSrv"],gioco:true,srv:"conta neri e bianchi"},
+ {t:"Torna RESULT;1;2;...",d:"RESULT vuol dire \"ecco il risultato\". Primo numero: neri. Secondo: bianchi. Poi la classifica (1 tentativo, nessun posto, un ragazzo ha già finito, migliore 6, peggiore 6).",hi:["bSrv"],pk:{dir:"s",txt:"RESULT;1;2;1;0;1;6;6",log:"RESULT;1;2;1;0;1;6;6"},chips:[["RESULT","tipo di risposta","k"],["1","neri"],["2","bianchi"],["1","tuoi tentativi"],["0","tuo posto"],["1","hanno finito"],["6","migliore"],["6","peggiore"]],gioco:true,srv:"risponde RESULT"},
+ {t:"Evento OnRisultato: si disegnano i pioli",d:"UnitRete passa alla finestra i numeri (1 nero, 2 bianchi). La finestra disegna la riga sulla tavola di legno. La finestra non ha letto nessuna riga: ha ricevuto numeri già pronti.",hi:["bRete","bInt"],up:"evento OnRisultato",rows:1,st:"GIOCO",gioco:true,rete:"Elabora(RESULT...)"},
+ {t:"Secondo tentativo: GUESS;Sara;4113",d:"Sara prova blu, rosso, rosso, verde.",hi:["bRete"],pk:{dir:"c",txt:"GUESS;Sara;4113",log:"GUESS;Sara;4113"},chips:[["GUESS","tentativo","k"],["Sara","il nome"],["4113","blu rosso rosso verde"]],rows:1,gioco:true},
+ {t:"Torna RESULT;2;2;...",d:"2 neri e 2 bianchi: ci siamo quasi! Il numero dei tentativi sale a 2.",hi:["bSrv","bInt"],pk:{dir:"s",txt:"RESULT;2;2;2;0;1;6;6",log:"RESULT;2;2;2;0;1;6;6"},chips:[["RESULT","tipo di risposta","k"],["2","neri"],["2","bianchi"],["2","tuoi tentativi"],["0","tuo posto"],["1","hanno finito"],["6","migliore"],["6","peggiore"]],rows:2,st:"GIOCO",gioco:true,srv:"risponde RESULT"},
+ {t:"Un errore di battitura: ERR",d:"Sara sbaglia: scrive 1237, ma il 7 non è un colore (i colori vanno da 1 a 6). Il server non si arrabbia: risponde ERR e spiega il motivo. Il tentativo NON conta.",hi:["bRete"],pk:{dir:"c",txt:"GUESS;Sara;1237",log:"GUESS;Sara;1237"},chips:[["GUESS","tentativo","k"],["Sara","il nome"],["1237","il 7 non è un colore!"]],rows:2,gioco:true},
+ {t:"Torna ERR;il motivo",d:"UnitRete fa partire l'evento OnRifiuto con il motivo, e la finestra lo scrive. Nessun pioli nuovo, nessun tentativo in più.",hi:["bSrv","bInt"],pk:{dir:"s",txt:"ERR;codice non valido...",log:"ERR;codice non valido (servono 4 cifre da 1 a 6)"},chips:[["ERR","c'è un errore","k"],["codice non valido (servono 4 cifre da 1 a 6)","il motivo"]],up:"evento OnRifiuto",rows:2,st:"GIOCO",gioco:true,srv:"risponde ERR"},
+ {t:"Terzo tentativo: GUESS;Sara;1413",d:"Sara ha ragionato bene: rosso, blu, rosso, verde.",hi:["bRete"],pk:{dir:"c",txt:"GUESS;Sara;1413",log:"GUESS;Sara;1413"},chips:[["GUESS","tentativo","k"],["Sara","il nome"],["1413","rosso blu rosso verde"]],rows:2,gioco:true},
+ {t:"Torna WIN: Sara ha vinto!",d:"WIN vuol dire \"hai vinto\". Dopo il comando c'è il nome, i tentativi (3), i secondi (75) e la classifica: Sara è prima.",hi:["bSrv"],pk:{dir:"s",txt:"WIN;Sara;3;75;1;2;3;6",log:"WIN;Sara;3;75;1;2;3;6"},chips:[["WIN","hai vinto!","k"],["Sara","chi ha vinto"],["3","tentativi"],["75","secondi"],["1","posto"],["2","hanno finito"],["3","migliore"],["6","peggiore"]],rows:2,gioco:true,srv:"risponde WIN"},
+ {t:"Evento OnVittoria: HAI VINTO!",d:"UnitRete fa partire l'evento OnVittoria (3 tentativi, 75 secondi). La finestra disegna 4 pioli neri e scrive HAI VINTO.",hi:["bRete","bInt"],up:"evento OnVittoria",rows:3,st:"HAI VINTO!",gioco:true,rete:"Elabora(WIN...)"},
+ {t:"Ogni 3 secondi: STATO;Sara",d:"Anche se nessuno preme niente, il client chiede lo STATO ogni 3 secondi (con un timer, come quelli di Lazarus). Serve per aggiornare la classifica degli altri.",hi:["bRete"],pk:{dir:"c",txt:"STATO;Sara",log:"STATO;Sara"},chips:[["STATO","come va?","k"],["Sara","il mio nome"]],rows:3,st:"HAI VINTO!",gioco:true},
+ {t:"Torna la classifica nuova",d:"Un altro ragazzo ha finito: ora i finiti sono 3. Sara è ancora prima. Ogni riga che torna è un piccolo biglietto con numeri.",hi:["bSrv"],pk:{dir:"s",txt:"STATO;GIOCO;3;1;3;3;6",log:"STATO;GIOCO;3;1;3;3;6"},chips:[["STATO","tipo di risposta","k"],["GIOCO","il gioco è acceso"],["3","tuoi tentativi"],["1","tuo posto"],["3","hanno finito"],["3","migliore"],["6","peggiore"]],rows:3,st:"HAI VINTO!",gioco:true},
+ {t:"Riassunto: 2 domande, 5 risposte",d:"Il client sa fare DUE domande: STATO e GUESS. Il server sa dare CINQUE risposte: STATO, WAIT, RESULT, WIN, ERR. Questo è il PROTOCOLLO: il linguaggio che hanno deciso insieme. Provalo tu nella lezione!",hi:[],rows:3,st:"HAI VINTO!",gioco:true,chips:[["STATO;nome","domanda 1","k"],["GUESS;nome;1234","domanda 2","k"],["STATO;...","risposta 1"],["WAIT","risposta 2"],["RESULT;...","risposta 3"],["WIN;...","risposta 4"],["ERR;...","risposta 5"]]}
+];
+
+var board=document.getElementById("board"),secret=document.getElementById("secret");
+var GUESS=[[1,2,3,4,1,2],[4,1,1,3,2,2],[1,4,1,3,4,0]]; /* 4 colori + neri + bianchi */
+function peg(p,cx,cy,r,f){var c=el("circle",{cx:cx,cy:cy,r:r,fill:f,stroke:"rgba(0,0,0,.35)","stroke-width":1.5},p);return c;}
+function drawBoard(rows){
+  board.textContent="";
+  el("rect",{x:-14,y:-6,width:312,height:108,rx:10,fill:"var(--wood)",stroke:"var(--wood2)","stroke-width":3},board);
+  for(var r=0;r<3;r++){
+    var y=14+r*30,g=GUESS[r];
+    for(var c=0;c<4;c++){
+      if(r<rows)peg(board,c*44+8,y,12,COL[g[c]]);
+      else peg(board,c*44+8,y,12,"rgba(0,0,0,.35)");
+    }
+    for(var k=0;k<4;k++){
+      var x=210+(k%2)*18,yy=y-8+Math.floor(k/2)*16,f="rgba(0,0,0,.3)";
+      if(r<rows)f=(k<g[4])?"#111":(k<g[4]+g[5]?"#f4f4f4":"rgba(0,0,0,.3)");
+      peg(board,x,yy+4,6,f);
+    }
+  }
+}
+function drawSecret(){
+  secret.textContent="";
+  for(var c=0;c<4;c++){peg(secret,c*46,20,15,COL[SEGRETO[c]]);}
+  el("rect",{x:-22,y:-4,width:204,height:48,rx:10,fill:"none",stroke:"var(--bd)","stroke-width":2,"stroke-dasharray":"6 5"},secret);
+}
+
+var cur=0,anim=null;
+var $=function(i){return document.getElementById(i);};
+function setHi(list){["bInt","bRete","bSrv"].forEach(function(i){$(i).setAttribute("class","box"+(list.indexOf(i)>=0?" on":""));});}
+function logTo(i){
+  var out="",n=0;
+  for(var k=0;k<=i;k++){var p=S[k].pk;if(p){n++;out+='<span class="'+(p.dir==="c"?"c":"s")+'">'+(p.dir==="c"?"client &rarr; server: ":"server &rarr; client: ")+esc(p.log)+"</span>\n";}}
+  if(!out)out='<span class="n">(ancora nessuna riga: premi Avanti)</span>';
+  $("log").innerHTML=out;$("log").scrollTop=1e6;
+}
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;");}
+function render(i,move){
+  var s=S[i];
+  $("capT").textContent=(i+1)+". "+s.t;$("capD").textContent=s.d;
+  $("cnt").textContent="Passo "+(i+1)+" di "+S.length;
+  setHi(s.hi||[]);
+  /* tavola */
+  var rows=0;for(var k=0;k<=i;k++)if(S[k].rows!==undefined)rows=S[k].rows;
+  drawBoard(rows);
+  /* stato client */
+  var st="";for(var k2=0;k2<=i;k2++){if(S[k2].st!==undefined)st=S[k2].st;}
+  $("stInt").textContent=st;
+  /* server */
+  var g=false,ragazzi="nessuno";
+  for(var k3=0;k3<=i;k3++){if(S[k3].gioco!==undefined)g=S[k3].gioco;if(S[k3].ragazzi)ragazzi=S[k3].ragazzi;}
+  $("gioco").setAttribute("fill",g?"#1a7f37":"#888");$("giocoT").textContent=g?"GIOCO":"ATTESA";
+  $("ragazzi").textContent=ragazzi;
+  $("srvDo").textContent=s.srv||"";
+  $("stRete").textContent=s.rete?("esegue: "+s.rete):"";
+  /* frecce interne */
+  $("aDown").setAttribute("opacity",s.down?1:0);$("tDown").textContent=s.down||"";
+  $("aUp").setAttribute("opacity",s.up?1:0);$("tUp").textContent=s.up||"";
+  /* chips */
+  var ch=$("chips");ch.textContent="";
+  if(s.chips){
+    var lab=document.createElement("span");lab.className="hint";lab.textContent="Come si legge la riga (campi separati da ;)";lab.style.width="100%";ch.appendChild(lab);
+    s.chips.forEach(function(c){var d=document.createElement("span");d.className="chip"+(c[2]?" k":"");d.innerHTML=esc(c[0])+"<i>"+esc(c[1])+"</i>";ch.appendChild(d);});
+  }
+  logTo(i);
+  /* pacchetto */
+  var pk=$("pk");if(anim){anim.cancel();anim=null;}
+  if(s.pk){
+    var c=s.pk.dir==="c";
+    $("pkR").setAttribute("fill",c?"#0b5fa5":"#a24a00");$("pkT").textContent=s.pk.txt;
+    var yy=357,xb=380,xa=c?160:620; /* il pacchetto parte dal client (o dal server) e si ferma nel tubo */
+    pk.setAttribute("transform","translate("+xb+","+yy+")");pk.setAttribute("opacity",1);
+    if(move&&pk.animate&&!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+      pk.setAttribute("opacity",0);
+      anim=pk.animate([{transform:"translate("+xa+"px,"+yy+"px)",opacity:1},{transform:"translate("+xb+"px,"+yy+"px)",opacity:1}],{duration:1100,easing:"ease-in-out",fill:"both"});
+      anim.onfinish=function(){pk.setAttribute("opacity",1);};
+    }
+  }else pk.setAttribute("opacity",0);
+  $("bI").disabled=i===0;$("bA").disabled=i===S.length-1;
+}
+function go(n,move){if(n<0||n>=S.length)return;var m=move&&n===cur+1;cur=n;render(cur,m);}
+$("bA").onclick=function(){go(cur+1,true);};
+$("bI").onclick=function(){go(cur-1,false);};
+$("bR").onclick=function(){go(0,false);};
+document.addEventListener("keydown",function(e){
+  if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();go(cur+1,true);}
+  else if(e.key==="ArrowLeft"){go(cur-1,false);}
+  else if(e.key==="r"||e.key==="R"){go(0,false);}
+});
+drawSecret();render(0,false);
+})();
+</script>
+</body>
+</html>
