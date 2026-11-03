@@ -18,7 +18,7 @@ function disegnaCruscotto(D,docente){
    h+=m?'<td class="'+(m.p>=6?'si':'nu')+'"><b>'+m.p+'/'+m.su+'</b></td>':'<td class="'+(o2?'no':'')+'">'+(o2?'✘ da fare':'<span class="mini">ora 2 chiusa</span>')+'</td>';
    h+=p?'<td class="si">✔ <b>'+p.p+'/'+p.m+'</b>'+(p.ora?' <span class="mini">'+e(p.ora)+'</span>':'')+'</td>':'<td class="'+(o2?'no':'')+'">'+(o2?'✘ da fare':'<span class="mini">ora 2 chiusa</span>')+'</td>';
    h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td>';
-   var vv=v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+'</span>':(v.giri?'<span class="mini">ok</span>':'<span class="mini" style="color:#c62828">nessun dato</span>');
+   var vv=(!D.veyon_ok||!v.giri)?'<span class="mini" style="color:#888">n.d.</span>':v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+'</span>':'<span class="mini">ok</span>';
    if(docente){(r.note||[]).forEach(function(z){vv+='<br><span class="mini">'+e(z)+'</span>'})}
    h+='<td style="white-space:normal;min-width:150px;text-align:left">'+vv+'</td><td class="voto"><b>'+r.voto+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>'});
   return h+'</tbody></table></div>'}
