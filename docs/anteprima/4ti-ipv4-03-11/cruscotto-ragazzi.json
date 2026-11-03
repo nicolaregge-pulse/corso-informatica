@@ -1,39 +1,34 @@
 {
  "titolo": "4TI · 03/11 · IPv4",
- "generato": "2026-11-03T10:40",
- "ora": "10:40",
- "fonte": "presenti dal registro: 8 · schede s1-s4: nessun segnale ancora · Veyon: NESSUN dato Veyon oggi",
+ "generato": "2026-11-03T11:21",
+ "ora": "11:21",
+ "fonte": "presenti dal registro: 8 · schede s1-s4: segnali «Ho finito la scheda» letti · Veyon: NESSUN dato Veyon oggi",
  "kpi_proposti": true,
  "veyon_ok": false,
  "fonti_ora": [
   {
    "fonte": "Esercizi (pagina)",
-   "ora": "10:36",
+   "ora": "11:20",
    "vecchio": false
   },
   {
    "fonte": "Scheda IPv4 (pagina)",
-   "ora": "10:35",
-   "vecchio": false
-  },
-  {
-   "fonte": "Commit (pagina)",
-   "ora": "dato non ancora letto",
+   "ora": "10:44",
    "vecchio": true
   },
   {
    "fonte": "Quiz IPv4 (Moduli)",
    "ora": "10:37",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Consegne Classroom",
    "ora": "10:37",
-   "vecchio": false
+   "vecchio": true
   },
   {
    "fonte": "Schede s1-s4",
-   "ora": "dato non ancora letto",
+   "ora": "10:43",
    "vecchio": true
   },
   {
@@ -49,12 +44,11 @@
    "voto": 60,
    "conto": [
     "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
     "esercizi consegnati (si vedono, non danno punti)",
     "scheda IPv4 del PC +10",
     "quiz 12/12 +10"
    ],
-   "schede": null,
+   "schede": 0,
    "esercizi": true,
    "scheda": true,
    "quiz": {
@@ -62,7 +56,6 @@
     "m": 12,
     "ora": "10:35"
    },
-   "github": false,
    "fermo_da": "10:35",
    "veyon": {
     "fuori": 0,
@@ -76,19 +69,67 @@
    "svolto": 3.0
   },
   {
+   "nome": "Chase D.",
+   "voto": 58,
+   "conto": [
+    "base 40",
+    "schede IPv4 2/4 +8",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10"
+   ],
+   "schede": 2,
+   "esercizi": true,
+   "scheda": true,
+   "quiz": null,
+   "fermo_da": "10:44",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 2.5
+  },
+  {
+   "nome": "Daniel R.",
+   "voto": 54,
+   "conto": [
+    "base 40",
+    "schede IPv4 1/4 +4",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10"
+   ],
+   "schede": 1,
+   "esercizi": true,
+   "scheda": true,
+   "quiz": null,
+   "fermo_da": "10:44",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 2.25
+  },
+  {
    "nome": "Giulian A.",
    "voto": 50,
    "conto": [
     "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
     "esercizi consegnati (si vedono, non danno punti)",
     "scheda IPv4 del PC +10"
    ],
-   "schede": null,
+   "schede": 0,
    "esercizi": true,
    "scheda": true,
    "quiz": null,
-   "github": false,
    "fermo_da": "10:35",
    "veyon": {
     "fuori": 0,
@@ -102,19 +143,18 @@
    "svolto": 2.0
   },
   {
-   "nome": "Chase D.",
-   "voto": 40,
+   "nome": "Sergio S.",
+   "voto": 50,
    "conto": [
     "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
-    "esercizi consegnati (si vedono, non danno punti)"
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10"
    ],
-   "schede": null,
+   "schede": 0,
    "esercizi": true,
-   "scheda": false,
+   "scheda": true,
    "quiz": null,
-   "github": false,
-   "fermo_da": "10:28",
+   "fermo_da": "10:43",
    "veyon": {
     "fuori": 0,
     "giri": 0
@@ -124,46 +164,20 @@
     "897290341510": "CREATED",
     "162807596629": "CREATED"
    },
-   "svolto": 1.0
-  },
-  {
-   "nome": "Daniel R.",
-   "voto": 40,
-   "conto": [
-    "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
-    "esercizi consegnati (si vedono, non danno punti)"
-   ],
-   "schede": null,
-   "esercizi": true,
-   "scheda": false,
-   "quiz": null,
-   "github": false,
-   "fermo_da": "10:36",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 1.0
+   "svolto": 2.0
   },
   {
    "nome": "Cristian B.",
    "voto": 40,
    "conto": [
     "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
+    "esercizi consegnati (si vedono, non danno punti)"
    ],
-   "schede": null,
-   "esercizi": false,
+   "schede": 0,
+   "esercizi": true,
    "scheda": false,
    "quiz": null,
-   "github": false,
-   "fermo_da": "",
+   "fermo_da": "11:20",
    "veyon": {
     "fuori": 0,
     "giri": 0
@@ -173,20 +187,18 @@
     "897290341510": "CREATED",
     "162807596629": "CREATED"
    },
-   "svolto": 0.0
+   "svolto": 1.0
   },
   {
    "nome": "Federico G.",
    "voto": 40,
    "conto": [
-    "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
+    "base 40"
    ],
-   "schede": null,
+   "schede": 0,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
-   "github": false,
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
@@ -203,38 +215,12 @@
    "nome": "Saad G.",
    "voto": 40,
    "conto": [
-    "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
+    "base 40"
    ],
-   "schede": null,
+   "schede": 0,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
-   "github": false,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Sergio S.",
-   "voto": 40,
-   "conto": [
-    "base 40",
-    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
-   ],
-   "schede": null,
-   "esercizi": false,
-   "scheda": false,
-   "quiz": null,
-   "github": false,
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
