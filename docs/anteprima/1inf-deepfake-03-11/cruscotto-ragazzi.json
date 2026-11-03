@@ -1,13 +1,12 @@
 {
  "titolo": "1INF · 03/11 · deepfake",
- "generato": "2026-11-03T13:31",
- "ora": "13:31",
- "fonte": "presenti: 19 · quiz Moduli fatto da 13 · segnali della pagina: 11 · Veyon: giri letti",
+ "generato": "2026-11-03T13:33",
+ "ora": "13:33",
+ "fonte": "presenti: 19 · quiz Moduli fatto da 14 · segnali della pagina: 11 · Veyon: giri letti",
  "kpi_proposti": true,
  "veyon_ok": true,
  "avvisi": [
   "Segnale della pagina arrivato per 11 iscritti su 19: per gli altri schede e vero o falso li conta il Professore.",
-  "Quiz: lettura in corso, ultimo dato alle 13:13",
   "19 presenti, 4 assenti"
  ],
  "righe": [
@@ -25,7 +24,7 @@
    "quiz": {
     "p": 26,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "ripasso": 3,
    "schede": 4,
@@ -54,7 +53,7 @@
    "quiz": {
     "p": 25,
     "m": 26,
-    "ora": ""
+    "ora": "13:27"
    },
    "ripasso": 3,
    "schede": 4,
@@ -62,7 +61,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:19",
-   "fermo_da": "13:19",
+   "fermo_da": "13:27",
    "veyon": {
     "fuori": 0,
     "giri": 2
@@ -83,7 +82,7 @@
    "quiz": {
     "p": 25,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "ripasso": 3,
    "schede": 4,
@@ -91,7 +90,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:14",
-   "fermo_da": "13:14",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 2,
     "giri": 3
@@ -112,7 +111,7 @@
    "quiz": {
     "p": 21,
     "m": 26,
-    "ora": ""
+    "ora": "13:24"
    },
    "ripasso": 3,
    "schede": 4,
@@ -120,7 +119,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:19",
-   "fermo_da": "13:19",
+   "fermo_da": "13:24",
    "veyon": {
     "fuori": 2,
     "giri": 3
@@ -141,7 +140,7 @@
    "quiz": {
     "p": 24,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "ripasso": 2,
    "schede": 4,
@@ -149,7 +148,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:18",
-   "fermo_da": "13:18",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 0,
     "giri": 1
@@ -170,7 +169,7 @@
    "quiz": {
     "p": 19,
     "m": 26,
-    "ora": ""
+    "ora": "13:26"
    },
    "ripasso": 3,
    "schede": 4,
@@ -178,7 +177,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:17",
-   "fermo_da": "13:17",
+   "fermo_da": "13:26",
    "veyon": {
     "fuori": 0,
     "giri": 1
@@ -199,7 +198,7 @@
    "quiz": {
     "p": 22,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "ripasso": 2,
    "schede": 4,
@@ -228,7 +227,7 @@
    "quiz": {
     "p": 25,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "ripasso": 1,
    "schede": 4,
@@ -236,7 +235,7 @@
    "quaderno": true,
    "segnale": true,
    "ora_cons": "13:16",
-   "fermo_da": "13:16",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 0,
     "giri": 1
@@ -326,14 +325,14 @@
    "quiz": {
     "p": 26,
     "m": 26,
-    "ora": ""
+    "ora": "13:30"
    },
    "segnale": false,
    "ripasso": null,
    "schede": null,
    "vf": null,
    "quaderno": null,
-   "fermo_da": "",
+   "fermo_da": "13:30",
    "veyon": {
     "fuori": 0,
     "giri": 1
@@ -351,14 +350,14 @@
    "quiz": {
     "p": 25,
     "m": 26,
-    "ora": ""
+    "ora": "13:27"
    },
    "segnale": false,
    "ripasso": null,
    "schede": null,
    "vf": null,
    "quaderno": null,
-   "fermo_da": "",
+   "fermo_da": "13:27",
    "veyon": {
     "fuori": 0,
     "giri": 1
@@ -376,19 +375,44 @@
    "quiz": {
     "p": 23,
     "m": 26,
-    "ora": ""
+    "ora": "13:30"
    },
    "segnale": false,
    "ripasso": null,
    "schede": null,
    "vf": null,
    "quaderno": null,
-   "fermo_da": "",
+   "fermo_da": "13:30",
    "veyon": {
     "fuori": 0,
     "giri": 1
    },
    "svolto": 2.269230769230769
+  },
+  {
+   "nome": "Anthony A.",
+   "voto": 70,
+   "conto": [
+    "base 40",
+    "schede e vero o falso contati come svolti +15 (lo conta il Professore)",
+    "quiz 22/26 +15"
+   ],
+   "quiz": {
+    "p": 22,
+    "m": 26,
+    "ora": "13:32"
+   },
+   "segnale": false,
+   "ripasso": null,
+   "schede": null,
+   "vf": null,
+   "quaderno": null,
+   "fermo_da": "13:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 2.1923076923076925
   },
   {
    "nome": "Shanzay S.",
@@ -401,14 +425,14 @@
    "quiz": {
     "p": 22,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "segnale": false,
    "ripasso": null,
    "schede": null,
    "vf": null,
    "quaderno": null,
-   "fermo_da": "",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 0,
     "giri": 2
@@ -426,38 +450,19 @@
    "quiz": {
     "p": 15,
     "m": 26,
-    "ora": ""
+    "ora": "13:25"
    },
    "segnale": false,
    "ripasso": null,
    "schede": null,
    "vf": null,
    "quaderno": null,
-   "fermo_da": "",
+   "fermo_da": "13:25",
    "veyon": {
     "fuori": 0,
     "giri": 2
    },
    "svolto": 1.6538461538461537
-  },
-  {
-   "nome": "Anthony A.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "quiz": null,
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 1
-   },
-   "svolto": 0.0
   },
   {
    "nome": "Alessio C.",
