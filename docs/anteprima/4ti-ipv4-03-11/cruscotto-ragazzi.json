@@ -1,25 +1,25 @@
 {
  "titolo": "4TI · 03/11 · IPv4",
- "generato": "2026-11-03T11:21",
- "ora": "11:21",
+ "generato": "2026-11-03T12:23",
+ "ora": "12:23",
  "fonte": "presenti dal registro: 8 · schede s1-s4: segnali «Ho finito la scheda» letti · Veyon: NESSUN dato Veyon oggi",
  "kpi_proposti": true,
  "veyon_ok": false,
  "fonti_ora": [
   {
    "fonte": "Esercizi (pagina)",
-   "ora": "11:20",
-   "vecchio": false
+   "ora": "11:51",
+   "vecchio": true
   },
   {
    "fonte": "Scheda IPv4 (pagina)",
-   "ora": "10:44",
+   "ora": "11:51",
    "vecchio": true
   },
   {
    "fonte": "Quiz IPv4 (Moduli)",
-   "ora": "10:37",
-   "vecchio": true
+   "ora": "12:22",
+   "vecchio": false
   },
   {
    "fonte": "Consegne Classroom",
@@ -28,8 +28,8 @@
   },
   {
    "fonte": "Schede s1-s4",
-   "ora": "10:43",
-   "vecchio": true
+   "ora": "12:20",
+   "vecchio": false
   },
   {
    "fonte": "Veyon",
@@ -37,18 +37,79 @@
    "vecchio": true
   }
  ],
- "classroom_ora": "10:37",
+ "classroom_ora": "12:22",
  "righe": [
   {
-   "nome": "Giuseppe C.",
-   "voto": 60,
+   "nome": "Giulian A.",
+   "voto": 75,
    "conto": [
     "base 40",
+    "schede IPv4 4/4 +15",
     "esercizi consegnati (si vedono, non danno punti)",
     "scheda IPv4 del PC +10",
     "quiz 12/12 +10"
    ],
-   "schede": 0,
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 12,
+    "m": 12,
+    "ora": "10:40"
+   },
+   "schede": 4,
+   "fermo_da": "11:49",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Cristian B.",
+   "voto": 75,
+   "conto": [
+    "base 40",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 12/12 +10"
+   ],
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 12,
+    "m": 12,
+    "ora": "11:30"
+   },
+   "schede": 4,
+   "fermo_da": "11:30",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Giuseppe C.",
+   "voto": 75,
+   "conto": [
+    "base 40",
+    "schede s1-s4: segnali del bottone 2/4 (non arrivati tutti, lo conta il Professore); esercizi/scheda PC/quiz mostrano che le ha fatte, conto 4/4",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 12/12 +10"
+   ],
    "esercizi": true,
    "scheda": true,
    "quiz": {
@@ -56,7 +117,128 @@
     "m": 12,
     "ora": "10:35"
    },
-   "fermo_da": "10:35",
+   "schede": 4,
+   "fermo_da": "11:31",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Chase D.",
+   "voto": 75,
+   "conto": [
+    "base 40",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 12/12 +10"
+   ],
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 12,
+    "m": 12,
+    "ora": "11:33"
+   },
+   "schede": 4,
+   "fermo_da": "11:33",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Sergio S.",
+   "voto": 75,
+   "conto": [
+    "base 40",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 12/12 +10"
+   ],
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 12,
+    "m": 12,
+    "ora": "10:48"
+   },
+   "schede": 4,
+   "fermo_da": "11:48",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Daniel R.",
+   "voto": 70,
+   "conto": [
+    "base 40",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 8/12 +5"
+   ],
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 8,
+    "m": 12,
+    "ora": "11:32"
+   },
+   "schede": 4,
+   "fermo_da": "11:51",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "TURNED_IN",
+    "897290341510": "TURNED_IN",
+    "162807596629": "CREATED"
+   },
+   "svolto": 3.6666666666666665
+  },
+  {
+   "nome": "Saad G.",
+   "voto": 65,
+   "conto": [
+    "base 40",
+    "schede s1-s4: segnali del bottone 0/4 (non arrivati tutti, lo conta il Professore); esercizi/scheda PC/quiz mostrano che le ha fatte, conto 4/4",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "quiz 12/12 +10"
+   ],
+   "esercizi": true,
+   "scheda": false,
+   "quiz": {
+    "p": 12,
+    "m": 12,
+    "ora": "11:31"
+   },
+   "schede": 4,
+   "fermo_da": "11:31",
    "veyon": {
     "fuori": 0,
     "giri": 0
@@ -69,115 +251,17 @@
    "svolto": 3.0
   },
   {
-   "nome": "Chase D.",
-   "voto": 58,
+   "nome": "Federico G.",
+   "voto": 55,
    "conto": [
     "base 40",
-    "schede IPv4 2/4 +8",
-    "esercizi consegnati (si vedono, non danno punti)",
-    "scheda IPv4 del PC +10"
+    "schede IPv4 4/4 +15"
    ],
-   "schede": 2,
-   "esercizi": true,
-   "scheda": true,
-   "quiz": null,
-   "fermo_da": "10:44",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 2.5
-  },
-  {
-   "nome": "Daniel R.",
-   "voto": 54,
-   "conto": [
-    "base 40",
-    "schede IPv4 1/4 +4",
-    "esercizi consegnati (si vedono, non danno punti)",
-    "scheda IPv4 del PC +10"
-   ],
-   "schede": 1,
-   "esercizi": true,
-   "scheda": true,
-   "quiz": null,
-   "fermo_da": "10:44",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 2.25
-  },
-  {
-   "nome": "Giulian A.",
-   "voto": 50,
-   "conto": [
-    "base 40",
-    "esercizi consegnati (si vedono, non danno punti)",
-    "scheda IPv4 del PC +10"
-   ],
-   "schede": 0,
-   "esercizi": true,
-   "scheda": true,
-   "quiz": null,
-   "fermo_da": "10:35",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 2.0
-  },
-  {
-   "nome": "Sergio S.",
-   "voto": 50,
-   "conto": [
-    "base 40",
-    "esercizi consegnati (si vedono, non danno punti)",
-    "scheda IPv4 del PC +10"
-   ],
-   "schede": 0,
-   "esercizi": true,
-   "scheda": true,
-   "quiz": null,
-   "fermo_da": "10:43",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 2.0
-  },
-  {
-   "nome": "Cristian B.",
-   "voto": 40,
-   "conto": [
-    "base 40",
-    "esercizi consegnati (si vedono, non danno punti)"
-   ],
-   "schede": 0,
-   "esercizi": true,
+   "esercizi": false,
    "scheda": false,
    "quiz": null,
-   "fermo_da": "11:20",
+   "schede": 4,
+   "fermo_da": "",
    "veyon": {
     "fuori": 0,
     "giri": 0
@@ -188,50 +272,6 @@
     "162807596629": "CREATED"
    },
    "svolto": 1.0
-  },
-  {
-   "nome": "Federico G.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "schede": 0,
-   "esercizi": false,
-   "scheda": false,
-   "quiz": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Saad G.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "schede": 0,
-   "esercizi": false,
-   "scheda": false,
-   "quiz": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 0.0
   }
  ]
 }
