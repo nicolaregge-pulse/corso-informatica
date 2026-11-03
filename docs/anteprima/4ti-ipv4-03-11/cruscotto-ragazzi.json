@@ -1,30 +1,30 @@
 {
  "titolo": "4TI · 03/11 · IPv4",
- "generato": "2026-11-03T12:23",
- "ora": "12:23",
+ "generato": "2026-11-03T12:33",
+ "ora": "12:33",
  "fonte": "presenti dal registro: 8 · schede s1-s4: segnali «Ho finito la scheda» letti · Veyon: NESSUN dato Veyon oggi",
  "kpi_proposti": true,
  "veyon_ok": false,
  "fonti_ora": [
   {
    "fonte": "Esercizi (pagina)",
-   "ora": "11:51",
-   "vecchio": true
+   "ora": "12:24",
+   "vecchio": false
   },
   {
    "fonte": "Scheda IPv4 (pagina)",
-   "ora": "11:51",
-   "vecchio": true
+   "ora": "12:33",
+   "vecchio": false
   },
   {
    "fonte": "Quiz IPv4 (Moduli)",
-   "ora": "12:22",
+   "ora": "12:32",
    "vecchio": false
   },
   {
    "fonte": "Consegne Classroom",
-   "ora": "10:37",
-   "vecchio": true
+   "ora": "12:32",
+   "vecchio": false
   },
   {
    "fonte": "Schede s1-s4",
@@ -37,7 +37,7 @@
    "vecchio": true
   }
  ],
- "classroom_ora": "12:22",
+ "classroom_ora": "12:32",
  "righe": [
   {
    "nome": "Giulian A.",
@@ -191,6 +191,36 @@
    "svolto": 4.0
   },
   {
+   "nome": "Federico G.",
+   "voto": 75,
+   "conto": [
+    "base 40",
+    "schede IPv4 4/4 +15",
+    "esercizi consegnati (si vedono, non danno punti)",
+    "scheda IPv4 del PC +10",
+    "quiz 11/12 +10"
+   ],
+   "esercizi": true,
+   "scheda": true,
+   "quiz": {
+    "p": 11,
+    "m": 12,
+    "ora": "12:28"
+   },
+   "schede": 4,
+   "fermo_da": "12:33",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "classroom": {
+    "162807506489": "CREATED",
+    "897290341510": "CREATED",
+    "162807596629": "CREATED"
+   },
+   "svolto": 3.9166666666666665
+  },
+  {
    "nome": "Daniel R.",
    "voto": 70,
    "conto": [
@@ -249,29 +279,6 @@
     "162807596629": "CREATED"
    },
    "svolto": 3.0
-  },
-  {
-   "nome": "Federico G.",
-   "voto": 55,
-   "conto": [
-    "base 40",
-    "schede IPv4 4/4 +15"
-   ],
-   "esercizi": false,
-   "scheda": false,
-   "quiz": null,
-   "schede": 4,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "classroom": {
-    "162807506489": "CREATED",
-    "897290341510": "CREATED",
-    "162807596629": "CREATED"
-   },
-   "svolto": 1.0
   }
  ]
 }
