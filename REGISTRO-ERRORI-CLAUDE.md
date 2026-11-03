@@ -1044,3 +1044,9 @@ lezione.*
 
 1. **Errore.** Ho messo un allievo tra le ragazze di un gruppo deducendo il genere dal nome. Il docente ha corretto: è maschio.
 2. **Regola.** Mai dedurre maschio o femmina da un nome (cognomi e nomi stranieri ingannano). Per i gruppi di sole ragazze si chiede conferma al docente o si usa solo ciò che dice lui.
+
+03/11/2026 — Titoli dei compiti pubblicati dal ponte incoerenti e poco leggibili nel flusso Classroom (#194)
+
+1. **Errore.** Nel flusso Classroom compaiono voci generiche «Nicola Regge ha pubblicato un nuovo compito attraverso Consegne Classroom → Git…» (08:57, 10:22, 10:24) e i titoli dei compiti sono diversi tra loro («Quiz 2 e 3 Novembre», «2/11 2FA: proteggi il tuo GitHub», «Ora 6» per lezioni del primo pomeriggio). Il docente non capisce a colpo d'occhio quale compito è quale. Inoltre l'ora non era quella della classe: il deepfake della 1INF risulta «Ora 6» mentre è l'ora 13-14 (da verificare e uniformare).
+2. **Regola.** Ogni compito ha un titolo nel formato unico «G/M Ora N: argomento breve» (esempio: «3/11 Ora 1: gli indirizzi IPv4»), uguale per tutte le classi e le ore. N è l'ora di quella CLASSE, non l'ora della giornata di un'altra classe. Niente titoli liberi. Prima di pubblicare si controllano i titoli di tutti i compiti del giorno e dei giorni accanto in `classroom.compiti` e si uniformano quelli fuori formato.
+3. **Limite.** La riga generica nel flusso è scritta da Classroom per i post creati dal ponte: non dipende da me. Da verificare se si può far comparire il titolo (per esempio con un annuncio «OGGI…» leggibile in cima); finché non è verificato non lo prometto.
