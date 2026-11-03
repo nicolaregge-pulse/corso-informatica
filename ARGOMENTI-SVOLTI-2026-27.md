@@ -67,6 +67,10 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 02/11/2026 | 2INF 11-12, Laboratorio: la rete del mio PC (IP, MAC, gateway e DNS con ipconfig), scheda d'identità del PC, ripasso e quiz su Moduli | `docs/anteprima/2inf-reti-02-11/` | Reti di calcolatori: indirizzamento IP, MAC, DHCP, DNS, gateway; «Indirizzo IP, indirizzo MAC, gateway» (Comp. 16, II anno) |
 | 02/11/2026 | 2INF 12-13, Laboratorio: DHCP e DNS, 4 schede, la mia mappa e quiz di 8 domande su Moduli | `docs/anteprima/2inf-dhcp-dns-02-11/` | Reti di calcolatori: «Servizi DHCP e DNS» (Comp. 16, II anno) |
 | 02/11/2026 | 2INF 13-14, Sicurezza: social engineering e phishing, analisi delle mail e quiz su Moduli | `docs/anteprima/2inf-sicurezza-02-11/` | Sicurezza informatica: phishing, deepfake, profilazione sui social, privacy; «Phishing e ingegneria sociale» (Comp. 8, II anno) |
+| 03/11/2026 | 2INF 8-9, Informatica: verifica in due passaggi di GitHub e recuperi della rete (previsto, da aggiornare a fine giornata) | | Phishing e ingegneria sociale (Comp. 8) |
+| 03/11/2026 | 2INF 9-10, Informatica: come si riconosce una mail di phishing, regola d'oro e quiz su Moduli (previsto, da aggiornare a fine giornata) | | Phishing e ingegneria sociale (Comp. 8) |
+| 03/11/2026 | 4TI 10-13, Laboratorio, 3 ore: indirizzo IPv4, maschera, gateway, DHCP e DNS, esercizi su coppie di PC e quiz su Moduli (previsto, da aggiornare a fine giornata) | | Indirizzamento IPv4 e subnetting (Comp. 16) |
+| 03/11/2026 | 1INF 13-14, Tecnologia professionale: ripasso Unicode, deepfake e privacy, quiz su Moduli (previsto, da aggiornare a fine giornata) | | Sicurezza informatica e privacy: deepfake (Comp. 8) |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
