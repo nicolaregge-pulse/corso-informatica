@@ -1,42 +1,51 @@
 {
-  "aggiornato": "02/11/2026 11:05",
-  "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi.",
-  "voci": [
-    {
-      "classe": "3INF",
-      "ora": "ora 8-11",
-      "cosa": "Un'allieva è fuori dall'aula dalle 10:24 circa (bagno): dimmi quando è rientrata.",
-      "bottoni": [
-        "Rientrata"
-      ],
-      "id": "2026-11-02-rientro-3inf"
-    },
-    {
-      "classe": "2INF",
-      "ora": "ora 11-14",
-      "cosa": "Scrivimi «pubblica» per la lezione, e mandami lo screenshot del registro con i presenti.",
-      "bottoni": [
-        "Fatto"
-      ],
-      "id": "2026-11-02-2inf-pubblica-presenti"
-    },
-    {
-      "classe": "3INF",
-      "ora": "ora 8-11",
-      "cosa": "Firma il registro delle ore 8-11 entro le 14:05: non risulta ancora la firma verde.",
-      "bottoni": [
-        "Fatto"
-      ],
-      "id": "2026-11-02-firma-3inf"
-    },
-    {
-      "classe": "3INF",
-      "ora": "ora 8-11",
-      "cosa": "Controlla di persona il PC 26 (Veyon non lo raggiunge) e il PC 33 (niente rete).",
-      "bottoni": [
-        "Fatto"
-      ],
-      "id": "2026-11-02-pc-26-33"
-    }
-  ]
+ "aggiornato": "03/11/2026 08:20",
+ "nota": "Scritto da Claude (regola 30 di CLAUDE.md): SOLO le cose che richiedono il docente. Niente nomi di allievi.",
+ "voci": [
+  {
+   "classe": "3INF",
+   "ora": "ora 8-11",
+   "cosa": "Un'allieva è fuori dall'aula dalle 10:24 circa (bagno): dimmi quando è rientrata.",
+   "bottoni": [
+    "Rientrata"
+   ],
+   "id": "2026-11-02-rientro-3inf"
+  },
+  {
+   "classe": "3INF",
+   "ora": "ora 8-11",
+   "cosa": "Firma il registro delle ore 8-11 entro le 14:05: non risulta ancora la firma verde.",
+   "bottoni": [
+    "Fatto"
+   ],
+   "id": "2026-11-02-firma-3inf"
+  },
+  {
+   "classe": "3INF",
+   "ora": "ora 8-11",
+   "cosa": "Controlla di persona il PC 26 (Veyon non lo raggiunge) e il PC 33 (niente rete).",
+   "bottoni": [
+    "Fatto"
+   ],
+   "id": "2026-11-02-pc-26-33"
+  },
+  {
+   "classe": "2INF",
+   "ora": "ora 8-10",
+   "cosa": "Firma il registro delle ore 8-9 e 9-10 entro le 14:05.",
+   "bottoni": [
+    "Fatto"
+   ],
+   "id": "2026-11-03-2inf-firma"
+  },
+  {
+   "classe": "2INF",
+   "ora": "ora 8-10",
+   "cosa": "Veyon: nessun dato di oggi. Manda gli screenshot quando puoi, cosi li metto nel cruscotto.",
+   "bottoni": [
+    "Fatto"
+   ],
+   "id": "2026-11-03-2inf-veyon"
+  }
+ ]
 }
