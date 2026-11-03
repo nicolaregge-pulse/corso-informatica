@@ -1,7 +1,580 @@
 {
- "titolo": "2INF 03/11",
- "generato": "",
- "ora": "-",
- "fonte": "dati non ancora letti: il docente preme LEGGI I DATI quando serve",
- "righe": []
+ "titolo": "2INF · 03/11 · 2FA, recuperi, phishing",
+ "generato": "2026-11-03T08:16",
+ "ora": "08:16",
+ "fonte": "presenti dal registro: 18 · segnali 2FA di oggi: 0 · Veyon: NESSUN dato Veyon oggi · ora 2 (phishing): chiusa",
+ "kpi_proposti": true,
+ "ora2_aperta": false,
+ "veyon_ok": false,
+ "fonti_ora": [
+  {
+   "fonte": "2FA di oggi (pagina)",
+   "ora": "nessun dato",
+   "vecchio": true
+  },
+  {
+   "fonte": "2FA di ieri",
+   "ora": "02/11 13:21",
+   "vecchio": true
+  },
+  {
+   "fonte": "Scheda PC (pagina)",
+   "ora": "02/11 13:50",
+   "vecchio": true
+  },
+  {
+   "fonte": "Phishing ora 2",
+   "ora": "02/11 16:44",
+   "vecchio": true
+  },
+  {
+   "fonte": "Veyon",
+   "ora": "nessun dato",
+   "vecchio": true
+  }
+ ],
+ "righe": [
+  {
+   "nome": "Hagar A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:20"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:20",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Sara A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 11/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:31"
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:31",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Katherine A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:40"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:40",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Giorgio A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:50"
+   },
+   "quiz_reti": null,
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:50",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Shaharia A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attiva da ieri (docente in aula) +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attiva da ieri (docente in aula)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:59"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:59",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Youssef A.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:19"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:19",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Luca B.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:32"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Luciano C.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "11:49"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "11:49",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Shahenda E.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:25"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:25",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Oscar F.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attiva da ieri (docente in aula) +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attiva da ieri (docente in aula)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:34"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:34",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Alejandro G.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 11/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:32"
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Giorgio K.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attiva da ieri (docente in aula) +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attiva da ieri (docente in aula)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": ""
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Francesco M.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attiva da ieri (docente in aula) +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 11/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attiva da ieri (docente in aula)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:23"
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:23",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Antonio M.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attiva da ieri (docente in aula) +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attiva da ieri (docente in aula)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:29"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:29",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Mahammed M.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Lina A.",
+   "voto": 45,
+   "conto": [
+    "base 40",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 11/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": false,
+    "txt": "manca (ieri 8/8 passi)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "13:16"
+   },
+   "quiz_reti": {
+    "p": 11,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "13:16",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 1
+  },
+  {
+   "nome": "Mathias P.",
+   "voto": 45,
+   "conto": [
+    "base 40",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": false,
+    "txt": "manca (ieri 8/8 passi)",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:32"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "12:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 1
+  },
+  {
+   "nome": "Ney V.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "fa2": {
+    "ok": false,
+    "txt": "manca",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": false,
+    "ora": ""
+   },
+   "quiz_reti": null,
+   "mail": null,
+   "quiz_ph": null,
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 0
+  }
+ ]
 }
