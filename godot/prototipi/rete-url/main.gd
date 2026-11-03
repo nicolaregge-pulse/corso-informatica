@@ -313,6 +313,8 @@ func inizio_mossa(m: Dictionary) -> void:
 	pacchetto.position = centro(m["da"]) - pacchetto.size / 2
 	pacchetto.visible = true
 	if m["da"] == m["a"]:
+		# Pacchetto fermo: lo metto sopra il nodo, cosi' il testo resta leggibile.
+		pacchetto.position.y -= nodi[m["a"]].size.y / 2 + 22
 		# Il nodo "lampeggia" per far capire che sta lavorando.
 		var lamp := create_tween()
 		lamp.tween_property(nodi[m["a"]], "modulate", Color(1.6, 1.6, 0.8), 0.3)
