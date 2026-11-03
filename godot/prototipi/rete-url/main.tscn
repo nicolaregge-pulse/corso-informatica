@@ -59,12 +59,12 @@ text="Ricomincia"
 
 [node name="LblMs" type="Label" parent="."]
 layout_mode=0
-offset_left=985
+offset_left=1005
 offset_top=14
 offset_right=1140
 offset_bottom=48
 theme_override_colors/font_color=Color(1, 0.85, 0.3, 1)
-theme_override_font_sizes/font_size=20
+theme_override_font_sizes/font_size=18
 text="Tempo: 0 ms"
 autowrap_mode=0
 [node name="Nodi" type="Control" parent="."]
