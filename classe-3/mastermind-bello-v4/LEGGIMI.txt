@@ -1,0 +1,59 @@
+MASTERMIND BELLO - CLIENT E SERVER (3INF)
+=========================================
+Versione v3.0
+
+Cosa c'e' dentro
+  Client\   il programma dei ragazzi   (progetto ClientMastermind)
+  Server\   il programma del prof       (progetto ServerMastermind)
+  Comune\   il disegno condiviso da Client e Server (DisegnoMastermind.inc): non va spostato,
+            i due programmi lo leggono da li' ( {$I ../Comune/DisegnoMastermind.inc} )
+  Risorse\  le due icone (IconaClient, IconaServer)
+  Anteprima\ i DISEGNI di come dovrebbero venire le finestre (client, vittoria, server)
+            a 2x e a 3x. Sono disegni fatti con Pillow, NON schermate del programma vero.
+  test\     le prove con Free Pascal (servono solo a chi sviluppa)
+
+Come si apre e si prova (Lazarus)
+  1. Doppio clic su  Client\ClientMastermind.lpi  (oppure Server\ServerMastermind.lpi).
+  2. Premi F9. La prima volta Lazarus compila: ci vuole un po'.
+  3. Il client mostra subito una partita di esempio. Premi "Gioca da solo" per giocare
+     senza rete: per 2,3 secondi il codice segreto compare nel titolo della finestra
+     (per spegnerlo: MOSTRA_CODICE_NEL_TITOLO = False in UnitClient.pas).
+  4. Per giocare in classe: sul PC del prof apri il Server, premi "Avvia server".
+     Se Windows chiede il permesso, clicca "Consenti accesso" (e' il firewall).
+     Il server scrive in grande l'indirizzo: i ragazzi lo scrivono nella casella
+     "IP del server" del client, poi il loro nome, poi "Connetti".
+  5. Quando sono collegati, il prof preme "Via!". "Stop" mette in pausa, "Nuova
+     combinazione" ricomincia con un altro codice, "Mostra il codice" fa vedere i 4 pioli.
+
+Novita' della v3.0 (grafica a 90% e risoluzione migliore)
+  - Client stretto (circa 265 pixel di larghezza) con la tavola 243 x 422: la nicchia dei
+    pioli bianchi e neri e' un QUADRATO 2 x 2 nello stesso legno; i 6 colori stanno in una
+    fascia sotto la tavola, nello stesso pezzo di legno; sotto c'e' la legenda con i pioli veri.
+  - Server stretto (400 pixel) con lo stesso legno e il pannello del codice con i 4 pioli.
+  - Risoluzione: il programma legge la scala dello schermo (PixelsPerInch / 96: 100%, 125%,
+    150% ...), disegna al doppio della risoluzione e poi rimpicciolisce con la media dei punti
+    ("halftone" di Windows): pioli e bordi senza scalini. Il testo e' impostato a Cleartype.
+    Il progetto era gia' pronto per schermi ad alta risoluzione (.lpi: Scaled e DpiAware).
+  - Non sono cambiati: porta 5050, protocollo, nomi di file, unit e form.
+
+Regole del gioco
+  I colori sono 6 (rosso, giallo, verde, blu, arancio, porpora) e possono ripetersi.
+  Piolino nero = colore giusto al posto giusto. Piolino bianco = colore giusto al posto sbagliato.
+  Scorciatoia da tastiera nel client: R G V B A P, Backspace (toglie l'ultimo), Invio (prova).
+
+Rete
+  Porta 5050 (sempre uguale, non va cambiata). Protocollo: una riga in, una riga fuori:
+  STATO;nome  e  GUESS;nome;1234  (le cifre 1..6 sono i colori).
+
+Come e' fatto
+  Ogni programma e' un form con una sola unit (UnitClient.pas, UnitServer.pas) e il suo
+  file .lfm. Nomi esemplari: FormClient / FormServer. I file .res vengono riscritti da
+  Lazarus alla prima compilazione (contengono l'icona).
+
+Cosa e' stato provato e cosa no
+  Provato con il compilatore Free Pascal su finte unita' LCL: compilazione, conteggio dei
+  neri e bianchi con colori ripetuti, partita da soli, 6 client in rete contro il server.
+  NON provato con la vera Lazarus in questa versione: apertura dei .lpi, aspetto reale
+  delle finestre e soprattutto la NITIDEZZA su uno schermo con scala 125% o 150%: il lavoro
+  sulla risoluzione non e' verificabile senza Lazarus vera e uno schermo scalato.
+  Le anteprime in Anteprima\ sono disegni, non schermate. Se Lazarus segnala un errore, mandare uno screenshot.
