@@ -220,7 +220,7 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp
 var scene=$('#scene'),pk=$('#pk'),pklab=$('#pklab');
 var N={pc:$('#n-pc'),rt:$('#n-rt'),dns:$('#n-dns'),web:$('#n-web')};
 var DEFSUB={pc:'',rt:'',dns:'',web:''};
-var cfg=null,steps=[],run=0,mode='idle',cur=-1,busy=false;
+var tmr,cfg=null,steps=[],run=0,mode='idle',cur=-1,busy=false;
 
 function parseUrl(v){
   v=v.trim(); if(!v) return {e:'Scrivi un indirizzo, per esempio https://www.esempio.it/pagina'};
@@ -431,6 +431,7 @@ async function avanti(){
   if(cur<steps.length-1)$('#bAvanti').focus();
 }
 function load(){
+  clearTimeout(tmr);
   var r=parseUrl($('#url').value);
   if(r.e){ $('#err').textContent=r.e; return false; }
   $('#err').textContent='';cfg=r;steps=build(r);
@@ -441,7 +442,7 @@ $('#f').addEventListener('submit',function(e){e.preventDefault();if(load())auto(
 $('#bPasso').addEventListener('click',function(){if(load())manual();});
 $('#bAvanti').addEventListener('click',avanti);
 $('#bRico').addEventListener('click',function(){load();});
-var tmr;$('#url').addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(load,350);});
+$('#url').addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(load,350);});
 vel.addEventListener('input',function(){var v=sp();$('#velv').textContent=v<0.8?'lenta':(v>1.6?'veloce':'normale');});
 window.addEventListener('resize',layout);
 load();layout();
