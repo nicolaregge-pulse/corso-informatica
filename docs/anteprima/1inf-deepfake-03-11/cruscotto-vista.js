@@ -18,7 +18,7 @@ function disegnaCruscotto(D,docente){
    h+=qz(q,18);
    h+=(r.quaderno==null?'<td class="nu" style="font-size:.8em">-</td>':pill(r.quaderno,r.quaderno?'ricopiato':'da fare'));
    h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td>';
-   var vv=(!D.veyon_ok||!v.giri)?'<span class="mini" style="color:#888">n.d.</span>':v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+'</span>':'<span class="mini">ok</span>';
+   var vv=(!D.veyon_ok||!v.giri)?'<span class="mini" style="color:#888">n.d.</span>':v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+'</span>':v.guarda?'<span style="color:#b26a00;font-weight:800">da guardare</span>':'<span class="mini">ok</span>';
    if(docente){(r.note||[]).forEach(function(z){vv+='<br><span class="mini">'+e(z)+'</span>'})}
    h+='<td style="white-space:normal;min-width:150px;text-align:left">'+vv+'</td><td class="voto"><b>'+r.voto+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>'});
   return h+'</tbody></table></div>'}
