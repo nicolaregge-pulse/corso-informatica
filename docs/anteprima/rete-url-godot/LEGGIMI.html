@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosa succede quando scrivi un URL - prototipo Godot</title>
+<style>body{font-family:system-ui,sans-serif;max-width:46rem;margin:0 auto;padding:1rem 16px;line-height:1.55;background:#fff;color:#1a1a1a}
+h1{font-size:1.5rem}.box{background:#eef6ff;border-left:4px solid #2a6fd6;padding:.6rem 1rem;margin:1rem 0}.nota{background:#fff8e1;border-left:4px solid #e0a800;padding:.6rem 1rem;margin:1rem 0}
+a.btn{display:inline-block;background:#2a6fd6;color:#fff;padding:.7rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:600}
+@media(prefers-color-scheme:dark){body{background:#14161c;color:#eee}.box{background:#1b2a40}.nota{background:#3a3115}}</style></head><body>
+<h1>Cosa succede quando scrivi un URL</h1>
+<p>Un piccolo programma fatto con Godot 4 che mostra, passo dopo passo, il viaggio di una richiesta web: cache, DNS, TCP, TLS, HTTP, risposta e pagina disegnata.</p>
+<div class="nota"><b>Versione nel browser non disponibile.</b> Per ora il programma si apre dentro Godot (quello portabile, senza installare nulla).</div>
+<p><a class="btn" href="rete-url-godot.zip" download>Scarica il progetto (file zip)</a></p>
+<h2>Come aprirlo in Godot</h2>
+<ol>
+<li>Scarica il file zip con il bottone qui sopra.</li>
+<li>Clicca con il tasto destro sul file zip e scegli <b>Estrai tutto</b>.</li>
+<li>Apri Godot con un doppio clic sul suo file <b>.exe</b>.</li>
+<li>Nella finestra dei progetti clicca il bottone <b>Importa</b>.</li>
+<li>Clicca <b>Sfoglia</b>, scegli la cartella estratta (quella con dentro <b>project.godot</b>) e clicca <b>Apri</b>.</li>
+<li>Clicca <b>Importa e modifica</b>.</li>
+<li>In alto a destra clicca il triangolo <b>Avvia progetto</b> (oppure premi il tasto F5).</li>
+</ol>
+<h2>Cosa vedrai</h2>
+<p>Quattro blocchi: il PC con il browser, il router, il server DNS e il server del sito. In alto c'e' la casella con l'indirizzo, i bottoni e il contatore dei millisecondi. In basso una spiegazione del passo, con frasi corte.</p>
+<h2>Come provarlo, solo con i clic</h2>
+<ol>
+<li>Clicca <b>Avvia</b>: parte il passo 1 (la cache del browser).</li>
+<li>Clicca <b>Avanti</b> per ogni passo: DNS, TCP, TLS, richiesta, risposta, pagina, riepilogo.</li>
+<li>Guarda i pacchetti gialli (domande) e verdi (risposte) che viaggiano tra i blocchi.</li>
+<li>Clicca <b>Ricomincia</b>. Nella casella cambia <b>https</b> in <b>http</b> e clicca <b>Avvia</b>: il passo 4 cambia, niente lucchetto.</li>
+<li>Prova anche un altro indirizzo, per esempio un altro sito: dominio e percorso cambiano nella spiegazione.</li>
+</ol>
+<div class="box"><b>Per chi conosce Lazarus.</b> Il programma e' nel file <b>main.gd</b>. In cima c'e' il ponte: il Form e' la Scena, TEdit e' LineEdit, Button1Click e' un segnale collegato a una funzione, il Timer e' il Tween. Ogni passo e' una funzione e la lista dei passi e' un array.</div>
+</body></html>

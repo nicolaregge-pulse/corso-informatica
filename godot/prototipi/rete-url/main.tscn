@@ -1,0 +1,217 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://main.gd" id="1"]
+
+[node name="Main" type="Control"]
+layout_mode=3
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+script=ExtResource("1")
+
+[node name="Sfondo" type="ColorRect" parent="."]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+offset_left=0
+offset_top=0
+color=Color(0.08, 0.10, 0.16, 1)
+
+[node name="UrlEdit" type="LineEdit" parent="."]
+layout_mode=0
+offset_left=20
+offset_top=10
+offset_right=640
+offset_bottom=50
+theme_override_font_sizes/font_size=20
+text="https://www.esempio.it/pagina"
+placeholder_text="Scrivi qui un indirizzo web"
+
+[node name="BtnAvvia" type="Button" parent="."]
+layout_mode=0
+offset_left=655
+offset_top=10
+offset_right=755
+offset_bottom=50
+theme_override_font_sizes/font_size=18
+text="Avvia"
+
+[node name="BtnAvanti" type="Button" parent="."]
+layout_mode=0
+offset_left=765
+offset_top=10
+offset_right=865
+offset_bottom=50
+theme_override_font_sizes/font_size=18
+text="Avanti"
+
+[node name="BtnRicomincia" type="Button" parent="."]
+layout_mode=0
+offset_left=875
+offset_top=10
+offset_right=995
+offset_bottom=50
+theme_override_font_sizes/font_size=18
+text="Ricomincia"
+
+[node name="LblMs" type="Label" parent="."]
+layout_mode=0
+offset_left=985
+offset_top=14
+offset_right=1140
+offset_bottom=48
+theme_override_colors/font_color=Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size=20
+text="Tempo: 0 ms"
+autowrap_mode=0
+[node name="Nodi" type="Control" parent="."]
+layout_mode=3
+anchors_preset=0
+
+[node name="Pc" type="ColorRect" parent="Nodi"]
+layout_mode=0
+offset_left=60
+offset_top=210
+offset_right=230
+offset_bottom=300
+color=Color(0.2, 0.45, 0.8, 1)
+
+[node name="Testo" type="Label" parent="Nodi/Pc"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_colors/font_color=Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size=17
+text="PC / Browser"
+autowrap_mode=3
+[node name="Router" type="ColorRect" parent="Nodi"]
+layout_mode=0
+offset_left=500
+offset_top=210
+offset_right=650
+offset_bottom=300
+color=Color(0.45, 0.45, 0.5, 1)
+
+[node name="Testo" type="Label" parent="Nodi/Router"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_colors/font_color=Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size=17
+text="Router"
+autowrap_mode=3
+[node name="Dns" type="ColorRect" parent="Nodi"]
+layout_mode=0
+offset_left=500
+offset_top=70
+offset_right=650
+offset_bottom=160
+color=Color(0.7, 0.45, 0.15, 1)
+
+[node name="Testo" type="Label" parent="Nodi/Dns"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_colors/font_color=Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size=17
+text="Server DNS"
+autowrap_mode=3
+[node name="Sito" type="ColorRect" parent="Nodi"]
+layout_mode=0
+offset_left=900
+offset_top=210
+offset_right=1080
+offset_bottom=300
+color=Color(0.2, 0.6, 0.35, 1)
+
+[node name="Testo" type="Label" parent="Nodi/Sito"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_colors/font_color=Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size=17
+text="Server del sito"
+autowrap_mode=3
+[node name="Pacchetto" type="ColorRect" parent="."]
+layout_mode=0
+offset_left=0
+offset_top=0
+offset_right=120
+offset_bottom=32
+color=Color(1, 0.8, 0.2, 1)
+visible=false
+z_index=10
+[node name="Testo" type="Label" parent="Pacchetto"]
+layout_mode=1
+anchors_preset=15
+anchor_right=1.0
+anchor_bottom=1.0
+grow_horizontal=2
+grow_vertical=2
+horizontal_alignment=1
+vertical_alignment=1
+theme_override_colors/font_color=Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size=15
+text="pacchetto"
+autowrap_mode=3
+[node name="LblOra" type="Label" parent="."]
+layout_mode=0
+offset_left=20
+offset_top=303
+offset_right=1130
+offset_bottom=329
+theme_override_colors/font_color=Color(0.7, 0.9, 1, 1)
+theme_override_font_sizes/font_size=18
+text=""
+autowrap_mode=3
+[node name="Pannello" type="ColorRect" parent="."]
+layout_mode=0
+offset_left=20
+offset_top=335
+offset_right=1132
+offset_bottom=630
+color=Color(0.14, 0.17, 0.26, 1)
+
+[node name="LblTitolo" type="Label" parent="Pannello"]
+layout_mode=0
+offset_left=20
+offset_top=10
+offset_right=1090
+offset_bottom=50
+theme_override_colors/font_color=Color(1, 0.85, 0.3, 1)
+theme_override_font_sizes/font_size=26
+text="Titolo"
+autowrap_mode=3
+[node name="Spiegazione" type="RichTextLabel" parent="Pannello"]
+layout_mode=0
+offset_left=20
+offset_top=55
+offset_right=1090
+offset_bottom=285
+theme_override_font_sizes/normal_font_size=20
+theme_override_font_sizes/bold_font_size=20
+bbcode_enabled=true
+text=""
