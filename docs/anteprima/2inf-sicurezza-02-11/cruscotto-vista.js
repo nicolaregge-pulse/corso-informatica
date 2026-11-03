@@ -5,7 +5,7 @@ function disegnaCruscotto(D,docente){
   var R=D.righe||[],h='<p class="mu">Aggiornato alle <b>'+e(D.ora)+'</b> \u00b7 '+e(D.fonte)+'</p>';
   h+='<p class="mu"><b>Come si legge:</b> \u2714 verde = fatto; \u2718 rosso = manca. I pi\u00f9 avanti stanno in alto.</p>';
   h+='<p class="mu"><b>Il voto (KPI proposti, in attesa del s\u00ec del Professore):</b> si parte da 40; schede lette +10; analisi delle 8 mail fino a +15; quiz sul phishing fino a +10; la mia regola d\'oro +5. Massimo 80.</p>';
-  if(!R.length){return h+'<p class="ante">Nessun dato ancora: l\'ora si apre quando lo dice il Professore.</p>'}
+  if(!R.length){return h+'<p class="ante">Presenze non ancora segnate: appena il Professore le segna, qui compare una riga per ogni presente.</p>'}
   h+='<div class="tw"><table><thead><tr><th class="fix">Allievo</th><th>Schede lette</th><th>Mail giuste su 8</th><th>Quiz phishing</th><th>Regola d\'oro</th><th>Fermo da</th><th>'+(docente?'Veyon / note':'Veyon')+'</th><th>Voto</th></tr></thead><tbody>';
   R.forEach(function(r){var v=r.veyon||{},q=r.quiz;
    h+='<tr><td class="fix"><b>'+e(r.nome)+'</b></td><td class="'+((r.schede||0)>=4?'si':(r.schede||0)>0?'nu':'no')+'"><b>'+(r.schede||0)+'/4</b></td>';
