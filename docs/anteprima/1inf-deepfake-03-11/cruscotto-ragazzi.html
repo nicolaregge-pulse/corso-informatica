@@ -5,7 +5,7 @@
 
 <p class="mu"><a href="./">&larr; Pagina di oggi</a></p><p class="mu">Trova il tuo nome: vedi i passi fatti, che cosa hai consegnato e che cosa ti manca. Premi F5 per aggiornare.</p>
 <div id="app">Carico…</div>
-<script src="cruscotto-vista.js?v=20261103d" charset="utf-8"></script>
+<script src="cruscotto-vista.js?v=20261103e" charset="utf-8"></script>
 <script>
 fetch('cruscotto-ragazzi.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(D){document.getElementById('app').innerHTML=disegnaCruscotto(D,false)}).catch(function(){document.getElementById('app').textContent='Dati non ancora pronti.'});
 </script></main></body></html>

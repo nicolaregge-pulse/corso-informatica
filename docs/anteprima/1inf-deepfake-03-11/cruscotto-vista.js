@@ -6,15 +6,15 @@ function qz(q,s){return q?'<td class="'+(q.p>=s?'si':'nu')+'">✔ <b>'+q.p+'/'+q
 function disegnaCruscotto(D,docente){
   var R=D.righe||[],h='<p class="mu">Aggiornato alle <b>'+e(D.ora)+'</b> · '+e(D.fonte)+'</p>';
   h+='<p class="mu"><b>Come si legge:</b> ✔ verde = fatto; ✘ rosso = manca. I più avanti stanno in alto.</p>';
-  h+='<p class="mu"><b>Il voto (KPI proposti, in attesa del sì del Professore):</b> si parte da 40; ripasso Unicode 3 su 3 +5; schede lette +5; vero o falso 5-6 su 6 +10 (3-4 su 6 +5); quiz su Moduli 7 o più su 10 +15 (5-6 su 10 +8); quaderno ricopiato +5. Massimo 80.</p>';
+  h+='<p class="mu"><b>Il voto (KPI proposti, in attesa del sì del Professore):</b> si parte da 40; ripasso Unicode 3 su 3 +5; schede lette +5; vero o falso 5-6 su 6 +10 (3-4 su 6 +5); quiz su Moduli 18 o più su 26 +15 (13-17 su 26 +8); quaderno ricopiato +5. Massimo 80.</p>';
   if(!R.length){return h+'<p class="ante">Presenze non ancora segnate: appena il Professore le segna, qui compare una riga per ogni presente.</p>'}
-  h+='<div class="tw"><table><thead><tr><th class="fix">Allievo</th><th>Ripasso Unicode (3)</th><th>Schede lette (4)</th><th>Vero o falso (6)</th><th>Quiz Moduli (10)</th><th>Quaderno</th><th>Fermo da</th><th>'+(docente?'Veyon / note':'Veyon')+'</th><th>Voto</th></tr></thead><tbody>';
+  h+='<div class="tw"><table><thead><tr><th class="fix">Allievo</th><th>Ripasso Unicode (3)</th><th>Schede lette (4)</th><th>Vero o falso (6)</th><th>Quiz Moduli (26)</th><th>Quaderno</th><th>Fermo da</th><th>'+(docente?'Veyon / note':'Veyon')+'</th><th>Voto</th></tr></thead><tbody>';
   R.forEach(function(r){var v=r.veyon||{},q=r.quiz;
    h+='<tr><td class="fix"><b>'+e(r.nome)+'</b></td>';
    h+=num(r.ripasso,3,3);
    h+=num(r.schede,4,4);
    h+=num(r.vf,6,5);
-   h+=qz(q,7);
+   h+=qz(q,18);
    h+=pill(r.quaderno,r.quaderno?'ricopiato':'da fare');
    h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td>';
    var vv=v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+'</span>':'<span class="mini">ok</span>';
