@@ -20,10 +20,10 @@
   }
   function controlla(primo) {
     leggi(function (n) {
-      if (n !== null && n >= ora) { if (primo) { stile.remove(); var d = document.getElementById('ore-chiuso'); if (d) d.remove(); } else location.reload(); return; }
+      if (n !== null && n >= ora) { stile.remove(); var d = document.getElementById('ore-chiuso'); if (d) d.remove(); if (!primo) clearInterval(giro); return; }
       if (primo) chiudi(n === null ? 'errore' : 'chiuso');
     });
   }
   controlla(true);
-  setInterval(function () { controlla(false); }, 30000);
+  var giro = setInterval(function () { controlla(false); }, 30000);
 })();
