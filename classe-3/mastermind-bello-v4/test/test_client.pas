@@ -1,11 +1,11 @@
 program test_client;
-{ PROVA del VERO unit1.pas del client bello (copiato come UnitClient.pas) contro finte unita' LCL.
+{ PROVA del VERO unit1.pas del client bello (copiato come UnitInterfaccia.pas) contro finte unita' LCL.
   Uso: test_client modo [host nome]    modo: logica | locale | rete | spento
   logica = conteggio neri/bianchi (anche colori ripetuti), locale = partita da soli con controllo del disegno,
   rete = partita contro il server vero (porta 5050), spento = server non raggiungibile. }
 {$mode objfpc}{$H+}
 uses
-  SysUtils, Classes, Controls, Graphics, Forms, StdCtrls, ExtCtrls, Dialogs, UnitClient;
+  SysUtils, Classes, Controls, Graphics, Forms, StdCtrls, ExtCtrls, Dialogs, UnitInterfaccia;
 
 var
   F: TFormClient;

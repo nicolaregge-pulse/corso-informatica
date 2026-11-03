@@ -62,8 +62,10 @@ type
   private
     Errori: Integer;
     Nome: String;
-    function PulisciNome: String;
     Rete: TClienteRete;               // l'oggetto che parla con il server (UnitRete)
+    UltimaCl: TClassifica;            // l'ultima classifica arrivata dalla rete
+    UltimoInGioco: Boolean;           // l'ultimo STATO diceva GIOCO?
+    function PulisciNome: String;
     procedure Mostra(const Cl: TClassifica);
     { i gestori degli eventi della rete: la rete li chiama, la finestra li scrive }
     procedure ReteErrore(Sender: TObject; const Motivo: String);
@@ -225,6 +227,13 @@ end;
 procedure TFormClient.FormCreate(Sender: TObject);
 begin
   Avviato := True;
+  Rete := TClienteRete.Create;            // la rete: e' un oggetto a parte, qui la colleghiamo ai nostri gestori
+  Rete.OnErrore := @ReteErrore;
+  Rete.OnRifiuto := @ReteRifiuto;
+  Rete.OnStato := @ReteStato;
+  Rete.OnAttesa := @ReteAttesa;
+  Rete.OnRisultato := @ReteRisultato;
+  Rete.OnVittoria := @ReteVittoria;
   Modo := mNessuno;
   Finita := False;
   Errori := 0;
@@ -259,6 +268,12 @@ begin
   TimerTitolo.Interval := TEMPO_CODICE_TITOLO_MS;
   TimerTitolo.OnTimer := @TitoloTimer;
   if not Avviato then FormCreate(nil);
+end;
+
+destructor TFormClient.Destroy;
+begin
+  Rete.Free;
+  inherited Destroy;
 end;
 
 procedure TFormClient.TitoloTimer(Sender: TObject);
@@ -374,8 +389,6 @@ begin
 end;
 
 procedure TFormClient.BtnConnettiClick(Sender: TObject);
-var
-  R, Err: String;
 begin
   Nome := PulisciNome;
   if Nome = '' then
@@ -389,15 +402,13 @@ begin
     Exit;
   end;
   LblEsito.Caption := 'Mi collego...';
-  Err := Chiedi('STATO;' + Nome, R);
-  if (Err = '') and (Campo(R, 0) <> 'STATO') then
-    Err := 'Risposta strana dal server: ' + R;
-  if Err <> '' then
+  Rete.Nome := Nome;                      // diciamo alla rete chi siamo e dove andare...
+  Rete.Indirizzo := EdIp.Text;
+  if not Rete.ChiediStato then            // ...e le chiediamo lo STATO (se qualcosa va storto, scatta ReteErrore)
   begin
     Timer1.Enabled := False;
     if Modo = mRete then Modo := mNessuno;
     LblStato.Caption := 'Non collegato';
-    LblEsito.Caption := Err;
     AggiornaBottoni;
     Exit;
   end;
@@ -405,8 +416,8 @@ begin
   Errori := 0;
   Ricomincia;
   LblEsito.Caption := 'Collegato! Ciao ' + Nome + '.';
-  Mostra(R, 2);
-  if Campo(R, 1) = 'GIOCO' then LblStato.Caption := 'GIOCO: provaci!'
+  Mostra(UltimaCl);
+  if UltimoInGioco then LblStato.Caption := 'GIOCO: provaci!'
   else LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
   AggiornaBottoni;
   Timer1.Enabled := True;
@@ -516,56 +527,75 @@ end;
 
 procedure TFormClient.ProvaInRete;
 var
-  R, Err, Cod, T: String;
+  Cod: String;
   I: Integer;
 begin
   Cod := '';
   for I := 0 to 3 do Cod := Cod + Chr(48 + Corrente[I]);
-  Err := Chiedi('GUESS;' + Nome + ';' + Cod, R);
-  if Err <> '' then
+  Rete.InviaTentativo(Cod);               // la risposta arriva con gli eventi: ReteRisultato, ReteVittoria...
+end;
+
+{ ---------- gli eventi della rete: la rete chiama, la finestra disegna ---------- }
+
+procedure TFormClient.ReteErrore(Sender: TObject; const Motivo: String);
+begin
+  LblEsito.Caption := Motivo;
+end;
+
+procedure TFormClient.ReteRifiuto(Sender: TObject; const Motivo: String);
+begin
+  LblEsito.Caption := 'Il server dice: ' + Motivo;
+end;
+
+procedure TFormClient.ReteAttesa(Sender: TObject);
+begin
+  LblEsito.Caption := 'Il Prof non ha ancora detto Via: aspetta.';
+  LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
+end;
+
+procedure TFormClient.ReteRisultato(Sender: TObject; Neri, Bianchi: Integer; const Cl: TClassifica);
+begin
+  LblStato.Caption := 'GIOCO: provaci!';
+  Registra(Neri, Bianchi);
+  LblEsito.Caption := IntToStr(Neri) + ' neri, ' + IntToStr(Bianchi) + ' bianchi';
+  Mostra(Cl);
+end;
+
+procedure TFormClient.ReteVittoria(Sender: TObject; Tentativi, Secondi: Integer; const Cl: TClassifica);
+begin
+  Registra(4, 0);
+  Finita := True;
+  LblStato.Caption := 'HAI VINTO!';
+  LblEsito.Caption := 'BRAVO! Hai indovinato in ' + IntToStr(Tentativi) + ' tentativi e ' +
+    IntToStr(Secondi) + ' secondi.';
+  Mostra(Cl);
+end;
+
+{ arriva STATO: aggiorna la classifica e la scritta GIOCO / ATTESA }
+procedure TFormClient.ReteStato(Sender: TObject; InGioco: Boolean; const Cl: TClassifica);
+begin
+  UltimoInGioco := InGioco;
+  UltimaCl := Cl;
+  Mostra(Cl);
+  if Finita and (Cl.Posto = 0) then
   begin
-    LblEsito.Caption := Err;
-    Exit;
+    // il Prof ha ricominciato con un'altra combinazione
+    Ricomincia;
+    LblStato.Caption := '';
   end;
-  T := Campo(R, 0);
-  if T = 'WAIT' then
-  begin
-    LblEsito.Caption := 'Il Prof non ha ancora detto Via: aspetta.';
-    LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
-  end
-  else if T = 'RESULT' then
-  begin
-    LblStato.Caption := 'GIOCO: provaci!';
-    Registra(StrToIntDef(Campo(R, 1), 0), StrToIntDef(Campo(R, 2), 0));
-    LblEsito.Caption := Campo(R, 1) + ' neri, ' + Campo(R, 2) + ' bianchi';
-    Mostra(R, 3);
-  end
-  else if T = 'WIN' then
-  begin
-    Registra(4, 0);
-    Finita := True;
-    LblStato.Caption := 'HAI VINTO!';
-    LblEsito.Caption := 'BRAVO! Hai indovinato in ' + Campo(R, 2) + ' tentativi e ' +
-      Campo(R, 3) + ' secondi.';
-    Mostra(R, 3);
-  end
-  else if T = 'ERR' then
-    LblEsito.Caption := 'Il server dice: ' + Campo(R, 1)
-  else
-    LblEsito.Caption := 'Risposta strana dal server: ' + R;
+  if not Finita then
+    if InGioco then LblStato.Caption := 'GIOCO: provaci!'
+    else LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
+  AggiornaBottoni;
 end;
 
 { ogni 3 secondi chiede al server come siamo messi (solo nel gioco in rete) }
 procedure TFormClient.Timer1Timer(Sender: TObject);
-var
-  R, Err: String;
 begin
   if Modo <> mRete then Exit;
-  Err := Chiedi('STATO;' + Nome, R);
-  if Err <> '' then
+  if not Rete.ChiediStato then
   begin
     Inc(Errori);
-    LblEsito.Caption := Err;
     if Errori >= 3 then
     begin
       Modo := mNessuno;
@@ -577,18 +607,6 @@ begin
     Exit;
   end;
   Errori := 0;
-  if Campo(R, 0) <> 'STATO' then Exit;
-  Mostra(R, 2);
-  if Finita and (Campo(R, 3) = '0') then
-  begin
-    // il Prof ha ricominciato con un'altra combinazione
-    Ricomincia;
-    LblStato.Caption := '';
-  end;
-  if not Finita then
-    if Campo(R, 1) = 'GIOCO' then LblStato.Caption := 'GIOCO: provaci!'
-    else LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
-  AggiornaBottoni;
 end;
 
 
