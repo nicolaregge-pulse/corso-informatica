@@ -1,20 +1,59 @@
 {
  "titolo": "4TI · 03/11 · IPv4",
- "generato": "2026-11-03T10:33",
- "ora": "10:33",
+ "generato": "2026-11-03T10:34",
+ "ora": "10:34",
  "fonte": "presenti dal registro: 8 · schede s1-s4: lette dal Professore · Veyon: NESSUN dato Veyon oggi",
  "kpi_proposti": true,
  "veyon_ok": false,
+ "fonti_ora": [
+  {
+   "fonte": "Esercizi (pagina)",
+   "ora": "10:28",
+   "vecchio": false
+  },
+  {
+   "fonte": "Scheda IPv4 (pagina)",
+   "ora": "10:32",
+   "vecchio": false
+  },
+  {
+   "fonte": "Commit (pagina)",
+   "ora": "dato non ancora letto",
+   "vecchio": true
+  },
+  {
+   "fonte": "Quiz IPv4 (Moduli)",
+   "ora": "dato non ancora letto",
+   "vecchio": true
+  },
+  {
+   "fonte": "Consegne Classroom",
+   "ora": "dato non ancora letto",
+   "vecchio": true
+  },
+  {
+   "fonte": "Schede s1-s4",
+   "ora": "dato non ancora letto",
+   "vecchio": true
+  },
+  {
+   "fonte": "Veyon",
+   "ora": "dato non ancora letto",
+   "vecchio": true
+  }
+ ],
+ "classroom_ora": "",
  "righe": [
   {
    "nome": "Giuseppe C.",
    "voto": 50,
    "conto": [
     "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
     "esercizi consegnati (si vedono, non danno punti)",
     "scheda IPv4 del PC +10"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": true,
    "scheda": true,
    "quiz": null,
@@ -24,6 +63,7 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 2.0
   },
   {
@@ -31,9 +71,10 @@
    "voto": 40,
    "conto": [
     "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora",
     "esercizi consegnati (si vedono, non danno punti)"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": true,
    "scheda": false,
    "quiz": null,
@@ -43,15 +84,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 1.0
   },
   {
    "nome": "Giulian A.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -61,15 +104,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   },
   {
    "nome": "Cristian B.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -79,15 +124,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   },
   {
    "nome": "Federico G.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -97,15 +144,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   },
   {
    "nome": "Saad G.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -115,15 +164,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   },
   {
    "nome": "Daniel R.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -133,15 +184,17 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   },
   {
    "nome": "Sergio S.",
    "voto": 40,
    "conto": [
-    "base 40"
+    "base 40",
+    "schede s1-s4: dato non ancora letto (nessun segnale dal sito), +0 per ora"
    ],
-   "schede": 0,
+   "schede": null,
    "esercizi": false,
    "scheda": false,
    "quiz": null,
@@ -151,6 +204,7 @@
     "fuori": 0,
     "giri": 0
    },
+   "classroom": {},
    "svolto": 0.0
   }
  ]
