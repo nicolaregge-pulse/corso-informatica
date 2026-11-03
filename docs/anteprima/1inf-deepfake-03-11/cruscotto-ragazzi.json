@@ -1,12 +1,12 @@
 {
  "titolo": "1INF · 03/11 · deepfake",
- "generato": "2026-11-03T13:33",
- "ora": "13:33",
- "fonte": "presenti: 19 · quiz Moduli fatto da 14 · segnali della pagina: 11 · Veyon: giri letti",
+ "generato": "2026-11-03T13:38",
+ "ora": "13:38",
+ "fonte": "presenti: 19 · quiz Moduli fatto da 15 · segnali della pagina: 14 · Veyon: giri letti",
  "kpi_proposti": true,
  "veyon_ok": true,
  "avvisi": [
-  "Segnale della pagina arrivato per 11 iscritti su 19: per gli altri schede e vero o falso li conta il Professore.",
+  "Segnale della pagina arrivato per 14 iscritti su 19: per gli altri schede e vero o falso li conta il Professore.",
   "19 presenti, 4 assenti"
  ],
  "righe": [
@@ -40,6 +40,64 @@
    "svolto": 6.0
   },
   {
+   "nome": "Thomas R.",
+   "voto": 80,
+   "conto": [
+    "base 40",
+    "ripasso 3/3 +5",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5",
+    "quiz 26/26 +15"
+   ],
+   "quiz": {
+    "p": 26,
+    "m": 26,
+    "ora": "13:30"
+   },
+   "ripasso": 3,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:34",
+   "fermo_da": "13:34",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 6.0
+  },
+  {
+   "nome": "Giexther A.",
+   "voto": 80,
+   "conto": [
+    "base 40",
+    "ripasso 3/3 +5",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5",
+    "quiz 25/26 +15"
+   ],
+   "quiz": {
+    "p": 25,
+    "m": 26,
+    "ora": "13:27"
+   },
+   "ripasso": 3,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:33",
+   "fermo_da": "13:33",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 5.923076923076923
+  },
+  {
    "nome": "Enea Z.",
    "voto": 80,
    "conto": [
@@ -67,6 +125,35 @@
     "giri": 2
    },
    "svolto": 5.923076923076923
+  },
+  {
+   "nome": "Christian A.",
+   "voto": 80,
+   "conto": [
+    "base 40",
+    "ripasso 3/3 +5",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5",
+    "quiz 23/26 +15"
+   ],
+   "quiz": {
+    "p": 23,
+    "m": 26,
+    "ora": "13:30"
+   },
+   "ripasso": 3,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:32",
+   "fermo_da": "13:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 5.769230769230769
   },
   {
    "nome": "Moaaz A.",
@@ -243,6 +330,35 @@
    "svolto": 5.256410256410256
   },
   {
+   "nome": "Wesley J.",
+   "voto": 70,
+   "conto": [
+    "base 40",
+    "ripasso 2/3 +0",
+    "schede lette +5",
+    "vero o falso 3/6 +5",
+    "quaderno ricopiato +5",
+    "quiz 26/26 +15"
+   ],
+   "quiz": {
+    "p": 26,
+    "m": 26,
+    "ora": ""
+   },
+   "ripasso": 2,
+   "schede": 4,
+   "vf": 3,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:30",
+   "fermo_da": "13:30",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 5.166666666666666
+  },
+  {
    "nome": "Matteo A.",
    "voto": 65,
    "conto": [
@@ -289,105 +405,6 @@
     "giri": 1
    },
    "svolto": 4.0
-  },
-  {
-   "nome": "Wesley J.",
-   "voto": 55,
-   "conto": [
-    "base 40",
-    "ripasso 2/3 +0",
-    "schede lette +5",
-    "vero o falso 3/6 +5",
-    "quaderno ricopiato +5"
-   ],
-   "quiz": null,
-   "ripasso": 2,
-   "schede": 4,
-   "vf": 3,
-   "quaderno": true,
-   "segnale": true,
-   "ora_cons": "13:30",
-   "fermo_da": "13:30",
-   "veyon": {
-    "fuori": 0,
-    "giri": 1
-   },
-   "svolto": 3.1666666666666665
-  },
-  {
-   "nome": "Thomas R.",
-   "voto": 70,
-   "conto": [
-    "base 40",
-    "schede e vero o falso contati come svolti +15 (lo conta il Professore)",
-    "quiz 26/26 +15"
-   ],
-   "quiz": {
-    "p": 26,
-    "m": 26,
-    "ora": "13:30"
-   },
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "13:30",
-   "veyon": {
-    "fuori": 0,
-    "giri": 1
-   },
-   "svolto": 2.5
-  },
-  {
-   "nome": "Giexther A.",
-   "voto": 70,
-   "conto": [
-    "base 40",
-    "schede e vero o falso contati come svolti +15 (lo conta il Professore)",
-    "quiz 25/26 +15"
-   ],
-   "quiz": {
-    "p": 25,
-    "m": 26,
-    "ora": "13:27"
-   },
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "13:27",
-   "veyon": {
-    "fuori": 0,
-    "giri": 1
-   },
-   "svolto": 2.4230769230769234
-  },
-  {
-   "nome": "Christian A.",
-   "voto": 70,
-   "conto": [
-    "base 40",
-    "schede e vero o falso contati come svolti +15 (lo conta il Professore)",
-    "quiz 23/26 +15"
-   ],
-   "quiz": {
-    "p": 23,
-    "m": 26,
-    "ora": "13:30"
-   },
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "13:30",
-   "veyon": {
-    "fuori": 0,
-    "giri": 1
-   },
-   "svolto": 2.269230769230769
   },
   {
    "nome": "Anthony A.",
