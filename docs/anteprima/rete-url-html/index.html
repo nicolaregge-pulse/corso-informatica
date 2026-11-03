@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cosa succede quando scrivi un indirizzo</title>
+<style>
+:root{
+  --bg:#f4f6fb;--surf:#fff;--surf2:#eef1f8;--ink:#14213d;--mute:#4a5568;--line:#9aa5bd;--bd:#cfd6e6;
+  --acc:#1d4ed8;--accink:#fff;--ok:#0f7a3d;--warn:#8a5a00;--warnbg:#fff4d6;
+  --dns:#b45309;--tcp:#1d4ed8;--tls:#0f7a3d;--http:#7e22ce;--cache:#475569;
+  --code:#101a33;--codeink:#e6edff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1424;--surf:#172036;--surf2:#1e2a47;--ink:#eef2ff;--mute:#b4c0dc;--line:#6b7a9c;--bd:#32415f;
+    --acc:#7fb0ff;--accink:#0b1226;--ok:#5fd68f;--warn:#ffd277;--warnbg:#3a2e0e;
+    --dns:#fbbf62;--tcp:#8fb8ff;--tls:#6fe0a0;--http:#d6a8ff;--cache:#b8c4dc;
+    --code:#0a1020;--codeink:#e6edff;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0e1424;--surf:#172036;--surf2:#1e2a47;--ink:#eef2ff;--mute:#b4c0dc;--line:#6b7a9c;--bd:#32415f;
+    --acc:#7fb0ff;--accink:#0b1226;--ok:#5fd68f;--warn:#ffd277;--warnbg:#3a2e0e;
+    --dns:#fbbf62;--tcp:#8fb8ff;--tls:#6fe0a0;--http:#d6a8ff;--cache:#b8c4dc;
+    --code:#0a1020;--codeink:#e6edff;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+.wrap{max-width:1040px;margin:0 auto;padding:16px}
+h1{font-size:1.55rem;line-height:1.25;margin:4px 0 6px}
+h2{font-size:1.2rem;margin:0 0 8px;line-height:1.3}
+h3{font-size:1.05rem;margin:14px 0 6px}
+p{margin:0 0 10px}
+.lead{color:var(--mute);margin-bottom:14px}
+.card{background:var(--surf);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px;min-width:0}
+label{font-weight:700;display:block;margin-bottom:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+input[type=text]{flex:1 1 220px;min-width:0;font:inherit;font-size:16px;padding:11px 12px;border-radius:10px;border:2px solid var(--line);background:var(--surf);color:var(--ink)}
+button{font:inherit;font-weight:700;padding:11px 14px;border-radius:10px;border:2px solid var(--acc);background:var(--surf);color:var(--acc);cursor:pointer;min-height:44px}
+button.main{background:var(--acc);color:var(--accink)}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.speed{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.speed label{margin:0;font-weight:600}
+.speed input{flex:1 1 140px;min-width:120px;accent-color:var(--acc);height:28px}
+.err{color:#b91c1c;font-weight:700;min-height:1.3em;margin:6px 0 0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .err{color:#ff9a9a}}
+.grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.grid{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:start}}
+/* browser finto */
+.bar{display:flex;align-items:center;gap:8px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;padding:6px 12px;font-size:.95rem;min-width:0}
+.bar svg{flex:none;width:16px;height:16px}
+.bar span{overflow-wrap:anywhere;min-width:0}
+.lockok{color:var(--ok)} .locknot{color:var(--warn)}
+.page{margin-top:8px;height:84px;border:1px dashed var(--bd);border-radius:10px;padding:8px 10px;font-size:.9rem;overflow:hidden;color:var(--mute)}
+.page[data-s=raw]{color:var(--ink);font-family:Georgia,serif;background:#fff;color:#111;border-style:solid}
+.page[data-s=styled]{background:linear-gradient(135deg,#1d4ed8,#7e22ce);color:#fff;border-style:solid;font-weight:700}
+.page[data-s=styled] b{display:inline-block;background:#fff;color:#1d4ed8;border-radius:6px;padding:0 8px;margin-top:4px}
+/* scena */
+.scene{position:relative;height:310px;border-radius:12px;background:var(--surf2);border:1px solid var(--bd);overflow:hidden;margin-top:10px}
+@media (min-width:600px){.scene{height:350px}}
+.scene svg.lines{position:absolute;inset:0;width:100%;height:100%}
+.scene line{stroke:var(--line);stroke-width:2;stroke-dasharray:5 5}
+.node{position:absolute;transform:translate(-50%,-50%);width:76px;min-height:66px;padding:6px 3px;text-align:center;background:var(--surf);border:2px solid var(--line);border-radius:12px;font-size:.78rem;line-height:1.2;transition:border-color .2s,box-shadow .2s}
+@media (min-width:600px){.node{width:110px;font-size:.9rem;padding:8px 6px}}
+.node b{display:block;font-size:.85rem}
+@media (min-width:600px){.node b{font-size:1rem}}
+.node i{display:block;font-style:normal;color:var(--mute);font-size:.72rem;min-height:1.1em;margin-top:2px}
+@media (min-width:600px){.node i{font-size:.82rem}}
+.node.on{border-color:var(--acc);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 30%,transparent)}
+.node svg{width:26px;height:22px;display:block;margin:0 auto 2px}
+.pk{position:absolute;left:0;top:0;width:0;height:0;display:none;z-index:5}
+.pk .dot{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:4px;background:var(--c);border:2px solid var(--surf);box-shadow:0 0 0 2px var(--c)}
+.pk .lab{position:absolute;white-space:nowrap;background:var(--surf);color:var(--ink);border:2px solid var(--c);border-radius:8px;padding:1px 7px;font-size:.78rem;font-weight:700;top:14px}
+.pk.up .lab{top:-40px}
+.k-cache{--c:var(--cache)}.k-dns{--c:var(--dns)}.k-tcp{--c:var(--tcp)}.k-tls{--c:var(--tls)}.k-http{--c:var(--http)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.85rem;color:var(--mute);margin-top:8px}
+.legend span::before{content:"";display:inline-block;width:11px;height:11px;border-radius:3px;background:var(--c);margin-right:5px;vertical-align:-1px}
+/* passi */
+.chips{display:flex;gap:6px;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 10px}
+.chips li{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--line);font-weight:700;font-size:.9rem;color:var(--mute)}
+.chips li.done{background:var(--ok);border-color:var(--ok);color:var(--accink)}
+.chips li.cur{background:var(--acc);border-color:var(--acc);color:var(--accink)}
+.chips li.skip{border-style:dashed}
+.moves{padding-left:1.3rem;margin:8px 0}
+.moves li{padding:2px 0;color:var(--mute)}
+.moves li.act{color:var(--ink);font-weight:700}
+.moves li.past{color:var(--ink)}
+.boxlab{font-weight:700;font-size:.9rem;margin:10px 0 4px}
+pre.box{margin:0;background:var(--code);color:var(--codeink);border-radius:10px;padding:10px 12px;font:.85rem/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.note{background:var(--warnbg);color:var(--ink);border-left:5px solid var(--warn);padding:8px 10px;border-radius:6px;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd)}
+td.n,th.n{text-align:right;white-space:nowrap}
+.bar2{height:10px;border-radius:5px;background:var(--c,var(--acc));min-width:2px}
+dl{margin:0}dt{font-weight:700;margin-top:8px}dd{margin:0;color:var(--mute)}
+details{border:1px solid var(--bd);border-radius:10px;padding:8px 12px;margin:8px 0;background:var(--surf)}
+summary{cursor:pointer;font-weight:700;min-height:28px}
+ol.big{padding-left:1.3rem}ol.big li{margin:6px 0}
+kbd{background:var(--surf2);border:1px solid var(--bd);border-bottom-width:3px;border-radius:6px;padding:0 6px;font:.9em ui-monospace,Menlo,Consolas,monospace}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{color:var(--mute);font-size:.88rem;padding:6px 0 24px}
+@media (prefers-reduced-motion:reduce){.node{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Cosa succede quando scrivi un indirizzo</h1>
+  <p class="lead">Scrivi un indirizzo web (un <b>URL</b>) e premi Invio: in meno di un secondo parte un viaggio attraverso la rete. Qui lo vedi a rallentatore, un passo alla volta.</p>
+</header>
+
+<section class="card" aria-label="Comandi">
+  <form id="f" novalidate>
+    <label for="url">Scrivi qui un indirizzo</label>
+    <div class="row">
+      <input type="text" id="url" value="https://www.esempio.it/pagina" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="url" aria-describedby="err">
+    </div>
+    <p class="err" id="err" role="alert"></p>
+    <div class="row">
+      <button type="submit" class="main" id="bAvvia">Avvia</button>
+      <button type="button" id="bPasso">Passo dopo passo</button>
+      <button type="button" id="bAvanti" disabled>Avanti</button>
+      <button type="button" id="bRico">Ricomincia</button>
+    </div>
+    <div class="speed">
+      <label for="vel">Velocità</label>
+      <input type="range" id="vel" min="0.4" max="3" step="0.1" value="1" aria-describedby="velv">
+      <span id="velv">normale</span>
+    </div>
+  </form>
+</section>
+
+<div class="grid">
+  <section class="card" aria-label="La scena">
+    <h2>Il viaggio dei pacchetti</h2>
+    <p style="color:var(--mute);margin-bottom:8px">I dati viaggiano in tanti piccoli <b>pacchetti</b>, come lettere in una busta con scritto mittente e destinatario.</p>
+    <div class="bar" aria-label="Barra degli indirizzi del browser">
+      <svg id="lockico" viewBox="0 0 16 16" aria-hidden="true"></svg>
+      <span id="barurl"></span>
+    </div>
+    <div class="page" id="page" data-s="empty" aria-hidden="true">(pagina ancora vuota)</div>
+    <div class="scene" id="scene">
+      <svg class="lines" id="lines" aria-hidden="true"><line id="l1"/><line id="l2"/><line id="l3"/></svg>
+      <div class="node" id="n-pc" style="left:17%;top:54%"><svg viewBox="0 0 26 22" aria-hidden="true"><rect x="2" y="1" width="22" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h10M13 15v5" stroke="currentColor" stroke-width="2"/></svg><b>Il tuo PC</b><i></i></div>
+      <div class="node" id="n-rt" style="left:46%;top:54%"><svg viewBox="0 0 26 22" aria-hidden="true"><rect x="2" y="10" width="22" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 10L5 3M19 10l2-7" stroke="currentColor" stroke-width="2"/></svg><b>Router di casa</b><i></i></div>
+      <div class="node" id="n-dns" style="left:80%;top:17%"><svg viewBox="0 0 26 22" aria-hidden="true"><rect x="3" y="2" width="20" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="12" width="20" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg><b>Server DNS</b><i></i></div>
+      <div class="node" id="n-web" style="left:80%;top:84%"><svg viewBox="0 0 26 22" aria-hidden="true"><rect x="3" y="2" width="20" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="12" width="20" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="7" cy="5.5" r="1" fill="currentColor"/><circle cx="7" cy="15.5" r="1" fill="currentColor"/></svg><b>Server del sito</b><i id="websub"></i></div>
+      <div class="pk" id="pk"><span class="dot"></span><span class="lab" id="pklab"></span></div>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <span style="--c:var(--cache)">cache</span><span style="--c:var(--dns)">DNS</span><span style="--c:var(--tcp)">TCP</span><span style="--c:var(--tls)">TLS</span><span style="--c:var(--http)">HTTP</span>
+    </div>
+  </section>
+
+  <section class="card" aria-label="Spiegazione del passo" aria-live="polite">
+    <ol class="chips" id="chips" aria-label="Avanzamento"></ol>
+    <div id="panel"></div>
+  </section>
+</div>
+
+<section class="card">
+  <h2>Parole nuove</h2>
+  <dl>
+    <dt>URL</dt><dd>L’indirizzo completo di una pagina, per esempio <span id="gl-url">https://www.esempio.it/pagina</span>. Dentro c’è il tipo di collegamento (https), il nome del sito (dominio) e il percorso della pagina.</dd>
+    <dt>Cache</dt><dd>Una piccola scorta di cose già viste, per non doverle cercare di nuovo. È come ricordarsi a memoria un numero di telefono.</dd>
+    <dt>IP (indirizzo IP)</dt><dd>Il numero che identifica un computer in rete, come il numero di telefono. Esempio: 203.0.113.25.</dd>
+    <dt>DNS</dt><dd>La «rubrica di Internet». Tu conosci il nome del sito, i computer usano i numeri: il DNS traduce il nome in numero IP.</dd>
+    <dt>Router</dt><dd>La scatola di casa (o di scuola) che collega i tuoi dispositivi a Internet.</dd>
+    <dt>Server</dt><dd>Un computer sempre acceso che risponde alle richieste degli altri.</dd>
+    <dt>TCP</dt><dd>Il «modo di parlare» che garantisce che i pacchetti arrivino tutti e in ordine. Prima ci si saluta in tre mosse.</dd>
+    <dt>TLS</dt><dd>Il sistema che chiude i dati in una busta a prova di curiosi. Il sito https usa TLS: per questo vedi il lucchetto.</dd>
+    <dt>HTTP / HTTPS</dt><dd>Il «linguaggio» con cui il browser chiede una pagina e il server risponde. HTTPS è HTTP dentro la busta protetta di TLS.</dd>
+  </dl>
+</section>
+
+<section class="card" id="occhiata">
+  <h2>Dai un’occhiata tu</h2>
+  <p>Il tuo browser registra davvero tutto questo viaggio. Puoi guardarlo col mouse, senza scrivere comandi. Si fa dal computer (sul telefono questi strumenti di solito non ci sono).</p>
+  <details open>
+    <summary>Aprire gli strumenti per sviluppatori</summary>
+    <ol class="big">
+      <li>Apri una qualsiasi pagina web, per esempio quella della tua scuola.</li>
+      <li>Premi il tasto <kbd>F12</kbd>. In alternativa: clic con il tasto destro sulla pagina, poi clicca la voce <b>Ispeziona</b>.</li>
+      <li>Si apre un pannello. In alto trovi delle schede: clicca la scheda <b>Rete</b> (in inglese <b>Network</b>). Se non la vedi, clicca le due frecce <b>&raquo;</b>.</li>
+      <li>Premi <kbd>F5</kbd> per ricaricare la pagina: nell’elenco appaiono tutte le richieste.</li>
+    </ol>
+    <p>Su Safari prima va attivato il menu <b>Sviluppo</b> nelle impostazioni; poi la scheda si chiama <b>Rete</b> allo stesso modo.</p>
+  </details>
+  <details>
+    <summary>Cosa guardare nell’elenco</summary>
+    <ol class="big">
+      <li>Clicca la <b>prima riga</b> dell’elenco: è la pagina (il documento HTML).</li>
+      <li>Nella colonna <b>Stato</b> (Status) cerca <b>200</b>: vuol dire «tutto bene». Un 404 vuol dire «pagina non trovata».</li>
+      <li>Guarda le colonne <b>Dimensione</b> e <b>Tempo</b>: quanti dati sono arrivati e in quanti millisecondi.</li>
+      <li>Nel pannello a destra clicca <b>Intestazioni</b> (Headers): vedi la richiesta GET e la risposta del server.</li>
+      <li>Clicca <b>Tempi</b> (Timing): trovi le fasi di questa pagina, per esempio ricerca DNS, connessione, TLS e attesa della risposta.</li>
+      <li>In fondo alla finestra leggi il totale: quante richieste ha fatto la pagina e quanti secondi ha impiegato a caricarsi.</li>
+    </ol>
+  </details>
+  <details>
+    <summary>Una prova da fare: la cache al lavoro</summary>
+    <ol class="big">
+      <li>Con la scheda <b>Rete</b> aperta, premi <kbd>F5</kbd> e guarda la colonna Dimensione.</li>
+      <li>Alcune righe dicono <b>cache</b> (in memoria o su disco): il browser le aveva già, non le ha riscaricate.</li>
+      <li>Metti il segno di spunta su <b>Disattiva cache</b>, premi di nuovo <kbd>F5</kbd> e confronta: ora scarica tutto e ci mette di più.</li>
+    </ol>
+  </details>
+</section>
+<footer>Prototipo didattico. I tempi sono numeri d’esempio e gli indirizzi IP del tipo 203.0.113.x sono riservati agli esempi: non appartengono a nessun sito vero. Nella realtà i passi possono cambiare un po' (per esempio HTTP/2 o 3, o più richieste insieme).</footer>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)};
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var scene=$('#scene'),pk=$('#pk'),pklab=$('#pklab');
+var N={pc:$('#n-pc'),rt:$('#n-rt'),dns:$('#n-dns'),web:$('#n-web')};
+var DEFSUB={pc:'',rt:'',dns:'',web:''};
+var cfg=null,steps=[],run=0,mode='idle',cur=-1,busy=false;
+
+function parseUrl(v){
+  v=v.trim(); if(!v) return {e:'Scrivi un indirizzo, per esempio https://www.esempio.it/pagina'};
+  if(!/^[a-z][a-z0-9+.-]*:\/\//i.test(v)) v='https://'+v;
+  var u; try{u=new URL(v)}catch(x){return {e:'Questo indirizzo non è valido. Prova con: https://www.esempio.it/pagina'}}
+  if(u.protocol!=='http:'&&u.protocol!=='https:') return {e:'Qui funzionano solo indirizzi che iniziano con http:// o https://'};
+  var h=u.hostname.toLowerCase();
+  if(/^\d+\.\d+\.\d+\.\d+$/.test(h)||h.indexOf(':')>=0||h.indexOf('.')<0) return {e:'Serve un nome di sito con almeno un punto, per esempio esempio.it (non un numero).'};
+  var l=h.split('.'), https=u.protocol==='https:';
+  var hash=0; for(var i=0;i<h.length;i++) hash=(hash*31+h.charCodeAt(i))>>>0;
+  return {host:h,path:(u.pathname||'/')+u.search,https:https,port:u.port||(https?'443':'80'),
+    tld:l[l.length-1],dom:l.slice(-2).join('.'),ip:'203.0.113.'+(hash%253+1),
+    shown:(https?'https://':'http://')+h+((u.pathname||'/')+u.search)};
+}
+
+function build(c){
+  var H=esc(c.host),P=esc(c.path),IP=c.ip,D=esc(c.dom),T=esc(c.tld);
+  var s=[];
+  s.push({t:'Il browser guarda nella sua cache',k:'cache',
+    x:'Prima di disturbare la rete, il browser controlla se ha già una copia recente di questa pagina. Se ce l’avesse, la mostrerebbe subito. Questa è la prima visita: non c’è niente.',
+    m:[{a:'pc',b:'pc',l:'Cerco nella cache…',n:'Il browser cerca '+H+P+' tra le pagine già salvate.',sub:{pc:'Cache'}},
+       {a:'pc',b:'pc',l:'Non c\'è',n:'Non c’è nessuna copia: bisogna chiedere in rete.',sub:{pc:'Cache vuota'}}],
+    box:['Cosa contiene la cache','Cerco: '+c.shown+'\nTrovata: no\nOra devo sapere dove si trova il sito.']});
+  s.push({t:'Il browser chiede l’indirizzo IP al DNS',k:'dns',
+    x:'Il browser conosce il nome '+c.host+', ma i computer si trovano con un numero: l’indirizzo IP. Per scoprirlo si interroga il DNS, la rubrica di Internet. Prima si guarda nelle cache vicine, poi si chiede a una catena di server.',
+    m:[{a:'pc',b:'pc',l:'Cache del sistema?',n:'Cache del sistema: il PC si ricorda di '+c.host+'? No.',sub:{pc:'Cache sistema'}},
+       {a:'pc',b:'rt',l:'Chi è '+c.host+'?',n:'Il PC chiede al router di casa.'},
+       {a:'rt',b:'rt',l:'Cache del router?',n:'Cache del router: nemmeno lui lo sa.',sub:{rt:'Cache router'}},
+       {a:'rt',b:'dns',l:'Chi è '+c.host+'?',n:'Il router gira la domanda al server DNS ricorsivo (di solito quello del tuo operatore).',sub:{dns:'DNS ricorsivo'}},
+       {a:'dns',b:'dns',l:'Root: chiedi al .'+c.tld,n:'Il server DNS ricorsivo chiede a un server «root» (la radice): «chi gestisce .'+c.tld+'?»',sub:{dns:'Root (.)'}},
+       {a:'dns',b:'dns',l:'TLD .'+c.tld+': chiedi a '+c.dom,n:'Il server del dominio di primo livello (TLD) .'+c.tld+' indica chi gestisce '+c.dom+'.',sub:{dns:'TLD .'+c.tld}},
+       {a:'dns',b:'dns',l:c.host+' = '+IP,n:'Il server autorevole di '+c.dom+' conosce la risposta: '+IP+'.',sub:{dns:'Autorevole'}},
+       {a:'dns',b:'pc',l:c.host+' = '+IP,n:'La risposta torna al router e al tuo PC, che se la segna nella cache.',sub:{dns:'DNS ricorsivo'}}],
+    box:['Cosa contiene la risposta DNS','Domanda:  '+c.host+'  (tipo A)\nRisposta: '+IP+'\nValidità: 300 secondi (TTL)\nIl numero 203.0.113.x è un IP d’esempio.']});
+  s.push({t:'Collegamento TCP in tre mosse',k:'tcp',
+    x:'Ora il browser sa dove andare, ma prima di parlare bisogna «suonare il campanello». Il TCP fa un saluto in tre mosse: «Ci sei?» (SYN), «Ci sono, e tu?» (SYN-ACK), «Ci sono anch’io» (ACK). Poi il canale è aperto. La porta '+c.port+' è la «porta» del server a cui bussiamo.',
+    m:[{a:'pc',b:'web',l:'SYN',n:'1. SYN: «Ciao, vorrei collegarmi. Ci sei?»',sub:{web:IP}},
+       {a:'web',b:'pc',l:'SYN-ACK',n:'2. SYN-ACK: «Ci sono, ti ho sentito. E tu mi senti?»'},
+       {a:'pc',b:'web',l:'ACK',n:'3. ACK: «Ti sento. Cominciamo!»'}],
+    box:['Cosa contiene un pacchetto TCP','Da: tuo PC  →  A: '+IP+', porta '+c.port+'\n1. SYN      numero=1000\n2. SYN-ACK  numero=5000, conferma=1001\n3. ACK      conferma=5001']});
+  if(c.https){
+    s.push({t:'TLS: certificato e chiavi (il lucchetto)',k:'tls',
+      x:'L’indirizzo comincia con https, quindi serve la busta protetta. Il server mostra il suo certificato, una specie di carta d’identità firmata da un ente fidato. Il browser lo controlla. Poi i due si accordano su una chiave segreta che solo loro conoscono. Se tutto va bene compare il lucchetto.',
+      m:[{a:'pc',b:'web',l:'ClientHello',n:'Il browser dice quali modi di cifrare conosce.'},
+         {a:'web',b:'pc',l:'Certificato',n:'Il server manda il certificato per '+c.host+'.'},
+         {a:'pc',b:'pc',l:'Certificato valido!',n:'Il browser controlla firma, nome e data: tutto in regola.',sub:{pc:'Controllo certificato'}},
+         {a:'pc',b:'web',l:'Chiave segreta',n:'Il browser manda la chiave di sessione, chiusa in modo che solo il server la apra.'},
+         {a:'web',b:'pc',l:'Finito: ora cifrato',n:'Da qui in poi tutto viaggia cifrato. Compare il lucchetto.'}],
+      box:['Cosa contiene il certificato (esempio)','Intestato a: '+c.host+'\nEmesso da:   Autorità di Certificazione (esempio)\nValido fino: 15 marzo 2027\nChiave pubblica: 3a:f1:9c:… (più lunga)\nEsito: FIDATO, lucchetto chiuso'],lock:true});
+  } else {
+    s.push({t:'TLS: qui si salta (niente lucchetto)',k:'tls',skip:true,
+      x:'L’indirizzo comincia con http, senza la «s»: la connessione non è cifrata. Niente certificato e niente chiavi, quindi questo passo si salta. Chi sta in mezzo (per esempio chi gestisce una rete wifi pubblica) potrebbe leggere tutto quello che passa. Per questo il browser scrive «Non sicuro».',
+      m:[],box:['Cosa succede','Nessun certificato, nessuna chiave.\nI dati viaggiano «in chiaro», come una cartolina.\nProva a cambiare http in https nella casella in alto!']});
+  }
+  s.push({t:'La richiesta HTTP GET',k:'http',
+    x:'Adesso il browser fa la domanda vera, nel linguaggio HTTP: «GET» significa «dammi». Indica quale pagina vuole ('+c.path+') e dà qualche informazione su di sé, nelle intestazioni.'+(c.https?' Questa richiesta viaggia dentro la busta cifrata.':' Attenzione: questa richiesta viaggia in chiaro.'),
+    m:[{a:'pc',b:'web',l:'GET '+c.path,n:'Il browser manda la richiesta al server di '+c.host+'.',sub:{web:IP}}],
+    box:['Cosa contiene la richiesta','GET '+c.path+' HTTP/1.1\nHost: '+c.host+'\nUser-Agent: Browser/1.0 (il tuo browser)\nAccept: text/html\nAccept-Language: it-IT\nConnection: keep-alive']});
+  s.push({t:'La risposta HTTP 200 con la pagina HTML',k:'http',
+    x:'Il server trova la pagina e risponde. Il numero 200 vuol dire «tutto bene, ecco la pagina». Dentro c’è il codice HTML: il testo che descrive com’è fatta la pagina. Il browser lo legge e vede che servono anche altri file.',
+    m:[{a:'web',b:'pc',l:'200 OK + HTML',n:'Il server manda la risposta con il codice HTML.'}],mock:'raw',
+    box:['Cosa contiene la risposta','HTTP/1.1 200 OK\nContent-Type: text/html; charset=utf-8\nContent-Length: 5120\nCache-Control: max-age=3600\n\n<!doctype html>\n<html><head>\n <title>Pagina di '+H+'</title>\n <link rel="stylesheet" href="/stile.css">\n</head><body>\n <img src="/logo.png">\n <h1>Ciao!</h1>']});
+  s.push({t:'Il browser scarica il resto e disegna la pagina',k:'http',
+    x:'L’HTML dice: «mi servono lo stile (CSS, i colori e le forme) e le immagini». Il browser le chiede (spesso insieme) e, appena arrivano, disegna la pagina sullo schermo. Ecco la pagina finita.',
+    m:[{a:'pc',b:'web',l:'Voglio stile.css e logo.png',n:'Il browser chiede i file che mancano.'},
+       {a:'web',b:'pc',l:'stile.css',n:'Arriva il CSS: colori, caratteri, posizioni.'},
+       {a:'web',b:'pc',l:'logo.png',n:'Arriva l’immagine.'},
+       {a:'pc',b:'pc',l:'Disegno la pagina',n:'Il browser mette insieme tutto e disegna la pagina.',sub:{pc:'Disegno…'}}],mock:'styled',
+    box:['Cosa arriva in più','GET /stile.css  → 200 OK  (12 KB)\nGET /logo.png   → 200 OK  (48 KB)\nFinito: pagina pronta da leggere e cliccare.']});
+  var T={dns:28,tcp:12,tls:c.https?35:0,att:40,html:18,ris:60,dis:25};
+  s.push({t:'Riepilogo: quanto tempo è passato?',k:'cache',sum:T,
+    x:'Ecco il riassunto del viaggio. I tempi sono d’esempio, ma l’ordine è quello vero. Ogni passo si somma agli altri: per questo i siti veloci cercano di fare meno viaggi possibile (e usano molto la cache).',
+    m:[],box:null});
+  return s;
+}
+
+function summaryHtml(T){
+  var rows=[['Ricerca DNS (passo 2)',T.dns,'dns'],['Collegamento TCP (passo 3)',T.tcp,'tcp'],['TLS (passo 4)',T.tls,'tls'],
+    ['Attesa del server (passo 5)',T.att,'http'],['Arrivo dell’HTML (passo 6)',T.html,'http'],['CSS e immagini (passo 7)',T.ris,'http'],['Disegno della pagina (passo 7)',T.dis,'cache']];
+  var tot=0,i;for(i=0;i<rows.length;i++)tot+=rows[i][1];
+  var h='<table><thead><tr><th>Fase</th><th class="n">ms</th><th aria-hidden="true" style="width:30%"></th></tr></thead><tbody>';
+  for(i=0;i<rows.length;i++){var r=rows[i];
+    h+='<tr><td>'+r[0]+(r[1]===0?' (saltato: http)':'')+'</td><td class="n">'+r[1]+'</td><td aria-hidden="true"><div class="bar2" style="--c:var(--'+r[2]+');width:'+Math.round(r[1]/tot*100*2.2)+'%"></div></td></tr>';}
+  h+='<tr><th>Totale</th><th class="n">'+tot+' ms</th><th></th></tr></tbody></table>';
+  h+='<p style="margin-top:10px">Totale: circa '+tot+' millisecondi, cioè meno di un quinto di secondo. 1000 millisecondi (ms) fanno 1 secondo.</p>';
+  return h;
+}
+
+/* disegno del pannello */
+function chips(){
+  var h='';for(var i=0;i<steps.length;i++){
+    var c=(i<cur||(i===cur&&cur>=0&&done))?'done':(i===cur?'cur':'');
+    if(steps[i].skip)c+=' skip';
+    h+='<li class="'+c+'" '+(i===cur?'aria-current="step"':'')+'><span class="sr">Passo </span>'+(i+1)+'</li>';}
+  $('#chips').innerHTML=h;
+}
+var done=false;
+function panel(i,am){
+  var p=$('#panel');
+  if(i<0){p.innerHTML='<h2>Pronto a partire</h2><p>Premi <b>Avvia</b> per vedere tutto il viaggio, oppure <b>Passo dopo passo</b> e poi <b>Avanti</b> per andare con calma.</p><p>Il viaggio ha '+steps.length+' passi. Puoi cambiare l’indirizzo nella casella: i messaggi si aggiornano.</p>';chips();return;}
+  var s=steps[i],h='<h2>Passo '+(i+1)+' di '+steps.length+': '+esc(s.t)+'</h2><p>'+s.x+'</p>';
+  if(s.skip) h+='<div class="note"><b>Passo saltato:</b> connessione non cifrata.</div>';
+  if(s.m.length){h+='<ol class="moves">';
+    for(var j=0;j<s.m.length;j++){var cl=am<0?'':(j<am?'past':(j===am?'act':''));h+='<li class="'+cl+'">'+esc(s.m[j].n).replace(/&amp;/g,'&')+'</li>';}
+    h+='</ol>';}
+  if(s.box) h+='<div class="boxlab">'+esc(s.box[0])+'</div><pre class="box">'+esc(s.box[1])+'</pre>';
+  if(s.sum) h+=summaryHtml(s.sum);
+  p.innerHTML=h;chips();
+}
+
+/* scena */
+function ctr(el){var a=el.getBoundingClientRect(),b=scene.getBoundingClientRect();return {x:a.left-b.left+a.width/2,y:a.top-b.top+a.height/2}}
+function layout(){
+  var a=ctr(N.pc),b=ctr(N.rt),c=ctr(N.dns),d=ctr(N.web);
+  function ln(id,p,q){var e=$(id);e.setAttribute('x1',p.x);e.setAttribute('y1',p.y);e.setAttribute('x2',q.x);e.setAttribute('y2',q.y)}
+  ln('#l1',a,b);ln('#l2',b,c);ln('#l3',b,d);
+}
+function path(a,b){ if(a===b)return [a]; if(a==='rt'||b==='rt')return [a,b]; return [a,'rt',b]; }
+function setSub(sub){ if(!sub)return; for(var k in sub){var i=N[k].querySelector('i');if(i)i.textContent=sub[k];} }
+function clearSub(){ for(var k in N){var i=N[k].querySelector('i');if(i)i.textContent='';} }
+var vel=$('#vel');
+function sp(){return parseFloat(vel.value)}
+function wait(ms,t){return new Promise(function(r){var t0=performance.now(),el=0,last=t0;
+  (function f(now){ if(t!==run)return r(); el+=Math.max(0,now-last)*sp();last=now; if(el>=ms)r(); else requestAnimationFrame(f)})(t0)})}
+function flash(k){N[k].classList.add('on');setTimeout(function(){N[k].classList.remove('on')},500/sp())}
+function travel(m,t){
+  return new Promise(function(res){
+    var pts=path(m.a,m.b).map(function(k){return ctr(N[k])});
+    var W=scene.clientWidth,Hh=scene.clientHeight;
+    pk.className='pk k-'+steps[cur].k;pklab.textContent=m.l;pk.style.display='block';
+    var lw=pklab.offsetWidth;
+    var local=pts.length===1,total=0,seg=[];
+    if(local){pts=[{x:pts[0].x,y:pts[0].y-(N[m.a].offsetHeight/2)-4}];total=900;}
+    else{for(var i=1;i<pts.length;i++){var d=Math.hypot(pts[i].x-pts[i-1].x,pts[i].y-pts[i-1].y);seg.push(d);total+=d;}total=total/0.22;}
+    var prog=0,last=performance.now();
+    function pos(){
+      var x,y;
+      if(local){x=pts[0].x;y=pts[0].y;}
+      else{var f=Math.min(prog/total,1)*(pts.length-1),i=Math.min(Math.floor(f),pts.length-2),u=f-i;
+        x=pts[i].x+(pts[i+1].x-pts[i].x)*u;y=pts[i].y+(pts[i+1].y-pts[i].y)*u;}
+      pk.style.transform='translate('+x+'px,'+y+'px)';
+      pk.classList.toggle('up',y>Hh*0.62||local);
+      var sh=0,L=x-lw/2,R=x+lw/2;if(L<4)sh=4-L;else if(R>W-4)sh=W-4-R;
+      pklab.style.left=(-lw/2+sh)+'px';
+    }
+    flash(m.a);pos();
+    (function f(now){
+      if(t!==run){pk.style.display='none';return res(false);}
+      prog+=Math.max(0,now-last)*sp();last=now;
+      pos();
+      if(prog>=total){ if(!local)flash(m.b);pk.style.display='none';return res(true);}
+      requestAnimationFrame(f);
+    })(last);
+  });
+}
+function setMock(s){
+  var pg=$('#page');pg.dataset.s=s;
+  pg.innerHTML=s==='empty'?'(pagina ancora vuota)':(s==='raw'?'<span style="font-size:1.6rem;font-weight:700;display:block">Ciao!</span>Testo senza colori: manca ancora lo stile.':'<span style="font-size:1.4rem">Ciao!</span><br><b>Pagina di '+esc(cfg.host)+'</b>');
+}
+function setLock(on,https){
+  var ic=$('#lockico'),b=$('#barurl');
+  if(https&&on){ic.setAttribute('class','lockok');ic.innerHTML='<rect x="3" y="7" width="10" height="7" rx="1.5" fill="currentColor"/><path d="M5 7V5a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/>';}
+  else if(https){ic.setAttribute('class','');ic.innerHTML='<circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="2" opacity=".5"/>';}
+  else{ic.setAttribute('class','locknot');ic.innerHTML='<path d="M8 2l7 12H1z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 6v4M8 12v0.5" stroke="currentColor" stroke-width="2"/>';}
+  b.textContent=cfg.shown+(cfg.https?'':'   (Non sicuro)');
+}
+async function playStep(i,t){
+  cur=i;done=false;var s=steps[i];
+  panel(i,-1);
+  if(s.mock)setMock(s.mock==='styled'?'raw':s.mock);
+  for(var j=0;j<s.m.length;j++){
+    if(t!==run)return false;
+    var m=s.m[j];panel(i,j);setSub(m.sub);
+    var ok=await travel(m,t);if(!ok||t!==run)return false;
+    await wait(220,t);
+  }
+  if(t!==run)return false;
+  if(s.lock)setLock(true,cfg.https);
+  if(s.mock)setMock(s.mock);
+  if(i===steps.length-1)setMock('styled');
+  panel(i,s.m.length);done=true;chips();
+  await wait(s.m.length?200:900,t);
+  return t===run;
+}
+function reset(){
+  run++;mode='idle';cur=-1;done=false;busy=false;pk.style.display='none';
+  clearSub();setMock('empty');setLock(false,cfg.https);
+  $('#bAvanti').disabled=true;$('#bAvvia').disabled=false;$('#bPasso').disabled=false;
+  panel(-1);
+}
+async function auto(){
+  reset();var t=run;mode='auto';$('#bAvvia').disabled=true;$('#bPasso').disabled=true;
+  for(var i=0;i<steps.length;i++){
+    var ok=await playStep(i,t);if(!ok)return;
+    await wait(700,t);if(t!==run)return;
+  }
+  $('#bAvvia').disabled=false;$('#bPasso').disabled=false;mode='idle';
+}
+function manual(){reset();mode='manual';$('#bAvanti').disabled=false;$('#bAvanti').focus();
+  $('#panel').innerHTML='<h2>Passo dopo passo</h2><p>Premi <b>Avanti</b> per il passo 1.</p>';}
+async function avanti(){
+  if(busy)return;if(mode!=='manual'){manual();}
+  if(cur>=steps.length-1)return;
+  busy=true;$('#bAvanti').disabled=true;var t=run;
+  var ok=await playStep(cur+1,t);
+  if(t!==run)return;
+  busy=false;$('#bAvanti').disabled=(cur>=steps.length-1);
+  if(cur<steps.length-1)$('#bAvanti').focus();
+}
+function load(){
+  var r=parseUrl($('#url').value);
+  if(r.e){ $('#err').textContent=r.e; return false; }
+  $('#err').textContent='';cfg=r;steps=build(r);
+  $('#gl-url').textContent=r.shown;
+  reset();return true;
+}
+$('#f').addEventListener('submit',function(e){e.preventDefault();if(load())auto();});
+$('#bPasso').addEventListener('click',function(){if(load())manual();});
+$('#bAvanti').addEventListener('click',avanti);
+$('#bRico').addEventListener('click',function(){load();});
+var tmr;$('#url').addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(load,350);});
+vel.addEventListener('input',function(){var v=sp();$('#velv').textContent=v<0.8?'lenta':(v>1.6?'veloce':'normale');});
+window.addEventListener('resize',layout);
+load();layout();
+window.__rete={get cur(){return cur},get steps(){return steps.length}};
+})();
+</script>
+</body>
+</html>
