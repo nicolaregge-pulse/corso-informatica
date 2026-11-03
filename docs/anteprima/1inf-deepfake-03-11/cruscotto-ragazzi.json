@@ -1,16 +1,64 @@
 {
  "titolo": "1INF · 03/11 · deepfake",
- "generato": "2026-11-03T13:23",
- "ora": "13:23",
- "fonte": "presenti: 19 · quiz Moduli fatto da 0 · segnali della pagina: 6 · Veyon: NESSUN dato oggi",
+ "generato": "2026-11-03T13:30",
+ "ora": "13:30",
+ "fonte": "presenti: 19 · quiz Moduli fatto da 0 · segnali della pagina: 9 · Veyon: giri letti",
  "kpi_proposti": true,
- "veyon_ok": false,
+ "veyon_ok": true,
  "avvisi": [
-  "Segnale della pagina arrivato per 6 iscritti su 19: per gli altri schede e vero o falso li conta il Professore.",
-  "Veyon: nessun dato oggi.",
+  "Segnale della pagina arrivato per 9 iscritti su 19: per gli altri schede e vero o falso li conta il Professore.",
+  "Quiz: lettura in corso, ultimo dato alle 13:13",
   "19 presenti, 4 assenti"
  ],
  "righe": [
+  {
+   "nome": "Matteo A.",
+   "voto": 65,
+   "conto": [
+    "base 40",
+    "ripasso 3/3 +5",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5"
+   ],
+   "quiz": null,
+   "ripasso": 3,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:25",
+   "fermo_da": "13:25",
+   "veyon": {
+    "fuori": 0,
+    "giri": 2
+   },
+   "svolto": 4.0
+  },
+  {
+   "nome": "Muhid H.",
+   "voto": 65,
+   "conto": [
+    "base 40",
+    "ripasso 3/3 +5",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5"
+   ],
+   "quiz": null,
+   "ripasso": 3,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:25",
+   "fermo_da": "13:25",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 4.0
+  },
   {
    "nome": "Yinlin L.",
    "voto": 65,
@@ -31,7 +79,7 @@
    "fermo_da": "13:17",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 4.0
   },
@@ -54,8 +102,8 @@
    "ora_cons": "13:19",
    "fermo_da": "13:19",
    "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "fuori": 2,
+    "giri": 3
    },
    "svolto": 4.0
   },
@@ -79,7 +127,7 @@
    "fermo_da": "13:19",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 2
    },
    "svolto": 4.0
   },
@@ -102,10 +150,34 @@
    "ora_cons": "13:14",
    "fermo_da": "13:14",
    "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "fuori": 2,
+    "giri": 3
    },
    "svolto": 3.8333333333333335
+  },
+  {
+   "nome": "Sara F.",
+   "voto": 60,
+   "conto": [
+    "base 40",
+    "ripasso 2/3 +0",
+    "schede lette +5",
+    "vero o falso 6/6 +10",
+    "quaderno ricopiato +5"
+   ],
+   "quiz": null,
+   "ripasso": 2,
+   "schede": 4,
+   "vf": 6,
+   "quaderno": true,
+   "segnale": true,
+   "ora_cons": "13:26",
+   "fermo_da": "13:26",
+   "veyon": {
+    "fuori": 0,
+    "giri": 1
+   },
+   "svolto": 3.6666666666666665
   },
   {
    "nome": "Giovanni S.",
@@ -127,7 +199,7 @@
    "fermo_da": "13:18",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 3.6666666666666665
   },
@@ -151,7 +223,7 @@
    "fermo_da": "13:16",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 3.333333333333333
   },
@@ -170,26 +242,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Matteo A.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "quiz": null,
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -208,7 +261,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -227,7 +280,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -246,7 +299,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -265,7 +318,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -284,45 +337,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Sara F.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "quiz": null,
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   },
-   "svolto": 0.0
-  },
-  {
-   "nome": "Muhid H.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "quiz": null,
-   "segnale": false,
-   "ripasso": null,
-   "schede": null,
-   "vf": null,
-   "quaderno": null,
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 2
    },
    "svolto": 0.0
   },
@@ -341,7 +356,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -359,8 +374,8 @@
    "quaderno": null,
    "fermo_da": "",
    "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "fuori": 2,
+    "giri": 3
    },
    "svolto": 0.0
   },
@@ -379,7 +394,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 1
    },
    "svolto": 0.0
   },
@@ -398,7 +413,7 @@
    "fermo_da": "",
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 2
    },
    "svolto": 0.0
   }
