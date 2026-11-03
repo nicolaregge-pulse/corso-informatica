@@ -1,0 +1,42 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Laboratorio 1INF 04/11</title><script src="ore.js" data-ora="1"></script><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--q:#fff4c2;--ante:#fde8e8;--blu:#1f6feb}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--q:#3b3200;--ante:#3a1616}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+pre{background:#0d1117;color:#e6edf3;padding:12px;border-radius:10px;overflow-x:auto;font-size:16px;white-space:pre-wrap;margin:8px 0;position:relative}pre .t{display:block}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+.ante{background:var(--ante);border:2px solid #c0392b;border-radius:10px;padding:8px 12px;font-size:.95em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.b{background:#fff0;color:var(--acc);border:2px solid var(--acc);font-weight:600}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}
+input[type=text]{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+.mu{color:var(--mu);font-size:.92em}
+.cp{position:absolute;right:6px;top:6px;font:inherit;font-size:13px;padding:3px 9px;border-radius:7px;border:0;background:#30363d;color:#fff;cursor:pointer}
+.bn{display:none;background:#eef7ee;border-left:4px solid var(--ok);padding:4px 10px;margin:4px 0;color:#111;font-family:"Noto Sans Bengali","Vrinda","Nirmala UI",sans-serif}
+body.pc14 .bn{display:block}.aiutoprof p{margin:0 0 6px}
+.err{border:2px solid #c0392b;border-radius:12px;padding:8px 14px;margin:10px 0;background:var(--card)}
+#ip{border:4px solid var(--blu);border-radius:14px;padding:12px 14px;margin:12px 0;background:var(--card);text-align:center}
+#ip .g{font-size:1.5em;font-weight:800;margin:4px 0;word-break:break-all}#ip.vuoto{border-color:#d4a017;background:var(--q)}
+.sx-img{width:100%;max-width:720px;height:auto;border:2px solid #8c959f;border-radius:10px;display:block}
+@media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.25em}pre{font-size:14px}}</style></head><body><main>
+<h1>OGGI 04/11 · Laboratorio 1INF</h1><p class="ar" lang="ar" dir="rtl">اليوم 04/11 · مختبر 1INF</p><p class="zh" lang="zh">今天 04/11 · 1INF 实验课</p>
+<p>Oggi fai programmi <b>utili</b> in Lazarus con testo (String) e numeri (Integer). Un percorso per ogni ora; a ogni ora manda <code>unit1.pas</code> e lo screenshot. Ricopia sul quaderno il riquadro giallo.</p>
+<p class="ar" lang="ar" dir="rtl">اليوم تصنع برامج مفيدة في Lazarus بالنصوص (String) والأرقام (Integer). مسار لكل ساعة؛ في كل ساعة أرسل unit1.pas ولقطة الشاشة.</p><p class="zh" lang="zh">今天用 Lazarus 做有用的程序，用到文字（String）和数字（Integer）。每节课一条路线；每节课提交 unit1.pas 和截图。</p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span lang="zh">按 F5 查看新版本。</span></p>
+<section class="card"><h2>Ora 1 · Convertitore di misure (percorso A o B) · محوّل القياسات · 单位换算器</h2><p class="mu">A = prima il ripasso della Sicurezza, poi Lazarus. B = Lazarus subito.</p><a class="bt" href="modulo-1.html">Apri l'ora 1</a></section>
+<section class="card"><h2>Ora 2 · Calcolatrice a 4 bottoni · آلة حاسبة · 计算器</h2><a class="bt" href="modulo-2.html">Apri l'ora 2 (si apre quando il Prof la sblocca)</a></section>
+<section class="card"><h2>Ora 3 · Il cassiere · أمين الصندوق · 收银员</h2><a class="bt" href="modulo-3.html">Apri l'ora 3 (si apre quando il Prof la sblocca)</a></section>
+<section class="card" style="border-color:var(--ok)"><h2>Il mio andamento · تقدّمي · 我的进度</h2><a class="bt v" href="cruscotto-ragazzi.html">Il mio andamento · تقدّمي · 我的进度</a></section>
+<div id="aiuto"></div></main><script src="../../assistente/assistente.js" data-pagina="1inf-lazarus-04-11" data-lingue="it,ar,zh" data-dove="aiuto"></script></body></html>
