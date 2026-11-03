@@ -1039,3 +1039,8 @@ lezione.*
 
 1. **Errore.** `verifica_lezione.py` cercava i file `coda/<giorno>_<classe>_*.json` con l'alias 4INF e non trovava quelli della 4TI: ROSSO falso. Il ROSSO è stato spiegato come atteso senza aprire il file (#139).
 2. **Regola.** Corretto il glob: la coda si cerca con entrambi i nomi (4TI e 4INF); l'alias per Classroom resta. Un ROSSO inatteso si controlla aprendo il file, mai spiegandolo a memoria.
+
+03/11/2026 — Un allievo messo tra le ragazze di un gruppo, deducendo il genere dal nome (#193)
+
+1. **Errore.** Ho messo un allievo tra le ragazze di un gruppo deducendo il genere dal nome. Il docente ha corretto: è maschio.
+2. **Regola.** Mai dedurre maschio o femmina da un nome (cognomi e nomi stranieri ingannano). Per i gruppi di sole ragazze si chiede conferma al docente o si usa solo ciò che dice lui.
