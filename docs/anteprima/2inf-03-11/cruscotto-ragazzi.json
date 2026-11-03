@@ -1,16 +1,16 @@
 {
  "titolo": "2INF · 03/11 · 2FA, recuperi, phishing",
- "generato": "2026-11-03T09:44",
- "ora": "09:44",
- "fonte": "presenti dal registro: 18 · segnali 2FA di oggi: 0 · Veyon: NESSUN dato Veyon oggi · ora 2 (phishing): dati arrivati",
+ "generato": "2026-11-03T09:51",
+ "ora": "09:51",
+ "fonte": "presenti dal registro: 19 · segnali 2FA di oggi: 1 · Veyon: NESSUN dato Veyon oggi · ora 2 (phishing): dati arrivati",
  "kpi_proposti": true,
  "ora2_aperta": true,
  "veyon_ok": false,
  "fonti_ora": [
   {
    "fonte": "2FA di oggi (pagina)",
-   "ora": "nessun dato",
-   "vecchio": true
+   "ora": "03/11 09:48",
+   "vecchio": false
   },
   {
    "fonte": "2FA di ieri",
@@ -399,14 +399,14 @@
    "voto": 55,
    "conto": [
     "base 40",
-    "2FA attiva: attivata ieri +10",
+    "2FA attiva: già attiva (controllata) +10",
     "scheda del PC consegnata +5",
     "quiz rete di ieri 12/12: si vede, non conta oggi"
    ],
    "fa2": {
     "ok": true,
-    "txt": "attivata ieri",
-    "ora": ""
+    "txt": "già attiva (controllata)",
+    "ora": "09:48"
    },
    "scheda": {
     "ok": true,
@@ -462,6 +462,38 @@
    },
    "quiz_ph": null,
    "fermo_da": "12:32",
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   },
+   "svolto": 3
+  },
+  {
+   "nome": "Riccardo B.",
+   "voto": 55,
+   "conto": [
+    "base 40",
+    "2FA attiva: attivata ieri +10",
+    "scheda del PC consegnata +5",
+    "quiz rete di ieri 12/12: si vede, non conta oggi"
+   ],
+   "fa2": {
+    "ok": true,
+    "txt": "attivata ieri",
+    "ora": ""
+   },
+   "scheda": {
+    "ok": true,
+    "ora": "12:28"
+   },
+   "quiz_reti": {
+    "p": 12,
+    "m": 12
+   },
+   "mail": null,
+   "quiz_dhcp": null,
+   "quiz_ph": null,
+   "fermo_da": "12:28",
    "veyon": {
     "fuori": 0,
     "giri": 0
