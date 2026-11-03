@@ -1,12 +1,12 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
 <title>Cruscotto laboratorio 1INF</title><link rel="stylesheet" href="cruscotto.css"></head><body><main>
-<p class="mu">Cruscotto del laboratorio di venerdì 04/11: tre percorsi Lazarus. <a href="./">Pagina del laboratorio</a> · pagina dei ragazzi: <a href="cruscotto-ragazzi.html">cruscotto-ragazzi.html</a>.</p>
-<h1>1INF · Laboratorio 04/11 · i tre percorsi</h1>
+<p class="mu">Cruscotto del laboratorio di mercoledì 04/11: Lazarus, due percorsi nell'ora 1. <a href="./">Pagina del laboratorio</a> · pagina dei ragazzi: <a href="cruscotto-ragazzi.html">cruscotto-ragazzi.html</a>.</p>
+<h1>1INF · Laboratorio 04/11 · Lazarus</h1>
 <div id="gate" class="card"><b>Solo per il prof.</b> Scrivi il codice del monitor. <input id="tok" type="password" placeholder="codice del monitor"> <button id="ok">Apri</button> <span id="err" style="color:var(--ko)"></span></div>
 <div id="app"></div>
-<script src="cruscotto-vista.js?v=20261103c"></script>
+<script src="cruscotto-vista.js?v=20261103d"></script>
 <script>
-var TOK='',_kc=null,JN='cruscotto.json',RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-lab-04-11/'+JN;
+var TOK='',_kc=null,JN='cruscotto.json',RAW='https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-lazarus-04-11/'+JN;
 function $(i){return document.getElementById(i)}
 function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
 async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
