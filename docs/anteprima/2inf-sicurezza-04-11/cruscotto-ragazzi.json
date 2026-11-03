@@ -1,7 +1,570 @@
 {
- "titolo": "2INF 04/11",
- "generato": "",
- "ora": "-",
- "fonte": "dati non ancora letti",
- "righe": []
+ "titolo": "2INF · 04/11 · Sicurezza 6ª ora",
+ "generato": "2026-11-03T21:27",
+ "ora": "21:27",
+ "fonte": "iscritti: 20 · segnali della pagina: 0 · quiz ore 2-5 letti: 2ª 03/11 21:24, 3ª 03/11 21:24, 4ª 03/11 21:24, 5ª 03/11 21:24 · quiz 6ª: 03/11 21:24 · Veyon: NESSUN dato oggi",
+ "kpi_proposti": true,
+ "veyon_ok": false,
+ "avvisi": [
+  "Presenze non ancora segnate: compaiono tutti gli iscritti (20). Gli assenti vanno tolti quando Nicola manda le presenze.",
+  "Veyon: nessun dato oggi."
+ ],
+ "legenda": "Il voto parte da 40 e sale con il quiz della 6ª ora: 40 + 40 x punti / 100 (massimo 80 con 100 punti). Gli arretrati si mostrano ma non cambiano il voto di oggi. Proposta, la conferma il Professore.",
+ "colonne": [
+  {
+   "k": "pag",
+   "l": "Pagina: schede e ripasso (4 passi)",
+   "sig": 1
+  },
+  {
+   "k": "quiz",
+   "l": "Quiz 6ª ora (20 casi)"
+  },
+  {
+   "k": "arr",
+   "l": "Arretrati: quiz ore 2-5 mancanti o sotto 70%"
+  }
+ ],
+ "righe": [
+  {
+   "nome": "Hagar A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Lina A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Katherine A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Giorgio A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Shaharia A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Youssef A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Luca B.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Riccardo B.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Shahenda E.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Alejandro G.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Egor M.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Antonio M.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Mathias P.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Ney V.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": true,
+     "t": "nessuno"
+    }
+   },
+   "fermo_da": "",
+   "svolto": 0.0,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Sara A.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.01,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Oscar F.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.01,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Mahammed M.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.01,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Luciano C.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.02,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Giorgio K.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.02,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  },
+  {
+   "nome": "Francesco M.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "arr": {
+     "ok": false,
+     "t": "da recuperare"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.02,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
+   }
+  }
+ ]
 }
