@@ -18,7 +18,9 @@ CART = {'3inf': 'docs/anteprima/3inf-mastermind-02-11', '2inf': 'docs/anteprima/
         '1inf-lazarus-04-11': 'docs/anteprima/1inf-lazarus-04-11',
         '3inf-protocollo-04-11': 'docs/anteprima/3inf-protocollo-04-11',
         '1inf-sicurezza-04-11': 'docs/anteprima/1inf-sicurezza-04-11',
-        '1inf-sicurezza-recupero-04-11': 'docs/anteprima/1inf-sicurezza-recupero-04-11'}
+        '1inf-sicurezza-recupero-04-11': 'docs/anteprima/1inf-sicurezza-recupero-04-11',
+        '2inf-pc-05-11': 'docs/anteprima/2inf-pc-05-11',
+        '3inf-pc-05-11': 'docs/anteprima/3inf-pc-05-11'}
 if len(sys.argv) != 3 or sys.argv[1] not in CART or sys.argv[2] not in ('0', '1', '2', '3'):
     sys.exit(__doc__)
 radice = pathlib.Path(__file__).resolve().parent.parent
