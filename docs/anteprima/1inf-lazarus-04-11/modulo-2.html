@@ -54,7 +54,7 @@ end;</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/codic
 
 <div class="passo" data-p="5"><span class="bollo">da fare</span><h2><span class="num">5</span>Provalo: 7 più 5</h2><p class="ar" lang="ar" dir="rtl">جرّبه: 7 زائد 5</p><p class="zh" lang="zh">试试：7 加 5</p><p>Premi <b>F9</b>, scrivi <code>7</code> e <code>5</code>, premi <b>+</b>: compare la frase <b>7 più 5 fa 12</b>. FATTO!</p><p class="ar" lang="ar" dir="rtl">اضغط F9 واكتب 7 و5 ثم +: تظهر الجملة 7 più 5 fa 12.</p><p class="zh" lang="zh">按 F9，写 7 和 5，按 +：出现句子 7 più 5 fa 12。</p><figure style="margin:8px 0"><img class="sx-img" src="img/ris-ora2.svg" alt="7 più 5 fa 12" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
 
-<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>Il bottone meno</h2><p class="ar" lang="ar" dir="rtl">زر الطرح</p><p class="zh" lang="zh">减号按钮</p><p>Stesso metodo: cambia solo l'operazione e la parola.</p><p class="ar" lang="ar" dir="rtl">نفس الطريقة: غيّر العملية والكلمة فقط.</p><p class="zh" lang="zh">同样的方法：只改运算和单词。</p><pre><span class="t">procedure TForm1.Button1Click(Sender: TObject);
+<div class="passo" data-p="6"><span class="bollo">da fare</span><h2><span class="num">6</span>Il bottone meno</h2><p class="ar" lang="ar" dir="rtl">زر الطرح</p><p class="zh" lang="zh">减号按钮</p><p>Doppio clic sul bottone <b>−</b>: Lazarus scrive da solo <code>procedure TForm1.Button2Click</code>. Il resto è uguale: cambia solo l'operazione e la parola.</p><p class="ar" lang="ar" dir="rtl">نفس الطريقة: غيّر العملية والكلمة فقط.</p><p class="zh" lang="zh">同样的方法：只改运算和单词。</p><pre><span class="t">procedure TForm1.Button2Click(Sender: TObject);
 var
   a, b: Integer;
 begin
@@ -63,7 +63,7 @@ begin
   Label1.Caption := IntToStr(a) + &#x27; meno &#x27; + IntToStr(b) + &#x27; fa &#x27; + IntToStr(a - b);
 end;</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/codice-2.svg" alt="Codice meno" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
 
-<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Il bottone per</h2><p class="ar" lang="ar" dir="rtl">زر الضرب</p><p class="zh" lang="zh">乘号按钮</p><p>Stesso metodo con <code>*</code>.</p><p class="ar" lang="ar" dir="rtl">نفس الطريقة مع *.</p><p class="zh" lang="zh">同样的方法，用 *。</p><pre><span class="t">procedure TForm1.Button1Click(Sender: TObject);
+<div class="passo" data-p="7"><span class="bollo">da fare</span><h2><span class="num">7</span>Il bottone per</h2><p class="ar" lang="ar" dir="rtl">زر الضرب</p><p class="zh" lang="zh">乘号按钮</p><p>Doppio clic sul bottone <b>*</b>: compare <code>Button3Click</code>. Stesso metodo con <code>*</code>.</p><p class="ar" lang="ar" dir="rtl">نفس الطريقة مع *.</p><p class="zh" lang="zh">同样的方法，用 *。</p><pre><span class="t">procedure TForm1.Button3Click(Sender: TObject);
 var
   a, b: Integer;
 begin
@@ -72,7 +72,7 @@ begin
   Label1.Caption := IntToStr(a) + &#x27; per &#x27; + IntToStr(b) + &#x27; fa &#x27; + IntToStr(a * b);
 end;</span></pre><figure style="margin:8px 0"><img class="sx-img" src="img/codice-2.svg" alt="Codice per" loading="lazy"><figcaption class="mu" style="font-size:15px">Schema (non è uno screenshot esatto)</figcaption></figure><button class="fb">Ho fatto!</button></div>
 
-<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Il bottone diviso (bonus: zero)</h2><p class="ar" lang="ar" dir="rtl">زر القسمة (إضافي: الصفر)</p><p class="zh" lang="zh">除号按钮（加分：零）</p><p>Con i numeri interi si usa <code>div</code>. Con <code>if</code> controlli lo <b>zero</b>: non si può dividere per zero. Prova <code>8</code> e <code>0</code>.</p><p class="ar" lang="ar" dir="rtl">مع الأعداد الصحيحة نستعمل div. مع if نفحص الصفر: لا يمكن القسمة على صفر.</p><p class="zh" lang="zh">整数用 div。用 if 检查零：不能除以零。试 8 和 0。</p><pre><span class="t">procedure TForm1.Button1Click(Sender: TObject);
+<div class="passo" data-p="8"><span class="bollo">da fare</span><h2><span class="num">8</span>Il bottone diviso (bonus: zero)</h2><p class="ar" lang="ar" dir="rtl">زر القسمة (إضافي: الصفر)</p><p class="zh" lang="zh">除号按钮（加分：零）</p><p>Con i numeri interi si usa <code>div</code>. Con <code>if</code> controlli lo <b>zero</b>: non si può dividere per zero. Prova <code>8</code> e <code>0</code>.</p><p class="ar" lang="ar" dir="rtl">مع الأعداد الصحيحة نستعمل div. مع if نفحص الصفر: لا يمكن القسمة على صفر.</p><p class="zh" lang="zh">整数用 div。用 if 检查零：不能除以零。试 8 和 0。</p><pre><span class="t">procedure TForm1.Button4Click(Sender: TObject);
 var
   a, b: Integer;
 begin
