@@ -1,8 +1,8 @@
 {
  "titolo": "1INF · Laboratorio 04/11 · Lazarus, ora nuova e recuperi",
- "generato": "2026-11-04T09:20",
- "ora": "09:20",
- "fonte": "BOZZA 04/11 · segnali Foglio: non ancora scaricati · consegne pagina: 1 · file Classroom: 0 · quiz 5+3: 15 · Veyon: 52 righe · presenti: dal registro · recuperi Sicurezza letti da: 29/10 13:49 (2ª) e 13:59 (3ª), 1ª ora = pagina del 22/10; rilettura accodata il 03/11, non ancora eseguita",
+ "generato": "2026-11-04T09:27",
+ "ora": "09:27",
+ "fonte": "BOZZA 04/11 · segnali Foglio: non ancora scaricati · consegne pagina: 2 · file Classroom: 0 · quiz 5+3: 15 · Veyon: 70 righe · presenti: dal registro · recuperi Sicurezza letti da: 29/10 13:49 (2ª) e 13:59 (3ª), 1ª ora = pagina del 22/10; rilettura accodata il 03/11, non ancora eseguita",
  "kpi_proposti": true,
  "fonti_ora": [
   {
@@ -31,9 +31,9 @@
   },
   {
    "fonte": "Veyon",
-   "ora": "08:45",
-   "iso": "2026-11-04T08:45+01:00",
-   "vecchio": true
+   "ora": "09:20",
+   "iso": "2026-11-04T09:20+01:00",
+   "vecchio": false
   },
   {
    "fonte": "Note",
@@ -481,6 +481,61 @@
    "conto": [
     "base 40",
     "quiz 5+3 8/8 (almeno 6/8) +10"
+   ]
+  },
+  {
+   "nome": "Enea Z.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 40,
+   "perc": "",
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "08:55"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "09:23",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -945,61 +1000,6 @@
     "p": 5,
     "m": 8,
     "ora": "08:58"
-   },
-   "quad": false,
-   "voce": false,
-   "rec": {
-    "sic": null,
-    "l1": null,
-    "l2": null
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40",
-    "quiz 5+3 5/8 (sotto 6/8) +0"
-   ]
-  },
-  {
-   "nome": "Enea Z.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 16,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 11,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "perc": "",
-   "quiz": {
-    "p": 5,
-    "m": 8,
-    "ora": "08:55"
    },
    "quad": false,
    "voce": false,
