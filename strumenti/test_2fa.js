@@ -39,7 +39,7 @@ let fail = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); i
       const posts = []; await pg.route('https://script.google.com/**', r => { posts.push(decodeURIComponent(r.request().postData() || '')); r.fulfill({ status: 200, body: 'ok' }); });
       ok(await pg.isDisabled('#consegna'), 'consegna bloccata a inizio');
       for (let i = 1; i <= 8; i++) await pg.check('input[data-p="' + i + '"]');
-      await pg.fill('#chi', 'Beretta Luca'); await pg.fill('#ncod', 'ABCD'); await pg.fill('#fatto', 'fatto'); await pg.click('#consegna');
+      await pg.fill('#chi', 'Prova Utente'); await pg.fill('#ncod', 'ABCD'); await pg.fill('#fatto', 'fatto'); await pg.click('#consegna');
       ok(/solo il numero/.test(await pg.textContent('#finerr')), 'rifiuta codici scritti a lettere');
       await pg.fill('#ncod', '16'); await pg.click('#consegna'); await pg.waitForTimeout(400);
       ok((await pg.textContent('#avtxt')) === '8 passi su 8', 'avanzamento 8 su 8');
