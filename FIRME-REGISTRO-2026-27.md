@@ -41,6 +41,15 @@ Fonte: parola di Nicola e colonna «Firma» con data e ora. Tutte e 6 le ore son
 3. Ora 13-14, 1INF, Tecnologia professionale: FIRMATA il 03/11/2026 (08:04-08:10).
 4. Argomenti: quelli previsti, da aggiornare a fine giornata.
 
+## Mercoledì 04/11/2026
+
+Fonte: elenco del registro con la colonna «Firma» (data e ora). Tutte e 6 le ore sono FIRMATE (tra le 08:19 e le 09:24): non si ricorda più nessuna firma di oggi.
+
+1. Ore 08-09, 09-10, 10-11, 1INF, Laboratorio professionale: FIRMATE il 04/11/2026 (08:19, 09:21, 09:21).
+2. Ore 11-12 e 12-13, 3INF, Laboratorio professionale: FIRMATE il 04/11/2026 (09:23, 09:22).
+3. Ora 13-14, 1INF, Sicurezza professionale: FIRMATA il 04/11/2026 (09:24), argomento sul registro «Rischi infortuni, incidenti e infortuni mancati».
+4. Argomenti: quelli previsti, da aggiornare a fine giornata.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -48,3 +57,4 @@ Fonte: parola di Nicola e colonna «Firma» con data e ora. Tutte e 6 le ore son
 3. v1.2 (30/10/2026): venerdì 30/10, 5 ore da firmare (sezione preparata nella notte).
 4. v1.3 (30/10/2026): venerdì 30/10, tutte e 5 le ore firmate, con argomento e ora di firma.
 5. v1.4 (03/11/2026): martedì 03/11, tutte e 6 le ore firmate.
+6. v1.5 (04/11/2026): mercoledì 04/11, tutte e 6 le ore firmate (elenco del registro, firme 08:19-09:24).
