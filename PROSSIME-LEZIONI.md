@@ -24,6 +24,8 @@ Terza informatica, dalle 11 alle 13, Laboratorio professionale. Proposta consigl
 
 Prima informatica, dalle 13 alle 14, Tecnologia professionale. Primo passo fisso: dieci minuti di recuperi dei quiz di Sicurezza del 4 novembre per chi ne ha ancora, mentre gli altri cominciano. Proposta consigliata: pixel e colori, cioè quanti pixel ha una foto, rosso, verde e blu, il proprio colore in numeri, un gioco a coppie, un quiz breve e cinque righe da ricopiare sul quaderno, in italiano, arabo e cinese. Seconda proposta: il quiz di ripasso su Lazarus, stringhe e interi, per arrivare pronti a venerdì. Terza proposta: l'esadecimale e i colori del web.
 
+Scelta del prof, la sera del 4 novembre: testo o numero, cioè sette programmi della vita reale raccontati a parole, senza scrivere codice, con la scelta tra stringa e intero e le conversioni StrToInt e IntToStr, un caso inventato dai ragazzi, la consegna con un bottone e il quiz di otto domande. La pagina è pronta in `docs/anteprima/1inf-tipi-05-11/`, chiusa fino al comando del prof. Pixel e colori passano a martedì 10 novembre.
+
 ## Venerdì 6 novembre
 
 Orario dal registro. Le ore dalle 9 alle 11 non compaiono nello screenshot e vanno confermate dal prof.
