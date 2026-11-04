@@ -1,0 +1,305 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Testo o numero</title><meta name="description" content="1INF, Tecnologia professionale, 05/11/2026: testo o numero? Programmi raccontati, senza codice.">
+<script src="ore.js" data-ora="1"></script><style>:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--ko:#c0392b;--q:#fff4c2;--blu:#1f6feb;--okb:#dafbe1;--kob:#ffe0e0;--sel:#e7f0ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--okb:#12361e;--kob:#4a1416;--sel:#1b2a40}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--okb:#12361e;--kob:#4a1416;--sel:#1b2a40}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}h3{font-size:1em;margin:.8em 0 .3em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}
+.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+body.no-ar .ar,body.no-zh .zh{display:none!important}
+span.ar,span.zh{margin:0}.caso:not(.fatto) figure img{filter:blur(7px)}.caso figure{overflow:hidden;border-radius:10px}.bt .ar,.bt .zh,#lingue .ar,#lingue .zh{color:inherit}.scelte button .ar,.scelte button .zh{color:var(--fg)}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.spento{background:#8c959f;pointer-events:none}button.bt[disabled]{opacity:.5;cursor:not-allowed}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}
+input[type=text],textarea{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+textarea{min-height:110px}
+.mu{color:var(--mu);font-size:.92em}
+.sx-img{width:100%;max-width:600px;height:auto;border:2px solid #8c959f;border-radius:10px;display:block;background:#fff}
+figure{margin:8px 0}figcaption{font-size:15px}
+.aiutoprof{background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:10px 12px;margin:12px 0;color:#000}.aiutoprof p{margin:0 0 6px}.aiutoprof .ar,.aiutoprof .zh{color:#333}
+.storia{background:var(--sel);border-radius:10px;padding:8px 12px;margin:8px 0}
+.dom{border-top:1px dashed var(--bd);padding:8px 0 4px;margin-top:6px}
+.dom .q{font-weight:700;margin:0}
+.scelte{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.scelte button{font:inherit;font-size:16px;flex:1 1 220px;min-width:0;text-align:start;background:var(--card);color:var(--fg);border:2px solid var(--acc);border-radius:10px;padding:8px 10px;cursor:pointer;overflow-wrap:anywhere}
+.scelte button span{display:block}.scelte button .ar,.scelte button .zh{font-size:.92em}
+.scelte button.giusta{background:var(--okb);border-color:var(--ok)}.scelte button.sbagliata{background:var(--kob);border-color:var(--ko);text-decoration:line-through}
+.scelte button[disabled]{cursor:default}
+.esito{border-radius:10px;padding:6px 10px;margin:4px 0;display:none}.esito.ok{display:block;background:var(--okb);border-left:5px solid var(--ok)}.esito.ko{display:block;background:var(--kob);border-left:5px solid var(--ko)}.esito.gi{display:block;background:var(--q);border-left:5px solid #d4a017}
+.esito p{margin:2px 0}
+.racconto{display:none;background:var(--okb);border:2px solid var(--ok);border-radius:10px;padding:8px 12px;margin:8px 0}.racconto.si{display:block}
+.racconto ol{margin:4px 0;padding-inline-start:22px}
+#lingue{display:flex;flex-wrap:wrap;gap:6px;align-items:center}#lingue button{font:inherit;font-size:15px;padding:5px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer}#lingue button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+#dove div{margin:4px 0}#vai{display:inline-block;width:auto;padding:8px 16px;margin:4px 0}
+.msg{font-weight:700}.msg.ok{color:var(--ok)}.msg.ko{color:var(--ko)}
+@media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.25em}.passo{padding:6px 10px 10px}}</style></head><body><main>
+<p class="mu">1INF · Tecnologia professionale · giovedì 05/11/2026 · ora 6 (13-14) · oggi niente Lazarus: i programmi si RACCONTANO</p>
+<h1>Ora 6 · Testo o numero? I programmi raccontati</h1><p class="ar" lang="ar" dir="rtl">الساعة 6 · نص أم رقم؟ برامج نحكيها بالكلمات</p><p class="zh" lang="zh">第 6 节 · 文字还是数字？用话讲出来的程序</p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span class="ar" lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span class="zh" lang="zh">按 F5 查看新版本。</span></p>
+<div class="card" id="lingue"><b>Lingue:</b> <button type="button" data-l="tutte">Italiano + العربية + 中文</button><button type="button" data-l="ar">Italiano + العربية</button><button type="button" data-l="zh">Italiano + 中文</button></div>
+
+<div class="card" id="barra-link" style="background:var(--sel)">
+<a class="bt" href="../../1inf/" target="_blank" rel="noopener">A che punto sono · <span class="ar" lang="ar">أين وصلت</span> · <span class="zh" lang="zh">我的进度</span></a>
+<a class="bt v" id="quiz-top" href="#p12" rel="noopener">Quiz · <span class="ar" lang="ar">الاختبار</span> · <span class="zh" lang="zh">测验</span></a>
+<a class="bt" href="#aiuto">Chiedi all'assistente · <span class="ar" lang="ar">اسأل المساعد</span> · <span class="zh" lang="zh">问助手</span></a>
+<p class="mu" style="margin:0">I primi due si aprono in una finestra nuova: poi torna qui.</p></div>
+
+<section class="card"><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve al cruscotto e alla consegna.</p><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب: تحتاجه لوحة المتابعة والتسليم.</p><p class="zh" lang="zh">写名字和姓：进度面板和提交都需要。</p>
+<input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+
+<section class="card" id="dove" style="border:3px solid var(--blu)"><div><b>Hai fatto · <span class="ar" lang="ar">أنجزت</span> · <span class="zh" lang="zh">你已完成</span>:</b> <span id="d-fatto"></span></div>
+<div><b>Ti manca · <span class="ar" lang="ar">ينقصك</span> · <span class="zh" lang="zh">你还缺</span>:</b> <span id="d-manca"></span></div>
+<div><b>Vai qui adesso · <span class="ar" lang="ar">اذهب إلى هنا الآن</span> · <span class="zh" lang="zh">现在去这里</span>:</b> <a class="bt v" id="vai" href="#"></a></div></section>
+
+<details class="card"><summary>Percorso facilitato (se sei indietro): casi 1, 3 e 6, poi Manda al prof e il quiz</summary><p>Fai i passi 1 e 2, i casi 1, 3 e 6, poi i passi 11, 12 e 13.</p><p class="ar" lang="ar" dir="rtl">المسار المبسّط: الخطوتان 1 و 2، الحالات 1 و 3 و 6، ثم الخطوات 11 و 12 و 13.</p><p class="zh" lang="zh">简化路线：第 1、2 步，案例 1、3、6，然后第 11、12、13 步。</p></details>
+
+<div class="aiutoprof"><p style="font-size:1.1em"><b>Sei bloccato? Scrivi la domanda nella casella dell'assistente in fondo alla pagina: ti risponde subito. Alza la mano solo se il PC non funziona (non si accende, niente rete).</b></p><p class="ar" lang="ar" dir="rtl">إذا علقت، اكتب سؤالك في خانة المساعد أسفل الصفحة: يجيبك فوراً. ارفع يدك فقط إذا كان الحاسوب لا يعمل.</p><p class="zh" lang="zh">卡住了就在页面底部的助手框里写问题，它马上回答。只有电脑坏了才举手。</p></div>
+
+<div class="passo" data-p="1" id="p1"><span class="bollo">da fare</span><h2><span class="num">1</span>Recuperi di Sicurezza (primi 10 minuti)</h2><p class="ar" lang="ar" dir="rtl">تعويض اختبارات السلامة (أول 10 دقائق)</p><p class="zh" lang="zh">安全课补做（前 10 分钟）</p>
+<p>Apri il cruscotto e scegli il tuo nome in «Io sono». Se vedi «Ti manca», premi «Vai qui adesso» e fai il quiz. Puoi rifarlo: vale il migliore. Se non ti manca niente, premi «Ho fatto!» e vai al passo 2.</p>
+<p class="ar" lang="ar" dir="rtl">افتح لوحة المتابعة واختر اسمك في «Io sono». إذا رأيت «Ti manca»، اضغط «Vai qui adesso» وأجب عن الاختبار. يمكنك إعادته: تُحسب أفضل نتيجة. إذا لم ينقصك شيء، اضغط «Ho fatto!» وانتقل إلى الخطوة 2.</p>
+<p class="zh" lang="zh">打开进度面板，在「Io sono」选你的名字。如果看到「Ti manca」，按「Vai qui adesso」做测验。可以重做：算最好的一次。如果什么都不缺，按「Ho fatto!」去第 2 步。</p>
+<a class="bt" href="../../1inf/" target="_blank" rel="noopener">Apri il cruscotto · <span class="ar" lang="ar">افتح لوحة المتابعة</span> · <span class="zh" lang="zh">打开进度面板</span></a><p class="mu">Si apre in una finestra nuova: poi torna qui.</p>
+<figure><img class="sx-img" src="img/recupero.svg" alt="Il cruscotto mostra il tuo recupero"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure><button class="fb" type="button">Ho fatto!</button></div>
+
+<div class="passo" data-p="2" id="p2"><span class="bollo">da fare</span><h2><span class="num">2</span>La teoria in 1 minuto: testo o numero?</h2><p class="ar" lang="ar" dir="rtl">النظرية في دقيقة: نص أم رقم؟</p><p class="zh" lang="zh">一分钟理论：文字还是数字？</p>
+<figure><img class="sx-img" src="img/teoria.svg" alt="Stringa e intero, StrToInt e IntToStr"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<ol>
+<li><b>STRINGA = testo.</b> Si scrive tra apici: <code>'15'</code>. Con il + i testi si attaccano: <code>'5' + '3' = '53'</code>.<p class="ar" lang="ar" dir="rtl">STRINGA = نص. يُكتب بين علامتي اقتباس: '15'. مع + تلتصق النصوص: '5' + '3' = '53'.</p><p class="zh" lang="zh">STRINGA = 文字。写在引号里：'15'。用 + 文字会连在一起：'5' + '3' = '53'。</p></li>
+<li><b>INTERO = numero,</b> senza apici: <code>15</code>. Con il + si fa il conto: <code>5 + 3 = 8</code>.<p class="ar" lang="ar" dir="rtl">INTERO = رقم، بدون علامات اقتباس: 15. مع + نحسب: 5 + 3 = 8.</p><p class="zh" lang="zh">INTERO = 数字，没有引号：15。用 + 就是计算：5 + 3 = 8。</p></li>
+<li><b>StrToInt:</b> da testo a numero. <code>StrToInt('15') = 15</code>.<p class="ar" lang="ar" dir="rtl">StrToInt: من نص إلى رقم.</p><p class="zh" lang="zh">StrToInt：文字变数字。</p></li>
+<li><b>IntToStr:</b> da numero a testo. <code>IntToStr(16) = '16'</code>.<p class="ar" lang="ar" dir="rtl">IntToStr: من رقم إلى نص.</p><p class="zh" lang="zh">IntToStr：数字变文字。</p></li>
+<li><b>Edit1.Text e Label1.Caption sono SEMPRE testo.</b> Per fare un conto: StrToInt. Per scrivere il risultato: IntToStr.<p class="ar" lang="ar" dir="rtl">Edit1.Text و Label1.Caption دائماً نص. للحساب: StrToInt. لكتابة النتيجة: IntToStr.</p><p class="zh" lang="zh">Edit1.Text 和 Label1.Caption 永远是文字。要计算：StrToInt。要写出结果：IntToStr。</p></li>
+<li><b>La domanda magica: «Ci faccio un conto?»</b> Sì = INTERO. No = STRINGA.<p class="ar" lang="ar" dir="rtl">السؤال السحري: «هل أحسب به؟» نعم = INTERO. لا = STRINGA.</p><p class="zh" lang="zh">神奇问题：「我要用它计算吗？」要 = INTERO。不要 = STRINGA。</p></li>
+</ol><button class="fb" type="button">Ho letto!</button></div>
+
+<div id="casi"></div>
+
+<div class="passo" data-p="10" id="p10" data-auto="1"><span class="bollo">da fare</span><h2><span class="num">10</span>Caso 8 · Fallo tuo: inventa il TUO programma</h2><p class="ar" lang="ar" dir="rtl">الحالة 8 · اجعله لك: اخترع برنامجك</p><p class="zh" lang="zh">案例 8 · 做成你自己的：发明你的程序</p>
+<p>Pensa a un programma della tua vita: la squadra, il gioco, il lavoro, la spesa. Scegli UN dato, dì se è STRINGA o INTERO e racconta i passi.</p><p class="ar" lang="ar" dir="rtl">فكّر في برنامج من حياتك: الفريق، اللعبة، العمل، التسوق. اختر معلومة واحدة، قل إن كانت STRINGA أو INTERO واحكِ الخطوات.</p><p class="zh" lang="zh">想一个你生活中的程序：球队、游戏、工作、购物。选一个数据，说它是 STRINGA 还是 INTERO，再讲步骤。</p>
+<p class="mu">Idee: il numero di maglia, i minuti di una partita, i punti di un gioco, la targa di un'auto, una password con numeri (luca2010).</p><p class="ar" lang="ar" dir="rtl">أفكار: رقم القميص، دقائق المباراة، نقاط اللعبة، لوحة السيارة، كلمة سر فيها أرقام (luca2010).</p><p class="zh" lang="zh">点子：球衣号码、比赛分钟数、游戏得分、车牌号、带数字的密码（luca2010）。</p>
+<figure><img class="sx-img" src="img/fallo-tuo.svg" alt="Inventa il tuo caso"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<h3>1. Il mio programma (una frase) · <span class="ar" lang="ar">برنامجي (جملة واحدة)</span> · <span class="zh" lang="zh">我的程序（一句话）</span></h3><input type="text" id="t-prog" placeholder="Es.: il programma dei punti della partita">
+<h3>2. Il dato · <span class="ar" lang="ar">المعلومة</span> · <span class="zh" lang="zh">数据</span></h3><input type="text" id="t-dato" placeholder="Es.: i punti (12)">
+<h3>3. STRINGA o INTERO?</h3><div class="scelte" id="t-tipo"><button type="button" data-t="S"><span>STRINGA (testo)</span><span class="ar" lang="ar">نص</span><span class="zh" lang="zh">字符串（文字）</span></button><button type="button" data-t="I"><span>INTERO (numero)</span><span class="ar" lang="ar">عدد صحيح</span><span class="zh" lang="zh">整数（数字）</span></button></div>
+<h3>4. I passi a parole · <span class="ar" lang="ar">الخطوات بالكلمات</span> · <span class="zh" lang="zh">用文字写步骤</span></h3><p class="mu">Usa le parole StrToInt, IntToStr oppure «nessuna conversione».</p><textarea id="t-passi" placeholder="1. Leggo Edit1.Text: è testo. 2. …"></textarea>
+<button class="bt" type="button" id="t-controlla">Controlla · <span class="ar" lang="ar">تحقّق</span> · <span class="zh" lang="zh">检查</span></button><div class="esito" id="t-esito"></div></div>
+
+<div class="passo" data-p="11" id="p11" data-auto="1"><span class="bollo">da fare</span><h2><span class="num">11</span>Manda al prof</h2><p class="ar" lang="ar" dir="rtl">أرسل إلى الأستاذ</p><p class="zh" lang="zh">发给老师</p>
+<p>Premi il bottone verde: partono i tuoi casi e il tuo programma inventato. Si apre una scheda con «Consegna arrivata al prof»: chiudila e torna qui.</p><p class="ar" lang="ar" dir="rtl">اضغط الزر الأخضر: تُرسل حالاتك وبرنامجك. تُفتح صفحة فيها «Consegna arrivata al prof»: أغلقها وارجع هنا.</p><p class="zh" lang="zh">按绿色按钮：你的案例和你发明的程序会发出去。会打开一页写着「Consegna arrivata al prof」：关掉它回到这里。</p>
+<p id="riepilogo" class="mu"></p>
+<button class="bt v" type="button" id="manda">Manda al prof · <span class="ar" lang="ar">أرسل</span> · <span class="zh" lang="zh">发送</span></button><p class="msg" id="msg"></p>
+<p class="mu">Se non parte: aspetta un minuto e premi di nuovo. Se ancora non parte, scrivi all'assistente in fondo: «consegna non partita».</p>
+<figure><img class="sx-img" src="img/consegna.svg" alt="Manda al prof con un bottone"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure></div>
+
+<div class="passo" data-p="12" id="p12"><span class="bollo">da fare</span><h2><span class="num">12</span>Quiz su Moduli: 8 domande (servono 6 giuste)</h2><p class="ar" lang="ar" dir="rtl">اختبار على Moduli: 8 أسئلة (تحتاج 6 صحيحة)</p><p class="zh" lang="zh">Moduli 测验：8 道题（要答对 6 道）</p>
+<p>Premi il bottone verde, rispondi e premi «Invia». Puoi rifarlo: vale il migliore.</p><p class="ar" lang="ar" dir="rtl">اضغط الزر الأخضر، أجب ثم اضغط «Invia». يمكنك إعادته: تُحسب أفضل نتيجة.</p><p class="zh" lang="zh">按绿色按钮，回答后按「Invia」。可以重做：算最好的一次。</p>
+<a class="bt v spento" id="quiz-bt" href="#" target="_blank" rel="noopener">Il quiz non è ancora aperto: premi F5 tra un minuto.</a>
+<figure><img class="sx-img" src="img/quiz.svg" alt="Quiz su Google Moduli"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure><button class="fb" type="button">Ho fatto!</button></div>
+
+<div class="passo" data-p="13" id="p13"><span class="bollo">da fare</span><h2><span class="num">13</span>Ricopia sul quaderno</h2><p class="ar" lang="ar" dir="rtl">انسخ في الدفتر</p><p class="zh" lang="zh">抄在本子上</p>
+<p>Ricopia sul quaderno queste 4 righe.</p><p class="ar" lang="ar" dir="rtl">انسخ هذه الأسطر الأربعة في الدفتر.</p><p class="zh" lang="zh">把这 4 行抄在本子上。</p>
+<div class="quad"><b>QUADERNO · ricopia a mano · <span class="ar" lang="ar">انسخ في الدفتر</span> · <span class="zh" lang="zh">抄在本子上</span></b>
+<p style="margin:6px 0 0;font-family:ui-monospace,Consolas,monospace;overflow-wrap:anywhere">Stringa = testo, tra apici: '5' + '3' = '53'<br>Intero = numero: 5 + 3 = 8<br>StrToInt = da testo a numero: StrToInt('15') = 15<br>IntToStr = da numero a testo: IntToStr(16) = '16'</p></div>
+<figure><img class="sx-img" src="img/quaderno.svg" alt="Le 4 righe del quaderno"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure><button class="fb" type="button">Ho fatto!</button></div>
+
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p><div id="aiuto"></div></main>
+<script src="../../assistente/assistente.js" data-pagina="1inf-tipi-05-11" data-lingue="it,ar,zh" data-dove="aiuto"></script>
+<script>
+(function(){
+var SLUG='1inf-tipi0511', K='st-'+SLUG, KR='ri-'+SLUG, KT='tu-'+SLUG, KN='nome-0511', KL='lingue-0511', CONF={};
+function $(i){return document.getElementById(i)}
+function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
+function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function tri(o,tag){tag=tag||'p';if(typeof o==='string')o={it:o,ar:o,zh:o};return '<'+tag+'>'+esc(o.it)+'</'+tag+'><'+tag+' class="ar" lang="ar" dir="rtl">'+esc(o.ar)+'</'+tag+'><'+tag+' class="zh" lang="zh">'+esc(o.zh)+'</'+tag+'>'}
+function triB(o){if(typeof o==='string')return '<span>'+esc(o)+'</span>';return '<span>'+esc(o.it)+'</span><span class="ar" lang="ar" dir="rtl">'+esc(o.ar)+'</span><span class="zh" lang="zh">'+esc(o.zh)+'</span>'}
+/* ---- scelte ricorrenti ---- */
+var S2I={it:'StrToInt: da testo a numero',ar:'StrToInt: من نص إلى رقم',zh:'StrToInt：文字变数字'},
+    I2S={it:'IntToStr: da numero a testo',ar:'IntToStr: من رقم إلى نص',zh:'IntToStr：数字变文字'},
+    NIENTE={it:'Niente: nessuna conversione',ar:'لا شيء: بدون تحويل',zh:'什么都不做：不转换'};
+var TIPI={S:{it:'STRINGA (testo)',ar:'نص',zh:'字符串（文字）'},I:{it:'INTERO (numero)',ar:'عدد صحيح',zh:'整数（数字）'}};
+var TX={giusto:{it:'✔ Giusto!',ar:'✔ صحيح!',zh:'✔ 对了！'},
+ sbagliato:{it:'✘ Non ancora. Errore = zero vergogna: leggi e riprova.',ar:'✘ ليس بعد. الخطأ = لا خجل: اقرأ وحاول مرة أخرى.',zh:'✘ 还不对。犯错 = 不丢脸：读一读，再试一次。'},
+ dati:{it:'I dati: STRINGA o INTERO?',ar:'المعلومات: STRINGA أو INTERO؟',zh:'数据：STRINGA 还是 INTERO？'},
+ passi:{it:'Racconta il programma: scegli il passo giusto',ar:'احكِ البرنامج: اختر الخطوة الصحيحة',zh:'讲出程序：选对的步骤'},
+ racc:{it:'Il programma raccontato',ar:'البرنامج محكيّاً',zh:'讲出来的程序'},
+ fine:{it:'Caso fatto! Vai al caso dopo.',ar:'أنجزت الحالة! انتقل إلى الحالة التالية.',zh:'案例完成！去下一个案例。'}};
+/* ---- i 7 casi: d = dati (t: S/I), q = passi (g = indice della scelta giusta), r = racconto ---- */
+var CASI=[
+{id:'eta',tit:{it:'Caso 1 · Quanti anni avrai tra un anno?',ar:'الحالة 1 · كم سيكون عمرك بعد سنة؟',zh:'案例 1 · 一年后你几岁？'},
+ st:{it:'Scrivi la tua età in Edit1, per esempio 15, e premi il bottone. Label1 scrive: «Tra un anno avrai 16 anni».',ar:'اكتب عمرك في Edit1، مثلاً 15، واضغط الزر. يكتب Label1: «بعد سنة سيكون عمرك 16».',zh:'在 Edit1 里写你的年龄，比如 15，然后按按钮。Label1 显示：「一年后你 16 岁」。'},
+ d:[{n:{it:"L'età (15)",ar:'العمر (15)',zh:'年龄（15）'},t:'I',p:{it:"Con l'età facciamo un conto (+1): per i conti serve un INTERO.",ar:'نحسب بالعمر (+1): للحساب نحتاج عدداً صحيحاً INTERO.',zh:'我们要用年龄做计算（+1）：做计算需要整数 INTERO。'}}],
+ q:[{q:{it:'Edit1.Text, quando lo leggi, è…',ar:'عندما تقرأ Edit1.Text، هو…',zh:'读取 Edit1.Text 时，它是……'},s:[TIPI.S,TIPI.I],g:0,p:{it:'Quello che scrivi in una casella è SEMPRE testo, anche 15.',ar:'ما تكتبه في الخانة هو دائماً نص، حتى 15.',zh:'你在输入框里写的东西永远是文字，15 也是。'}},
+    {q:{it:'Prima del conto +1 che cosa fai?',ar:'ماذا تفعل قبل الحساب +1؟',zh:'在 +1 计算之前要做什么？'},s:[S2I,I2S,NIENTE],g:0,p:{it:"StrToInt trasforma '15' in 15. Adesso puoi fare 15 + 1 = 16.",ar:"StrToInt يحوّل '15' إلى 15. الآن يمكنك حساب 15 + 1 = 16.",zh:"StrToInt 把 '15' 变成 15。现在可以算 15 + 1 = 16。"}},
+    {q:{it:'Per scrivere 16 in Label1.Caption che cosa fai?',ar:'لكتابة 16 في Label1.Caption ماذا تفعل؟',zh:'要把 16 写进 Label1.Caption，要做什么？'},s:[I2S,S2I,NIENTE],g:0,p:{it:"Label1.Caption è SEMPRE testo: IntToStr trasforma 16 in '16'.",ar:"Label1.Caption دائماً نص: IntToStr يحوّل 16 إلى '16'.",zh:"Label1.Caption 永远是文字：IntToStr 把 16 变成 '16'。"}}],
+ r:{it:["Leggo Edit1.Text: è testo ('15').",'StrToInt: diventa numero (15).','Conto: 15 + 1 = 16.',"IntToStr: diventa testo ('16').",'Lo scrivo in Label1.Caption.'],
+    ar:["أقرأ Edit1.Text: إنه نص ('15').",'StrToInt: يصبح رقماً (15).','الحساب: 15 + 1 = 16.',"IntToStr: يصبح نصاً ('16').",'أكتبه في Label1.Caption.'],
+    zh:["读取 Edit1.Text：是文字（'15'）。",'StrToInt：变成数字（15）。','计算：15 + 1 = 16。',"IntToStr：变成文字（'16'）。",'写进 Label1.Caption。']}},
+{id:'prezzi',tit:{it:'Caso 2 · Il conto del bar',ar:'الحالة 2 · حساب المقهى',zh:'案例 2 · 咖啡馆的账单'},
+ st:{it:'Un panino costa 4 euro, una bibita 2 euro. Scrivi 4 in Edit1 e 2 in Edit2. Il programma scrive il totale: 6 euro.',ar:'الساندويتش بـ 4 يورو، والمشروب بـ 2 يورو. اكتب 4 في Edit1 و 2 في Edit2. يكتب البرنامج المجموع: 6 يورو.',zh:'一个三明治 4 欧元，一瓶饮料 2 欧元。在 Edit1 写 4，在 Edit2 写 2。程序写出总价：6 欧元。'},
+ d:[{n:{it:'Il prezzo del panino (4)',ar:'سعر الساندويتش (4)',zh:'三明治的价格（4）'},t:'I',p:{it:'Con i prezzi facciamo la somma: servono numeri interi.',ar:'نجمع الأسعار: نحتاج أعداداً صحيحة.',zh:'价格要相加：需要整数。'}},
+    {n:{it:'Il prezzo della bibita (2)',ar:'سعر المشروب (2)',zh:'饮料的价格（2）'},t:'I',p:{it:'Anche questo entra nella somma: intero.',ar:'هذا أيضاً يدخل في الجمع: عدد صحيح.',zh:'它也要相加：整数。'}}],
+ q:[{q:{it:"Se NON converti, '4' + '2' fa…",ar:"إذا لم تحوّل، '4' + '2' يساوي…",zh:"如果不转换，'4' + '2' 等于……"},s:[{it:"'42' (attacca i testi)",ar:"'42' (يلصق النصوص)",zh:"'42'（把文字连在一起）"},'6'],g:0,p:{it:'Due testi con il + si attaccano: 42 euro per un panino e una bibita? Troppo!',ar:'نصان مع + يلتصقان: 42 يورو لساندويتش ومشروب؟ كثير جداً!',zh:'两个文字用 + 会连在一起：一个三明治加一瓶饮料 42 欧元？太贵了！'}},
+    {q:{it:'Che cosa fai su Edit1.Text e Edit2.Text?',ar:'ماذا تفعل بـ Edit1.Text و Edit2.Text؟',zh:'对 Edit1.Text 和 Edit2.Text 要做什么？'},s:[{it:'StrToInt su tutti e due',ar:'StrToInt على الاثنين',zh:'两个都用 StrToInt'},{it:'StrToInt solo sul primo',ar:'StrToInt على الأول فقط',zh:'只对第一个用 StrToInt'},I2S],g:0,p:{it:'Ogni casella dà testo: si convertono tutte e due, poi 4 + 2 = 6.',ar:'كل خانة تعطي نصاً: نحوّل الاثنين، ثم 4 + 2 = 6.',zh:'每个输入框给的都是文字：两个都要转换，然后 4 + 2 = 6。'}},
+    {q:{it:'Il totale 6 va in Label1.Caption con…',ar:'المجموع 6 يذهب إلى Label1.Caption باستعمال…',zh:'总数 6 用什么放进 Label1.Caption？'},s:[I2S,S2I],g:0,p:{it:"IntToStr(6) dà '6': ora è testo e va nella Label.",ar:"IntToStr(6) يعطي '6': الآن هو نص ويذهب إلى Label.",zh:"IntToStr(6) 得到 '6'：现在是文字，可以放进 Label。"}}],
+ r:{it:["Leggo Edit1.Text ('4') e Edit2.Text ('2'): sono testo.",'StrToInt su tutti e due: 4 e 2.','Conto: 4 + 2 = 6.',"IntToStr: '6'.",'Scrivo in Label1.Caption: 6 euro.'],
+    ar:["أقرأ Edit1.Text ('4') و Edit2.Text ('2'): هما نص.",'StrToInt على الاثنين: 4 و 2.','الحساب: 4 + 2 = 6.',"IntToStr: '6'.",'أكتب في Label1.Caption: 6 يورو.'],
+    zh:["读取 Edit1.Text（'4'）和 Edit2.Text（'2'）：是文字。",'两个都用 StrToInt：4 和 2。','计算：4 + 2 = 6。',"IntToStr：'6'。",'写进 Label1.Caption：6 欧元。']}},
+{id:'telefono',tit:{it:'Caso 3 · Il numero di telefono (trappola!)',ar:'الحالة 3 · رقم الهاتف (فخ!)',zh:'案例 3 · 电话号码（陷阱！）'},
+ st:{it:'Il programma della segreteria salva il numero di telefono di un genitore: 0301234567. Poi lo scrive in Label1.',ar:'برنامج السكرتارية يحفظ رقم هاتف أحد الوالدين: 0301234567. ثم يكتبه في Label1.',zh:'学校办公室的程序保存一位家长的电话号码：0301234567。然后把它写进 Label1。'},
+ d:[{n:{it:'Il numero di telefono (0301234567)',ar:'رقم الهاتف (0301234567)',zh:'电话号码（0301234567）'},t:'S',p:{it:'È una STRINGA: un numero di telefono non serve per fare conti. E come intero lo 0 davanti sparisce: 301234567!',ar:'إنه STRINGA: لا نحسب برقم الهاتف. وكعدد صحيح يختفي الصفر في البداية: 301234567!',zh:'是字符串 STRINGA：电话号码不用来计算。如果当成整数，前面的 0 会消失：301234567！'}}],
+ q:[{q:{it:'Serve StrToInt?',ar:'هل نحتاج StrToInt؟',zh:'需要 StrToInt 吗？'},s:[{it:'No: nessun conto, resta testo',ar:'لا: لا يوجد حساب، يبقى نصاً',zh:'不需要：不计算，保持文字'},{it:'Sì, perché è fatto di cifre',ar:'نعم، لأنه مكوّن من أرقام',zh:'需要，因为它全是数字'}],g:0,p:{it:'Anche se ha solo cifre, non ci fai conti: resta testo.',ar:'حتى لو كان أرقاماً فقط، لا تحسب به: يبقى نصاً.',zh:'虽然全是数字，但不用它计算：保持文字。'}},
+    {q:{it:'Come lo porti da Edit1 a Label1?',ar:'كيف تنقله من Edit1 إلى Label1؟',zh:'怎样把它从 Edit1 放到 Label1？'},s:[{it:"Prendo il testo così com'è",ar:'آخذ النص كما هو',zh:'把文字原样拿过去'},{it:'Lo trasformo in numero e poi di nuovo in testo',ar:'أحوّله إلى رقم ثم إلى نص من جديد',zh:'先变成数字再变回文字'}],g:0,p:{it:'Label1.Caption := Edit1.Text: testo va in testo, nessuna conversione.',ar:'Label1.Caption := Edit1.Text: نص إلى نص، بدون تحويل.',zh:'Label1.Caption := Edit1.Text：文字放到文字，不用转换。'}},
+    {q:{it:'E il numero +39 333 1234567, con il + e gli spazi?',ar:'والرقم +39 333 1234567، مع + والمسافات؟',zh:'那 +39 333 1234567 这个号码呢，有 + 和空格？'},s:[{it:'Testo: un intero non ha + e spazi',ar:'نص: العدد الصحيح ليس فيه + ولا مسافات',zh:'文字：整数里没有 + 和空格'},{it:'Intero',ar:'عدد صحيح',zh:'整数'}],g:0,p:{it:'Il + e gli spazi sono caratteri di testo: StrToInt darebbe errore.',ar:'+ والمسافات حروف نص: StrToInt سيعطي خطأ.',zh:'+ 和空格是文字字符：StrToInt 会出错。'}}],
+ r:{it:['Leggo Edit1.Text: è testo.','Nessuna conversione: non faccio conti.',"Lo scrivo così com'è in Label1.Caption."],ar:['أقرأ Edit1.Text: إنه نص.','بدون تحويل: لا أحسب.','أكتبه كما هو في Label1.Caption.'],zh:['读取 Edit1.Text：是文字。','不转换：不计算。','原样写进 Label1.Caption。']}},
+{id:'cap',tit:{it:"Caso 4 · Il CAP sull'etichetta del pacco (trappola!)",ar:'الحالة 4 · الرمز البريدي CAP على ملصق الطرد (فخ!)',zh:'案例 4 · 包裹标签上的邮编 CAP（陷阱！）'},
+ st:{it:"Il programma di un corriere stampa l'etichetta. Scrivi il CAP in Edit1 (00184) e la città in Edit2 (Roma). Label1 scrive: «00184 Roma».",ar:'برنامج شركة توصيل يطبع الملصق. اكتب الرمز البريدي في Edit1 (00184) والمدينة في Edit2 (Roma). يكتب Label1: «00184 Roma».',zh:'快递公司的程序打印标签。在 Edit1 写邮编（00184），在 Edit2 写城市（Roma）。Label1 显示：「00184 Roma」。'},
+ d:[{n:{it:'Il CAP (00184)',ar:'الرمز البريدي CAP (00184)',zh:'邮编 CAP（00184）'},t:'S',p:{it:'Con il CAP non si fanno conti, e come intero 00184 diventa 184: sbagliato!',ar:'لا نحسب بالرمز البريدي، وكعدد صحيح 00184 يصبح 184: خطأ!',zh:'邮编不用来计算，当成整数 00184 会变成 184：错了！'}},
+    {n:{it:'La città (Roma)',ar:'المدينة (Roma)',zh:'城市（Roma）'},t:'S',p:{it:'Roma è fatta di lettere: è testo.',ar:'Roma مكوّنة من حروف: إنها نص.',zh:'Roma 由字母组成：是文字。'}}],
+ q:[{q:{it:'Se trasformi 00184 in intero, che cosa ottieni?',ar:'إذا حوّلت 00184 إلى عدد صحيح، ماذا تحصل؟',zh:'如果把 00184 变成整数，会得到什么？'},s:[{it:'184: gli zeri davanti spariscono',ar:'184: تختفي الأصفار في البداية',zh:'184：前面的 0 消失了'},'00184'],g:0,p:{it:'Un intero non tiene gli zeri davanti. Il pacco andrebbe al CAP 184, che non esiste!',ar:'العدد الصحيح لا يحتفظ بالأصفار في البداية. الطرد سيذهب إلى 184، وهو غير موجود!',zh:'整数不保留前面的 0。包裹会寄到 184，这个邮编不存在！'}},
+    {q:{it:'Quale conversione serve?',ar:'أي تحويل نحتاج؟',zh:'需要哪种转换？'},s:[{it:'Nessuna: CAP e città restano testo',ar:'لا شيء: الرمز والمدينة يبقيان نصاً',zh:'不需要：邮编和城市都保持文字'},{it:'StrToInt sul CAP',ar:'StrToInt على الرمز البريدي',zh:'对邮编用 StrToInt'}],g:0,p:{it:"Testo + testo: Edit1.Text + ' ' + Edit2.Text = '00184 Roma'.",ar:"نص + نص: Edit1.Text + ' ' + Edit2.Text = '00184 Roma'.",zh:"文字 + 文字：Edit1.Text + ' ' + Edit2.Text = '00184 Roma'。"}}],
+ r:{it:['Leggo il CAP e la città: sono testo.','Nessuna conversione.',"Li attacco con uno spazio in mezzo: '00184 Roma'.",'Lo scrivo in Label1.Caption.'],ar:['أقرأ الرمز البريدي والمدينة: هما نص.','بدون تحويل.',"ألصقهما مع مسافة بينهما: '00184 Roma'.",'أكتبه في Label1.Caption.'],zh:['读取邮编和城市：都是文字。','不转换。',"中间加一个空格连起来：'00184 Roma'。",'写进 Label1.Caption。']}},
+{id:'cf',tit:{it:'Caso 5 · Il codice fiscale',ar:'الحالة 5 · الرمز الضريبي (codice fiscale)',zh:'案例 5 · 税号（codice fiscale）'},
+ st:{it:'Per il primo lavoro serve il codice fiscale. Il programma lo chiede in Edit1 (RSSMRA10A01F205X, 16 caratteri) e lo scrive sul contratto.',ar:'للعمل الأول تحتاج الرمز الضريبي. البرنامج يطلبه في Edit1 (RSSMRA10A01F205X، 16 حرفاً) ويكتبه في العقد.',zh:'第一份工作需要税号。程序在 Edit1 里要它（RSSMRA10A01F205X，16 个字符），然后写进合同。'},
+ d:[{n:{it:'Il codice fiscale',ar:'الرمز الضريبي',zh:'税号'},t:'S',p:{it:'Ha lettere e cifre insieme: è testo.',ar:'فيه حروف وأرقام معاً: إنه نص.',zh:'字母和数字混在一起：是文字。'}}],
+ q:[{q:{it:"StrToInt('RSSMRA10A01F205X') che cosa fa?",ar:"ماذا يفعل StrToInt('RSSMRA10A01F205X')؟",zh:"StrToInt('RSSMRA10A01F205X') 会怎样？"},s:[{it:'Errore: il programma si blocca',ar:'خطأ: البرنامج يتوقف',zh:'出错：程序停下来'},{it:'Dà 10012052',ar:'يعطي 10012052',zh:'得到 10012052'},{it:'Dà 0',ar:'يعطي 0',zh:'得到 0'}],g:0,p:{it:'StrToInt vuole solo cifre. Con una lettera dà errore.',ar:'StrToInt يريد أرقاماً فقط. مع حرف واحد يعطي خطأ.',zh:'StrToInt 只要数字。有一个字母就出错。'}},
+    {q:{it:'Quale conversione serve per scriverlo sul contratto?',ar:'أي تحويل نحتاج لكتابته في العقد؟',zh:'写进合同需要哪种转换？'},s:[NIENTE,I2S,S2I],g:0,p:{it:'Testo va in testo: nessuna conversione.',ar:'نص إلى نص: بدون تحويل.',zh:'文字放到文字：不转换。'}}],
+ r:{it:['Leggo Edit1.Text: è testo (lettere e cifre).','Nessuna conversione: StrToInt darebbe errore.',"Lo scrivo così com'è sul contratto."],ar:['أقرأ Edit1.Text: إنه نص (حروف وأرقام).','بدون تحويل: StrToInt سيعطي خطأ.','أكتبه كما هو في العقد.'],zh:['读取 Edit1.Text：是文字（字母和数字）。','不转换：StrToInt 会出错。','原样写进合同。']}},
+{id:'nascita',tit:{it:"Caso 6 · Dall'anno di nascita all'età",ar:'الحالة 6 · من سنة الولادة إلى العمر',zh:'案例 6 · 从出生年份算年龄'},
+ st:{it:"Scrivi l'anno in cui sei nato in Edit1, per esempio 2010. Label1 scrive: «Quest'anno compi 16 anni». Il conto è 2026 − 2010.",ar:'اكتب سنة ولادتك في Edit1، مثلاً 2010. يكتب Label1: «هذه السنة تبلغ 16 سنة». الحساب هو 2026 − 2010.',zh:'在 Edit1 写你的出生年份，比如 2010。Label1 显示：「今年你满 16 岁」。计算是 2026 − 2010。'},
+ d:[{n:{it:'Anno di nascita (2010)',ar:'سنة الولادة (2010)',zh:'出生年份（2010）'},t:'I',p:{it:'Ci fai un conto (2026 − 2010): è un intero.',ar:'نحسب به (2026 − 2010): إنه عدد صحيح.',zh:'要用它计算（2026 − 2010）：是整数。'}},
+    {n:{it:"L'età (16)",ar:'العمر (16)',zh:'年龄（16）'},t:'I',p:{it:'È il risultato di un conto: un intero. Prima di scriverlo diventa testo.',ar:'إنه نتيجة حساب: عدد صحيح. قبل كتابته يصبح نصاً.',zh:'它是计算的结果：整数。写出来之前要变成文字。'}}],
+ q:[{q:{it:"Primo passo: Edit1.Text ('2010') diventa numero con…",ar:"الخطوة الأولى: Edit1.Text ('2010') يصبح رقماً باستعمال…",zh:"第一步：Edit1.Text（'2010'）用什么变成数字？"},s:[S2I,I2S],g:0,p:"StrToInt('2010') = 2010"},
+    {q:{it:'Secondo passo: il conto giusto è…',ar:'الخطوة الثانية: الحساب الصحيح هو…',zh:'第二步：正确的计算是……'},s:['2026 − 2010 = 16',"'2026' + '2010' = '20262010'"],g:0,p:{it:'Con due interi il − fa la sottrazione vera.',ar:'مع عددين صحيحين، − يطرح فعلاً.',zh:'两个整数之间的 − 才是真正的减法。'}},
+    {q:{it:'Terzo passo: 16 va in Label1.Caption con…',ar:'الخطوة الثالثة: 16 يذهب إلى Label1.Caption باستعمال…',zh:'第三步：16 用什么放进 Label1.Caption？'},s:[I2S,S2I,NIENTE],g:0,p:{it:"IntToStr(16) = '16': ora è testo.",ar:"IntToStr(16) = '16': الآن هو نص.",zh:"IntToStr(16) = '16'：现在是文字。"}}],
+ r:{it:["Leggo Edit1.Text: '2010', è testo.",'StrToInt: 2010.','Conto: 2026 − 2010 = 16.',"IntToStr: '16'.","Scrivo in Label1.Caption: Quest'anno compi 16 anni."],ar:["أقرأ Edit1.Text: '2010'، إنه نص.",'StrToInt: 2010.','الحساب: 2026 − 2010 = 16.',"IntToStr: '16'.",'أكتب في Label1.Caption: هذه السنة تبلغ 16 سنة.'],zh:["读取 Edit1.Text：'2010'，是文字。",'StrToInt：2010。','计算：2026 − 2010 = 16。',"IntToStr：'16'。",'写进 Label1.Caption：今年你满 16 岁。']}},
+{id:'scarpe',tit:{it:'Caso 7 · Il negozio di scarpe',ar:'الحالة 7 · متجر الأحذية',zh:'案例 7 · 鞋店'},
+ st:{it:'Il cliente scrive il modello in Edit1 (Air Max) e il suo numero di scarpe in Edit2 (42). Vuole provare un numero più grande. Label1 scrive: «Air Max numero 43».',ar:'الزبون يكتب الموديل في Edit1 (Air Max) ومقاس حذائه في Edit2 (42). يريد أن يجرّب مقاساً أكبر. يكتب Label1: «Air Max numero 43».',zh:'顾客在 Edit1 写款式（Air Max），在 Edit2 写鞋码（42）。他想试大一码。Label1 显示：「Air Max numero 43」。'},
+ d:[{n:{it:'Il modello (Air Max)',ar:'الموديل (Air Max)',zh:'款式（Air Max）'},t:'S',p:{it:'Sono lettere: testo.',ar:'إنها حروف: نص.',zh:'是字母：文字。'}},
+    {n:{it:'Il numero di scarpe (42)',ar:'مقاس الحذاء (42)',zh:'鞋码（42）'},t:'I',p:{it:'Ci facciamo un conto (+1): intero.',ar:'نحسب به (+1): عدد صحيح.',zh:'要用它计算（+1）：整数。'}}],
+ q:[{q:{it:'Che cosa fai con il modello (Edit1.Text)?',ar:'ماذا تفعل بالموديل (Edit1.Text)؟',zh:'款式（Edit1.Text）要怎么处理？'},s:[{it:'Niente: resta testo',ar:'لا شيء: يبقى نصاً',zh:'什么都不做：保持文字'},S2I],g:0,p:{it:'Il modello non entra in nessun conto.',ar:'الموديل لا يدخل في أي حساب.',zh:'款式不参加任何计算。'}},
+    {q:{it:'Che cosa fai con il numero (Edit2.Text)?',ar:'ماذا تفعل بالمقاس (Edit2.Text)؟',zh:'鞋码（Edit2.Text）要怎么处理？'},s:[{it:'StrToInt, poi + 1',ar:'StrToInt ثم + 1',zh:'先 StrToInt，再 + 1'},{it:'Niente',ar:'لا شيء',zh:'什么都不做'}],g:0,p:{it:"Il conto + 1 si fa solo su un numero: prima StrToInt('42') = 42.",ar:"الحساب + 1 يكون على رقم فقط: أولاً StrToInt('42') = 42.",zh:"+ 1 只能对数字做：先 StrToInt('42') = 42。"}},
+    {q:{it:'Per scrivere «Air Max numero 43», il 43 diventa testo con…',ar:'لكتابة «Air Max numero 43»، الرقم 43 يصبح نصاً باستعمال…',zh:'要写「Air Max numero 43」，43 用什么变成文字？'},s:[I2S,S2I],g:0,p:{it:"Testo + testo si attaccano: 'Air Max' + ' numero ' + '43'.",ar:"نص + نص يلتصقان: 'Air Max' + ' numero ' + '43'.",zh:"文字 + 文字连在一起：'Air Max' + ' numero ' + '43'。"}}],
+ r:{it:['Leggo il modello: è testo, resta così.','Leggo il numero: StrToInt, 42.','Conto: 42 + 1 = 43.',"IntToStr: '43'.","Attacco i testi: 'Air Max numero 43' in Label1.Caption."],ar:['أقرأ الموديل: إنه نص، يبقى كما هو.','أقرأ المقاس: StrToInt، 42.','الحساب: 42 + 1 = 43.',"IntToStr: '43'.","ألصق النصوص: 'Air Max numero 43' في Label1.Caption."],zh:['读取款式：是文字，保持不变。','读取鞋码：StrToInt，42。','计算：42 + 1 = 43。',"IntToStr：'43'。","把文字连起来：'Air Max numero 43' 写进 Label1.Caption。"]}}
+];
+/* ---- disegno dei casi (passi 3-9) ---- */
+var html='';
+CASI.forEach(function(c,i){var n=i+3,h='<div class="passo caso" data-p="'+n+'" id="p'+n+'" data-caso="'+c.id+'" data-auto="1"><span class="bollo">da fare</span><h2><span class="num">'+n+'</span>'+esc(c.tit.it)+'</h2>'+
+ '<p class="ar" lang="ar" dir="rtl">'+esc(c.tit.ar)+'</p><p class="zh" lang="zh">'+esc(c.tit.zh)+'</p><div class="storia">'+tri(c.st)+'</div>'+
+ '<figure><img class="sx-img" src="img/caso-'+(i+1)+'.svg" alt="'+esc(c.tit.it)+'" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot): si vede bene quando hai finito il caso.</figcaption></figure>'+
+ '<h3>'+esc(TX.dati.it)+'</h3><p class="ar" lang="ar" dir="rtl">'+esc(TX.dati.ar)+'</p><p class="zh" lang="zh">'+esc(TX.dati.zh)+'</p>';
+ c.d.forEach(function(d,j){h+='<div class="dom" data-k="d'+j+'"><p class="q">'+esc(d.n.it)+'</p><p class="ar q" lang="ar" dir="rtl">'+esc(d.n.ar)+'</p><p class="zh q" lang="zh">'+esc(d.n.zh)+'</p><div class="scelte">'+
+  ['S','I'].map(function(t){return '<button type="button" data-v="'+t+'">'+triB(TIPI[t])+'</button>'}).join('')+'</div><div class="esito"></div></div>'});
+ h+='<h3>'+esc(TX.passi.it)+'</h3><p class="ar" lang="ar" dir="rtl">'+esc(TX.passi.ar)+'</p><p class="zh" lang="zh">'+esc(TX.passi.zh)+'</p>';
+ c.q.forEach(function(q,j){h+='<div class="dom" data-k="q'+j+'"><p class="q">'+(j+1)+'. '+esc(q.q.it)+'</p><p class="ar q" lang="ar" dir="rtl">'+esc(q.q.ar)+'</p><p class="zh q" lang="zh">'+esc(q.q.zh)+'</p><div class="scelte">'+
+  q.s.map(function(s,k){return '<button type="button" data-v="'+k+'">'+triB(s)+'</button>'}).join('')+'</div><div class="esito"></div></div>'});
+ h+='<div class="racconto"><b>'+esc(TX.racc.it)+' · <span class="ar" lang="ar">'+esc(TX.racc.ar)+'</span> · <span class="zh" lang="zh">'+esc(TX.racc.zh)+'</span></b>'+
+  '<ol>'+c.r.it.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol><ol class="ar" lang="ar" dir="rtl">'+c.r.ar.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol><ol class="zh" lang="zh">'+c.r.zh.map(function(x){return '<li>'+esc(x)+'</li>'}).join('')+'</ol>'+
+  tri(TX.fine)+'</div></div>';
+ html+=h});
+$('casi').innerHTML=html;
+/* ---- stato ---- */
+var S=prendi(K,{}), R=prendi(KR,{}), TU=prendi(KT,{}), NOME=prendi(KN,'')||'';
+var P=[].slice.call(document.querySelectorAll('.passo'));
+function giusta(c,k){var x=k.charAt(0),j=+k.slice(1);return x==='d'?c.d[j].t:String(c.q[j].g)}
+function spieg(c,k){var x=k.charAt(0),j=+k.slice(1);return x==='d'?c.d[j].p:c.q[j].p}
+function voci(c){return c.d.map(function(_,j){return 'd'+j}).concat(c.q.map(function(_,j){return 'q'+j}))}
+function casoFatto(c){var r=R[c.id]||{};return voci(c).every(function(k){return r[k]&&r[k].ok})}
+function disegnaDom(div,c){var k=div.dataset.k,r=(R[c.id]||{})[k],g=giusta(c,k),es=div.querySelector('.esito');
+ [].forEach.call(div.querySelectorAll('.scelte button'),function(b){b.classList.remove('giusta','sbagliata');b.disabled=false;
+  if(r&&r.sbagliate&&r.sbagliate.indexOf(b.dataset.v)>=0)b.classList.add('sbagliata');
+  if(r&&r.ok){if(b.dataset.v===g)b.classList.add('giusta');b.disabled=true}});
+ if(!r){es.className='esito';es.innerHTML='';return}
+ es.className='esito '+(r.ok?'ok':'ko');es.innerHTML=r.ok?tri(TX.giusto)+tri(spieg(c,k)):tri(TX.sbagliato)}
+function scegli(c,div,v){var k=div.dataset.k,g=giusta(c,k);R[c.id]=R[c.id]||{};var r=R[c.id][k]||{tent:0,sbagliate:[]};
+ if(r.ok)return;r.tent++;if(r.tent===1)r.primo=(v===g);
+ if(v===g)r.ok=true;else if(r.sbagliate.indexOf(v)<0)r.sbagliate.push(v);
+ R[c.id][k]=r;metti(KR,R);disegnaDom(div,c);aggiornaCaso(c);disegna();ping(false)}
+function aggiornaCaso(c){var p=document.querySelector('.passo[data-caso="'+c.id+'"]'),f=casoFatto(c);S[p.dataset.p]=f;metti(K,S);p.querySelector('.racconto').classList.toggle('si',f)}
+CASI.forEach(function(c){var p=document.querySelector('.passo[data-caso="'+c.id+'"]');
+ [].forEach.call(p.querySelectorAll('.dom'),function(div){disegnaDom(div,c);[].forEach.call(div.querySelectorAll('.scelte button'),function(b){b.onclick=function(){scegli(c,div,b.dataset.v)}})});aggiornaCaso(c)});
+/* ---- Fallo tuo: controllo automatico, mai bloccante ---- */
+var HT={prog:{it:'Scrivi una frase sul tuo programma.',ar:'اكتب جملة عن برنامجك.',zh:'写一句关于你的程序的话。'},dato:{it:'Scrivi il nome del dato.',ar:'اكتب اسم المعلومة.',zh:'写数据的名称。'},
+ tipo:{it:'Scegli STRINGA o INTERO.',ar:'اختر STRINGA أو INTERO.',zh:'选择 STRINGA 或 INTERO。'},passi:{it:'Racconta i passi: almeno una frase.',ar:'احكِ الخطوات: جملة واحدة على الأقل.',zh:'讲出步骤：至少一句话。'},
+ int:{it:'È un INTERO: nei passi scrivi StrToInt (prima del conto) e IntToStr (prima della Label).',ar:'إنه INTERO: اكتب في الخطوات StrToInt (قبل الحساب) و IntToStr (قبل Label).',zh:'是整数：步骤里写 StrToInt（计算前）和 IntToStr（放进 Label 前）。'},
+ str:{it:'È una STRINGA: nei passi scrivi «nessuna conversione» (resta testo).',ar:'إنها STRINGA: اكتب في الخطوات «بدون تحويل» (تبقى نصاً).',zh:'是字符串：步骤里写「不转换」（保持文字）。'},
+ ok:{it:'Perfetto: il tuo programma è raccontato bene!',ar:'ممتاز: برنامجك محكي بشكل جيد!',zh:'太好了：你的程序讲得很好！'},
+ quasi:{it:'Quasi: guarda il suggerimento. Puoi correggere oppure andare avanti.',ar:'تقريباً: انظر إلى النصيحة. يمكنك التصحيح أو المتابعة.',zh:'差不多：看提示。你可以修改，也可以继续。'}};
+function controllaTuo(t){var m=[],base=true,low=(t.passi||'').toLowerCase();
+ if((t.prog||'').trim().length<8){m.push('prog');base=false}if((t.dato||'').trim().length<2){m.push('dato');base=false}
+ if(!t.tipo){m.push('tipo');base=false}if((t.passi||'').trim().length<15){m.push('passi');base=false}
+ if(base&&t.tipo==='I'&&!(/strtoint|da testo a numero/.test(low)&&/inttostr|da numero a testo/.test(low)))m.push('int');
+ if(base&&t.tipo==='S'&&!/nessun|niente|resta test|non serve|senza conver|بدون|不转换|不用转换/.test(low))m.push('str');
+ return {ok:m.length===0,base:base,manca:m}}
+window.controllaTuo=controllaTuo;
+function leggiTuo(){return {prog:$('t-prog').value,dato:$('t-dato').value,tipo:TU.tipo||'',passi:$('t-passi').value}}
+function disegnaTuo(mostra){[].forEach.call($('t-tipo').querySelectorAll('button'),function(b){b.classList.toggle('giusta',TU.tipo===b.dataset.t)});
+ if(!mostra||!TU.esito){$('t-esito').className='esito';$('t-esito').innerHTML='';return}var e=TU.esito;
+ $('t-esito').className='esito '+(e.ok?'ok':e.base?'gi':'ko');
+ $('t-esito').innerHTML=(e.ok?tri(HT.ok):e.base?tri(HT.quasi):tri(TX.sbagliato))+e.manca.map(function(k){return tri(HT[k])}).join('')}
+$('t-prog').value=TU.prog||'';$('t-dato').value=TU.dato||'';$('t-passi').value=TU.passi||'';
+['t-prog','t-dato','t-passi'].forEach(function(i){$(i).addEventListener('input',function(){var x=leggiTuo();TU.prog=x.prog;TU.dato=x.dato;TU.passi=x.passi;metti(KT,TU)})});
+[].forEach.call($('t-tipo').querySelectorAll('button'),function(b){b.onclick=function(){TU.tipo=b.dataset.t;metti(KT,TU);disegnaTuo(!!TU.esito)}});
+$('t-controlla').onclick=function(){var x=leggiTuo();TU.prog=x.prog;TU.dato=x.dato;TU.passi=x.passi;TU.esito=controllaTuo(x);TU.controllato=new Date().toISOString();metti(KT,TU);S['10']=TU.esito.base;metti(K,S);disegnaTuo(true);disegna();ping(false)};
+disegnaTuo(true);
+/* ---- nome, avanzamento, «Hai fatto / Ti manca / Vai qui adesso» ---- */
+var inp=$('nome');inp.value=NOME;
+inp.addEventListener('change',function(){var v=inp.value.trim().replace(/\s+/g,' ');if(v.split(' ').length<2){$('nomeok').textContent='Scrivi nome e cognome.';return}NOME=v;metti(KN,v);$('nomeok').textContent='Ciao '+v+'!';ping(true);disegna()});
+function corto(p){return p.querySelector('h2').textContent.replace(/^\d+/,'').split('·').slice(0,2).join('·').trim()}
+var ultimo=-1;
+function ping(forza){if(!CONF.attivo||!CONF.invio||!NOME)return;var fatti=P.filter(function(p){return S[p.dataset.p]}).length;if(fatti===ultimo&&!forza)return;ultimo=fatti;
+ var max=0;P.forEach(function(p){if(S[p.dataset.p])max=Math.max(max,+p.dataset.p)});
+ var d={id:'avz-'+SLUG,modo:'avanzamento',classe:'1INF',nome:NOME,scheda:max,totale:P.length,risposte:fatti,titolo:max?corto(P[max-1]):'',quando:new Date().toISOString()};
+ try{fetch(CONF.invio,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'d='+encodeURIComponent(JSON.stringify(d))}).catch(function(){})}catch(x){}}
+function punteggio(){var g=0,su=0;CASI.forEach(function(c){var r=R[c.id]||{};voci(c).forEach(function(k){su++;if(r[k]&&r[k].primo)g++})});return {giusti_primo:g,su:su}}
+function disegna(){var prossimo=null;P.forEach(function(p){var f=!!S[p.dataset.p];p.classList.toggle('fatto',f);p.classList.remove('ora');p.querySelector('.bollo').textContent=f?'FATTO':'da fare';
+  var b=p.querySelector('button.fb');if(b)b.textContent=f?'Fatto ✓ (clic per togliere)':(p.dataset.p==='2'?'Ho letto!':'Ho fatto!');if(!f&&!prossimo)prossimo=p});
+ if(prossimo){prossimo.classList.add('ora');prossimo.querySelector('.bollo').textContent='ADESSO'}
+ var n=P.filter(function(p){return S[p.dataset.p]}).length;$('barra').style.width=Math.round(100*n/P.length)+'%';
+ $('conta').textContent='Passi fatti: '+n+' su '+P.length+(n===P.length?' — BRAVO, hai finito!':'');
+ var fa=P.filter(function(p){return S[p.dataset.p]}).map(function(p){return p.dataset.p}),ma=P.filter(function(p){return !S[p.dataset.p]}).map(function(p){return p.dataset.p});
+ $('d-fatto').textContent=fa.length?'passi '+fa.join(', '):'niente, per ora';$('d-manca').textContent=ma.length?'passi '+ma.join(', '):'niente: hai finito!';
+ if(prossimo){$('vai').style.display='';$('vai').textContent='Passo '+prossimo.dataset.p+' · '+corto(prossimo)+' →';$('vai').href='#p'+prossimo.dataset.p}else $('vai').style.display='none';
+ var pu=punteggio(),cf=CASI.filter(casoFatto).length;$('riepilogo').textContent='Casi fatti: '+cf+' su '+CASI.length+' · giuste al primo colpo: '+pu.giusti_primo+' su '+pu.su+' · il tuo programma: '+(TU.esito&&TU.esito.base?'✔':'non ancora');}
+P.forEach(function(p){var b=p.querySelector('button.fb');if(b&&!p.dataset.auto)b.onclick=function(){S[p.dataset.p]=!S[p.dataset.p];metti(K,S);disegna();ping(false)}});
+/* ---- consegna con UN bottone (canale del ponte, come le altre pagine) ---- */
+window.costruisciConsegna=function(nome){var pu=punteggio();
+ return {id:'1inf-tipi0511',modo:'verifica',classe:'1INF',nome:nome,cosa:'casi',chiave:Date.now().toString(36),punteggio:pu,
+  casi:CASI.map(function(c){var r=R[c.id]||{};return {id:c.id,fatto:casoFatto(c),voci:voci(c).map(function(k){var x=r[k]||{};return {k:k,primo:!!x.primo,tentativi:x.tent||0,sbagliate:x.sbagliate||[]}})}}),
+  fallo_tuo:{programma:TU.prog||'',dato:TU.dato||'',tipo:TU.tipo||'',passi:TU.passi||'',controllo:TU.esito||null},
+  passi_fatti:P.filter(function(p){return S[p.dataset.p]}).map(function(p){return +p.dataset.p}),quando:new Date().toISOString()}};
+function postaForm(d){var f=document.createElement('form');f.method='POST';f.action=CONF.invio;f.target='_blank';f.acceptCharset='UTF-8';
+ var i=document.createElement('input');i.type='hidden';i.name='d';i.value=JSON.stringify(d);f.appendChild(i);document.body.appendChild(f);f.submit();f.remove()}
+$('manda').onclick=function(){var v=(inp.value||'').trim().replace(/\s+/g,' ');
+ if(v.split(' ').length<2){$('msg').className='msg ko';$('msg').textContent='Scrivi nome e cognome in alto (Chi sei?), poi premi di nuovo.';inp.focus();return}
+ NOME=v;metti(KN,v);var d=window.costruisciConsegna(NOME);
+ if(!CONF.attivo||!CONF.invio){$('msg').className='msg ko';$('msg').textContent='ANTEPRIMA: invio spento.';return}
+ try{postaForm(d);S['11']=true;metti(K,S);metti('consegnato-'+SLUG,d.quando);disegna();ping(true);
+  $('msg').className='msg ok';$('msg').textContent='Mandato! Si è aperta una scheda con «Consegna arrivata al prof». Puoi mandare di nuovo quando vuoi: vale l\'ultima.'}
+ catch(x){$('msg').className='msg ko';$('msg').textContent='Non è partito. Premi di nuovo «Manda al prof».'}};
+/* ---- lingue ---- */
+function lingua(l){document.body.classList.toggle('no-ar',l==='zh');document.body.classList.toggle('no-zh',l==='ar');
+ [].forEach.call($('lingue').querySelectorAll('button'),function(b){b.classList.toggle('on',b.dataset.l===l)});metti(KL,l)}
+[].forEach.call($('lingue').querySelectorAll('button'),function(b){b.onclick=function(){lingua(b.dataset.l)}});lingua(prendi(KL,'tutte'));
+/* ---- quiz dal config.json ---- */
+function quiz(){var u=(CONF.quiz_tipi||'').trim();['quiz-top','quiz-bt'].forEach(function(i){var a=$(i);
+ if(u){a.href=u;a.target='_blank';a.classList.remove('spento');if(i==='quiz-bt')a.innerHTML='Apri il quiz · <span class="ar" lang="ar">افتح الاختبار</span> · <span class="zh" lang="zh">打开测验</span>'}
+ else if(i==='quiz-top'){a.href='#p12';a.removeAttribute('target');a.classList.remove('spento')}
+ else{a.classList.add('spento');a.href='#'}})}
+function giro(){fetch('config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){CONF=c||{};quiz()}).catch(function(){})}
+disegna();giro();setInterval(giro,30000);setInterval(function(){ping(true)},120000);
+})();
+</script></body></html>
