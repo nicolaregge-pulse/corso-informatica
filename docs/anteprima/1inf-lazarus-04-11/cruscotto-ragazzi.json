@@ -1,8 +1,8 @@
 {
  "titolo": "1INF · Laboratorio 04/11 · Lazarus, ora nuova e recuperi",
- "generato": "2026-11-04T08:45",
- "ora": "08:45",
- "fonte": "BOZZA 04/11 · segnali Foglio: non ancora scaricati · consegne pagina: 0 · file Classroom: 0 · quiz 5+3: 0 · Veyon: 34 righe · presenti: dal registro · recuperi Sicurezza letti da: 29/10 13:49 (2ª) e 13:59 (3ª), 1ª ora = pagina del 22/10; rilettura accodata il 03/11, non ancora eseguita",
+ "generato": "2026-11-04T09:20",
+ "ora": "09:20",
+ "fonte": "BOZZA 04/11 · segnali Foglio: non ancora scaricati · consegne pagina: 1 · file Classroom: 0 · quiz 5+3: 15 · Veyon: 34 righe · presenti: dal registro · recuperi Sicurezza letti da: 29/10 13:49 (2ª) e 13:59 (3ª), 1ª ora = pagina del 22/10; rilettura accodata il 03/11, non ancora eseguita",
  "kpi_proposti": true,
  "fonti_ora": [
   {
@@ -31,8 +31,8 @@
   },
   {
    "fonte": "Veyon",
-   "ora": "08:30",
-   "iso": "2026-11-04T08:30+01:00",
+   "ora": "08:45",
+   "iso": "2026-11-04T08:45+01:00",
    "vecchio": true
   },
   {
@@ -43,6 +43,61 @@
   }
  ],
  "righe": [
+  {
+   "nome": "Giexther A.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": true,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "perc": "",
+   "quiz": {
+    "p": 7,
+    "m": 8,
+    "ora": "08:47"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "09:08",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 1.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 7/8 (almeno 6/8) +10"
+   ]
+  },
   {
    "nome": "Christian A.",
    "ore": {
@@ -74,9 +129,13 @@
      "ultimo": ""
     }
    },
-   "voto": 40,
+   "voto": 50,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "09:09"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -90,7 +149,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
    ]
   },
   {
@@ -124,9 +184,13 @@
      "ultimo": ""
     }
    },
-   "voto": 40,
+   "voto": 50,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "09:09"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -140,57 +204,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Giexther A.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 16,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 11,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "perc": "",
-   "quiz": null,
-   "quad": false,
-   "voce": false,
-   "rec": {
-    "sic": null,
-    "l1": null,
-    "l2": null
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
    ]
   },
   {
@@ -224,9 +239,13 @@
      "ultimo": ""
     }
    },
-   "voto": 40,
+   "voto": 50,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 6,
+    "m": 8,
+    "ora": "09:05"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -240,7 +259,228 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 6/8 (almeno 6/8) +10"
+   ]
+  },
+  {
+   "nome": "Muhid H.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "perc": "",
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "09:02"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
+   ]
+  },
+  {
+   "nome": "Moaaz M.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "perc": "",
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "08:48"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
+   ]
+  },
+  {
+   "nome": "Muhammad N.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "perc": "",
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "09:00"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
+   ]
+  },
+  {
+   "nome": "Shanzay S.",
+   "ore": {
+    "1": {
+     "passo": 0,
+     "tot": 16,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "2": {
+     "passo": 0,
+     "tot": 13,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    },
+    "3": {
+     "passo": 0,
+     "tot": 11,
+     "pas": false,
+     "png": false,
+     "ok": null,
+     "manca": [],
+     "ultimo": ""
+    }
+   },
+   "voto": 50,
+   "perc": "",
+   "quiz": {
+    "p": 8,
+    "m": 8,
+    "ora": "09:13"
+   },
+   "quad": false,
+   "voce": false,
+   "rec": {
+    "sic": null,
+    "l1": null,
+    "l2": null
+   },
+   "fermo_da": "",
+   "veyon": {
+    "fuori": 0
+   },
+   "svolto": 0.0,
+   "conto": [
+    "base 40",
+    "quiz 5+3 8/8 (almeno 6/8) +10"
    ]
   },
   {
@@ -276,7 +516,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "09:09"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -290,7 +534,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -426,7 +671,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 2,
+    "m": 8,
+    "ora": "09:10"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -440,11 +689,12 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 2/8 (sotto 6/8) +0"
    ]
   },
   {
-   "nome": "Muhid H.",
+   "nome": "Wesley J.",
    "ore": {
     "1": {
      "passo": 0,
@@ -526,7 +776,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "08:55"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -540,57 +794,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Moaaz M.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 16,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 11,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "perc": "",
-   "quiz": null,
-   "quad": false,
-   "voce": false,
-   "rec": {
-    "sic": null,
-    "l1": null,
-    "l2": null
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -626,7 +831,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "08:46"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -640,7 +849,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -676,7 +886,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 3,
+    "m": 8,
+    "ora": "08:58"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -690,57 +904,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Muhammad N.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 16,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 11,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "perc": "",
-   "quiz": null,
-   "quad": false,
-   "voce": false,
-   "rec": {
-    "sic": null,
-    "l1": null,
-    "l2": null
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 3/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -776,7 +941,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "08:58"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -790,57 +959,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
-   ]
-  },
-  {
-   "nome": "Shanzay S.",
-   "ore": {
-    "1": {
-     "passo": 0,
-     "tot": 16,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "2": {
-     "passo": 0,
-     "tot": 13,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    },
-    "3": {
-     "passo": 0,
-     "tot": 11,
-     "pas": false,
-     "png": false,
-     "ok": null,
-     "manca": [],
-     "ultimo": ""
-    }
-   },
-   "voto": 40,
-   "perc": "",
-   "quiz": null,
-   "quad": false,
-   "voce": false,
-   "rec": {
-    "sic": null,
-    "l1": null,
-    "l2": null
-   },
-   "fermo_da": "",
-   "veyon": {
-    "fuori": 0
-   },
-   "svolto": 0.0,
-   "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   },
   {
@@ -876,7 +996,11 @@
    },
    "voto": 40,
    "perc": "",
-   "quiz": null,
+   "quiz": {
+    "p": 5,
+    "m": 8,
+    "ora": "08:55"
+   },
    "quad": false,
    "voce": false,
    "rec": {
@@ -890,7 +1014,8 @@
    },
    "svolto": 0.0,
    "conto": [
-    "base 40"
+    "base 40",
+    "quiz 5+3 5/8 (sotto 6/8) +0"
    ]
   }
  ]

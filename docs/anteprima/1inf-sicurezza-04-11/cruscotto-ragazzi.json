@@ -1,12 +1,12 @@
 {
  "titolo": "1INF · 04/11 · Sicurezza 4ª ora e recuperi",
- "generato": "2026-11-04T08:45",
- "ora": "08:45",
- "fonte": "presenti: 17 · segnali della pagina: 0 · quiz 4ª: 04/11 08:17 · recuperi letti: 2 04/11 08:13, 3 04/11 08:13, B 04/11 08:13 · Veyon: giri letti",
+ "generato": "2026-11-04T09:20",
+ "ora": "09:20",
+ "fonte": "presenti: 18 · segnali della pagina: 0 · quiz 4ª: 04/11 08:17 · recuperi letti: 2 04/11 08:13, 3 04/11 08:13, B 04/11 08:13 · Veyon: giri letti",
  "kpi_proposti": true,
  "veyon_ok": true,
  "avvisi": [
-  "17 presenti (presenze del 04/11)"
+  "18 presenti (presenze del 04/11)"
  ],
  "legenda": "Il voto parte da 40: schede e ripasso fatti +10, quiz della 4ª ora con almeno 70 punti +20, quaderno +5 (massimo 80). I recuperi (quiz 2ª e 3ª ora al 70%, quiz breve B 6 su 8) si mostrano a parte e NON cambiano il voto di oggi. Proposta, la conferma il Professore.",
  "colonne": [
@@ -641,6 +641,49 @@
    "veyon": {
     "fuori": 0,
     "giri": 2
+   }
+  },
+  {
+   "nome": "Wesley J.",
+   "voto": 40,
+   "conto": [
+    "base 40"
+   ],
+   "celle": {
+    "pag": {
+     "ok": null,
+     "t": "nessun segnale"
+    },
+    "quiz": {
+     "ok": false,
+     "t": "da fare"
+    },
+    "quad": {
+     "ok": null,
+     "t": "da controllare a vista"
+    },
+    "r2": {
+     "ok": false,
+     "t": "da recuperare"
+    },
+    "r3": {
+     "ok": false,
+     "t": "da recuperare"
+    },
+    "rB": {
+     "ok": null,
+     "t": "nessuna lettura"
+    },
+    "rp": {
+     "ok": null,
+     "t": "non aperta"
+    }
+   },
+   "fermo_da": "",
+   "svolto": -0.02,
+   "veyon": {
+    "fuori": 0,
+    "giri": 0
    }
   },
   {
