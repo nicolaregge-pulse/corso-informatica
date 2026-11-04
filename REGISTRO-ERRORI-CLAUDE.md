@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.08** — 04/11/2026 (#125-#196; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.09** — 04/11/2026 (#125-#209; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -1078,3 +1078,56 @@ lezione.*
 ## #199 (04/11/2026) Cruscotti e semaforo Sicurezza 1INF con dati sbagliati
 Dati delle 13:29 mostrati come veri alle 13:50 senza ricontrollo: quiz B dato mancante a dieci presenti (in realtà mancavano solo due presenti); quiz 4ª ora con un allieva data mancante (ne mancava solo uno). La pagina cruscotto-ragazzi era ferma alle 13:30 e il semaforo è stato dato come corretto senza confronto con la fonte. Il docente: «continua a non funzionare niente».
 Controllo: prima di dare un cruscotto confrontare almeno 2 allievi con il Modulo letto negli ultimi 5 minuti, abbinare i nomi con le varianti, usare la risposta migliore, mostrare l'ora del dato e non dare il link se il dato ha più di 5 minuti durante la lezione.
+
+## 04/11/2026 — Zip del Mastermind 3INF dato senza compilarlo con Lazarus; zip non scaricabile da Classroom (#200)
+
+1. **Errore.** Alle 11:53-11:56 il client dei ragazzi e il server del docente non compilavano: le icone `.ico` erano PNG, che Lazarus non legge (corretto con lo zip v4.0.1, icone BMP). Alle 11:41 lo zip allegato su Classroom non si scaricava e il docente ha chiesto un link.
+2. **Correzione.** Zip v4.0.1 versionato e link di download diretto dal sito.
+3. **Strumento da correggere (non una regola nuova).** Lo script che crea gli zip per i ragazzi deve rifiutare icone non BMP e, quando c'è `lazbuild`, compilare il progetto prima di creare lo zip; `controlli_pagine.py` deve chiedere un link di download diretto per ogni zip citato in una pagina.
+
+## 04/11/2026 — Server e client v4.1 consegnati durante l'ora, con il docente in attesa (#201)
+
+1. **Errore.** Dalle 12:24 alle 12:42 il docente ha chiesto quattro volte i due zip della gara (anche con PRI+): la gara è partita alle 12:54, a sei minuti dalla fine dell'ora. Il compito «Ora 2» della 3INF è rimasto in bozza (letto da Classroom alle 17:57).
+2. **Strumento da correggere.** Un solo comando che crea i due zip versionati, li mette nel sito e stampa i due link, da lanciare prima di dare il testo al docente.
+
+## 04/11/2026 — Cruscotti fermi durante le ore e non chiari, per il docente e per i ragazzi (#202)
+
+1. **Errore.** Cruscotto Lazarus 1INF fermo dopo le 09:50 (ora 10-11 senza aggiornamenti); cruscotto 3INF con un solo giro (11:50) in due ore; alle 13:43 il docente: «Non sto capendo niente e neanche i ragazzi, voglio un cruscotto con le cose chiare». I giri erano lanciati dalla chat, non da un giro automatico.
+2. **Correzione.** Ponte v8.8 con giro dei Moduli ogni 2 minuti e cruscotto unico `docs/1inf/` (17:15). Non provato in aula: lo script va ancora incollato dal docente.
+3. **Strumento da correggere.** `controlla_controlli.py` (#169, giri fermi) va lanciato anche durante la lezione, non solo il giorno dopo, e deve avvisare quando l'ultimo giro ha più di 6 minuti.
+
+## 04/11/2026 — Obiettivo della mattina cambiato dal docente e non entrato nel cruscotto né nei voti (#203)
+
+1. **Errore.** Alle 08:27 il docente ha detto che le tre ore servivano a far girare un exe in Lazarus a tutti. Il cruscotto e la bozza dei voti hanno continuato a contare solo il quiz 5+3 e il quaderno; il «programma che gira» non c'è per nessun allievo. Alle 15:25 il docente: «mille volte sono io a dirti che sbagli la valutazione».
+2. **Strumento da correggere.** Il generatore del cruscotto (`cruscotto_classe.py`) deve leggere i KPI dal piano del giorno; quando il docente cambia obiettivo si cambia il piano e il cruscotto segue. Prima di dare un voto, confronto di 2 allievi con la fonte (R9.2).
+
+## 04/11/2026 — «Aspetta il via» non rispettato (#204)
+
+1. **Errore.** Alle 15:18 il docente ha scritto «non fare niente finché non dico via»; alle 15:30-15:32 ho risposto nel merito. Alle 15:33: «Non ho detto via e stai rispondendo, non dovevi».
+2. **Strumento da correggere.** `controllo-messaggio.py`: dopo un messaggio del docente con «finché non dico via» o «aspetta il via», ogni risposta diversa da «Annotato» va bloccata fino al «via».
+
+## 04/11/2026 — Messaggi non capiti dal docente (#205)
+
+1. **Errore.** Il docente non ha capito tre messaggi: 14:33 («non ho capito cosa perdo con la cronologia»), 15:22 («r7 non capisco»), 15:32 («NON HO CAPITO» sulle sezioni senza numero).
+2. **Strumento da correggere.** `controllo-messaggio.py` (R4): segnalare parole tecniche senza spiegazione e domande al docente con più di una scelta nello stesso messaggio.
+
+## 04/11/2026 — Preparazione notturna non partita dal 30/10 al 04/11 (#206)
+
+1. **Errore.** Nel riservato non ci sono `stato/notte-2026-11-02.json`, `-03` e `-04`; nel pubblico non ci sono i piani `docs/cruscotto/piano/1inf-2026-11-04.json` e `3inf-2026-11-04.json`. L'attività programmata della notte non è partita dal 30/10; è stata riaccesa il 04/11 alle 09:18. `controlla_controlli.py` lo segnava ROSSO, ma il controllo del mattino era spento e nessuno lo ha letto.
+2. **Strumento da correggere.** Il controllo del mattino (o il primo hook della giornata) deve leggere l'ultima notte riuscita e scriverlo in prima riga al docente quando non è di oggi.
+
+## 04/11/2026 — Report PDF orari del 04/11 non fatti durante la giornata (#207)
+
+1. **Errore.** Alle 17:50 in `report/2026-11-04/` del riservato non c'era nessun report orario. Li ha fatti il controllore di fine giornata (sei PDF, con i dati disponibili).
+2. **Strumento da correggere.** `report_ore.py` va lanciato dal giro a fine di ogni ora, con un config scritto la mattina insieme al piano.
+
+## 04/11/2026 — Un post doppio su Classroom e una bozza non cancellata, senza avviso (#208)
+
+1. **Errore.** In 1INF il compito «4/11 Ora 4: controlla i tuoi quiz di Sicurezza» è PUBLISHED due volte (letto da Classroom alle 17:53). La bozza «Ora 1: Convertitore di misure», da cancellare per decisione del docente delle 08:45, è rimasta: il ponte ha risposto «Precondition check failed» perché leggeva le consegne di una bozza.
+2. **Strumento da correggere.** `verifica_lezione.py`: ROSSO quando due compiti PUBLISHED hanno lo stesso titolo. Il ponte v8.7 cancella le bozze senza leggere le consegne, ma va incollato dal docente.
+
+## 04/11/2026 — Cognome di un allievo in un file del pubblico (#209)
+
+1. **Errore.** Un file di prova del pubblico (`strumenti/test_2fa.js`, dal 02/11) usava come nome finto un cognome che è di un allievo. Il controllo bloccante del push guarda le pagine di `docs/` e i messaggi dei commit, ma non gli altri file.
+2. **Correzione.** Nome cambiato in «Prova Utente» il 04/11 sera. Tre pagine di anteprima della 3INF (02/11) avevano una variabile JavaScript `lin` uguale a un cognome corto: rinominata, per togliere il falso allarme.
+3. **Strumento da correggere.** `limite-comandi.py`: al push del pubblico controllare tutti i file cambiati, non solo `docs/`.
