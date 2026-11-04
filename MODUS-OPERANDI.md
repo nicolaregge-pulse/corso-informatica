@@ -1,15 +1,15 @@
 # Modus operandi del corso
 
-**Versione 1.7** — 29/10/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.8** — 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
-Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, valgono questo documento e CLAUDE.md.
+Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, vale `CLAUDE.md` (versione 2.0 del 04/11/2026, regole R1-R11), poi questo documento.
 
 ## 00 Le cinque regole che vengono prima di tutto
 
-1. **Prima di proporre qualcosa ai ragazzi si chiede: «Pubblico o vuoi vederlo prima?».** Si pubblica solo dopo la parola «pubblica» o un sì esplicito. Un orario detto prima non vale come via (#41).
-2. **Ordine fisso di ogni lezione:** prima si guarda insieme la teoria, poi il compito, poi si pubblica.
-3. **Decide il docente.** Se il docente ragiona ad alta voce o scrive considerazioni, Claude non decide al suo posto: se non è chiaro, fa una domanda sola (#54). Se il docente dice «fai tu», Claude decide con le regole di questo documento e avvisa di ogni cosa fatta.
-4. **Prima i fatti, poi le parole:** si dice «fatto» solo dopo un controllo vero (pagina provata nel browser, controllo automatico passato, file pubblicato).
+1. **Su Classroom si pubblica solo con il comando «PUBB n»** (n = ora della giornata, 1 = 8-9 … 6 = 13-14), un'ora per volta; il pacchetto per il post a mano è sempre pronto; se il compito non risulta PUBLISHED, la prima riga è «PUBB n NON riuscito: pubblica a mano» (CLAUDE.md R2). La domanda «Pubblico o vuoi vederlo prima?» non si fa più (04/11/2026).
+2. **Lezione nuova:** se c'è tempo, si guarda insieme prima la teoria e poi il compito; non blocca il PUBB n.
+3. **Decide il docente.** Se il docente ragiona ad alta voce o scrive considerazioni, Claude non decide al suo posto: se non è chiaro, fa una domanda sola (#54), come criticità nel bottone rosso (CLAUDE.md R8). Se il docente dice «fai tu», Claude decide con le regole di questo documento e avvisa di ogni cosa fatta.
+4. **Prima i fatti, poi le parole:** si dice «fatto» solo dopo un controllo vero, con la fonte e l'ora del dato (CLAUDE.md R7).
 5. **Tutto versionato:** ogni file va nel repository, con commit e push; i dati con i nomi dei ragazzi solo nel repository riservato.
 6. **Per ogni cosa si prepara anche il piano B, già pronto e provato (Nicola, 29/10/2026).**
 
@@ -18,7 +18,7 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
 1. **Un solo compito su Classroom**, con un link fisso a una pagina che si aggiorna da sola.
 2. La pagina si costruisce come dice `REGOLE-COSTRUZIONE-TEORIA.md`: titolo, il percorso di oggi in alto, FASE 1 la teoria (solo da leggere), FASE 2 i bottoni verdi del lavoro. I link si aprono in una scheda nuova.
 3. **Il compito lo devono poter iniziare tutti:** frasi da quinta elementare, una per riga; il primo passo è una risposta che tutti sanno dare (#43).
-4. **Tutto al computer:** niente foto, niente telefono, niente carta e penna, se il docente non lo chiede (#44, #45).
+4. **Tutto al computer:** niente foto, niente telefono, niente carta e penna (#44, #45). Per la 1INF la pagina ha una riga «Ricopia sul quaderno» (CLAUDE.md R9).
 5. **Ogni attività si controlla dalla pagina del prof**, senza passare banco per banco.
 
 ## 02 Le lingue di ogni classe
@@ -27,7 +27,8 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
 |---|---|
 | 1INF | italiano, arabo, cinese |
 | 2INF | solo italiano |
-| 3INF | italiano e bengalese |
+| 3INF | italiano, più una riga in bangla solo per il PC 14 |
+| 4TI | solo italiano |
 
 1. Per una classe solo italiano ogni pagina passa da `strumenti/solo_italiano.py`: toglie le altre lingue e, se ne resta anche un carattere, blocca la pubblicazione (#49).
 2. Una pagina non si copia da un'altra classe senza rifare il controllo delle lingue.
@@ -54,6 +55,8 @@ Il metodo completo sta in `GIRO-PULL-REQUEST.md`. In breve:
 6. Nei giochi di scuola niente sangue: si propone un'alternativa.
 
 ## 05 La sezione dei bottoni nella pagina del compito
+
+> **Superato dal 04/11/2026:** i sei bottoni non si usano più; vale il cruscotto unico della classe, a indirizzo fisso, con dati identici per ragazzi e docente e una parte cifrata solo per il docente (CLAUDE.md R8). Il capitolo resta come storia.
 
 In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riquadro con i bottoni. Il docente li ritrova sempre aprendo il lavoro della classe su Classroom.
 
@@ -83,7 +86,7 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 ## 08 Come Claude dà le istruzioni al docente
 
 1. Ogni passo è una **frase semplice** che comincia con il verbo («Clicca…», «Premi…», «Torna…»), con il «dove» detto a parole dentro la frase; mai catene di coordinate separate da «·». Dove si può si usano i tasti (Ctrl+T, Ctrl+V, Invio) invece di cercare un bottone (#56).
-2. Ogni testo da scrivere è già nel messaggio, in un riquadro da copiare, **subito dopo** il passo che lo usa (#46).
+2. Ogni testo da scrivere è già nel messaggio, in un riquadro da copiare, **subito dopo** il passo che lo usa (#46). La cosa bloccante va da sola in prima riga; niente log in chat (CLAUDE.md R4).
 3. **La memoria del copia e incolla si considera vuota:** prima si apre la pagina dove si incolla, poi si copia, poi si incolla (#50).
 4. **Formato atomico:** più passi in un messaggio, ognuno completo; ogni gruppo di passi finisce con «Dopo devi vedere: …» (#47). Niente screenshot a ogni passo.
 5. **Mappa vera dello schermo:** i campi si indicano per posizione; prima di guidare un programma mai visto, una schermata sola, salvata come mappa (#51).
@@ -105,7 +108,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 10 Il registro (DIDAweb)
 
-1. Firma **subito in classe**, entro le 14:05, con il programma previsto; a fine giornata si sistemano gli argomenti.
+1. Firma **subito in classe**, entro le 14:05, con il programma previsto; a fine giornata si sistemano gli argomenti, legati all'Allegato A della classe (CLAUDE.md R5).
 2. Il bottone «FIRMA ✓» c'è anche sulle ore già firmate: da una schermata non si dice mai che un'ora non è firmata. Se il docente dice «firmate», è così (#52).
 3. Testo del registro corto: una frase, al massimo circa 40 caratteri.
 
@@ -132,6 +135,8 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 | `GIRO-PULL-REQUEST.md` | il giro delle PR in classe, passo per passo |
 | `REGOLE-COSTRUZIONE-TEORIA.md` | come si costruisce la pagina della lezione |
 | `METODOLOGIA-CORSO.md` | la metodologia del corso, da stampare |
+| `GUIDA-MESSAGGI-AL-DOCENTE.md` | come Claude scrive al docente (CLAUDE.md R4) |
+| `GUIDA-STRUMENTI-E-FILE.md` | programmi, registro, lingue, versioni |
 | `REGISTRO-ERRORI-CLAUDE.md` | gli errori, con la regola nata da ognuno |
 | `RIFERIMENTI-E-DECISIONI.md` | le decisioni, numerate |
 
@@ -144,4 +149,5 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 2. **v1.1 (12/10/2026)**: valutazione dei singoli con COGNOME Nome, in ordine alfabetico.
 1. **v1.0 (12/10/2026)**: prima versione, con le decisioni del 09/10 e del 12/10/2026.
 39. v1.6 (27/10/2026): ritmo dello script (v8.3) e nuova versione del deployment dopo ogni cambio dello script.
+41. v1.8 (04/11/2026): allineato a CLAUDE.md v2.0: capitolo 00 punti 1-4 (PUBB n, niente «Pubblico o vuoi vederlo prima?», fonte e ora), 01.4 quaderno della 1INF, 02 lingue di 3INF e 4TI, 05 superato dal cruscotto unico, 08.2, 10.1, 13 guide nuove.
 40. v1.7 (29/10/2026): capitolo 00 punto 6, il piano B per ogni cosa; capitolo 03 punto 3, Lazarus si consegna sempre con unit1.pas e screenshot.

@@ -1,56 +1,25 @@
 #!/usr/bin/env python3
 """Hook Stop: controlla l'ultimo messaggio di Claude prima che arrivi al docente.
 
-Se trova uno degli errori registrati, blocca la fine del turno con
+Versione ridotta del 04/11/2026 (decisioni del docente su REGOLE-DA-DECIDERE.md): da 35
+controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
 {"decision": "block", "reason": ...}: Claude deve riscrivere il messaggio.
-1. (a) Ordine copia/incolla sbagliato (#50, #138): dopo un «Ctrl+C» del
-       contenuto di una pagina compare un riquadro da copiare (o un'altra
-       copia) prima del «Ctrl+V».
-2. (b) Cosa bloccante non in cima (#137): firma, scadenza, 14:05, uscita,
-       PC rotto, non compila presenti ma non nelle prime 2 righe.
-3. (c) «Fatto», «a posto», «funziona», «risolto» detti senza prova nello
-       stesso messaggio (#63, #115, #128, #135).
-4. (d) «pubblicat…», «è tutto pronto», «tutto a posto», «è online», «possono
-       cominciare» riferiti a una classe senza la verifica sulla fonte vera:
-       nel riservato serve dati/verifiche-lezione/<oggi>_<CLASSE>.json,
-       VERDE e non più vecchio di 15 minuti (generatori/verifica_lezione.py;
-       #63 #83 #104 #105 #115 #120 #127 #128 #135).
-Aggiunti il 28/10/2026 sera (MAPPA-REGOLE-CONTROLLI.md):
-5. (e) link al sito senza «PUBBLICATO» delle ultime modifiche di docs/ (#79, #78);
-6. (f) tempi promessi per ciò che fa lo script, senza piano B (#129, #130);
-7. (g) stringa dei voti DIDAweb senza «Disciplina» (#98, #117);
-8. (h) «nessuna AI» senza aver visto tutte le finestre (#90);
-9. (i) «utente non indicato» invece di chiedere chi c'è (#100);
-10. (j) «onestamente», «sinceramente»… (#53);
-11. (k) passi come catene di coordinate con « · » (#56);
-12. (l) istruzioni con «salta al passo» / «se la scheda è già aperta» (#55);
-13. (m) firma ricordata quando FIRME-REGISTRO dice che oggi è tutto firmato (#36 #52 #87 #96);
-14. (n) il docente chiede di registrare un errore e il messaggio non ha il numero #NNN (#113);
-15. (o) link al riservato senza «personale»; script copiato dal riservato (#48; 07/10 n. 29);
-16. (p) indirizzo diretto del progetto Apps Script (regola 10, #51);
-17. (q) più di 30 righe di testo nelle ore di lezione (05/10 n. 6, #132);
-18. (r) «non ha consegnato», «non risulta» senza dire dove si è controllato (#83 #95);
-19. (s) «ha copiato» detto come certo (01/10 n. 6);
-20. (t) «al tuo avanti» quando il docente ha chiesto «dammi/fammi» (05/10 n. 21);
-21. (u) rimando a riquadri di messaggi precedenti (05/10 n. 31);
-22. (v) «incolla» in Apps Script senza il file automazione-corso.gs (#51);
-e in (g) anche i voti sotto 40 nella stringa DIDAweb (05/10 n. 23).
-Aggiunti il 29/10/2026 pomeriggio (audit della giornata):
-23. (w) «N consegnati su M» senza fonte e ora della lettura (#151);
-24. (x) attività automatica o notturna dichiarata pronta senza una prova eseguita (#152);
-25. (y) pagina provata solo con dati simulati «?prova=1» (#153);
-26. (z) domanda al docente su presenze o voti già nei file del giorno (#154).
-Aggiunti il 29/10/2026 sera (controllore di fine giornata):
-27. (aa) release detta «della cartella» o «del progetto» dentro un repository con più progetti (#157);
-28. (bb) più di 2 aiutanti accesi insieme durante la lezione (#143).
-Aggiunti il 30/10/2026 sera (controllore di fine giornata):
-29. (cc) il docente fa una domanda o indica una cosa («la penultima», «cosa serve») e Claude annuncia di toglierla (#166);
-30. (dd) genere dato per scontato: «lei», «la ragazza», «l'allieva» nella stessa frase del nome di un allievo (#167);
-31. (ee) il docente chiede una griglia o caselle per scrivere i suoi voti e Claude dà un PDF (#165);
-32. (ff) ai ragazzi più indirizzi diversi nello stesso messaggio invece di un solo posto (#164).
-33. (gg) il docente dice «prima/seconda/terza ora» e la risposta non dice l'orario (8-9, 11-12) (#159);
-34. (hh) «non arrivato», «manca», «non risulta» su una consegna senza una lettura di meno di 5 minuti (#161);
-35. (ii) incolla in Apps Script con Ctrl+A e Ctrl+V senza «clic dentro il codice» e «tutto blu» (#158).
+1. (a) Ordine copia/incolla sbagliato (#50, #138): dopo un «Ctrl+C» del contenuto di una
+       pagina compare un riquadro da copiare (o un'altra copia) prima del «Ctrl+V». (R4)
+2. (b) Cosa bloccante non in prima riga (#137): firma, scadenza, 14:05, uscita, PC rotto,
+       non compila, PUBB n non riuscito, fuori dalle prime 2 righe. Il promemoria della firma
+       non vale se FIRME-REGISTRO dice che oggi è tutto firmato (ex controllo m). (R4, R5)
+3. (d) «pubblicat…», «è tutto pronto», «è online», «possono cominciare» riferiti a una classe
+       senza dati/verifiche-lezione/<oggi>_<CLASSE>.json VERDE e di meno di 15 minuti. (R2, R7)
+4. (e) Link al sito senza «PUBBLICATO» delle ultime modifiche di docs/ (#79); link al
+       riservato senza la finestra PERSONALE, script copiato dal riservato (ex o, #48). (R7)
+5. (gg) Il docente ha nominato un'ora della giornata («prima ora», «3ª ora», «PUBB 2») e la
+       risposta non scrive l'orario (8-9…) (#159). Vale SOLO se il docente ha davvero parlato
+       di un'ora: le cifre senza «ª» («tra 1 ora») e i quiz di Sicurezza non contano. (R2)
+Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
+c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
+Il controllo dei nomi degli allievi NON sta qui (in chat COGNOME Nome è richiesto, R7): sta
+in limite-comandi.py + controllo_nomi.py, sui commit e sui push del repository pubblico (R1).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
 """
@@ -176,6 +145,7 @@ PAROLE_BLOCCANTI = [
     ("uscita", re.compile(r"\buscit\w*", re.I)),
     ("PC rotto", re.compile(r"\bPC\s+rott\w*", re.I)),
     ("non compila", re.compile(r"non\s+compila", re.I)),
+    ("PUBB non riuscito", re.compile(r"PUBB\s*[1-6]?\s+NON\s+riuscit\w*", re.I)),
 ]
 
 
@@ -186,7 +156,10 @@ def controllo_bloccanti(testo):
     cima = "\n".join(righe[:2])
     resto = "\n".join(righe[2:])
     mancanti = []
+    firmato = ore_di_oggi_tutte_firmate(datetime.datetime.now(TZ_ROMA))
     for nome, rx in PAROLE_BLOCCANTI:
+        if nome == "firma" and firmato:
+            continue  # ore di oggi tutte firmate: la firma non è più bloccante (ex controllo m)
         m = rx.search(resto)
         if m and not rx.search(cima):
             riga = next((r for r in righe[2:] if rx.search(r)), "")
@@ -197,46 +170,6 @@ def controllo_bloccanti(testo):
             "righe. Riscrivi il messaggio mettendo la cosa bloccante da sola nella PRIMA "
             "riga, prima di tutto il resto (es. «FIRMA: ...», «USCITA: ...»); se non è "
             "bloccante, togli la parola o spostala in cima." % "; ".join(mancanti))
-
-
-# ------------------------------------------------- (c) «fatto» senza prova
-
-RE_AFFERMAZIONI = [
-    re.compile(r"\b(?:è|e'|é)\s+(?:tutto\s+)?a\s+posto\b", re.I),
-    re.compile(r"\btutto\s+a\s+posto\b", re.I),
-    re.compile(r"(?<!come )(?<!non )(?<!se )\bfunzion(?:a|ano)\b(?=\s*(?:ora|adesso|già|di nuovo|bene|tutto)?\s*(?:[.!]|$))", re.I | re.M),
-    re.compile(r"\b(?:ora|adesso|già|tutto)\s+funzion(?:a|ano)\b", re.I),
-    re.compile(r"\bho\s+(?:già\s+)?risolto\b", re.I),
-    re.compile(r"(?:^|[.!?]\s+)\W{0,4}risolt[oaie]\b", re.I | re.M),
-    re.compile(r"(?<!non )(?<!da )\brisolt[oaie]\s*(?:[.!]|$)", re.I | re.M),
-    re.compile(r"(?:^|[.!?]\s+)\W{0,4}fatt[oaie]\b\s*(?:[.!:,]|$)", re.I | re.M),
-    re.compile(r"\b(?:è|sono)\s+(?:già\s+)?(?:stat[oaie]\s+)?fatt[oaie]\b(?!\s+(?:da|di|in|con|per|così|come))", re.I),
-    re.compile(r"\btutto\s+fatto\b|\bfatto\s+tutto\b", re.I),
-]
-
-RE_PROVE = re.compile(
-    r"ho\s+visto|\bvist[oa]\s+(?:che|lo|la|il)\b|\brisult[ae]\b|\brisultano\b|PUBBLICATO|"
-    r"PUBLISHED|schermat\w*|controllat\w*|verificat\w*|ho\s+provato|ho\s+controllato|"
-    r"ho\s+verificato|\bprov[ae]\b",
-    re.I)
-
-
-def controllo_fatto_senza_prova(testo):
-    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
-    trovate = []
-    for rx in RE_AFFERMAZIONI:
-        for m in rx.finditer(base):
-            trovate.append(m.group(0).strip(" .!:,\n"))
-    if not trovate:
-        return None
-    if RE_PROVE.search(testo):  # la prova può stare anche in un riquadro
-        return None
-    return ("Affermazione senza prova (#63, #115, #128, #135): hai scritto «%s» ma nel "
-            "messaggio non c'è la prova. Riscrivi dicendo che cosa hai visto o controllato "
-            "(es. «ho visto PUBBLICATO», «Classroom risulta PUBLISHED», «compilato con F9 "
-            "senza errori», «ho controllato nel repository»); se non l'hai verificato, "
-            "togli «%s» e scrivi che cosa manca da verificare."
-            % (trovate[0], trovate[0]))
 
 
 # ------------------------------- (d) «pubblicato» senza verifica_lezione.py
@@ -311,9 +244,6 @@ def controllo_pronto_senza_verifica(testo):
             % (frase, ", ".join(da_verificare), "; ".join(problemi), da_verificare[0]))
 
 
-# ------------------------------------------- controlli aggiunti il 28/10/2026 sera
-# (MAPPA-REGOLE-CONTROLLI.md: voci del registro che erano scoperte)
-
 PUB = "/home/user/corso-informatica"
 TZ_ROMA = ZoneInfo("Europe/Rome")
 
@@ -324,6 +254,7 @@ def _git(*arg):
     return r.returncode, r.stdout.strip()
 
 
+# (e) link al sito (assorbe il vecchio controllo o, link al riservato)
 # (e) link al sito senza «PUBBLICATO» (#79, #78)
 RE_LINK_SITO = re.compile(r"nicolaregge-pulse\.github\.io/corso-informatica", re.I)
 
@@ -355,113 +286,21 @@ def controllo_link_senza_pubblicato(testo):
             "vedrebbe la versione vecchia. " + consiglio)
 
 
-# (f) tempi promessi che dipendono dallo script (#129, #130)
-RE_PROMESSA = re.compile(
-    r"entro\s+(?:pochi|qualche|un\s+paio\s+di|\d+)\s+minut\w*|"
-    r"dovrebbe(?:ro)?\s+(?:arrivare|uscire|comparire|partire|essere\s+pubblicat\w*)|"
-    r"arriv\w*\s+(?:tra|fra)\s+poco|(?:tra|fra)\s+(?:pochi|qualche)\s+minuti\s+(?:arriv|esc|compar)\w*", re.I)
+# (o) link al riservato senza profilo personale; script dal riservato (#48; 07/10 n. 29)
+RE_LINK_RISERVATO = re.compile(r"github\.com/nicolaregge-pulse/corso-informatica-riservato\S*", re.I)
 
 
-RE_DIPENDE_DA_SCRIPT = re.compile(r"\bscript\b|\bponte\b|\bgiro\b|\bcoda\b|\btimer\b", re.I)
-RE_COSE_ATTESE = re.compile(r"pubblic\w*|classroom|\bquiz\b|compit\w*|annunc\w*|modul\w*", re.I)
-
-
-def controllo_promessa_tempi(testo):
-    """Solo quando la promessa riguarda una cosa che il docente aspetta e che fa lo script."""
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_PROMESSA.search(base)
-    if not m or re.search(r"piano\s+B", testo, re.I):
+def controllo_link_riservato(testo):
+    m = RE_LINK_RISERVATO.search(testo)
+    if not m:
         return None
-    if not (RE_DIPENDE_DA_SCRIPT.search(base) and RE_COSE_ATTESE.search(base)):
-        return None
-    return ("Tempo promesso senza piano B (#129, #130): «%s». Non si promettono tempi per ciò che fa lo "
-            "script: dai la strada che il docente può fare subito (piano B: docs/prof-pubblica/ o il "
-            "testo dell'annuncio da copiare) e scrivi che intanto controlli lo script." % m.group(0))
-
-
-# (g) stringa dei voti per DIDAweb senza la Disciplina (#98, #117)
-RE_STRINGA_VOTI = re.compile(r"\b\d{2}/\d{2}/\d{4}\s+h\s*\d")
-
-
-def controllo_voti_senza_disciplina(testo):
-    for riga in testo.splitlines():
-        if RE_STRINGA_VOTI.search(riga):
-            bassi = [v for v in re.findall(r";\s*(\d{1,3})\b", riga) if int(v) < 40]
-            if bassi:
-                return ("Voto sotto 40 nella stringa per DIDAweb (%s) (05/10 n. 23, regola 13): il voto "
-                        "minimo è 40." % ", ".join(bassi))
-    if RE_STRINGA_VOTI.search(testo) and not re.search(r"disciplin", testo, re.I):
-        return ("Stringa dei voti per DIDAweb senza la Disciplina (#98, #117): sopra la stringa, in "
-                "grassetto, «Disciplina da scegliere: …» (la materia firmata in quell'ora, da orario/), "
-                "e il primo passo della tabella è sceglierla.")
-    return None
-
-
-# (h) «nessuna AI» da una vista remota (#90)
-RE_NESSUNA_AI = re.compile(
-    r"\b(?:nessun[ao]?|niente)\s+(?:uso\s+(?:di\s+|dell['’]\s*)?)?(?:AI|IA|intelligenza\s+artificiale|"
-    r"chatgpt|gemini)\b", re.I)
-
-
-def controllo_nessuna_ai(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_NESSUNA_AI.search(base)
-    if not m or re.search(r"tutte\s+le\s+finestre|primo\s+piano", testo, re.I):
-        return None
-    return ("«%s» senza aver visto tutte le finestre (#90): scrivi «nella finestra in primo piano non si "
-            "vede AI; le altre finestre non le ho viste», oppure di' che hai visto tutte le finestre e "
-            "le schede." % m.group(0))
-
-
-# (i) PC senza nome lasciato come «utente non indicato» (#100)
-RE_SENZA_UTENTE = re.compile(r"utente\s+(?:non\s+indicato|sconosciuto|non\s+visibile|ignoto)", re.I)
-
-
-def controllo_utente_non_indicato(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_SENZA_UTENTE.search(base)
-    if not m or re.search(r"chi\s+c['’]è|chi\s+è\s+(?:al|sul)\s+PC", testo, re.I):
-        return None
-    return ("«%s» (#100): se un riquadro di Veyon non mostra il nome, chiedi subito al docente chi c'è "
-            "a quel PC (una domanda, in cima)." % m.group(0))
-
-
-# (j) parole che non servono (#53)
-RE_PAROLE_INUTILI = re.compile(r"\b(onestamente|sinceramente|francamente|a\s+dire\s+il\s+vero)\b", re.I)
-
-
-def controllo_parole_inutili(testo):
-    m = RE_PAROLE_INUTILI.search(senza_citazioni(senza_riquadri(testo)))
-    if m:
-        return ("Parola che non serve (#53): «%s» fa pensare che altre volte non sia così. Toglila."
-                % m.group(0))
-    return None
-
-
-# (k) passi scritti come catene di coordinate (#56)
-RE_VERBO_PASSO = re.compile(r"\b(?:clicca|premi|apri|scrivi|incolla|copia|vai|torna|scegli)\b", re.I)
-
-
-def controllo_catene_coordinate(testo):
-    for riga in senza_riquadri(testo).splitlines():
-        if riga.count(" · ") >= 2 and RE_VERBO_PASSO.search(riga):
-            return ("Passo scritto come catena di coordinate (#56): «%s». Ogni passo è una frase che "
-                    "comincia con il verbo («Clicca…», «Premi…»), con il «dove» detto a parole."
-                    % riga.strip()[:100])
-    return None
-
-
-# (l) istruzioni con «se» e «salta» (#55)
-RE_SALTA = re.compile(r"\bsalta\s+(?:al|alla|ai|alle|il|la)\s+(?:passo|parte|punto|sezione)|"
-                      r"\bse\s+(?:la\s+scheda|la\s+pagina|il\s+file|la\s+finestra)\s+(?:è|e')\s+già\s+apert",
-                      re.I)
-
-
-def controllo_se_salta(testo):
-    m = RE_SALTA.search(senza_citazioni(senza_riquadri(testo)))
-    if m:
-        return ("Istruzioni con condizioni (#55): «%s». Le istruzioni sono un flusso unico che parte da "
-                "zero: niente «se», niente «salta»." % m.group(0))
+    if "automazione-corso.gs" in m.group(0):
+        return ("Script da copiare dal repository riservato (#48): nella finestra PIAMARTA dà 404. Si "
+                "copia dal link pubblico https://raw.githubusercontent.com/nicolaregge-pulse/"
+                "corso-informatica/main/strumenti/automazione-corso.gs (regola 10).")
+    if not re.search(r"personale", testo, re.I):
+        return ("Link al repository riservato senza il passo «apri la finestra Chrome dell'account "
+                "PERSONALE» prima (07/10 n. 29, #48): nella finestra PIAMARTA dà 404.")
     return None
 
 
@@ -490,22 +329,6 @@ def ore_di_oggi_tutte_firmate(adesso):
                for r in righe)
 
 
-def controllo_firma_gia_fatta(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_RICORDA_FIRMA.search(base)
-    if not m:
-        return None
-    if not ore_di_oggi_tutte_firmate(datetime.datetime.now(TZ_ROMA)):
-        return None
-    return ("Firma ricordata, ma in FIRME-REGISTRO-2026-27.md tutte le ore di oggi risultano firmate "
-            "(#36, #52, #87, #96): togli il promemoria della firma.")
-
-
-# (n) errore da registrare rimandato (#113)
-RE_CHIEDE_ERRORE = re.compile(
-    r"(?:registr|scriv|segn|annot|aggiung|mett)\w*\b[^.?!\n]{0,60}\berror|sbirro", re.I)
-
-
 def ultimo_messaggio_docente(transcript_path, max_byte=8 * 1024 * 1024):
     try:
         with open(os.path.expanduser(transcript_path), "rb") as f:
@@ -532,336 +355,10 @@ def ultimo_messaggio_docente(transcript_path, max_byte=8 * 1024 * 1024):
     return ""
 
 
-def controllo_errore_rimandato(testo, data):
-    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
-    if not richiesta or not RE_CHIEDE_ERRORE.search(richiesta):
-        return None
-    if re.search(r"#\d{2,3}\b", testo):
-        return None
-    return ("Il docente ha chiesto di registrare un errore (#113): si scrive SUBITO in "
-            "REGISTRO-ERRORI-CLAUDE.md, prima di ogni altro lavoro, e nel messaggio si dà il numero "
-            "della voce (es. «registrato come #139»).")
-
-
-# (o) link al riservato senza profilo personale; script dal riservato (#48; 07/10 n. 29)
-RE_LINK_RISERVATO = re.compile(r"github\.com/nicolaregge-pulse/corso-informatica-riservato\S*", re.I)
-
-
-def controllo_link_riservato(testo):
-    m = RE_LINK_RISERVATO.search(testo)
-    if not m:
-        return None
-    if "automazione-corso.gs" in m.group(0):
-        return ("Script da copiare dal repository riservato (#48): nella finestra PIAMARTA dà 404. Si "
-                "copia dal link pubblico https://raw.githubusercontent.com/nicolaregge-pulse/"
-                "corso-informatica/main/strumenti/automazione-corso.gs (regola 10).")
-    if not re.search(r"personale", testo, re.I):
-        return ("Link al repository riservato senza il passo «apri la finestra Chrome dell'account "
-                "PERSONALE» prima (07/10 n. 29, #48): nella finestra PIAMARTA dà 404.")
-    return None
-
-
-# (p) indirizzo diretto del progetto Apps Script (regola 10, #51)
-RE_SCRIPT_DIRETTO = re.compile(r"script\.google\.com/(?:d/|home/projects/)", re.I)
-
-
-def controllo_script_diretto(testo):
-    if RE_SCRIPT_DIRETTO.search(testo):
-        return ("Indirizzo diretto del progetto Apps Script (regola 10): ha dato errore 400. Si apre "
-                "https://script.google.com/home e si clicca «Consegne Classroom → Git», poi il file "
-                "«automazione-corso.gs».")
-    return None
-
-
-# (q) messaggio lungo durante le ore di lezione (05/10 n. 6, #132, regola 3quinquies)
-MAX_RIGHE_IN_LEZIONE = 30
-
-
-def controllo_lungo_in_lezione(testo, adesso=None):
-    adesso = adesso or datetime.datetime.now(TZ_ROMA)
-    if adesso.weekday() > 4:
-        return None
-    minuti = adesso.hour * 60 + adesso.minute
-    if not (7 * 60 + 50 <= minuti <= 14 * 60 + 10):
-        return None
-    righe = [r for r in senza_riquadri(testo).splitlines() if r.strip()]
-    if len(righe) <= MAX_RIGHE_IN_LEZIONE:
-        return None
-    return ("Messaggio di %d righe durante la lezione (05/10 n. 6, #132): il docente è in classe e non "
-            "riesce a leggerlo. Tieni solo le cose bloccanti e i riquadri da copiare (massimo %d righe); "
-            "il resto va in un file." % (len(righe), MAX_RIGHE_IN_LEZIONE))
-
-
-# (r) «non ha consegnato», «non risulta» senza aver guardato le fonti (#83, #95; 05/10 n. 5 e 16)
-RE_NON_RISULTA = re.compile(
-    r"\bnon\s+(?:ha|hanno)\s+(?:ancora\s+)?(?:caricato|consegnato|iniziato|fatto\s+(?:niente|nulla))|"
-    r"\bnessuno\s+ha\s+(?:ancora\s+)?(?:caricato|consegnato)|\bnon\s+(?:gli\s+|le\s+)?risulta(?:no)?\b", re.I)
-RE_FONTI = re.compile(r"ho\s+controllato|ho\s+verificato|controllat[oaie]|verificat[oaie]|clon\w*|"
-                      r"tutt[ie]\s+(?:i|le|e)\s+(?:quiz|fonti|moduli|consegne|repository)|schermat\w*|"
-                      r"cruscotto|classroom|\bmodul\w*|veyon|repository|\bfoglio\b", re.I)
-
-
-def controllo_non_risulta(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_NON_RISULTA.search(base)
-    if not m or RE_FONTI.search(testo):
-        return None
-    return ("«%s» senza dire dove hai controllato (#83, #95; 05/10 n. 16): prima si guardano tutte le "
-            "fonti (tutti i quiz e i Moduli del giorno, Classroom, il clone del repository e l'account di "
-            "oggi), poi si scrive «ho controllato …: non c'è»." % m.group(0))
-
-
-# (s) «ha copiato» detto come certo (01/10 n. 6)
-RE_COPIATO = re.compile(r"\b(?:ha|hanno)\s+(?:copiato|plagiato)\b", re.I)
-
-
-def controllo_copiato(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_COPIATO.search(base)
-    if not m or re.search(r"da\s+verificare|potrebbe|potrebbero|sembra|forse|stesso\s+account", base, re.I):
-        return None
-    if not re.search(r"plagi|compagn|verific|compit|consegn|risposte|\bPC\s*\d", base, re.I):
-        return None  # «ha copiato i file» detto di Windows, non di un allievo
-    return ("«%s» detto come certo (01/10 n. 6): può essere lo stesso account su due PC. Si scrive al "
-            "condizionale, «da verificare», finché non è confermato." % m.group(0))
-
-
-# (t) risultato chiesto e trattenuto «al tuo avanti» (05/10 n. 21)
-RE_ASPETTO_AVANTI = re.compile(r"(?:al\s+tuo|quando\s+(?:mi\s+)?dici)\s+[«\"]?avanti", re.I)
-RE_DAMMI = re.compile(r"\b(?:dammi|fammi|fammel[aoie]|mandami)\b", re.I)
-
-
-def controllo_avanti(testo, data):
-    if not RE_ASPETTO_AVANTI.search(testo):
-        return None
-    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
-    if not RE_DAMMI.search(richiesta or ""):
-        return None
-    return ("Il docente ha chiesto il risultato («dammi», «fammi»): si consegna appena è pronto, non «al tuo "
-            "avanti» (05/10 n. 21; CLAUDE.md regola 3, «Fammeli» vince sul PPP).")
-
-
-# (u) rimando a riquadri o testi di messaggi precedenti (05/10 n. 31)
-RE_RIMANDO = re.compile(r"riquadr\w*\s+(?:di\s+prima|precedent\w*|che\s+ti\s+ho\s+(?:dato|mandato))|"
-                        r"(?:link|testo|codice)\s+(?:di\s+prima|che\s+ti\s+ho\s+(?:dato|mandato)\s+prima)|"
-                        r"\bvedi\s+(?:sopra|il\s+messaggio\s+precedente)", re.I)
-
-
-def controllo_rimando_riquadri(testo):
-    m = RE_RIMANDO.search(senza_citazioni(senza_riquadri(testo)))
-    if m:
-        return ("«%s» (05/10 n. 31): ogni messaggio con passi contiene TUTTI i riquadri da copiare che "
-                "servono, anche se già dati prima." % m.group(0))
-    return None
-
-
-# (v) incollare in Apps Script senza dire in quale file (#51)
-def controllo_file_apps_script(testo):
-    if re.search(r"script\.google\.com|apps\s+script", testo, re.I) and \
-            re.search(r"ctrl\s*\+\s*v", testo, re.I) and "automazione-corso.gs" not in testo:
-        return ("Passi per Apps Script con «incolla» senza il file (#51): prima si clicca il file "
-                "«automazione-corso.gs» nel pannello «File» a sinistra (il progetto si apre su «Codice.gs»).")
-    return None
-
-
-# ------------------------------------------- controlli aggiunti il 29/10/2026 pomeriggio (#151-#154)
-
-# (w) «N consegnati su M» senza la fonte e l'ora della lettura (#151, #134)
-RE_CONTEGGIO = re.compile(r"\b\d+\s+(?:consegnat\w*|hanno\s+consegnato|fatt[oi]|completat\w*)\s+su\s+\d+\b|"
-                          r"\b\d+\s+su\s+\d+\s+(?:hanno\s+)?(?:consegnat\w*|fatt[oi]|completat\w*)\b", re.I)
-RE_FONTE_ORA = re.compile(r"(?:lett[oaie]|letto|leggo|ponte|classroom|moduli|_RISULTATI|fonte)[^.\n]{0,80}?"
-                          r"\b(?:alle\s+)?\d{1,2}[:.]\d{2}\b", re.I)
-
-
-def controllo_conteggio_senza_fonte(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_CONTEGGIO.search(base)
-    if not m or RE_FONTE_ORA.search(base):
-        return None
-    return ("«%s» senza fonte e ora (#151): un conteggio di consegne si dà solo dopo averlo letto alla fonte "
-            "(Classroom via ponte, risultati di Moduli) e si scrive da dove e a che ora, es. «letto da Classroom "
-            "alle 13:58». Un report con un conteggio vecchio non si consegna." % m.group(0))
-
-
-# (x) attività automatica o notturna «creata/attiva» senza una prova eseguita (#152, #141)
-RE_ATTIVITA = re.compile(r"(?:attivit[àa]|task|giro|chat)\s+(?:\w+\s+){0,2}(?:automatic\w*|programmat\w*|nottur\w*|"
-                         r"di\s+mezzanotte|delle\s+0[:.]00)[^.\n]{0,60}?\b(?:creat\w*|attivat\w*|impostat\w*|pront\w*|"
-                         r"accés\w*|acces\w*|partir[àa]|gira)\b", re.I)
-RE_PROVA_ESEGUITA = re.compile(r"prova\s+(?:eseguita|fatta|completa)|provat[oaie]\s+(?:da\s+capo|dall'inizio|con)|"
-                               r"giro\s+di\s+prova|ha\s+girato|stato/notte-\d{4}", re.I)
-
-
-def controllo_attivita_non_provata(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_ATTIVITA.search(base)
-    if not m or RE_PROVA_ESEGUITA.search(testo):
-        return None
-    return ("«%s» (#152, #141): un'attività automatica si dichiara pronta solo dopo una prova eseguita da capo "
-            "nelle condizioni vere (sessione con i DUE repository, limite dei comandi, risultato nel riservato). "
-            "Scrivi che cosa ha fatto la prova (es. «giro di prova delle 14:20: stato/notte-… scritto») o che non "
-            "è ancora provata." % m.group(0).strip())
-
-
-# (y) pagina verificata solo con dati simulati (?prova=1) (#153, #140)
-RE_SIMULATI = re.compile(r"\?prova=1|prova=1\b|dati\s+(?:simulat\w*|fint\w*|di\s+prova)", re.I)
-RE_VERIFICATO = re.compile(r"verificat\w*|provat\w*|funzion\w*|controllat\w*|\bva\b|a\s+posto", re.I)
-RE_DATI_VERI = re.compile(r"dati\s+veri|sito\s+vero|codice\s+vero|senza\s+[«\"]?\??prova=1|risposte\s+vere", re.I)
-
-
-def controllo_solo_simulati(testo):
-    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
-    if not (RE_SIMULATI.search(testo) and RE_VERIFICATO.search(base)) or RE_DATI_VERI.search(testo):
-        return None
-    return ("Pagina provata con dati simulati (#153): «?prova=1» o dati finti non bastano. Si prova sul sito "
-            "vero, con il codice pubblicato e i dati veri (risposte vere del Modulo), e lo si scrive "
-            "(«provata sul sito vero con i dati veri delle 13:58»).")
-
-
-# (z) domanda al docente su cose già decise o già nei file: presenze, voti (#154)
-RE_DOMANDA_PRESENZE = re.compile(r"[^.?!\n]*\b(?:presenz\w*|presenti|assenti)\b[^.?!\n]*\?", re.I)
-RE_DOMANDA_VOTI = re.compile(r"[^.?!\n]*\b(?:vot[oi]|valutazion\w*)\b[^.?!\n]*\?", re.I)
-
-
-def controllo_chiede_cose_note(testo, ris=None, oggi=None):
-    ris = ris or RIS
-    if not os.path.isdir(ris):
-        return None
-    adesso = datetime.datetime.now(ZoneInfo("Europe/Rome"))
-    g = oggi or adesso.strftime("%Y-%m-%d")
-    g8 = g.replace("-", "")
-    base = senza_citazioni(senza_riquadri(testo))
-    import glob as _glob
-    m = RE_DOMANDA_PRESENZE.search(base)
-    if m:
-        classi = classi_in(m.group(0))
-        file_p = [f for f in _glob.glob(os.path.join(ris, "config", "*-presenti-%s.json" % g8))
-                  if not classi or any(os.path.basename(f).lower().startswith(c.lower()) for c in classi)]
-        if file_p:
-            return ("Domanda sulle presenze già note (#154): «%s» — sono già in %s. Si usano quelle; si chiede "
-                    "solo ciò che manca davvero." % (m.group(0).strip(), ", ".join("config/" + os.path.basename(f) for f in file_p)))
-    m = RE_DOMANDA_VOTI.search(base)
-    if m:
-        file_v = [f for f in [os.path.join(ris, "report", g, "voti-decisi-docente.txt")] +
-                  _glob.glob(os.path.join(ris, "config", "*-voto-%s.json" % g8)) if os.path.exists(f)]
-        if file_v:
-            return ("Domanda sui voti già decisi (#154): «%s» — i voti decisi dal docente sono già in %s. Si "
-                    "rileggono prima di chiedere." % (m.group(0).strip(), ", ".join(os.path.relpath(f, ris) for f in file_v)))
-    return None
-
-
-# (aa) release «della cartella/del progetto» quando il repository contiene più progetti (#157)
-RE_RELEASE_CARTELLA = re.compile(r"\brelease\b[^.\n]{0,60}?\b(?:della\s+cartella|per\s+la\s+cartella|"
-                                 r"solo\s+(?:la|il|per)\s+\w+|della\s+(?:sola\s+)?calcolatrice|del\s+(?:solo\s+)?progetto)\b", re.I)
-RE_RELEASE_OK = re.compile(r"tutto\s+il\s+repository|repository\s+(?:a\s+parte|nuovo|suo|del\s+progetto)|"
-                           r"nome\s+del\s+progetto\s+davanti", re.I)
-
-
-def controllo_release_cartella(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_RELEASE_CARTELLA.search(base)
-    if not m or RE_RELEASE_OK.search(base):
-        return None
-    return ("«%s» (#157): una release di GitHub è la fotografia di TUTTO il repository, non di una cartella. "
-            "Se il repository contiene più progetti, dillo («la release vale per tutto il repository») o usa un "
-            "repository a parte per il progetto." % m.group(0).strip())
-
-
-# (bb) più di 2 aiutanti accesi insieme (#143)
-NUMERI = {"tre": 3, "quattro": 4, "cinque": 5, "sei": 6, "sette": 7, "otto": 8}
-RE_AIUTANTI = re.compile(r"\b(\d+|tre|quattro|cinque|sei|sette|otto)\s+(?:nuovi\s+)?(?:aiutanti|agenti|subagent\w*)\b"
-                         r"[^.\n]{0,40}?\b(?:accés\w*|acces\w*|avviat\w*|lanciat\w*|partit\w*|insieme|in\s+parallelo|"
-                         r"al\s+lavoro|girano|lavorano)\b|\b(?:accendo|avvio|lancio|faccio\s+partire)\s+"
-                         r"(\d+|tre|quattro|cinque|sei|sette|otto)\s+(?:nuovi\s+)?(?:aiutanti|agenti)\b", re.I)
-
-
-def controllo_troppi_aiutanti(testo):
-    base = senza_citazioni(senza_riquadri(testo))
-    for m in RE_AIUTANTI.finditer(base):
-        n = (m.group(1) or m.group(2) or "").lower()
-        n = NUMERI.get(n, int(n) if n.isdigit() else 0)
-        if n > 2:
-            return ("«%s» (#143): durante la lezione al massimo 2 aiutanti accesi insieme (uno per la classe in "
-                    "aula, uno di servizio). Prima di accenderne un altro, se ne spegne uno; un controllo che si fa "
-                    "con un comando lo faccio io." % m.group(0).strip())
-    return None
-
-
-# (cc) domanda o indicazione del docente presa per un ordine di togliere (#166)
-RE_DOCENTE_CHIEDE = re.compile(r"\?|\bnon\s+capisco\b|\bcosa\s+(?:serve|vuol\s+dire|significa|è)\b|\bche\s+cos[''’]?è\b|"
-                               r"^\s*(?:la|il|l[''’])\s*(?:penultim|ultim|prim|second)\w*\b[^.\n]{0,20}$", re.I | re.M)
-RE_DOCENTE_ORDINA = re.compile(r"\b(?:togli|toglila|toglilo|elimin\w*|rimuov\w*|cancell\w*|nascond\w*|leva)\b", re.I)
-RE_ANNUNCIA_TOLGO = re.compile(r"\b(?:tolgo|rimuovo|elimino|cancello|nascondo|ho\s+tolto|ho\s+rimosso|ho\s+eliminato)\b", re.I)
-
-
-def controllo_toglie_su_domanda(testo, data):
-    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
-    if not richiesta or not RE_DOCENTE_CHIEDE.search(richiesta) or RE_DOCENTE_ORDINA.search(richiesta):
-        return None
-    m = RE_ANNUNCIA_TOLGO.search(senza_citazioni(senza_riquadri(testo)))
-    if not m:
-        return None
-    return ("«%s» (#166): il docente ha fatto una domanda o ha indicato una cosa («%s»), non ha chiesto di toglierla. "
-            "Prima si spiega che cosa è e a che cosa serve; si toglie solo se lo dice lui con un verbo chiaro "
-            "(«togli», «elimina»)." % (m.group(0), richiesta.strip()[:60]))
-
-
-# (dd) genere dato per scontato (#167)
-RE_NOME_ALLIEVO = re.compile(r"\b[A-ZÀ-Ý][A-ZÀ-Ý'’]{2,}(?:\s+[A-ZÀ-Ý][A-ZÀ-Ý'’]{1,})*\b")
-RE_FEMMINILE = re.compile(r"\b(?:lei|la\s+ragazza|una\s+ragazza|l[''’]allieva|trovarla|cercarla|la\s+uso|la\s+trovo)\b", re.I)
-SIGLE_OK = {"PC", "OK", "PDF", "URL", "HTML", "INF", "1INF", "2INF", "3INF", "4TI", "DIDAWEB", "VEYON", "GIT", "AI",
-            "PUBBLICATO", "PUBLISHED", "DRAFT", "VERDE", "ROSSO", "GIALLO", "FATTO", "OGGI", "IT", "AR", "ZH"}
-
-
-def controllo_genere(testo):
-    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
-    frasi = re.split(r"(?<=[.!?:\n])\s+", base)
-    for k, frase in enumerate(frasi):
-        f = RE_FEMMINILE.search(frase)
-        if not f:
-            continue
-        vicino = " ".join(frasi[max(0, k - 1):k + 1])  # il nome può stare nella frase prima («...di ROSSI. Uso lei...»)
-        nomi = [n for n in RE_NOME_ALLIEVO.findall(vicino) if n.split()[0].upper() not in SIGLE_OK]
-        if nomi:
-            return ("«%s» vicino a «%s» (#167): il genere di un allievo non si dà per scontato. Si usa il nome "
-                    "(COGNOME Nome), senza «lei», «la ragazza», «trovarla»." % (f.group(0), nomi[0]))
-    return None
-
-
-# (ee) griglia per i voti del docente data come PDF (#165)
-RE_CHIEDE_CASELLE = re.compile(r"\bgriglia\b|\bcasell\w*\b|spazio\s+per\s+(?:il\s+)?vot|dove\s+(?:io\s+)?poss\w*\s+scrivere", re.I)
-RE_PDF = re.compile(r"\bPDF\b|\.pdf\b", re.I)
-RE_SCRIVIBILE = re.compile(r"docs\.google\.com/spreadsheets|foglio\s+google|caselle\s+(?:dove|in\s+cui)\s+scriv|si\s+scriv\w*\s+(?:anche\s+)?dal\s+telefono", re.I)
-
-
-def controllo_griglia_pdf(testo, data):
-    richiesta = ultimo_messaggio_docente(data.get("transcript_path") or "")
-    if not richiesta or not RE_CHIEDE_CASELLE.search(richiesta) or not re.search(r"\bvot", richiesta, re.I):
-        return None
-    if RE_PDF.search(testo) and not RE_SCRIVIBILE.search(testo):
-        return ("Il docente ha chiesto dove scrivere i SUOI voti (#165): un PDF non si scrive. Si dà un foglio Google "
-                "con le caselle (COGNOME Nome, voto proposto, casella per il suo voto), apribile anche dal telefono.")
-    return None
-
-
-# (ff) ai ragazzi più indirizzi diversi invece di un solo posto (#164)
-RE_AI_RAGAZZI = re.compile(r"\b(?:ai\s+ragazzi|alla\s+classe|dì\s+(?:ai|alla)|di[''’]\s+ai\s+ragazzi|cosa\s+dire)\b", re.I)
-RE_URL_RAGAZZI = re.compile(r"https?://(?:nicolaregge-pulse\.github\.io|classroom\.google\.com|docs\.google\.com/forms)\S+", re.I)
-
-
-def controllo_troppi_indirizzi(testo):
-    if not RE_AI_RAGAZZI.search(testo):
-        return None
-    urls = {u.rstrip(").,»") for u in RE_URL_RAGAZZI.findall(testo)
-            if not re.search(r"prof|docent|cruscotto|avanzamento/[^ ]*oggi", u, re.I)}
-    if len(urls) > 1:
-        return ("%d indirizzi diversi per i ragazzi nello stesso messaggio (#164): «i ragazzi fanno casino se diamo URL "
-                "diversi». Ai ragazzi un solo posto: il compito del giorno con dentro la pagina unica (hub) che ha "
-                "tutti i passi." % len(urls))
-    return None
-
-
 # (gg) «prima ora» del docente: si dice l'orario (#159)
-RE_ORA_ORDINALE = re.compile(r"\b(?:prima|seconda|terza|quarta|quinta|sesta|[1-6]\s*[aª°]?)\s+ora\b", re.I)
+# 04/11/2026: solo ordinali veri («prima ora», «3ª ora») e il comando «PUBB n»; «tra 1 ora» non conta.
+RE_ORA_ORDINALE = re.compile(r"\b(?:prima|seconda|terza|quarta|quinta|sesta)\s+ora\b|\b[1-6]\s*[ª°]\s*ora\b|"
+                             r"\b[1-6]a\s+ora\b|^\s*PUBB\s+[1-6]\b", re.I | re.M)
 RE_ORARIO = re.compile(r"\b(?:[01]?\d|2[0-3])(?::\d{2})?\s*[-–]\s*(?:[01]?\d|2[0-3])(?::\d{2})?\b|\bdalle\s+\d{1,2}\b|\balle\s+\d{1,2}\b")
 
 
@@ -874,42 +371,6 @@ def controllo_ora_ordinale(testo, data):
         return None
     return ("Il docente ha detto «%s» (#159): «prima ora» è l'ora della GIORNATA. Nella risposta si scrive l'orario "
             "(per esempio «8-9») così l'equivoco si vede subito; nel dubbio si fa in entrambe." % m.group(0))
-
-
-# (hh) «non arrivato» su dati vecchi (#161)
-RE_NON_ARRIVATO = re.compile(r"\bnon\s+(?:è\s+|sono\s+)?(?:ancora\s+)?arrivat\w*|\bnon\s+(?:gli\s+|le\s+)?risulta(?:no)?\b|"
-                             r"\bnon\s+(?:ha|hanno)\s+(?:ancora\s+)?consegnat\w*|\bmancano\s+ancora\b", re.I)
-RE_LETTO_ALLE = re.compile(r"(?:lett[oaie]|lettura|rilett[oaie]|controllat[oaie]|aggiornat[oaie]|dato|dati)\s+(?:delle|alle|di|delle\s+ore)\s+(\d{1,2})[:.](\d{2})", re.I)
-
-
-def controllo_non_arrivato_vecchio(testo, adesso=None):
-    base = senza_citazioni(senza_riquadri(testo))
-    m = RE_NON_ARRIVATO.search(base)
-    if not m:
-        return None
-    adesso = adesso or datetime.datetime.now(ZoneInfo("Europe/Rome"))
-    letture = [int(a) * 60 + int(b) for a, b in RE_LETTO_ALLE.findall(base)]
-    ora = adesso.hour * 60 + adesso.minute
-    if letture and min(ora - t for t in letture if t <= ora + 1) <= 5:
-        return None
-    return ("«%s» (#161): mai «non arrivato» o «manca» senza una lettura di tutte le fonti fatta da meno di 5 minuti, "
-            "scritta nel messaggio («letto alle %02d:%02d»). Prima si rilegge (Moduli, Foglio di riserva, Git, Classroom), "
-            "poi si dice." % (m.group(0), adesso.hour, adesso.minute))
-
-
-# (ii) incolla in Apps Script senza clic dentro il codice e controllo «tutto blu» (#158)
-RE_CTRL_A = re.compile(r"ctrl\s*\+\s*a\b", re.I)
-RE_CTRL_V = re.compile(r"ctrl\s*\+\s*v\b", re.I)
-
-
-def controllo_incolla_apps_script(testo):
-    if not (RE_CTRL_A.search(testo) and RE_CTRL_V.search(testo) and re.search(r"apps\s*script|\.gs\b", testo, re.I)):
-        return None
-    if re.search(r"(?:clic|clicca|fai\s+clic)\w*\s+(?:\w+\s+){0,3}dentro\s+(?:al\s+|il\s+)?codice", testo, re.I) and \
-            re.search(r"tutto\s+blu|diventa\s+(?:tutto\s+)?blu|evidenziat\w*\s+(?:in\s+)?blu", testo, re.I):
-        return None
-    return ("Incolla in Apps Script (#158): prima un clic DENTRO il codice, poi Ctrl+A con il controllo «diventa tutto "
-            "blu», poi Ctrl+V, poi il controllo della riga 2 e dell'ultima riga prima di salvare.")
 
 
 # ------------------------------------------------------------- transcript
@@ -938,6 +399,10 @@ def ultimo_testo_assistente(transcript_path, max_righe=4000):
     return ""
 
 
+def controllo_link(testo):
+    return controllo_link_senza_pubblicato(testo) or controllo_link_riservato(testo)
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
@@ -951,21 +416,8 @@ def main():
     if not testo.strip():
         return
     motivi = []
-    for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_fatto_senza_prova,
-                      controllo_pronto_senza_verifica, controllo_link_senza_pubblicato,
-                      controllo_promessa_tempi, controllo_voti_senza_disciplina, controllo_nessuna_ai,
-                      controllo_utente_non_indicato, controllo_parole_inutili,
-                      controllo_catene_coordinate, controllo_se_salta, controllo_firma_gia_fatta,
-                      lambda t: controllo_errore_rimandato(t, data), controllo_link_riservato,
-                      controllo_script_diretto, controllo_lungo_in_lezione, controllo_non_risulta,
-                      controllo_copiato, lambda t: controllo_avanti(t, data), controllo_rimando_riquadri,
-                      controllo_file_apps_script, controllo_conteggio_senza_fonte,
-                      controllo_attivita_non_provata, controllo_solo_simulati, controllo_chiede_cose_note,
-                      controllo_release_cartella, controllo_troppi_aiutanti,
-                      lambda t: controllo_toglie_su_domanda(t, data), controllo_genere,
-                      lambda t: controllo_griglia_pdf(t, data), controllo_troppi_indirizzi,
-                      lambda t: controllo_ora_ordinale(t, data), controllo_non_arrivato_vecchio,
-                      controllo_incolla_apps_script):
+    for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_pronto_senza_verifica,
+                      controllo_link, lambda t: controllo_ora_ordinale(t, data)):
         try:
             m = controllo(testo)
         except Exception:

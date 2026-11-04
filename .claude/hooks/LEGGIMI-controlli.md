@@ -1,6 +1,8 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.3** — 28/10/2026 — documento interno del docente e di Claude
+**Versione 1.4** — 04/11/2026 — documento interno del docente e di Claude
+
+> **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
 Nicola, 28/10/2026: niente più promesse, servono meccanismi. Questi controlli (hook di Claude Code, in `.claude/settings.json`) girano da soli: non dipendono dalla memoria di Claude. Nascono dagli errori di `REGISTRO-ERRORI-CLAUDE.md`.
 
@@ -85,7 +87,62 @@ python3 /home/user/corso-informatica/.claude/hooks/prove/prova_limite.py
 
 Prove del 28/10/2026 per il controllo 4 dell'hook: 11 casi (senza file, verde recente, verde vecchio di 20 minuti, giallo, stop_hook_active, negazione, nessuna classe, citazione, 4TI, input rotto), tutti come atteso.
 
+## 05 Revisione del 04/11/2026 (decisioni del docente)
+
+### 05.1 Controlli tenuti in `controllo-messaggio.py`
+
+1. (a) ordine del copia e incolla (#50, #138; regola R4).
+2. (b) cosa bloccante nelle prime 2 righe: firma, scadenza, 14:05, uscita, PC rotto, non compila e, nuovo, «PUBB n NON riuscito» (#137; R4). Assorbe il vecchio (m): se `FIRME-REGISTRO-2026-27.md` dà tutte le ore di oggi firmate, la firma non conta come bloccante.
+3. (d) «pubblicato», «è tutto pronto», «è online», «possono cominciare» per una classe solo con `verifica_lezione.py` VERDE di meno di 15 minuti (R2, R7).
+4. (e) link al sito solo dopo «PUBBLICATO» (#79); assorbe il vecchio (o): link al riservato senza la finestra PERSONALE, script copiato dal riservato (#48).
+5. (gg) orario scritto quando il docente nomina un'ora della giornata (#159). Ristretto: vale solo se il docente ha davvero parlato di un'ora («prima ora», «3ª ora», «PUBB 2»); «tra 1 ora» e i quiz di Sicurezza non contano.
+
+### 05.2 Controlli tolti da `controllo-messaggio.py`
+
+1. (c) «fatto», «a posto», «funziona» senza prova: unito alla regola R7 e al controllo (d).
+2. (f) tempi promessi dallo script senza piano B.
+3. (g) stringa DIDAweb senza Disciplina e voti sotto 40.
+4. (h) «nessuna AI» senza aver visto tutte le finestre.
+5. (i) «utente non indicato».
+6. (j) «onestamente», «sinceramente».
+7. (k) catene di coordinate con « · ».
+8. (l) «salta al passo», «se è già aperta».
+9. (m) firma già fatta: assorbito in (b).
+10. (n) errore da registrare senza il numero.
+11. (o) link al riservato: assorbito in (e).
+12. (p) indirizzo diretto del progetto Apps Script.
+13. (q) più di 30 righe nelle ore di lezione.
+14. (r) «non ha consegnato», «non risulta» senza fonte.
+15. (s) «ha copiato» detto come certo.
+16. (t) «al tuo avanti» dopo «dammi».
+17. (u) rimando a riquadri di prima.
+18. (v) incolla in Apps Script senza il file automazione-corso.gs.
+19. (w) conteggio senza fonte e ora.
+20. (x) attività automatica non provata.
+21. (y) pagina provata solo con dati simulati.
+22. (z) domanda su presenze o voti già nei file.
+23. (aa) release «della cartella».
+24. (bb) più di 2 aiutanti accesi.
+25. (cc) domanda presa per un ordine di togliere.
+26. (dd) genere dato per scontato.
+27. (ee) griglia dei voti data in PDF.
+28. (ff) più indirizzi ai ragazzi nello stesso messaggio.
+29. (hh) «non arrivato» su dati vecchi.
+30. (ii) incolla in Apps Script senza clic dentro il codice.
+La versione di prima è nella storia di Git (commit precedente al 04/11/2026 sera) e si può rimettere con un `git checkout` del file.
+
+### 05.3 Altri cambi
+
+1. `limite-comandi.py`: da 3 a 8 comandi per turno nella chat principale.
+2. Nuovo `controllo_nomi.py` (regola R1): cognomi degli allievi presi dagli elenchi del riservato (`config/*presenti*.json`, `config/*elenco*.json`, `config/nomi-controllo.json`; i nomi propri, che nel pubblico sono ammessi come «Nome I.», non si cercano). Lo usano:
+   1. `limite-comandi.py`, su ogni `git commit` del pubblico (testo del comando, heredoc compreso, e file di `-F`) e su ogni `git push` del pubblico (messaggi dei commit da pushare). Non si salta con «PAGINE-OK».
+   2. il hook git `commit-msg` del pubblico, installato da `bash strumenti/installa_commit_msg.sh` (vale anche per i commit fatti da altri script).
+   3. Falso allarme: la parola si aggiunge a «parole_comuni» in `config/nomi-controllo.json` del riservato.
+3. `promemoria-errori.md`: riscritto con le 11 regole nuove.
+4. Prove: `prova_messaggio.py` 38 casi, `prova_limite.py` 39 casi, tutti superati il 04/11/2026; il controllo dei cognomi provato anche sugli ultimi 1.200 messaggi di commit veri del pubblico: un solo caso, il cognome finito in un commit del 04/11 mattina (nessun falso allarme).
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
 2. v1.3 (28/10/2026, audit): mv e git mv di una versione in docs/ rifiutati (4 prove nuove, 27 in tutto); controllore dei controlli `strumenti/controlla_controlli.py` (punto 01.7); punti di 03 rimessi in ordine; tolta una frase ripetuta in 04.4.
+3. v1.4 (04/11/2026): capitolo 05, revisione sulle decisioni del docente (5 controlli nell'hook del messaggio, controllo dei cognomi nei commit del pubblico, 8 comandi per turno, elenco dei controlli tolti).

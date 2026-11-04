@@ -1,19 +1,19 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 2.3** — 04/11/2026 — documento interno del docente e di Claude
+**Versione 2.4** — 04/11/2026 — documento interno del docente e di Claude
 
-Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
+Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione, insieme alle 11 regole di `CLAUDE.md` (v2.0 del 04/11/2026). Dove un punto di questa lista dice una cosa diversa da R1-R11, valgono R1-R11.
 
-Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gli hook di Claude Code (ordine copia/incolla, cosa bloccante in prima riga, «fatto» senza prova, massimo 3 comandi per turno); come funzionano e quando valgono in `.claude/hooks/LEGGIMI-controlli.md`. Dal 28/10/2026 sera `MAPPA-REGOLE-CONTROLLI.md` dice per ogni voce del registro quale controllo la copre (A automatico, B passo notturno, C superata, D scoperta); la Chat del giorno esegue ogni notte i passi di `.claude/passi-notturni.md`. Per le voci D questa lista resta l'unico controllo.
+Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gli hook di Claude Code (dal 04/11/2026: cosa bloccante in prima riga, ordine copia/incolla, «pubblicato» solo con VERDE, link solo dopo PUBBLICATO, orario quando il docente nomina un'ora; niente cognomi nei commit e nei push del pubblico; massimo 8 comandi per turno); come funzionano e quando valgono in `.claude/hooks/LEGGIMI-controlli.md`. Dal 28/10/2026 sera `MAPPA-REGOLE-CONTROLLI.md` dice per ogni voce del registro quale controllo la copre (A automatico, B passo notturno, C superata, D scoperta); la Chat del giorno esegue ogni notte i passi di `.claude/passi-notturni.md`. Per le voci D questa lista resta l'unico controllo.
 
 > **Nota:** una regola sola non basta: questo elenco esiste perché il 26/10 ho ripetuto errori già scritti (#105, #110, #112, #89). Da ora la checklist si spunta davvero, punto per punto, e nel resoconto di fine lezione si scrive quali controlli sono saltati.
 
 ## 01 Il giorno prima o prima della campanella
 
-1. Rileggo CLAUDE.md, MODUS-OPERANDI e questo file; controllo la classe, l'orario e la materia di ogni ora in `orario/` (#98, #119).
+1. Rileggo le 11 regole di CLAUDE.md e questo file; controllo la classe, l'orario e la materia di ogni ora in `orario/` (#98, #119).
 2. Lingue della classe: 1INF italiano, arabo e cinese; 2INF solo italiano, ogni pagina passa da `strumenti/solo_italiano.py`; 3INF italiano più la riga in bangla solo per il PC 14; 4TI italiano (#49, #82, #119).
 3. Rileggo gli annunci, i compiti e `ARGOMENTI-SVOLTI-2026-27.md` degli ultimi giorni: niente lezioni già fatte (#99).
-4. Preparo le pagine del giorno: cruscotto unico (`docs/cruscotto/`), pagina dei ragazzi, casella dell'assistente, giri automatici pronti (#71, #75, regola 11).
+4. Preparo le pagine del giorno: il cruscotto unico della classe a indirizzo fisso (es. `docs/1inf/`), il percorso dei ragazzi, la casella dell'assistente, il giro automatico ogni 2 minuti durante le consegne (#71, #75, CLAUDE.md R8 e R9). Preparo solo la proposta scelta dal docente, con il piano di deploy provato e il pacchetto per il post a mano (R10).
 5. Controllo che ogni consegna abbia UN bottone che consegna davvero; mai «copia, apri, incolla» (#81, #62, regola 15).
 6. Ogni passo per i ragazzi è un'azione che si vede sullo schermo, pensata per un dodicenne; il primo risultato visibile nel controllo arriva entro 10 minuti; niente ricerche sul PC se si può fare su GitHub (#110, #123).
 7. Ogni controllo automatico che dà punti è protetto dagli abusi e non è più rigido dello scopo della lezione (#116, #123; il 26/10 il controllo voleva un nome di cartella preciso).
@@ -24,19 +24,20 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 
 ## 02 Pubblicare
 
+0. Su Classroom si pubblica solo dopo «PUBB n» (n = ora della giornata, 1 = 8-9 … 6 = 13-14), un'ora per volta; se dopo il controllo il compito non è PUBLISHED, prima riga «PUBB n NON riuscito: pubblica a mano» e il pacchetto (CLAUDE.md R2).
 1. Prima di creare un compito leggo i compiti del giorno della classe (`classroom.compiti`): se il docente ha già pubblicato, gli do solo il testo da aggiungere (#89, #93, #121).
 2. Pubblicare = pagina + compito + annuncio «OGGI FATE SOLO…». Dico «pubblicato» solo dopo aver visto lo stato «PUBLISHED» di Classroom e il sito con «PUBBLICATO» (#79, #94, #105, #120).
-3. Scadenza: il compito del mattino su Classroom si pubblica SENZA scadenza (CLAUDE.md regola 27, 28/10/2026); l'audit notturno segnala come errore un compito in coda con la scadenza. Prima valeva la campanella dell'ultima ora (#97, #122): superata.
+3. Scadenza: il compito del mattino su Classroom si pubblica SENZA scadenza (CLAUDE.md R2, 28/10/2026); l'audit notturno segnala come errore un compito in coda con la scadenza. Prima valeva la campanella dell'ultima ora (#97, #122): superata.
 4. Un solo compito e un solo annuncio al giorno per classe; un annuncio sbagliato si corregge, non se ne aggiunge un altro (#93, #107).
 5. Nei testi per Classroom: titoletti in maiuscolo, una riga per passo, nomi dei bottoni copiati dalla pagina vera (errore del 05/10 in 3INF, #106).
 6. Prima di scrivere «pubblicato», «è tutto pronto», «è online», «possono cominciare» per una classe lancio `python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py <CLASSE>` (Classroom vero via ponte + pagina pubblicata) e lo dico solo se stampa VERDE, entro 15 minuti; l'hook `controllo-messaggio.py` blocca il messaggio altrimenti (#63, #83, #104, #105, #115, #120, #127, #128, #135).
 
 ## 03 Durante la lezione
 
-1. Le domande all'assistente si leggono e si risolvono a ogni giro; a Nicola il report con ora, nome anagrafico completo, domanda e risposta (regola 22, #123, #124).
-2. In chat: risposte corte, il nome anagrafico completo, i testi da copiare nei riquadri, un'azione per riga (#56, regola 9, regola 22).
+1. Le domande all'assistente si leggono e si risolvono a ogni giro; domande e risposte stanno nel cruscotto; in chat una riga sola, e in prima riga solo una domanda che è una criticità (CLAUDE.md R8, #123, #124).
+2. In chat: risposte corte, COGNOME Nome, i testi da copiare nei riquadri, un'azione per riga (#56, CLAUDE.md R4 e R7).
 3. Ogni schermata Veyon va subito nel cruscotto; «fuori lezione» solo quando lo schermo mostra chiaramente un'altra attività (#73, #109).
-4. Uscite: ora di uscita e di rientro; dopo 5 minuti senza rientro chiedo conferma a Nicola (regola 3quater).
+4. Uscite: ora di uscita e di rientro; dopo 5 minuti senza rientro è una criticità nel bottone rosso e in prima riga (CLAUDE.md R8).
 5. Durante la lezione NON spingo sul riservato più del necessario: salvo in locale e spingo a fine ora; le consegne dei ragazzi passano dallo stesso repository (#112, #124).
 6. Prima di dire «fatto», «risolto» o «c'è» controllo la prova nel repository o su Classroom (#63, #83, #115).
 7. Quando Nicola chiede di scrivere un errore, lo scrivo subito e do il numero (#113).
@@ -45,8 +46,8 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 ## 04 Dopo la lezione
 
 1. Fotografia di fine lezione dei repository e del cruscotto, nel riservato (regola 18).
-2. Voti: tutti i presenti, da 40 a 80, con il conto scritto; i KPI solo dopo il sì di Nicola; prima della stringa per DIDAweb, la Disciplina da scegliere (#95, #98, #117, regola 13).
-3. Argomenti svolti in `ARGOMENTI-SVOLTI-2026-27.md`, `PROSSIME-LEZIONI.md` aggiornato (regola 19).
+2. Voti: tutti i presenti, da 40 a 80, con il conto scritto, controllati da me sul dato vero prima di darli; i KPI solo dopo il sì di Nicola; prima della stringa per DIDAweb, la Disciplina da scegliere (#95, #98, #117, CLAUDE.md R8 e R9).
+3. Argomenti svolti in `ARGOMENTI-SVOLTI-2026-27.md`, legati all'Allegato A, togliendo l'evidenziazione a ciò che è fatto; `PROSSIME-LEZIONI.md` aggiornato con le 3 proposte non sviluppate per blocco di ore (CLAUDE.md R5 e R10).
 4. Nel resoconto: quali controlli di questa lista sono saltati oggi e perché.
 
 ## 05 Correzioni fatte oggi (26/10/2026)
@@ -88,4 +89,5 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 11. v2.0 (02/11/2026): §06 punto 11, il codice per i ragazzi si prova come lo fanno loro (#175).
 12. v2.1 (03/11/2026): §06 punto 12, titoli dei compiti nel formato unico (#194).
 13. v2.2 (04/11/2026): §06 punto 13, l'orario si confronta con il registro DIDAweb prima di preparare un giorno (#196).
+15. v2.4 (04/11/2026): allineata a CLAUDE.md v2.0 (R1-R11): PUBB n, domande nel cruscotto, uscite come criticità, controlli automatici ridotti, 8 comandi per turno, preparazione della sola proposta scelta.
 14. v2.3 (04/11/2026): §06 punto 14, la pagina rispetta il Framework QUIZ (`FRAMEWORK-QUIZ.md`).
