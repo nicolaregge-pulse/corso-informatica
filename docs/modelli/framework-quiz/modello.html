@@ -47,7 +47,7 @@ body.pc14 .bn{display:block}.aiutoprof p{margin:0 0 6px}
 <script src="../../assistente/assistente.js" data-pagina="{{SLUG}}" data-lingue="it,ar,zh" data-dove="aiuto"></script>
 <script>
 (function(){
-var SLUG='{{SLUG}}', ORA={{N_ORA}}, K='st2-'+SLUG, KN='nome-{{DATA_ISO}}', KP='perc-{{DATA_ISO}}', CONF={};
+var SLUG='{{SLUG}}', ORA=+'{{N_ORA}}', K='st2-'+SLUG, KN='nome-{{DATA_ISO}}', KP='perc-{{DATA_ISO}}', CONF={};
 function prendi(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(x){return d}}
 function metti(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(x){}}
 try{if(/[?&]pc=14\b/.test(location.search))localStorage.setItem('pc14','1');if(localStorage.getItem('pc14')==='1')document.body.classList.add('pc14')}catch(x){}
