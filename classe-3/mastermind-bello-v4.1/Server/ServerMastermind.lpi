@@ -42,6 +42,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="UnitServer"/>
       </Unit>
+      <Unit>
+        <Filename Value="UnitGara.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="UnitGara"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -1,13 +1,13 @@
 object FormServer: TFormServer
   Left = 200
-  Height = 700
+  Height = 640
   Top = 20
-  Width = 400
+  Width = 800
   AutoScroll = True
   BorderStyle = bsSingle
   Caption = 'Mastermind bello - il SERVER del prof'
-  ClientHeight = 700
-  ClientWidth = 400
+  ClientHeight = 640
+  ClientWidth = 800
   LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -82,7 +82,6 @@ object FormServer: TFormServer
     TabOrder = 2
   end
   object BtnVia: TButton
-    Enabled = False
     Left = 10
     Height = 42
     Top = 164
@@ -96,7 +95,6 @@ object FormServer: TFormServer
     OnClick = BtnViaClick
   end
   object BtnStop: TButton
-    Enabled = False
     Left = 118
     Height = 42
     Top = 164
@@ -119,10 +117,103 @@ object FormServer: TFormServer
     TabOrder = 5
     OnClick = BtnNuovaClick
   end
+  object LblGara: TLabel
+    Left = 10
+    Height = 20
+    Top = 214
+    Width = 380
+    AutoSize = False
+    Caption = 'GARA a piu'' codici (la classifica e'' a destra)'
+    Font.Height = -15
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LblCodici: TLabel
+    Left = 10
+    Height = 17
+    Top = 242
+    Width = 50
+    Caption = 'Codici'
+    ParentColor = False
+  end
+  object EdCodici: TEdit
+    Left = 62
+    Height = 28
+    Top = 236
+    Width = 46
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 9
+    Text = '5'
+  end
+  object LblSecondi: TLabel
+    Left = 124
+    Height = 17
+    Top = 242
+    Width = 130
+    Caption = 'Secondi per codice'
+    ParentColor = False
+  end
+  object EdSecondi: TEdit
+    Left = 258
+    Height = 28
+    Top = 236
+    Width = 60
+    Font.Height = -16
+    ParentFont = False
+    TabOrder = 10
+    Text = '180'
+  end
+  object BtnInizia: TButton
+    Left = 10
+    Height = 40
+    Top = 270
+    Width = 150
+    Caption = 'Inizia gara'
+    Enabled = False
+    Font.Height = -17
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+    OnClick = BtnIniziaClick
+  end
+  object BtnProssimo: TButton
+    Left = 168
+    Height = 40
+    Top = 270
+    Width = 126
+    Caption = 'Prossimo codice'
+    Enabled = False
+    TabOrder = 12
+    OnClick = BtnProssimoClick
+  end
+  object BtnFine: TButton
+    Left = 302
+    Height = 40
+    Top = 270
+    Width = 88
+    Caption = 'Fine gara'
+    Enabled = False
+    TabOrder = 13
+    OnClick = BtnFineClick
+  end
+  object LblRound: TLabel
+    Left = 10
+    Height = 22
+    Top = 314
+    Width = 380
+    AutoSize = False
+    Caption = 'Nessuna gara in corso'
+    Font.Height = -16
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
   object PbSegreto: TPaintBox
     Left = 10
     Height = 64
-    Top = 214
+    Top = 340
     Width = 380
     OnClick = BtnMostraClick
     OnPaint = PbSegretoPaint
@@ -130,7 +221,7 @@ object FormServer: TFormServer
   object BtnMostra: TButton
     Left = 10
     Height = 28
-    Top = 284
+    Top = 410
     Width = 380
     Caption = 'Mostra il codice'
     Enabled = False
@@ -140,7 +231,7 @@ object FormServer: TFormServer
   object LblGiocatori: TLabel
     Left = 10
     Height = 22
-    Top = 318
+    Top = 444
     Width = 380
     AutoSize = False
     Caption = 'Collegati: 0'
@@ -150,17 +241,17 @@ object FormServer: TFormServer
     ParentFont = False
   end
   object LblClassifica: TLabel
-    Left = 10
+    Left = 410
     Height = 17
-    Top = 344
-    Width = 100
+    Top = 4
+    Width = 380
     Caption = 'Classifica'
     ParentColor = False
   end
   object Griglia: TStringGrid
-    Left = 10
-    Height = 200
-    Top = 362
+    Left = 410
+    Height = 604
+    Top = 24
     Width = 380
     ColCount = 6
     FixedCols = 0
@@ -170,15 +261,15 @@ object FormServer: TFormServer
   object LblRegistro: TLabel
     Left = 10
     Height = 17
-    Top = 568
+    Top = 472
     Width = 200
     Caption = 'Registro'
     ParentColor = False
   end
   object MemoRegistro: TMemo
     Left = 10
-    Height = 108
-    Top = 586
+    Height = 142
+    Top = 490
     Width = 380
     ReadOnly = True
     ScrollBars = ssAutoVertical
