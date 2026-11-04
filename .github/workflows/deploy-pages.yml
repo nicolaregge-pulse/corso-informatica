@@ -12,7 +12,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false   # R9 04/11/2026: il ponte scrive live.json ogni 2 minuti; il deploy in corso finisce, resta in coda solo il piu recente
 
 jobs:
   deploy:

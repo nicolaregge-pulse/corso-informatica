@@ -1,5 +1,11 @@
 /**
- * AUTOMAZIONE CORSO v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.8 (04/11/2026: cruscotto dal vivo senza la chat, giro dei Moduli ogni 2 minuti) · v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.8 (04/11/2026, decisione R9 del docente: «mentre i ragazzi consegnano i dati si aggiornano ogni 2 minuti senza la chat»):
+ *       giroModuli ha un timer OGNI MINUTO e fa il giro ogni 2 minuti (passo_minuti in config/giro-moduli.json), lun-ven
+ *       7:30-14:05. Scrive il riservato solo se le risposte cambiano (o ogni 10 minuti) e, per ogni classe, il «dal vivo»
+ *       del cruscotto: docs/<classe>/live.json nel repository PUBBLICO (id anonimi + colori, niente punteggi o nomi) e la
+ *       stessa cosa in memoria, servita da doGet ?c1=<classe> (con &tok=<MONITOR_TOKEN> anche i punteggi per il docente).
+ *       Dopo l'incolla: Esegui -> installaGiroModuli e Gestisci deployment -> Nuova versione (per ?c1=).
  * v8.7 (04/11/2026, AUDIT-2-SETTIMANE 03.2, 03.5, 03.9):
  *       1) classroom.compito_cancella: legge prima lo stato; una BOZZA si cancella subito (Classroom non elenca le
  *          consegne di una bozza: prima dava sempre errore). Un compito creato A MANO dal docente da' un errore
@@ -116,17 +122,31 @@ function attivaAutomatico() { ritmo5(); }   // v8.3: il ritmo normale è ogni 5 
 
 function disattivaAutomatico() { AUTO_ritmo(0); }
 
-/* ====================== v8.7 — GIRO DEI MODULI (indipendente dalla chat) ======================
-   config/giro-moduli.json = lista [{classe, id, salva_in, titolo?, versione?, attivo?, fino_al?}] (oppure {moduli: [...]}).
-   Ogni 5 minuti, solo lun-ven 8:00-14:05 (Roma), per ogni Modulo scrive <salva_in>/_RISULTATI-QUIZ.json e .csv
-   come l'azione forms.risposte, con letto_il = ora della lettura. attivo: false lo salta; fino_al: "AAAA-MM-GG"
-   lo salta dal giorno dopo. Da eseguire UNA volta: Esegui -> installaGiroModuli. Per spegnerlo: disinstallaGiroModuli. */
+/* ====================== v8.8 — GIRO DEI MODULI E CRUSCOTTO DAL VIVO (R9, 04/11/2026) ======================
+   Prima (v8.7) il giro scriveva solo nel riservato e il cruscotto si rifaceva SOLO se Claude lo lanciava dalla chat.
+   Ora il cruscotto si aggiorna da solo mentre i ragazzi consegnano, senza la chat.
+   config/giro-moduli.json (riservato) = {passo_minuti: 2, segreto_id: "...", moduli: [{classe, id, salva_in, k, soglia,
+     titolo?, versione?, attivo?, fino_al?}]}   (va bene anche la sola lista dei Moduli, come in v8.7).
+   Il timer scatta OGNI MINUTO; il giro vero parte ogni passo_minuti (di norma 2; 5 se le chiamate del giorno
+   superano 15000), solo lun-ven 7:30-14:05 ora di Roma. Fuori orario il timer non fa nessuna chiamata.
+   Per ogni Modulo:
+     1) riservato: <salva_in>/_RISULTATI-QUIZ.json e .csv (con letto_il), SOLO se le risposte sono cambiate
+        o ogni 10 minuti (prima a ogni giro: troppi commit);
+     2) per ogni classe con Moduli che hanno k e soglia, il «dal vivo» del cruscotto docs/<classe>/:
+        - repository PUBBLICO docs/<classe>/live.json: per ogni allievo un id (HMAC dell'email con segreto_id:
+          dall'id non si risale all'email) con colore e tentativi di ogni Modulo. Niente punteggi, email o nomi.
+          La pagina abbina l'id al «Nome C.» con il suo dati.json (che scrive Claude) e fa i conti.
+        - in memoria dello script (CacheService + Proprieta'): lo stesso con punteggi ed email, servito da
+          doGet ?c1=<classe>&callback=fn (senza codice: come live.json) e &tok=<MONITOR_TOKEN> (con i punteggi).
+   Da eseguire UNA volta: installaGiroModuli. Per spegnerlo: disinstallaGiroModuli. Stato: Esegui -> statoGiroModuli. */
 var AUTO_GIRO_MODULI = 'config/giro-moduli.json';
+var AUTO_PUBBLICO = { REPO: 'nicolaregge-pulse/corso-informatica', BRANCH: 'main', CARTELLA: 'docs' };
 function installaGiroModuli() {
   ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'giroModuli') ScriptApp.deleteTrigger(t); });
-  ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(5).create();
-  PropertiesService.getScriptProperties().setProperty('GIRO_MODULI', '1');
-  Logger.log('Giro dei Moduli ATTIVO: ogni 5 minuti, lun-ven 8:00-14:05. Primo giro adesso, per prova:');
+  ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(1).create();
+  var pr = PropertiesService.getScriptProperties();
+  pr.setProperty('GIRO_MODULI', '1'); pr.deleteProperty('GIRO_MODULI_MS');
+  Logger.log('Giro dei Moduli ATTIVO: timer ogni minuto, giro ogni 2 minuti, lun-ven 7:30-14:05. Primo giro adesso, per prova:');
   giroModuli(true);
 }
 function disinstallaGiroModuli() {
@@ -134,32 +154,144 @@ function disinstallaGiroModuli() {
   PropertiesService.getScriptProperties().setProperty('GIRO_MODULI', '0');
   Logger.log('Giro dei Moduli SPENTO.');
 }
+function statoGiroModuli() {
+  var pr = PropertiesService.getScriptProperties();
+  Logger.log('Ultimo giro: ' + (pr.getProperty('GIRO_MODULI_ULTIMO') || 'mai') + ' | Pubblico: ' + (pr.getProperty('GIRO_PUBBLICO_ESITO') || 'mai scritto') +
+    ' | timer: ' + ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'giroModuli'; }).length);
+}
 function AUTO_inOrarioModuli(adesso) {
   var g = +Utilities.formatDate(adesso, 'Europe/Rome', 'u'), h = +Utilities.formatDate(adesso, 'Europe/Rome', 'H'),
       m = +Utilities.formatDate(adesso, 'Europe/Rome', 'm'), min = h * 60 + m;
-  return g >= 1 && g <= 5 && min >= 8 * 60 && min <= 14 * 60 + 5;
+  return g >= 1 && g <= 5 && min >= 7 * 60 + 30 && min <= 14 * 60 + 5;
+}
+function AUTO_passoModuli(cfg) {
+  var p = Math.max(1, +(cfg && cfg.passo_minuti) || 2);
+  var g = Utilities.formatDate(new Date(), 'Europe/Rome', 'yyyyMMdd');
+  if (+(PropertiesService.getScriptProperties().getProperty('CHIAMATE_' + g) || 0) > 15000) p = Math.max(p, 5);   // quota: si rallenta
+  return p;
+}
+function AUTO_idEmail(segreto, email) {   // stesso calcolo di generatori/cruscotto_classe.py: HMAC-SHA256, primi 16 caratteri esadecimali
+  var b = Utilities.computeHmacSha256Signature(String(email || '').trim().toLowerCase(), String(segreto), Utilities.Charset.UTF_8);
+  var h = ''; for (var i = 0; i < 8; i++) { var x = (b[i] + 256) % 256; h += (x < 16 ? '0' : '') + x.toString(16); }
+  return h;
 }
 function giroModuli(forza) {
-  var adesso = new Date();
-  if (forza !== true && !AUTO_inOrarioModuli(adesso)) { Logger.log('Giro Moduli: fuori orario (lun-ven 8:00-14:05), dormo.'); return; }
+  var adesso = new Date(), pr = PropertiesService.getScriptProperties();
+  forza = forza === true;
+  if (!forza && !AUTO_inOrarioModuli(adesso)) { Logger.log('Giro Moduli: fuori orario (lun-ven 7:30-14:05), dormo.'); return; }
+  var ultimo = +(pr.getProperty('GIRO_MODULI_MS') || 0), passo = +(pr.getProperty('GIRO_MODULI_PASSO') || 2);
+  if (!forza && adesso.getTime() - ultimo < passo * 60000 - 20000) { Logger.log('Giro Moduli: passo di ' + passo + ' minuti, non ancora.'); return; }
   var lock = LockService.getScriptLock();
-  if (!lock.tryLock(30000)) { Logger.log('Giro Moduli: lucchetto occupato, salto questo giro.'); return; }
+  if (!lock.tryLock(5000)) { Logger.log('Giro Moduli: lucchetto occupato, salto questo giro.'); return; }
   var esiti = [];
   try {
+    pr.setProperty('GIRO_MODULI_MS', String(adesso.getTime()));
     var cfg = AUTO_leggiJson(AUTO_GIRO_MODULI).json, lista = Array.isArray(cfg) ? cfg : (cfg.moduli || []);
-    var oggi = Utilities.formatDate(adesso, 'Europe/Rome', 'yyyy-MM-dd');
+    pr.setProperty('GIRO_MODULI_PASSO', String(AUTO_passoModuli(Array.isArray(cfg) ? {} : cfg)));
+    var segreto = Array.isArray(cfg) ? '' : (cfg.segreto_id || '');
+    var oggi = Utilities.formatDate(adesso, 'Europe/Rome', 'yyyy-MM-dd'), classi = {};
     lista.forEach(function (m) {
       if (!m || !m.id || !m.salva_in || m.attivo === false || (m.fino_al && oggi > m.fino_al)) return;
+      var c = String(m.classe || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      var vivo = segreto && c && m.k && m.soglia !== undefined;
+      if (vivo && !classi[c]) classi[c] = { classe: m.classe, moduli: [] };
       try {
-        var letto = new Date().toISOString();
-        var r = AUTO_risultatiQuiz({ moduli: [{ versione: m.versione || 'A', id: m.id }], classe: m.classe || '', titolo: m.titolo || m.id }, m.salva_in, letto);
-        esiti.push((m.classe || '') + ' ' + (m.titolo || m.id) + ': ' + r.risposte + ' risposte');
-      } catch (e) { esiti.push('ERRORE ' + (m.titolo || m.id) + ': ' + e); }
+        var letto = new Date().toISOString(), L = AUTO_leggiModulo(m.id);
+        var firma = L.righe.length + '|' + L.righe.reduce(function (a, r) { return a + (+r.punteggio || 0); }, 0) + '|' +
+                    L.righe.reduce(function (a, r) { return r.ora > a ? r.ora : a; }, '');   // cambia se arriva o cambia una risposta
+        var vecchia = (pr.getProperty('GM_FIRMA_' + m.id) || '').split('#');
+        var scrivi = vecchia[0] !== firma || adesso.getTime() - (+vecchia[1] || 0) > 10 * 60000;
+        if (scrivi) {
+          AUTO_risultatiQuiz({ moduli: [{ versione: m.versione || 'A', id: m.id }], classe: m.classe || '', titolo: m.titolo || m.id },
+                             m.salva_in, letto, (function () { var o = {}; o[m.id] = L; return o; })());
+          pr.setProperty('GM_FIRMA_' + m.id, firma + '#' + adesso.getTime());
+        }
+        if (vivo) classi[c].moduli.push({ k: m.k, soglia: +m.soglia, letto_il: letto, L: L });
+        esiti.push((m.classe || '') + ' ' + (m.titolo || m.id) + ': ' + L.righe.length + ' risposte' + (scrivi ? '' : ' (uguali, riservato non riscritto)'));
+      } catch (e) {
+        if (vivo) classi[c].moduli.push({ k: m.k, errore: String(e) });
+        esiti.push('ERRORE ' + (m.titolo || m.id) + ': ' + e);
+      }
     });
+    Object.keys(classi).forEach(function (c) {
+      try { esiti.push(AUTO_vivoClasse(c, classi[c], segreto, adesso)); }
+      catch (e) { esiti.push('ERRORE cruscotto dal vivo ' + c + ': ' + e); }
+    });
+    if (!segreto) esiti.push('cruscotto dal vivo SPENTO: manca segreto_id in ' + AUTO_GIRO_MODULI);
   } catch (e) { esiti.push('ERRORE ' + AUTO_GIRO_MODULI + ': ' + e); }
   finally { lock.releaseLock(); }
-  PropertiesService.getScriptProperties().setProperty('GIRO_MODULI_ULTIMO', adesso.toISOString() + ' · ' + esiti.length + ' moduli');
+  pr.setProperty('GIRO_MODULI_ULTIMO', adesso.toISOString() + ' · ' + esiti.length + ' voci');
   Logger.log('Giro Moduli: ' + (esiti.join(' | ') || 'nessun Modulo attivo nell\'elenco'));
+}
+/* Il «dal vivo» di una classe: oggetto completo in memoria (per ?c1=&tok=), parte pubblica in docs/<classe>/live.json. */
+function AUTO_vivoClasse(c, info, segreto, adesso) {
+  var cache = CacheService.getScriptCache(), pr = PropertiesService.getScriptProperties(), prima = null;
+  try { prima = JSON.parse(cache.get('LIVE_' + c) || pr.getProperty('LIVE_' + c) || 'null'); } catch (e) {}
+  var o = { v: 1, classe: info.classe, letto_il: adesso.toISOString(), passo: +(pr.getProperty('GIRO_MODULI_PASSO') || 2),
+            fonte: 'ponte v8.8', moduli: {}, r: {}, p: {}, email: {} };
+  info.moduli.forEach(function (m) {
+    if (m.errore) {   // Modulo non letto: restano i dati del giro prima, con l'ora vecchia
+      var pm = prima && prima.moduli && prima.moduli[m.k];
+      o.moduli[m.k] = { letto_il: pm ? pm.letto_il : null, risposte: pm ? pm.risposte : 0, errore: m.errore.slice(0, 160) };
+      if (prima) Object.keys(prima.r || {}).forEach(function (id) {
+        if (prima.r[id][m.k]) { (o.r[id] = o.r[id] || {})[m.k] = prima.r[id][m.k]; }
+        if (prima.p && prima.p[id] && prima.p[id][m.k] !== undefined) { (o.p[id] = o.p[id] || {})[m.k] = prima.p[id][m.k]; }
+        if (prima.email && prima.email[id]) o.email[id] = prima.email[id];
+      });
+      return;
+    }
+    o.moduli[m.k] = { letto_il: m.letto_il, risposte: m.L.righe.length, massimo: m.L.max };
+    m.L.righe.forEach(function (r) {
+      var em = String(r.email || '').trim().toLowerCase(); if (!em) return;
+      var id = AUTO_idEmail(segreto, em), pt = +r.punteggio;
+      var cel = (o.r[id] = o.r[id] || {})[m.k] || ['g', 0];
+      var best = o.p[id] && o.p[id][m.k] !== undefined ? o.p[id][m.k] : null;
+      if (!isNaN(pt) && (best === null || pt > best)) best = pt;
+      cel = [best !== null && best >= m.soglia ? 'v' : 'g', cel[1] + 1];
+      o.r[id][m.k] = cel; (o.p[id] = o.p[id] || {})[m.k] = best; o.email[id] = em;
+    });
+  });
+  var tutto = JSON.stringify(o);
+  try { cache.put('LIVE_' + c, tutto, 21600); } catch (e) {}
+  try { pr.setProperty('LIVE_' + c, tutto); } catch (e) {}   // oltre 9 KB resta solo la cache
+  var pub = { v: o.v, classe: o.classe, letto_il: o.letto_il, passo: o.passo, fonte: o.fonte, moduli: o.moduli, r: o.r };
+  var hhmm = Utilities.formatDate(adesso, 'Europe/Rome', 'HH:mm');
+  var code = AUTO_commitPubblico(AUTO_PUBBLICO.CARTELLA + '/' + c + '/live.json', JSON.stringify(pub), 'Cruscotto dal vivo ' + info.classe + ' ' + hhmm);
+  var ok = code === 200 || code === 201;
+  pr.setProperty('GIRO_PUBBLICO_ESITO', (ok ? 'OK ' : 'NEGATO ' + code + ' ') + c + ' ' + adesso.toISOString());
+  return 'dal vivo ' + info.classe + ': ' + Object.keys(o.r).length + ' allievi, pubblico ' + (ok ? 'OK' : 'NEGATO (' + code + ')');
+}
+function AUTO_commitPubblico(path, testo, msg) {   // PUT sul repository pubblico; lo sha si ricorda (una chiamata in meno a giro)
+  var pr = PropertiesService.getScriptProperties(), kSha = 'SHA_PUB_' + path, enc = path.split('/').map(encodeURIComponent).join('/');
+  for (var tent = 0; tent < 2; tent++) {
+    var sha = pr.getProperty(kSha);
+    if (!sha || tent > 0) {
+      var g = AUTO_gh('get', '/contents/' + enc + '?ref=' + AUTO_PUBBLICO.BRANCH, null, AUTO_PUBBLICO.REPO);
+      sha = g.getResponseCode() === 200 ? JSON.parse(g.getContentText()).sha : null;
+      if (g.getResponseCode() !== 200 && g.getResponseCode() !== 404) return g.getResponseCode();
+    }
+    var payload = { message: msg, content: Utilities.base64Encode(Utilities.newBlob(testo).getBytes()), branch: AUTO_PUBBLICO.BRANCH };
+    if (sha) payload.sha = sha;
+    var r = AUTO_gh('put', '/contents/' + enc, payload, AUTO_PUBBLICO.REPO), code = r.getResponseCode();
+    if (code === 200 || code === 201) { try { pr.setProperty(kSha, JSON.parse(r.getContentText()).content.sha); } catch (e) {} return code; }
+    if (code !== 409 && code !== 422) return code;   // 409/422 = sha vecchio: si rilegge e si riprova una volta
+    pr.deleteProperty(kSha);
+  }
+  return code;
+}
+/* doGet ?c1=<classe>[&tok=<MONITOR_TOKEN>]&callback=fn : il «dal vivo» dalla memoria dello script (nessuna chiamata
+   a Google Moduli o a GitHub: risponde in un attimo anche con 25 ragazzi che ricaricano la pagina ogni minuto). */
+function AUTO_vivoWeb(c, tok, cb) {
+  c = String(c || '').toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 12);
+  var pr = PropertiesService.getScriptProperties(), raw = null;
+  try { raw = CacheService.getScriptCache().get('LIVE_' + c); } catch (e) {}
+  if (!raw) raw = pr.getProperty('LIVE_' + c);
+  if (!raw) return AUTO_rispostaJs(JSON.stringify({ ok: false, errore: 'nessun giro per ' + c }), cb);
+  var o = JSON.parse(raw), atteso = pr.getProperty('MONITOR_TOKEN') || '';
+  var doc = !!atteso && String(tok || '') === atteso;
+  if (!doc) { delete o.p; delete o.email; }
+  o.ok = true; o.docente = doc; o.servito_il = new Date().toISOString();
+  return AUTO_rispostaJs(JSON.stringify(o), cb);
 }
 
 /* v7.7 — SI RIPARA DA SOLO: se il timer di autoCiclo non c'e' piu' (Google a volte lo spegne),
@@ -174,7 +306,7 @@ function AUTO_assicuraTimer() {
     // v8.7: anche il timer del giro dei Moduli, se il docente l'ha installato
     if (PropertiesService.getScriptProperties().getProperty('GIRO_MODULI') === '1' &&
         !ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === 'giroModuli'; })) {
-      ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(5).create(); Logger.log('Timer giroModuli RI-CREATO.');
+      ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(1).create(); Logger.log('Timer giroModuli RI-CREATO (ogni minuto, v8.8).');
     }
   } catch (e) { Logger.log('AUTO_assicuraTimer: ' + e); }
 }
@@ -540,25 +672,31 @@ function AUTO_creaQuiz(job, cart) {
   return out;
 }
 
-function AUTO_risultatiQuiz(job, base, lettoIl) {   // v8.7: lettoIl = ora della lettura (giro dei Moduli)
+function AUTO_leggiModulo(id) {   // v8.8: lettura di un Modulo quiz (una sola volta per giro)
+  var f = FormApp.openById(id), max = 0, righe = [];
+  f.getItems().forEach(function (it) {
+    if (it.getType() === FormApp.ItemType.MULTIPLE_CHOICE) max += it.asMultipleChoiceItem().getPoints();
+  });
+  f.getResponses().forEach(function (r) {
+    var nome = '', tot = 0, sbagliate = [];
+    r.getItemResponses().forEach(function (ir) {
+      if (ir.getItem().getType() === FormApp.ItemType.TEXT) nome = String(ir.getResponse());
+    });
+    r.getGradableItemResponses().forEach(function (g) {
+      var sc = g.getScore() || 0; tot += sc;
+      if (!sc) sbagliate.push(g.getItem().getTitle());
+    });
+    righe.push({ email: r.getRespondentEmail(), nome: nome, punteggio: tot, massimo: max, sbagliate: sbagliate, ora: r.getTimestamp().toISOString() });
+  });
+  return { max: max, righe: righe };
+}
+function AUTO_risultatiQuiz(job, base, lettoIl, letti) {   // v8.7: lettoIl = ora della lettura; v8.8: letti = {id: AUTO_leggiModulo} gia' fatti
   var righe = ['versione;email;nome;punteggio;massimo;ora'], det = [];
   job.moduli.forEach(function (m) {
-    var f = FormApp.openById(m.id), max = 0;
-    f.getItems().forEach(function (it) {
-      if (it.getType() === FormApp.ItemType.MULTIPLE_CHOICE) max += it.asMultipleChoiceItem().getPoints();
-    });
-    f.getResponses().forEach(function (r) {
-      var nome = '', tot = 0, sbagliate = [];
-      r.getItemResponses().forEach(function (ir) {
-        if (ir.getItem().getType() === FormApp.ItemType.TEXT) nome = String(ir.getResponse());
-      });
-      r.getGradableItemResponses().forEach(function (g) {
-        var sc = g.getScore() || 0; tot += sc;
-        if (!sc) sbagliate.push(g.getItem().getTitle());
-      });
-      righe.push([m.versione, r.getRespondentEmail(), nome.replace(/;/g, ','), tot, max, r.getTimestamp().toISOString()].join(';'));
-      var riga = { versione: m.versione, email: r.getRespondentEmail(), nome: nome, punteggio: tot, massimo: max, sbagliate: sbagliate,
-                   ora: r.getTimestamp().toISOString() };
+    var L = (letti && letti[m.id]) || AUTO_leggiModulo(m.id);
+    L.righe.forEach(function (x) {
+      righe.push([m.versione, x.email, String(x.nome).replace(/;/g, ','), x.punteggio, x.massimo, x.ora].join(';'));
+      var riga = { versione: m.versione, email: x.email, nome: x.nome, punteggio: x.punteggio, massimo: x.massimo, sbagliate: x.sbagliate, ora: x.ora };
       if (lettoIl) riga.letto_il = lettoIl;
       det.push(riga);
     });
@@ -859,10 +997,10 @@ function AUTO_commit(repoPath, blob, msg) {
   return AUTO_gh('put', '/contents/' + enc, payload).getResponseCode();
 }
 
-function AUTO_gh(method, path, payload) {
+function AUTO_gh(method, path, payload, repo) {   // v8.8: repo facoltativo (di norma il riservato)
   var token = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
   if (!token) throw new Error('Manca GITHUB_TOKEN nelle Proprieta dello script.');
-  var risp = UrlFetchApp.fetch('https://api.github.com/repos/' + AUTO.REPO + path, {
+  var risp = UrlFetchApp.fetch('https://api.github.com/repos/' + (repo || AUTO.REPO) + path, {
     method: method,
     headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
     contentType: 'application/json',
@@ -893,14 +1031,18 @@ function AUTO_conta(chiave, risp) {
 function AUTO_stato() {
   var pr = PropertiesService.getScriptProperties(), g = Utilities.formatDate(new Date(), 'Europe/Rome', 'yyyyMMdd');
   var rs = +(pr.getProperty('GH_RESET') || 0);
-  return { versione: '8.4', leva_ritmo: true, ritmo: +(pr.getProperty('RITMO') || 5), giri_oggi: +(pr.getProperty('GIRI_' + g) || 0),
+  return { versione: '8.8', leva_ritmo: true, ritmo: +(pr.getProperty('RITMO') || 5), giri_oggi: +(pr.getProperty('GIRI_' + g) || 0),
     chiamate_oggi: +(pr.getProperty('CHIAMATE_' + g) || 0), limite_google_giorno: 100000,
     github_rimaste: pr.getProperty('GH_RIMASTE') || '', github_limite_ora: 5000, github_reset: rs ? new Date(rs * 1000).toISOString() : '' };
 }
 
 function doGet(e) {
-  AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   var p = (e && e.parameter) || {};
+  if (p.c1) {   // v8.8: cruscotto dal vivo (R9). Il controllo dei timer qui al massimo ogni 5 minuti: arrivano molte visite
+    try { var ca = CacheService.getScriptCache(); if (!ca.get('TIMER_VISTO')) { ca.put('TIMER_VISTO', '1', 300); AUTO_assicuraTimer(); } } catch (x) {}
+    return AUTO_vivoWeb(p.c1, p.tok, p.callback);
+  }
+  AUTO_assicuraTimer();   // v7.7: ogni visita tiene vivo il ponte
   if (p.ritmo !== undefined) return AUTO_ritmoDaWeb(p.ritmo, p.k, p.callback);   // v8.4: la leva del ritmo dal cruscotto
   if (p.ping) {   // v8.0: stato del timer, leggibile da chiunque (nessun dato dei ragazzi)
     var tr = ScriptApp.getProjectTriggers().filter(function (t) { return t.getHandlerFunction() === 'autoCiclo'; }).length;

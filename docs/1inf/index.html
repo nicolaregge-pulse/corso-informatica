@@ -1,18 +1,19 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cruscotto 1INF</title>
-<meta name="description" content="Cruscotto unico della classe 1INF: a che punto e' ognuno con i quiz del giorno.">
+<meta name="description" content="Cruscotto unico della classe 1INF: a che punto e' ognuno con i quiz del giorno, aggiornato dal vivo.">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--tx:#1c2128;--mu:#5c6670;--ln:#d6dbe0;--v:#1a7f37;--vb:#dafbe1;--g:#9a6700;--gb:#fff3c4;--r:#cf222e;--rb:#ffe0e0;--acc:#0969da}
-@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--v:#3fb950;--vb:#12361e;--g:#e3b341;--gb:#3b2e05;--r:#ff7b72;--rb:#4a1416;--acc:#58a6ff}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--v:#3fb950;--vb:#12361e;--g:#e3b341;--gb:#3b2e05;--r:#ff7b72;--rb:#4a1416;--acc:#58a6ff}}
 *{box-sizing:border-box}html,body{margin:0}
 body{background:var(--bg);color:var(--tx);font:17px/1.45 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
 .w{max-width:980px;margin:0 auto}
-.lg{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
+.lg{display:flex;gap:6px;justify-content:center;margin-bottom:10px;flex-wrap:wrap}
 .lg button{font:inherit;font-size:15px;padding:6px 12px;border-radius:999px;border:1px solid var(--ln);background:var(--card);color:var(--tx);cursor:pointer}
 .lg button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
 h1{margin:0;text-align:center;font-size:clamp(24px,6vw,36px)}
 .sub{color:var(--mu);text-align:center;margin:2px 0 10px}
-.ora{text-align:center;font-size:clamp(26px,7vw,44px);font-weight:900;margin:6px 0}
+.ora{text-align:center;font-size:clamp(26px,7vw,44px);font-weight:900;margin:6px 0 0}
+.fonte{text-align:center;color:var(--mu);font-size:14px;margin:0 0 6px}
 .ban{display:none;background:var(--r);color:#fff;font-weight:900;text-align:center;font-size:clamp(20px,5vw,30px);padding:12px;border-radius:12px;margin:8px 0}
 body.vecchio .ban{display:block}
 body.vecchio .dati{filter:grayscale(1);opacity:.55}
@@ -20,12 +21,20 @@ body.vecchio .dati{filter:grayscale(1);opacity:.55}
 .p{display:inline-block;min-width:22px;height:22px;border-radius:6px;vertical-align:middle;margin-inline-end:6px}
 .verde{background:var(--vb);color:var(--v)}.giallo{background:var(--gb);color:var(--g)}.rosso{background:var(--rb);color:var(--r)}
 .p.verde{background:var(--v)}.p.giallo{background:var(--g)}.p.rosso{background:var(--r)}
+.io{background:var(--card);border:2px solid var(--acc);border-radius:14px;padding:12px 14px;margin:10px 0 14px}
+.io label{font-weight:800;margin-inline-end:8px}
+.io select{font:inherit;padding:8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);max-width:100%}
+.io .perc{margin-top:10px;font-size:18px}
+.perc div{margin:4px 0}
+a.vai{display:inline-block;background:var(--acc);color:#fff;font-weight:900;text-decoration:none;padding:8px 14px;border-radius:10px;margin-top:4px}
 .tw{overflow-x:auto;border:1px solid var(--ln);border-radius:12px;background:var(--card)}
 table{border-collapse:collapse;width:100%;font-size:16px}
 th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:center;white-space:nowrap}
 th:first-child,td:first-child{text-align:start;position:sticky;inset-inline-start:0;background:var(--card);font-weight:700}
 th a{color:var(--acc);font-weight:800}
 td.c{font-weight:800}
+td.pc{white-space:normal;min-width:240px;text-align:start;font-size:15px}
+td.pc a.vai{padding:4px 10px;font-size:15px}
 .mu{color:var(--mu);font-size:13px;font-weight:400}
 .prof{margin-top:22px;border:1px dashed var(--ln);border-radius:12px;padding:14px;background:var(--card)}
 .prof input{font:inherit;padding:9px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);width:min(320px,100%)}
@@ -36,10 +45,11 @@ td.c{font-weight:800}
 </style></head><body><div class="w" id="app">
 <div class="lg" id="lg"></div>
 <h1 id="h"></h1><p class="sub" id="sub"></p>
-<div class="ora" id="ora"></div>
+<div class="ora" id="ora"></div><p class="fonte" id="fonte"></p>
 <div class="ban" id="ban"></div>
 <p class="sub" id="auto"></p>
 <div class="dati">
+<div class="io" id="io"></div>
 <div class="leg" id="leg"></div>
 <div class="tw"><table id="t"></table></div>
 </div>
@@ -48,38 +58,96 @@ td.c{font-weight:800}
 <div id="profout" class="dati"></div></div>
 </div>
 <script>
-var T={"it": {"nome": "Italiano", "h": "Cruscotto {c}", "letto": "Dati letti alle", "vecchi": "DATI VECCHI di {n} minuti", "mai": "DATI NON ANCORA LETTI", "auto": "La pagina si aggiorna da sola ogni minuto.", "trova": "Trova il tuo nome. Clicca sul nome del quiz per aprirlo.", "verde": "fatto, sopra la soglia", "giallo": "fatto ma sotto la soglia: rifallo", "rosso": "non ancora fatto", "allievo": "Allievo", "cosa": "Cosa ti manca", "tutto": "Tutto fatto!", "rec": "Da recuperare", "fare": "Da fare", "tent": "tentativi", "soglia": "soglia", "apri": "Apri il quiz", "prof": "Area del Professore", "codice": "Codice del Professore", "entra": "Entra"}, "ar": {"nome": "العربية", "h": "لوحة المتابعة {c}", "letto": "تمت قراءة البيانات الساعة", "vecchi": "بيانات قديمة منذ {n} دقيقة", "mai": "لم تتم قراءة البيانات بعد", "auto": "الصفحة تتحدث وحدها كل دقيقة.", "trova": "ابحث عن اسمك. اضغط على اسم الاختبار لفتحه.", "verde": "تم، فوق الحد المطلوب", "giallo": "تم لكن تحت الحد المطلوب: أعده", "rosso": "لم يتم بعد", "allievo": "الطالب", "cosa": "ما الذي ينقصك", "tutto": "أنجزت كل شيء!", "rec": "للتعويض", "fare": "للإنجاز", "tent": "محاولات", "soglia": "الحد المطلوب", "apri": "افتح الاختبار", "prof": "منطقة الأستاذ", "codice": "رمز الأستاذ", "entra": "دخول"}, "zh": {"nome": "中文", "h": "{c} 进度面板", "letto": "数据读取时间", "vecchi": "数据已过时 {n} 分钟", "mai": "数据尚未读取", "auto": "本页每分钟自动刷新。", "trova": "找到你的名字。点击测验名称即可打开。", "verde": "已完成，达到及格线", "giallo": "已完成但未达到及格线：请重做", "rosso": "尚未完成", "allievo": "学生", "cosa": "你还缺什么", "tutto": "全部完成！", "rec": "需要补做", "fare": "需要完成", "tent": "次尝试", "soglia": "及格线", "apri": "打开测验", "prof": "老师专区", "codice": "老师密码", "entra": "进入"}},LG='it',D=null,DOC=null,TOK='';
+var T={"it": {"nome": "Italiano", "h": "Cruscotto {c}", "letto": "Dati letti alle", "vecchi": "DATI VECCHI di {n} minuti", "mai": "DATI NON ANCORA LETTI", "auto": "La pagina si aggiorna da sola ogni minuto.", "trova": "Trova il tuo nome. Clicca sul nome del quiz per aprirlo.", "verde": "fatto, sopra la soglia", "giallo": "fatto ma sotto la soglia: rifallo", "rosso": "non ancora fatto", "allievo": "Allievo", "cosa": "Il tuo percorso", "tutto": "Tutto fatto!", "rec": "Da recuperare", "fare": "Da fare", "tent": "tentativi", "soglia": "soglia", "apri": "Apri il quiz", "prof": "Area del Professore", "codice": "Codice del Professore", "entra": "Entra", "fatti": "Hai fatto", "manca": "Ti manca", "vai": "Vai qui adesso", "rifai": "rifallo", "niente": "niente, per ora", "io": "Io sono", "scegli": "scegli il tuo nome", "fa": "dati dal vivo, ogni 2 minuti", "fb": "dati dal sito", "fc": "dati preparati dal Professore"}, "ar": {"nome": "العربية", "h": "لوحة المتابعة {c}", "letto": "تمت قراءة البيانات الساعة", "vecchi": "بيانات قديمة منذ {n} دقيقة", "mai": "لم تتم قراءة البيانات بعد", "auto": "الصفحة تتحدث وحدها كل دقيقة.", "trova": "ابحث عن اسمك. اضغط على اسم الاختبار لفتحه.", "verde": "تم، فوق الحد المطلوب", "giallo": "تم لكن تحت الحد المطلوب: أعده", "rosso": "لم يتم بعد", "allievo": "الطالب", "cosa": "مسارك", "tutto": "أنجزت كل شيء!", "rec": "للتعويض", "fare": "للإنجاز", "tent": "محاولات", "soglia": "الحد المطلوب", "apri": "افتح الاختبار", "prof": "منطقة الأستاذ", "codice": "رمز الأستاذ", "entra": "دخول", "fatti": "أنجزت", "manca": "ينقصك", "vai": "اذهب إلى هنا الآن", "rifai": "أعده", "niente": "لا شيء بعد", "io": "أنا", "scegli": "اختر اسمك", "fa": "بيانات مباشرة، كل دقيقتين", "fb": "بيانات من الموقع", "fc": "بيانات أعدها الأستاذ"}, "zh": {"nome": "中文", "h": "{c} 进度面板", "letto": "数据读取时间", "vecchi": "数据已过时 {n} 分钟", "mai": "数据尚未读取", "auto": "本页每分钟自动刷新。", "trova": "找到你的名字。点击测验名称即可打开。", "verde": "已完成，达到及格线", "giallo": "已完成但未达到及格线：请重做", "rosso": "尚未完成", "allievo": "学生", "cosa": "你的路线", "tutto": "全部完成！", "rec": "需要补做", "fare": "需要完成", "tent": "次尝试", "soglia": "及格线", "apri": "打开测验", "prof": "老师专区", "codice": "老师密码", "entra": "进入", "fatti": "你已完成", "manca": "你还缺", "vai": "现在去这里", "rifai": "请重做", "niente": "暂时没有", "io": "我是", "scegli": "选择你的名字", "fa": "实时数据，每2分钟", "fb": "来自网站的数据", "fc": "老师准备的数据"}},LG='it',D=null,DOC=null,TOK='',VIVO=null,FONTE='c',IO='';
+var SOGLIA={a:4,b:6,c:6};  /* minuti: dal ponte (giro ogni 2 minuti) 4; dal sito (giro + pubblicazione di GitHub) 6 */
 function $(i){return document.getElementById(i)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function t(k,n){return (T[LG]||T.it)[k].replace('{c}',D?D.classe:'1INF').replace('{n}',n)}
+function t(k,n){var x=(T[LG]||T.it)[k];if(x==null)x=T.it[k];return x.replace('{c}',D?D.classe:'1INF').replace('{n}',n)}
+function hhmm(iso){try{return new Intl.DateTimeFormat('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'}).format(new Date(iso))}catch(e){return '--:--'}}
 function lingue(){var b=$('lg');var ls=Object.keys(T);if(ls.length<2){b.style.display='none';return}
  b.innerHTML=ls.map(function(l){return '<button data-l="'+l+'" class="'+(l===LG?'on':'')+'">'+T[l].nome+'</button>'}).join('');
  [].forEach.call(b.querySelectorAll('button'),function(x){x.onclick=function(){LG=x.dataset.l;try{localStorage.setItem('lg-crusc',LG)}catch(e){}disegna()}})}
-function eta(){if(!D||!D.letto_iso)return null;return Math.floor((Date.now()-Date.parse(D.letto_iso))/60000)}
-function freschezza(){var n=eta();var v=(n===null||n>6);document.body.classList.toggle('vecchio',v);
+/* ---- dal vivo: il ponte (?c1=) o live.json del sito; vale il piu' recente, se e' piu' nuovo dei dati preparati ---- */
+function letto(){return VIVO&&FONTE!=='c'?VIVO.letto_il:(D&&D.letto_iso)}
+function eta(){var l=letto();if(!l)return null;return Math.max(0,Math.floor((Date.now()-Date.parse(l))/60000))}
+function applica(){if(!D)return;
+ D.righe.forEach(function(r){if(!r.c0){r.c0=JSON.parse(JSON.stringify(r.c));r.n0=JSON.parse(JSON.stringify(r.n))}
+  r.c=JSON.parse(JSON.stringify(r.c0));r.n=JSON.parse(JSON.stringify(r.n0));
+  if(!VIVO||FONTE==='c')return;
+  D.moduli.forEach(function(m){var vm=VIVO.moduli&&VIVO.moduli[m.k];if(!vm||!vm.letto_il)return;
+   var s='rosso',n=0;(r.ids||[]).forEach(function(id){var x=VIVO.r&&VIVO.r[id]&&VIVO.r[id][m.k];if(!x)return;n+=x[1];
+    if(x[0]==='v')s='verde';else if(s!=='verde')s='giallo'});r.c[m.k]=s;r.n[m.k]=n})})}
+function scegli(cand,f){if(!cand||!cand.letto_il)return;var base=D&&D.letto_iso?Date.parse(D.letto_iso):0;
+ if(Date.parse(cand.letto_il)<base)return;if(VIVO&&FONTE!=='c'&&Date.parse(VIVO.letto_il)>Date.parse(cand.letto_il))return;
+ if(VIVO&&f==='b'&&FONTE==='a'&&Date.parse(VIVO.letto_il)>=Date.parse(cand.letto_il))return;
+ VIVO=cand;FONTE=f;applica();disegna()}
+function sitoVivo(){return fetch('live.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(d){scegli(d,'b')}).catch(function(){})}
+function ponteVivo(){if(!D||!D.ponte)return;var cb='__vivo'+Date.now(),s=document.createElement('script'),fine=false;
+ function chiudi(){fine=true;try{delete window[cb]}catch(e){window[cb]=undefined}if(s.parentNode)s.parentNode.removeChild(s)}
+ window[cb]=function(d){if(fine)return;chiudi();if(d&&d.ok){scegli(d,'a');if(d.docente&&DOC)disegnaDoc()}};
+ s.onerror=function(){chiudi()};setTimeout(function(){if(!fine)chiudi()},10000);
+ s.src=D.ponte+'?c1='+encodeURIComponent(D.classe_k||D.classe.toLowerCase())+(TOK?'&tok='+encodeURIComponent(TOK):'')+'&callback='+cb;
+ document.head.appendChild(s)}
+function freschezza(){var n=eta();var v=(n===null||n>SOGLIA[FONTE]);document.body.classList.toggle('vecchio',v);
  $('ban').textContent=n===null?t('mai'):t('vecchi',n)}
+/* ---- percorso del ragazzo (R9): Hai fatto / Ti manca / Vai qui adesso ---- */
+function percorso(r){var f=[],m=[];D.moduli.forEach(function(x){var s=r.c[x.k];if(s==='verde')f.push(x);else m.push({m:x,s:s})});return{f:f,m:m}}
+function htmlPerc(r,breve){var p=percorso(r),h='';
+ h+='<div><b>'+t('fatti')+':</b> '+(p.f.length?esc(p.f.map(function(x){return x.breve}).join(', ')):t('niente'))+'</div>';
+ if(!p.m.length)return h+'<div><b style="color:var(--v)">'+t('tutto')+'</b></div>';
+ h+='<div><b>'+t('manca')+':</b> '+p.m.map(function(x){return esc(x.m.breve)+(x.s==='giallo'?' ('+t('rifai')+')':'')}).join(', ')+'</div>';
+ var v=p.m[0].m;h+='<div><b>'+t('vai')+':</b> <a class="vai" href="'+esc(v.link)+'" target="_blank" rel="noopener">'+esc(v.breve)+' &rarr;</a></div>';
+ return h}
+function disegnaIo(){var nomi=D.righe.map(function(r){return r.nome});if(IO&&nomi.indexOf(IO)<0)IO='';
+ var h='<label for="iosel">'+t('io')+':</label><select id="iosel"><option value="">'+t('scegli')+'</option>'+
+  nomi.map(function(n){return '<option'+(n===IO?' selected':'')+'>'+esc(n)+'</option>'}).join('')+'</select>';
+ if(IO){var r=D.righe.filter(function(x){return x.nome===IO})[0];h+='<div class="perc">'+htmlPerc(r)+'</div>'}
+ $('io').innerHTML=h;$('iosel').onchange=function(){IO=this.value;try{localStorage.setItem('io-crusc-'+D.classe,IO)}catch(e){}disegnaIo()}}
 function disegna(){if(!D)return;lingue();$('app').className='w'+(LG==='ar'?' rtl':'');document.documentElement.lang=LG;
+ document.documentElement.dir=LG==='ar'?'rtl':'ltr';
  $('h').textContent=t('h');$('sub').textContent=D.titolo+' · '+D.giorno.split('-').reverse().join('/');
- $('ora').textContent=t('letto')+' '+(D.letto_hhmm||'--:--');$('auto').textContent=t('auto')+' '+t('trova');
+ var l=letto();$('ora').textContent=t('letto')+' '+(l?(FONTE==='c'?(D.letto_hhmm||hhmm(l)):hhmm(l)):'--:--');
+ $('fonte').textContent=t('f'+FONTE);$('auto').textContent=t('auto')+' '+t('trova');
  $('leg').innerHTML=['verde','giallo','rosso'].map(function(s){return '<span><span class="p '+s+'"></span>'+t(s)+'</span>'}).join('');
+ disegnaIo();
  var h='<tr><th>'+t('allievo')+'</th>'+D.moduli.map(function(m){return '<th><a href="'+esc(m.link)+'" target="_blank" rel="noopener" title="'+t('apri')+'">'+esc(m.breve)+'</a><br><span class="mu">'+t('soglia')+' '+esc(m.soglia)+'</span></th>'}).join('')+'<th>'+t('cosa')+'</th></tr>';
  D.righe.forEach(function(r){h+='<tr><td>'+esc(r.nome)+'</td>'+D.moduli.map(function(m){var s=r.c[m.k],n=r.n[m.k];
    return '<td class="c '+s+'">'+(s==='verde'?'✔':s==='giallo'?'↻':'✘')+(n>1?' <span class="mu">'+n+' '+t('tent')+'</span>':'')+'</td>'}).join('')+
-   '<td>'+(r.da_recuperare.length||r.da_fare.length?(r.da_fare.length?t('fare')+': '+esc(r.da_fare.join(', '))+(r.da_recuperare.length?' · ':''):'')+(r.da_recuperare.length?t('rec')+': '+esc(r.da_recuperare.join(', ')):''):'<b style="color:var(--v)">'+t('tutto')+'</b>')+'</td></tr>'});
+   '<td class="pc">'+htmlPerc(r)+'</td></tr>'});
  $('t').innerHTML=h;$('profh').textContent=t('prof');$('tok').placeholder=t('codice');$('ok').textContent=t('entra');
  freschezza();if(DOC)disegnaDoc()}
 function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
 async function dec(d){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);
  var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
-function disegnaDoc(){var d=DOC,h='';
+/* ---- vista docente: dati cifrati del Professore + dal vivo (punteggi solo dal ponte con il codice) ---- */
+function vivoDoc(){var d=DOC,mn=d.mod_num||{},V=d.voto_cfg,pv=VIVO&&FONTE!=='c'&&VIVO.p?VIVO.p:null,noti={};
+ d.righe.forEach(function(r){if(!r.celle0)r.celle0=JSON.parse(JSON.stringify(r.celle));r.celle=JSON.parse(JSON.stringify(r.celle0));
+  (r.ids||[]).forEach(function(id){noti[id]=1});
+  if(VIVO&&FONTE!=='c')d.moduli.forEach(function(m){var vm=VIVO.moduli&&VIVO.moduli[m.k];if(!vm||!vm.letto_il)return;
+   var s='rosso',n=0,p=null,ce=r.celle[m.k];(r.ids||[]).forEach(function(id){var x=VIVO.r&&VIVO.r[id]&&VIVO.r[id][m.k];if(!x)return;n+=x[1];
+    if(x[0]==='v')s='verde';else if(s!=='verde')s='giallo';var q=pv&&pv[id]?pv[id][m.k]:null;if(q!=null&&(p===null||q>p))p=q});
+   if(p===null&&!pv)p=(s===ce.s&&n===ce.n)?ce.p:(s==='rosso'?null:'?');r.celle[m.k]={p:p,n:n,s:s}});
+  r.da_recuperare=d.moduli.filter(function(m){return (mn[m.k]||{}).tipo==='recupero'&&r.celle[m.k].s!=='verde'}).map(function(m){return m.breve});
+  r.da_fare=d.moduli.filter(function(m){return (mn[m.k]||{}).tipo!=='recupero'&&r.celle[m.k].s!=='verde'}).map(function(m){return m.breve});
+  (d.kpi||[]).forEach(function(k){var ks=k.modulo?[k.modulo]:(k.moduli||[]);r.kpi[k.k]=ks.every(function(x){return r.celle[x]&&r.celle[x].s==='verde'})});
+  if(V&&r.celle[V.modulo]){var cv=r.celle[V.modulo],mx=(mn[V.modulo]||{}).massimo||100;
+   if(typeof cv.p==='number'){r.voto=Math.min(V.massimo,Math.round(V.base+V.punti*cv.p/mx));r.conto=V.base+' + '+V.punti+' × '+cv.p+'/'+mx}
+   else if(cv.p==null){r.voto=V.base;r.conto=V.base+' (quiz non fatto)'}else{r.voto='?';r.conto='punti dal vivo con il codice e il ponte v8.8'}}});
+ d.non_abbinati=[];if(VIVO&&FONTE!=='c')Object.keys(VIVO.r||{}).forEach(function(id){if(!noti[id])d.non_abbinati.push({id:id,email:VIVO.email?VIVO.email[id]:'',m:Object.keys(VIVO.r[id]).join(', '),p:VIVO.p&&VIVO.p[id]?Object.keys(VIVO.p[id]).map(function(k){return k+' '+VIVO.p[id][k]}).join(', '):''})});
+ d.righe.sort(function(a,b){var va=d.moduli.filter(function(m){return a.celle[m.k].s==='verde'}).length,vb=d.moduli.filter(function(m){return b.celle[m.k].s==='verde'}).length;
+  return vb-va||((+b.voto||0)-(+a.voto||0))||(a.allievo<b.allievo?-1:1)})}
+function disegnaDoc(){var d=DOC,h='';vivoDoc();
+ h+='<p class="mu">Fonte: '+(FONTE==='a'?'ponte dal vivo'+(VIVO.p?' (con i punteggi)':' (senza punteggi: codice sbagliato o MONITOR_TOKEN diverso)'):FONTE==='b'?'live.json del sito (colori dal vivo; punteggi del Professore fino a '+esc(d.letto_hhmm)+')':'dati preparati da Claude alle '+esc(d.letto_hhmm))+'.</p>';
+ if(d.non_abbinati.length)h+='<div class="box"><b>Risposte dal vivo non abbinate a un presente ('+d.non_abbinati.length+'): email sconosciuta, assente o di un\'altra classe.</b><br>'+
+   d.non_abbinati.map(function(x){return esc(x.email||('id '+x.id))+' · '+esc(x.m)+(x.p?' · punti '+esc(x.p):'')}).join('<br>')+'</div>';
  if(d.email_sconosciute.length){h+='<div class="box"><b>Email sconosciute ('+d.email_sconosciute.length+'): non abbinate a nessun allievo. Aggiungerle in config/classi (manuali).</b><br>'+
    d.email_sconosciute.map(function(x){return esc(x.m)+': '+esc(x.email)+' (scritto: «'+esc(x.nome_scritto)+'», punti '+esc(x.punti)+')'}).join('<br>')+'</div>'}
  if(d.presenti_senza_email.length)h+='<div class="box"><b>Presenti senza email nell\'elenco:</b> '+esc(d.presenti_senza_email.join(', '))+'</div>';
  if(d.risposte_non_presenti.length)h+='<p class="mu">Risposte di allievi non presenti oggi (anche di altri giorni, non contano qui): '+d.risposte_non_presenti.map(function(x){return esc(x.allievo)+' ('+esc(x.m)+', '+esc(x.nota)+')'}).join('; ')+'</p>';
  if(d.risposte_altra_classe.length)h+='<p class="mu">Risposte di allievi di altre classi ignorate: '+d.risposte_altra_classe.length+'</p>';
  h+='<p>Presenti: <b>'+d.presenti+'</b> · Assenti: '+esc(d.assenti.join(', '))+'</p>';
- h+='<p class="mu">Letture del ponte: '+d.moduli.map(function(m){return esc(m.breve)+' '+esc(m.letto)}).join(' · ')+'. Con più risposte vale la migliore; i tentativi sono tra parentesi.</p>';
+ h+='<p class="mu">Letture: '+d.moduli.map(function(m){var vm=VIVO&&FONTE!=='c'&&VIVO.moduli?VIVO.moduli[m.k]:null;return esc(m.breve)+' '+(vm&&vm.letto_il?hhmm(vm.letto_il)+(vm.errore?' (ERRORE: '+esc(vm.errore)+')':''):esc(m.letto))}).join(' · ')+'. Con più risposte vale la migliore; i tentativi sono tra parentesi.</p>';
  h+='<div class="tw"><table><tr><th>COGNOME Nome</th>'+d.moduli.map(function(m){return '<th>'+esc(m.breve)+'<br><span class="mu">'+esc(m.soglia)+'</span></th>'}).join('')+
    '<th>Da recuperare</th><th>Da fare</th>'+d.kpi.map(function(k){return '<th title="'+esc(k.testo)+'">KPI '+esc(k.k)+'</th>'}).join('')+'<th>Voto</th></tr>';
  d.righe.forEach(function(r){h+='<tr><td>'+esc(r.allievo)+'</td>'+d.moduli.map(function(m){var c=r.celle[m.k];
@@ -90,10 +158,12 @@ function disegnaDoc(){var d=DOC,h='';
  $('profout').innerHTML=h}
 async function prof(){if(!TOK)return;try{var r=await fetch('docente.json?t='+Date.now(),{cache:'no-store'});DOC=await dec(await r.json());$('perr').textContent='';disegnaDoc()}
  catch(e){DOC=null;$('profout').innerHTML='';$('perr').textContent='Codice sbagliato'}}
-$('ok').onclick=function(){TOK=$('tok').value;try{sessionStorage.setItem('tokmon',TOK)}catch(e){}prof()};
+$('ok').onclick=function(){TOK=$('tok').value;try{sessionStorage.setItem('tokmon',TOK)}catch(e){}prof().then(ponteVivo)};
 try{var s=localStorage.getItem('lg-crusc');if(T[s])LG=s}catch(e){}
 try{TOK=sessionStorage.getItem('tokmon')||''}catch(e){}
-fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;disegna();prof()})
+fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;
+  try{IO=localStorage.getItem('io-crusc-'+D.classe)||''}catch(e){}
+  disegna();prof();sitoVivo();ponteVivo()})
  .catch(function(){$('ora').textContent='--:--';document.body.classList.add('vecchio');$('ban').textContent='DATI NON DISPONIBILI'});
 setInterval(freschezza,15000);setTimeout(function(){location.reload()},60000);
 </script></body></html>

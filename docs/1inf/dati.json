@@ -9,8 +9,16 @@
 ],
 "letto_hhmm": "13:53",
 "letto_iso": "2026-11-04T13:53:54.793000+01:00",
-"generato": "2026-11-04T14:36:51+01:00",
+"generato": "2026-11-04T17:13:45+01:00",
 "moduli": [
+{
+"k": "q4",
+"breve": "4ª ora",
+"link": "https://docs.google.com/forms/d/e/1FAIpQLSfrkjc1AgfDCsa_-FcsUw6CU6kIcUaRl4Q2BnzpUeTyz5HPaQ/viewform",
+"tipo": "ora",
+"soglia": "70/100",
+"letto": "04/11 13:53"
+},
 {
 "k": "q2",
 "breve": "2ª ora",
@@ -28,14 +36,6 @@
 "letto": "04/11 13:53"
 },
 {
-"k": "q4",
-"breve": "4ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSfrkjc1AgfDCsa_-FcsUw6CU6kIcUaRl4Q2BnzpUeTyz5HPaQ/viewform",
-"tipo": "ora",
-"soglia": "70/100",
-"letto": "04/11 13:53"
-},
-{
 "k": "qb",
 "breve": "B",
 "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8zHtXqM5FEhDJyEqL-yE6SgxUU52OHlXEo4tLazUQrjMB3Q/viewform",
@@ -47,6 +47,10 @@
 "righe": [
 {
 "nome": "Abdel N.",
+"ids": [
+"0452cd33f5909223",
+"295ac10e35ddc59c"
+],
 "c": {
 "q2": "giallo",
 "q3": "giallo",
@@ -68,6 +72,9 @@
 },
 {
 "nome": "Alessio C.",
+"ids": [
+"b89453ceffee6862"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -89,6 +96,9 @@
 },
 {
 "nome": "Anthony A.",
+"ids": [
+"34b5f36b83bea4a7"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -106,6 +116,9 @@
 },
 {
 "nome": "Christian A.",
+"ids": [
+"7d87fcf3d67e8daf"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -123,6 +136,9 @@
 },
 {
 "nome": "Cristian C.",
+"ids": [
+"bb9ecdb5b90cb7f3"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -140,6 +156,9 @@
 },
 {
 "nome": "Enea Z.",
+"ids": [
+"bfa60ed6e4d80884"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -157,6 +176,9 @@
 },
 {
 "nome": "Giexther A.",
+"ids": [
+"8a2cc135c3805679"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -174,6 +196,9 @@
 },
 {
 "nome": "Matteo A.",
+"ids": [
+"c5e91ab951e271b4"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -191,6 +216,9 @@
 },
 {
 "nome": "Md M.",
+"ids": [
+"d5a9ae156d495bfe"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -208,6 +236,9 @@
 },
 {
 "nome": "Moaaz M.",
+"ids": [
+"4696f8dd77293900"
+],
 "c": {
 "q2": "giallo",
 "q3": "verde",
@@ -228,6 +259,9 @@
 },
 {
 "nome": "Muhammad N.",
+"ids": [
+"55c1a818f0c7bbc6"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -245,6 +279,9 @@
 },
 {
 "nome": "Muhid H.",
+"ids": [
+"78bc2e86feb022e9"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -262,6 +299,9 @@
 },
 {
 "nome": "Nehara F.",
+"ids": [
+"152a0b61edc8f505"
+],
 "c": {
 "q2": "verde",
 "q3": "giallo",
@@ -281,6 +321,10 @@
 },
 {
 "nome": "Sara F.",
+"ids": [
+"46bff6e910c0e4a6",
+"9a94ebf87a525a37"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -298,6 +342,11 @@
 },
 {
 "nome": "Shanzay S.",
+"ids": [
+"c0b0a15ca59cbaa2",
+"fb80c0206a800f6e",
+"b5456aae7cd89ed6"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -315,6 +364,9 @@
 },
 {
 "nome": "Thomas R.",
+"ids": [
+"c32e196d6e195471"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -332,6 +384,10 @@
 },
 {
 "nome": "Wesley J.",
+"ids": [
+"5a2810d6aad3fb7c",
+"a5f93706930a9855"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -349,6 +405,9 @@
 },
 {
 "nome": "Yinlin L.",
+"ids": [
+"7d7ec18622a0cb55"
+],
 "c": {
 "q2": "verde",
 "q3": "verde",
@@ -364,5 +423,7 @@
 "da_recuperare": [],
 "da_fare": []
 }
-]
+],
+"ponte": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
+"classe_k": "1inf"
 }
