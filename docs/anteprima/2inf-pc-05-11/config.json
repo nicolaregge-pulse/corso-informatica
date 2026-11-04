@@ -1,0 +1,20 @@
+{
+ "invio": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
+ "attivo": true,
+ "ore_sbloccate": 0,
+ "variante_os": "A",
+ "pc_da_smontare": 9,
+ "persone_per_pc": 2,
+ "rete": {
+  "prefisso": "192.168.10.",
+  "primo": 10,
+  "maschera": "255.255.255.0",
+  "gateway": "192.168.10.1",
+  "dns": "192.168.10.1"
+ },
+ "quiz_pc": "",
+ "_nota": "2INF 05/11/2026 smonta, rimonta, installa (genera_lezione_pc.py). Pagina CHIUSA finché non arriva PUBB n (R2).",
+ "_ore": "0 = tutto chiuso; con PUBB n: python3 strumenti/sblocca_ora.py 2inf-pc-05-11 n",
+ "_variante_os": "A = Windows 10 da chiavetta USB (deciso dal docente il 04/11/2026); B = Linux Mint da chiavetta USB",
+ "_rete": "IP del banco N = prefisso + (primo + N). Valori da confermare dal docente."
+}
