@@ -1,5 +1,16 @@
 /**
- * AUTOMAZIONE CORSO v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.7 (04/11/2026, AUDIT-2-SETTIMANE 03.2, 03.5, 03.9):
+ *       1) classroom.compito_cancella: legge prima lo stato; una BOZZA si cancella subito (Classroom non elenca le
+ *          consegne di una bozza: prima dava sempre errore). Un compito creato A MANO dal docente da' un errore
+ *          chiaro «creato a mano: cancellalo tu» (Classroom non lo lascia toccare allo script).
+ *       2) Quiz e Moduli nascono con PIU' RISPOSTE permesse (recuperi senza Modulo nuovo); chi vuole una sola
+ *          risposta mette una_risposta: true. Azione nuova forms.imposta_una_risposta {id, valore} per i Moduli esistenti.
+ *       3) Comando con piu' azioni: ogni risultato ha «esito» (ok | errore) e anche l'azione nel file lo riceve;
+ *          se fallisce solo una parte il comando e' «eseguito» con esito «parziale»; «errore» solo se falliscono tutte.
+ *       4) GIRO DEI MODULI indipendente dalla chat: giroModuli() con un timer suo (ogni 5 minuti, lun-ven 8:00-14:05
+ *          ora di Roma) legge config/giro-moduli.json e salva i risultati come forms.risposte, con il campo letto_il
+ *          (ora in cui il ponte ha letto il Modulo). Da eseguire UNA volta: installaGiroModuli.
  * v8.6: ANTI-DOPPIONE (02/11/2026, CLAUDE.md regola 34, REGISTRO-ERRORI #174: il ponte aveva creato un secondo
  *       «Mastermind in rete: il tuo CLIENT» accanto a quello fatto a mano dal docente). Prima di creare un compito
  *       (coda) o un annuncio (classroom.annuncio) si legge l'elenco Classroom (bozze comprese): se c'e' gia' un post
@@ -105,6 +116,52 @@ function attivaAutomatico() { ritmo5(); }   // v8.3: il ritmo normale è ogni 5 
 
 function disattivaAutomatico() { AUTO_ritmo(0); }
 
+/* ====================== v8.7 — GIRO DEI MODULI (indipendente dalla chat) ======================
+   config/giro-moduli.json = lista [{classe, id, salva_in, titolo?, versione?, attivo?, fino_al?}] (oppure {moduli: [...]}).
+   Ogni 5 minuti, solo lun-ven 8:00-14:05 (Roma), per ogni Modulo scrive <salva_in>/_RISULTATI-QUIZ.json e .csv
+   come l'azione forms.risposte, con letto_il = ora della lettura. attivo: false lo salta; fino_al: "AAAA-MM-GG"
+   lo salta dal giorno dopo. Da eseguire UNA volta: Esegui -> installaGiroModuli. Per spegnerlo: disinstallaGiroModuli. */
+var AUTO_GIRO_MODULI = 'config/giro-moduli.json';
+function installaGiroModuli() {
+  ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'giroModuli') ScriptApp.deleteTrigger(t); });
+  ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(5).create();
+  PropertiesService.getScriptProperties().setProperty('GIRO_MODULI', '1');
+  Logger.log('Giro dei Moduli ATTIVO: ogni 5 minuti, lun-ven 8:00-14:05. Primo giro adesso, per prova:');
+  giroModuli(true);
+}
+function disinstallaGiroModuli() {
+  ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'giroModuli') ScriptApp.deleteTrigger(t); });
+  PropertiesService.getScriptProperties().setProperty('GIRO_MODULI', '0');
+  Logger.log('Giro dei Moduli SPENTO.');
+}
+function AUTO_inOrarioModuli(adesso) {
+  var g = +Utilities.formatDate(adesso, 'Europe/Rome', 'u'), h = +Utilities.formatDate(adesso, 'Europe/Rome', 'H'),
+      m = +Utilities.formatDate(adesso, 'Europe/Rome', 'm'), min = h * 60 + m;
+  return g >= 1 && g <= 5 && min >= 8 * 60 && min <= 14 * 60 + 5;
+}
+function giroModuli(forza) {
+  var adesso = new Date();
+  if (forza !== true && !AUTO_inOrarioModuli(adesso)) { Logger.log('Giro Moduli: fuori orario (lun-ven 8:00-14:05), dormo.'); return; }
+  var lock = LockService.getScriptLock();
+  if (!lock.tryLock(30000)) { Logger.log('Giro Moduli: lucchetto occupato, salto questo giro.'); return; }
+  var esiti = [];
+  try {
+    var cfg = AUTO_leggiJson(AUTO_GIRO_MODULI).json, lista = Array.isArray(cfg) ? cfg : (cfg.moduli || []);
+    var oggi = Utilities.formatDate(adesso, 'Europe/Rome', 'yyyy-MM-dd');
+    lista.forEach(function (m) {
+      if (!m || !m.id || !m.salva_in || m.attivo === false || (m.fino_al && oggi > m.fino_al)) return;
+      try {
+        var letto = new Date().toISOString();
+        var r = AUTO_risultatiQuiz({ moduli: [{ versione: m.versione || 'A', id: m.id }], classe: m.classe || '', titolo: m.titolo || m.id }, m.salva_in, letto);
+        esiti.push((m.classe || '') + ' ' + (m.titolo || m.id) + ': ' + r.risposte + ' risposte');
+      } catch (e) { esiti.push('ERRORE ' + (m.titolo || m.id) + ': ' + e); }
+    });
+  } catch (e) { esiti.push('ERRORE ' + AUTO_GIRO_MODULI + ': ' + e); }
+  finally { lock.releaseLock(); }
+  PropertiesService.getScriptProperties().setProperty('GIRO_MODULI_ULTIMO', adesso.toISOString() + ' · ' + esiti.length + ' moduli');
+  Logger.log('Giro Moduli: ' + (esiti.join(' | ') || 'nessun Modulo attivo nell\'elenco'));
+}
+
 /* v7.7 — SI RIPARA DA SOLO: se il timer di autoCiclo non c'e' piu' (Google a volte lo spegne),
    lo ricrea. Viene chiamato a ogni contatto del web app (doGet/doPost): cosi' qualunque
    attivita' (una consegna, una visita alla pagina) tiene vivo il ponte. Idempotente. */
@@ -114,6 +171,11 @@ function AUTO_assicuraTimer() {
     var rit = +(PropertiesService.getScriptProperties().getProperty('RITMO') || 5);   // v8.3: rispetta il ritmo scelto
     if (c.length === 0 && rit) { ScriptApp.newTrigger('autoCiclo').timeBased().everyMinutes(rit).create(); Logger.log('Timer RI-CREATO (self-healing), ogni ' + rit + ' minuti.'); }
     else if (c.length > 1) { c.slice(1).forEach(function (t) { ScriptApp.deleteTrigger(t); }); }  // niente doppioni
+    // v8.7: anche il timer del giro dei Moduli, se il docente l'ha installato
+    if (PropertiesService.getScriptProperties().getProperty('GIRO_MODULI') === '1' &&
+        !ScriptApp.getProjectTriggers().some(function (t) { return t.getHandlerFunction() === 'giroModuli'; })) {
+      ScriptApp.newTrigger('giroModuli').timeBased().everyMinutes(5).create(); Logger.log('Timer giroModuli RI-CREATO.');
+    }
   } catch (e) { Logger.log('AUTO_assicuraTimer: ' + e); }
 }
 
@@ -462,7 +524,7 @@ function AUTO_creaQuiz(job, cart) {
       .setIsQuiz(true)
       .setShuffleQuestions(q.mescola !== false)
       .setCollectEmail(true)
-      .setLimitOneResponsePerUser(true)
+      .setLimitOneResponsePerUser(q.una_risposta === true)   // v8.7: piu' risposte di default (recuperi)
       .setDescription((q.descrizione || '') + (vers.length > 1 ? ' Versione ' + v + '.' : ''));
     form.addTextItem().setTitle('Nome e cognome').setRequired(true);
     q.domande.forEach(function (d, n) {
@@ -478,7 +540,7 @@ function AUTO_creaQuiz(job, cart) {
   return out;
 }
 
-function AUTO_risultatiQuiz(job, base) {
+function AUTO_risultatiQuiz(job, base, lettoIl) {   // v8.7: lettoIl = ora della lettura (giro dei Moduli)
   var righe = ['versione;email;nome;punteggio;massimo;ora'], det = [];
   job.moduli.forEach(function (m) {
     var f = FormApp.openById(m.id), max = 0;
@@ -495,7 +557,10 @@ function AUTO_risultatiQuiz(job, base) {
         if (!sc) sbagliate.push(g.getItem().getTitle());
       });
       righe.push([m.versione, r.getRespondentEmail(), nome.replace(/;/g, ','), tot, max, r.getTimestamp().toISOString()].join(';'));
-      det.push({ versione: m.versione, email: r.getRespondentEmail(), nome: nome, punteggio: tot, massimo: max, sbagliate: sbagliate });
+      var riga = { versione: m.versione, email: r.getRespondentEmail(), nome: nome, punteggio: tot, massimo: max, sbagliate: sbagliate,
+                   ora: r.getTimestamp().toISOString() };
+      if (lettoIl) riga.letto_il = lettoIl;
+      det.push(riga);
     });
   });
   AUTO_commit(base + '/_RISULTATI-QUIZ.csv', Utilities.newBlob(righe.join('\n'), 'text/plain', '_RISULTATI-QUIZ.csv'), 'Risultati quiz ' + job.classe + ' - ' + job.titolo);
@@ -514,12 +579,15 @@ function AUTO_comandi() {
     if (visti[f.name] === f.sha) { nuovi[f.name] = f.sha; return; }
     var item = AUTO_leggiJson(f.path), cmd = item.json;
     if (cmd.stato !== 'da-eseguire') { nuovi[f.name] = f.sha; return; }
-    var ris = [], errori = 0;
+    var ris = [], errori = 0, tot = (cmd.azioni || []).length;
     (cmd.azioni || []).forEach(function (a, i) {
-      try { ris.push({ n: i + 1, tipo: a.tipo, ok: true, dati: AUTO_azione(a) }); }
-      catch (e) { errori++; ris.push({ n: i + 1, tipo: a.tipo, ok: false, errore: String(e) }); }
+      try { ris.push({ n: i + 1, tipo: a.tipo, ok: true, esito: 'ok', dati: AUTO_azione(a) }); a.esito = 'ok'; }
+      catch (e) { errori++; ris.push({ n: i + 1, tipo: a.tipo, ok: false, esito: 'errore', errore: String(e) }); a.esito = 'errore'; a.errore = String(e); }
     });
-    cmd.risultati = ris; cmd.stato = errori ? 'errore' : 'eseguito'; cmd.eseguito_il = new Date().toISOString();
+    // v8.7: «errore» solo se falliscono TUTTE le azioni; se ne fallisce una parte il comando e' «eseguito» con esito «parziale»
+    cmd.risultati = ris; cmd.stato = (errori && errori === tot) ? 'errore' : 'eseguito';
+    cmd.esito = !errori ? 'ok' : (errori === tot ? 'errore' : 'parziale');
+    cmd.azioni_fallite = errori; cmd.eseguito_il = new Date().toISOString();
     AUTO_scriviJson(f.path, cmd, item.sha, 'Ponte Google: ' + f.name + ' (' + cmd.stato + ')'); n++;
   });
   try { pr.setProperty('CMD_VISTI', JSON.stringify(nuovi)); } catch (e) { Logger.log('CMD_VISTI: ' + e); }
@@ -563,6 +631,7 @@ function AUTO_azione(a) {
     /* ---- Moduli ---- */
     case 'forms.crea_quiz': {       // a.quiz come nei job (versioni, domande, punti, descrizione), a.cartella_id facoltativa
       var cart = a.cartella_id ? DriveApp.getFolderById(a.cartella_id) : DriveApp.getRootFolder();
+      if (a.una_risposta !== undefined && a.quiz.una_risposta === undefined) a.quiz.una_risposta = a.una_risposta;   // v8.7
       return AUTO_creaQuiz({ quiz: a.quiz, titolo: a.quiz.titolo || 'Quiz' }, cart); }
     case 'forms.leggi': {           // a.id: struttura del modulo con le risposte giuste
       var fo = FormApp.openById(a.id);
@@ -573,11 +642,16 @@ function AUTO_azione(a) {
             o.scelte = mc.getChoices().map(function (c) { return { testo: c.getValue(), giusta: c.isCorrectAnswer() }; }); }
           return o; }) }; }
     case 'forms.risposte': {        // a.id, a.salva_in (cartella nel repo): risultati con punteggio e risposte sbagliate
-      AUTO_risultatiQuiz({ moduli: [{ versione: a.versione || 'A', id: a.id }], classe: a.classe || '', titolo: a.titolo || a.id }, a.salva_in);
-      return { salvato_in: a.salva_in + '/_RISULTATI-QUIZ.json' }; }
+      var lettoR = new Date().toISOString();   // v8.7: letto_il in ogni riga
+      var rr = AUTO_risultatiQuiz({ moduli: [{ versione: a.versione || 'A', id: a.id }], classe: a.classe || '', titolo: a.titolo || a.id }, a.salva_in, lettoR);
+      return { salvato_in: a.salva_in + '/_RISULTATI-QUIZ.json', risposte: rr.risposte, letto_il: lettoR }; }
+    case 'forms.imposta_una_risposta': {   // v8.7: a.id, a.valore (true = una sola risposta per account, false = piu' risposte)
+      if (!a.id) throw new Error('Manca id del Modulo');
+      var fu = FormApp.openById(a.id); fu.setLimitOneResponsePerUser(a.valore === true);
+      return { id: a.id, titolo: fu.getTitle(), una_risposta: fu.hasLimitOneResponsePerUser() }; }
     case 'forms.crea_modulo': {     // v6: a.titolo, a.descrizione, a.domande [{titolo, aiuto, obbligatoria, min, max}], a.cartella_id
       var fm = FormApp.create(a.titolo).setDescription(a.descrizione || '')
-        .setCollectEmail(true).setLimitOneResponsePerUser(a.piu_risposte ? false : true).setAllowResponseEdits(true)
+        .setCollectEmail(true).setLimitOneResponsePerUser(a.una_risposta === true).setAllowResponseEdits(true)   // v8.7: piu' risposte di default (a.piu_risposte non serve piu')
         .setConfirmationMessage(a.conferma || 'Fatto! Ricordati la tua password: non dirla a nessuno.');
       try { fm.setRequireLogin(true); } catch (e) {}
       var pre = [];
@@ -598,7 +672,7 @@ function AUTO_azione(a) {
     case 'forms.crea_percorso': {   // v7: quiz a schermate (una domanda per pagina), a crocette con risposta giusta + domande scritte
       // a.titolo, a.descrizione, a.conferma, a.cartella_id, a.domande [{titolo, aiuto, immagine_url, scelte:[testo...], giusta: indice, punti} | {titolo, aiuto, testo:true}]
       var fp = FormApp.create(a.titolo).setDescription(a.descrizione || '').setIsQuiz(true)
-        .setCollectEmail(true).setLimitOneResponsePerUser(true).setShuffleQuestions(false).setProgressBar(true)
+        .setCollectEmail(true).setLimitOneResponsePerUser(a.una_risposta === true).setShuffleQuestions(false).setProgressBar(true)   // v8.7
         .setConfirmationMessage(a.conferma || 'Fatto!');
       try { fp.setRequireLogin(true); } catch (e) {}
       (a.domande || []).forEach(function (d, n) {
@@ -657,7 +731,7 @@ function AUTO_azione(a) {
     case 'classroom.compiti': {     // a.classe
       var cid = AUTO_courseId(a.classe);
       return (Classroom.Courses.CourseWork.list(cid, { pageSize: 50, courseWorkStates: ['PUBLISHED', 'DRAFT'] }).courseWork || []).map(function (w) {
-        return { id: w.id, titolo: w.title, stato: w.state, programmato: w.scheduledTime || '', scadenza: w.dueDate ? [w.dueDate.day, w.dueDate.month, w.dueDate.year].join('/') : '', link: w.alternateLink }; }); }
+        return { id: w.id, titolo: w.title, stato: w.state, creato: w.creationTime || '', programmato: w.scheduledTime || '', scadenza: w.dueDate ? [w.dueDate.day, w.dueDate.month, w.dueDate.year].join('/') : '', link: w.alternateLink }; }); }
     case 'classroom.annunci': {     // v8.2: a.classe — anche le bozze
       return (Classroom.Courses.Announcements.list(AUTO_courseId(a.classe), { pageSize: 30, announcementStates: ['PUBLISHED', 'DRAFT'] }).announcements || []).map(function (x) {
         return { id: x.id, stato: x.state, programmato: x.scheduledTime || '', testo: String(x.text || '').slice(0, 120), link: x.alternateLink }; }); }
@@ -705,12 +779,16 @@ function AUTO_azione(a) {
       return { id: cw.id, stato: cw.state, modificati: mk }; }
     case 'classroom.compito_cancella': {   // v8.2: a.classe, a.coursework_id, a.conferma = "CANCELLA" (solo con l'OK del docente)
       if (a.conferma !== 'CANCELLA') throw new Error('Per cancellare un compito serve conferma = "CANCELLA"');
-      var cc = AUTO_courseId(a.classe);
-      var consegnati = ((Classroom.Courses.CourseWork.StudentSubmissions.list(cc, a.coursework_id).studentSubmissions) || [])
-        .filter(function (s) { return s.state === 'TURNED_IN' || s.state === 'RETURNED'; }).length;
-      if (consegnati && !a.anche_con_consegne) throw new Error('Fermo: ' + consegnati + ' allievi hanno gia consegnato. Per cancellare lo stesso: anche_con_consegne = true');
-      Classroom.Courses.CourseWork.remove(cc, a.coursework_id);
-      return { cancellato: a.coursework_id, consegne_perse: consegnati }; }
+      var cc = AUTO_courseId(a.classe), WC = Classroom.Courses.CourseWork, statoPrima = '', consegnati = 0;
+      // v8.7: prima lo stato. Una BOZZA si cancella subito: Classroom non elenca le consegne di una bozza (dava sempre errore).
+      try { statoPrima = WC.get(cc, a.coursework_id).state; } catch (e) { throw AUTO_erroreAMano(e, a.coursework_id); }
+      if (statoPrima !== 'DRAFT') {
+        consegnati = ((WC.StudentSubmissions.list(cc, a.coursework_id).studentSubmissions) || [])
+          .filter(function (s) { return s.state === 'TURNED_IN' || s.state === 'RETURNED'; }).length;
+        if (consegnati && !a.anche_con_consegne) throw new Error('Fermo: ' + consegnati + ' allievi hanno gia consegnato. Per cancellare lo stesso: anche_con_consegne = true');
+      }
+      try { WC.remove(cc, a.coursework_id); } catch (e) { throw AUTO_erroreAMano(e, a.coursework_id); }
+      return { cancellato: a.coursework_id, stato_prima: statoPrima, consegne_perse: consegnati }; }
     case 'classroom.voti': {        // v8.2: a.classe, a.coursework_id, a.voti {"Cognome Nome": voto}, a.voti_su (facoltativo), a.restituisci (facoltativo)
       return AUTO_voti({ classe: a.classe, titolo: a.coursework_id, course_id: AUTO_courseId(a.classe), coursework_id: a.coursework_id,
                          voti: a.voti, voti_su: a.voti_su, voti_restituisci: !!a.restituisci }); }
@@ -720,6 +798,14 @@ function AUTO_azione(a) {
     default:
       throw new Error('Azione non prevista: ' + a.tipo);
   }
+}
+
+/* v8.7: Classroom non lascia toccare allo script i post creati a mano dal docente (ProjectPermissionDenied). */
+function AUTO_erroreAMano(e, id) {
+  var t = String(e && e.message || e);
+  if (/ProjectPermissionDenied|PERMISSION_DENIED|@ProjectPermissionDenied|developer project/i.test(t))
+    return new Error('creato a mano: cancellalo tu (compito ' + id + '). Classroom non lascia cancellare allo script i post creati dal docente. Dettaglio: ' + t.slice(0, 200));
+  return e;
 }
 
 function AUTO_csv(righe) {
