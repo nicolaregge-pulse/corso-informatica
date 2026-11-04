@@ -1,0 +1,12 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Semaforo della Sicurezza</title><link rel="stylesheet" href="semaforo.css?v=20261104a"></head><body><main>
+<p class="mu" id="sub">1INF · mercoledì 04/11</p><h1 id="titolo">SEMAFORO DELLA SICUREZZA</h1>
+<div class="lang" id="lang"></div><div id="app">Carico…</div>
+<p class="mu"><a href="./">&larr; Pagina di oggi</a></p>
+<script src="semaforo-vista.js?v=20261104a" charset="utf-8"></script><script src="semaforo-lang.js?v=20261104a" charset="utf-8"></script>
+<script>
+var DATI=null;
+function disegna(){applicaLingua();document.getElementById('app').innerHTML=DATI?disegnaSemaforo(DATI,false):T[LG].errore}
+function giro(){fetch('semaforo.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(D){DATI=D;disegna()}).catch(function(){if(!DATI)disegna()})}
+barraLingue('lang',disegna);giro();setInterval(giro,60000);
+</script></main></body></html>

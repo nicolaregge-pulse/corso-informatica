@@ -1,0 +1,21 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Semaforo Sicurezza docente</title><link rel="stylesheet" href="semaforo.css?v=20261104a"></head><body><main class="docente">
+<p class="mu" id="sub">Solo per il prof · 1INF · mercoledì 04/11</p><h1 id="titolo">SEMAFORO DELLA SICUREZZA · docente</h1>
+<p class="mu"><a href="semaforo.html">Versione dei ragazzi</a> · <a href="cruscotto.html">Cruscotto completo</a></p>
+<div id="gate" class="leg"><b>Solo per il prof.</b> Scrivi il codice del monitor. <input id="tok" type="password" placeholder="codice del monitor"> <button class="ok" id="ok">Apri</button> <span id="err" style="color:var(--ko)"></span></div>
+<div class="lang" id="lang" hidden></div>
+<p class="mu" id="rip"></p><div id="app"></div>
+<script src="semaforo-vista.js?v=20261104a" charset="utf-8"></script><script src="semaforo-lang.js?v=20261104a" charset="utf-8"></script>
+<script>
+var TOK='',_kc=null,DATI=null;LG='it';
+function $(i){return document.getElementById(i)}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function dec(d){if(!d.cifrato)return d;var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+async function giro(){try{var t=Date.now(),L=await Promise.all(['semaforo-docente.json','semaforo.json'].map(function(u){return fetch(u+'?t='+t,{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).catch(function(){return null})}));
+ if(!L[0])throw new Error('nessun dato');var D=await dec(L[0]);if(L[1]&&typeof L[1].riaperti==='boolean')D.riaperti=L[1].riaperti;DATI=D;$('gate').hidden=true;
+ $('rip').textContent='Quiz 2ª e 3ª ora: '+(D.riaperti?'RIAPERTI (i bottoni sono attivi)':'NON ancora riaperti (chi è sotto soglia vede «Aspetta il Professore»). Per riaprirli: in semaforo.json scrivi "riaperti": true')+'.';
+ $('app').innerHTML=disegnaSemaforo(D,true)}catch(x){$('err').textContent=String(x.message||x).indexOf('dato')>=0?'Dati non ancora pronti.':'Codice sbagliato.';_kc=null}}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}if(TOK)giro();setInterval(function(){if(TOK)giro()},60000);
+</script></main></body></html>
