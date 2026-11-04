@@ -1,109 +1,99 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>1INF — Oggi</title>
+<title>Cruscotto 1INF</title>
+<meta name="description" content="Cruscotto unico della classe 1INF: a che punto e' ognuno con i quiz del giorno.">
 <style>
-:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--acc:#58a6ff;--ok:#3fb950;--gold:#e3b341}
-*{box-sizing:border-box}
-body{margin:0;background:radial-gradient(circle at 50% -10%,#15325c,#0d1117 55%);color:var(--tx);font:18px/1.45 system-ui,Segoe UI,Arial,sans-serif;padding:18px;min-height:100vh}
-.w{max-width:760px;margin:0 auto}
-h1{font-size:clamp(26px,7vw,42px);margin:0 0 2px;text-align:center}
-.sub{color:var(--mu);text-align:center;margin:0 0 18px;font-size:15px}
-.grid{display:grid;gap:14px}
-.b{display:block;text-decoration:none;border-radius:18px;padding:22px 20px;border:1px solid var(--ln);background:var(--card);color:var(--tx);transition:transform .08s}
-.b:active{transform:scale(.99)}
-.b .em{font-size:38px;line-height:1}
-.b .t{font-weight:900;font-size:clamp(20px,5vw,26px);margin:6px 0 2px}
-.b .d{color:var(--mu);font-size:14px}
-.b.play{background:linear-gradient(135deg,#1f6feb,#2ea043);color:#fff;border:none}
-.b.play .d{color:rgba(255,255,255,.85)}
-.b.sfida{background:linear-gradient(135deg,#8957e5,#1f6feb);color:#fff;border:none}
-.b.sfida .d{color:rgba(255,255,255,.85)}
-.b.rank .t{color:var(--gold)}
-.sec{color:var(--mu);font-size:13px;text-transform:uppercase;letter-spacing:.06em;margin:22px 0 8px;text-align:center}
-.prof{margin-top:10px;border:1px dashed var(--ln);border-radius:14px;padding:16px;background:rgba(127,127,127,.05)}
-.prof h2{margin:0 0 8px;font-size:17px}
-.prof input{width:100%;font:inherit;padding:11px;border-radius:10px;border:2px solid var(--ln);background:#0d1117;color:var(--tx);margin:4px 0}
-.prof button{width:100%;font:inherit;font-weight:800;cursor:pointer;border:none;border-radius:10px;background:var(--acc);color:#0d1117;padding:12px;margin-top:6px}
-.err{color:#f85149;font-size:14px;min-height:18px;margin:6px 0 0}
-#profout{margin-top:12px}
-table{width:100%;border-collapse:collapse;font-size:15px;margin-top:8px}
-th,td{padding:8px 8px;border-bottom:1px solid var(--ln);text-align:left;font-variant-numeric:tabular-nums}
-th{color:var(--mu);font-size:12px}
-.nm{font-weight:800}.pt{font-weight:900;color:var(--acc);text-align:right}
-.hide{display:none}
-.lnk{display:inline-block;margin-top:8px;color:var(--acc);font-weight:700;text-decoration:none;font-size:15px}
-</style></head>
-<body><div class="w">
-<h1>🖥️ 1INF — Oggi</h1>
-<p class="sub">Monta il PC · <span dir="rtl">نركّب الحاسوب</span> · 组装电脑 — venerdì 16/10</p>
-
-<div class="grid">
-  <a class="b play" href="../monta-pc-v3/">
-    <div class="em">🔧</div><div class="t">Monta il PC</div>
-    <div class="d">Trascina i pezzi fino a «FATTO». Più ne monti, più punti · <span dir="rtl">ركّب الحاسوب</span> · 组装电脑</div>
-  </a>
-  <a class="b sfida" href="../sfida-pc/">
-    <div class="em">⚡</div><div class="t">Sfida lampo</div>
-    <div class="d">10 domande veloci sui pezzi. Combo 🔥 · <span dir="rtl">تحدٍّ سريع</span> · 快速挑战</div>
-  </a>
-  <a class="b rank" href="../classifica/">
-    <div class="em">🏆</div><div class="t">Classifica</div>
-    <div class="d">Chi è in testa e come si fanno i punti · <span dir="rtl">الترتيب</span> · 排行榜</div>
-  </a>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#1c2128;--mu:#5c6670;--ln:#d6dbe0;--v:#1a7f37;--vb:#dafbe1;--g:#9a6700;--gb:#fff3c4;--r:#cf222e;--rb:#ffe0e0;--acc:#0969da}
+@media (prefers-color-scheme:dark){:root{--bg:#0d1117;--card:#161b22;--tx:#e6edf3;--mu:#9aa4ae;--ln:#30363d;--v:#3fb950;--vb:#12361e;--g:#e3b341;--gb:#3b2e05;--r:#ff7b72;--rb:#4a1416;--acc:#58a6ff}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:17px/1.45 system-ui,Segoe UI,Arial,sans-serif;padding:16px}
+.w{max-width:980px;margin:0 auto}
+.lg{display:flex;gap:6px;justify-content:center;margin-bottom:10px}
+.lg button{font:inherit;font-size:15px;padding:6px 12px;border-radius:999px;border:1px solid var(--ln);background:var(--card);color:var(--tx);cursor:pointer}
+.lg button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+h1{margin:0;text-align:center;font-size:clamp(24px,6vw,36px)}
+.sub{color:var(--mu);text-align:center;margin:2px 0 10px}
+.ora{text-align:center;font-size:clamp(26px,7vw,44px);font-weight:900;margin:6px 0}
+.ban{display:none;background:var(--r);color:#fff;font-weight:900;text-align:center;font-size:clamp(20px,5vw,30px);padding:12px;border-radius:12px;margin:8px 0}
+body.vecchio .ban{display:block}
+body.vecchio .dati{filter:grayscale(1);opacity:.55}
+.leg{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;font-size:15px;margin:8px 0 12px}
+.p{display:inline-block;min-width:22px;height:22px;border-radius:6px;vertical-align:middle;margin-inline-end:6px}
+.verde{background:var(--vb);color:var(--v)}.giallo{background:var(--gb);color:var(--g)}.rosso{background:var(--rb);color:var(--r)}
+.p.verde{background:var(--v)}.p.giallo{background:var(--g)}.p.rosso{background:var(--r)}
+.tw{overflow-x:auto;border:1px solid var(--ln);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:center;white-space:nowrap}
+th:first-child,td:first-child{text-align:start;position:sticky;inset-inline-start:0;background:var(--card);font-weight:700}
+th a{color:var(--acc);font-weight:800}
+td.c{font-weight:800}
+.mu{color:var(--mu);font-size:13px;font-weight:400}
+.prof{margin-top:22px;border:1px dashed var(--ln);border-radius:12px;padding:14px;background:var(--card)}
+.prof input{font:inherit;padding:9px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx);width:min(320px,100%)}
+.prof button{font:inherit;font-weight:800;padding:9px 16px;border-radius:8px;border:none;background:var(--acc);color:#fff;cursor:pointer;margin-inline-start:6px}
+.err{color:var(--r);font-weight:700}
+.box{border:2px solid var(--r);border-radius:10px;padding:10px;margin:10px 0;background:var(--rb)}
+.rtl{direction:rtl}
+</style></head><body><div class="w" id="app">
+<div class="lg" id="lg"></div>
+<h1 id="h"></h1><p class="sub" id="sub"></p>
+<div class="ora" id="ora"></div>
+<div class="ban" id="ban"></div>
+<p class="sub" id="auto"></p>
+<div class="dati">
+<div class="leg" id="leg"></div>
+<div class="tw"><table id="t"></table></div>
 </div>
-
-<div class="sec">— dopo aver montato il PC —</div>
-<div class="grid">
-  <a class="b" href="../verifica/?b=1inf-assemblaggio" style="background:linear-gradient(135deg,#2ea043,#1f6feb);color:#fff;border:none">
-    <div class="em">📚</div><div class="t">Ripasso</div>
-    <div class="d">Rivedi i pezzi del PC e allenati: ti corregge subito</div>
-  </a>
-  <a class="b" href="../verifica/?b=1inf-assemblaggio&modo=verifica" style="background:linear-gradient(135deg,#8957e5,#d9a400);color:#fff;border:none">
-    <div class="em">📝</div><div class="t">Test</div>
-    <div class="d">Le domande sui pezzi che hai montato. Fai prima il ripasso!</div>
-  </a>
-</div>
-
-<div class="sec">— solo per il prof —</div>
-<div class="prof" id="prof">
-  <h2>🔒 Area prof</h2>
-  <p style="color:var(--mu);font-size:14px;margin:0 0 6px">Classifica con i nomi veri + chi sta lavorando. Scrivi la password dell'area docente.</p>
-  <input id="pw" type="password" autocomplete="current-password" placeholder="password docente">
-  <button id="ok">Apri</button>
-  <p class="err" id="err"></p>
-  <div id="profout" class="hide"></div>
-  <a class="lnk" href="../1inf-test/" target="_blank">📊 Cruscotto del TEST (chi ha consegnato, giusti, voto)</a><br>
-  <a class="lnk" href="../1inf-prof-live/" target="_blank">↗ Cruscotto completo (voti, verifiche, monitor)</a>
-</div>
+<div class="prof" dir="ltr"><b id="profh"></b><br>
+<input id="tok" type="password" autocomplete="off"><button id="ok"></button> <span class="err" id="perr"></span>
+<div id="profout" class="dati"></div></div>
 </div>
 <script>
-function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function sec(ms){return ms?(ms/1000).toFixed(ms<100000?1:0).replace(/\.0$/,'')+'s':'–'}
+var T={"it": {"nome": "Italiano", "h": "Cruscotto {c}", "letto": "Dati letti alle", "vecchi": "DATI VECCHI di {n} minuti", "mai": "DATI NON ANCORA LETTI", "auto": "La pagina si aggiorna da sola ogni minuto.", "trova": "Trova il tuo nome. Clicca sul nome del quiz per aprirlo.", "verde": "fatto, sopra la soglia", "giallo": "fatto ma sotto la soglia: rifallo", "rosso": "non ancora fatto", "allievo": "Allievo", "cosa": "Cosa ti manca", "tutto": "Tutto fatto!", "rec": "Da recuperare", "fare": "Da fare", "tent": "tentativi", "soglia": "soglia", "apri": "Apri il quiz", "prof": "Area del Professore", "codice": "Codice del Professore", "entra": "Entra"}, "ar": {"nome": "العربية", "h": "لوحة المتابعة {c}", "letto": "تمت قراءة البيانات الساعة", "vecchi": "بيانات قديمة منذ {n} دقيقة", "mai": "لم تتم قراءة البيانات بعد", "auto": "الصفحة تتحدث وحدها كل دقيقة.", "trova": "ابحث عن اسمك. اضغط على اسم الاختبار لفتحه.", "verde": "تم، فوق الحد المطلوب", "giallo": "تم لكن تحت الحد المطلوب: أعده", "rosso": "لم يتم بعد", "allievo": "الطالب", "cosa": "ما الذي ينقصك", "tutto": "أنجزت كل شيء!", "rec": "للتعويض", "fare": "للإنجاز", "tent": "محاولات", "soglia": "الحد المطلوب", "apri": "افتح الاختبار", "prof": "منطقة الأستاذ", "codice": "رمز الأستاذ", "entra": "دخول"}, "zh": {"nome": "中文", "h": "{c} 进度面板", "letto": "数据读取时间", "vecchi": "数据已过时 {n} 分钟", "mai": "数据尚未读取", "auto": "本页每分钟自动刷新。", "trova": "找到你的名字。点击测验名称即可打开。", "verde": "已完成，达到及格线", "giallo": "已完成但未达到及格线：请重做", "rosso": "尚未完成", "allievo": "学生", "cosa": "你还缺什么", "tutto": "全部完成！", "rec": "需要补做", "fare": "需要完成", "tent": "次尝试", "soglia": "及格线", "apri": "打开测验", "prof": "老师专区", "codice": "老师密码", "entra": "进入"}},LG='it',D=null,DOC=null,TOK='';
+function $(i){return document.getElementById(i)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function t(k,n){return (T[LG]||T.it)[k].replace('{c}',D?D.classe:'1INF').replace('{n}',n)}
+function lingue(){var b=$('lg');var ls=Object.keys(T);if(ls.length<2){b.style.display='none';return}
+ b.innerHTML=ls.map(function(l){return '<button data-l="'+l+'" class="'+(l===LG?'on':'')+'">'+T[l].nome+'</button>'}).join('');
+ [].forEach.call(b.querySelectorAll('button'),function(x){x.onclick=function(){LG=x.dataset.l;try{localStorage.setItem('lg-crusc',LG)}catch(e){}disegna()}})}
+function eta(){if(!D||!D.letto_iso)return null;return Math.floor((Date.now()-Date.parse(D.letto_iso))/60000)}
+function freschezza(){var n=eta();var v=(n===null||n>6);document.body.classList.toggle('vecchio',v);
+ $('ban').textContent=n===null?t('mai'):t('vecchi',n)}
+function disegna(){if(!D)return;lingue();$('app').className='w'+(LG==='ar'?' rtl':'');document.documentElement.lang=LG;
+ $('h').textContent=t('h');$('sub').textContent=D.titolo+' · '+D.giorno.split('-').reverse().join('/');
+ $('ora').textContent=t('letto')+' '+(D.letto_hhmm||'--:--');$('auto').textContent=t('auto')+' '+t('trova');
+ $('leg').innerHTML=['verde','giallo','rosso'].map(function(s){return '<span><span class="p '+s+'"></span>'+t(s)+'</span>'}).join('');
+ var h='<tr><th>'+t('allievo')+'</th>'+D.moduli.map(function(m){return '<th><a href="'+esc(m.link)+'" target="_blank" rel="noopener" title="'+t('apri')+'">'+esc(m.breve)+'</a><br><span class="mu">'+t('soglia')+' '+esc(m.soglia)+'</span></th>'}).join('')+'<th>'+t('cosa')+'</th></tr>';
+ D.righe.forEach(function(r){h+='<tr><td>'+esc(r.nome)+'</td>'+D.moduli.map(function(m){var s=r.c[m.k],n=r.n[m.k];
+   return '<td class="c '+s+'">'+(s==='verde'?'✔':s==='giallo'?'↻':'✘')+(n>1?' <span class="mu">'+n+' '+t('tent')+'</span>':'')+'</td>'}).join('')+
+   '<td>'+(r.da_recuperare.length||r.da_fare.length?(r.da_fare.length?t('fare')+': '+esc(r.da_fare.join(', '))+(r.da_recuperare.length?' · ':''):'')+(r.da_recuperare.length?t('rec')+': '+esc(r.da_recuperare.join(', ')):''):'<b style="color:var(--v)">'+t('tutto')+'</b>')+'</td></tr>'});
+ $('t').innerHTML=h;$('profh').textContent=t('prof');$('tok').placeholder=t('codice');$('ok').textContent=t('entra');
+ freschezza();if(DOC)disegnaDoc()}
 function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})}
-async function decifra(X,pw){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
- var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(X.salt),iterations:X.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
- var t=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(X.iv)},k,b64(X.ct));return JSON.parse(new TextDecoder().decode(t))}
-function renderProf(d){
-  var r=(d&&d.righe)||[];
-  var h='<p style="color:var(--mu);font-size:13px;margin:6px 0">Aggiornato '+esc(d.aggiornato||'')+' · '+r.length+' allievi</p>';
-  h+='<table><tr><th>#</th><th>Allievo</th><th>PC🔧</th><th>↩</th><th>Record</th><th class=pt>Punti</th></tr>';
-  h+=r.map(function(x,i){return '<tr><td>'+(i+1)+'</td><td class=nm>'+esc(x.nome)+'</td><td>'+x.asm+'</td><td>'+x.dis+'</td><td>'+sec(x.record)+'</td><td class=pt>'+x.pt+'</td></tr>'}).join('');
-  h+='</table>';
-  var o=document.getElementById('profout');o.innerHTML=h;o.classList.remove('hide');
-}
-async function apri(){
-  var pw=document.getElementById('pw').value,err=document.getElementById('err');err.textContent='';
-  if(!pw){return}
-  try{
-    var X=await (await fetch('prof.json?t='+Date.now(),{cache:'no-store'})).json();
-    var d=await decifra(X,pw);
-    try{localStorage.setItem('prof1inf',JSON.stringify({p:pw,t:Date.now()}))}catch(e){}
-    document.getElementById('pw').classList.add('hide');document.getElementById('ok').classList.add('hide');
-    renderProf(d);
-    window._pw=pw;setInterval(refresh,20000);
-  }catch(e){err.textContent='Password sbagliata (o dati non ancora pronti). Riprova.'}
-}
-async function refresh(){try{var X=await (await fetch('prof.json?t='+Date.now(),{cache:'no-store'})).json();renderProf(await decifra(X,window._pw))}catch(e){}}
-document.getElementById('ok').onclick=apri;
-document.getElementById('pw').addEventListener('keydown',function(e){if(e.key==='Enter')apri()});
-try{var s=JSON.parse(localStorage.getItem('prof1inf')||'null');if(s&&Date.now()-s.t<86400000){document.getElementById('pw').value=s.p;apri()}}catch(e){}
+async function dec(d){var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);
+ var k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+ return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function disegnaDoc(){var d=DOC,h='';
+ if(d.email_sconosciute.length){h+='<div class="box"><b>Email sconosciute ('+d.email_sconosciute.length+'): non abbinate a nessun allievo. Aggiungerle in config/classi (manuali).</b><br>'+
+   d.email_sconosciute.map(function(x){return esc(x.m)+': '+esc(x.email)+' (scritto: «'+esc(x.nome_scritto)+'», punti '+esc(x.punti)+')'}).join('<br>')+'</div>'}
+ if(d.presenti_senza_email.length)h+='<div class="box"><b>Presenti senza email nell\'elenco:</b> '+esc(d.presenti_senza_email.join(', '))+'</div>';
+ if(d.risposte_non_presenti.length)h+='<p class="mu">Risposte di allievi non presenti oggi (anche di altri giorni, non contano qui): '+d.risposte_non_presenti.map(function(x){return esc(x.allievo)+' ('+esc(x.m)+', '+esc(x.nota)+')'}).join('; ')+'</p>';
+ if(d.risposte_altra_classe.length)h+='<p class="mu">Risposte di allievi di altre classi ignorate: '+d.risposte_altra_classe.length+'</p>';
+ h+='<p>Presenti: <b>'+d.presenti+'</b> · Assenti: '+esc(d.assenti.join(', '))+'</p>';
+ h+='<p class="mu">Letture del ponte: '+d.moduli.map(function(m){return esc(m.breve)+' '+esc(m.letto)}).join(' · ')+'. Con più risposte vale la migliore; i tentativi sono tra parentesi.</p>';
+ h+='<div class="tw"><table><tr><th>COGNOME Nome</th>'+d.moduli.map(function(m){return '<th>'+esc(m.breve)+'<br><span class="mu">'+esc(m.soglia)+'</span></th>'}).join('')+
+   '<th>Da recuperare</th><th>Da fare</th>'+d.kpi.map(function(k){return '<th title="'+esc(k.testo)+'">KPI '+esc(k.k)+'</th>'}).join('')+'<th>Voto</th></tr>';
+ d.righe.forEach(function(r){h+='<tr><td>'+esc(r.allievo)+'</td>'+d.moduli.map(function(m){var c=r.celle[m.k];
+   return '<td class="c '+c.s+'">'+(c.p==null?'—':c.p)+(c.n>1?' <span class="mu">('+c.n+')</span>':'')+'</td>'}).join('')+
+   '<td class="'+(r.da_recuperare.length?'rosso':'')+'">'+esc(r.da_recuperare.join(', ')||'-')+'</td><td>'+esc(r.da_fare.join(', ')||'-')+'</td>'+
+   d.kpi.map(function(k){return '<td>'+(r.kpi[k.k]?'✔':'✘')+'</td>'}).join('')+'<td title="'+esc(r.conto)+'"><b>'+esc(r.voto)+'</b><br><span class="mu">'+esc(r.conto)+'</span></td></tr>'});
+ h+='</table></div><p class="mu">'+esc(d.legenda_voto)+' KPI: '+d.kpi.map(function(k){return esc(k.k)+' = '+esc(k.testo)}).join('; ')+'</p>';
+ $('profout').innerHTML=h}
+async function prof(){if(!TOK)return;try{var r=await fetch('docente.json?t='+Date.now(),{cache:'no-store'});DOC=await dec(await r.json());$('perr').textContent='';disegnaDoc()}
+ catch(e){DOC=null;$('profout').innerHTML='';$('perr').textContent='Codice sbagliato'}}
+$('ok').onclick=function(){TOK=$('tok').value;try{sessionStorage.setItem('tokmon',TOK)}catch(e){}prof()};
+try{var s=localStorage.getItem('lg-crusc');if(T[s])LG=s}catch(e){}
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(e){}
+fetch('dati.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){D=d;disegna();prof()})
+ .catch(function(){$('ora').textContent='--:--';document.body.classList.add('vecchio');$('ban').textContent='DATI NON DISPONIBILI'});
+setInterval(freschezza,15000);setTimeout(function(){location.reload()},60000);
 </script></body></html>
