@@ -13,7 +13,7 @@ function disegnaCruscotto(D,docente){
     (D.colonne||[]).forEach(function(c){h+=cella((r.celle||{})[c.k])});
     var vv=(!D.veyon_ok||!v.giri)?'<span class="mini" style="color:#888">n.d.</span>':v.fuori?'<span style="color:#c62828;font-weight:800">fuori compito: '+v.fuori+(v.fuori>1?' volte':' volta')+'</span>'+(docente&&v.ultima?'<br><span class="mini">'+e(v.ultima)+'</span>':''):'<span style="color:#1a7f37">in compito</span>';
     if(docente)(r.note||[]).forEach(function(z){vv+='<br><span class="mini">'+e(z)+'</span>'});
-    h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td><td style="white-space:normal;min-width:150px;text-align:left">'+vv+'</td><td class="voto"><b>'+r.voto+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>'});
+    h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td><td style="white-space:normal;min-width:150px;text-align:left">'+vv+'</td><td class="voto"><b>'+(r.voto==null?'—':r.voto)+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>'});
   return h+'</tbody></table></div>'}
 
 // Sezione «Il mio comportamento» (solo ragazzi): Nome C., verde/rosso, mai COSA guardavano, niente voto.
