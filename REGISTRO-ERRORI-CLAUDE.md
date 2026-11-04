@@ -1076,5 +1076,5 @@ lezione.*
 3. **Controllo.** Prima di consegnare un testo per la 1INF si controlla che le righe in arabo e in cinese abbiano lo stesso numero di passi dell'italiano. CHECKLIST-LEZIONE.md.
 
 ## #199 (04/11/2026) Cruscotti e semaforo Sicurezza 1INF con dati sbagliati
-Dati delle 13:29 mostrati come veri alle 13:50 senza ricontrollo: quiz B dato mancante a dieci presenti (in realtà mancano solo CAMPARI Alessio e ZINNI Enea); quiz 4ª ora con SHOAIB Shanzay mancante (manca solo CAMPARI Alessio). La pagina cruscotto-ragazzi era ferma alle 13:30 e il semaforo è stato dato come corretto senza confronto con la fonte. Il docente: «continua a non funzionare niente».
+Dati delle 13:29 mostrati come veri alle 13:50 senza ricontrollo: quiz B dato mancante a dieci presenti (in realtà mancavano solo due presenti); quiz 4ª ora con un allieva data mancante (ne mancava solo uno). La pagina cruscotto-ragazzi era ferma alle 13:30 e il semaforo è stato dato come corretto senza confronto con la fonte. Il docente: «continua a non funzionare niente».
 Controllo: prima di dare un cruscotto confrontare almeno 2 allievi con il Modulo letto negli ultimi 5 minuti, abbinare i nomi con le varianti, usare la risposta migliore, mostrare l'ora del dato e non dare il link se il dato ha più di 5 minuti durante la lezione.
