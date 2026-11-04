@@ -74,7 +74,7 @@ o = open(B + 'ora2.html', encoding='utf-8').read()
 o = pulisci_testa(o, 2, 'Ora 2 - il client collegato')
 o = re.sub(r'(<h1>.*?</h1><p class="small">.*?</p>)', lambda m: m.group(1) + alto(2), o, count=1, flags=re.S)
 passo0 = ('<section class="card"><h2>0. Scarica il progetto</h2><p>Premi il bottone: si scarica la cartella compressa con il Mastermind versione 4. Poi apri <b>Esplora file</b>, vai in <b>Download</b>, clic destro sul file e scegli <b>Estrai tutto</b>.</p>'
-          '<a class="bt" href="mastermind-bello-v4.0.zip" download>Scarica il progetto (zip)</a>' + img('zip.svg', 'Schema: scarica e apri lo zip') + '</section>')
+          '<a class="bt" href="Mastermind-3INF-v4.0.1.zip" download>Scarica il progetto (zip)</a>' + img('zip.svg', 'Schema: scarica e apri lo zip') + '</section>')
 o = o.replace('<section class="card"><h2>1. Apri il client versione 4</h2>', passo0 + '<section class="card"><h2>1. Apri il client versione 4</h2>', 1)
 # passo 4: segnale collegato
 o = o.replace('Questo è il momento che conta per il voto: client collegato.</p>', 'Questo è il momento che conta per il voto: client collegato.</p><button type="button" class="bt" id="bcoll">Sono collegato</button> <span class="small" id="mcoll"></span>' + img('collegato.svg', 'Schema: sono collegato'), 1)
@@ -95,7 +95,7 @@ open(D + 'ora2.html', 'w', encoding='utf-8').write(o)
 
 # ---- file e cartella
 shutil.copy(SRC + 'ore.js', D + 'ore.js'); shutil.copy(SRC + 'cruscotto.css', D + 'cruscotto.css')
-for f in ('mastermind-bello-v4.0.zip', 'animazione-protocollo.html'): shutil.copy(B + f, D + f)
+for f in ('Mastermind-3INF-v4.0.1.zip', 'animazione-protocollo.html'): shutil.copy(B + f, D + f)
 json.dump({"invio": INVIO, "attivo": True, "ore_sbloccate": 1, "_nota": "3INF 04/11/2026, Il protocollo del Mastermind (v4.0). ore_sbloccate 1 = solo ora 1 aperta; ora 2 (ora2.html) si apre alzando a 2 (regola 31, strumenti/sblocca_ora.py). NON LINKATA, NON PUBBLICATA.",
            "server_ip": ""}, open(D + 'config.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print('ok', D)
