@@ -303,7 +303,7 @@ begin
   if not F.GaraConclusa then begin WriteLn(Nome, ' ERRORE: la gara non e'' finita in tempo'); Halt(9); end;
   Verifica(not F.BtnProva.Enabled, 'a gara finita Prova e'' spento');
   Verifica(Pos('GARA FINITA', F.LblStato.Caption) = 1, 'a gara finita la scritta dice GARA FINITA');
-  F.PbGara.Canvas.Pulisci; BufGara.Canvas.Pulisci; F.PbGara.OnPaint(nil);
+  F.PbGara.OnPaint(nil); F.PbGara.Canvas.Pulisci; BufGara.Canvas.Pulisci; F.PbGara.OnPaint(nil);
   Verifica(F.PbGara.Canvas.Copie >= 1, 'il riquadro della gara viene disegnato');
   WriteLn('FINE ', Nome, ' pos=', F.GaraPos, ' tot=', F.GaraPunti, ' n=', F.GaraGiocatori, ' primo=', F.GaraPrimo, ' ', F.GaraPuntiPrimo, ' | ', F.LblEsito.Caption);
 end;

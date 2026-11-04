@@ -1,30 +1,82 @@
 MASTERMIND BELLO - CLIENT E SERVER (3INF)
 =========================================
-Versione v4.0.1 (04/11/2026)
+Versione v4.1.0 (04/11/2026) - novita': la GARA a piu' codici con classifica sempre visibile
 
 Cosa c'e' dentro
   Client\   il programma dei ragazzi   (progetto ClientMastermind)
-  Server\   il programma del prof       (progetto ServerMastermind)
+  Server\   il programma del prof       (progetto ServerMastermind, con la nuova UnitGara.pas)
   Comune\   il disegno condiviso da Client e Server (DisegnoMastermind.inc): non va spostato,
             i due programmi lo leggono da li' ( {$I ../Comune/DisegnoMastermind.inc} )
   Risorse\  le due icone (IconaClient, IconaServer)
   test\     le prove con Free Pascal (servono solo a chi sviluppa)
 
+LA GARA (novita' della v4.1.0)
+  Prima c'era un solo codice segreto per tutta la classe: chi lo trovava per primo vinceva e basta.
+  Ora il prof puo' lanciare una GARA con piu' codici (di solito 5). Ogni codice e' un "round".
+  Non vince solo chi indovina: PRENDE PUNTI ANCHE CHI SI AVVICINA. Cosi' tutti hanno qualcosa da
+  guadagnare a ogni codice e nessuno resta a zero per tutta la lezione.
+  La classifica e' SEMPRE visibile: sul PC del prof (tabella a destra) e su ogni client (riquadro in alto).
+
+  Come si lancia una gara in 5 passi (tutto con il mouse, sul PC del prof)
+    1. Apri il Server (Server\ServerMastermind.lpi, premi F9) e clicca "Avvia server".
+    2. Di' ai ragazzi l'indirizzo scritto in grande: loro lo scrivono nel client, poi il loro nome, poi "Connetti".
+    3. (Facoltativo) Cambia i numeri: "Codici" = quanti codici ha la gara (di solito 5);
+       "Secondi per codice" = quanto tempo hanno per ogni codice (di solito 180 = 3 minuti).
+    4. Clicca "Inizia gara". Parte il codice 1. La scritta grande dice "CODICE 1 di 5" e quanto tempo manca.
+    5. Guarda la "Classifica generale" a destra: si aggiorna da sola. Ogni codice finisce da solo; per
+       passare subito al prossimo clicca "Prossimo codice"; per chiudere tutto clicca "Fine gara".
+  Quando un codice finisce il registro (in basso) scrive qual era il codice e chi e' in testa. Poi c'e' una
+  pausa di 8 secondi e parte il codice dopo. Alla fine della gara ogni ragazzo vede il suo posto in un messaggio.
+  I vecchi bottoni "Via!", "Stop", "Nuova combinazione" e "Mostra il codice" funzionano come prima
+  (partita libera, un solo codice). Durante la gara "Via!", "Stop" e "Nuova combinazione" sono spenti;
+  "Mostra il codice" mostra il codice del round in corso (a ogni nuovo codice si nasconde da solo).
+
+  Quando finisce un codice (round): succede la PRIMA di queste tre cose
+    - e' finito il tempo del codice (di solito 180 secondi);
+    - TUTTI i ragazzi collegati hanno trovato il codice (chi e' scollegato da piu' di 20 secondi non conta);
+    - il prof preme "Prossimo codice".
+
+  Come si leggono i punteggi (per ogni codice)
+    Voce                  Quanto vale                                            Esempio
+    --------------------  -----------------------------------------------------  ------------------------
+    Vicinanza             si guarda il tentativo MIGLIORE: ogni piolo nero vale  3 neri = 6 -> 60 punti
+                          2, ogni piolo bianco vale 1; si somma e si fa x 10     2 neri + 1 bianco = 5 -> 50
+    Bonus "trovato"       +50 se trovi il codice (4 neri; la vicinanza vale 80)  trovato = 80 + 50 = 130
+    Bonus velocita'       tra chi trova il codice: 1o +30, 2o +20, 3o +10, poi 0 il 1o prende 130 + 30 = 160
+    Penalita'             -1 per ogni tentativo dopo il 6o (non conviene          10 tentativi = -4 punti
+                          provare a caso)
+    Punti del codice      vicinanza + trovato + velocita' - penalita'             mai sotto zero
+                          (massimo 160; chi non trova il codice arriva a 60)
+    Totale                la somma dei punti di tutti i codici
+  Classifica: sta sopra chi ha piu' punti totali. A parita' di punti sta sopra chi ha fatto MENO
+  tentativi in tutto; a ulteriore parita' chi e' stato piu' veloce. Se e' tutto uguale: stesso posto.
+  I numeri del punteggio sono costanti con il commento in UnitGara.pas (PUNTI_PER_NERO, BONUS_RISOLTO ...):
+  si possono cambiare in un punto solo.
+
+  Cosa vede il ragazzo (client)
+    In alto, sopra la tavola di legno, c'e' un riquadro giallo:
+      La tua posizione: 3o su 14
+      punti 240   |   codice 2 di 5
+      tempo 1:32   |   in testa: Sara (410)
+    Quando parte un nuovo codice la tavola si pulisce da sola. Alla fine della gara il riquadro diventa
+    verde e compare un messaggio: "Sei 2o! Sei sul podio, che bravo!" (frasi incoraggianti anche per
+    chi e' piu' indietro).
+
 Correzione v4.0.1 (04/11/2026): le icone (.ico) e i file .res avevano dentro immagini compresse PNG, che Lazarus
   non sa leggere (errore all'avvio: "Bitmap with unknown compression"). Ora sono in formato BMP classico.
-  Il resto e' identico alla v4.0.
+  Nella v4.1.0 le icone NON sono state toccate (restano in BMP).
 
 Novita' della v4.0: il client e' DIVISO IN DUE UNIT
   Client\UnitInterfaccia.pas (+ .lfm)  la finestra: disegni, bottoni, tavola in legno, pioli.
                                        NON contiene niente della rete (nessun socket).
   Client\UnitRete.pas                  tutta la rete: collegarsi al server, mandare UNA riga, leggere
-                                       UNA riga, il protocollo e il suo "parser". NON conosce nessuna
+                                       la risposta, il protocollo e il suo "parser". NON conosce nessuna
                                        finestra (nel suo "uses" non c'e' Forms).
   Come si parlano: UnitRete avvisa la finestra con degli EVENTI (OnStato, OnAttesa, OnRisultato,
-  OnVittoria, OnRifiuto, OnErrore), proprio come l'evento OnClick di un bottone. La finestra
-  conosce UnitRete, UnitRete non conosce la finestra: niente giri in tondo.
-  Non sono cambiati: porta 5050, protocollo, Server, Comune, grafica, form e nomi dei componenti.
-  Nei file il vecchio UnitClient.pas si chiama ora UnitInterfaccia.pas.
+  OnVittoria, OnRifiuto, OnErrore e, dalla v4.1, OnRound, OnClassifica, OnFineGara), proprio come l'evento
+  OnClick di un bottone. La finestra conosce UnitRete, UnitRete non conosce la finestra.
+  Server\UnitGara.pas (nuova in v4.1) tiene i conti della gara: NON conosce ne' finestre ne' rete,
+  quindi si prova da sola con il compilatore (test\test_gara.pas).
 
 Come si apre e si prova (Lazarus)
   1. Doppio clic su  Client\ClientMastermind.lpi  (oppure Server\ServerMastermind.lpi).
@@ -36,8 +88,10 @@ Come si apre e si prova (Lazarus)
      Se Windows chiede il permesso, clicca "Consenti accesso" (e' il firewall).
      Il server scrive in grande l'indirizzo: i ragazzi lo scrivono nella casella
      "IP del server" del client, poi il loro nome, poi "Connetti".
-  5. Quando sono collegati, il prof preme "Via!". "Stop" mette in pausa, "Nuova
+  5. Partita libera: quando sono collegati, il prof preme "Via!". "Stop" mette in pausa, "Nuova
      combinazione" ricomincia con un altro codice, "Mostra il codice" fa vedere i 4 pioli.
+     Gara: vedi i 5 passi sopra ("Inizia gara").
+  La finestra del Server ora e' piu' larga (800 pixel): a sinistra i comandi, a destra la classifica.
 
 Regole del gioco
   I colori sono 6 (rosso, giallo, verde, blu, arancio, porpora) e possono ripetersi.
@@ -45,19 +99,48 @@ Regole del gioco
   Scorciatoia da tastiera nel client: R G V B A P, Backspace (toglie l'ultimo), Invio (prova).
 
 Rete
-  Porta 5050 (sempre uguale, non va cambiata). Protocollo: una riga in, una riga fuori:
+  Porta 5050 (sempre uguale, non va cambiata). Protocollo: una riga in, la risposta fuori:
   STATO;nome  e  GUESS;nome;1234  (le cifre 1..6 sono i colori).
+  Risposte di sempre (non cambiate): STATO;..., WAIT, RESULT;..., WIN;..., ERR;...
+  NOVITA' v4.1 - se c'e' una gara, SOTTO la riga di sempre il server aggiunge altre righe:
+    ROUND;k;N;secondi            siamo al codice k di N; "secondi" = quanti ne mancano alla fine del codice
+                                 (all'inizio del codice sono tutti; 0 = codice finito, si aspetta il prossimo)
+    CLASSIFICA;pos;totale;giocatori;nome1;punti1
+                                 il TUO posto, i TUOI punti totali, quanti giocatori, il primo e i suoi punti
+    FINEGARA;pos;totale;giocatori
+                                 solo a gara finita: il tuo posto finale
+  Le righe nuove arrivano con OGNI risposta (STATO ogni 3 secondi, e ogni tentativo): la classifica si
+  rinnova quindi almeno ogni 3 secondi. Senza gara la risposta e' identica alla v4.0.1 (una riga sola).
+  E I CLIENT VECCHI (v4.0.1)? Il client v4.0.1 legge SOLO LA PRIMA RIGA della risposta e poi chiude: le
+  righe nuove stanno dopo, quindi non le vede mai e non puo' sbagliare. Gioca normalmente, ma:
+    - non vede il riquadro con la posizione (non esiste nella v4.0.1);
+    - la sua tavola non si pulisce da sola al nuovo codice (se non ha trovato il codice, deve premere
+      "Connetti" di nuovo, oppure aggiornare al client v4.1.0);
+    - i suoi tentativi contano per la gara come quelli degli altri.
+  (Se una riga sconosciuta arrivasse come PRIMA riga, il parser della v4.0.1 mostra "Risposta strana dal
+  server" e va avanti: non si blocca.) Il client v4.1.0 con un server v4.0.1 funziona: non arrivano righe
+  della gara e il riquadro resta spento ("Quando il Prof lancia una gara...").
 
 Come e' fatto
-  Il client ha due unit (UnitInterfaccia.pas con il suo .lfm, e UnitRete.pas), il server una
-  (UnitServer.pas + .lfm). Nomi esemplari: FormClient / FormServer. I file .res vengono riscritti da
+  Il client ha due unit (UnitInterfaccia.pas con il suo .lfm, e UnitRete.pas), il server due (UnitServer.pas
+  + .lfm e UnitGara.pas). Nomi esemplari: FormClient / FormServer. I file .res vengono riscritti da
   Lazarus alla prima compilazione (contengono l'icona).
 
-Cosa e' stato provato e cosa no (v4.0)
-  Provato con il compilatore Free Pascal (test\prova.sh, finte unita' LCL): UnitRete compilata e
-  provata DA SOLA senza LCL (righe, parser di ogni risposta, server spento); controllo che UnitRete
-  non usi finestre e UnitInterfaccia non usi socket; compilazione di client e server; conteggio dei
-  neri e bianchi; partita da soli; 6 client in rete contro il server.
-  NON provato con la vera Lazarus: apertura del .lpi con le due unit, F9, aspetto reale delle finestre
-  e nitidezza a 125%/150%. Se Lazarus segnala un errore, mandare uno screenshot.
+Cosa e' stato provato e cosa no (v4.1.0)
+  PROVATO con il compilatore Free Pascal (test\prova.sh, finte unita' LCL):
+    - UnitGara da sola (test_gara.pas): punteggi, bonus, penalita', parita' e spareggi, e i 3 modi in cui
+      finisce un codice (tempo, tutti hanno trovato il codice, "Prossimo codice");
+    - UnitRete da sola: le righe nuove ROUND / CLASSIFICA / FINEGARA e le risposte a piu' righe;
+    - UnitRete non usa finestre, UnitInterfaccia non usa socket, UnitGara non usa ne' finestre ne' rete;
+    - conteggio dei neri e bianchi, partita da soli, partita libera con 6 client in rete (come v4.0.1);
+    - GARA di 3 codici con 6 client nuovi + 2 client VECCHI v4.0.1 contro il server: i punteggi del server
+      coincidono con la formula ricalcolata a parte; le classifiche mandate in rete coincidono con i
+      conti del server; i client vecchi si collegano e giocano; i 3 codici finiscono nei 3 modi;
+    - nei file .ico e .res non c'e' nessun PNG.
+  NON provato con la vera Lazarus: apertura dei due .lpi (la UnitGara e' nell'elenco del progetto Server),
+  F9, aspetto reale delle finestre: il Server ora e' largo 800 pixel e il client e' piu' alto (794 pixel,
+  c'e' il riquadro della gara); posizione di bottoni e caselle; leggibilita' dei testi nel riquadro;
+  messaggio finale con il podio; nitidezza a 125%/150%. Da provare PER PRIMA: Avvia server -> Inizia gara
+  con 2 client -> trovare un codice -> guardare tabella e riquadro. Se Lazarus segnala un errore,
+  mandare uno screenshot.
   (Le anteprime-disegno della v3.0 restano in mastermind-bello\Anteprima: la grafica e' identica.)
