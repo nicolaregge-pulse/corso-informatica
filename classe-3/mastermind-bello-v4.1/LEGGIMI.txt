@@ -1,0 +1,63 @@
+MASTERMIND BELLO - CLIENT E SERVER (3INF)
+=========================================
+Versione v4.0.1 (04/11/2026)
+
+Cosa c'e' dentro
+  Client\   il programma dei ragazzi   (progetto ClientMastermind)
+  Server\   il programma del prof       (progetto ServerMastermind)
+  Comune\   il disegno condiviso da Client e Server (DisegnoMastermind.inc): non va spostato,
+            i due programmi lo leggono da li' ( {$I ../Comune/DisegnoMastermind.inc} )
+  Risorse\  le due icone (IconaClient, IconaServer)
+  test\     le prove con Free Pascal (servono solo a chi sviluppa)
+
+Correzione v4.0.1 (04/11/2026): le icone (.ico) e i file .res avevano dentro immagini compresse PNG, che Lazarus
+  non sa leggere (errore all'avvio: "Bitmap with unknown compression"). Ora sono in formato BMP classico.
+  Il resto e' identico alla v4.0.
+
+Novita' della v4.0: il client e' DIVISO IN DUE UNIT
+  Client\UnitInterfaccia.pas (+ .lfm)  la finestra: disegni, bottoni, tavola in legno, pioli.
+                                       NON contiene niente della rete (nessun socket).
+  Client\UnitRete.pas                  tutta la rete: collegarsi al server, mandare UNA riga, leggere
+                                       UNA riga, il protocollo e il suo "parser". NON conosce nessuna
+                                       finestra (nel suo "uses" non c'e' Forms).
+  Come si parlano: UnitRete avvisa la finestra con degli EVENTI (OnStato, OnAttesa, OnRisultato,
+  OnVittoria, OnRifiuto, OnErrore), proprio come l'evento OnClick di un bottone. La finestra
+  conosce UnitRete, UnitRete non conosce la finestra: niente giri in tondo.
+  Non sono cambiati: porta 5050, protocollo, Server, Comune, grafica, form e nomi dei componenti.
+  Nei file il vecchio UnitClient.pas si chiama ora UnitInterfaccia.pas.
+
+Come si apre e si prova (Lazarus)
+  1. Doppio clic su  Client\ClientMastermind.lpi  (oppure Server\ServerMastermind.lpi).
+  2. Premi F9. La prima volta Lazarus compila: ci vuole un po'.
+  3. Il client mostra subito una partita di esempio. Premi "Gioca da solo" per giocare
+     senza rete: per 2,3 secondi il codice segreto compare nel titolo della finestra
+     (per spegnerlo: MOSTRA_CODICE_NEL_TITOLO = False in UnitInterfaccia.pas).
+  4. Per giocare in classe: sul PC del prof apri il Server, premi "Avvia server".
+     Se Windows chiede il permesso, clicca "Consenti accesso" (e' il firewall).
+     Il server scrive in grande l'indirizzo: i ragazzi lo scrivono nella casella
+     "IP del server" del client, poi il loro nome, poi "Connetti".
+  5. Quando sono collegati, il prof preme "Via!". "Stop" mette in pausa, "Nuova
+     combinazione" ricomincia con un altro codice, "Mostra il codice" fa vedere i 4 pioli.
+
+Regole del gioco
+  I colori sono 6 (rosso, giallo, verde, blu, arancio, porpora) e possono ripetersi.
+  Piolino nero = colore giusto al posto giusto. Piolino bianco = colore giusto al posto sbagliato.
+  Scorciatoia da tastiera nel client: R G V B A P, Backspace (toglie l'ultimo), Invio (prova).
+
+Rete
+  Porta 5050 (sempre uguale, non va cambiata). Protocollo: una riga in, una riga fuori:
+  STATO;nome  e  GUESS;nome;1234  (le cifre 1..6 sono i colori).
+
+Come e' fatto
+  Il client ha due unit (UnitInterfaccia.pas con il suo .lfm, e UnitRete.pas), il server una
+  (UnitServer.pas + .lfm). Nomi esemplari: FormClient / FormServer. I file .res vengono riscritti da
+  Lazarus alla prima compilazione (contengono l'icona).
+
+Cosa e' stato provato e cosa no (v4.0)
+  Provato con il compilatore Free Pascal (test\prova.sh, finte unita' LCL): UnitRete compilata e
+  provata DA SOLA senza LCL (righe, parser di ogni risposta, server spento); controllo che UnitRete
+  non usi finestre e UnitInterfaccia non usi socket; compilazione di client e server; conteggio dei
+  neri e bianchi; partita da soli; 6 client in rete contro il server.
+  NON provato con la vera Lazarus: apertura del .lpi con le due unit, F9, aspetto reale delle finestre
+  e nitidezza a 125%/150%. Se Lazarus segnala un errore, mandare uno screenshot.
+  (Le anteprime-disegno della v3.0 restano in mastermind-bello\Anteprima: la grafica e' identica.)
