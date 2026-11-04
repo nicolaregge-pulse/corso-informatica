@@ -1,567 +1,190 @@
-# CLAUDE.md — Corso Godot (cartella `godot/`)
-
-Preferenze e contesto **solo** per il corso Godot/GDScript. Non c'entra con
-Quidoo Pulse (che ha il suo CLAUDE.md nella root). Questo file vale quando si
-lavora dentro `godot/`.
-
----
-
-## ⭐ Contesto umano e missione (leggere SEMPRE per prime)
-
-Gli studenti vivono spesso situazioni di **svantaggio sociale**: molti hanno un
-**background migratorio** (extracomunitari), a volte contesti familiari
-difficili, e non hanno avuto molte opportunità. Spesso sono ragazzi
-**"scartati" da altre scuole** (respinti o messi da parte da altri istituti) e
-arrivano qui già segnati da quei rifiuti. Alcuni possono essere "difficili" da
-coinvolgere e tenere agganciati.
-
-> Proprio per questo il modo in cui li trattiamo conta doppio: qui **non sono
-> scarti**, sono ragazzi a cui diamo una cosa fatta bene. Il tono è sempre di
-> **rispetto e fiducia**, mai di sufficienza.
-
-**Il legame di fiducia (leva + responsabilità):** questi ragazzi hanno **grande
-stima nel docente**, proprio perché è lui a dargli questa possibilità. È il
-motore motivazionale più forte che abbiamo — e insieme la responsabilità di
-**non deluderli**: mantenere alta la qualità e non far mai sentire quel patto
-tradito.
-
-**La missione del docente (Nicola):** offrirgli un percorso di **qualità
-superiore**, con **dignità**, perché possano trovare **sbocchi lavorativi
-migliori**. Questo NON è un corso "di serie B": è pensato apposta per **aprire
-porte**. Va tenuto alto il livello *e* accessibile il modo.
-
-**Implicazioni pratiche (VINCOLANTI):**
-- **Approccio molto semplice, tutto VISUALE.** Niente riga di comando — né per
-  Git né per altro. Si **clicca**, non si digitano comandi.
-  - Per **Git**: solo strumenti visuali. Consigliato **GitHub Desktop** (il più
-    semplice, bottoni grandi e chiari) oppure il **pannello Git di VS Code**.
-    **MAI la CLI** con loro.
-- Passi **piccolissimi**, un obiettivo alla volta, sempre con un risultato
-  concreto e "figo" da vedere subito.
-- **Zero gergo** non spiegato; ogni termine tecnico/inglese va tradotto.
-- **Tanto incoraggiamento**: celebrare ogni piccola vittoria; non far mai
-  sentire "stupido" nessuno. La pazienza è parte del metodo, non un extra.
-- Risultati **spendibili e mostrabili** (giochi che funzionano, cose di cui
-  essere fieri): sono la leva motivazionale più forte per questi ragazzi.
-
-## ⭐ Il motore del coinvolgimento (il problema numero 1)
-
-Il rischio vero non è che non capiscano: è che **si stufino e mollino**. Molti
-hanno imparato che "provarci = fallire ed essere umiliati", quindi si arrendono
-*prima*, per difesa. Il compito numero 1 è **far sentire che qui provarci
-conviene e non fa male**. Ogni esercizio si progetta attorno a questo motore:
-
-**"Vinci subito · Fallo tuo · Mostralo"** — sempre tutte e tre:
-1. **Vinci subito (≈10 min):** il primo risultato deve essere quasi impossibile
-   da sbagliare. Poche mosse → qualcosa che funziona a schermo. La prima
-   vittoria è ciò che impedisce la fuga.
-2. **Fallo tuo:** in ogni esercizio scelgono qualcosa di **loro** (colore, nome
-   del gioco, personaggio, foto/meme, scritta). L'ownership è il gancio più
-   forte.
-3. **Mostralo:** ogni pezzo dev'essere **giocabile e mostrabile** (al compagno,
-   sul telefono). Il "l'ho fatto io" motiva più di un voto.
-
-Due ingranaggi di supporto:
-- **Passi minuscoli con "FATTO!" visibile:** mai più di un obiettivo alla volta;
-  ognuno chiude con una piccola vittoria concreta.
-- **Errore = zero vergogna:** annulla facile, il bug è normale ("succede a tutti
-  i programmatori, anche ai pro"). Nessuno si sente stupido, mai.
-- **La prova del nove — "saperlo spiegare":** se sanno raccontare a voce, con
-  parole loro, cosa fa ciò che hanno fatto (anche se in parte copiato), la
-  competenza c'è davvero. È anche la regola d'uso dell'AI: aiuta a capire, non a
-  saltare il pensiero.
-
-**AUTOREGOLAZIONE (13/10/2026, parola da ricordare):** la leva non è il voto ma l'autodeterminazione. Ogni pagina per i
-ragazzi pubblica SEMPRE gli strumenti per regolarsi da soli (monitor della lezione, il proprio andamento, risultati); ogni
-schermata Veyon va subito nel monitor pubblico. Il docente ha in più il suo cruscotto cifrato. Vedi RIFERIMENTI §2.52, REGISTRO-ERRORI #60.
-
-> Conseguenza pratica sugli esercizi: si parte SEMPRE da qualcosa di
-> **giocabile e personalizzabile**, non da esercizi "scolastici" astratti.
-
-## ⛔ REGOLE OPERATIVE DA NON DIMENTICARE (Nicola ci tiene — leggere per PRIME)
-
-**Il modo di lavorare deciso il 09/10 e il 12/10/2026 è raccolto in `MODUS-OPERANDI.md` (+ PDF): leggerlo insieme a queste regole.**
-
-**1. Nome del ramo di lavoro: sempre PULITO.** Il ramo deve avere un nome
-leggibile (es. `claude/corso-godot`). MAI lasciare o mostrare rami con suffissi
-casuali tipo `...-mubah1`. Se il sistema che avvia la sessione ne assegna uno
-così, spostare **subito** il lavoro su un ramo dal nome pulito. Non promettere
-mai "non lo vedrai più" se non dipende da me: dire la verità sui limiti.
-
-**2. Con che programma si apre ogni tipo di file** (scuola = zero installazioni,
-niente admin: usare SOLO ciò che è già presente):
-- **Codice `.gd`** → si scrive/apre **dentro Godot** (portabile, è già lì). Per
-  solo **leggerlo** come testo: click **destro** sul file → `Apri con` →
-  `Blocco note`. Mai doppio clic (apre Godot e fa partire il gioco).
-- **File `.md`** (manuale, eserciziario, quaderno) → si leggono **impaginati** su
-  `github.com` (browser); per modificarli, la matita di GitHub o `github.dev`
-  (tasto `.`). Per solo testo offline: `Blocco note`.
-- **Manuale da leggere impaginato** → il **PDF** (con SumatraPDF, portabile).
-- Regola d'oro: **mai far installare programmi**. Solo Blocco note, browser,
-  Godot portabile, SumatraPDF portabile.
-
-**3. Prefisso `PPP` = "prendi in considerazione ma NON dare l'output finché non
-dico avanti".** Quando una riga di Nicola inizia con `PPP` (a voce, dettando,
-l'equivalente è **"parcheggia, parcheggia, parcheggia"**), è un **promemoria da
-annotare**: NON si consegna il risultato finale / non si riempie la chat finché
-Nicola non dice **"avanti"**. Serve a **non far scorrere la chat**. Comportamento:
-- Registrare il contenuto come nota/promemoria.
-- **Iniziare a preparare** in silenzio (bozze, file, ragionamento), ma **non
-  consegnare** l'output finale finché non arriva **"avanti"**.
-- Rispondere in modo **minimo** (al più un cenno brevissimo di presa in carico),
-  mai un blocco esplicativo, finché non è dato l'"avanti".
-- **Eccezione:** se dentro il `PPP` c'è un'azione concreta esplicita (es. "dammi
-  il PDF il prima possibile", "committa"), quella si esegue subito.
-- **"Fammeli" vince sul PPP:** se un risultato è già stato chiesto ("dammi",
-  "fammi"), i PPP successivi ne precisano solo il contenuto: si consegna appena pronto.
-- **Se non sto facendo niente, vado avanti comunque** sul lavoro parcheggiato.
-- Dettaglio completo nel file interno `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (le nostre
-  convenzioni, da non confondere con le regole PER i ragazzi).
-
-**3bis. Prefisso `PRI` = PRIORITARIO (26/10/2026, Nicola).** Una riga che comincia con `PRI`: niente output in chat, ma è la PRIMA cosa che Nicola si aspetta che io faccia, prima di tutto il resto. Il `PPP` invece si fa in background quando ho tempo. Dettaglio in `REGOLE-NOSTRE-CLAUDE-NICOLA.md` (regole d'oro n. 7, §C.1bis).
-
-**3ter. Prefisso `PRI+` (26/10/2026, Nicola).** Come `PRI` (prima cosa da fare), ma con l'output: rispondo subito, do la lista dei comandi PRI/PRI+ aperti con la loro posizione in ordine di priorità e chiedo in che posizione mettere l'ultimo PRI+. Ogni PRI+ riceve sempre una risposta.
-
-**3quater. Uscite senza rientro (26/10/2026, Nicola).** Se dopo 5 minuti da un'uscita Nicola non mi ha detto che il ragazzo è rientrato, gli chiedo conferma.
-
-**3quinquies. Riassunti e risposte veloci (26/10/2026, Nicola).** Quando Nicola chiede un riassunto o una cosa veloce, dico SOLO le cose bloccanti o che creano problemi se non si fanno; il resto no. Se gli serve qualcos'altro di urgente, lo chiede lui.
-
-**4. Registro (firma ore): segnare SEMPRE il PROGRAMMA INIZIALE su tutte le ore.**
-Logica di Nicola: firma in anticipo il programma previsto su ogni ora, per non
-rischiare di lasciare **ore non firmate**; a fine giornata lo aggiorna con gli
-argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
-- **Memorizzare** il programma previsto e le **presenze/assenze** quando Nicola
-  le manda (le presenze contengono nomi di minori → restano in scratchpad, NON
-  nel repo).
-- **Tenere traccia** durante la lezione (anche voti "domande al volo": 70 OK / 50 KO).
-- **⏰ FIRMA ENTRO LE 14:05 (VINCOLANTE):** i registri vengono **inviati alle
-  14:05**; le ore **non firmate entro quell'ora** vengono **tolte dal monte ore
-  della Regione**. Perciò Nicola firma **subito in classe** il programma previsto
-  (anche con argomenti provvisori) e li corregge dopo. **Compito di Claude:
-  ricordare la firma IN AULA, prima delle 14:05** (non a fine giornata).
-- **Come si legge la firma (Nicola, 19/10/2026, REGISTRO-ERRORI #87):** «FIRMA ✓» con la scritta **in verde** = ora **firmata, è OK**: non si ricorda più la firma per quell'ora. Senza il verde non si deduce niente (REGISTRO-ERRORI #11, #36, #52): si ricorda la firma una volta. Se Nicola dice «firmate», è così. **Anche (21/10/2026, Nicola):** se l'ora compare nell'elenco delle ore firmate (data, ora, classe, disciplina, argomento e la colonna «Firma» con data e ora): se la colonna Firma ha la data e l ora, è firmata e non si ricorda più.
-- **«Altro» nelle presenze (Nicola, 20/10/2026, REGISTRO-ERRORI #92):** sul registro «Altro» (giallo) vuol dire entrata o uscita fuori orario: l'allievo è PRESENTE e si conta tra i presenti (voti, cruscotto, tabella dei voti).
-- **Titolo = voce dell'Allegato A (14/10/2026):** ogni testo per il registro è una voce dell'Allegato A di quella classe e della materia di quell'ora; se manca la voce, lo dico subito e si aggiunge entro il 30/10 (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punto 8).
-- **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
-  ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
-- **A FINE giornata: CHIEDERE a Nicola gli argomenti realmente svolti** e
-  aggiornare (`ARGOMENTI-SVOLTI-2026-27.md`, senza nomi). La firma è già stata
-  fatta prima (vedi sopra); a fine giornata si sistemano solo gli **argomenti**.
-
-**5. Libro di testo Classe 1 (workflow VINCOLANTE).** Ogni lezione produce un
-documento **MD + PDF versionato** (e si **archivia anche l'HTML** quando la resa
-è da HTML). Poi Claude **aggiunge automaticamente** quel contenuto al **libro di
-testo complessivo** `classe-1/libro-di-testo/libro-classe1.md` (bump versione +
-voce nel changelog). Il **PDF serve per leggere/stampare**, l'**MD si dà ai
-ragazzi per la loro AI** (che spiega/traduce nella loro lingua). **Claude mette
-SEMPRE tutto su Git e lo tiene aggiornato** (MD, PDF e HTML).
-
-**6. Prima di proporre QUALSIASI cosa ai ragazzi: chiedere SEMPRE «Pubblico o vuoi vederlo prima?» (09/10/2026, VINCOLANTE).**
-Vale per compiti, Documenti, quiz, Moduli, annunci, post e pagine per i ragazzi. Si prepara tutto, si dà a Nicola il link
-per vederlo e si aspetta la sua risposta: si pubblica SOLO dopo la parola «pubblica» (o un sì esplicito a quella domanda).
-Un orario detto prima («negli ultimi 25 minuti») NON vale come via. Vedi REGISTRO-ERRORI #41.
-
-**7. Ordine fisso di ogni lezione: prima la TEORIA, poi il COMPITO, poi si pubblica (09/10/2026, VINCOLANTE).**
-1. Si analizza INSIEME a Nicola la teoria che propongo.
-2. Poi si analizza insieme il compito: lo devono poter iniziare TUTTI, con frasi da quinta elementare, tutto al
-   computer, senza foto né telefono (REGISTRO-ERRORI #43, #44).
-3. Solo dopo la sua approvazione esplicita si pubblica qualcosa. Vale anche per le anteprime già pronte.
-
-**9. Testo da scrivere = riquadro da copiare, SEMPRE nello stesso messaggio (12/10/2026, VINCOLANTE, «te l'ho già detto 100 volte»).**
-Ogni volta che un passo (anche quello successivo annunciato) richiede a Nicola di scrivere un testo, una frase, un titolo o
-un valore, il testo pronto va già nel messaggio, in un blocco di codice da copiare. Nicola non scrive mai a mano. Vedi REGISTRO-ERRORI #46.
-Ordine di lettura: Nicola legge dall'alto in basso. Il riquadro da copiare sta SUBITO dopo il passo che lo usa (passo → riquadro →
-passo successivo), mai raccolto in fondo e mai indicato con «qui sotto» se non è proprio la riga seguente.
-Formato ATOMICO (12/10/2026, corretto da Nicola): ogni passo è un blocco completo (dove + cosa + il suo riquadro da copiare subito
-dopo); in un messaggio si danno PIÙ passi atomici, uno sotto l'altro. Se Nicola si perde, lo dice lui. Non chiedere uno screenshot a ogni passo:
-solo quando serve davvero per controllare il risultato finale (12/10/2026).
-Memoria del copia e incolla = VUOTA (12/10/2026, REGISTRO-ERRORI #50): ogni «incolla» viene subito dopo il passo che dice cosa
-copiare e da dove; prima si apre la pagina dove si incolla, poi si copia, poi si incolla, così una copia non cancella l'altra.
-
-**10. Script da incollare in Apps Script: SEMPRE dal link pubblico, nella finestra PIAMARTA (12/10/2026, VINCOLANTE).**
-Il codice dello script «Consegne Classroom → Git» si fa copiare da questo indirizzo (testo semplice, nessun login, niente 404):
-`https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strumenti/automazione-corso.gs`
-Ogni volta che cambio `strumenti/automazione-corso.gs` nel repository riservato, copio lo stesso file in `strumenti/` del
-repository pubblico (non contiene segreti: il token sta nelle proprietà dello script). Mai mandare Nicola sul repository
-privato dalla finestra PIAMARTA: dà 404 (errore di venerdì 09/10 e di lunedì 12/10, REGISTRO-ERRORI #48).
-Progetto Apps Script: aprire `https://script.google.com/home` (finestra PIAMARTA) e fare clic su «Consegne Classroom → Git».
-L'indirizzo diretto del progetto, ricopiato da uno screenshot, ha dato errore 400 (lettere l/I ambigue): non usarlo.
-Com'è fatto DAVVERO il progetto (screenshot del 12/10/2026, REGISTRO-ERRORI #51): pannello a sinistra «File» con 5 file:
-appsscript.json, Codice.gs (vecchio script 1INF, si apre per primo), Senza titolo.gs, **automazione-corso.gs** (QUI va
-incollato il codice), cancella-compito-vuoto.gs. Barra sopra il codice: Annulla/Ripeti, icona Salva, «Esegui», «Debug», menu
-a tendina delle funzioni, «Log esecuzione». In alto accanto al titolo compare «Modifiche non salvate» finché non si salva.
-Ogni guida allo script parte da questa mappa: prima si clicca il file giusto, poi si incolla.
-
-**11. Ogni giorno di lezione, PRIMA della lezione: le pagine standard sono già del giorno (14/10/2026, VINCOLANTE).**
-Per ogni classe in orario si preparano in anticipo, qualunque cosa faremo: i sei bottoni (voti, backlog, monitor, novità/changelog,
-classifica, valutazione), il cruscotto del docente e il suo pannello (`docs/<classe>-prof/`), la casella «Chiedi aiuto all'assistente
-del Prof Regge». Quelle del giorno prima restano in un file «di ieri» con il link. Poi audit di TUTTE le pagine, anche del docente,
-bottone per bottone, sul telefono e come sul sito vero (REGISTRO-ERRORI #70, #71, #75).
-
-**12. Un link si dà SOLO dopo che il sito è pubblicato (14/10/2026, VINCOLANTE, REGISTRO-ERRORI #79).** Dopo il push: `bash strumenti/aspetta_pubblicazione.sh`; il link a Nicola solo dopo «PUBBLICATO».
-
-**13. Il bottone «I voti» è fisso, i KPI si concordano (14/10/2026, VINCOLANTE).** Il voto parte sempre da 40 e sale man mano che i ragazzi fanno le cose; ogni riga spiega il perché (il conto). Cambia solo che cosa si misura (numero di PR, avanzamento nel percorso, …): nella tabella dei voti ci sono SEMPRE TUTTI I PRESENTI (REGOLA GENERALE, 14/10), anche chi non ha consegnato niente (40); gli assenti non compaiono. I KPI dipendono dalla lezione: si propongono a Nicola DOPO che ha visto il percorso proposto (mai prima) e si usano solo dopo il suo sì. **Ogni giorno (29/10/2026, Nicola: «ogni giorno dovresti propormi dei KPI, dei punti da monitorare, e io te li confermo o ne chiedo altri»):** appena è scelta la lezione, Claude propone in chat 2-4 KPI legati all'obiettivo del giorno (per esempio: «due versioni Lazarus su Git» = il codice giusto di ogni versione + le due versioni su GitHub), con il voto 40-80 che ne deriva; il cruscotto mostra per prime le colonne di quei KPI, una ✔/✘ per ragazzo, con una legenda «come si legge».
-
-**14. La lezione funziona da sola, senza il docente (14/10/2026, VINCOLANTE).** Nicola in classe fa solo gli screenshot di Veyon, le note e dà indicazioni: non può controllare le pagine. Quindi Claude: valuta sempre lui (verifica e lavori), prepara il recupero individuale di ognuno, risponde alle domande dei ragazzi nella casella d'aiuto (Nicola solo in seconda battuta), tiene acceso il giro automatico che legge Modulo, aiuto e note e aggiorna backlog, cruscotto e voti. Nessun passo dei ragazzi deve dipendere da un controllo del docente. **Le domande dei ragazzi vanno all'assistente, non al prof (15/10/2026, Nicola):** lo scopo è scaricare il docente dalle domande, perché salga di livello: controlla l'andamento generale della lezione, aiuta di persona chi è bloccato e dà a Claude i feedback correttivi. Nelle pagine non si scrive «chiedi al prof» come strada normale: si chiede all'assistente; al prof si va solo per ciò che l'assistente non può fare (comportamento, salute, account bloccato, problemi del PC).
-
-**15. MAI PIÙ «copia, apri, incolla» per i ragazzi (14/10/2026, REGOLA ASSOLUTA di Nicola: «MAI PIÙ»).** Nessuna pagina per i ragazzi chiede di copiare un testo, aprire un Modulo, incollare e premere Invia. Il ragazzo scrive il testo e preme UN bottone che consegna davvero (applicazione web dello script, oppure invio diretto al Modulo con i codici delle caselle). Se il canale diretto non c'è, la pagina NON si pubblica: lo si dice a Nicola prima della lezione. Vedi REGISTRO-ERRORI #81.
-
-**16. Traccia digitale per la Regione: almeno 3-4 prove per quadrimestre salvate su Classroom (14/10/2026, VINCOLANTE).** Classroom è l'archivio valido per la Regione: il minimo è 2 prove per quadrimestre per classe, noi stiamo su 3-4. Ogni prova (verifica, quiz, compito valutato) ha il lavoro del ragazzo salvato DENTRO Classroom: un Modulo Google allegato al compito, o la consegna nel compito. Ogni lezione lascia almeno una traccia su Classroom. Conteggio per classe in `PROVE-CLASSROOM-2026-27.md`; quando una classe è sotto 3 nel quadrimestre, lo dico a Nicola e propongo la prova. Vedi RIFERIMENTI §2.55.
-
-**17. AGGIORNATA il 21/10/2026 (Nicola: «a me sta storia che devo dire pubblica non piace tanto»): Claude pubblica DA SOLO, senza chiedere «pubblica», e dice sempre in chat che cosa ha pubblicato e il link. Le regole 6 e 7 restano solo per i compiti e i quiz NUOVI per i ragazzi (teoria e compito si guardano insieme prima). Prima versione della regola (19/10):** Pubblicare SOLO con il sì esplicito, all'inizio della lezione, solo il lavoro di quella lezione. Mai pubblicare senza autorizzazione esplicita. Di norma si pubblica all'inizio della lezione e solo i compiti da fare in classe, o a casa prima della lezione successiva: niente compiti per lezioni future (MANIFESTO §9.11).
-
-**18. Il cruscotto dal vivo è lo standard di ogni lezione (19/10/2026).** Regole fisse: ordine dal più bravo al meno (svolto all'inizio, voto alla fine), 🏁 per chi ha finito al controllo automatico, «manca: …» per gli altri, Veyon dentro il cruscotto, domande con risposta, voto proposto 40-80 con la regola delle domande, tutti i presenti, dati con nomi e voti sempre CIFRATI nel pubblico (`strumenti/cifra_json.py`). Vedi `CRUSCOTTO-DAL-VIVO.md`. **Logica fissa (21/10/2026, Nicola): il cruscotto serve a TENERE SOTTO CONTROLLO LE ATTIVITÀ DEGLI ALLIEVI.** È UNICO per la lezione: in una sola pagina tutte le attività del giorno (lettura della teoria, ripasso, esercizi, quiz su Moduli), una riga per ogni presente, chi è fermo, a che punto è, le attività rilevate da Veyon (fuori compito in rosso, quante volte) e le note della lezione (registro, uscite), voto proposto 40-80. **APPROVATO il 21/10/2026 («così va bene»): è il modello per tutte le lezioni.** Modello: `docs/avanzamento/oggi.html?t=<teoria>&e=<esercizi>&q=<quiz cifrato>`. **Storico (21/10/2026, Nicola):** i dati dei cruscotti si storicizzano sempre, per poterli riguardare: a ogni giro una fotografia nel riservato (`storico/cruscotti/<classe>/<AAAA-MM-GG>/<HHMM>.json`); le consegne grezze restano in `dati/verifiche/<id>/arrivi/`. **Modello di default per la situazione quiz (29/10/2026, Nicola):** la pagina `<classe>-sicurezza-oggi.html` con una colonna per quiz (fino a 16 quiz, le 16 ore di Sicurezza della Regione; intestazioni corte 1ª…16ª, la tabella scorre di lato al suo interno con la colonna Allievo fissa), pastiglia verde/gialla, punteggio e data/ora. Generatore: riservato `generatori/situazione_quiz.py config/situazione-quiz/<id>.json`; pagina modello `docs/avanzamento/1inf-sicurezza-oggi.html` (legge `<x>-quiz.json`).
-
-**19. `PROSSIME-LEZIONI.md` sempre aggiornato (19/10/2026, chiesto dalla chat «Amichetto Claudio»).** Nella cartella principale: per ogni lezione dei prossimi giorni data, classe, ore, argomento, attività, materiali, compiti; prima la più vicina. Si aggiorna a ogni chat, commit e push su main. NIENTE nomi di alunni né dati riservati (né codici di anteprima): lo legge a voce la skill Alexa «Amichetto Claudio», quindi frasi intere, niente tabelle.
-
-**20. Messaggi tra chat (19/10/2026, Nicola).** Un messaggio che passa da una chat Claude a un'altra comincia con «Da chat <nome> a chat <nome>:». Quando ne scrivo uno per un'altra chat lo intesto così; quando ne arriva uno senza intestazione e Nicola dice da dove viene, lo tratto come richiesta di Nicola.
-
-**21. Prima di cominciare un lavoro: rileggere le regole (26/10/2026, VINCOLANTE, REGISTRO-ERRORI #119).** Prima di preparare qualunque materiale o di dare istruzioni, rileggo questo file, `MODUS-OPERANDI.md` e il registro degli errori già fatti `REGISTRO-ERRORI-CLAUDE.md` e spunto `CHECKLIST-LEZIONE.md` (tutti gli errori in forma di controlli, 26/10/2026) (tutte le regole nate dagli errori, non solo le ultime voci), e controllo per quale classe è il lavoro. **Lingue (MODUS-OPERANDI, FRAMEWORK-LEZIONE):** 1INF italiano, arabo e cinese; 2INF solo italiano (le pagine passano da `strumenti/solo_italiano.py`); **3INF italiano più il bangla (bengalese) solo per l'allievo che ne ha bisogno (PC 14)**, una riga di aiuto sotto ogni frase; 4TI solo italiano. Le regole si verificano nei documenti con un audit mio, non chiedendo a Nicola.
-
-**22. Report delle domande all'assistente, SEMPRE (26/10/2026, Nicola: «diventa una regola»).** Durante ogni lezione controllo le domande che arrivano alla casella dell'assistente (`dati/verifiche/assistente-<pagina>/arrivi/` nel riservato), rispondo subito (`docs/assistente/risposte/<pagina>.json`, nome e iniziale) e do a Nicola in chat il report: ora, chi (in chat SEMPRE il nome anagrafico completo, COGNOME e nome, come nel registro: Nicola non riconosce i ragazzi dal solo nome o dal solo cognome; 26/10/2026), domanda, risposta data. Il report si dà a ogni giro, anche senza che lo chieda. **Le domande valgono solo in giornata (28/10/2026, Nicola):** si risponde lo stesso giorno; quelle rimaste senza risposta a fine giornata si chiudono e non si riprendono. **Pensare i ragazzi come dodicenni (26/10/2026, REGISTRO-ERRORI #123):** un passo = un'azione che si vede sullo schermo; niente cose da cercare sul PC se si possono fare su GitHub.
-
-**8. I file per Nicola si mandano SCARICABILI in chat (12/10/2026, VINCOLANTE).** PDF, immagini e documenti da dargli
-si consegnano con l'invio di file della chat (card con il bottone di download), non come link a GitHub da aprire.
-Il link al repository si aggiunge solo se serve per altro (pubblicazione, condivisione).
-
-## Contesto didattico
-
-- **Docente:** Nicola. Sta imparando Godot in prima persona, in parallelo ai
-  ragazzi.
-- **Classi:** una **seconda** e una **terza** di **istituto professionale**.
-  → Taglio **pratico**: fare prima, teoria in piccole dosi legata al fare;
-  risultato visibile e "figo" a ogni passo; molto copia-modifica-sperimenta.
-  Sfruttare al massimo i 4 livelli di aiuto dell'eserciziario.
-- **Background dei ragazzi:** conoscono **Lazarus** (Free Pascal) a **livello
-  base**. Hanno usato pochi componenti:
-  - **TButton** (il bottone)
-  - **TEdit** (la casella di testo)
-  - la proprietà **Caption** (il testo mostrato)
-  - Progetti fatti: cose molto semplici, tipo una **calcolatrice**.
-- Quindi: **principianti**. Sanno cos'è un evento (click), una proprietà, una
-  variabile; non hanno mai visto un "game loop" né la programmazione a oggetti
-  avanzata.
-
-## Obiettivo del corso (quest'anno)
-
-- Un corso che **diverta**: la priorità è tenerli **agganciati**.
-- Tutti i progetti devono essere **molto usabili e accattivanti** — giochini
-  che li attirano e che possono mostrare/giocare subito. Niente esercizi aridi.
-- Difficoltà **graduale**, sempre con un risultato visibile a ogni passo.
-
-## Metodo (come spiegare)
-
-- **Sempre in italiano**, semplice, **un passo alla volta**, con risultato a
-  schermo a ogni tappa.
-- **Bridge da Lazarus**: spiegare ogni concetto Godot partendo da ciò che già
-  conoscono. Tabella di traduzione:
-  | Lazarus (lo sanno) | Godot (nuovo) |
-  |---|---|
-  | Form | Scena (albero di nodi) |
-  | Componenti (TButton, TEdit…) | Nodi (Button, LineEdit, Label…) |
-  | Proprietà (Caption…) nell'Object Inspector | Proprietà nell'Ispettore |
-  | Gestore evento (`Button1Click`) | Segnale + funzione |
-  | Object Pascal | GDScript (stile Python) |
-  - Concetto NUOVO chiave da introdurre bene: il **game loop**
-    (`_process(delta)` gira ~60 volte/sec da solo). *"Lazarus reagisce, Godot
-    pulsa."*
-
-## Progetti a gruppi (lavoro in team) — importante
-
-Durante l'anno, ogni tanto, fare **progetti a gruppi di 2-4** ragazzi con i
-**ruoli divisi**, per insegnare a **sviluppare in team** (competenza lavorativa
-vera, spendibile):
-- uno sviluppa la **scena**;
-- uno i **nodi**;
-- uno l'**interfaccia grafica** (GUI);
-- uno i **movimenti**/logica di gioco.
-
-Obiettivi: collaborazione, divisione dei compiti, **integrare il lavoro degli
-altri** (come in un vero team di sviluppo). Si lega bene a **Git**: ognuno lavora
-sul suo pezzo e poi si uniscono i contributi.
-
-**Attenzioni (dato il contesto):**
-- Comporre i gruppi con cura; **ruoli chiari e a rotazione** così tutti provano
-  tutto e nessuno resta indietro o si nasconde dietro i più bravi.
-- Ogni gruppo deve arrivare a una **piccola vittoria mostrabile** (coerente col
-  motore "Vinci subito · Fallo tuo · Mostralo").
-
-## ⭐ Vincolo SCUOLA: niente installazioni → browser + portabile
-
-A scuola installare software richiede l'**amministratore di sistema** (lento, e
-ogni problema successivo va ri-chiesto a lui). Quindi, per le **postazioni
-scolastiche**, prediligere soluzioni **SENZA installazione**:
-
-- **Godot è PORTABILE** 🎉: è un singolo `.exe`, **non serve installarlo** con
-  l'admin. Si copia in una cartella utente (o su chiavetta USB) e si avvia con
-  doppio clic. → Il pezzo più grosso è già risolto.
-  - Possibile ostacolo: policy che bloccano gli `.exe` non firmati (AppLocker).
-    In quel caso serve **uno sblocco una tantum** dal sysadmin, non
-    un'installazione ricorrente.
-- **Git / versioning: tutto da BROWSER** (zero software):
-  - **github.com**: creare repo, modificare file (icona matita), fare commit,
-    creare branch e Pull Request — tutto dall'interfaccia web.
-  - **github.dev**: dentro un repo premi il tasto **`.`** (punto) → si apre un
-    editor tipo VS Code **nel browser**; modifichi e fai commit lì. Zero install.
-- Ripiego 100% browser anche per Godot: **editor.godotengine.org** (l'editor di
-  Godot nel browser), ma è più limitato/sperimentale → usarlo solo se il `.exe`
-  portabile fosse bloccato.
-- **Sulla macchina personale di Nicola** (non a scuola) va benissimo **GitHub
-  Desktop**: comodo per lui per preparare le cose.
-  - **Uso didattico = "seconda vista"**: mostrare lo *stesso* concetto (un
-    commit, un branch, il sync) sia nel **browser** sia in **Desktop** aiuta a
-    capire che **Git è il concetto, lo strumento è solo una finestra** su di
-    esso. Desktop rende più evidenti: la vista *modifiche/staging* prima del
-    commit, una **storia** ordinata e il **sync locale↔cloud** (push/pull).
-    Ambiente primario per la classe resta comunque il **browser**.
-
-## ⭐ Guida passo-passo — coordinate SEMPRE complete (regola VINCOLANTE)
-
-Quando chiedo a Nicola di fare **qualsiasi** azione (un comando, un clic, un
-valore da inserire), devo **SEMPRE** premettere le coordinate complete, così sa
-esattamente dove agire. Prima dell'azione indico, in quest'ordine:
-
-0. **Quale ACCOUNT** (07/10/2026, VINCOLANTE) — si chiamano così: **account PERSONALE** = nicolaregge@gmail.com
-   (finestra Chrome con le schede gialle e la foto in alto a destra, dove c'è GitHub) e **account PIAMARTA** =
-   nicola.regge@piamarta.it (finestra Chrome con le schede arancioni e il bottone «Scuola», dove ci sono DIDAweb,
-   Classroom e lo script).
-   Ordine fisso di ogni riga: **account → finestra → app → dove → cosa**, con le **caselle da copiare**
-   sempre nello stesso messaggio.
-1. **Quale APPLICAZIONE** — es. `[APP — GitHub Desktop]`, `[APP — Godot]`,
-   `[APP — Esplora file]`, `[BROWSER]`.
-2. **Quale FINESTRA / SCHEDA** — se ce ne sono più aperte, dirlo esplicitamente
-   (es. `[BROWSER — scheda "corso-godot"]`).
-3. **Quale MENU → voce → sotto-voce**.
-4. **In quale AREA della finestra/applicazione** — pannello a sinistra, barra in
-   alto a destra, riquadro in basso, ecc.
-5. **L'AZIONE esatta**, **una alla volta**.
-
-**Mai** dare un comando "nudo" senza dire **dove** va messo. Un passo alla volta;
-se è terreno nuovo per lui, massima precisione.
-
-**⭐ REGOLA COPIA (VINCOLANTE, chiesta da Nicola — non violarla mai):** qualunque
-cosa Nicola debba **copiare** (un nome file, un valore, un comando, un pezzo di
-testo) va **SEMPRE** in un **blocco di codice recintato** — cioè su una riga a
-parte, tra ` ``` ` e ` ``` ` — così compare il **bottone "copia"** e lui NON deve
-selezionare col mouse. Regole precise:
-- **NON basta** il codice "in linea" con un solo apice (`` `così` ``): NON ha il
-  bottone copia → vietato per le cose da copiare.
-- **NON** metterlo come testo normale nella frase, né nel blockquote `>`.
-- **Un valore per blocco:** un solo riquadro = una sola cosa da copiare, così un
-  clic copia esattamente quella e nient'altro.
-- Vale anche per **nomi di file**: es. il nome da dare a uno screenshot va nel suo
-  riquadro, da solo.
-- Il testo dentro il riquadro dev'essere **esattamente** ciò che serve, pronto da
-  incollare (nessuna barra `/` nei nomi file di Windows, ecc.).
-
-**Rinforzo (chiesto da Nicola, vale SEMPRE — è più importante di andare veloci):**
-- **Una sola azione per riga numerata.** Mai due clic nella stessa riga.
-- **Ogni riga dice DOVE prima di dire COSA:** applicazione → scheda/finestra →
-  area della pagina (es. "in alto a destra", "nel menu a sinistra") → il nome
-  **esatto** del bottone/voce (tra apici) → l'azione.
-- **Se Nicola manda uno screenshot, indico il punto ESATTO** su *quella*
-  schermata (dove si trova, com'è scritto), non un'istruzione generica.
-- **Non dare mai per scontato** che sappia dov'è un bottone o cosa fa un termine.
-  Nel dubbio, essere più precisi, non meno.
-- Meglio **lento e chiaro** che veloce e confuso: la fretta qui è un errore.
-- **SOLO IL PROSSIMO PASSO (07/10/2026, Nicola):** non ripetere mai i passi che ha già fatto; dire il prossimo passo e basta, aspettare che lo faccia, poi il successivo.
-- **Frasi semplici, non catene di coordinate (12/10/2026, REGISTRO-ERRORI #56):** ogni passo è una frase che comincia con il verbo («Clicca…», «Premi…», «Torna…»), con il «dove» detto a parole dentro la frase; MAI catene «Account · finestra · dove: cosa». Dove si può, i tasti (Ctrl+T, Ctrl+V, Invio) invece di cercare bottoni. Il bottone copia: «il piccolo bottone a destra del riquadro grigio».
-- **Flusso unico sempre da zero (12/10/2026, REGISTRO-ERRORI #55):** niente «se», niente «salta», niente domande dentro i passi.
-- **Niente parole in più (12/10/2026, REGISTRO-ERRORI #53):** niente avverbi o aggettivi che non servono («onestamente», «valide»…): se togliendo la parola il senso resta uguale, si toglie.
-- **Formato a TABELLA (07/10/2026, Nicola):** i passi si danno in una tabella con le colonne N. · Account · Finestra/scheda · Dove · Cosa fare (una riga = una azione).
-
-## ⭐ Standard di formattazione dei documenti (VINCOLANTE)
-
-Tutti i documenti del corso — **presenti e futuri** — seguono lo standard scritto
-in **`REGOLE-FORMATTAZIONE.md`** (documento 00). È la regola, non un consiglio.
-Per questo progetto la **fonte di verità è Nicola** (nessun ruolo di soggetti
-esterni). Punti chiave da ricordare sempre:
-
-- **MD + PDF** per ogni documento; una **super-guida combinata** + zip dei singoli.
-- **Liste solo numerate e gerarchiche** (1, 1.1, 1.1.2): **niente elenchi puntati**.
-- **Niente emoji decorative** nei documenti; per evidenziare si usano i **box
-  colorati semantici** (rosso = disallineamento, blu = da confermare, giallo = nota).
-- **Titoli numerati** (00, 01, 02, 02b), **senza trattino** ("02 Panoramica"), mai
-  orfani a fine pagina.
-- **Sigle** esplicitate alla prima occorrenza; termini ricorrenti nel **GLOSSARIO**.
-- **Versione congelata** una volta stampata; correzioni nella successiva
-  (CHANGELOG_Vn + ERRATA_Vn in coda al combinato).
-- **REGOLA 0 (assoluta):** tutto ciò che l'utente deve **copiare** va in un
-  **blocco di codice** (col bottone "copia"), mai in linea né in citazione.
-
-**Come si concilia col metodo del corso:** cambia la **forma** (formattazione
-sobria, niente emoji/puntati), **non** la **sostanza pedagogica**. Restano intatti:
-tono di rispetto e incoraggiamento, passi piccolissimi, "Vinci subito · Fallo tuo ·
-Mostralo", celebrare ogni vittoria, coordinate sempre complete. Si può essere caldi
-e incoraggianti anche in prosa sobria e con liste numerate.
-
-> Nota di migrazione: i documenti già esistenti (guide, manuale, indici) si
-> adeguano **gradualmente** allo standard, non tutti in una volta, per non
-> introdurre errori. Ogni nuovo documento nasce già conforme.
-
-## ⭐ Ogni testo per i ragazzi nelle 3 lingue (VINCOLANTE — richiesto da Nicola)
-
-**Le lingue sono per classe (vedi la regola 21):** 1INF italiano, arabo e cinese; 2INF solo italiano; 3INF italiano più il bangla solo per il PC 14; 4TI solo italiano. Questa sezione vale dove le tre lingue servono (1INF).
-
-Ogni testo **destinato agli allievi** (consegne, esercizi, guide, avvisi, schede)
-deve essere **disponibile nelle 3 lingue** del gruppo: **italiano, arabo, cinese
-semplificato**. Regole pratiche:
-
-- Va bene sia **3 file separati** (uno per lingua) sia **un unico file** con le
-  tre lingue affiancate; per le consegne operative si preferiscono i **3 file
-  monolingui**, ognuno con **tutte** le indicazioni complete.
-- Le indicazioni devono essere **semplici e complete** ("a prova di errore"):
-  spiegare tutto, compreso a cosa servono link/strumenti, come si crea il lavoro e
-  come si consegna.
-- **Font per il PDF**: cinese **WenQuanYi Zen Hei**, arabo **Amiri** (installato in
-  `~/.fonts`); questi documenti si generano da **HTML** (non dal motore "libro"
-  che usa DejaVu, privo di cinese/arabo). L'arabo va reso **RTL** (`dir="rtl"`).
-- **Eccezione**: i materiali **interni per il docente** (pianificazione, registro
-  attività, regole, indici) restano in italiano; la regola vale per ciò che
-  arriva in mano agli allievi.
-- **⭐ Testo latino dentro l'arabo/cinese (richiesto da Nicola):** nei testi in
-  arabo e cinese capita di dover scrivere parole in caratteri latini; vanno
-  gestite così, perché i ragazzi che leggono in arabo/cinese non restino spiazzati:
-  1. **Indirizzi e email** (es. `github.com`, un'email): NON si traducono (un
-     indirizzo si scrive sempre in lettere latine). Vanno marcati chiaramente
-     nella loro lingua come "indirizzo/e-mail: scrivilo esattamente così".
-  2. **Nomi dei bottoni dei siti**: NON scriverli in inglese. Il ragazzo spesso
-     fa tradurre il sito nella sua lingua, quindi il testo inglese non coincide
-     con quello che vede. Si descrive il bottone per **posizione + colore + a
-     cosa serve** (che valgono in qualunque lingua), con la parola **italiana**
-     probabile come aiuto (invitando a tradurre la pagina in italiano). Mai
-     affidarsi al solo testo del bottone.
-
-## ⭐ Struttura del corso e flusso Git
-
-### Due ambienti: "autore" (Nicola) vs "ragazzi"
-Il corso stesso è versionato su Git, su due livelli:
-- **`main` = ambiente AUTORE (di Nicola).** La sua "cucina": prepara, avanza,
-  migliora il corso; può essere anche in lavorazione/incompleto.
-- **Release per i RAGAZZI.** Quando una parte è pronta e testata si pubblica una
-  **Release** taggata (`v1.0`, `v1.1`…): la versione **congelata e stabile** che
-  i ragazzi ricevono. Non cambia sotto i loro piedi mentre Nicola lavora alle
-  migliorie, e insegna davvero il concetto di **release/versione**.
-- **I ragazzi lavorano su una LORO copia** (fork o repo personale), **mai** sul
-  master di Nicola: il suo resta intatto e ognuno ha il suo spazio per esercizi
-  e quaderno. (Si sposa con la Fase 2: branch/PR.)
-
-### Ibrido a due fasi (la complessità Git cresce con loro) — SCELTA CONFERMATA
-- **Fase 1 (inizio) — esercizi SEPARATI**, ognuno con la sua descrizione (scheda
-  a 4 livelli). Git semplice: un **commit** per salvare la propria versione. Se
-  sbagli un esercizio gli altri restano intatti (zero conseguenze, zero
-  vergogna). In repo: cartella `esercizi/` con una sottocartella per esercizio.
-- **Fase 2 (quando hanno confidenza / progetti a gruppi) — progetto che EVOLVE**
-  con **branch → Pull Request → release**. Un gioco che cresce; ognuno sul suo
-  branch, PR, merge, e release taggate (`v1.0` giocabile, `v1.1` con suoni…). In
-  repo: cartella `progetto-gruppo/`.
-- **Perché non partire dal flusso unico + PR:** per ragazzi che mollano facile un
-  progetto unico che si rompe = frustrazione, e PR/merge all'inizio sono troppo.
-  Prima farglielo **desiderare** (semplice), poi introdurlo quando il gioco di
-  gruppo lo rende naturale.
-
-## ⭐ Carta e penna in OGNI lezione (TASSATIVO — richiesto da Nicola)
-
-> **Sospesa per i compiti (09/10/2026, Nicola):** per ora i compiti e la teoria si fanno TUTTI al PC, niente carta e
-> penna né lavoro a mano: controllarli e gestirli è problematico. Se serve qualcosa di fisico si chiede prima a Nicola.
-
-Regola **vincolante e senza eccezioni**, da rispettare e da ricordare in **ogni
-singola lezione** di **tutti** gli anni:
-
-- **Ogni allievo deve avere carta e penna sul banco**, per prendere **appunti** e
-  fare **schemi a mano** — sempre, anche (e soprattutto) quando si lavora al
-  computer. Scrivere e disegnare a mano aiuta a capire e a fissare i concetti.
-- **Se un allievo non li ha, il docente glieli fornisce e segna una nota**
-  (annotazione), lezione per lezione. Non è un capriccio: è parte del metodo.
-- Gli appunti e gli schemi a mano **confluiscono nel quaderno personale** (anche
-  fotografati e incollati): alimentano il "Mostralo" e la prova del nove.
-- **Conseguenza per il materiale:** ogni piano-lezione, guida ed esercizio deve
-  dare per scontato carta e penna e, dove utile, **prevedere esplicitamente** il
-  momento "prendi appunti / fai lo schema a mano".
-
-## ⭐ Regole operative permanenti (richieste da Nicola)
-
-1. **Tutto versionato.** Ogni file (progetti Godot, script, documenti) va nel
-   repository, sul branch del corso. Niente lavoro che vive solo sul PC.
-2. **Manuale in doppio formato.** Ogni volta che si produce un **PDF** (il
-   "manuale"), si produce **anche** un file **`.md` versionato** con **tutto
-   quello che abbiamo detto/spiegato**.
-   - Il **`.md` è la fonte versionabile** (sorgente di verità, in git).
-   - Il **PDF è la resa consegnabile** generata dall'`.md`.
-   - Il "manuale" ha **due parti**, entrambe in `godot/manuale/`:
-     * **`manuale.md`** = il **libro di testo** (teoria/narrazione; cresce mano
-       a mano che avanziamo insieme nella comprensione di Godot).
-     * **`eserciziario.md`** = gli **esercizi** per i ragazzi, con codice già
-       fattibile. Ogni esercizio ha **4 livelli di aiuto a scoperta graduale**:
-       (1) descrizione, (2) aiuto/indizio, (3) la scena/i nodi, (4) codice
-       completo. Così chi ce la fa procede da solo, chi è bloccato scopre solo
-       l'aiuto che gli serve.
-   - **Immagini/screenshot nel libro di testo**: il libro deve contenere
-     **immagini dell'ambiente** (es. l'editor Godot all'avvio) per orientare i
-     ragazzi. Stanno in `godot/manuale/immagini/` e sono richiamate nell'`.md`.
-     ⚠️ Gli screenshot li fornisce **Nicola**: io (Claude) non vedo/salvo le sue
-     schermate come file, quindi le mette lui nella cartella `immagini/` con il
-     nome atteso, e nel MD trova già i riferimenti pronti.
-   - **Quaderno dello studente** (portfolio personale): **ogni ragazzo tiene un
-     SUO libro di testo** che cresce a OGNI lezione e a OGNI esercizio (pagine
-     aggiunte man mano). Anche questo in **MD + PDF versionato**. Template in
-     `godot/manuale/quaderno-studente-TEMPLATE.md`. Serve il motore "Mostralo" +
-     la prova del nove "saperlo spiegare": documentano e raccontano ciò che
-     fanno, e a fine anno hanno un libro **loro** di cui essere fieri.
-3. **Versionare il manuale come i PDF di Quidoo:** una versione consegnata è
-   **congelata**; se cambia il contenuto si **bumpa** il numero di versione e si
-   aggiunge una voce al changelog in fondo al `manuale.md`. Mai riusare un
-   numero già consegnato.
-   - **Il numero di versione sta SEMPRE nel NOME del file PDF.** Il consegnabile
-     si chiama `manuale-vX.Y.pdf` (es. `manuale-v0.1.pdf`), **mai** un generico
-     `manuale.pdf`. Così due versioni non si sovrascrivono e si vede a colpo
-     d'occhio quale versione si ha in mano. Il numero nel nome file deve
-     **coincidere** con la "Versione X.Y" scritta nell'intestazione del `.md`.
-   - **Mai due file con lo stesso numero di versione.** Se cambia anche solo un
-     contenuto, prima si bumpa la versione nel `.md`, poi si rigenera il PDF (che
-     prenderà automaticamente il nuovo nome).
-   - Il nome del PDF è **generato in automatico** dalla "Versione" del `.md`
-     (vedi `manuale/_build/genera_pdf.py`): non va scritto a mano.
-
-## ⭐ Indice dei documenti (spostato il 21/10/2026)
-
-L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md`**: quando un documento cambia si bumpa la versione nella sua intestazione **e** si aggiorna la sua riga lì. Per ripartire in una chat nuova: **`RIPARTENZA.md`**.
-
-## Bobina automatica (07/10/2026, regola di Nicola: «tutte le chat Claude Code devono avere le bobine di tutti i giorni, backuppate»)
-
-1. A ogni fine risposta l'hook `.claude/hooks/bobina-automatica.py` (in `.claude/settings.json`) scrive la
-   **bobina integrale del giorno** (un file per giorno e per sessione: `AAAA-MM-GG_bobina_<sessione>.md`),
-   salva in `allegati/<sessione>/` le foto e i file arrivati in chat (originali) e fa **commit + push**.
-2. Destinazione: `.claude/bobina.json` → `../corso-informatica-riservato/bobine/corso (SOLO nel repository riservato: contiene nomi di minori; se il riservato non è clonato accanto, la bobina non si scrive e compare un avviso)`.
-3. Non serve chiederla né esportarla a mano dal file della sessione (chiederlo al modello fa scattare
-   il blocco «Messaggio segnalato»). Le bobine fatte a mano restano dove sono.
-4. Se compare un avviso «Bobina automatica: …», va sistemato subito e detto a Nicola.
-5. Per farla subito, a mano: `python3 .claude/hooks/bobina-automatica.py --sessione-corrente`
-
-**23. Quaderno della 1INF (28/10/2026, Nicola).** Ai ragazzi di prima si dà sempre qualcosa da RICOPIARE sul quaderno (poche righe, dalla lavagna o dalla pagina): li attiva e li mette in silenzio. Claude lo prepara per ogni lezione della 1INF e lo ricorda a Nicola spesso, a ogni cambio di attività.
-
-**24. Report PDF per ogni ora, con gli screenshot (28/10/2026, Nicola: «NUOVA REGOLA»).** Per ogni ora di lezione si crea un PDF di report con tutti gli screenshot di Veyon dell ora in risoluzione massima (originali, non ridotti), con ora, presenti, fuori compito, uscite, note e consegne. Contiene nomi: si salva SOLO nel repository riservato (report/AAAA-MM-GG/) e si manda a Nicola in chat.
-
-**25. Niente output lungo nella chat (28/10/2026, Nicola).** Non stampare mai su terminale/chat blocchi di testo lunghi, log completi o payload JSON. Quando esegui comandi o chiamate, reindirizza sempre l output su file temporanei o usa parametri silenziosi. Mostra all utente solo brevi sintesi discorsive in italiano.
-
-**26. Il lavoro si prepara di notte (28/10/2026, Nicola).** Alle 0:00 la chat nuova del giorno valuta tutto il lavoro delle 2 settimane precedenti e, allievo per allievo, che cosa manca da fare; crea la lista delle cose da fare e almeno 3 proposte di lezione per ogni classe del giorno (la Sicurezza di norma ha una sola strada: l'ora successiva con il quiz su Moduli già pronto). Nicola sceglie la proposta al mattino.
-
-**27. Pubblicazione del mattino (28/10/2026, Nicola).** Prima delle 8 Nicola dice che cosa si fa; Claude prepara tutto e di norma pubblica da solo il compito su Classroom SENZA scadenza, con: il link o i link del lavoro; sempre il link del cruscotto dei ragazzi e i link di utilità (guida, assistente, monitor); la frase «La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova». Poi verifica (verifica_lezione.py, PUBLISHED) e lo dice a Nicola con la prova. Aggiornata il 29/10/2026 (Nicola): Nicola sceglie una delle 3 proposte con il bottone "Scelgo questa" nel cruscotto; Claude prepara subito tutto il materiale e pubblica per i ragazzi SOLO quando Nicola scrive "pubblica". **Superata il 29/10/2026 alle 08:35 (Nicola: «PUBBLICA TUTTO», «ti ho già detto di non aspettare»; vedi regola 30, REGISTRO-ERRORI #141):** appena Nicola sceglie, Claude pubblica da solo, senza aspettare «pubblica»; se alla prima campanella della classe la scelta non c'è, si pubblica la proposta consigliata e glielo si dice in chat. Mai una classe in aula con Classroom vuoto. **Precisazione del 29/10/2026 (Nicola): «Basta che dica solo una volta pubblica e tu pubblichi».** Un solo «pubblica» vale per tutto: tutte le classi e tutto il lavoro della giornata, compresi i pezzi preparati dopo (quiz, percorsi, correzioni). Non si chiede mai un secondo «pubblica». **Comando `PUBB` (29/10/2026, Nicola):** una riga che è o comincia con `PUBB` vale «pubblica tutto»: Claude pubblica subito tutto il lavoro pronto della giornata, per tutte le classi, e risponde solo con che cosa è uscito e la prova (PUBLISHED, PUBBLICATO).
-
-**28. Il cruscotto dice che cosa fa ogni ragazzo, al docente e ai ragazzi (28/10/2026, Nicola).** Prima di ogni lezione Claude controlla che il cruscotto della classe mostri, per OGNI presente: a che punto è del lavoro del giorno (passo, scheda, quiz), che cosa ha consegnato su Classroom e che cosa c'è dentro (letto davvero), che cosa gli manca, da quanto è fermo, che cosa vede Veyon (fuori compito in rosso), note e uscite, voto proposto con il conto. La stessa informazione, senza note riservate e con Nome C., va nella pagina dei ragazzi linkata nel compito: si autoregolano. Se un dato manca, il cruscotto lo dice in rosso con l'ora dell'ultimo dato.
-
-**29. Tre modalità di lavoro e il cruscotto le segue tutte (28/10/2026, Nicola).** Ogni lezione usa una o più di queste modalità: 1) lavoro con VERSIONING (GitHub: cartelle, file giusti, commit, release); 2) PERCORSO GUIDATO a passi controllati, con eventuale PERCORSO FACILITATO (versione corta, al massimo 3 passi) per chi è in difficoltà; 3) TEORIA a schede e QUIZ su Moduli. Il cruscotto del docente e la pagina dei ragazzi mostrano, per ogni presente, l'avanzamento in ciascuna modalità usata quel giorno e un'indicazione dettagliata del prossimo passo.
-
-**30. Claude risolve da solo; al docente solo le criticità (29/10/2026, Nicola: «Dammi bottone rosso per le criticità che necessitano mio intervento, per il resto prepara tutto, fai audit che funzioni, pubblica e risolvi tutti i casini da solo»).** Claude prepara, verifica (audit), pubblica e risolve da solo. Al docente arrivano SOLO le criticità che richiedono il suo intervento (firma del registro, presenze da mandare, PC rotto, ragazzo fuori dall'aula da più di 5 minuti, uno sblocco su Classroom o Apps Script che solo lui può fare, una decisione: scelta della proposta o «pubblica»): nel bottone rosso «Serve te (N)» del cruscotto (`docs/cruscotto/criticita.json`, scritto da Claude, cifrato con `strumenti/cifra_json.py` se ha nomi, #85; grigio «Niente per te» quando N = 0) e in chat con 🔴 in prima riga. Ogni voce: classe, ora, che cosa fare in una frase, bottone «Fatto» che arriva a Claude sul canale `docente-<classe>`. Ciò che Claude può fare da solo NON va nel bottone; una voce si toglie appena è risolta.
-
-**31. Una ora per volta (02/11/2026, Nicola: «SI PUBBLICA UN ORA PER VOLTA», «mettila come regola»).** Ai ragazzi si pubblica e si mostra SOLO l'ora in corso, mai le ore successive: niente 3 ore insieme su Classroom né sulle pagine. Le ore dopo restano bloccate («in arrivo») finché Nicola dice di sbloccarle; la pagina ha un flag `ore_sbloccate` che si alza di una ora alla volta. Il compito su Classroom contiene solo il lavoro dell'ora e il testo lo dice. Vale per tutte le classi. Sulla regola 27: il «pubblica» unico vale per tutte le classi e i lavori del giorno, ma NON sblocca le ore successive della stessa lezione. Errore registrato il 02/11/2026: pubblicate 3 ore insieme per la 3INF.
-
-**32. Ogni passo ha un'immagine che lo spiega (02/11/2026, Nicola: «sempre anche un'immagine che spieghi», «mettilo come regola»).** In ogni pagina per i ragazzi, ogni passo operativo ha accanto un'immagine (screenshot reale se c'è, altrimenti schema disegnato) che mostra COSA si vede o COSA si clicca, con il punto cerchiato o la freccia. Il testo resta corto e l'immagine è la spiegazione principale: così capiscono anche gli allievi che leggono con fatica o in un'altra lingua. Un passo senza immagine non si pubblica, a meno che sia una sola frase senza azioni sullo schermo. Gli screenshot reali li manda Nicola; finché non ci sono, schemi in SVG, dichiarati come schemi.
-
-**33. I quiz sono SEMPRE su Moduli Google (02/11/2026, Nicola: i quiz sono prove).** Ogni quiz per i ragazzi è un Modulo in modalità quiz creato col ponte (forms.crea_quiz) e allegato/linkato nel compito su Classroom; la copia sul sito serve solo come ripasso e non conta come prova. Mai un quiz solo sul sito per le prove. Vale per tutte le classi; il link del Modulo va nel compito prima di pubblicare.
-
-**34. Prima di OGNI pubblicazione su Classroom si controlla che non esista già un post analogo (stesso titolo o stesso link) leggendo l'elenco Classroom NELL'ULTIMO MINUTO; se esiste si modifica, non si crea. Il controllo sta dentro il ponte stesso (azione di creazione che salta se il titolo esiste già) e prima di accodare si legge classroom.compiti. Se il docente ha già creato a mano il post, non si pubblica (02/11/2026, Nicola: «REGOLA ASSOLUTA», doppione del compito client).** Strumento: `bash strumenti/prima_di_pubblicare.sh "<titolo>"` (REGISTRO-ERRORI #174).
-
-**35. Si pianifica la settimana intera, da martedì a lunedì successivo compresi (02/11/2026, Nicola: «diventa una regola»).** Ogni lunedì pomeriggio, a fine lezioni, Claude propone e Nicola decide gli argomenti dei 7 giorni seguenti (martedì → lunedì prossimo compresi), per ogni classe in orario: una proposta preferita per giorno, con KPI, quiz su Moduli e recuperi, scritta in `PROSSIME-LEZIONI.md` e nel piano del riservato (`report/<data>/PIANO-SETTIMANA.md`). Di notte NON servono più molti agenti (Nicola, 02/11/2026): la routine delle 0:00 della regola 26 si riduce a un solo controllo leggero (al massimo un agente) che aggiorna il piano del giorno in base ai risultati del giorno prima; niente rivalutazione completa delle due settimane e niente tre proposte per classe ogni notte. Le tre proposte per classe restano solo per le lezioni nuove o quando Nicola cambia strada. Il piano della settimana non pubblica niente per i ragazzi: si pubblica solo quando inizia la lezione (regole 27 e 31).
-
-**36. Ogni lezione è in linea con l'Allegato A della classe (02/11/2026, Nicola: «la Regione e gli enti leggono lì per sapere che cosa facciamo»).** Prima di proporre una lezione, di scrivere un testo per il registro o una riga in `ARGOMENTI-SVOLTI-2026-27.md`, Claude rilegge l'Allegato A di QUELLA classe (`MIE-PARTI-ALLEGATO-A.md` e i Word in `programmi-ufficiali/2026-27/`), usa la voce esatta con competenza e anno, e controlla le scadenze di consegna dell'Allegato (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md`, `COME-SI-AGGIORNA-ALLEGATO-A.md`). Se una lezione non ha una voce, o una competenza resta scoperta, lo dice subito a Nicola come criticità e propone la voce da aggiungere. Per «DHCP e DNS» della 2INF si usa «La rete: Hardware e software» (Comp. 8, I anno). Con la pianificazione della settimana (regola 35) si fa l'audit delle aree più scoperte di ogni classe e si espongono le criticità a Nicola. Errore #189 del registro.
+# CLAUDE.md — Corso di Informatica (tutte le classi)
+
+**Versione 2.0** — 04/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+(riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
+
+## 00 Come si usa
+
+1. Qui ci sono una premessa e 11 regole (R1-R11). Prima di un lavoro si rileggono queste e `CHECKLIST-LEZIONE.md`.
+2. **Principio:** un errore nuovo corregge uno strumento (uno script, un controllo), non aggiunge una regola a questo file.
+3. Le regole marcate **BLOCCANTE** sono controllate da uno strumento quando è possibile (capitolo 03).
+4. Repository: pubblico `/home/user/corso-informatica` (senza nomi di allievi), riservato `/home/user/corso-informatica-riservato`.
+5. Il dettaglio sta nelle guide (capitolo 04). Se una guida dice una cosa diversa da R1-R11, valgono R1-R11.
+
+## 01 Premessa: per chi lavoriamo
+
+1. Molti ragazzi hanno un background migratorio, contesti difficili, e spesso arrivano «scartati» da altre scuole. Qui non sono
+   scarti: ricevono una cosa fatta bene. Il tono è sempre di rispetto e fiducia, mai di sufficienza.
+2. Hanno grande stima del docente (Nicola), che dà loro questa possibilità: è la leva più forte e la responsabilità di non deluderli.
+3. La missione è un percorso di qualità superiore, con dignità, per sbocchi di lavoro migliori: livello alto, modo accessibile.
+4. Il rischio vero è che si stufino e mollino. Provarci deve convenire e non fare male: il corso deve divertire e tenerli agganciati.
+5. La leva non è il voto ma l'autoregolazione: ogni ragazzo vede da solo a che punto è (R8, R9).
+6. Testo completo: `METODOLOGIA-CORSO.md`, capitolo 16.
+
+## 02 Le regole
+
+### R1 Privacy — BLOCCANTE (controllo automatico)
+
+1. Nomi completi, voti dettagliati, note, presenze e file dei ragazzi stanno solo nel riservato.
+2. Nel pubblico i ragazzi compaiono solo come «Nome I.» (nome e iniziale) o in dati cifrati con `strumenti/cifra_json.py`.
+3. **Controllo automatico bloccante** (non si salta con «PAGINE-OK»):
+   1. ogni `git commit` del pubblico: il messaggio non deve contenere il cognome di un allievo;
+   2. ogni `git push` del pubblico: pagine di `docs/` e messaggi dei commit da pushare;
+   3. strumenti: `.claude/hooks/limite-comandi.py` + `controllo_nomi.py` (elenchi del riservato) e il hook git `commit-msg`
+      (`strumenti/installa_commit_msg.sh`). Un falso allarme si toglie con «parole_comuni» in `config/nomi-controllo.json` del riservato.
+4. In chat i nomi sono permessi e richiesti: sempre COGNOME Nome, come nel registro (R7). Il controllo vale solo per il pubblico.
+5. Le password non si scrivono mai in chat. I file per il docente: senza password nel riservato, cifrati se stanno nel pubblico.
+
+### R2 Pubblicare: il comando «PUBB n» — BLOCCANTE
+
+1. **PUBB n**, con n da 1 a 6, è l'ora della giornata: 1 = 8-9, 2 = 9-10, 3 = 10-11, 4 = 11-12, 5 = 12-13, 6 = 13-14.
+   Con PUBB n Claude pubblica il lavoro di quell'ora e nella risposta scrive l'orario (per esempio «PUBB 2 (9-10)»).
+2. **Senza PUBB n Claude non pubblica mai su Classroom.** Le pagine del sito possono andare online prima, ma l'ora resta
+   «in arrivo» finché non arriva il suo PUBB n.
+3. **Pacchetto per il post a mano, SEMPRE:** per ogni ora Claude prepara titolo, testo, file e link, ognuno in un riquadro da
+   copiare (R4), così il docente può pubblicare lui in ogni momento.
+4. Come si pubblica:
+   1. prima `bash strumenti/prima_di_pubblicare.sh "<titolo>"`: se il post esiste già si modifica, non si crea un doppione;
+   2. titolo «G/M Ora N: argomento breve», compito senza scadenza, solo il lavoro di quell'ora;
+   3. poi `python3 /home/user/corso-informatica-riservato/generatori/verifica_lezione.py <CLASSE>`.
+5. Esito: con VERDE si scrive «pubblicato» con la prova (R7). Se entro il controllo il compito non risulta PUBLISHED, la prima
+   riga è **«PUBB n NON riuscito: pubblica a mano»**, e subito sotto il pacchetto del punto 3.
+6. Una ora per volta: PUBB n non sblocca le ore dopo.
+7. Per un compito o un quiz NUOVO, se c'è tempo, si guardano insieme prima la teoria e poi il compito; non blocca PUBB n.
+
+### R3 Prefissi del docente
+
+1. **PPP** = in coda. **Nessun output**: niente testo in chat e niente nelle finestre o negli strumenti visibili; il lavoro si fa
+   con un agente in background. Si consegna quando il docente dice «avanti».
+2. **PRI** = dai priorità a questa cosa: diventa la prima da fare, davanti a tutto quello che è in coda.
+3. **PRI+ non si usa più** (04/11/2026). Un PRI+ arrivato prima vale come PRI.
+4. **«Aspetta il via»:** finché il docente non dice «via», si risponde solo «Annotato».
+5. «Dammi», «fammi» = si consegna appena è pronto, anche se dopo arrivano dei PPP sullo stesso lavoro.
+6. «PUBB n» è il comando della R2. Altre convenzioni (messaggi tra chat): `REGOLE-NOSTRE-CLAUDE-NICOLA.md`.
+
+### R4 Messaggi al docente — BLOCCANTE (controllo automatico)
+
+1. Prima riga: la cosa bloccante, da sola (firma, uscita, «PUBB n NON riuscito», PC rotto, non compila).
+2. Poche righe. In ora di lezione: il blocco, il link o il riquadro, il prossimo passo; il resto va in un file.
+   Un riassunto dice solo le cose bloccanti.
+3. Ogni passo è una frase che comincia con il verbo («Clicca…», «Premi…») e dice il «dove» a parole. Solo il prossimo passo,
+   un flusso unico senza «se». Prima di ogni passo: quale account (PERSONALE o PIAMARTA) e quale finestra.
+4. Ogni testo da scrivere sta in un riquadro da copiare (blocco di codice, un valore per riquadro) subito dopo il passo.
+   Prima si apre la pagina dove si incolla, poi si copia, poi si incolla.
+5. Niente log, JSON o output lunghi in chat. I file per il docente si mandano scaricabili.
+6. Dettaglio: `GUIDA-MESSAGGI-AL-DOCENTE.md`.
+
+### R5 Registro e Regione — BLOCCANTE per la firma
+
+1. **Firma entro le 14:05:** le ore non firmate le toglie la Regione. Si ricorda in aula, in prima riga, solo per le ore che
+   `FIRME-REGISTRO-2026-27.md` non dà come firmate. «FIRMA ✓» in verde, la colonna Firma con data e ora, o «firmate» detto dal
+   docente = firmata. «Altro» (giallo) nelle presenze = presente.
+2. Testo per il registro: una frase di circa 40 caratteri, presa dalla voce dell'Allegato A di quella classe e di quella materia
+   (`MIE-PARTI-ALLEGATO-A.md`, `programmi-ufficiali/2026-27/`). Se la voce manca, lo dico come criticità.
+3. `ARGOMENTI-SVOLTI-2026-27.md`: argomenti legati all'Allegato A della classe; a ciò che è fatto si toglie l'evidenziazione.
+4. Ogni tanto (per esempio quando si prepara la settimana) chiedo al docente di aggiornare i documenti ufficiali.
+5. Almeno 3 prove per quadrimestre per classe salvate su Classroom (`PROVE-CLASSROOM-2026-27.md`).
+6. Dettaglio: `GUIDA-STRUMENTI-E-FILE.md`, capitolo 02.
+
+### R6 Lingue per classe
+
+| Classe | Lingue delle pagine per i ragazzi |
+|---|---|
+| 1INF | italiano, arabo e cinese |
+| 2INF | solo italiano (le pagine passano da `strumenti/solo_italiano.py`) |
+| 3INF | italiano, più una riga in bangla sotto ogni frase solo per l'allievo del PC 14 |
+| 4TI | solo italiano |
+
+1. I materiali per il docente sono in italiano.
+2. Bottoni dei siti descritti per posizione e colore; indirizzi ed email in lettere latine. Font e RTL: `GUIDA-STRUMENTI-E-FILE.md`, capitolo 03.
+
+### R7 Verifica prima delle parole — BLOCCANTE (controllo automatico)
+
+1. «Fatto», «pubblicato», «non ha consegnato», «manca» e i conteggi si scrivono solo con la prova nello stesso messaggio:
+   la fonte e l'ora del dato (per esempio «letto da Classroom alle 13:58»).
+2. «Pubblicato» solo con `verifica_lezione.py` VERDE di meno di 15 minuti (R2).
+3. Un link al sito solo dopo «PUBBLICATO» di `bash strumenti/aspetta_pubblicazione.sh`.
+4. In chat gli allievi si indicano sempre con COGNOME Nome.
+5. Ciò che non ho potuto provare porta la scritta «non provato».
+
+### R8 Il cruscotto della classe
+
+1. **Un solo cruscotto per classe**, a indirizzo fisso (per esempio `docs/1inf/`).
+2. I dati sono **IDENTICI** per i ragazzi e per il docente: stesso file, stessa ora del dato. I ragazzi vedono «Nome I.».
+   In più c'è una parte solo per il docente, **cifrata** (COGNOME Nome, note, uscite, motivi del voto).
+3. Per ogni presente: che cosa ha fatto, che cosa gli manca, dove deve andare adesso, da quanto è fermo, che cosa vede Veyon
+   (fuori compito in rosso), voto proposto da 40 a 80 con il conto. Ci sono tutti i presenti; gli assenti no.
+4. In alto l'ora del dato vero; se ha più di 6 minuti, la scritta «DATI VECCHI».
+5. Ogni giorno, scelta la lezione, propongo 2-4 KPI; il docente li conferma o ne chiede altri.
+6. Le domande dei ragazzi vanno all'assistente; domande e risposte stanno nel cruscotto. In chat una riga sola; in prima riga
+   solo una domanda che è una criticità (salute, comportamento, account bloccato).
+7. Al docente arrivano solo le criticità, nel bottone rosso «Serve te (N)» e in prima riga in chat: firma, uscita senza rientro
+   dopo 5 minuti, PC rotto, uno sblocco che può fare solo lui, una decisione. Tutto il resto lo risolvo io.
+8. I dati si storicizzano nel riservato. Dettaglio: `CRUSCOTTO-DAL-VIVO.md`.
+
+### R9 Pagine per i ragazzi: ogni lavoro è un PERCORSO — BLOCCANTE
+
+1. Ogni lavoro è un percorso facile da seguire: in ogni momento il ragazzo vede che cosa ha fatto, che cosa gli manca e dove deve
+   andare adesso (un bottone, il prossimo passo).
+2. **La valutazione la controllo io sul dato vero prima di darla** (confronto con la fonte): il docente non la deve più correggere.
+3. Mentre consegnano, i dati si aggiornano **ogni 2 minuti**, con un giro automatico che non dipende dalla chat.
+4. Vinci subito (primo risultato in circa 10 minuti), Fallo tuo (scelgono qualcosa di loro), Mostralo (giocabile e mostrabile).
+5. Un bottone che consegna davvero: mai «copia, apri, incolla» (controllato da `controlli_pagine.py`).
+6. Ogni passo ha un'immagine che lo spiega (screenshot vero o schema dichiarato).
+7. I quiz sono sempre su Moduli Google (sono prove), con più risposte permesse; la copia sul sito è solo ripasso.
+8. Frasi da quinta elementare, un'azione per passo. Per il contenuto si chiede all'assistente, non al prof.
+9. Niente installazioni: browser, Godot portabile, Blocco note, SumatraPDF. Niente carta e penna; per la 1INF una riga
+   «Ricopia sul quaderno» nella pagina.
+10. Dettaglio: `METODOLOGIA-CORSO.md` capitolo 16, `FRAMEWORK-LEZIONE.md`, `FRAMEWORK-QUIZ.md`, `REGOLE-COSTRUZIONE-TEORIA.md`.
+
+### R10 Preparazione
+
+1. Un file di preparazione, `PROSSIME-LEZIONI.md` (pubblico, senza nomi, frasi intere: lo legge anche Alexa), con:
+   1. le cose fatte;
+   2. le ore dei prossimi giorni, controllate sul registro DIDAweb; nel dubbio l'orario della settimana precedente;
+   3. 3 proposte NON sviluppate per ogni blocco di ore della stessa classe.
+2. Il docente sceglie la sera o la mattina. Sviluppo **solo** la proposta scelta e la preparo **senza pubblicarla** (R2).
+3. Di norma un lavoro per ora, con i framework tipici: esercitazione Lazarus, quiz su Moduli, versioning su GitHub, teoria a schede.
+4. **Sempre** un piano di deploy funzionante e **provato** (passi, comandi, esito della prova) e il pacchetto per il post a mano.
+5. Materiale pronto prima della campanella; ciò che non è provato si dice (R7).
+
+### R11 Versioni e Git
+
+1. Tutto versionato, nel pubblico e nel riservato: commit e push, con `git pull --rebase` prima.
+2. Versione nel nome del file e nell'intestazione; mai riusare un numero; a ogni cambio bump, changelog e riga in
+   `INDICE-DOCUMENTI.md`. Documenti in MD + PDF, come dice `REGOLE-FORMATTAZIONE.md`.
+3. Le versioni già date in `docs/` non si cancellano e non si spostano (controllo automatico).
+4. La bobina della chat la scrive da sola l'hook `bobina-automatica.py` nel riservato; un avviso «Bobina automatica: …» si
+   sistema subito e si dice al docente.
+5. Si lavora su `main` o su rami dal nome leggibile. Dettaglio: `GUIDA-STRUMENTI-E-FILE.md`, capitoli 01 e 04.
+
+## 03 Controlli automatici (hook)
+
+1. `controllo-messaggio.py` (fine di ogni risposta): cosa bloccante in prima riga; ordine del copia e incolla; «pubblicato» solo
+   con VERDE; link solo dopo PUBBLICATO; orario scritto quando il docente nomina un'ora («prima ora», «PUBB 2»).
+2. `limite-comandi.py` (prima di ogni comando): niente cognomi nei commit e nei push del pubblico (R1); versioni di `docs/` che
+   non si cancellano; controlli delle pagine prima del push; al massimo 8 comandi per turno nella chat principale.
+3. `promemoria-errori.py`: a ogni messaggio del docente ricorda queste regole in poche righe.
+4. Elenco completo, prove e controlli tolti il 04/11/2026: `.claude/hooks/LEGGIMI-controlli.md`.
+
+## 04 Documenti collegati
+
+| Documento | Che cosa contiene |
+|---|---|
+| `MODUS-OPERANDI.md` | il modo di lavorare in classe, capitolo per capitolo |
+| `CHECKLIST-LEZIONE.md` | i controlli della giornata, nati dal registro degli errori |
+| `GUIDA-MESSAGGI-AL-DOCENTE.md` | dettaglio di R3 e R4 (testo spostato da qui) |
+| `GUIDA-STRUMENTI-E-FILE.md` | programmi, registro, lingue, formattazione, versioni, bobina (testo spostato da qui) |
+| `METODOLOGIA-CORSO.md` | metodo didattico; capitolo 16 con la missione e il testo spostato da qui |
+| `REGOLE-NOSTRE-CLAUDE-NICOLA.md` | convenzioni tra docente e Claude (nomi dei file, lingue, prefissi) |
+| `CRUSCOTTO-DAL-VIVO.md` | il cruscotto della classe |
+| `REGISTRO-ERRORI-CLAUDE.md` | gli errori, con lo strumento che li corregge |
+| `INDICE-DOCUMENTI.md`, `RIPARTENZA.md` | l'elenco dei documenti con le versioni; come ripartire in una chat nuova |
+| `archivio/CLAUDE-fino-al-2026-11-04.md` | il CLAUDE.md di prima, intero |
+
+## 05 Registro delle versioni
+
+1. v2.0 (04/11/2026): riscritto con 11 regole (R1-R11) e una premessa, sulle decisioni del docente. Tolti: «Pubblico o vuoi
+   vederlo prima?», PRI+, carta e penna, titolo «solo Godot», rileggere tutte le regole, lavoro di notte su due settimane,
+   sei bottoni, l'espressione «lezione autonoma». Testo didattico e di dettaglio spostato nelle guide del capitolo 04.
+2. Versioni precedenti: `archivio/CLAUDE-fino-al-2026-11-04.md`.

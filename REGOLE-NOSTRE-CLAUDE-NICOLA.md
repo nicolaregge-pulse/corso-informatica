@@ -1,8 +1,10 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.7** — 28/10/2026
+**Versione 2.8** — 04/11/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
+*Dal 04/11/2026 le regole di lavoro sono le 11 di `CLAUDE.md` (v2.0, R1-R11): se questo file
+dice una cosa diversa, vale `CLAUDE.md`.*
 
 > **Come è ordinato questo file (riorganizzazione v2.0):** in cima le poche cose
 > da non sbagliare mai (**Regole d'oro**) e la **Checklist pre-invio**; poi tutte
@@ -15,7 +17,8 @@ ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 ## A. ⛔ REGOLE D'ORO — non violare mai
 
 1. **Classe giusta.** Prima di generare, **incrocio il registro** e **verifico il
-   primo e l'ultimo cognome** contro di esso; nel dubbio **chiedo**, non assumo.
+   primo e l'ultimo cognome** contro di esso; nel dubbio **chiedo** con una sola domanda,
+   come criticità nel bottone rosso «Serve te» (CLAUDE.md R8); il resto lo risolvo da solo.
    *(dettaglio: §2.24 e §2.7)*
 2. **Lingua giusta.** Ogni classe ha la sua: **1ª** IT/AR/ZH · **2ª** IT · **3ª**
    IT (+ copia IT-bangla per l'allievo di lingua bengalese) · **4ª** IT. Il **glossario dei termini**
@@ -23,13 +26,16 @@ ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 3. **Versione.** **Bump a ogni modifica**; mai riusare un numero; nome file e
    intestazione devono coincidere. *(§2.15)*
 4. **Controllo pre-invio.** Nessun file esce senza i controlli della sezione B.
-5. **TUTTI i documenti per il docente = SENZA password.** Le protezioni valgono solo per i
-   file destinati agli allievi. *(§2.11, §2.20)*
+5. **Documenti per il docente:** SENZA password i file nel riservato; CIFRATO tutto ciò che
+   sta nel pubblico (cruscotto del docente, dati con nomi: `strumenti/cifra_json.py`, CLAUDE.md R1).
+   *(§2.11, §2.20)*
 6. **Esempi eterogenei + termini spiegati.** Non file di grafi uguali: esempi da
    mondi diversi; ogni termine tecnico spiegato con un'analogia. *(§2.25)*
-7. **PPP e PRI (26/10/2026).** `PPP` = trascura nell'output: lo faccio in background quando ho
-   tempo. `PRI` = PRIORITARIO: niente output, ma è la PRIMA cosa che Nicola si aspetta che io
-   faccia, prima di tutto il resto. *(§C.1, §C.1bis)*
+7. **PPP e PRI (aggiornata il 04/11/2026, CLAUDE.md R3).** `PPP` = in coda, NESSUN output
+   (né in chat né nelle finestre visibili): lavoro con un agente in background e consegno a
+   «avanti». `PRI` = dai priorità: è la PRIMA cosa da fare. `PRI+` non si usa più. «Aspetta il
+   via» = rispondo solo «Annotato» finché non arriva «via». `PUBB n` = pubblica l'ora n (R2).
+   *(§C.1, §C.1bis)*
 
 ## B. ✅ CHECKLIST PRE-INVIO
 
@@ -52,6 +58,8 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
 ### 1. PPP — "parcheggia, parcheggia, parcheggia"
 1. **Significato:** *prendi in considerazione ma **non** dare l'output finché non
    ti dico **"avanti"***. A voce l'equivalente è "parcheggia, parcheggia, parcheggia".
+   **Dal 04/11/2026: nessun output**, nemmeno un cenno di presa in carico e niente nelle
+   finestre o negli strumenti visibili: il lavoro va a un agente in background (CLAUDE.md R3).
 2. **Nel frattempo preparo:** appena vedo `PPP` **inizio a preparare** (ragionamento,
    bozza, file), ma **non consegno** finché non arriva **"avanti"**.
 2bis. **Subito e in silenzio:** il PPP va recepito subito; si rimanda solo la
@@ -70,8 +78,20 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
 ### 1bis. PRI — prioritario (26/10/2026)
 1. **Significato:** una riga che comincia con `PRI` è la **prima cosa da fare**, prima di qualunque
    altro lavoro in corso.
-2. **Niente output:** non scrivo spiegazioni né risultati in chat; la eseguo e basta.
+2. **Niente spiegazioni:** non scrivo spiegazioni in chat; la eseguo per prima e basta.
 3. **Differenza con il PPP:** il `PPP` si fa in background quando ho tempo; il `PRI` passa davanti a tutto.
+4. **PRI+ abolito (04/11/2026):** un PRI+ vale come PRI. Non si dà più la lista delle priorità a ogni PRI+.
+
+### 1ter. Altri comandi del docente (04/11/2026, CLAUDE.md R2 e R3)
+1. **PUBB n** (n da 1 a 6 = ora della giornata, 1 = 8-9 … 6 = 13-14): pubblico su Classroom il
+   lavoro di quell'ora. Senza PUBB n non pubblico mai su Classroom. Il pacchetto per il post a
+   mano è sempre pronto; se il compito non risulta PUBLISHED, la prima riga è «PUBB n NON
+   riuscito: pubblica a mano».
+2. **«Aspetta il via» / «via»:** finché non arriva «via», rispondo solo «Annotato».
+
+### 1quater. Messaggi tra chat (19/10/2026, spostata da CLAUDE.md il 04/11/2026)
+1. Un messaggio che passa da una chat Claude a un'altra comincia con «Da chat <nome> a chat <nome>:».
+2. Quando ne arriva uno senza intestazione e Nicola dice da dove viene, lo tratto come richiesta di Nicola.
 
 ### 2.19 Interazioni brevi (Nicola ha poco tempo)
 1. Rispondere con **poco testo**: confermare in poche righe, andare al sodo.
@@ -301,6 +321,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
+0. **v2.8 (04/11/2026)**: allineato a CLAUDE.md v2.0 — regole d'oro 1 (nel dubbio una domanda nel bottone rosso), 5 (senza password nel riservato, cifrato nel pubblico) e 7 (PPP senza output, PRI, PRI+ abolito, PUBB n, «aspetta il via»); §C.1, §C.1bis, nuovi §C.1ter e §C.1quater (messaggi tra chat).
 0. **v2.7 (28/10/2026)**: privacy — negli esempi dei nomi dei file (punto 4 e 5 della convenzione sui nomi) tolti gli ultimi due nomi veri di allievi rimasti, sostituiti con un nome inventato (audit del 28/10).
 0. **v2.4 (04/10/2026)**: privacy — tolti i nomi veri di allievi (esempi della 2.21 sostituiti con nomi inventati; l'allievo di lingua bengalese indicato senza nome). Regola: i nomi veri stanno solo nel repo riservato.
 1. **v2.3 (28/09/2026)**: 2.21 — con nomi doppi usare sempre cognome e nome.

@@ -3,9 +3,9 @@
 
 Errore #132: comandi e risultati lunghi riempiono la chat e il docente non
 riesce a leggere. Regole:
-1. Al massimo 3 comandi Bash per turno (un turno = dall'ultimo messaggio
+1. Al massimo 8 comandi Bash per turno (erano 3 fino al 04/11/2026) (un turno = dall'ultimo messaggio
    arrivato nella sessione: docente, messaggio programmato, resoconto di un
-   subagente). Dal 4° in poi il comando viene rifiutato.
+   subagente). Dal 9° in poi il comando viene rifiutato.
 2. Un singolo comando più lungo di 600 caratteri viene rifiutato.
 Le chiamate dei subagenti (campo agent_id nell'input) non si contano e non si
 bloccano: il lavoro lungo va proprio lì.
@@ -16,6 +16,10 @@ Controlli che valgono per TUTTI (anche i subagenti), nel momento dell'azione:
 4. «git push» del repository PUBBLICO: prima si controllano i file di docs/ cambiati
    rispetto a origin/main (controlli_pagine.py: lingue della classe #49 #82 #119,
    link alla Regione #136, nomi in chiaro #85, sintassi degli script #118).
+4bis. Dal 04/11/2026 (regola R1): «git commit» del PUBBLICO con il cognome di un allievo nel
+   messaggio (testo del comando o file di -F) è rifiutato; al «git push» del pubblico si
+   controllano anche i messaggi dei commit da pushare (controllo_nomi.py, elenchi del riservato).
+   Questo controllo NON si salta con «PAGINE-OK».
 5. «git push» del RISERVATO: coda/*.json e comandi/*.json devono leggersi (05/10 n. 12).
 Per un falso allarme si aggiunge al comando il commento «# PAGINE-OK: <motivo>».
 
@@ -33,11 +37,11 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-MAX_COMANDI = 3
+MAX_COMANDI = 8
 MAX_CARATTERI = 600
 MAX_BYTE_LETTI = 40 * 1024 * 1024  # il transcript può superare i 100 MB
 
-MOTIVO_TROPPI = ("Più di 3 comandi in questo turno: passa il lavoro a un subagente "
+MOTIVO_TROPPI = ("Più di 8 comandi in questo turno: passa il lavoro a un subagente "
                  "(Agent) così il docente non vede la chat piena (REGISTRO-ERRORI #132).")
 MOTIVO_LUNGO = ("Comando Bash più lungo di 600 caratteri: metti il codice in un file "
                 "nello scratchpad (Write) e lancialo con un comando di una riga che "
@@ -131,6 +135,8 @@ RIS = "/home/user/corso-informatica-riservato"
 RX_RM = re.compile(r"(?:^|[;&|(]\s*|\s)(?:git\s+rm|rm)((?:\s+[^\s;&|)]+)+)")
 RX_MV = re.compile(r"(?:^|[;&|(]\s*|\s)(?:git\s+mv|mv)((?:\s+[^\s;&|)]+)+)")
 RX_PUSH = re.compile(r"\bgit\b[^;&|\n]*\bpush\b")
+RX_COMMIT = re.compile(r"\bgit\b[^;&|\n]*\bcommit\b")
+RX_FILE_MSG = re.compile(r"\bcommit\b[^;&|\n]*?(?:-F|--file)[ =]?\s*([^\s;&|]+)")
 
 
 def cancella_versioni(comando):
@@ -214,7 +220,37 @@ def controlla_push_riservato():
             "(REGISTRO-ERRORI 05/10 n. 12)." % ", ".join(rotti[:5]))
 
 
+def controlla_nomi_commit(comando, cwd):
+    """Regola R1: niente cognomi di allievi nei commit del pubblico (messaggio e commit da pushare)."""
+    import controllo_nomi as cn
+    if RX_COMMIT.search(comando) and repo_del_push(comando, cwd) == PUB:
+        testo = comando
+        for m in RX_FILE_MSG.finditer(comando):
+            f = m.group(1).strip("'\"")
+            f = f if os.path.isabs(f) else os.path.join(cwd or PUB, f)
+            try:
+                testo += "\n" + open(f, encoding="utf-8", errors="replace").read()
+            except Exception:
+                pass
+        motivo = cn.motivo_commit(testo, RIS)
+        if motivo:
+            return motivo
+    if RX_PUSH.search(comando) and repo_del_push(comando, cwd) == PUB and os.path.isdir(PUB):
+        messaggi = git(PUB, "log", "--format=%B", "origin/main..HEAD")
+        motivo = cn.motivo_commit(messaggi, RIS)
+        if motivo:
+            return ("Push fermato: un commit da pushare ha nel messaggio il cognome di un allievo. "
+                    "Riscrivi il messaggio (git commit --amend se è l'ultimo) prima del push. " + motivo)
+    return None
+
+
 def controllo_comando(data, comando):
+    try:
+        m = controlla_nomi_commit(comando, data.get("cwd"))
+    except Exception:
+        m = None
+    if m:
+        return m
     if "PAGINE-OK" in comando:
         return None
     m = cancella_versioni(comando)

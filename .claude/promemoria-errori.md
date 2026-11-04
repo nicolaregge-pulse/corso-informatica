@@ -1,13 +1,12 @@
-PROMEMORIA ERRORI (dal REGISTRO-ERRORI-CLAUDE.md) — valgono in OGNI risposta:
-1. Bloccante (firma, scadenza, 14:05, uscita, PC rotto, non compila) = PRIMA riga, da solo, prima di tutto (#137).
-2. Copia/incolla: prima si apre la pagina dove si incolla, poi si copia, poi si incolla; un Ctrl+V usa l'ULTIMA cosa copiata, mai un riquadro in mezzo (#50 #138).
-3. «Fatto», «a posto», «funziona», «risolto» solo con la prova scritta nello stesso messaggio (cosa ho visto, PUBBLICATO/PUBLISHED, F9 riuscito) (#63 #115 #128 #135).
-4. Non chiedere cose già dette: le firme si leggono in FIRME-REGISTRO-2026-27.md; si ricorda solo un'ora non firmata, una volta (#137).
-5. Quiz, Moduli, cruscotto e pagine si preparano il giorno prima o prima della campanella, mai a lezione iniziata (#129 #133).
-6. Audit sul dato vero: almeno 2 allievi confrontati con la fonte (Classroom, Moduli), non solo «la pagina si apre» (#134).
-7. Lavoro lungo a un subagente; massimo 3 comandi per turno, di una riga, che stampano solo «ok» o un numero (#132).
-8. Nomi degli allievi in chat sempre COGNOME Nome, come nel registro.
-9. Nelle pagine dei ragazzi nessun link al sito della Regione: solo nostre pagine e nostri Moduli (#136).
-10. «Pubblicato» o un link solo dopo aver visto PUBBLICATO (sito) e PUBLISHED (Classroom) (#79 #128).
-11. Mai blocchi lunghi, log o JSON nella chat: output dei comandi su file temporanei o silenzioso; al docente solo brevi sintesi in italiano (regola 25).
-12. Un ROSSO non si spiega mai come atteso senza aver aperto il risultato vero (sessione della notte, file del giorno); l'audit controlla il lavoro del giorno, non solo gli strumenti (#139).
+LE 11 REGOLE (CLAUDE.md v2.0, 04/11/2026) — valgono in OGNI risposta:
+1. R1 Privacy: nel pubblico solo «Nome I.» o dati cifrati; niente cognomi nei commit del pubblico (controllo bloccante). In chat sempre COGNOME Nome.
+2. R2 Su Classroom si pubblica SOLO con «PUBB n» (1=8-9 … 6=13-14), un'ora per volta, dopo prima_di_pubblicare.sh; pacchetto per il post a mano sempre pronto; se non PUBLISHED: prima riga «PUBB n NON riuscito: pubblica a mano».
+3. R3 PPP = in coda, NESSUN output (agente in background, consegna ad «avanti»); PRI = prima cosa da fare; PRI+ non esiste più; «aspetta il via» = solo «Annotato».
+4. R4 Bloccante da solo in prima riga; poche righe; passo = frase col verbo; riquadro subito dopo il passo; prima si apre dove si incolla, poi si copia; niente log in chat.
+5. R5 Firma entro le 14:05 (solo ore non firmate in FIRME-REGISTRO); testo del registro dall'Allegato A della classe, circa 40 caratteri.
+6. R6 Lingue: 1INF it+ar+zh; 2INF solo it; 3INF it + bangla solo PC 14; 4TI solo it.
+7. R7 «Fatto», «pubblicato», «manca», conteggi solo con fonte e ora; «pubblicato» solo con verifica_lezione.py VERDE; link solo dopo PUBBLICATO.
+8. R8 Un cruscotto per classe, dati identici ragazzi/docente + parte docente cifrata; al docente solo le criticità (bottone rosso).
+9. R9 Ogni lavoro è un PERCORSO (fatto / manca / dove vado adesso); voto controllato da me sul dato vero; dati ogni 2 minuti; un bottone che consegna; un'immagine per passo; quiz su Moduli.
+10. R10 Sviluppo solo la proposta scelta, senza pubblicare; piano di deploy provato e pacchetto per il post a mano.
+11. R11 Tutto versionato (pull --rebase, commit, push); versione nel nome e nell'intestazione; max 8 comandi per turno, il lavoro lungo a un agente.
