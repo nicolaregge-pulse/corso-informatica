@@ -1,0 +1,29 @@
+SLIDESHOW ANIMATO - 3INF - v1.0 (04/11/2026)
+============================================
+I tuoi disegni, uno dopo l'altro, diventano un'animazione (come un cartone animato).
+
+Cosa c'e' dentro
+  SlideshowAnimazione.lpi   il progetto: aprilo con Lazarus (doppio clic)
+  UnitPrincipale.pas/.lfm   la finestra: immagine, bottoni, barra della velocita', Timer
+  UnitFotogrammi.pas        trova le immagini di una cartella e le mette in ordine di nome
+  SlideshowAnimazione.ico   l'icona (formato BMP dentro l'.ico: Lazarus la legge)
+  fotogrammi\               4 disegni di esempio (una palla che rimbalza): 01.png ... 04.png
+
+Come si usa
+  1. Estrai lo zip in Documenti (tasto destro > Estrai tutto).
+  2. Doppio clic su SlideshowAnimazione.lpi: si apre Lazarus.
+  3. Premi F9. Se il debugger da' errore: Maiusc + Ctrl + F9 (avvia senza debugger).
+  4. Parte con la palla d'esempio. Premi "Avvia": la palla rimbalza.
+  5. Premi "Scegli cartella..." e scegli la cartella con i TUOI disegni.
+  6. Sposta la barra: a destra piu' veloce, a sinistra piu' lento.
+
+I tuoi disegni (con Paint)
+  - Disegni simili e ravvicinati: ogni disegno cambia di POCO dal precedente.
+  - Da 4 a 8 disegni, tutti della stessa misura.
+  - Nomi con il numero davanti: 01.png, 02.png, 03.png ... (o omino1.png, omino2.png ...).
+  - Vanno bene .png, .bmp, .jpg.
+
+La velocita'
+  La barra dice quanti fotogrammi al secondo (da 1 a 24).
+  Il Timer aspetta Interval = 1000 / fotogrammi al secondo millisecondi tra un disegno e l'altro.
+  Esempio: 8 fotogrammi al secondo = 125 ms.
