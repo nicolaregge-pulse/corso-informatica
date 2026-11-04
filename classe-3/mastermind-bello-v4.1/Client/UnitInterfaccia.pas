@@ -1,5 +1,5 @@
 unit UnitInterfaccia;
-{ MASTERMIND BELLO v4.0 - CLIENT per i ragazzi: la parte della FINESTRA (UnitInterfaccia + il suo .lfm).
+{ MASTERMIND BELLO v4.1 - CLIENT per i ragazzi: la parte della FINESTRA (UnitInterfaccia + il suo .lfm).
   Qui ci sono finestra, disegni, bottoni, tavola di legno e pioli: NIENTE rete scritta qui.
   Tutta la rete sta in UnitRete.pas (un oggetto TClienteRete): questa unit lo usa e ascolta i suoi
   EVENTI (OnStato, OnRisultato, OnVittoria...), come ascolti OnClick di un bottone.
@@ -11,7 +11,11 @@ unit UnitInterfaccia;
   Piolini di risposta: NERO = colore giusto al posto giusto, BIANCO = colore giusto al posto sbagliato.
   Come si gioca: clicca i colori nella fascia sotto la tavola (si riempiono i 4 buchi della riga
   illuminata), poi premi "Prova". Con "Togli l'ultimo" correggi.
-  Versione v4.0: stessa grafica della v3.0, ma il programma e' diviso in due unit (interfaccia e rete). }
+  Versione v4.0: stessa grafica della v3.0, ma il programma e' diviso in due unit (interfaccia e rete).
+  Versione v4.1: la GARA. Se il Prof lancia una gara a piu' codici, in alto compare un riquadro con
+  "La tua posizione", i tuoi punti, il codice a cui sei (2 di 5) e il tempo che manca. La rete
+  avvisa la finestra con tre eventi nuovi (OnRound, OnClassifica, OnFineGara). A fine gara
+  compare un messaggio con il tuo posto. Il resto (tavola di legno, colori, tasti) e' come prima. }
 
 {$mode objfpc}{$H+}
 
@@ -47,6 +51,7 @@ type
     LblMigliore: TLabel;
     LblPeggiore: TLabel;
     LblFiniti: TLabel;
+    PbGara: TPaintBox;                // v4.1: il riquadro della gara (posizione, punti, codice, tempo)
     Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure BtnConnettiClick(Sender: TObject);
@@ -57,6 +62,7 @@ type
     procedure PbTavolaPaint(Sender: TObject);
     procedure PbTavolozzaPaint(Sender: TObject);
     procedure PbMessaggioPaint(Sender: TObject);
+    procedure PbGaraPaint(Sender: TObject);
     procedure PbTavolozzaMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
   private
@@ -74,6 +80,13 @@ type
     procedure ReteAttesa(Sender: TObject);
     procedure ReteRisultato(Sender: TObject; Neri, Bianchi: Integer; const Cl: TClassifica);
     procedure ReteVittoria(Sender: TObject; Tentativi, Secondi: Integer; const Cl: TClassifica);
+    { v4.1: gli eventi della gara }
+    procedure ReteRound(Sender: TObject; Round, Totale, Secondi: Integer);
+    procedure ReteClassifica(Sender: TObject; Pos, Punti, Giocatori: Integer;
+      const NomePrimo: String; PuntiPrimo: Integer);
+    procedure ReteFineGara(Sender: TObject; Pos, Punti, Giocatori: Integer);
+    procedure AzzeraGara;
+    procedure GaraTimer(Sender: TObject);
     procedure AggiornaBottoni;
     procedure Ricomincia;
     procedure Registra(Neri, Bianchi: Integer);
@@ -85,6 +98,18 @@ type
     procedure TitoloTimer(Sender: TObject);
   public
     TimerTitolo: TTimer;              // fa tornare il titolo normale dopo un istante
+    TimerGara: TTimer;                // v4.1: ogni secondo rinfresca il tempo del riquadro della gara
+    { v4.1: quello che sappiamo della gara (GaraAttiva = False: nessuna gara, il riquadro e' spento) }
+    GaraAttiva: Boolean;
+    GaraConclusa: Boolean;            // e' arrivato FINEGARA
+    GaraInPausa: Boolean;             // il codice e' finito, si aspetta il prossimo
+    GaraRound, GaraTotali: Integer;   // "codice 2 di 5"
+    GaraSecondi: Integer;             // secondi che mancavano quando e' arrivato l'ultimo ROUND
+    GaraRicevutoMs: QWord;            // e quando e' arrivato
+    GaraHaClassifica: Boolean;
+    GaraPos, GaraPunti, GaraGiocatori, GaraPuntiPrimo: Integer;
+    GaraPrimo: String;
+    GaraMessaggioDato: Boolean;       // il messaggio del podio si mostra una volta sola
     Avviato: Boolean;                 // True quando FormCreate e' gia' partita
     Modo: TModo;
     Finita: Boolean;                  // True dopo che hai indovinato
@@ -108,7 +133,7 @@ procedure Valuta(const Segreto, Prova: TCodice; out Neri, Bianchi: Integer);
 var
   FormClient: TFormClient;
   FondoTavola: TBitmap;      // il legno (tavola + fascia dei colori, UN solo pezzo), disegnato una volta sola, in grande
-  BufTavola, BufTavolozza, BufMessaggio: TBitmap;   // le tele grandi su cui si disegna, poi si rimpiccioliscono
+  BufTavola, BufTavolozza, BufMessaggio, BufGara: TBitmap;   // le tele grandi su cui si disegna, poi si rimpiccioliscono
 
 implementation
 
@@ -126,6 +151,7 @@ const
   LARG_TAVOLA = 243;
   ALT_TAVOLA = 422;         // TITOLO + 2 * MARGINE + RIGHE * CELLA
   ALT_FASCIA = 60;          // la fascia dei 6 colori, sotto la tavola, stesso legno
+  ALT_GARA = 54;            // v4.1: l'altezza del riquadro della gara
   X_PRIMO = 32;             // centro del primo buco di ogni riga
   LATO_RISP = 34;           // la nicchia delle risposte e' un QUADRATO 34 x 34
   X_PRIMO_COLORE = 22;      // centro del primo colore nella fascia
@@ -174,6 +200,7 @@ begin
   FreeAndNil(BufTavola);
   FreeAndNil(BufTavolozza);
   FreeAndNil(BufMessaggio);
+  FreeAndNil(BufGara);
 end;
 
 function NuovaTela(W, H: Integer): TBitmap;
@@ -196,6 +223,7 @@ begin
     BufTavola := NuovaTela(LARG_TAVOLA, ALT_TAVOLA);
     BufTavolozza := NuovaTela(LARG_TAVOLA, ALT_FASCIA);
     BufMessaggio := NuovaTela(LARG_TAVOLA + 4, 32);
+    BufGara := NuovaTela(LARG_TAVOLA + 4, ALT_GARA);
   end;
 end;
 
@@ -234,6 +262,10 @@ begin
   Rete.OnAttesa := @ReteAttesa;
   Rete.OnRisultato := @ReteRisultato;
   Rete.OnVittoria := @ReteVittoria;
+  Rete.OnRound := @ReteRound;               // v4.1: gli eventi della gara
+  Rete.OnClassifica := @ReteClassifica;
+  Rete.OnFineGara := @ReteFineGara;
+  AzzeraGara;
   Modo := mNessuno;
   Finita := False;
   Errori := 0;
@@ -259,6 +291,7 @@ begin
   if not Assigned(PbTavola.OnPaint) then PbTavola.OnPaint := @PbTavolaPaint;
   if not Assigned(PbTavolozza.OnPaint) then PbTavolozza.OnPaint := @PbTavolozzaPaint;
   if not Assigned(PbMessaggio.OnPaint) then PbMessaggio.OnPaint := @PbMessaggioPaint;
+  if not Assigned(PbGara.OnPaint) then PbGara.OnPaint := @PbGaraPaint;
   if not Assigned(PbTavolozza.OnMouseDown) then PbTavolozza.OnMouseDown := @PbTavolozzaMouseDown;
   KeyPreview := True;                                   // la finestra legge i tasti prima dei bottoni
   if not Assigned(OnKeyPress) then OnKeyPress := @TastoPremuto;
@@ -267,6 +300,11 @@ begin
   TimerTitolo.Enabled := False;
   TimerTitolo.Interval := TEMPO_CODICE_TITOLO_MS;
   TimerTitolo.OnTimer := @TitoloTimer;
+  // timer del riquadro della gara: ogni secondo ricalcola il tempo che manca
+  TimerGara := TTimer.Create(Self);
+  TimerGara.Enabled := True;
+  TimerGara.Interval := 1000;
+  TimerGara.OnTimer := @GaraTimer;
   if not Avviato then FormCreate(nil);
 end;
 
@@ -327,6 +365,14 @@ begin
   else LblMigliore.Caption := 'Migliore: ' + IntToStr(Cl.Migliore);
   if Cl.Peggiore = 0 then LblPeggiore.Caption := 'Peggiore: -'
   else LblPeggiore.Caption := 'Peggiore: ' + IntToStr(Cl.Peggiore);
+  if GaraAttiva then
+  begin
+    // in gara la tua posizione sta nel riquadro in alto: qui restano i numeri di QUESTO codice
+    LblPosizione.Caption := 'Questo codice:';
+    LblFiniti.Caption := 'Risolto da: ' + IntToStr(Cl.Finiti);
+    LblPeggiore.Caption := '';
+    Exit;
+  end;
   if Cl.Posto = 0 then LblPosizione.Caption := 'Posto: non ancora'
   else LblPosizione.Caption := 'Posto: ' + IntToStr(Cl.Posto) + 'o';
   LblFiniti.Caption := 'Finiti: ' + IntToStr(Cl.Finiti);
@@ -334,10 +380,12 @@ end;
 
 procedure TFormClient.AggiornaBottoni;
 begin
-  BtnProva.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr = 4);
-  BtnCancella.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr > 0);
+  BtnProva.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr = 4) and
+    (not GaraConclusa) and (not (GaraAttiva and GaraInPausa));
+  BtnCancella.Enabled := (Modo <> mNessuno) and (not Finita) and (NCorr > 0) and (not GaraConclusa);
   PbTavola.Invalidate;
   PbMessaggio.Invalidate;
+  PbGara.Invalidate;
 end;
 
 { la prima riga della storia che si vede: se hai fatto piu' di 10 tentativi scorre }
@@ -371,6 +419,7 @@ var
   Lettere: String;
 begin
   Timer1.Enabled := False;
+  AzzeraGara;
   Modo := mLocale;
   Randomize;
   for I := 0 to 3 do Segreto[I] := Random(6) + 1;   // i colori possono ripetersi
@@ -402,6 +451,7 @@ begin
     Exit;
   end;
   LblEsito.Caption := 'Mi collego...';
+  AzzeraGara;                             // v4.1: si riparte da zero, la gara (se c'e') la dira' il server
   Rete.Nome := Nome;                      // diciamo alla rete chi siamo e dove andare...
   Rete.Indirizzo := EdIp.Text;
   if not Rete.ChiediStato then            // ...e le chiediamo lo STATO (se qualcosa va storto, scatta ReteErrore)
@@ -419,6 +469,8 @@ begin
   Mostra(UltimaCl);
   if UltimoInGioco then LblStato.Caption := 'GIOCO: provaci!'
   else LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
+  if GaraAttiva and not GaraConclusa then      // v4.1: se c'e' una gara, le scritte sono quelle della gara
+    ReteRound(Self, GaraRound, GaraTotali, GaraSecondi);
   AggiornaBottoni;
   Timer1.Enabled := True;
 end;
@@ -549,13 +601,19 @@ end;
 
 procedure TFormClient.ReteAttesa(Sender: TObject);
 begin
+  if GaraAttiva then
+  begin
+    LblEsito.Caption := 'Il codice e'' finito: aspetta il prossimo.';
+    LblStato.Caption := 'CODICE FINITO: aspetta il prossimo';
+    Exit;
+  end;
   LblEsito.Caption := 'Il Prof non ha ancora detto Via: aspetta.';
   LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
 end;
 
 procedure TFormClient.ReteRisultato(Sender: TObject; Neri, Bianchi: Integer; const Cl: TClassifica);
 begin
-  LblStato.Caption := 'GIOCO: provaci!';
+  if not GaraAttiva then LblStato.Caption := 'GIOCO: provaci!';
   Registra(Neri, Bianchi);
   LblEsito.Caption := IntToStr(Neri) + ' neri, ' + IntToStr(Bianchi) + ' bianchi';
   Mostra(Cl);
@@ -565,10 +623,125 @@ procedure TFormClient.ReteVittoria(Sender: TObject; Tentativi, Secondi: Integer;
 begin
   Registra(4, 0);
   Finita := True;
-  LblStato.Caption := 'HAI VINTO!';
-  LblEsito.Caption := 'BRAVO! Hai indovinato in ' + IntToStr(Tentativi) + ' tentativi e ' +
-    IntToStr(Secondi) + ' secondi.';
+  if GaraAttiva then
+  begin
+    LblStato.Caption := 'CODICE TROVATO!';
+    LblEsito.Caption := 'BRAVO! Trovato in ' + IntToStr(Tentativi) + ' tentativi e ' +
+      IntToStr(Secondi) + ' secondi. Aspetta il prossimo codice.';
+  end
+  else
+  begin
+    LblStato.Caption := 'HAI VINTO!';
+    LblEsito.Caption := 'BRAVO! Hai indovinato in ' + IntToStr(Tentativi) + ' tentativi e ' +
+      IntToStr(Secondi) + ' secondi.';
+  end;
   Mostra(Cl);
+end;
+
+{ ---------- v4.1: la gara ---------- }
+
+{ Si riparte senza gara: il riquadro si spegne }
+procedure TFormClient.AzzeraGara;
+begin
+  GaraAttiva := False;
+  GaraConclusa := False;
+  GaraInPausa := False;
+  GaraRound := 0;
+  GaraTotali := 0;
+  GaraSecondi := 0;
+  GaraRicevutoMs := 0;
+  GaraHaClassifica := False;
+  GaraPos := 0;
+  GaraPunti := 0;
+  GaraGiocatori := 0;
+  GaraPuntiPrimo := 0;
+  GaraPrimo := '';
+  GaraMessaggioDato := False;
+end;
+
+{ ROUND;k;N;secondi - siamo al codice k di N. Se k e' cambiato: tavola nuova, si riparte da zero. }
+procedure TFormClient.ReteRound(Sender: TObject; Round, Totale, Secondi: Integer);
+var
+  Nuovo: Boolean;
+begin
+  Nuovo := (not GaraAttiva) or GaraConclusa or (Round <> GaraRound);
+  GaraAttiva := True;
+  GaraConclusa := False;
+  GaraMessaggioDato := False;
+  GaraTotali := Totale;
+  GaraSecondi := Secondi;
+  GaraRicevutoMs := GetTickCount64;
+  GaraInPausa := Secondi <= 0;
+  if Nuovo then
+  begin
+    GaraRound := Round;
+    Ricomincia;                          // tavola pulita: nuovo codice, nuovi tentativi
+    if GaraInPausa then
+      LblEsito.Caption := 'Il codice ' + IntToStr(Round) + ' e'' finito. Aspetta il prossimo!'
+    else
+      LblEsito.Caption := 'Nuovo codice! Sei al codice ' + IntToStr(Round) + ' di ' + IntToStr(Totale) + '. Via!';
+  end;
+  if not Finita then
+    if GaraInPausa then LblStato.Caption := 'CODICE FINITO: aspetta il prossimo'
+    else LblStato.Caption := 'GARA - codice ' + IntToStr(Round) + ' di ' + IntToStr(Totale) + ': provaci!'
+  else if GaraInPausa then
+    LblStato.Caption := 'CODICE FINITO: aspetta il prossimo';
+  AggiornaBottoni;
+end;
+
+{ CLASSIFICA;pos;totale;giocatori;nome1;punti1 - il tuo posto in classifica }
+procedure TFormClient.ReteClassifica(Sender: TObject; Pos, Punti, Giocatori: Integer;
+  const NomePrimo: String; PuntiPrimo: Integer);
+begin
+  GaraHaClassifica := True;
+  GaraPos := Pos;
+  GaraPunti := Punti;
+  GaraGiocatori := Giocatori;
+  GaraPrimo := NomePrimo;
+  GaraPuntiPrimo := PuntiPrimo;
+  PbGara.Invalidate;
+end;
+
+{ FINEGARA;pos;totale;giocatori - la gara e' finita: ecco il tuo posto }
+procedure TFormClient.ReteFineGara(Sender: TObject; Pos, Punti, Giocatori: Integer);
+var
+  Frase, Podio: String;
+begin
+  GaraAttiva := True;
+  GaraConclusa := True;
+  GaraInPausa := True;
+  GaraPos := Pos;
+  GaraPunti := Punti;
+  GaraGiocatori := Giocatori;
+  GaraHaClassifica := True;
+  case Pos of
+    1: Frase := 'Sei 1o! Hai VINTO la gara! Complimenti, campione!';
+    2: Frase := 'Sei 2o! Sei sul podio, che bravo!';
+    3: Frase := 'Sei 3o! Sei sul podio, bravissimo!';
+  else
+    if (Giocatori > 0) and (Pos * 2 <= Giocatori) then
+      Frase := 'Sei ' + IntToStr(Pos) + 'o su ' + IntToStr(Giocatori) + '! Bella gara, sei nella meta'' alta!'
+    else
+      Frase := 'Sei ' + IntToStr(Pos) + 'o su ' + IntToStr(Giocatori) + '. Hai finito la gara e questo conta! La prossima volta andra'' meglio.';
+  end;
+  LblStato.Caption := 'GARA FINITA!';
+  LblEsito.Caption := Frase;
+  AggiornaBottoni;
+  if not GaraMessaggioDato then
+  begin
+    GaraMessaggioDato := True;       // il messaggio compare una volta sola
+    Podio := 'GARA FINITA!' + LineEnding + LineEnding + Frase + LineEnding +
+      'Hai fatto ' + IntToStr(Punti) + ' punti.';
+    if (GaraPrimo <> '') and (Pos <> 1) then
+      Podio := Podio + LineEnding + 'In testa c''e'' ' + GaraPrimo + ' con ' + IntToStr(GaraPuntiPrimo) + ' punti.';
+    ShowMessage(Podio);
+  end;
+end;
+
+{ ogni secondo: il tempo che manca scende (si ridisegna solo il riquadro) }
+procedure TFormClient.GaraTimer(Sender: TObject);
+begin
+  if GaraAttiva and (not GaraConclusa) then PbGara.Invalidate;
 end;
 
 { arriva STATO: aggiorna la classifica e la scritta GIOCO / ATTESA }
@@ -583,7 +756,7 @@ begin
     Ricomincia;
     LblStato.Caption := '';
   end;
-  if not Finita then
+  if (not Finita) and (not GaraAttiva) then
     if InGioco then LblStato.Caption := 'GIOCO: provaci!'
     else LblStato.Caption := 'ATTESA: aspetta il Via del Prof';
   AggiornaBottoni;
@@ -748,6 +921,80 @@ begin
   end;
   B.Brush.Style := bsSolid;
   RiduciSu(PbMessaggio.Canvas, Rect(0, 0, PbMessaggio.Width, PbMessaggio.Height), BufMessaggio);
+end;
+
+{ v4.1: il riquadro della gara. Tre righe grandi e chiare:
+    La tua posizione: 3o su 14
+    punti 240   |   codice 2 di 5
+    tempo 1:32   |   in testa: Sara (410)   }
+procedure TFormClient.PbGaraPaint(Sender: TObject);
+var
+  B: TCanvas;
+  Riga1, Riga2, Riga3, Primo: String;
+  Rimasti, Trascorsi: Int64;
+  Sfondo, Bordo: Integer;
+begin
+  PreparaFondi(PixelsPerInch);
+  B := BufGara.Canvas;
+  if not GaraAttiva then
+  begin
+    Sfondo := MioColore(255, 250, 235);
+    Bordo := MioColore(190, 170, 120);
+    Riga1 := 'Gara';
+    Riga2 := 'Quando il Prof lancia una gara, qui vedi';
+    Riga3 := 'la tua posizione in classifica.';
+  end
+  else
+  begin
+    Sfondo := MioColore(255, 240, 190);
+    Bordo := MioColore(214, 160, 40);
+    if GaraConclusa then
+    begin
+      Sfondo := MioColore(214, 240, 214);
+      Bordo := MioColore(60, 150, 60);
+    end;
+    if GaraHaClassifica and (GaraPos > 0) then
+      Riga1 := 'La tua posizione: ' + IntToStr(GaraPos) + 'o su ' + IntToStr(GaraGiocatori)
+    else
+      Riga1 := 'La tua posizione: in arrivo...';
+    Riga2 := 'punti ' + IntToStr(GaraPunti) + '   |   codice ' + IntToStr(GaraRound) + ' di ' + IntToStr(GaraTotali);
+    Primo := GaraPrimo;
+    if Length(Primo) > 12 then Primo := Copy(Primo, 1, 12);
+    if GaraConclusa then
+      Riga3 := 'GARA FINITA   |   in testa: ' + Primo + ' (' + IntToStr(GaraPuntiPrimo) + ')'
+    else if GaraInPausa then
+      Riga3 := 'codice finito: aspetta il prossimo'
+    else
+    begin
+      Trascorsi := Int64(GetTickCount64) - Int64(GaraRicevutoMs);
+      Rimasti := GaraSecondi - (Trascorsi div 1000);
+      if Rimasti < 0 then Rimasti := 0;
+      Riga3 := 'tempo ' + IntToStr(Rimasti div 60) + ':' + Format('%.2d', [Integer(Rimasti mod 60)]);
+      if GaraHaClassifica and (Primo <> '') then
+        Riga3 := Riga3 + '   |   in testa: ' + Primo + ' (' + IntToStr(GaraPuntiPrimo) + ')';
+    end;
+  end;
+  B.Brush.Style := bsSolid;
+  B.Brush.Color := Sfondo;
+  B.Pen.Style := psSolid;
+  B.Pen.Width := Sc(3);
+  B.Pen.Color := Bordo;
+  B.Rectangle(0, 0, BufGara.Width, BufGara.Height);
+  B.Pen.Width := 1;
+  B.Brush.Style := bsClear;
+  B.Font.Name := 'Arial';
+  B.Font.Quality := fqCleartype;
+  B.Font.Color := MioColore(60, 35, 10);
+  B.Font.Height := -Sc(17);
+  B.Font.Style := [fsBold];
+  B.TextOut(Sc(8), Sc(4), Riga1);
+  B.Font.Height := -Sc(13);
+  B.Font.Style := [fsBold];
+  B.TextOut(Sc(8), Sc(25), Riga2);
+  B.Font.Style := [];
+  B.TextOut(Sc(8), Sc(39), Riga3);
+  B.Brush.Style := bsSolid;
+  RiduciSu(PbGara.Canvas, Rect(0, 0, PbGara.Width, PbGara.Height), BufGara);
 end;
 
 end.

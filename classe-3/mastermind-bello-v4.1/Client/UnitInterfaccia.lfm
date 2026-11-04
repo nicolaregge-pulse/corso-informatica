@@ -1,12 +1,12 @@
 object FormClient: TFormClient
   Left = 557
-  Height = 736
+  Height = 794
   Top = 20
   Width = 265
   AutoScroll = True
   BorderStyle = bsSingle
   Caption = 'Mastermind bello - il tuo CLIENT'
-  ClientHeight = 736
+  ClientHeight = 794
   ClientWidth = 265
   LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
@@ -75,17 +75,24 @@ object FormClient: TFormClient
     ParentColor = False
     ParentFont = False
   end
+  object PbGara: TPaintBox
+    Left = 9
+    Height = 54
+    Top = 102
+    Width = 247
+    OnPaint = PbGaraPaint
+  end
   object PbTavola: TPaintBox
     Left = 11
     Height = 422
-    Top = 102
+    Top = 160
     Width = 243
     OnPaint = PbTavolaPaint
   end
   object PbTavolozza: TPaintBox
     Left = 11
     Height = 60
-    Top = 524
+    Top = 582
     Width = 243
     OnMouseDown = PbTavolozzaMouseDown
     OnPaint = PbTavolozzaPaint
@@ -93,7 +100,7 @@ object FormClient: TFormClient
   object BtnProva: TButton
     Left = 9
     Height = 32
-    Top = 590
+    Top = 648
     Width = 120
     Caption = 'Prova'
     Enabled = False
@@ -106,7 +113,7 @@ object FormClient: TFormClient
   object BtnCancella: TButton
     Left = 137
     Height = 32
-    Top = 590
+    Top = 648
     Width = 120
     Caption = 'Togli l''ultimo'
     Enabled = False
@@ -116,7 +123,7 @@ object FormClient: TFormClient
   object LblEsito: TLabel
     Left = 9
     Height = 34
-    Top = 626
+    Top = 684
     Width = 247
     AutoSize = False
     Caption = 'Premi "Gioca da solo", oppure scrivi il tuo nome e premi Connetti.'
@@ -128,14 +135,14 @@ object FormClient: TFormClient
   object PbMessaggio: TPaintBox
     Left = 9
     Height = 32
-    Top = 662
+    Top = 720
     Width = 247
     OnPaint = PbMessaggioPaint
   end
   object LblPosizione: TLabel
     Left = 9
     Height = 16
-    Top = 698
+    Top = 756
     Width = 123
     Font.Height = -12
     ParentColor = False
@@ -144,7 +151,7 @@ object FormClient: TFormClient
   object LblMigliore: TLabel
     Left = 137
     Height = 16
-    Top = 698
+    Top = 756
     Width = 123
     Font.Height = -12
     ParentColor = False
@@ -153,7 +160,7 @@ object FormClient: TFormClient
   object LblPeggiore: TLabel
     Left = 9
     Height = 16
-    Top = 714
+    Top = 772
     Width = 123
     Font.Height = -12
     ParentColor = False
@@ -162,7 +169,7 @@ object FormClient: TFormClient
   object LblFiniti: TLabel
     Left = 137
     Height = 16
-    Top = 714
+    Top = 772
     Width = 123
     Font.Height = -12
     ParentColor = False

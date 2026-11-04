@@ -1,6 +1,7 @@
 program test_client;
 { PROVA del VERO unit1.pas del client bello (copiato come UnitInterfaccia.pas) contro finte unita' LCL.
-  Uso: test_client modo [host nome]    modo: logica | locale | rete | spento
+  Uso: test_client modo [host nome]    modo: logica | locale | rete | spento | gara (v4.1: gara a piu' codici)
+  Compilato con -dVECCHIO serve a provare il client v4.0.1 (senza gara) contro il server v4.1.
   logica = conteggio neri/bianchi (anche colori ripetuti), locale = partita da soli con controllo del disegno,
   rete = partita contro il server vero (porta 5050), spento = server non raggiungibile. }
 {$mode objfpc}{$H+}
@@ -29,6 +30,7 @@ begin
     BtnProva := TButton.Create(Result); BtnCancella := TButton.Create(Result);
     LblPosizione := TLabel.Create(Result); LblMigliore := TLabel.Create(Result);
     LblPeggiore := TLabel.Create(Result); LblFiniti := TLabel.Create(Result);
+    {$IFNDEF VECCHIO}PbGara := TPaintBox.Create(Result);{$ENDIF}
     Timer1 := TTimer.Create(Result);
     BtnProva.Enabled := False; BtnCancella.Enabled := False; Timer1.Enabled := False;   // come nel .lfm
     EdIp.Text := Host; EdNome.Text := Nome;
@@ -37,7 +39,8 @@ begin
   if not (Assigned(Result.BtnConnetti.OnClick) and Assigned(Result.BtnLocale.OnClick) and
           Assigned(Result.BtnProva.OnClick) and Assigned(Result.BtnCancella.OnClick) and
           Assigned(Result.Timer1.OnTimer) and Assigned(Result.PbTavola.OnPaint) and
-          Assigned(Result.PbTavolozza.OnPaint) and Assigned(Result.PbMessaggio.OnPaint) and Assigned(Result.PbTavolozza.OnMouseDown) and Result.Avviato) then
+          Assigned(Result.PbTavolozza.OnPaint) and Assigned(Result.PbMessaggio.OnPaint) and Assigned(Result.PbTavolozza.OnMouseDown) and Result.Avviato
+          {$IFNDEF VECCHIO} and Assigned(Result.PbGara.OnPaint) and Assigned(Result.TimerGara.OnTimer){$ENDIF}) then
   begin
     WriteLn('ERRORE: eventi non collegati'); Halt(3);
   end;
@@ -221,11 +224,97 @@ begin
     F.Storia[F.NT - 1].Neri);
 end;
 
+
+{$IFNDEF VECCHIO}
+{ v4.1: partecipa a una GARA. Tipo "forte" gioca sempre; "debole" nei codici 2 e 3 si ferma dopo 3 tentativi
+  (cosi' si vedono round che finiscono per tempo e punteggi di vicinanza). Scrive una riga RIS per ogni codice
+  e una riga FINE con la posizione che il client ha ricevuto. }
+procedure ModoGara(const Host, Nome, Tipo: String);
+var
+  cand: TStringList;
+  i, ne, bi, e2, b2, giro, maxT: Integer;
+  s: String;
+  t0: QWord;
+  g, p: TCodice;
+  rnd, nt, best, ntPrima: Integer;
+  risolto: Boolean;
+
+  procedure NuoviCandidati;
+  var k: Integer;
+  begin
+    cand.Clear;
+    for k := 0 to 1295 do cand.Add(Chr(49 + k div 216 mod 6) + Chr(49 + k div 36 mod 6) + Chr(49 + k div 6 mod 6) + Chr(49 + k mod 6));
+  end;
+
+  procedure ChiudiRound;
+  begin
+    if rnd > 0 then
+      WriteLn('RIS ', Nome, ' k=', rnd, ' tent=', nt, ' best=', best, ' solved=', Ord(risolto));
+  end;
+
+begin
+  F := Nuovo(Host, Nome);
+  t0 := GetTickCount64;
+  F.BtnConnetti.OnClick(nil);
+  WriteLn(Nome, ' connetti (', GetTickCount64 - t0, ' ms): ', F.LblEsito.Caption, ' | ', F.LblStato.Caption);
+  cand := TStringList.Create;
+  rnd := 0; nt := 0; best := 0; risolto := False; giro := 0;
+  while (not F.GaraConclusa) and (GetTickCount64 - t0 < 170000) do
+  begin
+    Sleep(100);
+    Inc(giro);
+    if giro mod 3 = 0 then F.Timer1.OnTimer(nil);       // chiede lo STATO (il Timer vero lo fa ogni 3 secondi)
+    if F.GaraConclusa then Break;
+    if not F.GaraAttiva then Continue;
+    if F.GaraRound <> rnd then                          // nuovo codice: si chiude il vecchio e si ricomincia
+    begin
+      ChiudiRound;
+      rnd := F.GaraRound; nt := 0; best := 0; risolto := False;
+      NuoviCandidati;
+      if F.NT <> 0 then begin WriteLn(Nome, ' ERRORE: la tavola non si e'' azzerata al codice ', rnd); Halt(8); end;
+    end;
+    if F.GaraInPausa or F.Finita or risolto then Continue;
+    maxT := 1000;
+    if (Tipo = 'debole') and (rnd >= 2) then maxT := 3;
+    if nt >= maxT then Continue;
+    if cand.Count = 0 then Continue;
+    s := cand[Random(cand.Count)];
+    for i := 1 to 4 do Clicca(Ord(s[i]) - 48);
+    ntPrima := F.NT;
+    F.BtnProva.OnClick(nil);
+    if F.NT > ntPrima then                              // il server ha risposto: il tentativo e' valido
+    begin
+      Inc(nt);
+      ne := F.Storia[F.NT - 1].Neri; bi := F.Storia[F.NT - 1].Bianchi;
+      if 2 * ne + bi > best then best := 2 * ne + bi;
+      if ne = 4 then risolto := True;
+      p := Cod(Ord(s[1]) - 48, Ord(s[2]) - 48, Ord(s[3]) - 48, Ord(s[4]) - 48);
+      for i := cand.Count - 1 downto 0 do
+      begin
+        g := Cod(Ord(cand[i][1]) - 48, Ord(cand[i][2]) - 48, Ord(cand[i][3]) - 48, Ord(cand[i][4]) - 48);
+        ValutaDue(g, p, e2, b2);
+        if (e2 <> ne) or (b2 <> bi) then cand.Delete(i);
+      end;
+    end
+    else
+      while F.NCorr > 0 do F.BtnCancella.OnClick(nil);  // il tentativo non e' stato accettato (codice finito): si toglie
+  end;
+  ChiudiRound;
+  if not F.GaraConclusa then begin WriteLn(Nome, ' ERRORE: la gara non e'' finita in tempo'); Halt(9); end;
+  Verifica(not F.BtnProva.Enabled, 'a gara finita Prova e'' spento');
+  Verifica(Pos('GARA FINITA', F.LblStato.Caption) = 1, 'a gara finita la scritta dice GARA FINITA');
+  F.PbGara.Canvas.Pulisci; BufGara.Canvas.Pulisci; F.PbGara.OnPaint(nil);
+  Verifica(F.PbGara.Canvas.Copie >= 1, 'il riquadro della gara viene disegnato');
+  WriteLn('FINE ', Nome, ' pos=', F.GaraPos, ' tot=', F.GaraPunti, ' n=', F.GaraGiocatori, ' primo=', F.GaraPrimo, ' ', F.GaraPuntiPrimo, ' | ', F.LblEsito.Caption);
+end;
+{$ENDIF}
+
 begin
   Randomize;
   modo := ParamStr(1);
   if modo = 'logica' then ModoLogica
   else if modo = 'locale' then ModoLocale
+  {$IFNDEF VECCHIO}else if modo = 'gara' then ModoGara(ParamStr(2), ParamStr(3), ParamStr(4)){$ENDIF}
   else ModoRete(ParamStr(2), ParamStr(3));
   if errori > 0 then begin WriteLn('PROVA FALLITA: errori = ', errori); Halt(1); end;
 end.

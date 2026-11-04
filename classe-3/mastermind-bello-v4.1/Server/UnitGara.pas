@@ -51,7 +51,7 @@ const
   CODICI_MIN = 1;
   CODICI_MAX = 30;
   SECONDI_DEFAULT = 180;             // quanti secondi dura un round, se il Prof non cambia
-  SECONDI_MIN = 20;
+  SECONDI_MIN = 10;
   SECONDI_MAX = 1800;
   PAUSA_TRA_ROUND_DEFAULT = 8;       // secondi di pausa tra un round e il successivo
   FUORI_LINEA_GARA_MS = 20000;       // dopo 20 secondi senza notizie uno non e' piu' "collegato"

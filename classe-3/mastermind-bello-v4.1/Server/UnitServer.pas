@@ -121,6 +121,7 @@ type
     procedure NuovaPartita;
   public
     Avviato: Boolean;                 // True quando FormCreate e' gia' partita
+    property LaGara: TGara read Gara; // v4.1: per le prove (e per guardare la gara da fuori)
     procedure AfterConstruction; override;
   end;
 
