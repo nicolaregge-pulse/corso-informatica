@@ -15,3 +15,17 @@ function disegnaCruscotto(D,docente){
     if(docente)(r.note||[]).forEach(function(z){vv+='<br><span class="mini">'+e(z)+'</span>'});
     h+='<td>'+(r.fermo_da?e(r.fermo_da):'·')+'</td><td style="white-space:normal;min-width:150px;text-align:left">'+vv+'</td><td class="voto"><b>'+r.voto+'</b><details><summary>il conto</summary><span class="mini">'+(r.conto||[]).map(e).join('<br>')+'</span></details></td></tr>'});
   return h+'</tbody></table></div>'}
+
+// Sezione «Il mio comportamento» (solo ragazzi): Nome C., verde/rosso, mai COSA guardavano, niente voto.
+function disegnaComportamento(D){
+  var R=D.righe||[];
+  var h='<section id="comportamento" style="border:3px solid #0969da;border-radius:12px;padding:10px 14px;margin:10px 0"><h2 style="margin-top:0">Il mio comportamento</h2>'
+  +'<p class="mu"><b>Come si legge:</b> il Professore guarda gli schermi; qui vedi se eri sul lavoro o fuori. Nessun punto si toglie da solo.</p>';
+  if(!D.veyon_ok||!R.length)return h+'<p class="mu">Il controllo degli schermi non è ancora arrivato. Premi F5 tra poco.</p></section>';
+  h+='<div style="display:flex;flex-wrap:wrap;gap:8px">';
+  R.forEach(function(r){var v=r.veyon||{};if(!v.giri){h+='<span style="padding:6px 10px;border-radius:999px;background:#eee;color:#555"><b>'+e(r.nome)+'</b> · non ancora controllato</span>';return}
+    var f=v.fuori>0;
+    h+='<span style="padding:6px 10px;border-radius:999px;color:#fff;background:'+(f?'#c62828':'#1a7f37')+'"><b>'+e(r.nome)+'</b> · '+(f?'fuori compito: '+v.fuori+(v.fuori>1?' volte':' volta'):'in compito')+' · ultimo controllo '+e(v.ora||'')+'</span>'});
+  h+='</div>';
+  if(R.some(function(r){return (r.veyon||{}).fuori>0}))h+='<p style="font-weight:700;margin-top:10px">Se eri fuori compito: succede. Ora torna sul lavoro: la pagina è qui sopra.</p>';
+  return h+'</section>'}
