@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.0** — 29/10/2026
+**Versione 1.1** — 04/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -71,6 +71,9 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 03/11/2026 | 2INF 9-10, Informatica: come si riconosce una mail di phishing, regola d'oro e quiz su Moduli (previsto, da aggiornare a fine giornata) | | Phishing e ingegneria sociale (Comp. 8) |
 | 03/11/2026 | 4TI 10-13, Laboratorio, 3 ore: indirizzo IPv4, maschera, gateway, DHCP e DNS, esercizi su coppie di PC e quiz su Moduli (previsto, da aggiornare a fine giornata) | | Indirizzamento IPv4 e subnetting (Comp. 16) |
 | 03/11/2026 | 1INF 13-14, Tecnologia professionale: ripasso Unicode, deepfake e privacy, quiz su Moduli (previsto, da aggiornare a fine giornata) | | Sicurezza informatica e privacy: deepfake (Comp. 8) |
+| 04/11/2026 | 1INF 8-11, Laboratorio, 3 ore: far girare un programma in Lazarus (Esegui/F9, il file .exe nella cartella del progetto, l'errore del debugger 32/64 bit e come aggirarlo); previsti convertitore di misure, calcolatrice a quattro bottoni e cassiere con div e mod, quiz 5+3 su Moduli. Da confermare dal docente quanto svolto oltre al far girare l'exe. Sul registro: «Lazarus: Caption e OnClick…» | `docs/verifica/` lezione Lazarus 04/11, quiz 5+3 | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
+| 04/11/2026 | 3INF 11-13, Laboratorio, 2 ore: Mastermind in rete, il protocollo dei messaggi, client collegato al server del docente (porta 5050), gara di classe con la versione 4.1 (5 codici, punteggio cumulativo sul totale). Da confermare dal docente. Sul registro: «Master Mind: il protocollo di rete», «Master Mind in rete: client e server» | `classe-3/mastermind-bello-v4.1/`, `docs/anteprima/3inf-gara-v4.1/` | Reti locali: cablaggio RJ45, indirizzamento IP (Comp. 16, III anno); Sviluppo collaborativo: release (Comp. 12, III anno); manca una voce esplicita per il protocollo |
+| 04/11/2026 | 1INF 13-14, Sicurezza: 4ª ora del corso ufficiale, organi di vigilanza, controllo e assistenza, quiz su Moduli; recuperi dei quiz della 2ª e 3ª ora e del quiz B. Sul registro è firmato «Rischi infortuni, incidenti e infortuni mancati» (titolo della 5ª ora): da correggere dal docente | `docs/anteprima/1inf-sicurezza-04-11/`, quiz 4ª ora | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, «4ª ora: organi di vigilanza, controllo e assistenza» (Comp. 14, I anno) |
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
@@ -80,6 +83,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 
 ## 6. Changelog
 
+12. **v1.1 (04/11/2026)**: lezioni del 04/11 di 1INF (Lazarus, Sicurezza 4ª ora) e 3INF (Mastermind in rete), con «da confermare dal docente».
 11. **v1.0 (29/10/2026)**: lezioni del 29/10 di 2INF, 3INF e 1INF (argomenti firmati sul registro), scritte dal controllore di fine giornata.
 1. **v0.7 (21/10/2026)**: confermati da Nicola gli argomenti del 21/10; Classe 1 arrivata fino al ping escluso (ping, jitter, lag, FPS, monitor, schede e cavi video alla prossima lezione).
 2. **v0.6 (21/10/2026)**: Classe 1 bit, byte, velocità e gamer; Classe 3 sito e Pull Request (da confermare); Classe 2 — corso sicurezza della Regione, ore 2, 3 e 4 con la corrispondenza alle ore del registro (titoli bloccati).
