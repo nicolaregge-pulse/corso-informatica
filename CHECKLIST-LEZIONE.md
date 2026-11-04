@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 2.0** — 02/11/2026 — documento interno del docente e di Claude
+**Versione 2.2** — 04/11/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione (CLAUDE.md, regola 21).
 
@@ -70,6 +70,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 10. Prima di accodare o creare un post su Classroom: `bash strumenti/prima_di_pubblicare.sh "<titolo>"` e l'elenco Classroom deve avere meno di 2 minuti; se il post esiste già si modifica, non si crea (#174, regola 34).
 11. Il codice per i ragazzi si prova nella stessa sequenza dei passi della guida (progetto nuovo, incolla il codice, incolla il form, F9), con UN solo `unit1.pas` + `unit1.lfm` e gli eventi collegati da codice (`AfterConstruction`); se non è provato su un Lazarus vero lo si dice (#175).
 12. Titolo di ogni compito nel formato «G/M Ora N: argomento breve» (N = ora della classe), controllato su tutti i compiti del giorno e dei giorni accanto in `classroom.compiti` prima di pubblicare (#194).
+13. Prima di preparare un giorno (pagine, post, cruscotti, testi per il registro) l'orario si confronta, ora per ora e classe per classe, con il registro DIDAweb o con lo screenshot del docente; il piano settimanale è solo una proposta e un orario «da confermare» non si usa per preparare (#196, 04/11/2026).
 
 ## Changelog
 
@@ -85,3 +86,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 10. v1.9 (02/11/2026): §06 punto 10, nessun doppione su Classroom (#174, regola 34).
 11. v2.0 (02/11/2026): §06 punto 11, il codice per i ragazzi si prova come lo fanno loro (#175).
 12. v2.1 (03/11/2026): §06 punto 12, titoli dei compiti nel formato unico (#194).
+13. v2.2 (04/11/2026): §06 punto 13, l'orario si confronta con il registro DIDAweb prima di preparare un giorno (#196).
