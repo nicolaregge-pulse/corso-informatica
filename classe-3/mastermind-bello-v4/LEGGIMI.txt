@@ -1,6 +1,6 @@
 MASTERMIND BELLO - CLIENT E SERVER (3INF)
 =========================================
-Versione v4.0 (04/11/2026)
+Versione v4.0.1 (04/11/2026)
 
 Cosa c'e' dentro
   Client\   il programma dei ragazzi   (progetto ClientMastermind)
@@ -9,6 +9,10 @@ Cosa c'e' dentro
             i due programmi lo leggono da li' ( {$I ../Comune/DisegnoMastermind.inc} )
   Risorse\  le due icone (IconaClient, IconaServer)
   test\     le prove con Free Pascal (servono solo a chi sviluppa)
+
+Correzione v4.0.1 (04/11/2026): le icone (.ico) e i file .res avevano dentro immagini compresse PNG, che Lazarus
+  non sa leggere (errore all'avvio: "Bitmap with unknown compression"). Ora sono in formato BMP classico.
+  Il resto e' identico alla v4.0.
 
 Novita' della v4.0: il client e' DIVISO IN DUE UNIT
   Client\UnitInterfaccia.pas (+ .lfm)  la finestra: disegni, bottoni, tavola in legno, pioli.
