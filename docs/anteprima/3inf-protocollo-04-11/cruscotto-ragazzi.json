@@ -1,15 +1,14 @@
 {
  "titolo": "3INF · 04/11 · protocollo del Mastermind",
- "generato": "2026-11-03T21:31",
- "ora": "21:31",
- "fonte": "iscritti: 22 · segnali della pagina: 0 · quiz Moduli: NON ANCORA LETTO · server: elenco non ancora dato (vale il segnale della pagina) · Veyon: NESSUN dato oggi",
+ "generato": "2026-11-04T11:50",
+ "ora": "11:50",
+ "fonte": "presenti: 14 · segnali della pagina: 0 · quiz Moduli: NON ANCORA LETTO · server: elenco non ancora dato (vale il segnale della pagina) · Veyon: giri letti",
  "kpi_proposti": true,
- "veyon_ok": false,
+ "veyon_ok": true,
  "avvisi": [
   "Risposte al quiz non ancora lette: la colonna quiz mostra «da fare» solo perché non c'è nessuna lettura.",
   "Server: nessun elenco dei collegati dal PC del Prof: «client collegato» si basa sul bottone «Sono collegato» della pagina.",
-  "Presenze non ancora segnate: compaiono tutti gli iscritti (22).",
-  "Veyon: nessun dato oggi."
+  "14 presenti (presenze del 04/11)"
  ],
  "legenda": "Il voto parte da 40: client collegato +15, commit chiaro +15, quiz rete con almeno 8 giuste su 12 +10 (massimo 80). Proposta, la conferma il Professore.",
  "colonne": [
@@ -32,37 +31,6 @@
   }
  ],
  "righe": [
-  {
-   "nome": "Alessandro A.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   }
-  },
   {
    "nome": "Denis A.",
    "voto": 40,
@@ -91,38 +59,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "David A.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -153,7 +91,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -184,38 +123,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Mirko D.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -246,7 +155,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -276,8 +186,9 @@
    "fermo_da": "",
    "svolto": 0.0,
    "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "fuori": 2,
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -308,7 +219,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -339,7 +251,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -370,69 +283,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Simone G.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Zhan L.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -463,38 +315,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Filippo M.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -524,8 +346,9 @@
    "fermo_da": "",
    "svolto": 0.0,
    "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "fuori": 2,
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -556,38 +379,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Kevin R.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -618,7 +411,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -649,7 +443,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   },
   {
@@ -680,38 +475,8 @@
    "svolto": 0.0,
    "veyon": {
     "fuori": 0,
-    "giri": 0
-   }
-  },
-  {
-   "nome": "Noah V.",
-   "voto": 40,
-   "conto": [
-    "base 40"
-   ],
-   "celle": {
-    "coll": {
-     "ok": false,
-     "t": "manca"
-    },
-    "commit": {
-     "ok": false,
-     "t": "manca"
-    },
-    "quiz": {
-     "ok": false,
-     "t": "da fare"
-    },
-    "pf": {
-     "ok": null,
-     "t": "nessun segnale"
-    }
-   },
-   "fermo_da": "",
-   "svolto": 0.0,
-   "veyon": {
-    "fuori": 0,
-    "giri": 0
+    "giri": 3,
+    "ora": "11:48"
    }
   }
  ]
