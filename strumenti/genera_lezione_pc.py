@@ -71,7 +71,8 @@ def passo(blocco, id, titolo, testo, img, bn, os_=None, extra=''):
 
 # 05/11/2026 (docente, in aula): si smontano e rimontano SOLO RAM e disco; CPU e ventola (dissipatore) si riconoscono e non si toccano.
 NON_SI_TOCCA = ('<div class="aiutoprof" style="background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:8px 12px;margin:8px 0;color:#000">'
-                '<b>NON SI TOCCA: CPU e ventola (dissipatore).</b> Si guardano e si riconoscono (lettera A), ma non si toccano e non si smontano.</div>')
+                '<b>NON SI TOCCA: CPU e ventola (dissipatore).</b> Si guardano e si riconoscono (lettera A), ma non si toccano. '
+                'Disco e lettore DVD restano nel loro rack: si staccano solo i loro cavi.</div>')
 
 # --- ora 1: ruoli, sicurezza, componenti, smontaggio
 passo('ruoli', 'ruoli', 'Vinci subito: scrivete i nomi e il banco',
@@ -83,12 +84,12 @@ passo('sicurezza', 'spina', 'Spegni il PC e togli la spina',
 passo('sicurezza', 'esd', 'Scarica l\'elettricità statica',
       'Tocca con la mano il metallo del case. Se c\'è il braccialetto antistatico, mettilo e attacca la pinza al metallo del case. Così non rompi la RAM.',
       'esd.svg', 'কেসের ধাতু হাত দিয়ে ছোঁও (অথবা অ্যান্টিস্ট্যাটিক ব্রেসলেট পরো)। এতে RAM নষ্ট হয় না।')
-passo('sicurezza', 'viti', 'Prepara la scatola delle viti',
-      'Metti la scatola vicino al PC. Ogni vite che togli va subito nella scatola.',
-      'viti.svg', 'স্ক্রুর বাক্স কাছে রাখো। প্রতিটি স্ক্রু সঙ্গে সঙ্গে বাক্সে রাখো।')
+passo('sicurezza', 'piano', 'Prepara il tavolo',
+      'Liberate il tavolo vicino al PC: qui metterete la RAM quando la togliete. Non servono attrezzi: i PC sono senza viti.',
+      'tavolo.svg', 'PC-র পাশের টেবিল খালি করো। কোনো যন্ত্র লাগবে না: PC-তে স্ক্রু নেই।')
 passo('apri', 'apri', 'Apri il case',
-      'Gira il PC. Svita con il cacciavite a stella le 2 viti del pannello laterale, dietro. Fai scorrere il pannello verso il retro e appoggialo sul tavolo.',
-      'apri-case.svg', 'PC ঘোরাও। পেছনের ২টি স্ক্রু খোলো, পাশের প্যানেল পেছনের দিকে সরিয়ে খুলে ফেলো।')
+      'Gira il PC. Dietro, tira la leva (o premi il gancio) del pannello laterale. Fai scorrere il pannello verso il retro e appoggialo sul tavolo.',
+      'apri-case.svg', 'PC ঘোরাও। পেছনে প্যানেলের লিভার টানো (বা হুক চাপো), প্যানেল পেছনের দিকে সরিয়ে খুলে ফেলো।')
 passo('riconosci', 'riconosci', 'Riconosci i componenti',
       'Guarda lo schema: ci sono 8 lettere, da A a H. Nella <b>scheda</b> in fondo alla pagina scegli il nome di ogni lettera. Poi cercate ogni pezzo dentro il vostro PC e indicatelo con il dito.',
       'componenti.svg', 'ছবিতে A থেকে H পর্যন্ত ৮টি অক্ষর আছে। নিচের ফর্মে প্রতিটি অক্ষরের নাম বেছে নাও। তারপর আসল PC-তে টুকরোটা খুঁজে আঙুল দিয়ে দেখাও।',
@@ -97,37 +98,37 @@ passo('riconosci', 'mappa', 'Segna la mappa dei cavi',
       'Prima di staccare un cavo, guardate dove è attaccato e spuntate il cavo nella <b>mappa dei cavi</b> della scheda. Si tira sempre dalla spina, mai dal filo.',
       'mappa-cavi.svg', 'তার খোলার আগে দেখো কোথায় লাগানো আছে আর ফর্মে টিক দাও। সবসময় প্লাগ ধরে টানো, তার ধরে নয়।')
 passo('smonta', 'ordine', 'Guarda l\'ordine dello smontaggio',
-      'Oggi si smontano solo la <b>RAM</b> e il <b>disco</b> (HDD o SSD), in quest\'ordine: cavi SATA del disco, RAM, disco. <b>CPU e ventola (dissipatore) non si toccano.</b>',
-      'ordine-smontaggio.svg', 'আজ শুধু RAM আর ডিস্ক খোলা হবে: ডিস্কের SATA তার, RAM, ডিস্ক। CPU আর ফ্যান ছোঁবে না।')
-passo('smonta', 'stacca', 'Stacca i cavi del disco',
-      'Stacca dal disco i due cavi SATA: quello sottile (dati) e quello largo (corrente). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.',
-      'mappa-cavi.svg', 'ডিস্ক থেকে দুটি SATA তার খোলো। অন্য তারগুলো লাগানো থাকে।')
+      'Oggi si toglie solo la <b>RAM</b>. Disco e lettore DVD restano nel loro rack di alluminio: si staccano solo i loro cavi SATA. Ordine: cavi del disco, cavi del DVD, RAM. <b>CPU e ventola (dissipatore) non si toccano.</b>',
+      'ordine-smontaggio.svg', 'আজ শুধু RAM খোলা হবে। ডিস্ক আর DVD র‍্যাকে থাকে: শুধু তাদের SATA তার খোলো। CPU আর ফ্যান ছোঁবে না।')
+passo('smonta', 'stacca', 'Stacca i cavi del disco e del DVD',
+      'Stacca i due cavi SATA del disco e i due del lettore DVD: quello sottile (dati) e quello largo (corrente). Tira dalla spina, mai dal filo. Disco e DVD restano nel rack.',
+      'mappa-cavi.svg', 'ডিস্ক আর DVD-র দুটি করে SATA তার খোলো। ডিস্ক আর DVD র‍্যাকে থাকে।')
 passo('smonta', 'ram-via', 'Togli la RAM',
       'Apri i due ganci della RAM: il banco si alza da solo. Prendilo dai bordi, mai dai contatti dorati. Attento: la ventola della CPU è lì vicino e non si tocca.',
       'ram.svg', 'RAM-এর দুই হুক খোলো, RAM নিজেই উঠে আসবে। কিনারা ধরে নাও, সোনালি অংশ ছোঁবে না। পাশের CPU ফ্যান ছোঁবে না।')
-passo('smonta', 'disco-via', 'Togli il disco',
-      'Svita le viti del disco (o apri la slitta) e sfilalo. Leggi l\'etichetta: è un SSD o un HDD? Quanti GB? Scrivilo nella scheda.',
-      'componenti.svg', 'ডিস্কের স্ক্রু খুলে বের করো। লেবেল পড়ো: SSD না HDD? কত GB? ফর্মে লেখো।')
-passo('smonta', 'tavolo', 'Metti i pezzi in ordine sul tavolo',
-      'Metti i pezzi in fila, da sinistra a destra, nell\'ordine in cui li hai tolti. Così il rimontaggio è facile.',
-      'ordine-smontaggio.svg', 'খোলার ক্রমে টুকরোগুলো বাঁ থেকে ডানে সারি করে রাখো।')
+passo('smonta', 'disco-via', 'Guarda il disco senza toglierlo',
+      'Il disco resta nel rack di alluminio: non si toglie. Se l\'etichetta si vede, leggila: SSD o HDD? Quanti GB? Se non si vede, lo leggerete nel BIOS.',
+      'disco.svg', 'ডিস্ক র‍্যাকেই থাকে, খুলবে না। লেবেল দেখা গেলে পড়ো: SSD না HDD? কত GB?')
+passo('smonta', 'tavolo', 'Metti la RAM sul tavolo',
+      'Appoggia la RAM sul tavolo, dalla parte dei bordi. Leggi l\'etichetta (per esempio 8GB DDR4) e scrivila nella scheda.',
+      'tavolo.svg', 'RAM টেবিলে রাখো। লেবেল পড়ো (যেমন 8GB DDR4) আর ফর্মে লেখো।')
 
 # --- ora 2: rimontaggio e BIOS
 passo('rimonta', 'ordine-inv', 'Rimonta in ordine inverso',
-      'Si rimonta al contrario: disco, RAM, cavi SATA del disco. Le viti sono nella scatola.',
-      'ordine-montaggio.svg', 'উল্টো ক্রমে জোড়া দাও: ডিস্ক, RAM, ডিস্কের SATA তার।')
+      'Si rimonta al contrario: RAM, poi i cavi del DVD e del disco. Ogni pezzo si spinge finché fa clic.',
+      'ordine-montaggio.svg', 'উল্টো ক্রমে জোড়া দাও: RAM, তারপর DVD আর ডিস্কের তার। «ক্লিক» পর্যন্ত চাপো।')
 passo('rimonta', 'ram-dentro', 'Rimetti la RAM',
       'Guarda la tacca della RAM e il dentino dello slot: devono combaciare. Spingi dritto con due pollici fino al «clic».',
       'ram.svg', 'RAM-এর খাঁজ আর স্লটের দাঁত মেলাও। দুই বুড়ো আঙুলে সোজা চাপো, «ক্লিক» শব্দ পর্যন্ত।')
-passo('rimonta', 'cavi-dentro', 'Riattacca i cavi del disco',
-      'Attacca al disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Ogni spina entra in un solo verso: non forzare.',
-      'mappa-cavi.svg', 'ডিস্কে SATA ডেটা আর SATA পাওয়ার তার লাগাও। জোর করবে না।')
+passo('rimonta', 'cavi-dentro', 'Riattacca i cavi del DVD e del disco',
+      'Attacca al lettore DVD e al disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Ogni spina entra in un solo verso: non forzare.',
+      'mappa-cavi.svg', 'DVD আর ডিস্কে SATA ডেটা আর পাওয়ার তার লাগাও। জোর করবে না।')
 passo('rimonta', 'checklist', 'Fai i 5 controlli prima di accendere',
-      'Controllate insieme: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera. Spunta i 5 controlli nella <b>scheda</b> in fondo. Se un controllo è NO, non accendere: sistema prima.',
+      'Controllate insieme: RAM con i ganci chiusi, disco con 2 cavi, DVD con 2 cavi, 24 pin al suo posto, niente lasciato dentro il case. Spunta i 5 controlli nella <b>scheda</b> in fondo. Se un controllo è NO, non accendere: sistema prima.',
       'checklist.svg', 'চালু করার আগে ৫টি জিনিস দেখে ফর্মে টিক দাও। কোনোটা না হলে চালু করবে না।')
 passo('rimonta', 'chiudi', 'Chiudi il case e collega i cavi',
-      'Rimetti il pannello e le sue 2 viti. Collega monitor, tastiera, mouse e rete. La corrente per ultima.',
-      'collega.svg', 'প্যানেল লাগিয়ে ২টি স্ক্রু দাও। মনিটর, কীবোর্ড, মাউস, নেটওয়ার্ক লাগাও। বিদ্যুৎ সবার শেষে।')
+      'Rimetti il pannello e fallo scorrere finché fa clic. Collega monitor, tastiera, mouse e rete. La corrente per ultima.',
+      'collega.svg', 'প্যানেল লাগিয়ে «ক্লিক» পর্যন্ত সরাও। মনিটর, কীবোর্ড, মাউস, নেটওয়ার্ক লাগাও। বিদ্যুৎ সবার শেষে।')
 passo('bios', 'accendi', 'Accendi ed entra nel BIOS',
       'Premi il tasto di accensione. Subito, più volte, premi <b>Canc</b> (o <b>F2</b>): lo schermo all\'avvio dice il tasto giusto. Entri nel BIOS/UEFI.',
       'tasti-bios.svg', 'চালু করে সঙ্গে সঙ্গে বারবার Canc (বা F2) চাপো। BIOS/UEFI খুলবে।')
@@ -301,20 +302,20 @@ SCHEDE = {
     1: {'titolo': 'Scheda dell\'ora 1: riconoscimento e smontaggio', 'campi':
         [{'k': x, 'l': f'Lettera {x}', 't': 'scelta', 'o': sorted(OPZ_COMP)} for x in 'ABCDEFGH'] + [
             {'k': 'video', 'l': 'Il vostro PC ha la scheda video separata?', 't': 'scelta', 'o': ['sì', 'no']},
-            {'k': 'disco_tipo', 'l': 'Il disco è…', 't': 'scelta', 'o': ['SSD 2,5"', 'SSD M.2', 'HDD 3,5"', 'HDD 2,5"']},
-            {'k': 'disco_gb', 'l': 'Quanti GB ha il disco (dall\'etichetta)?', 't': 'testo'},
+            {'k': 'disco_tipo', 'l': 'Il disco è… (dall\'etichetta, se si vede)', 't': 'scelta', 'o': ['SSD 2,5"', 'SSD M.2', 'HDD 3,5"', 'HDD 2,5"', 'non si vede']},
+            {'k': 'disco_gb', 'l': 'Quanti GB ha il disco (dall\'etichetta, se si vede)?', 't': 'testo'},
             {'k': 'ram_n', 'l': 'Quanti banchi di RAM?', 't': 'scelta', 'o': ['1', '2', '3', '4']},
             {'k': 'ram_etichetta', 'l': 'Che cosa dice l\'etichetta della RAM (per esempio 8GB DDR4)?', 't': 'testo'},
             {'k': 'watt', 'l': 'Quanti watt (W) ha l\'alimentatore (etichetta)?', 't': 'testo'},
             {'k': 'mappa', 'l': 'Mappa dei cavi: spunta i cavi che avete staccato', 't': 'spunte',
-             'o': ['SATA dati (sottile)', 'SATA alimentazione (largo)']},
-            {'k': 'viti', 'l': 'Quante viti ci sono nella scatola?', 't': 'testo'}]},
+             'o': ['Disco: SATA dati', 'Disco: SATA alimentazione', 'DVD: SATA dati', 'DVD: SATA alimentazione']},
+            {'k': 'dvd', 'l': 'Il vostro PC ha il lettore DVD nel rack?', 't': 'scelta', 'o': ['sì', 'no']}]},
     2: {'titolo': 'Scheda dell\'ora 2: controlli e BIOS', 'campi': [
         {'k': 'c_ram', 'l': 'RAM ben dentro, ganci chiusi', 't': 'spunta'},
-        {'k': 'c_disco', 'l': 'Disco avvitato al suo posto', 't': 'spunta'},
-        {'k': 'c_sata', 'l': 'Disco: SATA dati attaccato', 't': 'spunta'},
-        {'k': 'c_sata_al', 'l': 'Disco: SATA alimentazione attaccato', 't': 'spunta'},
-        {'k': 'c_viti', 'l': 'Nessuna vite libera nel case', 't': 'spunta'},
+        {'k': 'c_sata', 'l': 'Disco: 2 cavi SATA attaccati', 't': 'spunta'},
+        {'k': 'c_dvd', 'l': 'DVD: 2 cavi SATA attaccati', 't': 'spunta'},
+        {'k': 'c_24', 'l': 'Cavo 24 pin al suo posto', 't': 'spunta'},
+        {'k': 'c_dentro', 'l': 'Niente lasciato dentro il case', 't': 'spunta'},
         {'k': 'tasto', 'l': 'Con quale tasto siete entrati nel BIOS?', 't': 'scelta', 'o': ['Canc (Del)', 'F2', 'F10', 'F1', 'Esc', 'altro']},
         {'k': 'cpu', 'l': 'Nome della CPU (dal BIOS)', 't': 'testo'},
         {'k': 'ram', 'l': 'Quanta RAM (dal BIOS)', 't': 'testo'},
@@ -359,12 +360,12 @@ def disegni(conf):
     ip_es = rete['prefisso'] + str(rete['primo'] + 2)
     D = {
         'ruoli.svg': S.sicurezza('ruoli'), 'spina.svg': S.sicurezza('spina'), 'esd.svg': S.sicurezza('esd'),
-        'viti.svg': S.sicurezza('viti'), 'apri-case.svg': S.sicurezza('apri-case'), 'componenti.svg': S.componenti_lettere(),
+        'tavolo.svg': S.sicurezza('tavolo'), 'disco.svg': S.sicurezza('disco'), 'apri-case.svg': S.sicurezza('apri-case'), 'componenti.svg': S.componenti_lettere(),
         'mappa-cavi.svg': S.sicurezza('mappa'), 'ram.svg': S.sicurezza('ram'), 'checklist.svg': S.sicurezza('checklist'),
         'collega.svg': S.sicurezza('collega'), 'tasti-bios.svg': S.sicurezza('tasti-bios'),
         'rete-schema.svg': S.sicurezza('rete', rete['prefisso'], rete['primo']),
-        'ordine-smontaggio.svg': S.ordine('Ordine dello smontaggio', ['Cavi SATA del disco', 'RAM', 'Disco']),
-        'ordine-montaggio.svg': S.ordine('Ordine del rimontaggio', ['Disco', 'RAM', 'Cavi SATA del disco'], True),
+        'ordine-smontaggio.svg': S.ordine('Ordine dello smontaggio', ['Cavi del disco', 'Cavi del DVD', 'RAM']),
+        'ordine-montaggio.svg': S.ordine('Ordine del rimontaggio', ['RAM', 'Cavi del DVD', 'Cavi del disco'], True),
         'consegna.svg': S.consegna(), 'quiz.svg': S.quiz(),
         'bios-info.svg': S.bios('BIOS / UEFI · Main (Informazioni di sistema)', [
             ('Versione BIOS', '1.2.3'), ('Processore (CPU)', 'Intel Core i5-6500 3.20GHz'), ('Memoria (RAM)', '8192 MB'),

@@ -112,48 +112,51 @@ cap(1, 'Sicurezza', 'Prima di tutto la sicurezza: così non si fa male nessuno e
      'প্লাগ খুলে ফেলো। তারপরই কেস খোলো।', 'una mano che sfila la spina del PC dalla ciabatta'),
     ('Scarica l\'elettricità statica', 'Tocca con la mano il metallo del case. Se c\'è il braccialetto antistatico, mettilo e attacca la pinza al metallo.', 'esd.svg',
      'কেসের ধাতু হাত দিয়ে ছোঁও, অথবা অ্যান্টিস্ট্যাটিক ব্রেসলেট পরো।', 'la mano sul metallo del case (o il braccialetto con la pinza attaccata)'),
-    ('Prepara la scatola delle viti', 'Metti una scatola vicino al PC. Ogni vite che togli va subito nella scatola.', 'viti.svg',
-     'স্ক্রুর বাক্স কাছে রাখো। প্রতিটি স্ক্রু সঙ্গে সঙ্গে বাক্সে রাখো।', 'la scatola delle viti accanto al PC, con il cacciavite a stella'),
-], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Si guardano e si riconoscono, ma non si toccano e non si smontano. Non si apre mai l\'alimentatore.'),
-        ('GIALLO', 'Oggi si smontano e si rimontano solo la RAM e il disco (HDD o SSD).'),
+    ('Prepara il tavolo', 'Libera il tavolo vicino al PC: qui metterai la RAM quando la togli.', 'tavolo.svg',
+     'PC-র পাশের টেবিল খালি করো: RAM খুলে এখানে রাখবে।', 'il tavolo libero accanto al PC aperto'),
+], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Si guardano e si riconoscono, ma non si toccano. Non si apre mai l\'alimentatore.'),
+        ('GIALLO', 'Oggi si toglie solo la RAM. Il disco e il lettore DVD restano nel loro rack di alluminio: si staccano e si riattaccano solo i loro cavi.'),
+        ('GIALLO', 'I PC del laboratorio sono senza viti: non serve il cacciavite. Si apre con leve e ganci, si chiude finché fa clic.'),
         ('GIALLO', 'Si lavora a coppie, un PC per coppia.')])
 
-cap(2, 'Smontare il PC', 'Oggi si smontano solo la RAM e il disco, in quest\'ordine: cavi SATA (i cavi del disco), RAM, disco. Gli altri pezzi si guardano e si riconoscono.', [
-    ('Svita le viti del pannello', 'Gira il PC. Dietro, svita con il cacciavite a stella le 2 viti del pannello laterale.', 'apri-case.svg',
-     'PC ঘোরাও। পেছনের ২টি স্ক্রু খোলো।', 'il retro del case con le 2 viti del pannello laterale indicate'),
+cap(2, 'Smontare il PC', 'Oggi si toglie solo la RAM. Del disco e del lettore DVD si staccano solo i cavi SATA: restano nel loro rack. Ordine: cavi del disco, cavi del DVD, RAM.', [
+    ('Apri la leva del pannello', 'Gira il PC. Dietro, tira la leva (o premi il gancio) del pannello laterale.', 'apri-case.svg',
+     'PC ঘোরাও। পেছনে প্যানেলের লিভার টানো (বা হুক চাপো)।', 'il retro del case con la leva o il gancio del pannello laterale'),
     ('Togli il pannello', 'Fai scorrere il pannello verso il retro e appoggialo sul tavolo.', 'apri-case.svg',
      'প্যানেল পেছনের দিকে সরিয়ে খুলে টেবিলে রাখো।', 'il pannello che scorre verso il retro, case aperto'),
-    ('Guarda l\'ordine', 'Leggi lo schema: si smonta da sinistra a destra. CPU e ventola non si toccano.', 'ordine-smontaggio.svg',
-     'বাঁ থেকে ডানে খোলো। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del case dall\'alto, con i pezzi numerati nell\'ordine di smontaggio'),
+    ('Guarda l\'ordine', 'Leggi lo schema: prima i cavi del disco e del DVD, poi la RAM.', 'ordine-smontaggio.svg',
+     'প্রথমে ডিস্ক আর DVD-র তার, তারপর RAM।', 'l\'interno del case con i cavi SATA di disco e DVD e la RAM indicati'),
     ('Riconosci i componenti', 'Trova nel tuo PC le 8 parti dello schema, da A a H. Indica ogni parte con il dito, senza toccare CPU e ventola.', 'componenti.svg',
      'ছবির A থেকে H পর্যন্ত ৮টি অংশ তোমার PC-তে খুঁজে আঙুল দিয়ে দেখাও। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del PC del laboratorio con le lettere A-H sui componenti'),
+    ('Guarda il rack del disco e del DVD', 'Trova il rack di alluminio con il disco e il lettore DVD. Restano lì: si staccano solo i cavi.', 'disco.svg',
+     'অ্যালুমিনিয়ামের র‍্যাকে ডিস্ক আর DVD খোঁজো। ওগুলো সেখানেই থাকে: শুধু তার খোলা হয়।', 'il rack di alluminio con disco e lettore DVD e i loro cavi'),
     ('Guarda dove sono i cavi', 'Prima di staccare un cavo, guardate insieme dove è attaccato.', 'mappa-cavi.svg',
-     'তার খোলার আগে দুজনে মিলে দেখো কোথায় লাগানো আছে।', 'la scheda madre con i punti dei cavi: 24 pin, CPU 4/8 pin, SATA'),
-    ('Stacca i cavi SATA', 'Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.', 'mappa-cavi.svg',
-     'ডিস্ক থেকে সরু SATA ডেটা তার আর চওড়া SATA পাওয়ার তার খোলো।', 'il retro del disco con i due cavi SATA: sottile (dati) e largo (corrente)'),
+     'তার খোলার আগে দুজনে মিলে দেখো কোথায় লাগানো আছে।', 'i connettori SATA sul retro del disco e del DVD'),
+    ('Stacca i cavi del disco', 'Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Tira dalla spina, mai dal filo.', 'mappa-cavi.svg',
+     'ডিস্ক থেকে সরু SATA ডেটা তার আর চওড়া SATA পাওয়ার তার খোলো। তার ধরে টানবে না।', 'il retro del disco nel rack con i due cavi SATA: sottile (dati) e largo (corrente)'),
+    ('Stacca i cavi del DVD', 'Stacca dal lettore DVD il cavo SATA dati e il cavo SATA di alimentazione.', 'disco.svg',
+     'DVD থেকে SATA ডেটা আর SATA পাওয়ার তার খোলো।', 'il retro del lettore DVD con i due cavi SATA'),
     ('Apri i ganci della RAM', 'Spingi in fuori i due ganci ai lati del banco di RAM. Il banco si alza da solo.', 'ram.svg',
      'RAM-এর দুই পাশের হুক বাইরে ঠেলো। RAM নিজেই উঠে আসবে।', 'i due ganci aperti ai lati del banco di RAM'),
     ('Togli la RAM', 'Prendi il banco dai bordi e sfilalo. Non toccare i contatti dorati e non toccare la ventola lì vicino.', 'ram.svg',
-     'RAM কিনারা ধরে বের করো। সোনালি অংশ ছোঁবে না।', 'due dita che tengono la RAM dai bordi corti'),
-    ('Togli il disco', 'Svita le viti del disco (o apri la slitta) e sfilalo. Leggi l\'etichetta: SSD o HDD? Quanti GB?', 'componenti.svg',
-     'ডিস্কের স্ক্রু খুলে বের করো। লেবেল পড়ো: SSD না HDD? কত GB?', 'il disco tolto, con l\'etichetta leggibile'),
-    ('Metti i pezzi in fila', 'Metti i pezzi sul tavolo, da sinistra a destra, nell\'ordine in cui li hai tolti.', 'ordine-smontaggio.svg',
-     'যে ক্রমে খুলেছ সেই ক্রমে টুকরোগুলো বাঁ থেকে ডানে সাজাও।', 'i pezzi in fila sul tavolo: RAM e disco'),
-], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Oggi non si staccano neanche il cavo 24 pin, il cavo CPU 4/8 pin (è vicino alla ventola) e la scheda video.')])
+     'RAM কিনারা ধরে বের করো। সোনালি অংশ আর পাশের ফ্যান ছোঁবে না।', 'due dita che tengono la RAM dai bordi corti'),
+    ('Metti la RAM sul tavolo', 'Appoggia la RAM sul tavolo, dalla parte dei bordi. Leggi l\'etichetta: per esempio 8GB DDR4.', 'tavolo.svg',
+     'RAM টেবিলে রাখো। লেবেল পড়ো: যেমন 8GB DDR4।', 'la RAM appoggiata sul tavolo con l\'etichetta leggibile'),
+], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Disco e DVD non escono dal rack. Oggi non si staccano neanche il cavo 24 pin, il cavo CPU 4/8 pin (è vicino alla ventola) e la scheda video.')])
 
-cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, cavi SATA del disco.', [
+cap(3, 'Rimontare il PC', 'Si rimonta al contrario: RAM, cavi del DVD, cavi del disco. Ogni pezzo si spinge finché fa clic.', [
     ('Guarda l\'ordine inverso', 'Leggi lo schema: si rimonta nell\'ordine contrario a quello dello smontaggio.', 'ordine-montaggio.svg',
-     'খোলার উল্টো ক্রমে জোড়া দাও।', 'i pezzi in fila sul tavolo, con le frecce nell\'ordine del rimontaggio'),
-    ('Rimetti il disco', 'Infila il disco nel suo posto e rimetti le sue viti (o chiudi la slitta).', 'componenti.svg',
-     'ডিস্ক জায়গায় বসিয়ে স্ক্রু লাগাও।', 'il disco al suo posto con le viti avvitate'),
-    ('Rimetti la RAM', 'Fai combaciare la tacca della RAM con il dentino dello slot. Spingi dritto con due pollici fino al «clic».', 'ram.svg',
+     'খোলার উল্টো ক্রমে জোড়া দাও।', 'la RAM sul tavolo e le frecce nell\'ordine del rimontaggio'),
+    ('Rimetti la RAM', 'Fai combaciare la tacca della RAM con il dentino dello slot. Spingi dritto con due pollici finché fa clic.', 'ram.svg',
      'RAM-এর খাঁজ আর স্লটের দাঁত মেলাও। দুই বুড়ো আঙুলে সোজা চাপো, «ক্লিক» পর্যন্ত।', 'i due pollici sulla RAM e i ganci che si chiudono'),
-    ('Attacca i cavi SATA', 'Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.', 'mappa-cavi.svg',
-     'ডিস্কে SATA ডেটা আর পাওয়ার তার লাগাও। জোর করবে না।', 'i due connettori SATA attaccati al disco, con la forma a L visibile'),
-    ('Fai i 5 controlli', 'Controllate insieme: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera.', 'checklist.svg',
+    ('Attacca i cavi del DVD', 'Attacca al lettore DVD il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.', 'disco.svg',
+     'DVD-তে SATA ডেটা আর পাওয়ার তার লাগাও। জোর করবে না।', 'i due connettori SATA attaccati al lettore DVD'),
+    ('Attacca i cavi del disco', 'Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione, finché sono ben dentro.', 'mappa-cavi.svg',
+     'ডিস্কে SATA ডেটা আর পাওয়ার তার ভালো করে লাগাও।', 'i due connettori SATA attaccati al disco, con la forma a L visibile'),
+    ('Fai i 5 controlli', 'Controllate insieme: RAM con i ganci chiusi, disco con 2 cavi, DVD con 2 cavi, 24 pin al suo posto, niente lasciato dentro il case.', 'checklist.svg',
      'চালু করার আগে ৫টি জিনিস দেখো। কোনোটা না হলে আগে ঠিক করো।', 'il case aperto e completo, pronto per i 5 controlli'),
-    ('Chiudi il case', 'Rimetti il pannello laterale e le sue 2 viti.', 'apri-case.svg',
-     'প্যানেল লাগিয়ে ২টি স্ক্রু দাও।', 'il pannello rimesso e le 2 viti avvitate'),
+    ('Chiudi il case', 'Rimetti il pannello laterale e fallo scorrere finché fa clic.', 'apri-case.svg',
+     'প্যানেল লাগিয়ে «ক্লিক» পর্যন্ত সরাও।', 'il pannello rimesso e agganciato'),
     ('Collega i cavi esterni', 'Collega monitor, tastiera, mouse e cavo di rete. La spina della corrente va per ultima.', 'collega.svg',
      'মনিটর, কীবোর্ড, মাউস আর নেটওয়ার্ক লাগাও। বিদ্যুৎ সবার শেষে।', 'il retro del PC con monitor, tastiera, mouse, rete e corrente collegati'),
 ], box=[('ROSSO', 'Un controllo è NO? Non accendere: sistema prima.')])
@@ -305,7 +308,7 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 
 ### 09.2 Guasto 1: RAM tolta o non agganciata
 
-1. **Come crearlo:** togli tutti i banchi di RAM e mettili nella scatola delle viti del banco. Variante «non agganciata»: banco appoggiato dritto nello slot, ganci aperti, senza clic.
+1. **Come crearlo:** togli tutti i banchi di RAM e appoggiali sul tavolo del banco. Variante «non agganciata»: banco appoggiato dritto nello slot, ganci aperti, senza clic.
 2. **Sintomo che vedranno:** le ventole girano ma lo schermo resta nero; su alcuni PC dei beep ripetuti o un LED «DRAM» acceso sulla scheda madre. Molti PC non hanno il cicalino: solo schermo nero.
 3. **Domande-guida:**
    1. Le ventole girano? Allora la corrente arriva?
@@ -316,7 +319,7 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 
 ### 09.3 Guasto 2: cavo SATA dati del disco staccato
 
-1. **Come crearlo:** stacca solo il cavo SATA dati (quello sottile) dal disco; lascia attaccato il cavo SATA di alimentazione.
+1. **Come crearlo:** stacca solo il cavo SATA dati (quello sottile) dal disco, che resta nel suo rack; lascia attaccato il cavo SATA di alimentazione.
 2. **Sintomo che vedranno:** con Windows già installato, «Reboot and Select proper Boot device», «No bootable device» o il PC che entra da solo nel BIOS. Nel BIOS il disco non compare. Durante l'installazione: nessuna unità nella finestra dei dischi.
 3. **Domande-guida:**
    1. Il BIOS vede il disco? In quale schermata lo avete letto all'ora 2?
@@ -373,7 +376,7 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
    2. Dietro il PC, quante porte video ci sono? In quali punti?
    3. Che cosa avete smontato all'ora 1 che ha anche lui delle porte video?
 4. **Soluzione:** collegare il monitor alla porta della scheda video dedicata.
-5. **Rischio e attenzioni:** nessuno. Per i cavi VGA e DVI si stacca a PC spento e si avvitano bene. Nei PC senza scheda video, variante: ingresso del monitor sbagliato (tasto Input o Source).
+5. **Rischio e attenzioni:** nessuno. I cavi VGA e DVI si staccano a PC spento. Nei PC senza scheda video, variante: ingresso del monitor sbagliato (tasto Input o Source).
 
 ### 09.8 La scheda «Caccia al guasto» per i ragazzi
 
@@ -414,7 +417,7 @@ python3 strumenti/sblocca_ora.py 2inf-pc-05-11 guasti-chiudi
 | 8 |  |  |  |  |
 | 9 |  |  |  |  |
 
-> [ROSSO] A fine giro ogni PC torna a posto: RAM, disco, cavi SATA e 24 pin attaccati, ordine di avvio rimesso, IP della tabella. Controlla il cartellino riga per riga.
+> [ROSSO] A fine giro ogni PC torna a posto: RAM, cavi SATA di disco e DVD e 24 pin attaccati, ordine di avvio rimesso, IP della tabella. Controlla il cartellino riga per riga.
 '''
 
 
