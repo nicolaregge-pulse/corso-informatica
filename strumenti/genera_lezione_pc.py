@@ -39,7 +39,7 @@ SPEC = {
             {'n': 3, 'file': 'ora3.html', 'orario': '10-11', 'titolo': 'Ora 3 · Windows 10, utenti e rete',
              'blocchi': ['installa', 'quiz', 'primo_avvio', 'utenti', 'strumenti', 'rete', 'base_link', 'scheda3'], 'fasi': [3, 4]},
         ],
-        'base_ora': 3,
+        'base_ora': 3, 'guasti': True,
     },
     '3INF': {
         'cartella': '3inf-pc-05-11', 'k': '3inf', 'bn': True, 'data': '05/11/2026', 'giorno': 'giovedì',
@@ -248,6 +248,29 @@ for n in (1, 2, 3):
           'Compilate la scheda qui sotto (OCCHI scrive, MANI controlla). Poi premi <b>Manda al prof</b>: un clic solo. Si apre la pagina «Consegna arrivata al prof».',
           'consegna.svg', 'নিচের ফর্ম পূরণ করো, তারপর «Manda al prof» চাপো। একবার ক্লিক।', None, extra='SCHEDA')
 
+# --- la pagina «caccia al guasto» (2INF; chiusa finché config.json non ha "guasti_aperta": true)
+passo('guasti', 'g-mosse', 'Le 4 mosse del tecnico',
+      'Il Professore ha messo un guasto nel PC del banco. Voi siete i tecnici. Si lavora con 4 mosse: <b>sintomo</b>, <b>ipotesi</b>, <b>prova</b>, <b>soluzione</b>.',
+      'caccia.svg', 'প্রফেসর PC-তে একটা সমস্যা রেখেছেন। ৪টি ধাপ: লক্ষণ, ধারণা, পরীক্ষা, সমাধান।')
+passo('guasti', 'g-sintomo', 'Mossa 1: guarda il sintomo',
+      'Accendi il PC e guarda bene. Le ventole girano? Lo schermo dice qualcosa? Scegli il sintomo nella scheda qui sotto.',
+      'tasti-bios.svg', 'PC চালু করে ভালো করে দেখো। ফর্মে লক্ষণ বেছে নাও।')
+passo('guasti', 'g-ipotesi', 'Mossa 2: scrivi un\'ipotesi',
+      'Che cosa può essere? Guardate lo schema dei componenti e scrivete la vostra idea nella scheda.',
+      'componenti.svg', 'কী হতে পারে? তোমাদের ধারণা ফর্মে লেখো।')
+passo('guasti', 'g-spegni', 'Prima di aprire: spegni e togli la spina',
+      'Se dovete aprire il case: spegnete il PC, togliete la spina e toccate il metallo del case. Sempre.',
+      'spina.svg', 'কেস খোলার আগে PC বন্ধ করো, প্লাগ খোলো, ধাতু ছোঁও।')
+passo('guasti', 'g-prova', 'Mossa 3: fai una prova',
+      'Controllate <b>una cosa sola</b> per volta. Scrivete nella scheda che cosa avete controllato.',
+      'mappa-cavi.svg', 'একবারে একটা জিনিস দেখো। ফর্মে লেখো কী দেখেছ।')
+passo('guasti', 'g-soluzione', 'Mossa 4: ripara e riprova',
+      'Riparate, chiudete e riaccendete. Funziona? Scrivete la soluzione. Non funziona? Tornate alla mossa 2 con un\'altra ipotesi.',
+      'checklist.svg', 'ঠিক করে আবার চালু করো। কাজ না করলে ধাপ ২-এ ফিরে যাও।')
+passo('scheda_g', 'scheda', 'Compila la scheda e mandala al prof',
+      'Scrivete i guasti trovati (fino a 3). Poi premete <b>Manda al prof</b>: un clic solo. Potete rimandarla dopo il guasto nuovo: vale l\'ultima.',
+      'consegna.svg', 'ফর্ম পূরণ করে «Manda al prof» চাপো।', None, extra='SCHEDA')
+
 # --- la pagina «impostazioni di base» (riusabile: 2INF, 3INF)
 BASE = [
     ('b-chrome', 'Chrome c\'è?',
@@ -309,6 +332,17 @@ SCHEDE = {
         {'k': 'chrome', 'l': 'Chrome è il browser predefinito', 't': 'spunta'},
         {'k': 'estensioni', 'l': 'Le estensioni dei file si vedono', 't': 'spunta'}]},
 }
+
+SINTOMI = ['Non si accende niente', 'Ventole girano ma schermo nero', 'Beep e schermo nero', 'Si spegne da solo',
+           'Nessun dispositivo di avvio', 'Non parte dalla chiavetta USB', 'Monitor: nessun segnale', 'Il ping non risponde',
+           'Conflitto di indirizzi IP', 'Altro']
+SCHEDE['G'] = {'titolo': 'Scheda «Caccia al guasto»', 'campi': [
+    c for g in (1, 2, 3) for c in (
+        {'k': f'g{g}_sintomo', 'l': f'Guasto {g} · Sintomo: che cosa vedete?', 't': 'scelta', 'o': SINTOMI},
+        {'k': f'g{g}_ipotesi', 'l': f'Guasto {g} · Ipotesi: che cosa può essere?', 't': 'testo'},
+        {'k': f'g{g}_prova', 'l': f'Guasto {g} · Prova: che cosa avete controllato?', 't': 'testo'},
+        {'k': f'g{g}_soluzione', 'l': f'Guasto {g} · Soluzione: che cosa avete fatto?', 't': 'testo'},
+        {'k': f'g{g}_risolto', 'l': f'Guasto {g} · Risolto?', 't': 'scelta', 'o': ['sì', 'no']})]}
 
 TEORIA = '''<details class="teo" open><summary>Teoria da leggere mentre Windows copia i file</summary>
 <p><b>Utente amministratore</b>: può installare programmi e cambiare tutto. <b>Utente standard</b>: usa il PC ma non può cambiare le impostazioni importanti. Si lavora di solito con l'utente standard: è più sicuro.</p>
@@ -469,8 +503,26 @@ def disegni(conf):
             ('v', 50, 80, 300, 'Nuovo > Documento di testo', True), ('r', 50, 150, 70, 80, '#fff8c5'),
             ('t', 140, 200, 'Nuovo documento di testo.txt', 18, True), ('n', 140, 240, 'si vede .txt = fatto!')]),
     }
+    D['caccia.svg'] = caccia_svg()
     D.pop('w-rete', None)
     return D
+
+
+def caccia_svg():
+    c = [S.t(360, 50, 'Caccia al guasto: 4 mosse', 20, '#1f2328', True, 'middle')]
+    sotto = ['che cosa vedo?', 'che cosa può essere?', 'controllo UNA cosa', 'riparo e riprovo']
+    for i, (v, s_) in enumerate(zip(['Sintomo', 'Ipotesi', 'Prova', 'Soluzione'], sotto)):
+        x = 30 + i * 172
+        c.append(S.r(x, 120, 150, 120, '#fff', S.BLU, 3, 10))
+        c.append(f'<circle cx="{x + 22}" cy="120" r="16" fill="{S.BLU}"/>')
+        c.append(S.t(x + 22, 126, str(i + 1), 16, '#fff', True, 'middle'))
+        c.append(S.t(x + 75, 172, v, 19, '#1f2328', True, 'middle'))
+        c.append(S.t(x + 75, 205, s_, 13, '#57606a', False, 'middle'))
+        if i < 3:
+            c.append(S.freccia(x + 152, 180, x + 170, 180))
+    c.append(S.t(360, 300, 'La prova non funziona? Torna al passo 2 con un\'altra ipotesi.', 17, '#1f2328', True, 'middle'))
+    c.append(S.t(360, 335, 'Prima di aprire il case: PC spento e spina staccata.', 17, S.ROSSO, True, 'middle'))
+    return S._svg(''.join(c), 'caccia al guasto')
 
 
 # ------------------------------------------------------------------ pagine
@@ -583,6 +635,52 @@ def pagina_base(spec, conf):
     h.append(f'<script src="../../assistente/assistente.js" data-pagina="{lez["slug"]}" data-lingue="it" data-dove="aiuto"></script>')
     h.append(f'<script>window.LEZ={json.dumps(lez, ensure_ascii=False)};</script><script src="lezione.js"></script></body></html>\n')
     return ''.join(h).replace('<section class="card"><h2>Chi siete?', '<section class="card" hidden><h2>Chi siete?')
+
+
+def pagina_guasti(spec, conf):
+    passi = [dict(p) for p in P['guasti'] + P['scheda_g']]
+    lez = {'slug': f"{spec['k']}-pc-05-11-guasti", 'classe': spec['k'].upper(), 'ora': 'guasti', 'fasi': [], 'fasi_nomi': FASI,
+           'scheda': {'n': 'G', 'id': f"{spec['k']}-pc0511-guasti", **SCHEDE['G']}, 'chiave': {}, 'conf': conf}
+    h = [testa(spec, 'Caccia al guasto').replace('<style>', '<script src="flag.js" data-chiave="guasti_aperta"></script><style>', 1),
+         f'<p class="mu">{spec["k"].upper()} · {spec["materia"]} · {spec["giorno"]} {spec["data"]} · a coppie · si consegna la scheda con un bottone</p>',
+         '<h1>Caccia al guasto</h1>', bn(spec, 'সমস্যা খোঁজো: তোমরা টেকনিশিয়ান।'),
+         '<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p>',
+         barra_link(spec, False), CHI.format(bn=bn(spec, 'তোমার নাম, সঙ্গীর নাম আর বেঞ্চের নম্বর লেখো।')),
+         '<section class="card"><h2>Il percorso</h2><p>Partite dal passo con il bordo blu. Ogni passo fatto: premete «Ho fatto!». '
+         'Dopo il primo guasto il Professore ne mette un altro: rifate le mosse 1-4 e scrivete il guasto 2 nella scheda.</p>'
+         '<div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p><p id="vai"></p></section>',
+         SEI_BLOCCATO.format(bn=bn(spec, 'আটকে গেলে নিচের সহকারী বাক্সে প্রশ্ন লেখো।'))]
+    h += [html_passo(spec, p, 'G') for p in passi]
+    h.append('<a class="bt" href="index.html">Torna al percorso di oggi</a><div id="aiuto"></div></main>')
+    h.append(f'<script src="../../assistente/assistente.js" data-pagina="{lez["slug"]}" data-lingue="it" data-dove="aiuto"></script>')
+    h.append(f'<script>window.LEZ={json.dumps(lez, ensure_ascii=False)};</script><script src="lezione.js"></script></body></html>\n')
+    return ''.join(h).replace('<h2>I ruoli adesso</h2><div id="ruoli"></div>', '<div id="ruoli"></div>')
+
+
+FLAG_JS = r'''/* Porta a bandierina (genera_lezione_pc.py). La pagina si vede solo se config.json ha la chiave data-chiave = true.
+   Uso: <script src="flag.js" data-chiave="guasti_aperta"></script> nel <head>.
+   Il docente apre: python3 strumenti/sblocca_ora.py 2inf-pc-05-11 guasti  (chiude: ... guasti-chiudi). */
+(function () {
+  var sc = document.currentScript, base = sc.src.replace(/[^\/]*$/, ''), k = sc.getAttribute('data-chiave') || 'aperta';
+  var stile = document.createElement('style'); stile.textContent = 'main{display:none!important}'; document.head.appendChild(stile);
+  function pronto(f) { if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', f); else f(); }
+  function avviso(t) {
+    pronto(function () {
+      var d = document.getElementById('flag-chiuso');
+      if (!d) { d = document.createElement('div'); d.id = 'flag-chiuso'; document.body.appendChild(d);
+        d.style.cssText = 'max-width:640px;margin:40px auto;padding:20px 18px;border:3px solid #1f6feb;border-radius:14px;font:20px/1.5 system-ui,Arial,sans-serif;background:#fff;color:#111'; }
+      d.innerHTML = '<h1 style="font-size:1.3em;margin:0 0 8px">Questa scheda non è ancora aperta</h1><p>' + t + '</p>';
+    });
+  }
+  function controlla() {
+    fetch(base + 'config.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (c) {
+      if (c && c[k] === true) { stile.remove(); var d = document.getElementById('flag-chiuso'); if (d) d.remove(); clearInterval(giro); }
+      else avviso('Si apre quando il Professore la sblocca. Intanto continua l\'ora che hai davanti: questa pagina si apre da sola.');
+    }).catch(function () { avviso('Non riesco a controllare se è aperta. Premi F5 fra un minuto.'); });
+  }
+  controlla(); var giro = setInterval(controlla, 30000);
+})();
+'''
 
 
 def pagina_indice(spec, conf):
@@ -784,7 +882,9 @@ def main():
             '_nota': f'{classe} 05/11/2026 smonta, rimonta, installa (genera_lezione_pc.py). Pagina CHIUSA finché non arriva PUBB n (R2).',
             '_ore': f'0 = tutto chiuso; con PUBB n: python3 strumenti/sblocca_ora.py {spec["cartella"]} n',
             '_variante_os': 'A = Windows 10 da chiavetta USB (deciso dal docente il 04/11/2026); B = Linux Mint da chiavetta USB',
-            '_rete': 'IP del banco N = prefisso + (primo + N). Valori da confermare dal docente.'}
+            '_rete': 'IP del banco N = prefisso + (primo + N). Valori da confermare dal docente.',
+            'guasti_aperta': False,
+            '_guasti': 'pagina guasti.html (solo 2INF): false = chiusa; si apre con python3 strumenti/sblocca_ora.py <cartella> guasti'}
     try:
         conf = json.load(open(fc, encoding='utf-8'))
     except Exception:
@@ -797,6 +897,9 @@ def main():
     pagine = {'index.html': pagina_indice(spec, conf), 'impostazioni-base.html': pagina_base(spec, conf)}
     for o in spec['ore']:
         pagine[o['file']] = pagina_ora(spec, o, conf)
+    if spec.get('guasti'):
+        pagine['guasti.html'] = pagina_guasti(spec, conf)
+        open(os.path.join(out, 'flag.js'), 'w', encoding='utf-8').write(FLAG_JS)
     for nome, h in pagine.items():
         open(os.path.join(out, nome), 'w', encoding='utf-8').write(h)
     open(os.path.join(out, 'lezione.js'), 'w', encoding='utf-8').write(LEZIONE_JS)
