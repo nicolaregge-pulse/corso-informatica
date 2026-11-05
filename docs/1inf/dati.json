@@ -1,7 +1,7 @@
 {
 "classe": "1INF",
-"giorno": "2026-11-04",
-"titolo": "Sicurezza sul lavoro: 4ª ora e recuperi",
+"giorno": "2026-11-05",
+"titolo": "Testo o numero? I programmi raccontati",
 "lingue": [
 "it",
 "ar",
@@ -9,16 +9,8 @@
 ],
 "letto_hhmm": "13:53",
 "letto_iso": "2026-11-04T13:53:54.793000+01:00",
-"generato": "2026-11-04T17:13:45+01:00",
+"generato": "2026-11-05T13:24:29+01:00",
 "moduli": [
-{
-"k": "q4",
-"breve": "4ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSfrkjc1AgfDCsa_-FcsUw6CU6kIcUaRl4Q2BnzpUeTyz5HPaQ/viewform",
-"tipo": "ora",
-"soglia": "70/100",
-"letto": "04/11 13:53"
-},
 {
 "k": "q2",
 "breve": "2ª ora",
@@ -36,12 +28,36 @@
 "letto": "04/11 13:53"
 },
 {
+"k": "q4",
+"breve": "4ª ora",
+"link": "https://docs.google.com/forms/d/e/1FAIpQLSfrkjc1AgfDCsa_-FcsUw6CU6kIcUaRl4Q2BnzpUeTyz5HPaQ/viewform",
+"tipo": "recupero",
+"soglia": "70/100",
+"letto": "04/11 13:53"
+},
+{
 "k": "qb",
 "breve": "B",
 "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8zHtXqM5FEhDJyEqL-yE6SgxUU52OHlXEo4tLazUQrjMB3Q/viewform",
 "tipo": "recupero",
 "soglia": "6/8",
 "letto": "04/11 13:53"
+},
+{
+"k": "qt",
+"breve": "Quiz tipi",
+"link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/1inf-tipi-05-11/",
+"tipo": "ora",
+"soglia": "6/8",
+"letto": "05/11 13:18"
+},
+{
+"k": "qs",
+"breve": "Quiz 2 bonus",
+"link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/1inf-tipi-05-11/",
+"tipo": "bonus",
+"soglia": "4/6",
+"letto": "05/11 13:17"
 }
 ],
 "righe": [
@@ -55,20 +71,27 @@
 "q2": "giallo",
 "q3": "giallo",
 "q4": "verde",
-"qb": "giallo"
+"qb": "giallo",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [
 "2ª ora",
 "3ª ora",
 "B"
 ],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Alessio C.",
@@ -79,19 +102,25 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "rosso",
-"qb": "rosso"
+"qb": "rosso",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 0,
-"qb": 0
+"qb": 0,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [
+"4ª ora",
 "B"
 ],
 "da_fare": [
-"4ª ora"
+"Quiz tipi",
+"Quiz 2 bonus"
 ]
 },
 {
@@ -103,16 +132,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Christian A.",
@@ -123,16 +159,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Cristian C.",
@@ -143,16 +186,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Enea Z.",
@@ -163,16 +213,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Giexther A.",
@@ -183,16 +240,53 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
+},
+{
+"nome": "Giovanni S.",
+"ids": [
+"137914b46a701797"
+],
+"c": {
+"q2": "verde",
+"q3": "verde",
+"q4": "rosso",
+"qb": "rosso",
+"qt": "rosso",
+"qs": "rosso"
+},
+"n": {
+"q2": 1,
+"q3": 1,
+"q4": 0,
+"qb": 0,
+"qt": 0,
+"qs": 0
+},
+"da_recuperare": [
+"4ª ora",
+"B"
+],
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Matteo A.",
@@ -203,16 +297,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Md M.",
@@ -223,16 +324,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Moaaz M.",
@@ -243,19 +351,26 @@
 "q2": "giallo",
 "q3": "verde",
 "q4": "verde",
-"qb": "giallo"
+"qb": "giallo",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [
 "2ª ora",
 "B"
 ],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Muhammad N.",
@@ -266,16 +381,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Muhid H.",
@@ -286,16 +408,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Nehara F.",
@@ -306,18 +435,25 @@
 "q2": "verde",
 "q3": "giallo",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [
 "3ª ora"
 ],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Sara F.",
@@ -329,16 +465,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Shanzay S.",
@@ -351,16 +494,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Thomas R.",
@@ -371,16 +521,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Wesley J.",
@@ -392,16 +549,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 },
 {
 "nome": "Yinlin L.",
@@ -412,16 +576,23 @@
 "q2": "verde",
 "q3": "verde",
 "q4": "verde",
-"qb": "verde"
+"qb": "verde",
+"qt": "rosso",
+"qs": "rosso"
 },
 "n": {
 "q2": 1,
 "q3": 1,
 "q4": 1,
-"qb": 1
+"qb": 1,
+"qt": 0,
+"qs": 0
 },
 "da_recuperare": [],
-"da_fare": []
+"da_fare": [
+"Quiz tipi",
+"Quiz 2 bonus"
+]
 }
 ],
 "ponte": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
