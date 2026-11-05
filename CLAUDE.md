@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.0** — 04/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.1** — 05/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -192,4 +192,5 @@
 1. v2.0 (04/11/2026): riscritto con 11 regole (R1-R11) e una premessa, sulle decisioni del docente. Tolti: «Pubblico o vuoi
    vederlo prima?», PRI+, carta e penna, titolo «solo Godot», rileggere tutte le regole, lavoro di notte su due settimane,
    sei bottoni, l'espressione «lezione autonoma». Testo didattico e di dettaglio spostato nelle guide del capitolo 04.
-2. Versioni precedenti: `archivio/CLAUDE-fino-al-2026-11-04.md`.
+2. v2.1 (05/11/2026): R10 punti 0 (ordine fisso: titoli, scelta, ora in corso) e 0bis (visione dei 15 giorni il giorno prima), su decisione del docente.
+3. Versioni precedenti: `archivio/CLAUDE-fino-al-2026-11-04.md`.

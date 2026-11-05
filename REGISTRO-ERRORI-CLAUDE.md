@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.09** — 04/11/2026 (#125-#209; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.10** — 05/11/2026 (#125-#222; v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -1129,5 +1129,70 @@ Controllo: prima di dare un cruscotto confrontare almeno 2 allievi con il Modulo
 ## 04/11/2026 — Cognome di un allievo in un file del pubblico (#209)
 
 1. **Errore.** Un file di prova del pubblico (`strumenti/test_2fa.js`, dal 02/11) usava come nome finto un cognome che è di un allievo. Il controllo bloccante del push guarda le pagine di `docs/` e i messaggi dei commit, ma non gli altri file.
-2. **Correzione.** Nome cambiato in «Prova Utente» il 04/11 sera. Tre pagine di anteprima della 3INF (02/11) avevano una variabile JavaScript `lin` uguale a un cognome corto: rinominata, per togliere il falso allarme.
+2. **Correzione.** Nome cambiato in «Prova Utente» il 04/11 sera. Tre pagine di anteprima della 3INF (02/11) avevano una variabile JavaScript di tre lettere uguale a un cognome corto: rinominata, per togliere il falso allarme.
 3. **Strumento da correggere.** `limite-comandi.py`: al push del pubblico controllare tutti i file cambiati, non solo `docs/`.
+
+## 05/11/2026 — Titoli del giorno con ore doppie (#210)
+
+1. **Errore.** Alle 07:53 il docente ha chiesto i titoli. Ho dato per ogni ora due blocchi (registro e Classroom) con numeri d'ora diversi per la 3INF; alle 07:55: «hai messo ore doppie, mi serve ora (1,2,3,4,5,6), classe e titolo».
+2. **Strumento da correggere.** Un solo generatore dei titoli del giorno: una riga per ora (1-6), con classe, titolo del registro e titolo Classroom, numerati sull'ora della giornata (R2.1), da copiare.
+
+## 05/11/2026 — Ruoli «MANI» e «OCCHI» non richiesti nella dispensa e nelle pagine (#211)
+
+1. **Errore.** Le dispense e le pagine 2INF e 3INF dividevano la coppia in ruoli con questi nomi. Alle 08:24: «Mani occhi non serve». Tolti nella v1.1.
+2. **Strumento da correggere.** `genera_lezione_pc.py`: i ruoli e le sezioni non chiesti dal docente non vanno nel modello; ogni elemento in più si aggiunge solo dopo la sua conferma.
+
+## 05/11/2026 — Procedura di smontaggio con viti, disco e DVD, non vera sull'aula (#212)
+
+1. **Errore.** La dispensa v1.0-v1.1 diceva di svitare e di togliere il disco; alle 08:59 il docente: «NON CI SONO VITI DA SVITARE», disco e DVD restano nel rack di alluminio. Prima, alle 08:19, aveva già detto che CPU e ventola non si toccano. Corretto in v1.2.
+2. **Strumento da correggere.** Una scheda dei fatti dell'aula (`registro-hardware`) confermata dal docente con una foto prima di scrivere ogni passo di una procedura hardware; ciò che non è nella scheda porta la scritta «non provato» (R7).
+
+## 05/11/2026 — Foglio dei PC: prima 40 pagine, poi bordo destro tagliato in stampa (#213)
+
+1. **Errore.** Alle 09:11 ho dato un foglio per ogni PC (40 pagine); il docente voleva un solo foglio fronte e retro per lezione (09:13). Il foglio successivo non stampava la riga a destra: rifatto in v1.3 (09:23).
+2. **Strumento da correggere.** Il generatore dei fogli stampabili deve usare un margine di sicurezza di 10 mm, controllare che nessun elemento esca dall'area di stampa e partire dal modello già approvato (un foglio, fronte e retro).
+
+## 05/11/2026 — «h 1» invece di «h 6» nel pacchetto dei voti DIDAweb (#214)
+
+1. **Errore.** Il pacchetto per il registro aveva l'ora sbagliata («h 1» invece di «h 6»): alle 13:51 il segnalibro si è fermato senza cambiare niente. Il docente ha poi inserito i voti con il pacchetto corretto.
+2. **Strumento da correggere.** Il generatore del pacchetto voti calcola «h» dall'ora della giornata della lezione (R2.1) e la confronta con la colonna «G n H m» dello screenshot del registro; se non coincidono, non consegna il pacchetto. Collegato al #136.
+
+## 05/11/2026 — Messaggi al docente scritti in inglese (#215)
+
+1. **Errore.** Un messaggio delle 13:51 era in inglese, e alle 00:34 ho girato al docente il risultato di un aiutante scritto in inglese. Il materiale per il docente è in italiano (R6.1).
+2. **Strumento da correggere.** `controllo-messaggio.py`: bloccare le risposte con frasi intere in inglese (escluse le parole tecniche e il codice).
+
+## 05/11/2026 — Cruscotti con dati del giorno prima o mai aggiornati (#216)
+
+1. **Errore.** Il cruscotto della 1INF usava le presenze del 04/11 fino alle 13:27 e un allievo presente non compariva: me lo ha detto il docente alle 13:24. Dopo la correzione mostrava ancora i quiz letti il 04/11 alle 13:53, senza la scritta «DATI VECCHI». I cruscotti 2INF e 3INF non sono stati aggiornati durante le lezioni (dati letti il 04/11 alle 23:39); per la 3INF il file delle presenze era una copia provvisoria del 04/11, mai sostituita.
+2. **Strumento da correggere.** `cruscotto_classe.py`: ROSSO se il file delle presenze ha «provvisorio» o una data diversa da oggi, o se i dati letti sono di un altro giorno; la scritta «DATI VECCHI» (R8.4) deve valere anche in questi casi, e il giro dei 2 minuti deve partire la mattina per tutte le classi in orario.
+
+## 05/11/2026 — PUBB: promesse con orari già passati, link prima di PUBBLICATO (#217)
+
+1. **Errore.** Alle 13:13-13:14 ho promesso di pubblicare «prima delle 13» e «entro le 12:50», orari già passati; ho proposto «PUBB 4» per la 3INF quando l'ora 4 (11-12) era finita; ho dato il link della pagina al docente alle 13:16, prima di PUBBLICATO (13:21), e i ragazzi vedevano «in arrivo» (R7.3). Il ponte nuovo non era incollato, quindi non potevo pubblicare io: il docente ha pubblicato a mano alle 13:17 e 13:19.
+2. **Strumento da correggere.** `controllo-messaggio.py`: bloccare orari futuri che sono già passati e link al sito senza PUBBLICATO; prima di ogni «pubblico io» leggere il battito del ponte (R2) e, se manca, dare subito il pacchetto per il post a mano.
+
+## 05/11/2026 — GIALLO della verifica spiegato senza aprire il risultato (#218)
+
+1. **Errore.** Alle 13:22 ho scritto che il GIALLO della 1INF veniva «solo» dai link non controllati, ma nella bobina non risulta l'apertura del risultato per provarlo (R7.5, punto 6 del controllore).
+2. **Strumento da correggere.** `verifica_lezione.py`: stampare la causa di ogni GIALLO riga per riga, così che la spiegazione sia copiata dal risultato.
+
+## 05/11/2026 — Uscita di un allievo senza avviso dopo 5 minuti (#219)
+
+1. **Errore.** Uscita segnalata alle 09:44, rientro alle 09:56: nessun avviso a 5 minuti (R8.7); il docente ha dovuto chiedere «dammi cruscotto uscite» alle 09:53.
+2. **Strumento da correggere.** Un timer di uscita: alla segnalazione parte un conto di 5 minuti e, scaduto, la prima riga del prossimo messaggio è «USCITA: …». La riga del cruscotto deve leggere `dati/<classe>-uscita-*.json`.
+
+## 05/11/2026 — Orario di domani inventato (#220)
+
+1. **Errore.** Il 05/11 sera ho proposto per il 06/11 una lezione 3INF alle 9-11 che sul registro non c'è. Alle 17:41 il docente: «domani ho 4 ore o sbaglio?». Corretto alle 17:42 (2INF 8-9, 1INF 11-14).
+2. **Strumento da correggere.** Il file «orario del giorno» si scrive solo dal registro DIDAweb (R10.1.2); un'ora non letta dal registro non entra nelle proposte e viene detta «da confermare».
+
+## 05/11/2026 — Messaggi lunghi e proposte del quiz con risposta unica (#221)
+
+1. **Errore.** Il riepilogo delle 16:35 era troppo lungo («adesso non sto a leggere tutto»); le proposte del quiz anti-AI avevano una sola risposta, mentre il docente voleva almeno metà delle domande con due risposte giuste (16:36). Le regole d'aula erano inventate: la guida lo dice, ma nei messaggi non era scritto.
+2. **Strumento da correggere.** `controllo-messaggio.py` (R4): avviso oltre le 12 righe fuori dal pacchetto da copiare. Il generatore dei quiz crea di default metà delle domande a due risposte, e ogni dettaglio inventato dell'aula porta la scritta «inventato».
+
+## 05/11/2026 — Report orari, presenze e storico del 05/11 non fatti durante la giornata (#222)
+
+1. **Errore.** Alle 17:48 non esistevano report PDF orari, presenze nel diario né storico dei cruscotti 2INF e 3INF; il foglio PC della 3INF non è mai stato trascritto e quello della 2INF solo con la foto delle 09:40 (RAM e Disco). Non è partito nessun giro che dica «il ponte non risponde»: la verifica della lezione 2INF e 3INF è andata in timeout. Ho generato a fine giornata 4 report su 6 (2INF 8-11, 1INF 13-14); la 3INF 11-13 manca perché le presenze vere non ci sono.
+2. **Strumento da correggere.** `report_ore.py` va lanciato dal giro a fine di ogni ora (stesso difetto del #207); `verifica_lezione.py` deve rispondere «ponte non risponde» entro 20 secondi invece di attendere 100.
