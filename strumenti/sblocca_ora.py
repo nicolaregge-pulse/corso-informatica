@@ -22,13 +22,21 @@ CART = {'3inf': 'docs/anteprima/3inf-mastermind-02-11', '2inf': 'docs/anteprima/
         '2inf-pc-05-11': 'docs/anteprima/2inf-pc-05-11',
         '3inf-pc-05-11': 'docs/anteprima/3inf-pc-05-11',
         '1inf-tipi-05-11': 'docs/anteprima/1inf-tipi-05-11'}
-if len(sys.argv) != 3 or sys.argv[1] not in CART or sys.argv[2] not in ('0', '1', '2', '3'):
-    sys.exit(__doc__)
+# 05/11/2026: «guasti» / «guasti-chiudi» aprono e chiudono la pagina guasti.html (chiave guasti_aperta, letta da flag.js)
+if len(sys.argv) != 3 or sys.argv[1] not in CART or sys.argv[2] not in ('0', '1', '2', '3', 'guasti', 'guasti-chiudi'):
+    sys.exit(__doc__ + '\nPagina «Caccia al guasto»: python3 strumenti/sblocca_ora.py 2inf-pc-05-11 guasti   (chiude: guasti-chiudi)')
 radice = pathlib.Path(__file__).resolve().parent.parent
 f = radice / CART[sys.argv[1]] / 'config.json'
-c = json.loads(f.read_text()); c['ore_sbloccate'] = int(sys.argv[2])
+c = json.loads(f.read_text())
+if sys.argv[2].startswith('guasti'):
+    if not (f.parent / 'guasti.html').exists():
+        sys.exit('In %s non c\'è guasti.html' % CART[sys.argv[1]])
+    c['guasti_aperta'] = sys.argv[2] == 'guasti'
+else:
+    c['ore_sbloccate'] = int(sys.argv[2])
 f.write_text(json.dumps(c, ensure_ascii=False, indent=1))
 def g(*a): subprocess.run(['git', '-C', str(radice), *a], check=True)
-g('add', str(f)); g('commit', '-m', 'Sblocca ora %s (%s)' % (sys.argv[2], sys.argv[1]))
+g('add', str(f)); g('commit', '-m', ('Pagina guasti %s (%s)' % ('aperta' if c.get('guasti_aperta') else 'chiusa', sys.argv[1]))
+                    if sys.argv[2].startswith('guasti') else 'Sblocca ora %s (%s)' % (sys.argv[2], sys.argv[1]))
 g('pull', '--rebase'); g('push')
-print('FATTO: %s ora %s sbloccata. Ora: bash strumenti/aspetta_pubblicazione.sh' % (sys.argv[1], sys.argv[2]))
+print('FATTO: %s %s. Ora: bash strumenti/aspetta_pubblicazione.sh' % (sys.argv[1], sys.argv[2] if sys.argv[2].startswith('guasti') else 'ora %s sbloccata' % sys.argv[2]))
