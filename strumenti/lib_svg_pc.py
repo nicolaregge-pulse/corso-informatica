@@ -149,20 +149,29 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
         c.append(t(360, 220, 'antistatico, se c\'è).', 18))
         c.append(t(360, 270, 'Così scarichi l\'elettricità', 18, ROSSO, True))
         c.append(t(360, 300, 'statica e non rompi la RAM.', 18, ROSSO, True))
-    elif quale == 'viti':
-        c.append(r(80, 200, 260, 120, '#e9c46a', '#a47d1a', 3, 8))
-        c.append(t(210, 270, 'SCATOLA DELLE VITI', 17, '#5c4400', True, 'middle'))
-        for i in range(6):
-            x = 120 + i * 35
-            c.append(f'<g transform="translate({x},160)"><circle r="9" fill="#adb5bd" stroke="#495057" stroke-width="2"/>'
-                     '<line x1="-5" y1="0" x2="5" y2="0" stroke="#495057" stroke-width="2"/><line x1="0" y1="-5" x2="0" y2="5" stroke="#495057" stroke-width="2"/>'
-                     '<rect x="-2" y="9" width="4" height="18" fill="#868e96"/></g>')
-        c.append(freccia(210, 190, 210, 215))
-        c.append(t(390, 150, 'Ogni vite va subito', 19, '#1f2328', True))
-        c.append(t(390, 180, 'nella scatola.', 19, '#1f2328', True))
-        c.append(t(390, 230, 'Niente viti sul tavolo', 18))
-        c.append(t(390, 258, 'e niente viti dentro il PC:', 18))
-        c.append(t(390, 286, 'una vite libera fa un corto.', 18, ROSSO, True))
+    elif quale == 'tavolo':
+        # 05/11/2026 (docente): PC senza viti (tool-less); si toglie SOLO la RAM; disco e DVD restano nel rack
+        c.append(r(60, 210, 600, 120, '#e9d8b4', '#a47d1a', 3, 8))
+        c.append(t(360, 350, 'il vostro tavolo', 16, '#5c4400', True, 'middle'))
+        c.append(r(260, 228, 200, 70, '#fff', BLU, 2, 6))
+        c.append(r(285, 252, 150, 24, '#1b4332', '#081c15', 1, 2))
+        c.append(t(360, 292, 'qui la RAM', 15, BLU, True, 'middle'))
+        c.append(t(360, 80, 'Si toglie solo la RAM.', 22, '#1f2328', True, 'middle'))
+        c.append(t(360, 115, 'Disco e DVD restano nel rack: si staccano solo i cavi.', 18, '#1f2328', False, 'middle'))
+        c.append(t(360, 160, 'Non servono attrezzi: niente viti, solo leve, ganci e clic.', 17, ROSSO, True, 'middle'))
+    elif quale == 'disco':
+        c.append(r(120, 70, 380, 270, '#ced4da', '#6c757d', 4, 6))
+        c.append(t(310, 62, 'rack di alluminio (resta al suo posto)', 15, '#495057', True, 'middle'))
+        c.append(r(150, 95, 320, 95, '#343a40', '#212529', 2, 4))
+        c.append(t(300, 150, 'lettore DVD', 18, '#fff', True, 'middle'))
+        c.append(r(150, 220, 320, 95, '#adb5bd', '#343a40', 2, 4))
+        c.append(t(300, 275, 'disco (HDD o SSD)', 18, '#1f2328', True, 'middle'))
+        for y in (125, 250):
+            c.append(r(470, y, 22, 18, BLU, BLU, 1, 2))
+            c.append(t(500, y + 14, 'SATA dati', 14, BLU, True))
+            c.append(r(470, y + 26, 34, 18, '#212529', '#212529', 1, 2))
+            c.append(t(512, y + 40, 'SATA corrente', 14, '#212529', True))
+        c.append(t(360, 375, 'Disco e DVD NON escono dal rack: si staccano e si riattaccano solo i 2 cavi.', 15, ROSSO, True, 'middle'))
     elif quale == 'mappa':
         c.append(r(60, 70, 300, 280, '#2d6a4f', '#1b4332', 2, 6))
         c.append(r(300, 110, 40, 120, '#f4f4f4', '#495057', 2, 2))
@@ -194,13 +203,13 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
     elif quale == 'apri-case':
         c.append(r(160, 60, 260, 300, '#dfe3e8', '#57606a', 3, 8))
         c.append(r(420, 70, 30, 280, '#adb5bd', '#57606a', 2, 4))
-        for y in (100, 320):
-            c.append(f'<circle cx="435" cy="{y}" r="9" fill="#868e96" stroke="#343a40" stroke-width="2"/>')
-            c.append(freccia(520, y, 452, y))
-        c.append(t(530, 105, 'vite 1', 17, ROSSO, True))
-        c.append(t(530, 325, 'vite 2', 17, ROSSO, True))
+        c.append(r(426, 180, 18, 60, VERDE, '#1b4332', 2, 4))
+        c.append(freccia(520, 210, 452, 210))
+        c.append(t(530, 200, 'leva o gancio', 17, ROSSO, True))
+        c.append(t(530, 225, '(niente viti)', 16, ROSSO, True))
         c.append(t(290, 200, 'retro del PC', 17, '#1f2328', True, 'middle'))
-        c.append(t(60, 390 - 12, 'Svita le 2 viti dietro, poi fai scorrere il pannello laterale verso il retro.', 16, '#1f2328'))
+        c.append(freccia(300, 330, 200, 330))
+        c.append(t(60, 390 - 12, 'Tira la leva (o premi il gancio), poi fai scorrere il pannello laterale verso il retro.', 16, '#1f2328'))
     elif quale == 'ram':
         c.append(r(80, 160, 560, 70, '#1b4332', '#081c15', 2, 4))
         for i in range(8):
@@ -216,8 +225,8 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
         c.append(t(360, 70, 'Apri i ganci. Spingi la RAM dritta con due pollici', 18, '#1f2328', True, 'middle'))
         c.append(t(360, 96, 'fino al «clic»: i ganci si chiudono da soli.', 18, '#1f2328', True, 'middle'))
     elif quale == 'checklist':
-        voci = ['RAM ben dentro, ganci chiusi', 'Disco avvitato al suo posto', 'Disco: cavo SATA dati attaccato',
-                'Disco: cavo SATA alimentazione attaccato', 'Nessuna vite libera nel case']
+        voci = ['RAM ben dentro, ganci chiusi', 'Disco: 2 cavi SATA attaccati', 'DVD: 2 cavi SATA attaccati',
+                'Cavo 24 pin al suo posto', 'Niente lasciato dentro il case']
         c.append(t(60, 70, 'Prima di accendere: 5 controlli', 21, '#1f2328', True))
         for i, v in enumerate(voci):
             y = 120 + i * 50
@@ -234,7 +243,7 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
             c.append(f'<line x1="124" y1="{y - 2}" x2="300" y2="{y - 2}" stroke="{col}" stroke-width="5"/>')
             c.append(t(310, y + 4, s, 18, col, True))
         c.append(t(430, 150, 'Chiudi il case', 19, '#1f2328', True))
-        c.append(t(430, 180, 'con le sue 2 viti.', 18))
+        c.append(t(430, 180, 'finché fa clic.', 18))
         c.append(t(430, 230, 'Poi attacca i cavi:', 19, '#1f2328', True))
         c.append(t(430, 260, 'la corrente per ultima.', 18, ROSSO, True))
     elif quale == 'tasti-bios':
@@ -287,7 +296,7 @@ def ordine(titolo, passi, inverso=False):
             c.append(freccia(x + w - 22, 180, x + w - 2, 180))
     c.append(t(360, 300, 'Rimontare = stesso elenco, al contrario (da destra a sinistra).' if not inverso
                else 'È l\'ordine dello smontaggio letto al contrario.', 17, ROSSO, True, 'middle'))
-    c.append(t(360, 335, 'CPU e ventola (dissipatore): NON si toccano.', 17, '#1f2328', True, 'middle'))
+    c.append(t(360, 335, 'CPU, ventola, disco e DVD: NON si tolgono.', 17, '#1f2328', True, 'middle'))
     return _svg(''.join(c), titolo)
 
 
