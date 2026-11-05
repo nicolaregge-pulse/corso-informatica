@@ -115,6 +115,17 @@ figure{margin:8px 0}figcaption{font-size:15px}
 <p style="margin:6px 0 0;font-family:ui-monospace,Consolas,monospace;overflow-wrap:anywhere">Stringa = testo, tra apici: '5' + '3' = '53'<br>Intero = numero: 5 + 3 = 8<br>StrToInt = da testo a numero: StrToInt('15') = 15<br>IntToStr = da numero a testo: IntToStr(16) = '16'</p></div>
 <figure><img class="sx-img" src="img/quaderno.svg" alt="Le 4 righe del quaderno"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure><button class="fb" type="button">Ho fatto!</button></div>
 
+<div class="passo bonus" data-p="14" id="p14" data-auto="1" data-bonus="1"><span class="bollo">da fare</span><h2><span class="num">14</span>Bonus · Sfida: trova l'errore</h2><p class="ar" lang="ar" dir="rtl">إضافي · تحدٍّ: اعثر على الخطأ</p><p class="zh" lang="zh">加分 · 挑战：找出错误</p>
+<p>Hai finito? Ecco 5 programmi con un errore. Per ognuno scegli qual è l'errore e come si corregge. Vale +5 al voto, con il quiz 2.</p><p class="ar" lang="ar" dir="rtl">انتهيت؟ إليك 5 برامج فيها خطأ. لكل برنامج اختر ما هو الخطأ وكيف نصححه. يساوي +5 في العلامة، مع الاختبار 2.</p><p class="zh" lang="zh">做完了？这里有 5 个有错误的程序。每个都选出错误是什么、怎么改。加上测验 2，可以加 5 分。</p>
+<figure><img class="sx-img" src="img/sfida.svg" alt="Trova l'errore: testo più testo attacca, StrToInt fa la somma vera"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<div id="sfide"></div><p id="sf-conta" class="mu"></p>
+<button class="bt v" type="button" id="manda-sfida">Manda la sfida al prof · <span class="ar" lang="ar">أرسل التحدي</span> · <span class="zh" lang="zh">发送挑战</span></button><p class="msg" id="msg-sfida"></p></div>
+
+<div class="passo bonus" data-p="15" id="p15" data-bonus="1"><span class="bollo">da fare</span><h2><span class="num">15</span>Bonus · Quiz 2 su Moduli: 6 domande (servono 4 giuste)</h2><p class="ar" lang="ar" dir="rtl">إضافي · الاختبار 2 على Moduli: 6 أسئلة (تحتاج 4 صحيحة)</p><p class="zh" lang="zh">加分 · Moduli 测验 2：6 道题（要答对 4 道）</p>
+<p>Premi il bottone verde, rispondi e premi «Invia». Puoi rifarlo: vale il migliore.</p><p class="ar" lang="ar" dir="rtl">اضغط الزر الأخضر، أجب ثم اضغط «Invia». يمكنك إعادته: تُحسب أفضل نتيجة.</p><p class="zh" lang="zh">按绿色按钮，回答后按「Invia」。可以重做：算最好的一次。</p>
+<a class="bt v spento" id="quiz2-bt" href="#" target="_blank" rel="noopener">Il quiz 2 non è ancora aperto: premi F5 tra un minuto.</a>
+<figure><img class="sx-img" src="img/quiz.svg" alt="Quiz su Google Moduli"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure><button class="fb" type="button">Ho fatto!</button></div>
+
 <p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova.</p><div id="aiuto"></div></main>
 <script src="../../assistente/assistente.js" data-pagina="1inf-tipi-05-11" data-lingue="it,ar,zh" data-dove="aiuto"></script>
 <script>
@@ -268,8 +279,8 @@ function punteggio(){var g=0,su=0;CASI.forEach(function(c){var r=R[c.id]||{};voc
 function disegna(){var prossimo=null;P.forEach(function(p){var f=!!S[p.dataset.p];p.classList.toggle('fatto',f);p.classList.remove('ora');p.querySelector('.bollo').textContent=f?'FATTO':'da fare';
   var b=p.querySelector('button.fb');if(b)b.textContent=f?'Fatto ✓ (clic per togliere)':(p.dataset.p==='2'?'Ho letto!':'Ho fatto!');if(!f&&!prossimo)prossimo=p});
  if(prossimo){prossimo.classList.add('ora');prossimo.querySelector('.bollo').textContent='ADESSO'}
- var n=P.filter(function(p){return S[p.dataset.p]}).length;$('barra').style.width=Math.round(100*n/P.length)+'%';
- $('conta').textContent='Passi fatti: '+n+' su '+P.length+(n===P.length?' — BRAVO, hai finito!':'');
+ var PO=P.filter(function(p){return !p.dataset.bonus}),n=PO.filter(function(p){return S[p.dataset.p]}).length;$('barra').style.width=Math.round(100*n/PO.length)+'%';
+ $('conta').textContent='Passi fatti: '+n+' su '+PO.length+(n===PO.length?' — BRAVO, hai finito! Adesso il Bonus (passi 14 e 15).':'');
  var fa=P.filter(function(p){return S[p.dataset.p]}).map(function(p){return p.dataset.p}),ma=P.filter(function(p){return !S[p.dataset.p]}).map(function(p){return p.dataset.p});
  $('d-fatto').textContent=fa.length?'passi '+fa.join(', '):'niente, per ora';$('d-manca').textContent=ma.length?'passi '+ma.join(', '):'niente: hai finito!';
  if(prossimo){$('vai').style.display='';$('vai').textContent='Passo '+prossimo.dataset.p+' · '+corto(prossimo)+' →';$('vai').href='#p'+prossimo.dataset.p}else $('vai').style.display='none';
@@ -299,7 +310,70 @@ function quiz(){var u=(CONF.quiz_tipi||'').trim();['quiz-top','quiz-bt'].forEach
  if(u){a.href=u;a.target='_blank';a.classList.remove('spento');if(i==='quiz-bt')a.innerHTML='Apri il quiz · <span class="ar" lang="ar">افتح الاختبار</span> · <span class="zh" lang="zh">打开测验</span>'}
  else if(i==='quiz-top'){a.href='#p12';a.removeAttribute('target');a.classList.remove('spento')}
  else{a.classList.add('spento');a.href='#'}})}
-function giro(){fetch('config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){CONF=c||{};quiz()}).catch(function(){})}
+function giro(){fetch('config.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(c){CONF=c||{};quiz();quiz2()}).catch(function(){})}
+/* ---- BONUS: Sfida trova l'errore (passo 14) ---- */
+var KS='sf-'+SLUG,SF=prendi(KS,{});
+var SFIDE=[
+{id:'somma',tit:{it:'Sfida 1 · La somma che dà 53',ar:'التحدي 1 · الجمع الذي يعطي 53',zh:'挑战 1 · 结果是 53 的加法'},
+ st:{it:"Scrivi 5 in Edit1 e 3 in Edit2. Il programma fa: Label1.Caption := Edit1.Text + Edit2.Text. Sulla Label esce 53, non 8.",ar:"اكتب 5 في Edit1 و 3 في Edit2. البرنامج يفعل: Label1.Caption := Edit1.Text + Edit2.Text. يظهر على Label الرقم 53 وليس 8.",zh:"在 Edit1 写 5，在 Edit2 写 3。程序做：Label1.Caption := Edit1.Text + Edit2.Text。Label 上出现 53，不是 8。"},
+ e:{s:[{it:'Il + attacca due testi',ar:'علامة + تلصق نصّين',zh:'+ 把两个文字连在一起'},{it:'Manca solo IntToStr',ar:'ينقص IntToStr فقط',zh:'只是缺了 IntToStr'},{it:'Edit2 è vuoto',ar:'Edit2 فارغ',zh:'Edit2 是空的'}],g:0,
+  p:{it:"'5' + '3' sono due testi: il + li attacca e dà '53'.",ar:"'5' + '3' نصّان: علامة + تلصقهما فتعطي '53'.",zh:"'5' + '3' 是两个文字：+ 把它们连起来，得到 '53'。"}},
+ c:{s:['Label1.Caption := StrToInt(Edit1.Text + Edit2.Text)','Label1.Caption := IntToStr(StrToInt(Edit1.Text) + StrToInt(Edit2.Text))','Label1.Caption := Edit1.Text + Edit2.Text + 0'],g:1,
+  p:{it:'StrToInt su tutti e due, il conto 5 + 3 = 8, poi IntToStr per la Label.',ar:'StrToInt على الاثنين، الحساب 5 + 3 = 8، ثم IntToStr من أجل Label.',zh:'两个都用 StrToInt，计算 5 + 3 = 8，再用 IntToStr 放进 Label。'}}},
+{id:'caption',tit:{it:'Sfida 2 · Il numero nella Caption',ar:'التحدي 2 · الرقم في Caption',zh:'挑战 2 · Caption 里的数字'},
+ st:{it:'totale è un intero (16). Il programma fa: Label1.Caption := totale. Lazarus non compila: dà errore.',ar:'totale عدد صحيح (16). البرنامج يفعل: Label1.Caption := totale. Lazarus لا يترجم: يعطي خطأ.',zh:'totale 是整数（16）。程序做：Label1.Caption := totale。Lazarus 编译不过：报错。'},
+ e:{s:[{it:'Manca StrToInt',ar:'ينقص StrToInt',zh:'缺了 StrToInt'},{it:'La Caption vuole testo, totale è un numero',ar:'Caption يريد نصاً، و totale رقم',zh:'Caption 要文字，totale 是数字'},{it:'16 è troppo grande',ar:'16 كبير جداً',zh:'16 太大了'}],g:1,
+  p:{it:'Label1.Caption è SEMPRE testo: un intero non ci entra da solo.',ar:'Label1.Caption دائماً نص: العدد الصحيح لا يدخله وحده.',zh:'Label1.Caption 永远是文字：整数不能直接放进去。'}},
+ c:{s:["Label1.Caption := 'totale'",'Label1.Caption := StrToInt(totale)','Label1.Caption := IntToStr(totale)'],g:2,
+  p:{it:"IntToStr(16) dà '16': adesso è testo e va nella Caption.",ar:"IntToStr(16) يعطي '16': الآن هو نص ويدخل Caption.",zh:"IntToStr(16) 得到 '16'：现在是文字，可以放进 Caption。"}}},
+{id:'cap',tit:{it:'Sfida 3 · Il CAP che perde lo zero',ar:'التحدي 3 · الرمز البريدي الذي يفقد الصفر',zh:'挑战 3 · 丢了 0 的邮编'},
+ st:{it:"Scrivi 00184 in Edit1. Il programma fa: cap := StrToInt(Edit1.Text); Label1.Caption := IntToStr(cap) + ' Roma'. Sull'etichetta esce «184 Roma».",ar:"اكتب 00184 في Edit1. البرنامج يفعل: cap := StrToInt(Edit1.Text); Label1.Caption := IntToStr(cap) + ' Roma'. يظهر على الملصق «184 Roma».",zh:"在 Edit1 写 00184。程序做：cap := StrToInt(Edit1.Text); Label1.Caption := IntToStr(cap) + ' Roma'。标签上出现「184 Roma」。"},
+ e:{s:[{it:'Manca uno spazio',ar:'تنقص مسافة',zh:'缺了一个空格'},{it:'IntToStr è al posto sbagliato',ar:'IntToStr في المكان الخطأ',zh:'IntToStr 放错地方了'},{it:'Il CAP è trattato come numero: perde gli zeri davanti',ar:'الرمز البريدي عومل كرقم: يفقد الأصفار في البداية',zh:'邮编被当成数字：前面的 0 丢了'}],g:2,
+  p:{it:'Con il CAP non si fanno conti: è una STRINGA. Come intero 00184 diventa 184.',ar:'لا نحسب بالرمز البريدي: إنه STRINGA. كعدد صحيح 00184 يصبح 184.',zh:'邮编不用计算：是字符串。变成整数 00184 就成了 184。'}},
+ c:{s:["Label1.Caption := Edit1.Text + ' Roma'","cap := StrToInt('0' + Edit1.Text)","Label1.Caption := IntToStr(cap + 00) + ' Roma'"],g:0,
+  p:{it:'Nessuna conversione: il CAP resta testo e gli zeri restano.',ar:'بدون تحويل: يبقى الرمز البريدي نصاً وتبقى الأصفار.',zh:'不转换：邮编保持文字，0 也保留。'}}},
+{id:'eta',tit:{it:'Sfida 4 · Età + 1 senza conversione',ar:'التحدي 4 · العمر + 1 بدون تحويل',zh:'挑战 4 · 年龄 + 1 没有转换'},
+ st:{it:"eta è un intero. Il programma fa: eta := Edit1.Text + 1. Lazarus non compila: dà errore.",ar:"eta عدد صحيح. البرنامج يفعل: eta := Edit1.Text + 1. Lazarus لا يترجم: يعطي خطأ.",zh:"eta 是整数。程序做：eta := Edit1.Text + 1。Lazarus 编译不过：报错。"},
+ e:{s:[{it:'Testo + numero: prima serve StrToInt',ar:'نص + رقم: نحتاج StrToInt أولاً',zh:'文字 + 数字：先要 StrToInt'},{it:'Manca IntToStr',ar:'ينقص IntToStr',zh:'缺了 IntToStr'},{it:"Il + 1 deve diventare + '1'",ar:"يجب أن يصبح + 1 هو + '1'",zh:"+ 1 要改成 + '1'"}],g:0,
+  p:{it:'Edit1.Text è testo: non si può sommare a un numero.',ar:'Edit1.Text نص: لا يمكن جمعه مع رقم.',zh:'Edit1.Text 是文字：不能和数字相加。'}},
+ c:{s:["eta := Edit1.Text + '1'",'eta := IntToStr(Edit1.Text) + 1','eta := StrToInt(Edit1.Text) + 1'],g:2,
+  p:{it:"StrToInt('15') = 15, poi 15 + 1 = 16.",ar:"StrToInt('15') = 15، ثم 15 + 1 = 16.",zh:"StrToInt('15') = 15，然后 15 + 1 = 16。"}}},
+{id:'ciao',tit:{it:'Sfida 5 · StrToInt su «ciao»',ar:'التحدي 5 · StrToInt على «ciao»',zh:'挑战 5 · 对「ciao」用 StrToInt'},
+ st:{it:"Il programma chiede l'età. Un compagno scrive «ciao» in Edit1. Il programma fa: eta := StrToInt(Edit1.Text) e si blocca con un errore.",ar:"البرنامج يطلب العمر. زميل يكتب «ciao» في Edit1. البرنامج يفعل: eta := StrToInt(Edit1.Text) ويتوقف بخطأ.",zh:"程序问年龄。一个同学在 Edit1 写了「ciao」。程序做：eta := StrToInt(Edit1.Text)，然后出错停下来。"},
+ e:{s:[{it:'Manca IntToStr',ar:'ينقص IntToStr',zh:'缺了 IntToStr'},{it:'«ciao» non è fatto di cifre: StrToInt non può farlo diventare numero',ar:'«ciao» ليس أرقاماً: StrToInt لا يستطيع تحويله إلى رقم',zh:'「ciao」不是数字组成的：StrToInt 不能把它变成数字'},{it:'eta deve essere una stringa',ar:'يجب أن يكون eta نصاً',zh:'eta 应该是字符串'}],g:1,
+  p:{it:'StrToInt funziona solo con le cifre: «ciao» dà errore.',ar:'StrToInt يعمل فقط مع الأرقام: «ciao» يعطي خطأ.',zh:'StrToInt 只对数字有用：「ciao」会出错。'}},
+ c:{s:[{it:'Togliere StrToInt e fare Edit1.Text + 1',ar:'نحذف StrToInt ونكتب Edit1.Text + 1',zh:'去掉 StrToInt，写 Edit1.Text + 1'},{it:"Usare IntToStr('ciao')",ar:"نستعمل IntToStr('ciao')",zh:"用 IntToStr('ciao')"},{it:'Scrivere nella casella solo cifre (per esempio 15) e mettere vicino «Scrivi un numero»',ar:'نكتب في الخانة أرقاماً فقط (مثلاً 15) ونضع بجانبها «اكتب رقماً»',zh:'框里只写数字（比如 15），旁边写上「请写一个数字」'}],g:2,
+  p:{it:'Il programma va bene: serve un dato giusto. Una scritta vicino alla casella aiuta chi lo usa.',ar:'البرنامج جيد: نحتاج معلومة صحيحة. كتابة بجانب الخانة تساعد المستخدم.',zh:'程序没问题：需要正确的数据。框旁边写一句提示能帮助使用的人。'}}}];
+var SFT={err:{it:"Qual è l'errore?",ar:'ما هو الخطأ؟',zh:'错误是什么？'},cor:{it:'Come si corregge?',ar:'كيف نصححه؟',zh:'怎么改？'}};
+function sfGiusta(s,k){return String(s[k].g)}
+function sfFatta(s){var r=SF[s.id]||{};return !!(r.e&&r.e.ok&&r.c&&r.c.ok)}
+var sh='';SFIDE.forEach(function(s){sh+='<div class="card sfida" data-s="'+s.id+'"><h3>'+esc(s.tit.it)+'</h3><p class="ar" lang="ar" dir="rtl">'+esc(s.tit.ar)+'</p><p class="zh" lang="zh">'+esc(s.tit.zh)+'</p><div class="storia">'+tri(s.st)+'</div>';
+ ['e','c'].forEach(function(k){var t=k==='e'?SFT.err:SFT.cor;sh+='<div class="dom" data-k="'+k+'"><p class="q">'+esc(t.it)+'</p><p class="ar q" lang="ar" dir="rtl">'+esc(t.ar)+'</p><p class="zh q" lang="zh">'+esc(t.zh)+'</p><div class="scelte">'+
+  s[k].s.map(function(o,j){return '<button type="button" data-v="'+j+'">'+(typeof o==='string'?'<code>'+esc(o)+'</code>':triB(o))+'</button>'}).join('')+'</div><div class="esito"></div></div>'});
+ sh+='</div>'});
+$('sfide').innerHTML=sh;
+function sfDisegna(div,s){var k=div.dataset.k,r=(SF[s.id]||{})[k],g=sfGiusta(s,k),es=div.querySelector('.esito');
+ [].forEach.call(div.querySelectorAll('.scelte button'),function(b){b.classList.remove('giusta','sbagliata');b.disabled=false;
+  if(r&&r.sbagliate.indexOf(b.dataset.v)>=0)b.classList.add('sbagliata');if(r&&r.ok){if(b.dataset.v===g)b.classList.add('giusta');b.disabled=true}});
+ if(!r){es.className='esito';es.innerHTML='';return}
+ es.className='esito '+(r.ok?'ok':'ko');es.innerHTML=(r.ok?tri(TX.giusto):tri(TX.sbagliato))+tri(s[k].p)}
+function sfConta(){var g=0,f=SFIDE.filter(sfFatta).length;SFIDE.forEach(function(s){var r=SF[s.id]||{};['e','c'].forEach(function(k){if(r[k]&&r[k].primo)g++})});
+ $('sf-conta').textContent='Sfide fatte: '+f+' su '+SFIDE.length+' · giuste al primo colpo: '+g+' su '+(SFIDE.length*2);return {fatte:f,giusti_primo:g,su:SFIDE.length*2}}
+SFIDE.forEach(function(s){var c=document.querySelector('.sfida[data-s="'+s.id+'"]');[].forEach.call(c.querySelectorAll('.dom'),function(div){sfDisegna(div,s);
+ [].forEach.call(div.querySelectorAll('.scelte button'),function(b){b.onclick=function(){var k=div.dataset.k,v=b.dataset.v,g=sfGiusta(s,k);SF[s.id]=SF[s.id]||{};var r=SF[s.id][k]||{tent:0,sbagliate:[]};
+  if(r.ok)return;r.tent++;if(r.tent===1)r.primo=(v===g);if(v===g)r.ok=true;else if(r.sbagliate.indexOf(v)<0)r.sbagliate.push(v);SF[s.id][k]=r;metti(KS,SF);sfDisegna(div,s);sfConta()}})})});
+sfConta();
+$('manda-sfida').onclick=function(){var v=(inp.value||'').trim().replace(/\s+/g,' '),m=$('msg-sfida');
+ if(v.split(' ').length<2){m.className='msg ko';m.textContent='Scrivi nome e cognome in alto (Chi sei?), poi premi di nuovo.';inp.focus();return}
+ NOME=v;metti(KN,v);var pu=sfConta();
+ var d={id:'1inf-tipi0511',modo:'verifica',classe:'1INF',nome:NOME,cosa:'sfida',chiave:Date.now().toString(36),punteggio:pu,
+  sfide:SFIDE.map(function(s){var r=SF[s.id]||{};return {id:s.id,fatta:sfFatta(s),voci:['e','c'].map(function(k){var x=r[k]||{};return {k:k,primo:!!x.primo,tentativi:x.tent||0,sbagliate:x.sbagliate||[]}})}}),quando:new Date().toISOString()};
+ window.ultimaSfida=d;
+ if(!CONF.attivo||!CONF.invio){m.className='msg ko';m.textContent='ANTEPRIMA: invio spento.';return}
+ try{postaForm(d);S['14']=true;metti(K,S);disegna();ping(true);m.className='msg ok';m.textContent='Mandato! Si è aperta una scheda con «Consegna arrivata al prof». Adesso fai il quiz 2 (passo 15).'}
+ catch(x){m.className='msg ko';m.textContent='Non è partito. Premi di nuovo «Manda la sfida al prof».'}};
+function quiz2(){var u=(CONF.quiz_sfida||'').trim(),a=$('quiz2-bt');
+ if(u){a.href=u;a.target='_blank';a.classList.remove('spento');a.innerHTML='Apri il quiz 2 · <span class="ar" lang="ar">افتح الاختبار 2</span> · <span class="zh" lang="zh">打开测验 2</span>'}else{a.classList.add('spento');a.href='#'}}
 disegna();giro();setInterval(giro,30000);setInterval(function(){ping(true)},120000);
 })();
 </script></body></html>
