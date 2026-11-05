@@ -247,15 +247,17 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
         c.append(t(430, 230, 'Poi attacca i cavi:', 19, '#1f2328', True))
         c.append(t(430, 260, 'la corrente per ultima.', 18, ROSSO, True))
     elif quale == 'tasti-bios':
-        tasti = [('Canc', True), ('F2', True), ('F12', False), ('Esc', False), ('F10', False)]
-        for i, (s, ev) in enumerate(tasti):
+        # 05/11/2026: PC del laboratorio HP ProDesk 600 G3 MT (BIOS HP UEFI)
+        tasti = [('Esc', 'menu', True), ('F1', 'info', False), ('F2', 'diagnosi', False), ('F9', 'avvio USB', True), ('F10', 'BIOS', True)]
+        for i, (s_, cosa, ev) in enumerate(tasti):
             x = 70 + i * 120
             c.append(r(x, 150, 90, 70, '#fff', ROSSO if ev else '#57606a', 4 if ev else 2, 10))
-            c.append(t(x + 45, 195, s, 24, ROSSO if ev else '#1f2328', True, 'middle'))
-        c.append(t(360, 80, 'Accendi e premi SUBITO, più volte, il tasto del BIOS:', 18, '#1f2328', True, 'middle'))
-        c.append(t(360, 110, 'di solito Canc (Del) oppure F2. Lo scrive lo schermo all\'avvio.', 17, '#1f2328', False, 'middle'))
-        c.append(t(360, 270, 'F12 (o Esc) = menu di avvio: scegli da dove parte il PC, una volta sola.', 17, '#1f2328', False, 'middle'))
-        c.append(t(360, 300, 'F10 = salva ed esci dal BIOS.', 17, '#1f2328', False, 'middle'))
+            c.append(t(x + 45, 195, s_, 24, ROSSO if ev else '#1f2328', True, 'middle'))
+            c.append(t(x + 45, 245, cosa, 15, '#1f2328', True, 'middle'))
+        c.append(t(360, 80, 'PC HP: accendi e premi SUBITO, più volte, Esc.', 18, '#1f2328', True, 'middle'))
+        c.append(t(360, 110, 'Si apre il menu di avvio con i tasti qui sotto.', 17, '#1f2328', False, 'middle'))
+        c.append(t(360, 300, 'F10 = BIOS (Computer Setup). F9 = parti dalla chiavetta USB.', 17, '#1f2328', False, 'middle'))
+        c.append(t(360, 330, 'F11 (System Restore) NON si usa.', 17, ROSSO, True, 'middle'))
     elif quale == 'rete':
         c.append(r(280, 60, 160, 50, '#e6edf3', '#57606a', 2, 6))
         c.append(t(360, 92, 'SWITCH', 18, '#1f2328', True, 'middle'))

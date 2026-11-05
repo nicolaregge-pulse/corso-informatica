@@ -5,10 +5,13 @@ Uso:
   python3 strumenti/inserisci_foto_dispensa.py --versione 1.1 FOTO-02-06=/percorso/foto.jpg [FOTO-03-03=/altra.jpg@x,y,w,h] ...
   python3 strumenti/inserisci_foto_dispensa.py --versione 1.1 --elenco elenco.txt      (righe: «FOTO-02-06 /percorso/foto.jpg [x,y,w,h]»)
   --prova DIR   lavora solo le immagini e le scrive in DIR: non tocca la dispensa e non rigenera niente.
+  --sfoca FOTO-04-02=x,y,w,h[+x,y,w,h...]   rende illeggibili quei riquadri (numeri di serie, UUID, codici a barre),
+                prima del ritaglio, in pixel della foto già raddrizzata. Si può ripetere.
 
 Per ogni foto:
   1. la raddrizza secondo l'orientamento EXIF del telefono;
-  2. la ritaglia se dopo il file c'è @x,y,w,h (pixel della foto già raddrizzata);
+  2. sfoca i riquadri di --sfoca (sfocatura forte + pixel grossi: il testo non si legge più);
+  2b. la ritaglia se dopo il file c'è @x,y,w,h (pixel della foto già raddrizzata);
   3. la porta a massimo 1600 px sul lato lungo;
   4. la salva in JPEG SENZA dati EXIF (niente posizione GPS, niente modello del telefono)
      in classe-2/dispense/img-mini-guida-pc/FOTO-CC-NN.jpg e la segna in foto.json.
@@ -23,7 +26,7 @@ import re
 import subprocess
 import sys
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import genera_dispensa_pc as D  # noqa: E402
@@ -48,9 +51,17 @@ def leggi_voci(a):
     return voci
 
 
-def lavora(src, dest, ritaglio):
-    im = Image.open(src)
-    im = ImageOps.exif_transpose(im)
+def sfoca(im, box):
+    x, y, w, h = box
+    pezzo = im.crop((x, y, x + w, y + h))
+    pezzo = pezzo.resize((max(1, w // 40), max(1, h // 40)), Image.BILINEAR).resize((w, h), Image.NEAREST)
+    im.paste(pezzo.filter(ImageFilter.GaussianBlur(25)), (x, y))
+
+
+def lavora(src, dest, ritaglio, sfocature=()):
+    im = ImageOps.exif_transpose(Image.open(src)).convert('RGB')
+    for box in sfocature:
+        sfoca(im, box)
     if ritaglio:
         x, y, w, h = ritaglio
         if x < 0 or y < 0 or x + w > im.width or y + h > im.height or w < 50 or h < 50:
@@ -69,6 +80,7 @@ def main():
     a.add_argument('--versione', help='versione nuova della dispensa (per esempio 1.1)')
     a.add_argument('--elenco', help='file con una riga per foto: ID file [x,y,w,h]')
     a.add_argument('--prova', help='cartella di prova: lavora solo le immagini, non rigenera')
+    a.add_argument('--sfoca', action='append', default=[], help='FOTO-CC-NN=x,y,w,h[+x,y,w,h]')
     a = a.parse_args()
     voci = leggi_voci(a)
     if not voci:
@@ -81,14 +93,18 @@ def main():
             sys.exit(f'File non trovato: {f}')
     if not a.prova and not (a.versione and re.match(r'^\d+\.\d+$', a.versione)):
         sys.exit('Serve --versione nuova (per esempio 1.1): una versione già data non si riscrive (R11).')
+    sf = {}
+    for x in a.sfoca:
+        i, _, boxes = x.partition('=')
+        sf[i] = [tuple(map(int, b.split(','))) for b in boxes.split('+') if b]
     out = a.prova or D.IMG
     os.makedirs(out, exist_ok=True)
     fatte = {}
     for i, f, rit in voci:
         nome = i + '.jpg'
-        w, h = lavora(f, os.path.join(out, nome), rit)
+        w, h = lavora(f, os.path.join(out, nome), rit, sf.get(i, ()))
         fatte[i] = nome
-        print(f'{i}: {os.path.basename(f)} -> {nome} ({w}x{h}, senza EXIF) · {validi[i]["titolo"]}')
+        print(f'{i}: {os.path.basename(f)} -> {nome} ({w}x{h}, senza EXIF{", %d zone sfocate" % len(sf[i]) if sf.get(i) else ""}) · {validi[i]["titolo"]}')
     if a.prova:
         print('PROVA: dispensa non toccata.')
         return

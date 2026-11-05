@@ -130,22 +130,22 @@ passo('rimonta', 'chiudi', 'Chiudi il case e collega i cavi',
       'Rimetti il pannello e fallo scorrere finché fa clic. Collega monitor, tastiera, mouse e rete. La corrente per ultima.',
       'collega.svg', 'প্যানেল লাগিয়ে «ক্লিক» পর্যন্ত সরাও। মনিটর, কীবোর্ড, মাউস, নেটওয়ার্ক লাগাও। বিদ্যুৎ সবার শেষে।')
 passo('bios', 'accendi', 'Accendi ed entra nel BIOS',
-      'Premi il tasto di accensione. Subito, più volte, premi <b>Canc</b> (o <b>F2</b>): lo schermo all\'avvio dice il tasto giusto. Entri nel BIOS/UEFI.',
-      'tasti-bios.svg', 'চালু করে সঙ্গে সঙ্গে বারবার Canc (বা F2) চাপো। BIOS/UEFI খুলবে।')
-passo('bios', 'leggi', 'Leggi CPU, RAM e disco',
-      'Nella prima schermata del BIOS (Main o Informazioni di sistema) leggi: il nome della CPU, quanta RAM c\'è, il nome del disco. Scrivili nella scheda.',
-      'bios-info.svg', 'BIOS-এর প্রথম পাতায় CPU-র নাম, RAM কত, ডিস্কের নাম পড়ো আর ফর্মে লেখো।')
-passo('bios', 'boot', 'Metti la chiavetta USB per prima',
-      'Vai nella scheda <b>Boot</b> (Avvio). Metti <b>USB</b> al primo posto nell\'ordine di avvio. Premi <b>F10</b> e conferma: il BIOS salva ed esce.',
-      'bios-boot.svg', 'Boot ট্যাবে যাও। USB-কে প্রথমে রাখো। F10 চেপে সেভ করো।')
-passo('bios', 'menu-avvio', 'Se non trovi l\'ordine di avvio: menu F12',
-      'Nessun problema: spegni, accendi e premi <b>F12</b> (o Esc). Nel menu di avvio scegli la chiavetta USB. Vale solo per questa volta.',
-      'menu-avvio.svg', 'না পেলে: চালু করে F12 চাপো, মেনু থেকে USB বেছে নাও।')
+      'Premi il tasto di accensione. Subito, più volte, premi <b>Esc</b>: si apre il menu HP. Poi premi <b>F10</b> (BIOS Setup). Entri nel BIOS/UEFI.',
+      'tasti-bios.svg', 'চালু করে সঙ্গে সঙ্গে বারবার Esc চাপো, তারপর F10। BIOS খুলবে।')
+passo('bios', 'leggi', 'Leggi CPU e RAM in System Information',
+      'In Main scegli <b>System Information</b> (oppure dal menu Esc premi <b>F1</b>). Leggi Processor e Memory Size: <b>4096 MB = 4 GB</b>. Se dopo il rimontaggio vedi meno memoria, la RAM non è inserita bene. Scrivi CPU e RAM nella scheda.',
+      'bios-info.svg', 'Main > System Information (বা Esc > F1)। Processor আর Memory Size পড়ো: 4096 MB = 4 GB। কম দেখালে RAM ঠিকমতো বসেনি।')
+passo('bios', 'boot', 'Controlla l\'avvio da USB',
+      'Apri la scheda <b>Advanced</b>, poi <b>Boot Options</b>. <b>USB Storage Boot</b> deve essere spuntato. Poi torna in <b>Main</b>, scegli <b>Save Changes and Exit</b> e conferma.',
+      'bios-boot.svg', 'Advanced > Boot Options: USB Storage Boot-এ টিক থাকতে হবে। তারপর Main > Save Changes and Exit।')
+passo('bios', 'menu-avvio', 'Se non trovi l\'ordine di avvio: menu F9',
+      'Nessun problema: spegni, accendi, premi <b>Esc</b> e poi <b>F9</b> (Boot Menu). Nel menu di avvio scegli la chiavetta USB. Vale solo per questa volta.',
+      'menu-avvio.svg', 'না পেলে: চালু করে Esc, তারপর F9 চাপো, মেনু থেকে USB বেছে নাও।')
 
 # --- ora 3: installazione di Windows 10 (A) o Linux Mint (B)
 passo('installa', 'w-avvio', 'Parti dalla chiavetta di Windows 10',
-      'Metti la chiavetta nella porta USB. Accendi e premi <b>F12</b>: scegli la riga con <b>USB</b>. Se compare «Premi un tasto per avviare da…», premi un tasto qualsiasi.',
-      'w-avvio.svg', 'USB লাগাও, চালু করে F12 চাপো, USB বেছে নাও।', 'A')
+      'Metti la chiavetta nella porta USB. Accendi, premi <b>Esc</b> e poi <b>F9</b>: scegli la riga con <b>USB</b>. Se compare «Premi un tasto per avviare da…», premi un tasto qualsiasi.',
+      'w-avvio.svg', 'USB লাগাও, চালু করে Esc তারপর F9 চাপো, USB বেছে নাও।', 'A')
 passo('installa', 'w-lingua', 'Lingua: Italiano, poi Installa',
       'Lascia Italiano in tutte e tre le caselle. Premi <b>Avanti</b>, poi <b>Installa</b>.',
       'w-lingua.svg', 'ভাষা Italiano রাখো। Avanti, তারপর Installa চাপো।', 'A')
@@ -163,8 +163,8 @@ passo('installa', 'w-copia', 'Aspetta: Windows copia i file',
       'w-copia.svg', 'Windows ফাইল কপি করে নিজে রিস্টার্ট হয় (১৫-২৫ মিনিট)। কিছু ছোঁবে না। এর মধ্যে নিচের থিওরি পড়ো আর কুইজ করো।', 'A',
       extra='TEORIA')
 passo('installa', 'm-avvio', 'Parti dalla chiavetta di Linux Mint',
-      'Metti la chiavetta. Accendi e premi <b>F12</b>: scegli <b>USB</b>. Nel menu scegli <b>Start Linux Mint</b>.',
-      'm-avvio.svg', 'USB লাগাও, F12 চাপো, Start Linux Mint বেছে নাও।', 'B')
+      'Metti la chiavetta. Accendi, premi <b>Esc</b> e poi <b>F9</b>: scegli <b>USB</b>. Nel menu scegli <b>Start Linux Mint</b>.',
+      'm-avvio.svg', 'USB লাগাও, Esc তারপর F9 চাপো, Start Linux Mint বেছে নাও।', 'B')
 passo('installa', 'm-installa', 'Doppio clic su «Install Linux Mint»',
       'Sul desktop fai doppio clic sull\'icona del disco <b>Install Linux Mint</b>. Scegli Italiano e la tastiera Italiano.',
       'm-installa.svg', 'ডেস্কটপে «Install Linux Mint»-এ ডাবল ক্লিক করো। Italiano বেছে নাও।', 'B')
@@ -316,11 +316,11 @@ SCHEDE = {
         {'k': 'c_dvd', 'l': 'DVD: 2 cavi SATA attaccati', 't': 'spunta'},
         {'k': 'c_24', 'l': 'Cavo 24 pin al suo posto', 't': 'spunta'},
         {'k': 'c_dentro', 'l': 'Niente lasciato dentro il case', 't': 'spunta'},
-        {'k': 'tasto', 'l': 'Con quale tasto siete entrati nel BIOS?', 't': 'scelta', 'o': ['Canc (Del)', 'F2', 'F10', 'F1', 'Esc', 'altro']},
+        {'k': 'tasto', 'l': 'Con quale tasto siete entrati nel BIOS?', 't': 'scelta', 'o': ['Esc poi F10', 'F10', 'Canc (Del)', 'F2', 'F1', 'altro']},
         {'k': 'cpu', 'l': 'Nome della CPU (dal BIOS)', 't': 'testo'},
         {'k': 'ram', 'l': 'Quanta RAM (dal BIOS)', 't': 'testo'},
         {'k': 'disco', 'l': 'Nome o dimensione del disco (dal BIOS)', 't': 'testo'},
-        {'k': 'boot_usb', 'l': 'USB messa per prima nell\'ordine di avvio (o scelta con F12)', 't': 'spunta'}]},
+        {'k': 'boot_usb', 'l': 'USB Storage Boot spuntato (o USB scelta con F9)', 't': 'spunta'}]},
     3: {'titolo': 'Scheda dell\'ora 3: sistema, utenti e rete', 'campi': [
         {'k': 'installato', 'l': 'Sistema installato: il desktop si vede', 't': 'spunta'},
         {'k': 'nome_pc', 'l': 'Nome del PC (per esempio PC-B3)', 't': 'testo'},
@@ -367,16 +367,16 @@ def disegni(conf):
         'ordine-smontaggio.svg': S.ordine('Ordine dello smontaggio', ['Cavi del disco', 'Cavi del DVD', 'RAM']),
         'ordine-montaggio.svg': S.ordine('Ordine del rimontaggio', ['RAM', 'Cavi del DVD', 'Cavi del disco'], True),
         'consegna.svg': S.consegna(), 'quiz.svg': S.quiz(),
-        'bios-info.svg': S.bios('BIOS / UEFI · Main (Informazioni di sistema)', [
-            ('Versione BIOS', '1.2.3'), ('Processore (CPU)', 'Intel Core i5-6500 3.20GHz'), ('Memoria (RAM)', '8192 MB'),
-            ('SATA 0 (disco)', 'SSD 240GB'), ('Data e ora', '05/11/2026 09:35')], evid=[1, 2, 3]),
-        'bios-boot.svg': S.bios('BIOS / UEFI · Boot (ordine di avvio)', [
-            ('Boot Option #1', 'USB: Chiavetta USB'), ('Boot Option #2', 'SATA 0: SSD 240GB'), ('Boot Option #3', 'Rete (PXE)'),
-            ('Fast Boot', 'Disattivato'), ('', '')], evid=[0], nota='Metti USB al n. 1 (tasti + / - o Invio), poi F10 = Salva ed esci'),
-        'menu-avvio.svg': S.bios('Menu di avvio (F12)', [
+        'bios-info.svg': S.bios('HP · System Information (F1)', [
+            ('Product Name', 'HP ProDesk 600 G3 MT'), ('Processor 1', 'Intel Core i3-6100 3.70GHz'), ('Memory Size', '4096 MB (= 4 GB)'),
+            ('System BIOS', 'P02 Ver. 02.38'), ('', '')], evid=[1, 2], nota='Meno di 4096 MB dopo il rimontaggio = RAM non inserita bene'),
+        'bios-boot.svg': S.bios('HP Computer Setup · Advanced · Boot Options', [
+            ('[ ] Fast Boot', ''), ('[ ] CD-ROM Boot', ''), ('[x] USB Storage Boot', 'deve essere spuntato'),
+            ('UEFI Boot Order', 'SATA0: Windows Boot Manager'), ('', '')], evid=[2], nota='Poi Main > Save Changes and Exit'),
+        'menu-avvio.svg': S.bios('Boot Menu (Esc, poi F9)', [
             ('1.', 'Windows Boot Manager'), ('2.', 'UEFI: USB Flash Disk'), ('3.', 'SATA 0: SSD 240GB'), ('4.', 'Enter Setup')],
             evid=[1], nota='Frecce su/giù per scegliere, Invio per partire'),
-        'w-avvio.svg': S.bios('Menu di avvio (F12)', [('1.', 'Windows Boot Manager'), ('2.', 'UEFI: USB Flash Disk'), ('3.', 'SATA 0')],
+        'w-avvio.svg': S.bios('Boot Menu (Esc, poi F9)', [('1.', 'Windows Boot Manager'), ('2.', 'UEFI: USB Flash Disk'), ('3.', 'SATA 0')],
                               evid=[1], nota='Scegli la riga con USB e premi Invio'),
         'w-lingua.svg': f('Installazione di Windows', [
             ('c', 60, 90, 420, 'Lingua da installare', 'Italiano (Italia)'), ('c', 60, 160, 420, 'Formato ora e valuta', 'Italiano (Italia)'),

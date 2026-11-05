@@ -161,22 +161,33 @@ cap(3, 'Rimontare il PC', 'Si rimonta al contrario: RAM, cavi del DVD, cavi del 
      'মনিটর, কীবোর্ড, মাউস আর নেটওয়ার্ক লাগাও। বিদ্যুৎ সবার শেষে।', 'il retro del PC con monitor, tastiera, mouse, rete e corrente collegati'),
 ], box=[('ROSSO', 'Un controllo è NO? Non accendere: sistema prima.')])
 
-cap(4, 'Accensione e BIOS', 'Il BIOS (Basic Input Output System: il programma che parte per primo, nei PC nuovi si chiama UEFI) dice al PC da dove partire. Oggi si parte dalla chiavetta USB.', [
+cap(4, 'Accensione e BIOS', 'I PC del laboratorio sono HP ProDesk 600 G3 MT. Il BIOS (Basic Input Output System: il programma che parte per primo; negli HP si chiama Computer Setup, è un UEFI) dice al PC da dove partire. Oggi si parte dalla chiavetta USB.', [
+    ('Guarda il numero del tuo PC', 'Sul case c\'è l\'adesivo «AULA 11 COMPUTER» con un numero. È il numero del vostro PC.', 'collega.svg',
+     'কেসের ওপর «AULA 11 COMPUTER» স্টিকারে তোমার PC-র নম্বর আছে।', 'gli adesivi «AULA 11 COMPUTER NN»'),
+    ('Leggi il modello del PC', 'Sull\'etichetta HP del case leggi il modello: HP ProDesk 600 G3 MT.', 'componenti.svg',
+     'HP লেবেলে মডেল পড়ো: HP ProDesk 600 G3 MT।', 'l\'etichetta HP con il modello (numero di serie e Product No. sfocati)'),
     ('Metti la chiavetta', 'Metti la chiavetta di Windows 10 in una porta USB dietro il PC.', 'collega.svg',
      'Windows 10-এর USB পেছনের একটা USB পোর্টে লাগাও।', 'la chiavetta di Windows 10 infilata in una porta USB dietro il PC'),
-    ('Entra nel BIOS', 'Premi il tasto di accensione. Subito, più volte, premi Canc (o F2). Lo schermo all\'avvio dice il tasto giusto.', 'tasti-bios.svg',
-     'চালু করে সঙ্গে সঙ্গে বারবার Canc (বা F2) চাপো।', 'lo schermo all\'avvio con la scritta del tasto per entrare nel BIOS'),
-    ('Leggi CPU, RAM e disco', 'Nella prima schermata leggi il nome della CPU, quanta RAM c\'è e il nome del disco.', 'bios-info.svg',
-     'প্রথম পাতায় CPU-র নাম, RAM কত আর ডিস্কের নাম পড়ো।', 'la prima schermata del BIOS dei PC del laboratorio'),
-    ('Vai nella scheda Boot', 'Con le frecce vai nella scheda Boot (Avvio).', 'bios-boot.svg',
-     'তীর চিহ্ন দিয়ে Boot ট্যাবে যাও।', 'la scheda Boot del BIOS dei PC del laboratorio'),
-    ('Metti USB per prima', 'Porta USB al primo posto nell\'ordine di avvio (Boot Option #1).', 'bios-boot.svg',
-     'Boot Option #1-এ USB রাখো।', 'la riga Boot Option #1 con la chiavetta USB'),
-    ('Salva ed esci', 'Premi F10 e conferma con Sì (Yes). Il PC riparte dalla chiavetta.', 'bios-boot.svg',
-     'F10 চেপে Yes দাও। PC USB থেকে চালু হবে।', 'la finestra «Save and Exit» con Yes'),
-    ('Piano B: il menu F12', 'Non trovi l\'ordine di avvio? Spegni, accendi e premi F12 (o Esc). Scegli la riga con USB e premi Invio.', 'menu-avvio.svg',
-     'না পেলে: চালু করে F12 চাপো, USB বেছে Enter চাপো।', 'il menu di avvio F12 dei PC del laboratorio con la riga USB'),
-])
+    ('Apri il menu HP con Esc', 'Premi il tasto di accensione. Subito, più volte, premi Esc. Si apre il menu con i tasti F1, F2, F9, F10.', 'tasti-bios.svg',
+     'চালু করে সঙ্গে সঙ্গে বারবার Esc চাপো। F1, F2, F9, F10 সহ মেনু খুলবে।', 'il menu di avvio HP aperto con Esc'),
+    ('Apri System Information', 'Premi F1. Leggi Product Name, Processor (la CPU) e Memory Size (la RAM).', 'bios-info.svg',
+     'F1 চাপো। Product Name, Processor (CPU) আর Memory Size (RAM) পড়ো।', 'la schermata System Information (solo le prime 4 righe)'),
+    ('Controlla la RAM', 'Memory Size deve dire 4096 MB, cioè 4 GB. Se dopo il rimontaggio vedi meno memoria, la RAM non è inserita bene: spegni e rimettila.', 'bios-info.svg',
+     'Memory Size-এ 4096 MB (= 4 GB) থাকতে হবে। কম দেখালে RAM ঠিকমতো বসেনি: বন্ধ করে আবার লাগাও।', 'la riga Memory Size 4096 MB in System Information'),
+    ('Guarda la diagnostica', 'Premi Esc per tornare al menu, poi F2. Qui ci sono Memory Test (prova la RAM) e Hard Drive Check (prova il disco). Oggi si guarda e si esce con Exit.', 'checklist.svg',
+     'Esc চেপে মেনুতে ফেরো, তারপর F2। Memory Test আর Hard Drive Check দেখো, তারপর Exit।', 'HP PC Hardware Diagnostics con Memory Test e Hard Drive Check'),
+    ('Entra nel BIOS', 'Riavvia, premi Esc e poi F10 (BIOS Setup). Si apre HP Computer Setup sulla scheda Main.', 'tasti-bios.svg',
+     'রিস্টার্ট করে Esc, তারপর F10 চাপো। HP Computer Setup-এর Main খুলবে।', 'HP Computer Setup, scheda Main'),
+    ('Apri la scheda Advanced', 'In alto clicca la scheda Advanced.', 'bios-boot.svg',
+     'উপরে Advanced ট্যাবে ক্লিক করো।', 'HP Computer Setup, scheda Advanced'),
+    ('Controlla Boot Options', 'Clicca Boot Options. USB Storage Boot deve essere spuntato. In UEFI Boot Order c\'è SATA0: Windows Boot Manager.', 'bios-boot.svg',
+     'Boot Options-এ ক্লিক করো। USB Storage Boot-এ টিক থাকতে হবে।', 'Advanced > Boot Options con USB Storage Boot spuntato'),
+    ('Salva ed esci', 'Torna nella scheda Main, clicca Save Changes and Exit e conferma con Yes.', 'bios-boot.svg',
+     'Main-এ ফিরে Save Changes and Exit চাপো, Yes দাও।', 'la voce Save Changes and Exit nella scheda Main'),
+    ('Parti dalla chiavetta: F9', 'Riavvia, premi Esc e poi F9 (Boot Menu). Scegli la riga con USB e premi Invio.', 'menu-avvio.svg',
+     'রিস্টার্ট করে Esc, তারপর F9। USB বেছে Enter চাপো।', 'il Boot Menu F9 con la riga della chiavetta USB'),
+], box=[('GIALLO', 'Tasti dei PC HP, da premere subito all\'accensione: Esc = menu; F1 = System Information; F2 = diagnostica; F9 = Boot Menu (avvio da USB); F10 = BIOS Setup.'),
+        ('ROSSO', 'F11 (System Restore) non si usa. Nel BIOS si cambia solo quello che dice la guida.')])
 
 cap(5, 'Installare Windows 10 da chiavetta', 'Il PC del banco si può cancellare tutto: è fatto per imparare. Si crea un account locale: nome e password stanno solo su questo PC.', [
     ('Parti dalla chiavetta', 'Se compare «Premi un tasto per avviare da CD o DVD», premi un tasto qualsiasi.', 'w-avvio.svg',
@@ -309,7 +320,7 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 ### 09.2 Guasto 1: RAM tolta o non agganciata
 
 1. **Come crearlo:** togli tutti i banchi di RAM e appoggiali sul tavolo del banco. Variante «non agganciata»: banco appoggiato dritto nello slot, ganci aperti, senza clic.
-2. **Sintomo che vedranno:** le ventole girano ma lo schermo resta nero; su alcuni PC dei beep ripetuti o un LED «DRAM» acceso sulla scheda madre. Molti PC non hanno il cicalino: solo schermo nero.
+2. **Sintomo che vedranno:** le ventole girano ma lo schermo resta nero; sugli HP ProDesk di solito beep e il LED di accensione che lampeggia (il codice esatto: non provato). Se nel PC ci sono 2 banchi e ne togli uno, il PC parte ma System Information (Esc, F1) mostra meno di Memory Size 4096 MB.
 3. **Domande-guida:**
    1. Le ventole girano? Allora la corrente arriva?
    2. Che cosa serve al PC per lavorare appena acceso?
@@ -320,9 +331,9 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 ### 09.3 Guasto 2: cavo SATA dati del disco staccato
 
 1. **Come crearlo:** stacca solo il cavo SATA dati (quello sottile) dal disco, che resta nel suo rack; lascia attaccato il cavo SATA di alimentazione.
-2. **Sintomo che vedranno:** con Windows già installato, «Reboot and Select proper Boot device», «No bootable device» o il PC che entra da solo nel BIOS. Nel BIOS il disco non compare. Durante l'installazione: nessuna unità nella finestra dei dischi.
+2. **Sintomo che vedranno:** con Windows già installato, un messaggio di nessun dispositivo di avvio o il PC che entra da solo nel menu HP. In Advanced, Boot Options manca SATA0 nell'UEFI Boot Order; la diagnostica F2, Hard Drive Check, non trova il disco. Durante l'installazione: nessuna unità nella finestra dei dischi.
 3. **Domande-guida:**
-   1. Il BIOS vede il disco? In quale schermata lo avete letto all'ora 2?
+   1. Il BIOS vede il disco? Guardate UEFI Boot Order in Advanced, Boot Options.
    2. Quanti cavi ha un disco, e a che cosa serve ognuno?
    3. Che cosa cambia tra il disco «che gira» e il disco «che parla con la scheda madre»?
 4. **Soluzione:** riattaccare il cavo SATA dati al disco (e controllare che sia attaccato anche alla scheda madre).
@@ -341,14 +352,14 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 
 ### 09.5 Guasto 4: ordine di avvio sbagliato nel BIOS
 
-1. **Come crearlo:** nel BIOS, scheda Boot, metti il disco (o la rete, «PXE») prima della USB. Salva con F10. Non serve aprire il case.
-2. **Sintomo che vedranno:** con la chiavetta inserita il PC non parte dalla USB: parte Windows già installato, oppure (disco vuoto) «No bootable device» o la scritta «Start PXE over IPv4».
+1. **Come crearlo:** Esc, F10 (BIOS Setup), Advanced, Boot Options: togli la spunta a USB Storage Boot. Main, Save Changes and Exit. Non serve aprire il case.
+2. **Sintomo che vedranno:** con la chiavetta inserita il PC non parte dalla USB e nel Boot Menu (Esc, F9) la chiavetta non compare: parte Windows già installato, oppure (disco vuoto) un messaggio di nessun dispositivo di avvio.
 3. **Domande-guida:**
    1. Chi decide da dove parte il PC?
-   2. Dove lo avete cambiato all'ora 2?
-   3. C'è un modo per scegliere la USB solo per questa volta, senza cambiare il BIOS?
-4. **Soluzione:** BIOS, Boot, USB al primo posto, F10; oppure il menu F12.
-5. **Rischio e attenzioni:** nessun rischio per i pezzi. Non cambiare altre voci: Secure Boot o la modalità del disco (AHCI, RAID) possono impedire a Windows di partire. Scrivi nel cartellino che cosa hai cambiato.
+   2. In quale scheda del BIOS HP avete visto USB Storage Boot?
+   3. Nel Boot Menu F9 la chiavetta c'è? Perché no?
+4. **Soluzione:** Esc, F10, Advanced, Boot Options, spunta USB Storage Boot; Main, Save Changes and Exit; poi Esc, F9 e la riga USB.
+5. **Rischio e attenzioni:** nessun rischio per i pezzi. Non cambiare altre voci: Secure Boot Configuration o la modalità del disco (AHCI, RAID) possono impedire a Windows di partire. Scrivi nel cartellino che cosa hai cambiato.
 
 ### 09.6 Guasto 5: rete, cavo staccato o IP sbagliato
 
@@ -552,7 +563,8 @@ def md_html(md, base):
             if i + 2 < len(righe) and righe[i + 2].startswith('*'):
                 cap_ = righe[i + 2].strip('*')
                 i += 2
-            out.append(f'<figure><img src="{src}" alt="{escape(m.group(1))}"><figcaption>{inline(cap_)}</figcaption></figure>')
+            cl = ' class="foto"' if src.lower().endswith('.jpg') else ''
+            out.append(f'<figure><img{cl} src="{src}" alt="{escape(m.group(1))}"><figcaption>{inline(cap_)}</figcaption></figure>')
             i += 1
             continue
         if ln.startswith('|'):
@@ -595,6 +607,7 @@ h3{color:#1a5a94;font-size:12.5pt;margin:0 0 1.5mm;break-after:avoid}
 .passo{break-inside:avoid;margin:4mm 0 5mm;padding:2mm 3mm;border:1px solid #d5e0ec;border-radius:6px}
 .passo p{margin:1mm 0}
 figure{margin:2mm 0 0;text-align:center}figure img{max-width:100%;max-height:50mm;border:1px solid #cfdae6;border-radius:4px}
+figure img.foto{max-height:95mm}
 figcaption{font-size:8.5pt;color:#57606a;font-style:italic;margin-top:1mm}
 .bn{font-family:"Noto Sans Bengali","DejaVu Sans",sans-serif;font-size:11pt;color:#33475b;background:#f3f4f6;border-left:4px solid #8c959f;padding:1mm 3mm;margin:1.5mm 0}
 .box{border-left:6px solid;border-radius:5px;padding:2.5mm 4mm;margin:3mm 0;break-inside:avoid}
