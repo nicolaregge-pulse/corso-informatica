@@ -114,54 +114,43 @@ cap(1, 'Sicurezza', 'Prima di tutto la sicurezza: così non si fa male nessuno e
      'কেসের ধাতু হাত দিয়ে ছোঁও, অথবা অ্যান্টিস্ট্যাটিক ব্রেসলেট পরো।', 'la mano sul metallo del case (o il braccialetto con la pinza attaccata)'),
     ('Prepara la scatola delle viti', 'Metti una scatola vicino al PC. Ogni vite che togli va subito nella scatola.', 'viti.svg',
      'স্ক্রুর বাক্স কাছে রাখো। প্রতিটি স্ক্রু সঙ্গে সঙ্গে বাক্সে রাখো।', 'la scatola delle viti accanto al PC, con il cacciavite a stella'),
-], box=[('GIALLO', 'CPU e dissipatore oggi non si smontano. Non si tocca mai l\'interno dell\'alimentatore.'),
+], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Si guardano e si riconoscono, ma non si toccano e non si smontano. Non si apre mai l\'alimentatore.'),
+        ('GIALLO', 'Oggi si smontano e si rimontano solo la RAM e il disco (HDD o SSD).'),
         ('GIALLO', 'Si lavora a coppie. MANI smonta e monta. OCCHI legge il passo e controlla. A ogni capitolo vi scambiate.')])
 
-cap(2, 'Smontare il PC', 'Si smonta in quest\'ordine: cavi di alimentazione, cavi SATA (i cavi del disco), scheda video, RAM, disco.', [
+cap(2, 'Smontare il PC', 'Oggi si smontano solo la RAM e il disco, in quest\'ordine: cavi SATA (i cavi del disco), RAM, disco. Gli altri pezzi si guardano e si riconoscono.', [
     ('Svita le viti del pannello', 'Gira il PC. Dietro, svita con il cacciavite a stella le 2 viti del pannello laterale.', 'apri-case.svg',
      'PC ঘোরাও। পেছনের ২টি স্ক্রু খোলো।', 'il retro del case con le 2 viti del pannello laterale indicate'),
     ('Togli il pannello', 'Fai scorrere il pannello verso il retro e appoggialo sul tavolo.', 'apri-case.svg',
      'প্যানেল পেছনের দিকে সরিয়ে খুলে টেবিলে রাখো।', 'il pannello che scorre verso il retro, case aperto'),
-    ('Guarda l\'ordine', 'Leggi lo schema: si smonta da sinistra a destra. CPU e dissipatore restano al loro posto.', 'ordine-smontaggio.svg',
-     'বাঁ থেকে ডানে খোলো। CPU আর কুলার আজ খুলবে না।', 'l\'interno del case dall\'alto, con i pezzi numerati nell\'ordine di smontaggio'),
-    ('Riconosci i componenti', 'Trova nel tuo PC le 8 parti dello schema, da A a H. Tocca ogni parte con il dito.', 'componenti.svg',
-     'ছবির A থেকে H পর্যন্ত ৮টি অংশ তোমার PC-তে খুঁজে আঙুল দিয়ে ছোঁও।', 'l\'interno del PC del laboratorio con le lettere A-H sui componenti'),
+    ('Guarda l\'ordine', 'Leggi lo schema: si smonta da sinistra a destra. CPU e ventola non si toccano.', 'ordine-smontaggio.svg',
+     'বাঁ থেকে ডানে খোলো। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del case dall\'alto, con i pezzi numerati nell\'ordine di smontaggio'),
+    ('Riconosci i componenti', 'Trova nel tuo PC le 8 parti dello schema, da A a H. Indica ogni parte con il dito, senza toccare CPU e ventola.', 'componenti.svg',
+     'ছবির A থেকে H পর্যন্ত ৮টি অংশ তোমার PC-তে খুঁজে আঙুল দিয়ে দেখাও। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del PC del laboratorio con le lettere A-H sui componenti'),
     ('Guarda dove sono i cavi', 'OCCHI guarda dove è attaccato ogni cavo, prima che MANI lo stacchi.', 'mappa-cavi.svg',
      'তার খোলার আগে OCCHI দেখে নেয় কোথায় লাগানো আছে।', 'la scheda madre con i punti dei cavi: 24 pin, CPU 4/8 pin, SATA'),
-    ('Stacca il cavo 24 pin', 'Premi il gancio della spina grande della scheda madre e tira dritto. Tira dalla spina, mai dal filo.', 'mappa-cavi.svg',
-     'বড় ২৪ পিন প্লাগের হুক চেপে সোজা টানো। তার ধরে নয়।', 'il pollice che preme il gancio del connettore 24 pin'),
-    ('Stacca il cavo CPU 4/8 pin', 'Premi il gancio della spina vicino alla CPU, in alto, e tira dritto.', 'mappa-cavi.svg',
-     'CPU-র কাছের ৪/৮ পিন প্লাগের হুক চেপে সোজা টানো।', 'il connettore CPU 4/8 pin in alto a sinistra della scheda madre'),
-    ('Stacca i cavi SATA', 'Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo).', 'mappa-cavi.svg',
+    ('Stacca i cavi SATA', 'Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.', 'mappa-cavi.svg',
      'ডিস্ক থেকে সরু SATA ডেটা তার আর চওড়া SATA পাওয়ার তার খোলো।', 'il retro del disco con i due cavi SATA: sottile (dati) e largo (corrente)'),
-    ('Togli la scheda video, se c\'è', 'Togli la vite della scheda video. Premi il gancio dello slot e tirala dritta verso l\'alto.', 'ordine-smontaggio.svg',
-     'গ্রাফিক্স কার্ড থাকলে স্ক্রু খোলো, স্লটের হুক চেপে সোজা উপরে টানো।', 'la scheda video con la sua vite e il gancio dello slot PCIe'),
     ('Apri i ganci della RAM', 'Spingi in fuori i due ganci ai lati del banco di RAM. Il banco si alza da solo.', 'ram.svg',
      'RAM-এর দুই পাশের হুক বাইরে ঠেলো। RAM নিজেই উঠে আসবে।', 'i due ganci aperti ai lati del banco di RAM'),
-    ('Togli la RAM', 'Prendi il banco dai bordi e sfilalo. Non toccare i contatti dorati.', 'ram.svg',
+    ('Togli la RAM', 'Prendi il banco dai bordi e sfilalo. Non toccare i contatti dorati e non toccare la ventola lì vicino.', 'ram.svg',
      'RAM কিনারা ধরে বের করো। সোনালি অংশ ছোঁবে না।', 'due dita che tengono la RAM dai bordi corti'),
     ('Togli il disco', 'Svita le viti del disco (o apri la slitta) e sfilalo. Leggi l\'etichetta: SSD o HDD? Quanti GB?', 'componenti.svg',
      'ডিস্কের স্ক্রু খুলে বের করো। লেবেল পড়ো: SSD না HDD? কত GB?', 'il disco tolto, con l\'etichetta leggibile'),
     ('Metti i pezzi in fila', 'Metti i pezzi sul tavolo, da sinistra a destra, nell\'ordine in cui li hai tolti.', 'ordine-smontaggio.svg',
-     'যে ক্রমে খুলেছ সেই ক্রমে টুকরোগুলো বাঁ থেকে ডানে সাজাও।', 'i pezzi in fila sul tavolo: cavi, scheda video, RAM, disco'),
-])
+     'যে ক্রমে খুলেছ সেই ক্রমে টুকরোগুলো বাঁ থেকে ডানে সাজাও।', 'i pezzi in fila sul tavolo: RAM e disco'),
+], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Oggi non si staccano neanche il cavo 24 pin, il cavo CPU 4/8 pin (è vicino alla ventola) e la scheda video.')])
 
-cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, scheda video, cavi SATA, cavi di alimentazione. Adesso chi era OCCHI diventa MANI.', [
+cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, cavi SATA del disco. Adesso chi era OCCHI diventa MANI.', [
     ('Guarda l\'ordine inverso', 'Leggi lo schema: si rimonta nell\'ordine contrario a quello dello smontaggio.', 'ordine-montaggio.svg',
      'খোলার উল্টো ক্রমে জোড়া দাও।', 'i pezzi in fila sul tavolo, con le frecce nell\'ordine del rimontaggio'),
     ('Rimetti il disco', 'Infila il disco nel suo posto e rimetti le sue viti (o chiudi la slitta).', 'componenti.svg',
      'ডিস্ক জায়গায় বসিয়ে স্ক্রু লাগাও।', 'il disco al suo posto con le viti avvitate'),
     ('Rimetti la RAM', 'Fai combaciare la tacca della RAM con il dentino dello slot. Spingi dritto con due pollici fino al «clic».', 'ram.svg',
      'RAM-এর খাঁজ আর স্লটের দাঁত মেলাও। দুই বুড়ো আঙুলে সোজা চাপো, «ক্লিক» পর্যন্ত।', 'i due pollici sulla RAM e i ganci che si chiudono'),
-    ('Rimetti la scheda video, se c\'era', 'Spingi la scheda video dritta nello slot fino al clic. Rimetti la sua vite.', 'ordine-montaggio.svg',
-     'গ্রাফিক্স কার্ড সোজা স্লটে চাপো, তারপর স্ক্রু লাগাও।', 'la scheda video inserita nello slot e la vite rimessa'),
     ('Attacca i cavi SATA', 'Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.', 'mappa-cavi.svg',
      'ডিস্কে SATA ডেটা আর পাওয়ার তার লাগাও। জোর করবে না।', 'i due connettori SATA attaccati al disco, con la forma a L visibile'),
-    ('Attacca il cavo 24 pin', 'Spingi la spina grande nella scheda madre fino al clic del gancio.', 'mappa-cavi.svg',
-     'বড় ২৪ পিন প্লাগ «ক্লিক» পর্যন্ত চাপো।', 'il connettore 24 pin inserito, gancio agganciato'),
-    ('Attacca il cavo CPU 4/8 pin', 'Spingi la spina 4/8 pin vicino alla CPU fino al clic.', 'mappa-cavi.svg',
-     'CPU-র কাছে ৪/৮ পিন প্লাগ «ক্লিক» পর্যন্ত চাপো।', 'il connettore CPU 4/8 pin inserito'),
-    ('Fai i 5 controlli', 'OCCHI legge, MANI controlla: RAM con i ganci chiusi, 24 pin, CPU 4/8 pin, cavi SATA, nessuna vite libera.', 'checklist.svg',
+    ('Fai i 5 controlli', 'OCCHI legge, MANI controlla: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera.', 'checklist.svg',
      'চালু করার আগে ৫টি জিনিস দেখো। কোনোটা না হলে আগে ঠিক করো।', 'il case aperto e completo, pronto per i 5 controlli'),
     ('Chiudi il case', 'Rimetti il pannello laterale e le sue 2 viti.', 'apri-case.svg',
      'প্যানেল লাগিয়ে ২টি স্ক্রু দাও।', 'il pannello rimesso e le 2 viti avvitate'),
@@ -312,7 +301,7 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 3. I ragazzi guardano altrove mentre crei il guasto. Il guasto si cerca con le 4 mosse: sintomo, ipotesi, prova, soluzione.
 4. Le domande-guida si fanno una alla volta, senza dare la soluzione. Si passa alla domanda dopo solo se la coppia è ferma da qualche minuto.
 5. Prima di aprire il case, la coppia spegne e stacca la spina: se non lo fa, si ferma il gioco.
-6. Mai creare guasti che toccano CPU, dissipatore, alimentatore aperto, pulsanti del pannello frontale (pin piccoli e fragili) o impostazioni del BIOS diverse dall'ordine di avvio.
+6. Mai creare guasti che toccano CPU, ventola (dissipatore), il connettore CPU 4/8 pin accanto alla ventola, alimentatore aperto, pulsanti del pannello frontale (pin piccoli e fragili) o impostazioni del BIOS diverse dall'ordine di avvio.
 
 ### 09.2 Guasto 1: RAM tolta o non agganciata
 
@@ -336,18 +325,16 @@ Questo capitolo c'è solo nella versione per il docente. I ragazzi trovano il gu
 4. **Soluzione:** riattaccare il cavo SATA dati al disco (e controllare che sia attaccato anche alla scheda madre).
 5. **Rischio e attenzioni:** basso. Il connettore a L è fragile: non piegarlo e non tirare il filo. Se il cavo ha il gancio metallico, va premuto.
 
-### 09.4 Guasto 3: alimentazione 24 pin o CPU 4/8 pin staccata
+### 09.4 Guasto 3: alimentazione 24 pin staccata
 
-1. **Come crearlo:** variante A, stacca il connettore 24 pin dalla scheda madre. Variante B, stacca solo il connettore CPU 4/8 pin in alto.
-2. **Sintomo che vedranno:**
-   1. variante A (24 pin): premendo il tasto non succede niente, nessuna ventola, nessuna luce;
-   2. variante B (CPU 4/8 pin): le ventole partono ma non c'è immagine; su alcuni PC si spegne e riprova da solo.
+1. **Come crearlo:** stacca il connettore 24 pin dal bordo della scheda madre. Il connettore CPU 4/8 pin NON si usa per i guasti: è accanto alla ventola della CPU, che oggi non si tocca.
+2. **Sintomo che vedranno:** premendo il tasto non succede niente: nessuna ventola, nessuna luce.
 3. **Domande-guida:**
    1. Si accende qualcosa? Una luce, una ventola?
    2. La spina è nella presa? L'interruttore dietro l'alimentatore è su I?
-   3. Quali cavi portano la corrente dall'alimentatore alla scheda madre? Guardate la mappa dei cavi.
-4. **Soluzione:** rimettere il connettore staccato fino al clic del gancio.
-5. **Rischio e attenzioni:** medio. Solo a spina staccata. I connettori sono duri: si preme il gancio, non si tirano i fili. Il CPU 8 pin e l'8 pin PCIe della scheda video si assomigliano: non forzare mai una spina che non entra.
+   3. Quale cavo grande porta la corrente dall'alimentatore alla scheda madre? Guardate la mappa dei cavi.
+4. **Soluzione:** rimettere il connettore 24 pin fino al clic del gancio. La coppia lo fa davanti a te: è l'unico cavo di alimentazione che i ragazzi toccano oggi.
+5. **Rischio e attenzioni:** medio. Solo a spina staccata. Il connettore è duro: si preme il gancio, non si tirano i fili, non si forza. Le mani restano sul bordo della scheda madre, lontano da CPU e ventola.
 
 ### 09.5 Guasto 4: ordine di avvio sbagliato nel BIOS
 
@@ -427,7 +414,7 @@ python3 strumenti/sblocca_ora.py 2inf-pc-05-11 guasti-chiudi
 | 8 |  |  |  |  |
 | 9 |  |  |  |  |
 
-> [ROSSO] A fine giro ogni PC torna a posto: RAM, cavi 24 pin, CPU e SATA attaccati, ordine di avvio rimesso, IP della tabella. Controlla il cartellino riga per riga.
+> [ROSSO] A fine giro ogni PC torna a posto: RAM, disco, cavi SATA e 24 pin attaccati, ordine di avvio rimesso, IP della tabella. Controlla il cartellino riga per riga.
 '''
 
 

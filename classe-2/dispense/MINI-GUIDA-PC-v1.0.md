@@ -19,7 +19,9 @@
 
 Prima di tutto la sicurezza: così non si fa male nessuno e non si rompe niente.
 
-> [GIALLO] CPU e dissipatore oggi non si smontano. Non si tocca mai l'interno dell'alimentatore.
+> [ROSSO] NON SI TOCCA: CPU e ventola (dissipatore). Si guardano e si riconoscono, ma non si toccano e non si smontano. Non si apre mai l'alimentatore.
+
+> [GIALLO] Oggi si smontano e si rimontano solo la RAM e il disco (HDD o SSD).
 
 > [GIALLO] Si lavora a coppie. MANI smonta e monta. OCCHI legge il passo e controlla. A ogni capitolo vi scambiate.
 
@@ -57,7 +59,9 @@ Metti una scatola vicino al PC. Ogni vite che togli va subito nella scatola.
 
 ## 02 Smontare il PC
 
-Si smonta in quest'ordine: cavi di alimentazione, cavi SATA (i cavi del disco), scheda video, RAM, disco.
+Oggi si smontano solo la RAM e il disco, in quest'ordine: cavi SATA (i cavi del disco), RAM, disco. Gli altri pezzi si guardano e si riconoscono.
+
+> [ROSSO] NON SI TOCCA: CPU e ventola (dissipatore). Oggi non si staccano neanche il cavo 24 pin, il cavo CPU 4/8 pin (è vicino alla ventola) e la scheda video.
 
 ### 02.01 Svita le viti del pannello
 
@@ -77,7 +81,7 @@ Fai scorrere il pannello verso il retro e appoggialo sul tavolo.
 
 ### 02.03 Guarda l'ordine
 
-Leggi lo schema: si smonta da sinistra a destra. CPU e dissipatore restano al loro posto.
+Leggi lo schema: si smonta da sinistra a destra. CPU e ventola non si toccano.
 
 ![FOTO-02-03](img-mini-guida-pc/FOTO-02-03.png)
 
@@ -85,7 +89,7 @@ Leggi lo schema: si smonta da sinistra a destra. CPU e dissipatore restano al lo
 
 ### 02.04 Riconosci i componenti
 
-Trova nel tuo PC le 8 parti dello schema, da A a H. Tocca ogni parte con il dito.
+Trova nel tuo PC le 8 parti dello schema, da A a H. Indica ogni parte con il dito, senza toccare CPU e ventola.
 
 ![FOTO-02-04](img-mini-guida-pc/FOTO-02-04.png)
 
@@ -99,73 +103,49 @@ OCCHI guarda dove è attaccato ogni cavo, prima che MANI lo stacchi.
 
 *FOTO-02-05 · schema: verrà sostituito dalla foto del docente*
 
-### 02.06 Stacca il cavo 24 pin
+### 02.06 Stacca i cavi SATA
 
-Premi il gancio della spina grande della scheda madre e tira dritto. Tira dalla spina, mai dal filo.
+Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.
 
 ![FOTO-02-06](img-mini-guida-pc/FOTO-02-06.png)
 
 *FOTO-02-06 · schema: verrà sostituito dalla foto del docente*
 
-### 02.07 Stacca il cavo CPU 4/8 pin
+### 02.07 Apri i ganci della RAM
 
-Premi il gancio della spina vicino alla CPU, in alto, e tira dritto.
+Spingi in fuori i due ganci ai lati del banco di RAM. Il banco si alza da solo.
 
 ![FOTO-02-07](img-mini-guida-pc/FOTO-02-07.png)
 
 *FOTO-02-07 · schema: verrà sostituito dalla foto del docente*
 
-### 02.08 Stacca i cavi SATA
+### 02.08 Togli la RAM
 
-Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo).
+Prendi il banco dai bordi e sfilalo. Non toccare i contatti dorati e non toccare la ventola lì vicino.
 
 ![FOTO-02-08](img-mini-guida-pc/FOTO-02-08.png)
 
 *FOTO-02-08 · schema: verrà sostituito dalla foto del docente*
 
-### 02.09 Togli la scheda video, se c'è
+### 02.09 Togli il disco
 
-Togli la vite della scheda video. Premi il gancio dello slot e tirala dritta verso l'alto.
+Svita le viti del disco (o apri la slitta) e sfilalo. Leggi l'etichetta: SSD o HDD? Quanti GB?
 
 ![FOTO-02-09](img-mini-guida-pc/FOTO-02-09.png)
 
 *FOTO-02-09 · schema: verrà sostituito dalla foto del docente*
 
-### 02.10 Apri i ganci della RAM
+### 02.10 Metti i pezzi in fila
 
-Spingi in fuori i due ganci ai lati del banco di RAM. Il banco si alza da solo.
+Metti i pezzi sul tavolo, da sinistra a destra, nell'ordine in cui li hai tolti.
 
 ![FOTO-02-10](img-mini-guida-pc/FOTO-02-10.png)
 
 *FOTO-02-10 · schema: verrà sostituito dalla foto del docente*
 
-### 02.11 Togli la RAM
-
-Prendi il banco dai bordi e sfilalo. Non toccare i contatti dorati.
-
-![FOTO-02-11](img-mini-guida-pc/FOTO-02-11.png)
-
-*FOTO-02-11 · schema: verrà sostituito dalla foto del docente*
-
-### 02.12 Togli il disco
-
-Svita le viti del disco (o apri la slitta) e sfilalo. Leggi l'etichetta: SSD o HDD? Quanti GB?
-
-![FOTO-02-12](img-mini-guida-pc/FOTO-02-12.png)
-
-*FOTO-02-12 · schema: verrà sostituito dalla foto del docente*
-
-### 02.13 Metti i pezzi in fila
-
-Metti i pezzi sul tavolo, da sinistra a destra, nell'ordine in cui li hai tolti.
-
-![FOTO-02-13](img-mini-guida-pc/FOTO-02-13.png)
-
-*FOTO-02-13 · schema: verrà sostituito dalla foto del docente*
-
 ## 03 Rimontare il PC
 
-Si rimonta al contrario: disco, RAM, scheda video, cavi SATA, cavi di alimentazione. Adesso chi era OCCHI diventa MANI.
+Si rimonta al contrario: disco, RAM, cavi SATA del disco. Adesso chi era OCCHI diventa MANI.
 
 > [ROSSO] Un controllo è NO? Non accendere: sistema prima.
 
@@ -193,61 +173,37 @@ Fai combaciare la tacca della RAM con il dentino dello slot. Spingi dritto con d
 
 *FOTO-03-03 · schema: verrà sostituito dalla foto del docente*
 
-### 03.04 Rimetti la scheda video, se c'era
+### 03.04 Attacca i cavi SATA
 
-Spingi la scheda video dritta nello slot fino al clic. Rimetti la sua vite.
+Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.
 
 ![FOTO-03-04](img-mini-guida-pc/FOTO-03-04.png)
 
 *FOTO-03-04 · schema: verrà sostituito dalla foto del docente*
 
-### 03.05 Attacca i cavi SATA
+### 03.05 Fai i 5 controlli
 
-Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.
+OCCHI legge, MANI controlla: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera.
 
 ![FOTO-03-05](img-mini-guida-pc/FOTO-03-05.png)
 
 *FOTO-03-05 · schema: verrà sostituito dalla foto del docente*
 
-### 03.06 Attacca il cavo 24 pin
+### 03.06 Chiudi il case
 
-Spingi la spina grande nella scheda madre fino al clic del gancio.
+Rimetti il pannello laterale e le sue 2 viti.
 
 ![FOTO-03-06](img-mini-guida-pc/FOTO-03-06.png)
 
 *FOTO-03-06 · schema: verrà sostituito dalla foto del docente*
 
-### 03.07 Attacca il cavo CPU 4/8 pin
+### 03.07 Collega i cavi esterni
 
-Spingi la spina 4/8 pin vicino alla CPU fino al clic.
+Collega monitor, tastiera, mouse e cavo di rete. La spina della corrente va per ultima.
 
 ![FOTO-03-07](img-mini-guida-pc/FOTO-03-07.png)
 
 *FOTO-03-07 · schema: verrà sostituito dalla foto del docente*
-
-### 03.08 Fai i 5 controlli
-
-OCCHI legge, MANI controlla: RAM con i ganci chiusi, 24 pin, CPU 4/8 pin, cavi SATA, nessuna vite libera.
-
-![FOTO-03-08](img-mini-guida-pc/FOTO-03-08.png)
-
-*FOTO-03-08 · schema: verrà sostituito dalla foto del docente*
-
-### 03.09 Chiudi il case
-
-Rimetti il pannello laterale e le sue 2 viti.
-
-![FOTO-03-09](img-mini-guida-pc/FOTO-03-09.png)
-
-*FOTO-03-09 · schema: verrà sostituito dalla foto del docente*
-
-### 03.10 Collega i cavi esterni
-
-Collega monitor, tastiera, mouse e cavo di rete. La spina della corrente va per ultima.
-
-![FOTO-03-10](img-mini-guida-pc/FOTO-03-10.png)
-
-*FOTO-03-10 · schema: verrà sostituito dalla foto del docente*
 
 ## 04 Accensione e BIOS
 
