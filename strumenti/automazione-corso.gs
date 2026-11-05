@@ -1,5 +1,11 @@
 /**
- * AUTOMAZIONE CORSO v8.8 (04/11/2026: cruscotto dal vivo senza la chat, giro dei Moduli ogni 2 minuti) · v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.9 (05/11/2026: domande a PIU' risposte giuste, caselle di controllo) · v8.8 (04/11/2026: cruscotto dal vivo senza la chat, giro dei Moduli ogni 2 minuti) · v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * v8.9 (05/11/2026, decisione del docente per il quiz anti-AI della 2INF: «almeno meta' delle domande con DUE risposte esatte»):
+ *       forms.crea_quiz accetta anche domande con la risposta giusta come ELENCO: ["Domanda", ["giusta 1", "giusta 2"],
+ *       ["sbagliata", ...], "spiegazione"]. Quella domanda diventa CASELLE DI CONTROLLO (CheckboxItem): Moduli da' i punti
+ *       solo con la combinazione esatta (tutte le giuste e nessuna sbagliata). Le domande con UNA risposta giusta (stringa)
+ *       restano a scelta multipla come prima. forms.leggi e il calcolo del massimo contano anche le caselle di controllo.
+ *       Dopo l'incolla: Gestisci deployment -> Nuova versione. Nient'altro cambia.
  * v8.8 (04/11/2026, decisione R9 del docente: «mentre i ragazzi consegnano i dati si aggiornano ogni 2 minuti senza la chat»):
  *       giroModuli ha un timer OGNI MINUTO e fa il giro ogni 2 minuti (passo_minuti in config/giro-moduli.json), lun-ven
  *       7:30-14:05. Scrive il riservato solo se le risposte cambiano (o ogni 10 minuti) e, per ogni classe, il «dal vivo»
@@ -660,8 +666,9 @@ function AUTO_creaQuiz(job, cart) {
       .setDescription((q.descrizione || '') + (vers.length > 1 ? ' Versione ' + v + '.' : ''));
     form.addTextItem().setTitle('Nome e cognome').setRequired(true);
     q.domande.forEach(function (d, n) {
-      var r = d[v] || d.A, item = form.addMultipleChoiceItem();
-      var scelte = AUTO_mescola([[r[1], true]].concat(r[2].map(function (x) { return [x, false]; })), (n + 1) * 31 + iv * 977);
+      var r = d[v] || d.A, giuste = Array.isArray(r[1]) ? r[1] : [r[1]];   // v8.9: elenco = piu' risposte giuste
+      var item = giuste.length > 1 ? form.addCheckboxItem() : form.addMultipleChoiceItem();
+      var scelte = AUTO_mescola(giuste.map(function (x) { return [x, true]; }).concat(r[2].map(function (x) { return [x, false]; })), (n + 1) * 31 + iv * 977);
       item.setTitle(r[0]).setPoints(q.punti || 5).setRequired(true)
           .setChoices(scelte.map(function (c) { return item.createChoice(c[0], c[1]); }));
     });
@@ -676,6 +683,7 @@ function AUTO_leggiModulo(id) {   // v8.8: lettura di un Modulo quiz (una sola v
   var f = FormApp.openById(id), max = 0, righe = [];
   f.getItems().forEach(function (it) {
     if (it.getType() === FormApp.ItemType.MULTIPLE_CHOICE) max += it.asMultipleChoiceItem().getPoints();
+    else if (it.getType() === FormApp.ItemType.CHECKBOX) max += it.asCheckboxItem().getPoints();   // v8.9
   });
   f.getResponses().forEach(function (r) {
     var nome = '', tot = 0, sbagliate = [];
@@ -778,6 +786,8 @@ function AUTO_azione(a) {
           var o = { titolo: x.getTitle(), tipo: String(x.getType()) };
           if (x.getType() === FormApp.ItemType.MULTIPLE_CHOICE) { var mc = x.asMultipleChoiceItem(); o.punti = mc.getPoints();
             o.scelte = mc.getChoices().map(function (c) { return { testo: c.getValue(), giusta: c.isCorrectAnswer() }; }); }
+          if (x.getType() === FormApp.ItemType.CHECKBOX) { var cb = x.asCheckboxItem(); o.punti = cb.getPoints();   // v8.9
+            o.scelte = cb.getChoices().map(function (c) { return { testo: c.getValue(), giusta: c.isCorrectAnswer() }; }); }
           return o; }) }; }
     case 'forms.risposte': {        // a.id, a.salva_in (cartella nel repo): risultati con punteggio e risposte sbagliate
       var lettoR = new Date().toISOString();   // v8.7: letto_il in ogni riga
