@@ -131,7 +131,8 @@ function vivoDoc(){var d=DOC,mn=d.mod_num||{},V=d.voto_cfg,pv=VIVO&&FONTE!=='c'&
   r.da_recuperare=d.moduli.filter(function(m){return (mn[m.k]||{}).tipo==='recupero'&&r.celle[m.k].s!=='verde'}).map(function(m){return m.breve});
   r.da_fare=d.moduli.filter(function(m){return (mn[m.k]||{}).tipo!=='recupero'&&r.celle[m.k].s!=='verde'}).map(function(m){return m.breve});
   (d.kpi||[]).forEach(function(k){var ks=k.modulo?[k.modulo]:(k.moduli||[]);r.kpi[k.k]=ks.every(function(x){return r.celle[x]&&r.celle[x].s==='verde'})});
-  if(V&&r.celle[V.modulo]){var cv=r.celle[V.modulo],mx=(mn[V.modulo]||{}).massimo||100;
+  if(V&&V.per_kpi){var presi=(d.kpi||[]).filter(function(k){return r.kpi[k.k]}).map(function(k){return k.k}),pk=V.per_kpi==='auto'?(V.massimo-V.base)/((d.kpi||[]).length||1):V.per_kpi;r.voto=Math.min(V.massimo,Math.round(V.base+pk*presi.length));r.conto=V.base+' + '+(Math.round(pk*100)/100)+' × '+presi.length+' KPI'+(presi.length?' ('+presi.join(', ')+')':'')}
+  else if(V&&r.celle[V.modulo]){var cv=r.celle[V.modulo],mx=(mn[V.modulo]||{}).massimo||100;
    if(typeof cv.p==='number'){r.voto=Math.min(V.massimo,Math.round(V.base+V.punti*cv.p/mx));r.conto=V.base+' + '+V.punti+' × '+cv.p+'/'+mx}
    else if(cv.p==null){r.voto=V.base;r.conto=V.base+' (quiz non fatto)'}else{r.voto='?';r.conto='punti dal vivo con il codice e il ponte v8.8'}}});
  d.non_abbinati=[];if(VIVO&&FONTE!=='c')Object.keys(VIVO.r||{}).forEach(function(id){if(!noti[id])d.non_abbinati.push({id:id,email:VIVO.email?VIVO.email[id]:'',m:Object.keys(VIVO.r[id]).join(', '),p:VIVO.p&&VIVO.p[id]?Object.keys(VIVO.p[id]).map(function(k){return k+' '+VIVO.p[id][k]}).join(', '):''})});
