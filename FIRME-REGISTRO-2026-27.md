@@ -50,6 +50,14 @@ Fonte: elenco del registro con la colonna «Firma» (data e ora). Tutte e 6 le o
 3. Ora 13-14, 1INF, Sicurezza professionale: FIRMATA il 04/11/2026 (09:24), argomento sul registro «Rischi infortuni, incidenti e infortuni mancati».
 4. Argomenti: quelli previsti, da aggiornare a fine giornata.
 
+## Giovedì 05/11/2026
+
+Fonte: elenco delle ore firmate del registro DIDAweb (screenshot del docente del 05/11), colonna Firma con data e ora.
+
+1. Ore 8-9, 9-10, 10-11, 2INF, Laboratorio professionale: FIRMATE il 05/11/2026 (08:21, 10:47, 09:01), argomenti «Smontaggio PC: sicurezza e componenti», «Assemblaggio PC, BIOS e avvio da USB», «Installazione Windows 10, utenti e IP».
+2. Ore 11-12 e 12-13, 3INF, Laboratorio professionale: FIRMATE il 05/11/2026 (07:57, 07:57), argomenti «Smontaggio e assemblaggio PC: componenti», «Assemblaggio PC, BIOS e ordine di avvio».
+3. Ora 13-14, 1INF, Tecnologia professionale: FIRMATA il 05/11/2026 (07:58), argomento «Lazarus: stringhe e interi, conversioni».
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -58,3 +66,4 @@ Fonte: elenco del registro con la colonna «Firma» (data e ora). Tutte e 6 le o
 4. v1.3 (30/10/2026): venerdì 30/10, tutte e 5 le ore firmate, con argomento e ora di firma.
 5. v1.4 (03/11/2026): martedì 03/11, tutte e 6 le ore firmate.
 6. v1.5 (04/11/2026): mercoledì 04/11, tutte e 6 le ore firmate (elenco del registro, firme 08:19-09:24).
+7. v1.6 (05/11/2026): giovedì 05/11, tutte e 6 le ore firmate (elenco del registro, firme 07:57-10:47).
