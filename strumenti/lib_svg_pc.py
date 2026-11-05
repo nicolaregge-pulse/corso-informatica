@@ -218,8 +218,8 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
         c.append(t(360, 70, 'Apri i ganci. Spingi la RAM dritta con due pollici', 18, '#1f2328', True, 'middle'))
         c.append(t(360, 96, 'fino al «clic»: i ganci si chiudono da soli.', 18, '#1f2328', True, 'middle'))
     elif quale == 'checklist':
-        voci = ['RAM ben dentro, ganci chiusi', 'Cavo 24 pin attaccato', 'Cavo CPU 4/8 pin attaccato',
-                'Disco: cavo SATA dati + alimentazione', 'Nessuna vite libera nel case']
+        voci = ['RAM ben dentro, ganci chiusi', 'Disco avvitato al suo posto', 'Disco: cavo SATA dati attaccato',
+                'Disco: cavo SATA alimentazione attaccato', 'Nessuna vite libera nel case']
         c.append(t(60, 70, 'Prima di accendere: 5 controlli', 21, '#1f2328', True))
         for i, v in enumerate(voci):
             y = 120 + i * 50
@@ -289,7 +289,7 @@ def ordine(titolo, passi, inverso=False):
             c.append(freccia(x + w - 22, 180, x + w - 2, 180))
     c.append(t(360, 300, 'Rimontare = stesso elenco, al contrario (da destra a sinistra).' if not inverso
                else 'È l\'ordine dello smontaggio letto al contrario.', 17, ROSSO, True, 'middle'))
-    c.append(t(360, 335, 'CPU e dissipatore oggi NON si smontano.', 17, '#1f2328', True, 'middle'))
+    c.append(t(360, 335, 'CPU e ventola (dissipatore): NON si toccano.', 17, '#1f2328', True, 'middle'))
     return _svg(''.join(c), titolo)
 
 
