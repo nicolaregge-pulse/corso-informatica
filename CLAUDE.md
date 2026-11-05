@@ -139,6 +139,8 @@
 
 ### R10 Preparazione
 
+0. **Ordine fisso (05/11/2026, docente):** 1) prima i TITOLI (registro e Classroom, in riquadri da copiare); 2) il docente
+   decide quale lavoro fare e si pubblica SOLO l'ora in corso (PUBB n); 3) poi si prepara il resto.
 1. Un file di preparazione, `PROSSIME-LEZIONI.md` (pubblico, senza nomi, frasi intere: lo legge anche Alexa), con:
    1. le cose fatte;
    2. le ore dei prossimi giorni, controllate sul registro DIDAweb; nel dubbio l'orario della settimana precedente;
