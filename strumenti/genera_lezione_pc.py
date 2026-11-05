@@ -9,7 +9,7 @@ Le pagine sono uguali per tutte le classi: cambiano solo SPEC (ore, blocchi) e l
 config.json (il docente cambia SOLO questo, poi push):
   ore_sbloccate  0 = tutto chiuso; si alza di UNA ora con PUBB n (strumenti/sblocca_ora.py <cartella> n)
   variante_os    "A" = Windows 10 da chiavetta USB (deciso dal docente il 04/11/2026), "B" = Linux Mint da chiavetta
-  pc_da_smontare, persone_per_pc (2 = coppie; 3 = gruppi da tre con il ruolo «Controllo»)
+  pc_da_smontare, persone_per_pc (2 = coppie; 3 = gruppi da tre). Niente ruoli (docente, 05/11/2026)
   rete           prefisso, primo, maschera, gateway, dns  (IP del banco N = prefisso + (primo + N))
   quiz_pc        indirizzo viewform del Modulo (vuoto finché il quiz non è creato con PUBB)
 Il config.json esistente NON si sovrascrive (si aggiungono solo le chiavi mancanti): ore_sbloccate resta quello che è.
@@ -74,9 +74,9 @@ NON_SI_TOCCA = ('<div class="aiutoprof" style="background:#fde8e8;border:3px sol
                 '<b>NON SI TOCCA: CPU e ventola (dissipatore).</b> Si guardano e si riconoscono (lettera A), ma non si toccano e non si smontano.</div>')
 
 # --- ora 1: ruoli, sicurezza, componenti, smontaggio
-passo('ruoli', 'ruoli', 'Vinci subito: scrivete i nomi e guardate i ruoli',
-      'Scrivete i vostri nomi nel riquadro «Chi siete?» e scegliete il numero del banco. La pagina vi dà i ruoli: <b>MANI</b> smonta e monta, <b>OCCHI</b> legge il passo e compila la scheda. A ogni fase vi scambiate.',
-      'ruoli.svg', 'নাম লেখো, বেঞ্চের নম্বর বেছে নাও। MANI খোলে আর জোড়া দেয়, OCCHI পড়ে আর ফর্ম পূরণ করে। প্রতি ধাপে ভূমিকা বদলাও।')
+passo('ruoli', 'ruoli', 'Vinci subito: scrivete i nomi e il banco',
+      'Si lavora a coppie, un PC per coppia. Scrivete i vostri nomi nel riquadro «Chi siete?» e scegliete il numero del banco.',
+      'ruoli.svg', 'জোড়ায় কাজ করো, প্রতি জোড়ায় একটা PC। নাম লেখো, বেঞ্চের নম্বর বেছে নাও।')
 passo('sicurezza', 'spina', 'Spegni il PC e togli la spina',
       'Spegni il PC del banco. Togli la spina dalla presa della corrente. Solo dopo si apre il case.',
       'spina.svg', 'PC বন্ধ করো আর প্লাগ খুলে ফেলো। তারপরই কেস খোলো।')
@@ -94,14 +94,14 @@ passo('riconosci', 'riconosci', 'Riconosci i componenti',
       'componenti.svg', 'ছবিতে A থেকে H পর্যন্ত ৮টি অক্ষর আছে। নিচের ফর্মে প্রতিটি অক্ষরের নাম বেছে নাও। তারপর আসল PC-তে টুকরোটা খুঁজে আঙুল দিয়ে দেখাও।',
       extra=NON_SI_TOCCA)
 passo('riconosci', 'mappa', 'Segna la mappa dei cavi',
-      'Prima di staccare un cavo, OCCHI guarda dove è attaccato e spunta il cavo nella <b>mappa dei cavi</b> della scheda. Si tira sempre dalla spina, mai dal filo.',
-      'mappa-cavi.svg', 'তার খোলার আগে OCCHI দেখে কোথায় লাগানো আছে আর ফর্মে টিক দেয়। সবসময় প্লাগ ধরে টানো, তার ধরে নয়।')
+      'Prima di staccare un cavo, guardate dove è attaccato e spuntate il cavo nella <b>mappa dei cavi</b> della scheda. Si tira sempre dalla spina, mai dal filo.',
+      'mappa-cavi.svg', 'তার খোলার আগে দেখো কোথায় লাগানো আছে আর ফর্মে টিক দাও। সবসময় প্লাগ ধরে টানো, তার ধরে নয়।')
 passo('smonta', 'ordine', 'Guarda l\'ordine dello smontaggio',
       'Oggi si smontano solo la <b>RAM</b> e il <b>disco</b> (HDD o SSD), in quest\'ordine: cavi SATA del disco, RAM, disco. <b>CPU e ventola (dissipatore) non si toccano.</b>',
       'ordine-smontaggio.svg', 'আজ শুধু RAM আর ডিস্ক খোলা হবে: ডিস্কের SATA তার, RAM, ডিস্ক। CPU আর ফ্যান ছোঁবে না।')
 passo('smonta', 'stacca', 'Stacca i cavi del disco',
-      'MANI stacca dal disco i due cavi SATA: quello sottile (dati) e quello largo (corrente). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.',
-      'mappa-cavi.svg', 'MANI ডিস্ক থেকে দুটি SATA তার খোলে। অন্য তারগুলো লাগানো থাকে।')
+      'Stacca dal disco i due cavi SATA: quello sottile (dati) e quello largo (corrente). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.',
+      'mappa-cavi.svg', 'ডিস্ক থেকে দুটি SATA তার খোলো। অন্য তারগুলো লাগানো থাকে।')
 passo('smonta', 'ram-via', 'Togli la RAM',
       'Apri i due ganci della RAM: il banco si alza da solo. Prendilo dai bordi, mai dai contatti dorati. Attento: la ventola della CPU è lì vicino e non si tocca.',
       'ram.svg', 'RAM-এর দুই হুক খোলো, RAM নিজেই উঠে আসবে। কিনারা ধরে নাও, সোনালি অংশ ছোঁবে না। পাশের CPU ফ্যান ছোঁবে না।')
@@ -113,9 +113,6 @@ passo('smonta', 'tavolo', 'Metti i pezzi in ordine sul tavolo',
       'ordine-smontaggio.svg', 'খোলার ক্রমে টুকরোগুলো বাঁ থেকে ডানে সারি করে রাখো।')
 
 # --- ora 2: rimontaggio e BIOS
-passo('rimonta', 'scambio', 'Scambiatevi i ruoli',
-      'Adesso chi era OCCHI diventa MANI. Guardate il riquadro «I ruoli adesso» in alto.',
-      'ruoli.svg', 'এখন যে OCCHI ছিল সে MANI হবে। উপরে «এখনকার ভূমিকা» দেখো।')
 passo('rimonta', 'ordine-inv', 'Rimonta in ordine inverso',
       'Si rimonta al contrario: disco, RAM, cavi SATA del disco. Le viti sono nella scatola.',
       'ordine-montaggio.svg', 'উল্টো ক্রমে জোড়া দাও: ডিস্ক, RAM, ডিস্কের SATA তার।')
@@ -126,7 +123,7 @@ passo('rimonta', 'cavi-dentro', 'Riattacca i cavi del disco',
       'Attacca al disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Ogni spina entra in un solo verso: non forzare.',
       'mappa-cavi.svg', 'ডিস্কে SATA ডেটা আর SATA পাওয়ার তার লাগাও। জোর করবে না।')
 passo('rimonta', 'checklist', 'Fai i 5 controlli prima di accendere',
-      'OCCHI legge, MANI controlla: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera. Spunta i 5 controlli nella <b>scheda</b> in fondo. Se un controllo è NO, non accendere: sistema prima.',
+      'Controllate insieme: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera. Spunta i 5 controlli nella <b>scheda</b> in fondo. Se un controllo è NO, non accendere: sistema prima.',
       'checklist.svg', 'চালু করার আগে ৫টি জিনিস দেখে ফর্মে টিক দাও। কোনোটা না হলে চালু করবে না।')
 passo('rimonta', 'chiudi', 'Chiudi il case e collega i cavi',
       'Rimetti il pannello e le sue 2 viti. Collega monitor, tastiera, mouse e rete. La corrente per ultima.',
@@ -250,7 +247,7 @@ passo('base_link', 'base', 'Impostazioni di base: Chrome ed estensioni',
 
 for n in (1, 2, 3):
     passo(f'scheda{n}', 'scheda', 'Compila la scheda e mandala al prof',
-          'Compilate la scheda qui sotto (OCCHI scrive, MANI controlla). Poi premi <b>Manda al prof</b>: un clic solo. Si apre la pagina «Consegna arrivata al prof».',
+          'Compilate insieme la scheda qui sotto. Poi premi <b>Manda al prof</b>: un clic solo. Si apre la pagina «Consegna arrivata al prof».',
           'consegna.svg', 'নিচের ফর্ম পূরণ করো, তারপর «Manda al prof» চাপো। একবার ক্লিক।', None, extra='SCHEDA')
 
 # --- la pagina «caccia al guasto» (2INF; chiusa finché config.json non ha "guasti_aperta": true)
@@ -587,7 +584,7 @@ CHI = ('<section class="card"><h2>Chi siete?</h2><p>Scrivete i vostri nomi e il 
        '<div class="campo"><label for="comp1">Il compagno (nome e cognome)</label><input type="text" id="comp1" placeholder="Nome Cognome"></div>'
        '<div class="campo" id="riga-comp2"><label for="comp2">Il terzo compagno (se siete in tre)</label><input type="text" id="comp2" placeholder="Nome Cognome"></div>'
        '<div class="campo"><label for="banco">Numero del banco (PC da smontare)</label><select id="banco"></select></div>'
-       '<p class="mu" id="nomeok"></p><h2>I ruoli adesso</h2><div id="ruoli"></div></section>')
+       '<p class="mu" id="nomeok"></p></section>')
 
 SEI_BLOCCATO = ('<div class="aiutoprof" style="background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:10px 12px;margin:12px 0;color:#000">'
                 '<p style="font-size:1.1em"><b>Sei bloccato? Scrivi la domanda nella casella dell\'assistente in fondo alla pagina: ti risponde subito. '
@@ -659,7 +656,7 @@ def pagina_guasti(spec, conf):
     h.append('<a class="bt" href="index.html">Torna al percorso di oggi</a><div id="aiuto"></div></main>')
     h.append(f'<script src="../../assistente/assistente.js" data-pagina="{lez["slug"]}" data-lingue="it" data-dove="aiuto"></script>')
     h.append(f'<script>window.LEZ={json.dumps(lez, ensure_ascii=False)};</script><script src="lezione.js"></script></body></html>\n')
-    return ''.join(h).replace('<h2>I ruoli adesso</h2><div id="ruoli"></div>', '<div id="ruoli"></div>')
+    return ''.join(h)
 
 
 FLAG_JS = r'''/* Porta a bandierina (genera_lezione_pc.py). La pagina si vede solo se config.json ha la chiave data-chiave = true.
@@ -726,7 +723,6 @@ LEZIONE_JS = r'''/* Lezione «smonta, rimonta, installa» (genera_lezione_pc.py)
   try { if (/[?&]pc=14\b/.test(location.search)) localStorage.setItem('pc14', '1'); if (localStorage.getItem('pc14') === '1') document.body.classList.add('pc14'); } catch (x) {}
   var KG = 'pc0511-' + L.classe, K = 'st-' + L.slug, KS = 'sch-' + L.slug;
   var G = prendi(KG, { nome: '', comp1: '', comp2: '', banco: '' }), S = prendi(K, {}), R = prendi(KS, {});
-  var RUOLI2 = ['MANI', 'OCCHI'], RUOLI3 = ['MANI', 'OCCHI', 'CONTROLLO'];
   function ipDi(b) { var r = CONF.rete || {}; return b ? (r.prefisso || '') + ((+r.primo || 0) + (+b)) : '?'; }
 
   /* ---------- indice: ore aperte / in arrivo, «vai qui adesso» ---------- */
@@ -744,7 +740,7 @@ LEZIONE_JS = r'''/* Lezione «smonta, rimonta, installa» (genera_lezione_pc.py)
     $('info-gruppi').textContent = 'PC da smontare oggi: ' + (CONF.pc_da_smontare || '?') + ' · persone per PC: ' + pp + ' · sistema: ' + (CONF.variante_os === 'B' ? 'Linux Mint' : 'Windows 10') + '.';
   }
 
-  /* ---------- chi siete + ruoli ---------- */
+  /* ---------- chi siete (a coppie, niente ruoli: docente 05/11/2026) ---------- */
   function chi() {
     if (!$('nome')) return;
     var pp = +CONF.persone_per_pc || 2, sel = $('banco'), n = +CONF.pc_da_smontare || 10, h = '<option value="">scegli</option>';
@@ -756,15 +752,7 @@ LEZIONE_JS = r'''/* Lezione «smonta, rimonta, installa» (genera_lezione_pc.py)
     });
     ruoli();
   }
-  function ruoli() {
-    if (!$('ruoli')) return;
-    var pp = +CONF.persone_per_pc || 2, RR = pp >= 3 ? RUOLI3 : RUOLI2, nomi = [G.nome || 'Tu', G.comp1 || 'Compagno'];
-    if (pp >= 3) nomi.push(G.comp2 || 'Terzo');
-    if (!L.fasi.length) { $('ruoli').innerHTML = ''; return; }
-    var h = '<table class="ruoli"><tr><th>Fase</th>' + nomi.map(function (x) { return '<th>' + esc(x) + '</th>'; }).join('') + '</tr>';
-    L.fasi.forEach(function (g) { h += '<tr><td>' + esc(L.fasi_nomi[g]) + '</td>' + nomi.map(function (x, j) { return '<td><b>' + RR[(j + g) % RR.length] + '</b></td>'; }).join('') + '</tr>'; });
-    $('ruoli').innerHTML = h + '</table><p class="mu">MANI smonta, monta e usa la tastiera. OCCHI legge il passo e compila la scheda.' + (pp >= 3 ? ' CONTROLLO tiene la checklist e la scatola delle viti.' : '') + '</p>';
-  }
+  function ruoli() {}
   function rete() {
     var r = CONF.rete || {};
     [].forEach.call(document.querySelectorAll('[data-v]'), function (e) {

@@ -116,7 +116,7 @@ cap(1, 'Sicurezza', 'Prima di tutto la sicurezza: così non si fa male nessuno e
      'স্ক্রুর বাক্স কাছে রাখো। প্রতিটি স্ক্রু সঙ্গে সঙ্গে বাক্সে রাখো।', 'la scatola delle viti accanto al PC, con il cacciavite a stella'),
 ], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Si guardano e si riconoscono, ma non si toccano e non si smontano. Non si apre mai l\'alimentatore.'),
         ('GIALLO', 'Oggi si smontano e si rimontano solo la RAM e il disco (HDD o SSD).'),
-        ('GIALLO', 'Si lavora a coppie. MANI smonta e monta. OCCHI legge il passo e controlla. A ogni capitolo vi scambiate.')])
+        ('GIALLO', 'Si lavora a coppie, un PC per coppia.')])
 
 cap(2, 'Smontare il PC', 'Oggi si smontano solo la RAM e il disco, in quest\'ordine: cavi SATA (i cavi del disco), RAM, disco. Gli altri pezzi si guardano e si riconoscono.', [
     ('Svita le viti del pannello', 'Gira il PC. Dietro, svita con il cacciavite a stella le 2 viti del pannello laterale.', 'apri-case.svg',
@@ -127,8 +127,8 @@ cap(2, 'Smontare il PC', 'Oggi si smontano solo la RAM e il disco, in quest\'ord
      'বাঁ থেকে ডানে খোলো। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del case dall\'alto, con i pezzi numerati nell\'ordine di smontaggio'),
     ('Riconosci i componenti', 'Trova nel tuo PC le 8 parti dello schema, da A a H. Indica ogni parte con il dito, senza toccare CPU e ventola.', 'componenti.svg',
      'ছবির A থেকে H পর্যন্ত ৮টি অংশ তোমার PC-তে খুঁজে আঙুল দিয়ে দেখাও। CPU আর ফ্যান ছোঁবে না।', 'l\'interno del PC del laboratorio con le lettere A-H sui componenti'),
-    ('Guarda dove sono i cavi', 'OCCHI guarda dove è attaccato ogni cavo, prima che MANI lo stacchi.', 'mappa-cavi.svg',
-     'তার খোলার আগে OCCHI দেখে নেয় কোথায় লাগানো আছে।', 'la scheda madre con i punti dei cavi: 24 pin, CPU 4/8 pin, SATA'),
+    ('Guarda dove sono i cavi', 'Prima di staccare un cavo, guardate insieme dove è attaccato.', 'mappa-cavi.svg',
+     'তার খোলার আগে দুজনে মিলে দেখো কোথায় লাগানো আছে।', 'la scheda madre con i punti dei cavi: 24 pin, CPU 4/8 pin, SATA'),
     ('Stacca i cavi SATA', 'Stacca dal disco il cavo SATA dati (sottile) e il cavo SATA di alimentazione (largo). Tira dalla spina, mai dal filo. Gli altri cavi restano attaccati.', 'mappa-cavi.svg',
      'ডিস্ক থেকে সরু SATA ডেটা তার আর চওড়া SATA পাওয়ার তার খোলো।', 'il retro del disco con i due cavi SATA: sottile (dati) e largo (corrente)'),
     ('Apri i ganci della RAM', 'Spingi in fuori i due ganci ai lati del banco di RAM. Il banco si alza da solo.', 'ram.svg',
@@ -141,7 +141,7 @@ cap(2, 'Smontare il PC', 'Oggi si smontano solo la RAM e il disco, in quest\'ord
      'যে ক্রমে খুলেছ সেই ক্রমে টুকরোগুলো বাঁ থেকে ডানে সাজাও।', 'i pezzi in fila sul tavolo: RAM e disco'),
 ], box=[('ROSSO', 'NON SI TOCCA: CPU e ventola (dissipatore). Oggi non si staccano neanche il cavo 24 pin, il cavo CPU 4/8 pin (è vicino alla ventola) e la scheda video.')])
 
-cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, cavi SATA del disco. Adesso chi era OCCHI diventa MANI.', [
+cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, cavi SATA del disco.', [
     ('Guarda l\'ordine inverso', 'Leggi lo schema: si rimonta nell\'ordine contrario a quello dello smontaggio.', 'ordine-montaggio.svg',
      'খোলার উল্টো ক্রমে জোড়া দাও।', 'i pezzi in fila sul tavolo, con le frecce nell\'ordine del rimontaggio'),
     ('Rimetti il disco', 'Infila il disco nel suo posto e rimetti le sue viti (o chiudi la slitta).', 'componenti.svg',
@@ -150,7 +150,7 @@ cap(3, 'Rimontare il PC', 'Si rimonta al contrario: disco, RAM, cavi SATA del di
      'RAM-এর খাঁজ আর স্লটের দাঁত মেলাও। দুই বুড়ো আঙুলে সোজা চাপো, «ক্লিক» পর্যন্ত।', 'i due pollici sulla RAM e i ganci che si chiudono'),
     ('Attacca i cavi SATA', 'Attacca al disco il cavo SATA dati e il cavo SATA di alimentazione. Ogni spina entra in un solo verso: non forzare.', 'mappa-cavi.svg',
      'ডিস্কে SATA ডেটা আর পাওয়ার তার লাগাও। জোর করবে না।', 'i due connettori SATA attaccati al disco, con la forma a L visibile'),
-    ('Fai i 5 controlli', 'OCCHI legge, MANI controlla: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera.', 'checklist.svg',
+    ('Fai i 5 controlli', 'Controllate insieme: RAM con i ganci chiusi, disco avvitato, SATA dati, SATA alimentazione, nessuna vite libera.', 'checklist.svg',
      'চালু করার আগে ৫টি জিনিস দেখো। কোনোটা না হলে আগে ঠিক করো।', 'il case aperto e completo, pronto per i 5 controlli'),
     ('Chiudi il case', 'Rimetti il pannello laterale e le sue 2 viti.', 'apri-case.svg',
      'প্যানেল লাগিয়ে ২টি স্ক্রু দাও।', 'il pannello rimesso e le 2 viti avvitate'),
@@ -450,7 +450,7 @@ def scrivi_md(tipo, versione, rel_img, st):
     L += ['| Macro-argomento | Argomento | Materia | Data | Orario | Contenuto |', '|---|---|---|---|---|---|',
           '| Hardware e sistemi operativi | Smontare, rimontare e installare un PC | Laboratorio | giovedì 05/11/2026 | 2INF 8-11, 3INF 11-13 | sicurezza, smontaggio, rimontaggio, BIOS, Windows 10, utenti, impostazioni, rete |', '',
           '## 00 Come si usa questa guida', '',
-          '1. Si lavora a coppie, un PC per coppia. MANI fa, OCCHI legge e controlla.',
+          '1. Si lavora a coppie, un PC per coppia.',
           '2. Ogni passo ha un numero, una sola cosa da fare e una figura.',
           '3. Le figure per ora sono schemi disegnati. Ogni schema ha un codice (per esempio FOTO-02-03): verrà sostituito dalla foto del docente.',
           '4. Sei bloccato? Scrivi la domanda all\'assistente della pagina della lezione. Il Professore serve se il PC non funziona, se un pezzo si rompe o se qualcuno si fa male.', '',
