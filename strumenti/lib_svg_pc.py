@@ -180,19 +180,17 @@ def sicurezza(quale, pref='192.168.10.', primo=10):
         c.append(t(390, 195, '    CAVI della scheda;', 17))
         c.append(t(390, 225, '3. poi tira dalla spina,', 17))
         c.append(t(390, 255, '    MAI dal filo.', 17, ROSSO, True))
-        c.append(t(390, 300, 'Chi ha il ruolo «Occhi»', 17, BLU, True))
-        c.append(t(390, 328, 'segna; «Mani» stacca.', 17, BLU, True))
+        c.append(t(390, 300, 'Lavorate a coppie:', 17, BLU, True))
+        c.append(t(390, 328, 'guardate insieme, poi staccate.', 17, BLU, True))
     elif quale == 'ruoli':
-        for i, (nome, col, cosa) in enumerate((('MANI', '#2d6a4f', ['smonta e monta', 'usa il cacciavite', 'sta alla tastiera']),
-                                               ('OCCHI', BLU, ['legge il passo', 'compila la scheda', 'controlla la checklist']))):
-            x = 70 + i * 320
-            c.append(r(x, 70, 260, 260, '#fff', col, 4, 12))
-            c.append(t(x + 130, 115, nome, 26, col, True, 'middle'))
-            for j, s in enumerate(cosa):
-                c.append(t(x + 130, 175 + j * 40, s, 18, '#1f2328', False, 'middle'))
-        c.append('<path d="M335,200 L385,200" stroke="#57606a" stroke-width="4" marker-end="url(#fr)"/>')
-        c.append('<path d="M385,230 L335,230" stroke="#57606a" stroke-width="4" marker-end="url(#fr)"/>')
-        c.append(t(360, 370, 'A ogni fase vi scambiate i ruoli.', 18, ROSSO, True, 'middle'))
+        # 05/11/2026 (docente): niente ruoli, solo «a coppie, un PC per coppia»
+        c.append(t(360, 60, 'A coppie: un PC per coppia', 24, '#1f2328', True, 'middle'))
+        for x in (150, 570):
+            c.append(f'<circle cx="{x}" cy="150" r="34" fill="{BLU}"/>')
+            c.append(r(x - 50, 190, 100, 110, BLU, BLU, 2, 30))
+        c.append(r(290, 150, 140, 150, '#dfe3e8', '#57606a', 3, 8))
+        c.append(t(360, 232, 'PC', 22, '#1f2328', True, 'middle'))
+        c.append(t(360, 360, 'Scrivete i nomi e il numero del banco.', 18, ROSSO, True, 'middle'))
     elif quale == 'apri-case':
         c.append(r(160, 60, 260, 300, '#dfe3e8', '#57606a', 3, 8))
         c.append(r(420, 70, 30, 280, '#adb5bd', '#57606a', 2, 4))

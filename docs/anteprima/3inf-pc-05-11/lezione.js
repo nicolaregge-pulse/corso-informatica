@@ -8,7 +8,6 @@
   try { if (/[?&]pc=14\b/.test(location.search)) localStorage.setItem('pc14', '1'); if (localStorage.getItem('pc14') === '1') document.body.classList.add('pc14'); } catch (x) {}
   var KG = 'pc0511-' + L.classe, K = 'st-' + L.slug, KS = 'sch-' + L.slug;
   var G = prendi(KG, { nome: '', comp1: '', comp2: '', banco: '' }), S = prendi(K, {}), R = prendi(KS, {});
-  var RUOLI2 = ['MANI', 'OCCHI'], RUOLI3 = ['MANI', 'OCCHI', 'CONTROLLO'];
   function ipDi(b) { var r = CONF.rete || {}; return b ? (r.prefisso || '') + ((+r.primo || 0) + (+b)) : '?'; }
 
   /* ---------- indice: ore aperte / in arrivo, «vai qui adesso» ---------- */
@@ -26,7 +25,7 @@
     $('info-gruppi').textContent = 'PC da smontare oggi: ' + (CONF.pc_da_smontare || '?') + ' · persone per PC: ' + pp + ' · sistema: ' + (CONF.variante_os === 'B' ? 'Linux Mint' : 'Windows 10') + '.';
   }
 
-  /* ---------- chi siete + ruoli ---------- */
+  /* ---------- chi siete (a coppie, niente ruoli: docente 05/11/2026) ---------- */
   function chi() {
     if (!$('nome')) return;
     var pp = +CONF.persone_per_pc || 2, sel = $('banco'), n = +CONF.pc_da_smontare || 10, h = '<option value="">scegli</option>';
@@ -38,15 +37,7 @@
     });
     ruoli();
   }
-  function ruoli() {
-    if (!$('ruoli')) return;
-    var pp = +CONF.persone_per_pc || 2, RR = pp >= 3 ? RUOLI3 : RUOLI2, nomi = [G.nome || 'Tu', G.comp1 || 'Compagno'];
-    if (pp >= 3) nomi.push(G.comp2 || 'Terzo');
-    if (!L.fasi.length) { $('ruoli').innerHTML = ''; return; }
-    var h = '<table class="ruoli"><tr><th>Fase</th>' + nomi.map(function (x) { return '<th>' + esc(x) + '</th>'; }).join('') + '</tr>';
-    L.fasi.forEach(function (g) { h += '<tr><td>' + esc(L.fasi_nomi[g]) + '</td>' + nomi.map(function (x, j) { return '<td><b>' + RR[(j + g) % RR.length] + '</b></td>'; }).join('') + '</tr>'; });
-    $('ruoli').innerHTML = h + '</table><p class="mu">MANI smonta, monta e usa la tastiera. OCCHI legge il passo e compila la scheda.' + (pp >= 3 ? ' CONTROLLO tiene la checklist e la scatola delle viti.' : '') + '</p>';
-  }
+  function ruoli() {}
   function rete() {
     var r = CONF.rete || {};
     [].forEach.call(document.querySelectorAll('[data-v]'), function (e) {
