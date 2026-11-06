@@ -1,0 +1,171 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Il convertitore che parla</title><meta name="description" content="1INF, Laboratorio, 06/11/2026 ora 4: convertitore di misure che compone frasi con le stringhe.">
+<script src="ore.js" data-ora="4"></script><link rel="stylesheet" href="stile.css"></head>
+<body data-slug="1inf-conv0611" data-coppia="0"><main>
+<p class="mu">1INF · Laboratorio · venerdì 06/11/2026 · ora 4 (11-12) · Lazarus</p>
+<h1>Ora 4 · Il convertitore che parla</h1><p class="ar" lang="ar" dir="rtl">الساعة 4 · المحوّل الذي يتكلم</p><p class="zh" lang="zh">第 4 节 · 会说话的换算器</p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span class="ar" lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span class="zh" lang="zh">按 F5 查看新版本。</span></p>
+<div class="card" id="lingue"><b>Lingue:</b> <button type="button" data-l="tutte">Italiano + العربية + 中文</button><button type="button" data-l="ar">Italiano + العربية</button><button type="button" data-l="zh">Italiano + 中文</button></div>
+<div class="card" style="background:var(--sel)"><a class="bt" href="../../1inf/" target="_blank" rel="noopener">A che punto sono · <span class="ar" lang="ar">أين وصلت</span> · <span class="zh" lang="zh">我的进度</span></a><a class="bt" href="#aiuto">Chiedi all'assistente · <span class="ar" lang="ar">اسأل المساعد</span> · <span class="zh" lang="zh">问助手</span></a><p class="mu" style="margin:0">Hai un dubbio sul lavoro? Scrivi all'assistente in fondo alla pagina: risponde subito. Il Professore serve per un PC rotto.</p></div>
+<section class="card"><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve al cruscotto e alla consegna.</p><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب: تحتاجه لوحة المتابعة والتسليم.</p><p class="zh" lang="zh">写名字和姓：进度面板和提交都需要。</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+<section class="card" id="dove" style="border:3px solid var(--blu)"><div><b>Hai fatto · <span class="ar" lang="ar">أنجزت</span> · <span class="zh" lang="zh">你已完成</span>:</b> <span id="d-fatto"></span></div><div><b>Ti manca · <span class="ar" lang="ar">ينقصك</span> · <span class="zh" lang="zh">你还缺</span>:</b> <span id="d-manca"></span></div><div><b>Vai qui adesso · <span class="ar" lang="ar">اذهب إلى هنا الآن</span> · <span class="zh" lang="zh">现在去这里</span>:</b> <a class="bt v" id="vai" href="#"></a></div></section>
+<div class="passo" data-p="1" id="p1"><span class="bollo">da fare</span><h2><span class="num">1</span>Primi 10 minuti: i recuperi</h2><p class="ar" lang="ar" dir="rtl">أول 10 دقائق: التعويض</p><p class="zh" lang="zh">前 10 分钟：补做</p>
+<p>Apri il cruscotto e scegli il tuo nome in «Io sono». Se vedi «Ti manca», fai il recupero con il bottone qui sotto. Puoi rifarlo: vale il migliore. Se non ti manca niente, premi «Ho fatto!» e vai al passo 2.</p><p class="ar" lang="ar" dir="rtl">افتح لوحة المتابعة واختر اسمك في «Io sono». إذا رأيت «Ti manca»، قم بالتعويض بالزر في الأسفل. يمكنك الإعادة: تُحسب أفضل نتيجة. إذا لم ينقصك شيء، اضغط «Ho fatto!» وانتقل إلى الخطوة 2.</p><p class="zh" lang="zh">打开进度面板，在「Io sono」选你的名字。如果看到「Ti manca」，用下面的按钮补做。可以重做：算最好的一次。如果什么都不缺，按「Ho fatto!」去第 2 步。</p>
+<a class="bt" href="../../1inf/" target="_blank" rel="noopener">Apri il cruscotto · <span class="ar" lang="ar">افتح لوحة المتابعة</span> · <span class="zh" lang="zh">打开进度面板</span></a><a class="bt v" data-conf="quiz_stringhe" href="#">Recupero: quiz «Testo o numero?» · <span class="ar" lang="ar">تعويض: اختبار نص أم رقم</span> · <span class="zh" lang="zh">补做：测验「文字还是数字」</span></a><p class="mu" data-confmsg="quiz_stringhe"></p><a class="bt" href="../1inf-sicurezza-recupero-04-11/" target="_blank" rel="noopener">Recupero: Sicurezza · <span class="ar" lang="ar">تعويض: السلامة</span> · <span class="zh" lang="zh">补做：安全课</span></a>
+<figure><img class="sx-img" src="img/o4-recupero.svg" alt="Il cruscotto mostra il tuo recupero" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="2" id="p2"><span class="bollo">da fare</span><h2><span class="num">2</span>La teoria in 1 minuto: una frase è fatta di pezzi</h2><p class="ar" lang="ar" dir="rtl">النظرية في دقيقة: الجملة مكوّنة من قطع</p><p class="zh" lang="zh">一分钟理论：句子是由小块组成的</p>
+<p>Una frase in Lazarus è una STRINGA. Si costruisce come un treno: ogni pezzo è un vagone, il <b>+</b> li attacca.</p><p class="ar" lang="ar" dir="rtl">الجملة في Lazarus هي STRINGA (نص). نبنيها مثل القطار: كل قطعة عربة، و <b>+</b> يربطها.</p><p class="zh" lang="zh">Lazarus 里的句子是字符串 STRINGA。像火车一样搭起来：每一块是一节车厢，<b>+</b> 把它们连起来。</p>
+<p><code>'7' + ' km'</code> = <code>'7 km'</code>. Lo spazio fa parte del testo: senza spazio esce <code>'7km'</code>.</p><p class="ar" lang="ar" dir="rtl"><code>'7' + ' km'</code> = <code>'7 km'</code>. المسافة جزء من النص: بدون مسافة يخرج <code>'7km'</code>.</p><p class="zh" lang="zh"><code>'7' + ' km'</code> = <code>'7 km'</code>。空格也是文字的一部分：没有空格就变成 <code>'7km'</code>。</p>
+<p>Il conto si fa con i numeri: <code>StrToInt</code> trasforma il testo in numero, <code>IntToStr</code> trasforma il risultato in testo per metterlo nella frase.</p><p class="ar" lang="ar" dir="rtl">الحساب يكون بالأرقام: <code>StrToInt</code> يحوّل النص إلى رقم، و <code>IntToStr</code> يحوّل النتيجة إلى نص لنضعها في الجملة.</p><p class="zh" lang="zh">计算要用数字：<code>StrToInt</code> 把文字变成数字，<code>IntToStr</code> 把结果变成文字，放进句子里。</p>
+<div class="quad"><b>Ricopia sul quaderno</b> · <span class="ar" lang="ar">انسخ في الدفتر</span> · <span class="zh" lang="zh">抄在本子上</span><ol><li>Una frase è testo: i pezzi si attaccano con il +.  '7' + ' km' = '7 km'</li><li>StrToInt = da testo a numero (prima del conto).</li><li>IntToStr = da numero a testo (prima di metterlo nella frase).</li></ol></div>
+<figure><img class="sx-img" src="img/o4-teoria.svg" alt="La frase come un treno di pezzi uniti con il +" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="3" id="p3"><span class="bollo">da fare</span><h2><span class="num">3</span>Gioca con le stringhe: che cosa esce?</h2><p class="ar" lang="ar" dir="rtl">العب بالنصوص: ماذا يخرج؟</p><p class="zh" lang="zh">玩字符串：会得到什么？</p>
+<p>Rispondi a tutte e 5. Quando sono tutte giuste, il passo diventa verde da solo.</p><p class="ar" lang="ar" dir="rtl">أجب عن الخمسة كلها. عندما تكون كلها صحيحة، تصبح الخطوة خضراء وحدها.</p><p class="zh" lang="zh">5 道都要回答。全部答对后，这一步会自己变绿。</p>
+<div class="mq"><div class="mq-d" data-p="✔ Il secondo pezzo comincia con uno spazio: ' km'."><p><code>'7' + ' km'</code> dà…</p><p class="ar" lang="ar" dir="rtl"><code>'7' + ' km'</code> يعطي…</p><p class="zh" lang="zh"><code>'7' + ' km'</code> 得到……</p><div class="scelte"><button type="button" data-ok>'7 km'</button><button type="button">'7km'</button><button type="button">un errore</button></div><div class="esito"></div></div><div class="mq-d" data-p="✔ Due testi con il + si attaccano: 77, non 14."><p><code>'7' + '7'</code> dà…</p><p class="ar" lang="ar" dir="rtl"><code>'7' + '7'</code> يعطي…</p><p class="zh" lang="zh"><code>'7' + '7'</code> 得到……</p><div class="scelte"><button type="button">14</button><button type="button" data-ok>'77'</button><button type="button">'7 7'</button></div><div class="esito"></div></div><div class="mq-d" data-p="✔ Con due numeri il + fa il conto."><p><code>7 + 7</code> (numeri, senza apici) dà…</p><p class="ar" lang="ar" dir="rtl"><code>7 + 7</code> (أرقام بدون علامات اقتباس) يعطي…</p><p class="zh" lang="zh"><code>7 + 7</code>（数字，没有引号）得到……</p><div class="scelte"><button type="button">'77'</button><button type="button" data-ok>14</button><button type="button">un errore</button></div><div class="esito"></div></div><div class="mq-d" data-p="✔ IntToStr(7000) = '7000': adesso è testo e si attacca alla frase."><p>Per mettere il numero 7000 dentro la frase scrivo…</p><p class="ar" lang="ar" dir="rtl">لوضع الرقم 7000 داخل الجملة أكتب…</p><p class="zh" lang="zh">要把数字 7000 放进句子，要写……</p><div class="scelte"><button type="button">StrToInt(7000)</button><button type="button" data-ok>IntToStr(7000)</button><button type="button">7000 e basta</button></div><div class="esito"></div></div><div class="mq-d" data-p="✔ È la frase del tuo convertitore!"><p>Edit1.Text = '7'. <code>Edit1.Text + ' km in metri sono ' + IntToStr(7000) + ' metri'</code> dà…</p><p class="ar" lang="ar" dir="rtl">Edit1.Text = '7'. <code>Edit1.Text + ' km in metri sono ' + IntToStr(7000) + ' metri'</code> يعطي…</p><p class="zh" lang="zh">Edit1.Text = '7'。<code>Edit1.Text + ' km in metri sono ' + IntToStr(7000) + ' metri'</code> 得到……</p><div class="scelte"><button type="button" data-ok>'7 km in metri sono 7000 metri'</button><button type="button">'7km in metri sono7000metri'</button><button type="button">un errore</button></div><div class="esito"></div></div></div>
+<figure><img class="sx-img" src="img/o4-gioco.svg" alt="Esempi di somme di stringhe e di numeri" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+</div>
+<div class="passo" data-p="4" id="p4"><span class="bollo">da fare</span><h2><span class="num">4</span>Vinci subito: il progetto nuovo</h2><p class="ar" lang="ar" dir="rtl">فوز سريع: المشروع الجديد</p><p class="zh" lang="zh">马上成功：新项目</p>
+<p>Apri Lazarus. Menu <b>Progetto</b>, <b>Nuovo progetto…</b>, scegli <b>Applicazione</b> e premi OK.</p><p class="ar" lang="ar" dir="rtl">افتح Lazarus. القائمة <b>Progetto</b> ثم <b>Nuovo progetto…</b>، اختر <b>Applicazione</b> واضغط OK.</p><p class="zh" lang="zh">打开 Lazarus。菜单 <b>Progetto</b>，<b>Nuovo progetto…</b>，选 <b>Applicazione</b>，按 OK。</p>
+<p>Subito: menu <b>File</b>, <b>Salva tutto</b>. In <b>Documenti</b> crea la cartella <b>convertitore-parla</b> e salva lì (premi Salva 2 volte).</p><p class="ar" lang="ar" dir="rtl">فوراً: القائمة <b>File</b> ثم <b>Salva tutto</b>. في <b>Documenti</b> أنشئ المجلد <b>convertitore-parla</b> واحفظ فيه (اضغط Salva مرتين).</p><p class="zh" lang="zh">马上：菜单 <b>File</b>，<b>Salva tutto</b>。在 <b>Documenti</b> 里新建文件夹 <b>convertitore-parla</b>，保存在里面（按两次 Salva）。</p>
+
+<figure><img class="sx-img" src="img/o4-salva.svg" alt="Salva il progetto nella cartella convertitore-parla" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="5" id="p5"><span class="bollo">da fare</span><h2><span class="num">5</span>Metti i pezzi sulla finestra</h2><p class="ar" lang="ar" dir="rtl">ضع القطع على النافذة</p><p class="zh" lang="zh">把组件放到窗口上</p>
+<p>Dalla scheda <b>Standard</b> (in alto) metti sulla finestra grigia: <b>2 Edit</b>, <b>1 Label</b> e <b>5 Button</b>. Clic sul pezzo, poi clic sulla finestra.</p><p class="ar" lang="ar" dir="rtl">من تبويب <b>Standard</b> (في الأعلى) ضع على النافذة الرمادية: <b>2 Edit</b> و <b>1 Label</b> و <b>5 Button</b>. انقر على القطعة ثم على النافذة.</p><p class="zh" lang="zh">从上面的 <b>Standard</b> 标签，在灰色窗口上放：<b>2 个 Edit</b>，<b>1 个 Label</b>，<b>5 个 Button</b>。先点组件，再点窗口。</p>
+<p>Edit1 = il numero. Edit2 = il tuo nome. Label1 = la frase: nell'Ispettore oggetti metti <b>WordWrap</b> = True e allargala bene.</p><p class="ar" lang="ar" dir="rtl">Edit1 = الرقم. Edit2 = اسمك. Label1 = الجملة: في Ispettore oggetti اجعل <b>WordWrap</b> = True ووسّعها جيداً.</p><p class="zh" lang="zh">Edit1 = 数字。Edit2 = 你的名字。Label1 = 句子：在 Ispettore oggetti 里把 <b>WordWrap</b> 设为 True，把它拉宽。</p>
+
+<figure><img class="sx-img" src="img/o4-form.svg" alt="La finestra del convertitore: 2 Edit, 5 bottoni e la Label" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="6" id="p6"><span class="bollo">da fare</span><h2><span class="num">6</span>Le scritte dei bottoni (Caption)</h2><p class="ar" lang="ar" dir="rtl">كتابات الأزرار (Caption)</p><p class="zh" lang="zh">按钮上的字（Caption）</p>
+<p>Clic su un bottone. Nell'Ispettore oggetti, a sinistra, cambia <b>Caption</b>: Button1 = <b>km in metri</b>, Button2 = <b>metri in cm</b>, Button3 = <b>ore in minuti</b>, Button4 = <b>euro in centesimi</b>, Button5 = <b>Racconta tutto</b>.</p><p class="ar" lang="ar" dir="rtl">انقر على زر. في Ispettore oggetti على اليسار غيّر <b>Caption</b>: Button1 = <b>km in metri</b>، Button2 = <b>metri in cm</b>، Button3 = <b>ore in minuti</b>، Button4 = <b>euro in centesimi</b>، Button5 = <b>Racconta tutto</b>.</p><p class="zh" lang="zh">点一个按钮。在左边的 Ispettore oggetti 里改 <b>Caption</b>：Button1 = <b>km in metri</b>，Button2 = <b>metri in cm</b>，Button3 = <b>ore in minuti</b>，Button4 = <b>euro in centesimi</b>，Button5 = <b>Racconta tutto</b>。</p>
+<p>Togli la scritta da Edit1 e Edit2: proprietà <b>Text</b> vuota.</p><p class="ar" lang="ar" dir="rtl">احذف الكتابة من Edit1 و Edit2: خاصية <b>Text</b> فارغة.</p><p class="zh" lang="zh">把 Edit1 和 Edit2 里的字删掉：<b>Text</b> 属性留空。</p>
+
+<figure><img class="sx-img" src="img/o4-ispettore.svg" alt="Ispettore oggetti: la proprietà Caption" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="7" id="p7"><span class="bollo">da fare</span><h2><span class="num">7</span>Livello 1: la prima frase (km in metri)</h2><p class="ar" lang="ar" dir="rtl">المستوى 1: الجملة الأولى (كم إلى متر)</p><p class="zh" lang="zh">第 1 级：第一句话（公里变米）</p>
+<p>Fai <b>doppio clic</b> sul bottone «km in metri»: si apre il codice. Tra <b>begin</b> e <b>end</b> il programma deve: leggere Edit1, fare × 1000, scrivere la frase.</p><p class="ar" lang="ar" dir="rtl">انقر <b>نقراً مزدوجاً</b> على زر «km in metri»: يُفتح الكود. بين <b>begin</b> و <b>end</b> يجب أن يقرأ البرنامج Edit1، يضرب × 1000، ويكتب الجملة.</p><p class="zh" lang="zh">在「km in metri」按钮上<b>双击</b>：代码会打开。在 <b>begin</b> 和 <b>end</b> 之间，程序要：读 Edit1，乘以 1000，写出句子。</p>
+<p>La frase giusta, con 7: <b>7 km in metri sono 7000 metri</b>. Prova da solo, poi usa gli aiuti uno alla volta.</p><p class="ar" lang="ar" dir="rtl">الجملة الصحيحة مع 7: <b>7 km in metri sono 7000 metri</b>. جرّب وحدك، ثم استعمل المساعدات واحدة واحدة.</p><p class="zh" lang="zh">用 7 的正确句子：<b>7 km in metri sono 7000 metri</b>。先自己试，再一个一个地用提示。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Tre righe: 1) km := StrToInt(Edit1.Text); 2) metri := km * 1000; 3) Label1.Caption := … la frase con i pezzi uniti dal +.</p><p class="ar" lang="ar" dir="rtl">ثلاثة أسطر: 1) km := StrToInt(Edit1.Text); 2) metri := km * 1000; 3) Label1.Caption := … الجملة بالقطع المربوطة بـ +.</p><p class="zh" lang="zh">三行：1) km := StrToInt(Edit1.Text); 2) metri := km * 1000; 3) Label1.Caption := ……用 + 连起来的句子。</p></details><details><summary>Aiuto 2: il codice con i buchi</summary><pre><code>procedure TForm1.Button1Click(Sender: TObject);
+var
+  km, metri: Integer;
+begin
+  km := ________(Edit1.Text);          // da testo a numero
+  metri := km * ____;                  // 1 km = 1000 metri
+  Label1.Caption := Edit1.Text + ' km in metri sono ' + ________(metri) + ' metri';
+end;</code></pre></details><details><summary>Aiuto 3: il codice completo</summary><pre><code>procedure TForm1.Button1Click(Sender: TObject);
+var
+  km, metri: Integer;
+begin
+  km := StrToInt(Edit1.Text);
+  metri := km * 1000;
+  Label1.Caption := Edit1.Text + ' km in metri sono ' + IntToStr(metri) + ' metri';
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/o4-frase1.svg" alt="Il programma scrive 7 km in metri sono 7000 metri" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="8" id="p8"><span class="bollo">da fare</span><h2><span class="num">8</span>Prova: premi F9</h2><p class="ar" lang="ar" dir="rtl">جرّب: اضغط F9</p><p class="zh" lang="zh">试一试：按 F9</p>
+<p>Premi <b>F9</b>. Scrivi 7 nella prima casella e premi «km in metri». Leggi la frase: gli spazi sono giusti?</p><p class="ar" lang="ar" dir="rtl">اضغط <b>F9</b>. اكتب 7 في الخانة الأولى واضغط «km in metri». اقرأ الجملة: هل المسافات صحيحة؟</p><p class="zh" lang="zh">按 <b>F9</b>。在第一个框里写 7，按「km in metri」。读句子：空格对吗？</p>
+<p>Esce «is an invalid integer»? Nella casella c'è una lettera o è vuota: scrivi solo cifre e riprova.</p><p class="ar" lang="ar" dir="rtl">يظهر «is an invalid integer»؟ في الخانة حرف أو هي فارغة: اكتب أرقاماً فقط وحاول مرة أخرى.</p><p class="zh" lang="zh">出现「is an invalid integer」？框里有字母或者是空的：只写数字，再试一次。</p>
+
+<figure><img class="sx-img" src="img/o4-prova.svg" alt="F9: il programma gira e scrive la frase" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="9" id="p9"><span class="bollo">da fare</span><h2><span class="num">9</span>Livello 2: altre 3 conversioni</h2><p class="ar" lang="ar" dir="rtl">المستوى 2: 3 تحويلات أخرى</p><p class="zh" lang="zh">第 2 级：再做 3 个换算</p>
+<p>Stessa idea, cambia solo il numero e le parole: <b>metri in cm</b> × 100, <b>ore in minuti</b> × 60, <b>euro in centesimi</b> × 100. Doppio clic su ogni bottone.</p><p class="ar" lang="ar" dir="rtl">نفس الفكرة، يتغير الرقم والكلمات فقط: <b>متر إلى سنتيمتر</b> × 100، <b>ساعات إلى دقائق</b> × 60، <b>يورو إلى سنت</b> × 100. نقر مزدوج على كل زر.</p><p class="zh" lang="zh">同样的想法，只改数字和词：<b>米变厘米</b> × 100，<b>小时变分钟</b> × 60，<b>欧元变分</b> × 100。每个按钮都双击。</p>
+<p>Con 7: «7 metri in centimetri sono 700 centimetri», «7 ore in minuti sono 420 minuti», «7 euro in centesimi sono 700 centesimi».</p><p class="ar" lang="ar" dir="rtl">مع 7: «7 metri in centimetri sono 700 centimetri»، «7 ore in minuti sono 420 minuti»، «7 euro in centesimi sono 700 centesimi».</p><p class="zh" lang="zh">用 7：「7 metri in centimetri sono 700 centimetri」，「7 ore in minuti sono 420 minuti」，「7 euro in centesimi sono 700 centesimi」。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Copia il codice del livello 1 e cambia: il nome delle variabili, il numero (100, 60, 100) e le parole della frase.</p><p class="ar" lang="ar" dir="rtl">انسخ كود المستوى 1 وغيّر: أسماء المتغيرات، الرقم (100، 60، 100) وكلمات الجملة.</p><p class="zh" lang="zh">复制第 1 级的代码，改：变量名、数字（100、60、100）和句子里的词。</p></details><details><summary>Aiuto 2: il codice completo dei 3 bottoni</summary><pre><code>procedure TForm1.Button2Click(Sender: TObject);
+var
+  metri, cm: Integer;
+begin
+  metri := StrToInt(Edit1.Text);
+  cm := metri * 100;
+  Label1.Caption := Edit1.Text + ' metri in centimetri sono ' + IntToStr(cm) + ' centimetri';
+end;
+
+procedure TForm1.Button3Click(Sender: TObject);
+var
+  ore, minuti: Integer;
+begin
+  ore := StrToInt(Edit1.Text);
+  minuti := ore * 60;
+  Label1.Caption := Edit1.Text + ' ore in minuti sono ' + IntToStr(minuti) + ' minuti';
+end;
+
+procedure TForm1.Button4Click(Sender: TObject);
+var
+  euro, centesimi: Integer;
+begin
+  euro := StrToInt(Edit1.Text);
+  centesimi := euro * 100;
+  Label1.Caption := Edit1.Text + ' euro in centesimi sono ' + IntToStr(centesimi) + ' centesimi';
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/o4-livello2.svg" alt="Quattro bottoni, quattro frasi" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="10" id="p10"><span class="bollo">da fare</span><h2><span class="num">10</span>Livello 3: la frase finale composta</h2><p class="ar" lang="ar" dir="rtl">المستوى 3: الجملة النهائية المركّبة</p><p class="zh" lang="zh">第 3 级：最后的组合句子</p>
+<p>Il bottone <b>Racconta tutto</b> costruisce UNA frase lunga, un pezzo alla volta: <code>Label1.Caption := Label1.Caption + …</code> aggiunge testo alla fine della frase che c'è già.</p><p class="ar" lang="ar" dir="rtl">زر <b>Racconta tutto</b> يبني جملة طويلة واحدة، قطعة قطعة: <code>Label1.Caption := Label1.Caption + …</code> يضيف نصاً في آخر الجملة الموجودة.</p><p class="zh" lang="zh"><b>Racconta tutto</b> 按钮一块一块地搭出一个长句子：<code>Label1.Caption := Label1.Caption + …</code> 把文字加在已有句子的后面。</p>
+<p>Scrivi il tuo nome in Edit2 e 7 in Edit1. Deve uscire: <b>Ciao Max! Con 7: 7000 metri, 700 centimetri, 420 minuti, 700 centesimi.</b> (con il tuo nome al posto di Max).</p><p class="ar" lang="ar" dir="rtl">اكتب اسمك في Edit2 و 7 في Edit1. يجب أن يخرج: <b>Ciao Max! Con 7: 7000 metri, 700 centimetri, 420 minuti, 700 centesimi.</b> (باسمك مكان Max).</p><p class="zh" lang="zh">在 Edit2 写你的名字，在 Edit1 写 7。要出现：<b>Ciao Max! Con 7: 7000 metri, 700 centimetri, 420 minuti, 700 centesimi.</b>（用你的名字代替 Max）。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Prima riga: Label1.Caption := 'Ciao ' + Edit2.Text + '! Con ' + Edit1.Text + ':'; poi 4 righe che aggiungono un pezzo: Label1.Caption := Label1.Caption + ' ' + IntToStr(n * 1000) + ' metri,';</p><p class="ar" lang="ar" dir="rtl">السطر الأول: Label1.Caption := 'Ciao ' + Edit2.Text + '! Con ' + Edit1.Text + ':'; ثم 4 أسطر تضيف قطعة.</p><p class="zh" lang="zh">第一行：Label1.Caption := 'Ciao ' + Edit2.Text + '! Con ' + Edit1.Text + ':'; 然后 4 行，每行加一块。</p></details><details><summary>Aiuto 2: il codice completo</summary><pre><code>procedure TForm1.Button5Click(Sender: TObject);
+var
+  n: Integer;
+begin
+  n := StrToInt(Edit1.Text);
+  Label1.Caption := 'Ciao ' + Edit2.Text + '! Con ' + Edit1.Text + ':';
+  Label1.Caption := Label1.Caption + ' ' + IntToStr(n * 1000) + ' metri,';
+  Label1.Caption := Label1.Caption + ' ' + IntToStr(n * 100) + ' centimetri,';
+  Label1.Caption := Label1.Caption + ' ' + IntToStr(n * 60) + ' minuti,';
+  Label1.Caption := Label1.Caption + ' ' + IntToStr(n * 100) + ' centesimi.';
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/o4-livello3.svg" alt="Racconta tutto: una frase lunga fatta di pezzi" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="11" id="p11"><span class="bollo">da fare</span><h2><span class="num">11</span>Fallo tuo: la TUA conversione e una frase scherzosa</h2><p class="ar" lang="ar" dir="rtl">اصنعه بنفسك: تحويلك وجملة مضحكة</p><p class="zh" lang="zh">自己做：你的换算和一句好笑的话</p>
+<p>Aggiungi <b>Button6</b> con una conversione scelta da te: pizze in fette (× 8), settimane in giorni (× 7), giorni in ore (× 24), minuti in secondi (× 60), anni in mesi (× 12)… o un'idea tua.</p><p class="ar" lang="ar" dir="rtl">أضف <b>Button6</b> بتحويل تختاره: بيتزا إلى قطع (× 8)، أسابيع إلى أيام (× 7)، أيام إلى ساعات (× 24)، دقائق إلى ثوانٍ (× 60)، سنوات إلى أشهر (× 12)… أو فكرتك.</p><p class="zh" lang="zh">加一个 <b>Button6</b>，做你自己选的换算：比萨变块（× 8），星期变天（× 7），天变小时（× 24），分钟变秒（× 60），年变月（× 12）……或者你的想法。</p>
+<p>Alla fine aggiungi una frase scherzosa con <code>Label1.Caption := Label1.Caption + '…';</code></p><p class="ar" lang="ar" dir="rtl">في النهاية أضف جملة مضحكة بـ <code>Label1.Caption := Label1.Caption + '…';</code></p><p class="zh" lang="zh">最后用 <code>Label1.Caption := Label1.Caption + '…';</code> 加一句好笑的话。</p>
+<div class="aiuti"><details><summary>Aiuto 1: un esempio (pizze in fette)</summary><pre><code>procedure TForm1.Button6Click(Sender: TObject);
+var
+  pizze, fette: Integer;
+begin
+  pizze := StrToInt(Edit1.Text);
+  fette := pizze * 8;
+  Label1.Caption := Edit1.Text + ' pizze sono ' + IntToStr(fette) + ' fette';
+  Label1.Caption := Label1.Caption + ': chiama gli amici, ma la prima fetta è mia!';
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/o4-fallo-tuo.svg" alt="Fallo tuo: un bottone con la tua conversione" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="12" id="p12"><span class="bollo">da fare</span><h2><span class="num">12</span>Salva e fai lo screenshot</h2><p class="ar" lang="ar" dir="rtl">احفظ والتقط صورة الشاشة</p><p class="zh" lang="zh">保存并截图</p>
+<p>Premi <b>Ctrl + S</b>. Premi F9, scrivi un numero e premi «Racconta tutto».</p><p class="ar" lang="ar" dir="rtl">اضغط <b>Ctrl + S</b>. اضغط F9، اكتب رقماً واضغط «Racconta tutto».</p><p class="zh" lang="zh">按 <b>Ctrl + S</b>。按 F9，写一个数字，按「Racconta tutto」。</p>
+<p>Premi <b>Win + Maiusc + S</b> e trascina un rettangolo sul programma. In basso a destra clicca l'avviso, poi il dischetto <b>Salva</b>: cartella <b>convertitore-parla</b>, nome <b>ora4_screenshot.png</b>.</p><p class="ar" lang="ar" dir="rtl">اضغط <b>Win + Shift + S</b> واسحب مستطيلاً على البرنامج. في الأسفل يميناً انقر الإشعار، ثم القرص <b>Salva</b>: المجلد <b>convertitore-parla</b>، الاسم <b>ora4_screenshot.png</b>.</p><p class="zh" lang="zh">按 <b>Win + Shift + S</b>，在程序上拖一个方框。点右下角的通知，再点软盘 <b>Salva</b>：文件夹 <b>convertitore-parla</b>，名字 <b>ora4_screenshot.png</b>。</p>
+
+<figure><img class="sx-img" src="img/o4-screenshot.svg" alt="Win + Maiusc + S, poi Salva nella cartella del progetto" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="13" id="p13" data-cons="1inf-conv0611"><span class="bollo">da fare</span><h2><span class="num">13</span>Consegna: unit1.pas + screenshot</h2><p class="ar" lang="ar" dir="rtl">التسليم: unit1.pas + صورة الشاشة</p><p class="zh" lang="zh">提交：unit1.pas + 截图</p>
+<p>Premi il bottone verde: si apre la pagina della consegna. Scegli unit1.pas e lo screenshot e premi «Manda al prof». Il controllo ti dice subito che livello hai fatto. Poi torna qui: il passo diventa verde da solo.</p><p class="ar" lang="ar" dir="rtl">اضغط الزر الأخضر: تُفتح صفحة التسليم. اختر unit1.pas وصورة الشاشة واضغط «Manda al prof». الفحص يقول لك فوراً أي مستوى أنجزت. ثم ارجع هنا: تصبح الخطوة خضراء وحدها.</p><p class="zh" lang="zh">按绿色按钮：会打开提交页面。选 unit1.pas 和截图，按「Manda al prof」。检查会马上告诉你完成了第几级。然后回到这里：这一步会自己变绿。</p>
+<a class="bt v" href="consegna.html?ora=4" target="_blank" rel="noopener">Apri la consegna · <span class="ar" lang="ar">افتح التسليم</span> · <span class="zh" lang="zh">打开提交页面</span></a>
+<figure><img class="sx-img" src="img/o4-consegna.svg" alt="La consegna con un bottone" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+</div>
+<div class="passo" data-p="14" id="p14"><span class="bollo">da fare</span><h2><span class="num">14</span>Mostralo e ricopia sul quaderno</h2><p class="ar" lang="ar" dir="rtl">اعرضه وانسخ في الدفتر</p><p class="zh" lang="zh">展示给别人看，抄在本子上</p>
+<p>Fai provare il tuo convertitore al compagno: lui scrive un numero e il suo nome, tu premi «Racconta tutto» e il tuo bottone scherzoso.</p><p class="ar" lang="ar" dir="rtl">دع زميلك يجرّب محوّلك: يكتب رقماً واسمه، وأنت تضغط «Racconta tutto» وزرّك المضحك.</p><p class="zh" lang="zh">让同学试试你的换算器：他写一个数字和他的名字，你按「Racconta tutto」和你那个好笑的按钮。</p>
+<div class="quad"><b>Ricopia sul quaderno</b> · <span class="ar" lang="ar">انسخ في الدفتر</span> · <span class="zh" lang="zh">抄在本子上</span><ol><li>Label1.Caption := Edit1.Text + ' km in metri sono ' + IntToStr(metri) + ' metri';</li><li>Label1.Caption := Label1.Caption + ' altro testo';   aggiunge testo alla fine.</li><li>Testo + testo = testo attaccato.  Numero → testo: IntToStr.</li></ol></div>
+<figure><img class="sx-img" src="img/o4-mostralo.svg" alt="Il compagno prova il tuo convertitore" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="15" id="p15" data-bonus><span class="bollo">da fare</span><h2><span class="num">15</span>Bonus: se avanza tempo, «Lo scontrino che parla»</h2><p class="ar" lang="ar" dir="rtl">إضافي: إذا بقي وقت، «الإيصال الذي يتكلم»</p><p class="zh" lang="zh">加分：如果还有时间，「会说话的小票」</p>
+<p>Il bottone si accende quando il Professore apre l'esercizio in più.</p><p class="ar" lang="ar" dir="rtl">يُضاء الزر عندما يفتح الأستاذ التمرين الإضافي.</p><p class="zh" lang="zh">老师打开附加练习时，按钮会亮起来。</p>
+<a class="bt spento" data-apri="riserva_aperta" data-href="riserva.html" href="#">Apri «Lo scontrino che parla» · <span class="ar" lang="ar">افتح الإيصال</span> · <span class="zh" lang="zh">打开小票练习</span></a>
+<figure><img class="sx-img" src="img/o4-bonus.svg" alt="Lo scontrino che parla" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span class="ar" lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span class="zh" lang="zh">按 F5 查看新版本。</span></p><div id="aiuto"></div></main>
+<script src="../../assistente/assistente.js" data-pagina="1inf-06-11" data-lingue="it,ar,zh" data-dove="aiuto"></script>
+<script src="percorso.js"></script>
+</body></html>

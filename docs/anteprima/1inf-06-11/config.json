@@ -1,0 +1,19 @@
+{
+ "invio": "https://script.google.com/macros/s/AKfycbzJ-4JRlTsSRSL77wXNG6ysffGURuDwyFVLin681obuwaw51a5Iso9KHqlUVLcig4_m/exec",
+ "attivo": true,
+ "quiz_stringhe": "https://docs.google.com/forms/d/e/1FAIpQLSdOmjq4FUokITFlediJflpLn3egNb7deOIv-R_PsZwkg1O7ew/viewform",
+ "quiz_win": "",
+ "rete": {
+  "prefisso": "",
+  "primo": 0,
+  "maschera": "",
+  "gateway": "",
+  "dns": ""
+ },
+ "_nota": "1INF 06/11/2026 Laboratorio 11-14 (ora 4 Lazarus «Il convertitore che parla»; ore 5-6 Windows 10 a coppie, utenti, rete, amministrazione). Preparata NEL RISERVATO; nel sito solo al PUBB n (pubblica.sh). Allegato A PFP_1 Comp. 15.",
+ "_ore": "0 = tutto chiuso; 4, 5, 6 = aperte fino a quell'ora. riserva_aperta = esercizio «se avanza tempo». Si cambia con: bash /home/user/corso-informatica-riservato/lezioni-pronte/1inf-06-11/pubblica.sh N",
+ "_rete": "Se il docente scrive prefisso (es. \"192.168.1.\") e primo (es. 200), la pagina mostra IP = prefisso + (primo + numero del PC). Vuoto = «dalla tabella alla lavagna» e maschera/gateway/DNS «uguale al PC originale».",
+ "_quiz": "quiz_win = link viewform del Modulo (comando 2026-11-06_MODULO-1inf-windows-quiz.json, stato in-attesa-PUBB).",
+ "ore_sbloccate": 4,
+ "riserva_aperta": false
+}
