@@ -1,0 +1,25 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Consegna Lazarus</title><meta name="description" content="1INF 06/11/2026: consegna di unit1.pas e dello screenshot con un bottone.">
+<script src="ore.js" data-ora="4"></script><link rel="stylesheet" href="stile.css"></head><body><main>
+<h1 id="tit">Consegna: unit1.pas + screenshot</h1>
+<p class="ar" lang="ar" dir="rtl">التسليم: unit1.pas + صورة الشاشة</p><p class="zh" lang="zh">提交：unit1.pas + 截图</p>
+<section class="card"><h2>1. Chi sei?</h2><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب.</p><p class="zh" lang="zh">写你的名字和姓。</p>
+<input type="text" id="nome" placeholder="Nome Cognome" autocomplete="name"></section>
+<section class="card"><h2>2. Scegli il tuo unit1.pas</h2>
+<p>Clicca il riquadro, vai in <b>Documenti</b> → cartella <b id="cart">…</b> e scegli <code>unit1.pas</code>. Il controllo ti dice subito che livello hai fatto.</p>
+<p class="ar" lang="ar" dir="rtl">انقر المربع، اذهب إلى Documenti ← المجلد واختر unit1.pas. الفحص يقول لك فوراً أي مستوى أنجزت.</p>
+<p class="zh" lang="zh">点这个框，进入 Documenti → 文件夹，选 unit1.pas。检查会马上告诉你完成了第几级。</p>
+<input type="file" id="pas" accept=".pas,.pp,text/plain"><ul class="v" id="voci"></ul><p id="esito"></p></section>
+<section class="card"><h2>3. Scegli lo screenshot del programma che gira</h2>
+<p>È nella stessa cartella (<code id="nomeimg">…</code>).</p>
+<p class="ar" lang="ar" dir="rtl">إنها في نفس المجلد.</p><p class="zh" lang="zh">它在同一个文件夹里。</p>
+<input type="file" id="img" accept="image/*"><div id="anteprima"></div></section>
+<section class="card"><h2>4. Manda al prof</h2>
+<p class="ar" lang="ar" dir="rtl">أرسل إلى الأستاذ.</p><p class="zh" lang="zh">发给老师。</p>
+<button class="bt v" id="manda" type="button" disabled>Manda al prof · أرسل · 发送</button>
+<p class="msg" id="msg"></p>
+<p class="mu">Il bottone non parte? Consegna i due file su Classroom nel compito di oggi. <a id="torna" href="ora4.html">Torna ai passi</a>.</p></section>
+</main>
+<script src="controlla-pas.js"></script>
+<script src="consegna.js"></script>
+</body></html>
