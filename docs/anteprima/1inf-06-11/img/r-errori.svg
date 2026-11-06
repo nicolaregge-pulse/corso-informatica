@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 400" width="720" height="400" role="img" aria-label="Errori comuni dello scontrino" font-family="Segoe UI, Arial, sans-serif"><rect width="720" height="400" fill="#f4f6f9"/>
+<g font-size="16" fill="#1f2328" text-anchor="start">
+<rect x="30" y="24" width="660" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="3"/><text x="46" y="52" font-weight="700">«invalid integer» (numero non valido)</text><text x="46" y="78" font-size="14">Edit2 o Edit3 è vuoto o ha una lettera: scrivi solo cifre.</text>
+<rect x="30" y="108" width="660" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="3"/><text x="46" y="136" font-weight="700">«Illegal expression» vicino a else</text><text x="46" y="162" font-size="14">Prima di else non va il punto e virgola.</text>
+<rect x="30" y="192" width="660" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="3"/><text x="46" y="220" font-weight="700">«Identifier not found Memo1»</text><text x="46" y="246" font-size="14">Manca la Memo sulla finestra, o ha un altro nome.</text>
+<rect x="30" y="276" width="660" height="70" rx="8" fill="#fff" stroke="#c0392b" stroke-width="3"/><text x="46" y="304" font-weight="700">Il debugger dà errore con F9</text><text x="46" y="330" font-size="14">Premi Maiusc + Ctrl + F9, poi apri scontrino.exe nella cartella.</text></g>
+<text x="360" y="380" font-size="14" fill="#5b6573" text-anchor="middle">Schema disegnato</text></svg>

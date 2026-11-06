@@ -1,0 +1,214 @@
+<!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Lo scontrino che parla</title><meta name="description" content="1INF, Laboratorio, 06/11/2026 ora 5: Lazarus, lo scontrino che parla, con il progetto completo da scaricare.">
+<script src="ore.js" data-ora="5"></script><link rel="stylesheet" href="stile.css"></head>
+<body data-slug="1inf-scontrino0611" data-coppia="0"><main>
+<p class="mu">1INF · Laboratorio · venerdì 06/11/2026 · ora 5 (12-13) · Lazarus</p>
+<h1>Ora 5 · Lo scontrino che parla</h1><p class="ar" lang="ar" dir="rtl">الساعة 5 · الإيصال الذي يتكلم</p><p class="zh" lang="zh">第 5 节 · 会说话的小票</p>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span class="ar" lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span class="zh" lang="zh">按 F5 查看新版本。</span></p>
+<div class="card" style="border:4px solid var(--ko);background:var(--kob)"><a class="bt" style="background:var(--ko)" href="guidato4.html">NON RIESCO? Parti da qui · <span class="ar" lang="ar">لا أستطيع؟ ابدأ من هنا</span> · <span class="zh" lang="zh">做不出来？从这里开始</span></a><a class="bt" href="Mini-dispensa-scontrino.pdf" target="_blank" rel="noopener">Mini dispensa dello scontrino (PDF) · <span class="ar" lang="ar">ملخص الإيصال</span> · <span class="zh" lang="zh">小票小讲义</span></a></div>
+<div class="card" id="lingue"><b>Lingue:</b> <button type="button" data-l="tutte">Italiano + العربية + 中文</button><button type="button" data-l="ar">Italiano + العربية</button><button type="button" data-l="zh">Italiano + 中文</button></div>
+<div class="card" style="background:var(--sel)"><a class="bt" href="../../1inf/" target="_blank" rel="noopener">A che punto sono · <span class="ar" lang="ar">أين وصلت</span> · <span class="zh" lang="zh">我的进度</span></a><a class="bt" href="#aiuto">Chiedi all'assistente · <span class="ar" lang="ar">اسأل المساعد</span> · <span class="zh" lang="zh">问助手</span></a><p class="mu" style="margin:0">Hai un dubbio sul lavoro? Scrivi all'assistente in fondo alla pagina: risponde subito. Il Professore serve per un PC rotto.</p></div>
+<section class="card"><h2>Chi sei?</h2><p>Scrivi nome e cognome: serve al cruscotto e alla consegna.</p><p class="ar" lang="ar" dir="rtl">اكتب الاسم واللقب: تحتاجه لوحة المتابعة والتسليم.</p><p class="zh" lang="zh">写名字和姓：进度面板和提交都需要。</p><input type="text" id="nome" autocomplete="name" placeholder="Nome Cognome"><p class="mu" id="nomeok"></p><div class="barra"><i id="barra"></i></div><p id="conta" class="mu"></p></section>
+<section class="card" id="dove" style="border:3px solid var(--blu)"><div><b>Hai fatto · <span class="ar" lang="ar">أنجزت</span> · <span class="zh" lang="zh">你已完成</span>:</b> <span id="d-fatto"></span></div><div><b>Ti manca · <span class="ar" lang="ar">ينقصك</span> · <span class="zh" lang="zh">你还缺</span>:</b> <span id="d-manca"></span></div><div><b>Vai qui adesso · <span class="ar" lang="ar">اذهب إلى هنا الآن</span> · <span class="zh" lang="zh">现在去这里</span>:</b> <a class="bt v" id="vai" href="#"></a></div></section>
+<section class="card" id="scarica" style="border:3px solid var(--ok)"><h2>Il progetto completo, che funziona · <span class="ar" lang="ar">المشروع الكامل الذي يعمل</span> · <span class="zh" lang="zh">能运行的完整项目</span></h2>
+<p>Scarica il progetto già fatto: lo apri in Lazarus, premi F9 e lo scontrino parla. Poi lo capisci, lo cambi e lo fai tuo.</p><p class="ar" lang="ar" dir="rtl">نزّل المشروع الجاهز: افتحه في Lazarus، اضغط F9 والإيصال يتكلم. ثم افهمه وغيّره واجعله ملكك.</p><p class="zh" lang="zh">下载做好的项目：在 Lazarus 里打开，按 F9，小票就会说话。然后看懂它，改它，做成你自己的。</p>
+<a class="bt v" href="Scontrino-1INF-v1.0.zip" download>Scarica lo zip · <span class="ar" lang="ar">نزّل ملف zip</span> · <span class="zh" lang="zh">下载 zip</span></a>
+<p class="mu">Lo zip non si scarica? Scarica i 4 file uno per uno (tasto destro sul bottone, «Salva link con nome», dentro la stessa cartella). · <span class="ar" lang="ar">لا ينزل ملف zip؟ نزّل الملفات الأربعة واحداً واحداً.</span> · <span class="zh" lang="zh">zip 下不了？把 4 个文件一个一个下载。</span></p>
+<a class="bt" href="https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-06-11/scontrino/unit1.pas" download="unit1.pas">unit1.pas</a><a class="bt" href="https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-06-11/scontrino/unit1.lfm" download="unit1.lfm">unit1.lfm</a><a class="bt" href="https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-06-11/scontrino/scontrino.lpi" download="scontrino.lpi">scontrino.lpi</a><a class="bt" href="https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/docs/anteprima/1inf-06-11/scontrino/scontrino.lpr" download="scontrino.lpr">scontrino.lpr</a>
+<details><summary>Il codice completo di unit1.pas · <span class="ar" lang="ar">الكود الكامل</span> · <span class="zh" lang="zh">完整代码</span></summary><p class="mu">In Lazarus: apri unit1.pas, seleziona tutto (Ctrl + A), incolla (Ctrl + V). Il progetto deve avere la finestra con i nomi giusti (passo 2).</p><button class="bt" type="button" id="copia-codice">Copia · <span class="ar" lang="ar">انسخ</span> · <span class="zh" lang="zh">复制</span></button><pre id="codice-unit1"><code>unit Unit1;
+
+{ 1INF - Lo scontrino che parla. Progetto Lazarus completo (livelli 1, 2, 3).
+  Somme di stringhe, StrToInt, IntToStr e un if: niente cicli.
+  Memo1.Lines.Add scrive UNA riga nuova per volta nello scontrino. }
+
+{$mode objfpc}{$H+}
+
+interface
+
+uses
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+
+type
+
+  { TForm1 }
+
+  TForm1 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
+    Button3: TButton;
+    Edit1: TEdit;
+    Edit2: TEdit;
+    Edit3: TEdit;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Memo1: TMemo;
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
+    procedure Button3Click(Sender: TObject);
+  private
+
+  public
+
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.lfm}
+
+{ TForm1 }
+
+{ Livello 1: riga semplice. Livello 2: if con la x. Livello 3: totale in Label2 e reset delle caselle }
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  riga: string;
+  quanti, prezzo, costo, totale: Integer;
+begin
+  quanti := StrToInt(Edit3.Text);
+  prezzo := StrToInt(Edit2.Text);
+  costo := quanti * prezzo;
+  if quanti &gt; 1 then
+    riga := Edit3.Text + &#x27; x &#x27; + Edit1.Text + &#x27; da &#x27; + Edit2.Text + &#x27; euro: &#x27; + IntToStr(costo) + &#x27; euro&#x27;
+  else
+    riga := Edit1.Text + &#x27; &#x27; + Edit2.Text + &#x27; euro&#x27;;
+  Memo1.Lines.Add(riga);
+  totale := StrToInt(Label2.Caption) + costo;
+  Label2.Caption := IntToStr(totale);
+  Edit3.Text := &#x27;1&#x27;;
+  Edit1.Clear;
+  Edit2.Clear;
+  Edit1.SetFocus;
+end;
+
+{ Livello 3: la riga del totale }
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Memo1.Lines.Add(&#x27;TOTALE: &#x27; + Label2.Caption + &#x27; euro. Grazie e arrivederci!&#x27;);
+end;
+
+{ Livello 3: nuovo scontrino (Fallo tuo: metti il nome del TUO negozio) }
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Memo1.Clear;
+  Memo1.Lines.Add(&#x27;Negozio La Bottega&#x27;);
+  Label2.Caption := &#x27;0&#x27;;
+end;
+
+end.
+</code></pre></details>
+<figure><img class="sx-img" src="img/r-scarica.svg" alt="Scarica lo zip, scompatta, apri scontrino.lpi, premi F9" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure></section>
+<div class="passo" data-p="1" id="p1"><span class="bollo">da fare</span><h2><span class="num">1</span>Vinci subito: fai partire lo scontrino</h2><p class="ar" lang="ar" dir="rtl">فوز سريع: شغّل الإيصال</p><p class="zh" lang="zh">马上成功：让小票跑起来</p>
+<p>Scarica lo zip qui sopra (bottone verde). Tasto destro sul file, <b>Estrai tutto</b>. Apri la cartella <b>Scontrino-1INF</b> e fai doppio clic su <b>scontrino.lpi</b>: si apre Lazarus. Premi <b>F9</b>: scrivi pizze, 5, 3 e premi <b>Aggiungi riga</b>. Se il debugger dà errore, premi <b>Maiusc + Ctrl + F9</b>.</p><p class="ar" lang="ar" dir="rtl">نزّل ملف zip من الأعلى (الزر الأخضر). زر أيمن على الملف، <b>Estrai tutto</b>. افتح المجلد <b>Scontrino-1INF</b> وانقر مرتين على <b>scontrino.lpi</b>: يفتح Lazarus. اضغط <b>F9</b>: اكتب pizze و 5 و 3 واضغط <b>Aggiungi riga</b>. إذا أعطى debugger خطأ اضغط <b>Shift + Ctrl + F9</b>.</p><p class="zh" lang="zh">下载上面的 zip（绿色按钮）。右键点文件，<b>Estrai tutto</b>。打开文件夹 <b>Scontrino-1INF</b>，双击 <b>scontrino.lpi</b>：Lazarus 会打开。按 <b>F9</b>：写 pizze、5、3，按 <b>Aggiungi riga</b>。如果调试器报错，按 <b>Shift + Ctrl + F9</b>。</p>
+<p>Poi leggi il codice e rifallo tu: nei passi dopo costruisci lo scontrino da zero, un livello alla volta.</p><p class="ar" lang="ar" dir="rtl">ثم اقرأ الكود وأعد صنعه بنفسك: في الخطوات التالية تبني الإيصال من الصفر، مستوى بعد مستوى.</p><p class="zh" lang="zh">然后读代码，自己再做一遍：后面的步骤里，从零开始一级一级做小票。</p>
+<figure><img class="sx-img" src="img/r-scarica.svg" alt="Scarica, scompatta, apri scontrino.lpi, premi F9" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="2" id="p2"><span class="bollo">da fare</span><h2><span class="num">2</span>La finestra della cassa (progetto tuo)</h2><p class="ar" lang="ar" dir="rtl">نافذة الصندوق</p><p class="zh" lang="zh">收银台窗口</p>
+<p>Lazarus: <b>Progetto</b>, <b>Nuovo progetto…</b>, <b>Applicazione</b>, OK. Subito <b>File</b>, <b>Salva tutto</b> in <b>Documenti</b>, cartella nuova <b>scontrino-parla</b>.</p><p class="ar" lang="ar" dir="rtl">Lazarus: <b>Progetto</b>، <b>Nuovo progetto…</b>، <b>Applicazione</b>، OK. فوراً <b>File</b>، <b>Salva tutto</b> في <b>Documenti</b>، مجلد جديد <b>scontrino-parla</b>.</p><p class="zh" lang="zh">Lazarus：<b>Progetto</b>，<b>Nuovo progetto…</b>，<b>Applicazione</b>，OK。马上 <b>File</b>，<b>Salva tutto</b>，保存在 <b>Documenti</b> 里新建的文件夹 <b>scontrino-parla</b>。</p>
+<p>Metti 3 Edit, 3 Button, 1 Label e 1 Memo. Edit1 = il prodotto (pizze), Edit2 = il prezzo in euro (5), Edit3 = quanti. Caption dei bottoni: <b>Aggiungi riga</b>, <b>Totale</b>, <b>Nuovo scontrino</b>.</p><p class="ar" lang="ar" dir="rtl">ضع 3 Edit و 3 Button و Label واحداً و Memo واحداً. Edit1 = المنتج (pizze)، Edit2 = السعر باليورو (5)، Edit3 = الكمية. كتابات الأزرار: <b>Aggiungi riga</b>، <b>Totale</b>، <b>Nuovo scontrino</b>.</p><p class="zh" lang="zh">放 3 个 Edit，3 个 Button，1 个 Label 和 1 个 Memo。Edit1 = 商品（pizze），Edit2 = 价格，欧元（5），Edit3 = 数量。按钮的字：<b>Aggiungi riga</b>，<b>Totale</b>，<b>Nuovo scontrino</b>。</p>
+<p><b>Trascina una Memo</b> (scheda <b>Standard</b>, in alto) sulla finestra, grande, a destra: è lo scontrino. Nell'Ispettore oggetti: <b>Name</b> = <b>Memo1</b>; clicca i tre puntini di <b>Lines</b> e <b>svuotala</b> (cancella «Memo1»), OK; <b>ReadOnly</b> = <b>True</b>; <b>ScrollBars</b> = <b>ssAutoVertical</b>.</p><p class="ar" lang="ar" dir="rtl"><b>اسحب Memo</b> (من تبويب <b>Standard</b> في الأعلى) إلى النافذة، كبيرة، على اليمين: هذا هو الإيصال. في Ispettore oggetti: <b>Name</b> = <b>Memo1</b>؛ اضغط النقاط الثلاث عند <b>Lines</b> و<b>أفرغها</b> (امسح «Memo1»)، OK؛ <b>ReadOnly</b> = <b>True</b>؛ <b>ScrollBars</b> = <b>ssAutoVertical</b>.</p><p class="zh" lang="zh"><b>把 Memo 拖</b>（<b>Standard</b> 选项卡，在上面）到窗口里，大一点，放右边：这就是小票。在 Ispettore oggetti 里：<b>Name</b> = <b>Memo1</b>；点 <b>Lines</b> 的三个点，<b>清空</b>（删掉「Memo1」），OK；<b>ReadOnly</b> = <b>True</b>；<b>ScrollBars</b> = <b>ssAutoVertical</b>。</p>
+<p>Label2 = il totale: nella sua <b>Caption</b> scrivi <b>0</b>. In Edit3, proprietà <b>Text</b>, scrivi <b>1</b>. Il 0 e l'1 sono <b>testi</b>, come tutto quello che c'è nelle caselle.</p><p class="ar" lang="ar" dir="rtl">Label2 = المجموع: في <b>Caption</b> اكتب <b>0</b>. في Edit3، الخاصية <b>Text</b>، اكتب <b>1</b>. الـ 0 والـ 1 <b>نصوص</b>، مثل كل ما في الخانات.</p><p class="zh" lang="zh">Label2 = 总数：在它的 <b>Caption</b> 里写 <b>0</b>。在 Edit3 的 <b>Text</b> 里写 <b>1</b>。0 和 1 是<b>文字</b>，输入框里的东西都是文字。</p>
+
+<figure><img class="sx-img" src="img/r-form.svg" alt="La finestra dello scontrino: 3 Edit, Memo1, Label2, 3 bottoni" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="3" id="p3"><span class="bollo">da fare</span><h2><span class="num">3</span>Livello 1: una riga semplice</h2><p class="ar" lang="ar" dir="rtl">المستوى 1: سطر بسيط</p><p class="zh" lang="zh">第 1 级：一行简单的</p>
+<p>Doppio clic su <b>Aggiungi riga</b>. Scrivi una riga sola: <code>Memo1.Lines.Add( … );</code> aggiunge una riga nuova in fondo alla Memo. Con pizze e 5 deve uscire: <b>pizze 5 euro</b>.</p><p class="ar" lang="ar" dir="rtl">نقر مزدوج على <b>Aggiungi riga</b>. اكتب سطراً واحداً: <code>Memo1.Lines.Add( … );</code> يضيف سطراً جديداً في آخر Memo. مع pizze و 5 يجب أن يخرج: <b>pizze 5 euro</b>.</p><p class="zh" lang="zh">双击 <b>Aggiungi riga</b>。只写一行：<code>Memo1.Lines.Add( … );</code> 在 Memo 最后加一个新行。用 pizze 和 5，要出现：<b>pizze 5 euro</b>。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Dentro le parentesi unisci i pezzi con il +: Edit1.Text + ' ' + Edit2.Text + ' euro'. Il testo tra apici resta com'è.</p><p class="ar" lang="ar" dir="rtl">داخل القوسين اربط القطع بـ +: Edit1.Text + ' ' + Edit2.Text + ' euro'.</p><p class="zh" lang="zh">括号里用 + 把几块连起来：Edit1.Text + ' ' + Edit2.Text + ' euro'。</p></details><details><summary>Aiuto 2: il codice completo del livello 1</summary><pre><code>procedure TForm1.Button1Click(Sender: TObject);
+begin
+  Memo1.Lines.Add(Edit1.Text + ' ' + Edit2.Text + ' euro');
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/r-riga.svg" alt="Una riga semplice: pizze 5 euro" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="4" id="p4"><span class="bollo">da fare</span><h2><span class="num">4</span>Livello 2: se sono di più, la x</h2><p class="ar" lang="ar" dir="rtl">المستوى 2: إذا كانت أكثر، الـ x</p><p class="zh" lang="zh">第 2 级：如果不止一个，加 x</p>
+<p><code>if … then … else …</code> = «se … allora … altrimenti …». Il computer sceglie una delle due strade. Esempio: <code>if quanti &gt; 1 then riga := 'tante' else riga := 'una';</code> Prima di <code>else</code> non c'è mai il punto e virgola.</p><p class="ar" lang="ar" dir="rtl"><code>if … then … else …</code> = «إذا … فـ … وإلا …». الحاسوب يختار طريقاً من اثنين. مثال: <code>if quanti &gt; 1 then riga := 'tante' else riga := 'una';</code> قبل <code>else</code> لا توجد فاصلة منقوطة أبداً.</p><p class="zh" lang="zh"><code>if … then … else …</code> = 「如果 … 就 … 否则 …」。电脑在两条路里选一条。例子：<code>if quanti &gt; 1 then riga := 'tante' else riga := 'una';</code> <code>else</code> 前面从来没有分号。</p>
+<p>Se la quantità è più di 1 la riga ha la x: <b>3 x pizze da 5 euro: 15 euro</b>. Se è 1 la riga resta semplice: <b>kebab 6 euro</b>. Serve una variabile <code>riga: string</code>. Attenzione: il «3» e l'«1» nelle caselle sono testi: per il conto serve <code>StrToInt(Edit3.Text)</code>.</p><p class="ar" lang="ar" dir="rtl">إذا كانت الكمية أكثر من 1 يكون في السطر x: <b>3 x pizze da 5 euro: 15 euro</b>. إذا كانت 1 يبقى السطر بسيطاً: <b>kebab 6 euro</b>. نحتاج متغيراً <code>riga: string</code>. انتبه: الـ «3» والـ «1» في الخانات نصوص: للحساب نحتاج <code>StrToInt(Edit3.Text)</code>.</p><p class="zh" lang="zh">数量大于 1，这一行就有 x：<b>3 x pizze da 5 euro: 15 euro</b>。数量是 1，这一行就简单：<b>kebab 6 euro</b>。需要一个变量 <code>riga: string</code>。注意：输入框里的「3」和「1」是文字：算数要用 <code>StrToInt(Edit3.Text)</code>。</p>
+<p>Prova: 3 pizze da 5 (riga con la x), poi 1 kebab da 6 (riga semplice).</p><p class="ar" lang="ar" dir="rtl">جرّب: 3 pizze بـ 5 (سطر بـ x)، ثم 1 kebab بـ 6 (سطر بسيط).</p><p class="zh" lang="zh">试一试：3 个 pizze，每个 5（有 x 的一行），然后 1 个 kebab，每个 6（简单的一行）。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Due StrToInt (quanti e prezzo), poi costo := quanti * prezzo. Poi l'if sceglie come scrivere la variabile riga. Alla fine: Memo1.Lines.Add(riga);</p><p class="ar" lang="ar" dir="rtl">StrToInt مرتين (quanti و prezzo)، ثم costo := quanti * prezzo. ثم if يختار كيف نكتب riga. في الآخر: Memo1.Lines.Add(riga);</p><p class="zh" lang="zh">两个 StrToInt（quanti 和 prezzo），然后 costo := quanti * prezzo。然后 if 选择 riga 怎么写。最后：Memo1.Lines.Add(riga);</p></details><details><summary>Aiuto 2: il codice completo del livello 2</summary><pre><code>procedure TForm1.Button1Click(Sender: TObject);
+var
+  riga: string;
+  quanti, prezzo, costo: Integer;
+begin
+  quanti := StrToInt(Edit3.Text);
+  prezzo := StrToInt(Edit2.Text);
+  costo := quanti * prezzo;
+  if quanti &gt; 1 then
+    riga := Edit3.Text + ' x ' + Edit1.Text + ' da ' + Edit2.Text + ' euro: ' + IntToStr(costo) + ' euro'
+  else
+    riga := Edit1.Text + ' ' + Edit2.Text + ' euro';
+  Memo1.Lines.Add(riga);
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/r-righe.svg" alt="Due righe: una con la x, una semplice" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="5" id="p5"><span class="bollo">da fare</span><h2><span class="num">5</span>Livello 3: il totale e le caselle pulite</h2><p class="ar" lang="ar" dir="rtl">المستوى 3: المجموع والخانات النظيفة</p><p class="zh" lang="zh">第 3 级：总数和清空输入框</p>
+<p>Label2 tiene il totale come testo. A ogni Aggiungi: <code>totale := StrToInt(Label2.Caption) + costo;</code> e <code>Label2.Caption := IntToStr(totale);</code></p><p class="ar" lang="ar" dir="rtl">Label2 يحفظ المجموع كنص. مع كل Aggiungi: <code>totale := StrToInt(Label2.Caption) + costo;</code> و <code>Label2.Caption := IntToStr(totale);</code></p><p class="zh" lang="zh">Label2 用文字保存总数。每次 Aggiungi：<code>totale := StrToInt(Label2.Caption) + costo;</code> 和 <code>Label2.Caption := IntToStr(totale);</code></p>
+<p>Dopo ogni riga la cassa si prepara per il prossimo cliente: <code>Edit3.Text := '1';</code> (la quantità torna a uno: l'1 è tra apici perché è un testo), poi <code>Edit1.Clear;</code> <code>Edit2.Clear;</code> <code>Edit1.SetFocus;</code> (il cursore torna sul prodotto).</p><p class="ar" lang="ar" dir="rtl">بعد كل سطر يستعد الصندوق للزبون التالي: <code>Edit3.Text := '1';</code> (الكمية ترجع إلى واحد: الـ 1 بين علامتي اقتباس لأنه نص)، ثم <code>Edit1.Clear;</code> <code>Edit2.Clear;</code> <code>Edit1.SetFocus;</code> (المؤشر يرجع إلى المنتج).</p><p class="zh" lang="zh">每一行之后，收银台为下一位顾客做好准备：<code>Edit3.Text := '1';</code>（数量变回一；1 在引号里，因为它是文字），然后 <code>Edit1.Clear;</code> <code>Edit2.Clear;</code> <code>Edit1.SetFocus;</code>（光标回到商品）。</p>
+<p>Il bottone <b>Totale</b> aggiunge «TOTALE: 21 euro. Grazie e arrivederci!». <b>Nuovo scontrino</b> fa <code>Memo1.Clear;</code>, scrive il nome del negozio e rimette Label2 a 0.</p><p class="ar" lang="ar" dir="rtl">زر <b>Totale</b> يضيف «TOTALE: 21 euro. Grazie e arrivederci!». <b>Nuovo scontrino</b> يفعل <code>Memo1.Clear;</code> ويكتب اسم المتجر ويعيد Label2 إلى 0.</p><p class="zh" lang="zh"><b>Totale</b> 按钮加上「TOTALE: 21 euro. Grazie e arrivederci!」。<b>Nuovo scontrino</b> 执行 <code>Memo1.Clear;</code>，写上商店的名字，把 Label2 变回 0。</p>
+<div class="aiuti"><details><summary>Aiuto 1: l'idea</summary><p>Nel Button1Click aggiungi la variabile totale: Integer e, in fondo, due righe per il totale e quattro per pulire. Button2Click ha una riga; Button3Click ne ha tre.</p><p class="ar" lang="ar" dir="rtl">في Button1Click أضف المتغير totale: Integer وفي الآخر سطرين للمجموع وأربعة للتنظيف.</p><p class="zh" lang="zh">在 Button1Click 里加变量 totale: Integer，最后两行算总数，四行清空。</p></details><details><summary>Aiuto 2: il codice completo dei 3 bottoni</summary><pre><code>{ Livello 1: riga semplice. Livello 2: if con la x. Livello 3: totale in Label2 e reset delle caselle }
+procedure TForm1.Button1Click(Sender: TObject);
+var
+  riga: string;
+  quanti, prezzo, costo, totale: Integer;
+begin
+  quanti := StrToInt(Edit3.Text);
+  prezzo := StrToInt(Edit2.Text);
+  costo := quanti * prezzo;
+  if quanti &gt; 1 then
+    riga := Edit3.Text + ' x ' + Edit1.Text + ' da ' + Edit2.Text + ' euro: ' + IntToStr(costo) + ' euro'
+  else
+    riga := Edit1.Text + ' ' + Edit2.Text + ' euro';
+  Memo1.Lines.Add(riga);
+  totale := StrToInt(Label2.Caption) + costo;
+  Label2.Caption := IntToStr(totale);
+  Edit3.Text := '1';
+  Edit1.Clear;
+  Edit2.Clear;
+  Edit1.SetFocus;
+end;
+
+{ Livello 3: la riga del totale }
+procedure TForm1.Button2Click(Sender: TObject);
+begin
+  Memo1.Lines.Add('TOTALE: ' + Label2.Caption + ' euro. Grazie e arrivederci!');
+end;
+
+{ Livello 3: nuovo scontrino (Fallo tuo: metti il nome del TUO negozio) }
+procedure TForm1.Button3Click(Sender: TObject);
+begin
+  Memo1.Clear;
+  Memo1.Lines.Add('Negozio La Bottega');
+  Label2.Caption := '0';
+end;</code></pre></details></div>
+<figure><img class="sx-img" src="img/r-totale.svg" alt="Lo scontrino con il totale" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="6" id="p6"><span class="bollo">da fare</span><h2><span class="num">6</span>Fallo tuo: il TUO negozio</h2><p class="ar" lang="ar" dir="rtl">اصنعه بنفسك: متجرك</p><p class="zh" lang="zh">自己做：你的商店</p>
+<p>Cambia il nome del negozio in «Nuovo scontrino», usa i tuoi prodotti (kebab, sushi, scarpe…) e cambia la frase del totale in una frase tua, anche scherzosa.</p><p class="ar" lang="ar" dir="rtl">غيّر اسم المتجر في «Nuovo scontrino»، استعمل منتجاتك (kebab، sushi، أحذية…) وغيّر جملة المجموع إلى جملتك، ولو مضحكة.</p><p class="zh" lang="zh">在「Nuovo scontrino」里改商店的名字，用你自己的商品（kebab、sushi、鞋……），把总数那句话改成你自己的，也可以好笑一点。</p>
+
+<figure><img class="sx-img" src="img/r-fallo-tuo.svg" alt="Il tuo negozio" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+<button class="fb" type="button">Ho fatto!</button>
+</div>
+<div class="passo" data-p="7" id="p7" data-cons="1inf-scontrino0611"><span class="bollo">da fare</span><h2><span class="num">7</span>Screenshot e consegna</h2><p class="ar" lang="ar" dir="rtl">صورة الشاشة والتسليم</p><p class="zh" lang="zh">截图和提交</p>
+<p>Ctrl + S. Fai lo screenshot (del tuo progetto o di quello scaricato) (Win + Maiusc + S, poi Salva) nella cartella <b>scontrino-parla</b>, nome <b>riserva_screenshot.png</b>. Poi premi il bottone verde e manda unit1.pas e lo screenshot.</p><p class="ar" lang="ar" dir="rtl">Ctrl + S. التقط صورة الشاشة (Win + Shift + S ثم Salva) في المجلد <b>scontrino-parla</b>، الاسم <b>riserva_screenshot.png</b>. ثم اضغط الزر الأخضر وأرسل unit1.pas وصورة الشاشة.</p><p class="zh" lang="zh">Ctrl + S。截图（Win + Shift + S，然后 Salva）存到文件夹 <b>scontrino-parla</b>，名字 <b>riserva_screenshot.png</b>。然后按绿色按钮，发送 unit1.pas 和截图。</p>
+<a class="bt v" href="consegna.html?ora=r" target="_blank" rel="noopener">Apri la consegna · <span class="ar" lang="ar">افتح التسليم</span> · <span class="zh" lang="zh">打开提交页面</span></a>
+<figure><img class="sx-img" src="img/o4-consegna.svg" alt="La consegna con un bottone" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure>
+</div>
+<section class="card" id="errori"><h2>Errori comuni · <span class="ar" lang="ar">أخطاء شائعة</span> · <span class="zh" lang="zh">常见错误</span></h2>
+<ul><li><b>«invalid integer»</b>: Edit2 o Edit3 è vuoto o ha una lettera. Scrivi solo cifre. <span class="ar" lang="ar" dir="rtl">الخانة فارغة أو فيها حرف: اكتب أرقاماً فقط.</span> <span class="zh" lang="zh">输入框是空的或有字母：只写数字。</span></li>
+<li><b>Errore vicino a «else»</b>: prima di else non c'è il punto e virgola. <span class="ar" lang="ar" dir="rtl">قبل else لا توجد فاصلة منقوطة.</span> <span class="zh" lang="zh">else 前面没有分号。</span></li>
+<li><b>«Identifier not found»</b>: il nome nel codice non è uguale a quello della finestra (Memo1, Edit1, Label2). <span class="ar" lang="ar" dir="rtl">الاسم في الكود ليس مثل اسم النافذة.</span> <span class="zh" lang="zh">代码里的名字和窗口里的不一样。</span></li>
+<li><b>Il debugger dà errore con F9</b>: premi Maiusc + Ctrl + F9. <span class="ar" lang="ar" dir="rtl">اضغط Shift + Ctrl + F9.</span> <span class="zh" lang="zh">按 Shift + Ctrl + F9。</span></li>
+<li><b>Non riesci a scaricare lo zip</b>: usa i 4 file separati o il codice con «Copia», qui sopra. <span class="ar" lang="ar" dir="rtl">استعمل الملفات الأربعة أو زر النسخ.</span> <span class="zh" lang="zh">用 4 个单独的文件，或「Copia」按钮。</span></li></ul>
+<figure><img class="sx-img" src="img/r-errori.svg" alt="Gli errori più comuni" loading="lazy"><figcaption class="mu">Schema disegnato (non è uno screenshot)</figcaption></figure></section>
+<p class="f5">La pagina viene aggiornata spesso durante la lezione: premi F5 per vedere la versione nuova. · <span class="ar" lang="ar">اضغط F5 لرؤية النسخة الجديدة.</span> · <span class="zh" lang="zh">按 F5 查看新版本。</span></p><div id="aiuto"></div></main>
+<script src="../../assistente/assistente.js" data-pagina="1inf-06-11" data-lingue="it,ar,zh" data-dove="aiuto"></script>
+<script>(function(){var b=document.getElementById('copia-codice');if(!b)return;b.onclick=function(){var t=document.getElementById('codice-unit1').innerText;function ok(){b.textContent='Copiato! ✓';}function vecchio(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok();}catch(e){}a.remove();}if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,vecchio);}else vecchio();};})();</script>
+<script src="percorso.js"></script>
+</body></html>

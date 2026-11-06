@@ -1,7 +1,7 @@
 <!doctype html><html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
-<title>1INF venerdì 6 novembre</title><meta name="description" content="1INF, Laboratorio, venerdì 06/11/2026, ore 11-14: Lazarus e Windows 10.">
+<title>1INF venerdì 6 novembre</title><meta name="description" content="1INF, Laboratorio, venerdì 06/11/2026, ore 11-14: Lazarus.">
 <script src="ore.js" data-ora="4"></script><link rel="stylesheet" href="stile.css"></head><body><main>
-<p class="mu">1INF · Laboratorio · venerdì 06/11/2026 · ore 4-6 (11-14)</p>
+<p class="mu">1INF · Laboratorio · venerdì 06/11/2026 · ore 4-5 (11-13)</p>
 <h1>Oggi in laboratorio</h1><p class="ar" lang="ar" dir="rtl">اليوم في المختبر</p><p class="zh" lang="zh">今天在机房</p>
 <p class="f5">Le ore si aprono una alla volta: premi F5 per vedere quella nuova. · <span class="ar" lang="ar">الساعات تُفتح واحدة واحدة: اضغط F5.</span> · <span class="zh" lang="zh">每节课一节一节地开放：按 F5。</span></p>
 <div class="ore" id="ore"></div>
@@ -11,9 +11,7 @@
 (function () {
   var ORE = [
     { n: 4, f: 'ora4.html', t: 'Ora 4 (11-12) · Il convertitore che parla', ar: 'الساعة 4 · المحوّل الذي يتكلم', zh: '第 4 节 · 会说话的换算器' },
-    { n: 5, f: 'ora5.html', t: 'Ora 5 (12-13) · Installiamo Windows 10 a coppie', ar: 'الساعة 5 · نثبّت Windows 10 في أزواج', zh: '第 5 节 · 两人一组安装 Windows 10' },
-    { n: 6, f: 'ora6.html', t: 'Ora 6 (13-14) · Amministriamo: user1 non può fare tutto', ar: 'الساعة 6 · لندير: user1 لا يستطيع فعل كل شيء', zh: '第 6 节 · 来管理：user1 不能什么都做' },
-    { n: 4, k: 'riserva_aperta', f: 'riserva.html', t: 'Se avanza tempo · Lo scontrino che parla', ar: 'إذا بقي وقت · الإيصال الذي يتكلم', zh: '如果还有时间 · 会说话的小票' }];
+    { n: 5, f: 'ora5.html', t: 'Ora 5 (12-13) · Lo scontrino che parla', ar: 'الساعة 5 · الإيصال الذي يتكلم', zh: '第 5 节 · 会说话的小票' }];
   function disegna(c) {
     var n = +(c && c.ore_sbloccate) || 0;
     document.getElementById('ore').innerHTML = ORE.map(function (o) {

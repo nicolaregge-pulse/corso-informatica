@@ -19,17 +19,21 @@
     var cicli = /\b(for|while|repeat)\b/i.test(c);
     V.push(voce(/procedure\s+TForm1\s*\.\s*Button1Click\s*\(/i.test(c), 'C\'è il clic del bottone: Button1Click.', 'يوجد نقر الزر: Button1Click.', '有按钮的点击：Button1Click。'));
     if (quale !== 'scontrino') V.push(voce(s2i, 'Il bottone legge la casella: StrToInt(Edit1.Text).', 'الزر يقرأ الخانة: StrToInt(Edit1.Text).', '按钮读取输入框：StrToInt(Edit1.Text)。'));
-    V.push(voce(cap, 'Il numero va nella frase con IntToStr( … ).', 'الرقم يدخل في الجملة بـ IntToStr( … ).', '数字用 IntToStr( … ) 放进句子。'));
+    if (quale !== 'scontrino') V.push(voce(cap, 'Il numero va nella frase con IntToStr( … ).', 'الرقم يدخل في الجملة بـ IntToStr( … ).', '数字用 IntToStr( … ) 放进句子。'));
     V.push(voce(testoUnito, 'La frase unisce pezzi di testo con il + (per esempio \' km in metri sono \').', 'الجملة تجمع قطع النص بـ +.', '句子用 + 把文字连起来。'));
     if (quale === 'scontrino') {
-      var l1 = /\bStrToInt(Def)?\s*\(\s*Edit2\s*\.\s*Text/i.test(c) && /\bStrToInt(Def)?\s*\(\s*Edit3\s*\.\s*Text/i.test(c);
-      V.push(voce(l1, 'Leggi prezzo e quantità: StrToInt(Edit2.Text) e StrToInt(Edit3.Text).', 'تقرأ السعر والكمية.', '读取价格和数量。'));
-      V.push(voce(/'\s*euro fanno\s*'|fanno/i.test(c), 'La riga dice «… da … euro fanno … euro».', 'السطر يقول «… بـ … يورو = … يورو».', '这一行写「… 每个 … 欧元，一共 … 欧元」。'));
-      V.push(voce(aggiunge, 'Livello 2: le righe si aggiungono: Label1.Caption := Label1.Caption + …', 'المستوى 2: الأسطر تُضاف.', '第 2 级：一行一行加上去。', true));
-      V.push(voce(/StrToInt\s*\(\s*Label2\s*\.\s*Caption\s*\)/i.test(c) && /Label2\s*\.\s*Caption\s*:=\s*IntToStr/i.test(c), 'Livello 3: il totale in Label2 con StrToInt e IntToStr.', 'المستوى 3: المجموع في Label2.', '第 3 级：总数放在 Label2。', true));
-      if (l1 && cap) { livello = 1; punti = 8; }
-      if (livello && aggiunge) { livello = 2; punti = 14; }
-      if (livello === 2 && /StrToInt\s*\(\s*Label2/i.test(c)) { livello = 3; punti = 20; }
+      var memo = /Memo1\s*\.\s*Lines\s*\.\s*Add\s*\(/i.test(c);
+      var l1 = memo && /Edit1\s*\.\s*Text/i.test(c) && /Edit2\s*\.\s*Text/i.test(c) && /'[^']*'\s*\+|\+\s*'[^']*'/.test(c);
+      var l2 = /\bStrToInt(Def)?\s*\(\s*Edit2\s*\.\s*Text/i.test(c) && /\bStrToInt(Def)?\s*\(\s*Edit3\s*\.\s*Text/i.test(c) && /\bif\b[^;]*\bthen\b/i.test(c) && /\belse\b/i.test(c) && /IntToStr\s*\(/i.test(c) && /'\s*x\s*'/i.test(c);
+      var l3 = /StrToInt\s*\(\s*Label2\s*\.\s*Caption\s*\)/i.test(c) && /Label2\s*\.\s*Caption\s*:=\s*IntToStr/i.test(c) && /Edit3\s*\.\s*Text\s*:=\s*'1'/i.test(c);
+      V.push(voce(memo, 'Lo scontrino si scrive nella Memo: Memo1.Lines.Add( … ); una riga per volta.', 'الإيصال يُكتب في Memo: Memo1.Lines.Add( … );', '小票写在 Memo 里：Memo1.Lines.Add( … );'));
+      V.push(voce(l1, 'Livello 1: una riga semplice con il + (per esempio prodotto, spazio, prezzo, euro).', 'المستوى 1: سطر بسيط بـ +.', '第 1 级：用 + 写一行简单的。'));
+      V.push(voce(l2, 'Livello 2: if quanti > 1 then … else …, con la x: «3 x pizze da 5 euro: 15 euro».', 'المستوى 2: if مع x.', '第 2 级：用 if 加 x。', true));
+      V.push(voce(l3, 'Livello 3: il totale in Label2 (StrToInt e IntToStr) e Edit3.Text := \'1\' dopo ogni riga.', 'المستوى 3: المجموع في Label2 وإعادة Edit3 إلى 1.', '第 3 级：总数放在 Label2，每行之后 Edit3 变回 1。', true));
+      V.push(voce(/Edit1\s*\.\s*SetFocus/i.test(c), 'Comodo: Edit1.Clear; Edit2.Clear; Edit1.SetFocus; (caselle pulite, cursore sul prodotto).', 'مريح: تنظيف الخانات والمؤشر على المنتج.', '方便：清空输入框，光标回到商品。', true));
+      if (l1) { livello = 1; punti = 8; }
+      if (l1 && l2) { livello = 2; punti = 14; }
+      if (livello === 2 && l3) { livello = 3; punti = 20; }
     } else {
       var km = /\*\s*1000\b/.test(c), cm = /\*\s*100\b(?!0)/.test(c), min = /\*\s*60\b/.test(c);
       var l1 = s2i && cap && testoUnito && km;
