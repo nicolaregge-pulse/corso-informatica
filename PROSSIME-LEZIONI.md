@@ -38,7 +38,7 @@ Prima informatica, dalle 11 alle 14, Laboratorio professionale. Primo passo fiss
 
 ## Lunedì 9 novembre
 
-Orario da confermare: si usa quello di lunedì 2 novembre.
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato.
 
 Terza informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: il progetto di rete rifinito, con una relazione breve nel README e la release con il changelog. Seconda proposta: la sicurezza in laboratorio e i dati personali, con schede e quiz, due aree dell'Allegato ancora scoperte. Terza proposta: la prima base di dati, con le tabelle e le prime query SQL in un sito online.
 
@@ -46,23 +46,35 @@ Seconda informatica, dalle 11 alle 14, Laboratorio professionale. Proposta consi
 
 ## Martedì 10 novembre
 
-Orario da confermare: si usa quello di martedì 3 novembre.
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato. Attenzione: la terza ha l'ora 10-11 e la quarta ha le ore 11-13 (non 10-13).
 
 Seconda informatica, dalle 8 alle 10, Informatica. Proposta consigliata: la profilazione sui social e la privacy, con le impostazioni del proprio account e il quiz. Seconda proposta: il preventivo di un computer con il foglio di calcolo. Terza proposta: l'intelligenza artificiale nello studio, con un buon prompt e i suoi limiti.
 
-Quarta, dalle 10 alle 13, Laboratorio professionale. Proposta consigliata: il subnetting a passi con esercizi e quiz, poi un commit sul progetto individuale, con i recuperi dei quiz del 27 ottobre. Seconda proposta: la diagnosi dei guasti di rete con ping, ipconfig e tracert. Terza proposta: switch e router in Cisco Packet Tracer.
+Terza informatica, dalle 10 alle 11, Laboratorio professionale: da scegliere con il prof. Quarta, dalle 11 alle 13, Laboratorio professionale. Proposta consigliata: il subnetting a passi con esercizi e quiz, poi un commit sul progetto individuale, con i recuperi dei quiz del 27 ottobre. Seconda proposta: la diagnosi dei guasti di rete con ping, ipconfig e tracert. Terza proposta: switch e router in Cisco Packet Tracer.
 
 Prima informatica, dalle 13 alle 14, Tecnologia professionale. Proposta consigliata: quella non scelta giovedì, tra pixel e colori e il ripasso di Lazarus. Seconda proposta: file e cartelle, percorsi ed estensioni. Terza proposta: la rete di casa, modem, router e Wi-Fi.
 
 ## Mercoledì 11 novembre
 
-Orario da confermare: si usa quello di mercoledì 4 novembre.
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato.
 
 Prima informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: le decisioni con if in Lazarus, cioè maggiorenne o no, il voto in parole e la calcolatrice che controlla la divisione per zero. Seconda proposta: la mini calcolatrice con i decimali. Terza proposta: il primo repository GitHub con i programmi del mese.
 
 Terza informatica, dalle 11 alle 13, Laboratorio professionale. Proposta consigliata: la presentazione del progetto di rete, due minuti a testa, con la spiegazione del protocollo. Seconda proposta: una Pull Request sul client di un compagno. Terza proposta: il cablaggio RJ45 e gli indirizzi dell'aula, con il quiz.
 
 Prima informatica, dalle 13 alle 14, Sicurezza professionale. Proposta consigliata: la quinta ora, rischio infortuni, con schede, quiz su Google Moduli e quaderno, in italiano, arabo e cinese, più i recuperi rimasti. Seconda proposta: solo recuperi e ripasso delle ore dalla prima alla quarta. Terza proposta: la quinta ora raccontata con un caso reale in officina.
+
+## Giovedì 12 novembre
+
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026). Proposte da fare quando il prof le chiede.
+
+Seconda informatica, dalle 8 alle 11, Laboratorio professionale. Prima informatica, dalle 13 alle 14, Tecnologia professionale.
+
+## Venerdì 13 novembre
+
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026). Proposte da fare quando il prof le chiede.
+
+Seconda informatica, dalle 8 alle 9, Sicurezza professionale: gli argomenti li mette la direzione. Prima informatica, dalle 11 alle 14, Laboratorio professionale.
 
 ## Promemoria per tutte le classi
 
