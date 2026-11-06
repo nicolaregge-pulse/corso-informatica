@@ -45,7 +45,7 @@ td.pc a.vai{padding:4px 10px;font-size:15px}
 </style></head><body><div class="w" id="app">
 <div class="lg" id="lg"></div>
 <h1 id="h"></h1><p class="sub" id="sub"></p>
-<div class="ora" id="ora"></div><p class="fonte" id="fonte"></p>
+<div class="ora" id="ora"></div><p class="fonte" id="fonte"></p><p id="bq"></p>
 <div class="ban" id="ban"></div>
 <p class="sub" id="auto"></p>
 <div class="dati">
@@ -107,6 +107,7 @@ function disegna(){if(!D)return;lingue();$('app').className='w'+(LG==='ar'?' rtl
  document.documentElement.dir=LG==='ar'?'rtl':'ltr';
  $('h').textContent=t('h');$('sub').textContent=D.titolo+' · '+D.giorno.split('-').reverse().join('/');
  var l=letto();$('ora').textContent=t('letto')+' '+(l?(FONTE==='c'?(D.letto_hhmm||hhmm(l)):hhmm(l)):'--:--');
+ var mq=D.moduli.filter(function(m){return m.tipo==='ora'&&/viewform/.test(m.link)})[0];$('bq').innerHTML=mq?'<a class="bq" href="'+esc(mq.link)+'" target="_blank" rel="noopener" style="display:inline-block;padding:12px 22px;background:#1a7f37;color:#fff;border-radius:8px;font-weight:700;text-decoration:none">Fai il quiz</a>':'';
  $('fonte').textContent=t('f'+FONTE);$('auto').textContent=t('auto')+' '+t('trova');
  $('leg').innerHTML=['verde','giallo','rosso'].map(function(s){return '<span><span class="p '+s+'"></span>'+t(s)+'</span>'}).join('');
  disegnaIo();
