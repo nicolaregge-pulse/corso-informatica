@@ -39,7 +39,7 @@ td.al,th.al{position:sticky;left:0;z-index:1;min-width:150px;max-width:230px;bor
 <div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
 <p class="mu" id="stato"></p>
 <div class="gate" id="gate"><b>Solo per il prof.</b> Cognomi, punteggi, data e ora: scrivi il codice del monitor.<br><input id="tok" type="password" placeholder="codice del monitor"> <button id="ok">Apri</button> <span id="err" style="color:var(--ko);font-weight:700"></span></div>
-<p class="mu">Soglie: quiz delle ore 70%; quiz della 6ª ora con ripasso 12 su 20. La pagina si aggiorna da sola ogni minuto; i Moduli sono riletti ogni 5 minuti circa.</p>
+<p class="mu"><span id="soglie"></span> La pagina si aggiorna da sola ogni minuto; i Moduli sono riletti ogni 5 minuti circa.</p>
 </div>
 <script>
 var TOK='',_kc=null,D=null,DOC=null;
@@ -56,7 +56,8 @@ function mostra(){
  $('dato').textContent='Dato dai Moduli: ore '+(D.dato?ora(D.dato)+' del '+D.dato.slice(8,10)+'/'+D.dato.slice(5,7)+' ('+min+' min fa)':'nessuno');
  $('vecchio').className='dato vecchio'+(min==null||min>6?'':' hide');
  var P=R.filter(function(r){return r.presente});
- $('riep').textContent='Presenti oggi: '+D.presenti+' su '+D.iscritti+'. Superato: '+C.map(function(c,i){return c.corta+' '+P.filter(function(r){return r.st[i]==='ok'}).length}).join(' · ')+' (su '+P.length+' presenti).';
+ $('riep').textContent=(D.presenti==null?'Iscritti: '+D.iscritti:'Presenti oggi: '+D.presenti+' su '+D.iscritti)+'. Superato: '+C.map(function(c,i){return c.corta+' '+P.filter(function(r){return r.st[i]==='ok'}).length}).join(' · ')+' (su '+P.length+(D.presenti==null?'':' presenti')+').';
+ $('soglie').textContent=D.soglie||'';
  $('stato').textContent='Pagina generata alle '+ora(D.generato)+', controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
  $('th').innerHTML='<th class="al">Allievo</th>'+C.map(function(c){return '<th title="'+e(c.etichetta)+'">'+e(c.corta)+'</th>'}).join('')+'<th>Da recuperare</th>';
  var dm=DOC?{}:null;if(DOC)DOC.righe.forEach(function(r,i){dm[i]=r});
