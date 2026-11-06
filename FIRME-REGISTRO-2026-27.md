@@ -58,6 +58,13 @@ Fonte: elenco delle ore firmate del registro DIDAweb (screenshot del docente del
 2. Ore 11-12 e 12-13, 3INF, Laboratorio professionale: FIRMATE il 05/11/2026 (07:57, 07:57), argomenti «Smontaggio e assemblaggio PC: componenti», «Assemblaggio PC, BIOS e ordine di avvio».
 3. Ora 13-14, 1INF, Tecnologia professionale: FIRMATA il 05/11/2026 (07:58), argomento «Lazarus: stringhe e interi, conversioni».
 
+## Venerdì 06/11/2026
+
+Fonte: registro DIDAweb (screenshot del docente delle 12:29), colonna Firma.
+
+1. Ora 8-9, 2INF, Sicurezza: titolo messo dalla direzione, già firmata (vedi capitolo 4b di ARGOMENTI-SVOLTI per la doppia modalità).
+2. Ore 11-12, 12-13 e 13-14, 1INF, Laboratorio professionale: FIRMATE il 06/11/2026, argomenti «Lazarus Convertitore», «Lo scontrino che parla (Lazarus)» e «Ripasso stringhe e interi».
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -67,3 +74,4 @@ Fonte: elenco delle ore firmate del registro DIDAweb (screenshot del docente del
 5. v1.4 (03/11/2026): martedì 03/11, tutte e 6 le ore firmate.
 6. v1.5 (04/11/2026): mercoledì 04/11, tutte e 6 le ore firmate (elenco del registro, firme 08:19-09:24).
 7. v1.6 (05/11/2026): giovedì 05/11, tutte e 6 le ore firmate (elenco del registro, firme 07:57-10:47).
+8. v1.7 (06/11/2026): venerdì 06/11, ore 1INF 11-14 firmate, 2INF 8-9 firmata dalla direzione.
