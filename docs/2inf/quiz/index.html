@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>2INF Sicurezza: situazione quiz</title>
+<style>
+/* Situazione quiz 2INF Sicurezza v1.0 (06/11/2026). Pubblico: «Nome C.» e colori, nessun punteggio (dati.json).
+   Area docente: codice del monitor, decifra docente.json (cognomi, punteggi, data e ora). Generatore (riservato):
+   generatori/situazione_quiz_soglia.py config/situazione-quiz/2inf-sicurezza-0611.json */
+:root{--bg:#f4f1ea;--card:#fff;--tx:#1b2430;--mu:#5c6672;--ln:#d5dbe3;--acc:#1f6feb;--ko:#c0392b}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ko:#f28b82}}
+:root[data-theme="dark"]{--bg:#10161c;--card:#18212a;--tx:#e6edf3;--mu:#93a3b3;--ln:#2b3743;--acc:#5cc1e8;--ko:#f28b82}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.4 "Segoe UI",system-ui,Arial,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:14px 16px}h1{margin:4px 0;font-size:22px}.mu{color:var(--mu)}.hide{display:none}
+.dato{margin:8px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:3px solid var(--acc);font-size:22px;font-weight:800}
+.dato.vecchio{background:var(--ko);color:#fff;border-color:var(--ko)}
+.leg{margin:8px 0;padding:8px 14px;border-radius:12px;background:var(--card);font-weight:600}
+.tab{background:var(--card);border-radius:12px;margin-top:10px;overflow-x:auto;max-width:100%}
+table{border-collapse:separate;border-spacing:0;min-width:100%}
+th,td{padding:7px 8px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:middle;background:var(--card)}th{font-size:13px;color:var(--mu);white-space:nowrap}
+td.al,th.al{position:sticky;left:0;z-index:1;min-width:150px;max-width:230px;border-right:2px solid var(--ln)}
+.q{display:inline-block;min-width:64px;text-align:center;font-weight:800;padding:5px 8px;border-radius:8px;white-space:nowrap}
+.ok{background:#1a7f37;color:#fff}.sotto{background:#f5c400;color:#1b2430}.manca{background:#c0392b;color:#fff}.nd,.assente{background:var(--ln);color:var(--mu)}
+.dt{display:block;margin-top:2px;font-size:12px;font-weight:600;color:var(--mu);white-space:nowrap}
+.ass td{opacity:.65}.rec{font-size:13px;color:var(--ko);font-weight:700}
+.gate{margin-top:14px;background:var(--card);padding:12px 14px;border-radius:12px}.gate input{font:inherit;padding:8px;border:2px solid var(--ln);border-radius:10px;background:var(--bg);color:var(--tx)}
+.gate button{font:inherit;font-weight:800;padding:9px 14px;border:0;border-radius:10px;background:var(--acc);color:#fff}
+@media (max-width:760px){td.al,th.al{min-width:110px;max-width:130px;font-size:13px}.q{min-width:48px;padding:4px 5px}}
+</style>
+</head>
+<body><div class="w">
+<h1 id="tit">2INF Sicurezza: situazione quiz</h1>
+<div id="dato" class="dato">Dato dai Moduli: —</div>
+<div id="vecchio" class="dato vecchio hide">DATI VECCHI</div>
+<div class="leg">Verde: quiz superato. Giallo: fatto ma sotto la soglia, da rifare. Rosso: manca. Grigio: non serve o assente oggi.</div>
+<div id="riep" class="mu"></div>
+<div class="tab"><table><thead><tr id="th"></tr></thead><tbody id="t"></tbody></table></div>
+<p class="mu" id="stato"></p>
+<div class="gate" id="gate"><b>Solo per il prof.</b> Cognomi, punteggi, data e ora: scrivi il codice del monitor.<br><input id="tok" type="password" placeholder="codice del monitor"> <button id="ok">Apri</button> <span id="err" style="color:var(--ko);font-weight:700"></span></div>
+<p class="mu">Soglie: quiz delle ore 70%; quiz della 6ª ora con ripasso 12 su 20. La pagina si aggiorna da sola ogni minuto; i Moduli sono riletti ogni 5 minuti circa.</p>
+</div>
+<script>
+var TOK='',_kc=null,D=null,DOC=null;
+function $(i){return document.getElementById(i)}
+function e(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function b64(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})}
+async function chiave(d){if(_kc)return _kc;var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(TOK),'PBKDF2',false,['deriveKey']);_kc=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(d.salt),iterations:d.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);return _kc}
+async function dec(d){var k=await chiave(d);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:b64(d.iv)},k,b64(d.ct))))}
+function ora(s){return String(s||'').slice(11,16)}
+function mostra(){
+ var C=D.colonne,R=D.righe,t=Date.now();
+ $('tit').textContent=D.titolo;
+ var min=D.dato?Math.round((t-new Date(D.dato).getTime())/60000):null;
+ $('dato').textContent='Dato dai Moduli: ore '+(D.dato?ora(D.dato)+' del '+D.dato.slice(8,10)+'/'+D.dato.slice(5,7)+' ('+min+' min fa)':'nessuno');
+ $('vecchio').className='dato vecchio'+(min==null||min>6?'':' hide');
+ var P=R.filter(function(r){return r.presente});
+ $('riep').textContent='Presenti oggi: '+D.presenti+' su '+D.iscritti+'. Superato: '+C.map(function(c,i){return c.corta+' '+P.filter(function(r){return r.st[i]==='ok'}).length}).join(' · ')+' (su '+P.length+' presenti).';
+ $('stato').textContent='Pagina generata alle '+ora(D.generato)+', controllata alle '+new Date().toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit',timeZone:'Europe/Rome'});
+ $('th').innerHTML='<th class="al">Allievo</th>'+C.map(function(c){return '<th title="'+e(c.etichetta)+'">'+e(c.corta)+'</th>'}).join('')+'<th>Da recuperare</th>';
+ var dm=DOC?{}:null;if(DOC)DOC.righe.forEach(function(r,i){dm[i]=r});
+ $('t').innerHTML=R.map(function(r,i){var d=dm&&dm[i];
+  var cel=r.st.map(function(s,j){var x=d&&d.q[j],tx={ok:'Fatto',sotto:'Sotto',manca:'Manca',nd:'—',assente:'Assente oggi'}[s],sub='';
+   if(x){tx=x.p+'/'+x.m;sub='<span class="dt">'+e(x.quando)+(x.volte>1?' ('+x.volte+' volte)':'')+'</span>'}
+   return '<td title="'+e(C[j].etichetta)+'"><span class="q '+s+'">'+e(tx)+'</span>'+sub+'</td>'}).join('');
+  var rc=(d?d.da_recuperare:r.da_recuperare);
+  return '<tr class="'+(r.presente?'':'ass')+'"><td class="al"><b>'+e(d?d.nome:r.alunno)+'</b><div class="mu">'+(r.presente?'presente':'assente oggi')+'</div></td>'+cel+'<td>'+(rc.length?'<span class="rec">'+e(rc.join(', '))+'</span>':'<span class="mu">niente</span>')+'</td></tr>'}).join('');
+}
+async function giro(){try{var r=await fetch('dati.json?t='+Date.now(),{cache:'no-store'});D=await r.json();
+ if(TOK){try{var q=await fetch('docente.json?t='+Date.now(),{cache:'no-store'});DOC=await dec(await q.json());$('gate').className='gate hide';$('err').textContent=''}catch(x){DOC=null;_kc=null;$('err').textContent='Codice sbagliato.'}}
+ mostra()}catch(x){$('stato').textContent='Errore nel leggere i dati: riprovo tra un minuto.'}}
+$('ok').onclick=function(){TOK=$('tok').value;_kc=null;try{sessionStorage.setItem('tokmon',TOK)}catch(x){}giro()};
+$('tok').onkeydown=function(ev){if(ev.key==='Enter')$('ok').onclick()};
+try{TOK=sessionStorage.getItem('tokmon')||''}catch(x){}
+giro();setInterval(giro,60000);
+</script>
+</body>
+</html>
