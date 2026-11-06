@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.1** — 05/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.2** — 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -80,7 +80,10 @@
    `FIRME-REGISTRO-2026-27.md` non dà come firmate. «FIRMA ✓» in verde, la colonna Firma con data e ora, o «firmate» detto dal
    docente = firmata. «Altro» (giallo) nelle presenze = presente.
 2. Testo per il registro: una frase di circa 40 caratteri, presa dalla voce dell'Allegato A di quella classe e di quella materia
-   (`MIE-PARTI-ALLEGATO-A.md`, `programmi-ufficiali/2026-27/`). Se la voce manca, lo dico come criticità.
+   (`MIE-PARTI-ALLEGATO-A.md`, `programmi-ufficiali/2026-27/`). **Dopo il 30/10 sull'Allegato A si può solo TOGLIERE, mai
+   aggiungere** (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punti 3 e 8): se la voce esatta manca, si usa la voce più
+   vicina e lo dico; non propongo mai di aggiungere voci. Prima di proporre qualunque cosa sull'Allegato A si leggono quel file e
+   `COME-SI-AGGIORNA-ALLEGATO-A.md`.
 3. `ARGOMENTI-SVOLTI-2026-27.md`: argomenti legati all'Allegato A della classe; a ciò che è fatto si toglie l'evidenziazione.
 4. Ogni tanto (per esempio quando si prepara la settimana) chiedo al docente di aggiornare i documenti ufficiali.
 5. Almeno 3 prove per quadrimestre per classe salvate su Classroom (`PROVE-CLASSROOM-2026-27.md`).
@@ -194,3 +197,5 @@
    sei bottoni, l'espressione «lezione autonoma». Testo didattico e di dettaglio spostato nelle guide del capitolo 04.
 2. v2.1 (05/11/2026): R10 punti 0 (ordine fisso: titoli, scelta, ora in corso) e 0bis (visione dei 15 giorni il giorno prima), su decisione del docente.
 3. Versioni precedenti: `archivio/CLAUDE-fino-al-2026-11-04.md`.
+
+3. v2.2 (06/11/2026): R5.2: sull Allegato A dopo il 30/10 si puo solo togliere, mai aggiungere; prima di proporre si leggono le note. Errore #223: avevo proposto di aggiungere le voci delle ore 4-7 di Sicurezza senza aver letto la regola.
