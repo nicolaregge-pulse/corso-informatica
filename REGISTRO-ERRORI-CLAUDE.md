@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.10** — 05/11/2026 (#125-#222; v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.11** — 06/11/2026 (#125-#235; v3.11: #224-#235 dal controllore di fine giornata del 06/11; v3.10: v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -1199,3 +1199,63 @@ Controllo: prima di dare un cruscotto confrontare almeno 2 allievi con il Modulo
 
 ## #223 (06/11/2026) Proposta di aggiungere voci all Allegato A senza aver letto la regola
 Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A, ma dopo il 30/10 si puo solo togliere (NOTE-DA-DISCUTERE punti 3 e 8). La regola R5.2 diceva il contrario. Correzione: R5.2 riscritta in CLAUDE.md v2.2. Strumento da correggere: il controllo dei testi del registro deve dire «voce piu vicina», mai «voce da aggiungere».
+
+## #224 (06/11/2026) Proposte fatte senza aver letto le regole
+
+1. **Errore.** Alle 07:19 il docente: «sono stufo che tu proponi cose senza aver letto le regole» (stesso episodio del #223, ma il difetto e piu largo: vale per ogni proposta).
+2. **Strumento da correggere.** promemoria-errori.py deve ricordare, a ogni richiesta di proposta su registro o Allegato A, «prima leggi NOTE-DA-DISCUTERE.md»; da costruire.
+
+## #225 (06/11/2026) Post ora 4 della 1INF pubblicato dal docente senza link
+
+1. **Errore.** Avevo scritto «link dopo»; il docente ha pubblicato alle 11:27 il post a mano senza il link al percorso, e il ponte non puo modificare un post (poi creato un secondo compito, comando in errore). Inoltre il post a mano ha scadenza 6/11 (verifica 11:28) mentre R2 vuole nessuna scadenza.
+2. **Strumento da correggere.** Il pacchetto del post (R2.3) deve avere sempre il link gia dentro; il controllo del messaggio blocca «link dopo» in un pacchetto post. Da costruire in controllo-messaggio.py.
+
+## #226 (06/11/2026) Pacchetto voti DIDAweb con «h 1» invece di «h 6»
+
+1. **Errore.** Nel pacchetto per il registro l ora era sbagliata (h 1 al posto di h 6).
+2. **Strumento da correggere.** Il generatore del pacchetto voti deve leggere l ora dalla riga del registro e confrontarla; da costruire (report_tutti_voti_*.py).
+
+## #227 (06/11/2026) Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta
+
+1. **Errore.** Alle 12:36: da soli non sono riusciti a copiare i file .lfm e .pas dal post al loro progetto. Andava dato subito lo zip o il percorso della cartella nel post (R9.5: niente «copia, apri, incolla»).
+2. **Strumento da correggere.** controlli_pagine.py e il controllo del post: un passo che dice «copia» un file senza zip o percorso e un errore. Da estendere.
+
+## #228 (06/11/2026) «Nessun blocco» come prima riga solo per superare il controllo
+
+1. **Errore.** Alle 12:50: «Perche dici nessun blocco? smettila». La prima riga serve per la cosa bloccante vera (R4.1), non va riempita.
+2. **Strumento da correggere.** controllo-messaggio.py: la prima riga «Nessun blocco» o simili senza prova non vale; da aggiungere come avviso, la prima riga puo essere il fatto principale.
+
+## #229 (06/11/2026) Il cruscotto non aveva il nome di SFREGOLA (presenze del giorno prima)
+
+1. **Errore.** Il cruscotto 1INF del 05/11 non conteneva un presente: le presenze vere del giorno non erano state lette.
+2. **Strumento da correggere.** Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno; controlla_controlli.py --fine-giornata, da costruire.
+
+## #230 (06/11/2026) Quiz recuperi 2INF: KHELLA «Hai gia risposto»
+
+1. **Errore.** Il Modulo aveva «limita a 1 risposta» (R9.7 vuole piu risposte). Il comando forms.imposta_una_risposta e fallito con «Azione non prevista» perche manca la «Nuova versione» del deployment Apps Script (comando 2026-11-06_2inf-sblocca-moduli-recuperi.json, stato errore).
+2. **Strumento da correggere.** I generatori dei quiz creano i Moduli con piu risposte; il ponte deve dire all inizio della giornata se la versione del deployment e vecchia; da costruire (self-test del ponte).
+
+## #231 (06/11/2026) Testo vecchio in piano-b/ora-6 parlava di Windows
+
+1. **Errore.** La lezione era cambiata (11:21: «non facciamo win») ma il piano B dell ora 6 conservava il testo vecchio.
+2. **Strumento da correggere.** Quando il docente cambia la lezione, i file del piano B si rigenerano o si archiviano; controlla_controlli.py --fine-giornata confronta il titolo del piano con quello del compito. Da costruire.
+
+## #232 (06/11/2026) Orario della settimana dopo scritto senza leggere il registro
+
+1. **Errore.** Per «questa settimana» ho scritto Mar/Gio dai file, senza il registro DIDAweb (R10.1.2). Stesso difetto del #220.
+2. **Strumento da correggere.** Il file orario si scrive solo dal registro; il controllo del #220 deve scattare anche per le richieste «orario della settimana». Da costruire.
+
+## #233 (06/11/2026) Cruscotto 1INF del 06/11 fermo ai dati del 05/11
+
+1. **Errore.** docs/1inf/dati.json ha giorno 2026-11-05, ultimo aggiornamento 05/11 12:26; il 06/11 esistono solo le pagine quiz (docs/1inf/quiz) e lo storico dei quiz. Nessun dato per ogni presente (R8.3).
+2. **Strumento da correggere.** verifica_lezione.py deve dare ROSSO se docs/<classe>/dati.json non e del giorno e la classe ha lezione; controlla_controlli.py --fine-giornata. Da costruire.
+
+## #234 (06/11/2026) Report orari, presenze e Veyon del 06/11 assenti
+
+1. **Errore.** In report/2026-11-06 non c e nessun report PDF orario (regola 24), in presenze/ non c e il file del 06/11, in dati/ nessun file veyon del 06/11 (ultimo 04/11). Senza i dati veri non posso ricostruire i PDF.
+2. **Strumento da correggere.** report_ore.py va lanciato dal giro a fine di ogni ora (gia scritto nel #222, ancora non fatto); il giro deve fallire in modo visibile se manca Veyon. Da costruire.
+
+## #235 (06/11/2026) 2INF: nessun compito del 06/11 su Classroom
+
+1. **Errore.** verifica_lezione.py 2INF --giorno 2026-11-06 e ROSSO: nessun compito del giorno su Classroom ne in coda (letto 08:54 dal ponte e riletto alle 18:5x). classroom.compito_crea fallito con «Azione non prevista» (deployment Apps Script da aggiornare).
+2. **Strumento da correggere.** Il ponte deve dire all apertura della giornata quali azioni non conosce (confronto tra versione del deployment e azioni nei comandi); da costruire con il #230.
