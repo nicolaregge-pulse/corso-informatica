@@ -1,5 +1,7 @@
 # Prossime lezioni
 
+Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
+
 Aggiornato mercoledì 4 novembre 2026, sera, con la regola decisa dal prof oggi: un file unico con le cose fatte, le ore dei prossimi giorni e tre proposte per ogni blocco di ore della stessa classe. Il prof sceglie la sera o la mattina e si prepara solo la proposta scelta. Nulla è pubblicato per i ragazzi: si pubblica all'inizio di ogni lezione, un'ora per volta.
 
 ## Le cose fatte nelle ultime due settimane

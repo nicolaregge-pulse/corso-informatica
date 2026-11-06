@@ -1,8 +1,8 @@
 # Modus operandi del corso
 
-**Versione 1.8** — 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
+**Versione 1.9** — 06/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano. Area Docente.
 
-Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, vale `CLAUDE.md` (versione 2.0 del 04/11/2026, regole R1-R11), poi questo documento.
+Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerdì 09/10 e lunedì 12/10/2026. Le regole vengono dalle lezioni vere di quei giorni (1INF, 2INF, 3INF) e dagli errori segnati nel registro degli errori (dal #41 al #54). Quando c'è un dubbio, vale `CLAUDE.md` (versione 2.2 del 06/11/2026, regole R1-R11), poi questo documento.
 
 ## 00 Le cinque regole che vengono prima di tutto
 
@@ -15,7 +15,7 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
 
 ## 01 Il compito della lezione
 
-1. **Un solo compito su Classroom**, con un link fisso a una pagina che si aggiorna da sola.
+1. **Un solo compito per ora su Classroom** (R2: titolo «G/M Ora N», solo il lavoro di quell'ora), con un link fisso a una pagina che si aggiorna da sola.
 2. La pagina si costruisce come dice `REGOLE-COSTRUZIONE-TEORIA.md`: titolo, il percorso di oggi in alto, FASE 1 la teoria (solo da leggere), FASE 2 i bottoni verdi del lavoro. I link si aprono in una scheda nuova.
 3. **Il compito lo devono poter iniziare tutti:** frasi da quinta elementare, una per riga; il primo passo è una risposta che tutti sanno dare (#43).
 4. **Tutto al computer:** niente foto, niente telefono, niente carta e penna (#44, #45). Per la 1INF la pagina ha una riga «Ricopia sul quaderno» (CLAUDE.md R9).
@@ -41,7 +41,7 @@ Raccoglie in un solo posto il modo di lavorare deciso con il docente tra venerd�
    3. «Carica i tuoi file»: facoltativo.
 2. **Modulo Feedback sulla teoria**, uno per classe e per lezione.
 3. **Ogni esercitazione Lazarus si consegna SEMPRE con unit1.pas + screenshot del programma che gira (Nicola, 29/10/2026).**
-4. **Lo script «Consegne Classroom → Git»** gira con il ritmo scelto (v8.3, 27/10: ogni 5 minuti di norma, ogni minuto solo durante le consegne, spento senza lezione); i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
+4. **Lo script «Consegne Classroom → Git»** gira con il ritmo scelto (v8.3, 27/10: ogni 5 minuti di norma, durante le consegne i dati si aggiornano ogni 2 minuti come dice R9.3 (ponte v8.8), spento senza lezione); i Moduli collegati arrivano su Git appena un ragazzo preme «Invia».
 
 ## 04 Il giro delle Pull Request
 
@@ -71,7 +71,7 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 
 ## 06 I voti
 
-1. **Proposta calcolata, voto deciso dal docente.**
+1. **Proposta calcolata e controllata da Claude sul dato vero prima di darla (R9.2), voto deciso dal docente.** Proposta da 40 a 80 (R8.3).
 2. Regole del 12/10: nessuna PR 40; da 1 a 4 PR da 45 a 54; almeno 5 PR 60; oltre 70 serve almeno una PR messa nel gioco; contano anche le PR scritte bene e il Feedback; non contano doppioni, richieste vuote, foto di persone vere.
 3. **Le decisioni del docente vincono sul calcolo.** Nella pagina pubblica il motivo è solo «decisione del prof»; il motivo vero resta nel riservato.
 4. A fine lezione i voti si **congelano** all'ora detta dal docente e il docente riceve il **PDF della valutazione per allievo** (una pagina per ragazzo).
@@ -88,7 +88,7 @@ In alto nella pagina del compito, sotto «Il tuo percorso di oggi», c'è un riq
 1. Ogni passo è una **frase semplice** che comincia con il verbo («Clicca…», «Premi…», «Torna…»), con il «dove» detto a parole dentro la frase; mai catene di coordinate separate da «·». Dove si può si usano i tasti (Ctrl+T, Ctrl+V, Invio) invece di cercare un bottone (#56).
 2. Ogni testo da scrivere è già nel messaggio, in un riquadro da copiare, **subito dopo** il passo che lo usa (#46). La cosa bloccante va da sola in prima riga; niente log in chat (CLAUDE.md R4).
 3. **La memoria del copia e incolla si considera vuota:** prima si apre la pagina dove si incolla, poi si copia, poi si incolla (#50).
-4. **Formato atomico:** più passi in un messaggio, ognuno completo; ogni gruppo di passi finisce con «Dopo devi vedere: …» (#47). Niente screenshot a ogni passo.
+4. **Formato atomico:** ogni passo è completo (dove, cosa, riquadro); si dà solo il prossimo passo (R4.3, come il punto 7); ogni passo finisce con «Dopo devi vedere: …» (#47). Niente screenshot a ogni passo.
 5. **Mappa vera dello schermo:** i campi si indicano per posizione; prima di guidare un programma mai visto, una schermata sola, salvata come mappa (#51).
 6. **Niente parole in più:** se togliendo una parola il senso resta uguale, si toglie (#53).
 7. **Solo il prossimo passo:** non si ripetono i passi già fatti.
@@ -108,7 +108,7 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 
 ## 10 Il registro (DIDAweb)
 
-1. Firma **subito in classe**, entro le 14:05, con il programma previsto; a fine giornata si sistemano gli argomenti, legati all'Allegato A della classe (CLAUDE.md R5).
+1. Firma **subito in classe**, entro le 14:05, con il programma previsto; a fine giornata si sistemano gli argomenti, legati all'Allegato A della classe (CLAUDE.md R5). Dopo il 30/10 sull'Allegato A si può solo togliere: se manca la voce esatta si usa la più vicina, mai aggiungere (R5.2). Sicurezza (06/11/2026): i titoli li mette la direzione e fa fede il registro; si tiene l'Allegato A in doppia modalità, «Dichiarato» e «Registro», in `ARGOMENTI-SVOLTI-2026-27.md` capitolo 04b (regola in attesa di R5.2bis in `CLAUDE.md`).
 2. Il bottone «FIRMA ✓» c'è anche sulle ore già firmate: da una schermata non si dice mai che un'ora non è firmata. Se il docente dice «firmate», è così (#52).
 3. Testo del registro corto: una frase, al massimo circa 40 caratteri.
 
@@ -151,3 +151,4 @@ https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strum
 39. v1.6 (27/10/2026): ritmo dello script (v8.3) e nuova versione del deployment dopo ogni cambio dello script.
 41. v1.8 (04/11/2026): allineato a CLAUDE.md v2.0: capitolo 00 punti 1-4 (PUBB n, niente «Pubblico o vuoi vederlo prima?», fonte e ora), 01.4 quaderno della 1INF, 02 lingue di 3INF e 4TI, 05 superato dal cruscotto unico, 08.2, 10.1, 13 guide nuove.
 40. v1.7 (29/10/2026): capitolo 00 punto 6, il piano B per ogni cosa; capitolo 03 punto 3, Lazarus si consegna sempre con unit1.pas e screenshot.
+42. v1.9 (06/11/2026): allineato a CLAUDE.md v2.2: 01.1 un compito per ora, 03.4 giro ogni 2 minuti (R9.3), 06.1 proposta controllata (R9.2), 08.4 solo il prossimo passo (R4.3), 10.1 Allegato A solo togliere e Sicurezza in doppia modalità.

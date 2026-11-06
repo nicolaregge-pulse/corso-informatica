@@ -1,6 +1,6 @@
 # 00 Guida ai messaggi per il docente
 
-**Versione 1.0** — 04/11/2026 — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.1** — 06/11/2026 — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio della regola R4 di `CLAUDE.md` (messaggi al docente). La regola breve sta lì; qui c'è il testo completo da cui nasce.
 
@@ -38,6 +38,8 @@ Il link al repository si aggiunge solo se serve per altro (pubblicazione, condiv
 **20. Messaggi tra chat (19/10/2026, Nicola).** Un messaggio che passa da una chat Claude a un'altra comincia con «Da chat <nome> a chat <nome>:». Quando ne scrivo uno per un'altra chat lo intesto così; quando ne arriva uno senza intestazione e Nicola dice da dove viene, lo tratto come richiesta di Nicola.
 
 ### Guida passo-passo — coordinate SEMPRE complete (regola VINCOLANTE)
+
+> **Nota 06/11/2026:** dove questo testo dice «più passi in un messaggio» (formato atomico, sopra) vale R4.3: si dà SOLO il prossimo passo. Dove dice «account → finestra → app → dove → cosa» come catena, vale la frase con il verbo davanti e il «dove» in parole, preceduta da account e finestra (R4.3; riga «SOLO IL PROSSIMO PASSO» e «Frasi semplici» sotto).
 
 Quando chiedo a Nicola di fare **qualsiasi** azione (un comando, un clic, un
 valore da inserire), devo **SEMPRE** premettere le coordinate complete, così sa
@@ -90,8 +92,9 @@ selezionare col mouse. Regole precise:
 - **Frasi semplici, non catene di coordinate (12/10/2026, REGISTRO-ERRORI #56):** ogni passo è una frase che comincia con il verbo («Clicca…», «Premi…», «Torna…»), con il «dove» detto a parole dentro la frase; MAI catene «Account · finestra · dove: cosa». Dove si può, i tasti (Ctrl+T, Ctrl+V, Invio) invece di cercare bottoni. Il bottone copia: «il piccolo bottone a destra del riquadro grigio».
 - **Flusso unico sempre da zero (12/10/2026, REGISTRO-ERRORI #55):** niente «se», niente «salta», niente domande dentro i passi.
 - **Niente parole in più (12/10/2026, REGISTRO-ERRORI #53):** niente avverbi o aggettivi che non servono («onestamente», «valide»…): se togliendo la parola il senso resta uguale, si toglie.
-- **Formato a TABELLA (07/10/2026, Nicola):** i passi si danno in una tabella con le colonne N. · Account · Finestra/scheda · Dove · Cosa fare (una riga = una azione).
+- **SUPERATO (R4.3, 04/11/2026) — Formato a TABELLA (07/10/2026, Nicola):** i passi si danno in una tabella con le colonne N. · Account · Finestra/scheda · Dove · Cosa fare (una riga = una azione).
 
 ## 03 Registro delle versioni
 
+2. v1.1 (06/11/2026): note di allineamento a R4.3 (solo il prossimo passo, niente catene né tabelle).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 8, 9, 20, 25, guida passo passo, regola copia).

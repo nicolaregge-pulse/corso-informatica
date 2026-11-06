@@ -68,11 +68,12 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 7. Prima di chiedere al docente presenze o voti si guarda nei file del giorno (#154).
 8. Nessuna pagina dei ragazzi dice «alza la mano» o «chiedi al prof» per problemi di contenuto: si scrive all'assistente; la mano alzata solo se il PC non funziona (#171, controllo `alza_la_mano` in `controlli_pagine.py`).
 9. Ogni quiz per i ragazzi è un Modulo Google in modalità quiz (forms.crea_quiz), con il link nel compito su Classroom prima di pubblicare; la copia sul sito è solo ripasso e non conta (#173, oggi R9.7; audit: fallisce se nel compito di un quiz manca un link docs.google.com/forms).
-10. Prima di accodare o creare un post su Classroom: `bash strumenti/prima_di_pubblicare.sh "<titolo>"` e l'elenco Classroom deve avere meno di 2 minuti; se il post esiste già si modifica, non si crea (#174, regola 34).
+10. Prima di accodare o creare un post su Classroom: `bash strumenti/prima_di_pubblicare.sh "<titolo>"` e l'elenco Classroom deve avere meno di 2 minuti; se il post esiste già si modifica, non si crea (#174, oggi R2.4.1).
 11. Il codice per i ragazzi si prova nella stessa sequenza dei passi della guida (progetto nuovo, incolla il codice, incolla il form, F9), con UN solo `unit1.pas` + `unit1.lfm` e gli eventi collegati da codice (`AfterConstruction`); se non è provato su un Lazarus vero lo si dice (#175).
-12. Titolo di ogni compito nel formato «G/M Ora N: argomento breve» (N = ora della classe), controllato su tutti i compiti del giorno e dei giorni accanto in `classroom.compiti` prima di pubblicare (#194).
+12. Titolo di ogni compito nel formato «G/M Ora N: argomento breve» (N = ora della giornata, 1 = 8-9 … 6 = 13-14, R2.1 e #210; prima era «ora della classe», #194: superato), controllato su tutti i compiti del giorno e dei giorni accanto in `classroom.compiti` prima di pubblicare (#194).
 13. Prima di preparare un giorno (pagine, post, cruscotti, testi per il registro) l'orario si confronta, ora per ora e classe per classe, con il registro DIDAweb o con lo screenshot del docente; il piano settimanale è solo una proposta e un orario «da confermare» non si usa per preparare (#196, 04/11/2026).
 14. La pagina-lezione dei laboratori guidati con quiz rispetta il Framework QUIZ (`FRAMEWORK-QUIZ.md`, capitolo 07): 4 bottoni con link aperti dal sito vero, componente nominato in ogni passo, quiz su Moduli con soglia, consegna con un bottone, ore dopo bloccate, un solo indirizzo nel post Classroom, nessun segnaposto rimasto.
+15. Allegato A e Sicurezza (06/11/2026, #223): dopo il 30/10 l'Allegato A si può solo togliere, mai aggiungere; prima di proporre qualunque cosa si leggono `NOTE-DA-DISCUTERE.md` e `COME-SI-AGGIORNA-ALLEGATO-A.md`. Per la Sicurezza i titoli del registro li mette la direzione (non si propongono né si cambiano) e in `ARGOMENTI-SVOLTI-2026-27.md` capitolo 04b ogni ora ha le due righe «Dichiarato» e «Registro».
 
 ## Changelog
 
@@ -91,3 +92,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 13. v2.2 (04/11/2026): §06 punto 13, l'orario si confronta con il registro DIDAweb prima di preparare un giorno (#196).
 15. v2.4 (04/11/2026): allineata a CLAUDE.md v2.0 (R1-R11): PUBB n, domande nel cruscotto, uscite come criticità, controlli automatici ridotti, 8 comandi per turno, preparazione della sola proposta scelta.
 14. v2.3 (04/11/2026): §06 punto 14, la pagina rispetta il Framework QUIZ (`FRAMEWORK-QUIZ.md`).
+16. v2.5 (06/11/2026): allineata a CLAUDE.md v2.2: 01.4 ordine fisso R10.0; 02.4 un compito per ora; 04.3 Allegato A solo togliere, Sicurezza in doppia modalità; §06 punto 12 (N = ora della giornata) e punto 15 (Allegato A e Sicurezza); rimandi alle vecchie «regola N» sostituiti con R2, R8, R9. Regola Sicurezza del docente 06/11/2026 in attesa di R5.2bis in `CLAUDE.md`.
