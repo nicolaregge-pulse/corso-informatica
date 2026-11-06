@@ -75,3 +75,4 @@ Fonte: registro DIDAweb (screenshot del docente delle 12:29), colonna Firma.
 6. v1.5 (04/11/2026): mercoledì 04/11, tutte e 6 le ore firmate (elenco del registro, firme 08:19-09:24).
 7. v1.6 (05/11/2026): giovedì 05/11, tutte e 6 le ore firmate (elenco del registro, firme 07:57-10:47).
 8. v1.7 (06/11/2026): venerdì 06/11, ore 1INF 11-14 firmate, 2INF 8-9 firmata dalla direzione.
+9. v1.8 (06/11/2026, 13:50): registro DIDAweb (screenshot del docente): tutte le ore della settimana 02-06/11 risultano firmate.
