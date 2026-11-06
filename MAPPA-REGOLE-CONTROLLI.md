@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.5** — 30/10/2026 — documento interno del docente e di Claude
+**Versione 1.6** — 06/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -296,6 +296,19 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #168 | Script nuovo provato con una bozza vera la sera prima; piano B pronto subito | 4 | D | A | verifica_lezione.py (coda senza id = ROSSO, «sospeso» = verde) + controlla_controlli.py --fine-giornata |
 | #169 | I giri del cruscotto lasciano un segnale e si riaccendono; nessun buco > 12 minuti | 2 | D | A | controlla_controlli.py --fine-giornata (buchi nello storico) |
 | #170 | Colonna del cruscotto solo dopo un invio vero; fonte vuota detta subito | 2 | D | A | controlla_controlli.py --fine-giornata (colonna «pratica» vuota) + situazione_quiz.py (storico) |
+| #223 | Sull Allegato A dopo il 30/10 si puo solo togliere; prima di proporre si leggono le note | 1 | D | D | il controllo dei testi del registro deve dire «voce piu vicina»; ancora da costruire |
+| #224 | Proposte fatte senza aver letto le regole | 1 | D | D | promemoria-errori.py deve ricordare, a ogni richiesta di proposta su registro o Allegato A, «prima leggi NOTE-DA-DISCUTERE.md» (da costruire) |
+| #225 | Post ora 4 della 1INF pubblicato dal docente senza link | 1 | D | D | Il pacchetto del post (R2.3) deve avere sempre il link gia dentro (da costruire) |
+| #226 | Pacchetto voti DIDAweb con «h 1» invece di «h 6» | 2 | D | D | Il generatore del pacchetto voti deve leggere l ora dalla riga del registro e confrontarla (da costruire) |
+| #227 | Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta | 1 | D | D | controlli_pagine.py e il controllo del post: un passo che dice «copia» un file senza zip o percorso e un errore (da costruire) |
+| #228 | «Nessun blocco» come prima riga solo per superare il controllo | 1 | D | D | controllo-messaggio.py: la prima riga «Nessun blocco» o simili senza prova non vale (da costruire) |
+| #229 | Il cruscotto non aveva il nome di SFREGOLA (presenze del giorno prima) | 2 | D | D | Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno (da costruire) |
+| #230 | Quiz recuperi 2INF: KHELLA «Hai gia risposto» | 2 | D | D | I generatori dei quiz creano i Moduli con piu risposte (da costruire) |
+| #231 | Testo vecchio in piano-b/ora-6 parlava di Windows | 4 | D | D | Quando il docente cambia la lezione, i file del piano B si rigenerano o si archiviano (da costruire) |
+| #232 | Orario della settimana dopo scritto senza leggere il registro | 2 | D | D | Il file orario si scrive solo dal registro (da costruire) |
+| #233 | Cruscotto 1INF del 06/11 fermo ai dati del 05/11 | 2 | D | D | verifica_lezione.py deve dare ROSSO se docs/<classe>/dati.json non e del giorno e la classe ha lezione (da costruire) |
+| #234 | Report orari, presenze e Veyon del 06/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora (gia scritto nel #222, ancora non fatto) (da costruire) |
+| #235 | 2INF: nessun compito del 06/11 su Classroom | 4 | D | D | Il ponte deve dire all apertura della giornata quali azioni non conosce (confronto tra versione del deployment e azioni nei comandi) (da costruire) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -368,3 +381,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 4. v1.3 (29/10/2026, audit della giornata): voci #147-#154 con i loro controlli (hook w, x, y, z; 5 controlli nuovi in `controlla_controlli.py`); conteggio a 176 voci.
 5. v1.4 (29/10/2026, controllore di fine giornata): voci #139-#146 e #155-#157 in tabella, tutte A; hook (aa) e (bb), controllo `valore_nudo` prima del push, `controlla_controlli.py --fine-giornata`; conteggio a 187 voci.
 6. v1.5 (30/10/2026, controllore di fine giornata): voci #158-#170 in tabella, tutte A; hook (cc)-(ii), 7 controlli nuovi in `controlla_controlli.py --fine-giornata` (#160, #162, #163, #164, #168, #169, #170), voci «sospeso» verdi in `verifica_lezione.py`, storico dei quiz in `situazione_quiz.py`; conteggio a 200 voci.
+7. v1.6 (06/11/2026, controllore di fine giornata): voci #223-#235 in tabella, tutte D (strumenti da costruire, descritti nella colonna «Dove scatta»); i conteggi della sezione 01 e le voci #171-#222 non sono stati ricalcolati e vanno riallineati.
