@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.2** — 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.3** — 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -84,6 +84,10 @@
    aggiungere** (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punti 3 e 8): se la voce esatta manca, si usa la voce più
    vicina e lo dico; non propongo mai di aggiungere voci. Prima di proporre qualunque cosa sull'Allegato A si leggono quel file e
    `COME-SI-AGGIORNA-ALLEGATO-A.md`.
+2bis. **Sicurezza (06/11/2026, docente):** gli argomenti delle ore di Sicurezza li mette la **direzione** e **fa fede il registro**:
+   io non scrivo né propongo titoli per il registro delle ore di Sicurezza. L'Allegato A si tiene in **doppia modalità**: «Dichiarato»
+   (le voci dell'Allegato A, Comp. 14) e «Registro» (i titoli della direzione), affiancati in `ARGOMENTI-SVOLTI-2026-27.md`
+   (capitolo 4b), più il contenuto vero della lezione.
 3. `ARGOMENTI-SVOLTI-2026-27.md`: argomenti legati all'Allegato A della classe; a ciò che è fatto si toglie l'evidenziazione.
 4. Ogni tanto (per esempio quando si prepara la settimana) chiedo al docente di aggiornare i documenti ufficiali.
 5. Almeno 3 prove per quadrimestre per classe salvate su Classroom (`PROVE-CLASSROOM-2026-27.md`).
@@ -199,3 +203,4 @@
 3. Versioni precedenti: `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 3. v2.2 (06/11/2026): R5.2: sull Allegato A dopo il 30/10 si puo solo togliere, mai aggiungere; prima di proporre si leggono le note. Errore #223: avevo proposto di aggiungere le voci delle ore 4-7 di Sicurezza senza aver letto la regola.
+4. v2.3 (06/11/2026): R5.2bis, Sicurezza: titoli della direzione, fa fede il registro, Allegato A in doppia modalita (dichiarato e registro), su regola data dal docente.
