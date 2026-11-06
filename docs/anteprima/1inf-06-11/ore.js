@@ -1,4 +1,4 @@
-/* Porta dell'ora (1INF 06/11/2026). Legge config.json -> "ore_sbloccate": 0 = tutto chiuso; 4, 5 o 6 = aperte le ore fino a quella.
+/* Porta dell'ora (1INF 06/11/2026; ora 5 = Lo scontrino che parla). Legge config.json -> "ore_sbloccate": 0 = tutto chiuso; 4, 5 o 6 = aperte le ore fino a quella.
    data-ora = l'ora della giornata della pagina (4 = 11-12, 5 = 12-13, 6 = 13-14).
    data-flag (facoltativo) = chiave di config.json che deve essere true (es. riserva_aperta per «Se avanza tempo»).
    Si cambia SOLO con: bash /home/user/corso-informatica-riservato/lezioni-pronte/1inf-06-11/pubblica.sh N (al PUBB N). */

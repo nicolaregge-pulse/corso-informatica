@@ -8,7 +8,7 @@
   function prendi(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (x) { return d; } }
   function metti(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (x) {} }
   $('tit').textContent = (R ? 'Lo scontrino che parla' : 'Ora 4 · Il convertitore che parla') + ' · Consegna';
-  $('cart').textContent = CART; $('nomeimg').textContent = IMGN + '.png'; $('torna').href = R ? 'riserva.html' : 'ora4.html';
+  $('cart').textContent = CART; $('nomeimg').textContent = IMGN + '.png'; $('torna').href = R ? 'ora5.html' : 'ora4.html';
   var PAS = null, CHECK = null, IMG = null, NOME = prendi('nome-0611', '') || '';
   $('nome').value = NOME;
   fetch('config.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (c) { CONF = c || {}; }).catch(function () { CONF = {}; });
