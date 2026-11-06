@@ -1,6 +1,6 @@
 # 00 Guida a strumenti, file, registro e versioni
 
-**Versione 1.0** — 04/11/2026 — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.1** — 06/11/2026 — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio delle regole R5, R6 e R11 di `CLAUDE.md` e del vincolo «niente installazioni» della R9.
 
@@ -88,16 +88,16 @@ argomenti **realmente svolti**. Compito di Claude, ogni giorno di lezione:
   ricordare la firma IN AULA, prima delle 14:05** (non a fine giornata).
 - **Come si legge la firma (Nicola, 19/10/2026, REGISTRO-ERRORI #87):** «FIRMA ✓» con la scritta **in verde** = ora **firmata, è OK**: non si ricorda più la firma per quell'ora. Senza il verde non si deduce niente (REGISTRO-ERRORI #11, #36, #52): si ricorda la firma una volta. Se Nicola dice «firmate», è così. **Anche (21/10/2026, Nicola):** se l'ora compare nell'elenco delle ore firmate (data, ora, classe, disciplina, argomento e la colonna «Firma» con data e ora): se la colonna Firma ha la data e l ora, è firmata e non si ricorda più.
 - **«Altro» nelle presenze (Nicola, 20/10/2026, REGISTRO-ERRORI #92):** sul registro «Altro» (giallo) vuol dire entrata o uscita fuori orario: l'allievo è PRESENTE e si conta tra i presenti (voti, cruscotto, tabella dei voti).
-- **Titolo = voce dell'Allegato A (14/10/2026):** ogni testo per il registro è una voce dell'Allegato A di quella classe e della materia di quell'ora; se manca la voce, lo dico subito e si aggiunge entro il 30/10 (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punto 8).
+- **Titolo = voce dell'Allegato A (14/10/2026):** ogni testo per il registro è una voce dell'Allegato A di quella classe e della materia di quell'ora; se manca la voce, lo dico subito e si usa la voce più vicina: dopo il 30/10 l'Allegato A si può solo togliere, mai aggiungere (R5.2; `programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punti 3, 8 e 9). **Sicurezza (06/11/2026):** i titoli li mette la direzione e fa fede il registro; noi non li scriviamo né li cambiamo, e teniamo l'Allegato A in doppia modalità (dichiarato e registro).
 - **Testo per il registro CORTO:** max ~40 caratteri, una frase, niente parentesi, uno per
   ora in blocchi da copiare separati (la casella taglia il testo lungo). Vedi RIFERIMENTI §2.25.
 - **A FINE giornata: CHIEDERE a Nicola gli argomenti realmente svolti** e
   aggiornare (`ARGOMENTI-SVOLTI-2026-27.md`, senza nomi). La firma è già stata
   fatta prima (vedi sopra); a fine giornata si sistemano solo gli **argomenti**.
 
-**16. Traccia digitale per la Regione: almeno 3-4 prove per quadrimestre salvate su Classroom (14/10/2026, VINCOLANTE).** Classroom è l'archivio valido per la Regione: il minimo è 2 prove per quadrimestre per classe, noi stiamo su 3-4. Ogni prova (verifica, quiz, compito valutato) ha il lavoro del ragazzo salvato DENTRO Classroom: un Modulo Google allegato al compito, o la consegna nel compito. Ogni lezione lascia almeno una traccia su Classroom. Conteggio per classe in `PROVE-CLASSROOM-2026-27.md`; quando una classe è sotto 3 nel quadrimestre, lo dico a Nicola e propongo la prova. Vedi RIFERIMENTI §2.55.
+**16. Traccia digitale per la Regione: almeno 3 prove per quadrimestre salvate su Classroom (14/10/2026, VINCOLANTE; R5.5 dice «almeno 3»).** Classroom è l'archivio valido per la Regione: il minimo della Regione è 2 prove per quadrimestre per classe, noi stiamo su 3 o più. Ogni prova (verifica, quiz, compito valutato) ha il lavoro del ragazzo salvato DENTRO Classroom: un Modulo Google allegato al compito, o la consegna nel compito. Ogni lezione lascia almeno una traccia su Classroom. Conteggio per classe in `PROVE-CLASSROOM-2026-27.md`; quando una classe è sotto 3 nel quadrimestre, lo dico a Nicola e propongo la prova. Vedi RIFERIMENTI §2.55.
 
-**36. Ogni lezione è in linea con l'Allegato A della classe (02/11/2026, Nicola: «la Regione e gli enti leggono lì per sapere che cosa facciamo»).** Prima di proporre una lezione, di scrivere un testo per il registro o una riga in `ARGOMENTI-SVOLTI-2026-27.md`, Claude rilegge l'Allegato A di QUELLA classe (`MIE-PARTI-ALLEGATO-A.md` e i Word in `programmi-ufficiali/2026-27/`), usa la voce esatta con competenza e anno, e controlla le scadenze di consegna dell'Allegato (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md`, `COME-SI-AGGIORNA-ALLEGATO-A.md`). Se una lezione non ha una voce, o una competenza resta scoperta, lo dice subito a Nicola come criticità e propone la voce da aggiungere. Per «DHCP e DNS» della 2INF si usa «La rete: Hardware e software» (Comp. 8, I anno). Con la pianificazione della settimana (regola 35) si fa l'audit delle aree più scoperte di ogni classe e si espongono le criticità a Nicola. Errore #189 del registro.
+**36. Ogni lezione è in linea con l'Allegato A della classe (02/11/2026, Nicola: «la Regione e gli enti leggono lì per sapere che cosa facciamo»).** Prima di proporre una lezione, di scrivere un testo per il registro o una riga in `ARGOMENTI-SVOLTI-2026-27.md`, Claude rilegge l'Allegato A di QUELLA classe (`MIE-PARTI-ALLEGATO-A.md` e i Word in `programmi-ufficiali/2026-27/`), usa la voce esatta con competenza e anno, e controlla le scadenze di consegna dell'Allegato (`programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md`, `COME-SI-AGGIORNA-ALLEGATO-A.md`). Se una lezione non ha una voce, o una competenza resta scoperta, lo dice subito a Nicola come criticità e usa la voce più vicina: dopo il 30/10 non si propone mai di aggiungere voci (R5.2, errore #223). Per la Sicurezza i titoli del registro li mette la direzione (06/11/2026). Per «DHCP e DNS» della 2INF si usa «La rete: Hardware e software» (Comp. 8, I anno). Con la pianificazione della settimana (regola 35) si fa l'audit delle aree più scoperte di ogni classe e si espongono le criticità a Nicola. Errore #189 del registro.
 
 ## 03 Lingue e font dei PDF
 
@@ -226,4 +226,5 @@ L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md
 
 ## 05 Registro delle versioni
 
+2. v1.1 (06/11/2026): 02 punti 4 (titolo = voce più vicina, mai aggiungere dopo il 30/10), 16 (almeno 3 prove, come R5.5) e 36 (niente voci da aggiungere); Sicurezza: titoli della direzione, doppia modalità (regola del docente 06/11/2026, in attesa di R5.2bis in `CLAUDE.md`).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 1, 2, 4, 10, 16, 36, vincolo scuola, lingue, formattazione, regole permanenti, bobina).
