@@ -1196,3 +1196,6 @@ Controllo: prima di dare un cruscotto confrontare almeno 2 allievi con il Modulo
 
 1. **Errore.** Alle 17:48 non esistevano report PDF orari, presenze nel diario né storico dei cruscotti 2INF e 3INF; il foglio PC della 3INF non è mai stato trascritto e quello della 2INF solo con la foto delle 09:40 (RAM e Disco). Alle 17:48 la verifica della lezione è andata in timeout a 100 s e ho scambiato l'attesa del ponte (circa 4 minuti) per un ponte fermo; la causa del GIALLO della 1INF era invece quella dichiarata alle 13:22 (link dei compiti pubblicati a mano), confermata alle 18:00. Ho generato a fine giornata 4 report su 6 (2INF 8-11, 1INF 13-14); la 3INF 11-13 manca perché le presenze vere non ci sono.
 2. **Strumento da correggere.** `report_ore.py` va lanciato dal giro a fine di ogni ora (stesso difetto del #207); `verifica_lezione.py` deve dire «in attesa del ponte, fino a 5 minuti» e non andare in timeout a 100 s.
+
+## #223 (06/11/2026) Proposta di aggiungere voci all Allegato A senza aver letto la regola
+Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A, ma dopo il 30/10 si puo solo togliere (NOTE-DA-DISCUTERE punti 3 e 8). La regola R5.2 diceva il contrario. Correzione: R5.2 riscritta in CLAUDE.md v2.2. Strumento da correggere: il controllo dei testi del registro deve dire «voce piu vicina», mai «voce da aggiungere».
