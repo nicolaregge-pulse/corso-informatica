@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.4** — 04/11/2026 — documento interno del docente e di Claude
+**Versione 1.5** — 06/11/2026 — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -141,8 +141,16 @@ La versione di prima è nella storia di Git (commit precedente al 04/11/2026 ser
 3. `promemoria-errori.md`: riscritto con le 11 regole nuove.
 4. Prove: `prova_messaggio.py` 38 casi, `prova_limite.py` 39 casi, tutti superati il 04/11/2026; il controllo dei cognomi provato anche sugli ultimi 1.200 messaggi di commit veri del pubblico: un solo caso, il cognome finito in un commit del 04/11 mattina (nessun falso allarme).
 
+### 05.4 Da correggere negli strumenti (rilettura delle regole del 06/11/2026, nessuno strumento toccato)
+
+1. `promemoria-errori.md`, riga R5: aggiungere «Allegato A dopo il 30/10 solo togliere: voce più vicina, mai aggiungere; Sicurezza: titoli della direzione» (errore #223).
+2. Controllo dei testi del registro: deve dire «voce più vicina», mai «voce da aggiungere» (#223); per la Sicurezza non proporre titoli.
+3. `generatori/audit_regole.py` (01.5) segnala più di un compito per classe al giorno, ma R2 e R10.3 prevedono un compito per ora: contare per ora (titolo «G/M Ora N»).
+4. `generatori/verifica_lezione.py` (01.4) cerca «il compito del giorno»: con PUBB n va verificato il compito dell'ora n.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
 2. v1.3 (28/10/2026, audit): mv e git mv di una versione in docs/ rifiutati (4 prove nuove, 27 in tutto); controllore dei controlli `strumenti/controlla_controlli.py` (punto 01.7); punti di 03 rimessi in ordine; tolta una frase ripetuta in 04.4.
 3. v1.4 (04/11/2026): capitolo 05, revisione sulle decisioni del docente (5 controlli nell'hook del messaggio, controllo dei cognomi nei commit del pubblico, 8 comandi per turno, elenco dei controlli tolti).
+4. v1.5 (06/11/2026): capitolo 05.4, punti da correggere negli strumenti emersi dalla rilettura delle regole.

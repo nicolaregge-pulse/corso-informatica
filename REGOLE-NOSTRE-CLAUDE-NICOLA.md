@@ -1,10 +1,10 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.8** — 04/11/2026
+**Versione 2.9** — 06/11/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
-*Dal 04/11/2026 le regole di lavoro sono le 11 di `CLAUDE.md` (v2.0, R1-R11): se questo file
-dice una cosa diversa, vale `CLAUDE.md`.*
+*Dal 04/11/2026 le regole di lavoro sono le 11 di `CLAUDE.md` (v2.2, R1-R11): se questo file
+dice una cosa diversa, vale `CLAUDE.md`. Dove qui si legge «scratchpad, mai su Git» per i dati dei ragazzi, vale R1 e R11.4: repository RISERVATO (mai il pubblico). Per i testi ai ragazzi vale R6 (3INF: riga in bangla sotto ogni frase solo per il PC 14). Nomi in chat: COGNOME Nome (R7.4). Presente che non consegna: proposta da 40 a 80 (R8.3), non più 30.*
 
 > **Come è ordinato questo file (riorganizzazione v2.0):** in cima le poche cose
 > da non sbagliare mai (**Regole d'oro**) e la **Checklist pre-invio**; poi tutte
@@ -309,6 +309,8 @@ consegna** · **consegna** (Sì/Assente/Non consegnato, lista completa della cla
    *(collegato a 2.17)*
 
 ### Allegato A (rimando)
+Dopo il 30/10/2026 sull'Allegato A si può solo TOGLIERE, mai aggiungere (R5.2; `programmi-ufficiali/2026-27/NOTE-DA-DISCUTERE.md` punti 3, 8, 9): voce più vicina. Sicurezza (06/11/2026): i titoli li mette la direzione e fa fede il registro; doppia modalità «Dichiarato (Allegato A)» e «Registro (titolo della direzione)» in `ARGOMENTI-SVOLTI-2026-27.md` capitolo 04b (regola in attesa di R5.2bis in `CLAUDE.md`).
+
 Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 (stato + `build_allegato.py`), `allegato-a-2026-27/` (`gen_allegati.py`),
 `MIE-PARTI-ALLEGATO-A.md`, `programmi-ufficiali/` (PFP .docx). *(da estrarre come regole)*
@@ -321,6 +323,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
+0. **v2.9 (06/11/2026)**: allineato a CLAUDE.md v2.2: nota in cima (scratchpad = riservato, lingue R6, COGNOME Nome, voti da 40 a 80); Allegato A solo togliere e Sicurezza in doppia modalità.
 0. **v2.8 (04/11/2026)**: allineato a CLAUDE.md v2.0 — regole d'oro 1 (nel dubbio una domanda nel bottone rosso), 5 (senza password nel riservato, cifrato nel pubblico) e 7 (PPP senza output, PRI, PRI+ abolito, PUBB n, «aspetta il via»); §C.1, §C.1bis, nuovi §C.1ter e §C.1quater (messaggi tra chat).
 0. **v2.7 (28/10/2026)**: privacy — negli esempi dei nomi dei file (punto 4 e 5 della convenzione sui nomi) tolti gli ultimi due nomi veri di allievi rimasti, sostituiti con un nome inventato (audit del 28/10).
 0. **v2.4 (04/10/2026)**: privacy — tolti i nomi veri di allievi (esempi della 2.21 sostituiti con nomi inventati; l'allievo di lingua bengalese indicato senza nome). Regola: i nomi veri stanno solo nel repo riservato.

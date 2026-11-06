@@ -1,6 +1,6 @@
 # Allegato A 2026/27 — note da discutere con Nicola
 
-**Versione 0.2** — 14/10/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
+**Versione 0.3** — 06/11/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
 
 1. Domani (13/10) Nicola scarica l'Allegato A da scuola: si guarda com'è fatto e si decide come compilarlo (scadenza: 30 ottobre).
 2. Classe 4 (Tecnico), competenza 1 «Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti: sociali, culturali, scientifici, economici, tecnologici e professionali».
@@ -28,3 +28,5 @@
    3. Compito di Claude: quando dà i testi per la firma, li prende dalle voci dell'Allegato A; se una lezione non ha la sua voce, lo dice subito, e la voce si aggiunge entro il 30 ottobre (dopo si può solo togliere).
    4. Primo controllo, 14/10: nei quattro Allegati v0.1 mancano le voci di quello che facciamo da settimane: controllo delle versioni (versioni, rami, fork, Pull Request, merge, release), il gioco della classe, Godot, i siti su GitHub Pages, i progetti di stage della quarta.
    5. Controllo del 20/10: la voce ISO/OSI della 4TI C'È nell'Allegato A vero (consegna/20261014-1709, competenza 16 Tecnico-professionale, IV anno: «Modelli di riferimento ISO/OSI e TCP/IP: livelli, incapsulamento, viaggio di un pacchetto»). Errore di Claude: aveva guardato il vecchio allegato-a-2026-27 v0.1 (REGISTRO-ERRORI #91). 1INF bit, byte e velocità: coperto da «Rappresentazione delle informazioni … bit e byte, unità di misura» e «Reti LAN e WLAN; velocità 2.4/5 GHz; cavo».
+9. **Dopo il 30/10/2026** (aggiunto il 06/11/2026, errore #223): i punti 3 e 8.3 sono scaduti nella parte «si aggiunge entro il 30 ottobre». Ora sull'Allegato A si può solo TOGLIERE; se una lezione non ha la sua voce si usa la voce più vicina già presente, lo si dice, e non si propone mai di aggiungere voci.
+   1. **Sicurezza (docente, 06/11/2026):** gli argomenti li mette la DIREZIONE e fa fede il REGISTRO. Per la Sicurezza non si propongono titoli per il registro e non si cercano voci da aggiungere. L'Allegato A si tiene in doppia modalità: 1) cosa abbiamo DICHIARATO (le voci dell'Allegato A); 2) le VOCI DEL REGISTRO (i titoli messi dalla direzione). La tabella è in `ARGOMENTI-SVOLTI-2026-27.md`, capitolo 04b.

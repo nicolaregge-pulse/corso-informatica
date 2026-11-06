@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.1** — 04/11/2026
+**Versione 1.2** — 06/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -73,7 +73,39 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 03/11/2026 | 1INF 13-14, Tecnologia professionale: ripasso Unicode, deepfake e privacy, quiz su Moduli (previsto, da aggiornare a fine giornata) | | Sicurezza informatica e privacy: deepfake (Comp. 8) |
 | 04/11/2026 | 1INF 8-11, Laboratorio, 3 ore: far girare un programma in Lazarus (Esegui/F9, il file .exe nella cartella del progetto, l'errore del debugger 32/64 bit e come aggirarlo); previsti convertitore di misure, calcolatrice a quattro bottoni e cassiere con div e mod, quiz 5+3 su Moduli. Da confermare dal docente quanto svolto oltre al far girare l'exe. Sul registro: «Lazarus: Caption e OnClick…» | `docs/verifica/` lezione Lazarus 04/11, quiz 5+3 | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
 | 04/11/2026 | 3INF 11-13, Laboratorio, 2 ore: Mastermind in rete, il protocollo dei messaggi, client collegato al server del docente (porta 5050), gara di classe con la versione 4.1 (5 codici, punteggio cumulativo sul totale). Da confermare dal docente. Sul registro: «Master Mind: il protocollo di rete», «Master Mind in rete: client e server» | `classe-3/mastermind-bello-v4.1/`, `docs/anteprima/3inf-gara-v4.1/` | Reti locali: cablaggio RJ45, indirizzamento IP (Comp. 16, III anno); Sviluppo collaborativo: release (Comp. 12, III anno); manca una voce esplicita per il protocollo |
-| 04/11/2026 | 1INF 13-14, Sicurezza: 4ª ora del corso ufficiale, organi di vigilanza, controllo e assistenza, quiz su Moduli; recuperi dei quiz della 2ª e 3ª ora e del quiz B. Sul registro è firmato «Rischi infortuni, incidenti e infortuni mancati» (titolo della 5ª ora): da correggere dal docente | `docs/anteprima/1inf-sicurezza-04-11/`, quiz 4ª ora | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, «4ª ora: organi di vigilanza, controllo e assistenza» (Comp. 14, I anno) |
+| 04/11/2026 | 1INF 13-14, Sicurezza: 4ª ora del corso ufficiale, organi di vigilanza, controllo e assistenza, quiz su Moduli; recuperi dei quiz della 2ª e 3ª ora e del quiz B. Sul registro è firmato «Rischi infortuni, incidenti e infortuni mancati» (titolo messo dalla direzione: non si cambia, vedi capitolo 04b) | `docs/anteprima/1inf-sicurezza-04-11/`, quiz 4ª ora | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, «4ª ora: organi di vigilanza, controllo e assistenza» (Comp. 14, I anno) |
+
+## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
+
+**Regola del docente, 06/11/2026:** per la Sicurezza gli argomenti li mette la DIREZIONE e fa fede il REGISTRO. Noi non scriviamo né cambiamo i titoli del registro per la Sicurezza e non cerchiamo voci da aggiungere (dopo il 30/10 l'Allegato A si può solo togliere). Teniamo l'Allegato A in doppia modalità: 1) cosa abbiamo DICHIARATO (le voci dell'Allegato A di quella classe, Competenza 14, fonte `programmi-ufficiali/2026-27/PROGRAMMI-DI-MASSIMA-2026-27.md`, le 16 ore del corso ufficiale); 2) le VOCI DEL REGISTRO (i titoli messi dalla direzione). Accanto, il contenuto vero della lezione. Ciò che non è stato letto dal registro porta «non provato». (Regola in attesa di essere scritta in `CLAUDE.md` come R5.2bis.)
+
+### 4b.1 Classe 2 (2INF), Competenza 14, II anno
+
+| Data | Contenuto vero della lezione | Dichiarato (Allegato A) | Registro (titolo della direzione) |
+|---|---|---|---|
+| 22/09/2026 | Controllo di account e utenze | nessuna ora del corso ufficiale | «Controllo account e utenze» |
+| 01/10/2026 | 1ª ora: rischio, danno, prevenzione e protezione; quiz su Moduli e test aperto | 1ª ora: concetti di rischio e danno | «SICUREZZA ORA 1: Concetti di rischio e danno» |
+| 09/10/2026 | 2ª ora: prevenzione e protezione; quiz su Moduli | 2ª ora: prevenzione e protezione | «Organizzazione della prevenzione aziendale…» |
+| 16/10/2026 | 3ª ora: organizzazione della prevenzione aziendale (video e slide ufficiali) | 3ª ora: organizzazione della prevenzione aziendale | non provato (da leggere dal registro) |
+| 21/10/2026 | 4ª ora: diritti, doveri, sanzioni, organi di vigilanza; quiz di 20 casi; recupero dei quiz delle ore 1-3 | 4ª ora: organi di vigilanza, controllo e assistenza | «Sicurezza: organizzazione prevenzione» |
+| 28/10/2026 | Ripasso delle ore 1-4 e recupero dei quiz mancanti su Moduli | ore 1-4 (rischio e danno, prevenzione e protezione, organizzazione della prevenzione, organi di vigilanza) | «Recupero formazione generale ore 1-4» |
+| 30/10/2026 | 5ª ora e quiz (dal registro; contenuto da confermare) | 5ª ora: rischio infortuni | «Sicurezza 5: quinta ora e quiz» |
+| 02/11/2026 | Social engineering e phishing, analisi delle mail, quiz su Moduli | «Phishing e ingegneria sociale» (Comp. 8, II anno) | non provato (da leggere dal registro) |
+| 06/11/2026 | Preparata la 6ª ora (rischi meccanici ed elettrici generali) con ripasso; svolto da confermare | 6ª ora: rischi meccanici ed elettrici generali | «Rischi infortuni, incidenti e infortuni mancati» |
+
+### 4b.2 Classe 1 (1INF), Competenza 14, I anno
+
+Registro letto dallo screenshot del docente del 06/11/2026 alle 08:16 (1INF, disciplina Sicurezza professionale, titoli della direzione, ora 6 della giornata, 13-14). Le altre righe di quell'elenco, dal 14/10 in giù, sono di altre materie o vecchie e non sono Sicurezza della direzione.
+
+| Data | Contenuto vero della lezione | Dichiarato (Allegato A, Comp. 14, I anno) | Registro (titolo della direzione) |
+|---|---|---|---|
+| 22/10/2026 | 1ª ora: rischio e danno, pericolo, prevenzione e protezione; quiz su Moduli | 1ª ora: concetti di rischio e danno | h6 «Sicurezza: pericolo, danno e rischio» |
+| 29/10/2026 | 2ª e 3ª ora: prevenzione e protezione, organizzazione della prevenzione; schede e quiz su Moduli | 2ª ora: prevenzione e protezione; 3ª ora: organizzazione della prevenzione aziendale | h6 «Sicurezza ora 2 e 3 : prevenzione e protezione e ORG» |
+| 04/11/2026 | 4ª ora: organi di vigilanza, controllo e assistenza; quiz su Moduli; recuperi delle ore 2 e 3 | 4ª ora: organi di vigilanza, controllo e assistenza | h6 «Rischi infortuni, incidenti e infortuni mancati» |
+
+Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-ALLEGATO-A.md` (v0.2, 02/09) ha le stesse voci con nomi un po' diversi (per esempio «Sicurezza ora 6 Rischi Elettrici»). Se i due elenchi non coincidono, vale l'Allegato A vero della scuola, da leggere insieme al docente.
+
+---
 
 ## 5. Collegamenti
 1. `ARGOMENTI-SVOLTI` — lo svolto dell'anno precedente (2025/26), riorganizzato per macro-argomento.
@@ -83,6 +115,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 
 ## 6. Changelog
 
+13. **v1.2 (06/11/2026)**: nuovo capitolo 4b, Sicurezza in doppia modalità (Dichiarato e Registro) per 2INF e 1INF; la riga del 04/11 della 1INF non è più «da correggere dal docente».
 12. **v1.1 (04/11/2026)**: lezioni del 04/11 di 1INF (Lazarus, Sicurezza 4ª ora) e 3INF (Mastermind in rete), con «da confermare dal docente».
 11. **v1.0 (29/10/2026)**: lezioni del 29/10 di 2INF, 3INF e 1INF (argomenti firmati sul registro), scritte dal controllore di fine giornata.
 1. **v0.7 (21/10/2026)**: confermati da Nicola gli argomenti del 21/10; Classe 1 arrivata fino al ping escluso (ping, jitter, lag, FPS, monitor, schede e cavi video alla prossima lezione).

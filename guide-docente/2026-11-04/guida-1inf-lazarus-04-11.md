@@ -1,6 +1,6 @@
 # Guida del docente: 1INF Lazarus, mercoledì 04/11/2026
 
-**Versione 1.0** — 04/11/2026. Laboratorio 8:00-11:00. Stringhe e interi: convertitore, calcolatrice, cassiere. Nessun nome di allievo (repository pubblico).
+**Versione 1.1** — 06/11/2026 (nota Allegato A corretta). Laboratorio 8:00-11:00. Stringhe e interi: convertitore, calcolatrice, cassiere. Nessun nome di allievo (repository pubblico).
 
 > **Nota:** Come si usa questa guida: la tabella a minuti di ogni ora è il copione. Le frasi tra virgolette sono da dire così, brevi. Le parole in grassetto sono da scrivere o far notare. Tutto ciò che non ho potuto provare è scritto «da verificare».
 
@@ -273,6 +273,6 @@ Lazarus: OnClick, il cassiere
 ```
 
 3. **Voce dell'Allegato A:** PFP_1, Competenza 15, I anno: «Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento».
-   > **Attenzione:** String, Integer, StrToInt, div e mod NON sono nelle sotto-voci dell'Allegato A 1INF. La lezione si regge su TEdit, Caption, OnClick, ma resta una voce da aggiungere (criticità aperta, ne parla Claude).
+   > **Attenzione:** String, Integer, StrToInt, div e mod NON sono nelle sotto-voci dell'Allegato A 1INF. La lezione si regge su TEdit, Caption, OnClick, si firma con la voce più vicina già presente: dopo il 30/10 l'Allegato A si può solo togliere, mai aggiungere (R5.2).
 4. **Firma:** all'inizio di ogni ora. «FIRMA» scritta in verde vuol dire già firmata. Scadenza assoluta 14:05: le ore non firmate si perdono.
 5. **A fine giornata:** Claude ti chiede gli argomenti realmente svolti e li registra.
