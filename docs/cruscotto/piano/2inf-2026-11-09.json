@@ -1,0 +1,32 @@
+{
+ "classe": "2INF",
+ "giorno": "2026-11-09",
+ "modalita": [
+  "guidato",
+  "teoria-quiz",
+  "versioning"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Gli strumenti di amministrazione di Windows 10, con i recuperi dei quiz di Sicurezza",
+   "descrizione": "Modalità: recuperi + percorso guidato + quiz. Primi 10 minuti: recuperi dei quiz di Sicurezza rimasti, compresi quelli in cui compariva «Hai già risposto» (ora i Moduli permettono più risposte). Poi Gestione computer, Visualizzatore eventi, Servizi e Monitoraggio risorse (Allegato A, voce «Windows», competenza 15), un risultato in 10 minuti e una consegna per ora. Versione facile: solo Gestione computer e Servizi.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Git e la calcolatrice: repository in ordine, release 1.0, prova a voce",
+   "descrizione": "Modalità: versioning. Obiettivo: il repository della calcolatrice con i file giusti, due commit chiari e la release 1.0; poi la prova del nove a voce di due minuti. Consegna: il link alla release.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Il gioco «indovina il numero» in Lazarus",
+   "descrizione": "Modalità: percorso guidato. Obiettivo: un gioco con numero segreto, più alto o più basso, selezioni annidate (Allegato A, «Creazioni di applicazioni con Lazarus»). Consegna: unit1.pas e una schermata.",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [],
+ "mancanze": "Bilancio delle ultime 2 settimane fatto: 8 allievi con almeno un lavoro mancante o un voto basso. Quiz Sicurezza ora 6 del 06/11: 0 su 11 al dato letto (da rileggere). Elenco per allievo nel riservato: report/2026-11-09/bilancio-2-settimane-3inf-2inf.md."
+}

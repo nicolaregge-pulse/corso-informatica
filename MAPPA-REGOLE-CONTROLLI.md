@@ -302,8 +302,8 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #226 | Pacchetto voti DIDAweb con «h 1» invece di «h 6» | 2 | D | D | Il generatore del pacchetto voti deve leggere l ora dalla riga del registro e confrontarla (da costruire) |
 | #227 | Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta | 1 | D | D | controlli_pagine.py e il controllo del post: un passo che dice «copia» un file senza zip o percorso e un errore (da costruire) |
 | #228 | «Nessun blocco» come prima riga solo per superare il controllo | 1 | D | D | controllo-messaggio.py: la prima riga «Nessun blocco» o simili senza prova non vale (da costruire) |
-| #229 | Il cruscotto non aveva il nome di SFREGOLA (presenze del giorno prima) | 2 | D | D | Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno (da costruire) |
-| #230 | Quiz recuperi 2INF: KHELLA «Hai gia risposto» | 2 | D | D | I generatori dei quiz creano i Moduli con piu risposte (da costruire) |
+| #229 | Il cruscotto non aveva il nome di un allievo della 2INF (presenze del giorno prima) | 2 | D | D | Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno (da costruire) |
+| #230 | Quiz recuperi 2INF: un allievo della 2INF «Hai gia risposto» | 2 | D | D | I generatori dei quiz creano i Moduli con piu risposte (da costruire) |
 | #231 | Testo vecchio in piano-b/ora-6 parlava di Windows | 4 | D | D | Quando il docente cambia la lezione, i file del piano B si rigenerano o si archiviano (da costruire) |
 | #232 | Orario della settimana dopo scritto senza leggere il registro | 2 | D | D | Il file orario si scrive solo dal registro (da costruire) |
 | #233 | Cruscotto 1INF del 06/11 fermo ai dati del 05/11 | 2 | D | D | verifica_lezione.py deve dare ROSSO se docs/<classe>/dati.json non e del giorno e la classe ha lezione (da costruire) |

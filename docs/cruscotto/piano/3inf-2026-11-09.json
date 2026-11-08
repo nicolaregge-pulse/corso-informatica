@@ -1,0 +1,32 @@
+{
+ "classe": "3INF",
+ "giorno": "2026-11-09",
+ "modalita": [
+  "guidato",
+  "teoria-quiz",
+  "versioning"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Gli strumenti di amministrazione di Windows 10, dopo il ripristino dei PC aula",
+   "descrizione": "Modalità: percorso guidato + quiz. Obiettivo: ognuno apre e sa dire a che cosa servono Gestione computer, Visualizzatore eventi, Servizi e Monitoraggio risorse sul PC ripristinato (Allegato A, voce «Windows», competenza 15). Ora 1: Gestione computer e Servizi, primo risultato in 10 minuti: trovare un servizio e leggerne lo stato. Ora 2: Visualizzatore eventi, trovare l'ultimo errore e spiegarlo in una frase. Ora 3: Monitoraggio risorse, chi usa di più CPU e memoria, poi quiz su Moduli. Consegna: una schermata per strumento e le risposte. Versione facile: solo Gestione computer e Servizi.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Slideshow animato in Lazarus",
+   "descrizione": "Modalità: percorso guidato. Obiettivo: finire e rendere mostrabile lo slideshow con le immagini che cambiano da sole, con pausa e avanti/indietro (Allegato A, «Esercizi: Master Mind e Slide Show», competenza 8). La pagina è già pronta in anteprima e non è pubblicata. Consegna: il file unit1.pas e una schermata.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Release 1.0 del Mastermind su GitHub con changelog",
+   "descrizione": "Modalità: versioning. Obiettivo: il repository del Mastermind in ordine, un tag 1.0 e una release con il changelog scritto da chi l'ha fatto. Consegna: il link alla release.",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [],
+ "mancanze": "Bilancio delle ultime 2 settimane fatto: 8 allievi con almeno un lavoro mancante o un voto basso. Elenco per allievo nel riservato: report/2026-11-09/bilancio-2-settimane-3inf-2inf.md."
+}

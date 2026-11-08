@@ -40,9 +40,9 @@ Prima informatica, dalle 11 alle 14, Laboratorio professionale. Primo passo fiss
 
 Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato.
 
-Terza informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: il progetto di rete rifinito, con una relazione breve nel README e la release con il changelog. Seconda proposta: la sicurezza in laboratorio e i dati personali, con schede e quiz, due aree dell'Allegato ancora scoperte. Terza proposta: la prima base di dati, con le tabelle e le prime query SQL in un sito online.
+Terza informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: gli strumenti di amministrazione di Windows 10 (Gestione computer, Visualizzatore eventi, Servizi, Monitoraggio risorse) dopo il ripristino dei PC aula. Seconda proposta: lo slideshow animato, con la pagina già pronta in anteprima. Terza proposta: la release 1.0 del Mastermind su GitHub con il changelog.
 
-Seconda informatica, dalle 11 alle 14, Laboratorio professionale. Proposta consigliata: Git e la calcolatrice, cioè il repository in ordine, la release 1.0 e la prova del nove a voce, con i recuperi della settimana. Seconda proposta: il gioco «indovina il numero» in Lazarus con le selezioni annidate. Terza proposta: il phishing versione 2 e i deepfake, dopo che il prof ha approvato i casi.
+Seconda informatica, dalle 11 alle 14, Laboratorio professionale. Proposta consigliata: gli stessi strumenti di amministrazione di Windows 10, con i primi dieci minuti di recuperi dei quiz di Sicurezza. Seconda proposta: Git e la calcolatrice, con il repository in ordine, la release 1.0 e la prova a voce. Terza proposta: il gioco «indovina il numero» in Lazarus.
 
 ## Martedì 10 novembre
 

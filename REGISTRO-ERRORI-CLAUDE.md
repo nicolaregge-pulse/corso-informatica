@@ -1225,12 +1225,12 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 1. **Errore.** Alle 12:50: «Perche dici nessun blocco? smettila». La prima riga serve per la cosa bloccante vera (R4.1), non va riempita.
 2. **Strumento da correggere.** controllo-messaggio.py: la prima riga «Nessun blocco» o simili senza prova non vale; da aggiungere come avviso, la prima riga puo essere il fatto principale.
 
-## #229 (06/11/2026) Il cruscotto non aveva il nome di SFREGOLA (presenze del giorno prima)
+## #229 (06/11/2026) Il cruscotto non aveva il nome di un allievo della 2INF (presenze del giorno prima)
 
 1. **Errore.** Il cruscotto 1INF del 05/11 non conteneva un presente: le presenze vere del giorno non erano state lette.
 2. **Strumento da correggere.** Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno; controlla_controlli.py --fine-giornata, da costruire.
 
-## #230 (06/11/2026) Quiz recuperi 2INF: KHELLA «Hai gia risposto»
+## #230 (06/11/2026) Quiz recuperi 2INF: un allievo della 2INF «Hai gia risposto»
 
 1. **Errore.** Il Modulo aveva «limita a 1 risposta» (R9.7 vuole piu risposte). Il comando forms.imposta_una_risposta e fallito con «Azione non prevista» perche manca la «Nuova versione» del deployment Apps Script (comando 2026-11-06_2inf-sblocca-moduli-recuperi.json, stato errore).
 2. **Strumento da correggere.** I generatori dei quiz creano i Moduli con piu risposte; il ponte deve dire all inizio della giornata se la versione del deployment e vecchia; da costruire (self-test del ponte).
