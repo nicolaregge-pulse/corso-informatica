@@ -36,6 +36,25 @@ Seconda informatica, dalle 8 alle 9, Sicurezza professionale. Proposta consiglia
 
 Prima informatica, dalle 11 alle 14, Laboratorio professionale. Primo passo fisso: i recuperi di Sicurezza rimasti da giovedì, poi chi non ha ancora fatto girare il programma lo fa girare con la guida. Proposta consigliata: tre programmi utili che girano davvero, il convertitore di misure, la calcolatrice a quattro bottoni e il cassiere con div e mod, una consegna per ora con il file unit1.pas e lo screenshot, voce «Programmazione a eventi con Lazarus», competenza 15. Seconda proposta: la mini calcolatrice con i numeri decimali. Terza proposta: il primo repository GitHub con i file giusti e due commit.
 
+## Bozza 7 giorni, da martedì 10 a lunedì 16 novembre (09/11/2026, da scegliere con Nicola)
+
+Una riga per lezione. Orario dal registro DIDAweb (10-13/11 confermato; lunedì 16 da confermare, si usa quello di lunedì 9). Per la Sicurezza il titolo lo mette la direzione. Metodo: per ogni ora solo titolo, un foglio da 1 pagina e un quiz provato.
+
+| Giorno | Classe e ore | Argomento | Obiettivo |
+|---|---|---|---|
+| Mar 10 | 2INF 8-10 | Profilazione sui social e privacy | Controllare le impostazioni del proprio account |
+| Mar 10 | 3INF 10-11 | Release 1.0 del Mastermind | Release e changelog su GitHub |
+| Mar 10 | 4TI 11-13 | Subnetting a passi | Calcolare maschera, rete e host di 3 reti |
+| Mer 11 | 1INF 8-11 | Decisioni con if in Lazarus | Programma che sceglie: maggiorenne o no, voto in parole |
+| Mer 11 | 3INF 11-13 | Slideshow animato (sito) | Una pagina con animazione su GitHub Pages |
+| Mer 11 | 1INF 13-14 | Sicurezza, quinta ora | Titolo dalla direzione; schede e recuperi |
+| Gio 12 | 2INF 8-11 | Git e la calcolatrice | Repository in ordine e release 1.0, prova a voce |
+| Gio 12 | 1INF 13-14 | Pixel e colori | Un colore scritto in numeri (RGB) |
+| Ven 13 | 2INF 8-9 | Sicurezza | Titolo dalla direzione |
+| Ven 13 | 1INF 11-14 | Scontrino che parla, finito e provato | Programma che gira e consegna di unit1.pas |
+| Lun 16 | 3INF 8-11 | Strumenti di amministrazione di Windows | Solo se i PC sono pronti: da confermare con Nicola |
+| Lun 16 | 2INF 11-14 | Indovina il numero in Lazarus | Selezioni annidate; da confermare |
+
 ## Lunedì 9 novembre
 
 Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato.
