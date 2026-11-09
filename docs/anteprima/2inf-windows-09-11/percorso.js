@@ -21,7 +21,7 @@
   }
   if ($('pc')) {
     var sel = $('pc'), h = '<option value="">—</option>';
-    for (var i = 1; i <= 24; i++) { var n = (i < 10 ? '0' : '') + i; h += '<option value="' + (i < 10 ? '0' + i : '' + i) + '">PC ' + n + '</option>'; }
+    for (var i = 11; i <= 38; i++) { h += '<option value="' + i + '">PC ' + i + '</option>'; }
     sel.innerHTML = h; sel.value = PC;
     sel.onchange = function () { PC = sel.value; metti(KP, PC); ping(true); };
   }
