@@ -6,8 +6,8 @@
 "it"
 ],
 "letto_hhmm": "12:54",
-"letto_iso": "2026-11-09T12:54:01.854000+01:00",
-"generato": "2026-11-09T12:56:15+01:00",
+"letto_iso": "2026-11-09T12:54:24.520000+01:00",
+"generato": "2026-11-09T12:58:21+01:00",
 "moduli": [
 {
 "k": "s4",
@@ -15,7 +15,7 @@
 "link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/2inf-windows-09-11/ora4.html",
 "tipo": "ora",
 "soglia": "7/10",
-"letto": "09/11 12:56"
+"letto": "09/11 12:58"
 },
 {
 "k": "q4",
@@ -23,7 +23,7 @@
 "link": "https://docs.google.com/forms/d/e/1FAIpQLSc2HpzDuaPyIlqcdttxa1p2cXDJXQDMp9HuVLiAjSBAeNla5Q/viewform",
 "tipo": "ora",
 "soglia": "7/10",
-"letto": "09/11 12:54"
+"letto": "09/11 12:56"
 },
 {
 "k": "s5",
@@ -31,7 +31,7 @@
 "link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/2inf-windows-09-11/ora5.html",
 "tipo": "ora",
 "soglia": "9/13",
-"letto": "09/11 12:56"
+"letto": "09/11 12:58"
 },
 {
 "k": "q5",
@@ -39,7 +39,7 @@
 "link": "https://docs.google.com/forms/d/e/1FAIpQLSeEKfMD6cVCgq1kmA3uKgMXqx5GYkG8SgS_ER0tBuQeOwcr_A/viewform",
 "tipo": "ora",
 "soglia": "7/10",
-"letto": "09/11 12:54"
+"letto": "09/11 12:57"
 },
 {
 "k": "q6",
@@ -60,14 +60,14 @@
 "s4": "rosso",
 "q4": "rosso",
 "s5": "rosso",
-"q5": "rosso",
+"q5": "verde",
 "q6": "rosso"
 },
 "n": {
 "s4": 0,
 "q4": 0,
 "s5": 0,
-"q5": 0,
+"q5": 1,
 "q6": 0
 },
 "da_recuperare": [],
@@ -75,7 +75,6 @@
 "Scheda ora 4",
 "Quiz ora 4",
 "Scheda ora 5",
-"Quiz ora 5",
 "Quiz ora 6"
 ]
 },
@@ -384,14 +383,14 @@
 ],
 "c": {
 "s4": "rosso",
-"q4": "rosso",
+"q4": "verde",
 "s5": "rosso",
 "q5": "verde",
 "q6": "verde"
 },
 "n": {
 "s4": 0,
-"q4": 0,
+"q4": 1,
 "s5": 0,
 "q5": 1,
 "q6": 1
@@ -399,7 +398,6 @@
 "da_recuperare": [],
 "da_fare": [
 "Scheda ora 4",
-"Quiz ora 4",
 "Scheda ora 5"
 ]
 },
