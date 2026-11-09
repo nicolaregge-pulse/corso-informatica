@@ -1,0 +1,53 @@
+/* 1INF 06/11/2026: stile comune delle pagine (come 1inf-tipi-05-11). Tema chiaro e scuro, telefono e desktop. */
+:root{--bg:#f6f7f9;--fg:#1f2328;--mu:#5b6573;--card:#fff;--bd:#d5dbe3;--acc:#0b6e99;--ok:#1a7f37;--ko:#c0392b;--q:#fff4c2;--blu:#1f6feb;--okb:#dafbe1;--kob:#ffe0e0;--sel:#e7f0ff;--code:#0d1117;--codefg:#e6edf3}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--okb:#12361e;--kob:#4a1416;--sel:#1b2a40;--code:#010409}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--mu:#9aa5b1;--card:#161b22;--bd:#30363d;--acc:#4ea8de;--ok:#3fb950;--ko:#f85149;--q:#3b3200;--okb:#12361e;--kob:#4a1416;--sel:#1b2a40;--code:#010409}
+*{box-sizing:border-box}html,body{overflow-x:hidden}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,"Segoe UI",sans-serif}
+main{max-width:820px;margin:0 auto;padding:12px 16px 60px}h1{font-size:1.45em;margin:.4em 0}h2{font-size:1.15em;margin:.2em 0 .4em}h3{font-size:1em;margin:.8em 0 .3em}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;margin:12px 0}
+.ar{direction:rtl;text-align:right;color:var(--mu);font-size:.95em;margin:4px 0;font-family:"Amiri","Noto Naskh Arabic","Segoe UI",serif}
+.zh{color:var(--mu);font-size:.95em;margin:4px 0;font-family:"WenQuanYi Zen Hei","Microsoft YaHei",sans-serif}
+body.no-ar .ar,body.no-zh .zh{display:none!important}
+span.ar,span.zh{margin:0}.bt .ar,.bt .zh,#lingue .ar,#lingue .zh{color:inherit}
+.f5{background:var(--q);border-radius:10px;padding:8px 12px;font-size:.95em}
+.quad{background:var(--q);border:2px solid #d4a017;border-radius:10px;padding:10px 12px}
+a.bt,button.bt{display:block;width:100%;text-align:center;background:var(--acc);color:#fff;font:inherit;font-weight:700;padding:12px;border-radius:10px;text-decoration:none;margin:8px 0;border:0;cursor:pointer}
+a.bt.v,button.bt.v{background:var(--ok)}a.bt.spento{background:#8c959f;pointer-events:none}button.bt[disabled]{opacity:.5;cursor:not-allowed}
+code{background:rgba(127,127,127,.15);border-radius:5px;padding:1px 5px;overflow-wrap:anywhere}
+pre{background:var(--code);color:var(--codefg);border-radius:10px;padding:10px 12px;overflow-x:auto;font-size:15px;line-height:1.45;margin:8px 0;direction:ltr;text-align:left}
+pre code{background:none;padding:0;overflow-wrap:normal}
+.barra{height:14px;background:var(--bd);border-radius:7px;overflow:hidden;margin:6px 0}.barra i{display:block;height:100%;background:var(--ok);width:0}
+.passo{border:3px solid var(--bd);border-radius:14px;padding:6px 14px 10px;margin:14px 0;background:var(--card)}
+.passo .num{display:inline-flex;width:38px;height:38px;border-radius:50%;background:#6e7781;color:#fff;align-items:center;justify-content:center;font-weight:800;margin-right:6px}
+.passo .bollo{float:right;font-size:14px;padding:3px 10px;border-radius:8px;color:#fff;background:#6e7781}
+.passo.fatto{border-color:var(--ok)}.passo.fatto .num,.passo.fatto .bollo{background:var(--ok)}
+.passo.ora{border:4px solid var(--blu)}.passo.ora .num,.passo.ora .bollo{background:var(--blu)}
+.passo button.fb{font:inherit;font-weight:700;background:var(--ok);color:#fff;border:0;border-radius:10px;padding:9px 16px;cursor:pointer;margin-top:6px}
+.passo.fatto button.fb{background:#6e7781}
+.passo[data-bonus]{border-style:dashed}
+details{margin:8px 0}details summary{cursor:pointer;font-weight:700;color:var(--blu)}.aiuti details.chiuso{display:none}
+input[type=text],select,textarea{font:inherit;width:100%;padding:8px 10px;border:2px solid var(--acc);border-radius:10px;background:var(--card);color:var(--fg)}
+textarea{min-height:90px}label.sp{display:block;margin:6px 0}label.sp input{width:auto;transform:scale(1.3);margin-right:8px}
+.mu{color:var(--mu);font-size:.92em}
+.sx-img{width:100%;max-width:640px;height:auto;border:2px solid #8c959f;border-radius:10px;display:block;background:#fff}
+figure{margin:8px 0}figcaption{font-size:15px}
+.aiutoprof{background:#fde8e8;border:3px solid #c0392b;border-radius:12px;padding:10px 12px;margin:12px 0;color:#000}.aiutoprof p{margin:0 0 6px}.aiutoprof .ar,.aiutoprof .zh{color:#333}
+.scelte{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.scelte button{font:inherit;font-size:16px;flex:1 1 200px;min-width:0;text-align:start;background:var(--card);color:var(--fg);border:2px solid var(--acc);border-radius:10px;padding:8px 10px;cursor:pointer;overflow-wrap:anywhere}
+.scelte button.giusta{background:var(--okb);border-color:var(--ok)}.scelte button.sbagliata{background:var(--kob);border-color:var(--ko);text-decoration:line-through}
+.scelte button[disabled]{cursor:default}
+.mq-d{border-top:1px dashed var(--bd);padding:8px 0 4px;margin-top:6px}.mq-d .q{font-weight:700;margin:0}
+.esito{border-radius:10px;padding:6px 10px;margin:4px 0;display:none}.esito.ok{display:block;background:var(--okb);border-left:5px solid var(--ok)}.esito.ko{display:block;background:var(--kob);border-left:5px solid var(--ko)}
+.ramo-msg{margin:6px 0}
+#ipbox{background:var(--sel);border:3px solid var(--blu);border-radius:12px;padding:10px 12px;margin:8px 0;font-size:1.05em}
+#lingue{display:flex;flex-wrap:wrap;gap:6px;align-items:center}#lingue button{font:inherit;font-size:15px;padding:5px 12px;border-radius:999px;border:1px solid var(--bd);background:var(--card);color:var(--fg);cursor:pointer}#lingue button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+#dove div{margin:4px 0}#vai{display:inline-block;width:auto;padding:8px 16px;margin:4px 0}
+.msg{font-weight:700}.msg.ok{color:var(--ok)}.msg.ko{color:var(--ko)}
+ul.v{list-style:none;padding:0}ul.v li{border-left:5px solid var(--bd);padding:4px 8px;margin:4px 0}ul.v li.ok{border-color:var(--ok)}ul.v li.ko{border-color:var(--ko)}ul.v li.av{border-color:#d4a017}ul.v li b{margin-right:6px}
+#anteprima img{max-width:100%;border:2px solid var(--bd);border-radius:8px;display:block;margin:6px 0}
+.ore{display:grid;gap:10px}.ore .card{margin:0}
+@media (max-width:480px){main{padding:10px 16px 60px}h1{font-size:1.25em}.passo{padding:6px 10px 10px}pre{font-size:13px}}
+/* 2INF 09/11/2026: schede di teoria e parole nuove */
+.scheda{border-left:5px solid var(--acc);padding:2px 12px;margin:10px 0}.scheda h3{margin:.3em 0}
+table.gl{border-collapse:collapse;width:100%}table.gl th,table.gl td{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}table.gl th{background:var(--acc);color:#fff;width:34%}
+.vedi{background:var(--sel);border-radius:10px;padding:6px 10px}
