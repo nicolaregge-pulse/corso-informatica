@@ -51,3 +51,10 @@ ul.v{list-style:none;padding:0}ul.v li{border-left:5px solid var(--bd);padding:4
 .scheda{border-left:5px solid var(--acc);padding:2px 12px;margin:10px 0}.scheda h3{margin:.3em 0}
 table.gl{border-collapse:collapse;width:100%}table.gl th,table.gl td{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top}table.gl th{background:var(--acc);color:#fff;width:34%}
 .vedi{background:var(--sel);border-radius:10px;padding:6px 10px}
+/* 2INF 09/11/2026 ora 5: dispensa in linea a schede */
+.tab{display:none}.tab.on{display:block}
+nav.indice{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:2px solid var(--bd);padding:6px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+nav.indice button{font:inherit;font-size:15px;padding:6px 10px;border-radius:999px;border:2px solid var(--acc);background:var(--card);color:var(--fg);cursor:pointer}
+nav.indice button.sel{background:var(--acc);color:#fff;font-weight:700}
+.tit-tab{font-size:1.3em;border-bottom:3px solid var(--acc);padding-bottom:4px}
+.avanti{margin:16px 0}.avanti .bt{margin:8px 0}
