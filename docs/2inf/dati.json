@@ -1,78 +1,121 @@
 {
 "classe": "2INF",
-"giorno": "2026-11-06",
-"titolo": "Sicurezza 6ª ora: rischi meccanici ed elettrici, e ripasso 1-6",
+"giorno": "2026-11-09",
+"titolo": "Strumenti di amministrazione di Windows (ore 11-14)",
 "lingue": [
 "it"
 ],
-"letto_hhmm": "16:39",
-"letto_iso": "2026-11-05T16:39:55.617000+01:00",
-"generato": "2026-11-06T08:28:32+01:00",
+"letto_hhmm": "10:43",
+"letto_iso": "2026-11-09T10:43:00.145000+01:00",
+"generato": "2026-11-09T12:38:39+01:00",
 "moduli": [
 {
-"k": "q2",
-"breve": "2ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSf9X4tGel7KcKdvmrjxgns_8V-V5AQyaQccX-VaMU3VFEyqDg/viewform",
-"tipo": "recupero",
-"soglia": "70/100",
-"letto": "05/11 16:39"
-},
-{
-"k": "q3",
-"breve": "3ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSeANOFnWHWRF-uYH1H6l-eOocMUavGbAwDKC5yIUbYVoCiaUw/viewform",
-"tipo": "recupero",
-"soglia": "70/100",
-"letto": "05/11 16:39"
+"k": "s4",
+"breve": "Scheda ora 4",
+"link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/2inf-windows-09-11/ora4.html",
+"tipo": "ora",
+"soglia": "7/10",
+"letto": "09/11 12:38"
 },
 {
 "k": "q4",
-"breve": "4ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSevwdJOCe8J00jdKb33gMVypzv8AQoSB9Kup6dfHgHpqJ7azA/viewform",
-"tipo": "recupero",
-"soglia": "70/100",
-"letto": "05/11 16:39"
+"breve": "Quiz ora 4",
+"link": "https://docs.google.com/forms/d/e/1FAIpQLSc2HpzDuaPyIlqcdttxa1p2cXDJXQDMp9HuVLiAjSBAeNla5Q/viewform",
+"tipo": "ora",
+"soglia": "7/10",
+"letto": "09/11 10:43"
+},
+{
+"k": "s5",
+"breve": "Scheda ora 5",
+"link": "https://nicolaregge-pulse.github.io/corso-informatica/anteprima/2inf-windows-09-11/ora5.html",
+"tipo": "ora",
+"soglia": "9/13",
+"letto": "09/11 12:38"
 },
 {
 "k": "q5",
-"breve": "5ª ora",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLSeUvK_DEQTCavSQWX1lK1Dv5ZgL9-lNSWLRkTKPCb_vvYkhyg/viewform",
-"tipo": "recupero",
-"soglia": "70/100",
-"letto": "05/11 16:39"
-},
-{
-"k": "q",
-"breve": "Quiz di oggi",
-"link": "https://docs.google.com/forms/d/e/1FAIpQLScKAGp6f5795JGuENRWpIYvOLiCwIxS82g1HbEoKrSxP-YexA/viewform",
+"breve": "Quiz ora 5",
+"link": "https://docs.google.com/forms/d/e/1FAIpQLSeEKfMD6cVCgq1kmA3uKgMXqx5GYkG8SgS_ER0tBuQeOwcr_A/viewform",
 "tipo": "ora",
-"soglia": "12/20",
-"letto": "06/11 08:27"
+"soglia": "7/10",
+"letto": "09/11 12:08"
 }
 ],
 "righe": [
 {
-"nome": "Egor M.",
+"nome": "Alejandro G.",
 "ids": [
-"a930c725f59a2266"
+"816c02466063a605"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Antonio M.",
+"ids": [
+"a89ce05af3021995"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Francesco M.",
+"ids": [
+"372743bc3e09631f"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -81,22 +124,23 @@
 "be7743c2d5a6a75b"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -105,25 +149,48 @@
 "da23584b326675ca"
 ],
 "c": {
-"q2": "giallo",
-"q3": "verde",
-"q4": "verde",
-"q5": "rosso",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 0,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
-"da_recuperare": [
-"2ª ora",
-"5ª ora"
-],
+"da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Hagar A.",
+"ids": [
+"961bf4933834954a"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -132,22 +199,23 @@
 "42d617385f90ff11"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -156,22 +224,23 @@
 "640daabcee7ecf56"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -180,22 +249,23 @@
 "3900aff33def4102"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -204,25 +274,23 @@
 "ae07e0c92f5b5d33"
 ],
 "c": {
-"q2": "verde",
-"q3": "rosso",
-"q4": "verde",
-"q5": "rosso",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 0,
-"q4": 1,
-"q5": 0,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
-"da_recuperare": [
-"3ª ora",
-"5ª ora"
-],
+"da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -231,22 +299,123 @@
 "87c20cfa021887ee"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Ney V.",
+"ids": [
+"0ce8cd7490b77313"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Oscar F.",
+"ids": [
+"19581b753a6094f8"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Riccardo B.",
+"ids": [
+"c80a7194f2afaea4"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
+]
+},
+{
+"nome": "Sara A.",
+"ids": [
+"a1184b2eb907a474"
+],
+"c": {
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
+},
+"n": {
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
+},
+"da_recuperare": [],
+"da_fare": [
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -255,22 +424,23 @@
 "ae33e6cccbcd5c61"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -279,22 +449,23 @@
 "5346ed6c24a6999e"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 },
 {
@@ -303,22 +474,23 @@
 "342d0d3a802f8896"
 ],
 "c": {
-"q2": "verde",
-"q3": "verde",
-"q4": "verde",
-"q5": "verde",
-"q": "rosso"
+"s4": "rosso",
+"q4": "rosso",
+"s5": "rosso",
+"q5": "rosso"
 },
 "n": {
-"q2": 1,
-"q3": 1,
-"q4": 1,
-"q5": 1,
-"q": 0
+"s4": 0,
+"q4": 0,
+"s5": 0,
+"q5": 0
 },
 "da_recuperare": [],
 "da_fare": [
-"Quiz di oggi"
+"Scheda ora 4",
+"Quiz ora 4",
+"Scheda ora 5",
+"Quiz ora 5"
 ]
 }
 ],

@@ -148,7 +148,7 @@ function disegnaDoc(){var d=DOC,h='';vivoDoc();
  if(d.presenti_senza_email.length)h+='<div class="box"><b>Presenti senza email nell\'elenco:</b> '+esc(d.presenti_senza_email.join(', '))+'</div>';
  if(d.risposte_non_presenti.length)h+='<p class="mu">Risposte di allievi non presenti oggi (anche di altri giorni, non contano qui): '+d.risposte_non_presenti.map(function(x){return esc(x.allievo)+' ('+esc(x.m)+', '+esc(x.nota)+')'}).join('; ')+'</p>';
  if(d.risposte_altra_classe.length)h+='<p class="mu">Risposte di allievi di altre classi ignorate: '+d.risposte_altra_classe.length+'</p>';
- h+='<p>Presenti: <b>'+d.presenti+'</b> · Assenti: '+esc(d.assenti.join(', '))+'</p>';
+ h+='<p>Presenti: <b>'+d.presenti+'</b> · Assenti: '+esc(d.assenti.join(', '))+((d.non_rilevati||[]).length?' · Non rilevati da Veyon (non assenti): '+esc(d.non_rilevati.join(', ')):'')+'</p>';
  h+='<p class="mu">Letture: '+d.moduli.map(function(m){var vm=VIVO&&FONTE!=='c'&&VIVO.moduli?VIVO.moduli[m.k]:null;return esc(m.breve)+' '+(vm&&vm.letto_il?hhmm(vm.letto_il)+(vm.errore?' (ERRORE: '+esc(vm.errore)+')':''):esc(m.letto))}).join(' · ')+'. Con più risposte vale la migliore; i tentativi sono tra parentesi.</p>';
  h+='<div class="tw"><table><tr><th>COGNOME Nome</th>'+d.moduli.map(function(m){return '<th>'+esc(m.breve)+'<br><span class="mu">'+esc(m.soglia)+'</span></th>'}).join('')+
    '<th>Da recuperare</th><th>Da fare</th>'+d.kpi.map(function(k){return '<th title="'+esc(k.testo)+'">KPI '+esc(k.k)+'</th>'}).join('')+'<th>Voto</th></tr>';
