@@ -309,6 +309,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #233 | Cruscotto 1INF del 06/11 fermo ai dati del 05/11 | 2 | D | D | verifica_lezione.py deve dare ROSSO se docs/<classe>/dati.json non e del giorno e la classe ha lezione (da costruire) |
 | #234 | Report orari, presenze e Veyon del 06/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora (gia scritto nel #222, ancora non fatto) (da costruire) |
 | #235 | 2INF: nessun compito del 06/11 su Classroom | 4 | D | D | Il ponte deve dire all apertura della giornata quali azioni non conosce (confronto tra versione del deployment e azioni nei comandi) (da costruire) |
+| #236 | Numero del PC come menu a tendina da 1 a 24 nelle pagine dei ragazzi | 4 | A | A | controlli_pagine.py: pc_a_menu, tra i SICURI, prima del push (fatto); nei generatori del riservato da costruire |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -382,3 +383,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 5. v1.4 (29/10/2026, controllore di fine giornata): voci #139-#146 e #155-#157 in tabella, tutte A; hook (aa) e (bb), controllo `valore_nudo` prima del push, `controlla_controlli.py --fine-giornata`; conteggio a 187 voci.
 6. v1.5 (30/10/2026, controllore di fine giornata): voci #158-#170 in tabella, tutte A; hook (cc)-(ii), 7 controlli nuovi in `controlla_controlli.py --fine-giornata` (#160, #162, #163, #164, #168, #169, #170), voci «sospeso» verdi in `verifica_lezione.py`, storico dei quiz in `situazione_quiz.py`; conteggio a 200 voci.
 7. v1.6 (06/11/2026, controllore di fine giornata): voci #223-#235 in tabella, tutte D (strumenti da costruire, descritti nella colonna «Dove scatta»); i conteggi della sezione 01 e le voci #171-#222 non sono stati ricalcolati e vanno riallineati.
+8. v1.7 (09/11/2026): voce #236 (numero del PC come casella di testo, 11-38 in aula 11) con controllo pc_a_menu in controlli_pagine.py.

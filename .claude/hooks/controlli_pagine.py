@@ -269,7 +269,7 @@ def valore_nudo(percorso, testo):
 def pc_a_menu(percorso, testo):
     """#236 (09/11/2026): il numero del PC si chiede con una casella di testo (11-38 in aula 11), non con un menu a tendina.
     Segnala <select id="pc"> e il ciclo che riempie le opzioni fino a 24 (o 20) nelle pagine per i ragazzi."""
-    if pagina_docente(percorso) or not percorso.endswith((".html", ".js")):
+    if pagina_docente(percorso) or not percorso.endswith(".js"):  # l html puo avere il select che il percorso.js sostituisce
         return []
     m = re.search(r"<select[^>]*id=[\"']pc[\"']|\$\('pc'\)[^;]*<option|for\s*\(var i = 1; i <= (?:20|24);[^\n]*<option", testo)
     if m:
