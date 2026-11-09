@@ -1264,3 +1264,58 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Nelle pagine dei ragazzi (percorso.js di 1INF 06/11, 2INF 09/11, 3INF 09/11) il numero del PC era un menù a tendina da 1 a 24 (o 20). Regola del docente: se si chiede il numero del PC si lascia come edit (casella di testo, solo cifre); i PC dell aula 11 vanno da 11 a 38.
 2. **Strumento da correggere.** Controllo `pc_a_menu` in `.claude/hooks/controlli_pagine.py` (tra i SICURI, prima di ogni push): segnala un select con id pc o un ciclo fino a 24 (o 20) che riempie le opzioni. Fatto. Resta da costruire: lo stesso controllo nei generatori del riservato, che cerchi la posizione del file con find invece di un percorso fisso.
+
+## #237 (09/11/2026) Teoria dell ora 5 (2INF, 09/11) su cose che i ragazzi non hanno fatto e non potevano fare
+
+1. **Errore.** Teoria e dispensa scritte per un PC che in aula non c era (PC reinstallati, poi PC dell aula). Il docente: «la teoria parla di cose che non hanno fatto e non possono fare».
+2. **Strumento da correggere.** Prima di scrivere una teoria o una dispensa si chiede al docente in una riga che cosa hanno davvero fatto e su quali PC; ogni passo della teoria deve avere la prova (screenshot o conferma) di un PC dell aula. Da costruire: campo «fattibile su PC aula: si/no» nel generatore di dispense, ROSSO se manca.
+
+## #238 (09/11/2026) Quiz «scegli 2» creati come scelta singola dal ponte vecchio (09/11)
+
+1. **Errore.** Le domande dicevano «scegli 2 risposte» ma il Modulo non permetteva piu risposte (stesso difetto del #230).
+2. **Strumento da correggere.** Dopo ogni forms.crea_quiz il ponte rilegge il Modulo e scrive in esito se «limita a 1 risposta» e attivo; il generatore dei quiz da ROSSO e non consegna il link se una domanda a 2 risposte sta in un Modulo a risposta singola. Da costruire.
+
+## #239 (09/11/2026) Lezione cambiata in corsa tre volte (PC reinstallati, poi PC dell aula) il 09/11
+
+1. **Errore.** Piano della mattina, poi dispensa Admin, poi PC dell aula ripristinati: teoria, quiz e cruscotto sono rimasti sul piano vecchio.
+2. **Strumento da correggere.** Ogni cambio di lezione del docente apre un «cambio piano»: si archiviano piano, cruscotto e quiz del vecchio piano e si rigenerano insieme (come #231). Da costruire: comando strumenti/cambio_piano.sh che marca il vecchio piano «sostituito».
+
+## #240 (09/11/2026) Cruscotto 2INF con dati vecchi di circa 2 ore mostrato ai ragazzi (09/11)
+
+1. **Errore.** Lo stesso difetto di #229 e #233: il giro era fermo e la scritta DATI VECCHI non e comparsa. Il giro del 09/11 si e fermato alle 13:34 con la lezione fino alle 14:00.
+2. **Strumento da correggere.** Il giro del cruscotto lascia un segnale; controlla_controlli.py --fine-giornata segna ROSSO un buco superiore a 12 minuti e la pagina scrive DATI VECCHI oltre 6 minuti (R8.4). Da verificare perche non ha scattato.
+
+## #241 (09/11/2026) Quiz v2.0 non selettivo: tutti 9 o 10 su 10 (09/11)
+
+1. **Errore.** Il docente: «non sono selettivi i quiz». Le risposte giuste erano ovvie dal testo della domanda.
+2. **Strumento da correggere.** Il generatore dei quiz calcola per ogni domanda quante delle 3-4 risposte sbagliate sono plausibili (stessa lunghezza, stesso lessico) e segnala le domande con la risposta giusta piu lunga o piu precisa. Dopo la consegna, situazione_quiz.py segnala ROSSO se piu dell 80% ha 9-10 su 10. Da costruire.
+
+## #242 (09/11/2026) Messaggi in lezione troppo lunghi e senza riquadri da copiare (09/11)
+
+1. **Errore.** Il docente: «sei troppo prolisso quando faccio lezione», «mi devi sempre dare le caselle copiabili», «se ho da leggere piu di 10 righe non ne ho il tempo».
+2. **Strumento da correggere.** controllo-messaggio.py (R4): in ora di lezione ROSSO se il messaggio ha piu di 10 righe, o un testo da incollare fuori da un blocco di codice. Da verificare se il limite di 10 righe e gia nel controllo; se no, da costruire.
+
+## #243 (09/11/2026) Messaggio con link senza PUBBLICATO bloccato dall hook (09/11)
+
+1. **Errore.** Ho scritto un link al sito prima di aver letto PUBBLICATO da aspetta_pubblicazione.sh (R7.3). L hook ha bloccato: controllo gia attivo e riuscito.
+2. **Strumento da correggere.** Nessuno nuovo: controllo-messaggio.py funziona. Resta da insegnare al generatore di messaggi a non scrivere il link prima. Voce A.
+
+## #244 (09/11/2026) Cruscotto 3INF fermo ai dati del 04/11, nessun dato dei presenti il 09/11
+
+1. **Errore.** docs/3inf/dati.json generato il 04/11 alle 23:39; nessun giro il 09/11, anche se le presenze del 09/11 erano in config.
+2. **Strumento da correggere.** verifica_lezione.py e cruscotto_classe.py: ROSSO se dati.json non e del giorno e la classe ha lezione oggi (gia in #233). Da verificare perche non ha scattato per la 3INF.
+
+## #245 (09/11/2026) Report PDF orari, presenze e Veyon del 09/11 assenti
+
+1. **Errore.** In report/2026-11-09 non c e nessun PDF di ora (ci sono solo audit, dispense, chiavi). Ripetizione del #234.
+2. **Strumento da correggere.** report_ore.py va lanciato dal giro a fine di ogni ora; controlla_controlli.py --fine-giornata ROSSO se per un ora in orario manca il PDF. Da costruire.
+
+## #246 (09/11/2026) Ponte: due comandi in-attesa-PUBB mai chiusi e riepilogo del ponte fermo al 03/11 (09/11)
+
+1. **Errore.** comandi/2026-11-09_MODULO-2inf-ora5b-quiz.json e ora6b-quiz.json restano in-attesa-PUBB; docs/cruscotto/ponte.json ha oggi=2026-11-03. Un comando di verifica creato alle 17:49 non e stato eseguito entro 2 minuti; la verifica 3INF del mattino ha avuto 8 minuti di latenza.
+2. **Strumento da correggere.** Il riepilogo del ponte si rigenera a ogni giro; a fine giornata i comandi in-attesa-PUBB si annullano o si chiudono. controlla_controlli.py --fine-giornata ROSSO per ponte.json con data diversa da oggi. Da costruire.
+
+## #247 (09/11/2026) Stop hook «tutto versionato» scattato circa 25 volte il 09/11
+
+1. **Errore.** Per ore commit e push non fatti durante la lezione: il docente vede messaggi dell hook al posto del lavoro.
+2. **Strumento da correggere.** Commit e push a fine di ogni blocco di lavoro (R11.1); un hook di fine turno che committa da solo i file del riservato (come la bobina automatica). Da costruire.

@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.7** — 09/11/2026 — documento interno del docente e di Claude
+**Versione 1.8** — 09/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -310,6 +310,17 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #234 | Report orari, presenze e Veyon del 06/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora (gia scritto nel #222, ancora non fatto) (da costruire) |
 | #235 | 2INF: nessun compito del 06/11 su Classroom | 4 | D | D | Il ponte deve dire all apertura della giornata quali azioni non conosce (confronto tra versione del deployment e azioni nei comandi) (da costruire) |
 | #236 | Numero del PC come menu a tendina da 1 a 24 nelle pagine dei ragazzi | 4 | A | A | controlli_pagine.py: pc_a_menu, tra i SICURI, prima del push (fatto); nei generatori del riservato da costruire |
+| #237 | Teoria dell ora 5 (2INF, 09/11) su cose che i ragazzi non hanno fatto e non potevano fare | 4 | D | D | Prima di scrivere una teoria o una dispensa si chiede al docente in una riga che cosa hanno davvero fatto e su quali PC; ogni passo della teoria deve |
+| #238 | Quiz «scegli 2» creati come scelta singola dal ponte vecchio (09/11) | 4 | D | D | Dopo ogni forms.crea_quiz il ponte rilegge il Modulo e scrive in esito se «limita a 1 risposta» e attivo; il generatore dei quiz da ROSSO e non conseg |
+| #239 | Lezione cambiata in corsa tre volte (PC reinstallati, poi PC dell aula) il 09/11 | 4 | D | D | Ogni cambio di lezione del docente apre un «cambio piano»: si archiviano piano, cruscotto e quiz del vecchio piano e si rigenerano insieme (come #231) |
+| #240 | Cruscotto 2INF con dati vecchi di circa 2 ore mostrato ai ragazzi (09/11) | 4 | D | D | Il giro del cruscotto lascia un segnale; controlla_controlli.py --fine-giornata segna ROSSO un buco superiore a 12 minuti e la pagina scrive DATI VECC |
+| #241 | Quiz v2.0 non selettivo: tutti 9 o 10 su 10 (09/11) | 4 | D | D | Il generatore dei quiz calcola per ogni domanda quante delle 3-4 risposte sbagliate sono plausibili (stessa lunghezza, stesso lessico) e segnala le do |
+| #242 | Messaggi in lezione troppo lunghi e senza riquadri da copiare (09/11) | 4 | D | D | controllo-messaggio.py (R4): in ora di lezione ROSSO se il messaggio ha piu di 10 righe, o un testo da incollare fuori da un blocco di codice. Da veri |
+| #243 | Messaggio con link senza PUBBLICATO bloccato dall hook (09/11) | 2 | A | A | Nessuno nuovo: controllo-messaggio.py funziona. Resta da insegnare al generatore di messaggi a non scrivere il link prima. Voce A. |
+| #244 | Cruscotto 3INF fermo ai dati del 04/11, nessun dato dei presenti il 09/11 | 4 | D | D | verifica_lezione.py e cruscotto_classe.py: ROSSO se dati.json non e del giorno e la classe ha lezione oggi (gia in #233). Da verificare perche non ha |
+| #245 | Report PDF orari, presenze e Veyon del 09/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora; controlla_controlli.py --fine-giornata ROSSO se per un ora in orario manca il PDF. Da costruire |
+| #246 | Ponte: due comandi in-attesa-PUBB mai chiusi e riepilogo del ponte fermo al 03/11 (09/11) | 2 | D | D | Il riepilogo del ponte si rigenera a ogni giro; a fine giornata i comandi in-attesa-PUBB si annullano o si chiudono. controlla_controlli.py --fine-gio |
+| #247 | Stop hook «tutto versionato» scattato circa 25 volte il 09/11 | 2 | D | D | Commit e push a fine di ogni blocco di lavoro (R11.1); un hook di fine turno che committa da solo i file del riservato (come la bobina automatica). Da |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -384,3 +395,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 6. v1.5 (30/10/2026, controllore di fine giornata): voci #158-#170 in tabella, tutte A; hook (cc)-(ii), 7 controlli nuovi in `controlla_controlli.py --fine-giornata` (#160, #162, #163, #164, #168, #169, #170), voci «sospeso» verdi in `verifica_lezione.py`, storico dei quiz in `situazione_quiz.py`; conteggio a 200 voci.
 7. v1.6 (06/11/2026, controllore di fine giornata): voci #223-#235 in tabella, tutte D (strumenti da costruire, descritti nella colonna «Dove scatta»); i conteggi della sezione 01 e le voci #171-#222 non sono stati ricalcolati e vanno riallineati.
 8. v1.7 (09/11/2026): voce #236 (numero del PC come casella di testo, 11-38 in aula 11) con controllo pc_a_menu in controlli_pagine.py.
+9. v1.8 (09/11/2026, controllore di fine giornata): voci #237-#247 (teoria non fattibile, quiz scegli 2 e non selettivi, lezione cambiata in corsa, cruscotti fermi, report orari assenti, ponte, messaggi lunghi, hook versionato); #243 A, le altre D.
