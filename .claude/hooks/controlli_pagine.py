@@ -266,8 +266,20 @@ def valore_nudo(percorso, testo):
             % (percorso, m.group(1), _riga(testo, m.start()), m.group(1), m.group(1))]
 
 
-SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo, alza_la_mano)
-TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo, alza_la_mano)
+def pc_a_menu(percorso, testo):
+    """#236 (09/11/2026): il numero del PC si chiede con una casella di testo (11-38 in aula 11), non con un menu a tendina.
+    Segnala <select id="pc"> e il ciclo che riempie le opzioni fino a 24 (o 20) nelle pagine per i ragazzi."""
+    if pagina_docente(percorso) or not percorso.endswith((".html", ".js")):
+        return []
+    m = re.search(r"<select[^>]*id=[\"']pc[\"']|\$\('pc'\)[^;]*<option|for\s*\(var i = 1; i <= (?:20|24);[^\n]*<option", testo)
+    if m:
+        return ["%s: numero del PC come menu a tendina (riga %d) (#236): usare un input type=text inputMode=numeric maxLength=2"
+                % (percorso, _riga(testo, m.start()))]
+    return []
+
+
+SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo, alza_la_mano, pc_a_menu)
+TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo, alza_la_mano, pc_a_menu)
 
 
 def controlla(percorso, testo, controlli=SICURI, radice=None):

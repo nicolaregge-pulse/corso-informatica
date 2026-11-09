@@ -31,10 +31,15 @@
   }
   if ($('compagno')) { $('compagno').value = COMP; $('compagno').addEventListener('change', function () { COMP = $('compagno').value.trim().replace(/\s+/g, ' '); metti(KC, COMP); }); }
   if ($('pc')) {
-    var sel = $('pc'), h = '<option value="">—</option>';
-    for (var i = 1; i <= 20; i++) { var n = (i < 10 ? '0' : '') + i; h += '<option value="' + n + '">PC ' + n + '</option>'; }
-    sel.innerHTML = h; sel.value = PC;
-    sel.onchange = function () { PC = sel.value; metti(KP, PC); ip(); };
+    var sel = $('pc');
+    if (sel.tagName === 'SELECT') {
+      var inp = document.createElement('input');
+      inp.id = 'pc'; inp.type = 'text'; inp.inputMode = 'numeric'; inp.maxLength = 2;
+      inp.placeholder = 'PC'; inp.className = sel.className; inp.style.width = '4.5em';
+      sel.parentNode.replaceChild(inp, sel); sel = inp;
+    }
+    sel.value = PC;
+    sel.oninput = function () { sel.value = sel.value.replace(/[^0-9]/g, ''); PC = sel.value; metti(KP, PC); ip(); };
   }
 
   /* ---- il riquadro dell'IP (ore 5-6): dai valori di config.json, se il docente li ha scritti ---- */
