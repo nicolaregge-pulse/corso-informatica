@@ -20,10 +20,15 @@
     });
   }
   if ($('pc')) {
-    var sel = $('pc'), h = '<option value="">—</option>';
-    for (var i = 11; i <= 38; i++) { h += '<option value="' + i + '">PC ' + i + '</option>'; }
-    sel.innerHTML = h; sel.value = PC;
-    sel.onchange = function () { PC = sel.value; metti(KP, PC); ping(true); };
+    var sel = $('pc');
+    if (sel.tagName === 'SELECT') {
+      var inp = document.createElement('input');
+      inp.id = 'pc'; inp.type = 'text'; inp.inputMode = 'numeric'; inp.maxLength = 2;
+      inp.placeholder = 'PC'; inp.className = sel.className; inp.style.width = '4.5em';
+      sel.parentNode.replaceChild(inp, sel); sel = inp;
+    }
+    sel.value = PC;
+    sel.oninput = function () { sel.value = sel.value.replace(/[^0-9]/g, ''); PC = sel.value; metti(KP, PC); ping(true); };
   }
 
   function corto(p) { return p.querySelector('h2').textContent.replace(/^\d+/, '').trim().slice(0, 60); }
