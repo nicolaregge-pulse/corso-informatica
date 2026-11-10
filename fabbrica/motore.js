@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.1 (10/11/2026)
+ * FABBRICA - MOTORE v2.2 (10/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -107,15 +107,28 @@ function FB_crea_(q) {
 }
 
 /* ---------- Errori e stato ---------- */
+var FB_ERRS = [];
 function FB_errore_(ss, passo, e) {
-  var testo = passo + ': ' + (e && e.message ? e.message : e);
-  FB_p_().setProperty('FB_ULTERR', FB_ora_() + ' ' + testo);
-  try {
-    if (FB_p_().getProperty('FB_ULTERR_RIGA') !== testo) {
-      FB_p_().setProperty('FB_ULTERR_RIGA', testo);
-      ss.getSheetByName('Esiti').appendRow([FB_ora_(), 'ERRORE', '', '', '', 'ERRORE: ' + testo, '', '']);
-    }
-  } catch (x) { Logger.log('FB_errore_: ' + x); }
+  FB_ERRS.push(passo + ': ' + (e && e.message ? e.message : e));
+}
+
+function FB_pulisci_(ss) {
+  var sh = ss.getSheetByName('Esiti');
+  if (!sh) return;
+  var v = sh.getDataRange().getValues(), i = v.length - 1, fine;
+  while (i >= 1) {
+    if (v[i][1] !== 'ERRORE') { i--; continue; }
+    fine = i;
+    while (i >= 1 && v[i][1] === 'ERRORE') i--;
+    sh.deleteRows(i + 2, fine - i);
+  }
+}
+
+function FB_ultimoErrore_() {
+  if (!FB_ERRS.length) return 'nessuno';
+  var t = FB_ERRS.join(' | ');
+  if (t.indexOf('autorizzazioni') >= 0) return "Manca un'autorizzazione Google: eseguire installa e consentire";
+  return FB_ora_() + ' ' + t;
 }
 
 function FB_stato_(ss) {
@@ -127,7 +140,7 @@ function FB_stato_(ss) {
     ['Fabbrica v2', FB_ora_('dd/MM/yyyy HH:mm:ss')],
     ['Moduli', n],
     ['Risposte totali', tot],
-    ['Ultimo errore', FB_p_().getProperty('FB_ULTERR') || '']
+    ['Ultimo errore', FB_ultimoErrore_()]
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
 }
@@ -312,7 +325,9 @@ function FB_main_() {
   if (!lock.tryLock(20000)) return;
   try {
     var t0 = Date.now();
+    FB_ERRS = [];
     var ss = FB_foglio_(), indice = { lavori: [] };
+    try { FB_pulisci_(ss); } catch (e) { FB_errore_(ss, 'pulizia', e); }
     try { indice = JSON.parse(FB_get_(FB_BASE + 'indice.json')); } catch (e) { FB_errore_(ss, 'indice', e); indice = null; }
     if (indice) {
       try { FB_nuovi_(ss, indice); } catch (e) { FB_errore_(ss, 'nuovi', e); }
