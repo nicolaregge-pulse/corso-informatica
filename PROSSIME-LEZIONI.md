@@ -75,13 +75,13 @@ Prima informatica, dalle 13 alle 14, Tecnologia professionale. Proposta consigli
 
 ## Mercoledì 11 novembre
 
-Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato.
+Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato. Proposte riviste la notte dell'11/11 dopo il bilancio delle ultime due settimane. Nulla è pubblicato per i ragazzi: la scelta la fa il prof con il bottone del cruscotto.
 
-Prima informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: le decisioni con if in Lazarus, cioè maggiorenne o no, il voto in parole e la calcolatrice che controlla la divisione per zero. Seconda proposta: la mini calcolatrice con i decimali. Terza proposta: il primo repository GitHub con i programmi del mese.
+Prima informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: le decisioni con if in Lazarus, cioè maggiorenne o no, il voto in parole e la divisione che controlla lo zero, con la prima mezz'ora per recuperare convertitore e scontrino; quiz su Moduli già preparato. Seconda proposta: la mini calcolatrice con i decimali. Terza proposta: il primo repository GitHub con i programmi del mese.
 
-Terza informatica, dalle 11 alle 13, Laboratorio professionale. Proposta consigliata: la presentazione del progetto di rete, due minuti a testa, con la spiegazione del protocollo. Seconda proposta: una Pull Request sul client di un compagno. Terza proposta: il cablaggio RJ45 e gli indirizzi dell'aula, con il quiz.
+Terza informatica, dalle 11 alle 13, Laboratorio professionale. Proposta consigliata: lo slideshow animato, una pagina con le immagini che cambiano da sole su GitHub Pages. Seconda proposta: la release 1.0 del Mastermind su GitHub con il changelog, quiz già preparato. Terza proposta: una Pull Request sul client di un compagno.
 
-Prima informatica, dalle 13 alle 14, Sicurezza professionale. Proposta consigliata: la quinta ora, rischio infortuni, con schede, quiz su Google Moduli e quaderno, in italiano, arabo e cinese, più i recuperi rimasti. Seconda proposta: solo recuperi e ripasso delle ore dalla prima alla quarta. Terza proposta: la quinta ora raccontata con un caso reale in officina.
+Prima informatica, dalle 13 alle 14, Sicurezza professionale. Una sola proposta: la quinta ora, rischio infortuni, con schede, quiz su Google Moduli già preparato, in italiano, arabo e cinese, più i recuperi rimasti. Il titolo del registro lo mette la direzione.
 
 ## Giovedì 12 novembre
 

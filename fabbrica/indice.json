@@ -16,6 +16,14 @@
   {
    "id": "scheda-4ti-1011",
    "file": "scheda-4ti-1011.txt"
+  },
+  {
+   "id": "quiz-1inf-1111",
+   "file": "quiz-1inf-1111.txt"
+  },
+  {
+   "id": "quiz-1inf-sic5-1111",
+   "file": "quiz-1inf-sic5-1111.txt"
   }
  ],
  "cruscotto": {
@@ -29,8 +37,22 @@
  ],
  "classroom": {
   "attivo": true,
-  "classi": {"1INF": "1 INF 26/27", "2INF": "NUOVO 2 INFO", "3INF": "NUOVO 3 INFO", "4TI": "NUOVO 4 INFO"},
+  "classi": {
+   "1INF": "1 INF 26/27",
+   "2INF": "NUOVO 2 INFO",
+   "3INF": "NUOVO 3 INFO",
+   "4TI": "NUOVO 4 INFO"
+  },
   "ultimi": 8
  },
- "git": {"attivo": true, "classi": ["3INF","4TI","2INF","1INF"], "ogni_minuti": 10}
+ "git": {
+  "attivo": true,
+  "classi": [
+   "3INF",
+   "4TI",
+   "2INF",
+   "1INF"
+  ],
+  "ogni_minuti": 10
+ }
 }

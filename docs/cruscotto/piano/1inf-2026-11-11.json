@@ -1,0 +1,38 @@
+{
+ "classe": "1INF",
+ "giorno": "2026-11-11",
+ "modalita": [
+  "guidato",
+  "teoria-quiz",
+  "versioning"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Decisioni con if in Lazarus: il programma che sceglie",
+   "descrizione": "Modalità: percorso guidato + quiz. Ore 8-11. Obiettivo: un programma che decide (maggiorenne o no, voto in parole, divisione che controlla lo zero), voce «Programmazione a eventi con Lazarus», competenza 15. Primo risultato in 10 minuti: if con un solo confronto e un messaggio. Prima mezz'ora: recupero di convertitore e scontrino per chi non ha consegnato. Versione facile: solo il maggiorenne. Quiz su Moduli già in Fabbrica (quiz-1inf-1111). Preparata, NON pubblicata.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Mini calcolatrice con i decimali",
+   "descrizione": "Modalità: percorso guidato. Ore 8-11. Obiettivo: una calcolatrice con quattro bottoni e i numeri con la virgola (StrToFloat), poi ognuno aggiunge un'operazione. Consegna: unit1.pas e una schermata. Versione facile: solo somma e sottrazione.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Il primo repository GitHub con i programmi del mese",
+   "descrizione": "Modalità: versioning. Ore 8-11. Obiettivo: ognuno crea il proprio repository e carica i programmi Lazarus fatti finora (convertitore, scontrino) con un commit scritto da lui. Consegna: il link al repository. Versione facile: solo un file.",
+   "preferita": false
+  },
+  {
+   "n": 4,
+   "titolo": "Sicurezza 13-14: quinta ora, rischio infortuni (una sola proposta)",
+   "descrizione": "Modalità: teoria a schede + quiz. Ora 13-14. Il titolo del registro lo mette la direzione (io non lo propongo). Contenuto: schede sull'infortunio, l'infortunio mancato e la prevenzione, in italiano, arabo e cinese, più i recuperi delle ore precedenti. Quiz su Moduli già in Fabbrica (quiz-1inf-sic5-1111). Voce Allegato A «Sicurezza ora 5: rischio infortuni». Preparata, NON pubblicata.",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [],
+ "mancanze": "Bilancio delle ultime 2 settimane fatto: 8 allievi della 1INF con lavori mancanti o voti bassi (conv0611: solo 1 consegna su 16 il 06/11). Elenco per allievo nel riservato: report/2026-11-11/bilancio-2-settimane-1inf-3inf.md."
+}
