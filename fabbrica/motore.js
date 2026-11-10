@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.2 (10/11/2026)
+ * FABBRICA - MOTORE v2.3 (10/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -319,6 +319,113 @@ function FB_cruscotti_(ss, indice) {
   });
 }
 
+/* ---------- Classroom: consegne per classe (v2.3) ---------- */
+function CR_corsi_() {
+  var out = [], tok = null, r;
+  do {
+    r = Classroom.Courses.list({ courseStates: ['ACTIVE'], pageSize: 100, pageToken: tok || undefined });
+    out = out.concat(r.courses || []);
+    tok = r.nextPageToken || null;
+  } while (tok);
+  return out;
+}
+function CR_classe_(nome, mappa) {
+  for (var c in mappa) { if (mappa[c] && String(nome).indexOf(mappa[c]) >= 0) return c; }
+  return '-';
+}
+function CR_nome_(s) {
+  var n = (s.profile && s.profile.name) || {};
+  if (n.familyName && n.givenName) return String(n.familyName).toUpperCase() + ' ' + n.givenName;
+  return n.fullName || '(senza nome)';
+}
+function CR_quiz_(ss, classe, email) {
+  var parti = [], c = String(classe).toLowerCase();
+  ss.getSheets().forEach(function (sh) {
+    var m = /^Ris (.+)$/.exec(sh.getName ? sh.getName() : sh.name);
+    if (!m || m[1].toLowerCase().indexOf(c) < 0) return;
+    var v = sh.getDataRange().getValues();
+    for (var i = 1; i < v.length; i++) {
+      if (String(v[i][0]).toLowerCase() === String(email).toLowerCase()) { parti.push(v[i][1] + '/' + v[i][2]); break; }
+    }
+  });
+  return parti.length ? parti.join(' · ') : '-';
+}
+function CR_scheda_(ss, classe, corso, cfg) {
+  var N = cfg.ultimi || 8, id = corso.id, i, j;
+  var studenti = [], tok = null, r;
+  do {
+    r = Classroom.Courses.Students.list(id, { pageSize: 100, pageToken: tok || undefined });
+    studenti = studenti.concat(r.students || []); tok = r.nextPageToken || null;
+  } while (tok);
+  var lavori = [];
+  tok = null;
+  do {
+    r = Classroom.Courses.CourseWork.list(id, { courseWorkStates: ['PUBLISHED'], pageSize: 100, pageToken: tok || undefined });
+    lavori = lavori.concat(r.courseWork || []); tok = r.nextPageToken || null;
+  } while (tok);
+  lavori = lavori.filter(function (w) { return w.workType === 'ASSIGNMENT'; });
+  lavori.sort(function (a, b) { return String(b.creationTime) < String(a.creationTime) ? -1 : 1; });
+  lavori = lavori.slice(0, N);
+  var cons = {};
+  lavori.forEach(function (w) {
+    var t = null; tok = null;
+    do {
+      r = Classroom.Courses.CourseWork.StudentSubmissions.list(id, w.id, { pageSize: 100, pageToken: tok || undefined });
+      (r.studentSubmissions || []).forEach(function (s) {
+        if (s.state === 'TURNED_IN' || s.state === 'RETURNED') (cons[w.id] = cons[w.id] || {})[s.userId] = 1;
+      });
+      tok = r.nextPageToken || null;
+    } while (tok);
+  });
+  var ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3 };
+  var righe = studenti.map(function (s) {
+    var m = 0, celle = lavori.map(function (w) {
+      if ((cons[w.id] || {})[s.userId]) return 'Consegnato';
+      m++; return 'Mancante';
+    });
+    var st = m === 0 ? 'VERDE' : m === 1 ? 'GIALLO' : m <= 3 ? 'ARANCIO' : 'ROSSO';
+    var em = (s.profile && s.profile.emailAddress) || '';
+    return [st, CR_nome_(s), em].concat(celle, [lavori.length - m, m, em ? CR_quiz_(ss, classe, em) : '-']);
+  });
+  righe.sort(function (a, b) { return ord[a[0]] - ord[b[0]] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0); });
+  var nomeSh = 'Consegne ' + classe;
+  var sh = ss.getSheetByName(nomeSh) || ss.insertSheet(nomeSh);
+  sh.clear();
+  sh.getRange(1, 1).setValue(classe + ' · Consegne · dati letti alle ' + Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss')).setFontWeight('bold');
+  sh.getRange(2, 1).setValue('VERDE = nessun compito mancante · GIALLO = ne manca 1 · ARANCIO = ne mancano 2-3 · ROSSO = 4 o più. Ultimi compiti pubblicati; Consegnato = consegnato o restituito.');
+  var testa = ['Stato', 'Allievo', 'Email'];
+  lavori.forEach(function (w) {
+    var d = String(w.creationTime || '').slice(0, 10).split('-');
+    testa.push(String(w.title || '').slice(0, 28) + ' ' + (d.length === 3 ? d[2] + '/' + d[1] : ''));
+  });
+  testa = testa.concat(['Consegnati', 'Mancanti', 'Quiz migliori']);
+  sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
+  if (righe.length) sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
+  var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a' };
+  for (i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
+}
+function FB_classroom_(ss, indice, t0) {
+  var cfg = indice.classroom;
+  if (!cfg || cfg.attivo === false) return;
+  if (typeof Classroom === 'undefined') { FB_ERRS.push('Classroom non abilitato: aggiungere il servizio Classroom API in Apps Script'); return; }
+  if (Date.now() - t0 > 240000) return;
+  var corsi = CR_corsi_(), mappa = cfg.classi || {}, trovati = {}, ordine = [];
+  var ts = Number(FB_p_().getProperty('FB_CORSI_T') || 0);
+  if (Date.now() - ts >= 600000 || !ss.getSheetByName('Corsi')) {
+    var sc = ss.getSheetByName('Corsi') || ss.insertSheet('Corsi');
+    sc.clear();
+    sc.getRange(1, 1, 1, 3).setValues([['Nome', 'Id', 'Classe']]).setFontWeight('bold');
+    var rr = corsi.map(function (c) { return [c.name, c.id, CR_classe_(c.name, mappa)]; });
+    if (rr.length) sc.getRange(2, 1, rr.length, 3).setValues(rr);
+    FB_p_().setProperty('FB_CORSI_T', String(Date.now()));
+  }
+  corsi.forEach(function (c) { var k = CR_classe_(c.name, mappa); if (k !== '-' && !trovati[k]) trovati[k] = c; });
+  for (var k in mappa) if (trovati[k]) ordine.push(k);
+  if (!ordine.length) return;
+  var cl = ordine[Math.floor(new Date().getMinutes() / 1) % ordine.length];
+  CR_scheda_(ss, cl, trovati[cl], cfg);
+}
+
 /* ---------- Giro principale ---------- */
 function FB_main_() {
   var lock = LockService.getScriptLock();
@@ -336,6 +443,9 @@ function FB_main_() {
     try { FB_risultati_(ss, t0); } catch (e) { FB_errore_(ss, 'risultati', e); }
     if (indice) {
       try { FB_cruscotti_(ss, indice); } catch (e) { FB_errore_(ss, 'cruscotti', e); }
+    }
+    if (indice) {
+      try { FB_classroom_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'classroom', e); }
     }
     try { FB_stato_(ss); } catch (e) { Logger.log('stato: ' + e); }
   } finally {
