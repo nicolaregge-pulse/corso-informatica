@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.12** — 09/11/2026 (#125-#236; v3.12: #236 numero del PC come menù a tendina; v3.11: #224-#235 dal controllore di fine giornata del 06/11; v3.10: v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.13** — 10/11/2026 (#125-#253; v3.13: #249-#253 dal controllore di fine giornata del 10/11; #125-#236; v3.12: #236 numero del PC come menù a tendina; v3.11: #224-#235 dal controllore di fine giornata del 06/11; v3.10: v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -1324,3 +1324,28 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Script e testi lunghi scritti in chat insieme ai passi: il docente deve cercare i passi in mezzo al codice (reclamo ripetuto).
 2. **Strumento da correggere.** Regola R4 3ter (CLAUDE.md v2.5): oltre circa 10 righe il codice va in un file .txt o .gs nel riservato, mandato con SendUserFile; in chat solo i passi, al massimo 6 righe.
+
+## #249 (10/11/2026) Account PIAMARTA e testi in riquadro non rispettati
+
+1. **Errore.** Passi e testi da copiare dati senza dire per primo l account PIAMARTA e senza riquadro; il docente ha dovuto chiedere la regola fondamentale (R4 3bis) e «solo caselle di testo copiabili».
+2. **Strumento da correggere.** Nessun controllo automatico che verifichi 3bis nei messaggi: da costruire in controllo-messaggio.py.
+
+## #250 (10/11/2026) Troppa verbosita, spiegazioni non capite, «ricomincia da zero»
+
+1. **Errore.** Diversi messaggi di oggi non capiti («non ho capito», «troppa roba», «ricomincia da 0») mentre il docente cammina tra i banchi; cose bloccanti non sempre in prima riga.
+2. **Strumento da correggere.** Il limite di lunghezza in ora di lezione (R4.2) non e controllato da uno strumento: da costruire (soglia righe in controllo-messaggio.py).
+
+## #251 (10/11/2026) PPP con codice visibile nelle finestre
+
+1. **Errore.** Con il prefisso PPP (nessun output, R3.1) sono comparsi codice e testo inutili nelle finestre visibili («PPP ancora codice»).
+2. **Strumento da correggere.** Nessun controllo sui PPP: da costruire (lavoro PPP solo con agente in background, nessun tool visibile).
+
+## #252 (10/11/2026) Link al sito dato prima di PUBBLICATO con deploy fallito
+
+1. **Errore.** Link dato prima di aspetta_pubblicazione.sh PUBBLICATO; il deploy di GitHub Pages oggi ha avuto 2 failure e 1 cancelled (poi success), quindi il link non era valido.
+2. **Strumento da correggere.** Il controllo (e) di #79 esiste ma non ha impedito il caso: verificare la sua copertura (messaggi con link scritti dopo SendUserFile o in file) e leggere gh run list prima di ogni link.
+
+## #253 (10/11/2026) Contraddizione R4 3ter e richiesta finale del docente
+
+1. **Errore.** CLAUDE.md v2.5 (R4 3ter) manda il codice lungo in un file .txt/.gs; alla fine il docente ha chiesto il codice in chat in un riquadro.
+2. **Strumento da correggere.** Decisione del docente: quale regola vale. Poi allineare CLAUDE.md (bump versione) e GUIDA-MESSAGGI-AL-DOCENTE.md.

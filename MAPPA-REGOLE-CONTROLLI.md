@@ -321,6 +321,12 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #245 | Report PDF orari, presenze e Veyon del 09/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora; controlla_controlli.py --fine-giornata ROSSO se per un ora in orario manca il PDF. Da costruire |
 | #246 | Ponte: due comandi in-attesa-PUBB mai chiusi e riepilogo del ponte fermo al 03/11 (09/11) | 2 | D | D | Il riepilogo del ponte si rigenera a ogni giro; a fine giornata i comandi in-attesa-PUBB si annullano o si chiudono. controlla_controlli.py --fine-gio |
 | #247 | Stop hook «tutto versionato» scattato circa 25 volte il 09/11 | 2 | D | D | Commit e push a fine di ogni blocco di lavoro (R11.1); un hook di fine turno che committa da solo i file del riservato (come la bobina automatica). Da |
+| #248 | Codice lungo e spiegazioni mescolati in chat (10/11) | 4 | D | D | R4 3ter senza controllo: da costruire, ma da riallineare con #253 |
+| #249 | Account PIAMARTA e testi in riquadro non rispettati (10/11) | 4 | D | D | Nessun controllo automatico che verifichi 3bis nei messaggi |
+| #250 | Troppa verbosita, spiegazioni non capite, «ricomincia da zero» (10/11) | 4 | D | D | Il limite di lunghezza in ora di lezione (R4.2) non e controllato da uno strumento |
+| #251 | PPP con codice visibile nelle finestre (10/11) | 4 | D | D | Nessun controllo sui PPP |
+| #252 | Link al sito dato prima di PUBBLICATO con deploy fallito (10/11) | 4 | D | D | Il controllo (e) di #79 esiste ma non ha impedito il caso |
+| #253 | Contraddizione R4 3ter e richiesta finale del docente (10/11) | 4 | D | D | Decisione del docente |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -396,3 +402,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 7. v1.6 (06/11/2026, controllore di fine giornata): voci #223-#235 in tabella, tutte D (strumenti da costruire, descritti nella colonna «Dove scatta»); i conteggi della sezione 01 e le voci #171-#222 non sono stati ricalcolati e vanno riallineati.
 8. v1.7 (09/11/2026): voce #236 (numero del PC come casella di testo, 11-38 in aula 11) con controllo pc_a_menu in controlli_pagine.py.
 9. v1.8 (09/11/2026, controllore di fine giornata): voci #237-#247 (teoria non fattibile, quiz scegli 2 e non selettivi, lezione cambiata in corsa, cruscotti fermi, report orari assenti, ponte, messaggi lunghi, hook versionato); #243 A, le altre D.
+10. v1.9 (10/11/2026, controllore di fine giornata): voci #248-#253, tutte D (nessun controllo automatico ancora).
