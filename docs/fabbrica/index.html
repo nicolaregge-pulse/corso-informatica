@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Schema del sistema</title>
+<style>
+:root{--bg:#fafafa;--fg:#111;--card:#fff;--line:#c9ced6;--blu:#1a56db;--b1:#e3ecff;--b2:#e0f3e1;--b3:#fff3d6;--b4:#f3e3f7}
+@media (prefers-color-scheme:dark){:root{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--blu:#7ea6ff;--b1:#1c2e55;--b2:#1f4a24;--b3:#4d3d12;--b4:#44244d}}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:12px 16px;background:var(--bg);color:var(--fg);line-height:1.5}
+h1{font-size:22px;margin:4px 0 8px}
+h2{font-size:18px;margin:0 0 6px}
+.top{display:inline-block;font-size:18px;font-weight:bold;padding:10px 16px;border:2px solid var(--blu);border-radius:8px;color:var(--blu);text-decoration:none;margin:6px 0 12px}
+svg{width:100%;height:auto;max-width:900px;display:block;margin:8px 0}
+svg text{fill:var(--fg);font-family:Arial,Helvetica,sans-serif}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.col ul{margin:0;padding-left:20px}
+</style>
+</head>
+<body>
+<a class="top" href="../cruscotto/">Vai alla pagina dei cruscotti</a>
+<h1>Schema del sistema</h1>
+<svg viewBox="0 0 900 330" role="img" aria-label="Schema: GitHub, script FABBRICA, foglio Google, pagina cruscotto">
+<defs><marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a56db"/></marker></defs>
+<g stroke="#1a56db" stroke-width="2" fill="none" marker-end="url(#f)">
+<line x1="205" y1="130" x2="235" y2="130"/><line x1="435" y1="130" x2="465" y2="130"/><line x1="665" y1="130" x2="695" y2="130"/></g>
+<g stroke="#8892a6" stroke-width="2">
+<rect x="10" y="20" width="195" height="220" rx="10" fill="var(--b1)"/>
+<rect x="240" y="20" width="195" height="220" rx="10" fill="var(--b2)"/>
+<rect x="470" y="20" width="195" height="220" rx="10" fill="var(--b3)"/>
+<rect x="700" y="20" width="190" height="220" rx="10" fill="var(--b4)"/></g>
+<g font-size="16" font-weight="bold">
+<text x="22" y="48">1 GitHub</text><text x="252" y="48">2 Script FABBRICA</text><text x="482" y="48">3 Foglio Google</text><text x="712" y="48">4 Pagina /cruscotto/</text></g>
+<g font-size="14">
+<text x="22" y="76">Cartella fabbrica</text><text x="22" y="98">Le richieste</text><text x="22" y="120">Il motore</text>
+<text x="252" y="76">Account PIAMARTA</text><text x="252" y="98">Gira ogni minuto</text><text x="252" y="120">Scarica il motore</text><text x="252" y="142">e lo esegue</text>
+<text x="482" y="76">Schede:</text><text x="482" y="98">Esiti</text><text x="482" y="120">Stato</text><text x="482" y="142">Ris</text><text x="482" y="164">Corsi</text><text x="482" y="186">Consegne</text><text x="482" y="208">Cruscotto Git</text>
+<text x="712" y="76">Legge il foglio</text><text x="712" y="98">pubblicato</text><text x="712" y="120">4 classi</text><text x="712" y="142">Viste Consegne e Git</text></g>
+<g font-size="13"><text x="10" y="275">GitHub dà il lavoro. Lo script lo esegue.</text><text x="10" y="297">Il foglio tiene i dati. La pagina li mostra.</text></g>
+</svg>
+<div class="cols">
+<div class="col"><h2>Cosa fa</h2><ul>
+<li>Moduli: crea i Moduli da sola.</li>
+<li>Risultati: mette le risposte nelle schede Ris.</li>
+<li>Consegne Classroom: scrive le consegne per classe.</li>
+<li>Cruscotto Git: mostra il lavoro su Git.</li></ul></div>
+<div class="col"><h2>Cosa non fa ancora</h2><ul>
+<li>Il ponte da Classroom a Git resta com'è.</li>
+<li>Veyon e presenze non sono collegati.</li>
+<li>È provato in produzione da poco.</li></ul></div>
+<div class="col"><h2>Se qualcosa non va</h2><ul>
+<li>Guarda la scheda Stato del foglio.</li>
+<li>Manca un'autorizzazione: esegui installa.</li>
+<li>Per fermare tutto: esegui spegni.</li></ul></div>
+</div>
+</body>
+</html>
