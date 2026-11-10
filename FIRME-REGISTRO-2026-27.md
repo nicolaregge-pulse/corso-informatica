@@ -72,6 +72,12 @@ Fonte: registro DIDAweb (screenshot del docente, ore 8-11).
 1. Ore 8-9, 9-10 e 10-11, 3INF, Laboratorio professionale: FIRMATE il 09/11/2026, argomento «Installazione win 10» (scritto dal docente).
 2. Ore 11-12, 12-13 e 13-14, 2INF, Laboratorio professionale: FIRMATE il 09/11/2026, argomento «Win10 Admin» (scritto dal docente; registro DIDAweb, screenshot 13:05).
 
+## Martedì 10/11/2026
+
+Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
+
+1. Ore 8-9 e 9-10, 2INF, Informatica: FIRMATE il 10/11/2026, argomenti «Configurazione e scelta dei componenti di un PC» e «Preventivo PC».
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -85,3 +91,4 @@ Fonte: registro DIDAweb (screenshot del docente, ore 8-11).
 9. v1.8 (06/11/2026, 13:50): registro DIDAweb (screenshot del docente): tutte le ore della settimana 02-06/11 risultano firmate.
 10. v1.9 (09/11/2026): lunedì 09/11, ore 3INF 8-11 firmate.
 11. v2.0 (09/11/2026, 13:05): lunedì 09/11, ore 2INF 11-14 firmate.
+11. v2.1 (10/11/2026): martedì 10/11, ore 2INF 8-10 firmate.
