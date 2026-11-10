@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.0 (10/11/2026)
+ * FABBRICA - MOTORE v2.1 (10/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -276,6 +276,18 @@ function CG_aggiorna_(ss, classe, utenti) {
   for (var i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
 }
 
+function CG_leggiElenco_(ss, classe) {
+  var sh = ss.getSheetByName('Cruscotto Git ' + classe), out = [];
+  if (!sh) return out;
+  var v = sh.getDataRange().getValues();
+  for (var i = 4; i < v.length; i++) {
+    var n = parseInt(String(v[i][1]).replace(/\D/g, ''), 10), nome = String(v[i][2] || '').trim(), ut = String(v[i][3] || '').trim();
+    if (!ut || !nome || isNaN(n)) continue;
+    out.push([n, ut, nome]);
+  }
+  return out;
+}
+
 function FB_cruscotti_(ss, indice) {
   var lista = indice.cruscotti;
   if (!lista && indice.cruscotto && indice.cruscotto.attivo) lista = [{ classe: '3INF', attivo: true }];
@@ -283,7 +295,13 @@ function FB_cruscotti_(ss, indice) {
   (lista || []).forEach(function (c) {
     if (c.attivo === false) return;
     var u = (typeof UTENTI !== 'undefined' && UTENTI) ? UTENTI[c.classe] : null;
-    if (!u || !u.length) return;
+    if (!u || !u.length) u = CG_leggiElenco_(ss, c.classe);
+    if (!u.length) {
+      var es = ss.getSheetByName('Esiti'), msg = 'Cruscotto ' + c.classe + ': nessun elenco';
+      var rr = es ? es.getDataRange().getValues() : [];
+      if (!rr.length || String(rr[rr.length - 1][5]) !== msg) if (es) es.appendRow([FB_ora_(), 'AVVISO', '', '', '', msg, '', '']);
+      return;
+    }
     try { CG_aggiorna_(ss, c.classe, u); } catch (e) { FB_errore_(ss, 'cruscotto ' + c.classe, e); }
   });
 }
