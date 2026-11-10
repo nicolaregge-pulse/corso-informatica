@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.3** — 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.4** — 10/11/2026 (R4 punto 3bis: account PIAMARTA e riquadri) — prima: 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -69,6 +69,9 @@
    Un riassunto dice solo le cose bloccanti.
 3. Ogni passo è una frase che comincia con il verbo («Clicca…», «Premi…») e dice il «dove» a parole. Solo il prossimo passo,
    un flusso unico senza «se». Prima di ogni passo: quale account (PERSONALE o PIAMARTA) e quale finestra.
+3bis. **Regola fondamentale (10/11/2026, docente): Claude lavora sull'account PERSONALE, il docente deve fare tutto sull'account PIAMARTA.**
+   Ogni passo dice per primo «Account PIAMARTA» (o PERSONALE, solo se serve davvero). Ogni cosa da scrivere o cliccare sta in un
+   riquadro da copiare: nomi di funzioni, indirizzi, titoli, testi. Niente testo tra virgolette o in corsivo al posto del riquadro.
 4. Ogni testo da scrivere sta in un riquadro da copiare (blocco di codice, un valore per riquadro) subito dopo il passo.
    Prima si apre la pagina dove si incolla, poi si copia, poi si incolla.
 5. Niente log, JSON o output lunghi in chat. I file per il docente si mandano scaricabili.
@@ -204,3 +207,4 @@
 
 3. v2.2 (06/11/2026): R5.2: sull Allegato A dopo il 30/10 si puo solo togliere, mai aggiungere; prima di proporre si leggono le note. Errore #223: avevo proposto di aggiungere le voci delle ore 4-7 di Sicurezza senza aver letto la regola.
 4. v2.3 (06/11/2026): R5.2bis, Sicurezza: titoli della direzione, fa fede il registro, Allegato A in doppia modalita (dichiarato e registro), su regola data dal docente.
+5. v2.4 (10/11/2026): R4 3bis, regola fondamentale su richiesta del docente: tutto si fa sull account PIAMARTA, ogni passo lo dice e ogni testo sta in un riquadro.
