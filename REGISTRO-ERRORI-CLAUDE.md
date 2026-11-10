@@ -1319,3 +1319,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Per ore commit e push non fatti durante la lezione: il docente vede messaggi dell hook al posto del lavoro.
 2. **Strumento da correggere.** Commit e push a fine di ogni blocco di lavoro (R11.1); un hook di fine turno che committa da solo i file del riservato (come la bobina automatica). Da costruire.
+
+## #248 (10/11/2026) Codice lungo e spiegazioni mescolati in chat
+
+1. **Errore.** Script e testi lunghi scritti in chat insieme ai passi: il docente deve cercare i passi in mezzo al codice (reclamo ripetuto).
+2. **Strumento da correggere.** Regola R4 3ter (CLAUDE.md v2.5): oltre circa 10 righe il codice va in un file .txt o .gs nel riservato, mandato con SendUserFile; in chat solo i passi, al massimo 6 righe.
