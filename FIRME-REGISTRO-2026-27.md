@@ -77,6 +77,8 @@ Fonte: registro DIDAweb (screenshot del docente, ore 8-11).
 Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
 
 1. Ore 8-9 e 9-10, 2INF, Informatica: FIRMATE il 10/11/2026, argomenti «Configurazione e scelta dei componenti di un PC» e «Preventivo PC».
+2. Ora 10-11, 3INF, Laboratorio professionale: FIRMATA il 10/11/2026, argomento «Sviluppo collaborativo: release e changelog».
+3. Ore 11-12 e 12-13, 4TI, Laboratorio professionale: FIRMATE il 10/11/2026, argomento «Indirizzamento IPv4 e subnetting» (registro DIDAweb, screenshot del docente).
 
 ## Changelog
 
@@ -92,3 +94,4 @@ Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
 10. v1.9 (09/11/2026): lunedì 09/11, ore 3INF 8-11 firmate.
 11. v2.0 (09/11/2026, 13:05): lunedì 09/11, ore 2INF 11-14 firmate.
 11. v2.1 (10/11/2026): martedì 10/11, ore 2INF 8-10 firmate.
+12. v2.2 (10/11/2026): martedì 10/11, ore 3INF 10-11 e 4TI 11-13 firmate, con le 2INF 8-10.
