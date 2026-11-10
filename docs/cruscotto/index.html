@@ -63,7 +63,7 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
   function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + t; }
-  function viste(c) { var v = [{ id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }]; if (c === '3INF') v.push({ id: 'git', nome: 'Git', scheda: 'Cruscotto Git 3INF' }); return v; }
+  function viste(c) { return [{ id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
   function csv(t) {
     var r = [], row = [], c = '', q = false;
     for (var i = 0; i < t.length; i++) {
@@ -119,7 +119,7 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   function carica() {
     var c = statoCorr.classe, v = statoCorr.vista, u = leggi(chiave(c, v)), mio = ++corsa;
     var def = viste(c).filter(function (x) { return x.id === v; })[0];
-    $('scheda').textContent = '«' + def.scheda + '»';
+    $('scheda').textContent = '«' + def.scheda.replace(' (o Cruscotto Git 3INF, se già configurato)', '') + '»' + (def.scheda.indexOf('(o ') > 0 ? ' (o «Cruscotto Git 3INF» se già configurato)' : '');
     $('url').value = u;
     if (!u) { vuota(); $('cfg').style.display = 'block'; return; }
     $('cfg').style.display = 'none';

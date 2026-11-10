@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.3 (10/11/2026)
+ * FABBRICA - MOTORE v2.4 (10/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -319,6 +319,111 @@ function FB_cruscotti_(ss, indice) {
   });
 }
 
+/* ---------- Git e progetti per classe (v2.4) ---------- */
+function GT_get_(path) {
+  var tok = FB_p_().getProperty('GITHUB_TOKEN');
+  var h = { 'Accept': 'application/vnd.github+json', 'User-Agent': 'fabbrica' };
+  if (tok) h['Authorization'] = 'Bearer ' + tok;
+  try {
+    var r = UrlFetchApp.fetch('https://api.github.com/' + path, { headers: h, muteHttpExceptions: true });
+    if (r.getResponseCode() !== 200) return null;
+    var lk = '';
+    try { var hh = r.getHeaders ? r.getHeaders() : {}; lk = String(hh.Link || hh.link || ''); } catch (e1) { lk = ''; }
+    return { body: JSON.parse(r.getContentText()), link: lk };
+  } catch (e) { return null; }
+}
+function GT_lista_(path) { var r = GT_get_(path); return r && r.body && r.body.length !== undefined ? r.body : []; }
+
+function GT_riga_(pc, utente, nome, oggi) {
+  var repos = GT_lista_('users/' + utente + '/repos?per_page=100&sort=pushed'), sc = null, i;
+  for (i = 0; i < repos.length; i++) { if (/master|mastermind/i.test(repos[i].name)) { sc = repos[i]; break; } }
+  if (!sc) for (i = 0; i < repos.length; i++) { if ((repos[i].pushed_at || '').slice(0, 10) === oggi) { sc = repos[i]; break; } }
+  if (!sc && repos.length) sc = repos[0];
+  var d = { repo: '-', push: '-', oggi: 0, tot: 0, prog: 'no', rd: 'no', tag: '-', rel: '-', ult: '-', st: 'ROSSO' };
+  if (sc) {
+    var full = sc.full_name, bozza = false, hasTag = false, hasRel = false;
+    d.repo = sc.name;
+    d.push = (sc.pushed_at || '').replace('T', ' ').slice(0, 16) + ' UTC';
+    var c = GT_get_('repos/' + full + '/commits?per_page=30'), com = c ? c.body : [];
+    for (i = 0; i < com.length; i++) { if (String((com[i].commit.author || {}).date).slice(0, 10) === oggi) d.oggi++; }
+    if (com.length) d.ult = String(com[0].commit.message).split('\n')[0].slice(0, 60);
+    d.tot = com.length;
+    var m = c && /[?&]page=(\d+)>;\s*rel="last"/.exec(c.link);
+    if (m) d.tot = '~' + (Number(m[1]) * 30);
+    var cont = GT_lista_('repos/' + full + '/contents/'), lz = false, altro = false;
+    for (i = 0; i < cont.length; i++) {
+      if (/\.(lpi|lpr)$/i.test(cont[i].name)) lz = true;
+      if (/^readme/i.test(cont[i].name)) d.rd = 'si';
+      altro = true;
+    }
+    d.prog = lz ? 'Lazarus' : (altro ? 'altro' : 'no');
+    if (/master|mastermind/i.test(sc.name)) {
+      var tags = GT_lista_('repos/' + full + '/tags?per_page=5'), rel = GT_lista_('repos/' + full + '/releases?per_page=5');
+      if (tags.length) { d.tag = tags.map(function (t) { return t.name; }).join(', '); hasTag = true; }
+      if (rel.length) { d.rel = (rel[0].name || rel[0].tag_name || 'senza nome') + (rel[0].draft ? ' (bozza)' : ''); bozza = !!rel[0].draft; hasRel = true; }
+      if (hasRel && !bozza && hasTag) d.st = 'VERDE';
+      else if (hasRel || hasTag) d.st = 'GIALLO';
+      else if (d.oggi > 0) d.st = 'ARANCIO';
+    } else if (d.oggi > 0) d.st = 'ARANCIO';
+  }
+  return [d.st, 'PC ' + pc, nome, utente, d.repo, d.push, d.oggi, d.tot, d.prog, d.rd, d.tag, d.rel, d.ult];
+}
+
+function GT_elenco_(ss, classe) {
+  var sh = ss.getSheetByName('Utenti ' + classe), out = [];
+  if (sh) {
+    var v = sh.getDataRange().getValues();
+    for (var i = 0; i < v.length; i++) {
+      var ut = String(v[i][1] || '').trim();
+      if (!ut || /^utente/i.test(ut)) continue;
+      out.push([String(v[i][0]).replace(/\D/g, '') || '-', ut, String(v[i][2] || '').trim() || '-']);
+    }
+    return out;
+  }
+  if (classe === '3INF') return CG_leggiElenco_(ss, classe);
+  return null;
+}
+
+function GT_scheda_(ss, classe, utenti, t0) {
+  var oggi = Utilities.formatDate(new Date(), 'UTC', 'yyyy-MM-dd'), righe = [], errori = 0, i;
+  for (i = 0; i < utenti.length; i++) {
+    if (Date.now() - t0 > 270000) { FB_errore_(ss, 'Git ' + classe, 'tempo quasi finito, righe parziali'); break; }
+    try { righe.push(GT_riga_(utenti[i][0], utenti[i][1], utenti[i][2], oggi)); }
+    catch (e) { errori++; righe.push(['ROSSO', 'PC ' + utenti[i][0], utenti[i][2], utenti[i][1], '-', '-', 0, 0, 'no', 'no', '-', '-', 'errore lettura']); }
+  }
+  if (errori) FB_errore_(ss, 'Git ' + classe, errori + ' righe con errore di lettura');
+  var ord = { VERDE: 0, GIALLO: 1, ARANCIO: 2, ROSSO: 3 };
+  righe.sort(function (a, b) { return ord[a[0]] - ord[b[0]]; });
+  var sh = ss.getSheetByName('Git ' + classe) || ss.insertSheet('Git ' + classe);
+  sh.clear();
+  var ora = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
+  sh.getRange(1, 1).setValue(classe + ' · Git e progetti · dati letti alle ' + ora).setFontWeight('bold');
+  sh.getRange(2, 1).setValue('VERDE = release pubblicata con tag · GIALLO = tag o bozza · ARANCIO = commit di oggi · ROSSO = nessuna attività. Tag e release solo per i repository Mastermind. Solo repository pubblici. Commit totali approssimati.');
+  var testa = ['Stato', 'PC', 'Allievo', 'Utente GitHub', 'Repository', 'Ultimo push', 'Commit oggi', 'Commit totali', 'Progetto', 'README', 'Tag', 'Release', 'Ultimo commit'];
+  sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
+  if (righe.length) sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
+  var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a' };
+  for (i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
+}
+
+function FB_git_(ss, indice, t0) {
+  var cfg = indice.git;
+  if (!cfg || cfg.attivo === false) return;
+  var classi = cfg.classi || ['3INF', '4TI', '2INF', '1INF'], ogni = (cfg.ogni_minuti || 10) * 60000;
+  var T = FB_json_('GT_T'), ora = Date.now(), fatta = false;
+  var dovute = classi.filter(function (c) { return !T[c] || ora - T[c] >= ogni; });
+  dovute.sort(function (a, b) { return (T[a] || 0) - (T[b] || 0); });
+  dovute.forEach(function (c) {
+    try {
+      var u = GT_elenco_(ss, c);
+      if (!u || !u.length) { FB_ERRS.push('Git ' + c + ': manca la scheda Utenti ' + c); return; }
+      if (fatta || Date.now() - t0 > 240000) return;
+      GT_scheda_(ss, c, u, t0);
+      T[c] = ora; fatta = true; FB_salva_('GT_T', T);
+    } catch (e) { FB_errore_(ss, 'Git ' + c, e); }
+  });
+}
+
 /* ---------- Classroom: consegne per classe (v2.3) ---------- */
 function CR_corsi_() {
   var out = [], tok = null, r;
@@ -446,6 +551,9 @@ function FB_main_() {
     }
     if (indice) {
       try { FB_classroom_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'classroom', e); }
+    }
+    if (indice) {
+      try { FB_git_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'git', e); }
     }
     try { FB_stato_(ss); } catch (e) { Logger.log('stato: ' + e); }
   } finally {
