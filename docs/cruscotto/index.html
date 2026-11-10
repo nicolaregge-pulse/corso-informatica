@@ -43,9 +43,9 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   <ol>
     <li>Nel foglio Google, apri la scheda <b id="scheda"></b>.</li>
     <li>Clicca File, poi Condividi, poi Pubblica sul web.</li>
-    <li>Scegli la scheda e «Valori separati da virgola (.csv)».</li>
-    <li>Clicca Pubblica e copia il link.</li>
-    <li>Incolla il link qui sotto.</li>
+    <li>Scegli la scheda e clicca Pubblica.</li>
+    <li>Copia il link così come lo dà Google: non devi scegliere il csv a mano.</li>
+    <li>Incolla il link qui sotto: la pagina lo converte da sola.</li>
   </ol>
   <input id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
   <button id="salva" type="button">Salva e carica</button>
@@ -151,9 +151,21 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
     if (v) { statoCorr.vista = v; menu(); vuota(); carica(); }
   };
   $('serve').onclick = function () { var r = $('prima-rossa'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  function convertiLink(v) {
+    v = (v || '').trim();
+    if (!v) return { errore: 'Incolla qui il link pubblicato.' };
+    if (v.indexOf('output=csv') >= 0) return { url: v };
+    if (v.indexOf('docs.google.com/spreadsheets/d/e/') < 0) return { errore: 'Questo non è il link pubblicato: usa File, Condividi, Pubblica sul web.' };
+    var u = v.replace('/pubhtml', '/pub');
+    u += (u.indexOf('?') < 0 ? '?' : '&') + 'output=csv';
+    if (/[?&]gid=/.test(u) && !/[?&]single=true/.test(u)) u += '&single=true';
+    return { url: u };
+  }
   $('salva').onclick = function () {
     var v = $('url').value.trim();
-    if (v.indexOf('output=csv') < 0) { $('msg').textContent = ' Il link deve contenere output=csv'; return; }
+    var r = convertiLink(v);
+    if (r.errore) { $('msg').textContent = ' ' + r.errore; return; }
+    v = r.url; $('url').value = v;
     scrivi(chiave(statoCorr.classe, statoCorr.vista), v); carica();
   };
   var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
