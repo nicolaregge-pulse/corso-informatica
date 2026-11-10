@@ -3,951 +3,164 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cruscotto della lezione</title>
+<meta name="robots" content="noindex">
+<title>Cruscotto classi</title>
 <style>
-/* 26/10/2026 (Nicola): un solo indirizzo per il cruscotto, per allievi e docente, con il calendario per rivedere ogni giorno */
-:root{--bg:#f4f6f9;--card:#fff;--txt:#1b1f24;--mu:#5b6573;--bordo:#d5dbe3;--blu:#1f6feb}
-body{margin:0;font-family:system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--txt)}
-/* 29/10/2026 (Nicola, screenshot 08:10): barra in alto e linguette restano ferme mentre la pagina scorre */
-#testa{position:sticky;top:0;z-index:50;background:var(--card);box-shadow:0 1px 4px rgba(0,0,0,.08)}
-header{background:var(--card);border-bottom:1px solid var(--bordo);padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-h1{font-size:19px;margin:0 12px 0 0}
-label{font-size:14px;color:var(--mu);display:flex;align-items:center;gap:6px}
-select,input[type=date]{font-size:16px;padding:6px 8px;border:1px solid var(--bordo);border-radius:8px;background:#fff}
-.ruolo{display:flex;gap:6px}
-.ruolo button{font-size:16px;padding:7px 14px;border:1px solid var(--bordo);border-radius:8px;background:#fff;cursor:pointer}
-.ruolo button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
-#nota{font-size:14px;color:var(--mu);padding:6px 16px;margin:0}
-/* 28/10/2026: leva del ritmo dello script, solo per il docente (dopo il codice) */
-#leva{display:none;flex-wrap:wrap;gap:8px;align-items:center;padding:4px 0;font-size:15px;color:var(--mu)}
-#leva b{flex-basis:100%;color:var(--txt);font-size:16px}
-#leva button{font-size:17px;padding:12px 18px;min-height:48px;border:1px solid var(--bordo);border-radius:10px;background:#fff;cursor:pointer;flex:1 1 140px}
-#levaSubito{flex-basis:100%;font-size:16px;font-weight:700;color:#1e8e3e;margin:2px 0}
-#leva button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
-#levaMsg{flex-basis:100%}
-iframe{display:block;width:100%;height:calc(100vh - 150px);min-height:480px;border:0;background:#fff}
-/* 28/10/2026 (Nicola: «mettiamo tutto, facciamo dei TAB»): linguette sotto classe/giorno/ruolo */
-#tabs{display:flex;gap:4px;overflow-x:auto;padding:6px 16px 0;background:var(--card);border-bottom:1px solid var(--bordo)}
-#tabs button{flex:0 0 auto;font-size:15px;padding:8px 12px;border:1px solid var(--bordo);border-bottom:0;border-radius:8px 8px 0 0;background:#eef1f5;color:var(--txt);cursor:pointer}
-#tabs button.on{background:var(--blu);color:#fff;border-color:var(--blu)}
-#tabs button.rosso{box-shadow:inset 0 -3px 0 #c0392b}
-.tab{display:none}.tab.on{display:block}
-.box{padding:12px 16px;max-width:900px}
-.box h2{font-size:17px;margin:4px 0 10px}
-.chip{display:inline-block;font-size:14px;padding:3px 10px;border-radius:999px;background:#e3ecfb;color:#163d7a;margin:0 6px 6px 0}
-.prop{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:10px 12px;margin:0 0 10px}
-.prop.pref{border:2px solid #d4a017;background:#fffbea}
-.prop.scelta{border:2px solid #1e8e3e;background:#e9f7ee}
-.btn.big{display:block;width:100%;font-size:19px;font-weight:700;padding:14px 16px;margin-top:8px}
-.scok{display:block;margin-top:6px;font-weight:700;color:#1e8e3e}
-.prop b.n{display:inline-block;min-width:24px}
-.btn.big.pub{background:#1e8e3e}
-.prop.chiusa{background:#f1f3f5;border-color:#e1e5ea;color:#8a939e;font-size:13px;padding:5px 10px;margin:0 0 6px}
-.prop .pnota{font-weight:700;color:#163d7a}
-.prop .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
-.prop .cod input{font-size:16px;padding:9px;border:1px solid var(--bordo);border-radius:8px;flex:1 1 180px;min-width:0;max-width:280px}
-/* 29/10/2026: vista «Tutte le classi» del piano del giorno */
-.pclasse{border-top:3px solid var(--blu);padding:6px 0 4px;margin:18px 0 0;scroll-margin-top:130px}
-.pclasse h3{font-size:18px;margin:6px 0 10px}
-.pclasse .cl,.avv .cl{display:inline-block;font-weight:700;padding:1px 8px;border-radius:6px;background:#e3ecfb;color:#163d7a}
-.pmeta{font-size:14px;color:var(--mu)}
-.plink summary{cursor:pointer;font-size:15px;margin:4px 0 8px;color:var(--blu)}
-#avvisoCl .btn{margin:0 6px 8px 0}
-/* 29/10/2026 (Nicola): bottone rosso «Serve te» nella barra fissa, con il riquadro delle sole cose che richiedono il docente */
-.serve{font-size:18px;font-weight:700;padding:10px 18px;min-height:46px;border:0;border-radius:10px;background:#c0392b;color:#fff;cursor:pointer;margin-left:auto}
-.serve.grigio{background:#8a939e;font-weight:600}
-#critBox{position:absolute;left:0;right:0;top:100%;max-height:75vh;overflow:auto;background:#fff;border-bottom:3px solid #c0392b;box-shadow:0 6px 16px rgba(0,0,0,.18);padding:10px 16px 14px;box-sizing:border-box}
-#critBox .critTesta{display:flex;align-items:center;justify-content:space-between;gap:10px}
-#critBox h2{font-size:19px;margin:4px 0;color:#c0392b}
-#critBox .cv{border:2px solid #c0392b;border-radius:10px;padding:8px 12px;margin:0 0 10px;max-width:900px}
-#critBox .cv.fatta{border:1px solid var(--bordo);opacity:.75}
-#critBox .cv p{margin:4px 0;font-size:16px}
-#critBox .cv .az{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-#critBox .cv .az .btn{font-size:17px;padding:10px 18px;min-height:44px}
-#critBox .cl{display:inline-block;font-weight:700;padding:1px 8px;border-radius:6px;background:#e3ecfb;color:#163d7a}
-#critBox .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
-#critBox .cod input{font-size:16px;padding:9px;border:1px solid var(--bordo);border-radius:8px;flex:1 1 180px;min-width:0;max-width:280px}
-.et{display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle}
-.et.v{background:#1e8e3e;color:#fff}.et.g{background:#d4a017;color:#fff}
-.prop p{margin:6px 0 0;font-size:15px;line-height:1.4}
-.link a{display:block;font-size:16px;padding:9px 12px;margin:0 0 8px;border:1px solid var(--bordo);border-radius:8px;background:var(--card);color:var(--blu);text-decoration:none}
-.manca{background:#fff4e5;border:1px solid #f0c27b;border-radius:8px;padding:8px 12px;font-size:15px}
-.form label{display:block;margin:0 0 8px;color:var(--txt);font-size:15px}
-.form select,.form textarea{font:16px system-ui,Segoe UI,Arial,sans-serif;width:100%;box-sizing:border-box;padding:8px;border:1px solid var(--bordo);border-radius:8px;background:#fff}
-.btn{font-size:16px;padding:9px 16px;border:0;border-radius:8px;background:var(--blu);color:#fff;cursor:pointer}
-.btn.sec{background:#fff;color:var(--blu);border:1px solid var(--blu)}
-.btn:disabled{opacity:.6}
-.msg{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:8px 12px;margin:0 0 8px;font-size:15px}
-.msg small{color:var(--mu)}
-.ok{color:#1e8e3e;font-weight:700}.ko{color:#c0392b;font-weight:700}
-.dom{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:10px 12px;margin:0 0 10px;font-size:15px}
-.dom .r{white-space:pre-line;margin:6px 0;color:#163d7a}
-.dom .az{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.dom .az button{font-size:14px;padding:6px 10px}
-/* 28/10/2026 (Nicola): «Riepilogo» al posto di «Giorni passati»: che cosa è successo negli ultimi giorni, tutte le classi */
-#t-riepilogo .box{max-width:1280px}
-.rp-meta{font-size:14px;color:var(--mu);margin:0 0 10px}
-.rp h3{font-size:16px;margin:18px 0 8px}
-.rp table{border-collapse:collapse;width:100%;background:var(--card);font-size:14px}
-.rp th,.rp td{border:1px solid var(--bordo);padding:6px 8px;text-align:left;vertical-align:top}
-.rp th{background:#eef1f5;font-weight:600}
-.rp tr.clic{cursor:pointer}.rp tr.clic:hover td{background:#f2f7ff}
-.rp .nd{color:#c0392b;font-style:italic}
-.rp .nf{color:#8a4b00}
-.rp .rosso{color:#c0392b;font-weight:700}
-.rp small,.rp .fonti{color:var(--mu);font-size:12px}
-.rp details.fonti summary{cursor:pointer}
-.rp ul{margin:0;padding-left:18px}
-.rp .cl{display:inline-block;font-weight:700;padding:1px 7px;border-radius:6px;background:#e3ecfb;color:#163d7a}
-.rp .ragazzo{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:8px 10px;margin:0 0 8px;font-size:14px}
-.rp .giorno-p{background:var(--card);border:1px solid var(--bordo);border-radius:8px;padding:8px 10px;margin:0 0 8px;font-size:14px}
-.rp .cod{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
-.rp .cod input{font-size:16px;padding:7px 9px;border:1px solid var(--bordo);border-radius:8px;min-width:0;flex:1 1 180px;max-width:280px}
-@media (max-width:760px){
-  .rp table.carte,.rp table.carte tbody,.rp table.carte tr,.rp table.carte td{display:block;width:auto}
-  .rp table.carte thead{display:none}
-  .rp table.carte tr{border:1px solid var(--bordo);border-radius:8px;margin:0 0 10px;background:var(--card)}
-  .rp table.carte td{border:0;border-bottom:1px solid #eef1f5;padding:5px 10px}
-  .rp table.carte td:before{content:attr(data-l);display:block;font-size:12px;color:var(--mu);font-weight:600}
-}
-/* 28/10/2026 (Nicola): «Script e ponte» con riquadri, barre e istogramma */
-.kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:0 0 14px}
-.kpi .k{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:10px 12px}
-.kpi .kt{font-size:13px;color:var(--mu)}
-.kpi .kv{font-size:26px;font-weight:700;margin:2px 0}
-.kpi .ks{font-size:13px;color:var(--mu)}
-.kpi .k.r .kv{color:#c0392b}
-.kpi .bar{height:10px;border-radius:5px;background:#e6e9ee;overflow:hidden;margin:6px 0 4px}
-.kpi .bar i{display:block;height:100%;background:#5b7fb3}
-.kpi .bar i.r{background:#c0392b}
-.kpi .pn{display:grid;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:14px;margin-top:4px}
-.kpi .pn b{font-size:18px}
-#isto{background:var(--card);border:1px solid var(--bordo);border-radius:10px;padding:8px 8px 4px;margin:0 0 14px}
-#isto svg{display:block;width:100%;height:auto}
-.leg{font-size:13px;color:var(--mu);margin:4px 4px 6px}
-.leg i{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin:0 4px 0 10px}
+:root{--bg:#fafafa;--fg:#111;--card:#fff;--line:#c9ced6;--verde:#2e7d32;--giallo:#f9a825;--arancio:#ef6c00;--rosso:#c62828;--ok:#d7f0d8;--ko:#f9d6d6;--blu:#1a56db}
+@media (prefers-color-scheme:dark){:root{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--ok:#1f4a24;--ko:#5a2222}}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:12px 16px;background:var(--bg);color:var(--fg)}
+h1{font-size:20px;margin:0 0 4px}
+.barra{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.barra button{flex:1 1 90px;font-size:20px;font-weight:bold;padding:14px 10px;border:2px solid var(--blu);border-radius:8px;background:var(--card);color:var(--fg);cursor:pointer}
+.barra button.on{background:var(--blu);color:#fff}
+.barra.vista button{font-size:17px;padding:10px}
+#serve{display:none;background:var(--rosso);color:#fff;border-color:var(--rosso);flex:0 0 auto;font-size:18px;padding:12px 18px}
+.dato{font-size:24px;font-weight:bold;margin:6px 0}
+.vecchi{background:var(--rosso);color:#fff;padding:8px 12px;border-radius:6px;font-weight:bold;margin:6px 0;display:none}
+.conta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.conta span{color:#fff;padding:6px 12px;border-radius:6px;font-weight:bold}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card)}
+td,th{border:1px solid var(--line);padding:5px 7px;text-align:left}
+th{position:sticky;top:0;background:var(--card)}
+td.st{color:#fff;font-weight:bold;text-align:center}
+td.ok{background:var(--ok)}td.ko{background:var(--ko)}
+.cfg{border:2px solid var(--blu);border-radius:8px;padding:10px 12px;margin:10px 0;background:var(--card);display:none;font-size:16px;line-height:1.5}
+.cfg input{width:100%;box-sizing:border-box;font-size:16px;padding:8px;margin-top:6px}
+.cfg button{font-size:17px;padding:10px 16px;margin-top:6px;background:var(--blu);color:#fff;border:0;border-radius:6px;cursor:pointer}
+.cfg ol{margin:6px 0;padding-left:22px}
+.nota{font-size:13px;color:#667;margin-top:10px}
+.scroll{overflow-x:auto}
 </style>
 </head>
 <body>
-<div id="testa">
-<header>
-  <h1>Cruscotto della lezione</h1>
-  <label>Classe <select id="classe"><option value="TUTTE">Tutte</option><option>1INF</option><option selected>2INF</option><option>3INF</option><option>4TI</option></select></label>
-  <label>Giorno <input type="date" id="giorno"></label>
-  <div class="ruolo"><button id="allievo" class="on">Allievo</button><button id="docente">Docente</button></div>
-  <button id="serveTe" class="serve" style="display:none">Serve te (?)</button>
-</header>
-<nav id="tabs">
-  <button data-t="oggi">Oggi dal vivo</button><button data-t="piano">Piano del giorno</button><button data-t="aiuto">Chiedi aiuto</button><button data-t="domande">Domande dei ragazzi</button><button data-t="scrivi">Scrivi a Claude</button><button data-t="uscite">Uscite</button><button data-t="script">Script e ponte</button><button data-t="riepilogo">Riepilogo</button>
-</nav>
-<div id="critBox" style="display:none"></div>
+<h1>Cruscotto classi</h1>
+<div class="barra" id="classi"></div>
+<div class="barra vista" id="viste"><button id="serve" type="button"></button></div>
+<div class="dato" id="dato">In attesa dei dati</div>
+<div class="vecchi" id="vecchi"></div>
+<div class="cfg" id="cfg">
+  <b>Una volta sola per questa vista.</b> Incolla il link del foglio pubblicato.
+  <ol>
+    <li>Nel foglio Google, apri la scheda <b id="scheda"></b>.</li>
+    <li>Clicca File, poi Condividi, poi Pubblica sul web.</li>
+    <li>Scegli la scheda e «Valori separati da virgola (.csv)».</li>
+    <li>Clicca Pubblica e copia il link.</li>
+    <li>Incolla il link qui sotto.</li>
+  </ol>
+  <input id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
+  <button id="salva" type="button">Salva e carica</button>
+  <span id="msg"></span>
 </div>
-<div class="box" id="avvisoCl" style="display:none"></div>
-<p id="nota"></p>
-<p id="sicLink" style="display:none;font-weight:700"></p>
-<p id="oggiLink" style="display:none"></p>
-<section class="tab" id="t-oggi"><iframe id="vista" title="Cruscotto"></iframe></section>
-<section class="tab" id="t-piano"><div class="box" id="piano"></div></section>
-<section class="tab" id="t-aiuto"><div class="box"><p style="margin:0">Sei bloccato o in difficoltà? Scrivi qui: ti risponde l'assistente, subito. La risposta compare sotto la casella.</p><div id="aiuto"></div></div></section>
-<section class="tab" id="t-domande"><div class="box"><h2>Domande dei ragazzi</h2><p class="nocod manca">Per vederle scrivi il codice del docente nella linguetta «Oggi dal vivo».</p><div id="domande"></div></div></section>
-<section class="tab" id="t-scrivi"><div class="box form"><div id="scBanner"></div><h2>Scrivi a Claude</h2><p class="nocod manca">Per mandare messaggi scrivi il codice del docente nella linguetta «Oggi dal vivo».</p>
-<p id="scClasse" style="margin:0 0 8px"></p>
-<label>Tipo <select id="scTipo"><option value="scelta">Scelta della proposta</option><option value="nota">Nota sul registro</option><option value="uscita">Uscita o rientro di un allievo</option><option value="richiesta">Richiesta</option><option value="altro">Altro</option></select></label>
-<label>Messaggio <textarea id="scTesto" rows="7"></textarea></label>
-<button class="btn" id="scInvia">Invia</button> <span id="scStato"></span>
-<h2 style="margin-top:16px">Ultimi messaggi da questo browser</h2><div id="scElenco"></div></div></section>
-<section class="tab" id="t-uscite"><iframe id="usc" title="Uscite dall'aula"></iframe></section>
-<section class="tab" id="t-script"><div class="box" style="max-width:1000px">
-<h2>Script e ponte</h2>
-<p id="script" style="font-size:14px;margin:0 0 10px;color:var(--mu)"><span id="stato">Script: controllo in corso…</span><span id="ponte"></span></p>
-<div class="kpi" id="kpi"></div>
-<h2>Comandi del ponte, ora per ora (oggi)</h2>
-<div id="isto"><p style="margin:6px;color:var(--mu)">Carico…</p></div>
-<div id="leva"><b>Ritmo dello script</b>
-  <button data-m="1">ogni 1 minuto</button><button data-m="5">ogni 5 minuti</button><button data-m="10">ogni 10 minuti</button><button data-m="0">spento</button>
-  <span id="levaSubito"></span><span id="levaOra"></span><span id="levaMsg"></span></div>
-<p id="levaNo" style="font-size:14px;color:var(--mu)">La leva del ritmo compare dopo aver scritto il codice del docente nella linguetta «Oggi dal vivo».</p>
-</div></section>
-<section class="tab" id="t-riepilogo"><div class="box rp" id="riepilogo"></div></section>
-<script src="../avanzamento/orario-lezione.js"></script>
+<div class="conta" id="conta"></div>
+<div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
+<div class="nota">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
 <script>
-// Allievo: la pagina dei ragazzi (Nome C., voto, che cosa manca). Docente: il cruscotto cifrato, chiede la password.
-// Giorni passati: i file in avanzamento/archivio/ (indice.json dice quali giorni ci sono per ogni classe); si aprono dal
-// calendario in alto o cliccando una riga della linguetta «Riepilogo» (solo Docente, dati cifrati in riepilogo.json).
-var OGGI_PAG = {
-  '1INF': {allievo: '../1inf-oggi/', docente: '../avanzamento/1inf-oggi.html'},
-  '2INF': {allievo: '../2inf-oggi/', docente: '../avanzamento/git-2inf.html'},
-  '3INF': {allievo: '../3inf-oggi/', docente: '../avanzamento/3inf-oggi.html'},
-  // 29/10/2026: la quarta (4TI, martedì 3ª-5ª ora) entra nel cruscotto unico; pagina del giorno con i link della classe
-  '4TI': {allievo: '../4ti-oggi/', docente: '../4ti-oggi/'}
-};
-// Pagine docente speciali per un giorno preciso (classe:AAAA-MM-GG); gli altri giorni restano come sopra.
-var GIORNO_PAG = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html',
-  // 28/10/2026 3INF: Hello World in Lazarus e in Java (consegna del Documento su Classroom)
-  '3INF:2026-10-28': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: Hello World in Lazarus e in Java.'},
-  // 29/10/2026 (audit, #133): la 3INF consegna oggi entro le 13 lo stesso Documento: il cruscotto segue quella consegna
-  '3INF:2026-10-29': {docente: '../avanzamento/3inf-lazarus-oggi.html', allievo: '../3inf-lazarus/', nota: 'Oggi, dal vivo: consegna del Documento «Hello World in Lazarus e in Java» entro le 13.'},
-  // 30/10/2026: 1INF Tecnologia 8-9 (quiz Unicode) e Laboratorio 11-14 (Lazarus «Ciao 2», KPI); «prima» vale fino alle 10:30
-  '1INF:2026-10-30': {docente: '../avanzamento/1inf-lab-oggi.html', allievo: '../1inf-oggi/', nota: 'Oggi, dal vivo: laboratorio Lazarus «Ciao 2: la Label» (colonne dei KPI).',
-    prima: {fino: '10:30', docente: '../avanzamento/1inf-unicode-oggi.html', allievo: '../1inf-oggi/', nota: 'Oggi, dal vivo: quiz «Il computer scrive in tutte le lingue» (8-9). Dalle 10:30 qui c\'è il laboratorio.'}},
-  '2INF:2026-10-30': {docente: '../avanzamento/2inf-sicurezza-oggi.html', allievo: '../2inf-sicurezza-quiz/', nota: 'Oggi, dal vivo: Sicurezza 5ª ora, situazione completa della Sicurezza: quiz su Moduli 1ª-5ª e Allenamenti.'}};
-// 30/10/2026: link alle pagine del giorno, in cima alla linguetta «Oggi dal vivo» (tutte le classi del giorno)
-var OGGI_LINK = {'2026-10-30': [
-  {c: '1INF', t: '1INF 8-9 quiz Unicode', docente: '../avanzamento/1inf-unicode-oggi.html', allievo: '../1inf-unicode-quiz/'},
-  {c: '2INF', t: '2INF 9-10 Sicurezza 5ª ora', docente: '../avanzamento/2inf-sicurezza-oggi.html', allievo: '../2inf-sicurezza-quiz/'},
-  {c: '1INF', t: '1INF 11-14 laboratorio «Ciao 2» (KPI)', docente: '../avanzamento/1inf-lab-oggi.html', allievo: '../1inf-oggi/'}]};
-function oraRoma() { return new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Europe/Rome'}); }
-function giornoPag(k) { var x = GIORNO_PAG[k]; if (x && typeof x === 'object' && x.prima && oraRoma() < x.prima.fino) return x.prima; return x; }
-// ?prova=1: dati SIMULATI (file con suffisso -prova, nomi inventati) e nessun invio vero allo script.
-var PROVA = new URLSearchParams(location.search).get('prova') === '1';
-var BANNER = '<p class="manca" style="background:#fff3b0;border-color:#d4a017"><b>DATI DI PROVA</b>: nomi e domande inventati, i messaggi non partono.</p>';
-var IND = {}, ruolo = 'allievo', tab = 'oggi', PIANO = null, TABS = ['oggi', 'piano', 'aiuto', 'domande', 'scrivi', 'uscite', 'script', 'riepilogo'];
-var $ = function (id) { return document.getElementById(id); };
-function oggi() { var d = new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
-function salva() { try { localStorage.setItem('cruscotto', JSON.stringify({c: CL_AUTO && $('classe').value === 'TUTTE' ? CL_AUTO : $('classe').value, r: ruolo, t: tab})); } catch (e) {} }
-// 29/10/2026: «Tutte» è la vista predefinita del Piano del giorno quando l'indirizzo non dice la classe (CL_UTENTE falso);
-// passando a un'altra linguetta si torna alla classe di prima (CL_AUTO).
-var CL_UTENTE = false, CL_AUTO = '';
-function autoClasse() {
-  if (CL_UTENTE) return;
-  var c = $('classe').value;
-  if (tab === 'piano' && c !== 'TUTTE') { CL_AUTO = c; $('classe').value = 'TUTTE'; }
-  else if (tab !== 'piano' && c === 'TUTTE' && CL_AUTO) { $('classe').value = CL_AUTO; CL_AUTO = ''; }
-}
-function mostra() {
-  var c = $('classe').value, g = $('giorno').value || oggi(), giorni = IND[c] || [], src;
-  if (c === 'TUTTE') { $('nota').textContent = ''; caricaPiano(c, g); linguette(); salva(); return; }
-  if (g !== oggi() && giorni.indexOf(g) >= 0) {
-    var f = 'archivio/' + c.toLowerCase() + '-' + g + (ruolo === 'allievo' ? '-allievi' : '') + '.json';
-    src = OGGI_PAG[c][ruolo] + '?f=' + encodeURIComponent(f);
-    $('nota').textContent = 'Stai guardando il ' + g.split('-').reverse().join('/') + ' (giorno salvato).';
-  } else if (g === oggi() && typeof GIORNO_PAG[c + ':' + g] === 'object') {
-    src = giornoPag(c + ':' + g)[ruolo];
-    $('nota').textContent = giornoPag(c + ':' + g).nota;
-  } else if (c === '2INF' && ruolo === 'docente' && g === oggi() && GIORNO_PAG['2INF:' + g]) {
-    // 28/10/2026: oggi la 2INF fa il recupero dei quiz di sicurezza, il docente vede il monitor dedicato
-    src = GIORNO_PAG['2INF:' + g];
-    $('nota').textContent = 'Oggi, dal vivo: monitor dei quiz di sicurezza.';
-  } else if (g === oggi()) {
-    src = OGGI_PAG[c][ruolo];
-    $('nota').textContent = 'Oggi, dal vivo.';
-  } else {
-    // 29/10/2026 (audit E2E): «Oggi dal vivo» segue la data scelta; per un giorno senza dati non si mostra quello di oggi
-    src = 'about:blank';
-    $('nota').textContent = (g > oggi() ? 'Il ' + g.split('-').reverse().join('/') + ' la lezione non è ancora cominciata: i dati compaiono quel giorno, durante la lezione.'
-      : 'Per il ' + g.split('-').reverse().join('/') + ' non c\'è un cruscotto salvato.') +
-      (giorni.length ? ' Giorni salvati: ' + giorni.map(function (x) { return x.split('-').reverse().join('/'); }).join(', ') + '.' : '');
-  }
-  $('nota').style.color = src === 'about:blank' ? '#c0392b' : '';
-  // 29/10/2026 (Nicola): per la classe che ha Sicurezza quel giorno, il link alla situazione dei quiz (<classe>-sicurezza-oggi.html)
-  var SIC = {'2INF:2026-10-28': '../avanzamento/2inf-sicurezza-oggi.html', '1INF:2026-10-29': '../avanzamento/1inf-sicurezza-oggi.html', '2INF:2026-10-30': '../avanzamento/2inf-sicurezza-oggi.html'};
-  if (SIC[c + ':' + g]) { $('sicLink').innerHTML = 'Sicurezza: <a href="' + SIC[c + ':' + g] + '" target="_blank">situazione dei quiz di ' + c + '</a>'; $('sicLink').style.display = ''; }
-  else $('sicLink').style.display = 'none';
-  var OL = OGGI_LINK[g] || [];
-  $('oggiLink').innerHTML = OL.length ? 'Le pagine del ' + g.split('-').reverse().join('/') + ': ' + OL.map(function (x) {
-    return '<a href="' + x[ruolo] + '" target="_blank"' + (x.c === c ? ' style="font-weight:800"' : ' style="font-weight:400"') + '>' + esc(x.t) + '</a>'; }).join(' · ') : '';
-  $('oggiLink').style.display = OL.length ? '' : 'none';
-  if (g === oggi() && typeof statoLezione === 'function') avvisoGiorno(c, $('nota').textContent);
-  if ($('vista').getAttribute('src') !== src) $('vista').setAttribute('src', src);
-  caricaPiano(c, g); linguette();
-  salva();
-}
-// 29/10/2026 (audit, #127 #71): prima della lezione, o in un giorno senza lezione della classe, la pagina qui sotto
-// mostra ancora i dati dell'ultima lezione: lo si scrive in rosso, così nessuno li prende per dati di oggi.
-function avvisoGiorno(c, base) {
-  statoLezione(c).then(function (s) {
-    if ($('classe').value !== c || ($('giorno').value || oggi()) !== oggi()) return;
-    var t = '';
-    if (s.stato === 'prima') t = 'La lezione di oggi della ' + c + ' comincia alle ' + s.inizio + ': qui sotto ci sono ancora i dati dell\'ultima lezione, NON di oggi.';
-    else if (s.stato === 'nessuna') t = 'Oggi la ' + c + ' non ha lezione: qui sotto ci sono i dati dell\'ultima lezione, NON di oggi.';
-    if (t) { $('nota').textContent = t; $('nota').style.color = '#c0392b'; }
-  }).catch(function () {});
-}
-// ---- Linguette (28/10/2026, Nicola): Allievo vede solo «Oggi dal vivo» e «Piano del giorno» ----
-// 28/10/2026 (docente): «Piano del giorno» compare SEMPRE, anche quando il piano di quel giorno non c'è (lo dice la linguetta)
-function permessa(t) { return t === 'oggi' || t === 'aiuto' || t === 'piano' || (ruolo === 'docente' && TABS.indexOf(t) > 2); }
-function linguette() {
-  // «tab» è la linguetta voluta (ricordata); se oggi non c'è (niente piano, o modalità Allievo) si mostra «Oggi dal vivo».
-  var eff = permessa(tab) ? tab : 'oggi';
-  Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
-    b.style.display = permessa(b.dataset.t) ? '' : 'none';
-    b.className = (b.dataset.t === eff ? 'on' : '') + (b.dataset.t === 'script' && SCRIPT_KO ? ' rosso' : '');
-  });
-  // 29/10/2026: con «Tutte» le linguette che lavorano su una classe sola mostrano l'avviso «scegli una classe»
-  var serve = $('classe').value === 'TUTTE' && UNA_CLASSE.indexOf(eff) >= 0;
-  TABS.forEach(function (t) { $('t-' + t).className = 'tab' + (t === eff && !serve ? ' on' : ''); });
-  avvisoClasse(serve);
-  var bOn = document.querySelector('#tabs button.on'); if (bOn) $('tabs').scrollLeft = Math.max(0, bOn.offsetLeft - 16);
-  if (eff === 'uscite' && !$('usc').getAttribute('src')) $('usc').setAttribute('src', '../avanzamento/uscite.html');
-  $('nota').style.display = eff === 'oggi' ? '' : 'none';
-  if ($('oggiLink').innerHTML) $('oggiLink').style.display = eff === 'oggi' ? '' : 'none';
-  Array.prototype.forEach.call(document.querySelectorAll('.nocod'), function (x) { x.style.display = TOK_OK ? 'none' : ''; });
-  $('scInvia').disabled = !TOK_OK;
-  if (typeof disegnaCrit === 'function' && $('serveTe').onclick) disegnaCrit();
-  if (serve) return;
-  if (eff === 'aiuto') casellaAiuto();
-  if (eff === 'domande') caricaDomande();
-  if (eff === 'riepilogo') caricaRiepilogo();
-  if (eff === 'script') disegnaScript();
-  if (eff === 'scrivi') { $('scClasse').textContent = 'Classe ' + $('classe').value + ' · giorno ' + ($('giorno').value || oggi()).split('-').reverse().join('/'); elencoMsg(); }
-}
-function avvisoClasse(si) {
-  var el = $('avvisoCl'); el.style.display = si ? '' : 'none'; if (!si) return;
-  el.innerHTML = '<p class="manca">Hai scelto «Tutte»: questa linguetta lavora su una classe sola. Scegli una classe:</p><p class="avv">' +
-    CLASSI.map(function (c) { return '<button class="btn sec" data-cl="' + c + '">' + c + '</button>'; }).join('') + '</p>';
-  Array.prototype.forEach.call(el.querySelectorAll('[data-cl]'), function (b) {
-    b.onclick = function () { CL_UTENTE = true; CL_AUTO = ''; $('classe').value = b.dataset.cl; mostra(); };
-  });
-}
-Array.prototype.forEach.call(document.querySelectorAll('#tabs button'), function (b) {
-  b.onclick = function () { tab = b.dataset.t; var c0 = $('classe').value; autoClasse(); if ($('classe').value !== c0) mostra(); else { linguette(); salva(); } };
-});
-// ---- Piano del giorno: docs/cruscotto/piano/<classe>-<giorno>.json (niente nomi: repository pubblico) ----
-function esc(x) { return String(x == null ? '' : x).replace(/[&<>"']/g, function (ch) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[ch]; }); }
-function url(u) { u = String(u || ''); return /^(https?:|\/|\.\.\/|\.\/)/.test(u) ? u : '../' + u; }   // relativo alla cartella docs/
-var MOD = {versioning: 'Lavoro con versioning (GitHub)', guidato: 'Percorso guidato a passi', 'teoria-quiz': 'Teoria a schede e quiz'};
-// 29/10/2026 (Nicola: «avevo chiesto tutti insieme in una pagina»): vista «Tutte le classi» del piano del giorno.
-// Classe «TUTTE»: una sotto l'altra le proposte di ogni classe che ha un piano per quel giorno, in ordine di orario.
-var CLASSI = ['1INF', '2INF', '3INF', '4TI'], UNA_CLASSE = ['oggi', 'aiuto', 'domande', 'scrivi'];
-var pianoChiesto = '', pianoPronto = false, PIANI = [], ORARIO = null;
-function prendiPiano(c, g) {
-  return fetch('piano/' + c.toLowerCase() + '-' + g + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'})
-    .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-}
-function prendiOrario() {
-  if (!ORARIO) ORARIO = fetch('../avanzamento/orario-lezioni.json?t=' + Date.now(), {cache: 'no-store'})
-    .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
-  return ORARIO;
-}
-function caricaPiano(c, g) {
-  var k = c.toLowerCase() + '-' + g;
-  if (k === pianoChiesto) { disegnaPiano(); return; }
-  pianoChiesto = k; PIANO = null; PIANI = []; pianoPronto = false; disegnaPiano();
-  if (c === 'TUTTE') {
-    Promise.all([prendiOrario()].concat(CLASSI.map(function (x) { return prendiPiano(x, g); }))).then(function (L) {
-      if (pianoChiesto !== k) return;
-      var lez = (L[0] && L[0].lezioni && L[0].lezioni[g]) || [];
-      PIANI = L.slice(1).map(function (p, i) {
-        if (!p) return null;
-        p.classe = p.classe || CLASSI[i]; p.giorno = p.giorno || g;
-        p._ore = lez.filter(function (v) { return v.classe === p.classe; }).sort(function (a, b) { return String(a.da).localeCompare(String(b.da)); });
-        p._i = i; return p;
-      }).filter(Boolean);
-      PIANI.sort(function (a, b) {
-        var x = a._ore.length ? a._ore[0].da : '99', y = b._ore.length ? b._ore[0].da : '99';
-        return x.localeCompare(y) || a._i - b._i;
-      });
-      pianoPronto = true; disegnaPiano(); linguette();
-    });
-    return;
-  }
-  prendiPiano(c, g).then(function (p) { if (pianoChiesto !== k) return; PIANO = p; pianoPronto = true; disegnaPiano(); linguette(); });
-}
-// Piano che non c'è (28/10/2026, docente): lo si dice e, se esiste, si dà il link al piano della prossima lezione della classe
-function pianoMancante() {
-  var c = $('classe').value, g = $('giorno').value || oggi(), k0 = pianoChiesto;
-  var h = '<h2>Piano del giorno · ' + esc(c) + ' · ' + esc(g.split('-').reverse().join('/')) + '</h2>' + bottoneTutte();
-  if (!pianoPronto) { $('piano').innerHTML = h + '<p>Carico il piano…</p>'; agganciaTutte(); return; }
-  $('piano').innerHTML = h + '<p class="manca">Il piano per questa classe e questo giorno non c\'è ancora: lo prepara la chat della notte prima del giorno di lezione.</p><p id="pianoProx"></p>';
-  agganciaTutte();
-  if (!window.prossimaLezione) return;
-  prossimaLezione(c, g).then(function (d) {
-    if (!d || pianoChiesto !== k0) return null;
-    return fetch('piano/' + c.toLowerCase() + '-' + d + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'})
-      .then(function (r) {
-        var el = $('pianoProx');
-        if (!r.ok || pianoChiesto !== k0 || !el) return;
-        el.innerHTML = '<a href="#" id="pianoVai">Apri il piano della prossima lezione della ' + esc(c) + ': ' + esc(d.split('-').reverse().join('/')) + '</a>';
-        $('pianoVai').onclick = function (e) { e.preventDefault(); $('giorno').value = d; mostra(); };
-      });
-  }).catch(function () {});
-}
-// Bottone ben visibile in cima alla linguetta per passare alla vista di tutte le classi
-function bottoneTutte() { return '<p><button class="btn sec" id="vaiTutte">Vedi tutte le classi in una pagina</button></p>'; }
-function agganciaTutte() { var b = $('vaiTutte'); if (b) b.onclick = function () { CL_UTENTE = true; CL_AUTO = ''; $('classe').value = 'TUTTE'; mostra(); }; }
-function disegnaPiano() {
-  if ($('classe').value === 'TUTTE') { disegnaTutte(); return; }
-  var p = PIANO;
-  if (!p) { pianoMancante(); return; }
-  $('piano').innerHTML = (PROVA ? BANNER : '') + '<h2>Piano del giorno · ' + esc(p.classe) + ' · ' + esc(String(p.giorno || '').split('-').reverse().join('/')) + '</h2>' +
-    bottoneTutte() + corpoPiano(p, false);
-  agganciaTutte(); agganciaPiano(p, $('piano'));
-}
-function oreDi(p) {
-  var o = p._ore || [];
-  if (!o.length) return 'nessuna ora in orario';
-  var dis = []; o.forEach(function (v) { if (v.disciplina && dis.indexOf(v.disciplina) < 0) dis.push(v.disciplina); });
-  return 'ore ' + o[0].da + '–' + o[o.length - 1].a + (dis.length ? ' · ' + dis.join(', ') : '');
-}
-function disegnaTutte() {
-  var g = $('giorno').value || oggi(), h = (PROVA ? BANNER : '') + '<h2>Piano del giorno · tutte le classi · ' + esc(g.split('-').reverse().join('/')) + '</h2>';
-  if (!pianoPronto) { $('piano').innerHTML = h + '<p>Carico i piani di tutte le classi…</p>'; return; }
-  if (!PIANI.length) { $('piano').innerHTML = h + '<p class="manca">Per questo giorno nessuna classe ha un piano: lo prepara la chat della notte prima del giorno di lezione.</p>'; return; }
-  h += '<p class="pmeta">' + PIANI.length + (PIANI.length === 1 ? ' classe' : ' classi') + ' con un piano, in ordine di orario. Vai a: ' +
-    PIANI.map(function (p) { return '<a class="chip" href="#pc-' + esc(String(p.classe).toLowerCase()) + '">' + esc(p.classe) + '</a>'; }).join('') + '</p>';
-  h += PIANI.map(function (p, i) {
-    var sn = sceltaDi(p);
-    return '<section class="pclasse" id="pc-' + esc(String(p.classe).toLowerCase()) + '" data-i="' + i + '"><h3><span class="cl">' + esc(p.classe) + '</span> ' + esc(oreDi(p)) +
-      (p.pubblicata && sn ? ' <span class="et v">PUBBLICATA alle ' + esc(p.pubblicata) + '</span>' : sn ? ' <span class="et v">SCELTA: ' + esc(testoScelta(sn)) + '</span>' : (ruolo === 'docente' ? ' <span class="et g">DA SCEGLIERE</span>' : '')) + '</h3>' +
-      corpoPiano(p, true) + '<p><button class="btn sec" data-solo="' + esc(p.classe) + '">Solo la ' + esc(p.classe) + '</button></p></section>';
-  }).join('');
-  $('piano').innerHTML = h;
-  Array.prototype.forEach.call($('piano').querySelectorAll('section.pclasse'), function (s) { agganciaPiano(PIANI[+s.dataset.i], s); });
-  Array.prototype.forEach.call($('piano').querySelectorAll('[data-solo]'), function (b) {
-    b.onclick = function () { CL_UTENTE = true; CL_AUTO = ''; $('classe').value = b.dataset.solo; mostra(); window.scrollTo(0, 0); };
-  });
-}
-// Proposta scelta: quella mandata da questo dispositivo (se c'è), altrimenti «scelta» del json del piano (numero della proposta)
-function sceltaDi(p) { if (p.pubblicata && p.scelta) return p.scelta; var l = sceltaLocale(p); return l != null ? l : (p.scelta || null); }
-// 29/10/2026 (preparazione del 30/10): «scelta» può essere un elenco, una proposta per lezione (1INF: Tecnologia e Laboratorio)
-function inScelta(sn, n) { return Array.isArray(sn) ? sn.indexOf(n) >= 0 : sn === n; }
-function testoScelta(sn) { return Array.isArray(sn) ? sn.join(' e ') : sn; }
-// 29/10/2026 (Nicola, screenshot 08:00 e 08:10): in modalità Docente i bottoni ci sono SEMPRE; il codice si chiede al clic.
-function corpoPiano(p, tutte) {
-  var props = p.proposte || [], sn = sceltaDi(p), scelte = props.filter(function (x) { return inScelta(sn, x.n); }), scelta = scelte[0], k = chiaveScelta(p), doc = ruolo === 'docente', h = '';
-  leggiPub(p);
-  // 29/10/2026 (docente): proposta già pubblicata («pubblicata»: "HH:MM" nel json) = niente più bottoni; le altre piccole e grigie
-  var pub = p.pubblicata && scelta ? p.pubblicata : '';
-  // 30/10/2026 (notte): una classe con due lezioni nello stesso giorno (1INF: Tecnologia e Laboratorio). «pubblicata» sulla
-  // singola proposta = quella lezione è uscita su Classroom: niente bottoni per lei e per le altre proposte della stessa lezione.
-  function pubLez(n) {
-    var lz = (p.lezioni || []).filter(function (l) { return (l.proposte || []).indexOf(n) >= 0; })[0];
-    var vicine = lz ? props.filter(function (y) { return lz.proposte.indexOf(y.n) >= 0; }) : [];
-    return vicine.filter(function (y) { return y.pubblicata; })[0] || null;
-  }
-  function prop(x) {
-    var lp = pub ? null : pubLez(x.n);
-    if (lp && lp !== x) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
-    if (lp) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(x.pubblicata) + '</span>' +
-      (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + '</div>';
-    if (pub && !inScelta(sn, x.n)) return '<div class="prop chiusa"><b class="n">' + esc(x.n) + '.</b> ' + esc(x.titolo) + '</div>';
-    if (pub) return '<div class="prop scelta"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b><span class="et v">PUBBLICATA alle ' + esc(pub) + '</span>' +
-      (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') + (p.nota ? '<p class="pnota">' + esc(p.nota) + '</p>' : '') + '</div>';
-    var sc = inScelta(sn, x.n), cl = sc ? ' scelta' : (x.preferita && doc ? ' pref' : '');
-    return '<div class="prop' + cl + '"><b class="n">' + esc(x.n) + '.</b> <b>' + esc(x.titolo) + '</b>' +
-      (sc ? '<span class="et v">SCELTA</span>' : '') + (x.preferita && doc ? '<span class="et g">CONSIGLIATA</span>' : '') +
-      (x.descrizione ? '<p>' + esc(x.descrizione) + '</p>' : '') +
-      (doc && sc && SCELTA_MSG[k] ? '<span class="scok">' + esc(SCELTA_MSG[k]) + '</span>' : '') +
-      (doc && sc ? '<button class="btn big pub" data-pubblica="' + esc(x.n) + '">Pubblica</button>' +
-        (PUB_MSG[k] && PUB_MSG[k].n === x.n ? '<span class="scok">' + esc(PUB_MSG[k].msg) + '</span>' : '') + '<span data-st="p' + esc(x.n) + '"></span>' : '') +
-      (doc && !sc ? '<button class="btn big" data-scegli="' + esc(x.n) + '">Scelgo questa</button><span data-st="s' + esc(x.n) + '"></span>' : '') + '</div>';
-  }
-  if (doc) {
-    if ((p.modalita || []).length) h += '<p>' + p.modalita.map(function (m) { return '<span class="chip">' + esc(MOD[m] || m) + '</span>'; }).join('') + '</p>';
-    if (pub) props = scelte.concat(props.filter(function (x) { return scelte.indexOf(x) < 0; }));
-    if (!scelta) h += '<p class="manca">Nessuna proposta ancora scelta: premi «Scelgo questa» sotto la proposta che vuoi. Claude prepara subito il materiale; quando vuoi che lo veda la classe premi «Pubblica».</p>';
-    h += props.map(prop).join('');
-    if (p.mancanze) h += '<p class="manca"><b>Che cosa manca alla classe:</b> ' + esc(p.mancanze) + '</p>';
-  } else {
-    h += scelta ? scelte.map(prop).join('') : '<p class="manca">Il prof non ha ancora scelto il lavoro di oggi: intanto apri «La mia giornata» qui sotto.</p>';
-  }
-  var L = p.link || [];
-  if (L.length) {
-    var ln = '<div class="link">' + L.map(function (l) { return '<a href="' + esc(url(l.u)) + '" target="_blank" rel="noopener">' + esc(l.t) + '</a>'; }).join('') + '</div>';
-    h += tutte ? '<details class="plink"><summary>Link del giorno (' + L.length + ')</summary>' + ln + '</details>' : '<h2>Link del giorno</h2>' + ln;
-  }
-  return h;
-}
-// Se il codice del docente non è ancora stato scritto, lo chiedo accanto al bottone, poi mando.
-function conCodice(st, poi) {
-  if (TOK_OK || PROVA) { poi(); return; }
-  st.innerHTML = '<span class="cod"><input type="password" autocomplete="current-password" placeholder="Codice del docente"><button class="btn">Conferma e manda</button><span></span></span>';
-  var inp = st.querySelector('input'), ok = st.querySelector('button'), err = st.querySelector('.cod span');
-  var vai = function () {
-    var t = inp.value.trim(); if (!t) return;
-    err.textContent = ' Controllo…';
-    provaCodice(t).then(function (buono) {
-      if (!buono) { err.innerHTML = ' <span class="ko">Codice sbagliato.</span>'; return; }
-      TOK_OK = t; try { sessionStorage.setItem('tokmon', t); } catch (e) {}
-      st.innerHTML = ''; levaAggiorna(); poi();
-    }).catch(function () { err.innerHTML = ' <span class="ko">Codice sbagliato.</span>'; });
-  };
-  ok.onclick = vai; inp.onkeydown = function (e) { if (e.key === 'Enter') vai(); }; inp.focus();
-}
-function agganciaPiano(p, el) {
-  var props = p.proposte || [], k = chiaveScelta(p);
-  function tit(n) { return (props.filter(function (x) { return x.n === n; })[0] || {}).titolo || ''; }
-  Array.prototype.forEach.call(el.querySelectorAll('[data-scegli]'), function (b) {
-    b.onclick = function () {
-      var n = +b.dataset.scegli, t = tit(n), st = el.querySelector('[data-st="s' + n + '"]');
-      var fatto = function () {
-        var msg = 'Scelta inviata a Claude alle ' + hhmm(new Date()) + ': sto preparando il materiale' + (PROVA ? ' (PROVA: non è partito niente)' : '');
-        SCELTA_MSG[k] = msg; try { localStorage.setItem('cruscotto-scelta-' + k, JSON.stringify({n: n, msg: msg})); } catch (e) {}
-        disegnaPiano();
-      };
-      conCodice(st, function () {
-        // 29/10/2026 (Nicola): «Scelgo questa» manda un messaggio «scelta» sul canale docente-<classe>, come la spunta Priorità.
-        if (PROVA) { b.disabled = true; st.textContent = 'Sto mandando…'; setTimeout(fatto, 300); return; }
-        invia({tipo: 'scelta', proposta: n, titolo: t, classe: p.classe || $('classe').value, giorno: p.giorno || $('giorno').value || oggi(),
-          testo: 'Scelgo la proposta ' + n + ': ' + t}, st, b).then(function (ok) { if (ok) fatto(); });
-      });
-    };
-  });
-  // 29/10/2026 (Nicola): «Pubblica» manda «pubblica <classe> proposta <n>» sullo stesso canale; «Mandato» solo se l'invio è partito (#124)
-  Array.prototype.forEach.call(el.querySelectorAll('[data-pubblica]'), function (b) {
-    b.onclick = function () {
-      var n = +b.dataset.pubblica, c = p.classe || $('classe').value, st = el.querySelector('[data-st="p' + n + '"]');
-      var fatto = function () {
-        var msg = 'Mandato a Claude alle ' + hhmm(new Date()) + ': pubblica ' + c + ' proposta ' + n + (PROVA ? ' (PROVA: non è partito niente)' : '');
-        PUB_MSG[k] = {n: n, msg: msg}; try { localStorage.setItem('cruscotto-pubblica-' + k, JSON.stringify(PUB_MSG[k])); } catch (e) {}
-        disegnaPiano();
-      };
-      conCodice(st, function () {
-        if (PROVA) { b.disabled = true; st.textContent = 'Sto mandando…'; setTimeout(fatto, 300); return; }
-        invia({tipo: 'pubblica', proposta: n, titolo: tit(n), classe: c, giorno: p.giorno || $('giorno').value || oggi(),
-          testo: 'pubblica ' + c + ' proposta ' + n}, st, b).then(function (ok) { if (ok) fatto(); });
-      });
-    };
-  });
-}
-// Scelta ricordata sul dispositivo (29/10/2026): vale finché il json del piano non ha «scelta» valorizzato.
-var SCELTA_MSG = {}, PUB_MSG = {};
-function chiaveScelta(p) { return (PROVA ? 'prova-' : '') + String(p.classe || '').toLowerCase() + '-' + (p.giorno || ''); }
-function sceltaLocale(p) {
-  var k = chiaveScelta(p), v = null;
-  try { v = JSON.parse(localStorage.getItem('cruscotto-scelta-' + k) || 'null'); } catch (e) {}
-  if (v && v.msg && !SCELTA_MSG[k]) SCELTA_MSG[k] = v.msg;
-  return v ? v.n : null;
-}
-function leggiPub(p) {
-  var k = chiaveScelta(p), v = null; if (PUB_MSG[k]) return;
-  try { v = JSON.parse(localStorage.getItem('cruscotto-pubblica-' + k) || 'null'); } catch (e) {}
-  if (v && v.msg) PUB_MSG[k] = v;
-}
-// ---- Canale del docente (28/10/2026, Nicola: «il cruscotto è anche il posto dove io comunico») ----
-// Stesso canale della casella dell'assistente: POST allo script (config.json → invio), id «docente-<classe>»:
-// i messaggi arrivano nel riservato in dati/verifiche/docente-<classe>/arrivi/. «firma» = SHA-256(codice|ora): Claude la
-// controlla con la password del docente prima di eseguire. «Mandato» solo quando l'invio è partito davvero (#124).
-var MSG_PROVA = [{quando: '28/10, 08:05', classe: '1INF', tipo: 'scelta', testo: 'Scelgo la proposta 1: Lazarus: il primo programma Ciao', esito: 'Mandato'},
-  {quando: '28/10, 09:12', classe: '1INF', tipo: 'uscita', testo: 'ROSSI Mario esce per il bagno', esito: 'Mandato'}];
-function chiaveMsg() { return PROVA ? 'cruscotto-msg-prova' : 'cruscotto-msg'; }
-function leggiMsg() { var L = null; try { L = JSON.parse(localStorage.getItem(chiaveMsg()) || 'null'); } catch (e) {} return L || (PROVA ? MSG_PROVA.slice() : []); }
-function scriviMsg(L) { try { localStorage.setItem(chiaveMsg(), JSON.stringify(L.slice(-20))); } catch (e) {} }
-function elencoMsg() {
-  var L = leggiMsg().slice().reverse().slice(0, 10);
-  $('scBanner').innerHTML = PROVA ? BANNER : '';
-  $('scElenco').innerHTML = L.length ? L.map(function (m) {
-    return '<div class="msg"><small>' + esc(m.quando) + ' · ' + esc(m.classe) + ' · ' + esc(m.tipo) + '</small> <span class="' + (m.esito === 'Mandato' ? 'ok' : 'ko') + '">' + esc(m.esito) + '</span><br>' + esc(m.testo) + '</div>';
-  }).join('') : '<p style="color:var(--mu)">Nessun messaggio ancora.</p>';
-}
-async function firma(ora) {
-  var h = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(TOK_OK + '|' + ora));
-  return Array.prototype.map.call(new Uint8Array(h), function (x) { return x.toString(16).padStart(2, '0'); }).join('');
-}
-async function invia(extra, stEl, bt) {
-  if (!TOK_OK) { stEl.innerHTML = '<span class="ko">Prima scrivi il codice del docente in «Oggi dal vivo».</span>'; return false; }
-  if (!INVIO && !PROVA) { stEl.innerHTML = '<span class="ko">Lo script non ha un indirizzo di invio: non è partito.</span>'; return false; }
-  // 29/10/2026: la classe e il giorno del messaggio vengono dal piano (vista «Tutte»), se ci sono
-  var c = extra.classe || $('classe').value, g = extra.giorno || $('giorno').value || oggi(), ora = new Date().toISOString();
-  var d = {id: 'docente-' + c.toLowerCase(), nome: 'Docente', modo: 'domanda', classe: c, giorno: g, ora: ora, pagina: location.href};
-  for (var k in extra) d[k] = extra[k];
-  d.domanda = d.testo; d.firma = await firma(ora);
-  var rec = {quando: new Date().toLocaleString('it-IT', {day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit'}), classe: c, tipo: d.tipo, testo: d.testo, esito: 'Sto mandando…'};
-  if (bt) bt.disabled = true; stEl.textContent = 'Sto mandando…';
-  if (PROVA) {   // prova: niente invio vero
-    rec.esito = 'Prova: non inviato'; stEl.innerHTML = '<span class="ok">Prova: il messaggio NON è partito (dati di prova).</span>';
-    if (bt) setTimeout(function () { bt.disabled = false; }, 1000);
-    var Lp = leggiMsg(); Lp.push(rec); scriviMsg(Lp); elencoMsg(); return true;
-  }
-  try {
-    await fetch(INVIO, {method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: 'd=' + encodeURIComponent(JSON.stringify(d))});
-    rec.esito = 'Mandato'; stEl.innerHTML = '<span class="ok">Mandato alle ' + new Date().toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'}) + '</span>';
-  } catch (e) {
-    rec.esito = 'Non è partito'; stEl.innerHTML = '<span class="ko">Non è partito: riprova.</span>';
-  }
-  if (bt) setTimeout(function () { bt.disabled = false; }, 2000);
-  var L = leggiMsg(); L.push(rec); scriviMsg(L); elencoMsg();
-  return rec.esito === 'Mandato';
-}
-$('scInvia').onclick = async function () {
-  var t = $('scTesto').value.trim(); if (!t) { $('scStato').innerHTML = '<span class="ko">Scrivi il messaggio.</span>'; return; }
-  if (await invia({tipo: $('scTipo').value, testo: t}, $('scStato'), this)) $('scTesto').value = '';
-};
-// ---- Chiedi aiuto: la casella dell'assistente, pagina «cruscotto-<classe>» ----
-var LINGUE = {'1INF': 'it,ar,zh', '2INF': 'it', '3INF': 'it', '4TI': 'it'}, aiutoDi = '';
-function casellaAiuto() {
-  var c = $('classe').value; if (aiutoDi === c) return; aiutoDi = c;
-  $('aiuto').innerHTML = '';
-  var sc = document.createElement('script');
-  sc.src = '../assistente/assistente.js'; sc.dataset.pagina = 'cruscotto-' + c.toLowerCase() + (PROVA ? '-prova' : ''); sc.dataset.lingue = LINGUE[c] || 'it'; sc.dataset.dove = 'aiuto';
-  $('aiuto').appendChild(sc);
-}
-// ---- Domande dei ragazzi (solo Docente): docs/avanzamento/domande-<classe>.json, CIFRATO ----
-async function decifra(d) {
-  var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(TOK_OK), 'PBKDF2', false, ['deriveKey']);
-  var k = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(d.salt), iterations: d.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
-  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(d.iv)}, k, b64(d.ct))));
-}
-// 29/10/2026 (docente: «perché io non ce l'ho nelle risposte?»): si rilegge ogni minuto, non una volta sola
-var domChiesto = '', domQuando = 0;
-setInterval(function () { if (tab === 'domande' && TOK_OK && $('classe').value !== 'TUTTE') { domChiesto = ''; caricaDomande(); } }, 60000);
-async function caricaDomande() {
-  var c = $('classe').value, g = $('giorno').value || oggi(), k = c + g + TOK_OK;
-  if (!TOK_OK) { $('domande').innerHTML = ''; return; }
-  if (k === domChiesto && Date.now() - domQuando < 60000) return;
-  if (k !== domChiesto) $('domande').textContent = 'Carico…';
-  domChiesto = k; domQuando = Date.now();
-  try {
-    var r = await fetch('../avanzamento/domande-' + c.toLowerCase() + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'});
-    if (!r.ok) throw 0;
-    var d = await r.json(); if (d.cifrato) d = await decifra(d);
-    // 28/10/2026 (Nicola): Claude risponde SEMPRE a tutte, in ordine di arrivo; la spunta «Priorità» passa avanti una domanda.
-    var L = (d.domande || []).filter(function (x) { return x.giorno === g; });
-    // 28/10/2026 (Nicola): le domande valgono solo in giornata; quelle dei giorni prima senza risposta sono «chiuse».
-    var coda = L.filter(function (x) { return !x.risposta && x.stato !== 'chiusa'; }), fatte = L.filter(function (x) { return !!x.risposta; }),
-        chiuse = L.filter(function (x) { return !x.risposta && x.stato === 'chiusa'; });
-    coda.sort(function (a, b) { return (b.priorita ? 1 : 0) - (a.priorita ? 1 : 0) || String(a.ora).localeCompare(String(b.ora)); });
-    var prio = coda.filter(function (x) { return x.priorita; }).length;
-    function riga(x, i, attesa) {
-      return '<div class="dom"' + (attesa ? '' : ' style="opacity:.6;background:#f1f3f5"') + '><b>' + esc(x.ora) + ' · ' + esc(x.nome) + '</b> <small>(' + esc(x.pagina) + ')</small><br>' + esc(x.domanda) +
-        (x.risposta ? '<div class="r">' + esc(x.risposta) + '</div>' : '') +
-        (attesa ? '<div class="az"><label style="font-size:15px"><input type="checkbox" data-p="' + i + '"' + (x.priorita ? ' checked' : '') + '> Priorità</label><span id="pr-' + i + '"></span></div>' : '') + '</div>';
+(function () {
+  'use strict';
+  var COL = { VERDE: '#2e7d32', GIALLO: '#f9a825', ARANCIO: '#ef6c00', ROSSO: '#c62828' };
+  var CLASSI = ['1INF', '2INF', '3INF', '4TI'];
+  var statoCorr = { classe: '3INF', vista: 'consegne' };
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + t; }
+  function viste(c) { var v = [{ id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }]; if (c === '3INF') v.push({ id: 'git', nome: 'Git', scheda: 'Cruscotto Git 3INF' }); return v; }
+  function csv(t) {
+    var r = [], row = [], c = '', q = false;
+    for (var i = 0; i < t.length; i++) {
+      var ch = t[i];
+      if (q) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ',') { row.push(c); c = ''; }
+      else if (ch === '\n') { row.push(c); r.push(row); row = []; c = ''; }
+      else if (ch !== '\r') c += ch;
     }
-    $('domande').innerHTML = (PROVA ? BANNER : '') + '<p><b>In coda: ' + coda.length + ' · con priorità: ' + prio + '</b></p><p style="color:var(--mu);font-size:14px">Aggiornato alle ' + esc(d.aggiornato || '?') +
-      '. Claude risponde a tutte, in ordine di arrivo; prima quelle con la spunta «Priorità».</p>' +
-      (coda.length ? coda.map(function (x, i) { return riga(x, i, true); }).join('') : '<p>Nessuna domanda in coda.</p>') +
-      (fatte.length ? '<h2 style="margin-top:14px">Già risposte</h2>' + fatte.map(function (x) { return riga(x, 0, false); }).join('') : '') +
-      (chiuse.length ? '<h2 style="margin-top:14px">Chiuse a fine giornata, senza risposta</h2>' + chiuse.map(function (x) { return riga(x, 0, false); }).join('') : '');
-    Array.prototype.forEach.call(document.querySelectorAll('[data-p]'), function (cb) {
-      cb.onchange = function () {
-        var x = coda[+cb.dataset.p];
-        invia({tipo: 'priorita', priorita: cb.checked, domanda_id: x.id, testo: (cb.checked ? 'Priorità: ' : 'Tolgo la priorità: ') + x.ora + ' ' + x.nome + ' - ' + String(x.domanda).slice(0, 120)}, $('pr-' + cb.dataset.p), cb)
-          .then(function (ok) { if (!ok) cb.checked = !cb.checked; });
-      };
-    });
-  } catch (e) { domChiesto = ''; $('domande').innerHTML = '<p class="manca">Le domande di questa classe non sono ancora disponibili.</p>'; }
-}
-// ---- Riepilogo (solo Docente, 28/10/2026): ultimi giorni di TUTTE le classi, da riepilogo.json CIFRATO ----
-// Lo scrive generatori/riepilogo_cruscotto.py (riservato) ogni notte e a fine giornata. Dove un dato manca: «dato non disponibile».
-var RP = null, rpChiesto = '', ND = 'dato non disponibile';
-function nd(x) { return x === ND || x == null || x === '' ? '<span class="nd">' + ND + '</span>' : esc(x); }
-function gg(g) { return String(g || '').split('-').reverse().join('/'); }
-function giornoSett(g) { try { return new Date(g + 'T12:00:00').toLocaleDateString('it-IT', {weekday: 'short'}) + ' '; } catch (e) { return ''; } }
-async function caricaRiepilogo() {
-  if (!TOK_OK) { disegnaRiepilogo(); return; }
-  if (rpChiesto === TOK_OK && RP) { disegnaRiepilogo(); return; }
-  rpChiesto = TOK_OK; $('riepilogo').textContent = 'Carico il riepilogo…';
-  try {
-    var r = await fetch('riepilogo.json?t=' + Date.now(), {cache: 'no-store'}); if (!r.ok) throw 0;
-    var d = await r.json(); RP = d.cifrato ? await decifra(d) : d;
-  } catch (e) { RP = null; rpChiesto = ''; $('riepilogo').innerHTML = '<p class="manca">Il riepilogo non è ancora disponibile (riepilogo.json mancante o codice sbagliato).</p>'; return; }
-  disegnaRiepilogo();
-}
-function disegnaRiepilogo() {
-  var el = $('riepilogo');
-  if (!TOK_OK) {
-    el.innerHTML = '<h2>Riepilogo degli ultimi giorni</h2><p class="manca">Il riepilogo contiene nomi e voti: è cifrato. Scrivi il codice del docente.</p>' +
-      '<div class="cod"><input id="rpCod" type="password" autocomplete="current-password" placeholder="Codice del docente"><button class="btn" id="rpApri">Apri</button><span id="rpErr"></span></div>';
-    var apri = function () {
-      var t = $('rpCod').value.trim(); if (!t) return;
-      $('rpErr').textContent = 'Controllo…';
-      provaCodice(t).then(function (ok) {
-        if (!ok) { $('rpErr').innerHTML = '<span class="ko">Codice sbagliato.</span>'; return; }
-        TOK_OK = t; try { sessionStorage.setItem('tokmon', t); } catch (e) {}
-        disegnaPiano(); linguette(); levaAggiorna();
-      }).catch(function () { $('rpErr').innerHTML = '<span class="ko">Codice sbagliato.</span>'; });
-    };
-    $('rpApri').onclick = apri; $('rpCod').onkeydown = function (e) { if (e.key === 'Enter') apri(); };
-    return;
+    if (c.length || row.length) { row.push(c); r.push(row); }
+    return r;
   }
-  if (!RP) return;
-  var d = RP, h = '<h2>Riepilogo: che cosa è successo negli ultimi giorni</h2>';
-  h += '<p class="rp-meta">Tutte le classi, dal ' + gg(d.dal) + ' al ' + gg(d.al) + '. Dati letti il ' + esc(d.generato) + '. Clic su una riga = apre quel giorno di quella classe nel cruscotto.</p>';
-  // 1. Lezioni
-  h += '<h3>1. Lezioni per giorno e classe</h3><table class="carte"><thead><tr><th>Giorno</th><th>Classe</th><th>Argomento</th><th>Presenti</th><th>Consegnati</th><th>Voto medio</th><th>Fuori compito</th><th>Non finito</th></tr></thead><tbody>';
-  (d.lezioni || []).forEach(function (x, i) {
-    var lav = (x.lavori || []).map(function (l) {
-      var n = l.fatti == null ? '<span class="nd">' + ND + '</span>' : esc(l.fatti) + (l.su != null && l.su !== ND ? ' su ' + esc(l.su) : '');
-      return '<li>' + esc(l.tipo) + ' «' + esc(l.t) + '»: <b>' + n + '</b></li>';
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+  function $(id) { return document.getElementById(id); }
+  function cella(c, i) {
+    if (i === 0) return '<td class="st" style="background:' + (COL[c.trim()] || '#888') + '">' + esc(c) + '</td>';
+    var cl = /consegnato/i.test(c) ? ' class="ok"' : (/mancante/i.test(c) ? ' class="ko"' : '');
+    return '<td' + cl + '>' + esc(c) + '</td>';
+  }
+  function disegna(righe) {
+    var m = ((righe[0] && righe[0][0]) || '').match(/(\d{1,2}:\d{2}:\d{2})/);
+    $('dato').textContent = 'Dati letti alle ' + (m ? m[1] : '?');
+    var testa = righe[3] || [], corpo = righe.slice(4).filter(function (r) { return r[0] && r[0].trim(); });
+    var n = { VERDE: 0, GIALLO: 0, ARANCIO: 0, ROSSO: 0 };
+    corpo.forEach(function (r) { var k = r[0].trim(); if (n[k] !== undefined) n[k]++; });
+    $('conta').innerHTML = Object.keys(n).map(function (k) { return '<span style="background:' + COL[k] + '">' + k + ' ' + n[k] + '</span>'; }).join('');
+    $('tab').querySelector('thead').innerHTML = '<tr>' + testa.map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('') + '</tr>';
+    var primo = true;
+    $('tab').querySelector('tbody').innerHTML = corpo.map(function (r) {
+      var id = '';
+      if (r[0].trim() === 'ROSSO' && primo) { id = ' id="prima-rossa"'; primo = false; }
+      return '<tr' + id + '>' + r.map(cella).join('') + '</tr>';
     }).join('');
-    var nf = (x.nonfinito || []).map(function (t) { return t === ND ? '<li><span class="nd">' + ND + '</span></li>' : '<li class="nf">' + esc(t) + '</li>'; }).join('');
-    var voto = x.voto === ND ? nd(ND) : '<b' + (x.voto.media < 60 ? ' class="rosso"' : '') + '>' + esc(x.voto.media) + '</b><br><small>' + esc(x.voto.fonte) + '</small>';
-    var fuori = x.fuori === ND ? nd(ND) : '<b' + (x.fuori >= 10 ? ' class="rosso"' : '') + '>' + esc(x.fuori) + '</b>';
-    h += '<tr' + (x.cruscotto ? ' class="clic" data-i="' + i + '" title="Apri il cruscotto di quel giorno"' : '') + '>' +
-      '<td data-l="Giorno"><b>' + giornoSett(x.giorno) + gg(x.giorno) + '</b></td><td data-l="Classe"><span class="cl">' + esc(x.classe) + '</span>' + (x.cruscotto ? '' : '<br><small>nessun cruscotto</small>') + '</td>' +
-      '<td data-l="Argomento">' + nd(x.argomento) + '</td><td data-l="Presenti">' + nd(x.presenti) + '</td>' +
-      '<td data-l="Consegnati">' + (lav ? '<ul>' + lav + '</ul>' : nd(ND)) + '</td><td data-l="Voto medio">' + voto + '</td><td data-l="Fuori compito">' + fuori + '</td>' +
-      '<td data-l="Non finito">' + (nf ? '<ul>' + nf + '</ul>' : '<span style="color:#1e8e3e">niente in sospeso nei dati</span>') +
-      '<details class="fonti"><summary>da dove vengono i dati</summary><ul>' + (x.fonti || []).map(function (f) { return '<li>' + esc(f) + '</li>'; }).join('') + '</ul></details></td></tr>';
-  });
-  h += '</tbody></table>';
-  // 2. Ragazzi da seguire
-  h += '<h3>2. Ragazzi da seguire</h3><p class="rp-meta">Più lavori mancanti, voti bassi ripetuti (sotto 60) o più fuori compito nelle ultime 2 settimane.</p>';
-  Object.keys(d.seguire || {}).forEach(function (c) {
-    var L = d.seguire[c] || [];
-    h += '<p style="margin:10px 0 6px"><span class="cl">' + esc(c) + '</span></p>';
-    if (!L.length) { h += '<p class="rp-meta">Nessuno da segnalare con i dati disponibili.</p>'; return; }
-    h += L.map(function (r) {
-      return '<div class="ragazzo"><b>' + esc(r.nome) + '</b>' +
-        (r.mancanti.length ? '<br>Manca (' + r.mancanti.length + '): ' + r.mancanti.map(esc).join('; ') : '') +
-        (r.bassi.length ? '<br><span' + (r.bassi.length >= 2 ? ' class="rosso"' : '') + '>Voti bassi (' + r.bassi.length + '):</span> ' + r.bassi.map(esc).join('; ') : '') +
-        (r.fuori ? '<br>Fuori compito (Veyon): <b' + (r.fuori >= 5 ? ' class="rosso"' : '') + '>' + esc(r.fuori) + '</b>' : '') + '</div>';
-    }).join('');
-  });
-  // 3. Prove per la Regione
-  var pr = d.prove || {};
-  h += '<h3>3. Prove per la Regione (salvate su Classroom, 1° quadrimestre)</h3><table><thead><tr><th>Classe</th><th>Prove</th><th>Obiettivo</th><th>Stato</th></tr></thead><tbody>' +
-    (pr.righe || []).map(function (r) {
-      return '<tr><td><span class="cl">' + esc(r.classe) + '</span></td><td' + (r.sotto ? ' class="rosso"' : '') + '>' + nd(r.prove) + (r.sotto ? ' (sotto 3)' : '') + '</td><td>' + esc(r.obiettivo) + '</td><td' + (r.sotto ? ' class="rosso"' : '') + '>' + nd(r.stato) + '</td></tr>';
-    }).join('') + '</tbody></table><p class="fonti">Fonte: ' + esc(pr.fonte) + ', ' + esc(pr.aggiornato) + '.</p>';
-  // 4. Sicurezza
-  h += '<h3>4. Sicurezza sul lavoro</h3><table class="carte"><thead><tr><th>Classe</th><th>Ore sul registro</th><th>Ora del corso Regione</th><th>Ultima ora</th><th>Quiz</th><th>Prossima</th></tr></thead><tbody>' +
-    (d.sicurezza || []).map(function (r) {
-      return '<tr><td data-l="Classe"><span class="cl">' + esc(r.classe) + '</span></td><td data-l="Ore sul registro">' + nd(r.ore_registro) + '</td><td data-l="Ora del corso Regione">' + (r.ora_regione ? esc(r.ora_regione) + 'ª' : nd(ND)) + '</td>' +
-        '<td data-l="Ultima ora">' + nd(r.ultima) + '</td><td data-l="Quiz">' + nd(r.quiz) + (r.quiz_letto ? '<br><small>letto ' + esc(r.quiz_letto) + '</small>' : '') + '</td><td data-l="Prossima">' + nd(r.prossima) +
-        ((r.fonti || []).length ? '<br><small>fonti: ' + r.fonti.map(esc).join(', ') + '</small>' : '') + '</td></tr>';
-    }).join('') + '</tbody></table>';
-  // 5. Prossime lezioni
-  h += '<h3>5. Prossime lezioni</h3><p class="rp-meta">Da PROSSIME-LEZIONI.md (' + esc(d.prossime_aggiornato) + ') e dal piano del giorno del cruscotto.</p>';
-  var P = d.prossime || [];
-  h += P.length ? P.map(function (p) {
-    var pi = p.piano ? (p.piano.scelta ? '<br>Proposta scelta: <b>' + esc(p.piano.scelta) + '</b>' : (p.piano.proposte || []).length ? '<br>Proposte (nessuna scelta): ' + p.piano.proposte.map(esc).join(' · ') : '') : '';
-    return '<div class="giorno-p"><b>' + giornoSett(p.giorno) + gg(p.giorno) + '</b> <span class="cl">' + esc(p.classe) + '</span> ' + nd(p.ore) + ', ' + nd(p.materia) + '<br>' + nd(p.argomento) + pi + '</div>';
-  }).join('') : '<p>' + nd(ND) + '</p>';
-  // dati mancanti
-  var M = d.mancanti_dati || [];
-  if (M.length) h += '<details style="margin-top:12px"><summary>Dati mancanti (' + M.length + ')</summary><p class="fonti">' + M.map(esc).join(' · ') + '</p></details>';
-  if ((d.note || []).length) h += '<p class="fonti" style="margin-top:10px">' + d.note.map(esc).join('<br>') + '</p>';
-  el.innerHTML = h;
-  Array.prototype.forEach.call(el.querySelectorAll('tr.clic'), function (tr) {
-    tr.onclick = function (ev) {
-      if (ev.target.closest && ev.target.closest('details')) return;
-      var x = d.lezioni[+tr.dataset.i];
-      CL_UTENTE = true; CL_AUTO = ''; $('classe').value = x.classe; $('giorno').value = x.giorno; tab = 'oggi'; mostra(); window.scrollTo(0, 0);
-    };
-  });
-}
-// ---- Script e ponte (28/10/2026, Nicola): riquadri con barre e istogramma dei comandi per ora (solo numeri) ----
-var PONTE = null;
-function fmt(n) { return Number(n || 0).toLocaleString('it-IT'); }
-function barra(v, max, rossa) { var p = max ? Math.max(0, Math.min(100, 100 * v / max)) : 0; return '<div class="bar"><i' + (rossa ? ' class="r"' : '') + ' style="width:' + p.toFixed(1) + '%"></i></div>'; }
-function disegnaScript() {
-  var s = STATO, p = PONTE, h = '';
-  if (s) {
-    var rit = s.ritmo ? 'ogni ' + s.ritmo + (s.ritmo === 1 ? ' minuto' : ' minuti') : 'SPENTO', spento = !s.ritmo || !s.timer;
-    h += '<div class="k' + (spento ? ' r' : '') + '"><div class="kt">Ritmo attuale</div><div class="kv">' + esc(rit) + '</div><div class="ks">Script v' + esc(s.versione) + (s.timer ? ' · timer acceso' : ' · timer FERMO') + (s.inOrario === false ? ' · fuori orario, dorme' : '') + '</div></div>';
-    h += '<div class="k"><div class="kt">Giri oggi</div><div class="kv">' + fmt(s.giri_oggi) + '</div><div class="ks">giri dello script da stamattina</div></div>';
-    var lim = +s.limite_google_giorno || 100000, ch = +s.chiamate_oggi || 0, chR = ch / lim >= 0.8;
-    h += '<div class="k' + (chR ? ' r' : '') + '"><div class="kt">Chiamate Google oggi</div><div class="kv">' + fmt(ch) + '</div>' + barra(ch, lim, chR) + '<div class="ks">su ' + fmt(lim) + ' (' + (100 * ch / lim).toFixed(1) + '%), si azzera ogni giorno</div></div>';
-    if (s.github_rimaste !== '' && s.github_rimaste != null) {
-      var gl = +s.github_limite_ora || 5000, gr = +s.github_rimaste, gR = gr < 500;
-      h += '<div class="k' + (gR ? ' r' : '') + '"><div class="kt">Richieste GitHub rimaste</div><div class="kv">' + fmt(gr) + '</div>' + barra(gr, gl, gR) + '<div class="ks">su ' + fmt(gl) + ' l\'ora' + (s.github_reset ? ', si azzera alle ' + new Date(s.github_reset).toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'}) : '') + '</div></div>';
-    } else h += '<div class="k"><div class="kt">Richieste GitHub rimaste</div><div class="kv">—</div><div class="ks">lo script non ha dato il dato</div></div>';
-  } else {
-    h += '<div class="k r"><div class="kt">Script</div><div class="kv">?</div><div class="ks">' + esc($('stato').textContent) + '</div></div>';
+    var s = $('serve');
+    if (n.ROSSO > 0) { s.style.display = 'block'; s.textContent = 'Serve te (' + n.ROSSO + ')'; } else s.style.display = 'none';
+    verificaVecchi(m ? m[1] : null);
   }
-  if (p) {
-    var quando = p.oggi === oggi() ? 'oggi' : 'il ' + gg(p.oggi);
-    h += '<div class="k' + (p.errori_oggi ? ' r' : '') + '"><div class="kt">Comandi del ponte ' + quando + '</div><div class="pn">' +
-      '<span>eseguiti<br><b>' + fmt(p.eseguiti_oggi) + '</b></span><span' + (p.errori_oggi ? ' class="ko"' : '') + '>con errore<br><b>' + fmt(p.errori_oggi) + '</b></span>' +
-      '<span>da eseguire<br><b>' + fmt(p.da_eseguire) + '</b></span><span>in attesa del docente<br><b>' + fmt(p.in_attesa_altro) + '</b></span></div>' +
-      '<div class="ks">' + (p.ultimo_eseguito ? 'ultimo alle ' + esc(p.ultimo_eseguito) + ' · ' : '') + (p.da_eseguire_dal ? 'in attesa dalle ' + esc(p.da_eseguire_dal) + ' · ' : '') + 'conteggio delle ' + esc(p.aggiornato) + '</div></div>';
+  function verificaVecchi(hms) {
+    var el = $('vecchi');
+    if (!hms) { el.style.display = 'none'; return; }
+    var p = hms.split(':'), o = new Date();
+    o.setHours(+p[0], +p[1], +p[2], 0);
+    var min = (new Date() - o) / 60000;
+    if (min > 6) { el.style.display = 'block'; el.textContent = 'DATI VECCHI di ' + Math.round(min) + ' minuti: il foglio non si aggiorna'; }
+    else el.style.display = 'none';
   }
-  $('kpi').innerHTML = h;
-  // istogramma: eseguiti (blu) e con errore (rosso) per ora
-  var O = (p && p.per_ora) || [];
-  if (!O.length) { $('isto').innerHTML = '<p style="margin:6px;color:var(--mu)">Il conteggio per ora non è ancora disponibile.</p>'; return; }
-  var W = 640, H = 230, ml = 34, mb = 26, mt = 12, max = 1;
-  O.forEach(function (x) { max = Math.max(max, x.eseguiti, x.errori); });
-  var passo = Math.max(1, Math.ceil(max / 4)), top = passo * Math.ceil(max / passo), cw = (W - ml - 6) / O.length, bw = Math.max(4, Math.min(22, cw / 2 - 3));
-  var y = function (v) { return mt + (H - mt - mb) * (1 - v / top); }, svg = '';
-  for (var v = 0; v <= top; v += passo) svg += '<line x1="' + ml + '" x2="' + W + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#e6e9ee"/><text x="' + (ml - 6) + '" y="' + (y(v) + 4) + '" text-anchor="end" font-size="12" fill="#5b6573">' + v + '</text>';
-  O.forEach(function (x, i) {
-    var cx = ml + cw * i + cw / 2;
-    svg += '<rect x="' + (cx - bw - 1) + '" y="' + y(x.eseguiti) + '" width="' + bw + '" height="' + (y(0) - y(x.eseguiti)) + '" fill="#5b7fb3" rx="2"><title>' + x.ora + ': ' + x.eseguiti + ' eseguiti</title></rect>';
-    svg += '<rect x="' + (cx + 1) + '" y="' + y(x.errori) + '" width="' + bw + '" height="' + (y(0) - y(x.errori)) + '" fill="#c0392b" rx="2"><title>' + x.ora + ': ' + x.errori + ' con errore</title></rect>';
-    if (x.eseguiti) svg += '<text x="' + (cx - bw / 2 - 1) + '" y="' + (y(x.eseguiti) - 3) + '" text-anchor="middle" font-size="11" fill="#1b1f24">' + x.eseguiti + '</text>';
-    if (x.errori) svg += '<text x="' + (cx + bw / 2 + 1) + '" y="' + (y(x.errori) - 3) + '" text-anchor="middle" font-size="11" fill="#c0392b">' + x.errori + '</text>';
-    svg += '<text x="' + cx + '" y="' + (H - 8) + '" text-anchor="middle" font-size="12" fill="#5b6573">' + x.ora + '</text>';
-  });
-  $('isto').innerHTML = '<div class="leg"><i style="background:#5b7fb3"></i>eseguiti<i style="background:#c0392b"></i>con errore · per ora del giorno (' + esc(p.oggi === oggi() ? 'oggi' : gg(p.oggi)) + ')</div>' +
-    '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Comandi del ponte per ora">' + svg + '</svg>';
-}
-// ---- «Serve te» (29/10/2026, Nicola: «Dammi bottone rosso per le criticità che necessitano mio intervento, per il resto
-// prepara tutto, fai audit che funzioni, pubblica e risolvi tutti i casini da solo»). Regola 30 di CLAUDE.md.
-// Fonte: docs/cruscotto/criticita.json, scritto da Claude (cifrato con strumenti/cifra_json.py se ha nomi, #85), riletto ogni minuto.
-// Formato: {aggiornato: "29/10/2026 08:58", voci: [{id, classe, ora, entro, cosa, bottoni?: ["Fatto"], vai?: {classe, tab}}]}
-// «Fatto» manda un messaggio tipo «fatto» sul canale docente-<classe>, come «Scelgo questa».
-var CRIT = null, CRIT_LETTO = null, CRIT_ERR = '', CRIT_APERTO = false, CRIT_MSG = {};
-function critFatte() { var F = null; try { F = JSON.parse(localStorage.getItem('cruscotto-crit-fatte' + (PROVA ? '-prova' : '')) || 'null'); } catch (e) {} return F || {}; }
-function critSegna(id, msg) { var F = critFatte(); F[id] = {msg: msg, quando: Date.now()}; try { localStorage.setItem('cruscotto-crit-fatte' + (PROVA ? '-prova' : ''), JSON.stringify(F)); } catch (e) {} }
-function critVoci() { return (CRIT && CRIT.voci) || []; }
-function critAperte() { var F = critFatte(); return critVoci().filter(function (v) { return !F[v.id]; }); }
-async function caricaCrit() {
-  try {
-    var r = await fetch('criticita' + (PROVA ? '-prova' : '') + '.json?t=' + Date.now(), {cache: 'no-store'}); if (!r.ok) throw 0;
-    var d = await r.json();
-    if (d.cifrato) {
-      if (!TOK_OK) { CRIT_ERR = 'cifrato'; disegnaCrit(); return; }
-      d = await decifra(d);
-    }
-    CRIT = d; CRIT_ERR = ''; CRIT_LETTO = new Date();
-  } catch (e) { CRIT_ERR = 'manca'; }
-  disegnaCrit();
-}
-function disegnaCrit() {
-  var b = $('serveTe'), box = $('critBox'), doc = ruolo === 'docente';
-  b.style.display = doc ? '' : 'none';
-  if (!doc) { box.style.display = 'none'; return; }
-  var A = critAperte(), n = A.length, ignoto = CRIT_ERR && !CRIT;
-  b.textContent = ignoto ? 'Serve te (?)' : (n ? 'Serve te (' + n + ')' : 'Niente per te');
-  b.className = 'serve' + (!ignoto && !n ? ' grigio' : '');
-  box.style.display = CRIT_APERTO ? '' : 'none';
-  if (!CRIT_APERTO) return;
-  var h = '<div class="critTesta"><h2>' + (n ? 'Serve te: ' + n + (n === 1 ? ' cosa' : ' cose') : 'Niente per te') + '</h2><button class="btn sec" id="critChiudi">Chiudi</button></div>';
-  if (PROVA) h += BANNER;
-  h += '<p class="pmeta">Qui ci sono SOLO le cose che richiedono te; il resto lo fa Claude da solo. ' +
-    (CRIT ? 'Elenco scritto da Claude: ' + esc(CRIT.aggiornato || '?') + ' · riletto alle ' + hhmm(CRIT_LETTO) + ' (ogni minuto).' : '') + '</p>';
-  if (CRIT_ERR === 'cifrato' && !CRIT) h += '<p class="manca">L\'elenco contiene nomi: è cifrato. Scrivi il codice del docente nella linguetta «Oggi dal vivo» (o in un bottone «Fatto»).</p>';
-  else if (CRIT_ERR && !CRIT) h += '<p class="manca ko">Non riesco a leggere l\'elenco delle criticità (criticita.json): chiedi a Claude in chat.</p>';
-  else if (CRIT_ERR) h += '<p class="manca ko">Ultima lettura non riuscita: mostro l\'elenco letto alle ' + hhmm(CRIT_LETTO) + '.</p>';
-  var F = critFatte();
-  function voce(v, fatta) {
-    var bt = (v.bottoni && v.bottoni.length ? v.bottoni : ['Fatto']);
-    return '<div class="cv' + (fatta ? ' fatta' : '') + '" data-id="' + esc(v.id) + '"><div><span class="cl">' + esc(v.classe || 'tutte') + '</span> <b>' + esc(v.ora || '') + '</b>' +
-      (v.entro ? ' · <span class="ko">entro le ' + esc(v.entro) + '</span>' : '') + '</div><p>' + esc(v.cosa) + '</p>' +
-      (fatta ? '<span class="scok">' + esc(F[v.id].msg) + '</span>' :
-        '<div class="az">' + bt.map(function (t, i) { return '<button class="btn" data-fatto="' + i + '">' + esc(t) + '</button>'; }).join('') +
-        (v.vai ? '<button class="btn sec" data-vai="1">Apri</button>' : '') + '</div><span data-st="c"></span>') + '</div>';
+  function vuota() {
+    $('conta').innerHTML = ''; $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
+    $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('dato').textContent = 'In attesa dei dati';
   }
-  h += A.map(function (v) { return voce(v, false); }).join('');
-  var G = critVoci().filter(function (v) { return F[v.id]; });
-  if (G.length) h += '<h3 class="pmeta">Già mandate a Claude da questo dispositivo</h3>' + G.map(function (v) { return voce(v, true); }).join('');
-  box.innerHTML = h;
-  $('critChiudi').onclick = function () { CRIT_APERTO = false; disegnaCrit(); };
-  Array.prototype.forEach.call(box.querySelectorAll('.cv:not(.fatta)'), function (el) {
-    var v = critVoci().filter(function (x) { return x.id === el.dataset.id; })[0]; if (!v) return;
-    var st = el.querySelector('[data-st="c"]');
-    Array.prototype.forEach.call(el.querySelectorAll('[data-fatto]'), function (b) {
-      b.onclick = function () {
-        var et = (v.bottoni && v.bottoni.length ? v.bottoni : ['Fatto'])[+b.dataset.fatto];
-        var cl = v.classe || (CLASSI.indexOf($('classe').value) >= 0 ? $('classe').value : 'tutte');
-        conCodice(st, function () {
-          invia({tipo: 'fatto', voce: v.id, esito: et, classe: cl, giorno: oggi(), testo: et + ': ' + v.cosa}, st, b).then(function (ok) {
-            if (!ok) return;
-            critSegna(v.id, 'Mandato a Claude alle ' + hhmm(new Date()) + ': «' + et + '»' + (PROVA ? ' (PROVA: non è partito niente)' : ''));
-            disegnaCrit();
-          });
-        });
-      };
-    });
-    var va = el.querySelector('[data-vai]');
-    if (va) va.onclick = function () {
-      CL_UTENTE = true; CL_AUTO = ''; if (v.vai.classe) $('classe').value = v.vai.classe;
-      if (v.vai.tab && TABS.indexOf(v.vai.tab) >= 0) tab = v.vai.tab;
-      CRIT_APERTO = false; mostra(); disegnaCrit(); window.scrollTo(0, 0);
-    };
-  });
-}
-$('serveTe').onclick = function () { CRIT_APERTO = !CRIT_APERTO; disegnaCrit(); };
-caricaCrit(); setInterval(caricaCrit, 60000);
-function scegli(r) { ruolo = r; if (typeof controllaCodice === 'function') setTimeout(controllaCodice, 0); $('allievo').className = r === 'allievo' ? 'on' : ''; $('docente').className = r === 'docente' ? 'on' : ''; mostra(); }
-$('allievo').onclick = function () { scegli('allievo'); };
-$('docente').onclick = function () { scegli('docente'); };
-$('classe').onchange = function () { CL_UTENTE = true; CL_AUTO = ''; mostra(); }; $('giorno').onchange = mostra;
-try { var s = JSON.parse(localStorage.getItem('cruscotto') || '{}'); if (s.c) $('classe').value = s.c; if (s.r) ruolo = s.r; if (s.t) tab = s.t; } catch (e) {}
-var q = new URLSearchParams(location.search);
-if (q.get('classe') && (OGGI_PAG[q.get('classe').toUpperCase()] || q.get('classe').toUpperCase() === 'TUTTE')) { $('classe').value = q.get('classe').toUpperCase(); CL_UTENTE = true; }
-if (q.get('ruolo') === 'docente' || q.get('ruolo') === 'allievo') ruolo = q.get('ruolo');
-if (TABS.indexOf(q.get('tab')) >= 0) tab = q.get('tab');
-$('giorno').value = q.get('giorno') || oggi(); $('giorno').max = oggi();
-autoClasse();
-fetch('../avanzamento/archivio/indice.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : {}; })
-  .catch(function () { return {}; }).then(function (d) { IND = d || {}; scegli(ruolo); });
-
-// 27/10/2026 (Nicola): lo stato dello script in alto: giri fatti oggi, ritmo, massimo e quando si azzera.
-window.statoScript = function (s) {
-  var rit = s.ritmo ? 'ogni ' + s.ritmo + (s.ritmo === 1 ? ' minuto' : ' minuti') : 'SPENTO';
-  var t = s.timer ? '' : ' · timer FERMO';
-  var gh = s.github_rimaste !== '' ? ' · GitHub: ' + s.github_rimaste + ' richieste rimaste su ' + s.github_limite_ora + ' l\'ora' + (s.github_reset ? ', si azzera alle ' + new Date(s.github_reset).toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit'}) : '') : '';
-  STATO = s; levaAggiorna();
-  var el = document.getElementById('stato');
-  el.textContent = 'Script v' + s.versione + ': ' + rit + t + ' · giri oggi ' + s.giri_oggi + ' · chiamate oggi ' + s.chiamate_oggi + ' su ' + s.limite_google_giorno + ' (si azzera ogni giorno)' + gh;
-  SCRIPT_KO = !s.timer || !s.ritmo || (s.github_rimaste !== '' && +s.github_rimaste < 500);
-  document.getElementById('script').style.color = SCRIPT_KO ? '#c0392b' : ''; linguette(); disegnaScript();
-};
-fetch('../verifica/config.json?t=' + Date.now()).then(function (r) { return r.json(); }).then(function (c) {
-  if (!c || !c.invio) return;
-  var sc = document.createElement('script'); sc.src = c.invio + (c.invio.indexOf('?') < 0 ? '?' : '&') + 'ping=1&callback=statoScript';
-  INVIO = c.invio;
-  sc.onerror = function () { document.getElementById('stato').textContent = 'Script: non risponde.'; document.getElementById('script').style.color = '#c0392b'; SCRIPT_KO = true; linguette(); disegnaScript(); };
-  document.body.appendChild(sc);
-}).catch(function () {});
-
-// 28/10/2026 (orario/da-fare-cruscotto.md punto 7): comandi del ponte di oggi, da docs/cruscotto/ponte.json (solo numeri e ore).
-fetch('ponte.json?t=' + Date.now(), {cache: 'no-store'}).then(function (r) { return r.ok ? r.json() : null; }).then(function (p) {
-  if (!p) return;
-  PONTE = p; disegnaScript();
-  var quando = p.oggi === oggi() ? 'oggi' : 'il ' + p.oggi.split('-').reverse().join('/');
-  document.getElementById('ponte').textContent = ' · ponte ' + quando + ': ' + p.eseguiti_oggi + ' comandi eseguiti' +
-    (p.errori_oggi ? ', ' + p.errori_oggi + ' con errore' : '') + (p.ultimo_eseguito ? ' (ultimo alle ' + p.ultimo_eseguito + ')' : '') +
-    ', ' + p.da_eseguire + ' da eseguire' + (p.da_eseguire_dal ? ' (in attesa dalle ' + p.da_eseguire_dal + ')' : '') +
-    (p.in_attesa_altro ? ', ' + p.in_attesa_altro + ' fermi in attesa del docente' : '') + ' · conteggio delle ' + p.aggiornato;
-}).catch(function () {});
-
-// 28/10/2026 (orario/da-fare-cruscotto.md punto 2): la leva del ritmo. Compare SOLO in modalità Docente e solo con il
-// codice del docente giusto (lo stesso delle pagine docente: sessionStorage «tokmon», verificato decifrando chiave.json).
-// Lo script v8.3 NON accetta il ritmo dal web: i bottoni dicono di chiederlo a Claude (che scrive il comando «script.ritmo»
-// nel ponte). Quando il ping dirà leva_ritmo (v8.4, strumenti/automazione-corso-v8.4-ritmo.patch.gs) aprono <invio>?ritmo=N&k=codice.
-var SCRIPT_KO = false, STATO = null, INVIO = '', TOK_OK = '', CLIC = false;
-function b64(x) { return Uint8Array.from(atob(x), function (c) { return c.charCodeAt(0); }); }
-async function provaCodice(tok) {
-  var d = await (await fetch('chiave.json', {cache: 'no-store'})).json();
-  var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(tok), 'PBKDF2', false, ['deriveKey']);
-  var k = await crypto.subtle.deriveKey({name: 'PBKDF2', salt: b64(d.salt), iterations: d.iter, hash: 'SHA-256'}, base, {name: 'AES-GCM', length: 256}, false, ['decrypt']);
-  return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name: 'AES-GCM', iv: b64(d.iv)}, k, b64(d.ct)))).ok === 1;
-}
-var provato = '';
-function controllaCodice() {
-  if (ruolo !== 'docente') { levaAggiorna(); return; }
-  var t = ''; try { t = sessionStorage.getItem('tokmon') || ''; } catch (e) {}
-  if (!t || t === TOK_OK || t === provato) { levaAggiorna(); return; }
-  provato = t;
-  provaCodice(t).then(function (ok) { if (ok) { TOK_OK = t; disegnaPiano(); linguette(); if (CRIT_ERR === 'cifrato') caricaCrit(); } levaAggiorna(); }).catch(function () { levaAggiorna(); });
-}
-setInterval(controllaCodice, 3000);   // il codice si scrive nella pagina docente qui sotto (stessa scheda): lo vedo da qui
-function hhmm(d) { return d.toLocaleTimeString('it-IT', {hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Rome'}); }
-function quandoParte() {
-  // Il cambio passa dal ponte: vale al prossimo giro dello script (che legge comandi/). Giro = battito + ritmo.
-  var s = STATO; if (!s) return '';
-  if (!s.ritmo) return 'Lo script è SPENTO: il ponte non gira, quindi un comando non lo riaccende. Per riaccenderlo: Apps Script, menu delle funzioni «ritmo5», «Esegui».';
-  var ora = s.ora ? new Date(s.ora) : new Date(), b = String(s.battito || ''), t = Date.parse(b);
-  if (isNaN(t)) t = Date.parse(b.replace(/\s*\(.*\)\s*$/, ''));
-  if (!s.inOrario) {
-    var d = new Date(ora); d.setHours(7, 0, 0, 0); if (d <= ora) d.setDate(d.getDate() + 1);
-    while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
-    return 'Fuori orario (lun-ven 7-15) lo script dorme: il cambio parte al primo giro utile, ' + d.toLocaleDateString('it-IT', {weekday: 'long'}) + ' verso le ' + hhmm(new Date(d.getTime() + s.ritmo * 60000)) + '.';
+  var corsa = 0;
+  function carica() {
+    var c = statoCorr.classe, v = statoCorr.vista, u = leggi(chiave(c, v)), mio = ++corsa;
+    var def = viste(c).filter(function (x) { return x.id === v; })[0];
+    $('scheda').textContent = '«' + def.scheda + '»';
+    $('url').value = u;
+    if (!u) { vuota(); $('cfg').style.display = 'block'; return; }
+    $('cfg').style.display = 'none';
+    fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (t) { if (mio === corsa) { $('msg').textContent = ''; disegna(csv(t)); } })
+      .catch(function (e) {
+        if (mio !== corsa) return;
+        $('cfg').style.display = 'block';
+        $('msg').textContent = ' Non riesco a leggere il foglio (' + e.message + '). Controlla il link.';
+      });
   }
-  var prossimo = isNaN(t) ? null : new Date(t + s.ritmo * 60000);
-  if (prossimo && prossimo > ora) {
-    var min = Math.max(1, Math.ceil((prossimo - ora) / 60000));
-    return 'Il nuovo ritmo parte al prossimo giro dello script: entro ' + min + (min === 1 ? ' minuto' : ' minuti') + ', cioè verso le ' + hhmm(prossimo) + ' (più il minuto che serve a Claude per scrivere il comando).';
+  function menu() {
+    var c = statoCorr.classe;
+    $('classi').innerHTML = CLASSI.map(function (x) { return '<button type="button" data-c="' + x + '"' + (x === c ? ' class="on"' : '') + '>' + x + '</button>'; }).join('');
+    var serve = $('serve'), vs = viste(c);
+    var html = vs.map(function (x) { return '<button type="button" data-v="' + x.id + '"' + (x.id === statoCorr.vista ? ' class="on"' : '') + '>' + x.nome + '</button>'; }).join('');
+    $('viste').innerHTML = html; $('viste').appendChild(serve);
+    document.title = 'Cruscotto ' + c;
   }
-  return 'Il nuovo ritmo parte al prossimo giro dello script: entro ' + s.ritmo + (s.ritmo === 1 ? ' minuto' : ' minuti') + ', cioè entro le ' + hhmm(new Date(ora.getTime() + s.ritmo * 60000)) + '.';
-}
-function levaAggiorna() {
-  var vis = ruolo === 'docente' && !!TOK_OK;
-  document.getElementById('leva').style.display = vis ? 'flex' : 'none';
-  document.getElementById('levaNo').style.display = vis ? 'none' : '';
-  if (!vis) return;
-  var r = STATO ? +STATO.ritmo : -1;
-  Array.prototype.forEach.call(document.querySelectorAll('#leva button'), function (b) { b.className = +b.dataset.m === r ? 'on' : ''; });
-  // 28/10/2026: la riga «Il cambio vale da subito» in evidenza quando lo script accetta la leva (v8.4, ping leva_ritmo)
-  document.getElementById('levaSubito').textContent = STATO && STATO.leva_ritmo ? 'Il cambio vale da subito.' : '';
-  document.getElementById('levaMsg').textContent = (CLIC ? 'Per ora il ritmo si cambia chiedendolo a Claude in chat. ' : '') + (STATO && STATO.leva_ritmo ? '' : quandoParte());
-  document.getElementById('levaOra').textContent = STATO ? 'adesso: ' + (r ? 'ogni ' + r + (r === 1 ? ' minuto' : ' minuti') : 'spento') : 'adesso: non so (lo script non ha risposto)';
-}
-Array.prototype.forEach.call(document.querySelectorAll('#leva button'), function (b) {
-  b.onclick = function () {
-    var m = +b.dataset.m, msg = document.getElementById('levaMsg');
-    if (STATO && STATO.leva_ritmo && INVIO) {   // v8.4: il cambio vale subito
-      window.open(INVIO + (INVIO.indexOf('?') < 0 ? '?' : '&') + 'ritmo=' + m + '&k=' + encodeURIComponent(TOK_OK), '_blank', 'noopener');
-      msg.textContent = 'Ho aperto la pagina dello script: il nuovo ritmo vale da subito. Ricarica il cruscotto per vederlo qui.';
-      return;
-    }
-    CLIC = true; levaAggiorna();
+  function scegli(c, v) {
+    statoCorr.classe = c; statoCorr.vista = v || 'consegne'; scrivi('cruscotto_ultima_classe', c);
+    try { history.replaceState(null, '', '?classe=' + c); } catch (e) {}
+    menu(); vuota(); carica();
+  }
+  $('classi').onclick = function (e) { var c = e.target.getAttribute('data-c'); if (c) scegli(c); };
+  $('viste').onclick = function (e) {
+    var v = e.target.getAttribute('data-v');
+    if (v) { statoCorr.vista = v; menu(); vuota(); carica(); }
   };
-});
+  $('serve').onclick = function () { var r = $('prima-rossa'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  $('salva').onclick = function () {
+    var v = $('url').value.trim();
+    if (v.indexOf('output=csv') < 0) { $('msg').textContent = ' Il link deve contenere output=csv'; return; }
+    scrivi(chiave(statoCorr.classe, statoCorr.vista), v); carica();
+  };
+  var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
+  q = q ? decodeURIComponent(q).toUpperCase() : leggi('cruscotto_ultima_classe');
+  scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF');
+  setInterval(carica, 30000);
+})();
 </script>
 </body>
 </html>
