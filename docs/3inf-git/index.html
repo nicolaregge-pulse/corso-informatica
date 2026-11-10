@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cruscotto Git 3INF</title>
+<style>
+:root{--bg:#fafafa;--fg:#111;--card:#fff;--line:#c9ced6;--verde:#2e7d32;--giallo:#f9a825;--arancio:#ef6c00;--rosso:#c62828}
+@media (prefers-color-scheme:dark){:root{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352}}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:12px 16px;background:var(--bg);color:var(--fg)}
+h1{font-size:20px;margin:0 0 4px}
+.dato{font-size:24px;font-weight:bold;margin:6px 0}
+.vecchi{background:var(--rosso);color:#fff;padding:8px 12px;border-radius:6px;font-weight:bold;margin:6px 0;display:none}
+.conta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.conta span{color:#fff;padding:6px 12px;border-radius:6px;font-weight:bold}
+table{border-collapse:collapse;width:100%;font-size:14px;background:var(--card)}
+td,th{border:1px solid var(--line);padding:5px 7px;text-align:left}
+th{position:sticky;top:0;background:var(--card)}
+td.st{color:#fff;font-weight:bold;text-align:center}
+.cfg{border:2px solid #1a56db;border-radius:8px;padding:10px 12px;margin:10px 0;background:var(--card)}
+.cfg input{width:100%;box-sizing:border-box;font-size:14px;padding:6px}
+.cfg button{font-size:15px;padding:8px 14px;margin-top:6px;background:#1a56db;color:#fff;border:0;border-radius:6px}
+.nota{font-size:12px;color:#667;margin-top:10px}
+.scroll{overflow-x:auto}
+</style>
+</head>
+<body>
+<h1>3INF · Git e Mastermind · release 1.0</h1>
+<div class="dato" id="dato">In attesa dei dati</div>
+<div class="vecchi" id="vecchi">DATI VECCHI: il foglio non si aggiorna da più di 6 minuti</div>
+<div class="cfg" id="cfg">
+  <b>Una volta sola:</b> incolla qui l'URL del foglio «Cruscotto Git 3INF» pubblicato sul web in formato CSV
+  (nel foglio: File → Condividi → Pubblica sul web → scegli «Valori separati da virgola (.csv)» → Pubblica → copia il link).
+  <input id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
+  <button id="salva">Salva e carica</button>
+  <span id="msg"></span>
+</div>
+<div class="conta" id="conta"></div>
+<div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
+<div class="nota">I dati arrivano dal tuo foglio Google (letto da GitHub dal tuo script, ogni minuto). Il link del foglio resta salvato solo in questo browser. Nessun nome è memorizzato in questa pagina. VERDE = release pubblicata con tag · GIALLO = tag o bozza · ARANCIO = commit di oggi · ROSSO = nessuna attività.</div>
+<script>
+(function () {
+  var COL = { VERDE: '#2e7d32', GIALLO: '#f9a825', ARANCIO: '#ef6c00', ROSSO: '#c62828' };
+  var KEY = 'cg3inf_csv_url';
+  function leggi() { try { return localStorage.getItem(KEY) || ''; } catch (e) { return ''; } }
+  function scrivi(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function csv(t) {
+    var r = [], row = [], c = '', q = false;
+    for (var i = 0; i < t.length; i++) {
+      var ch = t[i];
+      if (q) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ',') { row.push(c); c = ''; }
+      else if (ch === '\n') { row.push(c); r.push(row); row = []; c = ''; }
+      else if (ch !== '\r') c += ch;
+    }
+    if (c.length || row.length) { row.push(c); r.push(row); }
+    return r;
+  }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+  var ultimoOk = 0;
+  function disegna(righe) {
+    var titolo = (righe[0] && righe[0][0]) || '';
+    var m = titolo.match(/(\d{2}:\d{2}:\d{2})/);
+    document.getElementById('dato').textContent = 'Dati letti alle ' + (m ? m[1] : '?');
+    var testa = righe[3] || [], corpo = righe.slice(4).filter(function (r) { return r[0]; });
+    var n = { VERDE: 0, GIALLO: 0, ARANCIO: 0, ROSSO: 0 };
+    corpo.forEach(function (r) { if (n[r[0]] !== undefined) n[r[0]]++; });
+    var cont = '';
+    for (var k in n) cont += '<span style="background:' + COL[k] + '">' + k + ' ' + n[k] + '</span>';
+    document.getElementById('conta').innerHTML = cont;
+    document.querySelector('#tab thead').innerHTML = '<tr>' + testa.map(function (h) { return '<th>' + esc(h) + '</th>'; }).join('') + '</tr>';
+    document.querySelector('#tab tbody').innerHTML = corpo.map(function (r) {
+      return '<tr>' + r.map(function (c, i) {
+        return i === 0 ? '<td class="st" style="background:' + (COL[c] || '#888') + '">' + esc(c) + '</td>' : '<td>' + esc(c) + '</td>';
+      }).join('') + '</tr>';
+    }).join('');
+    ultimoOk = Date.now();
+    verificaVecchi(m ? m[1] : null);
+  }
+  function verificaVecchi(hms) {
+    var el = document.getElementById('vecchi');
+    if (!hms) { el.style.display = 'none'; return; }
+    var p = hms.split(':'), d = new Date(), oraSheet = new Date();
+    oraSheet.setHours(+p[0], +p[1], +p[2], 0);
+    var minuti = (d - oraSheet) / 60000;
+    el.style.display = minuti > 6 ? 'block' : 'none';
+    if (minuti > 6) el.textContent = 'DATI VECCHI di ' + Math.round(minuti) + ' minuti: il foglio non si aggiorna';
+  }
+  function carica() {
+    var u = leggi();
+    if (!u) { document.getElementById('cfg').style.display = 'block'; return; }
+    document.getElementById('cfg').style.display = 'none';
+    fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (t) { disegna(csv(t)); })
+      .catch(function (e) {
+        document.getElementById('cfg').style.display = 'block';
+        document.getElementById('msg').textContent = 'Non riesco a leggere il foglio (' + e.message + '). Controlla il link.';
+      });
+  }
+  document.getElementById('salva').onclick = function () {
+    var v = document.getElementById('url').value.trim();
+    if (v.indexOf('output=csv') < 0) { document.getElementById('msg').textContent = ' Il link deve finire con output=csv'; return; }
+    scrivi(v);
+    carica();
+  };
+  document.getElementById('url').value = leggi();
+  carica();
+  setInterval(carica, 30000);
+})();
+</script>
+</body>
+</html>
