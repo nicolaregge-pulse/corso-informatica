@@ -1,6 +1,6 @@
 # INDICE DEI DOCUMENTI DEL CORSO
 
-**Versione 1.6** — 05/11/2026 · Area Docente (v1.6: mini guida PC v1.3 con foto e tasti HP; v1.5: mini guida PC v1.2, PC senza viti e solo RAM; v1.4: mini guida PC v1.1 senza ruoli; v1.3: mini guida PC 2INF/3INF e dispensa docente con i guasti; v1.2: CLAUDE.md v2.0 con 11 regole, guide nuove, archivio; v1.1: riga 5q `FRAMEWORK-QUIZ.md`; v1.0, 21/10/2026: prima versione)
+**Versione 1.7** — 10/11/2026 · Area Docente (v1.7: documento ufficiale attività e competenze 4TI v1.0; v1.6: mini guida PC v1.3 con foto e tasti HP; v1.5: mini guida PC v1.2, PC senza viti e solo RAM; v1.4: mini guida PC v1.1 senza ruoli; v1.3: mini guida PC 2INF/3INF e dispensa docente con i guasti; v1.2: CLAUDE.md v2.0 con 11 regole, guide nuove, archivio; v1.1: riga 5q `FRAMEWORK-QUIZ.md`; v1.0, 21/10/2026: prima versione)
 
 *Spostato qui da `CLAUDE.md` il 21/10/2026 per alleggerire le chat (ogni chat rilegge CLAUDE.md a ogni avvio). Quando un documento cambia si bumpa la versione nella sua intestazione e si aggiorna la sua riga qui. Le sezioni «Prossimi passi» e «Struttura cartella godot/» sono la storia dell'inizio del corso.*
 
@@ -106,6 +106,7 @@ l'intestazione del file.
 4. `classe-4/programma.md` — v0.2
 5. `PROGRAMMA-PREVENTIVO-2026-27.md` — v0.5 (parti da incollare in Allegato A; v0.5 con le voci delle lezioni fino al 12/10)
 5b. `programmi-ufficiali/2026-27/` (script unico `programmi-ufficiali/_build/aggiorna_allegati.py` + `allegati_comune.py`; fonte `PROGRAMMI-DI-MASSIMA-2026-27.md` v1.0; procedura `COME-SI-AGGIORNA-ALLEGATO-A.md` v1.2) — v1.0 (14/10: i quattro Allegati A veri della scuola con la parte di Regge solo nelle aree Digitale e Tecnico-professionali, voci tecniche con sotto-voci; rosa = 2026/27, verde = anni scorsi, giallo/bianco = altri docenti; si parte SEMPRE dal file più recente della scuola, `--verifica` dopo il caricamento; originali in `originali-20261014/`, ultimi pronti in `consegna/`; consegna entro il 30/10)
+5c. `programmi-ufficiali/2026-27/20261110_Attivita-e-Competenze-4TI-2026-27_Docente_v1.0.md` (+ `.pdf`) — v1.0 (10/11/2026: documento ufficiale della 4TI, senza nomi: attività svolte dal 22/09 al 10/11, competenze dell’IV annualità con le voci di Regge e la voce più vicina, risultati attesi, prove di classe, cosa resta e punti aperti; nessuna voce aggiunta all’Allegato A; fonte Allegato A 4TI del 02/11/2026)
 6. `MIE-PARTI-ALLEGATO-A.md` — v0.2 (parti di Regge estratte dai PFP)
 7. `ARGOMENTI-SVOLTI.md` — v0.3 (svolto 2025/26, nomenclatura 26/27)
 7b. `ARGOMENTI-SVOLTI-2026-27.md` — v1.2 (v1.2 06/11: capitolo 4b Sicurezza in doppia modalità, Dichiarato e Registro, 2INF e 1INF; registro attività svolte 2026/27, agganciato all'Allegato A; si aggiorna a ogni lezione)
