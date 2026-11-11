@@ -1,8 +1,10 @@
 # Prossime lezioni
 
+**Versione 1.1** — 11/11/2026
+
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
-Aggiornato mercoledì 4 novembre 2026, sera, con la regola decisa dal prof oggi: un file unico con le cose fatte, le ore dei prossimi giorni e tre proposte per ogni blocco di ore della stessa classe. Il prof sceglie la sera o la mattina e si prepara solo la proposta scelta. Nulla è pubblicato per i ragazzi: si pubblica all'inizio di ogni lezione, un'ora per volta.
+Aggiornato mercoledì 11 novembre 2026, sera: le sezioni dell'11 e del 12 novembre seguono il registro DIDAweb firmato. Regola decisa dal prof il 4 novembre 2026: un file unico con le cose fatte, le ore dei prossimi giorni e tre proposte per ogni blocco di ore della stessa classe. Il prof sceglie la sera o la mattina e si prepara solo la proposta scelta. Nulla è pubblicato per i ragazzi: si pubblica all'inizio di ogni lezione, un'ora per volta.
 
 ## Le cose fatte nelle ultime due settimane
 
@@ -45,11 +47,11 @@ Una riga per lezione. Orario dal registro DIDAweb (10-13/11 confermato; lunedì 
 | Mar 10 | 2INF 8-10 | Profilazione sui social e privacy | Controllare le impostazioni del proprio account |
 | Mar 10 | 3INF 10-11 | Release 1.0 del Mastermind | Release e changelog su GitHub |
 | Mar 10 | 4TI 11-13 | Subnetting a passi | Calcolare maschera, rete e host di 3 reti |
-| Mer 11 | 1INF 8-11 | Decisioni con if in Lazarus | Programma che sceglie: maggiorenne o no, voto in parole |
-| Mer 11 | 3INF 11-13 | Slideshow animato (sito) | Una pagina con animazione su GitHub Pages |
-| Mer 11 | 1INF 13-14 | Sicurezza, quinta ora | Titolo dalla direzione; schede e recuperi |
-| Gio 12 | 2INF 8-11 | Git e la calcolatrice | Repository in ordine e release 1.0, prova a voce |
-| Gio 12 | 1INF 13-14 | Pixel e colori | Un colore scritto in numeri (RGB) |
+| Mer 11 | 1INF 8-11 | Svolto (registro): Lazarus string integer, poi real e divisione | L'if then non è stato svolto: resta da fare |
+| Mer 11 | 3INF 11-13 | Svolto (registro): Comunicazione client server, Chat Lazarus | Lo slideshow resta una proposta |
+| Mer 11 | 1INF 13-14 | Svolto (registro): Sicurezza, Ora 6, rischi meccanici ed elettrici generali | Titolo dalla direzione |
+| Gio 12 | 2INF 8-11 | Windows 10 ripreso bene, con recupero dei quiz | Scelta del prof; vedi la sezione di giovedì 12 |
+| Gio 12 | 1INF 13-14 | Computer Essentials: ICT e hardware | Scelta del prof; vedi la sezione di giovedì 12 |
 | Ven 13 | 2INF 8-9 | Sicurezza | Titolo dalla direzione |
 | Ven 13 | 1INF 11-14 | Scontrino che parla, finito e provato | Programma che gira e consegna di unit1.pas |
 | Lun 16 | 3INF 8-11 | Strumenti di amministrazione di Windows | Solo se i PC sono pronti: da confermare con Nicola |
@@ -75,26 +77,33 @@ Prima informatica, dalle 13 alle 14, Tecnologia professionale. Proposta consigli
 
 ## Mercoledì 11 novembre
 
-Orario dal registro DIDAweb (screenshot del prof, 06/11/2026): confermato. Proposte riviste la notte dell'11/11 dopo il bilancio delle ultime due settimane. Nulla è pubblicato per i ragazzi: la scelta la fa il prof con il bottone del cruscotto.
+Orario e argomenti dal registro DIDAweb, firmati l'11 novembre 2026. Questa sezione dice che cosa è stato fatto, non più che cosa era proposto.
 
-Prima informatica, dalle 8 alle 11, Laboratorio professionale. Proposta consigliata: le decisioni con if in Lazarus, cioè maggiorenne o no, il voto in parole e la divisione che controlla lo zero, con la prima mezz'ora per recuperare convertitore e scontrino; quiz su Moduli già preparato. Seconda proposta: la mini calcolatrice con i decimali. Terza proposta: il primo repository GitHub con i programmi del mese.
+Prima informatica, dalle 8 alle 9, Laboratorio professionale: «Lazarus string integer». Dalle 9 alle 10 e dalle 10 alle 11, Laboratorio professionale: «Lazarus real e divisione». L'if then non è stato svolto: resta da fare in una prossima ora di Laboratorio.
 
-Terza informatica, dalle 11 alle 13, Laboratorio professionale. Proposta consigliata: lo slideshow animato, una pagina con le immagini che cambiano da sole su GitHub Pages. Seconda proposta: la release 1.0 del Mastermind su GitHub con il changelog, quiz già preparato. Terza proposta: una Pull Request sul client di un compagno.
+Terza informatica, dalle 11 alle 12, Laboratorio professionale: «Comunicazione client server». Dalle 12 alle 13, Laboratorio professionale: «Chat LAzarus». Lo slideshow animato, proposto prima, non è stato fatto e resta una proposta per i prossimi blocchi.
 
-Prima informatica, dalle 13 alle 14, Sicurezza professionale. Una sola proposta: la quinta ora, rischio infortuni, con schede, quiz su Google Moduli già preparato, in italiano, arabo e cinese, più i recuperi rimasti. Il titolo del registro lo mette la direzione.
+Prima informatica, dalle 13 alle 14, Sicurezza professionale: «11/11 Ora 6: Rischi meccanici ed elettrici generali». Il titolo lo ha scritto il docente. Il registro dice «Ora 6», che è l'ora del corso di Sicurezza. Non risulta svolta nessuna ora indicata come quinta ora del corso per la prima: non provato.
 
 ## Giovedì 12 novembre
 
-Orario dal registro DIDAweb (screenshot del prof, 06/11/2026). Proposte da fare quando il prof le chiede.
+Orario dal registro DIDAweb, confermato: seconda informatica, dalle 8 alle 9, dalle 9 alle 10 e dalle 10 alle 11, Laboratorio professionale. Prima informatica, dalle 13 alle 14, Tecnologia professionale. Gli argomenti non sono ancora sul registro. Nulla è pubblicato per i ragazzi.
 
-Seconda informatica, dalle 8 alle 11, Laboratorio professionale. Prima informatica, dalle 13 alle 14, Tecnologia professionale.
+Seconda informatica, dalle 8 alle 11. Il prof ha scelto l'ipotesi A, Windows 10 ripreso bene, con il recupero dei quiz rimasti aperti. Prima ora: utenti e gruppi di Windows 10 e recupero dei quiz. Seconda ora: il Visualizzatore eventi, con il Monitor affidabilità. Terza ora: Gestione attività e risorse. Si lavora sui PC dell'aula con un utente che non è amministratore. Sui PC dell'aula non si installa e non si disinstalla niente.
+
+Prima informatica, dalle 13 alle 14. Il prof ha scelto la teoria di Computer Essentials: ICT e hardware, che cos'è un computer. La lezione è preparata ma non pubblicata su Classroom: serve il comando PUBB 6 del prof.
 
 ## Venerdì 13 novembre
 
 Orario dal registro DIDAweb (screenshot del prof, 06/11/2026). Proposte da fare quando il prof le chiede.
 
-Seconda informatica, dalle 8 alle 9, Sicurezza professionale: gli argomenti li mette la direzione. Prima informatica, dalle 11 alle 14, Laboratorio professionale.
+Seconda informatica, dalle 8 alle 9, Sicurezza professionale: gli argomenti li mette la direzione. Prima informatica, dalle 11 alle 12, Laboratorio professionale, confermata dal registro. Le ore dalle 12 alle 14 della prima non si vedono sul registro: non provato.
 
 ## Promemoria per tutte le classi
 
 Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno su Google Moduli e devono permettere più risposte, così chi deve recuperare può rifarli. In seconda e in terza, quando i ragazzi hanno finito, si possono proporre i giochi dei byte e dei pixel della prima.
+
+## Registro delle versioni
+
+1. v1.0: prima versione, con il file unico delle cose fatte, delle ore dei prossimi giorni e delle proposte (04/11/2026).
+2. v1.1 (11/11/2026): la sezione di mercoledì 11 novembre ora riporta quello che dice il registro firmato (prima c'erano le proposte con if, slideshow e quinta ora, errore numero 276); aggiunta la sezione di giovedì 12 novembre con l'orario confermato e le scelte del prof; aggiornate la tabella della bozza e l'intestazione. Le sezioni dal 5 al 10 novembre restano come proposte storiche e non dicono lo svolto: lo svolto è nel registro firmato e in Argomenti svolti.

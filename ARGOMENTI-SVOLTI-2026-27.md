@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.4** — 11/11/2026
+**Versione 1.5** — 11/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -77,6 +77,18 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 11/11/2026 | 1INF 8-9, Laboratorio: Lazarus, string e integer. Sul registro (firmato): «Lazarus string integer» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
 | 11/11/2026 | 1INF 9-10, Laboratorio: Lazarus, real e divisione. Sul registro (firmato): «Lazarus real e divisione» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
 | 11/11/2026 | 1INF 10-11, Laboratorio: Lazarus, real e divisione (if then NON svolto). Sul registro (firmato, corretto dal docente alle 10:45): «Lazarus real e divisione» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
+| 05/11/2026 | 2INF 8-11, Laboratorio, 3 ore. Sul registro (firmato): «Smontaggio PC: sicurezza e componenti», «Assemblaggio PC, BIOS e avvio da USB», «Installazione Windows 10, utenti e IP» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 05/11/2026 | 3INF 11-13, Laboratorio, 2 ore. Sul registro (firmato): «Smontaggio e assemblaggio PC: componenti», «Assemblaggio PC, BIOS e ordine di avvio» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 05/11/2026 | 1INF 13-14, Tecnologia professionale. Sul registro (firmato): «Lazarus: stringhe e interi, conversioni» (dal registro firmato; contenuto vero da confermare dal docente) | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
+| 06/11/2026 | 1INF 11-14, Laboratorio, 3 ore. Sul registro (firmato): «Lazarus Convertitore», «Lo scontrino che parla (Lazarus)», «Ripasso stringhe e interi» (dal registro firmato; contenuto vero da confermare dal docente) | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
+| 09/11/2026 | 3INF 8-11, Laboratorio, 3 ore. Sul registro (firmato, scritto dal docente): «Installazione win 10» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 09/11/2026 | 2INF 11-14, Laboratorio, 3 ore. Sul registro (firmato, scritto dal docente): «Win10 Admin» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 10/11/2026 | 2INF 8-10, Informatica, 2 ore. Sul registro (firmato): «Configurazione e scelta dei componenti di un PC» e «Preventivo PC» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 10/11/2026 | 3INF 10-11, Laboratorio. Sul registro (firmato): «Sviluppo collaborativo: release e changelog» (dal registro firmato; contenuto vero da confermare dal docente) | | Sviluppo collaborativo: release (Comp. 12, III anno) |
+| 10/11/2026 | 4TI 11-13, Laboratorio, 2 ore. Sul registro (firmato): «Indirizzamento IPv4 e subnetting» (dal registro firmato; contenuto vero da confermare dal docente) | | Indirizzamento IPv4 e subnetting (Comp. 16) |
+| 11/11/2026 | 3INF 11-12, Laboratorio. Sul registro (firmato): «Comunicazione client server» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 11/11/2026 | 3INF 12-13, Laboratorio. Sul registro (firmato): «Chat LAzarus» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
+| 11/11/2026 | 1INF 13-14, Sicurezza: sul registro (firmato, titolo scritto dal docente) «11/11 Ora 6: Rischi meccanici ed elettrici generali»; contenuto vero da confermare dal docente (vedi capitolo 4b.2) | | Sicurezza sul lavoro: «6ª ora: rischi meccanici ed elettrici generali» (Comp. 14, I anno) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -105,6 +117,7 @@ Registro letto dallo screenshot del docente del 06/11/2026 alle 08:16 (1INF, dis
 | 22/10/2026 | 1ª ora: rischio e danno, pericolo, prevenzione e protezione; quiz su Moduli | 1ª ora: concetti di rischio e danno | h6 «Sicurezza: pericolo, danno e rischio» |
 | 29/10/2026 | 2ª e 3ª ora: prevenzione e protezione, organizzazione della prevenzione; schede e quiz su Moduli | 2ª ora: prevenzione e protezione; 3ª ora: organizzazione della prevenzione aziendale | h6 «Sicurezza ora 2 e 3 : prevenzione e protezione e ORG» |
 | 04/11/2026 | 4ª ora: organi di vigilanza, controllo e assistenza; quiz su Moduli; recuperi delle ore 2 e 3 | 4ª ora: organi di vigilanza, controllo e assistenza | h6 «Rischi infortuni, incidenti e infortuni mancati» |
+| 11/11/2026 | Da confermare dal docente (la 5ª ora del corso per la 1INF non risulta svolta in nessun documento: non provato) | 6ª ora: rischi meccanici ed elettrici generali | h6 «11/11 Ora 6: Rischi meccanici ed elettrici generali» (firmato, scritto dal docente) |
 
 Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-ALLEGATO-A.md` (v0.2, 02/09) ha le stesse voci con nomi un po' diversi (per esempio «Sicurezza ora 6 Rischi Elettrici»). Se i due elenchi non coincidono, vale l'Allegato A vero della scuola, da leggere insieme al docente.
 
@@ -130,3 +143,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 2. **v0.2 (24/09/2026)**: aggiunta la lezione del 24/09 (Configurazione PC — standard hardware) alla Classe 1.
 1. **v0.1 (17/09/2026)**: prima versione. Registro avviato con le attività svolte dalla Classe 1 nelle prime lezioni.
 15. **v1.4 (11/11/2026)**: corretta la riga 1INF 10-11 dell'11/11: «Lazarus, if then» era sbagliato, l'ora è stata «Lazarus, real e divisione» (il docente: «non abbiamo fatto if then»); l'errore veniva dalla v1.3, scritta prima della correzione del registro delle 10:45 (FIRME v2.4). Errore #276.
+16. **v1.5 (11/11/2026)**: aggiunte dal registro firmato (FIRME-REGISTRO v2.6) le righe mancanti: 11/11 3INF 11-12 e 12-13 e 1INF 13-14 Sicurezza (anche nel capitolo 4b.2); e le lezioni firmate con argomento dal 05/11 al 10/11 (05/11 2INF, 3INF, 1INF; 06/11 1INF; 09/11 3INF e 2INF; 10/11 2INF, 3INF, 4TI). Le voci dell'Allegato A sono scritte solo dove già presenti in documenti verificati, altrimenti «voce da confermare»; il contenuto vero di tutte le nuove righe è da confermare dal docente. Non aggiunti perché senza argomento in FIRME: 02/11 (non ha un capitolo in FIRME) e il 06/11 2INF Sicurezza (già nel capitolo 4b.1). Controllo di coerenza dell'11/11, incoerenza numero 9.
