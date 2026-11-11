@@ -1,10 +1,10 @@
 {
  "versione": "1.0",
- "letto_il": "2026-11-11 16:33",
+ "letto_il": "2026-11-11 17:15",
  "fuso": "Europe/Rome",
  "fonti": [
   "FIRME-REGISTRO-2026-27.md v2.6",
-  "ARGOMENTI-SVOLTI-2026-27.md v1.3"
+  "ARGOMENTI-SVOLTI-2026-27.md v1.4"
  ],
  "nota_tipologia": "TIPOLOGIA LEZIONE dedotta dalle parole dell'argomento (le 4 tipologie: Esercitazione Lazarus, Quiz su Moduli, Versioning su GitHub, Teoria a schede); non e' ancora scritta lezione per lezione nei documenti.",
  "classi": {
@@ -14,11 +14,11 @@
     "data": "2026-11-11",
     "ora": "8-9",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio: Lazarus, string e integer.",
+    "argomento": "Lazarus string integer",
     "registro": "Lazarus string integer",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "Esercitazione Lazarus"
     ]
@@ -28,11 +28,11 @@
     "data": "2026-11-11",
     "ora": "9-10",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio: Lazarus, real e divisione.",
+    "argomento": "Lazarus real e divisione",
     "registro": "Lazarus real e divisione",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "Esercitazione Lazarus"
     ]
@@ -42,11 +42,11 @@
     "data": "2026-11-11",
     "ora": "10-11",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio: Lazarus, if then.",
+    "argomento": "Lazarus real e divisione",
     "registro": "Lazarus real e divisione",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "Esercitazione Lazarus"
     ]
@@ -126,14 +126,13 @@
     "data": "2026-11-04",
     "ora": "8-11",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio, 3 ore: far girare un programma in Lazarus (Esegui/F9, il file .exe nella cartella del progetto, l'errore del debugger 32/64 bit e come aggirarlo); previsti convertitore di misure, calcolatrice a quattro bottoni e cassiere con div e mod, quiz 5+3 su Moduli…",
+    "argomento": "Lazarus: Caption e OnClick…",
     "registro": "Lazarus: Caption e OnClick…",
     "firmata": true,
     "stato": "da confermare",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
-     "Esercitazione Lazarus",
-     "Quiz su Moduli"
+     "Esercitazione Lazarus"
     ]
    },
    {
@@ -141,13 +140,13 @@
     "data": "2026-11-04",
     "ora": "13-14",
     "materia": "Sicurezza professionale",
-    "argomento": "Sicurezza: 4ª ora del corso ufficiale, organi di vigilanza, controllo e assistenza, quiz su Moduli; recuperi dei quiz della 2ª e 3ª ora e del quiz B.",
+    "argomento": "Rischi infortuni, incidenti e infortuni mancati",
     "registro": "Rischi infortuni, incidenti e infortuni mancati",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
-     "Quiz su Moduli"
+     "non classificata"
     ]
    },
    {
@@ -225,14 +224,13 @@
     "data": "2026-10-29",
     "ora": "13-14",
     "materia": "Sicurezza professionale",
-    "argomento": "Sicurezza 1 ora (fatte la 2ª e la 3ª ora del corso): Sicurezza 2, prevenzione e protezione, schede di ripasso e quiz su Moduli",
+    "argomento": "Sicurezza 2: prevenzione e protezione",
     "registro": "Sicurezza 2: prevenzione e protezione",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
-     "Quiz su Moduli",
-     "Teoria a schede"
+     "non classificata"
     ]
    },
    {
@@ -607,11 +605,11 @@
     "data": "2026-10-29",
     "ora": "8-9",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio 3 ore: GitHub e versioning con Lazarus, la calcolatrice in due versioni (v1.0 e v1.2) caricate su GitHub con commit e release, Documento con screenshot",
+    "argomento": "GitHub e versioning con LAzarus / Provvisorio",
     "registro": "GitHub e versioning con LAzarus / Provvisorio",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "Esercitazione Lazarus",
      "Versioning su GitHub"
@@ -666,13 +664,13 @@
     "data": "2026-10-21",
     "ora": "",
     "materia": "Sicurezza professionale",
-    "argomento": "Sicurezza sul lavoro (Regione), 4ª ora: diritti, doveri, sanzioni e organi di vigilanza; quiz di 20 casi su Moduli; recupero dei quiz delle ore 1-3 (tutti devono avere le 4 ore).",
+    "argomento": "Sicurezza: organizzazione prevenzione",
     "registro": "Sicurezza: organizzazione prevenzione",
     "firmata": false,
     "stato": "svolto",
-    "fonte": "ARGOMENTI",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
-     "Quiz su Moduli"
+     "non classificata"
     ]
    },
    {
@@ -738,14 +736,13 @@
     "data": "2026-10-09",
     "ora": "",
     "materia": "Sicurezza professionale",
-    "argomento": "Sicurezza sul lavoro (Regione), 2ª ora: prevenzione e protezione (studio della lezione ufficiale; quiz su Moduli).",
+    "argomento": "Organizzazione della prevenzione aziendale…",
     "registro": "Organizzazione della prevenzione aziendale…",
     "firmata": false,
     "stato": "svolto",
-    "fonte": "ARGOMENTI",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
-     "Quiz su Moduli",
-     "Teoria a schede"
+     "non classificata"
     ]
    },
    {
@@ -882,11 +879,11 @@
     "data": "2026-11-04",
     "ora": "11-13",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio, 2 ore: Mastermind in rete, il protocollo dei messaggi, client collegato al server del docente (porta 5050), gara di classe con la versione 4.1 (5 codici, punteggio cumulativo sul totale). Da confermare dal docente.",
+    "argomento": "Master Mind: il protocollo di rete",
     "registro": "Master Mind: il protocollo di rete",
     "firmata": true,
     "stato": "da confermare",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "non classificata"
     ]
@@ -911,11 +908,11 @@
     "data": "2026-10-29",
     "ora": "11-12",
     "materia": "Laboratorio professionale",
-    "argomento": "Laboratorio 2 ore: Hello World, differenze tra Lazarus e Java Eclipse (percorso guidato a passi, consegna su Classroom)",
+    "argomento": "Hello world differenze tra LAzarus e Java Eclipse",
     "registro": "Hello world differenze tra LAzarus e Java Eclipse",
     "firmata": true,
     "stato": "svolto",
-    "fonte": "ARGOMENTI + FIRME/registro",
+    "fonte": "FIRME/registro (+ ARGOMENTI)",
     "tipologie": [
      "Esercitazione Lazarus"
     ]
