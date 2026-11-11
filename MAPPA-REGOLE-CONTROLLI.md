@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.12** — 11/11/2026 — documento interno del docente e di Claude
+**Versione 1.13** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -343,6 +343,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #269 | Soglia «7 su 10» presunta nel post e nei quiz (11/11) | 7 | D | D | controllo automatico: mancante (idea: cercare nei testi per i ragazzi numeri e soglie non presenti in un file verificato) |
 | #270 | PPP ignorato: consegna subito e file due volte (11/11) | 3 | D | D | controllo automatico: mancante (idea: controllo-messaggio.py segnala un messaggio lungo dopo una richiesta che comincia con PPP) |
 | #271 | Richiesta interpretata invece di seguire la lettera (11/11) | 7 | D | D | controllo automatico: mancante |
+| #272 | Controlli e passi chiesti al docente in lezione (11/11) | 4 | D | D | controllo automatico: mancante (idea: controllo-messaggio.py segnala in ora di lezione messaggi con più di un passo o richieste di screenshot di controllo) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -421,3 +422,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 10. v1.9 (10/11/2026, controllore di fine giornata): voci #248-#253, tutte D (nessun controllo automatico ancora).
 11. v1.10 (11/11/2026): voci #255-#266 dalla chat segnata del 10/11, tutte D (controllo automatico: mancante).
 12. v1.12 (11/11/2026): voci #270-#271 (PPP ignorato, richiesta interpretata), tutte D, controllo automatico: mancante.
+13. v1.13 (11/11/2026): voce #272 (controlli e passi chiesti al docente in lezione), D, controllo automatico: mancante.
