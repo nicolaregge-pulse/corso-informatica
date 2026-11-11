@@ -340,6 +340,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #265 | Sistema nuovo non spiegato e nome non visibile (10/11) | 4 | D | D | controllo automatico: mancante |
 | #266 | Passo non riscritto, rimando a messaggi precedenti (10/11) | 4 | D | D | controllo automatico: mancante |
 | #268 | Passo senza la finestra Chrome dell'account (11/11) | 4 | D | D | controllo automatico: mancante (idea: in controllo-messaggio.py ogni riga «Passo N» deve contenere PIAMARTA o PERSONALE) |
+| #269 | Soglia «7 su 10» presunta nel post e nei quiz (11/11) | 7 | D | D | controllo automatico: mancante (idea: cercare nei testi per i ragazzi numeri e soglie non presenti in un file verificato) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 

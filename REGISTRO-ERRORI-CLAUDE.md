@@ -1425,3 +1425,9 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Nel passo «Vai nella scheda del browser…» non era scritta la FINESTRA Chrome dell'account: il docente tiene aperte DUE finestre Chrome (PIAMARTA e PERSONALE) e deve sapere in quale andare, e lo aveva già detto. L'account compariva solo in cima al messaggio.
 2. **Strumento da correggere.** R4 3bis di CLAUDE.md vale per OGNI passo: ogni passo comincia con «Finestra Chrome PIAMARTA» (o PERSONALE) prima del verbo, anche se il messaggio lo dice già in alto. Controllo automatico: mancante (idea per `controllo-messaggio.py`: ogni riga «Passo N» deve contenere PIAMARTA o PERSONALE).
+
+## #269 (11/11/2026) Soglia «7 su 10» presunta nel post e nei quiz
+
+1. **Errore.** Nel post Classroom della 1INF (8-9) e nei quiz ho scritto «servono 7 su 10», prendendo la soglia dai quiz del giorno prima: il docente non l'aveva detta. Ha risposto: «UNA DELLE REGOLE FONDAMENTALI: NON PRESUMERE, CHIEDI».
+2. **Strumento da correggere.** R7 punto 6 di CLAUDE.md v2.9: numeri, soglie, nomi, PC, account, titoli, date non detti dal docente o non in un documento verificato si chiedono (una domanda, risposte brevi). Controllo automatico: mancante (vedi `MAPPA-REGOLE-CONTROLLI.md`).
+3. **Da ripulire dopo la risposta del docente sulla soglia:** post Classroom 1INF 8-9; `PACCHETTO-1INF-ORA1.md`; dispensa v1.4; quiz ora1d; `FRAMEWORK-QUIZ.md` solo se contiene la soglia.

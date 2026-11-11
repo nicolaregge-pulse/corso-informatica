@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.8** — 11/11/2026 (R4 punto 3quater: ogni link con account e in casella copiabile) — prima: 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.9** — 11/11/2026 (R7 punto 6: NON PRESUMERE, CHIEDI) — prima: 2.8 (3quater link), 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -118,6 +118,7 @@
 3. Un link al sito solo dopo «PUBBLICATO» di `bash strumenti/aspetta_pubblicazione.sh`.
 4. In chat gli allievi si indicano sempre con COGNOME Nome.
 5. Ciò che non ho potuto provare porta la scritta «non provato».
+6. **NON PRESUMERE, CHIEDI (regola fondamentale, 11/11/2026, docente).** Un numero, una soglia, un nome, un PC, un account, un titolo, una data che il docente non ha detto in questa chat o che non sta scritto in un documento verificato si CHIEDE, con una domanda sola e risposte brevi; mai inventarlo, mai prenderlo da un altro lavoro. Nel dubbio non si scrive nel testo per i ragazzi.
 
 ### R8 Il cruscotto della classe
 
@@ -214,3 +215,4 @@
 7. v2.6 (11/11/2026): R4 3quater, riferimenti sempre utilizzabili (link o percorso completo, LINK-UTILI.md nel riservato); su richiesta del docente.
 8. v2.7 (11/11/2026): R4 3ter riscritto su decisione del docente: codice, script e testi da copiare in chat in un solo riquadro, da solo, mai in mezzo ai passi; file (PDF) con SendUserFile subito prima; niente .txt al posto del codice. La v2.5 era errata su questo punto.
 9. v2.8 (11/11/2026): R4 3quater esteso: ogni link con l'account scritto prima (PIAMARTA o PERSONALE), in una casella copiabile, un solo link per casella; su richiesta del docente.
+10. v2.9 (11/11/2026): R7 punto 6, NON PRESUMERE, CHIEDI, su decisione del docente (errore #269: soglia «7 su 10» presunta).
