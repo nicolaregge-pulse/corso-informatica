@@ -1456,3 +1456,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Per la 1INF (R6: italiano, arabo e cinese) ho preparato quiz e testo del post solo in italiano, anche dopo che il docente l'aveva scritto. Il docente: «Ti sei dimenticato le 2 lingue».
 2. **Strumento che lo corregge.** `strumenti/controlla_lingue_quiz.py`: per ogni quiz con id `1inf` in `fabbrica/indice.json` controlla che ci siano caratteri arabi e cinesi, e stampa «MANCA arabo e cinese» se no (uscita 1). Si lancia prima di dire che un quiz della 1INF è pronto. Il primo giro (11/11, 13:20) ha trovato 5 quiz 1INF solo in italiano.
+
+## #275 (11/11/2026) Strumento garantito senza prova e invece chiedeva l'amministratore
+
+1. **Errore.** Ho scritto che 7 strumenti di Windows «si aprono da utente normale» e ho garantito la lista; il primo, `resmon` (Monitor risorse), ha chiesto la password di amministratore. Il docente: «sei tu che devi garantire, io provo».
+2. **Strumento che lo corregge.** `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato): in una dispensa entra solo uno strumento con esito «FUNZIONA» provato dal docente, con ora. Un elenco di strumenti non provati si dà come «da provare» e mai come garantito.
