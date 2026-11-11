@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.6 (11/11/2026)
+ * FABBRICA - MOTORE v2.7 (11/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -568,11 +568,11 @@ function FB_classroom_(ss, indice, t0) {
 function SI_norm_(s) { return String(s || '').toUpperCase().replace(/\s+/g, ' ').trim(); }
 function SI_ora_(s) { return String(s || '').toUpperCase().replace(/^ORA\s*/, '').trim(); }
 
-function SI_elenco_(ss) {
-  var e2n = {}, nomi = [], visti = {}, sh = ss.getSheetByName('Email 1INF'), v, i, fonte = '';
+function SI_elenco_(ss, classe) {
+  var e2n = {}, nomi = [], visti = {}, sh = ss.getSheetByName('Email ' + classe), v, i, fonte = '';
   function aggNome(n) { if (n && !visti[n]) { visti[n] = 1; nomi.push(n); } }
   if (sh) {
-    fonte = "scheda 'Email 1INF'";
+    fonte = "scheda 'Email " + classe + "'";
     v = sh.getDataRange().getValues();
     for (i = 0; i < v.length; i++) {
       var em = String(v[i][0] || '').trim().toLowerCase(), n = SI_norm_(v[i][1]);
@@ -580,8 +580,8 @@ function SI_elenco_(ss) {
       if (em.indexOf('@') > 0) e2n[em] = n;
       aggNome(n);
     }
-  } else if ((sh = ss.getSheetByName('Consegne 1INF'))) {
-    fonte = "scheda 'Consegne 1INF' (Classroom)";
+  } else if ((sh = ss.getSheetByName('Consegne ' + classe))) {
+    fonte = "scheda 'Consegne " + classe + "' (Classroom)";
     v = sh.getDataRange().getValues();
     for (i = 4; i < v.length; i++) {
       var em2 = String(v[i][2] || '').trim().toLowerCase(), n2 = SI_norm_(v[i][1]);
@@ -593,8 +593,8 @@ function SI_elenco_(ss) {
   return { e2n: e2n, nomi: nomi, fonte: fonte };
 }
 
-function SI_storico_(ss) {
-  var out = {}, sh = ss.getSheetByName('Sicurezza storico 1INF');
+function SI_storico_(ss, classe) {
+  var out = {}, sh = ss.getSheetByName('Sicurezza storico ' + classe);
   if (!sh) return { dati: out, presente: false };
   var v = sh.getDataRange().getValues();
   for (var i = 1; i < v.length; i++) {
@@ -643,24 +643,23 @@ function SI_cella_(nome, ora, ris, sto, soglia) {
   return { st: 'ND', pct: null, txt: 'dato non importato' };
 }
 
-function FB_sicurezza_(ss, indice) {
-  var cfg = indice.sicurezza;
+function SI_classe_(ss, cfg) {
   if (!cfg || cfg.attivo === false) return;
-  var classe = cfg.classe || '1INF', soglia = Number(cfg.soglia) || 80, ore = cfg.ore || [];
+  var classe = String(cfg.classe || '1INF').toUpperCase(), soglia = Number(cfg.soglia) || 80, ore = cfg.ore || [];
   var nomeSh = 'Sicurezza ' + classe;
-  var el = SI_elenco_(ss), sto = SI_storico_(ss), nonAbb = [], letture = [];
+  var el = SI_elenco_(ss, classe), sto = SI_storico_(ss, classe), nonAbb = [], letture = [];
   var sh = ss.getSheetByName(nomeSh) || ss.insertSheet(nomeSh);
   sh.clear();
   var ora0 = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
   sh.getRange(1, 1).setValue(classe + ' · Sicurezza per allievo (solo docente) · dati letti alle ' + ora0).setFontWeight('bold');
   if (!el.nomi.length) {
-    sh.getRange(2, 1).setValue("Manca l'elenco degli allievi: serve la scheda 'Email 1INF' (A=Email, B=Allievo) oppure la scheda 'Consegne 1INF'.");
+    sh.getRange(2, 1).setValue("Manca l'elenco degli allievi: serve la scheda 'Email " + classe + "' (A=Email, B=Allievo) oppure la scheda 'Consegne " + classe + "'.");
     return;
   }
   var risOre = ore.map(function (o) { return SI_ris_(ss, o.ids, el.e2n, o.ora, nonAbb, letture); });
   var rec = SI_ris_(ss, (cfg.recupero && cfg.recupero.ids) || [], el.e2n, 'Recupero', nonAbb, letture);
-  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente nella scheda storico. (r) = dato dalla scheda \u0027Sicurezza storico 1INF\u0027 (report del riservato, fonte e ora nella colonna Fonte). (provv.) = ci sono domande aperte non ancora corrette, la percentuale è provvisoria. 6A e 6B sono colonne separate: come si combinano non è deciso.');
-  sh.getRange(3, 1).setValue('Elenco da ' + el.fonte + ' · storico ' + (sto.presente ? 'presente' : "assente (scheda 'Sicurezza storico 1INF' non trovata)") + ' · letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
+  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente nella scheda storico. (r) = dato dalla scheda \u0027Sicurezza storico ' + classe + '\u0027 (report del riservato, fonte e ora nella colonna Fonte). (provv.) = ci sono domande aperte non ancora corrette, la percentuale è provvisoria. 6A e 6B sono colonne separate: come si combinano non è deciso.');
+  sh.getRange(3, 1).setValue('Elenco da ' + el.fonte + ' · storico ' + (sto.presente ? 'presente' : "assente (scheda 'Sicurezza storico " + classe + "' non trovata)") + ' · letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
   var testa = ['Stato', 'Allievo'].concat(ore.map(function (o) { return 'Ora ' + o.ora; }), ['Recupero ore 1-5', 'DA FARE ORA', 'DA RIFARE (sotto ' + soglia + ')', 'Dato non importato']);
   sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
   var righe = el.nomi.map(function (nome) {
@@ -680,6 +679,7 @@ function FB_sicurezza_(ss, indice) {
   var ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3 };
   righe.sort(function (a, b) { return ord[a[0]] - ord[b[0]] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0); });
   sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
+  SI_pubblica_(ss, classe, soglia, ora0, testa, righe, letture);
   var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a' };
   for (var i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
   var fondo = 6 + righe.length, note = [];
@@ -689,6 +689,34 @@ function FB_sicurezza_(ss, indice) {
   Object.keys(estranei).forEach(function (n) { note.push(['Nome nello storico non trovato nell\u0027elenco: ' + n]); });
   nonAbb.forEach(function (e) { note.push(['Email non abbinata a un allievo: ' + e]); });
   if (note.length) sh.getRange(fondo, 1, note.length, 1).setValues(note);
+}
+
+function SI_hash_(nome) {
+  var b = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, SI_norm_(nome), Utilities.Charset.UTF_8), h = '';
+  for (var i = 0; i < b.length; i++) h += ('0' + ((b[i] + 256) % 256).toString(16)).slice(-2);
+  return h;
+}
+
+/* scheda pubblica SENZA nomi: Id = SHA-256 del nome in maiuscolo; il «Nome I.» sta in docs/sicurezza-cruscotto/nomi.json */
+function SI_pubblica_(ss, classe, soglia, ora0, testa, righe, letture) {
+  var sh = ss.getSheetByName('Sicurezza pubblica ' + classe) || ss.insertSheet('Sicurezza pubblica ' + classe);
+  sh.clear();
+  sh.getRange(1, 1).setValue(classe + ' · Sicurezza (pubblica, senza nomi) · dati letti alle ' + ora0).setFontWeight('bold');
+  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente. (provv.) = domande aperte non ancora corrette.');
+  sh.getRange(3, 1).setValue('Letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
+  var t = testa.slice(); t[1] = 'Id';
+  sh.getRange(4, 1, 1, t.length).setValues([t]).setFontWeight('bold');
+  var pub = righe.map(function (r) { var q = r.slice(); q[1] = SI_hash_(r[1]); return q; });
+  if (pub.length) sh.getRange(5, 1, pub.length, t.length).setValues(pub);
+}
+
+function FB_sicurezza_(ss, indice) {
+  var l = indice.sicurezza;
+  if (!l) return;
+  if (!Array.isArray(l)) l = [l];
+  l.forEach(function (cfg) {
+    try { SI_classe_(ss, cfg); } catch (e) { FB_errore_(ss, 'sicurezza ' + (cfg && cfg.classe || ''), e); }
+  });
 }
 
 /* ---------- Giro principale ---------- */
