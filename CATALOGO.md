@@ -119,7 +119,7 @@
 | Il tuo nome in binario e i colori | `docs/1inf-nome-colori/` | Spiegazione e compito: il nome in binario e i codici dei colori |
 | Foto e personaggi | `docs/1inf-foto-personaggi/` | Le facce dei personaggi del gioco della classe |
 | Talpa: richieste per il prof | `docs/1inf-talpa-prof/` | Le proposte dei ragazzi per il gioco della talpa |
-| Cruscotti | `docs/1inf-cruscotto/`, `docs/1inf-prof/`, `docs/1inf-prof-live/`, `docs/1inf-test/` | Cruscotto, pannello del prof, cruscotto dal vivo, cruscotto del test |
+| Cruscotti | `docs/1inf-cruscotto/`, `docs/1inf-prof/`, `docs/1inf-prof-live/`, `docs/1inf-test/`, `docs/sicurezza-cruscotto/` (Sicurezza 1INF e 2INF, v1.0 11/11/2026) | Cruscotto, pannello del prof, cruscotto dal vivo, cruscotto del test |
 
 ## 04 Pagine della 2INF
 
