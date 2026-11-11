@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.3** — 11/11/2026
+**Versione 1.4** — 11/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -76,7 +76,7 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 04/11/2026 | 1INF 13-14, Sicurezza: 4ª ora del corso ufficiale, organi di vigilanza, controllo e assistenza, quiz su Moduli; recuperi dei quiz della 2ª e 3ª ora e del quiz B. Sul registro è firmato «Rischi infortuni, incidenti e infortuni mancati» (titolo messo dalla direzione: non si cambia, vedi capitolo 04b) | `docs/anteprima/1inf-sicurezza-04-11/`, quiz 4ª ora | Sicurezza sul lavoro: le 16 lezioni del corso ufficiale, «4ª ora: organi di vigilanza, controllo e assistenza» (Comp. 14, I anno) |
 | 11/11/2026 | 1INF 8-9, Laboratorio: Lazarus, string e integer. Sul registro (firmato): «Lazarus string integer» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
 | 11/11/2026 | 1INF 9-10, Laboratorio: Lazarus, real e divisione. Sul registro (firmato): «Lazarus real e divisione» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
-| 11/11/2026 | 1INF 10-11, Laboratorio: Lazarus, if then. Sul registro (firmato): «Lazarus if then» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
+| 11/11/2026 | 1INF 10-11, Laboratorio: Lazarus, real e divisione (if then NON svolto). Sul registro (firmato, corretto dal docente alle 10:45): «Lazarus real e divisione» | | Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento (Comp. 15, I anno) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -129,3 +129,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 3. **v0.3 (01/10/2026)**: Classe 1 — bit/byte e conversione binario→decimale + esercitazione; Classe 2 — Lazarus convertitore temperature e Sicurezza modulo 1 (rischio/danno) con quiz e test aperto.
 2. **v0.2 (24/09/2026)**: aggiunta la lezione del 24/09 (Configurazione PC — standard hardware) alla Classe 1.
 1. **v0.1 (17/09/2026)**: prima versione. Registro avviato con le attività svolte dalla Classe 1 nelle prime lezioni.
+15. **v1.4 (11/11/2026)**: corretta la riga 1INF 10-11 dell'11/11: «Lazarus, if then» era sbagliato, l'ora è stata «Lazarus, real e divisione» (il docente: «non abbiamo fatto if then»); l'errore veniva dalla v1.3, scritta prima della correzione del registro delle 10:45 (FIRME v2.4). Errore #276.

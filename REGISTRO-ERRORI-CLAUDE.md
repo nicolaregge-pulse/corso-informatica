@@ -1461,3 +1461,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Ho scritto che 7 strumenti di Windows «si aprono da utente normale» e ho garantito la lista; il primo, `resmon` (Monitor risorse), ha chiesto la password di amministratore. Il docente: «sei tu che devi garantire, io provo».
 2. **Strumento che lo corregge.** `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato): in una dispensa entra solo uno strumento con esito «FUNZIONA» provato dal docente, con ora. Un elenco di strumenti non provati si dà come «da provare» e mai come garantito.
+
+## #276 (11/11/2026) Argomento di un'ora copiato da un documento vecchio
+
+1. **Errore.** Il Diario e il progetto di domani dicevano che la 1INF il 11/11 ore 10-11 aveva fatto «Lazarus, if then». Il docente: «non abbiamo fatto if then». Il registro firmato dice «Lazarus real e divisione»: `FIRME-REGISTRO` v2.4 (10:45) lo aveva corretto, ma `ARGOMENTI-SVOLTI` v1.3 (scritto alle 07:09 con il valore del primo registro) non fu aggiornato e il Diario lo ha ripreso come argomento.
+2. **Strumento da correggere.** Gli argomenti svolti si leggono dal registro firmato (FIRME), non da ARGOMENTI-SVOLTI scritto in anticipo. `generatori/diario_dati.py` deve prendere l'argomento dall'ultima riga di FIRME-REGISTRO e segnalare se ARGOMENTI-SVOLTI dice altro.
