@@ -1446,3 +1446,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Il docente, in lezione con la classe: «Io sto gestendo i ragazzi, non posso seguire ANCHE TE, TU DEVI SUPPORTARE ME». Gli ho chiesto controlli e passi (aprire il foglio, guardare le righe, mandare screenshot) mentre sta facendo lezione.
 2. **Strumento da correggere.** In ora di lezione il docente fa al massimo UN gesto (copia e incolla) e non deve controllare lo stato dei sistemi: Claude fa arrivare i dati da solo (per esempio far scrivere a Fabbrica il link del quiz in un posto già aperto) oppure aspetta il momento libero del docente. Controllo automatico: mancante (idea: `controllo-messaggio.py` segnala in ora di lezione un messaggio con più di un passo o con richieste di screenshot di controllo).
+
+## #273 (11/11/2026) Stesso file rimandato con lo stesso nome
+
+1. **Errore.** Ho rimandato più volte lo stesso PDF e lo stesso ZIP con lo stesso nome: sul PC del docente compaiono i doppioni «(1)» e non si capisce quale è l'ultimo. Il docente: «non versioni i file e succede questo».
+2. **Strumento da correggere.** Un file già mandato si rimanda solo se è cambiato, e allora con un numero di versione nuovo nel nome (v1.1, v1.2). Se non è cambiato, non lo rimando: dico il nome e dove si trova.
