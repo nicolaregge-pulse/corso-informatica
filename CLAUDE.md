@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.7** — 11/11/2026 (R4 punto 3ter riallineato: codice in un riquadro in chat, niente .txt) — prima: 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.8** — 11/11/2026 (R4 punto 3quater: ogni link con account e in casella copiabile) — prima: 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -73,7 +73,7 @@
    Ogni passo dice per primo «Account PIAMARTA» (o PERSONALE, solo se serve davvero). Ogni cosa da scrivere o cliccare sta in un
    riquadro da copiare: nomi di funzioni, indirizzi, titoli, testi. Niente testo tra virgolette o in corsivo al posto del riquadro.
 3ter. **Codice, script e testi da copiare (10/11/2026, docente):** si danno in chat in UN riquadro di codice copiabile, da solo, in FONDO o in testa al messaggio e mai in mezzo ai passi; i passi stanno tutti prima (o tutti dopo) il riquadro, scritti per intero, senza spiegazioni dentro il riquadro; i PDF e gli altri file si mandano con SendUserFile subito prima del riquadro blu; niente file .txt al posto del codice.
-3quater. **Riferimenti sempre utilizzabili (11/11/2026, docente):** ogni volta che si nomina un file, un foglio, una pagina, un post o un quiz si dà il LINK cliccabile o il percorso completo (e per i file l'invio con SendUserFile subito prima). Mai «il foglio Fabbrica», «la scheda Esiti», «il file di prima» senza il link o il percorso esatto: il docente non ricorda dove sta. I link che servono spesso stanno in LINK-UTILI.md nel riservato (report/LINK-UTILI.md), aggiornato a ogni link nuovo; se un link manca lo si chiede al docente una sola volta e lo si salva lì.
+3quater. **Riferimenti sempre utilizzabili (11/11/2026, docente):** ogni volta che si nomina un file, un foglio, una pagina, un post o un quiz si dà il LINK o il percorso completo, **SEMPRE con l'account** (ribadito dal docente l'11/11/2026, lavora con due account e un link PIAMARTA non si apre su PERSONALE): 1) l'account da usare scritto prima (PIAMARTA o PERSONALE; i repository GitHub e il riservato sono PERSONALE, Classroom, Fogli, Moduli e Apps Script del docente sono PIAMARTA); 2) il link in una CASELLA COPIABILE (blocco di codice), mai come testo cliccabile da solo; 3) un solo link per casella (e per i file l'invio con SendUserFile subito prima). Mai «il foglio Fabbrica», «la scheda Esiti», «il file di prima» senza il link o il percorso esatto: il docente non ricorda dove sta. I link che servono spesso stanno in LINK-UTILI.md nel riservato (report/LINK-UTILI.md), aggiornato a ogni link nuovo; se un link manca lo si chiede al docente una sola volta e lo si salva lì.
 4. Ogni testo da scrivere sta in un riquadro da copiare (blocco di codice, un valore per riquadro) subito dopo il passo.
    Prima si apre la pagina dove si incolla, poi si copia, poi si incolla.
 5. Niente log, JSON o output lunghi in chat. I file per il docente si mandano scaricabili.
@@ -213,3 +213,4 @@
 6. v2.5 (10/11/2026): R4 3ter, codice, script e testi lunghi (più di circa 10 righe) in un file .txt o .gs mandato con SendUserFile, mai in chat; su richiesta del docente.
 7. v2.6 (11/11/2026): R4 3quater, riferimenti sempre utilizzabili (link o percorso completo, LINK-UTILI.md nel riservato); su richiesta del docente.
 8. v2.7 (11/11/2026): R4 3ter riscritto su decisione del docente: codice, script e testi da copiare in chat in un solo riquadro, da solo, mai in mezzo ai passi; file (PDF) con SendUserFile subito prima; niente .txt al posto del codice. La v2.5 era errata su questo punto.
+9. v2.8 (11/11/2026): R4 3quater esteso: ogni link con l'account scritto prima (PIAMARTA o PERSONALE), in una casella copiabile, un solo link per casella; su richiesta del docente.
