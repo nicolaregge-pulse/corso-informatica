@@ -47,7 +47,7 @@ l'intestazione del file.
 
 ### 1. Riferimento e stato
 0. `CLAUDE.md` — v2.0 (04/11/2026: premessa + 11 regole R1-R11 decise dal docente; PDF nel riservato `report/2026-11-04/REGOLE-NUOVE-v1.0.pdf`) · versione di prima intera in `archivio/CLAUDE-fino-al-2026-11-04.md`
-0a. `GUIDA-MESSAGGI-AL-DOCENTE.md` — v1.1 (06/11/2026: note di allineamento a R4.3; v1.0 04/11/2026: dettaglio di R4, testo spostato da CLAUDE.md: regole 8, 9, 20, 25, guida passo passo, regola copia)
+0a. `GUIDA-MESSAGGI-AL-DOCENTE.md` — v1.2 (11/11/2026: formato dei messaggi in classe, riquadri rosso e blu; v1.1 06/11/2026: note di allineamento a R4.3; v1.0 04/11/2026: dettaglio di R4, testo spostato da CLAUDE.md: regole 8, 9, 20, 25, guida passo passo, regola copia)
 0b. `GUIDA-STRUMENTI-E-FILE.md` — v1.1 (06/11/2026: Allegato A solo togliere, Sicurezza della direzione, almeno 3 prove; v1.0 04/11/2026: programmi, ramo, Apps Script, vincolo scuola, registro e Regione, lingue e font, formattazione, versioni, bobina; testo spostato da CLAUDE.md)
 0c. `CHECKLIST-LEZIONE.md` — v2.5 (06/11/2026: allineata a CLAUDE.md v2.2, Allegato A e Sicurezza; v2.4 04/11/2026: allineata a CLAUDE.md v2.0)
 0d. `.claude/hooks/LEGGIMI-controlli.md` — v1.5 (06/11/2026: punti da correggere negli strumenti; v1.4 04/11/2026: hook del messaggio ridotto a 5 controlli, controllo dei cognomi nei commit del pubblico, 8 comandi per turno; elenco dei controlli tolti)

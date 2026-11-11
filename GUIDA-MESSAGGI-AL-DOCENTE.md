@@ -1,6 +1,6 @@
 # 00 Guida ai messaggi per il docente
 
-**Versione 1.1** — 06/11/2026 — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.2** — 11/11/2026 (prima: 1.1, 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio della regola R4 di `CLAUDE.md` (messaggi al docente). La regola breve sta lì; qui c'è il testo completo da cui nasce.
 
@@ -94,7 +94,21 @@ selezionare col mouse. Regole precise:
 - **Niente parole in più (12/10/2026, REGISTRO-ERRORI #53):** niente avverbi o aggettivi che non servono («onestamente», «valide»…): se togliendo la parola il senso resta uguale, si toglie.
 - **SUPERATO (R4.3, 04/11/2026) — Formato a TABELLA (07/10/2026, Nicola):** i passi si danno in una tabella con le colonne N. · Account · Finestra/scheda · Dove · Cosa fare (una riga = una azione).
 
-## 03 Registro delle versioni
+## 03 Formato dei messaggi in classe (decisione del docente, 11/11/2026)
 
+Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 3ter).
+
+1. Tutte le informazioni per il docente stanno in UN riquadro ROSSO, fatto con righe di quadratini rossi (🟥) sopra e sotto.
+2. Dispense e PDF stanno in un riquadro BLU (righe di 🟦); il file vero viene mandato con SendUserFile subito prima del riquadro.
+3. Il pacchetto per Classroom è UN SOLO riquadro rosso con: il titolo (in un riquadro di codice), l'oggetto (il testo del post)
+   e una fascia blu con «FILE DA ALLEGARE: nome.pdf». La scheda del PDF si manda nel mezzo del riquadro: testo, SendUserFile,
+   testo di chiusura.
+4. Nel riquadro compaiono il nome del file e la riga «Non provato:» (R7.5).
+5. Niente codice o spiegazioni lunghe in chat mentre il docente è in classe (dettaglio in R4: file .txt con SendUserFile).
+6. In classe il docente deve capire a colpo d'occhio: la prima riga è la cosa bloccante.
+
+## 04 Registro delle versioni
+
+3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
 2. v1.1 (06/11/2026): note di allineamento a R4.3 (solo il prossimo passo, niente catene né tabelle).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 8, 9, 20, 25, guida passo passo, regola copia).
