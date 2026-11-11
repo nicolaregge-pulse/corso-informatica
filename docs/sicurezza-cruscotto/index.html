@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cruscotto Sicurezza</title>
+<style>
+/* v1.0 (11/11/2026). Una pagina per le classi con Sicurezza (1INF, 2INF). Nessun nome intero: solo «Nome I.».
+   Dati: CSV pubblicato della scheda «Sicurezza pubblica <CLASSE>» del foglio Fabbrica (motore v2.7).
+   Il link del CSV sta in UN solo punto: config.json (stessa cartella). Parte docente: docente.json CIFRATO. */
+:root{--bg:#f4f6f9;--fg:#14181f;--card:#fff;--line:#c9ced6;--mu:#5a6573;--blu:#1a56db;--verde:#2e7d32;--giallo:#b58100;--arancio:#d4620a;--rosso:#c62828;
+ --okbg:#d7f0d8;--recbg:#ffe0b8;--mancabg:#f9d6d6;--assbg:#e6e6ea;--ndbg:#fff3c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;
+ --okbg:#1f4a24;--recbg:#5a3a12;--mancabg:#5a2222;--assbg:#33343c;--ndbg:#4a4115}}
+:root[data-theme="dark"]{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--okbg:#1f4a24;--recbg:#5a3a12;--mancabg:#5a2222;--assbg:#33343c;--ndbg:#4a4115}
+*{box-sizing:border-box}
+body{margin:0;padding:12px 16px 40px;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,"Segoe UI",Arial,"Noto Sans","Noto Sans Arabic","Noto Sans SC",sans-serif}
+h1{font-size:22px;margin:0 0 6px}
+.ln{display:block}.ar{direction:rtl;unicode-bidi:isolate}
+.sel{display:flex;gap:8px;margin:10px 0}
+.sel button{flex:1 1 0;font:inherit;font-size:22px;font-weight:700;padding:12px;border:2px solid var(--blu);border-radius:10px;background:var(--card);color:var(--fg);cursor:pointer}
+.sel button.on{background:var(--blu);color:#fff}
+#dato{font-size:20px;font-weight:700;margin:8px 0}
+#vecchi{display:none;background:var(--rosso);color:#fff;padding:8px 12px;border-radius:8px;font-weight:700;margin:6px 0}
+#nc{display:none;border:2px dashed var(--line);border-radius:10px;padding:16px;background:var(--card);font-size:20px;font-weight:700}
+#err{display:none;border:2px solid var(--rosso);border-radius:10px;padding:10px 14px;background:var(--card);font-weight:700}
+.pill{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.pill div{flex:1 1 150px;border-radius:10px;padding:8px 12px;border:2px solid var(--line);background:var(--card)}
+.pill b{font-size:30px;display:block;line-height:1.1}
+.pill .v{border-color:var(--verde)}.pill .a{border-color:var(--arancio)}.pill .r{border-color:var(--rosso)}.pill .g{border-color:var(--giallo)}
+.leg{font-size:14px;color:var(--mu);margin:6px 0}
+.leg span{margin-right:12px;white-space:nowrap}
+.scroll{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--card);position:sticky;top:0;font-size:13px}
+td.c{text-align:center;font-weight:700;white-space:nowrap}
+td.OK{background:var(--okbg)}td.REC{background:var(--recbg)}td.MANCA{background:var(--mancabg)}td.ASSENTE{background:var(--assbg)}td.ND{background:var(--ndbg)}
+td.n{font-weight:700;white-space:nowrap}
+.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.d-VERDE{background:var(--verde)}.d-ARANCIO{background:var(--arancio)}.d-ROSSO{background:var(--rosso)}.d-GIALLO{background:var(--giallo)}
+.chip{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin:1px 2px 1px 0;font-weight:700}
+.chip.f{border-color:var(--rosso)}.chip.r{border-color:var(--arancio)}
+.doc{margin-top:26px;border-top:3px solid var(--blu);padding-top:12px}
+.doc button,.doc input{font:inherit;font-size:17px;padding:10px 14px;border-radius:8px}
+.doc button{background:var(--blu);color:#fff;border:0;cursor:pointer}
+.doc input{border:2px solid var(--line);background:var(--card);color:var(--fg)}
+#docbox{display:none}
+#perr{color:var(--rosso);font-weight:700}
+.nota{font-size:13px;color:var(--mu);margin-top:14px}
+.cfg{display:none;border:2px solid var(--blu);border-radius:10px;padding:10px 14px;background:var(--card);margin:10px 0}
+.cfg input{width:100%;font:inherit;padding:8px;margin:6px 0}
+</style>
+</head>
+<body>
+<h1 id="tit"></h1>
+<div class="sel" id="sel"></div>
+<div id="dato"></div>
+<div id="vecchi"></div>
+<div id="nc"></div>
+<div id="err"></div>
+<div class="cfg" id="cfg">
+  <b>Solo per il prof, una volta sola per questo browser.</b> Incolla il link CSV pubblicato della scheda <b id="schnome"></b>.
+  <input id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?gid=...&amp;single=true&amp;output=csv">
+  <button id="salva" type="button">Salva e carica</button> <span id="msg"></span>
+  <div class="nota">Per tutti i ragazzi il link va scritto in <code>config.json</code> (cartella di questa pagina): è l'unico punto.</div>
+</div>
+<div class="pill" id="riep"></div>
+<div class="leg" id="leg"></div>
+<div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
+
+<div class="doc">
+  <h2 id="dtit"></h2>
+  <div id="dchiusa">
+    <input id="pw" type="password" autocomplete="current-password" placeholder="password">
+    <button id="apri" type="button"></button> <span id="perr"></span>
+  </div>
+  <div id="docbox"><div class="scroll"><table id="dtab"><thead></thead><tbody></tbody></table></div></div>
+</div>
+<div class="nota" id="nota"></div>
+
+<script>
+(function () {
+  'use strict';
+  var CLASSI = ['1INF', '2INF'];
+  var LINGUE = { '1INF': ['it', 'ar', 'zh'], '2INF': ['it'] };   // R6: 1INF italiano, arabo, cinese; 2INF solo italiano
+  var T = {
+    tit:   { it: 'Cruscotto Sicurezza', ar: 'لوحة متابعة السلامة المهنية', zh: '安全培训看板' },
+    ok:    { it: 'A posto', ar: 'مكتمل', zh: '已合格' },
+    rec:   { it: 'Da rifare (sotto 80%)', ar: 'يجب إعادته (أقل من 80%)', zh: '需重做（低于80%）' },
+    manca: { it: 'Mancano', ar: 'ناقص', zh: '缺少' },
+    nd:    { it: 'Dato non importato', ar: 'البيانات غير مستوردة', zh: '数据未导入' },
+    cOK:   { it: 'OK (80% o più)', ar: 'تمام (80% أو أكثر)', zh: '合格（80%以上）' },
+    cREC:  { it: 'da rifare (sotto 80%)', ar: 'إعادة (أقل من 80%)', zh: '重做（低于80%）' },
+    cMANCA:{ it: 'manca', ar: 'ناقص', zh: '缺少' },
+    cASS:  { it: 'assente', ar: 'غائب', zh: '缺席' },
+    cND:   { it: 'dato non importato', ar: 'غير مستورد', zh: '未导入' },
+    nome:  { it: 'Nome', ar: 'الاسم', zh: '姓名' },
+    ora:   { it: 'Ora', ar: 'الساعة', zh: '课时' },
+    oreok: { it: 'Ore OK', ar: 'ساعات تمام', zh: '合格课时' },
+    rec2:  { it: 'Recupero', ar: 'التعويض', zh: '补做' },
+    fare:  { it: 'Da fare ora', ar: 'المطلوب الآن', zh: '现在要做' },
+    rifare:{ it: 'Da rifare (sotto 80)', ar: 'للإعادة (أقل من 80)', zh: '要重做（低于80）' },
+    letti: { it: 'Dati letti alle', ar: 'البيانات مقروءة الساعة', zh: '数据读取时间' },
+    vecchi:{ it: 'DATI VECCHI', ar: 'بيانات قديمة', zh: '数据过旧' },
+    min:   { it: 'minuti: il foglio non si aggiorna', ar: 'دقيقة: الجدول لا يتحدث', zh: '分钟：表格没有更新' },
+    nc:    { it: 'dati non ancora collegati', ar: 'البيانات غير مربوطة بعد', zh: '数据尚未连接' },
+    doc:   { it: 'Parte per il docente (cifrata)', ar: '', zh: '' },
+    apri:  { it: 'Apri', ar: '', zh: '' },
+    sbagl: { it: 'Password sbagliata.', ar: '', zh: '' },
+    cogn:  { it: 'COGNOME Nome', ar: '', zh: '' },
+    note:  { it: 'Note', ar: '', zh: '' }
+  };
+  var IX = {}, cl = '1INF', corsa = 0, nomi = null, CFG = {}, ultimo = null, DOC = null, PW = '';
+  function $(i) { return document.getElementById(i); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+  function L(k, solo) {   // etichetta nelle lingue della classe (docente: solo italiano)
+    var lg = solo ? ['it'] : LINGUE[cl];
+    return lg.map(function (g) { return '<span class="ln ' + g + '" lang="' + g + '"' + (g === 'ar' ? ' dir="rtl"' : '') + '>' + T[k][g] + '</span>'; }).join('');
+  }
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function csv(t) {
+    var r = [], row = [], c = '', q = false;
+    for (var i = 0; i < t.length; i++) {
+      var ch = t[i];
+      if (q) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ',') { row.push(c); c = ''; }
+      else if (ch === '\n') { row.push(c); r.push(row); row = []; c = ''; }
+      else if (ch !== '\r') c += ch;
+    }
+    if (c.length || row.length) { row.push(c); r.push(row); }
+    return r;
+  }
+  function conv(v) {   // link pubblicato -> link CSV
+    v = (v || '').trim();
+    if (!v) return '';
+    if (v.indexOf('output=csv') >= 0) return v;
+    if (v.indexOf('docs.google.com/spreadsheets/d/e/') < 0) return '';
+    var u = v.replace('/pubhtml', '/pub');
+    u += (u.indexOf('?') < 0 ? '?' : '&') + 'output=csv';
+    if (/[?&]gid=/.test(u) && !/[?&]single=true/.test(u)) u += '&single=true';
+    return u;
+  }
+  function urlClasse() { return conv(leggi('sicurezza_csv_' + cl)) || conv(CFG[cl]); }
+
+  /* ---- una cella: stato, percentuale, simbolo ---- */
+  function cella(t) {
+    t = String(t || '').trim();
+    var m = /^(\d+)%\s+(OK|DA RECUPERARE)(.*)$/.exec(t);
+    if (m) {
+      var ok = m[2] === 'OK', prov = /provv/.test(m[3]) ? '*' : '';
+      return { st: ok ? 'OK' : 'REC', txt: m[1] + '% ' + (ok ? '✓' : '✗') + prov, pct: +m[1] };
+    }
+    if (/^MANCA/.test(t)) return { st: 'MANCA', txt: '○' };
+    if (/^ASSENTE/.test(t)) return { st: 'ASSENTE', txt: '⊘' };
+    return { st: 'ND', txt: '…' };
+  }
+  function chips(t, cls) {
+    t = String(t || '').trim();
+    if (!t || t === '-') return '—';
+    return t.split(/,\s*/).map(function (x) { return '<span class="chip ' + cls + '">' + esc(x.replace(/^ora\s*/i, '')) + '</span>'; }).join('');
+  }
+
+  function leggiIntest(testa) {
+    var o = { ore: [], rec: -1, fare: -1, rifare: -1, nd: -1 };
+    testa.forEach(function (h, i) {
+      h = String(h);
+      if (/^Ora\s/i.test(h)) o.ore.push(i);
+      else if (/^Recupero/i.test(h)) o.rec = i;
+      else if (/^DA FARE/i.test(h)) o.fare = i;
+      else if (/^DA RIFARE/i.test(h)) o.rifare = i;
+      else if (/^Dato non/i.test(h)) o.nd = i;
+    });
+    return o;
+  }
+
+  function disegna(righe) {
+    var m = ((righe[0] && righe[0][0]) || '').match(/(\d{1,2}:\d{2}:\d{2})/);
+    var testa = righe[3] || [], ix = IX = leggiIntest(testa);
+    var corpo = righe.slice(4).filter(function (r) { return r[1] && String(r[1]).trim(); });
+    $('nc').style.display = 'none'; $('err').style.display = 'none';
+    $('dato').innerHTML = L('letti') + ' <b>' + (m ? m[1] : '?') + '</b>';
+    var n = { VERDE: 0, ARANCIO: 0, ROSSO: 0, GIALLO: 0 }, tot = { OK: 0, REC: 0, MANCA: 0, ASSENTE: 0, ND: 0 };
+    var vis = corpo.map(function (r) {
+      var id = String(r[1]).trim(), st = String(r[0]).trim();
+      if (n[st] !== undefined) n[st]++;
+      var celle = ix.ore.map(function (i) { return cella(r[i]); });
+      celle.forEach(function (c) { tot[c.st]++; });
+      var nome = (nomi && nomi[cl] && nomi[cl][id]) || '?';
+      return { id: id, st: st, nome: nome, celle: celle, r: r };
+    });
+    var ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3 };
+    vis.sort(function (a, b) { return (ord[a.st] - ord[b.st]) || a.nome.localeCompare(b.nome); });
+    ultimo = vis;
+    $('riep').innerHTML =
+      '<div class="v"><b>' + n.VERDE + '</b>' + L('ok') + '</div>' +
+      '<div class="a"><b>' + n.ARANCIO + '</b>' + L('rec') + '</div>' +
+      '<div class="r"><b>' + n.ROSSO + '</b>' + L('manca') + '</div>' +
+      '<div class="g"><b>' + n.GIALLO + '</b>' + L('nd') + '</div>';
+    $('leg').innerHTML = '<span>✓ ' + L('cOK') + '</span><span>✗ ' + L('cREC') + '</span><span>○ ' + L('cMANCA') + '</span><span>⊘ ' + L('cASS') + '</span><span>… ' + L('cND') + '</span>';
+    var th = '<tr><th>' + L('nome') + '</th>' + ix.ore.map(function (i) { return '<th>' + L('ora') + ' ' + esc(String(testa[i]).replace(/^Ora\s*/i, '')) + '</th>'; }).join('') +
+      '<th>' + L('oreok') + '</th>' + (ix.rec >= 0 ? '<th>' + L('rec2') + '</th>' : '') + '<th>' + L('fare') + '</th><th>' + L('rifare') + '</th></tr>';
+    $('tab').querySelector('thead').innerHTML = th;
+    $('tab').querySelector('tbody').innerHTML = vis.map(function (v) {
+      var ok = v.celle.filter(function (c) { return c.st === 'OK'; }).length;
+      return '<tr><td class="n"><span class="dot d-' + esc(v.st) + '"></span>' + esc(v.nome) + '</td>' +
+        v.celle.map(function (c) { return '<td class="c ' + c.st + '">' + esc(c.txt) + '</td>'; }).join('') +
+        '<td class="c">' + ok + '/' + v.celle.length + '</td>' +
+        (ix.rec >= 0 ? '<td class="c">' + esc(String(v.r[ix.rec] || '').replace(/^dato non importato$/i, '…').replace(/^MANCA$/, '○')) + '</td>' : '') +
+        '<td>' + chips(v.r[ix.fare], 'f') + '</td><td>' + chips(v.r[ix.rifare], 'r') + '</td></tr>';
+    }).join('');
+    if (DOC) disegnaDoc();
+    $('nota').innerHTML = 'Soglia 80% sul miglior tentativo. Dati dal foglio Google, aggiornati ogni 30 secondi. * = ci sono domande aperte non ancora corrette, la percentuale è provvisoria. Le ore 6A e 6B sono colonne separate. Celle: OK ' + tot.OK + ' · da rifare ' + tot.REC + ' · mancano ' + tot.MANCA + ' · assenti ' + tot.ASSENTE + ' · non importate ' + tot.ND + '.';
+    verificaVecchi(m ? m[1] : null);
+  }
+  function verificaVecchi(hms) {
+    var el = $('vecchi');
+    if (!hms) { el.style.display = 'none'; return; }
+    var p = hms.split(':'), o = new Date();
+    o.setHours(+p[0], +p[1], +p[2], 0);
+    var min = (new Date() - o) / 60000;
+    if (min > 6) { el.style.display = 'block'; el.innerHTML = L('vecchi') + ': ' + Math.round(min) + ' ' + L('min'); }
+    else el.style.display = 'none';
+  }
+  function vuota() {
+    ['riep', 'leg', 'dato'].forEach(function (i) { $(i).innerHTML = ''; });
+    $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
+    $('vecchi').style.display = 'none'; $('nota').innerHTML = ''; ultimo = null;
+  }
+  function nonCollegati() {
+    vuota();
+    $('nc').style.display = 'block'; $('nc').innerHTML = L('nc');
+    $('schnome').textContent = '«Sicurezza pubblica ' + cl + '»';
+    if (/[?&]config=1/.test(location.search)) $('cfg').style.display = 'block';
+  }
+  function carica() {
+    var u = urlClasse(), mio = ++corsa;
+    $('url').value = leggi('sicurezza_csv_' + cl);
+    if (!u) { nonCollegati(); return; }
+    $('cfg').style.display = /[?&]config=1/.test(location.search) ? 'block' : 'none';
+    fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+      .then(function (t) { if (mio === corsa) { $('msg').textContent = ''; disegna(csv(t)); } })
+      .catch(function (e) {
+        if (mio !== corsa) return;
+        vuota();
+        $('err').style.display = 'block'; $('err').textContent = 'Non riesco a leggere il foglio (' + e.message + ').';
+        $('cfg').style.display = 'block';
+      });
+  }
+  function menu() {
+    $('sel').innerHTML = CLASSI.map(function (x) { return '<button type="button" data-c="' + x + '"' + (x === cl ? ' class="on"' : '') + '>' + x + '</button>'; }).join('');
+    $('tit').innerHTML = L('tit') + '<span class="ln" style="font-size:16px;color:var(--mu)">' + cl + '</span>';
+    $('dtit').innerHTML = L('doc', true); $('apri').innerHTML = L('apri', true);
+    document.title = 'Cruscotto Sicurezza ' + cl;
+  }
+  function scegli(c) {
+    cl = c; scrivi('sicurezza_ultima_classe', c);
+    try { history.replaceState(null, '', '?classe=' + c + (/[?&]config=1/.test(location.search) ? '&config=1' : '')); } catch (e) {}
+    $('nc').style.display = 'none'; $('err').style.display = 'none';
+    menu(); vuota(); carica();
+  }
+  $('sel').onclick = function (e) { var c = e.target.getAttribute('data-c'); if (c) scegli(c); };
+  $('salva').onclick = function () {
+    var u = conv($('url').value);
+    if (!u) { $('msg').textContent = ' Questo non è il link pubblicato (File, Condividi, Pubblica sul web).'; return; }
+    scrivi('sicurezza_csv_' + cl, u); carica();
+  };
+
+  /* ---- parte docente: docente.json cifrato (AES-GCM, PBKDF2) ---- */
+  function b64(s) { var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+  function decifra(X, pw) {
+    return crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']).then(function (base) {
+      return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(X.salt), iterations: X.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    }).then(function (k) { return crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(X.iv) }, k, b64(X.ct)); })
+      .then(function (t) { return JSON.parse(new TextDecoder().decode(t)); });
+  }
+  function disegnaDoc() {
+    var d = (DOC && DOC[cl]) || {};
+    $('dtab').querySelector('thead').innerHTML = '<tr><th>COGNOME Nome</th><th>Nome I.</th><th>Stato</th><th>Da fare ora</th><th>Da rifare (sotto 80)</th><th>Note</th></tr>';
+    var righe = ultimo || [];
+    if (!righe.length) { $('dtab').querySelector('tbody').innerHTML = '<tr><td colspan="6">Dati non ancora collegati: qui compaiono solo gli allievi presenti nel foglio.</td></tr>'; return; }
+    $('dtab').querySelector('tbody').innerHTML = righe.map(function (v) {
+      var x = d[v.id] || { nome: '(non in elenco)', note: [] };
+      var f = v.r[IX.fare], rr = v.r[IX.rifare];
+      return '<tr><td class="n">' + esc(x.nome) + '</td><td>' + esc(v.nome) + '</td><td><span class="dot d-' + esc(v.st) + '"></span>' + esc(v.st) + '</td><td>' + esc(f) + '</td><td>' + esc(rr) + '</td><td>' + esc((x.note || []).join(' · ')) + '</td></tr>';
+    }).join('');
+  }
+  function apriDoc(pw) {
+    return fetch('docente.json', { cache: 'no-store' }).then(function (r) { return r.json(); })
+      .then(function (X) { return decifra(X, pw); })
+      .then(function (o) { DOC = o; PW = pw; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} $('dchiusa').style.display = 'none'; $('docbox').style.display = 'block'; disegnaDoc(); });
+  }
+  $('apri').onclick = function () {
+    $('perr').textContent = '';
+    apriDoc($('pw').value).catch(function () { $('perr').textContent = T.sbagl.it; });
+  };
+  $('pw').onkeydown = function (e) { if (e.key === 'Enter') $('apri').onclick(); };
+
+  /* ---- avvio ---- */
+  var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
+  q = q ? decodeURIComponent(q).toUpperCase() : leggi('sicurezza_ultima_classe');
+  var ini = CLASSI.indexOf(q) >= 0 ? q : '1INF';
+  Promise.all([
+    fetch('nomi.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return null; }),
+    fetch('config.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; })
+  ]).then(function (v) {
+    nomi = v[0]; CFG = v[1] || {};
+    scegli(ini);
+    setInterval(carica, 30000);
+    var pw0 = ''; try { pw0 = sessionStorage.getItem('cruscotto-pw') || ''; } catch (e) {}
+    if (pw0) apriDoc(pw0).catch(function () {});
+  });
+})();
+</script>
+</body>
+</html>
