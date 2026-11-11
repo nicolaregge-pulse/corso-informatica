@@ -18,6 +18,7 @@
 body{margin:0;padding:12px 16px 40px;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,"Segoe UI",Arial,"Noto Sans","Noto Sans Arabic","Noto Sans SC",sans-serif}
 h1{font-size:22px;margin:0 0 6px}
 .ln{display:block}.ar{direction:rtl;unicode-bidi:isolate}
+.inl .ln{display:inline}.inl .ln+.ln:before{content:" / ";color:var(--mu)}
 .sel{display:flex;gap:8px;margin:10px 0}
 .sel button{flex:1 1 0;font:inherit;font-size:22px;font-weight:700;padding:12px;border:2px solid var(--blu);border-radius:10px;background:var(--card);color:var(--fg);cursor:pointer}
 .sel button.on{background:var(--blu);color:#fff}
@@ -54,10 +55,10 @@ td.n{font-weight:700;white-space:nowrap}
 </style>
 </head>
 <body>
-<h1 id="tit"></h1>
+<h1 id="tit" class="inl"></h1>
 <div class="sel" id="sel"></div>
-<div id="dato"></div>
-<div id="vecchi"></div>
+<div id="dato" class="inl"></div>
+<div id="vecchi" class="inl"></div>
 <div id="nc"></div>
 <div id="err"></div>
 <div class="cfg" id="cfg">
@@ -67,7 +68,7 @@ td.n{font-weight:700;white-space:nowrap}
   <div class="nota">Per tutti i ragazzi il link va scritto in <code>config.json</code> (cartella di questa pagina): è l'unico punto.</div>
 </div>
 <div class="pill" id="riep"></div>
-<div class="leg" id="leg"></div>
+<div class="leg inl" id="leg"></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
 
 <div class="doc">
