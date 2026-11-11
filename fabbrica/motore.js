@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.4 (10/11/2026)
+ * FABBRICA - MOTORE v2.5 (11/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -199,6 +199,30 @@ function FB_puntiTotali_(form) {
   return tot;
 }
 
+function FB_creato_(ss, id) {
+  var v = ss.getSheetByName('Esiti').getDataRange().getValues();
+  for (var i = 1; i < v.length; i++) if (v[i][1] === id) return String(v[i][0]).slice(0, 5);
+  return '';
+}
+
+function FB_quiz_(ss) {
+  var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), medie = FB_json_('FB_MEDIE');
+  var es = ss.getSheetByName('Esiti').getDataRange().getValues(), righe = [], i;
+  for (i = 1; i < es.length; i++) {
+    var id = es[i][1], f = forms[id];
+    if (!id || !f) continue;
+    var ris = ss.getSheetByName('Ris ' + id);
+    var link = ris ? '=HYPERLINK("#gid=' + ris.getSheetId() + '","Apri risultati")' : '';
+    righe.push([i, [f.classe || FB_classe_(null, id), f.titolo || es[i][2] || id, id, nr[id] === undefined ? '' : nr[id], medie[id] === undefined ? '' : medie[id], es[i][3] || '', link]]);
+  }
+  righe.sort(function (a, b) { return b[0] - a[0]; });
+  var sh = ss.getSheetByName('Quiz');
+  if (!sh) { var pos = ss.getSheetByName('Esiti'); sh = pos.getIndex ? ss.insertSheet('Quiz', pos.getIndex()) : ss.insertSheet('Quiz'); }
+  sh.clear();
+  sh.getRange(1, 1, 1, 7).setValues([['Classe', 'Titolo', 'Id', 'Risposte', 'Media del migliore', 'Link per i ragazzi', 'Link alla scheda dei risultati']]).setFontWeight('bold');
+  if (righe.length) sh.getRange(2, 1, righe.length, 7).setValues(righe.map(function (r) { return r[1]; }));
+}
+
 function FB_risultati_(ss, t0) {
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), fatte = 0, id;
   for (id in forms) {
@@ -206,25 +230,34 @@ function FB_risultati_(ss, t0) {
     try {
       var form = FormApp.openById(forms[id].formId);
       var ris = form.getResponses(), n = ris.length;
-      if (nr[id] === n) continue;
+      var g0 = ss.getSheetByName('Ris ' + id);
+      if (nr[id] === n && g0 && g0.getRange(4, 1).getValues()[0][0] === 'Email') continue;
       var su = FB_puntiTotali_(form), per = {};
       ris.forEach(function (r) {
-        var em = r.getRespondentEmail() || '(senza email)', s = 0;
-        (r.getGradableItemResponses() || []).forEach(function (g) { s += Number(g.getScore()) || 0; });
-        var ts = r.getTimestamp(), p = per[em] || (per[em] = { max: 0, t: 0, ult: null });
+        var em = r.getRespondentEmail() || '(senza email)', s = 0, p0 = per[em] || (per[em] = { max: 0, t: 0, ult: null, aperte: 0 });
+        (r.getGradableItemResponses() || []).forEach(function (g) { var sc = g.getScore(); if (sc === null || sc === undefined) p0.aperte++; s += Number(sc) || 0; });
+        var ts = r.getTimestamp(), p = p0;
         if (s > p.max) p.max = s;
         p.t++;
         if (!p.ult || ts > p.ult) p.ult = ts;
       });
       var righe = Object.keys(per).map(function (em) {
         var p = per[em];
-        return [em, p.max, su, p.t, p.ult ? Utilities.formatDate(p.ult, 'Europe/Rome', 'dd/MM HH:mm') : ''];
+        return [em, p.max, su, p.t, p.ult ? Utilities.formatDate(p.ult, 'Europe/Rome', 'dd/MM HH:mm') : '', p.aperte];
       });
       righe.sort(function (a, b) { return b[1] - a[1]; });
+      var tot = 0;
+      righe.forEach(function (r) { tot += r[1]; });
+      var medie = FB_json_('FB_MEDIE');
+      medie[id] = righe.length ? Math.round(tot / righe.length * 10) / 10 : '';
+      FB_salva_('FB_MEDIE', medie);
       var sh = ss.getSheetByName('Ris ' + id) || ss.insertSheet('Ris ' + id);
       sh.clear();
-      sh.getRange(1, 1, 1, 5).setValues([['Email', 'Migliore', 'Su', 'Tentativi', 'Ultimo invio']]).setFontWeight('bold');
-      if (righe.length) sh.getRange(2, 1, righe.length, 5).setValues(righe);
+      var cr = FB_creato_(ss, id);
+      sh.getRange(1, 1).setValue(form.getTitle() || forms[id].titolo || id).setFontWeight('bold');
+      sh.getRange(2, 1).setValue('Classe ' + (forms[id].classe || FB_classe_(null, id)) + ' \u00b7 id ' + id + ' \u00b7 creato il ' + cr + ' \u00b7 dati letti alle ' + FB_ora_('HH:mm:ss') + ' \u00b7 ' + n + ' risposte');
+      sh.getRange(4, 1, 1, 6).setValues([['Email', 'Migliore', 'Su', 'Tentativi', 'Ultimo invio', 'Domande aperte da correggere']]).setFontWeight('bold');
+      if (righe.length) sh.getRange(5, 1, righe.length, 6).setValues(righe);
       nr[id] = n;
       FB_salva_('FB_NR', nr);
       fatte++;
@@ -449,7 +482,7 @@ function CR_quiz_(ss, classe, email) {
     var m = /^Ris (.+)$/.exec(sh.getName ? sh.getName() : sh.name);
     if (!m || m[1].toLowerCase().indexOf(c) < 0) return;
     var v = sh.getDataRange().getValues();
-    for (var i = 1; i < v.length; i++) {
+    for (var i = 4; i < v.length; i++) {
       if (String(v[i][0]).toLowerCase() === String(email).toLowerCase()) { parti.push(v[i][1] + '/' + v[i][2]); break; }
     }
   });
@@ -546,6 +579,7 @@ function FB_main_() {
     }
     try { FB_ripara_(ss); } catch (e) { FB_errore_(ss, 'ripara', e); }
     try { FB_risultati_(ss, t0); } catch (e) { FB_errore_(ss, 'risultati', e); }
+    try { FB_quiz_(ss); } catch (e) { FB_errore_(ss, 'quiz', e); }
     if (indice) {
       try { FB_cruscotti_(ss, indice); } catch (e) { FB_errore_(ss, 'cruscotti', e); }
     }
