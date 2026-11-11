@@ -1,6 +1,6 @@
 # 00 Guida ai messaggi per il docente
 
-**Versione 1.2** — 11/11/2026 (prima: 1.1, 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.3** — 11/11/2026 (prima: 1.2, 1.1 del 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio della regola R4 di `CLAUDE.md` (messaggi al docente). La regola breve sta lì; qui c'è il testo completo da cui nasce.
 
@@ -107,8 +107,16 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 5. Niente codice o spiegazioni lunghe in chat mentre il docente è in classe (dettaglio in R4: file .txt con SendUserFile).
 6. In classe il docente deve capire a colpo d'occhio: la prima riga è la cosa bloccante.
 
+## 03bis I colori delle cornici (decisione del docente, 11/11/2026)
+
+1. **Verde** (🟩): i comunicati per il docente, messi in cornice (stato, domande, passi da fare).
+2. **Rosso** (🟥): solo le pubblicazioni su Classroom (titolo, oggetto, testo da incollare, registro).
+3. **Blu** (🟦): solo i documenti (PDF e altri file mandati con SendUserFile: il file va subito sotto la riga della cornice).
+4. La prima riga di ogni messaggio resta la cosa bloccante, da sola; la cornice viene dopo.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
 2. v1.1 (06/11/2026): note di allineamento a R4.3 (solo il prossimo passo, niente catene né tabelle).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 8, 9, 20, 25, guida passo passo, regola copia).
+4. v1.3 (11/11/2026): nuova sezione 03bis, colori delle cornici: verde per i comunicati, rosso per Classroom, blu per i documenti, decisione del docente.
