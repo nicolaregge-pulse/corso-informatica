@@ -1451,3 +1451,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Ho rimandato più volte lo stesso PDF e lo stesso ZIP con lo stesso nome: sul PC del docente compaiono i doppioni «(1)» e non si capisce quale è l'ultimo. Il docente: «non versioni i file e succede questo».
 2. **Strumento da correggere.** Un file già mandato si rimanda solo se è cambiato, e allora con un numero di versione nuovo nel nome (v1.1, v1.2). Se non è cambiato, non lo rimando: dico il nome e dove si trova.
+
+## #274 (11/11/2026) Lingue della 1INF dimenticate nei quiz e nel post
+
+1. **Errore.** Per la 1INF (R6: italiano, arabo e cinese) ho preparato quiz e testo del post solo in italiano, anche dopo che il docente l'aveva scritto. Il docente: «Ti sei dimenticato le 2 lingue».
+2. **Strumento che lo corregge.** `strumenti/controlla_lingue_quiz.py`: per ogni quiz con id `1inf` in `fabbrica/indice.json` controlla che ci siano caratteri arabi e cinesi, e stampa «MANCA arabo e cinese» se no (uscita 1). Si lancia prima di dire che un quiz della 1INF è pronto. Il primo giro (11/11, 13:20) ha trovato 5 quiz 1INF solo in italiano.
