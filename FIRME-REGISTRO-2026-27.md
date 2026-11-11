@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 2.5** — 11/11/2026 — documento interno del docente e di Claude
+**Versione 2.6** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -85,7 +85,7 @@ Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
 Fonte: registro DIDAweb (screenshot del docente delle 08:06), colonna Firma.
 
 1. Ore 8-9, 9-10 e 10-11, 1INF, Laboratorio professionale: FIRMATE l'11/11/2026, argomenti «Lazarus string integer», «Lazarus real e divisione», «Lazarus real e divisione» (la terza ora è stata cambiata dal docente; screenshot del registro delle 10:45).
-2. Ore 11-12 e 12-13: Matematica di un altro docente, non nostre.
+2. Ore 11-12 e 12-13, 3INF, Laboratorio professionale: FIRMATE l'11/11/2026 (11:15 e 12:23), argomenti «Comunicazione client server» e «Chat LAzarus» (elenco del registro DIDAweb, screenshot del docente). Nota: la 1INF ha Matematica di un altro docente nelle stesse ore.
 3. Ora 13-14, 1INF, Sicurezza professionale: FIRMATA l'11/11/2026 (registro DIDAweb, screenshot del docente delle 12:2x); argomento scritto dal docente: «11/11 Ora 6: Rischi meccanici ed elettrici generali». Non si ricorda più nessuna firma di oggi.
 
 ## Changelog
@@ -106,3 +106,4 @@ Fonte: registro DIDAweb (screenshot del docente delle 08:06), colonna Firma.
 13. v2.3 (11/11/2026): mercoledì 11/11, ore 1INF 8-11 firmate; ora 13-14 Sicurezza ancora da firmare (entro le 14:05).
 14. v2.4 (11/11/2026, 10:45): registro DIDAweb: ora 10-11 con argomento «Lazarus real e divisione» (non più «if then»); ora 13-14 Sicurezza ancora da firmare.
 15. v2.5 (11/11/2026): ora 13-14 Sicurezza 1INF firmata (screenshot del registro).
+16. v2.6 (11/11/2026): ore 3INF 11-13 firmate (elenco del registro: 11:15 e 12:23); tutte le ore di oggi firmate.
