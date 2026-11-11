@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.14** — 11/11/2026 — documento interno del docente e di Claude
+**Versione 1.15** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -346,6 +346,17 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #272 | Controlli e passi chiesti al docente in lezione (11/11) | 4 | D | D | controllo automatico: mancante (idea: controllo-messaggio.py segnala in ora di lezione messaggi con più di un passo o richieste di screenshot di controllo) |
 | #273 | Stesso file rimandato con lo stesso nome (11/11) | 6 | D | D | controllo automatico: mancante |
 | #274 | Lingue della 1INF dimenticate nei quiz e nel post (11/11) | 1 | D | A | `strumenti/controlla_lingue_quiz.py` (R6): per ogni quiz con id `1inf` in `fabbrica/indice.json` controlla arabo e cinese, «MANCA arabo e cinese» e uscita 1; si lancia con `python3 -I strumenti/controlla_lingue_quiz.py` prima di dire che un quiz 1INF è pronto. Voce #274 in `REGISTRO-ERRORI-CLAUDE.md` |
+| #267 | Link senza account e non in casella copiabile (11/11) | 4 | D | D | controllo automatico: mancante (CLAUDE.md v2.8 R4 3quater, LINK-UTILI.md) |
+| #275 | Strumento garantito senza prova, chiedeva l'amministratore (11/11) | 7 | D | D | `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato); controllo automatico: mancante |
+| #276 | Argomento di un'ora copiato da un documento vecchio (11/11) | 7 | D | D | `generatori/diario_dati.py` legge FIRME-REGISTRO; controllo automatico per ARGOMENTI-SVOLTI: mancante |
+| #277 | Chat 3INF presentata senza provare che chatta (11/11) | 9 | D | D | CHECKLIST-LEZIONE (prova con due istanze); controllo automatico: mancante |
+| #278 | Quiz Sicurezza non sulle slide ufficiali (11/11) | 9 | D | D | FRAMEWORK-QUIZ cap. 10; controllo automatico: mancante |
+| #279 | Scheda Situazione 2INF vuota (11/11) | 8 | D | A | motore Fabbrica v2.15 e `test_situazione_v2_15.js` (riservato) |
+| #280 | Pannello e schede senza «a che serve» (11/11) | 4 | D | D | idea: `controlli_pagine.py`; FABBRICA-MANUALE v2.6 da fare |
+| #281 | Allievi nominati senza cognome (11/11) | 7 | D | D | idea: `controllo-messaggio.py`; controllo automatico: mancante |
+| #282 | Formato del pacchetto per il post rifatto cinque volte (11/11) | 4 | D | D | GUIDA-MESSAGGI v1.3; controllo automatico: mancante |
+| #283 | Controllo di fine giornata cieco, VERDE «nessuna lezione» (11/11) | 7 | D | D | `controlla_controlli.py --fine-giornata` da collegare a FIRME e `fabbrica/indice.json` |
+| #284 | Incoerenze trovate e non corrette nei file (11/11) | 7 | D | D | controllo automatico: mancante |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -426,3 +437,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 12. v1.12 (11/11/2026): voci #270-#271 (PPP ignorato, richiesta interpretata), tutte D, controllo automatico: mancante.
 13. v1.13 (11/11/2026): voce #272 (controlli e passi chiesti al docente in lezione), D, controllo automatico: mancante.
 14. v1.14 (11/11/2026): voce #273 (stesso file rimandato, D, controllo mancante) e voce #274 (lingue 1INF nei quiz, A: `strumenti/controlla_lingue_quiz.py`, R6). Il conteggio della sezione 01 non è stato ricalcolato.
+15. v1.15 (11/11/2026, controllore di fine giornata): voci #267 e #275-#284; #279 A, le altre D. Il conteggio della sezione 01 non è stato ricalcolato.
