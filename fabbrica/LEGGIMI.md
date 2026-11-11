@@ -24,3 +24,6 @@ Correzione: nelle schede `Indice` (colonna A) e `Quiz` (colonna G) il motore non
 
 ## Indice solo con i quiz attuali (motore v2.14, 11/11/2026)
 Nella scheda `Indice` le righe `Quiz` sono solo quelle degli id correnti di `indice.json` (una riga per id, Stato `Attivo`). Gli id vecchi che restano in `Esiti` (Moduli creati e poi sostituiti) diventano righe `Quiz (vecchio)` con Stato `Nascosta` e senza Link ragazzi, cosi il Pannello non le mostra. Provato solo con finti servizi (`test_indice_v2_14.js` nel riservato).
+
+## Situazione con elenco da Utenti e abbinamento email (motore v2.15, 11/11/2026)
+Nella scheda `Situazione <CLASSE>` l'elenco allievi viene, in ordine, da `Email <CLASSE>`, da `Consegne <CLASSE>`, da `Utenti <CLASSE>` (colonna C Allievo, COGNOME Nome). Con `Utenti` chi non ha risposto a nessun quiz compare con MANCA su ogni quiz. Le email delle risposte si abbinano agli allievi per nome.cognome (cognome.nome, nome_cognome, cognomenome; un abbinamento ambiguo o con la sola iniziale non vale). La riga 4 dice quanti allievi sono abbinati, quanti no e quante risposte hanno email non abbinata, con il gesto da fare (account PIAMARTA, un passo: scheda `Email <CLASSE>`, A email, B allievo). Se manca tutto, la riga 4 dice quale scheda manca e il gesto. Provato solo con finti servizi (`test_situazione_v2_15.js`, `test_indice_v2_15.js` nel riservato).
