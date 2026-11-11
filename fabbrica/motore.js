@@ -717,8 +717,10 @@ function SI_classe_(ss, cfg) {
   var testa = ['Stato', 'Allievo'].concat(ore.map(function (o) { return 'Ora ' + o.ora; }), ['Recupero ore 1-5', 'DA FARE ORA', 'DA RIFARE (sotto ' + soglia + ')', 'Dato non importato']);
   sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
   try {
-    var fSic = FB_json_('FB_FORMS'), tSic = ore.map(function (o) {
-      var id0 = (o.ids || [])[0], f0 = id0 && fSic[id0], th = SM_testa_(f0 ? f0.titolo : 'Sicurezza ora ' + o.ora, id0 || 'storico', '');
+    var fSic = FB_json_('FB_FORMS'), dSic = {}, shE = ss.getSheetByName('Esiti');
+    if (shE) shE.getDataRange().getValues().forEach(function (r) { dSic[r[1]] = String(r[0]).slice(0, 5); });
+    var tSic = ore.map(function (o) {
+      var id0 = (o.ids || [])[0], f0 = id0 && fSic[id0], th = SM_testa_(f0 ? f0.titolo : 'Sicurezza ora ' + o.ora, id0 || 'storico', dSic[id0] || '');
       if (!/ora\s+\w+/i.test(th.a)) th.a = 'Sic. ora ' + o.ora + ' \u00b7 ' + th.a.replace(/^Sic\.\s*/, '');
       th.a = th.a.replace(/^Sic\. ora \w+/i, 'Sic. ora ' + o.ora);
       return th;
