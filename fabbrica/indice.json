@@ -78,5 +78,49 @@
    "1INF"
   ],
   "ogni_minuti": 10
+ },
+ "sicurezza": {
+  "attivo": true,
+  "classe": "1INF",
+  "soglia": 80,
+  "ore": [
+   {
+    "ora": "1"
+   },
+   {
+    "ora": "2"
+   },
+   {
+    "ora": "3"
+   },
+   {
+    "ora": "4"
+   },
+   {
+    "ora": "5",
+    "ids": [
+     "quiz-1inf-sic5-1111"
+    ]
+   },
+   {
+    "ora": "6A",
+    "ids": [
+     "quiz-1inf-sic6-mecc-1111t",
+     "quiz-1inf-sic6-mecc-1111"
+    ]
+   },
+   {
+    "ora": "6B",
+    "ids": [
+     "quiz-1inf-sic6-elet-1111t",
+     "quiz-1inf-sic6-elet-1111"
+    ]
+   }
+  ],
+  "recupero": {
+   "ids": [
+    "quiz-1inf-sic-recupero-1111"
+   ]
+  }
  }
 }

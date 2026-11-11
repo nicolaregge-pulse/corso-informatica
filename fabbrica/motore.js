@@ -1,9 +1,9 @@
 /**
- * FABBRICA - MOTORE v2.5 (11/11/2026)
+ * FABBRICA - MOTORE v2.6 (11/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -564,6 +564,133 @@ function FB_classroom_(ss, indice, t0) {
   CR_scheda_(ss, cl, trovati[cl], cfg);
 }
 
+/* ---------- Sicurezza 1INF per allievo (v2.6, solo docente) ---------- */
+function SI_norm_(s) { return String(s || '').toUpperCase().replace(/\s+/g, ' ').trim(); }
+function SI_ora_(s) { return String(s || '').toUpperCase().replace(/^ORA\s*/, '').trim(); }
+
+function SI_elenco_(ss) {
+  var e2n = {}, nomi = [], visti = {}, sh = ss.getSheetByName('Email 1INF'), v, i, fonte = '';
+  function aggNome(n) { if (n && !visti[n]) { visti[n] = 1; nomi.push(n); } }
+  if (sh) {
+    fonte = "scheda 'Email 1INF'";
+    v = sh.getDataRange().getValues();
+    for (i = 0; i < v.length; i++) {
+      var em = String(v[i][0] || '').trim().toLowerCase(), n = SI_norm_(v[i][1]);
+      if (!n || /^allievo$/i.test(n)) continue;
+      if (em.indexOf('@') > 0) e2n[em] = n;
+      aggNome(n);
+    }
+  } else if ((sh = ss.getSheetByName('Consegne 1INF'))) {
+    fonte = "scheda 'Consegne 1INF' (Classroom)";
+    v = sh.getDataRange().getValues();
+    for (i = 4; i < v.length; i++) {
+      var em2 = String(v[i][2] || '').trim().toLowerCase(), n2 = SI_norm_(v[i][1]);
+      if (!n2) continue;
+      if (em2.indexOf('@') > 0) e2n[em2] = n2;
+      aggNome(n2);
+    }
+  }
+  return { e2n: e2n, nomi: nomi, fonte: fonte };
+}
+
+function SI_storico_(ss) {
+  var out = {}, sh = ss.getSheetByName('Sicurezza storico 1INF');
+  if (!sh) return { dati: out, presente: false };
+  var v = sh.getDataRange().getValues();
+  for (var i = 1; i < v.length; i++) {
+    var n = SI_norm_(v[i][0]), o = SI_ora_(v[i][1]);
+    if (!n || !o) continue;
+    var voto = v[i][2] === '' || v[i][2] === null || v[i][2] === undefined ? null : Number(v[i][2]);
+    if (voto !== null && isNaN(voto)) voto = null;
+    var st = SI_norm_(v[i][3]);
+    out[n + '|' + o] = { voto: voto, stato: st, fonte: String(v[i][4] || '') };
+  }
+  return { dati: out, presente: true };
+}
+
+function SI_ris_(ss, ids, e2n, ora, nonAbb, letture) {
+  var per = {}, disp = false;
+  (ids || []).forEach(function (id) {
+    var sh = ss.getSheetByName('Ris ' + id);
+    if (!sh) return;
+    disp = true;
+    var v = sh.getDataRange().getValues();
+    var m = /dati letti alle (\d\d:\d\d)/.exec(String(v[1] && v[1][0] || ''));
+    letture.push(ora + ' (' + id + '): ' + (m ? m[1] : 'ora non leggibile'));
+    for (var i = 4; i < v.length; i++) {
+      var em = String(v[i][0] || '').trim().toLowerCase(), su = Number(v[i][2]), mg = Number(v[i][1]);
+      if (!em || !su) continue;
+      var pct = Math.round(mg / su * 100), aperte = Number(v[i][5]) || 0, nome = e2n[em];
+      if (!nome) { nonAbb.push(em + ' · ora ' + ora + ' · ' + pct + '%'); continue; }
+      if (!per[nome] || pct > per[nome].pct) per[nome] = { pct: pct, aperte: aperte };
+    }
+  });
+  return { per: per, disp: disp };
+}
+
+function SI_cella_(nome, ora, ris, sto, soglia) {
+  var r = ris.per[nome], s = sto.dati[nome + '|' + ora];
+  var pct = null, da = '', aperte = 0;
+  if (r) { pct = r.pct; da = 'F'; aperte = r.aperte; }
+  if (s && s.voto !== null && (pct === null || s.voto > pct)) { pct = s.voto; da = 'r'; aperte = 0; }
+  if (pct !== null) {
+    var ok = pct >= soglia;
+    return { st: ok ? 'OK' : 'REC', pct: pct, txt: pct + '% ' + (ok ? 'OK' : 'DA RECUPERARE') + (da === 'r' ? ' (r)' : '') + (aperte > 0 ? ' (provv.: ' + aperte + ' aperte da correggere)' : '') };
+  }
+  if (s && s.stato === 'ASSENTE') return { st: 'ASSENTE', pct: null, txt: 'ASSENTE (r)' };
+  if (s && s.stato === 'MANCA') return { st: 'MANCA', pct: null, txt: 'MANCA (r)' };
+  if (ris.disp) return { st: 'MANCA', pct: null, txt: 'MANCA' };
+  return { st: 'ND', pct: null, txt: 'dato non importato' };
+}
+
+function FB_sicurezza_(ss, indice) {
+  var cfg = indice.sicurezza;
+  if (!cfg || cfg.attivo === false) return;
+  var classe = cfg.classe || '1INF', soglia = Number(cfg.soglia) || 80, ore = cfg.ore || [];
+  var nomeSh = 'Sicurezza ' + classe;
+  var el = SI_elenco_(ss), sto = SI_storico_(ss), nonAbb = [], letture = [];
+  var sh = ss.getSheetByName(nomeSh) || ss.insertSheet(nomeSh);
+  sh.clear();
+  var ora0 = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
+  sh.getRange(1, 1).setValue(classe + ' · Sicurezza per allievo (solo docente) · dati letti alle ' + ora0).setFontWeight('bold');
+  if (!el.nomi.length) {
+    sh.getRange(2, 1).setValue("Manca l'elenco degli allievi: serve la scheda 'Email 1INF' (A=Email, B=Allievo) oppure la scheda 'Consegne 1INF'.");
+    return;
+  }
+  var risOre = ore.map(function (o) { return SI_ris_(ss, o.ids, el.e2n, o.ora, nonAbb, letture); });
+  var rec = SI_ris_(ss, (cfg.recupero && cfg.recupero.ids) || [], el.e2n, 'Recupero', nonAbb, letture);
+  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente nella scheda storico. (r) = dato dalla scheda \u0027Sicurezza storico 1INF\u0027 (report del riservato, fonte e ora nella colonna Fonte). (provv.) = ci sono domande aperte non ancora corrette, la percentuale è provvisoria. 6A e 6B sono colonne separate: come si combinano non è deciso.');
+  sh.getRange(3, 1).setValue('Elenco da ' + el.fonte + ' · storico ' + (sto.presente ? 'presente' : "assente (scheda 'Sicurezza storico 1INF' non trovata)") + ' · letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
+  var testa = ['Stato', 'Allievo'].concat(ore.map(function (o) { return 'Ora ' + o.ora; }), ['Recupero ore 1-5', 'DA FARE ORA', 'DA RIFARE (sotto ' + soglia + ')', 'Dato non importato']);
+  sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
+  var righe = el.nomi.map(function (nome) {
+    var celle = ore.map(function (o, k) { return SI_cella_(nome, SI_ora_(o.ora), risOre[k], sto, soglia); });
+    var fare = [], rifare = [], nd = [];
+    celle.forEach(function (c, k) {
+      var o = ore[k].ora;
+      if (c.st === 'MANCA') fare.push('ora ' + o);
+      else if (c.st === 'ASSENTE') fare.push('ora ' + o + ' (assente)');
+      else if (c.st === 'REC') rifare.push('ora ' + o + ' (' + c.pct + '%)');
+      else if (c.st === 'ND') nd.push('ora ' + o);
+    });
+    var cr = rec.per[nome] ? rec.per[nome].pct + '%' : (rec.disp ? 'MANCA' : 'dato non importato');
+    var st = (fare.length) ? 'ROSSO' : rifare.length ? 'ARANCIO' : nd.length ? 'GIALLO' : 'VERDE';
+    return [st, nome].concat(celle.map(function (c) { return c.txt; }), [cr, fare.join(', ') || '-', rifare.join(', ') || '-', nd.join(', ') || '-']);
+  });
+  var ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3 };
+  righe.sort(function (a, b) { return ord[a[0]] - ord[b[0]] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0); });
+  sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
+  var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a' };
+  for (var i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
+  var fondo = 6 + righe.length, note = [];
+  var visti = {}; el.nomi.forEach(function (n) { visti[n] = 1; });
+  var estranei = {};
+  for (var k in sto.dati) { var nn = k.split('|')[0]; if (!visti[nn]) estranei[nn] = 1; }
+  Object.keys(estranei).forEach(function (n) { note.push(['Nome nello storico non trovato nell\u0027elenco: ' + n]); });
+  nonAbb.forEach(function (e) { note.push(['Email non abbinata a un allievo: ' + e]); });
+  if (note.length) sh.getRange(fondo, 1, note.length, 1).setValues(note);
+}
+
 /* ---------- Giro principale ---------- */
 function FB_main_() {
   var lock = LockService.getScriptLock();
@@ -588,6 +715,9 @@ function FB_main_() {
     }
     if (indice) {
       try { FB_git_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'git', e); }
+    }
+    if (indice) {
+      try { FB_sicurezza_(ss, indice); } catch (e) { FB_errore_(ss, 'sicurezza', e); }
     }
     try { FB_stato_(ss); } catch (e) { Logger.log('stato: ' + e); }
   } finally {
