@@ -361,3 +361,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 16. **v0.3 (23/09/2026)**: PPP subito e in silenzio; voti in centesimi; 2.11.
 17. **v0.2 (21/09/2026)**: "Lezioni dagli errori" (2.1–2.5).
 18. **v0.1 (21/09/2026)**: primo file; sigla PPP.
+
+## Nome standard: TIPOLOGIA LEZIONE (11/11/2026, docente)
+
+Le 4 tipologie di lezione si chiamano sempre TIPOLOGIA LEZIONE: 1) esercitazione Lazarus, 2) quiz su Moduli, 3) versioning su GitHub, 4) teoria a schede. Si usa questo nome in chat, nei documenti e nella Fabbrica.
