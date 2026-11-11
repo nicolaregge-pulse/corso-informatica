@@ -91,7 +91,7 @@
 2bis. **Sicurezza (06/11/2026, docente):** gli argomenti delle ore di Sicurezza li mette la **direzione** e **fa fede il registro**:
    io non scrivo né propongo titoli per il registro delle ore di Sicurezza. L'Allegato A si tiene in **doppia modalità**: «Dichiarato»
    (le voci dell'Allegato A, Comp. 14) e «Registro» (i titoli della direzione), affiancati in `ARGOMENTI-SVOLTI-2026-27.md`
-   (capitolo 4b), più il contenuto vero della lezione.
+   (capitolo 4b), più il contenuto vero della lezione. Schema delle ore: `FRAMEWORK-QUIZ.md` capitolo 10.
 3. `ARGOMENTI-SVOLTI-2026-27.md`: argomenti legati all'Allegato A della classe; a ciò che è fatto si toglie l'evidenziazione.
 4. Ogni tanto (per esempio quando si prepara la settimana) chiedo al docente di aggiornare i documenti ufficiali.
 5. Almeno 3 prove per quadrimestre per classe salvate su Classroom (`PROVE-CLASSROOM-2026-27.md`).

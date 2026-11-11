@@ -1,6 +1,6 @@
 # Il Framework QUIZ: la pagina-lezione con percorso a passi e quiz a metà ora
 
-**Versione 1.0** — 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Area Docente, documento interno (non per i ragazzi).
+**Versione 1.1** — 11/11/2026 (v1.1: capitolo 10 Ore di Sicurezza, schema fisso) — prima: 1.0, 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Area Docente, documento interno (non per i ragazzi).
 
 Nome dato dal docente il 04/11/2026 al tipo di pagina usato per la 1INF in `docs/anteprima/1inf-lazarus-04-11/modulo-1.html` (ora 1, convertitore di misure in Lazarus). Questo documento descrive la pagina com'è, dice quando usarla e come se ne crea una nuova copiando il modello in `docs/modelli/framework-quiz/`. Formato secondo `REGOLE-FORMATTAZIONE.md`. Le sigle: PR (Pull Request, proposta di modifica su GitHub), F5 (tasto che ricarica la pagina), KPI (Key Performance Indicator, indicatore da misurare).
 
@@ -109,6 +109,17 @@ Si aggiungono a `CHECKLIST-LEZIONE.md` (controllo nuovo §06 punto 14: «la pagi
 7. Per la 2INF e la 4TI togliere arabo e cinese e passare da `strumenti/solo_italiano.py`; per la 3INF mettere la riga in bangla solo per il PC 14.
 8. Eseguire il capitolo 07, poi pubblicare (regola 27, 31), `bash strumenti/aspetta_pubblicazione.sh`, link ai ragazzi solo dopo «PUBBLICATO».
 
-## 10 Registro delle versioni
+## 10 Ore di Sicurezza: schema fisso
+
+Regola data dal docente l'11/11/2026, per la Sicurezza di 1INF e delle altre classi che la fanno.
+
+1. **Sempre la stessa storia:** un'ora nuova più il recupero delle ore precedenti, per assenza o per voto sotto l'80%.
+2. **Domande:** ogni ora ha un banco di domande più largo del quiz; si fanno due versioni, A e B, e ogni tanto si alternano o si cambiano.
+3. **Moduli sempre aperti a più tentativi** della stessa prova, anche quando sarebbe il caso di cambiare le domande. La Fabbrica lo impone già (`setLimitOneResponsePerUser(false)` in `fabbrica/motore.js`). Vale il tentativo migliore.
+4. **Titoli del registro:** li mette la direzione e fa fede il registro; Allegato A in doppia modalità, «Dichiarato» e «Registro» (R5.2bis, `ARGOMENTI-SVOLTI-2026-27.md` capitolo 4b).
+5. **Recuperi:** l'elenco per allievo sta nel riservato (`report/AAAA-MM-GG/recuperi-sicurezza-<classe>.md`); nel pubblico mai nomi.
+
+## 11 Registro delle versioni
 
 1. **v1.0 (04/11/2026):** prima versione, dal tipo di pagina usato in 1INF il 04/11/2026 (ora 1, convertitore di misure) e battezzato «Framework QUIZ» dal docente. Modello in `docs/modelli/framework-quiz/`.
+2. **v1.1 (11/11/2026):** capitolo 10 «Ore di Sicurezza: schema fisso», su regola del docente.
