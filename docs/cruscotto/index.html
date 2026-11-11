@@ -35,6 +35,7 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
 <body>
 <h1>Cruscotto classi</h1>
 <div class="barra" id="classi"></div>
+<div class="nota"><a id="diario" href="../diario/">Diario della classe: ultime lezioni e note del docente</a></div>
 <div class="barra vista" id="viste"><button id="serve" type="button"></button></div>
 <div class="dato" id="dato">In attesa dei dati</div>
 <div class="vecchi" id="vecchi"></div>
@@ -139,6 +140,7 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
     var html = vs.map(function (x) { return '<button type="button" data-v="' + x.id + '"' + (x.id === statoCorr.vista ? ' class="on"' : '') + '>' + x.nome + '</button>'; }).join('');
     $('viste').innerHTML = html; $('viste').appendChild(serve);
     document.title = 'Cruscotto ' + c;
+    $('diario').href = '../diario/?classe=' + c;
   }
   function scegli(c, v) {
     statoCorr.classe = c; statoCorr.vista = v || 'consegne'; scrivi('cruscotto_ultima_classe', c);

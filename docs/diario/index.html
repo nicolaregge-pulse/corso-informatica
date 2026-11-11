@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Diario delle classi</title>
+<style>
+/* v1.0 (11/11/2026). Una pagina per classe con le ultime lezioni svolte (pubblico, nessun nome di allievo) e,
+   in fondo, le NOTE DEL DOCENTE in docente.json CIFRATO (stesso meccanismo di sicurezza-cruscotto).
+   Dati: lezioni.json (generato da generatori/diario_dati.py nel riservato, con fonte e data di lettura). */
+:root{--bg:#f4f6f9;--fg:#14181f;--card:#fff;--line:#c9ced6;--mu:#5a6573;--blu:#1a56db;--verde:#2e7d32;--oro:#9a6b00;--arancio:#c2570a;--rosso:#c62828;
+ --obg:#fff3c4;--vbg:#d7f0d8;--abg:#ffe0b8;--rbg:#f9d6d6;--bbg:#dbe7ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--verde:#7fd184;--oro:#f0c24a;--arancio:#ffa45e;--rosso:#ff8a8a;
+ --obg:#4a4115;--vbg:#1f4a24;--abg:#5a3a12;--rbg:#5a2222;--bbg:#1d3466}}
+:root[data-theme="dark"]{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--verde:#7fd184;--oro:#f0c24a;--arancio:#ffa45e;--rosso:#ff8a8a;--obg:#4a4115;--vbg:#1f4a24;--abg:#5a3a12;--rbg:#5a2222;--bbg:#1d3466}
+*{box-sizing:border-box}
+body{margin:0;padding:12px 16px 40px;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,"Segoe UI",Arial,"Noto Sans","Noto Sans Arabic","Noto Sans SC",sans-serif}
+h1{font-size:22px;margin:0 0 6px}h2{font-size:19px;margin:0 0 8px}
+.ln{display:block}.ar{direction:rtl;unicode-bidi:isolate}
+.inl .ln{display:inline}.inl .ln+.ln:before{content:" / ";color:var(--mu)}
+.sel{display:flex;gap:8px;margin:10px 0}
+.sel button{flex:1 1 0;font:inherit;font-size:22px;font-weight:700;padding:12px;border:2px solid var(--blu);border-radius:10px;background:var(--card);color:var(--fg);cursor:pointer}
+.sel button.on{background:var(--blu);color:#fff}
+#dato{font-size:16px;margin:8px 0;color:var(--mu)}#dato b{color:var(--fg)}
+#err{display:none;border:2px solid var(--rosso);border-radius:10px;padding:10px 14px;background:var(--card);font-weight:700}
+.scroll{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px;background:var(--card)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{position:sticky;top:0;background:var(--card);font-size:13px}
+td.d{white-space:nowrap;font-weight:700}
+.tip{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin:1px 3px 1px 0;font-size:13px;white-space:nowrap}
+.st{font-size:13px;color:var(--mu)}.st.ok{color:var(--verde);font-weight:700}
+.reg{font-size:13px;color:var(--mu)}
+button.piu{font:inherit;font-size:16px;padding:10px 16px;border-radius:8px;border:2px solid var(--blu);background:var(--card);color:var(--fg);cursor:pointer;margin:6px 0}
+.doc{margin-top:26px;border-top:3px solid var(--blu);padding-top:12px}
+.doc button,.doc input{font:inherit;font-size:17px;padding:10px 14px;border-radius:8px}
+.doc>div>button{background:var(--blu);color:#fff;border:0;cursor:pointer}
+.doc input{border:2px solid var(--line);background:var(--card);color:var(--fg)}
+#docbox{display:none}#perr{color:var(--rosso);font-weight:700}
+.filtri{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.filtri button{font:inherit;font-size:16px;padding:8px 12px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer}
+.filtri button.on{border-color:var(--blu);background:var(--blu);color:#fff}
+.nota-r{border:1px solid var(--line);border-left-width:8px;border-radius:8px;padding:8px 12px;margin:8px 0;background:var(--card)}
+.nota-r .t{font-size:17px}.nota-r .m{font-size:13px;color:var(--mu);margin-top:4px}
+.e-importante{border-left-color:var(--oro)}.e-finito{border-left-color:var(--verde)}.e-non_finito{border-left-color:var(--arancio)}.e-male{border-left-color:var(--rosso)}.e-ricordare{border-left-color:var(--blu)}
+.eti{display:inline-block;font-weight:700;border-radius:6px;padding:1px 8px;margin-right:6px;white-space:nowrap}
+.eti.importante{background:var(--obg);color:var(--oro)}.eti.finito{background:var(--vbg);color:var(--verde)}.eti.non_finito{background:var(--abg);color:var(--arancio)}.eti.male{background:var(--rbg);color:var(--rosso)}.eti.ricordare{background:var(--bbg);color:var(--blu)}
+.al{font-weight:700}
+.nota{font-size:13px;color:var(--mu);margin-top:14px}
+</style>
+</head>
+<body>
+<h1 id="tit" class="inl"></h1>
+<div class="sel" id="sel"></div>
+<div id="dato"></div>
+<div id="err"></div>
+<div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
+<button class="piu" id="piu" type="button" style="display:none"></button>
+
+<div class="doc">
+  <h2 id="dtit"></h2>
+  <div id="dchiusa">
+    <input id="pw" type="password" autocomplete="current-password" placeholder="password">
+    <button id="apri" type="button"></button> <span id="perr"></span>
+  </div>
+  <div id="docbox">
+    <div class="filtri" id="filtri"></div>
+    <div id="note"></div>
+  </div>
+</div>
+<div class="nota" id="nota"></div>
+
+<script>
+(function () {
+  'use strict';
+  var CLASSI = ['1INF', '2INF', '3INF', '4TI'];
+  var LINGUE = { '1INF': ['it', 'ar', 'zh'], '2INF': ['it'], '3INF': ['it'], '4TI': ['it'] };   // R6 (3INF: la riga in bangla del PC 14 non serve in un diario)
+  var T = {
+    tit:   { it: 'Diario della classe', ar: 'مذكرة الصف', zh: '班级日志' },
+    data:  { it: 'Data', ar: 'التاريخ', zh: '日期' },
+    ora:   { it: 'Ora', ar: 'الساعة', zh: '课时' },
+    mat:   { it: 'Materia', ar: 'المادة', zh: '科目' },
+    arg:   { it: 'Argomento', ar: 'الموضوع', zh: '内容' },
+    tipo:  { it: 'Tipologia lezione', ar: 'نوع الدرس', zh: '课程类型' },
+    letti: { it: 'Letto dai documenti il', ar: 'قُرئ من الوثائق في', zh: '读取时间' },
+    fonti: { it: 'Fonti', ar: 'المصادر', zh: '来源' },
+    firm:  { it: 'firmata', ar: 'موقّعة', zh: '已签' },
+    conf:  { it: 'da confermare', ar: 'للتأكيد', zh: '待确认' },
+    prev:  { it: 'previsto', ar: 'مخطط', zh: '计划' },
+    reg:   { it: 'Registro', ar: 'السجل', zh: '登记簿' },
+    tutte: { it: 'Mostra tutte le lezioni', ar: 'عرض كل الدروس', zh: '显示全部课程' },
+    meno:  { it: 'Mostra solo le ultime', ar: 'عرض الأخيرة فقط', zh: '只显示最近的' },
+    vuoto: { it: 'Nessuna lezione nei documenti.', ar: 'لا توجد دروس في الوثائق.', zh: '文件中没有课程。' }
+  };
+  var ETI = { importante: ['★', 'Importante'], finito: ['✔', 'Finito'], non_finito: ['◐', 'Non finito'], male: ['✖', 'Fatto male / da rifare'], ricordare: ['⚠', 'Da ricordare'] };
+  var ORDINE = ['importante', 'finito', 'non_finito', 'male', 'ricordare'];
+  var NMAX = 15;
+  var cl = '1INF', LZ = null, DOC = null, filtro = '', tutte = false;
+  function $(i) { return document.getElementById(i); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[m]; }); }
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function L(k) {
+    return LINGUE[cl].map(function (g) { return '<span class="ln ' + g + '" lang="' + g + '"' + (g === 'ar' ? ' dir="rtl"' : '') + '>' + T[k][g] + '</span>'; }).join('');
+  }
+  function Li(k) { return '<span class="inl">' + L(k) + '</span>'; }
+  function ora16(t) { var m = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2})/.exec(t || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] + ' ' + m[4] : t; }
+  function ora16(t) { var m = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}:\d{2})/.exec(t || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] + ' ' + m[4] : t; }
+  function dmy(d) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? m[3] + '/' + m[2] : esc(d); }
+  function dmyy(d) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : esc(d); }
+
+  function noteDelGiorno(data) {
+    var n = (DOC && DOC.classi && DOC.classi[cl]) || [];
+    return n.filter(function (x) { return x.data === data; });
+  }
+  function chips(lista) {
+    return lista.map(function (x) { var e = ETI[x.etichetta] || ['', x.etichetta]; return '<span class="eti ' + esc(x.etichetta) + '" title="' + esc(e[1]) + '">' + e[0] + '</span>'; }).join('');
+  }
+  function disegna() {
+    var righe = (LZ && LZ.classi && LZ.classi[cl]) || [];
+    var conNote = !!DOC;
+    $('tit').innerHTML = L('tit') + ' <span class="ln">' + esc(cl) + '</span>';
+    $('tab').querySelector('thead').innerHTML = '<tr><th>' + L('data') + '</th><th>' + L('ora') + '</th><th>' + L('mat') + '</th><th>' + L('arg') + '</th><th>' + L('tipo') + '</th>' + (conNote ? '<th>Note</th>' : '') + '</tr>';
+    var vis = tutte ? righe : righe.slice(0, NMAX);
+    $('tab').querySelector('tbody').innerHTML = vis.length ? vis.map(function (r) {
+      var st = r.firmata ? '<span class="st ok">✔ ' + Li('firm') + '</span>' : (r.stato === 'previsto' ? '<span class="st">' + Li('prev') + '</span>' : '<span class="st">' + Li('conf') + '</span>');
+      if (r.firmata && r.stato !== 'svolto') st += ' <span class="st">(' + Li('conf') + ')</span>';
+      return '<tr><td class="d">' + dmy(r.data) + '</td><td>' + esc(r.ora || '') + '</td><td>' + esc(r.materia || '') + '</td><td>' + esc(r.argomento) +
+        (r.registro && r.registro !== r.argomento ? '<div class="reg">' + Li('reg') + ': «' + esc(r.registro) + '»</div>' : '') + '<div>' + st + '</div></td><td>' +
+        (r.tipologie || []).map(function (t) { return '<span class="tip">' + esc(t) + '</span>'; }).join('') + '</td>' +
+        (conNote ? '<td>' + chips(noteDelGiorno(r.data)) + '</td>' : '') + '</tr>';
+    }).join('') : '<tr><td colspan="6">' + L('vuoto') + '</td></tr>';
+    var b = $('piu');
+    b.style.display = righe.length > NMAX ? 'inline-block' : 'none';
+    b.innerHTML = tutte ? Li('meno') : Li('tutte') + ' (' + righe.length + ')';
+    var f = (LZ && LZ.fonti) || [];
+    $('dato').innerHTML = LZ ? '<b>' + Li('letti') + ' ' + esc(ora16(LZ.letto_il)) + '</b> · ' + Li('fonti') + ': ' + esc(f.join('; ')) : '';
+    $('nota').innerHTML = LZ ? esc(LZ.nota_tipologia || '') : '';
+    $('dtit').textContent = 'Note del docente (cifrate)';
+    $('apri').textContent = 'Apri';
+    disegnaNote();
+  }
+  function disegnaNote() {
+    if (!DOC) return;
+    var n = ((DOC.classi && DOC.classi[cl]) || []).slice().sort(function (a, b) { return (b.data + (b.ora || '')).localeCompare(a.data + (a.ora || '')); });
+    var cont = {}; n.forEach(function (x) { cont[x.etichetta] = (cont[x.etichetta] || 0) + 1; });
+    var h = '<button type="button" data-f=""' + (filtro === '' ? ' class="on"' : '') + '>Tutte (' + n.length + ')</button>';
+    ORDINE.forEach(function (k) { h += '<button type="button" data-f="' + k + '"' + (filtro === k ? ' class="on"' : '') + '>' + ETI[k][0] + ' ' + ETI[k][1] + ' (' + (cont[k] || 0) + ')</button>'; });
+    $('filtri').innerHTML = h;
+    var v = n.filter(function (x) { return !filtro || x.etichetta === filtro; });
+    $('note').innerHTML = v.length ? v.map(function (x) {
+      var e = ETI[x.etichetta] || ['', x.etichetta];
+      return '<div class="nota-r e-' + esc(x.etichetta) + '"><div><span class="eti ' + esc(x.etichetta) + '">' + e[0] + ' ' + e[1] + '</span> <b>' + dmyy(x.data) + '</b>' + (x.ora ? ' ore ' + esc(x.ora) : '') +
+        (x.allievo ? ' · <span class="al">' + esc(x.allievo) + '</span>' : '') + '</div><div class="t">' + esc(x.testo) + '</div><div class="m">Fonte: ' + esc(x.fonte || '') + '</div></div>';
+    }).join('') : '<p>Nessuna nota ' + (filtro ? 'con questa etichetta' : 'per questa classe') + '.</p>';
+  }
+  $('filtri').onclick = function (e) { var f = e.target.getAttribute('data-f'); if (f !== null) { filtro = f; disegnaNote(); } };
+  $('piu').onclick = function () { tutte = !tutte; disegna(); };
+  function scegli(c) {
+    cl = c; filtro = ''; tutte = false; scrivi('diario_ultima_classe', c);
+    try { history.replaceState(null, '', '?classe=' + c); } catch (e) {}
+    $('sel').innerHTML = CLASSI.map(function (x) { return '<button type="button" data-c="' + x + '"' + (x === c ? ' class="on"' : '') + '>' + x + '</button>'; }).join('');
+    document.title = 'Diario ' + c;
+    disegna();
+  }
+  $('sel').onclick = function (e) { var c = e.target.getAttribute('data-c'); if (c) scegli(c); };
+
+  /* ---- parte docente: docente.json cifrato (AES-GCM, PBKDF2), come in sicurezza-cruscotto ---- */
+  function b64(s) { var b = atob(s), a = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) a[i] = b.charCodeAt(i); return a; }
+  function decifra(X, pw) {
+    return crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']).then(function (base) {
+      return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(X.salt), iterations: X.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+    }).then(function (k) { return crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(X.iv) }, k, b64(X.ct)); })
+      .then(function (t) { return JSON.parse(new TextDecoder().decode(t)); });
+  }
+  function apriDoc(pw) {
+    return fetch('docente.json', { cache: 'no-store' }).then(function (r) { return r.json(); })
+      .then(function (X) { return decifra(X, pw); })
+      .then(function (o) { DOC = o; try { sessionStorage.setItem('cruscotto-pw', pw); } catch (e) {} $('dchiusa').style.display = 'none'; $('docbox').style.display = 'block'; disegna(); });
+  }
+  $('apri').onclick = function () { $('perr').textContent = ''; apriDoc($('pw').value).catch(function () { $('perr').textContent = 'Password sbagliata.'; }); };
+  $('pw').onkeydown = function (e) { if (e.key === 'Enter') $('apri').onclick(); };
+
+  /* ---- avvio ---- */
+  var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
+  q = q ? decodeURIComponent(q).toUpperCase() : leggi('diario_ultima_classe');
+  var ini = CLASSI.indexOf(q) >= 0 ? q : '1INF';
+  fetch('lezioni.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (d) { LZ = d; }).catch(function () { $('err').style.display = 'block'; $('err').textContent = 'lezioni.json non raggiungibile.'; }).then(function () {
+    scegli(ini);
+    var pw0 = ''; try { pw0 = sessionStorage.getItem('cruscotto-pw') || ''; } catch (e) {}
+    if (pw0) apriDoc(pw0).catch(function () {});
+  });
+})();
+</script>
+</body>
+</html>
