@@ -18,3 +18,7 @@ Prima scheda `Indice`: una riga per scheda (nome con link al gid, tipo, classe, 
 
 ## Indice con colonne di testo e Pannello (motore v2.12, 11/11/2026)
 La scheda `Indice` ha ora 9 colonne: Scheda, Tipo, Classe, Ultimo aggiornamento, Stato, **URL** (testo: `https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid>`), **Titolo**, **Link ragazzi** (solo il viewform pubblico dei Moduli, preso da Esiti colonna D; mai il link di modifica), **Tipologia lezione**. In fondo una riga `Quiz` per ogni lavoro di `indice.json` con link valido. Nessun cognome e nessuna email. Serve alla pagina pubblica `docs/pannello/` (https://nicolaregge-pulse.github.io/corso-informatica/pannello/), che legge il CSV pubblicato della scheda Indice: il link va in `docs/pannello/config.json` (campo `indice`, vuoto finche non e pubblicato; oppure `?config=1` per questo browser). Prova con finti servizi: `test_indice_v2_12.js` nel riservato (report/2026-11-11).
+
+## Indice senza formule (motore v2.13, 11/11/2026)
+Correzione: nelle schede `Indice` (colonna A) e `Quiz` (colonna G) il motore non scrive piu formule `=HYPERLINK(...)` (il foglio e in italiano e le rifiutava: `#ERROR!`). Scrive TESTO semplice e aggiunge il link cliccabile con RichTextValue (`setLinkUrl`); l'URL completo resta in colonna F. Le righe `Quiz` dell'Indice hanno Titolo e Link ragazzi (viewform, mai link di modifica) da Esiti colonna D. Provato solo con finti servizi (`test_indice_v2_13.js` nel riservato).
+

@@ -1,10 +1,10 @@
 /**
- * FABBRICA - MOTORE v2.12 (11/11/2026)
+ * FABBRICA - MOTORE v2.13 (11/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
  * TIPOLOGIA LEZIONE (decisione del docente 11/11/2026, v2.8): le 4 tipologie sono Esercitazione Lazarus (schede Consegne <CLASSE> + progetto Lazarus nella scheda Git), Quiz su Moduli, Versioning su GitHub (schede Utenti e Git <CLASSE>), Teoria a schede (Moduli creato da una scheda). Nei lavori di indice.json il campo e "tipologia_lezione" ("quiz" o "teoria"; il vecchio nome "tipologia" o "tipo" e accettato; se manca: id che comincia per "scheda-" = teoria, altrimenti quiz). Il "tipo" delle domande (multi, singola, testo, paragrafo) e un'altra cosa e non cambia.
- * Changelog: 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.13 FIX scheda 'Indice' e 'Quiz': niente piu formule HYPERLINK (il foglio e in italiano e rifiutava la virgola: #ERROR!); la colonna A di Indice e la colonna G di Quiz sono TESTO semplice (nome della scheda / 'Apri risultati'), il link cliccabile e messo con RichTextValue (setLinkUrl, indipendente dalla lingua) e, se non riesce, resta il testo; le righe 'Quiz' dell'Indice hanno Titolo e Link ragazzi da Esiti colonna D (mai link di modifica); 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -179,7 +179,7 @@ function FB_stato_(ss) {
     ['Moduli', n],
     ['Risposte totali', tot],
     ['Ultimo errore', FB_ultimoErrore_()],
-    ['Motore', '2.12']
+    ['Motore', '2.13']
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
 }
@@ -255,23 +255,35 @@ function FB_creato_(ss, id) {
   return '';
 }
 
+/* v2.13: link cliccabile senza formule (RichTextValue): items = [{t: testo, u: url}] in colonna c da riga r; il testo e gia scritto, se il rich text non funziona resta il testo */
+function FB_linkCelle_(sh, r, c, items) {
+  try {
+    var v = items.map(function (x) { return [x.u ? SpreadsheetApp.newRichTextValue().setText(x.t).setLinkUrl(x.u).build() : SpreadsheetApp.newRichTextValue().setText(x.t).build()]; });
+    sh.getRange(r, c, v.length, 1).setRichTextValues(v);
+  } catch (e) { }
+}
 var FB_lavoroIndice_ = {};
 function FB_quiz_(ss) {
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), medie = FB_json_('FB_MEDIE');
   var es = ss.getSheetByName('Esiti').getDataRange().getValues(), righe = [], i;
+  var FB_lq_ = [];
   for (i = 1; i < es.length; i++) {
     var id = es[i][1], f = forms[id];
     if (!id || !f) continue;
     var ris = ss.getSheetByName('Ris ' + id);
-    var link = ris ? '=HYPERLINK("#gid=' + ris.getSheetId() + '","Apri risultati")' : '';
+    var link = ris ? 'Apri risultati' : '';
+    FB_lq_.push({ t: link, u: ris ? '#gid=' + ris.getSheetId() : '' });
     righe.push([i, [f.classe || FB_classe_(null, id), f.titolo || es[i][2] || id, id, nr[id] === undefined ? '' : nr[id], medie[id] === undefined ? '' : medie[id], es[i][3] || '', link, FB_TL_[FB_tl_(FB_lavoroIndice_[id], id)]]]);
   }
+  righe.forEach(function (r, n) { r.push(FB_lq_[n]); });
   righe.sort(function (a, b) { return b[0] - a[0]; });
+  var lqs = righe.map(function (r) { return r[2]; });
   var sh = ss.getSheetByName('Quiz');
   if (!sh) { var pos = ss.getSheetByName('Esiti'); sh = pos.getIndex ? ss.insertSheet('Quiz', pos.getIndex()) : ss.insertSheet('Quiz'); }
   sh.clear();
   sh.getRange(1, 1, 1, 8).setValues([['Classe', 'Titolo', 'Id', 'Risposte', 'Media del migliore', 'Link per i ragazzi', 'Link alla scheda dei risultati', 'TIPOLOGIA LEZIONE']]).setFontWeight('bold');
   if (righe.length) sh.getRange(2, 1, righe.length, 8).setValues(righe.map(function (r) { return r[1]; }));
+  if (righe.length) FB_linkCelle_(sh, 2, 7, lqs);
 }
 
 function FB_risultati_(ss, t0) {
@@ -992,7 +1004,7 @@ function FB_schede_(ss, indice) {
     var i = IX_info_(t.nome, forms), nasc = false;
     try { nasc = t.sh.isSheetHidden(); } catch (e) { }
     righe.push([t.nome, i.tipo, i.classe || '-', IX_agg_(t.sh), nasc ? 'Nascosta' : 'Visibile']);
-    forme.push(['=HYPERLINK("#gid=' + t.sh.getSheetId() + '","' + t.nome.replace(/"/g, '""') + '")']);
+    forme.push({ t: t.nome, u: '#gid=' + t.sh.getSheetId() });
   });
   ix.clear();
   ix.getRange(1, 1).setValue('Indice delle schede (' + righe.length + ') \u00b7 aggiornato alle ' + FB_ora_('HH:mm:ss') + ' \u00b7 clicca il nome per aprire; le schede Nascosta si rimostrano da Visualizza > Fogli nascosti').setFontWeight('bold');
@@ -1014,7 +1026,7 @@ function FB_schede_(ss, indice) {
   var tot = righe.concat(qr);
   ix.getRange(3, 1, 1, 9).setValues([['Scheda', 'Tipo', 'Classe', 'Ultimo aggiornamento', 'Stato', 'URL', 'Titolo', 'Link ragazzi', 'Tipologia lezione']]).setFontWeight('bold');
   ix.getRange(4, 1, tot.length, 9).setValues(tot);
-  ix.getRange(4, 1, rs, 1).setFormulas(forme);
+  FB_linkCelle_(ix, 4, 1, forme);
   ix.setColumnWidth(1, 260);
   ix.setFrozenRows(3);
 }
