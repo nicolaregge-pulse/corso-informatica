@@ -1349,3 +1349,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** CLAUDE.md v2.5 (R4 3ter) manda il codice lungo in un file .txt/.gs; alla fine il docente ha chiesto il codice in chat in un riquadro.
 2. **Strumento da correggere.** Decisione del docente: quale regola vale. Poi allineare CLAUDE.md (bump versione) e GUIDA-MESSAGGI-AL-DOCENTE.md.
+
+## #254 (11/11/2026) Indicazioni senza link o percorso
+
+1. **Errore.** Indicazioni date a parole, senza link né percorso («apri il foglio Fabbrica, scheda Esiti»): il docente non ricorda dove sta il file.
+2. **Strumento da correggere.** CLAUDE.md v2.6, R4 3quater (link cliccabile o percorso completo, SendUserFile per i file) e `LINK-UTILI.md` nel riservato (report/LINK-UTILI.md), aggiornato a ogni link nuovo.
