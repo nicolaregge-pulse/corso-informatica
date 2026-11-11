@@ -1415,3 +1415,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** 12:26: «NO, me lo riscrivi qui sotto».
 2. **Strumento da correggere.** Ogni passo si riscrive per intero con il suo riquadro (R4 3-4). Controllo automatico: mancante.
+
+## #267 (11/11/2026) Link senza account e non in casella copiabile
+
+1. **Errore.** Link dati come testo cliccabile, senza dire l'account: un link PIAMARTA aperto sull'account PERSONALE non si può usare.
+2. **Strumento da correggere.** CLAUDE.md v2.8, R4 3quater (account scritto prima, link in casella copiabile, un link per casella) e colonna «Account» in `LINK-UTILI.md` (riservato, report/LINK-UTILI.md). Corretta in CLAUDE.md v2.8.
