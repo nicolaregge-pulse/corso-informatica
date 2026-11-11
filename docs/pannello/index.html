@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Pannello del corso</title>
 <style>
-/* v1.1 (11/11/2026): solo quiz attuali (Stato Nascosta/Attivo, Quiz (vecchio), doppioni per id), titolo solo italiano + tooltip, sezioni vuote in una riga grigia, testo e pulsanti piu grandi. v1.0 (11/11/2026). Menu del docente: classi, tipologie di lezione, tipi di scheda. Nessun nome di allievo.
+/* v1.2 (11/11/2026): in cima LE PIU USATE (Situazione, Sicurezza, Esiti, Cruscotto, ultimo quiz), poi tipologie, poi quiz su Moduli, in fondo schede di lavoro (Utenti, Consegne, Git, Risposte quiz) in una sezione chiusa. v1.1 (11/11/2026): solo quiz attuali (Stato Nascosta/Attivo, Quiz (vecchio), doppioni per id), titolo solo italiano + tooltip, sezioni vuote in una riga grigia, testo e pulsanti piu grandi. v1.0 (11/11/2026). Menu del docente: classi, tipologie di lezione, tipi di scheda. Nessun nome di allievo.
    Dati: CSV pubblicato della scheda «Indice» del foglio Fabbrica (motore v2.14). Il link sta in UN solo punto: config.json. */
 :root{--bg:#f4f6f9;--fg:#14181f;--card:#fff;--line:#c9ced6;--mu:#5a6573;--blu:#1a56db;--pia:#b3260e;--per:#1a56db;--ok:#2e7d32;--accfg:#fff;--warn:#fff3c4}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--pia:#ff8a75;--per:#6d9bff;--warn:#4a4115;--accfg:#14181f}}
@@ -28,6 +28,8 @@ a.b .t{display:block;font-weight:700;font-size:20px}
 a.b .s{display:block;font-size:16px;color:var(--mu)}
 .acc{display:inline-block;margin-top:4px;padding:2px 10px;border-radius:999px;font-size:16px;font-weight:800;letter-spacing:.04em;color:var(--accfg)}
 .acc.PIAMARTA{background:var(--pia)}.acc.PERSONALE{background:var(--per)}.acc.ENTRAMBI{background:#6b4fa0}
+.top{font-size:30px;margin:18px 0 10px}.grid.big{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.grid.big a.b{min-height:110px;border:3px solid var(--blu)}.grid.big a.b .t{font-size:26px}
+details.sch{margin:24px 0;border:2px solid var(--line);border-radius:12px;padding:8px 14px;background:var(--card)}details.sch summary{font-size:20px;font-weight:700;cursor:pointer;padding:8px 0}
 .vuoto{color:var(--mu);font-style:italic;padding:4px 0}
 .vg{color:var(--mu);font-size:14px;margin:10px 0 0}
 #ni{background:var(--warn);border:2px dashed var(--line);border-radius:10px;padding:10px 14px;font-weight:700;margin:12px 0}
@@ -190,9 +192,28 @@ label.nasc{display:inline-block;margin:6px 0;font-size:17px}
     }
     var h2 = document.createElement('h2'); h2.textContent = sel === 'Generale' ? 'Generale (tutte le classi)' : 'Classe ' + sel; out.appendChild(h2);
     var mie = all.filter(function (v) { return v.classe === sel; });
-    gruppo(out, 'Link utili', mie.filter(function (v) { return v.g === 'Link utili'; }));
-    if (!caricato) { var n = document.createElement('div'); n.className = 'vuoto'; n.textContent = 'Indice non ancora collegato: qui sopra ci sono solo i link fissi.'; out.appendChild(n); return; }
-    var t1 = document.createElement('h2'); t1.textContent = 'Per tipologia di lezione'; out.appendChild(t1);
+    var usate = [];
+    var sit = mie.filter(function (v) { return v.g === 'Situazione'; })[0];
+    var sic = mie.filter(function (v) { return v.g === 'Sicurezza'; })[0];
+    var esi = all.filter(function (v) { return v.g === 'Esiti' && v.classe === 'Generale'; })[0] || mie.filter(function (v) { return v.g === 'Esiti'; })[0];
+    var cru = mie.filter(function (v) { return v.g === 'Link utili' && /^Cruscotto /.test(v.t) && v.t !== 'Cruscotto Sicurezza'; })[0];
+    var ql = mie.filter(function (v) { return v.g === 'Quiz'; }), qr = ql.length ? ql[ql.length - 1] : null;
+    var qris = qr ? items.filter(function (r) { return r.ris === qr.id_ && s_ok(r); })[0] : null;
+    function dai(v, t, s) { if (!v) return; var c = {}; for (var k in v) c[k] = v[k]; c.t = t; if (s) c.s = s; usate.push(c); }
+    if (caricato) {
+      dai(sit, 'Situazione ' + sel, 'situazione della classe');
+      dai(sic, 'Sicurezza ' + sel, 'ore di Sicurezza');
+      dai(esi, 'Esiti', 'esiti (generale)');
+    }
+    if (!sic) dai(mie.filter(function (v) { return v.t === 'Cruscotto Sicurezza'; })[0], 'Sicurezza ' + sel, 'cruscotto Sicurezza (sito)');
+    dai(cru, 'Cruscotto ' + sel, 'cruscotto della classe (sito)');
+    dai(qris || qr, qris ? 'Quiz piu recente: risultati' : 'Quiz piu recente', qris ? it(qr.t) : 'link per i ragazzi');
+    var h0 = document.createElement('h2'); h0.className = 'top'; h0.textContent = 'LE PIU USATE'.replace('PIU', 'PI\u00d9'); out.appendChild(h0);
+    var g0 = document.createElement('div'); g0.className = 'grid big';
+    usate.forEach(function (v) { g0.appendChild(btn(v)); }); out.appendChild(g0);
+    var usati = usate.map(function (v) { return v.url; });
+    if (!caricato) { var n = document.createElement('div'); n.className = 'vuoto'; n.textContent = 'Indice non ancora collegato: qui sopra ci sono solo i link fissi.'; out.appendChild(n); gruppo(out, 'Link utili', mie.filter(function (v) { return v.g === 'Link utili' && usati.indexOf(v.url) < 0; })); return; }
+    var t1 = document.createElement('h2'); t1.textContent = 'Per tipologia lezione'; out.appendChild(t1);
     TIPOLOGIE.forEach(function (tl) {
       var lista = [];
       mie.forEach(function (v) {
@@ -203,8 +224,24 @@ label.nasc{display:inline-block;margin:6px 0;font-size:17px}
       });
       gruppo(out, tl, lista);
     });
-    var t2 = document.createElement('h2'); t2.textContent = 'Per tipo di scheda'; out.appendChild(t2);
-    TIPI.forEach(function (tp) { gruppo(out, tp, mie.filter(function (v) { return v.g === tp; })); });
+    var t2 = document.createElement('h2'); t2.textContent = 'Quiz su Moduli'; out.appendChild(t2);
+    gruppo(out, 'Quiz attuali', ql);
+    gruppo(out, 'Link utili', mie.filter(function (v) { return v.g === 'Link utili' && usati.indexOf(v.url) < 0; }));
+    var dt = document.createElement('details'); dt.className = 'sch';
+    var sm = document.createElement('summary'); sm.textContent = 'Schede di lavoro (le riempie la Fabbrica da sola)'; dt.appendChild(sm);
+    out.appendChild(dt);
+    var SCH = [['Utenti', 'chi \u00e8 chi', 'Utenti'], ['Consegne', 'consegne di Classroom', 'Consegne'], ['Git', 'commit su GitHub', 'Git'], ['Risposte quiz', 'risposte grezze dei Moduli', 'Risposte quiz']];
+    var ak = out; out = dt;
+    SCH.forEach(function (x) {
+      var l = mie.filter(function (v) { return v.g !== 'Link utili' && v.g !== 'Quiz' && (v.tipo === x[2] || v.g === x[2]); });
+      if (!l.length) { vuoti.push(x[0]); return; }
+      var h = document.createElement('h3'); h.textContent = x[0]; dt.appendChild(h);
+      var d = document.createElement('div'); d.className = 'mu'; d.textContent = x[1]; dt.appendChild(d);
+      var gr = document.createElement('div'); gr.className = 'grid'; l.forEach(function (v) { gr.appendChild(btn(v)); }); dt.appendChild(gr);
+    });
+    var alt = mie.filter(function (v) { return v.g === 'Altre schede'; });
+    if (alt.length) { var ha = document.createElement('h3'); ha.textContent = 'Altre schede'; dt.appendChild(ha); var ga = document.createElement('div'); ga.className = 'grid'; alt.forEach(function (v) { ga.appendChild(btn(v)); }); dt.appendChild(ga); }
+    out = ak;
     if (vuoti.length) { var vg = document.createElement('div'); vg.className = 'vg'; vg.textContent = 'Vuote per questa classe: ' + vuoti.join(', ') + '.'; out.appendChild(vg); }
   }
   function s_ok(r) { return $('nasc').checked || !r.nasc; }
