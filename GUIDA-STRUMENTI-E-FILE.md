@@ -228,3 +228,7 @@ L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md
 
 2. v1.1 (06/11/2026): 02 punti 4 (titolo = voce più vicina, mai aggiungere dopo il 30/10), 16 (almeno 3 prove, come R5.5) e 36 (niente voci da aggiungere); Sicurezza: titoli della direzione, doppia modalità (regola del docente 06/11/2026, in attesa di R5.2bis in `CLAUDE.md`).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 1, 2, 4, 10, 16, 36, vincolo scuola, lingue, formattazione, regole permanenti, bobina).
+
+## Nota del 11/11/2026: «Altro» nelle presenze del registro
+
+Docente: quando c'è «Altro» (giallo) l'allievo può essere uscito o entrato durante le ore, «al 99% è entrato». Per noi vale presente (R5.1) e, nel dubbio, si pensa a un ingresso in ritardo. Il momento esatto non si presume: se serve, si chiede al docente.
