@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pannello del corso</title>
+<style>
+/* v1.0 (11/11/2026). Menu del docente: classi, tipologie di lezione, tipi di scheda. Nessun nome di allievo.
+   Dati: CSV pubblicato della scheda «Indice» del foglio Fabbrica (motore v2.12). Il link sta in UN solo punto: config.json. */
+:root{--bg:#f4f6f9;--fg:#14181f;--card:#fff;--line:#c9ced6;--mu:#5a6573;--blu:#1a56db;--pia:#b3260e;--per:#1a56db;--ok:#2e7d32;--accfg:#fff;--warn:#fff3c4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--pia:#ff8a75;--per:#6d9bff;--warn:#4a4115;--accfg:#14181f}}
+:root[data-theme="dark"]{--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--pia:#ff8a75;--per:#6d9bff;--warn:#4a4115;--accfg:#14181f}
+*{box-sizing:border-box}
+body{margin:0;padding:12px 16px 48px;background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+h1{font-size:24px;margin:4px 0 4px}
+h2{font-size:19px;margin:22px 0 8px}
+h3{font-size:16px;margin:14px 0 6px;color:var(--mu);text-transform:uppercase;letter-spacing:.04em}
+.mu{color:var(--mu);font-size:14px}
+#cerca{width:100%;font:inherit;font-size:18px;padding:12px 14px;border:2px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);margin:10px 0}
+.cl{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:10px 0}
+.cl button{font:inherit;font-size:24px;font-weight:700;min-height:64px;padding:10px;border:3px solid var(--blu);border-radius:12px;background:var(--card);color:var(--fg);cursor:pointer}
+.cl button.on{background:var(--blu);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+a.b{display:block;min-height:64px;padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);text-decoration:none;overflow-wrap:anywhere}
+a.b:hover,a.b:focus{border-color:var(--blu)}
+a.b .t{display:block;font-weight:700;font-size:17px}
+a.b .s{display:block;font-size:13px;color:var(--mu)}
+.acc{display:inline-block;margin-top:4px;padding:1px 8px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--accfg)}
+.acc.PIAMARTA{background:var(--pia)}.acc.PERSONALE{background:var(--per)}.acc.ENTRAMBI{background:#6b4fa0}
+.vuoto{color:var(--mu);font-style:italic;padding:4px 0}
+#ni{background:var(--warn);border:2px dashed var(--line);border-radius:10px;padding:10px 14px;font-weight:700;margin:12px 0}
+#cfg{display:none;border:2px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--card);margin:12px 0}
+#cfg input[type=text]{width:100%;font:inherit;padding:8px;margin:6px 0;border:2px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+#cfg button{font:inherit;padding:8px 14px;border-radius:8px;border:2px solid var(--blu);background:var(--blu);color:#fff;cursor:pointer}
+label.nasc{display:inline-block;margin:6px 0;font-size:15px}
+</style>
+</head>
+<body>
+<h1>Pannello del corso</h1>
+<div class="mu" id="stato">Caricamento...</div>
+<input id="cerca" type="search" placeholder="Cerca: classe, quiz, scheda, Git..." aria-label="Cerca" autocomplete="off">
+<div class="cl" id="cl"></div>
+<div id="cfg">
+  <b>Solo per il prof, una volta sola per questo browser.</b> Incolla il link CSV pubblicato della scheda Indice.
+  <input type="text" id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?gid=...&amp;single=true&amp;output=csv">
+  <button id="salva" type="button">Salva</button> <button id="togli" type="button">Togli</button>
+  <div class="mu">Per tutti i browser il link va scritto in <code>config.json</code> (cartella di questa pagina): è l'unico punto.</div>
+</div>
+<div id="ni" style="display:none">Indice non ancora collegato</div>
+<label class="nasc"><input type="checkbox" id="nasc"> Mostra anche le schede nascoste</label>
+<div id="out"></div>
+<script>
+(function () {
+  'use strict';
+  var BASE = 'https://nicolaregge-pulse.github.io/corso-informatica/';
+  var FOGLIO = 'https://docs.google.com/spreadsheets/d/1EUUhdhJl7QG6CCcN-a2h1Nd6xkQiv1r1mk3QeUUi2r4/edit';
+  var CLASSI = ['1INF', '2INF', '3INF', '4TI', 'Generale'];
+  var TIPI = ['Situazione', 'Sicurezza', 'Esiti', 'Utenti / Consegne / Git', 'Risposte quiz', 'Altre schede'];
+  var TIPOLOGIE = ['Esercitazione Lazarus', 'Quiz su Moduli', 'Versioning su GitHub', 'Teoria a schede'];
+  var $ = function (i) { return document.getElementById(i); };
+  var items = [], quiz = [], sel = '', caricato = false, indiceOra = '';
+
+  /* ---- link fissi (da LINK-UTILI.md, nessun dato di allievi) ---- */
+  var fissi = [];
+  ['1INF', '2INF', '3INF', '4TI'].forEach(function (c) {
+    fissi.push({ classe: c, g: 'Link utili', t: 'Cruscotto ' + c, s: 'cruscotto della classe (sito)', url: BASE + 'cruscotto/?classe=' + c, acc: 'PERSONALE' });
+  });
+  fissi.push({ classe: '1INF', g: 'Link utili', t: 'Cruscotto Sicurezza', s: 'ore di Sicurezza (sito)', url: BASE + 'sicurezza-cruscotto/?classe=1INF', acc: 'ENTRAMBI' });
+  fissi.push({ classe: '2INF', g: 'Link utili', t: 'Cruscotto Sicurezza', s: 'ore di Sicurezza (sito)', url: BASE + 'sicurezza-cruscotto/?classe=2INF', acc: 'ENTRAMBI' });
+  fissi.push({ classe: '3INF', g: 'Link utili', t: '3INF Git', s: 'pagina della 3INF su Git (sito)', url: BASE + '3inf-git/', acc: 'PERSONALE' });
+  fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Fabbrica (schema)', s: 'pagina dello schema (sito)', url: BASE + 'fabbrica/', acc: 'PERSONALE' });
+  fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Repository pubblico', s: 'GitHub: codice e pagine', url: 'https://github.com/nicolaregge-pulse/corso-informatica', acc: 'PERSONALE' });
+  fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Repository riservato', s: 'GitHub: privato', url: 'https://github.com/nicolaregge-pulse/corso-informatica-riservato', acc: 'PERSONALE' });
+  fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Foglio Fabbrica', s: 'foglio Google (tutte le schede)', url: FOGLIO, acc: 'PIAMARTA' });
+  fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Apps Script', s: 'elenco dei progetti', url: 'https://script.google.com/home', acc: 'PIAMARTA' });
+
+  function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function csv(t) {
+    var r = [], row = [], c = '', q = false;
+    for (var i = 0; i < t.length; i++) {
+      var ch = t[i];
+      if (q) { if (ch === '"') { if (t[i + 1] === '"') { c += '"'; i++; } else q = false; } else c += ch; }
+      else if (ch === '"') q = true;
+      else if (ch === ',') { row.push(c); c = ''; }
+      else if (ch === '\n') { row.push(c); r.push(row); row = []; c = ''; }
+      else if (ch !== '\r') c += ch;
+    }
+    if (c.length || row.length) { row.push(c); r.push(row); }
+    return r;
+  }
+  function conv(v) {
+    v = (v || '').trim();
+    if (!v) return '';
+    if (v.indexOf('output=csv') >= 0) return v;
+    if (v.indexOf('docs.google.com/spreadsheets/d/e/') < 0) return '';
+    var u = v.replace('/pubhtml', '/pub');
+    u += (u.indexOf('?') < 0 ? '?' : '&') + 'output=csv';
+    if (/[?&]gid=/.test(u) && !/[?&]single=true/.test(u)) u += '&single=true';
+    return u;
+  }
+  var okSheet = /^https:\/\/docs\.google\.com\/spreadsheets\/d\/[A-Za-z0-9_-]+\/edit#gid=\d+$/;
+  var okForm = /^https:\/\/docs\.google\.com\/forms\/d\/e\/[A-Za-z0-9_-]+\/viewform(\?usp=sf_link)?$/;
+
+  /* ---- dal CSV dell'Indice alle voci ---- */
+  function tipoScheda(tipo) {
+    if (tipo === 'Situazione' || tipo === 'Sicurezza' || tipo === 'Esiti' || tipo === 'Risposte quiz') return tipo;
+    if (tipo === 'Utenti' || tipo === 'Consegne' || tipo === 'Git') return 'Utenti / Consegne / Git';
+    return 'Altre schede';
+  }
+  function dalCsv(rows) {
+    var h = -1, i;
+    for (i = 0; i < rows.length; i++) if (rows[i][0] === 'Scheda') { h = i; break; }
+    if (h < 0) throw new Error('intestazione');
+    var col = {}; rows[h].forEach(function (n, k) { col[n.trim()] = k; });
+    ['Scheda', 'Tipo', 'Classe', 'Stato', 'URL'].forEach(function (n) { if (col[n] === undefined) throw new Error('colonna ' + n); });
+    var m = /aggiornato alle ([0-9:]+)/.exec((rows[0] && rows[0][0]) || '');
+    indiceOra = m ? m[1] : '';
+    var g = function (r, n) { return col[n] === undefined ? '' : String(r[col[n]] || '').trim(); };
+    var out = [], q = [], titoli = {};
+    rows.slice(h + 1).forEach(function (r) {
+      var nome = g(r, 'Scheda'); if (!nome) return;
+      var cl = g(r, 'Classe').toUpperCase(); if (cl === '-' || CLASSI.indexOf(cl) < 0) cl = 'Generale';
+      if (g(r, 'Tipo') === 'Quiz') {
+        var lr = g(r, 'Link ragazzi');
+        if (!okForm.test(lr)) return;
+        titoli[nome] = g(r, 'Titolo') || nome;
+        q.push({ id: nome, classe: cl, titolo: g(r, 'Titolo') || nome, url: lr, tl: g(r, 'Tipologia lezione') });
+      }
+    });
+    rows.slice(h + 1).forEach(function (r) {
+      var nome = g(r, 'Scheda'); if (!nome || g(r, 'Tipo') === 'Quiz') return;
+      var url = g(r, 'URL'); if (!okSheet.test(url)) return;
+      var cl = g(r, 'Classe').toUpperCase(); if (cl === '-' || CLASSI.indexOf(cl) < 0) cl = 'Generale';
+      var tipo = g(r, 'Tipo'), lbl = nome, id = /^Ris (.+)$/.exec(nome);
+      var sub = tipo + (g(r, 'Ultimo aggiornamento') && g(r, 'Ultimo aggiornamento') !== 'non scritto' ? ' · ' + g(r, 'Ultimo aggiornamento') : '');
+      if (id && titoli[id[1]]) { lbl = titoli[id[1]]; sub = 'Risultati · ' + nome; }
+      out.push({ classe: cl, g: tipoScheda(tipo), tipo: tipo, t: lbl, s: sub, url: url, acc: 'PIAMARTA', nasc: g(r, 'Stato') === 'Nascosta', tl: g(r, 'Tipologia lezione'), ris: id ? id[1] : '' });
+    });
+    return { sheets: out, quiz: q };
+  }
+
+  /* ---- disegno ---- */
+  function btn(v) {
+    var a = document.createElement('a');
+    a.className = 'b'; a.href = v.url; a.target = '_blank'; a.rel = 'noopener';
+    var t = document.createElement('span'); t.className = 't'; t.textContent = v.t; a.appendChild(t);
+    if (v.s) { var s = document.createElement('span'); s.className = 's'; s.textContent = v.s; a.appendChild(s); }
+    var c = document.createElement('span'); c.className = 'acc ' + v.acc;
+    c.textContent = v.acc === 'ENTRAMBI' ? 'PERSONALE o PIAMARTA' : v.acc; a.appendChild(c);
+    return a;
+  }
+  function gruppo(root, titolo, lista) {
+    var h = document.createElement('h3'); h.textContent = titolo; root.appendChild(h);
+    if (!lista.length) { var e = document.createElement('div'); e.className = 'vuoto'; e.textContent = 'Nessun elemento.'; root.appendChild(e); return; }
+    var gr = document.createElement('div'); gr.className = 'grid';
+    lista.forEach(function (v) { gr.appendChild(btn(v)); }); root.appendChild(gr);
+  }
+  function voceQuiz(q) { return { id_: q.id, t: q.titolo, s: 'Quiz · link per i ragazzi · ' + q.classe, url: q.url, acc: 'PIAMARTA', classe: q.classe, g: 'Quiz', tl: q.tl }; }
+  function tutte() {
+    var s = $('nasc').checked, a = fissi.slice();
+    items.forEach(function (v) { if (s || !v.nasc) a.push(v); });
+    quiz.forEach(function (q) { a.push(voceQuiz(q)); });
+    return a;
+  }
+  function disegna() {
+    var out = $('out'), qs = $('cerca').value.trim().toLowerCase(), all = tutte();
+    out.textContent = '';
+    if (qs) {
+      var ris = all.filter(function (v) { return (v.t + ' ' + (v.s || '') + ' ' + v.classe + ' ' + (v.g || '') + ' ' + (v.tl || '')).toLowerCase().indexOf(qs) >= 0; });
+      var h = document.createElement('h2'); h.textContent = 'Risultati (' + ris.length + ')'; out.appendChild(h);
+      if (!ris.length) { var e = document.createElement('div'); e.className = 'vuoto'; e.textContent = 'Nessun risultato.'; out.appendChild(e); return; }
+      ris.forEach(function (v) { if (!v.s) v.s = ''; });
+      var gr = document.createElement('div'); gr.className = 'grid';
+      ris.forEach(function (v) { var c = {}; for (var k in v) c[k] = v[k]; c.s = (v.classe + ' · ' + (v.s || v.g)); gr.appendChild(btn(c)); });
+      out.appendChild(gr); return;
+    }
+    if (!sel) {
+      var p = document.createElement('div'); p.className = 'vuoto'; p.textContent = 'Scegli una classe qui sopra, oppure cerca.'; out.appendChild(p);
+      gruppo(out, 'Link utili', fissi.filter(function (v) { return v.classe === 'Generale'; })); return;
+    }
+    var h2 = document.createElement('h2'); h2.textContent = sel === 'Generale' ? 'Generale (tutte le classi)' : 'Classe ' + sel; out.appendChild(h2);
+    var mie = all.filter(function (v) { return v.classe === sel; });
+    gruppo(out, 'Link utili', mie.filter(function (v) { return v.g === 'Link utili'; }));
+    if (!caricato) { var n = document.createElement('div'); n.className = 'vuoto'; n.textContent = 'Indice non ancora collegato: qui sopra ci sono solo i link fissi.'; out.appendChild(n); return; }
+    var t1 = document.createElement('h2'); t1.textContent = 'Per tipologia di lezione'; out.appendChild(t1);
+    TIPOLOGIE.forEach(function (tl) {
+      var lista = [];
+      mie.forEach(function (v) {
+        if (v.g === 'Quiz' && v.tl === tl) {
+          lista.push(v);
+          items.forEach(function (r) { if (r.ris === v.id_ && (s_ok(r))) lista.push(r); });
+        } else if (v.g !== 'Quiz' && v.g !== 'Link utili' && v.tl === tl && !v.ris) lista.push(v);
+      });
+      gruppo(out, tl, lista);
+    });
+    var t2 = document.createElement('h2'); t2.textContent = 'Per tipo di scheda'; out.appendChild(t2);
+    TIPI.forEach(function (tp) { gruppo(out, tp, mie.filter(function (v) { return v.g === tp; })); });
+  }
+  function s_ok(r) { return $('nasc').checked || !r.nasc; }
+
+  function bottoni() {
+    var c = $('cl'); c.textContent = '';
+    CLASSI.forEach(function (n) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = n; b.className = n === sel ? 'on' : '';
+      b.onclick = function () { sel = (sel === n ? '' : n); scrivi('pannello_classe', sel); $('cerca').value = ''; bottoni(); disegna(); };
+      c.appendChild(b);
+    });
+  }
+
+  function carica(url) {
+    if (!url) { caricato = false; $('ni').style.display = 'block'; $('stato').textContent = 'Indice non ancora collegato.'; disegna(); return; }
+    $('stato').textContent = 'Carico l\'indice...';
+    fetch(url, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('http ' + r.status); return r.text(); })
+      .then(function (t) {
+        var d = dalCsv(csv(t)); items = d.sheets; quiz = d.quiz; caricato = true;
+        $('ni').style.display = 'none';
+        $('stato').textContent = 'Indice letto' + (indiceOra ? ' (scritto dal foglio alle ' + indiceOra + ')' : '') + ': ' + items.length + ' schede, ' + quiz.length + ' quiz.';
+        disegna();
+      })
+      .catch(function (e) { caricato = false; $('ni').style.display = 'block'; $('ni').textContent = 'Indice non ancora collegato (non riesco a leggerlo: ' + e.message + ')'; $('stato').textContent = ''; disegna(); });
+  }
+
+  $('cerca').addEventListener('input', disegna);
+  $('nasc').addEventListener('change', disegna);
+  $('salva').onclick = function () { scrivi('pannello_csv', $('url').value.trim()); carica(conv($('url').value)); };
+  $('togli').onclick = function () { scrivi('pannello_csv', ''); $('url').value = ''; location.reload(); };
+  if (/[?&]config=1/.test(location.search)) { $('cfg').style.display = 'block'; $('url').value = leggi('pannello_csv'); }
+  var qc = /[?&]classe=([A-Za-z0-9]+)/.exec(location.search);
+  sel = qc && CLASSI.indexOf(qc[1].toUpperCase()) >= 0 ? qc[1].toUpperCase() : (CLASSI.indexOf(leggi('pannello_classe')) >= 0 ? leggi('pannello_classe') : '');
+  bottoni();
+  fetch('config.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; })
+    .then(function (cfg) { carica(conv(leggi('pannello_csv')) || conv(cfg.indice)); });
+})();
+</script>
+</body>
+</html>
