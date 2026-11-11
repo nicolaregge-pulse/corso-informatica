@@ -1489,7 +1489,7 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 ## #281 (11/11/2026) Allievi nominati senza cognome
 
-1. **Errore.** Il docente (16:02 Rome): «Ricordati di lavorare sempre con cognome, ci sono troppi nomi simili» (R1.4 e R7.4 già dicevano COGNOME Nome; per esempio un allievo e un altro allievo sono quasi uguali). Quale messaggio esatto: non provato.
+1. **Errore.** Il docente (16:02 Rome): «Ricordati di lavorare sempre con cognome, ci sono troppi nomi simili» (R1.4 e R7.4 già dicevano COGNOME Nome; per esempio Giexther A. e Matteo A. sono quasi uguali). Quale messaggio esatto: non provato.
 2. **Strumento da correggere.** `controllo-messaggio.py`: segnalare in chat un nome di allievo dell'elenco del riservato non preceduto dal cognome. Controllo automatico: mancante (nessuna regola nuova: R7.4 c'è).
 
 ## #282 (11/11/2026) Formato del pacchetto per il post rifatto cinque volte
