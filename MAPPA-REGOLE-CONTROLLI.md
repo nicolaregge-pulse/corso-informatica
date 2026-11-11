@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.10** — 11/11/2026 — documento interno del docente e di Claude
+**Versione 1.11** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -339,6 +339,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #264 | Cruscotto dato come file e non come URL (10/11) | 4 | D | D | controllo automatico: mancante |
 | #265 | Sistema nuovo non spiegato e nome non visibile (10/11) | 4 | D | D | controllo automatico: mancante |
 | #266 | Passo non riscritto, rimando a messaggi precedenti (10/11) | 4 | D | D | controllo automatico: mancante |
+| #268 | Passo senza la finestra Chrome dell'account (11/11) | 4 | D | D | controllo automatico: mancante (idea: in controllo-messaggio.py ogni riga «Passo N» deve contenere PIAMARTA o PERSONALE) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
