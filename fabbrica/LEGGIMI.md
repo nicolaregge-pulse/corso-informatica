@@ -12,3 +12,6 @@ Nelle schede `Situazione <CLASSE>` e `Sicurezza <CLASSE>` ogni colonna quiz ha l
 
 ## Situazione per classe (motore v2.9, 11/11/2026)
 Il motore scrive nel foglio Fabbrica le schede `Situazione 1INF`, `Situazione 2INF`, `Situazione 3INF`, `Situazione 4TI` (solo docente, con COGNOME Nome, mai da pubblicare): una riga per allievo, una colonna per quiz di `indice.json` (tipologia quiz), cella = miglior % (punti/totale) o MANCA, colonne Fatti/totali, Media e NON HA FATTO. Elenco allievi dalle schede `Email <CLASSE>` o `Consegne <CLASSE>`.
+
+## Indice, ordine e colori delle schede (motore v2.11, 11/11/2026)
+Prima scheda `Indice`: una riga per scheda (nome con link al gid, tipo, classe, ultimo aggiornamento, visibile o nascosta). Ordine fisso a ogni giro: Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, altre, poi le `Ris <id>`. Le `Ris <id>` il cui id non e piu nei `lavori` di `indice.json` sono NASCOSTE (mai cancellate; se l'id torna, si rimostrano). Colori: Ris per classe (1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie), Situazione e Sicurezza colori propri. Se `indice.json` non si legge, non si nasconde nulla. Prova con finti servizi: `test_indice_v2_11.js` nel riservato (report/2026-11-11).
