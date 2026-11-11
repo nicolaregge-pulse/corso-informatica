@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 1.4** — 03/11/2026 — documento interno del docente e di Claude
+**Versione 2.3** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -80,6 +80,14 @@ Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
 2. Ora 10-11, 3INF, Laboratorio professionale: FIRMATA il 10/11/2026, argomento «Sviluppo collaborativo: release e changelog».
 3. Ore 11-12 e 12-13, 4TI, Laboratorio professionale: FIRMATE il 10/11/2026, argomento «Indirizzamento IPv4 e subnetting» (registro DIDAweb, screenshot del docente).
 
+## Mercoledì 11/11/2026
+
+Fonte: registro DIDAweb (screenshot del docente delle 08:06), colonna Firma.
+
+1. Ore 8-9, 9-10 e 10-11, 1INF, Laboratorio professionale: FIRMATE l'11/11/2026, argomenti «Lazarus string integer», «Lazarus real e divisione», «Lazarus if then».
+2. Ore 11-12 e 12-13: Matematica di un altro docente, non nostre.
+3. Ora 13-14, 1INF, Sicurezza professionale: NON ancora firmata, da firmare entro le 14:05. Argomento messo dalla direzione: «meccanici generali, elettrici generali».
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -95,3 +103,4 @@ Fonte: registro DIDAweb (screenshot del docente delle 09:03), colonna Firma.
 11. v2.0 (09/11/2026, 13:05): lunedì 09/11, ore 2INF 11-14 firmate.
 11. v2.1 (10/11/2026): martedì 10/11, ore 2INF 8-10 firmate.
 12. v2.2 (10/11/2026): martedì 10/11, ore 3INF 10-11 e 4TI 11-13 firmate, con le 2INF 8-10.
+13. v2.3 (11/11/2026): mercoledì 11/11, ore 1INF 8-11 firmate; ora 13-14 Sicurezza ancora da firmare (entro le 14:05).
