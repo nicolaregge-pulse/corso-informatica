@@ -1,6 +1,6 @@
 # Registro degli errori di Claude ("SBIRRO") — Corso Informatica
 
-**Versione 3.13** — 10/11/2026 (#125-#253; v3.13: #249-#253 dal controllore di fine giornata del 10/11; #125-#236; v3.12: #236 numero del PC come menù a tendina; v3.11: #224-#235 dal controllore di fine giornata del 06/11; v3.10: v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
+**Versione 3.14** — 11/11/2026 (#125-#266; v3.14: #255-#266 dalla chat segnata del 10/11; #125-#253; v3.13: #249-#253 dal controllore di fine giornata del 10/11; #125-#236; v3.12: #236 numero del PC come menù a tendina; v3.11: #224-#235 dal controllore di fine giornata del 06/11; v3.10: v3.10: #210-#222 dal controllore di fine giornata del 05/11, ognuno con lo strumento da correggere; v3.09: #200-#209 dal controllore di fine giornata del 04/11, ognuno con lo strumento da correggere; v3.08: #196 orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb; v3.07: audit di fine lezione 3INF del 02/11, #176-#181; v3.06: #175 client e server del Mastermind in rete non funzionavano in aula, provati solo con simulatori; v3.05: #174 compito pubblicato due volte, il docente lo aveva già creato a mano; v3.04: #173 quiz della 3INF solo sul sito invece che su Moduli; v3.03: #171 pagine che dicevano «alza la mano», #172 tre ore pubblicate insieme; v3.02: #162-#170 dal controllore di fine giornata del 30/10, ognuno con il suo controllo automatico; v3.01: #161 watchdog del laboratorio, mai «non arrivato» su dati vecchi; v3.00: #160 quiz che chiede lavoro non ancora fatto; v2.99: #159 «prima ora» = ora della giornata, non del laboratorio; v2.98: #158 incolla dello script mescolato al codice vecchio; v2.97: controllore di fine giornata, #155 lavoro dichiarato e situazione peggiorata, #156 voto 40 al migliore, #157 release di tutto il repository, e un controllo automatico per #140-#146; v2.96: #147-#154 errori del pomeriggio del 29/10 dall'audit della giornata, ognuno con il suo controllo automatico; v2.95: #146 secondo percorso di fila non controllabile e non funzionante, 3INF; v2.94: #145 scheda Domande dei ragazzi ferma al 28/10; v2.93: #144 piano con bottoni dopo la pubblicazione, molti «risolto» non verificati sul sito vero; v2.92: #143 troppi aiutanti, token consumati senza migliorare la qualità; v2.91: #142 cruscotto poco utile in classe, tabella delle versioni arrivata solo in chat; v2.90: #141 promessa del flusso notturno non mantenuta, 2INF con Classroom vuoto; v2.89: #140 bottone del piano dato per presente senza provarlo sul sito vero; v2.88: #139 ROSSO dell'audit liquidato come atteso; v2.87: cognomi degli allievi sostituiti dalle iniziali, privacy)
 
 *Registro onesto degli errori che Claude commette, giorno per giorno, con la correzione
 adottata e la regola nata di conseguenza. Serve a non ripeterli e a migliorare. Lo tiene
@@ -1354,3 +1354,63 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Indicazioni date a parole, senza link né percorso («apri il foglio Fabbrica, scheda Esiti»): il docente non ricorda dove sta il file.
 2. **Strumento da correggere.** CLAUDE.md v2.6, R4 3quater (link cliccabile o percorso completo, SendUserFile per i file) e `LINK-UTILI.md` nel riservato (report/LINK-UTILI.md), aggiornato a ogni link nuovo.
+
+## #255 (10/11/2026) Un script da incollare per ogni lavoro, nessun sistema
+
+1. **Errore.** 12:08: «un sistema funzionante e che non debba per ogni cosa compilare uno script». Quiz, scheda Moduli e cruscotto Git erano tre script da incollare a mano.
+2. **Strumento da correggere.** Fabbrica (un solo motore, richieste su GitHub). Controllo: ogni nuovo lavoro passa dalla Fabbrica; resta da scrivere un controllo che segnali script nuovi fuori dalla Fabbrica. Controllo automatico: mancante.
+
+## #256 (10/11/2026) Dati richiesti senza i file da scaricare
+
+1. **Errore.** 12:36: «Quando ti chiedo i dati devi ridarmi anche i file da scaricare». Testi dati solo in chat.
+2. **Strumento da correggere.** Ogni consegna di dati o testi porta anche i file con SendUserFile e il percorso (R4 5, R4 3quater). Controllo automatico: mancante.
+
+## #257 (10/11/2026) Script e istruzioni con errori, non provati su Google
+
+1. **Errore.** 13:05: «Vorrei qualcosa senza errori». Script consegnati senza prova su Google, con funzioni di controllo solo scritte.
+2. **Strumento da correggere.** Ogni script porta una funzione di controllo e la scritta «non provato» se non eseguito (R7.5); test in locale (test_fabbrica.js) prima di consegnare. Controllo automatico: mancante.
+
+## #258 (10/11/2026) Piantina non versionata (PDF ignorato da git)
+
+1. **Errore.** 09:04: «La piantina non l'ha versionata!». I PDF sono ignorati da git e serviva git add -f.
+2. **Strumento da correggere.** Versionare ogni file nuovo a fine lavoro (R11.1), PDF compresi con git add -f. Controllo automatico: mancante.
+
+## #259 (10/11/2026) Piantina fatta per numero PC e non per i banchi reali
+
+1. **Errore.** 08:55: «La piantina non concorda con questa». Prima versione ordinata per PC, rifatta dalla piantina del 03/11.
+2. **Strumento da correggere.** Partire sempre dall'ultima piantina salvata del docente (config) e non da una griglia nuova. Controllo automatico: mancante.
+
+## #260 (10/11/2026) Valutazione con criterio sbagliato
+
+1. **Errore.** 09:39-09:41: il lavoro era la filosofia del preventivo, non il preventivo; l'uso dell'AI fatto con intelligenza era stato giudicato male.
+2. **Strumento da correggere.** Prima di valutare si rilegge la consegna data ai ragazzi e il criterio dichiarato dal docente (R9.2). Controllo automatico: mancante.
+
+## #261 (10/11/2026) Richieste interpretate male, date e nomi file ambigui
+
+1. **Errore.** 09:46-09:49, 11:59: «Non hai capito» (documento per allievo), «dici martedì, parlo di oggi», nomi dei file poco chiari.
+2. **Strumento da correggere.** Date scritte per esteso (oggi 10/11); nomi dei file con ALLIEVI o DOCENTE; una domanda breve quando la richiesta ha due letture. Controllo automatico: mancante.
+
+## #262 (10/11/2026) Compito 4TI troppo difficile e rifatto
+
+1. **Errore.** 11:56-12:05: «troppo difficile ... operai che eseguono il lavoro del manager»; compito con 9 zip già assegnato e poi cancellato.
+2. **Strumento da correggere.** Livello della 4TI: schede di lettura e esecuzione, non progettazione; si chiede il livello prima di preparare per tutti. Controllo automatico: mancante.
+
+## #263 (10/11/2026) Schede su carta per tutti senza stampante
+
+1. **Errore.** 12:05: «Non abbiamo la stampante per tutti ... meglio usare Moduli». Contro R9.9 (niente carta e penna).
+2. **Strumento da correggere.** Le schede nascono come Moduli (creaModuloScheda4TI); la carta solo se chiesta dal docente. Controllo automatico: mancante.
+
+## #264 (10/11/2026) Cruscotto dato come file e non come URL
+
+1. **Errore.** 10:49-10:50: «Il cruscotto è un URL ... rileggi la chat» (R8.1).
+2. **Strumento da correggere.** Il cruscotto si consegna sempre come URL del sito, dopo PUBBLICATO (R7.3). Controllo automatico: mancante.
+
+## #265 (10/11/2026) Sistema nuovo non spiegato e nome non visibile
+
+1. **Errore.** 12:27 «non vedo scritto FABBRICA da nessuna parte»; 13:11 «vorrei capire la differenza con quello che facevamo prima (ponte e cruscotti)».
+2. **Strumento da correggere.** FABBRICA-COME-FUNZIONA-v1.1 con schema; i nomi nelle istruzioni uguali a quelli sullo schermo. Controllo automatico: mancante.
+
+## #266 (10/11/2026) Passo non riscritto, rimando a messaggi precedenti
+
+1. **Errore.** 12:26: «NO, me lo riscrivi qui sotto».
+2. **Strumento da correggere.** Ogni passo si riscrive per intero con il suo riquadro (R4 3-4). Controllo automatico: mancante.

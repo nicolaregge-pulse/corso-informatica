@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.8** — 09/11/2026 — documento interno del docente e di Claude
+**Versione 1.10** — 11/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -327,6 +327,18 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #251 | PPP con codice visibile nelle finestre (10/11) | 4 | D | D | Nessun controllo sui PPP |
 | #252 | Link al sito dato prima di PUBBLICATO con deploy fallito (10/11) | 4 | D | D | Il controllo (e) di #79 esiste ma non ha impedito il caso |
 | #253 | Contraddizione R4 3ter e richiesta finale del docente (10/11) | 4 | D | D | Decisione del docente |
+| #255 | Un script da incollare per ogni lavoro, nessun sistema (10/11) | 4 | D | D | controllo automatico: mancante |
+| #256 | Dati richiesti senza i file da scaricare (10/11) | 4 | D | D | controllo automatico: mancante |
+| #257 | Script e istruzioni con errori, non provati su Google (10/11) | 4 | D | D | controllo automatico: mancante |
+| #258 | Piantina non versionata (PDF ignorato da git) (10/11) | 4 | D | D | controllo automatico: mancante |
+| #259 | Piantina fatta per numero PC e non per i banchi reali (10/11) | 4 | D | D | controllo automatico: mancante |
+| #260 | Valutazione con criterio sbagliato (10/11) | 4 | D | D | controllo automatico: mancante |
+| #261 | Richieste interpretate male, date e nomi file ambigui (10/11) | 4 | D | D | controllo automatico: mancante |
+| #262 | Compito 4TI troppo difficile e rifatto (10/11) | 4 | D | D | controllo automatico: mancante |
+| #263 | Schede su carta per tutti senza stampante (10/11) | 4 | D | D | controllo automatico: mancante |
+| #264 | Cruscotto dato come file e non come URL (10/11) | 4 | D | D | controllo automatico: mancante |
+| #265 | Sistema nuovo non spiegato e nome non visibile (10/11) | 4 | D | D | controllo automatico: mancante |
+| #266 | Passo non riscritto, rimando a messaggi precedenti (10/11) | 4 | D | D | controllo automatico: mancante |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -403,3 +415,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 8. v1.7 (09/11/2026): voce #236 (numero del PC come casella di testo, 11-38 in aula 11) con controllo pc_a_menu in controlli_pagine.py.
 9. v1.8 (09/11/2026, controllore di fine giornata): voci #237-#247 (teoria non fattibile, quiz scegli 2 e non selettivi, lezione cambiata in corsa, cruscotti fermi, report orari assenti, ponte, messaggi lunghi, hook versionato); #243 A, le altre D.
 10. v1.9 (10/11/2026, controllore di fine giornata): voci #248-#253, tutte D (nessun controllo automatico ancora).
+11. v1.10 (11/11/2026): voci #255-#266 dalla chat segnata del 10/11, tutte D (controllo automatico: mancante).
