@@ -1,53 +1,65 @@
 {
- "versione": 2,
+ "versione": 3,
  "lavori": [
   {
    "id": "quiz-2inf-1110",
-   "file": "quiz-2inf-1110.txt"
+   "file": "quiz-2inf-1110.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-3inf-1110",
-   "file": "quiz-3inf-1110.txt"
+   "file": "quiz-3inf-1110.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-4ti-1110",
-   "file": "quiz-4ti-1110.txt"
+   "file": "quiz-4ti-1110.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "scheda-4ti-1011",
-   "file": "scheda-4ti-1011.txt"
+   "file": "scheda-4ti-1011.txt",
+   "tipologia_lezione": "teoria"
   },
   {
    "id": "quiz-1inf-1111",
-   "file": "quiz-1inf-1111.txt"
+   "file": "quiz-1inf-1111.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-sic5-1111",
-   "file": "quiz-1inf-sic5-1111.txt"
+   "file": "quiz-1inf-sic5-1111.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-1111-ora1d",
-   "file": "quiz-1inf-1111-ora1d.txt"
+   "file": "quiz-1inf-1111-ora1d.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-1111-ora2b",
-   "file": "quiz-1inf-1111-ora2b.txt"
+   "file": "quiz-1inf-1111-ora2b.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-3inf-1111-chat",
-   "file": "quiz-3inf-1111-chat.txt"
+   "file": "quiz-3inf-1111-chat.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-sic-recupero-1111",
-   "file": "quiz-1inf-sic-recupero-1111.txt"
+   "file": "quiz-1inf-sic-recupero-1111.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-sic6-mecc-1111t",
-   "file": "quiz-1inf-sic6-mecc-1111t.txt"
+   "file": "quiz-1inf-sic6-mecc-1111t.txt",
+   "tipologia_lezione": "quiz"
   },
   {
    "id": "quiz-1inf-sic6-elet-1111t",
-   "file": "quiz-1inf-sic6-elet-1111t.txt"
+   "file": "quiz-1inf-sic6-elet-1111t.txt",
+   "tipologia_lezione": "quiz"
   }
  ],
  "cruscotto": {
@@ -149,5 +161,11 @@
     "ids": []
    }
   }
- ]
+ ],
+ "tipologie_lezione": {
+  "esercitazione": "Esercitazione Lazarus: schede Consegne e Git (blocchi classroom e git)",
+  "quiz": "Quiz su Moduli: lavori con tipologia_lezione quiz",
+  "versioning": "Versioning su GitHub: blocco git, scheda Utenti <CLASSE>",
+  "teoria": "Teoria a schede: lavori con tipologia_lezione teoria"
+ }
 }

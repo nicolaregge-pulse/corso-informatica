@@ -1,9 +1,10 @@
 /**
- * FABBRICA - MOTORE v2.7 (11/11/2026)
+ * FABBRICA - MOTORE v2.8 (11/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
- * Changelog: 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * TIPOLOGIA LEZIONE (decisione del docente 11/11/2026, v2.8): le 4 tipologie sono Esercitazione Lazarus (schede Consegne <CLASSE> + progetto Lazarus nella scheda Git), Quiz su Moduli, Versioning su GitHub (schede Utenti e Git <CLASSE>), Teoria a schede (Moduli creato da una scheda). Nei lavori di indice.json il campo e "tipologia_lezione" ("quiz" o "teoria"; il vecchio nome "tipologia" o "tipo" e accettato; se manca: id che comincia per "scheda-" = teoria, altrimenti quiz). Il "tipo" delle domande (multi, singola, testo, paragrafo) e un'altra cosa e non cambia.
+ * Changelog: 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -36,6 +37,43 @@ function FB_classe_(q, id) {
   if (q && q.classe) return String(q.classe).toUpperCase();
   var m = /^[A-Za-z]+-(\d+[A-Za-z]+)-/.exec(id || '');
   return m ? m[1].toUpperCase() : '';
+}
+
+/* ---------- TIPOLOGIA LEZIONE (v2.8) ---------- */
+var FB_TL_ = { esercitazione: 'Esercitazione Lazarus', quiz: 'Quiz su Moduli', versioning: 'Versioning su GitHub', teoria: 'Teoria a schede' };
+function FB_tl_(l, id) {
+  var v = String((l && (l.tipologia_lezione || l.tipologia || l.tipo)) || '').toLowerCase();
+  if (v.indexOf('teor') === 0 || v.indexOf('schede') >= 0) return 'teoria';
+  if (v.indexOf('quiz') === 0) return 'quiz';
+  return /^scheda-/i.test(String(id || (l && l.id) || '')) ? 'teoria' : 'quiz';
+}
+
+function FB_valida_(q) {
+  var e = [];
+  if (!q || typeof q !== 'object') return ['richiesta vuota'];
+  if (!String(q.titolo || '').trim()) e.push('manca il titolo');
+  if (!q.domande || !q.domande.length) { e.push('nessuna domanda'); return e; }
+  q.domande.forEach(function (d, i) {
+    var n = 'domanda ' + (i + 1);
+    if (['multi', 'singola', 'testo', 'paragrafo'].indexOf(d.tipo) < 0) { e.push(n + ': tipo di domanda sconosciuto (' + d.tipo + ')'); return; }
+    if (!String(d.t || '').trim()) e.push(n + ': manca il testo');
+    if (d.tipo === 'multi' || d.tipo === 'singola') {
+      if (!d.s || d.s.length < 2) { e.push(n + ': servono almeno 2 scelte'); return; }
+      var g = d.s.filter(function (x) { return x && x[1]; }).length;
+      if (d.s.some(function (x) { return !x || !String(x[0] || '').trim(); })) e.push(n + ': scelta vuota');
+      if (d.tipo === 'singola' && g !== 1) e.push(n + ': la singola deve avere 1 giusta, ne ha ' + g);
+      if (d.tipo === 'multi' && g < 1) e.push(n + ': nessuna scelta giusta');
+    }
+  });
+  return e;
+}
+
+function FB_lingue_(q, classe) {
+  var t = JSON.stringify(q), ar = /[\u0600-\u06FF]/.test(t), zh = /[\u4E00-\u9FFF]/.test(t), bn = /[\u0980-\u09FF]/.test(t), a = [];
+  if (classe === '1INF') { if (!ar) a.push('manca l\'arabo'); if (!zh) a.push('manca il cinese'); }
+  else if (classe === '2INF' || classe === '4TI') { if (ar || zh || bn) a.push('solo italiano'); }
+  else if (classe === '3INF') { if (ar || zh) a.push('niente arabo e cinese (solo bangla per il PC 14)'); }
+  return a;
 }
 
 /* ---------- Moduli ---------- */
@@ -136,11 +174,12 @@ function FB_stato_(ss) {
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), tot = 0, k, n = 0;
   for (k in forms) n++;
   for (k in nr) tot += Number(nr[k]) || 0;
-  sh.getRange(1, 1, 4, 2).setValues([
+  sh.getRange(1, 1, 5, 2).setValues([
     ['Fabbrica v2', FB_ora_('dd/MM/yyyy HH:mm:ss')],
     ['Moduli', n],
     ['Risposte totali', tot],
-    ['Ultimo errore', FB_ultimoErrore_()]
+    ['Ultimo errore', FB_ultimoErrore_()],
+    ['Motore', '2.8']
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
 }
@@ -150,12 +189,23 @@ function FB_nuovi_(ss, indice) {
   var fatti = FB_json_('FB_FATTI'), forms = FB_json_('FB_FORMS'), sh = ss.getSheetByName('Esiti');
   (indice.lavori || []).forEach(function (l) {
     if (fatti[l.id]) return;
-    var ora = FB_ora_();
+    var ora = FB_ora_(), q, cl;
     try {
       var testo = Utilities.newBlob(Utilities.base64Decode(FB_get_(FB_BASE + l.file).trim())).getDataAsString('UTF-8');
-      var q = JSON.parse(testo);
-      var r = FB_crea_(q), cl = FB_classe_(q, l.id);
+      q = JSON.parse(testo);
+      var ev = FB_valida_(q);
+      if (ev.length) throw new Error('richiesta non valida: ' + ev.join('; '));
+      cl = FB_classe_(q, l.id);
+    } catch (e0) {
+      /* nessun Moduli creato: non si segna come fatto, si riprova al giro dopo */
+      FB_errore_(ss, 'lavoro ' + l.id, e0);
+      return;
+    }
+    try {
+      var r = FB_crea_(q);
       var ctrl = r.v.err.length ? 'ERRORE: ' + r.v.err.join('; ') + ' (NON darlo ai ragazzi)' : 'OK ' + r.v.ok + '/' + r.v.tot;
+      var av = FB_lingue_(q, cl);
+      if (av.length && !r.v.err.length) ctrl += ' \u00b7 AVVISO R6 (non blocca): ' + av.join(', ');
       sh.appendRow([ora, l.id, q.titolo, r.ragazzi, r.modifica, ctrl, cl, r.formId]);
       forms[l.id] = { formId: r.formId, classe: cl, titolo: q.titolo };
       FB_salva_('FB_FORMS', forms);
@@ -205,6 +255,7 @@ function FB_creato_(ss, id) {
   return '';
 }
 
+var FB_lavoroIndice_ = {};
 function FB_quiz_(ss) {
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), medie = FB_json_('FB_MEDIE');
   var es = ss.getSheetByName('Esiti').getDataRange().getValues(), righe = [], i;
@@ -213,14 +264,14 @@ function FB_quiz_(ss) {
     if (!id || !f) continue;
     var ris = ss.getSheetByName('Ris ' + id);
     var link = ris ? '=HYPERLINK("#gid=' + ris.getSheetId() + '","Apri risultati")' : '';
-    righe.push([i, [f.classe || FB_classe_(null, id), f.titolo || es[i][2] || id, id, nr[id] === undefined ? '' : nr[id], medie[id] === undefined ? '' : medie[id], es[i][3] || '', link]]);
+    righe.push([i, [f.classe || FB_classe_(null, id), f.titolo || es[i][2] || id, id, nr[id] === undefined ? '' : nr[id], medie[id] === undefined ? '' : medie[id], es[i][3] || '', link, FB_TL_[FB_tl_(FB_lavoroIndice_[id], id)]]]);
   }
   righe.sort(function (a, b) { return b[0] - a[0]; });
   var sh = ss.getSheetByName('Quiz');
   if (!sh) { var pos = ss.getSheetByName('Esiti'); sh = pos.getIndex ? ss.insertSheet('Quiz', pos.getIndex()) : ss.insertSheet('Quiz'); }
   sh.clear();
-  sh.getRange(1, 1, 1, 7).setValues([['Classe', 'Titolo', 'Id', 'Risposte', 'Media del migliore', 'Link per i ragazzi', 'Link alla scheda dei risultati']]).setFontWeight('bold');
-  if (righe.length) sh.getRange(2, 1, righe.length, 7).setValues(righe.map(function (r) { return r[1]; }));
+  sh.getRange(1, 1, 1, 8).setValues([['Classe', 'Titolo', 'Id', 'Risposte', 'Media del migliore', 'Link per i ragazzi', 'Link alla scheda dei risultati', 'TIPOLOGIA LEZIONE']]).setFontWeight('bold');
+  if (righe.length) sh.getRange(2, 1, righe.length, 8).setValues(righe.map(function (r) { return r[1]; }));
 }
 
 function FB_risultati_(ss, t0) {
@@ -449,7 +500,10 @@ function FB_git_(ss, indice, t0) {
   dovute.forEach(function (c) {
     try {
       var u = GT_elenco_(ss, c);
-      if (!u || !u.length) { FB_ERRS.push('Git ' + c + ': manca la scheda Utenti ' + c); return; }
+      if (!u || !u.length) {
+        if (!ss.getSheetByName('Utenti ' + c)) ss.insertSheet('Utenti ' + c).getRange(1, 1, 1, 3).setValues([['PC', 'Utente GitHub', 'Allievo']]).setFontWeight('bold');
+        FB_ERRS.push('Git ' + c + ': compilare la scheda Utenti ' + c + ' (PC, Utente GitHub, Allievo)'); return;
+      }
       if (fatta || Date.now() - t0 > 240000) return;
       GT_scheda_(ss, c, u, t0);
       T[c] = ora; fatta = true; FB_salva_('GT_T', T);
@@ -720,16 +774,49 @@ function FB_sicurezza_(ss, indice) {
 }
 
 /* ---------- Giro principale ---------- */
+/* ---------- Tipologie lezione per classe (v2.8) ---------- */
+function FB_matrice_(ss, indice) {
+  var classi = ['1INF', '2INF', '3INF', '4TI'], forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR');
+  var lavori = {};
+  (indice.lavori || []).forEach(function (l) { lavori[l.id] = l; });
+  function ora_(nome) {
+    var sh = ss.getSheetByName(nome);
+    if (!sh) return null;
+    var m = /dati letti alle (\d\d:\d\d:\d\d)/.exec(String(sh.getRange(1, 1).getValues()[0][0] || ''));
+    var v = sh.getDataRange().getValues(), n = 0, i;
+    for (i = 4; i < v.length; i++) if (v[i] && String(v[i][1] || '').trim()) n++;
+    return { ora: m ? m[1] : 'ora non scritta', n: n };
+  }
+  var righe = classi.map(function (c) {
+    var cr = ora_('Consegne ' + c), gt = ora_('Git ' + c), uso = ss.getSheetByName('Utenti ' + c);
+    var nq = 0, ns = 0, rq = 0, rs = 0, id;
+    for (id in forms) {
+      if ((forms[id].classe || FB_classe_(null, id)) !== c) continue;
+      if (FB_tl_(lavori[id], id) === 'teoria') { ns++; rs += Number(nr[id]) || 0; } else { nq++; rq += Number(nr[id]) || 0; }
+    }
+    var lazarus = cr ? 'OK: Consegne ' + c + ', ' + cr.n + ' allievi, dati alle ' + cr.ora + (gt ? ' · progetto Lazarus nella scheda Git' : ' · manca la scheda Git') : 'MANCA: scheda Consegne ' + c + ' (corso Classroom non trovato o servizio Classroom non abilitato)';
+    var vers = gt ? 'OK: Git ' + c + ', ' + gt.n + ' allievi, dati alle ' + gt.ora : (uso && uso.getDataRange().getValues().length > 1 ? 'IN ATTESA: scheda Git ' + c + ' al prossimo giro' : 'MANCA: scheda Utenti ' + c + ' da compilare (PC, Utente GitHub, Allievo)');
+    return [c, lazarus, nq ? 'OK: ' + nq + ' Moduli, ' + rq + ' risposte' : 'MANCA: nessun Moduli quiz in indice.json', vers, ns ? 'OK: ' + ns + ' schede, ' + rs + ' risposte' : 'MANCA: nessuna scheda in indice.json'];
+  });
+  var sh = ss.getSheetByName('Tipologie lezione') || ss.insertSheet('Tipologie lezione');
+  sh.clear();
+  sh.getRange(1, 1).setValue('Classi x TIPOLOGIA LEZIONE (nessun nome di allievo) · dati letti alle ' + FB_ora_('HH:mm:ss')).setFontWeight('bold');
+  sh.getRange(3, 1, 1, 5).setValues([['Classe \\ TIPOLOGIA LEZIONE', FB_TL_.esercitazione, FB_TL_.quiz, FB_TL_.versioning, FB_TL_.teoria]]).setFontWeight('bold');
+  sh.getRange(4, 1, righe.length, 5).setValues(righe);
+}
+
 function FB_main_() {
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(20000)) return;
   try {
     var t0 = Date.now();
     FB_ERRS = [];
+    FB_lavoroIndice_ = {};
     var ss = FB_foglio_(), indice = { lavori: [] };
     try { FB_pulisci_(ss); } catch (e) { FB_errore_(ss, 'pulizia', e); }
     try { indice = JSON.parse(FB_get_(FB_BASE + 'indice.json')); } catch (e) { FB_errore_(ss, 'indice', e); indice = null; }
     if (indice) {
+      (indice.lavori || []).forEach(function (l) { FB_lavoroIndice_[l.id] = l; });
       try { FB_nuovi_(ss, indice); } catch (e) { FB_errore_(ss, 'nuovi', e); }
     }
     try { FB_ripara_(ss); } catch (e) { FB_errore_(ss, 'ripara', e); }
@@ -746,6 +833,9 @@ function FB_main_() {
     }
     if (indice) {
       try { FB_sicurezza_(ss, indice); } catch (e) { FB_errore_(ss, 'sicurezza', e); }
+    }
+    if (indice) {
+      try { FB_matrice_(ss, indice); } catch (e) { FB_errore_(ss, 'tipologie lezione', e); }
     }
     try { FB_stato_(ss); } catch (e) { Logger.log('stato: ' + e); }
   } finally {
