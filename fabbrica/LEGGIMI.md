@@ -22,3 +22,5 @@ La scheda `Indice` ha ora 9 colonne: Scheda, Tipo, Classe, Ultimo aggiornamento,
 ## Indice senza formule (motore v2.13, 11/11/2026)
 Correzione: nelle schede `Indice` (colonna A) e `Quiz` (colonna G) il motore non scrive piu formule `=HYPERLINK(...)` (il foglio e in italiano e le rifiutava: `#ERROR!`). Scrive TESTO semplice e aggiunge il link cliccabile con RichTextValue (`setLinkUrl`); l'URL completo resta in colonna F. Le righe `Quiz` dell'Indice hanno Titolo e Link ragazzi (viewform, mai link di modifica) da Esiti colonna D. Provato solo con finti servizi (`test_indice_v2_13.js` nel riservato).
 
+## Indice solo con i quiz attuali (motore v2.14, 11/11/2026)
+Nella scheda `Indice` le righe `Quiz` sono solo quelle degli id correnti di `indice.json` (una riga per id, Stato `Attivo`). Gli id vecchi che restano in `Esiti` (Moduli creati e poi sostituiti) diventano righe `Quiz (vecchio)` con Stato `Nascosta` e senza Link ragazzi, cosi il Pannello non le mostra. Provato solo con finti servizi (`test_indice_v2_14.js` nel riservato).
