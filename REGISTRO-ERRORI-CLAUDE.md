@@ -1526,3 +1526,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Più volte la scheda PDF è finita sopra la cornice o fuori da essa. Il docente ha disegnato il formato: rosso con titolo, oggetto e, dentro, il riquadro blu con la dispensa. «NESSUN'ALTRA MODALITÀ».
 2. **Strumento.** GUIDA-MESSAGGI v1.7, sezione 03quinquies.
+
+## #289 (12/11/2026) Pacchetto Classroom: una decina di formati sbagliati prima di quello giusto
+
+1. **Errore.** Il formato era stato deciso l'11/11 e disegnato dal docente il 12/11; ho provato schede multiple, pagine esterne, registro e quiz nella cornice, testo sotto. Solo questo è accettabile: rosso, titolo, oggetto, blu con dispensa e scheda PDF dentro, chiusura blu e rossa, niente altro.
+2. **Strumento.** GUIDA-MESSAGGI v1.8, sezione 03sexies. Da fare: un controllo del messaggio che segnali un pacchetto Classroom con testo dopo la riga rossa finale.

@@ -142,6 +142,20 @@ Dall'alto in basso, in questo ordine esatto, dentro la cornice rossa:
 
 Fuori dalla cornice (sotto): registro, quiz, «Non provato». Il testo prima e dopo la scheda sta nello stesso turno, senza altri strumenti in mezzo. Nessun'altra modalità.
 
+## 03sexies STANDARD UNICO del pacchetto Classroom (approvato dal docente il 12/11/2026, «solo questo è accettabile»)
+
+Sostituisce 03ter e 03quinquies per il pacchetto Classroom. Un'ora per messaggio, in questo ordine, e NIENTE altro:
+
+1. riga di quadratini rossi 🟥;
+2. **TITOLO** in un riquadro di codice;
+3. **OGGETTO** in un riquadro di codice;
+4. riga di quadratini blu 🟦 e «📄 **DISPENSA ALLIEVI ORA N** ⬇️»;
+5. la scheda PDF con SendUserFile (chiamata fatta nello stesso turno, dopo il testo);
+6. riga di quadratini blu 🟦;
+7. riga di quadratini rossi 🟥.
+
+Niente registro, quiz, «Non provato», domande o altro testo: se serve altro, in un messaggio a parte. Nessun'altra modalità (niente schede multiple, niente pagine esterne, niente testo sotto la cornice).
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
@@ -152,3 +166,4 @@ Fuori dalla cornice (sotto): registro, quiz, «Non provato». Il testo prima e d
 6. v1.5 (12/11/2026): nuova sezione 03quater, ordine fisso di ogni ora: dispensa docente, foto, pacchetto Classroom, quiz a fine ora; errore #286.
 7. v1.6 (12/11/2026): formato del pacchetto Classroom corretto dal docente: nel riquadro rosso solo TITOLO e OGGETTO, e dentro il rosso il riquadro blu con la dispensa dei ragazzi; registro, quiz e «Non provato» fuori dal rosso; la scheda PDF si manda con SendUserFile PRIMA del testo finale (il docente vede solo il testo dopo l'ultima chiamata di strumento); errore #287.
 8. v1.7 (12/11/2026): sezione 03quinquies, formato unico del pacchetto Classroom disegnato dal docente; errore #288.
+9. v1.8 (12/11/2026): sezione 03sexies, standard unico del pacchetto Classroom approvato dal docente; errore #289.
