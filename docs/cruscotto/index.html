@@ -237,7 +237,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
       var somma = voti.reduce(function (a, b) { return a + b; }, 0);
       voto = Math.round(somma / voti.length);
       txt = conto.join(' · ') + ' → media (' + voti.join('+') + ')/' + voti.length + ' = ' + voto;
-    } else txt = conto.length ? conto.join(' · ') + ' → nessun quiz fatto: 40' : 'nessun quiz da contare: 40';
+    } else txt = conto.length ? conto.join(' · ') + (daAbb.length ? ' → voto provvisorio 40 finché la risposta non è abbinata' : ' → nessun quiz fatto: 40') : 'nessun quiz da contare: 40';
     var vai;
     if (manca.length) vai = 'Fai il quiz «' + manca[0].label + '» (' + manca[0].corto + ')' + (manca.length > 1 ? ' e altri ' + (manca.length - 1) : '');
     else if (fatti.length) vai = 'Hai finito. Aspetta il prossimo passo.';
@@ -281,7 +281,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
         if (x.t === 'manca') return '<td><span class="chip r">MANCA</span></td>';
         if (x.t === 'nonabb') return '<td><span class="chip a">NON ABBINATA</span></td>';
         return '<td><span class="chip n">non letto</span></td>';
-      }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + '</td><td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
+      }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + (r.daAbb.length ? '<br><small>da abbinare: ' + esc(r.daAbb.map(function (q) { return q.corto; }).join(', ')) + '</small>' : '') + '</td><td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
     }).join('');
     $('assenti').innerHTML = ass.length ? 'Assenti (non contati): ' + ass.map(function (r) { return '<button type="button" data-ra="' + r.h + '">' + esc(r.lab) + ' · rimetti</button>'; }).join('') : '';
     $('sitbar').style.display = 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
