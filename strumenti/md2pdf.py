@@ -52,6 +52,8 @@ table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th,td{bo
 .box{border-radius:6px;padding:7px 10px;margin:8px 0}.nota{background:#fff8d6;border-left:5px solid #e0b400}.att{background:#fdecea;border-left:5px solid #c0392b}.conf{background:#e8f1fb;border-left:5px solid #2f6db5}
 .ol{margin:4px 0 8px}.li{display:flex;gap:6px;margin:2px 0;break-inside:avoid}.li .n{min-width:2.2em;font-weight:600;color:#12467a}.l1{margin-left:1.6em}.l2{margin-left:3.2em}.l3{margin-left:4.8em}
 pre{background:#f3f5f8;padding:6px;white-space:pre-wrap;word-break:break-all;font-size:10px}code{background:#eef2f7;padding:0 3px}"""
+if os.environ.get("MD2PDF_ORIZZONTALE") == "1":  # opzionale: A4 orizzontale per tabelle larghe
+    CSS += "\n@page{size:A4 landscape;margin:9mm}body{margin:4px 6px;font-size:11px}table{font-size:9.5px}th,td{padding:2px 4px}h1{font-size:19px}h2{font-size:15px}"
 base = os.path.splitext(src)[0]
 h = base + ".tmp.html"
 open(h, "w", encoding="utf-8").write(f"<!doctype html><meta charset='utf-8'><style>{CSS}</style>" + "\n".join(out))
