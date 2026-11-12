@@ -1259,7 +1259,7 @@ function SM_classe_(ss, indice, classe) {
   var righe = elenco.map(function (n) {
     var fatti = 0, somma = 0, manca = [], nab = [], txt = quiz.map(function (q, k) {
       var c = celle[n][k];
-      if (c) { fatti++; somma += c.pct; return { t: c.pct + '% (' + c.mg + '/' + c.su + ')' + (c.aperte > 0 ? ' (provv.: ' + c.aperte + ' aperte da correggere)' : '') + (c.vecchia ? ' \u00b7 fatto sulla versione precedente' : ''), p: c.pct }; }
+      if (c) { if (disp[k]) { fatti++; somma += c.pct; } return { t: c.pct + '% (' + c.mg + '/' + c.su + ')' + (c.aperte > 0 ? ' (provv.: ' + c.aperte + ' aperte da correggere)' : '') + (c.vecchia ? ' \u00b7 fatto sulla versione precedente' : ''), p: c.pct }; }
       if (disp[k]) {
         /* MANCA solo con la prova: email abbinata (e nessuna risposta) oppure nessuna risposta del quiz resta da abbinare */
         if (hasEm[n] || !uk[k]) { manca.push(q.titolo + ' (' + q.data + ')'); return { t: 'MANCA', p: -1 }; }
