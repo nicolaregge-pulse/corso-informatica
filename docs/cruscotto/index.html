@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- Cruscotto classi. Versione 2.0 (12/11/2026): nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -30,6 +31,17 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
 .cfg ol{margin:6px 0;padding-left:22px}
 .nota{font-size:13px;color:#667;margin-top:10px}
 .scroll{overflow-x:auto}
+.chip{display:inline-block;min-width:54px;text-align:center;padding:3px 6px;border-radius:5px;font-weight:bold;color:#111}
+.chip.v{background:#a5d6a7}.chip.g{background:#fff59d}.chip.r{background:#ef9a9a}.chip.n{background:#ddd}
+td.nome{font-weight:bold;white-space:nowrap}td.nome.v{border-left:8px solid var(--verde)}td.nome.r{border-left:8px solid var(--rosso)}td.nome.n{border-left:8px solid #888}
+td.voto{font-size:20px;font-weight:bold;text-align:center;white-space:nowrap}
+.conto{display:block;font-size:12px;font-weight:normal;color:#667;white-space:normal;min-width:160px;text-align:left}
+.vai{font-weight:bold}
+th small{display:block;font-weight:normal;color:#667}
+th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
+#crit{display:none;border:3px solid var(--rosso);border-radius:8px;padding:10px 14px;margin:8px 0;background:var(--card);font-size:16px;line-height:1.5}
+.sit{display:none}.assenti{margin:10px 0;font-size:14px}
+.assenti button,.ordine{font-size:14px;padding:6px 10px;border:1px solid var(--blu);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer;margin:2px}
 </style>
 </head>
 <body>
@@ -52,19 +64,26 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   <button id="salva" type="button">Salva e carica</button>
   <span id="msg"></span>
 </div>
+<div id="crit"></div>
 <div class="conta" id="conta"></div>
+<div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
-<div class="nota">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
+<div class="assenti" id="assenti"></div>
+<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: i nomi del foglio si accorciano qui in «Nome I.» e non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». Il voto finale lo decide il docente.</div>
+<div class="nota" id="notaVecchia">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
+<div class="nota">Versione 2.0 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
   var COL = { VERDE: '#2e7d32', GIALLO: '#f9a825', ARANCIO: '#ef6c00', ROSSO: '#c62828' };
   var CLASSI = ['1INF', '2INF', '3INF', '4TI'];
   var statoCorr = { classe: '3INF', vista: 'consegne' };
+  function vistaBase(c) { return c === '2INF' ? 'situazione' : 'consegne'; }
+  var ultimo = { righe: null, quando: null };
   function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
   function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + t; }
-  function viste(c) { return [{ id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
+  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione ' + c }, { id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
   function csv(t) {
     var r = [], row = [], c = '', q = false;
     for (var i = 0; i < t.length; i++) {
@@ -86,6 +105,8 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
     return '<td' + cl + '>' + esc(c) + '</td>';
   }
   function disegna(righe) {
+    if (statoCorr.vista === 'situazione') { ultimo.righe = righe; disegnaSit(righe); return; }
+    $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('crit').style.display = 'none';
     var m = ((righe[0] && righe[0][0]) || '').match(/(\d{1,2}:\d{2}:\d{2})/);
     $('dato').textContent = 'Dati letti alle ' + (m ? m[1] : '?');
     var testa = righe[3] || [], corpo = righe.slice(4).filter(function (r) { return r[0] && r[0].trim(); });
@@ -103,6 +124,13 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
     if (n.ROSSO > 0) { s.style.display = 'block'; s.textContent = 'Serve te (' + n.ROSSO + ')'; } else s.style.display = 'none';
     verificaVecchi(m ? m[1] : null);
   }
+  function verificaVecchiData(d) {
+    var el = $('vecchi');
+    if (!d) { el.style.display = 'block'; el.textContent = 'DATI VECCHI: non riesco a leggere l\u2019ora del dato nel foglio'; return; }
+    var min = (new Date() - d) / 60000;
+    if (min > 6) { el.style.display = 'block'; el.textContent = 'DATI VECCHI di ' + Math.round(min) + ' minuti: il foglio non si aggiorna'; }
+    else el.style.display = 'none';
+  }
   function verificaVecchi(hms) {
     var el = $('vecchi');
     if (!hms) { el.style.display = 'none'; return; }
@@ -115,7 +143,170 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   function vuota() {
     $('conta').innerHTML = ''; $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('dato').textContent = 'In attesa dei dati';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('assenti').innerHTML = '';
+    $('notaSit').style.display = statoCorr.vista === 'situazione' ? 'block' : 'none';
+    $('notaVecchia').style.display = statoCorr.vista === 'situazione' ? 'none' : 'block';
   }
+  /* ---------- vista «Quiz e voti»: scheda «Situazione <CLASSE>» ---------- */
+  var PARTICELLE = { DE: 1, DI: 1, DA: 1, DEL: 1, DELLA: 1, DEI: 1, DEGLI: 1, DAL: 1, DALLA: 1, LO: 1, LA: 1, LE: 1, EL: 1, AL: 1, BEN: 1, VAN: 1, VON: 1, DOS: 1, DAS: 1, SAN: 1 };
+  function cap(w) { return w ? w.charAt(0).toUpperCase() + w.slice(1).toLowerCase() : w; }
+  /* «COGNOME Nome» (il foglio puo' averlo tutto maiuscolo) -> {n:'Nome', i:'C'}; mai il cognome intero, mai l'email */
+  function nomeParti(s, k) {
+    s = String(s || '').trim();
+    if (s.indexOf('@') > 0) {
+      var t = s.split('@')[0].split(/[._-]+/).filter(Boolean);
+      return t.length >= 2 ? { n: cap(t[0]), i: t[t.length - 1].charAt(0).toUpperCase() } : { n: 'Allievo ' + (k + 1), i: '' };
+    }
+    var p = s.split(/\s+/).filter(Boolean);
+    if (p.length < 2) return { n: cap(p[0] || 'Allievo ' + (k + 1)), i: '' };
+    var nc = 1;
+    if (p.length > 2 && PARTICELLE[p[0].toUpperCase()]) nc = 2;
+    var cogn = p.slice(0, nc), nom = p.slice(nc);
+    return { n: nom.map(cap).join(' '), i: cogn[0].charAt(0).toUpperCase(), cog2: cogn.join('').toUpperCase() };
+  }
+  function hash(s) { var h = 5381; s = String(s).toUpperCase(); for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return 'h' + (h >>> 0).toString(36); }
+  function oggiStr() { var d = new Date(); return ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2); }
+  function leggiJ(k, def) { try { var v = JSON.parse(leggi(k)); return v === null || v === undefined ? def : v; } catch (e) { return def; } }
+  function parseCella(c) {
+    c = String(c || '').trim();
+    var m = /^(\d+)%\s*\((\d+)\/(\d+)\)(.*)$/.exec(c);
+    if (m) return { t: 'ok', pct: +m[1], mg: +m[2], su: +m[3], prov: /provv/i.test(m[4]) };
+    if (/^MANCA/i.test(c)) return { t: 'manca' };
+    return { t: 'nd' };
+  }
+  function parseSit(righe) {
+    var hi = -1, i;
+    for (i = 0; i < righe.length; i++) if ((righe[i][0] || '').trim() === 'Stato' && (righe[i][1] || '').trim() === 'Allievo') { hi = i; break; }
+    if (hi < 0) return null;
+    var head = righe[hi], fi = -1;
+    for (i = 2; i < head.length; i++) if (/^Fatti\s*\/\s*totali/i.test(head[i])) { fi = i; break; }
+    if (fi < 0) fi = head.length;
+    var tm = /dati letti il (\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2}):(\d{2})/.exec(righe[0] && righe[0][0] || '');
+    var quando = tm ? new Date(+tm[3], +tm[2] - 1, +tm[1], +tm[4], +tm[5], +tm[6]) : null;
+    var lettoRiga = null;
+    for (i = 0; i < hi; i++) if ((righe[i][0] || '').trim() === 'Letto alle') lettoRiga = righe[i];
+    var quiz = [];
+    for (i = 2; i < fi; i++) {
+      var pz = String(head[i] || '').split('\n');
+      var id = (pz[2] || pz[0] || '').trim();
+      var coda = id.split('-').slice(3).join('-');
+      quiz.push({ col: i, label: (pz[0] || id).trim(), data: (pz[1] || '').trim(), id: id, corto: coda || id, letto: lettoRiga ? String(lettoRiga[i] || '').trim() : '' });
+    }
+    var att = [];
+    for (i = 0; i < hi; i++) { var tx = String(righe[i][0] || ''); if (/ATTENZIONE/.test(tx)) att.push(tx.slice(tx.indexOf('ATTENZIONE')).replace(/\S+@\S+/g, '(email)')); }
+    var stud = [], j;
+    for (i = hi + 1; i < righe.length; i++) {
+      var r = righe[i], st = (r[0] || '').trim();
+      if (st !== 'VERDE' && st !== 'ROSSO' && st !== 'ND') break;
+      var celle = [];
+      for (j = 0; j < quiz.length; j++) celle.push(parseCella(r[quiz[j].col]));
+      stud.push({ nome: String(r[1] || '').trim(), celle: celle });
+    }
+    var nonAbb = 0;
+    for (i = hi + 1 + stud.length; i < righe.length; i++) if (/^Email non abbinata/i.test(righe[i][0] || '')) nonAbb++;
+    return { quando: quando, quiz: quiz, stud: stud, att: att, nonAbb: nonAbb };
+  }
+  function quizScelti(c, quiz) {
+    var salvati = leggiJ('cruscotto_quiz_' + c, null), og = oggiStr();
+    if (salvati && salvati.length !== undefined && salvati.v === undefined) {
+      var cc = quiz.filter(function (q) { return salvati.indexOf(q.id) >= 0; });
+      if (cc.length) return cc.map(function (q) { return q.id; });
+    }
+    var oggi = quiz.filter(function (q) { return q.data === og; });
+    return (oggi.length ? oggi : quiz).map(function (q) { return q.id; });
+  }
+  function calcolaRiga(S, sc) {
+    var fatti = [], manca = [], voti = [], conto = [], prov = false;
+    S.quiz.forEach(function (q, k) {
+      if (sc.indexOf(q.id) < 0) return;
+      var c = S.celle[k];
+      if (c.t === 'ok') {
+        var v = Math.round(40 + 40 * c.pct / 100);
+        fatti.push(q); voti.push(v);
+        if (c.prov) prov = true;
+        conto.push(q.corto + ' ' + c.pct + '% = ' + v + (c.prov ? ' (provv.)' : ''));
+      } else if (c.t === 'manca') { manca.push(q); conto.push(q.corto + ' manca'); }
+    });
+    var voto = 40, txt;
+    if (voti.length) {
+      var somma = voti.reduce(function (a, b) { return a + b; }, 0);
+      voto = Math.round(somma / voti.length);
+      txt = conto.join(' · ') + ' → media (' + voti.join('+') + ')/' + voti.length + ' = ' + voto;
+    } else txt = conto.length ? conto.join(' · ') + ' → nessun quiz fatto: 40' : 'nessun quiz da contare: 40';
+    var vai;
+    if (manca.length) vai = 'Fai il quiz «' + manca[0].label + '» (' + manca[0].corto + ')' + (manca.length > 1 ? ' e altri ' + (manca.length - 1) : '');
+    else if (fatti.length) vai = 'Hai finito. Aspetta il prossimo passo.';
+    else vai = 'Aspetta il prossimo quiz.';
+    return { fatti: fatti, manca: manca, voto: voto, conto: txt, prov: prov, vai: vai, stato: manca.length ? 'r' : (fatti.length ? 'v' : 'n') };
+  }
+  var ordinePer = 'voto';
+  function disegnaSit(righe) {
+    var S = parseSit(righe);
+    if (!S) { $('dato').textContent = 'Foglio non riconosciuto'; $('msg').textContent = ' Non è la scheda «Situazione ' + statoCorr.classe + '»: controlla il link.'; $('cfg').style.display = 'block'; return; }
+    var c = statoCorr.classe, sc = quizScelti(c, S.quiz);
+    var hh = S.quando ? ('0' + S.quando.getHours()).slice(-2) + ':' + ('0' + S.quando.getMinutes()).slice(-2) + ':' + ('0' + S.quando.getSeconds()).slice(-2) : '?';
+    $('dato').textContent = 'Dati letti alle ' + hh + (S.quando && ('0' + S.quando.getDate()).slice(-2) + '/' + ('0' + (S.quando.getMonth() + 1)).slice(-2) !== oggiStr() ? ' del ' + ('0' + S.quando.getDate()).slice(-2) + '/' + ('0' + (S.quando.getMonth() + 1)).slice(-2) : '');
+    verificaVecchiData(S.quando);
+    // nomi brevi, senza doppioni
+    var parti = S.stud.map(function (s, k) { return nomeParti(s.nome, k); }), cont = {};
+    parti.forEach(function (p) { var k = (p.n + ' ' + p.i).toUpperCase(); cont[k] = (cont[k] || 0) + 1; });
+    var assenti = leggiJ('cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'), []);
+    var rows = S.stud.map(function (s, k) {
+      var p = parti[k], lab = p.n + (p.i ? ' ' + p.i + '.' : '');
+      if (p.i && cont[(p.n + ' ' + p.i).toUpperCase()] > 1 && p.cog2) lab = p.n + ' ' + cap(p.cog2.slice(0, 2)) + '.';
+      var r = calcolaRiga(s, sc); r.lab = lab; r.h = hash(s.nome); r.celle = s.celle; r.assente = assenti.indexOf(r.h) >= 0;
+      return r;
+    });
+    var pres = rows.filter(function (r) { return !r.assente; }), ass = rows.filter(function (r) { return r.assente; });
+    pres.sort(function (a, b) {
+      if (ordinePer === 'fare') return b.manca.length - a.manca.length || b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
+      return b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
+    });
+    var fin = pres.filter(function (r) { return r.stato === 'v'; }).length, mc = pres.filter(function (r) { return r.stato === 'r'; }).length;
+    $('conta').innerHTML = '<span style="background:#455a64">Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + fin + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mc + '</span>' + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
+    var nq = S.quiz.length;
+    $('tab').querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + S.quiz.map(function (q) {
+      return '<th><label><input type="checkbox" data-q="' + esc(q.id) + '"' + (sc.indexOf(q.id) >= 0 ? ' checked' : '') + '> Conta</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '<br>letto alle ' + esc(q.letto || '?') + '</small></th>';
+    }).join('') + '<th>Ha fatto</th><th>Gli manca</th><th>Adesso deve andare a</th><th>Voto proposto</th></tr>';
+    $('tab').querySelector('tbody').innerHTML = pres.map(function (r) {
+      return '<tr><td class="nome ' + r.stato + '">' + esc(r.lab) + '</td><td><input type="checkbox" data-a="' + r.h + '"></td>' + r.celle.map(function (x, k) {
+        if (x.t === 'ok') return '<td><span class="chip ' + (x.pct >= 80 ? 'v' : 'g') + '">' + x.pct + '%' + (x.prov ? '*' : '') + '</span> <small>' + x.mg + '/' + x.su + '</small></td>';
+        if (x.t === 'manca') return '<td><span class="chip r">MANCA</span></td>';
+        return '<td><span class="chip n">non letto</span></td>';
+      }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + '</td><td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
+    }).join('');
+    $('assenti').innerHTML = ass.length ? 'Assenti (non contati): ' + ass.map(function (r) { return '<button type="button" data-ra="' + r.h + '">' + esc(r.lab) + ' · rimetti</button>'; }).join('') : '';
+    $('sitbar').style.display = 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
+    // Serve te: solo cio' che puo' fare il docente (R8.7)
+    var crit = S.att.slice();
+    if (!S.stud.length) crit.push('ATTENZIONE: nel foglio non ci sono allievi.');
+    if (S.quiz.length === 0) crit.push('ATTENZIONE: nel foglio non ci sono quiz della classe.');
+    var s = $('serve');
+    if (crit.length) { s.style.display = 'block'; s.textContent = 'Serve te (' + crit.length + ')'; } else s.style.display = 'none';
+    var cp = $('crit');
+    if (crit.length) cp.innerHTML = '<b>Serve te</b><ol>' + crit.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>'; else cp.style.display = 'none';
+    if (!crit.length) cp.style.display = 'none';
+    $('notaSit').style.display = 'block'; $('notaVecchia').style.display = 'none';
+  }
+  function rifaiSit() { if (ultimo.righe && statoCorr.vista === 'situazione') disegnaSit(ultimo.righe); }
+  $('tab').onchange = function (e) {
+    var t = e.target, a = t.getAttribute('data-a'), q = t.getAttribute('data-q'), c = statoCorr.classe;
+    if (a) {
+      var k = 'cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'), l = leggiJ(k, []);
+      if (l.indexOf(a) < 0) l.push(a); scrivi(k, JSON.stringify(l)); rifaiSit();
+    } else if (q && ultimo.righe) {
+      var S = parseSit(ultimo.righe), sel = quizScelti(c, S.quiz), i = sel.indexOf(q);
+      if (t.checked && i < 0) sel.push(q); else if (!t.checked && i >= 0) sel.splice(i, 1);
+      scrivi('cruscotto_quiz_' + c, JSON.stringify(sel)); rifaiSit();
+    }
+  };
+  $('assenti').onclick = function (e) {
+    var a = e.target.getAttribute('data-ra'); if (!a) return;
+    var k = 'cruscotto_assenti_' + statoCorr.classe + '_' + oggiStr().replace('/', '-'), l = leggiJ(k, []);
+    scrivi(k, JSON.stringify(l.filter(function (x) { return x !== a; }))); rifaiSit();
+  };
+  $('ordine').onclick = function () { ordinePer = ordinePer === 'voto' ? 'fare' : 'voto'; rifaiSit(); };
+
   var corsa = 0;
   function carica() {
     var c = statoCorr.classe, v = statoCorr.vista, u = leggi(chiave(c, v)), mio = ++corsa;
@@ -143,16 +334,19 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
     $('diario').href = '../diario/?classe=' + c;
   }
   function scegli(c, v) {
-    statoCorr.classe = c; statoCorr.vista = v || 'consegne'; scrivi('cruscotto_ultima_classe', c);
+    statoCorr.classe = c; statoCorr.vista = v || vistaBase(c); ultimo.righe = null; scrivi('cruscotto_ultima_classe', c);
     try { history.replaceState(null, '', '?classe=' + c); } catch (e) {}
     menu(); vuota(); carica();
   }
   $('classi').onclick = function (e) { var c = e.target.getAttribute('data-c'); if (c) scegli(c); };
   $('viste').onclick = function (e) {
     var v = e.target.getAttribute('data-v');
-    if (v) { statoCorr.vista = v; menu(); vuota(); carica(); }
+    if (v) { statoCorr.vista = v; ultimo.righe = null; menu(); vuota(); carica(); }
   };
-  $('serve').onclick = function () { var r = $('prima-rossa'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'center' }); };
+  $('serve').onclick = function () {
+    if (statoCorr.vista === 'situazione') { var cp = $('crit'); cp.style.display = cp.style.display === 'block' ? 'none' : 'block'; return; }
+    var r = $('prima-rossa'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
   function convertiLink(v) {
     v = (v || '').trim();
     if (!v) return { errore: 'Incolla qui il link pubblicato.' };
@@ -172,7 +366,8 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
   };
   var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
   q = q ? decodeURIComponent(q).toUpperCase() : leggi('cruscotto_ultima_classe');
-  scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF');
+  var qv = (location.search.match(/[?&]vista=([a-z]+)/) || [])[1];
+  scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF', qv === 'situazione' || qv === 'consegne' || qv === 'git' ? qv : null);
   setInterval(carica, 30000);
 })();
 </script>
