@@ -215,11 +215,11 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     var oggi = quiz.filter(function (q) { return q.data === og; });
     return (oggi.length ? oggi : quiz).map(function (q) { return q.id; });
   }
-  function calcolaRiga(S, sc) {
+  function calcolaRiga(quiz, celle, sc) {
     var fatti = [], manca = [], voti = [], conto = [], prov = false;
-    S.quiz.forEach(function (q, k) {
+    quiz.forEach(function (q, k) {
       if (sc.indexOf(q.id) < 0) return;
-      var c = S.celle[k];
+      var c = celle[k];
       if (c.t === 'ok') {
         var v = Math.round(40 + 40 * c.pct / 100);
         fatti.push(q); voti.push(v);
@@ -254,7 +254,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     var rows = S.stud.map(function (s, k) {
       var p = parti[k], lab = p.n + (p.i ? ' ' + p.i + '.' : '');
       if (p.i && cont[(p.n + ' ' + p.i).toUpperCase()] > 1 && p.cog2) lab = p.n + ' ' + cap(p.cog2.slice(0, 2)) + '.';
-      var r = calcolaRiga(s, sc); r.lab = lab; r.h = hash(s.nome); r.celle = s.celle; r.assente = assenti.indexOf(r.h) >= 0;
+      var r = calcolaRiga(S.quiz, s.celle, sc); r.lab = lab; r.h = hash(s.nome); r.celle = s.celle; r.assente = assenti.indexOf(r.h) >= 0;
       return r;
     });
     var pres = rows.filter(function (r) { return !r.assente; }), ass = rows.filter(function (r) { return r.assente; });
