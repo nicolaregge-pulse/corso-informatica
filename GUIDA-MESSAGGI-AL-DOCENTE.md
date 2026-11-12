@@ -128,6 +128,20 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 3. **Pacchetto per Classroom:** dopo le foto, un solo riquadro rosso (titolo, oggetto, registro) con la dispensa dei ragazzi dentro la cornice blu (sezione 03ter).
 4. **Quiz su Moduli:** verso la fine dell'ora, quando lo dice il docente, con domande aperte sul proprio PC e alcune a scelta (FRAMEWORK-QUIZ.md, capitolo «Quiz anti-AI»). Mai nel post iniziale.
 
+## 03quinquies FORMATO UNICO del pacchetto Classroom (disegno del docente, 12/11/2026: «nessun'altra modalità»)
+
+Dall'alto in basso, in questo ordine esatto, dentro la cornice rossa:
+
+1. riga di quadratini rossi;
+2. TITOLO in un riquadro di codice;
+3. OGGETTO in un riquadro di codice;
+4. riga di quadratini blu + «FILE DA ALLEGARE: dispensa allievi ora N»;
+5. la scheda PDF (SendUserFile) NEL MEZZO, tra le due righe blu;
+6. riga di quadratini blu;
+7. riga di quadratini rossi.
+
+Fuori dalla cornice (sotto): registro, quiz, «Non provato». Il testo prima e dopo la scheda sta nello stesso turno, senza altri strumenti in mezzo. Nessun'altra modalità.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
@@ -137,3 +151,4 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 5. v1.4 (12/11/2026): nuova sezione 03ter, il PDF si manda sempre come scheda da scaricare nello stesso messaggio, anche se già mandato; errore #285.
 6. v1.5 (12/11/2026): nuova sezione 03quater, ordine fisso di ogni ora: dispensa docente, foto, pacchetto Classroom, quiz a fine ora; errore #286.
 7. v1.6 (12/11/2026): formato del pacchetto Classroom corretto dal docente: nel riquadro rosso solo TITOLO e OGGETTO, e dentro il rosso il riquadro blu con la dispensa dei ragazzi; registro, quiz e «Non provato» fuori dal rosso; la scheda PDF si manda con SendUserFile PRIMA del testo finale (il docente vede solo il testo dopo l'ultima chiamata di strumento); errore #287.
+8. v1.7 (12/11/2026): sezione 03quinquies, formato unico del pacchetto Classroom disegnato dal docente; errore #288.

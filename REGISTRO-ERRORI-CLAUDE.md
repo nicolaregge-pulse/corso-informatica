@@ -1521,3 +1521,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Titolo, oggetto e registro stavano nel testo scritto PRIMA di SendUserFile; l'app mostra al docente solo il testo dopo l'ultima chiamata («non vedo niente»). Nel rosso c'erano anche registro e quiz.
 2. **Strumento.** GUIDA-MESSAGGI v1.6: SendUserFile prima, poi UN testo finale con rosso = titolo + oggetto + blu con la dispensa; registro, quiz e «Non provato» fuori dal rosso.
+
+## #288 (12/11/2026) Pacchetto Classroom: scheda PDF fuori dalla cornice rossa
+
+1. **Errore.** Più volte la scheda PDF è finita sopra la cornice o fuori da essa. Il docente ha disegnato il formato: rosso con titolo, oggetto e, dentro, il riquadro blu con la dispensa. «NESSUN'ALTRA MODALITÀ».
+2. **Strumento.** GUIDA-MESSAGGI v1.7, sezione 03quinquies.
