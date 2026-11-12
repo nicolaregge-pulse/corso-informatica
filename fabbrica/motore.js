@@ -728,6 +728,7 @@ function SI_classe_(ss, cfg) {
   var classe = String(cfg.classe || '1INF').toUpperCase(), soglia = Number(cfg.soglia) || 80, ore = cfg.ore || [];
   var nomeSh = 'Sicurezza ' + classe;
   var el = SI_elenco_(ss, classe), sto = SI_storico_(ss, classe), nonAbb = [], letture = [];
+  try { AB_unisci_(ss, classe, el); } catch (e) { }
   var sh = ss.getSheetByName(nomeSh) || ss.insertSheet(nomeSh);
   sh.clear();
   var ora0 = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
@@ -1005,8 +1006,8 @@ function AB_processa_(ss, classe, elenco, e2n, perEmail, orig) {
       var em = String(vd[i][0] || '').trim().toLowerCase(), sc = String(vd[i][5] || '').trim();
       if (em.indexOf('@') < 1 || !sc) continue;
       var u = SI_norm_(sc), nome = null;
-      if (u === 'OK') nome = SI_norm_(String(vd[i][2] || '').split(' · ')[0]);
-      else if (/^[123]$/.test(u)) nome = SI_norm_(String(vd[i][1 + Number(u)] || '').split(' · ')[0]);
+      if (u === 'OK') nome = SI_norm_(String(vd[i][1] || '').split(' · ')[0]);
+      else if (/^[123]$/.test(u)) nome = SI_norm_(String(vd[i][Number(u)] || '').split(' · ')[0]);
       else if (u === 'NO') nome = '-';
       else if (ok[u]) nome = u;
       if (nome === '-' || (nome && ok[nome])) {
@@ -1063,12 +1064,14 @@ function SM_classe_(ss, indice, classe) {
   var sh = ss.getSheetByName(nome) || ss.insertSheet(nome);
   sh.clear();
   var ora0 = FB_ora_('dd/MM/yyyy HH:mm:ss');
-  sh.getRange(1, 1).setValue(classe + ' \u00b7 Situazione quiz e voti (solo docente, con COGNOME Nome) \u00b7 dati letti il ' + ora0).setFontWeight('bold');
+  sh.getRange(1, 1).setValue(classe + ' · Situazione quiz e voti (solo docente, con COGNOME Nome) · dati letti il ' + ora0).setFontWeight('bold');
   if (!quiz.length) { sh.getRange(2, 1).setValue('Nessun quiz della classe ' + classe + ' in indice.json.'); return; }
-  var el = SI_elenco_(ss, classe), nonAbb = [], dichiara = '', fonteTxt = '', usaUtenti = false;
+  var el = SI_elenco_(ss, classe), nonAbb = [], nonAbbEm = {}, dichiara = '', fonteTxt = '', usaUtenti = false;
   var lett = quiz.map(function (q) { return SM_leggi_(ss, q.id); });
   var elenco = el.nomi.slice(), e2n = {}, k0;
   for (k0 in el.e2n) e2n[k0] = el.e2n[k0];
+  var orig = {}, shU0 = ss.getSheetByName('Utenti ' + classe);
+  if (shU0) shU0.getDataRange().getValues().forEach(function (r) { var o = String(r[2] || '').trim(); if (o) orig[SI_norm_(o)] = o; });
   if (!elenco.length) {
     var ut = SM_utenti_(ss, classe);
     if (ut.nomi.length) {
@@ -1080,47 +1083,56 @@ function SM_classe_(ss, indice, classe) {
       dichiara = "Nessun elenco allievi per " + classe + ": manca la scheda 'Email " + classe + "' o 'Consegne " + classe + "' e la scheda 'Utenti " + classe + "' " + (ut.esiste ? "e' vuota (colonna Allievo senza nomi)" : "non c'e'") + ". Uso le email presenti nelle schede Ris; chi non ha mai risposto a nessun quiz NON compare. " + SM_gesto_(classe, 'manca');
     }
   }
-  var abbN = 0, senzaEmail = [];
-  if (usaUtenti) {
-    var viste = {}, trov = {};
-    lett.forEach(function (L) { Object.keys(L.per).forEach(function (em) {
-      if (viste[em]) return; viste[em] = 1;
-      var n = SM_abbina_(em, elenco);
-      if (n) { e2n[em] = n; trov[n] = 1; }
-    }); });
-    abbN = Object.keys(trov).length;
-    elenco.forEach(function (n) { if (!trov[n]) senzaEmail.push(n); });
+  /* v2.18: abbinamento delle email con risposte (scheda Email/Elenco, abbinamenti salvati, regola v2.15, forme nuove) */
+  var abbN = 0, senzaEmail = [], ab = { auto: 0, doc: 0, dubbi: 0 };
+  if (!dichiara) {
+    var perEmail = {};
+    lett.forEach(function (L, k) { Object.keys(L.per).forEach(function (em) { (perEmail[em] = perEmail[em] || []).push(quiz[k].titolo); }); });
+    ab = AB_processa_(ss, classe, elenco, e2n, perEmail, orig);
+    var trov = {};
+    Object.keys(e2n).forEach(function (em) { if (e2n[em] && e2n[em] !== '-') trov[e2n[em]] = 1; });
+    elenco.forEach(function (n) { if (trov[n]) abbN++; else senzaEmail.push(n); });
   }
-  var celle = {}, disp = lett.map(function (L) { return L.disp; });
+  var hasEm = {};
+  Object.keys(e2n).forEach(function (em) { if (e2n[em] && e2n[em] !== '-') hasEm[e2n[em]] = 1; });
+  var celle = {}, disp = lett.map(function (L) { return L.disp; }), uk = quiz.map(function () { return 0; });
   elenco.forEach(function (n) { celle[n] = quiz.map(function () { return null; }); });
   lett.forEach(function (L, k) {
     Object.keys(L.per).forEach(function (em) {
       var n = e2n[em], r = L.per[em];
-      if (!n) { nonAbb.push(em + ' \u00b7 ' + quiz[k].titolo + ' \u00b7 ' + r.pct + '%'); return; }
+      if (n === '-') return;
+      if (!n) { nonAbb.push(em + ' · ' + quiz[k].titolo + ' · ' + r.pct + '%'); nonAbbEm[em] = 1; uk[k]++; return; }
       var c = celle[n][k];
       if (!c || r.pct > c.pct) celle[n][k] = r;
     });
   });
   var tot = disp.filter(function (d) { return d; }).length, nd = quiz.length - tot;
-  var testa = ['Stato', 'Allievo'].concat(quiz.map(function (q) { return q.titolo; }), ['Fatti / totali', 'Media % dei fatti', 'NON HA FATTO']);
+  var testa = ['Stato', 'Allievo'].concat(quiz.map(function (q) { return q.titolo; }), ['Fatti / totali', 'Media % dei fatti', 'NON HA FATTO', 'NON ABBINATA']);
   var righe = elenco.map(function (n) {
-    var fatti = 0, somma = 0, manca = [], txt = quiz.map(function (q, k) {
+    var fatti = 0, somma = 0, manca = [], nab = [], txt = quiz.map(function (q, k) {
       var c = celle[n][k];
       if (c) { fatti++; somma += c.pct; return { t: c.pct + '% (' + c.mg + '/' + c.su + ')' + (c.aperte > 0 ? ' (provv.: ' + c.aperte + ' aperte da correggere)' : ''), p: c.pct }; }
-      if (disp[k]) { manca.push(q.titolo + ' (' + q.data + ')'); return { t: 'MANCA', p: -1 }; }
+      if (disp[k]) {
+        /* MANCA solo con la prova: email abbinata (e nessuna risposta) oppure nessuna risposta del quiz resta da abbinare */
+        if (hasEm[n] || !uk[k]) { manca.push(q.titolo + ' (' + q.data + ')'); return { t: 'MANCA', p: -1 }; }
+        nab.push(q.titolo + ' (' + q.data + ')'); return { t: 'NON ABBINATA', p: -3 };
+      }
       return { t: 'dato non letto', p: -2 };
     });
-    var st = !tot ? 'ND' : manca.length ? 'ROSSO' : 'VERDE';
-    return { st: st, n: n, txt: txt, riga: [st, n].concat(txt.map(function (x) { return x.t; }), [fatti + '/' + tot, fatti ? Math.round(somma / fatti) + '%' : '-', manca.length ? manca.join(' \u00b7 ') : '-']), m: manca.length };
+    var st = !tot ? 'ND' : manca.length ? 'ROSSO' : nab.length ? 'ND' : 'VERDE';
+    return { st: st, n: n, txt: txt, riga: [st, n].concat(txt.map(function (x) { return x.t; }), [fatti + '/' + tot, fatti ? Math.round(somma / fatti) + '%' : '-', manca.length ? manca.join(' · ') : '-', nab.length ? nab.join(' · ') : '-']), m: manca.length, na: nab.length };
   });
-  righe.sort(function (a, b) { return b.m - a.m || (a.n < b.n ? -1 : a.n > b.n ? 1 : 0); });
-  var tutto = righe.filter(function (r) { return tot && r.m === 0; }).length;
-  sh.getRange(2, 1).setValue('Cella = miglior punteggio in % (punti/totale) di tutti i tentativi. MANCA = nessuna risposta. Verde = 80% o pi\u00f9, giallo = sotto 80%, rosso = MANCA. (provv.) = ci sono domande aperte non ancora corrette: la percentuale pu\u00f2 cambiare. Media = solo sui quiz fatti. Quiz = Moduli di indice.json con TIPOLOGIA LEZIONE Quiz su Moduli (le schede di teoria non sono contate).');
-  sh.getRange(3, 1).setValue('RIEPILOGO: ' + righe.length + ' allievi \u00b7 ' + tutto + ' hanno fatto tutti i ' + tot + ' quiz letti \u00b7 ' + (righe.length - tutto) + ' ne hanno almeno uno mancante' + (nd ? ' \u00b7 ' + nd + ' quiz non ancora letti (scheda Ris assente), non contati' : ''));
-  var abbTxt = '';
-  if (usaUtenti) abbTxt = ' \u00b7 Abbinamento email per nome.cognome: ' + abbN + ' allievi abbinati, ' + senzaEmail.length + ' senza email abbinata (' + (senzaEmail.length ? senzaEmail.length + ' risultano MANCA anche se potrebbero aver risposto' : 'nessuno') + ')' + (nonAbb.length ? ' \u00b7 ' + nonAbb.length + ' risposte con email non abbinata (elenco in fondo)' : '') + (senzaEmail.length || nonAbb.length ? ' \u00b7 ATTENZIONE: ' + SM_gesto_(classe, 'abb') : '');
-  sh.getRange(4, 1).setValue('Elenco allievi da ' + (el.nomi.length ? el.fonte : fonteTxt || 'schede Ris (vedi avviso)') + abbTxt + (dichiara ? ' \u00b7 ATTENZIONE: ' + dichiara : ''));
-  var lr = ['Letto alle', ''].concat(lett.map(function (L) { return L.disp ? L.ora : 'non letto'; }), ['', '', '']);
+  righe.sort(function (a, b) { return b.m - a.m || b.na - a.na || (a.n < b.n ? -1 : a.n > b.n ? 1 : 0); });
+  var tutto = righe.filter(function (r) { return tot && r.m === 0 && r.na === 0; }).length;
+  var conM = righe.filter(function (r) { return r.m > 0; }).length, conNA = righe.filter(function (r) { return r.na > 0; }).length;
+  sh.getRange(2, 1).setValue('Cella = miglior punteggio in % (punti/totale) di tutti i tentativi. MANCA = nessuna risposta, con la prova: l’allievo ha una email abbinata e non ha risposto, oppure per quel quiz non resta nessuna risposta da abbinare. NON ABBINATA = per quel quiz ci sono risposte arrivate ma da abbinare a un allievo: non si sa se questo allievo ha risposto (non e MANCA e non e fatto). Verde = 80% o più, giallo = sotto 80%, rosso = MANCA, ambra = NON ABBINATA. Stato ND = ci sono celle NON ABBINATA e nessun MANCA. (provv.) = ci sono domande aperte non ancora corrette: la percentuale può cambiare. Media = solo sui quiz fatti. Quiz = Moduli di indice.json con TIPOLOGIA LEZIONE Quiz su Moduli (le schede di teoria non sono contate).');
+  sh.getRange(3, 1).setValue('RIEPILOGO: ' + righe.length + ' allievi · ' + tutto + ' hanno fatto tutti i ' + tot + ' quiz letti · ' + (righe.length - tutto) + ' ne hanno almeno uno non fatto (MANCA provato: ' + conM + ' · NON ABBINATA, risposte da abbinare: ' + conNA + ')' + (nd ? ' · ' + nd + ' quiz non ancora letti (scheda Ris assente), non contati' : ''));
+  var abbTxt = '', nE = Object.keys(nonAbbEm).length;
+  if (usaUtenti) abbTxt = ' · Abbinamento email (nome e cognome in piu forme): ' + abbN + ' allievi abbinati, ' + senzaEmail.length + ' senza email abbinata' + (senzaEmail.length ? ' (per questi MANCA vale solo se per il quiz non resta nessuna risposta da abbinare, altrimenti NON ABBINATA)' : '');
+  if (ab.auto || ab.doc) abbTxt += ' · ' + ab.auto + ' email abbinate in automatico e ' + ab.doc + " confermate dal docente (scheda 'Abbinamenti " + classe + "')";
+  if (nonAbb.length) abbTxt += ' · ' + nonAbb.length + ' risposte con email non abbinata (' + nE + " email, elenco in fondo e nella scheda 'Abbinamenti da confermare " + classe + "') · ATTENZIONE: " + SM_gesto_(classe, 'abb');
+  sh.getRange(4, 1).setValue('Elenco allievi da ' + (el.nomi.length ? el.fonte : fonteTxt || 'schede Ris (vedi avviso)') + abbTxt + (dichiara ? ' · ATTENZIONE: ' + dichiara : ''));
+  var lr = ['Letto alle', ''].concat(lett.map(function (L) { return L.disp ? L.ora : 'non letto'; }), ['', '', '', '']);
   sh.getRange(5, 1, 1, lr.length).setValues([lr]).setFontWeight('bold');
   sh.getRange(6, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
   sh.getRange(7, 1, righe.length, testa.length).setValues(righe.map(function (r) { return r.riga; }));
@@ -1131,7 +1143,7 @@ function SM_classe_(ss, indice, classe) {
     sh.getRange(7 + i, 1).setBackground(colSt[r.st]).setFontWeight('bold');
     r.txt.forEach(function (x, k) {
       if (x.p === -2) return;
-      sh.getRange(7 + i, 3 + k).setBackground(x.p < 0 ? '#ef9a9a' : x.p >= 80 ? '#a5d6a7' : '#fff59d');
+      sh.getRange(7 + i, 3 + k).setBackground(x.p === -3 ? '#ffe082' : x.p < 0 ? '#ef9a9a' : x.p >= 80 ? '#a5d6a7' : '#fff59d');
     });
   });
   var note = [];
@@ -1262,7 +1274,7 @@ function EL_classroom_(id) {
   });
 }
 function EL_moduli_(ss, indice, classe) {
-  var forms = FB_json_('FB_FORMS'), vis = {}, em = [], ut = SM_utenti_(ss, classe), orig = {};
+  var forms = FB_json_('FB_FORMS'), vis = {}, em = [], ut = SM_utenti_(ss, classe), orig = {}, sv = AB_salvati_(ss, classe).map;
   var shU = ss.getSheetByName('Utenti ' + classe);
   if (shU) shU.getDataRange().getValues().forEach(function (r) { var o = String(r[2] || '').trim(); if (o) orig[SI_norm_(o)] = o; });
   (indice.lavori || []).forEach(function (l) {
@@ -1277,7 +1289,7 @@ function EL_moduli_(ss, indice, classe) {
     }
   });
   return em.map(function (e) {
-    var n = ut.nomi.length ? SM_abbina_(e, ut.nomi) : null;
+    var n = (sv[e] && sv[e] !== '-' ? sv[e] : null) || (ut.nomi.length ? SM_abbina_(e, ut.nomi) : null);
     return [e, n ? (orig[n] || n) : '', 'Moduli', EL_DOMINI_.test(e) ? '' : 'dominio da controllare'];
   });
 }

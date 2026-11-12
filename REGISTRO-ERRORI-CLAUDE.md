@@ -1541,3 +1541,9 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Nel quiz ora 1 di 2INF la domanda chiedeva «Mandatory Label», ma i PC dell aula hanno Windows in italiano e la riga è «Etichetta obbligatoria». Il docente: «noi abbiamo Windows in italiano e tu chiedi in inglese».
 2. **Strumento.** Da fare: controlla_lingue_quiz.py segnala nei quiz 2INF le sigle inglesi note di Windows (Mandatory Label, Event Viewer, Task Manager e simili) senza il nome italiano.
+
+## #293 (12/11/2026) Kit consegnato in un turno sporco, cornici colorate che non mostrano il kit
+
+1. **Errore.** Il kit dell'ora 3 è stato consegnato in turni con comandi, notifiche di agenti e hook di riscrittura: al docente il testo del kit non compare e restano solo le righe colorate e la scheda PDF. Poi ho mandato la v1.4 della dispensa invece della v1.5 (3 voci invece di 4).
+2. **Strumento.** GUIDA-MESSAGGI v1.13, «turno pulito». Prima del kit si controlla quale è la versione più recente del PDF.
+
