@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.7 (12/11/2026): NUOVA FORMULA DEL VOTO PROPOSTO (decisione del docente, 12/11/2026: «Il quiz non fatto conta 40 se il ragazzo era presente; se assente non c'e' voto»): media dei quiz di tutte le ore del giorno per chi era PRESENTE; quiz fatto = 40 + 40 x percentuale, quiz non fatto = 40 (0% = 40); un'ora non ancora finita non conta ancora; chi e' assente non ha voto («assente: recupera», blu, niente numero); il voto e' PROVVISORIO finche' ci sono domande aperte non corrette, risposte da abbinare o ore non finite; i quiz di altre date non contano (tolte le spunte «Conta»); i voti dei docenti non sono in questa pagina (R1). Assenti del giorno: restano SOLO nel browser (R1: le presenze non stanno nel repository pubblico); oltre alla spunta «Assente» si segnano aprendo il link con il frammento #assenti=Nome I.|Altro N. (non va al server). «Da recuperare» conta per ogni assente i compiti e i quiz del giorno che non ha fatto e la sua riga dice «Assente: recupera N compiti e N quiz». Prima, 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -64,6 +64,8 @@ td small{color:var(--muted);font-size:13px}
 .vai{font-weight:bold;min-width:170px}
 td.voto{text-align:center;min-width:150px}
 .vnum{display:block;font-size:26px;font-weight:bold;line-height:1.1}
+.vass{display:block;font-size:19px;font-weight:bold;line-height:1.2;color:var(--b)}
+.regola{display:none;border:2px solid var(--b);border-radius:8px;padding:10px 12px;margin:8px 0;background:var(--card);font-size:15px;line-height:1.5}
 .prov{display:block;font-size:12px;font-weight:bold;letter-spacing:.04em;color:var(--b)}
 .conto{display:block;font-size:12px;font-weight:normal;color:var(--muted);text-align:left;margin-top:2px}
 .manca{color:var(--r);font-weight:bold;display:block}
@@ -134,12 +136,13 @@ td.voto{text-align:center;min-width:150px}
 <div class="barra ore" id="ore" style="display:none"></div>
 <div class="kpi" id="kpi"></div>
 <div class="riep" id="riep"></div>
+<div class="regola" id="regola"></div>
 <div class="conta" id="conta"></div>
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button" style="font-size:14px;padding:6px 10px;border:1px solid var(--b);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
-<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». Se sopra c&#8217;è scritto «dati aggiornati dall&#8217;assistente», i dati sono una copia salvata a quell&#8217;ora e non cambiano da soli; con i link «Tempo reale» si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: le schede pubbliche hanno già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque; i nomi non si salvano. La spunta «Assente» resta salvata solo in questo browser e vale per oggi. <b>Voto proposto (sempre provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Con l&#8217;asterisco (*) ci sono domande aperte da correggere o risposte da abbinare. Il voto finale lo decide il docente. <b>Compiti</b> (solo 2INF): dalla scheda «Consegne pubblica»; CONSEGNATO e RICONSEGNATO sono consegnati. <b>Ora (solo 2INF)</b>: «Ora 1 · Ora 2 · Ora 3 · Tutte» (8-9, 9-10, 10-11, ora italiana); di partenza c&#8217;è l&#8217;ora in corso. Una cosa di un&#8217;ora non ancora iniziata è blu «non ancora» e non conta come mancante; il quiz di fine ora, durante quell&#8217;ora, è blu «in corso». <b>I quattro numeri</b> contano solo i presenti, tranne «Da recuperare», che conta ciò che manca agli assenti.</div>
+<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». Se sopra c&#8217;è scritto «dati aggiornati dall&#8217;assistente», i dati sono una copia salvata a quell&#8217;ora e non cambiano da soli; con i link «Tempo reale» si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: le schede pubbliche hanno già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque; i nomi non si salvano. La spunta «Assente» resta salvata solo in questo browser e vale per oggi (le presenze non stanno nei dati pubblici). <b>Voto proposto</b>: media dei quiz di tutte le ore del giorno, per chi era presente; un quiz fatto vale 40 + 40 × percentuale, un quiz non fatto vale 40 (0%); chi era assente non ha voto («assente: recupera»); i quiz di altre date non contano. È provvisorio (*) finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. I voti dei docenti non sono in questa pagina. Il voto finale lo decide il docente. <b>Compiti</b> (solo 2INF): dalla scheda «Consegne pubblica»; CONSEGNATO e RICONSEGNATO sono consegnati. <b>Ora (solo 2INF)</b>: «Ora 1 · Ora 2 · Ora 3 · Tutte» (8-9, 9-10, 10-11, ora italiana); di partenza c&#8217;è l&#8217;ora in corso. Una cosa di un&#8217;ora non ancora iniziata è blu «non ancora» e non conta come mancante; il quiz di fine ora, durante quell&#8217;ora, è blu «in corso». <b>I quattro numeri</b> contano solo i presenti, tranne «Da recuperare», che conta ciò che manca agli assenti.</div>
 <div class="nota" id="notaVecchia">Questa pagina non contiene nomi. I link restano salvati solo in questo browser. I colori hanno sempre lo stesso significato: VERDE = fatto, a posto · ROSSO = manca, serve il docente · BLU = in corso, informazione, da recuperare.</div>
-<div class="nota">Versione 2.6 · 12/11/2026</div>
+<div class="nota">Versione 2.7 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -257,7 +260,7 @@ td.voto{text-align:center;min-width:150px}
     $('conta').innerHTML = ''; $('kpi').innerHTML = ''; $('kpi').style.display = 'none';
     $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('sorgente').textContent = '';
-    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('ore').style.display = 'none';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('ore').style.display = 'none'; $('regola').style.display = 'none';
   }
   function vuota() {
     azzera(); $('dato').textContent = 'In attesa dei dati';
@@ -284,6 +287,21 @@ td.voto{text-align:center;min-width:150px}
     return { n: nom.map(cap).join(' '), i: cogn[0].charAt(0).toUpperCase(), cog2: cogn.join('').toUpperCase() };
   }
   function hash(s) { var h = 5381; s = String(s).toUpperCase(); for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return 'h' + (h >>> 0).toString(36); }
+
+  /* ---------- assenti del giorno: SOLO nel browser (R1: le presenze non stanno nel repository pubblico) ----------
+     Si segnano con la spunta «Assente» oppure aprendo un link con il frammento #assenti=Nome I.|Altro N. (il frammento non va al server);
+     di partenza il link li scrive nel browser e poi la spunta resta modificabile. */
+  var memAss = {};
+  function chiaveAss(c) { return 'cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'); }
+  function leggiAss(c) { var l = leggiJ(chiaveAss(c), null); return l === null ? (memAss[c] || []).slice() : l; }
+  function scriviAss(c, l) { memAss[c] = l.slice(); scrivi(chiaveAss(c), JSON.stringify(l)); }
+  function assentiDalLink(c) {
+    var m = /[#&]assenti=([^&]*)/.exec(location.hash || '');
+    if (!m) return;
+    var l = leggiAss(c);
+    decodeURIComponent(m[1].replace(/\+/g, ' ')).split('|').forEach(function (n) { n = n.trim(); if (n) { var h = hash(n); if (l.indexOf(h) < 0) l.push(h); } });
+    scriviAss(c, l);
+  }
 
   /* ---------- scheda «Situazione pubblica <CLASSE>» ---------- */
   function parseCella(c) {
@@ -368,35 +386,50 @@ td.voto{text-align:center;min-width:150px}
   }
   function trovaCons(C, lab) { return (!C || C.errore) ? null : (C.m1[nk(lab)] || C.m2[nk2(lab)] || null); }
 
-  /* ---------- quiz scelti, voto proposto ---------- */
-  function quizScelti(c, quiz) {
-    var salvati = leggiJ('cruscotto_quiz_' + c, null), og = nd(oggiStr());
-    if (salvati && salvati.length !== undefined && salvati.v === undefined) {
-      var cc = quiz.filter(function (q) { return salvati.indexOf(q.id) >= 0; });
-      if (cc.length) return cc.map(function (q) { return q.id; });
+  /* ---------- quiz del giorno, voto proposto (formula del 12/11/2026) ---------- */
+  function chiaveData(d) { var m = /^(\d{1,2})\/(\d{1,2})/.exec(nd(d)); return m ? (+m[2]) * 100 + (+m[1]) : 0; }
+  /* il «giorno» dei quiz che contano: oggi se ci sono quiz di oggi, altrimenti la data piu' recente tra i quiz della scheda */
+  function giornoQuiz(quiz) {
+    var og = nd(oggiStr()), best = '', bk = 0;
+    for (var i = 0; i < quiz.length; i++) {
+      if (nd(quiz[i].data) === og) return og;
+      var k = chiaveData(quiz[i].data);
+      if (k > bk) { bk = k; best = nd(quiz[i].data); }
     }
-    var oggi = quiz.filter(function (q) { return nd(q.data) === og; });
-    return (oggi.length ? oggi : quiz).map(function (q) { return q.id; });
+    return best || og;
   }
+  function quizScelti(c, quiz) {
+    var g = giornoQuiz(quiz);
+    return quiz.filter(function (q) { return nd(q.data) === g; }).map(function (q) { return q.id; });
+  }
+  /* Voto proposto per un allievo PRESENTE: media dei quiz del giorno; fatto = 40 + 40 x %, non fatto = 40.
+     Un quiz di un'ora non ancora finita (o in corso) non conta ancora; NON ABBINATA e dato non letto non contano e rendono il voto provvisorio. */
   function calcolaVoto(quiz, celle, sc) {
-    var voti = [], conto = [], prov = false, pcts = [];
-    quiz.forEach(function (q, k) {
+    var voti = [], conto = [], prov = false, pcts = [], perche = [], fatti = 0;
+    var ordine = quiz.map(function (q, k) { return k; }).sort(function (a, b) { return (quiz[a].ora || 0) - (quiz[b].ora || 0) || a - b; });
+    ordine.forEach(function (k) {
+      var q = quiz[k];
       if (sc.indexOf(q.id) < 0) return;
-      var c = celle[k];
+      var c = celle[k], nm = q.ora ? 'ora ' + q.ora : q.corto;
       if (c.t === 'ok') {
         var v = Math.round(40 + 40 * c.pct / 100);
-        voti.push(v); pcts.push(c.pct);
-        if (c.prov) prov = true;
-        conto.push(q.corto + ' ' + c.pct + '% = ' + v + (c.prov ? ' (provv.)' : ''));
-      } else if (c.t === 'manca') { var tp = tempo(q.ora, q.data); conto.push(q.corto + (tp === 'ora' ? ' in corso' : (tp ? ' non ancora' : ' manca'))); }
-      else if (c.t === 'nonabb') { prov = true; conto.push(q.corto + ' da abbinare (non contata)'); }
+        voti.push(v); pcts.push(c.pct); fatti++;
+        if (c.prov) { prov = true; if (perche.indexOf('domande aperte da correggere') < 0) perche.push('domande aperte da correggere'); }
+        conto.push(nm + ' ' + c.pct + '% = ' + v + (c.prov ? ' (provv.)' : ''));
+      } else if (c.t === 'manca') {
+        var tp = tempo(q.ora, q.data);
+        if (tp) { prov = true; if (perche.indexOf('ora non finita') < 0) perche.push('ora non finita'); conto.push(nm + (tp === 'ora' ? ' in corso, non conta ancora' : ' non ancora, non conta ancora')); }
+        else { voti.push(40); pcts.push(0); conto.push(nm + ' non fatto = 40'); }
+      } else if (c.t === 'nonabb') { prov = true; if (perche.indexOf('risposta da abbinare') < 0) perche.push('risposta da abbinare'); conto.push(nm + ' da abbinare, non contata'); }
+      else { prov = true; if (perche.indexOf('dato non letto') < 0) perche.push('dato non letto'); conto.push(nm + ' dato non letto, non contato'); }
     });
-    var voto = 40, txt;
+    var voto = null, txt;
     if (voti.length) {
       voto = Math.round(voti.reduce(function (a, b) { return a + b; }, 0) / voti.length);
       txt = conto.join(' · ') + ' → media (' + voti.join('+') + ')/' + voti.length + ' = ' + voto;
-    } else txt = conto.length ? conto.join(' · ') + ' → nessun quiz fatto: 40' : 'nessun quiz da contare: 40';
-    return { voto: voto, conto: txt, prov: prov, pct: pcts.length ? Math.round(pcts.reduce(function (a, b) { return a + b; }, 0) / pcts.length) : null };
+    } else txt = conto.length ? conto.join(' · ') + ' → ancora nessun quiz concluso: nessun voto' : 'nessun quiz del giorno nella scheda: nessun voto';
+    if (voti.length && !fatti) txt += ' · nessun quiz fatto: se era assente, spunta «Assente» (nessun voto)';
+    return { voto: voto, conto: txt, prov: prov, perche: perche.join(', '), pct: pcts.length ? Math.round(pcts.reduce(function (a, b) { return a + b; }, 0) / pcts.length) : null };
   }
 
   /* ---------- le «caselle»: ogni compito e ogni quiz di un allievo ---------- */
@@ -432,7 +465,10 @@ td.voto{text-align:center;min-width:150px}
     }
     r.nF = n.fatto; r.nM = n.manca; r.nI = n.altro;
     r.stato = r.assente ? 'b' : (n.manca ? 'r' : (n.fatto && !n.altro ? 'v' : 'b'));
-    if (r.assente) r.vai = n.manca ? 'Assente. Da recuperare: ' + n.manca + (n.manca === 1 ? ' cosa.' : ' cose.') : 'Assente. Non c’è niente da recuperare.';
+    if (r.assente) {
+      var nc = cas.filter(function (x) { return x.st === 'manca' && x.k === 'c'; }).length, nq = n.manca - nc;
+      r.vai = n.manca ? 'Assente: recupera ' + (nc ? nc + (nc === 1 ? ' compito' : ' compiti') : '') + (nc && nq ? ' e ' : '') + (nq ? nq + ' quiz' : '') + '.' : 'Assente. Non c’è niente da recuperare.';
+    }
     else if (prima) r.vai = prima.vai;
     else if (abb) r.vai = 'La tua risposta non è ancora collegata al tuo nome. Aspetta.';
     else if (tempoC) r.vai = tempoC.tp === 'ora' ? 'Il quiz di fine ora si fa alla fine dell’ora.' : 'Aspetta: questa ora non è ancora iniziata.';
@@ -477,13 +513,14 @@ td.voto{text-align:center;min-width:150px}
         else if (c.st === 'tempo') attesa++;
       });
     });
-    ass.forEach(function (r) { r.cas.forEach(function (c) { if (c.st === 'manca') rec++; }); });
+    var recC = 0, recQ = 0;
+    ass.forEach(function (r) { r.cas.forEach(function (c) { if (c.st === 'manca') { rec++; if (c.k === 'c') recC++; else recQ++; } }); });
     function k(cl, n, su, t, s) { return '<div class="k ' + cl + '"><div class="n">' + n + (su ? '<small> su ' + su + '</small>' : '') + '</div><div class="t">' + t + '</div><div class="s">' + s + '</div></div>'; }
     $('kpi').innerHTML =
       k('v', haC ? cF : '–', haC ? cT : '', 'Compiti consegnati', haC ? 'dei presenti' : 'scheda compiti non letta') +
       k('v', haQ ? qF : '–', haQ ? qT : '', 'Quiz fatti', haQ ? 'dei presenti' : 'nessun quiz di questa ora') +
       k('r', man, '', 'Mancanti', manC + (manC === 1 ? ' compito' : ' compiti') + ' e ' + manQ + (manQ === 1 ? ' quiz' : ' quiz') + ' dei presenti') +
-      k('b', rec, '', 'Da recuperare', ass.length + (ass.length === 1 ? ' assente' : ' assenti') + ': ciò che non hanno fatto');
+      k('b', rec, '', 'Da recuperare', (ass.length ? ass.length + (ass.length === 1 ? ' assente: ' : ' assenti: ') + recC + (recC === 1 ? ' compito' : ' compiti') + ' e ' + recQ + (recQ === 1 ? ' quiz' : ' quiz') + ' da recuperare' : 'nessun assente segnato'));
     $('kpi').style.display = 'grid';
     return { pres: pres.length, ass: ass.length, nonAbb: nonAbb, attesa: attesa };
   }
@@ -527,12 +564,13 @@ td.voto{text-align:center;min-width:150px}
     intestazione(S, CC);
     var parti = S.stud.map(function (s, k) { return nomeParti(s.nome, k); }), cont = {};
     parti.forEach(function (p) { var k = (p.n + ' ' + p.i).toUpperCase(); cont[k] = (cont[k] || 0) + 1; });
-    var assenti = leggiJ('cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'), []);
+    var assenti = leggiAss(c);
     var ora = ORE_CLASSI.indexOf(c) >= 0 ? oraAttiva() : 0;
     if (ORE_CLASSI.indexOf(c) >= 0) selettoreOre(); else $('ore').style.display = 'none';
     var qOra = ora ? colQuizOra(S.quiz, ora) : null, ciOra = ora ? colCompitoOra(CC, ora) : -1;
     var usaQ = ora ? function (q) { return q === qOra; } : function (q) { return sc.indexOf(q.id) >= 0; };
-    var usaC = ora ? function (i) { return i === ciOra; } : function () { return true; };
+    var gq = giornoQuiz(S.quiz);
+    var usaC = ora ? function (i) { return i === ciOra; } : function (i) { var d = CC ? CC.compiti[i].data : ''; return !d || nd(d) === gq; };
     var rows = S.stud.map(function (s, k) {
       var p = parti[k], lab = p.n + (p.i ? ' ' + p.i + '.' : '');
       if (p.i && cont[(p.n + ' ' + p.i).toUpperCase()] > 1 && p.cog2) lab = p.n + ' ' + cap(p.cog2.slice(0, 2)) + '.';
@@ -554,12 +592,14 @@ td.voto{text-align:center;min-width:150px}
     if (K.nonAbb) rp.push('da abbinare: ' + K.nonAbb);
     if (K.attesa) rp.push('blu «non ancora» o «in corso», non contati: ' + K.attesa);
     $('riep').innerHTML = rp.join(' · '); $('riep').style.display = 'block';
+    $('regola').innerHTML = '<b>Voto proposto del ' + esc(giornoQuiz(S.quiz)) + '</b> (solo per chi era presente): media dei quiz di tutte le ore del giorno. Quiz fatto = 40 + 40 × percentuale; <b>quiz non fatto = 40</b> (0% = 40); un\u2019ora non ancora finita non conta ancora. <b>Chi era assente non ha voto</b> («assente: recupera», in blu, niente numero): spunta «Assente» per chi non c\u2019era, perché le presenze non sono in questa pagina. Il voto è <b>PROVVISORIO</b> finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. <b>I voti dei docenti non sono in questa pagina</b>: il voto finale lo decide il docente.';
+    $('regola').style.display = 'block';
     var pres = rows.filter(function (r) { return !r.assente; }), ass = rows.filter(function (r) { return r.assente; });
-    var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; };
+    var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; }, vn = function (r) { return r.voto === null ? -1 : r.voto; };
     if (ora) pres.sort(function (a, b) { var pr = { r: 0, b: 1, v: 2 }; return pr[a.stato] - pr[b.stato] || alf(a, b); });
     else pres.sort(function (a, b) {
-      if (ordinePer === 'fare') return b.nM - a.nM || b.voto - a.voto || alf(a, b);
-      return b.voto - a.voto || alf(a, b);
+      if (ordinePer === 'fare') return b.nM - a.nM || vn(b) - vn(a) || alf(a, b);
+      return vn(b) - vn(a) || alf(a, b);
     });
     ass.sort(alf);
     var tutti = pres.concat(ass), tab = $('tab');
@@ -575,18 +615,18 @@ td.voto{text-align:center;min-width:150px}
       }).join('');
     } else {
       tab.querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + (CC ? '<th>Compiti<small>numero = ora</small></th>' : '') + S.quiz.map(function (q) {
-        return '<th><label><input type="checkbox" data-q="' + esc(q.id) + '"' + (sc.indexOf(q.id) >= 0 ? ' checked' : '') + '> Conta</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '</small></th>';
+        return '<th><label>' + (sc.indexOf(q.id) >= 0 ? 'Conta per il voto' : 'Non conta (altro giorno)') + '</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '</small></th>';
       }).join('') + '<th>Ha fatto · Gli manca</th><th>Adesso deve andare a</th><th>Voto proposto</th></tr>';
       tab.querySelector('tbody').innerHTML = tutti.map(function (r) {
         var qc = S.quiz.map(function (q, j) {
           var cs = casellaQ(q, r.celle[j]);
-          return '<td data-label="' + esc(q.label) + '">' + (sc.indexOf(q.id) >= 0 ? chipQ(cs) : chipQ(cs) + ' <small>non conta</small>') + '</td>';
+          return '<td data-label="' + esc(q.label) + '">' + (sc.indexOf(q.id) >= 0 ? chipQ(cs) : chipQ(cs) + ' <small>non conta: altro giorno</small>') + '</td>';
         }).join('');
         var manca = r.cas.filter(function (x) { return x.st === 'manca'; }).map(function (x) { return '<span class="manca">' + SIMB.r + (x.k === 'c' ? 'compito ' : 'quiz ') + esc(x.k === 'c' ? x.nome : (x.q.ora ? 'fine ora ' + x.q.ora : x.q.label)) + '</span>'; }).join('');
         return '<tr class="' + r.stato + '">' + nomeTd(r) + cbA(r) + (CC ? '<td data-label="Compiti">' + (r.cons ? miniCompiti(r, CC) : chip('b', SIMB.b + 'non abbinato')) + '</td>' : '') + qc +
           '<td data-label="Ha fatto · Gli manca"><div>Ha fatto ' + r.nF + ' su ' + (r.nF + r.nM) + (manca ? manca : '<span class="v1"><small>non gli manca niente</small></span>') + '</div></td>' +
           '<td class="vai" data-label="Adesso deve andare a">' + esc(r.vai) + '</td>' +
-          '<td class="voto" data-label="Voto proposto"><span class="vnum">' + r.voto + (r.prov ? '*' : '') + '</span><span class="prov">PROVVISORIO</span>' + (r.pct !== null ? '<span class="conto">media quiz ' + r.pct + '%' + (r.prov ? '*' : '') + '</span>' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
+          '<td class="voto" data-label="Voto proposto">' + (r.assente ? '<span class="vass">assente: recupera</span><span class="conto">nessun voto: non c\u2019era</span>' : (r.voto === null ? '<span class="vnum">–</span><span class="prov">IN ATTESA</span>' : '<span class="vnum">' + r.voto + (r.prov ? '*' : '') + '</span><span class="prov">' + (r.prov ? 'PROVVISORIO' : 'PROPOSTO') + '</span>' + (r.pct !== null ? '<span class="conto">media quiz ' + r.pct + '%' + (r.prov ? '*' : '') + '</span>' : '')) + (r.prov && r.perche ? '<span class="conto">provvisorio: ' + esc(r.perche) + '</span>' : '') + '<span class="conto">' + esc(r.conto) + '</span>') + '</td></tr>';
       }).join('');
     }
     $('sitbar').style.display = ora ? 'none' : 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
@@ -602,15 +642,11 @@ td.voto{text-align:center;min-width:150px}
   }
   function rifaiSit() { if (ultimo.righe && statoCorr.vista === 'situazione') disegnaSit(ultimo.righe); }
   $('tab').onchange = function (e) {
-    var t = e.target, a = t.getAttribute('data-a'), q = t.getAttribute('data-q'), c = statoCorr.classe;
+    var t = e.target, a = t.getAttribute('data-a'), c = statoCorr.classe;
     if (a) {
-      var k = 'cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'), l = leggiJ(k, []), i = l.indexOf(a);
+      var l = leggiAss(c), i = l.indexOf(a);
       if (t.checked && i < 0) l.push(a); else if (!t.checked && i >= 0) l.splice(i, 1);
-      scrivi(k, JSON.stringify(l)); rifaiSit();
-    } else if (q && ultimo.righe) {
-      var S = parseSit(ultimo.righe), sel = quizScelti(c, S.quiz), j = sel.indexOf(q);
-      if (t.checked && j < 0) sel.push(q); else if (!t.checked && j >= 0) sel.splice(j, 1);
-      scrivi('cruscotto_quiz_' + c, JSON.stringify(sel)); rifaiSit();
+      scriviAss(c, l); rifaiSit();
     }
   };
   $('ore').onclick = function (e) {
@@ -676,6 +712,7 @@ td.voto{text-align:center;min-width:150px}
   }
   function scegli(c, v) {
     statoCorr.classe = c; statoCorr.vista = v || vistaBase(c); ultimo.righe = null; ultimo.cons = null; scrivi('cruscotto_ultima_classe', c);
+    assentiDalLink(c);
     try { history.replaceState(null, '', '?classe=' + c); } catch (e) {}
     $('cfgbox').style.display = 'none'; menu(); vuota(); carica();
   }
