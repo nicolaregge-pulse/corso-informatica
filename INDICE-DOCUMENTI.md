@@ -243,4 +243,4 @@ l'intestazione del file.
 5. `aica-icdl/AICALAB.md` — v1.0 (12/11/2026): la piattaforma AICA-LAB, senza credenziali.
 6. `aica-icdl/DA-FARE.md` — v1.0 (12/11/2026): elenco aperto.
 7. `docs/pannello/index.html` — v1.4 (12/11/2026): link «AICA e ICDL» tra LE PIU USATE per la 1INF.
-8. 2INF 12/11, ore 2 e 3 (audit): `fabbrica/quiz-2inf-1211-ora2d.txt` e `ora3d.txt` (domanda aperta sul documento della giornata); nel riservato dispense `DISPENSA-2INF-1211-ORA2-WIN10-EVENTI-DISPOSITIVI-v1.3`, `DISPENSA-2INF-1211-ORA3-WIN10-ATTIVITA-v1.2`, frontali `FRONTALE-2INF-ORA2-EVENTI-DISPOSITIVI-v1.1`, `FRONTALE-2INF-ORA3-ATTIVITA-RELAZIONE-v1.1`.
+8. 2INF 12/11, ore 2 e 3 (audit): `fabbrica/quiz-2inf-1211-ora2d.txt` e `ora3d.txt` (domanda aperta sul documento della giornata); nel riservato dispense `DISPENSA-2INF-1211-ORA2-WIN10-EVENTI-DISPOSITIVI-v1.3`, `DISPENSA-2INF-1211-ORA3-WIN10-ATTIVITA-v1.3` (12/11: niente Blocco note, tutto nel documento della giornata; quiz ora3d adeguato), frontali `FRONTALE-2INF-ORA2-EVENTI-DISPOSITIVI-v1.1`, `FRONTALE-2INF-ORA3-ATTIVITA-RELAZIONE-v1.1`.
