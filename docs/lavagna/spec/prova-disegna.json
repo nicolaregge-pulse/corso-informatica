@@ -1,0 +1,35 @@
+{
+ "id": "prova-disegna",
+ "versione": "1.0",
+ "classe": "2INF",
+ "lingue": [
+  "it"
+ ],
+ "titolo": {
+  "it": "Prova: disegna una freccia"
+ },
+ "sfondo": "img/prova-tastiera-cpu.png?v=2",
+ "dimensioni": [
+  1200,
+  700
+ ],
+ "penne": [
+  "rosso",
+  "blu",
+  "nero"
+ ],
+ "tentativi_max": 3,
+ "passi": [
+  {
+   "id": "d1",
+   "tipo": "disegna",
+   "penna": "blu",
+   "testo": {
+    "it": "Disegna una freccia dalla tastiera alla CPU."
+   },
+   "criteri": {
+    "it": "La freccia parte dalla tastiera e finisce sulla CPU; la punta è dalla parte della CPU."
+   }
+  }
+ ]
+}

@@ -1,0 +1,1061 @@
+{
+ "id": "biblioteca-pc-1inf-ora6",
+ "versione": "1.1",
+ "classe": "1INF",
+ "lingue": [
+  "it",
+  "ar",
+  "zh"
+ ],
+ "titolo": {
+  "it": "Lavagna: biblioteca e PC (8 domande)",
+  "ar": "السبورة: المكتبة والكمبيوتر (8 أسئلة)",
+  "zh": "白板：图书馆和电脑（8个问题）"
+ },
+ "sfondo": "img/bibpc-01.png?v=2",
+ "dimensioni": [
+  1200,
+  700
+ ],
+ "penne": [
+  "rosso",
+  "blu",
+  "nero"
+ ],
+ "tentativi_max": 3,
+ "ordine": "casuale",
+ "passi": [
+  {
+   "id": "bp-01",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-01.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Questa è una biblioteca. Con la penna rossa fai un cerchio intorno a chi fa il lavoro della CPU: chi lavora, prende i libri e fa le cose.",
+    "ar": "هذه مكتبة. ارسم بالقلم الأحمر دائرة حول من يقوم بعمل المعالج (CPU): الشخص الذي يعمل ويأخذ الكتب وينفذ الأشياء.",
+    "zh": "这是一个图书馆。用红笔圈出相当于处理器（CPU）的人：干活的人，拿书、做事情。"
+   },
+   "zone": [
+    {
+     "id": "scaffali_sinistra",
+     "rett": [
+      20,
+      60,
+      410,
+      392
+     ],
+     "nome": {
+      "it": "gli scaffali a sinistra",
+      "ar": "الرفوف على اليسار",
+      "zh": "左边的书架"
+     }
+    },
+    {
+     "id": "scaffali_destra",
+     "rett": [
+      790,
+      60,
+      1180,
+      392
+     ],
+     "nome": {
+      "it": "gli scaffali a destra",
+      "ar": "الرفوف على اليمين",
+      "zh": "右边的书架"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      526,
+      202,
+      594,
+      405
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      418,
+      232,
+      782,
+      463
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "tavolo_a",
+     "rett": [
+      48,
+      452,
+      342,
+      647
+     ],
+     "nome": {
+      "it": "il tavolo di lettura a sinistra",
+      "ar": "طاولة القراءة على اليسار",
+      "zh": "左边的阅读桌"
+     }
+    },
+    {
+     "id": "tavolo_b",
+     "rett": [
+      453,
+      482,
+      747,
+      677
+     ],
+     "nome": {
+      "it": "il tavolo di lettura davanti",
+      "ar": "طاولة القراءة في المقدمة",
+      "zh": "前面的阅读桌"
+     }
+    },
+    {
+     "id": "tavolo_c",
+     "rett": [
+      853,
+      452,
+      1147,
+      647
+     ],
+     "nome": {
+      "it": "il tavolo di lettura a destra",
+      "ar": "طاولة القراءة على اليمين",
+      "zh": "右边的阅读桌"
+     }
+    }
+   ],
+   "bersaglio": "bibliotecario",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-02",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-02.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno al posto che fa il lavoro della RAM: dove appoggi i libri che usi ADESSO.",
+    "ar": "ارسم دائرة حول المكان الذي يقوم بعمل الرام (RAM): المكان الذي تضع عليه الكتب التي تستخدمها الآن.",
+    "zh": "圈出相当于内存（RAM）的地方：你把现在正在用的书放在哪里。"
+   },
+   "zone": [
+    {
+     "id": "fotocopiatrice",
+     "rett": [
+      62,
+      254,
+      348,
+      548
+     ],
+     "nome": {
+      "it": "la fotocopiatrice",
+      "ar": "آلة التصوير",
+      "zh": "复印机"
+     }
+    },
+    {
+     "id": "tavolo_lettura",
+     "rett": [
+      398,
+      432,
+      702,
+      627
+     ],
+     "nome": {
+      "it": "il tavolo di lettura",
+      "ar": "طاولة القراءة",
+      "zh": "阅读桌"
+     }
+    },
+    {
+     "id": "tavolo_vuoto",
+     "rett": [
+      758,
+      398,
+      1062,
+      562
+     ],
+     "nome": {
+      "it": "il tavolo vuoto",
+      "ar": "الطاولة الفارغة",
+      "zh": "空桌子"
+     }
+    },
+    {
+     "id": "pianta",
+     "rett": [
+      1072,
+      436,
+      1144,
+      584
+     ],
+     "nome": {
+      "it": "la pianta",
+      "ar": "النبتة",
+      "zh": "植物"
+     }
+    }
+   ],
+   "bersaglio": "tavolo_lettura",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-03",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-03.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno al posto che fa il lavoro dell’hard disk o dell’SSD: dove stanno TUTTI i libri, anche a biblioteca chiusa.",
+    "ar": "ارسم دائرة حول المكان الذي يقوم بعمل القرص الصلب أو SSD: المكان الذي توجد فيه كل الكتب، حتى عندما تكون المكتبة مغلقة.",
+    "zh": "圈出相当于硬盘或固态硬盘（SSD）的地方：所有的书都放在那里，就算图书馆关门也在。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      56,
+      46,
+      784,
+      504
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "scaffale_scatoloni",
+     "rett": [
+      842,
+      112,
+      1158,
+      468
+     ],
+     "nome": {
+      "it": "lo scaffale con gli scatoloni",
+      "ar": "الرف الذي عليه الصناديق",
+      "zh": "放纸箱的架子"
+     }
+    },
+    {
+     "id": "carrello_a",
+     "rett": [
+      116,
+      511,
+      410,
+      660
+     ],
+     "nome": {
+      "it": "il carrello a sinistra",
+      "ar": "العربة على اليسار",
+      "zh": "左边的推车"
+     }
+    },
+    {
+     "id": "carrello_b",
+     "rett": [
+      516,
+      501,
+      820,
+      650
+     ],
+     "nome": {
+      "it": "il carrello a destra",
+      "ar": "العربة على اليمين",
+      "zh": "右边的推车"
+     }
+    },
+    {
+     "id": "addetto",
+     "rett": [
+      974,
+      527,
+      1026,
+      680
+     ],
+     "nome": {
+      "it": "la persona del magazzino",
+      "ar": "عامل المخزن",
+      "zh": "仓库工作人员"
+     }
+    }
+   ],
+   "bersaglio": "scaffali",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-04",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-04.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno al posto che fa il lavoro del bus: le strade dove passano i libri da un posto all’altro.",
+    "ar": "ارسم دائرة حول المكان الذي يقوم بعمل الناقل (bus): الطرق التي تمر فيها الكتب من مكان إلى آخر.",
+    "zh": "圈出相当于总线（bus）的地方：书从一个地方运到另一个地方的路。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      888,
+      58,
+      1182,
+      512
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      28,
+      257,
+      342,
+      558
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      357,
+      262,
+      433,
+      480
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "corridoio",
+     "rett": [
+      446,
+      425,
+      864,
+      664
+     ],
+     "nome": {
+      "it": "il corridoio",
+      "ar": "الممر",
+      "zh": "走廊"
+     }
+    }
+   ],
+   "bersaglio": "corridoio",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-05",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-05.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Questo è l’interno di un PC visto dall’alto. Fai un cerchio intorno all’elemento che sei TU nel PC quando sei in biblioteca a fare una ricerca.",
+    "ar": "هذا هو الجزء الداخلي من الكمبيوتر من الأعلى. ارسم دائرة حول العنصر الذي تكون أنت في الكمبيوتر عندما تكون في المكتبة وتبحث عن شيء.",
+    "zh": "这是从上面看到的电脑内部。圈出当你在图书馆查资料时，在电脑里相当于“你”的那一个部件。"
+   },
+   "zone": [
+    {
+     "id": "pcie",
+     "rett": [
+      107,
+      557,
+      493,
+      635
+     ],
+     "nome": {
+      "it": "le fessure lunghe",
+      "ar": "الفتحات الطويلة",
+      "zh": "长插槽"
+     }
+    },
+    {
+     "id": "bus",
+     "rett": [
+      434,
+      184,
+      656,
+      360
+     ],
+     "nome": {
+      "it": "le piste (il bus)",
+      "ar": "المسارات (الناقل)",
+      "zh": "电路走线（总线）"
+     }
+    },
+    {
+     "id": "cpu",
+     "rett": [
+      219,
+      189,
+      441,
+      411
+     ],
+     "nome": {
+      "it": "la CPU",
+      "ar": "المعالج (CPU)",
+      "zh": "处理器（CPU）"
+     }
+    },
+    {
+     "id": "chipset",
+     "rett": [
+      557,
+      497,
+      653,
+      593
+     ],
+     "nome": {
+      "it": "il chip centrale",
+      "ar": "الشريحة الوسطى",
+      "zh": "中间的芯片"
+     }
+    },
+    {
+     "id": "ram",
+     "rett": [
+      652,
+      108,
+      836,
+      426
+     ],
+     "nome": {
+      "it": "la RAM",
+      "ar": "الرام (RAM)",
+      "zh": "内存（RAM）"
+     }
+    },
+    {
+     "id": "cond",
+     "rett": [
+      456,
+      86,
+      544,
+      114
+     ],
+     "nome": {
+      "it": "i condensatori",
+      "ar": "المكثفات",
+      "zh": "电容"
+     }
+    },
+    {
+     "id": "usb",
+     "rett": [
+      106,
+      76,
+      236,
+      112
+     ],
+     "nome": {
+      "it": "le porte USB",
+      "ar": "منافذ USB",
+      "zh": "USB接口"
+     }
+    },
+    {
+     "id": "jack",
+     "rett": [
+      748,
+      548,
+      852,
+      572
+     ],
+     "nome": {
+      "it": "le uscite audio",
+      "ar": "مخارج الصوت",
+      "zh": "音频接口"
+     }
+    },
+    {
+     "id": "batteria",
+     "rett": [
+      697,
+      487,
+      753,
+      543
+     ],
+     "nome": {
+      "it": "la pila rotonda",
+      "ar": "البطارية المستديرة",
+      "zh": "圆形电池"
+     }
+    },
+    {
+     "id": "psu",
+     "rett": [
+      894,
+      60,
+      1160,
+      260
+     ],
+     "nome": {
+      "it": "l’alimentatore",
+      "ar": "مزود الطاقة",
+      "zh": "电源"
+     }
+    },
+    {
+     "id": "disco",
+     "rett": [
+      956,
+      356,
+      1154,
+      604
+     ],
+     "nome": {
+      "it": "il disco",
+      "ar": "القرص",
+      "zh": "硬盘"
+     }
+    }
+   ],
+   "bersaglio": "cpu",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-06",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-06.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Questo è l’interno di un altro PC. Fai un cerchio intorno a dove appoggi i libri che stai usando ADESSO.",
+    "ar": "هذا هو الجزء الداخلي من كمبيوتر آخر. ارسم دائرة حول المكان الذي تضع فيه الكتب التي تستخدمها الآن.",
+    "zh": "这是另一台电脑的内部。圈出你把现在正在用的书放在哪里。"
+   },
+   "zone": [
+    {
+     "id": "pcie",
+     "rett": [
+      327,
+      557,
+      673,
+      625
+     ],
+     "nome": {
+      "it": "le fessure lunghe",
+      "ar": "الفتحات الطويلة",
+      "zh": "长插槽"
+     }
+    },
+    {
+     "id": "bus",
+     "rett": [
+      394,
+      214,
+      581,
+      318
+     ],
+     "nome": {
+      "it": "le piste (il bus)",
+      "ar": "المسارات (الناقل)",
+      "zh": "电路走线（总线）"
+     }
+    },
+    {
+     "id": "cpu",
+     "rett": [
+      574,
+      164,
+      806,
+      396
+     ],
+     "nome": {
+      "it": "la CPU",
+      "ar": "المعالج (CPU)",
+      "zh": "处理器（CPU）"
+     }
+    },
+    {
+     "id": "chipset",
+     "rett": [
+      597,
+      477,
+      693,
+      573
+     ],
+     "nome": {
+      "it": "il chip centrale",
+      "ar": "الشريحة الوسطى",
+      "zh": "中间的芯片"
+     }
+    },
+    {
+     "id": "ram",
+     "rett": [
+      112,
+      78,
+      388,
+      376
+     ],
+     "nome": {
+      "it": "la RAM",
+      "ar": "الرام (RAM)",
+      "zh": "内存（RAM）"
+     }
+    },
+    {
+     "id": "cond",
+     "rett": [
+      766,
+      86,
+      884,
+      114
+     ],
+     "nome": {
+      "it": "i condensatori",
+      "ar": "المكثفات",
+      "zh": "电容"
+     }
+    },
+    {
+     "id": "usb",
+     "rett": [
+      126,
+      536,
+      256,
+      572
+     ],
+     "nome": {
+      "it": "le porte USB",
+      "ar": "منافذ USB",
+      "zh": "USB接口"
+     }
+    },
+    {
+     "id": "jack",
+     "rett": [
+      488,
+      508,
+      592,
+      532
+     ],
+     "nome": {
+      "it": "le uscite audio",
+      "ar": "مخارج الصوت",
+      "zh": "音频接口"
+     }
+    },
+    {
+     "id": "batteria",
+     "rett": [
+      447,
+      467,
+      503,
+      523
+     ],
+     "nome": {
+      "it": "la pila rotonda",
+      "ar": "البطارية المستديرة",
+      "zh": "圆形电池"
+     }
+    },
+    {
+     "id": "psu",
+     "rett": [
+      904,
+      60,
+      1160,
+      240
+     ],
+     "nome": {
+      "it": "l’alimentatore",
+      "ar": "مزود الطاقة",
+      "zh": "电源"
+     }
+    },
+    {
+     "id": "disco",
+     "rett": [
+      786,
+      436,
+      1034,
+      596
+     ],
+     "nome": {
+      "it": "il disco",
+      "ar": "القرص",
+      "zh": "硬盘"
+     }
+    }
+   ],
+   "bersaglio": "ram",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-07",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-07.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Questo è l’interno di un terzo PC. Fai un cerchio intorno a dove stanno tutti i libri anche a biblioteca chiusa.",
+    "ar": "هذا هو الجزء الداخلي من كمبيوتر ثالث. ارسم دائرة حول المكان الذي توجد فيه كل الكتب حتى عندما تكون المكتبة مغلقة.",
+    "zh": "这是第三台电脑的内部。圈出所有的书放在哪里，就算图书馆关门也在。"
+   },
+   "zone": [
+    {
+     "id": "pcie",
+     "rett": [
+      87,
+      517,
+      423,
+      595
+     ],
+     "nome": {
+      "it": "le fessure lunghe",
+      "ar": "الفتحات الطويلة",
+      "zh": "长插槽"
+     }
+    },
+    {
+     "id": "bus",
+     "rett": [
+      354,
+      144,
+      556,
+      290
+     ],
+     "nome": {
+      "it": "le piste (il bus)",
+      "ar": "المسارات (الناقل)",
+      "zh": "电路走线（总线）"
+     }
+    },
+    {
+     "id": "cpu",
+     "rett": [
+      144,
+      124,
+      356,
+      336
+     ],
+     "nome": {
+      "it": "la CPU",
+      "ar": "المعالج (CPU)",
+      "zh": "处理器（CPU）"
+     }
+    },
+    {
+     "id": "chipset",
+     "rett": [
+      357,
+      417,
+      453,
+      503
+     ],
+     "nome": {
+      "it": "il chip centrale",
+      "ar": "الشريحة الوسطى",
+      "zh": "中间的芯片"
+     }
+    },
+    {
+     "id": "ram",
+     "rett": [
+      552,
+      78,
+      736,
+      366
+     ],
+     "nome": {
+      "it": "la RAM",
+      "ar": "الرام (RAM)",
+      "zh": "内存（RAM）"
+     }
+    },
+    {
+     "id": "cond",
+     "rett": [
+      506,
+      406,
+      624,
+      434
+     ],
+     "nome": {
+      "it": "i condensatori",
+      "ar": "المكثفات",
+      "zh": "电容"
+     }
+    },
+    {
+     "id": "usb",
+     "rett": [
+      86,
+      66,
+      128,
+      102
+     ],
+     "nome": {
+      "it": "le porte USB",
+      "ar": "منافذ USB",
+      "zh": "USB接口"
+     }
+    },
+    {
+     "id": "jack",
+     "rett": [
+      468,
+      578,
+      572,
+      602
+     ],
+     "nome": {
+      "it": "le uscite audio",
+      "ar": "مخارج الصوت",
+      "zh": "音频接口"
+     }
+    },
+    {
+     "id": "batteria",
+     "rett": [
+      687,
+      437,
+      743,
+      493
+     ],
+     "nome": {
+      "it": "la pila rotonda",
+      "ar": "البطارية المستديرة",
+      "zh": "圆形电池"
+     }
+    },
+    {
+     "id": "psu",
+     "rett": [
+      764,
+      60,
+      1160,
+      250
+     ],
+     "nome": {
+      "it": "l’alimentatore",
+      "ar": "مزود الطاقة",
+      "zh": "电源"
+     }
+    },
+    {
+     "id": "disco",
+     "rett": [
+      836,
+      346,
+      1164,
+      576
+     ],
+     "nome": {
+      "it": "il disco",
+      "ar": "القرص",
+      "zh": "硬盘"
+     }
+    }
+   ],
+   "bersaglio": "disco",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "bp-08",
+   "tipo": "cerchia",
+   "sfondo": "img/bibpc-08.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Questo è l’interno di un quarto PC. Fai un cerchio intorno alle strade dove passano i libri da un posto all’altro.",
+    "ar": "هذا هو الجزء الداخلي من كمبيوتر رابع. ارسم دائرة حول الطرق التي تمر فيها الكتب من مكان إلى آخر.",
+    "zh": "这是第四台电脑的内部。圈出书从一个地方运到另一个地方的路。"
+   },
+   "zone": [
+    {
+     "id": "pcie",
+     "rett": [
+      117,
+      567,
+      423,
+      635
+     ],
+     "nome": {
+      "it": "le fessure lunghe",
+      "ar": "الفتحات الطويلة",
+      "zh": "长插槽"
+     }
+    },
+    {
+     "id": "bus",
+     "rett": [
+      384,
+      234,
+      746,
+      418
+     ],
+     "nome": {
+      "it": "le piste (il bus)",
+      "ar": "المسارات (الناقل)",
+      "zh": "电路走线（总线）"
+     }
+    },
+    {
+     "id": "cpu",
+     "rett": [
+      144,
+      214,
+      376,
+      446
+     ],
+     "nome": {
+      "it": "la CPU",
+      "ar": "المعالج (CPU)",
+      "zh": "处理器（CPU）"
+     }
+    },
+    {
+     "id": "chipset",
+     "rett": [
+      447,
+      497,
+      553,
+      593
+     ],
+     "nome": {
+      "it": "il chip centrale",
+      "ar": "الشريحة الوسطى",
+      "zh": "中间的芯片"
+     }
+    },
+    {
+     "id": "ram",
+     "rett": [
+      752,
+      98,
+      936,
+      416
+     ],
+     "nome": {
+      "it": "la RAM",
+      "ar": "الرام (RAM)",
+      "zh": "内存（RAM）"
+     }
+    },
+    {
+     "id": "cond",
+     "rett": [
+      626,
+      506,
+      714,
+      574
+     ],
+     "nome": {
+      "it": "i condensatori",
+      "ar": "المكثفات",
+      "zh": "电容"
+     }
+    },
+    {
+     "id": "usb",
+     "rett": [
+      106,
+      66,
+      236,
+      102
+     ],
+     "nome": {
+      "it": "le porte USB",
+      "ar": "منافذ USB",
+      "zh": "USB接口"
+     }
+    },
+    {
+     "id": "jack",
+     "rett": [
+      768,
+      548,
+      872,
+      572
+     ],
+     "nome": {
+      "it": "le uscite audio",
+      "ar": "مخارج الصوت",
+      "zh": "音频接口"
+     }
+    },
+    {
+     "id": "batteria",
+     "rett": [
+      877,
+      467,
+      933,
+      523
+     ],
+     "nome": {
+      "it": "la pila rotonda",
+      "ar": "البطارية المستديرة",
+      "zh": "圆形电池"
+     }
+    },
+    {
+     "id": "psu",
+     "rett": [
+      987,
+      57,
+      1173,
+      243
+     ],
+     "nome": {
+      "it": "l’alimentatore",
+      "ar": "مزود الطاقة",
+      "zh": "电源"
+     }
+    },
+    {
+     "id": "disco",
+     "rett": [
+      986,
+      376,
+      1174,
+      624
+     ],
+     "nome": {
+      "it": "il disco",
+      "ar": "القرص",
+      "zh": "硬盘"
+     }
+    }
+   ],
+   "bersaglio": "bus",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  }
+ ]
+}

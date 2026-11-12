@@ -1,0 +1,433 @@
+{
+ "id": "biblioteca-1inf-ora6",
+ "versione": "2.0",
+ "classe": "1INF",
+ "lingue": [
+  "it",
+  "ar",
+  "zh"
+ ],
+ "titolo": {
+  "it": "Lavagna: la biblioteca del computer",
+  "ar": "السبورة: مكتبة الكمبيوتر",
+  "zh": "白板：电脑的图书馆"
+ },
+ "sfondo": "img/biblioteca.png?v=2",
+ "dimensioni": [
+  1200,
+  700
+ ],
+ "penne": [
+  "rosso",
+  "blu",
+  "nero"
+ ],
+ "tentativi_max": 3,
+ "ordine": "fisso",
+ "passi": [
+  {
+   "id": "b-01",
+   "tipo": "cerchia",
+   "sfondo": "img/biblioteca.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Una biblioteca è come un computer. Con la penna rossa fai un cerchio intorno a quello che fa il lavoro dell’hard disk: dove stanno TUTTI i libri, anche a biblioteca chiusa.",
+    "ar": "المكتبة تشبه الكمبيوتر. ارسم بالقلم الأحمر دائرة حول ما يقوم بعمل القرص الصلب: المكان الذي توجد فيه كل الكتب، حتى عندما تكون المكتبة مغلقة.",
+    "zh": "图书馆就像一台电脑。用红笔圈出相当于硬盘的东西：所有的书都放在那里，就算图书馆关门也在。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      728,
+      38,
+      1162,
+      427
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      18,
+      212,
+      252,
+      503
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      267,
+      259,
+      343,
+      477
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "tavolo_lettura",
+     "rett": [
+      373,
+      318,
+      677,
+      482
+     ],
+     "nome": {
+      "it": "il tavolo di lettura",
+      "ar": "طاولة القراءة",
+      "zh": "阅读桌"
+     }
+    },
+    {
+     "id": "stampante",
+     "rett": [
+      794,
+      494,
+      1006,
+      626
+     ],
+     "nome": {
+      "it": "la stampante",
+      "ar": "الطابعة",
+      "zh": "打印机"
+     }
+    },
+    {
+     "id": "corridoio",
+     "rett": [
+      222,
+      580,
+      768,
+      672
+     ],
+     "nome": {
+      "it": "il corridoio",
+      "ar": "الممر",
+      "zh": "走廊"
+     }
+    }
+   ],
+   "bersaglio": "scaffali",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "b-02",
+   "tipo": "cerchia",
+   "sfondo": "img/biblioteca.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno a quello che fa il lavoro della RAM: dove appoggi i libri che usi ADESSO.",
+    "ar": "ارسم دائرة حول ما يقوم بعمل الرام (RAM): المكان الذي تضع عليه الكتب التي تستخدمها الآن.",
+    "zh": "圈出相当于内存（RAM）的东西：你把现在正在用的书放在哪里。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      728,
+      38,
+      1162,
+      427
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      18,
+      212,
+      252,
+      503
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      267,
+      259,
+      343,
+      477
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "tavolo_lettura",
+     "rett": [
+      373,
+      318,
+      677,
+      482
+     ],
+     "nome": {
+      "it": "il tavolo di lettura",
+      "ar": "طاولة القراءة",
+      "zh": "阅读桌"
+     }
+    },
+    {
+     "id": "stampante",
+     "rett": [
+      794,
+      494,
+      1006,
+      626
+     ],
+     "nome": {
+      "it": "la stampante",
+      "ar": "الطابعة",
+      "zh": "打印机"
+     }
+    },
+    {
+     "id": "corridoio",
+     "rett": [
+      222,
+      580,
+      768,
+      672
+     ],
+     "nome": {
+      "it": "il corridoio",
+      "ar": "الممر",
+      "zh": "走廊"
+     }
+    }
+   ],
+   "bersaglio": "tavolo_lettura",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "b-03",
+   "tipo": "cerchia",
+   "sfondo": "img/biblioteca.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno a quello che fa il lavoro della CPU: chi lavora, prende i libri e fa le cose.",
+    "ar": "ارسم دائرة حول ما يقوم بعمل المعالج (CPU): من يعمل ويأخذ الكتب وينفذ الأشياء.",
+    "zh": "圈出相当于处理器（CPU）的东西：干活的人，拿书、做事情。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      728,
+      38,
+      1162,
+      427
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      18,
+      212,
+      252,
+      503
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      267,
+      259,
+      343,
+      477
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "tavolo_lettura",
+     "rett": [
+      373,
+      318,
+      677,
+      482
+     ],
+     "nome": {
+      "it": "il tavolo di lettura",
+      "ar": "طاولة القراءة",
+      "zh": "阅读桌"
+     }
+    },
+    {
+     "id": "stampante",
+     "rett": [
+      794,
+      494,
+      1006,
+      626
+     ],
+     "nome": {
+      "it": "la stampante",
+      "ar": "الطابعة",
+      "zh": "打印机"
+     }
+    },
+    {
+     "id": "corridoio",
+     "rett": [
+      222,
+      580,
+      768,
+      672
+     ],
+     "nome": {
+      "it": "il corridoio",
+      "ar": "الممر",
+      "zh": "走廊"
+     }
+    }
+   ],
+   "bersaglio": "bibliotecario",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  },
+  {
+   "id": "b-04",
+   "tipo": "cerchia",
+   "sfondo": "img/biblioteca.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Fai un cerchio intorno a quello che fa il lavoro del bus: le strade dove passano i libri da un posto all’altro.",
+    "ar": "ارسم دائرة حول ما يقوم بعمل الناقل (bus): الطرق التي تمر فيها الكتب من مكان إلى آخر.",
+    "zh": "圈出相当于总线（bus）的东西：书从一个地方运到另一个地方的路。"
+   },
+   "zone": [
+    {
+     "id": "scaffali",
+     "rett": [
+      728,
+      38,
+      1162,
+      427
+     ],
+     "nome": {
+      "it": "gli scaffali",
+      "ar": "الرفوف",
+      "zh": "书架"
+     }
+    },
+    {
+     "id": "banco_prestiti",
+     "rett": [
+      18,
+      212,
+      252,
+      503
+     ],
+     "nome": {
+      "it": "il banco prestiti",
+      "ar": "مكتب الإعارة",
+      "zh": "借书台"
+     }
+    },
+    {
+     "id": "bibliotecario",
+     "rett": [
+      267,
+      259,
+      343,
+      477
+     ],
+     "nome": {
+      "it": "il bibliotecario",
+      "ar": "أمين المكتبة",
+      "zh": "图书管理员"
+     }
+    },
+    {
+     "id": "tavolo_lettura",
+     "rett": [
+      373,
+      318,
+      677,
+      482
+     ],
+     "nome": {
+      "it": "il tavolo di lettura",
+      "ar": "طاولة القراءة",
+      "zh": "阅读桌"
+     }
+    },
+    {
+     "id": "stampante",
+     "rett": [
+      794,
+      494,
+      1006,
+      626
+     ],
+     "nome": {
+      "it": "la stampante",
+      "ar": "الطابعة",
+      "zh": "打印机"
+     }
+    },
+    {
+     "id": "corridoio",
+     "rett": [
+      222,
+      580,
+      768,
+      672
+     ],
+     "nome": {
+      "it": "il corridoio",
+      "ar": "الممر",
+      "zh": "走廊"
+     }
+    }
+   ],
+   "bersaglio": "corridoio",
+   "copertura_min": 0.6,
+   "margine": 0.15,
+   "dimensione_max": 6
+  }
+ ]
+}

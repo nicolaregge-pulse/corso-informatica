@@ -1,0 +1,116 @@
+{
+ "id": "prova-scegli",
+ "versione": "1.0",
+ "classe": "2INF",
+ "lingue": [
+  "it"
+ ],
+ "titolo": {
+  "it": "Prova: tocca la parte giusta"
+ },
+ "sfondo": "img/prova-computer.png?v=2",
+ "dimensioni": [
+  1200,
+  700
+ ],
+ "penne": [
+  "rosso",
+  "blu",
+  "nero"
+ ],
+ "tentativi_max": 3,
+ "passi": [
+  {
+   "id": "s1",
+   "tipo": "scegli",
+   "testo": {
+    "it": "Tocca la parte del computer che serve per SCRIVERE le lettere."
+   },
+   "zone": [
+    {
+     "id": "schermo",
+     "rett": [
+      310,
+      40,
+      890,
+      500
+     ],
+     "nome": {
+      "it": "lo schermo"
+     }
+    },
+    {
+     "id": "tastiera",
+     "rett": [
+      260,
+      500,
+      940,
+      660
+     ],
+     "nome": {
+      "it": "la tastiera"
+     }
+    },
+    {
+     "id": "mouse",
+     "rett": [
+      980,
+      430,
+      1105,
+      650
+     ],
+     "nome": {
+      "it": "il mouse"
+     }
+    }
+   ],
+   "giusta": "tastiera"
+  },
+  {
+   "id": "s2",
+   "tipo": "scegli",
+   "testo": {
+    "it": "Tocca la parte del computer che MOSTRA quello che fai."
+   },
+   "zone": [
+    {
+     "id": "schermo",
+     "rett": [
+      310,
+      40,
+      890,
+      500
+     ],
+     "nome": {
+      "it": "lo schermo"
+     }
+    },
+    {
+     "id": "tastiera",
+     "rett": [
+      260,
+      500,
+      940,
+      660
+     ],
+     "nome": {
+      "it": "la tastiera"
+     }
+    },
+    {
+     "id": "mouse",
+     "rett": [
+      980,
+      430,
+      1105,
+      650
+     ],
+     "nome": {
+      "it": "il mouse"
+     }
+    }
+   ],
+   "giusta": "schermo"
+  }
+ ]
+}

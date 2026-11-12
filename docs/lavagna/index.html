@@ -1,74 +1,389 @@
-<title>Lavagna prova</title>
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lavagna</title>
 <style>
 :root{--bg:#f6f7f9;--fg:#1c2430;--card:#fff;--line:#cfd6e0;--verde:#1b7f3b;--rosso:#c0262d;--blu:#1f5fbf;--verdebg:#e3f4e8;--rossobg:#fbe5e6;--blubg:#e4edfb}
-@media (prefers-color-scheme:dark){:root{--bg:#14181e;--fg:#eef1f5;--card:#1d232c;--line:#3a4452;--verde:#5fd083;--rosso:#ff7a80;--blu:#7fb0ff;--verdebg:#16301f;--rossobg:#3a1a1c;--blubg:#162a47}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:12px 16px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181e;--fg:#eef1f5;--card:#1d232c;--line:#3a4452;--verde:#5fd083;--rosso:#ff7a80;--blu:#7fb0ff;--verdebg:#16301f;--rossobg:#3a1a1c;--blubg:#162a47}}
+:root[data-theme="dark"]{--bg:#14181e;--fg:#eef1f5;--card:#1d232c;--line:#3a4452;--verde:#5fd083;--rosso:#ff7a80;--blu:#7fb0ff;--verdebg:#16301f;--rossobg:#3a1a1c;--blubg:#162a47}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:18px/1.4 system-ui,"Segoe UI","Noto Sans Arabic","Noto Sans SC","Microsoft YaHei","Noto Sans Bengali",Arial,sans-serif;padding:10px 16px 40px}
+#app{max-width:1180px;margin:0 auto}
 .banner{background:var(--blubg);border-left:6px solid var(--blu);padding:8px 12px;border-radius:6px;margin-bottom:10px;font-size:16px}
-h1{font-size:22px;margin:4px 0}
+h1{font-size:22px;margin:4px 0 8px}
+.l{margin:2px 0}.l+.l{font-size:.92em;opacity:.95}
+.l[dir=rtl]{text-align:right}
 .compito{background:var(--card);border:3px solid var(--blu);border-radius:10px;padding:10px 14px;margin:8px 0;font-size:20px}
 .passo{color:var(--blu);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
-.lav{position:relative;border:3px solid var(--line);border-radius:10px;background:#fff;max-width:1000px;touch-action:none;line-height:0}
+.prog{display:flex;gap:6px;margin:6px 0;flex-wrap:wrap}
+.prog i{width:26px;height:10px;border-radius:5px;background:var(--line);display:block}
+.prog i.ok{background:var(--verde)}.prog i.no{background:var(--rosso)}.prog i.info{background:var(--blu)}.prog i.ora{outline:3px solid var(--blu);outline-offset:1px}
+.lav{position:relative;border:3px solid var(--line);border-radius:10px;background:#fff;width:max(min(100%,calc((100vh - 300px) * var(--ar,1.7))),min(100%,640px));line-height:0;user-select:none;-webkit-user-select:none}
 .lav canvas{width:100%;height:auto;display:block}
 #dis{position:absolute;left:0;top:0;cursor:crosshair;touch-action:none}
-.barra{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;max-width:1000px}
-button{font:600 17px system-ui;padding:10px 14px;border-radius:8px;border:2px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:44px}
+#ov{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+#ov.sc{pointer-events:auto;cursor:pointer}
+.zona{position:absolute;border:2px dashed rgba(31,95,191,.55);border-radius:6px}
+.zona.sel{background:rgba(31,95,191,.22);border:3px solid #1f5fbf}
+.zona.giusta{background:rgba(27,127,59,.28);border:3px solid #1b7f3b}
+.zona.sbagliata{border:3px solid #c0262d;background:rgba(192,38,45,.15)}
+.zona.bersaglio{border-style:dashed}
+.chip{display:inline-block;background:#fff8d6;color:#1c2430;border:2px solid #8a6d00;border-radius:8px;padding:4px 10px;font:600 15px/1.25 system-ui,"Noto Sans Arabic","Noto Sans SC",sans-serif;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;margin:3px;text-align:center}
+.chip div+div{font-size:13px;font-weight:500}
+#ov .chip{position:absolute;transform:translate(-50%,-50%);margin:0;pointer-events:auto;line-height:1.2}
+.chip.sbagliato{border-color:#c0262d;background:#fde4e5}.chip.giusto{border-color:#1b7f3b;background:#e0f5e6}
+.chip.volo{position:fixed;z-index:50;pointer-events:none;opacity:.9;transform:translate(-50%,-50%);margin:0}
+#vassoio{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0;min-height:44px;padding:6px;border:2px dashed var(--line);border-radius:8px}
+.barra{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+button,.bt{font:600 17px system-ui,"Noto Sans Arabic","Noto Sans SC",sans-serif;padding:10px 14px;border-radius:8px;border:2px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:44px;text-decoration:none;display:inline-block}
 button.sel{border-color:var(--blu);box-shadow:0 0 0 3px var(--blubg)}
+button:disabled{opacity:.5;cursor:default}
 .col{width:44px;padding:0;border-radius:50%;border-width:3px}
-#consegna{background:var(--verde);color:#fff;border-color:var(--verde);margin-left:auto}
-#esito{margin:10px 0;padding:12px 14px;border-radius:8px;font-size:19px;max-width:1000px;display:none}
-.ok{background:var(--verdebg);border-left:6px solid var(--verde)}.no{background:var(--rossobg);border-left:6px solid var(--rosso)}
-small{color:inherit;opacity:.8}
+.verde{background:var(--verde);color:#fff;border-color:var(--verde)}
+.blu{background:var(--blu);color:#fff;border-color:var(--blu)}
+.rosso{background:var(--rosso);color:#fff;border-color:var(--rosso)}
+.destra{margin-left:auto}
+#esito{margin:10px 0;padding:12px 14px;border-radius:8px;font-size:19px;display:none}
+#esito.ok{background:var(--verdebg);border-left:6px solid var(--verde)}
+#esito.no{background:var(--rossobg);border-left:6px solid var(--rosso)}
+#esito.info{background:var(--blubg);border-left:6px solid var(--blu)}
+.riepilogo{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin:10px 0}
+.riepilogo div{border:3px solid var(--line);border-radius:8px;padding:8px 10px;background:var(--card);font-size:16px}
+.riepilogo .ok{border-color:var(--verde)}.riepilogo .no{border-color:var(--rosso)}.riepilogo .info{border-color:var(--blu)}
+details{margin:10px 0;font-size:14px}pre{white-space:pre-wrap;word-break:break-all;max-height:260px;overflow:auto;background:var(--card);border:1px solid var(--line);padding:8px;border-radius:6px}
+ul.elenco{list-style:none;padding:0;display:grid;gap:10px}
+ul.elenco a{display:block;padding:14px;border:3px solid var(--blu);border-radius:10px;background:var(--card);color:var(--fg);text-decoration:none}
+ul.elenco small{opacity:.75}
+@media (max-width:560px){body{padding:8px 8px 40px;font-size:17px}.compito{font-size:18px}button,.bt{padding:10px 10px;font-size:16px}.lav{width:100%}}
 </style>
-<div class="banner"><b>PROVA per il docente.</b> Il disegno qui non viene ancora inviato: resta nel browser. Nella versione vera va nella cartella Drive «Lavagna» e lo guarda l'assistente.</div>
-<h1>Lavagna: la biblioteca del computer</h1>
-<div class="compito"><span class="passo" id="n"></span><br><span id="testo"></span></div>
-<div class="lav" id="lav"><canvas id="sfondo" width="1200" height="700"></canvas><canvas id="dis" width="1200" height="700"></canvas></div>
-<div class="barra">
-<button class="col sel" id="c-rosso" style="background:#d8222d" aria-label="Penna rossa"></button>
-<button class="col" id="c-blu" style="background:#1f5fbf" aria-label="Penna blu"></button>
-<button class="col" id="c-nero" style="background:#1c1c1c" aria-label="Penna nera"></button>
-<button id="gomma">Gomma</button><button id="annulla">Annulla l'ultimo segno</button><button id="pulisci">Cancella tutto</button>
-<button id="consegna">Consegna</button></div>
-<div id="esito" role="status"></div>
-<div class="barra"><button id="prossimo" style="display:none">Prossimo compito</button></div>
+</head>
+<body>
+<div id="app"><p>…</p></div>
 <script>
 (function(){
-var COMPITI=[
-{n:'Compito 1 di 4',t:'Una biblioteca è come un computer. Con la penna rossa fai un cerchio intorno a quello che fa il lavoro dell’hard disk: dove stanno TUTTI i libri, anche a biblioteca chiusa.',r:[560,40,1160,424],nome:'gli scaffali'},
-{n:'Compito 2 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro della RAM: dove appoggi i libri che usi ADESSO.',r:[280,335,555,485],nome:'il tavolo'},
-{n:'Compito 3 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro della CPU: chi lavora, prende i libri e fa le cose.',r:[170,262,330,478],nome:'il bibliotecario'},
-{n:'Compito 4 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro del bus: le strade dove passano i libri da un posto all’altro.',r:[205,575,770,672],nome:'i corridoi'}];
-var i=0,colore='#d8222d',spessore=7,gomma=false,tratti=[],cur=null,consegnato=false;
-var sf=document.getElementById('sfondo'),dis=document.getElementById('dis'),g=dis.getContext('2d');
-var img=new Image();img.onload=function(){sf.getContext('2d').drawImage(img,0,0,1200,700)};img.src='biblioteca.png';
-function mostra(){document.getElementById('n').textContent=COMPITI[i].n;document.getElementById('testo').textContent=COMPITI[i].t;tratti=[];ridisegna();consegnato=false;var e=document.getElementById('esito');e.style.display='none';document.getElementById('prossimo').style.display='none'}
-function ridisegna(){g.clearRect(0,0,1200,700);g.lineCap='round';g.lineJoin='round';tratti.forEach(function(t){g.strokeStyle=t.c;g.lineWidth=t.w;g.globalCompositeOperation=t.e?'destination-out':'source-over';g.beginPath();t.p.forEach(function(q,k){k?g.lineTo(q[0],q[1]):g.moveTo(q[0],q[1])});if(t.p.length===1)g.lineTo(t.p[0][0]+.1,t.p[0][1]);g.stroke()});g.globalCompositeOperation='source-over'}
-function pos(ev){var r=dis.getBoundingClientRect();return[(ev.clientX-r.left)*1200/r.width,(ev.clientY-r.top)*700/r.height]}
-dis.addEventListener('pointerdown',function(ev){if(consegnato)return;dis.setPointerCapture(ev.pointerId);cur={c:colore,w:gomma?28:spessore,e:gomma,p:[pos(ev)]};tratti.push(cur);ridisegna()});
-dis.addEventListener('pointermove',function(ev){if(!cur)return;cur.p.push(pos(ev));ridisegna()});
-['pointerup','pointercancel'].forEach(function(n){dis.addEventListener(n,function(){cur=null})});
-function sel(id,c){document.querySelectorAll('.col').forEach(function(b){b.classList.remove('sel')});document.getElementById('gomma').classList.remove('sel');if(id){document.getElementById(id).classList.add('sel')}}
-document.getElementById('c-rosso').onclick=function(){colore='#d8222d';gomma=false;sel('c-rosso')};
-document.getElementById('c-blu').onclick=function(){colore='#1f5fbf';gomma=false;sel('c-blu')};
-document.getElementById('c-nero').onclick=function(){colore='#1c1c1c';gomma=false;sel('c-nero')};
-document.getElementById('gomma').onclick=function(){gomma=true;sel(null);this.classList.add('sel')};
-document.getElementById('annulla').onclick=function(){if(!consegnato){tratti.pop();ridisegna()}};
-document.getElementById('pulisci').onclick=function(){if(!consegnato){tratti=[];ridisegna()}};
-function bbox(){var x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,n=0;tratti.forEach(function(t){if(t.e)return;t.p.forEach(function(q){n++;x0=Math.min(x0,q[0]);y0=Math.min(y0,q[1]);x1=Math.max(x1,q[0]);y1=Math.max(y1,q[1])})});return n?[x0,y0,x1,y1]:null}
-function giudica(){var b=bbox(),T=COMPITI[i].r;if(!b)return{ok:false,m:'Non vedo nessun disegno: usa la penna e fai il cerchio, poi premi Consegna.'};
-var ix=Math.max(0,Math.min(b[2],T[2])-Math.max(b[0],T[0])),iy=Math.max(0,Math.min(b[3],T[3])-Math.max(b[1],T[1]));
-var at=(T[2]-T[0])*(T[3]-T[1]),ab=(b[2]-b[0])*(b[3]-b[1]),cop=ix*iy/at;
-if(cop>=.6&&ab<=2.6*at)return{ok:true,m:'Bravo! Hai circondato '+COMPITI[i].nome+'.'};
-if(cop<.3)return{ok:false,m:'Il cerchio è lontano da '+COMPITI[i].nome+'. Riguarda il disegno e riprova.'};
-if(ab>2.6*at)return{ok:false,m:'Il cerchio è troppo grande: prendi solo '+COMPITI[i].nome+'.'};
-return{ok:false,m:'Quasi: il cerchio deve coprire bene '+COMPITI[i].nome+'.'}}
-document.getElementById('consegna').onclick=function(){if(consegnato)return;var r=giudica(),e=document.getElementById('esito');
-e.className=r.ok?'ok':'no';e.innerHTML=r.m+(r.ok?'<br><small>Consegnato (prova): il disegno resta nel browser.</small>':'');e.style.display='block';
-if(r.ok){consegnato=true;try{var c=document.createElement('canvas');c.width=1200;c.height=700;var x=c.getContext('2d');x.drawImage(sf,0,0);x.drawImage(dis,0,0);localStorage.setItem('lavagna-prova-'+i,c.toDataURL('image/png'))}catch(er){}
-document.getElementById('prossimo').style.display=(i<COMPITI.length-1)?'inline-block':'none';if(i===COMPITI.length-1){e.innerHTML+='<br>Hai finito tutti e 4 i compiti.'}}};
-document.getElementById('prossimo').onclick=function(){i++;mostra()};
-window.__lavagna={bbox:bbox,giudica:giudica};
-mostra();
+'use strict';
+
+/* ================= Testi dell'interfaccia: l'italiano sta qui, le altre lingue in lingue/<l>.json (si caricano solo se la spec le usa: R6) =================
+   Frasi da quinta elementare. {nome}, {altro}, {n}, {t}, {k}, {ora}, {da}, {a} si sostituiscono per ogni lingua. */
+var UI={
+it:{"compito": "Compito {n} di {t}", "controlla": "Controlla", "fatto": "Ho finito il disegno", "prossimo": "Prossimo compito", "salta": "Vai avanti lo stesso", "consegna": "Consegna", "gomma": "Gomma", "annulla": "Annulla l’ultimo segno", "pulisci": "Cancella tutto", "penna_rossa": "Penna rossa", "penna_blu": "Penna blu", "penna_nera": "Penna nera", "banner_prova": "PROVA, non inviato. Il disegno resta nel browser.", "nessuno_cerchia": "Non vedo nessun disegno: usa la penna e fai il cerchio, poi premi Controlla.", "ok_cerchia": "Bravo! Hai circondato {nome}.", "lontano": "Il cerchio è lontano da {nome}. Riguarda il disegno e riprova.", "quasi": "Quasi: il cerchio deve coprire bene {nome}.", "grande": "Il cerchio è troppo grande: prendi solo {nome}.", "anche": "Hai circondato anche {altro}: prendi solo la parte giusta.", "scegli_manca": "Tocca una parte del disegno, poi premi Controlla.", "scegli_ok": "Bravo! Hai toccato {nome}.", "scegli_no": "Non è questa. Guarda ancora il disegno e riprova.", "collega_manca": "Metti tutte le etichette sul disegno, poi premi Controlla.", "collega_ok": "Bravo! Tutte le etichette sono al posto giusto.", "collega_no": "{k} etichette non sono al posto giusto. Spostale e riprova.", "collega_aiuto": "Trascina ogni etichetta sulla sua parte del disegno.", "freccia_manca": "Non vedo nessuna freccia: disegna una linea con la penna, poi premi Controlla.", "freccia_ok": "Bravo! La freccia va da {da} a {a}.", "freccia_da": "La freccia deve partire da {da}.", "freccia_a": "La freccia deve arrivare a {a}.", "disegna_manca": "Non vedo nessun disegno: usa la penna, poi premi «Ho finito il disegno».", "disegna_ok": "Il disegno è salvato. L’assistente lo guarda dopo la consegna.", "fine": "Hai finito tutti i compiti. Premi Consegna per mandare il tuo lavoro.", "invio_corso": "Sto mandando il lavoro…", "invio_ok": "Consegnato alle {ora}. L’assistente vede il tuo lavoro.", "invio_no": "Non riesco a confermare che il lavoro è arrivato. Premi di nuovo Consegna.", "invio_senza_nome": "Il lavoro è arrivato alle {ora}, ma non so chi sei. Dillo all’assistente.", "prova_ok": "PROVA: il lavoro non è stato inviato. Resta nel browser.", "elenco": "Scegli il compito", "elenco_vuoto": "Nessun compito disponibile.", "non_trovato": "Questo compito non esiste. Controlla l’indirizzo.", "carico": "Sto caricando…", "scaricato": "Scarica il disegno (PNG)", "giusto": "giusto", "da_rifare": "da rifare", "da_valutare": "da guardare"}
+};var COLORI={rosso:'#d8222d',blu:'#1f5fbf',nero:'#1c1c1c'};
+var PENNA_UI={rosso:'penna_rossa',blu:'penna_blu',nero:'penna_nera'};
+
+/* ================= Aiuti ================= */
+var q=new URLSearchParams(location.search);
+function $(id){return document.getElementById(id)}
+function E(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;if(html!=null)e.innerHTML=html;return e}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function memo(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function jsonp(url,ms){return new Promise(function(res,rej){var cb='__lv'+Math.random().toString(36).slice(2),s=document.createElement('script');
+ var t=setTimeout(function(){fine();rej(new Error('timeout'))},ms||6000);
+ function fine(){clearTimeout(t);try{delete window[cb]}catch(e){window[cb]=undefined}if(s.parentNode)s.parentNode.removeChild(s)}
+ window[cb]=function(d){fine();res(d)};s.onerror=function(){fine();rej(new Error('rete'))};
+ s.src=url+(url.indexOf('?')<0?'?':'&')+'callback='+cb;document.head.appendChild(s)})}
+function getJSON(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('http '+r.status);return r.json()})}
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function hashStr(s){var h=2166136261;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function mescola(arr,seme){var r=mulberry32(hashStr(String(seme))),a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function area(r){return Math.max(0,r[2]-r[0])*Math.max(0,r[3]-r[1])}
+function inter(a,b){return Math.max(0,Math.min(a[2],b[2])-Math.max(a[0],b[0]))*Math.max(0,Math.min(a[3],b[3])-Math.max(a[1],b[1]))}
+function dentro(pt,r,m){m=m||0;return pt[0]>=r[0]-m&&pt[0]<=r[2]+m&&pt[1]>=r[1]-m&&pt[1]<=r[3]+m}
+function r2(x){return Math.round(x*100)/100}
+
+/* ================= Testi per lingua ================= */
+var spec=null,cfg={},L=['it'];
+function fmt(tpl,pars,l){return String(tpl).replace(/\{(\w+)\}/g,function(m,k){var v=pars&&pars[k];if(v==null)return m;if(typeof v==='object')return v[l]||v.it||'';return String(v)})}
+function tx(obj,pars){ /* obj: stringa o {it,ar,zh} -> [{l,t}] solo per le lingue attive (se manca la lingua, niente riga) */
+ if(typeof obj==='string')obj={it:obj};var out=[];L.forEach(function(l){var s=obj&&obj[l];if(s)out.push({l:l,t:fmt(s,pars,l)})});
+ if(!out.length&&obj&&obj.it)out.push({l:'it',t:fmt(obj.it,pars,'it')});return out}
+function ui(k,pars){return L.map(function(l){var s=(UI[l]&&UI[l][k])||UI.it[k]||k;return{l:l,t:fmt(s,pars,l)}})}
+function righe(arr,box){box=box||E('div');arr.forEach(function(x){var d=E('div','l');d.lang=x.l;if(x.l==='ar')d.dir='rtl';d.textContent=x.t;box.appendChild(d)});return box}
+function lab(k,pars){return ui(k,pars).map(function(x){return x.t}).join(' · ')}
+
+/* ================= Stato ================= */
+var S={passi:[],R:[],i:0,t0:null,fine:false,nonce:'',ordine:[],seme:'',origine:'fisso',imgs:{},consegnato:false,ultimo:null};
+var W=1200,H=700,penna='rosso',gomma=false,cur=null;
+var sf,dis,g,sfg;
+
+function passoAttuale(){return S.passi[S.i]}
+function nomeZona(st,id){var z=(st.zone||[]).filter(function(z){return z.id===id})[0];return z?z.nome:''}
+
+/* ================= Giudizio ================= */
+/* cerchia: copertura di ogni zona = area(bbox ∩ zona)/area(zona).
+   GIUSTO se la zona del passo ha copertura >= copertura_min (0,6), ha la copertura più alta con margine >= margine (0,15)
+   sulla seconda, e l'area del disegno non supera dimensione_max (6) volte quella della zona. */
+function valutaCerchia(st,bb){
+ var zone=st.zone&&st.zone.length?st.zone:[{id:'_t',rett:st.bersaglio.rett,nome:st.bersaglio.nome}];
+ var tid=(typeof st.bersaglio==='string')?st.bersaglio:'_t';
+ var cmin=st.copertura_min!=null?st.copertura_min:0.6,marg=st.margine!=null?st.margine:0.15,dmax=st.dimensione_max!=null?st.dimensione_max:6;
+ if(!bb)return{ok:false,chiave:'nessuno_cerchia',cop:{}};
+ var cop={},T=null,altro=null,ca=-1;
+ zone.forEach(function(z){var a=area(z.rett),c=a>0?inter(bb,z.rett)/a:0;cop[z.id]=r2(c);if(z.id===tid)T=z;else if(c>ca){ca=c;altro=z}});
+ var ct=cop[tid],at=area(T.rett),ab=area(bb),rapp=r2(ab/at),nomeT=T.nome;
+ var base={cop:cop,rapporto:rapp,nomeT:nomeT};
+ var r;
+ if(ct<0.3)r={ok:false,chiave:'lontano'};
+ else if(ct<cmin)r={ok:false,chiave:'quasi'};
+ else if(altro&&ca>ct-marg)r={ok:false,chiave:'anche',altro:altro.nome,altroId:altro.id};
+ else if(ab>dmax*at)r={ok:false,chiave:'grande'};
+ else r={ok:true,chiave:'ok_cerchia'};
+ for(var k in base)r[k]=base[k];return r}
+
+function bboxPixel(){var d=g.getImageData(0,0,W,H).data,x0=1e9,y0=1e9,x1=-1,y1=-1,n=0;
+ for(var y=0;y<H;y+=1){var o=y*W*4;for(var x=0;x<W;x+=1){if(d[o+x*4+3]>24){n++;if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}}}
+ return n>20?[x0,y0,x1,y1]:null}
+function ultimoTratto(R){for(var k=R.tratti.length-1;k>=0;k--){if(!R.tratti[k].e&&R.tratti[k].p.length>1)return R.tratti[k]}return null}
+
+function giudica(){
+ var st=passoAttuale(),R=S.R[S.i];
+ if(st.tipo==='cerchia'){var bb=bboxPixel(),v=valutaCerchia(st,bb);
+  return{ok:v.ok,tipo:v.ok?'ok':'no',chiave:v.chiave,pars:{nome:v.nomeT,altro:v.altro},dati:{rettangolo:bb,copertura:v.cop,rapporto:v.rapporto}}}
+ if(st.tipo==='disegna'){var b2=bboxPixel();if(!b2||(b2[2]-b2[0])+(b2[3]-b2[1])<20)return{ok:false,tipo:'no',chiave:'disegna_manca',dati:{}};
+  return{ok:null,tipo:'info',chiave:'disegna_ok',dati:{rettangolo:b2}}}
+ if(st.tipo==='scegli'){if(!R.scelta)return{ok:false,tipo:'info',chiave:'scegli_manca',dati:{},senzaTentativo:true};
+  var ok=R.scelta===st.giusta;return{ok:ok,tipo:ok?'ok':'no',chiave:ok?'scegli_ok':'scegli_no',pars:{nome:nomeZona(st,st.giusta)},dati:{scelta:R.scelta,giusta:st.giusta}}}
+ if(st.tipo==='collega'){var tot=st.etichette.length,posti=Object.keys(R.pos).length;
+  if(posti<tot)return{ok:false,tipo:'info',chiave:'collega_manca',dati:{posizioni:R.pos},senzaTentativo:true};
+  var sbagl=st.etichette.filter(function(e){return R.pos[e.id]!==e.zona}).length;
+  return{ok:sbagl===0,tipo:sbagl?'no':'ok',chiave:sbagl?'collega_no':'collega_ok',pars:{k:sbagl},dati:{posizioni:JSON.parse(JSON.stringify(R.pos)),sbagliate:sbagl}}}
+ if(st.tipo==='freccia'){var t=ultimoTratto(R);if(!t||pathLen(t.p)<60)return{ok:false,tipo:'info',chiave:'freccia_manca',dati:{},senzaTentativo:true};
+  var p0=t.p[0],p1=t.p[t.p.length-1],m=24,dr=st.da.rett,ar=st.a.rett,d={da:[Math.round(p0[0]),Math.round(p0[1])],a:[Math.round(p1[0]),Math.round(p1[1])]};
+  var pars={da:st.da.nome,a:st.a.nome};
+  if(!dentro(p0,dr,m))return{ok:false,tipo:'no',chiave:'freccia_da',pars:pars,dati:d};
+  if(!dentro(p1,ar,m))return{ok:false,tipo:'no',chiave:'freccia_a',pars:pars,dati:d};
+  return{ok:true,tipo:'ok',chiave:'freccia_ok',pars:pars,dati:d}}
+ return{ok:false,tipo:'no',chiave:'scegli_manca',dati:{}}}
+function pathLen(p){var s=0;for(var i=1;i<p.length;i++)s+=Math.hypot(p[i][0]-p[i-1][0],p[i][1]-p[i-1][1]);return s}
+
+/* ================= Disegno ================= */
+function tracciaTratti(ctx,tratti,freccia){ctx.lineCap='round';ctx.lineJoin='round';
+ tratti.forEach(function(t){ctx.strokeStyle=t.c;ctx.fillStyle=t.c;ctx.lineWidth=t.w;ctx.globalCompositeOperation=t.e?'destination-out':'source-over';
+  ctx.beginPath();t.p.forEach(function(q,k){k?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])});if(t.p.length===1)ctx.lineTo(t.p[0][0]+.1,t.p[0][1]);ctx.stroke();
+  if(freccia&&!t.e&&t.p.length>1&&pathLen(t.p)>40){var f=t.p[t.p.length-1],b=null;for(var k=t.p.length-2;k>=0;k--){if(Math.hypot(f[0]-t.p[k][0],f[1]-t.p[k][1])>=22){b=t.p[k];break}}
+   if(b){var a=Math.atan2(f[1]-b[1],f[0]-b[0]),L1=30;ctx.globalCompositeOperation='source-over';ctx.beginPath();ctx.moveTo(f[0]+8*Math.cos(a),f[1]+8*Math.sin(a));
+    ctx.lineTo(f[0]-L1*Math.cos(a-.45),f[1]-L1*Math.sin(a-.45));ctx.lineTo(f[0]-L1*Math.cos(a+.45),f[1]-L1*Math.sin(a+.45));ctx.closePath();ctx.fill()}}});
+ ctx.globalCompositeOperation='source-over'}
+function ridisegna(){g.clearRect(0,0,W,H);var st=passoAttuale();tracciaTratti(g,S.R[S.i].tratti,st.tipo==='freccia')}
+function pos(ev){var r=dis.getBoundingClientRect();return[(ev.clientX-r.left)*W/r.width,(ev.clientY-r.top)*H/r.height]}
+function bloccato(){return !!S.R[S.i].chiuso}
+
+/* ================= Immagini ================= */
+function caricaImg(path){
+ if(S.imgs[path])return S.imgs[path];
+ var v=spec.versione?('v='+encodeURIComponent(spec.versione)):'';
+ var url=path+(path.indexOf('?')<0&&v?('?'+v):'');
+ S.imgs[path]=new Promise(function(res,rej){var im=new Image();im.onload=function(){res(im)};im.onerror=function(){rej(new Error('immagine '+path))};im.src=url});
+ return S.imgs[path]}
+function sfondoDi(st){return st.sfondo||spec.sfondo}
+
+/* ================= Interfaccia ================= */
+var app;
+function costruisci(){
+ app.innerHTML='';
+ if(!cfg.invio){var b=E('div','banner');b.id='banner';righe(ui('banner_prova'),b);app.appendChild(b)}
+ var h=E('h1');righe(tx(spec.titolo),h);app.appendChild(h);
+ app.appendChild(E('div','prog')).id='prog';
+ var c=E('div','compito');c.innerHTML='<span class="passo" id="n"></span><div id="testo"></div>';app.appendChild(c);
+ var lav=E('div','lav');lav.id='lav';lav.style.setProperty('--ar',(W/H).toFixed(4));
+ lav.innerHTML='<canvas id="sfondo" width="'+W+'" height="'+H+'"></canvas><canvas id="dis" width="'+W+'" height="'+H+'"></canvas><div id="ov"></div>';app.appendChild(lav);
+ app.appendChild(E('div')).id='vassoio';
+ var sb=E('div','barra');sb.id='strum';app.appendChild(sb);
+ var ab=E('div','barra');ab.id='azioni';app.appendChild(ab);
+ app.appendChild(E('div')).id='esito';
+ app.appendChild(E('div')).id='fine';
+ sf=$('sfondo');dis=$('dis');g=dis.getContext('2d');sfg=sf.getContext('2d');
+ dis.addEventListener('pointerdown',function(ev){if(bloccato())return;dis.setPointerCapture(ev.pointerId);var R=S.R[S.i];cur={c:COLORI[penna]||penna,w:gomma?28:7,e:gomma,p:[pos(ev)]};R.tratti.push(cur);ridisegna();ev.preventDefault()});
+ dis.addEventListener('pointermove',function(ev){if(!cur)return;cur.p.push(pos(ev));ridisegna()});
+ ['pointerup','pointercancel'].forEach(function(n){dis.addEventListener(n,function(){cur=null})});
+ $('ov').addEventListener('pointerup',function(ev){var st=passoAttuale();if(st.tipo!=='scegli'||bloccato())return;var r=$('ov').getBoundingClientRect(),pt=[(ev.clientX-r.left)*W/r.width,(ev.clientY-r.top)*H/r.height];
+  var z=zonaIn(st.zone,pt);if(z){S.R[S.i].scelta=z.id;rendiZone()}})
+}
+function zonaIn(zone,pt){var c=(zone||[]).filter(function(z){return dentro(pt,z.rett)});c.sort(function(a,b){return area(a.rett)-area(b.rett)});return c[0]||null}
+function barraStrumenti(st){
+ var sb=$('strum');sb.innerHTML='';
+ if(st.tipo==='scegli'||st.tipo==='collega')return;
+ var pens=spec.penne||['rosso','blu','nero'];
+ pens.forEach(function(nm){var b=E('button','col'+(nm===penna&&!gomma?' sel':''));b.style.background=COLORI[nm]||nm;b.setAttribute('aria-label',lab(PENNA_UI[nm]||'penna_rossa'));b.dataset.p=nm;
+  b.onclick=function(){penna=nm;gomma=false;barraStrumenti(passoAttuale())};sb.appendChild(b)});
+ var bg=E('button',gomma?'sel':'',lab('gomma'));bg.onclick=function(){gomma=true;barraStrumenti(passoAttuale())};sb.appendChild(bg);
+ var an=E('button','',lab('annulla'));an.id='annulla';an.onclick=function(){if(!bloccato()){S.R[S.i].tratti.pop();ridisegna()}};sb.appendChild(an);
+ var pu=E('button','',lab('pulisci'));pu.id='pulisci';pu.onclick=function(){if(!bloccato()){S.R[S.i].tratti=[];ridisegna()}};sb.appendChild(pu)}
+function rendiZone(){
+ var st=passoAttuale(),R=S.R[S.i],ov=$('ov');ov.innerHTML='';ov.className=st.tipo==='scegli'?'sc':'';
+ var mostra=(st.tipo==='scegli'&&st.zone_visibili!==false)||(st.tipo==='collega'&&st.zone_visibili!==false);
+ if(st.tipo==='scegli'||st.tipo==='collega'){
+  (st.zone||[]).forEach(function(z){var d=E('div','zona'),r=z.rett;d.dataset.z=z.id;
+   d.style.cssText='left:'+(r[0]/W*100)+'%;top:'+(r[1]/H*100)+'%;width:'+((r[2]-r[0])/W*100)+'%;height:'+((r[3]-r[1])/H*100)+'%';
+   if(!mostra)d.style.border='none';
+   if(st.tipo==='scegli'&&R.scelta===z.id){d.classList.add('sel');if(R.stato==='ok')d.classList.add('giusta');else if(R.stato==='da_rifare'&&R.scelta!==st.giusta)d.classList.add('sbagliata')}
+   ov.appendChild(d)})}
+ if(st.tipo==='collega')rendiCollega()}
+function chipEl(e){var c=E('div','chip');c.dataset.e=e.id;tx(e.testo).forEach(function(x){var d=E('div');d.lang=x.l;if(x.l==='ar')d.dir='rtl';d.textContent=x.t;c.appendChild(d)});return c}
+function rendiCollega(){
+ var st=passoAttuale(),R=S.R[S.i],ov=$('ov'),vs=$('vassoio');vs.innerHTML='';vs.style.display='flex';
+ Array.prototype.slice.call(ov.querySelectorAll('.chip')).forEach(function(c){c.remove()});
+ st.etichette.forEach(function(e){var c=chipEl(e),zid=R.pos[e.id];
+  if(zid){var z=st.zone.filter(function(z){return z.id===zid})[0],r=z.rett;c.style.left=((r[0]+r[2])/2/W*100)+'%';c.style.top=((r[1]+r[3])/2/H*100)+'%';
+   if(R.stato==='ok')c.classList.add('giusto');else if(R.stato==='da_rifare'&&zid!==e.zona)c.classList.add('sbagliato');ov.appendChild(c)}
+  else vs.appendChild(c);
+  c.addEventListener('pointerdown',function(ev){if(bloccato())return;ev.preventDefault();trascina(e,c,ev)})})}
+function trascina(e,c,ev){
+ var R=S.R[S.i],st=passoAttuale(),v=c.cloneNode(true);v.classList.add('volo');document.body.appendChild(v);
+ function muovi(x,y){v.style.left=x+'px';v.style.top=y+'px'}muovi(ev.clientX,ev.clientY);c.style.opacity='.35';
+ function su(ev2){document.removeEventListener('pointermove',mv);document.removeEventListener('pointerup',su);document.removeEventListener('pointercancel',su);v.remove();
+  var r=$('ov').getBoundingClientRect(),pt=[(ev2.clientX-r.left)*W/r.width,(ev2.clientY-r.top)*H/r.height],z=(ev2.type==='pointercancel')?null:zonaIn(st.zone,pt);
+  delete R.pos[e.id];
+  if(z){Object.keys(R.pos).forEach(function(k){if(R.pos[k]===z.id)delete R.pos[k]});R.pos[e.id]=z.id}
+  rendiCollega()}
+ function mv(ev2){muovi(ev2.clientX,ev2.clientY)}
+ document.addEventListener('pointermove',mv);document.addEventListener('pointerup',su);document.addEventListener('pointercancel',su)}
+
+function progressi(){var p=$('prog');p.innerHTML='';S.passi.forEach(function(st,k){var R=S.R[k],i=E('i');
+ if(R.stato==='ok')i.className='ok';else if(R.stato==='da_rifare')i.className='no';else if(R.stato==='da_valutare')i.className='info';
+ if(k===S.i&&!S.fine)i.classList.add('ora');p.appendChild(i)})}
+function mostra(){
+ var st=passoAttuale(),R=S.R[S.i];
+ if(S.t0==null)S.t0=Date.now();
+ $('fine').innerHTML='';$('fine').style.display='none';
+ $('n').textContent=lab('compito',{n:S.i+1,t:S.passi.length});
+ var tb=$('testo');tb.innerHTML='';righe(tx(st.testo),tb);
+ if(st.tipo==='collega')righe(ui('collega_aiuto'),tb);
+ caricaImg(sfondoDi(st)).then(function(im){sfg.clearRect(0,0,W,H);sfg.drawImage(im,0,0,W,H)}).catch(function(){sfg.fillStyle='#eee';sfg.fillRect(0,0,W,H)});
+ var vs=$('vassoio');vs.innerHTML='';vs.style.display='none';
+ if(st.tipo==='cerchia'||st.tipo==='disegna'||st.tipo==='freccia'){penna=st.penna||penna;if(!(spec.penne||['rosso','blu','nero']).includes(penna))penna='rosso'}
+ gomma=false;barraStrumenti(st);ridisegna();rendiZone();progressi();
+ var e=$('esito');e.style.display='none';
+ var ab=$('azioni');ab.innerHTML='';
+ var bc=E('button','blu',lab(st.tipo==='disegna'?'fatto':'controlla'));bc.id='controlla';bc.onclick=controlla;ab.appendChild(bc);
+ var bp=E('button','verde',lab('prossimo'));bp.id='prossimo';bp.style.display='none';bp.onclick=avanti;ab.appendChild(bp);
+ var bs=E('button','',lab('salta'));bs.id='salta';bs.style.display='none';bs.onclick=function(){S.R[S.i].stato='da_rifare';S.R[S.i].saltato=true;chiudiPasso({tipo:'no',chiave:null})};ab.appendChild(bs);
+ if(R.chiuso)chiudiPasso(null)}
+function msg(r){var e=$('esito');e.className=r.tipo;e.innerHTML='';righe(ui(r.chiave,r.pars||{}),e);e.style.display='block'}
+function controlla(){
+ var st=passoAttuale(),R=S.R[S.i];if(bloccato())return;
+ var r=giudica();msg(r);
+ if(!r.senzaTentativo&&!(r.ok===false&&r.chiave==='disegna_manca')){R.tentativi++}
+ R.dati=r.dati||{};
+ if(r.ok===true){R.stato='ok';chiudiPasso(r)}
+ else if(r.ok===null){R.stato='da_valutare';chiudiPasso(r)}
+ else{ /* sbagliato: si può riprovare; dopo tentativi_max compare «Vai avanti lo stesso» */
+  var max=spec.tentativi_max!=null?spec.tentativi_max:3;
+  if(R.tentativi>=max){$('salta').style.display='inline-block'}
+  if(st.tipo==='scegli'||st.tipo==='collega')rendiZone()}}
+function chiudiPasso(r){
+ var st=passoAttuale(),R=S.R[S.i];R.chiuso=true;
+ $('controlla').style.display='none';$('salta').style.display='none';
+ var ult=S.i===S.passi.length-1;
+ if(!ult){$('prossimo').style.display='inline-block'}
+ else{$('prossimo').style.display='none';finePasso()}
+ rendiZone();progressi();ridisegna()}
+function avanti(){if(S.i<S.passi.length-1){S.i++;mostra()}}
+
+/* ================= Fine, risultato, foglio PNG ================= */
+function semplifica(p){var o=[],ul=null;p.forEach(function(q,k){if(!ul||Math.hypot(q[0]-ul[0],q[1]-ul[1])>=3||k===p.length-1){o.push(Math.round(q[0]),Math.round(q[1]));ul=q}});return o.slice(0,4000)}
+function nomeColore(c){for(var k in COLORI)if(COLORI[k]===c)return k;return c}
+function risultato(){
+ var tot=S.passi.length,giu=0,rif=0,val=0,nf=0;
+ var passi=S.passi.map(function(st,k){var R=S.R[k],es=R.stato==='ok'?'giusto':R.stato==='da_rifare'?'da_rifare':R.stato==='da_valutare'?'da_valutare':'non_fatto';
+  if(es==='giusto')giu++;else if(es==='da_rifare')rif++;else if(es==='da_valutare')val++;else nf++;
+  return{id:st.id||('p'+(k+1)),tipo:st.tipo,posizione:k+1,esito:es,tentativi:R.tentativi,saltato:!!R.saltato,dati:R.dati||{},
+   tratti:R.tratti.map(function(t){return{c:nomeColore(t.c),w:t.w,e:t.e?1:0,p:semplifica(t.p)}})}});
+ var auto=S.passi.filter(function(st){return st.tipo!=='disegna'}).length;
+ return{specId:spec.id,versione:spec.versione||'',nonce:S.nonce,ora:new Date().toISOString(),durata:Math.round((Date.now()-(S.t0||Date.now()))/1000),
+  lingue:L,ordine:S.ordine,seme_origine:S.origine,
+  passi:passi,esiti:{totale:tot,giusti:giu,da_rifare:rif,da_valutare:val,non_fatti:nf,automatico:giu+' su '+auto}}}
+function rendiPasso(ctx,k,dx,dy,cw,ch){
+ var st=S.passi[k],R=S.R[k],sc=cw/W;
+ return caricaImg(sfondoDi(st)).then(function(im){
+  ctx.save();ctx.translate(dx,dy);ctx.scale(sc,sc);ctx.drawImage(im,0,0,W,H);
+  var t=E('canvas');t.width=W;t.height=H;tracciaTratti(t.getContext('2d'),R.tratti,st.tipo==='freccia');ctx.drawImage(t,0,0);
+  if(st.tipo==='scegli'&&R.scelta){var z=st.zone.filter(function(z){return z.id===R.scelta})[0];if(z){ctx.strokeStyle='#1f5fbf';ctx.lineWidth=6;ctx.strokeRect(z.rett[0],z.rett[1],z.rett[2]-z.rett[0],z.rett[3]-z.rett[1])}}
+  if(st.tipo==='collega'){st.etichette.forEach(function(e){var zid=R.pos[e.id];if(!zid)return;var z=st.zone.filter(function(z){return z.id===zid})[0],cx=(z.rett[0]+z.rett[2])/2,cy=(z.rett[1]+z.rett[3])/2,ls=tx(e.testo);
+   ctx.font='600 26px system-ui,sans-serif';ctx.textAlign='center';var w=0;ls.forEach(function(x){w=Math.max(w,ctx.measureText(x.t).width)});var hh=ls.length*32+10;
+   ctx.fillStyle='#fff8d6';ctx.strokeStyle='#8a6d00';ctx.lineWidth=3;ctx.fillRect(cx-w/2-10,cy-hh/2,w+20,hh);ctx.strokeRect(cx-w/2-10,cy-hh/2,w+20,hh);
+   ctx.fillStyle='#1c2430';ls.forEach(function(x,j){ctx.fillText(x.t,cx,cy-hh/2+30+j*32)})})}
+  ctx.restore()})}
+function foglio(cw){
+ var n=S.passi.length,cols=n>3?2:1;cw=cw||(cols===2?700:900);var ch=Math.round(cw*H/W),hd=34,c=E('canvas');
+ c.width=cols*cw;c.height=Math.ceil(n/cols)*(ch+hd);var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);
+ var ps=S.passi.map(function(st,k){var dx=(k%cols)*cw,dy=Math.floor(k/cols)*(ch+hd),R=S.R[k];
+  var col=R.stato==='ok'?'#1b7f3b':R.stato==='da_rifare'?'#c0262d':R.stato==='da_valutare'?'#1f5fbf':'#888';
+  x.fillStyle=col;x.fillRect(dx,dy,cw,hd);x.fillStyle='#fff';x.font='700 18px system-ui,sans-serif';x.textAlign='left';
+  x.fillText((k+1)+' · '+(st.id||'')+' · '+(R.stato==='ok'?'giusto':R.stato==='da_rifare'?'da rifare':R.stato==='da_valutare'?'da guardare':'non fatto'),dx+8,dy+23);
+  return rendiPasso(x,k,dx,dy+hd,cw,ch)});
+ return Promise.all(ps).then(function(){x.strokeStyle='#999';x.lineWidth=1;for(var k=0;k<n;k++){x.strokeRect((k%cols)*cw+.5,Math.floor(k/cols)*(ch+hd)+.5,cw-1,ch+hd-1)}return c})}
+function pngBase64(){
+ return foglio().then(function(c){var d=c.toDataURL('image/png');if(d.length>1900000)return foglio(480).then(function(c2){return c2.toDataURL('image/png')});return d})}
+function finePasso(){
+ S.fine=true;var f=$('fine');f.style.display='block';f.innerHTML='';
+ var m=E('div','compito');righe(ui('fine'),m);f.appendChild(m);
+ var rep=E('div','riepilogo');
+ S.passi.forEach(function(st,k){var R=S.R[k],cl=R.stato==='ok'?'ok':R.stato==='da_rifare'?'no':'info',k2=R.stato==='ok'?'giusto':R.stato==='da_rifare'?'da_rifare':'da_valutare';
+  var d=E('div',cl);d.textContent=(k+1)+' · '+lab(k2);rep.appendChild(d)});f.appendChild(rep);
+ var b=E('button','verde',lab('consegna'));b.id='consegna';b.onclick=consegna;f.appendChild(b);
+ var st=E('div');st.id='stato-invio';f.appendChild(st);progressi();
+ S.nonce=S.nonce||Array.prototype.map.call(crypto.getRandomValues(new Uint8Array(8)),function(x){return('0'+x.toString(16)).slice(-2)}).join('')}
+function statoInvio(tipo,k,pars){var s=$('stato-invio');s.innerHTML='';var e=E('div');e.id='esito2';e.className=tipo;e.style.cssText='margin:10px 0;padding:12px 14px;border-radius:8px;font-size:19px;border-left:6px solid;'+
+ (tipo==='ok'?'background:var(--verdebg);border-color:var(--verde)':tipo==='no'?'background:var(--rossobg);border-color:var(--rosso)':'background:var(--blubg);border-color:var(--blu)');righe(ui(k,pars||{}),e);s.appendChild(e);return s}
+function consegna(){
+ var bt=$('consegna');bt.disabled=true;statoInvio('info','invio_corso');
+ pngBase64().then(function(png){
+  var ris=risultato();S.ultimo={risultato:ris,png:png};memo('lavagna-'+spec.id,JSON.stringify(ris));
+  if(!cfg.invio){var s=statoInvio('info','prova_ok');
+   var a=E('a','bt',lab('scaricato'));a.href=png;a.download=spec.id+'.png';s.appendChild(a);
+   var dt=E('details');dt.innerHTML='<summary>risultato (solo prova, per il docente)</summary>';var pre=E('pre');pre.id='risultato-json';pre.textContent=JSON.stringify(ris,null,1);dt.appendChild(pre);s.appendChild(dt);
+   bt.disabled=false;return}
+  var payload=Object.assign({},ris,{png:png.replace(/^data:image\/png;base64,/,'')});
+  var body='d='+encodeURIComponent(JSON.stringify(payload));
+  fetch(cfg.invio,{method:'POST',mode:'no-cors',credentials:'include',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body}).catch(function(){});
+  var tent=0;
+  function chiedi(){tent++;
+   jsonp(cfg.invio+'?azione=ricevuta&specId='+encodeURIComponent(spec.id)+'&nonce='+S.nonce,7000).then(function(d){
+    if(d&&d.trovata){var ora=new Date(d.ora||Date.now()).toLocaleTimeString('it-IT',{hour:'2-digit',minute:'2-digit'});S.consegnato=true;
+     statoInvio(d.riconosciuto===false?'info':'ok',d.riconosciuto===false?'invio_senza_nome':'invio_ok',{ora:ora});bt.disabled=true;S.ricevuta=d}
+    else if(tent<7)setTimeout(chiedi,2500);else{statoInvio('no','invio_no');bt.disabled=false}
+   }).catch(function(){if(tent<7)setTimeout(chiedi,2500);else{statoInvio('no','invio_no');bt.disabled=false}})}
+  setTimeout(chiedi,1500)
+ }).catch(function(){statoInvio('no','invio_no');bt.disabled=false})}
+
+/* ================= Avvio ================= */
+function elenco(){
+ app.innerHTML='';var h=E('h1');h.textContent='Lavagna';app.appendChild(h);
+ var p=E('p');p.textContent=UI.it.carico;app.appendChild(p);
+ getJSON('spec/indice.json').then(function(ix){app.removeChild(p);
+  var tit=E('h2');tit.textContent=UI.it.elenco;tit.style.fontSize='19px';app.appendChild(tit);
+  var ul=E('ul','elenco');(ix.compiti||[]).forEach(function(c){var li=E('li'),a=E('a');a.href='?id='+encodeURIComponent(c.id);a.innerHTML='<b>'+esc(c.titolo&&c.titolo.it||c.id)+'</b><br><small>'+esc(c.classe||'')+' · '+esc(c.id)+' · '+(c.passi||'')+' compiti</small>';li.appendChild(a);ul.appendChild(li)});
+  if(!ul.children.length)p.textContent=UI.it.elenco_vuoto,app.appendChild(p);else app.appendChild(ul)
+ }).catch(function(){p.textContent=UI.it.elenco_vuoto})}
+function seme(){
+ if(spec.ordine!=='casuale'){S.origine='fisso';return Promise.resolve('')}
+ var loc=function(){var s=memo('lavagna-seme-'+spec.id);if(!s){s=Math.random().toString(36).slice(2,10);memo('lavagna-seme-'+spec.id,s)}S.origine='locale';return s};
+ if(!cfg.invio)return Promise.resolve(loc());
+ return jsonp(cfg.invio+'?azione=seme&specId='+encodeURIComponent(spec.id),4500).then(function(d){if(d&&d.seme){S.origine='server';return String(d.seme)}return loc()}).catch(function(){return loc()})}
+function caricaLingue(){return Promise.all(L.filter(function(l){return l!=='it'&&!UI[l]}).map(function(l){return getJSON('lingue/'+l+'.json').then(function(d){UI[l]=d}).catch(function(){})}))}
+function avvia(){
+ L=(spec.lingue||['it']).slice();if(q.get('bn')==='1'&&spec.classe==='3INF'&&L.indexOf('bn')<0)L.push('bn');
+ W=(spec.dimensioni&&spec.dimensioni[0])||1200;H=(spec.dimensioni&&spec.dimensioni[1])||700;
+ document.title='Lavagna: '+((spec.titolo&&spec.titolo.it)||spec.id);document.documentElement.lang=L[0];
+ caricaLingue().then(seme).then(function(sm){
+  S.seme=sm;var base=(spec.passi||[]).slice();S.passi=(spec.ordine==='casuale'&&sm)?mescola(base,sm+'|'+spec.id):base;
+  S.ordine=S.passi.map(function(s,k){return s.id||('p'+(k+1))});
+  S.R=S.passi.map(function(){return{stato:'da_fare',tentativi:0,tratti:[],scelta:null,pos:{},dati:{}}});
+  costruisci();mostra();
+  S.passi.forEach(function(st){caricaImg(sfondoDi(st)).catch(function(){})})})}
+function init(){
+ app=$('app');
+ var tema=q.get('tema');if(tema==='dark'||tema==='light')document.documentElement.setAttribute('data-theme',tema);
+ getJSON('config.json').catch(function(){return{}}).then(function(c){cfg=c||{};
+  var id=q.get('id');if(!id)return elenco();
+  if(!/^[a-z0-9-]{1,80}$/.test(id)){app.textContent=UI.it.non_trovato;return}
+  getJSON('spec/'+id+'.json').then(function(s){spec=s;avvia()}).catch(function(){app.innerHTML='';var p=E('p');p.textContent=UI.it.non_trovato;app.appendChild(p);var a=E('a','bt','Lavagna');a.href='./';app.appendChild(a)})})}
+window.__lavagna={stato:function(){return S},valutaCerchia:valutaCerchia,foglio:foglio,risultato:risultato,ultimo:function(){return S.ultimo},mescola:mescola,giudica:giudica,config:function(){return cfg}};
+init();
 })();
 </script>
+</body>
+</html>

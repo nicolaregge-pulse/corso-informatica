@@ -1,0 +1,147 @@
+{
+ "id": "prova-collega-freccia",
+ "versione": "1.0",
+ "classe": "1INF",
+ "lingue": [
+  "it",
+  "ar",
+  "zh"
+ ],
+ "titolo": {
+  "it": "Prova: etichette e freccia",
+  "ar": "تجربة: بطاقات وسهم",
+  "zh": "试用：标签和箭头"
+ },
+ "sfondo": "img/prova-computer.png?v=2",
+ "dimensioni": [
+  1200,
+  700
+ ],
+ "penne": [
+  "rosso",
+  "blu",
+  "nero"
+ ],
+ "tentativi_max": 3,
+ "passi": [
+  {
+   "id": "c1",
+   "tipo": "collega",
+   "testo": {
+    "it": "Metti ogni etichetta sulla parte giusta del computer.",
+    "ar": "ضع كل بطاقة على الجزء الصحيح من الكمبيوتر.",
+    "zh": "把每个标签放到电脑正确的部分上。"
+   },
+   "zone": [
+    {
+     "id": "schermo",
+     "rett": [
+      310,
+      40,
+      890,
+      500
+     ],
+     "nome": {
+      "it": "lo schermo",
+      "ar": "الشاشة",
+      "zh": "屏幕"
+     }
+    },
+    {
+     "id": "tastiera",
+     "rett": [
+      260,
+      500,
+      940,
+      660
+     ],
+     "nome": {
+      "it": "la tastiera",
+      "ar": "لوحة المفاتيح",
+      "zh": "键盘"
+     }
+    },
+    {
+     "id": "mouse",
+     "rett": [
+      980,
+      430,
+      1105,
+      650
+     ],
+     "nome": {
+      "it": "il mouse",
+      "ar": "الفأرة",
+      "zh": "鼠标"
+     }
+    }
+   ],
+   "etichette": [
+    {
+     "id": "e-mouse",
+     "zona": "mouse",
+     "testo": {
+      "it": "Mouse",
+      "ar": "الفأرة",
+      "zh": "鼠标"
+     }
+    },
+    {
+     "id": "e-schermo",
+     "zona": "schermo",
+     "testo": {
+      "it": "Schermo",
+      "ar": "الشاشة",
+      "zh": "屏幕"
+     }
+    },
+    {
+     "id": "e-tastiera",
+     "zona": "tastiera",
+     "testo": {
+      "it": "Tastiera",
+      "ar": "لوحة المفاتيح",
+      "zh": "键盘"
+     }
+    }
+   ]
+  },
+  {
+   "id": "f1",
+   "tipo": "freccia",
+   "sfondo": "img/prova-tastiera-cpu.png?v=2",
+   "penna": "rosso",
+   "testo": {
+    "it": "Con la penna rossa disegna una freccia dalla tastiera alla CPU.",
+    "ar": "ارسم بالقلم الأحمر سهما من لوحة المفاتيح إلى المعالج (CPU).",
+    "zh": "用红笔画一个箭头，从键盘指向处理器（CPU）。"
+   },
+   "da": {
+    "rett": [
+     40,
+     240,
+     480,
+     500
+    ],
+    "nome": {
+     "it": "la tastiera",
+     "ar": "لوحة المفاتيح",
+     "zh": "键盘"
+    }
+   },
+   "a": {
+    "rett": [
+     800,
+     230,
+     1080,
+     500
+    ],
+    "nome": {
+     "it": "la CPU",
+     "ar": "المعالج (CPU)",
+     "zh": "处理器（CPU）"
+    }
+   }
+  }
+ ]
+}
