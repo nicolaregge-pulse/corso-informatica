@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.1 (12/11/2026): la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.2 (12/11/2026): la vista «Quiz e voti» distingue MANCA (nessuna risposta, provato) da «NON ABBINATA» (risposte arrivate ma ancora da collegare a un allievo, cella ambra): non contano come mancanti ne come fatte, il voto proposto e provvisorio (*) e la riga dice «aspetta», mai email; contatore «Da abbinare»; motore Fabbrica v2.18. Prima, 2.1: la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -32,8 +32,8 @@ td.ok{background:var(--ok)}td.ko{background:var(--ko)}
 .nota{font-size:13px;color:#667;margin-top:10px}
 .scroll{overflow-x:auto}
 .chip{display:inline-block;min-width:54px;text-align:center;padding:3px 6px;border-radius:5px;font-weight:bold;color:#111}
-.chip.v{background:#a5d6a7}.chip.g{background:#fff59d}.chip.r{background:#ef9a9a}.chip.n{background:#ddd}
-td.nome{font-weight:bold;white-space:nowrap}td.nome.v{border-left:8px solid var(--verde)}td.nome.r{border-left:8px solid var(--rosso)}td.nome.n{border-left:8px solid #888}
+.chip.v{background:#a5d6a7}.chip.g{background:#fff59d}.chip.r{background:#ef9a9a}.chip.n{background:#ddd}.chip.a{background:#ffe082}
+td.nome{font-weight:bold;white-space:nowrap}td.nome.v{border-left:8px solid var(--verde)}td.nome.r{border-left:8px solid var(--rosso)}td.nome.n{border-left:8px solid #888}td.nome.a{border-left:8px solid #ffb300}
 td.voto{font-size:20px;font-weight:bold;text-align:center;white-space:nowrap}
 .conto{display:block;font-size:12px;font-weight:normal;color:#667;white-space:normal;min-width:160px;text-align:left}
 .vai{font-weight:bold}
@@ -72,7 +72,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
 <div class="assenti" id="assenti"></div>
 <div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: il foglio pubblicato («Situazione pubblica») ha già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque in «Nome I.»; i nomi non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». Il voto finale lo decide il docente.</div>
 <div class="nota" id="notaVecchia">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
-<div class="nota">Versione 2.1 · 12/11/2026</div>
+<div class="nota">Versione 2.2 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -175,6 +175,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     var m = /^(\d+)%\s*\((\d+)\/(\d+)\)(.*)$/.exec(c);
     if (m) return { t: 'ok', pct: +m[1], mg: +m[2], su: +m[3], prov: /provv/i.test(m[4]) };
     if (/^MANCA/i.test(c)) return { t: 'manca' };
+    if (/^NON ABBINATA/i.test(c)) return { t: 'nonabb' };
     return { t: 'nd' };
   }
   function parseSit(righe) {
@@ -219,7 +220,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     return (oggi.length ? oggi : quiz).map(function (q) { return q.id; });
   }
   function calcolaRiga(quiz, celle, sc) {
-    var fatti = [], manca = [], voti = [], conto = [], prov = false;
+    var fatti = [], manca = [], daAbb = [], voti = [], conto = [], prov = false;
     quiz.forEach(function (q, k) {
       if (sc.indexOf(q.id) < 0) return;
       var c = celle[k];
@@ -229,6 +230,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
         if (c.prov) prov = true;
         conto.push(q.corto + ' ' + c.pct + '% = ' + v + (c.prov ? ' (provv.)' : ''));
       } else if (c.t === 'manca') { manca.push(q); conto.push(q.corto + ' manca'); }
+      else if (c.t === 'nonabb') { daAbb.push(q); prov = true; conto.push(q.corto + ' risposta da abbinare (non contata)'); }
     });
     var voto = 40, txt;
     if (voti.length) {
@@ -240,7 +242,8 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     if (manca.length) vai = 'Fai il quiz «' + manca[0].label + '» (' + manca[0].corto + ')' + (manca.length > 1 ? ' e altri ' + (manca.length - 1) : '');
     else if (fatti.length) vai = 'Hai finito. Aspetta il prossimo passo.';
     else vai = 'Aspetta il prossimo quiz.';
-    return { fatti: fatti, manca: manca, voto: voto, conto: txt, prov: prov, vai: vai, stato: manca.length ? 'r' : (fatti.length ? 'v' : 'n') };
+    if (!manca.length && daAbb.length) vai = 'La tua risposta non e\u0027 ancora collegata al tuo nome. Aspetta.';
+    return { fatti: fatti, manca: manca, daAbb: daAbb, voto: voto, conto: txt, prov: prov, vai: vai, stato: manca.length ? 'r' : (daAbb.length ? 'a' : (fatti.length ? 'v' : 'n')) };
   }
   var ordinePer = 'voto';
   function disegnaSit(righe) {
@@ -267,7 +270,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
       return b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
     });
     var fin = pres.filter(function (r) { return r.stato === 'v'; }).length, mc = pres.filter(function (r) { return r.stato === 'r'; }).length;
-    $('conta').innerHTML = '<span style="background:#455a64">Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + fin + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mc + '</span>' + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
+    $('conta').innerHTML = '<span style="background:#455a64">Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + fin + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mc + '</span>' + (pres.filter(function (r) { return r.stato === 'a'; }).length ? '<span style="background:#ffe082;color:#111">Da abbinare ' + pres.filter(function (r) { return r.stato === 'a'; }).length + '</span>' : '') + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
     var nq = S.quiz.length;
     $('tab').querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + S.quiz.map(function (q) {
       return '<th><label><input type="checkbox" data-q="' + esc(q.id) + '"' + (sc.indexOf(q.id) >= 0 ? ' checked' : '') + '> Conta</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '<br>letto alle ' + esc(q.letto || '?') + '</small></th>';
@@ -276,6 +279,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
       return '<tr><td class="nome ' + r.stato + '">' + esc(r.lab) + '</td><td><input type="checkbox" data-a="' + r.h + '"></td>' + r.celle.map(function (x, k) {
         if (x.t === 'ok') return '<td><span class="chip ' + (x.pct >= 80 ? 'v' : 'g') + '">' + x.pct + '%' + (x.prov ? '*' : '') + '</span> <small>' + x.mg + '/' + x.su + '</small></td>';
         if (x.t === 'manca') return '<td><span class="chip r">MANCA</span></td>';
+        if (x.t === 'nonabb') return '<td><span class="chip a">NON ABBINATA</span></td>';
         return '<td><span class="chip n">non letto</span></td>';
       }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + '</td><td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
     }).join('');
