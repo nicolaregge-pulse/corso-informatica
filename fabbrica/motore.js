@@ -1,10 +1,10 @@
 /**
- * FABBRICA - MOTORE v2.18 (12/11/2026)
+ * FABBRICA - MOTORE v2.19 (12/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
  * TIPOLOGIA LEZIONE (decisione del docente 11/11/2026, v2.8): le 4 tipologie sono Esercitazione Lazarus (schede Consegne <CLASSE> + progetto Lazarus nella scheda Git), Quiz su Moduli, Versioning su GitHub (schede Utenti e Git <CLASSE>), Teoria a schede (Moduli creato da una scheda). Nei lavori di indice.json il campo e "tipologia_lezione" ("quiz" o "teoria"; il vecchio nome "tipologia" o "tipo" e accettato; se manca: id che comincia per "scheda-" = teoria, altrimenti quiz). Il "tipo" delle domande (multi, singola, testo, paragrafo) e un'altra cosa e non cambia.
- * Changelog: 2.18 abbinamento automatico email -> allievo nella scheda 'Situazione <CLASSE>' (per ogni classe con elenco di nomi): per ogni email che ha risposto a un quiz della classe e non e abbinata (scheda Email, Elenco Classroom o abbinamenti gia salvati) il motore prova prima la regola v2.15 (nome e cognome interi, qualunque ordine, qualunque dominio) poi, SOLO con dominio studenti.piamarta.it o piamarta.it, iniziale+cognome, nome+iniziale del cognome, cognome senza particella (De, El, Al, D'), primo nome di un nome composto, accenti e numeri finali ignorati; 'quasi uguale' (una lettera di differenza) e 'solo cognome' valgono solo come candidato; abbinamento SICURO = punteggio 85 o piu, un solo candidato ad almeno 15 punti sopra gli altri, e allievo libero (senza altra email) se il punteggio non e 100; gli abbinamenti sicuri si scrivono nella nuova scheda 'Abbinamenti <CLASSE>' (Email, Allievo, Fonte auto o docente, Aggiornato, Nota; mai cancellati; una riga con Allievo '-' = email da ignorare); i dubbi nella nuova scheda 'Abbinamenti da confermare <CLASSE>' (Email, Quiz, fino a 3 candidati, colonna Scelta dove il docente scrive OK = candidato 1, oppure 1, 2, 3, oppure NO = nessuno, oppure COGNOME Nome); al giro dopo il motore applica la scelta e la copia in 'Abbinamenti <CLASSE>' con Fonte docente; nella Situazione la cella e MANCA solo se l'allievo ha una email abbinata (nessuna risposta) oppure se per quel quiz non resta nessuna risposta da abbinare; altrimenti NON ABBINATA (risposte arrivate ma da abbinare, non contata come mancante ne come fatta); Stato ND per chi ha celle NON ABBINATA e nessun MANCA; riepilogo e riga 4 con i due conteggi separati; nuova colonna finale NON ABBINATA; la Situazione pubblica li copia senza email; 'Elenco <CLASSE>' (Moduli) e 'Sicurezza <CLASSE>' leggono 'Abbinamenti <CLASSE>'; 2.17 nuova scheda 'Situazione pubblica <CLASSE>' (1INF, 2INF, 3INF, 4TI) da pubblicare sul web per docs/cruscotto/: stesse colonne e stessa riga 1 (ora del dato) della scheda 'Situazione <CLASSE>', ma Allievo in formato 'Nome I.' (nome + iniziale del cognome, cognomi composti con particelle De, Di, El, Al ecc. gestiti, omonimi distinti con due lettere), SENZA email, SENZA note in fondo e SENZA altri dati personali (ogni email residua nei testi diventa '(email)'); se Allievo e un'email diventa 'Nome C.' dalla parte prima della chiocciola, altrimenti 'Allievo n'; la scheda 'Situazione <CLASSE>' con COGNOME Nome resta solo docente e invariata; la scheda pubblica in Indice come tipo Situazione (dopo quella docente), colore piu chiaro; 2.16 nuova scheda 'Elenco <CLASSE>' (colonne Email, Allievo COGNOME Nome come in Classroom, Fonte, Nota) per 1INF, 2INF, 3INF, 4TI: fonte primaria gli iscritti del corso Classroom (id dalla scheda Corsi, Courses.Students.list), fallback le email distinte delle schede 'Ris <id>' dei quiz attuali della classe (Allievo da 'Utenti <CLASSE>' per nome.cognome, abbinamento ambiguo = vuoto, Fonte 'Moduli'); una 'Email <CLASSE>' gia presente NON e mai sovrascritta (la scheda generata e separata); Situazione e Sicurezza leggono 'Email <CLASSE>' se c'e', altrimenti 'Elenco <CLASSE>' (solo righe Fonte Classroom); email con dominio diverso da studenti.piamarta.it e piamarta.it segnate 'dominio da controllare' in Nota (mai corrette); se l'API Classroom non risponde nessun errore: riga Avviso nella scheda e fallback; scheda Elenco in Indice come tipo Utenti; rilettura al massimo ogni 10 minuti; 2.15 scheda 'Situazione <CLASSE>': se mancano 'Email <CLASSE>' e 'Consegne <CLASSE>' l'elenco allievi viene dalla scheda 'Utenti <CLASSE>' (colonna C Allievo, COGNOME Nome), cosi chi non ha risposto a nessun quiz compare con MANCA; le email delle risposte si abbinano agli allievi per nome.cognome (riga 4: quanti abbinati e quanti no); avviso con il gesto preciso da fare (account PIAMARTA, un passo); 2.14 scheda 'Indice': righe 'Quiz' SOLO per gli id correnti di indice.json (una sola riga per id, Stato 'Attivo'); gli id vecchi di Esiti (Moduli sostituiti) diventano righe 'Quiz (vecchio)' con Stato 'Nascosta' e SENZA Link ragazzi, cosi il Pannello non li mostra; 2.13 FIX scheda 'Indice' e 'Quiz': niente piu formule HYPERLINK (il foglio e in italiano e rifiutava la virgola: #ERROR!); la colonna A di Indice e la colonna G di Quiz sono TESTO semplice (nome della scheda / 'Apri risultati'), il link cliccabile e messo con RichTextValue (setLinkUrl, indipendente dalla lingua) e, se non riesce, resta il testo; le righe 'Quiz' dell'Indice hanno Titolo e Link ragazzi da Esiti colonna D (mai link di modifica); 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.19 schede 'Consegne <CLASSE>' per i compiti di laboratorio (2INF; indice.json classroom.laboratorio): il motore legge da Classroom (id del corso dalla scheda Corsi) i compiti pubblicati con titolo 'G/M Ora N: argomento' del giorno piu recente (o del giorno fissato), e per ogni allievo scrive CONSEGNATO, RICONSEGNATO (restituito dal docente o consegnato di nuovo dopo la restituzione: conta come consegnato) oppure ASSEGNATO (da consegnare), conteggi Consegnati/Totali/Mancanti; nuova scheda 'Consegne pubblica <CLASSE>' con solo 'Nome I.' e nessuna email (stessa riga 1 con l'ora del dato); ogni classe Classroom ha il suo intervallo (laboratorio 2 minuti, le altre 10) e si leggono le classi dovute (al massimo 2 per giro) invece di una sola scelta dal minuto dell'ora (con il giro a minuti pari una classe poteva non avere mai il suo turno); il nome del corso si cerca anche senza badare a maiuscole e spazi e puo essere un elenco; se il corso di una classe di laboratorio non si trova, lo dice 'Ultimo errore' in Stato; le altre schede Consegne restano come prima; nessuna nuova tipologia lezione (il motore legge per classe e per titolo, non per tipologia); 2.18 abbinamento automatico email -> allievo nella scheda 'Situazione <CLASSE>' (per ogni classe con elenco di nomi): per ogni email che ha risposto a un quiz della classe e non e abbinata (scheda Email, Elenco Classroom o abbinamenti gia salvati) il motore prova prima la regola v2.15 (nome e cognome interi, qualunque ordine, qualunque dominio) poi, SOLO con dominio studenti.piamarta.it o piamarta.it, iniziale+cognome, nome+iniziale del cognome, cognome senza particella (De, El, Al, D'), primo nome di un nome composto, accenti e numeri finali ignorati; 'quasi uguale' (una lettera di differenza) e 'solo cognome' valgono solo come candidato; abbinamento SICURO = punteggio 85 o piu, un solo candidato ad almeno 15 punti sopra gli altri, e allievo libero (senza altra email) se il punteggio non e 100; gli abbinamenti sicuri si scrivono nella nuova scheda 'Abbinamenti <CLASSE>' (Email, Allievo, Fonte auto o docente, Aggiornato, Nota; mai cancellati; una riga con Allievo '-' = email da ignorare); i dubbi nella nuova scheda 'Abbinamenti da confermare <CLASSE>' (Email, Quiz, fino a 3 candidati, colonna Scelta dove il docente scrive OK = candidato 1, oppure 1, 2, 3, oppure NO = nessuno, oppure COGNOME Nome); al giro dopo il motore applica la scelta e la copia in 'Abbinamenti <CLASSE>' con Fonte docente; nella Situazione la cella e MANCA solo se l'allievo ha una email abbinata (nessuna risposta) oppure se per quel quiz non resta nessuna risposta da abbinare; altrimenti NON ABBINATA (risposte arrivate ma da abbinare, non contata come mancante ne come fatta); Stato ND per chi ha celle NON ABBINATA e nessun MANCA; riepilogo e riga 4 con i due conteggi separati; nuova colonna finale NON ABBINATA; la Situazione pubblica li copia senza email; 'Elenco <CLASSE>' (Moduli) e 'Sicurezza <CLASSE>' leggono 'Abbinamenti <CLASSE>'; 2.17 nuova scheda 'Situazione pubblica <CLASSE>' (1INF, 2INF, 3INF, 4TI) da pubblicare sul web per docs/cruscotto/: stesse colonne e stessa riga 1 (ora del dato) della scheda 'Situazione <CLASSE>', ma Allievo in formato 'Nome I.' (nome + iniziale del cognome, cognomi composti con particelle De, Di, El, Al ecc. gestiti, omonimi distinti con due lettere), SENZA email, SENZA note in fondo e SENZA altri dati personali (ogni email residua nei testi diventa '(email)'); se Allievo e un'email diventa 'Nome C.' dalla parte prima della chiocciola, altrimenti 'Allievo n'; la scheda 'Situazione <CLASSE>' con COGNOME Nome resta solo docente e invariata; la scheda pubblica in Indice come tipo Situazione (dopo quella docente), colore piu chiaro; 2.16 nuova scheda 'Elenco <CLASSE>' (colonne Email, Allievo COGNOME Nome come in Classroom, Fonte, Nota) per 1INF, 2INF, 3INF, 4TI: fonte primaria gli iscritti del corso Classroom (id dalla scheda Corsi, Courses.Students.list), fallback le email distinte delle schede 'Ris <id>' dei quiz attuali della classe (Allievo da 'Utenti <CLASSE>' per nome.cognome, abbinamento ambiguo = vuoto, Fonte 'Moduli'); una 'Email <CLASSE>' gia presente NON e mai sovrascritta (la scheda generata e separata); Situazione e Sicurezza leggono 'Email <CLASSE>' se c'e', altrimenti 'Elenco <CLASSE>' (solo righe Fonte Classroom); email con dominio diverso da studenti.piamarta.it e piamarta.it segnate 'dominio da controllare' in Nota (mai corrette); se l'API Classroom non risponde nessun errore: riga Avviso nella scheda e fallback; scheda Elenco in Indice come tipo Utenti; rilettura al massimo ogni 10 minuti; 2.15 scheda 'Situazione <CLASSE>': se mancano 'Email <CLASSE>' e 'Consegne <CLASSE>' l'elenco allievi viene dalla scheda 'Utenti <CLASSE>' (colonna C Allievo, COGNOME Nome), cosi chi non ha risposto a nessun quiz compare con MANCA; le email delle risposte si abbinano agli allievi per nome.cognome (riga 4: quanti abbinati e quanti no); avviso con il gesto preciso da fare (account PIAMARTA, un passo); 2.14 scheda 'Indice': righe 'Quiz' SOLO per gli id correnti di indice.json (una sola riga per id, Stato 'Attivo'); gli id vecchi di Esiti (Moduli sostituiti) diventano righe 'Quiz (vecchio)' con Stato 'Nascosta' e SENZA Link ragazzi, cosi il Pannello non li mostra; 2.13 FIX scheda 'Indice' e 'Quiz': niente piu formule HYPERLINK (il foglio e in italiano e rifiutava la virgola: #ERROR!); la colonna A di Indice e la colonna G di Quiz sono TESTO semplice (nome della scheda / 'Apri risultati'), il link cliccabile e messo con RichTextValue (setLinkUrl, indipendente dalla lingua) e, se non riesce, resta il testo; le righe 'Quiz' dell'Indice hanno Titolo e Link ragazzi da Esiti colonna D (mai link di modifica); 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -179,7 +179,7 @@ function FB_stato_(ss) {
     ['Moduli', n],
     ['Risposte totali', tot],
     ['Ultimo errore', FB_ultimoErrore_()],
-    ['Motore', '2.18']
+    ['Motore', '2.19']
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
 }
@@ -533,8 +533,14 @@ function CR_corsi_() {
   } while (tok);
   return out;
 }
+function CR_norm_(t) { return String(t || '').toLowerCase().replace(/\s+/g, ' ').trim(); }
 function CR_classe_(nome, mappa) {
   for (var c in mappa) { if (mappa[c] && String(nome).indexOf(mappa[c]) >= 0) return c; }
+  /* v2.19: seconda prova senza maiuscole e con spazi uguali; il valore puo essere anche un elenco di nomi */
+  for (var c2 in mappa) {
+    var v = mappa[c2], l = Object.prototype.toString.call(v) === '[object Array]' ? v : [v];
+    for (var i = 0; i < l.length; i++) { if (l[i] && CR_norm_(nome).indexOf(CR_norm_(l[i])) >= 0) return c2; }
+  }
   return '-';
 }
 function CR_nome_(s) {
@@ -568,6 +574,8 @@ function CR_scheda_(ss, classe, corso, cfg) {
     lavori = lavori.concat(r.courseWork || []); tok = r.nextPageToken || null;
   } while (tok);
   lavori = lavori.filter(function (w) { return w.workType === 'ASSIGNMENT'; });
+  var lab = CR_lab_(cfg, classe);
+  if (lab) { CR_labScheda_(ss, classe, id, studenti, lavori, lab); return; }
   lavori.sort(function (a, b) { return String(b.creationTime) < String(a.creationTime) ? -1 : 1; });
   lavori = lavori.slice(0, N);
   var cons = {};
@@ -624,10 +632,111 @@ function FB_classroom_(ss, indice, t0) {
     FB_p_().setProperty('FB_CORSI_T', String(Date.now()));
   }
   corsi.forEach(function (c) { var k = CR_classe_(c.name, mappa); if (k !== '-' && !trovati[k]) trovati[k] = c; });
-  for (var k in mappa) if (trovati[k]) ordine.push(k);
+  for (var k in mappa) {
+    if (trovati[k]) ordine.push(k);
+    else if (CR_lab_(cfg, k)) FB_ERRS.push("Consegne " + k + ": corso Classroom non trovato (cerco un corso attivo il cui nome contiene '" + (Object.prototype.toString.call(mappa[k]) === '[object Array]' ? mappa[k].join("' o '") : mappa[k]) + "'; nomi dei corsi nella scheda Corsi)");
+  }
   if (!ordine.length) return;
-  var cl = ordine[Math.floor(new Date().getMinutes() / 1) % ordine.length];
-  CR_scheda_(ss, cl, trovati[cl], cfg);
+  /* v2.19: ogni classe ha il suo intervallo (laboratorio: 2 minuti, le altre: ogni_minuti, 10) e si leggono le classi dovute, la piu vecchia prima, al massimo 2 per giro; prima si leggeva una classe sola in base al minuto dell'ora e una classe poteva non toccare mai il suo turno */
+  var T = FB_json_('FB_CR_T'), ora = Date.now(), dovute = [];
+  ordine.forEach(function (c) {
+    var lb = CR_lab_(cfg, c), mx = (lb ? lb.ogni : (Number(cfg.ogni_minuti) || 10)) * 60000 - 20000;
+    var nome = 'Consegne ' + c;
+    if (!ss.getSheetByName(nome) || ora - Number(T[c] || 0) >= mx) dovute.push(c);
+  });
+  dovute.sort(function (a, b) {
+    var la = CR_lab_(cfg, a) ? 0 : 1, lb2 = CR_lab_(cfg, b) ? 0 : 1;
+    return la - lb2 || Number(T[a] || 0) - Number(T[b] || 0);
+  });
+  dovute.slice(0, 2).forEach(function (cl) {
+    if (Date.now() - t0 > 200000) return;
+    try { CR_scheda_(ss, cl, trovati[cl], cfg); T[cl] = Date.now(); FB_salva_('FB_CR_T', T); }
+    catch (e) { FB_errore_(ss, 'Consegne ' + cl, e); }
+  });
+}
+
+/* ---------- v2.19: Consegne dei compiti di laboratorio per classe (2INF): un compito di Classroom «G/M Ora N: argomento» ---------- */
+function CR_lab_(cfg, classe) {
+  var l = cfg && cfg.laboratorio && cfg.laboratorio[classe];
+  if (!l) return null;
+  if (l === true) l = {};
+  return { titolo: l.titolo || '^\\s*\\d{1,2}\\s*/\\s*\\d{1,2}\\s+Ora\\s*\\d', giorno: String(l.giorno || ''), ogni: Number(l.ogni_minuti) || 2 };
+}
+function CR_giorno_(t) {
+  var m = /^\s*(\d{1,2})\s*\/\s*(\d{1,2})/.exec(String(t || ''));
+  return m ? ('0' + m[1]).slice(-2) + '/' + ('0' + m[2]).slice(-2) : '';
+}
+function CR_oraN_(t) { var m = /Ora\s*(\d+)/i.exec(String(t || '')); return m ? Number(m[1]) : 99; }
+/* stato di una consegna: CONSEGNATO (consegnato), RICONSEGNATO (restituito dal docente, oppure consegnato di nuovo dopo la restituzione: conta come consegnato), ASSEGNATO (ancora da consegnare, anche se la consegna e stata annullata) */
+function CR_statoSub_(s) {
+  if (s.state === 'RETURNED') return 'RICONSEGNATO';
+  if (s.state === 'TURNED_IN') {
+    var h = s.submissionHistory || [];
+    for (var i = 0; i < h.length; i++) if (h[i] && h[i].stateHistory && h[i].stateHistory.state === 'RETURNED') return 'RICONSEGNATO';
+    return 'CONSEGNATO';
+  }
+  return 'ASSEGNATO';
+}
+function CR_labScheda_(ss, classe, id, studenti, lavori, lab) {
+  var re = new RegExp(lab.titolo, 'i'), i, j, tok, r;
+  var cand = lavori.filter(function (w) { return re.test(String(w.title || '')); });
+  var giorno = lab.giorno ? CR_giorno_(lab.giorno) : '';
+  if (!giorno && cand.length) {
+    cand.sort(function (a, b) { return String(b.creationTime) < String(a.creationTime) ? -1 : 1; });
+    giorno = CR_giorno_(cand[0].title);
+  }
+  var comp = cand.filter(function (w) { return CR_giorno_(w.title) === giorno; });
+  comp.sort(function (a, b) { return CR_oraN_(a.title) - CR_oraN_(b.title) || (String(a.creationTime) < String(b.creationTime) ? -1 : 1); });
+  var stato = {};
+  comp.forEach(function (w) {
+    tok = null; stato[w.id] = {};
+    do {
+      r = Classroom.Courses.CourseWork.StudentSubmissions.list(id, w.id, { pageSize: 100, pageToken: tok || undefined });
+      (r.studentSubmissions || []).forEach(function (s) { stato[w.id][s.userId] = CR_statoSub_(s); });
+      tok = r.nextPageToken || null;
+    } while (tok);
+  });
+  var T = comp.length, ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3, ND: 4 };
+  var righe = studenti.map(function (s) {
+    var cons = 0, ass = 0, celle = comp.map(function (w) {
+      var x = stato[w.id][s.userId];
+      if (!x) return '-';
+      if (x === 'ASSEGNATO') ass++; else cons++;
+      return x;
+    });
+    var st = T === 0 ? 'ND' : ass === 0 ? 'VERDE' : ass === 1 ? 'GIALLO' : ass <= 3 ? 'ARANCIO' : 'ROSSO';
+    var em = (s.profile && s.profile.emailAddress) || '';
+    return { st: st, nome: CR_nome_(s), em: em, celle: celle, cons: cons, tot: cons + ass, ass: ass };
+  });
+  righe.sort(function (a, b) { return ord[a.st] - ord[b.st] || (a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0); });
+  var ora = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
+  var testaT = comp.map(function (w) { return String(w.title || '').slice(0, 60); });
+  var tuttiT = righe.filter(function (x) { return T > 0 && x.ass === 0 && x.tot === T; }).length;
+  var almenoUno = righe.filter(function (x) { return x.cons > 0; }).length;
+  var rie = T === 0
+    ? "RIEPILOGO: nessun compito di Classroom con titolo «G/M Ora N: argomento» trovato in " + classe + " (compiti pubblicati, tipo Compito). " + righe.length + " allievi nel corso."
+    : 'RIEPILOGO: ' + righe.length + ' allievi · compiti del ' + giorno + ': ' + T + ' · ' + tuttiT + ' hanno consegnato tutti i ' + T + ' · ' + almenoUno + ' ne hanno consegnato almeno uno · ' + (righe.length - almenoUno) + ' non ne hanno consegnato nessuno';
+  var leg = 'CONSEGNATO = consegnato · RICONSEGNATO = restituito dal docente o consegnato di nuovo dopo la restituzione (conta come consegnato) · ASSEGNATO = ancora da consegnare (anche consegna annullata) · - = compito non assegnato a questo allievo. VERDE = tutto consegnato · GIALLO = ne manca 1 · ARANCIO = ne mancano 2-3 · ROSSO = 4 o piu · ND = nessun compito letto. Compiti letti (pubblicati): ' + (T ? comp.map(function (w) { return String(w.title || '').slice(0, 60); }).join(' | ') : 'nessuno') + '.';
+  var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a', ND: '#e0e0e0' };
+  function scrivi(nome, testa, dati, riga1, riga2, riga3) {
+    var sh = ss.getSheetByName(nome) || ss.insertSheet(nome);
+    sh.clear();
+    sh.getRange(1, 1).setValue(riga1).setFontWeight('bold');
+    sh.getRange(2, 1).setValue(riga2);
+    sh.getRange(3, 1).setValue(riga3);
+    sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
+    if (dati.length) sh.getRange(5, 1, dati.length, testa.length).setValues(dati);
+    for (var k = 0; k < dati.length; k++) sh.getRange(5 + k, 1).setBackground(col[dati[k][0]] || '#fff').setFontWeight('bold');
+  }
+  /* scheda docente: Stato, Allievo (COGNOME Nome), Email, un compito per colonna, conteggi, Quiz migliori */
+  var testa = ['Stato', 'Allievo', 'Email'].concat(testaT, ['Consegnati', 'Totali', 'Mancanti', 'Quiz migliori']);
+  var dati = righe.map(function (x) { return [x.st, x.nome, x.em].concat(x.celle, [x.cons, x.tot, x.ass, x.em ? CR_quiz_(ss, classe, x.em) : '-']); });
+  scrivi('Consegne ' + classe, testa, dati, classe + ' · Consegne · dati letti alle ' + ora, leg, rie);
+  /* scheda pubblica: solo «Nome I.», nessuna email (v2.19) */
+  var lab2 = SM_brevi_(righe.map(function (x) { return x.nome; }));
+  var testaP = ['Stato', 'Allievo'].concat(testaT, ['Consegnati', 'Totali', 'Mancanti']);
+  var datiP = righe.map(function (x, k) { return [x.st, lab2[k]].concat(x.celle, [x.cons, x.tot, x.ass]); });
+  scrivi('Consegne pubblica ' + classe, testaP, datiP, classe + ' · Consegne (pubblica, solo Nome I.) · dati letti alle ' + ora, leg, rie);
 }
 
 /* ---------- Sicurezza 1INF per allievo (v2.6, solo docente) ---------- */
@@ -1334,6 +1443,7 @@ function IX_info_(nome, forms) {
   if (nome === 'Quiz migliori') return { g: 3, tipo: 'Esiti', classe: '', k: '3' };
   if (nome === 'Tipologie lezione') return { g: 4, tipo: 'Esiti', classe: '', k: '' };
   if (/^Utenti /.test(nome)) return { g: 5, tipo: 'Utenti', classe: c, k: '1' + c };
+  if (/^Consegne pubblica /.test(nome)) return { g: 5, tipo: 'Consegne', classe: c, k: '2' + c + 'z' };
   if (/^Consegne /.test(nome)) return { g: 5, tipo: 'Consegne', classe: c, k: '2' + c };
   if (/^(Cruscotto )?Git /.test(nome)) return { g: 5, tipo: 'Git', classe: c, k: '3' + c };
   if (/^Abbinamenti da confermare /.test(nome)) return { g: 5, tipo: 'Utenti', classe: c, k: '4' + c + 'zy' };
