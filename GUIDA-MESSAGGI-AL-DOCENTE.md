@@ -1,6 +1,6 @@
 # 00 Guida ai messaggi per il docente
 
-**Versione 1.4** — 12/11/2026 (prima: 1.3, 1.2, 1.1 del 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.5** — 12/11/2026 (prima: 1.4, 1.3, 1.2, 1.1 del 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio della regola R4 di `CLAUDE.md` (messaggi al docente). La regola breve sta lì; qui c'è il testo completo da cui nasce.
 
@@ -121,6 +121,13 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 3. **Schema esatto del pacchetto Classroom (approvato dal docente il 11/11, riconfermato il 12/11):** un solo messaggio. Prima riga: la cosa bloccante. Poi riga di quadratini rossi; titolo, oggetto e registro, ciascuno in un riquadro di codice; riga di quadratini **blu** e «📄 FILE DA ALLEGARE: la dispensa è qui sotto ⬇️»; **la scheda del PDF mandata con SendUserFile**; riga di quadratini **blu** (il blu sta SOLO intorno al file); poi nel rosso il quiz o altre note brevi; riga di quadratini rossi; riga «Non provato:». Il blu non si usa per testo, solo per incorniciare il file.
 4. Se il docente ha un PDF solo per sé (dispensa frontale), la sua scheda sta in un riquadro blu a parte, con il file mandato subito prima.
 
+## 03quater L'ORDINE di ogni ora (decisione del docente, 11/11 e 12/11/2026)
+
+1. **Dispensa docente (frontale):** si manda PER PRIMA, all'inizio dell'ora, con la scheda del PDF dentro una cornice blu. Il docente spiega alla lavagna.
+2. **Foto della lavagna:** le manda il docente. Fino a quel momento NON si danno titolo e oggetto.
+3. **Pacchetto per Classroom:** dopo le foto, un solo riquadro rosso (titolo, oggetto, registro) con la dispensa dei ragazzi dentro la cornice blu (sezione 03ter).
+4. **Quiz su Moduli:** verso la fine dell'ora, quando lo dice il docente, con domande aperte sul proprio PC e alcune a scelta (FRAMEWORK-QUIZ.md, capitolo «Quiz anti-AI»). Mai nel post iniziale.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
@@ -128,3 +135,4 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 8, 9, 20, 25, guida passo passo, regola copia).
 4. v1.3 (11/11/2026): nuova sezione 03bis, colori delle cornici: verde per i comunicati, rosso per Classroom, blu per i documenti, decisione del docente.
 5. v1.4 (12/11/2026): nuova sezione 03ter, il PDF si manda sempre come scheda da scaricare nello stesso messaggio, anche se già mandato; errore #285.
+6. v1.5 (12/11/2026): nuova sezione 03quater, ordine fisso di ogni ora: dispensa docente, foto, pacchetto Classroom, quiz a fine ora; errore #286.

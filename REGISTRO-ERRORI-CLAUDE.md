@@ -1511,3 +1511,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Alle 08:55 ho scritto un riquadro blu con il nome del PDF («è il file mandato qui sopra») senza mandare la scheda del file, per rispettare la vecchia regola «non rimandare lo stesso file». Il docente non lo trovava: «Non darmi MAI PIÙ una cosa del genere, sempre il riquadro PDF da scaricare, mettilo nelle note». Il formato era stato deciso il giorno prima (GUIDA-MESSAGGI sezione 03).
 2. **Strumento che lo corregge.** `GUIDA-MESSAGGI-AL-DOCENTE.md` v1.4, sezione 03ter: ogni PDF citato si manda con SendUserFile nello stesso messaggio, nel mezzo del riquadro; la regola #273 è superata. Da fare nel controllo automatico del messaggio: se c'è un riquadro blu con un nome .pdf e in quel turno non c'è SendUserFile, segnalare.
+
+## #286 (12/11/2026) Ordine dell'ora ignorato: pacchetto Classroom dato prima della dispensa docente e delle foto
+
+1. **Errore.** Il docente aveva deciso lo schema di ogni ora: 1) dispensa docente, 2) lui manda le foto, 3) io preparo titolo, oggetto e allegati, 4) quiz a fine ora. Ho dato titolo e oggetto per primi, il PDF dei ragazzi al posto della dispensa docente, e il PDF dentro un testo blu. «Hai sbagliato: 1 Dispensa docente… ti ho detto ieri come deve essere l'output».
+2. **Strumento che lo corregge.** `GUIDA-MESSAGGI-AL-DOCENTE.md` v1.5, sezione 03quater (ordine fisso) e 03ter (blu solo intorno al file). Da fare: un controllo nel messaggio finale che segnali un pacchetto Classroom senza una dispensa docente nello stesso giorno e senza foto ricevute.
