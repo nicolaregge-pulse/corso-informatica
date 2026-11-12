@@ -1506,3 +1506,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** COERENZA-DATI (errore #276) ha elencato 23 incoerenze, ma tre restavano false nei file a fine giornata: `PACCHETTO-3INF-ORE4-5.md` chiedeva una firma già fatta (voce 1), `PROPOSTA-RIEQUILIBRIO-1INF-v1.0.md` dava l'if then come svolto (voce 5), `PIANO-ANNUALE-1INF-v1.2.md` S0 «chiusura di if» (voce 6). Il docente: «ti prego di essere coerente coi dati».
 2. **Strumento che lo corregge.** Corrette a fine giornata (riservato, nota «corretto a fine giornata» nel testo). Il controllo coerenza deve correggere e non solo elencare. Controllo automatico: mancante.
+
+## #285 (12/11/2026) PDF dato solo come nome nel riquadro, senza la scheda da scaricare
+
+1. **Errore.** Alle 08:55 ho scritto un riquadro blu con il nome del PDF («è il file mandato qui sopra») senza mandare la scheda del file, per rispettare la vecchia regola «non rimandare lo stesso file». Il docente non lo trovava: «Non darmi MAI PIÙ una cosa del genere, sempre il riquadro PDF da scaricare, mettilo nelle note». Il formato era stato deciso il giorno prima (GUIDA-MESSAGGI sezione 03).
+2. **Strumento che lo corregge.** `GUIDA-MESSAGGI-AL-DOCENTE.md` v1.4, sezione 03ter: ogni PDF citato si manda con SendUserFile nello stesso messaggio, nel mezzo del riquadro; la regola #273 è superata. Da fare nel controllo automatico del messaggio: se c'è un riquadro blu con un nome .pdf e in quel turno non c'è SendUserFile, segnalare.

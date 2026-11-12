@@ -1,6 +1,6 @@
 # 00 Guida ai messaggi per il docente
 
-**Versione 1.3** — 11/11/2026 (prima: 1.2, 1.1 del 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.4** — 12/11/2026 (prima: 1.3, 1.2, 1.1 del 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio della regola R4 di `CLAUDE.md` (messaggi al docente). La regola breve sta lì; qui c'è il testo completo da cui nasce.
 
@@ -114,9 +114,17 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 3. **Blu** (🟦): solo i documenti (PDF e altri file mandati con SendUserFile: il file va subito sotto la riga della cornice).
 4. La prima riga di ogni messaggio resta la cosa bloccante, da sola; la cornice viene dopo.
 
+## 03ter Il PDF si manda SEMPRE come scheda da scaricare (decisione del docente, 12/11/2026)
+
+1. Ogni volta che nel messaggio c'è un PDF o un altro file per il docente, la **scheda del file va mandata con SendUserFile in quel messaggio**, anche se il file era già stato mandato prima. Scrivere solo il nome del file in un riquadro blu NON basta: il docente non lo trova («mettilo nelle note, MAI PIÙ»).
+2. Questo vale più della vecchia regola «non rimandare lo stesso file» (errore #273): un doppione «(1)» costa meno di un file che non si trova. Se il file non è cambiato si rimanda con lo stesso nome.
+3. **Schema esatto del pacchetto Classroom (approvato dal docente il 11/11, riconfermato il 12/11):** un solo messaggio. Prima riga: la cosa bloccante. Poi riga di quadratini rossi; titolo, oggetto e registro, ciascuno in un riquadro di codice; riga di quadratini **blu** e «📄 FILE DA ALLEGARE: la dispensa è qui sotto ⬇️»; **la scheda del PDF mandata con SendUserFile**; riga di quadratini **blu** (il blu sta SOLO intorno al file); poi nel rosso il quiz o altre note brevi; riga di quadratini rossi; riga «Non provato:». Il blu non si usa per testo, solo per incorniciare il file.
+4. Se il docente ha un PDF solo per sé (dispensa frontale), la sua scheda sta in un riquadro blu a parte, con il file mandato subito prima.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
 2. v1.1 (06/11/2026): note di allineamento a R4.3 (solo il prossimo passo, niente catene né tabelle).
 1. v1.0 (04/11/2026): prima versione, con il testo spostato da `CLAUDE.md` (regole 8, 9, 20, 25, guida passo passo, regola copia).
 4. v1.3 (11/11/2026): nuova sezione 03bis, colori delle cornici: verde per i comunicati, rosso per Classroom, blu per i documenti, decisione del docente.
+5. v1.4 (12/11/2026): nuova sezione 03ter, il PDF si manda sempre come scheda da scaricare nello stesso messaggio, anche se già mandato; errore #285.
