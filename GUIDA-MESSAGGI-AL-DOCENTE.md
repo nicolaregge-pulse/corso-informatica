@@ -181,6 +181,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 
 **TUTTI FANNO TUTTO (docente, 12/11/2026):** a ogni lezione, insieme ai kit, ricordo al docente CHI MANCA e COSA MANCA (compiti, documento, quiz), assenti compresi, che devono recuperare. Elenco per classe, COGNOME Nome, con la fonte e l'ora del dato, in cornice verde. Lo stato corrente sta in `report/RECUPERI-<CLASSE>-v1.0.md` nel riservato, aggiornato a ogni lezione.
 
+**OGNI DOCUMENTO HA I QUADRATINI BLU (docente, 12/11/2026):** qualsiasi PDF o file mandato al docente, anche fuori dai kit (dispensa frontale, report, esempi, aiuti), si manda così: riga di quadratini blu 🟦 con «📄 NOME DEL DOCUMENTO ⬇️», la scheda con SendUserFile, riga di quadratini blu 🟦. Mai una scheda PDF da sola.
+
 Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
 
 ## 04 Registro delle versioni
@@ -201,3 +203,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 14. v1.13 (12/11/2026): 03octies, turno pulito per consegnare un kit; niente colori se il formato non è rispettato; errore #293.
 15. v1.14 (12/11/2026): 03octies, frase vietata negli oggetti; al massimo «Seguirà il quiz.»
 16. v1.15 (12/11/2026): 03octies, tutti fanno tutto: a ogni lezione ricordare chi manca e cosa manca, assenti compresi.
+17. v1.16 (12/11/2026): 03octies, ogni documento con i quadratini blu, anche fuori dai kit; errore #309.

@@ -1632,3 +1632,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 1. **Errore.** Per togliere i cognomi dalla storia del pubblico avevo iniziato dal clone locale, che è shallow (storia troncata): un push forzato da lì avrebbe distrutto la storia vera su GitHub. Poi lo script è partito senza il file delle sostituzioni (creato dopo un comando che falliva) e `filter-repo` ha tolto il collegamento al remoto, quindi i primi 41 push sono falliti. Nessun danno: ho lavorato su una copia completa (`git clone --mirror`), con backup, verifica degli alberi e push con `--force-with-lease`.
 2. **Strumento.** Regola: la storia git si riscrive solo da un clone completo, mai da uno shallow (`git rev-parse --is-shallow-repository`); gli script di riscrittura controllano che il file delle sostituzioni esista e non nascondono gli errori con `| tail`; dopo `filter-repo` si rimette il remoto. Da fare: script `strumenti/riscrivi_storia.sh` con questi controlli.
 
+## #309 (12/11/2026) Documento mandato senza i quadratini blu
+
+1. **Errore.** La dispensa frontale della 6a ora l'ho mandata come scheda PDF da sola, senza la cornice blu, e prima l'avevo trattenuta perché il messaggio aveva il prefisso PPP anche se chiedeva «dammi». Il docente: «i documenti devono avere i quadratini blu a fianco».
+2. **Strumento.** GUIDA-MESSAGGI v1.16: ogni documento va in cornice blu, anche fuori dai kit. Da fare: controllo automatico che segnali un SendUserFile senza le righe blu nel messaggio.
+
