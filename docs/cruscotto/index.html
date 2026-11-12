@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.2 (12/11/2026): la vista «Quiz e voti» distingue MANCA (nessuna risposta, provato) da «NON ABBINATA» (risposte arrivate ma ancora da collegare a un allievo, cella ambra): non contano come mancanti ne come fatte, il voto proposto e provvisorio (*) e la riga dice «aspetta», mai email; contatore «Da abbinare»; motore Fabbrica v2.18. Prima, 2.1: la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.3 (12/11/2026): per la 2INF la vista «Quiz e voti» mostra anche i compiti consegnati (n su totale) e il punteggio dei quiz (media % dei quiz fatti, con * se provvisorio), e una riga di riepilogo (hanno consegnato, hanno fatto ogni quiz, non abbinati); i compiti arrivano dalla scheda «Consegne pubblica 2INF» del foglio Fabbrica (motore v2.19, solo «Nome I.», nessuna email), con un secondo link incollato una volta; la vista «Consegne» della 2INF legge la stessa scheda pubblica (mai quella con i cognomi). Prima, 2.2: la vista «Quiz e voti» distingue MANCA (nessuna risposta, provato) da «NON ABBINATA» (risposte arrivate ma ancora da collegare a un allievo, cella ambra): non contano come mancanti ne come fatte, il voto proposto e provvisorio (*) e la riga dice «aspetta», mai email; contatore «Da abbinare»; motore Fabbrica v2.18. Prima, 2.1: la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -41,6 +41,7 @@ th small{display:block;font-weight:normal;color:#667}
 th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
 #crit{display:none;border:3px solid var(--rosso);border-radius:8px;padding:10px 14px;margin:8px 0;background:var(--card);font-size:16px;line-height:1.5}
 .sit{display:none}.assenti{margin:10px 0;font-size:14px}
+.riep{display:none;border:2px solid var(--blu);border-radius:8px;padding:8px 12px;margin:8px 0;background:var(--card);font-size:16px;line-height:1.5}.riep small{color:#667}
 .assenti button,.ordine{font-size:14px;padding:6px 10px;border:1px solid var(--blu);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer;margin:2px}
 </style>
 </head>
@@ -65,14 +66,28 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   <button id="salva" type="button">Salva e carica</button>
   <span id="msg"></span>
 </div>
+<div class="cfg" id="cfg2">
+  <b>Compiti consegnati: una volta sola.</b> Per vedere anche i compiti di Classroom incolla il link della scheda <b>«Consegne pubblica 2INF»</b> (ha solo «Nome I.», senza email).
+  <ol>
+    <li>Nel foglio Google Fabbrica, apri la scheda «Consegne pubblica 2INF».</li>
+    <li>Clicca File, poi Condividi, poi Pubblica sul web.</li>
+    <li>Scegli proprio questa scheda (non Tutto il documento) e clicca Pubblica.</li>
+    <li>Copia il link e incollalo qui sotto.</li>
+  </ol>
+  <div><b>Attenzione:</b> non pubblicare la scheda «Consegne 2INF» senza «pubblica»: ha cognomi ed email.</div>
+  <input id="url2" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
+  <button id="salva2" type="button">Salva e carica</button>
+  <span id="msg2"></span>
+</div>
 <div id="crit"></div>
+<div class="riep" id="riep"></div>
 <div class="conta" id="conta"></div>
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
 <div class="assenti" id="assenti"></div>
 <div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: il foglio pubblicato («Situazione pubblica») ha già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque in «Nome I.»; i nomi non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». Il voto finale lo decide il docente.</div>
 <div class="nota" id="notaVecchia">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
-<div class="nota">Versione 2.2 · 12/11/2026</div>
+<div class="nota">Versione 2.3 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -83,8 +98,12 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   var ultimo = { righe: null, quando: null };
   function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
   function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-  function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + (t === 'situazione' ? 'situazionepub' : t); }
-  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione pubblica ' + c }, { id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
+  var CONS_PUB = ['2INF'];
+  function chiave(c, t) {
+    if (CONS_PUB.indexOf(c) >= 0 && (t === 'consegne' || t === 'consegnepub')) return 'cruscotto_csv_' + c + '_consegnepub';
+    return 'cruscotto_csv_' + c + '_' + (t === 'situazione' ? 'situazionepub' : t);
+  }
+  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione pubblica ' + c }, { id: 'consegne', nome: 'Consegne', scheda: (CONS_PUB.indexOf(c) >= 0 ? 'Consegne pubblica ' : 'Consegne ') + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
   function csv(t) {
     var r = [], row = [], c = '', q = false;
     for (var i = 0; i < t.length; i++) {
@@ -102,12 +121,12 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   function $(id) { return document.getElementById(id); }
   function cella(c, i) {
     if (i === 0) return '<td class="st" style="background:' + (COL[c.trim()] || '#888') + '">' + esc(c) + '</td>';
-    var cl = /consegnato/i.test(c) ? ' class="ok"' : (/mancante/i.test(c) ? ' class="ko"' : '');
+    var cl = /consegnato/i.test(c) ? ' class="ok"' : (/mancante|^assegnato/i.test(c.trim()) ? ' class="ko"' : '');
     return '<td' + cl + '>' + esc(c) + '</td>';
   }
   function disegna(righe) {
     if (statoCorr.vista === 'situazione') { ultimo.righe = righe; disegnaSit(righe); return; }
-    $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('crit').style.display = 'none';
+    $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('crit').style.display = 'none'; $('riep').style.display = 'none'; $('cfg2').style.display = 'none';
     var m = ((righe[0] && righe[0][0]) || '').match(/(\d{1,2}:\d{2}:\d{2})/);
     $('dato').textContent = 'Dati letti alle ' + (m ? m[1] : '?');
     var testa = righe[3] || [], corpo = righe.slice(4).filter(function (r) { return r[0] && r[0].trim(); });
@@ -144,7 +163,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   function vuota() {
     $('conta').innerHTML = ''; $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('dato').textContent = 'In attesa dei dati';
-    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('assenti').innerHTML = '';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('riep').style.display = 'none';
     $('notaSit').style.display = statoCorr.vista === 'situazione' ? 'block' : 'none';
     $('notaVecchia').style.display = statoCorr.vista === 'situazione' ? 'none' : 'block';
   }
@@ -210,6 +229,44 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     for (i = hi + 1 + stud.length; i < righe.length; i++) if (/^Email non abbinata/i.test(righe[i][0] || '')) nonAbb++;
     return { quando: quando, quiz: quiz, stud: stud, att: att, nonAbb: nonAbb };
   }
+  /* ---------- compiti: scheda «Consegne pubblica <CLASSE>» (motore v2.19) ---------- */
+  function nk(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s*\(\d+\)\s*$/, '').replace(/\s+/g, ' ').trim().toUpperCase(); }
+  function nk2(s) { var m = /^(.+?)\s+([A-Za-z]{1,4})\.?$/.exec(nk(s)); return m ? m[1] + ' ' + m[2].charAt(0) : nk(s); }
+  function statoCons(x) {
+    x = String(x || '').trim().toUpperCase();
+    if (x === 'CONSEGNATO' || x === 'RICONSEGNATO') return 'c';
+    if (x === 'ASSEGNATO') return 'a';
+    return 'n';
+  }
+  function parseCons(righe) {
+    var hi = -1, i, j;
+    for (i = 0; i < righe.length; i++) if ((righe[i][0] || '').trim() === 'Stato' && (righe[i][1] || '').trim() === 'Allievo') { hi = i; break; }
+    if (hi < 0) return { errore: 'La scheda dei compiti non e\u0027 riconosciuta: controlla il link (serve «Consegne pubblica ' + statoCorr.classe + '»).' };
+    var head = righe[hi];
+    if (/^email$/i.test((head[2] || '').trim())) return { errore: 'Questo e\u0027 il foglio con i cognomi e le email: non lo uso. Pubblica la scheda «Consegne pubblica ' + statoCorr.classe + '».' };
+    var ci = -1;
+    for (i = 2; i < head.length; i++) if (/^Consegnati$/i.test((head[i] || '').trim())) { ci = i; break; }
+    if (ci < 0) ci = head.length;
+    var compiti = [];
+    for (i = 2; i < ci; i++) { var t = String(head[i] || '').trim(), mo = /Ora\s*(\d+)/i.exec(t); compiti.push({ col: i, titolo: t, corto: mo ? 'Ora ' + mo[1] : t.slice(0, 12) }); }
+    var tm = /dati letti alle (\d{1,2}):(\d{2}):(\d{2})/.exec(righe[0] && righe[0][0] || ''), quando = null;
+    if (tm) { quando = new Date(); quando.setHours(+tm[1], +tm[2], +tm[3], 0); }
+    var stud = [];
+    for (i = hi + 1; i < righe.length; i++) {
+      var r = righe[i], st = (r[0] || '').trim();
+      if (st !== 'VERDE' && st !== 'GIALLO' && st !== 'ARANCIO' && st !== 'ROSSO' && st !== 'ND') break;
+      var celle = [], cons = 0, tot = 0;
+      for (j = 0; j < compiti.length; j++) { var x = statoCons(r[compiti[j].col]); celle.push(x); if (x === 'c') { cons++; tot++; } else if (x === 'a') tot++; }
+      stud.push({ nome: String(r[1] || '').trim(), celle: celle, cons: cons, tot: tot });
+    }
+    var m1 = {}, m2 = {};
+    stud.forEach(function (s) { m1[nk(s.nome)] = s; var k2 = nk2(s.nome); m2[k2] = m2[k2] === undefined ? s : null; });
+    return { quando: quando, compiti: compiti, stud: stud, m1: m1, m2: m2 };
+  }
+  function trovaCons(C, lab) {
+    if (!C || C.errore) return null;
+    return C.m1[nk(lab)] || C.m2[nk2(lab)] || null;
+  }
   function quizScelti(c, quiz) {
     var salvati = leggiJ('cruscotto_quiz_' + c, null), og = oggiStr();
     if (salvati && salvati.length !== undefined && salvati.v === undefined) {
@@ -220,13 +277,13 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     return (oggi.length ? oggi : quiz).map(function (q) { return q.id; });
   }
   function calcolaRiga(quiz, celle, sc) {
-    var fatti = [], manca = [], daAbb = [], voti = [], conto = [], prov = false;
+    var fatti = [], manca = [], daAbb = [], voti = [], conto = [], prov = false, pcts = [];
     quiz.forEach(function (q, k) {
       if (sc.indexOf(q.id) < 0) return;
       var c = celle[k];
       if (c.t === 'ok') {
         var v = Math.round(40 + 40 * c.pct / 100);
-        fatti.push(q); voti.push(v);
+        fatti.push(q); voti.push(v); pcts.push(c.pct);
         if (c.prov) prov = true;
         conto.push(q.corto + ' ' + c.pct + '% = ' + v + (c.prov ? ' (provv.)' : ''));
       } else if (c.t === 'manca') { manca.push(q); conto.push(q.corto + ' manca'); }
@@ -243,7 +300,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     else if (fatti.length) vai = 'Hai finito. Aspetta il prossimo passo.';
     else vai = 'Aspetta il prossimo quiz.';
     if (!manca.length && daAbb.length) vai = 'La tua risposta non e\u0027 ancora collegata al tuo nome. Aspetta.';
-    return { fatti: fatti, manca: manca, daAbb: daAbb, voto: voto, conto: txt, prov: prov, vai: vai, stato: manca.length ? 'r' : (daAbb.length ? 'a' : (fatti.length ? 'v' : 'n')) };
+    return { pct: pcts.length ? Math.round(pcts.reduce(function (a, b) { return a + b; }, 0) / pcts.length) : null, nq: Object.keys(sc).length ? sc.length : 0, fatti: fatti, manca: manca, daAbb: daAbb, voto: voto, conto: txt, prov: prov, vai: vai, stato: manca.length ? 'r' : (daAbb.length ? 'a' : (fatti.length ? 'v' : 'n')) };
   }
   var ordinePer = 'voto';
   function disegnaSit(righe) {
