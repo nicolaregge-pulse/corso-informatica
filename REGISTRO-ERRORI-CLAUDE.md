@@ -1552,3 +1552,43 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Ho fatto aprire al docente la Panoramica del Visualizzatore eventi e subito dopo gli ho chiesto di trovare la colonna «Livello», che sta in un'altra pagina («Sistema»). Poi ho dato istruzioni su schermate che non avevo visto. Il docente: «devi stare molto più attento, quello che chiedi deve realmente essere sullo schermo».
 2. **Strumento.** Regola: ogni passo che chiedo (clicca, cerca, leggi) lo scrivo SOLO se l'ho visto in uno screenshot reale della stessa schermata; altrimenti scrivo «non verificato sul PC». Prima di un passo nuovo controllo in quale schermata il docente si trova. Da fare: nella dispensa ogni passo ha lo screenshot vero (R9.6).
+
+## #295 (12/11/2026) Versione sbagliata del PDF nei post e nei kit
+
+1. **Errore.** Il PDF dell'ora 3 mandato nel kit era la v1.4 (tre voci) mentre la v1.5 (quattro voci) era già pronta; al post dell'ora 1 era allegata la v1.0 (con il Blocco note) e a quello dell'ora 2 la v1.3; le versioni corrette (ora 1 v1.2, ora 2 v1.4) non sono state consegnate al docente. Ricaduta di #273.
+2. **Strumento.** Prima di ogni kit si elenca la versione più recente del PDF con `ls` e si dichiara quale si allega. Da fare: controllo automatico che il PDF del kit sia l'ultima versione del suo nome.
+
+## #296 (12/11/2026) Cruscotto che dipendeva da gesti del docente, chiesti più volte senza alternativa
+
+1. **Errore.** Il cruscotto di 2INF restava «In attesa dei dati» perché serviva «Pubblica sul web» sul foglio; ho chiesto lo stesso passo molte volte durante la lezione. La condivisione del foglio con il mio Drive, che sblocca tutto, l'ho proposta solo dopo ore. Ricaduta di #265, #279, #280.
+2. **Strumento.** Un cruscotto deve avere un percorso che non dipende da gesti del docente: file dati nel repo aggiornato da me (v2.5). Regola: se un passo è chiesto due volte senza risposta, propongo un'alternativa invece di ripeterlo.
+
+## #297 (12/11/2026) Quiz rigenerato quattro volte mentre i ragazzi lo facevano
+
+1. **Errore.** Il quiz dell'ora 1 è stato rigenerato con id diversi (08:24, 09:01, 09:33, 10:24): risposte sparse tra versioni, «MANCA» falsi nel cruscotto, link del post che cambiava.
+2. **Strumento.** Fabbrica v2.20: campo `versioni` (un quiz, risultato migliore tra le versioni). Regola: un quiz già in uso non si rigenera senza chiedere al docente; se serve una correzione si modifica il Modulo esistente.
+
+## #298 (12/11/2026) Numeri dei PC del foglio diversi da quelli di Veyon
+
+1. **Errore.** La scheda «Utenti 2INF» ha un numero di PC fisso per allievo; Veyon mostra il PC dove l'allievo è collegato in quel momento, e i posti cambiano da una lezione all'altra (lo stesso allievo è stato su tre PC diversi in tre lezioni, vedi bobine del 02/11, 09/11 e lo schermo Veyon del 12/11). Il numero nel foglio è quindi di un'altra lezione.
+2. **Strumento.** Non corretto: serve la decisione del docente su quale fonte vale (Veyon del giorno). Proposta: il PC del giorno si ricava dalla risposta «nome del PC» del quiz dell'ora 1 (per esempio `AULA11--PC12`), che coincide con Veyon nei casi controllati.
+
+## #299 (12/11/2026) Ora del dato ingannevole nella scheda Situazione
+
+1. **Errore.** La riga «Letto alle» della Situazione mostrava 08:27 mentre i dati erano delle 10:30, e alcune celle sono diventate date: chi legge crede il dato vecchio o sbagliato (R8.4: l'ora del dato deve essere vera).
+2. **Strumento.** Da fare nel motore: «Letto alle» = ora di generazione della scheda; le celle di punteggio in formato testo. Nel cruscotto v2.5 l'ora mostrata è quella dell'export vero.
+
+## #300 (12/11/2026) Richieste del docente capite male (tre volte in un giorno)
+
+1. **Errore.** «Esempio con tutti i tool» (intendeva solo l'ora 1, ho fatto le tre ore); «QUI 3 ora» (era il quiz, non il post); «un voto» (non ho collegato subito la decisione alla domanda). Ricaduta di #271.
+2. **Strumento.** Quando c'è più di un'interpretazione ragionevole si chiede UNA domanda con le opzioni numerate prima di produrre il file; se il docente è occupato si fa la versione più piccola.
+
+## Errori che si ripetono (verifica del 12/11/2026)
+
+1. **Formato dei messaggi e dei kit:** #282, #285, #286, #287, #288, #289, #293 (7 volte). Corretto con standard unico e turno pulito; resta da fare il controllo automatico del testo dopo la riga rossa finale.
+2. **Dato o passo dato senza prova sullo schermo:** #275, #277, #294 (3 volte). Regola: solo ciò che si vede in uno screenshot reale; il resto «non verificato».
+3. **Richiesta interpretata o capita male:** #271, #286, #300 (3 volte).
+4. **File o versione sbagliata consegnata:** #273, #295 (2 volte).
+5. **Lingue R6:** #274, #292 (2 volte). `controlla_lingue_quiz.py` non copre i termini inglesi di Windows nei quiz 2INF: da estendere.
+6. **Cruscotto e dati:** #265, #279, #280, #296, #297, #299 (6 volte): è il punto più debole, tutto il lavoro di oggi (v2.5) serve a chiuderlo.
+
