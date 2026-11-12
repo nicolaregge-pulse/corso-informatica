@@ -3,8 +3,8 @@
 
 Versione 1.0. PUBBLICO: nessun cognome, nessun voto, nessuna presenza. Fonti: ARGOMENTI-SVOLTI-2026-27.md (v1.6),
 FIRME-REGISTRO-2026-27.md (v2.7), PROVE-CLASSROOM-2026-27.md, fabbrica/indice.json e i titoli dei quiz in fabbrica/*.txt,
-PROSSIME-LEZIONI.md. I titoli dei compiti Classroom del 1INF vengono dall'elenco di Fabbrica delle 13:19 del 12/11 (titoli
-troncati a 28 caratteri: finiscono con «…»). Lingue (R6): 1INF it+ar+zh; 2INF e 4TI solo it; 3INF it (+ bn solo per il PC 14).
+PROSSIME-LEZIONI.md. I titoli dei compiti Classroom del 1INF vengono dalla lettura di Classroom delle 14:14 del 12/11 (ponte, 50 compiti,
+solo i PUBLISHED; le bozze non sono elencate). Lingue (R6): 1INF it+ar+zh; 2INF e 4TI solo it; 3INF it (+ bn solo per il PC 14).
 Arabo, cinese e bangla sono scritti da Claude e NON riletti da un madrelingua.
 Ogni voce: (data, {it, ar, zh, bn}). Frasi corte, una cosa per frase.
 """
@@ -51,6 +51,20 @@ UNO = {
                        "ar": "الشبكة واللاعب: ping وjitter وTCP وUDP وFPS وHz، البكسل والدقة. تطبيق «قياسات حاسوبي» واختبار.",
                        "zh": "网络与游戏玩家：ping、jitter、TCP 和 UDP、FPS 和 Hz、像素和分辨率。应用“我电脑的测量”和测验。"}),
         ]),
+        ("3bis", {"it": "Divisioni per 2, Git e il PC (ottobre)", "ar": "القسمة على 2 وGit والحاسوب (أكتوبر)", "zh": "除以2、Git 和电脑（十月）"}, [
+            ("02/10", {"it": "Divisioni per 2 e conversione da decimale a binario, anche con il timer. Compiti su Classroom.",
+                       "ar": "القسمة على 2 والتحويل من العشري إلى الثنائي، وأيضاً مع المؤقت. واجبات على Classroom.",
+                       "zh": "除以2和十进制转二进制，也有计时的版本。Classroom 上的作业。"}),
+            ("06-09/10", {"it": "Il treno blindato: versioni e Git. Quattro Pull Request (il mio cattivo, il mio paesaggio, un difetto, la revisione) e la storia del nostro treno.",
+                          "ar": "القطار المصفّح: الإصدارات وGit. أربعة Pull Request (شريري، منظري، عيب، المراجعة) وتاريخ قطارنا.",
+                          "zh": "装甲列车：版本和 Git。四个 Pull Request（我的反派、我的风景、一个缺陷、回顾）和我们列车的历史。"}),
+            ("13-14/10", {"it": "La mia prima Pull Request. «La mia talpa»: il percorso e una verifica sul gioco fatto con Godot.",
+                          "ar": "أول Pull Request لي. «الخلد الخاص بي»: المسار واختبار على اللعبة المصنوعة بـ Godot.",
+                          "zh": "我的第一个 Pull Request。“我的地鼠”：学习路线和一个关于用 Godot 做的游戏的测验。"}),
+            ("16/10", {"it": "Laboratorio: monta il PC (gara di assemblaggio), sfida lampo sui pezzi del PC, ripassa e fai il test.",
+                       "ar": "مختبر: ركّب الحاسوب (مسابقة تجميع)، تحدٍّ سريع عن قطع الحاسوب، راجع وقم بالاختبار.",
+                       "zh": "实验课：组装电脑（组装比赛），关于电脑部件的快速挑战，复习并做测试。"}),
+        ]),
         ("4", {"it": "Programmare con Lazarus", "ar": "البرمجة مع Lazarus", "zh": "用 Lazarus 编程"}, [
             ("28/10", {"it": "Il primo programma in Lazarus: un bottone che scrive «Ciao». Progetto nuovo in una cartella, palette dei componenti, Edit e Button.",
                        "ar": "أول برنامج في Lazarus: زر يكتب «Ciao». مشروع جديد في مجلد، لوحة المكوّنات، Edit وButton.",
@@ -78,21 +92,56 @@ UNO = {
         ]),
     ],
     "compiti_intro": {
-        "it": "Apri Classroom e controlla che questi lavori siano consegnati. I titoli lunghi sono tagliati con «…».",
-        "ar": "افتح Classroom وتأكد أن هذه الأعمال مسلّمة. العناوين الطويلة مقطوعة بعلامة «…».",
-        "zh": "打开 Classroom，检查这些作业是否都已提交。太长的标题用“…”截断。",
+        "it": "Apri Classroom e controlla che questi lavori siano consegnati (dal più vecchio al più nuovo):",
+        "ar": "افتح Classroom وتأكد أن هذه الأعمال مسلّمة (من الأقدم إلى الأحدث):",
+        "zh": "打开 Classroom，检查这些作业是否都已提交（从最旧到最新）：",
     },
     "compiti": [
+        "30/09 · L'inizio di quest'anno scolastico",
+        "01/10 · Bit e Byte TEORIA",
+        "01/10 · Compito — Da binario a decimale",
+        "02/10 · Compito — Da decimale a binario",
+        "02/10 · Compito — Dalla divisione per 2 al binario",
+        "02/10 · Compito 1 — Divisioni per 2",
+        "02/10 · Compito 2 — Divisioni per 2 con il timer",
+        "02/10 · Compito 3 — Divisioni per 2 con il timer",
+        "06/10 · Cacciaviti per il laboratorio — come li compro",
+        "08/10 · PR-1 — Il mio cattivo (Il treno blindato della 1INF)",
+        "08/10 · PR-2 — Il mio paesaggio (Il treno blindato della 1INF)",
+        "08/10 · PR-3 — Un difetto (Il treno blindato della 1INF)",
+        "08/10 · PR-4 — Revisione e cosa ho imparato (Il treno blindato della 1INF)",
+        "09/10 · Versioni e Git: la storia del nostro Treno blindato",
+        "13/10 · La mia prima Pull Request",
+        "14/10 · La mia talpa",
+        "14/10 · La mia talpa: il percorso",
+        "14/10 · Com'è andata oggi?",
+        "16/10 · Lab — Monta il PC (gara di assemblaggio)",
+        "16/10 · Sfida lampo — conosci i pezzi del PC?",
+        "16/10 · Ripassa e fai il Test — i pezzi del PC",
+        "20/10 · Quanto pesa un file? Quanto va veloce la rete?",
+        "20/10 · QUIZ: bit, byte e velocità della rete",
+        "21/10 · OGGI: il laboratorio del gamer",
+        "21/10 · QUIZ: velocità della rete, download, streaming e cavi (slide 1-11)",
+        "22/10 · OGGI: Sicurezza 1 — pericolo, rischio e infortunio",
+        "23/10 · Dimensioni e unità di misura dell'informatica",
+        "23/10 · QUIZ dimensioni",
+        "27/10 · OGGI: ripasso, poi la scheda video e i cavi, con un quiz alla fine di ogni parte",
+        "28/10 · Il mio primo programma: Ciao in Lazarus",
         "29/10 · OGGI 29/10: Sicurezza 2, prevenzione e protezione",
+        "29/10 · Recuperi quiz",
         "30/10 · OGGI 30/10: il computer scrive in tutte le lingue",
+        "30/10 · OGGI 30/10: Laboratorio 11-14: stringhe e interi in Lazarus (3 programmi)",
         "03/11 · 3/11 Ora 1: deepfake, foto, voce e video falsi",
-        "05/11 · 5/11 Ora 6: Testo o numero?",
-        "05/11 · 5/11 Ora 6: Bonus, trova l'e…",
-        "06/11 · 6/11 Ora 4: Il convertitore…",
-        "06/11 · 6/11 Ora 5: Lo scontrino che…",
-        "11/11 · 11/11 Ora 1: String e Intege…",
-        "11/11 · 11/11 Ora 2: Numeri reali e…",
-        "11/11 · 11/11 Ora 6: Rischi meccanic…",
+        "04/11 · 4/11 Ora 1: ripasso Lazarus e convertitore di misure",
+        "04/11 · 4/11 Ora 4: Sicurezza, organi di vigilanza e controllo",
+        "04/11 · 4/11 Ora 4: controlla i tuoi quiz di Sicurezza",
+        "05/11 · 5/11 Ora 6: Testo o numero? I programmi raccontati",
+        "05/11 · 5/11 Ora 6: Bonus, trova l'errore",
+        "06/11 · 6/11 Ora 4: Il convertitore che parla (Lazarus)",
+        "06/11 · 6/11 Ora 5: Lo scontrino che parla (Lazarus)",
+        "11/11 · 11/11 Ora 1: String e Integer in Lazarus",
+        "11/11 · 11/11 Ora 2: Numeri reali e divisione in Lazarus",
+        "11/11 · 11/11 Ora 6: Rischi meccanici ed elettrici generali",
         "12/11 · 12/11 Ora 6: ICT e hardware del computer",
     ],
     "quiz_intro": {
@@ -285,3 +334,6 @@ QUATTRO = {
 }
 
 CLASSI = {"1INF": UNO, "2INF": DUE, "3INF": TRE, "4TI": QUATTRO}
+
+# Bozze del 1INF viste su Classroom alle 14:14 del 12/11 (stato DRAFT, scadenza 10/11/2026): non visibili ai ragazzi. SOLO versione docente.
+BOZZE_1INF = ["4/11 Ora 1: Convertitore di misure (Lazarus)", "4/11 Ora 2: Calcolatrice a 4 bottoni (Lazarus)", "4/11 Ora 3: Il cassiere (Lazarus)"]

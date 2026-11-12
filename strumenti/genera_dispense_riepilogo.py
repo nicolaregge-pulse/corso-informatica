@@ -3,7 +3,8 @@
 """Genera le dispense riepilogative PER I RAGAZZI (1INF, 2INF, 3INF, 3INF-PC14, 4TI): MD + PDF in docs/dispense/riepilogo/.
 
 Versione 1.0 (12/11/2026). PUBBLICO: nessun cognome, nessun voto. Dati in strumenti/dispense_riepilogo_dati.py.
-Uso: python3 strumenti/genera_dispense_riepilogo.py [--versione 1.0] [--senza-pdf]
+Uso: python3 strumenti/genera_dispense_riepilogo.py [--versione 1.0] [--solo 1INF,4TI] [--senza-pdf]
+     (--solo: nomi dei file, come 1INF, 2INF, 3INF, 3INF-PC14, 4TI; una versione già pubblicata non si riusa: nuovo numero)
 PDF: python3 strumenti/md2pdf.py FILE.md 20261112 Dispensa-Riepilogo-<CLASSE>  ->  YYYYMMDD_Nome_vX.Y.pdf nella stessa cartella.
 R6: 1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF italiano e, solo nel file «-PC14», una riga in bangla sotto ogni frase.
 """
@@ -39,7 +40,7 @@ def costruisci(classe, lingue, versione, nota_file):
         A("")
     A("## 1. Quello che abbiamo fatto")
     A("")
-    for num, tit, voci in c["blocchi"]:
+    for num, (_, tit, voci) in enumerate(c["blocchi"], 1):
         A("### %s. %s" % (num, tit["it"]))
         A("")
         for t in righe_lingue(tit, lingue)[1:]:
@@ -86,7 +87,7 @@ def costruisci(classe, lingue, versione, nota_file):
         A("")
     A("## Cronologia")
     A("")
-    A("1. v%s (12/11/2026): prima versione, da ARGOMENTI-SVOLTI-2026-27 v1.6, dal registro firmato e dai titoli dei compiti e dei quiz. Il testo in arabo, cinese e bangla è scritto da Claude e non è stato riletto da un madrelingua." % versione)
+    A("1. v%s (12/11/2026): da ARGOMENTI-SVOLTI-2026-27 v1.6, dal registro firmato e dai titoli dei compiti e dei quiz (1INF: compiti letti da Classroom alle 14:14 del 12/11). Il testo in arabo, cinese e bangla è scritto da Claude e non è stato riletto da un madrelingua." % versione)
     A("")
     return "\n".join(L)
 
@@ -95,6 +96,7 @@ def main():
     versione = "1.0"
     if "--versione" in sys.argv:
         versione = sys.argv[sys.argv.index("--versione") + 1]
+    solo = sys.argv[sys.argv.index("--solo") + 1].split(",") if "--solo" in sys.argv else None
     os.makedirs(OUT, exist_ok=True)
     lavori = [("1INF", ["it", "ar", "zh"], "1INF", ""),
               ("2INF", ["it"], "2INF", ""),
@@ -102,6 +104,8 @@ def main():
               ("3INF", ["it", "bn"], "3INF-PC14", " (con la riga in bangla, solo per il PC 14)"),
               ("4TI", ["it"], "4TI", "")]
     for classe, lingue, nome, nota in lavori:
+        if solo and nome not in solo:
+            continue
         md = costruisci(classe, lingue, versione, nota)
         path = os.path.join(OUT, "DISPENSA-RIEPILOGO-%s-v%s.md" % (nome, versione))
         open(path, "w", encoding="utf-8").write(md)
