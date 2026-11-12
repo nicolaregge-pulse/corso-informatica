@@ -673,6 +673,211 @@ function SI_elenco_(ss, classe) {
   return { e2n: e2n, nomi: nomi, fonte: fonte };
 }
 
+function SI_storico_(ss, classe) {
+  var out = {}, sh = ss.getSheetByName('Sicurezza storico ' + classe);
+  if (!sh) return { dati: out, presente: false };
+  var v = sh.getDataRange().getValues();
+  for (var i = 1; i < v.length; i++) {
+    var n = SI_norm_(v[i][0]), o = SI_ora_(v[i][1]);
+    if (!n || !o) continue;
+    var voto = v[i][2] === '' || v[i][2] === null || v[i][2] === undefined ? null : Number(v[i][2]);
+    if (voto !== null && isNaN(voto)) voto = null;
+    var st = SI_norm_(v[i][3]);
+    out[n + '|' + o] = { voto: voto, stato: st, fonte: String(v[i][4] || '') };
+  }
+  return { dati: out, presente: true };
+}
+
+function SI_ris_(ss, ids, e2n, ora, nonAbb, letture) {
+  var per = {}, disp = false;
+  (ids || []).forEach(function (id) {
+    var sh = ss.getSheetByName('Ris ' + id);
+    if (!sh) return;
+    disp = true;
+    var v = sh.getDataRange().getValues();
+    var m = /dati letti alle (\d\d:\d\d)/.exec(String(v[1] && v[1][0] || ''));
+    letture.push(ora + ' (' + id + '): ' + (m ? m[1] : 'ora non leggibile'));
+    for (var i = 4; i < v.length; i++) {
+      var em = String(v[i][0] || '').trim().toLowerCase(), su = Number(v[i][2]), mg = Number(v[i][1]);
+      if (!em || !su) continue;
+      var pct = Math.round(mg / su * 100), aperte = Number(v[i][5]) || 0, nome = e2n[em];
+      if (!nome) { nonAbb.push(em + ' · ora ' + ora + ' · ' + pct + '%'); continue; }
+      if (!per[nome] || pct > per[nome].pct) per[nome] = { pct: pct, aperte: aperte };
+    }
+  });
+  return { per: per, disp: disp };
+}
+
+function SI_cella_(nome, ora, ris, sto, soglia) {
+  var r = ris.per[nome], s = sto.dati[nome + '|' + ora];
+  var pct = null, da = '', aperte = 0;
+  if (r) { pct = r.pct; da = 'F'; aperte = r.aperte; }
+  if (s && s.voto !== null && (pct === null || s.voto > pct)) { pct = s.voto; da = 'r'; aperte = 0; }
+  if (pct !== null) {
+    var ok = pct >= soglia;
+    return { st: ok ? 'OK' : 'REC', pct: pct, txt: pct + '% ' + (ok ? 'OK' : 'DA RECUPERARE') + (da === 'r' ? ' (r)' : '') + (aperte > 0 ? ' (provv.: ' + aperte + ' aperte da correggere)' : '') };
+  }
+  if (s && s.stato === 'ASSENTE') return { st: 'ASSENTE', pct: null, txt: 'ASSENTE (r)' };
+  if (s && s.stato === 'MANCA') return { st: 'MANCA', pct: null, txt: 'MANCA (r)' };
+  if (ris.disp) return { st: 'MANCA', pct: null, txt: 'MANCA' };
+  return { st: 'ND', pct: null, txt: 'dato non importato' };
+}
+
+function SI_classe_(ss, cfg) {
+  if (!cfg || cfg.attivo === false) return;
+  var classe = String(cfg.classe || '1INF').toUpperCase(), soglia = Number(cfg.soglia) || 80, ore = cfg.ore || [];
+  var nomeSh = 'Sicurezza ' + classe;
+  var el = SI_elenco_(ss, classe), sto = SI_storico_(ss, classe), nonAbb = [], letture = [];
+  var sh = ss.getSheetByName(nomeSh) || ss.insertSheet(nomeSh);
+  sh.clear();
+  var ora0 = Utilities.formatDate(new Date(), 'Europe/Rome', 'HH:mm:ss');
+  sh.getRange(1, 1).setValue(classe + ' · Sicurezza per allievo (solo docente) · dati letti alle ' + ora0).setFontWeight('bold');
+  if (!el.nomi.length) {
+    sh.getRange(2, 1).setValue("Manca l'elenco degli allievi: serve la scheda 'Email " + classe + "' (A=Email, B=Allievo) oppure la scheda 'Consegne " + classe + "'.");
+    return;
+  }
+  var risOre = ore.map(function (o) { return SI_ris_(ss, o.ids, el.e2n, o.ora, nonAbb, letture); });
+  var rec = SI_ris_(ss, (cfg.recupero && cfg.recupero.ids) || [], el.e2n, 'Recupero', nonAbb, letture);
+  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente nella scheda storico. (r) = dato dalla scheda \u0027Sicurezza storico ' + classe + '\u0027 (report del riservato, fonte e ora nella colonna Fonte). (provv.) = ci sono domande aperte non ancora corrette, la percentuale è provvisoria. 6A e 6B sono colonne separate: come si combinano non è deciso.');
+  sh.getRange(3, 1).setValue('Elenco da ' + el.fonte + ' · storico ' + (sto.presente ? 'presente' : "assente (scheda 'Sicurezza storico " + classe + "' non trovata)") + ' · letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
+  var testa = ['Stato', 'Allievo'].concat(ore.map(function (o) { return 'Ora ' + o.ora; }), ['Recupero ore 1-5', 'DA FARE ORA', 'DA RIFARE (sotto ' + soglia + ')', 'Dato non importato']);
+  sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
+  try {
+    var fSic = FB_json_('FB_FORMS'), dSic = {}, shE = ss.getSheetByName('Esiti');
+    if (shE) shE.getDataRange().getValues().forEach(function (r) { dSic[r[1]] = String(r[0]).slice(0, 5); });
+    var tSic = ore.map(function (o) {
+      var id0 = (o.ids || [])[0], f0 = id0 && fSic[id0], th = SM_testa_(f0 ? f0.titolo : 'Sicurezza ora ' + o.ora, id0 || 'storico', dSic[id0] || '');
+      if (!/ora\s+\w+/i.test(th.a)) th.a = 'Sic. ora ' + o.ora + ' \u00b7 ' + th.a.replace(/^Sic\.\s*/, '');
+      th.a = th.a.replace(/^Sic\. ora \w+/i, 'Sic. ora ' + o.ora);
+      return th;
+    });
+    SM_applica_(sh, 4, 3, tSic);
+  } catch (eT) { Logger.log('intestazioni sicurezza: ' + eT); }
+  var righe = el.nomi.map(function (nome) {
+    var celle = ore.map(function (o, k) { return SI_cella_(nome, SI_ora_(o.ora), risOre[k], sto, soglia); });
+    var fare = [], rifare = [], nd = [];
+    celle.forEach(function (c, k) {
+      var o = ore[k].ora;
+      if (c.st === 'MANCA') fare.push('ora ' + o);
+      else if (c.st === 'ASSENTE') fare.push('ora ' + o + ' (assente)');
+      else if (c.st === 'REC') rifare.push('ora ' + o + ' (' + c.pct + '%)');
+      else if (c.st === 'ND') nd.push('ora ' + o);
+    });
+    var cr = rec.per[nome] ? rec.per[nome].pct + '%' : (rec.disp ? 'MANCA' : 'dato non importato');
+    var st = (fare.length) ? 'ROSSO' : rifare.length ? 'ARANCIO' : nd.length ? 'GIALLO' : 'VERDE';
+    return [st, nome].concat(celle.map(function (c) { return c.txt; }), [cr, fare.join(', ') || '-', rifare.join(', ') || '-', nd.join(', ') || '-']);
+  });
+  var ord = { ROSSO: 0, ARANCIO: 1, GIALLO: 2, VERDE: 3 };
+  righe.sort(function (a, b) { return ord[a[0]] - ord[b[0]] || (a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : 0); });
+  sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
+  SI_pubblica_(ss, classe, soglia, ora0, testa, righe, letture);
+  var col = { VERDE: '#a5d6a7', GIALLO: '#fff59d', ARANCIO: '#ffcc80', ROSSO: '#ef9a9a' };
+  for (var i = 0; i < righe.length; i++) sh.getRange(5 + i, 1).setBackground(col[righe[i][0]]).setFontWeight('bold');
+  var fondo = 6 + righe.length, note = [];
+  var visti = {}; el.nomi.forEach(function (n) { visti[n] = 1; });
+  var estranei = {};
+  for (var k in sto.dati) { var nn = k.split('|')[0]; if (!visti[nn]) estranei[nn] = 1; }
+  Object.keys(estranei).forEach(function (n) { note.push(['Nome nello storico non trovato nell\u0027elenco: ' + n]); });
+  nonAbb.forEach(function (e) { note.push(['Email non abbinata a un allievo: ' + e]); });
+  if (note.length) sh.getRange(fondo, 1, note.length, 1).setValues(note);
+}
+
+function SI_hash_(nome) {
+  var b = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, SI_norm_(nome), Utilities.Charset.UTF_8), h = '';
+  for (var i = 0; i < b.length; i++) h += ('0' + ((b[i] + 256) % 256).toString(16)).slice(-2);
+  return h;
+}
+
+/* scheda pubblica SENZA nomi: Id = SHA-256 del nome in maiuscolo; il «Nome I.» sta in docs/sicurezza-cruscotto/nomi.json */
+function SI_pubblica_(ss, classe, soglia, ora0, testa, righe, letture) {
+  var sh = ss.getSheetByName('Sicurezza pubblica ' + classe) || ss.insertSheet('Sicurezza pubblica ' + classe);
+  sh.clear();
+  sh.getRange(1, 1).setValue(classe + ' · Sicurezza (pubblica, senza nomi) · dati letti alle ' + ora0).setFontWeight('bold');
+  sh.getRange(2, 1).setValue('Soglia ' + soglia + '/100 sul miglior tentativo. OK = ' + soglia + '% o più · DA RECUPERARE = sotto ' + soglia + '% · MANCA = nessuna risposta · ASSENTE = segnato assente. (provv.) = domande aperte non ancora corrette.');
+  sh.getRange(3, 1).setValue('Letture Moduli: ' + (letture.join(' · ') || 'nessuna scheda Ris trovata'));
+  var t = testa.slice(); t[1] = 'Id';
+  sh.getRange(4, 1, 1, t.length).setValues([t]).setFontWeight('bold');
+  var pub = righe.map(function (r) { var q = r.slice(); q[1] = SI_hash_(r[1]); return q; });
+  if (pub.length) sh.getRange(5, 1, pub.length, t.length).setValues(pub);
+}
+
+function FB_sicurezza_(ss, indice) {
+  var l = indice.sicurezza;
+  if (!l) return;
+  if (!Array.isArray(l)) l = [l];
+  l.forEach(function (cfg) {
+    try { SI_classe_(ss, cfg); } catch (e) { FB_errore_(ss, 'sicurezza ' + (cfg && cfg.classe || ''), e); }
+  });
+}
+
+/* ---------- Situazione per classe: tutti i quiz, tutti i voti, chi non ha fatto (v2.9, solo docente) ---------- */
+function SM_corto_(t, id) {
+  var s = String(t || id || '').replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+/g, ' ').trim();
+  return s.length > 45 ? s.slice(0, 44) + '\u2026' : s;
+}
+
+/* v2.10: intestazione quiz in 3 righe. A = ora e argomento breve (dal titolo), B = data, C = id */
+function SM_testa_(titolo, id, dataEsiti) {
+  var t = String(titolo || id || ''), data = String(dataEsiti || ''), m;
+  t = t.split(' \u00b7 ')[0];
+  m = /\((?:[0-9A-Za-z]+),\s*(\d\d\/\d\d)\)\s*$/.exec(t);
+  if (m) data = m[1];
+  t = t.replace(/\s*\([^)]*\)\s*$/, '').replace(/^Quiz\s+/i, '').replace(/\s+/g, ' ').trim();
+  var a = t, sic = /^Sicurezza\s+/i.test(t), r;
+  if (sic) {
+    t = t.replace(/^Sicurezza\s+/i, '');
+    if ((r = /^RECUPERO\s+(ore\s+[\d-]+)/i.exec(t))) a = 'Sic. RECUPERO ' + r[1];
+    else {
+      var o = /^(?:ora\s+(\w+)|quinta ora)\s*(?::\s*(.*))?$/i.exec(t);
+      if (o) a = 'Sic. ora ' + (o[1] || '5') + (o[2] ? ' \u00b7 ' + o[2].replace(/^rischio\s+/i, '').replace(/\s+generali$/i, '') : '');
+      else a = 'Sic. ' + t;
+    }
+  } else if ((r = /^(or[ae]\s+[\d-]+(?:\s+FINALE)?)\s*:\s*(.*)$/i.exec(t))) a = r[1] + ' \u00b7 ' + r[2];
+  return { a: a, data: data, id: id };
+}
+
+/* applica le intestazioni a 3 righe a una riga di intestazione gia scritta (colonne c0.., una per quiz) */
+function SM_applica_(sh, riga, c0, teste, largTot) {
+  var n = teste.length, seen = {}, k, dup = {};
+  teste.forEach(function (x) { dup[x.a] = (dup[x.a] || 0) + 1; });
+  teste.forEach(function (x) { if (dup[x.a] > 1) x.a = x.a + ' (' + x.id + ')'; x.cella = x.a + '\n' + x.data + '\n' + x.id; });
+  if (!n) return;
+  sh.getRange(riga, c0, 1, n).setValues([teste.map(function (x) { return x.cella; })]).setWrap(true).setVerticalAlignment('top');
+  for (k = 0; k < n; k++) sh.setColumnWidth(c0 + k, 190);
+  sh.setRowHeight(riga, 78);
+  sh.setColumnWidth(1, 80); sh.setColumnWidth(2, 190);
+  sh.setFrozenColumns(2);
+}
+
+function SM_quiz_(ss, indice, classe) {
+  var forms = FB_json_('FB_FORMS'), es = ss.getSheetByName('Esiti').getDataRange().getValues(), out = [], i;
+  var lavori = {};
+  (indice.lavori || []).forEach(function (l) { lavori[l.id] = l; });
+  for (i = 1; i < es.length; i++) {
+    var id = es[i][1], f = forms[id];
+    if (!id || !f || !lavori[id]) continue;
+    if ((f.classe || FB_classe_(null, id)) !== classe) continue;
+    if (FB_tl_(lavori[id], id) !== 'quiz') continue;
+    var th = SM_testa_(f.titolo || es[i][2], id, String(es[i][0]).slice(0, 5));
+    out.push({ id: id, riga: i, data: th.data, titolo: th.a, th: th });
+  }
+  return out;
+}
+
+function SM_leggi_(ss, id) {
+  var sh = ss.getSheetByName('Ris ' + id);
+  if (!sh) return { disp: false, ora: '', per: {} };
+  var v = sh.getDataRange().getValues(), per = {};
+  var m = /dati letti alle (\d\d:\d\d(?::\d\d)?)/.exec(String(v[1] && v[1][0] || ''));
+  for (var i = 4; i < v.length; i++) {
+    var em = String(v[i][0] || '').trim().toLowerCase(), mg = Number(v[i][1]), su = Number(v[i][2]);
+    if (!em || !su) continue;
+    var pct = Math.round(mg / su * 100), ap = Number(v[i][5]) || 0;
+    if (!per[em] || pct > per[em].pct) per[em] = { pct: pct, mg: mg, su: su, aperte: ap };
+  }
+  return { disp: true, ora: m ? m[1] : 'ora non leggibile', per: per };
+}
+
 /* ---------- v2.15: elenco allievi per Situazione anche da 'Utenti <CLASSE>' e abbinamento email per nome.cognome ---------- */
 function SM_tok_(s) {
   var t = String(s || '').toLowerCase();
