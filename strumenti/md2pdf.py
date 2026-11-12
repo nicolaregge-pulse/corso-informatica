@@ -39,6 +39,15 @@ while i < len(righe):
             num = ".".join(str(cont[k]) for k in range(liv + 1))
             html_l.append(f"<div class='li l{liv}'><span class='n'>{num}</span><span>{inline(testo)}</span></div>")
         out.append("<div class='ol'>" + "".join(html_l) + "</div>"); continue
+    m = re.match(r"^!\[(.*?)\]\((.+?)\)\s*$", r)
+    if m:  # immagine su riga propria: ![didascalia](percorso relativo al MD), incorporata nel PDF
+        import base64
+        pimg = os.path.join(os.path.dirname(os.path.abspath(src)), m.group(2))
+        if os.path.exists(pimg):
+            out.append("<p style='text-align:center'><img style='max-width:100%;max-height:560px' src='data:image/png;base64," + base64.b64encode(open(pimg, "rb").read()).decode() + "' alt='" + e(m.group(1)) + "'></p>")
+        else:
+            out.append("<p>[immagine mancante: " + e(m.group(2)) + "]</p>")
+        i += 1; continue
     if r.strip()=="<<PAGINA>>":
         out.append("<div style='break-before:page'></div>"); i += 1; continue
     for k, tag in ((4, "h3"), (3, "h2"), (2, "h1")):

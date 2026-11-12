@@ -1637,3 +1637,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 1. **Errore.** La dispensa frontale della 6a ora l'ho mandata come scheda PDF da sola, senza la cornice blu, e prima l'avevo trattenuta perché il messaggio aveva il prefisso PPP anche se chiedeva «dammi». Il docente: «i documenti devono avere i quadratini blu a fianco».
 2. **Strumento.** GUIDA-MESSAGGI v1.16: ogni documento va in cornice blu, anche fuori dai kit. Da fare: controllo automatico che segnali un SendUserFile senza le righe blu nel messaggio.
 
+
+## #310 (12/11/2026) md2pdf non incorporava le immagini
+
+1. **Errore.** `md2pdf.py` non incorporava le immagini `![](img/...)`: il PDF di aiuto per 2INF del 12/11 (v1.0) aveva solo il nome del file al posto dei disegni.
+2. **Strumento.** Corretto `strumenti/md2pdf.py` (le immagini ora sono incorporate nel PDF) e rigenerato v1.1 (`report/2026-11-12/20261112_Aiuto-2INF-Visualizzatore-Eventi_v1.1.pdf`, nel riservato). Prima di mandare un PDF con disegni si guarda almeno una pagina con le immagini.
