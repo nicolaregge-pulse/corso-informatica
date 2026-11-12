@@ -19,6 +19,8 @@ Controlli che valgono per TUTTI (anche i subagenti), nel momento dell'azione:
 4bis. Dal 04/11/2026 (regola R1): «git commit» del PUBBLICO con il cognome di un allievo nel
    messaggio (testo del comando o file di -F) è rifiutato; al «git push» del pubblico si
    controllano anche i messaggi dei commit da pushare (controllo_nomi.py, elenchi del riservato).
+   Dal 12/11/2026 (#319) al push si controlla anche il CONTENUTO dei file cambiati, in qualunque cartella (prima solo
+   docs/): un cognome in fabbrica/ o in strumenti/ ferma il push.
    Questo controllo NON si salta con «PAGINE-OK».
 5. «git push» del RISERVATO: coda/*.json e comandi/*.json devono leggersi (05/10 n. 12).
 Per un falso allarme si aggiunge al comando il commento «# PAGINE-OK: <motivo>».
@@ -220,6 +222,28 @@ def controlla_push_riservato():
             "(REGISTRO-ERRORI 05/10 n. 12)." % ", ".join(rotti[:5]))
 
 
+def cognomi_nel_file(nome, testo):
+    """Cognomi nel testo di un file del pubblico, con lo stesso cercatore di controlla_controlli.py (privacy_nomi del
+    riservato: i «Nome I.» sono ammessi, i nomi utente GitHub e i link no). Senza quel cercatore: controllo_nomi.trova."""
+    if nome.startswith(".claude/hooks/prove/"):
+        return []
+    gen = os.path.join(RIS, "generatori")
+    if not os.path.isfile(os.path.join(gen, "privacy_nomi.py")):
+        import controllo_nomi as cn   # senza il cercatore del riservato: elenchi semplici (più falsi allarmi)
+        return cn.trova(testo, RIS)
+    if gen not in sys.path:
+        sys.path.append(gen)
+    import privacy_nomi
+    privacy_nomi.disattiva()
+    if privacy_nomi._CIFRATO.match(testo):
+        return []
+    testo = re.sub(r"data:[a-z0-9.+/-]+;base64,[A-Za-z0-9+/=\s]+", " ", testo, flags=re.I)
+    return ["%s… (%d)" % (h[:2].upper(), len(h)) if isinstance(h, str) else str(h)[:12] for h in privacy_nomi.trova(testo, codice=nome.endswith((".py", ".js", ".mjs", ".gd", ".sh", ".gs")))]
+
+
+ESTENSIONI_TESTO = (".py", ".js", ".md", ".json", ".txt", ".patch", ".html", ".gs", ".sh", ".csv", ".css", ".yml", ".yaml")
+
+
 def controlla_nomi_commit(comando, cwd):
     """Regola R1: niente cognomi di allievi nei commit del pubblico (messaggio e commit da pushare)."""
     import controllo_nomi as cn
@@ -241,6 +265,31 @@ def controlla_nomi_commit(comando, cwd):
         if motivo:
             return ("Push fermato: un commit da pushare ha nel messaggio il cognome di un allievo. "
                     "Riscrivi il messaggio (git commit --amend se è l'ultimo) prima del push. " + motivo)
+        # 12/11/2026 (#319): anche il CONTENUTO dei file cambiati, in qualunque cartella (non solo docs/)
+        nomi = set(git(PUB, "diff", "--name-only", "origin/main").split())
+        if re.search(r"\bgit\b[^;&|]*\badd\b", comando):
+            nomi |= set(git(PUB, "ls-files", "--others", "--exclude-standard").split())
+        inizio = time.time()
+        trovati = []
+        for nome in sorted(nomi)[:80]:
+            if time.time() - inizio > 12:
+                break
+            if not nome.endswith(ESTENSIONI_TESTO) or "/_legacy/" in nome or nome.startswith("archivio/"):
+                continue
+            f = os.path.join(PUB, nome)
+            if not os.path.isfile(f) or os.path.getsize(f) > 1_500_000:
+                continue
+            try:
+                p = cognomi_nel_file(nome, open(f, encoding="utf-8", errors="replace").read())
+            except Exception:
+                p = []
+            if p:
+                trovati.append("%s: %s" % (nome, ", ".join(p[:2])))
+        if trovati:
+            return ("Push fermato (R1, privacy, #319): nei file cambiati c'è il cognome di un allievo: %s. Togli il "
+                    "cognome (esempi con nomi inventati, «Nome I.»); non si salta con PAGINE-OK. Se è una parola "
+                    "comune, aggiungila a «parole_comuni» in config/nomi-controllo.json del riservato."
+                    % "; ".join(trovati[:4]))
     return None
 
 

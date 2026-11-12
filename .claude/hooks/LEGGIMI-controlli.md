@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.7** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 1.8** — 12/11/2026 — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -168,6 +168,11 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 2. **Controllo:** `controllo_dato_vecchio` in `controllo-messaggio.py`. Se il messaggio (fuori da riquadri, codice e virgolette) dice «non ha/hanno (ancora) consegnato» o «non ha/hanno (ancora) fatto il quiz»: senza una fonte con ora («letto … alle HH:MM», «dato delle HH:MM», «fino alle HH:MM», «screenshot … alle HH:MM») il messaggio viene fatto riscrivere; con un dato più vecchio di 3 minuti (la fonte più vecchia citata) anche. Passa se c'è «non provato» o se la frase è «non risulta consegnato nel dato delle HH:MM (N minuti fa)».
 3. **Prova:** `prove/prova_messaggio.py` (8 casi nuovi, 46 in tutto). Limite: il controllo legge il testo, non sa se la fonte citata è davvero quella letta.
 
+## 08 Controllo dei cognomi nei file del push (12/11/2026)
+
+1. **Errore #319:** un cognome di allievo scritto in `fabbrica/` (esempio nel changelog del motore) è stato pushato: il controllo del push guardava solo docs/ e i messaggi dei commit.
+2. **Controllo:** `limite-comandi.py`, al «git push» del pubblico controlla con `controllo_nomi.py` (elenchi del riservato) il contenuto di tutti i file di testo cambiati rispetto a origin/main (e dei nuovi, se il comando ha «git add»), in qualunque cartella; ferma il push e non si salta con «PAGINE-OK». Prova: `prove/prova_limite.py` (42 casi).
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -176,3 +181,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 4. v1.5 (06/11/2026): capitolo 05.4, punti da correggere negli strumenti emersi dalla rilettura delle regole.
 5. v1.6 (12/11/2026): capitolo 06, controllo (ff) del formato dei kit e dei documenti; prova nuova `prova_formato_kit.py`.
 6. v1.7 (12/11/2026): capitolo 07, controllo (hh) «non ha consegnato» con dato non fresco (errore #314); prova_messaggio.py a 46 casi.
+7. v1.8 (12/11/2026): capitolo 08, controllo dei cognomi nel contenuto dei file cambiati al push del pubblico (errore #319); prova_limite.py a 42 casi.
