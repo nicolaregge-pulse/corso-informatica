@@ -179,6 +179,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 
 **FRASE VIETATA (docente, 12/11/2026):** negli oggetti dei post Classroom NON si scrive mai «Il quiz di fine ora lo facciamo quando lo dico io». Al massimo: «Seguirà il quiz.» (oppure niente).
 
+**TUTTI FANNO TUTTO (docente, 12/11/2026):** a ogni lezione, insieme ai kit, ricordo al docente CHI MANCA e COSA MANCA (compiti, documento, quiz), assenti compresi, che devono recuperare. Elenco per classe, COGNOME Nome, con la fonte e l'ora del dato, in cornice verde. Lo stato corrente sta in `report/RECUPERI-<CLASSE>-v1.0.md` nel riservato, aggiornato a ogni lezione.
+
 Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
 
 ## 04 Registro delle versioni
@@ -198,3 +200,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 13. v1.12 (12/11/2026): 03octies, colori: kit in rosso, allegato sempre in blu, il resto in verde.
 14. v1.13 (12/11/2026): 03octies, turno pulito per consegnare un kit; niente colori se il formato non è rispettato; errore #293.
 15. v1.14 (12/11/2026): 03octies, frase vietata negli oggetti; al massimo «Seguirà il quiz.»
+16. v1.15 (12/11/2026): 03octies, tutti fanno tutto: a ogni lezione ricordare chi manca e cosa manca, assenti compresi.
