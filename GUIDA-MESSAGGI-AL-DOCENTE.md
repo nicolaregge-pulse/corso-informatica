@@ -164,7 +164,9 @@ Per ogni ora si danno SEMPRE, in questa sequenza, e ognuno in un messaggio suo:
 2. **Pacchetto per il post su Classroom** nello standard di 03sexies: titolo, oggetto, dispensa allievi.
 3. **Link del quiz da aggiungere al post**, in una casella copiabile, con l'account scritto prima. Se il link non è leggibile da me (sta nel foglio Fabbrica, account PIAMARTA, scheda Esiti, colonna D), non lo invento (R7.6): chiedo di incollare la cella D della riga del quiz e lo rimando pulito.
 
-Dopo i tre pezzi, il controllo delle consegne.
+4. **PDF con le risposte e la spiegazione** di ogni domanda del quiz (docente, 12/11/2026), mandato come scheda con SendUserFile insieme al link. Per le domande aperte: la risposta attesa e perché; per le chiuse: la risposta giusta e perché le altre no. Solo per il docente, in italiano, senza nomi di allievi, con data, nome e versione (python3 strumenti/md2pdf.py).
+
+Dopo i quattro pezzi, il controllo delle consegne.
 
 ## 04 Registro delle versioni
 
@@ -178,3 +180,4 @@ Dopo i tre pezzi, il controllo delle consegne.
 8. v1.7 (12/11/2026): sezione 03quinquies, formato unico del pacchetto Classroom disegnato dal docente; errore #288.
 9. v1.8 (12/11/2026): sezione 03sexies, standard unico del pacchetto Classroom approvato dal docente; errore #289.
 10. v1.9 (12/11/2026): sezione 03septies, ordine fisso dei tre pezzi di ogni ora (registro, post Classroom, link del quiz).
+11. v1.10 (12/11/2026): 03septies punto 4, PDF con risposte e spiegazioni di ogni quiz pubblicato.
