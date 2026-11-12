@@ -1536,3 +1536,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Più messaggi per il docente senza cornice verde, anche se la regola c e già (GUIDA-MESSAGGI 03bis). Il docente: «ricordati di circondare in verde i messaggi per me».
 2. **Strumento.** Da fare: controllo-messaggio.py segnala un messaggio per il docente senza riga di quadratini verdi (esclusi i pacchetti Classroom, rossi, e le risposte di una riga).
+
+## #292 (12/11/2026) Quiz in inglese su PC con Windows in italiano
+
+1. **Errore.** Nel quiz ora 1 di 2INF la domanda chiedeva «Mandatory Label», ma i PC dell aula hanno Windows in italiano e la riga è «Etichetta obbligatoria». Il docente: «noi abbiamo Windows in italiano e tu chiedi in inglese».
+2. **Strumento.** Da fare: controlla_lingue_quiz.py segnala nei quiz 2INF le sigle inglesi note di Windows (Mandatory Label, Event Viewer, Task Manager e simili) senza il nome italiano.
