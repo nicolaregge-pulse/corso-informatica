@@ -177,6 +177,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 
 **TURNO PULITO (docente, 12/11/2026: «non usare i colori se non rispetti il formato»):** un kit si consegna SOLO in un turno in cui si fa nient'altro: prima nessun comando Bash, nessun agente, nessun controllo di versionamento nello stesso turno (si fanno prima, in un turno precedente); poi solo testo, SendUserFile, testo di chiusura. Se il turno non può essere pulito (notifica di un agente, hook che richiedono di riscrivere), il kit NON si manda e NON si usano le cornici colorate: si risponde in testo semplice e si rimanda il kit al turno pulito successivo. I colori compaiono solo quando il formato è rispettato.
 
+**FRASE VIETATA (docente, 12/11/2026):** negli oggetti dei post Classroom NON si scrive mai «Il quiz di fine ora lo facciamo quando lo dico io». Al massimo: «Seguirà il quiz.» (oppure niente).
+
 Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
 
 ## 04 Registro delle versioni
@@ -195,3 +197,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 12. v1.11 (12/11/2026): sezione 03octies, i due kit di ogni ora (Classroom; Quiz con URL e PDF risposte).
 13. v1.12 (12/11/2026): 03octies, colori: kit in rosso, allegato sempre in blu, il resto in verde.
 14. v1.13 (12/11/2026): 03octies, turno pulito per consegnare un kit; niente colori se il formato non è rispettato; errore #293.
+15. v1.14 (12/11/2026): 03octies, frase vietata negli oggetti; al massimo «Seguirà il quiz.»
