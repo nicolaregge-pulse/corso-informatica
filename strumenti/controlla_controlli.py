@@ -212,7 +212,7 @@ def _lezioni_da_testi(giorno, pub=None):
             continue
         classe = CLASSI_PAROLE.get(cl.group(0).lower(), cl.group(0))
         for a, b in re.findall(r"dalle\s+(\d{1,2})\s+alle\s+(\d{1,2})", frase):
-            aggiungi(classe, int(a), int(b), "")
+            aggiungi(classe, int(a), int(b), "Sicurezza" if "sicurezza" in frase.lower() else "")
     return voci
 
 

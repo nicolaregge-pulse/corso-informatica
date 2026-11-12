@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 1.1** — 11/11/2026
+**Versione 1.2** — 13/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -87,7 +87,7 @@ Prima informatica, dalle 13 alle 14, Sicurezza professionale: «11/11 Ora 6: Ris
 
 ## Giovedì 12 novembre
 
-Orario dal registro DIDAweb, confermato: seconda informatica, dalle 8 alle 9, dalle 9 alle 10 e dalle 10 alle 11, Laboratorio professionale. Prima informatica, dalle 13 alle 14, Tecnologia professionale. Gli argomenti non sono ancora sul registro. Nulla è pubblicato per i ragazzi.
+Orario dal registro DIDAweb, confermato: seconda informatica, dalle 8 alle 9, dalle 9 alle 10 e dalle 10 alle 11, Laboratorio professionale. Prima informatica, dalle 13 alle 14, Tecnologia professionale. Per la seconda gli argomenti sono sul registro firmato (Win10: utenti, gruppi e recupero; eventi e Gestione dispositivi; Gestione attività e risorse). Per la prima, ora 13-14, firma e titolo non sono provati. Le lezioni di giovedì risultano PUBLISHED su Classroom (letto dalla Fabbrica alle 17:47).
 
 Seconda informatica, dalle 8 alle 11. Il prof ha scelto l'ipotesi A, Windows 10 ripreso bene, con il recupero dei quiz rimasti aperti. Prima ora: utenti e gruppi di Windows 10 e recupero dei quiz. Seconda ora: il Visualizzatore eventi, con il Monitor affidabilità. Terza ora: Gestione attività e risorse. Si lavora sui PC dell'aula con un utente che non è amministratore. Sui PC dell'aula non si installa e non si disinstalla niente.
 
@@ -95,9 +95,13 @@ Prima informatica, dalle 13 alle 14. Il prof ha scelto la teoria di Computer Ess
 
 ## Venerdì 13 novembre
 
-Orario dal registro DIDAweb (screenshot del prof, 06/11/2026). Proposte da fare quando il prof le chiede.
+Orario dal registro DIDAweb (screenshot del prof dell'11/11, circa 17:35). Seconda informatica, dalle 8 alle 9, Sicurezza professionale. Prima informatica, dalle 11 alle 12, Laboratorio professionale, confermata dal registro. Le ore delle 12 e delle 13 della prima non si vedono sullo screenshot: non provato, il venerdì 6 novembre erano di Laboratorio. Terza e quarta non hanno lezione il venerdì. Nulla è pubblicato per i ragazzi.
 
-Seconda informatica, dalle 8 alle 9, Sicurezza professionale: gli argomenti li mette la direzione. Prima informatica, dalle 11 alle 12, Laboratorio professionale, confermata dal registro. Le ore dalle 12 alle 14 della prima non si vedono sul registro: non provato.
+Seconda informatica, dalle 8 alle 9, Sicurezza: una sola proposta, la sesta ora, rischi meccanici ed elettrici generali, con i recuperi nei primi dieci minuti. Il materiale è pronto dal 6 novembre e non pubblicato. Il titolo del registro lo mette la direzione. Da chiedere al prof: la sesta ora è già stata svolta il 6 novembre? Nei file risulta da confermare.
+
+Prima informatica, dalle 11 alle 14, Laboratorio professionale. Proposta consigliata: il programma che decide, cioè l'if in Lazarus (maggiorenne o no, voto in parole, divisione che controlla lo zero), con la prima mezz'ora di recupero; l'if non è stato svolto l'11 novembre. Voce «Programmazione a eventi con Lazarus», competenza 15. Seconda proposta: chiudere i programmi del mese e recuperare i quiz aperti, con unit1.pas e screenshot. Terza proposta: il primo repository GitHub con i programmi del mese.
+
+Punti aperti di giovedì 12: i voti della prima, ora 6, da inserire in DIDAweb; la firma della prima, ora 13-14, da verificare; gli argomenti svolti e il titolo del registro di quell'ora; tre bozze della prima del 4 novembre ancora in bozza su Classroom.
 
 ## Promemoria per tutte le classi
 
@@ -107,3 +111,4 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 
 1. v1.0: prima versione, con il file unico delle cose fatte, delle ore dei prossimi giorni e delle proposte (04/11/2026).
 2. v1.1 (11/11/2026): la sezione di mercoledì 11 novembre ora riporta quello che dice il registro firmato (prima c'erano le proposte con if, slideshow e quinta ora, errore numero 276); aggiunta la sezione di giovedì 12 novembre con l'orario confermato e le scelte del prof; aggiornate la tabella della bozza e l'intestazione. Le sezioni dal 5 al 10 novembre restano come proposte storiche e non dicono lo svolto: lo svolto è nel registro firmato e in Argomenti svolti.
+3. v1.2 (13/11/2026): sezione di giovedì 12 aggiornata con il registro firmato della seconda; sezione di venerdì 13 con orario dallo screenshot dell'11/11, una proposta di Sicurezza e tre proposte per la prima; punti aperti di giovedì.

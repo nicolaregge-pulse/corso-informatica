@@ -1,0 +1,32 @@
+{
+ "classe": "1INF",
+ "giorno": "2026-11-13",
+ "modalita": [
+  "guidato",
+  "teoria-quiz",
+  "versioning"
+ ],
+ "proposte": [
+  {
+   "n": 1,
+   "titolo": "Il programma che decide: if in Lazarus",
+   "descrizione": "Modalità: percorso guidato + quiz. Ore 11-14 (le ore 12-14 non risultano ancora sul registro: non provato). Obiettivo: un programma che sceglie (maggiorenne o no, voto in parole, divisione che controlla lo zero), voce «Programmazione a eventi con Lazarus», competenza 15. L'if non è stato svolto l'11/11 (registro: string integer, real e divisione). Prima mezz'ora: recupero di chi non ha consegnato i programmi precedenti. Versione facile: solo il maggiorenne. Quiz su Moduli già in Fabbrica (quiz-1inf-1111). Pagina e dispensa: NON ancora pronte, solo il quiz. NON pubblicata.",
+   "preferita": true
+  },
+  {
+   "n": 2,
+   "titolo": "Chiudiamo i programmi del mese e recuperiamo",
+   "descrizione": "Modalità: percorso guidato. Ore 11-14. Ognuno finisce e consegna i programmi già iniziati (convertitore, scontrino, divisione) con unit1.pas e screenshot, e recupera i quiz aperti (Sicurezza e ICT e hardware del 12/11, con la domanda aperta sul proprio PC solo come facoltativa). Versione facile: un solo programma.",
+   "preferita": false
+  },
+  {
+   "n": 3,
+   "titolo": "Il primo repository GitHub con i programmi del mese",
+   "descrizione": "Modalità: versioning. Ore 11-14. Ognuno crea il proprio repository e carica i programmi Lazarus fatti finora con un commit scritto da lui. Consegna: il link al repository. Versione facile: un solo file.",
+   "preferita": false
+  }
+ ],
+ "scelta": null,
+ "link": [],
+ "mancanze": "Ieri (12/11) ora 6 ICT e hardware, letto dalla Fabbrica alle 17:45-17:47: compito consegnato da 8 su 22, quiz fatto da 21 su 22. Voti dell'ora 6 non ancora inseriti in DIDAweb. Tre bozze del 4/11 ancora DRAFT su Classroom. Elenco per allievo nel riservato: report/2026-11-13/bilancio-2-settimane-1inf-2inf.md."
+}
