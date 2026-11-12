@@ -1547,3 +1547,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 1. **Errore.** Il kit dell'ora 3 è stato consegnato in turni con comandi, notifiche di agenti e hook di riscrittura: al docente il testo del kit non compare e restano solo le righe colorate e la scheda PDF. Poi ho mandato la v1.4 della dispensa invece della v1.5 (3 voci invece di 4).
 2. **Strumento.** GUIDA-MESSAGGI v1.13, «turno pulito». Prima del kit si controlla quale è la versione più recente del PDF.
 
+
+## #294 (12/11/2026) Ho chiesto di cercare sullo schermo cose che non erano su quello schermo
+
+1. **Errore.** Ho fatto aprire al docente la Panoramica del Visualizzatore eventi e subito dopo gli ho chiesto di trovare la colonna «Livello», che sta in un'altra pagina («Sistema»). Poi ho dato istruzioni su schermate che non avevo visto. Il docente: «devi stare molto più attento, quello che chiedi deve realmente essere sullo schermo».
+2. **Strumento.** Regola: ogni passo che chiedo (clicca, cerca, leggi) lo scrivo SOLO se l'ho visto in uno screenshot reale della stessa schermata; altrimenti scrivo «non verificato sul PC». Prima di un passo nuovo controllo in quale schermata il docente si trova. Da fare: nella dispensa ogni passo ha lo screenshot vero (R9.6).
