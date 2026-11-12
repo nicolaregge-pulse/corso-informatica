@@ -1,6 +1,6 @@
 # Il Framework QUIZ: la pagina-lezione con percorso a passi e quiz a metà ora
 
-**Versione 1.1** — 11/11/2026 (v1.1: capitolo 10 Ore di Sicurezza, schema fisso) — prima: 1.0, 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica. Area Docente, documento interno (non per i ragazzi).
+**Versione 1.2** — 12/11/2026 (v1.2: capitolo 11 Quiz anti-AI; v1.1: capitolo 10 Ore di Sicurezza, schema fisso) — prima: 1.1, 1.0 (04/11/2026) — Prof. Nicola Regge, Laboratorio di Informatica. Area Docente, documento interno (non per i ragazzi).
 
 Nome dato dal docente il 04/11/2026 al tipo di pagina usato per la 1INF in `docs/anteprima/1inf-lazarus-04-11/modulo-1.html` (ora 1, convertitore di misure in Lazarus). Questo documento descrive la pagina com'è, dice quando usarla e come se ne crea una nuova copiando il modello in `docs/modelli/framework-quiz/`. Formato secondo `REGOLE-FORMATTAZIONE.md`. Le sigle: PR (Pull Request, proposta di modifica su GitHub), F5 (tasto che ricarica la pagina), KPI (Key Performance Indicator, indicatore da misurare).
 
@@ -119,7 +119,20 @@ Regola data dal docente l'11/11/2026, per la Sicurezza di 1INF e delle altre cla
 4. **Titoli del registro:** li mette la direzione e fa fede il registro; Allegato A in doppia modalità, «Dichiarato» e «Registro» (R5.2bis, `ARGOMENTI-SVOLTI-2026-27.md` capitolo 4b).
 5. **Recuperi:** l'elenco per allievo sta nel riservato (`report/AAAA-MM-GG/recuperi-sicurezza-<classe>.md`); nel pubblico mai nomi.
 
-## 11 Registro delle versioni
+## 11 Quiz anti-AI: aperte con dati del proprio PC, e quiz a fine ora, a segnale del docente
+
+Decisione del docente, 12/11/2026 (2INF). Gli allievi usano l'AI per rispondere: il quiz deve poter essere risolto solo avendo davanti il proprio PC e avendo fatto la dispensa.
+
+1. **Schema (10 domande):** 6 aperte (tipo `paragrafo` o `testo`) che chiedono un dato del PC dell'allievo o un'esperienza diretta (nome PC, gruppi di `whoami /groups`, ID e ora di un evento, CPU %, processo che usa più memoria, che cosa è successo alla barra) più 4 chiuse sui concetti (`singola`, `multi` con 2 giuste, un vero/falso insidioso), tutte con feedback `sp`. Più aperte che chiuse.
+2. **Punti:** solo le chiuse hanno `punti` (1 l'una); le aperte non hanno `punti` e non hanno risposta giusta, le corregge il docente a mano (il motore scrive nell'aiuto «Domanda aperta: la corregge il docente a mano»). Così la percentuale della scheda Situazione conta solo le chiuse. Nessuna soglia, nessun «vale il migliore».
+3. **Descrizione fissa:** «Rispondi con i dati del TUO PC: le risposte copiate o dell'AI non valgono perché i dati sono diversi per ogni PC.»
+4. **Solo dati provati:** una domanda aperta chiede solo ciò che sta in `STRUMENTI-PC-AULA-VERIFICATI` come «funziona» o nella dispensa dell'ora.
+5. **Quando:** il quiz non va nel post iniziale. Si pubblica verso la fine dell'ora, quando lo dice il docente (PUBB n). Titolo del compito «G/M Ora N: quiz di fine ora», oggetto «Rispondi con i dati del tuo PC. Il quiz si consegna entro la fine dell'ora.»
+6. **Id nuovi** (R11): per la 2INF del 12/11 `quiz-2inf-1211-ora1d`, `ora2d`, `ora3d` (file in `fabbrica/`); gli id vecchi restano come file ma escono da `indice.json`.
+7. **Controllo:** lo schema è controllato dal generatore (10 domande, 6 aperte, una sola giusta nelle singole), non da una regola in `CLAUDE.md`.
+
+## 12 Registro delle versioni
 
 1. **v1.0 (04/11/2026):** prima versione, dal tipo di pagina usato in 1INF il 04/11/2026 (ora 1, convertitore di misure) e battezzato «Framework QUIZ» dal docente. Modello in `docs/modelli/framework-quiz/`.
 2. **v1.1 (11/11/2026):** capitolo 10 «Ore di Sicurezza: schema fisso», su regola del docente.
+- v1.2 (12/11/2026): capitolo 11, quiz anti-AI con aperte sui dati del proprio PC e quiz a fine ora a segnale del docente.
