@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.3 (12/11/2026): per la 2INF la vista «Quiz e voti» mostra anche i compiti consegnati (n su totale) e il punteggio dei quiz (media % dei quiz fatti, con * se provvisorio), e una riga di riepilogo (hanno consegnato, hanno fatto ogni quiz, non abbinati); i compiti arrivano dalla scheda «Consegne pubblica 2INF» del foglio Fabbrica (motore v2.19, solo «Nome I.», nessuna email), con un secondo link incollato una volta; la vista «Consegne» della 2INF legge la stessa scheda pubblica (mai quella con i cognomi). Prima, 2.2: la vista «Quiz e voti» distingue MANCA (nessuna risposta, provato) da «NON ABBINATA» (risposte arrivate ma ancora da collegare a un allievo, cella ambra): non contano come mancanti ne come fatte, il voto proposto e provvisorio (*) e la riga dice «aspetta», mai email; contatore «Da abbinare»; motore Fabbrica v2.18. Prima, 2.1: la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.4 (12/11/2026): per la 2INF la vista «Quiz e voti» ha il selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» (di partenza l'ora in corso, fuso Europe/Rome: 8-9 ora 1, 9-10 ora 2, 10-11 ora 3, altrimenti Tutte): con un'ora scelta, per ogni presente, compito di quell'ora (colonna «Ora N» della scheda Consegne pubblica), quiz di fine ora (colonna ora<N>d… della Situazione pubblica) con la %, e dove andare adesso; in alto consegnati su presenti, quanti hanno fatto il quiz, non abbinati, ora del dato e DATI VECCHI; i dati letti e il motore non cambiano. Prima, 2.3 (12/11/2026): per la 2INF la vista «Quiz e voti» mostra anche i compiti consegnati (n su totale) e il punteggio dei quiz (media % dei quiz fatti, con * se provvisorio), e una riga di riepilogo (hanno consegnato, hanno fatto ogni quiz, non abbinati); i compiti arrivano dalla scheda «Consegne pubblica 2INF» del foglio Fabbrica (motore v2.19, solo «Nome I.», nessuna email), con un secondo link incollato una volta; la vista «Consegne» della 2INF legge la stessa scheda pubblica (mai quella con i cognomi). Prima, 2.2: la vista «Quiz e voti» distingue MANCA (nessuna risposta, provato) da «NON ABBINATA» (risposte arrivate ma ancora da collegare a un allievo, cella ambra): non contano come mancanti ne come fatte, il voto proposto e provvisorio (*) e la riga dice «aspetta», mai email; contatore «Da abbinare»; motore Fabbrica v2.18. Prima, 2.1: la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -42,6 +42,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
 #crit{display:none;border:3px solid var(--rosso);border-radius:8px;padding:10px 14px;margin:8px 0;background:var(--card);font-size:16px;line-height:1.5}
 .sit{display:none}.assenti{margin:10px 0;font-size:14px}
 .riep{display:none;border:2px solid var(--blu);border-radius:8px;padding:8px 12px;margin:8px 0;background:var(--card);font-size:16px;line-height:1.5}.riep small{color:#667}
+.barra.ore button{font-size:22px;padding:16px 10px}
 .assenti button,.ordine{font-size:14px;padding:6px 10px;border:1px solid var(--blu);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer;margin:2px}
 </style>
 </head>
@@ -80,14 +81,15 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   <span id="msg2"></span>
 </div>
 <div id="crit"></div>
+<div class="barra ore" id="ore" style="display:none"></div>
 <div class="riep" id="riep"></div>
 <div class="conta" id="conta"></div>
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
 <div class="assenti" id="assenti"></div>
-<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: il foglio pubblicato («Situazione pubblica») ha già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque in «Nome I.»; i nomi non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». <b>Punteggio quiz</b>: media delle percentuali dei quiz fatti che contano; con l’asterisco (*) è provvisorio, perché ci sono domande aperte non ancora corrette o risposte da abbinare. <b>Compiti consegnati</b> (solo 2INF): dalla scheda «Consegne pubblica», CONSEGNATO e RICONSEGNATO contano come consegnati, ASSEGNATO no. Il voto finale lo decide il docente.</div>
+<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: il foglio pubblicato («Situazione pubblica») ha già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque in «Nome I.»; i nomi non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». <b>Punteggio quiz</b>: media delle percentuali dei quiz fatti che contano; con l’asterisco (*) è provvisorio, perché ci sono domande aperte non ancora corrette o risposte da abbinare. <b>Compiti consegnati</b> (solo 2INF): dalla scheda «Consegne pubblica», CONSEGNATO e RICONSEGNATO contano come consegnati, ASSEGNATO no. <b>Ora (solo 2INF)</b>: i bottoni «Ora 1 · Ora 2 · Ora 3 · Tutte» mostrano la situazione di una sola ora (8-9, 9-10, 10-11, ora italiana): compito di quell’ora e quiz di fine ora; di partenza c’è l’ora in corso. Il voto finale lo decide il docente.</div>
 <div class="nota" id="notaVecchia">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
-<div class="nota">Versione 2.3 · 12/11/2026</div>
+<div class="nota">Versione 2.4 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -126,7 +128,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   }
   function disegna(righe) {
     if (statoCorr.vista === 'situazione') { ultimo.righe = righe; disegnaSit(righe); return; }
-    $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('crit').style.display = 'none'; $('riep').style.display = 'none'; $('cfg2').style.display = 'none';
+    $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('crit').style.display = 'none'; $('riep').style.display = 'none'; $('cfg2').style.display = 'none'; $('ore').style.display = 'none';
     var m = ((righe[0] && righe[0][0]) || '').match(/(\d{1,2}:\d{2}:\d{2})/);
     $('dato').textContent = 'Dati letti alle ' + (m ? m[1] : '?');
     var testa = righe[3] || [], corpo = righe.slice(4).filter(function (r) { return r[0] && r[0].trim(); });
@@ -163,7 +165,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   function vuota() {
     $('conta').innerHTML = ''; $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('dato').textContent = 'In attesa dei dati';
-    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('riep').style.display = 'none';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('assenti').innerHTML = ''; $('riep').style.display = 'none'; $('ore').style.display = 'none';
     $('notaSit').style.display = statoCorr.vista === 'situazione' ? 'block' : 'none';
     $('notaVecchia').style.display = statoCorr.vista === 'situazione' ? 'none' : 'block';
   }
@@ -316,6 +318,69 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     return '<td><span class="chip ' + (r.pct >= 80 ? 'v' : 'g') + '">' + r.pct + '%' + (prov ? '*' : '') + '</span> <small>' + r.fatti.length + ' su ' + r.nq + (prov ? ' · provvisorio' : '') + '</small></td>';
   }
   var ordinePer = 'voto';
+  /* ---------- selettore dell'ora (2INF, v2.4) ---------- */
+  var ORE_CLASSI = ['2INF'], oraScelta = null;
+  function oraInCorso() {
+    var h = -1;
+    try { var pp = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Rome', hour: 'numeric', hourCycle: 'h23' }).formatToParts(new Date()); for (var i = 0; i < pp.length; i++) if (pp[i].type === 'hour') h = +pp[i].value; } catch (e) { h = new Date().getHours(); }
+    return h >= 8 && h <= 10 ? h - 7 : 0;
+  }
+  function oraAttiva() { return oraScelta === null ? oraInCorso() : oraScelta; }
+  function disegnaSelettoreOre() {
+    var a = oraAttiva(), el = $('ore');
+    el.innerHTML = [1, 2, 3, 0].map(function (n) { return '<button type="button" data-ora="' + n + '"' + (a === n ? ' class="on"' : '') + '>' + (n ? 'Ora ' + n : 'Tutte') + '</button>'; }).join('');
+    el.style.display = 'flex';
+  }
+  /* quiz di fine ora: colonna con id «...-ora<N>d...»; compito: colonna «... Ora N ...» (di oggi se ce n'e' piu' d'uno) */
+  function colQuizOra(quiz, n) {
+    var t = quiz.filter(function (q) { var m = /-ora(\d+)d/i.exec(q.id); return m && +m[1] === n; });
+    var og = t.filter(function (q) { return q.data === oggiStr(); });
+    return (og.length ? og : t).slice(-1)[0] || null;
+  }
+  function colCompitoOra(CC, n) {
+    if (!CC) return -1;
+    var t = [], i;
+    for (i = 0; i < CC.compiti.length; i++) { var m = /Ora\s*(\d+)/i.exec(CC.compiti[i].titolo); if (m && +m[1] === n) t.push(i); }
+    var og = t.filter(function (k) { return CC.compiti[k].titolo.indexOf(oggiStr()) === 0; });
+    return (og.length ? og : t).slice(-1)[0] !== undefined ? (og.length ? og : t).slice(-1)[0] : -1;
+  }
+  function righeOra(rows, S, CC, n) {
+    var q = colQuizOra(S.quiz, n), qi = q ? S.quiz.indexOf(q) : -1, ci = colCompitoOra(CC, n);
+    rows.forEach(function (r) {
+      var cq = qi >= 0 ? r.celle[qi] : null, cc = null;
+      if (CC && ci >= 0 && r.cons) cc = r.cons.celle[ci];
+      r.o = { q: cq, c: cc, consAbb: !!(CC && ci >= 0 && !r.cons) };
+      var comp = cc === 'c' ? 'fatto' : (cc === 'a' ? 'manca' : 'nd');
+      var quiz = !cq ? 'nd' : (cq.t === 'ok' ? 'fatto' : (cq.t === 'manca' ? 'manca' : (cq.t === 'nonabb' ? 'abb' : 'nd')));
+      if (comp === 'manca') r.o.vai = 'Consegna il compito «Ora ' + n + '» su Classroom.';
+      else if (quiz === 'manca') r.o.vai = 'Fai il quiz di fine ora' + (q ? ' «' + q.label + '»' : '') + '.';
+      else if (quiz === 'abb') r.o.vai = 'La tua risposta non e\u0027 ancora collegata al tuo nome. Aspetta.';
+      else if (comp === 'fatto' && quiz === 'fatto') r.o.vai = 'Hai finito l\u0027ora ' + n + '. Aspetta il prossimo passo.';
+      else if (comp === 'fatto') r.o.vai = 'Compito fatto. Aspetta il quiz di fine ora.';
+      else if (quiz === 'fatto') r.o.vai = 'Quiz fatto. Aspetta il compito.';
+      else r.o.vai = 'Aspetta: non ci sono ancora dati di questa ora.';
+      r.o.stato = (comp === 'manca' || quiz === 'manca') ? 'r' : (quiz === 'abb' ? 'a' : (comp === 'fatto' && quiz === 'fatto' ? 'v' : (comp === 'fatto' || quiz === 'fatto' ? 'v2' : 'n')));
+      if (r.o.stato === 'v2') r.o.stato = 'n';
+      r.o.compFatto = comp === 'fatto'; r.o.quizFatto = quiz === 'fatto';
+    });
+    return { q: q, ci: ci };
+  }
+  function chipCompito(r, haCol) {
+    if (!haCol) return '<span class="chip n">non letto</span>';
+    if (!r.cons) return '<span class="chip a">non abbinato</span>';
+    var c = r.o.c;
+    if (c === 'c') return '<span class="chip v">CONSEGNATO</span>';
+    if (c === 'a') return '<span class="chip r">ASSEGNATO</span>';
+    return '<span class="chip n">non assegnato</span>';
+  }
+  function chipQuiz(r, haCol) {
+    var x = r.o.q;
+    if (!haCol || !x) return '<span class="chip n">non letto</span>';
+    if (x.t === 'ok') return '<span class="chip ' + (x.pct >= 80 ? 'v' : 'g') + '">' + x.pct + '%' + (x.prov ? '*' : '') + '</span> <small>' + x.mg + '/' + x.su + '</small>';
+    if (x.t === 'manca') return '<span class="chip r">MANCA</span>';
+    if (x.t === 'nonabb') return '<span class="chip a">NON ABBINATA</span>';
+    return '<span class="chip n">non letto</span>';
+  }
   function disegnaSit(righe) {
     var S = parseSit(righe);
     if (!S) { $('dato').textContent = 'Foglio non riconosciuto'; $('msg').textContent = ' Non è la scheda «Situazione pubblica ' + statoCorr.classe + '»: controlla il link.'; $('cfg').style.display = 'block'; return; }
@@ -340,41 +405,61 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
       return r;
     });
     var pres = rows.filter(function (r) { return !r.assente; }), ass = rows.filter(function (r) { return r.assente; });
-    pres.sort(function (a, b) {
-      if (ordinePer === 'fare') return b.manca.length - a.manca.length || b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
-      return b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
-    });
-    var fin = pres.filter(function (r) { return r.stato === 'v'; }).length, mc = pres.filter(function (r) { return r.stato === 'r'; }).length;
-    $('conta').innerHTML = '<span style="background:#455a64">Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + fin + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mc + '</span>' + (pres.filter(function (r) { return r.stato === 'a'; }).length ? '<span style="background:#ffe082;color:#111">Da abbinare ' + pres.filter(function (r) { return r.stato === 'a'; }).length + '</span>' : '') + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
-    var nq = S.quiz.length;
-    var haCons = !!CC, nQ = sc.length;
-    var nTutti = pres.filter(function (r) { return r.cons && r.cons.tot > 0 && r.cons.cons === r.cons.tot; }).length;
-    var nUno = pres.filter(function (r) { return r.cons && r.cons.cons > 0; }).length;
-    var nTot = CC ? CC.compiti.length : 0;
-    var nQuizTutti = pres.filter(function (r) { return nQ > 0 && r.fatti.length === nQ && !r.manca.length && !r.daAbb.length; }).length;
-    var nAbbQ = pres.filter(function (r) { return r.daAbb.length > 0; }).length;
-    var nAbbC = haCons ? pres.filter(function (r) { return !r.cons; }).length : 0;
-    var rp = [];
-    if (haCons) rp.push('<b>Compiti:</b> ' + nTutti + ' su ' + pres.length + ' hanno consegnato tutti i ' + nTot + ' · ' + nUno + ' ne hanno consegnato almeno uno');
-    else if (CONS_PUB.indexOf(c) >= 0) rp.push('<b>Compiti:</b> ' + (ultimo.cons && ultimo.cons.errore ? esc(ultimo.cons.errore) : 'non ho ancora il link della scheda «Consegne pubblica ' + c + '»'));
-    rp.push('<b>Quiz:</b> ' + nQuizTutti + ' su ' + pres.length + ' hanno fatto ogni quiz contato (' + nQ + ')');
-    rp.push('<b>Non abbinati:</b> ' + (nAbbQ + nAbbC) + (haCons ? ' (quiz ' + nAbbQ + ', compiti ' + nAbbC + ')' : ' (quiz ' + nAbbQ + ')'));
+    var ora = ORE_CLASSI.indexOf(c) >= 0 ? oraAttiva() : 0;
+    if (ORE_CLASSI.indexOf(c) >= 0) disegnaSelettoreOre(); else $('ore').style.display = 'none';
     var avv = '';
-    if (haCons && CC.quando) { var mn = (new Date() - CC.quando) / 60000; avv = ' <small>compiti letti alle ' + ('0' + CC.quando.getHours()).slice(-2) + ':' + ('0' + CC.quando.getMinutes()).slice(-2) + (mn > 6 ? ' · DATI VECCHI di ' + Math.round(mn) + ' minuti' : '') + '</small>'; }
-    var rpEl = $('riep'); rpEl.innerHTML = rp.join(' · ') + avv; rpEl.style.display = 'block';
-    $('tab').querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + S.quiz.map(function (q) {
-      return '<th><label><input type="checkbox" data-q="' + esc(q.id) + '"' + (sc.indexOf(q.id) >= 0 ? ' checked' : '') + '> Conta</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '<br>letto alle ' + esc(q.letto || '?') + '</small></th>';
-    }).join('') + '<th>Ha fatto</th><th>Gli manca</th>' + (haCons ? '<th>Compiti consegnati</th>' : '') + '<th>Punteggio quiz</th><th>Adesso deve andare a</th><th>Voto proposto</th></tr>';
-    $('tab').querySelector('tbody').innerHTML = pres.map(function (r) {
-      return '<tr><td class="nome ' + r.stato + '">' + esc(r.lab) + '</td><td><input type="checkbox" data-a="' + r.h + '"></td>' + r.celle.map(function (x, k) {
-        if (x.t === 'ok') return '<td><span class="chip ' + (x.pct >= 80 ? 'v' : 'g') + '">' + x.pct + '%' + (x.prov ? '*' : '') + '</span> <small>' + x.mg + '/' + x.su + '</small></td>';
-        if (x.t === 'manca') return '<td><span class="chip r">MANCA</span></td>';
-        if (x.t === 'nonabb') return '<td><span class="chip a">NON ABBINATA</span></td>';
-        return '<td><span class="chip n">non letto</span></td>';
-      }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + (r.daAbb.length ? '<br><small>da abbinare: ' + esc(r.daAbb.map(function (q) { return q.corto; }).join(', ')) + '</small>' : '') + '</td>' + (haCons ? consCella(r.cons, CC) : '') + quizCella(r) + '<td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
-    }).join('');
+    if (CC && CC.quando) { var mn = (new Date() - CC.quando) / 60000; avv = ' <small>compiti letti alle ' + ('0' + CC.quando.getHours()).slice(-2) + ':' + ('0' + CC.quando.getMinutes()).slice(-2) + (mn > 6 ? ' · DATI VECCHI di ' + Math.round(mn) + ' minuti' : '') + '</small>'; }
+    if (ora) {
+      var O = righeOra(rows, S, CC, ora), haQ = !!O.q, haC = O.ci >= 0;
+      pres.sort(function (a, b) { var pr = { r: 0, a: 1, n: 2, v: 3 }; return pr[a.o.stato] - pr[b.o.stato] || (a.lab < b.lab ? -1 : 1); });
+      var nCons = pres.filter(function (r) { return r.o.compFatto; }).length, nQz = pres.filter(function (r) { return r.o.quizFatto; }).length;
+      var nAb = pres.filter(function (r) { return (r.o.q && r.o.q.t === 'nonabb') || r.o.consAbb; }).length;
+      var finO = pres.filter(function (r) { return r.o.stato === 'v'; }).length, mcO = pres.filter(function (r) { return r.o.stato === 'r'; }).length;
+      $('conta').innerHTML = '<span style="background:#455a64">Ora ' + ora + ' · Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + finO + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mcO + '</span>' + (nAb ? '<span style="background:#ffe082;color:#111">Da abbinare ' + nAb + '</span>' : '') + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
+      var rp0 = [];
+      rp0.push('<b>Ora ' + ora + ' · Compiti:</b> ' + (haC ? nCons + ' su ' + pres.length + ' consegnati' : (CC ? 'nessun compito «Ora ' + ora + '» nella scheda' : 'non ho il link della scheda «Consegne pubblica ' + c + '»')));
+      rp0.push('<b>Quiz di fine ora:</b> ' + (haQ ? nQz + ' su ' + pres.length + ' hanno fatto il quiz' : 'nessun quiz di questa ora nella scheda'));
+      rp0.push('<b>Non abbinati:</b> ' + nAb);
+      var rpE = $('riep'); rpE.innerHTML = rp0.join(' · ') + (haQ && O.q.letto ? ' <small>quiz letto alle ' + esc(O.q.letto) + '</small>' : '') + avv; rpE.style.display = 'block';
+      $('tab').querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th><th>Compito Ora ' + ora + (haC ? '<small>' + esc(CC.compiti[O.ci].titolo) + '</small>' : '') + '</th><th>Quiz di fine ora' + (haQ ? '<small>' + esc(O.q.corto) + '</small>' : '') + '</th><th>Adesso deve andare a</th></tr>';
+      $('tab').querySelector('tbody').innerHTML = pres.map(function (r) {
+        return '<tr><td class="nome ' + r.o.stato + '">' + esc(r.lab) + '</td><td><input type="checkbox" data-a="' + r.h + '"></td><td>' + chipCompito(r, haC) + '</td><td>' + chipQuiz(r, haQ) + '</td><td class="vai">' + esc(r.o.vai) + '</td></tr>';
+      }).join('');
+    } else {
+    pres.sort(function (a, b) {
+        if (ordinePer === 'fare') return b.manca.length - a.manca.length || b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
+        return b.voto - a.voto || (a.lab < b.lab ? -1 : 1);
+      });
+      var fin = pres.filter(function (r) { return r.stato === 'v'; }).length, mc = pres.filter(function (r) { return r.stato === 'r'; }).length;
+      $('conta').innerHTML = '<span style="background:#455a64">Presenti ' + pres.length + '</span><span style="background:' + COL.VERDE + '">Hanno finito ' + fin + '</span><span style="background:' + COL.ARANCIO + '">Manca qualcosa ' + mc + '</span>' + (pres.filter(function (r) { return r.stato === 'a'; }).length ? '<span style="background:#ffe082;color:#111">Da abbinare ' + pres.filter(function (r) { return r.stato === 'a'; }).length + '</span>' : '') + (ass.length ? '<span style="background:#888">Assenti ' + ass.length + '</span>' : '');
+      var nq = S.quiz.length;
+      var haCons = !!CC, nQ = sc.length;
+      var nTutti = pres.filter(function (r) { return r.cons && r.cons.tot > 0 && r.cons.cons === r.cons.tot; }).length;
+      var nUno = pres.filter(function (r) { return r.cons && r.cons.cons > 0; }).length;
+      var nTot = CC ? CC.compiti.length : 0;
+      var nQuizTutti = pres.filter(function (r) { return nQ > 0 && r.fatti.length === nQ && !r.manca.length && !r.daAbb.length; }).length;
+      var nAbbQ = pres.filter(function (r) { return r.daAbb.length > 0; }).length;
+      var nAbbC = haCons ? pres.filter(function (r) { return !r.cons; }).length : 0;
+      var rp = [];
+      if (haCons) rp.push('<b>Compiti:</b> ' + nTutti + ' su ' + pres.length + ' hanno consegnato tutti i ' + nTot + ' · ' + nUno + ' ne hanno consegnato almeno uno');
+      else if (CONS_PUB.indexOf(c) >= 0) rp.push('<b>Compiti:</b> ' + (ultimo.cons && ultimo.cons.errore ? esc(ultimo.cons.errore) : 'non ho ancora il link della scheda «Consegne pubblica ' + c + '»'));
+      rp.push('<b>Quiz:</b> ' + nQuizTutti + ' su ' + pres.length + ' hanno fatto ogni quiz contato (' + nQ + ')');
+      rp.push('<b>Non abbinati:</b> ' + (nAbbQ + nAbbC) + (haCons ? ' (quiz ' + nAbbQ + ', compiti ' + nAbbC + ')' : ' (quiz ' + nAbbQ + ')'));
+      var rpEl = $('riep'); rpEl.innerHTML = rp.join(' · ') + avv; rpEl.style.display = 'block';
+      $('tab').querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + S.quiz.map(function (q) {
+        return '<th><label><input type="checkbox" data-q="' + esc(q.id) + '"' + (sc.indexOf(q.id) >= 0 ? ' checked' : '') + '> Conta</label>' + esc(q.label) + '<small>' + esc(q.corto) + (q.data ? ' · ' + esc(q.data) : '') + '<br>letto alle ' + esc(q.letto || '?') + '</small></th>';
+      }).join('') + '<th>Ha fatto</th><th>Gli manca</th>' + (haCons ? '<th>Compiti consegnati</th>' : '') + '<th>Punteggio quiz</th><th>Adesso deve andare a</th><th>Voto proposto</th></tr>';
+      $('tab').querySelector('tbody').innerHTML = pres.map(function (r) {
+        return '<tr><td class="nome ' + r.stato + '">' + esc(r.lab) + '</td><td><input type="checkbox" data-a="' + r.h + '"></td>' + r.celle.map(function (x, k) {
+          if (x.t === 'ok') return '<td><span class="chip ' + (x.pct >= 80 ? 'v' : 'g') + '">' + x.pct + '%' + (x.prov ? '*' : '') + '</span> <small>' + x.mg + '/' + x.su + '</small></td>';
+          if (x.t === 'manca') return '<td><span class="chip r">MANCA</span></td>';
+          if (x.t === 'nonabb') return '<td><span class="chip a">NON ABBINATA</span></td>';
+          return '<td><span class="chip n">non letto</span></td>';
+        }).join('') + '<td>' + r.fatti.length + ' su ' + (r.fatti.length + r.manca.length) + '</td><td>' + (r.manca.length ? esc(r.manca.map(function (q) { return q.corto; }).join(', ')) : '-') + (r.daAbb.length ? '<br><small>da abbinare: ' + esc(r.daAbb.map(function (q) { return q.corto; }).join(', ')) + '</small>' : '') + '</td>' + (haCons ? consCella(r.cons, CC) : '') + quizCella(r) + '<td class="vai">' + esc(r.vai) + '</td><td class="voto">' + r.voto + (r.prov ? '*' : '') + '<span class="conto">' + esc(r.conto) + '</span></td></tr>';
+      }).join('');
+      }
     $('assenti').innerHTML = ass.length ? 'Assenti (non contati): ' + ass.map(function (r) { return '<button type="button" data-ra="' + r.h + '">' + esc(r.lab) + ' · rimetti</button>'; }).join('') : '';
-    $('sitbar').style.display = 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
+    $('sitbar').style.display = ora ? 'none' : 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
     // Serve te: solo cio' che puo' fare il docente (R8.7)
     var crit = S.att.slice();
     if (!S.stud.length) crit.push('ATTENZIONE: nel foglio non ci sono allievi.');
@@ -402,6 +487,10 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     var a = e.target.getAttribute('data-ra'); if (!a) return;
     var k = 'cruscotto_assenti_' + statoCorr.classe + '_' + oggiStr().replace('/', '-'), l = leggiJ(k, []);
     scrivi(k, JSON.stringify(l.filter(function (x) { return x !== a; }))); rifaiSit();
+  };
+  $('ore').onclick = function (e) {
+    var t = e.target.getAttribute && e.target.getAttribute('data-ora'); if (t === null || t === undefined) return;
+    oraScelta = +t; rifaiSit();
   };
   $('ordine').onclick = function () { ordinePer = ordinePer === 'voto' ? 'fare' : 'voto'; rifaiSit(); };
 
