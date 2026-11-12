@@ -168,6 +168,13 @@ Per ogni ora si danno SEMPRE, in questa sequenza, e ognuno in un messaggio suo:
 
 Dopo i quattro pezzi, il controllo delle consegne.
 
+## 03octies I DUE KIT di ogni ora (docente, 12/11/2026)
+
+1. **Kit 1, Classroom:** titolo, oggetto e allegati, nello standard di 03sexies (un solo blocco rosso, con la dispensa nel riquadro blu).
+2. **Kit 2, Quiz:** l'URL del quiz in una casella copiabile (con l'account scritto prima) e il PDF con le risposte e la spiegazione di ogni domanda (03septies punto 4).
+
+Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
@@ -181,3 +188,4 @@ Dopo i quattro pezzi, il controllo delle consegne.
 9. v1.8 (12/11/2026): sezione 03sexies, standard unico del pacchetto Classroom approvato dal docente; errore #289.
 10. v1.9 (12/11/2026): sezione 03septies, ordine fisso dei tre pezzi di ogni ora (registro, post Classroom, link del quiz).
 11. v1.10 (12/11/2026): 03septies punto 4, PDF con risposte e spiegazioni di ogni quiz pubblicato.
+12. v1.11 (12/11/2026): sezione 03octies, i due kit di ogni ora (Classroom; Quiz con URL e PDF risposte).
