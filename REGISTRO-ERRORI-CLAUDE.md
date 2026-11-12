@@ -1648,3 +1648,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 1. **Errore.** Nella stessa risposta ho mandato kit Classroom e kit quiz con due schede PDF: l'app ha sostituito il testo scritto prima di ogni scheda con un riassunto, e il kit Classroom non si vedeva. Ricaduta di #287, #289, #293.
 2. **Strumento.** GUIDA-MESSAGGI v1.17: un solo kit per risposta e lista di controllo prima di emettere; se il controllo fallisce si rifà. Da fare: controllo automatico che segnali due SendUserFile nello stesso turno con righe rosse o blu.
 
+## #312 (12/11/2026) «Quando hai finito, chiama il prof» nell'oggetto e nella dispensa
+
+1. **Errore.** Nell'oggetto del post e nella dispensa della 6a ora di 1INF avevo lasciato «Quando hai finito, chiama il prof», ripresa da un pacchetto vecchio. Contro R9.8 e contro lo scopo del lavoro: il docente: «il tuo compito è sgravarmi dal lavoro di controllo». Ricaduta di #269 (testo ripreso da un altro lavoro).
+2. **Strumento.** GUIDA-MESSAGGI v1.18: frasi vietate nei testi per i ragazzi. Da fare: `controlli_pagine.py` e il controllo del messaggio segnalano «chiama il prof» e «chiedi al prof» nei testi per i ragazzi.
+

@@ -177,6 +177,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 
 **TURNO PULITO (docente, 12/11/2026: «non usare i colori se non rispetti il formato»):** un kit si consegna SOLO in un turno in cui si fa nient'altro: prima nessun comando Bash, nessun agente, nessun controllo di versionamento nello stesso turno (si fanno prima, in un turno precedente); poi solo testo, SendUserFile, testo di chiusura. Se il turno non può essere pulito (notifica di un agente, hook che richiedono di riscrivere), il kit NON si manda e NON si usano le cornici colorate: si risponde in testo semplice e si rimanda il kit al turno pulito successivo. I colori compaiono solo quando il formato è rispettato.
 
+**FRASI VIETATE nei testi per i ragazzi (docente, 12/11/2026: «il tuo compito è sgravarmi dal lavoro di controllo»):** mai «chiama il prof», «chiedi al prof», «alza la mano per farti controllare» per controlli o consegne: la consegna è un bottone e il controllo lo faccio io (R9.8). Solo problemi di salute, comportamento o PC rotto vanno al docente.
+
 **FRASE VIETATA (docente, 12/11/2026):** negli oggetti dei post Classroom NON si scrive mai «Il quiz di fine ora lo facciamo quando lo dico io». Al massimo: «Seguirà il quiz.» (oppure niente).
 
 **TUTTI FANNO TUTTO (docente, 12/11/2026):** a ogni lezione, insieme ai kit, ricordo al docente CHI MANCA e COSA MANCA (compiti, documento, quiz), assenti compresi, che devono recuperare. Elenco per classe, COGNOME Nome, con la fonte e l'ora del dato, in cornice verde. Lo stato corrente sta in `report/RECUPERI-<CLASSE>-v1.0.md` nel riservato, aggiornato a ogni lezione.
@@ -207,3 +209,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 16. v1.15 (12/11/2026): 03octies, tutti fanno tutto: a ogni lezione ricordare chi manca e cosa manca, assenti compresi.
 17. v1.16 (12/11/2026): 03octies, ogni documento con i quadratini blu, anche fuori dai kit; errore #309.
 18. v1.17 (12/11/2026): 03octies, lista di controllo prima di emettere un kit; un solo kit per risposta; modello confermato il 12/11 (kit Classroom 6a ora 1INF).
+19. v1.18 (12/11/2026): 03octies, vietato «chiama il prof» nei testi per i ragazzi; errore #312.
