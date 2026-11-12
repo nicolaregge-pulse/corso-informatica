@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.16** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 1.17** — 12/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -368,6 +368,36 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #309 | Documento mandato senza i quadratini blu (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A |
 | #311 | Due kit con due PDF nella stessa risposta (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-B |
 | #312 | Controllo automatico del formato kit e documenti aggiunto (12/11) | 1 | A | A | hook controllo-messaggio.py (ff), prove `prova_formato_kit.py` (55 casi); chiude la famiglia #282, #285-#289, #293, #309, #311 |
+| #292 | Quiz in inglese su PC con Windows in italiano (12/11) | 1 | D | D | `controlla_lingue_quiz.py` da estendere alle sigle inglesi di Windows nei quiz 2INF; controllo automatico: mancante |
+| #294 | Chiesto di cercare sullo schermo cose che non c'erano (12/11) | 2 | D | D | regola: un passo si scrive solo se visto in uno screenshot reale; controllo automatico: mancante |
+| #295 | Versione sbagliata del PDF nei post e nei kit (12/11) | 2 | D | D | da fare: controllo che il PDF del kit sia l'ultima versione del suo nome |
+| #296 | Cruscotto che dipendeva da gesti del docente (12/11) | 6 | D | D | file dati aggiornato da me (v2.5); giro automatico ogni 2 minuti: mancante (vedi #323) |
+| #297 | Quiz rigenerato quattro volte mentre i ragazzi lo facevano (12/11) | 1 | D | D | Fabbrica v2.20 (campo `versioni`); controllo automatico: mancante |
+| #298 | Numeri dei PC del foglio diversi da quelli di Veyon (12/11) | 2 | D | D | decide il docente quale fonte vale; controllo automatico: mancante |
+| #299 | Ora del dato ingannevole nella scheda Situazione (12/11) | 2 | D | D | da fare nel motore («Letto alle» e celle di punteggio in formato testo) |
+| #300 | Richieste del docente capite male, tre volte (12/11) | 1 | D | D | controllo automatico: mancante |
+| #301 | Posti dei PC copiati da un altro giorno e dati per veri (12/11) | 2 | D | D | mappa del giorno nel riservato; controllo automatico: mancante |
+| #302 | Pagina del cruscotto con «letto alle 08:27» sotto i quiz (12/11) | 2 | D | D | pagina v2.6 corretta; motore da correggere (come #299) |
+| #303 | «Presenti 20» mentre il registro ne dava 19 (12/11) | 2 | D | D | pagina v2.6; dove tenere le assenze senza nomi nel pubblico: da decidere |
+| #304 | Allievo senza utente GitHub salta in silenzio da «Git 2INF» (12/11) | 6 | D | D | da fare nel motore (riga «manca l'utente»); controllo automatico: mancante |
+| #305 | Elenco email del quiz con due orari e contenuto più vecchio dell'ora scritta (12/11) | 2 | D | D | regola R7 (ora dell'incolla chiesta, non stimata); controllo automatico: mancante |
+| #306 | Due formule del «voto proposto» nello stesso documento (12/11) | 2 | D | D | rimando in documento v1.9; controllo automatico: mancante (vedi #322) |
+| #307 | Cognome intero nella scheda pubblica 4TI (12/11) | 1 | D | A | controllo della privacy a ogni export (`strumenti/aggiorna_cruscotto_dati.py`); regola «Nome I.» del motore da correggere (correzione v2.21 preparata, non deployata) |
+| #308 | Riscrittura della storia git da un clone shallow (12/11) | 1 | D | D | regola nel registro; script `strumenti/riscrivi_storia.sh` da scrivere |
+| #310 | md2pdf non incorporava le immagini (12/11) | 6 | D | A | `strumenti/md2pdf.py` corretto (immagini incorporate) |
+| #313 | Controllo del post ROSSO perché leggeva il ponte (12/11) | 2 | D | A | `verifica_lezione.py` v2.0: Fabbrica come fonte, senza dato fresco GIALLO «NON PROVATO», mai ROSSO (provato 12/11 14:09) |
+| #314 | «Non ha consegnato» con un dato di 6 minuti prima (12/11) | 2 | D | A | hook controllo-messaggio.py (hh), prove `prova_messaggio.py` 46 casi |
+| #315 | Domande aperte non contate: «10/14» letto come risultato (12/11) | 2 | D | D | `fabbrica/correzioni/motore-v2.21.js` preparato e provato, NON deployato; fino ad allora «solo chiuse» |
+| #316 | Domanda aperta su un dato di un passo «facoltativo» (12/11) | 1 | D | D | `strumenti/controlla_quiz_dispensa.py` (CHECKLIST 06.16): da lanciare a mano, non collegato ai passi notturni |
+| #317 | Script voti DIDAweb dato due volte senza aver visto la pagina (12/11) | 2 | D | D | `generatori/didaweb_diagnostico_v1.0.js` (sola lettura, non provato); controllo automatico: mancante |
+| #318 | Kit del quiz in un turno con altri strumenti, testo non visibile (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-B, R-C: ricaduta dopo il controllo, efficacia non provata (vede i blocchi, non come l'app li mostra) |
+| #319 | Cognome in un file di fabbrica/ pushato: il controllo guardava solo docs/ (12/11) | 1 | D | A | hook limite-comandi.py: al push controlla il contenuto di tutti i file cambiati; prove `prova_limite.py` 42 casi |
+| #320 | Script voti scritto per Classroom invece che per DIDAweb (12/11) | 1 | D | D | regola: i voti vanno nel registro DIDAweb; nel dubbio una domanda sola (R7.6); controllo automatico: mancante |
+| #321 | Parole «pubblicato»/«online» fermate quattro volte (12/11) | 2 | A | A | hook controllo-messaggio.py (già attivo); da fare: distinguere Classroom e sito per ridurre i falsi allarmi |
+| #322 | Formula del voto presunta (40 + 30 × punti / 14) (12/11) | 2 | D | D | regola R7.6; idea: file dei voti con «formula da confermare» in prima riga; controllo automatico: mancante |
+| #323 | Cruscotto 1INF nell'ora 6 senza giro automatico, senza Veyon, senza «Serve te» (12/11) | 4 | D | D | giro ogni 2 minuti dalla Fabbrica e campo Veyon: da costruire |
+| #324 | Piani del giorno e report orari assenti, controlli di notte e fine giornata ciechi (12/11) | 4 | D | A | `strumenti/controlla_controlli.py`: orario del giorno anche da FIRME-REGISTRO e PROSSIME-LEZIONI (`_lezioni_da_testi`), prove `prova_controlla_controlli.py` 29/29; piani e report orari da produrre (decisione sul sistema) |
+| #325 | Nome intero di un allievo in un file di prova, controllo privacy VERDE (12/11) | 1 | D | A | `controlla_controlli.py` controlla_privacy: cerca anche il nome intero «COGNOME NOME» in ogni file, codice compreso (provato rosso/verde) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -450,3 +480,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 14. v1.14 (11/11/2026): voce #273 (stesso file rimandato, D, controllo mancante) e voce #274 (lingue 1INF nei quiz, A: `strumenti/controlla_lingue_quiz.py`, R6). Il conteggio della sezione 01 non è stato ricalcolato.
 15. v1.15 (11/11/2026, controllore di fine giornata): voci #267 e #275-#284; #279 A, le altre D. Il conteggio della sezione 01 non è stato ricalcolato.
 16. v1.16 (12/11/2026): controllo (ff) formato kit e documenti nell'hook del messaggio; voci #285-#289, #291, #293, #309, #311, #312 in tabella (#286 resta D); #282 passa ad A. Il conteggio della sezione 01 non è stato ricalcolato.
+17. v1.17 (12/11/2026, controllore di fine giornata sera): aggiunte le voci mancanti #292, #294-#308, #310 e #313-#325 (le ultime sei, #320-#325, nate dal controllo di fine giornata); #324 e #325 con controllo automatico nuovo in `controlla_controlli.py` (orario del giorno da FIRME-REGISTRO e PROSSIME-LEZIONI, nome intero nella privacy). Il conteggio della sezione 01 non è stato ricalcolato.

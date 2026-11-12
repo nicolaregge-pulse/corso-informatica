@@ -154,5 +154,22 @@ prova("#152: notte delle 6:50 = frase per il docente", "non ha girato da sola" i
 json.dump(dict(base_n, ora="00:40", controlla_controlli=["ESITO: VERDE"]), open(risn + "/stato/notte-%s.json" % G, "w"))
 prova("#152: notte delle 0:40 con il controllore = a posto", cc.controlla_notte(G, risn) == "")
 
+# 8. #283 (12/11/2026): l'orario del giorno si legge anche da FIRME-REGISTRO e PROSSIME-LEZIONI quando il json non lo copre
+dfin = tempfile.mkdtemp(); os.makedirs(dfin + "/docs/avanzamento")
+json.dump({"lezioni": {"2026-11-06": []}}, open(dfin + "/docs/avanzamento/orario-lezioni.json", "w"))
+open(dfin + "/FIRME-REGISTRO-2026-27.md", "w").write("## Giovedì 12/11/2026\n\n1. Ore 8-9, 9-10 e 10-11, 2INF, Laboratorio professionale: FIRMATE.\n2. Ora 13-14, 1INF, Tecnologia professionale: NON firmata.\n\n## Changelog\n")
+v = cc._lezioni_da_testi("2026-11-12", dfin)
+prova("#283: dal registro firmato 4 ore (3 della 2INF, 1 della 1INF)", len(v) == 4 and {x["classe"] for x in v} == {"2INF", "1INF"})
+prova("#283: lezioni_di non dice piu' «nessuna lezione»", cc.lezioni_di("2026-11-12", dfin)[0] != [])
+open(dfin + "/PROSSIME-LEZIONI.md", "w").write("## Venerdì 13 novembre\n\nSeconda informatica, dalle 8 alle 9, Sicurezza professionale. Prima informatica, dalle 11 alle 12 e dalle 12 alle 14, Laboratorio.\n")
+w = cc._lezioni_da_testi("2026-11-13", dfin)
+prova("#283: dalle frasi di PROSSIME-LEZIONI 4 ore (1 della 2INF, 3 della 1INF)", len(w) == 4)
+cc.righe.clear()
+cc.controlla_fine_giornata("2026-11-12", dfin, tempfile.mkdtemp())
+prova("#283: fine giornata con lezioni non e' VERDE «nessuna lezione»", not any("nessuna lezione" in r[1] for r in cc.righe))
+cc.righe.clear()
+cc.controlla_fine_giornata("2026-11-14", dfin, tempfile.mkdtemp())
+prova("#283: sabato senza ore resta VERDE", cc.righe and cc.righe[-1][0] == "VERDE")
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)

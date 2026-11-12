@@ -87,6 +87,26 @@ BINARI = re.compile(r"\.(png|jpe?g|webp|gif|ico|pdf|zip|7z|woff2?|ttf|otf|mp3|mp
 CODICE = (".py", ".js", ".mjs", ".gd", ".sh", ".gs")
 
 
+def _nomi_interi():
+    """12/11/2026 (#325): i nomi interi «COGNOME NOME» (almeno due parole) delle anagrafiche del riservato, in maiuscolo.
+    Servono perche' nei file di codice i cognomi corti (fino a 4 lettere, per esempio «leon» di «DE LEON …») non si
+    cercano da soli (nomi di variabili): il nome intero invece si cerca sempre, anche in .js e .py."""
+    nomi = set()
+    pat = ["config/*presenti*.json", "config/*elenco*.json", "config/classi/*.json"]
+    for g in pat:
+        for f in glob.glob(os.path.join(RIS, g)):
+            try:
+                d = json.load(open(f, encoding="utf-8"))
+            except Exception:
+                continue
+            voci = d if isinstance(d, list) else sum([d.get(k) for k in ("presenti", "elenco", "allievi")
+                                                     if isinstance(d, dict) and isinstance(d.get(k), list)], [])
+            for x in voci:
+                if isinstance(x, str) and len(x.split()) >= 2:
+                    nomi.add(re.sub(r"\s+", " ", x.strip().upper()))
+    return nomi
+
+
 def controlla_privacy():
     gen = os.path.join(RIS, "generatori")
     if not os.path.isfile(os.path.join(gen, "privacy_nomi.py")):
@@ -105,6 +125,7 @@ def controlla_privacy():
         giallo("privacy del pubblico: nessun cognome nelle anagrafiche del riservato")
         return
     file_git = subprocess.run(["git", "-C", PUB, "ls-files"], capture_output=True, text=True).stdout.splitlines()
+    nomi_interi = _nomi_interi()
     trovati, letti = [], 0
     for rel in file_git:
         if rel.startswith(".claude/hooks/prove/") or BINARI.search(rel):
@@ -120,6 +141,9 @@ def controlla_privacy():
         # comparire per caso dentro i caratteri base64 (falso rosso nei libri di testo HTML del 29/10).
         testo = re.sub(r"data:[a-z0-9.+/-]+;base64,[A-Za-z0-9+/=\s]+", " ", testo, flags=re.I)
         h = privacy_nomi.trova(testo, codice=rel.endswith(CODICE))
+        if not h and nomi_interi:   # 12/11/2026 (#325): il nome intero si cerca anche nel codice
+            tu = re.sub(r"\s+", " ", testo.upper())
+            h = [n for n in nomi_interi if n in tu]
         if h:
             trovati.append("%s (%d)" % (rel, len(h)))
     esito(not trovati, "privacy del pubblico: %d file letti, %d cognomi cercati nel testo (link e nomi utente GitHub esclusi)" % (letti, n_cognomi)
@@ -141,6 +165,57 @@ CLASSI_PAROLE = {"prima informatica": "1INF", "seconda informatica": "2INF", "te
                  "quarta": "4TI"}
 
 
+def _lezioni_da_testi(giorno, pub=None):
+    """12/11/2026 (controllore di fine giornata, #283): l'orario di un giorno quando docs/avanzamento/orario-lezioni.json
+    non lo copre (finisce al 06/11: i file orario/settimana-*.md non sono piu' stati scritti). Una voce per ORA:
+    [{"classe","da","a","disciplina"}]. Fonte 1: FIRME-REGISTRO-2026-27.md (sezione del giorno, righe «Ore 8-9, 9-10 e 10-11,
+    2INF, Laboratorio professionale: ...», dal registro DIDAweb); fonte 2: PROSSIME-LEZIONI.md (frasi «seconda informatica,
+    dalle 8 alle 9 ...»). Vuoto se nessuna delle due dice niente del giorno."""
+    pub = pub or PUB
+    g = datetime.date.fromisoformat(giorno)
+    voci, visti = [], set()
+
+    def aggiungi(classe, h0, h1, disc):
+        for h in range(h0, h1):
+            if (classe, h) in visti or not (6 <= h <= 18):
+                continue
+            visti.add((classe, h))
+            voci.append({"classe": classe, "da": "%02d:00" % h, "a": "%02d:00" % (h + 1), "disciplina": disc})
+    try:
+        testo = open(os.path.join(pub, "FIRME-REGISTRO-2026-27.md"), encoding="utf-8").read()
+    except Exception:
+        testo = ""
+    sigla = "%02d/%02d/%d" % (g.day, g.month, g.year)
+    for m in re.finditer(r"^##\s+.*%s.*$" % re.escape(sigla), testo, re.M):
+        sezione = re.split(r"^## ", testo[m.end():], maxsplit=1, flags=re.M)[0]
+        for riga in re.findall(r"^\d+\.\s+(Or[ae]\s+.+)$", sezione, re.M):
+            cl = re.search(r"\b([1-4](?:INF|TI))\b", riga)
+            if not cl:
+                continue
+            testa = riga.split(cl.group(1))[0]
+            disc = riga.split(cl.group(1), 1)[1].lstrip(", ").split(":")[0].strip()
+            for a, b in re.findall(r"(\d{1,2})-(\d{1,2})", testa):
+                aggiungi(cl.group(1), int(a), int(b), disc)
+    if voci:
+        return voci
+    try:
+        testo = open(os.path.join(pub, "PROSSIME-LEZIONI.md"), encoding="utf-8").read()
+    except Exception:
+        return []
+    m = re.search(r"^##\s+\S+\s+%d\s+%s\b.*$" % (g.day, MESI[g.month - 1]), testo, re.M | re.I)
+    if not m:
+        return []
+    sezione = re.split(r"^## ", testo[m.end():], maxsplit=1, flags=re.M)[0]
+    for frase in re.split(r"(?<=[a-z])\.\s", sezione):
+        cl = re.search(r"\b(prima|seconda|terza|quarta)\s+informatica\b", frase, re.I)
+        if not cl:
+            continue
+        classe = CLASSI_PAROLE.get(cl.group(0).lower(), cl.group(0))
+        for a, b in re.findall(r"dalle\s+(\d{1,2})\s+alle\s+(\d{1,2})", frase):
+            aggiungi(classe, int(a), int(b), "")
+    return voci
+
+
 def lezioni_di(giorno, pub=None):
     """Ore di lezione del giorno: [(classe, disciplina)], e se l'orario copre quel giorno (None = orario ignoto).
     Fonte 1: docs/avanzamento/orario-lezioni.json (strumenti/orario_json.py); fonte 2: PROSSIME-LEZIONI.md."""
@@ -154,6 +229,9 @@ def lezioni_di(giorno, pub=None):
     except Exception:
         coperto = False
     g = datetime.date.fromisoformat(giorno)
+    da_testi = _lezioni_da_testi(giorno, pub)   # 12/11/2026 (#283): orario del giorno dai testi quando il json non lo copre
+    if da_testi:
+        return [(v["classe"], v["disciplina"]) for v in da_testi], True
     try:
         testo = open(os.path.join(pub, "PROSSIME-LEZIONI.md"), encoding="utf-8").read()
     except Exception:
@@ -725,7 +803,9 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
     except Exception:
         lez = []
     if not lez:
-        esito(True, "fine giornata %s: nessuna lezione" % giorno)
+        lez = _lezioni_da_testi(giorno, pub)   # 12/11/2026 (#283): il json dell'orario finisce al 06/11
+    if not lez:
+        esito(True, "fine giornata %s: nessuna lezione (orario letto da orario-lezioni.json, FIRME-REGISTRO e PROSSIME-LEZIONI: nessuna ora trovata)" % giorno)
         return []
     problemi = []
     classi = {}

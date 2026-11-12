@@ -15,7 +15,7 @@ function carica(file) {
 var vecchio = carica(path.join(DIR, 'motore.js')), nuovo = carica(path.join(DIR, 'correzioni', 'motore-v2.21.js'));
 var fail = [];
 function check(c, m) { if (!c) fail.push(m); }
-var elenco = ['ROSSI BIANCHI MARIO LUCA', 'VERDI ANNA MARIA', 'DE LUCA PAOLO', 'NERI SARA', 'GRIGI BLU GIORGIO ENZO', 'MORI ENZO', 'DE LEON CHASE', 'Bianchi Luca', 'ROSSI Mario Luca', 'LI WEI MING ANDREA BEN CHEN'];
+var elenco = ['ROSSI BIANCHI MARIO LUCA', 'VERDI ANNA MARIA', 'DE LUCA PAOLO', 'NERI SARA', 'GRIGI BLU GIORGIO ENZO', 'MORI ENZO', 'DE SANTIS ELIA', 'Bianchi Luca', 'ROSSI Mario Luca', 'LI WEI MING ANDREA BEN CHEN'];
 var lv = vecchio.SM_brevi_(elenco), ln = nuovo.SM_brevi_(elenco);
 console.log('VECCHIO:', JSON.stringify(lv));
 console.log('NUOVO  :', JSON.stringify(ln));
@@ -31,7 +31,7 @@ check(ln.every(function (x) { return !/Bianchi|Blu |Chen|Wei/.test(x) || /^Bianc
 check(ln[2] === vecchio.SM_brevi_(['DE LUCA PAOLO'])[0], 'DE LUCA PAOLO cambiato');
 check(ln[3] === 'Sara N.' && lv[3] === 'Sara N.', 'NERI SARA');
 check(ln[5] === 'Enzo M.' && lv[5] === 'Enzo M.', 'MORI ENZO');
-check(ln[6] === lv[6], 'DE LEON CHASE cambiato: ' + lv[6] + ' -> ' + ln[6]);
+check(ln[6] === lv[6], 'DE SANTIS ELIA cambiato: ' + lv[6] + ' -> ' + ln[6]);
 check(ln[8] === lv[8] && ln[8] === 'Mario Luca R.', 'ROSSI Mario Luca (maiuscole miste) cambiato: ' + ln[8]);
 // domande aperte: FB_aperteItems_ prende solo testo/paragrafo con punti > 0
 function item(t, p) { var o = { getType: function () { return t; } }; o.asTextItem = o.asParagraphTextItem = function () { return { getPoints: function () { return p; } }; }; return o; }
