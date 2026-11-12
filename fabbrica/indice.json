@@ -1,202 +1,202 @@
 {
-  "versione": 3,
-  "lavori": [
-    {
-      "id": "quiz-2inf-1110",
-      "file": "quiz-2inf-1110.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-3inf-1110",
-      "file": "quiz-3inf-1110.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-4ti-1110",
-      "file": "quiz-4ti-1110.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "scheda-4ti-1011",
-      "file": "scheda-4ti-1011.txt",
-      "tipologia_lezione": "teoria"
-    },
-    {
-      "id": "quiz-1inf-1111",
-      "file": "quiz-1inf-1111.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-sic5-1111",
-      "file": "quiz-1inf-sic5-1111.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-1111-ora1d",
-      "file": "quiz-1inf-1111-ora1d.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-1111-ora2b",
-      "file": "quiz-1inf-1111-ora2b.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-3inf-1111-chat",
-      "file": "quiz-3inf-1111-chat.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-sic-recupero-1111",
-      "file": "quiz-1inf-sic-recupero-1111.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-sic6-mecc-1111t",
-      "file": "quiz-1inf-sic6-mecc-1111t.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-1inf-sic6-elet-1111t",
-      "file": "quiz-1inf-sic6-elet-1111t.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-2inf-1211-datic",
-      "file": "quiz-2inf-1211-datic.txt",
-      "tipologia_lezione": "teoria"
-    },
-    {
-      "id": "quiz-1inf-1212-ora6-ict",
-      "file": "quiz-1inf-1212-ora6-ict.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-2inf-1211-ora1d3",
-      "file": "quiz-2inf-1211-ora1d3.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-2inf-1211-ora2d2",
-      "file": "quiz-2inf-1211-ora2d2.txt",
-      "tipologia_lezione": "quiz"
-    },
-    {
-      "id": "quiz-2inf-1211-ora3d2",
-      "file": "quiz-2inf-1211-ora3d2.txt",
-      "tipologia_lezione": "quiz"
-    }
-  ],
-  "cruscotto": {
-    "attivo": true
+ "versione": 3,
+ "lavori": [
+  {
+   "id": "quiz-2inf-1110",
+   "file": "quiz-2inf-1110.txt",
+   "tipologia_lezione": "quiz"
   },
-  "cruscotti": [
-    {
-      "classe": "3INF",
-      "attivo": true
-    }
-  ],
-  "classroom": {
-    "attivo": true,
-    "classi": {
-      "1INF": "1 INF 26/27",
-      "2INF": "NUOVO 2 INFO",
-      "3INF": "NUOVO 3 INFO",
-      "4TI": "NUOVO 4 INFO"
-    },
-    "ultimi": 8,
-    "laboratorio": {
-      "2INF": {
-        "titolo": "^\\s*\\d{1,2}\\s*/\\s*\\d{1,2}\\s+Ora\\s*\\d",
-        "ogni_minuti": 2
-      }
-    }
+  {
+   "id": "quiz-3inf-1110",
+   "file": "quiz-3inf-1110.txt",
+   "tipologia_lezione": "quiz"
   },
-  "git": {
-    "attivo": true,
-    "classi": [
-      "3INF",
-      "4TI",
-      "2INF",
-      "1INF"
-    ],
-    "ogni_minuti": 10
+  {
+   "id": "quiz-4ti-1110",
+   "file": "quiz-4ti-1110.txt",
+   "tipologia_lezione": "quiz"
   },
-  "sicurezza": [
-    {
-      "attivo": true,
-      "classe": "1INF",
-      "soglia": 80,
-      "ore": [
-        {
-          "ora": "1"
-        },
-        {
-          "ora": "2"
-        },
-        {
-          "ora": "3"
-        },
-        {
-          "ora": "4"
-        },
-        {
-          "ora": "5",
-          "ids": [
-            "quiz-1inf-sic5-1111"
-          ]
-        },
-        {
-          "ora": "6A",
-          "ids": [
-            "quiz-1inf-sic6-mecc-1111t",
-            "quiz-1inf-sic6-mecc-1111"
-          ]
-        },
-        {
-          "ora": "6B",
-          "ids": [
-            "quiz-1inf-sic6-elet-1111t",
-            "quiz-1inf-sic6-elet-1111"
-          ]
-        }
-      ],
-      "recupero": {
-        "ids": [
-          "quiz-1inf-sic-recupero-1111"
-        ]
-      }
-    },
-    {
-      "attivo": true,
-      "classe": "2INF",
-      "soglia": 80,
-      "ore": [
-        {
-          "ora": "1"
-        },
-        {
-          "ora": "2"
-        },
-        {
-          "ora": "3"
-        },
-        {
-          "ora": "4"
-        },
-        {
-          "ora": "5"
-        }
-      ],
-      "recupero": {
-        "ids": []
-      }
-    }
-  ],
-  "tipologie_lezione": {
-    "esercitazione": "Esercitazione Lazarus: schede Consegne e Git (blocchi classroom e git)",
-    "quiz": "Quiz su Moduli: lavori con tipologia_lezione quiz",
-    "versioning": "Versioning su GitHub: blocco git, scheda Utenti <CLASSE>",
-    "teoria": "Teoria a schede: lavori con tipologia_lezione teoria"
+  {
+   "id": "scheda-4ti-1011",
+   "file": "scheda-4ti-1011.txt",
+   "tipologia_lezione": "teoria"
+  },
+  {
+   "id": "quiz-1inf-1111",
+   "file": "quiz-1inf-1111.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-sic5-1111",
+   "file": "quiz-1inf-sic5-1111.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-1111-ora1d",
+   "file": "quiz-1inf-1111-ora1d.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-1111-ora2b",
+   "file": "quiz-1inf-1111-ora2b.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-3inf-1111-chat",
+   "file": "quiz-3inf-1111-chat.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-sic-recupero-1111",
+   "file": "quiz-1inf-sic-recupero-1111.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-sic6-mecc-1111t",
+   "file": "quiz-1inf-sic6-mecc-1111t.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-1inf-sic6-elet-1111t",
+   "file": "quiz-1inf-sic6-elet-1111t.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-2inf-1211-datic",
+   "file": "quiz-2inf-1211-datic.txt",
+   "tipologia_lezione": "teoria"
+  },
+  {
+   "id": "quiz-1inf-1212-ora6-ict",
+   "file": "quiz-1inf-1212-ora6-ict.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-2inf-1211-ora1d3",
+   "file": "quiz-2inf-1211-ora1d3.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-2inf-1211-ora2d2",
+   "file": "quiz-2inf-1211-ora2d2.txt",
+   "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-2inf-1211-ora3d2",
+   "file": "quiz-2inf-1211-ora3d2.txt",
+   "tipologia_lezione": "quiz"
   }
+ ],
+ "cruscotto": {
+  "attivo": true
+ },
+ "cruscotti": [
+  {
+   "classe": "3INF",
+   "attivo": true
+  }
+ ],
+ "classroom": {
+  "attivo": true,
+  "classi": {
+   "1INF": "1 INF 26/27",
+   "2INF": "NUOVO 2 INFO",
+   "3INF": "NUOVO 3 INFO",
+   "4TI": "NUOVO 4 INFO"
+  },
+  "ultimi": 8,
+  "laboratorio": {
+   "2INF": {
+    "titolo": "^\\s*\\d{1,2}\\s*/\\s*\\d{1,2}\\s+Ora\\s*\\d",
+    "ogni_minuti": 2
+   }
+  }
+ },
+ "git": {
+  "attivo": true,
+  "classi": [
+   "3INF",
+   "4TI",
+   "2INF",
+   "1INF"
+  ],
+  "ogni_minuti": 10
+ },
+ "sicurezza": [
+  {
+   "attivo": true,
+   "classe": "1INF",
+   "soglia": 80,
+   "ore": [
+    {
+     "ora": "1"
+    },
+    {
+     "ora": "2"
+    },
+    {
+     "ora": "3"
+    },
+    {
+     "ora": "4"
+    },
+    {
+     "ora": "5",
+     "ids": [
+      "quiz-1inf-sic5-1111"
+     ]
+    },
+    {
+     "ora": "6A",
+     "ids": [
+      "quiz-1inf-sic6-mecc-1111t",
+      "quiz-1inf-sic6-mecc-1111"
+     ]
+    },
+    {
+     "ora": "6B",
+     "ids": [
+      "quiz-1inf-sic6-elet-1111t",
+      "quiz-1inf-sic6-elet-1111"
+     ]
+    }
+   ],
+   "recupero": {
+    "ids": [
+     "quiz-1inf-sic-recupero-1111"
+    ]
+   }
+  },
+  {
+   "attivo": true,
+   "classe": "2INF",
+   "soglia": 80,
+   "ore": [
+    {
+     "ora": "1"
+    },
+    {
+     "ora": "2"
+    },
+    {
+     "ora": "3"
+    },
+    {
+     "ora": "4"
+    },
+    {
+     "ora": "5"
+    }
+   ],
+   "recupero": {
+    "ids": []
+   }
+  }
+ ],
+ "tipologie_lezione": {
+  "esercitazione": "Esercitazione Lazarus: schede Consegne e Git (blocchi classroom e git)",
+  "quiz": "Quiz su Moduli: lavori con tipologia_lezione quiz",
+  "versioning": "Versioning su GitHub: blocco git, scheda Utenti <CLASSE>",
+  "teoria": "Teoria a schede: lavori con tipologia_lezione teoria"
+ }
 }
