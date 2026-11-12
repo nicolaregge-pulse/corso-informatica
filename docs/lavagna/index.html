@@ -1,0 +1,74 @@
+<title>Lavagna prova</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+:root{--bg:#f6f7f9;--fg:#1c2430;--card:#fff;--line:#cfd6e0;--verde:#1b7f3b;--rosso:#c0262d;--blu:#1f5fbf;--verdebg:#e3f4e8;--rossobg:#fbe5e6;--blubg:#e4edfb}
+@media (prefers-color-scheme:dark){:root{--bg:#14181e;--fg:#eef1f5;--card:#1d232c;--line:#3a4452;--verde:#5fd083;--rosso:#ff7a80;--blu:#7fb0ff;--verdebg:#16301f;--rossobg:#3a1a1c;--blubg:#162a47}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.4 system-ui,Segoe UI,Arial,sans-serif;padding:12px 16px}
+.banner{background:var(--blubg);border-left:6px solid var(--blu);padding:8px 12px;border-radius:6px;margin-bottom:10px;font-size:16px}
+h1{font-size:22px;margin:4px 0}
+.compito{background:var(--card);border:3px solid var(--blu);border-radius:10px;padding:10px 14px;margin:8px 0;font-size:20px}
+.passo{color:var(--blu);font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+.lav{position:relative;border:3px solid var(--line);border-radius:10px;background:#fff;max-width:1000px;touch-action:none;line-height:0}
+.lav canvas{width:100%;height:auto;display:block}
+#dis{position:absolute;left:0;top:0;cursor:crosshair;touch-action:none}
+.barra{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;max-width:1000px}
+button{font:600 17px system-ui;padding:10px 14px;border-radius:8px;border:2px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;min-height:44px}
+button.sel{border-color:var(--blu);box-shadow:0 0 0 3px var(--blubg)}
+.col{width:44px;padding:0;border-radius:50%;border-width:3px}
+#consegna{background:var(--verde);color:#fff;border-color:var(--verde);margin-left:auto}
+#esito{margin:10px 0;padding:12px 14px;border-radius:8px;font-size:19px;max-width:1000px;display:none}
+.ok{background:var(--verdebg);border-left:6px solid var(--verde)}.no{background:var(--rossobg);border-left:6px solid var(--rosso)}
+small{color:inherit;opacity:.8}
+</style>
+<div class="banner"><b>PROVA per il docente.</b> Il disegno qui non viene ancora inviato: resta nel browser. Nella versione vera va nella cartella Drive «Lavagna» e lo guarda l'assistente.</div>
+<h1>Lavagna: la biblioteca del computer</h1>
+<div class="compito"><span class="passo" id="n"></span><br><span id="testo"></span></div>
+<div class="lav" id="lav"><canvas id="sfondo" width="1200" height="700"></canvas><canvas id="dis" width="1200" height="700"></canvas></div>
+<div class="barra">
+<button class="col sel" id="c-rosso" style="background:#d8222d" aria-label="Penna rossa"></button>
+<button class="col" id="c-blu" style="background:#1f5fbf" aria-label="Penna blu"></button>
+<button class="col" id="c-nero" style="background:#1c1c1c" aria-label="Penna nera"></button>
+<button id="gomma">Gomma</button><button id="annulla">Annulla l'ultimo segno</button><button id="pulisci">Cancella tutto</button>
+<button id="consegna">Consegna</button></div>
+<div id="esito" role="status"></div>
+<div class="barra"><button id="prossimo" style="display:none">Prossimo compito</button></div>
+<script>
+(function(){
+var COMPITI=[
+{n:'Compito 1 di 4',t:'Una biblioteca è come un computer. Con la penna rossa fai un cerchio intorno a quello che fa il lavoro dell’hard disk: dove stanno TUTTI i libri, anche a biblioteca chiusa.',r:[560,40,1160,424],nome:'gli scaffali'},
+{n:'Compito 2 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro della RAM: dove appoggi i libri che usi ADESSO.',r:[320,340,690,482],nome:'il tavolo'},
+{n:'Compito 3 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro della CPU: chi lavora, prende i libri e fa le cose.',r:[170,262,330,478],nome:'il bibliotecario'},
+{n:'Compito 4 di 4',t:'Fai un cerchio intorno a quello che fa il lavoro del bus: le strade dove passano i libri da un posto all’altro.',r:[205,575,770,672],nome:'i corridoi'}];
+var i=0,colore='#d8222d',spessore=7,gomma=false,tratti=[],cur=null,consegnato=false;
+var sf=document.getElementById('sfondo'),dis=document.getElementById('dis'),g=dis.getContext('2d');
+var img=new Image();img.onload=function(){sf.getContext('2d').drawImage(img,0,0,1200,700)};img.src='biblioteca.png';
+function mostra(){document.getElementById('n').textContent=COMPITI[i].n;document.getElementById('testo').textContent=COMPITI[i].t;tratti=[];ridisegna();consegnato=false;var e=document.getElementById('esito');e.style.display='none';document.getElementById('prossimo').style.display='none'}
+function ridisegna(){g.clearRect(0,0,1200,700);g.lineCap='round';g.lineJoin='round';tratti.forEach(function(t){g.strokeStyle=t.c;g.lineWidth=t.w;g.globalCompositeOperation=t.e?'destination-out':'source-over';g.beginPath();t.p.forEach(function(q,k){k?g.lineTo(q[0],q[1]):g.moveTo(q[0],q[1])});if(t.p.length===1)g.lineTo(t.p[0][0]+.1,t.p[0][1]);g.stroke()});g.globalCompositeOperation='source-over'}
+function pos(ev){var r=dis.getBoundingClientRect();return[(ev.clientX-r.left)*1200/r.width,(ev.clientY-r.top)*700/r.height]}
+dis.addEventListener('pointerdown',function(ev){if(consegnato)return;dis.setPointerCapture(ev.pointerId);cur={c:colore,w:gomma?28:spessore,e:gomma,p:[pos(ev)]};tratti.push(cur);ridisegna()});
+dis.addEventListener('pointermove',function(ev){if(!cur)return;cur.p.push(pos(ev));ridisegna()});
+['pointerup','pointercancel'].forEach(function(n){dis.addEventListener(n,function(){cur=null})});
+function sel(id,c){document.querySelectorAll('.col').forEach(function(b){b.classList.remove('sel')});document.getElementById('gomma').classList.remove('sel');if(id){document.getElementById(id).classList.add('sel')}}
+document.getElementById('c-rosso').onclick=function(){colore='#d8222d';gomma=false;sel('c-rosso')};
+document.getElementById('c-blu').onclick=function(){colore='#1f5fbf';gomma=false;sel('c-blu')};
+document.getElementById('c-nero').onclick=function(){colore='#1c1c1c';gomma=false;sel('c-nero')};
+document.getElementById('gomma').onclick=function(){gomma=true;sel(null);this.classList.add('sel')};
+document.getElementById('annulla').onclick=function(){if(!consegnato){tratti.pop();ridisegna()}};
+document.getElementById('pulisci').onclick=function(){if(!consegnato){tratti=[];ridisegna()}};
+function bbox(){var x0=1e9,y0=1e9,x1=-1e9,y1=-1e9,n=0;tratti.forEach(function(t){if(t.e)return;t.p.forEach(function(q){n++;x0=Math.min(x0,q[0]);y0=Math.min(y0,q[1]);x1=Math.max(x1,q[0]);y1=Math.max(y1,q[1])})});return n?[x0,y0,x1,y1]:null}
+function giudica(){var b=bbox(),T=COMPITI[i].r;if(!b)return{ok:false,m:'Non vedo nessun disegno: usa la penna e fai il cerchio, poi premi Consegna.'};
+var ix=Math.max(0,Math.min(b[2],T[2])-Math.max(b[0],T[0])),iy=Math.max(0,Math.min(b[3],T[3])-Math.max(b[1],T[1]));
+var at=(T[2]-T[0])*(T[3]-T[1]),ab=(b[2]-b[0])*(b[3]-b[1]),cop=ix*iy/at;
+if(cop>=.6&&ab<=2.6*at)return{ok:true,m:'Bravo! Hai circondato '+COMPITI[i].nome+'.'};
+if(cop<.3)return{ok:false,m:'Il cerchio è lontano da '+COMPITI[i].nome+'. Riguarda il disegno e riprova.'};
+if(ab>2.6*at)return{ok:false,m:'Il cerchio è troppo grande: prendi solo '+COMPITI[i].nome+'.'};
+return{ok:false,m:'Quasi: il cerchio deve coprire bene '+COMPITI[i].nome+'.'}}
+document.getElementById('consegna').onclick=function(){if(consegnato)return;var r=giudica(),e=document.getElementById('esito');
+e.className=r.ok?'ok':'no';e.innerHTML=r.m+(r.ok?'<br><small>Consegnato (prova): il disegno resta nel browser.</small>':'');e.style.display='block';
+if(r.ok){consegnato=true;try{var c=document.createElement('canvas');c.width=1200;c.height=700;var x=c.getContext('2d');x.drawImage(sf,0,0);x.drawImage(dis,0,0);localStorage.setItem('lavagna-prova-'+i,c.toDataURL('image/png'))}catch(er){}
+document.getElementById('prossimo').style.display=(i<COMPITI.length-1)?'inline-block':'none';if(i===COMPITI.length-1){e.innerHTML+='<br>Hai finito tutti e 4 i compiti.'}}};
+document.getElementById('prossimo').onclick=function(){i++;mostra()};
+window.__lavagna={bbox:bbox,giudica:giudica};
+mostra();
+})();
+</script>
