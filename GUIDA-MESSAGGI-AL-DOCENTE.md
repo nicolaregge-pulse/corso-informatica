@@ -156,6 +156,16 @@ Sostituisce 03ter e 03quinquies per il pacchetto Classroom. Un'ora per messaggio
 
 Niente registro, quiz, «Non provato», domande o altro testo: se serve altro, in un messaggio a parte. Nessun'altra modalità (niente schede multiple, niente pagine esterne, niente testo sotto la cornice).
 
+## 03septies ORDINE FISSO dei tre pezzi di ogni ora (docente, 12/11/2026: «segnatelo»)
+
+Per ogni ora si danno SEMPRE, in questa sequenza, e ognuno in un messaggio suo:
+
+1. **Titolo dell'ora per il registro**, all'inizio dell'ora, in un riquadro da copiare.
+2. **Pacchetto per il post su Classroom** nello standard di 03sexies: titolo, oggetto, dispensa allievi.
+3. **Link del quiz da aggiungere al post**, in una casella copiabile, con l'account scritto prima. Se il link non è leggibile da me (sta nel foglio Fabbrica, account PIAMARTA, scheda Esiti, colonna D), non lo invento (R7.6): chiedo di incollare la cella D della riga del quiz e lo rimando pulito.
+
+Dopo i tre pezzi, il controllo delle consegne.
+
 ## 04 Registro delle versioni
 
 3. v1.2 (11/11/2026): nuova sezione 03, formato dei messaggi in classe (riquadro rosso, riquadro blu, pacchetto Classroom), decisione del docente.
@@ -167,3 +177,4 @@ Niente registro, quiz, «Non provato», domande o altro testo: se serve altro, i
 7. v1.6 (12/11/2026): formato del pacchetto Classroom corretto dal docente: nel riquadro rosso solo TITOLO e OGGETTO, e dentro il rosso il riquadro blu con la dispensa dei ragazzi; registro, quiz e «Non provato» fuori dal rosso; la scheda PDF si manda con SendUserFile PRIMA del testo finale (il docente vede solo il testo dopo l'ultima chiamata di strumento); errore #287.
 8. v1.7 (12/11/2026): sezione 03quinquies, formato unico del pacchetto Classroom disegnato dal docente; errore #288.
 9. v1.8 (12/11/2026): sezione 03sexies, standard unico del pacchetto Classroom approvato dal docente; errore #289.
+10. v1.9 (12/11/2026): sezione 03septies, ordine fisso dei tre pezzi di ogni ora (registro, post Classroom, link del quiz).
