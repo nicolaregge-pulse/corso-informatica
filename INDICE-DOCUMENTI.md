@@ -1,6 +1,6 @@
 # INDICE DEI DOCUMENTI DEL CORSO
 
-**Versione 1.10** — 11/11/2026 · Area Docente (v1.10: righe REGISTRO-ERRORI v3.19 e MAPPA-REGOLE-CONTROLLI v1.15, controllore di fine giornata; v1.9: righe ARGOMENTI-SVOLTI v1.5 e PROSSIME-LEZIONI v1.1; v1.8: allineate le righe di REGISTRO-ERRORI v3.18, MAPPA-REGOLE-CONTROLLI v1.14, FIRME-REGISTRO v2.6, GUIDA-MESSAGGI v1.2, FRAMEWORK-QUIZ v1.1, GUIDA-STRUMENTI-E-FILE v1.1, REGOLE-NOSTRE v2.9, CLAUDE.md v2.9, aggiunte le righe fabbrica/LEGGIMI.md e strumenti/controlla_lingue_quiz.py v1.0; v1.7: documento ufficiale attività e competenze 4TI v1.0; v1.6: mini guida PC v1.3 con foto e tasti HP; v1.5: mini guida PC v1.2, PC senza viti e solo RAM; v1.4: mini guida PC v1.1 senza ruoli; v1.3: mini guida PC 2INF/3INF e dispensa docente con i guasti; v1.2: CLAUDE.md v2.0 con 11 regole, guide nuove, archivio; v1.1: riga 5q `FRAMEWORK-QUIZ.md`; v1.0, 21/10/2026: prima versione)
+**Versione 1.11** — 12/11/2026 · Area Docente (v1.11: sezione `aica-icdl/` (README, CHE-COSA-E, SYLLABUS-COMPUTER-ESSENTIALS-MAPPA, PIANO-1INF, AICALAB, DA-FARE), pagina `docs/aica-icdl/`, Pannello v1.4; v1.10: righe REGISTRO-ERRORI v3.19 e MAPPA-REGOLE-CONTROLLI v1.15, controllore di fine giornata; v1.9: righe ARGOMENTI-SVOLTI v1.5 e PROSSIME-LEZIONI v1.1; v1.8: allineate le righe di REGISTRO-ERRORI v3.18, MAPPA-REGOLE-CONTROLLI v1.14, FIRME-REGISTRO v2.6, GUIDA-MESSAGGI v1.2, FRAMEWORK-QUIZ v1.1, GUIDA-STRUMENTI-E-FILE v1.1, REGOLE-NOSTRE v2.9, CLAUDE.md v2.9, aggiunte le righe fabbrica/LEGGIMI.md e strumenti/controlla_lingue_quiz.py v1.0; v1.7: documento ufficiale attività e competenze 4TI v1.0; v1.6: mini guida PC v1.3 con foto e tasti HP; v1.5: mini guida PC v1.2, PC senza viti e solo RAM; v1.4: mini guida PC v1.1 senza ruoli; v1.3: mini guida PC 2INF/3INF e dispensa docente con i guasti; v1.2: CLAUDE.md v2.0 con 11 regole, guide nuove, archivio; v1.1: riga 5q `FRAMEWORK-QUIZ.md`; v1.0, 21/10/2026: prima versione)
 
 *Spostato qui da `CLAUDE.md` il 21/10/2026 per alleggerire le chat (ogni chat rilegge CLAUDE.md a ogni avvio). Quando un documento cambia si bumpa la versione nella sua intestazione e si aggiorna la sua riga qui. Le sezioni «Prossimi passi» e «Struttura cartella godot/» sono la storia dell'inizio del corso.*
 
@@ -234,3 +234,12 @@ l'intestazione del file.
 2. `FIRME-REGISTRO-2026-27.md` — v2.6 (11/11/2026).
 3. `fabbrica/LEGGIMI.md` — senza numero di versione nell'intestazione; descrive il motore Fabbrica v2.10 (intestazioni dei quiz, tipologia lezione).
 4. `strumenti/controlla_lingue_quiz.py` — v1.0 (11/11/2026, R6): controlla arabo e cinese nei quiz 1INF di `fabbrica/indice.json`.
+
+### 14. Sezione AICA e ICDL (12/11/2026)
+1. `aica-icdl/README.md` — v1.0 (12/11/2026): indice della sezione; pagina web `docs/aica-icdl/index.html` v1.0.
+2. `aica-icdl/CHE-COSA-E.md` — v1.0 (12/11/2026): AICA, ICDL, Computer Essentials, AICALAB; versione del syllabus da verificare.
+3. `aica-icdl/SYLLABUS-COMPUTER-ESSENTIALS-MAPPA.md` — v1.0 (12/11/2026): solo struttura (6 sezioni, 17 temi, 77 riferimenti) e voci dell'Allegato A.
+4. `aica-icdl/PIANO-1INF.md` — v1.0 (12/11/2026): stato del piano 25/75, in pausa.
+5. `aica-icdl/AICALAB.md` — v1.0 (12/11/2026): la piattaforma AICA-LAB, senza credenziali.
+6. `aica-icdl/DA-FARE.md` — v1.0 (12/11/2026): elenco aperto.
+7. `docs/pannello/index.html` — v1.4 (12/11/2026): link «AICA e ICDL» tra LE PIU USATE per la 1INF.

@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex">
 <title>Pannello del corso</title>
 <style>
-/* v1.3 (11/11/2026): tra LE PIU USATE il Diario della classe (pagina /diario/, note del docente cifrate). v1.2 (11/11/2026): in cima LE PIU USATE (Situazione, Sicurezza, Esiti, Cruscotto, ultimo quiz), poi tipologie, poi quiz su Moduli, in fondo schede di lavoro (Utenti, Consegne, Git, Risposte quiz) in una sezione chiusa. v1.1 (11/11/2026): solo quiz attuali (Stato Nascosta/Attivo, Quiz (vecchio), doppioni per id), titolo solo italiano + tooltip, sezioni vuote in una riga grigia, testo e pulsanti piu grandi. v1.0 (11/11/2026). Menu del docente: classi, tipologie di lezione, tipi di scheda. Nessun nome di allievo.
+/* v1.4 (12/11/2026): tra LE PIU USATE, solo per la 1INF, il link «AICA e ICDL» (pagina /aica-icdl/). v1.3 (11/11/2026): tra LE PIU USATE il Diario della classe (pagina /diario/, note del docente cifrate). v1.2 (11/11/2026): in cima LE PIU USATE (Situazione, Sicurezza, Esiti, Cruscotto, ultimo quiz), poi tipologie, poi quiz su Moduli, in fondo schede di lavoro (Utenti, Consegne, Git, Risposte quiz) in una sezione chiusa. v1.1 (11/11/2026): solo quiz attuali (Stato Nascosta/Attivo, Quiz (vecchio), doppioni per id), titolo solo italiano + tooltip, sezioni vuote in una riga grigia, testo e pulsanti piu grandi. v1.0 (11/11/2026). Menu del docente: classi, tipologie di lezione, tipi di scheda. Nessun nome di allievo.
    Dati: CSV pubblicato della scheda «Indice» del foglio Fabbrica (motore v2.14). Il link sta in UN solo punto: config.json. */
 :root{--bg:#f4f6f9;--fg:#14181f;--card:#fff;--line:#c9ced6;--mu:#5a6573;--blu:#1a56db;--pia:#b3260e;--per:#1a56db;--ok:#2e7d32;--accfg:#fff;--warn:#fff3c4}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14181f;--fg:#eef1f6;--card:#1d232d;--line:#3a4352;--mu:#9aa7b8;--blu:#6d9bff;--pia:#ff8a75;--per:#6d9bff;--warn:#4a4115;--accfg:#14181f}}
@@ -74,6 +74,7 @@ label.nasc{display:inline-block;margin:6px 0;font-size:17px}
   ['1INF', '2INF', '3INF', '4TI'].forEach(function (c) {
     fissi.push({ classe: c, g: 'Link utili', t: 'Diario ' + c, s: 'ultime lezioni e note del docente (sito)', url: BASE + 'diario/?classe=' + c, acc: 'PERSONALE' });
   });
+  fissi.push({ classe: '1INF', g: 'Link utili', t: 'AICA e ICDL', s: 'sezione AICA e ICDL (sito)', url: BASE + 'aica-icdl/', acc: 'PERSONALE' });
   fissi.push({ classe: '3INF', g: 'Link utili', t: '3INF Git', s: 'pagina della 3INF su Git (sito)', url: BASE + '3inf-git/', acc: 'PERSONALE' });
   fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Fabbrica (schema)', s: 'pagina dello schema (sito)', url: BASE + 'fabbrica/', acc: 'PERSONALE' });
   fissi.push({ classe: 'Generale', g: 'Link utili', t: 'Repository pubblico', s: 'GitHub: codice e pagine', url: 'https://github.com/nicolaregge-pulse/corso-informatica', acc: 'PERSONALE' });
@@ -211,6 +212,7 @@ label.nasc{display:inline-block;margin:6px 0;font-size:17px}
     if (!sic) dai(mie.filter(function (v) { return v.t === 'Cruscotto Sicurezza'; })[0], 'Sicurezza ' + sel, 'cruscotto Sicurezza (sito)');
     dai(cru, 'Cruscotto ' + sel, 'cruscotto della classe (sito)');
     dai(mie.filter(function (v) { return v.t === 'Diario ' + sel; })[0], 'Diario ' + sel, 'ultime lezioni e note (sito)');
+    dai(mie.filter(function (v) { return v.t === 'AICA e ICDL'; })[0], 'AICA e ICDL', 'sezione AICA e ICDL (sito)');
     dai(qris || qr, qris ? 'Quiz piu recente: risultati' : 'Quiz piu recente', qris ? it(qr.t) : 'link per i ragazzi');
     var h0 = document.createElement('h2'); h0.className = 'top'; h0.textContent = 'LE PIU USATE'.replace('PIU', 'PI\u00d9'); out.appendChild(h0);
     var g0 = document.createElement('div'); g0.className = 'grid big';
