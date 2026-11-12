@@ -173,6 +173,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 1. **Kit 1, Classroom:** titolo, oggetto e allegati, nello standard di 03sexies (un solo blocco rosso, con la dispensa nel riquadro blu).
 2. **Kit 2, Quiz:** l'URL del quiz in una casella copiabile (con l'account scritto prima) e il PDF con le risposte e la spiegazione di ogni domanda (03septies punto 4).
 
+**Colori (docente, 12/11/2026):** ogni KIT pronto sta in una cornice ROSSA; l'allegato (il PDF) sta SEMPRE in blu, dentro il rosso; tutti gli altri messaggi per il docente in cornice VERDE. Il kit quiz è quindi: riga rossa, link del quiz in una casella copiabile, riga blu con «PDF RISPOSTE E SPIEGAZIONI ORA N», scheda PDF (SendUserFile), riga blu, riga rossa.
+
 Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
 
 ## 04 Registro delle versioni
@@ -189,3 +191,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 10. v1.9 (12/11/2026): sezione 03septies, ordine fisso dei tre pezzi di ogni ora (registro, post Classroom, link del quiz).
 11. v1.10 (12/11/2026): 03septies punto 4, PDF con risposte e spiegazioni di ogni quiz pubblicato.
 12. v1.11 (12/11/2026): sezione 03octies, i due kit di ogni ora (Classroom; Quiz con URL e PDF risposte).
+13. v1.12 (12/11/2026): 03octies, colori: kit in rosso, allegato sempre in blu, il resto in verde.
