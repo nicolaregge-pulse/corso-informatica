@@ -5,7 +5,7 @@ Richieste per lo script Fabbrica del docente (testo codificato, nessun nome di a
 Le 4 TIPOLOGIE LEZIONE: Esercitazione Lazarus, Quiz su Moduli, Versioning su GitHub, Teoria a schede.
 Nei lavori di `indice.json` il campo e `tipologia_lezione` (`quiz` o `teoria`); i nomi vecchi `tipologia` e `tipo` sono ancora accettati.
 Se manca: un id che comincia per `scheda-` e teoria, tutto il resto e quiz. Un lavoro gia creato non si ricrea mai (conta solo l'id).
-Il motore (v2.19) scrive la scheda `Tipologie lezione` (classi x TIPOLOGIA LEZIONE) nel foglio Fabbrica.
+Il motore (v2.20) scrive la scheda `Tipologie lezione` (classi x TIPOLOGIA LEZIONE) nel foglio Fabbrica.
 
 ## Intestazioni dei quiz (motore v2.10, 11/11/2026)
 Nelle schede `Situazione <CLASSE>` e `Sicurezza <CLASSE>` ogni colonna quiz ha l'intestazione in 3 righe: ora e argomento breve (per esempio `Sic. ora 5 · infortuni`), data, id del quiz. Ricavate dal titolo, mai troncate; se due coincidono si aggiunge l'id. Prova con finti servizi: `test_situazione_v2_10.js` nel riservato (report/2026-11-11).
@@ -50,3 +50,13 @@ Per la 2INF il motore scrive due schede nel foglio Fabbrica: `Consegne 2INF` (so
 - **Se il corso non si trova**: `Ultimo errore` in `Stato` dice «Consegne 2INF: corso Classroom non trovato» con il nome cercato; si guarda la scheda `Corsi`.
 - Le schede `Consegne 1INF`, `Consegne 3INF` e `Consegne 4TI` restano come prima (ultimi 8 compiti, Consegnato/Mancante). Nessuna tipologia nuova in `Tipologie lezione`: il motore legge per classe e per titolo, non per tipologia.
 - Prova con finti servizi Google e Classroom (7 allievi inventati): nel riservato `report/2026-11-12/test_consegne_2inf_v2_19.js`; la pagina `docs/cruscotto/` v2.3 e provata con `test_cruscotto_2inf_v2_3.js` (browser vero, CSV di prova). Non provato su Classroom vero.
+
+## Versioni dello stesso quiz (motore v2.20, 12/11/2026)
+Se un quiz viene rigenerato con un id nuovo (per esempio `quiz-2inf-1211-ora1d`, `ora1d2`, `ora1d3`) i ragazzi possono rispondere a versioni diverse. Nel lavoro ATTIVO di `indice.json` si scrive il campo opzionale `versioni`: l'elenco degli id, dal piu vecchio al piu recente (l'id attivo e sempre l'ultimo, anche se non e scritto). Esempio: `{"id": "quiz-2inf-1211-ora1d3", "versioni": ["quiz-2inf-1211-ora1d", "quiz-2inf-1211-ora1d2", "quiz-2inf-1211-ora1d3"], ...}`. Impostato per 2INF ora 1 (tre versioni), ora 2 (`ora2d`, `ora2d2`) e ora 3 (`ora3d`, `ora3d2`).
+- `Situazione <CLASSE>` e `Situazione pubblica <CLASSE>` (e quindi la vista «Quiz e voti» di `docs/cruscotto/`) contano UN solo quiz: una colonna, intestazione dell'id attivo; per ogni allievo vale il risultato MIGLIORE tra le versioni, a parita il piu recente. Se il migliore non e dell'ultima versione la cella dice `80% (8/10) · fatto sulla versione precedente`. Fatti/totali, Media e NON HA FATTO contano un quiz per ora. La riga 4 dice quali versioni sono contate insieme.
+- `Elenco <CLASSE>` (righe Moduli) e gli abbinamenti delle email considerano anche le email che hanno risposto solo a una versione vecchia (nessun falso dubbio).
+- Le schede `Ris <id>` delle versioni vecchie si leggono anche se sono nascoste o nell'Indice sono `Quiz (vecchio)`: il motore non le cancella e non le tocca.
+- Ignorati senza errore: un id di `versioni` mai creato (non in FB_FORMS) e un id di un'altra classe. Un lavoro elencato come versione di un altro non ha piu una colonna sua.
+- R7: MANCA vale solo se TUTTE le versioni create hanno la scheda `Ris` letta; se una manca la cella dice `dato non letto`. Punteggi, MANCA e NON ABBINATA hanno lo stesso significato di prima. Senza il campo `versioni` tutto resta come nella 2.19.
+- Non toccati: `Sicurezza <CLASSE>` (ha gia `ids` alternativi) e la colonna «Quiz migliori» di `Consegne <CLASSE>`, che elenca ancora una voce per ogni scheda `Ris` della classe.
+- Prova con finti servizi (7 allievi inventati: uno solo sulla versione 1, uno solo sulla 3, uno su entrambe, un pari, un id mai creato, un id di un'altra classe): nel riservato `report/2026-11-12/test_versioni_quiz_v2_20.js`. Non provato su Google vero.
