@@ -1627,3 +1627,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 5. **Lingue R6:** #274, #292 (2 volte). `controlla_lingue_quiz.py` non copre i termini inglesi di Windows nei quiz 2INF: da estendere.
 6. **Cruscotto e dati:** #265, #279, #280, #296, #297, #299, #302, #303, #304, #307 (10 volte): è il punto più debole, tutto il lavoro di oggi (v2.5) serve a chiuderlo.
 
+## #308 (12/11/2026) Riscrittura della storia git: clone shallow e script che non partiva, rischio evitato
+
+1. **Errore.** Per togliere i cognomi dalla storia del pubblico avevo iniziato dal clone locale, che è shallow (storia troncata): un push forzato da lì avrebbe distrutto la storia vera su GitHub. Poi lo script è partito senza il file delle sostituzioni (creato dopo un comando che falliva) e `filter-repo` ha tolto il collegamento al remoto, quindi i primi 41 push sono falliti. Nessun danno: ho lavorato su una copia completa (`git clone --mirror`), con backup, verifica degli alberi e push con `--force-with-lease`.
+2. **Strumento.** Regola: la storia git si riscrive solo da un clone completo, mai da uno shallow (`git rev-parse --is-shallow-repository`); gli script di riscrittura controllano che il file delle sostituzioni esista e non nascondono gli errori con `| tail`; dopo `filter-repo` si rimette il remoto. Da fare: script `strumenti/riscrivi_storia.sh` con questi controlli.
+
