@@ -1642,3 +1642,9 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** `md2pdf.py` non incorporava le immagini `![](img/...)`: il PDF di aiuto per 2INF del 12/11 (v1.0) aveva solo il nome del file al posto dei disegni.
 2. **Strumento.** Corretto `strumenti/md2pdf.py` (le immagini ora sono incorporate nel PDF) e rigenerato v1.1 (`report/2026-11-12/20261112_Aiuto-2INF-Visualizzatore-Eventi_v1.1.pdf`, nel riservato). Prima di mandare un PDF con disegni si guarda almeno una pagina con le immagini.
+
+## #311 (12/11/2026) Due kit con due PDF nella stessa risposta: il testo del kit sparisce
+
+1. **Errore.** Nella stessa risposta ho mandato kit Classroom e kit quiz con due schede PDF: l'app ha sostituito il testo scritto prima di ogni scheda con un riassunto, e il kit Classroom non si vedeva. Ricaduta di #287, #289, #293.
+2. **Strumento.** GUIDA-MESSAGGI v1.17: un solo kit per risposta e lista di controllo prima di emettere; se il controllo fallisce si rifà. Da fare: controllo automatico che segnali due SendUserFile nello stesso turno con righe rosse o blu.
+

@@ -183,6 +183,8 @@ Dopo i quattro pezzi, il controllo delle consegne.
 
 **OGNI DOCUMENTO HA I QUADRATINI BLU (docente, 12/11/2026):** qualsiasi PDF o file mandato al docente, anche fuori dai kit (dispensa frontale, report, esempi, aiuti), si manda così: riga di quadratini blu 🟦 con «📄 NOME DEL DOCUMENTO ⬇️», la scheda con SendUserFile, riga di quadratini blu 🟦. Mai una scheda PDF da sola.
 
+**CONTROLLO PRIMA DI EMETTERE (docente, 12/11/2026: «devi controllarlo tu prima di emetterlo, se sbagliato lo riproponi»):** prima di mandare un kit si verifica questa lista, e se qualcosa non torna NON si manda e si rifà: 1) un solo kit e un solo PDF in questa risposta; 2) nessuno strumento (Read, Bash, ecc.) prima del kit nello stesso turno; 3) ordine: riga rossa, TITOLO, OGGETTO (tre lingue se 1INF), riga blu con il nome del documento, scheda PDF, riga blu, riga rossa; 4) nel kit Classroom niente altro testo dopo l'ultima riga rossa; 5) la versione del PDF è l'ultima (`ls`); 6) nessuna frase vietata nell'oggetto; 7) nessun cognome. Un kit confermato dal docente («questo giusto») diventa il modello.
+
 Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo delle consegne.
 
 ## 04 Registro delle versioni
@@ -204,3 +206,4 @@ Il titolo per il registro resta all'inizio dell'ora, a parte. Poi il controllo d
 15. v1.14 (12/11/2026): 03octies, frase vietata negli oggetti; al massimo «Seguirà il quiz.»
 16. v1.15 (12/11/2026): 03octies, tutti fanno tutto: a ogni lezione ricordare chi manca e cosa manca, assenti compresi.
 17. v1.16 (12/11/2026): 03octies, ogni documento con i quadratini blu, anche fuori dai kit; errore #309.
+18. v1.17 (12/11/2026): 03octies, lista di controllo prima di emettere un kit; un solo kit per risposta; modello confermato il 12/11 (kit Classroom 6a ora 1INF).
