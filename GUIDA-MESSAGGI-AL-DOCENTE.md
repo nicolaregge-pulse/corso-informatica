@@ -136,3 +136,4 @@ Il docente ha detto «PERFETTO» a questo formato. Dettaglio di R4 (R4.2, 3bis, 
 4. v1.3 (11/11/2026): nuova sezione 03bis, colori delle cornici: verde per i comunicati, rosso per Classroom, blu per i documenti, decisione del docente.
 5. v1.4 (12/11/2026): nuova sezione 03ter, il PDF si manda sempre come scheda da scaricare nello stesso messaggio, anche se già mandato; errore #285.
 6. v1.5 (12/11/2026): nuova sezione 03quater, ordine fisso di ogni ora: dispensa docente, foto, pacchetto Classroom, quiz a fine ora; errore #286.
+7. v1.6 (12/11/2026): formato del pacchetto Classroom corretto dal docente: nel riquadro rosso solo TITOLO e OGGETTO, e dentro il rosso il riquadro blu con la dispensa dei ragazzi; registro, quiz e «Non provato» fuori dal rosso; la scheda PDF si manda con SendUserFile PRIMA del testo finale (il docente vede solo il testo dopo l'ultima chiamata di strumento); errore #287.

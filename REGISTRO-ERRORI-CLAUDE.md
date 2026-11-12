@@ -1516,3 +1516,8 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 1. **Errore.** Il docente aveva deciso lo schema di ogni ora: 1) dispensa docente, 2) lui manda le foto, 3) io preparo titolo, oggetto e allegati, 4) quiz a fine ora. Ho dato titolo e oggetto per primi, il PDF dei ragazzi al posto della dispensa docente, e il PDF dentro un testo blu. «Hai sbagliato: 1 Dispensa docente… ti ho detto ieri come deve essere l'output».
 2. **Strumento che lo corregge.** `GUIDA-MESSAGGI-AL-DOCENTE.md` v1.5, sezione 03quater (ordine fisso) e 03ter (blu solo intorno al file). Da fare: un controllo nel messaggio finale che segnali un pacchetto Classroom senza una dispensa docente nello stesso giorno e senza foto ricevute.
+
+## #287 (12/11/2026) Pacchetto Classroom: testo prima della scheda PDF non visibile, rosso con troppe cose
+
+1. **Errore.** Titolo, oggetto e registro stavano nel testo scritto PRIMA di SendUserFile; l'app mostra al docente solo il testo dopo l'ultima chiamata («non vedo niente»). Nel rosso c'erano anche registro e quiz.
+2. **Strumento.** GUIDA-MESSAGGI v1.6: SendUserFile prima, poi UN testo finale con rosso = titolo + oggetto + blu con la dispensa; registro, quiz e «Non provato» fuori dal rosso.
