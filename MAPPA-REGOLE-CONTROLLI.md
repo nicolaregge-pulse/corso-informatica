@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.15** — 11/11/2026 — documento interno del docente e di Claude
+**Versione 1.16** — 12/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -76,6 +76,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
    1.26. (z) domanda al docente su presenze o voti già nei file del giorno (#154), 29/10/2026.
    1.27. (aa) release «della cartella» o «del progetto» senza dire che vale per tutto il repository (#157), 29/10/2026 sera.
    1.28. (bb) più di 2 aiutanti accesi insieme (#143), 29/10/2026 sera.
+   1.29. (ff) formato dei kit e dei documenti, 12/11/2026 (#282, #285-#289, #291, #293, #309, #311, #312): legge l'ultimo turno dalla trascrizione e controlla R-A cornice blu intorno a ogni SendUserFile (.pdf, .docx, .xlsx, .csv, .zip), R-B al massimo un PDF con le righe rosse, R-C nessuno strumento prima del kit, R-D kit Classroom (rosso in testa, TITOLO e OGGETTO in riquadri, rosso come ultima riga), R-E frase vietata nell'oggetto, R-F cornice verde nei messaggi che non sono kit. Prove: `.claude/hooks/prove/prova_formato_kit.py`.
 2. `.claude/hooks/limite-comandi.py` (prima di ogni comando Bash).
    2.1. Massimo 3 comandi per turno e 600 caratteri, solo sessione principale (#132).
    2.2. Cancellare una versione in docs/ (PDF o «vN.N») con rm o git rm: rifiutato, per tutti (01/10 n. 13, #4), nuovo.
@@ -354,9 +355,19 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #279 | Scheda Situazione 2INF vuota (11/11) | 8 | D | A | motore Fabbrica v2.15 e `test_situazione_v2_15.js` (riservato) |
 | #280 | Pannello e schede senza «a che serve» (11/11) | 4 | D | D | idea: `controlli_pagine.py`; FABBRICA-MANUALE v2.6 da fare |
 | #281 | Allievi nominati senza cognome (11/11) | 7 | D | D | idea: `controllo-messaggio.py`; controllo automatico: mancante |
-| #282 | Formato del pacchetto per il post rifatto cinque volte (11/11) | 4 | D | D | GUIDA-MESSAGGI v1.3; controllo automatico: mancante |
+| #282 | Formato del pacchetto per il post rifatto cinque volte (11/11) | 4 | D | A | hook controllo-messaggio.py (ff) R-D, R-F; GUIDA-MESSAGGI 03sexies |
 | #283 | Controllo di fine giornata cieco, VERDE «nessuna lezione» (11/11) | 7 | D | D | `controlla_controlli.py --fine-giornata` da collegare a FIRME e `fabbrica/indice.json` |
 | #284 | Incoerenze trovate e non corrette nei file (11/11) | 7 | D | D | controllo automatico: mancante |
+| #285 | PDF dato solo come nome, senza la scheda da scaricare (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A: ogni SendUserFile di documento ha testo con 🟦 e 📄 prima e testo con 🟦 dopo |
+| #286 | Ordine dell'ora ignorato: pacchetto prima della dispensa docente (12/11) | 1 | D | D | controllo automatico: mancante (il controllo ff non conosce l'ordine dell'ora) |
+| #287 | Testo del pacchetto prima della scheda PDF non visibile (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A, R-D |
+| #288 | Scheda PDF fuori dalla cornice rossa (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A, R-D (ultima riga rossa) |
+| #289 | Pacchetto Classroom: formati sbagliati prima di quello giusto (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-D, R-E |
+| #291 | Messaggi per il docente senza cornice verde (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-F |
+| #293 | Kit consegnato in un turno sporco (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-C |
+| #309 | Documento mandato senza i quadratini blu (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A |
+| #311 | Due kit con due PDF nella stessa risposta (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-B |
+| #312 | Controllo automatico del formato kit e documenti aggiunto (12/11) | 1 | A | A | hook controllo-messaggio.py (ff), prove `prova_formato_kit.py` (55 casi); chiude la famiglia #282, #285-#289, #293, #309, #311 |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -438,3 +449,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 13. v1.13 (11/11/2026): voce #272 (controlli e passi chiesti al docente in lezione), D, controllo automatico: mancante.
 14. v1.14 (11/11/2026): voce #273 (stesso file rimandato, D, controllo mancante) e voce #274 (lingue 1INF nei quiz, A: `strumenti/controlla_lingue_quiz.py`, R6). Il conteggio della sezione 01 non è stato ricalcolato.
 15. v1.15 (11/11/2026, controllore di fine giornata): voci #267 e #275-#284; #279 A, le altre D. Il conteggio della sezione 01 non è stato ricalcolato.
+16. v1.16 (12/11/2026): controllo (ff) formato kit e documenti nell'hook del messaggio; voci #285-#289, #291, #293, #309, #311, #312 in tabella (#286 resta D); #282 passa ad A. Il conteggio della sezione 01 non è stato ricalcolato.

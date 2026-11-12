@@ -16,6 +16,12 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
 5. (gg) Il docente ha nominato un'ora della giornata («prima ora», «3ª ora», «PUBB 2») e la
        risposta non scrive l'orario (8-9…) (#159). Vale SOLO se il docente ha davvero parlato
        di un'ora: le cifre senza «ª» («tra 1 ora») e i quiz di Sicurezza non contano. (R2)
+6. (ff) Formato dei kit e dei documenti (12/11/2026, chiude la famiglia #282, #285-#289, #293,
+       #309, #311): legge l'ultimo turno dell'assistente dalla trascrizione (blocchi text e
+       tool_use in ordine, dall'ultimo messaggio del docente) e controlla R-A cornice blu intorno
+       a ogni SendUserFile di documento, R-B un solo PDF per risposta con i kit, R-C kit in turno
+       pulito, R-D kit Classroom (rosso, TITOLO e OGGETTO in riquadri, chiusura rossa), R-E frase
+       vietata nell'oggetto, R-F cornice verde nei messaggi che non sono kit. (GUIDA-MESSAGGI 03octies)
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei nomi degli allievi NON sta qui (in chat COGNOME Nome è richiesto, R7): sta
@@ -373,6 +379,308 @@ def controllo_ora_ordinale(testo, data):
             "(per esempio «8-9») così l'equivoco si vede subito; nel dubbio si fa in entrambe." % m.group(0))
 
 
+
+# ------------------------------------- (ff) formato kit e documenti (12/11/2026)
+# Chiude la famiglia di errori sul formato: #282, #285-#289, #293, #309, #311 (GUIDA-MESSAGGI 03sexies-03octies).
+# Il controllo vede solo i blocchi (text, tool_use) della trascrizione, NON come l'app li mostra.
+import hashlib
+import tempfile
+
+STATO_FORMATO = os.environ.get("CORSO_STATO_FORMATO",
+                               os.path.join(tempfile.gettempdir(), "corso-controllo-formato-stato.json"))  # "" = nessuna memoria
+EST_DOCUMENTO = (".pdf", ".docx", ".xlsx", ".csv", ".zip")
+
+
+def _riga_di(simbolo, riga):
+    return re.match(r"^\s*(?:%s\s*){3,}$" % simbolo, riga) is not None
+
+
+def _righe(testo):
+    return [r for r in testo.splitlines() if r.strip()]
+
+
+def e_kit(testo):
+    """Testo di un kit: righe rosse 🟥🟥 e TITOLO, OGGETTO o un link in un riquadro."""
+    if "🟥🟥" not in testo:
+        return False
+    if re.search(r"\bTITOLO\b|\bOGGETTO\b", testo):
+        return True
+    return any(t == "riquadro" and any(re.search(r"https?://", r) for r in righe)
+               for t, righe in segmenta(testo))
+
+
+def e_kit_classroom(testo):
+    """Kit Classroom: TITOLO e OGGETTO (maiuscoli) con righe rosse o almeno due riquadri."""
+    if not (re.search(r"\bTITOLO\b", testo) and re.search(r"\bOGGETTO\b", testo)):
+        return False
+    return "🟥🟥" in testo or sum(1 for t, _ in segmenta(testo) if t == "riquadro") >= 2
+
+
+def etichetta_in_riquadro(testo, etichetta):
+    righe = testo.splitlines()
+    dentro, chiusura = False, None
+    for i, r in enumerate(righe):
+        m = RE_RECINTO.match(r)
+        if not dentro and m:
+            dentro, chiusura = True, m.group(1)
+            continue
+        if dentro and r.strip().startswith(chiusura):
+            dentro = False
+            continue
+        if re.search(r"\b%s\b" % etichetta, r):
+            if dentro:
+                return True
+            for s in righe[i + 1:]:
+                if s.strip():
+                    if RE_RECINTO.match(s):
+                        return True
+                    break
+    return False
+
+
+def file_del_comando(inp):
+    """Percorsi passati a SendUserFile (file_path, files: elenco di stringhe o di oggetti)."""
+    if not isinstance(inp, dict):
+        return []
+    out = []
+    for k in ("file_path", "path"):
+        if isinstance(inp.get(k), str):
+            out.append(inp[k])
+    f = inp.get("files")
+    if isinstance(f, str):
+        out.append(f)
+    elif isinstance(f, list):
+        for x in f:
+            if isinstance(x, str):
+                out.append(x)
+            elif isinstance(x, dict):
+                v = x.get("path") or x.get("file_path")
+                if isinstance(v, str):
+                    out.append(v)
+    return out
+
+
+def documenti_del_comando(inp):
+    return [f for f in file_del_comando(inp) if f.lower().endswith(EST_DOCUMENTO)]
+
+
+def _tail_righe(path, n):
+    with open(os.path.expanduser(path), "rb") as f:
+        f.seek(0, os.SEEK_END)
+        dim = f.tell()
+        f.seek(max(0, dim - n))
+        righe = f.read().split(b"\n")
+    return righe[1:] if dim > n else righe  # la prima riga può essere tagliata
+
+
+def e_messaggio_docente(d):
+    """True per un messaggio vero del docente (non risultato di strumento, notifica, feedback di hook)."""
+    if d.get("type") != "user" or d.get("isSidechain") or d.get("isMeta"):
+        return False
+    c = (d.get("message") or {}).get("content")
+    if isinstance(c, str):
+        testo = c
+    elif isinstance(c, list):
+        if any(isinstance(x, dict) and x.get("type") == "tool_result" for x in c):
+            return False
+        testo = "\n".join(x.get("text", "") for x in c if isinstance(x, dict) and x.get("type") == "text")
+    else:
+        return False
+    origine = d.get("origin")
+    genere = origine.get("kind") if isinstance(origine, dict) else None
+    if genere:
+        return genere == "human"
+    t = testo.lstrip()
+    return bool(t) and not t.startswith(("Stop hook feedback", "<task-notification", "<system-reminder",
+                                         "<command-", "[Image:"))
+
+
+def eventi_ultimo_turno(transcript_path):
+    """([eventi], chiave_turno): i blocchi dell'assistente dall'ultimo messaggio del docente, in ordine.
+    Evento = ('text', testo, chiave) oppure ('tool', nome, input, id). Mai un errore: in caso di problemi ([], '')."""
+    if not transcript_path:
+        return [], ""
+    try:
+        for n in (1024 * 1024, 8 * 1024 * 1024):
+            eventi, chiave, trovato = [], "", False
+            for r in reversed(_tail_righe(transcript_path, n)):
+                try:
+                    d = json.loads(r)
+                except Exception:
+                    continue
+                if d.get("isSidechain"):
+                    continue
+                if d.get("type") == "assistant":
+                    blocchi = (d.get("message") or {}).get("content") or []
+                    if isinstance(blocchi, list):
+                        for j in range(len(blocchi) - 1, -1, -1):
+                            x = blocchi[j]
+                            if not isinstance(x, dict):
+                                continue
+                            if x.get("type") == "text" and (x.get("text") or "").strip():
+                                eventi.append(("text", x["text"], "%s/%d" % (d.get("uuid", len(eventi)), j)))
+                            elif x.get("type") == "tool_use":
+                                eventi.append(("tool", x.get("name", ""), x.get("input") or {},
+                                               x.get("id") or "%s/%d" % (d.get("uuid", len(eventi)), j)))
+                elif e_messaggio_docente(d):
+                    c = (d.get("message") or {}).get("content")
+                    testo = c if isinstance(c, str) else json.dumps(c, ensure_ascii=False)[:500]
+                    chiave = str(d.get("uuid") or hashlib.sha1(testo.encode("utf-8")).hexdigest()[:12])
+                    trovato = True
+                    break
+            if trovato:
+                break
+        eventi.reverse()
+        return eventi, chiave
+    except Exception:
+        return [], ""
+
+
+def _allinea_finale(eventi, finale):
+    """Il messaggio finale (last_assistant_message) può non essere ancora scritto nella trascrizione."""
+    eventi = list(eventi)
+    if finale.strip() and not (eventi and eventi[-1][0] == "text" and eventi[-1][1].strip() == finale.strip()):
+        eventi.append(("text", finale, "finale"))
+    return eventi
+
+
+def _h(testo):
+    return hashlib.sha1(testo.encode("utf-8")).hexdigest()[:10]
+
+
+def analizza_formato(eventi, finale):
+    """Lista di (codice, chiave, messaggio) per l'ultimo turno. Regole R-A..R-F (GUIDA-MESSAGGI 03octies)."""
+    ev = _allinea_finale(eventi, finale)
+    testi = [e for e in ev if e[0] == "text"]
+    errori = []
+
+    # R-A: ogni documento ha la cornice blu (testo con 🟦 e 📄 prima, testo con 🟦 dopo) (#309, #285)
+    for i, e in enumerate(ev):
+        if e[0] != "tool" or e[1] != "SendUserFile":
+            continue
+        docs = documenti_del_comando(e[2])
+        if not docs:
+            continue  # immagini e altri file: fuori dalla regola
+        prima = ev[i - 1] if i > 0 else None
+        dopo = ev[i + 1] if i + 1 < len(ev) else None
+        mancano = []
+        if prima is None or prima[0] != "text":
+            mancano.append("subito prima del file non c'è un testo (c'è uno strumento o niente)")
+        else:
+            r = _righe(prima[1])
+            if not (len(r) >= 2 and _riga_di("🟦", r[-2]) and re.match(r"^[\s*_>#\-]*📄", r[-1])):
+                mancano.append("il testo prima del file non finisce con una riga di quadratini blu 🟦 seguita da una riga "
+                               "che comincia con 📄")
+        if dopo is None or dopo[0] != "text":
+            mancano.append("subito dopo il file non c'è un testo (c'è uno strumento o niente)")
+        else:
+            r = _righe(dopo[1])
+            if not (r and _riga_di("🟦", r[0])):
+                mancano.append("il testo dopo il file non comincia con una riga di quadratini blu 🟦")
+        if mancano:
+            errori.append(("A", e[3], "Documento senza cornice blu (#309, #285): per «%s» %s. Formato: testo che FINISCE "
+                           "con una riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 e una riga «📄 NOME DEL DOCUMENTO ⬇️»; subito dopo "
+                           "SendUserFile (stesso file, nessun altro strumento in mezzo); subito dopo un testo che COMINCIA con "
+                           "una riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦. Rimanda il file così, mai una scheda da sola."
+                           % (os.path.basename(docs[0]), "; ".join(mancano))))
+
+    # R-B: un solo PDF per risposta quando ci sono i kit rossi (#311)
+    n_pdf = sum(1 for e in ev if e[0] == "tool" and e[1] == "SendUserFile"
+                for f in file_del_comando(e[2]) if f.lower().endswith(".pdf"))
+    if n_pdf >= 2 and any("🟥🟥" in t[1] for t in testi):
+        errori.append(("B", "turno", "Due kit/due PDF nella stessa risposta (il testo sparisce) (#311): nel turno ci sono %d "
+                       "PDF mandati con SendUserFile e righe rosse 🟥🟥: l'app sostituisce con un riassunto il testo scritto "
+                       "prima di ogni scheda e il kit non si vede. Un solo kit e un solo PDF per risposta: manda ora il "
+                       "primo kit nel formato giusto e il secondo nel messaggio dopo." % n_pdf))
+
+    # R-C: il kit si consegna in un turno pulito (#293)
+    for i, e in enumerate(ev):
+        if e[0] == "text" and e_kit(e[1]):
+            sporchi = []
+            for x in ev[:i]:
+                if x[0] == "tool" and x[1] != "SendUserFile" and x[1] not in sporchi:
+                    sporchi.append(x[1])
+            if sporchi:
+                errori.append(("C", "turno", "Kit in turno sporco (#293, GUIDA-MESSAGGI 03octies «turno pulito»): prima del "
+                               "kit, in questo turno, ci sono stati strumenti (%s) e l'app non mostra il testo del kit. "
+                               "NON mandare il kit adesso e NON usare le cornici colorate: rispondi in testo semplice, una "
+                               "riga, dicendo che il kit arriva nel prossimo messaggio; nel turno pulito successivo "
+                               "consegnalo senza nessuno strumento prima (comandi, controlli, agenti si fanno prima)."
+                               % ", ".join(sporchi[:6])))
+            break
+
+    # R-D: kit Classroom nello standard 03sexies (#287-#289)
+    for i, e in enumerate(ev):
+        if e[0] == "text" and e_kit_classroom(e[1]):
+            k = _h(e[1])
+            r = _righe(e[1])
+            if not (r and _riga_di("🟥", r[0])):
+                errori.append(("D1", k, "Kit Classroom senza cornice rossa in testa (#289): il primo blocco deve cominciare "
+                               "con una riga di quadratini rossi 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥, poi TITOLO e OGGETTO."))
+            if not (etichetta_in_riquadro(e[1], "TITOLO") and etichetta_in_riquadro(e[1], "OGGETTO")):
+                errori.append(("D2", k, "Kit Classroom con TITOLO e OGGETTO fuori dai riquadri (#282, #289): ognuno va in un "
+                               "riquadro di codice (tre apici ```) da copiare, uno per valore, subito dopo la sua etichetta."))
+            ultimo = testi[-1][1]
+            rf = _righe(ultimo)
+            if not (rf and _riga_di("🟥", rf[-1])):
+                errori.append(("D3", k, "Kit Classroom con testo dopo la riga rossa finale, o senza (#288, #289, #293): l'ultimo "
+                               "testo del kit (quello dopo il PDF) deve avere come ULTIMA cosa una riga di quadratini rossi "
+                               "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥; niente registro, quiz o «Non provato» dopo (solo righe vuote)."))
+            break
+
+    # R-E: frase vietata nell'oggetto (#289, 03octies)
+    for t in testi:
+        if (e_kit(t[1]) or e_kit_classroom(t[1])) and re.search(r"lo\s+facciamo\s+quando\s+lo\s+dico\s+io", t[1], re.I):
+            errori.append(("E", _h(t[1]), "Frase vietata nell'oggetto (03octies): togli «lo facciamo quando lo dico io». Al "
+                           "massimo «Seguirà il quiz.», oppure niente."))
+            break
+
+    # R-F: ogni messaggio che non è un kit ha la cornice verde (#291)
+    e_un_kit = any(e_kit(t[1]) or e_kit_classroom(t[1]) for t in testi)
+    f = finale.strip()
+    rf = _righe(f)
+    if (not e_un_kit and len(f) >= 60 and len(rf) >= 2 and not f.startswith(("🔴", "🟥", "🟦"))
+            and "🟩🟩🟩" not in f):
+        errori.append(("F", _h(f), "Messaggio senza cornice verde (#291): ogni messaggio per il docente che non è un kit "
+                       "sta in una cornice verde, con una riga di quadratini verdi 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩 sopra e "
+                       "una sotto (la prima riga resta la cosa bloccante, R4). Eccezioni: risposte che cominciano con 🔴 o "
+                       "con una riga 🟥/🟦, e risposte brevi (sotto i 60 caratteri)."))
+    return errori
+
+
+def _nuovi_errori(chiave_turno, errori):
+    """Toglie gli errori già segnalati in questo turno (un SendUserFile vecchio non fa bloccare per sempre)."""
+    if not STATO_FORMATO or not chiave_turno:
+        return errori
+    try:
+        try:
+            stato = json.load(open(STATO_FORMATO, encoding="utf-8"))
+        except Exception:
+            stato = {}
+        visti = set(stato.get(chiave_turno, []))
+        nuovi = [e for e in errori if "%s|%s" % (e[0], e[1]) not in visti]
+        if nuovi:
+            stato[chiave_turno] = sorted(visti | {"%s|%s" % (e[0], e[1]) for e in nuovi})
+            for k in list(stato)[:-30]:
+                del stato[k]
+            json.dump(stato, open(STATO_FORMATO, "w", encoding="utf-8"))
+        return nuovi
+    except Exception:
+        return errori
+
+
+def controllo_formato(testo, data):
+    if "last_assistant_message" in data and not (data.get("last_assistant_message") or "").strip():
+        return None  # turno senza testo per il docente (per esempio notifica di un agente): niente da controllare
+    eventi, chiave = eventi_ultimo_turno(data.get("transcript_path") or "")
+    errori = _nuovi_errori(chiave, analizza_formato(eventi, testo))
+    if not errori:
+        return None
+    return ("Formato dei kit e dei documenti sbagliato (GUIDA-MESSAGGI 03sexies-03octies; famiglia #282, #285-#289, #293, "
+            "#309, #311). Tu non vedi come l'app mostra la risposta: segui questo schema.\n"
+            + "\n".join("   - [%s] %s" % (e[0], e[2]) for e in errori))
+
+
 # ------------------------------------------------------------- transcript
 
 def ultimo_testo_assistente(transcript_path, max_righe=4000):
@@ -417,7 +725,8 @@ def main():
         return
     motivi = []
     for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_pronto_senza_verifica,
-                      controllo_link, lambda t: controllo_ora_ordinale(t, data)):
+                      controllo_link, lambda t: controllo_ora_ordinale(t, data),
+                      lambda t: controllo_formato(t, data)):
         try:
             m = controllo(testo)
         except Exception:

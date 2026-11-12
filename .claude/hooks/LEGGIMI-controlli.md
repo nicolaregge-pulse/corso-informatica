@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.5** — 06/11/2026 — documento interno del docente e di Claude
+**Versione 1.6** — 12/11/2026 — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -148,9 +148,24 @@ La versione di prima è nella storia di Git (commit precedente al 04/11/2026 ser
 3. `generatori/audit_regole.py` (01.5) segnala più di un compito per classe al giorno, ma R2 e R10.3 prevedono un compito per ora: contare per ora (titolo «G/M Ora N»).
 4. `generatori/verifica_lezione.py` (01.4) cerca «il compito del giorno»: con PUBB n va verificato il compito dell'ora n.
 
+## 06 Controllo (ff): formato dei kit e dei documenti (12/11/2026)
+
+Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro #312): io non vedo come l'app mostra la risposta, quindi il formato lo controlla l'hook. Sta in `controllo-messaggio.py` (secondo hook di Stop), legge `transcript_path` e guarda i blocchi dell'ULTIMO turno dell'assistente (testo e strumenti in ordine, dall'ultimo messaggio vero del docente; i risultati degli strumenti, le notifiche e il feedback degli hook non sono il docente; i sottoagenti non contano). Il messaggio finale (`last_assistant_message`) si aggiunge se non è ancora nella trascrizione. Regole (dettaglio nella GUIDA-MESSAGGI, sezioni 03sexies-03octies):
+
+1. **R-A, cornice blu:** ogni SendUserFile di `.pdf`, `.docx`, `.xlsx`, `.csv`, `.zip` (le immagini no) ha SUBITO PRIMA un testo che finisce con una riga di quadratini blu 🟦 e una riga che comincia con 📄, e SUBITO DOPO un testo che comincia con una riga 🟦.
+2. **R-B, un solo PDF:** se nel turno ci sono righe rosse 🟥🟥, al massimo un PDF per risposta (due: il testo sparisce, #311).
+3. **R-C, turno pulito:** se c'è un kit (testo con 🟥🟥 e TITOLO, OGGETTO o un link in riquadro), prima del suo primo blocco non ci sono altri strumenti (Read, Bash, Agent, ecc.; SendUserFile sì). Si risponde in testo semplice, senza colori, e il kit va nel messaggio dopo.
+4. **R-D, kit Classroom** (testo con TITOLO e OGGETTO): comincia con una riga rossa 🟥, TITOLO e OGGETTO sono in riquadri di codice, l'ultimo testo (dopo il PDF) finisce con una riga rossa senza altro dopo (righe vuote ammesse).
+5. **R-E:** nell'oggetto non compare «lo facciamo quando lo dico io».
+6. **R-F, cornice verde:** ogni risposta che non è un kit ha una riga di quadratini verdi 🟩. Eccezioni: comincia con 🔴 o con una riga 🟥/🟦, meno di 60 caratteri, meno di 2 righe.
+7. Un errore già segnalato nello stesso turno non si segnala di nuovo (memoria in `corso-controllo-formato-stato.json` nella cartella temporanea; `CORSO_STATO_FORMATO=""` la spegne). Blocca una volta sola per risposta (`stop_hook_active`), come gli altri.
+8. **Limiti:** vede i blocchi, NON come l'app li mostra (per esempio il testo prima di una scheda che l'app sostituisce con un riassunto: lo deduce dalle regole); non controlla il contenuto (versione del PDF, ordine dell'ora #286, nomi); se la trascrizione non è ancora scritta o non si legge, controlla solo il messaggio finale e non rompe niente. 85 ms circa a ogni risposta.
+9. Prove: `python3 /home/user/corso-informatica/.claude/hooks/prove/prova_formato_kit.py` (55 casi: kit giusti, un caso per ogni errore R-A…R-F, turni vecchi, sottoagenti, notifiche, memoria, processo vero).
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
 2. v1.3 (28/10/2026, audit): mv e git mv di una versione in docs/ rifiutati (4 prove nuove, 27 in tutto); controllore dei controlli `strumenti/controlla_controlli.py` (punto 01.7); punti di 03 rimessi in ordine; tolta una frase ripetuta in 04.4.
 3. v1.4 (04/11/2026): capitolo 05, revisione sulle decisioni del docente (5 controlli nell'hook del messaggio, controllo dei cognomi nei commit del pubblico, 8 comandi per turno, elenco dei controlli tolti).
 4. v1.5 (06/11/2026): capitolo 05.4, punti da correggere negli strumenti emersi dalla rilettura delle regole.
+5. v1.6 (12/11/2026): capitolo 06, controllo (ff) del formato dei kit e dei documenti; prova nuova `prova_formato_kit.py`.
