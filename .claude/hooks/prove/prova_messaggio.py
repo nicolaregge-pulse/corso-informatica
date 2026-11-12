@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prove di controllo-messaggio.py ridotto del 04/11/2026: (a), (b), (d), (e)+(o), (gg) e main.
+"""Prove di controllo-messaggio.py ridotto del 04/11/2026: (a), (b), (d), (e)+(o), (gg), (hh) e main.
 
 Uso: python3 /home/user/corso-informatica/.claude/hooks/prove/prova_messaggio.py
 Stampa «N/N» (casi giusti / casi totali) e le righe dei casi sbagliati.
@@ -141,6 +141,24 @@ transcript("Ci vediamo tra 1 ora, prepara il quiz")
 caso("gg: «tra 1 ora» non è un'ora della giornata", cm.controllo_ora_ordinale("Preparo il quiz.", {"transcript_path": tr}), False)
 transcript("Va bene, sistema il cruscotto")
 caso("gg: il docente non parla di ore", cm.controllo_ora_ordinale("Sistemo il cruscotto.", {"transcript_path": tr}), False)
+
+# (hh) «non ha consegnato» con dato non fresco (#314, 12/11/2026)
+ora_x = datetime.datetime(2026, 11, 12, 13, 54, 30, tzinfo=TZ)
+caso("hh: «non ha consegnato» con dato di 6 minuti fa",
+     cm.controllo_dato_vecchio("ROSSI Mario non ha consegnato il quiz. Fonte: foglio scaricato alle 13:55; risposte lette fino alle 13:48:57.", ora_x) is not None, True)
+caso("hh: «non ha consegnato» senza fonte né ora",
+     cm.controllo_dato_vecchio("ROSSI Mario non ha consegnato il quiz.", ora_x) is not None, True)
+caso("hh: «non ha consegnato» con dato di 30 secondi fa",
+     cm.controllo_dato_vecchio("ROSSI Mario non ha consegnato il quiz (letto dal foglio alle 13:54:05).", ora_x), False)
+caso("hh: «non risulta consegnato» nel dato vecchio è la frase giusta",
+     cm.controllo_dato_vecchio("ROSSI Mario non risulta consegnato nel dato delle 13:48 (6 minuti fa), può essere cambiato.", ora_x), False)
+caso("hh: «non ha consegnato» con «non provato»",
+     cm.controllo_dato_vecchio("ROSSI Mario non ha consegnato: non provato, ultimo dato delle 13:40.", ora_x), False)
+caso("hh: frase tra virgolette non conta",
+     cm.controllo_dato_vecchio("Il messaggio di prima diceva «non ha consegnato» ma era sbagliato.", ora_x), False)
+caso("hh: «non hanno ancora fatto il quiz» senza ora",
+     cm.controllo_dato_vecchio("Tre allievi non hanno ancora fatto il quiz.", ora_x) is not None, True)
+caso("hh: main blocca «non ha consegnato» senza ora", main_con({"last_assistant_message": "Ok.\nROSSI Mario non ha consegnato il quiz."}), True)
 
 # controlli tolti il 04/11/2026: frasi che prima bloccavano e ora passano
 for frase in ("Onestamente il cruscotto è lento.", "Il quiz di BIANCHI non è arrivato.", "Report pronto: 2 consegnati su 14.",

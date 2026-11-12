@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.6** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 1.7** — 12/11/2026 — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -162,6 +162,12 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 8. **Limiti:** vede i blocchi, NON come l'app li mostra (per esempio il testo prima di una scheda che l'app sostituisce con un riassunto: lo deduce dalle regole); non controlla il contenuto (versione del PDF, ordine dell'ora #286, nomi); se la trascrizione non è ancora scritta o non si legge, controlla solo il messaggio finale e non rompe niente. 85 ms circa a ogni risposta.
 9. Prove: `python3 /home/user/corso-informatica/.claude/hooks/prove/prova_formato_kit.py` (55 casi: kit giusti, un caso per ogni errore R-A…R-F, turni vecchi, sottoagenti, notifiche, memoria, processo vero).
 
+## 07 Controllo (hh): «non ha consegnato» senza dato fresco (12/11/2026)
+
+1. **Errore #314:** alle 13:54 ho scritto «ROSSI Mario non ha consegnato» con un dato letto fino alle 13:48:57; la consegna era arrivata alle 13:54:56. La regola R7.1 c'era, ma non c'era uno strumento che guardasse l'età del dato.
+2. **Controllo:** `controllo_dato_vecchio` in `controllo-messaggio.py`. Se il messaggio (fuori da riquadri, codice e virgolette) dice «non ha/hanno (ancora) consegnato» o «non ha/hanno (ancora) fatto il quiz»: senza una fonte con ora («letto … alle HH:MM», «dato delle HH:MM», «fino alle HH:MM», «screenshot … alle HH:MM») il messaggio viene fatto riscrivere; con un dato più vecchio di 3 minuti (la fonte più vecchia citata) anche. Passa se c'è «non provato» o se la frase è «non risulta consegnato nel dato delle HH:MM (N minuti fa)».
+3. **Prova:** `prove/prova_messaggio.py` (8 casi nuovi, 46 in tutto). Limite: il controllo legge il testo, non sa se la fonte citata è davvero quella letta.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -169,3 +175,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 3. v1.4 (04/11/2026): capitolo 05, revisione sulle decisioni del docente (5 controlli nell'hook del messaggio, controllo dei cognomi nei commit del pubblico, 8 comandi per turno, elenco dei controlli tolti).
 4. v1.5 (06/11/2026): capitolo 05.4, punti da correggere negli strumenti emersi dalla rilettura delle regole.
 5. v1.6 (12/11/2026): capitolo 06, controllo (ff) del formato dei kit e dei documenti; prova nuova `prova_formato_kit.py`.
+6. v1.7 (12/11/2026): capitolo 07, controllo (hh) «non ha consegnato» con dato non fresco (errore #314); prova_messaggio.py a 46 casi.

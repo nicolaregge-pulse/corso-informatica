@@ -22,6 +22,10 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
        a ogni SendUserFile di documento, R-B un solo PDF per risposta con i kit, R-C kit in turno
        pulito, R-D kit Classroom (rosso, TITOLO e OGGETTO in riquadri, chiusura rossa), R-E frase
        vietata nell'oggetto, R-F cornice verde nei messaggi che non sono kit. (GUIDA-MESSAGGI 03octies)
+7. (hh) «non ha consegnato» / «non hanno consegnato» / «non ha fatto il quiz» detto come un fatto, senza
+       fonte e ora del dato, oppure con un dato più vecchio di 3 minuti (12/11/2026, errore #314: «un allievo
+       non ha consegnato» scritto con un dato di 6 minuti prima, consegna arrivata 13:54:56). Con un dato non
+       fresco la frase giusta è «non risulta consegnato nel dato delle HH:MM (N minuti fa)» o «non provato». (R7.1, R8.4)
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei nomi degli allievi NON sta qui (in chat COGNOME Nome è richiesto, R7): sta
@@ -707,6 +711,41 @@ def ultimo_testo_assistente(transcript_path, max_righe=4000):
     return ""
 
 
+# (hh) «non ha consegnato» senza dato fresco (#314, 12/11/2026)
+RE_NON_CONSEGNATO = re.compile(
+    r"\bnon\s+(?:ha|hanno)\s+(?:ancora\s+)?consegnat\w*|\bnon\s+(?:ha|hanno)\s+(?:ancora\s+)?fatto\s+(?:il|i)\s+quiz",
+    re.I)
+RE_ORA_DATO = re.compile(
+    r"(?:letto|letta|lette|letti|scaricat\w+|aggiornat\w+|ultim[ao]\s+\w+|dato|dati|screenshot|fonte)"
+    r"[^.\n;]{0,60}?\b(?:alle|delle)\s+(\d{1,2})[:.](\d{2})(?::(\d{2}))?", re.I)
+SOGLIA_DATO_MIN = 3
+
+
+def controllo_dato_vecchio(testo, adesso=None):
+    t = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    m = RE_NON_CONSEGNATO.search(t)
+    if not m or re.search(r"non\s+provat", t, re.I):
+        return None
+    adesso = adesso or datetime.datetime.now(TZ_ROMA)
+    orari = []
+    for g in RE_ORA_DATO.finditer(t):
+        try:
+            orari.append(adesso.replace(hour=int(g.group(1)), minute=int(g.group(2)),
+                                        second=int(g.group(3) or 0), microsecond=0))
+        except ValueError:
+            continue
+    frase = t[max(0, m.start() - 30):m.end() + 30].replace("\n", " ").strip()
+    if not orari:
+        return ("«Non ha consegnato» senza fonte e ora del dato (#314, R7.1): «...%s...». Scrivi la fonte e l'ora "
+                "(per esempio «letto dal foglio alle 13:58») oppure «non provato»." % frase)
+    eta = (adesso - min(orari)).total_seconds() / 60.0
+    if eta > SOGLIA_DATO_MIN:
+        return ("«Non ha consegnato» con un dato di %d minuti fa (#314, R7.1, R8.4): «...%s...». Una consegna può "
+                "essere arrivata dopo. Rileggi la fonte adesso, oppure scrivi «non risulta consegnato nel dato delle "
+                "%s (%d minuti fa), può essere cambiato»." % (round(eta), frase, min(orari).strftime("%H:%M"), round(eta)))
+    return None
+
+
 def controllo_link(testo):
     return controllo_link_senza_pubblicato(testo) or controllo_link_riservato(testo)
 
@@ -725,7 +764,7 @@ def main():
         return
     motivi = []
     for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_pronto_senza_verifica,
-                      controllo_link, lambda t: controllo_ora_ordinale(t, data),
+                      controllo_link, controllo_dato_vecchio, lambda t: controllo_ora_ordinale(t, data),
                       lambda t: controllo_formato(t, data)):
         try:
             m = controllo(testo)

@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.5** — 11/11/2026
+**Versione 1.6** — 12/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -89,6 +89,10 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 11/11/2026 | 3INF 11-12, Laboratorio. Sul registro (firmato): «Comunicazione client server» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
 | 11/11/2026 | 3INF 12-13, Laboratorio. Sul registro (firmato): «Chat LAzarus» (dal registro firmato; contenuto vero da confermare dal docente) | | voce da confermare |
 | 11/11/2026 | 1INF 13-14, Sicurezza: sul registro (firmato, titolo scritto dal docente) «11/11 Ora 6: Rischi meccanici ed elettrici generali»; contenuto vero da confermare dal docente (vedi capitolo 4b.2) | | Sicurezza sul lavoro: «6ª ora: rischi meccanici ed elettrici generali» (Comp. 14, I anno) |
+| 12/11/2026 | 2INF 8-9, Laboratorio. Sul registro (firmato, scritto dal docente): «Win10: utenti, gruppi e recupero» (dal registro firmato; contenuto vero da confermare dal docente). Utenti e gruppi di Windows 10, documento della giornata, quiz di fine ora su Moduli e recupero dei quiz rimasti aperti | dispensa e quiz di fine ora dell'ora 1, compito su Classroom | Configurazione di utenti, servizi e risorse condivise (voce dell'Allegato A, numero di competenza da confermare) |
+| 12/11/2026 | 2INF 9-10, Laboratorio. Sul registro (firmato, scritto dal docente): «Win10: eventi e Gestione dispositivi» (dal registro firmato; contenuto vero da confermare dal docente). Visualizzatore eventi e Gestione dispositivi, documento della giornata, quiz di fine ora su Moduli | dispensa e quiz di fine ora dell'ora 2, compito su Classroom | voce esatta non presente nell'Allegato A; voce più vicina «Troubleshooting componenti hardware PC» (da confermare, nessuna voce aggiunta) |
+| 12/11/2026 | 2INF 10-11, Laboratorio. Sul registro (firmato, scritto dal docente): «Win10: Gestione attività e risorse» (dal registro firmato; contenuto vero da confermare dal docente). Gestione attività e uso delle risorse (CPU, memoria), documento della giornata, quiz di fine ora su Moduli | dispensa e quiz di fine ora dell'ora 3, compito su Classroom | voce esatta non presente nell'Allegato A; voce più vicina «Procedure e tecniche di monitoraggio…» (da confermare, nessuna voce aggiunta) |
+| 12/11/2026 | 1INF 13-14, Tecnologia professionale: ICT e hardware del computer, modello di Von Neumann (CPU, RAM, memorie di massa, scheda madre), quiz di fine ora su Moduli (12 domande). Titolo sul registro: non provato (l'ora non risulta firmata nei file) | dispensa dell'ora 6 in italiano, arabo e cinese, quiz di fine ora, compito su Classroom | Modello di Von Neumann: CPU, RAM, memorie di massa, scheda madre (voce dell'Allegato A) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -144,3 +148,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 1. **v0.1 (17/09/2026)**: prima versione. Registro avviato con le attività svolte dalla Classe 1 nelle prime lezioni.
 15. **v1.4 (11/11/2026)**: corretta la riga 1INF 10-11 dell'11/11: «Lazarus, if then» era sbagliato, l'ora è stata «Lazarus, real e divisione» (il docente: «non abbiamo fatto if then»); l'errore veniva dalla v1.3, scritta prima della correzione del registro delle 10:45 (FIRME v2.4). Errore #276.
 16. **v1.5 (11/11/2026)**: aggiunte dal registro firmato (FIRME-REGISTRO v2.6) le righe mancanti: 11/11 3INF 11-12 e 12-13 e 1INF 13-14 Sicurezza (anche nel capitolo 4b.2); e le lezioni firmate con argomento dal 05/11 al 10/11 (05/11 2INF, 3INF, 1INF; 06/11 1INF; 09/11 3INF e 2INF; 10/11 2INF, 3INF, 4TI). Le voci dell'Allegato A sono scritte solo dove già presenti in documenti verificati, altrimenti «voce da confermare»; il contenuto vero di tutte le nuove righe è da confermare dal docente. Non aggiunti perché senza argomento in FIRME: 02/11 (non ha un capitolo in FIRME) e il 06/11 2INF Sicurezza (già nel capitolo 4b.1). Controllo di coerenza dell'11/11, incoerenza numero 9.
+17. **v1.6 (12/11/2026)**: aggiunte le righe del 12/11: 2INF 8-11 (titoli del registro firmato, scritti dal docente) e 1INF 13-14 (ICT e hardware; titolo del registro non provato). Nessuna voce dell'Allegato A aggiunta (R5.2).
