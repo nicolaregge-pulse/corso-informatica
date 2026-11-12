@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.0 (12/11/2026): nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.1 (12/11/2026): la vista «Quiz e voti» chiede il link della scheda «Situazione pubblica <CLASSE>» (solo «Nome I.», senza email; la scheda «Situazione <CLASSE>» con i cognomi non va mai pubblicata sul web); il link salvato in questo browser per questa vista e' ora separato da quello della 2.0; i nomi gia' in forma «Nome I.» si leggono cosi' come sono, l'abbreviazione resta come difesa. Prima, 2.0: nuova vista «Quiz e voti» che legge la scheda «Situazione <CLASSE>» del foglio Fabbrica (colonne reali: Stato, Allievo, un quiz per colonna con intestazione a 3 righe, Fatti / totali, Media, NON HA FATTO); per 2INF e' la vista di partenza; nomi accorciati in «Nome I.»; che cosa ha fatto, che cosa manca, dove andare adesso, voto proposto 40-80 col conto (R8.3), ora del dato con DATI VECCHI oltre 6 minuti (R8.4), «Serve te (N)» (R8.7), aggiornamento ogni 30 secondi. Prima (1.x): viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -54,12 +54,13 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
 <div class="cfg" id="cfg">
   <b>Una volta sola per questa vista.</b> Incolla il link del foglio pubblicato.
   <ol>
-    <li>Nel foglio Google, apri la scheda <b id="scheda"></b>.</li>
+    <li>Nel foglio Google Fabbrica, apri la scheda <b id="scheda"></b>.</li>
     <li>Clicca File, poi Condividi, poi Pubblica sul web.</li>
-    <li>Scegli la scheda e clicca Pubblica.</li>
+    <li>Scegli proprio questa scheda (non Tutto il documento) e clicca Pubblica.</li>
     <li>Copia il link così come lo dà Google: non devi scegliere il csv a mano.</li>
     <li>Incolla il link qui sotto: la pagina lo converte da sola.</li>
   </ol>
+  <div id="avvisoPub" style="display:none"><b>Attenzione:</b> per «Quiz e voti» pubblica solo la scheda «Situazione pubblica» (ha solo «Nome I.»). La scheda «Situazione» senza «pubblica» ha i cognomi e le email: non pubblicarla mai.</div>
   <input id="url" placeholder="https://docs.google.com/spreadsheets/d/e/.../pub?output=csv">
   <button id="salva" type="button">Salva e carica</button>
   <span id="msg"></span>
@@ -69,9 +70,9 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
 <div class="assenti" id="assenti"></div>
-<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: i nomi del foglio si accorciano qui in «Nome I.» e non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». Il voto finale lo decide il docente.</div>
+<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: il foglio pubblicato («Situazione pubblica») ha già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque in «Nome I.»; i nomi non si salvano. Le spunte «Assente» e «Conta» restano salvate solo in questo browser. <b>Voto proposto (provvisorio)</b>: ogni quiz fatto vale da 40 (0%) a 80 (100%), cioè 40 + 40 × percentuale; il voto è la media dei quiz fatti che contano; chi non ne ha fatto nessuno ha 40. Un quiz con domande aperte da correggere è «provv.». Il voto finale lo decide il docente.</div>
 <div class="nota" id="notaVecchia">I dati arrivano dal foglio Google e si aggiornano ogni 30 secondi. I link restano salvati solo in questo browser. Questa pagina non contiene nomi. VERDE = a posto · GIALLO = attenzione · ARANCIO = in ritardo · ROSSO = serve il docente.</div>
-<div class="nota">Versione 2.0 · 12/11/2026</div>
+<div class="nota">Versione 2.1 · 12/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -82,8 +83,8 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   var ultimo = { righe: null, quando: null };
   function leggi(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
   function scrivi(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-  function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + t; }
-  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione ' + c }, { id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
+  function chiave(c, t) { return 'cruscotto_csv_' + c + '_' + (t === 'situazione' ? 'situazionepub' : t); }
+  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione pubblica ' + c }, { id: 'consegne', nome: 'Consegne', scheda: 'Consegne ' + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
   function csv(t) {
     var r = [], row = [], c = '', q = false;
     for (var i = 0; i < t.length; i++) {
@@ -157,6 +158,8 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
       var t = s.split('@')[0].split(/[._-]+/).filter(Boolean);
       return t.length >= 2 ? { n: cap(t[0]), i: t[t.length - 1].charAt(0).toUpperCase() } : { n: 'Allievo ' + (k + 1), i: '' };
     }
+    var gia = /^(.+?)\s+([A-Za-z\u00C0-\u00FF][A-Za-z\u00C0-\u00FF]{0,3})\.(?:\s+\(\d+\))?$/.exec(s);
+    if (gia) return { n: gia[1], i: gia[2].charAt(0).toUpperCase(), cog2: gia[2].toUpperCase(), fatto: gia[2].length > 1 ? gia[2] : '' };
     var p = s.split(/\s+/).filter(Boolean);
     if (p.length < 2) return { n: cap(p[0] || 'Allievo ' + (k + 1)), i: '' };
     var nc = 1;
@@ -242,18 +245,19 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
   var ordinePer = 'voto';
   function disegnaSit(righe) {
     var S = parseSit(righe);
-    if (!S) { $('dato').textContent = 'Foglio non riconosciuto'; $('msg').textContent = ' Non è la scheda «Situazione ' + statoCorr.classe + '»: controlla il link.'; $('cfg').style.display = 'block'; return; }
+    if (!S) { $('dato').textContent = 'Foglio non riconosciuto'; $('msg').textContent = ' Non è la scheda «Situazione pubblica ' + statoCorr.classe + '»: controlla il link.'; $('cfg').style.display = 'block'; return; }
     var c = statoCorr.classe, sc = quizScelti(c, S.quiz);
     var hh = S.quando ? ('0' + S.quando.getHours()).slice(-2) + ':' + ('0' + S.quando.getMinutes()).slice(-2) + ':' + ('0' + S.quando.getSeconds()).slice(-2) : '?';
     $('dato').textContent = 'Dati letti alle ' + hh + (S.quando && ('0' + S.quando.getDate()).slice(-2) + '/' + ('0' + (S.quando.getMonth() + 1)).slice(-2) !== oggiStr() ? ' del ' + ('0' + S.quando.getDate()).slice(-2) + '/' + ('0' + (S.quando.getMonth() + 1)).slice(-2) : '');
     verificaVecchiData(S.quando);
-    // nomi brevi, senza doppioni
+    // nomi brevi, senza doppioni (la scheda pubblica li ha gia' in forma «Nome I.»)
     var parti = S.stud.map(function (s, k) { return nomeParti(s.nome, k); }), cont = {};
     parti.forEach(function (p) { var k = (p.n + ' ' + p.i).toUpperCase(); cont[k] = (cont[k] || 0) + 1; });
     var assenti = leggiJ('cruscotto_assenti_' + c + '_' + oggiStr().replace('/', '-'), []);
     var rows = S.stud.map(function (s, k) {
       var p = parti[k], lab = p.n + (p.i ? ' ' + p.i + '.' : '');
       if (p.i && cont[(p.n + ' ' + p.i).toUpperCase()] > 1 && p.cog2) lab = p.n + ' ' + cap(p.cog2.slice(0, 2)) + '.';
+      if (/^\S.*\s\S{1,4}\.(?: \(\d+\))?$/.test(s.nome)) lab = s.nome;
       var r = calcolaRiga(S.quiz, s.celle, sc); r.lab = lab; r.h = hash(s.nome); r.celle = s.celle; r.assente = assenti.indexOf(r.h) >= 0;
       return r;
     });
@@ -312,7 +316,7 @@ th label{font-weight:normal;font-size:12px;cursor:pointer;display:block}
     var c = statoCorr.classe, v = statoCorr.vista, u = leggi(chiave(c, v)), mio = ++corsa;
     var def = viste(c).filter(function (x) { return x.id === v; })[0];
     $('scheda').textContent = '«' + def.scheda.replace(' (o Cruscotto Git 3INF, se già configurato)', '') + '»' + (def.scheda.indexOf('(o ') > 0 ? ' (o «Cruscotto Git 3INF» se già configurato)' : '');
-    $('url').value = u;
+    $('url').value = u; $('avvisoPub').style.display = v === 'situazione' ? 'block' : 'none';
     if (!u) { vuota(); $('cfg').style.display = 'block'; return; }
     $('cfg').style.display = 'none';
     fetch(u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })

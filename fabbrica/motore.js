@@ -1073,7 +1073,8 @@ function SM_pubblica_(ss, classe) {
   var src = ss.getSheetByName('Situazione ' + classe);
   if (!src) return;
   var nome = 'Situazione pubblica ' + classe, sh = ss.getSheetByName(nome) || ss.insertSheet(nome);
-  var rg = src.getDataRange(), vals = SM_pubValori_(rg.getValues()), nc = rg.getNumColumns(), i;
+  var rg = src.getDataRange(), vals = SM_pubValori_(rg.getValues()), nc = 1, i;
+  vals.forEach(function (r) { if (r.length > nc) nc = r.length; });
   sh.clear();
   vals = vals.map(function (r) { while (r.length < nc) r.push(''); return r.slice(0, nc); });
   sh.getRange(1, 1, vals.length, nc).setValues(vals);
