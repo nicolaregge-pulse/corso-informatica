@@ -1028,7 +1028,9 @@ function EL_classroom_(id) {
   });
 }
 function EL_moduli_(ss, indice, classe) {
-  var forms = FB_json_('FB_FORMS'), vis = {}, em = [], ut = SM_utenti_(ss, classe);
+  var forms = FB_json_('FB_FORMS'), vis = {}, em = [], ut = SM_utenti_(ss, classe), orig = {};
+  var shU = ss.getSheetByName('Utenti ' + classe);
+  if (shU) shU.getDataRange().getValues().forEach(function (r) { var o = String(r[2] || '').trim(); if (o) orig[SI_norm_(o)] = o; });
   (indice.lavori || []).forEach(function (l) {
     var cl = String((forms[l.id] && forms[l.id].classe) || FB_classe_(l, l.id) || '').toUpperCase();
     if (cl !== classe) return;
@@ -1042,7 +1044,7 @@ function EL_moduli_(ss, indice, classe) {
   });
   return em.map(function (e) {
     var n = ut.nomi.length ? SM_abbina_(e, ut.nomi) : null;
-    return [e, n || '', 'Moduli', EL_DOMINI_.test(e) ? '' : 'dominio da controllare'];
+    return [e, n ? (orig[n] || n) : '', 'Moduli', EL_DOMINI_.test(e) ? '' : 'dominio da controllare'];
   });
 }
 function EL_classe_(ss, indice, classe) {

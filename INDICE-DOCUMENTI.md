@@ -232,7 +232,7 @@ l'intestazione del file.
 ### 13. Strumenti e controlli (11/11/2026)
 1. `MAPPA-REGOLE-CONTROLLI.md` — v1.15 (11/11/2026: voci #267 e #275-#284); v1.14 (11/11/2026: voci #273-#274, controllo `controlla_lingue_quiz.py`).
 2. `FIRME-REGISTRO-2026-27.md` — v2.6 (11/11/2026).
-3. `fabbrica/LEGGIMI.md` — senza numero di versione nell'intestazione; descrive il motore Fabbrica v2.10 (intestazioni dei quiz, tipologia lezione).
+3. `fabbrica/LEGGIMI.md` — senza numero di versione nell'intestazione; descrive il motore Fabbrica fino alla v2.16 (12/11/2026: schede Elenco <CLASSE>; prima: intestazioni dei quiz, tipologia lezione, Indice, Situazione).
 4. `strumenti/controlla_lingue_quiz.py` — v1.0 (11/11/2026, R6): controlla arabo e cinese nei quiz 1INF di `fabbrica/indice.json`.
 
 ### 14. Sezione AICA e ICDL (12/11/2026)
