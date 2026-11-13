@@ -2,17 +2,17 @@
  "versione": "1.0",
  "classe": "1INF",
  "giorno": "13/11",
- "esportato": "2026-11-13T12:34:13+01:00",
+ "esportato": "2026-11-13T12:43:30+01:00",
  "fonti": {
   "quiz": {
    "scheda": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T12:24:05+01:00"
+   "dato": "2026-11-13T12:38:47+01:00"
   },
   "documenti": {
    "scheda": "Consegne 1INF",
-   "dato": "2026-11-13T12:19:43+01:00"
+   "dato": "2026-11-13T12:38:10+01:00"
   },
-  "ultimo_giro_motore": "2026-11-13T12:24:57+01:00"
+  "ultimo_giro_motore": "2026-11-13T12:39:51+01:00"
  },
  "config": {
   "fonte": "docente, 13/11/2026 circa 12:15: post Classroom delle ore 4, 5 e 6 pubblicati alle 11:38, 11:53 e 12:00; consegna del Documento entro le 12:30, 13:00 e 13:55; il quiz e nel post solo per l'ora 4",
@@ -33,7 +33,7 @@
    "scadenza": "12:30",
    "colonna_foglio": "13/11 Ora 4: File e cartelle 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T12:19:43+01:00",
+   "dato": "2026-11-13T12:38:10+01:00",
    "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato"
   },
   {
@@ -46,8 +46,8 @@
    "nel_post": true,
    "quiz_id": "quiz-1inf-1313-ora4-file-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T12:24:05+01:00",
-   "risposte_ris": 3,
+   "dato": "2026-11-13T12:38:47+01:00",
+   "risposte_ris": 10,
    "risposte_ris_non_abbinate": 1,
    "colonna_foglio": "presente"
   },
@@ -62,7 +62,7 @@
    "scadenza": "13:00",
    "colonna_foglio": "13/11 Ora 5: La rete di casa 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T12:19:43+01:00",
+   "dato": "2026-11-13T12:38:10+01:00",
    "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato"
   },
   {
@@ -75,8 +75,8 @@
    "nel_post": false,
    "quiz_id": "quiz-1inf-1313-ora5-reti-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T12:24:05+01:00",
-   "risposte_ris": 1,
+   "dato": "2026-11-13T12:38:47+01:00",
+   "risposte_ris": 5,
    "risposte_ris_non_abbinate": 0,
    "colonna_foglio": "presente"
   },
@@ -91,7 +91,7 @@
    "scadenza": "13:55",
    "colonna_foglio": "13/11 Ora 6: Usare bene le r 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T12:19:43+01:00",
+   "dato": "2026-11-13T12:38:10+01:00",
    "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato"
   },
   {
@@ -104,8 +104,8 @@
    "nel_post": false,
    "quiz_id": "quiz-1inf-1313-ora6-risorse-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T12:24:05+01:00",
-   "risposte_ris": 0,
+   "dato": "2026-11-13T12:38:47+01:00",
+   "risposte_ris": 2,
    "risposte_ris_non_abbinate": 0,
    "colonna_foglio": "presente"
   }
@@ -115,10 +115,16 @@
    "nome": "Thomas R.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "consegnato"
     },
     "ora4-quiz": {
-     "s": "manca"
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false,
+     "da_ris": true
     },
     "ora5-documento": {
      "s": "non_consegnato"
@@ -133,7 +139,7 @@
      "s": "non_assegnato"
     }
    },
-   "ultimo_segnale": null
+   "ultimo_segnale": "2026-11-13T12:41:00+01:00"
   },
   {
    "nome": "Andrea S.",
@@ -165,58 +171,10 @@
    "ultimo_segnale": "2026-11-13T12:21:00+01:00"
   },
   {
-   "nome": "Anthony A.",
-   "stati": {
-    "ora4-documento": {
-     "s": "non_consegnato"
-    },
-    "ora4-quiz": {
-     "s": "manca"
-    },
-    "ora5-documento": {
-     "s": "non_consegnato"
-    },
-    "ora5-quiz": {
-     "s": "non_assegnato"
-    },
-    "ora6-documento": {
-     "s": "non_consegnato"
-    },
-    "ora6-quiz": {
-     "s": "non_assegnato"
-    }
-   },
-   "ultimo_segnale": null
-  },
-  {
    "nome": "Aya B.",
    "stati": {
     "ora4-documento": {
      "s": "non_consegnato"
-    },
-    "ora4-quiz": {
-     "s": "manca"
-    },
-    "ora5-documento": {
-     "s": "non_consegnato"
-    },
-    "ora5-quiz": {
-     "s": "non_assegnato"
-    },
-    "ora6-documento": {
-     "s": "non_consegnato"
-    },
-    "ora6-quiz": {
-     "s": "non_assegnato"
-    }
-   },
-   "ultimo_segnale": null
-  },
-  {
-   "nome": "Alessio C.",
-   "stati": {
-    "ora4-documento": {
-     "s": "consegnato"
     },
     "ora4-quiz": {
      "s": "manca"
@@ -262,30 +220,6 @@
   },
   {
    "nome": "Wesley J.",
-   "stati": {
-    "ora4-documento": {
-     "s": "non_consegnato"
-    },
-    "ora4-quiz": {
-     "s": "manca"
-    },
-    "ora5-documento": {
-     "s": "non_consegnato"
-    },
-    "ora5-quiz": {
-     "s": "non_assegnato"
-    },
-    "ora6-documento": {
-     "s": "non_consegnato"
-    },
-    "ora6-quiz": {
-     "s": "non_assegnato"
-    }
-   },
-   "ultimo_segnale": null
-  },
-  {
-   "nome": "Yinlin L.",
    "stati": {
     "ora4-documento": {
      "s": "non_consegnato"
@@ -408,7 +342,7 @@
    "nome": "Matteo A.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "consegnato"
     },
     "ora4-quiz": {
      "s": "manca"
@@ -453,13 +387,18 @@
    "ultimo_segnale": null
   },
   {
-   "nome": "Cristian C.",
+   "nome": "Anthony A.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "consegnato"
     },
     "ora4-quiz": {
-     "s": "manca"
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
     },
     "ora5-documento": {
      "s": "non_consegnato"
@@ -474,7 +413,36 @@
      "s": "non_assegnato"
     }
    },
-   "ultimo_segnale": null
+   "ultimo_segnale": "2026-11-13T12:27:00+01:00"
+  },
+  {
+   "nome": "Alessio C.",
+   "stati": {
+    "ora4-documento": {
+     "s": "consegnato"
+    },
+    "ora4-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora5-documento": {
+     "s": "non_consegnato"
+    },
+    "ora5-quiz": {
+     "s": "non_assegnato"
+    },
+    "ora6-documento": {
+     "s": "non_consegnato"
+    },
+    "ora6-quiz": {
+     "s": "non_assegnato"
+    }
+   },
+   "ultimo_segnale": "2026-11-13T12:30:00+01:00"
   },
   {
    "nome": "Muhid H.",
@@ -501,55 +469,7 @@
    "ultimo_segnale": null
   },
   {
-   "nome": "Md M.",
-   "stati": {
-    "ora4-documento": {
-     "s": "consegnato"
-    },
-    "ora4-quiz": {
-     "s": "manca"
-    },
-    "ora5-documento": {
-     "s": "non_consegnato"
-    },
-    "ora5-quiz": {
-     "s": "non_assegnato"
-    },
-    "ora6-documento": {
-     "s": "non_consegnato"
-    },
-    "ora6-quiz": {
-     "s": "non_assegnato"
-    }
-   },
-   "ultimo_segnale": null
-  },
-  {
    "nome": "Muhammad N.",
-   "stati": {
-    "ora4-documento": {
-     "s": "non_consegnato"
-    },
-    "ora4-quiz": {
-     "s": "manca"
-    },
-    "ora5-documento": {
-     "s": "non_consegnato"
-    },
-    "ora5-quiz": {
-     "s": "non_assegnato"
-    },
-    "ora6-documento": {
-     "s": "non_consegnato"
-    },
-    "ora6-quiz": {
-     "s": "non_assegnato"
-    }
-   },
-   "ultimo_segnale": null
-  },
-  {
-   "nome": "Giovanni S.",
    "stati": {
     "ora4-documento": {
      "s": "non_consegnato"
@@ -597,6 +517,151 @@
    "ultimo_segnale": null
   },
   {
+   "nome": "Cristian C.",
+   "stati": {
+    "ora4-documento": {
+     "s": "consegnato"
+    },
+    "ora4-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora5-documento": {
+     "s": "non_consegnato"
+    },
+    "ora5-quiz": {
+     "s": "fatto",
+     "pct": 58,
+     "mg": 7,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false,
+     "da_ris": true
+    },
+    "ora6-documento": {
+     "s": "non_consegnato"
+    },
+    "ora6-quiz": {
+     "s": "non_assegnato"
+    }
+   },
+   "ultimo_segnale": "2026-11-13T12:37:00+01:00"
+  },
+  {
+   "nome": "Yinlin L.",
+   "stati": {
+    "ora4-documento": {
+     "s": "non_consegnato"
+    },
+    "ora4-quiz": {
+     "s": "fatto",
+     "pct": 58,
+     "mg": 7,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora5-documento": {
+     "s": "non_consegnato"
+    },
+    "ora5-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora6-documento": {
+     "s": "non_consegnato"
+    },
+    "ora6-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false,
+     "da_ris": true
+    }
+   },
+   "ultimo_segnale": "2026-11-13T12:35:00+01:00"
+  },
+  {
+   "nome": "Md M.",
+   "stati": {
+    "ora4-documento": {
+     "s": "consegnato"
+    },
+    "ora4-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora5-documento": {
+     "s": "non_consegnato"
+    },
+    "ora5-quiz": {
+     "s": "fatto",
+     "pct": 58,
+     "mg": 7,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false,
+     "da_ris": true
+    },
+    "ora6-documento": {
+     "s": "non_consegnato"
+    },
+    "ora6-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false,
+     "da_ris": true
+    }
+   },
+   "ultimo_segnale": "2026-11-13T12:40:00+01:00"
+  },
+  {
+   "nome": "Giovanni S.",
+   "stati": {
+    "ora4-documento": {
+     "s": "consegnato"
+    },
+    "ora4-quiz": {
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
+    },
+    "ora5-documento": {
+     "s": "non_consegnato"
+    },
+    "ora5-quiz": {
+     "s": "non_assegnato"
+    },
+    "ora6-documento": {
+     "s": "non_consegnato"
+    },
+    "ora6-quiz": {
+     "s": "non_assegnato"
+    }
+   },
+   "ultimo_segnale": "2026-11-13T12:28:00+01:00"
+  },
+  {
    "nome": "Enea Z.",
    "stati": {
     "ora4-documento": {
@@ -608,8 +673,7 @@
      "mg": 8,
      "su": 12,
      "aperte_in_correzione": false,
-     "versione_precedente": false,
-     "da_ris": true
+     "versione_precedente": false
     },
     "ora5-documento": {
      "s": "non_consegnato"
@@ -644,7 +708,12 @@
      "s": "non_consegnato"
     },
     "ora5-quiz": {
-     "s": "non_assegnato"
+     "s": "fatto",
+     "pct": 67,
+     "mg": 8,
+     "su": 12,
+     "aperte_in_correzione": false,
+     "versione_precedente": false
     },
     "ora6-documento": {
      "s": "non_consegnato"
@@ -653,7 +722,7 @@
      "s": "non_assegnato"
     }
    },
-   "ultimo_segnale": "2026-11-13T12:20:00+01:00"
+   "ultimo_segnale": "2026-11-13T12:27:00+01:00"
   }
  ]
 }
