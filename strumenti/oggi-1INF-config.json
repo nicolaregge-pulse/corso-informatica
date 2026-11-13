@@ -1,0 +1,15 @@
+{
+ "versione": "1.0",
+ "classe": "1INF",
+ "giorno": "13/11",
+ "fonte_config": "docente, 13/11/2026 circa 12:15: post Classroom delle ore 4, 5 e 6 pubblicati alle 11:38, 11:53 e 12:00; consegna del Documento entro le 12:30, 13:00 e 13:55; il quiz e nel post solo per l'ora 4",
+ "nota": "Elenco ATTESO dei compiti e dei quiz del giorno. Lo script aggiunge da solo le colonne del giorno che trova nel foglio e che qui mancano. Niente nomi di allievi in questo file.",
+ "voci": [
+  {"id": "ora4-documento", "tipo": "documento", "ora": 4, "titolo": "Documento con gli screenshot (File e cartelle)", "post_alle": "11:38", "scadenza": "12:30", "colonna_consegne": "^13/11 Ora 4:"},
+  {"id": "ora4-quiz", "tipo": "quiz", "ora": 4, "titolo": "Quiz: file e cartelle", "quiz_id": "quiz-1inf-1313-ora4-file-8c2a", "nel_post": true},
+  {"id": "ora5-documento", "tipo": "documento", "ora": 5, "titolo": "Documento con gli screenshot (rete di casa e sicurezza)", "post_alle": "11:53", "scadenza": "13:00", "colonna_consegne": "^13/11 Ora 5:"},
+  {"id": "ora5-quiz", "tipo": "quiz", "ora": 5, "titolo": "Quiz: rete di casa e sicurezza", "quiz_id": "quiz-1inf-1313-ora5-reti-8c2a", "nel_post": false},
+  {"id": "ora6-documento", "tipo": "documento", "ora": 6, "titolo": "Documento con gli screenshot (usare bene le risorse digitali)", "post_alle": "12:00", "scadenza": "13:55", "colonna_consegne": "^13/11 Ora 6:"},
+  {"id": "ora6-quiz", "tipo": "quiz", "ora": 6, "titolo": "Quiz: usare bene le risorse digitali", "quiz_id": "quiz-1inf-1313-ora6-risorse-8c2a", "nel_post": false}
+ ]
+}
