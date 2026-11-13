@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Dati della vista «Oggi» del cruscotto (docs/cruscotto/dati/<CLASSE>-oggi.json). Versione 1.0 (13/11/2026).
+"""Dati della vista «Oggi» del cruscotto (docs/cruscotto/dati/<CLASSE>-oggi.json). Versione 1.1 (13/11/2026).
 
 Per ogni allievo e per ogni «voce» del giorno (un Documento su Classroom o un quiz su Moduli, per ora) scrive lo stato:
     documento: consegnato | non_consegnato | nd
@@ -15,8 +15,12 @@ Fonti nel foglio Fabbrica (xlsx esportato, tenuto FUORI dal repository):
     «Elenco <CLASSE>», «Abbinamenti <CLASSE>», «Ris <id quiz>»   solo per l'ultimo invio dei quiz (ultimo segnale), mai in uscita con le email
     «Stato»                         ora dell'ultimo giro del motore Fabbrica
 
-Il foglio NON da': voti dei Documenti, ora delle consegne, contenuto dei Documenti (se ci sono davvero gli screenshot), presenze, Veyon.
-Dove il dato manca la voce dice «nd» con il perche' (R7: niente numeri senza fonte).
+NOVITA' 1.1 (motore Fabbrica v2.22, schede nuove; se non ci sono, la voce dice «dato non disponibile: serve il motore v2.22» e il resto funziona come prima):
+    «Documenti <CLASSE>»            per allievo e compito: stato, ora di consegna, immagini aggiunte al Documento (rispetto al modello), caratteri
+                                    (cognomi: si convertono in «Nome I.»; il testo, il titolo del file e il link NON escono mai nel pubblico)
+    «Risposte <id quiz>»            per allievo (tentativo migliore) e per domanda: punti (o «c» = aperta da correggere); in uscita solo punti e testo della
+                                    DOMANDA (scritto dal docente), mai il testo delle risposte degli allievi; errori ricorrenti per domanda
+Il foglio NON da': voti dei Documenti (il giudizio), presenze, Veyon. Dove il dato manca la voce dice «nd» con il perche' (R7: niente numeri senza fonte).
 
 CONTROLLO PRIVACY BLOCCANTE (R1) prima di scrivere: nessuna chiocciola, ogni allievo «Nome I.», nessun cognome (generatori/privacy_nomi.py
 del riservato; se manca lo script si ferma). Un file che non passa NON viene scritto.
@@ -109,6 +113,127 @@ def parse_ultimo_invio(v, esportato):
         return None
 
 
+MSG_V222 = "dato non disponibile: serve il motore v2.22"
+
+
+def num(x):
+    """«3», «3.0», 3 -> 3; altro -> None."""
+    try:
+        f = float(str(x).strip().replace(",", "."))
+    except ValueError:
+        return None
+    return int(f) if f == int(f) else f
+
+
+def ora_cons(txt, giorno):
+    """«13/11 12:24» -> («12:24» se e' del giorno, altrimenti «13/11 12:24»), minuti dall'inizio del giorno o None."""
+    m = re.match(r"^\s*0?(\d{1,2})/0?(\d{1,2})\s+(\d{1,2}):(\d{2})", txt or "")
+    if not m:
+        return None, None, False
+    g = "%d/%d" % (int(m.group(1)), int(m.group(2)))
+    hm = "%02d:%02d" % (int(m.group(3)), int(m.group(4)))
+    stesso = g == "%d/%d" % tuple(int(x) for x in giorno.split("/"))
+    return (hm if stesso else "%s %s" % (g, hm)), int(m.group(3)) * 60 + int(m.group(4)), stesso
+
+
+def leggi_documenti(wb, classe, esportato, giorno):
+    """Scheda «Documenti <CLASSE>» -> ({nk(COGNOME Nome): [righe]}, dato) oppure (None, None) se la scheda non c'e' ancora."""
+    nome = "Documenti " + classe
+    if nome not in wb.sheetnames:
+        return None, None
+    righe = base.righe_foglio(wb[nome])
+    h = next((i for i, r in enumerate(righe) if len(r) > 4 and r[0].strip() == "Allievo" and r[4].strip() == "Stato"), None)
+    if h is None:
+        return None, None
+    dato = ora_riga1(righe[0][0] if righe and righe[0] else "", esportato, giorno)
+    out = {}
+    for r in righe[h + 1:]:
+        if not r or not r[0].strip():
+            break
+        r = r + [""] * (19 - len(r))
+        out.setdefault(nk(r[0]), []).append(r)
+    return out, dato
+
+
+def leggi_risposte(wb, quiz_id):
+    """Scheda «Risposte <id>» -> {domande: [{n, testo, max}], righe: {nk(COGNOME Nome): [punti per domanda]}, dato} (tentativo migliore) o None."""
+    nome = "Risposte " + quiz_id
+    if nome not in wb.sheetnames:
+        # l'export di Google taglia i nomi delle schede a 31 caratteri: si cerca per inizio e si controlla l'id nella riga 2 della scheda
+        cand = [x for x in wb.sheetnames if x.startswith(nome[:27]) and x.startswith("Risposte ")]
+        trovata = None
+        for x in cand:
+            r2 = base.righe_foglio(wb[x])[1:2]
+            if r2 and r2[0] and (" id %s " % quiz_id) in (r2[0][0] + " "):
+                trovata = x
+                break
+        if trovata is None:
+            return None
+        nome = trovata
+    righe = base.righe_foglio(wb[nome])
+    h = next((i for i, r in enumerate(righe) if r and r[0].strip() == "Ora invio"), None)
+    if h is None or h < 1:
+        return None
+    testa = righe[h]
+    cd = [i for i, t in enumerate(testa) if re.fullmatch(r"D\d+", t.strip())]
+    cp = [i for i, t in enumerate(testa) if re.fullmatch(r"P\d+", t.strip())]
+    if not cd or len(cd) != len(cp):
+        return None
+    r3 = righe[h - 1] + [""] * (len(testa) - len(righe[h - 1]))
+    domande = []
+    for k, (a, b) in enumerate(zip(cd, cp)):
+        mx = re.match(r"^max\s+(.+)$", r3[b].strip())
+        domande.append({"n": k + 1, "testo": re.sub(r"\s*\(\d+(?:[.,]\d+)? pt\)$", "", r3[a].strip())[:160], "max": num(mx.group(1)) if mx else 0})
+    dato = ora_riga1(righe[1][0] if len(righe) > 1 and righe[1] else "", datetime.datetime.now(), "")
+    out = {}
+    for r in righe[h + 1:]:
+        if not r or not r[0].strip():
+            break
+        r = r + [""] * (len(testa) - len(r))
+        if r[6].strip().lower() not in ("sì", "si"):
+            continue
+        pts = []
+        for b in cp:
+            v = r[b].strip()
+            pts.append("c" if v.lower() == "da correggere" else (num(v) if v != "" else None))
+        out[nk(r[1])] = {"p": pts, "mg": num(r[4]), "su": num(r[5])}
+    return {"domande": domande, "righe": out, "dato": dato}
+
+
+def stato_documento(rr, v, giorno):
+    """Righe della scheda «Documenti» di UN allievo per UN compito (una per file allegato) -> stato per la vista. Niente testo, titolo o link."""
+    stato = rr[0][4].strip().upper()
+    d = {"s": "non_consegnato" if stato == "ASSEGNATO" else "consegnato", "stato_classroom": stato}
+    if d["s"] == "consegnato":
+        hm, minuti, stesso = ora_cons(rr[0][5], giorno)
+        if hm:
+            d["ora_consegna"] = hm
+        scad = v.get("scadenza")
+        tardi = stato == "IN RITARDO"
+        if scad and minuti is not None and stesso:
+            h, m = map(int, scad.split(":"))
+            tardi = tardi or minuti > h * 60 + m
+        if tardi:
+            d["in_ritardo"] = True
+    imm = [num(r[13]) for r in rr]
+    car = [num(r[14]) for r in rr]
+    n_imm = [x for x in imm if x is not None]
+    n_car = [x for x in car if x is not None]
+    if rr and not any(r[7].strip() for r in rr):
+        d["immagini"], d["n_immagini"] = "nd", None
+        d["immagini_nd"] = "nessun file allegato"
+    elif n_imm:
+        d["n_immagini"] = sum(n_imm)
+        d["immagini"] = "si" if sum(n_imm) > 0 else "no"
+        if len(n_imm) < len(imm):
+            d["immagini_parziale"] = True
+    else:
+        d["immagini"], d["n_immagini"] = "nd", None
+        d["immagini_nd"] = next((r[17].strip() for r in rr if r[17].strip()), "file non letto")[:80]
+    d["caratteri"] = sum(n_car) if n_car else None
+    return d
+
+
 def carica_config(classe):
     p = os.path.join(QUI, "oggi-%s-config.json" % classe)
     with open(p, encoding="utf-8") as f:
@@ -196,6 +321,7 @@ def main(argv):
             break
         cons[nk(r[1])] = r + [""] * (len(rc[hc]) - len(r))
     g_norm = "%d/%d" % tuple(int(x) for x in giorno.split("/"))
+    doc_det, dato_det = leggi_documenti(wb, classe, esportato, giorno)   # None se il motore v2.22 non c'e' ancora
 
     # ---- elenco delle voci: attese (config) + trovate nel foglio ----
     voci = [dict(v) for v in cfg["voci"]]
@@ -205,6 +331,7 @@ def main(argv):
             rx = re.compile(v.get("colonna_consegne") or r"^$")
             c = next((c for c in cons_cols if rx.search(c["titolo"])), None)
             v["_col"] = c
+            v["_rx"] = rx
             if c:
                 usate_cons.add(c["col"])
         else:
@@ -213,13 +340,21 @@ def main(argv):
                 usate_quiz.add(v["_col"])
     for c in cons_cols:
         if c["col"] not in usate_cons and c["giorno"] == g_norm:
-            voci.append({"id": "ora%d-documento-%d" % (c["ora"], c["col"]), "tipo": "documento", "ora": c["ora"], "titolo": "Documento: " + c["titolo"], "post_alle": None, "scadenza": None, "_col": c, "_trovata": True})
+            gg, mm = c["giorno"].split("/")
+            voci.append({"id": "ora%d-documento-%d" % (c["ora"], c["col"]), "tipo": "documento", "ora": c["ora"], "titolo": "Documento: " + c["titolo"], "post_alle": None, "scadenza": None, "_col": c, "_trovata": True,
+                         "_rx": re.compile(r"^\s*0?%s/0?%s\s+Ora\s*%d\b" % (gg, mm, c["ora"]))})
     for q in quiz_cols:
         mo = re.search(r"-ora(\d+)", q["id"])
         md = re.match(r"^\s*0?(\d{1,2})/0?(\d{1,2})", q["data"] or "")
         if q["col"] not in usate_quiz and md and "%d/%d" % (int(md.group(1)), int(md.group(2))) == g_norm:
             voci.append({"id": "ora%s-quiz-%d" % (mo.group(1) if mo else "0", q["col"]), "tipo": "quiz", "ora": int(mo.group(1)) if mo else 0, "titolo": "Quiz: " + q["label"], "quiz_id": q["id"], "nel_post": None, "_col": q["col"], "_trovata": True})
     voci.sort(key=lambda v: (v["ora"], 0 if v["tipo"] == "documento" else 1))
+
+    # ---- risposte per domanda (scheda «Risposte <id>» del motore v2.22) ----
+    risposte = {}
+    for v in voci:
+        if v["tipo"] == "quiz":
+            risposte[v["id"]] = leggi_risposte(wb, v["quiz_id"])
 
     # ---- ultimo invio dei quiz (Ris), solo per l'ultimo segnale ----
     email_a_nome = {}
@@ -278,12 +413,33 @@ def main(argv):
                     dopo = False
                 o["nd_motivo"] = ("il compito e' stato pubblicato alle %s, dopo l'ultima lettura di Classroom del foglio (%s): la sua colonna non c'e' ancora" % (v["post_alle"], dato_doc.strftime("%H:%M:%S")) if dopo
                                   else "la colonna di questo compito non c'e' nel foglio «Consegne %s» (letto alle %s)" % (classe, dato_doc.strftime("%H:%M:%S") if dato_doc else "?"))
-            o["voto_nd"] = "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato"
+            titoli_doc = {r[2] for rr in (doc_det or {}).values() for r in rr}
+            v["_doc"] = doc_det is not None and any(v["_rx"].search(t) for t in titoli_doc)
+            if doc_det is None:
+                o["dettaglio_nd"] = MSG_V222
+                o["voto_nd"] = "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato. " + MSG_V222
+            elif not v["_doc"]:
+                o["dettaglio_nd"] = "il compito non e' ancora nella scheda «Documenti %s» (letta alle %s)" % (classe, dato_det.strftime("%H:%M:%S") if dato_det else "?")
+                o["voto_nd"] = "Classroom non da' il voto: la scheda «Documenti» da' stato, ora di consegna e immagini aggiunte, non il giudizio. " + o["dettaglio_nd"]
+            else:
+                o["fonte_dettaglio"] = "Documenti " + classe
+                o["dato_dettaglio"] = iso(dato_det)
+                o["voto_nd"] = "Classroom non da' il voto: la scheda «Documenti» da' stato, ora di consegna e immagini aggiunte al Documento (rispetto al modello), non il giudizio"
         else:
             o.update({"nel_post": v.get("nel_post"), "quiz_id": v["quiz_id"], "fonte": "Situazione pubblica " + classe, "dato": iso(dato_quiz), "risposte_ris": v.get("risposte_ris"), "risposte_ris_non_abbinate": v.get("risposte_ris_non_abbinate"),
                       "colonna_foglio": "presente" if v["_col"] is not None else None})
             if v["_col"] is None:
                 o["nd_motivo"] = "il quiz non e' una colonna della «Situazione pubblica %s»" % classe
+            rsp = risposte.get(v["id"])
+            if not cfg.get("domande_pubbliche", True):   # interruttore del docente: i punti per domanda restano solo nel foglio (riservato)
+                rsp = None
+                risposte[v["id"]] = None
+            if rsp is None:
+                o["dettaglio_nd"] = MSG_V222 if cfg.get("domande_pubbliche", True) else "i punti per domanda non sono pubblici (decisione del docente)"
+            else:
+                o["domande"] = [{"n": d["n"], "testo": d["testo"], "max": d["max"]} for d in rsp["domande"]]
+                o["fonte_dettaglio"] = "Risposte " + v["quiz_id"]
+                o["dato_dettaglio"] = iso(rsp["dato"])
         out_voci.append(o)
 
     righe_out = []
@@ -294,7 +450,11 @@ def main(argv):
         stati = {}
         for v in voci:
             if v["tipo"] == "documento":
-                if v["_col"] is None or r_c is None:
+                rr_d = (doc_det or {}).get(nome_d, []) if (doc_det is not None and v.get("_doc")) else []
+                rr_d = [r for r in rr_d if v["_rx"].search(r[2])]
+                if rr_d:
+                    stati[v["id"]] = stato_documento(rr_d, v, giorno)
+                elif v["_col"] is None or r_c is None:
                     stati[v["id"]] = {"s": "nd"}
                 else:
                     x = (r_c[v["_col"]["col"]] or "").strip().lower()
@@ -307,12 +467,42 @@ def main(argv):
                     rr = ris_resp.get(v["id"], {}).get(nome)
                     if st["s"] == "manca" and rr and rr["su"]:   # «Situazione pubblica» dice MANCA ma il foglio «Ris» ha la sua risposta: vale la risposta (non e' mancante)
                         st = {"s": "fatto", "pct": int(round(100.0 * rr["mg"] / rr["su"])), "mg": rr["mg"], "su": rr["su"], "aperte_in_correzione": rr["aperte"] > 0, "versione_precedente": False, "da_ris": True}
+                    rsd = (risposte.get(v["id"]) or {}).get("righe", {}).get(nome_d)
+                    if st["s"] == "manca" and rsd and rsd["su"] and rsd["mg"] is not None:   # stessa regola per la scheda «Risposte»: la risposta c'e', non e' mancante
+                        st = {"s": "fatto", "pct": int(round(100.0 * rsd["mg"] / rsd["su"])), "mg": rsd["mg"], "su": rsd["su"], "aperte_in_correzione": "c" in rsd["p"], "versione_precedente": False, "da_risposte": True}
                     if st["s"] == "manca" and v.get("nel_post") is False:
                         st = {"s": "non_assegnato"}
                     elif st["s"] == "manca" and v.get("nel_post") is None:
                         st = {"s": "nd", "perche": "non so se il quiz e' nel post"}
+                    rsp = risposte.get(v["id"])
+                    if rsp is not None and nome_d in rsp["righe"] and st["s"] == "fatto":
+                        st["domande"] = rsp["righe"][nome_d]["p"]
                     stati[v["id"]] = st
         righe_out.append({"nome": nome, "stati": stati, "ultimo_segnale": iso(ultimo.get(nome))})
+
+    # errori ricorrenti per domanda (solo allievi con il tentativo migliore letto; chi ha una risposta sotto il massimo conta sbagliata)
+    for o in out_voci:
+        if not o.get("domande"):
+            continue
+        err = []
+        for d in o["domande"]:
+            if not d["max"]:
+                continue
+            sb = dc = gi = 0
+            for a in righe_out:
+                dom = a["stati"].get(o["id"], {}).get("domande")
+                if not dom or len(dom) < d["n"]:
+                    continue
+                x = dom[d["n"] - 1]
+                if x == "c":
+                    dc += 1
+                elif isinstance(x, (int, float)) and x >= d["max"]:
+                    gi += 1
+                else:
+                    sb += 1
+            err.append({"n": d["n"], "sbagliata": sb, "da_correggere": dc, "giusta": gi})
+        err.sort(key=lambda e: (-e["sbagliata"], e["n"]))
+        o["errori_ricorrenti"] = err
 
     stato_sh = base.righe_foglio(wb["Stato"]) if "Stato" in wb.sheetnames else []
     giro = next((r[1] for r in stato_sh if r and r[0].strip() == "Fabbrica v2" and len(r) > 1), "")
@@ -320,15 +510,16 @@ def main(argv):
     motore = iso(datetime.datetime(int(mg.group(3)), int(mg.group(2)), int(mg.group(1)), int(mg.group(4)), int(mg.group(5)), int(mg.group(6)))) if mg else None
 
     J = {
-        "versione": "1.0", "classe": classe, "giorno": giorno, "esportato": iso(esportato),
+        "versione": "1.1", "classe": classe, "giorno": giorno, "esportato": iso(esportato),
         "fonti": {
             "quiz": {"scheda": "Situazione pubblica " + classe, "dato": iso(dato_quiz)},
             "documenti": {"scheda": "Consegne " + classe, "dato": iso(dato_doc)},
+            "documenti_dettaglio": {"scheda": "Documenti " + classe, "dato": iso(dato_det)} if doc_det is not None else None,
             "ultimo_giro_motore": motore,
         },
         "config": {"fonte": cfg.get("fonte_config"), "file": "strumenti/oggi-%s-config.json" % classe},
         "presenze": "dal registro DIDAweb: vedi dati/<CLASSE>-presenze.json (solo Nome I., scritto da strumenti/aggiorna_presenze_dati.py). Veyon di oggi: non letto.",
-        "ultimo_segnale_fonte": "solo l'ultimo invio di un quiz del giorno (Moduli). Non c'e' Veyon di oggi ne' l'ora delle consegne dei Documenti",
+        "ultimo_segnale_fonte": "solo l'ultimo invio di un quiz del giorno (Moduli). Non c'e' Veyon di oggi" + ("" if doc_det is not None else " ne' l'ora delle consegne dei Documenti (" + MSG_V222 + ")"),
         "n_allievi": len(righe_out),
         "voci": out_voci, "allievi": righe_out,
     }
