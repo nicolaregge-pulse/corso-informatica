@@ -1,10 +1,10 @@
 /**
- * FABBRICA - MOTORE v2.22.2 (13/11/2026)
+ * FABBRICA - MOTORE v2.20 (12/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
  * TIPOLOGIA LEZIONE (decisione del docente 11/11/2026, v2.8): le 4 tipologie sono Esercitazione Lazarus (schede Consegne <CLASSE> + progetto Lazarus nella scheda Git), Quiz su Moduli, Versioning su GitHub (schede Utenti e Git <CLASSE>), Teoria a schede (Moduli creato da una scheda). Nei lavori di indice.json il campo e "tipologia_lezione" ("quiz" o "teoria"; il vecchio nome "tipologia" o "tipo" e accettato; se manca: id che comincia per "scheda-" = teoria, altrimenti quiz). Il "tipo" delle domande (multi, singola, testo, paragrafo) e un'altra cosa e non cambia.
- * Changelog: 2.22.2 (13/11/2026, subito dopo la 2.22.1): la finestra delle risposte per la scheda 'Risposte' passa da 4 giorni a 20 ore (RS_FINESTRA_ ms), cosi i primi Moduli letti sono quelli di oggi e non quelli dei giorni scorsi (con la 2.22.1 servivano 8 giri per arrivare a quelli di oggi). 2.22.1 (13/11/2026, correzione della 2.22 dopo l'attivazione: nei 10 minuti dopo l'attivazione 'Stato' non si aggiornava piu e 3 schede 'Risposte' erano rimaste vuote). Cause (dai dati del foglio, non dai log): (a) la 2.22 voleva la scheda 'Risposte' per TUTTI i 42 Moduli e ne scriveva fino a 5 per giro, ognuno con tutte le risposte: i giri superavano il limite di 6 minuti di Apps Script e venivano interrotti prima di Classroom, Situazione e Stato; (b) un giro interrotto lasciava una scheda 'Risposte' vuota e la condizione di salto ('la scheda esiste') non la rifaceva mai. Correzioni: la scheda 'Risposte' si scrive solo per i Moduli con almeno una risposta negli ultimi 4 giorni, al massimo 2 per giro e solo nei primi 100 secondi del giro; una scheda 'Risposte' vuota (A1 vuota) si rifa; 'Stato' scrive la versione come TESTO ('2.22.2' non e piu letta come un orario) e la scrive anche a inizio giro. Il resto e identico alla 2.22. 2.22 (13/11/2026; 'Stato' ha una riga 'Permessi' con i permessi che il progetto ha davvero e quelli che mancano, su richiesta del docente: «il cruscotto deve avere i dati che chiedo, senza condivisioni a mano») include la 2.21 e aggiunge DUE schede nuove, nessun dato e nessuna scheda esistente cambiano: (a) 'Risposte <id quiz>' per ogni Moduli (solo docente): una riga per invio con Ora invio, Allievo (COGNOME Nome da 'Elenco' e 'Abbinamenti'), Email, Tentativo, Punteggio, Su, Migliore, il TESTO della risposta a ogni domanda (D1..DN, comprese le aperte) e i punti per domanda (P1..PN; 'da correggere' per un'aperta con risposta e punteggio 0 o vuoto), con in fondo il blocco ERRORI RICORRENTI (per domanda: quanti allievi hanno sbagliato, quanti da correggere, quanti giusto); si scrive insieme a 'Ris <id>' e, per i Moduli gia letti, al primo giro dopo l'aggiornamento (al massimo 5 Moduli per giro); (b) 'Documenti <CLASSE>' (solo docente) e 'Documenti pubblica <CLASSE>' (solo 'Nome I.', senza email, link, titolo del file e testo) per ogni classe con corso Classroom: per ogni allievo e per ognuno degli ultimi 6 compiti di tipo Documento (assegnazione con un file Drive 'una copia per ogni allievo' o titolo 'G/M Ora N: ...') stato (ASSEGNATO, CONSEGNATO, IN RITARDO, RESTITUITO), ora di consegna, file allegato (titolo, id, link), ultima modifica, immagini totali, immagini del modello, immagini aggiunte, caratteri ed estratto di 300 caratteri del testo; il Documento si legge esportandolo in HTML con il token del progetto (nessun scope nuovo: serve quello di Drive che il lancio gia chiede con DriveApp), si rilegge solo se l'ultima modifica e cambiata, al massimo 24 esportazioni per giro, una classe per giro, ogni 5 minuti per classe; indice.json puo avere classroom.documenti = {attivo, ultimi, ogni_minuti, titolo, classi, max_letture}, senza il campo valgono questi valori; 'Stato' dice Motore 2.22. 2.21 (12/11/2026 sera, due correzioni, nessuna funzione nuova) (a) NOMI COMPOSTI 4TI: la scheda 'Situazione pubblica' (e ogni scheda pubblica che usa SM_brevi_) scriveva un secondo cognome nell'etichetta 'Nome I.' quando il nome del foglio e tutto maiuscolo con piu di due parole (per esempio 'ROSSI BIANCHI MARIO LUCA' dava 'Bianchi Mario Luca R.'); ora, se il confine cognome/nome non si puo sapere, si tiene come nome SOLO l'ultima parola (nel registro l'ordine e COGNOME(I) NOME(I)); (b) DOMANDE APERTE: la colonna 'Domande aperte da correggere' delle schede 'Ris' era 0 anche con aperte non corrette (il punteggio di una risposta libera non e null) e sommava i tentativi; ora conta le risposte non vuote alle domande aperte con punti il cui punteggio e null o 0, solo per il tentativo migliore. 2.20 VERSIONI DELLO STESSO QUIZ: campo opzionale `versioni: [id1, id2, ...]` sul lavoro attivo di indice.json (dal piu vecchio al piu recente; l'id attivo e sempre l'ultimo). Le schede 'Situazione <CLASSE>' (e la pubblica), 'Elenco <CLASSE>' (righe Moduli), gli abbinamenti e quindi il cruscotto contano UN solo quiz (una colonna, l'id attivo) e per ogni allievo prendono il risultato MIGLIORE tra le versioni (a parita il piu recente); se il migliore non e dell'ultima versione la cella aggiunge ' · fatto sulla versione precedente'. Le schede 'Ris <id>' delle versioni vecchie si leggono anche se nell'Indice sono 'Quiz (vecchio)' o nascoste; un id di versioni non creato (non in FB_FORMS) o di un'altra classe e ignorato; un lavoro elencato come versione di un altro non ha piu una colonna sua. MANCA vale solo se TUTTE le versioni create sono state lette (altrimenti 'dato non letto'); punteggi e significato di MANCA e NON ABBINATA invariati; senza il campo il comportamento e identico alla 2.19. 2.19 schede 'Consegne <CLASSE>' per i compiti di laboratorio (2INF; indice.json classroom.laboratorio): il motore legge da Classroom (id del corso dalla scheda Corsi) i compiti pubblicati con titolo 'G/M Ora N: argomento' del giorno piu recente (o del giorno fissato), e per ogni allievo scrive CONSEGNATO, RICONSEGNATO (restituito dal docente o consegnato di nuovo dopo la restituzione: conta come consegnato) oppure ASSEGNATO (da consegnare), conteggi Consegnati/Totali/Mancanti; nuova scheda 'Consegne pubblica <CLASSE>' con solo 'Nome I.' e nessuna email (stessa riga 1 con l'ora del dato); ogni classe Classroom ha il suo intervallo (laboratorio 2 minuti, le altre 10) e si leggono le classi dovute (al massimo 2 per giro) invece di una sola scelta dal minuto dell'ora (con il giro a minuti pari una classe poteva non avere mai il suo turno); il nome del corso si cerca anche senza badare a maiuscole e spazi e puo essere un elenco; se il corso di una classe di laboratorio non si trova, lo dice 'Ultimo errore' in Stato; le altre schede Consegne restano come prima; nessuna nuova tipologia lezione (il motore legge per classe e per titolo, non per tipologia); 2.18 abbinamento automatico email -> allievo nella scheda 'Situazione <CLASSE>' (per ogni classe con elenco di nomi): per ogni email che ha risposto a un quiz della classe e non e abbinata (scheda Email, Elenco Classroom o abbinamenti gia salvati) il motore prova prima la regola v2.15 (nome e cognome interi, qualunque ordine, qualunque dominio) poi, SOLO con dominio studenti.piamarta.it o piamarta.it, iniziale+cognome, nome+iniziale del cognome, cognome senza particella (De, El, Al, D'), primo nome di un nome composto, accenti e numeri finali ignorati; 'quasi uguale' (una lettera di differenza) e 'solo cognome' valgono solo come candidato; abbinamento SICURO = punteggio 85 o piu, un solo candidato ad almeno 15 punti sopra gli altri, e allievo libero (senza altra email) se il punteggio non e 100; gli abbinamenti sicuri si scrivono nella nuova scheda 'Abbinamenti <CLASSE>' (Email, Allievo, Fonte auto o docente, Aggiornato, Nota; mai cancellati; una riga con Allievo '-' = email da ignorare); i dubbi nella nuova scheda 'Abbinamenti da confermare <CLASSE>' (Email, Quiz, fino a 3 candidati, colonna Scelta dove il docente scrive OK = candidato 1, oppure 1, 2, 3, oppure NO = nessuno, oppure COGNOME Nome); al giro dopo il motore applica la scelta e la copia in 'Abbinamenti <CLASSE>' con Fonte docente; nella Situazione la cella e MANCA solo se l'allievo ha una email abbinata (nessuna risposta) oppure se per quel quiz non resta nessuna risposta da abbinare; altrimenti NON ABBINATA (risposte arrivate ma da abbinare, non contata come mancante ne come fatta); Stato ND per chi ha celle NON ABBINATA e nessun MANCA; riepilogo e riga 4 con i due conteggi separati; nuova colonna finale NON ABBINATA; la Situazione pubblica li copia senza email; 'Elenco <CLASSE>' (Moduli) e 'Sicurezza <CLASSE>' leggono 'Abbinamenti <CLASSE>'; 2.17 nuova scheda 'Situazione pubblica <CLASSE>' (1INF, 2INF, 3INF, 4TI) da pubblicare sul web per docs/cruscotto/: stesse colonne e stessa riga 1 (ora del dato) della scheda 'Situazione <CLASSE>', ma Allievo in formato 'Nome I.' (nome + iniziale del cognome, cognomi composti con particelle De, Di, El, Al ecc. gestiti, omonimi distinti con due lettere), SENZA email, SENZA note in fondo e SENZA altri dati personali (ogni email residua nei testi diventa '(email)'); se Allievo e un'email diventa 'Nome C.' dalla parte prima della chiocciola, altrimenti 'Allievo n'; la scheda 'Situazione <CLASSE>' con COGNOME Nome resta solo docente e invariata; la scheda pubblica in Indice come tipo Situazione (dopo quella docente), colore piu chiaro; 2.16 nuova scheda 'Elenco <CLASSE>' (colonne Email, Allievo COGNOME Nome come in Classroom, Fonte, Nota) per 1INF, 2INF, 3INF, 4TI: fonte primaria gli iscritti del corso Classroom (id dalla scheda Corsi, Courses.Students.list), fallback le email distinte delle schede 'Ris <id>' dei quiz attuali della classe (Allievo da 'Utenti <CLASSE>' per nome.cognome, abbinamento ambiguo = vuoto, Fonte 'Moduli'); una 'Email <CLASSE>' gia presente NON e mai sovrascritta (la scheda generata e separata); Situazione e Sicurezza leggono 'Email <CLASSE>' se c'e', altrimenti 'Elenco <CLASSE>' (solo righe Fonte Classroom); email con dominio diverso da studenti.piamarta.it e piamarta.it segnate 'dominio da controllare' in Nota (mai corrette); se l'API Classroom non risponde nessun errore: riga Avviso nella scheda e fallback; scheda Elenco in Indice come tipo Utenti; rilettura al massimo ogni 10 minuti; 2.15 scheda 'Situazione <CLASSE>': se mancano 'Email <CLASSE>' e 'Consegne <CLASSE>' l'elenco allievi viene dalla scheda 'Utenti <CLASSE>' (colonna C Allievo, COGNOME Nome), cosi chi non ha risposto a nessun quiz compare con MANCA; le email delle risposte si abbinano agli allievi per nome.cognome (riga 4: quanti abbinati e quanti no); avviso con il gesto preciso da fare (account PIAMARTA, un passo); 2.14 scheda 'Indice': righe 'Quiz' SOLO per gli id correnti di indice.json (una sola riga per id, Stato 'Attivo'); gli id vecchi di Esiti (Moduli sostituiti) diventano righe 'Quiz (vecchio)' con Stato 'Nascosta' e SENZA Link ragazzi, cosi il Pannello non li mostra; 2.13 FIX scheda 'Indice' e 'Quiz': niente piu formule HYPERLINK (il foglio e in italiano e rifiutava la virgola: #ERROR!); la colonna A di Indice e la colonna G di Quiz sono TESTO semplice (nome della scheda / 'Apri risultati'), il link cliccabile e messo con RichTextValue (setLinkUrl, indipendente dalla lingua) e, se non riesce, resta il testo; le righe 'Quiz' dell'Indice hanno Titolo e Link ragazzi da Esiti colonna D (mai link di modifica); 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
+ * Changelog: 2.20 VERSIONI DELLO STESSO QUIZ: campo opzionale `versioni: [id1, id2, ...]` sul lavoro attivo di indice.json (dal piu vecchio al piu recente; l'id attivo e sempre l'ultimo). Le schede 'Situazione <CLASSE>' (e la pubblica), 'Elenco <CLASSE>' (righe Moduli), gli abbinamenti e quindi il cruscotto contano UN solo quiz (una colonna, l'id attivo) e per ogni allievo prendono il risultato MIGLIORE tra le versioni (a parita il piu recente); se il migliore non e dell'ultima versione la cella aggiunge ' · fatto sulla versione precedente'. Le schede 'Ris <id>' delle versioni vecchie si leggono anche se nell'Indice sono 'Quiz (vecchio)' o nascoste; un id di versioni non creato (non in FB_FORMS) o di un'altra classe e ignorato; un lavoro elencato come versione di un altro non ha piu una colonna sua. MANCA vale solo se TUTTE le versioni create sono state lette (altrimenti 'dato non letto'); punteggi e significato di MANCA e NON ABBINATA invariati; senza il campo il comportamento e identico alla 2.19. 2.19 schede 'Consegne <CLASSE>' per i compiti di laboratorio (2INF; indice.json classroom.laboratorio): il motore legge da Classroom (id del corso dalla scheda Corsi) i compiti pubblicati con titolo 'G/M Ora N: argomento' del giorno piu recente (o del giorno fissato), e per ogni allievo scrive CONSEGNATO, RICONSEGNATO (restituito dal docente o consegnato di nuovo dopo la restituzione: conta come consegnato) oppure ASSEGNATO (da consegnare), conteggi Consegnati/Totali/Mancanti; nuova scheda 'Consegne pubblica <CLASSE>' con solo 'Nome I.' e nessuna email (stessa riga 1 con l'ora del dato); ogni classe Classroom ha il suo intervallo (laboratorio 2 minuti, le altre 10) e si leggono le classi dovute (al massimo 2 per giro) invece di una sola scelta dal minuto dell'ora (con il giro a minuti pari una classe poteva non avere mai il suo turno); il nome del corso si cerca anche senza badare a maiuscole e spazi e puo essere un elenco; se il corso di una classe di laboratorio non si trova, lo dice 'Ultimo errore' in Stato; le altre schede Consegne restano come prima; nessuna nuova tipologia lezione (il motore legge per classe e per titolo, non per tipologia); 2.18 abbinamento automatico email -> allievo nella scheda 'Situazione <CLASSE>' (per ogni classe con elenco di nomi): per ogni email che ha risposto a un quiz della classe e non e abbinata (scheda Email, Elenco Classroom o abbinamenti gia salvati) il motore prova prima la regola v2.15 (nome e cognome interi, qualunque ordine, qualunque dominio) poi, SOLO con dominio studenti.piamarta.it o piamarta.it, iniziale+cognome, nome+iniziale del cognome, cognome senza particella (De, El, Al, D'), primo nome di un nome composto, accenti e numeri finali ignorati; 'quasi uguale' (una lettera di differenza) e 'solo cognome' valgono solo come candidato; abbinamento SICURO = punteggio 85 o piu, un solo candidato ad almeno 15 punti sopra gli altri, e allievo libero (senza altra email) se il punteggio non e 100; gli abbinamenti sicuri si scrivono nella nuova scheda 'Abbinamenti <CLASSE>' (Email, Allievo, Fonte auto o docente, Aggiornato, Nota; mai cancellati; una riga con Allievo '-' = email da ignorare); i dubbi nella nuova scheda 'Abbinamenti da confermare <CLASSE>' (Email, Quiz, fino a 3 candidati, colonna Scelta dove il docente scrive OK = candidato 1, oppure 1, 2, 3, oppure NO = nessuno, oppure COGNOME Nome); al giro dopo il motore applica la scelta e la copia in 'Abbinamenti <CLASSE>' con Fonte docente; nella Situazione la cella e MANCA solo se l'allievo ha una email abbinata (nessuna risposta) oppure se per quel quiz non resta nessuna risposta da abbinare; altrimenti NON ABBINATA (risposte arrivate ma da abbinare, non contata come mancante ne come fatta); Stato ND per chi ha celle NON ABBINATA e nessun MANCA; riepilogo e riga 4 con i due conteggi separati; nuova colonna finale NON ABBINATA; la Situazione pubblica li copia senza email; 'Elenco <CLASSE>' (Moduli) e 'Sicurezza <CLASSE>' leggono 'Abbinamenti <CLASSE>'; 2.17 nuova scheda 'Situazione pubblica <CLASSE>' (1INF, 2INF, 3INF, 4TI) da pubblicare sul web per docs/cruscotto/: stesse colonne e stessa riga 1 (ora del dato) della scheda 'Situazione <CLASSE>', ma Allievo in formato 'Nome I.' (nome + iniziale del cognome, cognomi composti con particelle De, Di, El, Al ecc. gestiti, omonimi distinti con due lettere), SENZA email, SENZA note in fondo e SENZA altri dati personali (ogni email residua nei testi diventa '(email)'); se Allievo e un'email diventa 'Nome C.' dalla parte prima della chiocciola, altrimenti 'Allievo n'; la scheda 'Situazione <CLASSE>' con COGNOME Nome resta solo docente e invariata; la scheda pubblica in Indice come tipo Situazione (dopo quella docente), colore piu chiaro; 2.16 nuova scheda 'Elenco <CLASSE>' (colonne Email, Allievo COGNOME Nome come in Classroom, Fonte, Nota) per 1INF, 2INF, 3INF, 4TI: fonte primaria gli iscritti del corso Classroom (id dalla scheda Corsi, Courses.Students.list), fallback le email distinte delle schede 'Ris <id>' dei quiz attuali della classe (Allievo da 'Utenti <CLASSE>' per nome.cognome, abbinamento ambiguo = vuoto, Fonte 'Moduli'); una 'Email <CLASSE>' gia presente NON e mai sovrascritta (la scheda generata e separata); Situazione e Sicurezza leggono 'Email <CLASSE>' se c'e', altrimenti 'Elenco <CLASSE>' (solo righe Fonte Classroom); email con dominio diverso da studenti.piamarta.it e piamarta.it segnate 'dominio da controllare' in Nota (mai corrette); se l'API Classroom non risponde nessun errore: riga Avviso nella scheda e fallback; scheda Elenco in Indice come tipo Utenti; rilettura al massimo ogni 10 minuti; 2.15 scheda 'Situazione <CLASSE>': se mancano 'Email <CLASSE>' e 'Consegne <CLASSE>' l'elenco allievi viene dalla scheda 'Utenti <CLASSE>' (colonna C Allievo, COGNOME Nome), cosi chi non ha risposto a nessun quiz compare con MANCA; le email delle risposte si abbinano agli allievi per nome.cognome (riga 4: quanti abbinati e quanti no); avviso con il gesto preciso da fare (account PIAMARTA, un passo); 2.14 scheda 'Indice': righe 'Quiz' SOLO per gli id correnti di indice.json (una sola riga per id, Stato 'Attivo'); gli id vecchi di Esiti (Moduli sostituiti) diventano righe 'Quiz (vecchio)' con Stato 'Nascosta' e SENZA Link ragazzi, cosi il Pannello non li mostra; 2.13 FIX scheda 'Indice' e 'Quiz': niente piu formule HYPERLINK (il foglio e in italiano e rifiutava la virgola: #ERROR!); la colonna A di Indice e la colonna G di Quiz sono TESTO semplice (nome della scheda / 'Apri risultati'), il link cliccabile e messo con RichTextValue (setLinkUrl, indipendente dalla lingua) e, se non riesce, resta il testo; le righe 'Quiz' dell'Indice hanno Titolo e Link ragazzi da Esiti colonna D (mai link di modifica); 2.12 scheda 'Indice' con colonne in TESTO semplice per il Pannello (pagina docs/pannello/, che legge il CSV pubblicato): F = URL completo https://docs.google.com/spreadsheets/d/<id>/edit#gid=<gid> di ogni scheda, G = Titolo, H = Link ragazzi (solo viewform pubblico preso da Esiti colonna D, MAI il link di modifica), I = Tipologia lezione; una riga 'Quiz' per ogni lavoro di indice.json con link valido; nessun cognome, nessuna email; 2.11 scheda 'Indice' come prima scheda (una riga per scheda: nome con link HYPERLINK al gid, tipo, classe, ultimo aggiornamento, nascosta; raggruppata per tipo); ordine fisso delle schede a ogni giro (Indice, Situazione, Sicurezza, Esiti e Quiz, Tipologie lezione, Utenti/Consegne/Git/Email/Corsi, Altro, poi le 'Ris <id>' in fondo); le 'Ris <id>' ORFANE (id non piu in indice.json lavori) sono NASCOSTE con hideSheet e MAI cancellate (se l'id torna nell'indice si rimostrano); schede colorate (Ris per classe: 1INF blu, 2INF verde, 3INF arancio, 4TI viola, orfane grigie; Situazione e Sicurezza di un colore proprio); nessun dato e nessun id toccato; 2.10 intestazioni dei quiz nelle schede 'Situazione <CLASSE>' e 'Sicurezza <CLASSE>' in 3 righe (A = ora e argomento breve ricavati dal titolo del quiz, per esempio 'Sic. ora 5 \u00b7 infortuni'; B = data; C = id del quiz), mai troncate, testo a capo, larghezza colonna, riga intestazione alta, prime colonne congelate; se due intestazioni coincidono si aggiunge l'id alla riga A; id e Moduli invariati; 2.9 nuova scheda \'Situazione <CLASSE>\' (1INF, 2INF, 3INF, 4TI; solo docente, con COGNOME Nome): una riga per allievo, una colonna per ogni quiz della classe in indice.json (ordine di creazione, intestazione = titolo breve + data), cella = miglior % (punti/totale) o MANCA, riga \'Letto alle\' per ogni Moduli, colonne Fatti/totali, Media % dei fatti, NON HA FATTO, riepilogo in cima, colori verde >=80 / giallo <80 / rosso MANCA, (provv.) per le aperte non corrette; elenco allievi come Sicurezza (Email o Consegne), altrimenti email dalle schede Ris (dichiarato); schede e id esistenti invariati; 2.8 (a) controllo della richiesta PRIMA di creare il Moduli (titolo, domande, scelte, una sola giusta nelle singole): se non va, nessun Moduli e l'errore sta in Stato; (b) se la lettura o il controllo della richiesta falliscono, il lavoro NON e segnato come fatto e viene riprovato al giro dopo (prima restava perso per sempre); un Moduli gia creato non si ricrea mai; (c) avvisi lingua R6 non bloccanti nella colonna Controllo (1INF italiano+arabo+cinese; 2INF e 4TI solo italiano; 3INF niente arabo e cinese, il bangla e ammesso); (d) scheda 'Quiz' con colonna TIPOLOGIA LEZIONE; (e) nuova scheda 'Tipologie lezione' (classi x TIPOLOGIA LEZIONE, stato e ora del dato); (f) se manca 'Utenti <CLASSE>' la scheda vuota con l'intestazione viene creata (il docente incolla PC, utente GitHub, allievo); (g) Stato mostra la versione del motore; 2.7 Sicurezza per classe: indice.json "sicurezza" puo essere un elenco di classi (1INF, 2INF), ogni classe con le sue ore, ids e soglia; schede 'Email <CLASSE>', 'Consegne <CLASSE>', 'Sicurezza storico <CLASSE>' e 'Sicurezza <CLASSE>' (solo docente, COGNOME Nome); nuova scheda 'Sicurezza pubblica <CLASSE>' SENZA nomi (colonna Id = SHA-256 del nome in maiuscolo, il «Nome I.» lo mette la pagina docs/sicurezza-cruscotto/ da nomi.json) da pubblicare sul web per il cruscotto; 2.6 scheda 'Sicurezza 1INF' (solo docente, con COGNOME Nome): una riga per allievo, colonne ora 1-4 (da scheda 'Sicurezza storico 1INF'), 5, 6A, 6B (dalle schede 'Ris <id>' di indice.json "sicurezza") e Recupero, stato OK/DA RECUPERARE/MANCA/ASSENTE con soglia 80, colonne DA FARE ORA e DA RIFARE (sotto 80); elenco allievi ed email dalla scheda 'Email 1INF' oppure da 'Consegne 1INF'; 2.5 schede 'Ris <id>' con titolo del quiz in A1, riga A2 (Classe, id, data, ora, risposte), intestazione riga 4, dati dalla riga 5, colonna Domande aperte da correggere; nuova scheda 'Quiz' (prima dopo 'Esiti') con una riga per Modulo e link alla scheda dei risultati; 'Quiz migliori' legge dalla riga 5; 2.4 modulo GIT (scheda 'Git <CLASSE>' per ogni classe di indice.json "git", elenco dalla scheda 'Utenti <CLASSE>' A=PC B=Utente C=Allievo, una classe per giro, ogni classe al massimo ogni ogni_minuti, Progetto/README/Commit totali); 2.3 modulo CLASSROOM (schede 'Corsi' e 'Consegne <CLASSE>', una classe per giro, mappa in indice.json); 2.2 errori in una sola riga di 'Stato' (Ultimo errore), mai piu righe ERRORE in 'Esiti' (pulite a ogni giro); 2.1 elenco ragazzi letto dalla scheda 'Cruscotto Git <classe>' (UTENTI del lancio puo essere {}); 2.0 tutte le classi, registro Moduli, risultati (schede "Ris <id>"), scheda "Stato", cruscotti per classe.
  */
 
 function FB_p_() { return PropertiesService.getScriptProperties(); }
@@ -169,48 +169,17 @@ function FB_ultimoErrore_() {
   return FB_ora_() + ' ' + t;
 }
 
-/* v2.22: i permessi (scope OAuth) che il progetto ha davvero, letti dal token con tokeninfo di Google (nessun permesso in piu): scritti in 'Stato' riga 'Permessi' (ogni 30 minuti) */
-var FB_SCOPE_RICHIESTI_ = [
-  ['Moduli (forms)', ['https://www.googleapis.com/auth/forms']],
-  ['Drive (DriveApp: lettura dei Documenti)', ['https://www.googleapis.com/auth/drive']],
-  ['Fogli (spreadsheets)', ['https://www.googleapis.com/auth/spreadsheets']],
-  ['Classroom: corsi', ['https://www.googleapis.com/auth/classroom.courses', 'https://www.googleapis.com/auth/classroom.courses.readonly']],
-  ['Classroom: elenco allievi', ['https://www.googleapis.com/auth/classroom.rosters', 'https://www.googleapis.com/auth/classroom.rosters.readonly']],
-  ['Classroom: consegne e allegati', ['https://www.googleapis.com/auth/classroom.coursework.students', 'https://www.googleapis.com/auth/classroom.coursework.students.readonly']],
-  ['Classroom: email degli allievi', ['https://www.googleapis.com/auth/classroom.profile.emails']]
-];
-function FB_permessi_() {
-  var p = FB_json_('FB_PERM'), ora = Date.now(), txt;
-  if (p.t && ora - p.t < 1800000 && p.txt) return p.txt;
-  try {
-    var r = UrlFetchApp.fetch('https://oauth2.googleapis.com/tokeninfo?access_token=' + encodeURIComponent(ScriptApp.getOAuthToken()), { muteHttpExceptions: true });
-    var j = {};
-    try { j = JSON.parse(r.getContentText() || '{}') || {}; } catch (e1) { j = {}; }
-    var sc = String(j.scope || '');
-    if (!sc) txt = 'non letti (tokeninfo HTTP ' + r.getResponseCode() + ')';
-    else {
-      var have = sc.split(/\s+/), mancano = [];
-      FB_SCOPE_RICHIESTI_.forEach(function (x) { if (!x[1].some(function (u) { return have.indexOf(u) >= 0; })) mancano.push(x[0]); });
-      txt = mancano.length ? 'MANCANO: ' + mancano.join(', ') : 'OK (' + have.length + ' permessi, ci sono tutti quelli che servono)';
-    }
-  } catch (e) { txt = 'non letti: ' + String(e && e.message ? e.message : e).slice(0, 100); }
-  FB_salva_('FB_PERM', { t: ora, txt: txt });
-  return txt;
-}
-
 function FB_stato_(ss) {
   var sh = ss.getSheetByName('Stato') || ss.insertSheet('Stato');
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), tot = 0, k, n = 0;
   for (k in forms) n++;
   for (k in nr) tot += Number(nr[k]) || 0;
-  sh.getRange(5, 2).setNumberFormat('@');
-  sh.getRange(1, 1, 6, 2).setValues([
+  sh.getRange(1, 1, 5, 2).setValues([
     ['Fabbrica v2', FB_ora_('dd/MM/yyyy HH:mm:ss')],
     ['Moduli', n],
     ['Risposte totali', tot],
     ['Ultimo errore', FB_ultimoErrore_()],
-    ['Motore', '2.22.2'],
-    ['Permessi', FB_permessi_()]
+    ['Motore', '2.20']
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
 }
@@ -265,19 +234,6 @@ function FB_ripara_(ss) {
   if (cambiato) FB_salva_('FB_FORMS', forms);
 }
 
-/* v2.21: le domande aperte (testo breve o paragrafo) con punti > 0 del Modulo */
-function FB_aperteItems_(form) {
-  var out = [];
-  form.getItems().forEach(function (it) {
-    try {
-      var t = it.getType(), T = FormApp.ItemType, x = null;
-      if (t === T.TEXT) x = it.asTextItem();
-      else if (t === T.PARAGRAPH_TEXT) x = it.asParagraphTextItem();
-      if (x && (Number(x.getPoints()) || 0) > 0) out.push(it);
-    } catch (e) { }
-  });
-  return out;
-}
 function FB_puntiTotali_(form) {
   var tot = 0;
   form.getItems().forEach(function (it) {
@@ -331,35 +287,20 @@ function FB_quiz_(ss) {
 }
 
 function FB_risultati_(ss, t0) {
-  var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), fatte = 0, rsFatte = 0, id;
+  var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), fatte = 0, id;
   for (id in forms) {
     if (fatte >= 5 || Date.now() - t0 > 270000) break;
     try {
       var form = FormApp.openById(forms[id].formId);
       var ris = form.getResponses(), n = ris.length;
       var g0 = ss.getSheetByName('Ris ' + id);
-      /* v2.22.1: 'Risposte' solo per i Moduli con risposte recenti (4 giorni), al massimo 2 per giro e nei primi 100 s; una scheda vuota si rifa */
-      var rsServe = n > 0 && (Date.now() - ris[n - 1].getTimestamp().getTime() < RS_FINESTRA_) && !RS_ok_(ss, id);
-      var risServe = !(nr[id] === n && g0 && g0.getRange(4, 1).getValues()[0][0] === 'Email');
-      var rsOra = rsServe && rsFatte < 2 && Date.now() - t0 < 100000;
-      if (!risServe && !rsOra) continue;
-      var su = FB_puntiTotali_(form), per = {}, apItems = FB_aperteItems_(form);
+      if (nr[id] === n && g0 && g0.getRange(4, 1).getValues()[0][0] === 'Email') continue;
+      var su = FB_puntiTotali_(form), per = {};
       ris.forEach(function (r) {
-        var em = r.getRespondentEmail() || '(senza email)', s = 0, ap = 0, p0 = per[em] || (per[em] = { max: -1, t: 0, ult: null, aperte: 0 });
-        (r.getGradableItemResponses() || []).forEach(function (g) { s += Number(g.getScore()) || 0; });
-        /* v2.21: aperte da correggere dalla struttura del Modulo: risposta non vuota a una domanda aperta con punti e punteggio null o 0 (uno 0 dato dal docente conta ancora: provvisorio, mai il contrario) */
-        apItems.forEach(function (it) {
-          try {
-            var ir = r.getResponseForItem(it);
-            if (!ir) return;
-            var v = ir.getResponse();
-            if (v === null || v === undefined || String(v).replace(/\s+/g, '') === '') return;
-            var sc2 = ir.getScore ? ir.getScore() : null;
-            if (sc2 === null || sc2 === undefined || Number(sc2) === 0) ap++;
-          } catch (e) { }
-        });
+        var em = r.getRespondentEmail() || '(senza email)', s = 0, p0 = per[em] || (per[em] = { max: 0, t: 0, ult: null, aperte: 0 });
+        (r.getGradableItemResponses() || []).forEach(function (g) { var sc = g.getScore(); if (sc === null || sc === undefined) p0.aperte++; s += Number(sc) || 0; });
         var ts = r.getTimestamp(), p = p0;
-        if (s > p.max || (s === p.max && (!p.ult || ts >= p.ult))) { p.max = s; p.aperte = ap; }
+        if (s > p.max) p.max = s;
         p.t++;
         if (!p.ult || ts > p.ult) p.ult = ts;
       });
@@ -380,8 +321,6 @@ function FB_risultati_(ss, t0) {
       sh.getRange(2, 1).setValue('Classe ' + (forms[id].classe || FB_classe_(null, id)) + ' \u00b7 id ' + id + ' \u00b7 creato il ' + cr + ' \u00b7 dati letti alle ' + FB_ora_('HH:mm:ss') + ' \u00b7 ' + n + ' risposte');
       sh.getRange(4, 1, 1, 6).setValues([['Email', 'Migliore', 'Su', 'Tentativi', 'Ultimo invio', 'Domande aperte da correggere']]).setFontWeight('bold');
       if (righe.length) sh.getRange(5, 1, righe.length, 6).setValues(righe);
-      /* v2.22: scheda 'Risposte <id>' (risposte per domanda); un errore qui non blocca 'Ris <id>' */
-      if (rsOra) { rsFatte++; try { RS_risposte_(ss, id, form, forms[id], ris, su); } catch (e2) { FB_errore_(ss, 'risposte ' + id, e2); } }
       nr[id] = n;
       FB_salva_('FB_NR', nr);
       fatte++;
@@ -1382,8 +1321,6 @@ function SM_parti_(s, k) {
     nc = 0;
     while (nc < p.length - 2 && SM_PART_[p[nc].toUpperCase().replace(/[.']/g, '')]) nc++;
     nc++;
-    /* v2.21: con due o piu parole dopo il cognome presunto non si sa dove finisce il cognome (doppio cognome): si tiene come nome solo l'ultima parola */
-    if (p.length - nc >= 2) nc = p.length - 1;
   }
   return { nome: p.slice(nc).map(SM_cap_).join(' '), cog: p.slice(0, nc).join(' ').toUpperCase() };
 }
@@ -1557,12 +1494,6 @@ function IX_info_(nome, forms) {
   if (/^Email /.test(nome)) return { g: 5, tipo: 'Utenti', classe: c, k: '4' + c };
   if (/^Elenco /.test(nome)) return { g: 5, tipo: 'Utenti', classe: c, k: '4' + c + 'z' };
   if (nome === 'Corsi') return { g: 5, tipo: 'Consegne', classe: '', k: '5' };
-  if (/^Documenti pubblica /.test(nome)) return { g: 5, tipo: 'Consegne', classe: c, k: '2' + c + 'zz' };
-  if (/^Documenti /.test(nome)) return { g: 5, tipo: 'Consegne', classe: c, k: '2' + c + 'y' };
-  if (m = /^Risposte (.+)$/.exec(nome)) {
-    var id2 = m[1], cl2 = (forms[id2] && forms[id2].classe) || FB_classe_(null, id2) || '';
-    return { g: 7, tipo: 'Risposte quiz', classe: String(cl2).toUpperCase(), k: id2 + '~', id: id2 };
-  }
   if (m = /^Ris (.+)$/.exec(nome)) {
     var id = m[1], cl = (forms[id] && forms[id].classe) || FB_classe_(null, id) || '';
     return { g: 7, tipo: 'Risposte quiz', classe: String(cl).toUpperCase(), k: id, id: id };
@@ -1653,344 +1584,6 @@ function FB_schede_(ss, indice) {
   ix.setFrozenRows(3);
 }
 
-/* ---------- v2.22: schede 'Risposte <id quiz>' (risposte per domanda, solo docente) ---------- */
-var RS_FINESTRA_ = 20 * 3600000;   /* v2.22.2: la scheda Risposte si scrive solo per i Moduli con una risposta nelle ultime 20 ore */
-var RS_NC_ = {};
-/* v2.22.1: la scheda 'Risposte <id>' esiste ed e scritta (A1 non vuota) */
-function RS_ok_(ss, id) {
-  var sh = ss.getSheetByName('Risposte ' + id);
-  if (!sh) return false;
-  try { return String(sh.getRange(1, 1).getValue() || '') !== ''; } catch (e) { return false; }
-}
-/* email (minuscola) -> 'COGNOME Nome' dalle schede Elenco e Abbinamenti della classe (i confermati valgono piu dell'elenco) */
-function RS_nomi_(ss, classe) {
-  if (RS_NC_[classe]) return RS_NC_[classe];
-  var out = {};
-  ['Elenco ', 'Abbinamenti '].forEach(function (p) {
-    var sh = ss.getSheetByName(p + classe);
-    if (!sh) return;
-    var v = sh.getDataRange().getValues();
-    for (var i = 1; i < v.length; i++) {
-      var em = String(v[i][0] || '').trim().toLowerCase(), n = String(v[i][1] || '').trim();
-      if (em.indexOf('@') > 0 && n && n !== '-') out[em] = n;
-    }
-  });
-  RS_NC_[classe] = out;
-  return out;
-}
-/* le domande del Modulo in ordine: { id, testo, max, aperta } (niente intestazioni di sezione, immagini, video, interruzioni di pagina) */
-function RS_domande_(form) {
-  var out = [], T = FormApp.ItemType;
-  var skip = [T.PAGE_BREAK, T.SECTION_HEADER, T.IMAGE, T.VIDEO];
-  form.getItems().forEach(function (it) {
-    var t = it.getType(), x = null, mx = 0;
-    if (skip.indexOf(t) >= 0) return;
-    try {
-      if (t === T.CHECKBOX) x = it.asCheckboxItem();
-      else if (t === T.MULTIPLE_CHOICE) x = it.asMultipleChoiceItem();
-      else if (t === T.LIST) x = it.asListItem();
-      else if (t === T.TEXT) x = it.asTextItem();
-      else if (t === T.PARAGRAPH_TEXT) x = it.asParagraphTextItem();
-      if (x && x.getPoints) mx = Number(x.getPoints()) || 0;
-    } catch (e) { mx = 0; }
-    out.push({ id: it.getId(), testo: String(it.getTitle() || ''), max: mx, aperta: t === T.TEXT || t === T.PARAGRAPH_TEXT });
-  });
-  return out;
-}
-function RS_txt_(x) {
-  if (x === null || x === undefined) return '';
-  if (Object.prototype.toString.call(x) === '[object Array]') return x.map(RS_txt_).filter(function (s) { return s !== ''; }).join(' | ');
-  return String(x);
-}
-/* una cella di testo: mai una formula (la risposta di un allievo potrebbe cominciare con = + - @), al massimo 1500 caratteri */
-function RS_cella_(s) {
-  s = String(s);
-  if (s.length > 1500) s = s.slice(0, 1500) + '…';
-  return /^[=+\-@]/.test(s) ? ' ' + s : s;
-}
-function RS_risposte_(ss, id, form, f, ris, su) {
-  var nome = 'Risposte ' + id, classe = String((f && f.classe) || FB_classe_(null, id) || '').toUpperCase();
-  var sh = ss.getSheetByName(nome) || ss.insertSheet(nome);
-  sh.clear();
-  var dom = RS_domande_(form), nomi = RS_nomi_(ss, classe), nd = dom.length, byId = {}, righe = [], per = {}, conta = {}, i;
-  dom.forEach(function (d, k) { byId[d.id] = k; });
-  var lista = ris.slice().sort(function (a, b) { return a.getTimestamp() - b.getTimestamp(); });
-  lista.forEach(function (r) {
-    var em = r.getRespondentEmail() || '(senza email)', key = em.toLowerCase(), s = 0;
-    (r.getGradableItemResponses() || []).forEach(function (g) { s += Number(g.getScore()) || 0; });
-    conta[key] = (conta[key] || 0) + 1;
-    var ans = [], pts = [], dc = [];
-    for (i = 0; i < nd; i++) { ans.push(''); pts.push(''); dc.push(false); }
-    (r.getItemResponses() || []).forEach(function (ir) {
-      var k = byId[ir.getItem().getId()];
-      if (k === undefined) return;
-      var testo = RS_txt_(ir.getResponse()), sc = ir.getScore ? ir.getScore() : null;
-      ans[k] = RS_cella_(testo);
-      if (dom[k].aperta && dom[k].max > 0 && testo.replace(/\s+/g, '') !== '' && (sc === null || sc === undefined || Number(sc) === 0)) { pts[k] = 'da correggere'; dc[k] = true; }
-      else pts[k] = (sc === null || sc === undefined) ? '' : Number(sc);
-    });
-    for (i = 0; i < nd; i++) if (pts[i] === '' && dom[i].max > 0 && ans[i] === '') pts[i] = 0;   /* nessuna risposta a una domanda con punti = 0 punti */
-    var riga = { ts: r.getTimestamp(), em: em, key: key, tent: conta[key], s: s, ans: ans, pts: pts, dc: dc };
-    righe.push(riga);
-    var p = per[key];
-    if (!p || s > p.s || (s === p.s && riga.ts >= p.ts)) per[key] = riga;
-  });
-  var nome2 = function (em) { return nomi[String(em).toLowerCase()] || '(non abbinato)'; };
-  var testa = ['Ora invio', 'Allievo', 'Email', 'Tentativo', 'Punteggio', 'Su', 'Migliore'], r3 = ['Domanda →', '', '', '', '', '', ''];
-  dom.forEach(function (d, k) { testa.push('D' + (k + 1)); r3.push(d.testo + (d.max ? ' (' + d.max + ' pt)' : '')); });
-  dom.forEach(function (d, k) { testa.push('P' + (k + 1)); r3.push(d.max ? 'max ' + d.max : 'senza punti'); });
-  var col = testa.length;
-  var dati = righe.map(function (x) {
-    var mig = per[x.key] === x ? 'Sì' : '';
-    return [Utilities.formatDate(x.ts, 'Europe/Rome', 'dd/MM HH:mm:ss'), nome2(x.em), x.em, x.tent, x.s, su, mig].concat(x.ans, x.pts);
-  });
-  dati.sort(function (a, b) { return a[1] < b[1] ? -1 : a[1] > b[1] ? 1 : a[3] - b[3]; });
-  sh.getRange(1, 1).setValue('Risposte per domanda · ' + (form.getTitle() || (f && f.titolo) || id)).setFontWeight('bold');
-  sh.getRange(2, 1).setValue('Classe ' + classe + ' · id ' + id + ' · dati letti il ' + FB_ora_('dd/MM/yyyy HH:mm:ss') + ' · ' + ris.length + ' risposte · SOLO DOCENTE (cognomi, email e testo delle risposte)');
-  sh.getRange(3, 1, 1, col).setValues([r3]).setWrap(true).setFontStyle('italic');
-  sh.getRange(4, 1, 1, col).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
-  if (dati.length) sh.getRange(5, 1, dati.length, col).setValues(dati);
-  /* errori ricorrenti: tentativo migliore di ogni allievo; sbagliata = punteggio sotto il massimo; da correggere = aperta con risposta e punteggio 0 o vuoto */
-  var best = Object.keys(per).map(function (k) { return per[k]; }), sum = [];
-  dom.forEach(function (d, k) {
-    if (!(d.max > 0)) return;
-    var sb = 0, dc = 0, ok = 0;
-    best.forEach(function (b) {
-      if (b.dc[k]) dc++;
-      else if (typeof b.pts[k] === 'number' && b.pts[k] >= d.max) ok++;
-      else sb++;
-    });
-    sum.push([k, sb, dc, ok]);
-  });
-  sum.sort(function (a, b) { return b[1] - a[1] || a[0] - b[0]; });
-  var r0 = 5 + dati.length + 2;
-  sh.getRange(r0, 1).setValue('ERRORI RICORRENTI (tentativo migliore di ogni allievo, ' + best.length + ' allievi; sbagliata = sotto il punteggio massimo; chi non ha risposto conta sbagliata)').setFontWeight('bold');
-  sh.getRange(r0 + 1, 1, 1, 6).setValues([['Domanda', 'Testo', 'Sbagliata da', 'Da correggere', 'Giusta da', 'Punti max']]).setFontWeight('bold').setBackground('#e8eef9');
-  if (sum.length) sh.getRange(r0 + 2, 1, sum.length, 6).setValues(sum.map(function (s) { return ['D' + (s[0] + 1), RS_cella_(dom[s[0]].testo.slice(0, 200)), s[1], s[2], s[3], dom[s[0]].max]; }));
-  sh.setFrozenRows(4);
-  sh.setFrozenColumns(3);
-  return ris.length;
-}
-
-/* ---------- v2.22: schede 'Documenti <CLASSE>' (docente) e 'Documenti pubblica <CLASSE>' (solo Nome I.) ----------
-   Per ogni allievo e per ogni compito di Classroom di tipo Documento (assegnazione con un file Drive «una copia per ogni allievo», oppure titolo «G/M Ora N: ...»):
-   stato, ora di consegna, file allegato (titolo, id, link), ultima modifica del file, immagini, caratteri, estratto del testo.
-   Permessi: nessuno nuovo rispetto al lancio (Classroom: le stesse chiamate di 'Consegne'; Drive: DriveApp e il token del progetto per esportare il Documento in HTML). */
-var DC_RE_ORA_ = /^\s*\d{1,2}\s*\/\s*\d{1,2}\s+Ora\s*\d/i;
-function DC_cfg_(indice, classe) {
-  var c = (indice && indice.classroom) || {}, d = c.documenti;
-  if (d === false || (d && d.attivo === false)) return null;
-  d = d && typeof d === 'object' ? d : {};
-  if (d.classi && d.classi.indexOf(classe) < 0) return null;
-  return { ultimi: Number(d.ultimi) || 6, ogni: Number(d.ogni_minuti) || 5, titolo: d.titolo || '', max_letture: Number(d.max_letture) || 24 };
-}
-function DC_isDoc_(w, cfg) {
-  if (w.workType !== 'ASSIGNMENT') return false;
-  if (cfg.titolo && new RegExp(cfg.titolo, 'i').test(String(w.title || ''))) return true;
-  if (DC_RE_ORA_.test(String(w.title || ''))) return true;
-  return (w.materials || []).some(function (m) { return m.driveFile && m.driveFile.shareMode === 'STUDENT_COPY'; });
-}
-/* il file Drive del modello (la copia per ogni allievo), se c'e */
-function DC_modello_(w) {
-  var ms = w.materials || [];
-  for (var i = 0; i < ms.length; i++) {
-    var d = ms[i].driveFile;
-    if (d && d.shareMode === 'STUDENT_COPY' && d.driveFile && d.driveFile.id) return d.driveFile.id;
-  }
-  return '';
-}
-function DC_stato_(s) {
-  if (s.state === 'RETURNED') return 'RESTITUITO';
-  if (s.state === 'TURNED_IN') return s.late ? 'IN RITARDO' : 'CONSEGNATO';
-  return 'ASSEGNATO';
-}
-function DC_oraCons_(s) {
-  if (s.state !== 'TURNED_IN' && s.state !== 'RETURNED') return '';
-  var h = s.submissionHistory || [], t = '', i;
-  for (i = 0; i < h.length; i++) if (h[i] && h[i].stateHistory && h[i].stateHistory.state === 'TURNED_IN' && h[i].stateHistory.stateTimestamp) t = h[i].stateHistory.stateTimestamp;
-  if (!t) t = s.updateTime || '';
-  if (!t) return '';
-  var d = new Date(t);
-  return isNaN(d.getTime()) ? '' : Utilities.formatDate(d, 'Europe/Rome', 'dd/MM HH:mm');
-}
-function DC_testo_(h) {
-  return String(h || '').replace(/<head[\s\S]*?<\/head>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<\/(p|div|h[1-6]|li|tr)>|<br\s*\/?>/gi, ' ').replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&')
-    .replace(/&#(\d+);/g, function (m, n) { return String.fromCharCode(Number(n)); }).replace(/\s+/g, ' ').trim();
-}
-function DC_imm_(h) { return (String(h || '').match(/<img\b/gi) || []).length; }
-/* metadati di un file con DriveApp (titolo, tipo, ultima modifica con i secondi) */
-function DC_meta_(id) {
-  try {
-    var f = DriveApp.getFileById(id);
-    return { ok: true, nome: f.getName(), mime: f.getMimeType(), mod: Utilities.formatDate(f.getLastUpdated(), 'Europe/Rome', 'yyyy-MM-dd HH:mm:ss') };
-  } catch (e) { return { ok: false, err: String(e && e.message ? e.message : e).slice(0, 120) }; }
-}
-/* legge i file indicati (id -> info), riusando la cache se l'ultima modifica non e cambiata; al massimo `max` esportazioni per giro e solo prima di `tmax` (ms) */
-function DC_leggi_(ids, cache, max, tmax) {
-  var out = {}, daLeggere = [], DOC = 'application/vnd.google-apps.document', i;
-  ids.forEach(function (id) {
-    var m = DC_meta_(id), c = cache[id];
-    if (!m.ok) { out[id] = { err: 'file non apribile: ' + m.err, tent: ((c && c.tent) || 0) + 1, img: 'n.d.', car: 'n.d.', estr: '', mod: '', nome: '', mime: '' }; return; }
-    var info = { nome: m.nome, mime: m.mime, mod: m.mod, img: 'n.d.', car: 'n.d.', estr: '', err: '', tent: 0 };
-    if (m.mime.indexOf('image/') === 0) { info.img = 1; info.car = 0; info.estr = '(file immagine)'; out[id] = info; return; }
-    if (m.mime !== DOC) { info.estr = '(non e un Documento Google: contenuto non letto)'; out[id] = info; return; }
-    if (c && c.mod === m.mod && !c.err) { info.img = c.img; info.car = c.car; info.estr = c.estr; out[id] = info; return; }
-    if (c && c.mod === m.mod && c.err && (c.tent || 0) >= 3) { info.err = c.err; info.tent = c.tent; out[id] = info; return; }
-    info.tent = (c && c.mod === m.mod) ? (c.tent || 0) : 0;
-    info.err = 'in attesa di lettura';
-    out[id] = info; daLeggere.push(id);
-  });
-  daLeggere = daLeggere.slice(0, max);
-  var tok = ScriptApp.getOAuthToken(), k;
-  for (k = 0; k < daLeggere.length; k += 10) {
-    if (Date.now() > tmax) break;
-    var blocco = daLeggere.slice(k, k + 10);
-    var reqs = blocco.map(function (id) { return { url: 'https://docs.google.com/document/d/' + id + '/export?format=html', headers: { Authorization: 'Bearer ' + tok }, muteHttpExceptions: true, followRedirects: true }; });
-    var rs;
-    try { rs = UrlFetchApp.fetchAll(reqs); } catch (e) { rs = blocco.map(function () { return null; }); }
-    blocco.forEach(function (id, n) {
-      var r = rs[n], info = out[id];
-      if (r && r.getResponseCode() !== 200) {   /* seconda strada: esportazione con l'API di Drive */
-        try { r = UrlFetchApp.fetch('https://www.googleapis.com/drive/v3/files/' + id + '/export?mimeType=text%2Fhtml', { headers: { Authorization: 'Bearer ' + tok }, muteHttpExceptions: true }); } catch (e3) { }
-      }
-      if (!r || r.getResponseCode() !== 200) { info.err = 'esportazione del Documento non riuscita (' + (r ? 'HTTP ' + r.getResponseCode() : 'nessuna risposta') + ')'; info.tent++; return; }
-      var h = r.getContentText(), t = DC_testo_(h);
-      info.img = DC_imm_(h); info.car = t.length; info.estr = t.slice(0, 300); info.err = '';
-    });
-  }
-  return out;
-}
-function DC_cella_(s) { s = String(s === null || s === undefined ? '' : s); return /^[=+\-@]/.test(s) ? ' ' + s : s; }
-function DC_scheda_(ss, classe, corsoId, cfg, t0) {
-  var i, tok, r, studenti = [], lavori = [];
-  tok = null;
-  do {
-    r = Classroom.Courses.Students.list(corsoId, { pageSize: 100, pageToken: tok || undefined });
-    studenti = studenti.concat(r.students || []); tok = r.nextPageToken || null;
-  } while (tok);
-  tok = null;
-  do {
-    r = Classroom.Courses.CourseWork.list(corsoId, { courseWorkStates: ['PUBLISHED'], pageSize: 100, pageToken: tok || undefined });
-    lavori = lavori.concat(r.courseWork || []); tok = r.nextPageToken || null;
-  } while (tok);
-  lavori = lavori.filter(function (w) { return DC_isDoc_(w, cfg); });
-  lavori.sort(function (a, b) { return String(b.creationTime) < String(a.creationTime) ? -1 : 1; });
-  lavori = lavori.slice(0, cfg.ultimi);
-  lavori.sort(function (a, b) { return String(a.creationTime) < String(b.creationTime) ? -1 : 1; });
-  var sub = {};   /* workId -> userId -> submission */
-  lavori.forEach(function (w) {
-    sub[w.id] = {}; tok = null;
-    do {
-      r = Classroom.Courses.CourseWork.StudentSubmissions.list(corsoId, w.id, { pageSize: 100, pageToken: tok || undefined });
-      (r.studentSubmissions || []).forEach(function (s) { sub[w.id][s.userId] = s; });
-      tok = r.nextPageToken || null;
-    } while (tok);
-  });
-  /* cache: la scheda di prima (id file -> ultima modifica, immagini, caratteri, estratto) */
-  var nomeSh = 'Documenti ' + classe, cache = {}, vecchia = ss.getSheetByName(nomeSh);
-  if (vecchia) {
-    var vv = vecchia.getDataRange().getValues();
-    for (i = 4; i < vv.length; i++) {
-      var fid = String(vv[i][7] || '');
-      if (fid && !cache[fid]) cache[fid] = { mod: String(vv[i][10] || ''), img: vv[i][11], car: vv[i][14], estr: String(vv[i][15] || ''), err: String(vv[i][17] || ''), tent: Number(vv[i][18]) || 0 };
-    }
-  }
-  /* i modelli non stanno nella scheda: la loro ultima modifica e le immagini si tengono nelle proprieta dello script (al massimo 40) */
-  var pm = FB_json_('FB_DOC_MOD'), ids = [], visti = {}, modelli = {};
-  Object.keys(pm).forEach(function (k) { if (!cache[k]) cache[k] = { mod: pm[k].mod, img: pm[k].img, car: 0, estr: '', err: '', tent: 0 }; });
-  lavori.forEach(function (w) {
-    var m = DC_modello_(w); if (m) { modelli[w.id] = m; if (!visti[m]) { visti[m] = 1; ids.push(m); } }
-    studenti.forEach(function (s) {
-      var x = sub[w.id][s.userId], at = (x && x.assignmentSubmission && x.assignmentSubmission.attachments) || [];
-      at.forEach(function (a) { if (a.driveFile && a.driveFile.id && !visti[a.driveFile.id]) { visti[a.driveFile.id] = 1; ids.push(a.driveFile.id); } });
-    });
-  });
-  var info = DC_leggi_(ids, cache, cfg.max_letture, t0 + 240000);
-  var pm2 = {}, nm = 0;
-  Object.keys(modelli).forEach(function (w) { var m = modelli[w], x = info[m]; if (x && !x.err && typeof x.img === 'number') pm2[m] = { mod: x.mod, img: x.img }; });
-  Object.keys(pm).forEach(function (k) { if (!pm2[k] && Object.keys(pm2).length + nm < 40) { pm2[k] = pm[k]; nm++; } });
-  FB_salva_('FB_DOC_MOD', pm2);
-  var adesso = FB_ora_('dd/MM/yyyy HH:mm:ss'), righe = [], consegnati = 0, letti = 0, nonLetti = 0;
-  var stOrd = studenti.map(function (s) { return { s: s, nome: CR_nome_(s), em: (s.profile && s.profile.emailAddress) || '' }; });
-  stOrd.sort(function (a, b) { return a.nome < b.nome ? -1 : a.nome > b.nome ? 1 : 0; });
-  stOrd.forEach(function (st) {
-    lavori.forEach(function (w) {
-      var x = sub[w.id][st.s.userId];
-      if (!x) return;   /* compito non assegnato a questo allievo */
-      var stato = DC_stato_(x), ora = DC_oraCons_(x), at = ((x.assignmentSubmission && x.assignmentSubmission.attachments) || []).filter(function (a) { return a.driveFile && a.driveFile.id; });
-      if (stato !== 'ASSEGNATO') consegnati++;
-      var mod = modelli[w.id] && info[modelli[w.id]], imM = mod && typeof mod.img === 'number' ? mod.img : 'n.d.';
-      var base = [st.nome, st.em, String(w.title || ''), w.id, stato, ora];
-      if (!at.length) { righe.push(base.concat(['', '', '', '', '', '', imM, 'n.d.', '', '', adesso, 'nessun file allegato', 0])); return; }
-      at.forEach(function (a) {
-        var d = info[a.driveFile.id] || { img: 'n.d.', car: 'n.d.', estr: '', err: 'file non letto in questo giro', tent: 0, nome: '', mime: '', mod: '' };
-        var agg = (typeof d.img === 'number') ? ((typeof imM === 'number' && String(d.mime).indexOf('image/') !== 0) ? Math.max(0, d.img - imM) : d.img) : 'n.d.';
-        if (d.err) nonLetti++; else letti++;
-        righe.push(base.concat([String(a.driveFile.title || d.nome || ''), a.driveFile.id, String(a.driveFile.alternateLink || ''), d.mime || '', d.mod || '', d.img, imM, agg, d.car, DC_cella_(d.estr), adesso, d.err || '', d.tent || 0]));
-      });
-    });
-  });
-  var testa = ['Allievo', 'Email', 'Compito', 'Id compito', 'Stato', 'Ora consegna', 'File', 'File ID', 'Link', 'Tipo file', 'Ultima modifica file', 'Immagini totali', 'Immagini del modello', 'Immagini aggiunte', 'Caratteri', 'Estratto del testo', 'Letto alle', 'Errore di lettura', 'Tentativi'];
-  var leg = 'Stato: ASSEGNATO = da consegnare (anche consegna annullata) · CONSEGNATO · IN RITARDO (consegnato dopo la scadenza di Classroom; se il compito non ha scadenza non compare) · RESTITUITO. Immagini aggiunte = immagini del Documento dell\'allievo meno quelle gia presenti nel modello; n.d. = non letto. Compiti letti: ' + (lavori.length ? lavori.map(function (w) { return String(w.title || '').slice(0, 60); }).join(' | ') : 'nessuno') + '.';
-  var rie = 'RIEPILOGO: ' + studenti.length + ' allievi · ' + lavori.length + ' compiti di tipo Documento (gli ultimi ' + cfg.ultimi + ') · consegne ' + consegnati + ' · file letti ' + letti + ' · file non letti ' + nonLetti + '. SOLO DOCENTE: cognomi, email, link e testo dei Documenti.';
-  var sh = vecchia || ss.insertSheet(nomeSh);
-  sh.clear();
-  sh.getRange(1, 1).setValue(classe + ' · Documenti · dati letti il ' + adesso).setFontWeight('bold');
-  sh.getRange(2, 1).setValue(leg);
-  sh.getRange(3, 1).setValue(rie);
-  sh.getRange(4, 1, 1, testa.length).setValues([testa]).setFontWeight('bold').setBackground('#e8eef9');
-  if (righe.length) sh.getRange(5, 1, righe.length, testa.length).setValues(righe);
-  sh.setFrozenRows(4);
-  /* scheda pubblica: solo Nome I., stato, ora, immagini si/no/n.d.; niente email, link, titolo del file ne testo */
-  var nomiU = [], vis = {};
-  stOrd.forEach(function (st) { if (!vis[st.nome]) { vis[st.nome] = 1; nomiU.push(st.nome); } });
-  var brevi = SM_brevi_(nomiU), mapB = {};
-  nomiU.forEach(function (n, k) { mapB[n] = brevi[k]; });
-  var testaP = ['Allievo', 'Compito', 'Stato', 'Ora consegna', 'Immagini presenti', 'Immagini aggiunte', 'Caratteri'];
-  var datiP = righe.map(function (x) {
-    var agg = x[13], pres = typeof agg === 'number' ? (agg > 0 ? 'sì' : 'no') : 'n.d.';
-    return [mapB[x[0]] || 'Allievo', x[2], x[4], x[5], pres, agg, x[14]];
-  });
-  var shp = ss.getSheetByName('Documenti pubblica ' + classe) || ss.insertSheet('Documenti pubblica ' + classe);
-  shp.clear();
-  shp.getRange(1, 1).setValue(classe + ' · Documenti (pubblica, solo Nome I.) · dati letti il ' + adesso).setFontWeight('bold');
-  shp.getRange(2, 1).setValue(leg);
-  shp.getRange(3, 1).setValue(rie.replace(/ SOLO DOCENTE.*$/, ''));
-  shp.getRange(4, 1, 1, testaP.length).setValues([testaP]).setFontWeight('bold').setBackground('#e8eef9');
-  if (datiP.length) shp.getRange(5, 1, datiP.length, testaP.length).setValues(datiP);
-  shp.setFrozenRows(4);
-}
-function FB_documenti_(ss, indice, t0) {
-  var cfg0 = indice.classroom;
-  if (!cfg0 || cfg0.attivo === false) return;
-  if (typeof Classroom === 'undefined') return;   /* lo dice gia FB_classroom_ */
-  if (Date.now() - t0 > 170000) return;
-  var T = FB_json_('FB_DOC_T'), ora = Date.now(), dovute = [], corsi = null;
-  IX_CLASSI_.forEach(function (c) {
-    if (!(cfg0.classi || {})[c]) return;
-    var cfg = DC_cfg_(indice, c);
-    if (!cfg) return;
-    if (!ss.getSheetByName('Documenti ' + c) || ora - Number(T[c] || 0) >= cfg.ogni * 60000 - 20000) dovute.push({ c: c, cfg: cfg });
-  });
-  if (!dovute.length) return;
-  dovute.sort(function (a, b) { return Number(T[a.c] || 0) - Number(T[b.c] || 0); });
-  var d = dovute[0], id = '';
-  var sc = ss.getSheetByName('Corsi');
-  if (sc) {
-    var v = sc.getDataRange().getValues();
-    for (var i = 1; i < v.length; i++) if (v[i][2] === d.c && v[i][1]) { id = String(v[i][1]); break; }
-  }
-  if (!id) {
-    var corsiApi = CR_corsi_(), mappa = cfg0.classi || {};
-    for (var j = 0; j < corsiApi.length; j++) if (CR_classe_(corsiApi[j].name, mappa) === d.c) { id = corsiApi[j].id; break; }
-  }
-  if (!id) { FB_ERRS.push('Documenti ' + d.c + ': corso Classroom non trovato (scheda Corsi)'); T[d.c] = ora; FB_salva_('FB_DOC_T', T); return; }
-  try { DC_scheda_(ss, d.c, id, d.cfg, t0); T[d.c] = Date.now(); FB_salva_('FB_DOC_T', T); }
-  catch (e) { T[d.c] = Date.now(); FB_salva_('FB_DOC_T', T); FB_errore_(ss, 'Documenti ' + d.c, e); }
-}
-
 /* ---------- Giro principale ---------- */
 /* ---------- Tipologie lezione per classe (v2.8) ---------- */
 function FB_matrice_(ss, indice) {
@@ -2030,9 +1623,7 @@ function FB_main_() {
     var t0 = Date.now();
     FB_ERRS = [];
     FB_lavoroIndice_ = {};
-    RS_NC_ = {};
     var ss = FB_foglio_(), indice = { lavori: [] };
-    try { var shS = ss.getSheetByName('Stato'); if (shS) { shS.getRange(5, 2).setNumberFormat('@'); shS.getRange(5, 1, 1, 2).setValues([['Motore', '2.22.2']]); } } catch (e) { }
     try { FB_pulisci_(ss); } catch (e) { FB_errore_(ss, 'pulizia', e); }
     try { indice = JSON.parse(FB_get_(FB_BASE + 'indice.json')); } catch (e) { FB_errore_(ss, 'indice', e); indice = null; }
     if (indice) {
@@ -2047,9 +1638,6 @@ function FB_main_() {
     }
     if (indice) {
       try { FB_classroom_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'classroom', e); }
-    }
-    if (indice) {
-      try { FB_documenti_(ss, indice, t0); } catch (e) { FB_errore_(ss, 'documenti', e); }
     }
     if (indice) {
       try { FB_elenco_(ss, indice); } catch (e) { FB_errore_(ss, 'elenco', e); }
