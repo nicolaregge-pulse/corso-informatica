@@ -233,7 +233,7 @@ td.n{font-weight:700;white-space:nowrap}
   }
   function nonCollegati() {
     vuota();
-    $('nc').style.display = 'block'; $('nc').innerHTML = L('nc');
+    $('nc').style.display = 'block'; $('nc').innerHTML = L('nc') + '<div style="font-size:16px;margin-top:10px"><a href="../cruscotto/?classe=' + cl + '&amp;vista=sicurezza">Apri il cruscotto Sicurezza aggiornato (v2.9, 13/11/2026)</a></div>';
     $('schnome').textContent = '«Sicurezza pubblica ' + cl + '»';
     if (/[?&]config=1/.test(location.search)) $('cfg').style.display = 'block';
   }

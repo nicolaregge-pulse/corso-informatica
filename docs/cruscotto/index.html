@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 2.8 (12/11/2026): la vista di partenza e «Quiz e voti» per 1INF, 2INF e 3INF (le classi con il file dati/<CLASSE>-situazione.csv; prima solo 2INF: la 1INF e la 3INF aprivano «Consegne» con «In attesa dei dati»); 4TI resta «Consegne» (nessun file). Prima, 2.7 (12/11/2026): NUOVA FORMULA DEL VOTO PROPOSTO (decisione del docente, 12/11/2026: «Il quiz non fatto conta 40 se il ragazzo era presente; se assente non c'e' voto»): media dei quiz di tutte le ore del giorno per chi era PRESENTE; quiz fatto = 40 + 40 x percentuale, quiz non fatto = 40 (0% = 40); un'ora non ancora finita non conta ancora; chi e' assente non ha voto («assente: recupera», blu, niente numero); il voto e' PROVVISORIO finche' ci sono domande aperte non corrette, risposte da abbinare o ore non finite; i quiz di altre date non contano (tolte le spunte «Conta»); i voti dei docenti non sono in questa pagina (R1). Assenti del giorno: restano SOLO nel browser (R1: le presenze non stanno nel repository pubblico); oltre alla spunta «Assente» si segnano aprendo il link con il frammento #assenti=Nome I.|Altro N. (non va al server). «Da recuperare» conta per ogni assente i compiti e i quiz del giorno che non ha fatto e la sua riga dice «Assente: recupera N compiti e N quiz». Prima, 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 2.9 (13/11/2026): NUOVA VISTA «Sicurezza» per 1INF e 2INF (docente, 13/11/2026: «voglio un cruscotto funzionante per la sicurezza»). Legge dati/<CLASSE>-sicurezza.csv e dati/sicurezza-link.json (li scrive strumenti/aggiorna_sicurezza_dati.py, privacy bloccante, solo «Nome I.») e dati/meta.json; link diretto ?classe=2INF&vista=sicurezza. Per ogni presente: le ore 1-6 con 6A e 6B (miglior tentativo in %, soglia 80%), che cosa gli manca, bottone al Modulo, ultimo invio e da quanto; 6A e 6B con domande aperte: «in correzione» finche' non sono corrette; assenti con la spunta «Assente» (solo nel browser, come in «Quiz e voti»); ora del dato in alto e «DATI VECCHI» oltre 6 minuti. Prima, 2.8 (12/11/2026): la vista di partenza e «Quiz e voti» per 1INF, 2INF e 3INF (le classi con il file dati/<CLASSE>-situazione.csv; prima solo 2INF: la 1INF e la 3INF aprivano «Consegne» con «In attesa dei dati»); 4TI resta «Consegne» (nessun file). Prima, 2.7 (12/11/2026): NUOVA FORMULA DEL VOTO PROPOSTO (decisione del docente, 12/11/2026: «Il quiz non fatto conta 40 se il ragazzo era presente; se assente non c'e' voto»): media dei quiz di tutte le ore del giorno per chi era PRESENTE; quiz fatto = 40 + 40 x percentuale, quiz non fatto = 40 (0% = 40); un'ora non ancora finita non conta ancora; chi e' assente non ha voto («assente: recupera», blu, niente numero); il voto e' PROVVISORIO finche' ci sono domande aperte non corrette, risposte da abbinare o ore non finite; i quiz di altre date non contano (tolte le spunte «Conta»); i voti dei docenti non sono in questa pagina (R1). Assenti del giorno: restano SOLO nel browser (R1: le presenze non stanno nel repository pubblico); oltre alla spunta «Assente» si segnano aprendo il link con il frammento #assenti=Nome I.|Altro N. (non va al server). «Da recuperare» conta per ogni assente i compiti e i quiz del giorno che non ha fatto e la sua riga dice «Assente: recupera N compiti e N quiz». Prima, 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -70,6 +70,8 @@ td.voto{text-align:center;min-width:150px}
 .conto{display:block;font-size:12px;font-weight:normal;color:var(--muted);text-align:left;margin-top:2px}
 .manca{color:var(--r);font-weight:bold;display:block}
 .nota{font-size:13px;color:var(--muted);margin-top:10px}
+.bt{display:inline-block;background:var(--b);color:#fff;text-decoration:none;font-weight:bold;padding:8px 12px;border-radius:8px;margin:2px 4px 2px 0}
+.sub{display:block;font-size:12px;color:var(--muted)}
 .assente-tag{margin-left:6px;font-size:12px;min-width:0;padding:2px 6px}
 :focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 @media (max-width:900px){.kpi{grid-template-columns:repeat(2,1fr)}.kpi .n{font-size:40px}}
@@ -141,15 +143,17 @@ td.voto{text-align:center;min-width:150px}
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button" style="font-size:14px;padding:6px 10px;border:1px solid var(--b);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
 <div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». Se sopra c&#8217;è scritto «dati aggiornati dall&#8217;assistente», i dati sono una copia salvata a quell&#8217;ora e non cambiano da soli; con i link «Tempo reale» si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: le schede pubbliche hanno già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque; i nomi non si salvano. La spunta «Assente» resta salvata solo in questo browser e vale per oggi (le presenze non stanno nei dati pubblici). <b>Voto proposto</b>: media dei quiz di tutte le ore del giorno, per chi era presente; un quiz fatto vale 40 + 40 × percentuale, un quiz non fatto vale 40 (0%); chi era assente non ha voto («assente: recupera»); i quiz di altre date non contano. È provvisorio (*) finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. I voti dei docenti non sono in questa pagina. Il voto finale lo decide il docente. <b>Compiti</b> (solo 2INF): dalla scheda «Consegne pubblica»; CONSEGNATO e RICONSEGNATO sono consegnati. <b>Ora (solo 2INF)</b>: «Ora 1 · Ora 2 · Ora 3 · Tutte» (8-9, 9-10, 10-11, ora italiana); di partenza c&#8217;è l&#8217;ora in corso. Una cosa di un&#8217;ora non ancora iniziata è blu «non ancora» e non conta come mancante; il quiz di fine ora, durante quell&#8217;ora, è blu «in corso». <b>I quattro numeri</b> contano solo i presenti, tranne «Da recuperare», che conta ciò che manca agli assenti.</div>
+<div class="nota" id="notaSic" style="display:none">Vista «Sicurezza». Dati: scheda «Sicurezza pubblica» del foglio Fabbrica e risposte dei Moduli, copiati dall&#8217;assistente (non in tempo reale: l&#8217;ora del dato è in alto; oltre 6 minuti compare «DATI VECCHI»). Questa pagina non contiene nomi: solo «Nome I.», senza email. <b>Soglia 80%</b> sul miglior tentativo. <b>n.d.</b> = dato non importato (non conta né come fatto né come mancante). <b>6A e 6B con domande aperte</b>: le chiuse le corregge Moduli, le 2 aperte le corregge l&#8217;assistente; finché non sono corrette la cella dice «in correzione» e non conta né come fatta né come da rifare (se anche con le aperte al massimo non si arriva a 10 punti su 12, dice «da rifare»). <b>Ore 1-4 della 2INF</b>: dal registro dei quiz del docente (la data dell&#8217;ultimo invio è nella riga «Il dato viene da»); l&#8217;ora 5 della 2INF non ha ancora un dato. <b>Assente</b>: la spunta resta solo in questo browser e vale per oggi; chi è assente non ha obblighi (blu). I voti dei docenti non sono in questa pagina.</div>
 <div class="nota" id="notaVecchia">Questa pagina non contiene nomi. I link restano salvati solo in questo browser. I colori hanno sempre lo stesso significato: VERDE = fatto, a posto · ROSSO = manca, serve il docente · BLU = in corso, informazione, da recuperare.</div>
-<div class="nota">Versione 2.8 · 12/11/2026</div>
+<div class="nota">Versione 2.9 · 13/11/2026</div>
 <script>
 (function () {
   'use strict';
   var CLASSI = ['1INF', '2INF', '3INF', '4TI'];
   var CONS_PUB = ['2INF'], ORE_CLASSI = ['2INF'], ORARI = { 1: '8-9', 2: '9-10', 3: '10-11' };
   var statoCorr = { classe: '3INF', vista: 'consegne' };
-  var ultimo = { righe: null, cons: null, meta: null, fonte: '', fonteCons: '', avviso: '' };
+  var ultimo = { righe: null, cons: null, meta: null, fonte: '', fonteCons: '', avviso: '', sic: null, link: null };
+  var SIC_CLASSI = ['1INF', '2INF'];
   var oraScelta = null, ordinePer = 'voto', corsa = 0;
   /* vista di partenza = quella per cui esistono i file in dati/ (dati/<CLASSE>-situazione.csv: 1INF, 2INF, 3INF) */
   var SIT_FILE = ['1INF', '2INF', '3INF'];
@@ -164,7 +168,7 @@ td.voto{text-align:center;min-width:150px}
     if (CONS_PUB.indexOf(c) >= 0 && (t === 'consegne' || t === 'consegnepub')) return 'cruscotto_csv_' + c + '_consegnepub';
     return 'cruscotto_csv_' + c + '_' + (t === 'situazione' ? 'situazionepub' : t);
   }
-  function viste(c) { return [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione pubblica ' + c }, { id: 'consegne', nome: 'Consegne', scheda: (CONS_PUB.indexOf(c) >= 0 ? 'Consegne pubblica ' : 'Consegne ') + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; }
+  function viste(c) { var v = [{ id: 'situazione', nome: 'Quiz e voti', scheda: 'Situazione pubblica ' + c }, { id: 'consegne', nome: 'Consegne', scheda: (CONS_PUB.indexOf(c) >= 0 ? 'Consegne pubblica ' : 'Consegne ') + c }, { id: 'git', nome: 'Git e progetti', scheda: 'Git ' + c + (c === '3INF' ? ' (o Cruscotto Git 3INF, se già configurato)' : '') }]; if (SIC_CLASSI.indexOf(c) >= 0) v.push({ id: 'sicurezza', nome: 'Sicurezza', scheda: 'Sicurezza pubblica ' + c }); return v; }
   function haFile(c, v) { return v === 'situazione' || (v === 'consegne' && CONS_PUB.indexOf(c) >= 0); }
 
   /* ---------- ora italiana (Europe/Rome), sempre, anche se il telefono e' altrove ---------- */
@@ -262,12 +266,13 @@ td.voto{text-align:center;min-width:150px}
     $('conta').innerHTML = ''; $('kpi').innerHTML = ''; $('kpi').style.display = 'none';
     $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('sorgente').textContent = '';
-    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('ore').style.display = 'none'; $('regola').style.display = 'none';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('ore').style.display = 'none'; $('regola').style.display = 'none'; $('notaSic').style.display = 'none';
   }
   function vuota() {
     azzera(); $('dato').textContent = 'In attesa dei dati';
     $('notaSit').style.display = statoCorr.vista === 'situazione' ? 'block' : 'none';
-    $('notaVecchia').style.display = statoCorr.vista === 'situazione' ? 'none' : 'block';
+    $('notaVecchia').style.display = (statoCorr.vista === 'situazione' || statoCorr.vista === 'sicurezza') ? 'none' : 'block';
+    $('notaSic').style.display = statoCorr.vista === 'sicurezza' ? 'block' : 'none';
   }
 
   /* ---------- nomi: la pagina non contiene nomi; se arriva un nome intero lo accorcia ---------- */
@@ -642,7 +647,7 @@ td.voto{text-align:center;min-width:150px}
     if (crit.length) { cp.innerHTML = '<b>Serve te</b><ol>' + crit.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('') + '</ol>'; } else cp.style.display = 'none';
     $('notaSit').style.display = 'block'; $('notaVecchia').style.display = 'none';
   }
-  function rifaiSit() { if (ultimo.righe && statoCorr.vista === 'situazione') disegnaSit(ultimo.righe); }
+  function rifaiSit() { if (ultimo.sic && statoCorr.vista === 'sicurezza') disegnaSic(ultimo.sic); else if (ultimo.righe && statoCorr.vista === 'situazione') disegnaSit(ultimo.righe); }
   $('tab').onchange = function (e) {
     var t = e.target, a = t.getAttribute('data-a'), c = statoCorr.classe;
     if (a) {
@@ -658,6 +663,119 @@ td.voto{text-align:center;min-width:150px}
   };
   $('ordine').onclick = function () { ordinePer = ordinePer === 'voto' ? 'fare' : 'voto'; rifaiSit(); };
 
+
+  /* ---------- vista «Sicurezza» (v2.9) ---------- */
+  function sicCella(t) {
+    t = String(t || '').trim();
+    var m = /^(\d+)%\s+(OK|DA RECUPERARE)/.exec(t);
+    if (m) return m[2] === 'OK' ? { st: 'ok', c: 'v', txt: SIMB.v + m[1] + '%' } : { st: 'rif', c: 'r', txt: SIMB.r + m[1] + '%' };
+    m = /^IN CORREZIONE chiuse (\d+)\/(\d+)/.exec(t);
+    if (m) return { st: 'corr', c: 'b', txt: SIMB.b + 'in correzione', sub: 'chiuse ' + m[1] + '/' + m[2] };
+    m = /^DA RECUPERARE chiuse (\d+)\/(\d+)/.exec(t);
+    if (m) return { st: 'rif', c: 'r', txt: SIMB.r + 'da rifare', sub: 'chiuse ' + m[1] + '/' + m[2] };
+    if (/^MANCA/.test(t)) return { st: 'manca', c: 'r', txt: SIMB.r + 'manca' };
+    return { st: 'nd', c: 'b', txt: SIMB.b + 'n.d.' };
+  }
+  function parseSic(righe) {
+    var hi = -1, i;
+    for (i = 0; i < righe.length; i++) if (righe[i][0] === 'Stato' && righe[i][1] === 'Allievo') { hi = i; break; }
+    if (hi < 0) return null;
+    var head = righe[hi], ix = [], iu = -1;
+    head.forEach(function (h, k) { if (/^(Ora\s|Recupero)/.test(h)) ix.push(k); else if (/^Ultimo invio/.test(h)) iu = k; });
+    var stud = righe.slice(hi + 1).filter(function (r) { return r[0] && r[1]; }).map(function (r) {
+      return { nome: r[1], celle: ix.map(function (k) { return sicCella(r[k]); }), ult: iu >= 0 ? String(r[iu] || '').trim() : '' };
+    });
+    var m = /dati letti alle (\d{1,2}):(\d{2}):(\d{2})/.exec((righe[0] && righe[0][0]) || '');
+    return { head: head, ix: ix, stud: stud, hms: m ? [+m[1], +m[2], +m[3]] : null, fonti: (righe[2] && righe[2][0]) || '' };
+  }
+  function sicUltimo(t) {
+    var m = /^(\d{1,2})\/(\d{1,2}) (\d{1,2}):(\d{2})$/.exec(t || '');
+    if (!m) return null;
+    var a = adesso(), d = new Date(a.getFullYear(), +m[2] - 1, +m[1], +m[3], +m[4], 0);
+    if (d > a) d = new Date(a.getFullYear() - 1, +m[2] - 1, +m[1], +m[3], +m[4], 0);
+    return d;
+  }
+  function sicQuando(S, c) {
+    var meta = ultimo.meta && ultimo.meta.classi && ultimo.meta.classi[c], q = null;
+    if (meta && meta.sicurezza_dato) { q = pseudo(new Date(meta.sicurezza_dato)); if (isNaN(q)) q = null; }
+    if (!q && S.hms) { var ex = esportatoData() || adesso(); q = new Date(ex.getFullYear(), ex.getMonth(), ex.getDate(), S.hms[0], S.hms[1], S.hms[2]); }
+    return q;
+  }
+  function disegnaSic(righe) {
+    var S = parseSic(righe), c = statoCorr.classe;
+    azzera(); $('tab').className = '';
+    if (!S) { $('dato').textContent = 'File Sicurezza non riconosciuto'; return; }
+    var quando = sicQuando(S, c), ex = esportatoData();
+    $('dato').textContent = 'Dato del ' + (quando ? hm(quando) + (dm(quando) !== oggiStr() ? ' del ' + dm(quando) : '') : '?') + (ex ? ' · copiato dall’assistente alle ' + hm(ex) + (dm(ex) !== oggiStr() ? ' del ' + dm(ex) : '') : '') + ' (non in tempo reale)';
+    $('sorgente').textContent = 'Il dato viene da: ' + S.fonti.replace(/^Fonti:\s*/, '');
+    vecchi(quando, 'Sono i dati salvati dall’assistente, non quelli di adesso.');
+    $('notaSic').style.display = 'block';
+    var LK = (ultimo.link && ultimo.link[c]) || {}, assenti = leggiAss(c), adesso_ = adesso();
+    var rows = S.stud.map(function (s) {
+      var h = hash(s.nome), ass = assenti.indexOf(h) >= 0, manca = [], rif = [], corr = [], ok = 0, noti = 0, vai = [];
+      S.ix.forEach(function (k, j) {
+        var x = s.celle[j], et = S.head[k];
+        if (x.st === 'nd') return;
+        noti++;
+        if (x.st === 'ok') ok++;
+        else if (x.st === 'manca') manca.push(et);
+        else if (x.st === 'rif') rif.push(et);
+        else if (x.st === 'corr') corr.push(et);
+        if ((x.st === 'manca' || x.st === 'rif') && !ass) vai.push(LK[et] ? '<a class="bt" href="' + esc(LK[et].url) + '" target="_blank" rel="noopener">Apri il quiz ' + esc(et.replace(/^Ora\s*/, 'ora ')) + '</a>' : '<span class="manca">' + esc(et) + ': chiedi all’assistente come recuperarla</span>');
+      });
+      var stato = ass ? 'b' : (manca.length || rif.length ? 'r' : (corr.length ? 'b' : 'v'));
+      var d = sicUltimo(s.ult), ultimoTxt;
+      if (!d) ultimoTxt = '<span class="manca">' + SIMB.r + 'nessuna consegna ancora</span>';
+      else { var min = (adesso_ - d) / 60000; ultimoTxt = esc(s.ult) + '<small> (' + (min < 1 ? 'adesso' : durata(min) + ' fa') + ')</small>'; }
+      return { lab: s.nome, h: h, ass: ass, celle: s.celle, manca: manca, rif: rif, corr: corr, ok: ok, noti: noti, stato: stato, vai: vai, ult: ultimoTxt, haUlt: !!d };
+    });
+    var pres = rows.filter(function (r) { return !r.ass; }), ass = rows.filter(function (r) { return r.ass; });
+    var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; }, pr = { r: 0, b: 1, v: 2 };
+    pres.sort(function (a, b) { return pr[a.stato] - pr[b.stato] || alf(a, b); }); ass.sort(alf);
+    function conta(et, st) { var j = S.ix.indexOf(S.head.indexOf(et)); return j < 0 ? null : pres.filter(function (r) { return r.celle[j].st === st; }).length; }
+    var nessuna = pres.filter(function (r) { return !r.haUlt; }).length, inCorr = pres.filter(function (r) { return r.corr.length; }).length;
+    function k(cl, n, su, t, s) { return '<div class="k ' + cl + '"><div class="n">' + n + (su ? '<small> su ' + su + '</small>' : '') + '</div><div class="t">' + t + '</div><div class="s">' + s + '</div></div>'; }
+    var n6a = conta('Ora 6A', 'ok'), n6b = conta('Ora 6B', 'ok');
+    $('kpi').innerHTML =
+      k('v', n6a === null ? '–' : n6a, n6a === null ? '' : pres.length, 'Ora 6A superata', 'rischi meccanici, 80% o più') +
+      k('v', n6b === null ? '–' : n6b, n6b === null ? '' : pres.length, 'Ora 6B superata', 'rischi elettrici, 80% o più') +
+      k('b', inCorr, '', 'In correzione', 'domande aperte da correggere') +
+      k('r', nessuna, '', 'Nessuna consegna', 'presenti che non hanno ancora inviato niente');
+    $('kpi').style.display = 'grid';
+    $('riep').innerHTML = '<b>Presenti ' + pres.length + '</b>' + (ass.length ? ' · assenti ' + ass.length : ' <small>(sono tutti gli allievi dell’elenco: spunta «Assente» per chi non c’è)</small>') + ' · soglia 80% sul miglior tentativo';
+    $('riep').style.display = 'block';
+    var tutti = pres.concat(ass), tab = $('tab');
+    tab.className = 'schede';
+    tab.querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th>' + S.ix.map(function (k) { return '<th>' + esc(S.head[k]) + '</th>'; }).join('') + '<th>Fatte · Gli manca</th><th>Adesso deve andare a</th><th>Ultimo invio</th></tr>';
+    tab.querySelector('tbody').innerHTML = tutti.map(function (r) {
+      var cel = r.celle.map(function (x, j) {
+        return '<td data-label="' + esc(S.head[S.ix[j]]) + '"><div>' + chip(x.c, esc(x.txt)) + (x.sub ? '<span class="sub">' + esc(x.sub) + '</span>' : '') + '</div></td>';
+      }).join('');
+      var el = r.manca.concat(r.rif).map(function (et) { return et.replace(/^Ora\s*/, ''); }), manc = (el.length ? '<span class="manca">' + SIMB.r + 'manca: ' + esc(el.join(', ')) + '</span>' : '') + (r.corr.length ? '<span class="sub">' + SIMB.b + esc(r.corr.map(function (et) { return et.replace(/^Ora\s*/, ''); }).join(', ')) + ' in correzione</span>' : '');
+      var vai = r.ass ? '<span class="sub">assente: recupera con l’assistente</span>' : (r.vai.length ? r.vai.join('') : (r.corr.length ? 'Aspetta la correzione delle domande aperte' : 'Niente da fare adesso'));
+      return '<tr class="' + r.stato + '"><td class="nome" data-label="Allievo">' + esc(r.lab) + (r.ass ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>' +
+        '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.ass ? ' checked' : '') + ' aria-label="Assente: ' + esc(r.lab) + '"></td>' + cel +
+        '<td data-label="Fatte · Gli manca" style="min-width:110px"><div>Fatte ' + r.ok + ' su ' + r.noti + (manc ? manc : '<span class="sub">non gli manca niente</span>') + '</div></td>' +
+        '<td class="vai" data-label="Adesso deve andare a" style="min-width:150px"><div>' + vai + '</div></td>' +
+        '<td data-label="Ultimo invio"><div>' + (r.ass ? '<span class="sub">–</span>' : r.ult) + '</div></td></tr>';
+    }).join('');
+    var s = $('serve'); s.style.display = 'none'; $('crit').style.display = 'none';
+  }
+  function caricaSic() {
+    var c = statoCorr.classe, mio = ++corsa;
+    $('scheda').textContent = '«Sicurezza pubblica ' + c + '»';
+    ultimo.fonte = 'file'; ultimo.avviso = '';
+    var lk = fetch(senzaCache('dati/sicurezza-link.json'), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    Promise.all([leggiFile(c, 'sicurezza').then(function (t) { return csv(t); }), leggiMeta(), lk]).then(function (x) {
+      if (mio !== corsa) return;
+      ultimo.meta = x[1]; ultimo.link = x[2]; ultimo.sic = x[0];
+      disegnaSic(x[0]);
+    }).catch(function (e) {
+      if (mio !== corsa) return;
+      vuota(); $('dato').textContent = 'Nessun dato di Sicurezza per ' + c + ' (' + e.message + ')';
+    });
+  }
+
   /* ---------- caricamento: link salvato (tempo reale) oppure file dell'assistente ---------- */
   function senzaCache(u) { return u + (u.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(); }
   function leggiCsv(u) {
@@ -668,6 +786,7 @@ td.voto{text-align:center;min-width:150px}
     return fetch(senzaCache('dati/meta.json'), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).catch(function () { return null; });
   }
   function carica() {
+    if (statoCorr.vista === 'sicurezza') { $('cfgbox').style.display = 'none'; $('tr').style.display = 'none'; return caricaSic(); }
     var c = statoCorr.classe, v = statoCorr.vista, mio = ++corsa, u = leggi(chiave(c, v));
     var def = viste(c).filter(function (x) { return x.id === v; })[0];
     var conCons = v === 'situazione' && CONS_PUB.indexOf(c) >= 0, u2 = conCons ? leggi(chiave(c, 'consegnepub')) : '';
@@ -713,7 +832,7 @@ td.voto{text-align:center;min-width:150px}
     $('diario').href = '../diario/?classe=' + c;
   }
   function scegli(c, v) {
-    statoCorr.classe = c; statoCorr.vista = v || vistaBase(c); ultimo.righe = null; ultimo.cons = null; scrivi('cruscotto_ultima_classe', c);
+    statoCorr.classe = c; statoCorr.vista = (v === 'sicurezza' && SIC_CLASSI.indexOf(c) < 0) ? vistaBase(c) : (v || vistaBase(c)); ultimo.righe = null; ultimo.cons = null; ultimo.sic = null; scrivi('cruscotto_ultima_classe', c);
     assentiDalLink(c);
     try { history.replaceState(null, '', '?classe=' + c); } catch (e) {}
     $('cfgbox').style.display = 'none'; menu(); vuota(); carica();
@@ -721,10 +840,10 @@ td.voto{text-align:center;min-width:150px}
   $('classi').onclick = function (e) { var c = e.target.getAttribute('data-c'); if (c) scegli(c); };
   $('viste').onclick = function (e) {
     var v = e.target.getAttribute('data-v');
-    if (v) { statoCorr.vista = v; ultimo.righe = null; ultimo.cons = null; $('cfgbox').style.display = 'none'; menu(); vuota(); carica(); }
+    if (v) { statoCorr.vista = v; ultimo.righe = null; ultimo.cons = null; ultimo.sic = null; $('cfgbox').style.display = 'none'; menu(); vuota(); carica(); }
   };
   $('serve').onclick = function () {
-    if (statoCorr.vista === 'situazione') { var cp = $('crit'); cp.style.display = cp.style.display === 'block' ? 'none' : 'block'; return; }
+    if (statoCorr.vista === 'situazione' || statoCorr.vista === 'sicurezza') { var cp = $('crit'); cp.style.display = cp.style.display === 'block' ? 'none' : 'block'; return; }
     var r = $('prima-rossa'); if (r) r.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
   $('tr').onclick = function () { var b = $('cfgbox'); b.style.display = b.style.display === 'block' ? 'none' : 'block'; };
@@ -752,7 +871,7 @@ td.voto{text-align:center;min-width:150px}
   var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
   q = q ? decodeURIComponent(q).toUpperCase() : leggi('cruscotto_ultima_classe');
   var qv = (location.search.match(/[?&]vista=([a-z]+)/) || [])[1];
-  scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF', qv === 'situazione' || qv === 'consegne' || qv === 'git' ? qv : null);
+  scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF', qv === 'situazione' || qv === 'consegne' || qv === 'git' || qv === 'sicurezza' ? qv : null);
   setInterval(carica, 30000);
 })();
 </script>
