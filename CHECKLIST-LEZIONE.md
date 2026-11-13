@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 2.7** — 13/11/2026 — documento interno del docente e di Claude
+**Versione 2.8** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione, insieme alle 11 regole di `CLAUDE.md` (v2.2 del 06/11/2026). Dove un punto di questa lista dice una cosa diversa da R1-R11, valgono R1-R11.
 
@@ -35,7 +35,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 ## 03 Durante la lezione
 
 1. Le domande all'assistente si leggono e si risolvono a ogni giro; domande e risposte stanno nel cruscotto; in chat una riga sola, e in prima riga solo una domanda che è una criticità (CLAUDE.md R8, #123, #124).
-2. In chat: risposte corte, COGNOME Nome, i testi da copiare nei riquadri, un'azione per riga (#56, CLAUDE.md R4 e R7).
+2. In chat: risposte corte, solo il COGNOME, i testi da copiare nei riquadri, un'azione per riga (#56, CLAUDE.md R4 e R7).
 3. Ogni schermata Veyon va subito nel cruscotto; «fuori lezione» solo quando lo schermo mostra chiaramente un'altra attività (#73, #109).
 4. Uscite: ora di uscita e di rientro; dopo 5 minuti senza rientro è una criticità nel bottone rosso e in prima riga (CLAUDE.md R8).
 5. Durante la lezione NON spingo sul riservato più del necessario: salvo in locale e spingo a fine ora; le consegne dei ragazzi passano dallo stesso repository (#112, #124).
@@ -97,3 +97,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 16. v2.5 (06/11/2026): allineata a CLAUDE.md v2.2: 01.4 ordine fisso R10.0; 02.4 un compito per ora; 04.3 Allegato A solo togliere, Sicurezza in doppia modalità; §06 punto 12 (N = ora della giornata) e punto 15 (Allegato A e Sicurezza); rimandi alle vecchie «regola N» sostituiti con R2, R8, R9. Regola Sicurezza del docente 06/11/2026 in attesa di R5.2bis in `CLAUDE.md`.
 17. v2.6 (12/11/2026): §06 punto 16, controllo quiz-dispensa (#316) e aperte a parte (#315).
 18. v2.7 (13/11/2026): §06 punto 17, controllo di leggibilità delle dispense (#328).
+19. v2.8 (13/11/2026): §02 punto 2, in chat solo il COGNOME (CLAUDE.md v2.11).

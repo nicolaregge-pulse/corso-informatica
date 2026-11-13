@@ -28,7 +28,7 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
        fresco la frase giusta è «non risulta consegnato nel dato delle HH:MM (N minuti fa)» o «non provato». (R7.1, R8.4)
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
-Il controllo dei nomi degli allievi NON sta qui (in chat COGNOME Nome è richiesto, R7): sta
+Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indicati solo con il COGNOME, R1.4 e R7.4): sta
 in limite-comandi.py + controllo_nomi.py, sui commit e sui push del repository pubblico (R1).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
@@ -772,6 +772,19 @@ def main():
             m = None
         if m:
             motivi.append(m)
+    avviso = None
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import controllo_nomi
+        trovati = controllo_nomi.avviso_nome_battesimo(senza_citazioni(senza_codice_in_linea(senza_riquadri(testo))))
+        if trovati:
+            avviso = ("Avviso (non blocca, R1.4/R7.4, 13/11/2026): c'è il nome di battesimo accanto al cognome di %s. "
+                      "Con il docente gli allievi si indicano solo con il COGNOME." % ", ".join(trovati[:5]))
+    except Exception:
+        avviso = None
+    if avviso and not motivi:
+        sys.stdout.write(json.dumps({"systemMessage": avviso}, ensure_ascii=False))
+        return
     if motivi:
         reason = ("CONTROLLO AUTOMATICO DEL MESSAGGIO (hook controllo-messaggio.py): "
                   "riscrivi la risposta al docente correggendo questi punti.\n"

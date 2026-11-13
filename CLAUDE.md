@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.10** — 13/11/2026 (R1: la presenza è un dato pubblico come «Nome I.»; lavori pubblicati dagli allievi con i nomi; cognomi dei cruscotti solo nel riservato) — prima: 2.9 (R7 punto 6: NON PRESUMERE, CHIEDI), 2.8 (3quater link), 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.11** — 13/11/2026 (R1.4 e R7.4: in chat gli allievi solo con il COGNOME) — prima: 2.10 (R1: la presenza è un dato pubblico come «Nome I.»; lavori pubblicati dagli allievi con i nomi; cognomi dei cruscotti solo nel riservato), 2.9 (R7 punto 6: NON PRESUMERE, CHIEDI), 2.8 (3quater link), 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -37,7 +37,7 @@
    2. ogni `git push` del pubblico: pagine di `docs/` e messaggi dei commit da pushare;
    3. strumenti: `.claude/hooks/limite-comandi.py` + `controllo_nomi.py` (elenchi del riservato) e il hook git `commit-msg`
       (`strumenti/installa_commit_msg.sh`). Un falso allarme si toglie con «parole_comuni» in `config/nomi-controllo.json` del riservato.
-4. In chat i nomi sono permessi e richiesti: sempre COGNOME Nome, come nel registro (R7). Il controllo vale solo per il pubblico.
+4. In chat i nomi sono permessi e richiesti: gli allievi si indicano solo con il COGNOME, come nel registro; se due allievi hanno lo stesso cognome si aggiunge il nome (R7). Il controllo vale solo per il pubblico.
 5. Le password non si scrivono mai in chat. I file per il docente: senza password nel riservato, cifrati se stanno nel pubblico.
 
 ### R2 Pubblicare: il comando «PUBB n» — BLOCCANTE
@@ -121,7 +121,7 @@
    la fonte e l'ora del dato (per esempio «letto da Classroom alle 13:58»).
 2. «Pubblicato» solo con `verifica_lezione.py` VERDE di meno di 15 minuti (R2).
 3. Un link al sito solo dopo «PUBBLICATO» di `bash strumenti/aspetta_pubblicazione.sh`.
-4. In chat gli allievi si indicano sempre con COGNOME Nome.
+4. In chat gli allievi si indicano solo con il COGNOME, come nel registro; se due allievi hanno lo stesso cognome si aggiunge il nome.
 5. Ciò che non ho potuto provare porta la scritta «non provato».
 6. **NON PRESUMERE, CHIEDI (regola fondamentale, 11/11/2026, docente).** Un numero, una soglia, un nome, un PC, un account, un titolo, una data che il docente non ha detto in questa chat o che non sta scritto in un documento verificato si CHIEDE, con una domanda sola e risposte brevi; mai inventarlo, mai prenderlo da un altro lavoro. Nel dubbio non si scrive nel testo per i ragazzi.
 
@@ -222,3 +222,4 @@
 9. v2.8 (11/11/2026): R4 3quater esteso: ogni link con l'account scritto prima (PIAMARTA o PERSONALE), in una casella copiabile, un solo link per casella; su richiesta del docente.
 10. v2.9 (11/11/2026): R7 punto 6, NON PRESUMERE, CHIEDI, su decisione del docente (errore #269: soglia «7 su 10» presunta).
 11. v2.10 (13/11/2026): R1 punti 1-2: la presenza/assenza di una lezione è un dato pubblico come «Nome I.» (restano riservati nomi completi, voti dettagliati, note, motivi delle assenze); i lavori pubblicati dagli allievi (giochi, siti personali) possono stare nel pubblico con i nomi, percorsi da confermare e controlli invariati finché non li conferma il docente; cognomi dei cruscotti solo in HTML nel riservato; R8.2-R8.3 allineati (assenti in blocco dopo i presenti). Su decisione del docente, 13/11/2026 (errore: presunte riservate le presenze senza chiedere, R7.6).
+12. v2.11 (13/11/2026): R1 punto 4 e R7 punto 4: in chat gli allievi si indicano solo con il COGNOME (non più «COGNOME Nome»); se due allievi hanno lo stesso cognome si aggiunge il nome. Su decisione del docente, 13/11/2026; controllo: avviso non bloccante in `controllo-messaggio.py`.

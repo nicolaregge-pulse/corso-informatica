@@ -171,6 +171,28 @@ caso("main: subagente non controllato", main_con({"last_assistant_message": "Ok.
 r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")], input="non json", capture_output=True, text=True)
 caso("main: input rotto esce 0 senza output", r.returncode == 0 and not r.stdout, True)
 
+
+# avviso nome di battesimo accanto al cognome (13/11/2026, non bloccante): elenco finto in una cartella temporanea
+import tempfile
+sys.path.insert(0, H)
+import controllo_nomi as cn
+_ris = tempfile.mkdtemp()
+os.makedirs(os.path.join(_ris, "config"))
+json.dump(["ROSSINI MARCO", "VERDINI LUCA ANDREA", "DE LUNA SARA", "BIANCHETTI ROSA"],
+          open(os.path.join(_ris, "config", "9xx-elenco-classe.json"), "w"))
+json.dump({"nomi": [], "parole_comuni": ["bianchetti"]}, open(os.path.join(_ris, "config", "nomi-controllo.json"), "w"))
+av = lambda t: cn.avviso_nome_battesimo(t, _ris)
+caso("nb: COGNOME Nome avvisa", av("ROSSINI Marco ha finito."), True)
+caso("nb: Nome COGNOME avvisa", av("Marco ROSSINI ha finito."), True)
+caso("nb: secondo nome avvisa", av("VERDINI Andrea è assente."), True)
+caso("nb: solo cognome non avvisa", av("ROSSINI ha finito, VERDINI no."), False)
+caso("nb: nome comune da solo non avvisa", av("Marco ha scritto a Luca e Sara."), False)
+caso("nb: nome comune lontano dal cognome non avvisa", av("ROSSINI e poi Marco, ok."), False)
+caso("nb: cognome in parole_comuni non avvisa", av("BIANCHETTI Rosa."), False)
+caso("nb: «Nome I.» non avvisa", av("Marco R. ha finito."), False)
+caso("nb: testo vuoto", av(""), False)
+caso("nb: nessun avviso non copre cognome altrui", av("VERDINI Marco."), False)
+
 giusti = sum(1 for _, o, a in casi if o == a)
 for n, o, a in casi:
     if o != a:

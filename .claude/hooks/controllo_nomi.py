@@ -82,6 +82,46 @@ def trova(testo, ris=None):
     return ["%s… (%d lettere)" % (c[:2].upper(), len(c)) for c in trovati]
 
 
+def avviso_nome_battesimo(testo, ris=None):
+    """Avviso NON bloccante (13/11/2026): in un messaggio per il docente gli allievi si indicano solo con il
+    COGNOME. Trova il COGNOME seguito (o preceduto) subito dal suo nome di battesimo, preso dagli elenchi
+    del riservato. Cerca solo la coppia attaccata (cognome + suo nome), mai un nome da solo: nessun falso
+    allarme sui nomi comuni. Dà «COGNOME… (N lettere)», mai il nome. Il testo da controllare è il messaggio
+    SENZA riquadri e codice (lo toglie il chiamante)."""
+    if not testo:
+        return []
+    ris = ris or RIS
+    voci, comuni = [], set()
+    for f in glob.glob(os.path.join(ris, "config", "*presenti*.json")) + \
+            glob.glob(os.path.join(ris, "config", "*elenco*.json")):
+        try:
+            d = json.load(open(f, encoding="utf-8"))
+        except Exception:
+            continue
+        lista = d if isinstance(d, list) else (d.get("presenti") or d.get("elenco") or [])
+        voci += [v for v in lista if isinstance(v, str)]
+    try:
+        d = json.load(open(os.path.join(ris, "config", "nomi-controllo.json"), encoding="utf-8"))
+        comuni = {n.lower() for n in d.get("parole_comuni") or [] if isinstance(n, str)}
+    except Exception:
+        pass
+    basso = re.sub(r"https?://\S+", " ", testo.lower())
+    coppie = set()
+    for v in voci:
+        p = v.replace("'", " ").replace("\u2019", " ").lower().split()
+        if len(p) < 2 or len(p[0]) < 4 or p[0] in comuni:
+            continue
+        for n in {p[1], p[-1]}:
+            if len(n) >= 3:
+                coppie.add((p[0], n))
+    trovati = []
+    for c, n in sorted(coppie):
+        if re.search(r"(?<![\w-])%s[ \t]+%s(?![\w-])|(?<![\w-])%s[ \t]+%s(?![\w-])"
+                     % (re.escape(c), re.escape(n), re.escape(n), re.escape(c)), basso):
+            trovati.append("%s\u2026 (%d lettere)" % (c[:2].upper(), len(c)))
+    return sorted(set(trovati))
+
+
 def motivo_commit(testo, ris=None):
     p = trova(testo, ris)
     if not p:
