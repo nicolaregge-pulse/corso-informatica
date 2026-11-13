@@ -1,6 +1,6 @@
 # CLAUDE.md — Corso di Informatica (tutte le classi)
 
-**Versione 2.9** — 11/11/2026 (R7 punto 6: NON PRESUMERE, CHIEDI) — prima: 2.8 (3quater link), 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
+**Versione 2.10** — 13/11/2026 (R1: la presenza è un dato pubblico come «Nome I.»; lavori pubblicati dagli allievi con i nomi; cognomi dei cruscotti solo nel riservato) — prima: 2.9 (R7 punto 6: NON PRESUMERE, CHIEDI), 2.8 (3quater link), 2.7 (3ter riallineato), 2.6 (3quater), 2.5 (3ter), 2.4 (3bis), 2.3, 06/11/2026 — regole di lavoro di Claude, decise dal docente il 04/11/2026 su `REGOLE-DA-DECIDERE.md`
 (riservato, `report/2026-11-04/`). La versione di prima (56 regole) è intera in `archivio/CLAUDE-fino-al-2026-11-04.md`.
 
 ## 00 Come si usa
@@ -25,8 +25,13 @@
 
 ### R1 Privacy — BLOCCANTE (controllo automatico)
 
-1. Nomi completi, voti dettagliati, note, presenze e file dei ragazzi stanno solo nel riservato.
+1. Nomi completi, voti dettagliati, note, motivi delle assenze e file dei ragazzi stanno solo nel riservato. **La presenza o l'assenza
+   di una lezione è un dato pubblico** («Nome I.», senza motivi né note; decisione del docente, 13/11/2026).
 2. Nel pubblico i ragazzi compaiono solo come «Nome I.» (nome e iniziale) o in dati cifrati con `strumenti/cifra_json.py`.
+   **Eccezione (decisione del docente, 13/11/2026): i lavori pubblicati dagli allievi (giochi, siti personali e simili) possono stare
+   nel pubblico anche con i loro nomi, cognome compreso.** I percorsi consentiti li conferma il docente e stanno in un file di
+   configurazione del riservato; finché non sono confermati i controlli del punto 3 NON cambiano. I cruscotti con i cognomi
+   (COGNOME Nome) si fanno solo come file HTML nel riservato (`cruscotti/`), mai nel pubblico.
 3. **Controllo automatico bloccante** (non si salta con «PAGINE-OK»):
    1. ogni `git commit` del pubblico: il messaggio non deve contenere il cognome di un allievo;
    2. ogni `git push` del pubblico: pagine di `docs/` e messaggi dei commit da pushare;
@@ -124,9 +129,9 @@
 
 1. **Un solo cruscotto per classe**, a indirizzo fisso (per esempio `docs/1inf/`).
 2. I dati sono **IDENTICI** per i ragazzi e per il docente: stesso file, stessa ora del dato. I ragazzi vedono «Nome I.».
-   In più c'è una parte solo per il docente, **cifrata** (COGNOME Nome, note, uscite, motivi del voto).
+   In più c'è una versione solo per il docente con COGNOME Nome, note, uscite, motivi del voto: un file HTML nel riservato (`cruscotti/`, generato dal comando di refresh), non nel pubblico (13/11/2026).
 3. Per ogni presente: che cosa ha fatto, che cosa gli manca, dove deve andare adesso, da quanto è fermo, che cosa vede Veyon
-   (fuori compito in rosso), voto proposto da 40 a 80 con il conto. Ci sono tutti i presenti; gli assenti no.
+   (fuori compito in rosso), voto proposto da 40 a 80 con il conto. Prima i presenti in ordine alfabetico (come nel registro), poi gli assenti in un blocco «Assenti: da recuperare» con che cosa gli manca (13/11/2026).
 4. In alto l'ora del dato vero; se ha più di 6 minuti, la scritta «DATI VECCHI».
 5. Ogni giorno, scelta la lezione, propongo 2-4 KPI; il docente li conferma o ne chiede altri.
 6. Le domande dei ragazzi vanno all'assistente; domande e risposte stanno nel cruscotto. In chat una riga sola; in prima riga
@@ -216,3 +221,4 @@
 8. v2.7 (11/11/2026): R4 3ter riscritto su decisione del docente: codice, script e testi da copiare in chat in un solo riquadro, da solo, mai in mezzo ai passi; file (PDF) con SendUserFile subito prima; niente .txt al posto del codice. La v2.5 era errata su questo punto.
 9. v2.8 (11/11/2026): R4 3quater esteso: ogni link con l'account scritto prima (PIAMARTA o PERSONALE), in una casella copiabile, un solo link per casella; su richiesta del docente.
 10. v2.9 (11/11/2026): R7 punto 6, NON PRESUMERE, CHIEDI, su decisione del docente (errore #269: soglia «7 su 10» presunta).
+11. v2.10 (13/11/2026): R1 punti 1-2: la presenza/assenza di una lezione è un dato pubblico come «Nome I.» (restano riservati nomi completi, voti dettagliati, note, motivi delle assenze); i lavori pubblicati dagli allievi (giochi, siti personali) possono stare nel pubblico con i nomi, percorsi da confermare e controlli invariati finché non li conferma il docente; cognomi dei cruscotti solo in HTML nel riservato; R8.2-R8.3 allineati (assenti in blocco dopo i presenti). Su decisione del docente, 13/11/2026 (errore: presunte riservate le presenze senza chiedere, R7.6).

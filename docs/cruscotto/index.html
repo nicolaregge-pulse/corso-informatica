@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Cruscotto classi. Versione 3.0 (13/11/2026): NUOVA VISTA «Oggi: compiti e quiz» (di partenza per la 1INF): per ogni allievo e per ogni voce del giorno (Documento su Classroom e quiz su Moduli, ore 4-5-6) lo stato (fatto / manca / in correzione / non disponibile), dove deve andare adesso e l'ultimo segnale. NESSUNA voce e scritta nella pagina: le colonne, gli orari e gli stati vengono da dati/<CLASSE>-oggi.json (lo scrive strumenti/aggiorna_oggi_dati.py dal foglio Fabbrica; l'elenco atteso e in strumenti/oggi-<CLASSE>-config.json), quindi si estende a tutti i compiti e i quiz della classe. Ora e fonte di OGNI dato in alto, «DATI VECCHI» oltre 6 minuti sul dato piu vecchio; dove il foglio non da il dato (Documento non ancora letto, voti dei Documenti) la cella dice «n.d.» e la ragione e scritta in pagina; presenze non lette: spunta «Assente». Il numero dell'ora nei quiz con id -oraN- (non solo -oraNd) ora e riconosciuto da «Quiz e voti»: un quiz di un'ora non ancora finita non conta come non fatto. Prima, 2.9 (13/11/2026): NUOVA VISTA «Sicurezza» per 1INF e 2INF (docente, 13/11/2026: «voglio un cruscotto funzionante per la sicurezza»). Legge dati/<CLASSE>-sicurezza.csv e dati/sicurezza-link.json (li scrive strumenti/aggiorna_sicurezza_dati.py, privacy bloccante, solo «Nome I.») e dati/meta.json; link diretto ?classe=2INF&vista=sicurezza. Per ogni presente: le ore 1-6 con 6A e 6B (miglior tentativo in %, soglia 80%), che cosa gli manca, bottone al Modulo, ultimo invio e da quanto; 6A e 6B con domande aperte: «in correzione» finche' non sono corrette; assenti con la spunta «Assente» (solo nel browser, come in «Quiz e voti»); ora del dato in alto e «DATI VECCHI» oltre 6 minuti. Prima, 2.8 (12/11/2026): la vista di partenza e «Quiz e voti» per 1INF, 2INF e 3INF (le classi con il file dati/<CLASSE>-situazione.csv; prima solo 2INF: la 1INF e la 3INF aprivano «Consegne» con «In attesa dei dati»); 4TI resta «Consegne» (nessun file). Prima, 2.7 (12/11/2026): NUOVA FORMULA DEL VOTO PROPOSTO (decisione del docente, 12/11/2026: «Il quiz non fatto conta 40 se il ragazzo era presente; se assente non c'e' voto»): media dei quiz di tutte le ore del giorno per chi era PRESENTE; quiz fatto = 40 + 40 x percentuale, quiz non fatto = 40 (0% = 40); un'ora non ancora finita non conta ancora; chi e' assente non ha voto («assente: recupera», blu, niente numero); il voto e' PROVVISORIO finche' ci sono domande aperte non corrette, risposte da abbinare o ore non finite; i quiz di altre date non contano (tolte le spunte «Conta»); i voti dei docenti non sono in questa pagina (R1). Assenti del giorno: restano SOLO nel browser (R1: le presenze non stanno nel repository pubblico); oltre alla spunta «Assente» si segnano aprendo il link con il frammento #assenti=Nome I.|Altro N. (non va al server). «Da recuperare» conta per ogni assente i compiti e i quiz del giorno che non ha fatto e la sua riga dice «Assente: recupera N compiti e N quiz». Prima, 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
+<!-- Cruscotto classi. Versione 3.1 (13/11/2026): PRESENTI PRIMA, IN ORDINE ALFABETICO, POI GLI ASSENTI in un blocco a parte «Assenti: da recuperare» (docente, 13/11/2026). Le presenze del giorno vengono da dati/<CLASSE>-presenze.json (lo scrive strumenti/aggiorna_presenze_dati.py dal registro DIDAweb salvato nel riservato; decisione del docente: la presenza e un dato PUBBLICO, solo «Nome I.», mai cognomi né motivi); l'ordine alfabetico e quello del registro per COGNOME, dato come elenco «Nome I.» senza cognomi; chi non ha il file di presenze resta come prima. Per ogni assente la riga dice che cosa gli manca (Oggi: documenti e quiz da recuperare, in blu). La spunta «Assente» resta per correggere nel browser. Aggancio per la versione del docente (riservato): window.CRUSCOTTO_NOMI e window.CRUSCOTTO_CLASSE_INIZIALE, vuoti nella pagina pubblica. Prima, 3.0 (13/11/2026): NUOVA VISTA «Oggi: compiti e quiz» (di partenza per la 1INF): per ogni allievo e per ogni voce del giorno (Documento su Classroom e quiz su Moduli, ore 4-5-6) lo stato (fatto / manca / in correzione / non disponibile), dove deve andare adesso e l'ultimo segnale. NESSUNA voce e scritta nella pagina: le colonne, gli orari e gli stati vengono da dati/<CLASSE>-oggi.json (lo scrive strumenti/aggiorna_oggi_dati.py dal foglio Fabbrica; l'elenco atteso e in strumenti/oggi-<CLASSE>-config.json), quindi si estende a tutti i compiti e i quiz della classe. Ora e fonte di OGNI dato in alto, «DATI VECCHI» oltre 6 minuti sul dato piu vecchio; dove il foglio non da il dato (Documento non ancora letto, voti dei Documenti) la cella dice «n.d.» e la ragione e scritta in pagina; presenze non lette: spunta «Assente». Il numero dell'ora nei quiz con id -oraN- (non solo -oraNd) ora e riconosciuto da «Quiz e voti»: un quiz di un'ora non ancora finita non conta come non fatto. Prima, 2.9 (13/11/2026): NUOVA VISTA «Sicurezza» per 1INF e 2INF (docente, 13/11/2026: «voglio un cruscotto funzionante per la sicurezza»). Legge dati/<CLASSE>-sicurezza.csv e dati/sicurezza-link.json (li scrive strumenti/aggiorna_sicurezza_dati.py, privacy bloccante, solo «Nome I.») e dati/meta.json; link diretto ?classe=2INF&vista=sicurezza. Per ogni presente: le ore 1-6 con 6A e 6B (miglior tentativo in %, soglia 80%), che cosa gli manca, bottone al Modulo, ultimo invio e da quanto; 6A e 6B con domande aperte: «in correzione» finche' non sono corrette; assenti con la spunta «Assente» (solo nel browser, come in «Quiz e voti»); ora del dato in alto e «DATI VECCHI» oltre 6 minuti. Prima, 2.8 (12/11/2026): la vista di partenza e «Quiz e voti» per 1INF, 2INF e 3INF (le classi con il file dati/<CLASSE>-situazione.csv; prima solo 2INF: la 1INF e la 3INF aprivano «Consegne» con «In attesa dei dati»); 4TI resta «Consegne» (nessun file). Prima, 2.7 (12/11/2026): NUOVA FORMULA DEL VOTO PROPOSTO (decisione del docente, 12/11/2026: «Il quiz non fatto conta 40 se il ragazzo era presente; se assente non c'e' voto»): media dei quiz di tutte le ore del giorno per chi era PRESENTE; quiz fatto = 40 + 40 x percentuale, quiz non fatto = 40 (0% = 40); un'ora non ancora finita non conta ancora; chi e' assente non ha voto («assente: recupera», blu, niente numero); il voto e' PROVVISORIO finche' ci sono domande aperte non corrette, risposte da abbinare o ore non finite; i quiz di altre date non contano (tolte le spunte «Conta»); i voti dei docenti non sono in questa pagina (R1). Assenti del giorno: restano SOLO nel browser (R1: le presenze non stanno nel repository pubblico); oltre alla spunta «Assente» si segnano aprendo il link con il frammento #assenti=Nome I.|Altro N. (non va al server). «Da recuperare» conta per ogni assente i compiti e i quiz del giorno che non ha fatto e la sua riga dice «Assente: recupera N compiti e N quiz». Prima, 2.6 (12/11/2026): tolta la scritta «letto alle» sotto ogni quiz (era l'ora piu' vecchia tra le versioni del quiz e non l'ora del dato: ingannava; l'ora vera del dato e' in alto); «Presenti» dice che sono tutti gli allievi dell'elenco finche' non si spunta «Assente». Prima, 2.5 (12/11/2026): i dati si vedono SENZA gesti del docente: se nel browser non c'e' un link «Pubblica sul web», la pagina legge i file dati/<CLASSE>-situazione.csv e dati/<CLASSE>-consegne.csv (copie delle schede pubbliche «Situazione pubblica» e «Consegne pubblica», solo «Nome I.», nessuna email; li scrive strumenti/aggiorna_cruscotto_dati.py con controllo privacy bloccante) e scrive in alto «Dati aggiornati dall'assistente alle HH:MM (non in tempo reale)» con l'ora vera dell'export (dati/meta.json); un link salvato ha la precedenza (tempo reale) e, se non risponde, si torna ai file; «DATI VECCHI» oltre 6 minuti dal dato. Formato nuovo con TRE colori a significato fisso e legenda in alto: VERDE = fatto, a posto; ROSSO = manca, serve il docente, fuori compito; BLU = in corso, informazione, da recuperare (assenti compresi). Quattro numeri grandi (compiti consegnati, quiz fatti, mancanti, da recuperare), tabella a schede su telefono, assenti sempre in tabella (blu), ora di un'ora non ancora iniziata = blu «non ancora», voto sempre «provvisorio». Prima, 2.4 (12/11/2026): selettore «Ora 1 · Ora 2 · Ora 3 · Tutte» per la 2INF. 2.3: compiti consegnati dalla scheda «Consegne pubblica 2INF». 2.2: MANCA e NON ABBINATA. 2.1: scheda «Situazione pubblica» solo «Nome I.». 2.0: vista «Quiz e voti» (voto proposto 40-80 col conto, R8.3; DATI VECCHI oltre 6 minuti, R8.4; «Serve te», R8.7). 1.x: viste Consegne e Git. -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -73,6 +73,8 @@ td.voto{text-align:center;min-width:150px}
 .bt{display:inline-block;background:var(--b);color:#fff;text-decoration:none;font-weight:bold;padding:8px 12px;border-radius:8px;margin:2px 4px 2px 0}
 .sub{display:block;font-size:12px;color:var(--muted)}
 .assente-tag{margin-left:6px;font-size:12px;min-width:0;padding:2px 6px}
+tr.sep td{background:var(--card);font-size:19px;font-weight:bold;border-left:12px solid var(--c);padding:10px 12px}
+tr.sep td small{display:block;font-weight:normal;font-size:14px;color:var(--muted)}
 :focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
 @media (max-width:900px){.kpi{grid-template-columns:repeat(2,1fr)}.kpi .n{font-size:40px}}
 @media (max-width:760px){
@@ -86,6 +88,9 @@ td.voto{text-align:center;min-width:150px}
   table.schede td{border:0;border-bottom:1px solid var(--line);padding:8px 12px;display:flex;gap:10px;justify-content:space-between;align-items:center;text-align:left}
   table.schede td:last-child{border-bottom:0}
   table.schede td::before{content:attr(data-label);font-weight:bold;font-size:13px;color:var(--muted);flex:0 0 38%;max-width:38%}
+  table.schede tr.sep{border:0;border-left:12px solid var(--c);border-radius:6px;margin:14px 0 8px}
+  table.schede tr.sep td{display:block;border:0;padding:10px 12px}
+  table.schede tr.sep td::before{display:none}
   table.schede td.nome{border-left:0;font-size:19px;background:var(--card)}
   table.schede td.nome::before{display:none}
   table.schede td.voto{text-align:left;display:block}
@@ -138,15 +143,16 @@ td.voto{text-align:center;min-width:150px}
 <div class="barra ore" id="ore" style="display:none"></div>
 <div class="kpi" id="kpi"></div>
 <div class="riep" id="riep"></div>
+<div class="riep" id="presInfo"></div>
 <div class="regola" id="regola"></div>
 <div class="conta" id="conta"></div>
 <div class="sit" id="sitbar"><button class="ordine" id="ordine" type="button" style="font-size:14px;padding:6px 10px;border:1px solid var(--b);border-radius:6px;background:var(--card);color:var(--fg);cursor:pointer"></button></div>
 <div class="scroll"><table id="tab"><thead></thead><tbody></tbody></table></div>
-<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». Se sopra c&#8217;è scritto «dati aggiornati dall&#8217;assistente», i dati sono una copia salvata a quell&#8217;ora e non cambiano da soli; con i link «Tempo reale» si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: le schede pubbliche hanno già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque; i nomi non si salvano. La spunta «Assente» resta salvata solo in questo browser e vale per oggi (le presenze non stanno nei dati pubblici). <b>Voto proposto</b>: media dei quiz di tutte le ore del giorno, per chi era presente; un quiz fatto vale 40 + 40 × percentuale, un quiz non fatto vale 40 (0%); chi era assente non ha voto («assente: recupera»); i quiz di altre date non contano. È provvisorio (*) finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. I voti dei docenti non sono in questa pagina. Il voto finale lo decide il docente. <b>Compiti</b> (solo 2INF): dalla scheda «Consegne pubblica»; CONSEGNATO e RICONSEGNATO sono consegnati. <b>Ora (solo 2INF)</b>: «Ora 1 · Ora 2 · Ora 3 · Tutte» (8-9, 9-10, 10-11, ora italiana); di partenza c&#8217;è l&#8217;ora in corso. Una cosa di un&#8217;ora non ancora iniziata è blu «non ancora» e non conta come mancante; il quiz di fine ora, durante quell&#8217;ora, è blu «in corso». <b>I quattro numeri</b> contano solo i presenti, tranne «Da recuperare», che conta ciò che manca agli assenti.</div>
-<div class="nota" id="notaSic" style="display:none">Vista «Sicurezza». Dati: scheda «Sicurezza pubblica» del foglio Fabbrica e risposte dei Moduli, copiati dall&#8217;assistente (non in tempo reale: l&#8217;ora del dato è in alto; oltre 6 minuti compare «DATI VECCHI»). Questa pagina non contiene nomi: solo «Nome I.», senza email. <b>Soglia 80%</b> sul miglior tentativo. <b>n.d.</b> = dato non importato (non conta né come fatto né come mancante). <b>6A e 6B con domande aperte</b>: le chiuse le corregge Moduli, le 2 aperte le corregge l&#8217;assistente; finché non sono corrette la cella dice «in correzione» e non conta né come fatta né come da rifare (se anche con le aperte al massimo non si arriva a 10 punti su 12, dice «da rifare»). <b>Ore 1-4 della 2INF</b>: dal registro dei quiz del docente (la data dell&#8217;ultimo invio è nella riga «Il dato viene da»); l&#8217;ora 5 della 2INF non ha ancora un dato. <b>Assente</b>: la spunta resta solo in questo browser e vale per oggi; chi è assente non ha obblighi (blu). I voti dei docenti non sono in questa pagina.</div>
-<div class="nota" id="notaOggi" style="display:none">Vista «Oggi: compiti e quiz». Le colonne, gli orari e gli stati vengono dal file <code>dati/&lt;CLASSE&gt;-oggi.json</code> (scritto dall&#8217;assistente dal foglio Fabbrica, non in tempo reale): in alto ci sono l&#8217;ora di ogni fonte e, oltre 6 minuti, «DATI VECCHI». Questa pagina non contiene nomi: solo «Nome I.», senza email. Le presenze di oggi non sono nei dati: spunta «Assente» per chi non c&#8217;è (la spunta resta solo in questo browser). Il voto finale lo decide il docente.</div>
+<div class="nota" id="notaSit" style="display:none">Vista «Quiz e voti». Se sopra c&#8217;è scritto «dati aggiornati dall&#8217;assistente», i dati sono una copia salvata a quell&#8217;ora e non cambiano da soli; con i link «Tempo reale» si aggiornano ogni 30 secondi. Questa pagina non contiene nomi: le schede pubbliche hanno già solo «Nome I.», senza email, e se arrivasse un nome intero la pagina lo accorcia comunque; i nomi non si salvano. Le presenze vengono dal registro (file <code>dati/&lt;CLASSE&gt;-presenze.json</code>, solo «Nome I.») e mettono i presenti prima, in ordine alfabetico, poi gli assenti; la spunta «Assente» le corregge solo in questo browser e vale per oggi. <b>Voto proposto</b>: media dei quiz di tutte le ore del giorno, per chi era presente; un quiz fatto vale 40 + 40 × percentuale, un quiz non fatto vale 40 (0%); chi era assente non ha voto («assente: recupera»); i quiz di altre date non contano. È provvisorio (*) finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. I voti dei docenti non sono in questa pagina. Il voto finale lo decide il docente. <b>Compiti</b> (solo 2INF): dalla scheda «Consegne pubblica»; CONSEGNATO e RICONSEGNATO sono consegnati. <b>Ora (solo 2INF)</b>: «Ora 1 · Ora 2 · Ora 3 · Tutte» (8-9, 9-10, 10-11, ora italiana); di partenza c&#8217;è l&#8217;ora in corso. Una cosa di un&#8217;ora non ancora iniziata è blu «non ancora» e non conta come mancante; il quiz di fine ora, durante quell&#8217;ora, è blu «in corso». <b>I quattro numeri</b> contano solo i presenti, tranne «Da recuperare», che conta ciò che manca agli assenti.</div>
+<div class="nota" id="notaSic" style="display:none">Vista «Sicurezza». Dati: scheda «Sicurezza pubblica» del foglio Fabbrica e risposte dei Moduli, copiati dall&#8217;assistente (non in tempo reale: l&#8217;ora del dato è in alto; oltre 6 minuti compare «DATI VECCHI»). Questa pagina non contiene nomi: solo «Nome I.», senza email. <b>Soglia 80%</b> sul miglior tentativo. <b>n.d.</b> = dato non importato (non conta né come fatto né come mancante). <b>6A e 6B con domande aperte</b>: le chiuse le corregge Moduli, le 2 aperte le corregge l&#8217;assistente; finché non sono corrette la cella dice «in correzione» e non conta né come fatta né come da rifare (se anche con le aperte al massimo non si arriva a 10 punti su 12, dice «da rifare»). <b>Ore 1-4 della 2INF</b>: dal registro dei quiz del docente (la data dell&#8217;ultimo invio è nella riga «Il dato viene da»); l&#8217;ora 5 della 2INF non ha ancora un dato. <b>Assente</b>: i presenti vengono dal registro (<code>dati/&lt;CLASSE&gt;-presenze.json</code>, solo «Nome I.»); la spunta le corregge solo in questo browser e vale per oggi; gli assenti stanno in fondo, in blu, e recuperano quello che manca. I voti dei docenti non sono in questa pagina.</div>
+<div class="nota" id="notaOggi" style="display:none">Vista «Oggi: compiti e quiz». Le colonne, gli orari e gli stati vengono dal file <code>dati/&lt;CLASSE&gt;-oggi.json</code> (scritto dall&#8217;assistente dal foglio Fabbrica, non in tempo reale): in alto ci sono l&#8217;ora di ogni fonte e, oltre 6 minuti, «DATI VECCHI». Questa pagina non contiene nomi: solo «Nome I.», senza email. Le presenze di oggi vengono dal registro DIDAweb (file <code>dati/&lt;CLASSE&gt;-presenze.json</code>, solo «Nome I.», copiate dall&#8217;assistente): i presenti stanno prima, in ordine alfabetico come nel registro, poi gli assenti nel blocco «Assenti: da recuperare». Se manca il file, spunta «Assente» per chi non c&#8217;è (la spunta resta solo in questo browser). Il voto finale lo decide il docente.</div>
 <div class="nota" id="notaVecchia">Questa pagina non contiene nomi. I link restano salvati solo in questo browser. I colori hanno sempre lo stesso significato: VERDE = fatto, a posto · ROSSO = manca, serve il docente · BLU = in corso, informazione, da recuperare.</div>
-<div class="nota">Versione 3.0 · 13/11/2026</div>
+<div class="nota">Versione 3.1 · 13/11/2026</div>
 <script>
 (function () {
   'use strict';
@@ -268,7 +274,7 @@ td.voto{text-align:center;min-width:150px}
     $('conta').innerHTML = ''; $('kpi').innerHTML = ''; $('kpi').style.display = 'none';
     $('tab').querySelector('thead').innerHTML = ''; $('tab').querySelector('tbody').innerHTML = '';
     $('serve').style.display = 'none'; $('vecchi').style.display = 'none'; $('sorgente').textContent = '';
-    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('ore').style.display = 'none'; $('regola').style.display = 'none'; $('notaSic').style.display = 'none'; $('notaOggi').style.display = 'none';
+    $('crit').style.display = 'none'; $('sitbar').style.display = 'none'; $('riep').style.display = 'none'; $('presInfo').style.display = 'none'; $('ore').style.display = 'none'; $('regola').style.display = 'none'; $('notaSic').style.display = 'none'; $('notaOggi').style.display = 'none';
   }
   function vuota() {
     azzera(); $('dato').textContent = 'In attesa dei dati';
@@ -298,7 +304,80 @@ td.voto{text-align:center;min-width:150px}
   }
   function hash(s) { var h = 5381; s = String(s).toUpperCase(); for (var i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return 'h' + (h >>> 0).toString(36); }
 
-  /* ---------- assenti del giorno: SOLO nel browser (R1: le presenze non stanno nel repository pubblico) ----------
+  /* ---------- presenze del giorno (v3.1): dati/<CLASSE>-presenze.json, solo «Nome I.» (la presenza e un dato pubblico, 13/11/2026) ---------- */
+  var PRES = {};
+  function nomeVista(lab) { var m = window.CRUSCOTTO_NOMI; return (m && m[String(lab).toUpperCase()]) || lab; }   /* gancio della versione del docente nel riservato; nel pubblico resta «Nome I.» */
+  function giornoDm(iso) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || ''); return m ? m[3] + '/' + m[2] : ''; }
+  function leggiPresenze(c) {
+    return fetch(senzaCache('dati/' + c + '-presenze.json'), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }).then(function (P) {
+      if (!P || !Array.isArray(P.ordine) || !Array.isArray(P.presenti) || !Array.isArray(P.assenti)) { PRES[c] = null; return null; }
+      P.idx = {}; P.ordine.forEach(function (n, i) { P.idx[String(n).toUpperCase()] = i; });
+      P.oggi = giornoDm(P.giorno) === oggiStr();
+      if (P.oggi) {   /* una presenza nuova (ora diversa) riscrive la spunta locale; poi la spunta resta correggibile a mano */
+        var mk = 'cruscotto_presenze_ok_' + c + '_' + P.giorno;
+        if (leggi(mk) !== String(P.ora_dato)) { scriviAss(c, P.assenti.map(hash)); scrivi(mk, String(P.ora_dato)); }
+      }
+      PRES[c] = P; return P;
+    });
+  }
+  function haOrd(c) { return !!(PRES[c] && PRES[c].idx); }
+  function cmpReg(c) {
+    var ix = PRES[c].idx;
+    return function (a, b) { var ia = ix[String(a.lab).toUpperCase()], ib = ix[String(b.lab).toUpperCase()]; ia = ia === undefined ? 999 : ia; ib = ib === undefined ? 999 : ib; return ia - ib || (a.lab < b.lab ? -1 : 1); };
+  }
+  /* due titoli nella tabella: «Presenti (N)» e «Assenti: da recuperare (N)», solo se c'e almeno un assente.
+     Chi e nel registro ma non nel foglio (es. non e nell'Elenco della classe) NON sparisce: ha una riga con la nota, nel suo blocco. */
+  function fuoriFoglio(c, rows) {
+    var P = PRES[c], up = {}; if (!P || !P.oggi) return { a: [], p: [] };
+    rows.forEach(function (r) { up[String(r.lab).toUpperCase()] = 1; });
+    var no = function (n) { return !up[String(n).toUpperCase()]; };
+    return { a: P.assenti.filter(no), p: P.presenti.filter(no) };
+  }
+  function blocchi(pres, ass, c) {
+    var P = PRES[c], F = fuoriFoglio(c, pres.concat(ass)), tb = $('tab').querySelector('tbody'), nc = $('tab').querySelectorAll('thead th').length || 8;
+    var nA = ass.length + F.a.length, nP = pres.length + F.p.length;
+    if (!nA || !tb.rows.length) return;
+    for (var i = 0; i < ass.length; i++) {   /* chi era assente non e «mancante»: i rossi MANCA di un conto valido diventano blu «da recuperare» (le colonne «non conta» restano com'e) */
+      var rw = tb.rows[pres.length + i]; if (!rw) continue;
+      [].forEach.call(rw.querySelectorAll('td'), function (td) { if (td.className.indexOf('nome') < 0 && td.textContent.indexOf('non conta') < 0) td.innerHTML = perAssente(td.innerHTML); });
+    }
+    var ix = function (n) { var v = P && P.idx ? P.idx[String(n).toUpperCase()] : undefined; return v === undefined ? 999 : v; };
+    function sintetica(n, assente) {
+      var tr = document.createElement('tr'); tr.className = 'b';
+      var t1 = document.createElement('td'); t1.className = 'nome'; t1.setAttribute('data-label', 'Allievo'); t1.innerHTML = esc(nomeVista(n)) + (assente ? ' <span class="chip b assente-tag">ASSENTE</span>' : '');
+      var t2 = document.createElement('td'); t2.colSpan = Math.max(1, nc - 1); t2.setAttribute('data-label', 'Nota');
+      t2.innerHTML = '<div><b>Non è nell’Elenco del foglio Fabbrica</b>, ma è nel registro (' + (assente ? 'assente' : 'presente') + '): non ho i suoi compiti e i suoi quiz (n.d.). ' + (assente ? 'Da recuperare tutto quello che è assegnato oggi: serve l’assistente per aggiungerlo all’Elenco.' : 'Serve l’assistente per aggiungerlo all’Elenco.') + '</div>';
+      tr.appendChild(t1); tr.appendChild(t2); return tr;
+    }
+    function posiz(list, n) { var k = 0; while (k < list.length && ix(list[k].lab) < ix(n)) k++; return k; }
+    F.a.slice().sort(function (x, y) { return ix(y) - ix(x); }).forEach(function (n) { tb.insertBefore(sintetica(n, true), tb.rows[pres.length + posiz(ass, n)] || null); });
+    F.p.slice().sort(function (x, y) { return ix(y) - ix(x); }).forEach(function (n) { tb.insertBefore(sintetica(n, false), tb.rows[posiz(pres, n)] || null); });
+    function sep(cl, t, sub) { var tr = document.createElement('tr'); tr.className = 'sep ' + cl; var td = document.createElement('td'); td.colSpan = nc; td.innerHTML = '<span>' + t + '</span><small>' + sub + '</small>'; tr.appendChild(td); return tr; }
+    tb.insertBefore(sep('b', 'Assenti: da recuperare (' + nA + ')', 'Anche gli assenti recuperano i compiti e i quiz del giorno: ogni riga dice che cosa gli manca.'), tb.rows[nP] || null);
+    if (nP) tb.insertBefore(sep('v', 'Presenti (' + nP + ')', haOrd(c) ? 'in ordine alfabetico, come nel registro' : 'in ordine di lavoro'), tb.rows[0]);
+  }
+  function mostraPresenze(c, rows) {
+    var P = PRES[c], el = $('presInfo'), t;
+    if (!P) { el.style.display = 'none'; return; }
+    var F = fuoriFoglio(c, rows), fuori = F.a.concat(F.p);
+    if (P.oggi) t = '<b>Presenze dal registro DIDAweb alle ' + esc(P.ora_dato) + '</b>: ' + P.presenti.length + ' presenti e ' + P.assenti.length + ' assenti (copiate dall’assistente, non in tempo reale). La spunta «Assente» le corregge solo in questo browser.';
+    else t = 'Le presenze salvate sono del ' + esc(giornoDm(P.giorno)) + ' alle ' + esc(P.ora_dato) + ': non sono di oggi e non le uso. Spunta «Assente» per chi non c’è.';
+    if (fuori.length) t += ' <b>Non sono nell’elenco del foglio:</b> ' + fuori.map(function (n) { return esc(nomeVista(n)) + (P.assenti.indexOf(n) >= 0 ? ' (assente)' : ' (presente)'); }).join(', ') + ': non so che cosa gli manca, serve l’assistente.';
+    if (F.a.length || F.p.length) { var rp = $('riep'); if (rp.style.display !== 'none') rp.innerHTML += ' · <b>nel registro: ' + P.presenti.length + ' presenti e ' + P.assenti.length + ' assenti</b> (' + fuori.length + ' non ' + (fuori.length === 1 ? 'è' : 'sono') + ' nell’Elenco del foglio)'; }
+    el.innerHTML = t; el.style.display = 'block';
+  }
+  function recuperaTxt(voci, cel) {
+    var l = [];
+    voci.forEach(function (v, i) {
+      var k = cel[i].k, nome = (v.tipo === 'documento' ? 'Documento ora ' : 'quiz ora ') + v.ora;
+      if (k === 'manca' || k === 'dafare') l.push(nome);
+      else if (k === 'attesa' || k === 'na') l.push(nome + ' (appena è assegnato)');
+      else if (k === 'nd') l.push(nome + ' (dato non disponibile)');
+    });
+    return l.length ? 'Da recuperare: ' + l.join(', ') + '.' : 'Niente da recuperare di quello che è assegnato.';
+  }
+
+  /* ---------- assenti del giorno: la spunta «Assente» resta nel browser (correzione a mano; le presenze vere vengono da dati/<CLASSE>-presenze.json) ----------
      Si segnano con la spunta «Assente» oppure aprendo un link con il frammento #assenti=Nome I.|Altro N. (il frammento non va al server);
      di partenza il link li scrive nel browser e poi la spunta resta modificabile. */
   var memAss = {};
@@ -487,6 +566,7 @@ td.voto{text-align:center;min-width:150px}
   }
 
   /* ---------- pezzi di tabella ---------- */
+  function perAssente(h) { return h.replace(/<span class="chip r">✗ (?:MANCA|manca)<\/span>/g, '<span class="chip b">● da recuperare</span> <small>era assente</small>').replace(/class="manca">✗ /g, 'class="sub">● '); }
   function chipQ(c) {
     var x = c.x;
     if (!x) return chip('b', SIMB.b + 'non letto');
@@ -527,10 +607,10 @@ td.voto{text-align:center;min-width:150px}
     ass.forEach(function (r) { r.cas.forEach(function (c) { if (c.st === 'manca') { rec++; if (c.k === 'c') recC++; else recQ++; } }); });
     function k(cl, n, su, t, s) { return '<div class="k ' + cl + '"><div class="n">' + n + (su ? '<small> su ' + su + '</small>' : '') + '</div><div class="t">' + t + '</div><div class="s">' + s + '</div></div>'; }
     $('kpi').innerHTML =
-      k('v', haC ? cF : '–', haC ? cT : '', 'Compiti consegnati', haC ? 'dei presenti' : 'scheda compiti non letta') +
+      k('v', haC ? cF : '–', haC ? cT : '', 'Compiti consegnati', haC ? 'dei presenti' : (OGGI_CLASSI.indexOf(statoCorr.classe) >= 0 ? 'i Documenti sono nella vista «Oggi: compiti e quiz»' : 'scheda compiti non letta')) +
       k('v', haQ ? qF : '–', haQ ? qT : '', 'Quiz fatti', haQ ? 'dei presenti' : 'nessun quiz di questa ora') +
-      k('r', man, '', 'Mancanti', manC + (manC === 1 ? ' compito' : ' compiti') + ' e ' + manQ + (manQ === 1 ? ' quiz' : ' quiz') + ' dei presenti') +
-      k('b', rec, '', 'Da recuperare', (ass.length ? ass.length + (ass.length === 1 ? ' assente: ' : ' assenti: ') + recC + (recC === 1 ? ' compito' : ' compiti') + ' e ' + recQ + (recQ === 1 ? ' quiz' : ' quiz') + ' da recuperare' : 'nessun assente segnato'));
+      k('r', man, '', 'Mancanti', (haC ? manC + (manC === 1 ? ' compito' : ' compiti') + ' e ' : '') + manQ + ' quiz dei presenti' + (haC ? '' : ' (i Documenti: vista «Oggi»)')) +
+      k('b', rec, '', 'Da recuperare', (ass.length ? ass.length + (ass.length === 1 ? ' assente: ' : ' assenti: ') + (haC ? recC + (recC === 1 ? ' compito' : ' compiti') + ' e ' : '') + recQ + ' quiz da recuperare' + (haC ? '' : ' (i Documenti: vista «Oggi»)') : 'nessun assente segnato'));
     $('kpi').style.display = 'grid';
     return { pres: pres.length, ass: ass.length, nonAbb: nonAbb, attesa: attesa };
   }
@@ -602,7 +682,7 @@ td.voto{text-align:center;min-width:150px}
     if (K.nonAbb) rp.push('da abbinare: ' + K.nonAbb);
     if (K.attesa) rp.push('blu «non ancora» o «in corso», non contati: ' + K.attesa);
     $('riep').innerHTML = rp.join(' · '); $('riep').style.display = 'block';
-    $('regola').innerHTML = '<b>Voto proposto del ' + esc(giornoQuiz(S.quiz)) + '</b> (solo per chi era presente): media dei quiz di tutte le ore del giorno. Quiz fatto = 40 + 40 × percentuale; <b>quiz non fatto = 40</b> (0% = 40); un\u2019ora non ancora finita non conta ancora. <b>Chi era assente non ha voto</b> («assente: recupera», in blu, niente numero): spunta «Assente» per chi non c\u2019era, perché le presenze non sono in questa pagina. Il voto è <b>PROVVISORIO</b> finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. <b>I voti dei docenti non sono in questa pagina</b>: il voto finale lo decide il docente.';
+    $('regola').innerHTML = '<b>Voto proposto del ' + esc(giornoQuiz(S.quiz)) + '</b> (solo per chi era presente): media dei quiz di tutte le ore del giorno. Quiz fatto = 40 + 40 × percentuale; <b>quiz non fatto = 40</b> (0% = 40); un\u2019ora non ancora finita non conta ancora. <b>Chi era assente non ha voto</b> («assente: recupera», in blu, niente numero): gli assenti vengono dal registro (o dalla spunta «Assente»). Il voto è <b>PROVVISORIO</b> finché ci sono domande aperte non corrette, risposte da abbinare o ore non finite. <b>I voti dei docenti non sono in questa pagina</b>: il voto finale lo decide il docente.';
     $('regola').style.display = 'block';
     var pres = rows.filter(function (r) { return !r.assente; }), ass = rows.filter(function (r) { return r.assente; });
     var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; }, vn = function (r) { return r.voto === null ? -1 : r.voto; };
@@ -612,10 +692,11 @@ td.voto{text-align:center;min-width:150px}
       return vn(b) - vn(a) || alf(a, b);
     });
     ass.sort(alf);
+    if (haOrd(c)) { pres.sort(cmpReg(c)); ass.sort(cmpReg(c)); }
     var tutti = pres.concat(ass), tab = $('tab');
     tab.className = 'schede';
-    var cbA = function (r) { return '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.assente ? ' checked' : '') + ' aria-label="Assente: ' + esc(r.lab) + '"></td>'; };
-    var nomeTd = function (r) { return '<td class="nome" data-label="Allievo">' + esc(r.lab) + (r.assente ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>'; };
+    var cbA = function (r) { return '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.assente ? ' checked' : '') + ' aria-label="Assente: ' + esc(nomeVista(r.lab)) + '"></td>'; };
+    var nomeTd = function (r) { return '<td class="nome" data-label="Allievo">' + esc(nomeVista(r.lab)) + (r.assente ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>'; };
     if (ora) {
       tab.querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th><th>Compito Ora ' + ora + (haC ? '<small>' + esc(CC.compiti[ciOra].titolo) + '</small>' : '') + '</th><th>Quiz di fine ora' + (qOra ? '<small>' + esc(qOra.label) + '</small>' : '') + '</th><th>Adesso deve andare a</th></tr>';
       tab.querySelector('tbody').innerHTML = tutti.map(function (r) {
@@ -639,7 +720,8 @@ td.voto{text-align:center;min-width:150px}
           '<td class="voto" data-label="Voto proposto">' + (r.assente ? '<span class="vass">assente: recupera</span><span class="conto">nessun voto: non c\u2019era</span>' : (r.voto === null ? '<span class="vnum">–</span><span class="prov">IN ATTESA</span>' : '<span class="vnum">' + r.voto + (r.prov ? '*' : '') + '</span><span class="prov">' + (r.prov ? 'PROVVISORIO' : 'PROPOSTO') + '</span>' + (r.pct !== null ? '<span class="conto">media quiz ' + r.pct + '%' + (r.prov ? '*' : '') + '</span>' : '')) + (r.prov && r.perche ? '<span class="conto">provvisorio: ' + esc(r.perche) + '</span>' : '') + '<span class="conto">' + esc(r.conto) + '</span>') + '</td></tr>';
       }).join('');
     }
-    $('sitbar').style.display = ora ? 'none' : 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
+    blocchi(pres, ass, c); mostraPresenze(c, rows);
+    $('sitbar').style.display = (ora || haOrd(c)) ? 'none' : 'block'; $('ordine').textContent = ordinePer === 'voto' ? 'Ordine: voto più alto prima. Clicca per: chi ha più da fare prima' : 'Ordine: chi ha più da fare prima. Clicca per: voto più alto prima';
     $('conta').innerHTML = '';
     var crit = S.att.slice();
     if (!S.stud.length) crit.push('ATTENZIONE: nel foglio non ci sono allievi.');
@@ -735,6 +817,7 @@ td.voto{text-align:center;min-width:150px}
     var pres = rows.filter(function (r) { return !r.ass; }), ass = rows.filter(function (r) { return r.ass; });
     var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; }, pr = { r: 0, b: 1, v: 2 };
     pres.sort(function (a, b) { return pr[a.stato] - pr[b.stato] || alf(a, b); }); ass.sort(alf);
+    if (haOrd(c)) { pres.sort(cmpReg(c)); ass.sort(cmpReg(c)); }
     function conta(et, st) { var j = S.ix.indexOf(S.head.indexOf(et)); return j < 0 ? null : pres.filter(function (r) { return r.celle[j].st === st; }).length; }
     var nessuna = pres.filter(function (r) { return !r.haUlt; }).length, inCorr = pres.filter(function (r) { return r.corr.length; }).length;
     function k(cl, n, su, t, s) { return '<div class="k ' + cl + '"><div class="n">' + n + (su ? '<small> su ' + su + '</small>' : '') + '</div><div class="t">' + t + '</div><div class="s">' + s + '</div></div>'; }
@@ -756,12 +839,13 @@ td.voto{text-align:center;min-width:150px}
       }).join('');
       var el = r.manca.concat(r.rif).map(function (et) { return et.replace(/^Ora\s*/, ''); }), manc = (el.length ? '<span class="manca">' + SIMB.r + 'manca: ' + esc(el.join(', ')) + '</span>' : '') + (r.corr.length ? '<span class="sub">' + SIMB.b + esc(r.corr.map(function (et) { return et.replace(/^Ora\s*/, ''); }).join(', ')) + ' in correzione</span>' : '');
       var vai = r.ass ? '<span class="sub">assente: recupera con l’assistente</span>' : (r.vai.length ? r.vai.join('') : (r.corr.length ? 'Aspetta la correzione delle domande aperte' : 'Niente da fare adesso'));
-      return '<tr class="' + r.stato + '"><td class="nome" data-label="Allievo">' + esc(r.lab) + (r.ass ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>' +
-        '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.ass ? ' checked' : '') + ' aria-label="Assente: ' + esc(r.lab) + '"></td>' + cel +
+      return '<tr class="' + r.stato + '"><td class="nome" data-label="Allievo">' + esc(nomeVista(r.lab)) + (r.ass ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>' +
+        '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.ass ? ' checked' : '') + ' aria-label="Assente: ' + esc(nomeVista(r.lab)) + '"></td>' + cel +
         '<td data-label="Fatte · Gli manca" style="min-width:110px"><div>Fatte ' + r.ok + ' su ' + r.noti + (manc ? manc : '<span class="sub">non gli manca niente</span>') + '</div></td>' +
         '<td class="vai" data-label="Adesso deve andare a" style="min-width:150px"><div>' + vai + '</div></td>' +
         '<td data-label="Ultimo invio"><div>' + (r.ass ? '<span class="sub">–</span>' : r.ult) + '</div></td></tr>';
     }).join('');
+    blocchi(pres, ass, c); mostraPresenze(c, rows);
     var s = $('serve'); s.style.display = 'none'; $('crit').style.display = 'none';
   }
   function caricaSic() {
@@ -800,14 +884,14 @@ td.voto{text-align:center;min-width:150px}
     }
     var p = v.ora ? [7 + v.ora, 8 + v.ora] : null, ini = p ? T(p[0] + ':00') : null, fine = p ? T(p[1] + ':00') : null, dQ = ctx.dQ;
     if (s === 'fatto') {
-      return out('fatto', 'v', SIMB.v + st.pct + '%', st.mg + '/' + st.su + ' punti' + (st.versione_precedente ? ' · versione prima' : ''), st.aperte_in_correzione ? '<span class="mini b">● aperte: in correzione</span>' : '');
+      return out('fatto', 'v', SIMB.v + st.pct + '%', st.mg + '/' + st.su + ' punti' + (st.versione_precedente ? ' · versione prima' : '') + (v.nel_post === false ? ' · fatto, ma non è ancora nel post di Classroom' : ''), st.aperte_in_correzione ? '<span class="mini b">● aperte: in correzione</span>' : '');
     }
     if (s === 'manca') {
       if (ini && now < ini) return out('attesa', 'b', SIMB.b + 'non ancora', 'l’ora comincia alle ' + p[0] + ':00');
-      if (fine && dQ && dQ >= fine) return out('manca', 'r', SIMB.r + 'MANCA', 'nessuna risposta (dato delle ' + hm(dQ) + ')');
+      if (fine && dQ && dQ >= fine) return out('manca', 'r', SIMB.r + 'MANCA', 'nessuna risposta abbinata (dato delle ' + hm(dQ) + ')' + (v.risposte_ris_non_abbinate ? ' · ' + v.risposte_ris_non_abbinate + (v.risposte_ris_non_abbinate === 1 ? ' risposta di Moduli non è abbinata a nessuno: può essere di uno dei MANCA' : ' risposte di Moduli non sono abbinate a nessuno: possono essere di uno dei MANCA') : ''));
       return out('dafare', 'b', SIMB.b + 'da fare', 'nessuna risposta finora (dato delle ' + (dQ ? hm(dQ) : '?') + ')');
     }
-    if (s === 'non_assegnato') return out('na', 'b', SIMB.b + 'non ancora nel post', 'il docente lo aggiunge');
+    if (s === 'non_assegnato') return out('na', 'b', SIMB.b + 'non assegnato', 'il quiz dell’ora ' + v.ora + ' non è ancora nel post di Classroom: il docente lo aggiunge');
     if (s === 'non_abbinata') return out('abb', 'b', SIMB.b + 'DA ABBINARE');
     return out('nd', 'b', SIMB.b + 'n.d.', st && st.perche ? st.perche : 'dato non disponibile');
   }
@@ -842,8 +926,8 @@ td.voto{text-align:center;min-width:150px}
     var rows = (J.allievi || []).map(function (a) {
       var r = { lab: a.nome, h: hash(a.nome), assente: assenti.indexOf(hash(a.nome)) >= 0, ult: dataIso(a.ultimo_segnale), cel: [] };
       var n = { fatto: 0, manca: 0, dafare: 0, nd: 0, abb: 0 };
-      voci.forEach(function (v) { var x = oggiCella(v, a.stati && a.stati[v.id], ctx); r.cel.push(x); if (n[x.k] !== undefined) n[x.k]++; });
-      r.n = n; r.vai = r.assente ? '' : oggiVai(voci, r.cel);
+      voci.forEach(function (v) { var x = oggiCella(v, a.stati && a.stati[v.id], ctx); if (r.assente && (x.k === 'manca' || x.k === 'dafare')) x = { k: x.k, cl: 'b', h: chip('b', SIMB.b + 'da recuperare', 'era assente') }; r.cel.push(x); if (n[x.k] !== undefined) n[x.k]++; });
+      r.n = n; r.vai = r.assente ? recuperaTxt(voci, r.cel) : oggiVai(voci, r.cel);
       r.stato = r.assente ? 'b' : (n.manca ? 'r' : (n.fatto && !n.dafare && !n.nd && !n.abb ? 'v' : 'b'));
       return r;
     });
@@ -866,7 +950,7 @@ td.voto{text-align:center;min-width:150px}
       k('r', man, '', 'Mancanti', manD + (manD === 1 ? ' documento' : ' documenti') + ' e ' + manQ + ' quiz dei presenti, con la prova') +
       k('b', recD + recQ, '', 'Da recuperare', ass.length ? ass.length + (ass.length === 1 ? ' assente: ' : ' assenti: ') + recD + (recD === 1 ? ' documento' : ' documenti') + ' e ' + recQ + ' quiz' : 'nessun assente segnato');
     $('kpi').style.display = 'grid';
-    $('riep').innerHTML = '<b>Presenti ' + pres.length + '</b>' + (ass.length ? ' · assenti ' + ass.length : ' <small>(sono tutti gli allievi dell’elenco: le presenze di oggi non sono nei dati; spunta «Assente» per chi non c’è)</small>') + (ndN ? ' · caselle senza dato (n.d.): ' + ndN : '');
+    $('riep').innerHTML = '<b>Presenti ' + pres.length + '</b>' + (ass.length ? ' · assenti ' + ass.length : ' <small>(non ho le presenze di oggi: sono tutti gli allievi dell’elenco; spunta «Assente» per chi non c’è)</small>') + (ndN ? ' · caselle senza dato (n.d.): ' + ndN : '');
     $('riep').style.display = 'block';
     var nd = voci.filter(function (v) { return v.nd_motivo; });
     $('regola').innerHTML = '<b>Che cosa leggo e che cosa no.</b><ul style="margin:6px 0 0;padding-left:20px">' +
@@ -877,26 +961,28 @@ td.voto{text-align:center;min-width:150px}
     $('regola').style.display = 'block';
     var alf = function (a, b) { return a.lab < b.lab ? -1 : 1; }, pr = { r: 0, b: 1, v: 2 };
     pres.sort(function (a, b) { return pr[a.stato] - pr[b.stato] || b.n.manca - a.n.manca || alf(a, b); }); ass.sort(alf);
+    if (haOrd(c)) { pres.sort(cmpReg(c)); ass.sort(cmpReg(c)); }
     var tutti = pres.concat(ass), tab = $('tab');
     var et = function (v) { return 'Ora ' + v.ora + ' · ' + (v.tipo === 'documento' ? 'Documento' : 'Quiz'); };
     tab.querySelector('thead').innerHTML = '<tr><th>Allievo</th><th>Assente</th><th>Adesso deve andare a</th>' + voci.map(function (v) {
-      return '<th title="' + esc(v.titolo) + '">' + esc(et(v)) + '<small>' + (v.tipo === 'documento' ? (v.scadenza ? 'entro ' + esc(v.scadenza) : 'Classroom') : (v.nel_post === false ? 'non ancora nel post' : 'Moduli')) + '</small></th>';
+      return '<th title="' + esc(v.titolo) + '">' + esc(et(v)) + '<small>' + (v.tipo === 'documento' ? (v.scadenza ? 'entro ' + esc(v.scadenza) : 'Classroom') : (v.nel_post === false ? 'non ancora nel post di Classroom' : 'Moduli, nel post')) + '</small></th>';
     }).join('') + '<th>Ha fatto · Gli manca</th><th>Ultimo segnale<small>ultimo invio di un quiz</small></th></tr>';
     tab.querySelector('tbody').innerHTML = tutti.map(function (r) {
       var cel = r.cel.map(function (x, j) { return '<td data-label="' + esc(et(voci[j])) + '"><div>' + x.h + '</div></td>'; }).join('');
       var fatti = r.n.fatto, tot = r.n.fatto + r.n.manca + r.n.dafare;
-      var manca = r.cel.map(function (x, j) { return x.k === 'manca' || x.k === 'dafare' ? '<span class="' + (x.k === 'manca' ? 'manca' : 'sub') + '">' + (x.k === 'manca' ? SIMB.r : SIMB.b) + esc(voci[j].tipo === 'documento' ? 'Documento ora ' + voci[j].ora : 'quiz ora ' + voci[j].ora) + '</span>' : ''; }).join('');
+      var manca = r.cel.map(function (x, j) { return x.k === 'manca' || x.k === 'dafare' ? '<span class="' + (x.k === 'manca' && !r.assente ? 'manca' : 'sub') + '">' + (x.k === 'manca' && !r.assente ? SIMB.r : SIMB.b) + esc(voci[j].tipo === 'documento' ? 'Documento ora ' + voci[j].ora : 'quiz ora ' + voci[j].ora) + '</span>' : ''; }).join('');
       var ult;
       if (r.assente) ult = '<span class="sub">–</span>';
       else if (r.ult) { var min = (now - r.ult) / 60000; ult = hm(r.ult) + '<small> (' + (min < 1 ? 'adesso' : durata(min) + ' fa') + ')</small>'; }
       else ult = '<span class="sub">nessun invio di quiz</span>';
-      var vai = r.assente ? '<span class="sub">assente: recupera</span>' : esc(r.vai);
-      return '<tr class="' + r.stato + '"><td class="nome" data-label="Allievo">' + esc(r.lab) + (r.assente ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>' +
-        '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.assente ? ' checked' : '') + ' aria-label="Assente: ' + esc(r.lab) + '"></td>' +
+      var vai = esc(r.vai);
+      return '<tr class="' + r.stato + '"><td class="nome" data-label="Allievo">' + esc(nomeVista(r.lab)) + (r.assente ? ' <span class="chip b assente-tag">ASSENTE</span>' : '') + '</td>' +
+        '<td data-label="Assente"><input type="checkbox" data-a="' + r.h + '"' + (r.assente ? ' checked' : '') + ' aria-label="Assente: ' + esc(nomeVista(r.lab)) + '"></td>' +
         '<td class="vai" data-label="Adesso deve andare a"><div>' + vai + '</div></td>' + cel +
         '<td data-label="Ha fatto · Gli manca"><div>Ha fatto ' + fatti + ' su ' + tot + (manca || '<span class="sub">non gli manca niente di assegnato</span>') + '</div></td>' +
         '<td data-label="Ultimo segnale"><div>' + ult + '</div></td></tr>';
     }).join('');
+    blocchi(pres, ass, c); mostraPresenze(c, rows);
     var crit = [];
     voci.forEach(function (v, j) {
       if (v.tipo !== 'documento') return;
@@ -929,7 +1015,8 @@ td.voto{text-align:center;min-width:150px}
   function leggiMeta() {
     return fetch(senzaCache('dati/meta.json'), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }).catch(function () { return null; });
   }
-  function carica() {
+  function carica() { var c0 = statoCorr.classe; return leggiPresenze(c0).then(function () { if (c0 === statoCorr.classe) caricaDati(); }); }
+  function caricaDati() {
     if (statoCorr.vista === 'sicurezza') { $('cfgbox').style.display = 'none'; $('tr').style.display = 'none'; return caricaSic(); }
     if (statoCorr.vista === 'oggi') { $('cfgbox').style.display = 'none'; $('tr').style.display = 'none'; return caricaOggi(); }
     var c = statoCorr.classe, v = statoCorr.vista, mio = ++corsa, u = leggi(chiave(c, v));
@@ -1014,7 +1101,7 @@ td.voto{text-align:center;min-width:150px}
     $('url').value = r.url; scrivi(chiave(statoCorr.classe, statoCorr.vista), r.url); $('msg').textContent = ''; carica();
   };
   var q = (location.search.match(/[?&]classe=([^&]+)/) || [])[1];
-  q = q ? decodeURIComponent(q).toUpperCase() : leggi('cruscotto_ultima_classe');
+  q = window.CRUSCOTTO_CLASSE_INIZIALE || (q ? decodeURIComponent(q).toUpperCase() : leggi('cruscotto_ultima_classe'));
   var qv = (location.search.match(/[?&]vista=([a-z]+)/) || [])[1];
   scegli(CLASSI.indexOf(q) >= 0 ? q : '3INF', qv === 'situazione' || qv === 'consegne' || qv === 'git' || qv === 'sicurezza' || qv === 'oggi' ? qv : null);
   setInterval(carica, 30000);

@@ -1,6 +1,6 @@
 # 00 Il cruscotto dal vivo del docente
 
-**Versione 2.2** — 13/11/2026 (v2.2: vista «Oggi: compiti e quiz» per la 1INF, comando unico di refresh, «Obiettivo a tendere»; prima 2.1, vista «Sicurezza»; 2.0, 12/11/2026) · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
+**Versione 2.3** — 13/11/2026 (v2.3: `docs/cruscotto/` v3.1: presenti prima in ordine alfabetico del registro, poi il blocco «Assenti: da recuperare» con che cosa manca a ciascuno; presenze dal registro in `dati/<CLASSE>-presenze.json` (solo «Nome I.», la presenza è un dato pubblico); chi è nel registro ma non nel foglio compare con una nota; versione del docente con COGNOME Nome come HTML autonomo nel riservato `cruscotti/`, prodotta dal comando di refresh; v2.2: vista «Oggi: compiti e quiz» per la 1INF, comando unico di refresh, «Obiettivo a tendere»; prima 2.1, vista «Sicurezza»; 2.0, 12/11/2026) · Area Docente · Il laboratorio di informatica secondo le idee di Nicola Regge
 
 *Il framework nato e provato in classe con la 3INF il 19/10/2026 (lezione «Il mio sito diventa il mio portfolio», 18 allievi, 8:00-10:50). Una sola pagina dice al docente, per ogni allievo, che cosa sta facendo, che cosa ha fatto, che cosa gli manca e quanto vale. Il docente non controlla le pagine: guarda il cruscotto, va di persona da chi è fermo e dà a Claude le correzioni. Senza nomi di allievi.*
 

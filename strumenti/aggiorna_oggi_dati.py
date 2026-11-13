@@ -25,6 +25,7 @@ Uso:
     python3 -I strumenti/aggiorna_oggi_dati.py FABBRICA.xlsx [CLASSE] [--esportato 2026-11-13T12:05:00+01:00]
 CLASSE di partenza: 1INF. Config: strumenti/oggi-<CLASSE>-config.json.
 """
+import csv
 import datetime
 import json
 import os
@@ -153,7 +154,7 @@ def main(argv):
             colq[pz[2].strip()] = i
     stud_p = []
     for r in rp[hp + 1:]:
-        if r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
+        if not r or r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
             break
         r = r + [""] * (len(rp[hp]) - len(r))
         stud_p.append(r)
@@ -163,7 +164,7 @@ def main(argv):
     hd = trova_testa(rd)
     stud_d = []
     for r in rd[hd + 1:]:
-        if r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
+        if not r or r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
             break
         stud_d.append(r)
     if len(stud_d) != len(stud_p):
@@ -191,7 +192,7 @@ def main(argv):
             cons_cols.append({"col": i, "titolo": str(h).strip(), "giorno": "%d/%d" % (int(m.group(1)), int(m.group(2))), "ora": int(m.group(3))})
     cons = {}
     for r in rc[hc + 1:]:
-        if r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
+        if not r or r[0].strip() not in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO"):
             break
         cons[nk(r[1])] = r + [""] * (len(rc[hc]) - len(r))
     g_norm = "%d/%d" % tuple(int(x) for x in giorno.split("/"))
@@ -228,6 +229,7 @@ def main(argv):
                 if len(r) > ci_a and "@" in r[ci_e] and nk(r[ci_a]) in cognome_a_breve:
                     email_a_nome[r[ci_e].strip().lower()] = cognome_a_breve[nk(r[ci_a])]
     ultimo = {}
+    ris_resp = {}   # id voce -> {«Nome I.»: {mg, su, aperte}}: risposte del foglio «Ris» abbinate a un allievo (controllo incrociato con «Situazione pubblica»)
     for v in voci:
         if v["tipo"] != "quiz":
             continue
@@ -252,6 +254,11 @@ def main(argv):
                 non_abb += 1
             elif quando and (nome not in ultimo or quando > ultimo[nome]):
                 ultimo[nome] = quando
+            if nome is not None:
+                try:
+                    ris_resp.setdefault(v["id"], {})[nome] = {"mg": int(float(r[1])), "su": int(float(r[2])), "aperte": int(float(r[5] or 0)) if len(r) > 5 else 0}
+                except (TypeError, ValueError):
+                    pass
         v["risposte_ris"] = n
         v["risposte_ris_non_abbinate"] = non_abb
 
@@ -273,7 +280,7 @@ def main(argv):
                                   else "la colonna di questo compito non c'e' nel foglio «Consegne %s» (letto alle %s)" % (classe, dato_doc.strftime("%H:%M:%S") if dato_doc else "?"))
             o["voto_nd"] = "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato"
         else:
-            o.update({"nel_post": v.get("nel_post"), "quiz_id": v["quiz_id"], "fonte": "Situazione pubblica " + classe, "dato": iso(dato_quiz), "risposte_ris": v.get("risposte_ris"),
+            o.update({"nel_post": v.get("nel_post"), "quiz_id": v["quiz_id"], "fonte": "Situazione pubblica " + classe, "dato": iso(dato_quiz), "risposte_ris": v.get("risposte_ris"), "risposte_ris_non_abbinate": v.get("risposte_ris_non_abbinate"),
                       "colonna_foglio": "presente" if v["_col"] is not None else None})
             if v["_col"] is None:
                 o["nd_motivo"] = "il quiz non e' una colonna della «Situazione pubblica %s»" % classe
@@ -297,6 +304,9 @@ def main(argv):
                     stati[v["id"]] = {"s": "nd"}
                 else:
                     st = parse_cella_quiz(r_p[v["_col"]])
+                    rr = ris_resp.get(v["id"], {}).get(nome)
+                    if st["s"] == "manca" and rr and rr["su"]:   # «Situazione pubblica» dice MANCA ma il foglio «Ris» ha la sua risposta: vale la risposta (non e' mancante)
+                        st = {"s": "fatto", "pct": int(round(100.0 * rr["mg"] / rr["su"])), "mg": rr["mg"], "su": rr["su"], "aperte_in_correzione": rr["aperte"] > 0, "versione_precedente": False, "da_ris": True}
                     if st["s"] == "manca" and v.get("nel_post") is False:
                         st = {"s": "non_assegnato"}
                     elif st["s"] == "manca" and v.get("nel_post") is None:
@@ -317,7 +327,7 @@ def main(argv):
             "ultimo_giro_motore": motore,
         },
         "config": {"fonte": cfg.get("fonte_config"), "file": "strumenti/oggi-%s-config.json" % classe},
-        "presenze": "non lette: nessuna fonte di oggi (registro, Veyon). Sono elencati tutti gli allievi del foglio; per gli assenti usa la spunta «Assente».",
+        "presenze": "dal registro DIDAweb: vedi dati/<CLASSE>-presenze.json (solo Nome I., scritto da strumenti/aggiorna_presenze_dati.py). Veyon di oggi: non letto.",
         "ultimo_segnale_fonte": "solo l'ultimo invio di un quiz del giorno (Moduli). Non c'e' Veyon di oggi ne' l'ora delle consegne dei Documenti",
         "n_allievi": len(righe_out),
         "voci": out_voci, "allievi": righe_out,
@@ -352,6 +362,30 @@ def main(argv):
             f.write("\n")
     except Exception as e:  # noqa: BLE001
         print("meta.json non aggiornato (%s)" % str(e)[:60])
+    # coerenza con la vista «Quiz e voti»: la sua copia della «Situazione pubblica» (CSV) dice MANCA dove il foglio «Ris» ha la risposta
+    # abbinata di un quiz di oggi: nella copia la cella diventa «NN% (punti/totale)», come nella vista «Oggi» (stessa fonte, stesso numero)
+    cp = os.path.join(DEST, "%s-situazione.csv" % classe)
+    if os.path.exists(cp) and ris_resp:
+        with open(cp, encoding="utf-8", newline="") as f:
+            rr = list(csv.reader(f))
+        hh = trova_testa(rr)
+        if hh is not None:
+            tocc = 0
+            for v in voci:
+                if v["tipo"] != "quiz" or v["id"] not in ris_resp:
+                    continue
+                col = next((i for i, h in enumerate(rr[hh]) if v["quiz_id"] in str(h)), None)
+                if col is None:
+                    continue
+                for r in rr[hh + 1:]:
+                    if len(r) > col and len(r) > 1 and r[col].strip().upper().startswith("MANCA") and r[1].strip() in ris_resp[v["id"]]:
+                        x = ris_resp[v["id"]][r[1].strip()]
+                        if x["su"]:
+                            r[col] = "%d%% (%d/%d)%s" % (int(round(100.0 * x["mg"] / x["su"])), x["mg"], x["su"], " (provv.)" if x["aperte"] else "")
+                            tocc += 1
+            if tocc:
+                base.scrivi_csv(cp, rr)
+                print("  %s-situazione.csv: %d celle MANCA -> risposta letta nella scheda Ris (stessa fonte della vista Oggi)" % (classe, tocc))
     print("%s oggi: scritto %s (%d allievi, %d voci)" % (classe, dest, len(righe_out), len(out_voci)))
     print("  quiz dato %s · documenti dato %s · motore %s · esportato %s" % (iso(dato_quiz), iso(dato_doc), motore, iso(esportato)))
     for v in out_voci:
