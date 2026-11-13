@@ -30,6 +30,9 @@ def inline(t):
 out, righe, i = [], md.split("\n"), 0
 while i < len(righe):
     r = righe[i]
+    if r.startswith("<!--"):   # riga di commento (versione, changelog, note per il docente): resta nel MD, non va nel PDF
+        while "-->" not in righe[i]: i += 1
+        i += 1; continue
     if r.startswith("```"):
         j = i + 1; c = []
         while not righe[j].startswith("```"): c.append(righe[j]); j += 1
