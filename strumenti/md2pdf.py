@@ -93,7 +93,7 @@ if ARIOSO:  # font grande, margini larghi, poco testo per pagina (le pagine si s
     CSS = """@page{size:A4;margin:13mm 20mm}body{font-family:"DejaVu Sans","Segoe UI",Arial,sans-serif;color:#1a2330;font-size:19px;line-height:1.5;margin:0}
 h1{color:#12467a;font-size:31px;line-height:1.25;margin:0 0 12px}h2{color:#12467a;font-size:27px;line-height:1.3;border-bottom:3px solid #d5dde8;padding-bottom:6px;margin:0 0 16px;break-after:avoid}
 h3{color:#12467a;font-size:23px;margin:0 0 12px;break-after:avoid}p{margin:0}p.it{margin-top:14px}p.ar,p.zh{margin-top:5px}
-p.ar{font-family:Amiri,"DejaVu Sans",serif;font-size:23px;line-height:1.7;color:#14456b}p.zh{font-family:"WenQuanYi Zen Hei","DejaVu Sans",sans-serif;font-size:19px;color:#14456b}
+p.ar{font-family:Amiri,"DejaVu Sans",serif;font-size:22px;line-height:1.55;color:#14456b}p.zh{font-family:"WenQuanYi Zen Hei","DejaVu Sans",sans-serif;font-size:19px;color:#14456b}
 code{direction:ltr;unicode-bidi:isolate;font-family:"DejaVu Sans Mono",monospace;background:#eef2f7;padding:1px 6px;border-radius:4px;font-size:17px}
 .ol{margin:14px 0 0}.li{display:flex;gap:14px;margin:0;break-inside:avoid;font-size:21px}.li .n{flex:0 0 38px;height:38px;border-radius:50%;background:#12467a;color:#fff;text-align:center;line-height:38px;font-weight:700;min-width:0}
 .box{border-radius:12px;padding:14px 22px 18px;margin:22px 0 0;break-inside:avoid}.box p:first-child{margin-top:0}.sp{height:10px}
