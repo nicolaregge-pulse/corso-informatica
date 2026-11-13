@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.21** — 13/11/2026 — documento interno del docente e di Claude
+**Versione 1.22** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -405,6 +405,9 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #330 | Dispensa PDF non scaricabile dal nome del file (13/11) | 2 | D | A | `strumenti/controlla_pdf_ragazzi.py` (nome sicuro, PDF vero, copia su origin/main); download vero non provabile da qui |
 | #331 | Dispensa fitta e con note tecniche nel PDF dei ragazzi (13/11) | 9 | D | A | `strumenti/controlla_pdf_ragazzi.py` (note tecniche = ROSSO, oltre 150 parole per pagina = avviso, soglia da confermare); CHECKLIST 06.18 |
 | #332 | «Chi manca» con dato vecchio e assenti non incrociati (13/11) | 7 | D | D | famiglia di #314 (hook hh) e #327; incrocio automatico presenze e mancanti da costruire |
+| #333 | Motore non provato con servizi veri attivato: primo giro non completato (13/11) | 2 | D | D | regola: giro vero completo su copia, tempo massimo per giro e rollback pronto prima di attivare; dopo l'attivazione lettura di «Stato» a 2 e 6 minuti (v. #152, #153) |
+| #334 | Orario di lunedì presunto e domanda che contraddice il docente (13/11) | 7 | D | D | R7.6; CHECKLIST 06.13 (orario solo da DIDAweb o dallo screenshot del docente); confronto automatico da costruire |
+| #335 | Correzioni del motore pubblicate su motore.js prima del «via» (13/11) | 1 | D | D | regola: correzioni non autorizzate solo in `fabbrica/correzioni/`; avviso in `limite-comandi.py` per un commit su `fabbrica/motore.js` da costruire |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -492,3 +495,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 19. v1.19 (13/11/2026): voce #328 (dispense poco chiare per ragazzi delle medie) con il controllo `strumenti/controlla_leggibilita.py`: frasi lunghe, parole astratte senza spiegazione, passi senza «dove», esercizi senza esempio, pronomi vaghi, consegne senza soggetto o senza oggetto, parole non allineate. Richiamabile a mano, non bloccante; il conteggio della sezione 01 non è aggiornato (le voci #326-#327 non sono ancora in tabella).
 20. v1.20 (13/11/2026): voce #329 (solo il COGNOME in chat) e voce #281 passata ad automatico (avviso non bloccante).
 21. v1.21 (13/11/2026, audit del pomeriggio): voci #326, #327 (mancavano nella mappa), #330, #331 e #332; nuovo controllo `strumenti/controlla_pdf_ragazzi.py` (nome del file sicuro, note tecniche, fittezza, copia su origin/main); #150 di `controlla_controlli.py` adeguato alla Fabbrica (quiz di Sicurezza in `fabbrica/indice.json`).
+22. v1.22 (13/11/2026, controllore di fine giornata): voci #333 (motore non provato attivato), #334 (orario presunto, domanda che contraddice il docente) e #335 (correzioni su motore.js prima del «via»), tutte D con la regola e il controllo da costruire.
