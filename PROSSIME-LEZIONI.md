@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 1.2** — 13/11/2026
+**Versione 1.3** — 13/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -16,7 +16,7 @@ Terza informatica. Il 21 ottobre il sito con CSS e il lavoro in team con ramo, P
 
 Quarta. Il 27 ottobre la teoria delle reti, quattro quiz e il documento del progetto individuale. Il 3 novembre l'indirizzo IPv4, la maschera, il gateway, DHCP e DNS, da confermare, voce «Indirizzamento IPv4 e subnetting», competenza 16.
 
-Tre voci dell'Allegato A da sistemare: per la prima, pixel e colori non sono scritti nella voce sulla rappresentazione dell'informazione; per la terza, il protocollo di rete del Mastermind non ha una voce esplicita e Java non c'è.
+Tre lezioni senza una voce esatta nell'Allegato A: per la prima, pixel e colori non sono scritti nella voce sulla rappresentazione dell'informazione; per la terza, il protocollo di rete del Mastermind non ha una voce esplicita e Java non c'è. Dopo il 30 ottobre sull'Allegato A si può solo togliere: non si aggiungono voci e per queste lezioni si usa la voce più vicina già presente.
 
 ## Giovedì 5 novembre
 
@@ -95,11 +95,11 @@ Prima informatica, dalle 13 alle 14. Il prof ha scelto la teoria di Computer Ess
 
 ## Venerdì 13 novembre
 
-Orario dal registro DIDAweb (screenshot del prof dell'11/11, circa 17:35). Seconda informatica, dalle 8 alle 9, Sicurezza professionale. Prima informatica, dalle 11 alle 12, Laboratorio professionale, confermata dal registro. Le ore delle 12 e delle 13 della prima non si vedono sullo screenshot: non provato, il venerdì 6 novembre erano di Laboratorio. Terza e quarta non hanno lezione il venerdì. Nulla è pubblicato per i ragazzi.
+Orario dal registro DIDAweb. Prima informatica, dalle 11 alle 12, dalle 12 alle 13 e dalle 13 alle 14, Laboratorio professionale: confermato dallo screenshot del prof delle 12:17, con il bottone FIRMA ancora presente su tutte e tre le ore, quindi firme non confermate. Seconda informatica, dalle 8 alle 9, Sicurezza professionale: orario dallo screenshot dell'11 novembre. Terza e quarta non hanno lezione il venerdì.
 
-Seconda informatica, dalle 8 alle 9, Sicurezza: una sola proposta, la sesta ora, rischi meccanici ed elettrici generali, con i recuperi nei primi dieci minuti. Il materiale è pronto dal 6 novembre e non pubblicato. Il titolo del registro lo mette la direzione. Da chiedere al prof: la sesta ora è già stata svolta il 6 novembre? Nei file risulta da confermare.
+Seconda informatica, dalle 8 alle 9, Sicurezza: la sesta ora, rischi meccanici ed elettrici generali, con due quiz su Moduli, 6A sui rischi meccanici e 6B sui rischi elettrici. Il titolo del registro lo mette la direzione: non provato, da leggere sul registro. Nei file la sesta ora del 6 novembre resta da confermare.
 
-Prima informatica, dalle 11 alle 14, Laboratorio professionale. Proposta consigliata: il programma che decide, cioè l'if in Lazarus (maggiorenne o no, voto in parole, divisione che controlla lo zero), con la prima mezz'ora di recupero; l'if non è stato svolto l'11 novembre. Voce «Programmazione a eventi con Lazarus», competenza 15. Seconda proposta: chiudere i programmi del mese e recuperare i quiz aperti, con unit1.pas e screenshot. Terza proposta: il primo repository GitHub con i programmi del mese.
+Prima informatica, dalle 11 alle 14. Scelta del prof, la mattina del 13 novembre: concentrarsi sul Computer Essentials, un tema per ora. Ora 4, file e cartelle: copia, sposta, elimina, voce «Copia, spostamento, ridenominazione ed eliminazione dei file», competenze 15 e 17. Ora 5, la rete di casa, modem e router, voce «Reti locali domestiche e manutenzione ordinaria del PC», competenza 16. Ora 6, usare bene le risorse digitali, voce «Sicurezza informatica e privacy», competenza 8. Titoli dati al prof alle 12:19: «File e cartelle: copia, sposta, elimina», «Reti locali domestiche: modem e router», «Sicurezza informatica e privacy». L'if in Lazarus, che era la proposta consigliata, non è in programma oggi e non è stato svolto l'11 novembre. Per ogni ora un solo Documento con gli screenshot e il quiz su Moduli. Lo svolto vero si scrive in Argomenti svolti a fine giornata.
 
 Punti aperti di giovedì 12: i voti della prima, ora 6, da inserire in DIDAweb; la firma della prima, ora 13-14, da verificare; gli argomenti svolti e il titolo del registro di quell'ora; tre bozze della prima del 4 novembre ancora in bozza su Classroom.
 
@@ -112,3 +112,4 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 1. v1.0: prima versione, con il file unico delle cose fatte, delle ore dei prossimi giorni e delle proposte (04/11/2026).
 2. v1.1 (11/11/2026): la sezione di mercoledì 11 novembre ora riporta quello che dice il registro firmato (prima c'erano le proposte con if, slideshow e quinta ora, errore numero 276); aggiunta la sezione di giovedì 12 novembre con l'orario confermato e le scelte del prof; aggiornate la tabella della bozza e l'intestazione. Le sezioni dal 5 al 10 novembre restano come proposte storiche e non dicono lo svolto: lo svolto è nel registro firmato e in Argomenti svolti.
 3. v1.2 (13/11/2026): sezione di giovedì 12 aggiornata con il registro firmato della seconda; sezione di venerdì 13 con orario dallo screenshot dell'11/11, una proposta di Sicurezza e tre proposte per la prima; punti aperti di giovedì.
+4. v1.3 (13/11/2026): sezione di venerdì 13 riscritta sulla scelta del prof (Computer Essentials per la prima, ore 11-14) e sull'orario dallo screenshot delle 12:17 con le firme non confermate; tolta la dicitura «voci dell'Allegato A da sistemare» (dopo il 30/10 non si aggiungono voci, R5.2).

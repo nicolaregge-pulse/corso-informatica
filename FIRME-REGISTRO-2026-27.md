@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 2.7** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 2.8** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -93,7 +93,14 @@ Fonte: registro DIDAweb (screenshot del docente delle 08:06), colonna Firma.
 Fonte: registro DIDAweb (screenshot del docente, 12/11 ~08:40), «FIRMA ✓» su tutte e tre le ore.
 
 1. Ore 8-9, 9-10 e 10-11, 2INF, Laboratorio professionale: FIRMATE il 12/11/2026, argomenti scritti dal docente: «Win10: utenti, gruppi e recupero», «Win10: eventi e Gestione dispositivi», «Win10: Gestione attività e risorse». Voce dell'Allegato A per l'ora 2: ancora da confermare.
-2. Ora 13-14, 1INF, Tecnologia professionale: NON ancora firmata, da firmare entro le 14:05.
+2. Ora 13-14, 1INF, Tecnologia professionale: NON ancora firmata, da firmare entro le 14:05. Stato al 13/11: non provato (nessun file e nessuno screenshot dopo le 13:52 del 12/11 dice che sia stata firmata).
+
+## Venerdì 13/11/2026
+
+Fonte: registro DIDAweb (screenshot del docente delle 12:17), colonna Firma; l'orario della 2INF viene dallo screenshot dell'11/11.
+
+1. Ore 11-12, 12-13 e 13-14, 1INF, Laboratorio professionale: NON firmate alle 12:17 (il bottone FIRMA è ancora presente su tutte e tre; nella casella Argomento c'è il testo grigio «Controllo quaderni e interrogazione», non provato se segnaposto o testo salvato). Titoli dati al docente alle 12:19: «File e cartelle: copia, sposta, elimina», «Reti locali domestiche: modem e router», «Sicurezza informatica e privacy». Firma entro le 14:05.
+2. Ora 8-9, 2INF, Sicurezza professionale: firma non provata (nello screenshot delle 12:17 non si vede). L'argomento lo mette la direzione (R5.2bis): da leggere sul registro.
 
 ## Changelog
 
@@ -115,3 +122,4 @@ Fonte: registro DIDAweb (screenshot del docente, 12/11 ~08:40), «FIRMA ✓» su
 15. v2.5 (11/11/2026): ora 13-14 Sicurezza 1INF firmata (screenshot del registro).
 16. v2.6 (11/11/2026): ore 3INF 11-13 firmate (elenco del registro: 11:15 e 12:23); tutte le ore di oggi firmate.
 17. v2.7 (12/11/2026, ~08:40): giovedì 12/11, ore 2INF 8-11 firmate (argomenti scritti dal docente); ora 1INF 13-14 da firmare entro le 14:05.
+18. v2.8 (13/11/2026, dopo le 12:20): venerdì 13/11: ore 1INF 11-14 NON firmate alle 12:17 (screenshot del docente), 2INF 8-9 firma non provata; 12/11 1INF 13-14 ancora non provata.

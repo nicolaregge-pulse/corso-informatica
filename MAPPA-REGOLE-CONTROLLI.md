@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.17** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 1.18** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -349,7 +349,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #274 | Lingue della 1INF dimenticate nei quiz e nel post (11/11) | 1 | D | A | `strumenti/controlla_lingue_quiz.py` (R6): per ogni quiz con id `1inf` in `fabbrica/indice.json` controlla arabo e cinese, «MANCA arabo e cinese» e uscita 1; si lancia con `python3 -I strumenti/controlla_lingue_quiz.py` prima di dire che un quiz 1INF è pronto. Voce #274 in `REGISTRO-ERRORI-CLAUDE.md` |
 | #267 | Link senza account e non in casella copiabile (11/11) | 4 | D | D | controllo automatico: mancante (CLAUDE.md v2.8 R4 3quater, LINK-UTILI.md) |
 | #275 | Strumento garantito senza prova, chiedeva l'amministratore (11/11) | 7 | D | D | `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato); controllo automatico: mancante |
-| #276 | Argomento di un'ora copiato da un documento vecchio (11/11) | 7 | D | D | `generatori/diario_dati.py` legge FIRME-REGISTRO; controllo automatico per ARGOMENTI-SVOLTI: mancante |
+| #276 | Argomento di un'ora copiato da un documento vecchio (11/11) | 7 | D | D | `generatori/diario_dati.py` legge FIRME-REGISTRO; controllo automatico per ARGOMENTI-SVOLTI: parziale, dal 13/11/2026 `strumenti/controlla_controlli.py` (fine giornata) verifica che ogni lezione del giorno abbia la sua riga in ARGOMENTI-SVOLTI-2026-27.md (R5.3); non verifica che l'argomento sia quello giusto |
 | #277 | Chat 3INF presentata senza provare che chatta (11/11) | 9 | D | D | CHECKLIST-LEZIONE (prova con due istanze); controllo automatico: mancante |
 | #278 | Quiz Sicurezza non sulle slide ufficiali (11/11) | 9 | D | D | FRAMEWORK-QUIZ cap. 10; controllo automatico: mancante |
 | #279 | Scheda Situazione 2INF vuota (11/11) | 8 | D | A | motore Fabbrica v2.15 e `test_situazione_v2_15.js` (riservato) |
@@ -481,3 +481,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 15. v1.15 (11/11/2026, controllore di fine giornata): voci #267 e #275-#284; #279 A, le altre D. Il conteggio della sezione 01 non è stato ricalcolato.
 16. v1.16 (12/11/2026): controllo (ff) formato kit e documenti nell'hook del messaggio; voci #285-#289, #291, #293, #309, #311, #312 in tabella (#286 resta D); #282 passa ad A. Il conteggio della sezione 01 non è stato ricalcolato.
 17. v1.17 (12/11/2026, controllore di fine giornata sera): aggiunte le voci mancanti #292, #294-#308, #310 e #313-#325 (le ultime sei, #320-#325, nate dal controllo di fine giornata); #324 e #325 con controllo automatico nuovo in `controlla_controlli.py` (orario del giorno da FIRME-REGISTRO e PROSSIME-LEZIONI, nome intero nella privacy). Il conteggio della sezione 01 non è stato ricalcolato.
+18. v1.18 (13/11/2026): il controllo di fine giornata di `strumenti/controlla_controlli.py` verifica che per ogni lezione del giorno ci sia una riga in ARGOMENTI-SVOLTI-2026-27.md e che non sia ancora «previsto, da aggiornare» (R5.3, Allegato A allineato; richiesta del docente «tieni sempre allineato e aggiornato l'Allegato A»); prove 36/36 in `strumenti/prova_controlla_controlli.py`. Voce #276: da «mancante» a «parziale». Il conteggio della sezione 01 non è stato ricalcolato.

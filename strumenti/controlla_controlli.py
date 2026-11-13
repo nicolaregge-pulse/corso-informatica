@@ -35,6 +35,8 @@ Uso (una riga):
   8. fine giornata (29/10/2026 sera, #141 #144 #145 #146 #155 #156): per ogni classe del giorno precedente compito
      uscito entro la campanella, verifica VERDE, presenze nel diario, cruscotto con una riga per presente e senza
      «null», nessun 40 a chi ha finito, report PDF di ogni ora, domande con risposta, non-andato.md scritto.
+     Dal 13/11/2026 anche: per ogni classe con lezione c'è almeno una riga di quel giorno in ARGOMENTI-SVOLTI-2026-27.md
+     (R5.3, Allegato A allineato) e non è ancora «previsto, da aggiornare a fine giornata».
 Opzioni: --notte AAAA-MM-GG controlla quella notte (predefinito: oggi, ora di Roma);
          --fine-giornata AAAA-MM-GG fa solo il punto 8 per quel giorno;
          --senza-prove salta il punto 3 (più veloce); --solo-privacy fa solo il punto 6.
@@ -787,6 +789,52 @@ def _controlli_30_10(classe, ore, giorno, pub, ris, piano):
                                % (classe, str(p.get("titolo", ""))[:50], l["da"], l["a"]))
     return out
 
+def _righe_argomenti_svolti(pub):
+    """13/11/2026 (docente: «ricordati sempre di tenere allineato e aggiornato l'Allegato A»; l'audit del 12/11 aveva trovato
+    nessuna riga del 12/11 in ARGOMENTI-SVOLTI). Le righe di ARGOMENTI-SVOLTI-2026-27.md che cominciano con una data:
+    [(AAAA-MM-GG, classe, testo)]. La classe è quella scritta nella riga («2INF 8-9», «1INF 13-14», «4TI») oppure, se la riga
+    non la dice, quella del capitolo (2. Classe 1 = 1INF, 3. Classe 2 = 2INF, 4. Classe 3 = 3INF, 4b.1 = 2INF, 4b.2 = 1INF)."""
+    try:
+        testo = open(os.path.join(pub, "ARGOMENTI-SVOLTI-2026-27.md"), encoding="utf-8").read()
+    except Exception:
+        return None
+    per_capitolo = [(r"^##\s+2\.\s+Classe 1", "1INF"), (r"^##\s+3\.\s+Classe 2", "2INF"), (r"^##\s+4\.\s+Classe 3", "3INF"),
+                    (r"^###\s+4b\.1", "2INF"), (r"^###\s+4b\.2", "1INF")]
+    classe_cap, voci = None, []
+    for riga in testo.split("\n"):
+        if riga.startswith("#"):
+            classe_cap = next((c for rx, c in per_capitolo if re.match(rx, riga)), None)
+            continue
+        m = re.match(r"\|\s*(\d{2})/(\d{2})/(\d{4})\s*\|(.*)$", riga)
+        if not m:
+            continue
+        cl = re.search(r"\b([1-4](?:INF|TI))\b", m.group(4))
+        classe = cl.group(1) if cl else classe_cap
+        if classe:
+            voci.append(("%s-%s-%s" % (m.group(3), m.group(2), m.group(1)), classe, m.group(4)))
+    return voci
+
+
+def controlla_argomenti_svolti(giorno, classi, pub=None):
+    """13/11/2026: per ogni classe che ha avuto lezione il giorno indicato ci deve essere almeno una riga di quel giorno in
+    ARGOMENTI-SVOLTI-2026-27.md (R5.3: l'Allegato A resta allineato per sistema e non per memoria della chat). Una riga che
+    dice ancora «previsto, da aggiornare a fine giornata» non basta: lo svolto si scrive a fine giornata.
+    Restituisce l'elenco dei problemi (vuoto se è tutto a posto)."""
+    pub = pub or PUB
+    voci = _righe_argomenti_svolti(pub)
+    if voci is None:
+        return ["ARGOMENTI-SVOLTI-2026-27.md non esiste (R5.3)"]
+    problemi = []
+    gg = "%s/%s" % (giorno[8:10], giorno[5:7])
+    for classe in classi:
+        righe_c = [t for g, c, t in voci if g == giorno and c == classe]
+        if not righe_c:
+            problemi.append("%s: nessuna riga del %s in ARGOMENTI-SVOLTI-2026-27.md, Allegato A non allineato (R5.3)" % (classe, gg))
+        elif all("previsto, da aggiornare" in t for t in righe_c):
+            problemi.append("%s: le righe del %s in ARGOMENTI-SVOLTI-2026-27.md sono ancora «previsto, da aggiornare a fine giornata» (R5.3)" % (classe, gg))
+    return problemi
+
+
 def controlla_fine_giornata(giorno, pub=None, ris=None):
     """Controllore di fine giornata: per ogni classe in orario il giorno indicato, sul dato vero.
     1. compito su Classroom uscito entro la prima campanella (piano «pubblicata», #141) e piano senza bottoni dopo
@@ -902,6 +950,7 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
         problemi.append("domande all'assistente del %s senza risposta: %d su %d (regola 22)" % (giorno, senza, tot))
     if not os.path.isfile(os.path.join(rep, "non-andato.md")):
         problemi.append("manca report/%s/non-andato.md: il controllo di fine giornata non è stato fatto (#155)" % giorno)
+    problemi.extend(controlla_argomenti_svolti(giorno, list(classi), pub))   # 13/11/2026: Allegato A allineato, una riga per lezione
     esito(not problemi, "fine giornata %s (%s)" % (giorno, ", ".join(classi)) + (": " + "; ".join(problemi) if problemi else ""))
     return problemi
 

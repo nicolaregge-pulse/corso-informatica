@@ -1,7 +1,9 @@
 # Le Mie Parti nell'Allegato A (per competenza e anno)
 
-**Versione 0.2** — 02/09/2026
+**Versione 0.3** — 13/11/2026 (v0.2: 02/09/2026)
 *Estratto dai quattro Allegato A / PFP ufficiali (a.f. 2025/26): SOLO le parti attribuite a Regge, per competenza e anno, con la nomenclatura 26/27. Elenco SENZA numerazione, pronto da incollare nell'Allegato A.*
+
+> [ROSSO] **Estratto storico, non è l'Allegato A di quest'anno (13/11/2026).** Questo elenco viene dai PFP del 2025/26 e non contiene le voci del 2026/27 (per esempio «Reti locali domestiche e manutenzione ordinaria del PC», «File e file system», «Copia, spostamento, ridenominazione ed eliminazione dei file», le 16 ore di Sicurezza). Per titoli, registro e argomenti svolti valgono `programmi-ufficiali/2026-27/registro-allegati.json` (caricato il 14/10/2026) e `PROGRAMMI-DI-MASSIMA-2026-27.md` v1.1, che coincidono tra loro. Dopo il 30/10/2026 sull'Allegato A si può solo togliere, mai aggiungere (R5.2). Nessuna voce è stata cambiata in questo file: solo questo avviso.
 
 ---
 

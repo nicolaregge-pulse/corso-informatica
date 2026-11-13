@@ -171,5 +171,33 @@ cc.righe.clear()
 cc.controlla_fine_giornata("2026-11-14", dfin, tempfile.mkdtemp())
 prova("#283: sabato senza ore resta VERDE", cc.righe and cc.righe[-1][0] == "VERDE")
 
+# 9. 13/11/2026: per ogni lezione del giorno una riga in ARGOMENTI-SVOLTI-2026-27.md (R5.3, Allegato A allineato)
+arg = tempfile.mkdtemp()
+open(arg + "/ARGOMENTI-SVOLTI-2026-27.md", "w").write(
+    "## 2. Classe 1 — a.s. 2026/2027\n| Data | A | B | C |\n|---|---|---|---|\n| 01/10/2026 | Bit e byte | x | y |\n\n"
+    "## 3. Classe 2 — a.s. 2026/2027\n| Data | A | B | C |\n|---|---|---|---|\n| 01/10/2026 | Lazarus | x | y |\n\n"
+    "## 4. Classe 3 — a.s. 2026/2027\n| Data | A | B | C |\n|---|---|---|---|\n"
+    "| 12/11/2026 | 2INF 8-9, Laboratorio. Win10 | x | y |\n"
+    "| 12/11/2026 | 1INF 13-14, Tecnologia professionale (previsto, da aggiornare a fine giornata) | x | y |\n"
+    "| 13/11/2026 | 3INF 11-12, Laboratorio | x | y |\n\n"
+    "### 4b.2 Classe 1 (1INF)\n| Data | A | B | C |\n|---|---|---|---|\n| 13/11/2026 | Sicurezza senza la classe nella riga | x | y |\n")
+v = cc._righe_argomenti_svolti(arg)
+prova("R5.3: la classe viene dalla riga («2INF 8-9») o dal capitolo (Classe 1 = 1INF, 4b.2 = 1INF)",
+      ("2026-10-01", "1INF") in [(g, c) for g, c, t in v] and ("2026-10-01", "2INF") in [(g, c) for g, c, t in v]
+      and ("2026-11-12", "2INF") in [(g, c) for g, c, t in v] and ("2026-11-13", "1INF") in [(g, c) for g, c, t in v])
+prova("R5.3: classe senza nessuna riga del giorno = problema", any("3INF" in x and "nessuna riga" in x for x in cc.controlla_argomenti_svolti("2026-11-12", ["2INF", "3INF"], arg)))
+prova("R5.3: riga ancora «previsto, da aggiornare» = problema", any("1INF" in x and "previsto" in x for x in cc.controlla_argomenti_svolti("2026-11-12", ["1INF"], arg)))
+prova("R5.3: riga scritta = nessun problema", cc.controlla_argomenti_svolti("2026-11-12", ["2INF"], arg) == [])
+prova("R5.3: file ARGOMENTI-SVOLTI mancante = problema", len(cc.controlla_argomenti_svolti("2026-11-12", ["2INF"], tempfile.mkdtemp())) == 1)
+cc.righe.clear()
+dfin2 = tempfile.mkdtemp(); os.makedirs(dfin2 + "/docs/avanzamento")
+json.dump({"lezioni": {"2026-11-12": [{"classe": "2INF", "da": "08:00", "a": "09:00", "disciplina": "Laboratorio"}, {"classe": "3INF", "da": "09:00", "a": "10:00", "disciplina": "Laboratorio"}]}}, open(dfin2 + "/docs/avanzamento/orario-lezioni.json", "w"))
+open(dfin2 + "/ARGOMENTI-SVOLTI-2026-27.md", "w").write(open(arg + "/ARGOMENTI-SVOLTI-2026-27.md").read())
+pr = cc.controlla_fine_giornata("2026-11-12", dfin2, tempfile.mkdtemp())
+prova("R5.3: il controllo di fine giornata lo include (3INF senza riga)", any("3INF: nessuna riga del 12/11" in x for x in pr))
+# su dati reali del repository: le giornate dal 05/11 al 13/11 con lezione hanno la loro riga
+reali = {g: cc.controlla_argomenti_svolti(g, c) for g, c in {"2026-11-12": ["1INF", "2INF"], "2026-11-13": ["1INF", "2INF"], "2026-11-11": ["1INF", "3INF"]}.items()}
+prova("R5.3 dati reali: 11, 12 e 13 novembre hanno le righe", all(x == [] for x in reali.values()))
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)
