@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.18** — 13/11/2026 — documento interno del docente e di Claude
+**Versione 1.19** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -398,6 +398,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #323 | Cruscotto 1INF nell'ora 6 senza giro automatico, senza Veyon, senza «Serve te» (12/11) | 4 | D | D | giro ogni 2 minuti dalla Fabbrica e campo Veyon: da costruire |
 | #324 | Piani del giorno e report orari assenti, controlli di notte e fine giornata ciechi (12/11) | 4 | D | A | `strumenti/controlla_controlli.py`: orario del giorno anche da FIRME-REGISTRO e PROSSIME-LEZIONI (`_lezioni_da_testi`), prove `prova_controlla_controlli.py` 29/29; piani e report orari da produrre (decisione sul sistema) |
 | #325 | Nome intero di un allievo in un file di prova, controllo privacy VERDE (12/11) | 1 | D | A | `controlla_controlli.py` controlla_privacy: cerca anche il nome intero «COGNOME NOME» in ogni file, codice compreso (provato rosso/verde) |
+| #328 | Dispense poco chiare per ragazzi delle medie, ripetuto (13/11) | 5 | D | A | `strumenti/controlla_leggibilita.py` (CHECKLIST 06.17): da lanciare a mano e dagli agenti prima di consegnare una dispensa; NON è un hook bloccante; prove in `strumenti/prova_controlla_leggibilita.py` (21 casi) |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -482,3 +483,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 16. v1.16 (12/11/2026): controllo (ff) formato kit e documenti nell'hook del messaggio; voci #285-#289, #291, #293, #309, #311, #312 in tabella (#286 resta D); #282 passa ad A. Il conteggio della sezione 01 non è stato ricalcolato.
 17. v1.17 (12/11/2026, controllore di fine giornata sera): aggiunte le voci mancanti #292, #294-#308, #310 e #313-#325 (le ultime sei, #320-#325, nate dal controllo di fine giornata); #324 e #325 con controllo automatico nuovo in `controlla_controlli.py` (orario del giorno da FIRME-REGISTRO e PROSSIME-LEZIONI, nome intero nella privacy). Il conteggio della sezione 01 non è stato ricalcolato.
 18. v1.18 (13/11/2026): il controllo di fine giornata di `strumenti/controlla_controlli.py` verifica che per ogni lezione del giorno ci sia una riga in ARGOMENTI-SVOLTI-2026-27.md e che non sia ancora «previsto, da aggiornare» (R5.3, Allegato A allineato; richiesta del docente «tieni sempre allineato e aggiornato l'Allegato A»); prove 36/36 in `strumenti/prova_controlla_controlli.py`. Voce #276: da «mancante» a «parziale». Il conteggio della sezione 01 non è stato ricalcolato.
+19. v1.19 (13/11/2026): voce #328 (dispense poco chiare per ragazzi delle medie) con il controllo `strumenti/controlla_leggibilita.py`: frasi lunghe, parole astratte senza spiegazione, passi senza «dove», esercizi senza esempio, pronomi vaghi, consegne senza soggetto o senza oggetto, parole non allineate. Richiamabile a mano, non bloccante; il conteggio della sezione 01 non è aggiornato (le voci #326-#327 non sono ancora in tabella).

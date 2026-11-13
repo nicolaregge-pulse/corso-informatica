@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 2.6** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 2.7** — 13/11/2026 — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione, insieme alle 11 regole di `CLAUDE.md` (v2.2 del 06/11/2026). Dove un punto di questa lista dice una cosa diversa da R1-R11, valgono R1-R11.
 
@@ -75,6 +75,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 14. La pagina-lezione dei laboratori guidati con quiz rispetta il Framework QUIZ (`FRAMEWORK-QUIZ.md`, capitolo 07): 4 bottoni con link aperti dal sito vero, componente nominato in ogni passo, quiz su Moduli con soglia, consegna con un bottone, ore dopo bloccate, un solo indirizzo nel post Classroom, nessun segnaposto rimasto.
 15. Allegato A e Sicurezza (06/11/2026, #223): dopo il 30/10 l'Allegato A si può solo togliere, mai aggiungere; prima di proporre qualunque cosa si leggono `NOTE-DA-DISCUTERE.md` e `COME-SI-AGGIORNA-ALLEGATO-A.md`. Per la Sicurezza i titoli del registro li mette la direzione (non si propongono né si cambiano) e in `ARGOMENTI-SVOLTI-2026-27.md` capitolo 04b ogni ora ha le due righe «Dichiarato» e «Registro».
 16. Quiz con domande aperte (12/11/2026, #316): prima di dire che il quiz è pronto si lancia `python3 strumenti/controlla_quiz_dispensa.py fabbrica/<quiz>.txt <dispensa>.md`: una domanda aperta non può chiedere ciò che la dispensa dà solo in un passo «facoltativo». Le aperte con punti si contano sempre a parte: «10/14» vuol dire «10 chiuse + aperte da correggere» finché il foglio non dice altro (#315).
+17. Dispense e testi per i ragazzi (13/11/2026, #328): prima di consegnare una dispensa si lancia `python3 strumenti/controlla_leggibilita.py <dispensa>.md` e si correggono gli avvisi GRAVI (frasi molto lunghe, esercizio con «scrivi» senza esempio); gli AVVISI si leggono e si correggono quando serve. Non blocca niente da solo.
 
 ## Changelog
 
@@ -95,3 +96,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 14. v2.3 (04/11/2026): §06 punto 14, la pagina rispetta il Framework QUIZ (`FRAMEWORK-QUIZ.md`).
 16. v2.5 (06/11/2026): allineata a CLAUDE.md v2.2: 01.4 ordine fisso R10.0; 02.4 un compito per ora; 04.3 Allegato A solo togliere, Sicurezza in doppia modalità; §06 punto 12 (N = ora della giornata) e punto 15 (Allegato A e Sicurezza); rimandi alle vecchie «regola N» sostituiti con R2, R8, R9. Regola Sicurezza del docente 06/11/2026 in attesa di R5.2bis in `CLAUDE.md`.
 17. v2.6 (12/11/2026): §06 punto 16, controllo quiz-dispensa (#316) e aperte a parte (#315).
+18. v2.7 (13/11/2026): §06 punto 17, controllo di leggibilità delle dispense (#328).
