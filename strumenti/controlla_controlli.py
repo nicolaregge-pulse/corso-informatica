@@ -571,6 +571,27 @@ def controlla_ponte_quiz(ris=None, configs=None, giorno=None, scarto_min=6):
     return problemi
 
 
+def quiz_sicurezza_in_fabbrica(classe, giorno, pub):
+    """True se fabbrica/indice.json ha per la classe un quiz di Sicurezza il cui id porta il giorno (GGMM)."""
+    try:
+        d = json.load(open(os.path.join(pub, "fabbrica", "indice.json"), encoding="utf-8"))
+    except Exception:
+        return False
+    ggmm = giorno[8:10] + giorno[5:7]
+    blocchi = d.get("sicurezza") or []
+    if isinstance(blocchi, dict):
+        blocchi = [blocchi]
+    for b in blocchi:
+        if str(b.get("classe", "")).upper() != classe.upper() or b.get("attivo") is False:
+            continue
+        ids = []
+        for o in b.get("ore") or []:
+            ids += o.get("ids") or []
+        if any(ggmm in i for i in ids):
+            return True
+    return False
+
+
 def controlla_sicurezza_pronta(giorno, pub=None, ris=None):
     """#150 (ripete #129): per ogni classe con Sicurezza nel giorno, il compito con il quiz è già in coda prima della
     lezione e la pagina dell'ora DOPO è già pronta (docs/verifica/banche/<classe>-sicurezza-<N+1>ora.js), così se il
@@ -594,7 +615,11 @@ def controlla_sicurezza_pronta(giorno, pub=None, ris=None):
             if d.get("quiz") or d.get("moduli") or "docs.google.com/forms" in (d.get("descrizione") or ""):
                 con_quiz.append(os.path.basename(f))
         if not con_quiz:
-            problemi.append("%s: nessun compito di Sicurezza con il quiz in coda per il %s" % (classe, giorno))
+            # 13/11/2026 (#150 adeguato alla Fabbrica): la coda/ non esiste piu; il quiz del giorno e' in fabbrica/indice.json
+            # (blocco "sicurezza" della classe, id con il giorno in formato GGMM, per esempio ...-1311).
+            if quiz_sicurezza_in_fabbrica(classe, giorno, pub):
+                continue
+            problemi.append("%s: nessun compito di Sicurezza con il quiz in coda ne in fabbrica/indice.json per il %s" % (classe, giorno))
             continue
         m = re.search(r"sicurezza-(\d+)ora", " ".join(con_quiz))
         if not m:

@@ -199,5 +199,11 @@ prova("R5.3: il controllo di fine giornata lo include (3INF senza riga)", any("3
 reali = {g: cc.controlla_argomenti_svolti(g, c) for g, c in {"2026-11-12": ["1INF", "2INF"], "2026-11-13": ["1INF", "2INF"], "2026-11-11": ["1INF", "3INF"]}.items()}
 prova("R5.3 dati reali: 11, 12 e 13 novembre hanno le righe", all(x == [] for x in reali.values()))
 
+# 10. 13/11/2026: #150 adeguato alla Fabbrica (quiz di Sicurezza in fabbrica/indice.json, id con il giorno GGMM)
+fb = tempfile.mkdtemp(); os.makedirs(fb + "/fabbrica")
+json.dump({"sicurezza": [{"attivo": True, "classe": "2INF", "ore": [{"ora": "6A", "ids": ["quiz-2inf-sic6-mecc-1311"]}]}]}, open(fb + "/fabbrica/indice.json", "w"))
+prova("#150 Fabbrica: quiz con id del giorno (1311) = presente", cc.quiz_sicurezza_in_fabbrica("2INF", "2026-11-13", fb))
+prova("#150 Fabbrica: altro giorno o altra classe = assente", not cc.quiz_sicurezza_in_fabbrica("2INF", "2026-11-12", fb) and not cc.quiz_sicurezza_in_fabbrica("1INF", "2026-11-13", fb))
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)
