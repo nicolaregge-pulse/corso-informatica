@@ -42,7 +42,7 @@ while i < len(righe):
         while i < len(righe) and righe[i].startswith("|"): t.append(righe[i]); i += 1
         cel = [[x.strip() for x in l.strip("|").split("|")] for l in t if not re.match(r"^\|[-| ]+\|$", l)]
         out.append("<table><tr>" + "".join(f"<th>{inline(x)}</th>" for x in cel[0]) + "</tr>" + "".join("<tr>" + "".join(f"<td>{inline(x)}</td>" for x in rr) + "</tr>" for rr in cel[1:]) + "</table>"); continue
-    if r.startswith("> **FAI LO SCREENSHOT"):  # riquadro verde ben visibile; le righe "> " consecutive stanno nello stesso riquadro
+    if r.startswith("> **FAI LO SCREENSHOT") and not ARIOSO:  # riquadro verde ben visibile; le righe "> " consecutive stanno nello stesso riquadro
         blk = []
         while i < len(righe) and righe[i].startswith("> "): blk.append(inline(righe[i][2:])); i += 1
         out.append("<div class='box shot'>" + "".join("<div dir='auto' style='margin:3px 0'>" + b + "</div>" for b in blk) + "</div>"); continue
@@ -109,7 +109,7 @@ if os.environ.get("MD2PDF_ARIA") == "1":  # opzionale: dispense «con più aria�
 @page{size:A4;margin:16mm 17mm}body{font-size:18px;line-height:1.75;margin:0}h1{font-size:30px;line-height:1.25}h2{font-size:25px;margin-top:6px}h3{font-size:21px;margin:22px 0 6px}
 p{margin:0 0 15px}table{font-size:16px}th,td{padding:9px 10px}.box{font-size:18px;padding:12px 16px;margin:16px 0}.ol{margin:8px 0 6px}.li{margin:4px 0;gap:10px}.li .n{min-width:2.4em}
 .shot{background:#e7f7ec;border:4px solid #1e8a4c;border-radius:12px;padding:16px 20px;margin:22px 0;break-inside:avoid;font-size:19px}"""
-else:
+elif not ARIOSO:
     CSS += """
 .shot{background:#e7f7ec;border:3px solid #1e8a4c;border-radius:10px;padding:10px 14px;margin:12px 0;break-inside:avoid}"""
 base = os.path.splitext(src)[0]
