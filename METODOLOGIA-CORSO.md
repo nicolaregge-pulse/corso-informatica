@@ -1,6 +1,6 @@
 # Metodologia del corso di Informatica
 
-**Versione 1.4** — 04/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
+**Versione 1.5** — 13/11/2026 — Prof. Nicola Regge, Laboratorio di Informatica, Piamarta Milano.
 
 *Documento del docente (in italiano, senza nomi di allievi). Raccoglie in un solo posto il metodo
 che usiamo, la giornata di lezione, i compiti, la valutazione, la chiusura delle classi, la
@@ -84,6 +84,7 @@ operativa da stampare.*
 1. **Struttura**: pagina unica dei ragazzi (spiegazioni, passi, materiali) + compito su Classroom con il testo impaginato + Documento Google da compilare.
 2. **Riflessione obbligatoria** in ogni compito [§2.2]: "cosa NON ho fatto e perché" e "cosa NON ho capito". È la parte più importante da leggere.
 3. **Un solo Documento** per la consegna [§2.6] (screenshot, codice, spiegazione, riflessione), non file sparsi.
+3bis. **Che cosa si consegna (decisione del docente, 13/11/2026):** di norma un Documento (con gli screenshot di ciò che l'allievo ha fatto, tutti in UN solo Documento) e/o un quiz su Moduli; a volte entrambi, a volte uno dei due, raramente altro.
 4. **Lavori su GitHub**: caricamento con Add file, poi Upload files, poi la cartella del progetto con Ctrl + A. Il ragazzo su Classroom preme Consegna; il codice lo legge Claude dal repository [§2.34].
 5. **Controllo dei lavori su GitHub** [§2.40]: i repository si trovano con la ricerca di GitHub (creati oggi), i file si leggono scaricandoli (clone). Mai dire "non ha caricato" senza aver controllato.
 6. **Documenti già su Classroom sono congelati** [§2.11]: si correggono solo se l'errore è grave, avvisando la classe; mai cambiare il metodo a lezione iniziata.
@@ -254,6 +255,7 @@ Il comando **"Chiudi classe 2INF"** chiude il lavoro della classe [§2.30]. Prim
 
 ## 15 Registro delle versioni
 
+6. **v1.5 (13/11/2026)**: capitolo 05, punto 3bis, la consegna è di norma un Documento e/o un quiz su Moduli (decisione del docente).
 5. **v1.4 (04/11/2026)**: capitolo 10 con i comandi PUBB n, PRI e «via» (tolti PRI+ e «OK 1INF»); capitolo 12 punti 2 e 4 allineati a CLAUDE.md R2 e R4; capitolo 16 con il testo spostato da CLAUDE.md (missione, motore, contesto didattico, metodo, gruppi, flusso Git, lezione e cruscotto).
 4. **v1.3 (12/10/2026)**: 09b punto 8, come si rifà il giro delle Pull Request (guida e strumenti).
 3. **v1.2 (12/10/2026)**: capitolo 09b, il giro delle Pull Request con backlog, pesi, versioni e grafo; script ogni minuto.
