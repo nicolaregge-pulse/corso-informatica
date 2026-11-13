@@ -90,9 +90,9 @@ table{border-collapse:collapse;width:100%;margin:6px 0;font-size:11.5px}th,td{bo
 .ol{margin:4px 0 8px}.li{display:flex;gap:6px;margin:2px 0;break-inside:avoid}.li .n{min-width:2.2em;font-weight:600;color:#12467a}.l1{margin-left:1.6em}.l2{margin-left:3.2em}.l3{margin-left:4.8em}
 pre{background:#f3f5f8;padding:6px;white-space:pre-wrap;word-break:break-all;font-size:10px}code{background:#eef2f7;padding:0 3px}"""
 if ARIOSO:  # font grande, margini larghi, poco testo per pagina (le pagine si spezzano con <<PAGINA>>)
-    CSS = """@page{size:A4;margin:17mm 20mm}body{font-family:"DejaVu Sans","Segoe UI",Arial,sans-serif;color:#1a2330;font-size:19px;line-height:1.5;margin:0}
+    CSS = """@page{size:A4;margin:13mm 20mm}body{font-family:"DejaVu Sans","Segoe UI",Arial,sans-serif;color:#1a2330;font-size:19px;line-height:1.5;margin:0}
 h1{color:#12467a;font-size:31px;line-height:1.25;margin:0 0 12px}h2{color:#12467a;font-size:27px;line-height:1.3;border-bottom:3px solid #d5dde8;padding-bottom:6px;margin:0 0 16px;break-after:avoid}
-h3{color:#12467a;font-size:23px;margin:0 0 12px;break-after:avoid}p{margin:0}p.it{margin-top:18px}p.ar,p.zh{margin-top:5px}
+h3{color:#12467a;font-size:23px;margin:0 0 12px;break-after:avoid}p{margin:0}p.it{margin-top:14px}p.ar,p.zh{margin-top:5px}
 p.ar{font-family:Amiri,"DejaVu Sans",serif;font-size:23px;line-height:1.7;color:#14456b}p.zh{font-family:"WenQuanYi Zen Hei","DejaVu Sans",sans-serif;font-size:19px;color:#14456b}
 code{direction:ltr;unicode-bidi:isolate;font-family:"DejaVu Sans Mono",monospace;background:#eef2f7;padding:1px 6px;border-radius:4px;font-size:17px}
 .ol{margin:14px 0 0}.li{display:flex;gap:14px;margin:0;break-inside:avoid;font-size:21px}.li .n{flex:0 0 38px;height:38px;border-radius:50%;background:#12467a;color:#fff;text-align:center;line-height:38px;font-weight:700;min-width:0}
