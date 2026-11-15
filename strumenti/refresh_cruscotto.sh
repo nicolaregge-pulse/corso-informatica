@@ -31,6 +31,9 @@ if [ -f "$GEN" ]; then python3 -I "$GEN" 1INF || ESITO=$?; else echo "versione d
 # Scrive nel RISERVATO cruscotti/<CLASSE>-completo-docente-*.html (cognomi, voti, note) e nel pubblico docs/cruscotto/completo/<CLASSE>.html (solo «Nome I.», niente voti/note/Veyon).
 GEN2="$(dirname "$PWD")/corso-informatica-riservato/generatori/cruscotto_completo.py"
 if [ -f "$GEN2" ]; then python3 -I "$GEN2" "$X" || ESITO=$?; else echo "cruscotto completo non generato: manca $GEN2"; fi
+# CRUSCOTTO DOCENTE TOTALE (v1.0-1.1, 15/11/2026): Fotografia di classe + scheda allievo, 4 classi. Il generatore sta nel RISERVATO e scrive SOLO li (cruscotti/DOCENTE-TUTTE-LE-CLASSI-*.html).
+GEN3="$(dirname "$PWD")/corso-informatica-riservato/generatori/cruscotto_docente_totale.py"
+if [ -f "$GEN3" ]; then python3 -I "$GEN3" "$X" || ESITO=$?; else echo "cruscotto docente totale non generato: manca $GEN3"; fi
 # CONTROLLO BLOCCANTE (15/11/2026, R1): nessun numero per allievo (percentuali, punti, voti) nei file pubblici del cruscotto
 python3 -I strumenti/privacy_pubblico.py || { echo "STOP: numeri per allievo nei file pubblici: NON faccio il push."; exit 1; }
 echo "--- refresh finito (esito $ESITO, 0 = tutto scritto). Ora del dato: docs/cruscotto/dati/meta.json"
