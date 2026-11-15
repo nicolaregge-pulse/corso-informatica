@@ -1,6 +1,6 @@
 # Regole nostre — Nicola & Claude (convenzioni di lavoro)
 
-**Versione 2.10** — 13/11/2026
+**Versione 2.11** — 15/11/2026
 *Convenzioni operative INTERNE tra Nicola e Claude. NON sono le regole per i
 ragazzi (quelle stanno nei materiali di classe, es. `classe-1/regole-classe/`).*
 *Dal 04/11/2026 le regole di lavoro sono le 11 di `CLAUDE.md` (v2.2, R1-R11): se questo file
@@ -97,6 +97,14 @@ controllare. Solo **dopo l'ok** genero tutti gli altri della stessa tipologia.
 1. Rispondere con **poco testo**: confermare in poche righe, andare al sodo.
 2. Vale **solo per la chat** (mie risposte/domande a te). I **documenti** (teoria,
    dispense, PDF) devono invece essere **il più esaurienti possibile**.
+
+### 6. Scelte organizzative: proposta predefinita (decisione del docente, 15/11/2026)
+1. **Quando serve una scelta al docente** (coppie, nomi, piccoli dettagli organizzativi) la chiedo **UNA volta**, con una **proposta predefinita**.
+2. **Se il docente non risponde, non mi fermo:** applico la proposta predefinita, lo dichiaro in **una riga** («scelto io: ...») e continuo. Il docente può cambiarla in qualunque momento; non gestisco io le cose a metà, le porto avanti il più possibile.
+3. **Accanto a R7.6** (`CLAUDE.md`, NON PRESUMERE, CHIEDI): R7.6 resta in vigore e vale per **numeri, soglie e testi per i ragazzi** quando la risposta cambia il risultato in modo **non reversibile**. Per le **scelte organizzative reversibili** vale il predefinito dichiarato di questo punto.
+4. Esempio (coppie di revisione, 15/11/2026): «se non ti rispondo per le coppie, le fai tu guardando la piantina o in modo che ci sia uno bravo con uno che lo aiuti». Le coppie del 16/11 sono nel riservato (`report/2026-11-16/COPPIE-3INF-2INF-v1.0.md`).
+
+---
 
 ## D. Naming dei file
 
@@ -323,6 +331,7 @@ Il flusso dell'Allegato A **non è codificato qui**: vive in `allegato-a-stato/`
 
 ## 3. Changelog
 
+0. **v2.11 (15/11/2026)**: nuova convenzione C.6, scelte organizzative reversibili: una sola richiesta con proposta predefinita; se il docente non risponde si applica il predefinito, dichiarato in una riga («scelto io»), senza fermarsi. Accanto a R7.6, che resta per numeri, soglie e testi per i ragazzi non reversibili. `CLAUDE.md` non è cambiato. Decisione del docente, 15/11/2026.
 0. **v2.10 (13/11/2026)**: allineato a CLAUDE.md v2.11: in chat gli allievi solo con il COGNOME (nota in cima).
 0. **v2.9 (06/11/2026)**: allineato a CLAUDE.md v2.2: nota in cima (scratchpad = riservato, lingue R6, COGNOME Nome, voti da 40 a 80); Allegato A solo togliere e Sicurezza in doppia modalità.
 0. **v2.8 (04/11/2026)**: allineato a CLAUDE.md v2.0 — regole d'oro 1 (nel dubbio una domanda nel bottone rosso), 5 (senza password nel riservato, cifrato nel pubblico) e 7 (PPP senza output, PRI, PRI+ abolito, PUBB n, «aspetta il via»); §C.1, §C.1bis, nuovi §C.1ter e §C.1quater (messaggi tra chat).
