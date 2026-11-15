@@ -2,25 +2,28 @@
  "versione": "1.1",
  "classe": "1INF",
  "giorno": "13/11",
- "esportato": "2026-11-13T17:51:04+01:00",
+ "esportato": "2026-11-15T15:19:01+01:00",
  "fonti": {
   "quiz": {
    "scheda": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T17:50:49+01:00"
+   "dato": "2026-11-15T15:18:46+01:00"
   },
   "documenti": {
    "scheda": "Consegne 1INF",
-   "dato": "2026-11-13T17:50:17+01:00"
+   "dato": "2026-11-15T15:18:36+01:00"
   },
-  "documenti_dettaglio": null,
-  "ultimo_giro_motore": "2026-11-13T17:46:46+01:00"
+  "documenti_dettaglio": {
+   "scheda": "Documenti 1INF",
+   "dato": "2026-11-15T14:35:06+01:00"
+  },
+  "ultimo_giro_motore": "2026-11-15T15:13:54+01:00"
  },
  "config": {
   "fonte": "docente, 13/11/2026 circa 12:15: post Classroom delle ore 4, 5 e 6 pubblicati alle 11:38, 11:53 e 12:00; consegna del Documento entro le 12:30, 13:00 e 13:55; il quiz e nel post solo per l'ora 4",
   "file": "strumenti/oggi-1INF-config.json"
  },
  "presenze": "dal registro DIDAweb: vedi dati/<CLASSE>-presenze.json (solo Nome I., scritto da strumenti/aggiorna_presenze_dati.py). Veyon di oggi: non letto.",
- "ultimo_segnale_fonte": "solo l'ultimo invio di un quiz del giorno (Moduli). Non c'e' Veyon di oggi ne' l'ora delle consegne dei Documenti (dato non disponibile: serve il motore v2.22)",
+ "ultimo_segnale_fonte": "solo l'ultimo invio di un quiz del giorno (Moduli). Non c'e' Veyon di oggi",
  "n_allievi": 22,
  "voci": [
   {
@@ -34,9 +37,10 @@
    "scadenza": "12:30",
    "colonna_foglio": "13/11 Ora 4: File e cartelle 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T17:50:17+01:00",
-   "dettaglio_nd": "dato non disponibile: serve il motore v2.22",
-   "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato. dato non disponibile: serve il motore v2.22"
+   "dato": "2026-11-15T15:18:36+01:00",
+   "fonte_dettaglio": "Documenti 1INF",
+   "dato_dettaglio": "2026-11-15T14:35:06+01:00",
+   "voto_nd": "Classroom non da' il voto: la scheda «Documenti» da' stato, ora di consegna e immagini aggiunte al Documento (rispetto al modello), non il giudizio"
   },
   {
    "id": "ora4-quiz",
@@ -48,7 +52,7 @@
    "nel_post": true,
    "quiz_id": "quiz-1inf-1313-ora4-file-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T17:50:49+01:00",
+   "dato": "2026-11-15T15:18:46+01:00",
    "risposte_ris": 12,
    "risposte_ris_non_abbinate": 1,
    "colonna_foglio": "presente",
@@ -180,9 +184,10 @@
    "scadenza": "13:00",
    "colonna_foglio": "13/11 Ora 5: La rete di casa 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T17:50:17+01:00",
-   "dettaglio_nd": "dato non disponibile: serve il motore v2.22",
-   "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato. dato non disponibile: serve il motore v2.22"
+   "dato": "2026-11-15T15:18:36+01:00",
+   "fonte_dettaglio": "Documenti 1INF",
+   "dato_dettaglio": "2026-11-15T14:35:06+01:00",
+   "voto_nd": "Classroom non da' il voto: la scheda «Documenti» da' stato, ora di consegna e immagini aggiunte al Documento (rispetto al modello), non il giudizio"
   },
   {
    "id": "ora5-quiz",
@@ -194,7 +199,7 @@
    "nel_post": false,
    "quiz_id": "quiz-1inf-1313-ora5-reti-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T17:50:49+01:00",
+   "dato": "2026-11-15T15:18:46+01:00",
    "risposte_ris": 12,
    "risposte_ris_non_abbinate": 0,
    "colonna_foglio": "presente",
@@ -211,9 +216,10 @@
    "scadenza": "13:55",
    "colonna_foglio": "13/11 Ora 6: Usare bene le r 13/11",
    "fonte": "Consegne 1INF",
-   "dato": "2026-11-13T17:50:17+01:00",
-   "dettaglio_nd": "dato non disponibile: serve il motore v2.22",
-   "voto_nd": "Classroom, letto dal foglio, non da' il voto ne' il contenuto del Documento (se ci sono gli screenshot): solo consegnato / non consegnato. dato non disponibile: serve il motore v2.22"
+   "dato": "2026-11-15T15:18:36+01:00",
+   "fonte_dettaglio": "Documenti 1INF",
+   "dato_dettaglio": "2026-11-15T14:35:06+01:00",
+   "voto_nd": "Classroom non da' il voto: la scheda «Documenti» da' stato, ora di consegna e immagini aggiunte al Documento (rispetto al modello), non il giudizio"
   },
   {
    "id": "ora6-quiz",
@@ -225,7 +231,7 @@
    "nel_post": false,
    "quiz_id": "quiz-1inf-1313-ora6-risorse-8c2a",
    "fonte": "Situazione pubblica 1INF",
-   "dato": "2026-11-13T17:50:49+01:00",
+   "dato": "2026-11-15T15:18:46+01:00",
    "risposte_ris": 12,
    "risposte_ris_non_abbinate": 0,
    "colonna_foglio": "presente",
@@ -237,19 +243,34 @@
    "nome": "Aya B.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -261,19 +282,34 @@
    "nome": "Sara F.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -285,19 +321,34 @@
    "nome": "Wesley J.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -309,19 +360,34 @@
    "nome": "Moaaz M.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -333,19 +399,34 @@
    "nome": "Abdel N.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -357,13 +438,26 @@
    "nome": "Andrea S.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:11",
+     "in_ritardo": true,
+     "n_immagini": 4,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:04",
+     "in_ritardo": true,
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -374,7 +468,13 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:11",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -391,19 +491,34 @@
    "nome": "Moaaz A.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -415,19 +530,34 @@
    "nome": "Christian A.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -439,19 +569,34 @@
    "nome": "Giexther A.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -463,19 +608,34 @@
    "nome": "Muhammad N.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -487,19 +647,34 @@
    "nome": "Shanzay S.",
    "stati": {
     "ora4-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora4-quiz": {
      "s": "manca"
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "non_assegnato"
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "non_assegnato"
@@ -511,7 +686,12 @@
    "nome": "Thomas R.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:28",
+     "n_immagini": 6,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -534,7 +714,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:10",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 301
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -545,7 +731,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:52",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -562,7 +753,12 @@
    "nome": "Anthony A.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:27",
+     "n_immagini": 9,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -585,7 +781,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:05",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -596,7 +798,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:34",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -613,7 +820,12 @@
    "nome": "Alessio C.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:17",
+     "n_immagini": 3,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -636,7 +848,12 @@
      ]
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -647,7 +864,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -664,7 +886,13 @@
    "nome": "Yinlin L.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "12:39",
+     "in_ritardo": true,
+     "n_immagini": 3,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -687,7 +915,12 @@
      ]
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -698,7 +931,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -715,7 +953,13 @@
    "nome": "Matteo A.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "12:34",
+     "in_ritardo": true,
+     "n_immagini": 6,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -738,7 +982,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:16",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -749,7 +999,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:41",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -766,7 +1021,13 @@
    "nome": "Cristian C.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "12:30",
+     "in_ritardo": true,
+     "n_immagini": 7,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -789,7 +1050,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:47",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -800,7 +1067,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:54",
+     "n_immagini": 2,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -817,7 +1089,12 @@
    "nome": "Nehara F.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:06",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -840,7 +1117,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:35",
+     "in_ritardo": true,
+     "n_immagini": 4,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -851,7 +1134,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:49",
+     "n_immagini": 2,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -868,7 +1156,13 @@
    "nome": "Muhid H.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "12:44",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -891,7 +1185,12 @@
      ]
     },
     "ora5-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -902,7 +1201,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "non_consegnato"
+     "s": "non_consegnato",
+     "stato_classroom": "ASSEGNATO",
+     "immagini": "nd",
+     "n_immagini": null,
+     "immagini_nd": "nessun file allegato",
+     "caratteri": null
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -919,7 +1223,13 @@
    "nome": "Md M.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "12:33",
+     "in_ritardo": true,
+     "n_immagini": 6,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -942,7 +1252,13 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "IN RITARDO",
+     "ora_consegna": "13:23",
+     "in_ritardo": true,
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -953,7 +1269,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:42",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -970,7 +1291,12 @@
    "nome": "Giovanni S.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:24",
+     "n_immagini": 6,
+     "immagini": "si",
+     "caratteri": 42
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -993,7 +1319,12 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:46",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -1004,7 +1335,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:16",
+     "n_immagini": 4,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
@@ -1021,7 +1357,12 @@
    "nome": "Enea Z.",
    "stati": {
     "ora4-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:12",
+     "n_immagini": 6,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora4-quiz": {
      "s": "fatto",
@@ -1044,7 +1385,12 @@
      ]
     },
     "ora5-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "12:45",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora5-quiz": {
      "s": "fatto",
@@ -1055,7 +1401,12 @@
      "versione_precedente": false
     },
     "ora6-documento": {
-     "s": "consegnato"
+     "s": "consegnato",
+     "stato_classroom": "CONSEGNATO",
+     "ora_consegna": "13:19",
+     "n_immagini": 5,
+     "immagini": "si",
+     "caratteri": 0
     },
     "ora6-quiz": {
      "s": "fatto",
