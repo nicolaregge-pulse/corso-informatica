@@ -114,7 +114,7 @@ var studenti = [
   { userId: 'u1', profile: { name: { familyName: 'Rossi', givenName: 'Mario', fullName: 'Mario Rossi' }, emailAddress: 'mario.rossi@studenti.piamarta.it' } },
   { userId: 'u2', profile: { name: { familyName: 'Verdi', givenName: 'Anna', fullName: 'Anna Verdi' }, emailAddress: 'anna.verdi@studenti.piamarta.it' } },
   { userId: 'u3', profile: { name: { familyName: 'Neri', givenName: 'Luca', fullName: 'Luca Neri' }, emailAddress: 'luca.neri@studenti.piamarta.it' } },
-  { userId: 'u4', profile: { name: { familyName: 'Bianchi', givenName: 'Anna', fullName: 'Sara Bianchi' }, emailAddress: 'sara.bianchi@studenti.piamarta.it' } }
+  { userId: 'u4', profile: { name: { familyName: 'Bianchi', givenName: 'Sara', fullName: 'Sara Bianchi' }, emailAddress: 'sara.bianchi@studenti.piamarta.it' } }
 ];
 var lavori = [
   { id: 'W1', title: '13/11 Ora 4: File e cartelle', workType: 'ASSIGNMENT', creationTime: '2026-11-13T10:38:00Z', materials: [{ driveFile: { shareMode: 'STUDENT_COPY', driveFile: { id: 'MODELLO' } } }] },
