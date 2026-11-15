@@ -39,6 +39,7 @@ import sys
 QUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, QUI)
 import aggiorna_cruscotto_dati as base  # noqa: E402  (stesse regole di privacy e di lettura delle celle)
+import fascia_pubblica as fp  # noqa: E402  (fascia al posto del numero: R1, 15/11/2026)
 
 try:
     from zoneinfo import ZoneInfo
@@ -523,6 +524,17 @@ def main(argv):
         "n_allievi": len(righe_out),
         "voci": out_voci, "allievi": righe_out,
     }
+    # R1 (15/11/2026): la copia CON percentuali, punti e punti per domanda sta solo nel riservato (dati/cruscotto-pieno/);
+    # il pubblico ha per ogni quiz fatto solo la fascia «ok» / «rivedere» (soglia 80%) e «aperte_in_correzione».
+    fp.scrivi_pieno("%s-oggi.json" % classe, json.dumps(J, ensure_ascii=False, indent=1) + "\n")
+    for a in J["allievi"]:
+        for st in a["stati"].values():
+            if st.get("s") == "fatto":
+                st["fascia"] = "ok" if st.get("pct", 0) >= fp.SOGLIA else "rivedere"
+            for k in ("pct", "mg", "su", "domande", "da_ris", "da_risposte"):
+                st.pop(k, None)
+    J["versione"] = "1.2"
+    J["privacy"] = "nessun numero per allievo (percentuali, punti, voti): solo stato e fascia ok/rivedere; i numeri stanno nel riservato"
     testo = json.dumps(J, ensure_ascii=False, indent=1)
     guai = []
     if "@" in testo:
@@ -556,12 +568,18 @@ def main(argv):
     # coerenza con la vista «Quiz e voti»: la sua copia della «Situazione pubblica» (CSV) dice MANCA dove il foglio «Ris» ha la risposta
     # abbinata di un quiz di oggi: nella copia la cella diventa «NN% (punti/totale)», come nella vista «Oggi» (stessa fonte, stesso numero)
     cp = os.path.join(DEST, "%s-situazione.csv" % classe)
+    cpieno = os.path.join(fp.PIENO, "%s-situazione.csv" % classe)
     if os.path.exists(cp) and ris_resp:
-        with open(cp, encoding="utf-8", newline="") as f:
-            rr = list(csv.reader(f))
-        hh = trova_testa(rr)
-        if hh is not None:
-            tocc = 0
+        tocc = 0
+        for pathf, pubblico in ((cp, True), (cpieno, False)):
+            if not os.path.exists(pathf):
+                continue
+            with open(pathf, encoding="utf-8", newline="") as f:
+                rr = list(csv.reader(f))
+            hh = trova_testa(rr)
+            if hh is None:
+                continue
+            n = 0
             for v in voci:
                 if v["tipo"] != "quiz" or v["id"] not in ris_resp:
                     continue
@@ -572,11 +590,15 @@ def main(argv):
                     if len(r) > col and len(r) > 1 and r[col].strip().upper().startswith("MANCA") and r[1].strip() in ris_resp[v["id"]]:
                         x = ris_resp[v["id"]][r[1].strip()]
                         if x["su"]:
-                            r[col] = "%d%% (%d/%d)%s" % (int(round(100.0 * x["mg"] / x["su"])), x["mg"], x["su"], " (provv.)" if x["aperte"] else "")
-                            tocc += 1
-            if tocc:
-                base.scrivi_csv(cp, rr)
-                print("  %s-situazione.csv: %d celle MANCA -> risposta letta nella scheda Ris (stessa fonte della vista Oggi)" % (classe, tocc))
+                            num = "%d%% (%d/%d)%s" % (int(round(100.0 * x["mg"] / x["su"])), x["mg"], x["su"], " (provv.)" if x["aperte"] else "")
+                            r[col] = fp.cella_quiz(num) if pubblico else num
+                            n += 1
+            if n:
+                base.scrivi_csv(pathf, rr)
+            if pubblico:
+                tocc = n
+        if tocc:
+            print("  %s-situazione.csv: %d celle MANCA -> risposta letta nella scheda Ris (stessa fonte della vista Oggi; nel pubblico solo la fascia)" % (classe, tocc))
     print("%s oggi: scritto %s (%d allievi, %d voci)" % (classe, dest, len(righe_out), len(out_voci)))
     print("  quiz dato %s · documenti dato %s · motore %s · esportato %s" % (iso(dato_quiz), iso(dato_doc), motore, iso(esportato)))
     for v in out_voci:

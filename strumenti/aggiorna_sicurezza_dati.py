@@ -42,6 +42,8 @@ import sys
 import unicodedata
 
 QUI = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, QUI)
+import fascia_pubblica as fp  # noqa: E402  (fascia al posto del numero: R1, 15/11/2026)
 REPO = os.path.dirname(QUI)
 DEST = os.path.join(REPO, "docs", "cruscotto", "dati")
 RIS = os.path.join(os.path.dirname(REPO), "corso-informatica-riservato")
@@ -350,6 +352,14 @@ def main(argv):
             meta.setdefault("classi", {}).setdefault(c, {})["sicurezza"] = False
             brutto = 3
             continue
+        # R1 (15/11/2026): percentuali e «chiuse x/8» per allievo solo nel riservato; nel pubblico OK / DA RECUPERARE / IN CORREZIONE
+        _b = io.StringIO()
+        _w = csv.writer(_b, lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
+        _l = max(len(r) for r in righe)
+        for r in righe:
+            _w.writerow(list(r) + [""] * (_l - len(r)))
+        fp.scrivi_pieno(os.path.basename(f), _b.getvalue())
+        righe = fp.pubblica_sicurezza(righe)
         scrivi_csv(f, righe)
         # ora del dato = riga 1 della scheda (data = giorno dell'export in ora italiana)
         giorno = esportato.astimezone(datetime.timezone(datetime.timedelta(hours=1))).date().isoformat()

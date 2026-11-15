@@ -1,5 +1,5 @@
 #!/bin/bash
-# COMANDO UNICO di refresh del cruscotto (v1.1, 15/11/2026: + cruscotto completo; v1.0, 13/11/2026). Si lancia A RICHIESTA: non gira da solo.
+# COMANDO UNICO di refresh del cruscotto (v1.2, 15/11/2026: nel pubblico niente numeri per allievo, controllo privacy_pubblico.py, numeri nel riservato dati/cruscotto-pieno/; v1.1, 15/11/2026: + cruscotto completo; v1.0, 13/11/2026). Si lancia A RICHIESTA: non gira da solo.
 # Perche' non e' automatico ogni 2 minuti: il foglio Fabbrica e' PRIVATO e nessun processo del repository puo' leggerlo;
 # lo legge l'assistente (export xlsx dal connettore Drive, account PIAMARTA). Il foglio stesso e' aggiornato dal motore Fabbrica
 # (Apps Script) a intervalli suoi: Moduli a ogni giro, Classroom ogni 2 minuti per la 2INF e ogni 10 per le altre classi.
@@ -31,6 +31,8 @@ if [ -f "$GEN" ]; then python3 -I "$GEN" 1INF || ESITO=$?; else echo "versione d
 # Scrive nel RISERVATO cruscotti/<CLASSE>-completo-docente-*.html (cognomi, voti, note) e nel pubblico docs/cruscotto/completo/<CLASSE>.html (solo «Nome I.», niente voti/note/Veyon).
 GEN2="$(dirname "$PWD")/corso-informatica-riservato/generatori/cruscotto_completo.py"
 if [ -f "$GEN2" ]; then python3 -I "$GEN2" "$X" || ESITO=$?; else echo "cruscotto completo non generato: manca $GEN2"; fi
+# CONTROLLO BLOCCANTE (15/11/2026, R1): nessun numero per allievo (percentuali, punti, voti) nei file pubblici del cruscotto
+python3 -I strumenti/privacy_pubblico.py || { echo "STOP: numeri per allievo nei file pubblici: NON faccio il push."; exit 1; }
 echo "--- refresh finito (esito $ESITO, 0 = tutto scritto). Ora del dato: docs/cruscotto/dati/meta.json"
 if [ "${2:-}" = "--push" ]; then
   [ "$ESITO" = "0" ] || [ "$ESITO" = "3" ] || { echo "NON faccio il push: errore vero in uno script (esito $ESITO)."; exit "$ESITO"; }

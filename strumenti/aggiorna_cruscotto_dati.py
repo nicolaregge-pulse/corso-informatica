@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Aggiorna i dati di riserva del cruscotto (docs/cruscotto/dati/). Versione 1.0 (12/11/2026).
+"""Aggiorna i dati di riserva del cruscotto (docs/cruscotto/dati/). Versione 1.1 (15/11/2026: nel pubblico la fascia OK / DA RIVEDERE al posto di percentuali e media per allievo; i numeri nel riservato, dati/cruscotto-pieno/). 1.0 (12/11/2026).
 
 Da un file xlsx esportato dal foglio Fabbrica produce, per ogni classe:
     docs/cruscotto/dati/<CLASSE>-situazione.csv   da la scheda «Situazione pubblica <CLASSE>»
@@ -30,6 +30,8 @@ import re
 import sys
 
 QUI = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, QUI)
+import fascia_pubblica as fp  # noqa: E402  (fascia al posto del numero: R1, 15/11/2026)
 REPO = os.path.dirname(QUI)
 DEST = os.path.join(REPO, "docs", "cruscotto", "dati")
 RISERVATO = os.path.join(os.path.dirname(REPO), "corso-informatica-riservato", "generatori")
@@ -122,14 +124,18 @@ def controllo_privacy(nome_file, righe, pn):
     return guai
 
 
-def scrivi_csv(percorso, righe):
+def testo_csv(righe):
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator="\n", quoting=csv.QUOTE_MINIMAL)
     larg = max(len(r) for r in righe)
     for r in righe:
         w.writerow(r + [""] * (larg - len(r)))
+    return buf.getvalue()
+
+
+def scrivi_csv(percorso, righe):
     with open(percorso, "w", encoding="utf-8", newline="") as f:
-        f.write(buf.getvalue())
+        f.write(testo_csv(righe))
 
 
 def main(argv):
@@ -168,6 +174,10 @@ def main(argv):
                 if os.path.exists(file_csv):
                     os.remove(file_csv)
                 continue
+            if tipo == "situazione":
+                # R1 (15/11/2026): i numeri per allievo (percentuali, punti, media) stanno solo nel riservato; il pubblico ha la fascia OK / DA RIVEDERE
+                fp.scrivi_pieno(os.path.basename(file_csv), testo_csv(righe))
+                righe = fp.pubblica_situazione(righe)
             scrivi_csv(file_csv, righe)
             scritti[c][tipo] = True
             print("%s %s: scritto (%d righe)" % (c, tipo, len(righe)))
