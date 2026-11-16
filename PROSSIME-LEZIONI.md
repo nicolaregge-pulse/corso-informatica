@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 1.4** — 16/11/2026
+**Versione 1.5** — 16/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -109,6 +109,25 @@ Orario dal registro DIDAweb, screenshot del prof del 16 novembre (fa fede), nel 
 
 Lunedì 16 novembre: terza informatica dalle 8 alle 11 e seconda informatica dalle 11 alle 14, Laboratorio professionale. Martedì 17: seconda informatica dalle 8 alle 10, Informatica; quarta dalle 10 alle 13, Laboratorio professionale. Mercoledì 18: prima informatica dalle 8 alle 10, Impresa simulata (laboratorio), e dalle 10 alle 11, Laboratorio professionale; terza informatica dalle 11 alle 13, Laboratorio professionale; prima informatica dalle 13 alle 14, Tecnologia professionale. Giovedì 19: seconda informatica dalle 10 alle 11, Sicurezza professionale (il titolo del registro lo mette la direzione). Venerdì 20: seconda informatica dalle 8 alle 10, Informatica; prima informatica dalle 11 alle 14, Laboratorio professionale.
 
+## Bozza 7 giorni, da martedì 17 a lunedì 23 novembre (16/11/2026, da scegliere con Nicola)
+
+Una riga per lezione, dall'orario del registro DIDAweb (screenshot del 16/11 alle 13:07; lunedì 23 da confermare). Le righe «scelta» sono già decise dal prof il 16/11; le altre sono proposte, non sviluppate. Per la Sicurezza il titolo lo mette la direzione.
+
+| Giorno | Classe e ore | Argomento | Obiettivo |
+|---|---|---|---|
+| Mar 17 | 2INF 8-10 | Scelta del prof: teoria dell'HTML, due lezioni da un'ora (il web, i browser, HTML e tag; poi il CSS) | Capire markup e stile; documento e quiz per ogni ora |
+| Mar 17 | 4TI 10-13 | Scelta del prof: consegna e discussione del file del progetto, poi documento di presentazione | Valutare se il progetto è corposo e fattibile |
+| Mer 18 | 1INF 8-10 | Impresa simulata (laboratorio): da decidere | Proposta: continuare il percorso di Computer Essentials |
+| Mer 18 | 1INF 10-11 | Laboratorio professionale: da decidere | Proposta: file, cartelle e sistema operativo con esercizio a passi |
+| Mer 18 | 3INF 11-13 | Sistemare i siti personali e preparare lo stage (dal 23/11) | Repository con nome e file normalizzati, pagina presenze funzionante |
+| Mer 18 | 1INF 13-14 | Tecnologia professionale: da decidere | Proposta: teoria a schede con quiz |
+| Gio 19 | 2INF 10-11 | Sicurezza professionale | Titolo dalla direzione |
+| Ven 20 | 2INF 8-10 | Pagine web: più pagine, menu e tabelle, e sistemare i siti | Siti online con index.html e immagini che si vedono |
+| Ven 20 | 1INF 11-14 | Laboratorio professionale: da decidere | Proposta: continuare Computer Essentials, un lavoro per ora |
+| Lun 23 | tutte | Orario da verificare sul registro | Inizia lo stage della 3INF |
+
+Punti aperti: i 3 rientrati alla seconda ora di lunedì in 3INF; gli account GitHub senza codici in 2INF; il «via» del prof per togliere la password dal tracciamento nel riservato.
+
 ## Promemoria per tutte le classi
 
 Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno su Google Moduli e devono permettere più risposte, così chi deve recuperare può rifarli. In seconda e in terza, quando i ragazzi hanno finito, si possono proporre i giochi dei byte e dei pixel della prima.
@@ -120,3 +139,4 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 3. v1.2 (13/11/2026): sezione di giovedì 12 aggiornata con il registro firmato della seconda; sezione di venerdì 13 con orario dallo screenshot dell'11/11, una proposta di Sicurezza e tre proposte per la prima; punti aperti di giovedì.
 4. v1.3 (13/11/2026): sezione di venerdì 13 riscritta sulla scelta del prof (Computer Essentials per la prima, ore 11-14) e sull'orario dallo screenshot delle 12:17 con le firme non confermate; tolta la dicitura «voci dell'Allegato A da sistemare» (dopo il 30/10 non si aggiungono voci, R5.2).
 5. v1.4 (16/11/2026): aggiunta la settimana 16-20 novembre con l'orario dallo screenshot DIDAweb del prof (anche in `orario/settimana-2026-11-16.md` v1.0 e in `docs/avanzamento/orario-lezioni.json`); il controllo «oggi niente lezioni» del 16/11 nasceva dal json fermo al 06/11.
+6. v1.5 (16/11/2026): aggiunta la bozza dei 7 giorni da martedì 17 a lunedì 23 novembre, con le scelte del prof già fatte e le proposte per le ore ancora da decidere.
