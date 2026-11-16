@@ -467,7 +467,7 @@ def c11_2inf(mat, spec, E):
         S = spec["2INF"]["ore"][str(n)]
         pk = mat.ultimo(R, PACC2[n])
         if pk:
-            t = mat.testo(R + "/" + pk[2])
+            t = mat.testo(R + "/" + pk[2]); tp = t.split("## 01")[-1].split("## 02")[0]   # solo il pacchetto vero (capitolo 01)
             E.verifica(S["titolo"] in t and ("ora %d (%s)" % (n, S["orario"])) in t.split("\n")[0], "11 2INF", "pacchetto ora %d: titolo e orario %s" % (n, S["orario"]), "pacchetto ora %d: titolo o orario %s mancano" % (n, S["orario"]))
         ud = mat.ultimo(R, DISP2[n])
         if ud:
@@ -475,13 +475,12 @@ def c11_2inf(mat, spec, E):
             k = len(set(re.findall(r"FAI LO SCREENSHOT (\d+) di (\d+)", t)))
             tot = {int(b) for a, b in re.findall(r"FAI LO SCREENSHOT (\d+) di (\d+)", t)}
             E.verifica(tot == {S["screenshot"]} and k == S["screenshot"], "11 2INF", "dispensa ora %d: %d screenshot" % (n, S["screenshot"]), "dispensa ora %d: screenshot %s/%d, spec %d" % (n, sorted(tot), k, S["screenshot"]))
-            if n == 4:   # dal 16/11 (docente): stessa cima della 3INF, repository che hai gia' altrimenti il-mio-sito
-                E.verifica(all(x in t for x in spec["cima_documento"]) and "NOMEREPO" in t and "Ultimo commit" not in t and "ultimo commit, cioè" not in t, "11 2INF", "dispensa ora 4: cima del Documento (nome, cognome, URL repository, URL sito)", "dispensa ora 4: cima del Documento non uguale alla 3INF")
-                E.verifica("sito-personale" not in t, "11 2INF", "dispensa ora 4: nessun sito-personale", "dispensa ora 4: cita sito-personale")
-            else:
-                E.verifica("sito-personale" not in t and "Nome e cognome" not in t, "11 2INF", "dispensa ora %d: nessun repository della 3INF" % n, "dispensa ora %d: cita sito-personale o la cima 3INF" % n)
-            if n in (4,): E.verifica(repo in t, "11 2INF", "dispensa ora %d: repository %s" % (n, repo), "dispensa ora %d: non cita il repository %s" % (n, repo))
-    E.att("11 2INF", "In cima al Documento l'ora 4 della 2INF e' allineata alla 3INF (nome, cognome, URL repository, URL sito); le ore 5 e 6 chiedono ancora «repository + ultimo commit»: da allineare")
+            # dal 16/11 (lavagna del docente): repository mio-sito per tutti, URL uniformi, in cima al Documento nome, cognome, URL repository, URL sito
+            E.verifica(all(x in t for x in spec["cima_documento"]) and "Ultimo commit" not in t and "ultimo commit, cioè" not in t, "11 2INF", "dispensa ora %d: cima del Documento (nome, cognome, URL repository, URL sito)" % n, "dispensa ora %d: cima del Documento non uguale alla 3INF" % n)
+            E.verifica(repo in t and "il-mio-sito" not in t and "sito-personale" not in t and "https://github.com/NOMEUTENTE/%s" % repo in t and "https://NOMEUTENTE.github.io/%s/" % repo in t, "11 2INF", "dispensa ora %d: repository %s e URL uniformi" % (n, repo), "dispensa ora %d: repository diverso da %s o URL non uniformi" % (n, repo))
+        if pk:
+            E.verifica("il-mio-sito" not in tp and "sito-personale" not in tp and (repo in tp), "11 2INF", "pacchetto ora %d: repository %s" % (n, repo), "pacchetto ora %d: repository diverso da %s" % (n, repo))
+    E.att("11 2INF", "Regola della lavagna 16/11: repository mio-sito per tutti (2INF), cima del Documento come la 3INF (nome, cognome, URL repository, URL sito); la 3INF resta «ognuno il suo repository»")
 
 
 # ============================================================ 12 intestazioni delle versioni (R11)
