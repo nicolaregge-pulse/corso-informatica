@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La mia galleria</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#gal-app{max-width:900px;margin:0 auto;padding:8px;font-family:Arial,sans-serif}
+#gal-app .barra{background:#e8f1fb;border:2px solid #2f6db5;border-radius:10px;padding:8px 12px;margin:10px 0}
+#gal-app .prova{background:#fff4d6;border:2px solid #e0b400;border-radius:10px;padding:8px 12px;margin:10px 0}
+#gal-app .err{color:#b00020;font-weight:bold}#gal-app .ok{color:#1b7a3a;font-weight:bold}
+#gal-app button{font-size:17px;padding:10px 14px;border-radius:8px;border:2px solid #1a73e8;background:#1a73e8;color:#fff;cursor:pointer;min-height:44px}
+#gal-app button.sec{background:#fff;color:#1a73e8}#gal-app button.rosso{background:#c62828;border-color:#c62828}
+#gal-app input{font-size:17px;padding:8px;border:2px solid #7a8798;border-radius:6px;max-width:100%;margin:3px 0}
+#gal-app .griglia{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin:12px 0}
+#gal-app figure{margin:0;border:1px solid #c9d3e0;border-radius:8px;padding:6px;background:#fff;color:#1a2330}
+#gal-app figure img{width:100%;height:auto;display:block;border-radius:6px}
+#gal-app figcaption{font-size:15px;margin-top:4px;overflow-wrap:anywhere}
+#gal-app details{margin:10px 0}#gal-app summary{font-size:18px;font-weight:bold;cursor:pointer}
+#gal-app .regole{background:#fdecea;border-left:6px solid #c62828;border-radius:8px;padding:6px 12px}
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html">Chi sono</a>
+<a href="competenze.html">Competenze</a>
+<a href="hobby.html">Hobby</a>
+<a href="interessi.html">Interessi</a>
+<a href="galleria.html">Galleria</a>
+</nav>
+<h1>La mia galleria</h1>
+<div id="gal-app">
+<div id="g-prova" class="prova" hidden><b>MODO PROVA.</b> Le foto restano solo su questo computer. Il servizio della scuola non è ancora attivo.</div>
+<p id="g-chi"></p>
+<div id="g-griglia" class="griglia" aria-live="polite"></div>
+<p id="g-vuota" hidden>Non ci sono ancora foto.</p>
+<details id="g-accedi">
+<summary>Accedi per caricare</summary>
+<div class="barra">
+<p>Per caricare servono il tuo nome utente di GitHub e la tua password. Senza password puoi solo guardare.</p>
+<label>Nome utente<br><input id="g-u" autocomplete="username" autocapitalize="off"></label><br>
+<label>Password<br><input id="g-p" type="password" autocomplete="current-password"></label><br>
+<button id="g-entra" type="button">Accedi</button> <button id="g-esci" type="button" class="sec" hidden>Esci</button>
+<p id="g-msg-accesso" role="status"></p>
+<details><summary>Non hai ancora la password? Creala</summary>
+<p>Scegli una password tua: almeno 8 caratteri. Non la dire a nessuno. Poi il prof approva il tuo account.</p>
+<label>Nome utente di GitHub<br><input id="g-nu" autocapitalize="off"></label><br>
+<label>Password nuova<br><input id="g-np" type="password" autocomplete="new-password"></label><br>
+<label>Ripeti la password<br><input id="g-np2" type="password" autocomplete="new-password"></label><br>
+<button id="g-crea" type="button" class="sec">Crea il mio account</button>
+<p id="g-msg-crea" role="status"></p>
+</details>
+</div>
+</details>
+<div id="g-carica" class="barra" hidden>
+<div class="regole"><b>Prima di caricare:</b> niente volti di persone minorenni, niente dati personali (indirizzi, telefoni, documenti), niente foto di altri senza permesso. Usa animali, oggetti, paesaggi, disegni.</div>
+<p><b>Carica una foto</b> (si ridimensiona da sola).</p>
+<input id="g-file" type="file" accept="image/*"><br>
+<label>Titolo breve<br><input id="g-titolo" maxlength="80"></label><br>
+<button id="g-invia" type="button">Carica la foto</button>
+<p id="g-msg-carica" role="status"></p>
+</div>
+<div id="g-admin" class="barra" hidden>
+<b>ADMIN</b>
+<p>Galleria da gestire: <input id="g-per" autocapitalize="off" placeholder="nome utente"> <button id="g-vai" type="button" class="sec">Apri</button></p>
+<p><button id="g-att" type="button" class="sec">Mostra gli account in attesa</button></p>
+<div id="g-attesa"></div>
+</div>
+</div>
+<script>
+(function(){
+"use strict";
+var CONFIG_URL="https://nicolaregge-pulse.github.io/corso-informatica/galleria/config.json";
+var ITER_ALLIEVO=200000, LS="galleria-prova-v1";
+var $=function(i){return document.getElementById(i)};
+var enc=new TextEncoder(), ENDPOINT="", sess=null, owner="";
+function hex(buf){return Array.prototype.map.call(new Uint8Array(buf),function(b){return ("0"+b.toString(16)).slice(-2)}).join("")}
+function unhex(h){var a=new Uint8Array(h.length/2),i;for(i=0;i<a.length;i++)a[i]=parseInt(h.substr(i*2,2),16);return a}
+async function chiave(pw,sale,iter){var km=await crypto.subtle.importKey("raw",enc.encode(pw),"PBKDF2",false,["deriveBits"]);return hex(await crypto.subtle.deriveBits({name:"PBKDF2",hash:"SHA-256",salt:unhex(sale),iterations:iter},km,256))}
+async function sha(t){return hex(await crypto.subtle.digest("SHA-256",enc.encode(t)))}
+function dire(id,t,ok){var e=$(id);e.textContent=t;e.className=ok===true?"ok":ok===false?"err":""}
+function nome(s){return String(s||"").trim().toLowerCase()}
+/* ---------- servizio (Apps Script) o MODO PROVA (browser) ---------- */
+function prova(){try{return JSON.parse(localStorage.getItem(LS))||{utenti:{},foto:[]}}catch(x){return {utenti:{},foto:[]}}}
+function salvaProva(d){localStorage.setItem(LS,JSON.stringify(d))}
+var api={
+ async get(p){
+  if(ENDPOINT){var r=await fetch(ENDPOINT+"?"+new URLSearchParams(p));return r.json()}
+  var d=prova(),u=nome(p.u);
+  if(p.op==="utente"){var a=d.utenti[u];return {ok:true,esiste:!!a,stato:a?"attivo":"",sale:a?a.sale:"",iter:a?a.iter:0}}
+  return {ok:true,utenti:Object.keys(d.utenti),foto:d.foto.filter(function(f){return !u||f.u===u}).map(function(f){return {id:f.id,u:f.u,url:f.data,t:f.t}})}
+ },
+ async post(b){
+  if(ENDPOINT){var r=await fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(b)});return r.json()}
+  var d=prova(),u=nome(b.u),per=nome(b.per||b.u),a=d.utenti[u];
+  if(b.op==="richiedi"){if(d.utenti[u])return {ok:false,errore:"esiste gia"};d.utenti[u]={sale:b.sale,iter:b.iter,impronta:b.impronta};salvaProva(d);return {ok:true,stato:"attivo"}}
+  if(!a||await sha(b.k)!==a.impronta)return {ok:false,errore:"accesso negato"};
+  if(per!==u)return {ok:false,errore:"solo la tua galleria"};
+  if(b.op==="verifica")return {ok:true,chi:"allievo"};
+  if(b.op==="carica"){if(d.foto.filter(function(f){return f.u===per}).length>=12)return {ok:false,errore:"massimo 12 foto"};d.foto.push({id:String(Date.now()),u:per,data:"data:image/jpeg;base64,"+b.img,t:b.titolo||""});try{salvaProva(d)}catch(x){return {ok:false,errore:"spazio finito nel browser"}}return {ok:true}}
+  if(b.op==="togli"){d.foto=d.foto.filter(function(f){return !(f.id===b.id&&f.u===per)});salvaProva(d);return {ok:true}}
+  return {ok:false,errore:"operazione"}
+ }};
+/* ---------- galleria ---------- */
+async function mostra(){
+ $("g-chi").textContent=owner?("Galleria di "+owner):"Scrivi un nome utente per vedere una galleria.";
+ var r=await api.get({op:"lista",u:owner}),g=$("g-griglia");g.textContent="";
+ (r.foto||[]).forEach(function(f){
+  var fig=document.createElement("figure"),im=document.createElement("img"),c=document.createElement("figcaption");
+  im.src=f.url;im.alt=f.t||"Foto";im.loading="lazy";c.textContent=f.t||"";fig.appendChild(im);fig.appendChild(c);
+  if(sess&&(sess.u===owner||sess.admin)){var b=document.createElement("button");b.type="button";b.className="rosso";b.textContent="Togli";b.addEventListener("click",async function(){
+   var x=await api.post({op:"togli",u:sess.u,per:owner,k:sess.k,id:f.id});dire("g-msg-carica",x.ok?"Foto tolta.":("Errore: "+x.errore),!!x.ok);mostra()});fig.appendChild(b)}
+  g.appendChild(fig)});
+ $("g-vuota").hidden=!!(r.foto&&r.foto.length)||!owner;
+}
+async function accedi(){
+ var u=nome($("g-u").value),pw=$("g-p").value;if(!u||!pw){dire("g-msg-accesso","Scrivi il nome utente e la password.",false);return}
+ dire("g-msg-accesso","Controllo... un momento.");
+ try{
+  var inf=await api.get({op:"utente",u:u});if(!inf.esiste){dire("g-msg-accesso","Questo nome utente non ha un account. Creane uno qui sotto.",false);return}
+  if(inf.stato==="attesa"){dire("g-msg-accesso","Il tuo account aspetta l'approvazione del prof.",false);return}
+  var k=await chiave(pw,inf.sale,inf.iter),x=await api.post({op:"verifica",u:u,k:k});
+  if(!x.ok){dire("g-msg-accesso","Non va: "+x.errore,false);return}
+  sess={u:u,k:k,admin:x.chi==="admin"};$("g-p").value="";
+  dire("g-msg-accesso","Sei dentro come "+u+".",true);$("g-esci").hidden=false;$("g-carica").hidden=false;$("g-admin").hidden=!sess.admin;
+  if(!sess.admin){owner=u;$("g-per").value=u}else{$("g-per").value=owner}
+  mostra();
+ }catch(e){dire("g-msg-accesso","Il servizio non risponde. Riprova tra poco.",false)}
+}
+function esci(){sess=null;$("g-esci").hidden=true;$("g-carica").hidden=true;$("g-admin").hidden=true;dire("g-msg-accesso","Sei uscito.");mostra()}
+async function crea(){
+ var u=nome($("g-nu").value),p=$("g-np").value;
+ if(!/^[a-z0-9](?:[a-z0-9-]{0,37}[a-z0-9])?$/.test(u)||u==="admin"){dire("g-msg-crea","Nome utente non valido.",false);return}
+ if(p.length<8){dire("g-msg-crea","La password deve avere almeno 8 caratteri.",false);return}
+ if(p!==$("g-np2").value){dire("g-msg-crea","Le due password sono diverse.",false);return}
+ dire("g-msg-crea","Creo l'account... un momento.");
+ try{
+  var sale=hex(crypto.getRandomValues(new Uint8Array(16))),k=await chiave(p,sale,ITER_ALLIEVO),x=await api.post({op:"richiedi",u:u,sale:sale,iter:ITER_ALLIEVO,impronta:await sha(k)});
+  if(!x.ok)dire("g-msg-crea","Non riesco: "+x.errore,false);
+  else{$("g-np").value=$("g-np2").value="";dire("g-msg-crea",x.stato==="attesa"?"Fatto! Ora il prof approva il tuo account. Poi puoi accedere.":"Fatto! Ora puoi accedere.",true)}
+ }catch(e){dire("g-msg-crea","Il servizio non risponde. Riprova tra poco.",false)}
+}
+function ridimensiona(file){
+ return new Promise(function(ok,ko){
+  var im=new Image(),url=URL.createObjectURL(file);
+  im.onload=function(){
+   var s=Math.min(1,1000/Math.max(im.width,im.height)),w=Math.max(1,Math.round(im.width*s)),h=Math.max(1,Math.round(im.height*s)),c=document.createElement("canvas");c.width=w;c.height=h;
+   var x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);URL.revokeObjectURL(url);
+   var q=.85,b;do{b=c.toDataURL("image/jpeg",q).split(",")[1];q-=.1}while(b.length*0.75>300000&&q>.3);
+   if(b.length*.75>300000)ko(new Error("grande"));else ok(b)};
+  im.onerror=function(){ko(new Error("immagine"))};im.src=url})
+}
+async function carica(){
+ if(!sess){dire("g-msg-carica","Prima accedi.",false);return}
+ var f=$("g-file").files[0];if(!f){dire("g-msg-carica","Scegli una foto.",false);return}
+ dire("g-msg-carica","Preparo la foto...");
+ try{
+  var img=await ridimensiona(f),x=await api.post({op:"carica",u:sess.u,per:owner||sess.u,k:sess.k,titolo:$("g-titolo").value,img:img});
+  if(x.ok){dire("g-msg-carica","Foto caricata!",true);$("g-file").value="";$("g-titolo").value="";mostra()}else dire("g-msg-carica","Non riesco: "+x.errore,false)
+ }catch(e){dire("g-msg-carica",e.message==="grande"?"La foto è troppo grande, prova un'altra.":"Non riesco a leggere la foto.",false)}
+}
+async function attesa(){
+ var x=await api.post({op:"attesa",u:sess.u,k:sess.k}),d=$("g-attesa");d.textContent="";
+ if(!x.ok){d.textContent="Errore: "+x.errore;return}
+ if(!x.attesa.length){d.textContent="Nessun account in attesa.";return}
+ x.attesa.forEach(function(n){var p=document.createElement("p");p.appendChild(document.createTextNode(n+" "));
+  ["approva","rifiuta"].forEach(function(op){var b=document.createElement("button");b.type="button";b.textContent=op==="approva"?"Approva":"Rifiuta";if(op==="rifiuta")b.className="rosso";
+   b.addEventListener("click",async function(){var y=await api.post({op:op,u:sess.u,k:sess.k,utente:n});p.textContent=y.ok?n+": fatto":n+": "+y.errore});p.appendChild(b)});d.appendChild(p)})
+}
+async function avvia(){
+ try{var c=await (await fetch(CONFIG_URL,{cache:"no-store"})).json();ENDPOINT=String(c.endpoint||"")}catch(e){ENDPOINT=""}
+ $("g-prova").hidden=!!ENDPOINT;
+ var q=new URLSearchParams(location.search),m=/^([a-z0-9-]+)\.github\.io$/i.exec(location.hostname);
+ owner=nome(q.get("u")||(m?m[1]:""));$("g-u").value=owner;$("g-nu").value=owner;$("g-per").value=owner;
+ $("g-entra").addEventListener("click",accedi);$("g-esci").addEventListener("click",esci);$("g-crea").addEventListener("click",crea);$("g-invia").addEventListener("click",carica);
+ $("g-vai").addEventListener("click",function(){owner=nome($("g-per").value);mostra()});$("g-att").addEventListener("click",attesa);
+ $("g-p").addEventListener("keydown",function(e){if(e.key==="Enter")accedi()});
+ await mostra();
+ document.documentElement.setAttribute("data-galleria","pronta");
+}
+avvia();
+})();
+</script>
+</body>
+</html>
