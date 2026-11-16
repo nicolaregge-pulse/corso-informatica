@@ -475,9 +475,13 @@ def c11_2inf(mat, spec, E):
             k = len(set(re.findall(r"FAI LO SCREENSHOT (\d+) di (\d+)", t)))
             tot = {int(b) for a, b in re.findall(r"FAI LO SCREENSHOT (\d+) di (\d+)", t)}
             E.verifica(tot == {S["screenshot"]} and k == S["screenshot"], "11 2INF", "dispensa ora %d: %d screenshot" % (n, S["screenshot"]), "dispensa ora %d: screenshot %s/%d, spec %d" % (n, sorted(tot), k, S["screenshot"]))
-            E.verifica("sito-personale" not in t and "Nome e cognome" not in t, "11 2INF", "dispensa ora %d: nessun repository della 3INF" % n, "dispensa ora %d: cita sito-personale o la cima 3INF" % n)
+            if n == 4:   # dal 16/11 (docente): stessa cima della 3INF, repository che hai gia' altrimenti il-mio-sito
+                E.verifica(all(x in t for x in spec["cima_documento"]) and "NOMEREPO" in t and "Ultimo commit" not in t and "ultimo commit, cioè" not in t, "11 2INF", "dispensa ora 4: cima del Documento (nome, cognome, URL repository, URL sito)", "dispensa ora 4: cima del Documento non uguale alla 3INF")
+                E.verifica("sito-personale" not in t, "11 2INF", "dispensa ora 4: nessun sito-personale", "dispensa ora 4: cita sito-personale")
+            else:
+                E.verifica("sito-personale" not in t and "Nome e cognome" not in t, "11 2INF", "dispensa ora %d: nessun repository della 3INF" % n, "dispensa ora %d: cita sito-personale o la cima 3INF" % n)
             if n in (4,): E.verifica(repo in t, "11 2INF", "dispensa ora %d: repository %s" % (n, repo), "dispensa ora %d: non cita il repository %s" % (n, repo))
-    E.att("11 2INF", "In cima al Documento la 2INF chiede «repository + ultimo commit», la 3INF «nome, cognome, URL repository, URL sito» (decisioni diverse): da allineare se il docente lo vuole")
+    E.att("11 2INF", "In cima al Documento l'ora 4 della 2INF e' allineata alla 3INF (nome, cognome, URL repository, URL sito); le ore 5 e 6 chiedono ancora «repository + ultimo commit»: da allineare")
 
 
 # ============================================================ 12 intestazioni delle versioni (R11)
