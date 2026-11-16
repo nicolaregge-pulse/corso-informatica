@@ -7,6 +7,19 @@ const srv = http.createServer((q, r) => { let p = path.join(root, decodeURICompo
 let fail = 0; const ok = (c, m) => { console.log((c ? 'OK   ' : 'FAIL ') + m); if (!c) fail++; };
 (async () => {
   await new Promise(r => srv.listen(0, r)); const url = `http://localhost:${srv.address().port}/2fa/`;
+  { // copia di sicurezza: scarica il file e rimettilo su un PC vuoto (v1.1, 16/11/2026)
+    const b0 = await chromium.launch(); const c1 = await b0.newContext({ acceptDownloads: true }); const p1 = await c1.newPage();
+    await p1.goto(url); await p1.fill('#sec', 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ'); await p1.fill('#nm', 'GitHub'); await p1.click('#add');
+    await p1.fill('#rec', 'aaaaa-bbbbb\nccccc-ddddd'); const [dl] = await Promise.all([p1.waitForEvent('download'), p1.click('#scarFile')]);
+    const f = require('path').join(require('os').tmpdir(), 'prova-sicurezza.txt'); await dl.saveAs(f);
+    const txt = fs.readFileSync(f, 'utf8');
+    ok(dl.suggestedFilename() === 'github-sicurezza.txt' && /SEGRETO: GEZD/.test(txt) && /aaaaa-bbbbb/.test(txt) && /\(2\)/.test(txt), 'file di sicurezza con segreto e 2 codici');
+    const c2 = await b0.newContext(); const p2 = await c2.newPage(); await p2.goto(url);
+    await p2.setInputFiles('#rip', f); await p2.waitForFunction(() => /Fatto/.test(document.getElementById('ripok').textContent));
+    await p2.evaluate(() => { window.__fakeNow = 59000; }); await p2.waitForFunction(() => /^\d{3} \d{3}$/.test((document.getElementById('num0') || {}).textContent || ''));
+    await p2.waitForTimeout(700); const nn = await p2.textContent('#num0'); ok(nn === '287 082', 'su un PC vuoto il file rida il generatore (numero giusto) ' + nn);
+    await b0.close(); fs.unlinkSync(f);
+  }
   const b = await chromium.launch();
   const S = 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ';
   for (const w of [390, 1280]) {
