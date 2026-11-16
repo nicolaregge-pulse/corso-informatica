@@ -1,0 +1,152 @@
+<!doctype html><html lang='it'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>2INF ora 4 · Il mio primo sito</title><style>:root{--bg:#fbfaf6;--fg:#1a2330;--ac:#12467a;--bx:#fff8d6;--bd:#d5dde8;--cb:#16202e}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#10151c;--fg:#e8eef7;--ac:#7db4ee;--bx:#3a3418;--bd:#2c3a4d;--cb:#0a0f16}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.55 system-ui,"Segoe UI",Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}h1{color:var(--ac);font-size:28px}h2{color:var(--ac);font-size:23px;border-bottom:3px solid var(--bd);padding-bottom:4px;margin-top:34px}h3{font-size:19px;margin:18px 0 4px}
+code{background:var(--bd);padding:1px 5px;border-radius:4px;font-size:.92em;overflow-wrap:anywhere}.im{text-align:center}.im img{max-width:100%;height:auto;border:1px solid var(--bd);border-radius:8px}
+.box{background:var(--bx);border-left:6px solid #e0b400;border-radius:8px;padding:6px 14px;margin:14px 0}.box p{margin:6px 0}
+table{border-collapse:collapse;width:100%;margin:10px 0}th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left}
+.cb{position:relative;margin:10px 0}.cb pre{background:var(--cb);color:#e8eef7;padding:12px;border-radius:8px;overflow:auto;font-size:14px;margin:0}
+.cp{position:absolute;top:8px;right:8px;background:#2da44e;color:#fff;border:0;border-radius:6px;padding:8px 14px;font-size:15px;cursor:pointer;min-height:40px}
+.me{background:#e8f1fb;border:2px solid #2f6db5;border-radius:10px;padding:10px 14px;margin:14px 0;color:#14304f}.me input{font-size:18px;padding:6px 10px;border:2px solid #7a8798;border-radius:6px;width:min(320px,100%)}
+.top a{color:var(--ac)}</style></head><body><main><p class='top'><a href='../index.html'>Torna alle pagine del docente</a> · PDF: <a href='../../dispense/lunedi/2inf-ora4-dispensa-v1-2.pdf'>dispensa</a></p><h1>2INF 16/11 · Ora 4 · Chi sono: il mio primo sito</h1><div class='me'><label for='u'><b>Il tuo nome utente di GitHub</b> (facoltativo: i codici da copiare lo useranno). Non viene salvato.</label><br><input id='u' type='text' autocomplete='off' placeholder='NOMEUTENTE'></div>
+<p>Oggi fai il tuo primo sito: la tua home page. La scrivi sul PC, poi la metti su GitHub. GitHub la mette online. Alla fine controlli da solo e dai gli indirizzi al prof.</p>
+<p class='im'><img src='img/a2-pages.jpg' alt='Scrivi, metti su GitHub, il sito va online' loading='lazy'></p>
+<h2>Il tuo percorso: segna ☐ quando finisci</h2>
+<p>☐ <b>1 · Capisco</b>: sito, HTML, CSS</p>
+<p>☐ <b>2 · La home page</b>: un file <code>index.html</code> nel Blocco note</p>
+<p>☐ <b>3 · GitHub</b>: il repository <code>mio-sito</code></p>
+<p>☐ <b>4 · Online</b>: il sito ha un indirizzo</p>
+<p>☐ <b>5 · Controllo</b>: guardo se è tutto giusto</p>
+<p>☐ <b>6 · Gli indirizzi</b>: li do al prof</p>
+<p>☐ <b>7 · Consegna</b>: UN Documento</p>
+<div class='box'><p><b>Le regole per tutti</b></p><p>1 · Il repository si chiama <code>mio-sito</code>. Lo stesso nome per tutti.</p><p>2 · Gli indirizzi sono uguali per tutti: <code>https://github.com/NOMEUTENTE/mio-sito</code> e <code>https://NOMEUTENTE.github.io/mio-sito/</code>.</p><p>3 · La home page ha: i tuoi dati, le competenze, gli hobby e la galleria fotografica.</p></div>
+<p>Non installi niente. Usi: <b>Browser</b>, <b>Blocco note</b>, <b>Esplora file</b>, <b>Classroom nel browser</b>, <b>Documenti Google</b>, <b>GitHub nel browser</b> e il <b>tasto Stamp</b>. In ogni passo trovi la scritta <b>Strumento</b>. Hai poco tempo? Il foglio «Documento Ora 4 semplificato» ti dice che cosa controllare.</p>
+<h2>1 · Capisco: che cos&#x27;è un sito</h2>
+<p class='im'><img src='img/a1-cosa.jpg' alt='Sito, repository, commit' loading='lazy'></p>
+<p>Un <b>sito</b> è un gruppo di pagine. Ogni pagina è un file. La prima pagina si chiama <code>index.html</code> ed è la <b>home page</b>.</p>
+<p><b>HTML5</b> è il linguaggio delle pagine. È un <b>markup</b>: dice che cosa c&#x27;è nella pagina. Si scrive con i <b>tag</b>. Ogni tag ha una apertura e una chiusura: <code>&lt;h1&gt;Ciao&lt;/h1&gt;</code>. Sulla lavagna il tag era <code>&lt;titolo&gt;</code>: «titolo» era un nome generico. Il tag vero è <code>&lt;h1&gt;</code> per il titolo della pagina.</p>
+<p class='im'><img src='img/m1-markup-stile.jpg' alt='Markup e stile' loading='lazy'></p>
+<p><b>CSS</b> è lo <b>stile</b>: dice come si vede la pagina. Esempio: il titolo in Times New Roman, 20 pt. Il CSS si mette in due modi: <b>FILE</b> (un file separato <code>style.css</code>) oppure <b>EMBEDDED</b> (dentro la pagina, nel tag <code>&lt;style&gt;</code>).</p>
+<p class='im'><img src='img/m2-css-modi.jpg' alt='I due modi di mettere il CSS' loading='lazy'></p>
+<p>Oggi usi il modo <b>EMBEDDED</b>: un solo file, <code>index.html</code>.</p>
+<h2>Parole nuove</h2>
+<table><tr><th>Parola</th><th>Che cosa vuol dire</th></tr><tr><td>HTML</td><td>il linguaggio per scrivere le pagine web (markup)</td></tr><tr><td>tag</td><td>una parola tra <code>&lt;</code> e <code>&gt;</code>, per esempio <code>&lt;h1&gt;</code></td></tr><tr><td>CSS</td><td>lo stile: colori, caratteri, dimensioni</td></tr><tr><td>repository</td><td>la cartella del tuo sito su GitHub</td></tr><tr><td>commit</td><td>un salvataggio, con un messaggio che dice che cosa hai cambiato</td></tr><tr><td>GitHub Pages</td><td>il servizio che mette il tuo sito online</td></tr></table>
+<div class='box'><p><b>Che cosa NON metto nel sito.</b> Il sito è pubblico: lo può vedere chiunque. Non metti password, indirizzo di casa, numero di telefono, foto di persone. Usa solo il tuo nome, senza cognome. Per esempio: <code>Sara</code>.</p></div>
+<h2>2 · La home page: un file <code>index.html</code> (circa 20 minuti)</h2>
+<p>Fai il sito sul PC, nel <b>Blocco note</b>. Poi lo metti su GitHub.</p>
+<h3>Passo 1</h3>
+<p><b>Strumento: Esplora file.</b> Sul Desktop premi il tasto destro. Premi <b>Nuovo</b>, poi <b>Cartella</b>. Scrivi il nome <code>mio-sito</code>.</p>
+<p class='im'><img src='img/e1-cartella.jpg' alt='La cartella mio-sito' loading='lazy'></p>
+<h3>Passo 2</h3>
+<p><b>Strumento: Blocco note.</b> Apri il <b>Blocco note</b>. Cerca il nome nel menu di Windows, il bottone in basso a sinistra. Ricopia l&#x27;esempio qui sotto. Al posto di <code>Sara</code> scrivi il tuo nome. Cambia competenze e hobby con i tuoi.</p>
+<div class='cb'><pre id='c1' class='cd'>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;it&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;title&gt;Chi sono&lt;/title&gt;
+&lt;style&gt;
+body { font-family: Arial, sans-serif; background-color: lightyellow; }
+h1 { font-family: &quot;Times New Roman&quot;, serif; font-size: 20pt; color: navy; }
+img { width: 200px; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;Ciao, sono Sara&lt;/h1&gt;
+&lt;p&gt;Ho 14 anni. Studio informatica.&lt;/p&gt;
+&lt;h2&gt;Le mie competenze&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;so scrivere una pagina web&lt;/li&gt;
+&lt;li&gt;so usare GitHub&lt;/li&gt;
+&lt;li&gt;parlo italiano e inglese&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;I miei hobby&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;il calcio&lt;/li&gt;
+&lt;li&gt;la musica&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;La mia galleria&lt;/h2&gt;
+&lt;img src=&quot;foto1.jpg&quot; alt=&quot;Il mio gatto&quot;&gt;
+&lt;img src=&quot;foto2.jpg&quot; alt=&quot;Il mio pallone&quot;&gt;
+&lt;img src=&quot;foto3.jpg&quot; alt=&quot;Il mio disegno&quot;&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><button type='button' class='cp' data-t='c1'>Copia</button></div>
+<p class='im'><img src='img/b1-blocconote.jpg' alt='Il codice nel Blocco note' loading='lazy'></p>
+<h3>Passo 3</h3>
+<p><b>Strumento: Blocco note.</b> Premi <code>Ctrl+S</code>. Scegli la cartella <code>mio-sito</code> sul Desktop. Nel campo <b>Nome file</b> scrivi <code>index.html</code>. In <b>Salva come</b> scegli <b>Tutti i file</b>. In <b>Codifica</b> scegli <b>UTF-8</b>. Premi <b>Salva</b>.</p>
+<p class='im'><img src='img/b2-salvacome.jpg' alt='La finestra Salva con nome' loading='lazy'></p>
+<h3>Passo 4</h3>
+<p><b>Strumento: Browser.</b> Cerca 3 immagini: un animale, un oggetto, un disegno. Premi il tasto destro, poi <b>Salva immagine con nome</b>. Salvale nella cartella <code>mio-sito</code> con i nomi <code>foto1.jpg</code>, <code>foto2.jpg</code>, <code>foto3.jpg</code>. Non usare foto di persone.</p>
+<p class='im'><img src='img/g17-salva-immagine.jpg' alt='Salva immagine con nome' loading='lazy'></p>
+<h3>Passo 5</h3>
+<p><b>Strumento: Esplora file.</b> Apri la cartella <code>mio-sito</code>. Fai doppio clic su <code>index.html</code>. La pagina si apre nel browser: vedi titolo, competenze, hobby e le 3 immagini?</p>
+<p class='im'><img src='img/b3-doppioclic.jpg' alt='Doppio clic sul file' loading='lazy'></p>
+<div class='box'><p>Non vedi le immagini? Controlla i nomi: <code>foto1.jpg</code>, <code>foto2.jpg</code>, <code>foto3.jpg</code>, nella stessa cartella di <code>index.html</code>.</p></div>
+<h2>3 · GitHub: il repository <code>mio-sito</code></h2>
+<p><b>Git</b> ricorda tutte le versioni dei tuoi file. <b>GitHub</b> è il sito dove tieni i file su internet. Un <b>repository</b> è la cartella del tuo sito su GitHub. Con Lazarus hai già usato Git.</p>
+<h3>Passo 1</h3>
+<p><b>Strumento: GitHub nel browser.</b> Apri <code>github.com</code> ed entra con il tuo account. Premi il bottone <b>+</b> in alto a destra. Poi premi <b>New repository</b>.</p>
+<p class='im'><img src='img/g1-nuovo.jpg' alt='Il bottone più' loading='lazy'></p>
+<h3>Passo 2</h3>
+<p><b>Strumento: GitHub nel browser.</b> Nel campo <b>Repository name</b> scrivi <code>mio-sito</code>. Scegli <b>Public</b>. Premi il bottone verde <b>Create repository</b>.</p>
+<p class='im'><img src='img/g3-form.jpg' alt='Il modulo del repository' loading='lazy'></p>
+<div class='box'><p>Il nome è <code>mio-sito</code> per tutti. Hai già un repository <code>mio-sito</code>? Usa quello.</p></div>
+<h3>Passo 3</h3>
+<p><b>Strumento: GitHub nel browser.</b> Nel repository premi <b>Add file</b>, poi <b>Upload files</b>. Scegli da <code>mio-sito</code> i 4 file: <code>index.html</code>, <code>foto1.jpg</code>, <code>foto2.jpg</code>, <code>foto3.jpg</code>. Nel campo del messaggio scrivi <code>Aggiungo la home page</code>. Premi <b>Commit changes</b>.</p>
+<p class='im'><img src='img/g11-upload.jpg' alt='Upload files' loading='lazy'></p>
+<div class='box'><p>Un <b>commit</b> è un salvataggio con un messaggio. Un buon messaggio comincia con un verbo. Bene: <code>Aggiungo la home page</code>. Male: <code>modifiche</code>.</p></div>
+<h2>4 · Online: GitHub Pages (circa 5 minuti)</h2>
+<h3>Passo 1</h3>
+<p><b>Strumento: GitHub nel browser.</b> Nel tuo repository premi la scheda <b>Settings</b>, in alto. Poi nel menu a sinistra premi <b>Pages</b>.</p>
+<p class='im'><img src='img/g8-settings.jpg' alt='Settings' loading='lazy'></p>
+<h3>Passo 2</h3>
+<p><b>Strumento: GitHub nel browser.</b> Sotto <b>Branch</b> scegli <code>main</code>. Premi <b>Save</b>. Aspetta uno o due minuti.</p>
+<p class='im'><img src='img/g9-pages.jpg' alt='Pages: main e Save' loading='lazy'></p>
+<h3>Passo 3</h3>
+<p><b>Strumento: Browser.</b> Ricarica la pagina <b>Pages</b>. Compare il tuo indirizzo. Premilo: è il tuo sito online.</p>
+<p class='im'><img src='img/g10-sito.jpg' alt='Il sito online' loading='lazy'></p>
+<div class='box'><p>Compare un errore 404? Aspetta due minuti. Poi premi <code>Ctrl+F5</code>.</p></div>
+<h2>5 · Controllo: guardo da solo se è tutto giusto</h2>
+<h3>Passo 1</h3>
+<p><b>Strumento: Browser.</b> Apri il tuo sito dall&#x27;indirizzo <code>https://NOMEUTENTE.github.io/mio-sito/</code>. Controlla ogni riga di questo elenco. Se una riga non va, torna alla parte indicata.</p>
+<p class='im'><img src='img/v1-verifica.jpg' alt='Il controllo da solo' loading='lazy'></p>
+<p>Il sito non si apre? Guarda la parte 4. Non vedi le immagini? Guarda la parte 2. Nel repository mancano file? Guarda la parte 3.</p>
+<h2>6 · Gli indirizzi: li do al prof</h2>
+<p>Questi sono i tuoi 2 indirizzi (con il tuo nome utente nel campo in alto):</p>
+<div class='cb'><pre id='c2' class='cd'>https://github.com/NOMEUTENTE/mio-sito</pre><button type='button' class='cp' data-t='c2'>Copia</button></div>
+<div class='cb'><pre id='c3' class='cd'>https://NOMEUTENTE.github.io/mio-sito/</pre><button type='button' class='cp' data-t='c3'>Copia</button></div>
+<p>Il prof apre i tuoi 2 indirizzi e controlla il codice e il sito. Gli indirizzi si chiamano <b>URL</b>.</p>
+<h3>Passo 1</h3>
+<p><b>Strumento: GitHub nel browser.</b> Apri il tuo repository. Clicca la barra degli indirizzi in alto. Premi <code>Ctrl+C</code>: l&#x27;URL del repository è copiato. È fatto così: <code>https://github.com/NOMEUTENTE/mio-sito</code>.</p>
+<p class='im'><img src='img/u1-url-repo.jpg' alt='L&#x27;URL del repository' loading='lazy'></p>
+<h3>Passo 2</h3>
+<p><b>Strumento: GitHub nel browser.</b> Premi <b>Settings</b>, poi <b>Pages</b>. Sotto <b>Your site is live at</b> seleziona l&#x27;indirizzo. Premi <code>Ctrl+C</code>: l&#x27;URL del sito è copiato. È fatto così: <code>https://NOMEUTENTE.github.io/mio-sito/</code>.</p>
+<p class='im'><img src='img/u2-url-sito.jpg' alt='L&#x27;URL del sito' loading='lazy'></p>
+<h2>7 · Consegna: UN Documento</h2>
+<p>Consegni UN solo Documento. In cima ci sono il tuo nome e cognome e i 2 URL. Così il prof può aprirli.</p>
+<h3>Passo 1</h3>
+<p><b>Strumento: Classroom nel browser.</b> Apri il compito di questa ora. Nel riquadro <b>Il tuo lavoro</b> premi <b>Aggiungi o crea</b>. Poi premi <b>Documenti</b>.</p>
+<p class='im'><img src='img/d1-nuovo-doc.jpg' alt='Aggiungi o crea, poi Documenti' loading='lazy'></p>
+<h3>Passo 2</h3>
+<p><b>Strumento: Documenti Google.</b> In cima al Documento ricopia le 3 righe qui sotto. Per esempio: <code>Sara Rossi</code>. Al posto di NOMEUTENTE incolla o scrivi il tuo nome utente di GitHub. Il repository è sempre <code>mio-sito</code>.</p>
+<div class='cb'><pre id='c4' class='cd'>Nome e cognome: ______________________
+URL del repository: https://github.com/NOMEUTENTE/mio-sito
+URL del sito: https://NOMEUTENTE.github.io/mio-sito/</pre><button type='button' class='cp' data-t='c4'>Copia</button></div>
+<p class='im'><img src='img/d2-cima.jpg' alt='Nome, cognome e 2 URL in cima' loading='lazy'></p>
+<h3>Passo 3</h3>
+<p><b>Strumento: Tastiera, tasto Stamp.</b> Apri il tuo sito nel browser. Premi il tasto <code>Stamp</code>, oppure <code>Windows+Maiusc+S</code>. Nel Documento, sotto i due URL, premi <code>Ctrl+V</code>. Sotto la foto metti la riga <code>Il mio sito online.</code></p>
+<p class='im'><img src='img/s4-cima.jpg' alt='Il Documento: URL, screenshot, codice' loading='lazy'></p>
+<div class='box'><p><b>FAI LO SCREENSHOT 1 di 1</b></p><p><b>Deve vedersi:</b> il tuo sito aperto nel browser. L&#x27;indirizzo in alto si legge. Si vede tutta la finestra.</p><p><b>Fai così:</b> premi <code>Windows+Maiusc+S</code> (oppure <code>Stamp</code>). Poi vai nel Documento, sotto i due URL, e premi <code>Ctrl+V</code>.</p></div>
+<h3>Passo 4</h3>
+<p><b>Strumento: GitHub nel browser.</b> Nel Documento scrivi il titolo <code>index.html</code>. Apri il file <code>index.html</code> nel repository su GitHub. Premi <b>Copy raw file</b>, in alto a destra.</p>
+<p class='im'><img src='img/d3-copia.jpg' alt='Copy raw file' loading='lazy'></p>
+<h3>Passo 5</h3>
+<p><b>Strumento: Documenti Google.</b> Torna al Documento. Clicca sotto il titolo. Premi <code>Ctrl+Maiusc+V</code>: il codice compare senza colori strani.</p>
+<p class='im'><img src='img/d4-incolla.jpg' alt='Titolo del file e codice' loading='lazy'></p>
+<h3>Passo 6</h3>
+<p><b>Strumento: Classroom nel browser.</b> Torna nel compito su Classroom. Nel riquadro <b>Il tuo lavoro</b> deve esserci il Documento. Premi il bottone blu <b>Consegna</b>. Se compare una finestra, premi ancora <b>Consegna</b>.</p>
+<p class='im'><img src='img/d5-consegna.jpg' alt='Il bottone Consegna' loading='lazy'></p>
+<div class='box'><p>Non riesci con il Documento? Puoi consegnare uno ZIP: nel repository premi il bottone verde <b>Code</b>, poi <b>Download ZIP</b>. Nel compito premi <b>Aggiungi o crea</b>, poi <b>File</b>.</p></div>
+<p>Hai finito prima? Chiedi all&#x27;assistente il prossimo passo.</p><script>const u=document.getElementById('u');const pre=[...document.querySelectorAll('.cd')];pre.forEach(p=>p.dataset.o=p.textContent);
+function ag(){const v=(u.value.trim()||'NOMEUTENTE');pre.forEach(p=>p.textContent=p.dataset.o.split('NOMEUTENTE').join(v))}
+u.addEventListener('input',ag);
+document.querySelectorAll('.cp').forEach(b=>b.addEventListener('click',async()=>{const t=document.getElementById(b.dataset.t).textContent;try{await navigator.clipboard.writeText(t);b.textContent='Copiato!'}catch(x){const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.t));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Premi Ctrl+C'}setTimeout(()=>b.textContent='Copia',1800)}));</script></main></body></html>
