@@ -205,5 +205,13 @@ json.dump({"sicurezza": [{"attivo": True, "classe": "2INF", "ore": [{"ora": "6A"
 prova("#150 Fabbrica: quiz con id del giorno (1311) = presente", cc.quiz_sicurezza_in_fabbrica("2INF", "2026-11-13", fb))
 prova("#150 Fabbrica: altro giorno o altra classe = assente", not cc.quiz_sicurezza_in_fabbrica("2INF", "2026-11-12", fb) and not cc.quiz_sicurezza_in_fabbrica("1INF", "2026-11-13", fb))
 
+# 11. 16/11/2026 (#343): orario di firma letto male dallo screenshot
+fi = tempfile.mkdtemp()
+open(fi + "/FIRME-REGISTRO-2026-27.md", "w").write("3. Ora 10-11, 3INF, Lab: FIRMATA il 16/11/2026 alle 08:15:00, argomento x.\n1. Ora 8-9, 3INF: FIRMATA il 16/11/2026 alle 09:16:00.\n4. Ora 10-11, 3INF: FIRMATA il 16/11/2026 alle 09:41:00.\n")
+fs = cc.firme_sospette("2026-11-16", fi)
+prova("#343: firma alle 08:15 per l'ora 10-11 = sospetta", len(fs) == 1 and "10-11" in fs[0] and "08:15" in fs[0])
+prova("#343: firma poco prima dell'ora (09:41 per le 10-11) o dopo = non sospetta", not any("09:41" in x or "09:16" in x for x in fs))
+prova("#343: altro giorno non conta", cc.firme_sospette("2026-11-17", fi) == [])
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)

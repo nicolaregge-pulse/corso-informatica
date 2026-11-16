@@ -58,7 +58,23 @@ def avviso(msg):
     print(json.dumps({'systemMessage': 'Bobina automatica: ' + msg}, ensure_ascii=False))
 
 
+def _password_docente():
+    """Password del docente (config/PASSPHRASE-DOCENTE.txt del riservato, 16/11/2026): se compare in chat non deve finire nelle bobine.
+    La sessione parte da /home/user e usa la copia PUBBLICA di questo hook (errore #342, 16/11): si cerca anche con percorso assoluto."""
+    qui = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    for f in (os.path.join(qui, 'config', 'PASSPHRASE-DOCENTE.txt'),
+              '/home/user/corso-informatica-riservato/config/PASSPHRASE-DOCENTE.txt'):
+        try:
+            return open(f, encoding='utf-8').read().strip()
+        except OSError:
+            continue
+    return ''
+
+
 def pulisci_segreti(t):
+    pw = _password_docente()
+    if len(pw) >= 8:
+        t = re.sub(re.escape(pw), '[PASSWORD DOCENTE RIMOSSA]', t, flags=re.I)
     for p in SEGRETI:
         t = re.sub(p, '[CHIAVE RIMOSSA]', t)
     return re.sub(SEGRETO_CHIAVE, lambda m: m.group(1) + m.group(2) + '[CHIAVE RIMOSSA]', t)

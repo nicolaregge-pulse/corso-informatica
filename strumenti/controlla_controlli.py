@@ -860,6 +860,29 @@ def controlla_argomenti_svolti(giorno, classi, pub=None):
     return problemi
 
 
+def firme_sospette(giorno, pub=None):
+    """16/11/2026 (#343): orario di firma letto male da uno screenshot (08:15 scritto per l'ora 10-11, era 09:41).
+    Una firma più di 60 minuti PRIMA dell'inizio dell'ora è quasi certamente un errore di lettura: da confermare col docente."""
+    pub = pub or PUB
+    try:
+        testo = open(os.path.join(pub, "FIRME-REGISTRO-2026-27.md"), encoding="utf-8").read()
+    except Exception:
+        return []
+    gg, mm, aa = giorno[8:10], giorno[5:7], giorno[0:4]
+    out = []
+    for m in re.finditer(r"Ora\s+(\d{1,2})-(\d{1,2}),[^\n]*?FIRMATA\s+il\s+(\d{2})/(\d{2})/(\d{4})\s+alle\s+(\d{1,2}):(\d{2})", testo):
+        if (m.group(3), m.group(4), m.group(5)) != (gg, mm, aa):
+            continue
+        riga = testo[m.start():testo.find("\n", m.start())]
+        if "corretto" in riga.lower() or "sbagliato" in riga.lower():
+            continue   # già corretta dal docente (nota nella riga)
+        inizio, firma = int(m.group(1)) * 60, int(m.group(6)) * 60 + int(m.group(7))
+        if firma < inizio - 60:
+            out.append("firma dell'ora %s-%s alle %s:%s, più di un'ora prima dell'inizio dell'ora: probabile errore di lettura dello screenshot (#343), da confermare col docente"
+                       % (m.group(1), m.group(2), m.group(6), m.group(7)))
+    return out
+
+
 def controlla_fine_giornata(giorno, pub=None, ris=None):
     """Controllore di fine giornata: per ogni classe in orario il giorno indicato, sul dato vero.
     1. compito su Classroom uscito entro la prima campanella (piano «pubblicata», #141) e piano senza bottoni dopo
@@ -973,6 +996,7 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
             senza += 1
     if senza:
         problemi.append("domande all'assistente del %s senza risposta: %d su %d (regola 22)" % (giorno, senza, tot))
+    problemi.extend(firme_sospette(giorno, pub))   # 16/11/2026 (#343)
     if not os.path.isfile(os.path.join(rep, "non-andato.md")):
         problemi.append("manca report/%s/non-andato.md: il controllo di fine giornata non è stato fatto (#155)" % giorno)
     problemi.extend(controlla_argomenti_svolti(giorno, list(classi), pub))   # 13/11/2026: Allegato A allineato, una riga per lezione

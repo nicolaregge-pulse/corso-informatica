@@ -193,6 +193,21 @@ caso("nb: «Nome I.» non avvisa", av("Marco R. ha finito."), False)
 caso("nb: testo vuoto", av(""), False)
 caso("nb: nessun avviso non copre cognome altrui", av("VERDINI Marco."), False)
 
+# avviso lunghezza (16/11/2026, non bloccante, #342)
+_lungo = "\n".join("Riga %d con alcune parole di testo." % i for i in range(14))
+_corto = "Prima riga.\nSeconda riga."
+_cornice = "\U0001F7E9" * 14
+_lungo_c = _cornice + "\n" + _lungo + "\n" + _cornice
+_box = "Copia:\n```\n" + "\n".join("codice %d" % i for i in range(40)) + "\n```"
+caso("ii: 14 righe di testo avvisa", cm.avviso_lunghezza(_lungo) is not None, True)
+caso("ii: 2 righe non avvisa", cm.avviso_lunghezza(_corto) is None, True)
+caso("ii: riquadro lungo da copiare non conta", cm.avviso_lunghezza(_box) is None, True)
+caso("ii: una sola riga ma 200 parole avvisa", cm.avviso_lunghezza(" ".join(["parola"] * 200)) is not None, True)
+caso("ii: main non blocca, scrive un avviso", main_con({"last_assistant_message": _lungo_c}), False)
+_r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")],
+                    input=json.dumps({"last_assistant_message": _lungo_c}), capture_output=True, text=True)
+caso("ii: main stampa systemMessage con le righe", "systemMessage" in _r.stdout and "R4.2" in _r.stdout, True)
+
 giusti = sum(1 for _, o, a in casi if o == a)
 for n, o, a in casi:
     if o != a:

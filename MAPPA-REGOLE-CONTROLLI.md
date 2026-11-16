@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.22** — 13/11/2026 — documento interno del docente e di Claude
+**Versione 1.23** — 16/11/2026 sera — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -316,7 +316,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #239 | Lezione cambiata in corsa tre volte (PC reinstallati, poi PC dell aula) il 09/11 | 4 | D | D | Ogni cambio di lezione del docente apre un «cambio piano»: si archiviano piano, cruscotto e quiz del vecchio piano e si rigenerano insieme (come #231) |
 | #240 | Cruscotto 2INF con dati vecchi di circa 2 ore mostrato ai ragazzi (09/11) | 4 | D | D | Il giro del cruscotto lascia un segnale; controlla_controlli.py --fine-giornata segna ROSSO un buco superiore a 12 minuti e la pagina scrive DATI VECC |
 | #241 | Quiz v2.0 non selettivo: tutti 9 o 10 su 10 (09/11) | 4 | D | D | Il generatore dei quiz calcola per ogni domanda quante delle 3-4 risposte sbagliate sono plausibili (stessa lunghezza, stesso lessico) e segnala le do |
-| #242 | Messaggi in lezione troppo lunghi e senza riquadri da copiare (09/11) | 4 | D | D | controllo-messaggio.py (R4): in ora di lezione ROSSO se il messaggio ha piu di 10 righe, o un testo da incollare fuori da un blocco di codice. Da veri |
+| #242 | Messaggi in lezione troppo lunghi e senza riquadri da copiare (09/11) | 4 | D | A | (avviso dal 16/11, #342) controllo-messaggio.py (R4): in ora di lezione ROSSO se il messaggio ha piu di 10 righe, o un testo da incollare fuori da un blocco di codice. Da veri |
 | #243 | Messaggio con link senza PUBBLICATO bloccato dall hook (09/11) | 2 | A | A | Nessuno nuovo: controllo-messaggio.py funziona. Resta da insegnare al generatore di messaggi a non scrivere il link prima. Voce A. |
 | #244 | Cruscotto 3INF fermo ai dati del 04/11, nessun dato dei presenti il 09/11 | 4 | D | D | verifica_lezione.py e cruscotto_classe.py: ROSSO se dati.json non e del giorno e la classe ha lezione oggi (gia in #233). Da verificare perche non ha |
 | #245 | Report PDF orari, presenze e Veyon del 09/11 assenti | 4 | D | D | report_ore.py va lanciato dal giro a fine di ogni ora; controlla_controlli.py --fine-giornata ROSSO se per un ora in orario manca il PDF. Da costruire |
@@ -324,7 +324,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #247 | Stop hook «tutto versionato» scattato circa 25 volte il 09/11 | 2 | D | D | Commit e push a fine di ogni blocco di lavoro (R11.1); un hook di fine turno che committa da solo i file del riservato (come la bobina automatica). Da |
 | #248 | Codice lungo e spiegazioni mescolati in chat (10/11) | 4 | D | D | R4 3ter senza controllo: da costruire, ma da riallineare con #253 |
 | #249 | Account PIAMARTA e testi in riquadro non rispettati (10/11) | 4 | D | D | Nessun controllo automatico che verifichi 3bis nei messaggi |
-| #250 | Troppa verbosita, spiegazioni non capite, «ricomincia da zero» (10/11) | 4 | D | D | Il limite di lunghezza in ora di lezione (R4.2) non e controllato da uno strumento |
+| #250 | Troppa verbosita, spiegazioni non capite, «ricomincia da zero» (10/11) | 4 | D | A | (avviso dal 16/11, #342) Il limite di lunghezza in ora di lezione (R4.2) non e controllato da uno strumento |
 | #251 | PPP con codice visibile nelle finestre (10/11) | 4 | D | D | Nessun controllo sui PPP |
 | #252 | Link al sito dato prima di PUBBLICATO con deploy fallito (10/11) | 4 | D | D | Il controllo (e) di #79 esiste ma non ha impedito il caso |
 | #253 | Contraddizione R4 3ter e richiesta finale del docente (10/11) | 4 | D | D | Decisione del docente |
@@ -408,6 +408,20 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #333 | Motore non provato con servizi veri attivato: primo giro non completato (13/11) | 2 | D | D | regola: giro vero completo su copia, tempo massimo per giro e rollback pronto prima di attivare; dopo l'attivazione lettura di «Stato» a 2 e 6 minuti (v. #152, #153) |
 | #334 | Orario di lunedì presunto e domanda che contraddice il docente (13/11) | 7 | D | D | R7.6; CHECKLIST 06.13 (orario solo da DIDAweb o dallo screenshot del docente); confronto automatico da costruire |
 | #335 | Correzioni del motore pubblicate su motore.js prima del «via» (13/11) | 1 | D | D | regola: correzioni non autorizzate solo in `fabbrica/correzioni/`; avviso in `limite-comandi.py` per un commit su `fabbrica/motore.js` da costruire |
+| #336 | Kit in turno con strumenti prima: titolo e testo non mostrati (16/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-C, kit in turno pulito: segnala solo dopo l'invio; non impedisce (vedi #349) |
+| #337 | Pagine riservate cifrate con una chiave che il docente non conosce (16/11) | 1 | D | D | passphrase del docente in `config/PASSPHRASE-DOCENTE.txt`, `passphrase_docente.py`; controllo nel generatore da aggiungere |
+| #338 | URL dei siti degli allievi dedotti invece che letti (16/11) | 2 | D | A | `url_siti_3inf.py` distingue «dal Documento» da «dedotto» e non pubblica i dedotti |
+| #339 | Codici di recupero GitHub non conservati, risposta «non esistono» (16/11) | 2 | D | B | `strumenti/dove.py` e indice rapido del riservato; salvataggio cifrato dei file con segreti (D) |
+| #340 | Ricerca di un file noto durata ore, indice mancante (16/11) | 6 | D | A | `strumenti/dove.py`, `aggiorna_indice_rapido.py`, `prova_dove.py` |
+| #341 | Audit cruscotti: dati di ore diverse, screenshot prima dell'export, tabella illeggibile a 390 px (16/11) | 2 | D | D | cruscotti v0.6.1; scansione dei repository dello script e controllo «repository cambiato dopo la verifica» da fare |
+| #342 | Messaggi ancora troppo lunghi, «troppa roba inutile» (16/11; ripete #242, #250) | 5 | D | A | `.claude/hooks/controllo-messaggio.py` controllo (ii): avviso non bloccante oltre 10 righe o 160 parole fuori dai riquadri; prove `prova_messaggio.py` 62/62. #242 e #250 passano da D ad A (avviso) |
+| #343 | Orario di firma letto male dallo screenshot, 08:15 invece di 09:41 (16/11) | 2 | D | A | `strumenti/controlla_controlli.py` `firme_sospette` nel controllo di fine giornata (firma oltre 60 minuti prima dell'ora = ROSSO); prove 41/41 |
+| #344 | Password del docente di nuovo in chiaro nella bobina: la sessione usa la copia pubblica dell'hook (16/11) | 2 | D | B | maschera aggiunta a `bobina-automatica.py` (copia pubblica e del riservato, percorso assoluto); un'unica copia dell'hook e controllo di fine giornata sulla password nelle bobine da fare (D) |
+| #345 | Giri del cruscotto fermi per ore, piani del giorno assenti, orario scritto a lezione iniziata (16/11; ripete #169, #324, #334) | 4 | D | B | `controlla_controlli.py --fine-giornata` segnala giri fermi e piani assenti dopo; giro creato insieme alla pagina da costruire (D) |
+| #346 | Report PDF orari assenti per tutta la giornata (16/11; sesta volta) | 4 | D | B | `controlla_controlli.py --fine-giornata` ROSSO se manca il PDF; sei PDF generati a fine giornata con `generatori/report_ore.py`; lancio a fine ora da costruire (D) |
+| #347 | Istruzioni per i ragazzi lunghe o non chiare, informazioni mancanti (16/11) | 5 | D | B | `controlla_leggibilita.py` e `controlla_coerenza_materiale.py` (a mano, non bloccanti); lista delle domande dei ragazzi da costruire (D) |
+| #348 | Verifica della lezione mai VERDE, giro della Fabbrica oltre il limite, export ogni ora (16/11) | 2 | D | D | export automatico in ora di lezione e avviso sul «Giro: durata» da costruire |
+| #349 | Formato del messaggio sbagliato ancora dopo #336 (16/11) | 1 | D | A | hook controllo-messaggio.py (ff), solo dopo l'invio; prova di consegna riuscita prima di scrivere «sistemato» |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -496,3 +510,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 20. v1.20 (13/11/2026): voce #329 (solo il COGNOME in chat) e voce #281 passata ad automatico (avviso non bloccante).
 21. v1.21 (13/11/2026, audit del pomeriggio): voci #326, #327 (mancavano nella mappa), #330, #331 e #332; nuovo controllo `strumenti/controlla_pdf_ragazzi.py` (nome del file sicuro, note tecniche, fittezza, copia su origin/main); #150 di `controlla_controlli.py` adeguato alla Fabbrica (quiz di Sicurezza in `fabbrica/indice.json`).
 22. v1.22 (13/11/2026, controllore di fine giornata): voci #333 (motore non provato attivato), #334 (orario presunto, domanda che contraddice il docente) e #335 (correzioni su motore.js prima del «via»), tutte D con la regola e il controllo da costruire.
+23. v1.23 (16/11/2026, controllore di fine giornata): voci #336-#349 (il registro era a #335); nuovi controlli: avviso di lunghezza del messaggio in `controllo-messaggio.py` (#342, chiude da D ad A anche #242 e #250) e `firme_sospette` in `controlla_controlli.py` (#343); maschera della password nel hook bobina (#344). Il conteggio della sezione 01 non è stato ricalcolato.

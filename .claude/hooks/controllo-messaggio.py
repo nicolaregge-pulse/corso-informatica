@@ -26,6 +26,8 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
        fonte e ora del dato, oppure con un dato più vecchio di 3 minuti (12/11/2026, errore #314: «un allievo
        non ha consegnato» scritto con un dato di 6 minuti prima, consegna arrivata 13:54:56). Con un dato non
        fresco la frase giusta è «non risulta consegnato nel dato delle HH:MM (N minuti fa)» o «non provato». (R7.1, R8.4)
+8. (ii) Messaggio troppo lungo (16/11/2026, errori #242, #250, #342; R4.2): più di 10 righe o 160 parole di testo
+       fuori dai riquadri di codice. Avviso NON bloccante (systemMessage), vale per ogni messaggio.
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indicati solo con il COGNOME, R1.4 e R7.4): sta
@@ -750,6 +752,25 @@ def controllo_link(testo):
     return controllo_link_senza_pubblicato(testo) or controllo_link_riservato(testo)
 
 
+# (ii) Messaggio troppo lungo (R4.2; errori #242, #250, #342; 16/11/2026): avviso NON bloccante.
+# Il docente cammina tra i banchi: «se ho da leggere più di 10 righe non ne ho il tempo».
+# Si contano le righe di testo fuori dai riquadri di codice (i riquadri da copiare non contano).
+MAX_RIGHE_TESTO = 10
+MAX_PAROLE_TESTO = 160
+
+
+def avviso_lunghezza(testo):
+    t = senza_citazioni(senza_riquadri(testo))
+    righe = [r for r in t.splitlines() if r.strip()]
+    parole = len(re.findall(r"\w+", t))
+    if len(righe) <= MAX_RIGHE_TESTO and parole <= MAX_PAROLE_TESTO:
+        return None
+    return ("Avviso (non blocca, R4.2, #242/#250/#342, 16/11/2026): il messaggio ha %d righe e %d parole fuori dai "
+            "riquadri (limite %d righe, %d parole). Il docente non ha il tempo di leggere di più: dai solo la cosa "
+            "bloccante, il riquadro da copiare e il prossimo passo; il resto va in un file." %
+            (len(righe), parole, MAX_RIGHE_TESTO, MAX_PAROLE_TESTO))
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
@@ -782,6 +803,12 @@ def main():
                       "Con il docente gli allievi si indicano solo con il COGNOME." % ", ".join(trovati[:5]))
     except Exception:
         avviso = None
+    try:
+        lungo = avviso_lunghezza(testo)
+        if lungo:
+            avviso = (avviso + "\n" + lungo) if avviso else lungo
+    except Exception:
+        pass
     if avviso and not motivi:
         sys.stdout.write(json.dumps({"systemMessage": avviso}, ensure_ascii=False))
         return
