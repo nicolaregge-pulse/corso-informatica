@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Coerenza del cruscotto con la fonte (v1.1, 15/11/2026: + controllo delle pagine «completo» per TUTTE e 4 le classi; v1.0, 13/11/2026; errore #327). Non scrive niente.
+"""Coerenza del cruscotto con la fonte (v1.2, 16/11/2026: + pagine «lezione-16-11», opzione --lezione; v1.1, 15/11/2026: + controllo delle pagine «completo» per TUTTE e 4 le classi; v1.0, 13/11/2026; errore #327). Non scrive niente.
 Uso: python3 -I strumenti/controlla_coerenza_cruscotto.py FABBRICA.xlsx
 Confronta docs/cruscotto/dati/1INF-oggi.json e 1INF-presenze.json con l'export del foglio Fabbrica:
  1. stessi allievi (n. e iniziali «Nome I.») nella vista Oggi e nella scheda «Situazione pubblica 1INF»;
@@ -12,6 +12,63 @@ import openpyxl
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(R, "docs", "cruscotto", "dati")
 x = openpyxl.load_workbook(sys.argv[1], data_only=True)
+
+# ---- v1.2 (16/11/2026): pagine «lezione-16-11» (docs/cruscotto/lezione-16-11/<CLASSE>.html) contro il foglio ----
+# Uso solo di questo blocco: python3 -I strumenti/controlla_coerenza_cruscotto.py FABBRICA.xlsx --lezione
+def controlla_lezione(x):
+    from html.parser import HTMLParser
+    class P(HTMLParser):
+        def __init__(s): super().__init__(); s.in_p = False; s.riga = None; s.cella = None; s.righe = []; s.head = []; s.th = False
+        def handle_starttag(s, t, a):
+            a = dict(a)
+            if t == "section": s.in_p = a.get("id") == "panoramica"
+            if s.in_p and t == "tr": s.riga = []
+            if s.in_p and t in ("td", "th"): s.cella = ""; s.th = t == "th"
+        def handle_data(s, d):
+            if s.cella is not None: s.cella += " " + d
+        def handle_endtag(s, t):
+            if s.in_p and t in ("td", "th") and s.riga is not None and s.cella is not None:
+                s.riga.append(re.sub(r"\s+", " ", s.cella).strip()); s.cella = None
+            if s.in_p and t == "tr" and s.riga is not None:
+                (s.head if s.th else s.righe).append(s.riga); s.riga = None
+    pr, n_cmp = [], 0
+    for CL in ("3INF", "2INF"):
+        pth = os.path.join(R, "docs", "cruscotto", "lezione-16-11", CL + ".html")
+        if not os.path.exists(pth):
+            pr.append("%s: manca la pagina lezione-16-11" % CL); continue
+        p = P(); p.feed(open(pth, encoding="utf-8").read())
+        righe_ = [r for r in p.righe if len(r) > 3]
+        nomi_pag = {r[0] for r in righe_}
+        def tabf(nome):
+            rr = [list(r) for r in x[nome].iter_rows(values_only=True)]
+            i = [k for k, a in enumerate(rr) if a and a[0] == "Stato"][0]
+            return rr[i], [a for a in rr[i + 1:] if a and a[0] in ("VERDE", "ROSSO", "ND", "GIALLO", "ARANCIO") and a[1]]
+        hs, ds = tabf("Situazione pubblica " + CL)
+        n_cmp += 1
+        if {str(a[1]).strip() for a in ds} != nomi_pag:
+            pr.append("%s lezione: allievi diversi dalla Situazione pubblica: %s" % (CL, sorted({str(a[1]).strip() for a in ds} ^ nomi_pag)))
+        hc, dc = tabf("Consegne " + CL)
+        hq, dq = hs, ds
+        colh = [h for h in p.head[0] if re.match(r"Ora \d+", h)]
+        for k, h in enumerate(colh):
+            n = int(re.match(r"Ora (\d+)", h).group(1)); ci = 2 + k
+            jc = [i for i, a in enumerate(hc) if a and re.match(r"\s*16/11 Ora %d:" % n, str(a))]
+            pag_d = sum(1 for r in righe_ if "Doc sì" in r[ci]); n_cmp += 1
+            fogl_d = sum(1 for a in dc if str(a[jc[0]]).strip() in ("Consegnato", "CONSEGNATO", "Riconsegnato", "RICONSEGNATO", "Restituito")) if jc else 0
+            if pag_d != fogl_d: pr.append("%s ora %d: Documenti consegnati pagina %d, foglio %d" % (CL, n, pag_d, fogl_d))
+            jq = [i for i, a in enumerate(hq) if a and re.match(r"\s*16/11 Ora %d:" % n, str(a))]
+            pag_q = sum(1 for r in righe_ if re.search(r"Quiz (OK|da rivedere|in correzione)", r[ci])); n_cmp += 1
+            # la Situazione pubblica non ha i numeri: i quiz fatti sono le celle OK / DA RIVEDERE / IN CORREZIONE
+            fogl_q = sum(1 for a in dq if jq and re.match(r"^(\d+%|OK|DA RIVEDERE|IN CORREZIONE)", str(a[jq[0]] or "").strip().upper()))
+            if pag_q != fogl_q: pr.append("%s ora %d: quiz fatti pagina %d, foglio (Situazione pubblica) %d" % (CL, n, pag_q, fogl_q))
+    return pr, n_cmp
+
+if "--lezione" in sys.argv:
+    _x = openpyxl.load_workbook(sys.argv[1], data_only=True)
+    _pr, _n = controlla_lezione(_x)
+    print("ROSSO: " + "; ".join(_pr) if _pr else "VERDE: pagine lezione-16-11 (3INF e 2INF) coerenti con il foglio (%d confronti: allievi, Documenti e quiz per ora)" % _n)
+    sys.exit(1 if _pr else 0)
+
 oggi = json.load(open(os.path.join(D, "1INF-oggi.json"), encoding="utf-8"))
 pres = json.load(open(os.path.join(D, "1INF-presenze.json"), encoding="utf-8"))
 problemi = []
@@ -97,5 +154,6 @@ for CL in ("1INF", "2INF", "3INF", "4TI"):
         if fogl != pag: problemi.append("%s quiz fatti: pagina %d, foglio %d" % (CL, pag, fogl))
     # 4. presenze: nessun nome tra presenti e assenti, ordine presenti prima
     pr = [r for r in p.d.get("presenza", []) if r and len(r) > 3]
+_lp, _ln = controlla_lezione(x); problemi += _lp; tot_cmp += _ln
 print("ROSSO: " + "; ".join(problemi) if problemi else "VERDE: vista Oggi, Consegne, Situazione e presenze coerenti (%d confronti Documenti/quiz, %d allievi nel foglio, %d presenti, %d assenti); pagine «completo» 4 classi: %d confronti" % (confronti, n_cons, len(pa), len(aa), tot_cmp))
 sys.exit(1 if problemi else 0)

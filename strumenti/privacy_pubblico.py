@@ -89,7 +89,7 @@ def _html_numeri(percorso):
 
 def controlla_numeri():
     guai = []
-    for sotto, fn, est in (("dati", _csv_numeri, ".csv"), ("dati", _json_numeri, ".json"), ("completo", _html_numeri, ".html")):
+    for sotto, fn, est in (("dati", _csv_numeri, ".csv"), ("dati", _json_numeri, ".json"), ("completo", _html_numeri, ".html"), ("lezione-16-11", _html_numeri, ".html")):
         cart = os.path.join(_CRU, sotto)
         if not os.path.isdir(cart):
             continue
