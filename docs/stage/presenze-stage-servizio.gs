@@ -1,9 +1,9 @@
-/* Presenze stage 3INF - servizio Google Apps Script (v2.0, 16/11/2026). Account PIAMARTA.
+/* Presenze stage 3INF - servizio Google Apps Script (v2.1, 16/11/2026: nuova impronta del docente; se il servizio e' gia' distribuito, aggiornare DOCENTE_VERIFICA). Account PIAMARTA.
    Un foglio con una riga per allievo e per giorno. Legge per tutti (sola lettura). Scrive solo con la chiave dello stagista
    (derivata dalla sua password) o, se DOCENTE_MODIFICA e' true, con la chiave del docente. Qui ci sono solo impronte, mai password. */
 var DOCENTE_MODIFICA = true;                 /* UN SOLO VALORE: false = puo' modificare solo lo stagista */
 /*DOC-INIZIO*/
-var DOCENTE_VERIFICA = "cc451e6afb8af21f107ca91ed9ddba4261b056ec4e5d4fe41ef4ede240320309";
+var DOCENTE_VERIFICA = "aa7f3bc6ee890cc2c3f1fb0e5d5bc6c0f261cc8dd26fa501a1899412390e0832";
 /*DOC-FINE*/
 var INIZIO = "2026-11-23", FINE = "2027-02-18";
 var ALLIEVI = ["Alessandro A.","Denis A.","David A.","Eric C.","Nicolo' C.","Mirko D.","Ariel D.","Mahmoud E.","Rafi F.","Emmanuel F.","Andrea G.","Simone G.","Zhan L.","Tomas L.","Filippo M.","Beatrice N.","Kelvin P.","Kevin R.","Gabriele R.","Dani S.","Samuele U.","Noah V."];
