@@ -2,36 +2,168 @@
  "versione": "1.0",
  "data": "2026-11-16",
  "nota": "Dati canonici del materiale di lunedi 16/11/2026 (decisioni del docente del 16/11/2026). Letti da strumenti/controlla_coerenza_materiale.py. Nessun nome di allievo.",
- "repo": {"standard": "sito-personale", "2inf": "mio-sito"},
- "url": {"repository": "https://github.com/NOMEUTENTE/NOMEREPO", "sito": "https://NOMEUTENTE.github.io/NOMEREPO/"},
- "cima_documento": ["Nome e cognome:", "URL del repository:", "URL del sito:"],
+ "repo": {
+  "standard": "sito-personale",
+  "2inf": "mio-sito"
+ },
+ "url": {
+  "repository": "https://github.com/NOMEUTENTE/NOMEREPO",
+  "sito": "https://NOMEUTENTE.github.io/NOMEREPO/"
+ },
+ "cima_documento": [
+  "Nome e cognome:",
+  "URL del repository:",
+  "URL del sito:"
+ ],
  "stage_inizio": "23/11/2026",
  "font_min_px": 11,
- "versioni_date": {"1": ["1.0", "1.1", "1.2"], "2": ["1.2", "1.3"], "3": ["1.3", "1.4"]},
- "pagine_max_semplificato": {"1": [1, 2], "2": [2, 3], "3": [2, 3]},
+ "versioni_date": {
+  "1": [
+   "1.0",
+   "1.1",
+   "1.2"
+  ],
+  "2": [
+   "1.2",
+   "1.3"
+  ],
+  "3": [
+   "1.3",
+   "1.4"
+  ]
+ },
+ "pagine_max_semplificato": {
+  "1": [
+   1,
+   2
+  ],
+  "2": [
+   2,
+   3
+  ],
+  "3": [
+   2,
+   3
+  ]
+ },
  "3INF": {
   "orario": "8-11",
   "ore": {
-   "1": {"orario": "8-9", "titolo": "16/11 Ora 1: Il mio sito su GitHub", "registro": "Sviluppo web: HTML5 e GitHub Pages",
-         "screenshot": 2, "file": ["index.html", "diario.html", "CHANGELOG.md"],
-         "quiz_id": "quiz-3inf-1611-ora1", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"},
-   "2": {"orario": "9-10", "titolo": "16/11 Ora 2: Lo stile del mio sito", "registro": "Sviluppo web: CSS3 e menu del sito",
-         "screenshot": 3, "file": ["index.html", "diario.html", "style.css", "presenze.html", "CHANGELOG.md"],
-         "quiz_id": "quiz-3inf-1611-ora2", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"},
-   "3": {"orario": "10-11", "titolo": "16/11 Ora 3: Il diario dello stage", "registro": "Sviluppo web: portfolio delle competenze",
-         "screenshot": 4, "file": ["index.html", "diario.html", "style.css", "diario.js", "qualcosa.js", "CHANGELOG.md"],
-         "quiz_id": "quiz-3inf-1611-ora3", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"}
+   "1": {
+    "orario": "8-9",
+    "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+    "registro": "Sviluppo web: HTML5 e GitHub Pages",
+    "screenshot": 2,
+    "file": [
+     "index.html",
+     "diario.html",
+     "CHANGELOG.md"
+    ],
+    "quiz_id": "quiz-3inf-1611-ora1",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+   },
+   "2": {
+    "orario": "9-10",
+    "titolo": "16/11 Ora 2: Lo stile del mio sito",
+    "registro": "Sviluppo web: CSS3 e menu del sito",
+    "screenshot": 3,
+    "file": [
+     "index.html",
+     "diario.html",
+     "style.css",
+     "presenze.html",
+     "CHANGELOG.md"
+    ],
+    "quiz_id": "quiz-3inf-1611-ora2",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+   },
+   "3": {
+    "orario": "10-11",
+    "titolo": "16/11 Ora 3: Il diario dello stage",
+    "registro": "Sviluppo web: portfolio delle competenze",
+    "screenshot": 4,
+    "file": [
+     "index.html",
+     "diario.html",
+     "style.css",
+     "diario.js",
+     "qualcosa.js",
+     "CHANGELOG.md"
+    ],
+    "quiz_id": "quiz-3inf-1611-ora3",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+   }
   }
  },
  "2INF": {
   "orario": "11-14",
   "ore": {
-   "4": {"orario": "11-12", "titolo": "16/11 Ora 4: Chi sono, il mio primo sito", "registro": "Pagine web: la mia prima pagina HTML", "screenshot": 1,
-         "quiz_id": "quiz-2inf-1611-ora4", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"},
-   "5": {"orario": "12-13", "titolo": "16/11 Ora 5: Il mio sito di tre pagine", "registro": "Pagine web: più pagine, menu e tabella", "screenshot": 1,
-         "quiz_id": "quiz-2inf-1611-ora5", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"},
-   "6": {"orario": "13-14", "titolo": "16/11 Ora 6: Stile e qualcosa di mio", "registro": "Pagine web: stile CSS e Pull Request", "screenshot": 1,
-         "quiz_id": "quiz-2inf-1611-ora6", "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"}
+   "4": {
+    "orario": "11-12",
+    "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+    "registro": "Pagine web: la mia prima pagina HTML",
+    "screenshot": 1,
+    "quiz_id": "quiz-2inf-1611-ora4",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+   },
+   "5": {
+    "orario": "12-13",
+    "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+    "registro": "Pagine web: più pagine, menu e tabella",
+    "screenshot": 1,
+    "quiz_id": "quiz-2inf-1611-ora5",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+   },
+   "6": {
+    "orario": "13-14",
+    "titolo": "16/11 Ora 6: Stile e qualcosa di mio",
+    "registro": "Pagine web: stile CSS e Pull Request",
+    "screenshot": 1,
+    "quiz_id": "quiz-2inf-1611-ora6",
+    "quiz": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+   }
+  }
+ },
+ "MARTEDI_2INF": {
+  "data": "17/11/2026",
+  "nota": "Materiale di martedi 17/11/2026, 2INF ore 1-2 (teoria HTML e CSS). Letto da controlla_coerenza_materiale.py (controllo 13). Link del quiz: non ancora creato (lo crea la Fabbrica).",
+  "report": "report/2026-11-17",
+  "pdf_cartella": "docs/dispense/martedi",
+  "pagine": [
+   "docs/martedi/index.html",
+   "docs/martedi/link.html"
+  ],
+  "titoli_md": "TITOLI-2INF-MARTEDI-v1.0.md",
+  "soluzioni_md": "SOLUZIONI-2INF-MARTEDI-v1.0.md",
+  "ore": {
+   "1": {
+    "orario": "8-9",
+    "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+    "registro": "Pagine web: browser, server e HTML",
+    "screenshot": 1,
+    "quiz_id": "quiz-2inf-1711-ora1",
+    "cima_url": false,
+    "dispensa_md": "DISPENSA-2INF-MAR-ORA1-WEB-E-HTML-v1.0.md",
+    "semplificato_md": "DOCUMENTO-2INF-MAR-ORA1-SEMPLIFICATO-v1.0.md",
+    "pacchetto_md": "PACCHETTO-CLASSROOM-2INF-MAR-ORA1-v1.0.md",
+    "pdf_dispensa": "2inf-mar-ora1-dispensa-v1-0.pdf",
+    "pdf_semplificato": "2inf-mar-ora1-semplificato-v1-0.pdf",
+    "modello": "2inf-mar-modello-documento-ora1-v1-0"
+   },
+   "2": {
+    "orario": "9-10",
+    "titolo": "17/11 Ora 2: Lo stile delle pagine, il CSS",
+    "registro": "Pagine web: lo stile con il CSS",
+    "screenshot": 1,
+    "quiz_id": "quiz-2inf-1711-ora2",
+    "cima_url": true,
+    "dispensa_md": "DISPENSA-2INF-MAR-ORA2-IL-CSS-v1.0.md",
+    "semplificato_md": "DOCUMENTO-2INF-MAR-ORA2-SEMPLIFICATO-v1.0.md",
+    "pacchetto_md": "PACCHETTO-CLASSROOM-2INF-MAR-ORA2-v1.0.md",
+    "pdf_dispensa": "2inf-mar-ora2-dispensa-v1-0.pdf",
+    "pdf_semplificato": "2inf-mar-ora2-semplificato-v1-0.pdf",
+    "modello": "2inf-mar-modello-documento-ora2-v1-0"
+   }
   }
  }
 }

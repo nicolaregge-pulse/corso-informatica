@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Controllo di COERENZA del materiale di lunedi 16/11/2026 (3INF ore 1-3, 2INF ore 4-6). Versione 1.0, 16/11/2026.
+"""Controllo di COERENZA del materiale di lunedi 16/11/2026 (3INF ore 1-3, 2INF ore 4-6). Versione 1.1, 16/11/2026 (v1.1: controllo 13 per il materiale di martedi 17/11, 2INF ore 1-2, dati in MARTEDI_2INF di coerenza_materiale_spec.json). Prima: v1.0.
 Nato da un errore (principio di CLAUDE.md: un errore nuovo corregge uno strumento): dispense, Documenti semplificati, pacchetti Classroom,
 modelli di Documento e pagine del sito dicevano cose diverse (nome del repository, «ultimo commit» o «sito» in cima al Documento, numero di
 screenshot, pagine della dispensa v1.1 mentre su Classroom c'era la v1.0).
@@ -19,12 +19,13 @@ Che cosa controlla (tabella elemento x documento; ogni riga dice OK, ERRORE o AT
   08 titoli/orari titolo Classroom, testo per il registro e orario di ogni ora uguali in pacchetto, pagine, TITOLI, kit indice, dispensa
   09 date        l'inizio dello stage e' 23/11/2026 dappertutto
   10 link        ogni file linkato da index.html e link.html esiste e i PDF si aprono
+  13 martedi    (17/11) dispense, semplificati, pacchetti, modelli, titoli, quiz in indice.json, pagine docs/martedi: stessi titoli, orari, cima del Documento, screenshot, capitoli citati, immagini, solo italiano, versioni, link
   11 2INF        titoli, quiz, orari, repository `il-mio-sito`, 1 screenshot per ora; il Documento 2INF chiede «repository + ultimo commit» (decisione 14/11): coerente
                 tra le dispense, e diverso dalla 3INF (segnalato come ATTENZIONE)
 Uscita: 0 se nessun ERRORE; 1 altrimenti. Uso:
   python3 strumenti/controlla_coerenza_materiale.py [--riservato DIR] [--pubblico DIR] [--md] [--prova]
   --prova  esegue le prove dello strumento su materiale finto (deve trovare gli errori messi apposta)."""
-import argparse, base64, glob, json, os, re, subprocess, sys
+import argparse, base64, glob, html, json, os, re, subprocess, sys
 
 QUI = os.path.dirname(os.path.abspath(__file__))
 PUB0 = os.path.dirname(QUI)
@@ -495,10 +496,79 @@ def c12_intestazioni(mat, spec, E):
         E.verifica(bool(m) and (int(m.group(1)), int(m.group(2))) == (u[0], u[1]), "12 versioni", "%s v%s: intestazione = file" % (base, vtxt(u)), "%s: ultima v%s ma l'intestazione dice %s" % (base, vtxt(u), m.group(0) if m else "niente"))
 
 
+# ============================================================ 13 martedi 17/11/2026 (2INF ore 1-2, teoria HTML e CSS)
+def c13_martedi(mat, spec, E):
+    """Materiale di martedi 17/11 (v1.1 dello strumento, 16/11/2026): dispense, semplificati, pacchetti, modelli, quiz, titoli, pagine. Se la spec non ha MARTEDI_2INF non fa niente."""
+    sp = spec.get("MARTEDI_2INF")
+    if not sp: return
+    R = "R/" + sp["report"]; PD = "P/" + sp["pdf_cartella"]; CH = "13 martedi"
+    titoli = mat.testo(R + "/" + sp["titoli_md"]); sol = mat.testo(R + "/" + sp["soluzioni_md"])
+    pagine = {p: mat.testo("P/" + p) for p in sp["pagine"]}
+    try: indice = json.loads(mat.testo("P/fabbrica/indice.json")); ids = {l["id"]: l for l in indice.get("lavori", [])}
+    except Exception: ids = {}
+    E.verifica(bool(titoli) and bool(sol), CH, "TITOLI e SOLUZIONI di martedi presenti", "manca %s o %s" % (sp["titoli_md"], sp["soluzioni_md"]))
+    for n, o in sorted(sp["ore"].items()):
+        tag = "ora %s" % n
+        disp = pul(mat.testo(R + "/" + o["dispensa_md"])); sem = pul(mat.testo(R + "/" + o["semplificato_md"])); pac = mat.testo(R + "/" + o["pacchetto_md"])
+        for rel, nome in ((R + "/" + o["dispensa_md"], "dispensa MD"), (R + "/" + o["semplificato_md"], "semplificato MD"), (R + "/" + o["pacchetto_md"], "pacchetto MD")):
+            E.verifica(mat.esiste(rel), CH, "%s: %s presente" % (tag, nome), "%s: manca %s" % (tag, rel))
+        for f, nome in ((o["pdf_dispensa"], "PDF dispensa"), (o["pdf_semplificato"], "PDF semplificato")):
+            E.verifica(mat.pdf_ok(PD + "/" + f), CH, "%s: %s nel sito e si apre" % (tag, nome), "%s: %s manca o non si apre (%s)" % (tag, nome, f))
+        for ext in (".docx", ".md"):
+            E.verifica(mat.esiste(PD + "/modelli/" + o["modello"] + ext), CH, "%s: modello %s presente" % (tag, ext), "%s: manca il modello %s" % (tag, ext))
+        # titolo Classroom uguale in spec, pacchetto, TITOLI, pagine
+        t = titolo_pacchetto(pac)
+        E.verifica(t == o["titolo"], CH, "%s: titolo Classroom del pacchetto = spec" % tag, "%s: pacchetto «%s» ma spec «%s»" % (tag, t, o["titolo"]))
+        E.verifica(o["titolo"] in titoli, CH, "%s: titolo Classroom in TITOLI" % tag, "%s: titolo non in %s" % (tag, sp["titoli_md"]))
+        E.verifica(o["registro"] in titoli, CH, "%s: testo per il registro in TITOLI" % tag, "%s: testo per il registro non in TITOLI" % tag)
+        E.verifica(len(o["registro"]) <= 45, CH, "%s: testo per il registro di %d caratteri (circa 40)" % (tag, len(o["registro"])), "%s: testo per il registro di %d caratteri (oltre 45)" % (tag, len(o["registro"])))
+        for pg, tx in pagine.items():
+            if pg.endswith("index.html"):
+                E.verifica(html.escape(o["titolo"]) in tx and html.escape(o["registro"]) in tx, CH, "%s: titolo e registro nella pagina %s" % (tag, pg), "%s: titolo o registro diversi nella pagina %s" % (tag, pg))
+        # orario e quiz
+        E.verifica(("(%s)" % o["orario"]) in pagine[sp["pagine"][0]], CH, "%s: orario %s nella pagina" % (tag, o["orario"]), "%s: orario %s non nella pagina" % (tag, o["orario"]))
+        lav = ids.get(o["quiz_id"]); okq = False
+        if lav:
+            try:
+                q = json.loads(base64.b64decode(mat.testo("P/fabbrica/" + lav["file"]).strip()).decode("utf-8"))
+                okq = q.get("id") == o["quiz_id"] and ("17/11 Ora %s" % n) in q.get("titolo", "") and len(q["domande"]) == 10 and sum(1 for d in q["domande"] if d["tipo"] == "paragrafo") == 2
+            except Exception: okq = False
+        E.verifica(okq, CH, "%s: quiz %s in indice.json, file valido, 10 domande (2 aperte), titolo con l'ora giusta" % (tag, o["quiz_id"]), "%s: quiz %s non in indice.json o file non valido o titolo senza «17/11 Ora %s»" % (tag, o["quiz_id"], n))
+        E.verifica(o["quiz_id"] in sol, CH, "%s: soluzioni del quiz presenti" % tag, "%s: soluzioni del quiz %s mancanti" % (tag, o["quiz_id"]))
+        # cima del Documento
+        mod = mat.testo(PD + "/modelli/" + o["modello"] + ".md")
+        con_url = "URL del repository: https://github.com/NOMEUTENTE/mio-sito" in disp
+        E.verifica(con_url == o["cima_url"] and (("URL del sito: https://NOMEUTENTE.github.io/mio-sito/" in mod) == o["cima_url"]) and (("URL del sito" in sem) == o["cima_url"]), CH, "%s: cima del Documento %s coerente in dispensa, modello e semplificato" % (tag, "con i 2 URL" if o["cima_url"] else "con solo nome e cognome"), "%s: cima del Documento diversa tra dispensa, modello, semplificato e spec" % tag)
+        E.verifica("Nome e cognome:" in disp and "Nome e cognome:" in mod and "Nome e cognome:" in sem, CH, "%s: «Nome e cognome» in dispensa, modello e semplificato" % tag, "%s: «Nome e cognome» manca in dispensa, modello o semplificato" % tag)
+        # screenshot
+        E.verifica("FAI LO SCREENSHOT 1 di 1" in disp and "1 di 1" in sem and "1 screenshot" in sem, CH, "%s: 1 screenshot in dispensa e semplificato" % tag, "%s: numero di screenshot diverso tra dispensa e semplificato" % tag)
+        # rimandi per capitolo: ogni «capitolo N · Titolo» del semplificato e' un titolo della dispensa
+        caps = set(int(x) for x in re.findall(r"^## (\d+) · ", disp, re.M))
+        riman = set(int(x) for r in re.findall(r"Dispensa Ora \d, capitol[oi] ([^.\n]*)", sem) for x in re.findall(r"(\d+) ·", r))
+        E.verifica(riman and riman <= caps, CH, "%s: i capitoli citati dal semplificato %s esistono nella dispensa" % (tag, sorted(riman)), "%s: capitoli citati %s, nella dispensa ci sono %s" % (tag, sorted(riman), sorted(caps)))
+        # immagini della dispensa
+        mancano = [m for m in re.findall(r"!\[[^\]]*\]\((img/[^)]+)\)", disp) if not mat.esiste(R + "/" + m)]
+        E.verifica(not mancano, CH, "%s: tutte le immagini della dispensa esistono" % tag, "%s: immagini mancanti %s" % (tag, mancano))
+        # solo italiano (R6): niente arabo, cinese, bengali
+        brutti = re.findall(r"[\u0600-\u06FF\u4e00-\u9fff\u0980-\u09FF]", disp + sem + pac)
+        E.verifica(not brutti, CH, "%s: solo italiano (R6)" % tag, "%s: %d caratteri arabi, cinesi o bengali" % (tag, len(brutti)))
+        # versioni: nome del file = intestazione
+        for rel in (o["dispensa_md"], o["semplificato_md"], o["pacchetto_md"]):
+            m = re.search(r"\*\*Versione (\d+\.\d+)\*\*", mat.testo(R + "/" + rel)); v = re.search(r"-v(\d+\.\d+)\.md$", rel)
+            E.verifica(bool(m and v) and m.group(1) == v.group(1), CH, "%s: %s intestazione = nome file" % (tag, rel), "%s: %s intestazione diversa dal nome del file" % (tag, rel))
+    # link delle pagine
+    for pg in sp["pagine"]:
+        tx = pagine[pg]; base = os.path.dirname(pg)
+        for h in re.findall(r'href="([^"#][^"]*)"', tx):
+            if h.startswith("http"): continue
+            rel = os.path.normpath(os.path.join(base, h))
+            E.verifica(mat.esiste("P/" + rel), CH, "link %s -> %s" % (pg, h), "link rotto in %s: %s" % (pg, h))
+
+
 def controlla(mat):
     spec = carica_spec(mat)
     E = Esiti()
-    for f in (c01_versioni, c02_03_04_ore, c04_compilo, c05_cruscotto, c06_semplificati, c07_quiz, c08_titoli_orari, c09_date, c10_link, c11_2inf, c12_intestazioni):
+    for f in (c01_versioni, c02_03_04_ore, c04_compilo, c05_cruscotto, c06_semplificati, c07_quiz, c08_titoli_orari, c09_date, c10_link, c11_2inf, c12_intestazioni, c13_martedi):
         f(mat, spec, E)
     return E
 
@@ -511,7 +581,7 @@ def stampa(E, md=False):
         for s, c, d in E.righe:
             if s != "OK": print("%-10s %-16s %s" % (s, c, d))
     n = {k: sum(1 for r in E.righe if r[0] == k) for k in ("OK", "ERRORE", "ATTENZIONE")}
-    print("Coerenza materiale 16/11/2026: %d OK, %d ERRORE, %d ATTENZIONE" % (n["OK"], n["ERRORE"], n["ATTENZIONE"]))
+    print("Coerenza materiale 16/11 (lunedi) e 17/11 (martedi): %d OK, %d ERRORE, %d ATTENZIONE" % (n["OK"], n["ERRORE"], n["ATTENZIONE"]))
 
 
 def main():
