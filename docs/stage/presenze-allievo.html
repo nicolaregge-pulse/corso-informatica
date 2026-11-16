@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="icon" href="data:,">
+<title>Presenze stage</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#14202b;--mut:#4a5968;--line:#cdd5dd;--acc:#0b57d0;--accd:#fff;--ok:#0a7a3d;--okbg:#c8f0d2;--ko:#a32020;--kobg:#f6c9c9;--pv:#8a5a00;--pvbg:#fde9b8;--nl:#e7eaee;--warn:#fff8e1;--warnl:#e6c96a}
+:root[data-theme="dark"]{--bg:#10161c;--card:#1a232c;--ink:#e8eef4;--mut:#a9b7c4;--line:#33424f;--acc:#8ab4f8;--accd:#10161c;--ok:#7fd69b;--okbg:#17402a;--ko:#ff9b9b;--kobg:#4a2222;--pv:#f2c66d;--pvbg:#4a3a12;--nl:#26313b;--warn:#3a3213;--warnl:#7a6a22}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10161c;--card:#1a232c;--ink:#e8eef4;--mut:#a9b7c4;--line:#33424f;--acc:#8ab4f8;--accd:#10161c;--ok:#7fd69b;--okbg:#17402a;--ko:#ff9b9b;--kobg:#4a2222;--pv:#f2c66d;--pvbg:#4a3a12;--nl:#26313b;--warn:#3a3213;--warnl:#7a6a22}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;overflow-wrap:anywhere}
+main{max-width:760px;margin:0 auto;padding:14px 16px 60px}
+h1{font-size:28px;line-height:1.2;margin:8px 0 4px}
+h2{font-size:22px;margin:0 0 10px}
+p{margin:6px 0}
+.sub,.small{color:var(--mut)}.small{font-size:15px}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:16px 0}
+.badge{display:inline-block;padding:4px 12px;border-radius:99px;font-weight:700;font-size:16px;border:2px solid var(--line)}
+.badge.view{border-color:var(--acc);color:var(--acc)}
+.badge.edit{border-color:var(--ok);color:var(--ok);background:var(--okbg)}
+.btn{min-height:52px;padding:10px 16px;border-radius:12px;border:2px solid var(--acc);background:var(--acc);color:var(--accd);font-weight:700;font-size:18px;line-height:1.2;font-family:inherit;cursor:pointer;touch-action:manipulation}
+.btn.sec{background:transparent;color:var(--acc)}
+.btn.ko{background:transparent;color:var(--ko);border-color:var(--ko)}
+.btn:disabled{opacity:.5;cursor:default}
+label{display:block;font-weight:700;margin:12px 0 4px}
+input,select,textarea{width:100%;min-height:52px;font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink)}
+textarea{min-height:96px}
+input[type=checkbox]{width:28px;min-height:28px;height:28px;margin:0}
+.msg{min-height:26px;font-weight:700}.msg.ok{color:var(--ok)}.msg.ko{color:var(--ko)}
+.warn{background:var(--warn);border:1px solid var(--warnl);border-radius:10px;padding:10px 12px;margin:10px 0}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+[hidden]{display:none!important}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+@media (min-width:600px){.cards{grid-template-columns:repeat(5,1fr)}}
+.card{border:2px solid var(--line);border-radius:12px;padding:8px;text-align:center}
+.card b{display:block;font-size:28px;line-height:1.1}.card span{font-size:15px;color:var(--mut)}
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left}
+th{font-size:16px;color:var(--mut)}td.n,th.n{text-align:right;white-space:nowrap}
+.mese{margin:14px 0 6px;font-size:20px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}
+.gh{text-align:center;font-size:14px;font-weight:700;color:var(--mut)}
+.d{min-height:62px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;padding:2px;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.15;cursor:pointer;touch-action:manipulation}
+.d .dn{font-size:15px;font-weight:700}.d .sy{font-size:20px;font-weight:700}.d .ho{font-size:13px}
+.d.s-N{background:var(--nl);color:var(--mut)}
+.d.s-L{background:var(--pvbg);border-color:var(--pv);color:var(--pv)}
+.d.s-P{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.d.s-A{background:var(--kobg);border-color:var(--ko);color:var(--ko)}
+.vuoto{visibility:hidden}
+.leg{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:15px}
+.leg span b{display:inline-block;min-width:26px;text-align:center;border-radius:6px;border:2px solid var(--line);margin-right:4px}
+#sheet{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center;z-index:10}
+#sheet .in{background:var(--card);width:100%;max-width:560px;max-height:92vh;overflow:auto;border-radius:18px 18px 0 0;padding:16px}
+.sc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sc .btn{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.sc .btn.on.N{background:var(--nl);border-color:var(--mut)}
+.sc .btn.on.L{background:var(--pvbg);border-color:var(--pv);color:var(--pv)}
+.sc .btn.on.P{background:var(--okbg);border-color:var(--ok);color:var(--ok)}
+.sc .btn.on.A{background:var(--kobg);border-color:var(--ko);color:var(--ko)}
+.days{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.days label{display:flex;align-items:center;gap:8px;margin:0;font-weight:400;min-height:48px}
+@media (max-width:520px){h1{font-size:24px}}
+</style></head><body><main>
+<h1>Presenze stage</h1>
+<p class="sub" id="chi"></p>
+<div id="viewer" hidden><label for="v-all">Allievo</label><select id="v-all"></select></div>
+<div class="warn" id="prova" hidden><b>MODO PROVA.</b> Quello che scrivi resta solo su questo computer. Non va nelle presenze vere.</div>
+<p><span class="badge view" id="modo">Solo lettura</span> <span class="small" id="stato">Caricamento...</span></p>
+
+<section id="s-riep"><h2>Riepilogo</h2>
+<div class="cards">
+<div class="card"><b id="r-lav">0</b><span>giorni di lavoro</span></div>
+<div class="card"><b id="r-pre">0</b><span>presenti</span></div>
+<div class="card"><b id="r-ass">0</b><span>assenti</span></div>
+<div class="card"><b id="r-prev">0</b><span>previsti</span></div>
+<div class="card"><b id="r-ore">0</b><span>ore</span></div>
+</div>
+<table id="t-mesi"><thead><tr><th>Mese</th><th class="n">Giorni</th><th class="n">Presenti</th><th class="n">Ore</th></tr></thead><tbody></tbody></table>
+</section>
+
+<section id="s-az"><h2>Chi può cambiare</h2>
+<p id="az-testo">Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, con la sua password.</p>
+<div id="f-pw" hidden>
+<p id="pw-aiuto"></p>
+<label for="pw1" id="l-pw1">Password</label><input id="pw1" type="password" autocomplete="current-password">
+<div id="pw2box" hidden><label for="pw2">Scrivi ancora la stessa password</label><input id="pw2" type="password" autocomplete="new-password"></div>
+<div class="actions"><button class="btn" id="b-pw-ok" type="button">Entra</button><button class="btn sec" id="b-pw-no" type="button">Annulla</button></div>
+</div>
+<div id="f-doc" hidden>
+<label for="du">Utente</label><input id="du" type="text" autocomplete="username" autocapitalize="none" spellcheck="false">
+<label for="dp">Password</label><input id="dp" type="password" autocomplete="current-password">
+<div class="actions"><button class="btn" id="b-doc-ok" type="button">Entra</button><button class="btn sec" id="b-doc-no" type="button">Annulla</button></div>
+</div>
+<div class="actions" id="az-bott">
+<button class="btn" id="b-mod" type="button">Modifica (solo io)</button>
+<button class="btn sec" id="b-esci" type="button" hidden>Esci dalla modifica</button>
+<button class="btn sec" id="b-export" type="button">Scarica i dati (file)</button>
+<button class="btn sec" id="b-invia" type="button" hidden>Invia le modifiche in attesa</button>
+</div>
+<p class="msg" id="msg" role="status" aria-live="polite"></p>
+</section>
+
+<section id="s-fissi" hidden><h2>I miei giorni di lavoro</h2>
+<p class="small">Scegli i giorni della settimana in cui lavori. Premi il bottone: tutti i giorni ancora vuoti diventano <b>Lavoro previsto</b> o <b>Non lavoro</b>. I giorni già segnati non cambiano.</p>
+<div class="days" id="giorni-sett"></div>
+<div class="actions"><button class="btn" id="b-fissi" type="button">Segna i giorni scelti</button></div>
+</section>
+
+<section><h2>Calendario</h2>
+<p class="small">Dal 23/11/2026 al 18/02/2027, da lunedì a sabato. Premi un giorno per vedere i dettagli.</p>
+<div class="leg"><span><b>✓</b>presente</span><span><b>✗</b>assente</span><span><b>○</b>lavoro previsto</span><span><b>–</b>non lavoro</span></div>
+<div id="cal"></div></section>
+<section id="s-doc" hidden><h2>Docente</h2><p class="small">Hai fatto l'accesso come docente. Puoi cambiare i giorni di questo allievo.</p>
+<div class="actions"><button class="btn ko" id="b-reset" type="button">Azzera la password di questo allievo</button></div></section>
+<p class="small"><button class="btn sec" id="b-docente" type="button" style="min-height:44px;font-size:16px">Sono il docente</button></p>
+<p class="small">Questa pagina è pubblica. Non scrivere password, nome dell'azienda, nomi o foto di altre persone, motivi delle assenze.</p>
+</main>
+<div id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sh-tit"><div class="in">
+<h2 id="sh-tit"></h2>
+<div id="sh-let"></div>
+<div id="sh-mod" hidden>
+<div class="sc" id="sh-stati"></div>
+<div id="sh-campi">
+<div id="sh-oreb"><label for="sh-ore">Ore (da 0 a 12)</label><input id="sh-ore" type="number" min="0" max="12" step="0.5" inputmode="decimal" placeholder="Per esempio: 6"></div>
+<label for="sh-att" id="sh-attl">Che cosa hai fatto</label><textarea id="sh-att" maxlength="200" placeholder="Poche parole"></textarea>
+</div>
+<p class="msg" id="sh-msg" role="status" aria-live="polite"></p>
+<div class="actions"><button class="btn" id="sh-salva" type="button">Salva il giorno</button><button class="btn sec" id="sh-vuoto" type="button">Svuota il giorno</button><button class="btn sec" id="sh-chiudi2" type="button">Chiudi</button></div>
+</div>
+<div class="actions" id="sh-solo"><button class="btn sec" id="sh-chiudi" type="button">Chiudi</button></div>
+</div></div>
+<script>
+"use strict";
+/* ====== CONFIGURAZIONE (versione 2.0, 16/11/2026) ====== */
+var CFG = {
+  allievo: "@@ALLIEVO@@",            /* «Nome I.»: lo mette la pagina «copia» */
+  inizio: "2026-11-23", fine: "2027-02-18",
+  endpoint: "",                      /* servizio Apps Script; vuoto = dati solo su questo computer */
+  configUrl: "https://nicolaregge-pulse.github.io/corso-informatica/stage/config.json",  /* qui sta l'indirizzo del servizio: si attiva senza rifare le pagine */
+  docenteModifica: true,             /* UN SOLO VALORE: true = il docente puo' sbloccare la modifica di ogni allievo; false = solo lo stagista */
+  allievi: ["Alessandro A.","Denis A.","David A.","Eric C.","Nicolo' C.","Mirko D.","Ariel D.","Mahmoud E.","Rafi F.","Emmanuel F.","Andrea G.","Simone G.","Zhan L.","Tomas L.","Filippo M.","Beatrice N.","Kelvin P.","Kevin R.","Gabriele R.","Dani S.","Samuele U.","Noah V."],
+  /*DOC-INIZIO*/
+  doc: {iter: 200000, salt: "a8d4a243b55802ee8b06f915b5110654", verifier: "cc451e6afb8af21f107ca91ed9ddba4261b056ec4e5d4fe41ef4ede240320309"},
+  /*DOC-FINE*/
+  chiave: "presenze-stage-v2"
+};
+var PROVA = /[?&]prova=1/.test(location.search);
+if (PROVA) { CFG.endpoint = ""; CFG.chiave += "-prova"; }
+var QS = (location.search.match(/[?&]allievo=([^&]*)/) || [])[1];
+var VIEWER = CFG.allievo.charAt(0) === "@";
+var ALL = VIEWER ? (QS ? decodeURIComponent(QS.replace(/\+/g, " ")) : "") : CFG.allievo;
+var NOMI = {N: "Non lavoro", L: "Lavoro previsto", P: "Presente", A: "Assente"};
+var SIMB = {N: "–", L: "○", P: "✓", A: "✗"};
+var GN = ["domenica","lunedì","martedì","mercoledì","giovedì","venerdì","sabato"];
+var MN = ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"];
+var dati = {};            /* iso -> {s,o,t} dell'allievo mostrato */
+var info = {salt: "", haPassword: false};
+var pend = {};            /* modifiche non ancora nel servizio */
+var K = null, comeDocente = false, aperto = null, ultimiDati = [];
+var $ = function (id) { return document.getElementById(id); };
+function el(t, c, x) { var e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; }
+function utc(iso) { var p = iso.split("-"); return new Date(Date.UTC(+p[0], +p[1] - 1, +p[2])); }
+function isoDi(d) { return d.toISOString().slice(0, 10); }
+function fmt(iso) { var p = iso.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+function nOre(n) { return String(Math.round(n * 10) / 10).replace(".", ","); }
+function periodo() { var a = [], d = utc(CFG.inizio), f = utc(CFG.fine); while (d <= f) { if (d.getUTCDay() !== 0) a.push(isoDi(d)); d = new Date(d.getTime() + 86400000); } return a; }
+var PER = periodo();
+function msg(t, k) { var m = $("msg"); m.className = "msg " + (k || ""); m.textContent = t; }
+
+/* ====== dati: locali o dal servizio ====== */
+function kLoc(p) { return CFG.chiave + ":" + (p || "d") + ":" + ALL; }
+function leggiLoc(p) { try { var t = localStorage.getItem(kLoc(p)); return t ? JSON.parse(t) : null; } catch (e) { return null; } }
+function scriviLoc(p, v) { try { localStorage.setItem(kLoc(p), JSON.stringify(v)); } catch (e) {} }
+function vista() { var o = {}, k; for (k in dati) o[k] = dati[k]; for (k in pend) { if (pend[k].s) o[k] = pend[k]; else delete o[k]; } return o; }
+function stato(t) { $("stato").textContent = t; }
+function ora() { var d = new Date(); return ("0" + d.getHours()).slice(-2) + ":" + ("0" + d.getMinutes()).slice(-2); }
+function carica() {
+  if (!ALL) { dati = {}; disegna(); stato("Scegli un allievo."); return Promise.resolve(); }
+  pend = (CFG.endpoint && leggiLoc("pend")) || {};
+  if (!CFG.endpoint) {
+    var l = leggiLoc("d") || {};
+    dati = l.giorni || {}; info = {salt: l.salt || "", haPassword: !!l.verifier};
+    stato((PROVA ? "Modo prova: dati solo su questo computer. " : "Dati solo su questo computer (il servizio condiviso non è ancora attivo). ") + "Aggiornato alle " + ora() + ".");
+    disegna(); return Promise.resolve();
+  }
+  return fetch(CFG.endpoint + "?t=" + Date.now()).then(function (r) { return r.json(); }).then(function (j) {
+    dati = {}; (j.giorni || []).forEach(function (g) { if (g.a === ALL) dati[g.d] = {s: g.s, o: Number(g.o) || 0, t: g.t || ""}; });
+    var a = (j.allievi || []).filter(function (x) { return x.nome === ALL; })[0];
+    info = a ? {salt: a.salt || "", haPassword: !!a.haPassword} : {salt: "", haPassword: false};
+    if (typeof j.docenteModifica === "boolean") CFG.docenteModifica = j.docenteModifica;
+    stato("Dati dal servizio condiviso. Aggiornati alle " + ora() + ".");
+    disegna();
+  }).catch(function () { dati = {}; stato("Il servizio condiviso non risponde. Riprova più tardi."); disegna(); });
+}
+
+/* ====== calendario e riepilogo ====== */
+function disegna() {
+  $("chi").textContent = ALL ? "Allievo: " + ALL : "Scegli un allievo per vedere le sue presenze.";
+  var v = vista(), c = {L: 0, P: 0, A: 0, ore: 0}, mesi = {};
+  PER.forEach(function (d) {
+    var x = v[d]; if (!x) return; var m = d.slice(0, 7);
+    mesi[m] = mesi[m] || {g: 0, p: 0, o: 0};
+    if (x.s === "L") { c.L++; mesi[m].g++; }
+    if (x.s === "P") { c.P++; mesi[m].g++; mesi[m].p++; mesi[m].o += x.o || 0; c.ore += x.o || 0; }
+    if (x.s === "A") { c.A++; mesi[m].g++; }
+  });
+  $("r-lav").textContent = c.L + c.P + c.A; $("r-pre").textContent = c.P; $("r-ass").textContent = c.A; $("r-prev").textContent = c.L; $("r-ore").textContent = nOre(c.ore);
+  var tb = document.querySelector("#t-mesi tbody"); tb.textContent = "";
+  var chiavi = []; PER.forEach(function (d) { var m = d.slice(0, 7); if (chiavi.indexOf(m) < 0) chiavi.push(m); });
+  chiavi.forEach(function (m) {
+    var q = mesi[m] || {g: 0, p: 0, o: 0}, tr = el("tr");
+    tr.appendChild(el("td", null, MN[+m.slice(5) - 1] + " " + m.slice(0, 4))); tr.appendChild(el("td", "n", q.g)); tr.appendChild(el("td", "n", q.p)); tr.appendChild(el("td", "n", nOre(q.o))); tb.appendChild(tr);
+  });
+  var cal = $("cal"); cal.textContent = "";
+  chiavi.forEach(function (m) {
+    cal.appendChild(el("h3", "mese", MN[+m.slice(5) - 1] + " " + m.slice(0, 4)));
+    var g = el("div", "grid"); ["lun", "mar", "mer", "gio", "ven", "sab"].forEach(function (n) { g.appendChild(el("div", "gh", n)); });
+    var giorni = PER.filter(function (d) { return d.slice(0, 7) === m; });
+    var off = (utc(giorni[0]).getUTCDay() + 6) % 7; for (var i = 0; i < off; i++) g.appendChild(el("div", "vuoto"));
+    giorni.forEach(function (d) {
+      var x = v[d], b = el("button", "d" + (x ? " s-" + x.s : "")); b.type = "button";
+      b.appendChild(el("span", "dn", String(+d.slice(8)))); b.appendChild(el("span", "sy", x ? SIMB[x.s] : "·"));
+      b.appendChild(el("span", "ho", x && x.s === "P" ? nOre(x.o || 0) + " h" : " "));
+      b.setAttribute("aria-label", GN[utc(d).getUTCDay()] + " " + fmt(d) + ": " + (x ? NOMI[x.s] + (x.s === "P" ? ", " + nOre(x.o || 0) + " ore" : "") : "non segnato"));
+      b.addEventListener("click", function () { apriGiorno(d); }); g.appendChild(b);
+    });
+    cal.appendChild(g);
+  });
+  $("b-invia").hidden = !(K && CFG.endpoint && Object.keys(pend).length);
+}
+
+/* ====== il giorno ====== */
+var scelta = "";
+function apriGiorno(d) {
+  aperto = d; var x = vista()[d];
+  $("sh-tit").textContent = GN[utc(d).getUTCDay()] + " " + fmt(d); $("sh-msg").textContent = "";
+  var let_ = $("sh-let"); let_.textContent = "";
+  if (!K) {
+    let_.appendChild(el("p", null, x ? NOMI[x.s] : "Non ancora segnato."));
+    if (x && x.s === "P") let_.appendChild(el("p", null, "Ore: " + nOre(x.o || 0)));
+    if (x && x.t) let_.appendChild(el("p", null, x.t));
+    $("sh-mod").hidden = true; $("sh-solo").hidden = false;
+  } else {
+    scelta = x ? x.s : ""; $("sh-ore").value = x && x.s === "P" ? x.o : ""; $("sh-att").value = x ? (x.t || "") : "";
+    var S = $("sh-stati"); S.textContent = "";
+    ["P", "A", "L", "N"].forEach(function (s) {
+      var b = el("button", "btn " + s, SIMB[s] + " " + NOMI[s]); b.type = "button"; b.dataset.s = s;
+      b.addEventListener("click", function () { scelta = s; campi(); }); S.appendChild(b);
+    });
+    campi(); $("sh-mod").hidden = false; $("sh-solo").hidden = true;
+  }
+  $("sheet").hidden = false;
+  var f = $("sh-mod").hidden ? $("sh-chiudi") : S0(); if (f) f.focus();
+}
+function S0() { return $("sh-stati").firstChild; }
+function campi() {
+  Array.prototype.forEach.call($("sh-stati").children, function (b) { b.className = "btn " + b.dataset.s + (b.dataset.s === scelta ? " on" : ""); b.setAttribute("aria-pressed", b.dataset.s === scelta ? "true" : "false"); });
+  $("sh-campi").hidden = !(scelta === "P" || scelta === "L"); $("sh-oreb").hidden = scelta !== "P";
+  $("sh-attl").textContent = scelta === "L" ? "Che cosa farai (facoltativo)" : "Che cosa hai fatto";
+}
+function chiudi() { $("sheet").hidden = true; aperto = null; }
+function salvaGiorno() {
+  var m = $("sh-msg"); m.className = "msg ko";
+  if (!scelta) { m.textContent = "Scegli una delle quattro cose."; return; }
+  var o = 0, t = $("sh-att").value.trim().slice(0, 200);
+  if (scelta === "P") {
+    o = parseFloat(String($("sh-ore").value).replace(",", "."));
+    if (isNaN(o) || o < 0 || o > 12) { m.textContent = "Le ore sono un numero da 0 a 12."; return; }
+    if (!t) { m.textContent = "Scrivi in poche parole che cosa hai fatto."; return; }
+  }
+  if (scelta === "A" || scelta === "N") t = "";
+  invia([{d: aperto, s: scelta, o: o, t: t}]).then(function (ok) { if (ok) chiudi(); });
+}
+function svuotaGiorno() { invia([{d: aperto, s: "", o: 0, t: ""}]).then(function (ok) { if (ok) chiudi(); }); }
+
+/* ====== salvataggio ====== */
+function applica(lista) {
+  lista.forEach(function (g) { if (g.s) dati[g.d] = {s: g.s, o: g.o, t: g.t}; else delete dati[g.d]; });
+}
+function invia(lista) {
+  if (!K) { msg("Per cambiare serve l'accesso.", "ko"); return Promise.resolve(false); }
+  if (!CFG.endpoint) {
+    if (comeDocente && !CFG.docenteModifica) { msg("La modifica del docente è spenta.", "ko"); return Promise.resolve(false); }
+    applica(lista); var l = leggiLoc("d") || {}; l.giorni = dati; scriviLoc("d", l); disegna();
+    msg("Salvato su questo computer. Premi «Scarica i dati» per avere il file.", "ok"); return Promise.resolve(true);
+  }
+  return post({op: "salva", allievo: ALL, k: K, giorni: lista}).then(function (j) {
+    if (j && j.ok) { applica(lista); lista.forEach(function (g) { delete pend[g.d]; }); scriviLoc("pend", pend); disegna(); msg("Salvato nel servizio condiviso.", "ok"); return true; }
+    if (j && /accesso/.test(j.errore || "")) { msg("La password non è più valida. Esci e rientra.", "ko"); return false; }
+    msg("Il servizio non ha accettato (" + ((j && j.errore) || "errore") + ").", "ko"); return false;
+  }).catch(function () {
+    lista.forEach(function (g) { pend[g.d] = {s: g.s, o: g.o, t: g.t}; }); scriviLoc("pend", pend); disegna();
+    msg("Non riesco a inviare. La modifica resta su questo computer: premi «Invia le modifiche in attesa».", "ko"); return true;
+  });
+}
+function inviaAttesa() {
+  var lista = Object.keys(pend).map(function (d) { return {d: d, s: pend[d].s, o: pend[d].o || 0, t: pend[d].t || ""}; });
+  if (!lista.length) return; invia(lista).then(function () { carica(); });
+}
+function post(c) { return fetch(CFG.endpoint, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify(c)}).then(function (r) { return r.json(); }); }
+
+/* ====== password: PBKDF2 con sale; si salva e si confronta solo l'impronta ====== */
+function hex2buf(h) { var a = new Uint8Array(h.length / 2); for (var i = 0; i < a.length; i++) a[i] = parseInt(h.substr(i * 2, 2), 16); return a; }
+function buf2hex(b) { return Array.prototype.map.call(new Uint8Array(b), function (x) { return ("0" + x.toString(16)).slice(-2); }).join(""); }
+function derivaChiave(saltHex, extra, password, iter) {
+  var enc = new TextEncoder(), sale = hex2buf(saltHex), u = enc.encode(extra.trim().toLowerCase());
+  var s = new Uint8Array(sale.length + u.length); s.set(sale, 0); s.set(u, sale.length);
+  return crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveBits"]).then(function (k) {
+    return crypto.subtle.deriveBits({name: "PBKDF2", hash: "SHA-256", salt: s, iterations: iter}, k, 256);
+  }).then(function (bits) { var kk = buf2hex(bits); return crypto.subtle.digest("SHA-256", enc.encode(kk)).then(function (h) { return {K: kk, V: buf2hex(h)}; }); });
+}
+function saleNuovo() { var a = new Uint8Array(16); crypto.getRandomValues(a); return buf2hex(a); }
+var ITER = 200000;
+function haCrypto() { return !!(window.crypto && crypto.subtle); }
+
+function mostraPw(si) {
+  $("f-pw").hidden = !si; $("f-doc").hidden = true; $("pw1").value = ""; $("pw2").value = "";
+  if (!si) return;
+  var nuova = !info.haPassword;
+  $("pw2box").hidden = !nuova;
+  $("pw-aiuto").textContent = nuova ? "Prima volta: scegli la tua password. Almeno 8 caratteri. Scrivila su un posto sicuro: non si può leggere più. Non darla a nessuno." : "Scrivi la tua password.";
+  $("l-pw1").textContent = nuova ? "Scegli la password" : "Password"; $("b-pw-ok").textContent = nuova ? "Salva la password ed entra" : "Entra";
+  $("pw1").autocomplete = nuova ? "new-password" : "current-password"; $("pw1").focus();
+}
+function entraStagista() {
+  if (!haCrypto()) { msg("Questo browser non può controllare la password. Apri la pagina con https.", "ko"); return; }
+  var p = $("pw1").value, nuova = !info.haPassword;
+  if (nuova) { if (p.length < 8) { msg("La password ha almeno 8 caratteri.", "ko"); return; } if (p !== $("pw2").value) { msg("Le due password sono diverse.", "ko"); return; } }
+  else if (!p) { msg("Scrivi la password.", "ko"); return; }
+  $("b-pw-ok").disabled = true; msg("Controllo...", "");
+  var fine = function () { $("b-pw-ok").disabled = false; };
+  var salt = nuova ? saleNuovo() : info.salt;
+  derivaChiave(salt, ALL, p, ITER).then(function (r) {
+    if (nuova) {
+      if (!CFG.endpoint) { var l = leggiLoc("d") || {}; l.salt = salt; l.verifier = r.V; scriviLoc("d", l); info = {salt: salt, haPassword: true}; fine(); attiva(r.K, false); return; }
+      return post({op: "imposta", allievo: ALL, salt: salt, verifier: r.V}).then(function (j) {
+        fine(); if (j && j.ok) { info = {salt: salt, haPassword: true}; attiva(r.K, false); } else msg("Non riesco a salvare la password (" + ((j && j.errore) || "errore") + "). Se qualcuno l'ha già scelta, chiedi al docente di azzerarla.", "ko");
+      });
+    }
+    if (!CFG.endpoint) { var l2 = leggiLoc("d") || {}; fine(); if (r.V === l2.verifier) attiva(r.K, false); else sbagliata(); return; }
+    return post({op: "verifica", allievo: ALL, k: r.K}).then(function (j) { fine(); if (j && j.ok) attiva(r.K, false); else sbagliata(); });
+  }).catch(function () { fine(); msg("Non riesco a controllare. Riprova.", "ko"); });
+}
+function sbagliata() { setTimeout(function () { msg("Password sbagliata. Riprova.", "ko"); $("pw1").value = ""; }, 600); }
+function entraDocente() {
+  if (!haCrypto()) { msg("Questo browser non può controllare la password. Apri la pagina con https.", "ko"); return; }
+  if (!CFG.docenteModifica) { msg("La modifica del docente è spenta.", "ko"); return; }
+  if (!CFG.doc.iter) { msg("L'accesso del docente non è ancora attivo.", "ko"); return; }
+  var u = $("du").value, p = $("dp").value; if (!u || !p) { msg("Scrivi utente e password.", "ko"); return; }
+  $("b-doc-ok").disabled = true; msg("Controllo...", "");
+  derivaChiave(CFG.doc.salt, u, p, CFG.doc.iter).then(function (r) {
+    $("b-doc-ok").disabled = false;
+    if (!CFG.endpoint) { if (r.V === CFG.doc.verifier) attiva(r.K, true); else sbagliataDoc(); return; }
+    return post({op: "verifica", allievo: ALL, k: r.K}).then(function (j) { if (j && j.ok) attiva(r.K, true); else sbagliataDoc(); });
+  }).catch(function () { $("b-doc-ok").disabled = false; msg("Non riesco a controllare. Riprova.", "ko"); });
+}
+function sbagliataDoc() { setTimeout(function () { msg("Utente o password sbagliati.", "ko"); $("dp").value = ""; }, 600); }
+function attiva(k, doc) {
+  K = k; comeDocente = doc; $("pw1").value = ""; $("pw2").value = ""; $("dp").value = "";
+  $("f-pw").hidden = true; $("f-doc").hidden = true;
+  var b = $("modo"); b.textContent = doc ? "Modifica attiva (docente)" : "Modifica attiva"; b.className = "badge edit";
+  $("b-mod").hidden = true; $("b-docente").hidden = true; $("b-esci").hidden = false; $("s-fissi").hidden = false; $("s-doc").hidden = !doc;
+  $("az-testo").textContent = "Puoi cambiare i giorni. Premi un giorno del calendario.";
+  msg("Accesso giusto.", "ok"); disegna();
+}
+function esci() {
+  K = null; comeDocente = false; chiudi();
+  var b = $("modo"); b.textContent = "Solo lettura"; b.className = "badge view";
+  $("b-mod").hidden = VIEWER; $("b-docente").hidden = false; $("b-esci").hidden = true; $("s-fissi").hidden = true; $("s-doc").hidden = true; $("f-pw").hidden = true; $("f-doc").hidden = true;
+  $("az-testo").textContent = VIEWER ? "Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, dalla pagina del suo sito, con la sua password." : "Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, con la sua password.";
+  msg("", ""); disegna();
+}
+
+/* ====== giorni fissi, azzeramento, file ====== */
+function segnaFissi() {
+  var sc = {}; Array.prototype.forEach.call(document.querySelectorAll("#giorni-sett input"), function (i) { if (i.checked) sc[i.value] = 1; });
+  if (!Object.keys(sc).length) { msg("Scegli almeno un giorno della settimana.", "ko"); return; }
+  var v = vista(), lista = [];
+  PER.forEach(function (d) { if (!v[d]) lista.push({d: d, s: sc[utc(d).getUTCDay()] ? "L" : "N", o: 0, t: ""}); });
+  if (!lista.length) { msg("Tutti i giorni sono già segnati.", "ko"); return; }
+  var pezzi = [], i; for (i = 0; i < lista.length; i += 100) pezzi.push(lista.slice(i, i + 100));
+  (function giro(n, tot) { if (n >= pezzi.length) { msg("Segnati " + tot + " giorni.", "ok"); return; } invia(pezzi[n]).then(function (ok) { if (ok) giro(n + 1, tot + pezzi[n].length); }); })(0, 0);
+}
+function azzera() {
+  if (!confirm("Azzero la password di " + ALL + "? Dovrà sceglierne una nuova.")) return;
+  if (!CFG.endpoint) { var l = leggiLoc("d") || {}; delete l.salt; delete l.verifier; scriviLoc("d", l); info = {salt: "", haPassword: false}; msg("Password azzerata.", "ok"); return; }
+  post({op: "reset", allievo: ALL, k: K}).then(function (j) { if (j && j.ok) { info = {salt: "", haPassword: false}; msg("Password azzerata.", "ok"); } else msg("Non azzerata (" + ((j && j.errore) || "errore") + ").", "ko"); });
+}
+function esporta() {
+  var v = vista(), g = PER.filter(function (d) { return v[d]; }).map(function (d) { return {data: d, stato: v[d].s, ore: v[d].o || 0, attivita: v[d].t || ""}; });
+  var blob = new Blob([JSON.stringify({versione: "2.0", allievo: ALL, giorni: g}, null, 1)], {type: "application/json"});
+  var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "presenze-stage.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var gs = $("giorni-sett"); [1, 2, 3, 4, 5, 6].forEach(function (n) { var l = el("label"), i = el("input"); i.type = "checkbox"; i.value = n; l.appendChild(i); l.appendChild(document.createTextNode(GN[n])); gs.appendChild(l); });
+  if (VIEWER) {
+    $("viewer").hidden = false; var s = $("v-all"), o0 = el("option", null, "Scegli..."); o0.value = ""; s.appendChild(o0);
+    CFG.allievi.forEach(function (n) { var o = el("option", null, n); o.value = n; if (n === ALL) o.selected = true; s.appendChild(o); });
+    s.addEventListener("change", function () { ALL = s.value; esci(); carica(); });
+  }
+  $("b-mod").hidden = VIEWER; if (VIEWER) $("az-testo").textContent = "Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, dalla pagina del suo sito, con la sua password.";
+  if (PROVA) $("prova").hidden = false;
+  $("b-mod").addEventListener("click", function () { if (!ALL) return; mostraPw(true); });
+  $("b-pw-ok").addEventListener("click", entraStagista); $("pw1").addEventListener("keydown", function (e) { if (e.key === "Enter" && $("pw2box").hidden) entraStagista(); });
+  $("b-pw-no").addEventListener("click", function () { mostraPw(false); msg("", ""); });
+  $("b-docente").addEventListener("click", function () { $("f-doc").hidden = false; $("f-pw").hidden = true; $("du").focus(); });
+  $("b-doc-ok").addEventListener("click", entraDocente); $("dp").addEventListener("keydown", function (e) { if (e.key === "Enter") entraDocente(); });
+  $("b-doc-no").addEventListener("click", function () { $("f-doc").hidden = true; msg("", ""); });
+  $("b-esci").addEventListener("click", esci); $("b-export").addEventListener("click", esporta); $("b-invia").addEventListener("click", inviaAttesa);
+  $("b-fissi").addEventListener("click", segnaFissi); $("b-reset").addEventListener("click", azzera);
+  $("sh-salva").addEventListener("click", salvaGiorno); $("sh-vuoto").addEventListener("click", svuotaGiorno);
+  $("sh-chiudi").addEventListener("click", chiudi); $("sh-chiudi2").addEventListener("click", chiudi);
+  $("sheet").addEventListener("click", function (e) { if (e.target === $("sheet")) chiudi(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !$("sheet").hidden) chiudi(); });
+  esci();
+  carica();
+  if (!(PROVA || CFG.endpoint || !CFG.configUrl)) fetch(CFG.configUrl + "?t=" + Date.now(), {cache: "no-store"}).then(function (r) { return r.json(); }).then(function (j) {
+    if (j && typeof j.endpoint === "string" && /^https:\/\//.test(j.endpoint) && !K) { CFG.endpoint = j.endpoint; carica(); }
+  }).catch(function () {});
+});
+</script></body></html>
