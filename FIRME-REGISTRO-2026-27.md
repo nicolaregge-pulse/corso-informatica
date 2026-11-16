@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.1** — 16/11/2026 — documento interno del docente e di Claude
+**Versione 3.2** — 16/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -105,15 +105,16 @@ Fonte: registro DIDAweb, screenshot del docente della settimana 09-13/11 (13/11/
 
 ## Lunedì 16/11/2026
 
-Fonte: registro DIDAweb, screenshot del docente (16/11/2026), colonna Firma con data e ora. Le 3 ore della 3INF sono FIRMATE.
+Fonte: registro DIDAweb, «Calendario personale», screenshot del docente delle 13:07 del 16/11/2026, colonna Firma con data e ora. Tutte le 6 ore sono FIRMATE: non si ricorda più nessuna firma di oggi.
 
-1. Ora 8-9, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 09:16, argomento «Sviluppo web: HTML5 e GitHub Pages».
-2. Ora 9-10, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 09:20, argomento «Sviluppo web: CSS3 e menu del sito».
-3. Ora 10-11, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:15, argomento «Sviluppo web: portfolio delle competenze». Attenzione: l'orario di firma (08:15) è PRIMA dell'inizio dell'ora (10-11): letto dallo screenshot, non verificato; da controllare sul registro.
-4. Ora 11-12, 2INF, Laboratorio professionale: firmata (orario non visibile nello screenshot); argomento registrato «GitHub gestione account».
-5. Ora 12-13, 2INF, Laboratorio professionale: firmata (orario non visibile nello screenshot); argomento registrato «GitHub gestione account».
-6. Ora 13-14, 2INF, Laboratorio professionale: firmata (orario non visibile nello screenshot); argomento registrato «GitHub gestione account».
+1. Ora 8-9, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 09:16:00, argomento «Sviluppo web: HTML5 e GitHub Pages».
+2. Ora 9-10, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 09:20:00, argomento «Sviluppo web: CSS3 e menu del sito».
+3. Ora 10-11, 3INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 09:41:00, argomento «Sviluppo web: portfolio delle competenze». (L'orario 08:15 letto nella v3.0 era sbagliato: corretto dal docente con lo screenshot delle 13:07.)
+4. Ora 11-12, 2INF, Laboratorio professionale (aula 11): FIRMATA il 16/11/2026 alle 12:10:00, argomento «GitHub gestione account».
+5. Ora 12-13, 2INF, Laboratorio professionale (aula 11): FIRMATA il 16/11/2026 alle 12:11:00, argomento «GitHub gestione account».
+6. Ora 13-14, 2INF, Laboratorio professionale (aula 11): FIRMATA il 16/11/2026 alle 12:11:00, argomento «GitHub gestione account».
 7. Nota 2INF: l'argomento scritto sul registro («GitHub gestione account») è diverso dai titoli preparati («Pagine web: …»); vale quello del registro e va registrato così. L'Allegato A non è modificato. Le ore 9-11 del lunedì sono di Matematica (altro docente): non nostre. Presenze 2INF: 15 presenti e 5 assenti, già registrate.
+8. Orario seguente (registro DIDAweb, stesso screenshot): MAR 17/11: 2INF 8-9 e 9-10 Informatica; 4TI 10-11, 11-12, 12-13 Laboratorio professionale. MER 18/11: 1INF 8-9 e 9-10 Impresa simulata (LAB), 10-11 Laboratorio professionale, 3INF 11-12 e 12-13 LAB, 1INF 13-14 Tecnologia professionale. GIO 19/11: 2INF 10-11 Sicurezza professionale. VEN 20/11: 2INF 8-9 e 9-10 Informatica; 1INF 11-12, 12-13, 13-14 LAB.
 
 ## Changelog
 
@@ -139,3 +140,4 @@ Fonte: registro DIDAweb, screenshot del docente (16/11/2026), colonna Firma con 
 19. v2.9 (13/11/2026, pomeriggio): screenshot del docente del registro DIDAweb della settimana 09-13/11: TUTTE le lezioni firmate, con data e ora; titoli del registro per il 12/11 e il 13/11 (tra cui 1INF 13-14 del 12/11, 1INF 11-14 e 2INF 8-9 del 13/11); tolte le scritte «NON firmata» e «non provato». Non ci sono più firme da ricordare per la settimana.
 20. v3.0 (16/11/2026): lunedì 16/11, ore 3INF 8-11 firmate (09:16, 09:20, 08:15), con i titoli del registro; l'ora 10-11 risulta firmata alle 08:15, prima dell'inizio dell'ora (da verificare). Ore 2INF 11-14 non provate.
 21. v3.1 (16/11/2026): lunedì 16/11, ore 2INF 11-14 firmate (screenshot del registro DIDAweb, orario di firma non visibile), argomento registrato «GitHub gestione account» per tutte e tre, diverso dai titoli preparati («Pagine web: …»).
+22. v3.2 (16/11/2026, 13:10): orari di firma reali dallo screenshot del registro DIDAweb delle 13:07: 3INF 8-11 firmate 09:16, 09:20, 09:41 (la 10-11 non è 08:15: tolta la nota «da verificare»); 2INF 11-14 firmate 12:10, 12:11, 12:11 (aula 11); aggiunto l'orario di martedì 17 e dei giorni seguenti.
