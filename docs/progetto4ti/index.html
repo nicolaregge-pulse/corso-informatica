@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Il Documento del tuo progetto</title>
+<style>
+:root{--bg:#f4f6fb;--fg:#1d2433;--card:#fff;--bd:#cfd6e4;--blu:#0b6bcb;--ver:#2da44e;--mu:#4a5568}
+@media(prefers-color-scheme:dark){:root{--bg:#10141c;--fg:#e8ecf5;--card:#1a2030;--bd:#3a4560;--mu:#b6bfd0}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.7rem;margin:.2em 0}h2{font-size:1.4rem;margin:.6em 0 .4em}h3{font-size:1.1rem;margin:0 0 .2em}
+.box{border-radius:12px;padding:12px 14px;margin:10px 0;border-left:8px solid;font-weight:600}
+.rosso{background:#fde7e7;border-color:#c62828;color:#5b1212}
+.giallo{background:#fff4cc;border-color:#d99a00;color:#4a3600}
+.blu{background:#e1efff;border-color:#0b6bcb;color:#0a2f57}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:12px 0}
+label{display:block;font-weight:700;margin:.7em 0 .2em}
+.lab{font-weight:700;margin:1em 0 .3em}
+input[type=text],input[type=date],textarea,select,input[type=file]{width:100%;font:inherit;font-size:1.05rem;padding:10px;border:2px solid var(--bd);border-radius:10px;background:var(--card);color:var(--fg)}
+textarea{resize:vertical}
+input:focus,textarea:focus,select:focus,button:focus-visible,summary:focus-visible{outline:3px solid #f5a623;outline-offset:2px}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:12px 18px;cursor:pointer;color:#fff;background:var(--blu);min-height:48px}
+button:disabled{background:#8a94a6;cursor:not-allowed}
+button.grande{width:100%;font-size:1.3rem;min-height:64px;background:var(--ver);margin:14px 0 4px}
+button.sec{background:#fff;color:#0b4f99;border:2px solid var(--blu)}
+button.elim{background:#b3261e;color:#fff;font-size:.95rem;padding:8px 12px;min-height:44px;margin-top:8px}
+button.link{background:none;color:#0b5cb0;text-decoration:underline;padding:4px 6px;min-height:40px}
+@media(prefers-color-scheme:dark){button.sec{background:var(--card);color:#9cc8ff}button.link{color:#9cc8ff}}
+.barra{height:16px;background:#d5dae4;border-radius:8px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--ver);transition:width .25s}
+.testa{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:.4em 0}
+.testa b{font-size:1.05rem}
+.capbadge{display:inline-block;background:#e1efff;color:#0a2f57;border-radius:20px;padding:4px 12px;font-size:.9rem;font-weight:700;margin:.2em 0}
+.aiuto{border:2px solid var(--bd);border-radius:12px;padding:8px 12px;background:var(--card);margin:10px 0}
+.aiuto summary,.gr summary{cursor:pointer;font-weight:800;min-height:40px;padding:6px 0}
+ul.s{margin:.3em 0;padding-left:1.2em}
+.esempio .et{margin:0 0 .3em;font-size:.9rem;text-transform:uppercase;letter-spacing:.03em}
+.esempio .etx{white-space:pre-line;font-weight:500}
+.campo{margin:14px 0}
+.riga{border:2px solid var(--bd);border-radius:14px;padding:10px 12px;margin:10px 0;background:var(--card)}
+.rt{margin:0 0 .2em;font-weight:800;color:var(--blu)}
+.gcols{display:grid;grid-template-columns:1fr;gap:0 12px}
+@media(min-width:640px){.gcols{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+.rtot,.totale{font-weight:800;margin:.5em 0}
+.totale{font-size:1.2rem}
+.ho{display:flex;align-items:flex-start;gap:10px;font-weight:600;margin:.4em 0;padding:10px;border:2px solid var(--bd);border-radius:10px;cursor:pointer;background:var(--card)}
+.ho input{width:26px;height:26px;flex:0 0 26px;accent-color:#2da44e;margin:0}
+.gr{border:2px solid var(--bd);border-radius:12px;padding:6px 10px;margin:10px 0}
+.gr summary{font-size:.98rem}
+.err{color:#c62828;font-weight:700;min-height:1.2em;margin:.3em 0}
+@media(prefers-color-scheme:dark){.err{color:#ff8a80}}
+.ok2{color:#1b7a36;font-weight:800}
+@media(prefers-color-scheme:dark){.ok2{color:#7ee2a0}}
+.nota{color:var(--mu);font-size:.95rem;margin:.3em 0}
+div.ganttw{overflow-x:auto}canvas.gantt{width:100%;min-width:640px;height:auto;border-radius:10px;border:2px solid var(--bd);background:#fff;display:block}
+img.anteprima{max-width:100%;height:auto;border-radius:8px;border:1px solid var(--bd);display:block;margin:6px 0}
+.nav{display:flex;gap:12px;margin:18px 0}
+.nav button{flex:1;font-size:1.15rem;min-height:56px}
+.nav button#avanti{flex:2}
+ul.capelenco{list-style:none;padding:0;margin:10px 0}
+ul.capelenco li{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;border:2px solid var(--bd);border-radius:10px;padding:6px 10px;margin:6px 0;background:var(--card)}
+ul.capelenco .ct{font-weight:700;flex:1 1 200px}
+ul.capelenco .cs{font-size:.95rem}
+ul.capelenco li.ok{border-color:var(--ver)}ul.capelenco li.ok .cs{color:#1b7a36;font-weight:800}
+ul.capelenco li.meta{border-color:#d99a00}
+@media(prefers-color-scheme:dark){ul.capelenco li.ok .cs{color:#7ee2a0}}
+ol.steps{list-style:none;padding:0;margin:0}
+.step{display:flex;gap:10px;margin:14px 0}
+.n{flex:0 0 38px;height:38px;border-radius:50%;background:var(--blu);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.sb{flex:1;min-width:0}.sb p{margin:.2em 0 .5em}
+.fig svg{width:100%;max-width:420px;height:auto;display:block;border-radius:10px}
+.fig svg text{font-family:system-ui,Arial,sans-serif}
+.strumenti{margin-top:26px}
+.strumenti .bt{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0}
+.strumenti .bt>*{flex:1 1 220px}
+.caricaFile{display:flex;align-items:center;justify-content:center;text-align:center;background:#fff;color:#0b4f99;border:2px solid var(--blu);border-radius:12px;min-height:48px;padding:10px 14px;cursor:pointer;margin:0;font-weight:700}
+@media(prefers-color-scheme:dark){.caricaFile{background:var(--card);color:#9cc8ff}}
+.caricaFile:focus-within{outline:3px solid #f5a623;outline-offset:2px}
+.sronly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style></head><body><main>
+<h1>Il Documento del tuo progetto</h1>
+<p>Rispondi a una domanda alla volta. Alla fine questa pagina scrive il Documento per te. Poi lo continui a scrivere in Documenti Google.</p>
+<div class="box blu">Tutto quello che scrivi resta nel tuo computer. Questa pagina non manda niente su internet.</div>
+<div id="avvisoStorage" class="box rosso" role="alert" hidden>Questo browser non può salvare le risposte da solo. Non chiudere la pagina. Usa «Salva le risposte in un file» in fondo.</div>
+<div id="avvisoImg" class="box giallo" role="alert" hidden>Le immagini sono troppe o troppo grandi per il salvataggio automatico. Usa «Salva le risposte in un file» in fondo alla pagina.</div>
+<noscript><div class="box rosso">Questa pagina ha bisogno di JavaScript. Apri la pagina con un browser aggiornato.</div></noscript>
+
+<div class="card">
+<div class="testa"><b id="avtxt" aria-live="polite">Passo 1 di 15</b><span class="nota" id="salvato"></span></div>
+<div class="barra" id="avbar" role="progressbar" aria-label="Avanzamento" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+<label for="vai">Vai a un altro passo</label>
+<select id="vai"></select>
+</div>
+
+<section id="schermata" aria-live="off"></section>
+
+<div class="nav">
+<button type="button" id="indietro" class="sec">Indietro</button>
+<button type="button" id="avanti">Avanti</button>
+</div>
+
+<div class="card strumenti">
+<h2 style="margin-top:0">Le tue risposte</h2>
+<p>Le risposte si salvano da sole in questo browser: puoi chiudere la pagina e tornare. Per continuare su un altro computer salva un file e caricalo là.</p>
+<div class="bt">
+<button type="button" id="salvaFile" class="sec">Salva le risposte in un file</button>
+<label class="caricaFile">Carico le risposte da un file<input type="file" id="caricaFile" accept=".json,application/json" class="sronly"></label>
+<button type="button" id="ricomincia" class="sec">Ricomincia</button>
+</div>
+<p class="ok2" id="msgFile" role="status"></p>
+</div>
+</main>
+<script src="vendor/docx-8.5.0.umd.js"></script>
+<script src="passi.js"></script>
+<script src="genera.js"></script>
+<script src="app.js"></script>
+</body></html>
