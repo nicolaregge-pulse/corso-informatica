@@ -1,27 +1,15 @@
 # Proposte di lezione di oggi
 
-**Versione 1.6** — 13/11/2026 — documento interno per il docente, senza nomi di allievi
+**Versione 1.7** — 18/11/2026 — documento interno per il docente, senza nomi di allievi
 
-Preparate nella notte tra il 12 e il 13/11 (00:30 circa, ora di Roma). Orario di venerdì 13/11 dal registro DIDAweb (screenshot del docente dell'11/11): seconda, ora 8-9, Sicurezza; prima, ora 11-12, Laboratorio professionale. Le ore 12-14 della prima non compaiono nello screenshot: non provato (il venerdì 6/11 erano di Laboratorio). Terza e quarta: nessuna lezione il venerdì. Si sceglie nel cruscotto oppure in chat. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
+Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (screenshot del docente, riportato in `FIRME-REGISTRO-2026-27.md`). Le lezioni le ha già scelte il docente il 17/11 e sono già preparate: questa notte non si rifanno proposte. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
 
-## 01 2INF, ora 8-9, Sicurezza professionale (una proposta)
+## 01 1INF, ore 8-10 Impresa simulata, ora 10-11 Laboratorio professionale, ora 13-14 Tecnologia professionale
 
-1. **La sesta ora: rischi meccanici ed elettrici generali, con i recuperi** (consigliata). Il titolo del registro lo mette la direzione. Materiale già pronto dal 6/11 e non pubblicato (pagina in anteprima, pacchetto per il post a mano nel riservato). Voce Allegato A, competenza 14: «Meccanici e elettrici generali». Da chiedere al docente: il 6/11 la sesta ora è stata svolta? Nei file risulta «svolto da confermare».
+1. **L'ufficio acquisti** (scelta del docente). Configurazione e assemblaggio dei PC per tre clienti: ufficio 500 euro, studio 600, gaming 1000; benchmark con Fortnite, Minecraft e Cyberpunk 2077; check della configurazione dei PC a rotazione; confronto finale con quiz. Pacchetti Classroom v1.1 nelle ore 1, 2, 3 e 6, pagina dei siti pubblicata.
 
-## 02 1INF, ore 11-14, Laboratorio professionale, 3 ore (ore 12-14 da confermare)
+## 02 3INF, ore 11-13 Laboratorio professionale
 
-1. **Il programma che decide: if in Lazarus** (consigliata). L'if non è stato svolto l'11/11. Prima mezz'ora di recupero; quiz su Moduli già in Fabbrica; pagina e dispensa ancora da fare.
-2. Chiudiamo i programmi del mese e recuperiamo: consegna di unit1.pas e screenshot, recupero dei quiz aperti.
-3. Il primo repository GitHub con i programmi del mese.
+1. **Il mio sito: Gite e Presenze stage** (scelta del docente). Tutorial guidato per finire i siti personali e preparare lo stage dal 23/11. Pagina `docs/3inf/sito-gite-stage/`, PDF in `classe-3/sito-gite-stage/`.
 
-## 03 Punti aperti di ieri (senza nomi)
-
-1. Voti della prima, ora 6 del 12/11, da inserire in DIDAweb.
-2. Firma della prima, ora 13-14 del 12/11: da verificare sul registro.
-3. Argomenti svolti del 12/11 e titolo del registro della prima, ora 13-14: da scrivere dopo la firma.
-4. Tre bozze della prima del 4/11 ancora in bozza su Classroom: da decidere.
-5. Il bilancio delle ultime 2 settimane per allievo è nel riservato: report/2026-11-13/bilancio-2-settimane-1inf-2inf.md.
-
-## 04 Changelog
-
-1. v1.6 (13/11/2026): proposte del 13/11. Le versioni precedenti (fino alla v1.5 del 09/11) sono nella storia di Git.
+Le altre classi non hanno lezione il 18/11.
