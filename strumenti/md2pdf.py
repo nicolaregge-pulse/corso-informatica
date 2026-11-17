@@ -2,7 +2,7 @@
 """MD (fonte, per l'AI) -> PDF versionato (lettura). Stesso stile del manuale docenti: tabelle, liste numerate, box
 (> **Nota:** giallo, > **Attenzione:** rosso, > **Da confermare:** blu). Il nome del PDF prende data, nome e «Versione X.Y» dal MD.
 Uso: python3 strumenti/md2pdf.py FILE.md DATA_AAAAMMGG Nome-Del-Pdf
-Opzioni facoltative: MD2PDF_ARIA=1 (font grande e spazi generosi, riquadro «> **FAI LO SCREENSHOT» verde); `<<PAGINA>>` = salto pagina."""
+Opzioni facoltative: MD2PDF_PRE_PAROLE=1 (codice a capo tra le parole); MD2PDF_ARIA=1 (font grande e spazi generosi, riquadro «> **FAI LO SCREENSHOT» verde); `<<PAGINA>>` = salto pagina."""
 import html, os, re, subprocess, sys
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
 src, data, nome = sys.argv[1], sys.argv[2], sys.argv[3]
@@ -102,6 +102,8 @@ code{direction:ltr;unicode-bidi:isolate;font-family:"DejaVu Sans Mono",monospace
 .box{border-radius:12px;padding:14px 22px 18px;margin:22px 0 0;break-inside:avoid}.box p:first-child{margin-top:0}.sp{height:10px}
 .shot{border:5px solid #d62828;background:#fff4f4}.shot p.it:first-child{font-size:27px;font-weight:700;color:#c0392b}.nota{background:#fff8d6;border:3px solid #e0b400}.att{background:#fdecea;border:3px solid #c0392b}.conf{background:#e8f1fb;border:3px solid #2f6db5}
 pre{background:#f3f5f8;padding:10px;white-space:pre-wrap;word-break:break-all;font-size:15px}"""
+if os.environ.get("MD2PDF_PRE_PAROLE") == "1":  # opzionale: nei riquadri di codice si va a capo solo tra le parole (non in mezzo a una parola)
+    CSS += "\npre{word-break:normal;overflow-wrap:anywhere;font-size:14px}"
 if os.environ.get("MD2PDF_ORIZZONTALE") == "1":  # opzionale: A4 orizzontale per tabelle larghe
     CSS += "\n@page{size:A4 landscape;margin:9mm}body{margin:4px 6px;font-size:11px}table{font-size:9.5px}th,td{padding:2px 4px}h1{font-size:19px}h2{font-size:15px}"
 if os.environ.get("MD2PDF_ARIA") == "1":  # opzionale: dispense «con più aria» (font grande, margini larghi, pagine A4 con spazi generosi)
