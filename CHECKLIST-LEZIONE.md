@@ -1,6 +1,6 @@
 # 00 Checklist della lezione (dal registro degli errori)
 
-**Versione 2.9** — 13/11/2026 — documento interno del docente e di Claude
+**Versione 2.10** — 17/11/2026 (v2.10: §04 punto 5) — documento interno del docente e di Claude
 
 Nicola, 26/10/2026: «finite le lezioni, mettiti a rivedere tutti gli errori e correggi la situazione». Ho riletto tutte le voci di `REGISTRO-ERRORI-CLAUDE.md` (dal #1 al #124) e le ho trasformate in una lista di controlli, nell'ordine in cui servono durante la giornata. Ogni controllo porta il numero dell'errore da cui nasce. Si legge prima di ogni lezione, insieme alle 11 regole di `CLAUDE.md` (v2.2 del 06/11/2026). Dove un punto di questa lista dice una cosa diversa da R1-R11, valgono R1-R11.
 
@@ -49,6 +49,7 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 2. Voti: tutti i presenti, da 40 a 80, con il conto scritto, controllati da me sul dato vero prima di darli; i KPI solo dopo il sì di Nicola; prima della stringa per DIDAweb, la Disciplina da scegliere (#95, #98, #117, CLAUDE.md R8 e R9).
 3. Argomenti svolti in `ARGOMENTI-SVOLTI-2026-27.md`, legati all'Allegato A, togliendo l'evidenziazione a ciò che è fatto; dopo il 30/10 sull'Allegato A si può solo togliere: se manca la voce esatta si usa la più vicina (R5.2), mai «voce da aggiungere»; per ogni ora di Sicurezza si tengono due righe affiancate, «Dichiarato (Allegato A)» e «Registro (titolo della direzione)», perché i titoli li mette la direzione (06/11/2026); `PROSSIME-LEZIONI.md` aggiornato con le 3 proposte non sviluppate per blocco di ore (CLAUDE.md R5 e R10).
 4. Nel resoconto: quali controlli di questa lista sono saltati oggi e perché.
+5. Archiviare una prova = una cartella con TUTTO (testo, Moduli, risposte grezze, lavori, voti, indice, LEGGIMI), un solo ZIP, e il controllo di completezza (`strumenti/archivia_prova.py`, riservato) deve dare COMPLETO prima di dire «archiviato» (#351, 17/11/2026; `GUIDA-STRUMENTI-E-FILE.md` capitolo 06).
 
 ## 05 Correzioni fatte oggi (26/10/2026)
 
@@ -100,3 +101,4 @@ Controlli automatici (28/10/2026): una parte di questa lista la fanno da soli gl
 18. v2.7 (13/11/2026): §06 punto 17, controllo di leggibilità delle dispense (#328).
 19. v2.8 (13/11/2026): §02 punto 2, in chat solo il COGNOME (CLAUDE.md v2.11).
 20. v2.9 (13/11/2026, audit del pomeriggio): §06 punto 18 sui PDF per i ragazzi.
+21. v2.10 (17/11/2026): §04 punto 5, archiviare una prova: tutto in una cartella, un solo ZIP, COMPLETO prima di dire archiviato (#351).

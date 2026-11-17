@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.23** — 16/11/2026 sera — documento interno del docente e di Claude
+**Versione 1.24** — 17/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -422,6 +422,8 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #347 | Istruzioni per i ragazzi lunghe o non chiare, informazioni mancanti (16/11) | 5 | D | B | `controlla_leggibilita.py` e `controlla_coerenza_materiale.py` (a mano, non bloccanti); lista delle domande dei ragazzi da costruire (D) |
 | #348 | Verifica della lezione mai VERDE, giro della Fabbrica oltre il limite, export ogni ora (16/11) | 2 | D | D | export automatico in ora di lezione e avviso sul «Giro: durata» da costruire |
 | #349 | Formato del messaggio sbagliato ancora dopo #336 (16/11) | 1 | D | A | hook controllo-messaggio.py (ff), solo dopo l'invio; prova di consegna riuscita prima di scrivere «sistemato» |
+| #350 | Modalità già decise cambiate (voti DIDAweb), codice non in fondo (17/11) | 2 | A | A | `promemoria-errori.py` (rilettura del mattino) e `controllo-messaggio.py` (jj) «codice non in fondo» |
+| #351 | Prova archiviata in più ZIP, cartella «Regge» incompleta (17/11) | 1 | A | A | `strumenti/archivia_prova.py` (riservato): un solo ZIP + controllo di completezza (esce 1 se manca qualcosa); D: aggancio alla parola «archiviato» |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -511,3 +513,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 21. v1.21 (13/11/2026, audit del pomeriggio): voci #326, #327 (mancavano nella mappa), #330, #331 e #332; nuovo controllo `strumenti/controlla_pdf_ragazzi.py` (nome del file sicuro, note tecniche, fittezza, copia su origin/main); #150 di `controlla_controlli.py` adeguato alla Fabbrica (quiz di Sicurezza in `fabbrica/indice.json`).
 22. v1.22 (13/11/2026, controllore di fine giornata): voci #333 (motore non provato attivato), #334 (orario presunto, domanda che contraddice il docente) e #335 (correzioni su motore.js prima del «via»), tutte D con la regola e il controllo da costruire.
 23. v1.23 (16/11/2026, controllore di fine giornata): voci #336-#349 (il registro era a #335); nuovi controlli: avviso di lunghezza del messaggio in `controllo-messaggio.py` (#342, chiude da D ad A anche #242 e #250) e `firme_sospette` in `controlla_controlli.py` (#343); maschera della password nel hook bobina (#344). Il conteggio della sezione 01 non è stato ricalcolato.
+24. v1.24 (17/11/2026): voci #350 (mancava) e #351 (archivio prove: `archivia_prova.py`, un solo ZIP e controllo di completezza). Il conteggio della sezione 01 non è stato ricalcolato.
