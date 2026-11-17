@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Le gite</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="dati-gite.js"></script>
+</head>
+<body>
+  <nav class="menu">
+    <a href="index.html">Chi sono</a>
+    <a href="passione.html">Hobby</a>
+    <a href="competenze.html">Competenze</a>
+    <a href="diario.html">Il mio stage</a>
+    <a href="presenze.html">Presenze</a>
+    <a href="gite.html">Gite</a>
+  </nav>
+  <h1>Le gite</h1>
+
+  <div class="scheda">
+    <h2>Le gite della classe</h2>
+    <div id="elenco"></div>
+  </div>
+
+  <div class="scheda">
+    <h2>La mia gita</h2>
+    <p><b>Dove siamo andati:</b> Scrivi qui il posto.</p>
+    <p><b>Che cosa ho visto:</b> Scrivi qui due o tre cose.</p>
+    <p><b>Che cosa ho imparato:</b> Scrivi qui una cosa.</p>
+  </div>
+
+  <p class="piede">Sito creato da me - 3INF - 2026</p>
+
+  <script>
+    var elenco = document.getElementById("elenco");
+    var oggi = new Date().toISOString().slice(0, 10);
+    var lista = (typeof GITE !== "undefined") ? GITE : [];
+
+    function riga(testo, valore) {
+      if (!valore) return null;
+      var p = document.createElement("p");
+      p.textContent = testo + ": " + valore;
+      return p;
+    }
+    function salvata(chiave) {
+      try { return localStorage.getItem(chiave) === "1"; } catch (e) { return false; }
+    }
+    function salva(chiave, valore) {
+      try { localStorage.setItem(chiave, valore ? "1" : "0"); } catch (e) {}
+    }
+
+    if (lista.length === 0) {
+      var v = document.createElement("p");
+      v.className = "vuoto";
+      v.textContent = "Il prof non ha ancora scritto le gite. Torna a vedere più avanti.";
+      elenco.appendChild(v);
+    }
+
+    lista.forEach(function (g, n) {
+      var box = document.createElement("div");
+      box.className = "gita";
+      var h = document.createElement("h3");
+      h.textContent = g.titolo || "Gita";
+      box.appendChild(h);
+      var q = document.createElement("p");
+      q.className = "quando";
+      q.textContent = g.data ? (g.data.split("-").reverse().join("/") + (g.data >= oggi ? "  (in programma)" : "  (già fatta)")) : "data da definire";
+      box.appendChild(q);
+      [["Meta", g.meta], ["Ritrovo", g.ritrovo], ["Ora", g.ora], ["Rientro", g.rientro], ["Costo", g.costo], ["Note", g.note]].forEach(function (c) {
+        var r = riga(c[0], c[1]);
+        if (r) box.appendChild(r);
+      });
+      if (g.portare && g.portare.length) {
+        var t = document.createElement("p");
+        t.textContent = "Che cosa portare (spunta quando è pronto):";
+        box.appendChild(t);
+        var ul = document.createElement("ul");
+        g.portare.forEach(function (cosa, k) {
+          var chiave = "gita-" + n + "-" + k;
+          var li = document.createElement("li");
+          var lab = document.createElement("label");
+          var cb = document.createElement("input");
+          cb.type = "checkbox";
+          cb.checked = salvata(chiave);
+          cb.addEventListener("change", function () { salva(chiave, cb.checked); });
+          lab.appendChild(cb);
+          lab.appendChild(document.createTextNode(" " + cosa));
+          li.appendChild(lab);
+          ul.appendChild(li);
+        });
+        box.appendChild(ul);
+      }
+      elenco.appendChild(box);
+    });
+  </script>
+</body>
+</html>

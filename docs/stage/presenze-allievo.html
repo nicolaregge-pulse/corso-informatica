@@ -60,6 +60,7 @@ th{font-size:16px;color:var(--mut)}td.n,th.n{text-align:right;white-space:nowrap
 .days label{display:flex;align-items:center;gap:8px;margin:0;font-weight:400;min-height:48px}
 @media (max-width:520px){h1{font-size:24px}}
 </style></head><body><main>
+<p id="torna" hidden><a href="index.html">&larr; Torna al mio sito</a></p>
 <h1>Presenze stage</h1>
 <p class="sub" id="chi"></p>
 <div id="viewer" hidden><label for="v-all">Allievo</label><select id="v-all"></select></div>
@@ -94,6 +95,7 @@ th{font-size:16px;color:var(--mut)}td.n,th.n{text-align:right;white-space:nowrap
 <button class="btn" id="b-mod" type="button">Modifica (solo io)</button>
 <button class="btn sec" id="b-esci" type="button" hidden>Esci dalla modifica</button>
 <button class="btn sec" id="b-export" type="button">Scarica i dati (file)</button>
+<button class="btn sec" id="b-import" type="button" hidden>Carica il mio file</button><input type="file" id="f-import" accept=".json,application/json" hidden>
 <button class="btn sec" id="b-invia" type="button" hidden>Invia le modifiche in attesa</button>
 </div>
 <p class="msg" id="msg" role="status" aria-live="polite"></p>
@@ -130,7 +132,7 @@ th{font-size:16px;color:var(--mut)}td.n,th.n{text-align:right;white-space:nowrap
 </div></div>
 <script>
 "use strict";
-/* ====== CONFIGURAZIONE (versione 2.1, 16/11/2026; v2.1: accesso del docente con la password scelta dal docente, sale nuovo, PBKDF2 2.000.000 iterazioni; v2.0: prima versione) ====== */
+/* ====== CONFIGURAZIONE (versione 2.2, 17/11/2026; v2.2: link «Torna al mio sito», bottone «Carica il mio file» per rimettere i giorni salvati con «Scarica i dati»; v2.1: accesso del docente con la password scelta dal docente, sale nuovo, PBKDF2 2.000.000 iterazioni; v2.0: prima versione) ====== */
 var CFG = {
   allievo: "@@ALLIEVO@@",            /* «Nome I.»: lo mette la pagina «copia» */
   inizio: "2026-11-23", fine: "2027-02-18",
@@ -226,6 +228,7 @@ function disegna() {
     cal.appendChild(g);
   });
   $("b-invia").hidden = !(K && CFG.endpoint && Object.keys(pend).length);
+  $("b-import").hidden = !K || comeDocente;
 }
 
 /* ====== il giorno ====== */
@@ -365,6 +368,7 @@ function attiva(k, doc) {
 function esci() {
   K = null; comeDocente = false; chiudi();
   var b = $("modo"); b.textContent = "Solo lettura"; b.className = "badge view";
+  $("torna").hidden = VIEWER;
   $("b-mod").hidden = VIEWER; $("b-docente").hidden = false; $("b-esci").hidden = true; $("s-fissi").hidden = true; $("s-doc").hidden = true; $("f-pw").hidden = true; $("f-doc").hidden = true;
   $("az-testo").textContent = VIEWER ? "Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, dalla pagina del suo sito, con la sua password." : "Tutti possono leggere questa pagina. Solo lo stagista può cambiare i suoi giorni, con la sua password.";
   msg("", ""); disegna();
@@ -384,6 +388,23 @@ function azzera() {
   if (!confirm("Azzero la password di " + ALL + "? Dovrà sceglierne una nuova.")) return;
   if (!CFG.endpoint) { var l = leggiLoc("d") || {}; delete l.salt; delete l.verifier; scriviLoc("d", l); info = {salt: "", haPassword: false}; msg("Password azzerata.", "ok"); return; }
   post({op: "reset", allievo: ALL, k: K}).then(function (j) { if (j && j.ok) { info = {salt: "", haPassword: false}; msg("Password azzerata.", "ok"); } else msg("Non azzerata (" + ((j && j.errore) || "errore") + ").", "ko"); });
+}
+function importa(file) {
+  if (!K) { msg("Per caricare un file premi prima «Modifica (solo io)».", "ko"); return; }
+  var r = new FileReader();
+  r.onload = function () {
+    var j; try { j = JSON.parse(r.result); } catch (e) { msg("Il file non è valido.", "ko"); return; }
+    if (!j || !(j.giorni instanceof Array)) { msg("Il file non è valido.", "ko"); return; }
+    if (j.allievo !== ALL) { msg("Questo file è di un altro allievo.", "ko"); return; }
+    var lista = [];
+    j.giorni.forEach(function (g) {
+      if (g && PER.indexOf(g.data) >= 0 && NOMI[g.stato]) lista.push({d: g.data, s: g.stato, o: g.stato === "P" ? Math.min(12, Math.max(0, Number(g.ore) || 0)) : 0, t: (g.stato === "P" || g.stato === "L") ? String(g.attivita || "").slice(0, 200) : ""});
+    });
+    if (!lista.length) { msg("Nel file non ci sono giorni validi.", "ko"); return; }
+    var pezzi = [], i; for (i = 0; i < lista.length; i += 100) pezzi.push(lista.slice(i, i + 100));
+    (function giro(n, tot) { if (n >= pezzi.length) { msg("Caricati " + tot + " giorni dal file.", "ok"); return; } invia(pezzi[n]).then(function (ok) { if (ok) giro(n + 1, tot + pezzi[n].length); }); })(0, 0);
+  };
+  r.readAsText(file);
 }
 function esporta() {
   var v = vista(), g = PER.filter(function (d) { return v[d]; }).map(function (d) { return {data: d, stato: v[d].s, ore: v[d].o || 0, attivita: v[d].t || ""}; });
@@ -406,7 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
   $("b-docente").addEventListener("click", function () { $("f-doc").hidden = false; $("f-pw").hidden = true; $("du").focus(); });
   $("b-doc-ok").addEventListener("click", entraDocente); $("dp").addEventListener("keydown", function (e) { if (e.key === "Enter") entraDocente(); });
   $("b-doc-no").addEventListener("click", function () { $("f-doc").hidden = true; msg("", ""); });
-  $("b-esci").addEventListener("click", esci); $("b-export").addEventListener("click", esporta); $("b-invia").addEventListener("click", inviaAttesa);
+  $("b-esci").addEventListener("click", esci); $("b-export").addEventListener("click", esporta); $("b-import").addEventListener("click", function () { $("f-import").value = ""; $("f-import").click(); }); $("f-import").addEventListener("change", function () { if (this.files[0]) importa(this.files[0]); }); $("b-invia").addEventListener("click", inviaAttesa);
   $("b-fissi").addEventListener("click", segnaFissi); $("b-reset").addEventListener("click", azzera);
   $("sh-salva").addEventListener("click", salvaGiorno); $("sh-vuoto").addEventListener("click", svuotaGiorno);
   $("sh-chiudi").addEventListener("click", chiudi); $("sh-chiudi2").addEventListener("click", chiudi);

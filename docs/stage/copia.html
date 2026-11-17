@@ -12,12 +12,12 @@ label{display:block;font-weight:700;margin:12px 0 4px}select{width:100%;min-heig
 .btn.sec{background:transparent;color:var(--acc)}.msg{font-weight:700;min-height:26px}.msg.ko{color:var(--ko)}.msg.ok{color:var(--ok)}.small{color:var(--mut);font-size:15px}
 </style></head><body><main>
 <h1>Copia la pagina Presenze stage</h1>
-<p>Questa pagina prepara il codice della tua pagina <b>Presenze stage</b>. Poi lo incolli nel tuo sito personale su GitHub.</p>
+<p>Questa pagina prepara il codice della tua pagina <b>Presenze stage</b>. Poi salvi il file <b>presenze.html</b> nella cartella del tuo sito.</p>
 <section>
 <label for="n">1. Scegli il tuo nome</label><select id="n"><option value="">Scegli...</option></select>
-<button class="btn" id="c" type="button">2. Copia il codice</button>
+<button class="btn" id="d" type="button">2. Scarica il file presenze.html</button>
 <p class="msg" id="m" role="status" aria-live="polite"></p>
-<button class="btn sec" id="d" type="button">Se non si copia: scarica il file</button>
+<button class="btn sec" id="c" type="button">Oppure: copia il codice</button>
 <label for="t" style="margin-top:16px">Il codice (se serve, premi dentro e usa Ctrl+A, poi Ctrl+C)</label>
 <textarea id="t" rows="4" readonly style="width:100%%;font:14px monospace;border:2px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)"></textarea>
 </section>
@@ -30,7 +30,7 @@ function codice(){if(!n.value){m.className="msg ko";m.textContent="Scegli prima 
  var p=cache?Promise.resolve(cache):fetch("presenze-allievo.html?t="+Date.now()).then(function(r){return r.text()}).then(function(t){cache=t;return t});
  return p.then(function(t){return t.replace('"@@ALLIEVO@@"',JSON.stringify(n.value))})}
 $("c").addEventListener("click",function(){codice().then(function(t){if(!t)return;$("t").value=t;
- var ok=function(){m.className="msg ok";m.textContent="Copiato. Ora vai su GitHub e incolla con Ctrl+V."},ko=function(){$("t").select();try{document.execCommand("copy");ok()}catch(e){m.className="msg ko";m.textContent="Non riesco a copiare. Usa il bottone per scaricare il file."}};
+ var ok=function(){m.className="msg ok";m.textContent="Copiato. Ora apri il Blocco note, incolla con Ctrl+V e salva il file con il nome presenze.html."},ko=function(){$("t").select();try{document.execCommand("copy");ok()}catch(e){m.className="msg ko";m.textContent="Non riesco a copiare. Usa il bottone per scaricare il file."}};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,ko);else ko()}).catch(function(){m.className="msg ko";m.textContent="Non riesco a leggere il codice. Riprova."})});
-$("d").addEventListener("click",function(){codice().then(function(t){if(!t)return;var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/html"}));a.download="presenze.html";document.body.appendChild(a);a.click();document.body.removeChild(a)})});
+$("d").addEventListener("click",function(){codice().then(function(t){if(!t)return;var a=document.createElement("a");a.href=URL.createObjectURL(new Blob([t],{type:"text/html"}));a.download="presenze.html";document.body.appendChild(a);a.click();document.body.removeChild(a);m.className="msg ok";m.textContent="Fatto. Il file presenze.html è nella cartella Download. Mettilo nella cartella del tuo sito."})});
 </script></main></body></html>
