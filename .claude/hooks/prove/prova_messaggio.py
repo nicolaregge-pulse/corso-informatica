@@ -208,6 +208,19 @@ _r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")],
                     input=json.dumps({"last_assistant_message": _lungo_c}), capture_output=True, text=True)
 caso("ii: main stampa systemMessage con le righe", "systemMessage" in _r.stdout and "R4.2" in _r.stdout, True)
 
+# codice non in fondo (17/11/2026, non bloccante, #350)
+caso("jj: passi, poi riquadro in fondo: nessun avviso",
+     cm.avviso_codice_non_in_fondo("1. Apri la pagina.\n2. Incolla il codice.\n```\ncodice\n```") is None, True)
+caso("jj: riquadro, poi passi numerati: avviso",
+     cm.avviso_codice_non_in_fondo("Ecco:\n```\ncodice\n```\n1. Apri la pagina.\n2. Incolla.") is not None, True)
+caso("jj: nessun riquadro: nessun avviso", cm.avviso_codice_non_in_fondo("1. Apri.\n2. Premi.") is None, True)
+caso("jj: dopo il riquadro solo una frase senza numero: nessun avviso",
+     cm.avviso_codice_non_in_fondo("```\ncodice\n```\nFatto.") is None, True)
+_r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")],
+                    input=json.dumps({"last_assistant_message": "```\nx\n```\n1. Premi invio.\n2. Chiudi."}),
+                    capture_output=True, text=True)
+caso("jj: main stampa systemMessage R4 3ter", "systemMessage" in _r.stdout and "3ter" in _r.stdout, True)
+
 giusti = sum(1 for _, o, a in casi if o == a)
 for n, o, a in casi:
     if o != a:

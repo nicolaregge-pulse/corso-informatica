@@ -771,6 +771,28 @@ def avviso_lunghezza(testo):
             (len(righe), parole, MAX_RIGHE_TESTO, MAX_PAROLE_TESTO))
 
 
+# (jj) Codice non in fondo (R4 3ter; errore #350, 17/11/2026): avviso NON bloccante.
+# Il codice o il testo da copiare sta in UN riquadro in fondo (o in testa): i passi numerati vanno tutti prima.
+RE_PASSO_NUMERATO = re.compile(r"^\s*\d+[.)]\s+\S")
+
+
+def avviso_codice_non_in_fondo(testo):
+    seg = segmenta(testo)
+    ultimo = None
+    for i, (t, _r) in enumerate(seg):
+        if t == "riquadro":
+            ultimo = i
+    if ultimo is None:
+        return None
+    dopo = [r for t, righe in seg[ultimo + 1:] if t == "testo" for r in righe]
+    passi = [r for r in dopo if RE_PASSO_NUMERATO.match(r)]
+    if not passi:
+        return None
+    return ("Avviso (non blocca, R4 3ter, #350, 17/11/2026): codice non in fondo: dopo il riquadro da copiare ci sono "
+            "ancora passi numerati (%d). Il codice sta in UN riquadro da solo, in FONDO al messaggio; i passi stanno "
+            "tutti prima, scritti per intero." % len(passi))
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
@@ -807,6 +829,12 @@ def main():
         lungo = avviso_lunghezza(testo)
         if lungo:
             avviso = (avviso + "\n" + lungo) if avviso else lungo
+    except Exception:
+        pass
+    try:
+        nf = avviso_codice_non_in_fondo(testo)
+        if nf:
+            avviso = (avviso + "\n" + nf) if avviso else nf
     except Exception:
         pass
     if avviso and not motivi:

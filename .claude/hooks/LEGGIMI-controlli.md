@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.8** — 12/11/2026 — documento interno del docente e di Claude
+**Versione 1.9** — 17/11/2026 — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -173,6 +173,13 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 1. **Errore #319:** un cognome di allievo scritto in `fabbrica/` (esempio nel changelog del motore) è stato pushato: il controllo del push guardava solo docs/ e i messaggi dei commit.
 2. **Controllo:** `limite-comandi.py`, al «git push» del pubblico controlla con `controllo_nomi.py` (elenchi del riservato) il contenuto di tutti i file di testo cambiati rispetto a origin/main (e dei nuovi, se il comando ha «git add»), in qualunque cartella; ferma il push e non si salta con «PAGINE-OK». Prova: `prove/prova_limite.py` (42 casi).
 
+## 09 Rilettura del mattino e «codice non in fondo» (17/11/2026)
+
+1. **Errore #350:** modalità già decise cambiate (voti DIDAweb) e codice non in un riquadro in fondo (R4 3ter); il docente chiede di rileggere i documenti ogni mattina.
+2. **Rilettura del mattino:** `promemoria-errori.py`, al primo messaggio di ogni giornata (ora di Roma) antepone al promemoria l'obbligo di rileggere CLAUDE.md, GUIDA-MESSAGGI-AL-DOCENTE.md, CHECKLIST-LEZIONE.md e la guida dei segnalibri DIDAweb. Stato: un file per giorno nella cartella temporanea; `CORSO_STATO_RILETTURA=""` la spegne.
+3. **Codice non in fondo:** controllo (jj) di `controllo-messaggio.py`, avviso non bloccante se dopo il riquadro ci sono passi numerati. Prova: `prove/prova_messaggio.py` (67 casi).
+4. **Limite:** non si sa se la rilettura è avvenuta; il controllo non vede un metodo diverso da quello deciso.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -182,3 +189,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 5. v1.6 (12/11/2026): capitolo 06, controllo (ff) del formato dei kit e dei documenti; prova nuova `prova_formato_kit.py`.
 6. v1.7 (12/11/2026): capitolo 07, controllo (hh) «non ha consegnato» con dato non fresco (errore #314); prova_messaggio.py a 46 casi.
 7. v1.8 (12/11/2026): capitolo 08, controllo dei cognomi nel contenuto dei file cambiati al push del pubblico (errore #319); prova_limite.py a 42 casi.
+9. v1.9 (17/11/2026): capitolo 09, rilettura del mattino e controllo (jj) «codice non in fondo» (errore #350); prova_messaggio.py a 67 casi.

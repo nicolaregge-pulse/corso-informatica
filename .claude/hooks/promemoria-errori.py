@@ -8,6 +8,40 @@ Robusto: se qualcosa va storto esce 0 senza output (la sessione non si rompe).
 import json
 import os
 import sys
+import tempfile
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
+# Rilettura del mattino (errore #350, 17/11/2026): al primo messaggio di ogni giornata si chiede di rileggere
+# i documenti prima di lavorare. Stato: un file per giorno nella cartella temporanea (CORSO_STATO_RILETTURA="" la spegne).
+RILETTURA = (
+    "RILETTURA DEL MATTINO (primo messaggio di oggi, %s; regola del docente, errore #350): prima di fare QUALSIASI "
+    "cosa rileggi per intero: CLAUDE.md, GUIDA-MESSAGGI-AL-DOCENTE.md, CHECKLIST-LEZIONE.md e la guida dei segnalibri "
+    "DIDAweb (docs/docenti/02-didaweb-i-segnalibri-che-scrivono-i-voti.html, con strumenti/didaweb-auto.js). Le "
+    "modalità già decise dal docente (per esempio i voti DIDAweb col segnalibro «Voti DIDAweb AUTO» e il pacchetto; "
+    "il codice da copiare in UN riquadro da solo in FONDO, R4 3ter) NON si cambiano: se un metodo esiste già, si usa "
+    "quello. Poi dici in una riga di averle rilette."
+)
+
+
+def prima_volta_oggi():
+    stato = os.environ.get("CORSO_STATO_RILETTURA")
+    if stato == "":
+        return None
+    oggi = datetime.now(ZoneInfo("Europe/Rome")).strftime("%Y-%m-%d")
+    path = stato or os.path.join(tempfile.gettempdir(), "corso-rilettura-mattino.txt")
+    try:
+        with open(path, encoding="utf-8") as f:
+            if f.read().strip() == oggi:
+                return None
+    except Exception:
+        pass
+    try:
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(oggi)
+    except Exception:
+        return None
+    return oggi
 
 
 def main():
@@ -31,6 +65,12 @@ def main():
                 break
         except Exception:
             continue
+    try:
+        oggi = prima_volta_oggi()
+        if oggi:
+            testo = (RILETTURA % oggi) + "\n\n" + testo
+    except Exception:
+        pass
     if not testo:
         return
     out = {
