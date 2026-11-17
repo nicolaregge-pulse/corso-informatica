@@ -1,6 +1,6 @@
 # 00 Prove salvate su Classroom 2026/27
 
-**Versione 0.3** — 16/11/2026 — Area Docente (v0.3: 4TI, due verifiche di teoria sulle reti con Moduli, capitolo 02bis; prima v0.2, 19/10/2026). Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
+**Versione 0.4** — 17/11/2026 — Area Docente (v0.4: capitolo 02ter, i due quiz di teoria del 17/11 di 2INF e 4TI con punti, scala 50-70 e voto sul registro «da fare», e la regola della prova registrata; prima v0.3, 16/11/2026: 4TI, due verifiche di teoria sulle reti con Moduli, capitolo 02bis; v0.2, 19/10/2026). Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
 
 > **Nota:** minimo 2 prove per quadrimestre per classe; il nostro obiettivo è 3-4. Una prova vale se il lavoro del ragazzo sta dentro Classroom: Modulo Google allegato al compito, oppure consegna nel compito.
 
@@ -47,7 +47,21 @@ Decisione del docente del 16/11/2026: per la 4TI 2 verifiche per quadrimestre, 4
 
 Stato «da pubblicare con PUBB»: sul registro delle prove diventa «svolta» solo dopo la pubblicazione su Classroom e le consegne lette da Moduli (R7). Per ora le due prove NON sono contate nella tabella del capitolo 01.
 
+## 02ter Le prove registrate: i quiz di teoria del 17/11/2026 (2INF e 4TI)
+
+Richiesta del docente del 17/11/2026: se registriamo le prove, vanno messe sul registro e i dati devono essere rigorosamente coerenti e corrispondenti. **Regola: Prova registrata = titolo, data, ora, tipo, punti e voto uguali su Moduli, Classroom, Drive (cartella Regge) e registro DIDAweb: si controlla con controlla_coerenza_prove.py** (nel riservato, `strumenti/`). Il registro lo compila solo il docente. Scala 50-70 e punti: decisione del docente del 17/11/2026; nessuna soglia di sufficienza è stata detta e non ne scrivo.
+
+| Classe | Data | Ora | Titolo (Classroom) | Tipo | Punti totali | Scala del voto | Voto sul registro | Moduli (id in `fabbrica/indice.json`) | Stato |
+|---|---|---|---|---|---|---|---|---|---|
+| 2INF | 17/11/2026 | 1-2 | «17/11 Quiz di teoria: web, HTML e CSS» | Quiz (Moduli) | 40 | 50-70: 50 + 20 × punti ÷ 40 | da fare | `quiz-2inf-1711-teoria` | pacchetto pronto, non pubblicato (R2) |
+| 4TI | 17/11/2026 | 3 | «17/11 Ora 3: Quiz di teoria di rete» | Quiz (Moduli) | 60 | 50-70: 50 + 20 × punti ÷ 60 | da fare | `quiz-4ti-1711-ora3-teoria` | pacchetto pronto, non pubblicato (R2) |
+
+Composizione dei punti: 2INF, 14 domande (10 a caselle da 2 punti e 4 discorsive da 5 punti); 4TI, 22 domande (14 a caselle da 2 punti e 8 discorsive da 4 punti). Le discorsive le corregge il docente.
+
+Rapporto con il capitolo 02bis: le due verifiche reti del 17/11 (ore 4 e 5, `quiz-4ti-1711-ora4-reti1` e `quiz-4ti-1711-ora5-reti2`) restano segnaposto «da pubblicare con PUBB». Il piano della 4TI di oggi è cambiato (ora 3 = ripasso e quiz): quali verifiche valgono lo decide il docente. Per ora i due quiz del 17/11 NON sono contati nella tabella del capitolo 01.
+
 ## 03 Registro delle versioni
+4. **v0.4 (17/11/2026)**: capitolo 02ter, i quiz di teoria del 17/11 di 2INF (40 punti) e 4TI (60 punti), scala 50-70, voto sul registro «da fare», regola della prova registrata e controllo `controlla_coerenza_prove.py` (richiesta del docente, 17/11/2026).
 3. **v0.3 (16/11/2026)**: 4TI, due verifiche di teoria sulle reti (17/11) e due segnaposto per il 2° quadrimestre (capitolo 02bis); riga 4TI del capitolo 01 aggiornata nello stato, il conteggio resta 1.
 2. **v0.2 (19/10/2026)**: 2INF verifica ciclo FOR su Moduli; 3INF portfolio.
 1. **v0.1 (14/10/2026)**: primo conteggio, dai compiti pubblicati su Classroom dal 01/10 al 14/10.
