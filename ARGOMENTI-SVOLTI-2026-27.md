@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.9** — 16/11/2026
+**Versione 1.10** — 17/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -103,6 +103,8 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 16/11/2026 | 3INF 8-9, Laboratorio professionale. Sul registro (firmata, FIRME-REGISTRO v3.1): «Sviluppo web: HTML5 e GitHub Pages»; contenuto vero da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 16/11/2026 | 3INF 9-10, Laboratorio professionale. Sul registro (firmata, FIRME-REGISTRO v3.1): «Sviluppo web: CSS3 e menu del sito»; contenuto vero da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 16/11/2026 | 3INF 10-11, Laboratorio professionale. Sul registro (firmata, FIRME-REGISTRO v3.1): «Sviluppo web: portfolio delle competenze»; contenuto vero da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 17/11/2026 | 2INF 8-9, Informatica (Pratica, aula 11): il web, i browser e l'HTML (dispensa e pacchetto preparati; presenti 16 su 20). Sul registro (firmato 17/11, ore 8:14 circa, ora esatta non letta): «Pagine web: browser, server e HTML»; contenuto realmente svolto da confermare dal docente | dispensa 2INF Mar Ora 1 «Web e HTML» | «Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini», sotto-voce «Pagine web del negozio» (voce più vicina, Comp. 15 e 17; nessuna voce aggiunta, R5.2) |
+| 17/11/2026 | 2INF 9-10, Informatica (Pratica, aula 11): lo stile delle pagine con il CSS (dispensa e pacchetto preparati; presenti 16 su 20). Sul registro (firmato 17/11, ore 8:14 circa, ora esatta non letta): «Pagine web: lo stile con il CSS»; contenuto realmente svolto da confermare dal docente | dispensa 2INF Mar Ora 2 «Il CSS» | «Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini», sotto-voce «Pagine web del negozio» (voce più vicina, Comp. 15 e 17; nessuna voce aggiunta, R5.2) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -163,3 +165,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 18. **v1.7 (13/11/2026)**: su richiesta del docente («tieni sempre allineato e aggiornato l'Allegato A»). Aggiunte le righe del 13/11: 2INF 8-9 Sicurezza (anche nel capitolo 4b.1) e 1INF ore 4, 5 e 6 con i titoli dati al docente e la voce dell'Allegato A; le ore 4-5-6 risultano sul registro DIDAweb (screenshot del docente delle 12:17) con il bottone FIRMA ancora presente, quindi firme NON confermate; le ore 5 e 6 erano ancora «previsto». Riga del 12/11 1INF: voce «Architettura del PC… / Modello di Von Neumann» (Comp. 15) e prova del quiz (21 su 21). Tolte le scritte «da agganciare» e «voce da aggiungere entro il 30/10» (12/10 2INF e 3INF, 26/10 2INF): ora la voce già presente nel `registro-allegati.json` del 14/10 (R5.2, nessuna voce aggiunta). Il bianco (tolta l'evidenziazione) dell'Allegato A è in `programmi-ufficiali/2026-27/svolto-2026-27.json` v1.1.
 19. **v1.8 (13/11/2026, pomeriggio)**: dato del docente (screenshot del registro DIDAweb della settimana 09-13/11, tutte le lezioni firmate): titoli del registro e ora di firma per il 12/11 (2INF 8-11, 1INF 13-14) e il 13/11 (2INF 8-9 Sicurezza con la doppia modalità, 1INF 11-14); tolte le scritte «firma non confermata», «titolo non provato» e «da confermare» che riguardavano queste ore. Restano «da confermare» solo il contenuto vero di alcune lezioni e le voci dell'Allegato A senza voce esatta (nessuna voce aggiunta, R5.2).
 20. **v1.9 (16/11/2026)**: aggiunte le righe del 16/11 per la 2INF ore 11-14 con l'argomento del registro «GitHub gestione account» (screenshot del docente, ore firmate) e per la 3INF ore 8-11 con i titoli del registro di FIRME-REGISTRO v3.0; Allegato A non modificato.
+21. **v1.10 (17/11/2026)**: aggiunte le righe del 17/11 per la 2INF ore 8-10 con i titoli del registro (screenshot del docente delle 08:14, ore firmate, FIRME-REGISTRO v3.3); voce dell'Allegato A più vicina, nessuna voce aggiunta e nessuna evidenziazione da togliere (il file non ne ha per queste ore).
