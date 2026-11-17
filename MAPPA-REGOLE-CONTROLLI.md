@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.24** — 17/11/2026 — documento interno del docente e di Claude
+**Versione 1.25** — 17/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -424,6 +424,10 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #349 | Formato del messaggio sbagliato ancora dopo #336 (16/11) | 1 | D | A | hook controllo-messaggio.py (ff), solo dopo l'invio; prova di consegna riuscita prima di scrivere «sistemato» |
 | #350 | Modalità già decise cambiate (voti DIDAweb), codice non in fondo (17/11) | 2 | A | A | `promemoria-errori.py` (rilettura del mattino) e `controllo-messaggio.py` (jj) «codice non in fondo» |
 | #351 | Prova archiviata in più ZIP, cartella «Regge» incompleta (17/11) | 1 | A | A | `strumenti/archivia_prova.py` (riservato): un solo ZIP + controllo di completezza (esce 1 se manca qualcosa); D: aggancio alla parola «archiviato» |
+| #352 | Kit senza «che cosa si consegna e quanto tempo», formato e colori da richiedere (17/11; ripete #347, #349) | 5 | D | D | da costruire: righe «Consegna:» e «Tempo:» controllate prima dell'invio |
+| #353 | Script voti per il lotto sbagliato, senza chiedere (17/11) | 1 | D | D | R7.6; da costruire: domanda «quale classe e quale prova?» se ci sono più lotti |
+| #354 | Archivio su Drive promesso senza provare l'accesso (17/11) | 1 | D | D | da costruire: lettura di prova della cartella prima di promettere; `archivia_prova.py` per lo ZIP a mano |
+| #355 | Fine giornata 17/11 ROSSO: piani, cruscotto fermo, report orari, 4TI (ripete #345, #346) | 4 | D | B | `controlla_controlli.py --fine-giornata`; report 2INF generati con `report_ore.py`; da costruire: controllo a metà giornata |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -514,3 +518,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 22. v1.22 (13/11/2026, controllore di fine giornata): voci #333 (motore non provato attivato), #334 (orario presunto, domanda che contraddice il docente) e #335 (correzioni su motore.js prima del «via»), tutte D con la regola e il controllo da costruire.
 23. v1.23 (16/11/2026, controllore di fine giornata): voci #336-#349 (il registro era a #335); nuovi controlli: avviso di lunghezza del messaggio in `controllo-messaggio.py` (#342, chiude da D ad A anche #242 e #250) e `firme_sospette` in `controlla_controlli.py` (#343); maschera della password nel hook bobina (#344). Il conteggio della sezione 01 non è stato ricalcolato.
 24. v1.24 (17/11/2026): voci #350 (mancava) e #351 (archivio prove: `archivia_prova.py`, un solo ZIP e controllo di completezza). Il conteggio della sezione 01 non è stato ricalcolato.
+25. v1.25 (17/11/2026): voci #352-#355 dal controllore di fine giornata (kit senza consegna e tempo, script voti per il lotto sbagliato, Drive promesso senza prova, fine giornata ROSSO). Il conteggio della sezione 01 non è stato ricalcolato.
