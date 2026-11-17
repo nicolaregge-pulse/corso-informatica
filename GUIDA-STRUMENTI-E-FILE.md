@@ -1,6 +1,6 @@
 # 00 Guida a strumenti, file, registro e versioni
 
-**Versione 1.3** — 17/11/2026 (v1.3: struttura obbligatoria di cap. 06 punto 2, due sottocartelle; v1.2: capitolo 06 «Archiviare le prove»; v1.1 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
+**Versione 1.4** — 17/11/2026 (v1.4: la cartella della prova è il COMPITO su Classroom col titolo esatto; v1.3: struttura obbligatoria di cap. 06 punto 2, due sottocartelle; v1.2: capitolo 06 «Archiviare le prove»; v1.1 06/11/2026) — documento interno del docente e di Claude (nessun nome di allievi)
 
 Dettaglio delle regole R5, R6 e R11 di `CLAUDE.md` e del vincolo «niente installazioni» della R9.
 
@@ -229,13 +229,14 @@ L'elenco di tutti i documenti con la loro versione sta in **`INDICE-DOCUMENTI.md
 **Regola del docente (17/11/2026, errore #351):** archiviare una prova = una cartella con TUTTO (testo, Moduli, risposte grezze, lavori, voti, indice, LEGGIMI), un solo ZIP, e il controllo di completezza deve dare COMPLETO prima di dire «archiviato».
 
 1. Strumento (riservato, account PERSONALE): `python3 -I /home/user/corso-informatica-riservato/strumenti/archivia_prova.py <manifesto.json> [altri manifesti]`. Il manifesto sta in `config/archivio-prove/AAAA-MM-GG-classe-ore.json` (classe, data, ore, titolo, id e link del Moduli, cartella Drive, scala del voto, file attesi per categoria).
-2. **Struttura obbligatoria (docente, 17/11/2026 12:4x):** `Regge/<anno>/<classe>/<AAAA-MM-GG Ora N - titolo>/` con nella cartella dell'ora SOLO `LEGGIMI.txt` (con il controllo di completezza) e SEMPRE due sottocartelle separate: «1 - Quiz» (testo e PDF risposte, collegamento al Moduli, risposte grezze xlsx/csv, risultati e voti del quiz, griglia) e «2 - Compiti consegnati» (i lavori .docx «COGNOME Nome - ...», `INDICE-VOTI.html` in ordine alfabetico, correzione dei Documenti con voti; senza compiti, un LEGGIMI «nessun compito consegnato»). In `Regge/` l'indice `INDICE-PROVE-REGGE-vN.M.xlsx` con i fogli «Indice», «File archiviati» (una riga per file), «Cartelle Drive» (link cliccabili) e «Documenti <classe> ora N» (link al Documento Google vivo).
+2. **Struttura obbligatoria (docente, 17/11/2026 12:4x; chiarita alle 13:0x: fedele a Classroom e al registro):** `Regge/<anno>/<classe>/<titolo ESATTO del compito su Classroom, con «/» diventato «-» e «:» diventato «_»> (registro ore N-M)/` (esempio: `17-11 Ora 1_ Il web, i browser e l'HTML (registro ore 1-2)`; se un titolo non si trova si usa quello del pacchetto e si scrive «da confermare» nel LEGGIMI e nell'indice) con nella cartella dell'ora SOLO `LEGGIMI.txt` (con il controllo di completezza) e SEMPRE due sottocartelle separate: «1 - Quiz» (testo e PDF risposte, collegamento al Moduli, risposte grezze xlsx/csv, risultati e voti del quiz, griglia) e «2 - Compiti consegnati» (i lavori .docx «COGNOME Nome - ...», `INDICE-VOTI.html` in ordine alfabetico, correzione dei Documenti con voti; senza compiti, un LEGGIMI «nessun compito consegnato»). In `Regge/` l'indice `INDICE-PROVE-REGGE-vN.M.xlsx` con i fogli «Indice», «File archiviati» (una riga per file), «Cartelle Drive» (link cliccabili) e «Documenti <classe> ora N» (link al Documento Google vivo).
 3. Esito: per ogni categoria PRESENTE o MANCA (con che cosa fare per averlo). Se manca qualcosa il nome dello ZIP porta «INCOMPLETO», il codice di uscita è 1 e non si scrive «archiviato». Solo con tutto PRESENTE il nome porta «COMPLETO» e il codice è 0.
 4. Mai più ZIP separati per la stessa prova: il docente trova tutto in uno. I file con i cognomi restano nel riservato.
 5. Non provato: il caricamento su Drive (account PIAMARTA) e l'apertura dell'indice in Fogli Google.
 
 ## 05 Registro delle versioni
 
+5. v1.4 (17/11/2026): cartella = compito su Classroom + ore del registro; indice con «Compito Classroom (titolo esatto)» e «Ore sul registro».
 4. v1.3 (17/11/2026): struttura obbligatoria con due sottocartelle e indice con i link (#351).
 3. v1.2 (17/11/2026): capitolo 06 «Archiviare le prove» (errore #351, regola del docente: tutto in una cartella, un solo ZIP, controllo di completezza).
 2. v1.1 (06/11/2026): 02 punti 4 (titolo = voce più vicina, mai aggiungere dopo il 30/10), 16 (almeno 3 prove, come R5.5) e 36 (niente voci da aggiungere); Sicurezza: titoli della direzione, doppia modalità (regola del docente 06/11/2026, in attesa di R5.2bis in `CLAUDE.md`).
