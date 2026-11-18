@@ -5,13 +5,18 @@ ripetono di più, dal REGISTRO-ERRORI-CLAUDE.md).
 
 Robusto: se qualcosa va storto esce 0 senza output (la sessione non si rompe).
 """
+import glob
 import json
 import os
+import re
 import sys
 import tempfile
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
+# v1.3 (18/11/2026 sera): al primo messaggio umano del giorno si ordina anche di seguire, PRIMA di rispondere nel merito,
+# report/PROCEDURA-MATTINA-<ultima versione>.md del riservato (percorso completo, versione più alta trovata sul disco;
+# CORSO_RISERVATO sposta la cartella per le prove). Nessuna scrittura, nessun trigger.
 # v1.2 (18/11/2026): il segnale «primo messaggio del giorno» lo consuma solo un messaggio UMANO (non i prompt di
 # trigger/routine, es. la notte delle 00:09); i file BOZZA sono esclusi; percorso completo di didaweb-auto.js.
 # v1.1 (18/11/2026): aggiunte INFO-PIU-USATE e COSE-DA-FARE del giorno (audit del meccanismo sera/mattino).
@@ -29,6 +34,39 @@ RILETTURA = (
     "controllore di fine giornata; se manca, dillo nella riga). Poi dici in una riga di averle rilette e quante cose "
     "bloccanti ci sono oggi."
 )
+
+
+RISERVATO = "/home/user/corso-informatica-riservato"
+
+PROCEDURA = (
+    " PROCEDURA DEL MATTINO (v1.3): PRIMA di rispondere nel merito esegui, passo per passo (A rilettura, B ultimi 3 giorni, "
+    "C orario di oggi, D file PROPOSTE-CLASSROOM, E una sola schermata al docente), la procedura scritta in %s. "
+    "Usi solo Read, Grep e Write; non pubblichi nulla (R2) e non sviluppi finché il docente non sceglie."
+)
+PROCEDURA_MANCA = (
+    " PROCEDURA DEL MATTINO: il file report/PROCEDURA-MATTINA-v*.md non si trova in %s/report/: dillo in una riga "
+    "e rileggi i documenti come sopra."
+)
+
+
+def ultima_procedura(base=None):
+    """Percorso completo dell'ultima versione di report/PROCEDURA-MATTINA-vN.N.md (versione più alta), o None."""
+    base = base if base is not None else (os.environ.get("CORSO_RISERVATO") or RISERVATO)
+    migliore = None
+    for f in glob.glob(os.path.join(base, "report", "PROCEDURA-MATTINA-v*.md")):
+        m = re.search(r"-v(\d+)\.(\d+)\.md$", f)
+        if m:
+            v = (int(m.group(1)), int(m.group(2)))
+            if migliore is None or v > migliore[0]:
+                migliore = (v, f)
+    return migliore[1] if migliore else None
+
+
+def frase_procedura():
+    p = ultima_procedura()
+    if p:
+        return PROCEDURA % p
+    return PROCEDURA_MANCA % (os.environ.get("CORSO_RISERVATO") or RISERVATO)
 
 
 # Segni dei prompt NON umani (trigger, routine, notifiche, sub-agenti), visti nelle bobine reali del 18/11:
@@ -96,7 +134,7 @@ def main():
     try:
         oggi = None if messaggio_automatico(data.get("prompt")) else prima_volta_oggi()
         if oggi:
-            testo = (RILETTURA % oggi) + "\n\n" + testo
+            testo = (RILETTURA % oggi) + frase_procedura() + "\n\n" + testo
     except Exception:
         pass
     if not testo:

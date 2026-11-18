@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.12** — 18/11/2026 sera (prima: 1.11, 18/11/2026) — documento interno del docente e di Claude
+**Versione 1.13** — 18/11/2026 sera (prima: 1.12, 1.11) — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -186,6 +186,13 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 2. Il file lo scrive la sera prima il controllore di fine giornata (trigger delle 17:47, punto 7 del prompt); la preparazione notturna (00:09, punto 5bis) lo legge e riporta «da_fare_oggi» in `stato/notte-<giorno>.json`. Trigger cambiati il 18/11/2026 ~16:40 con `update_trigger`, solo il prompt.
 3. Prova: l'hook è stato lanciato con un JSON finto e uno stato temporaneo (`CORSO_STATO_RILETTURA=<file>`): al primo messaggio il testo contiene INFO-PIU-USATE e COSE-DA-FARE, al secondo no; con input rotto esce 0 con il promemoria. `prova_messaggio.py` 67/67 e `prova_limite.py` 42/42 invariate.
 
+## 11 Procedura del mattino (18/11/2026 sera)
+
+1. `promemoria-errori.py` v1.3: al primo messaggio UMANO del giorno, dopo la frase della rilettura (capitoli 09 e 10), aggiunge l'ordine di seguire, PRIMA di rispondere nel merito, `/home/user/corso-informatica-riservato/report/PROCEDURA-MATTINA-<ultima versione>.md`: il percorso è completo e la versione più alta si cerca sul disco (le BOZZE non contano). Se il file manca la frase lo dice.
+2. La procedura (riservato) fa rileggere i documenti, gli ultimi 3 giorni e l'orario, scrive `report/<oggi>/PROPOSTE-CLASSROOM-<GG-MM>.md` (2-3 alternative per blocco, senza pubblicare) e dà al docente una sola schermata con una domanda. Solo Read, Grep e Write.
+3. Nessun trigger è cambiato (decisione del docente 18/11). La proposta di un trigger alle 06:30, NON applicata, è `report/2026-11-18/PROPOSTA-TRIGGER-MATTINO-v1.0.md` nel riservato.
+4. Prova: `prove/prova_promemoria.py` 26/26 (11 casi nuovi con un riservato finto: frase presente, percorso completo, versione 1.10 maggiore di 1.9, bozza ignorata, secondo messaggio e trigger senza frase, file mancante, hook spento); `prova_messaggio.py` 67/67; `prova_limite.py` 42/42.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -199,3 +206,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 10. v1.10 (18/11/2026): capitolo 10, rilettura del mattino con INFO-PIU-USATE e COSE-DA-FARE del giorno (audit del meccanismo sera/mattino, richiesta del docente).
 11. v1.11 (18/11/2026): `promemoria-errori.py` v1.2: il segnale «primo messaggio del giorno» lo consuma solo un messaggio del docente, non i prompt di trigger/routine (segni: `<task-notification>`, «scheduled trigger», «Fired by routine», prefissi PROMEMORIA / Controllo di fine giornata / Preparazione notturna); file BOZZA esclusi, versione più alta; percorso completo di `didaweb-auto.js`. Prova nuova `prove/prova_promemoria.py` (15 casi); prova_messaggio 67/67 e prova_limite 42/42 invariate (audit del metodo sera/mattina, residui R2, R6, R8).
 12. v1.12 (18/11/2026 sera): `strumenti/controlla_controlli.py` (punto 5, la notte): dal 19/11 lo stato `stato/notte-<giorno>.json` deve avere anche il campo `da_fare_oggi` (punto 5bis della preparazione notturna), altrimenti ROSSO (residuo R1 dell'audit del metodo sera/mattina). Prove di `prova_controlla_controlli.py`: 44/44. Non provato con una notte reale (la prima è quella del 19/11).
+13. v1.13 (18/11/2026 sera): capitolo 11, `promemoria-errori.py` v1.3 (frase della procedura del mattino) e 11 prove nuove in `prova_promemoria.py` (26 casi).
