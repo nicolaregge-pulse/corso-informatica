@@ -1937,5 +1937,5 @@ Ho proposto di far aggiungere le voci delle ore 4-7 di Sicurezza all Allegato A,
 
 ## #367 (18/11/2026) Passi dati senza leggere le informazioni già disponibili (flusso DIDAweb già esistente)
 
-1. **Errore.** Ho dato al docente passi (voti su DIDAweb, Classroom, account) senza prima leggere i file che già contenevano il flusso usato e le decisioni prese: script, passi e registro degli errori erano già nei repository. Violazione di R7.6 e R4.3. Il docente: «leggi sempre le info prima di dirmi cosa fare».
+1. **Errore.** Ho dato al docente passi (voti su DIDAweb, Classroom, account) senza prima leggere i file che già contenevano il flusso usato e le decisioni prese: script, passi e registro degli errori erano già nei repository. Violazione di R7.6 e R4.3. Il docente: «leggi sempre le info prima di dirmi cosa fare». In particolare «script dei voti» vuol dire SEMPRE E SOLO i segnalibri di Chrome della cartella «DidaWeb» (Voti DIDAweb, Voti DIDAweb AUTO con «pacchetto», Copia HTML, Copia funzioni, Firma registro): non si propongono né si nominano altri script (detto due volte dal docente il 18/11).
 2. **Strumento.** `INFO-PIU-USATE-v1.0.md` (nel riservato, `report/`): file unico di consultazione rapida, da leggere a inizio lavoro e prima di dare passi. (D) Da creare: richiamo nell'hook `promemoria-errori.py`.
