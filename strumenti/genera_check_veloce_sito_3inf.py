@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Check veloce 3INF «Sito Stage» (v1.0, 18/11/2026): UNA pagina A4 con le caselle da spuntare e il rimando al passo
 del tutorial (genera_tutorial_sito_3inf.py, v1.1). Due uscite: italiano e italiano + bangla (PC 14).
-Uso: python3 strumenti/genera_check_veloce_sito_3inf.py   (scrive docs/3inf/sito-stage/Check-Veloce-Sito-Stage-IT[-BN]-v1.0.pdf
+Uso: python3 strumenti/genera_check_veloce_sito_3inf.py   (scrive docs/3inf/sito-stage/check-veloce-sito-stage-it[-bn]-v1.0.pdf
 e le copie in classe-3/sito-stage/ con il nome 20261118_Classe-3_Check-Veloce_..._v1.0.pdf)"""
 import base64, html, os, shutil, subprocess, tempfile
 
@@ -57,13 +57,12 @@ td.p{{font-size:{'15px' if bn else '17px'};font-weight:700;color:#b25b00;white-s
 <table>{righe}</table>
 <div class='fine'><img src='data:image/png;base64,{img}' alt='Schema della cartella sito-personale con i file'>
 <div class='box'>{esc(BASSO[0])}{b(BASSO[1])}<div style='margin-top:8px'>{esc(ASSIST[0])}{b(ASSIST[1])}</div></div></div>
-<div class='s'>{esc(SOTTO[0])}{b(SOTTO[1]) if bn else ''}</div>
-<div class='s'>Schema (disegno): la cartella con i file. Versione {VERSIONE} · {DATA}</div>
+<div class='s'>Schema (disegno): la cartella con i file.</div>
 </body></html>"""
 
 
 def pdf(bn):
-    nome = "Check-Veloce-Sito-Stage-" + ("IT-BN" if bn else "IT") + f"-v{VERSIONE}.pdf"
+    nome = "check-veloce-sito-stage-" + ("it-bn" if bn else "it") + f"-v{VERSIONE}.pdf"
     dest = os.path.join(SITO, nome)
     with tempfile.TemporaryDirectory() as d:
         h = os.path.join(d, "c.html")
