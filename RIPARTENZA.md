@@ -1,6 +1,6 @@
 # RIPARTENZA — da qui riparte ogni chat nuova
 
-**Versione 1.7** — 18/11/2026 · Area Docente · senza nomi di allievi · v1.7: punto 01.5, il meccanismo sera/mattina (cose da fare del giorno dopo) · v1.6: punto 01.4, prima di dare passi si legge il file di consultazione rapida nel riservato (`report/INFO-PIU-USATE-v1.0.md`) · v1.5: punto 04.5, compito del mattino SENZA scadenza (regola 27) · v1.4: punto 08.3, la Chat del giorno parte a mezzanotte (non alle 6:47) · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
+**Versione 1.8** — 18/11/2026 (sera) · Area Docente · senza nomi di allievi · v1.8: punto 01.4 e 01.5 puntano all'ULTIMA versione di `INFO-PIU-USATE` (oggi v1.1) e ai file `COSE-DA-FARE` più alti; sezione 08 dichiarata storica con punto 08.0 sullo stato attuale; la 3INF è sospesa fino a febbraio (decisione del docente, 18/11) · v1.7: punto 01.5, il meccanismo sera/mattina (cose da fare del giorno dopo) · v1.6: punto 01.4, prima di dare passi si legge il file di consultazione rapida nel riservato (`report/INFO-PIU-USATE-v1.0.md`) · v1.5: punto 04.5, compito del mattino SENZA scadenza (regola 27) · v1.4: punto 08.3, la Chat del giorno parte a mezzanotte (non alle 6:47) · v1.3: punto 08.2.4, controllore dei controlli · v1.2: punto 08.2.3, passi notturni obbligatori · v1.1: sezione 08 «Stato al 28/10/2026 sera»; tolti i nomi dalle cose aperte del 21/10
 
 *Perché esiste: le chat lunghe consumano il limite settimanale (ogni messaggio rilegge tutta la conversazione). Regola nuova: **una chat nuova ogni giorno di lezione**. La chat nuova legge questo file (corto) e `CLAUDE.md` (le regole), e trova tutto il resto su Git. Questo file lo aggiorna Claude a fine giornata.*
 
@@ -9,8 +9,8 @@
 1. Nicola apre una chat nuova sul repository del corso e scrive: «Leggi RIPARTENZA.md e PROSSIME-LEZIONI.md, poi dimmi cosa facciamo oggi».
 2. Claude legge questo file, `PROSSIME-LEZIONI.md`, il diario del giorno prima della classe in orario (riservato `diario/<classe>/`) e parte.
 3. La chat del giorno prima non si usa più (resta come bobina nel riservato).
-4. Prima di un lavoro operativo e prima di dare passi al docente, Claude legge il file di consultazione rapida del riservato, `report/INFO-PIU-USATE-v1.0.md` (account, registro, Classroom, orario, dove stanno i file, criteri dei voti, errori già fatti). Nel pubblico non ne sta il contenuto (errore #367).
-5. **Cose da fare di oggi (meccanismo sera/mattina, 18/11/2026).** Il controllore di fine giornata (trigger delle 17:47) scrive nel riservato `report/<giorno>/COSE-DA-FARE-<GG-MM del giorno dopo>*.md`; la preparazione notturna (trigger delle 00:09) ne riporta il contenuto in `stato/notte-<giorno>.json`, sezione «da_fare_oggi»; l'hook `promemoria-errori.py` (v1.2), al primo messaggio del docente di ogni giorno (non al prompt dei trigger), ordina di rileggere le regole, `report/INFO-PIU-USATE-v1.0.md` e l'ultima versione di COSE-DA-FARE del giorno (le bozze si ignorano). Se un pezzo non gira, la chat nuova parte da questo file e da `PROSSIME-LEZIONI.md`.
+4. Prima di un lavoro operativo e prima di dare passi al docente, Claude legge il file di consultazione rapida del riservato, `report/INFO-PIU-USATE-v*.md`, l'ultima versione (oggi v1.1: account, registro, Classroom, orario, dove stanno i file, criteri dei voti, errori già fatti). Nel pubblico non ne sta il contenuto (errore #367).
+5. **Cose da fare di oggi (meccanismo sera/mattina, 18/11/2026).** Il controllore di fine giornata (trigger delle 17:47) scrive nel riservato `report/<giorno>/COSE-DA-FARE-<GG-MM del giorno dopo>*.md`; la preparazione notturna (trigger delle 00:09) ne riporta il contenuto in `stato/notte-<giorno>.json`, sezione «da_fare_oggi»; l'hook `promemoria-errori.py` (v1.2), al primo messaggio del docente di ogni giorno (non al prompt dei trigger), ordina di rileggere le regole, `report/INFO-PIU-USATE-v*.md` (l'ultima versione) e l'ultima versione di COSE-DA-FARE del giorno (le bozze si ignorano). Se un pezzo non gira, la chat nuova parte da questo file e da `PROSSIME-LEZIONI.md`.
 
 ## 02 I due repository (clonati uno accanto all'altro)
 
@@ -76,7 +76,9 @@ for i in $(seq 1 15); do git fetch -q origin main && git rebase -q origin/main &
 9. 2INF sicurezza: recupero dei quiz delle ore 1-4 (tabella nel riservato `dati/situazione/2INF_sicurezza-ore.md`); dall'ora n. 8 i 12 argomenti del coordinatore.
 10. 1INF: compito di un'allieva del 20/10 non trovato in nessun Modulo né consegna (chiederle dove l'ha fatto).
 
-## 08 Stato al 28/10/2026 sera
+## 08 Stato al 28/10/2026 sera (STORICO: non è lo stato di oggi)
+
+0. **Stato attuale (dal 18/11/2026):** non è in questa sezione. Si legge, nel riservato, l'ultima versione di `report/INFO-PIU-USATE-v*.md` (sezione 8: le novità), il file `report/<giorno>/COSE-DA-FARE-<GG-MM>*.md` del giorno (ultima versione, senza BOZZA) e, nel pubblico, `PROSSIME-LEZIONI.md` e `FIRME-REGISTRO-2026-27.md`. La 3INF non si vede fino a febbraio (decisione del docente, 18/11/2026). Quello che segue è lo stato del 28/10/2026 e può essere superato.
 
 Una chat nuova riparte da qui senza chiedere niente al docente. Prima di tutto: regola 21 di `CLAUDE.md` (rileggere regole, `MODUS-OPERANDI.md`, `REGISTRO-ERRORI-CLAUDE.md`, `CHECKLIST-LEZIONE.md`).
 

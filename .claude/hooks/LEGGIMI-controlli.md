@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.11** — 18/11/2026 (prima: 1.10, 18/11/2026) — documento interno del docente e di Claude
+**Versione 1.12** — 18/11/2026 sera (prima: 1.11, 18/11/2026) — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -198,3 +198,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 9. v1.9 (17/11/2026): capitolo 09, rilettura del mattino e controllo (jj) «codice non in fondo» (errore #350); prova_messaggio.py a 67 casi.
 10. v1.10 (18/11/2026): capitolo 10, rilettura del mattino con INFO-PIU-USATE e COSE-DA-FARE del giorno (audit del meccanismo sera/mattino, richiesta del docente).
 11. v1.11 (18/11/2026): `promemoria-errori.py` v1.2: il segnale «primo messaggio del giorno» lo consuma solo un messaggio del docente, non i prompt di trigger/routine (segni: `<task-notification>`, «scheduled trigger», «Fired by routine», prefissi PROMEMORIA / Controllo di fine giornata / Preparazione notturna); file BOZZA esclusi, versione più alta; percorso completo di `didaweb-auto.js`. Prova nuova `prove/prova_promemoria.py` (15 casi); prova_messaggio 67/67 e prova_limite 42/42 invariate (audit del metodo sera/mattina, residui R2, R6, R8).
+12. v1.12 (18/11/2026 sera): `strumenti/controlla_controlli.py` (punto 5, la notte): dal 19/11 lo stato `stato/notte-<giorno>.json` deve avere anche il campo `da_fare_oggi` (punto 5bis della preparazione notturna), altrimenti ROSSO (residuo R1 dell'audit del metodo sera/mattina). Prove di `prova_controlla_controlli.py`: 44/44. Non provato con una notte reale (la prima è quella del 19/11).

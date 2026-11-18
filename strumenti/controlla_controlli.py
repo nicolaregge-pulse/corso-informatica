@@ -93,7 +93,7 @@ CODICE = (".py", ".js", ".mjs", ".gd", ".sh", ".gs")
 
 def _nomi_interi():
     """12/11/2026 (#325): i nomi interi «COGNOME NOME» (almeno due parole) delle anagrafiche del riservato, in maiuscolo.
-    Servono perche' nei file di codice i cognomi corti (fino a 4 lettere, per esempio «leon» di «DE LEON …») non si
+    Servono perche' nei file di codice i cognomi corti (fino a 4 lettere, per esempio «abc» di «ABC DEF …») non si
     cercano da soli (nomi di variabili): il nome intero invece si cerca sempre, anche in .js e .py."""
     nomi = set()
     pat = ["config/*presenti*.json", "config/*elenco*.json", "config/classi/*.json"]
@@ -419,7 +419,10 @@ def controlla_notte(giorno, ris=None):
     except Exception as e:
         esito(False, "notte del %s: %s non si legge (%s)" % (giorno, rel, e))
         return "La notte del %s ha lasciato %s illeggibile" % (giorno, rel)
-    mancano = [k for k in ("ora", "regole_rilette", "controlla_controlli", "classi_preparate", "problemi") if k not in d]
+    campi = ["ora", "regole_rilette", "controlla_controlli", "classi_preparate", "problemi"]
+    if giorno >= "2026-11-19":   # 18/11/2026 (audit metodo sera/mattina, R1): dal 19/11 la notte riporta anche «da_fare_oggi» (punto 5bis)
+        campi.append("da_fare_oggi")
+    mancano = [k for k in campi if k not in d]
     esito(not mancano, "notte del %s: %s presente" % (giorno, rel) + (", mancano i campi " + ", ".join(mancano) if mancano else ""))
     # #152 (29/10/2026): la notte vale solo se ha girato DA SOLA prima delle 6:30 e ha eseguito il controllore
     cc_txt = json.dumps(d.get("controlla_controlli", ""), ensure_ascii=False).lower()
