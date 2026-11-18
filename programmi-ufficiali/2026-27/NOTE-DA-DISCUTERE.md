@@ -1,6 +1,6 @@
 # Allegato A 2026/27 — note da discutere con Nicola
 
-**Versione 0.3** — 06/11/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10.
+**Versione 0.4** — 18/11/2026 — Area Docente. Appunti dettati da Nicola, da riprendere il 13/10. (v0.4: punto 9.2, eccezione per lo spostamento 4TI; prima v0.3, 06/11/2026: punto 9.)
 
 1. Domani (13/10) Nicola scarica l'Allegato A da scuola: si guarda com'è fatto e si decide come compilarlo (scadenza: 30 ottobre).
 2. Classe 4 (Tecnico), competenza 1 «Utilizzare il patrimonio lessicale ed espressivo della lingua italiana secondo le esigenze comunicative nei vari contesti: sociali, culturali, scientifici, economici, tecnologici e professionali».
@@ -30,3 +30,4 @@
    5. Controllo del 20/10: la voce ISO/OSI della 4TI C'È nell'Allegato A vero (consegna/20261014-1709, competenza 16 Tecnico-professionale, IV anno: «Modelli di riferimento ISO/OSI e TCP/IP: livelli, incapsulamento, viaggio di un pacchetto»). Errore di Claude: aveva guardato il vecchio allegato-a-2026-27 v0.1 (REGISTRO-ERRORI #91). 1INF bit, byte e velocità: coperto da «Rappresentazione delle informazioni … bit e byte, unità di misura» e «Reti LAN e WLAN; velocità 2.4/5 GHz; cavo».
 9. **Dopo il 30/10/2026** (aggiunto il 06/11/2026, errore #223): i punti 3 e 8.3 sono scaduti nella parte «si aggiunge entro il 30 ottobre». Ora sull'Allegato A si può solo TOGLIERE; se una lezione non ha la sua voce si usa la voce più vicina già presente, lo si dice, e non si propone mai di aggiungere voci.
    1. **Sicurezza (docente, 06/11/2026):** gli argomenti li mette la DIREZIONE e fa fede il REGISTRO. Per la Sicurezza non si propongono titoli per il registro e non si cercano voci da aggiungere. L'Allegato A si tiene in doppia modalità: 1) cosa abbiamo DICHIARATO (le voci dell'Allegato A); 2) le VOCI DEL REGISTRO (i titoli messi dalla direzione). La tabella è in `ARGOMENTI-SVOLTI-2026-27.md`, capitolo 04b.
+   2. **Eccezione concessa dal docente, 18/11/2026 (spostamento 4TI):** per la 4TI (Tecnico informatico) il docente vuole SPOSTARE parte dell'Allegato A dalla parte in alto, «Informatica di base» (comune alle due classi unite), alla parte dedicata alla sua materia (la parte «Regge»). Per questo spostamento, e solo per questo, la regola «dopo il 30/10 solo togliere» (punto 9 e R5.2) non vale. Si possono solo SPOSTARE voci già esistenti dell'Allegato A della 4TI: non si propongono voci nuove e la regola resta uguale per tutto il resto e per le altre classi. Nessun file Word viene modificato finché il docente non indica quali voci spostare.
