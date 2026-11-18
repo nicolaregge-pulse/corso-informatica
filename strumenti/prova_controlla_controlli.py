@@ -213,5 +213,23 @@ prova("#343: firma alle 08:15 per l'ora 10-11 = sospetta", len(fs) == 1 and "10-
 prova("#343: firma poco prima dell'ora (09:41 per le 10-11) o dopo = non sospetta", not any("09:41" in x or "09:16" in x for x in fs))
 prova("#343: altro giorno non conta", cc.firme_sospette("2026-11-17", fi) == [])
 
+
+# 12. 18/11/2026 (#357): budget 1INF uguali ovunque (config/budget-1inf-1811.json)
+pb, rb = tempfile.mkdtemp(), tempfile.mkdtemp()
+os.makedirs(pb + "/config"); os.makedirs(pb + "/strumenti"); os.makedirs(rb + "/report/2026-11-18")
+json.dump({"budget": {"ufficio": 450, "studio": 600, "gaming": 900}}, open(pb + "/config/budget-1inf-1811.json", "w"))
+open(pb + "/strumenti/controlla_budget_1inf.py", "w").write(open(os.path.join(QUI, "controlla_budget_1inf.py")).read())
+open(rb + "/report/2026-11-18/PACCHETTO-X-v1.3.md", "w").write("Il cliente ufficio ha 450 euro. Gaming: 900 euro.")
+open(pb + "/PROSSIME-LEZIONI.md", "w").write("un gaming da 900 euro")
+cc.righe.clear(); pr = cc.controlla_budget_1inf(pb, rb)
+prova("#357: budget 450/600/900 = VERDE", pr == [] and cc.righe[-1][0] == "VERDE")
+open(rb + "/report/2026-11-18/PACCHETTO-X-v1.4.md", "w").write("Il cliente ufficio ha 500 euro.")
+cc.righe.clear(); pr = cc.controlla_budget_1inf(pb, rb)
+prova("#357: 500 euro nella versione corrente = ROSSO", len(pr) == 1 and cc.righe[-1][0] == "ROSSO")
+os.remove(rb + "/report/2026-11-18/PACCHETTO-X-v1.4.md")
+open(rb + "/report/2026-11-18/PACCHETTO-X-v1.0.md", "w").write("Il cliente ufficio ha 500 euro.")
+cc.righe.clear(); pr = cc.controlla_budget_1inf(pb, rb)
+prova("#357: 500 euro in una versione superata (v1.0 contro v1.3) = non conta", pr == [])
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)

@@ -32,6 +32,8 @@ prove e nomi di file.
 Uso (una riga):
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
     python3 /home/user/corso-informatica/strumenti/controlla_controlli.py --notte 2026-10-29
+  9. budget 1INF (18/11/2026, #357): i budget dei preventivi 1INF del 18/11 (config/budget-1inf-1811.json) sono uguali in tutte le versioni
+     correnti del materiale (strumenti/controlla_budget_1inf.py).
   8. fine giornata (29/10/2026 sera, #141 #144 #145 #146 #155 #156): per ogni classe del giorno precedente compito
      uscito entro la campanella, verifica VERDE, presenze nel diario, cruscotto con una riga per presente e senza
      «null», nessun 40 a chi ha finito, report PDF di ogni ora, domande con risposta, non-andato.md scritto.
@@ -531,6 +533,28 @@ def controlla_coppie_docente_ragazzi(pub=None, ris=None, configs=None):
             problemi.append("%s: docente %s, ragazzi %s" % (os.path.basename(c), gd or "?", gr or "?"))
     esito(not problemi, "pagina del docente e dei ragazzi con gli stessi dati (#148)" +
           (": " + "; ".join(problemi) if problemi else ""))
+    return problemi
+
+
+def controlla_budget_1inf(pub=None, ris=None):
+    """#357 (18/11/2026): i budget dei preventivi 1INF del 18/11 (ufficio 450, studio 600, gaming 900 euro, fonte unica
+    config/budget-1inf-1811.json) sono uguali in tutte le versioni correnti del materiale: dispense, modelli, pacchetti, piano,
+    soluzioni, pagine dei siti, PROSSIME-LEZIONI, PROPOSTE-OGGI, piano del cruscotto. Lo strumento e' strumenti/controlla_budget_1inf.py.
+    Restituisce l'elenco dei problemi."""
+    pub, ris = pub or PUB, ris or RIS
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("controlla_budget_1inf", os.path.join(pub, "strumenti", "controlla_budget_1inf.py"))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        problemi, non_controllati, n = m.controlla(pub, ris, os.path.join(pub, "config", "budget-1inf-1811.json"))
+    except Exception as e:
+        giallo("budget 1INF del 18/11 non controllati (%s)" % type(e).__name__)
+        return []
+    esito(not problemi, "budget 1INF del 18/11 uguali in tutto il materiale corrente, %d file (#357)" % n +
+          (": " + "; ".join(problemi[:4]) + (" e altri %d" % (len(problemi) - 4) if len(problemi) > 4 else "") if problemi else ""))
+    if non_controllati:
+        giallo("budget 1INF: non controllati " + ", ".join(non_controllati[:3]))
     return problemi
 
 
@@ -1044,6 +1068,7 @@ def main():
     da_sapere = [controlla_lavoro_del_giorno(oggi), controlla_notte(oggi)]
     controlla_formato_json()
     controlla_coppie_docente_ragazzi()
+    controlla_budget_1inf()   # 18/11/2026 (#357): budget 1INF uguali ovunque
     controlla_ponte_quiz(giorno=oggi)
     controlla_sicurezza_pronta(oggi)
     ieri = (datetime.date.fromisoformat(oggi) - datetime.timedelta(days=1)).isoformat()

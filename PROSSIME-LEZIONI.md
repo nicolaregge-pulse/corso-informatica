@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 1.7** — 18/11/2026
+**Versione 1.8** — 18/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -141,7 +141,8 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 5. v1.4 (16/11/2026): aggiunta la settimana 16-20 novembre con l'orario dallo screenshot DIDAweb del prof (anche in `orario/settimana-2026-11-16.md` v1.0 e in `docs/avanzamento/orario-lezioni.json`); il controllo «oggi niente lezioni» del 16/11 nasceva dal json fermo al 06/11.
 6. v1.5 (16/11/2026): aggiunta la bozza dei 7 giorni da martedì 17 a lunedì 23 novembre, con le scelte del prof già fatte e le proposte per le ore ancora da decidere.
 7. v1.7 (18/11/2026): sezione di mercoledì 18 novembre: sito della 3INF corretto (Chi sono, Hobby, Competenze, descrizione dello stage, Presenze; titoli del registro delle ore 11-12 e 12-13), per una parola dettata interpretata male (errore #356).
+8. v1.8 (18/11/2026): budget dei tre preventivi della 1INF riportati a 450, 600 e 900 euro, come deciso dal docente (fonte unica `config/budget-1inf-1811.json`); prima erano stati cambiati per errore.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
-Prima informatica, dalle 8 alle 10 Impresa simulata (laboratorio), dalle 10 alle 11 Laboratorio professionale e dalle 13 alle 14 Tecnologia professionale: «L'ufficio acquisti», cioè configurare i PC per un ufficio da 500 euro, uno studio da 600 e un gaming da 1000, misurare con tre giochi e controllare la configurazione dei PC a rotazione, con il confronto e il quiz nell'ultima ora, voce «Architettura del PC: componenti, configurazione a budget, assemblaggio e disassemblaggio». Terza informatica, dalle 11 alle 13, Laboratorio professionale: il tutorial per il sito personale con le pagine Chi sono, Hobby, Competenze, la descrizione dello stage e le Presenze con la nota di ogni giorno, in preparazione dello stage dal 23 novembre. Titoli del registro: ore 11-12 «Sviluppo web: pagina Presenze stage», ore 12-13 «Sviluppo web: diario dello stage». Non pubblicato su Classroom: serve il PUBB n del docente.
+Prima informatica, dalle 8 alle 10 Impresa simulata (laboratorio), dalle 10 alle 11 Laboratorio professionale e dalle 13 alle 14 Tecnologia professionale: «L'ufficio acquisti», cioè configurare i PC per un ufficio da 450 euro, uno studio da 600 e un gaming da 900, misurare con tre giochi e controllare la configurazione dei PC a rotazione, con il confronto e il quiz nell'ultima ora, voce «Architettura del PC: componenti, configurazione a budget, assemblaggio e disassemblaggio». Terza informatica, dalle 11 alle 13, Laboratorio professionale: il tutorial per il sito personale con le pagine Chi sono, Hobby, Competenze, la descrizione dello stage e le Presenze con la nota di ogni giorno, in preparazione dello stage dal 23 novembre. Titoli del registro: ore 11-12 «Sviluppo web: pagina Presenze stage», ore 12-13 «Sviluppo web: diario dello stage». Non pubblicato su Classroom: serve il PUBB n del docente.
