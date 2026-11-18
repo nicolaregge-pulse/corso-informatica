@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.8** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 3.9** — 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -126,6 +126,7 @@ Fonte: registro DIDAweb, screenshot del docente delle 08:03 del 18/11/2026 (lett
 4. Ora 11-12, 4TI, Laboratorio professionale: FIRMATA il 17/11/2026 alle 11:18:00, argomento «Documentazione tecnica del progetto».
 5. Ora 12-13, 4TI, Laboratorio professionale: FIRMATA il 17/11/2026 alle 11:19:00, argomento «Presentazione del progetto individuale».
 6. Presenze 2INF del 17/11 (registro, screenshot delle 08:14): 16 presenti e 4 assenti su 20 in elenco; i nomi stanno solo nel riservato.
+7. Presenze 4TI del 17/11, ore 10-13: 9 presenti su 9 (dichiarato dal docente il 18/11; non letto dal registro DIDAweb, da verificare che siano inserite sul registro).
 
 ## Mercoledì 18/11/2026
 
@@ -171,3 +172,4 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 26. v3.6 (18/11/2026): presenze 1INF corrette: ora 8-9 19 presenti e 4 assenti, dalle 9-10 20 presenti e 3 assenti (un allievo entrato alle 9, detto dal docente; registro delle 08:37 ancora «Assente»: da verificare).
 27. v3.7 (18/11/2026): presenze 1INF: due allievi rientrati a ora non nota (presenti da verificare), un solo assente dalle 9-10; da aggiornare sul registro.
 28. v3.8 (18/11/2026, 11:39): presenze 3INF del 18/11 dal registro: 20 presenti e 1 assente su 21 nelle ore 11-13 (senza nomi).
+29. v3.9 (18/11/2026): presenze 4TI del 17/11, ore 10-13: 9 presenti su 9, dichiarato dal docente il 18/11 (non letto dal registro DIDAweb); senza nomi.
