@@ -1,0 +1,906 @@
+{
+ "_nota": "Quali lezioni (firmate o svolte) coprono quali voci dell'Allegato A. NESSUNA voce nuova (R5.2). Ogni lezione deve essere scritta in FIRME-REGISTRO-2026-27.md (file «firme», cerca «titolo») o in ARGOMENTI-SVOLTI-2026-27.md (file «argomenti», cerca = frase). stato «fatto»: la voce passa a FATTO quando TUTTE le sue lezioni sono trovate e finite; stato «nota»: resta DA FARE con la nota. Le voci già in svolto-2026-27.json sono FATTO (confermate dal docente) e qui hanno solo data e fonte. Lo strumento strumenti/aggiorna_allegato_a_stato.py elenca i titoli firmati non ancora qui.",
+ "versione": "1.0 (18/11/2026)",
+ "lezioni": [
+  {
+   "id": "1inf-0924",
+   "classe": "1INF",
+   "data": "2026-09-24",
+   "titolo": "Configurazione di un PC: standard hardware",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "standard hardware (form factor AT/ATX/microATX/Mini-ITX"
+  },
+  {
+   "id": "1inf-1001",
+   "classe": "1INF",
+   "data": "2026-10-01",
+   "titolo": "Bit, byte e numeri binari",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Bit, byte e numeri binari: sistema decimale vs binario"
+  },
+  {
+   "id": "1inf-1022",
+   "classe": "1INF",
+   "data": "2026-10-22",
+   "titolo": "Sicurezza 1ª ora: rischio e danno",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Sicurezza sul lavoro (Regione), 1ª ora: rischio e danno"
+  },
+  {
+   "id": "1inf-1028",
+   "classe": "1INF",
+   "data": "2026-10-28",
+   "titolo": "Lazarus, il primo programma",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "ora": "8-11",
+   "cerca": "Lazarus, il primo programma"
+  },
+  {
+   "id": "1inf-1029s",
+   "classe": "1INF",
+   "data": "2026-10-29",
+   "titolo": "Sicurezza 2: prevenzione e protezione",
+   "file": "firme",
+   "fonte": "firmata il 29/10 alle 10:33, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "1inf-1030a",
+   "classe": "1INF",
+   "data": "2026-10-30",
+   "titolo": "Unicode, codice ASCII, interi e stringhe",
+   "file": "firme",
+   "fonte": "firmata il 30/10 alle 08:42, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "1inf-1030l",
+   "classe": "1INF",
+   "data": "2026-10-30",
+   "titolo": "Lazarus: Edit e stringhe",
+   "file": "firme",
+   "fonte": "firmata il 30/10 alle 08:43, FIRME-REGISTRO",
+   "ora": "12-13"
+  },
+  {
+   "id": "1inf-1104s",
+   "classe": "1INF",
+   "data": "2026-11-04",
+   "titolo": "Rischi infortuni, incidenti e infortuni mancati",
+   "file": "firme",
+   "fonte": "firmata il 04/11 alle 09:24, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "1inf-1111s",
+   "classe": "1INF",
+   "data": "2026-11-11",
+   "titolo": "11/11 Ora 6: Rischi meccanici ed elettrici generali",
+   "file": "firme",
+   "fonte": "firmata l'11/11 alle 12:46, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "1inf-1112",
+   "classe": "1INF",
+   "data": "2026-11-12",
+   "titolo": "Von Neumann: CPU, RAM, memorie di massa",
+   "file": "firme",
+   "fonte": "firmata il 12/11 alle 13:49, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "1inf-1113f",
+   "classe": "1INF",
+   "data": "2026-11-13",
+   "titolo": "File e cartelle: copia, sposta, elimina",
+   "file": "firme",
+   "fonte": "firmata il 13/11 alle 12:19, FIRME-REGISTRO",
+   "ora": "11-12"
+  },
+  {
+   "id": "1inf-1113r",
+   "classe": "1INF",
+   "data": "2026-11-13",
+   "titolo": "Reti locali domestiche: modem e router",
+   "file": "firme",
+   "fonte": "firmata il 13/11 alle 12:19, FIRME-REGISTRO",
+   "ora": "12-13"
+  },
+  {
+   "id": "1inf-1113p",
+   "classe": "1INF",
+   "data": "2026-11-13",
+   "titolo": "Sicurezza informatica e privacy",
+   "file": "firme",
+   "fonte": "firmata il 13/11 alle 12:20, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "1inf-1118a",
+   "classe": "1INF",
+   "data": "2026-11-18",
+   "titolo": "Configurazione di un PC a budget",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:28, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "1inf-1118b",
+   "classe": "1INF",
+   "data": "2026-11-18",
+   "titolo": "PC a budget: prove e documentazione",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:28, FIRME-REGISTRO",
+   "ora": "9-10"
+  },
+  {
+   "id": "1inf-1118m",
+   "classe": "1INF",
+   "data": "2026-11-18",
+   "titolo": "Manutenzione ordinaria e preventiva",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:29, FIRME-REGISTRO",
+   "ora": "10-11"
+  },
+  {
+   "id": "1inf-1118c",
+   "classe": "1INF",
+   "data": "2026-11-18",
+   "titolo": "Architettura del PC: componenti",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:29, in anticipo, FIRME-REGISTRO",
+   "ora": "13-14"
+  },
+  {
+   "id": "2inf-1001",
+   "classe": "2INF",
+   "data": "2026-10-01",
+   "titolo": "Sicurezza modulo 1",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Sicurezza sul lavoro — modulo 1: concetti di Rischio"
+  },
+  {
+   "id": "2inf-1009",
+   "classe": "2INF",
+   "data": "2026-10-09",
+   "titolo": "Sicurezza 2ª ora",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Sicurezza sul lavoro (Regione), 2ª ora: prevenzione e protezione (studio"
+  },
+  {
+   "id": "2inf-1016",
+   "classe": "2INF",
+   "data": "2026-10-16",
+   "titolo": "Sicurezza 3ª ora",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Sicurezza sul lavoro (Regione), 3ª ora: organizzazione della prevenzione aziendale (video e slide ufficiali)"
+  },
+  {
+   "id": "2inf-1021",
+   "classe": "2INF",
+   "data": "2026-10-21",
+   "titolo": "Sicurezza 4ª ora",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Sicurezza sul lavoro (Regione), 4ª ora: diritti, doveri, sanzioni"
+  },
+  {
+   "id": "2inf-1019",
+   "classe": "2INF",
+   "data": "2026-10-19",
+   "titolo": "Ciclo FOR in Lazarus",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "ciclo FOR in Lazarus, seconda parte"
+  },
+  {
+   "id": "2inf-1029",
+   "classe": "2INF",
+   "data": "2026-10-29",
+   "titolo": "GitHub e versioning con LAzarus",
+   "file": "firme",
+   "fonte": "firmata il 29/10 alle 10:31, FIRME-REGISTRO",
+   "ora": "8-11"
+  },
+  {
+   "id": "2inf-1030",
+   "classe": "2INF",
+   "data": "2026-10-30",
+   "titolo": "Sicurezza 5: quinta ora e quiz",
+   "file": "firme",
+   "fonte": "firmata il 30/10 alle 08:44, FIRME-REGISTRO",
+   "ora": "9-10"
+  },
+  {
+   "id": "2inf-1102",
+   "classe": "2INF",
+   "data": "2026-11-02",
+   "titolo": "La rete del mio PC",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "ora": "11-13",
+   "cerca": "la rete del mio PC (IP, MAC, gateway e DNS con ipconfig)"
+  },
+  {
+   "id": "2inf-1105a",
+   "classe": "2INF",
+   "data": "2026-11-05",
+   "titolo": "Smontaggio PC: sicurezza e componenti",
+   "file": "firme",
+   "fonte": "firmata il 05/11 alle 08:21, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "2inf-1105b",
+   "classe": "2INF",
+   "data": "2026-11-05",
+   "titolo": "Assemblaggio PC, BIOS e avvio da USB",
+   "file": "firme",
+   "fonte": "firmata il 05/11 alle 10:47, FIRME-REGISTRO",
+   "ora": "9-10"
+  },
+  {
+   "id": "2inf-1105c",
+   "classe": "2INF",
+   "data": "2026-11-05",
+   "titolo": "Installazione Windows 10, utenti e IP",
+   "file": "firme",
+   "fonte": "firmata il 05/11 alle 09:01, FIRME-REGISTRO",
+   "ora": "10-11"
+  },
+  {
+   "id": "2inf-1109",
+   "classe": "2INF",
+   "data": "2026-11-09",
+   "titolo": "Win10 Admin",
+   "file": "firme",
+   "fonte": "firmata il 09/11, FIRME-REGISTRO",
+   "ora": "11-14"
+  },
+  {
+   "id": "2inf-1110",
+   "classe": "2INF",
+   "data": "2026-11-10",
+   "titolo": "Preventivo PC",
+   "file": "firme",
+   "fonte": "firmata il 10/11 alle 09:03, FIRME-REGISTRO",
+   "ora": "8-10"
+  },
+  {
+   "id": "2inf-1112",
+   "classe": "2INF",
+   "data": "2026-11-12",
+   "titolo": "Win10: utenti, gruppi e recupero",
+   "file": "firme",
+   "fonte": "firmata il 12/11 alle 08:56, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "2inf-1113",
+   "classe": "2INF",
+   "data": "2026-11-13",
+   "titolo": "Sicurezza rischi elettrici e meccanici",
+   "file": "firme",
+   "fonte": "firmata il 13/11 alle 08:12, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "2inf-1116",
+   "classe": "2INF",
+   "data": "2026-11-16",
+   "titolo": "GitHub gestione account",
+   "file": "firme",
+   "fonte": "firmata il 16/11 alle 12:10, FIRME-REGISTRO",
+   "ora": "11-14"
+  },
+  {
+   "id": "2inf-1117a",
+   "classe": "2INF",
+   "data": "2026-11-17",
+   "titolo": "Pagine web: browser, server e HTML",
+   "file": "firme",
+   "fonte": "firmata il 17/11 alle 08:15, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "2inf-1117b",
+   "classe": "2INF",
+   "data": "2026-11-17",
+   "titolo": "Pagine web: lo stile con il CSS",
+   "file": "firme",
+   "fonte": "firmata il 17/11 alle 09:18, FIRME-REGISTRO",
+   "ora": "9-10"
+  },
+  {
+   "id": "3inf-1012",
+   "classe": "3INF",
+   "data": "2026-10-12",
+   "titolo": "Versioning e backlog Agile",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "Versioning, il Documento come ramo dell'albero"
+  },
+  {
+   "id": "3inf-1019",
+   "classe": "3INF",
+   "data": "2026-10-19",
+   "titolo": "Sito personale e portfolio",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "il sito personale diventa portfolio"
+  },
+  {
+   "id": "3inf-1021",
+   "classe": "3INF",
+   "data": "2026-10-21",
+   "titolo": "Sito web e Pull Request",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "cerca": "lavoro in team: invito come collaboratore, ramo, Pull Request e merge"
+  },
+  {
+   "id": "3inf-1105",
+   "classe": "3INF",
+   "data": "2026-11-05",
+   "titolo": "Smontaggio e assemblaggio PC: componenti",
+   "file": "firme",
+   "fonte": "firmata il 05/11 alle 07:57, FIRME-REGISTRO",
+   "ora": "11-13"
+  },
+  {
+   "id": "3inf-1109",
+   "classe": "3INF",
+   "data": "2026-11-09",
+   "titolo": "Installazione win 10",
+   "file": "firme",
+   "fonte": "firmata il 09/11, FIRME-REGISTRO",
+   "ora": "8-11"
+  },
+  {
+   "id": "3inf-1110",
+   "classe": "3INF",
+   "data": "2026-11-10",
+   "titolo": "Sviluppo collaborativo: release e changelog",
+   "file": "firme",
+   "fonte": "firmata il 10/11 alle 10:24, FIRME-REGISTRO",
+   "ora": "10-11"
+  },
+  {
+   "id": "3inf-1111a",
+   "classe": "3INF",
+   "data": "2026-11-11",
+   "titolo": "Comunicazione client server",
+   "file": "firme",
+   "fonte": "firmata l'11/11 alle 11:15, FIRME-REGISTRO",
+   "ora": "11-12"
+  },
+  {
+   "id": "3inf-1111b",
+   "classe": "3INF",
+   "data": "2026-11-11",
+   "titolo": "Chat LAzarus",
+   "file": "firme",
+   "fonte": "firmata l'11/11 alle 12:23, FIRME-REGISTRO",
+   "ora": "12-13"
+  },
+  {
+   "id": "3inf-1116a",
+   "classe": "3INF",
+   "data": "2026-11-16",
+   "titolo": "Sviluppo web: HTML5 e GitHub Pages",
+   "file": "firme",
+   "fonte": "firmata il 16/11 alle 09:16, FIRME-REGISTRO",
+   "ora": "8-9"
+  },
+  {
+   "id": "3inf-1116b",
+   "classe": "3INF",
+   "data": "2026-11-16",
+   "titolo": "Sviluppo web: CSS3 e menu del sito",
+   "file": "firme",
+   "fonte": "firmata il 16/11 alle 09:20, FIRME-REGISTRO",
+   "ora": "9-10"
+  },
+  {
+   "id": "3inf-1116c",
+   "classe": "3INF",
+   "data": "2026-11-16",
+   "titolo": "Sviluppo web: portfolio delle competenze",
+   "file": "firme",
+   "fonte": "firmata il 16/11 alle 09:41, FIRME-REGISTRO",
+   "ora": "10-11"
+  },
+  {
+   "id": "3inf-1118a",
+   "classe": "3INF",
+   "data": "2026-11-18",
+   "titolo": "Sviluppo web: pagina Presenze stage",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:31, FIRME-REGISTRO",
+   "ora": "11-12"
+  },
+  {
+   "id": "3inf-1118b",
+   "classe": "3INF",
+   "data": "2026-11-18",
+   "titolo": "Sviluppo web: diario dello stage",
+   "file": "firme",
+   "fonte": "firmata il 18/11 alle 08:33, FIRME-REGISTRO",
+   "ora": "12-13"
+  },
+  {
+   "id": "4ti-1103",
+   "classe": "4TI",
+   "data": "2026-11-03",
+   "titolo": "Indirizzo IPv4, maschera, gateway, DHCP e DNS (previsto)",
+   "file": "argomenti",
+   "fonte": "ARGOMENTI-SVOLTI",
+   "ora": "10-13",
+   "cerca": "indirizzo IPv4, maschera, gateway, DHCP e DNS, esercizi su coppie di PC"
+  },
+  {
+   "id": "4ti-1110",
+   "classe": "4TI",
+   "data": "2026-11-10",
+   "titolo": "Indirizzamento IPv4 e subnetting",
+   "file": "firme",
+   "fonte": "firmata il 10/11 alle 10:25, FIRME-REGISTRO",
+   "ora": "11-13"
+  },
+  {
+   "id": "4ti-1117a",
+   "classe": "4TI",
+   "data": "2026-11-17",
+   "titolo": "ISO/OSI, IPv4 e subnetting: ripasso e quiz",
+   "file": "firme",
+   "fonte": "firmata il 17/11 alle 11:21, FIRME-REGISTRO",
+   "ora": "10-11"
+  },
+  {
+   "id": "4ti-1117b",
+   "classe": "4TI",
+   "data": "2026-11-17",
+   "titolo": "Documentazione tecnica del progetto",
+   "file": "firme",
+   "fonte": "firmata il 17/11 alle 11:18, FIRME-REGISTRO",
+   "ora": "11-12"
+  },
+  {
+   "id": "4ti-1117c",
+   "classe": "4TI",
+   "data": "2026-11-17",
+   "titolo": "Presentazione del progetto individuale",
+   "file": "firme",
+   "fonte": "firmata il 17/11 alle 11:19, FIRME-REGISTRO",
+   "ora": "12-13"
+  }
+ ],
+ "copertura": [
+  {
+   "classe": "1INF",
+   "voce": "Codifica dei caratteri: ASCII e Unicode",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1030a"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Modello di Von Neumann: CPU, RAM, memorie di massa, scheda madre",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1112"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Configurazione di un PC a budget e documentazione tecnica",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1118a",
+    "1inf-1118b"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Manutenzione ordinaria e preventiva",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1118m"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Copia, spostamento, ridenominazione ed eliminazione dei file",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1113f"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "IDE Lazarus: form e componenti",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1028",
+    "1inf-1030l"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "6ª ora: rischi meccanici ed elettrici generali",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1111s"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Dispositivi di rete: modem, router, access point Wi-Fi",
+   "stato": "nota",
+   "lezioni": [
+    "1inf-1113r"
+   ],
+   "nota": "parziale: firmato «modem e router» (access point da confermare)"
+  },
+  {
+   "classe": "1INF",
+   "voce": "TButton, TEdit, TLabel e proprietà Caption",
+   "stato": "nota",
+   "lezioni": [
+    "1inf-1028"
+   ],
+   "nota": "parziale: TEdit e TButton in aula, TLabel e Caption da confermare"
+  },
+  {
+   "classe": "1INF",
+   "voce": "Gestore dell'evento OnClick",
+   "stato": "nota",
+   "lezioni": [
+    "1inf-1028"
+   ],
+   "nota": "da confermare: bottoni usati in aula, evento OnClick non nominato"
+  },
+  {
+   "classe": "1INF",
+   "voce": "Sistema esadecimale",
+   "stato": "nota",
+   "lezioni": [],
+   "nota": "da confermare: non risulta firmato"
+  },
+  {
+   "classe": "1INF",
+   "voce": "Deepfake di voce e volto: riconoscimento e prevenzione",
+   "stato": "nota",
+   "lezioni": [],
+   "nota": "da confermare: ripasso del 03/11 solo previsto"
+  },
+  {
+   "classe": "1INF",
+   "voce": "Standard hardware: form factor, socket, slot PCIe, RAM DDR",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-0924"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Bit, byte e multipli (KB, MB, GB)",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1001"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Conversioni tra le basi 2 e 10",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1001"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "1ª ora: concetti di rischio e danno",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1022"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "2ª ora: prevenzione e protezione",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1029s"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "3ª ora: organizzazione della prevenzione aziendale",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1029s"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "4ª ora: organi di vigilanza, controllo e assistenza",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1104s"
+   ]
+  },
+  {
+   "classe": "1INF",
+   "voce": "Regolamento strumenti digitali e intelligenza artificiale",
+   "stato": "fatto",
+   "lezioni": [
+    "1inf-1113p"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "1ª ora: concetti di rischio e danno",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1001"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "2ª ora: prevenzione e protezione",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1009"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "4ª ora: organi di vigilanza, controllo e assistenza",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1021"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "5ª ora: rischio infortuni",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1030"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "6ª ora: rischi meccanici ed elettrici generali",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1113"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "3ª ora: organizzazione della prevenzione aziendale",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1016"
+   ],
+   "nota": "da confermare: svolta il 16/10 (registro delle attività), titolo firmato non letto"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Assemblaggio e smontaggio di un PC",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1105a",
+    "2inf-1105b"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "Installazione del sistema operativo",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1105c"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "Versionamento, changelog e grafo dei commit",
+   "stato": "fatto",
+   "lezioni": [
+    "2inf-1029"
+   ]
+  },
+  {
+   "classe": "2INF",
+   "voce": "Configurazione di utenti, servizi e risorse condivise",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1105c",
+    "2inf-1109",
+    "2inf-1112"
+   ],
+   "nota": "parziale: utenti e Win10 Admin firmati; servizi e risorse condivise da confermare"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Preventivo",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1110"
+   ],
+   "nota": "da confermare: firmato «Preventivo PC», non provato che sia il foglio di calcolo"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Scheda di intervento e preventivo per il cliente",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1110"
+   ],
+   "nota": "parziale: firmato «Preventivo PC»; scheda di intervento da confermare"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Cicli for e while",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1019"
+   ],
+   "nota": "da confermare: svolto il 19-22/10 (registro delle attività), titolo firmato non letto"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Indirizzo IP, indirizzo MAC, gateway",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1102"
+   ],
+   "nota": "da confermare: svolto il 02/11 (registro delle attività), titolo firmato non letto"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Servizi DHCP e DNS",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1102"
+   ],
+   "nota": "da confermare: svolto il 02/11 (registro delle attività), titolo firmato non letto"
+  },
+  {
+   "classe": "2INF",
+   "voce": "Pagine web del negozio",
+   "stato": "nota",
+   "lezioni": [
+    "2inf-1117a",
+    "2inf-1117b"
+   ],
+   "nota": "voce più vicina alle lezioni web del 17/11 («HTML», «CSS»): da confermare"
+  },
+  {
+   "classe": "3INF",
+   "voce": "Portfolio delle competenze",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1116c"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Struttura della pagina in HTML5",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1116a"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Pubblicazione su GitHub Pages",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1116a"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Fogli di stile CSS3",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1116b"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Navigazione multipagina e menu",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1116b"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Release e changelog",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1110"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Fork e branch",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1021"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Pull Request, merge e risoluzione dei conflitti",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1021"
+   ]
+  },
+  {
+   "classe": "3INF",
+   "voce": "Verifica e recupero",
+   "stato": "fatto",
+   "lezioni": [
+    "3inf-1019"
+   ]
+  },
+  {
+   "classe": "4TI",
+   "voce": "Indirizzo IPv4 e maschera di rete",
+   "stato": "fatto",
+   "lezioni": [
+    "4ti-1110"
+   ]
+  },
+  {
+   "classe": "4TI",
+   "voce": "Subnetting",
+   "stato": "fatto",
+   "lezioni": [
+    "4ti-1110"
+   ]
+  },
+  {
+   "classe": "4TI",
+   "voce": "Gateway, DHCP e DNS",
+   "stato": "nota",
+   "lezioni": [
+    "4ti-1103"
+   ],
+   "nota": "da confermare: svolto il 03/11 solo come previsto"
+  },
+  {
+   "classe": "4TI",
+   "voce": "Relazione tecnica",
+   "stato": "nota",
+   "lezioni": [
+    "4ti-1117b"
+   ],
+   "nota": "voce più vicina a «Documentazione tecnica del progetto» (17/11): da confermare"
+  },
+  {
+   "classe": "4TI",
+   "voce": "Presentazione del progetto",
+   "stato": "nota",
+   "lezioni": [
+    "4ti-1117c"
+   ],
+   "nota": "voce più vicina a «Presentazione del progetto individuale» (17/11): da confermare"
+  }
+ ]
+}

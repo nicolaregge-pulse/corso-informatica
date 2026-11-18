@@ -35,7 +35,8 @@ BREVI = {  # abbreviazione del titolo ufficiale (il titolo intero resta in picco
 BREVI_4TI = {"7": "Reti e strumenti informatici in modo consapevole", "13": "Prodotti di comunicazione e documentazione tecnica",
              "14": "Interventi di installazione, aggiornamento e dismissione", "15": "Politiche di sicurezza dell'informazione",
              "16": "Installare hardware, software o componenti di sottosistema"}
-FONTE_JSON = "svolto-2026-27.json, confermato dal docente"
+IGNORA = ("provvisorio", "firma", "non firmata", "da verificare", "non provato", "ore ", "crea un file", "pagine web: …")
+FONTE_JSON = "confermato dal docente (svolto-2026-27.json)"
 
 
 def leggi_json(p):
@@ -133,7 +134,7 @@ def calcola(dati, adesso_dt):
                     stato = "FATTO"
                     fonte = "; ".join(sorted({etichetta(l) + " · " + l["fonte"] for l in date})) or FONTE_JSON
                     if date:
-                        fonte += " · " + FONTE_JSON
+                        fonte += " · confermato dal docente"
                 else:
                     fatti = [e for e in entries if e["stato"] == "fatto"]
                     note = [e for e in entries if e["stato"] == "nota"]
@@ -159,22 +160,21 @@ def calcola(dati, adesso_dt):
     # titoli firmati non ancora in copertura (da mappare)
     mappati = {l["titolo"].strip().lower() for l in cop["lezioni"] if l.get("titolo")}
     titoli = [t.strip() for t in re.findall(r"«([^«»\n]{8,140})»", firme)]
-    non_mappati = sorted({t for t in titoli if t.lower() not in mappati and not t.lower().startswith(("provvisorio", "firma"))})
+    non_mappati = sorted({t for t in titoli if t.lower() not in mappati and not t.lower().startswith(IGNORA)})
     return risultato, problemi, non_mappati
 
 
 def riepilogo(ris):
+    """voci per classe, ciascuna contata una volta anche se compare in piu competenze"""
     out = {}
     for classe, comps in ris.items():
-        f = d = 0
+        stati = {}
         for c in comps:
             for v in c["voci"]:
                 if v["liv"] == 1:
-                    if v["stato"] == "FATTO":
-                        f += 1
-                    else:
-                        d += 1
-        out[classe] = (f, d)
+                    stati[v["testo"]] = v["stato"]
+        f = sum(1 for x in stati.values() if x == "FATTO")
+        out[classe] = (f, len(stati) - f)
     return out
 
 
@@ -209,7 +209,7 @@ def esc(x):
 
 
 CSS = r"""
- @page { size: A4; margin: 0; }
+ @page { size: A4; }
  *{box-sizing:border-box;}
  body{font-family:"Liberation Sans",Arial,sans-serif;color:#161616;margin:0;font-size:8.6pt;line-height:1.26;}
  h1{font-size:15pt;text-align:center;margin:0 0 2px;}
@@ -244,7 +244,7 @@ def html_classe(classe, label, anno, comps, ver, quando, nota_box=True):
         p.append('<div class="box"><b>Programma dichiarato ampio:</b> le voci sono quelle dell\'Allegato A ufficiale (Word del 02/11/2026, '
                  'parte «Regge»); ciò che non riusciamo a svolgere resta semplicemente in giallo (<b>da fare</b>). Una voce passa a '
                  '<b>fatto</b> solo se un argomento firmato sul registro, o confermato dal docente, la copre; sotto ogni voce svolta '
-                 'sono scritte la data e la fonte. Dopo il 30/10 sull\'Allegato A si può solo togliere, mai aggiungere.</div>')
+                 'sono scritte la data della lezione registrata (può non essere la prima) e la fonte. Dopo il 30/10 sull\'Allegato A si può solo togliere, mai aggiungere.</div>')
     p.append(f'<h2>{esc(label)} — {esc(anno)} — a.f. 2026/2027</h2>')
     for c in comps:
         brevi = BREVI_4TI if classe == "4TI" else BREVI
