@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.4** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 3.5** — 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -127,6 +127,19 @@ Fonte: registro DIDAweb, screenshot del docente delle 08:03 del 18/11/2026 (lett
 5. Ora 12-13, 4TI, Laboratorio professionale: FIRMATA il 17/11/2026 alle 11:19:00, argomento «Presentazione del progetto individuale».
 6. Presenze 2INF del 17/11 (registro, screenshot delle 08:14): 16 presenti e 4 assenti su 20 in elenco; i nomi stanno solo nel riservato.
 
+## Mercoledì 18/11/2026
+
+Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11/2026 (registro di classe, colonna Firma con data e ora). Tutte le 6 ore sono FIRMATE: non si ricorda nessuna firma del 18/11.
+
+1. Ora 8-9, 1INF, Impresa simulata (LAB): FIRMATA il 18/11/2026 alle 08:28:00, argomento «Configurazione di un PC a budget».
+2. Ora 9-10, 1INF, Impresa simulata (LAB): FIRMATA il 18/11/2026 alle 08:28:00, argomento «PC a budget: prove e documentazione».
+3. Ora 10-11, 1INF, Laboratorio professionale: FIRMATA il 18/11/2026 alle 08:29:00, argomento «Manutenzione ordinaria e preventiva».
+4. Ora 11-12, 3INF, Laboratorio professionale: FIRMATA il 18/11/2026 alle 08:31:00, argomento «Sviluppo web: pagina Presenze stage».
+5. Ora 12-13, 3INF, Laboratorio professionale: FIRMATA il 18/11/2026 alle 08:33:00, argomento «Sviluppo web: diario dello stage».
+6. Ora 13-14, 1INF, Tecnologia professionale: FIRMATA il 18/11/2026 alle 08:29:00, argomento «Architettura del PC: componenti». **Firmata in anticipo, prima della lezione** (le 13:00 sono dopo le 08:29): l'argomento scritto è quello previsto, il contenuto realmente svolto va confermato a fine ora.
+7. Presenze 1INF del 18/11 (registro di classe, tipo formazione Aula): 19 presenti e 4 assenti su 23 in elenco; i nomi stanno solo nel riservato. Sul registro di classe le ore 11-12 e 12-13 della 1INF sono Matematica (altro docente, non nostre).
+8. Presenze 3INF del 18/11: non nello screenshot, **non verificato**.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -154,3 +167,4 @@ Fonte: registro DIDAweb, screenshot del docente delle 08:03 del 18/11/2026 (lett
 22. v3.2 (16/11/2026, 13:10): orari di firma reali dallo screenshot del registro DIDAweb delle 13:07: 3INF 8-11 firmate 09:16, 09:20, 09:41 (la 10-11 non è 08:15: tolta la nota «da verificare»); 2INF 11-14 firmate 12:10, 12:11, 12:11 (aula 11); aggiunto l'orario di martedì 17 e dei giorni seguenti.
 23. v3.3 (17/11/2026, 08:14): martedì 17/11, ore 2INF 8-10 firmate (screenshot del registro DIDAweb delle 08:14, ora esatta della firma non letta), titoli «Pagine web: browser, server e HTML» e «Pagine web: lo stile con il CSS»; presenze 2INF 16 su 20 (senza nomi); ore 4TI 10-13 firma non provata.
 24. v3.4 (18/11/2026, 08:03): screenshot del registro DIDAweb: 17/11 tutte le ore firmate con orario reale: 2INF 08:15 e 09:18; 4TI 10-13 firmate 11:21, 11:18, 11:19 con i titoli del registro. Corretto «ore 8:14 circa» della v3.3.
+25. v3.5 (18/11/2026, 08:37): screenshot del registro DIDAweb delle 08:36-08:37: mercoledì 18/11 tutte le 6 ore firmate (1INF 08:28, 08:28, 08:29 e 13-14 firmata in anticipo alle 08:29; 3INF 08:31 e 08:33) con i titoli del registro; presenze 1INF 19 su 23 (senza nomi); presenze 3INF non verificate.

@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.11** — 18/11/2026
+**Versione 1.12** — 18/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -108,6 +108,12 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 17/11/2026 | 4TI 10-11, Laboratorio professionale. Sul registro (firmato 17/11 alle 11:21): «ISO/OSI, IPv4 e subnetting: ripasso e quiz»; contenuto realmente svolto da confermare dal docente | | Modelli ISO/OSI e TCP/IP; Indirizzamento IPv4 e subnetting (Comp. 16) |
 | 17/11/2026 | 4TI 11-12, Laboratorio professionale. Sul registro (firmato 17/11 alle 11:18): «Documentazione tecnica del progetto»; contenuto realmente svolto da confermare dal docente | | voce più vicina: «Collaudo con il ping e documentazione» (Comp. 16); voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 17/11/2026 | 4TI 12-13, Laboratorio professionale. Sul registro (firmato 17/11 alle 11:19): «Presentazione del progetto individuale»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 1INF 8-9, Impresa simulata (LAB). (presenti 19 su 23). Sul registro (firmato 18/11 alle 08:28): «Configurazione di un PC a budget»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 1INF 9-10, Impresa simulata (LAB). (presenti 19 su 23). Sul registro (firmato 18/11 alle 08:28): «PC a budget: prove e documentazione»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 1INF 10-11, Laboratorio professionale. (presenti 19 su 23). Sul registro (firmato 18/11 alle 08:29): «Manutenzione ordinaria e preventiva»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 3INF 11-12, Laboratorio professionale. (presenze non verificate). Sul registro (firmato 18/11 alle 08:31): «Sviluppo web: pagina Presenze stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 3INF 12-13, Laboratorio professionale. (presenze non verificate). Sul registro (firmato 18/11 alle 08:33): «Sviluppo web: diario dello stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 1INF 13-14, Tecnologia professionale. (presenti 19 su 23 (registro di classe)). ORA FIRMATA IN ANTICIPO, prima della lezione; Sul registro (firmato 18/11 alle 08:29): «Architettura del PC: componenti»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -170,3 +176,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 20. **v1.9 (16/11/2026)**: aggiunte le righe del 16/11 per la 2INF ore 11-14 con l'argomento del registro «GitHub gestione account» (screenshot del docente, ore firmate) e per la 3INF ore 8-11 con i titoli del registro di FIRME-REGISTRO v3.0; Allegato A non modificato.
 21. **v1.10 (17/11/2026)**: aggiunte le righe del 17/11 per la 2INF ore 8-10 con i titoli del registro (screenshot del docente delle 08:14, ore firmate, FIRME-REGISTRO v3.3); voce dell'Allegato A più vicina, nessuna voce aggiunta e nessuna evidenziazione da togliere (il file non ne ha per queste ore).
 22. **v1.11 (18/11/2026)**: orari di firma reali del 17/11 per la 2INF (08:15, 09:18) e righe 4TI ore 10-13 con i titoli del registro (screenshot del docente del 18/11 alle 08:03; FIRME-REGISTRO v3.4); nessuna voce dell'Allegato A aggiunta e nessuna evidenziazione da togliere (le righe non ne avevano).
+23. **v1.12 (18/11/2026)**: aggiunte le righe del 18/11 con i titoli del registro (screenshot del docente delle 08:36-08:37; FIRME-REGISTRO v3.5): 1INF 8-9, 9-10, 10-11 e 13-14 (quest'ultima firmata in anticipo, prima della lezione), 3INF 11-12 e 12-13; presenze 1INF 19 su 23, 3INF non verificate; nessuna voce dell'Allegato A aggiunta (R5.2).

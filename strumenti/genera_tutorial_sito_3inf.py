@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
-"""Tutorial 3INF «Il mio sito: Gite e Presenze stage» (v1.0, 17/11/2026).
+"""Tutorial 3INF «Il mio sito: Stage e Presenze» (v1.1, 18/11/2026; sostituisce la v1.0 del 17/11).
 Una sola fonte (questo file) per tre uscite:
-  1. docs/3inf/sito-gite-stage/index.html   pagina guidata a bottoni («Ho fatto»), con controllo della cartella
-  2. classe-3/sito-gite-stage/*-IT.md       per il PDF solo italiano
-  3. classe-3/sito-gite-stage/*-IT-BN.md    per il PDF italiano + una riga in bangla sotto ogni frase (allievo del PC 14)
-I riquadri di codice sono LETTI dai file del modello (docs/3inf/sito-gite-stage/modello/): tutorial e modello non si possono scostare.
+  1. docs/3inf/sito-stage/index.html   pagina guidata a bottoni («Ho fatto»), con controllo della cartella
+  2. classe-3/sito-stage/*-IT.md       per il PDF solo italiano
+  3. classe-3/sito-stage/*-IT-BN.md    per il PDF italiano + una riga in bangla sotto ogni frase (allievo del PC 14)
+I riquadri di codice sono LETTI dai file del modello (docs/3inf/sito-stage/modello/): tutorial e modello non si possono scostare.
 Niente Git ne' GitHub per gli allievi (decisione del docente, 17/11/2026): il sito e' una cartella di file sul PC.
 Uso: python3 strumenti/genera_tutorial_sito_3inf.py   (poi: MD2PDF_ARIOSO=1 python3 strumenti/md2pdf.py ...)"""
 import html, os, json
 
 RADICE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITO = os.path.join(RADICE, "docs/3inf/sito-gite-stage")
+SITO = os.path.join(RADICE, "docs/3inf/sito-stage")
 MODELLO = os.path.join(SITO, "modello")
-MDDIR = os.path.join(RADICE, "classe-3/sito-gite-stage")
-VERSIONE, DATA = "1.0", "17/11/2026"
+MDDIR = os.path.join(RADICE, "classe-3/sito-stage")
+VERSIONE, DATA = "1.1", "18/11/2026"
 URL_COPIA = "https://nicolaregge-pulse.github.io/corso-informatica/stage/copia.html"
-URL_GITE = "https://nicolaregge-pulse.github.io/corso-informatica/3inf/sito-gite-stage/modello/dati-gite.js"
 
 
 def codice(nome):
@@ -83,9 +82,9 @@ passo(id="stage", t=("La pagina Il mio stage (diario.html)", "Il mio stage প�
              ("Se non lo sai ancora, scrivi «da definire» e torna a cambiarlo dopo.", "এখনো না জানলে «da definire» লেখো, পরে এসে বদলাও।")])
 
 passo(id="menu", t=("Prova il menu", "মেনু পরীক্ষা করো"),
-      f=[("Apri index.html. In alto ci sono sei bottoni blu.", "index.html খোলো। উপরে ছয়টি নীল বোতাম আছে।"),
+      f=[("Apri index.html. In alto ci sono cinque bottoni blu.", "index.html খোলো। উপরে পাঁচটি নীল বোতাম আছে।"),
          ("Premi Hobby, Competenze, Il mio stage e poi Chi sono: passi da una pagina all'altra.", "Hobby, Competenze, Il mio stage, তারপর Chi sono চাপো: এক পেজ থেকে অন্য পেজে যাবে।"),
-         ("Presenze e Gite ancora non funzionano: le facciamo nei prossimi passi.", "Presenze আর Gite এখনো চলবে না: পরের ধাপে বানাব।")],
+         ("Presenze ancora non funziona: lo facciamo nei prossimi passi.", "Presenze এখনো চলবে না: পরের ধাপে বানাব।")],
       btn="Funziona il menu")
 
 passo(id="presenze", t=("Presenze stage: prendi la pagina", "Presenze stage: পেজটি নাও"),
@@ -115,19 +114,6 @@ passo(id="copia", t=("Presenze stage: la copia di sicurezza", "Presenze stage: �
          ("Se cambi PC o browser: apri presenze.html, premi «Modifica (solo io)» e poi «Carica il mio file».", "পিসি বা ব্রাউজার বদলালে: presenze.html খোলো, «Modifica (solo io)» চাপো, তারপর «Carica il mio file»।"),
          ("Quando il prof attiva il servizio condiviso, ogni «Salva il giorno» arriva anche a lui. Il prof ti dice quando.", "স্যার যখন শেয়ার্ড সার্ভিস চালু করবেন, প্রতিটি «Salva il giorno» তাঁর কাছেও যাবে। কখন, স্যার বলবেন।")],
       btn="Ho salvato il file")
-
-passo(id="gite1", t=("Gite: il file del prof", "Gite: স্যারের ফাইল"),
-      f=[("Le gite le scrive il prof in un file. Tu non lo cambi.", "গিটের তথ্য স্যার একটি ফাইলে লেখেন। তুমি এটি বদলাবে না।"),
-         ("Premi il bottone per scaricare dati-gite.js e mettilo nella cartella sito-personale.", "dati-gite.js ডাউনলোড করার বোতাম চাপো আর ফাইলটি sito-personale ফোল্ডারে রাখো।"),
-         ("Quando il prof dice che ci sono gite nuove, scaricalo di nuovo e sostituisci il file.", "স্যার নতুন গিট আছে বললে ফাইলটি আবার ডাউনলোড করে আগেরটির জায়গায় রাখো।")],
-      files=["dati-gite.js"], extra="scarica_gite", nome_file="dati-gite.js")
-
-passo(id="gite2", t=("Gite: la pagina gite.html", "Gite: gite.html পেজ"),
-      f=[("Premi Ctrl + N nel Blocco note. Premi Copia sul riquadro e poi Ctrl + V.", "Blocco note-এ Ctrl + N চাপো। বাক্সে Copia চাপো, তারপর Ctrl + V।"),
-         SALVA, ("Apri gite.html con doppio clic. Se il prof non ha ancora scritto le gite, vedi un avviso giallo: va bene.", "gite.html-এ ডাবল ক্লিক করে খোলো। স্যার এখনো গিট না লিখলে হলুদ বার্তা দেখবে: ঠিক আছে।")],
-      files=["gite.html"], nome_file="gite.html", img=("s-gite.png", "La pagina Gite (con una gita di prova)"),
-      fallo=[("Fallo tuo. Nel riquadro «La mia gita» scrivi dove siamo andati, che cosa hai visto e che cosa hai imparato.", "নিজের মতো করো। «La mia gita» বাক্সে লেখো কোথায় গিয়েছিলে, কী দেখেছ, কী শিখেছ।"),
-             ("Nelle gite del prof spunta le cose da portare: la spunta resta salvata.", "স্যারের গিটে যা সঙ্গে নিতে হবে তাতে টিক দাও: টিক সেভ থাকে।")])
 
 passo(id="foto", t=("Una tua foto (se vuoi)", "তোমার একটি ছবি (ইচ্ছা হলে)"),
       f=[("Metti una tua foto nella cartella img. Chiamala foto.jpg. Usa solo foto che vuoi far vedere.", "img ফোল্ডারে তোমার একটি ছবি রাখো। নাম দাও foto.jpg। শুধু সেই ছবি দাও যা দেখাতে চাও।"),
@@ -163,7 +149,7 @@ PROBLEMI_BN = [
     "পাসওয়ার্ড ভুল। আবার চেষ্টা করো। ভুলে গেলে স্যারকে বলো আবার শুরু করতে।",
     "presenze.html খোলো, «Modifica (solo io)», তারপর «Carica il mio file» চাপো আর presenze-stage.json বেছে নাও।",
 ]
-BN_TITOLO = "টিউটোরিয়াল: আমার সাইট, গিট ও স্টেজের উপস্থিতি"
+BN_TITOLO = "টিউটোরিয়াল: আমার সাইট, স্টেজ ও উপস্থিতি"
 
 N = len(P)
 
@@ -174,9 +160,9 @@ def esc(s):
 
 # ---------------------------------------------------------------- Markdown (PDF)
 def md(bn):
-    o = [f"# Tutorial 3INF — Il mio sito: Gite e Presenze stage", "", f"**Versione {VERSIONE}** — {DATA} · Classe 3 · Laboratorio · " + ("italiano + bangla (PC 14)" if bn else "italiano"), ""]
+    o = [f"# Tutorial 3INF — Il mio sito: Stage e Presenze", "", f"**Versione {VERSIONE}** — {DATA} · Classe 3 · Laboratorio · " + ("italiano + bangla (PC 14)" if bn else "italiano"), ""]
     if bn: o += [BN_TITOLO, ""]
-    intro = [("Alla fine hai un sito uguale a quello dei compagni: Chi sono, Hobby, Competenze, Il mio stage, Presenze e Gite.", "শেষে তোমার সাইট বন্ধুদের মতোই হবে: Chi sono, Hobby, Competenze, Il mio stage, Presenze আর Gite।"),
+    intro = [("Alla fine hai un sito uguale a quello dei compagni: Chi sono, Hobby, Competenze, Il mio stage e Presenze.", "শেষে তোমার সাইট বন্ধুদের মতোই হবে: Chi sono, Hobby, Competenze, Il mio stage, Presenze।"),
              ("Lavori con due programmi: il Blocco note e il browser. Non installi niente.", "তুমি দুটি প্রোগ্রামে কাজ করবে: Blocco note আর ব্রাউজার। কিছু ইনস্টল করতে হবে না।")]
     for it, b in intro:
         o += [it, ""]
@@ -205,16 +191,14 @@ def md(bn):
             o += [f"**{etichetta}**", "", "```", testo, "```", ""]
         if s.get("extra") == "link_copia":
             o += ["**Indirizzo della pagina «Copia la pagina Presenze stage»** (scrivilo nella barra del browser)", "", "```", URL_COPIA, "```", ""]
-        if s.get("extra") == "scarica_gite":
-            o += ["**Indirizzo del file dati-gite.js** (scrivilo nella barra del browser, poi salva il file nella cartella sito-personale)", "", "```", URL_GITE, "```", ""]
         if s.get("extra") == "checker":
-            o += ["> **Nota:** il controllo è nella pagina del tutorial (bottone «Scegli la cartella sito-personale»). Senza la pagina, controlla a mano: nella cartella devono esserci i 6 file .html, style.css e dati-gite.js, tutti in minuscolo, senza spazi.", ""]
+            o += ["> **Nota:** il controllo è nella pagina del tutorial (bottone «Scegli la cartella sito-personale»). Senza la pagina, controlla a mano: nella cartella devono esserci i 5 file .html e style.css, tutti in minuscolo, senza spazi.", ""]
         for nf in s.get("files", []):
-            o += [f"**RIQUADRO — file {nf}**", "", "```", codice("dati-gite.js" if nf == "dati-gite.js" else nf), "```", ""]
+            o += [f"**RIQUADRO — file {nf}**", "", "```", codice(nf), "```", ""]
         if s.get("img"):
-            o += [f"![{s['img'][1]}|520](../../docs/3inf/sito-gite-stage/img/{s['img'][0]})", ""]
+            o += [f"![{s['img'][1]}|520](../../docs/3inf/sito-stage/img/{s['img'][0]})", ""]
         if s.get("img2"):
-            o += [f"![{s['img2'][1]}|520](../../docs/3inf/sito-gite-stage/img/{s['img2'][0]})", ""]
+            o += [f"![{s['img2'][1]}|520](../../docs/3inf/sito-stage/img/{s['img2'][0]})", ""]
         if s.get("fallo"):
             for it, b in s["fallo"]:
                 o += [f"> **Fallo tuo:** {it.replace('Fallo tuo. ', '')}", ">"]
@@ -231,7 +215,7 @@ def md(bn):
             o += [f"{i + 1}. {b}", ""]
     o += ["> **Limite:** il sito è una cartella sul tuo PC: non lo vede nessun altro finché non lo consegni. I giorni delle presenze restano nel browser di questo PC finché il prof non attiva il servizio condiviso: per questo c'è il file di sicurezza.", ""]
     if bn: o += ["> সীমা: সাইটটি তোমার পিসির একটি ফোল্ডার: জমা না দেওয়া পর্যন্ত অন্য কেউ দেখতে পায় না।", ""]
-    o += [f"<!-- Versione {VERSIONE} ({DATA}): prima versione. Generato da strumenti/genera_tutorial_sito_3inf.py: non modificare a mano. -->", ""]
+    o += [f"<!-- Versione {VERSIONE} ({DATA}): v1.1: sostituisce la v1.0. Generato da strumenti/genera_tutorial_sito_3inf.py: non modificare a mano. -->", ""]
     return "\n".join(o)
 
 
@@ -295,7 +279,7 @@ CHECKER = """<div class='cb' style='padding:12px'>
 
 JS = r"""
 var $=function(i){return document.getElementById(i)};
-var N=%(N)d,CH='tutorial-sito-3inf-v1';
+var N=%(N)d,CH='tutorial-sito-3inf-v1-1';
 function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 // bangla: solo per l'allievo del PC 14 (?pc=14 una volta, poi si ricorda; stessa chiave delle altre pagine della 3INF)
 (function(){var m=location.search.match(/[?&]pc=(\d+)/);if(m)ls('pc-3inf-gioco',m[1]);if(ls('pc-3inf-gioco')==='14')document.body.classList.add('pc14')})();
@@ -315,8 +299,8 @@ document.addEventListener('click',function(e){var b=e.target.closest('.cp');if(!
  var vecchio=function(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(x){b.textContent='Seleziona e Ctrl+C'}document.body.removeChild(a)};
  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(t).then(ok,vecchio);else vecchio()});
 // Controllo della cartella (legge i file in locale, non invia niente)
-var RICH=['index.html','passione.html','competenze.html','diario.html','presenze.html','gite.html','style.css','dati-gite.js'];
-var MENU=['index.html','passione.html','competenze.html','diario.html','presenze.html','gite.html'];
+var RICH=['index.html','passione.html','competenze.html','diario.html','presenze.html','style.css'];
+var MENU=['index.html','passione.html','competenze.html','diario.html','presenze.html'];
 function leggi(f){return new Promise(function(ok){var r=new FileReader();r.onload=function(){ok(String(r.result))};r.onerror=function(){ok('')};r.readAsText(f)})}
 $('cart').addEventListener('change',async function(){
  var files=[].slice.call(this.files),mappa={},nomi=[];
@@ -327,13 +311,11 @@ $('cart').addEventListener('change',async function(){
  var tx={};for(var n of RICH){if(mappa[n])tx[n]=await leggi(mappa[n])}
  MENU.forEach(function(n){if(!tx[n]||n==='presenze.html')return;
   var mancano=MENU.filter(function(m){return tx[n].indexOf('href="'+m+'"')<0});
-  R(mancano.length===0,n+': il menu ha i sei bottoni',mancano.length?'Nel menu mancano: '+mancano.join(', ')+'. Ricopia il file dal riquadro.':'');
+  R(mancano.length===0,n+': il menu ha i cinque bottoni',mancano.length?'Nel menu mancano: '+mancano.join(', ')+'. Ricopia il file dal riquadro.':'');
   R(tx[n].indexOf('href="style.css"')>=0,n+': usa style.css','Manca la riga con style.css nel <head>. Ricopia il file dal riquadro.')});
  if(tx['presenze.html']){var p=tx['presenze.html'];var m=p.match(/allievo:\s*"([^"]*)"/);
   R(!!m&&m[1].charAt(0)!=='@','presenze.html: c’è il tuo nome'+(m&&m[1].charAt(0)!=='@'?' ('+m[1]+')':''),'Il file non ha il tuo nome. Rifai il passo Presenze stage e scegli il tuo nome.');
   R(p.indexOf('Carica il mio file')>=0,'presenze.html: è la versione nuova','Il file è vecchio. Scaricalo di nuovo dalla pagina «Copia la pagina Presenze stage».')}
- if(tx['gite.html'])R(tx['gite.html'].indexOf('dati-gite.js')>=0,'gite.html legge dati-gite.js','Ricopia gite.html dal riquadro.');
- if(tx['dati-gite.js'])R(/var\s+GITE\s*=/.test(tx['dati-gite.js']),'dati-gite.js è quello del prof','Scarica di nuovo dati-gite.js dal passo Gite.');
  var strani=nomi.filter(function(r){var b=r.split('/').pop();return r.indexOf('/')<0&&(/[A-Z ]/.test(b)||/\.(css|html|js)\.txt$/i.test(b))});
  R(strani.length===0,'I nomi dei file sono giusti (minuscolo, senza spazi)',strani.length?'Nomi da sistemare: '+strani.join(', ')+'.':'');
  var ok=righe.filter(function(x){return x.ok}).length;
@@ -344,11 +326,11 @@ $('cart').addEventListener('change',async function(){
 def html_pagina():
     o = ["<!DOCTYPE html>", "<html lang='it'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>",
          "<meta name='robots' content='noindex'><link rel='icon' href='data:,'>",
-         "<title>Il mio sito: Gite e Presenze</title>", f"<style>{CSS}</style></head><body><main>",
-         "<h1>Il mio sito: Gite e Presenze stage</h1>",
+         "<title>Il mio sito: Stage e Presenze</title>", f"<style>{CSS}</style></head><body><main>",
+         "<h1>Il mio sito: Stage e Presenze</h1>",
          f"<div class='sub'>Classe 3 · Laboratorio · Versione {VERSIONE} · {DATA}</div>",
-         "<p>Alla fine hai un sito uguale a quello dei compagni: Chi sono, Hobby, Competenze, Il mio stage, Presenze e Gite. Lavori con il Blocco note e il browser. Non installi niente.</p>",
-         "<div class='bn' lang='bn' style='margin-left:0'>শেষে তোমার সাইট বন্ধুদের মতোই হবে: Chi sono, Hobby, Competenze, Il mio stage, Presenze আর Gite। তুমি Blocco note আর ব্রাউজারে কাজ করবে। কিছু ইনস্টল করতে হবে না।</div>",
+         "<p>Alla fine hai un sito uguale a quello dei compagni: Chi sono, Hobby, Competenze, Il mio stage e Presenze. Lavori con il Blocco note e il browser. Non installi niente.</p>",
+         "<div class='bn' lang='bn' style='margin-left:0'>শেষে তোমার সাইট বন্ধুদের মতোই হবে: Chi sono, Hobby, Competenze, Il mio stage, Presenze। তুমি Blocco note আর ব্রাউজারে কাজ করবে। কিছু ইনস্টল করতে হবে না।</div>",
          "<div class='bar'><div class='t'><i id='barra'></i></div><div class='c' id='conta'></div><button class='btn' id='vai' type='button'>Vai al passo di adesso</button></div>"]
     for i, s in enumerate(P, 1):
         nf = s.get("nome_file", "")
@@ -360,8 +342,6 @@ def html_pagina():
         for j, f in enumerate(s.get("files", [])): o.append(h_box(f"RIQUADRO — file {f}", codice(f), f"{s['id']}f{j}"))
         if s.get("extra") == "link_copia":
             o.append(f"<p><a class='btn' href='{URL_COPIA}' target='_blank' rel='noopener'>Apri «Copia la pagina Presenze stage»</a></p><p class='nota'>Si apre in una scheda nuova: questa pagina resta aperta.</p>")
-        if s.get("extra") == "scarica_gite":
-            o.append(f"<p><a class='btn' href='modello/dati-gite.js' download='dati-gite.js'>Scarica dati-gite.js</a></p><p class='nota'>Il file è anche in questo riquadro. Se il bottone non scarica, copia il riquadro e salva il file con il nome dati-gite.js.</p>")
         if s.get("extra") == "checker": o.append(CHECKER)
         if s.get("img"): o.append(f"<img class='s' src='img/{s['img'][0]}' alt='{esc(s['img'][1])}'><p class='cap'>{esc(s['img'][1])}</p>")
         if s.get("img2"): o.append(f"<img class='s' src='img/{s['img2'][0]}' alt='{esc(s['img2'][1])}'><p class='cap'>{esc(s['img2'][1])}</p>")
@@ -373,14 +353,14 @@ def html_pagina():
         o.append(f"<tr><td>{esc(a)}</td><td>{esc(b)}<div class='bn' lang='bn' style='margin-left:0'>{esc(PROBLEMI_BN[i])}</div></td></tr>")
     o.append("</table>")
     o.append("<p class='nota'><b>Limite:</b> il sito è una cartella sul tuo PC: non lo vede nessun altro finché non lo consegni. I giorni delle presenze restano nel browser di questo PC finché il prof non attiva il servizio condiviso: per questo c'è il file di sicurezza.</p>")
-    o.append(f"<p class='nota'>Versione {VERSIONE} · {DATA} · PDF: <a href='Tutorial-Sito-Gite-Stage-IT-v{VERSIONE}.pdf'>italiano</a> · <a href='Tutorial-Sito-Gite-Stage-IT-BN-v{VERSIONE}.pdf'>italiano + বাংলা</a></p>")
+    o.append(f"<p class='nota'>Versione {VERSIONE} · {DATA} · PDF: <a href='Tutorial-Sito-Stage-IT-v{VERSIONE}.pdf'>italiano</a> · <a href='Tutorial-Sito-Stage-IT-BN-v{VERSIONE}.pdf'>italiano + বাংলা</a></p>")
     o.append("</main><script>" + (JS % {"N": N}) + "</script></body></html>")
     return "\n".join(o)
 
 
 if __name__ == "__main__":
     os.makedirs(MDDIR, exist_ok=True)
-    open(os.path.join(MDDIR, "tutorial-sito-gite-stage-IT.md"), "w", encoding="utf-8").write(md(False))
-    open(os.path.join(MDDIR, "tutorial-sito-gite-stage-IT-BN.md"), "w", encoding="utf-8").write(md(True))
+    open(os.path.join(MDDIR, "tutorial-sito-stage-IT.md"), "w", encoding="utf-8").write(md(False))
+    open(os.path.join(MDDIR, "tutorial-sito-stage-IT-BN.md"), "w", encoding="utf-8").write(md(True))
     open(os.path.join(SITO, "index.html"), "w", encoding="utf-8").write(html_pagina())
     print("passi:", N)

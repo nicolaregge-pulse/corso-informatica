@@ -1,0 +1,53 @@
+/* style.css - uguale per tutti - Versione 1.0 */
+/* FALLO TUO: cambia solo questi tre colori */
+:root {
+  --sfondo: #dff1ff;
+  --titolo: #12467a;
+  --bottone: #0b57d0;
+}
+
+body {
+  background: var(--sfondo);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  color: #14202b;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+h1 { color: var(--titolo); text-align: center; }
+h2 { color: var(--titolo); }
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 12px 0 20px;
+}
+.menu a {
+  background: var(--bottone);
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.menu a:hover { opacity: 0.85; }
+
+.scheda {
+  background: white;
+  max-width: 640px;
+  margin: 16px auto;
+  padding: 16px 20px;
+  border-radius: 12px;
+}
+
+.scheda img { max-width: 100%; border-radius: 8px; }
+
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #c9d3e0; padding: 6px 8px; text-align: left; }
+th { background: #e9f0f8; }
+
+.piede { text-align: center; font-size: 14px; color: #4a5968; margin-top: 24px; }
