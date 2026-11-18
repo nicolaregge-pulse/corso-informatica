@@ -127,7 +127,7 @@ def file_da_controllare(pub=PUB, ris=RIS, config=CONFIG):
     fissi = [os.path.join(pub, "fabbrica", "quiz-1inf-1811-ora6-confronto.txt"), os.path.join(pub, "PROSSIME-LEZIONI.md"),
              os.path.join(pub, "PROPOSTE-OGGI.md"), os.path.join(pub, "docs", "cruscotto", "piano", "1inf-%s.json" % GIORNO)]
     esclusi = frammenti_esclusi(config)
-    nuovo = lambda lista: [f for f in lista if not any(x in os.path.basename(f).lower() for x in esclusi)]
+    nuovo = lambda lista: [f for f in lista if not os.path.basename(f).upper().startswith('AUDIT-BUDGET') and not any(x in os.path.basename(f).lower() for x in esclusi)]
     return versioni_correnti(nuovo(riservato)), versioni_correnti(nuovo(pubblico)) + [f for f in fissi if os.path.isfile(f)]
 
 
