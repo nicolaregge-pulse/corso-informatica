@@ -192,13 +192,16 @@ def cambi(vecchio, nuovo):
             for c in comps:
                 for v in c["voci"]:
                     if v["liv"] == 1:
-                        m[(classe, v["testo"])] = v
+                        m[(classe, v["testo"])] = dict(v, comp=c.get("comp", ""))
         return m
     a, b = mappa(vecchio), mappa(nuovo)
     for k, v in b.items():
         s0 = a.get(k, {}).get("stato", "DA FARE")
         if v["stato"] != s0:
             righe.append(f"{k[0]}: «{k[1][:70]}» da {s0} a {v['stato']}")
+        c0 = a.get(k, {}).get("comp")
+        if c0 and c0 != v["comp"]:  # spostamento di una voce da una competenza all'altra (v1.1, 18/11/2026)
+            righe.append(f"{k[0]}: «{k[1][:70]}» spostata dalla Comp. {c0} alla Comp. {v['comp']} (stesso stato)")
     if not righe:
         righe.append("cambiate note o fonti, nessuna voce ha cambiato stato")
     return righe

@@ -1,6 +1,6 @@
 # LEGGIMI: Allegato A — Stato del programma (fatto / da fare)
 
-**Versione 1.0** — 18/11/2026. Pubblico (nessun nome di allievo). Fa parte dei registri, come `ARGOMENTI-SVOLTI-2026-27.md` e `FIRME-REGISTRO-2026-27.md`.
+**Versione 1.1** — 18/11/2026 (v1.0: 18/11/2026). Pubblico (nessun nome di allievo). Fa parte dei registri, come `ARGOMENTI-SVOLTI-2026-27.md` e `FIRME-REGISTRO-2026-27.md`.
 
 ## 01 Che cosa è
 
@@ -30,5 +30,7 @@
 3. Si attiva solo se il docente lo chiede.
 
 ## 05 Registro delle versioni
+
+0. v1.1 (18/11/2026): `aggiorna_allegato_a_stato.py` segnala nel changelog le voci spostate da una competenza all'altra; stato v1.1 con lo spostamento 4TI di «Etica professionale» dalla Comp. 7 alla Comp. 15 (decisione del docente, 18/11/2026 14:45).
 
 1. v1.0 (18/11/2026): prima versione dello strumento e del documento sull'Allegato A ufficiale; PPP del docente del 18/11/2026 (foto del documento v0.2 della Classe 1: «averlo aggiornato e tenerlo sempre aggiornato, fa parte dei registri»).

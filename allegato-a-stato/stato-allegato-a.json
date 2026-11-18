@@ -1,6 +1,6 @@
 {
- "aggiornato": "2026-11-18T09:37",
- "aggiornato_txt": "18/11/2026 ore 09:37",
+ "aggiornato": "2026-11-18T14:44",
+ "aggiornato_txt": "18/11/2026 ore 14:44",
  "changelog": [
   {
    "quando": "18/11/2026 ore 09:37",
@@ -8,13 +8,24 @@
     "prima versione sull'Allegato A ufficiale del 02/11/2026 (parte «Regge»), tutte le classi; FATTO per classe: 1INF 25, 2INF 17, 3INF 11, 4TI 6"
    ],
    "versione": "1.0"
+  },
+  {
+   "quando": "18/11/2026 ore 14:44",
+   "righe": [
+    "1INF: «Configurazione di un PC a budget e documentazione tecnica» da DA FARE a FATTO",
+    "1INF: «Manutenzione ordinaria e preventiva» da DA FARE a FATTO",
+    "4TI: «Protezione dei dati e GDPR» spostata dalla Comp. 7 alla Comp. 15 (stesso stato)",
+    "4TI: «Normativa e codice etico» spostata dalla Comp. 7 alla Comp. 15 (stesso stato)",
+    "4TI: «Intelligenza artificiale: usi e limiti nel lavoro» spostata dalla Comp. 7 alla Comp. 15 (stesso stato)"
+   ],
+   "versione": "1.1"
   }
  ],
- "impronta": "27f504cddcce67f3",
+ "impronta": "5d3e8b574baf4882",
  "riepilogo": {
   "1INF": {
-   "da_fare": 31,
-   "fatto": 25
+   "da_fare": 29,
+   "fatto": 27
   },
   "2INF": {
    "da_fare": 44,
@@ -29,7 +40,7 @@
    "fatto": 6
   }
  },
- "versione": "1.0",
+ "versione": "1.1",
  "voci": {
   "1INF": [
    {
@@ -267,10 +278,10 @@
       "testo": "Standard hardware: form factor, socket, slot PCIe, RAM DDR"
      },
      {
-      "fonte": "",
+      "fonte": "18/11 ore 8-9 · firmata il 18/11 alle 08:28, FIRME-REGISTRO; 18/11 ore 9-10 · firmata il 18/11 alle 08:28, FIRME-REGISTRO",
       "liv": 1,
-      "nota": "firmata 18/11 ore 9-10: da confermare a fine ora",
-      "stato": "DA FARE",
+      "nota": "",
+      "stato": "FATTO",
       "testo": "Configurazione di un PC a budget e documentazione tecnica"
      },
      {
@@ -292,10 +303,10 @@
       "testo": "Dispositivi di rete: modem, router, access point Wi-Fi"
      },
      {
-      "fonte": "",
+      "fonte": "18/11 ore 10-11 · firmata il 18/11 alle 08:29, FIRME-REGISTRO",
       "liv": 1,
-      "nota": "firmata 18/11 ore 10-11: da confermare a fine ora",
-      "stato": "DA FARE",
+      "nota": "",
+      "stato": "FATTO",
       "testo": "Manutenzione ordinaria e preventiva"
      },
      {
@@ -459,10 +470,10 @@
       "testo": "Standard hardware: form factor, socket, slot PCIe, RAM DDR"
      },
      {
-      "fonte": "",
+      "fonte": "18/11 ore 8-9 · firmata il 18/11 alle 08:28, FIRME-REGISTRO; 18/11 ore 9-10 · firmata il 18/11 alle 08:28, FIRME-REGISTRO",
       "liv": 1,
-      "nota": "firmata 18/11 ore 9-10: da confermare a fine ora",
-      "stato": "DA FARE",
+      "nota": "",
+      "stato": "FATTO",
       "testo": "Configurazione di un PC a budget e documentazione tecnica"
      },
      {
@@ -579,10 +590,10 @@
       "testo": "Dispositivi di rete: modem, router, access point Wi-Fi"
      },
      {
-      "fonte": "",
+      "fonte": "18/11 ore 10-11 · firmata il 18/11 alle 08:29, FIRME-REGISTRO",
       "liv": 1,
-      "nota": "firmata 18/11 ore 10-11: da confermare a fine ora",
-      "stato": "DA FARE",
+      "nota": "",
+      "stato": "FATTO",
       "testo": "Manutenzione ordinaria e preventiva"
      },
      {
@@ -1665,37 +1676,6 @@
   ],
   "4TI": [
    {
-    "comp": "7",
-    "titolo": "Utilizzare le reti e gli strumenti informatici in maniera consapevole nelle attività di studio, ricerca, sociali e professionali",
-    "voci": [
-     {
-      "liv": 0,
-      "testo": "Etica professionale: protezione dei dati, normativa, intelligenza artificiale nel lavoro"
-     },
-     {
-      "fonte": "",
-      "liv": 1,
-      "nota": "",
-      "stato": "DA FARE",
-      "testo": "Protezione dei dati e GDPR"
-     },
-     {
-      "fonte": "",
-      "liv": 1,
-      "nota": "",
-      "stato": "DA FARE",
-      "testo": "Normativa e codice etico"
-     },
-     {
-      "fonte": "",
-      "liv": 1,
-      "nota": "",
-      "stato": "DA FARE",
-      "testo": "Intelligenza artificiale: usi e limiti nel lavoro"
-     }
-    ]
-   },
-   {
     "comp": "13",
     "titolo": "Elaborare prodotti di comunicazione che descrivono prodotti, servizi, componenti o applicazioni conformi con i requisiti relativi alla documentazione, identificando e selezionando lo stile e il media appropriato per il materiale di presentazione",
     "voci": [
@@ -1856,6 +1836,31 @@
       "nota": "",
       "stato": "DA FARE",
       "testo": "Phishing e intrusioni: rilevamento e contromisure"
+     },
+     {
+      "liv": 0,
+      "testo": "Etica professionale: protezione dei dati, normativa, intelligenza artificiale nel lavoro"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Protezione dei dati e GDPR"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Normativa e codice etico"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Intelligenza artificiale: usi e limiti nel lavoro"
      }
     ]
    },

@@ -1,6 +1,6 @@
 # 00 Programmi di massima 2026/27 delle quattro classi
 
-**Versione 1.1** — 14/10/2026 — Area Docente. Versione consolidata, approvata da Nicola in linea di massima il 14/10: è la fonte della parte di Regge nei quattro Allegati A.
+**Versione 1.2** — 18/11/2026 (v1.1: 14/10/2026) — Area Docente. Versione consolidata, approvata da Nicola in linea di massima il 14/10: è la fonte della parte di Regge nei quattro Allegati A. v1.2: 4TI, il modulo 7 «Etica professionale» passa dalla Competenza 7 alla Competenza 15 (decisione del docente, 18/11/2026 14:45).
 
 > **Nota:** versione consolidata il 14/10/2026. Ogni modifica si fa qui e poi si rifanno i file con `programmi-ufficiali/_build/aggiorna_allegati.py`. Scadenza dell'Allegato A: 30 ottobre 2026.
 
@@ -19,7 +19,7 @@
    4. Dopo il 30 ottobre si possono solo togliere voci, non aggiungerle: quindi l'elenco deve essere largo.
    5. I titoli che si scrivono sul registro sono voci dell'Allegato A, con le stesse parole.
    6. L'Allegato A è largo e comprensivo: un tema nuovo entra come sotto-voce di una voce più grande (per esempio il versioning dentro la programmazione). Dopo il 30 ottobre, se facciamo una cosa nuova, sul registro si scrive la voce già presente più simile.
-   7. Regge scrive solo nelle aree tecnologiche, come negli anni scorsi: competenze 8 e 12-17 per l'Operatore; 7 e 13-16 per il Tecnico.
+   7. Regge scrive solo nelle aree tecnologiche, come negli anni scorsi: competenze 8 e 12-17 per l'Operatore; 13-16 per il Tecnico (dal 18/11/2026 la 7 non ha più voci di Regge: «Etica professionale» sta nella 15).
    8. Ogni modulo va nella competenza che lo descrive davvero, guardando abilità e conoscenze dell'Allegato A: 8 = dati e codifica, rischi della rete, privacy, strumenti digitali; 12 = organizzare e pianificare il lavoro, cicli di lavoro, ruoli, termini tecnici, documentazione; 13 = preparare e curare postazioni e strumenti, trovare le anomalie; 14 = sicurezza sul lavoro; 15 = assemblare il PC, sistema operativo, software e programmi per il cliente; 16 = reti, cablaggio, diagnosi e simulazione; 17 = database e dati. Per il Tecnico: 7 = privacy e uso consapevole; 13 = documentazione; 14 = installazione, collaudo e rilascio; 15 = sicurezza dell'informazione; 16 = sistemi, reti, protocolli e versioning.
 
 ## 02 I fili comuni a tutte le classi
@@ -337,7 +337,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 | 4 | Sicurezza dell'informazione: firewall, segmentazione, autenticazione, backup, phishing, intrusioni | febbraio-aprile | 15 |
 | 5 | Progetto individuale: applicazione in Lazarus o architettura di rete, dall'analisi al rilascio, con controllo di versione | tutto l'anno | 14, 16, 13 |
 | 6 | Documentazione tecnica: relazione, manuale utente, presentazione; Git e NotebookLM | tutto l'anno | 13 |
-| 7 | Etica professionale: protezione dei dati, normativa, intelligenza artificiale nel lavoro | tutto l'anno | 7 |
+| 7 | Etica professionale: protezione dei dati, normativa, intelligenza artificiale nel lavoro | tutto l'anno | 15 |
 
 ### 06.4 Sotto-voci
 
@@ -382,6 +382,7 @@ Le reti e il progetto individuale: progettare, installare, mettere in sicurezza 
 3. Infine si controllano i titoli del registro già firmati: ognuno deve trovare la sua voce.
 
 ## 08 Registro delle versioni
+12. **v1.2 (18/11/2026)**: 4TI, modulo 7 «Etica professionale» (3 sotto-voci invariate): competenza 15 al posto della 7, dopo «Sicurezza dell'informazione». Il docente ha già fatto lo spostamento nel Word della scuola (Google Doc «ALLEGATO A PFP 4° Tecnico Informatico 2026-2027», 18/11/2026 14:45); eccezione a R5.2 concessa (`NOTE-DA-DISCUTERE.md` 9.2). Solo spostamento, nessuna voce nuova; i doppioni nelle competenze 13, 14 e 16 non si toccano. Allineati `registro-allegati.json` (4TI: blocco spostato da «7» a «15») e gli stati. Il modulo 4 della 4TI resta nella 15 (invariato).
 11. **v1.1 (14/10/2026)**: la sicurezza sul lavoro di 1INF e 2INF divisa nelle 16 ore del corso ufficiale, così ogni ora svolta e firmata diventa bianca nell'Allegato A.
 10. **v1.0 (14/10/2026)**: versione consolidata (sì di Nicola «in linea di massima»): parte 2026/27 in rosa, anni scorsi in verde, altri docenti in giallo o bianco.
 9. **v0.9 (14/10/2026)**: 1INF, nuovo modulo «File e file system» nella competenza 17 (prima vuota) e nella 15; tolta la stessa voce dal modulo del laboratorio.
