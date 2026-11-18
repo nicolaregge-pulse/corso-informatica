@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.26** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 1.27** — 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -428,7 +428,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #353 | Script voti per il lotto sbagliato, senza chiedere (17/11) | 1 | D | D | R7.6; da costruire: domanda «quale classe e quale prova?» se ci sono più lotti |
 | #354 | Archivio su Drive promesso senza provare l'accesso (17/11) | 1 | D | D | da costruire: lettura di prova della cartella prima di promettere; `archivia_prova.py` per lo ZIP a mano |
 | #355 | Fine giornata 17/11 ROSSO: piani, cruscotto fermo, report orari, 4TI (ripete #345, #346) | 4 | D | B | `controlla_controlli.py --fine-giornata`; report 2INF generati con `report_ore.py`; da costruire: controllo a metà giornata |
-| #357 | Budget dei preventivi 1INF cambiati per una frase ambigua, valori diversi nei file (18/11) | 1 | D | A | `strumenti/controlla_budget_1inf.py` agganciato a `controlla_controlli.py` (fonte unica `config/budget-1inf-1811.json`); la domanda su una frase ambigua resta R7.6 |
+| #357 | Budget dei preventivi 1INF cambiati per una frase ambigua, valori diversi nei file (18/11) | 1 | D | A | `strumenti/controlla_budget_1inf.py` agganciato a `controlla_controlli.py` (fonte unica `config/budget-1inf-1811.json`, dal 18/11 ore 09:5x v2.0 con 500/600/1000 per decisione del docente: le versioni 450/600/900 sono «da non usare oggi» e non si guardano); la domanda su una frase ambigua resta R7.6 |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -521,3 +521,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 24. v1.24 (17/11/2026): voci #350 (mancava) e #351 (archivio prove: `archivia_prova.py`, un solo ZIP e controllo di completezza). Il conteggio della sezione 01 non è stato ricalcolato.
 25. v1.25 (17/11/2026): voci #352-#355 dal controllore di fine giornata (kit senza consegna e tempo, script voti per il lotto sbagliato, Drive promesso senza prova, fine giornata ROSSO). Il conteggio della sezione 01 non è stato ricalcolato.
 26. v1.26 (18/11/2026): voce #357 (budget dei preventivi 1INF) con il controllo `strumenti/controlla_budget_1inf.py` e la fonte unica `config/budget-1inf-1811.json`. Il conteggio della sezione 01 non è stato ricalcolato.
+27. v1.27 (18/11/2026, ore 09:5x): decisione del docente, budget 500/600/1000: fonte unica v2.0, `controlla_budget_1inf.py` accetta 500/600/1000 e rifiuta 450/900 nelle versioni correnti (chiave «non_usare_oggi»); nota al #357 in `REGISTRO-ERRORI-CLAUDE.md` v3.42.

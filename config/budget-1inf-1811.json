@@ -1,6 +1,6 @@
 {
   "versione": "2.0",
-  "nota": "Unica fonte dei budget dei 3 preventivi 1INF (Impresa simulata) del 18/11/2026, in euro. v2.0: DECISIONE DEL DOCENTE 18/11/2026 ore 09:5x: restano 500/600/1000, perche' i ragazzi lavorano da 40 minuti con i materiali che dicono ufficio 500, studio 600, gaming 1000 (non farli ripartire). La v1.0 di questo file (450/600/900, riconfermata la mattina del 18/11) resta nella storia di git (commit baaa6ddc). Letta dal controllo strumenti/controlla_budget_1inf.py. Nessun nome di allievo.",
+  "nota": "Unica fonte dei budget dei 3 preventivi 1INF (Impresa simulata) del 18/11/2026, in euro. v2.0: DECISIONE DEL DOCENTE 18/11/2026 ore 09:5x: restano 500/600/1000, perche' i ragazzi lavorano da 40 minuti con i materiali che dicono ufficio 500, studio 600, gaming 1000 (non farli ripartire). La v1.0 di questo file (450/600/900, riconfermata la mattina del 18/11) resta nella storia di git. Letta dal controllo strumenti/controlla_budget_1inf.py. Nessun nome di allievo.",
   "valuta": "euro",
   "budget": {"ufficio": 500, "studio": 600, "gaming": 1000},
   "non_usare_oggi": {
