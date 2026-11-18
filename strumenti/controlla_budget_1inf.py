@@ -12,7 +12,8 @@ e cinese), un numero che pare un budget (multiplo di 50 da 300 a 2000) e non e' 
 internet e i percorsi (testo con una barra) non si leggono: un sito esterno puo' avere nel suo indirizzo un'altra cifra.
 Le versioni vecchie (superate) non si controllano: restano come storia (R11.3).
 
-Che cosa guarda (versioni correnti):
+DECISIONE 18/11 ore 09:5x: budget 500/600/1000 (v2.0 della fonte); le versioni 450/600/900 sono in config «non_usare_oggi» e non si guardano.
+Che cosa guarda (versioni correnti = la piu' alta di ogni famiglia, tolte quelle «da non usare oggi»):
   riservato report/2026-11-18/*.md, *.pdf (dispense, pacchetti, piano, soluzioni, ricerca, siti di riserva) e
   report/2026-11-18/pdf-ragazzi/*.pdf e *.docx;  pubblico docs/dispense/mercoledi/*.html e modelli/*.docx,
   fabbrica/quiz-1inf-1811-ora6-confronto.txt, PROSSIME-LEZIONI.md, PROPOSTE-OGGI.md, docs/cruscotto/piano/1inf-2026-11-18.json.
@@ -33,11 +34,25 @@ NUMERO = re.compile(r"(?<![A-Za-z0-9_.,/-])(\d{1,2}[.\s]\d{3}|\d{3,4})(?![A-Za-z
 FINESTRA = 60   # caratteri di distanza dalla parola «euro» / «budget» (una frase come «un ufficio da 500 euro, uno studio da 600 e un gaming da 1000»)
 
 
+def frammenti_esclusi(config=CONFIG):
+    """nomi (frammenti, minuscoli) delle versioni «DA NON USARE oggi» (450/600/900): il controllo non le guarda"""
+    d = json.load(open(config, encoding="utf-8"))
+    return [x.lower() for x in d.get("non_usare_oggi", {}).get("frammenti", [])]
+
+
 def valori_ammessi(config=CONFIG):
     d = json.load(open(config, encoding="utf-8"))
     b = d["budget"]
     assert set(b) == {"ufficio", "studio", "gaming"}, "la fonte deve avere ufficio, studio e gaming"
     return {int(v) for v in b.values()}
+
+
+def senza_storia(riga):
+    """toglie le note di storia «prima 450/600/900»: non sono un budget attuale"""
+    if re.match(r"\s*\d+\.\s+v\d+\.\d+\s*\(", riga):   # riga del registro delle versioni (storia)
+        return " "
+    riga = re.sub(r"build da \d+ e \d+", " ", riga, flags=re.I)   # descrizione di pagine di un sito esterno
+    return re.sub(r"prima\s+\d{3,4}(?:\s*[/,e]\s*\d{3,4})*", " ", riga, flags=re.I)
 
 
 def senza_indirizzi(riga):
@@ -50,7 +65,7 @@ def sospetti_nel_testo(testo, ammessi):
     """[(numero_riga, numero, riga)] dei numeri che paiono un budget e non sono tra gli ammessi"""
     trovati = []
     for n, riga in enumerate(testo.splitlines(), 1):
-        r = senza_indirizzi(riga)
+        r = senza_indirizzi(senza_storia(riga))
         if not PAROLA.search(r):
             continue
         for m in NUMERO.finditer(r):
@@ -101,7 +116,7 @@ def testo_di(f):
     return open(f, encoding="utf-8", errors="replace").read()
 
 
-def file_da_controllare(pub=PUB, ris=RIS):
+def file_da_controllare(pub=PUB, ris=RIS, config=CONFIG):
     rep = os.path.join(ris, "report", GIORNO)
     riservato = []
     for pat in ("*.md", "*.pdf", "pdf-ragazzi/*.pdf", "pdf-ragazzi/*.docx"):
@@ -111,13 +126,15 @@ def file_da_controllare(pub=PUB, ris=RIS):
                 glob.glob(os.path.join(pub, "docs", "dispense", "mercoledi", "modelli", "*.docx")))
     fissi = [os.path.join(pub, "fabbrica", "quiz-1inf-1811-ora6-confronto.txt"), os.path.join(pub, "PROSSIME-LEZIONI.md"),
              os.path.join(pub, "PROPOSTE-OGGI.md"), os.path.join(pub, "docs", "cruscotto", "piano", "1inf-%s.json" % GIORNO)]
-    return versioni_correnti(riservato), versioni_correnti(pubblico) + [f for f in fissi if os.path.isfile(f)]
+    esclusi = frammenti_esclusi(config)
+    nuovo = lambda lista: [f for f in lista if not any(x in os.path.basename(f).lower() for x in esclusi)]
+    return versioni_correnti(nuovo(riservato)), versioni_correnti(nuovo(pubblico)) + [f for f in fissi if os.path.isfile(f)]
 
 
 def controlla(pub=PUB, ris=RIS, config=CONFIG):
     """(problemi, non_controllati, n_file): problemi = [«file:riga: numero»]"""
     ammessi = valori_ammessi(config)
-    ris_f, pub_f = file_da_controllare(pub, ris)
+    ris_f, pub_f = file_da_controllare(pub, ris, config)
     problemi, non_controllati = [], []
     if not os.path.isdir(os.path.join(ris, "report")):
         non_controllati.append("riservato non trovato accanto: file del riservato non controllati")
@@ -136,23 +153,25 @@ def controlla(pub=PUB, ris=RIS, config=CONFIG):
 
 def prova():
     """prove dello strumento su testo finto: deve trovare gli errori messi apposta e non dare falsi allarmi"""
-    am = {450, 600, 900}
+    am = {500, 600, 1000}
     ok = tot = 0
 
     def p(nome, cond):
         nonlocal ok, tot
         tot += 1; ok += bool(cond); print(("OK   " if cond else "NO   ") + nome)
-    p("500 euro trovato", len(sospetti_nel_testo("Il cliente ufficio ha 500 euro.", am)) == 1)
-    p("budget 1000 trovato", len(sospetti_nel_testo("Il budget del gaming e' 1000.", am)) == 1)
-    p("1.000 euro trovato", len(sospetti_nel_testo("Gaming: 1.000 euro", am)) == 1)
-    p("arabo: 500 يورو trovato", len(sospetti_nel_testo("الميزانية: 500 يورو", am)) == 1)
-    p("cinese: 预算：1000欧元 trovato", len(sospetti_nel_testo("预算：1000欧元", am)) == 1)
-    p("450 euro ammesso", not sospetti_nel_testo("Budget: 450 euro, studio 600 euro, gaming 900 euro", am))
+    p("450 euro trovato", len(sospetti_nel_testo("Il cliente ufficio ha 450 euro.", am)) == 1)
+    p("budget 900 trovato", len(sospetti_nel_testo("Il budget del gaming e' 900.", am)) == 1)
+    p("arabo: 450 يورو trovato", len(sospetti_nel_testo("الميزانية: 450 يورو", am)) == 1)
+    p("cinese: 预算：900欧元 trovato", len(sospetti_nel_testo("预算：900欧元", am)) == 1)
+    p("500/600/1000 euro ammessi", not sospetti_nel_testo("Budget: 500 euro, studio 600 euro, gaming 1.000 euro", am))
+    p("nota di storia «prima 450/600/900» ammessa", not sospetti_nel_testo("budget decisi (prima 450/600/900, proposta mia)", am))
     p("prezzo di un pezzo (80 euro, 358,90 euro) ammesso", not sospetti_nel_testo("Costa 80 euro. Un Ryzen a 358,90 euro.", am))
     p("totale d'esempio 540 euro ammesso", not sospetti_nel_testo("es. 540 euro", am))
+    p("indirizzo con 900 ammesso", not sospetti_nel_testo("Apri https://x.it/pc-gaming-900-euro", am))
     p("indirizzo con 1000 ammesso", not sospetti_nel_testo("Apri https://configmon.it/configurazioni/pc-gaming-1000-euro e `/configurazioni/pc-gaming-1000-euro`", am))
     p("numero lontano da euro ammesso", not sospetti_nel_testo("Punteggio 19.600 e 1000 pagine; poi un testo molto lungo che non finisce mai e non parla di niente, scritto per fare distanza, e infine euro", am))
     p("riga senza euro e senza budget ammessa", not sospetti_nel_testo("Il PC ha 500 GB di disco", am))
+    p("versione esclusa dalla lista «da non usare»", frammenti_esclusi() and "ora2-v1.2" in frammenti_esclusi())
     p("versione corrente: v1.3 batte v1.2", versioni_correnti(["/x/A-v1.2.md", "/x/A-v1.3.md", "/x/B-v1.0.md"]) == ["/x/A-v1.3.md", "/x/B-v1.0.md"])
     p("versione corrente nei nomi dei modelli (v1-2 contro v1-10)", versioni_correnti(["/x/m-v1-2.docx", "/x/m-v1-10.docx"]) == ["/x/m-v1-10.docx"])
     p("prefisso data del PDF ignorato", versioni_correnti(["/x/20261117_P_v1.1.pdf", "/x/20261118_P_v1.2.pdf"]) == ["/x/20261118_P_v1.2.pdf"])

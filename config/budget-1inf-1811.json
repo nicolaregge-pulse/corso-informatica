@@ -1,5 +1,19 @@
 {
-  "nota": "Unica fonte dei budget dei 3 preventivi 1INF (Impresa simulata) del 18/11/2026, in euro. Decisi dal docente e riconfermati il 18/11/2026 («avevamo deciso 450 600 e 900»). Letta dai generatori e dal controllo strumenti/controlla_budget_1inf.py. Nessun nome di allievo.",
+  "versione": "2.0",
+  "nota": "Unica fonte dei budget dei 3 preventivi 1INF (Impresa simulata) del 18/11/2026, in euro. v2.0: DECISIONE DEL DOCENTE 18/11/2026 ore 09:5x: restano 500/600/1000, perche' i ragazzi lavorano da 40 minuti con i materiali che dicono ufficio 500, studio 600, gaming 1000 (non farli ripartire). La v1.0 di questo file (450/600/900, riconfermata la mattina del 18/11) resta nella storia di git (commit baaa6ddc). Letta dal controllo strumenti/controlla_budget_1inf.py. Nessun nome di allievo.",
   "valuta": "euro",
-  "budget": {"ufficio": 450, "studio": 600, "gaming": 900}
+  "budget": {"ufficio": 500, "studio": 600, "gaming": 1000},
+  "non_usare_oggi": {
+    "nota": "Versioni con 450/600/900: DA NON USARE oggi (i ragazzi hanno 500/600/1000). Non sono modificate (R11.3); il controllo non le guarda. Frammenti del nome file (senza maiuscole).",
+    "frammenti": [
+      "ora1-v1.3", "ora1_v1.3", "ora2-v1.2", "ora2_v1.2", "ora3-v1.2", "ora3_v1.2", "ora6-v1.2", "ora6_v1.2",
+      "piano-lezioni-1inf-18-11-v1.2", "piano-lezioni-1inf-18-11_v1.2", "soluzioni-1inf-1811-v1.2", "soluzioni-1inf-18-11_v1.2",
+      "ricerca-configuratori-e-benchmark-1inf-1811-v1.2", "ricerca-configuratori-e-benchmark-1inf_v1.2",
+      "siti-di-riserva-configuratori-benchmark-1inf-v1.1",
+      "configuratore-e-preventivi-v1.2", "ora1-dispensa-v1-2", "modello-preventivo-ora1-v1-2",
+      "semplice-un-computer-per-due-clienti-v1.3", "dispensa-semplice-v1-3", "modello-preventivo-ora1-semplice-v1-3",
+      "preventivo-gaming-e-benchmark-v1.2", "ora2-dispensa-v1-2", "modello-preventivo-ora2-v1-2",
+      "link-configuratori-benchmark-v1.2", "siti-configuratori-benchmark-v1.1", "siti-e-tabelle-v1-1"
+    ]
+  }
 }

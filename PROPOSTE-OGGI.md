@@ -1,12 +1,12 @@
 # Proposte di lezione di oggi
 
-**Versione 1.9** — 18/11/2026 — documento interno per il docente, senza nomi di allievi
+**Versione 1.10** — 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente) — documento interno per il docente, senza nomi di allievi
 
 Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (screenshot del docente, riportato in `FIRME-REGISTRO-2026-27.md`). Le lezioni le ha già scelte il docente il 17/11 e sono già preparate: questa notte non si rifanno proposte. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
 
 ## 01 1INF, ore 8-10 Impresa simulata, ora 10-11 Laboratorio professionale, ora 13-14 Tecnologia professionale
 
-1. **L'ufficio acquisti** (scelta del docente). Configurazione e assemblaggio dei PC per tre clienti: ufficio 450 euro, studio 600, gaming 900; benchmark con Fortnite, Minecraft e Cyberpunk 2077; check della configurazione dei PC a rotazione; confronto finale con quiz. Pacchetti Classroom: ora 1 v1.3, ore 2, 3 e 6 v1.2; pagina dei siti con i budget corretti: v1.2 (la v1.1 resta online con valori sbagliati).
+1. **L'ufficio acquisti** (scelta del docente). Configurazione e assemblaggio dei PC per tre clienti: ufficio 500 euro, studio 600, gaming 1000; benchmark con Fortnite, Minecraft e Cyberpunk 2077; check della configurazione dei PC a rotazione; confronto finale con quiz. Pacchetti Classroom: ora 1 v1.2, ore 2, 3 e 6 v1.1; pagina dei link v1.1 e pagina dei siti v1.0, con 500/600/1000 (le versioni v1.2 e v1.1 con 450/600/900 non si usano oggi).
 
 ## 02 3INF, ore 11-13 Laboratorio professionale
 
