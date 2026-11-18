@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><title>Verifica trasferimento 3INF</title>
+<style>
+:root{--bg:#fff;--fg:#14202b;--mut:#4a5968;--bd:#c9d3e0;--hd:#eef3f9;--ok:#0b6b2b;--okb:#e3f5e8;--ko:#a4161a;--kob:#fde7e7;--wa:#7a5200;--wab:#fff3c9;--bt:#0b57d0}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8edf2;--mut:#a9b6c4;--bd:#3a4655;--hd:#1f2730;--ok:#7be39a;--okb:#143322;--ko:#ff9a9d;--kob:#3d1a1b;--wa:#ffd877;--wab:#3b3112;--bt:#6ea8ff}}
+body{font:17px/1.45 system-ui,sans-serif;margin:0;padding:16px;background:var(--bg);color:var(--fg);max-width:1200px}
+h1{font-size:26px;margin:0 0 6px} h2{font-size:21px;margin:22px 0 6px}
+input[type=password]{font-size:20px;padding:10px;max-width:100%}
+button{font:inherit;font-weight:700;cursor:pointer}
+#go{font-size:24px;padding:16px 28px;background:var(--bt);color:#fff;border:0;border-radius:10px}
+#go[disabled]{opacity:.6;cursor:wait} #b{font-size:20px;padding:10px 20px}
+:focus-visible{outline:4px solid #e8590c;outline-offset:2px}
+.nota{background:var(--hd);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;margin:10px 0}
+.err{background:var(--kob);color:var(--ko);border:2px solid var(--ko);border-radius:8px;padding:10px 12px;font-weight:700;margin:10px 0}
+.tw{overflow-x:auto} table{border-collapse:collapse;width:100%;min-width:760px}
+th,td{border:1px solid var(--bd);padding:6px 8px;text-align:left;vertical-align:top} th{background:var(--hd)}
+.b{display:inline-block;border-radius:6px;padding:1px 8px;font-weight:700;white-space:nowrap}
+.v{background:var(--okb);color:var(--ok)} .r{background:var(--kob);color:var(--ko)} .g{background:var(--wab);color:var(--wa)}
+.pic{color:var(--mut);font-size:14px} .ctl{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:12px 0}
+label.ck{font-size:18px}
+</style></head><body>
+<h1>Verifica trasferimento 3INF</h1>
+<div id="w"><p>Pagina del docente. Scrivi la password e premi Apri.</p>
+<label for="pw">Password</label><br>
+<input id="pw" type="password" autocomplete="current-password">
+<button id="b" type="button">Apri</button> <span id="e" role="alert" style="color:#b00"></span></div>
+<div id="app" hidden>
+<p>Questa pagina guarda se i repository degli allievi sono nell'organizzazione <b id="org"></b> e se i loro siti si aprono. Premi il bottone: i dati si leggono da GitHub in questo momento.</p>
+<div class="ctl"><button id="go" type="button">Controlla adesso</button>
+<label class="ck"><input id="auto" type="checkbox"> Aggiorna ogni 2 minuti</label></div>
+<div id="st" role="status" aria-live="polite"></div>
+<div id="out"></div>
+<div class="nota"><b>Da sapere.</b> Il piano gratuito mostra le Pages solo per repository pubblici, e senza accesso la pagina vede solo i repository pubblici: un repository privato non compare, e quell'allievo risulta «Non ancora passato». GitHub lascia 60 richieste all'ora senza accesso: ogni controllo ne usa poche, perché legge l'ultimo commit solo dei repository cambiati. Il nuovo indirizzo di ogni sito è <span id="ind"></span>. GitHub non accetta il trasferimento se nell'organizzazione c'è già un repository con lo stesso nome: per questo ogni allievo prima cambia il nome in <code>mio-sito-COGNOME</code>.</div>
+</div>
+<script>
+var X={"cifrato": 1, "salt": "Y3J1c2NvdHRvLWRvY2VudGUtdjE=", "iter": 150000, "iv": "OkVqJELDI8C0NABW", "ct": "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"};
+var ORG="piamarta-informatica-2026-27";
+function b64(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+function decifra(pw){return crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']).then(function(base){
+return crypto.subtle.deriveKey({name:'PBKDF2',salt:b64(X.salt),iterations:X.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+}).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(X.iv)},k,b64(X.ct));
+}).then(function(p){return JSON.parse(new TextDecoder().decode(p));});}
+
+/* ---------- logica (senza DOM) ---------- */
+var API="https://api.github.com";
+function slugDi(c){return String(c).toLowerCase().replace(/\s+/g,'-');}
+function ApiErr(kind,msg){this.kind=kind;this.msg=msg;}
+function oraRoma(iso,conData){if(!iso)return '';var d=new Date(iso);if(isNaN(d))return '';
+var o={timeZone:'Europe/Rome',hour:'2-digit',minute:'2-digit',hour12:false};
+if(conData){o.day='2-digit';o.month='2-digit';}
+return d.toLocaleString('it-IT',o);}
+function leggiApi(F,url){
+return F(url).then(function(r){
+ var rem=r.headers&&r.headers.get?r.headers.get('x-ratelimit-remaining'):null,res=r.headers&&r.headers.get?r.headers.get('x-ratelimit-reset'):null;
+ if(r.status===403||r.status===429){
+  if(rem==='0'||r.status===429){throw new ApiErr('limite','Il limite di GitHub è finito (60 richieste all\'ora senza accesso). '+(res?'Riprova dopo le '+oraRoma(new Date(res*1000).toISOString())+'.':'Riprova fra un po\'.'));}
+  throw new ApiErr('vietato','GitHub ha rifiutato la richiesta (errore 403).');}
+ if(r.status===404)throw new ApiErr('404','Non trovato (errore 404).');
+ if(r.status===409)throw new ApiErr('vuoto','Repository vuoto.');
+ if(!r.ok)throw new ApiErr('http','GitHub ha risposto con l\'errore '+r.status+'.');
+ return r.json().then(function(j){return {j:j,rem:rem===null?null:+rem};});
+},function(){throw new ApiErr('rete','Non riesco a collegarmi a GitHub. La rete potrebbe essere bloccata.');});}
+function listaRepo(F,org){var tutti=[],rem=null;
+function pag(n){var u=API+'/orgs/'+org+'/repos?per_page=100'+(n>1?'&page='+n:'');
+ return leggiApi(F,u).then(function(x){rem=x.rem;tutti=tutti.concat(x.j);if(x.j.length>=100&&n<5)return pag(n+1);});}
+return pag(1).then(function(){return {repos:tutti,rem:rem};},function(e){if(e.kind==='404')e.msg='L\'organizzazione '+org+' non è stata trovata (o non ha repository pubblici).';throw e;});}
+function statoUrl(F,url){return F(url+'?_='+Date.now(),{mode:'cors',cache:'no-store'}).then(function(r){return r.status;},function(){return 'err';});}
+function controllaSito(F,org,nome){var base='https://'+org+'.github.io/'+encodeURIComponent(nome)+'/';
+return Promise.all([statoUrl(F,base),statoUrl(F,base+'index.html')]).then(function(a){return {url:base,radice:a[0],index:a[1]};});}
+function etichettaSito(s){if(!s)return {k:'g',t:'non verificabile'};
+if(s.radice===200)return {k:'v',t:'SITO ACCESO'};
+if(s.radice===404)return (s.index===200)?{k:'v',t:'SITO ACCESO'}:{k:'r',t:'SITO NON ACCESO'};
+if(s.radice==='err')return {k:'g',t:'non verificabile'};
+return {k:'g',t:'non verificabile (errore '+s.radice+')'};}
+function pool(items,n,fn){var i=0,out=new Array(items.length);
+function w(){if(i>=items.length)return Promise.resolve();var k=i++;return Promise.resolve(fn(items[k],k)).then(function(v){out[k]=v;return w();});}
+var ws=[];for(var j=0;j<Math.min(n,items.length);j++)ws.push(w());return Promise.all(ws).then(function(){return out;});}
+function ultimoCommit(F,org,repo,cache){var c=cache[repo.name];
+if(c&&c.push===repo.pushed_at)return Promise.resolve(c.v);
+return leggiApi(F,API+'/repos/'+org+'/'+encodeURIComponent(repo.name)+'/commits?per_page=1').then(function(x){
+ var k=x.j&&x.j[0]||null,v;
+ if(!k)v={vuoto:true,rem:x.rem};else v={login:(k.author&&k.author.login)||(k.committer&&k.committer.login)||'',data:(k.commit&&((k.commit.author&&k.commit.author.date)||(k.commit.committer&&k.commit.committer.date)))||'',rem:x.rem};
+ cache[repo.name]={push:repo.pushed_at,v:v};return v;
+},function(e){if(e.kind==='vuoto')return {vuoto:true};if(e.kind==='limite')return {limite:true,msg:e.msg};return {errore:true};});}
+/* abbinamento: nome del repository mio-sito-COGNOME, oppure login dell'autore dell'ultimo commit */
+function abbina(cfg,rs){var perLogin={},al=cfg.allievi;
+al.forEach(function(a){a.u.forEach(function(u){perLogin[u.toLowerCase()]=a;});});
+var righe=al.map(function(a){return {a:a,repo:[],motivo:{}};}),da=[];
+rs.forEach(function(r){var n=r.nome.toLowerCase(),trov=null,mot='';
+ for(var i=0;i<al.length;i++){var s=al[i].c.replace(/[^a-z0-9-]/g,'');if(s.length<3)continue;
+ if(new RegExp('(^|[^a-z0-9])'+s+'[0-9]*($|[^a-z0-9])').test(n.replace(/_/g,'-'))){trov=al[i];mot='nome';break;}}
+ if(!trov&&r.commit&&r.commit.login&&perLogin[r.commit.login.toLowerCase()]){trov=perLogin[r.commit.login.toLowerCase()];mot='autore';}
+ if(trov){var rg=righe[al.indexOf(trov)];rg.repo.push(r);rg.motivo[r.nome]=mot;}else da.push(r);});
+righe.forEach(function(rg){rg.repo.sort(function(x,y){return (y.commit&&y.commit.data||'').localeCompare(x.commit&&x.commit.data||'');});});
+return {righe:righe,da:da};}
+function noteRiga(rg){var a=rg.a,n=[],att='mio-sito-'+a.c;
+if(!rg.repo.length){n.push('Il repository non è nell\'organizzazione (o è privato).');return n;}
+if(rg.repo.length>1)n.push('Ha '+rg.repo.length+' repository: controlla che siano passati tutti.');
+rg.repo.forEach(function(r){
+ if(r.nome.toLowerCase()!==att&&/^mio[-_]*sito\d*$/i.test(r.nome))n.push('Il nome «'+r.nome+'» non è stato cambiato: doveva diventare '+att+'.');
+ if(r.has_pages===false)n.push('Pages non attivo in «'+r.nome+'»: Settings → Pages → Save.');
+ if(r.sito&&r.sito.radice===200&&r.sito.index!==200)n.push('«'+r.nome+'»: la pagina iniziale si apre ma index.html no.');
+ if(r.sito&&r.sito.radice===404&&r.has_pages!==false)n.push('«'+r.nome+'»: sito non acceso; se il passaggio è appena fatto aspetta 1-2 minuti.');
+ if(r.commit&&r.commit.vuoto)n.push('«'+r.nome+'» è vuoto.');
+ if(r.commit&&r.commit.errore)n.push('Ultimo commit non letto per «'+r.nome+'».');});
+return n;}
+function statoAllievo(rg){var s=rg.repo.map(function(r){return etichettaSito(r.sito);});
+if(!s.length)return null;
+for(var i=0;i<s.length;i++)if(s[i].k==='v')return s[i];
+for(i=0;i<s.length;i++)if(s[i].k==='r')return s[i];
+return s[0];}
+function controlla(F,cfg,cache){var org=cfg.org;
+return listaRepo(F,org).then(function(L){
+ var rs=L.repos.map(function(r){return {nome:r.name,pushed_at:r.pushed_at,name:r.name,has_pages:r.has_pages,privato:r.private,commit:null,sito:null};});
+ var rem=L.rem,limite=null;
+ return pool(L.repos,6,function(r,k){return ultimoCommit(F,org,r,cache).then(function(c){
+   if(c.rem!==undefined&&c.rem!==null)rem=c.rem;if(c.limite)limite=c.msg;
+   rs[k].commit=c;return controllaSito(F,org,r.name).then(function(s){rs[k].sito=s;});});
+ }).then(function(){var ab=abbina(cfg,rs);return {righe:ab.righe,da:ab.da,rem:rem,limite:limite,quando:new Date().toISOString(),totale:rs.length};});
+});}
+if(typeof module!=='undefined')module.exports={controlla:controlla,abbina:abbina,etichettaSito:etichettaSito,noteRiga:noteRiga,statoAllievo:statoAllievo,slugDi:slugDi,leggiApi:leggiApi,oraRoma:oraRoma};
+
+/* ---------- pagina ---------- */
+function h(t,at){var e=document.createElement(t);if(at)for(var k in at){if(k==='c')e.className=at[k];else e.setAttribute(k,at[k]);}
+function add(c){if(c===null||c===undefined)return;if(Array.isArray(c)){c.forEach(add);return;}e.appendChild(typeof c==='string'?document.createTextNode(c):c);}
+for(var i=2;i<arguments.length;i++)add(arguments[i]);return e;}
+function bad(l){return h('span',{c:'b '+l.k},(l.k==='v'?'✔ ':l.k==='r'?'✖ ':'? ')+l.t);}
+function dettaglioCommit(c){if(!c)return '—';if(c.vuoto)return 'vuoto';if(c.errore||c.limite)return 'non letto';return oraRoma(c.data,true)+(c.login?' ('+c.login+')':'');}
+function disegna(R){var o=document.getElementById('out');o.textContent='';
+var pass=R.righe.filter(function(g){return g.repo.length;}).length,acc=R.righe.filter(function(g){var s=statoAllievo(g);return s&&s.k==='v';}).length;
+o.appendChild(h('p',{c:'nota'},'Dati letti da GitHub alle '+oraRoma(R.quando)+'. Repository nell\'organizzazione: '+R.totale+'. Allievi passati: '+pass+' su '+R.righe.length+'. Siti accesi: '+acc+'.'+(R.rem!==null?' Richieste rimaste all\'ora: '+R.rem+'.':'')));
+if(R.limite)o.appendChild(h('div',{c:'err'},R.limite+' Gli ultimi commit mancanti non sono stati letti.'));
+var rows=R.righe.slice().sort(function(x,y){var a=x.repo.length?1:0,b=y.repo.length?1:0;return a-b||x.a.n.localeCompare(y.a.n);});
+var tb=h('tbody');
+rows.forEach(function(g){var tr=h('tr');tr.appendChild(h('td',null,h('b',null,g.a.n)));
+ var tdr=h('td'),tds=h('td'),tdc=h('td');
+ if(!g.repo.length){tdr.appendChild(h('span',{c:'b r'},'✖ Non ancora passato'));tds.appendChild(h('span',{c:'pic'},'—'));tdc.appendChild(h('span',{c:'pic'},'—'));}
+ else{g.repo.forEach(function(r,i){var l=etichettaSito(r.sito);
+  tdr.appendChild(h('div',null,h('span',{c:'b v'},'✔ sì'),' '+r.nome+(g.motivo[r.nome]==='autore'?' (abbinato dall\'autore)':'')));
+  tds.appendChild(h('div',null,bad(l),g.repo.length>1?h('span',{c:'pic'},' '+r.nome):null));
+  tdc.appendChild(h('div',null,dettaglioCommit(r.commit)));});}
+ tr.appendChild(tdr);tr.appendChild(tds);tr.appendChild(tdc);
+ var n=noteRiga(g);tr.appendChild(h('td',null,n.length?n.map(function(t){return h('div',null,t);}):'—'));tb.appendChild(tr);});
+o.appendChild(h('h2',null,'Allievi ('+R.righe.length+')'));
+var tw=h('div',{c:'tw'},h('table',null,h('caption',{c:'pic'},'Gli allievi non ancora passati sono in cima.'),
+ h('thead',null,h('tr',null,h('th',{scope:'col'},'Allievo'),h('th',{scope:'col'},'Repository nell\'organizzazione'),h('th',{scope:'col'},'Sito'),h('th',{scope:'col'},'Ultimo commit'),h('th',{scope:'col'},'Nota'))),tb));
+o.appendChild(tw);
+o.appendChild(h('h2',null,'Da abbinare ('+R.da.length+')'));
+if(!R.da.length)o.appendChild(h('p',null,'Nessun repository da abbinare.'));
+else{var t2=h('tbody');R.da.forEach(function(r){var l=etichettaSito(r.sito);t2.appendChild(h('tr',null,h('td',null,r.nome),h('td',null,bad(l)),h('td',null,dettaglioCommit(r.commit)),h('td',null,'Nessun allievo con questo nome o questo autore.')));});
+ o.appendChild(h('div',{c:'tw'},h('table',null,h('thead',null,h('tr',null,h('th',{scope:'col'},'Repository'),h('th',{scope:'col'},'Sito'),h('th',{scope:'col'},'Ultimo commit'),h('th',{scope:'col'},'Nota'))),t2)));}}
+var CFG=null,CACHE={},BUSY=false,TIMER=null;
+function vai(){if(BUSY||!CFG)return;BUSY=true;var g=document.getElementById('go'),st=document.getElementById('st');
+g.disabled=true;g.setAttribute('aria-busy','true');st.textContent='Sto controllando… (circa 20 secondi)';
+controlla(function(u,o){return fetch(u,o);},CFG,CACHE).then(function(R){st.textContent='Controllo finito alle '+oraRoma(R.quando)+'.';disegna(R);},function(e){st.textContent='';var o=document.getElementById('out');o.textContent='';o.appendChild(h('div',{c:'err'},(e&&e.msg)||'Errore imprevisto: '+e));}).then(function(){BUSY=false;g.disabled=false;g.removeAttribute('aria-busy');});}
+function apri(){var pw=document.getElementById('pw').value;
+decifra(pw).then(function(c){CFG=c;CFG.org=ORG;document.getElementById('org').textContent=ORG;
+document.getElementById('ind').textContent='https://'+ORG+'.github.io/mio-sito-COGNOME/ (cognome tutto minuscolo; con spazi: trattini)';
+document.getElementById('w').style.display='none';document.getElementById('app').hidden=false;
+document.getElementById('go').onclick=vai;
+document.getElementById('auto').onchange=function(){if(TIMER){clearInterval(TIMER);TIMER=null;}if(this.checked){vai();TIMER=setInterval(vai,120000);}};
+},function(){document.getElementById('e').textContent='Password sbagliata.';});}
+if(typeof document!=='undefined'){document.getElementById('b').onclick=apri;
+document.getElementById('pw').onkeydown=function(e){if(e.key==='Enter')apri();};}
+</script></body></html>

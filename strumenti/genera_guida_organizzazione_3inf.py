@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""Guida 3INF «Il mio sito cambia casa» (v1.0, 18/11/2026) + pagina docente (riservata).
-Uscite: docs/3inf/guida-organizzazione/guida-trasferire-sito-it-v1-0.pdf e ...-it-bn-v1-0.pdf (bangla solo PC 14);
+"""Guida 3INF «Il mio sito cambia casa» (v1.1, 18/11/2026: nuovo passo 2 «Cambia il nome del repository»; la v1.0 resta in cartella) + pagina docente (riservata).
+Uscite: docs/3inf/guida-organizzazione/guida-trasferire-sito-it-v1-1.pdf e ...-it-bn-v1-1.pdf (bangla solo PC 14);
         riservato report/2026-11-18/PAGINA-DOCENTE-TRASFERIMENTO-REPO-v1.0.(md|pdf) con --docente.
 Uso: python3 strumenti/genera_guida_organizzazione_3inf.py"""
 import html, os, subprocess, sys, tempfile
@@ -28,8 +28,11 @@ M3 = mock("Disegno: Settings, in fondo alla pagina", [
     "<span class='dz'>Danger Zone</span>", "<span class='btn red'>Transfer ownership</span> <span class='hint'>← clicca qui</span>"])
 M4 = mock("Disegno: la finestra che si apre", [
     "New owner's GitHub username or organization name", "<span class='inp'>" + ORG + "</span> <span class='hint'>← scrivi qui</span>",
-    "Type the repository name to confirm", "<span class='inp'>nome-del-tuo-repository</span> <span class='hint'>← scrivi qui</span>",
+    "Type the repository name to confirm", "<span class='inp'>mio-sito-COGNOME</span> <span class='hint'>← scrivi qui</span>",
     "<span class='btn red'>I understand, transfer this repository</span>"])
+M6 = mock("Disegno: Settings → General", [
+    "Repository name", "<span class='inp'>mio-sito-COGNOME</span> <span class='hint'>← scrivi qui</span>",
+    "<span class='btn'>Rename</span> <span class='hint'>← clicca Rename</span>"])
 M5 = mock("Disegno: Settings → Pages", [
     "Branch: <span class='inp'>main</span> &nbsp; Folder: <span class='inp'>/ (root)</span>", "<span class='btn'>Save</span> <span class='hint'>← clicca Save</span>"])
 
@@ -64,6 +67,7 @@ TAB_BN = [
 ]
 CHECK = [
  ("Ho premuto «Join».", "আমি «Join» চেপেছি।"),
+ ("Ho cambiato il nome in mio-sito-COGNOME.", "আমি নাম বদলে mio-sito-COGNOME করেছি।"),
  ("Ho trasferito il repository del sito.", "আমি সাইটের repository সরিয়েছি।"),
  ("Se ne ho due, li ho trasferiti tutti e due.", "দুটি থাকলে দুটিই সরিয়েছি।"),
  ("Ho attivato Pages: main e / (root), poi Save.", "আমি Pages চালু করেছি: main আর / (root), তারপর Save।"),
@@ -79,25 +83,33 @@ def guida(bn):
     # passo 1
     s += f"<div class='st'><h2><span class='n'>1</span> Accetta l'invito</h2>{b('ধাপ ১: আমন্ত্রণ গ্রহণ করো')}<div class='row'><ol>{az(STEPS[0][1])}</ol></div>"
     s += f"<div class='box'>https://github.com/orgs/{ORG}/invitation</div><div class='row'>{M1}<ol start='3'>{az(STEPS[0][4])}</ol></div></div>"
-    # passo 2
-    s += f"<div class='st'><h2><span class='n'>2</span> Trasferisci il tuo repository</h2>{b('ধাপ ২: তোমার repository সরাও')}"
+    # passo 2 (nuovo in v1.1): cambia il nome
+    s += f"<div class='st'><h2><span class='n'>2</span> Cambia il nome del repository</h2>{b('ধাপ ২: repository-র নাম বদলাও')}"
+    s += f"<div class='ok'>{e('GitHub non accetta due repository con lo stesso nome nell' + chr(39) + 'organizzazione: tanti di voi hanno «mio-sito».')}{b('সংগঠনে একই নামের দুটি repository GitHub নেয় না: তোমাদের অনেকের «mio-sito» আছে।')}</div>"
+    s += f"<div class='row'>{M2}<ol>{az([('Apri il tuo repository (quello del sito) su GitHub.', 'GitHub-এ তোমার repository (সাইটের) খোলো।'), ('Clicca «Settings», poi «General».', '«Settings» চাপো, তারপর «General»।')])}</ol></div>"
+    s += f"<div class='row'>{M6}<ol start='3'>{az([('Nella casella «Repository name» scrivi il nuovo nome.', '«Repository name» ঘরে নতুন নাম লেখো।'), ('Clicca «Rename».', '«Rename» চাপো।')])}</ol></div>"
+    s += f"<div class='box'>mio-sito-COGNOME</div>"
+    s += f"<ol start='5'>{az([('COGNOME è il tuo cognome, tutto minuscolo, senza spazi (se ha spazi usa il trattino -).', 'COGNOME হল তোমার পদবি, সব ছোট অক্ষরে, ফাঁকা ছাড়া (ফাঁকা থাকলে হাইফেন - দাও)।'), ('Esempio: Rossi diventa mio-sito-rossi.', 'উদাহরণ: Rossi হয় mio-sito-rossi।')])}</ol>"
+    s += f"<div class='ok'>{e('Il vecchio indirizzo del sito smette di funzionare: è normale, il nuovo è al passo 6.')}{b('সাইটের পুরনো ঠিকানা আর কাজ করবে না: এটা স্বাভাবিক, নতুনটা ধাপ ৬-এ।')}</div></div>"
+    # passo 3
+    s += f"<div class='st'><h2><span class='n'>3</span> Trasferisci il tuo repository</h2>{b('ধাপ ৩: তোমার repository সরাও')}"
     s += f"<div class='ok'>{e(RASSICURA[0])}{b(RASSICURA[1])}</div>"
     s += f"<div class='row'>{M2}<ol>{az(STEPS[1][1])}</ol></div>"
     s += f"<div class='row'>{M3}<ol start='3'>{az(STEPS[1][4])}</ol></div>"
     s += f"<div class='row'>{M4}<ol start='5'>{az(STEP2B[:1])}</ol></div><div class='box'>{ORG}</div>"
     s += f"<ol start='6'>{az(STEP2B[1:])}</ol></div>"
     # passo 3
-    s += f"<div class='st brk'><h2><span class='n'>3</span> Hai DUE repository?</h2>{b('ধাপ ৩: তোমার দুটি repository আছে?')}<ol>{az([('Per esempio il vecchio e sito-personale.', 'যেমন পুরনোটা আর sito-personale।'), ('Trasferisci TUTTI e due, uno alla volta.', 'দুটিই সরাও, একটা একটা করে।')])}</ol></div>"
+    s += f"<div class='st brk'><h2><span class='n'>4</span> Hai DUE repository?</h2>{b('ধাপ ৪: তোমার দুটি repository আছে?')}<ol>{az([('Per esempio il vecchio e sito-personale: dai un nome diverso a ciascuno (per esempio mio-sito-COGNOME e sito-personale-COGNOME).', 'যেমন পুরনোটা আর sito-personale: প্রত্যেকটাকে আলাদা নাম দাও (যেমন mio-sito-COGNOME আর sito-personale-COGNOME)।'), ('Trasferisci TUTTI e due, uno alla volta.', 'দুটিই সরাও, একটা একটা করে।')])}</ol></div>"
     # passo 4
-    s += f"<div class='st'><h2><span class='n'>4</span> Riattiva Pages</h2>{b('ধাপ ৪: Pages আবার চালু করো')}<div class='row'>{M5}<ol>{az([('Apri il repository nella nuova casa.', 'নতুন বাড়িতে repository খোলো।'), ('Vai in Settings → Pages.', 'Settings → Pages-এ যাও।'), ('Scegli «Branch: main» e «/ (root)».', '«Branch: main» আর «/ (root)» বেছে নাও।'), ('Clicca «Save».', '«Save» চাপো।')])}</ol></div></div>"
+    s += f"<div class='st'><h2><span class='n'>5</span> Riattiva Pages</h2>{b('ধাপ ৫: Pages আবার চালু করো')}<div class='row'>{M5}<ol>{az([('Apri il repository nella nuova casa.', 'নতুন বাড়িতে repository খোলো।'), ('Vai in Settings → Pages.', 'Settings → Pages-এ যাও।'), ('Scegli «Branch: main» e «/ (root)».', '«Branch: main» আর «/ (root)» বেছে নাও।'), ('Clicca «Save».', '«Save» চাপো।')])}</ol></div></div>"
     # passo 5
-    s += f"<div class='st'><h2><span class='n'>5</span> Il nuovo indirizzo del sito</h2>{b('ধাপ ৫: সাইটের নতুন ঠিকানা')}<div class='box'>https://{ORG}.github.io/NOMEREPO/</div>"
-    s += f"<ol>{az([('NOMEREPO è il nome del tuo repository.', 'NOMEREPO হল তোমার repository-র নাম।'), ('Esempio: mio-sito diventa .../mio-sito/', 'উদাহরণ: mio-sito হয় .../mio-sito/'), ('Apri il nuovo indirizzo.', 'নতুন ঠিকানা খোলো।'), ('Non si apre? Aspetta 1-2 minuti e riprova.', 'খোলে না? ১-২ মিনিট অপেক্ষা করো, আবার চেষ্টা করো।')])}</ol></div>"
+    s += f"<div class='st'><h2><span class='n'>6</span> Il nuovo indirizzo del sito</h2>{b('ধাপ ৬: সাইটের নতুন ঠিকানা')}<div class='box'>https://{ORG}.github.io/mio-sito-COGNOME/</div>"
+    s += f"<ol>{az([('COGNOME è lo stesso del passo 2.', 'COGNOME হল ধাপ ২-এর মতোই।'), ('Esempio: Rossi, indirizzo .../mio-sito-rossi/', 'উদাহরণ: Rossi, ঠিকানা .../mio-sito-rossi/'), ('Il vecchio indirizzo non funziona più.', 'পুরনো ঠিকানা আর কাজ করে না।'), ('Apri il nuovo indirizzo.', 'নতুন ঠিকানা খোলো।'), ('Non si apre? Aspetta 1-2 minuti e riprova.', 'খোলে না? ১-২ মিনিট অপেক্ষা করো, আবার চেষ্টা করো।')])}</ol></div>"
     # passo 6
-    s += f"<div class='st'><h2><span class='n'>6</span> Scrivi l'indirizzo nel Documento di consegna</h2>{b('ধাপ ৬: Documento di consegna-য় ঠিকানা লেখো')}<ol>{az([('Apri il Documento di consegna.', 'Documento di consegna খোলো।'), ('Trova la riga «Il mio sito».', '«Il mio sito» লাইনটা খুঁজে নাও।'), ('Scrivi lì il nuovo indirizzo.', 'ওখানে নতুন ঠিকানা লেখো।')])}</ol></div>"
+    s += f"<div class='st'><h2><span class='n'>7</span> Scrivi l'indirizzo nel Documento di consegna</h2>{b('ধাপ ৭: Documento di consegna-য় ঠিকানা লেখো')}<ol>{az([('Apri il Documento di consegna.', 'Documento di consegna খোলো।'), ('Trova la riga «Il mio sito».', '«Il mio sito» লাইনটা খুঁজে নাও।'), ('Scrivi lì il nuovo indirizzo.', 'ওখানে নতুন ঠিকানা লেখো।')])}</ol></div>"
     # checklist
     c = "".join(f"<tr><td class='c'>☐</td><td>{e(i)}{b(n)}</td></tr>" for i, n in CHECK)
-    s += f"<div class='st brk'><h2><span class='n'>7</span> Ho fatto</h2>{b('ধাপ ৭: আমি করেছি')}<table>{c}</table></div>"
+    s += f"<div class='st brk'><h2><span class='n'>8</span> Ho fatto</h2>{b('ধাপ ৮: আমি করেছি')}<table>{c}</table></div>"
     t = "".join(f"<tr><td><b>{e(p)}</b>{b(TAB_BN[k][0])}</td><td>{e(r)}{b(TAB_BN[k][1])}</td></tr>" for k, (p, r) in enumerate(TAB))
     s += f"<div class='st'><h2>Se qualcosa non va</h2>{b('কিছু ঠিক না হলে')}<table class='tb'><tr><th>Problema</th><th>Cosa fare</th></tr>{t}</table></div>"
     dich = "Guida non ancora provata con un account di allievo: i passi sono quelli di GitHub, da controllare con il primo allievo."
@@ -133,5 +145,5 @@ def stampa(h, dest):
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    stampa(guida(False), os.path.join(OUT, "guida-trasferire-sito-it-v1-0.pdf"))
-    stampa(guida(True), os.path.join(OUT, "guida-trasferire-sito-it-bn-v1-0.pdf"))
+    stampa(guida(False), os.path.join(OUT, "guida-trasferire-sito-it-v1-1.pdf"))
+    stampa(guida(True), os.path.join(OUT, "guida-trasferire-sito-it-bn-v1-1.pdf"))
