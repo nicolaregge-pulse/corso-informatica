@@ -1,6 +1,7 @@
 {
  "_nota": "Quali lezioni (firmate o svolte) coprono quali voci dell'Allegato A. NESSUNA voce nuova (R5.2). Ogni lezione deve essere scritta in FIRME-REGISTRO-2026-27.md (file «firme», cerca «titolo») o in ARGOMENTI-SVOLTI-2026-27.md (file «argomenti», cerca = frase). stato «fatto»: la voce passa a FATTO quando TUTTE le sue lezioni sono trovate e finite; stato «nota»: resta DA FARE con la nota. Le voci già in svolto-2026-27.json sono FATTO (confermate dal docente) e qui hanno solo data e fonte. Lo strumento strumenti/aggiorna_allegato_a_stato.py elenca i titoli firmati non ancora qui.",
- "versione": "1.0 (18/11/2026)",
+ "versione": "1.1 (18/11/2026)",
+ "_changelog_1_1": "18/11/2026 (audit residuo 06.3: versione bumpata dopo le modifiche del 18/11). 4TI 17/11 ora 11-12: la voce più vicina è «Relazione tecnica» (Comp. 13), come in ARGOMENTI-SVOLTI v1.16; nessuna voce aggiunta (R5.2).",
  "lezioni": [
   {
    "id": "1inf-0924",
