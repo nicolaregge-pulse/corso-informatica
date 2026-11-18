@@ -1,0 +1,1977 @@
+{
+ "aggiornato": "2026-11-18T09:37",
+ "aggiornato_txt": "18/11/2026 ore 09:37",
+ "changelog": [
+  {
+   "quando": "18/11/2026 ore 09:37",
+   "righe": [
+    "prima versione sull'Allegato A ufficiale del 02/11/2026 (parte «Regge»), tutte le classi; FATTO per classe: 1INF 25, 2INF 17, 3INF 11, 4TI 6"
+   ],
+   "versione": "1.0"
+  }
+ ],
+ "impronta": "27f504cddcce67f3",
+ "riepilogo": {
+  "1INF": {
+   "da_fare": 31,
+   "fatto": 25
+  },
+  "2INF": {
+   "da_fare": 44,
+   "fatto": 17
+  },
+  "3INF": {
+   "da_fare": 26,
+   "fatto": 11
+  },
+  "4TI": {
+   "da_fare": 17,
+   "fatto": 6
+  }
+ },
+ "versione": "1.0",
+ "voci": {
+  "1INF": [
+   {
+    "comp": "8",
+    "titolo": "Utilizzare le tecnologie informatiche per la comunicazione e la ricezione di informazioni",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Rappresentazione dell'informazione: bit, byte, sistemi di numerazione binario, decimale ed esadecimale, codifica dei caratteri"
+     },
+     {
+      "fonte": "01/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Bit, byte e multipli (KB, MB, GB)"
+     },
+     {
+      "fonte": "01/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Conversioni tra le basi 2 e 10"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: non risulta firmato",
+      "stato": "DA FARE",
+      "testo": "Sistema esadecimale"
+     },
+     {
+      "fonte": "30/10 ore 8-9 · firmata il 30/10 alle 08:42, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Codifica dei caratteri: ASCII e Unicode"
+     },
+     {
+      "liv": 0,
+      "testo": "Sicurezza informatica e privacy: regolamento degli strumenti digitali, intelligenza artificiale generativa, deepfake"
+     },
+     {
+      "fonte": "13/11 ore 13-14 · firmata il 13/11 alle 12:20, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Regolamento strumenti digitali e intelligenza artificiale"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: ripasso del 03/11 solo previsto",
+      "stato": "DA FARE",
+      "testo": "Deepfake di voce e volto: riconoscimento e prevenzione"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Trattamento delle immagini e privacy"
+     }
+    ]
+   },
+   {
+    "comp": "12",
+    "titolo": "Definire e pianificare fasi delle operazioni da compiere, nel rispetto della normativa sulla sicurezza, sulla base delle istruzioni ricevute, della documentazione di appoggio (schemi, disegni, procedure, distinte materiali) e del sistema di relazioni.",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Organizzazione del laboratorio: accesso alla postazione, regole, archiviazione del lavoro, consegna digitale"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Autenticazione, logout e blocco della sessione (Ctrl+Alt+Canc)"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Consegna digitale degli elaborati su Classroom"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Regolamento del laboratorio"
+     },
+     {
+      "liv": 0,
+      "testo": "Ciclo di vita del software: richieste di modifica, backlog, sviluppo iterativo Agile, versioni"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Requisiti e richiesta di modifica"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Product backlog e priorità"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Sviluppo iterativo e incrementale (Agile)"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Versioni del software e changelog"
+     },
+     {
+      "liv": 0,
+      "testo": "Algoritmi e logica: diagrammi di flusso, programmazione visuale a blocchi, algebra di Boole"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diagrammi di flusso"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Programmazione visuale a blocchi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Porte logiche AND, OR, NOT"
+     },
+     {
+      "liv": 0,
+      "testo": "Terminologia tecnica di settore: glossario multilingue"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Glossario tecnico personale (almeno 50 termini)"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Terminologia inglese dell'informatica"
+     },
+     {
+      "liv": 0,
+      "testo": "Figure professionali e processi del settore ICT"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Profili professionali dell'informatica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Competenze richieste all'operatore informatico"
+     }
+    ]
+   },
+   {
+    "comp": "13",
+    "titolo": "Approntare, monitorare e curare la manutenzione ordinaria di strumenti, utensili, attrezzature e macchinari necessari alle diverse fasi di lavorazione/servizio sulla base della tipologia di materiali da impiegare, delle indicazioni/procedure previste, del risultato atteso",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Organizzazione del laboratorio: accesso alla postazione, regole, archiviazione del lavoro, consegna digitale"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Autenticazione, logout e blocco della sessione (Ctrl+Alt+Canc)"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Consegna digitale degli elaborati su Classroom"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Regolamento del laboratorio"
+     },
+     {
+      "liv": 0,
+      "testo": "Architettura del PC: componenti, configurazione a budget, assemblaggio e disassemblaggio"
+     },
+     {
+      "fonte": "12/11 ore 13-14 · firmata il 12/11 alle 13:49, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Modello di Von Neumann: CPU, RAM, memorie di massa, scheda madre"
+     },
+     {
+      "fonte": "24/09 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Standard hardware: form factor, socket, slot PCIe, RAM DDR"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "firmata 18/11 ore 9-10: da confermare a fine ora",
+      "stato": "DA FARE",
+      "testo": "Configurazione di un PC a budget e documentazione tecnica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Assemblaggio e disassemblaggio di un PC"
+     },
+     {
+      "liv": 0,
+      "testo": "Reti locali domestiche e manutenzione ordinaria del PC"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: firmato «modem e router» (access point da confermare)",
+      "stato": "DA FARE",
+      "testo": "Dispositivi di rete: modem, router, access point Wi-Fi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "firmata 18/11 ore 10-11: da confermare a fine ora",
+      "stato": "DA FARE",
+      "testo": "Manutenzione ordinaria e preventiva"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diagnosi dei guasti: metodo e fasi"
+     }
+    ]
+   },
+   {
+    "comp": "14",
+    "titolo": "Operare in sicurezza e nel rispetto delle norme di igiene e di salvaguardia ambientale, identificando e prevenendo situazioni di rischio per sé, per altri e per l'ambiente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sicurezza sul lavoro: le 16 lezioni del corso ufficiale; sicurezza dei dati e degli account"
+     },
+     {
+      "fonte": "22/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "1ª ora: concetti di rischio e danno"
+     },
+     {
+      "fonte": "29/10 ore 13-14 · firmata il 29/10 alle 10:33, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "2ª ora: prevenzione e protezione"
+     },
+     {
+      "fonte": "29/10 ore 13-14 · firmata il 29/10 alle 10:33, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "3ª ora: organizzazione della prevenzione aziendale"
+     },
+     {
+      "fonte": "04/11 ore 13-14 · firmata il 04/11 alle 09:24, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "4ª ora: organi di vigilanza, controllo e assistenza"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "5ª ora: rischio infortuni"
+     },
+     {
+      "fonte": "11/11 ore 13-14 · firmata l'11/11 alle 12:46, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "6ª ora: rischi meccanici ed elettrici generali"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "7ª ora: macchine e attrezzature"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "8ª ora: cadute dall'alto, esplosione, rischi chimici, nebbie, oli, fumi, vapori, polveri"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "9ª ora: rischi cancerogeni e biologici"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "10ª ora: radiazioni e rischi fisici, rumore, vibrazioni"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "11ª ora: microclima, illuminazione, videoterminali"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "12ª ora: DPI, organizzazione e ambiente di lavoro, stress lavoro-correlato"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "13ª ora: movimentazione manuale dei carichi e delle merci"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "14ª ora: segnaletica ed emergenza"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "15ª ora: rischio incendi, procedure di esodo, procedure di sicurezza"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "16ª ora: primo soccorso, incendi e infortuni mancati"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sicurezza dei dati: password, account, lavoro salvato in modo sicuro"
+     }
+    ]
+   },
+   {
+    "comp": "15",
+    "titolo": "Installare, configurare e utilizzare supporti informatici hardware e software tipici dell’office automation e della comunicazione digitale sulla base delle specifiche esigenze del cliente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Architettura del PC: componenti, configurazione a budget, assemblaggio e disassemblaggio"
+     },
+     {
+      "fonte": "12/11 ore 13-14 · firmata il 12/11 alle 13:49, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Modello di Von Neumann: CPU, RAM, memorie di massa, scheda madre"
+     },
+     {
+      "fonte": "24/09 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Standard hardware: form factor, socket, slot PCIe, RAM DDR"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "firmata 18/11 ore 9-10: da confermare a fine ora",
+      "stato": "DA FARE",
+      "testo": "Configurazione di un PC a budget e documentazione tecnica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Assemblaggio e disassemblaggio di un PC"
+     },
+     {
+      "liv": 0,
+      "testo": "Sviluppo di un videogioco 2D con Godot Engine: scene, nodi, risorse grafiche, esportazione per browser e smartphone"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Editor Godot: scena, nodi, Ispettore"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Importazione di risorse grafiche"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Esportazione per browser e smartphone"
+     },
+     {
+      "liv": 0,
+      "testo": "Programmazione a eventi con Lazarus (Free Pascal): form, componenti, proprietà, gestori di evento"
+     },
+     {
+      "fonte": "28/10 ore 8-11 · ARGOMENTI-SVOLTI; 30/10 ore 12-13 · firmata il 30/10 alle 08:43, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "IDE Lazarus: form e componenti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: TEdit e TButton in aula, TLabel e Caption da confermare",
+      "stato": "DA FARE",
+      "testo": "TButton, TEdit, TLabel e proprietà Caption"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: bottoni usati in aula, evento OnClick non nominato",
+      "stato": "DA FARE",
+      "testo": "Gestore dell'evento OnClick"
+     },
+     {
+      "liv": 0,
+      "testo": "File e file system: struttura ad albero delle cartelle, percorsi, estensioni, archiviazione locale, in rete e in cloud"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "File, cartelle e struttura ad albero"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Percorso assoluto e relativo"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Estensioni e tipi di file"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Archiviazione locale, in rete e in cloud"
+     },
+     {
+      "fonte": "13/11 ore 11-12 · firmata il 13/11 alle 12:19, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Copia, spostamento, ridenominazione ed eliminazione dei file"
+     }
+    ]
+   },
+   {
+    "comp": "16",
+    "titolo": "Eseguire la manutenzione ordinaria e straordinaria di sistemi, reti, dispositivi e terminali utenti, individuando eventuali anomalie e problemi di funzionamento",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Reti locali domestiche e manutenzione ordinaria del PC"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: firmato «modem e router» (access point da confermare)",
+      "stato": "DA FARE",
+      "testo": "Dispositivi di rete: modem, router, access point Wi-Fi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "firmata 18/11 ore 10-11: da confermare a fine ora",
+      "stato": "DA FARE",
+      "testo": "Manutenzione ordinaria e preventiva"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diagnosi dei guasti: metodo e fasi"
+     }
+    ]
+   },
+   {
+    "comp": "17",
+    "titolo": "Effettuare l’elaborazione, manutenzione e trasmissione di dati gestiti da archivi digitali",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "File e file system: struttura ad albero delle cartelle, percorsi, estensioni, archiviazione locale, in rete e in cloud"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "File, cartelle e struttura ad albero"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Percorso assoluto e relativo"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Estensioni e tipi di file"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Archiviazione locale, in rete e in cloud"
+     },
+     {
+      "fonte": "13/11 ore 11-12 · firmata il 13/11 alle 12:19, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Copia, spostamento, ridenominazione ed eliminazione dei file"
+     }
+    ]
+   }
+  ],
+  "2INF": [
+   {
+    "comp": "8",
+    "titolo": "Utilizzare le tecnologie informatiche per la comunicazione e la ricezione di informazioni",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Intelligenza artificiale generativa nello studio e nel lavoro: base documentale, prompt, limiti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Base documentale in Markdown per l'assistente AI"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Progettazione dei prompt"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Limiti, errori e regole d'uso"
+     },
+     {
+      "liv": 0,
+      "testo": "Produzione multimediale: fotoritocco, montaggio video, presentazione tecnica di un progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Fotoritocco e scontorno"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Montaggio video"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Presentazione tecnica di un progetto"
+     },
+     {
+      "liv": 0,
+      "testo": "Sicurezza informatica: phishing, deepfake, profilazione sui social, privacy"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Phishing e ingegneria sociale"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Deepfake"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Algoritmi di profilazione dei social"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Privacy"
+     }
+    ]
+   },
+   {
+    "comp": "12",
+    "titolo": "Definire e pianificare fasi delle operazioni da compiere, nel rispetto della normativa sulla sicurezza, sulla base delle istruzioni ricevute, della documentazione di appoggio (schemi, disegni, procedure, distinte materiali) e del sistema di relazioni.",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Controllo di versione e metodologia Agile: Manifesto, backlog, Pull Request, versionamento, changelog"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Manifesto Agile e principi"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Product backlog con stima a punti"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Pull Request: struttura e revisione"
+     },
+     {
+      "fonte": "29/10 ore 8-11 · firmata il 29/10 alle 10:31, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Versionamento, changelog e grafo dei commit"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Verifica di fine modulo"
+     },
+     {
+      "liv": 0,
+      "testo": "Lavoro in un team di sviluppo e profili professionali ICT"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Ruoli in un team di sviluppo"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Profili professionali ICT"
+     }
+    ]
+   },
+   {
+    "comp": "13",
+    "titolo": "Approntare, monitorare e curare la manutenzione ordinaria di strumenti, utensili, attrezzature e macchinari necessari alle diverse fasi di lavorazione/servizio sulla base della tipologia di materiali da impiegare, delle indicazioni/procedure previste, del risultato atteso",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Assemblaggio, riparazione e manutenzione del PC: diagnosi dei guasti, sostituzione dei componenti, scheda di intervento"
+     },
+     {
+      "fonte": "05/11 ore 8-9 · firmata il 05/11 alle 08:21, FIRME-REGISTRO; 05/11 ore 9-10 · firmata il 05/11 alle 10:47, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Assemblaggio e smontaggio di un PC"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diagnosi dei guasti hardware e software"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sostituzione e aggiornamento dei componenti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: firmato «Preventivo PC»; scheda di intervento da confermare",
+      "stato": "DA FARE",
+      "testo": "Scheda di intervento e preventivo per il cliente"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Individuazione e correzione degli errori nei programmi (debug)"
+     }
+    ]
+   },
+   {
+    "comp": "14",
+    "titolo": "Operare in sicurezza e nel rispetto delle norme di igiene e di salvaguardia ambientale, identificando e prevenendo situazioni di rischio per sé, per altri e per l'ambiente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sicurezza sul lavoro: le 16 lezioni del corso ufficiale"
+     },
+     {
+      "fonte": "01/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "1ª ora: concetti di rischio e danno"
+     },
+     {
+      "fonte": "09/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "2ª ora: prevenzione e protezione"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolta il 16/10 (registro delle attività), titolo firmato non letto",
+      "stato": "DA FARE",
+      "testo": "3ª ora: organizzazione della prevenzione aziendale"
+     },
+     {
+      "fonte": "21/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "4ª ora: organi di vigilanza, controllo e assistenza"
+     },
+     {
+      "fonte": "30/10 ore 9-10 · firmata il 30/10 alle 08:44, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "5ª ora: rischio infortuni"
+     },
+     {
+      "fonte": "13/11 ore 8-9 · firmata il 13/11 alle 08:12, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "6ª ora: rischi meccanici ed elettrici generali"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "7ª ora: macchine e attrezzature"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "8ª ora: cadute dall'alto, esplosione, rischi chimici, nebbie, oli, fumi, vapori, polveri"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "9ª ora: rischi cancerogeni e biologici"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "10ª ora: radiazioni e rischi fisici, rumore, vibrazioni"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "11ª ora: microclima, illuminazione, videoterminali"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "12ª ora: DPI, organizzazione e ambiente di lavoro, stress lavoro-correlato"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "13ª ora: movimentazione manuale dei carichi e delle merci"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "14ª ora: segnaletica ed emergenza"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "15ª ora: rischio incendi, procedure di esodo, procedure di sicurezza"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "16ª ora: primo soccorso, incendi e infortuni mancati"
+     }
+    ]
+   },
+   {
+    "comp": "15",
+    "titolo": "Installare, configurare e utilizzare supporti informatici hardware e software tipici dell’office automation e della comunicazione digitale sulla base delle specifiche esigenze del cliente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Programmazione in Lazarus: strutture di selezione if/then/else e selezioni annidate"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Struttura di selezione if/then/else"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Selezioni annidate e indentazione del codice"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Applicazioni di conversione: mph e km/h, °C e °F"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Esercitazioni: Indovina il numero, Cassa del cinema"
+     },
+     {
+      "liv": 0,
+      "testo": "Sviluppo di videogiochi con Godot Engine: scene, nodi, segnali, GDScript, game loop"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Scene, nodi e segnali"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "GDScript: variabili e funzioni"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Game loop: _process(delta)"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Ramo di sviluppo della classe e rilascio delle versioni"
+     },
+     {
+      "liv": 0,
+      "testo": "Programmazione in Lazarus: componenti avanzati, cicli, array e stringhe"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "RadioButton, ComboBox, PageControl"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolto il 19-22/10 (registro delle attività), titolo firmato non letto",
+      "stato": "DA FARE",
+      "testo": "Cicli for e while"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Array e stringhe"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Progetto MasterMind"
+     },
+     {
+      "liv": 0,
+      "testo": "Sistema operativo: installazione, configurazione, utenti e risorse condivise"
+     },
+     {
+      "fonte": "05/11 ore 10-11 · firmata il 05/11 alle 09:01, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Installazione del sistema operativo"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: utenti e Win10 Admin firmati; servizi e risorse condivise da confermare",
+      "stato": "DA FARE",
+      "testo": "Configurazione di utenti, servizi e risorse condivise"
+     },
+     {
+      "liv": 0,
+      "testo": "Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "voce più vicina alle lezioni web del 17/11 («HTML», «CSS»): da confermare",
+      "stato": "DA FARE",
+      "testo": "Pagine web del negozio"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Archivio dei prodotti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Gestione degli ordini via e-mail"
+     },
+     {
+      "liv": 0,
+      "testo": "Foglio di calcolo: formule, formattazione condizionale, grafici, preventivi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Formule e formattazione condizionale"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Grafici"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: firmato «Preventivo PC», non provato che sia il foglio di calcolo",
+      "stato": "DA FARE",
+      "testo": "Preventivo"
+     }
+    ]
+   },
+   {
+    "comp": "16",
+    "titolo": "Eseguire la manutenzione ordinaria e straordinaria di sistemi, reti, dispositivi e terminali utenti, individuando eventuali anomalie e problemi di funzionamento",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Reti di calcolatori: indirizzamento IP, MAC, DHCP, DNS, gateway; simulazione con Cisco Packet Tracer"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolto il 02/11 (registro delle attività), titolo firmato non letto",
+      "stato": "DA FARE",
+      "testo": "Indirizzo IP, indirizzo MAC, gateway"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolto il 02/11 (registro delle attività), titolo firmato non letto",
+      "stato": "DA FARE",
+      "testo": "Servizi DHCP e DNS"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Simulazione di una rete con Packet Tracer"
+     },
+     {
+      "liv": 0,
+      "testo": "Assemblaggio, riparazione e manutenzione del PC: diagnosi dei guasti, sostituzione dei componenti, scheda di intervento"
+     },
+     {
+      "fonte": "05/11 ore 8-9 · firmata il 05/11 alle 08:21, FIRME-REGISTRO; 05/11 ore 9-10 · firmata il 05/11 alle 10:47, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Assemblaggio e smontaggio di un PC"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diagnosi dei guasti hardware e software"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sostituzione e aggiornamento dei componenti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "parziale: firmato «Preventivo PC»; scheda di intervento da confermare",
+      "stato": "DA FARE",
+      "testo": "Scheda di intervento e preventivo per il cliente"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Individuazione e correzione degli errori nei programmi (debug)"
+     }
+    ]
+   },
+   {
+    "comp": "17",
+    "titolo": "Effettuare l’elaborazione, manutenzione e trasmissione di dati gestiti da archivi digitali",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Programmazione in Lazarus: componenti avanzati, cicli, array e stringhe"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "RadioButton, ComboBox, PageControl"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolto il 19-22/10 (registro delle attività), titolo firmato non letto",
+      "stato": "DA FARE",
+      "testo": "Cicli for e while"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Array e stringhe"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Progetto MasterMind"
+     },
+     {
+      "liv": 0,
+      "testo": "Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "voce più vicina alle lezioni web del 17/11 («HTML», «CSS»): da confermare",
+      "stato": "DA FARE",
+      "testo": "Pagine web del negozio"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Archivio dei prodotti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Gestione degli ordini via e-mail"
+     },
+     {
+      "liv": 0,
+      "testo": "Foglio di calcolo: formule, formattazione condizionale, grafici, preventivi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Formule e formattazione condizionale"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Grafici"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: firmato «Preventivo PC», non provato che sia il foglio di calcolo",
+      "stato": "DA FARE",
+      "testo": "Preventivo"
+     }
+    ]
+   }
+  ],
+  "3INF": [
+   {
+    "comp": "8",
+    "titolo": "Utilizzare le tecnologie informatiche per la comunicazione e la ricezione di informazioni",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sicurezza informatica e privacy: dati personali, diritto d'autore, licenze"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Dati personali e GDPR"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Diritto d'autore e licenze dei contenuti"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Rispetto del lavoro altrui nel progetto condiviso"
+     }
+    ]
+   },
+   {
+    "comp": "12",
+    "titolo": "Definire e pianificare fasi delle operazioni da compiere, nel rispetto della normativa sulla sicurezza, sulla base delle istruzioni ricevute, della documentazione di appoggio (schemi, disegni, procedure, distinte materiali) e del sistema di relazioni.",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sviluppo collaborativo: fork, branch, Pull Request, merge, release; metodologia Agile e Scrum"
+     },
+     {
+      "fonte": "21/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Fork e branch"
+     },
+     {
+      "fonte": "21/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Pull Request, merge e risoluzione dei conflitti"
+     },
+     {
+      "fonte": "10/11 ore 10-11 · firmata il 10/11 alle 10:24, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Release e changelog"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Backlog, sprint, review e retrospettiva"
+     },
+     {
+      "fonte": "19/10 · ARGOMENTI-SVOLTI · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Verifica e recupero"
+     },
+     {
+      "liv": 0,
+      "testo": "Documentazione tecnica: manuale utente, relazione tecnica, note di rilascio, presentazione del progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Manuale utente"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Relazione tecnica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Changelog e note di rilascio"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Presentazione del progetto"
+     },
+     {
+      "liv": 0,
+      "testo": "Esame di qualifica: prova tecnica e presentazione del proprio lavoro"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Prova di qualifica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Presentazione tecnica del progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Colloquio tecnico con un'azienda"
+     }
+    ]
+   },
+   {
+    "comp": "13",
+    "titolo": "Approntare, monitorare e curare la manutenzione ordinaria di strumenti, utensili, attrezzature e macchinari necessari alle diverse fasi di lavorazione/servizio sulla base della tipologia di materiali da impiegare, delle indicazioni/procedure previste, del risultato atteso",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sviluppo di videogiochi con Godot Engine: GDScript, game loop, collisioni, dati in JSON"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Migrazione del progetto da HTML a Godot"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "GDScript e game loop"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collisioni, aree e punteggio"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Dati di configurazione in JSON"
+     }
+    ]
+   },
+   {
+    "comp": "14",
+    "titolo": "Operare in sicurezza e nel rispetto delle norme di igiene e di salvaguardia ambientale, identificando e prevenendo situazioni di rischio per sé, per altri e per l'ambiente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sicurezza in laboratorio: postazione al videoterminale, protezione dei dati e degli account"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Ergonomia della postazione al videoterminale"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Protezione dei dati e degli account"
+     }
+    ]
+   },
+   {
+    "comp": "15",
+    "titolo": "Installare, configurare e utilizzare supporti informatici hardware e software tipici dell’office automation e della comunicazione digitale sulla base delle specifiche esigenze del cliente",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sviluppo web: HTML5, CSS3, pubblicazione su GitHub Pages, portfolio delle competenze"
+     },
+     {
+      "fonte": "16/11 ore 8-9 · firmata il 16/11 alle 09:16, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Struttura della pagina in HTML5"
+     },
+     {
+      "fonte": "16/11 ore 9-10 · firmata il 16/11 alle 09:20, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Fogli di stile CSS3"
+     },
+     {
+      "fonte": "16/11 ore 8-9 · firmata il 16/11 alle 09:16, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Pubblicazione su GitHub Pages"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Commit e cronologia delle modifiche"
+     },
+     {
+      "fonte": "16/11 ore 9-10 · firmata il 16/11 alle 09:20, FIRME-REGISTRO · confermato dal docente",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Navigazione multipagina e menu"
+     },
+     {
+      "fonte": "16/11 ore 10-11 · firmata il 16/11 alle 09:41, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Portfolio delle competenze"
+     },
+     {
+      "liv": 0,
+      "testo": "Sviluppo di videogiochi con Godot Engine: GDScript, game loop, collisioni, dati in JSON"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Migrazione del progetto da HTML a Godot"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "GDScript e game loop"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collisioni, aree e punteggio"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Dati di configurazione in JSON"
+     },
+     {
+      "liv": 0,
+      "testo": "Comunicazione digitale per il cliente: contenuti web e sito su GitHub Pages"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Contenuti per il web"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sito per un cliente su GitHub Pages"
+     }
+    ]
+   },
+   {
+    "comp": "16",
+    "titolo": "Eseguire la manutenzione ordinaria e straordinaria di sistemi, reti, dispositivi e terminali utenti, individuando eventuali anomalie e problemi di funzionamento",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Reti locali: cablaggio RJ45, indirizzamento IP, simulazione con Cisco Packet Tracer"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Cavo RJ45, standard T568B"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Realizzazione e collaudo di una LAN con il ping"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Indirizzamento IP"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Simulazione con Packet Tracer"
+     }
+    ]
+   },
+   {
+    "comp": "17",
+    "titolo": "Effettuare l’elaborazione, manutenzione e trasmissione di dati gestiti da archivi digitali",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Basi di dati: modello relazionale, tabelle, linguaggio SQL, analisi dei dati"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Concetto di database"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Tabelle, campi e chiavi"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Interrogazioni SQL"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Raccolta e analisi dei dati"
+     }
+    ]
+   }
+  ],
+  "4TI": [
+   {
+    "comp": "7",
+    "titolo": "Utilizzare le reti e gli strumenti informatici in maniera consapevole nelle attività di studio, ricerca, sociali e professionali",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Etica professionale: protezione dei dati, normativa, intelligenza artificiale nel lavoro"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Protezione dei dati e GDPR"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Normativa e codice etico"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Intelligenza artificiale: usi e limiti nel lavoro"
+     }
+    ]
+   },
+   {
+    "comp": "13",
+    "titolo": "Elaborare prodotti di comunicazione che descrivono prodotti, servizi, componenti o applicazioni conformi con i requisiti relativi alla documentazione, identificando e selezionando lo stile e il media appropriato per il materiale di presentazione",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Progetto individuale: applicazione in Lazarus o architettura di rete, dall'analisi al rilascio, con controllo di versione"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Analisi dei requisiti e scelta del progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sviluppo in Lazarus o progettazione della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Controllo di versione con Git"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collaudo e rilascio"
+     },
+     {
+      "liv": 0,
+      "testo": "Documentazione tecnica: relazione, manuale utente, presentazione; Git e NotebookLM"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "voce più vicina a «Documentazione tecnica del progetto» (17/11): da confermare",
+      "stato": "DA FARE",
+      "testo": "Relazione tecnica"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Manuale utente"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "voce più vicina a «Presentazione del progetto individuale» (17/11): da confermare",
+      "stato": "DA FARE",
+      "testo": "Presentazione del progetto"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Git e intelligenza artificiale con NotebookLM"
+     }
+    ]
+   },
+   {
+    "comp": "14",
+    "titolo": "Curare gli interventi necessari pianificati per implementare la soluzione, tra cui l’installazione, l’aggiornamento e la dismissione, registrando tutte le informazioni rilevanti, compreso gli indirizzi delle apparecchiature, i dati di configurazione e di performance",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Progettazione di una rete in Cisco Packet Tracer: switch, router, VLAN, collaudo (si tiene se la classe ci arriva)"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Progetto logico della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Configurazione di switch, router e VLAN"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collaudo con il ping e documentazione"
+     },
+     {
+      "liv": 0,
+      "testo": "Progetto individuale: applicazione in Lazarus o architettura di rete, dall'analisi al rilascio, con controllo di versione"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Analisi dei requisiti e scelta del progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sviluppo in Lazarus o progettazione della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Controllo di versione con Git"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collaudo e rilascio"
+     }
+    ]
+   },
+   {
+    "comp": "15",
+    "titolo": "Collaborare all’implementazione delle politiche della sicurezza dell’informazione, controllando e attuando interventi a fronte di intrusioni, frodi e buchi o falle della sicurezza al fine di assicurare che i rischi legati siano analizzati e gestiti per i dati e le informazioni aziendali.",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Sicurezza dell'informazione: firewall, segmentazione, autenticazione, backup, phishing, intrusioni"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Firewall e segmentazione della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Autenticazione, password e backup"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Phishing e intrusioni: rilevamento e contromisure"
+     }
+    ]
+   },
+   {
+    "comp": "16",
+    "titolo": "Installare hardware, software o componenti di sottosistema in un sistema esistente o proposto, conformandosi ai processi e alle procedure definite, identificando la compatibilità delle specifiche hardware e software e proponendo eventuali azioni di recupero",
+    "voci": [
+     {
+      "liv": 0,
+      "testo": "Modelli di riferimento ISO/OSI e TCP/IP: livelli, incapsulamento, viaggio di un pacchetto"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "I 7 livelli ISO/OSI"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Il modello TCP/IP"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Incapsulamento: il viaggio di un pacchetto, livello per livello"
+     },
+     {
+      "liv": 0,
+      "testo": "Indirizzamento IPv4 e subnetting: maschera, gateway, DHCP, DNS"
+     },
+     {
+      "fonte": "10/11 ore 11-13 · firmata il 10/11 alle 10:25, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Indirizzo IPv4 e maschera di rete"
+     },
+     {
+      "fonte": "10/11 ore 11-13 · firmata il 10/11 alle 10:25, FIRME-REGISTRO",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Subnetting"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "da confermare: svolto il 03/11 solo come previsto",
+      "stato": "DA FARE",
+      "testo": "Gateway, DHCP e DNS"
+     },
+     {
+      "liv": 0,
+      "testo": "Progettazione di una rete in Cisco Packet Tracer: switch, router, VLAN, collaudo (si tiene se la classe ci arriva)"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Progetto logico della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Configurazione di switch, router e VLAN"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collaudo con il ping e documentazione"
+     },
+     {
+      "liv": 0,
+      "testo": "Progetto individuale: applicazione in Lazarus o architettura di rete, dall'analisi al rilascio, con controllo di versione"
+     },
+     {
+      "fonte": "confermato dal docente (svolto-2026-27.json)",
+      "liv": 1,
+      "nota": "",
+      "stato": "FATTO",
+      "testo": "Analisi dei requisiti e scelta del progetto"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Sviluppo in Lazarus o progettazione della rete"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Controllo di versione con Git"
+     },
+     {
+      "fonte": "",
+      "liv": 1,
+      "nota": "",
+      "stato": "DA FARE",
+      "testo": "Collaudo e rilascio"
+     }
+    ]
+   }
+  ]
+ }
+}
