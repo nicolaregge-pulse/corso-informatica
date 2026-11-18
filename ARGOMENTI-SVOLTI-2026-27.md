@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.14** — 18/11/2026
+**Versione 1.15** — 18/11/2026
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -111,8 +111,8 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 18/11/2026 | 1INF 8-9, Impresa simulata (LAB). (presenti 19 su 23; un allievo è entrato alle 9). Sul registro (firmato 18/11 alle 08:28): «Configurazione di un PC a budget»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 18/11/2026 | 1INF 9-10, Impresa simulata (LAB). (presenti 20 su 23 e 2 rientrati da verificare, 1 assente). Sul registro (firmato 18/11 alle 08:28): «PC a budget: prove e documentazione»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 18/11/2026 | 1INF 10-11, Laboratorio professionale. (presenti 20 su 23 e 2 rientrati da verificare, 1 assente). Sul registro (firmato 18/11 alle 08:29): «Manutenzione ordinaria e preventiva»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
-| 18/11/2026 | 3INF 11-12, Laboratorio professionale. (presenze non verificate). Sul registro (firmato 18/11 alle 08:31): «Sviluppo web: pagina Presenze stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
-| 18/11/2026 | 3INF 12-13, Laboratorio professionale. (presenze non verificate). Sul registro (firmato 18/11 alle 08:33): «Sviluppo web: diario dello stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 3INF 11-12, Laboratorio professionale. (presenti 20 su 21, uno «Altro», 1 assente; registro delle 11:39). Sul registro (firmato 18/11 alle 08:31): «Sviluppo web: pagina Presenze stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 18/11/2026 | 3INF 12-13, Laboratorio professionale. (presenti 20 su 21, uno «Altro», 1 assente; registro delle 11:39). Sul registro (firmato 18/11 alle 08:33): «Sviluppo web: diario dello stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 18/11/2026 | 1INF 13-14, Tecnologia professionale. (presenti 19 su 23 (registro di classe)). ORA FIRMATA IN ANTICIPO, prima della lezione; Sul registro (firmato 18/11 alle 08:29): «Architettura del PC: componenti»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
@@ -179,3 +179,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 23. **v1.12 (18/11/2026)**: aggiunte le righe del 18/11 con i titoli del registro (screenshot del docente delle 08:36-08:37; FIRME-REGISTRO v3.5): 1INF 8-9, 9-10, 10-11 e 13-14 (quest'ultima firmata in anticipo, prima della lezione), 3INF 11-12 e 12-13; presenze 1INF 19 su 23, 3INF non verificate; nessuna voce dell'Allegato A aggiunta (R5.2).
 24. **v1.13 (18/11/2026)**: presenze 1INF corrette: 19 su 23 alle 8-9, 20 su 23 dalle 9-10 (un allievo entrato alle 9, detto dal docente); nessun'altra modifica.
 25. **v1.14 (18/11/2026)**: presenze 1INF dalle 9-10: 20 su 23 e 2 rientrati a ora non nota (da verificare), 1 assente; nessun'altra modifica.
+26. **v1.15 (18/11/2026)**: presenze 3INF del 18/11 dalle 11-12 e 12-13: 20 presenti su 21 e 1 assente (registro delle 11:39); titoli già presenti, nessuna voce dell'Allegato A aggiunta.

@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.7** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 3.8** — 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -138,7 +138,7 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 5. Ora 12-13, 3INF, Laboratorio professionale: FIRMATA il 18/11/2026 alle 08:33:00, argomento «Sviluppo web: diario dello stage».
 6. Ora 13-14, 1INF, Tecnologia professionale: FIRMATA il 18/11/2026 alle 08:29:00, argomento «Architettura del PC: componenti». **Firmata in anticipo, prima della lezione** (le 13:00 sono dopo le 08:29): l'argomento scritto è quello previsto, il contenuto realmente svolto va confermato a fine ora.
 7. Presenze 1INF del 18/11 (registro di classe, tipo formazione Aula): ora 8-9 19 presenti e 4 assenti su 23 in elenco (screenshot delle 08:37); dalle 9-10, mattina del 18/11, da verificare: 20 presenti, 2 rientrati a ora non nota (presenti da verificare) e 1 assente; il registro alle 08:37 mostrava assenti anche loro: va aggiornato dal docente; i nomi stanno solo nel riservato.
-8. Presenze 3INF del 18/11: non nello screenshot, **non verificato**.
+8. Presenze 3INF del 18/11 (registro DIDAweb, screenshot del docente delle 11:39): 21 allievi attivi, ore 11-12 e 12-13 20 presenti (uno segnato «Altro» = presente) e 1 assente; i nomi stanno solo nel riservato. Le ore 8-10 sul registro della classe sono di Tecnologia professionale (altro docente), la 10-11 di Matematica (altro docente), la 13-14 è Placement: non nostre.
 
 ## Changelog
 
@@ -170,3 +170,4 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 25. v3.5 (18/11/2026, 08:37): screenshot del registro DIDAweb delle 08:36-08:37: mercoledì 18/11 tutte le 6 ore firmate (1INF 08:28, 08:28, 08:29 e 13-14 firmata in anticipo alle 08:29; 3INF 08:31 e 08:33) con i titoli del registro; presenze 1INF 19 su 23 (senza nomi); presenze 3INF non verificate.
 26. v3.6 (18/11/2026): presenze 1INF corrette: ora 8-9 19 presenti e 4 assenti, dalle 9-10 20 presenti e 3 assenti (un allievo entrato alle 9, detto dal docente; registro delle 08:37 ancora «Assente»: da verificare).
 27. v3.7 (18/11/2026): presenze 1INF: due allievi rientrati a ora non nota (presenti da verificare), un solo assente dalle 9-10; da aggiornare sul registro.
+28. v3.8 (18/11/2026, 11:39): presenze 3INF del 18/11 dal registro: 20 presenti e 1 assente su 21 nelle ore 11-13 (senza nomi).
