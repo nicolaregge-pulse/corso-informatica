@@ -1,6 +1,6 @@
 # 00 Prove salvate su Classroom 2026/27
 
-**Versione 0.6** — 18/11/2026 — Area Docente (v0.6: 4TI, prova «Documento del progetto» del 17/11 (ora 4) registrata, capitolo 02quater; le «Verifica reti 1 e 2» (ore 4 e 5) marcate «sostituita da» secondo FIRME-REGISTRO; prima v0.5: 2INF, voti del quiz di teoria registrati sul registro il 17/11 (ora 2, colonna G 17 H 2), non pubblicati alle famiglie; prima v0.4: capitolo 02ter, i due quiz di teoria del 17/11 di 2INF e 4TI con punti, scala 50-70 e voto sul registro «da fare», e la regola della prova registrata; prima v0.3, 16/11/2026: 4TI, due verifiche di teoria sulle reti con Moduli, capitolo 02bis; v0.2, 19/10/2026). Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
+**Versione 0.7** — 18/11/2026 — Area Docente (v0.7: 1INF, tre prove del 18/11 (ore 1, 2 e 6) registrate, capitolo 02quinquies, conteggio 1INF da 3 a 6, scala dei voti da definire, consegne su Classroom non provate; prima v0.6: 4TI, prova «Documento del progetto» del 17/11 (ora 4) registrata, capitolo 02quater; le «Verifica reti 1 e 2» (ore 4 e 5) marcate «sostituita da» secondo FIRME-REGISTRO; prima v0.5: 2INF, voti del quiz di teoria registrati sul registro il 17/11 (ora 2, colonna G 17 H 2), non pubblicati alle famiglie; prima v0.4: capitolo 02ter, i due quiz di teoria del 17/11 di 2INF e 4TI con punti, scala 50-70 e voto sul registro «da fare», e la regola della prova registrata; prima v0.3, 16/11/2026: 4TI, due verifiche di teoria sulle reti con Moduli, capitolo 02bis; v0.2, 19/10/2026). Il conteggio, classe per classe, delle prove con il lavoro dei ragazzi salvato su Classroom: è la traccia digitale valida per la Regione (RIFERIMENTI §2.55, CLAUDE.md regola 16).
 
 > **Nota:** minimo 2 prove per quadrimestre per classe; il nostro obiettivo è 3-4. Una prova vale se il lavoro del ragazzo sta dentro Classroom: Modulo Google allegato al compito, oppure consegna nel compito.
 
@@ -10,7 +10,7 @@
 
 | Classe | Prove finora | Obiettivo | Stato |
 |---|---|---|---|
-| 1INF | 3 | 3-4 | raggiunto il minimo |
+| 1INF | 6 | 3-4 | obiettivo superato; le 3 prove del 18/11 sono registrate ma le consegne su Classroom non sono provate (capitolo 02quinquies) |
 | 2INF | 5 | 3-4 | obiettivo raggiunto |
 | 3INF | 3 | 3-4 | raggiunto il minimo dell'obiettivo |
 | 4TI | 2 | 3-4 (R5.5: almeno 3) | manca almeno una prova per le 3 della R5.5: il Documento del 17/11 è registrato (capitolo 02quater); le due «Verifica reti» del 17/11 sono sostituite (capitolo 02bis); il quiz di teoria dell'ora 3 (capitolo 02ter) non è contato finché non è provato che il Moduli sta nel compito di Classroom |
@@ -21,6 +21,9 @@
    1. 02/10: Divisioni per 2 e conversione in binario (compiti 1-3, consegna su Classroom, voti)
    2. 09/10: Versioni e Git, la storia del Treno blindato (compito unico, consegna su Classroom)
    3. 14/10: La mia talpa (verifica della lezione su Godot)
+   4. 18/11, ora 1 (8-9): «18/11 Ora 1: Il configuratore e due preventivi» (esercitazione con Documento Google; capitolo 02quinquies)
+   5. 18/11, ora 2 (9-10): «18/11 Ora 2: Benchmark: come va il mio PC» (esercitazione con Documento Google; capitolo 02quinquies)
+   6. 18/11, ora 6 (13-14): «18/11 Ora 6: Il check di tutti i PC» (check con Documento Google; capitolo 02quinquies)
 2. 2INF
    1. 01/10: Sicurezza, modulo 1 rischio e danno (quiz su Google Moduli)
    2. 07/10: Quiz 1, Cosa scrive il programma? (if/then/else)
@@ -71,7 +74,20 @@ Decisione del docente del 18/11/2026: il Documento del progetto della 4TI dell'o
 
 Come sono nati i punti: criterio di crescita della correzione v1.2 (nel riservato). Il docente ha confermato i voti; lo stato «Consegnato» su Classroom e la presenza degli allievi non sono provati qui. Valgono per questa prova le stesse regole della prova registrata (capitolo 02ter): titolo, data, ora, tipo, punti e voto uguali su Classroom, Drive e registro DIDAweb, da controllare con `controlla_coerenza_prove.py`; il titolo del compito su Classroom va confermato dal docente.
 
+## 02quinquies 1INF: le tre prove del 18/11/2026 (ore 1, 2 e 6)
+
+Richiesta del docente del 18/11/2026: registrare come prove i lavori di oggi della 1INF (R5.5). Nessun nome di allievo in questo file: chi ha consegnato sta nel riservato. Fonti: i pacchetti Classroom del 18/11 e `FIRME-REGISTRO-2026-27.md` v3.9 (righe del 18/11). Le ore e le date di consegna indicate dal docente (ora 2 alle 10:45, ora 6 alle 13:50) non sono scritte nei pacchetti: dato del docente, non provato sul compito.
+
+| Classe | Data | Ora | Titolo Classroom | Titolo sul registro DIDAweb | Tipo | Consegna | Scala del voto | Stato |
+|---|---|---|---|---|---|---|---|---|
+| 1INF | 18/11/2026 | 1 (8-9) | «18/11 Ora 1: Il configuratore e due preventivi» | «Configurazione di un PC a budget» (firmata 18/11 alle 08:28) | Esercitazione: due preventivi di un computer (cliente ufficio 500 euro, cliente studio 600 euro) con il configuratore del sito | Documento Google (una copia per allievo) e bottone «Consegna» sul compito | da definire (nessuna scala confermata dal docente per questa prova) | prova registrata; consegne: non provato (Classroom non leggibile da qui) |
+| 1INF | 18/11/2026 | 2 (9-10) | «18/11 Ora 2: Benchmark: come va il mio PC» | «PC a budget: prove e documentazione» (firmata 18/11 alle 08:28) | Esercitazione: benchmark del PC configurato nell'ora 1 (tre giochi e l'ufficio, FPS in tabella) | Documento Google (una copia per allievo), consegna alle 10:45 (dato del docente) | da definire | prova registrata; consegne: non provato (Classroom non leggibile da qui) |
+| 1INF | 18/11/2026 | 6 (13-14) | «18/11 Ora 6: Il check di tutti i PC» | «Architettura del PC: componenti» (firmata in anticipo il 18/11 alle 08:29: il contenuto svolto, il check dei PC, va confermato dal docente) | Check dei PC dell'aula: 7 controlli con scheda PC e tabella di confronto | Documento Google (modello di 3 pagine: scheda PC e tabella di confronto), consegna alle 13:50 (dato del docente) | da definire | prova registrata; consegne: non provato (Classroom non leggibile da qui) |
+
+Titolo sul registro: letto da `FIRME-REGISTRO-2026-27.md` v3.9, non verificato oggi su DIDAweb. Il «titolo Classroom» è quello dei pacchetti; che il compito sia stato davvero pubblicato su Classroom con questo titolo non è provato qui (R2, R7). Valgono le stesse regole della prova registrata (capitolo 02ter): titolo, data, ora, tipo, punti e voto uguali su Classroom, Drive e registro, da controllare con `controlla_coerenza_prove.py`. Voti: nessuno inserito e nessuno confermato; la scala la decide il docente.
+
 ## 03 Registro delle versioni
+7. **v0.7 (18/11/2026)**: 1INF, nuovo capitolo 02quinquies con le tre prove del 18/11 (ora 1 «Il configuratore e due preventivi», ora 2 «Benchmark: come va il mio PC», ora 6 «Il check di tutti i PC»), con titolo Classroom, titolo sul registro DIDAweb da `FIRME-REGISTRO-2026-27.md` v3.9, tipo, consegna e scala «da definire»; conteggio prove 1INF da 3 a 6 (capitoli 01 e 02); consegne su Classroom e voti: non provati e non assegnati. Richiesta del docente, 18/11/2026. Nessun nome di allievo.
 6. **v0.6 (18/11/2026)**: 4TI, nuovo capitolo 02quater con la prova «Documento del progetto» del 17/11 (ora 4, 11-12, titolo sul registro «Documentazione tecnica del progetto», 9 consegne su 9 corrette, scala 40-80 = 40 + 10 × punti con 4 voci, voti confermati dal docente e da inserire sul registro, non inseriti); conteggio prove 4TI da 1 a 2; le righe «Verifica reti 1» (ora 4) e «Verifica reti 2» (ora 5) del capitolo 02bis non sono cancellate ma marcate «sostituita da» secondo `FIRME-REGISTRO-2026-27.md` v3.4 (ora 4 Documento, ora 5 Presentazione); capitoli 00 e 02ter allineati. Decisione del docente, 18/11/2026. Nessun nome di allievo. Nota: il testo «minimo 2 prove» del capitolo 00 è precedente alla R5.5 (almeno 3): non cambiato, la tabella 01 scrive l'obiettivo della R5.5 per la 4TI.
 5. **v0.5 (17/11/2026)**: 2INF, riga del quiz di teoria: voto sul registro «inserito il 17/11 (ora 2, colonna G 17 H 2), non pubblicato alle famiglie; 16 voti, 4 assenti da recuperare». Fonte: screenshot del registro DIDAweb del docente, 17/11/2026 ore 10:35 circa (non visto da Claude); il pulsante PUBBLICA non è stato premuto. La riga 4TI resta «da fare».
 4. **v0.4 (17/11/2026)**: capitolo 02ter, i quiz di teoria del 17/11 di 2INF (40 punti) e 4TI (60 punti), scala 50-70, voto sul registro «da fare», regola della prova registrata e controllo `controlla_coerenza_prove.py` (richiesta del docente, 17/11/2026).
