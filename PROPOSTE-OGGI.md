@@ -1,6 +1,6 @@
 # Proposte di lezione di oggi
 
-**Versione 1.10** — 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente) — documento interno per il docente, senza nomi di allievi
+**Versione 1.11** — 20/11/2026 (notte; prima: 1.10, 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente)) — documento interno per il docente, senza nomi di allievi
 
 Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (screenshot del docente, riportato in `FIRME-REGISTRO-2026-27.md`). Le lezioni le ha già scelte il docente il 17/11 e sono già preparate: questa notte non si rifanno proposte. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
 
@@ -13,3 +13,12 @@ Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (scr
 1. **Il mio sito: Stage e Presenze** (scelta del docente). Tutorial guidato per finire i siti personali (Chi sono, Hobby, Competenze, descrizione dello stage, Presenze con nota giornaliera) e preparare lo stage dal 23/11. Titoli del registro: ora 11-12 «Sviluppo web: pagina Presenze stage», ora 12-13 «Sviluppo web: diario dello stage». Pagina `docs/3inf/sito-stage/`, PDF in `classe-3/sito-stage/`. (v1.8, 18/11: corretto il titolo e il contenuto della v1.7.)
 
 Le altre classi non hanno lezione il 18/11.
+
+## Aggiornamento 20/11/2026 (notte tra il 19 e il 20, v1.11)
+
+Orario di venerdì 20/11 dal registro DIDAweb (`FIRME-REGISTRO-2026-27.md`, riga 8). Le lezioni le ha già scelte il docente e sono già preparate: questa notte non si rifanno proposte.
+
+1. **2INF, ore 8-10 Informatica:** il mio sito diventa un negozio, in solo HTML con carrello e finta email di conferma (scelta del docente, 19/11). Pagina `docs/2inf-negozio/`, modello `classe-2/negozio-html/`.
+2. **1INF, ore 11-14 Laboratorio professionale:** il tecnico dell'aula, con la riparazione dei PC assemblati rotti (scelta del docente).
+
+Nulla è pubblicato su Classroom: serve il PUBB n del docente.
