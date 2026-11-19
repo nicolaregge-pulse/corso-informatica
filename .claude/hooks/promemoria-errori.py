@@ -17,6 +17,7 @@ from zoneinfo import ZoneInfo
 # v1.3 (18/11/2026 sera): al primo messaggio umano del giorno si ordina anche di seguire, PRIMA di rispondere nel merito,
 # report/PROCEDURA-MATTINA-<ultima versione>.md del riservato (percorso completo, versione più alta trovata sul disco;
 # CORSO_RISERVATO sposta la cartella per le prove). Nessuna scrittura, nessun trigger.
+# v1.5 (19/11/2026): punta a INFO-PIU-USATE-v1.4.md (sezione 11, 5 dati per ora).
 # v1.4 (19/11/2026): punta a INFO-PIU-USATE-v1.3.md (sezione «Prima di consegnare un kit», errore #376).
 # v1.3 (19/11/2026): punta a INFO-PIU-USATE-v1.3.md (voce «Come si crea un quiz», errore #375).
 # v1.2 (18/11/2026): il segnale «primo messaggio del giorno» lo consuma solo un messaggio UMANO (non i prompt di
@@ -30,7 +31,7 @@ RILETTURA = (
     "DIDAweb (docs/docenti/02-didaweb-i-segnalibri-che-scrivono-i-voti.html, con /home/user/corso-informatica-riservato/strumenti/didaweb-auto.js). Le "
     "modalità già decise dal docente (per esempio i voti DIDAweb col segnalibro «Voti DIDAweb AUTO» e il pacchetto; "
     "il codice da copiare in UN riquadro da solo in FONDO, R4 3ter) NON si cambiano: se un metodo esiste già, si usa "
-    "quello. PRIMA di dare passi al docente leggi anche /home/user/corso-informatica-riservato/report/INFO-PIU-USATE-v1.3.md "
+    "quello. PRIMA di dare passi al docente leggi anche /home/user/corso-informatica-riservato/report/INFO-PIU-USATE-v1.4.md "
     "(o l'ultima versione presente in report/) e, se esiste, il file delle cose da fare di oggi: il più recente tra "
     "/home/user/corso-informatica-riservato/report/*/COSE-DA-FARE-<GG-MM di oggi>*.md, ESCLUSI i file con BOZZA nel nome, versione più alta (-vN.N; senza versione = v1.0) o, a parità, la più recente per data (lo scrive la sera prima il "
     "controllore di fine giornata; se manca, dillo nella riga). Poi dici in una riga di averle rilette e quante cose "
