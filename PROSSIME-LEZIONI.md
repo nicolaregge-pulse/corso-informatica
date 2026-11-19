@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.0** — 19/11/2026
+**Versione 2.1** — 19/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -145,6 +145,7 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 9. v1.9 (18/11/2026, ore 09:5x): decisione del docente: i budget dei tre preventivi della 1INF restano 500, 600 e 1000 euro (i ragazzi lavorano con i materiali che li dicono); la v1.8 li aveva portati a 450/600/900 per un equivoco. Fonte unica `config/budget-1inf-1811.json` v2.0.
 
 10. v2.0 (19/11/2026): sezione di venerdì 20 novembre con la visione degli ultimi quindici giorni e tre proposte non sviluppate per la seconda informatica e per la prima. Senza nomi: i dettagli per allievo stanno solo nel riservato.
+11. v2.1 (19/11/2026, pomeriggio): per venerdì 20 novembre preparata, come bozza provvisoria, la prima proposta di ciascuna classe (scelta provvisoria di Claude, il prof può cambiare domattina). Senza nomi; nulla è pubblicato su Classroom.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
@@ -178,3 +179,12 @@ Seconda proposta, «Il programma che decide»: esercitazione Lazarus, voce più 
 
 Terza proposta, «Esadecimale e colori del web»: teoria a schede, gioco a coppie e quiz, voce «Sistema esadecimale». Vinci subito: scrivere il proprio colore in numeri. Fallo tuo: tre numeri in esadecimale e il colore di un oggetto. Mostralo: una tavolozza di cinque colori con i codici. Si riusa la pagina «Il tuo nome in binario e i colori».
 
+
+
+### Bozza provvisoria preparata per venerdì 20 novembre
+
+Scelta provvisoria di Claude: il prof può cambiare domattina. Nulla è pubblicato su Classroom; si pubblica solo l'ora in corso con il suo comando.
+
+Seconda informatica, ore 8-9 e 9-10, «Il mio sito diventa un negozio»: nella prima ora la pagina del negozio con una tabella di tre prodotti, il menu e il primo commit; nella seconda ora lo stile con classe e id, un secondo e un terzo commit e la storia dei commit su GitHub. Pronti il foglio per i ragazzi di ogni ora, un foglio di ripartenza per chi ha il repository con un nome diverso o non lo ha, e un quiz su Moduli per ogni ora, nella Fabbrica. Solo italiano.
+
+Prima informatica, ore 11-12, 12-13 e 13-14, «Il tecnico dell'aula»: nella prima ora il metodo in quattro fasi su un caso facile; nella seconda ora, a coppie, uno di tre guasti veri dell'aula (disco quasi pieno, profilo temporaneo, dominio non disponibile) con la scheda di intervento; nella terza ora la lettura delle schede alla classe. Pronti i fogli in italiano, arabo e cinese e un quiz su Moduli per la prima e per la terza ora, nella Fabbrica. Non usa Lazarus.
