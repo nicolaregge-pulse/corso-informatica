@@ -1,0 +1,4851 @@
+{
+ "versione": "1.0",
+ "classe": "2INF",
+ "schema": "cruscotto-classe-1",
+ "lezione": {
+  "giorno": "2026-11-19",
+  "giorno_it": "19/11/2026",
+  "ore": [
+   "10-11"
+  ],
+  "materia": "Sicurezza professionale",
+  "fonte": "orario del registro DIDAweb: giovedi 19/11, 2INF 10-11, Sicurezza professionale",
+  "sospesa": ""
+ },
+ "dato": {
+  "iso": "2026-11-19T13:44:10+01:00",
+  "ora": "13:44:10",
+  "giorno_it": "19/11/2026",
+  "cosa": "ora del motore della Fabbrica (scheda Stato), export scaricato alle 13:52"
+ },
+ "fonti": [
+  {
+   "nome": "Fabbrica (quiz, compiti)",
+   "ora": "motore 13:44:10 del 19/11; export 13:52"
+  },
+  {
+   "nome": "Assenze per ora",
+   "ora": "export DIDAweb del 19/11 alle 11:33-11:39"
+  },
+  {
+   "nome": "Voti DIDAweb",
+   "ora": "9 screenshot del 19/11 alle 11:41-11:44"
+  },
+  {
+   "nome": "Voto proposto",
+   "ora": "VALUTAZIONE-ALLIEVI v1.1 del 19/11"
+  },
+  {
+   "nome": "Note e monitoraggio (Veyon da bobine, estrazione euristica)",
+   "ora": "v1.1 del 19/11"
+  },
+  {
+   "nome": "Ore fatte",
+   "ora": "screenshot DIDAweb del 19/11 alle 10:22-10:25"
+  },
+  {
+   "nome": "Stato dei PC",
+   "ora": "mail degli allievi del 19/11 alle 10:14-10:30 (esportate alle 13:32)"
+  }
+ ],
+ "etichette": {
+  "titolo": "Cruscotto",
+  "presenti": "Presenti",
+  "assenti": "Assenti: da recuperare",
+  "fatto": "Hai fatto",
+  "manca": "Ti manca",
+  "vai": "Vai qui adesso",
+  "serve": "Serve te",
+  "fermo": "Da quanto sei fermo",
+  "veyon": "Veyon",
+  "voto": "Voto proposto",
+  "pc": "Il tuo PC"
+ },
+ "kpi": [
+  {
+   "nome": "Presenti",
+   "valore": "16 su 20",
+   "nota": "DIDAweb, assenze per ora del 19/11"
+  },
+  {
+   "nome": "Tutti i compiti della lezione consegnati (1)",
+   "valore": "3 su 16 presenti",
+   "nota": "Classroom, letto dalla Fabbrica"
+  },
+  {
+   "nome": "Tutti i quiz della lezione fatti (1)",
+   "valore": "0 su 16 presenti",
+   "nota": "Moduli, letto dalla Fabbrica alle 10:52:38"
+  },
+  {
+   "nome": "PC senza problemi",
+   "valore": "15 su 25",
+   "nota": "dati scritti dagli allievi, non provati"
+  }
+ ],
+ "serve_te": [
+  {
+   "tipo": "firma",
+   "testo": "Firma 2INF del 19/11 (ore 10-11): non risulta in FIRME-REGISTRO-2026-27.md (non provato). La Regione toglie le ore non firmate entro le 14:05."
+  },
+  {
+   "tipo": "presenza",
+   "testo": "Youssef A.: presenza da verificare (DIDAweb segna assente, ma ci sono dati di oggi dal PC)."
+  },
+  {
+   "tipo": "pc",
+   "testo": "PC 11 (Mathias P.): Lazarus non funziona: alla prima apertura (Lazarus 4.8) chiede «Configura l'IDE» e avvisa che senza una cartel"
+  },
+  {
+   "tipo": "pc",
+   "testo": "PC 12 (Giorgio A.): Lazarus non funziona; «Proprietà» della cartella non funziona e chiede credenziali di amministratore. Probabil"
+  },
+  {
+   "tipo": "pc",
+   "testo": "PC 26 (utente non noto): Prima «Non-System disk or disk error»; poi Windows parte ma compare «La relazione di trust tra questa workstat"
+  },
+  {
+   "tipo": "pc",
+   "testo": "PC 33 (Giorgio K.): Problema di dominio: sul PC 33 l'utente l'allievo non entra («il mio domino non esiste», come scritto). Come il P"
+  }
+ ],
+ "ore_fatte": [
+  {
+   "materia": "Sicurezza professionale",
+   "fatte": "10",
+   "oggi": "1",
+   "ultima": "19/11/2026",
+   "previste": "16"
+  },
+  {
+   "materia": "Informatica",
+   "fatte": "19",
+   "oggi": "0",
+   "ultima": "17/11/2026",
+   "previste": "48"
+  },
+  {
+   "materia": "Laboratorio professionale",
+   "fatte": "48",
+   "oggi": "0",
+   "ultima": "16/11/2026",
+   "previste": "135"
+  }
+ ],
+ "presenti": [
+  {
+   "id": "A01",
+   "nome": "Hagar A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 6 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 6",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 5"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:36",
+    "iso": "2026-11-17T09:36:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     13
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:46",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:56",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:54",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:22",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 3,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 6,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A02",
+   "nome": "Lina A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: consegnato",
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 4 su 7"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "19/11 10:47",
+    "iso": "2026-11-19T10:47:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     24
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:15",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:15",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:19",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "CONSEGNATO",
+     "ora": "19/11 10:47",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 6,
+    "n_materie": 2,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 7
+  },
+  {
+   "id": "A03",
+   "nome": "Sara A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:40",
+    "iso": "2026-11-17T09:40:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     15
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:29",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:29",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 3,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A04",
+   "nome": "Katherine A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 5 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:40",
+    "iso": "2026-11-17T09:40:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     14
+    ],
+    "stato": "PROBLEMA",
+    "tipo": [
+     "Dato da rimisurare"
+    ],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:35",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:54",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:55",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:28",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 2,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A05",
+   "nome": "Giorgio A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: consegnato",
+    "Quiz fatti: 6 su 13",
+    "Compiti consegnati: 5 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Quiz arretrati: 6",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "19/11 10:39",
+    "iso": "2026-11-19T10:39:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     12,
+     37
+    ],
+    "stato": "PROBLEMA",
+    "tipo": [
+     "Funzionamento"
+    ],
+    "lazarus": [
+     "compila",
+     "non funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 09:38",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:31",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:55",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:03",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "CONSEGNATO",
+     "ora": "19/11 10:39",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 7,
+    "n_materie": 3,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 6,
+   "quiz_tot": 13,
+   "doc_consegnati": 5,
+   "doc_tot": 6
+  },
+  {
+   "id": "A06",
+   "nome": "Shaharia A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 13",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 10",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:49",
+    "iso": "2026-11-17T09:49:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     38
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:24",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:44",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:28",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 7,
+    "n_materie": 3,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 13,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A07",
+   "nome": "Youssef A.",
+   "presenza": "da_verificare",
+   "ore_assenti": [
+    "10-11"
+   ],
+   "fatto": [
+    "Quiz fatti: 2 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 10",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:25",
+    "iso": "2026-11-17T09:25:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     16,
+     36
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:09",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:06",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 2,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A08",
+   "nome": "Luca B.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 8 su 13",
+    "Compiti consegnati: 6 su 7"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 4",
+    "Quiz da rivedere: 5"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:44",
+    "iso": "2026-11-17T09:44:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     29,
+     31
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:47",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:47",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:45",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 5,
+    "n_materie": 3,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 8,
+   "quiz_tot": 13,
+   "doc_consegnati": 6,
+   "doc_tot": 7
+  },
+  {
+   "id": "A09",
+   "nome": "Riccardo B.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:37",
+    "iso": "2026-11-17T09:37:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     28
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:37",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 3,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A11",
+   "nome": "Shahenda E.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: consegnato",
+    "Quiz fatti: 6 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Quiz arretrati: 6",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "19/11 10:50",
+    "iso": "2026-11-19T10:50:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     25
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:18",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:37",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:48",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "CONSEGNATO",
+     "ora": "19/11 10:50",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 6,
+    "n_materie": 2,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 6,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A12",
+   "nome": "Oscar F.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 4 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 8",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:39",
+    "iso": "2026-11-17T09:39:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     27
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:55",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:24",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 3,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 4,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A13",
+   "nome": "Alejandro G.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "16/11 13:44",
+    "iso": "2026-11-16T13:44:00+01:00",
+    "cosa": "quiz «16/11 Ora 5: il mio sito di tre pagine»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     23,
+     34
+    ],
+    "stato": "PROBLEMA",
+    "tipo": [
+     "Lazarus non confermato"
+    ],
+    "lazarus": [
+     "MANCA",
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:22",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:39",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A14",
+   "nome": "Giorgio K.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 5 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:37",
+    "iso": "2026-11-17T09:37:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     33,
+     35
+    ],
+    "stato": "PROBLEMA",
+    "tipo": [
+     "Funzionamento"
+    ],
+    "lazarus": [
+     "MANCA",
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:21",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:45",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 2,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A17",
+   "nome": "Antonio M.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:23",
+    "iso": "2026-11-17T09:23:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 09:33",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:09",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:10",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:18",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 6,
+    "n_materie": 3,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A18",
+   "nome": "Mahammed M.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 13",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 10",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:54",
+    "iso": "2026-11-17T09:54:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     32
+    ],
+    "stato": "OK",
+    "tipo": [],
+    "lazarus": [
+     "funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 09:47",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 09:51",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "IN RITARDO",
+     "ora": "17/11 09:54",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 3,
+    "n_materie": 2,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 13,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A19",
+   "nome": "Mathias P.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 10",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "12/11 10:47",
+    "iso": "2026-11-12T10:47:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": {
+    "numeri": [
+     11
+    ],
+    "stato": "PROBLEMA",
+    "tipo": [
+     "Funzionamento"
+    ],
+    "lazarus": [
+     "non funziona"
+    ]
+   },
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:09",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:47",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 6,
+    "n_materie": 2,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  }
+ ],
+ "assenti": [
+  {
+   "id": "A10",
+   "nome": "Luciano C.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "10-11"
+   ],
+   "fatto": [
+    "Quiz fatti: 6 su 13",
+    "Compiti consegnati: 5 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 6",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:52",
+    "iso": "2026-11-17T09:52:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:13",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:26",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 13:08",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:48",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:43",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 2,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 6,
+   "quiz_tot": 13,
+   "doc_consegnati": 5,
+   "doc_tot": 6
+  },
+  {
+   "id": "A15",
+   "nome": "Egor M.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "10-11"
+   ],
+   "fatto": [
+    "Quiz fatti: 2 su 13",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 10",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:41",
+    "iso": "2026-11-17T09:41:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 10:29",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:30",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 6,
+    "n_materie": 3,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 13,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A16",
+   "nome": "Francesco M.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "10-11"
+   ],
+   "fatto": [
+    "Quiz fatti: 3 su 13",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 9",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:29",
+    "iso": "2026-11-17T09:29:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "CONSEGNATO",
+     "ora": "12/11 09:34",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:20",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 7,
+    "n_materie": 2,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 13,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A20",
+   "nome": "Ney V.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "10-11"
+   ],
+   "fatto": [
+    "Quiz fatti: 5 su 13",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz «Sic. ora 7 · macchine e attrezzature»",
+    "Compito «19/11 Ora 3: Sicurezza, macchine e attrezzature»: da consegnare",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Sic. ora 7 · macchine e attrezzature»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 09:30",
+    "iso": "2026-11-17T09:30:00+01:00",
+    "cosa": "quiz «17/11 Quiz di teoria: web, HTML e CSS»"
+   },
+   "veyon": {
+    "giorno": "19/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1110",
+     "titolo": "Preventivo di un computer con il foglio di calcolo",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScsQ7Ed713TbGXPC9ToK9A6ELj0SmEVRGqyJQdww9_5YBbm1g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora2d2",
+     "titolo": "fine ora 2: eventi e dispositivi",
+     "data": "12/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdy8FbIEOXjKXX5JueNoue_JwDPJJyOXkHDXxj5D9gLASVZog/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora3d2",
+     "titolo": "fine ora 3: attività e risorse",
+     "data": "12/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0Yfb2GEA0-H1w8b6uud7DA-ZutohQu9_z7ikGe6Z82qr_Fg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1211-ora1d3",
+     "titolo": "fine ora 1: utenti e gruppi",
+     "data": "12/11",
+     "stato": "OK",
+     "nota": "fatto sulla versione precedente",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf0iXqL-cVI4JZdewSaEU94WnL5qvsPYGPBHzdU2rpHFwyYiA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-mecc-1311",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfHbNulhMXuUrtN6fr9wUtCnAPqVEtgX880IlVB3IJDNLy5OQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic6-elet-1311",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfC5Uqi-35n-_cSESGYhfURxKN-9aPtVqPYfNrmLhH2NFVDGQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora4",
+     "titolo": "16/11 Ora 4: il mio primo sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCFi0QDvHT1Z6Pam_Ir-_JIDuxNNtz74zrfowN32MhevaYSg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora5",
+     "titolo": "16/11 Ora 5: il mio sito di tre pagine",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfaAlf1kGktI9_p7H88uDVeQ0Oe_Hhn1AZ_igompJgg8ahvAQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1611-ora6",
+     "titolo": "16/11 Ora 6: stile e qualcosa di mio",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8PPzRmcBMgcmYggIT7w8ktOS1X4djMQaL9iRO3nbWfu6YHA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora1",
+     "titolo": "17/11 Ora 1: il web e l'HTML",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeE8cciL9avFBe-Tk9wSyDN2ubTOjBpdczTmT0J6ZJfV0G4BQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-ora2",
+     "titolo": "17/11 Ora 2: il CSS",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdL9P5EHGKEXPYKUPa-xJ72nF94HQKIN86wBD2ZfjhSJ9LFSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-1711-teoria",
+     "titolo": "17/11 Quiz di teoria: web, HTML e CSS",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd5Jf81CM4cGrt0FMxZ1e_O5cDtVdSkFCz3cYCJEgtjFWI9TA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-2inf-sic7-macc-1911",
+     "titolo": "Sic. ora 7 · macchine e attrezzature",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSem8UI-xWSpUvs0zkP5Js8VGzjbWMnheRWOWY_Zvv7948VV7Q/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 2: Win10 Visualizzatore eventi",
+     "stato": "IN RITARDO",
+     "ora": "12/11 10:34",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "12/11 Ora 3: Win10 Gestione attività",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 4: Chi sono, il mio primo sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 12:44",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 5: Il mio sito di tre pagine",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 13:23",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 1: Il web, i browser e l'HTML",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 09:18",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "19/11 Ora 3: Sicurezza, macchine e attrezzature",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 2,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 13,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  }
+ ],
+ "iscritti": 20,
+ "pc": [
+  {
+   "pc": 11,
+   "stato": "PROBLEMA",
+   "tipo": "Funzionamento",
+   "lazarus": "non funziona",
+   "utente": "Mathias P."
+  },
+  {
+   "pc": 12,
+   "stato": "PROBLEMA",
+   "tipo": "Funzionamento",
+   "lazarus": "non funziona",
+   "utente": "Giorgio A."
+  },
+  {
+   "pc": 13,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Hagar A."
+  },
+  {
+   "pc": 14,
+   "stato": "PROBLEMA",
+   "tipo": "Dato da rimisurare",
+   "lazarus": "funziona",
+   "utente": "Katherine A."
+  },
+  {
+   "pc": 15,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Sara A."
+  },
+  {
+   "pc": 16,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Youssef A."
+  },
+  {
+   "pc": 17,
+   "stato": "MANCA DATO",
+   "tipo": "—",
+   "lazarus": "MANCA",
+   "utente": ""
+  },
+  {
+   "pc": 18,
+   "stato": "MANCA DATO",
+   "tipo": "—",
+   "lazarus": "MANCA",
+   "utente": ""
+  },
+  {
+   "pc": 21,
+   "stato": "MANCA DATO",
+   "tipo": "—",
+   "lazarus": "MANCA",
+   "utente": ""
+  },
+  {
+   "pc": 22,
+   "stato": "MANCA DATO",
+   "tipo": "—",
+   "lazarus": "MANCA",
+   "utente": ""
+  },
+  {
+   "pc": 23,
+   "stato": "PROBLEMA",
+   "tipo": "Lazarus non confermato",
+   "lazarus": "MANCA",
+   "utente": "Alejandro G."
+  },
+  {
+   "pc": 24,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Lina A."
+  },
+  {
+   "pc": 25,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Shahenda E."
+  },
+  {
+   "pc": 26,
+   "stato": "PROBLEMA",
+   "tipo": "Funzionamento",
+   "lazarus": "MANCA",
+   "utente": ""
+  },
+  {
+   "pc": 27,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Oscar F."
+  },
+  {
+   "pc": 28,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Riccardo B."
+  },
+  {
+   "pc": 29,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Luca B."
+  },
+  {
+   "pc": 31,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Luca B."
+  },
+  {
+   "pc": 32,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Mahammed M."
+  },
+  {
+   "pc": 33,
+   "stato": "PROBLEMA",
+   "tipo": "Funzionamento",
+   "lazarus": "MANCA",
+   "utente": "Giorgio K."
+  },
+  {
+   "pc": 34,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Alejandro G."
+  },
+  {
+   "pc": 35,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Giorgio K."
+  },
+  {
+   "pc": 36,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Youssef A."
+  },
+  {
+   "pc": 37,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "compila",
+   "utente": "Giorgio A."
+  },
+  {
+   "pc": 38,
+   "stato": "OK",
+   "tipo": "—",
+   "lazarus": "funziona",
+   "utente": "Shaharia A."
+  }
+ ],
+ "kpi_proposti_da_confermare": true
+}

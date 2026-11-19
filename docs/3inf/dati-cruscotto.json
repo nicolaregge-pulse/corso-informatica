@@ -1,0 +1,2983 @@
+{
+ "versione": "1.0",
+ "classe": "3INF",
+ "schema": "cruscotto-classe-1",
+ "lezione": {
+  "giorno": "2026-11-18",
+  "giorno_it": "18/11/2026",
+  "ore": [
+   "11-12",
+   "12-13"
+  ],
+  "materia": "Laboratorio professionale",
+  "fonte": "orario del registro DIDAweb: mercoledi 18/11, 3INF 11-13",
+  "sospesa": "Cruscotto sospeso fino a febbraio: sono mostrati i dati dell'ultima lezione."
+ },
+ "dato": {
+  "iso": "2026-11-19T13:44:10+01:00",
+  "ora": "13:44:10",
+  "giorno_it": "19/11/2026",
+  "cosa": "ora del motore della Fabbrica (scheda Stato), export scaricato alle 13:52"
+ },
+ "fonti": [
+  {
+   "nome": "Fabbrica (quiz, compiti)",
+   "ora": "motore 13:44:10 del 19/11; export 13:52"
+  },
+  {
+   "nome": "Assenze per ora",
+   "ora": "export DIDAweb del 19/11 alle 11:33-11:39"
+  },
+  {
+   "nome": "Voti DIDAweb",
+   "ora": "9 screenshot del 19/11 alle 11:41-11:44"
+  },
+  {
+   "nome": "Voto proposto",
+   "ora": "VALUTAZIONE-ALLIEVI v1.1 del 19/11"
+  },
+  {
+   "nome": "Note e monitoraggio (Veyon da bobine, estrazione euristica)",
+   "ora": "v1.1 del 19/11"
+  },
+  {
+   "nome": "Ore fatte",
+   "ora": "screenshot DIDAweb del 19/11 alle 10:22-10:25"
+  }
+ ],
+ "etichette": {
+  "titolo": "Cruscotto",
+  "presenti": "Presenti",
+  "assenti": "Assenti: da recuperare",
+  "fatto": "Hai fatto",
+  "manca": "Ti manca",
+  "vai": "Vai qui adesso",
+  "serve": "Serve te",
+  "fermo": "Da quanto sei fermo",
+  "veyon": "Veyon",
+  "voto": "Voto proposto",
+  "pc": "Il tuo PC"
+ },
+ "kpi": [
+  {
+   "nome": "Presenti",
+   "valore": "20 su 21",
+   "nota": "DIDAweb, assenze per ora del 18/11"
+  },
+  {
+   "nome": "Tutti i compiti della lezione consegnati (1)",
+   "valore": "5 su 20 presenti",
+   "nota": "Classroom, letto dalla Fabbrica"
+  },
+  {
+   "nome": "Con osservazioni «fuori compito» da Veyon",
+   "valore": "3 su 20 presenti",
+   "nota": "da bobine, da verificare"
+  }
+ ],
+ "serve_te": [],
+ "ore_fatte": [
+  {
+   "materia": "Laboratorio professionale",
+   "fatte": "56",
+   "oggi": "0",
+   "ultima": "18/11/2026",
+   "previste": "143"
+  }
+ ],
+ "presenti": [
+  {
+   "id": "A01",
+   "nome": "Alessandro A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:14",
+    "iso": "2026-11-16T10:14:00+01:00",
+    "cosa": "quiz «16/11 Ora 2: lo stile del mio sito»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:52",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 4,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A02",
+   "nome": "Denis A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: consegnato",
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «16/11 Ora 1: il mio sito su GitHub»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 12:05",
+    "iso": "2026-11-18T12:05:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 21,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "CONSEGNATO",
+     "ora": "04/11 12:39",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:51",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 12:05",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A03",
+   "nome": "David A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:45",
+    "iso": "2026-11-16T10:45:00+01:00",
+    "cosa": "quiz «16/11 Ora 2: lo stile del mio sito»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 16,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:56",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A04",
+   "nome": "Eric C.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: consegnato",
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 4 su 7"
+   ],
+   "manca": [
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «16/11 Ora 3: il diario dello stage»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 12:18",
+    "iso": "2026-11-18T12:18:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 15,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:49",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 12:18",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 4,
+   "doc_tot": 7
+  },
+  {
+   "id": "A05",
+   "nome": "Nicolo C.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: consegnato",
+    "Quiz fatti: 0 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 5"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «16/11 Ora 3: il diario dello stage»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 12:32",
+    "iso": "2026-11-18T12:32:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 15,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 12:32",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A06",
+   "nome": "Mirko D.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 0 su 5",
+    "Compiti consegnati: 0 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 5"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": null,
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 5,
+   "doc_consegnati": 0,
+   "doc_tot": 6
+  },
+  {
+   "id": "A07",
+   "nome": "Ariel D.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:45",
+    "iso": "2026-11-16T10:45:00+01:00",
+    "cosa": "quiz «16/11 Ora 2: lo stile del mio sito»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 15,
+    "fuori_compito": 2,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:52",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:41",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A08",
+   "nome": "Mahmoud E.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 0 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 5",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:14",
+    "iso": "2026-11-16T10:14:00+01:00",
+    "cosa": "quiz «16/11 Ora 1: il mio sito su GitHub»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 14,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 4,
+    "n_materie": 1,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 0,
+   "doc_tot": 6
+  },
+  {
+   "id": "A09",
+   "nome": "Rafi F.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "18/11 12:11",
+    "iso": "2026-11-18T12:11:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 17,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "18/11 12:11",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A10",
+   "nome": "Emmanuel F.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:49",
+    "iso": "2026-11-16T10:49:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 31,
+    "fuori_compito": 1,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:20",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:49",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A11",
+   "nome": "Andrea G.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: consegnato",
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 4 su 6"
+   ],
+   "manca": [
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «16/11 Ora 1: il mio sito su GitHub»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 12:09",
+    "iso": "2026-11-18T12:09:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 21,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:17",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:35",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "IN RITARDO",
+     "ora": "16/11 17:59",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 12:09",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 4,
+   "doc_tot": 6
+  },
+  {
+   "id": "A12",
+   "nome": "Simone G.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:41",
+    "iso": "2026-11-16T10:41:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:13",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:07",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:41",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A13",
+   "nome": "Tomas L.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 3 su 7"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "18/11 12:33",
+    "iso": "2026-11-18T12:33:00+01:00",
+    "cosa": "quiz «16/11 Ora 2: lo stile del mio sito»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 21,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:46",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "18/11 12:23",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "18/11 12:23",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 4,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 3,
+   "doc_tot": 7
+  },
+  {
+   "id": "A14",
+   "nome": "Filippo M.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 3 su 5",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 2",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 3"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:36",
+    "iso": "2026-11-16T10:36:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 14,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:15",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:36",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 4,
+    "n_materie": 1,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 3,
+   "quiz_tot": 5,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A15",
+   "nome": "Beatrice N.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 0 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 4"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 09:56",
+    "iso": "2026-11-16T09:56:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 33,
+    "fuori_compito": 2,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:56",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A17",
+   "nome": "Kevin R.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:10",
+    "iso": "2026-11-16T10:10:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:10",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 2,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A18",
+   "nome": "Gabriele R.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: consegnato",
+    "Quiz fatti: 0 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 5"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «16/11 Ora 3: il diario dello stage»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 11:54",
+    "iso": "2026-11-18T11:54:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 18,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 11:54",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 4,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A19",
+   "nome": "Dani S.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 1 su 5",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 1"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:40",
+    "iso": "2026-11-16T10:40:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 17,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:16",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:40",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 5,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A20",
+   "nome": "Samuele U.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 1 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:27",
+    "iso": "2026-11-16T10:27:00+01:00",
+    "cosa": "quiz «16/11 Ora 2: lo stile del mio sito»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "IN RITARDO",
+     "ora": "16/11 10:18",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 1,
+   "doc_tot": 6
+  },
+  {
+   "id": "A21",
+   "nome": "Noah V.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz fatti: 2 su 5",
+    "Compiti consegnati: 4 su 7"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 3",
+    "Compiti arretrati: 2",
+    "Quiz da rivedere: 2"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": {
+    "ultima": "16/11 10:49",
+    "iso": "2026-11-16T10:49:00+01:00",
+    "cosa": "quiz «16/11 Ora 3: il diario dello stage»"
+   },
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 09:19",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:13",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:13",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "CONSEGNATO",
+     "ora": "16/11 10:45",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "80 o più",
+    "n_voti": 5,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 2,
+   "quiz_tot": 5,
+   "doc_consegnati": 4,
+   "doc_tot": 7
+  }
+ ],
+ "assenti": [
+  {
+   "id": "A16",
+   "nome": "Kelvin P.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13"
+   ],
+   "fatto": [
+    "Quiz fatti: 0 su 5",
+    "Compiti consegnati: 0 su 6"
+   ],
+   "manca": [
+    "Compito «18/11 Ora 4: Il sito con le Presenze stage»: da consegnare",
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 5"
+   ],
+   "vai": {
+    "testo": "Consegna il compito «18/11 Ora 4: Il sito con le Presenze stage» su Classroom",
+    "link": ""
+   },
+   "fermo": null,
+   "veyon": {
+    "giorno": "18/11",
+    "osservazioni": 1,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1110",
+     "titolo": "Release 1.0 del Mastermind",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe2RN0TLye2MrkRHuKSn0UeKqkHs4b_Q9Hov-mPjlh1CLONoA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1111-chat",
+     "titolo": "ore 4-5 · protocollo e chat",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8sEXOXpyjWyQQDQIy7k3sibj5SwtF5gC_27VBC2s_B7WXPA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora1",
+     "titolo": "16/11 Ora 1: il mio sito su GitHub",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeCJhPRl8AGm1xYded6kjQp4k-NUXPiX9qymhdwj_rCp5fZSA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora2",
+     "titolo": "16/11 Ora 2: lo stile del mio sito",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSebolpW7di6sP4ZnmhWbo93SY1fgKm7y0JujhGaGaJ9m2L6vw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-3inf-1611-ora3",
+     "titolo": "16/11 Ora 3: il diario dello stage",
+     "data": "14/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfnrLoPf-rrhMg5pQ6QTBdFYaY9z3ZYlqqHo88bWhOu3B1jKQ/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "4/11 Ora 1: il protocollo del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 3: La release 1.0 del Mastermind",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 1: Il mio sito su GitHub",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 2: Lo stile del mio sito",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "16/11 Ora 3: Il diario dello stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 4: Il sito con le Presenze stage",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 5,
+   "doc_consegnati": 0,
+   "doc_tot": 6
+  }
+ ],
+ "iscritti": 21,
+ "pc": [],
+ "kpi_proposti_da_confermare": true
+}

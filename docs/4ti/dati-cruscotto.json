@@ -1,0 +1,1196 @@
+{
+ "versione": "1.0",
+ "classe": "4TI",
+ "schema": "cruscotto-classe-1",
+ "lezione": {
+  "giorno": "2026-11-17",
+  "giorno_it": "17/11/2026",
+  "ore": [
+   "10-11",
+   "11-12",
+   "12-13"
+  ],
+  "materia": "Laboratorio professionale",
+  "fonte": "orario del registro DIDAweb: martedi 17/11, 4TI 10-13",
+  "sospesa": ""
+ },
+ "dato": {
+  "iso": "2026-11-19T13:44:10+01:00",
+  "ora": "13:44:10",
+  "giorno_it": "19/11/2026",
+  "cosa": "ora del motore della Fabbrica (scheda Stato), export scaricato alle 13:52"
+ },
+ "fonti": [
+  {
+   "nome": "Fabbrica (quiz, compiti)",
+   "ora": "motore 13:44:10 del 19/11; export 13:52"
+  },
+  {
+   "nome": "Assenze per ora",
+   "ora": "export DIDAweb del 19/11 alle 11:33-11:39"
+  },
+  {
+   "nome": "Voti DIDAweb",
+   "ora": "9 screenshot del 19/11 alle 11:41-11:44"
+  },
+  {
+   "nome": "Voto proposto",
+   "ora": "VALUTAZIONE-ALLIEVI v1.1 del 19/11"
+  },
+  {
+   "nome": "Note e monitoraggio (Veyon da bobine, estrazione euristica)",
+   "ora": "v1.1 del 19/11"
+  },
+  {
+   "nome": "Ore fatte",
+   "ora": "screenshot DIDAweb del 19/11 alle 10:22-10:25"
+  }
+ ],
+ "etichette": {
+  "titolo": "Cruscotto",
+  "presenti": "Presenti",
+  "assenti": "Assenti: da recuperare",
+  "fatto": "Hai fatto",
+  "manca": "Ti manca",
+  "vai": "Vai qui adesso",
+  "serve": "Serve te",
+  "fermo": "Da quanto sei fermo",
+  "veyon": "Veyon",
+  "voto": "Voto proposto",
+  "pc": "Il tuo PC"
+ },
+ "kpi": [
+  {
+   "nome": "Presenti",
+   "valore": "9 su 9",
+   "nota": "DIDAweb, assenze per ora del 17/11"
+  },
+  {
+   "nome": "Tutti i compiti della lezione consegnati (1)",
+   "valore": "3 su 9 presenti",
+   "nota": "Classroom, letto dalla Fabbrica"
+  },
+  {
+   "nome": "Tutti i quiz della lezione fatti (3)",
+   "valore": "0 su 9 presenti",
+   "nota": "Moduli, letto dalla Fabbrica alle 12:00:55, 17:27:30, 17:29:30"
+  },
+  {
+   "nome": "Con osservazioni «fuori compito» da Veyon",
+   "valore": "0 su 9 presenti",
+   "nota": "da bobine, da verificare"
+  }
+ ],
+ "serve_te": [],
+ "ore_fatte": [
+  {
+   "materia": "Laboratorio professionale",
+   "fatte": "26",
+   "oggi": "0",
+   "ultima": "17/11/2026",
+   "previste": "99"
+  }
+ ],
+ "presenti": [
+  {
+   "id": "A01",
+   "nome": "Giulian A.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 1 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 11:32",
+    "iso": "2026-11-17T11:32:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 1,
+   "doc_tot": 5
+  },
+  {
+   "id": "A02",
+   "nome": "Cristian B.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: consegnato",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 3 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:32",
+    "iso": "2026-11-17T10:32:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:42",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "CONSEGNATO",
+     "ora": "10/11 12:56",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 10:32",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 3,
+   "doc_tot": 5
+  },
+  {
+   "id": "A03",
+   "nome": "Giuseppe C.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 1 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:33",
+    "iso": "2026-11-17T10:33:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:26",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 1,
+   "doc_tot": 5
+  },
+  {
+   "id": "A04",
+   "nome": "Chase D.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 1 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:39",
+    "iso": "2026-11-17T10:39:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:28",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 1,
+   "doc_tot": 5
+  },
+  {
+   "id": "A05",
+   "nome": "Federico G.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 1 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 11:58",
+    "iso": "2026-11-17T11:58:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:40",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 1,
+   "doc_tot": 5
+  },
+  {
+   "id": "A06",
+   "nome": "Saad G.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 1 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 3"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:45",
+    "iso": "2026-11-17T10:45:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "IN RITARDO",
+     "ora": "07/10 10:06",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 1,
+   "doc_tot": 5
+  },
+  {
+   "id": "A07",
+   "nome": "Daniel R.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: consegnato",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 5 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Quiz arretrati: 1"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:39",
+    "iso": "2026-11-17T10:39:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:19",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "CONSEGNATO",
+     "ora": "03/11 11:32",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "CONSEGNATO",
+     "ora": "03/11 11:32",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "CONSEGNATO",
+     "ora": "10/11 12:53",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 10:39",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 1,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 5,
+   "doc_tot": 5
+  },
+  {
+   "id": "A08",
+   "nome": "Steven S.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 2 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: da consegnare",
+    "Quiz arretrati: 1",
+    "Compiti arretrati: 2"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 11:43",
+    "iso": "2026-11-17T11:43:00+01:00",
+    "cosa": "quiz «17/11 Ora 3: Quiz di teoria di rete»"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 12:06",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "IN RITARDO",
+     "ora": "03/11 13:01",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 2,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 2,
+   "doc_tot": 5
+  },
+  {
+   "id": "A09",
+   "nome": "Karim Y.",
+   "presenza": "presente",
+   "ore_assenti": [],
+   "fatto": [
+    "Quiz «17/11 Ora 3: Quiz di teoria di rete»: fatto, da rivedere",
+    "Compito «17/11 Ora 3: Ripasso della teoria di rete»: consegnato",
+    "Quiz fatti: 1 su 4",
+    "Compiti consegnati: 5 su 5"
+   ],
+   "manca": [
+    "Quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "Quiz «Verifica 17/11 Ora 5: reti, indirizzi e servizi»",
+    "Quiz arretrati: 1"
+   ],
+   "vai": {
+    "testo": "Fai il quiz «Verifica 17/11 Ora 4: reti, i fondamenti»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+   },
+   "fermo": {
+    "ultima": "17/11 10:50",
+    "iso": "2026-11-17T10:50:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "17/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1110",
+     "titolo": "Subnetting a passi",
+     "data": "10/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe8pvPy1GRJZWIRBylcyvek0lfNalBdPGZUV3XdJ1JClSoqhw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora4-reti1",
+     "titolo": "Verifica 17/11 Ora 4: reti, i fondamenti",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSf1-2Pl-WYurVwjZmOP75JoFUqlv79DMb2CkSUGaDNYqPlkQw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora5-reti2",
+     "titolo": "Verifica 17/11 Ora 5: reti, indirizzi e servizi",
+     "data": "16/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSce6zRq8CSOMA4Ed3jNFCZmGDv5ROL_eD3LPb-DXTjJSacetA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-4ti-1711-ora3-teoria",
+     "titolo": "17/11 Ora 3: Quiz di teoria di rete",
+     "data": "17/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe0phmn0IYVaRk66PJg7sHs8GpTVg_v_p0s6jSwgOcxepCznA/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "Il mio progetto individuale — scegli e descrivi",
+     "stato": "CONSEGNATO",
+     "ora": "06/10 11:34",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 1: gli indirizzi IPv4 (le schede)",
+     "stato": "IN RITARDO",
+     "ora": "10/11 12:00",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "3/11 Ora 2: esercizi, scheda IPv4 e quiz",
+     "stato": "IN RITARDO",
+     "ora": "10/11 12:00",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "10/11 Ora 5: Verifica sul piano di rete",
+     "stato": "CONSEGNATO",
+     "ora": "10/11 12:56",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "17/11 Ora 3: Ripasso della teoria di rete",
+     "stato": "CONSEGNATO",
+     "ora": "17/11 10:50",
+     "oggi": true
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 3,
+    "n_materie": 1,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 1,
+   "quiz_tot": 4,
+   "doc_consegnati": 5,
+   "doc_tot": 5
+  }
+ ],
+ "assenti": [],
+ "iscritti": 9,
+ "pc": [],
+ "kpi_proposti_da_confermare": true
+}
