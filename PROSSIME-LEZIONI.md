@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 1.9** — 18/11/2026
+**Versione 2.0** — 19/11/2026
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -144,6 +144,37 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 8. v1.8 (18/11/2026): budget dei tre preventivi della 1INF riportati a 450, 600 e 900 euro, come deciso dal docente (fonte unica `config/budget-1inf-1811.json`); prima erano stati cambiati per errore.
 9. v1.9 (18/11/2026, ore 09:5x): decisione del docente: i budget dei tre preventivi della 1INF restano 500, 600 e 1000 euro (i ragazzi lavorano con i materiali che li dicono); la v1.8 li aveva portati a 450/600/900 per un equivoco. Fonte unica `config/budget-1inf-1811.json` v2.0.
 
+10. v2.0 (19/11/2026): sezione di venerdì 20 novembre con la visione degli ultimi quindici giorni e tre proposte non sviluppate per la seconda informatica e per la prima. Senza nomi: i dettagli per allievo stanno solo nel riservato.
+
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
 Prima informatica, dalle 8 alle 10 Impresa simulata (laboratorio), dalle 10 alle 11 Laboratorio professionale e dalle 13 alle 14 Tecnologia professionale: «L'ufficio acquisti», cioè configurare i PC per un ufficio da 500 euro, uno studio da 600 e un gaming da 1000, misurare con tre giochi e controllare la configurazione dei PC a rotazione, con il confronto e il quiz nell'ultima ora, voce «Architettura del PC: componenti, configurazione a budget, assemblaggio e disassemblaggio». Terza informatica, dalle 11 alle 13, Laboratorio professionale: il tutorial per il sito personale con le pagine Chi sono, Hobby, Competenze, la descrizione dello stage e le Presenze con la nota di ogni giorno, in preparazione dello stage dal 23 novembre. Titoli del registro: ore 11-12 «Sviluppo web: pagina Presenze stage», ore 12-13 «Sviluppo web: diario dello stage». Non pubblicato su Classroom: serve il PUBB n del docente.
+
+## Venerdì 20 novembre (visione del 19/11 e tre proposte per blocco, nulla sviluppato)
+
+Orario dal registro DIDAweb, nel file `orario/settimana-2026-11-16.md`: seconda informatica dalle 8 alle 10, Informatica; prima informatica dalle 11 alle 14, Laboratorio professionale. Il prof sceglie una proposta per classe, poi si sviluppa solo quella. Nulla è pubblicato su Classroom: serve il comando del prof, un'ora per volta.
+
+### Seconda informatica, ore 8-10, Informatica
+
+Fatto negli ultimi quindici giorni: il 10 novembre la scelta dei componenti di un computer e il preventivo; il 17 novembre il web, i browser e l'HTML, poi lo stile con il CSS, con un quiz di teoria fatto da sedici ragazzi su venti. Sono fatte 19 ore su 48.
+
+Rimasto aperto: sul registro il Documento dell'HTML del 17 novembre non ha ancora voti; il compito sul CSS non risulta pubblicato su Classroom; quattro ragazzi assenti il 17 novembre devono recuperare Documento e quiz; sei ragazzi non hanno ancora un sito su GitHub con il nome giusto, e per altri due il nome è diverso. Primo passo fisso: dieci minuti di recuperi.
+
+Prima proposta, «Il mio sito diventa un negozio»: versioning su GitHub, voce «Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini», sotto-voce «Pagine web del negozio». Vinci subito: una seconda pagina con il menu, in circa dieci minuti. Fallo tuo: la pagina dei prodotti con una tabella di tre prodotti scelti da loro. Mostralo: il sito online con il commit. Si prepara una scheda di una pagina, un modello di Documento e il controllo dei repository.
+
+Seconda proposta, «Sistemiamo i siti»: versioning su GitHub, voce «Versionamento, changelog e grafo dei commit», già svolta, in ripasso. Vinci subito: ognuno controlla repository, file `index.html` e foto. Fallo tuo: una pagina nuova e un commit chiaro. Mostralo: il proprio sito online al compagno.
+
+Terza proposta, «Il CSS a schede»: teoria a schede e quiz su Moduli, voce più vicina «Pagine web del negozio». Vinci subito: cambiare colore e carattere del titolo. Fallo tuo: stile di classe e di id su due pagine. Mostralo: la pagina prima e dopo. Serve pubblicare il compito del CSS.
+
+### Prima informatica, ore 11-14, Laboratorio professionale
+
+Fatto negli ultimi quindici giorni: il 6 novembre il convertitore, lo scontrino che parla e il ripasso di stringhe e interi in Lazarus; l'11 novembre stringhe, interi, numeri reali e divisione, senza l'if; il 13 novembre file e cartelle, reti domestiche con modem e router, sicurezza e privacy; il 18 novembre la manutenzione ordinaria e preventiva, con il controllo dei computer a rotazione, dopo la configurazione di un computer a budget. Sono fatte 50 ore su 61.
+
+Rimasto aperto: sul registro quasi nessun voto del laboratorio dell'ultimo periodo, con 80 voti proposti e non ancora inseriti; documenti e quiz del 13 novembre mancanti per alcuni presenti; undici ragazzi assenti il 13 novembre e otto il 6 novembre da recuperare; un ragazzo assente da tutte le lezioni del periodo; Lazarus non funziona sui computer 11 e 12, i computer 26 e 33 non hanno il dominio, e dei computer 17, 18, 21 e 22 mancano i dati di oggi. Primo passo fisso: quindici minuti di recuperi.
+
+Prima proposta, «Il tecnico dell'aula: diagnosi dei guasti»: teoria a schede, casi da risolvere e quiz su Moduli, voce «Diagnosi dei guasti: metodo e fasi». Vinci subito: il metodo in quattro fasi su un caso facile. Fallo tuo: a coppie, un caso scelto tra tre guasti veri dell'aula, con la scheda di intervento. Mostralo: la scheda letta alla classe. Non richiede Lazarus.
+
+Seconda proposta, «Il programma che decide»: esercitazione Lazarus, voce più vicina «Programmazione a eventi con Lazarus: form, componenti, proprietà, gestori di evento». Vinci subito: un bottone che confronta due numeri. Fallo tuo: il cassiere con lo sconto. Mostralo: il file del progetto e lo screenshot. Servono postazioni di riserva per i computer con Lazarus guasto.
+
+Terza proposta, «Esadecimale e colori del web»: teoria a schede, gioco a coppie e quiz, voce «Sistema esadecimale». Vinci subito: scrivere il proprio colore in numeri. Fallo tuo: tre numeri in esadecimale e il colore di un oggetto. Mostralo: una tavolozza di cinque colori con i codici. Si riusa la pagina «Il tuo nome in binario e i colori».
+
