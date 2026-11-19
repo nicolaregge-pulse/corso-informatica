@@ -199,16 +199,6 @@
    "tipologia_lezione": "quiz"
   },
   {
-   "id": "quiz-2inf-2011-ora1",
-   "file": "quiz-2inf-2011-ora1.txt",
-   "tipologia_lezione": "quiz"
-  },
-  {
-   "id": "quiz-2inf-2011-ora2",
-   "file": "quiz-2inf-2011-ora2.txt",
-   "tipologia_lezione": "quiz"
-  },
-  {
    "id": "quiz-1inf-2011-ora4",
    "file": "quiz-1inf-2011-ora4.txt",
    "tipologia_lezione": "quiz"
@@ -217,6 +207,24 @@
    "id": "quiz-1inf-2011-ora6",
    "file": "quiz-1inf-2011-ora6.txt",
    "tipologia_lezione": "quiz"
+  },
+  {
+   "id": "quiz-2inf-2011-ora1b",
+   "file": "quiz-2inf-2011-ora1b.txt",
+   "tipologia_lezione": "quiz",
+   "versioni": [
+    "quiz-2inf-2011-ora1",
+    "quiz-2inf-2011-ora1b"
+   ]
+  },
+  {
+   "id": "quiz-2inf-2011-ora2b",
+   "file": "quiz-2inf-2011-ora2b.txt",
+   "tipologia_lezione": "quiz",
+   "versioni": [
+    "quiz-2inf-2011-ora2",
+    "quiz-2inf-2011-ora2b"
+   ]
   }
  ],
  "cruscotto": {

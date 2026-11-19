@@ -1,0 +1,37 @@
+/* stile.css - lo stile del negozio. Cambia il colore qui sotto (riga --colore). */
+:root { --colore: #2e7d32; --sfondo: #f5f5f5; }          /* COLORI: cambia --colore, per esempio #1565c0 (blu) o #c62828 (rosso) */
+* { box-sizing: border-box; }
+body { font-family: system-ui, Arial, sans-serif; margin: 0; background: var(--sfondo); color: #222; font-size: 18px; line-height: 1.4; }
+header { background: var(--colore); color: #fff; padding: 12px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+header a { color: #fff; text-decoration: none; }
+.logo { font-size: 22px; font-weight: bold; }
+nav a { display: inline-block; padding: 10px 14px; border-radius: 8px; margin-left: 4px; }
+nav a.qui, nav a:hover { background: rgba(255, 255, 255, .25); }
+main { max-width: 900px; margin: 0 auto; padding: 16px; }
+.vetrina { text-align: center; padding: 24px 8px; }
+.vetrina .grande-foto { font-size: 64px; }
+.griglia { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.scheda { background: #fff; border-radius: 12px; padding: 16px; text-align: center; box-shadow: 0 1px 4px rgba(0, 0, 0, .15); }
+.foto { font-size: 64px; height: 90px; line-height: 90px; }
+.foto img, .logo img { max-height: 90px; max-width: 100%; vertical-align: middle; }
+.logo img { max-height: 32px; }
+.prezzo { font-size: 22px; font-weight: bold; color: var(--colore); margin: 4px 0 12px; }
+button, .bottone { font: inherit; background: var(--colore); color: #fff; border: 0; border-radius: 10px; padding: 12px 16px; min-height: 48px; cursor: pointer; text-decoration: none; display: inline-block; }
+button.grande { width: 100%; }
+button.secondario, .bottone.secondario { background: #fff; color: var(--colore); border: 2px solid var(--colore); }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; }
+th, td { padding: 10px 8px; border-bottom: 1px solid #ddd; text-align: left; }
+td.q button { min-width: 44px; padding: 8px; }
+.totale { font-size: 24px; font-weight: bold; text-align: right; margin: 16px 0; }
+label { display: block; font-weight: bold; margin-top: 12px; }
+input { font: inherit; width: 100%; padding: 12px; border: 2px solid #999; border-radius: 8px; min-height: 48px; }
+.avviso { background: #fff8e1; border-left: 6px solid #f9a825; padding: 10px 14px; border-radius: 6px; margin: 12px 0; }
+.errore { color: #b71c1c; font-weight: bold; min-height: 1.4em; }
+.azioni { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.email { background: #fff; border: 2px solid #999; border-radius: 10px; padding: 16px; }
+.email dt { font-weight: bold; float: left; width: 5.5em; }
+.email dd { margin: 0 0 4px 5.5em; word-break: break-word; }
+.email pre { white-space: pre-wrap; font: inherit; margin: 0; }
+.simulazione { background: #c62828; color: #fff; font-weight: bold; padding: 12px 14px; border-radius: 8px; margin-bottom: 12px; }
+details { margin-top: 20px; }
+@media (max-width: 520px) { body { font-size: 17px; } th, td { padding: 8px 4px; } }

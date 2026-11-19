@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.1** — 19/11/2026
+**Versione 2.2** — 19/11/2026, sera
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -146,6 +146,7 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 
 10. v2.0 (19/11/2026): sezione di venerdì 20 novembre con la visione degli ultimi quindici giorni e tre proposte non sviluppate per la seconda informatica e per la prima. Senza nomi: i dettagli per allievo stanno solo nel riservato.
 11. v2.1 (19/11/2026, pomeriggio): per venerdì 20 novembre preparata, come bozza provvisoria, la prima proposta di ciascuna classe (scelta provvisoria di Claude, il prof può cambiare domattina). Senza nomi; nulla è pubblicato su Classroom.
+12. v2.2 (19/11/2026, sera): per venerdì 20 novembre la seconda informatica cambia, su decisione del prof: il negozio si fa solo in HTML, con il carrello e una finta email di conferma, dentro il repository «mio-sito» dei ragazzi. Aggiunte le quattro lezioni sull'e-commerce. Senza nomi.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
@@ -188,3 +189,23 @@ Scelta provvisoria di Claude: il prof può cambiare domattina. Nulla è pubblica
 Seconda informatica, ore 8-9 e 9-10, «Il mio sito diventa un negozio»: nella prima ora la pagina del negozio con una tabella di tre prodotti, il menu e il primo commit; nella seconda ora lo stile con classe e id, un secondo e un terzo commit e la storia dei commit su GitHub. Pronti il foglio per i ragazzi di ogni ora, un foglio di ripartenza per chi ha il repository con un nome diverso o non lo ha, e un quiz su Moduli per ogni ora, nella Fabbrica. Solo italiano.
 
 Prima informatica, ore 11-12, 12-13 e 13-14, «Il tecnico dell'aula»: nella prima ora il metodo in quattro fasi su un caso facile; nella seconda ora, a coppie, uno di tre guasti veri dell'aula (disco quasi pieno, profilo temporaneo, dominio non disponibile) con la scheda di intervento; nella terza ora la lettura delle schede alla classe. Pronti i fogli in italiano, arabo e cinese e un quiz su Moduli per la prima e per la terza ora, nella Fabbrica. Non usa Lazarus.
+
+### Cambio di venerdì 20 novembre, seconda informatica (decisione del prof, 19/11/2026, sera)
+
+Il negozio si fa tutto in HTML, e si simulano il carrello e l'invio di una email di conferma. Niente database e niente servizi esterni per domani. Il modello sta in `classe-2/negozio-html/`: una vetrina, una pagina dei prodotti, il carrello con le quantità e il totale, e una pagina che mostra a video la finta email, con la scritta che non è stata inviata. Il carrello resta nella memoria del browser. Il mittente della finta email è un indirizzo finto che finisce con «example». I ragazzi mettono il negozio nella cartella «negozio» dentro il loro repository «mio-sito», senza rompere la home, con un link dal menu.
+
+Nella prima ora i ragazzi scaricano il modello, lo copiano nel loro sito, vedono il carrello funzionare in circa dieci minuti, poi aggiungono il link nel menu e caricano tutto su GitHub. Nella seconda ora fanno il loro negozio: nome, colori, tre prodotti, testo della email e un'immagine; poi lo mostrano con il link github.io e provano l'ordine dal telefono. Per chi va veloce: l'invio vero con il programma di posta (mailto), uno sconto e la quantità massima. Voce più vicina dell'Allegato A: «Applicazione di e-commerce: sito, archivio prodotti, gestione degli ordini». Il foglio rapido e la dispensa completa stanno in `docs/2inf-negozio/`.
+
+## Le quattro lezioni sull'e-commerce della seconda informatica
+
+Sono quattro lezioni in sequenza; il prof sceglie le date e conferma ogni passo.
+
+Prima lezione, venerdì 20 novembre: il carrello e la finta email in HTML, dentro il repository «mio-sito». Si capisce che un negozio ha una vetrina, un carrello e una conferma, che il carrello vive nel browser e che la email vera parte da un indirizzo del negozio con un servizio di invio.
+
+Seconda lezione: il database dei prodotti, già pronto dalla lezione di ottobre in `classe-1/negozio-online/`. I prodotti passano dalla lista nel file a una tabella in un database. Da verificare prima: che il progetto del database sia ancora attivo.
+
+Terza lezione: un confronto di cinque minuti con un negozio vero su Shopify, il negozio di prova «Conte Cavour». Si guarda la ricerca per significato contro il filtro esatto. Le note della prova stanno nel riservato.
+
+Quarta lezione, solo per chi va veloce: il catalogo di Shopify dentro il proprio sito. Si fa solo dopo una verifica di sicurezza, cioè senza chiavi scritte nelle pagine e con dati di prova.
+
+Lo spostamento dei siti nell'organizzazione GitHub della scuola è una lezione successiva, ancora da programmare. Domani si lavora solo nel repository «mio-sito» di ogni ragazzo.

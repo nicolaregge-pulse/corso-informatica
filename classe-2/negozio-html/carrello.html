@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrello</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="stile.css">
+</head>
+<body data-pagina="carrello.html">
+  <header id="testata"></header>
+  <main>
+    <h1>Il tuo carrello</h1>
+    <p id="vuoto">Il carrello è vuoto. <a href="prodotti.html">Scegli un prodotto</a>.</p>
+    <div id="pieno">
+      <table>
+        <thead><tr><th>Prodotto</th><th>Prezzo</th><th>Quantità</th><th>Somma</th><th></th></tr></thead>
+        <tbody id="elenco"></tbody>
+      </table>
+      <p class="totale">Totale: <span id="totale">0,00 €</span></p>
+      <p class="azioni"><button class="secondario" id="svuota">Svuota il carrello</button></p>
+      <h2>Chi ordina</h2>
+      <div class="avviso">Scrivi un nome e un'email di <b>prova</b>. Non scrivere i tuoi dati veri: l'email non parte davvero.</div>
+      <label for="nome">Il tuo nome</label>
+      <input id="nome" type="text" autocomplete="off" placeholder="Mario Prova">
+      <label for="email">La tua email</label>
+      <input id="email" type="email" autocomplete="off" placeholder="prova@esempio.example">
+      <p class="errore" id="errore" role="alert"></p>
+      <button class="grande" id="conferma">Conferma ordine</button>
+    </div>
+  </main>
+  <script src="carrello.js"></script>
+  <script src="pagine.js"></script>
+  <script>
+    mostraCarrello();
+    document.getElementById("elenco").onclick = function (e) {
+      var id = e.target.getAttribute("data-id"), az = e.target.getAttribute("data-az");
+      if (!id) return;
+      if (az === "piu") cambia(id, 1);
+      if (az === "meno") cambia(id, -1);
+      if (az === "togli") togli(id);
+      mostraCarrello();
+    };
+    document.getElementById("svuota").onclick = function () { svuota(); mostraCarrello(); };
+    document.getElementById("conferma").onclick = confermaOrdine;
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il Negozio di Prova</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="stile.css">
+</head>
+<body data-pagina="index.html">
+  <header id="testata"></header>
+  <main>
+    <section class="vetrina">
+      <div class="grande-foto" id="logo-grande"></div>
+      <h1 id="titolo-negozio"></h1>
+      <p>Tre prodotti in vetrina. È un negozio di prova: i prezzi sono inventati.</p>
+      <a class="bottone" href="prodotti.html">Vedi tutti i prodotti</a>
+    </section>
+    <section class="griglia" id="vetrina"></section>
+  </main>
+  <script src="carrello.js"></script>
+  <script src="pagine.js"></script>
+  <script>
+    intestazione("index.html");
+    document.getElementById("logo-grande").innerHTML = foto(LOGO);
+    document.getElementById("titolo-negozio").textContent = NEGOZIO;
+    mostraProdotti("vetrina", 3);
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Email di conferma</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="stile.css">
+</head>
+<body data-pagina="conferma.html">
+  <header id="testata"></header>
+  <main>
+    <h1>Email di conferma</h1>
+    <p id="senza">Non c'è nessun ordine. <a href="prodotti.html">Scegli un prodotto</a>.</p>
+    <div id="con">
+      <div class="simulazione">Questa email è una simulazione: non è stata inviata.</div>
+      <dl class="email">
+        <dt>Da:</dt><dd id="da"></dd>
+        <dt>A:</dt><dd id="a"></dd>
+        <dt>Oggetto:</dt><dd id="oggetto"></dd>
+      </dl>
+      <div class="email"><pre id="corpo"></pre></div>
+      <p class="avviso">In un negozio vero la email parte da un indirizzo del negozio (tipo <b>ordini@</b> o <b>no-reply@</b> sul dominio del negozio) tramite un servizio di invio. Qui è tutto simulato: l'indirizzo <b>.example</b> non esiste.</p>
+      <p class="azioni"><button id="nuovo">Fai un nuovo ordine</button></p>
+      <details>
+        <summary>Facoltativo, per chi va veloce: invia davvero con il tuo programma di posta</summary>
+        <p>Questo link apre il tuo programma di posta con il testo già scritto. Funziona solo se ne hai uno sul PC e <b>l'invio lo fai tu</b>: usa un'email di prova.</p>
+        <a class="bottone secondario" id="mailto" href="#">Apri il programma di posta</a>
+      </details>
+    </div>
+  </main>
+  <script src="carrello.js"></script>
+  <script src="pagine.js"></script>
+  <script>
+    mostraConferma();
+    document.getElementById("nuovo").onclick = nuovoOrdine;
+  </script>
+</body>
+</html>
