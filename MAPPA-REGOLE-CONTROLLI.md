@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.28** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 1.29** — 19/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -446,6 +446,15 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #372 | Cose già fatte non cercate (piantine) e piano dell'ora presunto (18/11) | 1 | D | B | `INFO-PIU-USATE-v1.1.md` sezione piantine; da creare: ricerca per parola chiave prima di dire «non c'è» |
 | #373 | Messaggio con tre file non capito (18/11) | 1 | D | A | `controllo-messaggio.py` formato kit; da aggiungere: frase «a che cosa serve» e SendUserFile per ogni file |
 | #374 | Fine giornata 18/11 ROSSO: report orari, cruscotto, verifiche (ripete #355) | 1 | D | B | `controlla_controlli.py --fine-giornata`; 6 report minimi generati da `report_ore.py`; da costruire: controllo a metà giornata e giro cruscotti automatico |
+| #375 | «Non posso creare il Moduli» invece della Fabbrica (19/11) | 1 | D | B | `report/INFO-PIU-USATE-v1.2.md` sezione 9; `strumenti/crea_quiz_fabbrica.py`; da costruire: avviso «non posso» senza lettura di `fabbrica/LEGGIMI.md` |
+| #376 | Kit 2INF Sicurezza a lezione avviata, recupero tolto senza dirlo (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.3.md` sezione 10; da costruire: segnalazione in prima riga a ora iniziata senza kit |
+| #377 | La bobina non era la memoria completa (19/11) | 1 | D | A | `bobina-automatica.py` v2.0; `strumenti/ingresso_dati.py` |
+| #378 | Registro Sicurezza 2INF mandato senza confronto col DIDAweb (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.8.md` sezione 16.1; da costruire: file di confronto del giorno per ogni xlsx di materia |
+| #379 | PC attribuiti dal testo incollato (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.8.md` sezione 16.2; da costruire: lettura automatica dell'esportazione delle mail |
+| #380 | Troppe domande quando il docente chiedeva autonomia (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.8.md` sezione 16.3; da costruire: avviso in `controllo-messaggio.py` per più di 3 domande numerate |
+| #381 | Richieste ripetute per la stessa cosa (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.8.md` sezione 16.4; `COSE-DA-FARE-20-11.md`; da costruire: controllo della stessa richiesta ripetuta |
+| #382 | Materiale importante finito in un'altra chat (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.8.md` sezione 16.5; bobina v2.0 con indice degli allegati |
+| #383 | Lentezza e output spesso sbagliato (19/11) | 1 | D | D | confronto prima dell'invio (#378, #379); da provare: routine 06:50 del 20/11 |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -540,3 +549,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 26. v1.26 (18/11/2026): voce #357 (budget dei preventivi 1INF) con il controllo `strumenti/controlla_budget_1inf.py` e la fonte unica `config/budget-1inf-1811.json`. Il conteggio della sezione 01 non è stato ricalcolato.
 27. v1.27 (18/11/2026, ore 09:5x): decisione del docente, budget 500/600/1000: fonte unica v2.0, `controlla_budget_1inf.py` accetta 500/600/1000 e rifiuta 450/900 nelle versioni correnti (chiave «non_usare_oggi»); nota al #357 in `REGISTRO-ERRORI-CLAUDE.md` v3.42.
 28. v1.28 (18/11/2026, controllore di fine giornata): righe #358-#374 aggiunte (#358-#366 e #367 mancavano; #368-#374 nuove). Copertura: nessun controllo automatico nuovo (principio: da costruire = D); il conteggio della sezione 01 non è stato ricalcolato.
+29. v1.29 (19/11/2026, controllore di fine giornata): righe #375-#383 aggiunte (#375-#377 mancavano; #378-#383 nuove). Copertura: nessun controllo automatico nuovo (principio: da costruire = D, correzione in `INFO-PIU-USATE-v1.8.md`); il conteggio della sezione 01 non è stato ricalcolato.
