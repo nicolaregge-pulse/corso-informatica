@@ -256,6 +256,10 @@
   },
   "ultimi": 8,
   "laboratorio": {
+   "1INF": {
+    "titolo": "^\\s*\\d{1,2}\\s*/\\s*\\d{1,2}\\s+Ora\\s*\\d",
+    "ogni_minuti": 2
+   },
    "2INF": {
     "titolo": "^\\s*\\d{1,2}\\s*/\\s*\\d{1,2}\\s+Ora\\s*\\d",
     "ogni_minuti": 2
