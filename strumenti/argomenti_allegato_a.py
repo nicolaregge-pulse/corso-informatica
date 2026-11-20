@@ -2,14 +2,18 @@
 # -*- coding: utf-8 -*-
 """Traccia degli argomenti degli Allegati A: cosa e' fatto, cosa resta, cronologia.
 
-Versione 1.0 (20/11/2026). PUBBLICO: nessun dato di allievi nel codice.
+Versione 1.1 (20/11/2026): niente stato PARZIALE (decisione del docente): voce parziale = due righe «a» FATTA e «b» DA FARE. PUBBLICO: nessun dato di allievi nel codice.
 I dati (stato, cronologia, xlsx, pdf) vivono nel RISERVATO:
   <riservato>/dati/allegato-a-traccia/stato-traccia.json   (stato machine-readable, cronologia append-only)
   <riservato>/registro-allievi/ARGOMENTI-ALLEGATO-A-TRACCIA-2026-27-vX.Y.{xlsx,pdf}
 
 Comandi:
   inizializza                  crea lo stato dalle fonti (solo se non esiste; --forza per rifarlo) e le versioni 1.0 di xlsx e pdf
-  segna <classe> <materia> <n voce> <data> <ora> <durata> [titolo]   segna una voce come svolta; nuova versione di xlsx e pdf
+  segna <classe> <materia> <n voce> <data> <ora> <durata> [titolo] [--parte "testo" [--manca "testo"]]
+                               segna una voce come svolta; con --parte la voce si DIVIDE in due righe della traccia
+                               (n+«a» FATTA con quel testo, n+«b» DA FARE con quello che manca); n puo' essere 29, 29a, 29b;
+                               nuova versione di xlsx e pdf (xlsx, pdf, pdf per competenza)
+  migra                        (una volta) toglie lo stato PARZIALE: divide le voci dove e' provato, le altre vanno in «Da chiedere»
   lista-da-fare <classe> [materia]
   cronologia [classe]
   rigenera                     nuova versione di xlsx e pdf dallo stato attuale (senza cambiare i dati)
@@ -66,6 +70,34 @@ ORE_FATTE_SETT = 25.7
 ORE_FATTE_GRAFICO = 239
 TOTALE_INCARICO = 784
 
+# Voci parziali dove e' provato quale parte e' stata svolta (fonte: nota dello stato dell'Allegato A + titolo del registro DIDAweb).
+# Le due righe sono la STESSA voce divisa nella traccia (stesso numero, suffisso a/b): il testo dell'Allegato A non cambia (R5.2).
+DIVISIONI = {
+    ("1INF", 29): ("modem e router", "access point Wi-Fi", ["1INF-2026-11-13-h5"]),
+    ("1INF", 64): ("modem e router", "access point Wi-Fi", ["1INF-2026-11-13-h5"]),
+    ("1INF", 57): ("TEdit e TButton", "TLabel e proprietà Caption", ["1INF-2026-10-28-h2"]),
+    ("2INF", 21): ("preventivo del PC («Preventivo PC»)", "scheda di intervento per il cliente", ["2INF-2026-11-10-h2"]),
+    ("2INF", 65): ("preventivo del PC («Preventivo PC»)", "scheda di intervento per il cliente", ["2INF-2026-11-10-h2"]),
+    ("2INF", 52): ("utenti e Win10 Admin", "servizi e risorse condivise",
+                   ["2INF-2026-11-05-h3", "2INF-2026-11-09-h4", "2INF-2026-11-09-h5", "2INF-2026-11-09-h6", "2INF-2026-11-12-h1"]),
+    ("4TI", 27): ("gateway", "DHCP e DNS", ["4TI-2026-11-03-h4"]),
+}
+# Voci dove NON e' provato che cosa e' stato fatto: restano DA FARE e vanno chieste al docente (R7.6). Una domanda per gruppo di voci.
+DA_CHIEDERE = {
+    ("1INF", 58): "OnClick: il registro del 28/10 h2 ha «Lazarus: TEdit, TButton e OnClick»: la segno FATTA (28/10 h2)?",
+    ("2INF", 25): "3ª ora di Sicurezza: il registro del 16/10 h1 dice «organizzazione della prevenzione aziendale» (anche 09/10 h1 e 21/10 h4 parlano di prevenzione): quale data segno?",
+    ("2INF", 48): "Cicli for e while: il registro ha il for il 19/10 (h4-h5) e il while il 20/10 h1 e il 22/10 h3: la segno FATTA e con quali date?",
+    ("2INF", 68): "Cicli for e while: il registro ha il for il 19/10 (h4-h5) e il while il 20/10 h1 e il 22/10 h3: la segno FATTA e con quali date?",
+    ("2INF", 53): "Pagine web del negozio: le lezioni del 17/11 (HTML e CSS) contano per questa voce?",
+    ("2INF", 71): "Pagine web del negozio: le lezioni del 17/11 (HTML e CSS) contano per questa voce?",
+    ("2INF", 58): "Preventivo: il «Preventivo PC» del 10/11 h2 e' il preventivo in foglio di calcolo di questa voce?",
+    ("2INF", 76): "Preventivo: il «Preventivo PC» del 10/11 h2 e' il preventivo in foglio di calcolo di questa voce?",
+    ("2INF", 59): "IP, MAC, gateway e DHCP, DNS: il registro del 02/11 ha h4 «IP, MAC e gateway» e h5 «servizi DHCP e DNS»: le segno FATTE?",
+    ("2INF", 60): "IP, MAC, gateway e DHCP, DNS: il registro del 02/11 ha h4 «IP, MAC e gateway» e h5 «servizi DHCP e DNS»: le segno FATTE?",
+    ("4TI", 5): "Relazione tecnica: «Documentazione tecnica del progetto» (17/11 h4) vale per questa voce?",
+    ("4TI", 7): "Presentazione del progetto: «Presentazione del progetto individuale» (17/11 h5) vale per questa voce?",
+}
+
 STOP = set("di del della dei delle e ed il lo la le un una in con per su da al alla ai alle nel nella che a o come ora ore".split())
 
 
@@ -96,6 +128,70 @@ def parse_data(s):
 def ora_h(a, b):
     """ore del registro (h1..h6) da un intervallo di orologio 'a-b' (8-9 = h1)."""
     return list(range(a - 7, b - 7))
+
+
+def vkey(cl, v):
+    return f"{cl}:{v['n']}{v.get('parte', '')}"
+
+
+def trova_voce(st, key):
+    cl, rest = key.split(":")
+    m = re.fullmatch(r"(\d+)([ab]?)", rest)
+    for v in st["classi"][cl]:
+        if v["n"] == int(m.group(1)) and v.get("parte", "") == m.group(2):
+            return v
+    raise KeyError(key)
+
+
+def etichetta(v):
+    return f"{v['n']}{v.get('parte', '')}"
+
+
+def dividi_voce(st, cl, v, parte, manca, lids_a, fonte_a=None):
+    """Divide la voce v in due righe della traccia: a = FATTA (parte svolta), b = DA FARE (che cosa manca). Stesso n, testo dell'Allegato A invariato."""
+    import copy
+    old = vkey(cl, v)
+    a, b = copy.deepcopy(v), copy.deepcopy(v)
+    a.update({"parte": "a", "parte_testo": parte, "stato": "FATTO", "lezioni": sorted(set(lids_a)), "lezioni_dubbie": [],
+              "da_confermare": False, "da_confermare_nota": "", "nota_originaria": v.get("nota", ""), "nota": "", "manca": "",
+              "fonte": fonte_a or f"parte svolta «{parte}»: lezione del registro DIDAweb; nota originaria: {v.get('nota', '') or '-'}"})
+    b.update({"parte": "b", "parte_testo": f"da fare: {manca}", "stato": "DA FARE", "lezioni": [], "lezioni_dubbie": [],
+              "da_confermare": False, "da_confermare_nota": "", "nota_originaria": v.get("nota", ""), "manca": manca,
+              "nota": f"manca: {manca}", "fonte": "", "settimana_prevista": ""})
+    if b.get("materia_fonte"):
+        b["materia_fonte"] += " (stessa voce divisa)"
+    for r in st["lezioni"]:
+        for campo in ("voci", "voci_dubbie", "voci_candidate"):
+            if old in r[campo]:
+                r[campo].remove(old)
+        if r["id"] in a["lezioni"]:
+            r["voci"].append(vkey(cl, a))
+    lst = st["classi"][cl]
+    i = lst.index(v)
+    lst[i:i + 1] = [a, b]
+    return a, b
+
+
+def migra_parziali(st):
+    """Toglie lo stato PARZIALE: divide dove e' provato, altrimenti DA FARE con la domanda al docente. Idempotente."""
+    divise, chiedere = [], []
+    for cl in CLASSI:
+        for v in list(st["classi"][cl]):
+            if v["stato"] != "PARZIALE":
+                continue
+            k = (cl, v["n"])
+            if k in DIVISIONI:
+                parte, manca, lids = DIVISIONI[k]
+                dividi_voce(st, cl, v, parte, manca, lids)
+                divise.append(k)
+            else:
+                dom = DA_CHIEDERE.get(k, "da chiedere al docente: che cosa e' stato fatto di questa voce?")
+                v["stato"] = "DA FARE"
+                v["da_confermare"] = True
+                v["da_chiedere"] = dom
+                v["da_confermare_nota"] = "DA CHIEDERE AL DOCENTE: " + dom
+                chiedere.append(k)
+    return divise, chiedere
 
 
 # ------------------------------------------------------------------ percorsi
@@ -177,7 +273,7 @@ def costruisci_stato(pub, ris):
                 if v["stato"] == "FATTO":
                     stato = "FATTO"
                 elif nota.startswith("parziale") or lids:
-                    stato = "PARZIALE"
+                    stato = "PARZIALE"  # transitorio: migra_parziali() lo toglie a fine costruzione
                 else:
                     stato = "DA FARE"
                 dc = stato != "FATTO" and bool(nota or lids)
@@ -186,7 +282,7 @@ def costruisci_stato(pub, ris):
                     dc, dc_nota = True, "data, ora e lezione del registro non indicate nella fonte (confermato dal docente): abbinamento da confermare dal docente"
                 if stato == "FATTO" and dubbie_ora and not certe:
                     dc, dc_nota = True, "data certa, ora non indicata: abbinamento all'ora da confermare dal docente"
-                voci.append({"n": n, "comp": comp["comp"], "comp_titolo": comp["titolo"], "modulo": modulo,
+                voci.append({"parte": "", "parte_testo": "", "manca": "", "n": n, "comp": comp["comp"], "comp_titolo": comp["titolo"], "modulo": modulo,
                              "testo": v["testo"], "stato": stato, "stato_allegato": v["stato"],
                              "materia": DA_ASSEGNARE, "materia_fonte": "", "fonte": v.get("fonte", ""),
                              "nota": nota, "da_confermare": dc, "da_confermare_nota": dc_nota,
@@ -232,12 +328,12 @@ def costruisci_stato(pub, ris):
             if r["materia"] == "Sicurezza professionale":
                 continue  # Sicurezza: il titolo lo mette la direzione (R5.2bis), nessun suggerimento
             if a and (ratio >= 0.72 or (len(toks(r["titolo_registro"]) & toks(v["testo"])) >= 2)):
-                best.append((ratio, v["n"]))
+                best.append((ratio, vkey(r["classe"], v)))
         best.sort(reverse=True)
-        r["voci_candidate"] = sorted(set(r["voci_candidate"] + [f"{r['classe']}:{n}" for _, n in best[:2]]))
+        r["voci_candidate"] = sorted(set(r["voci_candidate"] + [k for _, k in best[:2]]))
 
     stato = {
-        "versione_dati": "1.0",
+        "versione_dati": "1.1",
         "creato": datetime_now(),
         "fonti": {
             "voci": "allegato-a-stato/stato-allegato-a.json v" + stato_a["versione"] + " (pubblico; parte «Regge» dell'Allegato A del 02/11/2026)",
@@ -253,6 +349,7 @@ def costruisci_stato(pub, ris):
         "festivi": [{"dal": a, "al": b, "nome": n} for a, b, n in FESTIVI],
         "eventi": [{"ts": datetime_now(), "tipo": "inizializza", "testo": "stato creato dalle fonti"}],
     }
+    migra_parziali(stato)
     return stato
 
 
@@ -330,20 +427,24 @@ def genera_uscite(stato, cartella, versione):
     npdf = cartella / f"ARGOMENTI-ALLEGATO-A-TRACCIA-2026-27-v{versione}.pdf"
     U.scrivi_xlsx(stato, nx, versione)
     U.scrivi_pdf(stato, npdf, versione)
-    return nx, npdf
+    ncomp = cartella / f"ARGOMENTI-ALLEGATO-A-PER-COMPETENZA-2026-27-v{versione}.pdf"
+    U.scrivi_pdf_competenza(stato, ncomp, versione)
+    return nx, npdf, ncomp
 
 
 # ------------------------------------------------------------------ comandi
 def cmd_inizializza(a):
     pub, ris, sp, out = percorsi(a)
+    if sp.exists() and a.forza and any(e["tipo"] == "segna" for e in carica(sp)["eventi"]):
+        sys.exit("Ci sono comandi «segna» nello stato: --forza li perderebbe. Non lo faccio.")
     if sp.exists() and not a.forza:
         sys.exit(f"Esiste gia' {sp}: non lo rifaccio (usa --forza per ricostruirlo dalle fonti, perdendo i 'segna').")
     st = costruisci_stato(pub, ris)
     v = prossima_versione(out)
     st["versione_output"] = v
     salva(sp, st)
-    nx, npdf = genera_uscite(st, out, v)
-    print(f"Stato: {sp}\nCreati: {nx}\n        {npdf}")
+    nx, npdf, ncomp = genera_uscite(st, out, v)
+    print(f"Stato: {sp}\nCreati: {nx}\n        {npdf}\n        {ncomp}")
 
 
 def trova_materia(cl, testo):
@@ -361,9 +462,22 @@ def cmd_segna(a):
     if cl not in CLASSI:
         sys.exit("Classe non valida: " + ", ".join(CLASSI))
     mat = trova_materia(cl, a.materia)
-    voce = next((v for v in st["classi"][cl] if v["n"] == a.n_voce), None)
-    if not voce:
-        sys.exit(f"Voce {a.n_voce} non trovata in {cl} (n da 1 a {len(st['classi'][cl])}).")
+    mv = re.fullmatch(r"(\d+)([ab]?)", a.n_voce.strip().lower())
+    if not mv:
+        sys.exit("Numero di voce non valido: usa 29 oppure, per una voce divisa, 29a / 29b.")
+    num, lettera = int(mv.group(1)), mv.group(2)
+    righe = [v for v in st["classi"][cl] if v["n"] == num]
+    if not righe:
+        sys.exit(f"Voce {num} non trovata in {cl} (n da 1 a {max(v['n'] for v in st['classi'][cl])}).")
+    if len(righe) > 1 and not lettera:
+        sys.exit(f"La voce {num} e' divisa in {num}a (fatta) e {num}b (da fare): indica quale, per esempio {num}b.")
+    voce = next((v for v in righe if v.get("parte", "") == lettera), None)
+    if voce is None:
+        sys.exit(f"La voce {num} non e' divisa: usa «{num}» senza lettera, oppure --parte per dividerla.")
+    if a.parte and lettera:
+        sys.exit("--parte si usa su una voce intera, non su una parte gia' divisa.")
+    if a.manca and not a.parte:
+        sys.exit("--manca si usa insieme a --parte.")
     data = parse_data(a.data)
     m = re.fullmatch(r"h?(\d)(?:-h?(\d))?", a.ora.strip().lower())
     if not m:
@@ -392,28 +506,58 @@ def cmd_segna(a):
             nuove += per_riga
         elif r["materia"] != mat and not a.forza:
             sys.exit(f"L'ora {lid} e' gia' registrata come «{r['materia']}»: usa --forza se e' un errore.")
-        if f"{cl}:{voce['n']}" not in r["voci"]:
-            r["voci"].append(f"{cl}:{voce['n']}")
-        if f"{cl}:{voce['n']}" in r["voci_dubbie"]:
-            r["voci_dubbie"].remove(f"{cl}:{voce['n']}")
-    voce["lezioni"] = sorted(set(voce["lezioni"] + ids))
-    voce["lezioni_dubbie"] = []
-    voce["stato"] = "PARZIALE" if a.parziale else "FATTO"
     voce["materia"], voce["materia_fonte"] = mat, "indicata dal docente con 'segna'"
-    voce["da_confermare"], voce["da_confermare_nota"] = False, ""
-    voce["fonte"] = f"segnato dal docente il {D.date.today().strftime('%d/%m/%Y')} (argomenti_allegato_a.py)"
+    fonte = f"segnato dal docente il {D.date.today().strftime('%d/%m/%Y')} (argomenti_allegato_a.py)"
+    if a.parte:
+        manca = a.manca or f"resto della voce (oltre a: {a.parte})"
+        voce_a, voce_b = dividi_voce(st, cl, voce, a.parte, manca, ids, fonte_a=fonte + f"; parte svolta: {a.parte}")
+        voce_a["materia"], voce_b["materia"] = mat, mat
+        voce = voce_a
+    else:
+        voce["lezioni"] = sorted(set(voce["lezioni"] + ids))
+        voce["lezioni_dubbie"] = []
+        voce["stato"] = "FATTO"
+        voce["da_confermare"], voce["da_confermare_nota"] = False, ""
+        voce.pop("da_chiedere", None)
+        voce["fonte"] = fonte
+        for r in st["lezioni"]:
+            for campo in ("voci_dubbie", "voci_candidate"):
+                if vkey(cl, voce) in r[campo]:
+                    r[campo].remove(vkey(cl, voce))
+    for r in st["lezioni"]:
+        if r["id"] in ids and vkey(cl, voce) not in r["voci"]:
+            r["voci"].append(vkey(cl, voce))
     st["lezioni"].sort(key=lambda x: (x["data"], x["classe"], x["ora"]))
-    st["eventi"].append({"ts": datetime_now(), "tipo": "segna", "classe": cl, "materia": mat, "n_voce": voce["n"],
-                         "voce": voce["testo"], "data": data, "ora": a.ora, "durata": durata, "titolo": titolo,
-                         "stato": voce["stato"], "ore_nuove": nuove})
+    st["eventi"].append({"ts": datetime_now(), "tipo": "segna", "classe": cl, "materia": mat, "n_voce": etichetta(voce),
+                         "voce": voce["testo"], "parte": a.parte or "", "manca": voce_b["manca"] if a.parte else "",
+                         "data": data, "ora": a.ora, "durata": durata, "titolo": titolo, "stato": voce["stato"], "ore_nuove": nuove})
     v = prossima_versione(out)
     st["versione_output"] = v
     salva(sp, st)
-    nx, npdf = genera_uscite(st, out, v)
+    nx, npdf, ncomp = genera_uscite(st, out, v)
     resta = [x for x in st["classi"][cl] if x["stato"] != "FATTO"]
-    print(f"{'Parziale' if a.parziale else 'Fatto'}: «{voce['testo']}» ({cl}, {mat}, {fmt_data(data)} h{a.ora}, {durata:g} h); "
-          f"voci rimaste in {cl}: {sum(1 for x in resta if x['stato']=='DA FARE')} da fare, {sum(1 for x in resta if x['stato']=='PARZIALE')} parziali. "
-          f"Traccia v{v}: {nx.name}")
+    extra = f" (parte «{a.parte}»; resta da fare: {voce_b['manca']})" if a.parte else ""
+    print(f"Fatto: «{voce['testo']}»{extra} ({cl}, {mat}, {fmt_data(data)} h{a.ora}, {durata:g} h); "
+          f"voci rimaste in {cl}: {len(resta)} da fare. Traccia v{v}: {nx.name}")
+
+
+def cmd_migra(a):
+    pub, ris, sp, out = percorsi(a)
+    st = carica(sp)
+    divise, chiedere = migra_parziali(st)
+    if not divise and not chiedere:
+        print("Nessuna voce PARZIALE: niente da fare.")
+        return
+    v = prossima_versione(out)
+    st["versione_output"] = v
+    st["versione_dati"] = "1.1"
+    st["eventi"].append({"ts": datetime_now(), "tipo": "migra",
+                         "testo": "stato PARZIALE tolto (decisione del docente): voci divise a/b " + ", ".join(f"{c} n.{n}" for c, n in divise) +
+                                  "; da chiedere al docente " + ", ".join(f"{c} n.{n}" for c, n in chiedere)})
+    salva(sp, st)
+    print(f"Divise {len(divise)}: " + ", ".join(f"{c} n.{n}" for c, n in divise))
+    print(f"Da chiedere {len(chiedere)}: " + ", ".join(f"{c} n.{n}" for c, n in chiedere))
+    print(*genera_uscite(st, out, v), sep="\n")
 
 
 def cmd_lista(a):
@@ -428,8 +572,9 @@ def cmd_lista(a):
             continue
         if a.materia and sn(a.materia) == "da assegnare" and v["materia"] != DA_ASSEGNARE:
             continue
-        dc = "  [da confermare dal docente]" if v["da_confermare"] else ""
-        print(f"{cl} n.{v['n']:>3}  Comp.{v['comp']:<2} {v['stato']:<8} {v['materia'][:26]:<26} {v['testo']}{dc}")
+        dc = "  [DA CHIEDERE: " + v["da_chiedere"] + "]" if v.get("da_chiedere") else ("  [da confermare dal docente]" if v["da_confermare"] else "")
+        mc = f"  (manca: {v['manca']})" if v.get("manca") else ""
+        print(f"{cl} n.{etichetta(v):>4}  Comp.{v['comp']:<2} {v['stato']:<8} {v['materia'][:26]:<26} {v['testo']}{mc}{dc}")
 
 
 def cmd_cronologia(a):
@@ -459,9 +604,12 @@ def main():
     sp = p.add_subparsers(dest="cmd", required=True)
     s = sp.add_parser("inizializza"); s.add_argument("--forza", action="store_true"); s.set_defaults(f=cmd_inizializza)
     s = sp.add_parser("segna")
-    s.add_argument("classe"); s.add_argument("materia"); s.add_argument("n_voce", type=int); s.add_argument("data")
+    s.add_argument("classe"); s.add_argument("materia"); s.add_argument("n_voce"); s.add_argument("data")
     s.add_argument("ora"); s.add_argument("durata"); s.add_argument("titolo", nargs="?")
-    s.add_argument("--parziale", action="store_true"); s.add_argument("--forza", action="store_true"); s.set_defaults(f=cmd_segna)
+    s.add_argument("--parte", help="divide la voce: testo della parte svolta (riga «a» FATTA)")
+    s.add_argument("--manca", help="con --parte: che cosa manca (riga «b» DA FARE)")
+    s.add_argument("--forza", action="store_true"); s.set_defaults(f=cmd_segna)
+    s = sp.add_parser("migra"); s.set_defaults(f=cmd_migra)
     s = sp.add_parser("lista-da-fare"); s.add_argument("classe"); s.add_argument("materia", nargs="?"); s.set_defaults(f=cmd_lista)
     s = sp.add_parser("cronologia"); s.add_argument("classe", nargs="?"); s.set_defaults(f=cmd_cronologia)
     s = sp.add_parser("rigenera"); s.set_defaults(f=cmd_rigenera)
