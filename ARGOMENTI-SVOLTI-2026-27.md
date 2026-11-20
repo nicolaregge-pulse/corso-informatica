@@ -1,6 +1,6 @@
 # Argomenti Svolti 2026-27 — Registro delle attività (per Allegato A)
 
-**Versione 1.16** — 18/11/2026
+**Versione 1.17** — 20/11/2026 (v1.17: righe del 20/11, 2INF ore 1-2 e 1INF ore 4-6, titoli del registro; prima v1.16)
 *Il registro di quello che facciamo DAVVERO in aula, anno per anno, agganciato
 alle competenze dell'Allegato A. Si aggiorna a ogni lezione: una riga per
 attività svolta, con la classe, il materiale usato e la competenza corrispondente.
@@ -114,6 +114,11 @@ rifiniscono man mano confrontando con l'Allegato A.*
 | 18/11/2026 | 3INF 11-12, Laboratorio professionale. (presenti 20 su 21, uno «Altro», 1 assente; registro delle 11:39). Sul registro (firmato 18/11 alle 08:31): «Sviluppo web: pagina Presenze stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 18/11/2026 | 3INF 12-13, Laboratorio professionale. (presenti 20 su 21, uno «Altro», 1 assente; registro delle 11:39). Sul registro (firmato 18/11 alle 08:33): «Sviluppo web: diario dello stage»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 | 18/11/2026 | 1INF 13-14, Tecnologia professionale. (presenti 19 su 23 (registro di classe)). ORA FIRMATA IN ANTICIPO, prima della lezione; Sul registro (firmato 18/11 alle 08:29): «Architettura del PC: componenti»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 20/11/2026 | 2INF 8-9, Informatica (Pratica, aula 11): il negozio online, la pagina con il carrello (presenti 15 su 20 alle 8-9, registro delle 08:27). Sul registro (FIRMA ✓ letta alle 08:27 dallo screenshot del docente): «Pagine web del negozio: il carrello»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 20/11/2026 | 2INF 9-10, Informatica (Pratica, aula 11): ordini via e-mail, conferma simulata. Sul registro (FIRMA ✓ letta alle 08:27 dallo screenshot del docente): «Ordini via e-mail: conferma simulata»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 20/11/2026 | 1INF 11-12, Laboratorio professionale: diagnosi dei guasti, il metodo del tecnico. Sul registro (FIRMA ✓ letta alle 10:45 dallo screenshot del docente): «Diagnosi dei guasti: metodo e fasi»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 20/11/2026 | 1INF 12-13, Laboratorio professionale: diagnosi dei guasti, indovina il guasto. Sul registro (FIRMA ✓ letta alle 10:45): «Diagnosi dei guasti: casi e cause probabili»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
+| 20/11/2026 | 1INF 13-14, Laboratorio professionale: diagnosi dei guasti, discussione dei casi. Sul registro (FIRMA ✓ letta alle 10:45): «Diagnosi dei guasti: discussione dei casi»; contenuto realmente svolto da confermare dal docente | | voce esatta da confermare, nessuna voce aggiunta (R5.2) |
 
 ## 4b. Sicurezza: doppia modalità (Dichiarato e Registro)
 
@@ -181,3 +186,4 @@ Nota: i dichiarati sono le voci dei programmi di massima; l'estratto `MIE-PARTI-
 25. **v1.14 (18/11/2026)**: presenze 1INF dalle 9-10: 20 su 23 e 2 rientrati a ora non nota (da verificare), 1 assente; nessun'altra modifica.
 26. **v1.15 (18/11/2026)**: presenze 3INF del 18/11 dalle 11-12 e 12-13: 20 presenti su 21 e 1 assente (registro delle 11:39); titoli già presenti, nessuna voce dell'Allegato A aggiunta.
 27. **v1.16 (18/11/2026)**: audit del 18/11 (residuo 03.2): 4TI del 17/11, ora 11-12, ARGOMENTI e copertura (`copertura-allegato-a.json`) indicavano due voci diverse («Collaudo con il ping e documentazione», Comp. 16, e «Relazione tecnica», Comp. 13). Scelta la voce già presente nell'Allegato A più vicina al titolo del registro «Documentazione tecnica del progetto»: **«Relazione tecnica»** (Comp. 13, modulo «Documentazione tecnica: relazione, manuale utente, presentazione; Git e NotebookLM»), perché il lavoro dell'ora è il Documento del progetto (capitoli, versione 0.1, tabella delle versioni), non la progettazione di rete di Packet Tracer; la voce di Comp. 16 riguarda il collaudo con il ping. Allineata anche l'ora 12-13 («Presentazione del progetto», Comp. 13, come la copertura). Nessuna voce aggiunta (R5.2); la voce resta «da confermare» dal docente e NON diventa bianca.
+28. **v1.17 (20/11/2026, controllore di fine giornata)**: aggiunte le 5 righe del 20/11 (2INF 8-9 e 9-10, 1INF 11-12, 12-13, 13-14) con i titoli del registro letti dagli screenshot del docente (08:27 e 10:45); presenze 1INF non indicate (lo screenshot delle 10:45 vale per l'ora 3); nessuna voce dell'Allegato A aggiunta. Non c'è ancora la riga del 19/11 (2INF Sicurezza).

@@ -964,6 +964,8 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
             try:
                 d = json.load(open(cr, encoding="utf-8"))
                 righe_c = d.get("righe") if isinstance(d, dict) else d
+                if isinstance(d, dict) and not d.get("righe") and isinstance(d.get("presenti"), list):
+                    righe_c = d["presenti"]  # schema cruscotto-classe-1 (v1.1+): una riga per presente (20/11/2026)
                 righe_c = righe_c if isinstance(righe_c, list) else []
                 if n_pres is not None and len(righe_c) != n_pres:
                     problemi.append("%s: cruscotto con %d righe, presenti %d (%s)" % (classe, len(righe_c), n_pres, os.path.basename(cr)))

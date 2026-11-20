@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.9** — 18/11/2026 — documento interno del docente e di Claude
+**Versione 3.10** — 20/11/2026 (v3.10: venerdì 20/11, 5 ore firmate; giovedì 19/11 firma non provata) · prima v3.9, 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -141,6 +141,17 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 7. Presenze 1INF del 18/11 (registro di classe, tipo formazione Aula): ora 8-9 19 presenti e 4 assenti su 23 in elenco (screenshot delle 08:37); dalle 9-10, mattina del 18/11, da verificare: 20 presenti, 2 rientrati a ora non nota (presenti da verificare) e 1 assente; il registro alle 08:37 mostrava assenti anche loro: va aggiornato dal docente; i nomi stanno solo nel riservato.
 8. Presenze 3INF del 18/11 (registro DIDAweb, screenshot del docente delle 11:39): 21 allievi attivi, ore 11-12 e 12-13 20 presenti (uno segnato «Altro» = presente) e 1 assente; i nomi stanno solo nel riservato. Le ore 8-10 sul registro della classe sono di Tecnologia professionale (altro docente), la 10-11 di Matematica (altro docente), la 13-14 è Placement: non nostre.
 
+## Giovedì 19/11/2026
+
+1. 2INF 10-11, Sicurezza professionale: firma non provata. Non c'è nessuno screenshot del registro del 19/11 dopo le 11:31, quando il pulsante «FIRMA» era ancora visibile; la scadenza delle 14:05 è passata (fonte: controllore del 19/11, `report/2026-11-20/COSE-DA-FARE-23-11.md`). Da controllare sul registro.
+
+## Venerdì 20/11/2026
+
+1. 2INF 8-9 «Pagine web del negozio: il carrello» e 9-10 «Ordini via e-mail: conferma simulata»: FIRMA ✓ in verde, letto dallo screenshot del docente delle 08:27 del 20/11 (non riletto dal registro).
+2. 1INF 11-12 «Diagnosi dei guasti: metodo e fasi», 12-13 «Diagnosi dei guasti: casi e cause probabili», 13-14 «Diagnosi dei guasti: discussione dei casi»: FIRMA ✓, letto dallo screenshot del docente delle 10:45 del 20/11 (firmate prima della lezione; non riletto dal registro).
+3. Tutte le 5 ore del 20/11 sono firmate: non si ricorda nessuna firma.
+4. Presenze: 2INF ora 1, 15 presenti su 20 e 5 assenti (08:27); 1INF: lo screenshot delle 10:45 vale per l'ora 3, le presenze delle ore 11-14 non sono lette (da aggiornare sul registro).
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione.
@@ -173,3 +184,4 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 27. v3.7 (18/11/2026): presenze 1INF: due allievi rientrati a ora non nota (presenti da verificare), un solo assente dalle 9-10; da aggiornare sul registro.
 28. v3.8 (18/11/2026, 11:39): presenze 3INF del 18/11 dal registro: 20 presenti e 1 assente su 21 nelle ore 11-13 (senza nomi).
 29. v3.9 (18/11/2026): presenze 4TI del 17/11, ore 10-13: 9 presenti su 9, dichiarato dal docente il 18/11 (non letto dal registro DIDAweb); senza nomi.
+30. v3.10 (20/11/2026, controllore di fine giornata): sezioni di giovedì 19/11 (firma 2INF 10-11 non provata) e di venerdì 20/11 (5 ore firmate, dagli screenshot delle 08:27 e 10:45); senza nomi.
