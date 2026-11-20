@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 # CORSO_RISERVATO sposta la cartella per le prove). Nessuna scrittura, nessun trigger.
 # v1.9 (19/11/2026 sera): punta a INFO-PIU-USATE-v1.8.md (sezione 16, errori #378-#383).
 # v1.10 (20/11/2026): punta a INFO-PIU-USATE-v1.10.md (sezione 17, TASK APERTI: si legge ogni mattina dopo le cose da fare).
+# v1.11 (20/11/2026): punta a INFO-PIU-USATE-v1.11.md (sezione 18, traccia degli argomenti degli Allegati A: «segna» quando il docente dice di aver fatto un argomento).
 # v1.8 (19/11/2026): punta a INFO-PIU-USATE-v1.7.md (sezione 15, il kit comprende anche il PDF lavagna).
 # v1.6 (19/11/2026): punta a INFO-PIU-USATE-v1.5.md (sezione 11, ora della nota). v1.7 (19/11/2026): punta a INFO-PIU-USATE-v1.6.md (quiz in autonomia, bobina).
 # v1.5 (19/11/2026): punta a INFO-PIU-USATE-v1.4.md (sezione 11, 5 dati per ora).
@@ -35,7 +36,7 @@ RILETTURA = (
     "DIDAweb (docs/docenti/02-didaweb-i-segnalibri-che-scrivono-i-voti.html, con /home/user/corso-informatica-riservato/strumenti/didaweb-auto.js). Le "
     "modalità già decise dal docente (per esempio i voti DIDAweb col segnalibro «Voti DIDAweb AUTO» e il pacchetto; "
     "il codice da copiare in UN riquadro da solo in FONDO, R4 3ter) NON si cambiano: se un metodo esiste già, si usa "
-    "quello. PRIMA di dare passi al docente leggi anche /home/user/corso-informatica-riservato/report/INFO-PIU-USATE-v1.10.md "
+    "quello. PRIMA di dare passi al docente leggi anche /home/user/corso-informatica-riservato/report/INFO-PIU-USATE-v1.11.md "
     "(o l'ultima versione presente in report/) e, se esiste, il file delle cose da fare di oggi: il più recente tra "
     "/home/user/corso-informatica-riservato/report/*/COSE-DA-FARE-<GG-MM di oggi>*.md, ESCLUSI i file con BOZZA nel nome, versione più alta (-vN.N; senza versione = v1.0) o, a parità, la più recente per data (lo scrive la sera prima il "
     "controllore di fine giornata; se manca, dillo nella riga). Poi dici in una riga di averle rilette e quante cose "
