@@ -366,13 +366,84 @@ function LV_puntiTotali_(form) {   // come FB_puntiTotali_ del motore
 }
 function LV_punteggio_(r) { var s = 0; (r.getGradableItemResponses() || []).forEach(function (g) { s += Number(g.getScore()) || 0; }); return s; }
 
+/* ---------- ORARIO (v1.2): fabbrica/orario-live.json ---------- */
+/* Il file: {valido_dal, valido_al, fonte, giorni: {lun..ven: {ora_1..ora_6: {classe, materia, tipo}}}}; ora libera = chiave assente. */
+function LV_orarioLeggi_(giorno) {   // -> {ok, errore, orario, fonte}
+  var t = '';
+  try {
+    var cache = CacheService.getScriptCache(), c = cache.get('LV_ORARIO');
+    if (c) t = c;
+    else {
+      var base = (typeof FB_BASE !== 'undefined') ? FB_BASE : LV_BASE_DEFAULT;
+      var r = UrlFetchApp.fetch(base + 'orario-live.json?t=' + Date.now(), { muteHttpExceptions: true });
+      if (r.getResponseCode() !== 200) return { ok: false, errore: 'orario-live.json HTTP ' + r.getResponseCode() };
+      t = r.getContentText();
+      JSON.parse(t);
+      try { cache.put('LV_ORARIO', t, 300); } catch (e) { }
+    }
+    var o = JSON.parse(t), er = LV_orarioControlla_(o, giorno);
+    return er ? { ok: false, errore: er } : { ok: true, errore: '', orario: o, fonte: String(o.fonte || '') };
+  } catch (e) { return { ok: false, errore: 'orario-live.json non leggibile: ' + String(e.message || e).slice(0, 100) }; }
+}
+function LV_orarioControlla_(o, giorno) {   // '' se usabile oggi, altrimenti il motivo
+  if (!o || typeof o !== 'object' || !o.giorni || typeof o.giorni !== 'object') return 'file senza «giorni»';
+  if (!/^\d{4}-\d\d-\d\d$/.test(String(o.valido_dal || '')) || !/^\d{4}-\d\d-\d\d$/.test(String(o.valido_al || ''))) return 'file senza date di validita';
+  if (giorno < o.valido_dal || giorno > o.valido_al) return 'orario valido dal ' + o.valido_dal + ' al ' + o.valido_al + ': oggi (' + giorno + ') e fuori, serve l\'orario nuovo';
+  return '';
+}
+function LV_orarioElenco_(g, n) {   // lezioni della n-esima ora del giorno g (un oggetto, oppure un elenco se il docente ha DUE classi nella stessa ora), solo classi nostre
+  var v = g && g['ora_' + n], out = [];
+  if (!v) return out;
+  (Object.prototype.toString.call(v) === '[object Array]' ? v : [v]).forEach(function (e) {
+    var k = String((e && e.classe) || '').toUpperCase();
+    if (LV_CLASSI_TUTTE.indexOf(k) >= 0) out.push({ classe: k, ora: n, materia: String(e.materia || ''), tipo: String(e.tipo || '') });
+  });
+  return out;
+}
+function LV_orarioOra_(g, n) { var l = LV_orarioElenco_(g, n); return l.length ? l[0] : null; }
+/** u = giorno ISO (1 lun .. 7 dom), min = minuti dalla mezzanotte (ora di Roma).
+ *  -> {lezione: [{classe, ora, materia, tipo, anticipo}], prec: {...}|null, succ: {...}|null}
+ *  lezione = classi con ora in corso (o che comincia entro LV_ANTICIPO_MIN); prec/succ solo se non c'e nessuna lezione. */
+function LV_piano_(o, u, min) {
+  var g = (o && o.giorni && o.giorni[LV_GG[u]]) || {}, lez = {}, ordine = [], n, e, ini, fin;
+  for (n = 1; n <= 6; n++) {
+    ini = (7 + n) * 60; fin = (8 + n) * 60;
+    if (!(min >= ini - LV_ANTICIPO_MIN && min < fin)) continue;
+    LV_orarioElenco_(g, n).forEach(function (e) {
+      e.anticipo = min < ini;
+      if (!lez[e.classe]) { lez[e.classe] = e; ordine.push(e.classe); }
+      else if (lez[e.classe].anticipo && !e.anticipo) lez[e.classe] = e;
+    });
+  }
+  var out = { lezione: ordine.map(function (k) { return lez[k]; }), prec: null, succ: null };
+  if (out.lezione.length) return out;
+  for (n = 6; n >= 1; n--) { e = LV_orarioOra_(g, n); if (e && (8 + n) * 60 <= min && min - (8 + n) * 60 <= LV_CHIUSURA_MIN) { out.prec = e; break; } }
+  for (n = 1; n <= 6; n++) { e = LV_orarioOra_(g, n); if (e && (7 + n) * 60 - LV_ANTICIPO_MIN > min && (7 + n) * 60 - min <= LV_SUCCESSIVA_MIN) { out.succ = e; break; } }
+  return out;
+}
+function LV_oreClasse_(o, u, classe) {   // {n: {materia, tipo}} le ore di oggi in cui la classe ha lezione con il docente
+  var g = (o && o.giorni && o.giorni[LV_GG[u]]) || {}, out = {}, n, e;
+  for (n = 1; n <= 6; n++) LV_orarioElenco_(g, n).forEach(function (x) { if (x.classe === classe) out[n] = { materia: x.materia, tipo: x.tipo }; });
+  return out;
+}
+function LV_materiaCompito_(c, ore) { return (c.ora && ore && ore[c.ora]) ? ore[c.ora].materia : ''; }
+function LV_materiaQuiz_(q, ore) {
+  if (/(^|[^a-z])sic/i.test(q.id) || /sicurezza/i.test(q.titolo || '')) return 'Sicurezza professionale';
+  var m = /ora\s*(\d)/i.exec(q.id || '') || /ora\s*(\d)/i.exec(q.titolo || '');
+  return (m && ore && ore[Number(m[1])]) ? ore[Number(m[1])].materia : '';
+}
+
 /* ---------- una classe ---------- */
-function LV_classe_(ss, classe, t0) {
+function LV_classe_(ss, classe, t0, ctx) {
+  ctx = ctx || {};
   var ora = new Date(), gg = Number(LV_roma_(ora, 'd')), mm = Number(LV_roma_(ora, 'M')), giorno = LV_roma_(ora, 'yyyy-MM-dd');
-  var avvisi = [], stato = 'ok', motivo = '';
-  var corso = LV_corsoId_(ss, classe);
-  if (!corso) { LV_scriviErrore_(ss, classe, 'corso Classroom non trovato nella scheda Corsi'); return; }
-  var isc = LV_iscritti_(corso, classe);
+  var avvisi = (ctx.avvisi || []).slice(), stato = 'ok', motivo = '', ore = ctx.ore || {};
+  var corsi = LV_corsi_(ss, classe);
+  if (!corsi.length) { LV_scriviErrore_(ss, classe, 'corso Classroom non trovato nella scheda Corsi'); return; }
+  var isc = [], visti = {}, ci;
+  for (ci = 0; ci < corsi.length; ci++) {
+    LV_iscritti_(corsi[ci].id, classe).forEach(function (s) { if (!visti[s.u]) { visti[s.u] = 1; isc.push(s); } });   // stesso allievo in piu corsi: una riga sola
+  }
   if (!isc.length) { LV_scriviErrore_(ss, classe, 'nessun iscritto letto dal corso Classroom'); return; }
   isc.sort(function (a, b) { var x = LV_nomeCR_(a), y = LV_nomeCR_(b); return x < y ? -1 : (x > y ? 1 : 0); });
   var etich = LV_brevi_(isc.map(LV_nomeCR_)), perUtente = {}, perEmail = {}, perNome = {};
@@ -382,12 +453,20 @@ function LV_classe_(ss, classe, t0) {
   var ultimo = isc.map(function () { return ''; });
   function agg(i, iso) { var ms = Date.parse(iso); if (isNaN(ms)) return; var cur = ultimo[i] ? Date.parse(ultimo[i]) : 0; if (ms > cur) ultimo[i] = LV_iso_(new Date(ms)); }
   var colonne = [], dati = isc.map(function () { return []; });
-  // compiti di oggi
-  var compiti = LV_compitiOggi_(corso, gg, mm);
+  // compiti di oggi, di TUTTI i corsi della classe
+  var compiti = [];
+  corsi.forEach(function (cr) {
+    try { LV_compitiOggi_(cr.id, gg, mm, giorno).forEach(function (c) { c.corso = cr.id; c.corsoNome = cr.nome; compiti.push(c); }); }
+    catch (e) { avvisi.push('compiti del corso «' + cr.nome + '» non letti: ' + String(e.message || e).slice(0, 100)); stato = 'parziale'; }
+  });
+  compiti.sort(function (a, b) { return a.ora - b.ora; });
   for (var c = 0; c < compiti.length; c++) {
-    if (Date.now() - t0 > LV_FINE_MS) { stato = 'parziale'; motivo = 'tempo del giro finito: compiti ' + compiti.slice(c).map(function (x) { return 'Ora ' + x.ora; }).join(', ') + ' non letti'; break; }
-    var cons = LV_consegne_(corso, compiti[c].id);
-    colonne.push({ k: 'C', titolo: compiti[c].titolo, link: compiti[c].link, ora: compiti[c].ora });
+    if (Date.now() - t0 > LV_FINE_MS) { stato = 'parziale'; motivo = 'tempo del giro finito: compiti ' + compiti.slice(c).map(function (x) { return x.ora ? 'Ora ' + x.ora : x.titolo.slice(0, 20); }).join(', ') + ' non letti'; break; }
+    var cons = LV_consegne_(compiti[c].corso, compiti[c].id);
+    var col = { k: 'C', titolo: compiti[c].titolo, link: compiti[c].link, ora: compiti[c].ora };
+    var mat = LV_materiaCompito_(compiti[c], ore); if (mat) col.m = mat;
+    if (corsi.length > 1) col.c = compiti[c].corsoNome;
+    colonne.push(col);
     isc.forEach(function (s, i) {
       var x = cons[s.u];
       dati[i].push(x ? x.stato : '-');
@@ -409,7 +488,9 @@ function LV_classe_(ss, classe, t0) {
         if (chiave && tot > 0) { var pc = Math.round(LV_punteggio_(r) / tot * 100), cur = pq[quiz[q].id][i]; if (cur === undefined || pc > cur) pq[quiz[q].id][i] = pc; }   // miglior tentativo
       });
     });
-    colonne.push({ k: 'Q', id: quiz[q].id, titolo: quiz[q].titolo, link: quiz[q].link });
+    var colQ = { k: 'Q', id: quiz[q].id, titolo: quiz[q].titolo, link: quiz[q].link };
+    var matQ = LV_materiaQuiz_(quiz[q], ore); if (matQ) colQ.m = matQ;
+    colonne.push(colQ);
     isc.forEach(function (s, i) { dati[i].push(fatti[i] ? 'FATTO' : 'MANCA'); });
   }
   if (nonAbb) avvisi.push(nonAbb + ' risposte ai quiz di oggi con email non abbinata (non contate)');
@@ -423,7 +504,7 @@ function LV_classe_(ss, classe, t0) {
       riservato = LV_cifra_(blocco, chiave);
     } catch (e) { avvisi.push('blocco riservato non scritto: ' + String(e.message || e).slice(0, 100)); }
   }
-  LV_scrivi_(ss, classe, { riservato: riservato, dato: new Date(t0),   /* ora di INIZIO del giro: tutto cio che e scritto e stato letto dopo questo istante, quindi il dato e fresco almeno quanto dichiarato */ giorno: giorno, stato: stato, motivo: motivo, durata: Math.round((Date.now() - t0) / 1000), nonAbb: nonAbb, avvisi: avvisi, colonne: colonne, nomi: etich, dati: dati, ultimo: ultimo });
+  LV_scrivi_(ss, classe, { contesto: ctx.contesto || { modo: 'riserva' }, riservato: riservato, dato: new Date(t0),   /* ora di INIZIO del giro: tutto cio che e scritto e stato letto dopo questo istante, quindi il dato e fresco almeno quanto dichiarato */ giorno: giorno, stato: stato, motivo: motivo, durata: Math.round((Date.now() - t0) / 1000), nonAbb: nonAbb, avvisi: avvisi, colonne: colonne, nomi: etich, dati: dati, ultimo: ultimo });
 }
 
 /* ---------- la scheda «Live <CLASSE>» ---------- */
@@ -432,7 +513,7 @@ function LV_scrivi_(ss, classe, o) {
   var sh = LV_scheda_(ss, classe), nc = o.colonne.length, larg = Math.max(3, nc + 2), righe = [], i, j;
   function riga(a, b, c) { var r = [a, b, c || '']; while (r.length < larg) r.push(''); return r; }
   righe.push(riga('Live ' + classe, LV_iso_(o.dato), 'dati letti alle ' + LV_roma_(o.dato, 'HH:mm:ss')));
-  righe.push(riga('lezione', o.giorno));
+  righe.push(riga('lezione', o.giorno, JSON.stringify(o.contesto || {})));
   righe.push(riga('stato', o.stato, o.motivo));
   righe.push(riga('durata_s', o.durata));
   righe.push(riga('non_abbinate', o.nonAbb));
@@ -466,13 +547,40 @@ function LV_scriviErrore_(ss, classe, msg) {   // non cancella i dati vecchi: ca
 }
 
 /* ---------- il job ---------- */
-function LV_classiDaFare_(ss) {
+function LV_etaScheda_(ss, classe) {   // secondi dall'ora del dato in B1 della scheda Live; Infinity se non c'e
+  var sh = ss.getSheetByName('Live ' + classe);
+  if (!sh || sh.getLastRow() < 1) return Infinity;
+  var ms = Date.parse(String(sh.getRange(1, 2).getValue() || ''));
+  return isNaN(ms) ? Infinity : Math.max(0, (Date.now() - ms) / 1000);
+}
+/** Modalita di RISERVA (v1.1): tutte le classi, o quelle di LV_CLASSI, la piu vecchia per prima. */
+function LV_classiRiserva_(ss) {
   var p = PropertiesService.getScriptProperties().getProperty('LV_CLASSI');
   var lista = p ? String(p).split(/[\s,;]+/).map(function (x) { return x.toUpperCase(); }).filter(function (x) { return LV_CLASSI_TUTTE.indexOf(x) >= 0; }) : LV_CLASSI_TUTTE.slice();
   var eta = {};
   lista.forEach(function (c) { var sh = ss.getSheetByName('Live ' + c); eta[c] = sh && sh.getLastRow() >= 1 ? String(sh.getRange(1, 2).getValue() || '') : ''; });
   lista.sort(function (a, b) { return eta[a] < eta[b] ? -1 : (eta[a] > eta[b] ? 1 : 0); });   // prima il dato piu vecchio (ISO si ordina come testo)
   return lista;
+}
+/** Che cosa fare in questo giro. -> {modo: 'orario'|'riserva', avviso, lavori: [{classe, ruolo: 'lezione'|'vicina', ora, materia, tipo, ore}]}
+ *  Con l'orario letto: lezione = ogni classe in lezione (la piu vecchia per prima), vicina = classe dell'ora precedente/successiva con dato
+ *  di piu di 8 minuti. Senza orario: tutte le classi (riserva) con l'avviso che dice perche. */
+function LV_classiDaFare_(ss, ora, forza) {
+  var giorno = LV_roma_(ora, 'yyyy-MM-dd'), u = Number(LV_roma_(ora, 'u')), min = Number(LV_roma_(ora, 'HH')) * 60 + Number(LV_roma_(ora, 'mm'));
+  var po = LV_orarioLeggi_(giorno), lavori = [];
+  if (!po.ok) {
+    LV_classiRiserva_(ss).forEach(function (c) { lavori.push({ classe: c, ruolo: '', ora: 0, materia: '', tipo: '', ore: {} }); });
+    return { modo: 'riserva', avviso: 'orario non letto: ' + po.errore + ' (modalita di riserva: tutte le classi a turno, non solo quella in lezione)', lavori: lavori };
+  }
+  var piano = LV_piano_(po.orario, u, min), eta = {};
+  function voce(e, ruolo) { return { classe: e.classe, ruolo: ruolo, ora: e.ora, materia: e.materia, tipo: e.tipo, ore: LV_oreClasse_(po.orario, u, e.classe) }; }
+  piano.lezione.forEach(function (e) { eta[e.classe] = LV_etaScheda_(ss, e.classe); });
+  piano.lezione.sort(function (a, b) { return eta[a.classe] === eta[b.classe] ? 0 : (eta[b.classe] > eta[a.classe] ? 1 : -1); });   // il dato piu vecchio per primo (Infinity = mai letto: prima di tutti)
+  piano.lezione.forEach(function (e) { lavori.push(voce(e, 'lezione')); });
+  [piano.prec, piano.succ].forEach(function (e) {
+    if (e && (forza || LV_etaScheda_(ss, e.classe) >= LV_VICINE_OGNI_S)) lavori.push(voce(e, 'vicina'));
+  });
+  return { modo: 'orario', avviso: '', lavori: lavori, fonte: po.fonte };
 }
 function LV_inOrario_() {
   var n = new Date(), g = Number(LV_roma_(n, 'u')), hm = LV_roma_(n, 'HH:mm');   // u: 1 = lunedi ... 7 = domenica
@@ -483,12 +591,19 @@ function LV_esegui_(forza) {
   if (!lock.tryLock(2000)) { Logger.log('live: un altro giro e in corso, salto'); return; }
   try {
     if (!forza && !LV_inOrario_()) return;
-    var ss = LV_foglio_(), classi = LV_classiDaFare_(ss);
-    for (var i = 0; i < classi.length; i++) {
-      if (Date.now() - t0 > LV_AVVIO_MAX_MS) { Logger.log('live: saltate per il tempo ' + classi.slice(i).join(', ')); break; }
-      try { LV_classe_(ss, classi[i], t0); }
-      catch (e) { Logger.log('live ' + classi[i] + ': ' + e); try { LV_scriviErrore_(ss, classi[i], String(e.message || e).slice(0, 200)); } catch (e2) { } }
-      Logger.log('live ' + classi[i] + ' fatto dopo ' + Math.round((Date.now() - t0) / 1000) + ' s');
+    var ss = LV_foglio_(), piano = LV_classiDaFare_(ss, new Date(t0), forza);
+    if (forza && piano.modo === 'orario' && !piano.lavori.length) {   // prova a mano fuori lezione: si leggono tutte le classi per misurare la durata
+      LV_classiRiserva_(ss).forEach(function (c) { piano.lavori.push({ classe: c, ruolo: '', ora: 0, materia: '', tipo: '', ore: {} }); });
+      piano.avviso = 'prova a mano fuori lezione: tutte le classi';
+    }
+    Logger.log('live: modo ' + piano.modo + (piano.avviso ? ' (' + piano.avviso + ')' : '') + ', da fare: ' + (piano.lavori.map(function (l) { return l.classe + (l.ruolo ? ' ' + l.ruolo : ''); }).join(', ') || 'niente (nessuna lezione ora)'));
+    for (var i = 0; i < piano.lavori.length; i++) {
+      var l = piano.lavori[i];
+      if (Date.now() - t0 > LV_AVVIO_MAX_MS) { Logger.log('live: saltate per il tempo ' + piano.lavori.slice(i).map(function (x) { return x.classe; }).join(', ') + ' (al giro dopo la piu vecchia va per prima)'); break; }
+      var ctx = { avvisi: piano.avviso ? [piano.avviso] : [], ore: l.ore, contesto: { modo: piano.modo, ruolo: l.ruolo, ora: l.ora, materia: l.materia, tipo: l.tipo } };
+      try { LV_classe_(ss, l.classe, t0, ctx); }
+      catch (e) { Logger.log('live ' + l.classe + ': ' + e); try { LV_scriviErrore_(ss, l.classe, String(e.message || e).slice(0, 200)); } catch (e2) { } }
+      Logger.log('live ' + l.classe + ' fatto dopo ' + Math.round((Date.now() - t0) / 1000) + ' s');
     }
   } finally { lock.releaseLock(); }
 }
@@ -500,7 +615,7 @@ function live_prova() { LV_esegui_(true); }
 function live_installa() {
   live_spegni();
   ScriptApp.newTrigger('live_giro').timeBased().everyMinutes(1).create();
-  Logger.log('CRUSCOTTO LIVE ATTIVO: live_giro ogni minuto, lun-ven 07:45-14:20.');
+  Logger.log('CRUSCOTTO LIVE ATTIVO: live_giro ogni minuto, lun-ven 07:45-14:20, sulle classi in lezione secondo orario-live.json.');
 }
 function live_spegni() {
   ScriptApp.getProjectTriggers().forEach(function (t) { if (t.getHandlerFunction() === 'live_giro') ScriptApp.deleteTrigger(t); });
@@ -514,7 +629,7 @@ function LV_pulisciNome_(s, k) {
 }
 function LV_leggi_(classe) {
   var ss = LV_foglio_(), sh = ss.getSheetByName('Live ' + classe), adesso = new Date();
-  var base = { versione: LV_VERSIONE, classe: classe, generato_il: LV_iso_(adesso), dato_il: null, secondi_dal_dato: null, lezione: null, stato: 'non_letto', non_letto: null, criticita: [], lavori: { compiti: [], quiz: [] }, allievi: [] };
+  var base = { versione: LV_VERSIONE, classe: classe, generato_il: LV_iso_(adesso), dato_il: null, secondi_dal_dato: null, lezione: null, contesto: null, stato: 'non_letto', non_letto: null, criticita: [], lavori: { compiti: [], quiz: [] }, allievi: [] };
   if (!sh || sh.getLastRow() < 3) { base.non_letto = 'scheda Live ' + classe + ' non ancora scritta dal job'; base.criticita.push(base.non_letto); return base; }
   var v = sh.getDataRange().getDisplayValues(), i, j;
   var iso = String(v[0][1] || '');
@@ -524,6 +639,7 @@ function LV_leggi_(classe) {
   try { var sr = ss.getSheetByName('Live riservato ' + classe); if (sr) { var rv = String(sr.getRange(1, 1).getDisplayValue() || ''); if (rv) { var ro = JSON.parse(rv); if (ro && ro.cifrato === 1) base.riservato = ro; } } } catch (e) { base.riservato = null; }
   base.secondi_dal_dato = isNaN(ms) ? null : Math.max(0, Math.round((adesso.getTime() - ms) / 1000));
   base.lezione = String(v[1][1] || '') || null;
+  base.contesto = null; try { var cx = JSON.parse(String(v[1][2] || '')); if (cx && typeof cx === 'object') base.contesto = cx; } catch (e) { base.contesto = null; }
   base.stato = String(v[2][1] || 'non_letto');
   var motivo = String(v[2][2] || '');
   if (base.stato !== 'ok') { base.non_letto = motivo || base.stato; base.criticita.push((base.stato === 'parziale' ? 'Dato parziale: ' : 'Dato non letto: ') + (motivo || base.stato)); }
@@ -532,7 +648,7 @@ function LV_leggi_(classe) {
   if (nonAbb > 0) base.criticita.push(nonAbb + ' risposte ai quiz di oggi con email non abbinata (non contate)');
   var avv = String((v[5] && v[5][2]) || ''); if (avv) avv.split(' | ').forEach(function (a) { if (a && a.indexOf('email non abbinata') < 0) base.criticita.push(a); });
   var meta = []; try { meta = JSON.parse(String((v[6] && v[6][1]) || '[]')); } catch (e) { meta = []; }
-  meta.forEach(function (m) { if (m.k === 'C') base.lavori.compiti.push({ titolo: m.titolo, link: m.link || '', ora: m.ora }); else base.lavori.quiz.push({ id: m.id, titolo: m.titolo, link: m.link || '' }); });
+  meta.forEach(function (m) { if (m.k === 'C') base.lavori.compiti.push({ titolo: m.titolo, link: m.link || '', ora: m.ora, materia: m.m || '', corso: m.c || '' }); else base.lavori.quiz.push({ id: m.id, titolo: m.titolo, link: m.link || '', materia: m.m || '' }); });
   for (i = LV_META; i < v.length; i++) {
     var nome = LV_pulisciNome_(v[i][0], i - LV_META);
     if (!String(v[i][0] || '').trim()) continue;

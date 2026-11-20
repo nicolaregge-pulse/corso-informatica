@@ -38,9 +38,15 @@ def leggi(md, anno):
             n = h - 7
             if not 1 <= n <= 6:
                 raise SystemExit('ora fuori da 1-6 nella riga: ' + riga)
-            if 'ora_%d' % n in giorni[g]:
-                raise SystemExit('ora doppia nella riga: ' + riga)
-            giorni[g]['ora_%d' % n] = {'classe': classe, 'materia': materia, 'tipo': tipo_di(c[3])}
+            voce = {'classe': classe, 'materia': materia, 'tipo': tipo_di(c[3])}
+            k = 'ora_%d' % n
+            if k not in giorni[g]:
+                giorni[g][k] = voce
+            else:   # due classi nella stessa ora (con il docente): la chiave diventa un elenco; la stessa classe due volte e un errore
+                v = giorni[g][k] if isinstance(giorni[g][k], list) else [giorni[g][k]]
+                if any(x['classe'] == classe for x in v):
+                    raise SystemExit('stessa classe due volte nella stessa ora: ' + riga)
+                giorni[g][k] = v + [voce]
     return giorni, (fonte_v.group(1) if fonte_v else '?')
 
 
@@ -73,7 +79,7 @@ def main():
         open(os.path.join(base, rel), 'w', encoding='utf-8').write(testo)
         print('scritto', rel)
     for g in GG:
-        print(g, ', '.join('%s=%s' % (k[4:], v['classe']) for k, v in sorted(giorni[g].items())) or '-')
+        print(g, ', '.join('%s=%s' % (k[4:], '+'.join(x['classe'] for x in (v if isinstance(v, list) else [v]))) for k, v in sorted(giorni[g].items())) or '-')
 
 
 if __name__ == '__main__':

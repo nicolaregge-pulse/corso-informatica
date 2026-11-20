@@ -41,9 +41,14 @@ a.go{display:table;background:var(--acc);color:#fff;text-decoration:none;font-we
 .vt details{margin-top:4px}.vt summary{cursor:pointer;font-weight:700;font-size:14px}
 .blu{color:var(--acc);font-weight:700}
 textarea.pk{width:100%;min-height:80px;font:14px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:8px}
+.ctx{font-size:clamp(18px,4.6vw,28px);font-weight:800;margin:8px 0 0;line-height:1.25}.ctx .mat{color:var(--acc)}.ctx.fuori{color:var(--mu)}
+.sel{margin:8px 0;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sel select{font:inherit;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;background:var(--card);color:var(--tx);min-height:44px;max-width:100%}
+.mt{color:var(--acc);font-size:.9em}
 @media (max-width:480px){body{padding:12px}.grid{grid-template-columns:1fr}}
 </style></head><body><div class="w">
 <div class="top"><div><h1 id="h1">Cruscotto in diretta</h1><div id="lez" class="mu"></div></div><div><button id="agg" type="button">Aggiorna ora</button></div></div>
+<div class="ctx" id="ctx"></div>
+<div class="sel"><label for="selCl"><b>Classe</b></label><select id="selCl" aria-label="Scegli la classe"></select><span class="mu" id="selMsg"></span></div>
 <div class="ora" id="ora">Dato non ancora letto</div>
 <div class="ban" id="banRete" role="alert"></div>
 <div class="ban" id="banVecchi" role="alert"></div>
@@ -64,8 +69,12 @@ textarea.pk{width:100%;min-height:80px;font:14px/1.4 ui-monospace,Consolas,monos
 (function(){
 'use strict';
 var POLL=20000, VECCHIO=150; // secondi: oltre 2 minuti e mezzo = DATI VECCHI
-var Q=new URLSearchParams(location.search), CL=String(Q.get('classe')||'1inf').toLowerCase().replace(/[^a-z0-9]/g,'');
-var CLU=CL.toUpperCase(), AR=(CL==='1inf'); // R6: arabo e cinese solo per la 1INF
+var Q=new URLSearchParams(location.search), CLASSI=['1inf','2inf','3inf','4ti'];
+var PIN=String(Q.get('classe')||'').toLowerCase().replace(/[^a-z0-9]/g,''); // classe scelta a mano (indirizzo o selettore); vuota = automatica
+var CL='1inf', CLU='1INF', AR=true;
+function impostaClasse(c){CL=c;CLU=c.toUpperCase();AR=(c==='1inf');} // R6: arabo e cinese solo per la 1INF
+if(CLASSI.indexOf(PIN)<0){PIN='';var pp=null;try{pp=sessionStorage.getItem('lv_pin');}catch(e){}if(pp&&CLASSI.indexOf(pp)>=0)PIN=pp;}
+if(PIN)impostaClasse(PIN);
 var SALT=new TextEncoder().encode('cruscotto-docente-v1'), ITER=150000; // come strumenti/cifra_json.py
 var T={titolo:['Cruscotto in diretta','لوحة المتابعة المباشرة','实时看板'],presenti:['Presenti','الحاضرون','出席'],assenti:['Assenti: da recuperare','الغائبون: للتعويض','缺席：需要补上'],
  fatto:['Hai fatto','ما أنجزته','已完成'],manca:['Ti manca','ما بقي عليك','还缺'],vai:['Vai qui adesso','اذهب الآن إلى','现在去这里'],fermo:['Da quanto sei fermo','منذ متى توقفت','停了多久']};
@@ -83,6 +92,43 @@ function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null
 var D=null, RIC=0, PR=null, errRete='', ultimaValida=null, inVolo=false, jid=0;
 var KEY=null, DOC=null, RIS=null, docTesto='', docSt='', risSt='', bozze={}, pacchetto='';
 
+/* ---------- ORARIO (orario-live.json, stessa logica di LV_piano_ in fabbrica/cruscotto_web_v1.2.gs; provata uguale minuto per minuto) ---------- */
+var ANT=5, CHIUSURA=120, SUCC=60, FUORI_VEC=660; // minuti di anticipo; classe vicina; soglia DATI VECCHI fuori lezione (11 min: il job rilegge la classe vicina ogni 8)
+var ORA=null, oraErr='Orario non ancora letto', GG=['','lun','mar','mer','gio','ven','sab','dom'], selSig='';
+var FMT=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Rome',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit'});
+function roma(d){var p={};FMT.formatToParts(d||new Date()).forEach(function(x){p[x.type]=x.value;});return {u:{Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:7}[p.weekday],min:(+p.hour)*60+(+p.minute),iso:p.year+'-'+p.month+'-'+p.day};}
+function controllaOrario(o,iso){
+ if(!o||typeof o!=='object'||!o.giorni||typeof o.giorni!=='object')return 'file senza giorni';
+ if(!/^\d{4}-\d\d-\d\d$/.test(o.valido_dal||'')||!/^\d{4}-\d\d-\d\d$/.test(o.valido_al||''))return 'file senza date di validità';
+ if(iso<o.valido_dal||iso>o.valido_al)return 'orario valido dal '+o.valido_dal+' al '+o.valido_al+': oggi è fuori, serve l\'orario nuovo';
+ return '';}
+function oraElenco(g,n){var v=g&&g['ora_'+n],out=[];if(!v)return out;(Object.prototype.toString.call(v)==='[object Array]'?v:[v]).forEach(function(e){var k=String((e&&e.classe)||'').toLowerCase();if(CLASSI.indexOf(k)>=0)out.push({classe:k,ora:n,materia:String(e.materia||''),tipo:String(e.tipo||'')});});return out;}
+function oraEnt(g,n){var l=oraElenco(g,n);return l.length?l[0]:null;}
+function piano(o,u,min){
+ var g=(o&&o.giorni&&o.giorni[GG[u]])||{},lez={},ordine=[],n,e,ini,fin;
+ for(n=1;n<=6;n++){ini=(7+n)*60;fin=(8+n)*60;if(!(min>=ini-ANT&&min<fin))continue;
+  oraElenco(g,n).forEach(function(e){e.anticipo=min<ini;if(!lez[e.classe]){lez[e.classe]=e;ordine.push(e.classe);}else if(lez[e.classe].anticipo&&!e.anticipo)lez[e.classe]=e;});}
+ var out={lezione:ordine.map(function(k){return lez[k];}),prec:null,succ:null};
+ if(out.lezione.length)return out;
+ for(n=6;n>=1;n--){e=oraEnt(g,n);if(e&&(8+n)*60<=min&&min-(8+n)*60<=CHIUSURA){out.prec=e;break;}}
+ for(n=1;n<=6;n++){e=oraEnt(g,n);if(e&&(7+n)*60-ANT>min&&(7+n)*60-min<=SUCC){out.succ=e;break;}}
+ return out;}
+window.LVT={piano:piano,controlla:controllaOrario}; // gancio per la prova automatica
+function pianoOra(){if(oraErr||!ORA)return null;var r=roma();return {r:r,p:piano(ORA,r.u,r.min)};}
+function inLezione(c){var x=pianoOra();return !!x&&x.p.lezione.some(function(e){return e.classe===c;});}
+function leggiOrario(){
+ return fetch('orario-live.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.json();}).then(function(o){
+  var er=controllaOrario(o,roma().iso);if(er){ORA=null;oraErr=er;}else{ORA=o;oraErr='';}
+ }).catch(function(e){ORA=null;oraErr='orario-live.json non leggibile ('+String(e.message||e)+')';});}
+function hhmm(m){return pad(Math.floor(m/60))+':'+pad(m%60);}
+function scegliAuto(){ // classe da mostrare senza scelta a mano: in lezione (quella con l'ora vera prima di quella che comincia tra poco), altrimenti l'ultima finita, altrimenti la prossima
+ var x=pianoOra();if(!x)return null;var p=x.p,l=p.lezione.filter(function(e){return !e.anticipo;})[0]||p.lezione[0];
+ return l?l.classe:(p.prec?p.prec.classe:(p.succ?p.succ.classe:null));}
+function controllaClasse(){
+ var nuova=PIN||scegliAuto()||CL;
+ if(nuova!==CL){impostaClasse(nuova);D=null;RIS=null;DOC=null;PR=null;errRete='';ultimaValida=null;bozze={};render();giro();}
+}
+
 /* ---------- cifratura: AES-GCM, chiave PBKDF2 dal codice (stesso formato di strumenti/cifra_json.py) ---------- */
 function b64(s){var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
 function derivaChiave(code){return crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']).then(function(km){return crypto.subtle.deriveKey({name:'PBKDF2',salt:SALT,iterations:ITER,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);});}
@@ -91,22 +137,23 @@ function decifra(o){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(o.iv)},K
 function jsonp(url){return new Promise(function(ok,ko){var n='__lv'+(++jid),s=document.createElement('script'),to=setTimeout(function(){fine();ko(new Error('JSONP scaduto'));},10000);
  function fine(){clearTimeout(to);delete window[n];if(s.parentNode)s.parentNode.removeChild(s);}
  window[n]=function(j){fine();ok(j);};s.onerror=function(){fine();ko(new Error('JSONP errore'));};s.src=url+'&callback='+n;document.head.appendChild(s);});}
-function leggiWebApp(){
+function leggiWebApp(cl){
  var base=(typeof WEBAPP_URL==='string'?WEBAPP_URL:'');
  if(!/^https:\/\/script\.google\.com\/.+\/exec$/.test(base))return Promise.reject(new Error('indirizzo del web app non ancora impostato in config.js'));
- var u=base+'?classe='+encodeURIComponent(CL)+'&t='+Date.now();
+ var u=base+'?classe='+encodeURIComponent(cl)+'&t='+Date.now();
  return fetch(u,{cache:'no-store',redirect:'follow'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}).then(function(t){try{return JSON.parse(t);}catch(e){throw new Error('risposta non valida (il web app non e\' pubblico per Chiunque?)');}})
   .catch(function(e1){return jsonp(u).catch(function(){throw e1;});});
 }
 function leggiJ(f){return fetch(f+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null;}).catch(function(){return null;});}
 function giro(){
- if(inVolo)return;inVolo=true;
- Promise.all([leggiWebApp().then(function(j){return {j:j};},function(e){return {e:e};}),leggiJ('presenze-'+CL+'.json'),leggiJ('docente-'+CL+'.json')]).then(function(x){
-  inVolo=false;try{PR=x[1]?JSON.parse(x[1]):null;}catch(e){PR=null;}
+ if(inVolo)return;inVolo=true;var mio=CL;
+ Promise.all([leggiWebApp(mio).then(function(j){return {j:j};},function(e){return {e:e};}),leggiJ('presenze-'+mio+'.json'),leggiJ('docente-'+mio+'.json')]).then(function(x){
+  inVolo=false;if(mio!==CL){giro();return null;} // la classe e cambiata mentre si leggeva: il dato non e' piu quello giusto
+  try{PR=x[1]?JSON.parse(x[1]):null;}catch(e){PR=null;}
   if(x[0].j&&x[0].j.allievi&&x[0].j.classe){D=x[0].j;RIC=Date.now();errRete='';ultimaValida=D;}
   else errRete=x[0].e?String(x[0].e.message||x[0].e):'risposta senza dati'+(x[0].j&&x[0].j.errore?': '+x[0].j.errore:'');
   return aggiornaRiservato(x[2]);
- }).then(render,render);
+ }).then(function(r){if(r!==null)render();},render);
 }
 function aggiornaRiservato(testoDoc){
  if(!KEY){DOC=null;RIS=null;return Promise.resolve();}
@@ -159,9 +206,12 @@ function presenze(){
  if(oggi&&PR.data&&PR.data!==oggi){r.nota='ATTENZIONE: le presenze sono del '+PR.data+', non di oggi ('+oggi+'): non usate.';r.mappa={};return r;}
  r.valide=true;r.nota='Presenze del '+(PR.data||'?')+', lette alle '+(PR.ora_dato||'?')+' dal registro (aggiornate a mano).';return r;}
 function titoloQuiz(id){var q=D.lavori.quiz,i;for(i=0;i<q.length;i++)if(q[i].id===id)return (/^quiz/i.test(q[i].titolo)?'':'Quiz: ')+q[i].titolo;return 'Quiz '+id;}
+function matC(t){var L=D.lavori.compiti,i;for(i=0;i<L.length;i++)if(L[i].titolo===t)return L[i].materia||'';return '';}
+function matQ(id){var L=D.lavori.quiz,i;for(i=0;i<L.length;i++)if(L[i].id===id)return L[i].materia||'';return '';}
 function fatti(a){var f=[],m=[];
- a.compiti.forEach(function(c){if(c.stato==='-')return;(c.stato==='CONSEGNATO'||c.stato==='RICONSEGNATO'?f:m).push({k:'c',t:c.titolo});});
- a.quiz.forEach(function(q){(q.fatto?f:m).push({k:'q',t:titoloQuiz(q.id),id:q.id});});return {f:f,m:m};}
+ a.compiti.forEach(function(c){if(c.stato==='-')return;(c.stato==='CONSEGNATO'||c.stato==='RICONSEGNATO'?f:m).push({k:'c',t:c.titolo,m:matC(c.titolo)});});
+ a.quiz.forEach(function(q){(q.fatto?f:m).push({k:'q',t:titoloQuiz(q.id),id:q.id,m:matQ(q.id)});});return {f:f,m:m};}
+function conMat(el0,m){if(m)el0.appendChild(el('span',{c:'mt'},' · '+m));return el0;}
 function linkDi(x){var i,L=D.lavori;if(x.k==='c'){for(i=0;i<L.compiti.length;i++)if(L.compiti[i].titolo===x.t)return L.compiti[i].link;}else for(i=0;i<L.quiz.length;i++)if(L.quiz[i].id===x.id)return L.quiz[i].link;return '';}
 function sbloccato(){return !!KEY&&(!!DOC||!!RIS);}
 function nomeVis(a){return sbloccato()&&DOC&&DOC.nomi&&DOC.nomi[a.nome]?DOC.nomi[a.nome]:a.nome;}
@@ -200,27 +250,28 @@ function card(a,pz){
  var bd=el('span',{c:'bd '+(ass?'r':(pz.valide?'':'g'))},ass?('assente'+(ore.length?' ore '+ore.join(', '):'')):(pz.valide?'presente':'presenza non letta'));
  var c=el('div',{c:'card '+cl},el('h3',null,el('span',null,nomeVis(a)),bd));
  function riga(k,corpo){var d=el('div',{c:'l'},el('b',null,lab(k)));d.appendChild(corpo);return d;}
- function lista(v,vuoto){if(!v.length)return el('span',{c:'mu'},vuoto);var u=el('ul');v.forEach(function(x){u.appendChild(el('li',null,x.t));});return u;}
+ function lista(v,vuoto){if(!v.length)return el('span',{c:'mu'},vuoto);var u=el('ul');v.forEach(function(x){u.appendChild(conMat(el('li',null,x.t),x.m));});return u;}
  c.appendChild(riga('fatto',lista(F.f,'Ancora niente')));
  c.appendChild(riga('manca',lista(F.m,'Niente: sei in pari')));
  var vai=el('span',null,'Hai finito tutto: bravo!'),next=F.m.filter(function(x){return x.k==='c';})[0]||F.m[0];
  if(ass)vai=el('span',null,F.m.length?'Da recuperare quando torni':'Niente da recuperare');
- else if(next){var wr=el('div',null,el('span',null,next.t));var lk=linkDi(next);if(okLink(lk))wr.appendChild(el('a',{c:'go',href:lk,target:'_blank',rel:'noopener'},'Apri'));vai=wr;}
+ else if(next){var wr=el('div',null,conMat(el('span',null,next.t),next.m));var lk=linkDi(next);if(okLink(lk))wr.appendChild(el('a',{c:'go',href:lk,target:'_blank',rel:'noopener'},'Apri'));vai=wr;}
  c.appendChild(riga('vai',vai));
  var fe='Nessuna attività registrata oggi';
  if(a.ultimo){var t=Date.parse(a.ultimo);if(!isNaN(t)){fe='Ultima attività alle '+hm(new Date(t))+' ('+durata((Date.now()-t)/1000)+' fa)';}}
  c.appendChild(riga('fermo',el('span',null,fe)));
  if(sbloccato()){var cn=cardNote(a);c.appendChild(cardVoto(a,pz));if(cn)c.appendChild(cn);}
  return c;}
+function soglia(){return (oraErr||inLezione(CL))?VECCHIO:FUORI_VEC;} // in lezione 2 minuti e mezzo (come prima); fuori lezione il job rilegge ogni 8 minuti
 function testata(){
  if(!D)return;
- var s=eta(),vec=(s===null||s>VECCHIO)||!!errRete;
+ var s=eta(),vec=(s===null||s>soglia())||!!errRete;
  var o=$('ora');o.textContent='';o.className='ora'+(vec?' vecchio':'');
  var tdato=null;if(typeof D.secondi_dal_dato==='number')tdato=new Date(RIC-D.secondi_dal_dato*1000);else if(D.dato_il&&!isNaN(Date.parse(D.dato_il)))tdato=new Date(Date.parse(D.dato_il));
  o.appendChild(document.createTextNode('Dato delle '+(tdato?hms(tdato):'?')));
  o.appendChild(el('small',null,s===null?'ora del dato non leggibile':'dato di '+durata(s)+' fa'));
  var bV=$('banVecchi');
- if(vec&&!errRete){bV.className='ban on';bV.textContent='DATI VECCHI: il dato ha '+(s===null?'un\'ora non leggibile':durata(s))+' (limite 2 minuti e mezzo). Non è tempo reale.';}
+ if(vec&&!errRete){bV.className='ban on';bV.textContent='DATI VECCHI: il dato ha '+(s===null?'un\'ora non leggibile':durata(s))+' (limite '+(soglia()===VECCHIO?'2 minuti e mezzo':'11 minuti, fuori lezione')+'). Non è tempo reale.';}
  else if(errRete){bV.className='ban on';bV.textContent='DATI VECCHI: quelli sotto sono l\'ultimo dato letto con successo.';}
  else{bV.className='ban';bV.textContent='';}
 }
@@ -237,6 +288,7 @@ function render(){
  if(KEY){var p=[];p.push(DOC?('Sbloccata. File docente aggiornato alle '+String(DOC.aggiornato||'').slice(11,16)+' del '+String(DOC.aggiornato||'').slice(0,10)+' (non in tempo reale)'):'Sbloccata, ma '+docSt);if(risSt)p.push(risSt);ds.textContent=p.join('. ')+'.';}
  else if(!ds.textContent||/^Sbloccata/.test(ds.textContent))ds.textContent='Senza codice si vede solo la parte pubblica (Nome I.).';
  $('pk').style.display=sbloccato()?'':'none';
+ renderCtx();
  if(!D){$('ora').textContent='Dato non ancora letto';return;}
  testata();
  var bS=$('banStato');
@@ -252,8 +304,8 @@ function render(){
  var k=$('kpi');k.textContent='';
  function kp(nome,val,note,righe){var d=el('div',{c:'k'},el('span',{c:'mu'},nome),el('b',null,val),el('span',{c:'sm'},note||''));if(righe&&righe.length){var u=el('ul');righe.forEach(function(r){u.appendChild(el('li',null,r));});d.appendChild(u);}k.appendChild(d);}
  kp('Presenti',pz.valide?pres.length+' su '+all.length:'non letti',pz.valide?'(assenti: '+ass.length+')':'serve il file delle presenze');
- kp('Compiti consegnati',nC?cc+' su '+(base.length*nC):'nessun compito di oggi',nC?'conteggio su '+(pz.valide?'presenti':'tutti gli iscritti'):'non ancora pubblicato su Classroom',D.lavori.compiti.map(function(c,i){return c.titolo.replace(/^\s*\d+\/\d+\s*/,'')+': '+perC[i]+' su '+base.length;}));
- kp('Quiz fatti',nQ?qq+' su '+(base.length*nQ):'nessun quiz di oggi',nQ?'almeno una risposta per allievo':'non trovato',D.lavori.quiz.map(function(q,i){return q.titolo+': '+perQ[i]+' su '+base.length;}));
+ kp('Compiti consegnati',nC?cc+' su '+(base.length*nC):'nessun compito di oggi',nC?'conteggio su '+(pz.valide?'presenti':'tutti gli iscritti'):'non ancora pubblicato su Classroom',D.lavori.compiti.map(function(c,i){return c.titolo.replace(/^\s*\d+\/\d+\s*/,'')+(c.materia?' ('+c.materia+')':'')+': '+perC[i]+' su '+base.length;}));
+ kp('Quiz fatti',nQ?qq+' su '+(base.length*nQ):'nessun quiz di oggi',nQ?'almeno una risposta per allievo':'non trovato',D.lavori.quiz.map(function(q,i){return q.titolo+(q.materia?' ('+q.materia+')':'')+': '+perQ[i]+' su '+base.length;}));
  var hp=$('hp');hp.textContent='';hp.appendChild(lab('presenti'));hp.appendChild(document.createTextNode(' ('+pres.length+')'));
  var ha=$('ha');ha.textContent='';if(ass.length){ha.appendChild(lab('assenti'));ha.appendChild(document.createTextNode(' ('+ass.length+')'));}
  var gp=$('gp');gp.textContent='';pres.forEach(function(a){gp.appendChild(card(a,pz));});
@@ -262,6 +314,25 @@ function render(){
  if(fo){var e2=document.querySelector('input[data-n="'+fo.replace(/"/g,'')+'"]');if(e2){e2.focus();try{e2.setSelectionRange(foPos,foPos);}catch(x){}}}
  // pacchetto: opzioni h
  var sel=$('pkh');if(!sel.options.length){for(var h=1;h<=6;h++){var o=document.createElement('option');o.value=h;o.textContent=h;sel.appendChild(o);}}
+}
+function renderCtx(){
+ var c=$('ctx'),x=pianoOra(),txt=[],cls='ctx';c.textContent='';
+ if(!x){c.className='ctx fuori';c.appendChild(document.createTextNode(oraErr==='Orario non ancora letto'?'Leggo l\'orario...':'Orario non leggibile: '+oraErr+'. La classe è quella scelta a mano o 1INF.'));}
+ else{
+  var p=x.p,e=p.lezione.filter(function(y){return y.classe===CL;})[0];
+  if(e){c.appendChild(document.createTextNode(CLU+' · '));c.appendChild(el('span',{c:'mat'},e.materia));c.appendChild(document.createTextNode(' · ora '+e.ora+' ('+hhmm((7+e.ora)*60)+'-'+hhmm((8+e.ora)*60)+')'+(e.anticipo?' · comincia tra poco':' · in lezione')));}
+  else{cls='ctx fuori';var q=(p.prec&&p.prec.classe===CL)?p.prec:((p.succ&&p.succ.classe===CL)?p.succ:null);
+   if(q&&q===p.prec)c.appendChild(document.createTextNode(CLU+' · fuori lezione: finita l\'ora '+q.ora+' ('+q.materia+') alle '+hhmm((8+q.ora)*60)+'. Il dato si aggiorna ogni 10 minuti.'));
+   else if(q)c.appendChild(document.createTextNode(CLU+' · fuori lezione: comincia l\'ora '+q.ora+' ('+q.materia+') alle '+hhmm((7+q.ora)*60)+'. Il dato si aggiorna ogni 10 minuti.'));
+   else c.appendChild(document.createTextNode(CLU+' · nessuna lezione con il docente in questo momento: il dato non si aggiorna da solo.'));}
+  c.className=cls;}
+ // selettore
+ var sel=$('selCl'),sig=(PIN||'auto')+'|'+CL+'|'+(x?x.p.lezione.map(function(y){return y.classe+y.ora;}).join(','):'-');
+ if(sig!==selSig){selSig=sig;sel.textContent='';
+  var oa=document.createElement('option');oa.value='';oa.textContent='Automatica (la classe in lezione)';sel.appendChild(oa);
+  CLASSI.forEach(function(k){var y=x&&x.p.lezione.filter(function(z){return z.classe===k;})[0],o=document.createElement('option');o.value=k;o.textContent=k.toUpperCase()+(y?' · in lezione: '+y.materia+' (ora '+y.ora+')':'');sel.appendChild(o);});
+  sel.value=PIN;}
+ $('selMsg').textContent=PIN?'Classe scelta a mano: non cambia da sola.':(oraErr?'':'Cambia da sola quando cambia l\'ora.');
 }
 function preparaPacchetto(){
  var pz=presenze(),m=$('pkm'),righe=[],senza=[],noVoto=[];
@@ -280,8 +351,11 @@ $('sbl').onclick=sblocca;$('blk').onclick=blocca;$('cod').onkeydown=function(e){
 $('pkb').onclick=preparaPacchetto;
 $('pkc').onclick=function(){var t=$('pkt');t.select();try{navigator.clipboard.writeText(t.value);$('pkm').textContent='Copiato.';}catch(e){document.execCommand('copy');}};
 var c0=ss('lv_cod');if(c0){$('cod').value=c0;}
-giro();setInterval(giro,POLL);
-setInterval(function(){testata();},1000);
+$('selCl').onchange=function(){var v=$('selCl').value;PIN=v;try{if(v)sessionStorage.setItem('lv_pin',v);else sessionStorage.removeItem('lv_pin');}catch(e){}selSig='';controllaClasse();renderCtx();};
+leggiOrario().then(function(){controllaClasse();render();giro();});
+setInterval(giro,POLL);
+setInterval(leggiOrario,300000);
+setInterval(function(){controllaClasse();renderCtx();testata();},1000);
 if(c0){setTimeout(function(){sblocca();},400);}
 })();
 </script></body></html>
