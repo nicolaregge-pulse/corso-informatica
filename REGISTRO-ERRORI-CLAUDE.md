@@ -2036,3 +2036,9 @@ Voci dalla bobina `bobine/corso/2026-11-19_bobina_b09df496.md` (messaggi del doc
 1. **Errore.** Il docente: «è da 1 mese che facciamo audit, cambiamo metodologia e tu non ricordi niente e sei lentissimo a fornire output e spesso è sbagliato». Fatti correlati di oggi: #375, #376, #378, #379.
 2. **Causa.** La procedura del mattino non regge per i casi nuovi (già in `AUDIT-MECCANISMO-MATTINA-v1.2.md`); ancora non provato che la routine delle 06:50 (creata alle 15:22 Roma, senza connettore Drive) la sostituisca.
 3. **Strumento.** Confronto prima dell'invio (sezione 16 punti 1-2). (D) Da provare: prima esecuzione della routine alle 06:50 di venerdì 20/11.
+
+## #384 (20/11/2026, 1INF ora 4, «Il metodo del tecnico») Esercizio fatto male: scheda senza materiale
+
+1. **Errore.** La scheda n. 1 del PDF ragazzi chiedeva di scrivere nel Documento «Scheda di intervento» le righe «Ho ascoltato / Ho guardato / Ho provato / Risultato» per il caso «PC non si accende», ma non dava il materiale da cui ricavare le risposte (che cosa dice l'utente, che cosa si vede). I ragazzi hanno chiesto «cosa dobbiamo fare» e «che cosa ascoltiamo». Il Documento modello non era allegato al post. Il docente: «è come al solito un esercizio fatto male».
+2. **Causa.** Esercizio non provato dal punto di vista di un ragazzo; nessun caso compilato di esempio; allegato mancante al post.
+3. **Strumento.** `strumenti/controlla_kit.py` v1.2 (riservato): ogni ora che chiede di compilare una scheda o un Documento deve avere il modello allegato (o «lo crea il ragazzo con Aggiungi o crea, Documenti») e, nel PDF ragazzi, un «Esempio:» per ogni campo più il materiale del caso; altrimenti «KIT INCOMPLETO: scheda senza esempio/materiale». Provato sui kit v1.3 e v1.4 del 20/11: segnala l'ora 4 (0 esempi su 4 campi). Nota in `INFO-PIU-USATE-v1.14.md` sezione 19 punto 4. Nessuna regola nuova in CLAUDE.md (00.2).
