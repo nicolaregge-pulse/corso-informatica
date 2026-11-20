@@ -1,19 +1,27 @@
 {
- "versione": "1.0",
+ "versione": "1.1",
  "classe": "1INF",
  "schema": "cruscotto-classe-1",
  "lezione": {
-  "giorno": "2026-11-18",
-  "giorno_it": "18/11/2026",
+  "giorno": "2026-11-20",
+  "giorno_it": "20/11/2026",
   "ore": [
-   "8-9",
-   "9-10",
-   "10-11",
+   "11-12",
+   "12-13",
    "13-14"
   ],
-  "materia": "Impresa simulata (8-10), Laboratorio (10-11), Tecnologia (13-14)",
-  "fonte": "orario del registro DIDAweb: mercoledi 18/11, 1INF 8-10, 10-11 e 13-14",
-  "sospesa": ""
+  "materia": "Laboratorio professionale",
+  "fonte": "registro DIDAweb, file dati/presenze-didaweb/1INF-2026-11-20-1045-registro-ore4-6-v1.0.md",
+  "sospesa": "",
+  "compiti_letti": [],
+  "quiz_letti": [],
+  "quiz_previsti": [
+   "quiz-1inf-2011-ora4",
+   "quiz-1inf-2011-ora6",
+   "quiz-1inf-2011-ora5",
+   "quiz-1inf-2011-ora6b"
+  ],
+  "compiti_quiz_non_letti": true
  },
  "dato": {
   "iso": "2026-11-19T13:44:10+01:00",
@@ -27,8 +35,8 @@
    "ora": "motore 13:44:10 del 19/11; export 13:52"
   },
   {
-   "nome": "Assenze per ora",
-   "ora": "export DIDAweb del 19/11 alle 11:33-11:39"
+   "nome": "Presenze del 20/11",
+   "ora": "registro DIDAweb, screenshot delle 10:45 (indicatori del momento dello screenshot (ore 10:45), letti dall'immagine; presenza delle ore della lezione non riletta dal registro)"
   },
   {
    "nome": "Voti DIDAweb",
@@ -107,23 +115,23 @@
  "kpi": [
   {
    "nome": "Presenti",
-   "valore": "22 su 23",
-   "nota": "DIDAweb, assenze per ora del 18/11"
+   "valore": "13 su 23",
+   "nota": "registro DIDAweb, screenshot delle 10:45 del 20/11: indicatori del momento dello screenshot (ore 10:45), letti dall'immagine; presenza delle ore della lezione non riletta dal registro"
   },
   {
-   "nome": "Tutti i compiti della lezione consegnati (3)",
-   "valore": "14 su 22 presenti",
-   "nota": "Classroom, letto dalla Fabbrica"
+   "nome": "Compiti della lezione di oggi",
+   "valore": "non ancora letti dalla Fabbrica",
+   "nota": "ultimo dato della Fabbrica: 19/11 13:44:10; nessun numero inventato (R7)"
   },
   {
-   "nome": "Tutti i quiz della lezione fatti (1)",
-   "valore": "0 su 22 presenti",
-   "nota": "Moduli, letto dalla Fabbrica alle 19:54:35"
+   "nome": "Quiz della lezione di oggi",
+   "valore": "non ancora letti dalla Fabbrica",
+   "nota": "previsti in indice.json: ora4, ora6, ora5, ora6b; ultimo dato della Fabbrica: 19/11 13:44:10"
   },
   {
-   "nome": "Con osservazioni «fuori compito» da Veyon",
-   "valore": "0 su 22 presenti",
-   "nota": "da bobine, da verificare"
+   "nome": "Veyon: «fuori compito»",
+   "valore": "nessun dato Veyon del 20/11",
+   "nota": "non provato (nessun feed automatico da Veyon)"
   }
  ],
  "serve_te": [],
@@ -161,25 +169,20 @@
   {
    "id": "A01",
    "nome": "Moaaz A.",
-   "presenza": "parziale",
-   "ore_assenti": [
-    "8-9"
-   ],
+   "presenza": "presente",
+   "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
     "Quiz fatti: 5 su 12",
     "Compiti consegnati: 1 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: da consegnare",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 6",
-    "Compiti arretrati: 3",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 5",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -188,8 +191,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -312,7 +315,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -341,21 +344,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:38",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -371,234 +374,21 @@
    "doc_tot": 6
   },
   {
-   "id": "A02",
-   "nome": "Christian A.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
-    "Quiz fatti: 5 su 12",
-    "Compiti consegnati: 3 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 6",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 5"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 13:58",
-    "iso": "2026-11-18T13:58:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 5,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:06",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "IN RITARDO",
-     "ora": "18/11 10:47",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "IN RITARDO",
-     "ora": "18/11 13:58",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "da 60 a 79",
-    "n_voti": 14,
-    "n_materie": 3,
-    "sotto60": 4,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
-   "doc_consegnati": 3,
-   "doc_tot": 6
-  },
-  {
    "id": "A03",
    "nome": "Matteo A.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -607,8 +397,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -731,7 +521,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -760,21 +550,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:50",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:08",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 14:00",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -795,20 +585,17 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 5 su 12",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 6",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -817,8 +604,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -941,7 +728,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -970,21 +757,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:40",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:34",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -1005,19 +792,16 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 7 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 4",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 5",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -1026,8 +810,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -1150,7 +934,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -1179,21 +963,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:51",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:49",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -1209,239 +993,22 @@
    "doc_tot": 6
   },
   {
-   "id": "A06",
-   "nome": "Aya B.",
-   "presenza": "parziale",
-   "ore_assenti": [
-    "8-9",
-    "9-10",
-    "10-11"
-   ],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Quiz fatti: 4 su 12",
-    "Compiti consegnati: 2 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 7",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 4"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 10:09",
-    "iso": "2026-11-18T10:09:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 6,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:45",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:09",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "da 60 a 79",
-    "n_voti": 14,
-    "n_materie": 3,
-    "sotto60": 5,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 4,
-   "quiz_tot": 12,
-   "doc_consegnati": 2,
-   "doc_tot": 6
-  },
-  {
    "id": "A07",
    "nome": "Alessio C.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
     "Quiz fatti: 7 su 12",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 4",
-    "Compiti arretrati: 2",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -1450,8 +1017,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -1574,7 +1141,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -1603,21 +1170,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:31",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:46",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -1638,19 +1205,16 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -1659,8 +1223,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -1783,7 +1347,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -1812,21 +1376,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:48",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:32",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -1842,234 +1406,22 @@
    "doc_tot": 6
   },
   {
-   "id": "A09",
-   "nome": "Nehara F.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
-    "Quiz fatti: 8 su 12",
-    "Compiti consegnati: 6 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
-    "Quiz da rivedere: 8"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "CONSEGNATO",
-     "ora": "13/11 12:06",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "IN RITARDO",
-     "ora": "13/11 13:35",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "CONSEGNATO",
-     "ora": "13/11 13:49",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:39",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:32",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "IN RITARDO",
-     "ora": "18/11 13:57",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "sotto 60",
-    "n_voti": 15,
-    "n_materie": 3,
-    "sotto60": 6,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
-   "doc_consegnati": 6,
-   "doc_tot": 6
-  },
-  {
    "id": "A10",
    "nome": "Sara F.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 4 su 12",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 7",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 8",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -2078,8 +1430,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -2202,7 +1554,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -2231,21 +1583,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:10",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:49",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:59",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -2266,20 +1618,17 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 2 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: da consegnare",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 3",
-    "Compiti arretrati: 2",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
+    "Compiti arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -2288,8 +1637,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -2412,7 +1761,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -2441,21 +1790,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:46",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -2471,240 +1820,22 @@
    "doc_tot": 6
   },
   {
-   "id": "A12",
-   "nome": "Wesley J.",
-   "presenza": "parziale",
-   "ore_assenti": [
-    "8-9",
-    "9-10",
-    "10-11"
-   ],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
-    "Quiz fatti: 5 su 12",
-    "Compiti consegnati: 3 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 6",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 5"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 13:58",
-    "iso": "2026-11-18T13:58:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 6,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:49",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:25",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "IN RITARDO",
-     "ora": "18/11 13:58",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "da 60 a 79",
-    "n_voti": 13,
-    "n_materie": 3,
-    "sotto60": 3,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
-   "doc_consegnati": 3,
-   "doc_tot": 6
-  },
-  {
    "id": "A13",
    "nome": "Yinlin L.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 7 su 12",
     "Compiti consegnati: 4 su 7"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: da consegnare",
-    "Quiz arretrati: 4",
-    "Compiti arretrati: 2",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 5",
+    "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -2713,8 +1844,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 4,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -2837,7 +1968,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -2866,28 +1997,28 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:46",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:46",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "ASSEGNATO",
      "ora": "",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -2903,234 +2034,21 @@
    "doc_tot": 7
   },
   {
-   "id": "A14",
-   "nome": "Moaaz M.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Quiz fatti: 4 su 12",
-    "Compiti consegnati: 2 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 7",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 4"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 10:28",
-    "iso": "2026-11-18T10:28:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 4,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:36",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:28",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "sotto 60",
-    "n_voti": 17,
-    "n_materie": 3,
-    "sotto60": 9,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 4,
-   "quiz_tot": 12,
-   "doc_consegnati": 2,
-   "doc_tot": 6
-  },
-  {
    "id": "A15",
    "nome": "Md M.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -3139,8 +2057,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -3263,7 +2181,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -3292,21 +2210,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:51",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:22",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -3322,444 +2240,21 @@
    "doc_tot": 6
   },
   {
-   "id": "A17",
-   "nome": "Abdel N.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Quiz fatti: 4 su 12",
-    "Compiti consegnati: 2 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 7",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 4"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 10:27",
-    "iso": "2026-11-18T10:27:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 4,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:49",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:27",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "sotto 60",
-    "n_voti": 13,
-    "n_materie": 3,
-    "sotto60": 10,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 4,
-   "quiz_tot": 12,
-   "doc_consegnati": 2,
-   "doc_tot": 6
-  },
-  {
-   "id": "A18",
-   "nome": "Muhammad N.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
-    "Quiz fatti: 5 su 12",
-    "Compiti consegnati: 3 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 6",
-    "Compiti arretrati: 3",
-    "Quiz da rivedere: 5"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 13:58",
-    "iso": "2026-11-18T13:58:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 09:29",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:38",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "IN RITARDO",
-     "ora": "18/11 13:58",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "da 60 a 79",
-    "n_voti": 16,
-    "n_materie": 3,
-    "sotto60": 4,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
-   "doc_consegnati": 3,
-   "doc_tot": 6
-  },
-  {
    "id": "A19",
    "nome": "Thomas R.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 6 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 5",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 6",
     "Quiz da rivedere: 6"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -3768,8 +2263,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -3892,7 +2387,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -3921,21 +2416,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:09",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:49",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -3951,233 +2446,21 @@
    "doc_tot": 6
   },
   {
-   "id": "A20",
-   "nome": "Andrea S.",
-   "presenza": "presente",
-   "ore_assenti": [],
-   "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Quiz fatti: 4 su 12",
-    "Compiti consegnati: 5 su 6"
-   ],
-   "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: da consegnare",
-    "Quiz arretrati: 7",
-    "Quiz da rivedere: 4"
-   ],
-   "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-   },
-   "fermo": {
-    "ultima": "18/11 10:28",
-    "iso": "2026-11-18T10:28:00+01:00",
-    "cosa": "consegna di un compito"
-   },
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111",
-     "titolo": "Decisioni con if in Lazarus",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic5-1111",
-     "titolo": "Sic. ora 5 · infortuni",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora1d",
-     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1111-ora2b",
-     "titolo": "ora 2 FINALE · numeri reali e divisione",
-     "data": "11/11",
-     "stato": "DA RIVEDERE",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic-recupero-1111",
-     "titolo": "Sic. RECUPERO ore 1-5",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-mecc-1111t",
-     "titolo": "Sic. ora 6A · rischi meccanici",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-sic6-elet-1111t",
-     "titolo": "Sic. ora 6B · rischi elettrici",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1212-ora6-ict",
-     "titolo": "12/11 Ora 6: ICT e hardware",
-     "data": "11/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora4-file-8c2a",
-     "titolo": "13/11 Ora 4: file e cartelle",
-     "data": "13/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora5-reti-8c2a",
-     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
-     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
-     "data": "13/11",
-     "stato": "DA RIVEDERE",
-     "nota": "(provv.:  aperte da correggere)",
-     "oggi": false,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
-    },
-    {
-     "tipo": "quiz",
-     "id": "quiz-1inf-1811-ora6-confronto",
-     "titolo": "18/11 Ora 6: Confronto dei PC",
-     "data": "17/11",
-     "stato": "MANCA",
-     "nota": "",
-     "oggi": true,
-     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 4: File e cartelle del computer",
-     "stato": "IN RITARDO",
-     "ora": "13/11 13:11",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
-     "stato": "IN RITARDO",
-     "ora": "13/11 13:04",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
-     "stato": "CONSEGNATO",
-     "ora": "13/11 13:11",
-     "oggi": false
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:15",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
-     "stato": "CONSEGNATO",
-     "ora": "18/11 10:28",
-     "oggi": true
-    },
-    {
-     "tipo": "compito",
-     "titolo": "18/11 Ora 6: Il check di tutti i PC",
-     "stato": "ASSEGNATO",
-     "ora": "",
-     "oggi": true
-    }
-   ],
-   "voto": {
-    "fascia": "da 60 a 79",
-    "n_voti": 9,
-    "n_materie": 2,
-    "sotto60": 4,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 4,
-   "quiz_tot": 12,
-   "doc_consegnati": 5,
-   "doc_tot": 6
-  },
-  {
    "id": "A21",
    "nome": "Giovanni S.",
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -4186,8 +2469,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -4310,7 +2593,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -4339,21 +2622,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:22",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:49",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -4374,20 +2657,17 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
     "Quiz fatti: 5 su 12",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 6",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
@@ -4396,8 +2676,8 @@
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -4520,7 +2800,7 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -4549,21 +2829,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:01",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "IN RITARDO",
      "ora": "18/11 10:50",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -4577,36 +2857,464 @@
    "quiz_tot": 12,
    "doc_consegnati": 3,
    "doc_tot": 6
+  }
+ ],
+ "assenti": [
+  {
+   "id": "A02",
+   "nome": "Christian A.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 5 su 12",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 5"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 13:58",
+    "iso": "2026-11-18T13:58:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:06",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "IN RITARDO",
+     "ora": "18/11 10:47",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "IN RITARDO",
+     "ora": "18/11 13:58",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 14,
+    "n_materie": 3,
+    "sotto60": 4,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 12,
+   "doc_consegnati": 3,
+   "doc_tot": 6
   },
   {
-   "id": "A23",
-   "nome": "Enea Z.",
-   "presenza": "presente",
-   "ore_assenti": [],
+   "id": "A06",
+   "nome": "Aya B.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
    "fatto": [
-    "Compito «18/11 Ora 1: Il configuratore e due preventivi»: consegnato",
-    "Compito «18/11 Ora 2: Benchmark: come va il mio PC»: consegnato",
-    "Compito «18/11 Ora 6: Il check di tutti i PC»: consegnato",
+    "Quiz fatti: 4 su 12",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 8",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 10:09",
+    "iso": "2026-11-18T10:09:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:45",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:09",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 14,
+    "n_materie": 3,
+    "sotto60": 5,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 4,
+   "quiz_tot": 12,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A09",
+   "nome": "Nehara F.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
     "Quiz fatti: 8 su 12",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Quiz «18/11 Ora 6: Confronto dei PC»",
-    "Quiz arretrati: 3",
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Fai il quiz «18/11 Ora 6: Confronto dei PC»",
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:56",
-    "iso": "2026-11-18T13:56:00+01:00",
+    "ultima": "18/11 13:57",
+    "iso": "2026-11-18T13:57:00+01:00",
     "cosa": "consegna di un compito"
    },
    "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 3,
+    "giorno": "20/11",
+    "osservazioni": 0,
     "fuori_compito": 0,
     "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
    },
@@ -4729,7 +3437,1319 @@
      "data": "17/11",
      "stato": "MANCA",
      "nota": "",
-     "oggi": true,
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "CONSEGNATO",
+     "ora": "13/11 12:06",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "IN RITARDO",
+     "ora": "13/11 13:35",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "CONSEGNATO",
+     "ora": "13/11 13:49",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:39",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:32",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "IN RITARDO",
+     "ora": "18/11 13:57",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 15,
+    "n_materie": 3,
+    "sotto60": 6,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 8,
+   "quiz_tot": 12,
+   "doc_consegnati": 6,
+   "doc_tot": 6
+  },
+  {
+   "id": "A12",
+   "nome": "Wesley J.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 5 su 12",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 5"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 13:58",
+    "iso": "2026-11-18T13:58:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:49",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:25",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "IN RITARDO",
+     "ora": "18/11 13:58",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 13,
+    "n_materie": 3,
+    "sotto60": 3,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 12,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A14",
+   "nome": "Moaaz M.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 4 su 12",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 8",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 10:28",
+    "iso": "2026-11-18T10:28:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:36",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:28",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 17,
+    "n_materie": 3,
+    "sotto60": 9,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 4,
+   "quiz_tot": 12,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A16",
+   "nome": "Alaa M.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Nessun dato di quiz o compiti abbinato a questo allievo (non provato)"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)"
+   ],
+   "vai": {
+    "testo": "Aspetta: i dati di oggi non sono ancora letti dalla Fabbrica",
+    "link": ""
+   },
+   "fermo": null,
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [],
+   "voto": {
+    "fascia": "nessun voto ancora",
+    "n_voti": 0,
+    "n_materie": 0,
+    "sotto60": 0,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 0,
+   "quiz_tot": 0,
+   "doc_consegnati": 0,
+   "doc_tot": 0
+  },
+  {
+   "id": "A17",
+   "nome": "Abdel N.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 4 su 12",
+    "Compiti consegnati: 2 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 8",
+    "Compiti arretrati: 4",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 10:27",
+    "iso": "2026-11-18T10:27:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:49",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:27",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "sotto 60",
+    "n_voti": 13,
+    "n_materie": 3,
+    "sotto60": 10,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 4,
+   "quiz_tot": 12,
+   "doc_consegnati": 2,
+   "doc_tot": 6
+  },
+  {
+   "id": "A18",
+   "nome": "Muhammad N.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 5 su 12",
+    "Compiti consegnati: 3 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 7",
+    "Compiti arretrati: 3",
+    "Quiz da rivedere: 5"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 13:58",
+    "iso": "2026-11-18T13:58:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 09:29",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:38",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "IN RITARDO",
+     "ora": "18/11 13:58",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 16,
+    "n_materie": 3,
+    "sotto60": 4,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 5,
+   "quiz_tot": 12,
+   "doc_consegnati": 3,
+   "doc_tot": 6
+  },
+  {
+   "id": "A20",
+   "nome": "Andrea S.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 4 su 12",
+    "Compiti consegnati: 5 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 8",
+    "Compiti arretrati: 1",
+    "Quiz da rivedere: 4"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 10:28",
+    "iso": "2026-11-18T10:28:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 4: File e cartelle del computer",
+     "stato": "IN RITARDO",
+     "ora": "13/11 13:11",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 5: La rete di casa, modem e router",
+     "stato": "IN RITARDO",
+     "ora": "13/11 13:04",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "13/11 Ora 6: Usare bene le risorse digitali",
+     "stato": "CONSEGNATO",
+     "ora": "13/11 13:11",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:15",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
+     "stato": "CONSEGNATO",
+     "ora": "18/11 10:28",
+     "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "18/11 Ora 6: Il check di tutti i PC",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": false
+    }
+   ],
+   "voto": {
+    "fascia": "da 60 a 79",
+    "n_voti": 9,
+    "n_materie": 2,
+    "sotto60": 4,
+    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
+   },
+   "quiz_fatti": 4,
+   "quiz_tot": 12,
+   "doc_consegnati": 5,
+   "doc_tot": 6
+  },
+  {
+   "id": "A23",
+   "nome": "Enea Z.",
+   "presenza": "assente",
+   "ore_assenti": [
+    "11-12",
+    "12-13",
+    "13-14"
+   ],
+   "fatto": [
+    "Quiz fatti: 8 su 12",
+    "Compiti consegnati: 6 su 6"
+   ],
+   "manca": [
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
+    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Quiz arretrati: 4",
+    "Quiz da rivedere: 8"
+   ],
+   "vai": {
+    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+   },
+   "fermo": {
+    "ultima": "18/11 13:56",
+    "iso": "2026-11-18T13:56:00+01:00",
+    "cosa": "consegna di un compito"
+   },
+   "veyon": {
+    "giorno": "20/11",
+    "osservazioni": 0,
+    "fuori_compito": 0,
+    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
+   },
+   "pc": null,
+   "lavori": [
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111",
+     "titolo": "Decisioni con if in Lazarus",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScQK_Iqj5wPWXFcaDyZ5ZBjNSEoLeIRNPYCYF46vFJosqxU8g/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic5-1111",
+     "titolo": "Sic. ora 5 · infortuni",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe12IKTN-zG4kuyy213cOJCOeT8GkN7EMVglzvdsV4l8bWKIg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora1d",
+     "titolo": "ora 1 FINALE · tipi di dati, begin/end e punto e virgola",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc52zP2lpSdwgIY_RORfLFyBPevj16LVi1zD1SAL9-QymGdkg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1111-ora2b",
+     "titolo": "ora 2 FINALE · numeri reali e divisione",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdnPZW6zx96_elv9HbGhtKCRCO8lOpe3HvV6TcT6SCWF7FfKg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic-recupero-1111",
+     "titolo": "Sic. RECUPERO ore 1-5",
+     "data": "11/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSc1oayPIFppYwAwSwZyYneXTqqOzUH8nsexdLl_KxBfnaaqhQ/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-mecc-1111t",
+     "titolo": "Sic. ora 6A · rischi meccanici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeHonpafgPaA348sRceIDWkxgsIiItsGHqiEykQdoa_DO8Vgg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-sic6-elet-1111t",
+     "titolo": "Sic. ora 6B · rischi elettrici",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSfZIbtCFUeGtAbDpqhCNqCYexL0EmDrHZNbDZAM7Qy5E0xayg/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1212-ora6-ict",
+     "titolo": "12/11 Ora 6: ICT e hardware",
+     "data": "11/11",
+     "stato": "DA RIVEDERE",
+     "nota": "",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSeYlmnp0objm_C1q6jJ5yyfRj7CYFRR_Tb5sGlAkj6-nPknnw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora4-file-8c2a",
+     "titolo": "13/11 Ora 4: file e cartelle",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScWGKjQ_qZK3FgA6CGxYBclyOgQQoTU6vZzQcQHvgGw9dBlYw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora5-reti-8c2a",
+     "titolo": "13/11 Ora 5: rete di casa e sicurezza",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSdmSzgtYTjFQJ_DPBL2KGQzPcDAO3RFa3hUgicvHdCfakk6Og/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1313-ora6-risorse-8c2a",
+     "titolo": "13/11 Ora 6: usare bene le risorse digitali",
+     "data": "13/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": false,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0hUFYVNzmMO48BkCL15zrygOMDLxuMFUOP6yPwqMgxUrsKw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-1811-ora6-confronto",
+     "titolo": "18/11 Ora 6: Confronto dei PC",
+     "data": "17/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
@@ -4758,21 +4778,21 @@
      "titolo": "18/11 Ora 1: Il configuratore e due preventivi",
      "stato": "CONSEGNATO",
      "ora": "18/11 09:19",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 2: Benchmark: come va il mio PC",
      "stato": "CONSEGNATO",
      "ora": "18/11 10:15",
-     "oggi": true
+     "oggi": false
     },
     {
      "tipo": "compito",
      "titolo": "18/11 Ora 6: Il check di tutti i PC",
      "stato": "IN RITARDO",
      "ora": "18/11 13:56",
-     "oggi": true
+     "oggi": false
     }
    ],
    "voto": {
@@ -4786,47 +4806,6 @@
    "quiz_tot": 12,
    "doc_consegnati": 6,
    "doc_tot": 6
-  }
- ],
- "assenti": [
-  {
-   "id": "A16",
-   "nome": "Alaa M.",
-   "presenza": "assente",
-   "ore_assenti": [
-    "8-9",
-    "9-10",
-    "10-11",
-    "13-14"
-   ],
-   "fatto": [
-    "Nessun dato di quiz o compiti abbinato a questo allievo (non provato)"
-   ],
-   "manca": [],
-   "vai": {
-    "testo": "Sei a posto: scegli qualcosa di tuo da aggiungere al progetto",
-    "link": ""
-   },
-   "fermo": null,
-   "veyon": {
-    "giorno": "18/11",
-    "osservazioni": 1,
-    "fuori_compito": 0,
-    "fonte": "bobine (estrazione euristica v1.1), non provato sullo schermo"
-   },
-   "pc": null,
-   "lavori": [],
-   "voto": {
-    "fascia": "nessun voto ancora",
-    "n_voti": 0,
-    "n_materie": 0,
-    "sotto60": 0,
-    "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
-   },
-   "quiz_fatti": 0,
-   "quiz_tot": 0,
-   "doc_consegnati": 0,
-   "doc_tot": 0
   }
  ],
  "iscritti": 23,
