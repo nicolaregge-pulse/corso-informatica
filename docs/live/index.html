@@ -32,6 +32,15 @@ button{font:inherit;font-weight:800;background:var(--acc);color:#fff;border:0;bo
 .l ul{margin:2px 0 0;padding-left:20px}
 a.go{display:table;background:var(--acc);color:#fff;text-decoration:none;font-weight:800;border-radius:10px;padding:10px 16px;margin-top:6px;min-height:44px;line-height:24px}
 .rosso{color:var(--r);font-weight:700}
+.doc{background:var(--card);border:1px solid var(--ln);border-radius:12px;padding:10px 14px;margin:12px 0}
+.doc input[type=password],.doc input[type=text]{font:inherit;padding:8px 10px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--tx);min-height:44px;max-width:100%}
+.vt{margin-top:8px;border-top:1px dashed var(--ln);padding-top:6px;font-size:15px}
+.vt .n{font-size:26px;font-weight:800}
+.vt input[type=number]{font:inherit;width:84px;padding:6px;border:1px solid var(--ln);border-radius:8px;background:var(--bg);color:var(--tx);min-height:40px}
+.vt button{min-height:40px;padding:6px 12px;font-size:15px}
+.vt details{margin-top:4px}.vt summary{cursor:pointer;font-weight:700;font-size:14px}
+.blu{color:var(--acc);font-weight:700}
+textarea.pk{width:100%;min-height:80px;font:14px/1.4 ui-monospace,Consolas,monospace;background:var(--bg);color:var(--tx);border:1px solid var(--ln);border-radius:8px;padding:8px}
 @media (max-width:480px){body{padding:12px}.grid{grid-template-columns:1fr}}
 </style></head><body><div class="w">
 <div class="top"><div><h1 id="h1">Cruscotto in diretta</h1><div id="lez" class="mu"></div></div><div><button id="agg" type="button">Aggiorna ora</button></div></div>
@@ -40,6 +49,11 @@ a.go{display:table;background:var(--acc);color:#fff;text-decoration:none;font-we
 <div class="ban" id="banVecchi" role="alert"></div>
 <div class="ban amb" id="banStato" role="status"></div>
 <div class="mu" id="pres"></div>
+<div class="doc" id="doc"><b>Parte docente</b> <span class="mu" id="docSt">Senza codice si vede solo la parte pubblica (Nome I.).</span>
+ <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center"><input type="password" id="cod" placeholder="Codice del docente" autocomplete="off" aria-label="Codice del docente"><button id="sbl" type="button">Sblocca</button><button id="blk" type="button" style="display:none;background:var(--mu)">Blocca</button></div>
+ <div id="pk" style="display:none;margin-top:10px"><b>Pacchetto per «Voti DIDAweb AUTO»</b>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:6px 0"><label>Ora h <select id="pkh"></select></label><input type="text" id="pka" placeholder="Argomento (lo scrive il docente)" size="34" aria-label="Argomento"><button id="pkb" type="button">Prepara</button></div>
+  <textarea class="pk" id="pkt" readonly></textarea><div class="mu" id="pkm"></div><button id="pkc" type="button" style="margin-top:6px">Copia il pacchetto</button></div></div>
 <div class="kpi" id="kpi"></div>
 <h2 id="hp"></h2><div class="grid" id="gp"></div>
 <h2 id="ha"></h2><div class="grid" id="ga"></div>
@@ -52,6 +66,7 @@ a.go{display:table;background:var(--acc);color:#fff;text-decoration:none;font-we
 var POLL=20000, VECCHIO=150; // secondi: oltre 2 minuti e mezzo = DATI VECCHI
 var Q=new URLSearchParams(location.search), CL=String(Q.get('classe')||'1inf').toLowerCase().replace(/[^a-z0-9]/g,'');
 var CLU=CL.toUpperCase(), AR=(CL==='1inf'); // R6: arabo e cinese solo per la 1INF
+var SALT=new TextEncoder().encode('cruscotto-docente-v1'), ITER=150000; // come strumenti/cifra_json.py
 var T={titolo:['Cruscotto in diretta','لوحة المتابعة المباشرة','实时看板'],presenti:['Presenti','الحاضرون','出席'],assenti:['Assenti: da recuperare','الغائبون: للتعويض','缺席：需要补上'],
  fatto:['Hai fatto','ما أنجزته','已完成'],manca:['Ti manca','ما بقي عليك','还缺'],vai:['Vai qui adesso','اذهب الآن إلى','现在去这里'],fermo:['Da quanto sei fermo','منذ متى توقفت','停了多久']};
 function el(t,a){var e=document.createElement(t);if(a)for(var k in a){if(k==='c')e.className=a[k];else e.setAttribute(k,a[k]);}for(var i=2;i<arguments.length;i++){var c=arguments[i];if(c==null)continue;e.appendChild(typeof c==='string'?document.createTextNode(c):c);}return e;}
@@ -62,7 +77,16 @@ function hms(d){return pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSe
 function hm(d){return pad(d.getHours())+':'+pad(d.getMinutes());}
 function durata(s){s=Math.max(0,Math.round(s));if(s<60)return s+(s===1?' secondo':' secondi');var m=Math.floor(s/60);if(m<60)return m+(m===1?' minuto':' minuti')+(s%60?' e '+(s%60)+' s':'');var o=Math.floor(m/60);return o+(o===1?' ora':' ore')+' e '+(m%60)+' min';}
 function okLink(u){return typeof u==='string'&&/^https:\/\/(classroom\.google\.com|docs\.google\.com\/forms|forms\.gle)\//.test(u);}
+function okLinkDoc(u){return typeof u==='string'&&/^https:\/\//.test(u);}
+function ss(k,v){try{if(v===undefined)return sessionStorage.getItem(k);if(v===null)sessionStorage.removeItem(k);else sessionStorage.setItem(k,v);}catch(e){}return null;}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){}return null;}
 var D=null, RIC=0, PR=null, errRete='', ultimaValida=null, inVolo=false, jid=0;
+var KEY=null, DOC=null, RIS=null, docTesto='', docSt='', risSt='', bozze={}, pacchetto='';
+
+/* ---------- cifratura: AES-GCM, chiave PBKDF2 dal codice (stesso formato di strumenti/cifra_json.py) ---------- */
+function b64(s){var b=atob(s),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a;}
+function derivaChiave(code){return crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveKey']).then(function(km){return crypto.subtle.deriveKey({name:'PBKDF2',salt:SALT,iterations:ITER,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);});}
+function decifra(o){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64(o.iv)},KEY,b64(o.ct)).then(function(p){return JSON.parse(new TextDecoder().decode(p));});}
 
 function jsonp(url){return new Promise(function(ok,ko){var n='__lv'+(++jid),s=document.createElement('script'),to=setTimeout(function(){fine();ko(new Error('JSONP scaduto'));},10000);
  function fine(){clearTimeout(to);delete window[n];if(s.parentNode)s.parentNode.removeChild(s);}
@@ -74,36 +98,107 @@ function leggiWebApp(){
  return fetch(u,{cache:'no-store',redirect:'follow'}).then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();}).then(function(t){try{return JSON.parse(t);}catch(e){throw new Error('risposta non valida (il web app non e\' pubblico per Chiunque?)');}})
   .catch(function(e1){return jsonp(u).catch(function(){throw e1;});});
 }
-function leggiPresenze(){return fetch('presenze-'+CL+'.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;});}
+function leggiJ(f){return fetch(f+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.ok?r.text():null;}).catch(function(){return null;});}
 function giro(){
  if(inVolo)return;inVolo=true;
- Promise.all([leggiWebApp().then(function(j){return {j:j};},function(e){return {e:e};}),leggiPresenze()]).then(function(x){
-  inVolo=false;PR=x[1];
+ Promise.all([leggiWebApp().then(function(j){return {j:j};},function(e){return {e:e};}),leggiJ('presenze-'+CL+'.json'),leggiJ('docente-'+CL+'.json')]).then(function(x){
+  inVolo=false;try{PR=x[1]?JSON.parse(x[1]):null;}catch(e){PR=null;}
   if(x[0].j&&x[0].j.allievi&&x[0].j.classe){D=x[0].j;RIC=Date.now();errRete='';ultimaValida=D;}
   else errRete=x[0].e?String(x[0].e.message||x[0].e):'risposta senza dati'+(x[0].j&&x[0].j.errore?': '+x[0].j.errore:'');
-  render();
- });
+  return aggiornaRiservato(x[2]);
+ }).then(render,render);
 }
-function eta(){ // secondi dal dato, ora del server + tempo passato dalla risposta (non si fida dell'orologio del PC)
- if(!D)return null;
- if(typeof D.secondi_dal_dato==='number')return D.secondi_dal_dato+(Date.now()-RIC)/1000;
- var t=Date.parse(D.dato_il);return isNaN(t)?null:(Date.now()-t)/1000;}
-function presenze(){ // -> {valide, mappa:{nome:{ore:[..]}}, nota}
+function aggiornaRiservato(testoDoc){
+ if(!KEY){DOC=null;RIS=null;return Promise.resolve();}
+ var p1=Promise.resolve(), p2=Promise.resolve();
+ if(testoDoc){p1=decifra(JSON.parse(testoDoc)).then(function(o){DOC=o;docSt='';},function(){DOC=null;docSt='il file docente non si decifra con questo codice';});}
+ else{DOC=null;docSt='file docente non trovato (docente-'+CL+'.json)';}
+ if(D&&D.riservato){p2=decifra(D.riservato).then(function(o){RIS=o;risSt='';},function(){RIS=null;risSt='il blocco live non si decifra con questo codice (la chiave LV_CHIAVE e diversa?)';});}
+ else{RIS=null;risSt=D?'nel dato live non c\'e il blocco riservato (manca LV_CHIAVE nel foglio): niente percentuali, niente voto proposto':'';}
+ return Promise.all([p1,p2]);
+}
+function sblocca(){
+ var c=$('cod').value;if(!c){return;}
+ $('docSt').textContent='Controllo il codice...';
+ derivaChiave(c).then(function(k){KEY=k;return Promise.all([leggiJ('docente-'+CL+'.json'),D&&D.riservato?Promise.resolve():Promise.resolve()]);}).then(function(r){
+  var prova=r[0]?decifra(JSON.parse(r[0])):(D&&D.riservato?decifra(D.riservato):Promise.reject(new Error('niente da decifrare')));
+  return prova.then(function(){ss('lv_cod',c);$('cod').value='';return aggiornaRiservato(r[0]);}).then(render);
+ }).catch(function(e){KEY=null;DOC=null;RIS=null;$('docSt').textContent=(String(e.message).indexOf('niente')>=0?'Non ci sono ancora dati cifrati da aprire: riprova tra un momento.':'Codice non corretto: resta la parte pubblica.');render();});
+}
+function blocca(){KEY=null;DOC=null;RIS=null;ss('lv_cod',null);render();}
+
+/* ---------- tempo e voto proposto (CRUSCOTTO-DAL-VIVO.md par. 05 punto 0) ---------- */
+function eta(){if(!D)return null;if(typeof D.secondi_dal_dato==='number')return D.secondi_dal_dato+(Date.now()-RIC)/1000;var t=Date.parse(D.dato_il);return isNaN(t)?null:(Date.now()-t)/1000;}
+function secOra(){var m=/T(\d\d):(\d\d):(\d\d)/.exec(D&&D.generato_il||'');if(!m)return null;return (+m[1])*3600+(+m[2])*60+(+m[3])+(Date.now()-RIC)/1000;} // ora di Roma dal server
+function oraQuiz(q){var m=/ora\s*(\d)/i.exec(q.id||'')||/ora\s*(\d)/i.exec(q.titolo||'');var n=m?+m[1]:0;return n>=1&&n<=6?n:0;}
+function oraFinita(n){var s=secOra();return s!==null&&s>=(8+n)*3600;} // ora 1 = 8-9 ... ora 6 = 13-14
+function calcolaVoto(a){
+ if(!RIS)return {n:null,msg:risSt||'percentuali non disponibili'};
+ var righe=[],val=[],escl=[],prov=['domande aperte non controllate qui'],nc=false;
+ D.lavori.quiz.forEach(function(q,i){
+  var ora=oraQuiz(q),qa=a.quiz[i]&&a.quiz[i].id===q.id?a.quiz[i]:a.quiz.filter(function(x){return x.id===q.id;})[0],nome=q.titolo;
+  if(!ora){escl.push(nome+': ora non riconosciuta, non contato');return;}
+  var pct=RIS.quiz&&RIS.quiz[q.id]?RIS.quiz[q.id][a.nome]:undefined;
+  if(qa&&qa.fatto){if(typeof pct!=='number'){nc=true;escl.push(nome+': fatto ma percentuale non letta');return;}var v=Math.round(40+40*pct/100);val.push(v);righe.push(nome+': fatto '+pct+'% = 40 + 40 x '+pct+'% = '+v);}
+  else if(oraFinita(ora)){val.push(40);righe.push(nome+': non fatto = 40');}
+  else{escl.push(nome+': ora '+ora+' non ancora finita, non conta ancora');if(prov.indexOf('ore non finite')<0)prov.push('ore non finite');}
+ });
+ if(D.criticita&&D.criticita.some(function(c){return /email non abbinata/.test(c);}))prov.push('risposte da abbinare');
+ if(nc||!val.length)return {n:null,msg:nc?'non calcolabile: manca una percentuale':'nessun quiz da contare (ancora)',escl:escl,righe:righe};
+ var s=0;val.forEach(function(v){s+=v;});var n=Math.round(s/val.length);
+ return {n:n,righe:righe,escl:escl,prov:prov,conto:'media ('+val.join(' + ')+') / '+val.length+' = '+(Math.round(s/val.length*10)/10)+' -> '+n};
+}
+function vConf(){var o={};try{o=JSON.parse(ls('lv_voti_'+CL+'_'+(D&&D.lezione||''))||'{}');}catch(e){}return o;}
+function vSalva(o){ls('lv_voti_'+CL+'_'+(D&&D.lezione||''),JSON.stringify(o));}
+
+function presenze(){
  var r={valide:false,mappa:{},nota:'Presenze di oggi non lette: nessun file presenze-'+CL+'.json.'};
  if(!PR||!PR.assenti)return r;
  var oggi=D&&D.lezione?D.lezione:null;
  PR.assenti.forEach(function(a){var n=typeof a==='string'?a:a.nome;r.mappa[n]={ore:(a&&a.ore)||[]};});
  if(oggi&&PR.data&&PR.data!==oggi){r.nota='ATTENZIONE: le presenze sono del '+PR.data+', non di oggi ('+oggi+'): non usate.';r.mappa={};return r;}
  r.valide=true;r.nota='Presenze del '+(PR.data||'?')+', lette alle '+(PR.ora_dato||'?')+' dal registro (aggiornate a mano).';return r;}
-function fatti(a){var f=[],m=[],i;
- a.compiti.forEach(function(c){if(c.stato==='-')return;(c.stato==='CONSEGNATO'||c.stato==='RICONSEGNATO'?f:m).push({k:'c',t:c.titolo,link:null});});
- a.quiz.forEach(function(q){(q.fatto?f:m).push({k:'q',t:titoloQuiz(q.id),id:q.id});});return {f:f,m:m};}
 function titoloQuiz(id){var q=D.lavori.quiz,i;for(i=0;i<q.length;i++)if(q[i].id===id)return (/^quiz/i.test(q[i].titolo)?'':'Quiz: ')+q[i].titolo;return 'Quiz '+id;}
+function fatti(a){var f=[],m=[];
+ a.compiti.forEach(function(c){if(c.stato==='-')return;(c.stato==='CONSEGNATO'||c.stato==='RICONSEGNATO'?f:m).push({k:'c',t:c.titolo});});
+ a.quiz.forEach(function(q){(q.fatto?f:m).push({k:'q',t:titoloQuiz(q.id),id:q.id});});return {f:f,m:m};}
 function linkDi(x){var i,L=D.lavori;if(x.k==='c'){for(i=0;i<L.compiti.length;i++)if(L.compiti[i].titolo===x.t)return L.compiti[i].link;}else for(i=0;i<L.quiz.length;i++)if(L.quiz[i].id===x.id)return L.quiz[i].link;return '';}
-function card(a,pz,P){
+function sbloccato(){return !!KEY&&(!!DOC||!!RIS);}
+function nomeVis(a){return sbloccato()&&DOC&&DOC.nomi&&DOC.nomi[a.nome]?DOC.nomi[a.nome]:a.nome;}
+function votoFinale(a,pz){ // numero scelto dal docente, altrimenti il proposto; assente = nessun voto
+ if(pz.mappa[a.nome])return null;var c=vConf()[a.nome];if(c&&typeof c.v==='number')return c.v;var p=calcolaVoto(a);return p.n;}
+
+function cardVoto(a,pz){
+ var box=el('div',{c:'vt'});
+ if(pz.mappa[a.nome]){box.appendChild(el('span',{c:'blu'},'assente: recupera (nessun voto)'));return box;}
+ var p=calcolaVoto(a),conf=vConf()[a.nome];
+ if(p.n===null){box.appendChild(el('span',{c:'mu'},'Voto proposto: '+p.msg));}
+ else{
+  box.appendChild(el('div',null,el('span',{c:'n'},String(p.n)),' ',el('span',{c:'bd g'},'PROVVISORIO'),' ',el('span',{c:'sm'},'proposto (40-80)')));
+  var d=el('details',null,el('summary',null,'Il conto'));var u=el('ul');p.righe.forEach(function(r){u.appendChild(el('li',null,r));});u.appendChild(el('li',null,p.conto));d.appendChild(u);
+  if(p.escl.length){var u2=el('ul');p.escl.forEach(function(r){u2.appendChild(el('li',{c:'mu'},r));});d.appendChild(u2);}
+  d.appendChild(el('div',{c:'sm'},'Provvisorio perche: '+p.prov.join('; ')+'.'));box.appendChild(d);
+  var inp=el('input',{type:'number',min:'40',max:'80',step:'1','data-n':a.nome,'aria-label':'Voto finale'});
+  inp.value=bozze[a.nome]!==undefined?bozze[a.nome]:(conf?conf.v:p.n);
+  inp.oninput=function(){bozze[a.nome]=inp.value;};
+  var b=el('button',{type:'button'},'Conferma');
+  b.onclick=function(){var v=Number(inp.value);if(!(v>=40&&v<=80)){inp.style.outline='2px solid var(--r)';return;}var o=vConf();o[a.nome]={v:v,t:hm(new Date())};vSalva(o);delete bozze[a.nome];render();};
+  var row=el('div',{style:'display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:6px'},el('span',null,'Voto del docente:'),inp,b);
+  if(conf){var tg=el('button',{type:'button',style:'background:var(--mu)'},'Togli');tg.onclick=function(){var o=vConf();delete o[a.nome];vSalva(o);render();};row.appendChild(tg);box.appendChild(el('div',{c:'bd'},'confermato '+conf.v+' alle '+conf.t+' (salvato solo su questo dispositivo)'));}
+  box.appendChild(row);
+ }
+ return box;}
+function cardNote(a){
+ var n=(DOC&&DOC.note&&DOC.note[a.nome])||[],s=(DOC&&DOC.screenshot&&DOC.screenshot[a.nome])||[],m=DOC&&DOC.motivi&&DOC.motivi[a.nome],box=el('div',{c:'vt'});
+ if(!n.length&&!s.length&&!m)return null;
+ if(n.length){var u=el('ul');n.forEach(function(x){u.appendChild(el('li',null,(x.ora?'ora h '+x.ora+': ':'')+x.testo+(x.quando?' ('+x.quando+')':'')));});box.appendChild(el('b',null,'Note'));box.appendChild(u);}
+ if(s.length){var u2=el('ul');s.forEach(function(x){var li=el('li',null,(x.ora?'ora h '+x.ora+': ':'')+(x.testo||'screenshot')+' ');if(okLinkDoc(x.link))li.appendChild(el('a',{href:x.link,target:'_blank',rel:'noopener'},'apri'));u2.appendChild(li);});box.appendChild(el('b',null,'Screenshot'));box.appendChild(u2);}
+ if(m)box.appendChild(el('div',{c:'sm'},'Motivo del voto: '+m));
+ return box;}
+function card(a,pz){
  var ass=!!pz.mappa[a.nome], ore=ass?pz.mappa[a.nome].ore:[], F=fatti(a), cl=ass?'no':(F.m.length?'al':'ok');
  var bd=el('span',{c:'bd '+(ass?'r':(pz.valide?'':'g'))},ass?('assente'+(ore.length?' ore '+ore.join(', '):'')):(pz.valide?'presente':'presenza non letta'));
- var c=el('div',{c:'card '+cl},el('h3',null,el('span',null,a.nome),bd));
+ var c=el('div',{c:'card '+cl},el('h3',null,el('span',null,nomeVis(a)),bd));
  function riga(k,corpo){var d=el('div',{c:'l'},el('b',null,lab(k)));d.appendChild(corpo);return d;}
  function lista(v,vuoto){if(!v.length)return el('span',{c:'mu'},vuoto);var u=el('ul');v.forEach(function(x){u.appendChild(el('li',null,x.t));});return u;}
  c.appendChild(riga('fatto',lista(F.f,'Ancora niente')));
@@ -113,9 +208,9 @@ function card(a,pz,P){
  else if(next){var wr=el('div',null,el('span',null,next.t));var lk=linkDi(next);if(okLink(lk))wr.appendChild(el('a',{c:'go',href:lk,target:'_blank',rel:'noopener'},'Apri'));vai=wr;}
  c.appendChild(riga('vai',vai));
  var fe='Nessuna attività registrata oggi';
- if(a.ultimo){var t=Date.parse(a.ultimo);if(!isNaN(t)){var rif=D&&typeof D.secondi_dal_dato==='number'?(Date.now()-RIC)/1000+D.secondi_dal_dato:0;
-  var ms=Date.now()-t; fe='Ultima attività alle '+hm(new Date(t))+' ('+durata(ms/1000)+' fa)';}}
+ if(a.ultimo){var t=Date.parse(a.ultimo);if(!isNaN(t)){fe='Ultima attività alle '+hm(new Date(t))+' ('+durata((Date.now()-t)/1000)+' fa)';}}
  c.appendChild(riga('fermo',el('span',null,fe)));
+ if(sbloccato()){var cn=cardNote(a);c.appendChild(cardVoto(a,pz));if(cn)c.appendChild(cn);}
  return c;}
 function testata(){
  if(!D)return;
@@ -130,11 +225,18 @@ function testata(){
  else{bV.className='ban';bV.textContent='';}
 }
 function render(){
+ var fo=document.activeElement&&document.activeElement.getAttribute&&document.activeElement.getAttribute('data-n'),foPos=fo&&document.activeElement.selectionStart;
  var h1=$('h1');h1.textContent='';h1.appendChild(lab('titolo'));h1.appendChild(document.createTextNode(' '+CLU));document.title='Cruscotto in diretta '+CLU;
  var bR=$('banRete');
  if(errRete){bR.className='ban on';bR.textContent='';bR.appendChild(document.createTextNode('DATI NON RAGGIUNGIBILI'));
   bR.appendChild(el('small',null,(ultimaValida?'Ultimo dato valido: '+hms(new Date(RIC-(typeof ultimaValida.secondi_dal_dato==='number'?ultimaValida.secondi_dal_dato*1000:0)))+' (letto alle '+hms(new Date(RIC))+'). ':'Nessun dato letto finora. ')+'Motivo: '+errRete));}
  else{bR.className='ban';bR.textContent='';}
+ // parte docente
+ $('blk').style.display=KEY?'':'none';$('sbl').style.display=KEY?'none':'';$('cod').style.display=KEY?'none':'';
+ var ds=$('docSt');
+ if(KEY){var p=[];p.push(DOC?('Sbloccata. File docente aggiornato alle '+String(DOC.aggiornato||'').slice(11,16)+' del '+String(DOC.aggiornato||'').slice(0,10)+' (non in tempo reale)'):'Sbloccata, ma '+docSt);if(risSt)p.push(risSt);ds.textContent=p.join('. ')+'.';}
+ else if(!ds.textContent||/^Sbloccata/.test(ds.textContent))ds.textContent='Senza codice si vede solo la parte pubblica (Nome I.).';
+ $('pk').style.display=sbloccato()?'':'none';
  if(!D){$('ora').textContent='Dato non ancora letto';return;}
  testata();
  var bS=$('banStato');
@@ -142,9 +244,8 @@ function render(){
   (D.criticita||[]).forEach(function(c){bS.appendChild(el('small',null,String(c)));});}else{bS.className='ban amb';bS.textContent='';}
  $('lez').textContent='Lezione del '+(D.lezione||'?')+(D.durata_job_s!=null?' · il giro di lettura è durato '+D.durata_job_s+' s':'');
  var pz=presenze();$('pres').textContent=pz.nota;
- var all=D.allievi.slice().sort(function(a,b){return a.nome.localeCompare(b.nome,'it');});
+ var all=D.allievi.slice().sort(function(a,b){return nomeVis(a).localeCompare(nomeVis(b),'it');});
  var pres=all.filter(function(a){return !pz.mappa[a.nome];}),ass=all.filter(function(a){return !!pz.mappa[a.nome];});
- // riquadri riassuntivi: sui presenti (se le presenze valgono), altrimenti su tutti
  var base=pz.valide?pres:all, nC=D.lavori.compiti.length, nQ=D.lavori.quiz.length;
  var cc=0,qq=0,perC=D.lavori.compiti.map(function(){return 0;}),perQ=D.lavori.quiz.map(function(){return 0;});
  base.forEach(function(a){a.compiti.forEach(function(c,i){if(c.stato==='CONSEGNATO'||c.stato==='RICONSEGNATO'){cc++;perC[i]++;}});a.quiz.forEach(function(q,i){if(q.fatto){qq++;perQ[i]++;}});});
@@ -157,10 +258,30 @@ function render(){
  var ha=$('ha');ha.textContent='';if(ass.length){ha.appendChild(lab('assenti'));ha.appendChild(document.createTextNode(' ('+ass.length+')'));}
  var gp=$('gp');gp.textContent='';pres.forEach(function(a){gp.appendChild(card(a,pz));});
  var ga=$('ga');ga.textContent='';ass.forEach(function(a){ga.appendChild(card(a,pz));});
- $('piede').textContent='Solo nome e iniziale del cognome. Voto proposto e Veyon non sono in questa pagina: stanno nel cruscotto della classe. Il dato si rilegge ogni '+(POLL/1000)+' secondi.';
+ $('piede').textContent='Parte pubblica: solo nome e iniziale del cognome, nessun numero per allievo. Voto proposto, cognomi, note e screenshot compaiono solo con il codice del docente. Veyon dal vivo non c\'è: non provato. Il dato si rilegge ogni '+(POLL/1000)+' secondi.';
+ if(fo){var e2=document.querySelector('input[data-n="'+fo.replace(/"/g,'')+'"]');if(e2){e2.focus();try{e2.setSelectionRange(foPos,foPos);}catch(x){}}}
+ // pacchetto: opzioni h
+ var sel=$('pkh');if(!sel.options.length){for(var h=1;h<=6;h++){var o=document.createElement('option');o.value=h;o.textContent=h;sel.appendChild(o);}}
+}
+function preparaPacchetto(){
+ var pz=presenze(),m=$('pkm'),righe=[],senza=[],noVoto=[];
+ if(!D||!sbloccato()){m.textContent='Prima sblocca con il codice.';return;}
+ if(!DOC||!DOC.nomi){m.textContent='Manca il file docente con i nomi come nel registro: il pacchetto non si puo fare.';$('pkt').value='';return;}
+ var arg=$('pka').value.trim();if(!arg){m.textContent='Scrivi l\'argomento: lo decide il docente.';return;}
+ var g=/^(\d{4})-(\d\d)-(\d\d)$/.exec(D.lezione||'');if(!g){m.textContent='Data della lezione non leggibile.';return;}
+ D.allievi.forEach(function(a){if(pz.mappa[a.nome])return;var v=votoFinale(a,pz);var nm=DOC.nomi[a.nome];if(v===null||v===undefined){noVoto.push(a.nome);return;}if(!nm){senza.push(a.nome);return;}righe.push(nm+';'+v);});
+ if(!pz.valide){m.textContent='Presenze di oggi non valide: non so chi e presente. Aggiorna il file delle presenze.';$('pkt').value='';return;}
+ pacchetto=g[3]+'/'+g[2]+'/'+g[1]+' h '+$('pkh').value+' | '+arg+' | '+righe.join(' ');
+ $('pkt').value=pacchetto;
+ m.textContent=righe.length+' voti, solo presenti, voto del docente se confermato altrimenti il proposto.'+(noVoto.length?' Senza voto (non calcolabile): '+noVoto.join(', ')+'.':'')+(senza.length?' Senza nome nel file docente: '+senza.join(', ')+'.':'');
 }
 $('agg').onclick=function(){giro();};
+$('sbl').onclick=sblocca;$('blk').onclick=blocca;$('cod').onkeydown=function(e){if(e.key==='Enter')sblocca();};
+$('pkb').onclick=preparaPacchetto;
+$('pkc').onclick=function(){var t=$('pkt');t.select();try{navigator.clipboard.writeText(t.value);$('pkm').textContent='Copiato.';}catch(e){document.execCommand('copy');}};
+var c0=ss('lv_cod');if(c0){$('cod').value=c0;}
 giro();setInterval(giro,POLL);
 setInterval(function(){testata();},1000);
+if(c0){setTimeout(function(){sblocca();},400);}
 })();
 </script></body></html>

@@ -1,5 +1,5 @@
 /**
- * CRUSCOTTO WEB (tempo reale) - Apps Script v1.0 (20/11/2026)
+ * CRUSCOTTO WEB (tempo reale) - Apps Script v1.1 (20/11/2026)
  * File da incollare come file SEPARATO (nome: cruscotto_web) nello STESSO progetto Apps Script del motore Fabbrica
  * (account PIAMARTA, il progetto che ha le funzioni ciclo/installa del lancio). Non tocca motore.js ne il lancio.
  *
@@ -11,6 +11,13 @@
  *     Non legge storico, Documenti, Git, Situazione, ecc.: quelle restano al motore (giro lungo, ogni qualche minuto).
  *  B) WEB APP doGet(e): ?classe=1inf|2inf|3inf|4ti  -> JSON letto SOLO dalla scheda «Live <CLASSE>» (risponde in meno di 2 s).
  *     Con &callback=nome risponde in JSONP (riserva se il browser blocca il fetch tra domini).
+ *
+ *  C) BLOCCO RISERVATO CIFRATO (v1.1, solo se la proprieta script LV_CHIAVE esiste): la percentuale di ogni quiz di oggi per allievo (serve alla pagina per
+ *     il voto proposto, CRUSCOTTO-DAL-VIVO.md par. 05 punto 0) e' scritta nel JSON SOLO cifrata con AES-256-GCM, stesso formato di strumenti/cifra_json.py
+ *     ({cifrato, salt, iter, iv, ct}); la pagina la decifra nel browser con il codice del docente. LV_CHIAVE = chiave AES di 32 byte in base64, GIA derivata
+ *     dal codice (PBKDF2-SHA256, salt «cruscotto-docente-v1», 150000 giri) dalla pagina docs/live/chiave.html: il docente la incolla nelle proprieta script.
+ *     Il codice NON sta mai ne qui ne in chat. Senza LV_CHIAVE il JSON ha riservato = null e nessuna percentuale esce dal foglio.
+ *     La cifratura AES-GCM e scritta qui in JavaScript puro (Apps Script non ha AES) ed e provata contro il modulo crypto di Node (test_aes_gcm.js).
  *
  * CALCOLO DEL TEMPO DEL JOB (stima, NON provata su Google: da verificare con live_prova(), il log dice la durata vera)
  *  per classe: elenco iscritti (1 chiamata, in cache 20 min) ~1 s + elenco compiti (1 chiamata) ~1 s
@@ -35,7 +42,7 @@
  * il codice del motore gira dentro eval in ciclo(), quindi non ci sono conflitti di nomi).
  */
 
-var LV_VERSIONE = '1.0';
+var LV_VERSIONE = '1.1';
 var LV_CLASSI_TUTTE = ['1INF', '2INF', '3INF', '4TI'];
 var LV_AVVIO_MAX_MS = 30000;   // dopo 30 s dall'avvio non si inizia un'altra classe
 var LV_FINE_MS = 50000;        // a 50 s si smette di leggere e si scrive quello che c'e (stato «parziale»)
@@ -193,6 +200,117 @@ function LV_abbinamenti_(ss, classe) {   // email -> 'COGNOME Nome' (scheda Abbi
   return out;
 }
 
+/* ---------- AES-256-GCM in JavaScript puro (Apps Script non ha AES). Provato contro Node crypto: report/2026-11-20/prova-live/test_aes_gcm.js ---------- */
+var LV_SB_ = null;
+function LV_aesInit_() {
+  if (LV_SB_) return;
+  var sb = new Array(256), p = 1, q = 1;
+  do {
+    p = (p ^ ((p << 1) & 0xff) ^ ((p & 0x80) ? 0x1b : 0)) & 0xff;
+    q ^= (q << 1) & 0xff; q ^= (q << 2) & 0xff; q ^= (q << 4) & 0xff; if (q & 0x80) q ^= 0x09; q &= 0xff;
+    var x = q ^ (((q << 1) | (q >> 7)) & 0xff) ^ (((q << 2) | (q >> 6)) & 0xff) ^ (((q << 3) | (q >> 5)) & 0xff) ^ (((q << 4) | (q >> 4)) & 0xff);
+    sb[p] = (x ^ 0x63) & 0xff;
+  } while (p !== 1);
+  sb[0] = 0x63; LV_SB_ = sb;
+}
+function LV_xt_(a) { return ((a << 1) ^ ((a & 0x80) ? 0x1b : 0)) & 0xff; }
+function LV_aesChiave_(key) {   // key: 32 byte -> 15 round key da 16 byte
+  LV_aesInit_();
+  var w = [], i, t, rc = 1, Nk = 8, Nr = 14;
+  for (i = 0; i < Nk; i++) w.push([key[4 * i], key[4 * i + 1], key[4 * i + 2], key[4 * i + 3]]);
+  for (i = Nk; i < 4 * (Nr + 1); i++) {
+    t = w[i - 1].slice();
+    if (i % Nk === 0) { t = [LV_SB_[t[1]] ^ rc, LV_SB_[t[2]], LV_SB_[t[3]], LV_SB_[t[0]]]; rc = LV_xt_(rc); }
+    else if (i % Nk === 4) t = [LV_SB_[t[0]], LV_SB_[t[1]], LV_SB_[t[2]], LV_SB_[t[3]]];
+    w.push([w[i - Nk][0] ^ t[0], w[i - Nk][1] ^ t[1], w[i - Nk][2] ^ t[2], w[i - Nk][3] ^ t[3]]);
+  }
+  var rk = [];
+  for (var r = 0; r <= Nr; r++) { var b = []; for (var c = 0; c < 4; c++) b = b.concat(w[4 * r + c]); rk.push(b); }
+  return rk;
+}
+function LV_aesBlocco_(rk, inp) {
+  var s = inp.slice(), r, i, Nr = rk.length - 1, t;
+  for (i = 0; i < 16; i++) s[i] ^= rk[0][i];
+  for (r = 1; r <= Nr; r++) {
+    for (i = 0; i < 16; i++) s[i] = LV_SB_[s[i]];
+    t = [s[0], s[5], s[10], s[15], s[4], s[9], s[14], s[3], s[8], s[13], s[2], s[7], s[12], s[1], s[6], s[11]];   // ShiftRows
+    if (r < Nr) {
+      for (var c = 0; c < 4; c++) {
+        var a0 = t[4 * c], a1 = t[4 * c + 1], a2 = t[4 * c + 2], a3 = t[4 * c + 3];
+        s[4 * c] = LV_xt_(a0) ^ (LV_xt_(a1) ^ a1) ^ a2 ^ a3;
+        s[4 * c + 1] = a0 ^ LV_xt_(a1) ^ (LV_xt_(a2) ^ a2) ^ a3;
+        s[4 * c + 2] = a0 ^ a1 ^ LV_xt_(a2) ^ (LV_xt_(a3) ^ a3);
+        s[4 * c + 3] = (LV_xt_(a0) ^ a0) ^ a1 ^ a2 ^ LV_xt_(a3);
+      }
+    } else s = t;
+    for (i = 0; i < 16; i++) s[i] ^= rk[r][i];
+  }
+  return s;
+}
+function LV_gfMul_(X, Y) {
+  var Z = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], V = Y.slice(), i, j;
+  for (i = 0; i < 128; i++) {
+    if ((X[i >> 3] >> (7 - (i & 7))) & 1) for (j = 0; j < 16; j++) Z[j] ^= V[j];
+    var lsb = V[15] & 1;
+    for (j = 15; j > 0; j--) V[j] = ((V[j] >> 1) | ((V[j - 1] & 1) << 7)) & 0xff;
+    V[0] = V[0] >> 1;
+    if (lsb) V[0] ^= 0xe1;
+  }
+  return Z;
+}
+/** key 32 byte, iv 12 byte, dati: array di byte (0-255). Restituisce testo cifrato + tag di 16 byte (come cryptography AESGCM e WebCrypto). */
+function LV_aesGcm_(key, iv, dati) {
+  var rk = LV_aesChiave_(key), H = LV_aesBlocco_(rk, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]), out = [], i, j, n = dati.length;
+  var ctr = iv.concat([0, 0, 0, 1]), J0 = ctr.slice();
+  for (i = 0; i < n; i += 16) {
+    for (j = 15; j >= 12; j--) { ctr[j] = (ctr[j] + 1) & 0xff; if (ctr[j] !== 0) break; }
+    var ks = LV_aesBlocco_(rk, ctr);
+    for (j = 0; j < 16 && i + j < n; j++) out.push(dati[i + j] ^ ks[j]);
+  }
+  var Y = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (i = 0; i < out.length; i += 16) {
+    var blk = out.slice(i, i + 16); while (blk.length < 16) blk.push(0);
+    for (j = 0; j < 16; j++) Y[j] ^= blk[j];
+    Y = LV_gfMul_(Y, H);
+  }
+  var bits = out.length * 8, lenBlk = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, (bits >>> 24) & 0xff, (bits >>> 16) & 0xff, (bits >>> 8) & 0xff, bits & 0xff];
+  for (j = 0; j < 16; j++) Y[j] ^= lenBlk[j];
+  Y = LV_gfMul_(Y, H);
+  var ek = LV_aesBlocco_(rk, J0), tag = [];
+  for (j = 0; j < 16; j++) tag.push(Y[j] ^ ek[j]);
+  return out.concat(tag);
+}
+function LV_utf8_(s) {
+  var e = unescape(encodeURIComponent(s)), b = [];
+  for (var i = 0; i < e.length; i++) b.push(e.charCodeAt(i));
+  return b;
+}
+function LV_b64_(bytes) { return Utilities.base64Encode(bytes.map(function (x) { return x > 127 ? x - 256 : x; })); }
+function LV_b64dec_(s) { return Utilities.base64Decode(s).map(function (x) { return x & 0xff; }); }
+function LV_cifra_(obj, chiaveB64) {
+  var key = LV_b64dec_(chiaveB64);
+  if (key.length !== 32) throw new Error('LV_CHIAVE non e di 32 byte');
+  var u = Utilities.getUuid().replace(/-/g, ''), iv = [];
+  for (var i = 0; i < 12; i++) iv.push(parseInt(u.substr(2 * i, 2), 16));
+  var ct = LV_aesGcm_(key, iv, LV_utf8_(JSON.stringify(obj)));
+  return { cifrato: 1, salt: 'Y3J1c2NvdHRvLWRvY2VudGUtdjE=', iter: 150000, iv: LV_b64_(iv), ct: LV_b64_(ct) };
+}
+function LV_puntiTotali_(form) {   // come FB_puntiTotali_ del motore
+  var tot = 0, T = FormApp.ItemType;
+  form.getItems().forEach(function (it) {
+    try {
+      var tp = it.getType(), x = null;
+      if (tp === T.CHECKBOX) x = it.asCheckboxItem();
+      else if (tp === T.MULTIPLE_CHOICE) x = it.asMultipleChoiceItem();
+      else if (tp === T.TEXT) x = it.asTextItem();
+      else if (tp === T.PARAGRAPH_TEXT) x = it.asParagraphTextItem();
+      if (x) tot += Number(x.getPoints()) || 0;
+    } catch (e) { }
+  });
+  return tot;
+}
+function LV_punteggio_(r) { var s = 0; (r.getGradableItemResponses() || []).forEach(function (g) { s += Number(g.getScore()) || 0; }); return s; }
+
 /* ---------- una classe ---------- */
 function LV_classe_(ss, classe, t0) {
   var ora = new Date(), gg = Number(LV_roma_(ora, 'd')), mm = Number(LV_roma_(ora, 'M')), giorno = LV_roma_(ora, 'yyyy-MM-dd');
@@ -222,17 +340,18 @@ function LV_classe_(ss, classe, t0) {
     });
   }
   // quiz di oggi
-  var quiz = [], nonAbb = 0;
+  var quiz = [], nonAbb = 0, chiave = PropertiesService.getScriptProperties().getProperty('LV_CHIAVE') || '', pq = {};
   try { quiz = LV_quizOggi_(ss, classe, gg, mm); } catch (e) { avvisi.push('quiz di oggi non letti: ' + String(e.message || e).slice(0, 120)); stato = 'parziale'; }
   for (var q = 0; q < quiz.length; q++) {
     if (Date.now() - t0 > LV_FINE_MS) { stato = 'parziale'; motivo = (motivo ? motivo + '; ' : '') + 'tempo del giro finito: quiz ' + quiz.slice(q).map(function (x) { return x.id; }).join(', ') + ' non letti'; break; }
-    var fatti = {};
+    var fatti = {}; pq[quiz[q].id] = {};
     quiz[q].forms.forEach(function (fid) {
-      var ris = FormApp.openById(fid).getResponses();
+      var form = FormApp.openById(fid), ris = form.getResponses(), tot = chiave ? LV_puntiTotali_(form) : 0;
       ris.forEach(function (r) {
         var em = String(r.getRespondentEmail() || '').toLowerCase(), i = perEmail[em];
         if (i === undefined) { nonAbb++; return; }
         fatti[i] = 1; agg(i, LV_iso_(r.getTimestamp()));
+        if (chiave && tot > 0) { var pc = Math.round(LV_punteggio_(r) / tot * 100), cur = pq[quiz[q].id][i]; if (cur === undefined || pc > cur) pq[quiz[q].id][i] = pc; }   // miglior tentativo
       });
     });
     colonne.push({ k: 'Q', id: quiz[q].id, titolo: quiz[q].titolo, link: quiz[q].link });
@@ -241,7 +360,15 @@ function LV_classe_(ss, classe, t0) {
   if (nonAbb) avvisi.push(nonAbb + ' risposte ai quiz di oggi con email non abbinata (non contate)');
   if (!compiti.length) avvisi.push('nessun compito «GG/MM Ora N» di oggi pubblicato su Classroom');
   if (!quiz.length) avvisi.push('nessun quiz di oggi trovato');
-  LV_scrivi_(ss, classe, { dato: new Date(t0),   /* ora di INIZIO del giro: tutto cio che e scritto e stato letto dopo questo istante, quindi il dato e fresco almeno quanto dichiarato */ giorno: giorno, stato: stato, motivo: motivo, durata: Math.round((Date.now() - t0) / 1000), nonAbb: nonAbb, avvisi: avvisi, colonne: colonne, nomi: etich, dati: dati, ultimo: ultimo });
+  var riservato = null;
+  if (chiave) {
+    try {
+      var blocco = { v: 1, dato: LV_iso_(new Date(t0)), quiz: {} };
+      Object.keys(pq).forEach(function (id) { blocco.quiz[id] = {}; Object.keys(pq[id]).forEach(function (i) { blocco.quiz[id][etich[i]] = pq[id][i]; }); });
+      riservato = LV_cifra_(blocco, chiave);
+    } catch (e) { avvisi.push('blocco riservato non scritto: ' + String(e.message || e).slice(0, 100)); }
+  }
+  LV_scrivi_(ss, classe, { riservato: riservato, dato: new Date(t0),   /* ora di INIZIO del giro: tutto cio che e scritto e stato letto dopo questo istante, quindi il dato e fresco almeno quanto dichiarato */ giorno: giorno, stato: stato, motivo: motivo, durata: Math.round((Date.now() - t0) / 1000), nonAbb: nonAbb, avvisi: avvisi, colonne: colonne, nomi: etich, dati: dati, ultimo: ultimo });
 }
 
 /* ---------- la scheda «Live <CLASSE>» ---------- */
@@ -266,6 +393,8 @@ function LV_scrivi_(ss, classe, o) {
     r.push(o.ultimo[i]); while (r.length < larg) r.push('');
     righe.push(r);
   }
+  var sr = ss.getSheetByName('Live riservato ' + classe) || ss.insertSheet('Live riservato ' + classe);
+  sr.getRange(1, 1, 1, 2).setNumberFormat('@').setValues([[o.riservato ? JSON.stringify(o.riservato) : '', LV_iso_(o.dato)]]);
   sh.clearContents();
   var rg = sh.getRange(1, 1, righe.length, larg);
   rg.setNumberFormat('@');             // tutto testo: l'ora ISO non deve diventare una data
@@ -336,6 +465,8 @@ function LV_leggi_(classe) {
   var iso = String(v[0][1] || '');
   var ms = Date.parse(iso);
   base.dato_il = iso || null;
+  base.riservato = null;
+  try { var sr = ss.getSheetByName('Live riservato ' + classe); if (sr) { var rv = String(sr.getRange(1, 1).getDisplayValue() || ''); if (rv) { var ro = JSON.parse(rv); if (ro && ro.cifrato === 1) base.riservato = ro; } } } catch (e) { base.riservato = null; }
   base.secondi_dal_dato = isNaN(ms) ? null : Math.max(0, Math.round((adesso.getTime() - ms) / 1000));
   base.lezione = String(v[1][1] || '') || null;
   base.stato = String(v[2][1] || 'non_letto');
