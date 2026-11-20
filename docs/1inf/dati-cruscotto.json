@@ -1,5 +1,5 @@
 {
- "versione": "1.1",
+ "versione": "1.2",
  "classe": "1INF",
  "schema": "cruscotto-classe-1",
  "lezione": {
@@ -13,7 +13,11 @@
   "materia": "Laboratorio professionale",
   "fonte": "registro DIDAweb, file dati/presenze-didaweb/1INF-2026-11-20-1045-registro-ore4-6-v1.0.md",
   "sospesa": "",
-  "compiti_letti": [],
+  "compiti_letti": [
+   "20/11 Ora 4: Il metodo del tecnico",
+   "20/11 Ora 5: Indovina il guasto",
+   "20/11 Ora 6: Discuti le carte e gioca"
+  ],
   "quiz_letti": [
    "20/11 Ora 4: il metodo del tecnico",
    "20/11 Ora 6: i guasti dell'aula",
@@ -26,7 +30,7 @@
    "quiz-1inf-2011-ora5",
    "quiz-1inf-2011-ora6b"
   ],
-  "compiti_quiz_non_letti": true
+  "compiti_quiz_non_letti": false
  },
  "dato": {
   "iso": "2026-11-20T13:43:57+01:00",
@@ -124,14 +128,14 @@
    "nota": "registro DIDAweb, screenshot delle 10:45 del 20/11: indicatori del momento dello screenshot (ore 10:45), letti dall'immagine; presenza delle ore della lezione non riletta dal registro"
   },
   {
-   "nome": "Compiti della lezione di oggi",
-   "valore": "non ancora letti dalla Fabbrica",
-   "nota": "ultimo dato della Fabbrica: 20/11 13:43:57; nessun numero inventato (R7)"
+   "nome": "Tutti i compiti della lezione consegnati (3)",
+   "valore": "8 su 13 presenti",
+   "nota": "Classroom, scheda Consegne letta alle 13:33:16"
   },
   {
    "nome": "Tutti i quiz della lezione fatti (4)",
    "valore": "0 su 13 presenti",
-   "nota": "Moduli, letto dalla Fabbrica alle 12:09:21, 12:52:02, 12:56:38, 14:18:43"
+   "nota": "Moduli, scheda Situazione letta alle 13:36:02 (la riga «Letto alle» della scheda ha ore dopo il dato: non usata)"
   },
   {
    "nome": "Veyon: «fuori compito»",
@@ -180,12 +184,14 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
     "Quiz fatti: 7 su 16",
-    "Compiti consegnati: 1 su 6"
+    "Compiti consegnati: 1 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 7",
     "Compiti arretrati: 5",
     "Quiz da rivedere: 5"
@@ -408,6 +414,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -420,7 +447,7 @@
    "quiz_fatti": 7,
    "quiz_tot": 16,
    "doc_consegnati": 1,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A03",
@@ -431,11 +458,13 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 11 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 9 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
@@ -658,6 +687,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 14:00",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -669,8 +719,8 @@
    },
    "quiz_fatti": 11,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 9,
+   "doc_tot": 9
   },
   {
    "id": "A04",
@@ -680,11 +730,13 @@
    "fatto": [
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 7 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 6 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 7",
@@ -909,6 +961,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -920,8 +993,8 @@
    },
    "quiz_fatti": 7,
    "quiz_tot": 16,
-   "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_consegnati": 6,
+   "doc_tot": 9
   },
   {
    "id": "A05",
@@ -932,11 +1005,13 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 10 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 9 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 5",
     "Quiz da rivedere: 7"
@@ -1159,6 +1234,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -1170,8 +1266,8 @@
    },
    "quiz_fatti": 10,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 9,
+   "doc_tot": 9
   },
   {
    "id": "A07",
@@ -1182,12 +1278,14 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto, da rivedere",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
     "Quiz fatti: 10 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 4 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 5",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
@@ -1410,6 +1508,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -1421,8 +1540,8 @@
    },
    "quiz_fatti": 10,
    "quiz_tot": 16,
-   "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_consegnati": 4,
+   "doc_tot": 9
   },
   {
    "id": "A08",
@@ -1433,11 +1552,13 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto, da rivedere",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 11 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 9 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
@@ -1660,6 +1781,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -1671,8 +1813,8 @@
    },
    "quiz_fatti": 11,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 9,
+   "doc_tot": 9
   },
   {
    "id": "A10",
@@ -1682,11 +1824,13 @@
    "fatto": [
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 6 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 6 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz arretrati: 8",
@@ -1911,6 +2055,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:59",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -1922,8 +2087,8 @@
    },
    "quiz_fatti": 6,
    "quiz_tot": 16,
-   "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_consegnati": 6,
+   "doc_tot": 9
   },
   {
    "id": "A11",
@@ -1934,12 +2099,14 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 11 su 16",
-    "Compiti consegnati: 2 su 6"
+    "Compiti consegnati: 4 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
     "Quiz arretrati: 4",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 8"
@@ -2162,6 +2329,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -2173,8 +2361,8 @@
    },
    "quiz_fatti": 11,
    "quiz_tot": 16,
-   "doc_consegnati": 2,
-   "doc_tot": 6
+   "doc_consegnati": 4,
+   "doc_tot": 9
   },
   {
    "id": "A13",
@@ -2185,12 +2373,14 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
     "Quiz fatti: 10 su 16",
-    "Compiti consegnati: 4 su 7"
+    "Compiti consegnati: 6 su 10"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 5",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
@@ -2420,6 +2610,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -2431,8 +2642,8 @@
    },
    "quiz_fatti": 10,
    "quiz_tot": 16,
-   "doc_consegnati": 4,
-   "doc_tot": 7
+   "doc_consegnati": 6,
+   "doc_tot": 10
   },
   {
    "id": "A15",
@@ -2443,12 +2654,14 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
     "Quiz fatti: 11 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 8 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
@@ -2670,6 +2883,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -2681,8 +2915,8 @@
    },
    "quiz_fatti": 11,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 8,
+   "doc_tot": 9
   },
   {
    "id": "A19",
@@ -2693,11 +2927,13 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 9 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 9 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 6",
     "Quiz da rivedere: 6"
@@ -2920,6 +3156,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -2931,8 +3188,8 @@
    },
    "quiz_fatti": 9,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 9,
+   "doc_tot": 9
   },
   {
    "id": "A21",
@@ -2943,11 +3200,13 @@
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 11 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 9 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
@@ -3170,6 +3429,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -3181,8 +3461,8 @@
    },
    "quiz_fatti": 11,
    "quiz_tot": 16,
-   "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_consegnati": 9,
+   "doc_tot": 9
   },
   {
    "id": "A22",
@@ -3192,11 +3472,13 @@
    "fatto": [
     "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
     "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: consegnato",
+    "Compito «20/11 Ora 5: Indovina il guasto»: consegnato",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: consegnato",
     "Quiz fatti: 7 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 6 su 9"
    ],
    "manca": [
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz arretrati: 7",
@@ -3421,6 +3703,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "CONSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -3432,8 +3735,8 @@
    },
    "quiz_fatti": 7,
    "quiz_tot": 16,
-   "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_consegnati": 6,
+   "doc_tot": 9
   }
  ],
  "assenti": [
@@ -3448,15 +3751,17 @@
    ],
    "fatto": [
     "Quiz fatti: 5 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 3 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
@@ -3679,6 +3984,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -3691,7 +4017,7 @@
    "quiz_fatti": 5,
    "quiz_tot": 16,
    "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A06",
@@ -3704,15 +4030,17 @@
    ],
    "fatto": [
     "Quiz fatti: 4 su 16",
-    "Compiti consegnati: 2 su 6"
+    "Compiti consegnati: 2 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
@@ -3935,6 +4263,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -3947,7 +4296,7 @@
    "quiz_fatti": 4,
    "quiz_tot": 16,
    "doc_consegnati": 2,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A09",
@@ -3960,15 +4309,17 @@
    ],
    "fatto": [
     "Quiz fatti: 8 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 6 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
@@ -4190,6 +4541,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:57",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -4202,7 +4574,7 @@
    "quiz_fatti": 8,
    "quiz_tot": 16,
    "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A12",
@@ -4215,15 +4587,17 @@
    ],
    "fatto": [
     "Quiz fatti: 5 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 3 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
@@ -4446,6 +4820,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -4458,7 +4853,7 @@
    "quiz_fatti": 5,
    "quiz_tot": 16,
    "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A14",
@@ -4471,15 +4866,17 @@
    ],
    "fatto": [
     "Quiz fatti: 4 su 16",
-    "Compiti consegnati: 2 su 6"
+    "Compiti consegnati: 2 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
@@ -4702,6 +5099,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -4714,7 +5132,7 @@
    "quiz_fatti": 4,
    "quiz_tot": 16,
    "doc_consegnati": 2,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A16",
@@ -4729,11 +5147,10 @@
     "Nessun dato di quiz o compiti abbinato a questo allievo (non provato)"
    ],
    "manca": [
-    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)"
+    "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare"
    ],
    "vai": {
-    "testo": "Aspetta: i dati di oggi non sono ancora letti dalla Fabbrica",
+    "testo": "Sei a posto: scegli qualcosa di tuo da aggiungere al progetto",
     "link": ""
    },
    "fermo": null,
@@ -4768,15 +5185,17 @@
    ],
    "fatto": [
     "Quiz fatti: 4 su 16",
-    "Compiti consegnati: 2 su 6"
+    "Compiti consegnati: 2 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
@@ -4999,6 +5418,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -5011,7 +5451,7 @@
    "quiz_fatti": 4,
    "quiz_tot": 16,
    "doc_consegnati": 2,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A18",
@@ -5024,15 +5464,17 @@
    ],
    "fatto": [
     "Quiz fatti: 5 su 16",
-    "Compiti consegnati: 3 su 6"
+    "Compiti consegnati: 3 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
@@ -5255,6 +5697,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:58",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -5267,7 +5730,7 @@
    "quiz_fatti": 5,
    "quiz_tot": 16,
    "doc_consegnati": 3,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A20",
@@ -5280,15 +5743,17 @@
    ],
    "fatto": [
     "Quiz fatti: 4 su 16",
-    "Compiti consegnati: 5 su 6"
+    "Compiti consegnati: 5 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 8",
     "Compiti arretrati: 1",
     "Quiz da rivedere: 4"
@@ -5511,6 +5976,27 @@
      "stato": "ASSEGNATO",
      "ora": "",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -5523,7 +6009,7 @@
    "quiz_fatti": 4,
    "quiz_tot": 16,
    "doc_consegnati": 5,
-   "doc_tot": 6
+   "doc_tot": 9
   },
   {
    "id": "A23",
@@ -5536,15 +6022,17 @@
    ],
    "fatto": [
     "Quiz fatti: 8 su 16",
-    "Compiti consegnati: 6 su 6"
+    "Compiti consegnati: 6 su 9"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
     "Quiz «20/11 Ora 4: il metodo del tecnico»",
     "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz «20/11 Ora 6: discuti le carte»",
+    "Compito «20/11 Ora 4: Il metodo del tecnico»: da consegnare",
+    "Compito «20/11 Ora 5: Indovina il guasto»: da consegnare",
+    "Compito «20/11 Ora 6: Discuti le carte e gioca»: da consegnare",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
@@ -5766,6 +6254,27 @@
      "stato": "IN RITARDO",
      "ora": "18/11 13:56",
      "oggi": false
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 4: Il metodo del tecnico",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 5: Indovina il guasto",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
+    },
+    {
+     "tipo": "compito",
+     "titolo": "20/11 Ora 6: Discuti le carte e gioca",
+     "stato": "ASSEGNATO",
+     "ora": "",
+     "oggi": true
     }
    ],
    "voto": {
@@ -5778,7 +6287,7 @@
    "quiz_fatti": 8,
    "quiz_tot": 16,
    "doc_consegnati": 6,
-   "doc_tot": 6
+   "doc_tot": 9
   }
  ],
  "iscritti": 23,
