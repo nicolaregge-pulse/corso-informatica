@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Labirinto</title><link rel="stylesheet" href="giochi.css">
+<style>
+#gr{display:grid;margin:12px auto;background:#fff;border:6px solid var(--ink);border-radius:8px;width:min(92vw,520px,52vh);aspect-ratio:1}
+.z{border:0 solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:min(5vw,26px);cursor:pointer}
+.z.v{background:#ffe9a8}
+.frecce{display:grid;grid-template-columns:repeat(3,64px);gap:6px;justify-content:center;margin:8px auto}
+.frecce .btn{margin:0;padding:0;font-size:30px;height:64px}
+</style></head><body>
+<h1>🌀 Labirinto</h1>
+<div class="istr"><span lang="it">Porta 🐭 al 🧀: usa le frecce o tocca la casella accanto.</span>
+<span lang="ar" dir="rtl">أوصل 🐭 إلى 🧀: استعمل الأسهم أو المس المربع المجاور.</span>
+<span lang="zh-Hans">带 🐭 去 🧀：用箭头，或点旁边的格子。</span></div>
+<div>
+<button class="btn ver" data-n="7">Facile</button>
+<button class="btn aran" data-n="10">Medio</button>
+<button class="btn ros" data-n="13">Difficile</button></div>
+<div class="info" id="info"></div>
+<div id="gr"></div>
+<div class="frecce"><span></span><button class="btn" data-d="0" aria-label="su">⬆️</button><span></span>
+<button class="btn" data-d="3" aria-label="sinistra">⬅️</button><button class="btn" data-d="2" aria-label="giù">⬇️</button><button class="btn" data-d="1" aria-label="destra">➡️</button></div>
+<div class="fine" id="fine"><div class="info">Trovato il formaggio! 🧀🎉</div><div class="punti" id="punti"></div>
+<button class="btn ver" id="riga">🔁 Rigioca</button></div>
+<a class="btn vio home" href="index.html">🏠 Menu</a>
+<div class="nota">中文由 Claude 写成，未经母语者审阅 · Cinese scritto da Claude, non riletto da un madrelingua.</div>
+<script>
+// direzioni: 0 su, 1 destra, 2 giù, 3 sinistra
+var DX=[0,1,0,-1],DY=[-1,0,1,0],N=7,W,pos,mosse,t0,fin,tick,gr=document.getElementById('gr');
+function genera(){W=[];var x,y;for(y=0;y<N;y++){W.push([]);for(x=0;x<N;x++)W[y].push([1,1,1,1])}
+ var vis={},st=[[0,0]];vis['0,0']=1;
+ while(st.length){var c=st[st.length-1],o=[];
+  for(var d=0;d<4;d++){var nx=c[0]+DX[d],ny=c[1]+DY[d];if(nx>=0&&ny>=0&&nx<N&&ny<N&&!vis[nx+','+ny])o.push(d)}
+  if(!o.length){st.pop();continue}
+  var d=o[Math.floor(Math.random()*o.length)],nx=c[0]+DX[d],ny=c[1]+DY[d];
+  W[c[1]][c[0]][d]=0;W[ny][nx][(d+2)%4]=0;vis[nx+','+ny]=1;st.push([nx,ny])}}
+function nuovo(m){N=m;genera();pos=[0,0];mosse=0;t0=null;fin=false;clearInterval(tick);window.__lab={W:W,N:N};
+ document.getElementById('fine').className='fine';
+ gr.style.gridTemplateColumns='repeat('+N+',1fr)';gr.style.gridTemplateRows='repeat('+N+',1fr)';gr.innerHTML='';
+ for(var y=0;y<N;y++)for(var x=0;x<N;x++){var z=document.createElement('div');z.className='z';z.id='z'+x+'_'+y;
+  var w=W[y][x];z.style.borderWidth=(w[0]?'3px ':'0 ')+(w[1]?'3px ':'0 ')+(w[2]?'3px ':'0 ')+(w[3]?'3px':'0');
+  (function(x,y){z.onclick=function(){var dx=x-pos[0],dy=y-pos[1];for(var d=0;d<4;d++)if(DX[d]==dx&&DY[d]==dy)muovi(d)}})(x,y);gr.appendChild(z)}
+ disegna()}
+function sec(){return t0?Math.round((Date.now()-t0)/1000):0}
+function disegna(){document.querySelectorAll('.z').forEach(function(z){z.textContent=''});
+ document.getElementById('z'+(N-1)+'_'+(N-1)).textContent='🧀';
+ document.getElementById('z'+pos[0]+'_'+pos[1]).textContent='🐭';
+ document.getElementById('info').textContent='Mosse: '+mosse+' · Tempo: '+sec()+' s'}
+function muovi(d){if(fin||W[pos[1]][pos[0]][d])return;
+ if(!t0){t0=Date.now();tick=setInterval(disegna,1000)}
+ pos=[pos[0]+DX[d],pos[1]+DY[d]];mosse++;disegna();
+ if(pos[0]==N-1&&pos[1]==N-1){fin=true;clearInterval(tick);var s=sec();
+  document.getElementById('punti').textContent='Mosse: '+mosse+' / Tempo: '+s+' s';
+  document.getElementById('fine').className='fine on';
+  try{var p=JSON.parse(localStorage.getItem('giochi1inf')||'{}');var k='labirinto'+N;if(!p[k]||s<p[k])p[k]=s;localStorage.setItem('giochi1inf',JSON.stringify(p))}catch(e){}}}
+document.addEventListener('keydown',function(e){var d={ArrowUp:0,ArrowRight:1,ArrowDown:2,ArrowLeft:3}[e.key];if(d!==undefined){e.preventDefault();muovi(d)}});
+document.querySelectorAll('[data-d]').forEach(function(b){b.onclick=function(){muovi(+b.dataset.d)}});
+document.querySelectorAll('[data-n]').forEach(function(b){b.onclick=function(){nuovo(+b.dataset.n)}});
+document.getElementById('riga').onclick=function(){nuovo(N)};
+nuovo(7);
+</script></body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Giochi 1INF</title><link rel="stylesheet" href="giochi.css">
+<style>
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;max-width:900px;margin:14px auto}
+.menu a{display:block;text-decoration:none;margin:0;padding:26px 10px;font-size:34px;border-radius:24px}
+.menu small{display:block;font-size:18px;font-weight:400;margin-top:6px}
+table{margin:10px auto;border-collapse:collapse;background:#fff;border-radius:14px;font-size:22px}
+td,th{padding:8px 18px;border-bottom:2px solid #eee}
+</style></head><body>
+<h1>🎮 Giochi di logica</h1>
+<div class="istr"><span lang="it">Scegli un gioco e gioca!</span>
+<span lang="ar" dir="rtl">اختر لعبة والعب!</span>
+<span lang="zh-Hans">选一个游戏，开始玩！</span></div>
+<div class="menu">
+<a class="btn ros" href="tris.html">⭕❌ Tris<small>2 giocatori / computer</small></a>
+<a class="btn vio" href="memory.html">🧠 Memory<small>trova le coppie</small></a>
+<a class="btn aran" href="hanoi.html">🗼 Torre di Hanoi<small>sposta i dischi</small></a>
+<a class="btn ver" href="labirinto.html">🌀 Labirinto<small>trova l'uscita</small></a>
+</div>
+<h2>🏆 Tabellone punti</h2>
+<div class="istr">I record di questo computer (meno è meglio).</div>
+<table id="tab"></table>
+<button class="btn" id="az">🧹 Azzera</button>
+<div class="nota">中文由 Claude 写成，未经母语者审阅 · Cinese scritto da Claude, non riletto da un madrelingua.</div>
+<script>
+var R=[['tris','Tris: partite giocate',''],['memory4','Memory facile','mosse'],['memory6','Memory medio','mosse'],['memory8','Memory difficile','mosse'],
+['hanoi3','Hanoi 3 dischi','mosse'],['hanoi4','Hanoi 4 dischi','mosse'],['hanoi5','Hanoi 5 dischi','mosse'],
+['labirinto7','Labirinto facile','s'],['labirinto10','Labirinto medio','s'],['labirinto13','Labirinto difficile','s']];
+function mostra(){var p={};try{p=JSON.parse(localStorage.getItem('giochi1inf')||'{}')}catch(e){}
+ document.getElementById('tab').innerHTML=R.map(function(r){return '<tr><th>'+r[1]+'</th><td>'+(p[r[0]]!==undefined?p[r[0]]+' '+r[2]:'—')+'</td></tr>'}).join('')}
+document.getElementById('az').onclick=function(){try{localStorage.removeItem('giochi1inf')}catch(e){}mostra()};
+mostra();
+</script></body></html>

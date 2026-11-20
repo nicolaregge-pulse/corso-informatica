@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torre di Hanoi</title><link rel="stylesheet" href="giochi.css">
+<style>
+#gr{display:flex;justify-content:center;gap:10px;margin:12px auto;max-width:900px}
+.p{flex:1;min-height:290px;background:#fff;border:6px solid transparent;border-radius:18px;display:flex;flex-direction:column-reverse;align-items:center;padding:8px 4px;cursor:pointer;position:relative;box-shadow:0 5px 0 rgba(0,0,0,.2)}
+.p::before{content:"";position:absolute;bottom:0;top:30px;width:12px;background:#8d6e63;border-radius:6px;z-index:0}
+.p.sel{border-color:var(--ros)}
+.d{height:44px;border-radius:14px;margin-top:4px;z-index:1;box-shadow:0 3px 0 rgba(0,0,0,.25)}
+</style></head><body>
+<h1>🗼 Torre di Hanoi</h1>
+<div class="istr"><span lang="it">Sposta tutti i dischi sul terzo palo: uno alla volta, mai un grande sopra un piccolo.</span>
+<span lang="ar" dir="rtl">انقل كل الأقراص إلى العمود الثالث: واحدًا واحدًا، ولا تضع كبيرًا فوق صغير.</span>
+<span lang="zh-Hans">把所有圆盘移到第三根柱子：一次一个，大盘不能放在小盘上。</span></div>
+<div>
+<button class="btn ver" data-n="3">3 dischi</button>
+<button class="btn aran" data-n="4">4 dischi</button>
+<button class="btn ros" data-n="5">5 dischi</button></div>
+<div class="info" id="info"></div>
+<div id="gr"></div>
+<div class="fine" id="fine"><div class="info">Torre completata! 🎉</div><div class="punti" id="punti"></div>
+<div id="best"></div><button class="btn ver" id="riga">🔁 Rigioca</button></div>
+<a class="btn vio home" href="index.html">🏠 Menu</a>
+<div class="nota">中文由 Claude 写成，未经母语者审阅 · Cinese scritto da Claude, non riletto da un madrelingua.</div>
+<script>
+var CO=['#ff3b5c','#ff9500','#ffd60a','#18b85a','#2b6fff'];
+var n=3,pali,sel,mosse,t0,fin,gr=document.getElementById('gr'),els=[];
+for(var i=0;i<3;i++){(function(i){var e=document.createElement('div');e.className='p';e.id='palo'+i;e.setAttribute('role','button');e.onclick=function(){tocca(i)};gr.appendChild(e);els.push(e)})(i)}
+function nuovo(m){n=m;pali=[[],[],[]];for(var k=n;k>=1;k--)pali[0].push(k);sel=-1;mosse=0;t0=null;fin=false;
+ document.getElementById('fine').className='fine';disegna()}
+function disegna(){els.forEach(function(e,i){e.innerHTML='';e.className='p'+(sel==i?' sel':'');
+ pali[i].forEach(function(d){var x=document.createElement('div');x.className='d';x.style.width=(30+d*13)+'%';x.style.background=CO[d-1];e.appendChild(x)})});
+ document.getElementById('info').textContent='Mosse: '+mosse+(sel>=0?' · Ora tocca il palo dove metterlo':' · Tocca il palo da cui prendere')}
+function tocca(i){if(fin)return;
+ if(sel<0){if(pali[i].length)sel=i}
+ else if(sel==i){sel=-1}
+ else{var a=pali[sel],b=pali[i],d=a[a.length-1];
+  if(!b.length||b[b.length-1]>d){if(!t0)t0=Date.now();a.pop();b.push(d);mosse++;sel=-1;
+   if(pali[2].length==n){fin=true;disegna();return fine()}}
+  else{sel=-1}}
+ disegna()}
+function fine(){var s=Math.round((Date.now()-t0)/1000),min=Math.pow(2,n)-1;
+ document.getElementById('punti').textContent='Mosse: '+mosse+' / Tempo: '+s+' s';
+ document.getElementById('best').textContent='Il minimo possibile è '+min+' mosse.';
+ document.getElementById('fine').className='fine on';
+ try{var p=JSON.parse(localStorage.getItem('giochi1inf')||'{}');var k='hanoi'+n;if(!p[k]||mosse<p[k])p[k]=mosse;localStorage.setItem('giochi1inf',JSON.stringify(p))}catch(e){}}
+document.querySelectorAll('[data-n]').forEach(function(b){b.onclick=function(){nuovo(+b.dataset.n)}});
+document.getElementById('riga').onclick=function(){nuovo(n)};
+nuovo(3);
+</script></body></html>

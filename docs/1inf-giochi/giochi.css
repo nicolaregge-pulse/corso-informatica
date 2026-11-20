@@ -1,0 +1,17 @@
+:root{--bg:#fff7d6;--ink:#1d1d3b;--blu:#2b6fff;--ros:#ff3b5c;--ver:#18b85a;--aran:#ff9500;--vio:#8a4dff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,"Segoe UI",Arial,sans-serif;font-size:24px;line-height:1.35;text-align:center;padding:12px}
+h1{font-size:40px;margin:8px 0}
+.istr{font-size:22px;margin:6px auto;max-width:900px}
+.istr span{display:block}
+.btn{min-width:56px;min-height:56px;font-size:26px;font-weight:700;border:0;border-radius:16px;padding:10px 22px;margin:6px;color:#fff;background:var(--blu);cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.25);font-family:inherit;touch-action:manipulation}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.btn.ros{background:var(--ros)}.btn.ver{background:var(--ver)}.btn.aran{background:var(--aran)}.btn.vio{background:var(--vio)}
+.btn.sel{outline:6px solid var(--ink)}
+.home{display:inline-block;text-decoration:none}
+.info{font-size:30px;font-weight:700;margin:8px}
+.fine{display:none;background:#fff;border:6px solid var(--ver);border-radius:22px;max-width:560px;margin:14px auto;padding:14px}
+.fine.on{display:block}
+.fine .punti{font-size:38px;font-weight:800;color:var(--ros)}
+[dir=rtl]{direction:rtl}
+.nota{font-size:14px;opacity:.7;margin-top:18px}

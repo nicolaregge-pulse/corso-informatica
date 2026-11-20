@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tris</title><link rel="stylesheet" href="giochi.css">
+<style>
+#gr{display:grid;grid-template-columns:repeat(3,min(28vw,150px));gap:10px;justify-content:center;margin:12px auto}
+.c{height:min(28vw,150px);font-size:min(18vw,90px);font-weight:800;border:0;border-radius:18px;background:#fff;box-shadow:0 5px 0 rgba(0,0,0,.2);cursor:pointer;font-family:inherit}
+.c.X{color:var(--blu)}.c.O{color:var(--ros)}.c.win{background:#b9f6ca}
+</style></head><body>
+<h1>⭕❌ Tris</h1>
+<div class="istr"><span lang="it">Tocca una casella: fai una fila di 3 uguali!</span>
+<span lang="ar" dir="rtl">المس مربعًا: كوّن صفًا من 3 رموز متشابهة!</span>
+<span lang="zh-Hans">点一个格子：连成一行三个相同的！</span></div>
+<div>
+<button class="btn" id="m2">👫 2 giocatori</button>
+<button class="btn ros" id="mc">🤖 Contro il computer</button></div>
+<div class="info" id="turno"></div>
+<div id="gr"></div>
+<div class="fine" id="fine"><div id="msg" class="info"></div><div class="punti" id="punti"></div>
+<button class="btn ver" id="riga">🔁 Rigioca</button></div>
+<a class="btn vio home" href="index.html">🏠 Menu</a>
+<div class="nota">中文由 Claude 写成，未经母语者审阅 · Cinese scritto da Claude, non riletto da un madrelingua.</div>
+<script>
+var L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+var b,t,mosse,t0,fin,cpu=false,gr=document.getElementById('gr'),cs=[];
+for(var i=0;i<9;i++){(function(i){var e=document.createElement('button');e.className='c';e.setAttribute('aria-label','casella '+(i+1));e.onclick=function(){gioca(i,true)};gr.appendChild(e);cs.push(e)})(i)}
+function vinc(){for(var k=0;k<8;k++){var l=L[k];if(b[l[0]]&&b[l[0]]==b[l[1]]&&b[l[0]]==b[l[2]])return l}return null}
+function nuovo(c){cpu=c;b=Array(9).fill('');t='X';mosse=0;t0=Date.now();fin=false;
+ cs.forEach(function(e){e.textContent='';e.className='c'});document.getElementById('fine').className='fine';agg()}
+function agg(){document.getElementById('turno').textContent=fin?'':'Tocca a '+(t=='X'?'❌':'⭕')}
+function gioca(i,umano){if(fin||b[i]||(cpu&&t=='O'&&umano))return;
+ b[i]=t;mosse++;cs[i].textContent=t=='X'?'❌':'⭕';cs[i].classList.add(t);
+ var w=vinc();if(w){return chiudi(w)}
+ if(mosse==9)return chiudi(null);
+ t=t=='X'?'O':'X';agg();
+ if(cpu&&t=='O'){setTimeout(mossaPc,350)}}
+function mossaPc(){if(fin)return;var v=[],i;for(i=0;i<9;i++)if(!b[i])v.push(i);
+ var s=null;if(Math.random()<.4){for(i=0;i<v.length&&s===null;i++){b[v[i]]='O';if(vinc())s=v[i];b[v[i]]=''}}
+ if(s===null)s=v[Math.floor(Math.random()*v.length)];gioca(s,false)}
+function chiudi(w){fin=true;var sec=Math.round((Date.now()-t0)/1000);
+ if(w)w.forEach(function(k){cs[k].classList.add('win')});
+ document.getElementById('turno').textContent='';
+ document.getElementById('msg').textContent=w?'Vince '+(t=='X'?'❌':'⭕')+'! 🎉':'Pari! 🤝';
+ document.getElementById('punti').textContent='Mosse: '+mosse+' / Tempo: '+sec+' s';
+ document.getElementById('fine').className='fine on';
+ try{var p=JSON.parse(localStorage.getItem('giochi1inf')||'{}');p.tris=(p.tris||0)+1;localStorage.setItem('giochi1inf',JSON.stringify(p))}catch(e){}}
+document.getElementById('m2').onclick=function(){nuovo(false)};
+document.getElementById('mc').onclick=function(){nuovo(true)};
+document.getElementById('riga').onclick=function(){nuovo(cpu)};
+nuovo(false);
+</script></body></html>

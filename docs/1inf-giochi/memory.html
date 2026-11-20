@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memory</title><link rel="stylesheet" href="giochi.css">
+<style>
+#gr{display:grid;gap:10px;justify-content:center;margin:12px auto}
+.k{width:min(20vw,110px);height:min(20vw,110px);font-size:min(12vw,60px);border:0;border-radius:16px;background:var(--vio);color:#fff;cursor:pointer;box-shadow:0 5px 0 rgba(0,0,0,.25);font-family:inherit}
+.k.su{background:#fff;color:#000}.k.ok{background:#b9f6ca;color:#000}
+</style></head><body>
+<h1>🧠 Memory</h1>
+<div class="istr"><span lang="it">Gira due carte: trova tutte le coppie uguali!</span>
+<span lang="ar" dir="rtl">اقلب بطاقتين: جد كل الأزواج المتشابهة!</span>
+<span lang="zh-Hans">翻开两张牌：找出所有相同的一对！</span></div>
+<div>
+<button class="btn ver" data-n="4">⭐ Facile</button>
+<button class="btn aran" data-n="6">⭐⭐ Medio</button>
+<button class="btn ros" data-n="8">⭐⭐⭐ Difficile</button></div>
+<div class="info" id="info"></div>
+<div id="gr"></div>
+<div class="fine" id="fine"><div class="info">Bravo! 🎉</div><div class="punti" id="punti"></div>
+<button class="btn ver" id="riga">🔁 Rigioca</button></div>
+<a class="btn vio home" href="index.html">🏠 Menu</a>
+<div class="nota">中文由 Claude 写成，未经母语者审阅 · Cinese scritto da Claude, non riletto da un madrelingua.</div>
+<script>
+var EM=['🐶','🐱','🦊','🐸','🐵','🦁','🐼','🐙','🚀','⚽','🍕','🌈'];
+var n=4,mosse,trov,aperte,t0,blocco,gr=document.getElementById('gr');
+function mesc(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),x=a[i];a[i]=a[j];a[j]=x}return a}
+function nuovo(m){n=m;mosse=0;trov=0;aperte=[];blocco=false;t0=Date.now();
+ var c=mesc(mesc(EM.slice()).slice(0,n).concat(EM.slice(0,0)));var d=mesc(c.concat(c));
+ gr.innerHTML='';gr.style.gridTemplateColumns='repeat(4,auto)';
+ d.forEach(function(e){var k=document.createElement('button');k.className='k';k.textContent='❓';k.dataset.e=e;k.onclick=function(){gira(k)};gr.appendChild(k)});
+ document.getElementById('fine').className='fine';agg()}
+function agg(){document.getElementById('info').textContent='Mosse: '+mosse+' · Coppie: '+trov+'/'+n}
+function gira(k){if(blocco||k.classList.contains('su')||k.classList.contains('ok'))return;
+ k.classList.add('su');k.textContent=k.dataset.e;aperte.push(k);
+ if(aperte.length==2){mosse++;var a=aperte[0],b=aperte[1];
+  if(a.dataset.e==b.dataset.e){a.className=b.className='k ok';trov++;aperte=[];agg();if(trov==n)fine()}
+  else{blocco=true;setTimeout(function(){[a,b].forEach(function(x){x.className='k';x.textContent='❓'});aperte=[];blocco=false;agg()},800)}
+  agg()}}
+function fine(){var s=Math.round((Date.now()-t0)/1000);
+ document.getElementById('punti').textContent='Mosse: '+mosse+' / Tempo: '+s+' s';
+ document.getElementById('fine').className='fine on';
+ try{var p=JSON.parse(localStorage.getItem('giochi1inf')||'{}');var k='memory'+n;if(!p[k]||mosse<p[k])p[k]=mosse;localStorage.setItem('giochi1inf',JSON.stringify(p))}catch(e){}}
+document.querySelectorAll('[data-n]').forEach(function(b){b.onclick=function(){nuovo(+b.dataset.n)}});
+document.getElementById('riga').onclick=function(){nuovo(n)};
+nuovo(4);
+</script></body></html>
