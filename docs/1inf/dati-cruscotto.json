@@ -14,7 +14,12 @@
   "fonte": "registro DIDAweb, file dati/presenze-didaweb/1INF-2026-11-20-1045-registro-ore4-6-v1.0.md",
   "sospesa": "",
   "compiti_letti": [],
-  "quiz_letti": [],
+  "quiz_letti": [
+   "20/11 Ora 4: il metodo del tecnico",
+   "20/11 Ora 6: i guasti dell'aula",
+   "20/11 Ora 5: indovina il guasto",
+   "20/11 Ora 6: discuti le carte"
+  ],
   "quiz_previsti": [
    "quiz-1inf-2011-ora4",
    "quiz-1inf-2011-ora6",
@@ -24,15 +29,15 @@
   "compiti_quiz_non_letti": true
  },
  "dato": {
-  "iso": "2026-11-19T13:44:10+01:00",
-  "ora": "13:44:10",
-  "giorno_it": "19/11/2026",
-  "cosa": "ora del motore della Fabbrica (scheda Stato), export scaricato alle 13:52"
+  "iso": "2026-11-20T13:43:57+01:00",
+  "ora": "13:43:57",
+  "giorno_it": "20/11/2026",
+  "cosa": "ora del motore della Fabbrica (scheda Stato), export scaricato alle 13:44"
  },
  "fonti": [
   {
    "nome": "Fabbrica (quiz, compiti)",
-   "ora": "motore 13:44:10 del 19/11; export 13:52"
+   "ora": "motore 13:43:57 del 20/11; export 13:44"
   },
   {
    "nome": "Presenze del 20/11",
@@ -121,12 +126,12 @@
   {
    "nome": "Compiti della lezione di oggi",
    "valore": "non ancora letti dalla Fabbrica",
-   "nota": "ultimo dato della Fabbrica: 19/11 13:44:10; nessun numero inventato (R7)"
+   "nota": "ultimo dato della Fabbrica: 20/11 13:43:57; nessun numero inventato (R7)"
   },
   {
-   "nome": "Quiz della lezione di oggi",
-   "valore": "non ancora letti dalla Fabbrica",
-   "nota": "previsti in indice.json: ora4, ora6, ora5, ora6b; ultimo dato della Fabbrica: 19/11 13:44:10"
+   "nome": "Tutti i quiz della lezione fatti (4)",
+   "valore": "0 su 13 presenti",
+   "nota": "Moduli, letto dalla Fabbrica alle 12:09:21, 12:52:02, 12:56:38, 14:18:43"
   },
   {
    "nome": "Veyon: «fuori compito»",
@@ -172,23 +177,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 7 su 16",
     "Compiti consegnati: 1 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 5",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 10:38",
-    "iso": "2026-11-18T10:38:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:21",
+    "iso": "2026-11-20T12:21:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -317,6 +326,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -368,8 +417,8 @@
     "sotto60": 1,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_fatti": 7,
+   "quiz_tot": 16,
    "doc_consegnati": 1,
    "doc_tot": 6
   },
@@ -379,22 +428,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 11 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 14:00",
-    "iso": "2026-11-18T14:00:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:33",
+    "iso": "2026-11-20T12:33:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -523,6 +576,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -574,8 +667,8 @@
     "sotto60": 3,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_fatti": 11,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -585,23 +678,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz fatti: 7 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:27",
+    "iso": "2026-11-20T12:27:00+01:00",
+    "cosa": "quiz «20/11 Ora 5: indovina il guasto»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -730,6 +827,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -781,8 +918,8 @@
     "sotto60": 1,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_fatti": 7,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -792,22 +929,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 7 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 10 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 5",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:39",
+    "iso": "2026-11-20T12:39:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -936,6 +1077,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -987,8 +1168,8 @@
     "sotto60": 2,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 7,
-   "quiz_tot": 12,
+   "quiz_fatti": 10,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -998,23 +1179,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 7 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto, da rivedere",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 10 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 5",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 10:46",
-    "iso": "2026-11-18T10:46:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:41",
+    "iso": "2026-11-20T12:41:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -1143,6 +1328,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -1194,8 +1419,8 @@
     "sotto60": 5,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 7,
-   "quiz_tot": 12,
+   "quiz_fatti": 10,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -1205,22 +1430,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto, da rivedere",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 11 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:28",
+    "iso": "2026-11-20T12:28:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -1349,6 +1578,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -1400,8 +1669,8 @@
     "sotto60": 2,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_fatti": 11,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -1411,23 +1680,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 4 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 6 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz arretrati: 8",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:59",
-    "iso": "2026-11-18T13:59:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:34",
+    "iso": "2026-11-20T12:34:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -1556,6 +1829,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -1607,8 +1920,8 @@
     "sotto60": 6,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 4,
-   "quiz_tot": 12,
+   "quiz_fatti": 6,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -1618,23 +1931,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 11 su 16",
     "Compiti consegnati: 2 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 09:46",
-    "iso": "2026-11-18T09:46:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:47",
+    "iso": "2026-11-20T12:47:00+01:00",
+    "cosa": "quiz «20/11 Ora 5: indovina il guasto»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -1763,6 +2080,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -1814,8 +2171,8 @@
     "sotto60": 4,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_fatti": 11,
+   "quiz_tot": 16,
    "doc_consegnati": 2,
    "doc_tot": 6
   },
@@ -1825,23 +2182,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 7 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 10 su 16",
     "Compiti consegnati: 4 su 7"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 5",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 7"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:29",
+    "iso": "2026-11-20T12:29:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -1970,6 +2331,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -2028,8 +2429,8 @@
     "sotto60": 2,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 7,
-   "quiz_tot": 12,
+   "quiz_fatti": 10,
+   "quiz_tot": 16,
    "doc_consegnati": 4,
    "doc_tot": 7
   },
@@ -2039,22 +2440,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 11 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:42",
+    "iso": "2026-11-20T12:42:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -2183,6 +2588,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -2234,8 +2679,8 @@
     "sotto60": 5,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_fatti": 11,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -2245,22 +2690,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 6 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 9 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 6",
     "Quiz da rivedere: 6"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:58",
-    "iso": "2026-11-18T13:58:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:55",
+    "iso": "2026-11-20T12:55:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -2389,6 +2838,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -2440,8 +2929,8 @@
     "sotto60": 3,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 6,
-   "quiz_tot": 12,
+   "quiz_fatti": 9,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -2451,22 +2940,26 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 5: indovina il guasto»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 11 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:58",
-    "iso": "2026-11-18T13:58:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:25",
+    "iso": "2026-11-20T12:25:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -2595,6 +3088,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -2646,8 +3179,8 @@
     "sotto60": 1,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_fatti": 11,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -2657,23 +3190,27 @@
    "presenza": "presente",
    "ore_assenti": [],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»: fatto",
+    "Quiz «20/11 Ora 6: discuti le carte»: fatto, da rivedere",
+    "Quiz fatti: 7 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 6: i guasti dell'aula»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
    },
    "fermo": {
-    "ultima": "18/11 13:57",
-    "iso": "2026-11-18T13:57:00+01:00",
-    "cosa": "consegna di un compito"
+    "ultima": "20/11 12:36",
+    "iso": "2026-11-20T12:36:00+01:00",
+    "cosa": "quiz «20/11 Ora 6: discuti le carte»"
    },
    "veyon": {
     "giorno": "20/11",
@@ -2804,6 +3341,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "OK",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "DA RIVEDERE",
+     "nota": "(provv.:  aperte da correggere)",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -2853,8 +3430,8 @@
     "sotto60": 3,
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
-   "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_fatti": 7,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   }
@@ -2870,19 +3447,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz fatti: 5 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 13:58",
@@ -3016,6 +3597,46 @@
      "nota": "",
      "oggi": false,
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
     },
     {
      "tipo": "compito",
@@ -3068,7 +3689,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -3082,19 +3703,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 4 su 12",
+    "Quiz fatti: 4 su 16",
     "Compiti consegnati: 2 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 10:09",
@@ -3230,6 +3855,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -3280,7 +3945,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 4,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 2,
    "doc_tot": 6
   },
@@ -3294,18 +3959,22 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz fatti: 8 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 13:57",
@@ -3441,6 +4110,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "CONSEGNATO",
@@ -3491,7 +4200,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   },
@@ -3505,19 +4214,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz fatti: 5 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 13:58",
@@ -3653,6 +4366,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -3703,7 +4456,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -3717,19 +4470,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 4 su 12",
+    "Quiz fatti: 4 su 16",
     "Compiti consegnati: 2 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 10:28",
@@ -3865,6 +4622,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -3915,7 +4712,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 4,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 2,
    "doc_tot": 6
   },
@@ -3933,7 +4730,7 @@
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)"
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)"
    ],
    "vai": {
     "testo": "Aspetta: i dati di oggi non sono ancora letti dalla Fabbrica",
@@ -3970,19 +4767,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 4 su 12",
+    "Quiz fatti: 4 su 16",
     "Compiti consegnati: 2 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 8",
     "Compiti arretrati: 4",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 10:27",
@@ -4118,6 +4919,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -4168,7 +5009,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 4,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 2,
    "doc_tot": 6
   },
@@ -4182,19 +5023,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 5 su 12",
+    "Quiz fatti: 5 su 16",
     "Compiti consegnati: 3 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 7",
     "Compiti arretrati: 3",
     "Quiz da rivedere: 5"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 13:58",
@@ -4330,6 +5175,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "ASSEGNATO",
@@ -4380,7 +5265,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 5,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 3,
    "doc_tot": 6
   },
@@ -4394,19 +5279,23 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 4 su 12",
+    "Quiz fatti: 4 su 16",
     "Compiti consegnati: 5 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 8",
     "Compiti arretrati: 1",
     "Quiz da rivedere: 4"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 10:28",
@@ -4542,6 +5431,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "IN RITARDO",
@@ -4592,7 +5521,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 4,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 5,
    "doc_tot": 6
   },
@@ -4606,18 +5535,22 @@
     "13-14"
    ],
    "fatto": [
-    "Quiz fatti: 8 su 12",
+    "Quiz fatti: 8 su 16",
     "Compiti consegnati: 6 su 6"
    ],
    "manca": [
     "Lezione del 20/11 (ore 11-12, 12-13, 13-14): da recuperare",
-    "Compiti e quiz del 20/11: non ancora letti dalla Fabbrica (ultimo dato 19/11 13:44:10; non provato)",
+    "Compiti del 20/11: non ancora letti dalla Fabbrica (non provato)",
+    "Quiz «20/11 Ora 4: il metodo del tecnico»",
+    "Quiz «20/11 Ora 6: i guasti dell'aula»",
+    "Quiz «20/11 Ora 5: indovina il guasto»",
+    "Quiz «20/11 Ora 6: discuti le carte»",
     "Quiz arretrati: 4",
     "Quiz da rivedere: 8"
    ],
    "vai": {
-    "testo": "Recupera il quiz «18/11 Ora 6: Confronto dei PC»",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
+    "testo": "Fai il quiz «20/11 Ora 4: il metodo del tecnico»",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
    },
    "fermo": {
     "ultima": "18/11 13:56",
@@ -4753,6 +5686,46 @@
      "link": "https://docs.google.com/forms/d/e/1FAIpQLSd0-OytSaEQ20wIsF6O4juAlRFIXKQ9E-PtPDFydZ2BxmA80w/viewform"
     },
     {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora4",
+     "titolo": "20/11 Ora 4: il metodo del tecnico",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLSe47fjkN1Zz15dUqYnhVIMMCbYRkfPWZBFNeNXNb__0vgZf0Q/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6",
+     "titolo": "20/11 Ora 6: i guasti dell'aula",
+     "data": "19/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScKRfHDnaOOG_TkWauwWHbs6filDT3j5WBGSm8kSjTy7r25Uw/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora5",
+     "titolo": "20/11 Ora 5: indovina il guasto",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScmCjdFGofGP1nShEQ0wehQkmAgp0p6Aj6DNDGbXgFkec-RTA/viewform"
+    },
+    {
+     "tipo": "quiz",
+     "id": "quiz-1inf-2011-ora6b",
+     "titolo": "20/11 Ora 6: discuti le carte",
+     "data": "20/11",
+     "stato": "MANCA",
+     "nota": "",
+     "oggi": true,
+     "link": "https://docs.google.com/forms/d/e/1FAIpQLScR3mwGiczPtLmzJQ_lDo-ZI-uwtWwm_YVI5U4x-NVOnAiTMw/viewform"
+    },
+    {
      "tipo": "compito",
      "titolo": "13/11 Ora 4: File e cartelle del computer",
      "stato": "CONSEGNATO",
@@ -4803,7 +5776,7 @@
     "metodo": "media delle medie delle materie con voti, minimo 40; il numero e il conto stanno nella versione del docente"
    },
    "quiz_fatti": 8,
-   "quiz_tot": 12,
+   "quiz_tot": 16,
    "doc_consegnati": 6,
    "doc_tot": 6
   }
