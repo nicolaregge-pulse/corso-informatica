@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.2** — 19/11/2026, sera
+**Versione 2.3** — 23/11/2026, notte (prima: 2.2, 19/11/2026, sera)
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -209,3 +209,9 @@ Terza lezione: un confronto di cinque minuti con un negozio vero su Shopify, il 
 Quarta lezione, solo per chi va veloce: il catalogo di Shopify dentro il proprio sito. Si fa solo dopo una verifica di sicurezza, cioè senza chiavi scritte nelle pagine e con dati di prova.
 
 Lo spostamento dei siti nell'organizzazione GitHub della scuola è una lezione successiva, ancora da programmare. Domani si lavora solo nel repository «mio-sito» di ogni ragazzo.
+
+## Lunedì 23 novembre 2026 (notte tra il 22 e il 23)
+
+L'orario di lunedì 23 novembre non è verificato sul registro DIDAweb: non provato. Come ipotesi, dai lunedì precedenti: seconda informatica, dalle 11 alle 14, Laboratorio professionale. La terza informatica è in stage dal 23 novembre al 18 febbraio e non ha lezioni in aula. Prima informatica e quarta non hanno lezione il lunedì secondo quell'ipotesi.
+
+Seconda informatica, dalle 11 alle 14. Proposta consigliata: il negozio sul telefono, cioè il negozio in HTML messo online su GitHub e provato dal telefono, con i recuperi del 20 novembre all'inizio. Seconda proposta: il programma che decide, il cassiere con lo sconto in Lazarus. Terza proposta: dal negozio ai dati, la lista dei prodotti in una tabella. Il prof sceglie; non si sviluppa niente prima.

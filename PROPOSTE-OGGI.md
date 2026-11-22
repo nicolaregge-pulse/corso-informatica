@@ -1,6 +1,6 @@
 # Proposte di lezione di oggi
 
-**Versione 1.11** — 20/11/2026 (notte; prima: 1.10, 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente)) — documento interno per il docente, senza nomi di allievi
+**Versione 1.12** — 23/11/2026 (notte; prima: 1.11, 20/11/2026; 1.10, 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente)) — documento interno per il docente, senza nomi di allievi
 
 Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (screenshot del docente, riportato in `FIRME-REGISTRO-2026-27.md`). Le lezioni le ha già scelte il docente il 17/11 e sono già preparate: questa notte non si rifanno proposte. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
 
@@ -22,3 +22,15 @@ Orario di venerdì 20/11 dal registro DIDAweb (`FIRME-REGISTRO-2026-27.md`, riga
 2. **1INF, ore 11-14 Laboratorio professionale:** il tecnico dell'aula, con la riparazione dei PC assemblati rotti (scelta del docente).
 
 Nulla è pubblicato su Classroom: serve il PUBB n del docente.
+
+## Aggiornamento 23/11/2026 (notte tra il 22 e il 23, v1.12)
+
+**Orario di lunedì 23/11 NON verificato sul registro DIDAweb** (non provato): uso l'orario dei lunedì precedenti (`orario/settimana-2026-11-16.md`, registro del 16/11): 2INF 11-14 Laboratorio professionale. La 3INF è in stage dal 23/11 al 18/02: nessuna lezione in aula. 1INF e 4TI non hanno lezione il lunedì secondo quell'orario. Se l'orario vero è diverso, serve lo screenshot del Calendario DIDAweb: non presumo (R7.6).
+
+### 2INF, ore 11-14, Laboratorio professionale (3 proposte, nessuna sviluppata)
+
+1. **Il negozio sul telefono** (preferita): il negozio in HTML del 20/11 messo online su GitHub e provato dal telefono, con i recuperi del 20/11 nei primi 10 minuti.
+2. **Il programma che decide**: il cassiere con lo sconto in Lazarus.
+3. **Dal negozio ai dati**: la lista dei prodotti in una tabella.
+
+Piano del cruscotto: `docs/cruscotto/piano/2inf-2026-11-23.json` (scelta vuota). Nulla è pubblicato su Classroom: serve il PUBB n del docente. La proposta preferita non è sviluppata: aspetto l'orario vero e la scelta.
