@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.3** — 23/11/2026, notte (prima: 2.2, 19/11/2026, sera)
+**Versione 2.4** — 23/11/2026, pomeriggio (prima: 2.3, 23/11/2026, notte)
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -147,6 +147,7 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 10. v2.0 (19/11/2026): sezione di venerdì 20 novembre con la visione degli ultimi quindici giorni e tre proposte non sviluppate per la seconda informatica e per la prima. Senza nomi: i dettagli per allievo stanno solo nel riservato.
 11. v2.1 (19/11/2026, pomeriggio): per venerdì 20 novembre preparata, come bozza provvisoria, la prima proposta di ciascuna classe (scelta provvisoria di Claude, il prof può cambiare domattina). Senza nomi; nulla è pubblicato su Classroom.
 12. v2.2 (19/11/2026, sera): per venerdì 20 novembre la seconda informatica cambia, su decisione del prof: il negozio si fa solo in HTML, con il carrello e una finta email di conferma, dentro il repository «mio-sito» dei ragazzi. Aggiunte le quattro lezioni sull'e-commerce. Senza nomi.
+13. v2.4 (23/11/2026, pomeriggio): bozza dei 7 giorni da martedì 24 a lunedì 30 novembre, orario ipotizzato dalla settimana precedente (non provato), nessuna lezione sviluppata.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
@@ -215,3 +216,21 @@ Lo spostamento dei siti nell'organizzazione GitHub della scuola è una lezione s
 L'orario di lunedì 23 novembre non è verificato sul registro DIDAweb: non provato. Come ipotesi, dai lunedì precedenti: seconda informatica, dalle 11 alle 14, Laboratorio professionale. La terza informatica è in stage dal 23 novembre al 18 febbraio e non ha lezioni in aula. Prima informatica e quarta non hanno lezione il lunedì secondo quell'ipotesi.
 
 Seconda informatica, dalle 11 alle 14. Proposta consigliata: il negozio sul telefono, cioè il negozio in HTML messo online su GitHub e provato dal telefono, con i recuperi del 20 novembre all'inizio. Seconda proposta: il programma che decide, il cassiere con lo sconto in Lazarus. Terza proposta: dal negozio ai dati, la lista dei prodotti in una tabella. Il prof sceglie; non si sviluppa niente prima.
+
+## Bozza 7 giorni, da martedì 24 a lunedì 30 novembre (23/11/2026, da scegliere con Nicola)
+
+Una riga per lezione. L'orario è ipotesi dalla settimana del 16-20 novembre, non verificato sul registro DIDAweb: non provato. La terza informatica è in stage fino al 18 febbraio. Per la Sicurezza il titolo lo mette la direzione. Sono proposte, non sviluppate.
+
+| Giorno | Classe e ore | Argomento proposto | Obiettivo |
+|---|---|---|---|
+| Mar 24 | 2INF 8-10 | Il negozio sul telefono: il negozio in HTML messo online e provato dal telefono, con i recuperi del 20/11 | Il proprio negozio si apre da un telefono |
+| Mar 24 | 4TI 10-13 | Da decidere con il prof: avanzamento del progetto individuale | Progetto con una parte in più funzionante |
+| Mer 25 | 1INF 8-11 | Laboratorio: continuare Computer Essentials, un lavoro per ora | Un risultato per ora, con quiz |
+| Mer 25 | 1INF 13-14 | Tecnologia professionale: teoria a schede con quiz | Una scheda capita e un quiz fatto |
+| Gio 26 | 2INF 8-10 | Il programma che decide: il cassiere con lo sconto in Lazarus | Una decisione con if che funziona |
+| Gio 26 | 2INF 10-11 | Sicurezza professionale | Titolo dalla direzione |
+| Ven 27 | 2INF 8-9 | Sicurezza professionale | Titolo dalla direzione |
+| Ven 27 | 1INF 11-14 | Laboratorio: file, cartelle e sistema operativo con esercizio a passi | Sapere dove si salva un file |
+| Lun 30 | 2INF 11-14 | Dal negozio ai dati: la lista dei prodotti in una tabella | Prodotti letti da una tabella |
+
+Punti aperti: orario da verificare sul registro; 12 voci dell'Allegato A da decidere con il prof.
