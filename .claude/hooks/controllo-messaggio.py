@@ -34,8 +34,14 @@ Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indi
 in limite-comandi.py + controllo_nomi.py, sui commit e sui push del repository pubblico (R1).
 Contro i cicli: se stop_hook_active è true non blocca di nuovo.
 Robusto: per qualunque errore interno esce 0 senza output.
+9. (kk) «PUBB n» / «dati per Classroom» del docente e la risposta senza il pacchetto nel formato rosso/blu con TITOLO e OGGETTO
+   in riquadri (23/11/2026, errore #386). (ll) File xlsx/docx/csv/md mandato con SendUserFile senza che il docente abbia chiesto
+   quel formato: il predefinito è il PDF (errore #388). (mm) «il cruscotto è pronto/aggiornato/live» per una classe che oggi ha
+   lezione già iniziata e il cui ultimo dato non è di oggi, senza avvisare «DATI VECCHI» (errore #389). Libreria:
+   strumenti/controlli_consegna.py; prove: prove/prova_consegna.py. I testi dei post (#387) li controlla controlla_kit.py v1.4.
 """
 import datetime
+import importlib.util
 import json
 import os
 import re
@@ -752,6 +758,104 @@ def controllo_link(testo):
     return controllo_link_senza_pubblicato(testo) or controllo_link_riservato(testo)
 
 
+# (kk)(ll)(mm) Controlli del 23/11/2026 (errori #386-#389, libreria strumenti/controlli_consegna.py)
+def _consegna():
+    """La libreria dei controlli; None se manca (il resto dell'hook gira lo stesso)."""
+    try:
+        sys.path.insert(0, os.path.join(PUB, "strumenti"))
+        import controlli_consegna
+        return controlli_consegna
+    except Exception:
+        return None
+
+
+def testo_ultimo_docente(transcript_path, max_byte=4 * 1024 * 1024):
+    """Testo dell'ultimo messaggio vero del docente (non risultati di strumenti, notifiche, feedback di hook)."""
+    for r in reversed(_tail_righe(transcript_path, max_byte) if transcript_path else []):
+        try:
+            d = json.loads(r)
+        except Exception:
+            continue
+        if e_messaggio_docente(d):
+            c = (d.get("message") or {}).get("content")
+            if isinstance(c, str):
+                return c
+            return "\n".join(x.get("text", "") for x in c if isinstance(x, dict) and x.get("type") == "text")
+    return ""
+
+
+def controllo_pacchetto_pubb(testo, data):
+    """(kk) #386: «PUBB n» / «dati per Classroom» e la risposta non ha il pacchetto nel formato rosso/blu con TITOLO e OGGETTO."""
+    lib = _consegna()
+    if lib is None:
+        return None
+    tp = data.get("transcript_path") or ""
+    docente = testo_ultimo_docente(tp)
+    if not lib.richiesta_di_pacchetto(docente):
+        return None
+    eventi, chiave = eventi_ultimo_turno(tp)
+    testi = [e[1] for e in _allinea_finale(eventi, testo) if e[0] == "text"]
+    frase = lib.pacchetto_pubb_mancante(docente, testi)
+    if not frase:
+        return None
+    return frase if _nuovi_errori(chiave, [("PUBB", "pacchetto", frase)]) else None
+
+
+def controllo_file_predefinito(testo, data):
+    """(ll) #388: file xlsx/docx/csv/md mandato senza che il docente abbia chiesto quel formato (il predefinito è il PDF)."""
+    lib = _consegna()
+    if lib is None:
+        return None
+    tp = data.get("transcript_path") or ""
+    eventi, chiave = eventi_ultimo_turno(tp)
+    percorsi = [f for e in eventi if e[0] == "tool" and e[1] == "SendUserFile" for f in file_del_comando(e[2])]
+    if not percorsi:
+        return None
+    testi = [e[1] for e in _allinea_finale(eventi, testo) if e[0] == "text"]
+    frase = lib.file_non_pdf_non_richiesto(percorsi, testo_ultimo_docente(tp), testi)
+    if not frase:
+        return None
+    return frase if _nuovi_errori(chiave, [("PDF", "formato", frase)]) else None
+
+
+def controllo_cruscotto_oggi(testo, data=None, adesso=None, pub=None):
+    """(mm) #389: «il cruscotto è pronto/aggiornato/live» per una classe che oggi ha lezione (già iniziata) e il cui ultimo dato
+    non è di oggi, senza dirlo («DATI VECCHI», «ultimo dato del 05/11», «non provato»)."""
+    lib = _consegna()
+    if lib is None:
+        return None
+    base = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    classi, frase = lib.messaggio_dice_cruscotto_pronto(base)
+    if not classi:
+        return None
+    adesso = adesso or datetime.datetime.now(TZ_ROMA)
+    oggi = adesso.strftime("%Y-%m-%d")
+    pub = pub or PUB
+    try:
+        spec = importlib.util.spec_from_file_location("cc_consegna", os.path.join(PUB, "strumenti", "controlla_controlli.py"))
+        cc = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(cc)
+        lezioni, coperto = cc.lezioni_di(oggi, pub)
+        inizio = {v["classe"]: v["da"] for v in reversed(cc._lezioni_da_testi(oggi, pub))}
+    except Exception:
+        return None
+    problemi = []
+    for c in classi:
+        if c not in [l[0] for l in lezioni]:
+            continue   # oggi la classe non ha lezione: il cruscotto di oggi non esiste
+        da = inizio.get(c, "08:00")
+        if adesso.strftime("%H:%M") < da:
+            continue   # la lezione non è ancora cominciata
+        p = lib.cruscotto_senza_dati_di_oggi(c, oggi, pub)
+        if p:
+            problemi.append(p)
+    if not problemi:
+        return None
+    return ("Cruscotto senza i dati di oggi (#389, R8.4): hai scritto «%s» ma %s. Il cruscotto è «pronto» solo con un dato di oggi; "
+            "altrimenti scrivi «DATI VECCHI» con l'ora dell'ultimo dato (R8.4) o «non provato», e dì che cosa serve per avere "
+            "il dato di oggi (giro automatico ogni 2 minuti, R9.3)." % (frase.strip(), "; ".join(problemi)))
+
+
 # (ii) Messaggio troppo lungo (R4.2; errori #242, #250, #342; 16/11/2026): avviso NON bloccante.
 # Il docente cammina tra i banchi: «se ho da leggere più di 10 righe non ne ho il tempo».
 # Si contano le righe di testo fuori dai riquadri di codice (i riquadri da copiare non contano).
@@ -808,7 +912,9 @@ def main():
     motivi = []
     for controllo in (controllo_bloccanti, controllo_copia_incolla, controllo_pronto_senza_verifica,
                       controllo_link, controllo_dato_vecchio, lambda t: controllo_ora_ordinale(t, data),
-                      lambda t: controllo_formato(t, data)):
+                      lambda t: controllo_formato(t, data),
+                      lambda t: controllo_pacchetto_pubb(t, data), lambda t: controllo_file_predefinito(t, data),
+                      controllo_cruscotto_oggi):
         try:
             m = controllo(testo)
         except Exception:
