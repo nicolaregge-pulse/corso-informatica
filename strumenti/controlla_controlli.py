@@ -948,6 +948,27 @@ def firme_sospette(giorno, pub=None):
     return out
 
 
+def traccia_errori_fine_giornata(giorno, ris):
+    """23/11/2026 (richiesta del docente: tracciare se un errore si ripete troppo): ogni fine giornata rilancia
+    `strumenti/traccia_errori_v1.0.py` del riservato (idempotente) e salva il dato in dati/traccia-errori/. Non blocca mai."""
+    import subprocess
+    script = os.path.join(ris, "strumenti", "traccia_errori_v1.0.py")
+    if not os.path.isfile(script):
+        giallo("traccia errori: strumento non trovato (%s)" % script)
+        return
+    out = os.path.join(ris, "dati", "traccia-errori", "traccia-errori-%s.json" % giorno)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    try:
+        r = subprocess.run([sys.executable, "-I", script, "--json", out, "--oggi", giorno], capture_output=True, text=True, timeout=120)
+        riga = (r.stdout.strip().splitlines() or [""])[-1]
+        if r.returncode == 0:
+            esito(True, "traccia errori %s: %s" % (giorno, riga))
+        else:
+            giallo("traccia errori %s non riuscita: %s" % (giorno, (r.stderr.strip().splitlines() or ["?"])[-1]))
+    except Exception as ex:
+        giallo("traccia errori %s non riuscita: %s" % (giorno, ex))
+
+
 def controlla_fine_giornata(giorno, pub=None, ris=None):
     """Controllore di fine giornata: per ogni classe in orario il giorno indicato, sul dato vero.
     1. compito su Classroom uscito entro la prima campanella (piano «pubblicata», #141) e piano senza bottoni dopo
@@ -959,6 +980,8 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
     if not os.path.isdir(ris):
         giallo("fine giornata %s: riservato assente, controllo saltato" % giorno)
         return []
+    if ris == RIS:   # solo sul riservato vero (le prove usano cartelle finte)
+        traccia_errori_fine_giornata(giorno, ris)
     # 23/11/2026: giorni dichiarati senza lezione (malattia del docente) nel riservato: config/giorni-senza-lezione.json
     # {"giorni": {"AAAA-MM-GG": "motivo e fonte"}}. Resta obbligatorio solo report/<giorno>/non-andato.md.
     try:

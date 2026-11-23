@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.18** — 23/11/2026 (capitolo 15: controllo 7, errore #391; prima: 1.17, 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.19** — 23/11/2026 (capitolo 16: traccia degli errori; prima: 1.18, 1.17, 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO DI BUON SENSO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Quindi: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Capitolo 15.
@@ -234,6 +234,11 @@ Obiettivo: far perdere al docente meno tempo con domande inutili ed errori (il d
 
 Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /home/user/corso-informatica/.claude/hooks/prove/prova_filtro_buon_senso.py` (102/102, con 0 falsi allarmi sui messaggi brevi e sulle cornici rosse e blu dei 155 messaggi veri del 20/11/2026, ognuno con il suo messaggio del docente; 41 di quei 155 messaggi superavano i limiti di lunghezza). Limiti: controlli sulle parole, non capiscono il significato; il blocco della lunghezza vale anche per un messaggio lungo e utile.
 
+## 16 Traccia degli errori (23/11/2026)
+
+1. `strumenti/traccia_errori_v1.0.py` (riservato) calcola per ogni errore e categoria: data del controllo, episodi prima e dopo, ultima ricorrenza, stato RISOLTO (controllo continuo da almeno 14 giorni e 0 episodi dopo), RICORRE (3 episodi in 14 giorni o 2 dopo il controllo), DA ALZARE DI LIVELLO (ricorre con il controllo attivo, o in gravità 3), NON MISURABILE. Soglie: `config/soglie-errori.json` del riservato (proposta di Claude, modificabili). Non presume le date: senza una data provata del controllo un errore non è mai RISOLTO.
+2. Gira da solo ogni fine giornata dentro `strumenti/controlla_controlli.py` (funzione `traccia_errori_fine_giornata`, non blocca mai, scrive `dati/traccia-errori/` nel riservato). Prova: `python3 -I strumenti/prova_controlla_controlli.py` (48/48 il 23/11/2026).
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -253,3 +258,4 @@ Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /
 16. v1.16 (23/11/2026): capitolo 14, cancello di consegna.
 17. v1.17 (23/11/2026): capitolo 15, filtro di buon senso (errore #390), obiettivo principale in testa; prova nuova `prova_filtro_buon_senso.py`.
 18. v1.18 (23/11/2026): capitolo 15, controllo 7 (errore #391); `controllo-messaggio.py` v2.3, `filtro_buon_senso.py` v1.1, prova 102/102.
+19. v1.19 (23/11/2026): capitolo 16, traccia degli errori (`traccia_errori_v1.0.py`, soglie `config/soglie-errori.json`), lanciata dal controllore di fine giornata.

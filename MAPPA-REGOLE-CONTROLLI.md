@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.36** — 23/11/2026 (#391: da D a controllo attivo, settimo controllo del filtro di buon senso) · prima v1.35 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.37** — 23/11/2026 (sezione 11: traccia degli errori, strumento `traccia_errori_v1.0.py`) · prima v1.36 (#391: da D a controllo attivo, settimo controllo del filtro di buon senso) · prima v1.35 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Ogni controllo di questa mappa serve a questo: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Il filtro di buon senso (sezione 10) è lo strumento fatto apposta.
@@ -558,6 +558,15 @@ Un solo comando prima di dare un pacchetto al docente: cancello di consegna `cor
 
 Ordine del docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un errore. Vorrei che prima di darmi le risposte ci fosse un controllo da togliere le cose che non hanno senso.» e «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (stima del docente). Errore #390. Lo strumento è la libreria `.claude/hooks/filtro_buon_senso.py`, chiamata da `controllo-messaggio.py` v2.2 (blocca: il messaggio va riscritto, una volta). Sei controlli: 1 dato già nei file o del giorno corrente/passato chiesto al docente; 2 modalità assenza (`config/modalita-assenza.json` nel riservato, 23-25/11/2026, lette dal file: passano solo firma, PC rotto, decisione solo sua che scade oggi); 3 oltre 12 righe o 900 caratteri fuori dai riquadri, se non è un kit; 4 più di una domanda; 5 frasi già dette nel messaggio precedente; 6 conteggi senza fonte. Prova `prove/prova_filtro_buon_senso.py` 77/77; banco di prova `strumenti/banco_errori_v1.2.py` (caso `E0390`). Rapporto riservato: `report/2026-11-23/FILTRO-BUON-SENSO-v1.0.md`.
 
+## 11 Traccia degli errori (23/11/2026, v1.37, sezione nuova)
+
+Richiesta del docente, 23/11/2026: «devi tracciare e decidere se un errore si ripete troppo spesso... Risolto = errori che non capitano più. Ce n'è qualcuno da alzare di livello?».
+
+1. Strumento: `strumenti/traccia_errori_v1.0.py` del riservato (idempotente; gira anche nel controllore di fine giornata, `controlla_controlli.py`, che salva `dati/traccia-errori/traccia-errori-AAAA-MM-GG.json` senza mai bloccare). Soglie in `config/soglie-errori.json` del riservato, dichiarate «proposta di Claude, modificabili».
+2. Per ogni errore e per ogni categoria dell'audit: data del controllo, episodi prima e dopo, ultima ricorrenza, stato RISOLTO, RICORRE, DA ALZARE DI LIVELLO o NON MISURABILE. Fonti: questa mappa (colonne Prima e Ora, date scritte nella riga), il registro (data della voce, «ripete #N»), il banco di prova (il controllo scatta oggi?), l'allegato episodi dell'audit (fino al 20/11).
+3. Esito del 23/11/2026 (misurato): 416 voci, 63 RISOLTO (34 con la prova del banco), 9 RICORRE, 4 DA ALZARE, 340 NON MISURABILE. Report: `report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.md` (e PDF) nel riservato.
+4. Limite: il periodo dei controlli è corto (molti tolti il 04/11 e rimessi il 23/11, 0 giorni oggi); la continuità dal 28/10 non si prova (git comincia il 18/11); gli episodi sono solo quelli scritti nel registro.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
@@ -596,3 +605,4 @@ Ordine del docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un error
 34. v1.34 (23/11/2026): sezione 09, cancello di consegna; #198 e #352 coperti.
 35. v1.35 (23/11/2026, ordine del docente): sezione 10, filtro di buon senso; #390 (A); obiettivo principale in testa («perdo il 50% del tempo», stima del docente). Il conteggio della sezione 01 non è stato ricalcolato.
 36. v1.36 (23/11/2026): #391 da D ad A: controllo 7 del filtro di buon senso (conferma chiesta su un ordine già dato); banco: caso E0391.
+37. v1.37 (23/11/2026, ordine del docente): sezione 11, traccia degli errori (risolti, ricorrenti, da alzare di livello); nessuna riga della tabella cambiata.
