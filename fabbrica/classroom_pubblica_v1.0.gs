@@ -208,8 +208,8 @@ function PB_battito_(nota) {
 }
 
 /* Elabora UNA richiesta. Ritorna l'esito {stato: PUBBLICATO|BOZZA_PRONTA|GIA_PUBBLICATO|NON_RIUSCITO, motivo, link, ...}; puo lanciare (errore transitorio). */
-function PB_elabora_(req, indice) {
-  var es = { id: req.post, azione: req.azione, pubb: req.pubb || null, stato: '', motivo: '', link: '', cwId: '', letto: '', avvisi: [] };
+function PB_elabora_(req, indice, esParz) {
+  var es = esParz || { id: req.post, azione: req.azione, pubb: req.pubb || null, stato: '', motivo: '', link: '', cwId: '', letto: '', avvisi: [] };
   var spec = PB_leggiJson_('post/' + req.post + '.json');
   var v = PB_valida_(spec, req);
   es.avvisi = v.avv;
@@ -294,12 +294,12 @@ function PB_main_() {
       if (r.giorno && r.giorno > oggi && r.azione === 'pubblica') return;   /* non e ancora il giorno */
       if (r.azione === 'pubblica' && r.giorno && r.giorno < oggi) { fatti[k] = { finale: true, stato: 'SCADUTA', ts: PB_ora_(), tms: Date.now() }; riass.fatte.push({ id: r.post, stato: 'SCADUTA' }); return; }
       if (r.azione === 'pubblica') { if (npub >= 1) return; npub++; } else { if (nboz >= 2) return; nboz++; }
-      var es, tent = ((f && f.tent) || 0) + 1;
-      try { es = PB_elabora_(r, indice); }
+      var es = { id: r.post, azione: r.azione, pubb: r.pubb || null, stato: '', motivo: '', link: '', cwId: '', letto: '', avvisi: [] }, tent = ((f && f.tent) || 0) + 1;
+      try { es = PB_elabora_(r, indice, es); }
       catch (e) {
         var msg = PB_errore_(e);
         if (PB_transitorio_(msg) && tent < PB_MAX_TENTATIVI_) { fatti[k] = { tent: tent, ts: PB_ora_(), ultimo: msg.slice(0, 150) }; riass.fatte.push({ id: r.post, stato: 'RIPROVO', motivo: msg }); return; }
-        es = { id: r.post, azione: r.azione, pubb: r.pubb || null, stato: 'NON_RIUSCITO', motivo: msg + (PB_transitorio_(msg) ? ' (dopo ' + tent + ' tentativi)' : ''), avvisi: [] };
+        es.stato = 'NON_RIUSCITO'; es.motivo = msg + (PB_transitorio_(msg) ? ' (dopo ' + tent + ' tentativi)' : '') + (es.cwId ? ' · resta una bozza non visibile ai ragazzi' : '');
       }
       fatti[k] = { finale: true, stato: es.stato, ts: PB_ora_(), tms: Date.now(), link: es.link || '' };
       PB_registra_(es, es.spec);
