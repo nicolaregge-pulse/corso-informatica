@@ -1,0 +1,28 @@
+{
+ "errore": "#122",
+ "titolo": "La scadenza la decide il docente; non si inventano orari",
+ "categoria": "P",
+ "schema": "6",
+ "origine_input": "stesso tipo di input di #97 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "audit_regole.py c_coda (passo notturno B: compito con scadenza)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "scadenza",
+   "sbagliato": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\", \"scadenza_iso\": \"2026-11-23T12:10:00+01:00\"}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\", \"coursework_id\": \"1\", \"descrizione\": \"1. Apri la pagina.\\n2. Premi il bottone.\"}"
+    }
+   }
+  }
+ ]
+}

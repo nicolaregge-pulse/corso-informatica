@@ -1,0 +1,22 @@
+{
+ "errore": "#322",
+ "titolo": "Formula del voto presunta (40 + 30 × punti / 14) (12/11)",
+ "categoria": "S",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #322 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#322|formula|R7\\.6|da confermare|non provato",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl voto proposto è 40 + 30 × punti / 14.\nLo scrivo nel cruscotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFormula del voto da confermare: quale soglia usi?\nNon la scrivo prima.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#21",
+ "titolo": "Se un risultato è stato chiesto, si consegna appena pronto (il PPP non lo ferma)",
+ "categoria": "R",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #190 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (t) «al tuo avanti» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "avanti|dammi|#21|#190",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPreparo tutto e poi resto fermo.\nTe lo consegno al tuo avanti.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "dammi il quiz appena è pronto"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nEccolo, pronto alle {{ORA}}.\nPuoi usarlo subito.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "dammi il quiz appena è pronto"
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#157",
+ "titolo": "Una release vale per tutto il repository; progetto serio = repository suo",
+ "categoria": "R",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #157 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#157|repository intero|tutto il repository",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFaccio la release della cartella docs/1inf.\nPoi la pubblico.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFaccio la release: vale per tutto il repository, non per una cartella.\nPoi la pubblico.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

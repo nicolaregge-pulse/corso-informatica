@@ -1,0 +1,24 @@
+{
+ "errore": "#87",
+ "titolo": "«FIRMA ✓» in verde = firmata",
+ "categoria": "D",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #87 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (m) è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#36|#52|#87|#96|già firmat|tutte firmate|firma ricordata",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFIRMA: ricordati di firmare le ore entro le 14:05.\nPoi passiamo al quiz.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "firme": "## 01 Lunedì {{OGGI}}\n\n1. Ora 08-09, 1INF, Tecnologia professionale: FIRMATA il {{OGGI}} alle 08:42; argomento «Unicode».\n2. Ora 09-10, 1INF, Tecnologia professionale: FIRMATA il {{OGGI}} alle 08:43; argomento «Unicode».\n"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nTutte le ore di oggi sono firmate (FIRME-REGISTRO-2026-27.md).\nNiente da ricordare.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "firme": "## 01 Lunedì {{OGGI}}\n\n1. Ora 08-09, 1INF, Tecnologia professionale: FIRMATA il {{OGGI}} alle 08:42; argomento «Unicode».\n2. Ora 09-10, 1INF, Tecnologia professionale: FIRMATA il {{OGGI}} alle 08:43; argomento «Unicode».\n"
+   }
+  }
+ ]
+}

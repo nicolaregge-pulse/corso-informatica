@@ -1,0 +1,22 @@
+{
+ "errore": "#153",
+ "titolo": "Pagina verificata sul sito vero con i dati veri, non con ?prova=1",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #153 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#153|prova=1|dati simulati|dati veri",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo provato la pagina con ?prova=1: funziona.\nLe righe ci sono tutte.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPagina aperta sul sito vero con i dati veri delle {{ORA}}: i 19 presenti compaiono.\nLe righe ci sono tutte.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

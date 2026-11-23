@@ -1,0 +1,24 @@
+{
+ "errore": "#77",
+ "titolo": "Nessun bottone porta a una pagina vuota",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #77 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py link_mancanti (audit notturno)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf-x/index.html",
+    "testo": "<a href='ora5.html'>Ora 5</a>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf-x/index.html",
+    "testo": "<a href='ora5.html'>Ora 5</a>",
+    "files": {
+     "docs/1inf-x/ora5.html": "<p>Ora 5</p>"
+    }
+   }
+  }
+ ]
+}

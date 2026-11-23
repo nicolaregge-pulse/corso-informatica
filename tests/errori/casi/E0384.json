@@ -1,0 +1,73 @@
+{
+ "errore": "#384",
+ "titolo": "Esercizio 1INF ora 4: scheda senza materiale (20/11)",
+ "categoria": "K",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #384 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_kit.py v1.2 (scheda senza esempio/materiale)",
+ "prove": [
+  {
+   "canale": "kit",
+   "atteso": "esempio/materiale",
+   "sbagliato": {
+    "kit": "# Kit 2INF del 23/11/2026\n\n## 01 2INF, ora 1: Reti\n\nTitolo:\n```\nG Ora 1: Reti\n```\n\nOggetto:\n```\nBuongiorno. Scrivete nel Documento la scheda del caso. Consegna: il Documento. Tempo: 20 minuti.\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nAllegato:\n```\n{{TMP}}/modello.docx\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "Ho ascoltato: ____",
+        "Ho guardato: ____",
+        "Ho provato: ____",
+        "Risultato: ____"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     },
+     "modello.docx": {
+      "docx": true
+     }
+    }
+   },
+   "giusto": {
+    "kit": "# Kit 2INF del 23/11/2026\n\n## 01 2INF, ora 1: Reti\n\nTitolo:\n```\nG Ora 1: Reti\n```\n\nOggetto:\n```\nBuongiorno. Scrivete nel Documento la scheda del caso. Consegna: il Documento. Tempo: 20 minuti.\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nAllegato:\n```\n{{TMP}}/modello.docx\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "L'utente dice: il PC è lento da ieri",
+        "Ho ascoltato: Esempio: il PC è lento da ieri",
+        "Ho guardato: Esempio: il disco è pieno",
+        "Ho provato: Esempio: ho svuotato il cestino",
+        "Risultato: Esempio: ora il PC va bene"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     },
+     "modello.docx": {
+      "docx": true
+     }
+    }
+   }
+  }
+ ]
+}

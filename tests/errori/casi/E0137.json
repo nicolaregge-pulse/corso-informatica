@@ -1,0 +1,22 @@
+{
+ "errore": "#137",
+ "titolo": "La cosa bloccante va da sola nella prima riga",
+ "categoria": "F",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #137 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (b) cosa bloccante in prima riga",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Cosa bloccante|#137",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl quiz della 1INF è pronto per la quarta ora.\nHo aggiornato il cruscotto e i report del giorno.\nRicordati di firmare le ore entro le 14:05.\nPoi sistemo la dispensa.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFIRMA: ricordati di firmare le ore entro le 14:05.\nIl quiz della 1INF è per la quarta ora.\nHo aggiornato il cruscotto e i report.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

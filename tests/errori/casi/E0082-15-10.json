@@ -1,0 +1,21 @@
+{
+ "errore": "#82 (15/10)",
+ "titolo": "Prima di scrivere per una classe si controllano le sue lingue",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #49 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controlli_pagine.py lingue (prima del push, limite-comandi.py)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<p>Apri la scheda.</p><p class='ar'>افتح البطاقة</p>"
+   },
+   "giusto": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<p>Apri la scheda.</p>"
+   }
+  }
+ ]
+}

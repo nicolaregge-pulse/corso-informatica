@@ -1,0 +1,66 @@
+{
+ "errore": "#287",
+ "titolo": "Testo del pacchetto prima della scheda PDF non visibile (12/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #285 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-A cornice blu intorno al documento",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Documento senza cornice blu|#309|#285",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 6: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

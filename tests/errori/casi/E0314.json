@@ -1,0 +1,22 @@
+{
+ "errore": "#314",
+ "titolo": "«Non ha consegnato» con un dato di 6 minuti prima (12/11)",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #161 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (hh) «non ha consegnato» senza dato fresco",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "consegnat|dato|fonte|\\(hh\\)|#314",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'allievo non ha consegnato il quiz (risposte lette alle {{ORA-5}}).\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'allievo non risulta consegnato nel dato delle {{ORA-1}}; la consegna può arrivare.\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

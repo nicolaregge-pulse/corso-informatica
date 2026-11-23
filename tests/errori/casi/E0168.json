@@ -1,0 +1,28 @@
+{
+ "errore": "#168",
+ "titolo": "Script nuovo provato con una bozza vera la sera prima; piano B pronto subito",
+ "categoria": "P",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #168 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py --fine-giornata (coda senza id Classroom)",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "senza id Classroom|#168",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:coda/2026-11-16_2INF_x.json": "{\"stato\": \"da-pubblicare\"}"
+    }
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:coda/2026-11-16_2INF_x.json": "{\"stato\": \"da-pubblicare\", \"coursework_id\": \"123\"}"
+    }
+   }
+  }
+ ]
+}

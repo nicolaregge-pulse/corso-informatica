@@ -1,0 +1,79 @@
+{
+ "errore": "#311",
+ "titolo": "Due kit con due PDF nella stessa risposta (12/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #311 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-B un solo PDF per risposta",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Due kit|#311",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "dammi il kit",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 6: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 7: Verifica\n```\n**OGGETTO**\n```\nBuongiorno.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ORA 7** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/x/Ora7_v1.0.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "dammi il kit",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 6: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

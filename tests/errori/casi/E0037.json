@@ -1,0 +1,22 @@
+{
+ "errore": "#37",
+ "titolo": "«Script fermo» solo dopo una prova del ponte",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #37 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#37|fermo|prova del ponte",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLo script è fermo, non risponde.\nUso il piano B.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl ponte non ha risposto al comando di prova delle {{ORA}} (3 tentativi): è fermo.\nUso il piano B.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

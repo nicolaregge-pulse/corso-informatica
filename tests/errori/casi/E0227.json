@@ -1,0 +1,21 @@
+{
+ "errore": "#227",
+ "titolo": "Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #227 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sui passi «copia il file»",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Copia i file unit1.lfm e unit1.pas da Classroom nella cartella del progetto.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Premi il bottone verde: il progetto si scarica da solo.</p>"
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#55",
+ "titolo": "Istruzioni senza «se», «salta», domande",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #55 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#55|«se»|salta|domande dentro",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Se la scheda è già aperta, salta al passo 4.\n2. Apri la scheda.\n3. Cliccala.\n4. Premi Invio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri la scheda.\n2. Cliccala.\n3. Premi Invio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

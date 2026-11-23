@@ -1,0 +1,22 @@
+{
+ "errore": "#159",
+ "titolo": "«Prima ora» = ora della giornata; nella risposta si scrive l'orario",
+ "categoria": "F",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #159 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (gg) ora della giornata con orario scritto",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#159|ora della GIORNATA",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPreparo il materiale della lezione.\nTi do il testo tra poco.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "fammi la prima ora"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPrima ora (8-9): preparo il materiale.\nTi do il testo tra poco.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "fammi la prima ora"
+   }
+  }
+ ]
+}

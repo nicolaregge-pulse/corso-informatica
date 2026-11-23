@@ -1,0 +1,22 @@
+{
+ "errore": "#186",
+ "titolo": "Veyon «ok» per tutti",
+ "categoria": "C",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #186 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sulla parola «ok» per Veyon senza uno screenshot recente",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#186|Veyon|non letto",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nVeyon: ok per tutti i presenti.\nProseguo con il cruscotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nVeyon: non letto (nessuna schermata negli ultimi 5 minuti).\nProseguo con il cruscotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "errore": "#280",
+ "titolo": "Pannello e schede senza «a che serve» (11/11)",
+ "categoria": "K",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #280 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul «a che serve» dei pannelli",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-x/index.html",
+    "testo": "<section id='pannello'><h2>Situazione</h2><table><tr><td>1</td></tr></table></section>"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-x/index.html",
+    "testo": "<section id='pannello'><h2>Situazione</h2><p>A che serve: vedi chi ha finito.</p><table><tr><td>1</td></tr></table></section>"
+   }
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "errore": "#285",
+ "titolo": "PDF dato solo come nome, senza la scheda da scaricare (12/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #285 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-A cornice blu intorno al documento",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Documento senza cornice blu|#309|#285",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa."
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "Fatto."
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

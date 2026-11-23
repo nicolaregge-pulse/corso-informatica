@@ -1,0 +1,66 @@
+{
+ "errore": "#388",
+ "titolo": "Formato predefinito PDF non applicato (20/11)",
+ "categoria": "V",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #388 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (ll) file non PDF senza richiesta",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Formato predefinito|#388",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "mandami il registro delle presenze",
+      "blocchi": [
+       [
+        "T",
+        "Ecco il registro.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 REGISTRO ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/registro-2inf.xlsx"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "mandami il registro delle presenze",
+      "blocchi": [
+       [
+        "T",
+        "Ecco il registro.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 REGISTRO ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/registro-2inf.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

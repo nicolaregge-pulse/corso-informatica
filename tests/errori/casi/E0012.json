@@ -1,0 +1,25 @@
+{
+ "errore": "#12",
+ "titolo": "Dopo un rebase i coda/*.json si devono leggere prima del push",
+ "categoria": "V",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #12 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook limite-comandi.py (push del riservato con JSON rotti)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "Push del riservato fermato|coda|#12|JSON",
+   "sbagliato": {
+    "cmd": "git push origin main",
+    "cwd": "ris",
+    "files": {
+     "ris:coda/b.json": "{rotto"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin main",
+    "cwd": "ris"
+   }
+  }
+ ]
+}

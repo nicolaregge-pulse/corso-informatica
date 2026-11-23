@@ -1,0 +1,22 @@
+{
+ "errore": "#254",
+ "titolo": "Indicazioni senza link o percorso",
+ "categoria": "H",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #254 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#254|link|percorso",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri il foglio Fabbrica e guarda la scheda Esiti.\nPoi dimmi.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PIAMARTA. Apri questo link e la scheda Esiti:\n```\nhttps://docs.google.com/spreadsheets/d/abc/edit#gid=1\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

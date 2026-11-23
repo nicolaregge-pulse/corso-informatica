@@ -1,0 +1,26 @@
+{
+ "errore": "#325",
+ "titolo": "Nome intero di un allievo in un file di prova, controllo privacy VERDE (12/11)",
+ "categoria": "X",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #85 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook limite-comandi.py (push del pubblico: contenuto dei file cambiati, controllo_nomi)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "cognome|privacy|nome di un allievo|R1",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "prove/esempio.md": "prova con VERDI Luca\n"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "prove/esempio.md": "prova con Luca V.\n"
+    }
+   }
+  }
+ ]
+}

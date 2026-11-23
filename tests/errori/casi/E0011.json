@@ -1,0 +1,22 @@
+{
+ "errore": "#11",
+ "titolo": "La firma non si deduce dal bottone «FIRMA ✓»",
+ "categoria": "D",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #11 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (m) è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#11|#36|#52|screenshot|dedott|bottone",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nDallo screenshot il bottone FIRMA ✓ è verde, quindi la 3INF risulta firmata.\nNon serve altro per le ore di oggi.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLe ore risultano firmate: la colonna Firma dice 16/11/2026 alle 09:41.\nLetto dallo screenshot delle 09:45.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

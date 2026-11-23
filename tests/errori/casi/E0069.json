@@ -1,0 +1,20 @@
+{
+ "errore": "#69",
+ "titolo": "Anche per i maggiorenni solo le iniziali",
+ "categoria": "X",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #69 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook limite-comandi.py (commit del pubblico con il cognome)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "cognome|privacy|R1",
+   "sbagliato": {
+    "cmd": "git commit -m \"Scheda 4TI di VERDI aggiornata\""
+   },
+   "giusto": {
+    "cmd": "git commit -m \"Scheda 4TI aggiornata\""
+   }
+  }
+ ]
+}

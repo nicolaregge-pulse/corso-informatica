@@ -1,0 +1,67 @@
+{
+ "errore": "#274",
+ "titolo": "Lingue della 1INF dimenticate nei quiz e nel post (11/11)",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #274 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_lingue_quiz.py (1INF: italiano, arabo e cinese)",
+ "prove": [
+  {
+   "canale": "quiz_lingue",
+   "sbagliato": {
+    "quiz": [
+     {
+      "id": "1inf-ora4",
+      "dati": {
+       "titolo": "Quiz",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Che cosa fa la CPU?",
+         "sp": "",
+         "s": [
+          [
+           "Calcola",
+           1
+          ],
+          [
+           "Stampa",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "giusto": {
+    "quiz": [
+     {
+      "id": "1inf-ora4",
+      "dati": {
+       "titolo": "Quiz · اختبار · 测验",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Che cosa fa la CPU? · ماذا يفعل المعالج؟ · CPU做什么?",
+         "sp": "",
+         "s": [
+          [
+           "Calcola · يحسب · 计算",
+           1
+          ],
+          [
+           "Stampa",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

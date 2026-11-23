@@ -1,0 +1,22 @@
+{
+ "errore": "#113",
+ "titolo": "Un errore da registrare si scrive subito, con il numero",
+ "categoria": "R",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #113 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "numero della voce|senza (il )?numero|#113",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nRegistrato l'errore.\nProseguo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "registra l'errore che ho appena detto"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nRegistrato come #391 in REGISTRO-ERRORI-CLAUDE.md.\nProseguo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "registra l'errore che ho appena detto"
+   }
+  }
+ ]
+}

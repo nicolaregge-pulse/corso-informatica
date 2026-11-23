@@ -1,0 +1,20 @@
+{
+ "errore": "#308",
+ "titolo": "Riscrittura della storia git da un clone shallow (12/11)",
+ "categoria": "V",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #308 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sulla riscrittura della storia (riscrivi_storia.sh non esiste)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "force|storia|shallow|#308|riscrittura",
+   "sbagliato": {
+    "cmd": "git filter-branch --env-filter 'true' HEAD && git push --force origin main"
+   },
+   "giusto": {
+    "cmd": "git pull --rebase --autostash && git push origin main"
+   }
+  }
+ ]
+}

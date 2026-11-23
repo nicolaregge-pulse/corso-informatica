@@ -1,0 +1,22 @@
+{
+ "errore": "#83",
+ "titolo": "Lo screenshot non è la prova: la prova è il file nel repository",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #16 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (r) è stato tolto il 04/11/2026; (hh) copre solo «non ha consegnato»",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#83|screenshot|prova",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nDallo screenshot Veyon l'allievo ha già la pagina online.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nNel repository dell'allievo (letto alle {{ORA}}) la pagina c'è: index.html del commit di oggi.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

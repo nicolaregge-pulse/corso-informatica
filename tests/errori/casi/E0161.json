@@ -1,0 +1,22 @@
+{
+ "errore": "#161",
+ "titolo": "Mai «non arrivato» su dati di più di 5 minuti; il docente non controlla da solo",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #161 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (hh) «non ha consegnato» senza dato fresco",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "consegnat|dato|fonte|\\(hh\\)|#314",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'allievo del PC 4 non ha consegnato il quiz (letto da Classroom alle {{ORA-30}}).\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'allievo del PC 4 non risulta consegnato nel dato delle {{ORA-1}}.\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

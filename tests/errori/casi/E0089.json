@@ -1,0 +1,29 @@
+{
+ "errore": "#89",
+ "titolo": "Una sola strada per volta; stesso titolo per l'anti-doppione",
+ "categoria": "P",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #89 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "audit_regole.py c_coda (passo notturno B: un compito per classe al giorno)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "uno solo al giorno|compiti in coda",
+   "sbagliato": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\"}",
+     "ris:coda/2026-11-23_1INF_b.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\"}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\", \"coursework_id\": \"1\", \"descrizione\": \"1. Apri la pagina.\\n2. Premi il bottone.\"}"
+    }
+   }
+  }
+ ]
+}

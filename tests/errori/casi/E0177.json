@@ -1,0 +1,22 @@
+{
+ "errore": "#177",
+ "titolo": "«Per Lazarus alza la mano» rimesso su Classroom",
+ "categoria": "K",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #177 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: alza_la_mano controlla solo le pagine, non il testo dei post Classroom",
+ "prove": [
+  {
+   "canale": "post",
+   "atteso": "alza la mano|assistente|#171|#177",
+   "sbagliato": {
+    "titolo": "G Ora 2: Reti",
+    "oggetto": "Se sei in difficoltà con Lazarus alza la mano: il Professore viene da te."
+   },
+   "giusto": {
+    "titolo": "G Ora 2: Reti",
+    "oggetto": "Sei bloccato? Scrivi la domanda all'assistente."
+   }
+  }
+ ]
+}

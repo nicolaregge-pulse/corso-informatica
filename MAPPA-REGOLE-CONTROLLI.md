@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.31** — 23/11/2026 (righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.32** — 23/11/2026 (sezione 07 nuova: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -525,6 +525,16 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 2. Se la regola si può riconoscere da parole nel messaggio, da un comando o da un file, si aggiunge un controllo (hook o audit) con le sue prove, poi la riga diventa A o B.
 3. Se no, la riga resta D con il perché; il conteggio della sezione 01 si aggiorna.
 
+## 07 Banco di prova degli errori (23/11/2026, v1.32, sezione nuova)
+
+Ordine del docente, 23/11/2026: ogni errore passato diventa un test automatico che scatta se si ripresenta. Questa mappa dice che cosa un controllo DOVREBBE fare; il banco dice che cosa fa DAVVERO.
+
+1. Dove sta: `strumenti/banco_errori_v1.0.py` (il lanciatore), `tests/errori/indice.json` (una riga per voce: categoria dell'audit, schema, motivo se non verificabile), `tests/errori/casi/*.json` (un caso per errore verificabile: input sbagliato, input giusto, controllo che deve scattare), `tests/errori/specifiche-v1.0.json` (il controllo più piccolo che coprirebbe i NON COPERTI), `tests/errori/baseline-coperti.json` (gli errori coperti all'ultimo giro). Rapporto: `report/2026-11-23/BANCO-ERRORI-v1.0.md` del riservato.
+2. Come si lancia: `python3 /home/user/corso-informatica/strumenti/banco_errori_v1.0.py -v`. Con `--regressioni` esce 1 se un errore prima coperto non scatta più (un controllo tolto o rotto) o se un controllo scatta sul caso giusto. Va lanciato prima di modificare un hook o uno strumento dei controlli.
+3. Stati: COPERTO (il controllo scatta e sul caso giusto non scatta), NON COPERTO (nessun controllo lo fermerebbe: è un buco, mai «atteso»), CASO DA SCRIVERE (verificabile, caso non ancora scritto), NON VERIFICABILE A MACCHINA (con il motivo scritto), ERRORE DEL BANCO (il caso non gira: non conta come coperto).
+4. Primo giro, 23/11/2026: 414 voci; 119 COPERTE, 96 NON COPERTE, 13 casi da scrivere, 186 non verificabili a macchina, 0 errori del banco. Il banco e le colonne «Prima» e «Ora» di questa mappa dicono cose diverse: 43 voci che la sezione 04 dà con copertura «A» non scattano più al banco (per lo più controlli dell'hook tolti il 04/11/2026); la tabella della sezione 04 non è stata riscritta: vale quella del banco, che si può rieseguire.
+5. Regola per la sezione 06: quando si registra un errore nuovo si scrive PRIMA il caso in `tests/errori/casi/` (e la riga in `indice.json`); nasce NON COPERTO e il controllo che lo ferma lo porta a COPERTO. Un errore senza caso scritto è un errore senza prova.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
@@ -558,3 +568,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 29. v1.29 (19/11/2026, controllore di fine giornata): righe #375-#383 aggiunte (#375-#377 mancavano; #378-#383 nuove). Copertura: nessun controllo automatico nuovo (principio: da costruire = D, correzione in `INFO-PIU-USATE-v1.8.md`); il conteggio della sezione 01 non è stato ricalcolato.
 30. v1.30 (20/11/2026, controllore di fine giornata): righe #384-#389 (#384 e #385 mancavano; #386-#389 nuove, tutte D salvo #388 B). Il conteggio della sezione 01 non è stato ricalcolato.
 31. v1.31 (23/11/2026, ordine del docente: controlli mancanti per #386-#389): #386, #387, #388, #389 da D ad A; controlli (kk) (ll) (mm) in `controllo-messaggio.py`, `controlla_kit.py` v1.4, `controlla_controlli.py` punto 10, libreria `strumenti/controlli_consegna.py`; prove 331 su 331 (prova_consegna 60, prova_controlla_kit 15, prova_controlla_controlli 48). Il conteggio della sezione 01 non è stato ricalcolato.
+32. v1.32 (23/11/2026, ordine del docente: banco di prova degli errori): aggiunta la sezione 07; la tabella della sezione 04 e i conteggi della sezione 01 non sono stati riscritti. Banco: 414 voci, 119 coperte, 96 non coperte, 13 casi da scrivere, 186 non verificabili a macchina.

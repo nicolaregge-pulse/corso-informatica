@@ -1,0 +1,21 @@
+{
+ "errore": "#211",
+ "titolo": "Ruoli «MANI» e «OCCHI» non richiesti nella dispensa e nelle pagine",
+ "categoria": "K",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #211 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sui ruoli non richiesti",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<h2>Ruoli: MANI e OCCHI</h2><p>Uno guarda, uno scrive.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<h2>Lavorate in coppia</h2><p>Uno guarda, uno scrive.</p>"
+   }
+  }
+ ]
+}

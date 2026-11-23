@@ -1,0 +1,20 @@
+{
+ "errore": "02/10-15",
+ "titolo": "Controllo aritmetico automatico degli esempi prima del PDF",
+ "categoria": "Q",
+ "schema": "3",
+ "origine_input": "ricostruito dalla descrizione di 02/10-15 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo aritmetico degli esempi delle dispense (mai costruito)",
+ "prove": [
+  {
+   "canale": "leggibilita",
+   "atteso": "ARITM|calcol|somma|errat|risultato sbagliato",
+   "sbagliato": {
+    "testo": "# Esempi\n\nEsempio: 12 + 7 = 20. Scrivi il risultato.\n"
+   },
+   "giusto": {
+    "testo": "# Esempi\n\nEsempio: 12 + 7 = 19. Scrivi il risultato.\n"
+   }
+  }
+ ]
+}

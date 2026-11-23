@@ -1,0 +1,22 @@
+{
+ "errore": "#248",
+ "titolo": "Codice lungo e spiegazioni mescolati in chat (10/11)",
+ "categoria": "F",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #248 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (jj) avviso codice non in fondo (non blocca)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "codice non in fondo|R4 3ter",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nEcco il codice da incollare:\n```\nfunction ciao() { return 1; }\n```\n1. Apri Apps Script.\n2. Incolla il codice.\n3. Premi Esegui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri Apps Script.\n2. Incolla il codice qui sotto.\n3. Premi Esegui.\n```\nfunction ciao() { return 1; }\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

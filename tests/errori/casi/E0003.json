@@ -1,0 +1,22 @@
+{
+ "errore": "#3",
+ "titolo": "Tutto ciò che il docente segnala va nel registro e in una regola",
+ "categoria": "R",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #3 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "numero della voce|senza (il )?numero|#113",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nSegnato nel registro degli errori.\nProseguo con il resto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "segna questo errore nel registro"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nSegnato come #390 nel registro degli errori, voce aggiunta.\nProseguo con il resto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "segna questo errore nel registro"
+   }
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "errore": "#357",
+ "titolo": "Budget dei preventivi 1INF cambiati per una frase ambigua, valori diversi nei file (18/11)",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #357 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_budget_1inf.py (budget diversi dalla fonte)",
+ "prove": [
+  {
+   "canale": "budget",
+   "sbagliato": {
+    "testo": "Il preventivo ha un budget di 450 euro per l'ufficio.",
+    "ammessi": [
+     500,
+     600,
+     1000
+    ]
+   },
+   "giusto": {
+    "testo": "Il preventivo ha un budget di 500 euro per l'ufficio.",
+    "ammessi": [
+     500,
+     600,
+     1000
+    ]
+   }
+  }
+ ]
+}

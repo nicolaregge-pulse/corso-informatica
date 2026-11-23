@@ -1,0 +1,23 @@
+{
+ "errore": "#335",
+ "titolo": "Correzioni del motore pubblicate su motore.js prima del «via» (13/11)",
+ "categoria": "P",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #335 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun avviso sulle correzioni di fabbrica/motore.js prima del via del docente",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "#335|motore|via|correzion",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "fabbrica/motore.js": "var motore = 2;\n"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main"
+   }
+  }
+ ]
+}

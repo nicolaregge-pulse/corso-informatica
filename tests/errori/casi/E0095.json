@@ -1,0 +1,22 @@
+{
+ "errore": "#95",
+ "titolo": "Si legge il massimo di ogni quiz; «non risulta» mai su una fonte sola",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #16 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (r) è stato tolto il 04/11/2026; (hh) copre solo «non ha consegnato»",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#95|fonte|non risulta",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPer il quiz non risulta nessuna risposta dell'allievo.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nNel Foglio Quiz e in Classroom (letti alle {{ORA-1}}) non risulta nessuna risposta dell'allievo.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

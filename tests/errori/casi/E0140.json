@@ -1,0 +1,22 @@
+{
+ "errore": "#140",
+ "titolo": "Un bottone è presente solo se si vede sul sito vero, modalità Docente",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl bottone «Scelgo questa» c'è sul sito.\nBasta cliccarlo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl bottone «Scelgo questa» è visibile sul sito vero in modalità Docente (letto alle {{ORA}}).\nBasta cliccarlo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

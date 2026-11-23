@@ -1,0 +1,22 @@
+{
+ "errore": "#281",
+ "titolo": "Allievi nominati senza cognome (11/11)",
+ "categoria": "S",
+ "schema": "7",
+ "origine_input": "ricostruito dalla descrizione di #281 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: l'avviso copre solo «COGNOME Nome», non il solo nome",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "cognome|battesimo",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nMario ha consegnato il quiz.\nAnna ha finito.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nROSSI ha consegnato il quiz.\nBIANCHI ha finito.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

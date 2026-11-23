@@ -1,0 +1,22 @@
+{
+ "errore": "#167",
+ "titolo": "Il genere di un allievo non si dà per scontato: si usa il nome",
+ "categoria": "R",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #167 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#167|genere|nome",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLei ha finito il quiz.\nLui ha ancora la scheda.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nROSSI ha finito il quiz.\nBIANCHI ha ancora la scheda.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

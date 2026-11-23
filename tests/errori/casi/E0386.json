@@ -1,0 +1,44 @@
+{
+ "errore": "#386",
+ "titolo": "Formato pacchetto PUBB e kit non mantenuto (20/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #386 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (kk) PUBB n senza pacchetto rosso/blu",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#386|pacchetto",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPubblico io il compito dell'ora 2 su Classroom e ti avviso quando è online, con tutti i dettagli.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "PUBB 2"
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "PUBB 2",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 2: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nPUBB 2 (9-10)\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

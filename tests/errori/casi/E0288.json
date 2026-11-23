@@ -1,0 +1,66 @@
+{
+ "errore": "#288",
+ "titolo": "Scheda PDF fuori dalla cornice rossa (12/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #288 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-D3 chiusura senza riga rossa",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "dopo la riga rossa|#288|ULTIMA cosa",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "dammi il kit",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 6: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nFatto. Il quiz arriva dopo."
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "dammi il kit",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 6: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Seguirà il quiz.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

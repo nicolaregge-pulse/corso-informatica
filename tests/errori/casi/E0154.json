@@ -1,0 +1,22 @@
+{
+ "errore": "#154",
+ "titolo": "Prima di chiedere al docente si guarda nei file del giorno",
+ "categoria": "S",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #154 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#154|già nei file|file del giorno",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nChi sono i presenti di oggi? Mi dai l'elenco?\nPoi preparo il cruscotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPresenti di oggi dal diario (letto alle {{ORA}}): 19.\nPreparo il cruscotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

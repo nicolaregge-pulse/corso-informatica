@@ -1,0 +1,22 @@
+{
+ "errore": "#375",
+ "titolo": "«Non posso creare il Moduli» invece della Fabbrica (19/11)",
+ "categoria": "Q",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #375 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#375|Fabbrica|non posso",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nNon posso creare il Moduli: non ho accesso a Google.\nTi do il testo da incollare.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nCreo il quiz con la Fabbrica (strumenti/crea_quiz_fabbrica.py), riga 12.\nTi do il link dopo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

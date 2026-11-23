@@ -1,0 +1,22 @@
+{
+ "errore": "#104",
+ "titolo": "«Ponte OK» solo dopo un comando di prova eseguito",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl ponte è OK, funziona.\nPuoi procedere con le pubblicazioni.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nComando di prova eseguito alle {{ORA}}: il ponte ha risposto in 4 secondi.\nPosso procedere con le pubblicazioni.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

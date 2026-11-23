@@ -1,0 +1,22 @@
+{
+ "errore": "#98",
+ "titolo": "Prima della stringa dei voti, la materia dell'ora",
+ "categoria": "D",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #98 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (g) «Disciplina da scegliere» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Disciplina|#98|#117",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nEcco la stringa dei voti per DIDAweb, ora 3:\n```\nh 3; ROSSI 60; BIANCHI 70\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n**Disciplina da scegliere: LABORATORIO PROFESSIONALE**\nEcco la stringa dei voti per DIDAweb, ora 3:\n```\nh 3; ROSSI 60; BIANCHI 70\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

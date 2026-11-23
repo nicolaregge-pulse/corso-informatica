@@ -1,0 +1,22 @@
+{
+ "errore": "#342",
+ "titolo": "Messaggi ancora troppo lunghi, «troppa roba inutile» (16/11; ripete #242, #250)",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "stesso tipo di input di #242 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (ii) avviso messaggio troppo lungo (non blocca)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "R4\\.2|righe e \\d+ parole|Avviso",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Fai il passo numero 1 aprendo la pagina giusta e controllando il risultato.\n2. Fai il passo numero 2 aprendo la pagina giusta e controllando il risultato.\n3. Fai il passo numero 3 aprendo la pagina giusta e controllando il risultato.\n4. Fai il passo numero 4 aprendo la pagina giusta e controllando il risultato.\n5. Fai il passo numero 5 aprendo la pagina giusta e controllando il risultato.\n6. Fai il passo numero 6 aprendo la pagina giusta e controllando il risultato.\n7. Fai il passo numero 7 aprendo la pagina giusta e controllando il risultato.\n8. Fai il passo numero 8 aprendo la pagina giusta e controllando il risultato.\n9. Fai il passo numero 9 aprendo la pagina giusta e controllando il risultato.\n10. Fai il passo numero 10 aprendo la pagina giusta e controllando il risultato.\n11. Fai il passo numero 11 aprendo la pagina giusta e controllando il risultato.\n12. Fai il passo numero 12 aprendo la pagina giusta e controllando il risultato.\n13. Fai il passo numero 13 aprendo la pagina giusta e controllando il risultato.\n14. Fai il passo numero 14 aprendo la pagina giusta e controllando il risultato.\n15. Fai il passo numero 15 aprendo la pagina giusta e controllando il risultato.\n16. Fai il passo numero 16 aprendo la pagina giusta e controllando il risultato.\n17. Fai il passo numero 17 aprendo la pagina giusta e controllando il risultato.\n18. Fai il passo numero 18 aprendo la pagina giusta e controllando il risultato.\n19. Fai il passo numero 19 aprendo la pagina giusta e controllando il risultato.\n20. Fai il passo numero 20 aprendo la pagina giusta e controllando il risultato.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri la pagina.\n2. Controlla il risultato.\n3. Premi il bottone verde.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

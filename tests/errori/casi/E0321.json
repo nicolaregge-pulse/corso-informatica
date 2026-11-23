@@ -1,0 +1,29 @@
+{
+ "errore": "#321",
+ "titolo": "Parole «pubblicato»/«online» fermate quattro volte (12/11)",
+ "categoria": "P",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #105 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (d) pubblicato senza verifica_lezione.py VERDE",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Pubblicazione non verificata",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 2INF è online e pubblicata su Classroom.\nLa verifica non l'ho ancora lanciata.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 2INF è online e pubblicata su Classroom.\nVerifica VERDE delle {{ORA}}.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "verifiche": [
+     {
+      "classe": "2INF",
+      "esito": "VERDE",
+      "minuti_fa": 2
+     }
+    ]
+   }
+  }
+ ]
+}

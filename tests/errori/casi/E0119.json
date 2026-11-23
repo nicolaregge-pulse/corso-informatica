@@ -1,0 +1,21 @@
+{
+ "errore": "#119",
+ "titolo": "Lingue di ogni classe dai documenti, con un audit",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #119 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controlli_pagine.py lingue 3INF",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Apri la scheda.</p><p>افتح البطاقة</p>"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Apri la scheda.</p><p lang='bn'>কার্ড খুলুন</p>"
+   }
+  }
+ ]
+}

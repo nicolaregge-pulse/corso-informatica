@@ -1,0 +1,22 @@
+{
+ "errore": "#53",
+ "titolo": "Niente avverbi e aggettivi che non servono",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #53 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "onestamente|avverbi|#53",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nOnestamente, il risultato è valido: ne servono 5 valide.\nLe prove sono tutte vere.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl risultato è 5 su 5.\nLe prove sono 5.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,67 @@
+{
+ "errore": "#163",
+ "titolo": "1INF: ogni materiale per i ragazzi in italiano, arabo e cinese insieme",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #274 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "controlla_lingue_quiz.py (1INF: italiano, arabo e cinese)",
+ "prove": [
+  {
+   "canale": "quiz_lingue",
+   "sbagliato": {
+    "quiz": [
+     {
+      "id": "1inf-ora4",
+      "dati": {
+       "titolo": "Quiz",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Che cosa fa la CPU?",
+         "sp": "",
+         "s": [
+          [
+           "Calcola",
+           1
+          ],
+          [
+           "Stampa",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "giusto": {
+    "quiz": [
+     {
+      "id": "1inf-ora4",
+      "dati": {
+       "titolo": "Quiz · اختبار · 测验",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Che cosa fa la CPU? · ماذا يفعل المعالج؟ · CPU做什么?",
+         "sp": "",
+         "s": [
+          [
+           "Calcola · يحسب · 计算",
+           1
+          ],
+          [
+           "Stampa",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

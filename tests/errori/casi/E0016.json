@@ -1,0 +1,22 @@
+{
+ "errore": "#16",
+ "titolo": "Mai «non ha caricato» senza la ricerca e il clone",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #16 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (r) è stato tolto il 04/11/2026; (hh) copre solo «non ha consegnato»",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#16|non ha caricato|clone",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'allievo del PC 12 non ha caricato il file nel repository.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nNel repository dell'allievo (clone fatto alle {{ORA-1}}) il file non c'è.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

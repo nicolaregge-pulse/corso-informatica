@@ -1,0 +1,24 @@
+{
+ "errore": "#243",
+ "titolo": "Messaggio con link senza PUBBLICATO bloccato dall hook (09/11)",
+ "categoria": "P",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #79 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (e) link senza PUBBLICATO",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Link al sito",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pub_sporco": true
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pubblicato": true
+   }
+  }
+ ]
+}

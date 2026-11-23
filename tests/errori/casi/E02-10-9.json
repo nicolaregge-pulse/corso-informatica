@@ -1,0 +1,22 @@
+{
+ "errore": "02/10-9",
+ "titolo": "Nelle istruzioni di Classroom solo il link unico della pagina, mai PDF versionati",
+ "categoria": "P",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di 02/10-9 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sui PDF versionati nei testi dei post",
+ "prove": [
+  {
+   "canale": "post",
+   "atteso": "versionat|v\\d|link unico|PDF",
+   "sbagliato": {
+    "titolo": "G Ora 2: Reti",
+    "oggetto": "Scarica la dispensa-v1.2.pdf e fai l'esercizio."
+   },
+   "giusto": {
+    "titolo": "G Ora 2: Reti",
+    "oggetto": "Apri la pagina dell'ora e fai l'esercizio."
+   }
+  }
+ ]
+}

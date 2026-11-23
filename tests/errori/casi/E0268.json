@@ -1,0 +1,22 @@
+{
+ "errore": "#268",
+ "titolo": "Passo senza la finestra Chrome dell'account (11/11)",
+ "categoria": "A",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #268 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#268|finestra|account|PIAMARTA",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nClicca sul bottone Esegui.\nPoi guarda il registro.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PIAMARTA, finestra Chrome del Foglio Fabbrica.\nClicca sul bottone Esegui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

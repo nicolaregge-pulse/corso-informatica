@@ -1,0 +1,22 @@
+{
+ "errore": "#56",
+ "titolo": "Passi come frasi che cominciano con il verbo, non catene di coordinate",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #56 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#56|coordinate|catene",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PIAMARTA · finestra Chrome con le schede arancioni · a destra dell'ultima scheda: clicca il «+».\nQui in chat · riquadro qui sotto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PIAMARTA. Premi Ctrl+T per aprire una scheda nuova.\nIncolla il link nella barra.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

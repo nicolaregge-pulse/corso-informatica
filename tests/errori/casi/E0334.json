@@ -1,0 +1,22 @@
+{
+ "errore": "#334",
+ "titolo": "Orario di lunedì presunto e domanda che contraddice il docente (13/11)",
+ "categoria": "S",
+ "schema": "7",
+ "origine_input": "ricostruito dalla descrizione di #334 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#220|#334|non provato|DIDAweb|registro",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLunedì la 2INF ha le ore 8-11.\nPreparo il materiale.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLunedì: orario non provato, lo leggo dal registro DIDAweb.\nMi dai lo screenshot?\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

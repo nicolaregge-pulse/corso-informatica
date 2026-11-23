@@ -1,0 +1,44 @@
+{
+ "errore": "#165",
+ "titolo": "I dati del docente si scrivono in caselle (foglio Google), non in un PDF",
+ "categoria": "D",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #165 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (ee) è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#165|caselle|foglio|compilar",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "dammi la griglia dei voti da compilare",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la griglia dei voti.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 GRIGLIA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/x/griglia-voti.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nGriglia dei voti, account PIAMARTA:\nhttps://docs.google.com/spreadsheets/d/abc/edit\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "dammi la griglia dei voti da compilare"
+   }
+  }
+ ]
+}

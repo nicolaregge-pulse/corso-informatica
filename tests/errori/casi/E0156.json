@@ -1,0 +1,30 @@
+{
+ "errore": "#156",
+ "titolo": "Nessun 40 a chi ha finito o consegnato; senza consegna «voto dopo la consegna»",
+ "categoria": "C",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #156 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py --fine-giornata (voto 40 a chi ha finito)",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "voto 40|#156",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:diario/2INF/2026-11-16.md": "Presenti 1\n",
+     "ris:storico/cruscotti/2inf/2026-11-16/cruscotto-0850.json": "{\"righe\": [{\"voto\": 40, \"finito\": true}]}"
+    }
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:diario/2INF/2026-11-16.md": "Presenti 1\n",
+     "ris:storico/cruscotti/2inf/2026-11-16/cruscotto-0850.json": "{\"righe\": [{\"voto\": 70, \"finito\": true}]}"
+    }
+   }
+  }
+ ]
+}

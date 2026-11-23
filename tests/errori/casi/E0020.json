@@ -1,0 +1,21 @@
+{
+ "errore": "#20",
+ "titolo": "Ripubblicando una pagina che si salva da sola, il blocco dati si sostituisce una volta",
+ "categoria": "V",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #20 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controlli_pagine.py sintassi (node --check)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<script>const DATI = {a:1};\nconst DATI = {a:2};</script>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<script>const DATI = {a:2};</script>"
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#223",
+ "titolo": "Sull Allegato A dopo il 30/10 si puo solo togliere; prima di proporre si leggono le note",
+ "categoria": "R",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #223 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#223|solo togliere|Allegato A",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPropongo di aggiungere la voce «Reti» all'Allegato A della 2INF.\nLa scrivo nel documento.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nSull'Allegato A si può solo togliere: uso la voce più vicina e lo dico.\nNon aggiungo voci.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

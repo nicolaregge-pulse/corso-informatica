@@ -1,0 +1,22 @@
+{
+ "errore": "#152",
+ "titolo": "Attività automatica pronta solo dopo un giro di prova vero",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'attività della notte è pronta e funziona.\nGira da sola ogni giorno.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nGiro di prova eseguito alle {{ORA}}: stato/notte-2026-11-23.json è stato scritto.\nGira da sola ogni giorno.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

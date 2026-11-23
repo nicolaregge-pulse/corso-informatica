@@ -1,0 +1,20 @@
+{
+ "errore": "#328",
+ "titolo": "Dispense poco chiare per ragazzi delle medie, ripetuto (13/11)",
+ "categoria": "K",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #328 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_leggibilita.py (frasi oltre 25 parole: a mano, non bloccante)",
+ "prove": [
+  {
+   "canale": "leggibilita",
+   "atteso": "LUNGA",
+   "sbagliato": {
+    "testo": "# Dispensa\n\n**Versione 1.0**\n\nQuando apri il programma di scrittura che hai sul computer devi controllare con molta attenzione che il documento che stai per salvare abbia il nome giusto e che il percorso della cartella scelta sia quello che ti ha indicato il tuo insegnante all'inizio della lezione di oggi.\n"
+   },
+   "giusto": {
+    "testo": "# Dispensa\n\n**Versione 1.0**\n\nApri il programma. Scrivi il nome del file. Premi Salva.\n"
+   }
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "errore": "#27",
+ "titolo": "Ogni PDF si apre e si controlla prima di mandarlo",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #27 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo che un PDF sia stato aperto prima dell'invio (SendUserFile senza pdfinfo o pdftotext)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#27|PDF.{0,30}(aperto|controllat)|pdfinfo|non controllat",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/dispensa-ora-2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "U",
+        "Bash",
+        {
+         "command": "pdfinfo /home/user/corso-informatica-riservato/report/x/dispensa-ora-2.pdf"
+        }
+       ],
+       [
+        "T",
+        "Ecco la dispensa (aperta e controllata: 6 pagine).\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/dispensa-ora-2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

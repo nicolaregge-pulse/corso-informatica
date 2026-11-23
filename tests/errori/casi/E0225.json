@@ -1,0 +1,66 @@
+{
+ "errore": "#225",
+ "titolo": "Post ora 4 della 1INF pubblicato dal docente senza link",
+ "categoria": "P",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #225 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: (kk) controlla il formato del pacchetto, non che il testo del post contenga il link",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza (il )?link|manca (il )?link",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "PUBB 4",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 4: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Fate l'esercizio dell'ora 4.\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nPUBB 4 (11-12)\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "PUBB 4",
+      "blocchi": [
+       [
+        "T",
+        "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\n**TITOLO**\n```\nG Ora 4: Ripasso della classe\n```\n**OGGETTO**\n```\nBuongiorno. Fate l'esercizio: https://nicolaregge-pulse.github.io/corso-informatica/1inf/ora4/\n```\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 **DISPENSA ALLIEVI ORA 6** ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/x/20261112_Dispensa-1INF-Ora6_v1.2.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nPUBB 4 (11-12)\n\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,3728 @@
+[
+ {
+  "errore": "01/10-1",
+  "titolo": "I libri degli allievi si consegnano cifrati, una password per allievo",
+  "categoria": "X",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "01/10-2",
+  "titolo": "La valutazione nei libri si intitola «Valutazione dell'AI», mai del docente",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "01/10-3",
+  "titolo": "Voto e giudizio restano nel libro, attribuiti all'AI",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "01/10-4",
+  "titolo": "La chiusura segue lo standard completo (anti-plagio, dossier, report, voti /10)",
+  "categoria": "O",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "01/10-5",
+  "titolo": "Prima si capisce l'accordo mancato, poi si agisce",
+  "categoria": "O",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "01/10-6",
+  "titolo": "Anti-plagio sempre al condizionale, «da verificare»",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E01-10-6.json"
+ },
+ {
+  "errore": "01/10-7",
+  "titolo": "Nel libro dell'allievo solo ciò che riguarda lui, niente indicazioni per il docente",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "01/10-8",
+  "titolo": "Le password consegnate restano fisse a ogni rigenerazione",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "01/10-9",
+  "titolo": "Password solo sui libri degli allievi, documenti del docente aperti",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "01/10-10",
+  "titolo": "Lo ZIP finale di chiusura si archivia nel riservato",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "01/10-11",
+  "titolo": "Prima delle proposte, il report delle lezioni precedenti",
+  "categoria": "R",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "01/10-12",
+  "titolo": "Niente argomenti nuovi non spiegati in classe senza confronto",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "01/10-13",
+  "titolo": "Le versioni non si cancellano: si bumpa e si tengono",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E01-10-13.json"
+ },
+ {
+  "errore": "01/10-14",
+  "titolo": "Compito e dispensa dello stesso argomento con grafica identica",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "02/10-1",
+  "titolo": "Dire subito i limiti di ciò che si costruisce; via rapida (piano B) sempre pronta",
+  "categoria": "Q",
+  "schema": "3",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "02/10-2",
+  "titolo": "Ogni passo che apre un sito parte da un link in una casella da copiare",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E02-10-2.json"
+ },
+ {
+  "errore": "02/10-3",
+  "titolo": "Ogni compito ha il Documento da compilare, in ogni via di pubblicazione",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E02-10-3.json"
+ },
+ {
+  "errore": "02/10-4",
+  "titolo": "Non introdurre un metodo alternativo: si semplifica quello della lavagna",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "02/10-5",
+  "titolo": "Ogni dato operativo del docente (campanelle) va subito in un file",
+  "categoria": "D",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "02/10-6",
+  "titolo": "In classe si congela ciò che è pubblicato; si corregge solo un errore bloccante",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "02/10-7",
+  "titolo": "Un argomento = una teoria + un compito",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "02/10-8",
+  "titolo": "Prima di pubblicare si guarda ogni pagina di ogni lingua (render a immagine)",
+  "categoria": "K",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "02/10-9",
+  "titolo": "Nelle istruzioni di Classroom solo il link unico della pagina, mai PDF versionati",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E02-10-9.json"
+ },
+ {
+  "errore": "02/10-10",
+  "titolo": "Versione in copertina, pagina senza cache, Ctrl+F5",
+  "categoria": "V",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "02/10-11",
+  "titolo": "Mai agganciare un compito manuale prima che il docente lo crei",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "C",
+  "ripete": false,
+  "non_verificabile": "regola superata da una decisione successiva (copertura C della MAPPA o regola tolta da CLAUDE.md v2.0)"
+ },
+ {
+  "errore": "02/10-12",
+  "titolo": "Non far modificare un compito durante la lezione (sale in cima)",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "02/10-13",
+  "titolo": "Una azione per messaggio quando la situazione è nuova; punto esatto dello screenshot",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E02-10-13.json"
+ },
+ {
+  "errore": "02/10-14",
+  "titolo": "Ogni chiave di correzione ha la versione nel nome, mai sovrascritta",
+  "categoria": "V",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "02/10-15",
+  "titolo": "Controllo aritmetico automatico degli esempi prima del PDF",
+  "categoria": "Q",
+  "schema": "3",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E02-10-15.json"
+ },
+ {
+  "errore": "#1",
+  "titolo": "I testi per Classroom vanno impaginati (una riga per passo)",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0001.json"
+ },
+ {
+  "errore": "#2",
+  "titolo": "Titoletti in maiuscolo, numeri, righe vuote tra i blocchi",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0002.json"
+ },
+ {
+  "errore": "#3",
+  "titolo": "Tutto ciò che il docente segnala va nel registro e in una regola",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0003.json"
+ },
+ {
+  "errore": "#4",
+  "titolo": "In docs/ le versioni già usate in classe non si cancellano",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0004.json"
+ },
+ {
+  "errore": "#5",
+  "titolo": "Dalla miniatura Veyon solo «sulla pagina X alle HH:MM», mai «non ha fatto niente»",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0005.json"
+ },
+ {
+  "errore": "#6",
+  "titolo": "In classe risposte corte: solo testo da incollare e link",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0006.json"
+ },
+ {
+  "errore": "#7",
+  "titolo": "Quando il lavoro è su GitHub, la consegna la genera Claude",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#8",
+  "titolo": "Le traduzioni si mostrano solo a chi servono (bangla solo PC 14)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0008.json"
+ },
+ {
+  "errore": "#9",
+  "titolo": "Dopo ogni modifica a una pagina con script: node --check e prova",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0009.json"
+ },
+ {
+  "errore": "#10",
+  "titolo": "La pagina della classe mostra solo il lavoro del giorno",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#11",
+  "titolo": "La firma non si deduce dal bottone «FIRMA ✓»",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0011.json"
+ },
+ {
+  "errore": "#12",
+  "titolo": "Dopo un rebase i coda/*.json si devono leggere prima del push",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0012.json"
+ },
+ {
+  "errore": "#13",
+  "titolo": "Un solo compito aperto alla volta su Classroom",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": true,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#14",
+  "titolo": "Caricare file su GitHub con Add file → Upload files; dopo una rigenerazione si contano i riquadri",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#15",
+  "titolo": "Mai chiedere di riconoscere un file dall'estensione",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#16",
+  "titolo": "Mai «non ha caricato» senza la ricerca e il clone",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0016.json"
+ },
+ {
+  "errore": "#17",
+  "titolo": "File grandi divisi prima; dire quali scaricare e quanti",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#18",
+  "titolo": "Chiusura dopo l'ultima raccolta; abbinamenti sul cognome intero",
+  "categoria": "D",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#19",
+  "titolo": "Segnalazioni di guasti salvate nel riservato; prima di «mai segnalato» si guarda lì",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#20",
+  "titolo": "Ripubblicando una pagina che si salva da sola, il blocco dati si sostituisce una volta",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0020.json"
+ },
+ {
+  "errore": "#21",
+  "titolo": "Se un risultato è stato chiesto, si consegna appena pronto (il PPP non lo ferma)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0021.json"
+ },
+ {
+  "errore": "#22",
+  "titolo": "Prima di una media, ogni colonna è un lavoro diverso",
+  "categoria": "D",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#23",
+  "titolo": "Materia del voto dall'argomento; voto minimo 40",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0023.json"
+ },
+ {
+  "errore": "#24",
+  "titolo": "I passaggi che si possono automatizzare si automatizzano subito",
+  "categoria": "O",
+  "schema": "3",
+  "mappa_ora": "C",
+  "ripete": false,
+  "non_verificabile": "regola superata da una decisione successiva (copertura C della MAPPA o regola tolta da CLAUDE.md v2.0)"
+ },
+ {
+  "errore": "#25",
+  "titolo": "Una sola lista di password per classe; prova di apertura di ogni libro",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#26",
+  "titolo": "Ogni file personale comincia con Cognome-Nome",
+  "categoria": "V",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#27",
+  "titolo": "Ogni PDF si apre e si controlla prima di mandarlo",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0027.json"
+ },
+ {
+  "errore": "#28",
+  "titolo": "Uno strumento per un sito esterno si prova sull'HTML vero",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#29",
+  "titolo": "Link al riservato sempre con «apri il profilo personale»",
+  "categoria": "A",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0029.json"
+ },
+ {
+  "errore": "#30",
+  "titolo": "Lavori uguali in due caselle = una colonna sola",
+  "categoria": "D",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#31",
+  "titolo": "Ogni messaggio con passi ha TUTTE le caselle da copiare",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0031.json"
+ },
+ {
+  "errore": "#32",
+  "titolo": "Mai due copie in fila: la seconda cancella la prima",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0032.json"
+ },
+ {
+  "errore": "#33",
+  "titolo": "Prima di nominare un materiale, si dice dove trovarlo",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#34",
+  "titolo": "Mentre un comando che pubblica è in attesa non si spinge altro; un annuncio solo",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#35",
+  "titolo": "A fine ora si consegna quello che c'è; zip pronto 10 minuti prima",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#36",
+  "titolo": "La firma non si deduce dal bottone (ripetizione di #11)",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0036.json"
+ },
+ {
+  "errore": "#37",
+  "titolo": "«Script fermo» solo dopo una prova del ponte",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0037.json"
+ },
+ {
+  "errore": "#38",
+  "titolo": "Progetto di squadra: un canale, tutti consegnano, prima fase entro 20 minuti",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#39",
+  "titolo": "Orari dall'ora vera; una cosa da fare per volta; modifiche verificate",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": true,
+  "caso": "E0039.json"
+ },
+ {
+  "errore": "#40",
+  "titolo": "Ogni riga di un report porta almeno il nome visibile",
+  "categoria": "D",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#41",
+  "titolo": "Pubblicare solo con il via; formato riscritto e confermato; lingue della classe",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "C",
+  "ripete": false,
+  "non_verificabile": "regola superata da una decisione successiva (copertura C della MAPPA o regola tolta da CLAUDE.md v2.0)"
+ },
+ {
+  "errore": "#42",
+  "titolo": "Consegne da un canale che accetta invii ripetuti",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "C",
+  "ripete": true,
+  "non_verificabile": "regola superata da una decisione successiva (copertura C della MAPPA o regola tolta da CLAUDE.md v2.0)"
+ },
+ {
+  "errore": "#43",
+  "titolo": "In 1INF un solo compito che possono iniziare TUTTI",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#44",
+  "titolo": "In laboratorio tutto al computer: niente foto né telefono",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0044.json"
+ },
+ {
+  "errore": "#45",
+  "titolo": "Niente attività a mano se il docente non le chiede",
+  "categoria": "R",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#46",
+  "titolo": "Il testo da scrivere è già nel messaggio, in un riquadro",
+  "categoria": "H",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0046.json"
+ },
+ {
+  "errore": "#47",
+  "titolo": "Campi indicati per posizione; ogni passo finisce con «Dopo devi vedere»",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#48",
+  "titolo": "Lo script si copia dal link pubblico, mai dal riservato",
+  "categoria": "A",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0048.json"
+ },
+ {
+  "errore": "#49",
+  "titolo": "2INF solo italiano: ogni pagina passa dal controllo delle lingue",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0049.json"
+ },
+ {
+  "errore": "#50",
+  "titolo": "Memoria del copia e incolla vuota; prima la pagina d'arrivo",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0050.json"
+ },
+ {
+  "errore": "#51",
+  "titolo": "Prima di incollare in Apps Script si clicca automazione-corso.gs",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0051.json"
+ },
+ {
+  "errore": "#52",
+  "titolo": "Firma: mai dedotta dallo screenshot (terza volta)",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0052.json"
+ },
+ {
+  "errore": "#53",
+  "titolo": "Niente avverbi e aggettivi che non servono",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0053.json"
+ },
+ {
+  "errore": "#54",
+  "titolo": "Le considerazioni del docente non si interpretano: una domanda sola",
+  "categoria": "S",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#55",
+  "titolo": "Istruzioni senza «se», «salta», domande",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0055.json"
+ },
+ {
+  "errore": "#56",
+  "titolo": "Passi come frasi che cominciano con il verbo, non catene di coordinate",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0056.json"
+ },
+ {
+  "errore": "#57",
+  "titolo": "Ripetizione di #50",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0057.json"
+ },
+ {
+  "errore": "#58",
+  "titolo": "Comandi eseguiti archiviati; dopo un comando controllo entro 2 minuti",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0058.json"
+ },
+ {
+  "errore": "#59",
+  "titolo": "Ogni richiesta del docente va subito nell'elenco dei lavori aperti",
+  "categoria": "R",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#60",
+  "titolo": "Ogni pagina dei ragazzi ha i bottoni per autoregolarsi",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "regola superata da una decisione successiva (copertura C della MAPPA o regola tolta da CLAUDE.md v2.0)"
+ },
+ {
+  "errore": "#61",
+  "titolo": "Verifica provata con ricarica, chiusura, bottoni e consegna fino all'arrivo",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#62",
+  "titolo": "Ai ragazzi una azione per frase; la consegna è UN bottone",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0062.json"
+ },
+ {
+  "errore": "#63",
+  "titolo": "«Fatto» o «non serve più» solo dopo la prova",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0063.json"
+ },
+ {
+  "errore": "#64",
+  "titolo": "Mai chiedere una risposta nella pagina che quel passo chiude",
+  "categoria": "H",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#65",
+  "titolo": "Con i ragazzi un messaggio = un'azione + una domanda chiusa",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#66",
+  "titolo": "Con il codice prima capire, poi incollare",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#67",
+  "titolo": "Prima di proporre una strada si guarda lo schermo vero del ragazzo",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#68",
+  "titolo": "Una sola strada di consegna, letta in tempo reale, provata come un ragazzo",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#69",
+  "titolo": "Anche per i maggiorenni solo le iniziali",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0069.json"
+ },
+ {
+  "errore": "#70",
+  "titolo": "Un gioco si prova sul sito vero, file compressi, senza memoria",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#71",
+  "titolo": "Le pagine dei sei bottoni passano al giorno nuovo prima del compito",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#72",
+  "titolo": "Prima di un percorso si controlla che cosa c'è davvero in aula",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#73",
+  "titolo": "Ogni schermata Veyon va subito nel monitor e nel cruscotto",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#74",
+  "titolo": "Per ciò che sa solo il docente, la strada più corta per lui (la chat)",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#75",
+  "titolo": "L'audit comprende le pagine del docente, bottone per bottone",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#76",
+  "titolo": "Ogni lezione ha il riquadro «Spiegalo in 30 secondi»",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "da_scrivere": "serve un elenco delle pagine che sono lezioni e la prova della presenza del riquadro «Spiegalo in 30 secondi»; oggi è solo un passo notturno"
+ },
+ {
+  "errore": "#77",
+  "titolo": "Nessun bottone porta a una pagina vuota",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0077.json"
+ },
+ {
+  "errore": "#78",
+  "titolo": "Lezione pronta e provata prima; percorso dall'alto in basso; pubblicata 3 minuti prima del link",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0078.json"
+ },
+ {
+  "errore": "#79",
+  "titolo": "Il link si dà solo dopo «PUBBLICATO»",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0079.json"
+ },
+ {
+  "errore": "#80",
+  "titolo": "Nell'audit si controlla il CONTENUTO, non solo che la pagina si apra",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#81",
+  "titolo": "MAI «copia, apri, incolla»: UN bottone che consegna davvero",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0081.json"
+ },
+ {
+  "errore": "#82 (15/10)",
+  "titolo": "Prima di scrivere per una classe si controllano le sue lingue",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0082-15-10.json"
+ },
+ {
+  "errore": "#82 (19/10)",
+  "titolo": "Il battito dello script è una voce di ogni audit e di ogni giro",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#83",
+  "titolo": "Lo screenshot non è la prova: la prova è il file nel repository",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0083.json"
+ },
+ {
+  "errore": "#84",
+  "titolo": "Un link si mette solo se la pagina esiste",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0084.json"
+ },
+ {
+  "errore": "#85",
+  "titolo": "Nomi e voti in docs/ solo cifrati",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0085.json"
+ },
+ {
+  "errore": "#86",
+  "titolo": "Finita una classe, il giro di quella classe si ferma",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#87",
+  "titolo": "«FIRMA ✓» in verde = firmata",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0087.json"
+ },
+ {
+  "errore": "#88",
+  "titolo": "Battito di meno di 3 minuti prima di «lo pubblica lo script»",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0088.json"
+ },
+ {
+  "errore": "#89",
+  "titolo": "Una sola strada per volta; stesso titolo per l'anti-doppione",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0089.json"
+ },
+ {
+  "errore": "#90",
+  "titolo": "«Nessuna AI» solo dopo aver visto tutte le finestre",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0090.json"
+ },
+ {
+  "errore": "#91",
+  "titolo": "Titoli del registro solo sull'Allegato A più recente",
+  "categoria": "D",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "da_scrivere": "confronto dei titoli del registro con l'Allegato A (programmi-ufficiali/2026-27/); serve uno strumento e una copia di prova dell'Allegato"
+ },
+ {
+  "errore": "#92",
+  "titolo": "«Altro» = presente",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#93",
+  "titolo": "Un solo compito per lezione; quiz diverso dalla verifica",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0093.json"
+ },
+ {
+  "errore": "#94",
+  "titolo": "Ogni lezione ha l'annuncio «OGGI FATE SOLO…» in cima",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#95",
+  "titolo": "Si legge il massimo di ogni quiz; «non risulta» mai su una fonte sola",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0095.json"
+ },
+ {
+  "errore": "#96",
+  "titolo": "Colonna «Firma» con data e ora = firmata",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0096.json"
+ },
+ {
+  "errore": "#97",
+  "titolo": "Scadenze sulle campanelle vere",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0097.json"
+ },
+ {
+  "errore": "#98",
+  "titolo": "Prima della stringa dei voti, la materia dell'ora",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0098.json"
+ },
+ {
+  "errore": "#99",
+  "titolo": "Prima di preparare una lezione si rilegge la storia della classe",
+  "categoria": "R",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#100",
+  "titolo": "PC senza nome: si chiede subito chi c'è",
+  "categoria": "S",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0100.json"
+ },
+ {
+  "errore": "#101",
+  "titolo": "Terza volta #50: procedura dello script da RIPARTENZA §03",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0101.json"
+ },
+ {
+  "errore": "#102",
+  "titolo": "Durata stimata dal contenuto e provata a tempo",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#103",
+  "titolo": "Ogni pagina che produce un risultato lo fa arrivare al docente",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#104",
+  "titolo": "«Ponte OK» solo dopo un comando di prova eseguito",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0104.json"
+ },
+ {
+  "errore": "#105",
+  "titolo": "Pubblicare = pagina + compito + annuncio",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0105.json"
+ },
+ {
+  "errore": "#106",
+  "titolo": "I nomi dei bottoni si copiano dalla pagina vera",
+  "categoria": "H",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#107",
+  "titolo": "Un solo annuncio e un solo compito al giorno per classe",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0107.json"
+ },
+ {
+  "errore": "#108",
+  "titolo": "Nelle tabelle tutti e soli i presenti; abbinamento per cognome",
+  "categoria": "D",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#109",
+  "titolo": "«Fuori compito» solo se lo schermo mostra un'altra attività",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#110",
+  "titolo": "Il primo passo produce qualcosa di visibile entro 10 minuti",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#111",
+  "titolo": "Due ritagli uguali consecutivi: ne resta uno",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "da_scrivere": "confronto di due ritagli di schermata consecutivi (immagini) in report_ore.py: lo strumento non esiste"
+ },
+ {
+  "errore": "#112",
+  "titolo": "In lezione i giri non spingono sul riservato; si recuperano le righe «SOLO QUI»",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#113",
+  "titolo": "Un errore da registrare si scrive subito, con il numero",
+  "categoria": "R",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0113.json"
+ },
+ {
+  "errore": "#114",
+  "titolo": "Un comando del ponte = poche azioni e un salvataggio; controllo entro 5 minuti",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0114.json"
+ },
+ {
+  "errore": "#115",
+  "titolo": "Mai «risolto» per lo script senza prova nel tempo",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0115.json"
+ },
+ {
+  "errore": "#116",
+  "titolo": "Ogni conteggio che dà punti si protegge dagli abusi prima",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#117",
+  "titolo": "Pacchetto DIDAweb con «Disciplina da scegliere» sopra",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0117.json"
+ },
+ {
+  "errore": "#118",
+  "titolo": "Dopo ogni modifica: node --check di tutti gli script e prova",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0118.json"
+ },
+ {
+  "errore": "#119",
+  "titolo": "Lingue di ogni classe dai documenti, con un audit",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0119.json"
+ },
+ {
+  "errore": "#120",
+  "titolo": "Prima di «pubblicata» i tre pezzi; una cosa decisa si prepara senza richiederla",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0120.json"
+ },
+ {
+  "errore": "#121",
+  "titolo": "Prima di un compito si leggono i compiti del giorno su Classroom",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#122",
+  "titolo": "La scadenza la decide il docente; non si inventano orari",
+  "categoria": "P",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0122.json"
+ },
+ {
+  "errore": "#123",
+  "titolo": "Ogni passo per un dodicenne; domande all'assistente lette a ogni giro",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0123.json"
+ },
+ {
+  "errore": "#124",
+  "titolo": "«Mandata!» solo quando l'invio è partito",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#125",
+  "titolo": "Pochi comandi al ponte; prova prima di dire che lo script funziona",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0125.json"
+ },
+ {
+  "errore": "#126",
+  "titolo": "Versione facile di massimo 3 passi preparata prima",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#127",
+  "titolo": "Dati fermi = ora in rosso; «fatto» solo dopo averlo fatto",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0127.json"
+ },
+ {
+  "errore": "#128",
+  "titolo": "«Tutto a posto» solo dopo le tre prove",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0128.json"
+ },
+ {
+  "errore": "#129",
+  "titolo": "Quiz e Moduli prima della campanella; mai «arriva tra poco»",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0129.json"
+ },
+ {
+  "errore": "#130",
+  "titolo": "Non si promettono tempi per ciò che fa lo script",
+  "categoria": "Q",
+  "schema": "3",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0130.json"
+ },
+ {
+  "errore": "#131",
+  "titolo": "Piano B: annuncio pronto 10 minuti prima",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#132",
+  "titolo": "Comandi di una riga, risultati lunghi in un file",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0132.json"
+ },
+ {
+  "errore": "#133",
+  "titolo": "Cruscotto progettato sulla consegna del giorno",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#134",
+  "titolo": "Ogni audit confronta 2 allievi con la fonte",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#135",
+  "titolo": "«A posto» solo dopo una compilazione riuscita",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0135.json"
+ },
+ {
+  "errore": "#136",
+  "titolo": "Nessun link al sito della Regione nelle pagine dei ragazzi",
+  "categoria": "K",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0136.json"
+ },
+ {
+  "errore": "#137",
+  "titolo": "La cosa bloccante va da sola nella prima riga",
+  "categoria": "F",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0137.json"
+ },
+ {
+  "errore": "#138",
+  "titolo": "Copia e incolla: un Ctrl+V usa l'ultima cosa copiata",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0138.json"
+ },
+ {
+  "errore": "#139",
+  "titolo": "Un ROSSO dell'audit non si liquida come atteso: va in prima riga",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0139.json"
+ },
+ {
+  "errore": "#140",
+  "titolo": "Un bottone è presente solo se si vede sul sito vero, modalità Docente",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0140.json"
+ },
+ {
+  "errore": "#141",
+  "titolo": "Nessuna classe in aula con Classroom vuoto",
+  "categoria": "P",
+  "schema": "3",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0141.json"
+ },
+ {
+  "errore": "#142",
+  "titolo": "Cruscotto con i KPI del giorno e una riga per presente alla campanella",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#143",
+  "titolo": "Al massimo 2 aiutanti accesi insieme",
+  "categoria": "R",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0143.json"
+ },
+ {
+  "errore": "#144",
+  "titolo": "Dopo la pubblicazione il piano mostra solo la proposta fatta, senza bottoni",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0144.json"
+ },
+ {
+  "errore": "#145",
+  "titolo": "Le domande del giorno si vedono tutte e hanno risposta",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0145.json"
+ },
+ {
+  "errore": "#146",
+  "titolo": "Percorso provato da capo; mai «null» o PC non confermati nel cruscotto",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0146.json"
+ },
+ {
+  "errore": "#147",
+  "titolo": "Un JSON letto da una pagina non perde campi: i vecchi restano come alias",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "da_scrivere": "formato dei JSON delle pagine confrontato con le versioni di 24 ore prima (controlla_formato_json usa la storia git del pubblico vero)"
+ },
+ {
+  "errore": "#148",
+  "titolo": "Docente e ragazzi leggono dati dello stesso giro (stesso «generato»)",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "da_scrivere": "coppia pagina docente e pagina ragazzi con lo stesso «generato» (controlla_coppie_docente_ragazzi usa i file veri di docs/)"
+ },
+ {
+  "errore": "#149",
+  "titolo": "Tutti i quiz del giorno letti insieme, ognuno con il suo comando",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": true,
+  "da_scrivere": "ponte dei quiz (controlla_ponte_quiz usa il Foglio Fabbrica)"
+ },
+ {
+  "errore": "#150",
+  "titolo": "Sicurezza: compito con quiz e ora dopo pronti prima della lezione",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": true,
+  "da_scrivere": "Sicurezza preparata (controlla_sicurezza_pronta usa la Fabbrica e i quiz del giorno)"
+ },
+ {
+  "errore": "#151",
+  "titolo": "Un conteggio di consegne si rilegge alla fonte e porta fonte e ora",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0151.json"
+ },
+ {
+  "errore": "#152",
+  "titolo": "Attività automatica pronta solo dopo un giro di prova vero",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0152.json"
+ },
+ {
+  "errore": "#153",
+  "titolo": "Pagina verificata sul sito vero con i dati veri, non con ?prova=1",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0153.json"
+ },
+ {
+  "errore": "#154",
+  "titolo": "Prima di chiedere al docente si guarda nei file del giorno",
+  "categoria": "S",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0154.json"
+ },
+ {
+  "errore": "#155",
+  "titolo": "Si misura il risultato: controllore di fine giornata sul dato vero",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0155.json"
+ },
+ {
+  "errore": "#156",
+  "titolo": "Nessun 40 a chi ha finito o consegnato; senza consegna «voto dopo la consegna»",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0156.json"
+ },
+ {
+  "errore": "#157",
+  "titolo": "Una release vale per tutto il repository; progetto serio = repository suo",
+  "categoria": "R",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0157.json"
+ },
+ {
+  "errore": "#158",
+  "titolo": "Incolla in Apps Script: clic dentro il codice, Ctrl+A «tutto blu», Ctrl+V, controllo righe",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0158.json"
+ },
+ {
+  "errore": "#159",
+  "titolo": "«Prima ora» = ora della giornata; nella risposta si scrive l'orario",
+  "categoria": "F",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0159.json"
+ },
+ {
+  "errore": "#160",
+  "titolo": "Il quiz chiede solo lavoro già fatto prima del quiz",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": true,
+  "da_scrivere": "quiz che chiede un lavoro non ancora fatto (_quiz_lavoro_futuro in controlla_controlli.py): servono quiz e piano finti del giorno"
+ },
+ {
+  "errore": "#161",
+  "titolo": "Mai «non arrivato» su dati di più di 5 minuti; il docente non controlla da solo",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0161.json"
+ },
+ {
+  "errore": "#162",
+  "titolo": "Laboratorio di 2-3 ore: un lavoro per ogni ora, pronto entro le 18 del giorno prima",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "da_scrivere": "proposta del laboratorio non divisa ora per ora (_controlli_30_10 in controlla_controlli.py)"
+ },
+ {
+  "errore": "#163",
+  "titolo": "1INF: ogni materiale per i ragazzi in italiano, arabo e cinese insieme",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0163.json"
+ },
+ {
+  "errore": "#164",
+  "titolo": "Ai ragazzi un solo posto: compito del giorno con la pagina hub",
+  "categoria": "P",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#165",
+  "titolo": "I dati del docente si scrivono in caselle (foglio Google), non in un PDF",
+  "categoria": "D",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0165.json"
+ },
+ {
+  "errore": "#166",
+  "titolo": "Una domanda del docente chiede una spiegazione; si toglie solo con «togli/elimina»",
+  "categoria": "R",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0166.json"
+ },
+ {
+  "errore": "#167",
+  "titolo": "Il genere di un allievo non si dà per scontato: si usa il nome",
+  "categoria": "R",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0167.json"
+ },
+ {
+  "errore": "#168",
+  "titolo": "Script nuovo provato con una bozza vera la sera prima; piano B pronto subito",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0168.json"
+ },
+ {
+  "errore": "#169",
+  "titolo": "I giri del cruscotto lasciano un segnale e si riaccendono; nessun buco > 12 minuti",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0169.json"
+ },
+ {
+  "errore": "#170",
+  "titolo": "Colonna del cruscotto solo dopo un invio vero; fonte vuota detta subito",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "da_scrivere": "colonna «pratica» vuota del cruscotto (_controlli_30_10)"
+ },
+ {
+  "errore": "#171",
+  "titolo": "Le pagine dei ragazzi dicevano «alza la mano: il Professore viene da te» per le difficoltà con Lazarus",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0171.json"
+ },
+ {
+  "errore": "#172",
+  "titolo": "Pubblicate tre ore insieme invece di una",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#173",
+  "titolo": "Quiz sulla rete della 3INF pubblicato su una pagina del sito invece che su Moduli",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0173.json"
+ },
+ {
+  "errore": "#174",
+  "titolo": "Pubblicato due volte lo stesso compito: il docente lo aveva già creato a mano e io avevo anche dato il piano B senza controllare il ponte",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#175",
+  "titolo": "Client e server del Mastermind in rete non funzionavano davvero in aula: provati solo con simulatori, il form incollato prima del codice perdeva i collegamenti, servivano 4 file di supporto",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#176",
+  "titolo": "Compito del client su Classroom con il codice vecchio",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#177",
+  "titolo": "«Per Lazarus alza la mano» rimesso su Classroom",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0177.json"
+ },
+ {
+  "errore": "#178",
+  "titolo": "Quiz della rete di nuovo sul sito",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": true,
+  "caso": "E0178.json"
+ },
+ {
+  "errore": "#179",
+  "titolo": "Cancellazione del compito sbagliato quasi eseguita",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#180",
+  "titolo": "Domanda all'assistente senza risposta",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#181",
+  "titolo": "Client e cruscotto ciechi",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#182",
+  "titolo": "Il cruscotto prendeva l'ultimo segnale di ogni ragazzo",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#183",
+  "titolo": "Nome scritto senza spazio non riconosciuto",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#184",
+  "titolo": "2FA a 0/8 per chi l'aveva fatta",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#185",
+  "titolo": "Scheda già consegnata data come mancante e istruzione sbagliata",
+  "categoria": "Q",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0185.json"
+ },
+ {
+  "errore": "#186",
+  "titolo": "Veyon «ok» per tutti",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0186.json"
+ },
+ {
+  "errore": "#187",
+  "titolo": "Quiz del phishing e mail senza un confronto possibile",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#188",
+  "titolo": "Sblocco di un'ora con l'id sbagliato e «sbloccata» dichiarato senza verifica",
+  "categoria": "Q",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0188.json"
+ },
+ {
+  "errore": "#189",
+  "titolo": "Voci dell'Allegato A scelte senza leggere l'Allegato",
+  "categoria": "R",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": true,
+  "da_scrivere": "confronto delle voci scritte in ARGOMENTI-SVOLTI con l'Allegato A (controlla_argomenti_svolti controlla solo che la riga esista)"
+ },
+ {
+  "errore": "#190",
+  "titolo": "Aspettare «avanti» invece di andare avanti",
+  "categoria": "R",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0190.json"
+ },
+ {
+  "errore": "#191",
+  "titolo": "«Pubblicate» detto per la pagina 4TI senza la verifica della classe",
+  "categoria": "Q",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0191.json"
+ },
+ {
+  "errore": "#196",
+  "titolo": "Orario del 04/11 preso dal piano settimanale e non dal registro DIDAweb",
+  "categoria": "D",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#197",
+  "titolo": "Pagine Lazarus con «premi F9» senza provarle su un Lazarus vero; errore del debugger letto come programma in esecuzione",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#198",
+  "titolo": "Testi dei post Classroom della 1INF (Sicurezza 13:00) consegnati solo in italiano",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0198.json"
+ },
+ {
+  "errore": "#199",
+  "titolo": "Cruscotti e semaforo Sicurezza 1INF con dati sbagliati",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#200",
+  "titolo": "Zip del Mastermind 3INF dato senza compilarlo con Lazarus; zip non scaricabile da Classroom",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#201",
+  "titolo": "Server e client v4.1 consegnati durante l'ora, con il docente in attesa",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#202",
+  "titolo": "Cruscotti fermi durante le ore e non chiari, per il docente e per i ragazzi",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#203",
+  "titolo": "Obiettivo della mattina cambiato dal docente e non entrato nel cruscotto né nei voti",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#204",
+  "titolo": "«Aspetta il via» non rispettato",
+  "categoria": "R",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0204.json"
+ },
+ {
+  "errore": "#205",
+  "titolo": "Messaggi non capiti dal docente",
+  "categoria": "H",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#206",
+  "titolo": "Preparazione notturna non partita dal 30/10 al 04/11",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#207",
+  "titolo": "Report PDF orari del 04/11 non fatti durante la giornata",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0207.json"
+ },
+ {
+  "errore": "#208",
+  "titolo": "Un post doppio su Classroom e una bozza non cancellata, senza avviso",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#209",
+  "titolo": "Cognome di un allievo in un file del pubblico",
+  "categoria": "X",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0209.json"
+ },
+ {
+  "errore": "#210",
+  "titolo": "Titoli del giorno con ore doppie",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0210.json"
+ },
+ {
+  "errore": "#211",
+  "titolo": "Ruoli «MANI» e «OCCHI» non richiesti nella dispensa e nelle pagine",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0211.json"
+ },
+ {
+  "errore": "#212",
+  "titolo": "Procedura di smontaggio con viti, disco e DVD, non vera sull'aula",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#213",
+  "titolo": "Foglio dei PC: prima 40 pagine, poi bordo destro tagliato in stampa",
+  "categoria": "K",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#214",
+  "titolo": "«h 1» invece di «h 6» nel pacchetto dei voti DIDAweb",
+  "categoria": "D",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "da_scrivere": "come #98, stringa DIDAweb con «h 6» (ora) da confrontare con la riga del registro"
+ },
+ {
+  "errore": "#215",
+  "titolo": "Messaggi al docente scritti in inglese",
+  "categoria": "H",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0215.json"
+ },
+ {
+  "errore": "#216",
+  "titolo": "Cruscotti con dati del giorno prima o mai aggiornati",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0216.json"
+ },
+ {
+  "errore": "#217",
+  "titolo": "PUBB: promesse con orari già passati, link prima di PUBBLICATO",
+  "categoria": "P",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0217.json"
+ },
+ {
+  "errore": "#218",
+  "titolo": "GIALLO della verifica spiegato senza aprire il risultato",
+  "categoria": "Q",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#219",
+  "titolo": "Uscita di un allievo senza avviso dopo 5 minuti",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#220",
+  "titolo": "Orario di domani inventato",
+  "categoria": "S",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0220.json"
+ },
+ {
+  "errore": "#221",
+  "titolo": "Messaggi lunghi e proposte del quiz con risposta unica",
+  "categoria": "H",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0221.json"
+ },
+ {
+  "errore": "#222",
+  "titolo": "Report orari, presenze e storico del 05/11 non fatti durante la giornata",
+  "categoria": "C",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0222.json"
+ },
+ {
+  "errore": "#223",
+  "titolo": "Sull Allegato A dopo il 30/10 si puo solo togliere; prima di proporre si leggono le note",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0223.json"
+ },
+ {
+  "errore": "#224",
+  "titolo": "Proposte fatte senza aver letto le regole",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#225",
+  "titolo": "Post ora 4 della 1INF pubblicato dal docente senza link",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0225.json"
+ },
+ {
+  "errore": "#226",
+  "titolo": "Pacchetto voti DIDAweb con «h 1» invece di «h 6»",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "da_scrivere": "come #214, stringa DIDAweb con l'ora sbagliata"
+ },
+ {
+  "errore": "#227",
+  "titolo": "Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0227.json"
+ },
+ {
+  "errore": "#228",
+  "titolo": "«Nessun blocco» come prima riga solo per superare il controllo",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0228.json"
+ },
+ {
+  "errore": "#229",
+  "titolo": "Il cruscotto non aveva il nome di un allievo della 2INF (presenze del giorno prima)",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#230",
+  "titolo": "Quiz recuperi 2INF: un allievo della 2INF «Hai gia risposto»",
+  "categoria": "K",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#231",
+  "titolo": "Testo vecchio in piano-b/ora-6 parlava di Windows",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#232",
+  "titolo": "Orario della settimana dopo scritto senza leggere il registro",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#233",
+  "titolo": "Cruscotto 1INF del 06/11 fermo ai dati del 05/11",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0233.json"
+ },
+ {
+  "errore": "#234",
+  "titolo": "Report orari, presenze e Veyon del 06/11 assenti",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0234.json"
+ },
+ {
+  "errore": "#235",
+  "titolo": "2INF: nessun compito del 06/11 su Classroom",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#236",
+  "titolo": "Numero del PC come menu a tendina da 1 a 24 nelle pagine dei ragazzi",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0236.json"
+ },
+ {
+  "errore": "#237",
+  "titolo": "Teoria dell ora 5 (2INF, 09/11) su cose che i ragazzi non hanno fatto e non potevano fare",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#238",
+  "titolo": "Quiz «scegli 2» creati come scelta singola dal ponte vecchio (09/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#239",
+  "titolo": "Lezione cambiata in corsa tre volte (PC reinstallati, poi PC dell aula) il 09/11",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#240",
+  "titolo": "Cruscotto 2INF con dati vecchi di circa 2 ore mostrato ai ragazzi (09/11)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0240.json"
+ },
+ {
+  "errore": "#241",
+  "titolo": "Quiz v2.0 non selettivo: tutti 9 o 10 su 10 (09/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#242",
+  "titolo": "Messaggi in lezione troppo lunghi e senza riquadri da copiare (09/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0242.json"
+ },
+ {
+  "errore": "#243",
+  "titolo": "Messaggio con link senza PUBBLICATO bloccato dall hook (09/11)",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0243.json"
+ },
+ {
+  "errore": "#244",
+  "titolo": "Cruscotto 3INF fermo ai dati del 04/11, nessun dato dei presenti il 09/11",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0244.json"
+ },
+ {
+  "errore": "#245",
+  "titolo": "Report PDF orari, presenze e Veyon del 09/11 assenti",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0245.json"
+ },
+ {
+  "errore": "#246",
+  "titolo": "Ponte: due comandi in-attesa-PUBB mai chiusi e riepilogo del ponte fermo al 03/11 (09/11)",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#247",
+  "titolo": "Stop hook «tutto versionato» scattato circa 25 volte il 09/11",
+  "categoria": "F",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#248",
+  "titolo": "Codice lungo e spiegazioni mescolati in chat (10/11)",
+  "categoria": "F",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0248.json"
+ },
+ {
+  "errore": "#249",
+  "titolo": "Account PIAMARTA e testi in riquadro non rispettati (10/11)",
+  "categoria": "A",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0249.json"
+ },
+ {
+  "errore": "#250",
+  "titolo": "Troppa verbosita, spiegazioni non capite, «ricomincia da zero» (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0250.json"
+ },
+ {
+  "errore": "#251",
+  "titolo": "PPP con codice visibile nelle finestre (10/11)",
+  "categoria": "F",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0251.json"
+ },
+ {
+  "errore": "#252",
+  "titolo": "Link al sito dato prima di PUBBLICATO con deploy fallito (10/11)",
+  "categoria": "P",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0252.json"
+ },
+ {
+  "errore": "#253",
+  "titolo": "Contraddizione R4 3ter e richiesta finale del docente (10/11)",
+  "categoria": "R",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#254",
+  "titolo": "Indicazioni senza link o percorso",
+  "categoria": "H",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "caso": "E0254.json"
+ },
+ {
+  "errore": "#255",
+  "titolo": "Un script da incollare per ogni lavoro, nessun sistema (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "giudizio didattico o di progetto: non esiste un input giusto e uno sbagliato da confrontare"
+ },
+ {
+  "errore": "#256",
+  "titolo": "Dati richiesti senza i file da scaricare (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#257",
+  "titolo": "Script e istruzioni con errori, non provati su Google (10/11)",
+  "categoria": "Q",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#258",
+  "titolo": "Piantina non versionata (PDF ignorato da git) (10/11)",
+  "categoria": "V",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#259",
+  "titolo": "Piantina fatta per numero PC e non per i banchi reali (10/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#260",
+  "titolo": "Valutazione con criterio sbagliato (10/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#261",
+  "titolo": "Richieste interpretate male, date e nomi file ambigui (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#262",
+  "titolo": "Compito 4TI troppo difficile e rifatto (10/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#263",
+  "titolo": "Schede su carta per tutti senza stampante (10/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0263.json"
+ },
+ {
+  "errore": "#264",
+  "titolo": "Cruscotto dato come file e non come URL (10/11)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0264.json"
+ },
+ {
+  "errore": "#265",
+  "titolo": "Sistema nuovo non spiegato e nome non visibile (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#266",
+  "titolo": "Passo non riscritto, rimando a messaggi precedenti (10/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0266.json"
+ },
+ {
+  "errore": "#267",
+  "titolo": "Link senza account e non in casella copiabile (11/11)",
+  "categoria": "A",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0267.json"
+ },
+ {
+  "errore": "#268",
+  "titolo": "Passo senza la finestra Chrome dell'account (11/11)",
+  "categoria": "A",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0268.json"
+ },
+ {
+  "errore": "#269",
+  "titolo": "Soglia «7 su 10» presunta nel post e nei quiz (11/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0269.json"
+ },
+ {
+  "errore": "#270",
+  "titolo": "PPP ignorato: consegna subito e file due volte (11/11)",
+  "categoria": "R",
+  "schema": "3",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0270.json"
+ },
+ {
+  "errore": "#271",
+  "titolo": "Richiesta interpretata invece di seguire la lettera (11/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#272",
+  "titolo": "Controlli e passi chiesti al docente in lezione (11/11)",
+  "categoria": "H",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#273",
+  "titolo": "Stesso file rimandato con lo stesso nome (11/11)",
+  "categoria": "V",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0273.json"
+ },
+ {
+  "errore": "#274",
+  "titolo": "Lingue della 1INF dimenticate nei quiz e nel post (11/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0274.json"
+ },
+ {
+  "errore": "#275",
+  "titolo": "Strumento garantito senza prova, chiedeva l'amministratore (11/11)",
+  "categoria": "Q",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0275.json"
+ },
+ {
+  "errore": "#276",
+  "titolo": "Argomento di un'ora copiato da un documento vecchio (11/11)",
+  "categoria": "D",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#277",
+  "titolo": "Chat 3INF presentata senza provare che chatta (11/11)",
+  "categoria": "Q",
+  "schema": "9",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0277.json"
+ },
+ {
+  "errore": "#278",
+  "titolo": "Quiz Sicurezza non sulle slide ufficiali (11/11)",
+  "categoria": "K",
+  "schema": "9",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#279",
+  "titolo": "Scheda Situazione 2INF vuota (11/11)",
+  "categoria": "C",
+  "schema": "8",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#280",
+  "titolo": "Pannello e schede senza «a che serve» (11/11)",
+  "categoria": "K",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0280.json"
+ },
+ {
+  "errore": "#281",
+  "titolo": "Allievi nominati senza cognome (11/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0281.json"
+ },
+ {
+  "errore": "#282",
+  "titolo": "Formato del pacchetto per il post rifatto cinque volte (11/11)",
+  "categoria": "F",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0282.json"
+ },
+ {
+  "errore": "#283",
+  "titolo": "Controllo di fine giornata cieco, VERDE «nessuna lezione» (11/11)",
+  "categoria": "Q",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0283.json"
+ },
+ {
+  "errore": "#284",
+  "titolo": "Incoerenze trovate e non corrette nei file (11/11)",
+  "categoria": "Q",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#285",
+  "titolo": "PDF dato solo come nome, senza la scheda da scaricare (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0285.json"
+ },
+ {
+  "errore": "#286",
+  "titolo": "Ordine dell'ora ignorato: pacchetto prima della dispensa docente (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#287",
+  "titolo": "Testo del pacchetto prima della scheda PDF non visibile (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0287.json"
+ },
+ {
+  "errore": "#288",
+  "titolo": "Scheda PDF fuori dalla cornice rossa (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0288.json"
+ },
+ {
+  "errore": "#289",
+  "titolo": "Pacchetto Classroom: formati sbagliati prima di quello giusto (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0289.json"
+ },
+ {
+  "errore": "#291",
+  "titolo": "Messaggi per il docente senza cornice verde (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0291.json"
+ },
+ {
+  "errore": "#292",
+  "titolo": "Quiz in inglese su PC con Windows in italiano (12/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0292.json"
+ },
+ {
+  "errore": "#293",
+  "titolo": "Kit consegnato in un turno sporco (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0293.json"
+ },
+ {
+  "errore": "#294",
+  "titolo": "Chiesto di cercare sullo schermo cose che non c'erano (12/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "avviene in aula, davanti al ragazzo o allo schermo: non lascia un file, un comando o un messaggio da controllare"
+ },
+ {
+  "errore": "#295",
+  "titolo": "Versione sbagliata del PDF nei post e nei kit (12/11)",
+  "categoria": "V",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0295.json"
+ },
+ {
+  "errore": "#296",
+  "titolo": "Cruscotto che dipendeva da gesti del docente (12/11)",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#297",
+  "titolo": "Quiz rigenerato quattro volte mentre i ragazzi lo facevano (12/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#298",
+  "titolo": "Numeri dei PC del foglio diversi da quelli di Veyon (12/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#299",
+  "titolo": "Ora del dato ingannevole nella scheda Situazione (12/11)",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#300",
+  "titolo": "Richieste del docente capite male, tre volte (12/11)",
+  "categoria": "H",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#301",
+  "titolo": "Posti dei PC copiati da un altro giorno e dati per veri (12/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#302",
+  "titolo": "Pagina del cruscotto con «letto alle 08:27» sotto i quiz (12/11)",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#303",
+  "titolo": "«Presenti 20» mentre il registro ne dava 19 (12/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#304",
+  "titolo": "Allievo senza utente GitHub salta in silenzio da «Git 2INF» (12/11)",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#305",
+  "titolo": "Elenco email del quiz con due orari e contenuto più vecchio dell'ora scritta (12/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#306",
+  "titolo": "Due formule del «voto proposto» nello stesso documento (12/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#307",
+  "titolo": "Cognome intero nella scheda pubblica 4TI (12/11)",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0307.json"
+ },
+ {
+  "errore": "#308",
+  "titolo": "Riscrittura della storia git da un clone shallow (12/11)",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0308.json"
+ },
+ {
+  "errore": "#309",
+  "titolo": "Documento mandato senza i quadratini blu (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0309.json"
+ },
+ {
+  "errore": "#310",
+  "titolo": "md2pdf non incorporava le immagini (12/11)",
+  "categoria": "V",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#311",
+  "titolo": "Due kit con due PDF nella stessa risposta (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0311.json"
+ },
+ {
+  "errore": "#312",
+  "titolo": "Controllo automatico del formato kit e documenti aggiunto (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "voce di chiusura o di metodo (registra una correzione già coperta da altre voci con il loro caso)"
+ },
+ {
+  "errore": "#313",
+  "titolo": "Controllo del post ROSSO perché leggeva il ponte (12/11)",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#314",
+  "titolo": "«Non ha consegnato» con un dato di 6 minuti prima (12/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0314.json"
+ },
+ {
+  "errore": "#315",
+  "titolo": "Domande aperte non contate: «10/14» letto come risultato (12/11)",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#316",
+  "titolo": "Domanda aperta su un dato di un passo «facoltativo» (12/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#317",
+  "titolo": "Script voti DIDAweb dato due volte senza aver visto la pagina (12/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#318",
+  "titolo": "Kit del quiz in un turno con altri strumenti, testo non visibile (12/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0318.json"
+ },
+ {
+  "errore": "#319",
+  "titolo": "Cognome in un file di fabbrica/ pushato: il controllo guardava solo docs/ (12/11)",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0319.json"
+ },
+ {
+  "errore": "#320",
+  "titolo": "Script voti scritto per Classroom invece che per DIDAweb (12/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#321",
+  "titolo": "Parole «pubblicato»/«online» fermate quattro volte (12/11)",
+  "categoria": "P",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0321.json"
+ },
+ {
+  "errore": "#322",
+  "titolo": "Formula del voto presunta (40 + 30 × punti / 14) (12/11)",
+  "categoria": "S",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0322.json"
+ },
+ {
+  "errore": "#323",
+  "titolo": "Cruscotto 1INF nell'ora 6 senza giro automatico, senza Veyon, senza «Serve te» (12/11)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0323.json"
+ },
+ {
+  "errore": "#324",
+  "titolo": "Piani del giorno e report orari assenti, controlli di notte e fine giornata ciechi (12/11)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0324.json"
+ },
+ {
+  "errore": "#325",
+  "titolo": "Nome intero di un allievo in un file di prova, controllo privacy VERDE (12/11)",
+  "categoria": "X",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0325.json"
+ },
+ {
+  "errore": "#326",
+  "titolo": "Presenza presunta riservata, senza chiedere (13/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#327",
+  "titolo": "Cruscotto 1INF non coerente tra le viste (13/11)",
+  "categoria": "C",
+  "schema": "8",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#328",
+  "titolo": "Dispense poco chiare per ragazzi delle medie, ripetuto (13/11)",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0328.json"
+ },
+ {
+  "errore": "#329",
+  "titolo": "Nome di battesimo accanto al cognome, COGNOME Nome (13/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0329.json"
+ },
+ {
+  "errore": "#330",
+  "titolo": "Dispensa PDF non scaricabile dal nome del file (13/11)",
+  "categoria": "K",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0330.json"
+ },
+ {
+  "errore": "#331",
+  "titolo": "Dispensa fitta e con note tecniche nel PDF dei ragazzi (13/11)",
+  "categoria": "K",
+  "schema": "9",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0331.json"
+ },
+ {
+  "errore": "#332",
+  "titolo": "«Chi manca» con dato vecchio e assenti non incrociati (13/11)",
+  "categoria": "Q",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0332.json"
+ },
+ {
+  "errore": "#333",
+  "titolo": "Motore non provato con servizi veri attivato: primo giro non completato (13/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#334",
+  "titolo": "Orario di lunedì presunto e domanda che contraddice il docente (13/11)",
+  "categoria": "S",
+  "schema": "7",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0334.json"
+ },
+ {
+  "errore": "#335",
+  "titolo": "Correzioni del motore pubblicate su motore.js prima del «via» (13/11)",
+  "categoria": "P",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0335.json"
+ },
+ {
+  "errore": "#336",
+  "titolo": "Kit in turno con strumenti prima: titolo e testo non mostrati (16/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0336.json"
+ },
+ {
+  "errore": "#337",
+  "titolo": "Pagine riservate cifrate con una chiave che il docente non conosce (16/11)",
+  "categoria": "A",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#338",
+  "titolo": "URL dei siti degli allievi dedotti invece che letti (16/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#339",
+  "titolo": "Codici di recupero GitHub non conservati, risposta «non esistono» (16/11)",
+  "categoria": "A",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#340",
+  "titolo": "Ricerca di un file noto durata ore, indice mancante (16/11)",
+  "categoria": "O",
+  "schema": "6",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#341",
+  "titolo": "Audit cruscotti: dati di ore diverse, screenshot prima dell'export, tabella illeggibile a 390 px (16/11)",
+  "categoria": "C",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#342",
+  "titolo": "Messaggi ancora troppo lunghi, «troppa roba inutile» (16/11; ripete #242, #250)",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0342.json"
+ },
+ {
+  "errore": "#343",
+  "titolo": "Orario di firma letto male dallo screenshot, 08:15 invece di 09:41 (16/11)",
+  "categoria": "D",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0343.json"
+ },
+ {
+  "errore": "#344",
+  "titolo": "Password del docente di nuovo in chiaro nella bobina: la sessione usa la copia pubblica dell'hook (16/11)",
+  "categoria": "X",
+  "schema": "2",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0344.json"
+ },
+ {
+  "errore": "#345",
+  "titolo": "Giri del cruscotto fermi per ore, piani del giorno assenti, orario scritto a lezione iniziata (16/11; ripete #169, #324, #334)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0345.json"
+ },
+ {
+  "errore": "#346",
+  "titolo": "Report PDF orari assenti per tutta la giornata (16/11; sesta volta)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0346.json"
+ },
+ {
+  "errore": "#347",
+  "titolo": "Istruzioni per i ragazzi lunghe o non chiare, informazioni mancanti (16/11)",
+  "categoria": "H",
+  "schema": "5",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0347.json"
+ },
+ {
+  "errore": "#348",
+  "titolo": "Verifica della lezione mai VERDE, giro della Fabbrica oltre il limite, export ogni ora (16/11)",
+  "categoria": "Q",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#349",
+  "titolo": "Formato del messaggio sbagliato ancora dopo #336 (16/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": true,
+  "caso": "E0349.json"
+ },
+ {
+  "errore": "#350",
+  "titolo": "Modalità già decise cambiate (voti DIDAweb), codice non in fondo (17/11)",
+  "categoria": "R",
+  "schema": "2",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0350.json"
+ },
+ {
+  "errore": "#351",
+  "titolo": "Prova archiviata in più ZIP, cartella «Regge» incompleta (17/11)",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#352",
+  "titolo": "Kit senza «che cosa si consegna e quanto tempo», formato e colori da richiedere (17/11; ripete #347, #349)",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "D",
+  "ripete": true,
+  "caso": "E0352.json"
+ },
+ {
+  "errore": "#353",
+  "titolo": "Script voti per il lotto sbagliato, senza chiedere (17/11)",
+  "categoria": "S",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#354",
+  "titolo": "Archivio su Drive promesso senza provare l'accesso (17/11)",
+  "categoria": "Q",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0354.json"
+ },
+ {
+  "errore": "#355",
+  "titolo": "Fine giornata 17/11 ROSSO: piani, cruscotto fermo, report orari, 4TI (ripete #345, #346)",
+  "categoria": "C",
+  "schema": "4",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0355.json"
+ },
+ {
+  "errore": "#356",
+  "titolo": "Parola dettata interpretata come viaggi invece di chiedere o cercare nei documenti (R7.6)",
+  "categoria": "S",
+  "schema": null,
+  "mappa_ora": null,
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#357",
+  "titolo": "Budget dei preventivi 1INF cambiati per una frase ambigua, valori diversi nei file (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0357.json"
+ },
+ {
+  "errore": "#358",
+  "titolo": "Repo `mio-sito` attribuito a un allievo senza prova (18/11)",
+  "categoria": "S",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0358.json"
+ },
+ {
+  "errore": "#359",
+  "titolo": "Passo «Assegna» invece di «Salva» (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#360",
+  "titolo": "Modello Word e Documento Google: opzione inesistente, Drive sbagliato (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#361",
+  "titolo": "Riquadri non visibili, 6 messaggi per incollare un testo (18/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0361.json"
+ },
+ {
+  "errore": "#362",
+  "titolo": "Scheda trilingue con caselle ripetute 3 volte (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": true,
+  "caso": "E0362.json"
+ },
+ {
+  "errore": "#363",
+  "titolo": "Check Lazarus da console invece che con l'interfaccia decisa (18/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#364",
+  "titolo": "«3 test a testa» incoerente con modello e istruzioni (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "difetto di contenuto di un materiale (significato, impaginazione visiva): serve la lettura di una persona"
+ },
+ {
+  "errore": "#365",
+  "titolo": "Guide di trasferimento repository senza il passo di rinomina (18/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#366",
+  "titolo": "Verifica siti con indirizzi dedotti, non aperti (18/11)",
+  "categoria": "Q",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#367",
+  "titolo": "Passi dati senza leggere le informazioni già disponibili (18/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#368",
+  "titolo": "Registro nel formato sbagliato: complessivo invece che per materia (18/11)",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#369",
+  "titolo": "Richieste di permesso moltiplicate dagli agenti (18/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#370",
+  "titolo": "Priorità sbagliate e domande fuori dalle 4 priorità (18/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#371",
+  "titolo": "Allegato A frainteso: blocco e materia presunti (18/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "dipende da che cosa il docente voleva o aveva deciso: nessuna regola scritta con cui confrontare"
+ },
+ {
+  "errore": "#372",
+  "titolo": "Cose già fatte non cercate (piantine) e piano dell'ora presunto (18/11)",
+  "categoria": "S",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0372.json"
+ },
+ {
+  "errore": "#373",
+  "titolo": "Messaggio con tre file non capito (18/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0373.json"
+ },
+ {
+  "errore": "#374",
+  "titolo": "Fine giornata 18/11 ROSSO: report orari, cruscotto, verifiche (ripete #355)",
+  "categoria": "C",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0374.json"
+ },
+ {
+  "errore": "#375",
+  "titolo": "«Non posso creare il Moduli» invece della Fabbrica (19/11)",
+  "categoria": "Q",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": true,
+  "caso": "E0375.json"
+ },
+ {
+  "errore": "#376",
+  "titolo": "Kit 2INF Sicurezza a lezione avviata, recupero tolto senza dirlo (19/11)",
+  "categoria": "K",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#377",
+  "titolo": "La bobina non era la memoria completa (19/11)",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "A",
+  "ripete": false,
+  "non_verificabile": "il rimedio sta nel codice di un generatore o di una pagina: si prova eseguendo quel generatore con dati veri, non con un input scritto"
+ },
+ {
+  "errore": "#378",
+  "titolo": "Registro Sicurezza 2INF mandato senza confronto col DIDAweb (19/11)",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#379",
+  "titolo": "PC attribuiti dal testo incollato (19/11)",
+  "categoria": "D",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "richiede lo stato vivo di un servizio esterno (Classroom, Moduli, DIDAweb, Drive, GitHub, Veyon) che un test non raggiunge"
+ },
+ {
+  "errore": "#380",
+  "titolo": "Troppe domande quando il docente chiedeva autonomia (19/11)",
+  "categoria": "H",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0380.json"
+ },
+ {
+  "errore": "#381",
+  "titolo": "Richieste ripetute per la stessa cosa (19/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": true,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#382",
+  "titolo": "Materiale importante finito in un'altra chat (19/11)",
+  "categoria": "R",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#383",
+  "titolo": "Lentezza e output spesso sbagliato (19/11)",
+  "categoria": "O",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "non_verificabile": "errore di processo (ritardo, ordine del lavoro, lentezza, mancata prova): non lascia un artefatto confrontabile"
+ },
+ {
+  "errore": "#384",
+  "titolo": "Esercizio 1INF ora 4: scheda senza materiale (20/11)",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0384.json"
+ },
+ {
+  "errore": "#385",
+  "titolo": "PDF ragazzi 1INF di 28 pagine (20/11)",
+  "categoria": "K",
+  "schema": "5",
+  "mappa_ora": "A",
+  "ripete": false,
+  "caso": "E0385.json"
+ },
+ {
+  "errore": "#386",
+  "titolo": "Formato pacchetto PUBB e kit non mantenuto (20/11)",
+  "categoria": "F",
+  "schema": "1",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0386.json"
+ },
+ {
+  "errore": "#387",
+  "titolo": "Testi dei post incoerenti con gli allegati e con la data (20/11)",
+  "categoria": "K",
+  "schema": "2",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0387.json"
+ },
+ {
+  "errore": "#388",
+  "titolo": "Formato predefinito PDF non applicato (20/11)",
+  "categoria": "V",
+  "schema": "1",
+  "mappa_ora": "B",
+  "ripete": false,
+  "caso": "E0388.json"
+ },
+ {
+  "errore": "#389",
+  "titolo": "Cruscotto senza dati di oggi e non in tempo reale (20/11)",
+  "categoria": "C",
+  "schema": "6",
+  "mappa_ora": "D",
+  "ripete": false,
+  "caso": "E0389.json"
+ }
+]

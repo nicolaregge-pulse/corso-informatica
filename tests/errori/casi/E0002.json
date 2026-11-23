@@ -1,0 +1,28 @@
+{
+ "errore": "#2",
+ "titolo": "Titoletti in maiuscolo, numeri, righe vuote tra i blocchi",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "stesso tipo di input di #1 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "audit_regole.py c_coda (passo notturno B: righe oltre 300 caratteri)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "riga di \\d+ caratteri|impaginat",
+   "sbagliato": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\", \"descrizione\": \"1. Apri la pagina del compito e leggi con attenzione tutte le istruzioni scritte qui sotto prima di cominciare, poi Apri la pagina del compito e leggi con attenzione tutte le istruzioni scritte qui sotto prima di cominciare, poi Apri la pagina del compito e leggi con attenzione tutte le istruzioni scritte qui sotto prima di cominciare, poi Apri la pagina del compito e leggi con attenzione tutte le istruzioni scritte qui sotto prima di cominciare, poi \"}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_coda",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:coda/2026-11-23_1INF_a.json": "{\"classe\": \"1INF\", \"stato\": \"da-pubblicare\", \"coursework_id\": \"1\", \"descrizione\": \"1. Apri la pagina.\\n2. Premi il bottone.\"}"
+    }
+   }
+  }
+ ]
+}

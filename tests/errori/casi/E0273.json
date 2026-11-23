@@ -1,0 +1,79 @@
+{
+ "errore": "#273",
+ "titolo": "Stesso file rimandato con lo stesso nome (11/11)",
+ "categoria": "V",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #273 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sull'invio ripetuto dello stesso file",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#273|stesso file|due volte",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/x/dispensa_v1.0.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nDi nuovo la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/x/dispensa_v1.0.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "mandami la dispensa",
+      "blocchi": [
+       [
+        "T",
+        "Ecco la dispensa.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 DISPENSA ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/x/dispensa_v1.0.pdf"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

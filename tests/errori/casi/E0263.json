@@ -1,0 +1,21 @@
+{
+ "errore": "#263",
+ "titolo": "Schede su carta per tutti senza stampante (10/11)",
+ "categoria": "K",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #263 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: R9.9 (niente carta e penna) non ha un controllo sulle pagine",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Stampa la scheda e scrivi le risposte con la penna.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Scrivi le risposte nel Documento.</p>"
+   }
+  }
+ ]
+}

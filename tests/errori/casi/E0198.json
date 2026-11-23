@@ -1,0 +1,22 @@
+{
+ "errore": "#198",
+ "titolo": "Testi dei post Classroom della 1INF (Sicurezza 13:00) consegnati solo in italiano",
+ "categoria": "K",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #198 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo delle lingue sul testo dei post Classroom (solo sui quiz)",
+ "prove": [
+  {
+   "canale": "post",
+   "atteso": "arabo|cinese|lingue|1INF",
+   "sbagliato": {
+    "titolo": "G Ora 6: Sicurezza",
+    "oggetto": "Buongiorno. Aprite la pagina e fate il quiz."
+   },
+   "giusto": {
+    "titolo": "G Ora 6: Sicurezza",
+    "oggetto": "Buongiorno. Aprite la pagina e fate il quiz. · افتح الصفحة · 打开页面"
+   }
+  }
+ ]
+}

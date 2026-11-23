@@ -1,0 +1,22 @@
+{
+ "errore": "#329",
+ "titolo": "Nome di battesimo accanto al cognome, COGNOME Nome (13/11)",
+ "categoria": "S",
+ "schema": "7",
+ "origine_input": "ricostruito dalla descrizione di #329 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py + controllo_nomi.avviso_nome_battesimo (avviso, non blocca)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "nome di battesimo|COGNOME",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nROSSI Mario ha consegnato il quiz.\nBIANCHI ha finito.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nROSSI ha consegnato il quiz.\nBIANCHI ha finito.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

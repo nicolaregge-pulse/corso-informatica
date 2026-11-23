@@ -1,0 +1,24 @@
+{
+ "errore": "#217",
+ "titolo": "PUBB: promesse con orari già passati, link prima di PUBBLICATO",
+ "categoria": "P",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #79 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (e) link senza PUBBLICATO",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Link al sito",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pub_sporco": false
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pubblicato": true
+   }
+  }
+ ]
+}

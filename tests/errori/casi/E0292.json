@@ -1,0 +1,68 @@
+{
+ "errore": "#292",
+ "titolo": "Quiz in inglese su PC con Windows in italiano (12/11)",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #292 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: controlla_lingue_quiz.py guarda solo i quiz 1INF (arabo e cinese), non le sigle inglesi nei quiz 2INF",
+ "prove": [
+  {
+   "canale": "quiz_lingue",
+   "atteso": "inglese|English|Windows|MANCA",
+   "sbagliato": {
+    "quiz": [
+     {
+      "id": "2inf-ora5",
+      "dati": {
+       "titolo": "Quiz",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Click Start, then open Settings and choose Network.",
+         "sp": "",
+         "s": [
+          [
+           "Network & internet",
+           1
+          ],
+          [
+           "Apps",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "giusto": {
+    "quiz": [
+     {
+      "id": "2inf-ora5",
+      "dati": {
+       "titolo": "Quiz",
+       "descrizione": "",
+       "domande": [
+        {
+         "t": "Premi Start, apri Impostazioni e scegli Rete.",
+         "sp": "",
+         "s": [
+          [
+           "Rete e Internet",
+           1
+          ],
+          [
+           "App",
+           0
+          ]
+         ]
+        }
+       ]
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

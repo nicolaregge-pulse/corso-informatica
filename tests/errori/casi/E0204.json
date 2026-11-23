@@ -1,0 +1,22 @@
+{
+ "errore": "#204",
+ "titolo": "«Aspetta il via» non rispettato",
+ "categoria": "R",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #251 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: R3.1 e R3.4 (PPP, «aspetta il via») sono regole senza controllo",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "PPP|Annotato|via|in coda|nessun output",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPreparo subito il quiz della 2INF e te lo mostro qui.\nEcco il codice che sto scrivendo adesso nella finestra.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "Aspetta il via, intanto non fare niente"
+   },
+   "giusto": {
+    "finale": "Annotato.",
+    "docente": "Aspetta il via, intanto non fare niente"
+   }
+  }
+ ]
+}

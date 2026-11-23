@@ -1,0 +1,21 @@
+{
+ "errore": "#81",
+ "titolo": "MAI «copia, apri, incolla»: UN bottone che consegna davvero",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #62 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "controlli_pagine.py copia_incolla_modulo (audit notturno)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<a href='https://docs.google.com/forms/d/x/viewform'>Apri il Modulo</a><p>Copia il risultato e incollalo nel Modulo.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<button onclick='consegna()'>CONSEGNA</button><script>function consegna(){}</script>"
+   }
+  }
+ ]
+}

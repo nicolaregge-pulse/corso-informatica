@@ -1,0 +1,22 @@
+{
+ "errore": "#185",
+ "titolo": "Scheda già consegnata data come mancante e istruzione sbagliata",
+ "categoria": "Q",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #161 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (hh) «non ha consegnato» senza dato fresco",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "consegnat|dato|fonte|\\(hh\\)|#314",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa scheda del PC 7 non ha consegnato nulla: manca.\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa scheda del PC 7 non risulta consegnata nel dato di Classroom letto alle {{ORA-1}}.\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

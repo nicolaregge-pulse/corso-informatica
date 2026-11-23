@@ -1,0 +1,26 @@
+{
+ "errore": "#209",
+ "titolo": "Cognome di un allievo in un file del pubblico",
+ "categoria": "X",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #85 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook limite-comandi.py (push del pubblico: contenuto dei file cambiati, controllo_nomi)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "cognome|privacy|nome di un allievo|R1",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "PROSSIME-LEZIONI.md": "# Prossime lezioni\nBIANCHI Anna ha finito.\n"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "PROSSIME-LEZIONI.md": "# Prossime lezioni\nAnna B. ha finito.\n"
+    }
+   }
+  }
+ ]
+}

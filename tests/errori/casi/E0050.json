@@ -1,0 +1,22 @@
+{
+ "errore": "#50",
+ "titolo": "Memoria del copia e incolla vuota; prima la pagina d'arrivo",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #50 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (a) ordine copia/incolla",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "copia/incolla|#50|#138",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri la pagina del codice di lo script v8.2 e premi Ctrl+A e Ctrl+C.\n2. Copia questo indirizzo:\n```\nhttps://example.invalid/script\n```\n3. Apri Apps Script e premi Ctrl+V.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri Apps Script e incolla questo indirizzo con Ctrl+V:\n```\nhttps://example.invalid/script\n```\nPoi apri la pagina del codice di lo script v8.2, premi Ctrl+A e Ctrl+C. Torna su Apps Script e premi Ctrl+V.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

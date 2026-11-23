@@ -1,0 +1,27 @@
+{
+ "errore": "#222",
+ "titolo": "Report orari, presenze e storico del 05/11 non fatti durante la giornata",
+ "categoria": "C",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #222 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py --fine-giornata (report PDF dell'ora mancante)",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "report PDF dell'ora mancante",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n"
+    }
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:report/2026-11-16/20261116_2INF_ore-08-09_report.pdf": "PDF finto"
+    }
+   }
+  }
+ ]
+}

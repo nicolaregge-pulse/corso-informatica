@@ -1,0 +1,22 @@
+{
+ "errore": "#166",
+ "titolo": "Una domanda del docente chiede una spiegazione; si toglie solo con «togli/elimina»",
+ "categoria": "R",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #166 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#166|spiegazione|tolto",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo tolto la colonna Allenamenti.\nProseguo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "cosa vuol dire la colonna Allenamenti?"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa colonna Allenamenti conta le prove fatte; la lascio.\nProseguo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "cosa vuol dire la colonna Allenamenti?"
+   }
+  }
+ ]
+}

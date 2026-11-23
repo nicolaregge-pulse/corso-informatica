@@ -1,0 +1,29 @@
+{
+ "errore": "#145",
+ "titolo": "Le domande del giorno si vedono tutte e hanno risposta",
+ "categoria": "C",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #145 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py --fine-giornata (domande dei ragazzi senza risposta)",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "domande all'assistente.*senza risposta",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:dati/verifiche/assistente-1/arrivi/a.json": "{\"modo\": \"domanda\", \"ora\": \"2026-11-16T09:10:00+01:00\", \"id\": \"assistente-1\", \"nome\": \"Mario\", \"domanda\": \"come si fa il passo 3?\"}"
+    }
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "ris:dati/verifiche/assistente-1/arrivi/a.json": "{\"modo\": \"domanda\", \"ora\": \"2026-11-16T09:10:00+01:00\", \"id\": \"assistente-1\", \"nome\": \"Mario\", \"domanda\": \"come si fa il passo 3?\"}",
+     "docs/assistente/risposte/1.json": "[{\"nome\": \"Mario\", \"domanda\": \"come si fa il passo 3?\", \"risposta\": \"Premi il bottone verde.\"}]"
+    }
+   }
+  }
+ ]
+}

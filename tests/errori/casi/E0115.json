@@ -1,0 +1,22 @@
+{
+ "errore": "#115",
+ "titolo": "Mai «risolto» per lo script senza prova nel tempo",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl blocco dello script è risolto.\nNon dovrebbe più succedere.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo cambiato il timer; resta fragile il limite giornaliero di Google.\nSi vede dal battito nel cruscotto (non provato nei giorni dopo).\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

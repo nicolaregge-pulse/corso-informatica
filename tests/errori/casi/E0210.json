@@ -1,0 +1,23 @@
+{
+ "errore": "#210",
+ "titolo": "Titoli del giorno con ore doppie",
+ "categoria": "K",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #210 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py problemi_post (ora del titolo)",
+ "prove": [
+  {
+   "canale": "post",
+   "sbagliato": {
+    "titolo": "G Ora 2: Reti",
+    "oggetto": "Buongiorno.",
+    "ora": 3
+   },
+   "giusto": {
+    "titolo": "G Ora 3: Reti",
+    "oggetto": "Buongiorno.",
+    "ora": 3
+   }
+  }
+ ]
+}

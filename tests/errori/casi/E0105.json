@@ -1,0 +1,29 @@
+{
+ "errore": "#105",
+ "titolo": "Pubblicare = pagina + compito + annuncio",
+ "categoria": "P",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #105 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (d) pubblicato senza verifica_lezione.py VERDE",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Pubblicazione non verificata",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 1INF è pubblicata: pagina, compito e annuncio sono online.\nLa verifica non l'ho ancora lanciata.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 1INF è pubblicata: pagina, compito e annuncio sono online.\nVerifica VERDE delle {{ORA}}.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "verifiche": [
+     {
+      "classe": "1INF",
+      "esito": "VERDE",
+      "minuti_fa": 2
+     }
+    ]
+   }
+  }
+ ]
+}

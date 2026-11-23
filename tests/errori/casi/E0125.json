@@ -1,0 +1,76 @@
+{
+ "errore": "#125",
+ "titolo": "Pochi comandi al ponte; prova prima di dire che lo script funziona",
+ "categoria": "R",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #125 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "audit_regole.py c_comandi (passo notturno B: più di 40 comandi in un giorno)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "comandi mandati al ponte|#125",
+   "sbagliato": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-22_00.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_01.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_02.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_03.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_04.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_05.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_06.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_07.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_08.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_09.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_10.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_11.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_12.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_13.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_14.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_15.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_16.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_17.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_18.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_19.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_20.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_21.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_22.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_23.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_24.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_25.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_26.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_27.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_28.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_29.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_30.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_31.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_32.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_33.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_34.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_35.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_36.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_37.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_38.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_39.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_40.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_41.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_42.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_43.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_44.json": "{\"stato\": \"archiviato\", \"azioni\": []}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-22_00.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_01.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_02.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_03.json": "{\"stato\": \"archiviato\", \"azioni\": []}",
+     "ris:comandi/2026-11-22_04.json": "{\"stato\": \"archiviato\", \"azioni\": []}"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "errore": "#352",
+ "titolo": "Kit senza «che cosa si consegna e quanto tempo», formato e colori da richiedere (17/11; ripete #347, #349)",
+ "categoria": "K",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #352 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: controlla_kit.py non controlla le righe «Consegna:» e «Tempo:» (da costruire)",
+ "prove": [
+  {
+   "canale": "kit",
+   "atteso": "Consegna|Tempo|che cosa si consegna",
+   "sbagliato": {
+    "kit": "# Kit 2INF del 23/11/2026\n\n## 01 2INF, ora 1: Reti\n\nTitolo:\n```\nG Ora 1: Reti\n```\n\nOggetto:\n```\nBuongiorno. Fate l'esercizio.\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "L'utente dice: il PC è lento da ieri",
+        "Ho ascoltato: Esempio: il PC è lento da ieri",
+        "Ho guardato: Esempio: il disco è pieno",
+        "Ho provato: Esempio: ho svuotato il cestino",
+        "Risultato: Esempio: ora il PC va bene"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     }
+    }
+   },
+   "giusto": {
+    "kit": "# Kit 2INF del 23/11/2026\n\n## 01 2INF, ora 1: Reti\n\nTitolo:\n```\nG Ora 1: Reti\n```\n\nOggetto:\n```\nBuongiorno. Fate la scheda. Consegna: il Documento. Tempo: 20 minuti.\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "L'utente dice: il PC è lento da ieri",
+        "Ho ascoltato: Esempio: il PC è lento da ieri",
+        "Ho guardato: Esempio: il disco è pieno",
+        "Ho provato: Esempio: ho svuotato il cestino",
+        "Risultato: Esempio: ora il PC va bene"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

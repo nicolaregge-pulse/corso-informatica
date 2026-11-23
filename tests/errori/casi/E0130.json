@@ -1,0 +1,22 @@
+{
+ "errore": "#130",
+ "titolo": "Non si promettono tempi per ciò che fa lo script",
+ "categoria": "Q",
+ "schema": "3",
+ "origine_input": "ricostruito dalla descrizione di #130 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#130|#88|tempi|piano B|battito",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nDovrebbero arrivare entro pochi minuti, lo pubblica lo script.\nNon serve altro.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLo script non ha risposto al battito delle {{ORA-1}}: piano B a mano.\nTi do il testo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

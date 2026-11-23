@@ -1,0 +1,27 @@
+{
+ "errore": "#216",
+ "titolo": "Cruscotti con dati del giorno prima o mai aggiornati",
+ "categoria": "C",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #216 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py cruscotto_senza_dati_di_oggi (e controlla_controlli.py)",
+ "prove": [
+  {
+   "canale": "cruscotto",
+   "sbagliato": {
+    "classe": "1INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/1inf/live.json": "{\"letto_il\": \"2026-11-22T10:00:00+01:00\"}"
+    }
+   },
+   "giusto": {
+    "classe": "1INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/1inf/live.json": "{\"letto_il\": \"2026-11-23T10:05:00+01:00\"}"
+    }
+   }
+  }
+ ]
+}

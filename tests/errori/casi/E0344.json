@@ -1,0 +1,21 @@
+{
+ "errore": "#344",
+ "titolo": "Password del docente di nuovo in chiaro nella bobina: la sessione usa la copia pubblica dell'hook (16/11)",
+ "categoria": "X",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #344 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "bobina-automatica.py pulisci_segreti (v2.0)",
+ "prove": [
+  {
+   "canale": "bobina",
+   "sbagliato": {
+    "testo": "il docente scrive password: Xk29fT7qP3 nel campo",
+    "segreto": "Xk29fT7qP3"
+   },
+   "giusto": {
+    "testo": "il docente scrive la parola d'ordine in chiaro? no",
+    "segreto": ""
+   }
+  }
+ ]
+}

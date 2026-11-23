@@ -1,0 +1,22 @@
+{
+ "errore": "#39",
+ "titolo": "Orari dall'ora vera; una cosa da fare per volta; modifiche verificate",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #39 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo corretto l'orario della pagina: ora è tutto a posto.\nHo anche rifatto la tabella.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo corretto l'orario della pagina e l'ho riaperta alle {{ORA}}: mostra 10:50 come il registro.\nHo rifatto la tabella.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

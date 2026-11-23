@@ -1,0 +1,22 @@
+{
+ "errore": "#332",
+ "titolo": "«Chi manca» con dato vecchio e assenti non incrociati (13/11)",
+ "categoria": "Q",
+ "schema": "7",
+ "origine_input": "stesso tipo di input di #161 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (hh) «non ha consegnato» senza dato fresco",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "consegnat|dato|fonte|\\(hh\\)|#314",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nChi manca: due allievi non hanno consegnato (dato delle {{ORA-60}}).\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nChi manca nel dato delle {{ORA-1}}: due allievi; gli assenti li ho incrociati col registro.\nLo dico al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

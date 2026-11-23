@@ -1,0 +1,22 @@
+{
+ "errore": "#249",
+ "titolo": "Account PIAMARTA e testi in riquadro non rispettati (10/11)",
+ "categoria": "A",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #249 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#249|account|PIAMARTA",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri il Foglio Fabbrica e scrivi Presenti nella cella B2.\nPoi premi Invio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PIAMARTA. Apri questo link:\n```\nhttps://docs.google.com/spreadsheets/d/abc/edit\n```\nScrivi il testo nella cella B2.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

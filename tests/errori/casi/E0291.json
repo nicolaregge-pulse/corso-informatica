@@ -1,0 +1,22 @@
+{
+ "errore": "#291",
+ "titolo": "Messaggi per il docente senza cornice verde (12/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #291 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-F cornice verde",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "cornice verde|#291",
+   "sbagliato": {
+    "finale": "Ho letto i dati.\nIl quiz dell'ora 1 è stato consegnato da 17 presenti su 19.\nMancano due allievi, già segnalati al docente.",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo letto i dati.\nIl quiz dell'ora 1 è stato consegnato da 17 presenti su 19.\nMancano due allievi, già segnalati al docente.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#380",
+ "titolo": "Troppe domande quando il docente chiedeva autonomia (19/11)",
+ "categoria": "H",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #380 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#380|domande|troppe",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Quale classe?\n2. Quale prova?\n3. Quale soglia?\n4. Quale account?\n5. Quando?\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nProcedo da solo: scelgo la 2INF e la prova di oggi.\nTi dico cosa ho scelto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

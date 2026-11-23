@@ -1,0 +1,22 @@
+{
+ "errore": "#269",
+ "titolo": "Soglia «7 su 10» presunta nel post e nei quiz (11/11)",
+ "categoria": "S",
+ "schema": "7",
+ "origine_input": "ricostruito dalla descrizione di #269 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: R7.6 (numeri e soglie non detti dal docente) non ha un controllo",
+ "prove": [
+  {
+   "canale": "post",
+   "atteso": "soglia|7 su 10|numero|R7\\.6|#269",
+   "sbagliato": {
+    "titolo": "G Ora 4: Quiz",
+    "oggetto": "Per superare il quiz servono almeno 7 su 10."
+   },
+   "giusto": {
+    "titolo": "G Ora 4: Quiz",
+    "oggetto": "Fai il quiz."
+   }
+  }
+ ]
+}

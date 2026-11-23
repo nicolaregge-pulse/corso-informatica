@@ -1,0 +1,22 @@
+{
+ "errore": "#48",
+ "titolo": "Lo script si copia dal link pubblico, mai dal riservato",
+ "categoria": "A",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #48 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (o) script copiato dal riservato",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "riservato|404|#48",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nCopia lo script da: https://github.com/nicolaregge-pulse/corso-informatica-riservato/blob/main/strumenti/automazione-corso.gs\nPoi incollalo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nCopia lo script da: https://raw.githubusercontent.com/nicolaregge-pulse/corso-informatica/main/strumenti/automazione-corso.gs\nPoi incollalo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

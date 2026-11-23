@@ -1,0 +1,21 @@
+{
+ "errore": "#49",
+ "titolo": "2INF solo italiano: ogni pagina passa dal controllo delle lingue",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #49 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controlli_pagine.py lingue (prima del push, limite-comandi.py)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<p>Apri la scheda.</p><p class='zh'>打开卡片</p>"
+   },
+   "giusto": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<p>Apri la scheda.</p>"
+   }
+  }
+ ]
+}

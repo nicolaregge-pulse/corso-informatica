@@ -1,0 +1,21 @@
+{
+ "errore": "#136",
+ "titolo": "Nessun link al sito della Regione nelle pagine dei ragazzi",
+ "categoria": "K",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #136 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py regione (prima del push)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<a href='https://sites.google.com/piamarta.it/formazionesicurezzamilano/1-ora'>TEST</a>"
+   },
+   "giusto": {
+    "percorso": "docs/2inf-prova/index.html",
+    "testo": "<p>Fai il quiz sul Modulo.</p>"
+   }
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "errore": "#178",
+ "titolo": "Quiz della rete di nuovo sul sito",
+ "categoria": "K",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #173 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: R9.7 (i quiz sono su Moduli) non ha un controllo sulle pagine",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-rete/quiz.html",
+    "testo": "<form id='quiz'><button>Invia le risposte</button></form><script>document.getElementById('quiz').onsubmit=function(){fetch('/api/quiz');return false;};</script>"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-rete/quiz.html",
+    "testo": "<a href='https://docs.google.com/forms/d/x/viewform'>Fai il quiz sul Modulo</a>"
+   }
+  }
+ ]
+}

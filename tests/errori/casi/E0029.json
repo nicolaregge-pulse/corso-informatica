@@ -1,0 +1,22 @@
+{
+ "errore": "#29",
+ "titolo": "Link al riservato sempre con «apri il profilo personale»",
+ "categoria": "A",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #29 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (o) link al riservato senza PERSONALE",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "riservato|PERSONALE",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri il file qui: https://github.com/nicolaregge-pulse/corso-informatica-riservato/blob/main/report/x.md\nPoi leggi la tabella.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nAccount PERSONALE, finestra Chrome del profilo personale.\nApri il file qui: https://github.com/nicolaregge-pulse/corso-informatica-riservato/blob/main/report/x.md\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

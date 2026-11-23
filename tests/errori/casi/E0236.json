@@ -1,0 +1,21 @@
+{
+ "errore": "#236",
+ "titolo": "Numero del PC come menu a tendina da 1 a 24 nelle pagine dei ragazzi",
+ "categoria": "K",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #236 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py pc_a_menu (prima del push)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-x/pagina.js",
+    "testo": "var h = '<select id=\"pc\"></select>';"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-x/pagina.js",
+    "testo": "var h = '<input type=\"text\" id=\"pc\" inputmode=\"numeric\" maxlength=\"2\">';"
+   }
+  }
+ ]
+}

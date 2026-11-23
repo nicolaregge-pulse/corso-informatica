@@ -1,0 +1,27 @@
+{
+ "errore": "#244",
+ "titolo": "Cruscotto 3INF fermo ai dati del 04/11, nessun dato dei presenti il 09/11",
+ "categoria": "C",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #244 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py cruscotto_senza_dati_di_oggi (e controlla_controlli.py)",
+ "prove": [
+  {
+   "canale": "cruscotto",
+   "sbagliato": {
+    "classe": "3INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/3inf/live.json": "{\"letto_il\": \"2026-11-04T11:00:00+01:00\"}"
+    }
+   },
+   "giusto": {
+    "classe": "3INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/3inf/live.json": "{\"letto_il\": \"2026-11-23T10:05:00+01:00\"}"
+    }
+   }
+  }
+ ]
+}

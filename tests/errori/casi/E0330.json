@@ -1,0 +1,32 @@
+{
+ "errore": "#330",
+ "titolo": "Dispensa PDF non scaricabile dal nome del file (13/11)",
+ "categoria": "K",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #330 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_pdf_ragazzi.py (nome non sicuro per il download)",
+ "prove": [
+  {
+   "canale": "pdf",
+   "atteso": "nome del file",
+   "sbagliato": {
+    "nome": "Dispensa Ora 2.pdf",
+    "pagine": [
+     [
+      "Apri il programma.",
+      "Premi il bottone."
+     ]
+    ]
+   },
+   "giusto": {
+    "nome": "dispensa-ora-2.pdf",
+    "pagine": [
+     [
+      "Apri il programma.",
+      "Premi il bottone."
+     ]
+    ]
+   }
+  }
+ ]
+}

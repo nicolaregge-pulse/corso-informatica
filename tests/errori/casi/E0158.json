@@ -1,0 +1,22 @@
+{
+ "errore": "#158",
+ "titolo": "Incolla in Apps Script: clic dentro il codice, Ctrl+A «tutto blu», Ctrl+V, controllo righe",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #158 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#158|Ctrl\\+A|tutto blu",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIncolla il codice in Apps Script.\nPoi premi Esegui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nClicca dentro il codice, premi Ctrl+A (tutto blu), poi Ctrl+V e controlla il numero di righe.\nPoi premi Esegui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "errore": "#4",
+ "titolo": "In docs/ le versioni già usate in classe non si cancellano",
+ "categoria": "V",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di 01/10-13 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook limite-comandi.py (cancellare una versione in docs/)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "Non si cancella una versione|#4|01/10",
+   "sbagliato": {
+    "cmd": "rm docs/1inf/dispensa-v1.0.pdf"
+   },
+   "giusto": {
+    "cmd": "cp classe-1/x/dispensa-v1.1.pdf docs/1inf/"
+   }
+  }
+ ]
+}

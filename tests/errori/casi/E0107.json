@@ -1,0 +1,28 @@
+{
+ "errore": "#107",
+ "titolo": "Un solo annuncio e un solo compito al giorno per classe",
+ "categoria": "P",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #107 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "audit_regole.py c_annunci (passo notturno B)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "annunci",
+   "sbagliato": {
+    "funzione": "c_annunci",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-23_a.json": "{\"stato\": \"eseguito\", \"azioni\": [{\"tipo\": \"classroom.annuncio\", \"classe\": \"1INF\"}, {\"tipo\": \"classroom.annuncio\", \"classe\": \"1INF\"}]}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_annunci",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-23_a.json": "{\"stato\": \"eseguito\", \"azioni\": [{\"tipo\": \"classroom.annuncio\", \"classe\": \"1INF\"}]}"
+    }
+   }
+  }
+ ]
+}

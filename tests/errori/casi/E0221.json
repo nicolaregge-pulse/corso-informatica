@@ -1,0 +1,22 @@
+{
+ "errore": "#221",
+ "titolo": "Messaggi lunghi e proposte del quiz con risposta unica",
+ "categoria": "H",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #242 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (ii) avviso messaggio troppo lungo (non blocca)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "R4\\.2|righe e \\d+ parole|Avviso",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Fai il passo numero 1 aprendo la pagina giusta e controllando il risultato.\n2. Fai il passo numero 2 aprendo la pagina giusta e controllando il risultato.\n3. Fai il passo numero 3 aprendo la pagina giusta e controllando il risultato.\n4. Fai il passo numero 4 aprendo la pagina giusta e controllando il risultato.\n5. Fai il passo numero 5 aprendo la pagina giusta e controllando il risultato.\n6. Fai il passo numero 6 aprendo la pagina giusta e controllando il risultato.\n7. Fai il passo numero 7 aprendo la pagina giusta e controllando il risultato.\n8. Fai il passo numero 8 aprendo la pagina giusta e controllando il risultato.\n9. Fai il passo numero 9 aprendo la pagina giusta e controllando il risultato.\n10. Fai il passo numero 10 aprendo la pagina giusta e controllando il risultato.\n11. Fai il passo numero 11 aprendo la pagina giusta e controllando il risultato.\n12. Fai il passo numero 12 aprendo la pagina giusta e controllando il risultato.\n13. Fai il passo numero 13 aprendo la pagina giusta e controllando il risultato.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri la pagina.\n2. Controlla il risultato.\n3. Premi il bottone verde.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

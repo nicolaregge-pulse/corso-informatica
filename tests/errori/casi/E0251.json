@@ -1,0 +1,22 @@
+{
+ "errore": "#251",
+ "titolo": "PPP con codice visibile nelle finestre (10/11)",
+ "categoria": "F",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #251 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: R3.1 e R3.4 (PPP, «aspetta il via») sono regole senza controllo",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "PPP|Annotato|via|in coda|nessun output",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPreparo subito il quiz della 2INF e te lo mostro qui.\nEcco il codice che sto scrivendo adesso nella finestra.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "PPP prepara il quiz della 2INF"
+   },
+   "giusto": {
+    "finale": "Annotato.",
+    "docente": "PPP prepara il quiz della 2INF"
+   }
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "errore": "#129",
+ "titolo": "Quiz e Moduli prima della campanella; mai «arriva tra poco»",
+ "categoria": "P",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #129 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py tra_poco (audit notturno)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Il quiz arriva tra poco.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Il quiz è pronto: premi il bottone verde.</p>"
+   }
+  }
+ ]
+}

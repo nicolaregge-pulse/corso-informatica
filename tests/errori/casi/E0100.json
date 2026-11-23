@@ -1,0 +1,22 @@
+{
+ "errore": "#100",
+ "titolo": "PC senza nome: si chiede subito chi c'è",
+ "categoria": "S",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #100 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#100|chi c'è|chiedi",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nUtente non indicato per il PC 14.\nProseguo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nChi è al PC 14? Non lo vedo nelle presenze.\nProseguo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

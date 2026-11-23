@@ -1,0 +1,21 @@
+{
+ "errore": "#8",
+ "titolo": "Le traduzioni si mostrano solo a chi servono (bangla solo PC 14)",
+ "categoria": "K",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #8 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: la pagina per il PC 14 non si distingue dalla pagina per tutti",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Apri la scheda.</p><p lang='bn'>কার্ড খুলুন</p>"
+   },
+   "giusto": {
+    "percorso": "docs/3inf-rete/index.html",
+    "testo": "<p>Apri la scheda.</p><p lang='bn' data-solo-pc='14'>কার্ড খুলুন</p>"
+   }
+  }
+ ]
+}

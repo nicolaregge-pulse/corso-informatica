@@ -1,0 +1,33 @@
+{
+ "errore": "#331",
+ "titolo": "Dispensa fitta e con note tecniche nel PDF dei ragazzi (13/11)",
+ "categoria": "K",
+ "schema": "9",
+ "origine_input": "ricostruito dalla descrizione di #331 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_pdf_ragazzi.py (note tecniche e pagine fitte)",
+ "prove": [
+  {
+   "canale": "pdf",
+   "atteso": "nota tecnica|fitt",
+   "sbagliato": {
+    "nome": "dispensa-ora-2.pdf",
+    "pagine": [
+     [
+      "Versione 1.2 del 13/11/2026",
+      "Generato da Claude per il docente",
+      "Apri il programma."
+     ]
+    ]
+   },
+   "giusto": {
+    "nome": "dispensa-ora-2.pdf",
+    "pagine": [
+     [
+      "Apri il programma.",
+      "Premi il bottone."
+     ]
+    ]
+   }
+  }
+ ]
+}

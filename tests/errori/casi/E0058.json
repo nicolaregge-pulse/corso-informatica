@@ -1,0 +1,28 @@
+{
+ "errore": "#58",
+ "titolo": "Comandi eseguiti archiviati; dopo un comando controllo entro 2 minuti",
+ "categoria": "P",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #58 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "audit_regole.py c_comandi (passo notturno B)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "non archiviato",
+   "sbagliato": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-10_x.json": "{\"stato\": \"eseguito\", \"eseguito_il\": \"2026-11-10T08:00:00+01:00\", \"azioni\": []}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/archivio/2026-11-10_x.json": "{\"stato\": \"eseguito\", \"eseguito_il\": \"2026-11-10T08:00:00+01:00\", \"azioni\": []}"
+    }
+   }
+  }
+ ]
+}

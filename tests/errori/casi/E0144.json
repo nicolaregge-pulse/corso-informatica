@@ -1,0 +1,27 @@
+{
+ "errore": "#144",
+ "titolo": "Dopo la pubblicazione il piano mostra solo la proposta fatta, senza bottoni",
+ "categoria": "P",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #144 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py --fine-giornata (piano senza «pubblicata»)",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "il piano non dice quando",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n"
+    }
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 08-09, 2INF, Laboratorio professionale: FIRMATA il 16/11/2026 alle 08:20; argomento «Reti».\n",
+     "docs/cruscotto/piano/2inf-2026-11-16.json": "{\"pubblicata\": \"07:50\"}"
+    }
+   }
+  }
+ ]
+}

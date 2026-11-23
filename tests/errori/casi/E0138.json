@@ -1,0 +1,22 @@
+{
+ "errore": "#138",
+ "titolo": "Copia e incolla: un Ctrl+V usa l'ultima cosa copiata",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #50 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (a) ordine copia/incolla",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "copia/incolla|#50|#138",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri la pagina del codice di lo script v8.4 e premi Ctrl+A e Ctrl+C.\n2. Copia questo indirizzo:\n```\nhttps://example.invalid/script\n```\n3. Apri Apps Script e premi Ctrl+V.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri Apps Script e incolla questo indirizzo con Ctrl+V:\n```\nhttps://example.invalid/script\n```\nPoi apri la pagina del codice di lo script v8.4, premi Ctrl+A e Ctrl+C. Torna su Apps Script e premi Ctrl+V.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

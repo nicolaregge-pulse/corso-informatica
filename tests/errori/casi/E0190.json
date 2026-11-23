@@ -1,0 +1,22 @@
+{
+ "errore": "#190",
+ "titolo": "Aspettare «avanti» invece di andare avanti",
+ "categoria": "R",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #190 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (t) «al tuo avanti» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "avanti|dammi|#21|#190",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPreparo tutto e poi resto fermo.\nTe lo consegno al tuo avanti.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "PPP prepara il quiz"
+   },
+   "giusto": {
+    "finale": "Annotato.",
+    "docente": "PPP prepara il quiz"
+   }
+  }
+ ]
+}

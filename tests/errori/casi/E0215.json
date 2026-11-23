@@ -1,0 +1,22 @@
+{
+ "errore": "#215",
+ "titolo": "Messaggi al docente scritti in inglese",
+ "categoria": "H",
+ "schema": null,
+ "origine_input": "ricostruito dalla descrizione di #215 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "inglese|English|#215|italiano",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nI have updated the dashboard and all the reports are ready for tomorrow lesson.\nPlease check the files.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo aggiornato il cruscotto e i report sono pronti per domani.\nControlla i file.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

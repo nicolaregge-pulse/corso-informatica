@@ -1,0 +1,22 @@
+{
+ "errore": "02/10-2",
+ "titolo": "Ogni passo che apre un sito parte da un link in una casella da copiare",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di 02/10-2 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "casella|riquadro|link in",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri il sito https://example.invalid/form e clicca Invia.\nPoi torna qui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri questo sito, copia il link qui sotto:\n```\nhttps://example.invalid/form\n```\nPoi clicca Invia.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

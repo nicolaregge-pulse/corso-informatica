@@ -1,0 +1,21 @@
+{
+ "errore": "#44",
+ "titolo": "In laboratorio tutto al computer: niente foto né telefono",
+ "categoria": "K",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #44 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py foto_telefono (audit notturno)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Fai una foto al foglio e consegnala.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<p>Scrivi il risultato nel Documento e consegnalo.</p>"
+   }
+  }
+ ]
+}

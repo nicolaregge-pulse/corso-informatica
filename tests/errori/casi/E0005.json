@@ -1,0 +1,22 @@
+{
+ "errore": "#5",
+ "titolo": "Dalla miniatura Veyon solo «sulla pagina X alle HH:MM», mai «non ha fatto niente»",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #16 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (r) è stato tolto il 04/11/2026; (hh) copre solo «non ha consegnato»",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#5|non ha fatto niente|Veyon",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nDallo screenshot Veyon: il PC 12 non ha fatto niente.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl PC 12 mostra la pagina del compito alle {{ORA-1}} (miniatura Veyon): non so altro.\nProcedo con gli altri.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

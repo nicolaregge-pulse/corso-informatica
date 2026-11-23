@@ -1,0 +1,28 @@
+{
+ "errore": "#343",
+ "titolo": "Orario di firma letto male dallo screenshot, 08:15 invece di 09:41 (16/11)",
+ "categoria": "D",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #343 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlla_controlli.py firme_sospette",
+ "prove": [
+  {
+   "canale": "fine_giornata",
+   "atteso": "errore di lettura|#343",
+   "sbagliato": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 10-11, 2INF, Sicurezza: FIRMATA il 16/11/2026 alle 08:15.\n"
+    },
+    "funzione": "firme_sospette"
+   },
+   "giusto": {
+    "giorno": "2026-11-16",
+    "files": {
+     "FIRME-REGISTRO-2026-27.md": "## 02 Lunedì 16/11/2026\n\n1. Ora 10-11, 2INF, Sicurezza: FIRMATA il 16/11/2026 alle 09:41.\n"
+    },
+    "funzione": "firme_sospette"
+   }
+  }
+ ]
+}

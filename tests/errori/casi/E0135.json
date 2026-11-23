@@ -1,0 +1,22 @@
+{
+ "errore": "#135",
+ "titolo": "«A posto» solo dopo una compilazione riuscita",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLazarus sul PC 32 è a posto.\nPuò continuare l'esercizio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLazarus 4.8 sul PC 32 compila Hello World alle {{ORA}} (riga «compilazione riuscita»).\nPuò continuare.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

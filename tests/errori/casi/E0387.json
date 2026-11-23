@@ -1,0 +1,22 @@
+{
+ "errore": "#387",
+ "titolo": "Testi dei post incoerenti con gli allegati e con la data (20/11)",
+ "categoria": "K",
+ "schema": "2",
+ "origine_input": "ricostruito dalla descrizione di #387 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py problemi_post (#387)",
+ "prove": [
+  {
+   "canale": "post",
+   "sbagliato": {
+    "titolo": "_G Ora 2: domani il quiz",
+    "oggetto": "Buongiorno. Domani il quiz."
+   },
+   "giusto": {
+    "titolo": "G Ora 2: il quiz",
+    "oggetto": "Buongiorno. Seguirà il quiz.",
+    "ora": 2
+   }
+  }
+ ]
+}

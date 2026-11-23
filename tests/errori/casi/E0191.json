@@ -1,0 +1,29 @@
+{
+ "errore": "#191",
+ "titolo": "«Pubblicate» detto per la pagina 4TI senza la verifica della classe",
+ "categoria": "Q",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #105 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (d) pubblicato senza verifica_lezione.py VERDE",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Pubblicazione non verificata",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 4TI è pubblicata: pagina e compito online.\nLa verifica non l'ho ancora lanciata.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nLa 4TI è pubblicata: pagina e compito online.\nVerifica VERDE delle {{ORA}}.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "verifiche": [
+     {
+      "classe": "4TI",
+      "esito": "VERDE",
+      "minuti_fa": 2
+     }
+    ]
+   }
+  }
+ ]
+}

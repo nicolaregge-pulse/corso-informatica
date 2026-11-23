@@ -1,0 +1,21 @@
+{
+ "errore": "#62",
+ "titolo": "Ai ragazzi una azione per frase; la consegna è UN bottone",
+ "categoria": "K",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #62 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_pagine.py copia_incolla_modulo (audit notturno)",
+ "prove": [
+  {
+   "canale": "pagina",
+   "sbagliato": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<a href='https://docs.google.com/forms/d/x/viewform'>Apri il Modulo</a><p>Copia il risultato e incollalo nel Modulo.</p>"
+   },
+   "giusto": {
+    "percorso": "docs/1inf/index.html",
+    "testo": "<button onclick='consegna()'>CONSEGNA</button><script>function consegna(){}</script>"
+   }
+  }
+ ]
+}

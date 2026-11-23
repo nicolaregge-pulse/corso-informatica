@@ -1,0 +1,27 @@
+{
+ "errore": "#389",
+ "titolo": "Cruscotto senza dati di oggi e non in tempo reale (20/11)",
+ "categoria": "C",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #389 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py cruscotto_senza_dati_di_oggi (e controlla_controlli.py)",
+ "prove": [
+  {
+   "canale": "cruscotto",
+   "sbagliato": {
+    "classe": "1INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/1inf/live.json": "{\"letto_il\": \"2026-11-19T10:30:00+01:00\"}"
+    }
+   },
+   "giusto": {
+    "classe": "1INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/1inf/live.json": "{\"letto_il\": \"2026-11-23T10:05:00+01:00\"}"
+    }
+   }
+  }
+ ]
+}

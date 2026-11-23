@@ -1,0 +1,22 @@
+{
+ "errore": "#188",
+ "titolo": "Sblocco di un'ora con l'id sbagliato e «sbloccata» dichiarato senza verifica",
+ "categoria": "Q",
+ "schema": null,
+ "origine_input": "stesso tipo di input di #39 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "nessuno: il controllo (c) «fatto/a posto/risolto senza prova» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "senza prova|«fatto»|#63|#115|#127|#135|#39|#104",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nL'ora 3 è sbloccata.\nI ragazzi possono aprirla.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nconfig.json letto alle {{ORA}}: ore_sbloccate = [1, 2, 3], PUBBLICATO.\nI ragazzi possono aprire l'ora 3.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

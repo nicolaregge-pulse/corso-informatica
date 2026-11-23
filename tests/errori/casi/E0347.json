@@ -1,0 +1,20 @@
+{
+ "errore": "#347",
+ "titolo": "Istruzioni per i ragazzi lunghe o non chiare, informazioni mancanti (16/11)",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "stesso tipo di input di #328 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "controlla_leggibilita.py (frasi oltre 25 parole: a mano, non bloccante)",
+ "prove": [
+  {
+   "canale": "leggibilita",
+   "atteso": "LUNGA",
+   "sbagliato": {
+    "testo": "# Dispensa\n\n**Versione 1.0**\n\nQuando apri il programma di scrittura che hai sul computer devi controllare con molta attenzione che il documento che stai per salvare abbia il nome giusto e che il percorso della cartella scelta sia quello che ti ha indicato il tuo insegnante all'inizio della lezione di oggi.\n"
+   },
+   "giusto": {
+    "testo": "# Dispensa\n\n**Versione 1.0**\n\nApri il programma. Scrivi il nome del file. Premi Salva.\n"
+   }
+  }
+ ]
+}

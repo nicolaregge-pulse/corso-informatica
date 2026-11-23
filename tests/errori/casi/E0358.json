@@ -1,0 +1,22 @@
+{
+ "errore": "#358",
+ "titolo": "Repo `mio-sito` attribuito a un allievo senza prova (18/11)",
+ "categoria": "S",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #358 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#358|autore|prova|git log",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nIl repository mio-sito è di ROSSI.\nLo scrivo nel registro.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nDal git log (letto alle {{ORA}}) l'autore dei commit di mio-sito è ROSSI.\nLo scrivo nel registro.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

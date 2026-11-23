@@ -1,0 +1,28 @@
+{
+ "errore": "#114",
+ "titolo": "Un comando del ponte = poche azioni e un salvataggio; controllo entro 5 minuti",
+ "categoria": "P",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #114 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "audit_regole.py c_comandi (passo notturno B)",
+ "prove": [
+  {
+   "canale": "audit_regole",
+   "atteso": "drive\\.esporta|salvataggio",
+   "sbagliato": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-23_x.json": "{\"stato\": \"eseguito\", \"eseguito_il\": \"2026-11-23T08:00:00+01:00\", \"azioni\": [{\"tipo\": \"drive.esporta\"}, {\"tipo\": \"drive.esporta\"}, {\"tipo\": \"drive.esporta\"}, {\"tipo\": \"drive.esporta\"}, {\"tipo\": \"drive.esporta\"}]}"
+    }
+   },
+   "giusto": {
+    "funzione": "c_comandi",
+    "giorno": "2026-11-23",
+    "files": {
+     "ris:comandi/2026-11-23_x.json": "{\"stato\": \"eseguito\", \"eseguito_il\": \"2026-11-23T08:00:00+01:00\", \"azioni\": [{\"tipo\": \"drive.esporta\"}]}"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#23",
+ "titolo": "Materia del voto dall'argomento; voto minimo 40",
+ "categoria": "D",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #23 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (g) «voti sotto 40» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "sotto 40|voto minimo|Disciplina|#23",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nEcco la stringa dei voti per DIDAweb, ora 3:\n```\nh 3; ROSSI 35; BIANCHI 70\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n**Disciplina da scegliere: LABORATORIO PROFESSIONALE**\nEcco la stringa dei voti per DIDAweb, ora 3:\n```\nh 3; ROSSI 60; BIANCHI 70\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "errore": "#132",
+ "titolo": "Comandi di una riga, risultati lunghi in un file",
+ "categoria": "H",
+ "schema": "5",
+ "origine_input": "ricostruito dalla descrizione di #132 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook limite-comandi.py (massimo 8 comandi e 600 caratteri nella sessione principale)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "600 caratteri|#132",
+   "sbagliato": {
+    "cmd": "echo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "principale": true
+   },
+   "giusto": {
+    "cmd": "echo ok",
+    "principale": true
+   }
+  },
+  {
+   "canale": "comando",
+   "atteso": "Più di 8 comandi|#132",
+   "sbagliato": {
+    "cmd": "ls",
+    "principale": true,
+    "precedenti": 8
+   },
+   "giusto": {
+    "cmd": "ls",
+    "principale": true,
+    "precedenti": 2
+   }
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "errore": "#350",
+ "titolo": "Modalità già decise cambiate (voti DIDAweb), codice non in fondo (17/11)",
+ "categoria": "R",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #248 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (jj) avviso codice non in fondo (non blocca)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "codice non in fondo|R4 3ter",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nEcco il codice da incollare:\n```\nfunction ciao() { return 1; }\n```\n1. Apri Apps Script.\n2. Incolla il codice.\n3. Premi Esegui.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n1. Apri Apps Script.\n2. Incolla il codice qui sotto.\n3. Premi Esegui.\n```\nfunction ciao() { return 1; }\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

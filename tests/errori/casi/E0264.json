@@ -1,0 +1,45 @@
+{
+ "errore": "#264",
+ "titolo": "Cruscotto dato come file e non come URL (10/11)",
+ "categoria": "C",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #264 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: (ll) segnala il formato, non il fatto che un cruscotto va dato come indirizzo",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "cruscott|URL|indirizzo",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "dammi il cruscotto della 1INF",
+      "blocchi": [
+       [
+        "T",
+        "Ecco il cruscotto della 1INF.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 CRUSCOTTO ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/cruscotti/1inf.html"
+         ]
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nCruscotto della 1INF, account PERSONALE:\nhttps://nicolaregge-pulse.github.io/corso-informatica/1inf/\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "dammi il cruscotto della 1INF",
+    "pubblicato": true
+   }
+  }
+ ]
+}

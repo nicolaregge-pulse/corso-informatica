@@ -1,0 +1,22 @@
+{
+ "errore": "#46",
+ "titolo": "Il testo da scrivere è già nel messaggio, in un riquadro",
+ "categoria": "H",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #46 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "riquadro|casella da copiare|#46",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nScrivi nella cella B2 la parola Presenti e premi Invio.\nPoi passa alla cella B3.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nScrivi nella cella B2 questo testo e premi Invio:\n```\nPresenti\n```\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

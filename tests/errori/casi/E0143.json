@@ -1,0 +1,75 @@
+{
+ "errore": "#143",
+ "titolo": "Al massimo 2 aiutanti accesi insieme",
+ "categoria": "R",
+ "schema": "6",
+ "origine_input": "ricostruito dalla descrizione di #143 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: il controllo (bb) «più di 2 aiutanti» è stato tolto il 04/11/2026",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#143|aiutant|agenti",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "prepara tutto",
+      "blocchi": [
+       [
+        "U",
+        "Agent",
+        {
+         "description": "a"
+        }
+       ],
+       [
+        "U",
+        "Agent",
+        {
+         "description": "b"
+        }
+       ],
+       [
+        "U",
+        "Agent",
+        {
+         "description": "c"
+        }
+       ],
+       [
+        "T",
+        "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo avviato tre agenti in parallelo.\nTi aggiorno.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "prepara tutto",
+      "blocchi": [
+       [
+        "U",
+        "Agent",
+        {
+         "description": "a"
+        }
+       ],
+       [
+        "U",
+        "Agent",
+        {
+         "description": "b"
+        }
+       ],
+       [
+        "T",
+        "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nHo avviato due agenti.\nTi aggiorno.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

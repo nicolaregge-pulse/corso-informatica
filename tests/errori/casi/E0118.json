@@ -1,0 +1,26 @@
+{
+ "errore": "#118",
+ "titolo": "Dopo ogni modifica: node --check di tutti gli script e prova",
+ "categoria": "R",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #9 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook limite-comandi.py + controlli_pagine.py sintassi (prima del push)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "non si compila|#118|sintassi",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "docs/2inf-prova/index.html": "<p>ok</p><script>var a = 'l'account';</script>"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "docs/2inf-prova/index.html": "<p>ok</p><script>var a = 'account';</script>"
+    }
+   }
+  }
+ ]
+}

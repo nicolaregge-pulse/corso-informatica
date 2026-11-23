@@ -1,0 +1,26 @@
+{
+ "errore": "#319",
+ "titolo": "Cognome in un file di fabbrica/ pushato: il controllo guardava solo docs/ (12/11)",
+ "categoria": "X",
+ "schema": "1",
+ "origine_input": "stesso tipo di input di #85 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook limite-comandi.py (push del pubblico: contenuto dei file cambiati, controllo_nomi)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "cognome|privacy|nome di un allievo|R1",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "fabbrica/nota.md": "nota di ROSSI Mario\n"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "fabbrica/nota.md": "nota di Mario R.\n"
+    }
+   }
+  }
+ ]
+}

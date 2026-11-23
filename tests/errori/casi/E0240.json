@@ -1,0 +1,27 @@
+{
+ "errore": "#240",
+ "titolo": "Cruscotto 2INF con dati vecchi di circa 2 ore mostrato ai ragazzi (09/11)",
+ "categoria": "C",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #240 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "controlli_consegna.py cruscotto_senza_dati_di_oggi (e controlla_controlli.py)",
+ "prove": [
+  {
+   "canale": "cruscotto",
+   "sbagliato": {
+    "classe": "2INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/2inf/live.json": "{\"letto_il\": \"2026-11-23T07:50:00+01:00\"}"
+    }
+   },
+   "giusto": {
+    "classe": "2INF",
+    "oggi": "2026-11-23",
+    "files": {
+     "docs/2inf/live.json": "{\"letto_il\": \"2026-11-23T10:05:00+01:00\"}"
+    }
+   }
+  }
+ ]
+}

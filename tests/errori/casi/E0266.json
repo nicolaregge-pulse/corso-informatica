@@ -1,0 +1,22 @@
+{
+ "errore": "#266",
+ "titolo": "Passo non riscritto, rimando a messaggi precedenti (10/11)",
+ "categoria": "H",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #266 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "riquadri? di prima|messaggi? precedent|#31|#266",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nFai come nel messaggio di prima, passo 3.\nPoi premi Invio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\n3. Apri Apps Script.\nPoi premi Invio.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

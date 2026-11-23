@@ -1,0 +1,29 @@
+{
+ "errore": "#128",
+ "titolo": "«Tutto a posto» solo dopo le tre prove",
+ "categoria": "Q",
+ "schema": "2",
+ "origine_input": "stesso tipo di input di #105 (errore ripetuto o della stessa famiglia), con il suo caso specifico",
+ "controllo_atteso": "hook controllo-messaggio.py (d) pubblicato senza verifica_lezione.py VERDE",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Pubblicazione non verificata",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPer la 1INF è tutto a posto: i ragazzi possono cominciare.\nLa verifica non l'ho ancora lanciata.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPer la 1INF è tutto a posto: i ragazzi possono cominciare.\nVerifica VERDE delle {{ORA}}.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "verifiche": [
+     {
+      "classe": "1INF",
+      "esito": "VERDE",
+      "minuti_fa": 2
+     }
+    ]
+   }
+  }
+ ]
+}

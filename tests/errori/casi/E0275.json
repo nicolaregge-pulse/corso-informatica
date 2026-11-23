@@ -1,0 +1,22 @@
+{
+ "errore": "#275",
+ "titolo": "Strumento garantito senza prova, chiedeva l'amministratore (11/11)",
+ "categoria": "Q",
+ "schema": "7",
+ "origine_input": "ricostruito dalla descrizione di #275 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "nessuno: nessun controllo sul testo (regola tolta dall'hook il 04/11/2026 o mai costruita)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "#275|garantit|non provato",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nCon il Blocco note funziona senza amministratore: garantito.\nUsatelo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nBlocco note aperto dal PC 12 alle {{ORA}} senza password amministratore: funziona (provato).\nUsatelo.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok"
+   }
+  }
+ ]
+}

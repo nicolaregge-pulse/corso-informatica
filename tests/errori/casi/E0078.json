@@ -1,0 +1,24 @@
+{
+ "errore": "#78",
+ "titolo": "Lezione pronta e provata prima; percorso dall'alto in basso; pubblicata 3 minuti prima del link",
+ "categoria": "P",
+ "schema": "4",
+ "origine_input": "ricostruito dalla descrizione di #78 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py (e) link senza PUBBLICATO",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Link al sito",
+   "sbagliato": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pub_sporco": false
+   },
+   "giusto": {
+    "finale": "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nApri la pagina: https://nicolaregge-pulse.github.io/corso-informatica/1inf/\nSi vede la versione nuova.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩",
+    "docente": "ok",
+    "pubblicato": true
+   }
+  }
+ ]
+}

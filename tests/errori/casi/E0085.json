@@ -1,0 +1,26 @@
+{
+ "errore": "#85",
+ "titolo": "Nomi e voti in docs/ solo cifrati",
+ "categoria": "X",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #85 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
+ "controllo_atteso": "hook limite-comandi.py (push del pubblico: contenuto dei file cambiati, controllo_nomi)",
+ "prove": [
+  {
+   "canale": "comando",
+   "atteso": "cognome|privacy|nome di un allievo|R1",
+   "sbagliato": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "docs/1inf/elenco.md": "ROSSI Mario ha consegnato il quiz.\n"
+    }
+   },
+   "giusto": {
+    "cmd": "git push origin HEAD:main",
+    "files": {
+     "docs/1inf/elenco.md": "Mario R. ha consegnato il quiz.\n"
+    }
+   }
+  }
+ ]
+}
