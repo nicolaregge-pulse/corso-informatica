@@ -1,6 +1,6 @@
 # 00 Come si aggiorna l'Allegato A senza pasticci
 
-**Versione 1.3** — 18/11/2026 — Area Docente (v1.3: i colori sono quelli veri dello script `aggiorna_allegati.py`: giallo e bianco; la v1.2 diceva rosa e verde; audit del 18/11, residuo 03.6; lo script non è cambiato). Il modo per modificare l'Allegato A in due (o in tanti) senza cancellare il lavoro degli altri.
+**Versione 1.4** — 23/11/2026 — Area Docente (v1.4: nuovo strumento `evidenzia_da_traccia.py` per l'evidenziazione dallo stato fatto/da fare della TRACCIA; primo uso il 23/11/2026, ordine del docente; prima v1.3: i colori sono quelli veri dello script `aggiorna_allegati.py`: giallo e bianco; la v1.2 diceva rosa e verde; audit del 18/11, residuo 03.6; lo script non è cambiato). Il modo per modificare l'Allegato A in due (o in tanti) senza cancellare il lavoro degli altri.
 
 ## 01 L'idea
 
@@ -14,7 +14,13 @@
    3. **verde** = la parte di Regge degli anni scorsi, già consegnata (righe degli anni precedenti); l'etichetta di un altro docente che fosse in verde torna senza colore;
    4. il giallo o il bianco già presenti nelle parti degli altri docenti non si toccano.
 6. **Differenza con la v1.2 (che diceva rosa e verde):** il **rosa** non lo scrive più nessuno e non significa più «previsto»: era il colore del blocco 2026/27 nei file preparati prima del 14/10 sera. Oggi il previsto è giallo e il rosa compare solo nei vecchi file derivati (per esempio `…Docente_v1.0.docx` e `…_Regge.docx` del 14/10 in `consegna/`), che restano storici. Lo script riconosce ancora un vecchio blocco rosa o verde per poterlo sostituire. Il **verde** resta, ma solo per gli anni scorsi, non più per tutta la parte di Regge.
-7. Come si toglie l'evidenziatura a una voce svolta: non si toglie a mano nel Word. La voce si scrive in `svolto-2026-27.json` (solo voci già presenti nell'Allegato A di quella classe, R5.2; non se ne aggiungono) e si rilancia lo script sul file più recente della scuola: la voce torna bianca. Lo script non ha un'opzione «togli»: rimette ogni volta tutto il blocco di Regge, giallo per il previsto e bianco per lo svolto.
+8. **Dal 23/11/2026 l'evidenziazione si fa dalla TRACCIA** (`strumenti/argomenti_allegato_a.py`, stato nel riservato `dati/allegato-a-traccia/stato-traccia.json`), con `programmi-ufficiali/_build/evidenzia_da_traccia.py`:
+   1. FATTA = bianco; DA FARE (anche se solo in parte) = giallo; modulo e «Regge» bianchi solo se tutto il loro contenuto è FATTO;
+   2. le voci in «Da chiedere al docente» e quelle di Sicurezza lasciate «da decidere» il 18/11 restano COME SONO (R7.6);
+   3. cambia solo il colore: lo strumento controlla che il testo sia identico e che fuori dal blocco di Regge i colori siano identici; non aggiunge né toglie voci (R5.2); scrive un file nuovo in `consegna/` e non sovrascrive mai (R11);
+   4. **non lanciare `aggiorna_allegati.py` dopo questo strumento**: rimette il blocco di Regge con `svolto-2026-27.json`, che è più indietro della traccia, e farebbe tornare gialle le voci fatte. Quando il docente risponde alle domande della traccia si usa di nuovo `evidenzia_da_traccia.py` sul file più recente della scuola;
+   5. la 4TI: il Word della scuola è stato cambiato dal docente il 02/11 e il 18/11 (Comp. 15 e 16, «Etica professionale»), la traccia della 4TI viene dal 14/10 e dall'aggiornamento del 18/11: il file 4TI del 23/11 è fatto sul Word del 02/11 e NON va caricato; va rifatto sul file attuale della scuola.
+7. Come si toglie l'evidenziatura a una voce svolta (fino al 18/11, con `aggiorna_allegati.py`): non si toglie a mano nel Word. La voce si scrive in `svolto-2026-27.json` (solo voci già presenti nell'Allegato A di quella classe, R5.2; non se ne aggiungono) e si rilancia lo script sul file più recente della scuola: la voce torna bianca. Lo script non ha un'opzione «togli»: rimette ogni volta tutto il blocco di Regge, giallo per il previsto e bianco per lo svolto.
 
 ## 02 I passi di Nicola
 
@@ -41,6 +47,7 @@
 > **Nota:** script `programmi-ufficiali/_build/aggiorna_allegati.py`; file pronti in `programmi-ufficiali/2026-27/consegna/` con data e ora nel nome; memoria dell'ultima volta in `programmi-ufficiali/2026-27/registro-allegati.json`. Provato il 14/10 con un collega che aggiunge una riga (segnalata) e con una modifica a mano del verde (fermato).
 
 ## 04 Registro delle versioni
+5. **v1.4 (23/11/2026)**: punto 01.8, evidenziazione dalla traccia con `evidenzia_da_traccia.py` (nuovo, v1.0), avvertenza sul non rilanciare `aggiorna_allegati.py`, caso 4TI; file prodotti `consegna/20261123-0849_Allegato-A-<classe>-2026-27_Regge*.docx`; resoconto per classe in `report/2026-11-23/ALLEGATO-A-EVIDENZIAZIONE-v1.0.md` (riservato). Il documento v1.3 resta com'è.
 4. **v1.3 (18/11/2026)**: colori descritti come li usa lo script (giallo = previsto, bianco = svolto, verde = anni scorsi), differenza con rosa/verde della v1.2 (punti 01.5 e 01.6), come si toglie l'evidenziatura (01.7), punti 03.2 e 03.3 allineati; script non cambiato. Audit del 18/11, residuo 03.6.
 3. **v1.2 (14/10/2026)**: consolidata: un solo script (`aggiorna_allegati.py` con `allegati_comune.py`), colori rosa/verde/giallo, file v1.0.
 2. **v1.1 (14/10/2026)**: controllo dell'ora dell'ultima modifica prima di ricaricare e controllo finale dopo («TUTTO A POSTO»).
