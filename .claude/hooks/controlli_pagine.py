@@ -6,6 +6,10 @@ Li usano:
    lingue, link alla Regione, nomi in chiaro, sintassi degli script);
 2. generatori/audit_regole.py del riservato, nell'attività notturna (tutti i controlli).
 
+v1.1 (23/11/2026): controlli nuovi quiz_sul_sito, carta_e_penna, copia_file_da_classroom, senza_a_che_serve, campi_ripetuti,
+ruoli_non_richiesti (errori #178 #263 #227 #280 #362 #211); i primi due che non hanno pagine vecchie fuori regola (quiz_sul_sito e
+copia_file_da_classroom) sono anche in SICURI, gli altri solo nell'audit notturno (TUTTI).
+
 Ogni funzione riceve il percorso relativo (es. docs/2inf-oggi/index.html) e il testo e
 restituisce una lista di problemi (stringhe corte). Non solleva mai eccezioni verso
 chi la chiama: un controllo che si rompe non segnala niente.
@@ -278,8 +282,99 @@ def pc_a_menu(percorso, testo):
     return []
 
 
-SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo, alza_la_mano, pc_a_menu)
-TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo, alza_la_mano, pc_a_menu)
+# ---- Controlli rimessi o nuovi del 23/11/2026 (banco di prova degli errori; ordine del docente)
+def _html_ragazzi(percorso):
+    return percorso.endswith((".html", ".js")) and not pagina_docente(percorso)
+
+
+def quiz_sul_sito(percorso, testo):
+    """#178 #173 (R9.7): i quiz sono sempre su Moduli Google; la copia sul sito è solo ripasso, senza un invio proprio."""
+    if not _html_ragazzi(percorso) or RX_MODULO.search(testo) or re.search(r"ripasso", testo, re.I):
+        return []
+    if re.search(r"quiz", testo, re.I) and (re.search(r"<form\b", testo, re.I) or re.search(r"<button[^>]*>[^<]*invia", testo, re.I)) \
+            and re.search(r"fetch\(|XMLHttpRequest|onsubmit|\.submit\(", testo):
+        return ["%s: quiz con un invio proprio sul sito, senza il Modulo Google (#178 #173, R9.7): i quiz sono su Moduli; sul sito "
+                "solo la copia di ripasso" % percorso]
+    return []
+
+
+RX_CARTA = re.compile(r"\bstamp(?:a|are|ala|alo|ate|ato|ata)\s+(?:la|le|il|i|lo|gli)\s+(?:scheda|schede|foglio|fogli|pagina|pagine|dispensa|esercizio)\b|"
+                      r"\bpenna\b|\bfoglio\s+di\s+carta\b|\bcarta\s+e\s+penna\b|\bstampa\s+e\s+(?:scrivi|compila)\b", re.I)
+
+
+def carta_e_penna(percorso, testo):
+    """#263 (R9.9): niente carta e penna; per la 1INF c'è solo la riga «Ricopia sul quaderno»."""
+    if not _html_ragazzi(percorso):
+        return []
+    t = re.sub(r"<(script|style)\b.*?</\1\s*>", " ", testo, flags=re.I | re.S)
+    m = RX_CARTA.search(re.sub(r"<[^>]+>", " ", t))
+    if m:
+        return ["%s: carta e penna («%s») (#263, R9.9): le schede non si stampano e non si scrive a penna; solo browser e Blocco note"
+                % (percorso, m.group(0))]
+    return []
+
+
+def copia_file_da_classroom(percorso, testo):
+    """#227 (R9.5): un passo che dice di copiare un singolo file da Classroom nella cartella del progetto: serve un bottone o uno zip."""
+    if not _html_ragazzi(percorso):
+        return []
+    t = re.sub(r"<[^>]+>", " ", testo)
+    m = re.search(r"\bcopi\w+\b[^\n]{0,100}?\.(?:lfm|pas|pdf|docx|zip)\b[^\n]{0,60}?\bda\s+Classroom\b|"
+                  r"\bscaric\w+\b[^\n]{0,70}?\.(?:lfm|pas)\b[^\n]{0,50}?\bClassroom\b", t, re.I)
+    if m:
+        return ["%s: passo che copia un file da Classroom (#227, R9.5): «%s». Un bottone unico o un solo zip da estrarre"
+                % (percorso, re.sub(r"\s+", " ", m.group(0))[:80])]
+    return []
+
+
+def senza_a_che_serve(percorso, testo):
+    """#280: ogni pannello ha una riga «A che serve:»."""
+    if not _html_ragazzi(percorso):
+        return []
+    out = []
+    for m in re.finditer(r"<(section|div)\b[^>]*\b(?:id|class)=[\"']pannello[\w-]*[\"'][^>]*>", testo, re.I):
+        resto = testo[m.end():m.end() + 2500]
+        fine = re.search(r"<(?:section|div)\b[^>]*\b(?:id|class)=[\"']pannello", resto, re.I)
+        corpo = resto[:fine.start()] if fine else resto
+        if not re.search(r"a\s+che\s+serve\s*:", corpo, re.I):
+            out.append("%s: pannello o scheda senza «A che serve:» (riga %d) (#280)" % (percorso, _riga(testo, m.start())))
+            break
+    return out
+
+
+def campi_ripetuti(percorso, testo):
+    """#362: un campo da riempire (etichetta e linea) compare una volta sola; nella 1INF le tre lingue stanno sulla stessa riga,
+    mai una casella per lingua. Segnala le linee di riempimento in arabo o cinese e le etichette ripetute."""
+    if not _html_ragazzi(percorso):
+        return []
+    t = re.sub(r"<[^>]+>", "\n", testo)
+    campi = re.findall(r"^([^\n:]{2,40}):\s*(?:_{3,}|\.{4,}|…{2,})", t, re.M)
+    if not campi:
+        return []
+    non_it = [c for c in campi if RX_NON_ITALIANO.search(c)]
+    ripetuti = sorted({c for c in campi if campi.count(c) > 1})
+    if non_it:
+        return ["%s: campo da riempire ripetuto nelle tre lingue, una casella per lingua (#362): una casella sola per campo, le "
+                "tre lingue sulla stessa riga" % percorso]
+    if ripetuti:
+        return ["%s: campo da riempire ripetuto (%s) (#362)" % (percorso, ripetuti[0])]
+    return []
+
+
+def ruoli_non_richiesti(percorso, testo):
+    """#211: i ruoli «MANI» e «OCCHI» non li ha chiesti il docente."""
+    if not _html_ragazzi(percorso):
+        return []
+    t = re.sub(r"<[^>]+>", " ", testo)
+    if re.search(r"\bMANI\b", t) and re.search(r"\bOCCHI\b", t):
+        return ["%s: ruoli «MANI» e «OCCHI» non richiesti dal docente (#211)" % percorso]
+    return []
+
+
+
+SICURI = (lingue, regione, nomi_in_chiaro, sintassi, valore_nudo, alza_la_mano, pc_a_menu, quiz_sul_sito, copia_file_da_classroom)
+TUTTI = (lingue, regione, tra_poco, nomi_in_chiaro, sintassi, copia_incolla_modulo, foto_telefono, valore_nudo, alza_la_mano, pc_a_menu,
+         quiz_sul_sito, carta_e_penna, copia_file_da_classroom, senza_a_che_serve, campi_ripetuti, ruoli_non_richiesti)
 
 
 def controlla(percorso, testo, controlli=SICURI, radice=None):

@@ -4,7 +4,7 @@
  "categoria": "K",
  "schema": null,
  "origine_input": "ricostruito dalla descrizione di #177 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
- "controllo_atteso": "nessuno: alza_la_mano controlla solo le pagine, non il testo dei post Classroom",
+ "controllo_atteso": "controllo-messaggio.py (controlli_ripristinati.alza_la_mano_nel_kit, blocco) sul testo del kit in chat; il post già creato resta senza controllo (controlli_consegna.problemi_post è di un altro agente)",
  "prove": [
   {
    "canale": "post",
@@ -16,6 +16,18 @@
    "giusto": {
     "titolo": "G Ora 2: Reti",
     "oggetto": "Sei bloccato? Scrivi la domanda all'assistente."
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "alza la mano|#177|#171",
+   "sbagliato": {
+    "finale": "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\nTITOLO\n```\nG Ora 2: Reti\n```\nOGGETTO\n```\nSe sei in difficoltà con Lazarus alza la mano: il Professore viene da te.\n```\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥\nTITOLO\n```\nG Ora 2: Reti\n```\nOGGETTO\n```\nSei bloccato? Scrivi la domanda all'assistente.\n```\n🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥",
+    "docente": "ok"
    }
   }
  ]

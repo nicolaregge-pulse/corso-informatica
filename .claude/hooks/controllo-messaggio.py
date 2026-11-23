@@ -28,6 +28,10 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
        fresco la frase giusta è «non risulta consegnato nel dato delle HH:MM (N minuti fa)» o «non provato». (R7.1, R8.4)
 8. (ii) Messaggio troppo lungo (16/11/2026, errori #242, #250, #342; R4.2): più di 10 righe o 160 parole di testo
        fuori dai riquadri di codice. Avviso NON bloccante (systemMessage), vale per ogni messaggio.
+10. Controlli RIMESSI il 23/11/2026 (ordine del docente; v. LEGGIMI-controlli.md capitolo 13, MAPPA-REGOLE-CONTROLLI.md v1.33 sez. 08):
+   libreria controlli_ripristinati.py (BLOCCO per R4, R5, R7: «risolto/a posto/funziona» senza prova, conteggi senza fonte, «non ha
+   caricato» senza ricerca, ?prova=1, rimando a riquadri di prima, firma ricordata se è tutto firmato, più file senza «a che serve»,
+   «alza la mano» nel kit; AVVISO per il resto), controllo_nomi.avviso_nome_solo (#281). Versione del file: v2.1 (23/11/2026).
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indicati solo con il COGNOME, R1.4 e R7.4): sta
@@ -897,6 +901,115 @@ def avviso_codice_non_in_fondo(testo):
             "tutti prima, scritti per intero." % len(passi))
 
 
+# ---------------------------------------------------------------- controlli rimessi il 23/11/2026 (ordine del docente)
+# Libreria controlli_ripristinati.py (testo) + qui i controlli che servono lo stato (firme, trascrizione).
+def _ripristinati():
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "controlli_ripristinati", os.path.join(os.path.dirname(os.path.abspath(__file__)), "controlli_ripristinati.py"))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m
+    except Exception:
+        return None
+
+
+def controllo_firma_ricordata(testo, adesso=None):
+    """R5.1 (ex (m); errori #87 #96): si ricorda la firma solo per le ore che FIRME-REGISTRO non dà come firmate. BLOCCO.
+    Non vale se il messaggio parla di un'altra data (per esempio la firma di ieri ancora da confermare)."""
+    t = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    adesso = adesso or datetime.datetime.now(TZ_ROMA)
+    m = RE_RICORDA_FIRMA.search(t)
+    if not m or not ore_di_oggi_tutte_firmate(adesso):
+        return None
+    oggi = adesso.strftime("%d/%m")
+    for d in re.findall(r"\b(\d{1,2})/(\d{1,2})\b", t):
+        if "%02d/%02d" % (int(d[0]), int(d[1])) != oggi:
+            return None
+    return ("Firma ricordata per ore già firmate (R5.1, errori #87 e #96): «%s». FIRME-REGISTRO-2026-27.md dà tutte le ore di oggi "
+            "come firmate (colonna Firma con data e ora, o «FIRMA ✓» in verde = firmata). Togli il promemoria della firma, o "
+            "scrivi solo per quali ore non risulta firmata." % t[max(0, m.start() - 20):m.end() + 40].replace("\n", " ").strip())
+
+
+def _documenti_turno(ev):
+    return [(i, e) for i, e in enumerate(ev) if e[0] == "tool" and e[1] == "SendUserFile" and documenti_del_comando(e[2])]
+
+
+def controlli_con_trascrizione(testo, data):
+    """Controlli che guardano l'ultimo turno: [(tipo, messaggio)].
+    #373 (R4, BLOCCO): con più file nel turno, ognuno ha prima una frase che dice a che serve.
+    #143 (avviso): al massimo 2 aiutanti accesi insieme (più di 2 strumenti Agent nel turno).
+    #165 (avviso): i dati che il docente deve scrivere vanno in caselle (foglio Google), non in un PDF."""
+    out = []
+    eventi, _chiave = eventi_ultimo_turno(data.get("transcript_path") or "")
+    ev = _allinea_finale(eventi, testo)
+    docs = _documenti_turno(ev)
+    if len(docs) >= 2:
+        senza = []
+        for i, e in docs:
+            prima = ev[i - 1] if i > 0 else None
+            if prima is None or prima[0] != "text":
+                continue  # lo segnala già la cornice blu (R-A)
+            frase = " ".join(r for r in _righe(prima[1]) if not re.search(r"🟦|📄", r))
+            parole = re.findall(r"\w+", frase)
+            if len(parole) < 3 or re.fullmatch(r"\W*(?:ecco(?:li|lo|la)?)\W*", frase.strip(), re.I):
+                senza.append(os.path.basename(documenti_del_comando(e[2])[0]))
+        if senza:
+            out.append(("blocco", "Più file senza dire a che serve ognuno (R4, errore #373): %s. Prima di ogni file scrivi una frase "
+                        "che dice a che serve (per esempio «A serve per l'ora 1»), perché il docente li apre uno per uno e deve "
+                        "capire quale è quale." % ", ".join(senza[:5])))
+    n_agenti = sum(1 for e in ev if e[0] == "tool" and e[1] in ("Agent", "Task"))
+    if n_agenti > 2:
+        out.append(("avviso", "Avviso (non blocca, errore #143): in questo turno hai avviato %d aiutanti (Agent): al massimo 2 accesi "
+                    "insieme; il resto in coda." % n_agenti))
+    docente = testo_ultimo_docente(data.get("transcript_path") or "")
+    if re.search(r"\b(?:griglia|da\s+compilare|compilare)\b", docente, re.I) \
+            and any(f.lower().endswith(".pdf") for _i, e in docs for f in file_del_comando(e[2])) \
+            and not re.search(r"\bpdf\b", docente, re.I):
+        out.append(("avviso", "Avviso (non blocca, errore #165): un dato che il docente deve scrivere (griglia, voti da compilare) "
+                    "va in caselle di un foglio Google, non in un PDF: dai il link del foglio con l'account PIAMARTA."))
+    return out
+
+
+def controlli_rimessi(testo, data):
+    """([motivi che bloccano], [avvisi]) di tutti i controlli rimessi il 23/11/2026."""
+    blocchi, avvisi = [], []
+    t = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    docente = ""
+    try:
+        docente = testo_ultimo_docente(data.get("transcript_path") or "")
+    except Exception:
+        docente = ""
+    lib = _ripristinati()
+    if lib is not None:
+        try:
+            for tipo, msg in lib.esegui(t, testo, docente):
+                (blocchi if tipo == "blocco" else avvisi).append(msg)
+        except Exception:
+            pass
+    try:
+        m = controllo_firma_ricordata(testo)
+        if m:
+            blocchi.append(m)
+    except Exception:
+        pass
+    try:
+        for tipo, msg in controlli_con_trascrizione(testo, data):
+            (blocchi if tipo == "blocco" else avvisi).append(msg)
+    except Exception:
+        pass
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import controllo_nomi
+        soli = controllo_nomi.avviso_nome_solo(t)
+        if soli:
+            avvisi.append("Avviso (non blocca, errore #281, R1.4/R7.4): c'è il solo nome di battesimo di %s. In chat gli allievi si "
+                          "indicano solo con il COGNOME." % ", ".join(soli[:5]))
+    except Exception:
+        pass
+    return blocchi, avvisi
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
@@ -923,14 +1036,22 @@ def main():
             motivi.append(m)
     avviso = None
     try:
+        blocchi_r, avvisi_r = controlli_rimessi(testo, data)
+        motivi.extend(blocchi_r)
+        if avvisi_r:
+            avviso = "\n".join(avvisi_r)
+    except Exception:
+        pass
+    try:
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import controllo_nomi
         trovati = controllo_nomi.avviso_nome_battesimo(senza_citazioni(senza_codice_in_linea(senza_riquadri(testo))))
         if trovati:
-            avviso = ("Avviso (non blocca, R1.4/R7.4, 13/11/2026): c'è il nome di battesimo accanto al cognome di %s. "
-                      "Con il docente gli allievi si indicano solo con il COGNOME." % ", ".join(trovati[:5]))
+            nb = ("Avviso (non blocca, R1.4/R7.4, 13/11/2026): c'è il nome di battesimo accanto al cognome di %s. "
+                  "Con il docente gli allievi si indicano solo con il COGNOME." % ", ".join(trovati[:5]))
+            avviso = (avviso + "\n" + nb) if avviso else nb
     except Exception:
-        avviso = None
+        pass
     try:
         lungo = avviso_lunghezza(testo)
         if lungo:

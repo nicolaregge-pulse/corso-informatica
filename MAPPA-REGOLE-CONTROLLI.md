@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.32** — 23/11/2026 (sezione 07 nuova: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.33** — 23/11/2026 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -102,7 +102,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | 01/10-3 | Voto e giudizio restano nel libro, attribuiti all'AI | 6 | D | A | come 01/10-2 |
 | 01/10-4 | La chiusura segue lo standard completo (anti-plagio, dossier, report, voti /10) | 4 | D | D | procedura rara di fine compito: servirebbe una lista di controllo dentro il generatore di chiusura |
 | 01/10-5 | Prima si capisce l'accordo mancato, poi si agisce | 5 | D | D | comprensione: non si controlla con parole o file |
-| 01/10-6 | Anti-plagio sempre al condizionale, «da verificare» | 2 | D | A | hook controllo-messaggio.py (s), «ha copiato» detto come certo |
+| 01/10-6 | Anti-plagio sempre al condizionale, «da verificare» | 2 | D | A | avviso `controlli_ripristinati.avviso_ha_copiato`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (s), «ha copiato» detto come certo) |
 | 01/10-7 | Nel libro dell'allievo solo ciò che riguarda lui, niente indicazioni per il docente | 6 | D | D | contenuto dei libri: servirebbe un controllo nel generatore di chiusura |
 | 01/10-8 | Le password consegnate restano fisse a ogni rigenerazione | 6 | A | A | rimedio nel codice: password fisse nei generatori |
 | 01/10-9 | Password solo sui libri degli allievi, documenti del docente aperti | 6 | A | A | rimedio nel codice: generatori di chiusura |
@@ -119,7 +119,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | 02/10-6 | In classe si congela ciò che è pubblicato; si corregge solo un errore bloccante | 1 | D | D | bloccare i push in lezione fermerebbe anche le correzioni urgenti |
 | 02/10-7 | Un argomento = una teoria + un compito | 6 | D | D | giudizio didattico |
 | 02/10-8 | Prima di pubblicare si guarda ogni pagina di ogni lingua (render a immagine) | 2 | D | D | servirebbe un controllo automatico dei PDF (titoli orfani, tabelle tagliate) |
-| 02/10-9 | Nelle istruzioni di Classroom solo il link unico della pagina, mai PDF versionati | 6 | D | A | hook limite-comandi.py (versioni non cancellabili) + audit_regole.py (passi notturni 01.1) 01 (link a file che non esistono) |
+| 02/10-9 | Nelle istruzioni di Classroom solo il link unico della pagina, mai PDF versionati | 6 | D | C | regola superata: oggi i PDF dei ragazzi vanno come Allegato del post (kit di `report/2026-11-20/KIT-CLASSROOM-*.md`, formato PDF #388) e li controlla `controlla_kit.py`; il link unico non è più l'unica forma. Fonte: kit del 20/11/2026, CLAUDE.md R2.3 (23/11/2026: era A, controllo (m) tolto il 04/11) |
 | 02/10-10 | Versione in copertina, pagina senza cache, Ctrl+F5 | 6 | D | D | la memoria del browser del docente non si vede da qui |
 | 02/10-11 | Mai agganciare un compito manuale prima che il docente lo crei | 6 | C | C | superata: dal 21/10 i compiti nascono solo dalla coda, in bozza (script v8.2) |
 | 02/10-12 | Non far modificare un compito durante la lezione (sale in cima) | 6 | D | D | consiglio dato in chat: nessuna parola sicura da cercare |
@@ -128,27 +128,27 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | 02/10-15 | Controllo aritmetico automatico degli esempi prima del PDF | 3 | D | D | promesso e mai costruito: servirebbe nel generatore delle dispense |
 | #1 | I testi per Classroom vanno impaginati (una riga per passo) | 5 | D | B | audit_regole.py (passi notturni 01.1) 04 (righe più lunghe di 300 caratteri) |
 | #2 | Titoletti in maiuscolo, numeri, righe vuote tra i blocchi | 5 | D | B | come #1 |
-| #3 | Tutto ciò che il docente segnala va nel registro e in una regola | 1 | D | A | hook controllo-messaggio.py (n) richiesta di registrare un errore senza numero |
+| #3 | Tutto ciò che il docente segnala va nel registro e in una regola | 1 | D | A | avviso `controlli_ripristinati.avviso_con_docente` (registrazione senza il numero #NNN). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (n) richiesta di registrare un errore senza numero) |
 | #4 | In docs/ le versioni già usate in classe non si cancellano | 1 | D | A | hook limite-comandi.py (cancellazione di versioni rifiutata) + audit_regole.py (passi notturni 01.1) 07 |
-| #5 | Dalla miniatura Veyon solo «sulla pagina X alle HH:MM», mai «non ha fatto niente» | 2 | D | A | hook controllo-messaggio.py (r) «non ha iniziato / non ha fatto niente» senza fonte |
+| #5 | Dalla miniatura Veyon solo «sulla pagina X alle HH:MM», mai «non ha fatto niente» | 2 | D | A | BLOCCO `controlli_ripristinati.non_caricato_senza_ricerca` («non ha caricato» / «non ha fatto niente» da Veyon / «ha già» da uno screenshot senza la ricerca). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (r) «non ha iniziato / non ha fatto niente» senza fonte) |
 | #6 | In classe risposte corte: solo testo da incollare e link | 5 | D | A | hook controllo-messaggio.py (q) più di 30 righe nelle ore di lezione |
 | #7 | Quando il lavoro è su GitHub, la consegna la genera Claude | 6 | D | D | scelta di progetto della lezione |
 | #8 | Le traduzioni si mostrano solo a chi servono (bangla solo PC 14) | 1 | D | D | la pagina per PC non si distingue in automatico dalla pagina per tutti |
 | #9 | Dopo ogni modifica a una pagina con script: node --check e prova | 1 | D | A | hook limite-comandi.py (prima del push: sintassi di tutti gli script) + audit_regole.py (passi notturni 01.1) 01 |
 | #10 | La pagina della classe mostra solo il lavoro del giorno | 4 | D | B | passi-notturni.md 02.9 |
-| #11 | La firma non si deduce dal bottone «FIRMA ✓» | 2 | D | A | hook controllo-messaggio.py (m) firma ricordata con FIRME-REGISTRO tutto firmato |
+| #11 | La firma non si deduce dal bottone «FIRMA ✓» | 2 | D | C | R5.1 di CLAUDE.md v2.0 (04/11/2026): «FIRMA ✓» in verde = firmata; la vecchia regola «la firma non si deduce dal bottone» è abrogata. Fonte: CLAUDE.md R5.1, REGOLE-DA-DECIDERE.md (23/11/2026: era A, controllo (m) tolto il 04/11) |
 | #12 | Dopo un rebase i coda/*.json si devono leggere prima del push | 1 | D | A | hook limite-comandi.py (push del riservato fermato con JSON rotti) + audit_regole.py (passi notturni 01.1) 03 |
 | #13 | Un solo compito aperto alla volta su Classroom | 6 | D | B | audit_regole.py (passi notturni 01.1) 04 (un compito per classe al giorno) |
 | #14 | Caricare file su GitHub con Add file → Upload files; dopo una rigenerazione si contano i riquadri | 6 | D | D | scelta di metodo; la rigenerazione è coperta in parte da passi-notturni.md 02.9 |
 | #15 | Mai chiedere di riconoscere un file dall'estensione | 5 | D | D | i nomi di file nelle pagine sono spesso leciti: troppi falsi allarmi |
-| #16 | Mai «non ha caricato» senza la ricerca e il clone | 2 | D | A | hook controllo-messaggio.py (r) |
+| #16 | Mai «non ha caricato» senza la ricerca e il clone | 2 | D | A | BLOCCO `controlli_ripristinati.non_caricato_senza_ricerca` («non ha caricato» / «non ha fatto niente» da Veyon / «ha già» da uno screenshot senza la ricerca). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (r)) |
 | #17 | File grandi divisi prima; dire quali scaricare e quanti | 5 | D | D | l'invio dei file in chat non passa da un hook |
 | #18 | Chiusura dopo l'ultima raccolta; abbinamenti sul cognome intero | 6 | D | D | servirebbe un controllo nei correttori |
 | #19 | Segnalazioni di guasti salvate nel riservato; prima di «mai segnalato» si guarda lì | 2 | D | D | servirebbe un elenco dei guasti letto dall'audit |
 | #20 | Ripubblicando una pagina che si salva da sola, il blocco dati si sostituisce una volta | 1 | D | A | hook limite-comandi.py (sintassi degli script prima del push) |
-| #21 | Se un risultato è stato chiesto, si consegna appena pronto (il PPP non lo ferma) | 1 | D | A | hook controllo-messaggio.py (t) «al tuo avanti» dopo «dammi/fammi» |
+| #21 | Se un risultato è stato chiesto, si consegna appena pronto (il PPP non lo ferma) | 1 | D | A | avviso `controlli_ripristinati.avviso_con_docente` («al tuo avanti» dopo «dammi/fammi»). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (t) «al tuo avanti» dopo «dammi/fammi») |
 | #22 | Prima di una media, ogni colonna è un lavoro diverso | 6 | D | D | servirebbe un controllo nel generatore delle griglie |
-| #23 | Materia del voto dall'argomento; voto minimo 40 | 1 | D | A | hook controllo-messaggio.py (g) voti sotto 40 e Disciplina nella stringa DIDAweb |
+| #23 | Materia del voto dall'argomento; voto minimo 40 | 1 | D | A | avviso `controlli_ripristinati.avviso_didaweb` (Disciplina da scegliere, voti da 40). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (g) voti sotto 40 e Disciplina nella stringa DIDAweb) |
 | #24 | I passaggi che si possono automatizzare si automatizzano subito | 3 | C | C | superata: i quiz su Moduli li crea il ponte (forms.crea_quiz) |
 | #25 | Una sola lista di password per classe; prova di apertura di ogni libro | 1 | D | D | servirebbe la prova di apertura dentro il generatore dello zip |
 | #26 | Ogni file personale comincia con Cognome-Nome | 5 | D | D | servirebbe un controllo nei generatori dei libri |
@@ -156,15 +156,15 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #28 | Uno strumento per un sito esterno si prova sull'HTML vero | 2 | D | D | giudizio di progetto |
 | #29 | Link al riservato sempre con «apri il profilo personale» | 1 | D | A | hook controllo-messaggio.py (o) |
 | #30 | Lavori uguali in due caselle = una colonna sola | 6 | D | D | come #22 |
-| #31 | Ogni messaggio con passi ha TUTTE le caselle da copiare | 5 | D | A | hook controllo-messaggio.py (u) rimando a riquadri di prima |
+| #31 | Ogni messaggio con passi ha TUTTE le caselle da copiare | 5 | D | A | BLOCCO `controlli_ripristinati.rimando_a_riquadri_di_prima`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (u) rimando a riquadri di prima) |
 | #32 | Mai due copie in fila: la seconda cancella la prima | 1 | A | A | hook controllo-messaggio.py (a) ordine copia/incolla |
 | #33 | Prima di nominare un materiale, si dice dove trovarlo | 5 | D | D | non si sa in automatico se i ragazzi hanno un materiale |
 | #34 | Mentre un comando che pubblica è in attesa non si spinge altro; un annuncio solo | 1 | D | B | audit_regole.py (passi notturni 01.1) 05 (un annuncio per classe al giorno) |
 | #35 | A fine ora si consegna quello che c'è; zip pronto 10 minuti prima | 4 | D | B | passi-notturni.md 03.3 (promemoria 10 minuti prima della fine) |
-| #36 | La firma non si deduce dal bottone (ripetizione di #11) | 1 | D | A | hook controllo-messaggio.py (m) |
+| #36 | La firma non si deduce dal bottone (ripetizione di #11) | 1 | D | C | R5.1 di CLAUDE.md v2.0 (04/11/2026): «FIRMA ✓» in verde = firmata; regola abrogata. Fonte: CLAUDE.md R5.1 (23/11/2026: era A, controllo (m) tolto il 04/11) |
 | #37 | «Script fermo» solo dopo una prova del ponte | 2 | B | B | Chat del giorno, passo 5 (battito con un comando del ponte); la frase «esce entro 5 minuti» è superata da #130 |
 | #38 | Progetto di squadra: un canale, tutti consegnano, prima fase entro 20 minuti | 4 | D | B | passi-notturni.md 02.4 e 02.7 |
-| #39 | Orari dall'ora vera; una cosa da fare per volta; modifiche verificate | 2 | D | D | lezione in corsa; solo «modifiche verificate» è coperta da hook controllo-messaggio.py (c) |
+| #39 | Orari dall'ora vera; una cosa da fare per volta; modifiche verificate | 2 | D | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: lezione in corsa; solo «modifiche verificate» è coperta da hook controllo-messaggio.py (c)) |
 | #40 | Ogni riga di un report porta almeno il nome visibile | 5 | D | D | servirebbe un controllo sulle pagine del docente (cifrate) |
 | #41 | Pubblicare solo con il via; formato riscritto e confermato; lingue della classe | 6 | C | C | superata dalla regola 17 (21/10: Claude pubblica da solo); le lingue sono coperte da hook limite-comandi.py |
 | #42 | Consegne da un canale che accetta invii ripetuti | 6 | C | C | superata da #68 e #81 (una sola strada, UN bottone) |
@@ -176,19 +176,19 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #48 | Lo script si copia dal link pubblico, mai dal riservato | 1 | D | A | hook controllo-messaggio.py (o) |
 | #49 | 2INF solo italiano: ogni pagina passa dal controllo delle lingue | 1 | D | A | hook limite-comandi.py (prima del push: lingue della classe) + audit_regole.py (passi notturni 01.1) 01 |
 | #50 | Memoria del copia e incolla vuota; prima la pagina d'arrivo | 1 | A | A | hook controllo-messaggio.py (a) |
-| #51 | Prima di incollare in Apps Script si clicca automazione-corso.gs | 5 | D | A | hook controllo-messaggio.py (v) e (p) |
-| #52 | Firma: mai dedotta dallo screenshot (terza volta) | 1 | D | A | hook controllo-messaggio.py (m) |
-| #53 | Niente avverbi e aggettivi che non servono | 5 | D | A | hook controllo-messaggio.py (j) |
+| #51 | Prima di incollare in Apps Script si clicca automazione-corso.gs | 5 | D | A | avviso `controlli_ripristinati.avviso_apps_script`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (v) e (p)) |
+| #52 | Firma: mai dedotta dallo screenshot (terza volta) | 1 | D | C | R5.1 di CLAUDE.md v2.0 (04/11/2026): «FIRMA ✓» in verde = firmata; regola abrogata. Fonte: CLAUDE.md R5.1 (23/11/2026: era A, controllo (m) tolto il 04/11) |
+| #53 | Niente avverbi e aggettivi che non servono | 5 | D | A | avviso `controlli_ripristinati.avviso_stile`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (j)) |
 | #54 | Le considerazioni del docente non si interpretano: una domanda sola | 6 | D | D | intenzione del docente: non controllabile |
-| #55 | Istruzioni senza «se», «salta», domande | 5 | D | A | hook controllo-messaggio.py (l) |
-| #56 | Passi come frasi che cominciano con il verbo, non catene di coordinate | 5 | D | A | hook controllo-messaggio.py (k) |
+| #55 | Istruzioni senza «se», «salta», domande | 5 | D | A | avviso `controlli_ripristinati.avviso_stile`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (l)) |
+| #56 | Passi come frasi che cominciano con il verbo, non catene di coordinate | 5 | D | A | avviso `controlli_ripristinati.avviso_stile`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (k)) |
 | #57 | Ripetizione di #50 | 1 | A | A | hook controllo-messaggio.py (a) |
 | #58 | Comandi eseguiti archiviati; dopo un comando controllo entro 2 minuti | 6 | D | B | audit_regole.py (passi notturni 01.1) 06 (comandi non archiviati e fermi) |
 | #59 | Ogni richiesta del docente va subito nell'elenco dei lavori aperti | 4 | D | D | non si riconosce in automatico una richiesta dentro un PPP |
 | #60 | Ogni pagina dei ragazzi ha i bottoni per autoregolarsi | 1 | B | B | audit pre-lezione delle 06:50 punto 3 + passi-notturni.md 02.10 |
 | #61 | Verifica provata con ricarica, chiusura, bottoni e consegna fino all'arrivo | 2 | A | A | rimedio nel codice del motore della verifica (salvataggio ogni 2 secondi, ripresa) + prova_verifica.js |
 | #62 | Ai ragazzi una azione per frase; la consegna è UN bottone | 5 | D | B | audit_regole.py (passi notturni 01.1) 01 (Modulo + incolla) + passi-notturni.md 02.7 |
-| #63 | «Fatto» o «non serve più» solo dopo la prova | 2 | A | A | hook controllo-messaggio.py (c) e (d) |
+| #63 | «Fatto» o «non serve più» solo dopo la prova | 2 | A | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (c) e (d)) |
 | #64 | Mai chiedere una risposta nella pagina che quel passo chiude | 6 | D | D | chat con i ragazzi su GitHub: non passa dagli hook |
 | #65 | Con i ragazzi un messaggio = un'azione + una domanda chiusa | 5 | D | D | come #64 |
 | #66 | Con il codice prima capire, poi incollare | 6 | D | D | giudizio didattico |
@@ -209,28 +209,28 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #81 | MAI «copia, apri, incolla»: UN bottone che consegna davvero | 1 | D | B | audit_regole.py (passi notturni 01.1) 01 (pagina con Modulo e «incolla») |
 | #82 (15/10) | Prima di scrivere per una classe si controllano le sue lingue | 1 | D | A | hook limite-comandi.py (lingue della classe prima del push) |
 | #82 (19/10) | Il battito dello script è una voce di ogni audit e di ogni giro | 2 | B | B | Chat del giorno, passo 5 (battito con un comando del ponte) |
-| #83 | Lo screenshot non è la prova: la prova è il file nel repository | 2 | D | A | hook controllo-messaggio.py (r) «non ha caricato» senza fonte e (c) |
+| #83 | Lo screenshot non è la prova: la prova è il file nel repository | 2 | D | A | BLOCCO `controlli_ripristinati.non_caricato_senza_ricerca` («non ha caricato» / «non ha fatto niente» da Veyon / «ha già» da uno screenshot senza la ricerca). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (r) «non ha caricato» senza fonte e (c)) |
 | #84 | Un link si mette solo se la pagina esiste | 2 | D | B | audit_regole.py (passi notturni 01.1) 01 (link a file che non esistono) |
 | #85 | Nomi e voti in docs/ solo cifrati | 1 | D | A | hook limite-comandi.py (nomi in chiaro prima del push) + audit_regole.py (passi notturni 01.1) 01-02 |
 | #86 | Finita una classe, il giro di quella classe si ferma | 4 | D | B | passi-notturni.md 03.3 |
-| #87 | «FIRMA ✓» in verde = firmata | 1 | D | A | hook controllo-messaggio.py (m) |
-| #88 | Battito di meno di 3 minuti prima di «lo pubblica lo script» | 2 | D | A | hook controllo-messaggio.py (f) promesse sui tempi dello script + (d) |
+| #87 | «FIRMA ✓» in verde = firmata | 1 | D | A | BLOCCO `controllo-messaggio.controllo_firma_ricordata` (firma ricordata con FIRME-REGISTRO tutto firmato, R5.1). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (m)) |
+| #88 | Battito di meno di 3 minuti prima di «lo pubblica lo script» | 2 | D | A | avviso `controlli_ripristinati.avviso_tempi_script`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (f) promesse sui tempi dello script + (d)) |
 | #89 | Una sola strada per volta; stesso titolo per l'anti-doppione | 6 | D | B | audit_regole.py (passi notturni 01.1) 04 (un compito per classe al giorno) |
-| #90 | «Nessuna AI» solo dopo aver visto tutte le finestre | 2 | D | A | hook controllo-messaggio.py (h) |
+| #90 | «Nessuna AI» solo dopo aver visto tutte le finestre | 2 | D | A | avviso `controlli_ripristinati.avviso_nessuna_ai`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (h)) |
 | #91 | Titoli del registro solo sull'Allegato A più recente | 6 | D | D | servirebbe un controllo dei titoli del registro sul .docx dell'Allegato A |
 | #92 | «Altro» = presente | 1 | D | D | conteggio dei presenti fatto a mano dallo screenshot |
 | #93 | Un solo compito per lezione; quiz diverso dalla verifica | 6 | D | B | audit_regole.py (passi notturni 01.1) 04 |
 | #94 | Ogni lezione ha l'annuncio «OGGI FATE SOLO…» in cima | 4 | D | A | verifica_lezione.py (annuncio più recente senza «OGGI» = GIALLO) + hook controllo-messaggio.py (d) |
 | #95 | Si legge il massimo di ogni quiz; «non risulta» mai su una fonte sola | 2 | D | D | massimo del quiz: servirebbe nel calcolo dei voti; la parte «non risulta» è coperta da hook controllo-messaggio.py (r) |
-| #96 | Colonna «Firma» con data e ora = firmata | 1 | D | A | hook controllo-messaggio.py (m) |
+| #96 | Colonna «Firma» con data e ora = firmata | 1 | D | A | BLOCCO `controllo-messaggio.controllo_firma_ricordata` (firma ricordata con FIRME-REGISTRO tutto firmato, R5.1). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (m)) |
 | #97 | Scadenze sulle campanelle vere | 1 | D | B | audit_regole.py (passi notturni 01.1) 04 |
-| #98 | Prima della stringa dei voti, la materia dell'ora | 1 | D | A | hook controllo-messaggio.py (g) |
+| #98 | Prima della stringa dei voti, la materia dell'ora | 1 | D | A | avviso `controlli_ripristinati.avviso_didaweb` (Disciplina da scegliere, voti da 40). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (g)) |
 | #99 | Prima di preparare una lezione si rilegge la storia della classe | 4 | D | B | passi-notturni.md 02.1 |
-| #100 | PC senza nome: si chiede subito chi c'è | 1 | D | A | hook controllo-messaggio.py (i) |
+| #100 | PC senza nome: si chiede subito chi c'è | 1 | D | A | avviso `controlli_ripristinati.avviso_utente_non_indicato`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (i)) |
 | #101 | Terza volta #50: procedura dello script da RIPARTENZA §03 | 1 | A | A | hook controllo-messaggio.py (a) e (v) |
 | #102 | Durata stimata dal contenuto e provata a tempo | 6 | D | B | passi-notturni.md 02.5 |
 | #103 | Ogni pagina che produce un risultato lo fa arrivare al docente | 6 | D | B | passi-notturni.md 02.8 |
-| #104 | «Ponte OK» solo dopo un comando di prova eseguito | 2 | B | B | Chat del giorno, passo 5 (battito) + passi-notturni.md 01.4 |
+| #104 | «Ponte OK» solo dopo un comando di prova eseguito | 2 | B | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: Chat del giorno, passo 5 (battito) + passi-notturni.md 01.4) |
 | #105 | Pubblicare = pagina + compito + annuncio | 2 | A | A | hook controllo-messaggio.py (d) con verifica_lezione.py |
 | #106 | I nomi dei bottoni si copiano dalla pagina vera | 2 | D | D | il nome giusto non è noto all'hook |
 | #107 | Un solo annuncio e un solo compito al giorno per classe | 1 | D | B | audit_regole.py (passi notturni 01.1) 05 |
@@ -239,11 +239,11 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #110 | Il primo passo produce qualcosa di visibile entro 10 minuti | 4 | D | B | passi-notturni.md 02.4 |
 | #111 | Due ritagli uguali consecutivi: ne resta uno | 6 | D | D | si può aggiungere a report_ore.py un confronto delle immagini |
 | #112 | In lezione i giri non spingono sul riservato; si recuperano le righe «SOLO QUI» | 1 | B | B | audit pre-lezione delle 06:50 punto 4 + passi-notturni.md 03.3 |
-| #113 | Un errore da registrare si scrive subito, con il numero | 4 | D | A | hook controllo-messaggio.py (n) |
+| #113 | Un errore da registrare si scrive subito, con il numero | 4 | D | A | avviso `controlli_ripristinati.avviso_con_docente` (registrazione senza il numero #NNN). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (n)) |
 | #114 | Un comando del ponte = poche azioni e un salvataggio; controllo entro 5 minuti | 1 | D | B | audit_regole.py (passi notturni 01.1) 06 |
-| #115 | Mai «risolto» per lo script senza prova nel tempo | 2 | A | A | hook controllo-messaggio.py (c) |
+| #115 | Mai «risolto» per lo script senza prova nel tempo | 2 | A | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (c)) |
 | #116 | Ogni conteggio che dà punti si protegge dagli abusi prima | 4 | D | D | servirebbe una prova con testo finto nei controlli della lezione |
-| #117 | Pacchetto DIDAweb con «Disciplina da scegliere» sopra | 1 | D | A | hook controllo-messaggio.py (g) |
+| #117 | Pacchetto DIDAweb con «Disciplina da scegliere» sopra | 1 | D | A | avviso `controlli_ripristinati.avviso_didaweb` (Disciplina da scegliere, voti da 40). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (g)) |
 | #118 | Dopo ogni modifica: node --check di tutti gli script e prova | 1 | D | A | hook limite-comandi.py (sintassi prima del push) + audit_regole.py (passi notturni 01.1) 01 |
 | #119 | Lingue di ogni classe dai documenti, con un audit | 1 | D | A | hook limite-comandi.py (lingue prima del push) + passi-notturni.md 02.11 |
 | #120 | Prima di «pubblicata» i tre pezzi; una cosa decisa si prepara senza richiederla | 1 | A | A | hook controllo-messaggio.py (d) |
@@ -253,23 +253,23 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #124 | «Mandata!» solo quando l'invio è partito | 2 | A | A | rimedio nel codice: docs/assistente/assistente.js |
 | #125 | Pochi comandi al ponte; prova prima di dire che lo script funziona | 1 | D | B | audit_regole.py (passi notturni 01.1) 06 (più di 40 comandi in un giorno) |
 | #126 | Versione facile di massimo 3 passi preparata prima | 4 | D | B | passi-notturni.md 02.3 |
-| #127 | Dati fermi = ora in rosso; «fatto» solo dopo averlo fatto | 2 | A | A | hook controllo-messaggio.py (c); l'ora in rosso nelle pagine è da controllare a mano |
+| #127 | Dati fermi = ora in rosso; «fatto» solo dopo averlo fatto | 2 | A | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (c); l'ora in rosso nelle pagine è da controllare a mano) |
 | #128 | «Tutto a posto» solo dopo le tre prove | 2 | A | A | hook controllo-messaggio.py (d) |
 | #129 | Quiz e Moduli prima della campanella; mai «arriva tra poco» | 4 | B | B | Chat del giorno, passo 5 (quiz) + audit_regole.py (passi notturni 01.1) 01 («arriva tra poco») |
-| #130 | Non si promettono tempi per ciò che fa lo script | 3 | D | A | hook controllo-messaggio.py (f) |
+| #130 | Non si promettono tempi per ciò che fa lo script | 3 | D | A | avviso `controlli_ripristinati.avviso_tempi_script`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (f)) |
 | #131 | Piano B: annuncio pronto 10 minuti prima | 4 | B | B | Chat del giorno, passo 5 (piano B) + passi-notturni.md 03.2 |
 | #132 | Comandi di una riga, risultati lunghi in un file | 5 | A | A | hook limite-comandi.py (massimo 3 comandi, 600 caratteri) |
 | #133 | Cruscotto progettato sulla consegna del giorno | 4 | B | B | Chat del giorno, passo 5 (cruscotto con la colonna delle consegne) |
 | #134 | Ogni audit confronta 2 allievi con la fonte | 2 | B | B | Chat del giorno, passo 5 (confronto di 2 allievi) |
-| #135 | «A posto» solo dopo una compilazione riuscita | 2 | A | A | hook controllo-messaggio.py (c) |
+| #135 | «A posto» solo dopo una compilazione riuscita | 2 | A | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (c)) |
 | #136 | Nessun link al sito della Regione nelle pagine dei ragazzi | 6 | D | A | hook limite-comandi.py (prima del push) + audit_regole.py (passi notturni 01.1) 01 |
 | #137 | La cosa bloccante va da sola nella prima riga | 5 | A | A | hook controllo-messaggio.py (b) + passi-notturni.md 03.1 (firma alle 13:30) |
 | #138 | Copia e incolla: un Ctrl+V usa l'ultima cosa copiata | 1 | A | A | hook controllo-messaggio.py (a) |
-| #139 | Un ROSSO dell'audit non si liquida come atteso: va in prima riga | 2 | D | A | controlla_controlli.py (prima riga «DA SAPERE SUBITO», notte di oggi) |
-| #140 | Un bottone è presente solo se si vede sul sito vero, modalità Docente | 2 | D | A | hook controllo-messaggio.py (y) + controlla_controlli.py --fine-giornata (piano con «pubblicata») |
+| #139 | Un ROSSO dell'audit non si liquida come atteso: va in prima riga | 2 | D | A | avviso `controlli_ripristinati.avviso_rosso_atteso`. RIMESSO 23/11/2026 (era: controlla_controlli.py (prima riga «DA SAPERE SUBITO», notte di oggi)) |
+| #140 | Un bottone è presente solo se si vede sul sito vero, modalità Docente | 2 | D | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (y) + controlla_controlli.py --fine-giornata (piano con «pubblicata»)) |
 | #141 | Nessuna classe in aula con Classroom vuoto | 3 | D | A | controlla_controlli.py (notte girata da sola, #152) + --fine-giornata (compito uscito entro la campanella) |
 | #142 | Cruscotto con i KPI del giorno e una riga per presente alla campanella | 4 | D | A | controlla_controlli.py --fine-giornata (righe = presenti) + coppia docente/ragazzi (#148) |
-| #143 | Al massimo 2 aiutanti accesi insieme | 6 | D | A | hook controllo-messaggio.py (bb) |
+| #143 | Al massimo 2 aiutanti accesi insieme | 6 | D | A | avviso `controllo-messaggio.controlli_con_trascrizione` (più di 2 Agent nel turno). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (bb)) |
 | #144 | Dopo la pubblicazione il piano mostra solo la proposta fatta, senza bottoni | 2 | D | A | controlla_controlli.py --fine-giornata (piano senza «pubblicata» = ROSSO) + hook (c) |
 | #145 | Le domande del giorno si vedono tutte e hanno risposta | 4 | D | A | controlla_controlli.py --fine-giornata (domande senza risposta, regola 22) |
 | #146 | Percorso provato da capo; mai «null» o PC non confermati nel cruscotto | 4 | D | A | controlli_pagine.py (valore_nudo, prima del push) + controlla_controlli.py --fine-giornata (nessun «null») |
@@ -277,23 +277,23 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #148 | Docente e ragazzi leggono dati dello stesso giro (stesso «generato») | 6 | D | A | controlla_controlli.py (coppia docente/ragazzi, #148) |
 | #149 | Tutti i quiz del giorno letti insieme, ognuno con il suo comando | 6 | D | A | controlla_controlli.py (ponte dei quiz, #149) |
 | #150 | Sicurezza: compito con quiz e ora dopo pronti prima della lezione | 4 | D | A | controlla_controlli.py (Sicurezza preparata, #150) |
-| #151 | Un conteggio di consegne si rilegge alla fonte e porta fonte e ora | 2 | D | A | hook controllo-messaggio.py (w) |
-| #152 | Attività automatica pronta solo dopo un giro di prova vero | 2 | D | A | hook controllo-messaggio.py (x) + controlla_controlli.py (notte girata da sola) |
-| #153 | Pagina verificata sul sito vero con i dati veri, non con ?prova=1 | 2 | D | A | hook controllo-messaggio.py (y) |
-| #154 | Prima di chiedere al docente si guarda nei file del giorno | 1 | D | A | hook controllo-messaggio.py (z) |
+| #151 | Un conteggio di consegne si rilegge alla fonte e porta fonte e ora | 2 | D | A | BLOCCO `controlli_ripristinati.conteggio_senza_fonte`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (w)) |
+| #152 | Attività automatica pronta solo dopo un giro di prova vero | 2 | D | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (x) + controlla_controlli.py (notte girata da sola)) |
+| #153 | Pagina verificata sul sito vero con i dati veri, non con ?prova=1 | 2 | D | A | BLOCCO `controlli_ripristinati.prova_con_dati_finti`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (y)) |
+| #154 | Prima di chiedere al docente si guarda nei file del giorno | 1 | D | A | avviso `controlli_ripristinati.avviso_domanda_su_file_del_giorno`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (z)) |
 | #155 | Si misura il risultato: controllore di fine giornata sul dato vero | 2 | D | A | controlla_controlli.py --fine-giornata (report/<giorno>/non-andato.md) |
 | #156 | Nessun 40 a chi ha finito o consegnato; senza consegna «voto dopo la consegna» | 6 | D | A | controlla_controlli.py --fine-giornata (40 con percorso finito) + controlli_pagine.py (valore_nudo) |
-| #157 | Una release vale per tutto il repository; progetto serio = repository suo | 5 | D | A | hook controllo-messaggio.py (aa) |
-| #158 | Incolla in Apps Script: clic dentro il codice, Ctrl+A «tutto blu», Ctrl+V, controllo righe | 5 | D | A | hook controllo-messaggio.py (ii) |
+| #157 | Una release vale per tutto il repository; progetto serio = repository suo | 5 | D | A | avviso `controlli_ripristinati.avviso_release_cartella`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (aa)) |
+| #158 | Incolla in Apps Script: clic dentro il codice, Ctrl+A «tutto blu», Ctrl+V, controllo righe | 5 | D | A | avviso `controlli_ripristinati.avviso_apps_script`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (ii)) |
 | #159 | «Prima ora» = ora della giornata; nella risposta si scrive l'orario | 6 | D | A | hook controllo-messaggio.py (gg) |
 | #160 | Il quiz chiede solo lavoro già fatto prima del quiz | 4 | D | A | controlla_controlli.py --fine-giornata (_quiz_lavoro_futuro) |
 | #161 | Mai «non arrivato» su dati di più di 5 minuti; il docente non controlla da solo | 2 | D | A | hook controllo-messaggio.py (hh) + watchdog del laboratorio |
 | #162 | Laboratorio di 2-3 ore: un lavoro per ogni ora, pronto entro le 18 del giorno prima | 4 | D | A | controlla_controlli.py --fine-giornata (proposta non divisa ora per ora) |
 | #163 | 1INF: ogni materiale per i ragazzi in italiano, arabo e cinese insieme | 1 | D | A | controlla_controlli.py --fine-giornata (dispensa e pagine del piano senza ar/zh) |
 | #164 | Ai ragazzi un solo posto: compito del giorno con la pagina hub | 5 | D | A | hook controllo-messaggio.py (ff) + controlla_controlli.py --fine-giornata (troppi compiti «OGGI») |
-| #165 | I dati del docente si scrivono in caselle (foglio Google), non in un PDF | 5 | D | A | hook controllo-messaggio.py (ee) |
-| #166 | Una domanda del docente chiede una spiegazione; si toglie solo con «togli/elimina» | 6 | D | A | hook controllo-messaggio.py (cc) |
-| #167 | Il genere di un allievo non si dà per scontato: si usa il nome | 6 | D | A | hook controllo-messaggio.py (dd) |
+| #165 | I dati del docente si scrivono in caselle (foglio Google), non in un PDF | 5 | D | A | avviso `controllo-messaggio.controlli_con_trascrizione` (griglia da compilare data in PDF). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (ee)) |
+| #166 | Una domanda del docente chiede una spiegazione; si toglie solo con «togli/elimina» | 6 | D | A | avviso `controlli_ripristinati.avviso_con_docente` (domanda presa per un ordine di togliere). RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (cc)) |
+| #167 | Il genere di un allievo non si dà per scontato: si usa il nome | 6 | D | A | avviso `controlli_ripristinati.avviso_genere`. RIMESSO 23/11/2026 (era: hook controllo-messaggio.py (dd)) |
 | #168 | Script nuovo provato con una bozza vera la sera prima; piano B pronto subito | 4 | D | A | verifica_lezione.py (coda senza id = ROSSO, «sospeso» = verde) + controlla_controlli.py --fine-giornata |
 | #169 | I giri del cruscotto lasciano un segnale e si riaccendono; nessun buco > 12 minuti | 2 | D | A | controlla_controlli.py --fine-giornata (buchi nello storico) |
 | #170 | Colonna del cruscotto solo dopo un invio vero; fonte vuota detta subito | 2 | D | A | controlla_controlli.py --fine-giornata (colonna «pratica» vuota) + situazione_quiz.py (storico) |
@@ -301,7 +301,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #224 | Proposte fatte senza aver letto le regole | 1 | D | D | promemoria-errori.py deve ricordare, a ogni richiesta di proposta su registro o Allegato A, «prima leggi NOTE-DA-DISCUTERE.md» (da costruire) |
 | #225 | Post ora 4 della 1INF pubblicato dal docente senza link | 1 | D | D | Il pacchetto del post (R2.3) deve avere sempre il link gia dentro (da costruire) |
 | #226 | Pacchetto voti DIDAweb con «h 1» invece di «h 6» | 2 | D | D | Il generatore del pacchetto voti deve leggere l ora dalla riga del registro e confrontarla (da costruire) |
-| #227 | Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta | 1 | D | D | controlli_pagine.py e il controllo del post: un passo che dice «copia» un file senza zip o percorso e un errore (da costruire) |
+| #227 | Copiare lfm e pas da Classroom: i ragazzi non ce l hanno fatta | 1 | D | A | BLOCCO prima del push (`controlli_pagine.copia_file_da_classroom`, R9.5) e audit notturno. RIMESSO 23/11/2026 (era: controlli_pagine.py e il controllo del post: un passo che dice «copia» un file senza zip o percorso e un errore (da costruire)) |
 | #228 | «Nessun blocco» come prima riga solo per superare il controllo | 1 | D | D | controllo-messaggio.py: la prima riga «Nessun blocco» o simili senza prova non vale (da costruire) |
 | #229 | Il cruscotto non aveva il nome di un allievo della 2INF (presenze del giorno prima) | 2 | D | D | Il giro del cruscotto deve confrontare i presenti con il registro presenze e dare ROSSO se ne manca uno (da costruire) |
 | #230 | Quiz recuperi 2INF: un allievo della 2INF «Hai gia risposto» | 2 | D | D | I generatori dei quiz creano i Moduli con piu risposte (da costruire) |
@@ -336,7 +336,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #260 | Valutazione con criterio sbagliato (10/11) | 4 | D | D | controllo automatico: mancante |
 | #261 | Richieste interpretate male, date e nomi file ambigui (10/11) | 4 | D | D | controllo automatico: mancante |
 | #262 | Compito 4TI troppo difficile e rifatto (10/11) | 4 | D | D | controllo automatico: mancante |
-| #263 | Schede su carta per tutti senza stampante (10/11) | 4 | D | D | controllo automatico: mancante |
+| #263 | Schede su carta per tutti senza stampante (10/11) | 4 | D | A | audit notturno `controlli_pagine.carta_e_penna` (non blocca il push: 13 pagine vecchie lo violano). RIMESSO 23/11/2026 (era: controllo automatico: mancante) |
 | #264 | Cruscotto dato come file e non come URL (10/11) | 4 | D | D | controllo automatico: mancante |
 | #265 | Sistema nuovo non spiegato e nome non visibile (10/11) | 4 | D | D | controllo automatico: mancante |
 | #266 | Passo non riscritto, rimando a messaggi precedenti (10/11) | 4 | D | D | controllo automatico: mancante |
@@ -348,13 +348,13 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #273 | Stesso file rimandato con lo stesso nome (11/11) | 6 | D | D | controllo automatico: mancante |
 | #274 | Lingue della 1INF dimenticate nei quiz e nel post (11/11) | 1 | D | A | `strumenti/controlla_lingue_quiz.py` (R6): per ogni quiz con id `1inf` in `fabbrica/indice.json` controlla arabo e cinese, «MANCA arabo e cinese» e uscita 1; si lancia con `python3 -I strumenti/controlla_lingue_quiz.py` prima di dire che un quiz 1INF è pronto. Voce #274 in `REGISTRO-ERRORI-CLAUDE.md` |
 | #267 | Link senza account e non in casella copiabile (11/11) | 4 | D | D | controllo automatico: mancante (CLAUDE.md v2.8 R4 3quater, LINK-UTILI.md) |
-| #275 | Strumento garantito senza prova, chiedeva l'amministratore (11/11) | 7 | D | D | `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato); controllo automatico: mancante |
+| #275 | Strumento garantito senza prova, chiedeva l'amministratore (11/11) | 7 | D | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: `STRUMENTI-PC-AULA-VERIFICATI-v1.0.md` (riservato); controllo automatico: mancante) |
 | #276 | Argomento di un'ora copiato da un documento vecchio (11/11) | 7 | D | D | `generatori/diario_dati.py` legge FIRME-REGISTRO; controllo automatico per ARGOMENTI-SVOLTI: parziale, dal 13/11/2026 `strumenti/controlla_controlli.py` (fine giornata) verifica che ogni lezione del giorno abbia la sua riga in ARGOMENTI-SVOLTI-2026-27.md (R5.3); non verifica che l'argomento sia quello giusto |
-| #277 | Chat 3INF presentata senza provare che chatta (11/11) | 9 | D | D | CHECKLIST-LEZIONE (prova con due istanze); controllo automatico: mancante |
+| #277 | Chat 3INF presentata senza provare che chatta (11/11) | 9 | D | A | BLOCCO `controlli_ripristinati.affermazione_senza_prova` («a posto», «risolto», «funziona», «garantito», «c'è sul sito» senza prova). RIMESSO 23/11/2026 (era: CHECKLIST-LEZIONE (prova con due istanze); controllo automatico: mancante) |
 | #278 | Quiz Sicurezza non sulle slide ufficiali (11/11) | 9 | D | D | FRAMEWORK-QUIZ cap. 10; controllo automatico: mancante |
 | #279 | Scheda Situazione 2INF vuota (11/11) | 8 | D | A | motore Fabbrica v2.15 e `test_situazione_v2_15.js` (riservato) |
-| #280 | Pannello e schede senza «a che serve» (11/11) | 4 | D | D | idea: `controlli_pagine.py`; FABBRICA-MANUALE v2.6 da fare |
-| #281 | Allievi nominati senza cognome (11/11) | 7 | D | A | avviso non bloccante in `controllo-messaggio.py` (v. #329, 13/11): cognome + nome di battesimo; la regola ora è «solo il COGNOME» |
+| #280 | Pannello e schede senza «a che serve» (11/11) | 4 | D | A | audit notturno `controlli_pagine.senza_a_che_serve`. RIMESSO 23/11/2026 (era: idea: `controlli_pagine.py`; FABBRICA-MANUALE v2.6 da fare) |
+| #281 | Allievi nominati senza cognome (11/11) | 7 | D | A | avviso `controllo_nomi.avviso_nome_solo` (nome di battesimo da solo). RIMESSO 23/11/2026 (era: avviso non bloccante in `controllo-messaggio.py` (v. #329, 13/11): cognome + nome di battesimo; la regola ora è «solo il COGNOME») |
 | #329 | Nome di battesimo accanto al cognome, COGNOME Nome (13/11) | 7 | D | A | `controllo_nomi.avviso_nome_battesimo` richiamato da `controllo-messaggio.py`, avviso non bloccante; prove in `prove/prova_messaggio.py` (10 casi) |
 | #282 | Formato del pacchetto per il post rifatto cinque volte (11/11) | 4 | D | A | hook controllo-messaggio.py (ff) R-D, R-F; GUIDA-MESSAGGI 03sexies |
 | #283 | Controllo di fine giornata cieco, VERDE «nessuna lezione» (11/11) | 7 | D | D | `controlla_controlli.py --fine-giornata` da collegare a FIRME e `fabbrica/indice.json` |
@@ -369,7 +369,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #309 | Documento mandato senza i quadratini blu (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-A |
 | #311 | Due kit con due PDF nella stessa risposta (12/11) | 1 | D | A | hook controllo-messaggio.py (ff) R-B |
 | #312 | Controllo automatico del formato kit e documenti aggiunto (12/11) | 1 | A | A | hook controllo-messaggio.py (ff), prove `prova_formato_kit.py` (55 casi); chiude la famiglia #282, #285-#289, #293, #309, #311 |
-| #292 | Quiz in inglese su PC con Windows in italiano (12/11) | 1 | D | D | `controlla_lingue_quiz.py` da estendere alle sigle inglesi di Windows nei quiz 2INF; controllo automatico: mancante |
+| #292 | Quiz in inglese su PC con Windows in italiano (12/11) | 1 | D | A | `strumenti/controlla_lingue_quiz.py` v1.1 (sigle inglesi di Windows nei quiz 2INF). RIMESSO 23/11/2026 (era: `controlla_lingue_quiz.py` da estendere alle sigle inglesi di Windows nei quiz 2INF; controllo automatico: mancante) |
 | #294 | Chiesto di cercare sullo schermo cose che non c'erano (12/11) | 2 | D | D | regola: un passo si scrive solo se visto in uno screenshot reale; controllo automatico: mancante |
 | #295 | Versione sbagliata del PDF nei post e nei kit (12/11) | 2 | D | D | da fare: controllo che il PDF del kit sia l'ultima versione del suo nome |
 | #296 | Cruscotto che dipendeva da gesti del docente (12/11) | 6 | D | D | file dati aggiornato da me (v2.5); giro automatico ogni 2 minuti: mancante (vedi #323) |
@@ -433,7 +433,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #359 | Passo «Assegna» invece di «Salva» (18/11) | 1 | D | D | da creare: checklist dei bottoni di Classroom per stato in `CHECKLIST-LEZIONE.md`; guardare lo screenshot prima del passo |
 | #360 | Modello Word e Documento Google: opzione inesistente, Drive sbagliato (18/11) | 1 | D | D | da creare: prova del menu «Crea una copia per ogni studente» e Doc nel Drive PIAMARTA prima del via |
 | #361 | Riquadri non visibili, 6 messaggi per incollare un testo (18/11) | 1 | D | D | da creare: controllo in `controllo-messaggio.py` per più di un riquadro; testo corto o in un solo riquadro |
-| #362 | Scheda trilingue con caselle ripetute 3 volte (18/11) | 1 | D | D | da creare: controllo in `controlli_pagine.py` e `controlla_pdf_ragazzi.py` (sottotitolo uguale all'italiano) |
+| #362 | Scheda trilingue con caselle ripetute 3 volte (18/11) | 1 | D | A | audit notturno `controlli_pagine.campi_ripetuti`. RIMESSO 23/11/2026 (era: da creare: controllo in `controlli_pagine.py` e `controlla_pdf_ragazzi.py` (sottotitolo uguale all'italiano)) |
 | #363 | Check Lazarus da console invece che con l'interfaccia decisa (18/11) | 1 | D | D | da creare: elenco delle decisioni del docente per giornata, riletto prima di generare |
 | #364 | «3 test a testa» incoerente con modello e istruzioni (18/11) | 1 | D | D | stesso elenco del #363 più controllo di coerenza dei numeri |
 | #365 | Guide di trasferimento repository senza il passo di rinomina (18/11) | 1 | D | D | da creare: passo fisso di rinomina prima del trasferimento (sospeso con la 3INF fino a febbraio) |
@@ -444,7 +444,7 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #370 | Priorità sbagliate e domande fuori dalle 4 priorità (18/11) | 1 | D | D | da creare: `stato/coda-priorita.json` riscritto a ogni PRI; domande solo sulle priorità in corso |
 | #371 | Allegato A frainteso: blocco e materia presunti (18/11) | 1 | D | D | R5.2 e `NOTE-DA-DISCUTERE.md`; da creare: una domanda con le alternative prima di proporre |
 | #372 | Cose già fatte non cercate (piantine) e piano dell'ora presunto (18/11) | 1 | D | B | `INFO-PIU-USATE-v1.1.md` sezione piantine; da creare: ricerca per parola chiave prima di dire «non c'è» |
-| #373 | Messaggio con tre file non capito (18/11) | 1 | D | A | `controllo-messaggio.py` formato kit; da aggiungere: frase «a che cosa serve» e SendUserFile per ogni file |
+| #373 | Messaggio con tre file non capito (18/11) | 1 | D | A | BLOCCO `controllo-messaggio.controlli_con_trascrizione` (più file senza «a che serve» per ognuno, R4). RIMESSO 23/11/2026 (era: `controllo-messaggio.py` formato kit; da aggiungere: frase «a che cosa serve» e SendUserFile per ogni file) |
 | #374 | Fine giornata 18/11 ROSSO: report orari, cruscotto, verifiche (ripete #355) | 1 | D | B | `controlla_controlli.py --fine-giornata`; 6 report minimi generati da `report_ore.py`; da costruire: controllo a metà giornata e giro cruscotti automatico |
 | #375 | «Non posso creare il Moduli» invece della Fabbrica (19/11) | 1 | D | B | `report/INFO-PIU-USATE-v1.2.md` sezione 9; `strumenti/crea_quiz_fabbrica.py`; da costruire: avviso «non posso» senza lettura di `fabbrica/LEGGIMI.md` |
 | #376 | Kit 2INF Sicurezza a lezione avviata, recupero tolto senza dirlo (19/11) | 1 | D | B | `INFO-PIU-USATE-v1.3.md` sezione 10; da costruire: segnalazione in prima riga a ora iniziata senza kit |
@@ -529,11 +529,21 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 
 Ordine del docente, 23/11/2026: ogni errore passato diventa un test automatico che scatta se si ripresenta. Questa mappa dice che cosa un controllo DOVREBBE fare; il banco dice che cosa fa DAVVERO.
 
-1. Dove sta: `strumenti/banco_errori_v1.0.py` (il lanciatore), `tests/errori/indice.json` (una riga per voce: categoria dell'audit, schema, motivo se non verificabile), `tests/errori/casi/*.json` (un caso per errore verificabile: input sbagliato, input giusto, controllo che deve scattare), `tests/errori/specifiche-v1.0.json` (il controllo più piccolo che coprirebbe i NON COPERTI), `tests/errori/baseline-coperti.json` (gli errori coperti all'ultimo giro). Rapporto: `report/2026-11-23/BANCO-ERRORI-v1.0.md` del riservato.
-2. Come si lancia: `python3 /home/user/corso-informatica/strumenti/banco_errori_v1.0.py -v`. Con `--regressioni` esce 1 se un errore prima coperto non scatta più (un controllo tolto o rotto) o se un controllo scatta sul caso giusto. Va lanciato prima di modificare un hook o uno strumento dei controlli.
+1. Dove sta: `strumenti/banco_errori_v1.1.py` (il lanciatore; la v1.0 resta, ma lascia scritti alla lettera i segnaposto {{ORA-1}}), `tests/errori/indice.json` (una riga per voce: categoria dell'audit, schema, motivo se non verificabile), `tests/errori/casi/*.json` (un caso per errore verificabile: input sbagliato, input giusto, controllo che deve scattare), `tests/errori/specifiche-v1.0.json` (il controllo più piccolo che coprirebbe i NON COPERTI), `tests/errori/baseline-coperti.json` (gli errori coperti all'ultimo giro). Rapporto: `report/2026-11-23/BANCO-ERRORI-v1.0.md` del riservato.
+2. Come si lancia: `python3 /home/user/corso-informatica/strumenti/banco_errori_v1.1.py -v`. Con `--regressioni` esce 1 se un errore prima coperto non scatta più (un controllo tolto o rotto) o se un controllo scatta sul caso giusto. Va lanciato prima di modificare un hook o uno strumento dei controlli.
 3. Stati: COPERTO (il controllo scatta e sul caso giusto non scatta), NON COPERTO (nessun controllo lo fermerebbe: è un buco, mai «atteso»), CASO DA SCRIVERE (verificabile, caso non ancora scritto), NON VERIFICABILE A MACCHINA (con il motivo scritto), ERRORE DEL BANCO (il caso non gira: non conta come coperto).
 4. Primo giro, 23/11/2026: 414 voci; 119 COPERTE, 96 NON COPERTE, 13 casi da scrivere, 186 non verificabili a macchina, 0 errori del banco. Il banco e le colonne «Prima» e «Ora» di questa mappa dicono cose diverse: 43 voci che la sezione 04 dà con copertura «A» non scattano più al banco (per lo più controlli dell'hook tolti il 04/11/2026); la tabella della sezione 04 non è stata riscritta: vale quella del banco, che si può rieseguire.
 5. Regola per la sezione 06: quando si registra un errore nuovo si scrive PRIMA il caso in `tests/errori/casi/` (e la riga in `indice.json`); nasce NON COPERTO e il controllo che lo ferma lo porta a COPERTO. Un errore senza caso scritto è un errore senza prova.
+
+## 08 Controlli rimessi il 23/11/2026 (v1.33, sezione nuova)
+
+Ordine del docente, 23/11/2026: «se ci sono errori che tu hai tolto dagli avvertimenti rimettili; se invece li abbiamo risolti va bene così». Il banco (sezione 07) aveva trovato 43 errori dati con copertura «A» il cui controllo non scattava più, e 96 NON COPERTI. Il codice storico dei controlli tolti il 04/11 non è più nella storia di git (il repository comincia il 18/11/2026): i controlli sono rifatti dalla descrizione di `.claude/hooks/LEGGIMI-controlli.md` (capitolo 05.2) e dai casi del banco, sulle regole R1-R11 di oggi. Regola di scelta: BLOCCO per le regole bloccanti di CLAUDE.md (R4 formato, R5 firma, R7 prova prima delle parole, R9 pagine prima del push), AVVISO (non blocca) per il resto.
+
+1. **Rimessi: 47** (39 dei 43 e 8 dei primi 10 NON COPERTI). Dei 43: #3, #5, #16, #21, #23, #31, #51, #53, #55, #56, #63, #83, #87, #88, #90, #96, #98, #100, #113, #115, #117, #127, #130, #135, #139, #140, #143, #151, #152, #153, #154, #157, #158, #165, #166, #167, #281, #373, 01/10-6. Dei primi 10 NON COPERTI: #362, #178, #292, #280, #263, #227, #211, #177. In più 5 errori NON COPERTI sono ora coperti dagli stessi controlli: #39, #104, #173, #275, #277. Codice: `.claude/hooks/controlli_ripristinati.py` (testo del messaggio), `controllo-messaggio.py` (firma, trascrizione, nomi), `controllo_nomi.py` (nome solo), `controlli_pagine.py` (pagine), `strumenti/controlla_lingue_quiz.py` v1.1.
+2. **Risolti altrove: 4** (copertura corretta da A a C nella tabella): #11, #36, #52 (R5.1 di CLAUDE.md v2.0: «FIRMA ✓» in verde = firmata; la vecchia regola «la firma non si deduce dal bottone» è abrogata) e 02/10-9 (i PDF dei ragazzi vanno ora come Allegato del post, kit del 20/11/2026).
+3. **Ancora da fare: 2 dei primi 10** (#352 e #198: servono `controlla_kit.py` e `controlli_consegna.py`, file di altri agenti; non toccati; la parte #177 sul post già creato sta nello stesso file). Resto del banco, non in questo incarico: 44 NON COPERTI e 13 CASI DA SCRIVERE. NON COPERTI: #11, #186, #188, #190, #198, #204, #215, #220, #223, #225, #228, #240, #249, #251, #254, #264, #266, #267, #268, #269, #27, #270, #273, #295, #308, #322, #334, #335, #352, #354, #358, #36, #361, #37, #372, #375, #380, #46, #52, #8, #95, 02/10-15, 02/10-2, 02/10-9.
+4. Prove: banco v1.1 (`strumenti/banco_errori_v1.1.py`; la v1.0 lasciava scritti alla lettera i segnaposto {{ORA-1}}…): COPERTI da 119 a 171, NON COPERTI da 96 a 44, 0 errori del banco, 0 falsi allarmi sui casi giusti; `tests/errori/baseline-coperti.json` riscritto con i 171. `prove/prova_controlli_ripristinati.py`: 74/74, con 0 falsi allarmi su 166 messaggi veri di Claude e 5 kit del 20/11/2026 (più le pagine di docs/ con i controlli che bloccano il push). Sugli 1.263 messaggi del 15-22/11 i controlli rimessi hanno scattato 10 volte (0,8 %), quasi tutte per errori veri.
+5. Limite: sono controlli sulle parole; «risolto», «a posto», «funziona» passano se nel messaggio c'è una qualunque prova (fonte, ora, esito, «non provato»), come per il vecchio (c). Il controllo #263 (carta e penna) non blocca il push: 13 pagine vecchie di docs/ lo violano e il blocco impedirebbe di modificarle.
 
 ## Changelog
 
@@ -569,3 +579,4 @@ Ordine del docente, 23/11/2026: ogni errore passato diventa un test automatico c
 30. v1.30 (20/11/2026, controllore di fine giornata): righe #384-#389 (#384 e #385 mancavano; #386-#389 nuove, tutte D salvo #388 B). Il conteggio della sezione 01 non è stato ricalcolato.
 31. v1.31 (23/11/2026, ordine del docente: controlli mancanti per #386-#389): #386, #387, #388, #389 da D ad A; controlli (kk) (ll) (mm) in `controllo-messaggio.py`, `controlla_kit.py` v1.4, `controlla_controlli.py` punto 10, libreria `strumenti/controlli_consegna.py`; prove 331 su 331 (prova_consegna 60, prova_controlla_kit 15, prova_controlla_controlli 48). Il conteggio della sezione 01 non è stato ricalcolato.
 32. v1.32 (23/11/2026, ordine del docente: banco di prova degli errori): aggiunta la sezione 07; la tabella della sezione 04 e i conteggi della sezione 01 non sono stati riscritti. Banco: 414 voci, 119 coperte, 96 non coperte, 13 casi da scrivere, 186 non verificabili a macchina.
+33. v1.33 (23/11/2026): sezione 08, controlli rimessi (47) e risolti altrove (4: #11, #36, #52, 02/10-9); righe corrette nella tabella; banco v1.1.

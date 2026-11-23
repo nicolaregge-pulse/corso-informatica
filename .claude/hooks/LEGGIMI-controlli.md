@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.14** — 23/11/2026 (prima: 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.15** — 23/11/2026 (prima: 1.14, 1.13, 1.12) — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -201,6 +201,18 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 4. I testi dei post (errore #387) li controlla `controlla_kit.py` v1.4 nel riservato («KIT INCOERENTE»).
 5. Libreria `strumenti/controlli_consegna.py`; prove `prove/prova_consegna.py` (60 casi); `prova_controlla_kit.py` nel riservato (15); la lista delle prove di `controlla_controlli.py` le comprende tutte.
 
+## 13 Controlli rimessi (23/11/2026)
+
+Ordine del docente: «se ci sono errori che tu hai tolto dagli avvertimenti rimettili; se invece li abbiamo risolti va bene così». Il banco `strumenti/banco_errori_v1.1.py` aveva trovato 43 errori «A» senza più controllo (capitolo 05.2) e 96 NON COPERTI. Dettaglio, con il numero di ogni errore, in `MAPPA-REGOLE-CONTROLLI.md` v1.33, sezione 08.
+
+1. **Dove:** `controlli_ripristinati.py` (nuovo, testo del messaggio e del kit), `controllo-messaggio.py` (firma ricordata, controlli sulla trascrizione, nomi), `controllo_nomi.py` (`avviso_nome_solo`), `controlli_pagine.py` (6 controlli nuovi; `quiz_sul_sito` e `copia_file_da_classroom` anche prima del push), `strumenti/controlla_lingue_quiz.py` v1.1. Il codice storico non è più in git: rifatti dalla descrizione del capitolo 05.2 e dai casi del banco, sulle regole R1-R11 di oggi (la regola «la firma non si deduce dal bottone» è abrogata da R5.1).
+2. **BLOCCO** (regole bloccanti, il messaggio va riscritto una volta): «a posto/risolto/funziona/garantito/c'è sul sito» senza prova nel messaggio (R7.1, ex (c)); conteggio di consegne senza fonte e ora (ex (w)); «non ha caricato», «non ha fatto niente» da Veyon, «ha già» da uno screenshot, senza la ricerca (ex (r)); pagina provata con ?prova=1 (ex (y)); rimando a «il riquadro di prima» (ex (u)); firma ricordata con FIRME-REGISTRO tutto firmato (ex (m), R5.1); più file senza «a che serve» per ognuno (#373); «alza la mano» nel testo del kit (#177).
+3. **AVVISO** (non blocca, `systemMessage`): «nessuna AI», tempi dello script, «utente non indicato», «ha copiato», ROSSO «atteso», release della cartella, «lei/lui», domanda su presenti già nei file, «onestamente», catene « · », «salta al passo», incolla in Apps Script, stringa DIDAweb senza Disciplina o con voti sotto 40, «al tuo avanti» dopo «dammi», registrazione senza #NNN, domanda presa per ordine di togliere, più di 2 Agent nel turno, griglia da compilare in PDF, nome di battesimo da solo.
+4. **Pagine** (audit notturno `TUTTI`; solo i primi due anche prima del push, `SICURI`): quiz con invio proprio sul sito, copia di un file da Classroom, carta e penna (solo audit: 13 pagine vecchie lo violano), pannello senza «A che serve:», campi ripetuti nelle tre lingue, ruoli MANI e OCCHI.
+5. **Non rimessi** (4): #11, #36, #52 (regola abrogata da R5.1) e 02/10-9 (i PDF ora vanno come Allegato). **Ancora da fare:** #352 e #198 (`controlla_kit.py` e `controlli_consegna.py`, file di altri agenti).
+6. **Prove:** `python3 /home/user/corso-informatica/.claude/hooks/prove/prova_controlli_ripristinati.py` (74/74: 73 casi giusti e sbagliati più «0 falsi allarmi» sui 166 messaggi veri di Claude e sui 5 kit del 20/11/2026 della bobina del riservato); `prova_messaggio.py` 67/67, `prova_limite.py` 42/42, `prova_formato_kit.py` 55/55, `prova_consegna.py` 60/60 invariate; il controllore dei controlli la include da solo. Banco: 171 coperti su 414, 0 falsi allarmi.
+7. **Limiti:** controlli sulle parole; per la prova basta una qualunque fonte, ora, esito o «non provato» nel messaggio.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -216,3 +228,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 12. v1.12 (18/11/2026 sera): `strumenti/controlla_controlli.py` (punto 5, la notte): dal 19/11 lo stato `stato/notte-<giorno>.json` deve avere anche il campo `da_fare_oggi` (punto 5bis della preparazione notturna), altrimenti ROSSO (residuo R1 dell'audit del metodo sera/mattina). Prove di `prova_controlla_controlli.py`: 44/44. Non provato con una notte reale (la prima è quella del 19/11).
 13. v1.13 (18/11/2026 sera): capitolo 11, `promemoria-errori.py` v1.3 (frase della procedura del mattino) e 11 prove nuove in `prova_promemoria.py` (26 casi).
 14. v1.14 (23/11/2026): capitolo 12, controlli (kk) (ll) (mm) dell'hook del messaggio per gli errori #386, #388, #389; `controlla_kit.py` v1.4 per #387; prova_consegna.py (60 casi).
+15. v1.15 (23/11/2026): capitolo 13, controlli rimessi (47) e risolti altrove (4); `controlli_ripristinati.py`, prova `prova_controlli_ripristinati.py`.
