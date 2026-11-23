@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.30** — 20/11/2026 (righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.31** — 23/11/2026 (righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -457,10 +457,10 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #383 | Lentezza e output spesso sbagliato (19/11) | 1 | D | D | confronto prima dell'invio (#378, #379); da provare: routine 06:50 del 20/11 |
 | #384 | Esercizio 1INF ora 4: scheda senza materiale (20/11) | 5 | A | A | `strumenti/controlla_kit.py` v1.2: «KIT INCOMPLETO: scheda senza esempio/materiale» |
 | #385 | PDF ragazzi 1INF di 28 pagine (20/11) | 5 | A | A | `strumenti/controlla_kit.py` v1.3: massimo 10 pagine per la 1INF, frasi corte |
-| #386 | Formato pacchetto PUBB e kit non mantenuto (20/11) | 1 | D | D | `INFO-PIU-USATE-v1.16.md` §19.7; (ff) di `controllo-messaggio.py` non ha scattato: da provare con il testo delle 08:20 |
-| #387 | Testi dei post incoerenti con gli allegati e con la data (20/11) | 2 | D | D | `INFO-PIU-USATE-v1.16.md` §19.8; da costruire in `controlla_kit.py`: «ieri/domani», «_» iniziale, Documento senza modello, carte diverse dal PDF |
-| #388 | Formato predefinito PDF non applicato (20/11) | 1 | D | B | `INFO-PIU-USATE-v1.16.md` §19.6; `promemoria-errori.py` v1.16 |
-| #389 | Cruscotto senza dati di oggi e non in tempo reale (20/11) | 6 | D | D | `controlla_controlli.py` «giri fermi» (A); cruscotto live v1.2 da provare |
+| #386 | Formato pacchetto PUBB e kit non mantenuto (20/11) | 1 | D | A | (kk) di `controllo-messaggio.py`: «PUBB n» senza pacchetto rosso/blu con TITOLO e OGGETTO in riquadri; `strumenti/controlli_consegna.py`; `prova_consegna.py` |
+| #387 | Testi dei post incoerenti con gli allegati e con la data (20/11) | 2 | D | A | `controlla_kit.py` v1.4 (riservato) + `controlli_consegna.py`: «KIT INCOERENTE» per «ieri/domani», «_», «???», ora/data del titolo, Documento senza modello, carte senza intervallo, quiz; `prova_controlla_kit.py` |
+| #388 | Formato predefinito PDF non applicato (20/11) | 1 | D | A | (ll) di `controllo-messaggio.py`: file xlsx/docx/csv/md senza PDF e senza formato chiesto; `promemoria-errori.py` v1.16 resta |
+| #389 | Cruscotto senza dati di oggi e non in tempo reale (20/11) | 6 | D | A | (mm) di `controllo-messaggio.py` e `controlla_controlli.py` punto 10 (`controlla_cruscotto_oggi`); «giri fermi» (A); cruscotto live v1.2 da provare |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -557,3 +557,4 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 28. v1.28 (18/11/2026, controllore di fine giornata): righe #358-#374 aggiunte (#358-#366 e #367 mancavano; #368-#374 nuove). Copertura: nessun controllo automatico nuovo (principio: da costruire = D); il conteggio della sezione 01 non è stato ricalcolato.
 29. v1.29 (19/11/2026, controllore di fine giornata): righe #375-#383 aggiunte (#375-#377 mancavano; #378-#383 nuove). Copertura: nessun controllo automatico nuovo (principio: da costruire = D, correzione in `INFO-PIU-USATE-v1.8.md`); il conteggio della sezione 01 non è stato ricalcolato.
 30. v1.30 (20/11/2026, controllore di fine giornata): righe #384-#389 (#384 e #385 mancavano; #386-#389 nuove, tutte D salvo #388 B). Il conteggio della sezione 01 non è stato ricalcolato.
+31. v1.31 (23/11/2026, ordine del docente: controlli mancanti per #386-#389): #386, #387, #388, #389 da D ad A; controlli (kk) (ll) (mm) in `controllo-messaggio.py`, `controlla_kit.py` v1.4, `controlla_controlli.py` punto 10, libreria `strumenti/controlli_consegna.py`; prove 331 su 331 (prova_consegna 60, prova_controlla_kit 15, prova_controlla_controlli 48). Il conteggio della sezione 01 non è stato ricalcolato.

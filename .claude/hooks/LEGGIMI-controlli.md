@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.13** — 18/11/2026 sera (prima: 1.12, 1.11) — documento interno del docente e di Claude
+**Versione 1.14** — 23/11/2026 (prima: 1.13, 1.12) — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -193,6 +193,14 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 3. Nessun trigger è cambiato (decisione del docente 18/11). La proposta di un trigger alle 06:30, NON applicata, è `report/2026-11-18/PROPOSTA-TRIGGER-MATTINO-v1.0.md` nel riservato.
 4. Prova: `prove/prova_promemoria.py` 26/26 (11 casi nuovi con un riservato finto: frase presente, percorso completo, versione 1.10 maggiore di 1.9, bozza ignorata, secondo messaggio e trigger senza frase, file mancante, hook spento); `prova_messaggio.py` 67/67; `prova_limite.py` 42/42.
 
+## 12 Controlli (kk) (ll) (mm): pacchetto PUBB, formato del file, cruscotto di oggi (23/11/2026)
+
+1. **(kk) Pacchetto PUBB** (errore #386): se il docente scrive «PUBB n», «dati per Classroom» o «ridammi … kit» (messaggio breve, al massimo 240 caratteri) e la risposta non ha riga rossa 🟥, TITOLO e OGGETTO in riquadri, blocca una volta per turno e dice che cosa manca. Fa eccezione la risposta breve (sotto 60 caratteri).
+2. **(ll) Formato del file** (errore #388): SendUserFile di .xlsx, .docx, .csv, .md, .txt, .pptx, .html senza un PDF dello stesso nome nel turno, se il docente non ha nominato il formato (excel, word, csv, modello, kit, originale, …) e il messaggio non è un kit rosso: blocca e chiede il PDF.
+3. **(mm) Cruscotto di oggi** (errore #389): «il cruscotto è pronto/aggiornato/live/in tempo reale» per una classe che oggi ha lezione già iniziata e il cui ultimo dato non è di oggi (ora di Roma), senza «DATI VECCHI», «ultimo dato del …» o «non provato»: blocca. Lo stesso controllo, a cadenza di giorno, è il punto 10 di `controlla_controlli.py`.
+4. I testi dei post (errore #387) li controlla `controlla_kit.py` v1.4 nel riservato («KIT INCOERENTE»).
+5. Libreria `strumenti/controlli_consegna.py`; prove `prove/prova_consegna.py` (60 casi); `prova_controlla_kit.py` nel riservato (15); la lista delle prove di `controlla_controlli.py` le comprende tutte.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -207,3 +215,4 @@ Nasce dalla famiglia di errori #282, #285-#289, #291, #293, #309, #311 (registro
 11. v1.11 (18/11/2026): `promemoria-errori.py` v1.2: il segnale «primo messaggio del giorno» lo consuma solo un messaggio del docente, non i prompt di trigger/routine (segni: `<task-notification>`, «scheduled trigger», «Fired by routine», prefissi PROMEMORIA / Controllo di fine giornata / Preparazione notturna); file BOZZA esclusi, versione più alta; percorso completo di `didaweb-auto.js`. Prova nuova `prove/prova_promemoria.py` (15 casi); prova_messaggio 67/67 e prova_limite 42/42 invariate (audit del metodo sera/mattina, residui R2, R6, R8).
 12. v1.12 (18/11/2026 sera): `strumenti/controlla_controlli.py` (punto 5, la notte): dal 19/11 lo stato `stato/notte-<giorno>.json` deve avere anche il campo `da_fare_oggi` (punto 5bis della preparazione notturna), altrimenti ROSSO (residuo R1 dell'audit del metodo sera/mattina). Prove di `prova_controlla_controlli.py`: 44/44. Non provato con una notte reale (la prima è quella del 19/11).
 13. v1.13 (18/11/2026 sera): capitolo 11, `promemoria-errori.py` v1.3 (frase della procedura del mattino) e 11 prove nuove in `prova_promemoria.py` (26 casi).
+14. v1.14 (23/11/2026): capitolo 12, controlli (kk) (ll) (mm) dell'hook del messaggio per gli errori #386, #388, #389; `controlla_kit.py` v1.4 per #387; prova_consegna.py (60 casi).
