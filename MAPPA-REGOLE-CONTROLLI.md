@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.35** — 23/11/2026 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.36** — 23/11/2026 (#391: da D a controllo attivo, settimo controllo del filtro di buon senso) · prima v1.35 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Ogni controllo di questa mappa serve a questo: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Il filtro di buon senso (sezione 10) è lo strumento fatto apposta.
@@ -464,8 +464,8 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #387 | Testi dei post incoerenti con gli allegati e con la data (20/11) | 2 | D | A | `controlla_kit.py` v1.4 (riservato) + `controlli_consegna.py`: «KIT INCOERENTE» per «ieri/domani», «_», «???», ora/data del titolo, Documento senza modello, carte senza intervallo, quiz; `prova_controlla_kit.py` |
 | #388 | Formato predefinito PDF non applicato (20/11) | 1 | D | A | (ll) di `controllo-messaggio.py`: file xlsx/docx/csv/md senza PDF e senza formato chiesto; `promemoria-errori.py` v1.16 resta |
 | #389 | Cruscotto senza dati di oggi e non in tempo reale (20/11) | 6 | D | A | (mm) di `controllo-messaggio.py` e `controlla_controlli.py` punto 10 (`controlla_cruscotto_oggi`); «giri fermi» (A); cruscotto live v1.2 da provare |
-| #391 | Ordini del docente trattati come informazioni, richiesta di conferma su ciò che ha già detto di fare (23/11) | 7 | D | D | da costruire: settima regola di `filtro_buon_senso.py` (vedi #390) |
-| #390 | Domande inutili, decisioni a un docente in malattia, messaggi troppo lunghi; il docente perde il 50% del tempo (stima sua) (23/11) | 1 | D | A | filtro di buon senso in `controllo-messaggio.py` (`filtro_buon_senso.py`, 6 controlli) e `config/modalita-assenza.json` del riservato; prova 77/77; banco v1.2 |
+| #391 | Ordini del docente trattati come informazioni, richiesta di conferma su ciò che ha già detto di fare (23/11) | 7 | D | A | controllo 7 di `filtro_buon_senso.py` v1.1 (conferma chiesta su un ordine già dato; eccezioni PUBB, firma, scadenza oggi, azioni distruttive o esterne); prova 102/102; banco E0391 |
+| #390 | Domande inutili, decisioni a un docente in malattia, messaggi troppo lunghi; il docente perde il 50% del tempo (stima sua) (23/11) | 1 | D | A | filtro di buon senso in `controllo-messaggio.py` (`filtro_buon_senso.py`, 7 controlli dal #391) e `config/modalita-assenza.json` del riservato; prova 77/77; banco v1.2 |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -595,3 +595,4 @@ Ordine del docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un error
 33. v1.33 (23/11/2026): sezione 08, controlli rimessi (47) e risolti altrove (4: #11, #36, #52, 02/10-9); righe corrette nella tabella; banco v1.1.
 34. v1.34 (23/11/2026): sezione 09, cancello di consegna; #198 e #352 coperti.
 35. v1.35 (23/11/2026, ordine del docente): sezione 10, filtro di buon senso; #390 (A); obiettivo principale in testa («perdo il 50% del tempo», stima del docente). Il conteggio della sezione 01 non è stato ricalcolato.
+36. v1.36 (23/11/2026): #391 da D ad A: controllo 7 del filtro di buon senso (conferma chiesta su un ordine già dato); banco: caso E0391.

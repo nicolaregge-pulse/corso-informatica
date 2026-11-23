@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.17** — 23/11/2026 (capitolo 15: filtro di buon senso; prima: 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.18** — 23/11/2026 (capitolo 15: controllo 7, errore #391; prima: 1.17, 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO DI BUON SENSO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Quindi: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Capitolo 15.
@@ -230,8 +230,9 @@ Obiettivo: far perdere al docente meno tempo con domande inutili ed errori (il d
 4. **Più di una domanda** (R7.6).
 5. **Frasi già dette** nel messaggio precedente della stessa conversazione (memoria in `corso-filtro-buon-senso-stato.json` nella cartella temporanea; `CORSO_STATO_BUON_SENSO=""` la spegne) o ripetute due volte nello stesso messaggio.
 6. **Elenco di conteggi** senza fonte né ora (R7.1; il blocco dei conteggi di consegne e presenze resta in `controlli_ripristinati.py`).
+7. **Conferma chiesta su un ordine già dato** (errore #391, «se te le dico è perché tu le faccia»): se l'ultimo messaggio del docente contiene un ordine, bloccano «vuoi che lo faccia?», «procedo?», «posso procedere», «te lo preparo?», «dimmi se devo…», «fammi sapere quale/se…», «aspetto il tuo ok». Perché: il docente deve ripetere l'ordine. Eccezioni: PUBB n, firma, pubblicazione e Classroom, push e dati non pubblici, azioni distruttive, decisione solo sua con scadenza oggi, «aspetta il via». Senza il testo del docente (trascrizione illeggibile) non scatta.
 
-Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /home/user/corso-informatica/.claude/hooks/prove/prova_filtro_buon_senso.py` (77/77, con 0 falsi allarmi sui messaggi brevi e sulle cornici rosse e blu dei 155 messaggi veri del 20/11/2026; 41 di quei 155 messaggi superavano i limiti di lunghezza). Limiti: controlli sulle parole, non capiscono il significato; il blocco della lunghezza vale anche per un messaggio lungo e utile.
+Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /home/user/corso-informatica/.claude/hooks/prove/prova_filtro_buon_senso.py` (102/102, con 0 falsi allarmi sui messaggi brevi e sulle cornici rosse e blu dei 155 messaggi veri del 20/11/2026, ognuno con il suo messaggio del docente; 41 di quei 155 messaggi superavano i limiti di lunghezza). Limiti: controlli sulle parole, non capiscono il significato; il blocco della lunghezza vale anche per un messaggio lungo e utile.
 
 ## Changelog
 
@@ -251,3 +252,4 @@ Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /
 15. v1.15 (23/11/2026): capitolo 13, controlli rimessi (47) e risolti altrove (4); `controlli_ripristinati.py`, prova `prova_controlli_ripristinati.py`.
 16. v1.16 (23/11/2026): capitolo 14, cancello di consegna.
 17. v1.17 (23/11/2026): capitolo 15, filtro di buon senso (errore #390), obiettivo principale in testa; prova nuova `prova_filtro_buon_senso.py`.
+18. v1.18 (23/11/2026): capitolo 15, controllo 7 (errore #391); `controllo-messaggio.py` v2.3, `filtro_buon_senso.py` v1.1, prova 102/102.

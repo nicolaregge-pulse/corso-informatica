@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Filtro di buon senso v1.0 (23/11/2026, errore #390, ordine del docente).
+"""Filtro di buon senso v1.1 (23/11/2026, errori #390 e #391, ordine del docente).
 
 Il docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un errore. Vorrei che prima di darmi le risposte ci fosse un controllo
 da togliere le cose che non hanno senso.» E, subito dopo: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i
@@ -9,14 +9,18 @@ OBIETTIVO PRINCIPALE: far perdere al docente meno tempo con domande inutili ed e
 
 Il filtro gira nell'hook controllo-messaggio.py (fine di ogni risposta). Se trova qualcosa BLOCCA: Claude deve riscrivere il messaggio
 (una volta: contro i cicli vale stop_hook_active). Ogni blocco dice in una riga PERCHÉ e che cosa TOGLIERE.
-Sei controlli:
+Sette controlli:
   1 dato già nei file o del giorno corrente/passato chiesto al docente (orario, presenti, presenze, firme, che giorno è);
   2 modalità assenza (config/modalita-assenza.json del riservato, date lette dal file): niente domande né elenchi di decisioni,
     salvo le criticità vere (firma, PC rotto, decisione solo sua con scadenza oggi);
   3 messaggio lungo (oltre 12 righe o 900 caratteri fuori dai riquadri di codice) che non è un kit/pacchetto;
   4 più di una domanda (R7.6: una domanda sola);
   5 frasi già dette nel messaggio precedente della stessa conversazione (o ripetute nello stesso messaggio);
-  6 elenco di conteggi senza fonte e ora (R7.1).
+  6 elenco di conteggi senza fonte e ora (R7.1);
+  7 (#391) conferma o permesso chiesti su un lavoro che l'ultimo messaggio del docente ha già ordinato («vuoi che lo faccia?»,
+    «procedo?», «te lo preparo?», «dimmi se», «fammi sapere quale scegli»): «se te le dico è perché tu le faccia». Eccezioni: PUBB n,
+    firma, decisione solo sua che scade oggi, azioni distruttive o verso l'esterno (R2, push di dati non pubblici). Senza il testo del
+    docente il controllo 7 non scatta.
 Funzioni pure: esegui(...) non scrive nulla; la memoria dell'ultimo messaggio la tiene chi chiama (controllo-messaggio.py).
 Prova: .claude/hooks/prove/prova_filtro_buon_senso.py
 """
@@ -260,16 +264,57 @@ def conteggi_senza_fonte(t):
                     "i numeri: oppure scrivi una riga con la fonte e l'ora («letto da … alle HH:MM») o «non provato».")]
 
 
+# ------------------------------------------------------------------ 7 conferma chiesta su un ordine già dato (#391)
+
+RE_ORDINE_DOCENTE = re.compile(
+    r"\b(?:fai|fa'|fammi|dammi|mandami|preparami|prepara|creami|crea|costruisci|costruiscimi|aggiungi|aggiorna|correggi|sistema|"
+    r"metti|togli|scrivi|scrivimi|genera|controlla|verifica|usa|rifai|rendi|voglio|vorrei|devi|deve\s+essere|serve|servono|mi\s+serve|"
+    r"PRI|PPP|dammelo|dammela|falle|fallo|falla|falli|trasforma|sposta|cambia|riscrivi|continua|avanti|procedi|vai)\b|"
+    r"\bse\s+te\s+le?\s+dico\b", re.I)
+RE_CONFERMA = re.compile(
+    r"\bvuoi\s+che\s+(?:lo|la|li|le|ci|ti|te|mi|procedo|proceda|faccia|prepari|scriva|crei|generi|aggiorni|mandi|invii|costruisca|"
+    r"metta|sistemi|corregga|aggiunga|continui|vada)\b|"
+    r"\b(?:procedo|proseguo|continuo|vado\s+avanti|lo\s+faccio|la\s+faccio|li\s+faccio|le\s+faccio|lo\s+preparo|la\s+preparo)\s*\?|"
+    r"\bposso\s+(?:procedere|proseguire|continuare|iniziare|cominciare|farlo|farla|prepararlo|prepararla)\b|"
+    r"\bdevo\s+(?:procedere|proseguire|continuare|farlo|farla|prepararlo|prepararla)\b|"
+    r"\bdimmi\s+(?:se\s+(?:devo|posso|vuoi\s+che|procedo|lo\s+faccio|la\s+faccio)|quando\s+(?:posso|devo))\b|"
+    r"\bfammi\s+sapere\s+(?:se|quale|quali|come\s+preferisci|cosa\s+(?:scegli|preferisci|vuoi)|quando)\b|"
+    r"\b(?:aspetto|attendo)\s+(?:il\s+tuo|la\s+tua)\s+(?:ok|via|conferma|ordine|ok\s+per)\b|"
+    r"\bse\s+vuoi\s+(?:lo|la|li|le)\s+(?:faccio|preparo|scrivo|genero|creo)\b", re.I)
+# «te lo preparo?» è una richiesta solo se è una domanda; «te lo mando appena…» è una promessa e non si blocca
+RE_CONFERMA_DOMANDA = re.compile(r"\b(?:te|ti)\s+(?:lo|la|li|le)\s+(?:preparo|faccio|scrivo|genero|creo|mando|costruisco)\b[^.!]*\?", re.I)
+RE_ECCEZIONE_ORDINE = re.compile(
+    r"\bPUBB\b|\bfirm\w*|\bpubblic\w*|\bClassroom\b|\bpush\b|\bcancell\w+|\belimin\w+|\bdistrugg\w+|\bripristin\w+|"
+    r"\bsovrascri\w+|\bsvuot\w+|\bdati\s+non\s+pubblic\w+|\bcognom\w+|\bpassword\b|\bemail\b|\bmail\b|\binvi\w+\s+(?:a|agli|ai)\b|"
+    r"\bscad\w+\s+oggi\b|\bdecisione\s+(?:solo\s+tua|che\s+solo)|\bsolo\s+tu\s+puoi\b|\bnon\s+si\s+(?:può|puo)\s+(?:annullare|rifare)", re.I)
+
+
+def conferma_su_ordine(t, docente):
+    """Il messaggio chiede conferma su un lavoro che l'ultimo messaggio del docente ordina già. Senza il testo del docente: nessun blocco."""
+    if not docente or not docente.strip() or not RE_ORDINE_DOCENTE.search(docente):
+        return []
+    if re.search(r"\baspetta\s+(?:il\s+)?via\b", docente, re.I):
+        return []   # R3.4: «aspetta il via» = si risponde solo «Annotato»
+    for f in _frasi(RE_URL.sub(" ", t)):
+        m = RE_CONFERMA.search(f) or RE_CONFERMA_DOMANDA.search(f)
+        if m and not RE_ECCEZIONE_ORDINE.search(f):
+            return [_perche(7, "il docente ha già ordinato questo lavoro («se te le dico è perché tu le faccia», #391): chiedere conferma o "
+                            "permesso gli fa perdere tempo e ripetere l'ordine.",
+                            "la richiesta «%s»: esegui il lavoro e scrivi solo il risultato con la prova (resta solo ciò che richiede una "
+                            "decisione sua con scadenza oggi, PUBB n, firma o un'azione distruttiva o verso l'esterno)." % f[:90])]
+    return []
+
+
 # ------------------------------------------------------------------ insieme
 
-def esegui(t, grezzo, oggi=None, ris=RIS, precedente=None, cfg=None):
+def esegui(t, grezzo, oggi=None, ris=RIS, precedente=None, cfg=None, docente=None):
     """t = testo ripulito (senza riquadri, codice in linea e citazioni); grezzo = messaggio intero.
     Restituisce la lista dei motivi (una riga ciascuno). Nessuna eccezione verso chi chiama."""
     oggi = oggi or datetime.date.today()
     cfg = cfg if cfg is not None else carica_assenza(ris)
     out = []
     for f in (lambda: dato_gia_nei_file(t, oggi), lambda: assenza(t, cfg, oggi), lambda: troppo_lungo(grezzo),
-              lambda: piu_domande(t), lambda: ripetizioni(t, precedente), lambda: conteggi_senza_fonte(t)):
+              lambda: piu_domande(t), lambda: ripetizioni(t, precedente), lambda: conteggi_senza_fonte(t), lambda: conferma_su_ordine(t, docente)):
         try:
             out.extend(f())
         except Exception:

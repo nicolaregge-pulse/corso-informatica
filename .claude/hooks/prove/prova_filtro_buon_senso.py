@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Prove del filtro di buon senso v1.0 (23/11/2026, errore #390): filtro_buon_senso.py dentro controllo-messaggio.py.
+"""Prove del filtro di buon senso v1.1 (23/11/2026, errori #390 e #391): filtro_buon_senso.py dentro controllo-messaggio.py.
 
 1. Casi sbagliati (devono scattare, con il numero del controllo giusto) e giusti (non devono scattare), anche con i testi veri dei
    messaggi del 23/11/2026 riscritti in modo anonimo.
@@ -53,9 +53,9 @@ def pulito(testo):
     return cm.senza_citazioni(cm.senza_codice_in_linea(cm.senza_riquadri(testo)))
 
 
-def numeri(testo, oggi=OGGI, cfg=None, precedente=None):
+def numeri(testo, oggi=OGGI, cfg=None, precedente=None, docente=None):
     """Numeri dei controlli che scattano (dal testo «controllo N» di ogni motivo)."""
-    motivi = fb.esegui(pulito(testo), testo, oggi=oggi, ris="/non-esiste", precedente=precedente, cfg=cfg if cfg is not None else {})
+    motivi = fb.esegui(pulito(testo), testo, oggi=oggi, ris="/non-esiste", precedente=precedente, cfg=cfg if cfg is not None else {}, docente=docente)
     return sorted({int(re.search(r"controllo (\d)", m).group(1)) for m in motivi}), motivi
 
 
@@ -135,6 +135,30 @@ tace("conteggi con fonte e ora", "Situazione (letto dal registro alle 13:58):\n-
 tace("conteggi con «non provato»", "Situazione, non provato:\n- 12 su 18 hanno finito il quiz\n- 5 allievi sono assenti")
 tace("un solo numero in un passo", "1. Clicca sul bottone blu 3 volte.\n2. Premi il bottone verde.")
 
+# ------------------------------------------------------------------ 7 conferma chiesta su un ordine già dato (#391)
+ORD = "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+for nome, m in {
+    "vuoi che lo faccia": "Il quiz è impostato. Vuoi che lo faccia adesso?",
+    "procedo": "Ho letto il file del quiz. Procedo?",
+    "te lo preparo": "Te lo preparo con le immagini?",
+    "dimmi se": "Dimmi se devo aggiornare anche il registro della 2INF.",
+    "fammi sapere quale scegli": "Fammi sapere quale scegli tra le due versioni del quiz.",
+    "posso procedere": "Posso procedere con la versione breve?",
+    "aspetto il tuo ok": "Il quiz è pronto, aspetto il tuo ok per aggiornare il registro.",
+}.items():
+    scatta("ordine già dato, conferma chiesta: " + nome, m, 7, docente=ORD)
+tace("stessa frase ma senza testo del docente (non provato)", "Vuoi che lo faccia adesso?")
+tace("docente ha solo chiesto un parere", "Vuoi che lo faccia adesso?", docente="Che ne pensi dei quiz a risposta multipla?")
+tace("eccezione PUBB", "Vuoi che pubblichi? Aspetto il tuo PUBB 2.", docente=ORD)
+tace("eccezione firma", "Procedo con la firma delle ore 5 e 6?", docente=ORD)
+tace("eccezione push di dati non pubblici", "Vuoi che faccia il push dei cognomi nel pubblico?", docente=ORD)
+tace("eccezione azione distruttiva", "Vuoi che cancelli la cartella vecchia?", docente=ORD)
+tace("eccezione decisione con scadenza oggi", "Decisione solo tua: il preventivo scade oggi, procedo?", docente=ORD)
+tace("aspetta il via: solo Annotato", "Vuoi che lo faccia?", docente="Aspetta il via, poi fai il quiz.")
+tace("eseguito e riferito", "Fatto: quiz creato e registro aggiornato (letto dal file alle 10:42).", docente=ORD)
+tace("domanda di scelta vera su un dato che solo lui ha", "Quale classe vuoi per il quiz, la 2INF o la 3INF?", docente=ORD)
+tace("richiesta dentro un riquadro da copiare", "Incolla questo:\n```\nVuoi che lo faccia?\n```", docente=ORD)
+
 # ------------------------------------------------------------------ messaggi brevi normali e cornici esistenti (0 falsi allarmi)
 for nome, m in {
     "Annotato": "Annotato.",
@@ -206,7 +230,12 @@ if os.path.exists(bob) and CFG:
             continue
         n_msg += 1
         puliti.append((parti[i + 1], corpo))
-        ns, motivi = numeri(corpo, oggi=datetime.date(2026, 11, 20), cfg=cfg_nopass)
+        prec_doc = ""   # ultimo messaggio vero del docente prima di questo messaggio di Claude (per il controllo 7)
+        for j in range(i - 3, 0, -3):
+            if parti[j] == "NICOLA":
+                prec_doc = parti[j + 2]
+                break
+        ns, motivi = numeri(corpo, oggi=datetime.date(2026, 11, 20), cfg=cfg_nopass, docente=prec_doc)
         for n in ns:
             conteggio[n] = conteggio.get(n, 0) + 1
         righe = [r for r in fb.fuori_riquadri(corpo) if r.strip() and not fb.RE_CORNICE.match(r)]
@@ -221,7 +250,7 @@ if os.path.exists(bob) and CFG:
         if not re.search(r"🟥🟥|🟦🟦", corpo):
             continue
         n_kit += 1
-        ns, _m = numeri(corpo, oggi=datetime.date(2026, 11, 20), cfg=cfg_nopass)
+        ns, _m = numeri(corpo, oggi=datetime.date(2026, 11, 20), cfg=cfg_nopass, docente="Fai il kit. Se te le dico è perché tu le faccia.")
         if 3 in ns:
             kit_bloccati.append((ora_, ns))
     print("Messaggi veri del 20/11/2026: %d; blocchi per controllo (messaggi lunghi o con più domande compresi): %s" % (n_msg, conteggio))

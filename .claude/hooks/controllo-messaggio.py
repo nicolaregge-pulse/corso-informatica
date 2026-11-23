@@ -38,7 +38,7 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
    config/modalita-assenza.json del riservato (date lette dal file) dice che è assente, salvo firma, PC rotto, decisione solo sua che scade
    oggi; 3 oltre 12 righe o 900 caratteri fuori dai riquadri se non è un kit; 4 più di una domanda; 5 frasi già dette nel messaggio
    precedente (memoria in un file temporaneo); 6 elenco di conteggi senza fonte. Ogni blocco dice il perché e che cosa togliere.
-   Prova: prove/prova_filtro_buon_senso.py. Versione del file: v2.2 (23/11/2026).
+   Prova: prove/prova_filtro_buon_senso.py. Controllo 7 (#391): conferma chiesta su un ordine già dato. Versione del file: v2.3 (23/11/2026).
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indicati solo con il COGNOME, R1.4 e R7.4): sta
@@ -1076,7 +1076,11 @@ def controllo_buon_senso(testo, data):
         return []   # turno senza testo nuovo (notifica): il testo letto dalla trascrizione è già stato consegnato, non si rifiltra
     t = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
     oggi = datetime.datetime.now(TZ_ROMA).date()
-    return lib.esegui(t, testo, oggi=oggi, ris=RIS, precedente=_stato_buon_senso(data.get("session_id")))
+    try:
+        docente = testo_ultimo_docente(data.get("transcript_path") or "")
+    except Exception:
+        docente = None   # trascrizione illeggibile: il controllo 7 non si esegue, gli altri sì
+    return lib.esegui(t, testo, oggi=oggi, ris=RIS, precedente=_stato_buon_senso(data.get("session_id")), docente=docente)
 
 
 def main():

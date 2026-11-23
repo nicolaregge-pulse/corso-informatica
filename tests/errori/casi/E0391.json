@@ -1,0 +1,58 @@
+{
+ "errore": "#391",
+ "titolo": "Conferma chiesta su un ordine già dato dal docente: «se te le dico è perché tu le faccia» (23/11)",
+ "categoria": "H",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #391 nel registro (frase del docente) e da frasi tipo «vuoi che lo faccia?»; anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py, filtro di buon senso (filtro_buon_senso.py): controllo 7 (conferma su ordine già dato)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 7",
+   "sbagliato": {
+    "finale": "Il quiz è impostato. Vuoi che lo faccia adesso?",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   },
+   "giusto": {
+    "finale": "Fatto: quiz creato e registro aggiornato (letto dal file alle 10:42).",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 7",
+   "sbagliato": {
+    "finale": "Ho letto il file del quiz. Procedo?",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   },
+   "giusto": {
+    "finale": "Ho letto il file del quiz e l'ho completato (esito VERDE alle 10:42).",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 7",
+   "sbagliato": {
+    "finale": "Dimmi se devo aggiornare anche il registro della 2INF.",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   },
+   "giusto": {
+    "finale": "Registro della 2INF aggiornato (letto dal file alle 10:42).",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 7",
+   "sbagliato": {
+    "finale": "Fammi sapere quale scegli tra le due versioni del quiz.",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   },
+   "giusto": {
+    "finale": "Ho scelto la versione breve del quiz: è nel riquadro qui sotto.",
+    "docente": "Preparami il quiz di Sicurezza per la 2INF e aggiorna il registro. Se te le dico è perché tu le faccia."
+   }
+  }
+ ]
+}
