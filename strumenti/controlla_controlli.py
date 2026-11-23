@@ -959,6 +959,19 @@ def controlla_fine_giornata(giorno, pub=None, ris=None):
     if not os.path.isdir(ris):
         giallo("fine giornata %s: riservato assente, controllo saltato" % giorno)
         return []
+    # 23/11/2026: giorni dichiarati senza lezione (malattia del docente) nel riservato: config/giorni-senza-lezione.json
+    # {"giorni": {"AAAA-MM-GG": "motivo e fonte"}}. Resta obbligatorio solo report/<giorno>/non-andato.md.
+    try:
+        senza_lez = json.load(open(os.path.join(ris, "config", "giorni-senza-lezione.json"), encoding="utf-8")).get("giorni", {})
+    except Exception:
+        senza_lez = {}
+    if giorno in senza_lez:
+        if os.path.isfile(os.path.join(ris, "report", giorno, "non-andato.md")):
+            esito(True, "fine giornata %s: giorno dichiarato senza lezione (%s); non-andato.md presente" % (giorno, senza_lez[giorno]))
+            return []
+        p = ["manca report/%s/non-andato.md: il controllo di fine giornata non è stato fatto (#155)" % giorno]
+        esito(False, "fine giornata %s: %s" % (giorno, "; ".join(p)))
+        return p
     try:
         lez = json.load(open(os.path.join(pub, "docs", "avanzamento", "orario-lezioni.json"), encoding="utf-8"))["lezioni"].get(giorno) or []
     except Exception:
