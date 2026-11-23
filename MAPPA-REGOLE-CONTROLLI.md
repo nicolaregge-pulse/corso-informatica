@@ -1,6 +1,9 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.34** — 23/11/2026 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.35** — 23/11/2026 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+
+
+> **OBIETTIVO PRINCIPALE DEL FILTRO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Ogni controllo di questa mappa serve a questo: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Il filtro di buon senso (sezione 10) è lo strumento fatto apposta.
 
 Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'azione. Rimedio: ogni regola nata da un errore diventa un controllo che scatta da solo nel momento giusto, senza dipendere dalla memoria di Claude. Questa mappa prende TUTTE le voci di `REGISTRO-ERRORI-CLAUDE.md` (v2.86: le voci antiche del 01/10 e del 02/10 numerate per giorno, poi dal #1 al #138, con il #82 usato due volte) e dice, per ognuna, quale controllo la copre.
 
@@ -461,6 +464,8 @@ Nicola, 28/10/2026: Claude conosce le regole ma non le applica nel momento dell'
 | #387 | Testi dei post incoerenti con gli allegati e con la data (20/11) | 2 | D | A | `controlla_kit.py` v1.4 (riservato) + `controlli_consegna.py`: «KIT INCOERENTE» per «ieri/domani», «_», «???», ora/data del titolo, Documento senza modello, carte senza intervallo, quiz; `prova_controlla_kit.py` |
 | #388 | Formato predefinito PDF non applicato (20/11) | 1 | D | A | (ll) di `controllo-messaggio.py`: file xlsx/docx/csv/md senza PDF e senza formato chiesto; `promemoria-errori.py` v1.16 resta |
 | #389 | Cruscotto senza dati di oggi e non in tempo reale (20/11) | 6 | D | A | (mm) di `controllo-messaggio.py` e `controlla_controlli.py` punto 10 (`controlla_cruscotto_oggi`); «giri fermi» (A); cruscotto live v1.2 da provare |
+| #391 | Ordini del docente trattati come informazioni, richiesta di conferma su ciò che ha già detto di fare (23/11) | 7 | D | D | da costruire: settima regola di `filtro_buon_senso.py` (vedi #390) |
+| #390 | Domande inutili, decisioni a un docente in malattia, messaggi troppo lunghi; il docente perde il 50% del tempo (stima sua) (23/11) | 1 | D | A | filtro di buon senso in `controllo-messaggio.py` (`filtro_buon_senso.py`, 6 controlli) e `config/modalita-assenza.json` del riservato; prova 77/77; banco v1.2 |
 
 ## 05 Voci scoperte (D): perché e che cosa servirebbe
 
@@ -549,6 +554,10 @@ Ordine del docente, 23/11/2026: «se ci sono errori che tu hai tolto dagli avver
 
 Un solo comando prima di dare un pacchetto al docente: cancello di consegna `corso-informatica-riservato/strumenti/cancello_consegna_v1.0.py` (23/11/2026, «consegna senza rifacimenti»): una sola riga VERDE/ROSSO che esegue prova_ragazzo_v1.0, controlla_kit v1.4 (con controlli_consegna), valida_post_v1.0.js e banco_errori v1.1 --regressioni; ROSSO = non si consegna; prova `prova_cancello_consegna.py` 13/13; #198 e #352 ora coperti (banco: 173 COPERTI). Limite: i kit .md sono controllati da controlla_kit (testi dei post compresi); valida_post si applica solo alle specifiche .json. Chiude i due «ancora da fare» (#352, #198) della sezione 08.
 
+## 10 Filtro di buon senso (23/11/2026, v1.35, sezione nuova)
+
+Ordine del docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un errore. Vorrei che prima di darmi le risposte ci fosse un controllo da togliere le cose che non hanno senso.» e «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (stima del docente). Errore #390. Lo strumento è la libreria `.claude/hooks/filtro_buon_senso.py`, chiamata da `controllo-messaggio.py` v2.2 (blocca: il messaggio va riscritto, una volta). Sei controlli: 1 dato già nei file o del giorno corrente/passato chiesto al docente; 2 modalità assenza (`config/modalita-assenza.json` nel riservato, 23-25/11/2026, lette dal file: passano solo firma, PC rotto, decisione solo sua che scade oggi); 3 oltre 12 righe o 900 caratteri fuori dai riquadri, se non è un kit; 4 più di una domanda; 5 frasi già dette nel messaggio precedente; 6 conteggi senza fonte. Prova `prove/prova_filtro_buon_senso.py` 77/77; banco di prova `strumenti/banco_errori_v1.2.py` (caso `E0390`). Rapporto riservato: `report/2026-11-23/FILTRO-BUON-SENSO-v1.0.md`.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
@@ -585,3 +594,4 @@ Un solo comando prima di dare un pacchetto al docente: cancello di consegna `cor
 32. v1.32 (23/11/2026, ordine del docente: banco di prova degli errori): aggiunta la sezione 07; la tabella della sezione 04 e i conteggi della sezione 01 non sono stati riscritti. Banco: 414 voci, 119 coperte, 96 non coperte, 13 casi da scrivere, 186 non verificabili a macchina.
 33. v1.33 (23/11/2026): sezione 08, controlli rimessi (47) e risolti altrove (4: #11, #36, #52, 02/10-9); righe corrette nella tabella; banco v1.1.
 34. v1.34 (23/11/2026): sezione 09, cancello di consegna; #198 e #352 coperti.
+35. v1.35 (23/11/2026, ordine del docente): sezione 10, filtro di buon senso; #390 (A); obiettivo principale in testa («perdo il 50% del tempo», stima del docente). Il conteggio della sezione 01 non è stato ricalcolato.
