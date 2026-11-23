@@ -1,5 +1,18 @@
 /**
- * FABBRICA - MOTORE v2.22.3 (15/11/2026)
+ * FABBRICA - MOTORE v2.23.0 (attivato il 23/11/2026) - copia di motore.js v2.22.3 con le SOLE modifiche del giro (cerca «v2.23»).
+ * Progetto: report/2026-11-20/GIRO-FABBRICA-PROGETTO-v1.0.md (riservato). Rollback: git revert del commit di attivazione; la v2.22.3 intera e in fabbrica/motore-v2.22.3.js.
+ * MODIFICHE v2.23 (nessuna scheda e nessun permesso nuovo; l'unica aggiunta al foglio sono le righe 10+ di 'Stato'):
+ *  (1) CR_quiz_: ogni scheda 'Ris' della classe si legge UNA volta per giro (CQ_indice_), non una volta per allievo (prima 20 allievi x 30 schede = 600 letture).
+ *  (2) FB_risultati_: ogni giro si rilegge solo il Moduli CALDO (id con la data di oggi/ieri, risposta nelle ultime 20 ore, nuovo, o in indice.giro.caldi)
+ *      e FB_GIRO_FREDDI_ Moduli freddi a rotazione (cursore FB_RIS_CUR); prima si apriva e rileggeva TUTTI i Moduli a ogni giro.
+ *  (3) FB_main_: pianificatore. Sempre per primi: nuovi (creazione Moduli), ripara, classroom (compiti), risultati, quiz. Le sezioni lente
+ *      (documenti, elenco, git, sicurezza, tipologie lezione, situazione, schede, cruscotti) vanno per ordine di ARRETRATO (eta / intervallo),
+ *      solo se la durata stimata (media delle ultime) sta nel tempo che resta; la prima lenta del giro parte comunque se il giro e sotto 150 s.
+ *      Un errore di una sezione non ferma le altre; dopo 2 errori di fila la sezione aspetta il suo intervallo.
+ *  (4) 'Stato' righe 10+: Arretrato = ultima lettura, durata, giri dall'ultima ed esito di ogni sezione (il cruscotto ne legge l'ora vera).
+ *  (5) Le guardie interne di documenti (170 s) e git (240 s) contano dall'inizio della SEZIONE (prima dall'inizio del giro: non partivano mai).
+ */
+/* FABBRICA - MOTORE v2.22.3 (15/11/2026)
  * Codice puro: lo scarica ed esegue (eval) il "lancio" a ogni giro. Usa le globali del lancio FB_BASE e UTENTI
  * ({ '3INF': [[pc, utenteGitHub, 'COGNOME Nome'], ...] }) e i servizi Google. Chiama FB_main_() dopo l'eval.
  * Properties usate: FB_FOGLIO, FB_FATTI, GITHUB_TOKEN (da v1), FB_FORMS, FB_NR, FB_ULTERR (nuove).
@@ -239,12 +252,24 @@ function FB_stato_(ss) {
     ['Moduli', n],
     ['Risposte totali', tot],
     ['Ultimo errore', FB_ultimoErrore_()],
-    ['Motore', '2.22.3'],
+    ['Motore', '2.23.0'],
     ['Permessi', FB_permessi_(ss)],
     ['Note', FB_noteTesto_()],
     ['Giro', FB_giroTesto_()]
   ]);
   sh.getRange(1, 1).setFontWeight('bold');
+  FB_arretrato_(sh);
+}
+/* v2.23: righe 10+ di 'Stato': per ogni sezione l'ultima lettura (ora vera del dato), la durata, i giri dall'ultima e l'esito */
+function FB_arretrato_(sh) {
+  var S = FB_json_('FB_SEZ'), giro = Number(FB_p_().getProperty('FB_GIRI')) || 0, righe = [];
+  Object.keys(S).forEach(function (n) {
+    var s = S[n];
+    righe.push([n, s.ult ? Utilities.formatDate(new Date(s.ult), 'Europe/Rome', 'dd/MM/yyyy HH:mm:ss') : 'mai', s.ult ? Math.round((Date.now() - s.ult) / 60000) : '', Math.round(s.dur || 0), s.g ? giro - s.g : '', s.esito || '']);
+  });
+  sh.getRange(10, 1, 1, 6).setValues([['ARRETRATO: ultima lettura per sezione', '', '', '', '', '']]).setFontWeight('bold');
+  sh.getRange(11, 1, 1, 6).setValues([['Sezione', 'Ultima lettura', 'Eta (minuti)', 'Durata (s)', 'Giri dall\'ultima lettura', 'Esito']]).setFontWeight('bold');
+  if (righe.length) sh.getRange(12, 1, righe.length, 6).setValues(righe);
 }
 
 /* ---------- Passi ---------- */
@@ -252,6 +277,7 @@ function FB_nuovi_(ss, indice) {
   var fatti = FB_json_('FB_FATTI'), forms = FB_json_('FB_FORMS'), sh = ss.getSheetByName('Esiti');
   (indice.lavori || []).forEach(function (l) {
     if (fatti[l.id]) return;
+    if (FB_T0_ && Date.now() - FB_T0_ > 150000) return;   /* v2.23: tetto morbido; i rimasti si creano per primi al giro dopo */
     var ora = FB_ora_(), q, cl;
     try {
       var testo = Utilities.newBlob(Utilities.base64Decode(FB_get_(FB_BASE + l.file).trim())).getDataAsString('UTF-8');
@@ -339,6 +365,7 @@ function FB_linkCelle_(sh, r, c, items) {
   } catch (e) { }
 }
 var FB_lavoroIndice_ = {};
+var FB_T0_ = 0, FB_RIS_LETTI_ = 0, FB_RISV_ = 0;
 function FB_quiz_(ss) {
   var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), medie = FB_json_('FB_MEDIE');
   var es = ss.getSheetByName('Esiti').getDataRange().getValues(), righe = [], i;
@@ -362,13 +389,34 @@ function FB_quiz_(ss) {
   if (righe.length) FB_linkCelle_(sh, 2, 7, lqs);
 }
 
-function FB_risultati_(ss, t0) {
-  var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), fatte = 0, rsFatte = 0, id;
+/* v2.23: un Moduli e CALDO se: mai letto; id con la data di oggi o di ieri (GGMM); una risposta nelle ultime 20 ore; in indice.giro.caldi */
+var FB_GIRO_FREDDI_ = 2;
+var FB_GIRO_RIS_MAX_ = 120000;
+function FB_ggmm_(ms) { return Utilities.formatDate(new Date(ms), 'Europe/Rome', 'ddMM'); }
+function FB_caldi_(forms, nr, ult, caldiFissi) {
+  var oggi = FB_ggmm_(Date.now()), ieri = FB_ggmm_(Date.now() - 86400000), caldi = {}, id;
   for (id in forms) {
-    if (fatte >= 5 || Date.now() - t0 > 270000) break;
+    var m = /-(\d{4})(?:-|$)/.exec(id), u = Number(ult[id]) || 0;
+    if (nr[id] === undefined || (m && (m[1] === oggi || m[1] === ieri)) || (u && Date.now() - u < RS_FINESTRA_) || caldiFissi.indexOf(id) >= 0) caldi[id] = 1;
+  }
+  return caldi;
+}
+function FB_risultati_(ss, t0, indice) {
+  var forms = FB_json_('FB_FORMS'), nr = FB_json_('FB_NR'), ult = FB_json_('FB_ULT'), fatte = 0, rsFatte = 0, id;
+  var cfgG = (indice && indice.giro) || {}, caldi = FB_caldi_(forms, nr, ult, cfgG.caldi || []);
+  var tutti = Object.keys(forms), freddi = tutti.filter(function (k) { return !caldi[k]; });
+  var cur = Number(FB_p_().getProperty('FB_RIS_CUR') || 0) % Math.max(1, freddi.length), nF = Number(cfgG.freddi_per_giro) || FB_GIRO_FREDDI_, scelti = {}, k;
+  for (k = 0; k < nF && k < freddi.length; k++) scelti[freddi[(cur + k) % freddi.length]] = 1;
+  FB_p_().setProperty('FB_RIS_CUR', String(cur + nF));
+  var elenco = tutti.filter(function (k2) { return caldi[k2]; }).concat(tutti.filter(function (k2) { return !caldi[k2] && scelti[k2]; }));
+  FB_RIS_LETTI_ = elenco.length;
+  for (var ie = 0; ie < elenco.length; ie++) {
+    id = elenco[ie];
+    if (fatte >= 5 || Date.now() - t0 > FB_GIRO_RIS_MAX_) break;
     try {
       var form = FormApp.openById(forms[id].formId);
       var ris = form.getResponses(), n = ris.length;
+      if (n > 0) { ult[id] = ris[n - 1].getTimestamp().getTime(); FB_salva_('FB_ULT', ult); }   /* v2.23: serve a decidere se il Moduli e caldo */
       var g0 = ss.getSheetByName('Ris ' + id);
       /* v2.22.1: 'Risposte' solo per i Moduli con risposte recenti (4 giorni), al massimo 2 per giro e nei primi 100 s; una scheda vuota si rifa */
       var rsServe = n > 0 && (Date.now() - ris[n - 1].getTimestamp().getTime() < RS_FINESTRA_) && !RS_ok_(ss, id);
@@ -416,6 +464,7 @@ function FB_risultati_(ss, t0) {
       if (rsOra) { rsFatte++; try { RS_risposte_(ss, id, form, forms[id], ris, su); } catch (e2) { FB_errore_(ss, 'risposte ' + id, e2); } }
       nr[id] = n;
       FB_salva_('FB_NR', nr);
+      FB_RISV_++; FB_p_().setProperty('FB_RISV', String(FB_RISV_));   /* v2.23: una scheda Ris e cambiata: Situazione e Sicurezza sono da rifare */
       fatte++;
     } catch (e) { FB_errore_(ss, 'risultati ' + id, e); }
   }
@@ -493,7 +542,7 @@ function CG_leggiElenco_(ss, classe) {
 function FB_cruscotti_(ss, indice) {
   var lista = indice.cruscotti;
   if (!lista && indice.cruscotto && indice.cruscotto.attivo) lista = [{ classe: '3INF', attivo: true }];
-  if (new Date().getMinutes() % 2 !== 0) return;
+  /* v2.23: la cadenza la decide il pianificatore (prima: solo a minuti pari) */
   (lista || []).forEach(function (c) {
     if (c.attivo === false) return;
     var u = (typeof UTENTI !== 'undefined' && UTENTI) ? UTENTI[c.classe] : null;
@@ -641,17 +690,29 @@ function CR_nome_(s) {
   if (n.familyName && n.givenName) return String(n.familyName).toUpperCase() + ' ' + n.givenName;
   return n.fullName || '(senza nome)';
 }
-function CR_quiz_(ss, classe, email) {
-  var parti = [], c = String(classe).toLowerCase();
+/* v2.23: indice email -> 'mg/su' di ogni scheda 'Ris' della classe, costruito UNA volta per giro (CQ_IDX_ si azzera in FB_main_).
+   Stesso risultato di prima: schede nell'ordine del foglio, per ogni scheda la prima riga con quella email. */
+var CQ_IDX_ = {};
+function CQ_indice_(ss, classe) {
+  if (CQ_IDX_[classe]) return CQ_IDX_[classe];
+  var idx = {}, c = String(classe).toLowerCase();
   ss.getSheets().forEach(function (sh) {
     var m = /^Ris (.+)$/.exec(sh.getName ? sh.getName() : sh.name);
     if (!m || m[1].toLowerCase().indexOf(c) < 0) return;
-    var v = sh.getDataRange().getValues();
+    var v = sh.getDataRange().getValues(), visti = {};
     for (var i = 4; i < v.length; i++) {
-      if (String(v[i][0]).toLowerCase() === String(email).toLowerCase()) { parti.push(v[i][1] + '/' + v[i][2]); break; }
+      var e = String(v[i][0]).toLowerCase();
+      if (visti[e]) continue;
+      visti[e] = 1;
+      (idx[e] = idx[e] || []).push(v[i][1] + '/' + v[i][2]);
     }
   });
-  return parti.length ? parti.join(' · ') : '-';
+  CQ_IDX_[classe] = idx;
+  return idx;
+}
+function CR_quiz_(ss, classe, email) {
+  var p = CQ_indice_(ss, classe)[String(email).toLowerCase()];
+  return p && p.length ? p.join(' \u00b7 ') : '-';
 }
 function CR_scheda_(ss, classe, corso, cfg) {
   var N = cfg.ultimi || 8, id = corso.id, i, j;
@@ -741,7 +802,7 @@ function FB_classroom_(ss, indice, t0) {
     var la = CR_lab_(cfg, a) ? 0 : 1, lb2 = CR_lab_(cfg, b) ? 0 : 1;
     return la - lb2 || Number(T[a] || 0) - Number(T[b] || 0);
   });
-  dovute.slice(0, 2).forEach(function (cl) {
+  dovute.slice(0, 3).forEach(function (cl) {   /* v2.23: 3 (con CR_quiz_ veloce una classe costa pochi secondi) */
     if (Date.now() - t0 > 200000) return;
     try { CR_scheda_(ss, cl, trovati[cl], cfg); T[cl] = Date.now(); FB_salva_('FB_CR_T', T); }
     catch (e) { FB_errore_(ss, 'Consegne ' + cl, e); }
@@ -2071,44 +2132,76 @@ function FB_matrice_(ss, indice) {
   sh.getRange(4, 1, righe.length, 5).setValues(righe);
 }
 
+/* v2.23: sezioni lente, pianificate per arretrato. ogni = minuti tra due letture; st = stima iniziale in secondi; dip = dipende dalle schede Ris
+   (se nessuna Ris e cambiata dall'ultima lettura aspetta 6 intervalli). La funzione si chiama per NOME globale. */
+var FB_SEZ_ = [
+  { n: 'documenti', ogni: 5, st: 50, f: function (ss, ix) { FB_documenti_(ss, ix, Date.now()); } },
+  { n: 'elenco', ogni: 10, st: 12, f: function (ss, ix) { FB_elenco_(ss, ix); } },
+  { n: 'git', ogni: 10, st: 45, f: function (ss, ix) { FB_git_(ss, ix, Date.now()); } },
+  { n: 'sicurezza', ogni: 10, st: 12, dip: 1, f: function (ss, ix) { FB_sicurezza_(ss, ix); } },
+  { n: 'tipologie lezione', ogni: 10, st: 3, f: function (ss, ix) { FB_matrice_(ss, ix); } },
+  { n: 'situazione', ogni: 5, st: 60, dip: 1, f: function (ss, ix) { FB_situazione_(ss, ix); } },
+  { n: 'cruscotti', ogni: 10, st: 40, f: function (ss, ix) { FB_cruscotti_(ss, ix); } },
+  { n: 'schede', ogni: 10, st: 25, f: function (ss, ix) { FB_schede_(ss, ix); } }
+];
 function FB_main_() {
   var lock = LockService.getScriptLock();
   if (!lock.tryLock(20000)) return;
   try {
-    var t0 = Date.now(), saltati = [];
+    var t0 = Date.now(), saltati = [], eseguite = [];
+    FB_T0_ = t0;
     FB_ERRS = [];
     FB_NOTE_ = [];
     FB_GIRO_ = '';
     FB_lavoroIndice_ = {};
     RS_NC_ = {};
+    CQ_IDX_ = {};
     var ss = FB_foglio_(), indice = { lavori: [] };
-    /* v2.22.3: tempo massimo per giro: superato FB_MAX_GIRO_ i passi che restano si saltano (e si dichiarano), 'Stato' si scrive sempre */
-    function passo(nome, f, serveIndice) {
+    var S = FB_json_('FB_SEZ'), giro = (Number(FB_p_().getProperty('FB_GIRI')) || 0) + 1;
+    FB_p_().setProperty('FB_GIRI', String(giro));
+    FB_RISV_ = Number(FB_p_().getProperty('FB_RISV')) || 0;
+    function reg(nome, a0, errore) {
+      var s = S[nome] || (S[nome] = {}), dur = (Date.now() - a0) / 1000;
+      s.dur = s.dur ? Math.round((s.dur * 0.5 + dur * 0.5) * 10) / 10 : dur;   /* media mobile: stima per il giro dopo */
+      if (errore) { s.err = (s.err || 0) + 1; s.esito = 'ERRORE: ' + String(errore && errore.message ? errore.message : errore).slice(0, 120); if (s.err >= 2) { s.ult = Date.now(); s.g = giro; } }
+      else { s.err = 0; s.esito = 'ok'; s.ult = Date.now(); s.g = giro; s.v = FB_RISV_; }
+    }
+    /* sezioni di base: partono SEMPRE, in questo ordine */
+    function base(nome, f, serveIndice) {
       if (serveIndice && !indice) return;
-      if (Date.now() - t0 > FB_MAX_GIRO_) { saltati.push(nome); return; }
-      try { f(); } catch (e) { FB_errore_(ss, nome, e); }
+      var a0 = Date.now();
+      try { f(); reg(nome, a0, null); } catch (e) { FB_errore_(ss, nome, e); reg(nome, a0, e); }
     }
-    try { var shS = ss.getSheetByName('Stato'); if (shS) { shS.getRange(5, 2).setNumberFormat('@'); shS.getRange(5, 1, 1, 2).setValues([['Motore', '2.22.3']]); } } catch (e) { }
-    passo('pulizia', function () { FB_pulisci_(ss); });
+    try { var shS = ss.getSheetByName('Stato'); if (shS) { shS.getRange(5, 2).setNumberFormat('@'); shS.getRange(5, 1, 1, 2).setValues([['Motore', '2.23.0']]); } } catch (e) { }
+    base('pulizia', function () { FB_pulisci_(ss); });
     try { indice = JSON.parse(FB_get_(FB_BASE + 'indice.json')); } catch (e) { FB_errore_(ss, 'indice', e); indice = null; }
-    if (indice) {
-      (indice.lavori || []).forEach(function (l) { FB_lavoroIndice_[l.id] = l; });
-      passo('nuovi', function () { FB_nuovi_(ss, indice); });
-    }
-    passo('ripara', function () { FB_ripara_(ss); });
-    passo('risultati', function () { FB_risultati_(ss, t0); });
-    passo('quiz', function () { FB_quiz_(ss); });
-    passo('cruscotti', function () { FB_cruscotti_(ss, indice); }, true);
-    passo('classroom', function () { FB_classroom_(ss, indice, t0); }, true);
-    passo('documenti', function () { FB_documenti_(ss, indice, t0); }, true);
-    passo('elenco', function () { FB_elenco_(ss, indice); }, true);
-    passo('git', function () { FB_git_(ss, indice, t0); }, true);
-    passo('sicurezza', function () { FB_sicurezza_(ss, indice); }, true);
-    passo('tipologie lezione', function () { FB_matrice_(ss, indice); }, true);
-    passo('situazione', function () { FB_situazione_(ss, indice); }, true);
-    passo('schede', function () { FB_schede_(ss, indice); });
+    if (indice) (indice.lavori || []).forEach(function (l) { FB_lavoroIndice_[l.id] = l; });
+    base('nuovi', function () { FB_nuovi_(ss, indice); }, true);          /* 1. creazione dei Moduli: sempre per prima */
+    base('ripara', function () { FB_ripara_(ss); });
+    base('classroom', function () { FB_classroom_(ss, indice, t0); }, true); /* 2. compiti e consegne */
+    base('risultati', function () { FB_risultati_(ss, t0, indice); });      /* 3. risposte: solo i Moduli caldi + a rotazione i freddi */
+    base('quiz', function () { FB_quiz_(ss); });
+    /* sezioni lente: per arretrato (eta / intervallo), la piu in ritardo per prima */
+    var ora = Date.now(), cand = [];
+    FB_SEZ_.forEach(function (d) {
+      var s = S[d.n] || {}, rit = s.ult ? (ora - s.ult) / (d.ogni * 60000) : 99;
+      if (rit < 1) return;
+      if (d.dip && s.ult && s.v === FB_RISV_ && rit < 6) return;   /* nessuna Ris cambiata: niente da rifare */
+      cand.push({ d: d, rit: rit, stima: (s.dur || d.st) * 1000 });
+    });
+    cand.sort(function (a, b) { return b.rit - a.rit; });
+    var prima = true;
+    cand.forEach(function (c) {
+      var el = Date.now() - t0;
+      if (!indice) { saltati.push(c.d.n); return; }
+      if (el + c.stima > FB_MAX_GIRO_ && !(prima && el < 150000)) { saltati.push(c.d.n); return; }
+      prima = false;
+      var a0 = Date.now();
+      try { c.d.f(ss, indice); reg(c.d.n, a0, null); eseguite.push(c.d.n); } catch (e) { FB_errore_(ss, c.d.n, e); reg(c.d.n, a0, e); }
+    });
+    FB_salva_('FB_SEZ', S);
     var durata = Math.round((Date.now() - t0) / 1000);
-    FB_GIRO_ = 'durata ' + durata + ' s (limite ' + Math.round(FB_MAX_GIRO_ / 1000) + ' s)' + (saltati.length ? ' · SALTATI per il tempo: ' + saltati.join(', ') + ' (riprendono al giro dopo)' : ' · nessun passo saltato');
+    FB_GIRO_ = 'durata ' + durata + ' s (limite ' + Math.round(FB_MAX_GIRO_ / 1000) + ' s)' + (saltati.length ? ' · SALTATI per il tempo: ' + saltati.join(', ') + ' (riprendono al giro dopo)' : ' · nessun passo saltato') + ' · giro ' + giro + ' · Moduli letti ' + FB_RIS_LETTI_ + ' · sezioni lente: ' + (eseguite.length ? eseguite.join(', ') : 'nessuna');
     try { FB_stato_(ss); } catch (e) { Logger.log('stato: ' + e); }
   } finally {
     lock.releaseLock();

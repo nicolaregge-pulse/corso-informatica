@@ -1,7 +1,6 @@
 /**
- * FABBRICA - MOTORE v2.23 PROPOSTA (20/11/2026) - copia di motore.js v2.22.3 con le SOLE modifiche del giro (cerca «v2.23»).
- * NON e usato dal lancio: il lancio carica fabbrica/motore.js. Per provarlo: spostare questo file su motore.js (vedi
- * report/2026-11-20/GIRO-FABBRICA-PROGETTO-v1.0.md, riservato); per tornare indietro: git revert del commit che lo sposta (un minuto).
+ * FABBRICA - MOTORE v2.23.0 (attivato il 23/11/2026) - copia di motore.js v2.22.3 con le SOLE modifiche del giro (cerca «v2.23»).
+ * Progetto: report/2026-11-20/GIRO-FABBRICA-PROGETTO-v1.0.md (riservato). Rollback: git revert del commit di attivazione; la v2.22.3 intera e in fabbrica/motore-v2.22.3.js.
  * MODIFICHE v2.23 (nessuna scheda e nessun permesso nuovo; l'unica aggiunta al foglio sono le righe 10+ di 'Stato'):
  *  (1) CR_quiz_: ogni scheda 'Ris' della classe si legge UNA volta per giro (CQ_indice_), non una volta per allievo (prima 20 allievi x 30 schede = 600 letture).
  *  (2) FB_risultati_: ogni giro si rilegge solo il Moduli CALDO (id con la data di oggi/ieri, risposta nelle ultime 20 ore, nuovo, o in indice.giro.caldi)
@@ -253,7 +252,7 @@ function FB_stato_(ss) {
     ['Moduli', n],
     ['Risposte totali', tot],
     ['Ultimo errore', FB_ultimoErrore_()],
-    ['Motore', '2.23'],
+    ['Motore', '2.23.0'],
     ['Permessi', FB_permessi_(ss)],
     ['Note', FB_noteTesto_()],
     ['Giro', FB_giroTesto_()]
@@ -2173,7 +2172,7 @@ function FB_main_() {
       var a0 = Date.now();
       try { f(); reg(nome, a0, null); } catch (e) { FB_errore_(ss, nome, e); reg(nome, a0, e); }
     }
-    try { var shS = ss.getSheetByName('Stato'); if (shS) { shS.getRange(5, 2).setNumberFormat('@'); shS.getRange(5, 1, 1, 2).setValues([['Motore', '2.23']]); } } catch (e) { }
+    try { var shS = ss.getSheetByName('Stato'); if (shS) { shS.getRange(5, 2).setNumberFormat('@'); shS.getRange(5, 1, 1, 2).setValues([['Motore', '2.23.0']]); } } catch (e) { }
     base('pulizia', function () { FB_pulisci_(ss); });
     try { indice = JSON.parse(FB_get_(FB_BASE + 'indice.json')); } catch (e) { FB_errore_(ss, 'indice', e); indice = null; }
     if (indice) (indice.lavori || []).forEach(function (l) { FB_lavoroIndice_[l.id] = l; });
