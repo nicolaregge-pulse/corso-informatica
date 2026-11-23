@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.15** — 23/11/2026 (prima: 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.16** — 23/11/2026 (prima: 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -213,6 +213,10 @@ Ordine del docente: «se ci sono errori che tu hai tolto dagli avvertimenti rime
 6. **Prove:** `python3 /home/user/corso-informatica/.claude/hooks/prove/prova_controlli_ripristinati.py` (74/74: 73 casi giusti e sbagliati più «0 falsi allarmi» sui 166 messaggi veri di Claude e sui 5 kit del 20/11/2026 della bobina del riservato); `prova_messaggio.py` 67/67, `prova_limite.py` 42/42, `prova_formato_kit.py` 55/55, `prova_consegna.py` 60/60 invariate; il controllore dei controlli la include da solo. Banco: 171 coperti su 414, 0 falsi allarmi.
 7. **Limiti:** controlli sulle parole; per la prova basta una qualunque fonte, ora, esito o «non provato» nel messaggio.
 
+## 14 Cancello di consegna (23/11/2026)
+
+Uso: `python3 -I /home/user/corso-informatica-riservato/strumenti/cancello_consegna_v1.0.py KIT.md|POST.json|CARTELLA [--dettagli] [--senza-banco] [--giallo-rosso]`; uscita 0 VERDE, 2 ROSSO; prova `--selftest`. Dettaglio in `MAPPA-REGOLE-CONTROLLI.md` sezione 09.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -229,3 +233,4 @@ Ordine del docente: «se ci sono errori che tu hai tolto dagli avvertimenti rime
 13. v1.13 (18/11/2026 sera): capitolo 11, `promemoria-errori.py` v1.3 (frase della procedura del mattino) e 11 prove nuove in `prova_promemoria.py` (26 casi).
 14. v1.14 (23/11/2026): capitolo 12, controlli (kk) (ll) (mm) dell'hook del messaggio per gli errori #386, #388, #389; `controlla_kit.py` v1.4 per #387; prova_consegna.py (60 casi).
 15. v1.15 (23/11/2026): capitolo 13, controlli rimessi (47) e risolti altrove (4); `controlli_ripristinati.py`, prova `prova_controlli_ripristinati.py`.
+16. v1.16 (23/11/2026): capitolo 14, cancello di consegna.
