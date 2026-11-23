@@ -18,6 +18,7 @@ import time
 from zoneinfo import ZoneInfo
 
 H = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.environ["CORSO_STATO_BUON_SENSO"] = ""   # il filtro di buon senso (#390) non ricorda i messaggi finti delle prove
 spec = importlib.util.spec_from_file_location("cm", os.path.join(H, "controllo-messaggio.py"))
 cm = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cm)
@@ -197,12 +198,14 @@ caso("nb: nessun avviso non copre cognome altrui", av("VERDINI Marco."), False)
 _lungo = "\n".join("Riga %d con alcune parole di testo." % i for i in range(14))
 _corto = "Prima riga.\nSeconda riga."
 _cornice = "\U0001F7E9" * 14
-_lungo_c = _cornice + "\n" + _lungo + "\n" + _cornice
+_medio = "\n".join("Riga %d con alcune parole di testo." % i for i in range(11))   # 11 righe: avviso (oltre 10) ma sotto il blocco del filtro di buon senso (oltre 12, #390)
+_lungo_c = _cornice + "\n" + _medio + "\n" + _cornice
 _box = "Copia:\n```\n" + "\n".join("codice %d" % i for i in range(40)) + "\n```"
 caso("ii: 14 righe di testo avvisa", cm.avviso_lunghezza(_lungo) is not None, True)
 caso("ii: 2 righe non avvisa", cm.avviso_lunghezza(_corto) is None, True)
 caso("ii: riquadro lungo da copiare non conta", cm.avviso_lunghezza(_box) is None, True)
 caso("ii: una sola riga ma 200 parole avvisa", cm.avviso_lunghezza(" ".join(["parola"] * 200)) is not None, True)
+caso("ii: 14 righe: il filtro di buon senso (#390) blocca", main_con({"last_assistant_message": _cornice + "\n" + _lungo + "\n" + _cornice}), True)
 caso("ii: main non blocca, scrive un avviso", main_con({"last_assistant_message": _lungo_c}), False)
 _r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")],
                     input=json.dumps({"last_assistant_message": _lungo_c}), capture_output=True, text=True)

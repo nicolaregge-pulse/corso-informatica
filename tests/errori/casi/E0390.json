@@ -1,0 +1,64 @@
+{
+ "errore": "#390",
+ "titolo": "Domande ovvie, decisioni elencate a un docente assente, messaggi lunghi: il docente perde il 50% del tempo (stima sua) con domande inutili ed errori (23/11)",
+ "categoria": "H",
+ "schema": "1",
+ "origine_input": "ricostruito dalla descrizione di #390 nel registro e dai messaggi del 23/11/2026 (orario di oggi chiesto al docente in malattia, elenco di decisioni, messaggi troppo lunghi); anonimizzato",
+ "controllo_atteso": "hook controllo-messaggio.py, filtro di buon senso (filtro_buon_senso.py): controlli 1 (dato già nei file), 2 (modalità assenza), 3 (lunghezza), 4 (più domande)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 1",
+   "sbagliato": {
+    "finale": "Mi dai l'orario di lunedì 23/11? Mi serve per preparare le ore di oggi.",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "L'orario di lunedì 23/11 l'ho letto da orario/: ore 3 e 4 in 2INF.",
+    "docente": "ok"
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 2",
+   "sbagliato": {
+    "finale": "Ci sono tre decisioni da prendere:\\n1. Quale quiz usare per la 2INF\\n2. Se spostare la verifica",
+    "docente": "ok",
+    "ris_files": {
+     "config/modalita-assenza.json": "{\"attiva\": true, \"inizio\": \"2000-01-01\", \"fine\": \"2099-12-31\", \"motivo\": \"prova del banco\", \"criticita\": {\"firma\": \"\\\\bfirma\\\\b[^.\\\\n]{0,60}(?:14[:.]05|non\\\\s+firmat\\\\w+)\"}, \"decisione_o_domanda\": \"\\\\?|\\\\b(?:da\\\\s+decidere|decisioni|vuoi\\\\s+che|preferisci)\\\\b\"}"
+    }
+   },
+   "giusto": {
+    "finale": "Annotato. Niente da fare per te fino al 26/11.",
+    "docente": "ok",
+    "ris_files": {
+     "config/modalita-assenza.json": "{\"attiva\": true, \"inizio\": \"2000-01-01\", \"fine\": \"2099-12-31\", \"motivo\": \"prova del banco\", \"criticita\": {\"firma\": \"\\\\bfirma\\\\b[^.\\\\n]{0,60}(?:14[:.]05|non\\\\s+firmat\\\\w+)\"}, \"decisione_o_domanda\": \"\\\\?|\\\\b(?:da\\\\s+decidere|decisioni|vuoi\\\\s+che|preferisci)\\\\b\"}"
+    }
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 3",
+   "sbagliato": {
+    "finale": "Riga 1 con una frase di esempio per riempire il messaggio.\\nRiga 2 con una frase di esempio per riempire il messaggio.\\nRiga 3 con una frase di esempio per riempire il messaggio.\\nRiga 4 con una frase di esempio per riempire il messaggio.\\nRiga 5 con una frase di esempio per riempire il messaggio.\\nRiga 6 con una frase di esempio per riempire il messaggio.\\nRiga 7 con una frase di esempio per riempire il messaggio.\\nRiga 8 con una frase di esempio per riempire il messaggio.\\nRiga 9 con una frase di esempio per riempire il messaggio.\\nRiga 10 con una frase di esempio per riempire il messaggio.\\nRiga 11 con una frase di esempio per riempire il messaggio.\\nRiga 12 con una frase di esempio per riempire il messaggio.\\nRiga 13 con una frase di esempio per riempire il messaggio.\\nRiga 14 con una frase di esempio per riempire il messaggio.\\nRiga 15 con una frase di esempio per riempire il messaggio.",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "Pronto: il file è nel riquadro qui sotto.\\n```\\ncodice\\n```",
+    "docente": "ok"
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "buon senso.*controllo 4",
+   "sbagliato": {
+    "finale": "Vuoi la prova scritta? E la vuoi anche per la 4TI?",
+    "docente": "ok"
+   },
+   "giusto": {
+    "finale": "Vuoi la prova scritta o orale?",
+    "docente": "ok"
+   }
+  }
+ ]
+}

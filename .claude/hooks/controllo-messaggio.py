@@ -31,7 +31,14 @@ controlli ai controlli essenziali. Se ne trova uno, blocca la fine del turno con
 10. Controlli RIMESSI il 23/11/2026 (ordine del docente; v. LEGGIMI-controlli.md capitolo 13, MAPPA-REGOLE-CONTROLLI.md v1.33 sez. 08):
    libreria controlli_ripristinati.py (BLOCCO per R4, R5, R7: «risolto/a posto/funziona» senza prova, conteggi senza fonte, «non ha
    caricato» senza ricerca, ?prova=1, rimando a riquadri di prima, firma ricordata se è tutto firmato, più file senza «a che serve»,
-   «alza la mano» nel kit; AVVISO per il resto), controllo_nomi.avviso_nome_solo (#281). Versione del file: v2.1 (23/11/2026).
+   «alza la mano» nel kit; AVVISO per il resto), controllo_nomi.avviso_nome_solo (#281). Versione del file: v2.1 (23/11/2026; v2.2: filtro di buon senso, punto 11).
+11. FILTRO DI BUON SENSO (23/11/2026, errore #390, ordine del docente: «prima di darmi le risposte un controllo da togliere le cose che
+   non hanno senso»; «io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori», stima del docente).
+   Libreria filtro_buon_senso.py, BLOCCA: 1 dato già nei file o del giorno corrente/passato chiesto al docente; 2 domande e decisioni mentre
+   config/modalita-assenza.json del riservato (date lette dal file) dice che è assente, salvo firma, PC rotto, decisione solo sua che scade
+   oggi; 3 oltre 12 righe o 900 caratteri fuori dai riquadri se non è un kit; 4 più di una domanda; 5 frasi già dette nel messaggio
+   precedente (memoria in un file temporaneo); 6 elenco di conteggi senza fonte. Ogni blocco dice il perché e che cosa togliere.
+   Prova: prove/prova_filtro_buon_senso.py. Versione del file: v2.2 (23/11/2026).
 Controlli tolti il 04/11/2026 (elenco completo in LEGGIMI-controlli.md, capitolo 05):
 c, f, g, h, i, j, k, l, n, p, q, r, s, t, u, v, w, x, y, z, aa, bb, cc, dd, ee, ff, hh, ii.
 Il controllo dei cognomi nel PUBBLICO NON sta qui (in chat gli allievi sono indicati solo con il COGNOME, R1.4 e R7.4): sta
@@ -50,6 +57,8 @@ import json
 import os
 import re
 import sys
+import tempfile
+import time
 from zoneinfo import ZoneInfo
 
 # ---------------------------------------------------------------- utilità
@@ -1010,16 +1019,78 @@ def controlli_rimessi(testo, data):
     return blocchi, avvisi
 
 
+# ---------------------------------------------------------------- filtro di buon senso (23/11/2026, errore #390)
+# Libreria filtro_buon_senso.py: domande ovvie, modalità assenza (config/modalita-assenza.json), messaggi lunghi, più domande,
+# ripetizioni, conteggi senza fonte. BLOCCA (il messaggio va riscritto). Memoria dell'ultimo messaggio consegnato in un file
+# temporaneo (CORSO_STATO_BUON_SENSO; "" = nessuna memoria).
+STATO_BUON_SENSO = os.environ.get("CORSO_STATO_BUON_SENSO",
+                                  os.path.join(tempfile.gettempdir(), "corso-filtro-buon-senso-stato.json"))
+
+
+def _filtro_lib():
+    try:
+        spec = importlib.util.spec_from_file_location(
+            "filtro_buon_senso", os.path.join(os.path.dirname(os.path.abspath(__file__)), "filtro_buon_senso.py"))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        return m
+    except Exception:
+        return None
+
+
+def _stato_buon_senso(sessione):
+    if not STATO_BUON_SENSO:
+        return None
+    try:
+        with open(STATO_BUON_SENSO, encoding="utf-8") as f:
+            d = json.load(f)
+        if d.get("sessione") == sessione and time.time() - d.get("ts", 0) < 6 * 3600:
+            return d.get("frasi") or []
+    except Exception:
+        pass
+    return None
+
+
+def registra_buon_senso(testo, data):
+    """Ricorda le frasi dell'ultimo messaggio consegnato (per il controllo 5: ripetizioni)."""
+    lib = _filtro_lib()
+    if lib is None or not STATO_BUON_SENSO:
+        return
+    if not (isinstance(data.get("last_assistant_message"), str) and data["last_assistant_message"].strip()):
+        return
+    try:
+        with open(STATO_BUON_SENSO, "w", encoding="utf-8") as f:
+            json.dump({"sessione": data.get("session_id"), "ts": time.time(),
+                       "frasi": lib.frasi_per_memoria(senza_citazioni(senza_codice_in_linea(senza_riquadri(testo))))},
+                      f, ensure_ascii=False)
+    except Exception:
+        pass
+
+
+def controllo_buon_senso(testo, data):
+    """Filtro di buon senso: lista dei motivi (una riga ciascuno, con il perché e che cosa togliere)."""
+    lib = _filtro_lib()
+    if lib is None:
+        return []
+    if not (isinstance(data.get("last_assistant_message"), str) and data["last_assistant_message"].strip()):
+        return []   # turno senza testo nuovo (notifica): il testo letto dalla trascrizione è già stato consegnato, non si rifiltra
+    t = senza_citazioni(senza_codice_in_linea(senza_riquadri(testo)))
+    oggi = datetime.datetime.now(TZ_ROMA).date()
+    return lib.esegui(t, testo, oggi=oggi, ris=RIS, precedente=_stato_buon_senso(data.get("session_id")))
+
+
 def main():
     raw = sys.stdin.read()
     data = json.loads(raw)
-    if data.get("stop_hook_active"):
-        return
     if data.get("agent_id"):
         return
     testo = data.get("last_assistant_message")
     if not isinstance(testo, str) or not testo.strip():
         testo = ultimo_testo_assistente(data.get("transcript_path") or "")
+    if data.get("stop_hook_active"):
+        if testo.strip():
+            registra_buon_senso(testo, data)   # il messaggio riscritto è quello che il docente legge
+        return
     if not testo.strip():
         return
     motivi = []
@@ -1034,6 +1105,10 @@ def main():
             m = None
         if m:
             motivi.append(m)
+    try:
+        motivi.extend(controllo_buon_senso(testo, data))
+    except Exception:
+        pass
     avviso = None
     try:
         blocchi_r, avvisi_r = controlli_rimessi(testo, data)
@@ -1064,6 +1139,8 @@ def main():
             avviso = (avviso + "\n" + nf) if avviso else nf
     except Exception:
         pass
+    if not motivi:
+        registra_buon_senso(testo, data)
     if avviso and not motivi:
         sys.stdout.write(json.dumps({"systemMessage": avviso}, ensure_ascii=False))
         return

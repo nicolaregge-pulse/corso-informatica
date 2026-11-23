@@ -20,6 +20,7 @@ import tempfile
 H = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 T = tempfile.mkdtemp()
 os.environ["CORSO_STATO_FORMATO"] = ""
+os.environ["CORSO_STATO_BUON_SENSO"] = ""   # il filtro di buon senso (#390) non ricorda i messaggi finti delle prove
 spec = importlib.util.spec_from_file_location("cm", os.path.join(H, "controllo-messaggio.py"))
 cm = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cm)

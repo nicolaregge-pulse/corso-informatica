@@ -1,6 +1,9 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.16** — 23/11/2026 (prima: 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.17** — 23/11/2026 (capitolo 15: filtro di buon senso; prima: 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+
+
+> **OBIETTIVO PRINCIPALE DEL FILTRO DI BUON SENSO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Quindi: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Capitolo 15.
 
 > **Dal 04/11/2026 (v1.4) valgono le decisioni del docente su `REGOLE-DA-DECIDERE.md`:** l'hook del messaggio fa solo 5 controlli (capitolo 05), il limite è di 8 comandi per turno, e c'è il controllo dei cognomi degli allievi nei commit e nei push del pubblico. Dove i capitoli 01-04 dicono altro, vale il capitolo 05.
 
@@ -217,6 +220,19 @@ Ordine del docente: «se ci sono errori che tu hai tolto dagli avvertimenti rime
 
 Uso: `python3 -I /home/user/corso-informatica-riservato/strumenti/cancello_consegna_v1.0.py KIT.md|POST.json|CARTELLA [--dettagli] [--senza-banco] [--giallo-rosso]`; uscita 0 VERDE, 2 ROSSO; prova `--selftest`. Dettaglio in `MAPPA-REGOLE-CONTROLLI.md` sezione 09.
 
+## 15 Filtro di buon senso (23/11/2026, errore #390)
+
+Obiettivo: far perdere al docente meno tempo con domande inutili ed errori (il docente stima il 50%). Libreria `.claude/hooks/filtro_buon_senso.py`, chiamata da `controllo-messaggio.py` v2.2 a ogni fine risposta: BLOCCA (Claude riscrive il messaggio una volta), e ogni blocco dice in una riga perché e che cosa togliere.
+
+1. **Dato già nei file** (orario, presenti, presenze, firme, data e ora) chiesto al docente: il dato sta nei file o è del giorno corrente o passato.
+2. **Modalità assenza:** `config/modalita-assenza.json` nel riservato (inizio 2026-11-23, fine 2026-11-25, lette dal file; `"attiva": false` la spegne). In quei giorni niente domande né elenchi di decisioni, salvo firma, PC rotto, decisione solo sua che scade oggi.
+3. **Lunghezza:** oltre 12 righe o 900 caratteri fuori dai riquadri di codice, se il messaggio non è un kit o un pacchetto (cornice rossa o blu, TITOLO e OGGETTO con due riquadri). L'avviso di lunghezza (ii) a 10 righe resta.
+4. **Più di una domanda** (R7.6).
+5. **Frasi già dette** nel messaggio precedente della stessa conversazione (memoria in `corso-filtro-buon-senso-stato.json` nella cartella temporanea; `CORSO_STATO_BUON_SENSO=""` la spegne) o ripetute due volte nello stesso messaggio.
+6. **Elenco di conteggi** senza fonte né ora (R7.1; il blocco dei conteggi di consegne e presenze resta in `controlli_ripristinati.py`).
+
+Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /home/user/corso-informatica/.claude/hooks/prove/prova_filtro_buon_senso.py` (77/77, con 0 falsi allarmi sui messaggi brevi e sulle cornici rosse e blu dei 155 messaggi veri del 20/11/2026; 41 di quei 155 messaggi superavano i limiti di lunghezza). Limiti: controlli sulle parole, non capiscono il significato; il blocco della lunghezza vale anche per un messaggio lungo e utile.
+
 ## Changelog
 
 1. v1.2 (28/10/2026 sera): controlli (e)-(v) dell'hook del messaggio, controlli prima del push, audit notturno.
@@ -234,3 +250,4 @@ Uso: `python3 -I /home/user/corso-informatica-riservato/strumenti/cancello_conse
 14. v1.14 (23/11/2026): capitolo 12, controlli (kk) (ll) (mm) dell'hook del messaggio per gli errori #386, #388, #389; `controlla_kit.py` v1.4 per #387; prova_consegna.py (60 casi).
 15. v1.15 (23/11/2026): capitolo 13, controlli rimessi (47) e risolti altrove (4); `controlli_ripristinati.py`, prova `prova_controlli_ripristinati.py`.
 16. v1.16 (23/11/2026): capitolo 14, cancello di consegna.
+17. v1.17 (23/11/2026): capitolo 15, filtro di buon senso (errore #390), obiettivo principale in testa; prova nuova `prova_filtro_buon_senso.py`.

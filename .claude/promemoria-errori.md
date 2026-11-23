@@ -1,3 +1,4 @@
+Il docente perde il 50% del tempo con domande inutili ed errori (stima sua, 23/11/2026): niente domande ovvie, messaggi brevi, controlla prima di scrivere.
 LE 11 REGOLE (CLAUDE.md v2.0, 04/11/2026) — valgono in OGNI risposta:
 1. R1 Privacy: nel pubblico solo «Nome I.» o dati cifrati; niente cognomi nei commit del pubblico (controllo bloccante). In chat gli allievi solo con il COGNOME (R1.4).
 2. R2 Su Classroom si pubblica SOLO con «PUBB n» (1=8-9 … 6=13-14), un'ora per volta, dopo prima_di_pubblicare.sh; pacchetto per il post a mano sempre pronto; se non PUBLISHED: prima riga «PUBB n NON riuscito: pubblica a mano».
