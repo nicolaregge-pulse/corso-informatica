@@ -91,7 +91,8 @@ RE_NO_PACCHETTO_OK = re.compile(r"PUBB\s*[1-6]\s+NON\s+riuscito|^\s*Annotato\b",
 
 
 def richiesta_di_pacchetto(testo_docente):
-    return bool(RE_RICHIESTA_PACCHETTO.search(testo_docente or ""))
+    t = (testo_docente or "").strip()
+    return len(t) <= 240 and bool(RE_RICHIESTA_PACCHETTO.search(t))   # un comando e' breve: le discussioni su PUBB non contano
 
 
 def pacchetto_pubb_mancante(testo_docente, testi_assistente):
@@ -116,7 +117,7 @@ def pacchetto_pubb_mancante(testo_docente, testi_assistente):
             "manca %s. Rimanda il pacchetto UNA volta, completo e nel formato: riga rossa, TITOLO e OGGETTO in riquadri, riga blu con "
             "«📄 DISPENSA ALLIEVI ORA N ⬇️», il file con SendUserFile, riga blu, riga rossa; il link del quiz nel messaggio "
             "del kit quiz subito dopo, mai a rate."
-            % (RE_RICHIESTA_PACCHETTO.search(testo_docente).group(0), "; ".join(manca)))
+            % (RE_RICHIESTA_PACCHETTO.search(testo_docente.strip()).group(0), "; ".join(manca)))
 
 
 def _etichetta_in_riquadro(testo, etichetta):

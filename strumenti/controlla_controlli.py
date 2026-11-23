@@ -21,6 +21,8 @@ Controlla:
      (28/10/2026, Nicola: sono i loro account pubblici e servono alle pagine). L'elenco dei cognomi viene dalle anagrafiche del
      riservato (generatori/privacy_nomi.py); se il riservato manca il controllo è GIALLO e non conta come errore.
      Il rosso dice solo i file e quanti cognomi, mai i cognomi.
+  10. cruscotto di oggi (23/11/2026, #389): per ogni classe con lezione oggi, a lezione iniziata, docs/<classe>/ ha un dato di oggi
+     (live.json letto_il o dati-cruscotto.json dato.iso, ora di Roma); controlla_cruscotto_oggi(), libreria strumenti/controlli_consegna.py.
   7. lavoro del giorno (29/10/2026): per ogni classe in orario oggi c'è docs/cruscotto/piano/<classe>-<oggi>.json con
      almeno 3 proposte (1 per le classi che oggi hanno solo Sicurezza) e PROPOSTE-OGGI.md ha la data di oggi; nei giorni
      senza lezione è VERDE «oggi niente lezioni».
@@ -255,6 +257,39 @@ def lezioni_di(giorno, pub=None):
     return [], None
 
 
+def controlla_cruscotto_oggi(adesso=None, pub=None):
+    """23/11/2026 (#389): per ogni classe con lezione oggi, a lezione iniziata, il cruscotto (docs/<classe>/live.json e
+    dati-cruscotto.json) ha un dato di OGGI (ora di Roma). Prima dell'inizio della lezione e nei giorni senza lezione e' VERDE.
+    Frase per il docente (o "")."""
+    pub = pub or PUB
+    adesso = adesso or (datetime.datetime.now(ROMA) if ROMA else datetime.datetime.now())
+    oggi = adesso.strftime("%Y-%m-%d")
+    try:
+        sys.path.insert(0, os.path.join(PUB, "strumenti"))
+        import controlli_consegna as lib
+    except Exception as e:
+        giallo("cruscotto di oggi: libreria controlli_consegna.py non leggibile (%s)" % e)
+        return ""
+    lezioni, coperto = lezioni_di(oggi, pub)
+    if not lezioni:
+        esito(True, "cruscotto di oggi %s: oggi nessuna lezione (o orario ignoto)" % oggi)
+        return ""
+    inizio = {v["classe"]: v["da"] for v in reversed(_lezioni_da_testi(oggi, pub))}
+    problemi, ok_, attesa = [], [], []
+    for c in sorted({l[0] for l in lezioni if l[0]}):
+        if adesso.strftime("%H:%M") < inizio.get(c, "08:00"):
+            attesa.append(c)
+            continue
+        p = lib.cruscotto_senza_dati_di_oggi(c, oggi, pub)
+        (problemi if p else ok_).append(p or c)
+    if problemi:
+        esito(False, "cruscotto di oggi %s senza dati di oggi (#389, R8.4): %s" % (oggi, "; ".join(problemi)))
+        return "Cruscotto senza i dati di oggi: " + "; ".join(problemi)
+    esito(True, "cruscotto di oggi %s: dato di oggi per %s%s" % (oggi, ", ".join(ok_) or "nessuna classe ancora in lezione",
+                                                                (" (in attesa dell'inizio: %s)" % ", ".join(attesa)) if attesa else ""))
+    return ""
+
+
 def controlla_lavoro_del_giorno(giorno, pub=None):
     """Regola 26: per ogni classe in orario oggi docs/cruscotto/piano/<classe>-<oggi>.json con almeno 3 proposte
     (1 se la classe ha solo Sicurezza) e PROPOSTE-OGGI.md con la data di oggi. Restituisce la frase per il docente
@@ -367,6 +402,9 @@ def controlla_attiva_home():
 def controlla_prove():
     prove = sorted(glob.glob(os.path.join(HOOKS, "prove", "prova_*.py")))
     extra = os.path.join(RIS, "generatori", "prova_audit_regole.py")
+    if os.path.isfile(extra):
+        prove.append(extra)
+    extra = os.path.join(RIS, "strumenti", "prova_controlla_kit.py")   # 23/11/2026 (#386-#387)
     if os.path.isfile(extra):
         prove.append(extra)
     for extra in ("prova_controlla_controlli.py", "prova_situazione_quiz.py"):   # 29/10/2026 (#147-#152)
@@ -1074,6 +1112,7 @@ def main():
     controlla_formato_json()
     controlla_coppie_docente_ragazzi()
     controlla_budget_1inf()   # 18/11/2026 (#357): budget 1INF uguali ovunque
+    da_sapere.append(controlla_cruscotto_oggi(adesso))   # 23/11/2026 (#389): cruscotto con i dati di oggi
     controlla_ponte_quiz(giorno=oggi)
     controlla_sicurezza_pronta(oggi)
     ieri = (datetime.date.fromisoformat(oggi) - datetime.timedelta(days=1)).isoformat()

@@ -231,5 +231,29 @@ open(rb + "/report/2026-11-18/PACCHETTO-X-v1.0.md", "w").write("Il cliente uffic
 cc.righe.clear(); pr = cc.controlla_budget_1inf(pb, rb)
 prova("#357: 500 euro in una versione superata (v1.0 contro v1.3) = non conta", pr == [])
 
+# 13. 23/11/2026 (#389): cruscotto con i dati di oggi
+def pub_cruscotto(dato_iso, lezione=True):
+    d = tempfile.mkdtemp()
+    os.makedirs(d + "/docs/1inf"); os.makedirs(d + "/docs/avanzamento")
+    json.dump({"v": 1, "letto_il": None}, open(d + "/docs/1inf/live.json", "w"))
+    json.dump({"dato": {"iso": dato_iso}}, open(d + "/docs/1inf/dati-cruscotto.json", "w"))
+    json.dump({"lezioni": {"2026-11-23": [{"classe": "1INF", "disciplina": "Lab"}] if lezione else []}},
+              open(d + "/docs/avanzamento/orario-lezioni.json", "w"))
+    return d
+
+
+def alle(hhmm):
+    return datetime.datetime.fromisoformat("2026-11-23T%s:00" % hhmm).replace(tzinfo=cc.ROMA)
+
+
+cc.righe.clear(); fr = cc.controlla_cruscotto_oggi(alle("11:30"), pub_cruscotto("2026-11-05T13:26:15+01:00"))
+prova("#389: lezione iniziata e dato del 05/11 = ROSSO e frase per il docente", cc.righe[-1][0] == "ROSSO" and "05/11" in fr)
+cc.righe.clear(); fr = cc.controlla_cruscotto_oggi(alle("11:30"), pub_cruscotto("2026-11-23T11:20:00+01:00"))
+prova("#389: dato di oggi = VERDE", cc.righe[-1][0] == "VERDE" and fr == "")
+cc.righe.clear(); fr = cc.controlla_cruscotto_oggi(alle("07:00"), pub_cruscotto("2026-11-05T13:26:15+01:00"))
+prova("#389: prima dell'inizio della lezione = VERDE", cc.righe[-1][0] == "VERDE" and fr == "")
+cc.righe.clear(); fr = cc.controlla_cruscotto_oggi(alle("11:30"), pub_cruscotto("2026-11-05T13:26:15+01:00", lezione=False))
+prova("#389: oggi senza lezione = VERDE", cc.righe[-1][0] == "VERDE" and fr == "")
+
 print("%d/%d" % (ok, tot))
 sys.exit(0 if ok == tot else 1)
