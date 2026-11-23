@@ -4,7 +4,7 @@
  "categoria": "K",
  "schema": "5",
  "origine_input": "ricostruito dalla descrizione di #352 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
- "controllo_atteso": "nessuno: controlla_kit.py non controlla le righe «Consegna:» e «Tempo:» (da costruire)",
+ "controllo_atteso": "controlla_kit.py v1.5 + controlli_consegna.py v1.1: «KIT INCOERENTE: il testo del post non dice che cosa si consegna» (il tempo: solo con KIT_TEMPO=1, da confermare)",
  "prove": [
   {
    "canale": "kit",

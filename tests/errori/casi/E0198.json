@@ -4,7 +4,7 @@
  "categoria": "K",
  "schema": null,
  "origine_input": "ricostruito dalla descrizione di #198 nel registro (il testo originale non è conservato alla lettera); anonimizzato",
- "controllo_atteso": "nessuno: nessun controllo delle lingue sul testo dei post Classroom (solo sui quiz)",
+ "controllo_atteso": "controlla_kit.py v1.5 + controlli_consegna.py v1.1: problemi_post(classe=...) controlla le lingue del testo del post (R6)",
  "prove": [
   {
    "canale": "post",
@@ -16,6 +16,64 @@
    "giusto": {
     "titolo": "G Ora 6: Sicurezza",
     "oggetto": "Buongiorno. Aprite la pagina e fate il quiz. · افتح الصفحة · 打开页面"
+   }
+  },
+  {
+   "canale": "kit",
+   "atteso": "1INF|arabo|cinese|lingue",
+   "sbagliato": {
+    "kit": "# Kit 1INF del 23/11/2026\n\n## 06 1INF, ora 6: Sicurezza\n\nTitolo:\n```\n23/11 Ora 6: Sicurezza\n```\n\nOggetto:\n```\nBuongiorno. Aprite la pagina e premete Consegna.\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "L'utente dice: il PC è lento da ieri",
+        "Ho ascoltato: Esempio: il PC è lento da ieri",
+        "Ho guardato: Esempio: il disco è pieno",
+        "Ho provato: Esempio: ho svuotato il cestino",
+        "Risultato: Esempio: ora il PC va bene"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     }
+    }
+   },
+   "giusto": {
+    "kit": "# Kit 1INF del 23/11/2026\n\n## 06 1INF, ora 6: Sicurezza\n\nTitolo:\n```\n23/11 Ora 6: Sicurezza\n```\n\nOggetto:\n```\nBuongiorno. Aprite la pagina e premete Consegna.\nافتح الصفحة واضغط Consegna.\n打开页面,点 Consegna。\n```\n\nAllegato:\n```\n{{TMP}}/ragazzi.pdf\n```\n\nPDF lavagna:\n```\n{{TMP}}/lavagna.pdf\n```\n",
+    "files": {
+     "ragazzi.pdf": {
+      "pdf": [
+       [
+        "Scheda del caso",
+        "L'utente dice: il PC è lento da ieri",
+        "Ho ascoltato: Esempio: il PC è lento da ieri",
+        "Ho guardato: Esempio: il disco è pieno",
+        "Ho provato: Esempio: ho svuotato il cestino",
+        "Risultato: Esempio: ora il PC va bene"
+       ]
+      ]
+     },
+     "lavagna.pdf": {
+      "pdf": [
+       [
+        "Lavagna 1"
+       ],
+       [
+        "Lavagna 2"
+       ]
+      ]
+     }
+    }
    }
   }
  ]

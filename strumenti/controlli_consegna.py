@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Controlli_consegna.py v1.0 (23/11/2026): i controlli automatici degli errori #386-#389 del 20/11/2026.
+"""Controlli_consegna.py v1.1 (23/11/2026: problemi_post con classe, consegna, tempo, errori #198 e #352; v1.0 (23/11/2026): i controlli automatici degli errori #386-#389 del 20/11/2026.
 Libreria + riga di comando, solo libreria standard, nessun nome di allievo, nessuna scrittura.
 Usata da: .claude/hooks/controllo-messaggio.py (blocchi sul messaggio), strumenti/controlla_controlli.py (cruscotto di oggi),
 riservato strumenti/controlla_kit.py v1.4 (testi dei post nel kit).
@@ -31,6 +31,9 @@ except Exception:  # pragma: no cover
 
 # ------------------------------------------------------------------ #387 testi dei post
 
+RX_AR = re.compile("[\u0600-\u06ff\u0750-\u077f\u08a0-\u08ff\ufb50-\ufdff\ufe70-\ufeff]")
+RX_ZH = re.compile("[\u3400-\u9fff\uff00-\uffef]")
+RX_BN = re.compile("[\u0980-\u09ff]")
 PAROLE_DATA = re.compile(r"\b(ieri|l.altro\s+ieri|domani|dopodomani)\b", re.I)
 DATA_IN_TITOLO = re.compile(r"\b(\d{1,2})/(\d{1,2})\b")
 ORA_IN_TITOLO = re.compile(r"\bOra\s+(\d{1,2})\b", re.I)
@@ -39,10 +42,14 @@ NUM_CARTE = re.compile(r"\b(\d+)\s+cart[ae]\b", re.I)
 MAX_CARTE_SENZA_INTERVALLO = 8
 
 
-def problemi_post(titolo, oggetto, ora=None, data_kit=None, testo_sezione="", quiz_in_sezione=None, pdf_testo=""):
+def problemi_post(titolo, oggetto, ora=None, data_kit=None, testo_sezione="", quiz_in_sezione=None, pdf_testo="",
+                  classe=None, consegna=False, tempo=False):
     """Lista di frasi (vuota = coerente). titolo e oggetto sono i testi da incollare su Classroom.
     ora = numero dell'ora della sezione del kit; data_kit = (giorno, mese) del kit; testo_sezione = la sezione del kit
-    (etichette degli allegati comprese); quiz_in_sezione = True/False/None; pdf_testo = testo del PDF ragazzi se letto."""
+    (etichette degli allegati comprese); quiz_in_sezione = True/False/None; pdf_testo = testo del PDF ragazzi se letto.
+    v1.1 (23/11/2026): classe = «1INF»/«2INF»/«3INF»/«4TI» -> lingue del testo secondo R6 (#198); consegna=True -> il testo dice che cosa si consegna; tempo=True -> il testo
+    (o il PDF ragazzi) dice quanto tempo ci vuole (#352; le etichette «Consegna:»/«Tempo:» NON sono imposte; «tempo» è spento nel kit finché il docente
+    non conferma, R7.6: nessun kit del 20/11 lo diceva)."""
     out = []
     titolo = (titolo or "").strip()
     oggetto = (oggetto or "").strip()
@@ -74,6 +81,22 @@ def problemi_post(titolo, oggetto, ora=None, data_kit=None, testo_sezione="", qu
     mi = re.search(r"\bcart[ae]\s+(?:da(?:l)?\s+)?(\d+)\s*(?:a|al|-|–)\s*(\d+)", oggetto, re.I)
     if mi and tot and int(mi.group(2)) > tot:
         out.append("il testo dice carte fino alla %s ma il foglio ne ha %d" % (mi.group(2), tot))
+    # R6, lingue del testo del post (#198)
+    if classe:
+        ar, zh, bn = bool(RX_AR.search(oggetto)), bool(RX_ZH.search(oggetto)), bool(RX_BN.search(oggetto))
+        if classe == "1INF" and oggetto and not (ar and zh):
+            out.append("1INF: il testo del post deve essere in italiano, arabo e cinese (R6): manca %s"
+                       % " e ".join(n for n, c in (("l'arabo", ar), ("il cinese", zh)) if not c))
+        elif classe in ("2INF", "4TI") and (ar or zh or bn):
+            out.append("%s: il testo del post è solo in italiano (R6), ma ci sono caratteri arabi, cinesi o bangla" % classe)
+        elif classe == "3INF" and (ar or zh):
+            out.append("3INF: il testo del post non ha arabo né cinese (R6: italiano; il bangla solo per un PC)")
+    # che cosa si consegna e quanto tempo (#352)
+    if consegna and not re.search(r"consegn|\bquiz\b", oggetto, re.I):
+        out.append("il testo del post non dice che cosa si consegna (per esempio «Consegna: il Documento»)")
+    if tempo:
+        if not re.search(r"\d+\s*(?:minut|min\b|or[ae]\b)", oggetto + "\n" + pdf_testo, re.I):
+            out.append("il testo del post non dice quanto tempo ci vuole (per esempio «Tempo: 20 minuti»)")
     # quiz: nel kit e non nell'oggetto, o l'oggetto lo cita e il kit no
     dice_quiz = bool(re.search(r"\bquiz\b", oggetto, re.I))
     if quiz_in_sezione is True and not dice_quiz:
