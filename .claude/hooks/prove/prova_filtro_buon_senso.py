@@ -112,6 +112,19 @@ tace("kit rosso lungo è un pacchetto", kit)
 tace("documento con cornice blu", "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n" + lungo + "\n📄 DOCUMENTO ⬇️")
 tace("cornice verde sola non conta", "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩\nPronto.\n🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩")
 
+# ------------------------------------------------------------------ 3b limite 4 righe in modalità assenza (v1.2, 25/11/2026)
+_ass = {"attiva": True, "inizio": "2026-11-23", "fine": "2026-11-25"}
+_oggi_ass = datetime.date(2026, 11, 24)
+dodici = "\n".join("Riga %d." % i for i in range(1, 13))
+cornice_v = "🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩"
+scatta("assenza: 12 righe (il caso del 24/11 16:54)", cornice_v + "\n" + dodici + "\n" + cornice_v, 3, cfg=_ass, oggi=_oggi_ass)
+scatta("assenza: 5 righe", "\n".join("Riga %d." % i for i in range(1, 6)), 3, cfg=_ass, oggi=_oggi_ass)
+tace("assenza: 4 righe con cornice verde", cornice_v + "\nNotte: tutto controllato.\nRiga 2.\nRiga 3.\nRiga 4.\n" + cornice_v, cfg=_ass, oggi=_oggi_ass)
+tace("assenza: codice lungo nel riquadro non conta", "Una riga.\n```\n" + "\n".join("x%d" % i for i in range(60)) + "\n```", cfg=_ass, oggi=_oggi_ass)
+tace("assenza: kit rosso lungo", kit, cfg=_ass, oggi=_oggi_ass)
+tace("fuori dalle date: 12 righe passano", dodici, cfg=_ass, oggi=datetime.date(2026, 11, 26))
+tace("assenza spenta: 12 righe passano", dodici, cfg=dict(_ass, attiva=False), oggi=_oggi_ass)
+
 # ------------------------------------------------------------------ 4 più domande
 scatta("due domande", "Vuoi la prova scritta? E la vuoi anche per la 4TI?", 4)
 scatta("tre domande su righe", "Quale quiz?\nQuale classe?\nQuando lo vuoi?", 4)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Filtro di buon senso v1.1 (23/11/2026, errori #390 e #391, ordine del docente).
+"""Filtro di buon senso v1.2 (25/11/2026: limite 4 righe in modalità assenza; v1.1 23/11/2026, errori #390 e #391, ordine del docente).
 
 Il docente, 23/11/2026: «ne fai troppo di errori. Ogni cosa è un errore. Vorrei che prima di darmi le risposte ci fosse un controllo
 da togliere le cose che non hanno senso.» E, subito dopo: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i
@@ -13,7 +13,7 @@ Sette controlli:
   1 dato già nei file o del giorno corrente/passato chiesto al docente (orario, presenti, presenze, firme, che giorno è);
   2 modalità assenza (config/modalita-assenza.json del riservato, date lette dal file): niente domande né elenchi di decisioni,
     salvo le criticità vere (firma, PC rotto, decisione solo sua con scadenza oggi);
-  3 messaggio lungo (oltre 12 righe o 900 caratteri fuori dai riquadri di codice) che non è un kit/pacchetto;
+  3 messaggio lungo (oltre 12 righe, 4 con la modalità assenza attiva o 900 caratteri fuori dai riquadri di codice) che non è un kit/pacchetto;
   4 più di una domanda (R7.6: una domanda sola);
   5 frasi già dette nel messaggio precedente della stessa conversazione (o ripetute nello stesso messaggio);
   6 elenco di conteggi senza fonte e ora (R7.1);
@@ -31,6 +31,7 @@ import re
 
 RIS = "/home/user/corso-informatica-riservato"
 MAX_RIGHE = 12
+MAX_RIGHE_ASSENZA = 4   # v1.2 (25/11/2026, audit «Utilizzo Claude»): con la modalità assenza attiva il limite è 4 righe
 MAX_CARATTERI = 900
 MIN_PAROLE_FRASE_RIPETUTA = 6
 
@@ -198,15 +199,17 @@ def assenza(t, cfg, oggi):
 
 # ------------------------------------------------------------------ 3 lunghezza
 
-def troppo_lungo(grezzo):
+def troppo_lungo(grezzo, cfg=None, oggi=None):
     if e_pacchetto(grezzo):
         return []
     righe = [r for r in fuori_riquadri(grezzo) if r.strip() and not RE_CORNICE.match(r)]
     car = sum(len(r.strip()) for r in righe)
-    if len(righe) <= MAX_RIGHE and car <= MAX_CARATTERI:
+    limite = MAX_RIGHE_ASSENZA if (oggi is not None and assenza_attiva(cfg, oggi)) else MAX_RIGHE
+    if len(righe) <= limite and car <= MAX_CARATTERI:
         return []
-    return [_perche(3, "il messaggio ha %d righe e %d caratteri fuori dai riquadri (limite %d righe e %d caratteri) e non è un kit o un "
-                    "pacchetto: il docente perde tempo a leggere." % (len(righe), car, MAX_RIGHE, MAX_CARATTERI),
+    return [_perche(3, "il messaggio ha %d righe e %d caratteri fuori dai riquadri (limite %d righe e %d caratteri%s) e non è un kit o un "
+                    "pacchetto: il docente perde tempo a leggere." % (len(righe), car, limite, MAX_CARATTERI,
+                                                                      ", modalità assenza" if limite == MAX_RIGHE_ASSENZA else ""),
                     "tutto tranne la cosa bloccante, il riquadro da copiare e il prossimo passo; il resto va in un file (R4.2).")]
 
 
@@ -313,7 +316,7 @@ def esegui(t, grezzo, oggi=None, ris=RIS, precedente=None, cfg=None, docente=Non
     oggi = oggi or datetime.date.today()
     cfg = cfg if cfg is not None else carica_assenza(ris)
     out = []
-    for f in (lambda: dato_gia_nei_file(t, oggi), lambda: assenza(t, cfg, oggi), lambda: troppo_lungo(grezzo),
+    for f in (lambda: dato_gia_nei_file(t, oggi), lambda: assenza(t, cfg, oggi), lambda: troppo_lungo(grezzo, cfg, oggi),
               lambda: piu_domande(t), lambda: ripetizioni(t, precedente), lambda: conteggi_senza_fonte(t), lambda: conferma_su_ordine(t, docente)):
         try:
             out.extend(f())

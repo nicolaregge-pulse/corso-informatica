@@ -206,10 +206,18 @@ caso("ii: 2 righe non avvisa", cm.avviso_lunghezza(_corto) is None, True)
 caso("ii: riquadro lungo da copiare non conta", cm.avviso_lunghezza(_box) is None, True)
 caso("ii: una sola riga ma 200 parole avvisa", cm.avviso_lunghezza(" ".join(["parola"] * 200)) is not None, True)
 caso("ii: 14 righe: il filtro di buon senso (#390) blocca", main_con({"last_assistant_message": _cornice + "\n" + _lungo + "\n" + _cornice}), True)
+# v1.2 del filtro (25/11/2026): con la modalità assenza attiva oggi il limite è 4 righe e _lungo_c (11 righe) viene bloccato dal filtro;
+# il sottoprocesso legge il riservato vero: se la modalità assenza è attiva l'avviso non si vede perché il filtro blocca prima.
+import datetime as _dt
+import importlib.util as _iu
+_spec = _iu.spec_from_file_location("fb_ass", os.path.join(H, "filtro_buon_senso.py"))
+_fb = _iu.module_from_spec(_spec)
+_spec.loader.exec_module(_fb)
+_ASS = _fb.assenza_attiva(_fb.carica_assenza(), _dt.date.today())
 caso("ii: main non blocca, scrive un avviso", main_con({"last_assistant_message": _lungo_c}), False)
 _r = subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")],
                     input=json.dumps({"last_assistant_message": _lungo_c}), capture_output=True, text=True)
-caso("ii: main stampa systemMessage con le righe", "systemMessage" in _r.stdout and "R4.2" in _r.stdout, True)
+caso("ii: main stampa systemMessage con le righe (solo se non bloccato)", _ASS or ("systemMessage" in _r.stdout and "R4.2" in _r.stdout), True)
 
 # codice non in fondo (17/11/2026, non bloccante, #350)
 caso("jj: passi, poi riquadro in fondo: nessun avviso",
