@@ -1,0 +1,122 @@
+{
+ "errore": "#392",
+ "titolo": "PDF mandato FUORI dalle righe blu e controllo R-A che non ha bloccato perché i hook del repository non giravano (24/11)",
+ "categoria": "F",
+ "schema": "1",
+ "origine_input": "sequenza vera della chat del 24/11 (SendUserFile del PDF dei risultati errori, con solo una riga blu prima, didascalia e blu dopo), anonimizzata",
+ "controllo_atteso": "hook controllo-messaggio.py (ff) R-A cornice blu; vivo solo se i hook sono registrati da /home/user/.claude/settings.json (controllore dei controlli)",
+ "prove": [
+  {
+   "canale": "messaggio",
+   "atteso": "Documento senza cornice blu|COME RIMANDARE",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "Cliccando su quel link non riesco ad aprirlo del telefono. Mi dai un PDF che ci clicco e lo apro?",
+      "blocchi": [
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.pdf"
+         ],
+         "display": "render"
+        }
+       ],
+       [
+        "T",
+        "Ti ho rimandato il PDF come allegato qui sopra.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "Cliccando su quel link non riesco ad aprirlo del telefono. Mi dai un PDF che ci clicco e lo apro?",
+      "blocchi": [
+       [
+        "T",
+        "Il riepilogo di 1 pagina.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 ERRORI RISOLTI E DA ALZARE ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.pdf"
+         ],
+         "display": "render"
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nHo mandato il PDF.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "canale": "messaggio",
+   "atteso": "Documento senza cornice blu|COME RIMANDARE",
+   "sbagliato": {
+    "turni": [
+     {
+      "docente": "Cliccando su quel link non riesco ad aprirlo del telefono. Mi dai un PDF che ci clicco e lo apro?",
+      "blocchi": [
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.pdf"
+         ],
+         "display": "render"
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nTi ho rimandato il PDF come allegato qui sopra.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   },
+   "giusto": {
+    "turni": [
+     {
+      "docente": "Cliccando su quel link non riesco ad aprirlo del telefono. Mi dai un PDF che ci clicco e lo apro?",
+      "blocchi": [
+       [
+        "T",
+        "Il riepilogo di 1 pagina.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\n📄 ERRORI RISOLTI E DA ALZARE ⬇️"
+       ],
+       [
+        "U",
+        "SendUserFile",
+        {
+         "files": [
+          "/home/user/corso-informatica-riservato/report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.pdf"
+         ],
+         "display": "render"
+        }
+       ],
+       [
+        "T",
+        "🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦\nHo mandato il PDF.\n🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦"
+       ]
+      ]
+     }
+    ]
+   }
+  }
+ ]
+}

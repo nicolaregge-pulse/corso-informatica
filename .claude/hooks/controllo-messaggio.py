@@ -606,7 +606,10 @@ def analizza_formato(eventi, finale):
             errori.append(("A", e[3], "Documento senza cornice blu (#309, #285): per «%s» %s. Formato: testo che FINISCE "
                            "con una riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 e una riga «📄 NOME DEL DOCUMENTO ⬇️»; subito dopo "
                            "SendUserFile (stesso file, nessun altro strumento in mezzo); subito dopo un testo che COMINCIA con "
-                           "una riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦. Rimanda il file così, mai una scheda da sola."
+                           "una riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦. Rimanda il file così, mai una scheda da sola. COME RIMANDARE, in 3 passi di fila: "
+                           "(1) scrivi una frase che dice a che serve, poi la riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦 e la riga «📄 NOME ⬇️»; "
+                           "(2) subito SendUserFile dello stesso file; (3) scrivi la riga 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦, una frase, "
+                           "e chiudi con 🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦🟦; nessun'altra riga o strumento tra (1), (2) e (3)."
                            % (os.path.basename(docs[0]), "; ".join(mancano))))
 
     # R-B: un solo PDF per risposta quando ci sono i kit rossi (#311)
@@ -1083,8 +1086,24 @@ def controllo_buon_senso(testo, data):
     return lib.esegui(t, testo, oggi=oggi, ris=RIS, precedente=_stato_buon_senso(data.get("session_id")), docente=docente)
 
 
+
+def _vivo(nome):
+    """Battito (24/11/2026, errore #392): una riga in /tmp/corso-hook-vivi.log a ogni partenza del hook (ora, hook, cwd,
+    CLAUDE_PROJECT_DIR). Serve a PROVARE che i controlli girano davvero in questa chat. Mai un errore."""
+    try:
+        import datetime as _d
+        p = "/tmp/corso-hook-vivi.log"
+        if os.path.exists(p) and os.path.getsize(p) > 200000:
+            os.remove(p)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write("%s %s cwd=%s CPD=%s\n" % (_d.datetime.now().strftime("%d/%m %H:%M:%S"), nome, os.getcwd(),
+                                               os.environ.get("CLAUDE_PROJECT_DIR", "")))
+    except Exception:
+        pass
+
 def main():
     raw = sys.stdin.read()
+    _vivo('Stop:controllo-messaggio')
     data = json.loads(raw)
     if data.get("agent_id"):
         return

@@ -1,6 +1,6 @@
 # 00 Controlli automatici contro gli errori ripetuti
 
-**Versione 1.19** — 23/11/2026 (capitolo 16: traccia degli errori; prima: 1.18, 1.17, 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
+**Versione 1.20** — 24/11/2026 (capitolo 17: hook vivi, errore #392; prima: 1.19, 1.18, 1.17, 1.16, 1.15, 1.14, 1.13, 1.12) — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO DI BUON SENSO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Quindi: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Capitolo 15.
@@ -259,3 +259,10 @@ Un turno senza testo nuovo (notifica) non viene rifiltrato. Prova: `python3 -I /
 17. v1.17 (23/11/2026): capitolo 15, filtro di buon senso (errore #390), obiettivo principale in testa; prova nuova `prova_filtro_buon_senso.py`.
 18. v1.18 (23/11/2026): capitolo 15, controllo 7 (errore #391); `controllo-messaggio.py` v2.3, `filtro_buon_senso.py` v1.1, prova 102/102.
 19. v1.19 (23/11/2026): capitolo 16, traccia degli errori (`traccia_errori_v1.0.py`, soglie `config/soglie-errori.json`), lanciata dal controllore di fine giornata.
+
+## 17 I hook sono vivi? (24/11/2026, errore #392)
+
+1. La sessione cloud parte da `/home/user`: Claude Code legge i hook da `/home/user/.claude/settings.json`, NON da `corso-informatica/.claude/settings.json`. Quel file si perde quando il contenitore viene rifatto (hookCount 3 il 20/11 fino alle 12:53, poi 1: solo il hook di sistema).
+2. Rimetterlo: `python3 /home/user/corso-informatica/.claude/hooks/attiva-controlli-home.py` (si carica da solo, senza riavvio: provato, il primo Bash dopo ha fatto partire `limite-comandi.py`).
+3. Battito: ogni partenza di un hook scrive una riga in `/tmp/corso-hook-vivi.log` (ora, hook, cwd, CLAUDE_PROJECT_DIR). Per sapere se girano: `tail /tmp/corso-hook-vivi.log`. Nel transcript, `stop_hook_summary.hookCount` deve essere 3 e non 1.
+4. Limite: lo script di avvio dell'ambiente (non provato) renderebbe la cosa permanente; serve il docente.

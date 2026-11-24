@@ -315,8 +315,24 @@ def controllo_comando(data, comando):
     return None
 
 
+
+def _vivo(nome):
+    """Battito (24/11/2026, errore #392): una riga in /tmp/corso-hook-vivi.log a ogni partenza del hook (ora, hook, cwd,
+    CLAUDE_PROJECT_DIR). Serve a PROVARE che i controlli girano davvero in questa chat. Mai un errore."""
+    try:
+        import datetime as _d
+        p = "/tmp/corso-hook-vivi.log"
+        if os.path.exists(p) and os.path.getsize(p) > 200000:
+            os.remove(p)
+        with open(p, "a", encoding="utf-8") as f:
+            f.write("%s %s cwd=%s CPD=%s\n" % (_d.datetime.now().strftime("%d/%m %H:%M:%S"), nome, os.getcwd(),
+                                               os.environ.get("CLAUDE_PROJECT_DIR", "")))
+    except Exception:
+        pass
+
 def main():
     raw = sys.stdin.read()
+    _vivo('PreToolUse:limite-comandi')
     data = json.loads(raw)
     if data.get("tool_name") != "Bash":
         return

@@ -120,6 +120,23 @@ caso("R-A: nessun testo dopo il file", [e[0] for e in cm.analizza_formato(
     [("text", "Ecco.\n" + BLU + "\n📄 DOC ⬇️", "a"), ("tool", "SendUserFile", {"files": [PDF]}, "t")], "")], ["A"])
 caso("R-A: strumento tra file e testo dopo", codici([T_("Ecco.\n" + BLU + "\n📄 DOC ⬇️"), SUF(), BASH(), T_(BLU)]), ["A"])
 
+# --- #392 (24/11/2026): i due casi veri della chat b09df496 (PDF ERRORI-RISOLTI-E-DA-ALZARE fuori dalle righe blu)
+caso("R-A #392 caso 1: turno aperto da una notifica, verde, file, poi 🟦 in testa e in fondo senza 📄", codici(
+    [T_(VERDE + "\nSì, ti faccio il riassunto.\n" + VERDE), ("N",), SUF(), T_(BLU + "\nTi ho mandato il riepilogo.\n" + BLU)]), ["A"])
+caso("R-A #392 caso 2: solo 🟦 prima (niente 📄), file, didascalia e 🟦 dopo", codici(
+    [T_(BLU), SUF(), T_("Ti ho rimandato il PDF.\n" + BLU)]), ["A"])
+caso("R-A #392 caso 2b: 🟦, file, 🟦 dopo ma nessuna riga 📄 prima", codici([T_(BLU), SUF(), T_(BLU + "\nTi ho rimandato il PDF.\n" + BLU)]), ["A"])
+caso("R-A #392: formato giusto con didascalia dentro le righe blu", codici(
+    [T_("Il riepilogo di 1 pagina.\n" + BLU + "\n📄 ERRORI RISOLTI E DA ALZARE ⬇️"), SUF(), T_(BLU + "\nHo mandato il PDF.\n" + BLU)]), [])
+caso("R-A #392: il blocco dice COME rimandare con i 3 passi", ("COME RIMANDARE" in (cm.analizza_formato(
+    [("text", "x", "a"), ("tool", "SendUserFile", {"files": [PDF]}, "t")], "") or [("A", "", "")])[0][2]), True)
+caso("R-A #392: processo vero, il caso 2 blocca e dice COME RIMANDARE", (lambda r: r.returncode == 0 and "COME RIMANDARE" in r.stdout)(
+    (trascrizione([("sì", [T_(BLU), SUF(), T_("Ti ho rimandato il PDF.\n" + BLU)])]),
+     subprocess.run([sys.executable, os.path.join(H, "controllo-messaggio.py")], capture_output=True, text=True,
+                    env=dict(os.environ, CORSO_STATO_FORMATO="", CORSO_STATO_BUON_SENSO=""),
+                    input=json.dumps({"last_assistant_message": "Ti ho rimandato il PDF.\n" + BLU, "transcript_path": tr})))[1]), True)
+caso("hook vivo #392: il battito scrive una riga in /tmp/corso-hook-vivi.log", (lambda: (cm._vivo("prova"), "prova cwd=" in open("/tmp/corso-hook-vivi.log", encoding="utf-8").read())[1])(), True)
+
 # ================= R-B: due PDF con i kit
 caso("R-B: due SendUserFile PDF con righe rosse", codici([
     T_(QUIZ), SUF("/x/a.pdf"), T_(BLU + "\n" + ROSSO + "\n**LINK**\n```\nhttps://x.it\n```\n" + BLU + "\n📄 PDF 2 ⬇️"), SUF("/x/b.pdf"), T_(CHIUSURA)]), ["B"])

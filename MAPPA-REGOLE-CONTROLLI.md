@@ -1,6 +1,6 @@
 # 00 Mappa regole e controlli
 
-**Versione 1.37** — 23/11/2026 (sezione 11: traccia degli errori, strumento `traccia_errori_v1.0.py`) · prima v1.36 (#391: da D a controllo attivo, settimo controllo del filtro di buon senso) · prima v1.35 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
+**Versione 1.38** — 24/11/2026 (sezione 12: i hook devono essere vivi, #392; prima v1.37, sezione 11: traccia degli errori, strumento `traccia_errori_v1.0.py`) · prima v1.36 (#391: da D a controllo attivo, settimo controllo del filtro di buon senso) · prima v1.35 (sezione 10: filtro di buon senso, errore #390; obiettivo principale in testa) · prima v1.34 (sezione 09: cancello di consegna) · prima v1.33 (sezione 08 nuova: controlli rimessi; le righe rimesse o risolte altrove sono corrette nella tabella) · prima v1.32 (23/11/2026, sezione 07: banco di prova degli errori) · prima v1.31 (23/11/2026, righe #386-#389: controlli costruiti, da D ad A) · prima v1.30 (20/11/2026, righe #384-#389) · prima v1.29, 19/11/2026 — documento interno del docente e di Claude
 
 
 > **OBIETTIVO PRINCIPALE DEL FILTRO (23/11/2026).** Il docente: «Io perdo il 50% del tempo con te o a gestire domande inutili o a gestire i tuoi errori.» (il 50% è una STIMA dichiarata dal docente, non una misura). Ogni controllo di questa mappa serve a questo: niente domande ovvie, messaggi brevi, controllare prima di scrivere. Il filtro di buon senso (sezione 10) è lo strumento fatto apposta.
@@ -567,6 +567,10 @@ Richiesta del docente, 23/11/2026: «devi tracciare e decidere se un errore si r
 3. Esito del 23/11/2026 (misurato): 416 voci, 63 RISOLTO (34 con la prova del banco), 9 RICORRE, 4 DA ALZARE, 340 NON MISURABILE. Report: `report/2026-11-23/ERRORI-RISOLTI-E-DA-ALZARE-v1.0.md` (e PDF) nel riservato.
 4. Limite: il periodo dei controlli è corto (molti tolti il 04/11 e rimessi il 23/11, 0 giorni oggi); la continuità dal 28/10 non si prova (git comincia il 18/11); gli episodi sono solo quelli scritti nel registro.
 
+## 12 I hook devono essere vivi (24/11/2026, v1.38, sezione nuova)
+
+#392: il controllo R-A (cornice blu) era corretto ma non partiva: la sessione cloud parte da `/home/user`, dove le impostazioni dei hook (`/home/user/.claude/settings.json`) mancavano dopo il rifacimento del contenitore. Rimesse con `attiva-controlli-home.py`; battito in `/tmp/corso-hook-vivi.log` (riga a ogni partenza di Stop, PreToolUse, UserPromptSubmit); il controllore di fine giornata lo segnala ROSSO se il file manca. Limite: va rimesso a ogni nuovo contenitore (script di avvio dell'ambiente: richiede il docente, non provato). #392: A, banco E0392.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
@@ -606,3 +610,4 @@ Richiesta del docente, 23/11/2026: «devi tracciare e decidere se un errore si r
 35. v1.35 (23/11/2026, ordine del docente): sezione 10, filtro di buon senso; #390 (A); obiettivo principale in testa («perdo il 50% del tempo», stima del docente). Il conteggio della sezione 01 non è stato ricalcolato.
 36. v1.36 (23/11/2026): #391 da D ad A: controllo 7 del filtro di buon senso (conferma chiesta su un ordine già dato); banco: caso E0391.
 37. v1.37 (23/11/2026, ordine del docente): sezione 11, traccia degli errori (risolti, ricorrenti, da alzare di livello); nessuna riga della tabella cambiata.
+38. v1.38 (24/11/2026): sezione 12, hook vivi; #392 (A, con limite).
