@@ -51,6 +51,8 @@ def senza_storia(riga):
     """toglie le note di storia «prima 450/600/900»: non sono un budget attuale"""
     if re.match(r"\s*\d+\.\s+v\d+\.\d+\s*\(", riga):   # riga del registro delle versioni (storia)
         return " "
+    if re.search(r"non_usare_oggi|da non usare", riga, flags=re.I):   # nota che DICE di non usare la versione 450 (24/11: falso rosso)
+        return " "
     riga = re.sub(r"build da \d+ e \d+", " ", riga, flags=re.I)   # descrizione di pagine di un sito esterno
     return re.sub(r"prima\s+\d{3,4}(?:\s*[/,e]\s*\d{3,4})*", " ", riga, flags=re.I)
 
@@ -165,6 +167,8 @@ def prova():
     p("cinese: 预算：900欧元 trovato", len(sospetti_nel_testo("预算：900欧元", am)) == 1)
     p("500/600/1000 euro ammessi", not sospetti_nel_testo("Budget: 500 euro, studio 600 euro, gaming 1.000 euro", am))
     p("nota di storia «prima 450/600/900» ammessa", not sospetti_nel_testo("budget decisi (prima 450/600/900, proposta mia)", am))
+    p("nota «in non_usare_oggi» con 450 ammessa", not sospetti_nel_testo("la v1.3 (450 e 600 euro) e' in non_usare_oggi", am))
+    p("450 senza la nota resta trovato", len(sospetti_nel_testo("la v1.3 ha 450 euro", am)) == 1)
     p("prezzo di un pezzo (80 euro, 358,90 euro) ammesso", not sospetti_nel_testo("Costa 80 euro. Un Ryzen a 358,90 euro.", am))
     p("totale d'esempio 540 euro ammesso", not sospetti_nel_testo("es. 540 euro", am))
     p("indirizzo con 900 ammesso", not sospetti_nel_testo("Apri https://x.it/pc-gaming-900-euro", am))
