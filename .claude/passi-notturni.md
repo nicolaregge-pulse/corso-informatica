@@ -1,8 +1,10 @@
 # 00 Passi notturni obbligatori della Chat del giorno
 
-**Versione 1.4** — 29/10/2026 — documento interno di Claude
+**Versione 1.5** — 24/11/2026 (passo 0: riattivare i controlli) — prima 1.4, 29/10/2026 — documento interno di Claude
 
 La Chat del giorno (attività programmata, lunedì-venerdì) li esegue TUTTI, in quest'ordine, dopo aver riletto le regole e prima del messaggio del mattino al docente. Ogni passo nasce da voci del registro degli errori (numero tra parentesi); la mappa completa è `MAPPA-REGOLE-CONTROLLI.md`. Nel messaggio del mattino va solo ciò che resta ROSSO e blocca la lezione.
+
+**Passo 0 (24/11/2026): prima di tutto** esegui `python3 /home/user/corso-informatica/.claude/hooks/attiva-controlli-home.py`. Se `/home/user/.claude/settings.json` manca (succede a ogni contenitore nuovo) gli hook NON partono e nulla blocca gli errori (causa provata del 24/11: dal 20/11 12:53 i controlli non giravano). Poi controlla che `/tmp/corso-hook-vivi.log` si riempia.
 
 ## 01 Controlli con un comando
 
