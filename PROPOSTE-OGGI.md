@@ -1,6 +1,20 @@
 # Proposte di lezione di oggi
 
-**Versione 1.12** — 23/11/2026 (notte; prima: 1.11, 20/11/2026; 1.10, 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente)) — documento interno per il docente, senza nomi di allievi
+**Versione 1.13** — 26/11/2026 (notte). Giovedì 26 novembre 2026: il prof rientra dopo tre giorni di malattia. L'orario NON è verificato sul registro DIDAweb: sono ipotesi dalla bozza di `PROSSIME-LEZIONI.md` v2.5 (non provato). Nulla è sviluppato e nulla è pubblicato su Classroom: il prof sceglie, poi serve il PUBB n, un'ora per volta. Senza nomi; il bilancio per allievo sta nel riservato.
+
+Seconda informatica, ore 8-10 (ipotesi: Informatica). Primo passo fisso, dieci minuti di recuperi. Proposta 1, «Il programma che decide: il cassiere con lo sconto in Lazarus». Proposta 2, «Il mio negozio sul telefono». Proposta 3, «Il CSS a schede».
+
+Seconda informatica, ore 10-11 (ipotesi: Sicurezza professionale). Titolo dalla direzione, non lo proponiamo. Una sola proposta: l'ora nuova più il recupero dei quiz precedenti; quale ora nuova, da chiedere al prof.
+
+Prima informatica, ore 13-14 (disciplina da verificare). Primo passo fisso, recuperi. Proposta 1, «Il programma che decide» con l'if in Lazarus. Proposta 2, Computer Essentials: file, cartelle e sistema operativo. Proposta 3, teoria a schede sul metodo del tecnico con quiz.
+
+Piani nel cruscotto: `docs/cruscotto/piano/2inf-2026-11-26.json` e `1inf-2026-11-26.json`, scelta vuota.
+
+---
+
+Versione precedente (23/11/2026), conservata sotto.
+
+**Versione 1.13** — 26/11/2026 (notte; prima: 1.12, 23/11/2026; 1.11, 20/11/2026; 1.10, 18/11/2026 (ore 09:5x: budget 500/600/1000 per decisione del docente)) — documento interno per il docente, senza nomi di allievi
 
 Notte tra il 17 e il 18/11. Orario di mercoledì 18/11 dal registro DIDAweb (screenshot del docente, riportato in `FIRME-REGISTRO-2026-27.md`). Le lezioni le ha già scelte il docente il 17/11 e sono già preparate: questa notte non si rifanno proposte. Nulla è pubblicato per i ragazzi: serve il PUBB n del docente.
 
