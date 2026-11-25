@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.4** — 23/11/2026, pomeriggio (prima: 2.3, 23/11/2026, notte)
+**Versione 2.5** — 26/11/2026, notte (prima: 2.4, 23/11/2026, pomeriggio)
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -148,6 +148,7 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 11. v2.1 (19/11/2026, pomeriggio): per venerdì 20 novembre preparata, come bozza provvisoria, la prima proposta di ciascuna classe (scelta provvisoria di Claude, il prof può cambiare domattina). Senza nomi; nulla è pubblicato su Classroom.
 12. v2.2 (19/11/2026, sera): per venerdì 20 novembre la seconda informatica cambia, su decisione del prof: il negozio si fa solo in HTML, con il carrello e una finta email di conferma, dentro il repository «mio-sito» dei ragazzi. Aggiunte le quattro lezioni sull'e-commerce. Senza nomi.
 13. v2.4 (23/11/2026, pomeriggio): bozza dei 7 giorni da martedì 24 a lunedì 30 novembre, orario ipotizzato dalla settimana precedente (non provato), nessuna lezione sviluppata.
+14. v2.5 (26/11/2026, notte): sezione di giovedì 26 novembre con proposte per le ipotesi dell'orario (non verificato), nessuna sviluppata, nulla pubblicato.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
@@ -234,3 +235,13 @@ Una riga per lezione. L'orario è ipotesi dalla settimana del 16-20 novembre, no
 | Lun 30 | 2INF 11-14 | Dal negozio ai dati: la lista dei prodotti in una tabella | Prodotti letti da una tabella |
 
 Punti aperti: orario da verificare sul registro; 12 voci dell'Allegato A da decidere con il prof.
+
+## Giovedì 26 novembre 2026 (notte tra il 25 e il 26, rientro del prof)
+
+Il prof rientra dopo tre giorni di malattia; dal 23 al 25 novembre non ci sono state lezioni. L'orario di giovedì 26 non è verificato sul registro DIDAweb: non provato. Ipotesi dalla bozza del 23 novembre: seconda informatica dalle 8 alle 10, Informatica, e dalle 10 alle 11, Sicurezza professionale; prima informatica dalle 13 alle 14, disciplina da verificare. Nulla è sviluppato e nulla è pubblicato su Classroom: il prof sceglie, poi si sviluppa solo la scelta.
+
+Seconda informatica, ore 8-10. Fatto: il 17 novembre HTML e CSS con il quiz di teoria; il 20 novembre il negozio in HTML con carrello ed e-mail di conferma simulata. Aperto: quattro ragazzi assenti il 17 novembre e cinque assenti il 20 novembre devono recuperare; il compito sul CSS non è mai stato pubblicato; sei ragazzi non hanno ancora il sito «mio-sito» su GitHub. Primo passo fisso: dieci minuti di recuperi. Prima proposta, «Il programma che decide: il cassiere con lo sconto in Lazarus», voce più vicina «Programmazione a eventi con Lazarus»; vinci subito, un bottone che confronta due numeri; fallo tuo, il cassiere con lo sconto; mostralo, il file del progetto e lo screenshot; servono postazioni di riserva se Lazarus non parte. Seconda proposta, «Il mio negozio sul telefono»: il negozio in HTML online su GitHub e provato dal telefono. Terza proposta, «Il CSS a schede»: teoria a schede e quiz su Moduli.
+
+Seconda informatica, ore 10-11, Sicurezza professionale. Il titolo del registro lo mette la direzione: non lo proponiamo. Una sola proposta, secondo lo schema fisso: l'ora nuova più il recupero dei quiz delle ore precedenti. Quale ora nuova resta da chiedere al prof.
+
+Prima informatica, ore 13-14, disciplina da verificare. Fatto: il 18 novembre l'ufficio acquisti e la manutenzione; il 20 novembre la diagnosi dei guasti, con dieci assenti e quiz non fatti. Aperto: i recuperi delle assenze del 6, 13 e 20 novembre; l'«if» in Lazarus non è mai stato svolto; Lazarus non funziona su due computer. Prima proposta, «Il programma che decide» con l'if in Lazarus, una sola ora. Seconda proposta, Computer Essentials: file, cartelle e sistema operativo, in italiano, arabo e cinese. Terza proposta, teoria a schede sul metodo del tecnico con quiz su Moduli.
