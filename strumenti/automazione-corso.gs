@@ -1,5 +1,5 @@
 /**
- * AUTOMAZIONE CORSO v8.9 (05/11/2026: domande a PIU' risposte giuste, caselle di controllo) · v8.8 (04/11/2026: cruscotto dal vivo senza la chat, giro dei Moduli ogni 2 minuti) · v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
+ * AUTOMAZIONE CORSO v8.10 (26/11/2026: il «Dettaglio quiz» non si committa se cambia solo letto_il; dopo l'incolla: Gestisci deployment -> Nuova versione) · v8.9 (05/11/2026: domande a PIU' risposte giuste, caselle di controllo) · v8.8 (04/11/2026: cruscotto dal vivo senza la chat, giro dei Moduli ogni 2 minuti) · v8.7 (04/11/2026: bozze, piu' risposte, esito per azione, giro dei Moduli) · v8.6 (02/11/2026: anti-doppione su Classroom) · v8.5 (29/10/2026: compiti SENZA scadenza; senza scadenza non si chiude niente) · v8.4 (28/10/2026: leva del ritmo dal cruscotto, ?ritmo=N&k=codice) · v8.3 (27/10/2026: ritmo 1/5/10 minuti o spento; i comandi già letti non si rileggono) · v8.2 (21/10/2026) — gira DA SOLA ogni minuto (timer di Google) sull'account SCUOLA.
  * v8.9 (05/11/2026, decisione del docente per il quiz anti-AI della 2INF: «almeno meta' delle domande con DUE risposte esatte»):
  *       forms.crea_quiz accetta anche domande con la risposta giusta come ELENCO: ["Domanda", ["giusta 1", "giusta 2"],
  *       ["sbagliata", ...], "spiegazione"]. Quella domanda diventa CASELLE DI CONTROLLO (CheckboxItem): Moduli da' i punti
@@ -710,7 +710,7 @@ function AUTO_risultatiQuiz(job, base, lettoIl, letti) {   // v8.7: lettoIl = or
     });
   });
   AUTO_commit(base + '/_RISULTATI-QUIZ.csv', Utilities.newBlob(righe.join('\n'), 'text/plain', '_RISULTATI-QUIZ.csv'), 'Risultati quiz ' + job.classe + ' - ' + job.titolo);
-  AUTO_commit(base + '/_RISULTATI-QUIZ.json', Utilities.newBlob(JSON.stringify(det, null, 1), 'application/json', '_RISULTATI-QUIZ.json'), 'Dettaglio quiz ' + job.classe + ' - ' + job.titolo);
+  AUTO_commit(base + '/_RISULTATI-QUIZ.json', Utilities.newBlob(JSON.stringify(det, null, 1), 'application/json', '_RISULTATI-QUIZ.json'), 'Dettaglio quiz ' + job.classe + ' - ' + job.titolo, true);
   return { risposte: det.length };
 }
 
@@ -998,10 +998,17 @@ function AUTO_scriviJson(path, obj, sha, msg) {
   if (code !== 200 && code !== 201) throw new Error('Stato non salvato su ' + path + ' (' + code + ')');
 }
 
-function AUTO_commit(repoPath, blob, msg) {
+function AUTO_senzaLettoIl(t) { return String(t).replace(/"letto_il":\s*"[^"]*"/g, '"letto_il":""'); }   // v8.10: per confrontare ignorando solo l'ora di lettura
+function AUTO_commit(repoPath, blob, msg, ignoraLettoIl) {
   var enc = repoPath.split('/').map(encodeURIComponent).join('/');
   var get = AUTO_gh('get', '/contents/' + enc + '?ref=' + AUTO.BRANCH);
   var sha = (get.getResponseCode() === 200) ? JSON.parse(get.getContentText()).sha : null;
+  if (sha && ignoraLettoIl) {   // v8.10: se cambia solo letto_il non si fa il commit (prima ~950 commit al giorno senza novita')
+    try {
+      var vecchio = Utilities.newBlob(Utilities.base64Decode(String(JSON.parse(get.getContentText()).content).replace(/\s/g, ''))).getDataAsString();
+      if (AUTO_senzaLettoIl(vecchio) === AUTO_senzaLettoIl(blob.getDataAsString())) return 304;
+    } catch (e) {}
+  }
   var payload = { message: msg, content: Utilities.base64Encode(blob.getBytes()), branch: AUTO.BRANCH };
   if (sha) payload.sha = sha;
   return AUTO_gh('put', '/contents/' + enc, payload).getResponseCode();

@@ -1,6 +1,6 @@
 # 00 Firme del registro (situazione giorno per giorno)
 
-**Versione 3.10** — 20/11/2026 (v3.10: venerdì 20/11, 5 ore firmate; giovedì 19/11 firma non provata) · prima v3.9, 18/11/2026 — documento interno del docente e di Claude
+**Versione 3.11** — 26/11/2026 (v3.11: giovedì 26/11, nessuna firma letta, orario non verificato; prima v3.10: venerdì 20/11, 5 ore firmate; giovedì 19/11 firma non provata) · prima v3.9, 18/11/2026 — documento interno del docente e di Claude
 
 Nicola, 28/10/2026: «crea un file situazione firme odierne e prima di chiedere guarda lì». Prima di ricordare una firma, Claude legge questo file: se l'ora è segnata «firmata», non chiede niente. Fonte: lo screenshot del registro con l'elenco delle ore firmate (colonna «Firma» con data e ora) o la parola di Nicola.
 
@@ -185,3 +185,4 @@ Fonte: registro DIDAweb, screenshot del docente letti alle 08:36-08:37 del 18/11
 28. v3.8 (18/11/2026, 11:39): presenze 3INF del 18/11 dal registro: 20 presenti e 1 assente su 21 nelle ore 11-13 (senza nomi).
 29. v3.9 (18/11/2026): presenze 4TI del 17/11, ore 10-13: 9 presenti su 9, dichiarato dal docente il 18/11 (non letto dal registro DIDAweb); senza nomi.
 30. v3.10 (20/11/2026, controllore di fine giornata): sezioni di giovedì 19/11 (firma 2INF 10-11 non provata) e di venerdì 20/11 (5 ore firmate, dagli screenshot delle 08:27 e 10:45); senza nomi.
+31. v3.11 (26/11/2026, controllore di fine giornata 17:5x): giovedì 26/11 nessuna firma provata: nessuno screenshot del registro DIDAweb del 26/11, orario non verificato (ipotesi 2INF 8-11 e 1INF 13-14 da `PROSSIME-LEZIONI.md`, non provata); le ore del 26/11 NON risultano firmate in questo file. Venerdì 27/11: orario da verificare (ipotesi 2INF 8-9, 1INF 11-14).

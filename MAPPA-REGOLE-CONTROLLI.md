@@ -573,6 +573,10 @@ Richiesta del docente, 23/11/2026: «devi tracciare e decidere se un errore si r
 
 #392: il controllo R-A (cornice blu) era corretto ma non partiva: la sessione cloud parte da `/home/user`, dove le impostazioni dei hook (`/home/user/.claude/settings.json`) mancavano dopo il rifacimento del contenitore. Rimesse con `attiva-controlli-home.py`; battito in `/tmp/corso-hook-vivi.log` (riga a ogni partenza di Stop, PreToolUse, UserPromptSubmit); il controllore di fine giornata lo segnala ROSSO se il file manca. Limite: va rimesso a ogni nuovo contenitore (script di avvio dell'ambiente: richiede il docente, non provato). #392: A, banco E0392.
 
+## 13 Falsi allarmi e rumore (26/11/2026, v1.40)
+
+#418 (A): in `controllo-messaggio.py` la negazione davanti a «pubblicat…» riconosce anche mai, nulla, niente, nessun…, senza; prova_messaggio 72/72. #419 (D): `automazione-corso.gs` v8.10 non committa i quiz se cambia solo `letto_il` (da incollare in Apps Script); nessun controllo sul numero di commit.
+
 ## Changelog
 
 1. v1.0 (28/10/2026): prima versione; 22 controlli dell'hook del messaggio (18 nuovi), 3 nuovi controlli prima dei comandi, audit notturno, passi notturni, annuncio «OGGI» in verifica_lezione.py.
@@ -614,3 +618,4 @@ Richiesta del docente, 23/11/2026: «devi tracciare e decidere se un errore si r
 37. v1.37 (23/11/2026, ordine del docente): sezione 11, traccia degli errori (risolti, ricorrenti, da alzare di livello); nessuna riga della tabella cambiata.
 38. v1.38 (24/11/2026): sezione 12, hook vivi; #392 (A, con limite).
 39. v1.39 (25/11/2026): limite di 4 righe con la modalità assenza attiva nel controllo 3 di `filtro_buon_senso.py` v1.2 (audit «Utilizzo Claude»: il messaggio delle 16:54 del 24/11 aveva 12 righe e il limite era 12, passava); prova 112/112; #390 invariato (A).
+40. v1.40 (26/11/2026): sezione 13, #418 (A) e #419 (D).

@@ -209,7 +209,7 @@ RIS = "/home/user/corso-informatica-riservato"
 RE_PRONTO = re.compile(
     r"pubblicat\w*|(?:è|e')\s+tutto\s+pronto|tutto\s+a\s+posto|(?:è|sono)\s+online|"
     r"possono\s+(?:cominciare|iniziare)", re.I)
-RE_NEGAZIONE = re.compile(r"\b(?:non|ancora\s+da|da)\s+(?:\w+\s+){0,2}$", re.I)
+RE_NEGAZIONE = re.compile(r"\b(?:non|mai|nulla|niente|nessun\w*|senza|ancora\s+da|da)\s+(?:\w+\s+){0,2}$", re.I)   # 26/11: «nulla pubblicato» e «nessuna ora pubblicata» sono negazioni (falso allarme del mattino)
 RE_CLASSE = re.compile(r"\b([1-4])\s*(INF|INFO|TI)\b", re.I)
 
 

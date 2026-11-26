@@ -130,6 +130,10 @@ json.dump({"ora": adesso.isoformat(), "esito": "VERDE"}, open(risd + "/dati/veri
 caso("d: «pubblicato» con verifica VERDE recente", cm.controllo_pronto_senza_verifica("Compito della 2INF pubblicato."), False)
 caso("d: «non ancora pubblicato»", cm.controllo_pronto_senza_verifica("Il compito della 3INF non è ancora pubblicato."), False)
 caso("d: «pubblica a mano» non è «pubblicato»", cm.controllo_pronto_senza_verifica("PUBB 3 NON riuscito per la 3INF: pubblica a mano."), False)
+caso("d: «nulla pubblicato» è una negazione (26/11)", cm.controllo_pronto_senza_verifica("Per la 2INF nulla pubblicato su Classroom."), False)
+caso("d: «niente è pubblicato» è una negazione", cm.controllo_pronto_senza_verifica("Per la 2INF niente è pubblicato."), False)
+caso("d: «nessuna ora pubblicata» è una negazione", cm.controllo_pronto_senza_verifica("2INF: nessuna ora pubblicata."), False)
+caso("d: «mai pubblicato» è una negazione", cm.controllo_pronto_senza_verifica("1INF: mai pubblicato nulla."), False)
 
 # (gg) ora della giornata: solo se il docente ne ha parlato davvero
 transcript("Prima ora teoria: integer e string")
