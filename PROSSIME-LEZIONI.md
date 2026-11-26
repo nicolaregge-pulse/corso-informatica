@@ -1,6 +1,6 @@
 # Prossime lezioni
 
-**Versione 2.5** — 26/11/2026, notte (prima: 2.4, 23/11/2026, pomeriggio)
+**Versione 2.6** — 27/11/2026, notte (prima: 2.5, 26/11/2026, notte)
 
 Per la Sicurezza i titoli del registro li mette la direzione: noi non li proponiamo e non li cambiamo. Per ogni ora di Sicurezza si tengono affiancati ciò che abbiamo dichiarato nell'Allegato A e il titolo del registro, nel capitolo 4b di Argomenti svolti.
 
@@ -149,6 +149,7 @@ Ogni ora della prima si dà qualcosa da ricopiare sul quaderno. I quiz si fanno 
 12. v2.2 (19/11/2026, sera): per venerdì 20 novembre la seconda informatica cambia, su decisione del prof: il negozio si fa solo in HTML, con il carrello e una finta email di conferma, dentro il repository «mio-sito» dei ragazzi. Aggiunte le quattro lezioni sull'e-commerce. Senza nomi.
 13. v2.4 (23/11/2026, pomeriggio): bozza dei 7 giorni da martedì 24 a lunedì 30 novembre, orario ipotizzato dalla settimana precedente (non provato), nessuna lezione sviluppata.
 14. v2.5 (26/11/2026, notte): sezione di giovedì 26 novembre con proposte per le ipotesi dell'orario (non verificato), nessuna sviluppata, nulla pubblicato.
+15. v2.6 (27/11/2026, notte): sezione di venerdì 27 novembre con tre proposte per la prima informatica 11-14 (orario non verificato), nessuna sviluppata, nulla pubblicato.
 
 ## Mercoledì 18 novembre (lezioni scelte dal docente il 17/11)
 
@@ -235,6 +236,10 @@ Una riga per lezione. L'orario è ipotesi dalla settimana del 16-20 novembre, no
 | Lun 30 | 2INF 11-14 | Dal negozio ai dati: la lista dei prodotti in una tabella | Prodotti letti da una tabella |
 
 Punti aperti: orario da verificare sul registro; 12 voci dell'Allegato A da decidere con il prof.
+
+## Venerdì 27 novembre 2026 (notte tra il 26 e il 27)
+
+L'orario di venerdì 27 non è verificato sul registro DIDAweb: non provato. Ipotesi dalla bozza del 23 novembre: seconda informatica dalle 8 alle 9, Sicurezza professionale, titolo dalla direzione, nessuna proposta; prima informatica dalle 11 alle 14, Laboratorio professionale, un lavoro per ora, con dieci minuti di recuperi all'inizio. Prima proposta, «Il programma che decide» con l'if in Lazarus. Seconda proposta, Computer Essentials: file, cartelle e sistema operativo, in italiano, arabo e cinese. Terza proposta, ripresa della diagnosi dei guasti con schede e quiz per gli assenti del 20 novembre. Nulla è sviluppato né pubblicato: il prof sceglie.
 
 ## Giovedì 26 novembre 2026 (notte tra il 25 e il 26, rientro del prof)
 
