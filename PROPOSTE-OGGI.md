@@ -1,5 +1,17 @@
 # Proposte di lezione di oggi
 
+**Versione 1.14** — 27/11/2026 (notte; prima: 1.13, 26/11/2026). Venerdì 27 novembre 2026. L'orario NON è verificato sul registro DIDAweb: ipotesi dalla bozza di `PROSSIME-LEZIONI.md` v2.6 (non provato). Nulla è sviluppato e nulla è pubblicato su Classroom: il prof sceglie, poi serve il PUBB n, un'ora per volta. Senza nomi; il bilancio per allievo sta nel riservato.
+
+Seconda informatica, ore 8-9 (ipotesi: Sicurezza professionale). Titolo dalla direzione, non lo proponiamo. Una sola proposta: l'ora nuova più il recupero dei quiz precedenti; quale ora nuova, da chiedere al prof.
+
+Prima informatica, ore 11-14 (ipotesi: Laboratorio professionale, un lavoro per ora). Primo passo fisso, recuperi. Proposta 1, «Il programma che decide» con l'if in Lazarus. Proposta 2, Computer Essentials: file, cartelle e sistema operativo. Proposta 3, ripresa della diagnosi dei guasti con schede e quiz per gli assenti.
+
+Piani nel cruscotto: `docs/cruscotto/piano/2inf-2026-11-27.json` e `1inf-2026-11-27.json`, scelta vuota.
+
+---
+
+Versione precedente (26/11/2026), conservata sotto.
+
 **Versione 1.13** — 26/11/2026 (notte). Giovedì 26 novembre 2026: il prof rientra dopo tre giorni di malattia. L'orario NON è verificato sul registro DIDAweb: sono ipotesi dalla bozza di `PROSSIME-LEZIONI.md` v2.5 (non provato). Nulla è sviluppato e nulla è pubblicato su Classroom: il prof sceglie, poi serve il PUBB n, un'ora per volta. Senza nomi; il bilancio per allievo sta nel riservato.
 
 Seconda informatica, ore 8-10 (ipotesi: Informatica). Primo passo fisso, dieci minuti di recuperi. Proposta 1, «Il programma che decide: il cassiere con lo sconto in Lazarus». Proposta 2, «Il mio negozio sul telefono». Proposta 3, «Il CSS a schede».
