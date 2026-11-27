@@ -1,6 +1,6 @@
 # 00 Passi notturni obbligatori della Chat del giorno
 
-**Versione 1.5** — 24/11/2026 (passo 0: riattivare i controlli) — prima 1.4, 29/10/2026 — documento interno di Claude
+**Versione 1.6** — 27/11/2026 (05.5 cose pendenti in automatico) — prima 1.5, 24/11/2026 (passo 0: riattivare i controlli), 1.4, 29/10/2026 — documento interno di Claude
 
 La Chat del giorno (attività programmata, lunedì-venerdì) li esegue TUTTI, in quest'ordine, dopo aver riletto le regole e prima del messaggio del mattino al docente. Ogni passo nasce da voci del registro degli errori (numero tra parentesi); la mappa completa è `MAPPA-REGOLE-CONTROLLI.md`. Nel messaggio del mattino va solo ciò che resta ROSSO e blocca la lezione.
 
@@ -87,6 +87,8 @@ cd /home/user/corso-informatica && python3 strumenti/orario_json.py
 
 4. Linguetta «Script e ponte» (28/10/2026): a ogni giro `python3 /home/user/corso-informatica-riservato/generatori/stato_ponte.py --push` scrive anche il conteggio per ora (`per_ora`, solo numeri) usato dall'istogramma.
 
+5. Cose pendenti (23/11/2026, docente: «se vedi che non sto utilizzando risorse e hai cose pendenti le farai in automatico»): se non ci sono ordini nuovi del docente, le cose pendenti che si possono correggere da soli (script, controlli, file di configurazione scaduti) si fanno senza chiedere; si chiede solo ciò che serve l'account PIAMARTA o una decisione.
+
 ## 06 Ultimo passo obbligatorio: lo stato della notte
 
 Alla fine del lavoro notturno, DOPO tutti i passi sopra e prima del messaggio del mattino al docente (28/10/2026, «controllore del controllore»):
@@ -112,3 +114,4 @@ python3 /home/user/corso-informatica/strumenti/controlla_controlli.py
 3. v1.2 (28/10/2026): passo 02.12 allineato alla regola 27 di `CLAUDE.md`: compito del mattino SENZA scadenza.
 4. v1.3 (29/10/2026): passo 04.1, la quarta (4TI, martedì 3ª-5ª ora) è tra le classi a cui si preparano le 3 proposte.
 5. v1.4 (29/10/2026): passo 04.1, Nicola sceglie con il bottone «Scelgo questa» del cruscotto; Claude prepara subito e pubblica per i ragazzi solo dopo «pubblica»; `aspetta_scelta.sh` nel riservato.
+6. v1.6 (27/11/2026): 05.5, cose pendenti da fare in automatico, su indicazione del docente del 23/11/2026 (non era scritta qui).
